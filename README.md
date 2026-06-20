@@ -6,6 +6,7 @@ Personal notes and resources from Udemy courses covering AI Engineering, Mobile 
 
 | Course | Topics | Language |
 |--------|--------|----------|
+| [Frontend Developer Roadmap 2026](./frontend-developer-roadmap/) | HTML, CSS, JS, React, TypeScript, Next.js, Testing, Performance | English |
 | [AI Engineer: Zero to Production](./ai-engineer-from-zero-to-production/) | LLMs, RAG, Agents, MCP, Evaluation | English |
 | [AI Agent 365 Ngày](./Ai-engineer/) | LLM Engineering, Fine-tuning, RAG Pipeline, Production | Vietnamese |
 | [Flutter & Dart: The Complete Guide](./flutter-dart-the-complete-guide/) | Flutter, Dart, Firebase, State Management | English |
