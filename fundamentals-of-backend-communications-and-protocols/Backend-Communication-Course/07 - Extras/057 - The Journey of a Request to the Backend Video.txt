@@ -1,0 +1,765 @@
+# 057 - The Journey of a Request to the Backend Video
+
+Section: 07 - Extras
+Duration: 12min
+
+---
+
+## 1. Summary
+
+This lecture is the video explanation of the article **The Journey of a Request to the Backend**.
+
+The main idea is that a request does not instantly become something the backend application can process. Before the user code handles it, the request goes through multiple hidden steps inside the operating system, networking stack, TLS layer, protocol parser, framework, and application runtime.
+
+The instructor breaks the journey into six main steps:
+
+```text id="rcc2a6"
+1. Accept
+2. Read
+3. Decrypt
+4. Parse
+5. Decode
+6. Process
+```
+
+A common backend question is:
+
+```text id="o2o8wl"
+How many requests can your server handle per second?
+```
+
+The lecture explains that this question is overloaded because "handle" can mean many different things.
+
+Does "handle" mean accepting the connection?
+Reading bytes?
+Decrypting TLS?
+Parsing HTTP?
+Decoding JSON?
+Running business logic?
+Querying the database?
+
+Each of these steps has a cost.
+
+The important takeaway is that backend performance is not only about business logic. It is also about all the hidden work required before business logic can even begin.
+
+---
+
+## 2. Key Concepts
+
+### A Request Is a Logical Concept
+
+A request is not a real object at the network level.
+
+At the network level, the backend receives bytes.
+
+The idea of a "request" only exists after the server:
+
+```text id="dqoew7"
+reads bytes
+→ decrypts bytes
+→ parses protocol data
+→ detects request boundaries
+→ decodes the payload
+→ creates a request object
+```
+
+Only then can application code process it.
+
+---
+
+### The Meaning of "Handle"
+
+When people ask how many requests a backend can handle per second, the word "handle" is unclear.
+
+It may refer to:
+
+* accepting connections,
+* reading socket data,
+* decrypting TLS,
+* parsing HTTP,
+* decoding JSON,
+* creating request objects,
+* executing business logic,
+* waiting for database responses,
+* sending responses back.
+
+Because of this, request throughput depends on which part of the pipeline is being measured.
+
+---
+
+### Step 1: Accept
+
+Before a request can be sent, the client needs a transport path to the backend.
+
+This is usually a TCP or QUIC connection.
+
+The backend must accept the connection before data can be read from it.
+
+For TCP, the operating system kernel performs the handshake and places the connection into an accept queue.
+
+Then the backend application accepts the connection and receives a file descriptor.
+
+Simplified flow:
+
+```text id="frucij"
+Client creates connection
+→ Kernel completes connection setup
+→ Connection waits in accept queue
+→ Backend accepts connection
+→ Backend receives connection handle/file descriptor
+```
+
+Connection acceptance is not trivial.
+
+Proxies and web servers spend significant engineering effort on accepting connections efficiently.
+
+---
+
+### Transport Protocol
+
+A transport protocol is the vehicle that carries request bytes.
+
+Common transport protocols include:
+
+* TCP,
+* QUIC,
+* UDP-based custom protocols.
+
+HTTP requests are usually carried over TCP or QUIC.
+
+The request itself needs a transport layer before it can reach the backend.
+
+---
+
+### Step 2: Read
+
+After the connection is accepted, data starts arriving.
+
+At this point, the backend is not reading requests.
+
+It is reading raw bytes.
+
+At a low level, the backend does not see:
+
+* HTTP,
+* JSON,
+* JWT,
+* headers,
+* cookies,
+* request objects.
+
+It only sees bytes.
+
+The backend must call read-related operations to move bytes from the kernel into the application process.
+
+---
+
+### Raw Bytes
+
+Raw bytes are the lowest-level form of the request data.
+
+They may represent:
+
+* encrypted TLS records,
+* HTTP/1.1 text,
+* HTTP/2 frames,
+* HTTP/3 frames,
+* SSH protocol data,
+* compressed request body,
+* JSON text,
+* protobuf bytes.
+
+At this stage, the backend does not yet know what the bytes mean.
+
+---
+
+### Step 3: Decrypt
+
+Most modern web traffic uses HTTPS.
+
+HTTPS means HTTP over TLS.
+
+If TLS is used, the bytes received by the backend are encrypted.
+
+The backend must decrypt them before it can understand the protocol.
+
+This step costs CPU.
+
+The backend uses a TLS library such as OpenSSL or another SSL/TLS implementation to decrypt the data.
+
+Only after decryption can the backend start seeing protocol data like HTTP headers or HTTP frames.
+
+---
+
+### Step 4: Parse
+
+After decryption, the backend has plaintext bytes.
+
+Now it must parse the protocol.
+
+Parsing means reading the bytes and understanding their structure.
+
+For HTTP/1.1, parsing includes:
+
+* method,
+* path,
+* version,
+* headers,
+* content length,
+* body boundary.
+
+For HTTP/2 or HTTP/3, parsing is more complicated because these protocols are binary and frame-based.
+
+The backend must understand streams, frames, metadata, and protocol-level control messages.
+
+Parsing is one of the hidden costs in backend systems.
+
+---
+
+### Logical Request
+
+A logical request is the final protocol-level unit the backend understands.
+
+For HTTP/1.1, a logical request may look like:
+
+```http id="gkcx8e"
+GET /about HTTP/1.1
+Host: example.com
+```
+
+But the backend cannot identify this logical request until enough bytes have been read, decrypted, and parsed.
+
+One socket read may contain:
+
+* half a request,
+* one full request,
+* multiple requests,
+* only protocol metadata.
+
+The parser is responsible for finding the request boundary.
+
+---
+
+### Step 5: Decode
+
+After parsing the request, the backend may still need to decode the body.
+
+For example, a `POST` request body may contain JSON.
+
+The backend must convert the JSON text into a language-level object.
+
+In Node.js/Express, this may be done by middleware like:
+
+```javascript id="20kqyf"
+app.use(express.json());
+```
+
+But this work is not free.
+
+Internally, the framework still needs to parse and allocate objects in memory.
+
+Decoding can include:
+
+* JSON deserialization,
+* protobuf deserialization,
+* UTF-8 decoding,
+* decompression,
+* form parsing,
+* multipart parsing.
+
+---
+
+### Serialization and Deserialization
+
+Serialization means converting an object into bytes.
+
+Deserialization means converting bytes back into an object.
+
+For example:
+
+```text id="d81uwc"
+JavaScript object → JSON string → bytes
+bytes → JSON string → JavaScript object
+```
+
+The backend usually performs deserialization before the application code can use the request body.
+
+---
+
+### UTF-8 Decoding
+
+Text is also encoded as bytes.
+
+ASCII and UTF-8 do not always represent text the same way.
+
+UTF-8 can use up to four bytes for a single character.
+
+So the backend must know how to decode text correctly.
+
+Otherwise, the output may become corrupted or unreadable.
+
+---
+
+### Step 6: Process
+
+Processing is the step where user code finally runs.
+
+This is what most developers usually think of when they say the backend "handles" a request.
+
+Processing may include:
+
+* routing,
+* authentication,
+* authorization,
+* validation,
+* database queries,
+* cache lookups,
+* file reads,
+* service calls,
+* CPU-heavy computation,
+* response generation.
+
+This is only the final step of the journey.
+
+Many costs have already happened before processing starts.
+
+---
+
+### Asynchronous Processing
+
+If request processing involves waiting, such as waiting for a database response, the backend can often do other work during that time.
+
+For example, while one request is waiting for PostgreSQL, the backend can accept, read, decrypt, parse, or decode other requests.
+
+This is why asynchronous backends can handle many concurrent requests even with a small number of threads.
+
+---
+
+### CPU-Heavy Processing
+
+If processing is CPU-heavy, it may block the main backend thread.
+
+In that case, the work may need to be moved to:
+
+* a worker thread,
+* a worker process,
+* a background job,
+* a separate service.
+
+This keeps the main networking path free to handle more connections and requests.
+
+---
+
+## 3. Important Notes
+
+### Nothing Is Free
+
+The lecture repeatedly emphasizes that every hidden step has a cost.
+
+Even if a framework hides the details, the work still happens.
+
+Costs include:
+
+* syscalls,
+* memory allocation,
+* copying bytes,
+* TLS decryption,
+* HTTP parsing,
+* JSON parsing,
+* UTF-8 decoding,
+* request object creation,
+* database waiting,
+* CPU computation.
+
+Backend frameworks make these steps easier, but not free.
+
+---
+
+### Frameworks Hide Complexity
+
+Modern backend frameworks make it feel like a request object simply appears.
+
+For example, in Express, we may write:
+
+```javascript id="qebv6c"
+app.post("/users", (req, res) => {
+  console.log(req.body);
+});
+```
+
+But before `req.body` exists, the backend has already:
+
+```text id="b0alqg"
+accepted the connection
+read bytes
+decrypted TLS
+parsed HTTP
+decoded JSON
+created request objects
+```
+
+The framework hides this complexity from the developer.
+
+---
+
+### Parsing Is a Hidden Expense
+
+Protocol parsing is often overlooked.
+
+HTTP/1.1 parsing is relatively straightforward because it is text-based.
+
+HTTP/2 and HTTP/3 parsing are more complex because they are binary and stream-based.
+
+They include frames, streams, settings, metadata, and flow-control behavior.
+
+This can create CPU cost.
+
+---
+
+### HTTP/2 and HTTP/3 Are More Complex Than HTTP/1.1
+
+HTTP/1.1 looks like readable text.
+
+HTTP/2 and HTTP/3 are binary protocols.
+
+This means the backend must do more protocol-level work to understand them.
+
+The benefit is better multiplexing and performance features, but the parsing cost is higher.
+
+---
+
+### Request Objects Cost Memory
+
+When the framework creates a request object, it may store:
+
+* method,
+* path,
+* headers,
+* body,
+* client address,
+* connection metadata,
+* protocol information,
+* route parameters,
+* parsed query string.
+
+These objects live in memory and may create garbage collection pressure in managed languages.
+
+---
+
+### JSON Parsing Can Be Expensive
+
+JSON is easy to use, but parsing JSON has real cost.
+
+This can be especially expensive in some languages and libraries.
+
+Large request bodies can increase:
+
+* CPU usage,
+* memory usage,
+* latency,
+* garbage collection pressure.
+
+---
+
+### The Processing Step May Be Mostly Waiting
+
+Many backend requests are not CPU-heavy.
+
+They spend much of their time waiting for:
+
+* database queries,
+* cache calls,
+* network requests,
+* file I/O,
+* external APIs.
+
+This is why asynchronous programming can improve concurrency.
+
+While one request waits, the server can work on other requests.
+
+---
+
+### Request Throughput Depends on the Bottleneck
+
+A backend may be limited by different things depending on the workload.
+
+Examples:
+
+```text id="zuzgza"
+High connection churn → accept bottleneck
+Large encrypted traffic → TLS CPU bottleneck
+Many HTTP/2 streams → parsing bottleneck
+Large JSON bodies → decode bottleneck
+Slow database → processing bottleneck
+CPU-heavy work → worker bottleneck
+```
+
+The bottleneck determines how many requests the backend can actually handle.
+
+---
+
+## 4. Examples
+
+### Example 1: Simple GET Request Journey
+
+The browser sends:
+
+```http id="fk78na"
+GET /about HTTP/1.1
+Host: example.com
+```
+
+The backend journey:
+
+```text id="wpamqh"
+1. Accept
+   Accept the TCP connection.
+
+2. Read
+   Read raw bytes from the socket.
+
+3. Decrypt
+   Decrypt TLS bytes if HTTPS is used.
+
+4. Parse
+   Parse HTTP method, path, version, and headers.
+
+5. Decode
+   Decode text/query parameters if needed.
+
+6. Process
+   Run the route handler for /about.
+```
+
+---
+
+### Example 2: POST Request with JSON Body
+
+The browser sends:
+
+```http id="v3jpus"
+POST /users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Alice",
+  "age": 25
+}
+```
+
+The backend does:
+
+```text id="qooc6x"
+1. Accept connection
+2. Read encrypted bytes
+3. Decrypt TLS
+4. Parse HTTP request
+5. Decode JSON body
+6. Create user in database
+```
+
+Only after step 5 can the application easily use:
+
+```javascript id="13h8vf"
+req.body.name
+req.body.age
+```
+
+---
+
+### Example 3: Async Database Query
+
+A request asks for a user by ID:
+
+```http id="os8em5"
+GET /users/123 HTTP/1.1
+```
+
+The backend processes it:
+
+```text id="mhw2vz"
+Parse request
+→ Identify route
+→ Send SQL query to PostgreSQL
+→ Await database result
+```
+
+While waiting for PostgreSQL, an asynchronous backend can work on other requests.
+
+This is why async I/O helps with concurrency.
+
+---
+
+### Example 4: CPU-Heavy Request
+
+A request asks the backend to resize an image.
+
+```http id="wllsrc"
+POST /resize-image HTTP/1.1
+```
+
+This is CPU-heavy.
+
+If the main event loop handles image resizing directly, it may block other requests.
+
+A better design:
+
+```text id="al8dyj"
+Main thread:
+  accept/read/decrypt/parse/decode
+
+Worker thread/process:
+  resize image
+
+Main thread:
+  send response when worker finishes
+```
+
+---
+
+### Example 5: What Does "Handle" Mean?
+
+Question:
+
+```text id="g7zz1a"
+How many requests per second can this backend handle?
+```
+
+Possible meanings:
+
+```text id="fy9ux9"
+How many connections can it accept?
+How many bytes can it read?
+How much TLS traffic can it decrypt?
+How many HTTP requests can it parse?
+How many JSON bodies can it decode?
+How many database queries can it complete?
+How many full end-to-end responses can it return?
+```
+
+A good performance discussion must define what "handle" means.
+
+---
+
+### Example 6: Framework Hidden Work
+
+Developer code:
+
+```javascript id="mycf2e"
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const user = await db.findUser(email);
+  res.json({ user });
+});
+```
+
+Hidden work before this function runs:
+
+```text id="n7nd1d"
+TCP connection accepted
+Socket bytes read
+TLS decrypted
+HTTP request parsed
+Headers parsed
+Body collected
+JSON decoded
+Request object created
+Route matched
+Middleware executed
+```
+
+The route handler is only the final visible part.
+
+---
+
+## 5. Questions / Review
+
+1. Why is a request considered a logical object rather than a low-level networking object?
+
+2. Why is the question "How many requests can your backend handle per second?" overloaded?
+
+3. What are the six steps in the request journey?
+
+4. What happens during the Accept step?
+
+5. Why does a request need a transport protocol?
+
+6. What is the role of TCP or QUIC in carrying a request?
+
+7. What does the backend actually read from the connection?
+
+8. Why does the backend read raw bytes instead of a request object?
+
+9. Why is TLS decryption necessary for HTTPS traffic?
+
+10. Why can the backend not see HTTP headers before decryption?
+
+11. What does protocol parsing mean?
+
+12. Why is HTTP/1.1 easier to visualize than HTTP/2 or HTTP/3?
+
+13. Why are HTTP/2 and HTTP/3 more complex to parse?
+
+14. What is a logical request?
+
+15. Why can one read contain half a request or multiple requests?
+
+16. What happens during the Decode step?
+
+17. Why is JSON parsing not free?
+
+18. What is deserialization?
+
+19. Why does UTF-8 decoding matter?
+
+20. What happens during the Process step?
+
+21. Why is processing only the final step?
+
+22. How can asynchronous programming help while waiting for a database?
+
+23. When should CPU-heavy work be moved to another thread or process?
+
+24. What hidden work happens before a framework route handler runs?
+
+25. How does understanding this journey help backend engineers design better systems?
+
+---
+
+## Quick Pipeline
+
+```text id="mxwxjc"
+Frontend creates request
+  ↓
+Transport connection is established
+  ↓
+Backend accepts connection
+  ↓
+Backend reads raw bytes
+  ↓
+Backend decrypts TLS
+  ↓
+Backend parses protocol
+  ↓
+Backend decodes payload
+  ↓
+Framework creates request object
+  ↓
+Application processes request
+  ↓
+Backend sends response
+```
+
+---
+
+## Final Takeaway
+
+A request goes through a long journey before user code handles it.
+
+The backend must accept the connection, read raw bytes, decrypt encrypted data, parse the protocol, decode the payload, create useful language-level objects, and only then execute business logic.
+
+Each step has cost.
+
+Each step can become a bottleneck.
+
+Understanding this journey makes backend engineers better at reasoning about performance, concurrency, scalability, and system design.

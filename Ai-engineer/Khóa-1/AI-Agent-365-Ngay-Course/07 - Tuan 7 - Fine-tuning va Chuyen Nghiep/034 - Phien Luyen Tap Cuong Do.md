@@ -1,0 +1,1015 @@
+# Ngay 034 - Tuan 7, ngay 4
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-034.txt
+
+## Tong quan
+
+- Chu de mo dau: Trời ơi, điều này thật tuyệt vời!
+- File goc: day-034.txt
+- So y chinh: 751
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Trời ơi, điều này thật tuyệt vời!
+- Chúng ta đang ở tuần thứ bảy.
+- Ngày thứ tư.
+- Đây là thời điểm của những buổi tập luyện khắc nghiệt.
+- Mọi thứ đang diễn ra.
+- Bạn đã biết cách sử dụng mô hình và rag, nhưng ngoài ra, bạn còn biết cách cấu hình một lô tinh chỉnh với trình huấn luyện SFT và cách đưa ra quyết định về tất cả các tham số siêu của mình, khởi chạy một phiên chạy và đã thiết lập tài khoản trọng số và độ lệch của mình.
+- Hôm nay là ngày chúng ta sẽ thực sự tập trung, và chúng ta sẽ quay lại chính xác cùng một dự án hợp tác mà chúng ta đã làm hôm qua.
+- Đó là cùng một cái.
+### Muc 2
+
+- Liên kết cũng có trong con trỏ.
+- Nhưng nhưng bạn không cần nó vì bạn đã mở nó rồi.
+- Hy vọng chúng ta sẽ quay lại đó.
+- Chúng ta sẽ xem xét tình hình hiện tại của cuộc chạy của chúng ta.
+- Đi thôi.
+- Vậy là chúng ta đã quay lại tuần thứ bảy.
+- Ngày thứ ba.
+- À, mặc dù đã là ngày thứ tư, à, và nó vẫn đang hoạt động.
+### Muc 3
+
+- Và bạn có thể nhận thấy rằng điều này đang diễn ra chỉ vài phút sau khi tôi để bạn lại hôm qua.
+- Và đó là vì tôi đang gian lận cho bản thân mình.
+- Dành cho bạn.
+- Tôi hy vọng đó là ngày hôm sau vì bạn đang cứng nhắc tuân theo các ngày mà tôi đã đề ra.
+- Nhưng đối với tôi, chỉ mới vài phút sau khi tôi nói chuyện với bạn lần cuối.
+- Thật là buồn cười.
+- Nhưng mà, đây là nó.
+- Và bạn có thể thấy rằng nó là.
+## Phan 2
+
+### Muc 4
+
+- Bảng này cho thấy rằng bước đầu tiên trong số 100 bước đã được hoàn thành.
+- Vậy là lần đầu tiên tính toán độ mất mát xác thực.
+- Vậy đây là quá trình tính toán tổn thất trên tập dữ liệu kiểm tra gồm 500 điểm mà chúng ta đã cung cấp.
+- Đã thu thập được 500 điểm dữ liệu.
+- Dự đoán đã được tính toán.
+- Nó đã so sánh nó.
+- Và nó được sử dụng để tính toán độ mất mát xác thực.
+- Và bây giờ, nếu chúng ta xem xét các trọng số và độ lệch, chúng ta có thể thấy điều gì đang xảy ra ở đây.
+### Muc 5
+
+- Và chúng ta có thể thấy rằng ở đây có thêm thông tin.
+- Có cái gọi là tổn thất trong quá trình huấn luyện.
+- Bạn có thể thấy điều đó.
+- Hãy làm mới màn hình.
+- À, nó đã làm điều đó cho chúng ta.
+- Chờ đã.
+- À, đây rồi.
+- Đây là nó.
+### Muc 6
+
+- Vậy là chúng ta lại quay trở lại với hàm mất mát xác thực này.
+- Bạn có thể thấy rằng điều này vẫn còn đang dao động một chút.
+- Có vẻ như nó đã đến.
+- Nó bắt đầu vào khoảng 0.3 .0185, và bây giờ nó đang ở mức, ừm.
+- Chờ đã.
+- À, tôi hiểu rồi, tôi hiểu rồi, đợi chút.
+- Vì vậy, trục này là sai lệch.
+- Hãy cùng xem xét biểu đồ này ngay tại đây.
+## Phan 3
+
+### Muc 7
+
+- Chúng ta có thể làm tốt hơn thế này.
+- Nếu tôi nhấp vào đây, nó sẽ hiển thị ngay tại đây.
+- Hãy nhìn xem điều gì đang xảy ra.
+- Tôi đã sửa trục tung này.
+- À, tôi đã làm điều này trước đây và nó vẫn còn nhớ.
+- Vậy nếu tôi thay đổi con số này thành ba, ừm.
+- Và nộp đơn.
+- Chờ đã.
+### Muc 8
+
+- Điều đó không hiệu quả.
+- Xin lỗi.
+- À, vì tôi đã đặt nó sai bên như vậy.
+- Ba.
+- Nhìn kìa.
+- Được rồi.
+- Đây là cách hiểu rõ hơn về những gì thực sự đang xảy ra với hàm mất mát trong quá trình huấn luyện.
+- Bây giờ mới đúng là như vậy.
+### Muc 9
+
+- Như vậy, bạn có thể thấy hiệu ứng này khi độ mất mát trong quá trình huấn luyện đột ngột giảm mạnh ngay từ đầu.
+- Và sau đó, nó dường như đã ổn định lại một chút.
+- Và điều đó sẽ quen thuộc với bạn.
+- Bạn sẽ nhận ra mô hình đó vì bạn đã thấy mô hình đó khi chúng ta đang tinh chỉnh mô hình biên.
+- Lý do cho sự sụt giảm đột ngột này trong mức lỗ ban đầu là vì mô hình nhanh chóng nhận ra rằng nó cần phải luôn dự đoán một số, sau đó là dấu thập phân, số 0 và 0, rồi kết thúc.
+- Và nếu nó luôn làm như vậy, nó có thể ngay lập tức đưa các khoản lỗ của mình vào một phạm vi có thể kiểm soát được.
+- Vì vậy, nó rất nhanh chóng học được điều đó.
+- Và đó là lý do tại sao bạn thấy sự sụt giảm mạnh mẽ về mức lỗ, từ khoảng 3,01% ban đầu, giảm nhanh chóng xuống còn 1,3%.
+## Phan 4
+
+### Muc 10
+
+- À, đó là những gì chúng ta đã thấy trước đó.
+- Vì vậy, điều này không khiến chúng tôi ngạc nhiên chút nào.
+- Nhưng điều chúng ta cần thấy bây giờ là đường này cần được cải thiện dần dần theo thời gian.
+- Và thực sự, chúng ta vẫn chưa thấy điều đó.
+- À, chúng ta có thể làm mịn một chút.
+- Bạn còn nhớ chúng ta đã làm điều này với biên giới nữa mà.
+- Nếu chúng ta làm điều này, thì chúng ta sẽ bắt đầu thấy, ừm, một số, ừm.
+- Chờ đã.
+### Muc 11
+
+- Nếu tôi cho xem bản gốc, chúng ta sẽ thấy cả hai.
+- Bạn có thể thấy đó là đường cong mượt mà và đó là đường cong giật cục.
+- Và đúng vậy, ý tôi là, được rồi, bây giờ chúng ta nhìn nhận vấn đề theo cách này.
+- Có vẻ như chúng ta đang thấy một số cải thiện.
+- Có vẻ như chúng ta đang thấy một số lợi ích từ việc tinh chỉnh, nhưng rõ ràng là còn quá sớm để kết luận.
+- À, và, ừm, nên nó, nên nó khó mà suy diễn quá nhiều từ đó.
+- Tôi nên đã áp dụng điều đó.
+- Chờ đã.
+### Muc 12
+
+- Nếu chúng ta muốn, nếu chúng ta muốn đảm bảo rằng chúng ta thấy giá trị y cao hơn, thì tôi cần phải làm điều này.
+- Lý do tôi zoom vào đó là vì một khi bạn đã quen với việc có một sự sụt giảm đột ngột, rất mạnh mẽ ngay từ đầu, nó trở nên nhàm chán.
+- Bạn không muốn biết về điều đó.
+- Điều bạn thực sự muốn tập trung vào chính là khu vực ngay tại đây.
+- Và đó là lý do tại sao tôi thường xuyên đề cập đến điều này và chuyển đổi nó thành một con số, ví dụ như 1 điểm cho khoảng Y này, để chúng ta thực sự tập trung vào những phần quan trọng.
+- Chúng ta có đang chứng kiến một xu hướng ở đây hay không?
+- Ừm, được rồi.
+- Và, điều chúng ta cũng sẽ nhận thấy là phía trên các biểu đồ đào tạo này, đã xuất hiện một số biểu đồ mới.
+## Phan 5
+
+### Muc 13
+
+- Và các biểu đồ mới này được gọi là eval.
+- Và đây chính là nơi diễn ra những điều kỳ diệu.
+- Đây là những điều bạn cần lưu ý, vì điều này liên quan đến việc chạy tập dữ liệu kiểm tra và đánh giá tiến độ đào tạo trên tập dữ liệu giữ lại một cách nhất quán mỗi lần, cứ sau mỗi 100 bước.
+- Vậy đây là hàm đánh giá tổn thất.
+- Điều này là tất cả đối với chúng tôi.
+- Và một lần nữa, chúng ta luôn cần phải xem xét kỹ lưỡng trục để đảm bảo rằng chúng ta không tự lừa dối bản thân, vì dường như đã có một sự sụt giảm đáng kể trong eval loss, điều này thật tuyệt vời.
+- Nhưng bạn có thể thấy rằng trục này chỉ có một sự thay đổi rất nhỏ từ 1.2894 xuống 1.2693, do đó giá trị đánh giá đã giảm.
+- Cùng một tập dữ liệu được xử lý lần thứ hai đã cho kết quả.
+### Muc 14
+
+- Nhưng chúng ta biết từ kinh nghiệm trước đây của mình rằng có thể có một số dao động tự nhiên.
+- Có thể có một số yếu tố ngẫu nhiên trong đó.
+- Vì vậy, chúng ta không muốn tuyên bố chiến thắng quá sớm.
+- Nhưng dựa trên hai dữ liệu, điều này có vẻ đầy hứa hẹn.
+- Vậy là chúng ta lại quay trở lại với việc xem xét việc bỏ trốn.
+- Và điều tôi sắp làm bây giờ có thể khiến bạn cảm thấy hơi khó chịu.
+- Bạn có xem những chương trình nấu ăn đó không, những chương trình nấu ăn mà trong đó một đầu bếp tài ba đang chuẩn bị một bữa ăn tuyệt vời và họ hướng dẫn bạn cách làm nó.
+- Và có vẻ như bạn chỉ cần làm theo hướng dẫn này, trộn đều tất cả các nguyên liệu trong đó, đánh bông chúng lên, và làm theo những gì bạn đang làm theo.
+### Muc 15
+
+- Họ có cái này, cái này, cái bánh này mà họ đã làm, và họ đang mang cái bánh đó vào lò nướng, và bạn như thể, "Tôi đồng ý với bạn." Tôi cũng có thể làm được điều này.
+- Tôi có một thứ trông giống như vậy.
+- Và rồi họ nói, ồ, và đây là cái tôi đã làm trước đó, và họ lấy ra thứ khác, và bạn như muốn nói, ôi trời, đợi đã.
+- Trông hoàn toàn khác biệt.
+- Trông tuyệt vời quá.
+- Và tôi không biết liệu những gì bạn vừa đưa vào có phải là những gì bạn đã lấy ra hay không.
+- Đó chính là điều tôi sắp làm.
+- Vậy.
+## Phan 6
+
+### Muc 16
+
+- Thay vì ngồi đây chờ đợi điều này, điều mà tôi thừa nhận là có thể làm offline.
+- Tôi đã bắt đầu việc này vào hôm qua.
+- Và vậy là tôi đã có một phiên chạy đã hoàn thành mà bây giờ tôi sẽ chuyển sang, như thể nó vừa mới chạy xong.
+- Nhưng kết quả luôn giống nhau mỗi lần, vì vậy bạn sẽ.
+- Nếu bạn đã chạy lệnh này, bạn sẽ nhận được kết quả hoàn toàn giống nhau, và bạn sẽ thấy rằng khi lệnh này cuối cùng hoàn thành, kết quả sẽ hoàn toàn giống nhau.
+- À, tôi cảm thấy điều này không phải là một lời nói dối quá lớn.
+- Tôi chỉ đang sử dụng nó để tiết kiệm thời gian.
+- À, đây là nó ngay đây.
+### Muc 17
+
+- Dưới đây là một biểu đồ.
+- Đây là kết quả khi tôi để nó chạy đến khi hoàn tất.
+- Như bạn có thể thấy ở đây, chúng ta đang xem xét độ mất mát trong quá trình đào tạo.
+- Đầu tiên, hãy xem xét tốc độ học.
+- Nhìn này.
+- Trông có đẹp không?
+- Bây giờ bạn đã biết cosine scheduler làm gì.
+- Có một giai đoạn khởi động khi nó tăng từ 0 lên đến mức đó.
+### Muc 18
+
+- Bạn có thể thấy nó là 0,000999 lên đến gần 0,001.
+- À, và sau đó nó có một sự giảm dần đều đặn khi tốc độ học giảm dần, giảm dần và giảm dần, cho đến khi trở nên rất, rất nhỏ.
+- Và đó chính là tình trạng ở bước 625, là bước cuối cùng của lô của chúng ta.
+- Đây rồi.
+- À, và nếu bạn đến đây, bạn có thể xem kết quả đào tạo.
+- Hãy zoom vào chi tiết này một chút.
+- Vậy là tôi vẫn còn trục này đang tăng lên đến 1.4.
+- Chúng tôi muốn tập trung sâu vào điều đó.
+## Phan 7
+
+### Muc 19
+
+- Ý tôi là nó trông có vẻ đầy hứa hẹn.
+- Đó không phải là điều đáng kinh ngạc.
+- Nhưng hãy cứ, ừm, chỉ làm việc làm mịn và xem kết quả cho chúng ta biết điều gì.
+- Chờ đã.
+- Hãy làm điều này.
+- Hãy làm chương trình theo phong cách gốc.
+- À, ừm, ừ, ý tôi là, xem cái đó đi.
+- Điều đó dường như là một sự sụt giảm và sau đó dần dần ổn định lại.
+### Muc 20
+
+- Vậy có vẻ như đã có sự học tập thực sự diễn ra ở đó.
+- Trông có vẻ ổn, bạn có thể nói vậy.
+- Có lẽ, có lẽ tôi không nên sử dụng bộ điều chỉnh tốc độ học.
+- Có lẽ chúng ta nên học hỏi thêm.
+- Nhưng tôi đã thử rồi.
+- Nhưng bạn nên xem và xem bạn nghĩ sao.
+- Kiểm tra xem tốc độ học có thường xuyên không.
+- Đó là một trong những siêu tham số đầu tiên mà mọi người thường thử điều chỉnh.
+### Muc 21
+
+- Hãy thử nghiệm với điều đó nữa.
+- Được rồi.
+- Vậy, ừm, được rồi, tôi sẽ hủy bỏ điều này.
+- Đó là tổn thất trong quá trình đào tạo.
+- Và tôi biết bạn đang nghĩ gì.
+- Bạn đang nói rằng tôi không quan tâm đến việc mất mát trong quá trình đào tạo.
+- Tôi muốn xem giá trị mất mát xác thực đánh giá.
+- Được rồi, tôi có ngay đây cho bạn.
+## Phan 8
+
+### Muc 22
+
+- Eva.
+- Sự mất mát kể một câu chuyện khá hay.
+- Hãy xem lại điều này.
+- Hãy cẩn thận với các trục.
+- Trông có vẻ như nó đã đập mạnh xuống.
+- Nó đã chuyển từ.
+- Từ số này ở đây xuống đến số này ở đây 1.248.
+- Và nó bắt đầu vào lúc 1 giờ 29 phút.
+### Muc 23
+
+- Và điều thú vị là, có một giai đoạn khi tình trạng của Eva trở nên tồi tệ hơn một chút, nhưng sau đó dường như đã cải thiện rõ rệt.
+- Chúng ta không có một lượng lớn dữ liệu.
+- Nhưng nói cho công bằng, đây có vẻ là một cải tiến đáng kể.
+- Có vẻ như tình hình đã được cải thiện.
+- Có vẻ như đây là một khóa đào tạo hiệu quả.
+- Đây chính là Eva.
+- Thất bại không có nghĩa là gì.
+- Bạn đang nghĩ, ừm, điều này có nghĩa là gì về mặt con số, chỉ số kinh doanh mà chúng ta biết?
+### Muc 24
+
+- Tôi thậm chí còn chưa giải thích cho bạn cách tính lỗ.
+- Tôi sẽ làm điều đó lần sau.
+- Nhưng hàm mất mát entropy chéo.
+- Đó là gì chính xác?
+- Đó là một phép tính toán học về khả năng dự đoán token tiếp theo của nó tốt đến mức nào?
+- Ừm, hiện tại chúng ta chưa biết điều này có nghĩa là gì, nhưng chúng ta sẽ biết.
+- Chúng ta sẽ làm điều đó vào ngày mai.
+- Hôm nay, chúng ta chỉ tập trung vào các chỉ số đào tạo.
+## Phan 9
+
+### Muc 25
+
+- Được rồi.
+- Đó là hình ảnh khi quá trình xử lý lô hoàn tất.
+- Điều đó thật thú vị.
+- Có vẻ như đã có tiến triển.
+- Trong khoảng thời gian một giờ với 20.000 điểm dữ liệu, chúng tôi đã có thể tinh chỉnh mô hình cơ sở Llama 3.2 bằng cách sử dụng Qlaira để giảm thiểu tổn thất xác thực và cải thiện độ chính xác trên tập dữ liệu kiểm tra.
+- Tuyệt vời.
+- Chúng ta có thể làm gì.
+- Chúng ta có thể làm gì bây giờ?
+### Muc 26
+
+- Gì?
+- Gì?
+- Tiếp theo là gì?
+- Thôi, anh biết chính xác tôi sẽ làm gì tiếp theo.
+- Tôi sẽ thực hiện việc này, đây là bộ dữ liệu đào tạo đang được chạy hiện tại.
+- Tôi sẽ vào và tôi sẽ, ừm, lưu một bản sao vào Drive, có nghĩa là tôi đang sao chép toàn bộ sổ tay này để tạo ra một bản khác.
+- Đây là nó.
+- Hãy xóa kết quả đầu ra.
+### Muc 27
+
+- Vậy là bắt đầu từ đầu.
+- Để tôi lưu lại điều này.
+- Vậy là đã được lưu lại.
+- Đây là một phiên bản hoàn toàn mới của Google Colab.
+- Và tôi sẽ sử dụng điều này để đào tạo lại lần thứ hai.
+- Nhưng lần này chế độ sáng sẽ chuyển từ true sang false.
+- Chúng tôi sẽ đào tạo với toàn bộ tập dữ liệu 800.000 điểm dữ liệu, và tôi sẽ kết nối không phải với T4.
+- Tôi sẽ thay đổi loại thời gian chạy.
+## Phan 10
+
+### Muc 28
+
+- Tôi muốn một chiếc A100 có RAM cao, và tôi sẽ kết nối với nó.
+- Và ừm, đúng rồi, nó đang kết nối.
+- Và bạn biết đấy, Google chỉ có một lượng giới hạn của những thứ này.
+- Vì vậy, không phải lúc nào cũng đảm bảo rằng bạn sẽ nhận được một cái.
+- Nhưng tôi hy vọng rằng tôi sẽ làm được.
+- Đúng.
+- Nó cho biết tôi đã kết nối.
+- Nếu tôi xem qua một số tài nguyên.
+### Muc 29
+
+- Tôi sẽ xem xét tình hình ở đây.
+- Thực ra, tôi có một khóa đào tạo khác mà chúng ta đã biết đang diễn ra ngay tại đây.
+- Và tôi cũng đang chạy một cái nữa trong số này, vì tôi tham lam.
+- Tôi đang làm rất nhiều việc, và vì vậy tôi đang sử dụng hết số tín dụng này.
+- Vậy nên, nếu bạn muốn làm điều này cùng tôi, nếu bạn muốn có A100, bạn cần phải hủy gói miễn phí và bắt đầu thanh toán.
+- Và Google cung cấp nhiều phương thức thanh toán khác nhau, mỗi phương thức có các ưu đãi riêng tùy thuộc vào nhu cầu của bạn.
+- À, tôi có gói đăng ký, nhưng bạn cũng có thể mua số lượng đơn vị và thanh toán theo từng lần sử dụng.
+- Và nói chung, việc này giống như bạn có thể chạy toàn bộ quá trình đào tạo cho một epoch chỉ với vài đô la.
+### Muc 30
+
+- Nhưng đó là điều mà bạn có thể theo dõi và xem diễn biến như thế nào.
+- Tôi đã chi khoảng $50 trong vài ngày qua vì tôi rất thích điều này.
+- Tôi đã có rất nhiều buổi làm việc đang diễn ra.
+- Tôi bắt đầu với 1900 đơn vị tính toán và hiện tại chỉ còn 730.
+- Vâng, tôi đã hơi điên rồ, nhưng tôi thực sự yêu thích những thứ này.
+- Và bạn không nên chi tiêu tiền trừ khi bạn thực sự muốn.
+- Ừm, được rồi, nhưng bây giờ chúng ta bắt đầu nhé.
+- Chúng tôi đã có các phiên làm việc.
+## Phan 11
+
+### Muc 31
+
+- Hiện tại, các máy tính Google A100 có 80GB RAM.
+- Họ là một lũ quái vật.
+- Họ thật tuyệt vời.
+- Một năm trước, họ chỉ có 40GB.
+- Và chúng ta sẽ thực sự tận dụng tối đa chiếc máy này và khai thác hầu hết dung lượng 80GB này.
+- Nhưng chúng ta sẽ bắt đầu như thường lệ bằng việc cài đặt.
+- Và chúng ta sẽ tải xuống tệp của tôi, mặc dù tôi không nghĩ là chúng ta sẽ sử dụng nó hôm nay.
+- Và sau đó, chúng ta có bộ công cụ nhập khẩu thông thường để kết hợp tất cả các thành phần lại với nhau.
+### Muc 32
+
+- Hãy chạy thử xem.
+- Và đây là các hằng số cho quá trình đào tạo mà bạn đã quen thuộc.
+- Hiện tại chế độ sáng đang tắt.
+- Điều đó có nghĩa là gì.
+- Điều đó có nghĩa là chúng ta sẽ tải toàn bộ tập dữ liệu.
+- Điều đó có nghĩa là chúng ta sẽ không có dấu gạch ngang trong tên.
+- Điều đó có nghĩa là chúng ta sẽ chạy với ba epoch.
+- Trước đây, mỗi epoch mất khoảng một giờ, nhưng bây giờ mỗi epoch mất khoảng bảy giờ.
+### Muc 33
+
+- Mặc dù đó là A100.
+- Chúng tôi có rất nhiều dữ liệu.
+- Đó là một tập dữ liệu khổng lồ.
+- Vậy thì sẽ là như vậy.
+- Đây là một việc cần để chạy liên tục trong 24 giờ.
+- Và nhân tiện, Google Colab sẽ ngắt kết nối của bạn sau 24 giờ.
+- Vậy, vậy đây là, đây là, ừm, cái, cái, ừm, cái, kích thước lô sẽ là 256.
+- Đó là một số mũ hai.
+## Phan 12
+
+### Muc 34
+
+- À, và à, cái, à, cái, cái Laura R cũng là 256, tức là, như tôi đã nói, lớn hơn so với thông thường.
+- Chúng ta sẽ sử dụng cả các lớp chú ý và các lớp MLP.
+- Chúng ta sẽ có rất nhiều mô-đun mục tiêu và duy trì tỷ lệ bỏ cuộc là 0,1.
+- Tốc độ học sẽ được điều chỉnh giống như trước đây, tương tự như với lịch trình cosine mà tôi yêu thích.
+- À, và ừm, chúng ta hãy chạy thử cái này.
+- Và vì chúng ta đang sử dụng A100, nó sẽ tuân thủ chính xác điều này, có nghĩa là chúng ta có thể sử dụng loại dữ liệu nhanh hơn.
+- Chúng ta sẽ sử dụng các bộ tối ưu hóa thông thường.
+- Vậy bây giờ chúng ta đang đăng nhập vào Hugging Face.
+### Muc 35
+
+- À, chúng ta cần cấp quyền truy cập.
+- Xem này, tôi cũng cần cấp quyền truy cập vào trọng số và độ lệch.
+- Bạn đã nên làm điều đó rồi.
+- Ừm, được rồi.
+- Bây giờ chúng ta sẽ đăng nhập vào weights and biases.
+- Và sau đó, chúng ta sẽ tải dữ liệu vào tập dữ liệu đào tạo, tập dữ liệu kiểm tra và tập dữ liệu xác thực.
+- Lần này, chúng ta sẽ tải các tập dữ liệu này vào.
+- Chúng ta sẽ tải vào 1000 điểm dữ liệu kiểm tra, không phải 500.
+### Muc 36
+
+- Mỗi lần thực hiện các bước xác minh đó mất khoảng hai phút.
+- Để bạn biết, trong quá trình chạy, chúng ta sẽ thực hiện kiểm tra xác thực nhiều lần.
+- Và điều đó không có tác động lớn lắm, được chứ.
+- Sau đó, chúng ta sẽ đăng nhập vào Weights and Biases.
+- Đây là nó.
+- À, chúng ta có một liên kết mới ở đây mà chúng ta có thể truy cập để xem buổi chạy của mình.
+- Chúng ta sẽ chọn lượng tử hóa 4 bit.
+- Và bạn nên thử nghiệm với, với một thứ khác.
+## Phan 13
+
+### Muc 37
+
+- Và chúng ta sẽ tải mô hình cơ sở vào.
+- Kích thước của mô hình cơ sở là bao nhiêu?
+- Và tất cả những gì quan trọng.
+- Nhưng bạn biết đấy, nó chỉ có 2,2 gigabyte, tức là nhỏ hơn rất nhiều so với phiên bản Unquantized Lama thông thường.
+- Và sau đó, chúng ta sẽ sẵn sàng để bắt đầu khóa đào tạo.
+- Như trước đây, chúng ta sẽ thiết lập các thông số Lora.
+- Chúng ta sẽ thiết lập các thông số đào tạo.
+- Tôi có thể đề cập ở đây rằng, khi chúng ta thực hiện đào tạo, chúng ta giải thích về loại dữ liệu mà nó sử dụng, điều này giúp tăng hiệu quả một chút nếu bạn đang sử dụng A100.
+### Muc 38
+
+- Vậy chúng ta sẽ thiết lập điều đó.
+- Cuối cùng, chúng ta sẽ tạo ra trình huấn luyện SFT đã được cài đặt đầy đủ và sẵn sàng cho việc huấn luyện.
+- Và đây chính là nơi chúng ta sẽ bắt đầu cuộc chạy đua lớn của mình.
+- Nhưng trước tiên, nó sẽ phải thêm token bổ sung vào cuối tập dữ liệu.
+- Và sau đó, nó sẽ phải tokenize toàn bộ tập dữ liệu, chuyển đổi văn bản thành các token.
+- Và điều này sẽ mất một chút thời gian vì đây là một tập dữ liệu khổng lồ.
+- Và nó sẽ phải vượt qua toàn bộ quá trình đó.
+- Vậy đây là lúc chúng ta cần đi uống cà phê và tôi sẽ gặp lại bạn sau, à, đó sẽ là ly cà phê của tôi.
+### Muc 39
+
+- Đối với bạn, việc này sẽ hoàn thành trong nháy mắt.
+- Và chúng tôi đã sẵn sàng để nhấn nút lớn để bắt đầu quá trình tinh chỉnh cho toàn bộ tập dữ liệu.
+- Và đây chúng ta đang ở đây.
+- Chúng tôi đã chuẩn bị đầy đủ mọi thứ.
+- Đã đến lúc thực hiện quá trình tinh chỉnh đường ray.
+- À, và, à, vì nó giống như trước đây, chúng ta sẽ thực hiện chức năng huấn luyện, và sau đó ngay lập tức chúng ta sẽ lưu mô hình.
+- À, mặc dù, ừm, Google Colab, nếu bạn sử dụng gói trả phí, họ cho phép chạy lâu hơn nhiều.
+- Và việc để nó chạy ngầm là hoàn toàn ổn.
+## Phan 14
+
+### Muc 40
+
+- Và chúng sẽ, ừm, nhiều hơn sau 24 giờ.
+- Họ sẽ giới hạn thời gian sử dụng để bạn không thể chạy nó quá 24 giờ.
+- Vậy đây sẽ là bước khởi đầu cho quá trình tinh chỉnh lớn của chúng ta với một tập dữ liệu khổng lồ.
+- Và sẽ thật thú vị để xem chúng ta sẽ sử dụng bao nhiêu phần trăm GPU.
+- Khi chúng ta đào tạo với kích thước lô là 256 trên GPU A100 mạnh mẽ này, chúng ta sử dụng bao nhiêu trong tổng số 80 gigabyte của GPU?
+- Tôi sẽ gặp bạn ngay sau khi mọi thứ bắt đầu.
+- Được rồi, thế này thì thú vị đấy.
+- Đã bắt đầu, đang chạy, và bạn có thể thấy ở đây rằng trên GPU của tôi đã sử dụng hết 70,1GB, điều này, ừm, thật thú vị.
+### Muc 41
+
+- Chúng tôi đang sử dụng máy tính này một cách rất mạnh mẽ.
+- Tôi phải thừa nhận rằng, tôi thấy việc sử dụng bộ nhớ GPU của mình thật khó lường.
+- Tôi đã trải qua một trải nghiệm kỳ lạ mà bản thân tôi không thể giải thích được.
+- Đó là khi tôi thử thực hiện một lần chạy thử nghiệm bằng cách giảm số lượng R, cụ thể là giảm R xuống còn 32 - một con số hợp lý hơn và phổ biến hơn so với mức 256.
+- Tôi đã thiết lập Laura R 32 cho lần chạy thử nghiệm này với tất cả các thông số đó vì muốn so sánh sự khác biệt.
+- Nhưng khi tôi làm điều đó, bộ nhớ GPU đã tăng lên và hết bộ nhớ.
+- Và điều đó không có ý nghĩa, vì việc sử dụng R nhỏ hơn nên tiêu tốn ít bộ nhớ hơn.
+- À, và tôi không thể giải thích được.
+### Muc 42
+
+- Và khi tôi làm điều đó, tôi phải giảm kích thước lô để nó có thể chạy.
+- À, và kết quả còn tệ hơn, nhưng, ừm, đúng vậy, tôi không hoàn toàn hiểu tại sao.
+- Vậy.
+- Vì vậy, tôi nghĩ câu trả lời là có rất nhiều yếu tố phức tạp trong cách thuật toán tinh chỉnh quyết định cách đóng gói dữ liệu và gửi chúng đến GPU.
+- Rất nhiều quyết định được đưa ra.
+- Và tùy thuộc vào chính xác những gì bạn đã làm.
+- Các dữ liệu có thể được lưu trữ trong bộ nhớ hoặc có thể không.
+- Vì vậy, mặc dù tôi đã có thể hoàn thành toàn bộ quá trình này và đã sử dụng hết 70GB, và nó đang hoạt động rất tốt, bạn có thể phát hiện ra rằng khi bạn bắt đầu quá trình này với chỉ một thay đổi nhỏ, vô hại đối với các tham số siêu, đột nhiên nó không còn phù hợp nữa.
+## Phan 15
+
+### Muc 43
+
+- Và nếu điều đó xảy ra, tất cả những gì bạn cần làm là giảm kích thước lô.
+- Đó là công cụ đơn giản nhất mà bạn có thể sử dụng để giải phóng thêm bộ nhớ.
+- Nhưng hiện tại, với bộ siêu tham số cụ thể này và mô hình cụ thể này, chúng ta thực sự có thể chạy toàn bộ quá trình này ở đây.
+- Nó đang diễn ra.
+- Nó đã tắt.
+- Và nếu chúng ta xuống đây và xem thử, chúng ta sẽ thấy rằng nó đang chạy rất tốt, ừm, bây giờ, ừm, đúng vậy, thanh tiến trình đang cho chúng ta biết rằng thực tế quá trình này sẽ mất 15 giờ để hoàn thành.
+- Tôi nói, tôi nghĩ khoảng bảy giờ trong epoch, nên đây sẽ là một phiên chạy kéo dài 15 giờ.
+- À, vậy thì đây thực sự là một thách thức lớn nếu bạn quyết định thực hiện và triển khai điều này.
+### Muc 44
+
+- Tất nhiên, bạn chỉ cần chạy một epoch.
+- Bạn không cần phải làm ba.
+- Bạn cũng vậy, một số người lo lắng rằng họ đã sử dụng nó trong một thời gian, và sau đó họ cảm thấy đã đủ.
+- Và họ không biết.
+- Họ không biết phải làm gì.
+- Không có gì sai khi dừng lại việc này.
+- Bạn có thể dừng quá trình này bằng cách ngắt kết nối runtime và xóa runtime tại bất kỳ thời điểm nào bạn đang lưu trữ dữ liệu thường xuyên.
+- Trung tâm ôm mặt, bạn có thể sử dụng nó bất cứ lúc nào.
+### Muc 45
+
+- Không có gì thần kỳ ở việc chúng ta đã nhồi nhét 800.000 điểm dữ liệu vào đây.
+- Bạn có thể dừng lại sau 100.000 hoặc 200.000.
+- Bạn sẽ đạt được kết quả tốt.
+- Vậy nên, bạn có thể để nó chạy nếu muốn, nhưng không bắt buộc phải làm vậy, và chắc chắn không cần phải chạy nhiều epoch.
+- Nếu bạn cũng giống tôi và hoàn toàn mê mẩn những thứ này, thì hãy thử đi, bạn sẽ thích mê đấy.
+- À, tôi thấy việc chạy các bài tập này thật sự rất thú vị và hấp dẫn.
+- Được rồi.
+- Dù sao thì, nó đang chạy.
+## Phan 16
+
+### Muc 46
+
+- Hy vọng bạn cũng chia sẻ niềm hứng khởi của tôi.
+- Và điều duy nhất có thể khiến bạn hào hứng hơn là bắt đầu xem xét kết quả về trọng số và độ lệch.
+- Nền tảng tuyệt vời.
+- Hoàn hảo cho điều này.
+- Đi thôi.
+- Vậy bây giờ tôi sẽ đi đến phần mà chúng ta đã đăng ký cho trọng số và độ lệch, chính là ở đây.
+- Và vẫn có một liên kết, như trước đây, để xem quá trình chạy.
+- Tôi có thể nhấp vào liên kết này để mở nó.
+### Muc 47
+
+- Vậy là chúng ta có thể thấy tình hình hiện tại của cuộc chạy.
+- Vậy là nó đã bắt đầu và, ừm, điều đầu tiên bạn sẽ nhận thấy là, đợi đã, chúng ta có thể không có, thực ra chúng ta không có điểm dữ liệu đầu tiên của hàm mất mát đào tạo.
+- Chúng ta đi thẳng vào hàm mất mát trong quá trình huấn luyện.
+- Đó là nơi đôi mắt tôi dẫn lối.
+- Ngay lập tức.
+- Bạn có thể thấy rằng nó trông như thế nào.
+- Trước hết, nó trông như thế nào.
+- Nó trông mượt mà hơn trước.
+### Muc 48
+
+- Chúng tôi đã thấy một số thứ rất rung lắc.
+- Hoặc nó chỉ đơn giản là đã tăng lên.
+- Độ mất mát trong quá trình đào tạo vừa tăng đột ngột.
+- À, trông mượt mà hơn.
+- Lý do nó trông mượt mà hơn là vì chúng ta có các lô lớn hơn nhiều, nên có nhiều thành phần hơn được đưa vào mỗi lô.
+- Vậy chúng ta sẽ thấy ít tiếng ồn hơn.
+- Thỉnh thoảng, người ta cho rằng việc sử dụng kích thước lô nhỏ hơn là tốt hơn, vì tiếng ồn và dao động đó thực sự có lợi trong quá trình huấn luyện, vì nó giúp ngăn chặn việc rơi vào điểm cực tiểu cục bộ.
+- Nó gây ra một số tiếng ồn ngẫu nhiên được thêm vào quá trình đào tạo.
+## Phan 17
+
+### Muc 49
+
+- Do đó, việc sử dụng kích thước lô lớn như 256 đôi khi được coi là một nhược điểm, nhưng đồng thời, việc có 256 cũng cho phép chúng ta tận dụng tối đa bộ nhớ GPU, từ đó xử lý công việc nhanh hơn nhiều.
+- Nhưng nếu bạn đang tìm kiếm một số siêu tham số để điều chỉnh, tốc độ học và kích thước lô thường là hai trong số những tham số đầu tiên mà mọi người thường tập trung vào.
+- Bạn có thể thấy rằng tỷ lệ học tập dường như đang tăng lên, và bạn có thể thắc mắc: Tại sao nó lại tăng lên?
+- Trong khi tôi nghĩ rằng tỷ lệ học tập sẽ giảm xuống.
+- Và lý do là vì chúng ta vẫn đang trong giai đoạn khởi động.
+- Nếu bạn chạy trong ba epoch, đây là điều quan trọng cần biết.
+- Nếu bạn chạy trong ba epoch, thì lịch trình học tập không áp dụng cho từng epoch.
+- Nó không làm điều đó.
+### Muc 50
+
+- Nó áp dụng cho cả ba thời kỳ.
+- Vậy nên nó bắt đầu tăng dần từ từ.
+- Và sau đó, nó sẽ dần dần giảm xuống trong suốt thời kỳ của ba thời kỳ.
+- Và đó thực sự là một ý tưởng thông minh.
+- Điều đó rất hợp lý vì bạn muốn bắt đầu quá trình đào tạo với một tỷ lệ học tập cao hơn và dần dần, trong suốt ba epoch, điều chỉnh nó ngày càng chặt chẽ hơn.
+- Đó là lý do tại sao nó hoạt động như vậy.
+- Và nó thật sự rất đẹp.
+- Được rồi.
+### Muc 51
+
+- Vì vậy, bạn có thể thấy tất cả những điều này đang xảy ra.
+- Và bạn có thể sẽ thất vọng khi thấy rằng chúng tôi hiện tại vẫn chưa có bộ dữ liệu đánh giá (eval set) cho các biểu đồ.
+- Và đó là vì quá trình đào tạo vẫn còn ở giai đoạn quá sớm.
+- Tôi sẽ để quý khách chờ một lát.
+- Tôi sẽ quay lại ngay khi tôi trở lại.
+- Tôi hy vọng sẽ có một số biểu đồ đánh giá cho bạn.
+- Vậy là bây giờ nó đã chạy lâu hơn một chút.
+- Bạn có thể thấy chúng ta đang ở bước 275 trong tổng số 9000 bước.
+## Phan 18
+
+### Muc 52
+
+- Nó phải chạy.
+- À, và chúng ta hãy làm lại phép tính mà tôi đã làm cách đây một lúc.
+- Vậy tổng cộng là, ừm, để xem nào.
+- Có 2000, à, xin lỗi, không phải 2000, mà là 9000, à, 9375 bước.
+- Mỗi bước có 256 bước trong lô.
+- Và nếu tôi nhân hai số đó với nhau, bạn có thể thấy rằng điều đó có nghĩa là có một lượng dữ liệu khổng lồ.
+- Tại sao lại có nhiều như vậy trong khi chúng ta chỉ có, ừm, chúng ta chỉ có, ừm, tổng cộng 800.000 điểm dữ liệu?
+- À, đó là vì chúng ta có ba epoch, và bạn có thể tính toán điều này trong đầu.
+### Muc 53
+
+- Nhưng nếu tôi chia con số đó cho ba, thì bạn sẽ thấy rằng chúng ta lại quay trở lại với con số 800.000 điểm dữ liệu kỳ diệu của chúng ta.
+- Hoàn hảo.
+- Điều đó có lý.
+- Sau bước 200, nó đã thực hiện một phép tính đánh giá.
+- Và chúng ta đã đạt được giá trị mất mát xác thực là 21,27.
+- À, vậy bây giờ nếu chúng ta quay lại với trọng số và độ lệch ở đây, chúng ta có hàm mất mát đào tạo.
+- Cho đến nay.
+- Bạn có thể thấy nó đã lang thang khắp nơi.
+### Muc 54
+
+- Nó đã tăng lên, nhưng dường như nó đang di chuyển theo hướng trông có vẻ như đang giảm xuống và nó vừa được làm mới trong khi tôi ở đây, uh, để hiển thị cho chúng ta điểm đánh giá đầu tiên ngay tại đây.
+- Chưa có nhiều dữ liệu trên biểu đồ vì đây mới chỉ là điểm đánh giá, nhưng đó là tất cả những gì chúng ta có.
+- Được rồi, được rồi.
+- Vậy là lại đến lúc đó rồi.
+- Đây là lúc tôi cho món này vào lò nướng và lấy ra sản phẩm hoàn thành, vì tôi không thể chờ đợi 17 giờ ngay bây giờ.
+- Tôi đã chạy cái này, thực ra, cái này tôi nghĩ là tôi đã chạy cách đây vài ngày.
+- À, và, à, nó đã chạy, nó đã hoàn thành.
+- Đã đến lúc chúng ta đi xem các biểu đồ này trông như thế nào sau khi quá trình chạy hoàn tất trong khoảng thời gian đầy đủ, khoảng 17 giờ hoặc gì đó.
+## Phan 19
+
+### Muc 55
+
+- À, và nó đã hoàn thành, và chúng ta sẽ xem nó trông như thế nào trong các trọng số và thành phần.
+- Hãy đi làm điều đó.
+- Và đây là kết quả của ba giai đoạn đào tạo trên 800.000 điểm dữ liệu, tổng cộng 2,4 triệu điểm dữ liệu được tổ chức thành các lô.
+- Đây là hình dáng của nó.
+- Hãy tận hưởng tất cả.
+- Trước hết, ở góc dưới bên trái, đây là tốc độ học.
+- Trong suốt ba giai đoạn đầy đủ, bạn có thể thấy giai đoạn khởi động.
+- Bạn thấy con đường mượt mà và đẹp đẽ đó kéo dài suốt quãng đường khi tỷ lệ học tập ngày càng nhỏ dần.
+### Muc 56
+
+- Và bây giờ hãy nhìn sang đây, tất nhiên, là về tổn thất trong quá trình đào tạo.
+- Đây là ông lớn.
+- Và hãy nhớ rằng nó có thể đã bắt đầu cao hơn một chút, nhưng tôi đã cắt bớt nó xuống.
+- Tôi đã đặt trục bắt đầu tại 1.4.
+- Hãy xem này.
+- Trông thật sự, thật sự đẹp.
+- Nhưng có một số dấu hiệu cảnh báo.
+- Có một số dấu hiệu cảnh báo.
+### Muc 57
+
+- Bạn thấy rằng nó dường như đang rơi xuống một cách rất đẹp.
+- Và sau đó dường như nó đang ổn định lại một chút, rồi đột ngột lao xuống.
+- Và rồi nó tiếp tục rơi xuống, rơi xuống, rơi xuống, rơi xuống.
+- Và rồi nó lại đập xuống một lần nữa.
+- Và rồi nó tiếp tục rơi xuống, rơi xuống, rơi xuống, rơi xuống.
+- Nhưng có lẽ điều đó không còn xảy ra ở đó nữa.
+- À, và cú đánh này thực sự rất quan trọng.
+- Vậy chuyện gì đang xảy ra?
+## Phan 20
+
+### Muc 58
+
+- Tại sao lại có những biến động đột ngột như vậy?
+- Chuyện gì đang xảy ra?
+- Bạn có thể nhìn thấy không?
+- Bạn có thể hiểu được không?
+- Rõ ràng là do chúng ta có ba giai đoạn.
+- Đó là kỷ nguyên đầu tiên, kỷ nguyên thứ hai và kỷ nguyên thứ ba.
+- À, ba lần chạy qua toàn bộ dữ liệu.
+- Được rồi, chắc chắn.
+### Muc 59
+
+- Nhưng tại sao?
+- Tại sao nó lại giảm đột ngột sau thời kỳ đó?
+- Chà, đó không phải là tin tốt.
+- Không tốt.
+- Những gì chúng ta đang thấy, có thể có rất nhiều vấn đề với điều đó.
+- Và một trong số đó không phải là điều xấu.
+- Chỉ là một vấn đề về hình ảnh.
+- Một trong số đó là một vấn đề lớn.
+### Muc 60
+
+- Vấn đề tiềm ẩn không phải là vấn đề nghiêm trọng chỉ là thực tế rằng, trên epoch thứ hai, dữ liệu đến là giống như trong epoch đầu tiên, chỉ là được sắp xếp lại theo cách khác.
+- Vì vậy, điều này không có gì đáng ngạc nhiên, bởi vì thực tế đã cho thấy rằng dữ liệu đó có thể hoạt động tốt hơn khi gặp lại cùng một dữ liệu lần thứ hai, vì nó biết rằng mô hình đã được đào tạo với câu trả lời chính xác.
+- Vì vậy, nó có thể khá chính xác trong việc dự đoán giá của táo.
+- Nhưng khi được yêu cầu cụ thể dự đoán giá của một quả táo Golden Delicious từ nhà sản xuất này, điều đó đã từng xảy ra trước đây.
+- Và vì vậy, bạn biết rằng nó sẽ có lợi thế.
+- Không phải là chúng ta có táo trong tập dữ liệu này, nhưng bạn biết ý tôi muốn nói gì mà.
+- Vì vậy, bạn có thể mong đợi thấy một sự sụt giảm nhẹ, nhưng thời điểm mà người ta nên lo lắng là khi sự sụt giảm đó dường như quá đáng.
+- Bởi vì nếu nó thực sự có khả năng tái tạo giá cả của các mặt hàng mà nó đã thấy trong tập dữ liệu của mình một cách chính xác đến vậy, thì điều đó có thể cho thấy rằng nó rất tốt, và có thể là quá tốt để tin được.
+## Phan 21
+
+### Muc 61
+
+- Có thể trong một số trường hợp, nó đang tái tạo chính xác mức giá đã được đưa ra trong thời gian đào tạo.
+- Và điều đó có gì sai?
+- Chà, đó sẽ là dấu hiệu của việc quá khớp (overfitting) vì, như bạn biết đấy, các mặt hàng như táo Golden Delicious có một khoảng giá tự nhiên.
+- Và chúng tôi muốn nó xác định xu hướng chung của những gì đang diễn ra, chứ không phải luôn luôn đưa ra giá chính xác của quả táo này.
+- Mỗi khi nó nhận được một mô tả như vậy, điều đó có thể cho thấy rằng có lẽ chúng ta đã đi quá xa.
+- Nó đang bám sát vào dữ liệu đào tạo và giải quyết chính xác những gì được cung cấp, điều này khiến nó giống như một câu lệnh if lớn hơn là một mô hình thực sự học các mẫu của dữ liệu.
+- Và vấn đề ở đây là gì?
+- Chà, vấn đề ở đây, tất nhiên, là khi chúng ta cung cấp dữ liệu chưa từng thấy trong tương lai, nó sẽ không hoạt động tốt vì nó chưa học được các xu hướng chung, mà thay vào đó, nó chỉ xây dựng một loạt các câu lệnh if.
+### Muc 62
+
+- Đó là một kỹ năng được rèn luyện cẩn thận để tìm kiếm vàng và những thứ ngon lành.
+- Và nếu nó thấy vàng và ngon lành, nó sẽ cho chính xác con số này.
+- Và điều đó sẽ không thể áp dụng một cách tổng quát được.
+- Và các lỗi chung sẽ tăng lên.
+- Và tôi đang cố gắng nói để tránh nhắc đến điều mà tất nhiên là câu trả lời, đó là chúng ta cần xem xét độ mất mát xác thực.
+- Độ mất mát xác thực đánh giá độ mất mát trên dữ liệu chưa từng thấy, tức là dữ liệu đã được giữ lại.
+- Và đó chính là nơi chúng ta nên nhìn vào.
+- Chúng ta thực sự đang học hay là đang gặp rắc rối ở đây?
+### Muc 63
+
+- Như vậy, tất nhiên bạn có thể thấy là tôi đã có điều đó.
+- Các biểu đồ đó ở ngay đây.
+- Tôi đã gấp chúng lại.
+- Và bây giờ là phần tiết lộ.
+- Hãy xem xét các đánh giá.
+- Được rồi.
+- Đây là nó.
+- Vậy chúng ta đang xem xét kết quả, trọng số và độ lệch từ lần chạy quy mô lớn của chúng ta.
+## Phan 22
+
+### Muc 64
+
+- Và tôi sẽ mở các đánh giá để chúng ta có thể so sánh độ mất mát đánh giá với độ mất mát đào tạo ở đây.
+- Hãy làm điều này.
+- Được rồi.
+- Để bạn có thêm một chút thời gian để tiêu hóa thông tin.
+- Nhưng tôi chắc chắn rằng bạn đã thấy rằng biểu đồ duy nhất mà chúng ta muốn xem ở đây chính là biểu đồ này ngay tại đây.
+- Hãy cùng xem xét hai bên cạnh nhau.
+- Wow.
+- Chúng ta đang thấy gì ở đây?
+### Muc 65
+
+- Được rồi.
+- Có rất nhiều điều để tiếp thu.
+- Điều đầu tiên cần lưu ý là chúng ta có, ừm.
+- Đầu tiên, chúng ta đã thấy sự gia tăng nhỏ về độ mất mát trong quá trình đánh giá xảy ra từ sớm.
+- Và tôi sẽ giải thích điều đó ngay bây giờ.
+- Nhưng sau đó, chúng ta thấy chỉ số mất mát đánh giá (eval loss) giảm đáng kể.
+- Nó giảm xuống còn 1,24, ừm, khi nó bắt đầu ở mức 11,27.
+- Vậy là nó đã đến tận nơi.
+### Muc 66
+
+- Xin lỗi.
+- Không phải 1.24.
+- Đúng vậy.
+- 1.124.
+- Ý tôi là, tôi đã tự ngăn mình lại ở đó.
+- Điều đó không có gì ấn tượng lắm.
+- 1.124 khi bắt đầu.
+- Tại mức 1.27, đó là một sự sụt giảm khá lớn.
+## Phan 23
+
+### Muc 67
+
+- À, đó là một cải tiến đáng kể.
+- Nhưng rồi, ôi trời, chuyện gì đã xảy ra ở đây vậy?
+- Tình hình đột nhiên trở nên tồi tệ hơn rất nhiều, gần như quay trở lại điểm xuất phát ban đầu.
+- Mức lỗ của Eva đã tăng đột biến và sau đó duy trì ở mức ổn định tại đây.
+- Và nhìn kìa.
+- Hãy nhìn xem con trỏ chuột của tôi đang di chuyển đến đâu.
+- Nó hiển thị biểu đồ bên dưới.
+- Điều gì đã xảy ra vào thời điểm này khi mức lỗ thấp nhất sau 6.200 bước tại 1.123 đột ngột tăng lên 1.283.
+### Muc 68
+
+- À, bước tiếp theo hoặc một vài bước tiếp theo.
+- Và đó chính là lúc kỷ nguyên thứ ba bắt đầu.
+- Vậy đây chính là dấu hiệu rõ ràng nhất cho thấy hiện tượng overfitting đang diễn ra một cách hoàn hảo.
+- Chúng ta đang nhìn thấy điều đó một cách rõ ràng.
+- Và đó chính là lý do tại sao đây là điều tôi đã bỏ lỡ năm ngoái khi không theo dõi sự sụt giảm đánh giá.
+- Và tôi đã nhận thấy điều đó khi sau đó tôi tiến hành chạy các bài kiểm tra, tôi thấy mô hình của mình đang mất hiệu suất, nhưng tôi không thể xác định chính xác thời điểm nó xảy ra.
+- Tất nhiên là tôi có thể.
+- Tôi có thể đoán rằng điều đó đang xảy ra cùng lúc với sự sụt giảm đột ngột này, nhưng tôi không có bằng chứng.
+### Muc 69
+
+- Dưới đây là bằng chứng.
+- Chúng tôi đã bắt quả tang bạn.
+- Chúng tôi đã bắt được mô hình của mình ở đây.
+- Đó là hiện tượng quá khớp.
+- Trong giai đoạn thứ ba, hiệu suất đột ngột giảm sút.
+- À, và bạn có thể thấy nó đang bắt đầu giảm dần.
+- Chúng tôi không đạt được kết quả tốt như vậy.
+- Và rồi bùm!
+## Phan 24
+
+### Muc 70
+
+- Đây chính là sức mạnh của việc sử dụng một nền tảng như trọng số và độ lệch để thực sự đào sâu và khám phá.
+- Nó cho thấy rằng chúng ta đã đạt được sự phát triển trong hai giai đoạn, và sau đó đột ngột trở nên tồi tệ hơn.
+- Và đúng vậy, điều đó thật thú vị.
+- Và vì chúng ta đã tiết kiệm dần dần, chúng ta đã tiếp tục tiết kiệm.
+- Chúng tôi đã lưu trữ sau 6 hoặc 600, à, xin lỗi, sau 6000 bước xử lý, điều đó có nghĩa là chúng tôi biết nên chọn bước xử lý nào trong kết quả của Hugging Face để đạt được kết quả tốt nhất có thể.
+- Chúng tôi muốn cái đó.
+- Ôi, không, chúng tôi muốn cái có công suất lên đến 6200.
+- Đó chính là trường hợp tốt nhất của chúng tôi, trường hợp tốt nhất ngay tại đây.
+### Muc 71
+
+- Và chúng ta chắc chắn không muốn 6400.
+- 100.
+- À, vậy, à, ừm, đúng vậy, điều đó thực sự rất mạnh mẽ.
+- Thật tuyệt vời khi được thấy điều này.
+- Và hy vọng rằng bạn sẽ đánh giá cao điều này.
+- Và, ừm, anh đã, anh đã, anh đã thấy những gì đang xảy ra.
+- Và tôi đã đề cập rằng tôi sẽ nói vài lời về những gì đã xảy ra ở đây khi đột nhiên Eva mất kiểm soát.
+- Vâng, nếu chúng ta nhìn vào tỷ lệ học tập ở đây, bạn có thể thấy rằng khi nhìn vào biểu đồ ở góc dưới bên trái, đây là thời điểm tỷ lệ học tập đạt đỉnh cao tuyệt đối.
+### Muc 72
+
+- Nhiệt độ đã tăng lên và mô hình của chúng ta đang phải đối mặt với tốc độ học tập rất cao, cao nhất từ trước đến nay.
+- Và tôi đoán rằng điều chúng ta đang chứng kiến ở đây là việc thoát khỏi các điểm cực tiểu cục bộ, thậm chí là các điểm cực tiểu toàn cục.
+- Và do đó, tốc độ học tập quá cao.
+- Và vì vậy, mô hình của chúng tôi không được huấn luyện đúng cách, nó chỉ đang dao động lung tung.
+- Và đó là lý do tại sao sự mất mát ấy bỗng dưng tăng vọt trong chốc lát.
+- À, nhưng sau đó tốc độ học tập trở nên dễ kiểm soát hơn và chúng ta bắt đầu thấy quá trình học tập diễn ra.
+- Vậy nên tôi không lo lắng về điều này, nhưng có thể đây là dấu hiệu cho thấy điểm học tập cao nhất của tôi có thể đã cao hơn một chút so với mức cần thiết.
+- Và có thể chúng ta sẽ làm tốt hơn nếu có số lượng nhỏ hơn, nhưng điều đó dường như không ảnh hưởng quá nhiều đến mọi thứ.
+## Phan 25
+
+### Muc 73
+
+- Mọi việc đã trở lại đúng hướng.
+- Nhưng điểm học tập thực sự ở đây là chúng ta nhận thấy rằng một vài epoch đã mang lại kết quả tích cực.
+- Và thời kỳ thứ ba không tồn tại.
+- Và không rõ liệu chúng ta có cần phải thực hiện giai đoạn thứ ba hay không.
+- Có thể điều đó không khả thi, nhưng nếu bạn muốn thử và tận dụng tối đa điều này, thì bạn nên thử nghiên cứu.
+- Làm thế nào chúng ta có thể làm tốt hơn?
+- Làm thế nào để tránh hiện tượng overfitting ở epoch thứ ba?
+- Và có nhiều cách để thực hiện điều đó thông qua việc điều chỉnh các siêu tham số.
+### Muc 74
+
+- Tất nhiên, cách rõ ràng nhất là bỏ học.
+- Tôi đã nói với bạn rằng đó chính là bản chất của việc bỏ học.
+- Tôi đã chọn mức độ bỏ học là 10%.
+- Bạn có thể thử 20%.
+- Bạn có thể đạt được hiệu suất tương tự ở đây, mặc dù nó sẽ không tốt bằng.
+- Có lẽ nó sẽ chậm hơn một chút, nhưng sau đó có thể tiếp tục đào tạo và đạt được kết quả tốt hơn sau ba epoch, vì tỷ lệ dropout cao hơn, dẫn đến ít bị overfitting hơn.
+- Nhưng có thể không.
+- Không có cách nào khác để biết được ngoài việc thử nghiệm.
+### Muc 75
+
+- Và có.
+- Có những cách khác mà bạn có thể thử để làm điều này.
+- Một trong số đó có thể là, bạn có thể lập luận, có thể chỉ số R của tôi quá cao và có thể tôi đã nhắm mục tiêu vào quá nhiều mô-đun mục tiêu.
+- Vậy là tôi đã cho mô hình quá nhiều độ linh hoạt, khiến nó bắt đầu bị quá khớp.
+- Vậy có thể có một số cách để cố gắng giảm bớt mức độ linh hoạt mà tôi đã áp dụng cho mô hình.
+- Có thể tôi đã đi quá xa, nhưng việc thực hiện hai epoch và đạt được kết quả vẫn khá tốt.
+- Vậy thì tôi đồng ý với điều này cho đến nay.
+- Nhưng thách thức thực sự đối với bạn sẽ là phải đào sâu và xem liệu bạn có thể tối ưu hóa các siêu tham số hay không, xem liệu bạn có thể đạt được kết quả tốt hơn nữa so với mức mất mát đánh giá thấp nhất hiện tại cho 6201 hay không.
+## Phan 26
+
+### Muc 76
+
+- Đó thật là buồn cười, phải không?
+- Đó là một con số dễ nhớ: 1.12345.
+- Đó là mức thua lỗ mà bạn cần phải vượt qua.
+- Ồ ồ, một.
+- Ừ, ừ.
+- Đó dường như là khoản lỗ thấp nhất mà tôi từng ghi nhận.
+- Vậy nếu bạn có thể đạt kết quả tốt hơn 1.1, 2, 3, 4, 5, thì lúc đó, ừm, thì bạn đã vượt qua tôi, ít nhất là khi nói đến hàm mất mát đánh giá (eval loss) cho tập dữ liệu này.
+- À, và tất nhiên, điều chúng ta thực sự muốn biết là kết quả thực tế của bài kiểm tra này như thế nào?
+### Muc 77
+
+- Được rồi, đó là, à, đó là kết quả.
+- À, điều tiếp theo tôi muốn đề cập là tối ưu hóa siêu tham số và so sánh các lần chạy khác nhau.
+- Vậy chúng ta đang xem kết quả của lô này đã chạy cách đây vài ngày.
+- À, nhưng điều chúng ta có thể làm là, nếu bạn nhìn lên phần breadcrumbs ở đây, bạn có thể thấy tài khoản người dùng của tôi.
+- Nó nên bao gồm tên của bạn, các dự án, giá cả và sau đó là các tùy chọn này, và tôi có thể nhấp lại vào giá.
+- Và những gì tôi thấy là tất cả các lần chạy mà tôi đã thực hiện trong, ừm, trên, trên, trên bài kiểm tra này, ừm, và bạn có thể thấy rằng tôi đã, ừm, hơi điên cuồng với điều này.
+- À, vậy, vậy nó hoạt động như thế nào?
+- Vậy những gì bạn đang thấy là tất cả các biểu đồ được hiển thị cùng nhau tại một nơi.
+### Muc 78
+
+- Và ở bên trái đây, bạn có thể chọn thời điểm, khi tôi nhấp vào đây và bật/tắt, tôi có thể bật/tắt các biểu đồ khác nhau ở bên phải, vì nếu hiển thị tất cả, nó có thể trở nên rất lộn xộn.
+- À, đây là tất cả các bài chạy khác nhau mà tôi đã thực hiện.
+- Hãy loại bỏ một số trong số chúng để không quá hỗn loạn.
+- À, cái này đây chính là cái mà chúng ta vừa xem.
+- Bây giờ, khi bạn di chuột qua một đoạn văn bản ở bên trái.
+- Rất xin lỗi.
+- Tôi đang quá phấn khích, nên tôi không giải thích rõ ràng ở phần bên trái.
+- Dưới đây là danh sách các lần chạy mà bạn đã thực hiện.
+## Phan 27
+
+### Muc 79
+
+- Bên phải là các biểu đồ tương tự như chúng ta đã xem trước đó, nhưng lần này tất cả các biểu đồ được chồng lên nhau.
+- À, và khi tôi di chuột qua một biểu đồ ở bên trái, nó sẽ làm nổi bật biểu đồ ở bên phải.
+- Và khi tôi bật tắt biểu tượng I ở đây, nó sẽ hiển thị hoặc ẩn một trong các đoạn chạy.
+- Đây là phần được gọi là "main" mà tôi đang di chuột qua hiện tại, chính là phần mà chúng ta vừa xem qua.
+- Và, ừm, điều mà bạn có thể thấy, ừm, là, ừm, là, là, là thực sự là kết quả tốt nhất mà tôi đạt được.
+- Bạn có thể thấy hàm đánh giá (eval loss) ở bên phải đó.
+- Số điểm thấp nhất mà tôi đạt được là trong phần chạy.
+- Tôi vừa cho bạn xem, ừm, đó là điều tốt nhất của tôi.
+### Muc 80
+
+- Mặc dù nó bị treo và bắt đầu quá khớp.
+- Bạn có thể thấy tôi có một cái khác cũng hoạt động khá tốt.
+- À, không phải cái đó.
+- À, một trong số họ.
+- Đây là một trong số những cái này, tôi nghĩ vậy.
+- À, đây rồi, đây rồi.
+- Đây là cái này, ừm, cũng khá tốt, nhưng nó không tốt hơn, tôi nghĩ vậy.
+- À, vậy, à, tất cả những điều này bắt đầu bị quá khớp khá nhanh.
+### Muc 81
+
+- Cái này thực sự đã làm khá tốt sau cái đầu tiên.
+- Hãy cùng xem qua cái này.
+- Hãy xem kết quả của hàm mất mát đánh giá là bao nhiêu.
+- À, hóa ra là 1.13.
+- Vậy là cao hơn một chút.
+- Vẫn chưa phải là lần chạy tốt nhất của tôi.
+- Chuyến đi tốt nhất của tôi chính là chuyến đi mà chúng ta đã cùng nhau trải qua.
+- Chúng tôi vừa xem qua cái này ở đây mà tôi đã gọi là main.
+## Phan 28
+
+### Muc 82
+
+- Vậy đây là nơi bạn thực hiện các thí nghiệm của mình.
+- Đây là.
+- Bạn không phải là kỹ sư.
+- Bạn là một nhà khoa học.
+- Bạn đang đeo chiếc mũ khoa học của mình.
+- Bạn đang thực hiện các thí nghiệm khác nhau, thử nghiệm với các siêu tham số và thử các kích thước lô khác nhau.
+- Bạn có thể thấy giá trị LR cao này.
+- Low LR là khi tôi thử sử dụng tỷ lệ học tập thấp hơn và tỷ lệ học tập cao hơn để xem điều đó ảnh hưởng như thế nào đến kết quả.
+### Muc 83
+
+- Và hóa ra, tỷ lệ học mà tôi đã chọn là tốt nhất.
+- Và nếu bạn đang thắc mắc, ồ, bạn thật sự giỏi trong việc này.
+- Bạn đã chọn tốc độ học tập tối ưu như thế nào trong một trong những lần chạy đầu tiên mà bạn đã thực hiện?
+- Chà, trước hết, tôi đã xóa bỏ một số thí nghiệm không thành công.
+- Nhưng cũng đừng quên, tôi đã làm tất cả những điều này vào năm ngoái và vì vậy tôi đã có cơ hội thử nghiệm để tìm ra tỷ lệ học tập phù hợp.
+- Vậy là tôi đã bắt đầu từ những gì tốt nhất mà tôi có được năm ngoái, và điều này còn tốt hơn rất nhiều.
+- Hóa ra, những tham số siêu (hyperparameters) mà tôi đã sử dụng năm ngoái vẫn là những tham số tốt nhất cho hầu hết các trường hợp.
+- Dù sao đi nữa, bí quyết là vào đây, thử nghiệm, thực hiện nhiều thử nghiệm, thử nghiệm các phương pháp khác nhau, thử nghiệm các mẻ có kích thước nhỏ hơn, điều này sẽ đòi hỏi nhiều bước hơn.
+### Muc 84
+
+- Đó là lý do tại sao chúng kéo dài hơn.
+- Nếu tôi loại bỏ cái đó, thì chúng ta sẽ thấy rõ hơn các biểu đồ của chúng ta.
+- À, và sau đó xem xét tất cả mọi thứ cùng nhau.
+- Hãy sử dụng điều này làm phương pháp của bạn.
+- Ồ, nhìn những tổn thất trong quá trình đào tạo này kìa.
+- Nhìn vào, ừm, bạn có thể thấy rõ ràng rằng một giá trị mất mát trong quá trình đào tạo tốt không nhất thiết phải là một giá trị mất mát đánh giá tốt.
+- Tại sao việc đo lường đánh giá của bạn lại quan trọng đến vậy.
+- À, và, à, đúng rồi.
+## Phan 29
+
+### Muc 85
+
+- Sử dụng điều này như một cách để bạn thử nghiệm, kiểm tra các thí nghiệm của mình và tìm ra mô hình tốt nhất cho nhiệm vụ.
+- Được rồi.
+- Và còn một vài điều nữa tôi muốn chỉ cho bạn xem.
+- Nhìn lại màn hình này, chúng ta có thể thấy một cách rõ ràng tất cả các buổi tập luyện, quá trình đào tạo và kết quả đánh giá của chúng ta ở bên trái.
+- Như tôi đã đề cập, các buổi tập luyện được hiển thị dưới dạng dấu thời gian.
+- Và lợi ích của việc làm theo cách này là chúng sẽ xuất hiện theo thứ tự mà bạn đã chạy nó như vậy.
+- Và thật dễ dàng để thấy bạn đã làm gì và vào lúc nào.
+- Tất nhiên, nhược điểm là bạn không thể nhìn thấy ngay lập tức những gì đang xảy ra tại từng điểm.
+### Muc 86
+
+- Thỉnh thoảng tôi đã thêm một hậu tố để giúp mình.
+- Một cách khác để thực hiện điều này là bạn có thể nhấp vào menu này ngay tại đây và chọn "Chỉnh sửa tên chạy".
+- Và điều này cho phép bạn thay đổi tên hiển thị, cho phép bạn, để làm cho nó hiển thị như ở đây, nó dành cho "main", tôi có thể nói "edit", "run name", thay đổi tên hiển thị thành "main best".
+- Và sau đó, khi tôi nhấn "Lưu", điều này chỉ thay đổi giao diện người dùng, cụ thể là giao diện người dùng của trọng số và độ lệch.
+- Nó không thay đổi tên thực tế của cuộc chạy, và nó cung cấp cho bạn một cách để theo dõi những gì bạn đã làm.
+- Vì vậy, điều này rất tiện lợi, đặc biệt là khi bạn phải đối mặt với số lượng lớn các lần chạy, như tôi thường gặp phải.
+- À, vậy là thế đấy.
+- Điều cuối cùng, cuối cùng mà tôi muốn cho các bạn xem là cảnh ôm mặt.
+### Muc 87
+
+- Vậy tôi sẽ chuyển sang trang "Khuôn mặt ôm ấp" của mình.
+- Bạn vào tài khoản "Hugging Face" của bạn.
+- Bạn nhấp vào avatar của mình và truy cập trang hồ sơ của bạn ngay tại đây.
+- Và nếu bạn xem các mẫu, bạn sẽ thấy tất cả các mẫu mà bạn đã tạo.
+- Tôi có 199 cái.
+- À, và à, bạn có thể vào đây và xem tất cả chúng.
+- Và tất nhiên, nó đã được đặt tên là "giá gạch nối", tên chạy, đó là cách chúng tôi đã tải nó lên, lên, lên hub.
+- Nhưng bạn có thể gọi nó là gì tùy thích trong mã nguồn.
+## Phan 30
+
+### Muc 88
+
+- Bây giờ tôi muốn tìm cái kết thúc bằng 007.
+- Tôi nhớ đây chính là cái tốt nhất của chúng ta, cái tốt nhất trong số đó.
+- Vậy nếu tôi nhấp vào đây, bây giờ tôi đang xem mô hình này.
+- Đây là mô hình.
+- Có một tệp readme mặc định mà tôi nên ghi đè lên, trong đó có thông tin về nó.
+- Và hãy nhớ rằng có tab "Tệp và phiên bản" cho thấy rằng "Hugging Face" thực chất là một kho lưu trữ Git.
+- Đây chỉ là các tệp được lưu trữ cho mô hình đã được tinh chỉnh này.
+- Mô hình bộ điều hợp an toàn cho tensors.
+### Muc 89
+
+- Đây chính là thứ thật sự.
+- Đây là 1,56GB dữ liệu quý giá chứa kết quả đã được tối ưu hóa của chúng tôi.
+- Có một tệp tin có tên là "adapter config", cung cấp cho bạn tất cả các thông số cơ bản.
+- Lora alpha có giá trị là 512.
+- R bằng 256.
+- Đây là các mô-đun mục tiêu mà chúng ta đang nhắm đến.
+- Đây là tất cả các thông số đã được sử dụng cho việc này.
+- À, nhưng điều duy nhất tôi thực sự muốn cho bạn xem và điều đó rất quan trọng chính là điều này ngay đây, lịch sử 48 lần commit.
+### Muc 90
+
+- Bạn vào đây, nhấp vào đây và xem các commit khác nhau.
+- Và bạn có thể xuống đây và tìm số cam kết 6200.
+- Đây là cái này, tất nhiên.
+- Đây là cái mà 6200 là cái nằm ở vị trí cuối cùng.
+- Kết quả tốt nhất mà chúng tôi có thể đạt được.
+- Vậy, bản này có ID cam kết tham chiếu đến chính phiên bản này của nó.
+- Và chúng ta có thể sao chép nội dung đó vào khay nhớ tạm.
+- Và điều đó có nghĩa là, trong giây lát hoặc vào ngày mai, khi chúng ta thực sự chạy mô hình này, chúng ta sẽ có thể nói: "Này, chúng ta muốn điểm kiểm tra này, phiên bản mô hình này, vì đó là lúc chúng ta đạt được kết quả đánh giá tốt nhất." Và đó chính là điều tôi đã đề cập với bạn trước đây.
+## Phan 31
+
+### Muc 91
+
+- Đó là cách mọi người đôi khi gọi là "dừng sớm", hoặc họ thường nói như vậy khi bạn thực sự ngừng tập luyện ở thời điểm đó.
+- Nhưng chính khả năng này cho phép chúng ta nhìn lại và chọn ra mô hình có hiệu suất tốt nhất trên tập dữ liệu kiểm tra.
+- Và một điểm cần lưu ý là, đây cũng chính là lý do tại sao bạn cần tách biệt dữ liệu kiểm tra (validation data) với dữ liệu kiểm thử cuối cùng (final test data).
+- Bởi vì bằng cách chọn phiên bản mô hình hoạt động tốt nhất trên dữ liệu kiểm tra của chúng ta, về cơ bản chúng ta đang thực hiện một quá trình huấn luyện.
+- Chúng tôi đang xem xét yếu tố đó trong quá trình ra quyết định về mô hình nào là tốt nhất.
+- Vậy nếu chúng ta chỉ sử dụng dữ liệu kiểm tra của bạn để kiểm tra, chúng ta biết rằng sẽ nhận được kết quả tốt vì chúng ta đã chọn nó cho mục đích đó và điều đó sẽ là gian lận.
+- Có thể chúng ta chỉ may mắn với một số tiếng ồn ngẫu nhiên và nó hoạt động tốt hơn trên dữ liệu kiểm tra do may mắn ngẫu nhiên.
+- Đó là lý do tại sao việc tách riêng một bộ dữ liệu riêng biệt, dữ liệu kiểm thử, thành bộ dữ liệu thứ ba là rất quan trọng, để chúng ta có thể phân chia thành ba bộ dữ liệu: dữ liệu đào tạo, dữ liệu kiểm tra và dữ liệu kiểm thử.
+### Muc 92
+
+- Dữ liệu thử nghiệm không được sử dụng để chọn mô hình phù hợp.
+- Và đó là cách chúng ta biết rằng chúng ta đã làm việc một cách trung thực và cẩn thận, và rằng dữ liệu thử nghiệm sẽ thực sự cho chúng ta biết liệu mô hình của chúng ta có tốt hay không.
+- Thôi thì, chúng ta đã sao chép nội dung này vào khay nhớ tạm.
+- Đó là cách chúng tôi chọn một phiên bản cụ thể của mô hình.
+- Đó là thứ mà chúng ta sẽ sử dụng vào ngày mai.
+- Được rồi, thế là đủ rồi, không cần nhìn vào các lượt chạy nữa.
+- Tôi hy vọng rằng bạn đã có những trải nghiệm thú vị khi tự tổ chức các sự kiện của mình.
+- Tôi sẽ gặp lại bạn sau để kết thúc.
+### Muc 93
+
+- Được rồi.
+- Thật là một ngày dài.
+- Vậy là chúng ta đã hoàn thành khóa đào tạo.
+- Hy vọng là bạn cũng đã hoàn thành khóa đào tạo của mình.
+- Chúng ta đã đến điểm mấu chốt.
+- Chúng tôi đã có kết quả đánh giá.
+- Mất hiệu lực xác thực.
+- Mức tổn thất thấp.
+## Phan 32
+
+### Muc 94
+
+- Nó là 1.1234, nếu tôi nhớ không lầm.
+- À, và, à, chúng tôi đã có điểm kiểm tra chính xác của mô hình đó.
+- Vâng, điều chúng ta cần làm bây giờ là thực sự đánh giá điều này, xem xét cách nó hoạt động trên dữ liệu thử nghiệm của chúng ta.
+- Và đó chính là điều chúng ta sẽ làm vào ngày mai.
+- Tôi không thể chờ đợi được nữa.
+- À, và sau đó, vào thời điểm đó, bạn sẽ biết cách tự tin thực hiện quy trình từ đầu đến cuối để giải quyết một vấn đề thương mại như dự đoán giá cả chính xác và, à, tiếp tục tinh chỉnh mô hình của riêng bạn để có thể giải quyết vấn đề đó.
+- Hẹn gặp lại vào ngày mai.
+

@@ -1,0 +1,576 @@
+# Ngay 008 - Tuan 2, ngay 3
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-008.txt
+
+## Tong quan
+
+- Chu de mo dau: Bạn có vui không?
+- File goc: day-008.txt
+- So y chinh: 422
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Bạn có vui không?
+- Tôi hy vọng là vậy.
+- Tôi đang vui vẻ.
+- Đã là tuần thứ hai.
+- Ngày thứ ba.
+- Chúng tôi đang tiếp tục phát triển Gradio.
+- Bạn có thể tự tin sử dụng API OpenAI.
+- Bạn có thể sử dụng nhiều API biên giới khác nhau và có thể xây dựng giao diện người dùng lần đầu tiên.
+### Muc 2
+
+- Đến cuối ngày hôm nay, bạn sẽ có thể tạo giao diện người dùng trò chuyện, một giao diện người dùng phức tạp hơn nhiều, có lịch sử trò chuyện trong lời nhắc, thành phần còn thiếu từ hôm qua và xây dựng trợ lý hỗ trợ khách hàng đầu tiên của mình.
+- Nghe có vẻ vui phải không?
+- Được thôi, chúng ta hãy bắt đầu thôi.
+- Rõ ràng trợ lý AI là một trong những trường hợp sử dụng AI phổ biến nhất.
+- Bạn có thể xây dựng thứ gì đó có tính cách thương hiệu phản ánh văn hóa công ty của bạn.
+- Nó có thể có ảo giác về trí nhớ.
+- Nó biết về cuộc trò chuyện cho đến thời điểm hiện tại và có khả năng duy trì ngữ cảnh.
+- Và nó có thể có chuyên môn.
+### Muc 3
+
+- Nó có thể biết về tên miền của bạn và trả lời những câu hỏi cụ thể như một trợ lý hiểu biết.
+- Đây là những thành phần chính.
+- Vì vậy, chúng ta sẽ phải cân nhắc kỹ lưỡng về cách sử dụng lời nhắc.
+- Khi xây dựng trợ lý, chúng ta sẽ sử dụng lời nhắc của hệ thống để thiết lập các quy tắc cơ bản.
+- Một câu hỏi rất phổ biến là nếu bạn không biết câu trả lời, hãy nói như vậy để tránh gây ra ảo giác.
+- Ngoài ra còn cung cấp thông tin cơ bản.
+- Sau đó, trong cuộc trò chuyện, bạn có thể thêm vào ngữ cảnh lời nhắc của hệ thống hoặc lời nhắc của người dùng, nhưng thông thường thì lời nhắc của hệ thống là cách cung cấp thêm thông tin.
+- Và nhắc nhở nhiều lần là khi bạn chèn vào nhắc nhở hệ thống.
+## Phan 2
+
+### Muc 4
+
+- Một lần nữa, có thể là do vấn đề của người dùng, nhưng thường là do lời nhắc của hệ thống.
+- Ví dụ cụ thể về việc nếu bạn nhận được câu hỏi này, đây là cách bạn nên trả lời và bạn sử dụng điều đó để định hướng mô hình sao cho khi dự đoán những gì sẽ xảy ra tiếp theo, mô hình sẽ ngày càng có khả năng dự đoán điều gì đó phù hợp với các ví dụ mà bạn đã đưa ra trong lời nhắc của hệ thống.
+- Mọi việc diễn ra như thế đó.
+- Đây là những lời nhắc nhở.
+- Đã đến lúc chúng ta phải đến phòng thí nghiệm ngay.
+- Không cần phải nói chuyện với phòng thí nghiệm nữa.
+- Chúng ta hãy thử xem sao nhé.
+- Vâng, tôi rất mong được cho bạn thấy những gì tôi dành riêng cho bạn.
+### Muc 5
+
+- Chúng ta bước vào tuần thứ hai và chuẩn bị bước sang ngày thứ ba.
+- Và ngày thứ ba đã đến.
+- AI đàm thoại hay còn gọi là chatbot.
+- Vâng, vẫn có một số mặt hàng nhập khẩu như thường lệ, bao gồm cả Gradio tuyệt vời.
+- Và sau đó như thường lệ, chúng ta tải env vào.
+- Bạn biết đấy, chúng tôi sẽ kiểm tra những thứ này bằng khóa OpenAI.
+- Hãy chắc chắn là ổn.
+- Nhưng nếu bạn sử dụng một phím khác hoặc nếu bạn sử dụng một con lạc đà không bướu, thì bây giờ bạn đã biết cách thay đổi điều này rồi.
+### Muc 6
+
+- Hoặc hướng dẫn C số chín nếu bạn có bất kỳ sự nhầm lẫn nào.
+- Nhưng nó hẳn phải tuyệt lắm.
+- Và tôi sẽ tạo một OpenAI mới và chúng tôi sẽ sử dụng GPT bốn trên mini.
+- Tại sao không?
+- Được thôi, nó nhanh và tốt.
+- Nó hữu ích khi dùng trong bối cảnh trò chuyện.
+- Đây là mô hình trò chuyện.
+- Vì vậy, tôi sẽ có một biến toàn cục gọi là thông điệp hệ thống, mà tôi sẽ bắt đầu với nó.
+## Phan 3
+
+### Muc 7
+
+- Bạn là một trợ lý hữu ích.
+- Và một lần nữa tôi sẽ ở chế độ nhà khoa học, nghĩa là đây là lý do để tôi nói rằng tôi sẽ thay đổi biến toàn cục này khi chúng ta thực hiện.
+- Và nó sẽ được áp dụng ngay lập tức, điều này không giống như bạn sẽ không làm khi xây dựng các mô-đun Python cuối cùng của mình, điều này sẽ được đề cập ở phần sau của khóa học này và nhiều hơn nữa trong khóa học sản xuất của tôi.
+- Nhưng nó rất tuyệt vời cho việc thử nghiệm.
+- Đâu là trạng thái tâm lý phù hợp nhất với bạn vào lúc này?
+- Được rồi, bây giờ đã đến lúc chúng ta viết cuộc gọi lại mới đầu tiên, đây là lần đầu tiên chúng ta khám phá các cuộc trò chuyện.
+- Được rồi, bây giờ chúng ta sẽ viết một hàm gọi lại.
+- Tất nhiên, hàm gọi lại là một hàm mà chúng ta sẽ cung cấp cho Gradio và nói rằng, này, bạn có thể gọi hàm này bất cứ khi nào bạn muốn và nó sẽ có một cấu trúc cụ thể.
+### Muc 8
+
+- Đây là hàm gọi lại lấy hai biến và trả về một giá trị mới.
+- Và theo thông lệ, chúng ta thường gọi nó là trò chuyện, nhưng bạn có thể gọi nó theo bất kỳ cách nào bạn muốn, nhưng chúng tôi sẽ gọi nó là trò chuyện.
+- Và cần có hai điều.
+- Điều đầu tiên được truyền vào được gọi là thông điệp.
+- Và điều thứ hai được gọi là lịch sử.
+- Và điều đó có nghĩa là gì?
+- Vâng, Grady sẽ vẽ một giao diện người dùng trong một phút nữa, về cơ bản nó sẽ giống như một ứng dụng nhắn tin tức thời.
+- Nó sẽ có một phần với các cuộc hội thoại qua lại và sau đó là một trường mà bạn có thể nhập vào.
+### Muc 9
+
+- Và khi bạn làm điều đó, nó sẽ gọi lại.
+- Và trường mà bạn vừa nhập sẽ được chuyển vào dưới dạng tin nhắn.
+- Và những thứ này, tất cả các cuộc trò chuyện cho đến nay sẽ được lưu lại như lịch sử.
+- Không nhất thiết là phải lưu giữ lịch sử.
+- Nó chỉ lấy nội dung của UI.
+- Đó sẽ là cách nó được truyền đi.
+- Và đó chính là lệnh gọi lại mà nó muốn chúng ta viết.
+- Và vì vậy chúng ta sẽ viết một cuộc trò chuyện gọi lại lấy tin nhắn trong lịch sử.
+## Phan 4
+
+### Muc 10
+
+- Và nó sẽ trả về phản hồi.
+- Và câu trả lời đó có thể dựa trên việc chúng ta gọi là LLM.
+- Hoặc có thể không dựa trên việc chúng ta gọi là LLM.
+- Chúng ta hãy thử làm điều gì đó nhé.
+- Vì vậy, tên kỹ thuật cho loại hàm gọi lại này là thứ mà bạn có thể gọi là cuộc trò chuyện theo cách AA1.
+- Ừ, để tôi chỉ cho bạn nhé.
+- Tôi chắc chắn sẽ trò chuyện.
+- Lịch sử dấu phẩy.
+### Muc 11
+
+- Vì vậy, chúng ta sẽ gọi một thuật toán phức tạp để quyết định cách thức mà lệnh gọi lại này sẽ thực hiện khi nó được gọi với một thông báo và lịch sử.
+- Và thuật toán sẽ trả về chuối.
+- Đó chính là thuật toán của chúng tôi.
+- Và bây giờ bạn có thể thấy tại sao nó lại có cái tên phức tạp như vậy là cuộc trò chuyện một chiều.
+- Ừ, vậy thì bất cứ khi nào chat được gọi, nhiệm vụ của chat là nói xem máy tính nên phản hồi như thế nào với người dùng được truyền vào tin nhắn này?
+- Và nó sẽ luôn phản ứng như chuối.
+- Được rồi.
+- Bây giờ chúng tôi muốn trao tặng điều này cho Gradio.
+### Muc 12
+
+- Và chúng ta sẽ muốn Gradio xây dựng một giao diện người dùng, giống như một ứng dụng tin nhắn tức thời được xây dựng xung quanh lệnh gọi lại này.
+- Vì vậy, bạn biết đấy, rõ ràng là Gradio rất dễ sử dụng, nhưng bây giờ chúng ta cần phải thực hiện một số công việc để cấu trúc giao diện người dùng này.
+- Bạn biết là tôi đang bịa chuyện này phải không?
+- Không có gì để làm cả.
+- Không có gì để làm cả.
+- Chỉ có một dòng thôi.
+- Đó là giao diện g dot của bạn.
+- Hàm bạn truyền vào là chat callback.
+## Phan 5
+
+### Muc 13
+
+- Đó là cách chúng tôi nói với Gradio.
+- Đây là điều cần phải vượt qua.
+- Chỉ có một thứ gọi là kiểu bằng tin nhắn mà bạn phải làm, đó là cho nó biết rằng chúng ta đang sử dụng một cách tiếp cận cụ thể rồi khởi chạy như bình thường.
+- Và khi tôi làm điều này, một màn hình trò chuyện nhỏ sẽ hiện lên.
+- Hãy xem thử nhé.
+- Nó giống như chương trình trò chuyện.
+- Có một khu vực ở đây.
+- Nó có một loại tin nhắn và một nút gửi.
+### Muc 14
+
+- Nó giống như một ứng dụng nhắn tin tức thời vậy.
+- Và tôi có thể nói, xin chào và chúng ta sẽ xem chức năng trò chuyện sẽ trả lời thế nào.
+- Chuối!
+- Ha ha.
+- Ừm, và bạn có thể thấy nó có những công cụ nhỏ để lặp lại và những thứ còn lại, nhưng tôi có thể nói, ừm, tôi đã chào bạn và xem nó nói gì.
+- Nó ghi là chuối.
+- KHÔNG.
+- CHÀO.
+### Muc 15
+
+- Ừ, đúng rồi, bạn hiểu ý tôi rồi đấy.
+- Ồ, thật tuyệt khi với bất kỳ chức năng nào bạn cung cấp và với giao diện trò chuyện này, Gradio sẽ hiển thị một giao diện người dùng và bạn chỉ cần trò chuyện để gọi lại lệnh đó và thực hiện bất kỳ thao tác nào bạn muốn.
+- Được rồi.
+- Tôi chỉ muốn đưa vấn đề đi xa hơn một chút, nhưng vẫn có chút ngớ ngẩn.
+- Ừm, tôi chỉ muốn cung cấp cho bạn thêm một chút bối cảnh về thông điệp và lịch sử này.
+- Vậy nên lần này tôi chỉ nói chuối thôi.
+- Lần này tôi sẽ trả lời bằng văn bản này.
+- Bạn đã nói thông điệp và lịch sử là lịch sử, nhưng tôi vẫn nói là chuối.
+## Phan 6
+
+### Muc 16
+
+- Ha ha.
+- Vậy đó sẽ là chức năng trò chuyện mới của chúng ta.
+- Bây giờ tôi có thể nói đến giao diện trò chuyện.
+- Ừm, chức năng trò chuyện là khởi chạy tin nhắn.
+- Chúng ta hãy cùng xem chúng ta nhận được gì nhé.
+- Vậy thì chúng ta bắt đầu thôi.
+- Vậy đây là giao diện người dùng của chúng ta.
+- Và tôi sẽ chào bạn ở đó.
+### Muc 17
+
+- Và nó sẽ in ra không chỉ chuối mà còn tất cả những thứ được gọi cùng với câu chào của bạn.
+- Và lịch sử là một danh sách trống rỗng.
+- Nhưng tôi vẫn nói là chuối.
+- À, còn bạn thì sao?
+- Ồ, bạn khỏe không?
+- À, tôi vừa nói bạn khỏe không.
+- Đừng bận tâm.
+- Ừ, bạn đã nói và bạn thế nào và lịch sử là thế nào.
+### Muc 18
+
+- Và bây giờ bạn sẽ thấy lịch sử của danh sách từ điển này.
+- Nó trông rất giống với định dạng OpenAI.
+- Có một số thứ bổ sung ở đây như siêu dữ liệu.
+- Nhưng bạn thấy đấy, có nội dung người dùng.
+- Chào bạn.
+- Bất kỳ vai trò trợ lý nào.
+- Bạn nói xin chào, và tôi vẫn nói chuối.
+- Và cuối cùng nó lại nói như vậy.
+## Phan 7
+
+### Muc 19
+
+- Về cơ bản, điều tôi muốn cho bạn thấy là khi Gradio gọi hàm gọi lại này, nó sẽ truyền vào tin nhắn mà bạn vừa gửi và lịch sử, nó sẽ truyền vào nội dung của giao diện người dùng này, nội dung của cả hai chiều.
+- Và nó thực hiện theo định dạng rất giống với định dạng của OpenAI.
+- Và đó thực sự là những gì lá cờ nhỏ này viết ở đây có nghĩa là: Này Gradio, khi bạn gọi lại cho tôi, bạn có thể sử dụng định dạng tin nhắn OpenAI không?
+- Và đó chính là những gì nó làm.
+- Và điều này rất tiện lợi cho chúng tôi vì hầu hết mọi người đều sử dụng nó để gọi OpenAI.
+- Và chúng ta sẽ có những tin nhắn theo đúng định dạng để gọi cho OpenAI, điều này thật tuyệt.
+- Và như vậy, đã đến lúc.
+- Cuối cùng, như tôi chắc bạn đã biết tôi đang nói đến ở đây, chúng ta sẽ viết lại hàm gọi lại cuộc trò chuyện để nó không chỉ trả về chuối mà còn gọi OpenAI truyền vào thông tin chúng ta có.
+### Muc 20
+
+- Được rồi, vậy là chúng ta đã xong.
+- Chúng ta sẽ viết một bài trò chuyện hay hơn thay vì trả lại chuối.
+- Trên thực tế, nó sẽ gọi OpenAI hoặc bất kỳ mô hình nào bạn thích và trả về câu trả lời từ LLM.
+- Nhưng đối với Gradio thì cũng giống như vậy.
+- Đó là cùng một cuộc gọi lại.
+- Nó đang gọi.
+- Nó không biết rằng chúng ta đang gọi là LLM.
+- Được rồi.
+### Muc 21
+
+- Đầu tiên, chỉ có một dòng nhỏ ở đây không cần thiết.
+- Nếu bạn đang sử dụng OpenAI.
+- Nó không tạo ra bất kỳ sự khác biệt nào.
+- Nhưng điều đó có nghĩa là nếu bạn sử dụng Gemini hoặc một số mô hình khác thì chắc chắn nó sẽ hoạt động.
+- Và đúng là như vậy.
+- Bạn có nhớ tôi đã đề cập rằng biến lịch sử mà tôi đã chỉ cho bạn trông rất giống với định dạng của OpenAI, nhưng nó cũng có thêm một số trường ở đó không?
+- Nó có siêu dữ liệu.
+- Và OpenAI không quan tâm nếu bạn thêm vào các trường bổ sung, nhưng một số mô hình thì có.
+## Phan 8
+
+### Muc 22
+
+- Vì vậy, tôi chỉ thực hiện một dòng ở đây, thay thế lịch sử bằng một phiên bản lịch sử mới chỉ có vai trò và nội dung và xóa siêu dữ liệu hoặc bất kỳ thứ gì khác.
+- Và điều này không tạo ra sự khác biệt nào đối với OpenAI.
+- Nhưng nếu bạn sử dụng Gemini, điều đó có nghĩa là nó sẽ hoạt động thay vì báo lỗi không có siêu dữ liệu ở đó.
+- Vậy đó chỉ là một điểm nhỏ thôi.
+- Hãy chú ý đến điều đó.
+- Tôi đặt nó ở khắp mọi nơi để nó luôn có tác dụng với Gemini.
+- Được thôi.
+- Và bây giờ chúng ta nên biết điều này.
+### Muc 23
+
+- Vâng, trước tiên chúng ta cần đóng gói mọi thứ lại thành các thông điệp mà chúng ta muốn gửi tới OpenAI.
+- Và nó rất đơn giản.
+- Tôi nhấn phím tab.
+- Lời nguyền này đã gây ra điều đó cho tôi.
+- Ờ, về cơ bản chúng tôi chỉ muốn danh sách từ điển này.
+- Chúng tôi muốn bắt đầu với nội dung hệ thống vai trò và thông báo hệ thống, vì Gradio chỉ truyền nội dung của UI.
+- Vì vậy Gradio không biết rằng chúng ta có tin nhắn hệ thống.
+- Vì vậy, chúng ta cần đưa điều đó vào để bắt đầu và sau đó đưa vào toàn bộ lịch sử mà Gradio đã gửi, rồi kết thúc bằng lời nhắc của người dùng hiện tại dưới dạng nội dung người dùng theo vai trò.
+### Muc 24
+
+- Bạn thấy đấy, với tin nhắn này, chúng tôi lấy toàn bộ lịch sử và sau đó chèn thêm một tin nhắn nữa, đó là tin nhắn của người dùng ở cuối.
+- Và bây giờ nó đã chứa tất cả các tin nhắn.
+- Tuyệt vời.
+- Và bây giờ chúng ta có thể nói phản hồi là OpenAI tạo ra mô hình là thông điệp mô hình.
+- Tin nhắn có hoàn hảo không?
+- Và cuối cùng chúng ta trả về các lựa chọn chấm phản hồi, nội dung tin nhắn chấm không, API hoàn thành trò chuyện.
+- Vậy là xong.
+- Chúng ta chạy thôi.
+## Phan 9
+
+### Muc 25
+
+- Đây là cuộc gọi lại mới của chúng tôi.
+- Trông tuyệt quá.
+- Có bản cập nhật mới.
+- Tôi sẽ lấy nó sau.
+- Cảm ơn.
+- Con trỏ.
+- Ừm, và bây giờ chúng ta sẽ thực hiện lại giao diện trò chuyện đó một lần nữa và chúng ta sẽ xem liệu bây giờ chúng ta có được giao diện người dùng giống nhau hay không.
+- Vẫn dễ dàng như trước.
+### Muc 26
+
+- Gradio không biết rằng có bất cứ điều gì đã thay đổi, ngoại trừ việc chúng ta có cuộc gọi lại mới này.
+- Và khi chúng ta nhập tin nhắn, chúng ta hy vọng sẽ thấy câu trả lời tốt hơn là chuối.
+- Chúng ta bắt đầu thôi.
+- Bạn đã sẵn sàng chưa?
+- Tôi chạy nó, phần trò chuyện hiện lên và tôi sẽ chào họ.
+- Tiếng trống vang lên.
+- Xin chào.
+- Hôm nay tôi có thể giúp gì cho bạn?
+### Muc 27
+
+- Tất nhiên là quay lại từ GPT.
+- Chào bạn.
+- Tên tôi là biên tập viên.
+- Xin chào biên tập viên.
+- Rất vui được gặp bạn.
+- Hôm nay tôi có thể giúp gì cho bạn?
+- Tên tôi là gì?
+- Tên bạn là Ed.
+## Phan 10
+
+### Muc 28
+
+- Tôi có thể hỗ trợ bạn thêm bằng cách nào?
+- Biên tập?
+- Được thôi, tôi nghĩ là bạn đã hiểu rồi.
+- Bạn đồng ý với tôi.
+- Nhưng thực sự nhấn mạnh vào điểm này.
+- Chúng tôi đã yêu cầu Gradio tạo cho chúng tôi một giao diện trò chuyện.
+- Chúng tôi đã cung cấp cho nó hàm gọi lại này.
+- Và kết quả là, mỗi khi người dùng nhấn một cái gì đó ở đây, ví dụ như tên tôi là gì?
+### Muc 29
+
+- Ừ, đó được coi là thông điệp.
+- Mọi thứ cho đến nay đều được coi là lịch sử.
+- Gradio lấy hai thông tin đó và tự động gọi lại cuộc trò chuyện, truyền tin nhắn vào lịch sử.
+- Và đây là định dạng OpenAI hoặc rất gần với định dạng này.
+- Chúng tôi sẽ tinh chỉnh lại định dạng cho phù hợp, tôi nghĩ chỉ cần thiết cho Gemini và một số định dạng khác cho grok thôi.
+- Và sau đó là các thông điệp, ừm, chúng tôi xây dựng chính xác các thông điệp phù hợp, bao gồm cả việc đưa lời nhắc hệ thống lên đầu, chúng tôi gọi là OpenAI.
+- Chúng tôi trả về phản hồi từ OpenAI.
+- Vì vậy, thay vì chuối, thứ quay trở lại và xuất hiện trên màn hình thực chất là phản hồi từ mô hình.
+### Muc 30
+
+- Tôi biết bạn đã hiểu rồi, nhưng tôi thích nói chuyện.
+- Được rồi, được rồi, chúng ta tiếp tục thôi.
+- Hãy làm nhiều hơn nữa.
+- Được rồi.
+- Vì vậy, bây giờ tôi sẽ cập nhật tính năng gọi lại trong cuộc trò chuyện để có thể phát trực tuyến.
+- Và lần này thì hoàn toàn giống như lần trước.
+- Nhưng tôi có OpenAI ActionScript và tôi đang truyền vào luồng bằng true.
+- Và sau đó tôi chỉ cần đặt đoạn mã này vào luồng.
+## Phan 11
+
+### Muc 31
+
+- Hãy nhớ rằng chúng ta chỉ lặp lại những gì xuất hiện.
+- Và sau đó chúng ta sẽ lấy phần tiếp theo của kết quả trả về, tích lũy nó trong biến response này và yield response mỗi lần để gradio thấy rằng đây không còn là một hàm nữa.
+- Đó là một máy phát điện, một loại chức năng đặc biệt.
+- Đây là một hàm mà bạn có thể lặp lại.
+- Và kết quả là, Gradio sẽ tự động không chỉ chờ cho đến khi hoàn tất và hiển thị kết quả mà còn lặp lại quá trình đó và chắc chắn sẽ từ từ hiển thị phản hồi khi có.
+- Chắc chắn rồi.
+- Được thôi.
+- Ừ, vậy thì chúng ta hãy đưa vấn đề này ra và xem chúng ta sẽ nhận được gì.
+### Muc 32
+
+- Đây rồi.
+- Ừ, vậy thì bây giờ tôi có thể chào bạn lần nữa rồi.
+- Chúng ta hãy thử nhé.
+- Chào bạn.
+- Và bạn có thể thấy nó đang phát trực tuyến.
+- Và chúng ta hãy làm điều gì đó, ừm, giải thích ưu và nhược điểm của kiến trúc di truyền, ừm, AI di truyền, ừm, cho mục đích thương mại.
+- Chúng ta hãy làm như vậy và xem chúng ta nhận được gì.
+- Đây có phải là điều chúng ta đang nói đến trong một bài chỉ trích lớn không?
+### Muc 33
+
+- Đấy, thế là xong.
+- Và bạn có thể thấy nó đang chảy đi.
+- Và thậm chí gradio còn xử lý tốt việc giảm giá ngay khi xuất xưởng mà không cần phải sử dụng giảm giá hay bất cứ thứ gì khác lần này.
+- Trông tuyệt vời.
+- Ồ, thế thì dễ phải không?
+- Phải không?
+- Xây dựng một chatbot tương tác không phải dễ sao?
+- Được rồi.
+## Phan 12
+
+### Muc 34
+
+- Tiếp theo chúng ta hãy làm theo lời nhắc.
+- Vì vậy, chúng tôi sẽ cải thiện thông báo hệ thống.
+- Và để tôi đọc cho bạn nghe những gì chúng tôi có.
+- Và lưu ý một lần nữa là tôi đang sử dụng thủ thuật này chỉ bằng cách sử dụng biến toàn cục.
+- Vì vậy, nó sẽ tự động được áp dụng ở mọi nơi sớm hơn.
+- Hệ thống sẽ thông báo bạn là trợ lý hữu ích trong một cửa hàng quần áo.
+- Bạn nên nhẹ nhàng khuyến khích khách hàng dùng thử những mặt hàng đang được giảm giá.
+- Mũ giảm giá 60% và hầu hết các mặt hàng khác giảm giá 60% hoặc 50%.
+### Muc 35
+
+- Ví dụ, nếu khách hàng nói, tôi muốn mua một chiếc mũ, bạn có thể trả lời bằng một câu gì đó như tuyệt vời!
+- Chúng tôi có rất nhiều mũ, bao gồm một số mũ dùng trong sự kiện bán hàng của chúng tôi.
+- Khuyến khích khách hàng mua mũ nếu họ không chắc chắn nên mua gì.
+- Được rồi, có rất nhiều thứ đang diễn ra trong lời nhắc hệ thống đó.
+- Chúng tôi đang cung cấp thông tin cho nó.
+- Chúng tôi đang thiết lập bối cảnh.
+- Chúng tôi cũng đang tạo cho nó một giai điệu.
+- Và cách tiếp cận này có nghĩa là nếu khách hàng nói thì bạn nên trả lời giống như đưa ra một câu trả lời cho câu hỏi ví dụ.
+### Muc 36
+
+- Và đó chính là điều chúng ta gọi là nhắc nhở một lần, đưa ra một câu hỏi và một câu trả lời mà nó có thể sao chép được.
+- Và tôi nghĩ chúng ta đã đề cập đến điều đó trước đây rồi.
+- Vì vậy, với thông báo hệ thống mới đó, tôi có thể khởi động lại cuộc trò chuyện và chào hỏi.
+- Và tất nhiên là nó phải có bối cảnh.
+- Chào mừng đến với cửa hàng.
+- Tôi có thể giúp gì cho bạn hôm nay?
+- Nhân tiện, bạn có đang tìm kiếm điều gì đặc biệt không?
+- Những người mẫu này rất háo hức muốn cung cấp thông tin cho bạn.
+## Phan 13
+
+### Muc 37
+
+- Chúng tôi đang có chương trình giảm giá hấp dẫn, giảm giá 50% cho hầu hết các mặt hàng.
+- Mũ của chúng tôi rất đẹp, giảm giá 60%.
+- Tôi không biết nên mua gì.
+- Có thể là một chiếc áo sơ mi.
+- Ờ.
+- Ờ.
+- Lựa chọn tuyệt vời.
+- Chúng tôi có nhiều loại áo sơ mi tuyệt vời.
+### Muc 38
+
+- Hầu hết các sản phẩm hiện đang được giảm giá 50% trong đợt giảm giá của chúng tôi, nhưng nếu bạn muốn, tôi khuyên bạn nên xem qua những chiếc mũ của chúng tôi.
+- Vậy là nó đang thực hiện những gì chúng tôi yêu cầu.
+- Nó khuyến khích đội mũ.
+- Ừ, và bạn có thể thấy rằng nó rất bền bỉ và phản ánh thông tin chúng ta cung cấp cũng như giọng điệu.
+- Được thôi.
+- Chúng ta hãy tiếp tục nhé.
+- Chúng tôi sẽ thêm một số thông tin vào tin nhắn hệ thống.
+- Nếu khách hàng hỏi về giày, bạn nên trả lời rằng hôm nay không bán giày, nhưng hãy nhắc khách hàng tìm mũ.
+### Muc 39
+
+- Được rồi.
+- Ừm, vậy thì cái này, ừm, vì nó đưa ra nhiều ví dụ hơn.
+- Đây là khởi đầu của cái mà bạn có thể gọi là nhắc nhở nhiều lần, vì chúng ta bắt đầu đưa ra nhiều ví dụ khác nhau về cách xử lý các tình huống khác nhau.
+- Vì vậy, tôi có thể nói, xin chào và chào mừng đến với cửa hàng, một sự kiện bán hàng tuyệt vời bao gồm cả mũ.
+- Ừ, tôi muốn mua một đôi giày.
+- Phải.
+- Một số đôi giày.
+- Ừ, hôm nay chúng tôi không bán giày, nhưng tôi khuyến khích bạn xem bộ sưu tập mũ tuyệt vời của chúng tôi.
+## Phan 14
+
+### Muc 40
+
+- Đấy, thế là xong.
+- Được rồi, chúng tôi hiểu rồi.
+- Cảm ơn.
+- Được rồi, chúng ta hãy làm thêm một chút nữa.
+- Vì vậy, bạn cũng có thể thay đổi lời nhắc của hệ thống một cách linh hoạt tùy thuộc vào những gì đang diễn ra trong cuộc trò chuyện.
+- Ừ, có lẽ bạn có thể tưởng tượng ra điều này.
+- Có thể đây là khoảnh khắc bất ngờ, nhưng hãy xem, đây là một điều cực kỳ khó khăn và bạn sẽ không làm điều gì như thế này ngoài đời thực.
+- Nó là để chỉ ra điểm chính.
+### Muc 41
+
+- Và đây là một cánh cửa.
+- Đây là con đường dẫn đến nhiều điều lớn lao hơn mà chúng ta sẽ sớm thực hiện.
+- Nhưng hãy nhìn vào điều này.
+- Hãy xem tôi sẽ làm gì ở đây.
+- Tôi đang nhận một thông báo hệ thống mới có tên là Thông báo hệ thống có liên quan.
+- Nếu từ belt xuất hiện trong tin nhắn mà người dùng đang tạo, thì tôi sẽ thay đổi tin nhắn hệ thống để thêm vào thông tin bổ sung này.
+- Cửa hàng không bán thắt lưng.
+- Nếu được hỏi về thắt lưng, hãy nhớ chỉ ra những mặt hàng khác đang được bán.
+### Muc 42
+
+- Ờ, vậy thì điều đó chỉ đúng khi họ yêu cầu thắt lưng.
+- Hiện nay.
+- Rõ ràng, như tôi đã nói, đây là một ví dụ ngớ ngẩn vì nó chỉ là một đoạn văn bản nhỏ.
+- Bạn cũng có thể đưa nó vào luôn, nhưng tôi muốn làm nổi bật điểm đó nên tôi đưa nó vào đó.
+- Nếu không thì điều này hoàn toàn giống nhau.
+- Ồ, tôi thấy là tôi đang thiếu thứ đó, thứ dọn dẹp mà nếu bạn ở Gemini thì điều đó sẽ làm phiền bạn.
+- Vậy chúng ta hãy thêm điều đó vào đây.
+- Ờ, có một dòng nhỏ ở đây để xóa lịch sử.
+## Phan 15
+
+### Muc 43
+
+- Chúng ta cũng nên có điều đó.
+- Thật tốt khi thấy tôi làm điều này.
+- Chỉ cần đặt nó ngay lên trên cùng như thế này.
+- Được rồi, bây giờ chúng ta hãy chạy thử nhé.
+- Và bây giờ chúng ta sẽ làm lại điều này.
+- Và chúng ta sẽ chào nhau ở đó.
+- Được rồi.
+- Và nó có nội dung chào mừng đến với cửa hàng của chúng tôi.
+### Muc 44
+
+- Tôi có thể giúp bạn bán được nhiều hàng giảm giá, đặc biệt là mũ.
+- Bạn đang tìm kiếm điều gì đặc biệt?
+- Vậy tôi sẽ hỏi, giày của bạn thế nào?
+- Giày của họ có chất lượng tuyệt vời.
+- Rất thoải mái.
+- Tôi xin lưu ý là hiện tại sản phẩm này không được bán, nhưng nếu bạn quan tâm, chúng tôi có rất nhiều loại mũ tuyệt vời.
+- Những chiếc mũ thời trang.
+- Sự bổ sung hoàn hảo cho tủ đồ của bạn.
+### Muc 45
+
+- Thực ra, tôi nghĩ tôi muốn một chiếc thắt lưng.
+- Trên thực tế, cửa hàng chúng tôi không bán thắt lưng.
+- Nhưng tôi rất muốn giúp bạn tìm ra thứ gì đó khác mà bạn có thể thích.
+- Đang có chương trình giảm giá tuyệt vời và mũ thì đẹp tuyệt vời.
+- Giảm giá 60%.
+- Được rồi, được rồi.
+- Nó đã nhận được tin nhắn.
+- Và tất nhiên, bạn có thể thấy, điều xảy ra ở đây là do tôi đã sử dụng từ belt trong tin nhắn của mình.
+## Phan 16
+
+### Muc 46
+
+- Dấu nhắc hệ thống đã chèn thêm thông tin này vào đó.
+- Vậy là, thực ra thì phòng thí nghiệm đã hoàn thành rồi.
+- Và tôi chỉ muốn nhấn mạnh tầm quan trọng của việc chúng ta vừa làm, bước nhỏ cuối cùng này là thêm vào một chút bối cảnh bổ sung, nếu cần, để cung cấp thêm thông tin cho mô hình.
+- Đây là cái nhìn đầu tiên của bạn vào thế giới vải vụn.
+- Cái giẻ rách nào?
+- Những người nào?
+- Nghe có vẻ như đó là một điều gì đó rất phức tạp.
+- Nó không có gì nhiều hơn là chỉ nói rằng chúng ta hãy thử và tìm ra một cách thông minh để đưa thông tin có liên quan vào lời nhắc, vào lời nhắc của hệ thống, điều này sẽ trang bị cho mô hình của chúng ta khả năng đưa ra câu trả lời tốt hơn.
+### Muc 47
+
+- Và tất cả những mánh khóe và Rag là về việc tìm ra cách bạn có thể làm điều gì đó tốt hơn một chút so với điều gì đó tồi tệ như thế này?
+- Nếu belt là vậy, nếu văn bản belt bằng cách nào đó xuất hiện trong câu hỏi của người dùng, rõ ràng là sẽ rất khó khăn và đôi khi nó lại hiệu quả.
+- Nhưng nếu người dùng không sử dụng từ belt mà nói từ khác.
+- Vậy thì nó sẽ không hiệu quả nữa.
+- Và nó phụ thuộc vào việc tôi chuyển nó thành chữ thường.
+- Và vì vậy, bạn biết đấy, có rất nhiều điều ngớ ngẩn về điều này, và rag là về việc làm điều gì đó chắc chắn hơn và thông minh hơn để lựa chọn bối cảnh phù hợp.
+- Và bạn có thể nói, tại sao không luôn đưa điều này vào dấu nhắc hệ thống?
+- Bạn có thể làm được.
+### Muc 48
+
+- Nhưng nếu đây là một cửa hàng có hàng ngàn sản phẩm khác nhau thì lời nhắc của bạn sẽ ngày càng lớn hơn.
+- Với tất cả những thông tin này, độ chính xác của mô hình sẽ bắt đầu giảm sút và bạn sẽ phải chi thêm tiền mà không đáng.
+- Vì vậy, ý tưởng lựa chọn bối cảnh có liên quan và thêm nó vào lời nhắc là một kỹ thuật hiệu quả.
+- Đây là kỹ thuật suy luận theo thời gian.
+- Nó không liên quan gì đến việc đào tạo mô hình.
+- Chúng tôi đang sử dụng cùng một mô hình.
+- Chúng tôi đang tìm ra những cách thông minh để chèn thông tin có liên quan vào lời nhắc nhằm đào tạo mô hình, cung cấp cho nó chuyên môn để có thể trả lời các câu hỏi một cách chính xác.
+- Trong trường hợp này, lợi dụng thực tế là cửa hàng không bán thắt lưng.
+## Phan 17
+
+### Muc 49
+
+- Và điều này đưa tôi đến điểm cuối cùng, đó là các ứng dụng kinh doanh của nó là vô tận.
+- Tất nhiên, các tác nhân đàm thoại, trợ lý đàm thoại, là trường hợp sử dụng cực kỳ phổ biến và các mô hình biên giới rất tốt trong việc đưa ra câu trả lời hay, và cách bạn có thể tăng thêm giá trị cho doanh nghiệp của mình là thêm chuyên môn vào các lời nhắc.
+- Tất nhiên rồi.
+- Vậy nên, bạn biết đấy, đó là cách mà công việc này trở nên tốt hơn so với nhân viên bán hàng.
+- Chỉ cần truy cập ChatGPT vì bạn có thể thêm nội dung, thêm nội dung vào lời nhắc để phù hợp với doanh nghiệp của mình và đó là những gì bạn cần làm.
+- Hãy tìm hiểu xem bạn có thể xây dựng thứ gì đó như thế nào, sử dụng nó cho doanh nghiệp của bạn hoặc cho công việc ở nhà hoặc bất cứ điều gì, nhưng sẽ rất dễ dàng để tạo ra một bản demo về việc có thứ gì đó trả lời các câu hỏi, có thể làm trợ lý cho một số công việc mà bạn có thứ gì đó có thể tiếp nhận thông tin và có thể cung cấp chuyên môn và được áp dụng, áp dụng cụ thể cho lĩnh vực kinh doanh của bạn, cho các vấn đề kinh doanh của bạn,
+- với chuyên môn về lời nhắc và rất nhiều thứ mà chúng ta sẽ làm trong suốt tám tuần tới là về việc tìm ra cách chúng ta có thể, theo cách tự động, cải thiện những lời nhắc này để giáo dục mô hình của chúng ta ngày càng tốt hơn về doanh nghiệp và tình hình của chúng ta?
+- Đây là tất cả các kỹ thuật thời gian suy luận cho phép bạn khai thác nhiều hơn từ một mô hình.
+### Muc 50
+
+- Nhưng hiện tại bạn đã có đủ để xây dựng một cái gì đó.
+- Và vì thế bạn nên xây dựng một cái gì đó.
+- Bạn nên đưa nó vào mục đóng góp của cộng đồng.
+- Bạn nên chia sẻ nó.
+- Bây giờ bạn cũng biết rằng trong Gradio bạn chỉ cần đặt share equals true và những người khác có thể sử dụng nó.
+- Bạn có thể sử dụng auth equals để thêm một số ID người dùng và mật khẩu nếu muốn.
+- Ồ, và bạn không chỉ nên làm thế, mà còn phải làm thế nữa.
+- Tôi nhấn mạnh và chia sẻ nó.
+### Muc 51
+
+- Đăng nó lên LinkedIn để tôi có thể tham gia và tôi cũng sẽ thử nghiệm nó, điều mà tôi luôn thích.
+- Và tôi rất mong chờ được chứng kiến những gì bạn xây dựng.
+- Và tôi sẽ gặp lại bạn để kết thúc.
+- Và thế là hết tuần thứ hai, ngày thứ ba.
+- Và tôi sẽ mô tả tuần thứ hai, ngày thứ ba là ngắn gọn và ngọt ngào.
+- Nó khá ngắn và rất ngọt ngào.
+- Ít nhất thì tôi nghĩ vậy.
+- Vậy là bạn đã đạt đến điểm 20% và hy vọng là bạn cảm thấy mình đã đạt được khoảng 20%.
+## Phan 18
+
+### Muc 52
+
+- Bạn cảm thấy như mình đã có được.
+- Bạn đã có một số tài liệu.
+- Nói về thắt lưng.
+- Ừ, vậy thì, bạn biết đấy, bạn có một số kỹ năng, bạn biết đấy, nền tảng của loại không gian máy biến áp.
+- Nói về mã thông báo và danh bạ, cửa sổ và tất cả những thứ tương tự như vậy.
+- Ừ, bạn có thể viết mã bằng API hoàn thành trò chuyện với các mô hình frontier.
+- Bạn biết rõ về chúng và giờ đây bạn có thể xây dựng một trợ lý chatbot AI với giao diện người dùng tương tác.
+- Bạn thậm chí có thể chia sẻ và bảo mật nó, ít nhất là về cơ bản, và bạn cũng biết cách xử lý những thứ như nhắc nhở nhiều lần để đưa ra ví dụ và bạn biết cách nghịch ngợm với lời nhắc hệ thống, thêm thông tin có liên quan để cố gắng cung cấp cho nó tính chuyên môn.
+### Muc 53
+
+- Ồ.
+- Rất nhiều.
+- Nhưng lần sau, lần sau chúng ta sẽ phải dùng đến công cụ và công cụ thì lại là một vấn đề lớn.
+- Và tất nhiên, đặc biệt là đối với Agentic AI, đây sẽ là lần đầu tiên bạn được trải nghiệm cách sử dụng các công cụ.
+- Thật thú vị.
+- Hẹn gặp lại bạn vào ngày mai.
+

@@ -1,0 +1,124 @@
+# JSON Schema and Pydantic
+
+## Overview
+Pydantic is the data validation library that underpins FastAPI, and it is equally important when parsing LLM-generated JSON, validating tool call arguments, and enforcing structured output schemas. This lesson teaches you how to define models, use validators, generate JSON Schema, and handle the specific edge cases that arise when an LLM produces the input rather than a human.
+
+## Key Points
+- Pydantic V2 (the current version) uses Rust under the hood and is 5-50x faster than V1 — always use `model_validate()` and `model_dump()` instead of the deprecated `.parse_obj()` and `.dict()` methods
+- `Field()` metadata (description, examples, ge/le bounds) is included in the generated JSON Schema, which you pass to LLM APIs for structured output — better field descriptions produce better LLM output
+- Custom validators using `@field_validator` and `@model_validator` are essential for AI pipelines where LLMs produce almost-correct JSON (e.g., a number returned as a string)
+- `model_json_schema()` generates the schema dict you pass to OpenAI's `response_format` parameter or Anthropic's `tools` parameter — you do not need to write schemas by hand
+- Use `model_config = ConfigDict(extra="forbid")` for strict validation of LLM tool call arguments, and `extra="ignore"` for lenient parsing of third-party API responses
+- `Literal` types and `Enum` fields constrain the LLM to a fixed set of values — critical for routing logic and classification tasks
+
+## Code Example
+```python
+from __future__ import annotations
+
+import json
+from enum import Enum
+from typing import Literal
+
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import ValidationError
+
+
+# -------------------------------------------------------------------
+# 1. Enum for constrained classification output
+# -------------------------------------------------------------------
+class Sentiment(str, Enum):
+    POSITIVE = "positive"
+    NEGATIVE = "negative"
+    NEUTRAL = "neutral"
+
+
+# -------------------------------------------------------------------
+# 2. Nested model with validators — LLM structured output
+# -------------------------------------------------------------------
+class SentimentResult(BaseModel):
+    model_config = ConfigDict(extra="forbid")  # reject unexpected fields from LLM
+
+    text: str = Field(..., description="The original input text that was classified")
+    sentiment: Sentiment = Field(..., description="One of: positive, negative, neutral")
+    confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score between 0 and 1")
+    reasoning: str = Field(..., min_length=10, description="Brief explanation of the classification")
+
+    @field_validator("confidence", mode="before")
+    @classmethod
+    def coerce_confidence(cls, v: object) -> float:
+        """LLMs sometimes return confidence as a percentage string like '87%'."""
+        if isinstance(v, str):
+            v = v.strip().rstrip("%")
+            return float(v) / 100 if float(v) > 1 else float(v)
+        return float(v)
+
+    @model_validator(mode="after")
+    def check_low_confidence_has_reasoning(self) -> SentimentResult:
+        if self.confidence < 0.5 and len(self.reasoning) < 30:
+            raise ValueError("Low-confidence predictions require detailed reasoning (>=30 chars)")
+        return self
+
+
+# -------------------------------------------------------------------
+# 3. Generate the JSON Schema to pass to an LLM API
+# -------------------------------------------------------------------
+schema = SentimentResult.model_json_schema()
+print("JSON Schema (pass this to LLM structured output):")
+print(json.dumps(schema, indent=2))
+
+
+# -------------------------------------------------------------------
+# 4. Parse a simulated LLM response
+# -------------------------------------------------------------------
+llm_response_json = """
+{
+  "text": "The product exceeded all my expectations!",
+  "sentiment": "positive",
+  "confidence": "92%",
+  "reasoning": "Strong positive language with exclamation and superlative."
+}
+"""
+
+try:
+    result = SentimentResult.model_validate_json(llm_response_json)
+    print(f"\nParsed result: {result}")
+    print(f"Serialized back to dict: {result.model_dump()}")
+except ValidationError as e:
+    print(f"Validation failed: {e}")
+
+
+# -------------------------------------------------------------------
+# 5. Union / discriminated union for multi-tool LLM output
+# -------------------------------------------------------------------
+class SearchAction(BaseModel):
+    action: Literal["search"]
+    query: str
+
+class SummariseAction(BaseModel):
+    action: Literal["summarise"]
+    text: str
+    max_words: int = Field(default=100, gt=0)
+
+# Discriminated union — Pydantic picks the right model from the "action" field
+from typing import Union, Annotated
+from pydantic import Discriminator, Tag
+
+AgentAction = Annotated[
+    Union[
+        Annotated[SearchAction, Tag("search")],
+        Annotated[SummariseAction, Tag("summarise")],
+    ],
+    Discriminator("action"),
+]
+
+raw = {"action": "search", "query": "latest AI papers 2025"}
+parsed_action = SentimentResult.model_validate  # illustrative
+print(f"\nRaw action dict: {raw}")
+# In production: TypeAdapter(AgentAction).validate_python(raw)
+```
+
+## Notes
+The most common production gotcha with Pydantic and LLMs is that model providers do not guarantee exact JSON Schema compliance even when `response_format={"type": "json_schema"}` is set — always wrap `model_validate_json()` in a try/except block and implement a retry with a correction prompt ("Your previous response had validation errors: {errors}. Please fix and respond again."). Also note that Pydantic's `model_json_schema()` uses JSON Schema draft 2020-12 by default, but some LLM providers (including older OpenAI endpoints) expect draft 7 — check your provider's documentation and strip unsupported keywords if necessary.
+
+## Summary
+You can now define typed data models with validation logic, generate JSON Schemas automatically, and parse LLM-generated JSON safely — the foundation for every structured output pipeline you will build in this course.

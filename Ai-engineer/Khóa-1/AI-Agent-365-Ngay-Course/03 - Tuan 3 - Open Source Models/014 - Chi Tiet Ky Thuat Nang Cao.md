@@ -1,0 +1,979 @@
+# Ngay 014 - Tuan 3, ngay 4
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-014.txt
+
+## Tong quan
+
+- Chu de mo dau: Hôm nay sẽ là một ngày tuyệt vời.
+- File goc: day-014.txt
+- So y chinh: 723
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Hôm nay sẽ là một ngày tuyệt vời.
+- Hôm nay là ngày chúng ta đi sâu vào một số chi tiết kỹ thuật.
+- Hôm nay là ngày dành cho những kẻ mọt sách như tôi.
+- Nếu bạn không muốn dành cả ngày cho những mọt sách thì bạn biết đấy, tôi sẽ cố gắng làm món này vào ngày mai.
+- Không dành cho những kẻ mọt sách.
+- Ngày mai sẽ mang tính thương mại hơn, nhưng hôm nay thì khác.
+- Chi tiết kỹ thuật.
+- Chúng ta hãy cùng tìm hiểu nhé.
+### Muc 2
+
+- Vì vậy, tất nhiên, những gì bạn có thể làm là viết mã bằng mô hình lượng tử, xây dựng trợ lý AI và bây giờ sử dụng các đường ống ôm mặt và Tokenizer.
+- Tuy nhiên, hôm nay chúng ta sẽ đi sâu hơn vào các mô hình mà bạn sẽ làm việc với thư viện máy biến áp ôm mặt.
+- Các mô hình là một phần của nó.
+- Trên thực tế, chúng tôi sẽ chạy và so sánh năm mô hình nguồn mở khác nhau, từ việc chạy mã Python thực tế điều khiển mạng nơ-ron sâu cho chính chúng tôi, cho đến việc chúng tôi sẽ sử dụng nó như một cái cớ để đi sâu hơn một chút vào nội dung thực tế về cách thức hoạt động của các mạng nơ-ron này, chức năng của chúng, các lớp của tính đa chiều của mạng nơ-ron, những thứ tương tự như vậy.
+- Nhưng luôn luôn theo quan điểm thực tế.
+- Đó là cách tôi muốn giải thích những điều này.
+- Vì vậy, nhân tiện, hôm nay chúng ta sẽ đề cập đến ba điều khác.
+- Ừm, chuyện đó, tôi, tôi rất muốn nói chuyện với anh.
+### Muc 3
+
+- Đầu tiên là thứ gọi là lượng tử hóa, xuất hiện ở nhiều nơi khác nhau.
+- Và đó cũng là một loại mánh khóe.
+- Có lẽ đây là một thủ thuật hack, nếu bạn muốn.
+- Vì vậy, phần lớn công việc với các mạng nơ-ron sâu này liên quan đến việc xử lý rất nhiều số, rất nhiều số, là những tham số này.
+- Nếu bạn đã xem video trên YouTube của tôi thì bạn sẽ biết tất cả về các thông số này, có rất nhiều thông số.
+- Có tới hàng tỷ con.
+- Chúng tôi đã xem xét các đường thẳng để thấy chúng đã thay đổi như thế nào qua nhiều năm, hàng tỷ tham số này, là những con số được nhân và cộng với các con số khác bằng các phép tính ma trận lớn trên GPU và tất cả những con số này, về cơ bản là tập hợp trong thời gian đào tạo, tất cả chúng thường là số 16 bit hoặc 32 bit.
+- Và có lẽ hầu hết các bạn đều hiểu điều đó có nghĩa là gì.
+## Phan 2
+
+### Muc 4
+
+- Điều này có nghĩa là chúng được tạo thành từ số 1 và số 0 trong máy tính, các chữ số nhị phân, có 16 hoặc 32 chữ số tạo nên số.
+- Và điều đó có nghĩa là chúng có thể có rất nhiều giá trị khác nhau.
+- Chúng có thể là những con số khổng lồ và có độ chính xác cao.
+- Vâng, như vậy là có sự đơn giản hóa.
+- Bạn có thể thực hiện một cách để cắt giảm lượng bộ nhớ mà bạn sử dụng bằng cách nói rằng, chúng ta hãy lấy từng con số này.
+- Chúng tôi lưu trữ chúng bằng cách sử dụng 16 hoặc 32 chữ số nhị phân, số 1 và số 0 để tạo thành con số này.
+- Điều gì sẽ xảy ra nếu chúng ta lưu trữ những con số này ở độ chính xác thấp hơn?
+- Chúng tôi đã sử dụng ít bit hơn để tạo nên một con số.
+### Muc 5
+
+- Nó tương đương.
+- Nếu bạn tưởng tượng từng vật nặng này, bạn có thể nghĩ chúng giống như công tắc điều chỉnh độ sáng cho đèn của bạn.
+- Và khi bạn bật công tắc điều chỉnh độ sáng, đèn của bạn sẽ sáng hơn hoặc tối hơn.
+- Và với 32 bit, hoặc thậm chí 16 bit, có rất nhiều cài đặt có thể thực hiện được khiến mọi thứ trở nên mượt mà hơn.
+- Bạn có thể biểu diễn hầu hết mọi số mà bạn có thể nghĩ ra với nhiều chữ số thập phân và núm xoay đó xoay rất, rất trơn tru khi bạn giảm số đó xuống còn ít chữ số hơn, chẳng hạn như tám bit, nghĩa là chỉ có 256 giá trị có thể có, hoặc thậm chí là bốn bit.
+- Một số nhị phân bốn bit chỉ có thể có 16 giá trị.
+- Sau đó, công tắc điều chỉnh độ sáng đột nhiên phát ra tiếng tách, tách, tách, tách tách.
+- Và giống như đèn của bạn không thể liên tục chuyển từ sáng sang tối được.
+### Muc 6
+
+- Chúng chỉ có thể đạt được 16 mức độ sáng.
+- Đó chính là cách sử dụng tất cả các thông số này, tất cả các công tắc điều chỉnh độ sáng trên toàn bộ mạng nơ-ron và giảm độ chính xác của tất cả chúng xuống còn tám bit hoặc bốn bit.
+- Và việc làm đó được gọi là lượng tử hóa, vì bạn có thể nghĩ về điều này như một phép định lượng, bạn giống như một phép lượng tử hóa, biến nó thành thứ gì đó có các giá trị khả dĩ rời rạc.
+- Và bạn đang giảm điều đó, giảm độ chính xác để có thể nhồi nhét nhiều thông tin hơn vào bộ nhớ nhỏ hơn.
+- Bạn có thể sử dụng ít bộ nhớ hơn và các phép tính cũng đơn giản hơn nhiều.
+- Đó là lý do tại sao bạn làm điều đó.
+- Và bạn có thể làm được.
+- Nếu bạn chuyển từ một số dấu phẩy động 16 bit thông thường, như người ta vẫn gọi, một số 16 bit, xuống còn một số bốn bit, bạn sẽ đột nhiên tiết kiệm được gấp bốn lần bộ nhớ.
+## Phan 3
+
+### Muc 7
+
+- Bây giờ hãy đợi một chút.
+- Tôi nghe bạn nói, được rồi, hãy bình tĩnh.
+- Đợi một chút.
+- Bạn đang nói với tôi rằng chúng ta đã có tất cả các thông số này và chúng ta sẽ giữ nguyên tất cả các thông số này.
+- Chúng ta chỉ cần giảm lượng thông tin trong mỗi tham số này đi bốn lần.
+- Chúng ta sẽ làm cho chúng đơn giản hơn gấp bốn lần bằng cách thay đổi từ việc chỉ có nhiều cài đặt khả thi thành chỉ có 16 cài đặt khả thi.
+- Chắc chắn điều đó tương đương với việc nói rằng chúng ta hãy lấy tất cả các thông số này, giữ nguyên độ chính xác và loại bỏ ba phần tư trong số chúng.
+- Có một phần tư nhiều tham số với độ chính xác đầy đủ.
+### Muc 8
+
+- Chắc chắn là cũng giống như vậy.
+- Giống như, được rồi, có một số thứ liên quan đến mạng nơ-ron với các kết nối hoặc tương tự, nhưng cuối cùng thì bạn vẫn có cùng một lượng thông tin.
+- Vậy đó là tất cả những gì bạn đang làm.
+- Bạn chỉ đang trao đổi thông tin ở nơi này để lấy thông tin ở nơi khác.
+- Và tôi nghe bạn.
+- Và điều đó nghe có vẻ là một lập luận rất hợp lý.
+- Nhưng hóa ra, vì lý do nào đó, khi giảm độ chính xác của tất cả những con số này, bạn thực sự làm giảm chất lượng mạng nơ-ron của mình.
+- Nó trở nên kém chính xác hơn.
+### Muc 9
+
+- Tất cả các phép đo, tất cả các cách để đánh giá tình hình đều diễn ra tốt đẹp.
+- Nhưng chúng không giảm nhiều đến thế.
+- Chúng chỉ giảm đi một chút thôi.
+- Và nếu bạn cắt bỏ ba phần tư số trọng lượng này, trọng lượng sẽ giảm đi rất nhiều.
+- Và do đó, việc giảm độ chính xác cũng giống như một cách hiệu quả để đưa thêm thông tin vào.
+- Và chúng ta không thực sự chắc chắn tại sao nó lại diễn ra theo cách như vậy.
+- Chúng tôi nghĩ lý do là vì ngay từ đầu chúng tôi không cần quá nhiều tham số.
+- Và đây tình cờ là một cách tốt để tổng hợp nhiều dữ liệu hơn vào một không gian nhỏ hơn.
+## Phan 4
+
+### Muc 10
+
+- Thực nghiệm cho thấy nó hoạt động khá tốt.
+- Vậy lượng tử hóa là loại hack giúp giảm đáng kể bộ nhớ và chỉ làm giảm một chút độ chính xác về hiệu suất.
+- Và vì thế chúng ta thường làm như vậy.
+- Đó là câu chuyện đằng sau lượng tử hóa.
+- Rất thử nghiệm và rất mơ hồ.
+- Và nó thực sự có tác dụng.
+- Và tôi muốn nói thêm một điều nữa về lượng tử hóa.
+- Bạn kiểu như, trời ơi, chúng ta còn phải nói về những con số này bao lâu nữa?
+### Muc 11
+
+- Ừm, những người trong số các bạn đã biết về bit và biết về, ừm, độ chính xác của các con số, khi bạn nghe đến một số bốn bit, có lẽ bạn nghĩ tôi đang nói đến một số nguyên bốn bit, nghĩa đen là số từ 0 đến 15.
+- Và bạn đang nghĩ, được thôi, nhưng nếu các con số trước đây giống như số dấu phẩy động thực sự, và bây giờ chúng ta giảm xuống thành số từ 0 đến 15, từ 0 đến 15, thì điều đó sẽ không hiệu quả lắm.
+- Và câu trả lời chắc chắn là không.
+- Đây không phải là số nguyên bốn bit.
+- Chúng ta lấy bốn bit này và sử dụng chúng để biểu diễn không gian dấu chấm động theo một cách nào đó.
+- Và chỉ có một kỹ thuật để thực hiện điều đó.
+- Đây là kiểu dữ liệu được gọi là nf4, giống như cách biểu diễn bốn bit của số dấu phẩy động, giả sử chúng được phân phối bình thường.
+- Và hóa ra, một lần nữa, nó lại hoạt động tốt.
+### Muc 12
+
+- Nghe có vẻ điên rồ.
+- Nếu bạn tìm kiếm Nf4 trên Google, bạn có thể đọc các bài viết về nó và xem cách thức hoạt động cũng như cách nó được lập bản đồ.
+- Và thật ngạc nhiên là nó lại hoạt động tốt, nhưng đúng là vậy.
+- Chúng ta sẽ tự mình thử nghiệm và xem sao nhé.
+- Và những vấn đề khác chúng tôi sẽ đề cập.
+- Chúng ta sẽ xem xét bên trong mô hình của mình và xem xét một số lớp của mạng nơ-ron.
+- Nói tóm lại, để bạn hiểu rõ hơn, tôi sẽ không đi sâu vào vấn đề này.
+- Tôi sẽ không cho bạn xem sơ đồ kiến trúc mạng nơ-ron.
+## Phan 5
+
+### Muc 13
+
+- Và chúng ta cũng sẽ nói về phát trực tuyến khi bạn làm việc với các mô hình nguồn mở.
+- Chỉ là một chút thông tin thêm thôi.
+- Đây là những chủ đề mà chúng ta sẽ thấy trong phòng thí nghiệm.
+- Được rồi.
+- Và có lẽ bạn đang nghĩ, nhưng khi nào chúng ta sẽ thấy chúng trong phòng thí nghiệm này?
+- Và câu trả lời ngay bây giờ là hãy dùng Colab.
+- Hẹn gặp lại bạn ở đó.Được rồi.
+- Chào mừng đến với Colab tuần thứ ba.
+### Muc 14
+
+- Ngày thứ tư.
+- Bạn tìm thấy liên kết này vì bạn đã truy cập vào con trỏ.
+- Ừ, hoặc bạn đã vào mục Readme, hoặc bạn đã vào bất kỳ nơi nào trong số hàng triệu nơi khác mà bạn có thể tìm thấy liên kết để cuộn lên, nhưng hy vọng là bạn đã tìm thấy nó.
+- Tuần thứ ba, ngày thứ tư.
+- Chúng ta sẽ xem xét API cấp thấp cho thư viện Hugging Face Transformers.
+- Khi làm việc trực tiếp với các mô hình, họ sẽ gói mã PyTorch thực sự đi qua các lớp của mạng nơ-ron.
+- Chúng ta sẽ xem xét đoạn mã đó.
+- Ừ, hãy nhớ, nếu bạn gặp lỗi Cuda lạ nào đó, hãy ngắt kết nối thời gian chạy, kết nối với T4 mới và bắt đầu lại từ đầu.
+### Muc 15
+
+- Và ở đây, ừm, bạn phải kết nối với T4.
+- Nó sẽ nói là kết nối tới thời gian chạy lưu trữ T4.
+- Bạn sẽ có thể xem được các tài nguyên và thấy được RAM GPU.
+- Nó sẽ rất mới và đẹp, còn 15GB nữa để lấp đầy.
+- Và hôm nay chúng ta sẽ lấp đầy nó.
+- Điều đầu tiên cần làm là chạy các cài đặt Pip này và chúng sẽ mất một phút.
+- Ngay cả khi ở chế độ im lặng, nó vẫn khăng khăng nói chuyện.
+- Chúng tôi đang cài đặt một số thư viện ở đây.
+## Phan 6
+
+### Muc 16
+
+- Bit và byte là tên gọi.
+- Thư viện Hucking Faces chuyên xử lý lượng tử hóa.
+- Chủ đề mà tôi đã nói huyên thuyên suốt một thời gian dài.
+- Accelerate cũng giống như một thư viện đồng hành có khả năng chạy hiệu quả trên GPU.
+- Vì vậy, chúng ta sẽ đưa cả hai thứ này vào, và sau đó, như thường lệ, chúng ta sẽ đưa vào một vài, ừm, ừm, nhập một vài gói mà chúng ta cần thực hiện, và sau đó chúng ta sẽ đăng nhập vào Hugging Face.
+- Nhưng hãy nhớ là bạn cần phải đi đến chìa khóa ở đây.
+- Bạn cần bật tính năng này lên nếu không bạn sẽ nhận được thông báo.
+- Nếu bạn không muốn và điều đó cũng không sao, bạn chỉ cần trả lời có và đến đây.
+### Muc 17
+
+- Chạy lệnh này để đăng nhập vào chế độ ôm mặt.
+- Được thôi, ừm, chỉ nói một chút về việc tiếp cận với các mô hình lạc đà không bướu.
+- Vậy là ngày hôm qua, nếu bạn làm theo hướng dẫn của tôi, bạn sẽ được chấp thuận truy cập vào llama 3.
+- 1.
+- Ừm, hôm nay tôi sẽ sử dụng một mô hình llama khác là 3.
+- 2.
+- Và tôi nghĩ trong một số trường hợp, bạn phải yêu cầu lại để có quyền truy cập hoặc bạn có thể đã được cấp quyền truy cập, nhưng nếu bạn nhấp vào liên kết này, nó sẽ hiện ra.
+- Vậy hãy nhấp vào liên kết này ngay bây giờ.
+### Muc 18
+
+- Nó sắp xuất hiện rồi.
+- Và tôi thấy rằng tôi đã được cấp quyền truy cập vào mô hình này.
+- Có thể bạn cũng phải làm như vậy.
+- Có lẽ bạn phải hỏi lại.
+- Có thể bạn đã có quyền truy cập rồi.
+- Nếu bạn phải làm lại, hãy thoải mái sử dụng 3.
+- 1.
+- Đây là một mô hình lớn hơn nên bạn sẽ mất nhiều thời gian hơn.
+## Phan 7
+
+### Muc 19
+
+- Nhưng và 3.
+- 2 nhanh hơn nhiều và nhỏ hơn nhiều.
+- Nhưng bạn nên làm bất cứ điều gì bạn muốn.
+- Và nếu bạn không được phép truy cập vào llama thì hãy bỏ qua phần llama này và thực hiện các phần khác.
+- Được rồi.
+- Và với suy nghĩ đó, đây là tên của các mô hình mà chúng ta sẽ xem xét ngày hôm nay.
+- Chúng ta sẽ xem xét loài lạc đà không bướu.
+- Tôi có 3 con.
+### Muc 20
+
+- 1 và 3.
+- 2 ở đây.
+- Bạn có thể thấy rằng 3.
+- 2 là Tôi sẽ bình luận dòng này để tránh nhầm lẫn.
+- Nếu bạn muốn sử dụng 3.
+- 1 bỏ chú thích ở dòng đó.
+- Ồ, có con llama thứ 3.
+- 2.
+### Muc 21
+
+- Và sau đó chúng ta cũng sẽ xem xét năm email từ Microsoft, năm email từ Gemma và ba email từ Google.
+- Chúng ta sẽ chọn cái thực sự nhỏ bé, Gemma nhỏ xíu với tham số 270 triệu.
+- Và sau đó là Quinn.
+- Chúng ta sẽ sử dụng Quinn ba trong số 4 tỷ.
+- Vậy thì kích thước trung bình khá lớn.
+- Và chúng tôi đang sử dụng biến thể hướng dẫn, biến thể trò chuyện.
+- Và đối với tôi thì điều đó đúng, cách đây vài tháng, tôi tin rằng nó sẽ xảy ra vào tháng 7 năm 2025.
+- Ừm, vậy thì bốn tháng trước, ừm, và ừm, sau đó, ừm, ngay tại đây, chúng ta cũng sẽ sử dụng deep sea vì, bạn biết đấy, deep sea rất tuyệt, và chúng ta sẽ sử dụng phiên bản Deep Seek đã được tinh chế thành Quinn.
+## Phan 8
+
+### Muc 22
+
+- Bạn còn nhớ tôi đã giải thích rằng họ đã đào tạo Quinn bằng dữ liệu do Deep Sea tạo ra và chúng tôi đang sử dụng dữ liệu 1 không?
+- Biến thể thứ 5 của Quinn, một Quinn nhỏ.
+- Vậy đây là những mô hình nhỏ.
+- Nhưng điểm quan trọng là tất cả những thứ này đều là biến thể hướng dẫn, mô hình trò chuyện được thiết kế để có trợ lý nhắc nhở người dùng.
+- Trợ lý người dùng.
+- Quinn.
+- Cái này ở đây, tìm kiếm sâu sắc được Quinn chắt lọc thành một mô hình lý luận.
+- Vì vậy, đây sẽ là lần đầu tiên chúng ta chạy mô hình lý luận thông qua mã.
+### Muc 23
+
+- Vậy đây là những mô hình tôi sẽ chạy.
+- Và bây giờ đây sẽ là thông điệp của chúng tôi.
+- Đây sẽ là một câu chuyện cười cho một nhóm các nhà khoa học dữ liệu về một thông điệp đơn giản và thú vị mà chúng tôi nhận được từ họ.
+- Nhận được từ họ.
+- Ý tôi là thông điệp đơn giản mà chúng tôi nhận được cho họ ở ngay đây.
+- Được rồi.
+- Được rồi.
+- Vậy nên, chúng tôi muốn nhắc nhở bạn nhanh rằng bạn cần chấp nhận các điều khoản dịch vụ của Meta, nếu bạn chưa chấp nhận.
+### Muc 24
+
+- Tôi chắc chắn là bạn đã làm vậy.
+- Nhưng nếu không, hãy làm theo hướng dẫn như trước.
+- À, và nếu bạn gặp vấn đề với meta, hãy truy cập colab khắc phục sự cố này.
+- Được rồi.
+- Ừm, để tôi xem nào.
+- Bây giờ chúng ta sẽ xây dựng thứ gọi là cấu hình bit và byte.
+- Vì vậy, đây là nơi chúng ta chỉ định loại lượng tử hóa nào chúng ta muốn thực hiện để giảm độ chính xác.
+- Và ừm, đó là bit và byte, đây là một cái tên khá hài hước.
+## Phan 9
+
+### Muc 25
+
+- Nó là bit bit và byte nhưng được viết theo cách của dân lập trình.
+- Ờ, tám bit.
+- Vì vậy, chúng ta nói với nó rằng chúng ta muốn tải bốn bit.
+- Chúng tôi muốn giảm độ chính xác xuống còn bốn bit.
+- Đây giống như một thứ gì đó bổ sung cho phép nó thực hiện điều đó hai lần.
+- Và để đạt hiệu quả cao hơn, bạn có thể tìm hiểu lý do tại sao cách đó lại hiệu quả.
+- Ừm, và đây là điều quan trọng.
+- Đây là nơi chúng ta nói rằng chúng ta muốn sử dụng kiểu dữ liệu nf4 này.
+### Muc 26
+
+- Kiểu dữ liệu này chúng ta sẽ không diễn giải bốn bit này như một số từ 0 đến 15, mà chúng ta sẽ ánh xạ bốn bit nhị phân này thành một số dấu phẩy động phân phối chuẩn.
+- Ừ, đúng rồi.
+- Nếu bạn, nếu bạn biết tất cả những điều đó là gì.
+- Vậy chúng ta sẽ chạy thử.
+- Ừ, được thôi.
+- Đây chính là nơi chúng ta sẽ tạo ra trình phân tích cú pháp.
+- Mã giống như ngày hôm qua.
+- Chúng ta sẽ thực hiện từ trước cho mô hình lạc đà không bướu.
+### Muc 27
+
+- Dòng này ở đây chỉ là điều bạn phải làm.
+- Và bạn luôn nhìn thấy nó trong mã.
+- Có một điều khá phức tạp là, ừm, trình phân tích mã thông báo có một số mã thông báo đặc biệt.
+- Chúng tôi đã nhìn thấy họ ngày hôm qua.
+- Một loạt các ký hiệu đặc biệt và một trong số đó là ký hiệu kết thúc câu nằm ở cuối câu.
+- EOS và một loại khác trong số đó, huging face expect được gọi là Pad token, và đó là loại mà huging face sử dụng để thêm khoảng cách nếu cần.
+- Và vì một số lý do, hầu hết các công cụ phân tích cú pháp này không có thiết lập này và cần phải thiết lập theo mặc định là mã thông báo kết thúc câu.
+- Và nếu bạn không thiết lập điều đó, bạn sẽ gặp lỗi ở đâu đó.
+## Phan 10
+
+### Muc 28
+
+- Vì vậy, bạn sẽ thấy điều này ở khắp mọi nơi trong mã.
+- Mọi người làm điều này và tôi tự hỏi tại sao họ không đặt nó làm mặc định ở đâu đó để tránh điều đó, nhưng vì lý do nào đó bạn thấy tokenizer pad token bằng tokenizer eos token.
+- Vậy nên chúng ta chỉ cần làm như vậy.
+- Và sau đó chúng ta áp dụng mã thông báo vào mẫu trò chuyện.
+- Chúng tôi truyền tải những thông điệp mà chúng tôi vừa thực hiện.
+- Và chúng tôi muốn đưa điều này vào GPU, điều mà chúng tôi đã không làm lần trước.
+- Nhưng vì chúng ta sẽ chạy nó, chúng ta sẽ lấy những mã thông báo này để tạo ra các ID mã thông báo và chúng ta muốn chúng được gửi đến GPU vì chúng ta sẽ chạy phép toán ma trận nhanh.
+- Và vì vậy, trước hết bạn phải biết rằng, bạn phải chuyển đổi dữ liệu này thành các loại PyTorch, các cấu trúc dữ liệu sẵn sàng cho GPU.
+### Muc 29
+
+- Vì vậy, tenxơ trả về này bằng DT là viết tắt của PyTorch.
+- Đây là một vấn đề rất kỹ thuật.
+- Nhưng bạn chỉ cần làm như vậy thôi.
+- Nếu bạn không làm như vậy thì sẽ có lỗi.
+- Và sau đó bạn thực hiện Tokuda.
+- Hãy nhớ rằng Cuda là tên công nghệ GPU của Nvidia.
+- Nghĩa là hãy đẩy dữ liệu đó vào GPU.
+- Đây là tất cả những gì bạn đang nghĩ làm sao tôi có thể nhớ được tất cả những điều này.
+### Muc 30
+
+- Đây là tiêu chuẩn siêu chuẩn.
+- Bạn thấy điều này ở khắp mọi nơi.
+- Đây là một trong những cách mà bạn chỉ cần làm theo cách này là sẽ có hiệu quả.
+- Vậy thì chúng ta làm ngay bây giờ.
+- Và như tôi đã hứa với bạn, nó sẽ hoạt động bình thường.
+- Chuyện đó đã xảy ra.
+- Chúng tôi đã có thông tin đầu vào.
+- Bây giờ họ đang ngồi ở đó.
+## Phan 11
+
+### Muc 31
+
+- Chúng ta hãy cùng xem xét chúng nhé.
+- Đợi đã.
+- Mã số.
+- Nếu chúng ta xem xét các yếu tố đầu vào.
+- Đây rồi.
+- Nó giống như một tensor PyTorch.
+- Về cơ bản, tenxơ là tên gọi mỹ miều của một ma trận.
+- Ừm, về cơ bản thì đó là một ma trận số và nó nằm trên GPU của chúng ta.
+### Muc 32
+
+- Và đó chính là những gì chúng tôi vừa xây dựng ở đây.
+- Và tôi biết tôi không cung cấp cho bạn đủ chi tiết về vấn đề này để bạn có thể hiểu được trực giác.
+- Bạn không cần phải biết hết mọi điều này.
+- Được rồi.
+- Tiếp theo, bạn nhớ lại cách chúng ta tạo ra một trình phân tích cú pháp, ở đây chúng ta sẽ làm điều tương tự để tạo một mô hình.
+- Và đây là nó.
+- Ý chúng tôi là chúng tôi muốn sử dụng giống như cách chúng tôi đã sử dụng công cụ phân tích mã thông báo tự động trước đây.
+- Chúng ta đang nói đến mô hình tự động cho phim nhân quả.
+### Muc 33
+
+- Một bộ phim bình thường nghe có vẻ hơi dài dòng.
+- Lần đầu tiên bạn nghe về điều này, hóa ra đó là tên mà Huggingface đặt cho Llms tạo ra nội dung theo cách chúng tôi làm, chúng được gọi là Llms nhân quả.
+- Có một tên gọi kỹ thuật khác mà một số bạn có thể đã nghe đến là LLM tự hồi quy.
+- Đó là tên của một trong những thứ mà nó nhả ra một mã thông báo, và bạn đưa mã thông báo đó trở lại và chạy lại, loại LLM thế hệ đó.
+- Vì vậy, từ chung mà Huggingface dùng để chỉ nó hiện nay là LLM LM theo nghĩa nhân quả, khi mọi người nói LM, thì đó thường là tất cả những gì họ muốn nhắc đến.
+- Còn có những thứ khác như bộ mã hóa và những thứ tương tự, nhưng thông thường bạn sẽ mô tả chúng theo cách khác.
+- Vậy là bạn đã biết LM nhân quả và chỉ LM dành cho đào tạo trước.
+- Vậy chúng ta đang nói rằng chúng ta muốn cái dành cho lạc đà không bướu.
+## Phan 12
+
+### Muc 34
+
+- Cái này nghĩa là ừm chọn chọn cái gì.
+- Về cơ bản, điều này sẽ chọn Cuda vì chúng ta có một hộp có chữ Cuda trên đó.
+- Và chúng ta đang truyền vào cấu hình lượng tử của mình.
+- Tôi nên chạy thử vì nó sẽ mất một phút.
+- Bây giờ sẽ tắt và tải xuống các tập tin từ llama.
+- Nếu bạn chọn llama 3.
+- 1 việc này sẽ mất khoảng 5 hoặc 10 phút.
+- Tôi nghĩ Colab từng có kết nối mạng mạnh hơn, nhưng Google có thể đã tiết kiệm được một số tiền và hiện nay mất nhiều thời gian hơn.
+### Muc 35
+
+- Ờ, thậm chí đến mức này.
+- Ở đây chúng ta sử dụng một con lạc đà rất nhỏ.
+- Ờ, 1 tỷ tham số lạc đà.
+- Vẫn phải mất một thời gian nữa.
+- Nó tải xuống độ chính xác đầy đủ, sau đó giảm độ chính xác theo những gì nó có trong bộ nhớ.
+- Vậy là mọi chuyện sẽ diễn ra như thế.
+- Và tôi sẽ gặp lại các bạn trong video tiếp theo khi điều đó xảy ra.
+- Được thôi.
+### Muc 36
+
+- Bạn có một tách cà phê không?
+- Mọi chuyện sắp trở nên thực tế rồi.
+- Chúng tôi đã tải xuống mô hình lạc đà không bướu.
+- Chúng tôi đã lượng tử hóa nó.
+- Chúng tôi đã ghi nhớ điều đó.
+- Tôi sẽ chạy đoạn mã này để cho thấy dung lượng bộ nhớ là một gigabyte.
+- Chúng tôi đã lấp đầy một gigabyte bộ nhớ bằng mô hình này.
+- Và bây giờ chúng ta sẽ xem xét mô hình này.
+## Phan 13
+
+### Muc 37
+
+- Vậy thì nó nằm trong mô hình biến đổi này.
+- Và chúng ta sẽ kiểm tra và xem có gì trong mô hình này.
+- Nhưng hãy để tôi mô tả cho bạn nhé.
+- Vì vậy, mô hình này chứa mã PyTorch để chạy llama 3.
+- 2 mô hình và 3 con lạc đà.
+- 2 mô hình.
+- Nó được viết bằng một framework có tên là PyTorch, đây là một thư viện Python dùng để viết mạng nơ-ron.
+- Bước đầu tiên tôi dành cho bạn là nếu bạn không biết những thứ như thế này, mạng nơ-ron là gì và các tham số trong đó, thì hãy xem danh sách phát giới thiệu trên YouTube của tôi.
+### Muc 38
+
+- Hãy dừng lại một chút để xem danh sách phát của tôi.
+- Ít nhất là cho đến thời điểm hiện tại, tôi nhận ra rằng mình đã dừng lại ở hai phần ba chặng đường.
+- Như tôi vẫn nói, sẽ có một video khác nhưng hiện tại thì chưa, nhưng điều đó không quan trọng vì bạn chỉ cần xem đến đoạn đó là có được trực giác mà bạn cần.
+- Và nếu bạn đã đến đó, và bạn có thể đã biết rất rõ tất cả những điều này, bạn có biết rằng về cơ bản, một mạng lưới nơ-ron là những lớp này chồng lên lớp kia, chồng lên lớp kia của các tập hợp thuật toán nhỏ về cơ bản là kết hợp thông tin ở lớp trên không?
+- Đôi khi tôi mô tả chúng như là bộ trộn âm thanh, vì bạn có thể nghĩ chúng giống như những thanh trượt nhỏ điều khiển tín hiệu trên lớp, pha trộn chúng theo một cách khác nhau, rồi đưa ra một số kết hợp.
+- Và bộ biến áp là tên của kiến trúc cụ thể mà, như tôi đã nói trước đó, hoạt động thực sự hiệu quả để có thể truyền toàn bộ thông tin này từ lớp này sang lớp khác và có thể huấn luyện hoặc tinh chỉnh các bộ trộn này một chút, tinh chỉnh cách bạn kết hợp thông tin sao cho thông tin đầu ra ở phía sau trở nên ngày càng tốt hơn trong việc thực hiện những gì bạn đang cố gắng làm dựa trên tất cả dữ liệu huấn luyện của mình.
+- Đó chính là mục đích của trò chơi này.
+- Vì vậy, điều chúng ta sẽ làm thực sự là in nó ra và xem xét.
+### Muc 39
+
+- Đó là cách tôi muốn dạy điều này.
+- Nhiều người thích có nhiều sơ đồ và tôi không có ý coi thường điều đó.
+- Rất nhiều người tôi biết, thực ra là rất nhiều người thích học từ sơ đồ.
+- Và tôi đoán là có một số sơ đồ trong các video trên YouTube của tôi.
+- Nhưng tôi thích học từ mã và đó là điều chúng ta sẽ xem xét bây giờ.
+- Vì vậy, một trong những điều thực sự tuyệt vời về loại mô hình PyTorch này là bạn có thể in nó ra và bạn sẽ có được giao diện trực quan, cấu trúc mô tả toàn bộ mạng nơ-ron.
+- Vì vậy, mỗi hàng, mỗi hàng mà bạn thấy được in ra ở đây đều đại diện cho một số đối tượng hoặc nhóm đối tượng thuộc về mô hình.
+- Vì vậy, bản thân mô hình được gọi là Lama đối với LM nhân quả.
+## Phan 14
+
+### Muc 40
+
+- Đấy, đó chính là loại vật thể đó.
+- Và nó chứa đựng mô hình này, mô hình lạc đà không bướu, chứa đựng tất cả những điều này.
+- Vì vậy, bạn có thể nghĩ về điều này giống như một cấu trúc cây nhỏ chứa đựng những gì.
+- Và tất cả những điều này đều được gói gọn trong một đối tượng mô hình mà chúng ta có ngay tại đây.
+- Vậy thì có gì ở đó?
+- Vâng, ở cấp độ cao nhất có ba điều này.
+- Có một thứ gọi là nhúng cái này vào đây.
+- Và sau đó có thứ này, thứ lớn này được gọi là lớp và lớp gồm 15 lớp, 15 khối, cái này sau cái kia, 15 lớp.
+### Muc 41
+
+- Và ở dưới cùng có một thứ gọi là đầu LLM.
+- Vậy thì nó nhúng rồi, xin lỗi, không phải 15, mà là 16 0 đến 15.
+- Ừm, xin lỗi, nhúng rồi đến 16 lớp và cuối cùng là phần đầu LLM.
+- Vậy những thứ này là gì?
+- Trước tiên tôi sẽ mô tả ba tập hợp lớn này.
+- Và sau đó chúng ta sẽ đào sâu vào 16 lớp này ngay tại đây.
+- Và nếu bạn đang nhìn vào llama 3.
+- 1, có 32, không phải 16.
+### Muc 42
+
+- Số lượng nhiều gấp đôi.
+- Được thôi.
+- Chúng ta hãy cùng nói về từng loại nhé.
+- Trước hết tôi sẽ nhấn mạnh điều này.
+- Chúng ta sẽ đề cập đến vấn đề nhúng này.
+- Và tôi muốn đề cập rằng những gì nằm trong ngoặc đơn theo sau đây đang cố gắng mô tả cái gọi là tính đa chiều của lớp đó.
+- Nhưng có bao nhiêu chiều đi vào và bao nhiêu chiều đi ra.
+- Và điều đó thực sự có nghĩa là có bao nhiêu số khác nhau sẽ được đưa vào cho mỗi số này?
+## Phan 15
+
+### Muc 43
+
+- Có bao nhiêu giá trị có thể được gửi vào?
+- Tôi hơi nghi ngờ nếu bạn nói, ừ, vâng.
+- Ý tôi là, tôi hiểu rằng tôi đang đơn giản hóa quá mức một chút để giúp bạn hiểu được trực giác đó.
+- Vì vậy, lớp nhúng này là thứ chứa đựng thứ gì đó có thể có tất cả các bộ phận có thể có.
+- Và thứ xuất hiện chỉ là thứ gì đó có 20, 48 chiều.
+- Và chức năng của nó là lớp nhúng này, đôi khi được gọi là nhúng vector, đôi khi được gọi là lớp mã hóa.
+- Đây là cách lấy các mã thông báo đưa vào làm dữ liệu đầu vào.
+- Và đối với mỗi mã thông báo đó, nó sẽ biến chúng thành một nhóm các con số thể hiện tốt nhất sự hiểu biết của nó về nội dung mã thông báo đó.
+### Muc 44
+
+- Nó giống như một bộ máy trộn hỗn hợp có thể trộn mọi mã thông báo có thể thành một tổng thể.
+- 2048 số khác nhau và đây chính là số lượng mã thông báo đầu vào có thể có.
+- Bạn có nhớ chúng ta đã đếm chúng cùng với lạc đà không bướu và con số là 128.000 không, đó là con số mà tôi đã nghĩ đến lúc bắt đầu.
+- Con số là 128.000 và 256 vì có một số mã thông báo đặc biệt.
+- Vâng, đây rồi.
+- Đây là tất cả, tất cả các mã thông báo đầu vào có thể có.
+- Và mỗi mã thông báo đầu vào được ánh xạ thành một tập hợp nén gồm 2048 số.
+- Điều đó thể hiện từ đó, ký hiệu đó theo một cách nào đó thực sự có ý nghĩa đối với các lớp khác ở bên dưới.
+### Muc 45
+
+- Thật là mơ hồ.
+- Đây là thứ được gọi là nhúng vector.
+- Về cơ bản, nó là việc dịch một từ duy nhất thành một vectơ có 2048 chiều.
+- Nhúng vector.
+- Người ta biết đến nó như vậy đấy.
+- Và đặc biệt Lama sử dụng một kỹ thuật đặc biệt cho việc này gọi là nhúng quay, đây là một cách đặc biệt đảm bảo rằng thứ tự xuất hiện của các từ trong một chuỗi sẽ bị ảnh hưởng theo một cách nào đó và được tính đến.
+- Và nếu bạn muốn tìm hiểu sâu hơn về vấn đề đó, hãy tra cứu trên Google.
+- Bạn sẽ thấy tất cả về nó.
+## Phan 16
+
+### Muc 46
+
+- Được rồi.
+- Vậy đó là lớp nhúng.
+- Nó đã biến các mã thông báo của chúng ta thành cái này, cái này, ừm, vectơ này gồm 20, 48 chiều, 16 lớp tiếp theo là nơi diễn ra mọi hoạt động.
+- Đó là một chồng các bộ trộn, theo cách tôi gọi, những thứ pha trộn thông tin theo một cách nào đó với nhiều tham số.
+- Mọi chuyện đều đang diễn ra như vậy.
+- Và chúng ta sẽ đi sâu vào vấn đề này chỉ trong giây lát, chỉ dành cho những ai muốn, ừm, và sau cùng, phần đầu LM này, thứ ở cuối cùng, viết tắt của phần đầu mô hình ngôn ngữ, đó là lớp cuối cùng.
+- Đó là thứ bao gồm 2000 chiều không gian cho đến 2048 chiều không gian.
+- Thật thú vị, những gì nó đưa ra có thể có cùng số chiều như số lượng mã thông báo.
+### Muc 47
+
+- Đó là những gì xuất hiện ở phần cuối.
+- Và lý do là vì những gì sẽ xuất hiện sẽ là, đối với mỗi mã thông báo tiếp theo có thể có, một xác suất về khả năng mã thông báo đó sẽ xuất hiện ngay sau đầu vào là bao nhiêu?
+- Đó chính là toàn bộ trò chơi ở đây.
+- Đó chính là mục đích mà toàn bộ các phép tính ma trận này đang cố gắng đạt được.
+- Và đây là điều mà mọi người trong lĩnh vực này biết đến như một lớp được kết nối đầy đủ.
+- Và nó đưa ra xác suất của mã thông báo tiếp theo.
+- Vì vậy, đối với những người có kinh nghiệm về khoa học dữ liệu truyền thống, toàn bộ thứ này có thể được gọi là bộ phân loại.
+- Nó đang phân loại.
+### Muc 48
+
+- Tiếp theo là mã thông báo tiếp theo.
+- Bởi vì kết quả trả về là xác suất mã thông báo tiếp theo nằm trong bất kỳ nhóm nào trong số 128.256 nhóm có thể có.
+- Đó chính là những gì đang diễn ra.
+- Và đó là lý do tại sao đây là máy dự đoán token tiếp theo.
+- Vì vậy, một lần nữa lại có lớp nhúng biến mã thông báo thành vectơ.
+- Sau đó có 16 lớp xếp chồng lên nhau.
+- Và sau cùng, ở phần cuối cùng sẽ có mô hình ngôn ngữ đầu tiên đưa ra xác suất của mã thông báo tiếp theo.
+- Được thôi.
+## Phan 17
+
+### Muc 49
+
+- Vậy đó là cấp độ cao giúp bạn có được trực giác về điều này.
+- Và tiếp theo tôi sẽ đi sâu hơn một chút vào 16 lớp này, nhưng chỉ dành cho những ai muốn tìm hiểu.
+- Bạn cũng có thể chọn tăng tốc và lướt qua bài học, vì tôi sẽ quay lại phần này trong suốt khóa học để cung cấp cho bạn thêm một chút trực giác mỗi lần.
+- Được thôi.
+- Bạn đang bám chặt vào đó.
+- Bạn đã quyết định sẽ đi sâu hơn.
+- Khỏe.
+- Ha ha.
+### Muc 50
+
+- Bạn đang nói dối tôi đấy.
+- Vì vậy, chúng ta có lớp nhúng ở trên cùng để biến mọi thứ thành dữ liệu 20, 48 chiều.
+- Chúng tôi biết chúng tôi đã có được thứ đó vào phút cuối.
+- Vậy chuyện gì đang xảy ra ở giữa?
+- 16 lớp này là gì?
+- Chúng được gọi là mô-đun.
+- Mỗi thứ trong số này, mỗi thứ trong số này được gọi là bộ giải mã Lama.
+- Lớp 16: Lớp giải mã Lama.
+### Muc 51
+
+- Một số người có thể biết rằng máy biến áp thường được mô tả là sự kết hợp giữa bộ mã hóa và bộ giải mã, và nhiều máy biến áp hiện đại ngày nay chỉ có các lớp giải mã như thế này.
+- Không có bộ mã hóa, chỉ có nhiều lớp giải mã.
+- Vì vậy, bộ giải mã trong kiến trúc của Lama về cơ bản bao gồm ba lớp chú ý này, thứ được gọi là MLP, một perceptron nhiều lớp.
+- Và thứ này ở đây được gọi là chuẩn lớp.
+- Vậy tất cả những điều này là gì?
+- Vâng, cái này đây, phần chú ý này, đây là thứ mà Google đã phát minh ra khi họ đưa ra bài báo đó.
+- Chỉ cần chú ý là đủ.
+- Đây là một tập hợp các công cụ pha trộn, các bộ trộn, các thuật toán được thiết kế để thử và trộn lớp ở trên, nhưng cụ thể hơn, chúng thử và làm gì để tìm ra điều gì ở lớp trước mặt mà tôi nên chú ý?
+## Phan 18
+
+### Muc 52
+
+- Và theo thời gian, chúng học được cách thiết lập trọng số của mình, xác định cách chúng kết hợp tất cả thông tin trong lớp phía trên.
+- Và họ làm điều đó bằng cách học những điều khác nhau, thứ được gọi là truy vấn, đó là thứ tôi đang tìm kiếm?
+- Chìa khóa ở đây là mỗi người đang cố gắng thông báo cho tôi điều gì?
+- Giá trị là gì, thông tin trong từng phần của nó là gì?
+- Và ồ, đầu ra là đầu ra cuối cùng sau khi thực hiện tất cả những thao tác phức tạp này, tôi biết, nhưng tôi chỉ muốn cho bạn biết rằng đó là đầu ra giá trị khóa truy vấn, tức là bốn loại tham số được học bởi lớp tự chú ý.
+- Và đó là những gì xảy ra ở đây.
+- Và bạn sẽ thấy rằng các kích thước đầu vào, toàn bộ thứ này là 2048.
+- Kết quả đầu ra cuối cùng cũng là 2048.
+### Muc 53
+
+- Nhưng có một số thứ khác đang diễn ra ở đây và tôi đã liên kết đến điều này.
+- Bài viết về ChatGPT này có gì đó thú vị.
+- Dành cho lạc đà 3.
+- 1 chứ không phải llama 3.
+- 2, nhưng nó cung cấp hướng dẫn thực sự hữu ích về một số điều này.
+- Và bạn cũng có thể tìm hiểu sâu hơn về một trong những điều này.
+- Có rất nhiều điều bạn có thể tìm hiểu trên YouTube, thông qua trò chuyện với ChatGPT và thậm chí thông qua việc đọc bài báo tự chú ý ban đầu, sự chú ý là tất cả những gì bạn cần nếu muốn tìm hiểu sâu hơn một chút.
+- Nhưng hiện tại, tôi chỉ muốn truyền đạt trực giác đó cho bạn.
+### Muc 54
+
+- Tự chú ý chính là tìm ra điều gì quan trọng.
+- Từ các lớp xuất hiện trước tôi là lớp perceptron nhiều lớp.
+- Đây là một trong những khối xây dựng cốt lõi của mạng lưới nơ-ron sâu.
+- Đây thực sự là công nghệ mạng nơ-ron sâu tiêu chuẩn.
+- Đây là nơi bạn kết nối lớp trên với lớp dưới của bạn.
+- Và theo cách hoạt động của nó, up proj là thứ sẽ làm bùng nổ số chiều từ 2000 chiều lên 8000 chiều của dữ liệu của bạn.
+- Hàng tấn dữ liệu.
+- Về cơ bản, cổng chính là thứ có chức năng xác định những gì quan trọng với tất cả các chiều không gian này.
+## Phan 19
+
+### Muc 55
+
+- Làm sao tôi có thể lọc được những thông tin quan trọng?
+- Và một phần của cổng đó được gọi là tính phi tuyến tính, tôi sẽ giải thích điều này ngay sau đây.
+- Và sau khi bạn đã làm xong việc đó, sau khi bạn đã đi qua cổng, sẽ có một phép chiếu xuống chuyển đổi nó trở lại 2000 chiều mà chúng ta đã có trước đó.
+- Vậy là có 2000 chiều, bùng nổ thành 8000, rồi đi qua cổng trở lại 2000 lần nữa.
+- Đó là lớp perceptron nhiều lớp trong mỗi 16 khối này.
+- Được rồi, bây giờ bạn đã hoàn thành hầu hết rồi.
+- Thật dễ dàng.
+- Bây giờ, thứ này, chuẩn mực lớp chỉ là thủ thuật toán học để cố gắng đảm bảo rằng các con số hoạt động đúng.
+### Muc 56
+
+- Và cũng đừng bay đi quá nhiều hoặc quá ít.
+- Vậy thì đây chính là cái mà họ gọi là Chuẩn hóa các con số để chúng hoạt động tốt.
+- Thủ thuật toán học.
+- Không thực sự quan trọng lắm.
+- Và thế là xong.
+- Những, những.
+- Và sau đó còn có nhiều chuẩn mực hơn nữa diễn ra ở đây.
+- Vậy đó là cấu trúc tổng thể.
+### Muc 57
+
+- Đó là sự nhúng.
+- Và sau đó là 16 mô-đun có sự chú ý và nhận thức nhiều lớp.
+- Và sau đó bạn kết thúc bằng phần đầu LM.
+- Mọi thứ đều khớp với nhau như thế đó.
+- Về cơ bản thì đó là kiến trúc của máy biến áp.
+- Ừm, và điều này, điều kia, điều đó tình cờ lại hoạt động rất tốt khi bạn đưa vào nhiều dữ liệu và đào tạo nó theo cách mà chúng ta sẽ thực hiện vào tuần thứ bảy.
+- Vì vậy, tôi không thực sự nói về cách thức đào tạo hoạt động, nhưng khi bạn đào tạo nó, nó sẽ ngày càng tốt hơn trong việc ánh xạ đầu ra thành các mã thông báo tiếp theo có thể theo cách bắt đầu thể hiện trí thông minh này và lý do tại sao phần cuối cùng đó lại xảy ra.
+- Không ai thực sự chắc chắn, nhưng chúng ta biết.
+## Phan 20
+
+### Muc 58
+
+- Chúng tôi hiểu tại sao nó ngày càng giỏi hơn trong việc mô phỏng các mã thông báo hợp lý tiếp theo.
+- Chỉ có điều hơi khó hiểu là nó cũng tỏ ra rất đúng và chính xác.
+- Các mã thông báo tiếp theo Được rồi, phần cuối cùng của câu đố mà tôi muốn đề cập đến là hàm kích hoạt Selu.
+- Trước hết, nếu bạn đã xem video của tôi thì bạn sẽ biết rằng tôi thích nói về những nơ-ron này, những thuật toán nhỏ riêng lẻ này, những phép tính ma trận này giống như bộ trộn âm thanh pha trộn tín hiệu theo cách trên.
+- Và bạn có thể nghĩ rằng điều đó nghe có vẻ hơi đơn giản hóa, nhưng thực tế không phải vậy.
+- Những gì họ làm thực chất là nhân với trọng lượng rồi cộng chúng lại với nhau.
+- Đó chính là phép tính ma trận diễn ra.
+- Còn được gọi là matmul mà bạn có thể thấy ở khắp mọi nơi.
+### Muc 59
+
+- Nhưng đó chỉ là phép tính thôi.
+- Người ta cũng gọi đây là sự kết hợp tuyến tính.
+- Nó chỉ là sự kết hợp có trọng số của các yếu tố đầu vào.
+- Và có điều gì đó, ừm, điều đó rất tệ hại về các tổ hợp tuyến tính.
+- Có điều gì đó không công bằng ở họ.
+- Và cách diễn đạt theo toán học có thể hiểu là một tổ hợp tuyến tính của các tổ hợp tuyến tính thì bản thân nó chỉ là một tổ hợp tuyến tính.
+- Tôi không biết điều đó có ý nghĩa gì với bạn không.
+- Tôi sẽ nói lại lần nữa.
+### Muc 60
+
+- Một tổ hợp tuyến tính của các tổ hợp tuyến tính thì bản thân nó cũng chỉ là một tổ hợp tuyến tính.
+- Và ý tôi là gì khi nói như vậy?
+- Ý tôi là hãy tưởng tượng rằng mỗi thuật toán nhỏ này, như tôi vẫn nói, giống như một bộ trộn âm thanh đang trộn bốn âm lượng, giả sử, và giả sử rằng lúc đầu, đầu vào trên cùng, đầu vào đầu tiên là giả sử có bốn ca sĩ với micrô.
+- Đó là bốn thành viên của nhóm Beatles.
+- Ừ, bốn thành viên của Beatles đang ngồi trước mặt chúng ta, ừ, và ừ, họ đang hát và chúng tôi có một máy trộn âm thanh có khả năng kết hợp bốn giọng hát thành bản hòa âm hoàn hảo của bốn thành viên Beatles.
+- Và nó đang làm điều đó.
+- Và đầu ra từ bộ trộn đó sẽ đi vào bộ trộn khác.
+- Một bộ máy trộn khác.
+## Phan 21
+
+### Muc 61
+
+- Và rất nhiều người khác cũng có máy trộn nhạc và họ đang trộn nhạc của bốn thành viên Beatles.
+- Tất cả chúng đều được đưa vào ngày càng nhiều máy trộn hơn nữa, và có tới hàng tỷ máy trộn như thế này.
+- Và ở phần cuối cùng, có một chiếc loa được gắn vào bộ trộn âm thanh và đang phát nhạc.
+- Vấn đề là thế này.
+- Nếu bạn nghe bản phối của tôi, bạn sẽ thấy đó là sự pha trộn giữa giọng hát của bốn thành viên Beatles.
+- Khi bạn nghe bản nhạc ở phần cuối cùng?
+- Tóm lại, nó vẫn chỉ là sự pha trộn giữa bốn thành viên của Beatles, với một tỷ lệ nhất định của từng người.
+- Không còn gì khác nữa.
+### Muc 62
+
+- Không có cách nào trong số tất cả các bản phối này được kết nối với nhau mà có thể làm thay đổi tín hiệu theo bất kỳ cách nào.
+- Điều đó có nghĩa là đầu ra cuối cùng không chỉ là một số âm lượng khác nhau của mỗi ban nhạc Beatles, nghĩa là bạn có thể thay thế tất cả một tỷ bản phối này bằng một bộ trộn âm thanh, chỉ có các cài đặt khác nhau thể hiện một số loại, một số loại trung bình của tất cả các bản phối theo một cách nào đó.
+- Sẽ có một số thiết lập mà bạn có thể thiết lập để thay thế mọi thứ.
+- Vì vậy, với tất cả những thứ cầu kỳ này, với tất cả những thứ khác biệt này, với những phép chiếu Q và K và V và O và tất cả những thứ kỹ thuật này, bạn có thể thay thế tất cả những thứ này chỉ bằng một tổ hợp tuyến tính đơn giản của các mã thông báo và một con số xuất hiện.
+- Và không cần bất kỳ tham số nào trong số hàng tỷ tham số này khi bạn có thể thực hiện chỉ với 100.000 tham số.
+- Vậy là xong.
+- Vâng, điều đó có vẻ phiền phức phải không?
+- Vậy thì tất cả những điều này đều vô ích sao?
+### Muc 63
+
+- Không, tôi chắc bạn có thể tưởng tượng ra, có một mẹo ở đây.
+- Cái.
+- Thực ra, nếu bạn kết nối tất cả các bộ trộn âm thanh này lại với nhau, thì nếu bạn có thể tạo ra một chút méo âm thanh nhỏ từ mỗi bộ trộn âm thanh, thứ gì đó có thể giống nhau ở từng bộ trộn âm thanh, nhưng thứ gì đó làm hỏng âm thanh theo cách nào đó mà không chỉ là sự kết hợp tuyến tính thì chúng ta gọi là phi tuyến tính.
+- Không phải là sự kết hợp tuyến tính.
+- Cái gì đó khác nữa.
+- Ngay khi bạn thực hiện điều đó, mỗi bộ trộn sẽ tác động đến đầu ra cuối cùng theo cách hơi khác nhau.
+- Và đột nhiên tất cả những thứ này, tất cả các mức trộn, tất cả các thông số này đều có ý nghĩa và bạn không thể thay thế mọi thứ bằng một bộ trộn nữa.
+- Và do đó, việc đưa vào tính phi tuyến tính này trở nên cực kỳ quan trọng để đảm bảo rằng tất cả các tham số đều quan trọng.
+## Phan 22
+
+### Muc 64
+
+- Và tôi nghĩ đây là một khám phá vào khoảng những năm 1950 hay gì đó, khi mọi người lần đầu nghĩ về cách chúng ta xây dựng những thứ này theo cách có thể bắt chước, lấy cảm hứng từ tâm trí con người, và họ nhận ra sự chuyên chế của hồi quy tuyến tính.
+- Và sau đó họ nảy ra ý tưởng này, ý tưởng này được lấy cảm hứng từ cách hoạt động của tế bào thần kinh ở người.
+- Hoặc là bắn hoặc là không.
+- Và điều đó hoàn toàn không tuyến tính.
+- Ờ, ý tưởng ở đây là trong quá trình cổng này, khi bạn tăng lên nhiều chiều, bạn sẽ đưa một thứ gì đó phi tuyến tính vào hỗn hợp, rồi sau đó bạn lại đi xuống.
+- Và khi làm như vậy, đột nhiên mọi thứ đều có giá trị và tất cả các thông số này đều có ý nghĩa.
+- Và hóa ra thứ bạn sử dụng cho tính phi tuyến tính đó thực ra không quan trọng lắm.
+- Giống như có rất nhiều thứ khác nhau mà bạn có thể thử để thay đổi kết quả theo một cách nào đó, và kết quả là một số cách hiệu quả hơn những cách khác về mặt tốc độ luyện tập.
+### Muc 65
+
+- Và một trong những công cụ rất phổ biến mà bạn thấy được sử dụng ở khắp mọi nơi được gọi là ReLU, nghe có vẻ rất kỹ thuật và thực ra là viết tắt của rectified linear unit (đơn vị tuyến tính chỉnh lưu), nghe có vẻ rất kỹ thuật, nhưng đây là một công cụ cực kỳ đơn giản, chẳng hạn như nếu đầu vào nhỏ hơn 0 thì chỉ cần làm phẳng nó về 0, và nếu lớn hơn 0 thì chỉ cần trả về đầu vào.
+- Và thứ này được gọi là phi tuyến tính, vì mối quan hệ giữa đầu vào và đầu ra không phải là đường thẳng.
+- Nó không tuyến tính.
+- Vậy là đủ tốt rồi.
+- Điều đó khiến toàn bộ mạng lưới nơ-ron thực hiện những điều thú vị.
+- Vậy ReLU rất phổ biến.
+- Hàm được sử dụng trong llama được gọi là Selu uh, được gọi là hàm tuyến tính sigmoid, đơn vị tuyến tính sigmoid.
+- Và nó trông như thế này.
+### Muc 66
+
+- Nó rất giống với ReLU nhưng mượt mà hơn một chút.
+- Và thực tế là nó hoạt động rất tốt.
+- Đó là lý do tại sao nó được sử dụng.
+- Thật là thử nghiệm.
+- Vào thời kỳ đầu, mọi người thường sử dụng một thứ gọi là sigmoid rất phổ biến.
+- Sau đó ReLU và bây giờ Selu trở nên cực kỳ phổ biến.
+- Ừm, và vì vậy, không quá quan trọng để biết về điều này hoặc biết tại sao, chỉ cần biết lý do đằng sau nó là để vượt qua điều này, sự chuyên chế của hồi quy tuyến tính khiến toàn bộ mạng nơ-ron không thể chỉ bị thay thế bằng một tổ hợp có trọng số nhỏ, mà thực sự mọi thứ đều có ý nghĩa.
+- Đó chính là những gì đang diễn ra.
+## Phan 23
+
+### Muc 67
+
+- Ôi trời ơi, có lẽ nó còn hơn cả những gì bạn mong đợi.
+- Nhưng bạn đã hiểu rồi.
+- Và còn nhiều thông tin khác nữa nếu bạn muốn đọc ở đây, tôi có, ừm, thông tin, nhưng tôi muốn nói rằng, ừm, xin hãy yên tâm rằng bạn không cần phải đi sâu vào chi tiết những thông tin này.
+- Công việc của bạn với tư cách là kỹ sư AI là lựa chọn, tối ưu hóa, điều chỉnh và áp dụng llms thay vì viết loại mã PyTorch này.
+- Nhưng, ừm, nó có thể thú vị.
+- Tôi nghĩ trực giác sẽ hữu ích và đó là lý do tôi đề cập đến vấn đề này.
+- Được rồi, đủ rồi, chúng ta hãy chạy mô hình này.
+- Vì vậy, cách bạn chạy mô hình là bạn chỉ cần gọi model generate, bạn truyền các đầu vào cho nó.
+### Muc 68
+
+- Đây là ID mã thông báo có trên GPU.
+- Chúng tôi khuyên bạn không nên tạo quá 80 token mới.
+- Vui lòng.
+- Chúng ta hãy in kết quả ra.
+- Chuyện đó đang xảy ra ngay lúc này.
+- Nó sẽ thực hiện mọi điều tôi vừa nói.
+- Nó sẽ bơm nó qua tất cả các lớp này.
+- Và có một điều tôi thậm chí còn chưa đề cập đến ở các lớp này mà bạn có thể đã thấy là chúng có bốn bit tuyến tính.
+### Muc 69
+
+- Chúng đã bị hạ cấp xuống còn bốn bit.
+- Nếu bạn không sử dụng lượng tử hóa, bạn sẽ không thấy bốn bit tuyến tính đó.
+- Vậy thì ngay bây giờ tất cả những điều đó sẽ xảy ra.
+- Sự việc sẽ xảy ra khi chúng ta theo dõi.
+- Có một số cảnh báo mà chúng ta không quan tâm đến cảnh báo căng thẳng Chú ý.
+- Mặt nạ, đủ thứ.
+- Tôi sẽ kể cho bạn nghe về mặt nạ gây chú ý vào một ngày khác.
+- Và đây.
+## Phan 24
+
+### Muc 70
+
+- Sau đây là kết quả.
+- Đấy, nó đây rồi.
+- Vâng, vâng, tuyệt vời.
+- Đó là một trò đùa buồn cười.
+- Người ta đã nói với chúng ta như vậy.
+- À, vâng.
+- Đây là đầu ra, là một tenxơ.
+- Nó nằm trên GPU.
+### Muc 71
+
+- Điều đó không có nhiều ý nghĩa với chúng tôi, nhưng may mắn thay, bạn có thể nhớ rằng chúng ta có thể gọi trình mã hóa là decode và xem nó đang cố truyền đạt điều gì cho chúng ta thông qua những con số này.
+- Và đây là phần đầu của hệ thống tiêu đề văn bản.
+- Và thế là xong, đây là một trò đùa dành riêng cho các nhà khoa học dữ liệu.
+- Tại sao gấu trúc Pandas lại đến câu lạc bộ thống kê?
+- Bởi vì họ muốn phân tích tình yêu của họ dành cho dữ liệu và đó là một sự hỗn loạn của các con số.
+- Trò đùa này kết hợp một loài gấu trúc phổ biến với khái niệm thống kê và cách chơi chữ vui tươi về sự hỗn loạn.
+- Ý tôi là, hãy nhớ rằng đây là mô hình tham số 1 tỷ mà chúng ta đã hạ cấp xuống chỉ còn 16 vị trí có thể có.
+- Vì vậy, không phải với suy nghĩ đó mà nghĩ đến khuyết tật đó.
+### Muc 72
+
+- Không tệ chút nào.
+- Tôi nghĩ điều đó hoàn toàn có thể đối với một mô hình nhỏ có 1 tỷ tham số và chỉ bằng một phần tư kích thước của nó.
+- Vì vậy tôi cho rằng làm tốt lắm.
+- Và đôi khi, việc dọn dẹp bộ nhớ đang được sử dụng là điều cần thiết vì những thứ này vẫn còn lưu lại trên GPU.
+- Và đây là một số điều cần phải làm.
+- Và, ừm, sinh viên ừm, đã giúp lặp lại điều này và làm cho nó tốt hơn.
+- Vì vậy, sau khi bạn thực hiện thao tác này, đôi khi nó sẽ dọn sạch bộ nhớ GPU, nhưng đôi khi thì không.
+- Nó cứ lơ lửng ở đó, nhưng tôi nghĩ nó vẫn được giải phóng, mặc dù không hiển thị trực quan ở đây.
+## Phan 25
+
+### Muc 73
+
+- Được thôi.
+- Vì vậy, bây giờ tôi đã gói hàm tạo đó vào khối lớn này và hàm lớn này ở đây.
+- Và tôi đã đưa vào thêm một số tham số nữa.
+- Tôi đang làm điều đó.
+- Bạn có thể chọn lượng tử hóa hay không.
+- Bạn có thể thiết lập số lượng mã thông báo tối đa nếu muốn.
+- Tôi cũng có một số thông tin ở đây về mặt nạ chú ý để ngăn chặn cảnh báo đó xảy ra.
+- Và nếu bạn muốn tìm hiểu về mặt nạ gây chú ý, hãy tìm kiếm trên Google hoặc chúng tôi sẽ tìm hiểu.
+### Muc 74
+
+- Chúng ta sẽ buộc phải nói về mặt nạ gây chú ý vào tuần thứ bảy, vì vậy bạn có thể mong đợi điều đó.
+- Ừm, và sau đó tôi cũng sẽ sử dụng tính năng phát trực tuyến.
+- Đó chỉ là tính năng ôm khuôn mặt mà bạn có thể có được, gọi là trình phát văn bản.
+- Bạn phải cho chúng tôi biết bạn đang sử dụng trình phân tích nào và sau đó chúng tôi sẽ truyền trực tiếp kết quả.
+- Khi chúng ta gọi model generate, chúng ta sẽ truyền vào streamer, nhưng ngoài ra thì cũng giống nhau.
+- Nó sẽ cần một mô hình.
+- Nó sẽ tra cứu trình phân tích mã thông báo.
+- Nó sẽ có mã thông báo janky pad tương đương với mã thông báo kết thúc câu.
+### Muc 75
+
+- Ai biết tại sao chúng ta luôn phải nói như vậy.
+- Sau đó, nó sẽ lấy ID đầu vào, chuyển chúng sang PyTorch, rồi đưa chúng vào Cuda.
+- Nó sẽ thu hút sự chú ý.
+- Và sau đó nó sẽ quyết định có lượng tử hóa mô hình hay không.
+- Lấy mô hình đó và gọi model generate.
+- Đó chính là chức năng mà hàm này tạo ra.
+- Và bây giờ chúng ta có thể gọi hàm đó cho Phi năm của Microsoft.
+- Và bây giờ đây là một mô hình lớn hơn.
+## Phan 26
+
+### Muc 76
+
+- Đây giống như một mô hình có 4 tỷ tham số.
+- Vì vậy, bạn có thể thấy nó có dung lượng khoảng bảy gigabyte.
+- Và việc này mất khoảng 5 hoặc 10 phút hoặc lâu hơn để hoàn thành.
+- Vậy nên tôi sẽ đi và pha cho mình một tách cà phê.
+- Và bạn?
+- Vâng, tôi đoán là video sẽ bật ngay, nhưng nếu bạn tự chạy thì có lẽ bạn cũng cần đi uống cà phê.
+- Và tôi sẽ gặp bạn ngay thôi.
+- Ồ.
+### Muc 77
+
+- Và nếu bạn cảm thấy như đã mười phút trôi qua kể từ khi bạn khởi động thứ này, thì đó là vì đã mười phút trôi qua kể từ khi bạn khởi động thứ này.
+- Nó hoạt động như một mô hình có 4 tỷ tham số và chạy khá nhanh.
+- Việc tải xuống mô hình mất nhiều thời gian như vậy.
+- Và khi bạn chạy nó trên máy của mình, nó sẽ được lưu vào bộ nhớ đệm trên ổ cứng của bạn.
+- Nhưng khi bạn chạy nó trên Colab, bạn phải tải xuống nó mỗi khi có thời gian chạy mới.
+- Và ừ, đúng vậy.
+- Vậy nên chúng ta hãy hy vọng trò đùa này có giá trị.
+- Hãy cùng xem, tại sao nhà khoa học dữ liệu lại chia tay máy tính?
+### Muc 78
+
+- Bởi vì nó liên tục đổ dữ liệu vào họ và họ không thể xử lý mối quan hệ này nữa.
+- Và sau đó là một mã thông báo kết thúc đặc biệt rất cần thiết.
+- Đúng vậy.
+- Được thôi.
+- Ừm, nhưng đúng là tôi thích lạc đà hơn.
+- Một.
+- Được rồi.
+- Ờ.
+## Phan 27
+
+### Muc 79
+
+- Và, ừm.
+- Đúng.
+- Sau đó, ừm, chúng ta sẽ chuyển nhanh sang các mô hình nhỏ hơn, bắt đầu với Gemma cực kỳ nhỏ bé với 270 triệu tham số.
+- Nếu bạn vô tình bỏ qua phần lửa, tôi không trách bạn đâu.
+- Chúng ta hãy đến gặp Gemma.
+- Được thôi, ừ, vâng, rõ ràng là ngày nay bạn cũng cần phải có được sự đồng ý để sử dụng Gemma.
+- Tôi đã được cấp quyền truy cập vào mô hình này.
+- Bạn phải ký các điều khoản.
+### Muc 80
+
+- Nhưng tôi tập hợp với.
+- Với Gemma.
+- Tôi chưa bao giờ nghe nói có ai không được chấp thuận.
+- Nhưng có thể bạn là người đầu tiên.
+- Nhưng hãy cho tôi biết nếu bạn gặp bất kỳ vấn đề gì với nó.
+- Nhưng nếu không thì vẫn có thể đến được Gemma.
+- Tôi phát hiện ra rằng bạn không thể sử dụng lượng tử hóa với mô hình Gemma nhỏ bé này.
+- Tôi không biết chính xác tại sao, nhưng tôi gặp phải một lỗi PyTorch khủng khiếp khi thử, vì vậy tôi đã nhanh chóng tắt nó đi và có vẻ như bây giờ nó hoạt động tốt, vì vậy hy vọng là nó sẽ chạy nhanh hơn một chút so với năm bốn.
+### Muc 81
+
+- Tôi có thể thấy là nó chỉ có nửa gigabyte để tải xuống, tức là đã tải được một nửa rồi.
+- Bạn có thể thấy nó đang hoạt động ở đó, trên T4 của chúng tôi.
+- Và sau khi hoàn thành xong chúng ta sẽ thực hiện Kwon rồi Deep Seek và thế là xong.
+- Tôi sẽ quay lại ngay.
+- Khi?
+- Khi nào thì sẵn sàng.
+- Được rồi.
+- Và thế là Gemma đã hoàn thành.
+## Phan 28
+
+### Muc 82
+
+- Và câu nói đùa nhẹ nhàng của Gemma dành cho các nhà khoa học dữ liệu từ xa là, tại sao các nhà khoa học không bao giờ đi biển?
+- Và rồi Gemma dừng lại.
+- Vì vậy, thật đáng buồn là chúng ta sẽ không bao giờ biết được Gemma đang nghĩ gì.
+- Và tương tự như vậy, nó sẽ cung cấp những thứ ngẫu nhiên khác nếu bạn chạy nó.
+- Vì vậy, có lẽ bạn cũng có trải nghiệm tương tự.
+- Thực tế là nó thậm chí còn có một nỗ lực thiết lập tự nó đã là điều đáng ngưỡng mộ đối với một mô hình có 270 triệu tham số.
+- Thực sự rất nhỏ bé.
+- Được rồi, đó là Gemma.
+### Muc 83
+
+- Chuyển sang Quinn.
+- Tôi đã chạy Quinn rồi vì tôi nghĩ đây là phiên bản lớn hơn của Quinn.
+- Vì vậy, tôi để nó tải xuống.
+- Nhìn kìa.
+- Bạn có thể thấy nó mang lại khoảng tám gigabyte.
+- Bạn cũng có thể thấy.
+- RAM GPU của tôi thực sự đầy.
+- Ở đây cần kể một câu chuyện cười vui vẻ cho một nhóm các nhà khoa học dữ liệu.
+### Muc 84
+
+- Và nó nói chắc chắn rồi, đây là một trò đùa nhẹ nhàng và thông minh về dữ liệu.
+- Tại sao nhà khoa học dữ liệu lại chia tay nhà thống kê?
+- Bởi vì có sự tương quan.
+- Đó chỉ là sự trùng hợp ngẫu nhiên.
+- Họ luôn ở bên nhau và giá trị p không đủ mạnh để biện minh cho việc ở bên nhau.
+- Ồ, không sao đâu.
+- Giống như mọt sách vậy.
+- Ừm, tôi đoán là nó giống như mối tương quan và những thứ tương tự vậy.
+## Phan 29
+
+### Muc 85
+
+- Tôi cho là chúng ta sẽ, chúng ta sẽ, ừm, chúng ta sẽ nói rằng ổn thôi dựa trên màn trình diễn ổn của Quinn.
+- Ừ, và, ừ, nó muốn tiếp tục, nhưng tôi đã dừng nó lại sau khi đạt 80 mã thông báo.
+- Và cuối cùng tôi muốn chỉ cho bạn một mô hình lý luận.
+- Vậy hãy tìm R1 ở độ sâu nào.
+- Đây là biến thể lý luận nổi tiếng của biển sâu.
+- Ờ, nó đã được nén lại thành 1 nhỏ.
+- Phiên bản 5GB, ừm, gigabyte, 1.
+- Phiên bản Cran có 5 tỷ tham số.
+### Muc 86
+
+- Và tôi đã nói rằng nó có thể tạo ra tới 500 mã thông báo.
+- Và điều bạn sẽ thấy là điều đầu tiên nó tạo ra là thông điệp lý luận, là suy nghĩ thấu đáo.
+- Được rồi, tôi cần nghĩ ra một câu chuyện cười vui vẻ cho một căn phòng đầy các nhà khoa học dữ liệu.
+- Ừm.
+- Tôi nên bắt đầu từ đâu?
+- Vâng, ừ.
+- Và nó bắt đầu.
+- Nó lảo đảo đi.
+### Muc 87
+
+- Bạn có thể thấy rất nhiều thứ như thế này.
+- Và đoán xem bạn còn thấy gì nữa?
+- Đợi đã, bạn có thể thấy có lẽ blah blah blah blah blah blah.
+- Một góc nhìn khác.
+- Hoặc có thể đợi thêm một suy nghĩ khác hoặc điều gì đó tương tự.
+- Ngoài ra, và bạn có thể nhớ khi tôi đã nói với bạn trước đây rằng việc thêm từ "chờ" vào chỉ là một trong những thủ thuật mà tôi đã sử dụng, và tôi tin rằng "thay thế" cũng là một thủ thuật khác.
+- Vì vậy, bạn có thể thấy như chờ đợi chờ đợi.
+- Ngoài ra, những, những, những mã thông báo này được đưa vào đó trong khi nó đang trong quá trình suy luận, từng mã thông báo được đưa vào đó để buộc mô hình tự phản ánh và tiếp tục hoạt động.
+## Phan 30
+
+### Muc 88
+
+- Nhưng trong trường hợp này, nó cứ đau đầu vì trò đùa này, và ngay cả với 500 token, nó vẫn không thể nghĩ ra được trò đùa nào.
+- Vì vậy, mặc dù chúng ta có thể hiểu được phần nào quá trình suy nghĩ của một mô hình nhỏ, nhưng thực tế chúng ta không nhận được một trò đùa cụ thể nào ở phần cuối.
+- Có lẽ bạn đã làm tốt hơn.
+- Tôi không chắc chắn.
+- Dù sao đi nữa, kết luận là các mô hình nguồn mở rất thú vị để thử nghiệm và dễ chạy.
+- Lần đầu tiên tải xuống có thể hơi nhàm chán nhưng sau đó bạn sẽ sử dụng được chúng.
+- Nó miễn phí.
+- Và như một thông tin bổ sung mà chúng tôi thu thập được, họ không giỏi kể chuyện cười lắm, nhưng họ rất giỏi nhiều thứ khác.
+### Muc 89
+
+- Và vì vậy, bạn nên thử nghiệm và cố gắng tìm ra những điều họ giỏi, vì chúng ta sẽ khám phá ra một trong số họ vào ngày mai trong dự án thương mại mà chúng ta sẽ xây dựng, thay vì sự ngớ ngẩn này.
+- Tôi nghĩ có lẽ là lạc đà không bướu 3.
+- 2 người đã giành được giải thưởng cho phiên họp hôm nay.
+- Dù sao đi nữa, đó là quá trình khám phá các mô hình nguồn mở của chúng tôi bằng cách sử dụng phần mô hình của gói Transformers.
+- Và như một phần của quá trình này, chúng tôi thực sự nghiên cứu sâu về việc mạng nơ-ron sâu trong mã PyTorch trông như thế nào khi là một phần của mã Huggingface Transformers.
+- Và đó là kết thúc ngày thứ tư của tuần thứ ba.
+- Hôm nay chúng ta thực sự đã có thêm nhiều hiểu biết kỹ thuật hơn.
+- Tôi hy vọng bạn thích nó.
+### Muc 90
+
+- Bây giờ, ngoài việc mã hóa bằng sự hỗ trợ xây dựng Frontier Models, bạn còn có thể sử dụng các đường ống ôm sát, trình phân tích cú pháp và mô hình.
+- Và hy vọng là bạn đang bắt đầu xây dựng trực giác về cách thức hoạt động của những thứ này, cách chúng kết hợp với nhau.
+- Và ngày mai tôi sẽ đến và chúng ta sẽ cùng nhau luyện tập.
+- Ngày mai chúng ta sẽ thực sự xây dựng sức mạnh của những kỹ năng này, chuyên môn này thông qua một số công việc lặp đi lặp lại để xây dựng sản phẩm và hy vọng là một sản phẩm thương mại hữu ích hơn là kể chuyện cười.
+- Và chúng tôi cũng sẽ xem xét sâu hơn về quá trình suy luận.
+- Và tôi cũng có một thứ nhỏ xinh muốn cho bạn xem.
+- Tôi chỉ muốn mở rộng tầm mắt của bạn thêm một chút về cách thức suy luận hoạt động, cách thức tạo ra mã thông báo tiếp theo để đưa ra loại đầu ra mà chúng ta thấy.
+- Vì vậy, tôi muốn cho các bạn xem một thứ, một hình ảnh trực quan dành cho những người yêu thích hình ảnh cảm thấy tôi đã viết quá nhiều mã.
+## Phan 31
+
+### Muc 91
+
+- Tôi có một số hình ảnh trực quan mà tôi nghĩ bạn sẽ thích và tôi cũng sẽ dành nó cho bạn vào ngày mai, sau đó sẽ kết thúc vào tuần thứ ba.
+- Tôi rất mong được gặp bạn vào tuần thứ ba.
+- Ngày mai là ngày thứ năm.
+

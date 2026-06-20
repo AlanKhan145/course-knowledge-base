@@ -1,0 +1,519 @@
+# Ngay 019 - Tuan 4, ngay 4
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-019.txt
+
+## Tong quan
+
+- Chu de mo dau: Và chào mừng đến tuần thứ tư, ngày thứ tư.
+- File goc: day-019.txt
+- So y chinh: 379
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Và chào mừng đến tuần thứ tư, ngày thứ tư.
+- Sẽ vui lắm đây.
+- Đây là về các mô hình nguồn mở.
+- Bây giờ, chúng ta hãy tiếp tục thử thách lần trước và đưa nó vào mã nguồn mở.
+- Lần trước, chúng tôi đã đảm bảo rằng ngoài việc mã hóa bằng các mô hình frontier và chọn LLM phù hợp dựa trên số liệu, bạn còn có thể xây dựng Frontier Solutions bằng cách sử dụng một mô hình mà chúng tôi đã chọn vì nó tốt trong việc tạo mã.
+- Vì vậy, hôm nay chúng ta sẽ đánh giá các mô hình nguồn mở, so sánh chúng với chuẩn mực, xây dựng giải pháp để các mô hình nguồn mở có thể tạo mã.
+- Và để nhắc lại, đây chính là thử thách mà chúng tôi đặt ra cho doanh nhân khi chúng tôi hỏi vấn đề bạn đang cố gắng giải quyết là gì?
+- Họ nói, vấn đề là chúng tôi có một số mã Python.
+### Muc 2
+
+- Chúng tôi muốn dịch nó.
+- Chúng tôi muốn chuyển nó sang C++ nhanh hơn, hãy thực hiện điều đó và chúng tôi sử dụng một số mô hình biên giới.
+- Claude Sonnet 45 có thể đạt tốc độ nhanh hơn khoảng 184 lần.
+- GPT năm đã đưa nó lên 2.
+- 33 lần, sau đó tìm hiểu để có tốc độ nhanh hơn gấp một nghìn lần với một số mã đa luồng, với số lượng luồng được mã hóa cứng và một vài thứ khác.
+- Song Tử 2.
+- 5 Chuyên nghiệp Để giành chiến thắng, nó đã viết lại đại số.
+- Nó tái cấu trúc mã thành các luồng và kiểm tra xem có bao nhiêu luồng có thể sử dụng cho hệ thống của tôi, sau đó xây dựng mã C++ cực nhanh, được biên dịch gốc để cung cấp cho chúng ta tốc độ đó là 1440 lần.
+### Muc 3
+
+- Tăng tốc lên.
+- Thật phi thường.
+- Vậy thì mã nguồn mở so sánh thế nào?
+- Vâng, chúng ta hãy cùng tìm hiểu nhé.
+- Được rồi.
+- Nhưng trước tiên chúng ta nên xem qua một số bảng xếp hạng để tìm ra một số mô hình nguồn mở tiềm năng.
+- Điều đó có vẻ hợp lý để chúng ta bắt đầu.
+- Nơi đầu tiên bạn cần đến là bảng xếp hạng Big Code Models, đây là một không gian ôm sát khuôn mặt rất nổi tiếng.
+## Phan 2
+
+### Muc 4
+
+- Và nó cho bạn thấy thứ hạng của nhiều mô hình khác nhau về kỹ năng Python, Java, JavaScript và cả C++.
+- Và chúng ta cũng có thể sắp xếp theo khả năng C++ nếu có thể.
+- Chúng ta hãy làm điều đó.
+- Và chúng ta phát hiện ra rằng theo bảng này, mà tôi nghĩ là đã lỗi thời vài tháng, tôi nghĩ họ không cập nhật bảng này thường xuyên, nhưng nó vẫn cung cấp cho chúng ta một số gợi ý hữu ích.
+- Khi 2.
+- 5 Coder Instruct là một mô hình hàng đầu, đây là phiên bản lớn hơn phiên bản chúng ta có thể chạy, nhưng nó cũng xuất hiện ở đó và sau đó là seq sâu.
+- Đây là mô hình lai với các mô hình khác, nhưng tôi nghĩ chúng ta có thể thấy lập trình viên chuyên nghiệp ở đây.
+- Và nếu chúng ta nhìn sâu hơn, chúng ta sẽ thấy nhiều mô hình khác nhau dựa trên deep seq fi uh và Quen từ Alibaba Cloud.
+### Muc 5
+
+- Vì vậy, nơi khác chúng ta có thể tìm đến là AI phân tích nhân tạo mà tôi yêu thích.
+- Và bạn sẽ nhớ rằng khi bạn đang ở chế độ phân tích nhân tạo, bạn có thể chọn mô hình mà bạn đang xem.
+- Và bạn có xu hướng nhìn vào những thứ lớn.
+- Nhưng bạn có thể vào đây để xem mô hình đã chọn và bạn có thể thấy tôi đã xem xét, tìm kiếm và chọn ra một số mô hình ứng viên.
+- Chúng ta có thể muốn xem xét thêm một chút và so sánh kỹ năng lập trình của họ.
+- Vì vậy, tôi đã lấy một số mô hình nguồn mở mà chúng ta có thể chạy.
+- Một trong số đó là GPT OSS 20 B và đây là ngôn ngữ có hiệu suất cao nhất hiện nay trên thị trường lập trình.
+- Kỹ năng lập trình.
+### Muc 6
+
+- So với Deep Sea Coder, có giá thấp hơn đáng kể và năm cho phiên bản mini và 2.
+- 5 lập trình viên và Gemma thứ ba ở dưới cùng.
+- Và ở đây bạn lại thấy một sự sắp xếp tương tự như vậy.
+- Nhưng không, bây giờ thì khác rồi.
+- Xin lỗi, GPT Oasis xuất hiện trước rồi mới đến 2.
+- Tiếp theo là 5 lập trình viên.
+- Vị trí thứ ba thuộc về Deep Sea Coder, sau đó là Five Four và Gemma ở vị trí cuối cùng.
+- Vì vậy, nếu chúng ta phải chọn ba thì có lẽ sẽ là GPT OSS và Quen 2.
+## Phan 3
+
+### Muc 7
+
+- 5 bộ mã hóa và bộ mã hóa chuỗi sâu.
+- Họ có vẻ là những ứng cử viên lý tưởng.
+- Đó là cách bạn làm.
+- Bạn bắt đầu với bảng xếp hạng với số liệu phù hợp để chọn ứng viên, sau đó bạn thử nghiệm chúng, đó là điều chúng ta sẽ tìm hiểu tiếp theo.
+- Thực ra thì không phải vậy.
+- Vẫn còn một việc nữa phải làm.
+- Đầu tiên, tôi chợt nghĩ, chúng ta sẽ chạy những mô hình nguồn mở này bằng một con llama, điều này giới hạn tôi chỉ có thể chạy được hai mô hình cục bộ.
+- Nhưng điều đó không hoàn toàn đúng.
+### Muc 8
+
+- Có nhiều cách khác để chúng ta có thể chạy mô hình.
+- Chúng ta có thể sử dụng open router và cũng có thể sử dụng grok với Q chứ không phải not Mr.
+- Xạ hương.
+- Và tôi nghĩ đó là điều chúng ta sẽ làm.
+- Chúng ta sẽ thử grok với Q, vì chúng ta có thể sử dụng nó để truy cập OSS lớn hơn.
+- 120 và bạn có thể thấy rằng điểm số đó thậm chí còn cao hơn, thực tế chỉ cao hơn một chút trong mã hóa khoa học, nhưng cao hơn đáng kể trong bảng mã trực tiếp.
+- Vậy thì chúng ta sẽ thử cách đó thông qua grok.
+- Vì vậy, chúng ta sẽ sử dụng cả hai kỹ thuật cho các mô hình nguồn mở.
+### Muc 9
+
+- Với điều đó.
+- Bây giờ chúng ta hãy bắt tay vào làm thôi.
+- Chúng ta lại quay lại với con trỏ.
+- Và chúng ta đã bước sang tuần thứ tư rồi.
+- Và để nhắc lại, hôm nay chúng ta sẽ thực hiện C++ gốc.
+- Nhưng bạn không cần phải bận tâm nếu điều đó sẽ trở thành thứ gì đó khó nhằn.
+- Bạn sẽ phải mất một thời gian để học.
+- Thay vì.
+## Phan 4
+
+### Muc 10
+
+- Bạn có thể chỉ cần xem tôi thực hiện và xem mã được chuyển hoặc sử dụng trang web mà tôi đã giới thiệu cho bạn ngày hôm qua.
+- Và lưu ý khác là chúng ta sẽ sử dụng một số mô hình miễn phí được cài đặt thông qua Lama.
+- Ngoài ra, chúng ta sẽ sử dụng một số mô hình nguồn mở, như tôi đã nói, thông qua grok.
+- Nhưng tôi cũng quyết định thêm cả bộ định tuyến mở nữa.
+- Chúng tôi sẽ thêm một mô hình từ bộ định tuyến mở.
+- Tất cả những điều này đều hoàn toàn tùy chọn.
+- Đây là những mô hình mã nguồn mở, nhưng bạn vẫn phải trả tiền cho những mô hình lớn hơn vì bộ định tuyến mở phải chạy chúng trên đám mây.
+- Nhưng bạn không cần phải bỏ qua chúng nếu bạn không muốn chạy chúng.
+### Muc 11
+
+- Đó là phần giới thiệu.
+- Chúng tôi sẽ chạy một số lệnh nhập khẩu.
+- Tôi sẽ tải vào một số khóa môi trường.
+- Như thường lệ, không quan trọng nếu bạn không muốn sử dụng bất kỳ mục nào trong số này và chỉ cần xóa mục đó khỏi mã này.
+- Được thôi.
+- Và sau đó như thường lệ, chúng ta sẽ kết nối với thư viện máy khách theo cách thông thường.
+- Và dòng tiếp theo là nơi tôi thiết lập các mô hình mà chúng ta sẽ sử dụng.
+- Chúng tôi sẽ giữ lại các mô hình mã nguồn đóng Frontier ở đây.
+### Muc 12
+
+- Mặc dù danh sách này tôi không thực sự sử dụng chúng.
+- Nhưng đây là những mô hình biên giới.
+- Chúng ta sẽ sử dụng chúng vào ngày mai nữa.
+- Và sau đó chúng ta sẽ sử dụng mô hình mã nguồn mở Quen 2.
+- 5 coder deep seq coder v2 và GPT oss 20, và chúng ta sẽ sử dụng cả ba thông qua Olama chạy cục bộ trên máy tính của chúng ta.
+- Nếu máy của bạn có thể thực hiện được thì chúng tôi sẽ thực hiện.
+- Sau đó chúng ta sẽ chạy.
+- Tôi sẽ chạy ít nhất Quen three coda 30 DB trên open router và tôi sẽ sử dụng biến thể 120 DB khổng lồ của OpenAI trên grok với Q.
+## Phan 5
+
+### Muc 13
+
+- À, và bạn có thể thấy ở dưới cùng này, tôi vừa có một cuốn từ điển ở dòng dưới cùng này.
+- Và về cơ bản, điều tôi muốn nói là đối với mỗi mô hình mà tôi đã liệt kê ở đây, tôi đang nói xem nó sẽ sử dụng thư viện máy khách nào?
+- Vì vậy, chỉ cần ánh xạ nhanh một chút từ tên mô hình đến tên mô hình thư viện máy khách đến mô hình thư viện máy khách có tên là thư viện máy khách.
+- Để chúng ta có thể tra cứu điều đó trong mã của mình ngay lập tức.
+- Vì vậy, bạn có thể thoải mái thay đổi hai danh sách này thành bất kỳ danh sách nào bạn muốn.
+- Chọn kích thước, hình dạng và giá thành của mô hình mà bạn cảm thấy thoải mái.
+- Và tất nhiên, hãy sử dụng những chiếc llama đầu tiên miễn phí, miễn là máy của bạn đủ lớn.
+- Nếu máy của bạn có kích thước nhỏ hơn thì hãy chọn llama 3.
+### Muc 14
+
+- 2, lạc đà không bướu 3.
+- 21 b, hoặc chỉ cần đi và cũng có một mã llama mà bạn có thể xem.
+- Chỉ cần vào Alarm.
+- com để xem và chọn những mẫu mà bạn muốn.
+- Và tôi nên đề cập rằng, một khi bạn đã làm điều đó, một khi bạn đã đến Alarm.
+- com và gone tới models, sau đó bạn sẽ muốn mở một thiết bị đầu cuối con trỏ theo cách thông thường và sau đó bạn có thể thấy những gì tôi đã làm ở đây.
+- Hai lệnh cuối cùng của tôi là kéo quân Hậu 2.
+- 5, Koda và Olama, kéo sâu, đặt Koda v2.
+### Muc 15
+
+- Và bạn sẽ phải kéo bất kỳ cái nào bạn muốn.
+- Và phải mất một phút để tải xuống những thứ này.
+- Bạn có thể thấy chúng có kích thước khá lớn.
+- Số 2.
+- 5 Koda là mô hình có 7 tỷ tham số, do đó nó lớn và sâu sắc.
+- Sea Koda v2 là mô hình có 16 tỷ tham số, do đó nó thực sự lớn.
+- Nhưng cả hai đều vừa vặn với máy của tôi và hoạt động tốt.
+- Có thể bạn cần phải có 60GB RAM chứ không phải 8GB, nhưng bạn nên thử xem sao.
+## Phan 6
+
+### Muc 16
+
+- Nhưng nếu còn nghi ngờ, hãy chọn con llama nhỏ hơn 3.
+- 2 hoặc những cái nhỏ khác.
+- Được rồi, khi bạn đã thực hiện xong việc đó, bạn đã cập nhật các mô hình của mình và ánh xạ chúng tới đúng khách hàng ở đây.
+- Sau đó chạy tế bào đó.
+- Và sau đó chúng ta sẽ lấy thông tin hệ thống ở đây.
+- Đây là máy của tôi.
+- Máy của bạn sẽ khác.
+- Nhưng điều này cho tôi biết một điều tôi vừa nhận thấy ở đây là nó cho biết số lõi mà tôi có.
+### Muc 17
+
+- Vì vậy, khi tôi nhận ra điều đó, khi grok ngày hôm qua đã sửa số lõi trong mã mà nó tạo ra, thì điều đó cũng hợp lý thôi, vì nó biết tôi đã nói với nó về kiến trúc của máy tính.
+- Vậy là nó cố tình làm như vậy.
+- Vì vậy, đó không thể là lý do khiến mã của Gemini vượt trội hơn.
+- Ừm, Gemini đã tìm hiểu xem có bao nhiêu lõi, nhưng không cần thiết vì chúng tôi đã có thông tin đó trong lời nhắc.
+- Được thôi.
+- Dù sao thì, đây là những lệnh mà chúng ta đã học từ hôm qua.
+- Vậy trong phòng thí nghiệm ngày hôm qua, chúng ta đã xác định được, ừm, từ lời khuyên từ GPT năm, các lệnh cần sử dụng là gì?
+- Ừ, bạn còn nhớ khi chúng ta, ừ.
+### Muc 18
+
+- Đợi đã, giờ thì GPT năm đã ở đâu rồi?
+- Và đây chính là nó.
+- Chúng tôi đã yêu cầu GPT 5 cho chúng tôi biết nên sử dụng lệnh nào.
+- Lần đầu tiên tôi thực hiện, thực ra GPT 5 không mang lại cho tôi kết quả hiệu quả nhất.
+- Tôi đã phải nhắc nhở vài lần, nhưng cuối cùng tôi cũng làm được.
+- Đây là cách nhanh nhất nên bạn cũng nên làm như vậy.
+- Bạn nên tìm các lệnh nhanh cho nền tảng của mình và đó là những gì bạn nên đưa vào đây.
+- Và sau đó chạy tế bào đó.
+## Phan 7
+
+### Muc 19
+
+- Và tại thời điểm đó, chúng tôi đã sẵn sàng để tiến hành thử nghiệm một số mô hình.
+- Được rồi, nhiệm vụ chính là bạn sẽ nhớ lời nhắc của hệ thống về việc chuyển đổi mã Python.
+- Bạn nhớ hàm user prompt để tạo ra lời nhắc người dùng với thông tin hệ thống, lệnh biên dịch và mã Python để chuyển.
+- Vậy thì đây không còn là tin cũ nữa rồi.
+- Vì vậy, khi viết tin tức cũ, đầu ra bạn biết rõ và cổng bạn cũng biết rõ.
+- Và đây lại là mã để tính số pi bằng cách thực hiện 200 triệu lần chuỗi này.
+- Và bây giờ hãy chạy mã Python, thực ra chúng ta không cần phải chạy mã này.
+- Chúng ta đã biết thời gian biên dịch và chạy mã Python.
+### Muc 20
+
+- Nó sẽ chạy được ba lần.
+- Nhưng đây là thông tin mới tôi dành cho bạn.
+- Chúng ta hãy cùng tạo cho mình một giao diện Gradio nhỏ.
+- Vì vậy, đây là cách sử dụng các khối mà bạn sẽ nhớ khi thiết kế giao diện.
+- Bài này sẽ có hai hàng.
+- Hàng đầu tiên sẽ có hộp văn bản Python và C++, mã Python để nhập và mã C++ sẽ là đầu ra.
+- Đặt rồi cái này, cái này.
+- Sau đó chúng ta có menu thả xuống để chọn một mô hình.
+### Muc 21
+
+- Và chúng ta có nút chuyển đổi để chuyển đổi mã.
+- Và đây là nơi bạn nói với Gradio, này, tôi muốn bạn xây dựng một giao diện để khi người dùng nhấp vào nút chuyển đổi, tôi muốn bạn gọi lại máy chủ của tôi.
+- Tôi muốn bạn gọi hàm có tên là port.
+- Đầu vào phải là mô hình được chọn và mã Python.
+- Và với bất kỳ kết quả nào mà hàm đó trả về, tôi muốn bạn đưa kết quả đó vào hộp văn bản C++.
+- Dòng này là cách chúng ta yêu cầu Gradio kết nối UI của chúng ta với cổng hàm gọi lại.
+- Chỉ cần thế thôi.
+- Và sau đó sẽ khởi chạy giao diện người dùng mới để chuyển mã.
+## Phan 8
+
+### Muc 22
+
+- Được rồi, chúng ta bắt đầu thôi.
+- Và rồi giao diện người dùng xuất hiện.
+- Haha được thôi, như tôi đã nói, hai hàng.
+- Hàng trên cùng có mã Python và mã C++.
+- Đáng yêu.
+- Vì vậy, tôi có thể chọn một mô hình và cho phép tôi chọn bất kỳ mô hình nào trong danh sách mô hình đó.
+- Vì vậy, nếu bạn thay đổi danh sách mô hình, bạn sẽ thấy mô hình của mình ở đây và chúng tôi sẽ không chọn những mô hình biên giới.
+- Chúng tôi đã sử dụng chúng rồi.
+### Muc 23
+
+- Chúng ta sẽ bắt đầu với Gwen 2.
+- 5 coda và tôi có thể đến đây và nhấn Chuyển đổi mã.
+- Và khi tôi nhấn nút đó, nó sẽ gọi đến cổng gọi lại.
+- Nó truyền vào mô hình và mã Python, và bất cứ thứ gì phương thức gọi lại trả về, nó sẽ đẩy nó vào ô này.
+- Và đó chính là những gì chúng ta có hiện tại.
+- Và nó cũng được ghi vào một tập tin.
+- Vì vậy, điều tôi có thể làm bây giờ là quay lại con trỏ một lúc và tôi có thể biên dịch và chạy.
+- Bây giờ hãy biên dịch đoạn mã đó.
+### Muc 24
+
+- Nó đã ghi vào Main.
+- cpp.
+- Đó sẽ là cùng một mã.
+- Và bây giờ chúng ta có thể biên dịch mã đó và chạy nó.
+- Và nó không chạy.
+- 2.
+- 5 Pro không có mã nên không thể thực hiện được điều này.
+- Đây là một mô hình nhỏ.
+## Phan 9
+
+### Muc 25
+
+- Không thể chuyển đổi thành công từ C++ từ Python sang C++.
+- Tôi nghĩ là nó đã không nhập đúng thứ cần thiết nên không có tác dụng.
+- Vậy là thất bại rồi.
+- Thất bại đầu tiên của chúng tôi là từ Gwen.
+- Quinn.
+- Được rồi, đó là lập trình viên Quinn.
+- Việc đó không thành công.
+- Bây giờ chúng ta sẽ thử một mô hình nhỏ khác.
+### Muc 26
+
+- Chúng ta sẽ thử Deep Sea Coder v2.
+- Không nhỏ lắm.
+- Đây là mô hình có 16 tỷ tham số.
+- Chúng ta sẽ xem liệu nó có thể chuyển mã Python sang C++ hay không.
+- Vâng, nó đã làm được điều gì đó.
+- Chúng ta bắt đầu thôi.
+- Có vẻ như vấn đề này cũng tương tự, nhưng chúng ta hãy cùng xem.
+- Được thôi, ừm, trông nó có vẻ khác.
+### Muc 27
+
+- Chúng ta hãy quay lại đây.
+- Biên dịch và chạy.
+- Ồ, không.
+- Không, nó không gặp vấn đề gì khi chạy thành công.
+- Làm tốt lắm, lập trình viên biển sâu.
+- Ừ, điều đó đã xảy ra và chúng ta có một con số hoàn toàn đáng nể.
+- Ừ, chúng tôi sẽ làm vậy.
+- Tôi sẽ ghi nhớ điều này.
+## Phan 10
+
+### Muc 28
+
+- Hoặc có lẽ chúng ta nên viết nó ra đây.
+- Vì vậy, chúng ta sẽ biến nó thành một ô đánh dấu và chúng ta sẽ nói, ừm, đây là Quinn.
+- Coder là một coder thất bại ở hạng mục deep seek thứ hai.
+- Đây là Quinn 2.
+- 5.
+- Coder deep C coder v2.
+- Và chúng ta hãy chọn thời điểm ở giữa.
+- Đấy là số 0.
+### Muc 29
+
+- 1144050084.
+- Được thôi.
+- Xin chúc mừng Deepsea Coder.
+- Chúng ta hãy thử cái tiếp theo nhé.
+- Được rồi.
+- Tiếp theo là mô hình tham số GPT oss 20 B 20 tỷ lần nữa chạy cục bộ trên máy tính của tôi ngay tại đây.
+- Được rồi, tôi sẽ nhấn nút chuyển đổi mã.
+- Và bây giờ tôi biết từ kinh nghiệm cay đắng rằng chúng ta sẽ phải chờ đợi.
+### Muc 30
+
+- Giờ thì, việc này sẽ tốn khá nhiều thời gian của máy tôi và tôi có thể thấy GPU của tôi đang hoạt động hết công suất vì mô hình khổng lồ này đang phải vật lộn để giải quyết vấn đề này.
+- Ừ, vậy thì chúng ta sẽ dành chút thời gian.
+- Tôi sẽ để nó suy nghĩ một lúc.
+- Và khi tôi quay lại, chúng ta sẽ xem liệu GPT oss 20 B có phù hợp hay không.
+- Và khi tôi hỏi, liệu nó có thể thực hiện được không?
+- Ý tôi là, tất nhiên, nó có thể cho chúng ta câu trả lời không?
+- Và câu trả lời là có.
+- Nó sẽ cho chúng ta câu trả lời.
+## Phan 11
+
+### Muc 31
+
+- Đây rồi.
+- Tuy nhiên, phải mất khoảng năm phút để đến được đây trong lúc tôi đang bận rộn.
+- Ừ, nhưng chúng tôi có câu trả lời.
+- Đây có phải là câu trả lời đúng không?
+- Tôi thấy nó không thực hiện bất kỳ tác vụ đa luồng nào nên tốc độ sẽ không nhanh lắm.
+- Nhưng chúng ta hãy xem nó có tác dụng gì.
+- Biên dịch và chạy.
+- Vâng, nó hiệu quả và thực sự nhanh hơn những phương pháp trước đây.
+### Muc 32
+
+- Tôi nghĩ đây là lần nhanh nhất của chúng tôi từ trước đến nay.
+- Chúng ta hãy vào đây và nói rằng đây là nơi mở.
+- Phiên bản hệ điều hành có 20 tỷ tham số.
+- Cái cỡ trung bình của chúng ta là gì?
+- Đây là A4805804.
+- Vậy thì đây chính là phần ở giữa.
+- Dán nó vào đó.
+- Chúng ta có hiệu suất từ hệ điều hành GPT của OpenAI.
+### Muc 33
+
+- Thật sự rất ấn tượng.
+- Được rồi.
+- Tiến lên.
+- Được thôi.
+- Tiếp theo chúng ta sẽ sử dụng Kwan ba phần tư 30 tỷ, đây là mô hình Kwan lớn.
+- Và chúng ta sẽ sử dụng nó thông qua bộ định tuyến mở.
+- À, lý do tôi chọn cái này là nếu chúng ta vào trang web của bộ định tuyến mở, họ có một mục nơi bạn có thể xem các danh mục khác nhau, bảng xếp hạng theo mức độ sử dụng của chúng.
+- Đó là một bước ngoặt khác biệt trên bảng xếp hạng.
+## Phan 12
+
+### Muc 34
+
+- Và chúng ta sẽ chọn danh mục lập trình để xem mô hình nào được sử dụng nhiều nhất cho các thách thức liên quan đến lập trình.
+- Và điều này có thể thay đổi.
+- Điều này nảy sinh rất nhiều.
+- Nó cứ nảy lên khi chúng ta nhìn vào nó.
+- Nhưng hiện tại Kwan Three đang dao động giữa vị trí thứ hai và thứ tư.
+- Ờ, nhưng nó đây rồi.
+- Nó đang được sử dụng khá nhiều.
+- Và, ừm, nó xuất hiện sau Grock và Claude ở đó.
+### Muc 35
+
+- Vậy đây là mô hình chúng tôi chọn cho thí nghiệm tiếp theo.
+- Và đây là thông tin chi tiết về bộ định tuyến mở, chúng hiển thị các nhà cung cấp khác nhau mà bạn có thể sử dụng.
+- Vậy thì chúng ta sẽ sử dụng cái đó.
+- Ừ, bắt đầu thôi.
+- Quan ba Koda.
+- Và nhấn nút chuyển đổi mã.
+- Hãy nhớ rằng chính anh họ của Quinn là người mắc lỗi.
+- Đặt cược ở đây, chúng ta có mã của nó và trông nó như thế này.
+### Muc 36
+
+- Bây giờ chúng ta hãy thử chạy đoạn mã này và xem kết quả ra sao.
+- Vậy chúng ta quay lại đây, biên dịch và chạy mã.
+- Và hóa ra là, ừm, người anh em họ, người anh em họ nhanh hơn, to lớn hơn có thể vượt qua thử thách.
+- Nhưng đó không phải là tốc độ nhanh nhất của chúng tôi.
+- Nhưng hãy đặt nó xuống.
+- Vậy đây là câu hỏi 30 B và chúng ta sẽ dùng thời gian ở giữa để chuyển câu hỏi này sang câu hỏi khác.
+- Và thế là chúng ta có kết quả như sau.
+- Có lúc nó chậm hơn open AI so với OSS 20 B nhưng lại nhanh hơn mã C sâu V2 chạy cục bộ trên máy của tôi.
+## Phan 13
+
+### Muc 37
+
+- Làm tốt lắm Gwen.
+- Được rồi, cuối cùng và hy vọng không kém phần quan trọng, chúng ta sẽ chọn GPT oss 120 vì đây là phiên bản lớn hơn của 20 B1 và nó chạy trên grok với Q uh, tất nhiên là nền tảng suy luận cực nhanh và 120 nhưng chúng ta biết rằng OSS đang trong giai đoạn phát triển nên sẽ mất nhiều thời gian để hoàn thiện.
+- Nhưng thực tế là nó đang chạy trên grok với Q cho tôi một chút hy vọng rằng có thể khi tôi hoàn thành câu này, nó sẽ hoàn thành, nhưng cũng có thể không.
+- Được thôi.
+- Tôi sẽ đi đây và sẽ quay lại ngay khi GPT OS 120 hoàn tất.
+- Được rồi.
+- Và nó kết thúc sau đó vài giây.
+- Vì thế, mọi việc diễn ra khá nhanh.
+### Muc 38
+
+- Và đây là kết quả.
+- Với tôi thì trông ổn.
+- Nó không thực hiện được những chức năng siêu thông minh với các luồng, nhưng trông có vẻ ổn.
+- Xong rồi.
+- Một số người cố gắng đưa ra một số gợi ý cho trình biên dịch để làm cho nó chạy nhanh hơn.
+- Chúng ta hãy cùng xem mọi chuyện sẽ ra sao.
+- Mặt sau.
+- Chúng ta sẽ chạy mã, biên dịch và chạy lại để xem điều gì xảy ra.
+### Muc 39
+
+- Và ôi không, nó chậm hơn một chút.
+- Ồ, có một cú sốc.
+- Đó là một kết quả không ngờ tới.
+- Ừ, được thôi.
+- Được rồi.
+- Vậy nên, một lần nữa, những người dùng C++ có lẽ sẽ biết chuyện gì đang xảy ra ở đây và tại sao điều đó lại có nghĩa là nó không hoạt động tốt.
+- Ừ, nhưng, ừ, AI mở.
+- Đã có OS 120.
+## Phan 14
+
+### Muc 40
+
+- Chúng ta hãy chọn cái ở giữa cho thống nhất.
+- Câu này ở đây phải không?
+- Ồ không, không thể được.
+- Tôi đang nói gì thế?
+- Nó sẽ là cái này đây.
+- Lấy làm tiếc.
+- Ừ, thế là xong.
+- Và đó là kết quả.
+### Muc 41
+
+- Đây là bong bóng tệ nhất, chứ không phải là tệ nhất, vì lượng tử 2.
+- 5 không, ừm, không nhận được bài tập nào cả, nhưng bài tập đó không tốt.
+- Chúng ta hãy thử chạy lại lần nữa để chắc chắn rằng nó không giống như máy tính của tôi.
+- Lúc đó tôi bận hay sao đó.
+- Bây giờ hãy nhìn vào đó.
+- Rất nhất quán.
+- Ồ.
+- Vậy là xong.
+### Muc 42
+
+- Thật kỳ lạ là OS 120 đã bị đánh bại một cách đáng kể bởi 20.
+- Và bạn biết đấy, tất nhiên chúng ta không nên quá khoa học vì chúng ta thực sự nên chạy quá trình chuyển mã khoảng mười lần và lấy mức trung bình của báo cáo mã thực tế.
+- Nhưng đáng chú ý là chúng tôi thực hiện điều này chỉ với một thí nghiệm và sau đó là nhiều lần chạy.
+- Và đây chính là nơi mà GPT OSS 120 đã bị đánh bại bởi người anh em nhỏ hơn của nó là 20 GB.
+- Và để kết thúc, đây là kết quả của thí nghiệm không mấy khoa học của chúng tôi.
+- Bạn có thể chạy thử nhiều lần để xem nó có hiệu quả không.
+- Vị trí thứ chín tệ nhất trong các mô hình mã nguồn mở và biên giới của chúng tôi là khi 2.
+- 5 mã không đạt yêu cầu.
+## Phan 15
+
+### Muc 43
+
+- Tiếp theo, thật đáng ngạc nhiên là GPT OSS 120 lại có kết quả thực sự tệ.
+- Trên thực tế, mọi chuyện còn tệ hơn những gì tôi nghĩ khi nói về nó.
+- Tôi đã từng nghĩ rằng con số này bằng 0.
+- 14, ừm, chậm hơn một chút so với những thứ khác.
+- Nhưng không, nó chậm hơn nhiều.
+- Lúc đó là 1 giờ.
+- 4 giây.
+- Tôi phải chạy lại thêm vài lần nữa để kiểm tra xem mình có mắc lỗi không.
+### Muc 44
+
+- Tôi thực sự không thấy có vấn đề gì với nó.
+- Mã C++ và tôi hy vọng một trong số các bạn học C++ sẽ quay lại và cho tôi biết.
+- Tôi đoán có lẽ một trong những pragma là một ý tưởng thực sự tồi.
+- Bây giờ tôi mới nhận ra rằng lệnh mở ra đó đã báo cho trình biên dịch biết rằng nó không được phép làm như vậy và tôi không hiểu tại sao nó lại làm như vậy.
+- Chắc hẳn nó đã nghĩ đó là một ý tưởng tuyệt vời, nhưng hóa ra đó lại là một ý tưởng tồi.
+- Vậy thì GPT oss 120 sẽ tự làm mất uy tín của mình.
+- Deep Sea Coder v2 và Quinn three coder 30 về cơ bản ngang bằng nhau ở mức 168 lần.
+- Tăng tốc lên.
+### Muc 45
+
+- Cả hai đều nhận được đồng xu rất giống nhau.
+- Ba phần tư có lợi thế nhỏ, nhưng điều đó có thể chỉ là bạn biết đấy, có thể là cùng một mã hoặc rất giống nhau.
+- Tình cờ là khi tôi chạy nó.
+- Vậy là bạn đã có hai mô hình mã nguồn mở thành công.
+- Tiếp theo là mẫu Frontier Claude Sonet 4.
+- 5 với tốc độ tăng gấp 104 lần, tiếp theo là GPT năm, đứng đầu bảng xếp hạng phân tích nhân tạo.
+- Đối với chúng tôi, tốc độ tăng lên 233 lần.
+- Và rồi điều gây sốc, bất ngờ, GPT oss 120 đáng kinh ngạc chỉ 20 B chứ không phải 120 B, tăng tốc gấp 238 lần, đánh bại GPT năm và Claude Sonet 4.
+## Phan 16
+
+### Muc 46
+
+- 5.
+- Tuyệt vời.
+- Ừm, một lần nữa, có thể chỉ là may mắn thôi.
+- Có thể đó là cùng một mã vì các mô hình biên giới khác chỉ chạy nhanh hơn khi tôi chạy nó, nhưng kệ.
+- Đúng là như vậy.
+- Nó đã thắng.
+- Và điều tuyệt vời là quá trình chuyển đổi đó đã chạy trên máy tính của tôi.
+- Đó là mô hình dựa trên nền tảng của một người nông dân xưa.
+### Muc 47
+
+- Một mô hình chạy trên máy tính của tôi đã cạnh tranh với frontier và có vẻ như nó nhỉnh hơn một chút so với frontier.
+- Ừ, nhưng nó không phải là thứ đầu tiên vì cả grok four và Gemini 2 đều có.
+- Phiên bản 5 Pro hoạt động tốt hơn khi đưa vào mã đa luồng gốc với Gemini 2.
+- 5 Pro vẫn là nhà vô địch.
+- Bây giờ, tôi hy vọng bạn không chán với việc tạo mã này, vì chúng ta còn một bài kiểm tra khó nữa.
+- Thật sự là một thử thách khi phải đưa tất cả các mô hình này ra để xem ai sẽ chiến thắng.
+- Chúng ta sẽ làm điều đó vào ngày mai.
+- Cùng với việc nói chung về việc so sánh hiệu suất của các mô hình nguồn mở và mô hình biên giới và xếp hạng chúng với nhau, thảo luận về các đánh giá, thẩm định, một chủ đề quan trọng thực sự mở đầu cho tuần này về việc lựa chọn mô hình phù hợp cho nhiệm vụ thương mại.
+### Muc 48
+
+- Và chúng ta sẽ nói về cách bạn xây dựng các giải pháp để tạo mã và các loại nhiệm vụ liên quan khác, chẳng hạn như những điều thực sự thú vị như viết tự động, viết chú thích cho mã của bạn và tự động viết các trường hợp kiểm tra cho mã của bạn.
+- Tất cả những điều đó sẽ diễn ra vào ngày mai.
+- Hẹn gặp lại bạn sau.
+

@@ -1,0 +1,1278 @@
+# 028 - HTTP 3
+
+**Section:** 03 - Protocols  
+**Duration:** 28 minutes  
+
+---
+
+## 1. Summary
+
+HTTP/3 is the next major evolution after HTTP/2.
+
+HTTP/2 improved HTTP/1.1 by introducing multiplexing, where many requests can share one TCP connection through streams.
+
+However, HTTP/2 still runs on TCP.
+
+Because TCP is an ordered byte stream, one lost TCP packet can block all later bytes, even if those bytes belong to other HTTP/2 streams.
+
+This problem is called:
+
+```text
+TCP Head-of-Line Blocking
+```
+
+HTTP/3 solves this by replacing TCP with QUIC.
+
+QUIC runs on top of UDP.
+
+Simplified stack:
+
+```text
+HTTP/1.1 → TCP
+HTTP/2   → TCP
+HTTP/3   → QUIC → UDP
+```
+
+HTTP/3 keeps the useful stream-based idea from HTTP/2 but moves stream management down into the transport layer through QUIC.
+
+The main idea:
+
+```text
+HTTP/3 = HTTP over QUIC
+QUIC = reliable, encrypted, stream-based transport over UDP
+```
+
+HTTP/3 improves performance especially on lossy networks, such as mobile networks or unstable internet connections.
+
+However, HTTP/3 is not free.
+
+It introduces trade-offs such as:
+
+- More CPU work
+- More implementation complexity
+- UDP blocking in some networks
+- Path MTU and fragmentation concerns
+- New header compression design
+- More complex connection management
+
+---
+
+## 2. Key Concepts
+
+## 2.1 HTTP/1.1 Recap
+
+In HTTP/1.1, one TCP connection is often busy with one request at a time.
+
+Example:
+
+```text
+Connection 1 → Request 1 → Response 1
+Connection 1 → Request 2 → Response 2
+Connection 1 → Request 3 → Response 3
+```
+
+Because one connection can become a bottleneck, browsers open multiple TCP connections to the same domain.
+
+Example:
+
+```text
+Connection 1 → index.html
+Connection 2 → app.js
+Connection 3 → style.css
+Connection 4 → image1.jpg
+Connection 5 → image2.jpg
+Connection 6 → image3.jpg
+```
+
+This improves concurrency, but it costs more resources.
+
+---
+
+## 2.2 HTTP/2 Recap
+
+HTTP/2 improved HTTP/1.1 by using multiplexed streams over one TCP connection.
+
+Example:
+
+```text
+One TCP connection
+├── Stream 1 → GET /main.js
+├── Stream 3 → GET /style.css
+├── Stream 5 → GET /image1.jpg
+└── Stream 7 → GET /image2.jpg
+```
+
+Each HTTP request lives in its own stream.
+
+This avoids HTTP/1.1's practical limitation of one active request per connection.
+
+---
+
+## 2.3 HTTP/2's Main Problem
+
+HTTP/2 still runs on TCP.
+
+TCP guarantees ordered delivery.
+
+That means if one TCP segment is missing, later segments cannot be delivered to the application until the missing one arrives.
+
+This creates TCP-level head-of-line blocking.
+
+Even if HTTP/2 has multiple streams, TCP still sees only one ordered byte stream.
+
+---
+
+## 2.4 TCP Head-of-Line Blocking
+
+Imagine HTTP/2 sends four requests:
+
+```text
+Stream 1 → main.js
+Stream 3 → style.css
+Stream 5 → image1.jpg
+Stream 7 → image2.jpg
+```
+
+At the TCP layer, these become ordered TCP segments:
+
+```text
+Segment 1
+Segment 2
+Segment 3
+Segment 4
+Segment 5
+Segment 6
+Segment 7
+Segment 8
+```
+
+If Segment 3 is lost, TCP cannot deliver Segment 4, 5, 6, 7, or 8 to HTTP/2 yet.
+
+Even if those later segments belong to other streams, they are blocked.
+
+Problem:
+
+```text
+One lost TCP segment can block multiple HTTP/2 streams.
+```
+
+---
+
+## 2.5 Why This Is Bad
+
+At the HTTP layer, requests are independent.
+
+Example:
+
+```text
+GET /main.js
+GET /style.css
+GET /image1.jpg
+GET /image2.jpg
+```
+
+`image2.jpg` does not depend on `main.js`.
+
+But TCP does not know about HTTP streams.
+
+TCP only knows byte order.
+
+So TCP may block unrelated HTTP/2 streams because of one missing segment.
+
+This is the major limitation HTTP/3 tries to solve.
+
+---
+
+## 2.6 HTTP/3 Uses QUIC
+
+HTTP/3 runs on QUIC.
+
+QUIC is a transport protocol built on UDP.
+
+Stack:
+
+```text
+HTTP/3
+QUIC
+UDP
+IP
+```
+
+QUIC provides features that TCP normally provides, but it does so in user space and with stream awareness.
+
+QUIC provides:
+
+- Connection setup
+- Encryption
+- Reliability
+- Stream multiplexing
+- Flow control
+- Congestion control
+- Connection migration
+- Packet loss recovery
+
+---
+
+## 2.7 Why UDP?
+
+UDP itself does not provide reliability, ordering, streams, or congestion control.
+
+That sounds bad at first.
+
+But it gives QUIC freedom to build these features differently.
+
+TCP gives one ordered byte stream.
+
+QUIC gives multiple independent streams.
+
+This allows HTTP/3 to avoid TCP head-of-line blocking.
+
+---
+
+## 2.8 QUIC Streams
+
+QUIC has streams at the transport layer.
+
+Each stream can carry independent data.
+
+Example:
+
+```text
+QUIC Connection
+├── Stream 1 → main.js
+├── Stream 3 → style.css
+├── Stream 5 → image1.jpg
+└── Stream 7 → image2.jpg
+```
+
+If one stream loses data, only that stream is blocked.
+
+Other streams can continue.
+
+---
+
+## 2.9 HTTP/3 Solves Head-of-Line Blocking
+
+In HTTP/3, requests become QUIC streams.
+
+If data from Stream 3 is lost, Stream 5 and Stream 7 can still be delivered.
+
+Example:
+
+```text
+Stream 1 → delivered
+Stream 3 → blocked due to missing data
+Stream 5 → delivered
+Stream 7 → delivered
+```
+
+This is the big improvement over HTTP/2 over TCP.
+
+HTTP/3 does not remove packet loss.
+
+But it prevents one stream's packet loss from blocking unrelated streams.
+
+---
+
+## 3. HTTP/2 vs HTTP/3 Example
+
+## 3.1 HTTP/2 Over TCP
+
+Four HTTP/2 streams:
+
+```text
+Stream 1 → main.js
+Stream 3 → style.css
+Stream 5 → image1.jpg
+Stream 7 → image2.jpg
+```
+
+TCP segments:
+
+```text
+Segment 1
+Segment 2
+Segment 3
+Segment 4
+Segment 5
+Segment 6
+Segment 7
+Segment 8
+```
+
+If Segment 3 is lost:
+
+```text
+Segment 4-8 may arrive
+But TCP blocks delivery
+HTTP/2 cannot process them yet
+```
+
+Result:
+
+```text
+Multiple streams are blocked.
+```
+
+---
+
+## 3.2 HTTP/3 Over QUIC
+
+HTTP/3 sends requests through QUIC streams.
+
+QUIC packets contain stream information.
+
+If data belonging to one stream is lost, QUIC only blocks that stream.
+
+Example:
+
+```text
+Stream 1 → delivered
+Stream 3 → missing packet, blocked
+Stream 5 → delivered
+Stream 7 → delivered
+```
+
+Result:
+
+```text
+Only the affected stream is blocked.
+Other streams continue.
+```
+
+---
+
+## 4. QUIC
+
+## 4.1 What Is QUIC?
+
+QUIC is a modern transport protocol built on top of UDP.
+
+It is designed to provide features similar to TCP plus TLS, but with better support for multiplexed streams.
+
+QUIC includes:
+
+- Reliable delivery
+- Stream multiplexing
+- TLS 1.3 encryption
+- Connection IDs
+- Connection migration
+- Loss recovery
+- Flow control
+- Congestion control
+
+---
+
+## 4.2 QUIC Replaces TCP for HTTP/3
+
+HTTP/3 does not use TCP.
+
+It uses QUIC over UDP.
+
+Instead of relying on TCP's ordered byte stream, QUIC manages independent streams itself.
+
+This gives HTTP/3 more control.
+
+---
+
+## 4.3 QUIC Uses UDP Datagrams
+
+At the network level, QUIC data is sent inside UDP datagrams.
+
+Simplified:
+
+```text
+HTTP/3 data
+→ QUIC packet
+→ UDP datagram
+→ IP packet
+```
+
+UDP does not guarantee order or delivery.
+
+QUIC adds its own reliability and ordering where needed.
+
+---
+
+## 4.4 QUIC Is Connection-Based
+
+Even though UDP is connectionless, QUIC creates a virtual connection.
+
+A QUIC connection is identified using a connection ID.
+
+This allows QUIC to track a connection even if the IP address or port changes.
+
+---
+
+## 4.5 Connection ID
+
+QUIC packets include a connection ID.
+
+This helps the server know which QUIC connection a packet belongs to.
+
+Example:
+
+```text
+Connection ID: abc123
+Stream ID: 5
+Packet data: ...
+```
+
+The connection ID is one of the features that enables connection migration.
+
+---
+
+## 4.6 Connection Migration
+
+Connection migration means a connection can survive network changes.
+
+Example:
+
+```text
+User starts on Wi-Fi.
+User moves out of range.
+Phone switches to 5G.
+IP address changes.
+QUIC connection continues.
+```
+
+With TCP, a change in IP address usually breaks the connection.
+
+With QUIC, the connection ID allows the server to recognize the same connection even when the source IP or port changes.
+
+This is useful for mobile devices.
+
+---
+
+## 4.7 QUIC and TLS 1.3
+
+QUIC integrates TLS 1.3 into the transport handshake.
+
+With TCP-based HTTPS, setup may involve:
+
+```text
+TCP handshake
+TLS handshake
+HTTP request
+```
+
+QUIC combines transport setup and security setup more tightly.
+
+This can reduce connection setup latency.
+
+Simplified idea:
+
+```text
+QUIC connection setup includes encryption setup.
+```
+
+QUIC is secure by default.
+
+---
+
+## 4.8 QUIC and Flow Control
+
+QUIC supports flow control.
+
+Flow control prevents a sender from overwhelming the receiver.
+
+QUIC can manage flow control at different levels:
+
+```text
+Connection-level flow control
+Stream-level flow control
+```
+
+This gives more flexibility than treating everything as one TCP byte stream.
+
+---
+
+## 4.9 QUIC and Congestion Control
+
+QUIC also has congestion control.
+
+Congestion control protects the network from being overwhelmed.
+
+Unlike HTTP/2 over TCP, QUIC is not fighting against TCP's transport behavior because QUIC owns the transport layer behavior itself.
+
+---
+
+## 5. Header Compression: HPACK vs QPACK
+
+## 5.1 HTTP/2 Uses HPACK
+
+HTTP/2 uses HPACK for header compression.
+
+HPACK was designed for HTTP/2 over TCP.
+
+TCP delivers bytes in order.
+
+HPACK can depend on this ordering.
+
+---
+
+## 5.2 Why HPACK Does Not Fit QUIC Well
+
+QUIC allows streams to be delivered independently.
+
+This creates a problem for HPACK.
+
+Example:
+
+```text
+Stream 1 defines a header table entry.
+Stream 10 uses that header table entry.
+```
+
+If Stream 10 arrives before Stream 1, the receiver may not know what the compressed header means.
+
+This is because the required header table update has not arrived yet.
+
+So HTTP/3 needed a different header compression approach.
+
+---
+
+## 5.3 HTTP/3 Uses QPACK
+
+HTTP/3 uses QPACK.
+
+QPACK is designed for QUIC's independent stream delivery model.
+
+It supports header compression without depending on strict TCP-style ordering.
+
+Important idea:
+
+```text
+HTTP/2 uses HPACK.
+HTTP/3 uses QPACK.
+```
+
+---
+
+## 6. Pros of HTTP/3
+
+## 6.1 Avoids TCP Head-of-Line Blocking
+
+This is the biggest benefit.
+
+If one stream loses data, other streams can still continue.
+
+```text
+Lost data in Stream 3 does not block Stream 5.
+```
+
+---
+
+## 6.2 Faster Connection Setup
+
+QUIC integrates TLS 1.3 into the transport handshake.
+
+This can reduce setup time compared to separate TCP and TLS handshakes.
+
+---
+
+## 6.3 Better for Mobile Networks
+
+Connection migration helps when a device switches networks.
+
+Example:
+
+```text
+Wi-Fi → 5G
+```
+
+A QUIC connection can survive this change better than TCP.
+
+---
+
+## 6.4 Multiplexing at Transport Layer
+
+HTTP/3 moves stream multiplexing into QUIC.
+
+This is cleaner than putting streams on top of TCP and then fighting TCP ordering.
+
+---
+
+## 6.5 Secure by Default
+
+QUIC includes TLS 1.3 encryption.
+
+Encryption is built into the protocol.
+
+---
+
+## 6.6 Better Loss Handling for Independent Streams
+
+When packets are lost, QUIC can recover per stream.
+
+This means unrelated streams do not need to wait for each other.
+
+---
+
+## 7. Cons of HTTP/3
+
+## 7.1 More CPU Usage
+
+HTTP/3 and QUIC do more work in user space.
+
+They need to handle:
+
+- Encryption
+- Packet parsing
+- Stream management
+- Connection IDs
+- Flow control
+- Congestion control
+- Loss recovery
+- QPACK header compression
+
+This can increase CPU usage compared to simpler protocols.
+
+Nothing is free.
+
+---
+
+## 7.2 More Complexity
+
+QUIC is more complex than TCP from an implementation perspective.
+
+The protocol needs to implement many features that TCP normally handled in the kernel.
+
+This includes:
+
+- Reliability
+- Ordering per stream
+- Retransmission
+- Congestion control
+- Connection migration
+- TLS integration
+
+---
+
+## 7.3 UDP May Be Blocked
+
+Some enterprise networks block UDP traffic.
+
+Because HTTP/3 uses QUIC over UDP, it may not work everywhere.
+
+If UDP is blocked, clients may fall back to HTTP/2 or HTTP/1.1.
+
+---
+
+## 7.4 IP Fragmentation Problems
+
+QUIC tries to avoid IP fragmentation.
+
+IP fragmentation is risky because fragmented packets can be lost, reordered, or abused.
+
+QUIC prefers to fit packets within the path MTU.
+
+---
+
+## 7.5 Path MTU Discovery
+
+Path MTU is the smallest maximum transmission unit along the network path.
+
+If a QUIC packet is too large, it may need to be reduced.
+
+The network may send an ICMP message telling the sender that the packet is too big.
+
+Then the sender should retry with a smaller packet size.
+
+Important idea:
+
+```text
+Avoid fragmentation.
+Send packets that fit the path MTU.
+```
+
+---
+
+## 7.6 Connection ID Visibility
+
+QUIC uses connection IDs so connections can survive IP and port changes.
+
+Connection IDs may be visible to the network.
+
+This creates privacy and security considerations.
+
+Modern QUIC uses cryptographic protections, but connection metadata still needs careful design.
+
+---
+
+## 7.7 Not Always Faster
+
+HTTP/3 is not automatically faster in every environment.
+
+It shines when:
+
+- Network loss exists
+- Many streams are used
+- Mobile network changes happen
+- TCP head-of-line blocking is a real problem
+
+In stable data center networks, the benefit may be smaller.
+
+---
+
+## 8. HTTP/1.1 vs HTTP/2 vs HTTP/3
+
+| Feature | HTTP/1.1 | HTTP/2 | HTTP/3 |
+|---|---|---|---|
+| Transport | TCP | TCP | QUIC over UDP |
+| Multiplexing | No practical multiplexing | Yes | Yes |
+| Stream layer | HTTP layer | HTTP layer | Transport layer |
+| Head-of-line blocking | Yes | TCP-level HOL blocking | Reduced across streams |
+| Header compression | No modern compression | HPACK | QPACK |
+| Security | Optional HTTPS | Usually TLS in browsers | Built into QUIC |
+| Connection migration | No | No | Yes |
+| UDP required | No | No | Yes |
+| Complexity | Lower | Medium | Higher |
+
+---
+
+## 9. HTTP/3 Packet Loss Example
+
+## 9.1 HTTP/2 Scenario
+
+HTTP/2 over TCP sends:
+
+```text
+Stream 1 → main.js
+Stream 3 → style.css
+Stream 5 → image1.jpg
+Stream 7 → image2.jpg
+```
+
+TCP packet containing Stream 3 data is lost.
+
+Because TCP is ordered, later bytes are blocked.
+
+Result:
+
+```text
+Stream 5 and Stream 7 may wait even though their data arrived.
+```
+
+---
+
+## 9.2 HTTP/3 Scenario
+
+HTTP/3 over QUIC sends:
+
+```text
+Stream 1 → main.js
+Stream 3 → style.css
+Stream 5 → image1.jpg
+Stream 7 → image2.jpg
+```
+
+QUIC packet containing Stream 3 data is lost.
+
+Result:
+
+```text
+Stream 3 waits for recovery.
+Stream 5 and Stream 7 can continue.
+```
+
+This is the main advantage.
+
+---
+
+## 10. Important Notes
+
+## 10.1 HTTP/3 Is Not Just HTTP/2 Over UDP
+
+HTTP/3 is not simply HTTP/2 moved to UDP.
+
+It uses QUIC and changes some parts of the protocol, including header compression.
+
+Important difference:
+
+```text
+HTTP/2 uses HPACK.
+HTTP/3 uses QPACK.
+```
+
+---
+
+## 10.2 QUIC Rebuilds Transport Features
+
+UDP alone does not provide reliability.
+
+QUIC builds reliability, streams, security, flow control, and congestion control on top of UDP.
+
+---
+
+## 10.3 HTTP/3 Helps Most on Lossy Networks
+
+HTTP/3 is especially useful when packet loss happens.
+
+Examples:
+
+- Mobile networks
+- Weak Wi-Fi
+- Long-distance internet paths
+- Congested networks
+
+---
+
+## 10.4 HTTP/3 Still Has Trade-Offs
+
+HTTP/3 solves important problems, but it creates new costs.
+
+These costs include CPU usage, complexity, and UDP compatibility issues.
+
+---
+
+## 10.5 Avoid IP Fragmentation
+
+QUIC tries to avoid IP fragmentation because fragmented packets are problematic.
+
+The sender should keep packets within safe MTU sizes.
+
+---
+
+## 10.6 UDP Blocking Can Cause Fallback
+
+If UDP is blocked, HTTP/3 may not work.
+
+Clients may fall back to:
+
+```text
+HTTP/2
+HTTP/1.1
+```
+
+This is why servers often support multiple HTTP versions.
+
+---
+
+## 10.7 Connection Migration Is Powerful
+
+Connection migration is one of QUIC's interesting features.
+
+It allows a connection to survive network changes.
+
+This is useful for mobile users.
+
+---
+
+## 11. Examples
+
+## Example 1: Protocol Stack
+
+HTTP/1.1:
+
+```text
+HTTP/1.1
+TCP
+IP
+```
+
+HTTP/2:
+
+```text
+HTTP/2
+TLS
+TCP
+IP
+```
+
+HTTP/3:
+
+```text
+HTTP/3
+QUIC
+UDP
+IP
+```
+
+---
+
+## Example 2: HTTP/2 Head-of-Line Blocking
+
+```text
+TCP segments:
+1 2 3 4 5 6 7 8
+```
+
+If segment `3` is lost:
+
+```text
+1 and 2 can be delivered.
+4, 5, 6, 7, 8 must wait.
+```
+
+Even if later data belongs to different HTTP/2 streams, TCP blocks it.
+
+---
+
+## Example 3: HTTP/3 Stream Independence
+
+QUIC packets:
+
+```text
+Stream 1 packet
+Stream 3 packet
+Stream 5 packet
+Stream 7 packet
+```
+
+If Stream 3 loses data:
+
+```text
+Stream 3 is blocked.
+Stream 5 continues.
+Stream 7 continues.
+```
+
+---
+
+## Example 4: Connection Migration
+
+User starts on Wi-Fi:
+
+```text
+Source IP: Wi-Fi IP
+Connection ID: abc123
+```
+
+User moves to 5G:
+
+```text
+Source IP: 5G IP
+Connection ID: abc123
+```
+
+The IP changes, but the connection ID stays the same.
+
+The server can recognize the same QUIC connection.
+
+---
+
+## Example 5: UDP Blocked
+
+In some enterprise networks:
+
+```text
+UDP traffic blocked
+QUIC cannot connect
+HTTP/3 fails
+Client falls back to HTTP/2 over TCP
+```
+
+This is why fallback support matters.
+
+---
+
+## Example 6: Header Compression
+
+HTTP/2:
+
+```text
+HPACK
+```
+
+HTTP/3:
+
+```text
+QPACK
+```
+
+Why?
+
+Because HTTP/3 streams can arrive independently, so header compression must not depend too heavily on strict TCP ordering.
+
+---
+
+## 12. Questions / Review
+
+## Question 1
+
+What is HTTP/3 built on top of?
+
+**Answer:**
+
+HTTP/3 is built on top of QUIC.
+
+QUIC runs over UDP.
+
+---
+
+## Question 2
+
+What transport protocol does HTTP/2 use?
+
+**Answer:**
+
+HTTP/2 uses TCP.
+
+---
+
+## Question 3
+
+What transport protocol does HTTP/3 use?
+
+**Answer:**
+
+HTTP/3 uses QUIC over UDP.
+
+---
+
+## Question 4
+
+What problem does HTTP/3 try to solve from HTTP/2?
+
+**Answer:**
+
+HTTP/3 tries to solve TCP head-of-line blocking.
+
+---
+
+## Question 5
+
+What is TCP head-of-line blocking?
+
+**Answer:**
+
+TCP head-of-line blocking happens when one lost TCP segment blocks delivery of later bytes, even if those bytes belong to unrelated streams.
+
+---
+
+## Question 6
+
+Why does HTTP/2 still suffer from TCP head-of-line blocking?
+
+**Answer:**
+
+Because HTTP/2 multiplexes streams over one TCP connection, and TCP delivers bytes in strict order.
+
+---
+
+## Question 7
+
+How does QUIC help with stream blocking?
+
+**Answer:**
+
+QUIC manages streams independently, so data loss in one stream does not block unrelated streams.
+
+---
+
+## Question 8
+
+Does QUIC use TCP?
+
+**Answer:**
+
+No.
+
+QUIC uses UDP.
+
+---
+
+## Question 9
+
+Does UDP provide reliability by itself?
+
+**Answer:**
+
+No.
+
+UDP does not provide reliability, ordering, or congestion control.
+
+QUIC builds those features on top of UDP.
+
+---
+
+## Question 10
+
+What is a QUIC connection ID?
+
+**Answer:**
+
+A QUIC connection ID identifies a QUIC connection independently of IP address and port.
+
+---
+
+## Question 11
+
+What is connection migration?
+
+**Answer:**
+
+Connection migration allows a QUIC connection to survive changes in IP address or network interface.
+
+Example:
+
+```text
+Wi-Fi → 5G
+```
+
+---
+
+## Question 12
+
+What TLS version is integrated into QUIC?
+
+**Answer:**
+
+QUIC integrates TLS 1.3.
+
+---
+
+## Question 13
+
+What header compression algorithm does HTTP/2 use?
+
+**Answer:**
+
+HTTP/2 uses HPACK.
+
+---
+
+## Question 14
+
+What header compression algorithm does HTTP/3 use?
+
+**Answer:**
+
+HTTP/3 uses QPACK.
+
+---
+
+## Question 15
+
+Why does HTTP/3 not simply reuse HPACK?
+
+**Answer:**
+
+Because HPACK depends on ordered delivery assumptions from HTTP/2 over TCP.
+
+HTTP/3 streams can arrive independently, so QPACK is used instead.
+
+---
+
+## Question 16
+
+Why can HTTP/3 use more CPU?
+
+**Answer:**
+
+Because QUIC handles encryption, streams, connection IDs, loss recovery, flow control, and congestion control in user space.
+
+---
+
+## Question 17
+
+Why can HTTP/3 fail on some networks?
+
+**Answer:**
+
+Because some networks block UDP traffic.
+
+---
+
+## Question 18
+
+What happens if HTTP/3 cannot be used?
+
+**Answer:**
+
+The client may fall back to HTTP/2 or HTTP/1.1.
+
+---
+
+## Question 19
+
+Why should QUIC avoid IP fragmentation?
+
+**Answer:**
+
+Because fragmented IP packets are fragile and can cause loss, reordering, and security issues.
+
+---
+
+## Question 20
+
+When is HTTP/3 most useful?
+
+**Answer:**
+
+HTTP/3 is most useful on lossy or mobile networks where TCP head-of-line blocking and connection migration matter.
+
+---
+
+## 13. Final Takeaway
+
+HTTP/3 exists because HTTP/2 solved one problem but exposed another.
+
+HTTP/2 gave us:
+
+```text
+Multiplexed streams over one TCP connection
+```
+
+But TCP still caused:
+
+```text
+Head-of-line blocking
+```
+
+HTTP/3 solves this by using:
+
+```text
+QUIC over UDP
+```
+
+The core idea is:
+
+```text
+Move streams into the transport layer.
+Avoid TCP's single ordered byte stream.
+Let independent streams progress independently.
+```
+
+The most important HTTP/3 concepts are:
+
+```text
+QUIC
+UDP
+Streams
+Connection ID
+Connection migration
+TLS 1.3
+QPACK
+Path MTU
+No TCP head-of-line blocking across streams
+```
+
+HTTP/3 is powerful, especially for lossy networks and mobile clients.
+
+But nothing is free.
+
+HTTP/3 also brings:
+
+```text
+More CPU usage
+More complexity
+UDP compatibility issues
+Fragmentation concerns
+New protocol behavior
+```
+
+As a backend engineer, the key lesson is not simply:
+
+```text
+HTTP/3 is always better.
+```
+
+The real lesson is:
+
+```text
+Understand the workload.
+Understand the network.
+Understand the trade-offs.
+```

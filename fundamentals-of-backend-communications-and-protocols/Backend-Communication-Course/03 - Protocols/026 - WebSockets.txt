@@ -1,0 +1,1176 @@
+# 026 - WebSockets
+
+**Section:** 03 - Protocols  
+**Duration:** 21 minutes  
+
+---
+
+## 1. Summary
+
+WebSocket is a protocol designed to provide **bidirectional communication** for the web.
+
+With normal HTTP, the client sends a request and the server sends a response.
+
+```text
+Client → Request → Server
+Client ← Response ← Server
+```
+
+WebSocket is different.
+
+After a WebSocket connection is established, both client and server can send data to each other at any time.
+
+```text
+Client ⇄ Server
+```
+
+WebSocket is built on top of HTTP.
+
+It starts as an HTTP request, then uses an **upgrade handshake** to switch the connection from HTTP to WebSocket.
+
+After the upgrade, the connection is no longer normal HTTP request-response.
+
+It becomes a long-lived, bidirectional connection over TCP.
+
+WebSocket is useful for real-time applications such as:
+
+- Chat apps
+- Live notifications
+- Multiplayer games
+- Live feeds
+- Trading dashboards
+- Progress updates
+- Collaborative apps
+
+---
+
+## 2. Key Concepts
+
+## 2.1 Why Do We Need WebSockets?
+
+TCP is already bidirectional.
+
+So why not expose raw TCP directly to browsers?
+
+Because it would be dangerous.
+
+If browsers exposed raw TCP, JavaScript code from any website could connect to arbitrary services such as:
+
+- SMTP servers
+- Internal services
+- Databases
+- Local network services
+- Custom TCP servers
+
+That would create serious security problems.
+
+So browsers do not expose raw TCP directly.
+
+Instead, the web provides WebSocket.
+
+WebSocket gives bidirectional communication, but under the protection and rules of the web platform.
+
+---
+
+## 2.2 WebSocket Is Built on HTTP
+
+WebSocket starts as an HTTP request.
+
+The client asks the server to upgrade the connection.
+
+If the server accepts, the connection changes from HTTP to WebSocket.
+
+Simplified flow:
+
+```text
+1. Open TCP connection.
+2. Send HTTP Upgrade request.
+3. Server responds with 101 Switching Protocols.
+4. Connection becomes WebSocket.
+5. Client and server can send messages both ways.
+```
+
+---
+
+## 2.3 HTTP/1.0 vs HTTP/1.1 Reminder
+
+In HTTP/1.0, the connection was usually closed after each request.
+
+```text
+Open connection
+Send request
+Receive response
+Close connection
+```
+
+This would not work well for WebSockets because WebSockets need a long-lived connection.
+
+HTTP/1.1 introduced persistent connections.
+
+```text
+Open connection
+Send request
+Receive response
+Keep connection alive
+Send more requests
+Close later
+```
+
+Persistent connections made WebSockets possible.
+
+---
+
+## 2.4 WebSocket Is Full-Duplex
+
+WebSocket is **full-duplex**.
+
+That means both sides can send data at the same time.
+
+```text
+Client → Server
+Server → Client
+Client → Server
+Server → Client
+```
+
+There is no strict request-response pattern.
+
+The server can push data to the client whenever it wants.
+
+The client can also send data to the server whenever it wants.
+
+---
+
+## 2.5 WebSocket URLs
+
+WebSocket uses special URL schemes.
+
+Normal WebSocket:
+
+```text
+ws://
+```
+
+Secure WebSocket:
+
+```text
+wss://
+```
+
+Examples:
+
+```text
+ws://localhost:8080
+wss://example.com/chat
+```
+
+`wss://` means WebSocket over TLS.
+
+It is similar to how HTTPS means HTTP over TLS.
+
+---
+
+## 2.6 WebSocket Handshake
+
+A WebSocket connection starts with an HTTP request.
+
+Example client request:
+
+```http
+GET /chat HTTP/1.1
+Host: server.example.com
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Protocol: chat, superchat
+```
+
+Important headers:
+
+| Header | Meaning |
+|---|---|
+| Upgrade: websocket | Ask server to switch protocol |
+| Connection: Upgrade | Tell HTTP connection to upgrade |
+| Sec-WebSocket-Key | Client-generated key for handshake validation |
+| Sec-WebSocket-Version | WebSocket protocol version |
+| Sec-WebSocket-Protocol | Optional subprotocols |
+
+---
+
+## 2.7 101 Switching Protocols
+
+If the server accepts the upgrade, it responds with:
+
+```http
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: <computed-value>
+Sec-WebSocket-Protocol: chat
+```
+
+Status code:
+
+```text
+101 Switching Protocols
+```
+
+This means:
+
+```text
+The server agrees to switch from HTTP to WebSocket.
+```
+
+After this response, the connection is WebSocket.
+
+---
+
+## 2.8 Sec-WebSocket-Key and Sec-WebSocket-Accept
+
+The client sends:
+
+```http
+Sec-WebSocket-Key
+```
+
+The server uses that key to compute:
+
+```http
+Sec-WebSocket-Accept
+```
+
+This helps confirm that the server understands the WebSocket protocol.
+
+It prevents a random HTTP server from accidentally accepting a WebSocket upgrade.
+
+---
+
+## 2.9 Subprotocols
+
+WebSocket allows subprotocol negotiation.
+
+Example:
+
+```http
+Sec-WebSocket-Protocol: chat, superchat
+```
+
+The client says:
+
+```text
+I support chat and superchat.
+```
+
+The server replies:
+
+```http
+Sec-WebSocket-Protocol: chat
+```
+
+The server says:
+
+```text
+I choose chat.
+```
+
+Subprotocols are application-level agreements.
+
+They are not the WebSocket protocol itself.
+
+Examples:
+
+- chat
+- graphql-ws
+- json-rpc
+- custom-game-protocol
+
+---
+
+## 3. WebSocket Communication Model
+
+## 3.1 Before WebSocket
+
+Normal HTTP:
+
+```text
+Client sends request.
+Server sends response.
+Connection may be reused or closed.
+```
+
+The server cannot freely push messages unless the client asks.
+
+---
+
+## 3.2 After WebSocket Upgrade
+
+After the WebSocket upgrade:
+
+```text
+Client can send messages anytime.
+Server can send messages anytime.
+Both sides can communicate over the same connection.
+```
+
+Example:
+
+```text
+Client → "hello"
+Server → "welcome"
+Server → "new notification"
+Client → "send chat message"
+Server → "message delivered"
+```
+
+This is why WebSocket is useful for real-time systems.
+
+---
+
+## 3.3 WebSocket Uses the Underlying TCP Connection
+
+WebSocket runs over the TCP connection that was originally created for HTTP.
+
+The HTTP part is only used for the handshake.
+
+After the handshake, the same TCP connection carries WebSocket frames.
+
+Simplified:
+
+```text
+TCP connection opens
+HTTP Upgrade request
+HTTP 101 Switching Protocols
+WebSocket frames
+TCP connection closes
+```
+
+---
+
+## 4. Use Cases
+
+## 4.1 Chat Applications
+
+WebSocket is very useful for chat.
+
+When one user sends a message, the server can immediately push that message to other users.
+
+Example:
+
+```text
+User A → Server: Hello
+Server → User B: Hello
+Server → User C: Hello
+```
+
+Without WebSocket, clients may need to repeatedly ask:
+
+```text
+Do I have new messages?
+Do I have new messages?
+Do I have new messages?
+```
+
+This is polling.
+
+WebSocket avoids this.
+
+---
+
+## 4.2 Live Feeds
+
+WebSocket can be used for live feeds.
+
+Examples:
+
+- Sports scores
+- Stock prices
+- Crypto prices
+- News feeds
+- Live comments
+- Social media updates
+
+The server pushes updates as soon as they happen.
+
+---
+
+## 4.3 Multiplayer Games
+
+Multiplayer games often need fast bidirectional communication.
+
+The client sends player actions.
+
+The server sends game state updates.
+
+Example:
+
+```text
+Client → move left
+Client → shoot
+Server → enemy position updated
+Server → health changed
+```
+
+WebSocket can support this kind of interactive communication.
+
+---
+
+## 4.4 Progress Updates
+
+WebSocket can show progress for long-running tasks.
+
+Examples:
+
+- File upload progress
+- Video processing progress
+- AI generation progress
+- Background job logs
+- Deployment logs
+- Build logs
+
+The server can push progress messages to the client.
+
+---
+
+## 4.5 Notifications
+
+WebSocket can be used for real-time notifications.
+
+Example:
+
+```text
+Server → You have a new message.
+Server → Your job finished.
+Server → Payment succeeded.
+```
+
+---
+
+## 5. Pros of WebSockets
+
+## 5.1 Full-Duplex Communication
+
+WebSocket allows both client and server to send data independently.
+
+This is the biggest advantage.
+
+```text
+Client ⇄ Server
+```
+
+---
+
+## 5.2 No Polling Needed
+
+Without WebSocket, clients may need to poll the server.
+
+Polling example:
+
+```text
+Client → Any updates?
+Server → No
+
+Client → Any updates?
+Server → No
+
+Client → Any updates?
+Server → Yes
+```
+
+This wastes requests.
+
+WebSocket allows the server to push data immediately.
+
+---
+
+## 5.3 Low Latency
+
+Because the connection stays open, the server can send updates immediately.
+
+There is no need to open a new connection for every message.
+
+---
+
+## 5.4 HTTP Compatible
+
+WebSocket starts as HTTP.
+
+This makes it compatible with web infrastructure.
+
+It can work through many existing systems such as:
+
+- Browsers
+- HTTP servers
+- Reverse proxies
+- Load balancers
+- TLS
+- Port 80
+- Port 443
+
+---
+
+## 5.5 Firewall Friendly
+
+WebSocket often uses ports that are already allowed:
+
+```text
+80
+443
+```
+
+This makes it more firewall-friendly than custom raw TCP protocols.
+
+Most networks allow web traffic through these ports.
+
+---
+
+## 6. Cons of WebSockets
+
+## 6.1 Stateful Connections
+
+WebSocket connections are long-lived.
+
+The server must keep track of connected clients.
+
+This consumes:
+
+- Memory
+- File descriptors
+- Connection state
+- Application state
+
+This makes WebSocket more stateful than normal HTTP request-response.
+
+---
+
+## 6.2 Harder to Scale Horizontally
+
+With normal HTTP, each request can go to any backend server.
+
+With WebSocket, the client keeps a long-lived connection to one server.
+
+This makes horizontal scaling more complex.
+
+You may need:
+
+- Sticky sessions
+- Layer 4 load balancing
+- Shared pub/sub system
+- Redis pub/sub
+- Message broker
+- Connection registry
+
+---
+
+## 6.3 Proxies Can Be Tricky
+
+WebSocket through proxies can be tricky.
+
+A reverse proxy must understand the upgrade request and keep the connection open.
+
+Example proxy chain:
+
+```text
+Client → Nginx → WebSocket server
+```
+
+The proxy must correctly handle:
+
+- Upgrade header
+- Connection header
+- Long-lived TCP connection
+- Timeouts
+- Idle connections
+
+---
+
+## 6.4 Idle Timeouts
+
+Some proxies, routers, or load balancers may close idle connections.
+
+A WebSocket connection may look idle if no messages are sent for a while.
+
+To prevent this, WebSocket systems often use heartbeat messages.
+
+Common heartbeat pattern:
+
+```text
+ping
+pong
+```
+
+This keeps the connection alive and helps detect disconnections.
+
+---
+
+## 6.5 Connection Cleanup
+
+When a client disconnects, the server must remove that connection from memory.
+
+If the server does not clean up disconnected clients, it may keep stale connections.
+
+This can cause memory leaks or unnecessary work.
+
+---
+
+## 6.6 More Application Logic
+
+WebSocket gives you a raw bidirectional channel.
+
+That means the application must define:
+
+- Message format
+- Authentication
+- Authorization
+- Reconnection
+- Error handling
+- Heartbeat
+- Backpressure
+- Message routing
+- User identity
+
+WebSocket is powerful, but it requires careful design.
+
+---
+
+## 7. Alternatives to WebSockets
+
+## 7.1 Long Polling
+
+Long polling is still plain HTTP.
+
+The client sends a request.
+
+The server waits until it has data or until timeout.
+
+Then the client sends another request.
+
+```text
+Client → Request
+Server waits
+Server → Response when data is ready
+Client → New request
+```
+
+Long polling is simpler than WebSocket but less efficient for heavy real-time communication.
+
+---
+
+## 7.2 Server-Sent Events
+
+Server-Sent Events, or SSE, allow the server to push events to the client over HTTP.
+
+SSE is one-way:
+
+```text
+Server → Client
+```
+
+The client cannot send messages over the same SSE connection.
+
+If the client needs to send data, it uses normal HTTP requests.
+
+SSE is good for:
+
+- Notifications
+- Live logs
+- Progress updates
+- News feeds
+
+---
+
+## 7.3 WebRTC
+
+WebRTC is used for real-time peer-to-peer communication.
+
+Examples:
+
+- Voice calls
+- Video calls
+- Screen sharing
+- Peer-to-peer data channels
+
+WebRTC is more complex than WebSocket but better suited for audio/video communication.
+
+---
+
+## 7.4 Rule of Thumb
+
+Use WebSocket when you need true bidirectional communication.
+
+Use SSE when the server mostly pushes updates to the client.
+
+Use long polling when you need compatibility and simpler infrastructure.
+
+Use WebRTC for peer-to-peer audio/video or low-latency media.
+
+---
+
+## 8. Example: Simple Chat Server
+
+## 8.1 Server Idea
+
+A simple WebSocket chat server can work like this:
+
+```text
+1. Keep an array of connected clients.
+2. When a new client connects, add it to the array.
+3. When a client sends a message, broadcast it to all clients.
+4. When a client disconnects, remove it from the array.
+```
+
+---
+
+## 8.2 Node.js WebSocket Server Example
+
+Install package:
+
+```bash
+npm install ws
+```
+
+Create `server.js`:
+
+```js
+import { WebSocketServer } from "ws";
+
+const wss = new WebSocketServer({ port: 8080 });
+
+const clients = new Set();
+
+wss.on("connection", (socket, request) => {
+  clients.add(socket);
+
+  const userId = `${request.socket.remoteAddress}:${request.socket.remotePort}`;
+
+  console.log(`User connected: ${userId}`);
+
+  broadcast(`User ${userId} connected`);
+
+  socket.on("message", (message) => {
+    const text = message.toString();
+    broadcast(`User ${userId}: ${text}`);
+  });
+
+  socket.on("close", () => {
+    clients.delete(socket);
+    broadcast(`User ${userId} disconnected`);
+  });
+});
+
+function broadcast(message) {
+  for (const client of clients) {
+    if (client.readyState === client.OPEN) {
+      client.send(message);
+    }
+  }
+}
+
+console.log("WebSocket server running on ws://localhost:8080");
+```
+
+Run:
+
+```bash
+node server.js
+```
+
+---
+
+## 8.3 Browser Client Example
+
+Open browser DevTools Console and run:
+
+```js
+const ws = new WebSocket("ws://localhost:8080");
+
+ws.onmessage = (event) => {
+  console.log("Received:", event.data);
+};
+
+ws.onopen = () => {
+  console.log("Connected to WebSocket server");
+};
+```
+
+Send a message:
+
+```js
+ws.send("Hello everyone");
+```
+
+Open multiple browser tabs and run the same client code.
+
+When one tab sends a message, all connected tabs receive it.
+
+---
+
+## 8.4 What Happens Internally?
+
+Each browser tab opens a WebSocket connection to the server.
+
+The server stores each connection.
+
+```text
+connections = [client1, client2, client3]
+```
+
+When one client sends a message:
+
+```text
+client1 → server: "hello"
+```
+
+The server broadcasts:
+
+```text
+server → client1: "hello"
+server → client2: "hello"
+server → client3: "hello"
+```
+
+This is push communication.
+
+---
+
+## 8.5 Handling Disconnected Clients
+
+A real server must remove closed connections.
+
+Bad version:
+
+```js
+connections.push(socket);
+```
+
+If a socket closes but remains in the array, the server may still try to send messages to it.
+
+Better version:
+
+```js
+socket.on("close", () => {
+  clients.delete(socket);
+});
+```
+
+Also check connection state before sending:
+
+```js
+if (client.readyState === client.OPEN) {
+  client.send(message);
+}
+```
+
+---
+
+## 9. WebSocket Handshake Example
+
+Client request:
+
+```http
+GET /chat HTTP/1.1
+Host: localhost:8080
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==
+Sec-WebSocket-Version: 13
+Sec-WebSocket-Protocol: chat
+```
+
+Server response:
+
+```http
+HTTP/1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: HSmrc0sMlYUkAGmm5OPpG2HaGWk=
+Sec-WebSocket-Protocol: chat
+```
+
+After this, the protocol switches from HTTP to WebSocket.
+
+---
+
+## 10. Important Notes
+
+## 10.1 WebSocket Starts as HTTP
+
+WebSocket does not start as a completely separate protocol.
+
+It begins with an HTTP request.
+
+Then it upgrades the connection.
+
+---
+
+## 10.2 WebSocket Is Not Normal HTTP After Upgrade
+
+After the `101 Switching Protocols` response, the connection is no longer normal HTTP request-response.
+
+It becomes a WebSocket connection.
+
+---
+
+## 10.3 WebSocket Is Stateful
+
+Each connected client keeps a live connection with the server.
+
+The server must remember that connection.
+
+This makes WebSocket stateful.
+
+---
+
+## 10.4 WebSocket Needs Heartbeats
+
+Long-lived connections can be dropped by proxies, routers, or load balancers.
+
+Use ping/pong heartbeats to detect dead connections and keep active ones alive.
+
+---
+
+## 10.5 WebSocket Needs Careful Scaling
+
+For one server, an in-memory list of clients may work.
+
+For multiple servers, you need shared coordination.
+
+Example architecture:
+
+```text
+Client A → Server 1
+Client B → Server 2
+
+Server 1 and Server 2 communicate through Redis/pub-sub/message broker.
+```
+
+---
+
+## 10.6 WebSocket Is Not Always Needed
+
+Do not use WebSocket just because it sounds real-time.
+
+Ask first:
+
+```text
+Do I truly need bidirectional communication?
+```
+
+If the answer is no, SSE or long polling may be simpler.
+
+---
+
+## 10.7 WebSocket Is Good for Push
+
+WebSocket is excellent when the server needs to push data to the client quickly.
+
+Example:
+
+```text
+New chat message
+New notification
+Live progress update
+Live market price
+```
+
+---
+
+## 11. Questions / Review
+
+## Question 1
+
+What is WebSocket?
+
+**Answer:**
+
+WebSocket is a protocol that provides bidirectional communication between client and server over a long-lived connection.
+
+---
+
+## Question 2
+
+Why do browsers not expose raw TCP directly?
+
+**Answer:**
+
+Because exposing raw TCP to JavaScript would be dangerous. Websites could connect to arbitrary services and abuse the user's network environment.
+
+---
+
+## Question 3
+
+What protocol does WebSocket start with?
+
+**Answer:**
+
+WebSocket starts with HTTP.
+
+It uses an HTTP Upgrade request.
+
+---
+
+## Question 4
+
+What status code means the server accepted the WebSocket upgrade?
+
+**Answer:**
+
+```text
+101 Switching Protocols
+```
+
+---
+
+## Question 5
+
+What does `ws://` mean?
+
+**Answer:**
+
+`ws://` is the normal WebSocket URL scheme.
+
+---
+
+## Question 6
+
+What does `wss://` mean?
+
+**Answer:**
+
+`wss://` means WebSocket over TLS.
+
+It is the secure version of WebSocket.
+
+---
+
+## Question 7
+
+What header asks the server to switch to WebSocket?
+
+**Answer:**
+
+```http
+Upgrade: websocket
+```
+
+---
+
+## Question 8
+
+What does full-duplex mean?
+
+**Answer:**
+
+Full-duplex means both sides can send data to each other at the same time.
+
+---
+
+## Question 9
+
+What are common WebSocket use cases?
+
+**Answer:**
+
+Common use cases include:
+
+- Chat apps
+- Live feeds
+- Multiplayer games
+- Real-time notifications
+- Progress updates
+- Collaborative apps
+
+---
+
+## Question 10
+
+Why is WebSocket more efficient than polling?
+
+**Answer:**
+
+Because the server can push data immediately instead of the client repeatedly asking for updates.
+
+---
+
+## Question 11
+
+Why can WebSocket be hard to scale?
+
+**Answer:**
+
+Because WebSocket uses long-lived stateful connections. The server must keep connection state for each client.
+
+---
+
+## Question 12
+
+Why can proxies be tricky with WebSocket?
+
+**Answer:**
+
+Because proxies must support the HTTP Upgrade mechanism and must keep the long-lived connection open.
+
+---
+
+## Question 13
+
+What is ping/pong used for in WebSocket?
+
+**Answer:**
+
+Ping/pong is used as a heartbeat mechanism to keep the connection alive and detect dead connections.
+
+---
+
+## Question 14
+
+What is an alternative to WebSocket for one-way server push?
+
+**Answer:**
+
+Server-Sent Events, or SSE.
+
+---
+
+## Question 15
+
+When should you choose WebSocket?
+
+**Answer:**
+
+Choose WebSocket when you need real-time bidirectional communication between client and server.
+
+---
+
+## 12. Final Takeaway
+
+WebSocket gives the web a safe way to use long-lived bidirectional communication.
+
+The core idea is:
+
+```text
+Start with HTTP.
+Upgrade the connection.
+Use the same TCP connection for bidirectional messages.
+```
+
+Important WebSocket concepts:
+
+```text
+HTTP Upgrade
+101 Switching Protocols
+ws://
+wss://
+Full-duplex communication
+Long-lived connection
+Ping/pong heartbeat
+Stateful server connections
+Broadcasting
+Real-time push
+```
+
+WebSocket is powerful, but it should be used carefully.
+
+It is best for applications that truly need real-time bidirectional communication.
+
+For simpler server-to-client updates, SSE or long polling may be easier.

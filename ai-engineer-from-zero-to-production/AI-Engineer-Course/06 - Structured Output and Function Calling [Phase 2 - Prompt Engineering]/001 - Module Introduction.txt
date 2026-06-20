@@ -1,0 +1,24 @@
+# Module Introduction — Structured Output and Function Calling
+
+## Overview
+This module moves beyond freeform text generation into the structured, programmatic side of working with LLMs. You will learn how to reliably extract machine-readable data from model responses and how to give models the ability to call external functions and tools — two capabilities that are foundational to every serious AI application in production.
+
+## Key Points
+- Unstructured LLM output is unpredictable; production systems require deterministic, parseable responses
+- JSON Schema is the lingua franca for defining the shape of structured data that models must produce
+- Structured Output (native API feature) and manual JSON prompting are distinct approaches with different reliability guarantees
+- Function Calling and Tool Calling extend models beyond text generation into real-world action execution
+- Pydantic provides Python-native schema definition and runtime validation, bridging LLM output and application logic
+- Retry logic is a necessary production safety net for the cases where validation fails
+
+## What This Module Covers
+- [ ] JSON Schema — defining data contracts for model output
+- [ ] Structured Output — using the OpenAI/Anthropic structured output API features
+- [ ] Function Calling — how models decide to call functions and how you handle the results
+- [ ] Tool Calling — multi-tool orchestration patterns and parallel tool use
+- [ ] Pydantic Validation — converting raw LLM JSON into validated Python objects
+- [ ] Retry Logic — gracefully handling invalid or malformed JSON responses
+- [ ] Lab: Course Outline Extractor — a full end-to-end project combining all module skills
+
+## Summary
+By the end of this module you will be able to build AI pipelines that produce reliable, validated, structured data and that can invoke real-world tools — the two skills that separate toy demos from production-grade AI systems.

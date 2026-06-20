@@ -1,0 +1,497 @@
+# 014 - Multiplexing vs Demultiplexing
+
+## HTTP/2 Proxying vs Connection Pooling
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 15min
+
+---
+
+## 1. Summary
+
+This lesson explains **multiplexing** and **demultiplexing**, two networking concepts that appear frequently in backend communication.
+
+Multiplexing means taking multiple signals, requests, streams, or connections and combining them into one shared connection or channel. Demultiplexing is the reverse: taking one shared connection or stream and splitting it back into multiple independent flows.
+
+The instructor explains how these concepts appear in protocols such as HTTP/1.1, HTTP/2, QUIC, and multipath TCP. He also connects them to backend concepts like reverse proxying and database connection pooling.
+
+The lesson shows that HTTP/2 can multiplex many streams over one connection, while HTTP/1.1 usually needs multiple connections. It also explains how a reverse proxy can multiplex or demultiplex traffic between clients and backend servers.
+
+Finally, the lesson uses connection pooling as a practical example of multiplexing in backend systems, especially when backend applications talk to databases such as PostgreSQL.
+
+---
+
+## 2. Key Concepts
+
+### Multiplexing
+
+Multiplexing means combining multiple inputs into one shared output.
+
+```text id="7p98jv"
+Request 1 ┐
+Request 2 ├──> One shared connection
+Request 3 ┘
+```
+
+In backend systems, this can mean sending multiple requests or streams through one TCP connection.
+
+---
+
+### Demultiplexing
+
+Demultiplexing is the opposite of multiplexing.
+
+It means taking one shared input and splitting it into multiple outputs.
+
+```text id="bq5e0l"
+One shared connection ──> Request 1
+                      └─> Request 2
+                      └─> Request 3
+```
+
+The receiver must understand how to separate the combined data back into independent streams or requests.
+
+---
+
+### HTTP/1.1 Connections
+
+In HTTP/1.1, a browser often opens multiple TCP connections to the same domain.
+
+Each connection usually handles one active request at a time.
+
+```text id="yfwfjw"
+Request 1 → TCP Connection 1
+Request 2 → TCP Connection 2
+Request 3 → TCP Connection 3
+```
+
+Browsers such as Chrome usually limit the number of connections per domain.
+
+---
+
+### HTTP/2 Multiplexing
+
+HTTP/2 allows multiple streams to share one TCP connection.
+
+```text id="jvkf9q"
+Request 1 ┐
+Request 2 ├──> One HTTP/2 connection
+Request 3 ┘
+```
+
+This reduces the number of TCP connections needed between the client and server.
+
+---
+
+### Streams
+
+In HTTP/2, a stream is a logical request/response flow inside one connection.
+
+Multiple streams can exist at the same time inside the same TCP connection.
+
+```text id="yq7r6u"
+HTTP/2 Connection:
+  Stream 1
+  Stream 2
+  Stream 3
+```
+
+---
+
+### Reverse Proxy
+
+A reverse proxy sits between clients and backend servers.
+
+```text id="0hwqwk"
+Client → Reverse Proxy → Backend Server
+```
+
+Examples include:
+
+* Nginx
+* Envoy
+* HAProxy
+* API Gateway
+
+A reverse proxy can use different protocols on the client side and backend side.
+
+---
+
+### HTTP/2 Proxying
+
+A reverse proxy can receive HTTP/1.1 requests from clients and forward them to a backend using HTTP/2.
+
+```text id="oiw23e"
+Client → HTTP/1.1 → Reverse Proxy → HTTP/2 → Backend
+```
+
+In this case, the proxy may multiplex many client connections into one HTTP/2 connection to the backend.
+
+---
+
+### Demultiplexing Through a Proxy
+
+The reverse situation is also possible.
+
+A client may connect to the proxy using HTTP/2, and the proxy may send each request to the backend using separate HTTP/1.1 connections.
+
+```text id="9w5ser"
+Client → HTTP/2 → Reverse Proxy → HTTP/1.1 connections → Backend
+```
+
+This means the proxy demultiplexes HTTP/2 streams into separate backend connections.
+
+---
+
+### Connection Pooling
+
+Connection pooling is a technique where a backend application keeps a set of open connections ready for reuse.
+
+This is common when talking to databases.
+
+```text id="69ymys"
+Backend Server → Connection Pool → Database
+```
+
+Instead of opening a new database connection for every request, the backend reuses existing connections.
+
+---
+
+### Database Connection Pool
+
+A database connection pool keeps multiple active database connections.
+
+```text id="v61enu"
+Pool:
+  DB Connection 1
+  DB Connection 2
+  DB Connection 3
+  DB Connection 4
+```
+
+When a request needs the database, it borrows an available connection from the pool.
+
+---
+
+### Pool Exhaustion
+
+Pool exhaustion happens when all connections in the pool are busy.
+
+```text id="keuje9"
+Request 1 → DB Connection 1
+Request 2 → DB Connection 2
+Request 3 → DB Connection 3
+Request 4 → DB Connection 4
+Request 5 → waits
+```
+
+The next request must wait until a connection becomes available.
+
+---
+
+### Connection Pooling as Multiplexing
+
+Connection pooling can be viewed as a form of multiplexing.
+
+Many incoming application requests are distributed across a smaller number of database connections.
+
+```text id="jopq9f"
+Many web requests → Pool of DB connections → Database
+```
+
+---
+
+### Why Not Send Many Queries on One DB Connection?
+
+The instructor explains that sending many SQL queries on one connection can be tricky.
+
+If multiple queries are sent at once, the client must know which response belongs to which query.
+
+```text id="pbz6ga"
+SQL Query 1
+SQL Query 2
+SQL Query 3
+```
+
+If responses come back in a different order, matching responses to queries becomes difficult unless the protocol supports it.
+
+---
+
+### PostgreSQL Pipelining
+
+PostgreSQL has support for pipelining in newer versions.
+
+Pipelining allows multiple queries to be sent without waiting for each response immediately.
+
+However, this requires proper protocol support and careful handling of response order.
+
+---
+
+### Browser Connection Pooling
+
+Browsers maintain connection pools per domain.
+
+With HTTP/1.1, the browser may only allow a limited number of concurrent connections to the same domain.
+
+If all connections are busy, new requests are stalled.
+
+---
+
+### Stalled Requests
+
+A stalled request is waiting because the browser does not have an available connection.
+
+This can happen when long-running requests, long polling, or Server-Sent Events occupy all available HTTP/1.1 connections.
+
+---
+
+## 3. Important Notes
+
+* Multiplexing combines many logical flows into one physical or shared connection.
+* Demultiplexing splits one shared connection into multiple logical flows.
+* HTTP/1.1 usually needs multiple connections for parallel requests.
+* HTTP/2 can multiplex many streams over one connection.
+* Reverse proxies can multiplex or demultiplex traffic depending on frontend and backend protocols.
+* Multiplexing reduces the number of connections but can increase parsing and stream management work.
+* Demultiplexing can isolate requests but may require more connections.
+* Connection pooling is a practical backend example of multiplexing.
+* Database connection pools improve performance by reusing existing connections.
+* Pool exhaustion can block backend requests.
+* Browser connection limits can block requests when all connections are busy.
+* Long polling and SSE can occupy browser connections for a long time.
+* HTTP/2 helps reduce browser connection starvation by allowing many streams over one connection.
+* Understanding multiplexing helps explain HTTP/2, QUIC, proxies, connection pooling, and database communication.
+
+---
+
+## 4. Examples
+
+### Example 1: Basic Multiplexing
+
+```text id="66p95e"
+Signal A ┐
+Signal B ├──> One shared line
+Signal C ┘
+```
+
+Multiple inputs are merged into one output.
+
+---
+
+### Example 2: Basic Demultiplexing
+
+```text id="1yirlu"
+One shared line ──> Signal A
+                └─> Signal B
+                └─> Signal C
+```
+
+One input is split into multiple outputs.
+
+---
+
+### Example 3: HTTP/1.1 Browser Requests
+
+```text id="z9p7b1"
+Request 1 → Connection 1
+Request 2 → Connection 2
+Request 3 → Connection 3
+```
+
+The browser opens several TCP connections to the same domain.
+
+---
+
+### Example 4: HTTP/2 Multiplexing
+
+```text id="1tb3xj"
+Request 1 ┐
+Request 2 ├──> One HTTP/2 TCP connection
+Request 3 ┘
+```
+
+All requests share one connection as separate streams.
+
+---
+
+### Example 5: Proxy Multiplexing
+
+A proxy receives multiple HTTP/1.1 client connections and forwards them over one HTTP/2 backend connection.
+
+```text id="8ny6vi"
+Client Request 1 ┐
+Client Request 2 ├──> Reverse Proxy ──> One HTTP/2 connection ──> Backend
+Client Request 3 ┘
+```
+
+This reduces the number of backend connections.
+
+---
+
+### Example 6: Proxy Demultiplexing
+
+A proxy receives one HTTP/2 connection from the client and sends requests to the backend through multiple HTTP/1.1 connections.
+
+```text id="rex4w7"
+Client HTTP/2 connection ──> Reverse Proxy
+                              ├──> Backend Connection 1
+                              ├──> Backend Connection 2
+                              └──> Backend Connection 3
+```
+
+The proxy splits streams into separate backend connections.
+
+---
+
+### Example 7: Database Connection Pool
+
+```text id="nn97r9"
+Web Request 1 → DB Connection 1
+Web Request 2 → DB Connection 2
+Web Request 3 → DB Connection 3
+Web Request 4 → DB Connection 4
+```
+
+Each request uses an available database connection from the pool.
+
+---
+
+### Example 8: Pool Exhaustion
+
+```text id="5eh39k"
+Pool size = 4
+
+Request 1 → busy
+Request 2 → busy
+Request 3 → busy
+Request 4 → busy
+Request 5 → waiting
+```
+
+The fifth request waits until one connection becomes free.
+
+---
+
+### Example 9: Connection Reuse
+
+```text id="uql7i0"
+Request 1 finishes
+DB Connection 1 becomes free
+Request 5 uses DB Connection 1
+```
+
+Connection pooling avoids constantly opening and closing database connections.
+
+---
+
+### Example 10: Browser Connection Limit with Long Polling
+
+Suppose HTTP/1.1 allows six active connections to one domain.
+
+```text id="yk25y0"
+Connection 1 → Long polling request
+Connection 2 → Long polling request
+Connection 3 → Long polling request
+Connection 4 → Long polling request
+Connection 5 → Long polling request
+Connection 6 → Long polling request
+```
+
+Now all browser connections are busy.
+
+A new request may stall:
+
+```text id="sy56r6"
+GET /submit-job → waiting
+```
+
+This happens because the browser has no free connection to use.
+
+---
+
+### Example 11: HTTP/2 Solving the Connection Limit Problem
+
+```text id="ur3hsm"
+One HTTP/2 connection:
+  Stream 1 → Long poll
+  Stream 2 → Long poll
+  Stream 3 → API request
+  Stream 4 → CSS file
+  Stream 5 → JavaScript file
+```
+
+HTTP/2 multiplexing allows multiple streams to share one connection.
+
+---
+
+### Example 12: SQL Query Ordering Problem
+
+```text id="k54jrg"
+Send:
+SQL Query 1
+SQL Query 2
+SQL Query 3
+
+Receive:
+Response 2
+Response 3
+Response 1
+```
+
+Without protocol support, the client may not know which response belongs to which query.
+
+This is why simply sending many SQL queries over one connection is not always safe.
+
+---
+
+## 5. Questions / Review
+
+1. What is multiplexing?
+
+2. What is demultiplexing?
+
+3. How does HTTP/1.1 usually handle multiple parallel requests?
+
+4. How does HTTP/2 handle multiple parallel requests?
+
+5. What is a stream in HTTP/2?
+
+6. Why can HTTP/2 reduce the number of TCP connections?
+
+7. What is a reverse proxy?
+
+8. How can a reverse proxy multiplex HTTP/1.1 traffic into HTTP/2?
+
+9. How can a reverse proxy demultiplex HTTP/2 traffic into HTTP/1.1 connections?
+
+10. What are the advantages of multiplexing?
+
+11. What are the disadvantages of multiplexing?
+
+12. Why can multiplexing create more parsing work for the server?
+
+13. What is connection pooling?
+
+14. Why do backend applications use database connection pools?
+
+15. What happens when all database connections in a pool are busy?
+
+16. What is pool exhaustion?
+
+17. Why is connection pooling similar to multiplexing?
+
+18. Why not always send many SQL queries through the same database connection?
+
+19. What problem can happen if query responses return out of order?
+
+20. What is PostgreSQL pipelining?
+
+21. What is browser connection pooling?
+
+22. Why can HTTP/1.1 browser connection limits block requests?
+
+23. Why do long polling and SSE make connection limits more noticeable?
+
+24. How does HTTP/2 help with connection starvation?
+
+25. Why is understanding multiplexing important for backend engineers?

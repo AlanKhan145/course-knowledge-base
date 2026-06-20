@@ -1,0 +1,1973 @@
+Khi chúng ta đã hoàn thành, bạn có thể làm việc với các mô hình tiên tiến và mã nguồn mở.
+
+Bạn có thể tìm thấy mô hình biên giới và tạo mô hình cơ sở.
+
+Và bây giờ bạn có thể giải thích.
+
+Q Laura, hôm nay chúng ta sẽ thảo luận về một số tham số siêu.
+
+Đây là các cài đặt chung mà bạn thực hiện bên ngoài các thông số thực tế.
+
+Họ được điều chỉnh.
+
+Và chúng ta sẽ thiết lập một trình huấn luyện tinh chỉnh có giám sát.
+
+Và chúng ta sẽ bắt đầu và khởi động nó, xem qua một số biểu đồ, thật tuyệt vời.
+
+Và hãy quay lại vào ngày mai để xem kết quả quan trọng.
+
+Được rồi.
+
+Vậy.
+
+Đó là thứ tự công việc.
+
+À, và chỉ một lần nữa thôi.
+
+Đừng giết tôi, nhưng tôi sẽ hướng dẫn bạn qua thứ tự chơi.
+
+Và đây là nó.
+
+Thứ tự thi đấu.
+
+"The Price is Right" là tên của dự án.
+
+Tuần trước, thu thập và phân loại dữ liệu, đánh giá các mô hình tiên tiến, tinh chỉnh các mô hình tiên tiến.
+
+Tuần này, trong quá trình tinh chỉnh mô hình ngôn ngữ lớn mã nguồn mở (LLM) của chúng tôi, chúng tôi đã giới thiệu Q Laura.
+
+Đúng.
+
+Hai ngày trước, chúng tôi đã thiết lập bộ dữ liệu gợi ý và hoàn thiện tính năng gợi ý.
+
+Và chúng tôi giải thích sự khác biệt giữa mô hình cơ bản và biến thể chat instruct.
+
+Sau đó, chúng tôi đã đánh giá mô hình cơ sở của mình, mô hình Llama 3.24 bit được lượng tử hóa.
+
+Và kết quả là 110,72.
+
+Ồ, một kết quả thảm hại, thậm chí còn thảm hại hơn cả kết quả của con người.
+
+Và đó là nơi chúng ta đã dừng lại.
+
+Và hôm nay là phần một của khóa đào tạo, ngày mai là phần hai của khóa đào tạo.
+
+Và sau đó chúng ta đến phần đánh giá.
+
+Được rồi.
+
+Hãy cùng thảo luận về các tham số siêu.
+
+Và đúng vậy, tôi cũng nên đề cập rằng, tất nhiên, tuần thứ tám là thời
+
+điểm chúng ta triển khai các mô hình vào các sản phẩm Rag và Argentic.
+
+Được rồi.
+
+Xin lỗi.
+
+Bây giờ chúng ta sẽ chuyển sang các siêu tham số.
+
+Vậy chúng ta sẽ tìm hiểu về năm tham số siêu quan trọng ảnh hưởng đến quá trình tinh chỉnh
+
+mô hình Q Lora và sau đó là năm tham số siêu cho quá trình đào tạo tổng thể.
+
+Vậy Q Lora là gì? Thực ra
+
+chúng ta đã gặp chúng rồi.
+
+Vậy các mô-đun mục tiêu mà bạn sẽ nhớ rằng siêu tham số này đang chỉ định các lớp nào của
+
+mạng thần kinh, và chúng ta sẽ nhắm mục tiêu vào những lớp nào cho ma trận Lora của mình.
+
+Và các mô-đun mục tiêu mà tôi đã đề cập, bạn thường bắt đầu bằng cách tập trung vào các lớp chú ý.
+
+Và đôi khi bạn cũng thêm các lớp khác nữa.
+
+Đó được gọi là các mô-đun mục tiêu.
+
+R là số chiều của ma trận Lora của bạn.
+
+R là viết tắt của "rank", có lẽ là một thuật ngữ khác để chỉ "chiều".
+
+Và đó là chữ r trong Lora, và alpha là giá trị bạn nhận được sau khi nhân Laura
+
+A và Laura B. Khi nhân hai ma trận với nhau (như bạn có thể nhớ từ đại số
+
+tuyến tính), bạn sẽ nhận được một ma trận lớn hơn. Và kết quả là, alpha là hệ số
+
+nhân mà bạn sử dụng để phóng to ma trận đó trước khi cộng vào mô hình cơ sở.
+
+À, và đó là, đó là điều mà bạn thường làm, đó là việc bạn luôn phải làm.
+
+À, việc lượng tử hóa thì cũng được.
+
+Vậy mô hình là một số thực đầy đủ.
+
+Chúng ta có thể giảm độ chính xác xuống còn 8 bit hoặc thậm chí 4 bit và
+
+thấy rằng, rằng, bạn biết đấy, điều đó chắc chắn sẽ làm kết quả của bạn kém hơn.
+
+Nhưng nó giải phóng rất nhiều bộ nhớ, giúp bạn có thể làm được nhiều việc hơn.
+
+Bạn sẽ có thể tổ chức nhiều khóa đào tạo hơn.
+
+Bạn sẽ có thể thử nghiệm những điều phức tạp hơn.
+
+Và vì vậy, khi bạn xem xét tổng thể, bạn biết đấy, bạn có ngân sách hạn chế thay vì
+
+thời gian để cố gắng đạt được kết quả, có thể hợp lý khi hy sinh một phần khả năng
+
+giải thích của mô hình cơ sở để có nhiều không gian hơn để làm được nhiều việc hơn.
+
+Đó là lý do tại sao bạn phải lượng tử hóa và loại bỏ.
+
+Đó là cái mới duy nhất ở đây.
+
+Đây là một cái mới.
+
+Bỏ học.
+
+Bạn có thể đã thấy rằng khi chúng ta đang xem mô hình, có một trường hợp bỏ học.
+
+Đây là một thủ thuật rất đơn giản, nghe có vẻ rất dễ dàng, được sử
+
+dụng trong mạng thần kinh, nơi bạn có một xác suất dropout và thường là 10%.
+
+Và đó chính là thứ chúng ta sẽ sử dụng.
+
+Bạn cũng có thể thử 20%.
+
+Thỉnh thoảng 20% cũng là một lựa chọn phổ biến khác.
+
+Chúng tôi sẽ sử dụng 10%.
+
+Và điều xảy ra là ngẫu nhiên 10% các nơ-ron trong các phép tính nhỏ này, các đơn
+
+vị hồi quy tuyến tính nhỏ bên trong mạng nơ-ron sâu bị xóa bỏ, bị đặt về 0.
+
+Khi bạn đang đi qua, khi bạn đang tập luyện và mỗi
+
+lần thay đổi 10% khác nhau, bạn có thể đang nghĩ,
+
+ồ, sao vậy? Tại sao nghe có vẻ rất tạm bợ.
+
+À, có rất nhiều khía cạnh trong khoa học dữ liệu mang tính chất "hacky".
+
+Vậy tại sao bạn lại làm như vậy? Thực ra, đó là một kỹ thuật nhằm đảm bảo rằng mô hình của
+
+bạn có khả năng tổng quát hóa tốt, tức là mạng thần kinh của bạn không bị quá khớp với dữ liệu.
+
+Bởi vì điều bạn không muốn xảy ra là các phần khác nhau của mạng thần kinh cố gắng xác định
+
+một đầu vào cụ thể, và khi tìm thấy đầu vào đó, nó sẽ đưa ra một đầu ra cụ thể
+
+trùng khớp với dữ liệu đào tạo. Điều đó không phải là học được một mẫu chung và kỹ năng chung.
+
+Đó là việc học một điều gì đó rất cụ thể, trong đó với bộ dữ liệu đầu vào này luôn tạo ra kết quả đầu ra này.
+
+Và việc loại bỏ mẫu (dropout) giống như một kỹ thuật nhằm khuyến khích mô hình.
+
+Nếu nó muốn luôn hoạt động tốt trong điều kiện thua lỗ, thì thay vì chỉ thay đổi những
+
+vùng nhỏ, rất cục bộ trong mạng thần kinh của mình để giải quyết các vấn đề khác
+
+nhau, nó phải đảm bảo rằng mạng thần kinh nói chung có khả năng giải quyết các đầu
+
+vào khác nhau, dự đoán các đầu ra có khả năng là những gì chúng ta mong đợi.
+
+Vậy nên, nó là một thứ kỳ lạ.
+
+Nó cho biết chúng ta nên có thể loại bỏ ngẫu nhiên 10% các thành phần khác nhau trong mạng thần kinh của mình.
+
+Và nó vẫn hoạt động tốt.
+
+Và đó chính là điều chúng tôi cố gắng huấn luyện nó để làm.
+
+Và việc sử dụng kỹ thuật đó làm tăng khả năng mô hình sẽ học
+
+tốt và hoạt động hiệu quả với dữ liệu mới, chưa từng gặp trước đây.
+
+Vậy đó là lý do tại sao có hiện tượng bỏ học.
+
+Nghe có vẻ rất tạm bợ, nhưng mà biết sao
+
+không? Thực tế thì nó hoạt động khá tốt.
+
+Nó thực sự có tác dụng trong việc này.
+
+Và các giá trị cao hơn của tỷ lệ bỏ học thường có nghĩa là bạn có thể tổng quát hóa tốt hơn.
+
+Tất nhiên, như bạn có thể đoán, giá trị cao hơn của dropout có nghĩa là quá trình
+
+huấn luyện sẽ mất nhiều thời gian hơn vì bạn đang thực hiện việc loại bỏ các bit.
+
+Vì vậy, nó phải học theo một cách nào đó.
+
+Toàn bộ mạng thần kinh phải có khả năng học cách phản hồi với các
+
+đầu vào khác nhau, thay vì cho phép nó gian lận và để các phần
+
+khác nhau của mạng thần kinh tập trung vào các loại đầu vào khác nhau.
+
+Đó chính là ý nghĩa của việc bỏ học.
+
+Một lần nữa, tôi đang giải thích một cách khá mơ hồ.
+
+Tôi đang cố gắng giúp bạn hiểu rõ hơn về điều đó, nhưng như vậy là đủ rồi.
+
+Đó là cách nó hoạt động.
+
+Điều đó giúp bạn hiểu rõ hơn về ý nghĩa của việc tăng hoặc giảm độ nhạy (dropout), và cách nó
+
+liên quan đến việc tổng quát hóa (generalising) và quá khớp (overfitting) mà chúng ta đã thảo luận tuần trước.
+
+Được rồi, và bây giờ là năm tham số siêu quan trọng cho toàn bộ quá trình đào tạo.
+
+Vậy, các epoch mà chúng ta đã đề cập tuần trước và epoch, tất nhiên, là một lần quét toàn bộ dữ liệu của bạn.
+
+Và bạn thường thực hiện nhiều epoch vì có thể bạn nghĩ, tại
+
+sao chúng ta lại đưa cùng một dữ liệu đầu vào vào
+
+lại? Hãy nhớ rằng trong chu kỳ này, bạn chỉ đang tính
+
+toán gradient và chỉ thực hiện một bước nhỏ theo hướng đúng.
+
+Vì vậy, việc thực hiện nhiều bước khác nhau khi bạn ngày càng tiến bộ có thể là một lựa chọn hợp lý.
+
+Có một lý do khác khiến các kỷ nguyên có ý nghĩa.
+
+Hãy nhớ rằng chúng ta không truyền dữ liệu qua từng điểm dữ liệu một.
+
+Chúng tôi chia dữ liệu thành các lô và mỗi khi
+
+bắt đầu một epoch, các lô này được chọn ngẫu nhiên.
+
+Vì vậy, mỗi lần lặp lại (epoch), chúng ta sẽ có một tập dữ liệu khác nhau.
+
+Vì vậy, nó không phải là dữ liệu đầu vào giống hệt nhau.
+
+Đây là một tập hợp khác của các điểm dữ liệu được chọn lọc khác nhau.
+
+Và điều đó liên quan chặt chẽ đến kích thước lô.
+
+Kích thước lô là số lượng điểm dữ liệu mà bạn đưa vào một lô. Và cơ bản
+
+là bạn cố gắng đưa càng nhiều dữ liệu vào bộ nhớ GPU của mình càng tốt.
+
+Đó thực sự là nguyên tắc chung mà mọi người thường áp dụng.
+
+Bạn tiếp tục tăng kích thước lô ngày càng lớn cho đến khi GPU của bạn không thể chứa được nó.
+
+Và sau đó, bạn giảm bớt.
+
+Bây giờ, những người chuyên nghiệp sẽ chỉ ra rằng vấn đề phức tạp hơn thế.
+
+Có những lúc bạn rõ ràng là bạn.
+
+Trường hợp lý tưởng là bạn chỉ có một lô dữ liệu duy nhất, tức là bạn
+
+huấn luyện từng điểm dữ liệu một, nhưng điều đó sẽ mất rất, rất nhiều thời gian.
+
+Việc sử dụng các lô dữ liệu lớn hơn sẽ nhanh hơn, nhưng khi sử dụng các lô
+
+dữ liệu lớn hơn, quá trình huấn luyện sẽ diễn ra theo cách gần đúng hơn một chút.
+
+Nó không chính xác bằng, nhưng cũng có một số lợi ích từ điều đó, vì điều đó
+
+có nghĩa là có một yếu tố ngẫu nhiên được thêm vào quá trình đào tạo của bạn.
+
+Vậy nên, mỗi kích thước lô sản xuất đều có những ưu điểm và nhược điểm riêng.
+
+Nói chung, quy tắc chung là bạn chọn kích thước
+
+lô lớn nhất có thể vừa với GPU của bạn.
+
+Và quy tắc ngón tay cái khác, và quy tắc này thật điên rồ, là mọi
+
+người thực sự thích sử dụng các lũy thừa của hai cho kích thước lô.
+
+Như bạn sẽ thấy, 16, 32, 64, 128 người luôn là các lũy thừa của 2.
+
+Và, bạn biết đấy, một lần nữa, có cảm giác rằng từ góc độ bộ nhớ, việc giữ cho nó là một
+
+lũy thừa của hai là hợp lý, và rằng GPU hoạt động nhanh hơn khi nó là một lũy thừa của hai.
+
+Theo tôi, đó có lẽ chỉ là một truyền thuyết đô thị.
+
+Tôi không biết liệu điều đó có đúng không.
+
+Tôi muốn nói rằng, nếu bạn có kích thước lô là 16 (một số mũ hai), và
+
+bạn tăng kích thước lô lên 17, nó sẽ nhanh hơn và hoạt động hiệu quả hơn.
+
+Một lô dữ liệu lớn hơn sẽ được xử lý nhanh hơn qua dữ liệu của bạn.
+
+Có thể có một khía cạnh nào đó mà nếu bạn đang ở mức lũy thừa của 2, thì nó sẽ hiệu quả hơn nữa.
+
+Vì vậy, việc tăng từ 15 lên 16 có thể là lựa chọn tốt hơn.
+
+Bạn có thể thu được nhiều nước ép hơn so với việc tăng từ 16 lên
+
+17, nhưng dù sao đi nữa, kích thước mẻ lớn hơn sẽ chạy nhanh hơn.
+
+À, vậy nếu bạn có thể chứa 16 nhưng không thể chứa 32, đừng ép buộc bản
+
+thân phải giữ nguyên 16, dù nó rất hấp dẫn vì đó là lũy thừa của 2.
+
+Nhưng bạn có thể sử dụng một lũy thừa của hai.
+
+Thử 20.
+
+Nó vẫn sẽ nhanh hơn.
+
+Bạn có thể thử xem.
+
+À, và sau đó là tốc độ học.
+
+Bạn còn nhớ là chúng ta cũng đã từng xem qua điều này một lần.
+
+Tốc độ học là mức độ thay đổi mà bạn thực hiện mỗi lần.
+
+À, mỗi lần bạn thực hiện một thay đổi đột ngột, bạn đã tính toán xem mức độ thay đổi của tổn thất là bao nhiêu.
+
+Nếu bạn điều chỉnh một chút các thông số, các gradient, bạn
+
+đã tính toán điều đó cho toàn bộ mạng thần kinh.
+
+Và sau đó, bạn chỉ cần bước một bước đúng hướng.
+
+Bước đó lớn đến mức nào? Đó
+
+được gọi là tỷ lệ học tập.
+
+Bạn thường bắt đầu với 0.0001.
+
+Đó là một điểm khởi đầu rất phổ biến.
+
+Và đây là một siêu tham số mà bạn thường sẽ thử nghiệm bằng cách điều chỉnh nó.
+
+Và khi nói đến tỷ lệ học tập, người ta hầu như luôn sử dụng các bội số của 10.
+
+Vậy bạn có thể thử 0.0001 hoặc thử 0.001 hoặc 0.00001, sau đó thử các giá trị đó và xem cái nào hoạt động tốt hơn.
+
+Và thỉnh thoảng, bạn chọn một con số như 0,0005.
+
+À, nhưng đúng vậy, thông thường, thông thường đó là một hàm mũ của 10 mà bạn đang sử dụng ở đó với tốc độ học.
+
+
+Bây giờ có một vài điều nữa cần nói về tốc độ học.
+
+Có thể bạn đang tự hỏi, tại sao không tăng tỷ lệ học tập lên thật cao? Tỷ lệ
+
+học tập cao có nghĩa là bạn đang thực hiện một bước nhảy vọt để giảm thiểu tổn thất.
+
+Tại sao không thử những bước tiến lớn? Hãy nghĩ theo cách
+
+này: mọi người thường thích hình dung những điều như vậy.
+
+Sự mất mát.
+
+Làm thế nào? Mức lỗ bị ảnh hưởng bởi việc thay
+
+đổi các thông số của bạn, giống như một thung lũng.
+
+Bạn có thể hình dung rằng mức độ tổn thất của bạn có thể là như thế này, như thế này, như thế này.
+
+Và khi bạn điều chỉnh thông số, nó sẽ giảm xuống và sau đó lại tăng trở lại.
+
+Vậy nó giống như một thứ gì đó giống như một thung lũng.
+
+Và điều chúng ta đang cố gắng tìm kiếm trong quá trình đào tạo là chúng ta đang cố gắng tìm ra điểm ở đáy thung lũng.
+
+Chúng tôi đang ở đâu đó ở đây.
+
+Chúng tôi đã tìm thấy độ dốc.
+
+Mức độ tổn thất bị ảnh hưởng bởi việc điều chỉnh các thông số.
+
+Và sau đó chúng ta thay đổi thông số.
+
+Và nếu chúng ta chỉ bước một bước rất nhỏ, chúng ta chỉ đi xuống một chút.
+
+Nếu chúng ta tăng bước nhảy lớn hơn, nếu tốc độ học tập cao hơn, chúng ta có thể thực hiện
+
+một bước nhảy lớn xuống và đến gần đáy hoặc gần đáy thung lũng, điều đó sẽ rất tuyệt vời.
+
+Nhưng nếu chúng ta thực hiện một bước nhảy vọt lớn, chúng ta có thể vượt qua thung
+
+lũng và sang phía bên kia của thung lũng, và cuối cùng sẽ đến một nơi cao hơn.
+
+Chúng ta có thể nhảy qua toàn bộ chiều dài của điều này, của thứ
+
+này, đôi khi được gọi là điểm cực tiểu, điểm cực tiểu cục bộ.
+
+Và vì vậy, bạn muốn tránh tình huống phải nhảy qua lại như vậy.
+
+Và đôi khi, việc sử dụng một tỷ lệ học tập khá nhỏ, không quá lớn, có thể là một
+
+lựa chọn tốt, để tránh việc nhảy vọt sang phía bên kia hoặc bỏ lỡ điểm tối thiểu hoàn toàn.
+
+Đó là lý do tại sao bạn có thể không muốn tỷ lệ học tập quá cao.
+
+Được rồi, vậy là bạn kiểu như, ừ, tôi hiểu rồi.
+
+Chúng tôi không muốn tỷ lệ học quá lớn.
+
+Chúng tôi không muốn bỏ lỡ mức tối thiểu.
+
+Vậy tại sao chúng ta không làm cho nó nhỏ gọn và
+
+đẹp mắt? Hãy làm cho nó nhỏ gọn và đẹp mắt.
+
+Tốc độ học.
+
+Sẽ mất rất nhiều thời gian để đào tạo, nhưng chúng tôi không ngại điều đó.
+
+Điều đó tốt.
+
+Ít nhất chúng ta cũng sẽ đạt được mức tối thiểu.
+
+À, còn một vấn đề nữa.
+
+Và vấn đề đó được gọi là bị kẹt trong một điểm cực tiểu cục bộ, một thuật ngữ mà người ta
+
+thường sử dụng trong cuộc sống thực tế khi tranh luận về một vấn đề nào đó và ý nghĩa của nó.
+
+Bạn có lẽ đã có một hình dung rõ ràng về điều đó.
+
+Hãy tưởng tượng nếu sự thật không phải là thung lũng xinh đẹp này, mà sự thật là một thung lũng như thế.
+
+Và bên cạnh nó là một thung lũng lớn hơn nhiều.
+
+Và điểm mất mát thực sự thấp nhất nằm ở đây.
+
+Đó chính là điều chúng ta muốn đạt được.
+
+Nếu tốc độ học quá nhỏ, có nguy cơ là nếu chúng ta bắt đầu từ đâu đó
+
+ở đây, chúng ta có thể dần dần tìm được đường xuống điểm cực tiểu ngay tại đó.
+
+Và nếu chúng ta cố gắng tiến xa hơn nữa, chúng ta sẽ leo lên bức tường đó và lại rơi xuống một lần nữa.
+
+Chúng tôi luôn cố gắng hướng tới phương án giảm thiểu tổn thất.
+
+Vì vậy, chúng ta thực sự bị kẹt trong điểm cực tiểu cục bộ này, điểm cực tiểu
+
+này, vốn là điểm cực tiểu cục bộ so với vị trí ban đầu của chúng ta.
+
+Và chúng ta không bao giờ tìm được con đường đến mức tối thiểu lớn hơn nhiều ngay bên cạnh.
+
+Và nếu chúng ta đã sử dụng một tỷ lệ học tập lớn hơn, chúng ta đã thoát khỏi điểm cực tiểu
+
+cục bộ hoàn toàn, và chúng ta sẽ tìm thấy mình ở một vị trí lý tưởng, nơi có một thung
+
+lũng thấp hơn, điểm cực tiểu toàn cục, điểm cực tiểu thực sự mà chúng ta đang cố gắng tìm kiếm.
+
+Và đó chính là lý do tại sao bạn không muốn sử dụng một tỷ lệ học tập quá nhỏ.
+
+Và thế là bạn nghĩ, ồ? Được rồi, vậy chúng
+
+ta có một tốc độ học tập khá cao.
+
+Chúng ta có một tỷ lệ học tập khá nhỏ.
+
+Vậy chúng ta có thể sử dụng tốc độ học tập nào? Và tất nhiên, câu
+
+trả lời là bạn cần thử nghiệm, thử các tốc độ học tập khác nhau.
+
+Bạn nhận ra rằng bạn sử dụng các con số để xác định điều gì hiệu quả nhất.
+
+Nhưng cũng có một số mẹo vặt.
+
+Có một số thuật toán được gọi là "learning rate schedulers" (lịch trình điều chỉnh tốc độ học),
+
+cho phép điều chỉnh tốc độ học dựa trên tiến độ đào tạo hoặc kết quả đạt được.
+
+Và lần này, chúng ta sẽ sử dụng một thuật toán khá đơn giản trong quá trình đào tạo, được gọi là thuật toán cosine scheduler.
+
+Và nó cơ bản là, ừm, nó thay đổi tốc độ học tập của bạn.
+
+Nó bắt đầu ở mức khá cao.
+
+Vậy là bạn đang cố gắng tìm kiếm phần lớn toàn cầu phù hợp để tham gia.
+
+Và theo thời gian, nó ngày càng nhỏ đi, nhỏ đi, nhỏ đi, đến mức các bước của bạn cố gắng tìm
+
+kiếm điểm cực tiểu cục bộ tốt nhất có thể và bạn không nhảy ra khỏi vị trí hiện tại của mình.
+
+Loại lịch trình học tập đó là một phương pháp rất phổ biến.
+
+Chúng tôi cũng sẽ thực hiện một lịch trình học tập với giai đoạn
+
+khởi động, có nghĩa là nó không bắt đầu với giá trị lớn nhất.
+
+Nó bắt đầu ở mức thấp hơn một chút, sau đó tăng lên đến con số
+
+lớn nhất, và sau đó từ từ giảm xuống, và bạn sẽ thấy mô hình đó.
+
+Chúng ta sẽ xem xét tốc độ học tập và cách nó thay đổi.
+
+Vậy nên hãy cẩn thận với điều đó.
+
+Bạn sẽ thấy điều đó.
+
+Đây là một cách tiếp cận rất thông thường.
+
+Có một số phương pháp khác cũng rất hay.
+
+Có một cách để bạn có thể sử dụng trình điều chỉnh tốc độ học (learning
+
+rate scheduler) tự động điều chỉnh tốc độ học khi kết quả không cải thiện.
+
+Đó là một kỹ thuật chuyên nghiệp rất hay và đôi khi hiệu quả, nhưng kỹ
+
+thuật này sẽ phát huy tác dụng rất tốt cho chúng ta ngay bây giờ.
+
+Và điều đó rất, rất phổ biến.
+
+Và điều đó cuối cùng sẽ cho bạn biết tất cả những gì bạn từng muốn biết về tốc độ học.
+
+Hãy tiếp tục với một siêu tham số khác nhé.
+
+Vậy, phương pháp tiếp theo được gọi là tích lũy gradient, tương tự như kích thước
+
+lô, nhưng tích lũy gradient là một cách khác để tăng tốc quá trình huấn luyện.
+
+Và nó đang nói "được rồi".
+
+Vậy ý tưởng là bạn nhớ bốn bước của quá trình đào tạo.
+
+Tôi hy vọng bạn nhớ bốn bước của quá trình huấn luyện: bước
+
+truyền về phía trước, tính toán tổn thất, và bước truyền ngược lại.
+
+Hãy bước đi.
+
+Vâng, tích lũy gradient có nghĩa là chúng ta có thể thực hiện quá trình truyền về phía trước,
+
+tức là tính toán hàm mất mát, sau đó thực hiện quá trình truyền ngược để tính toán gradient.
+
+Nhưng đừng vội vàng.
+
+Đừng cập nhật tất cả các trọng số ở mọi nơi.
+
+Hãy giữ chặt những gradient đó, những gradient đó.
+
+Và lặp lại thao tác này một lần nữa và cộng các độ dốc lại với nhau.
+
+Và sau đó chỉ cần thực hiện một bước lớn hơn ở cuối, vì có lẽ điều đó là ổn.
+
+Có lẽ bước đầu tiên đó không ảnh hưởng nhiều đến tính toán thứ hai của bạn.
+
+Và bạn có thể làm điều này nhiều lần.
+
+Và đây là cách để tăng tốc độ xử lý của bạn, của bạn.
+
+Và nó còn có một số tác dụng khác rất hữu ích.
+
+Chúng tôi sẽ không sử dụng nó. Tôi thấy nó làm tăng thêm một chút
+
+nhiễu cho quá trình, nhưng tôi sẽ giữ lại tham số siêu trong đó.
+
+Vậy nên, nếu bạn muốn thử nghiệm với việc tích lũy gradient, bạn hoàn toàn có thể làm điều đó.
+
+Bạn sẽ thấy một số ưu và nhược điểm được thể hiện trong thực tế.
+
+Có thể bạn sẽ đạt được kết quả tốt hơn tôi, nhưng đây là một kết quả quan trọng.
+
+Cần lưu ý đến hiện tượng tích tụ gradient.
+
+Và sau đó là bộ tối ưu hóa.
+
+Vì vậy, tất nhiên tôi đã đề cập đến bước thứ tư.
+
+Bạn đã biết bốn bước.
+
+Đây là tính toán tổn thất của đường chuyền về phía trước.
+
+Quá trình truyền ngược.
+
+Bước đầu tiên trong quá trình tối ưu hóa.
+
+Nó được gọi là.
+
+Cách bạn bước đi có thể rất đơn giản hoặc cũng có thể rất phức tạp.
+
+Phương pháp đơn giản mà mọi người thường bắt đầu là thuật toán gradient ngẫu nhiên
+
+(Stochastic Gradient Descent - SGD), mà tôi đã đề cập đến, tôi nghĩ là tuần trước.
+
+Và điều đó thực sự chỉ đơn giản là như những gì nó nghe có vẻ.
+
+Bạn có một hàm gradient và bạn thực hiện một bước nhỏ, đó là thuật toán gradient descent.
+
+Vậy bạn thực hiện một bước nhỏ theo hướng làm giảm tổn thất bằng với lượng của tỷ lệ học.
+
+Đó là SGD, chỉ có thế thôi.
+
+Nhưng cũng có một số loại tối ưu hóa phức tạp hơn.
+
+Có một cái mà chúng ta sẽ sử dụng gọi là Adam, rất phổ biến.
+
+Và những kẻ tinh vi hơn thì họ cố gắng và cố gắng để trở nên xảo quyệt hơn trong việc đó.
+
+Họ làm việc như thể họ đang có đà.
+
+Vậy nên, nếu bạn đã đi theo một hướng trong một thời gian, bạn vẫn duy trì một phần
+
+động lượng di chuyển đó, ngay cả khi các độ dốc của bạn dường như đi theo hướng khác.
+
+Đây là những mẹo nhỏ giúp bạn di chuyển theo hướng có khả năng cao nhất.
+
+Và vì vậy, chúng chiếm dụng một chút bộ nhớ nhiều hơn, nhưng thường mang lại kết quả tốt hơn nhiều.
+
+Và thế là Adam trở nên cực kỳ nổi tiếng.
+
+Còn rất nhiều cái khác nữa.
+
+À, và đúng rồi, tôi nghĩ Adam là cái mà hầu hết mọi người thường sử dụng nhất.
+
+Hoặc SGD nếu bạn mới bắt đầu và muốn một giải pháp rất đơn giản.
+
+Vậy đó là thứ chúng ta sẽ sử dụng.
+
+Đó chính là mục đích của bộ tối ưu hóa.
+
+Và một lần nữa, tôi xin nhắc lại với các bạn
+
+về bốn bước đào tạo mà tôi vừa đề cập đến.
+
+Nhưng tôi thực sự muốn nhấn mạnh điều này với bạn.
+
+À, nhớ nhé, tất cả đều xoay quanh việc chúng ta điều chỉnh các thông số của mô hình như thế nào.
+
+Trong trường hợp này, chúng ta đang điều chỉnh ma trận Laura, điều chỉnh các thông số Laura dựa trên
+
+dữ liệu đào tạo, và cố gắng thực hiện điều này theo cách có thể tổng quát hóa, sao cho
+
+không chỉ cải thiện dần trên dữ liệu đào tạo mà còn cải thiện trên dữ liệu chưa từng thấy.
+
+Và đó sẽ là điểm quan trọng cho việc chúng ta sắp thực hiện đường chuyền về phía trước.
+
+Đó là lúc bạn lấy các đầu vào và dự đoán kết quả đầu
+
+ra nên là gì, bao gồm cả việc áp dụng định luật ma trận.
+
+Áp dụng chúng bằng cách nhân với hệ số alpha.
+
+Thêm chúng vào.
+
+Đầu ra này là bước đầu tiên của bạn.
+
+Việc tính toán tổn thất và chúng ta sẽ tìm hiểu chi tiết về cách tính toán đó vào lần sau.
+
+Nhưng bạn cần tính toán xem sự khác biệt giữa kết quả của bạn và giá trị thực tế là bao nhiêu.
+
+Điều mà bạn biết nên là kết quả được lưu trữ trong biến hoàn thành. Trong
+
+quá trình lùi lại, bạn quay lại và tự hỏi: "Làm thế nào tôi có
+
+thể điều chỉnh các tham số để đạt kết quả tốt hơn lần sau?" Và
+
+hãy nhớ rằng chúng ta sẽ không điều chỉnh các tham số trong Llama 3.2.
+
+Có 3 tỷ con.
+
+Số.
+
+Chúng ta sẽ tập trung vào việc điều chỉnh các thông số trong các ma trận Lora nhỏ, có 32
+
+chiều, chỉ điều chỉnh các thông số đó vì chúng sẽ được áp dụng cho mô hình chính Llama.
+
+Vậy chúng ta điều chỉnh chúng, chúng ta xác định các độ dốc.
+
+Và cuối cùng là bước tối ưu hóa cuối cùng.
+
+Đây là nơi chúng ta sử dụng trình tối ưu hóa.
+
+Đó có thể là thuật toán gradient ngẫu nhiên (SGD) hoặc có thể là thuật toán tối ưu hóa Adam.
+
+Để thực hiện một bước nhỏ theo hướng đó, nhằm cải thiện một chút trong lần tiếp theo
+
+khi chúng ta nhận được cùng các đầu vào hoặc một tình huống có mô hình tương tự.
+
+Chúng tôi đang cố gắng thực hiện điều này theo cách có thể áp dụng cho nhiều trường hợp.
+
+Đó là cách đào tạo hoạt động.
+
+À, bạn biết đấy, bây giờ bạn đã chắc chắn rằng chúng ta có các tham
+
+số siêu (hyper parameters), đó là các thiết lập khác điều khiển toàn bộ quá trình.
+
+Chúng tôi đã làm điều này không liên quan đến chính các thông số.
+
+À, epoch và learning rate là những thông số mà chúng ta vừa đề cập đến, cùng với một số thông số khác.
+
+Tối ưu hóa siêu tham số chính là việc thử nghiệm với các tham số này.
+
+Và về nhiều mặt, đây chỉ là một thuật ngữ hoa mỹ cho phương pháp thử và sai.
+
+Được rồi.
+
+Hãy xem lại điều này một lần nữa.
+
+Nhận ra điều này.
+
+Hãy nhớ lại điều này từ khi chúng ta huấn luyện mạng thần kinh của riêng mình.
+
+Vì chúng ta sắp thực hiện điều này với ma trận Laura cho số thực trong một colab.
+
+À, ừm, đúng rồi, đây chính là khoảnh khắc mà tôi đã mong chờ.
+
+Cuối cùng.
+
+Nó đã đến.
+
+Hãy cùng nhau làm điều đó.  Được rồi, chúng ta đã đến đây.
+
+Tuần thứ bảy, ngày thứ ba Colab.
+
+Và tất nhiên, như thường lệ, đây là liên kết đến tài liệu này.
+
+Bạn sẽ tìm thấy nó trong thư mục curser trong kho GitHub, trong bài lab ngày thứ ba của tuần thứ bảy.
+
+Hoặc bạn cũng có thể tìm thấy trong tệp Readme hoặc ở bất kỳ đâu bạn nghĩ mình có thể tìm kiếm nó.
+
+Bạn có thể tìm thấy nó ở đó.
+
+À, đây rồi.
+
+Chúng tôi đang tham gia buổi hợp tác cho các ngày đào tạo thứ ba và thứ tư.
+
+Chúng ta sẽ làm việc trong cuốn sổ tay này và chúng ta nên tận hưởng quá trình này.
+
+Điều này sẽ thật tuyệt vời.
+
+Đầu tiên, bạn chọn giữa chế độ sáng và chế độ tối.
+
+Dữ liệu lớn.
+
+Chế độ đầy đủ với chế độ sáng là sai.
+
+Tôi sẽ bắt đầu bằng cách khởi động chế độ sáng vì đó là điều bạn có thể làm.
+
+Nhưng sau đó, chúng ta cũng sẽ thực hiện điều này cho chế độ đầy đủ, để bạn
+
+có thể tận hưởng bộ dữ liệu lớn, ngay cả khi bạn không muốn tự mình chạy nó.
+
+Chế độ sáng hoàn toàn miễn phí.
+
+Mọi thứ đều miễn phí.
+
+Nhưng để sử dụng chế độ sáng, bạn cần kết nối với hộp T4.
+
+Bạn cần đảm bảo rằng đó là hộp T4.
+
+Đừng mắc sai lầm với điều đó vì nó sẽ không hoạt động, và bạn có thể kiểm
+
+tra bằng cách mở các tài nguyên xem của mình để đảm bảo mọi thứ trông ổn.
+
+Luôn luôn đáng để có những tài nguyên này ở vị trí nổi bật khi bạn thực hiện những công việc này.
+
+Bây giờ chúng ta sẽ bắt đầu với một số cài đặt, và bây giờ chúng ta không chỉ cài đặt các tệp tin và dữ liệu.
+
+Chúng tôi cũng đang cài đặt và nhập thư viện có tên TRL, đây là
+
+mô hình học tăng cường Transformers từ Hugging Face, là gói phần mềm sẽ thực
+
+hiện tất cả các tác vụ tinh chỉnh mà chúng tôi sẽ thực hiện.
+
+Được rồi.
+
+Và chúng tôi cũng đang tiến hành đánh giá.
+
+Tôi không nghĩ chúng ta sử dụng nó ngày nay, nhưng chúng ta sẽ sử dụng nó trong tương lai.
+
+À, vậy là chúng ta có một loạt các câu lệnh import.
+
+Hãy để tôi chạy các lệnh này ngay bây giờ và các lệnh nhập, bao gồm việc nhập một thứ gọi là Wonderbar.
+
+Và có thể bạn đang thắc mắc Wonderbar là gì.
+
+Và thanh W và B thực chất là viết tắt của W và B, viết tắt của trọng số và độ lệch.
+
+Weights and biases là một nền tảng miễn phí tuyệt vời để theo dõi quá trình đào tạo và là một nền tảng mã nguồn mở miễn phí.
+
+Ý tôi là, họ có gói dịch vụ trả phí cấp độ hai, nhưng bạn không cần nó cho khóa học này.
+
+À, và, ừm, đúng vậy, đó là điều rất, rất phổ biến.
+
+À, và, à, ừm, tôi không chắc là mã nguồn mở.
+
+Tôi không biết tại sao tôi lại nói đến mã nguồn mở, nhưng nó miễn phí.
+
+Và, ừm, đó là một thứ có, ừm, tất nhiên, một
+
+thư viện mã nguồn mở để kết nối với nó.
+
+Và đó chính là công cụ mà tôi sẽ sử dụng để theo dõi.
+
+Và tôi rất khuyên bạn cũng nên làm như vậy.
+
+Và tôi sẽ hướng dẫn bạn cách thiết lập nó một cách cực kỳ đơn giản.
+
+Và điều đó có nghĩa là bạn sẽ có quyền truy cập vào rất nhiều thứ.
+
+Được rồi.
+
+Nhưng trước tiên, chúng ta cần xem xét các hằng số.
+
+Và bây giờ có rất nhiều hằng số.
+
+Và đây là điều đang kiểm soát mọi thứ mà chúng ta sẽ làm. Tôi sẽ zoom ra một chút.
+
+Vì vậy, chúng ta thấy nhiều hơn.
+
+Và tôi thực sự sẽ nhập tất cả các hằng số này.
+
+Và tôi sẽ, ừm, tôi nghĩ tôi sẽ thiết lập quá trình tải
+
+này sao cho chúng ta không phải chờ đợi đến điểm đó.
+
+Chúng ta sẽ quay lại vấn đề này sau.
+
+Được rồi.
+
+Vậy đây là các hằng số.
+
+Hãy cùng nhau thảo luận về những gì chúng ta có ở đây.
+
+Mẫu cơ bản.
+
+Bạn cảm thấy thoải mái với điều đó.
+
+Đây là Llama 3.2. Tên dự án, chúng ta sẽ gọi nó là "price" và sẽ đặt tên cho nó như vậy.
+
+Vì vậy, giá đó, tên đó sẽ xuất hiện trên Hugging Face
+
+và sẽ xuất hiện trong các trọng số và độ lệch.
+
+Chúng ta sẽ biết trước được dự án có tên là "giá".
+
+Tên người dùng này là nơi bạn nên nhập tên người dùng có biểu tượng khuôn mặt ôm.
+
+Đây là nơi chúng ta sẽ lưu trữ mô hình sau khi nó được huấn luyện.
+
+Đây sẽ là tên người dùng của bạn.
+
+Nhập tên người dùng "hugging face" của bạn vào ngay tại đây.
+
+Chế độ đèn.
+
+Bạn biết là đúng nếu muốn 20.000 điểm dữ liệu, sai nếu muốn 800.000 điểm dữ liệu, được rồi.
+
+Người sử dụng dữ liệu.
+
+Vì vậy, chúng ta cũng sẽ thu thập bộ dữ liệu mà chúng ta vừa tải lên.
+
+Và nếu bạn đã tự tải lên một bộ dữ liệu, bạn đã làm điều đó.
+
+Bạn đã làm những việc đó.
+
+Bạn đã tạo các lời nhắc và hoàn thành của mình và đã tải chúng lên Hugging Face vào tài khoản của bạn.
+
+Sau đó, bạn nên nhập tên người dùng của mình vào đây.
+
+Nhưng nếu bạn muốn sử dụng bản của tôi mà tôi đã làm sẵn,
+
+nó đã có sẵn và sẽ hoàn toàn giống với bản của tôi.
+
+Vậy thì của bạn cũng nên như vậy.
+
+Nhưng nếu bạn chỉ muốn giữ nguyên dữ liệu hiện có, hãy để người dùng này làm người chỉnh sửa và đóng góp.
+
+Và bạn chỉ cần lấy bộ dữ liệu của tôi và nó sẽ hoạt động rất tốt.
+
+Và như vậy, tùy chọn này sẽ chọn tên tập dữ liệu là "light" hoặc "full" tùy thuộc vào chế độ "light".
+
+Được rồi.
+
+Cho đến nay mọi việc đều ổn.
+
+Một điều nữa là chúng ta sẽ đưa ra một khái niệm gọi là "tên chạy".
+
+Chúng ta sẽ có một tên cho cuộc chạy.
+
+Và tôi làm điều này vì chúng ta sẽ thấy điều này được áp dụng trong trọng số và độ lệch, cũng như trong thuật toán HUGging Face.
+
+Và tôi muốn đảm bảo rằng chúng ta biết rõ từng cái là cái nào.
+
+Vậy tôi sẽ sử dụng dấu thời gian hiện tại, ngày hiện tại như sau: ngày và giờ được ghi rõ.
+
+Cũng thường có một mô tả về buổi chạy của bạn.
+
+Nếu bạn đang thử nghiệm một thứ gì đó như tăng gấp đôi R hoặc tăng tỷ lệ bỏ cuộc, bạn có thể ghi
+
+điều đó vào tên của lần chạy, và sau đó bạn sẽ thấy điều đó ở bất kỳ nơi nào bạn kiểm tra.
+
+Nhưng sau một thời gian, điều đó trở nên khá phức tạp, vì tôi thường thực hiện rất nhiều thí
+
+nghiệm và có một danh sách dài các văn bản khác nhau, và tôi thấy dễ dàng hơn khi chỉ
+
+ghi thời gian và bạn sẽ thấy tất cả các thời gian khác nhau được liệt kê ở đó.
+
+Nhưng mà, dù sao thì cái gì phù hợp với bạn là được.
+
+Và nếu chúng ta đang ở chế độ sáng, tôi sẽ thêm một hậu tố
+
+"sáng" để chúng ta có thể phân biệt rõ ràng giữa các tùy chọn.
+
+Được rồi.
+
+Sau đó, tôi kết hợp tất cả những thông tin đó thành tên dự án
+
+kết hợp, bao gồm tên dự án, giá, dấu gạch ngang, và tên phiên bản.
+
+Và đây là nơi nó sẽ được đặt trên trung tâm ôm ấp.
+
+Đó sẽ là tên người dùng của tôi là Edna hoặc tên người dùng của bạn.
+
+Và tên mô hình sẽ là tên đầy đủ của dự án này.
+
+Vậy tên của mô hình sẽ được hiển thị trong giao diện "hugging face" sẽ là
+
+"giá" gạch ngang và sau đó là dấu thời gian khi chúng ta chạy nó.
+
+Và có thể là đèn có dấu gạch ngang nếu đó là một trong các mẫu đèn của chúng tôi.
+
+Được rồi.
+
+Điều đó chắc chắn sẽ rất rõ ràng đối với bạn.
+
+Đây đều là những thứ đơn giản.
+
+Đây là việc tổ chức, sắp xếp các hoạt động của chúng ta sao cho mọi người đều phối hợp nhịp nhàng.
+
+Được rồi.
+
+Đã đến lúc xác định các tham số siêu của chúng ta.
+
+Và tôi đã chia chúng thành ba nhóm.
+
+Một số vấn đề chung, một số vấn đề liên quan đến Q và một số vấn đề liên quan đến đào tạo.
+
+Và cuối cùng, những thứ này thực ra không phải là các siêu tham số.
+
+Có một số thông tin về cách chúng tôi theo dõi và báo cáo ở phần cuối.
+
+Dưới đây là các tham số siêu tổng quát.
+
+Chúng ta sẽ chạy bao nhiêu epoch? Nếu chúng ta ở chế độ nhẹ, chúng ta
+
+sẽ có một epoch và quá trình này sẽ mất khoảng một giờ để hoàn thành.
+
+Nếu không thì ba thời kỳ.
+
+Nếu chúng ta đang ở trong chế độ "làm hết sức mình".
+
+Được rồi.
+
+Vậy đó là kích thước lô tốt 32.
+
+À, nếu chúng ta đang ở chế độ sáng 32, tôi đã thiết lập sao cho nó vừa vặn hoàn hảo trên một T4 miễn phí.
+
+Nhưng mã nguồn này thay đổi rất nhiều.
+
+Vậy nên, điều phù hợp với tôi có thể không phù hợp với bạn.
+
+Bạn có thể gặp lỗi ngoại lệ hoặc lỗi hết bộ nhớ khi chạy chương trình này. Trong trường hợp đó, bạn có thể điều
+
+chỉnh giá trị này xuống 30 hoặc 25, hoặc tiếp tục giảm cho đến khi không còn gặp lỗi hết bộ nhớ. Bạn có thể
+
+bắt đầu bằng cách giảm một nửa xuống 15 và sau đó kiểm tra xem còn bao nhiêu dung lượng trống trên bộ nhớ GPU.
+
+Nhưng hiện tại, với các phiên bản mã nguồn hiện có, kích thước lô 32 vừa vặn với T4,
+
+và trong chế độ nặng, chế độ đầy đủ, chúng ta sẽ sử dụng kích thước lô 256.
+
+Và điều đó thực sự sẽ lấp đầy nó với một chút không gian dư thừa.
+
+À, và có thể bạn sẽ hỏi tôi, à, làm sao
+
+bạn lại đưa ra những con số này? 32 và 256.
+
+Chúng trông giống như các lũy thừa của hai.
+
+Và sau khi đã giảng giải cho bạn rằng nó không nhất thiết phải là lũy thừa của hai, tôi
+
+đã rõ ràng vi phạm chính quy tắc của mình ở đây, và tôi không thể cưỡng lại, tôi không
+
+thể cưỡng lại, tôi không thể kiềm chế, nó cứ như là đã được lập trình sẵn trong tôi.
+
+Tôi thấy việc này thật sự khiến tôi khó chịu đến mức không thể làm được.
+
+À, và tôi cũng vậy.
+
+Tôi nghĩ lượng bộ nhớ bạn sử dụng thực sự tăng lên đáng kể.
+
+Vậy nên, có một phần sự thật trong truyền thuyết đô thị này về sức mạnh của số hai.
+
+Nhưng, ừm, đúng vậy.
+
+Dù sao đi nữa, lũy thừa của hai.
+
+Đó là, ừm, độ dài chuỗi tối đa.
+
+Đây là một siêu tham số quan trọng.
+
+Điều này liên quan đến lượng bộ nhớ mà nó dành riêng và xác định độ dài tối đa của bất kỳ đầu vào nào của bạn.
+
+Hãy nhớ, con số thực sự là 126.
+
+Để lại một khoảng trống nhỏ ở đó để chứa thêm một số token có thể được nhét vào.
+
+Và vậy, 128 là con số tôi chọn, và nó vừa hay
+
+là một lũy thừa của hai và số bước tích lũy gradient.
+
+Hãy nhớ rằng điều này tương tự như việc nó thực hiện bao nhiêu bước trước khi tối ưu hóa.
+
+Tôi có cái này ở đây.
+
+Bạn có thể chọn một con số lớn hơn nếu đó là điều bạn muốn.
+
+Nếu bạn muốn tìm hiểu điều đó, điều đó có thể mang lại cho bạn kết quả tốt hơn.
+
+Tôi đã tìm hiểu vấn đề này cách đây một năm và phát hiện ra rằng nó không đúng.
+
+Nhưng nhưng mọi thứ đã thay đổi và có thể bạn sẽ nhận được. Tôi chưa thử nó năm nay, nên.
+
+Vậy bạn có thể làm điều đó.
+
+Đó là các tham số siêu tổng quát.
+
+Được rồi.
+
+Và bây giờ đến lượt Q Laura, và bạn đã dự đoán điều này.
+
+Bạn đã thấy một số điều này rồi.
+
+Chúng ta sẽ lượng tử hóa thành bốn bit.
+
+Bạn có thể làm cho điều này trở nên sai.
+
+Nếu bạn muốn có một phiên bản 8 bit.
+
+Chúng ta sẽ chọn 32 làm giá trị R nếu ở chế độ sáng. 32 là một giá trị rất phổ biến.
+
+R thường ở mức 16 là thấp, 32 là phổ biến.
+
+Nếu không, chúng ta sẽ sử dụng 256.
+
+Điều đó thật quá đáng.
+
+Người ta thường không leo cao đến mức đó.
+
+Tôi đang đi khá cao. Thực ra, tôi đã làm các bài kiểm tra và điều này mang lại
+
+kết quả tốt hơn, nhưng chỉ tốt hơn một chút so với việc sử dụng kích thước nhỏ hơn.
+
+À, vậy nên tôi nghĩ mình có lý do chính đáng.
+
+Chúng ta có quá nhiều dữ liệu đến mức việc sử dụng ma trận Laura
+
+lớn hơn là hợp lý, nhưng điều này chắc chắn nằm ở mức cao.
+
+thở dài.
+
+Laura.
+
+Alpha.
+
+Chúng tôi vừa nhân đôi Laura r.
+
+Đó là điều mà ai cũng làm.
+
+Bạn có thể thử một số phiên bản Laura khác nếu muốn.
+
+Tôi nói rằng tôi đã làm điều đó cách đây một năm, và tôi thấy rằng nó dường như hoạt
+
+động tốt nhất khi làm hai lần, nhưng tôi phải thừa nhận rằng kết quả đạt được rất khiêm tốn.
+
+Được rồi, vậy đây là hai hằng số.
+
+Đây là các lớp chú ý, các lớp chú
+
+ý trong kiến trúc transformer của Llama 3-2.
+
+Và đây là các lớp MLP, tức là các lớp mạng nơ-ron đa lớp.
+
+À, cái giá trị khóa truy vấn.
+
+Khóa, giá trị và kết quả.
+
+Và đây là cổng và các lớp lên xuống trong các lớp MLP.
+
+Vậy ý tôi là, nếu chúng ta ở chế độ nhẹ, chúng ta sẽ chỉ tập trung vào các lớp chú ý.
+
+Nếu không, chúng ta sẽ lấy tất cả các lớp này làm mô-đun mục tiêu cho mô hình Q Laura và áp dụng
+
+kỹ thuật dropout. Như tôi đã đề cập, dropout là một phương pháp khá tùy tiện, giống như một giải pháp tạm bợ,
+
+trong đó chúng ta sẽ xóa bỏ 10% các nơ-ron trong mạng thần kinh để giúp mô hình tránh bị quá khớp (overfitting).
+
+Điều này sẽ giúp nó tổng quát hóa tốt hơn.
+
+Hóa ra cách này hoạt động khá hiệu quả.
+
+10% là mức tiêu chuẩn cao.
+
+Người ta thường chọn 10% hoặc 20%.
+
+Được rồi, đó là các tham số siêu của mô hình Q Laura.
+
+Được rồi.
+
+Và sau đây là một số tỷ lệ học tập khác, bạn biết đấy.
+
+Tôi đã nói với bạn rằng thông thường nó là 0,001 hoặc 0,0001.
+
+Và chúng ta sẽ chọn phương án sau ở đây.
+
+Tỷ lệ làm nóng là khoảng thời gian cần thiết để, ừm, ừm, trước khi đạt đến con số này.
+
+Nó giống như cách nó làm ấm lên vào đầu buổi tập luyện.
+
+Bạn sẽ thấy điều này bằng mắt thường.
+
+Và sau đó, chúng ta sẽ sử dụng một lịch trình học tập.
+
+Loại này sẽ là cosine, một loại có thiết kế rất đẹp và tinh tế.
+
+Nó bắt đầu khá cao và sau đó giảm dần và làm như vậy.
+
+Đó là trình lập lịch cosine mà chúng ta sẽ sử dụng.
+
+Và sau đó, thuật toán tối ưu hóa mà chúng ta sẽ sử dụng sẽ là một biến thể của thuật toán Adam.
+
+Đặc biệt, nó được gọi là Adam w, có nghĩa là có một hiện tượng gọi là suy giảm trọng lượng.
+
+Và đó là lúc tôi đặt trọng lượng thành K.
+
+Và tôi có một số tài liệu về vấn đề này ở phần dưới đây nếu bạn muốn tìm hiểu thêm.
+
+Nhưng đây là những lựa chọn rất phổ biến.
+
+Đó là những lựa chọn tốt.
+
+À, và chúng khá tiêu chuẩn.
+
+Được rồi.
+
+Và rồi có một điều gì đó ở đây mà tôi có, đó là, ừm, tôi chỉ đang cố tìm hiểu
+
+xem liệu bạn đang sử dụng T4 hay A100, và A100 có thể làm được gì cho GPU của bạn.
+
+Bạn có thể làm một thứ gì đó hơi phức tạp hơn một chút, gọi là BF 16.
+
+Vậy tôi đang cố xác định xem bạn có đang sử dụng máy tính đó hay
+
+không để cuốn sổ tay này có thể hoạt động trên cả hai loại GPU.
+
+Cuối cùng, một số tham số siêu (hyper parameters) ở đây, liên
+
+quan đến việc quản lý các yếu tố như kích thước vowel.
+
+Vì vậy, một trong những việc chúng ta sẽ làm trong quá trình đào tạo là
+
+không chỉ sử dụng dữ liệu đào tạo mà còn sử dụng dữ liệu kiểm tra.
+
+Hãy nhớ rằng chúng ta có ba tập dữ liệu: tập huấn luyện, tập kiểm tra và tập thử nghiệm.
+
+Kiểm tra mà chúng ta thực hiện vào cuối cùng.
+
+Đó chính là điều mà chúng ta đang nói đến.
+
+Đây là dữ liệu thử nghiệm của chúng tôi.
+
+À, đào tạo là điều chúng ta sẽ sử dụng cho việc đào tạo.
+
+Quá trình xác thực sẽ được tách biệt khỏi quá trình đào tạo.
+
+Nhưng trong quá trình đào tạo, chúng ta sẽ liên tục kiểm tra hiệu quả của mô hình so với dữ liệu kiểm
+
+tra, và đó chính là cách chúng ta biết rằng mô hình không bị quá khớp (overfitting) và đang ngày càng cải thiện.
+
+Và bạn sẽ thấy điều đó một cách rất rõ ràng trong quá trình chúng ta thực hiện.
+
+Vậy chúng ta có thể chọn số lượng điểm dữ liệu mà chúng ta muốn nó sử dụng.
+
+Và tôi sẽ nói rằng nếu chúng ta ở chế độ nhẹ, chúng ta sẽ làm điều đó với 500 điểm.
+
+Nếu chúng ta ở chế độ nặng, chúng ta sẽ sử dụng 1000 điểm vì bạn có nhiều thời gian hơn để tiêu tốn.
+
+Vậy chúng ta sẽ làm điều đó.
+
+Um, bước ghi nhật ký là sau bao nhiêu bước trong các bước xử lý theo lô này, các lô nhỏ này có kích thước như vậy.
+
+À, bây giờ chúng ta đang ở
+
+đâu? À, kích thước lô ở đây.
+
+Số lượng điểm dữ liệu này sẽ được ghi lại tiến trình như thế
+
+nào? Các thông số như trọng số và độ lệch sẽ được ghi lại.
+
+Đó là các bước ghi nhật ký.
+
+Bước tiếp theo là sau đó.
+
+Để tạo ra một phiên bản mô hình đã được huấn luyện, tải lên và
+
+lưu trữ nó trên Hugging Face hub, thực sự cần bao nhiêu bước? Tại thời
+
+điểm đó, chúng ta có một bản sao lưu, và khi thực hiện điều đó,
+
+hệ thống cũng tận dụng cơ hội để chạy toàn bộ quá trình kiểm tra.
+
+Vì vậy, chúng ta sẽ nhận được định kỳ các bản chụp nhanh của mô hình và cách nó hoạt động so với tập dữ liệu kiểm tra.
+
+Và đó là một mẹo cực kỳ quan trọng để sử dụng vì nó cho phép bạn thực hiện
+
+một điều mà mọi người thường gọi là "dừng sớm", tức là bạn có thể chạy mô hình này
+
+trong nhiều epoch hoặc nhiều bước huấn luyện và quan sát cách mô hình ngày càng cải thiện hơn.
+
+Và sau khi bạn đã huấn luyện quá nhiều, mô hình có thể bắt đầu bị quá khớp (overfitting) và kết quả sẽ ngày càng tệ hơn.
+
+Và bạn có thể nhìn lại, thấy rằng độ mất mát xác thực của bạn.
+
+Xem khi mô hình đạt giá trị tốt nhất có thể, chọn bản chụp
+
+nhanh đó của mô hình và đó chính là bản mà bạn sử dụng.
+
+Đó là lúc nó hoạt động tốt nhất trước khi bắt đầu bị quá khớp.
+
+Đó là kỹ thuật mà chúng ta sẽ sử dụng trong quá trình đào tạo.
+
+Điều đó rất phổ biến.
+
+Và đó là lý do tại sao bạn muốn lưu lại nhiều lần.
+
+Chúng ta sẽ thực hiện điều này sau mỗi 100 bước nếu bạn đang ở chế độ nhẹ.
+
+Nếu không, cứ sau 200 bước.
+
+Và nhật ký này liên quan đến trọng số và độ lệch.
+
+Nếu bạn định làm như tôi và ghi lại điều này vào nền tảng miễn
+
+phí về trọng số và độ lệch, thì hãy để giá trị này là true.
+
+Đó là các siêu tham số của chúng tôi.
+
+Chúc mừng! Chúng ta sắp sẵn
+
+sàng cho khóa đào tạo. Được rồi, tôi đã chạy các hằng số và các tham số siêu của bạn từ đầu đến cuối.
+
+Bạn có thể nghĩ rằng tôi đang dành quá nhiều thời gian cho các siêu tham số,
+
+nhưng đây chính là nơi bạn thực sự học cách đào tạo mô hình của riêng mình.
+
+À, vậy việc sử dụng BF 16 này, à, cái mà tôi đã thiết lập ở đây đang được đặt thành false vì tôi đang sử
+
+dụng T4, điều này là điều chúng ta mong đợi nếu chúng ta đang sử dụng A100, chúng ta muốn giá trị này được giữ nguyên.
+
+Được rồi.
+
+Vậy nên tôi đã đề cập rằng chúng ta đang sử dụng trình tối ưu hóa Adam W. Nếu bạn muốn tìm hiểu thêm về chúng, bạn có thể đọc thêm.
+
+Đây rõ ràng là một vấn đề dành cho chuyên gia.
+
+Tôi có liên kết đến trang trong tài liệu mô tả các loại tối ưu hóa, và
+
+nó cung cấp thêm chi tiết kỹ thuật về tối ưu hóa, nếu bạn quan tâm.
+
+Hãy tìm hiểu kỹ về điều đó.
+
+Được rồi.
+
+Bây giờ tôi nghĩ rằng đến lúc này bạn đã có một tài khoản Hugging Face.
+
+Thật khó tưởng tượng làm sao bạn có thể đến được đây mà không có nó.
+
+Nhưng hy vọng là bạn đã làm điều đó và đã có khóa API của mình ở đây, và bạn cần bật nó lên.
+
+Tại thời điểm này, bạn có thể thêm một khóa API khác nếu muốn.
+
+Và đây là tài khoản về trọng số và độ lệch.
+
+Vậy bạn có thể truy cập vào w và B dot AI.
+
+Tôi có thể đã nói .com trước đây, nhưng bây giờ là w b ai.
+
+Đây là trang chủ của họ.
+
+Và như vậy, như bạn có thể thấy, tôi có rất nhiều dự án khác nhau ở đây.
+
+Đây là những gì bạn nhận được khi bạn bước vào.
+
+Bạn phải đăng ký.
+
+Đăng ký hoàn toàn miễn phí.
+
+À, bạn có thể thiết lập các dự án khác nhau.
+
+Bạn có thể thấy giá là dự án mà chúng ta đang thực hiện hiện nay.
+
+Tôi còn có rất nhiều cái khác.
+
+À, và, à, bạn có thể, ừm, sau khi làm xong điều đó, bạn có thể vào menu avatar.
+
+Bạn cần phải đã tạo tài khoản của mình.
+
+Tôi sử dụng xác thực Google.
+
+Vậy tôi đăng nhập bằng tài khoản Google của mình và bạn cần truy cập vào phần API key ngay tại đây.
+
+Và tôi sẽ không nhấn vào đó vì khi tôi làm vậy, nó sẽ hiển thị khóa API của tôi ngay lập tức.
+
+Họ không che giấu điều đó.
+
+Lấy khóa API đó và sao chép nó.
+
+Và khóa API đó.
+
+Bạn sẽ muốn quay lại Colab, nhấn nút này và nhập khóa API W và B vào đây.
+
+Nhập giá trị và bật nó lên.
+
+Nếu đây là tuần thứ ba hoặc tuần thứ hai, thì
+
+tôi sẽ giải thích chi tiết cặn kẽ cho bạn.
+
+Nhưng chắc chắn đến lúc này, các bạn đã thành thạo việc thêm khóa API vào
+
+phần bí mật rồi chứ? Tôi không cần phải giải thích thêm về điều đó.
+
+Vậy là bạn đã làm điều đó.
+
+Nếu bạn không muốn sử dụng trọng số và độ lệch, không có vấn đề gì cả.
+
+Chỉ cần chuyển tùy chọn này sang "false".
+
+Nhưng tôi vẫn khuyên bạn nên thử.
+
+Nó miễn phí và trông thật tuyệt vời.
+
+Và nó cũng rất phổ biến trong ngành công nghiệp.
+
+Được rồi.
+
+Vậy là tôi đang đăng nhập vào Huggingface ngay bây giờ.
+
+Và bây giờ tôi sẽ đăng nhập vào Weights and Biases.
+
+Và tôi đang thiết lập một số biến môi trường để thông báo cho các trọng số và độ lệch về dự án của tôi.
+
+À, vậy là điều đó đang xảy ra bây giờ.
+
+Hy vọng là đang đăng nhập.
+
+Được rồi.
+
+Đăng nhập với tên Edna.
+
+Hy vọng bạn cũng nhận được một tin nhắn tương tự như vậy.
+
+Nếu bạn chưa biết, thì bây giờ bạn đã biết cách gỡ lỗi các khóa API.
+
+Và chúng tôi đang tải dữ liệu vào tập dữ liệu.
+
+À, chúng tôi đang tải hàng lên tàu Val và tiến hành kiểm tra.
+
+Chúng ta sẽ sử dụng train và Val, chúng ta sẽ không sử dụng test.
+
+Và nó đã vào.
+
+Và bây giờ chúng ta sẽ gọi hàm `weights and biases.init()`, hàm này sẽ tạo dự án này với tên dự
+
+án là "price" và tên chạy (run name) sẽ hiển thị dưới dạng một chạy (run) trong dự án này.
+
+Vậy là xong.
+
+Xong rồi.
+
+Nó có liên quan đến trọng số và độ lệch, và bạn có thể xem
+
+kết quả chạy chỉ bằng cách nhấp vào liên kết này ngay tại đây.
+
+Nhưng hiện tại vẫn chưa có gì để xem.
+
+Vậy nên chúng ta sẽ không làm điều đó ngay bây giờ.
+
+Được rồi.
+
+Vậy bây giờ đây là một đoạn mã quen thuộc dùng để chọn mức lượng tử hóa phù hợp.
+
+Và bây giờ, đây cũng là mã quen thuộc.
+
+Chúng tôi sẽ tải mô hình cơ sở Llama 3.2.
+
+Chúng tôi đang tải nó vào và sẽ in ra kích thước của nó.
+
+Nó sẽ được lượng tử hóa xuống còn bốn bit.
+
+Điều đó có nghĩa là bạn biết nó lớn đến mức nào.
+
+Nó lớn đến mức nào.
+
+Đúng, 2,2 gigabyte.
+
+Bạn đã biết điều đó.
+
+Tôi biết rằng, ừm, nó đang tải vào, ừm, và khi nó hoàn tất việc đó, họ sẽ vào.
+
+Chúng ta sẽ tiến hành thiết lập cấu hình cho quá trình đào tạo.
+
+Và đây chính là lúc, đây chính là lúc mọi thứ được kiểm chứng.
+
+Đây là nơi bạn thường dùng để diễn đạt điều này, vì đây chính là nơi mọi thứ thực sự diễn ra.
+
+À, rõ ràng có một vấn đề liên quan đến người hâm mộ, nhưng không phải là mọi thứ đều tốt đẹp.
+
+Ừm, được rồi.
+
+Vậy nên, trước tiên chúng ta thiết lập một biến có tên là Laura parameters, một đối tượng cấu hình Laura.
+
+Và đây là nơi chúng ta xác định hằng số alpha, hằng số dropout, hằng số r và một số hằng số khác.
+
+Vậy nên bạn không cần phải lo lắng.
+
+Và sau đó là các mô-đun mục tiêu.
+
+Và tất nhiên, chúng ta đang thiết lập các hằng số này dựa trên các
+
+siêu tham số mà chúng ta đã định nghĩa ở phần đầu của colab này.
+
+À, chúng ta có thể gõ trực tiếp các hằng số vào đây,
+
+nhưng việc giữ các hằng số ở phía trên sẽ tiện lợi hơn.
+
+Vậy đây là các thông số của Laura.
+
+Cách chúng ta sẽ thực hiện việc tinh chỉnh.
+
+Mô hình của chúng tôi vẫn đang được tải.
+
+Và sau đó hãy xem danh sách dài này.
+
+Dưới đây là tất cả các thông số đào tạo của chúng tôi.
+
+Và cơ bản là nó xác định tất cả các thông số về quá trình đào tạo mà chúng ta đã thiết lập, bao
+
+gồm số epoch, kích thước lô, số bước tích lũy gradient, chỉ định trình tối ưu hóa, tần suất lưu trữ, và giới hạn
+
+lưu trữ tổng cộng bằng 10. Giới hạn này sẽ ngăn quá trình lưu trữ trên hệ thống tệp cục bộ của Google.
+
+Ở đây có hơn mười mẫu.
+
+Nếu không, bạn có thể dần dần làm đầy ổ đĩa của mình và toàn bộ hệ thống có thể bị treo.
+
+Bạn có thể tưởng tượng điều đó đã xảy ra với tôi một lần và tôi đã mất rất nhiều.
+
+Và tôi đã rất tức giận.
+
+Và từ đó, tôi luôn tiết kiệm.
+
+Giới hạn tối đa là mười và nó luân phiên.
+
+Vì vậy, khi bạn đến mục thứ 11 mà nó lưu trữ cục bộ, nó sẽ xóa từ dưới lên.
+
+Và một số thứ khác ở đây không quan trọng lắm.
+
+À, tôi không nghĩ đó là tỷ lệ làm nóng, mà là trình điều khiển
+
+tốc độ học báo cáo cho việc lưu trữ trọng số và độ lệch.
+
+Đây là cách lưu nó vào hub.
+
+Và, ừm, thế là hết.
+
+Một điều nữa tôi muốn đề cập là chiến lược đánh giá.
+
+Chiến lược đánh giá đang đề cập đến việc ôm mặt.
+
+Tôi muốn bạn thực hiện đánh giá trên tập dữ liệu kiểm tra mà tôi sẽ cung cấp cho bạn để xem kết
+
+quả trên dữ liệu chưa từng thấy như thế nào, và chúng ta sẽ thực hiện điều này mỗi lần lưu mô hình.
+
+Và chúng tôi đang nói với nó điều đó, và bạn sẽ thấy cách nó hoạt động như thế nào.
+
+Nó sẽ cung cấp cho chúng ta một số thông tin rất quan trọng khi hoàn thành.
+
+Đang tải.
+
+Không.
+
+Đang tải.
+
+À, nhưng chúng ta sẽ chạy ô đó khi nó hoàn thành.
+
+Và cuối cùng, chúng ta tạo ra trình hướng dẫn.
+
+Trainer là một lớp trợ giúp từ Huggingface có tên là "Trainer supervised fine tuning trainer".
+
+Đây là một khóa học lo liệu toàn bộ việc đào tạo cho chúng ta.
+
+Nó sẽ thực hiện bốn bước đó.
+
+Chúng tôi đã viết tay chúng bằng PyTorch vào tuần trước.
+
+Lần này chúng ta không cần phải làm điều đó.
+
+Hugging Face đã phát triển một số công cụ hữu ích cho chúng ta,
+
+nhưng chúng ta sẽ sử dụng chúng và truyền vào mô hình cơ sở.
+
+Chúng tôi đưa vào tập dữ liệu đào tạo, chúng tôi đưa vào tập dữ liệu kiểm tra.
+
+Và ở đâu đó, tôi đã thu gọn nó xuống chỉ còn 500 điểm đầu tiên.
+
+Hãy xem tôi đã làm điều đó ở đâu.
+
+Ở đâu đó ở đây, tôi tin rằng mình đã làm đúng ở đây.
+
+Nhìn kìa.
+
+Tôi đã lén lút lấy tập dữ liệu kiểm tra và thu nhỏ nó xuống chỉ còn kích thước val,
+
+mà chúng ta đã đặt ở đây là một con số nhỏ hơn, vì chúng ta không muốn phải thực
+
+hiện hàng loạt tính toán mỗi lần kiểm tra, vì chúng ta sẽ thực hiện việc này rất thường xuyên.
+
+Ừm, được rồi.
+
+Xin lỗi.
+
+Vậy là chúng ta đưa dữ liệu vào tập huấn luyện, tập kiểm tra.
+
+Chúng tôi truyền các tham số Lora và các tham số đào tạo.
+
+Và tất cả những điều đó được sử dụng để tạo ra một trình đào tạo SFT được thiết lập để thực hiện toàn bộ quá
+
+trình đào tạo cho chúng ta và báo cáo về các trọng số và độ lệch ID mà chúng ta đã cung cấp cho nó.
+
+Vậy là tất cả những điều đó đã hoàn tất.
+
+Chúng tôi đã tải mô hình của mình.
+
+Đúng là nó đã chiếm 2,2GB, tôi nhớ đúng và bạn cũng vậy.
+
+Và bây giờ chúng ta đã tạo ra mô hình huấn luyện SFT của mình ở đây.
+
+Nó đang làm một số việc bây giờ, um, chỉ là nó đã nhận ra
+
+rằng tập dữ liệu đào tạo của chúng ta không có token đặc biệt.
+
+Nó được thiết kế để có một token kết thúc câu ở cuối, gọi là
+
+aeos, mà bạn thường đặt ở cuối tập dữ liệu đào tạo của mình.
+
+À, và như vậy, tôi đã thêm vào đó khi bạn nhớ rằng tôi đã nói rằng
+
+tôi muốn để lại một khoảng trống nhỏ trong độ dài chuỗi? À, và có thể bạn
+
+đã nghĩ rằng tôi chỉ nói vậy để có thể có một số lũy thừa của hai.
+
+Thực ra, có một lý do chính đáng cho điều đó.
+
+Thực sự có một token bổ sung mà Huggingface thêm vào, và bây
+
+giờ nó đã chuyển đổi toàn bộ văn bản đó thành các token.
+
+Nó đã chuẩn bị đầy đủ cho cả tập dữ liệu đào tạo và tập dữ liệu
+
+đánh giá, và mọi thứ đã sẵn sàng để thực hiện quá trình tinh chỉnh mô hình.
+
+Cuối cùng, ừm, và ừm, đúng rồi, điều duy nhất cần đề cập
+
+nữa là, có thể bạn đang thắc mắc với tập dữ liệu train
+
+và Val này, làm thế nào nó biết? Như là prompt là gì
+
+và ground truth là gì? Kết quả đầu ra là gì? Và câu
+
+trả lời là theo mặc định, trình đào tạo Huggingface SFT mong đợi
+
+bạn cung cấp dữ liệu sử dụng các trường prompt và completion.
+
+Đó là điều mà nó tìm kiếm theo mặc định.
+
+Và đó chính xác là những gì chúng tôi đã làm.
+
+À, trong phiên bản trước của khóa học này vào năm ngoái, tính năng đó chưa tồn tại
+
+và chúng ta phải làm đủ thứ rườm rà mà bây giờ không còn cần thiết nữa.
+
+Bây giờ mọi thứ đã được tích hợp sẵn theo mặc định, nên việc này trở nên cực kỳ đơn giản đối với chúng tôi.
+
+Chúng tôi đã sẵn sàng.
+
+Đã đến lúc tập luyện.
+Được rồi, bắt đầu nhé.
+
+Chúng ta sẽ điều chỉnh chi tiết.
+
+Và bạn thực hiện điều đó chỉ với một dòng mã đơn giản và đẹp mắt.
+
+Điều chỉnh chính xác chuỗi chấm.
+
+Tôi sẽ bắt đầu và sau đó chúng ta sẽ thảo luận một chút.
+
+Ừm, được rồi.
+
+Đầu tiên, nó có một số, một số, ừm, thông báo cảnh báo ở đây.
+
+Và những điều này có thể được an toàn bỏ qua.
+
+Và bạn có thể nhận được các thông báo cảnh báo khác.
+
+Tôi nhận được rất nhiều người hỏi tôi những câu hỏi.
+
+Trong lĩnh vực khoa học dữ liệu, người ta trở nên khá miễn nhiễm với các cảnh báo.
+
+Nhiều cái ôm.
+
+Mã mặt hiển thị các cảnh báo khác nhau, và bạn thường nghĩ rằng, nếu sau này
+
+có vấn đề gì xảy ra, mình sẽ xem lại điều này, nhưng nếu không thì không.
+
+Tôi sẽ không quá, quá bận tâm về chuyện đó.
+
+Được rồi, vậy là quá trình đào tạo đang được tiến hành.
+
+Chúng ta đang tìm kiếm điều gì ngay lập tức? Đầu tiên, chúng ta
+
+đến đây và kiểm tra xem GPU có hoạt động bình thường không.
+
+Chúng tôi đã gần đạt đến giới hạn 15GB, nhưng vẫn chưa vượt qua, vì vậy chúng tôi đang sử dụng một cách hiệu quả.
+
+Chúng tôi đang sử dụng GPU.
+
+Nó không bị hỏng.
+
+Nếu bạn gặp lỗi hết bộ nhớ, bạn có thể phải tăng kích thước
+
+lô lên và giảm kích thước lô cho đến khi nó vừa vặn.
+
+À, nhưng hiện tại, tình hình khá căng thẳng, nhưng mọi thứ
+
+vẫn đang hoạt động, và mọi thứ dường như đều ổn.
+
+Bạn cũng có thể thấy thanh tiến trình này ở đây.
+
+Và điều này giúp chúng ta có cái nhìn về thời gian cần thiết để hoàn thành.
+
+Và nó đang cho chúng ta biết ngay tại đây rằng sẽ mất 56 phút.
+
+Vậy đây là toàn bộ quá trình đào tạo trên tập dữ liệu ánh sáng.
+
+Điều đó sẽ xảy ra trong vòng chưa đầy một giờ.
+
+Thật tuyệt vời phải không.
+
+Vậy là vậy, thật tuyệt vời.
+
+À, và ừm, đúng vậy, bạn cũng sẽ nhận thấy rằng trong đoạn mã này, sau khi
+
+hoàn thành quá trình đào tạo, tôi thực hiện một lần đẩy mô hình cuối cùng.
+
+À, chỉ vì tôi không muốn điều đó xảy ra, tức là bạn rời đi, quá trình chạy kết thúc, và dự án hợp
+
+tác này bị đóng lại, như Google đôi khi làm, và rồi bạn sẽ nghĩ, ôi không, tôi đã mất mô hình của mình.
+
+Vậy nên, tôi đã đảm bảo rằng nó sẽ được lưu ngay lập tức.
+
+À, và điều đó khiến tôi muốn nhắc nhở rằng nếu bạn đã sử dụng phiên bản miễn phí của Colab
+
+trong một thời gian, bạn có thể đã quen với việc nó khá không ổn định. Và vì đây là
+
+phiên bản miễn phí, Google có quyền ngừng cung cấp dịch vụ cho bạn bất cứ lúc nào họ muốn.
+
+Vậy là vậy, ừm.
+
+Vâng, đại loại là, ừm, một nguy cơ trong quá trình vận hành.
+
+Và, ừm, đó là cái giá phải trả khi sử dụng gói miễn phí.
+
+Thông thường, tôi có thể nói rằng tôi đã thấy nó thường khá tốt trong khoảng một giờ.
+
+Vậy bạn sẽ hoàn toàn ổn.
+
+Nhưng nếu bạn không chắc chắn, hãy chắc chắn rằng bạn di chuột xung quanh và
+
+nhấp vào các mục để hệ thống không nghĩ rằng bạn đã rời khỏi trang.
+
+Tôi không biết điều đó có khác biệt gì không, nhưng mà, ừm, vâng, ừm,
+
+hãy cố gắng và cố gắng để đảm bảo rằng nó vẫn hoạt động.
+
+Tôi nghĩ là sẽ.
+
+À, tôi có một số thông tin ở đây về cách bạn có thể tiếp tục nếu muốn, nhưng đó không phải là giải pháp lý tưởng.
+
+Không phải là điều tốt để tiếp tục.
+
+Có một số nhược điểm của nó.
+
+À, tốt nhất là cố gắng để tất cả đều vừa vặn trong một.
+
+Ừm, được rồi.
+
+Với suy nghĩ đó, nó vẫn đang xử lý qua chuyến tàu đầu tiên.
+
+Bạn có thể thấy ở đây, nó đã hoàn thành 28 bước trong tổng số 625 bước mà nó sẽ thực hiện.
+
+Tổng cộng, nó thực hiện 625 bước.
+
+Hãy để tôi lấy máy tính ra đây để kiểm tra điều này.
+
+Đó là 625 bậc thang.
+
+Và mỗi bước, kích thước lô là 32.
+
+À, cho cái này.
+
+Vậy là 32 lần, 625 bước, 625 lần 32.
+
+Có lẽ bạn có thể làm điều này trong đầu.
+
+Đó sẽ là 20.000 điểm dữ liệu đào tạo của chúng tôi.
+
+À, vậy nên, à, đó là lý do có 625 bậc thang.
+
+À, và có thể bạn còn nhớ rằng tôi nghĩ là cứ sau mỗi năm bước.
+
+Hệ thống sẽ ghi lại dữ liệu cho đến nay vào các tham số trọng số và độ lệch.
+
+Và, ừm, nó là gì nhỉ, ừm, chúng ta quay lại đây nhé.
+
+Xin lỗi.
+
+Mỗi 100 bước.
+
+Điều đó sẽ giúp tiết kiệm.
+
+Vì vậy, quá trình này sẽ thực hiện việc lưu trữ và xác thực khoảng sáu lần trong vòng một giờ.
+
+À, chúng ta hãy đi kiểm tra xem, ừm, tình trạng chạy hiện tại của chúng ta như thế nào nhỉ? Vậy
+
+nếu chúng ta cuộn lên lại chỗ chúng ta khởi tạo trọng số và độ lệch, ở đây thực sự có
+
+một liên kết mà chúng ta có thể nhấp vào để xem dự án hoặc xem chính quá trình chạy đó.
+
+Và đó chính là điều chúng ta sẽ làm tiếp theo.
+
+Được rồi.
+
+Thế là bắt đầu.
+
+Tôi sẽ nhấp vào đây để xem quá trình chuẩn bị, các yếu tố ảnh hưởng và các yếu tố thiên vị.
+
+Đang tải... Đang tải... Đang tải...
+
+Đây là đoạn chạy.
+
+Vậy chúng ta đang nhìn vào điều gì ở đây.
+
+Có rất nhiều thứ để xem.
+
+Chúng ta đang xem một đoạn đường ray.
+
+Thường có một vài phần.
+
+Đầu tiên, bạn có thể thấy rằng tên của lần chạy này là ngày và giờ hiện tại, sau đó là dấu gạch ngang và từ "light".
+
+Đó cũng là điều bạn nên thấy.
+
+Ừ, được rồi.
+
+Vậy chúng ta đang thấy gì ở đây.
+
+Vậy biểu đồ quan trọng nhất, điều đầu tiên bạn nhìn vào ngay lập tức chính là biểu
+
+đồ này đây, uh, độ mất mát trong quá trình huấn luyện, con số độ mất mát.
+
+Và tôi sẽ giải thích cách tính toán khoản lỗ sau.
+
+Nhưng con số mà bạn muốn thấy giảm xuống chính là con số lỗ.
+
+Bạn hy vọng rằng theo thời gian, mức lỗ sẽ giảm xuống.
+
+Và chúng ta đang thấy điều đó cứ sau mỗi mười bước.
+
+Đang được báo cáo.
+
+Xin lỗi.
+
+Mỗi năm bước.
+
+Nhìn kìa.
+
+Mỗi năm bước.
+
+Chúng tôi đang nhận được báo cáo và đang theo dõi tình hình tổn thất.
+
+Và cho đến nay, dường như nó chưa hẳn đã giảm xuống.
+
+Nhưng ở đây vẫn còn sớm.
+
+Ở góc dưới bên trái là tốc độ học.
+
+Bạn sẽ thấy rằng nó bắt đầu ở mức thấp và sau đó tăng vọt lên.
+
+Đó là giai đoạn khởi động mà tôi đã đề cập.
+
+Và bây giờ bạn thấy rằng nó dường như là một số hằng số.
+
+Đó là 0.0001, đây chính là tỷ lệ học tập của chúng ta.
+
+Nhưng có thể bạn đã bắt đầu nhận thấy rằng nó đang giảm nhẹ.
+
+Đó là trình điều chỉnh tốc độ học đang hoạt động.
+
+Vậy đây là hai biểu đồ quan trọng mà bạn cần chú ý.
+
+Độ chính xác là điều ngược lại với sự mất mát.
+
+Dù vì lý do gì đi chăng nữa, chúng ta đều thích nhìn vào thất bại vì chúng ta đã quen với điều đó.
+
+Sự sụt giảm đang diễn ra là điều chúng ta đang theo dõi.
+
+Vậy đây là tất cả thông tin đào tạo hiện tại, và độ mất mát đào tạo đang giảm xuống.
+
+Có vẻ như độ mất mát trong quá trình đào tạo đã giảm xuống.
+
+À, việc giảm thiểu tổn thất đào tạo có nghĩa là mỗi điểm dữ
+
+liệu đào tạo riêng lẻ đang đưa ra một kết quả tốt hơn.
+
+Và đó là điều tốt cho chúng ta thấy.
+
+Chúng tôi muốn thấy độ mất mát trong quá trình đào tạo giảm xuống, nhưng đó không phải là điều quan trọng nhất cần quan sát.
+
+Điều quan trọng nhất là gì? Điều quan trọng nhất là hàm mất mát trên dữ liệu kiểm tra, không phải hàm
+
+mất mát trên dữ liệu huấn luyện, mà là hàm mất mát trên dữ liệu chưa từng được sử dụng, vì
+
+điều đó cho chúng ta biết mô hình hoạt động như thế nào trên dữ liệu chưa từng được huấn luyện.
+
+Và bây giờ, nếu bạn thực sự theo dõi tất cả những điều này, bạn có thể nói, "Được rồi, nhưng khoan đã."
+
+Mất mát huấn luyện vẫn rất quan trọng vì dữ liệu huấn luyện, chúng ta chỉ thực hiện một epoch ở đây.
+
+Vì vậy, mỗi đợt đào tạo của chúng tôi thực chất là dữ liệu mới chưa từng được sử dụng mỗi lần.
+
+Vì vậy, việc xem xét độ mất mát trong quá trình đào tạo (training loss) cũng hợp lý như việc xem xét độ mất mát trong quá trình kiểm tra (validation loss).
+
+Tôi đồng ý với điều đó.
+
+Tôi đang tự tranh luận với chính mình ở đây.
+
+Đó là một ý kiến hay.
+
+Tôi đồng ý, nhưng điều tuyệt vời về hàm mất mát kiểm tra là bạn luôn sử
+
+dụng chính xác cùng một tập dữ liệu kiểm tra mà bạn không sử dụng trong quá
+
+trình huấn luyện, và bạn liên tục sử dụng lại cùng một tập dữ liệu đó.
+
+Với dữ liệu đào tạo, luôn có nhiều nhiễu vì mỗi lô dữ liệu đào tạo đều có chút khác biệt.
+
+Có thể nó sắp xảy ra.
+
+Và điều đó có thể là do bạn đang trở nên giỏi hơn trong việc huấn luyện, nhưng cũng có thể chỉ là sự dao
+
+động ngẫu nhiên trong quá trình huấn luyện, trong các tập dữ liệu huấn luyện mà mỗi lô dữ liệu lại có chút khác biệt.
+
+Nếu bạn thấy độ mất mát xác thực (validation loss) giảm xuống, thì bạn
+
+có thể tin tưởng rằng tập dữ liệu đó đang hoạt động tốt hơn.
+
+Và đó chính là lý do tại sao chúng ta yêu thích hàm mất mát xác thực.
+
+À, và tôi luôn hối hận vì năm ngoái khi lần đầu tiên tham gia khóa đào tạo này, tôi
+
+đã bỏ qua việc kiểm tra mất mát dữ liệu vì tôi nghĩ đó luôn là dữ liệu mới.
+
+Bạn thực sự không cần nó.
+
+Và do đó, chúng ta chưa bao giờ vượt qua được thách thức này trong việc phân tích dữ liệu xác thực.
+
+Vậy lần này tôi sẽ bù đắp lại.
+
+Chúng tôi đang thực hiện việc mất dữ liệu trong quá trình xác thực.
+
+Bạn chưa thấy nó vì nó phải đạt đến 100.
+
+Và sau đó chúng ta sẽ thấy điều đó.
+
+Và tôi sẽ không cho bạn xem ngay bây giờ vì tôi muốn
+
+giữ lại những điều thú vị cho ngày mai, cho ngày huấn luyện.
+
+Vậy là chúng ta đang tiến hành đào tạo thực tế.
+
+Chúng ta có thể thấy điều đó qua các trọng số và độ lệch.
+
+Chúng ta có thể thấy điều đó đang xảy ra ngay bây giờ.
+
+Chúng ta có thể xuống đây và xem điều này.
+
+Chúng ta có thể thấy ở đây rằng chúng ta đang ở phút thứ tám và còn 46 phút nữa.
+
+Trí nhớ của chúng ta rất tốt và ổn định.
+
+Mọi thứ đều đang diễn ra tốt đẹp.
+
+Đào tạo đang được tiến hành.
+
+Rất thú vị.
+
+Đó là.
+
+Đã đến lúc phải gói lại và chuẩn bị cho ngày mai.
+
+Và như vậy, ừm, đó là kết thúc của ngày thứ ba.
+
+Tôi đã để nó lại.
+
+Hy vọng bạn đang cảm thấy căng thẳng.
+
+Và tôi thực sự hy vọng bạn cũng đang tham gia vào điều này, vì nó thật sự rất thú vị.
+
+À, những gì bạn đã có thể làm, ngoài tất cả những điều liên quan
+
+đến mã nguồn mở, mã nguồn đóng, và đào tạo với mô hình biên giới.
+
+Bây giờ, không chỉ bạn đã biết về Q Laura, mà còn hiểu cách thiết lập các thông số
+
+khác nhau, cách thiết lập trình huấn luyện SFT, và khởi động quá trình huấn luyện bằng cách
+
+cung cấp các siêu tham số, và bạn thực hiện điều đó bằng thư viện Hugging Face TRL.
+
+Và bạn cũng có thể xem kết quả trong các trọng số và độ lệch.
+
+Lần sau, chúng ta sẽ tìm hiểu về sự khác biệt giữa hàm mất mát đào tạo (training loss) và hàm mất mát kiểm tra (validation loss).
+
+Bạn sẽ thấy mô hình của mình được lưu trữ trên nền tảng Hugging Face.
+
+Và chúng ta sẽ so sánh hiệu suất của các lần chạy khác nhau để bạn có thể
+
+thực hiện tối ưu hóa siêu tham số, bằng cách sử dụng trọng số và độ lệch.
+
+Tất cả đang dần hoàn thiện.
+
+Đó giống như huấn luyện chuyên nghiệp.
+
+Và chúng ta sẽ kết thúc khóa đào tạo diễn ra vào ngày mai, trong tuần thứ bảy, ngày thứ tư.
+
+Tôi sẽ gặp bạn sau.

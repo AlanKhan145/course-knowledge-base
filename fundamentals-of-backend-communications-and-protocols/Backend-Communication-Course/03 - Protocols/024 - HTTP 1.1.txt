@@ -1,0 +1,1447 @@
+# 024 - HTTP 1.1
+
+**Section:** 03 - Protocols  
+**Duration:** 31 minutes  
+
+---
+
+## 1. Summary
+
+HTTP stands for **Hypertext Transfer Protocol**.
+
+HTTP/1.1 is one of the most important and long-lasting web protocols.
+
+It has existed for decades and is still widely used today.
+
+HTTP is the protocol used by clients and servers to communicate on the web.
+
+Examples of HTTP clients:
+
+- Web browser
+- JavaScript application
+- Python application
+- Mobile app
+- Backend service
+- curl
+
+Examples of HTTP servers:
+
+- Nginx
+- Apache
+- Tomcat
+- Node.js server
+- Python server
+- Go server
+- Backend API server
+
+HTTP/1.1 is built on top of TCP.
+
+The basic idea is:
+
+```text
+Client opens a TCP connection.
+Client sends an HTTP request.
+Server sends an HTTP response.
+Connection may stay open for more requests.
+```
+
+HTTP/1.1 improved HTTP/1.0 by adding important features such as:
+
+- Persistent connections
+- Required Host header
+- Better support for virtual hosting
+- Chunked transfer encoding
+- Better performance than opening a new TCP connection for every request
+
+---
+
+## 2. Key Concepts
+
+## 2.1 Client-Server Architecture
+
+HTTP follows a client-server model.
+
+The client sends a request.
+
+The server sends a response.
+
+```text
+Client → HTTP Request → Server
+Client ← HTTP Response ← Server
+```
+
+Example:
+
+```text
+Browser → GET /about → Web server
+Browser ← HTML page ← Web server
+```
+
+The client starts the communication.
+
+The server waits for requests and replies.
+
+---
+
+## 2.2 HTTP Request Structure
+
+An HTTP request is composed of several parts:
+
+```text
+Method
+Path
+Protocol version
+Headers
+Body
+```
+
+Example:
+
+```http
+GET /about HTTP/1.1
+Host: example.com
+User-Agent: curl/8.0
+Accept: */*
+```
+
+This request asks the server for the `/about` page.
+
+---
+
+## 2.3 HTTP Method
+
+The method tells the server what action the client wants to perform.
+
+Common HTTP methods:
+
+| Method | Meaning |
+|---|---|
+| GET | Read or retrieve data |
+| POST | Send data or create something |
+| PUT | Update or replace something |
+| DELETE | Delete something |
+| HEAD | Like GET, but response has no body |
+
+In practice, many web applications mostly use:
+
+```text
+GET
+POST
+```
+
+GET is usually used for reading data.
+
+POST is usually used for sending data.
+
+---
+
+## 2.4 Path
+
+The path is the part of the URL after the domain name.
+
+Example URL:
+
+```text
+https://example.com/about
+```
+
+Path:
+
+```text
+/about
+```
+
+If the URL is:
+
+```text
+https://example.com
+```
+
+The path is:
+
+```text
+/
+```
+
+The path tells the server which resource the client wants.
+
+---
+
+## 2.5 Query Parameters
+
+Query parameters are part of the path.
+
+They come after `?`.
+
+Example:
+
+```text
+/search?q=backend&page=1
+```
+
+Path with query string:
+
+```text
+/search?q=backend&page=1
+```
+
+Query parameters:
+
+```text
+q=backend
+page=1
+```
+
+They are commonly used with GET requests.
+
+Important note:
+
+```text
+URLs have length limits.
+```
+
+The exact limit depends on the browser, proxy, and server implementation.
+
+So very large data should not be sent through query parameters.
+
+---
+
+## 2.6 Protocol Version
+
+The request line also contains the protocol version.
+
+Example:
+
+```http
+GET /about HTTP/1.1
+```
+
+Here, the protocol version is:
+
+```text
+HTTP/1.1
+```
+
+Other versions include:
+
+```text
+HTTP/1.0
+HTTP/2
+HTTP/3
+```
+
+---
+
+## 2.7 Headers
+
+Headers are key-value pairs that provide metadata about the request or response.
+
+Example request headers:
+
+```http
+Host: example.com
+User-Agent: curl/8.0
+Accept: */*
+Content-Type: application/json
+Content-Length: 27
+Cookie: session_id=abc123
+```
+
+Headers can describe:
+
+- Hostname
+- Content type
+- Body length
+- Cookies
+- User agent
+- Authentication
+- Caching
+- Compression
+- Redirects
+
+---
+
+## 2.8 Host Header
+
+The `Host` header is one of the most important headers in HTTP/1.1.
+
+Example:
+
+```http
+Host: example.com
+```
+
+The Host header tells the server which domain the client wants.
+
+This is important because one IP address can host many websites.
+
+Example:
+
+```text
+example.com      → 192.0.2.10
+api.example.com  → 192.0.2.10
+shop.example.com → 192.0.2.10
+```
+
+All domains may point to the same IP address.
+
+The server uses the `Host` header to decide which website or application should handle the request.
+
+This is called:
+
+```text
+Virtual hosting
+```
+
+or:
+
+```text
+Multi-homed hosting
+```
+
+---
+
+## 2.9 Body
+
+The body contains the actual data sent by the client.
+
+GET requests usually do not have a body.
+
+POST requests often have a body.
+
+Example POST request:
+
+```http
+POST /users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+Content-Length: 36
+
+{
+  "name": "Alice",
+  "age": 20
+}
+```
+
+The body is:
+
+```json
+{
+  "name": "Alice",
+  "age": 20
+}
+```
+
+---
+
+## 2.10 Content-Length
+
+`Content-Length` tells the receiver how many bytes are in the body.
+
+Example:
+
+```http
+Content-Length: 36
+```
+
+This helps the receiver know where the body ends.
+
+This is especially important because HTTP/1.1 can reuse the same TCP connection for multiple requests.
+
+The receiver must know:
+
+```text
+Where does this request end?
+Where does the next request begin?
+```
+
+---
+
+## 3. HTTP Response
+
+## 3.1 HTTP Response Structure
+
+An HTTP response has several parts:
+
+```text
+Protocol version
+Status code
+Reason phrase
+Headers
+Body
+```
+
+Example:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 37
+
+<html><body>Hello world</body></html>
+```
+
+---
+
+## 3.2 Status Code
+
+The status code tells the client what happened.
+
+Common status code groups:
+
+| Range | Meaning |
+|---|---|
+| 1xx | Informational |
+| 2xx | Success |
+| 3xx | Redirection |
+| 4xx | Client error |
+| 5xx | Server error |
+
+Examples:
+
+| Status Code | Meaning |
+|---|---|
+| 200 | OK |
+| 301 | Moved Permanently |
+| 304 | Not Modified |
+| 400 | Bad Request |
+| 401 | Unauthorized |
+| 403 | Forbidden |
+| 404 | Not Found |
+| 500 | Internal Server Error |
+
+---
+
+## 3.3 Reason Phrase
+
+In HTTP/1.1, the response includes a reason phrase.
+
+Example:
+
+```http
+HTTP/1.1 200 OK
+```
+
+Here:
+
+```text
+200 = status code
+OK  = reason phrase
+```
+
+HTTP/2 removed the reason phrase because it is redundant.
+
+The client already knows what `200` means.
+
+---
+
+## 3.4 Response Headers
+
+Response headers provide metadata about the response.
+
+Example:
+
+```http
+Content-Type: text/html
+Content-Length: 1024
+Server: nginx
+Date: Tue, 16 Jun 2026 10:00:00 GMT
+Location: https://example.com/new-page
+```
+
+Important response headers:
+
+| Header | Meaning |
+|---|---|
+| Content-Type | Type of response body |
+| Content-Length | Size of response body |
+| Server | Server software |
+| Date | Response date |
+| Location | Redirect target |
+| Set-Cookie | Set cookie in browser |
+| Cache-Control | Caching rules |
+
+---
+
+## 3.5 Response Body
+
+The body contains the actual response content.
+
+Examples:
+
+```text
+HTML page
+JSON data
+Image
+CSS file
+JavaScript file
+Video
+Plain text
+```
+
+Example JSON response:
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "status": "ok"
+}
+```
+
+---
+
+## 4. HTTP over TCP
+
+HTTP/1.1 runs on top of TCP.
+
+A simplified HTTP request flow:
+
+```text
+1. Open TCP connection.
+2. Send HTTP request.
+3. Receive HTTP response.
+4. Reuse or close TCP connection.
+```
+
+Diagram:
+
+```text
+Client                              Server
+
+TCP handshake        ───────────────>
+
+HTTP request         ───────────────>
+
+                     <────────────── HTTP response
+
+Connection reused or closed
+```
+
+Because HTTP/1.1 uses TCP, it inherits TCP behavior:
+
+- Reliable delivery
+- Ordered bytes
+- Retransmission
+- Flow control
+- Congestion control
+
+---
+
+## 5. HTTPS
+
+HTTPS means:
+
+```text
+HTTP over TLS
+```
+
+Simplified HTTPS flow:
+
+```text
+1. Open TCP connection.
+2. Perform TLS handshake.
+3. Agree on encryption keys.
+4. Send encrypted HTTP request.
+5. Receive encrypted HTTP response.
+6. Reuse or close connection.
+```
+
+Diagram:
+
+```text
+HTTP
+TLS
+TCP
+IP
+Ethernet/Wi-Fi
+Physical network
+```
+
+HTTPS protects the request and response from being read by middle devices.
+
+Examples of middle devices:
+
+- ISP
+- Router
+- Proxy
+- Wi-Fi access point
+- Firewall
+
+---
+
+## 6. HTTP/1.0
+
+## 6.1 HTTP/1.0 Behavior
+
+In HTTP/1.0, every request usually opened a new TCP connection.
+
+Flow:
+
+```text
+Open TCP connection.
+Send request.
+Receive response.
+Close TCP connection.
+```
+
+Example:
+
+```text
+Request HTML page → open connection → close connection
+Request image 1   → open connection → close connection
+Request image 2   → open connection → close connection
+Request CSS file  → open connection → close connection
+```
+
+This was simple, but inefficient.
+
+---
+
+## 6.2 Problem with HTTP/1.0
+
+Opening a new TCP connection for every request is expensive.
+
+Each new connection requires:
+
+```text
+TCP handshake
+Memory
+CPU
+Connection state
+Latency
+```
+
+If a web page has many resources, the browser may need to open many connections.
+
+Example page resources:
+
+```text
+index.html
+style.css
+main.js
+image1.png
+image2.png
+image3.png
+```
+
+With HTTP/1.0, each resource may require a separate TCP connection.
+
+This increases latency and server load.
+
+---
+
+## 7. HTTP/1.1 Improvements
+
+## 7.1 Persistent Connections
+
+HTTP/1.1 introduced persistent connections by default.
+
+This means the same TCP connection can be reused for multiple requests.
+
+Flow:
+
+```text
+Open TCP connection.
+Send request for index.html.
+Receive response.
+Send request for image.png on same connection.
+Receive response.
+Send request for style.css on same connection.
+Receive response.
+Close connection later.
+```
+
+This reduces the cost of repeatedly opening and closing TCP connections.
+
+---
+
+## 7.2 Keep-Alive
+
+HTTP/1.1 can keep the TCP connection alive.
+
+Example header:
+
+```http
+Connection: keep-alive
+```
+
+The idea:
+
+```text
+Do not close this TCP connection immediately.
+I may send more requests.
+```
+
+This improves performance because the client avoids new TCP handshakes for every resource.
+
+---
+
+## 7.3 Lower Latency
+
+Persistent connections reduce latency.
+
+Why?
+
+Because the client does not need to repeat the TCP handshake for every request.
+
+This is especially useful for pages with many resources.
+
+---
+
+## 7.4 Lower CPU Usage
+
+Persistent connections can also reduce CPU usage.
+
+The server does not need to constantly create and destroy TCP connections.
+
+Instead, it can reuse existing connections.
+
+---
+
+## 7.5 Required Host Header
+
+HTTP/1.1 requires the `Host` header.
+
+This enables virtual hosting.
+
+One server with one IP address can host many domains.
+
+Example:
+
+```http
+GET / HTTP/1.1
+Host: site1.com
+```
+
+```http
+GET / HTTP/1.1
+Host: site2.com
+```
+
+Both requests may go to the same IP address, but the server can route them to different websites.
+
+---
+
+## 7.6 Chunked Transfer Encoding
+
+HTTP/1.1 supports chunked transfer encoding.
+
+This allows the server to send the response in chunks.
+
+Example:
+
+```http
+Transfer-Encoding: chunked
+```
+
+This is useful when the server does not know the full response size in advance.
+
+Examples:
+
+- Streaming responses
+- Server-Sent Events
+- Long polling
+- Large generated responses
+- Dynamic content
+
+Without chunked transfer, the server often needs to know the full `Content-Length` before sending the response.
+
+---
+
+## 8. HTTP/1.1 Pipelining
+
+## 8.1 What Is Pipelining?
+
+HTTP/1.1 introduced pipelining.
+
+Pipelining allows the client to send multiple requests without waiting for each response.
+
+Example:
+
+```text
+Client sends Request 1
+Client sends Request 2
+Client sends Request 3
+```
+
+Then the server responds:
+
+```text
+Server sends Response 1
+Server sends Response 2
+Server sends Response 3
+```
+
+---
+
+## 8.2 Why Pipelining Sounds Useful
+
+Without pipelining:
+
+```text
+Request 1 → wait for Response 1
+Request 2 → wait for Response 2
+Request 3 → wait for Response 3
+```
+
+With pipelining:
+
+```text
+Request 1 → Request 2 → Request 3
+Response 1 ← Response 2 ← Response 3
+```
+
+This can reduce waiting time.
+
+---
+
+## 8.3 Problem with Pipelining
+
+HTTP/1.1 pipelining has a major limitation.
+
+Responses must be returned in the same order as requests.
+
+Example:
+
+```text
+Request 1 = large HTML file
+Request 2 = small image
+Request 3 = small CSS file
+```
+
+Even if Request 2 finishes first, the server cannot send Response 2 before Response 1.
+
+It must preserve order:
+
+```text
+Response 1
+Response 2
+Response 3
+```
+
+This causes blocking.
+
+---
+
+## 8.4 Head-of-Line Blocking
+
+Head-of-line blocking happens when one slow request blocks the responses behind it.
+
+Example:
+
+```text
+Request 1 is slow.
+Request 2 is ready.
+Request 3 is ready.
+```
+
+But because Response 1 must come first, Response 2 and Response 3 must wait.
+
+This makes HTTP/1.1 pipelining unreliable for real-world performance.
+
+Because of these issues, HTTP/1.1 pipelining is usually disabled by default.
+
+---
+
+## 9. HTTP Request Smuggling
+
+HTTP request smuggling is a security issue that can happen when servers disagree about where a request ends.
+
+This can happen when there are confusing headers such as:
+
+```http
+Content-Length
+Transfer-Encoding
+```
+
+or multiple conflicting `Content-Length` headers.
+
+Example problem:
+
+```http
+Content-Length: 100
+Content-Length: 200
+```
+
+One proxy may use the first value.
+
+The backend server may use the second value.
+
+This disagreement can allow an attacker to hide, or smuggle, another request inside the HTTP stream.
+
+This is especially dangerous when there is a proxy in front of a backend server.
+
+Example architecture:
+
+```text
+Client → Proxy/Nginx → Backend Node.js server
+```
+
+If the proxy and backend parse the request differently, security bugs can happen.
+
+---
+
+## 10. HTTP/2 Preview
+
+HTTP/2 was designed to improve HTTP/1.1.
+
+It was originally influenced by Google's SPDY protocol.
+
+HTTP/2 introduced:
+
+- Binary framing
+- Header compression
+- Multiplexing
+- Stream IDs
+- Better use of a single TCP connection
+
+---
+
+## 10.1 Multiplexing in HTTP/2
+
+HTTP/2 solves many HTTP/1.1 pipelining problems using multiplexing.
+
+Instead of relying only on response order, HTTP/2 gives each request/response a stream ID.
+
+Example:
+
+```text
+Stream 1 → index.html
+Stream 3 → image.png
+Stream 5 → style.css
+```
+
+Responses can come back independently.
+
+The client knows which response belongs to which request because of the stream ID.
+
+---
+
+## 10.2 HTTP/2 and TLS
+
+In practice, HTTP/2 is usually used over TLS.
+
+One reason is protocol ossification.
+
+Many old middleboxes expected HTTP traffic on port 80 to look like HTTP/1.1 text.
+
+HTTP/2 uses a different binary format.
+
+If middleboxes see unexpected traffic, they may block or break it.
+
+TLS hides the protocol details from middleboxes.
+
+That made HTTP/2 deployment easier and also encouraged secure communication by default.
+
+---
+
+## 10.3 ALPN
+
+ALPN stands for:
+
+```text
+Application-Layer Protocol Negotiation
+```
+
+ALPN is a TLS extension.
+
+It allows the client and server to agree on which application protocol to use.
+
+Example:
+
+```text
+h2
+http/1.1
+```
+
+During TLS negotiation, the client can say:
+
+```text
+I support HTTP/2 and HTTP/1.1.
+```
+
+The server chooses one.
+
+---
+
+## 11. HTTP/3 Preview
+
+HTTP/3 runs over QUIC.
+
+QUIC runs over UDP.
+
+Simplified:
+
+```text
+HTTP/3
+QUIC
+UDP
+IP
+```
+
+HTTP/3 was designed to address limitations caused by TCP.
+
+One major problem is TCP head-of-line blocking.
+
+With HTTP/2 over TCP, multiple streams share one TCP connection.
+
+If TCP loses one packet, delivery of later bytes may be blocked even if they belong to another stream.
+
+QUIC solves this by making streams part of the transport layer.
+
+Each stream can be handled more independently.
+
+---
+
+## 12. Important Notes
+
+## 12.1 HTTP/1.1 Is Text-Based
+
+HTTP/1.1 is human-readable.
+
+Example:
+
+```http
+GET /about HTTP/1.1
+Host: example.com
+```
+
+This makes it easy to inspect and debug.
+
+HTTP/2 and HTTP/3 are not simple text protocols in the same way.
+
+---
+
+## 12.2 HTTP/1.1 Uses TCP
+
+HTTP/1.1 depends on TCP.
+
+That means HTTP/1.1 gets reliable ordered delivery from TCP.
+
+But it also inherits TCP limitations.
+
+---
+
+## 12.3 HTTP/1.1 Improved Performance Over HTTP/1.0
+
+The biggest improvement was persistent connections.
+
+Instead of opening a new TCP connection for every resource, HTTP/1.1 can reuse the same connection.
+
+---
+
+## 12.4 Host Header Is Critical
+
+The Host header allows one IP address to serve many websites.
+
+Without it, virtual hosting would be difficult.
+
+---
+
+## 12.5 Chunked Transfer Enables Streaming
+
+Chunked transfer encoding allows the server to send data gradually.
+
+This is important for streaming-like behavior in HTTP/1.1.
+
+---
+
+## 12.6 Pipelining Was Not Successful
+
+HTTP/1.1 pipelining sounded useful, but it had practical problems.
+
+Because responses must be ordered, one slow response can block others.
+
+This is why HTTP/2 multiplexing became important.
+
+---
+
+## 12.7 HTTP/1.1 Can Have Security Parsing Problems
+
+Because HTTP/1.1 is text-based and can pass through proxies, parsing differences can become dangerous.
+
+Request smuggling is one example.
+
+Servers and proxies must agree on how to interpret headers like:
+
+```text
+Content-Length
+Transfer-Encoding
+```
+
+---
+
+## 13. Examples
+
+## Example 1: Basic GET Request
+
+```http
+GET /about HTTP/1.1
+Host: example.com
+User-Agent: curl/8.0
+Accept: */*
+```
+
+Meaning:
+
+```text
+Method: GET
+Path: /about
+Protocol: HTTP/1.1
+Host: example.com
+```
+
+---
+
+## Example 2: Basic HTTP Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 37
+
+<html><body>Hello world</body></html>
+```
+
+Meaning:
+
+```text
+Status code: 200
+Reason phrase: OK
+Body type: HTML
+Body length: 37 bytes
+```
+
+---
+
+## Example 3: Redirect Response
+
+```http
+HTTP/1.1 301 Moved Permanently
+Location: https://example.com/new-page
+Content-Length: 0
+```
+
+Meaning:
+
+```text
+The resource moved.
+The client should request the URL in the Location header.
+```
+
+---
+
+## Example 4: POST Request with JSON Body
+
+```http
+POST /users HTTP/1.1
+Host: api.example.com
+Content-Type: application/json
+Content-Length: 36
+
+{
+  "name": "Alice",
+  "age": 20
+}
+```
+
+Meaning:
+
+```text
+The client sends JSON data to create or submit a user.
+```
+
+---
+
+## Example 5: Chunked Transfer Encoding
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/plain
+Transfer-Encoding: chunked
+
+5
+Hello
+6
+ World
+0
+```
+
+Meaning:
+
+```text
+The response body is sent in chunks.
+The final 0 means the response is complete.
+```
+
+---
+
+## Example 6: HTTP/1.0 vs HTTP/1.1
+
+HTTP/1.0:
+
+```text
+Request 1 → Open connection → Response 1 → Close connection
+Request 2 → Open connection → Response 2 → Close connection
+Request 3 → Open connection → Response 3 → Close connection
+```
+
+HTTP/1.1:
+
+```text
+Open connection
+Request 1 → Response 1
+Request 2 → Response 2
+Request 3 → Response 3
+Close connection later
+```
+
+HTTP/1.1 is more efficient because it reuses the TCP connection.
+
+---
+
+## Example 7: curl Verbose Request
+
+Command:
+
+```bash
+curl -v http://example.com/about
+```
+
+You may see a request like:
+
+```http
+GET /about HTTP/1.1
+Host: example.com
+User-Agent: curl/8.0
+Accept: */*
+```
+
+`curl -v` is useful because it shows the HTTP request and response details.
+
+---
+
+## 14. Questions / Review
+
+## Question 1
+
+What does HTTP stand for?
+
+**Answer:**
+
+HTTP stands for **Hypertext Transfer Protocol**.
+
+---
+
+## Question 2
+
+What transport protocol does HTTP/1.1 usually use?
+
+**Answer:**
+
+HTTP/1.1 usually uses TCP.
+
+---
+
+## Question 3
+
+What are the main parts of an HTTP request?
+
+**Answer:**
+
+An HTTP request contains:
+
+```text
+Method
+Path
+Protocol version
+Headers
+Body
+```
+
+---
+
+## Question 4
+
+What are the main parts of an HTTP response?
+
+**Answer:**
+
+An HTTP response contains:
+
+```text
+Protocol version
+Status code
+Reason phrase
+Headers
+Body
+```
+
+---
+
+## Question 5
+
+What is the Host header used for?
+
+**Answer:**
+
+The Host header tells the server which domain the client wants.
+
+It enables virtual hosting, where one IP address can serve many websites.
+
+---
+
+## Question 6
+
+Why was HTTP/1.0 inefficient?
+
+**Answer:**
+
+Because it usually opened and closed a new TCP connection for every request.
+
+---
+
+## Question 7
+
+What is a persistent connection?
+
+**Answer:**
+
+A persistent connection is a TCP connection that stays open and is reused for multiple HTTP requests.
+
+---
+
+## Question 8
+
+What is keep-alive?
+
+**Answer:**
+
+Keep-alive means the connection should stay open for more requests instead of closing immediately.
+
+---
+
+## Question 9
+
+What is chunked transfer encoding?
+
+**Answer:**
+
+Chunked transfer encoding allows a server to send a response in smaller chunks without knowing the full content length in advance.
+
+---
+
+## Question 10
+
+Why is HTTP/1.1 pipelining problematic?
+
+**Answer:**
+
+Because responses must come back in the same order as requests.
+
+A slow response can block faster responses behind it.
+
+---
+
+## Question 11
+
+What is head-of-line blocking?
+
+**Answer:**
+
+Head-of-line blocking happens when one slow or lost item blocks everything behind it.
+
+In HTTP/1.1 pipelining, one slow response can block later responses.
+
+---
+
+## Question 12
+
+What is HTTP request smuggling?
+
+**Answer:**
+
+HTTP request smuggling is an attack where a malicious request is hidden inside another request because different servers parse the HTTP stream differently.
+
+---
+
+## Question 13
+
+What problem does HTTP/2 multiplexing solve?
+
+**Answer:**
+
+HTTP/2 multiplexing allows multiple streams to share one connection without requiring responses to be returned strictly in request order.
+
+---
+
+## Question 14
+
+What is ALPN?
+
+**Answer:**
+
+ALPN stands for **Application-Layer Protocol Negotiation**.
+
+It is a TLS extension used to negotiate protocols such as HTTP/2 or HTTP/1.1.
+
+---
+
+## Question 15
+
+What does HTTP/3 run on?
+
+**Answer:**
+
+HTTP/3 runs on QUIC, and QUIC runs on UDP.
+
+```text
+HTTP/3 → QUIC → UDP
+```
+
+---
+
+## 15. Final Takeaway
+
+HTTP/1.1 is simple, text-based, and still widely used.
+
+Its core idea is:
+
+```text
+Client sends a request.
+Server sends a response.
+The connection can be reused.
+```
+
+The most important HTTP/1.1 concepts are:
+
+```text
+Method
+Path
+Headers
+Body
+Status code
+Host header
+Content-Length
+Transfer-Encoding
+Persistent connection
+Keep-alive
+Chunked transfer
+Pipelining
+Virtual hosting
+```
+
+HTTP/1.1 improved HTTP/1.0 mainly by reusing TCP connections.
+
+However, HTTP/1.1 still has limitations, especially around pipelining and head-of-line blocking.
+
+These limitations motivated newer protocols:
+
+```text
+HTTP/2 → multiplexing over TCP
+HTTP/3 → QUIC over UDP
+```
+
+For backend engineers, HTTP/1.1 is essential because many APIs, proxies, web servers, and load balancers still rely on it.

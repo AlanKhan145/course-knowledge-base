@@ -1,0 +1,467 @@
+# 047 - Multiple Listeners, Acceptors, and Readers with Socket Sharding Execution Pattern
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 7min
+
+---
+
+## 1. Summary
+
+This lecture explains **socket sharding**, an execution pattern where multiple processes or threads listen on the same IP address and port.
+
+Normally, two processes cannot listen on the same address and port.
+
+For example, if one process is already listening on:
+
+```text id="2z48f3"
+127.0.0.1:8080
+```
+
+another process cannot bind to the exact same address and port. The operating system will usually return an error such as:
+
+```text id="g8p7mt"
+Address already in use
+```
+
+However, operating systems provide a special option that allows multiple sockets to bind to the same address and port.
+
+On Linux, this is commonly associated with:
+
+```text id="sqw6la"
+SO_REUSEPORT
+```
+
+With this option, multiple workers can each have their own listening socket on the same address and port.
+
+The operating system then distributes incoming connections across those sockets.
+
+This is called **socket sharding**.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 Normal Port Binding Conflict
+
+Normally, this is allowed:
+
+```text id="rnnhn0"
+Process 1 listens on 127.0.0.1:8080
+Process 2 listens on 192.168.1.5:8080
+```
+
+These are different IP addresses, so there is no conflict.
+
+But this is usually not allowed:
+
+```text id="e02a94"
+Process 1 listens on 127.0.0.1:8080
+Process 2 listens on 127.0.0.1:8080
+```
+
+The second process will usually fail because the address and port are already in use.
+
+---
+
+### 2.2 Socket Reuse
+
+Socket reuse allows multiple sockets to bind to the same address and port.
+
+Conceptually:
+
+```text id="uh5rxi"
+Process 1 → listens on 0.0.0.0:8080
+Process 2 → listens on 0.0.0.0:8080
+Process 3 → listens on 0.0.0.0:8080
+Process 4 → listens on 0.0.0.0:8080
+```
+
+All of them are listening on the same address and port.
+
+The OS is responsible for distributing incoming connections.
+
+---
+
+### 2.3 Socket Sharding
+
+Socket sharding means splitting connection acceptance across multiple sockets.
+
+Each worker gets its own listening socket and its own kernel queues.
+
+Instead of one shared accept queue, each socket can have its own queue.
+
+```text id="qk4o8k"
+Worker 1
+├── socket 1
+├── SYN queue 1
+└── accept queue 1
+
+Worker 2
+├── socket 2
+├── SYN queue 2
+└── accept queue 2
+
+Worker 3
+├── socket 3
+├── SYN queue 3
+└── accept queue 3
+```
+
+This reduces contention between workers.
+
+---
+
+### 2.4 OS-Level Load Balancing
+
+When multiple sockets listen on the same address and port with socket reuse enabled, the OS distributes incoming connections across them.
+
+The distribution is usually based on a hash or load-balancing algorithm.
+
+Conceptually:
+
+```text id="s76q9v"
+New connection A → Worker 1
+New connection B → Worker 2
+New connection C → Worker 3
+New connection D → Worker 1
+```
+
+The important idea is that the OS decides which listening socket receives the connection.
+
+---
+
+### 2.5 No Shared Accept Queue Contention
+
+In the previous pattern, multiple acceptors competed on the same listening socket.
+
+That required coordination, such as an accept mutex.
+
+With socket sharding, each worker has its own listening socket and queue.
+
+So each worker can accept from its own queue without stepping on other workers.
+
+```text id="xzb4py"
+Previous pattern:
+Multiple workers → same socket → contention
+
+Socket sharding:
+Each worker → own socket → less contention
+```
+
+---
+
+### 2.6 Each Worker Is Listener, Acceptor, and Reader
+
+In this pattern, each worker can perform all three roles:
+
+* Listener
+* Acceptor
+* Reader
+
+```text id="nvwgcu"
+Worker 1: listen + accept + read
+Worker 2: listen + accept + read
+Worker 3: listen + accept + read
+Worker 4: listen + accept + read
+```
+
+This makes each worker more independent.
+
+---
+
+### 2.7 Used by High-Performance Proxies
+
+Socket sharding is popular in high-performance networking systems.
+
+It can be used by systems such as:
+
+* NGINX
+* HAProxy
+* Envoy
+* Custom low-level servers
+* High-performance API gateways
+
+These systems want to reduce contention and distribute connection handling across CPU cores.
+
+---
+
+## 3. Important Notes
+
+### Socket Sharding Reduces Accept Contention
+
+The main advantage is that workers do not compete on the same accept queue.
+
+Each worker has its own socket and its own queues.
+
+This allows connection handling to scale better across cores.
+
+---
+
+### OS Must Protect Against Port Hijacking
+
+If any process could simply reuse a port, a malicious process could try to hijack traffic.
+
+Operating systems enforce rules to prevent arbitrary processes from joining a reuse-port group.
+
+The exact protection depends on the OS, but the goal is to ensure that only authorized related workers can share the same address and port.
+
+---
+
+### This Requires Low-Level Control
+
+Socket sharding usually requires access to low-level socket options.
+
+In C or C++, this is straightforward.
+
+In higher-level runtimes, support depends on whether the runtime exposes the option.
+
+Examples:
+
+* C: direct socket APIs
+* C++: direct socket APIs
+* Rust: possible through low-level networking libraries
+* Go: possible with lower-level control
+* Node.js: depends on runtime APIs and configuration
+
+The key point is that not every high-level framework exposes full socket control.
+
+---
+
+### Load Balancing Is Still Not Perfect
+
+Socket sharding distributes connections, not necessarily work.
+
+The same old problem can still happen:
+
+```text id="j1l016"
+Worker 1 → two very light HTTP/1.1 connections
+Worker 2 → one very heavy HTTP/2 connection
+```
+
+The OS may distribute connections fairly, but it does not understand application-level request cost.
+
+---
+
+### QUIC Makes This More Interesting
+
+QUIC runs over UDP.
+
+To the OS, QUIC traffic is mostly UDP datagrams.
+
+The OS may understand IP addresses and ports, but it usually does not understand QUIC streams, HTTP/3 requests, or application-level messages.
+
+That means the user-space application must handle:
+
+* QUIC connection logic
+* TLS 1.3 inside QUIC
+* Stream management
+* Acknowledgements
+* Flow control
+* HTTP/3 parsing
+
+So with QUIC, the backend application often does more protocol work in user space.
+
+---
+
+### Request-Level Load Balancing Can Still Be Needed
+
+Socket sharding improves connection distribution.
+
+But for true workload balancing, the backend may still need to parse requests and distribute them to worker threads.
+
+A more advanced design might look like:
+
+```text id="u3gppf"
+Socket-sharded workers
+→ read and parse requests
+→ dispatch request messages
+→ execution worker pool
+```
+
+This gives better balancing at the request level.
+
+---
+
+## 4. Examples
+
+### Example 1: Without Socket Sharding
+
+```text id="786nlr"
+One listening socket
+        |
+        v
+Shared accept queue
+        |
+   ┌────┴────┐
+   │         │
+Worker 1  Worker 2
+```
+
+Workers may compete for the same accept queue.
+
+---
+
+### Example 2: With Socket Sharding
+
+```text id="4yl83x"
+Same address and port: 0.0.0.0:8080
+
+Worker 1
+├── socket 1
+└── accept queue 1
+
+Worker 2
+├── socket 2
+└── accept queue 2
+
+Worker 3
+├── socket 3
+└── accept queue 3
+```
+
+The OS distributes connections across the workers.
+
+---
+
+### Example 3: OS Connection Distribution
+
+```text id="7vfth7"
+Incoming connection A → socket 1 → Worker 1
+Incoming connection B → socket 2 → Worker 2
+Incoming connection C → socket 3 → Worker 3
+Incoming connection D → socket 1 → Worker 1
+```
+
+The distribution may be based on hashing or another OS-level algorithm.
+
+---
+
+### Example 4: Each Worker Owns Its Queue
+
+```text id="3yhvkb"
+Worker 1:
+    accept from queue 1
+    read from its connections
+
+Worker 2:
+    accept from queue 2
+    read from its connections
+
+Worker 3:
+    accept from queue 3
+    read from its connections
+```
+
+Workers do not need to compete for the same accept queue.
+
+---
+
+### Example 5: Load Imbalance Still Possible
+
+```text id="de83ht"
+Worker 1:
+    HTTP/1.1 connection
+    small request
+
+Worker 2:
+    HTTP/3 / QUIC connection
+    many streams
+    lots of data
+```
+
+Even if each worker receives one connection, Worker 2 may do much more work.
+
+---
+
+### Example 6: More Advanced Architecture
+
+```text id="70sa14"
+Socket-sharded workers
+        |
+        v
+Protocol-aware readers
+        |
+        v
+Parsed request messages
+        |
+        v
+Execution worker pool
+```
+
+This combines socket sharding with message-level load balancing.
+
+It is more complex, but it can provide better performance and fairness.
+
+---
+
+### Example 7: Pseudocode Concept
+
+```text id="ab2m7u"
+for each worker:
+    create socket
+    enable reuse port
+    bind to same address and port
+    listen
+    accept from own queue
+    read from accepted connections
+```
+
+The OS handles distributing incoming connections across the sockets.
+
+---
+
+## 5. Questions / Review
+
+1. Why do two processes normally fail if they listen on the same IP address and port?
+
+2. What does “address already in use” mean?
+
+3. What is socket reuse?
+
+4. What is `SO_REUSEPORT`?
+
+5. What is socket sharding?
+
+6. How does socket sharding reduce accept contention?
+
+7. What does the OS do when multiple sockets listen on the same address and port?
+
+8. Why does each worker get its own queue in this model?
+
+9. Why is this pattern useful for high-performance servers?
+
+10. What problem does socket sharding solve compared to multiple acceptors on one socket?
+
+11. Why does socket sharding not fully solve load balancing?
+
+12. Why can HTTP/2 or HTTP/3 make connection-level balancing unfair?
+
+13. Why is QUIC more complicated from the OS point of view?
+
+14. What does the OS usually see when QUIC traffic arrives?
+
+15. Why might request-level load balancing still be needed?
+
+16. Why is this pattern easier to implement in low-level languages?
+
+17. How does the OS prevent arbitrary processes from hijacking a port?
+
+18. What is the main advantage of socket sharding?
+
+19. What is the main tradeoff of socket sharding?
+
+---
+
+## Short Takeaway
+
+Socket sharding allows multiple workers to listen on the same IP address and port.
+
+Each worker gets its own listening socket and its own kernel queues.
+
+The operating system distributes incoming connections across those sockets.
+
+This reduces contention because workers no longer fight over one shared accept queue.
+
+However, socket sharding still balances connections, not actual application work.
+
+A single heavy HTTP/2 or QUIC connection can still overload one worker, so advanced systems may combine socket sharding with request-level or message-level load balancing.

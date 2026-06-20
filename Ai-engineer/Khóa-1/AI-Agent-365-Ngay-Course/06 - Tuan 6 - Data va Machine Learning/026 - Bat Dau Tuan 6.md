@@ -1,0 +1,1228 @@
+# Ngay 026 - Tuan 6, ngay 1
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-026.txt
+
+## Tong quan
+
+- Chu de mo dau: Bạn đã làm được, bạn đã quyết định rằng tôi sẽ không từ bỏ sau khi bị từ chối.
+- File goc: day-026.txt
+- So y chinh: 912
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Bạn đã làm được, bạn đã quyết định rằng tôi sẽ không từ bỏ sau khi bị từ chối.
+- Tôi sẽ không dừng lại.
+- Tôi sẽ không dừng lại khi mọi việc đang diễn ra tốt đẹp như vậy.
+- Tôi sẽ tiếp tục.
+- Tôi sẽ bước vào tuần thứ sáu.
+- Tôi sẽ tìm hiểu về đào tạo.
+- Tôi sẽ chuyển sang chuyên nghiệp.
+- Và tôi muốn nói với bạn rằng bạn sẽ không hối hận đâu.
+### Muc 2
+
+- Đó là một quyết định tuyệt vời.
+- Tôi có rất nhiều điều thú vị dành cho bạn.
+- Chào mừng đến với tuần thứ sáu.
+- Tuần trước, tất nhiên, là tất cả về vải rách.
+- Ngoài khả năng tạo mã và văn bản bằng các mô hình tiên tiến và mô hình nguồn mở, việc lựa chọn mô hình phù hợp cho dự án của bạn, bạn hiện có thể xây dựng các giải pháp Rag nâng cao với Lang chain, cũng như không cần Lang chain và có thể đánh giá chúng.
+- Nhưng hôm nay chúng ta sẽ bắt đầu dự án tốt nghiệp của mình.
+- Đây là khởi đầu của ba tuần nội dung chuyên nghiệp.
+- Hôm nay chúng ta sẽ bắt đầu với các tập dữ liệu.
+### Muc 3
+
+- Chúng ta sẽ tải xuống bộ dữ liệu từ Huggingface.
+- Chúng tôi sẽ chọn lọc nó.
+- Chúng ta sẽ tìm hiểu kỹ về vấn đề này.
+- Chúng ta cũng sẽ xem xét các phương pháp khác nhau để đánh giá thành công.
+- À, và chúng ta sẽ nói chung về trí tuệ nhân tạo (AI), khả năng tổng quát hóa và tập dữ liệu.
+- Hôm nay có rất nhiều tài liệu hay để làm.
+- Hãy bắt tay vào việc.
+- Nhưng trước tiên, một lần nữa, vì đây là đầu tuần, chúng ta cần nhanh chóng xem qua toàn bộ hành trình.
+## Phan 2
+
+### Muc 4
+
+- Đây chính là những gì đã phải trải qua để đạt được đến giai đoạn này.
+- Bạn đã bắt đầu từ phía bên trái ở đó.
+- À, chúng ta đã đề cập đến các nền tảng cơ bản, hoàn thiện cuộc trò chuyện, API và các mô hình tiên tiến.
+- Sau đó, chúng tôi đã xem xét tất cả các mô hình biên giới khác nhau và các giao diện lập trình ứng dụng (API), giao diện người dùng (UI), cũng như khả năng đa phương thức của chúng.
+- Chúng tôi đã đề cập đến LM nhẹ và bộ nhớ đệm lệnh trong quá trình đó.
+- Sau đó, chúng tôi đã truy cập vào Google Colab.
+- Chúng tôi đã bắt đầu sử dụng các mô hình nguồn mở với Hugging Face.
+- Đó là lần đầu tiên chúng tôi nhìn thấy khuôn mặt ôm ấp.
+### Muc 5
+
+- Sẽ có thêm nhiều điều trong tuần này.
+- Sau đó, chúng tôi đã xem xét việc lựa chọn mô hình ngôn ngữ (LM) phù hợp cho dự án hiện tại và đã xây dựng dự án tạo mã tự động chuyển đổi từ Python sang C++.
+- Nhưng tất nhiên, điều còn in sâu trong tâm trí bạn là Tuần thứ năm - Tuần lễ Rag.
+- Chúng tôi đã làm rất nhiều việc đến mức đã xây dựng được một nền tảng trả lời câu hỏi.
+- Hy vọng rằng bạn cũng đã tự xây dựng cho mình.
+- Chúng tôi đã đánh giá nó.
+- Chúng tôi đã sử dụng chuỗi Lang.
+- Chúng tôi không sử dụng chuỗi Lang.
+### Muc 6
+
+- Quá nhiều thứ.
+- Được rồi.
+- Tuần này, chúng ta sẽ làm việc với trí tuệ nhân tạo (AI), với mạng nơ-ron, và xây dựng các giải pháp cho một vấn đề kinh doanh bằng cách sử dụng bộ dữ liệu được chọn lọc.
+- Và vào cuối tuần, chúng ta sẽ tinh chỉnh mô hình biên.
+- Tuần tới, chúng ta sẽ tinh chỉnh một mô hình mã nguồn mở, và chúng ta sẽ có kết quả, mà tôi nghĩ sẽ khiến bạn ngạc nhiên.
+- Điều đó sẽ diễn ra vào tuần thứ bảy.
+- Và tuần thứ tám là lúc chúng ta tổng hợp tất cả những điều này lại với nhau.
+- Chúng tôi cũng tiếp tục phát triển Rag, chúng tôi đang xây dựng nền tảng Rag khổng lồ này.
+## Phan 3
+
+### Muc 7
+
+- Sau đó, chúng tôi sẽ giới thiệu nhiều yếu tố từ các tuần trước cho sản phẩm cuối cùng, sản phẩm kết thúc, đó sẽ là một sản phẩm Trí tuệ Nhân tạo (AI) có khả năng tương tác và bạn sẽ thích nó.
+- Và lúc đó, bạn có thể tự hào nói rằng: "Được rồi, tôi là một kỹ sư LLM." Vậy nên, khi chúng ta bước vào tuần này, hãy cùng nhau điểm qua nhanh những gì chúng ta đã làm cho đến nay khi áp dụng các mô hình để giải quyết các vấn đề kinh doanh.
+- Chúng tôi đã sử dụng cả mô hình nguồn đóng và nguồn mở, nhưng tất cả các cách mà chúng tôi đã cải thiện mô hình đều thông qua việc áp dụng các kỹ thuật khác nhau.
+- Trong quá trình chạy chương trình, chúng ta có một mô hình và đang thử nghiệm các phương án khác nhau.
+- Chúng tôi thực hiện các phương pháp như gợi ý đa bước.
+- Chúng tôi đã thực hiện điều này ngay từ đầu khi bạn chỉ đưa ra một loạt ví dụ trong lời nhắc đầu vào, và bằng cách cung cấp các ví dụ này, chúng tôi có thể đạt được kết quả tốt hơn.
+- Sau đó, chúng ta đã tìm hiểu về các công cụ và việc gọi hàm trong tuần thứ hai, đó là khi chúng ta trang bị cho mô hình ngôn ngữ lớn (LLM) khả năng dường như có thể chạy mã nguồn một cách độc lập, nhưng thực chất nó chỉ đang phản hồi: "Này, bạn có thể chạy mã này thay cho tôi không?" Tuy nhiên, điều này đã giúp chúng ta khai thác được nhiều hơn từ các mô hình ngôn ngữ lớn (LLMs).
+- Và tất nhiên, tuần trước đã thêm một tính năng nổi tiếng là "rag", hóa ra lại là một thứ đơn giản đến vậy, chỉ cần tra cứu ngữ cảnh liên quan và lại nhét nó vào prompt gửi đến mô hình ngôn ngữ lớn (LLM).
+### Muc 8
+
+- Vì vậy, tất cả những điều này đều là những cách khác nhau mà chúng ta có thể cải thiện các yếu tố như việc đưa ra gợi ý, nhằm hướng dẫn mô hình sao cho khi nó tạo ra các token, các token đó có khả năng cao hơn là phù hợp với mục tiêu kinh doanh của chúng ta.
+- Và đó là tất cả những thủ thuật này đều được gọi là "thủ thuật thời gian suy luận" vì mô hình đã được huấn luyện và khi chúng ta chạy nó, chúng ta đang cố gắng điều chỉnh nó để thực hiện công việc tốt hơn.
+- Và bây giờ, tất nhiên, đã đến lúc chúng ta cần bắt đầu suy nghĩ về việc đào tạo, điều mà cho đến nay chúng ta vẫn coi là điều hiển nhiên.
+- Vậy nên tuần này chúng ta sẽ bắt đầu tập luyện.
+- Đào tạo thực sự sẽ diễn ra vào cuối tuần, nhưng mọi hoạt động mà chúng ta thực hiện cho đến thời điểm đó đều là bước đệm chuẩn bị.
+- Đó là việc chuẩn bị các yếu tố cần thiết để có thể tiến hành đào tạo.
+- Vậy tôi nghĩ hầu hết các bạn đều đã quen thuộc với những kiến thức cơ bản về việc đào tạo.
+- Nhưng để tóm tắt lại, chỉ để đảm bảo chúng ta hiểu nhau.
+### Muc 9
+
+- Và đây là điều mà chúng ta sẽ đề cập chi tiết hơn một chút.
+- Khóa học này rất thực tiễn.
+- Tôi không đi sâu vào lý thuyết nhiều, trừ khi nó được áp dụng vào thực tiễn.
+- Vậy thì chúng ta hãy làm ngay bây giờ.
+- Vì vậy, đào tạo thực sự là cốt lõi của Trí tuệ Nhân tạo (AI) và cũng là cốt lõi của Học máy (Machine Learning), là khái niệm đã tồn tại trước khi AI ra đời mà chúng ta sẽ tìm hiểu trong tuần này.
+- Đào tạo này tập trung vào ý tưởng rằng chúng ta có một mô hình, một mô hình đang cố gắng đưa ra một dự đoán nào đó.
+- Và mô hình đó được điều khiển bởi các thiết lập nội bộ, được gọi là các thông số.
+- Bạn có thể đang sử dụng các video YouTube của tôi về các thông số.
+## Phan 4
+
+### Muc 10
+
+- Chúng ta có tất cả các thông số này trong mô hình.
+- Và về cơ bản, đào tạo là về cách chúng ta thiết lập các thông số này một cách tối ưu nhất dựa trên một loạt các đầu vào và đầu ra.
+- Một số ví dụ.
+- Nếu bạn nhận được đầu vào này, bạn nên nhận được đầu ra này.
+- Đầu vào này sẽ cho ra đầu ra này.
+- Bây giờ, vui lòng điều chỉnh các thông số nội bộ của bạn để có thể nhận ra các mẫu.
+- Và bạn có khả năng cao nhất là dự đoán đúng kết quả đầu ra dựa trên đầu vào này.
+- Đó là cơ sở của vấn đề.
+### Muc 11
+
+- Và làm thế nào để thiết lập các thông số này.
+- Đó là điều chúng ta sẽ thảo luận vào một ngày khác, không phải hôm nay.
+- Hãy giả sử có một kỹ thuật.
+- Có một kỹ thuật đào tạo cho phép bạn chọn cách đặt các trọng số khác nhau sao cho khi nhận được các đầu vào tương tự như trong quá trình đào tạo, bạn sẽ nhận được các đầu ra tương tự.
+- Nhưng đó không phải là vấn đề.
+- Điểm mấu chốt không phải là huấn luyện mô hình sao cho, bạn biết đấy, bạn cung cấp cho nó khoảng mười đầu vào khác nhau.
+- Dưới đây là mười kết quả khác nhau.
+- Và sau đó, nếu nhận được một trong các đầu vào này, nó nên trả về đầu ra tương ứng.
+### Muc 12
+
+- Ý tôi là chắc chắn nó nên như vậy nếu được thực hiện trong thời gian đào tạo.
+- Nhưng đó không phải là vấn đề.
+- Điểm mấu chốt là sau khi hoàn thành quá trình đào tạo, nếu mô hình được cung cấp một đầu vào mới khác với mười ví dụ này, một thứ gì đó khác biệt, nó sẽ đưa ra dự đoán có tính nhất quán với các dự đoán khác.
+- Có vẻ như nó đã học được các mẫu trong dữ liệu.
+- Các loại đầu vào nào dẫn đến các loại đầu ra nào, sao cho khi được cung cấp dữ liệu khác, điều đó đôi khi được gọi là dữ liệu chưa từng thấy.
+- Dữ liệu mà nó chưa từng thấy trước đây, nó đưa ra kết quả có vẻ hợp lý, có vẻ chính xác và có vẻ nhất quán với các mẫu mà nó đã quan sát được trong 10 ví dụ đào tạo của mình.
+- Vậy, đào tạo ở đây là về việc có một số đầu vào và đầu ra.
+- Đặt các thông số.
+## Phan 5
+
+### Muc 13
+
+- Điều chỉnh các thiết lập bên trong mô hình sao cho sau khi hoàn thành quá trình huấn luyện, nếu kết quả thu được có sự khác biệt, đầu ra của bạn vẫn đảm bảo độ chính xác.
+- Nó có chất lượng tốt.
+- Và nếu bạn không hoàn toàn chắc chắn về ý nghĩa của điều đó, thì bạn muốn nói gì khi nói rằng nó chính xác?
+- Ý nghĩa của việc có chất lượng tốt là gì?
+- Đừng lo lắng.
+- Chúng ta sẽ định nghĩa tất cả những điều đó sau.
+- Hãy có một cái nhìn tổng quan về điều này.
+- Điều quan trọng là có thể xây dựng một mô hình sao cho nó hoạt động tốt trên dữ liệu chưa từng thấy, dữ liệu này tương tự nhưng khác biệt so với dữ liệu mà mô hình đã được huấn luyện.
+### Muc 14
+
+- Và điều này dẫn tôi đến từ quan trọng nhất trong toàn bộ lĩnh vực Trí tuệ Nhân tạo (AI).
+- Và đó chính là khái niệm "tổng quát hóa", khả năng của một mô hình trong việc đưa ra dự đoán chính xác trên dữ liệu mà nó chưa từng gặp trước đây.
+- Để tạo ra đầu ra cho một đầu vào cho trước, trong đó đầu vào đó khác với bất kỳ đầu vào nào mà mô hình đã từng gặp trước đây, nếu mô hình có thể làm điều đó tốt, bạn có thể nói rằng mô hình có khả năng tổng quát hóa.
+- Nó đã thấy một số ví dụ.
+- Nó đã lan rộng.
+- Và bây giờ, khi được cung cấp một ví dụ mới, nó hoạt động tốt.
+- Nó cho ra kết quả dường như phản ánh mô hình trong các giá trị đầu vào và đầu ra.
+- Đó được gọi là khái quát hóa.
+### Muc 15
+
+- Đó chính là điều quan trọng nhất.
+- Chúng tôi đang cố gắng xây dựng các mô hình có khả năng tổng quát hóa tốt.
+- Và mô hình nào có khả năng tổng quát hóa tốt.
+- Thế thì đoán xem, các bạn Llms Lambs, GPT đã có GPT.
+- Điều khiến GPT trở nên đặc biệt đến vậy không phải là khi bạn yêu cầu nó viết một bài thơ về tổng thống Mỹ, nó sẽ viết được một bài thơ hay, bởi vì bài thơ đó chắc chắn đã có trong dữ liệu đào tạo của nó.
+- Có lẽ có rất nhiều bài thơ như vậy, và nó có thể đơn giản là chọn ra một bài.
+- Nếu bạn yêu cầu nó viết một bài thơ với các cặp vần, trong đó mỗi câu thứ hai bắt đầu bằng chữ cái A, nó vẫn có thể làm được, và nó sẽ làm rất tốt, và bài thơ sẽ hài hước và tuyệt vời.
+- Và nó đã làm được điều đó mặc dù đó không phải là một trong những ví dụ trong dữ liệu đào tạo của nó, và nó đã làm được điều đó vì nó đã nhìn thấy rất nhiều ví dụ, rất nhiều mẫu trong dữ liệu đầu vào và dữ liệu đào tạo của nó.
+## Phan 6
+
+### Muc 16
+
+- Và sau đó là đầu ra, đối với một mô hình ngôn ngữ lớn (LLM), đó là token tiếp theo xuất hiện sau token này.
+- Nó đã tiếp xúc với rất nhiều ví dụ như vậy đến mức nó đã trở nên cực kỳ giỏi trong việc suy luận ra các trường hợp mới mà thậm chí không nằm trong dữ liệu đào tạo của nó.
+- Thế là xong.
+- Đó là quá trình tổng quát hóa của trí tuệ nhân tạo.
+- Và đó chính là những gì chúng tôi dự định thực hiện trong tuần này.
+- Vì vậy, đào tạo là yếu tố cốt lõi của trí tuệ nhân tạo.
+- Và cách đây nhiều năm, khi chúng ta làm việc với machine learning truyền thống, các mô hình thường có số tham số dao động từ 20 đến 200.
+- Và quá trình đào tạo liên quan đến việc lấy một lượng lớn dữ liệu, có thể là 10.000 điểm dữ liệu, đưa vào mô hình của bạn và điều chỉnh các trọng số sao cho phù hợp, từ 20 đến 200.
+### Muc 17
+
+- Nhưng đáng tiếc, điều đó không áp dụng cho LMS.
+- Hệ thống quản lý học tập (LMS) không có từ 20 đến 200 thông số.
+- Hệ thống Quản lý Học tập (LMS).
+- Hệ thống quản lý học tập (LMS) có thể có hàng tỷ tham số, và việc đào tạo mô hình ngôn ngữ (LM) có thể tốn hàng trăm triệu đô la.
+- OpenAI được đồn đoán đã chi hơn 100 triệu USD để đào tạo GPT, một mô hình học sâu.
+- Dường như chỉ chi vài triệu cho trí tuệ nhân tạo (AI) sâu, nhưng đó vẫn là vài triệu.
+- Nó chỉ vượt quá ngân sách của tôi một vài triệu.
+- Vậy đó không phải là điều bạn làm.
+### Muc 18
+
+- Thay vào đó, chúng ta có thể tận dụng một đặc tính của các mô hình này được gọi là học chuyển giao.
+- Và tính năng đó cho phép bạn thực hiện điều mà thực tế rất hiệu quả, đó là bạn có thể sử dụng một mô hình mà người khác đã huấn luyện sẵn.
+- Họ đã hoàn thành khóa đào tạo và đã xong.
+- Nó được gọi là mô hình đã được huấn luyện trước.
+- Nó đã được huấn luyện.
+- Và bạn có thể đào tạo nó thêm một chút bằng cách sử dụng dữ liệu cụ thể của doanh nghiệp.
+- Và miễn là bạn không sử dụng quá nhiều, bạn có thể làm cho nó giữ nguyên thông tin gốc mà nó đã được đào tạo.
+- Và nó cũng trở nên tốt hơn trong một nhiệm vụ kinh doanh cụ thể.
+## Phan 7
+
+### Muc 19
+
+- Và làm điều đó, tận dụng việc chuyển nhượng.
+- Việc học cách đào tạo một mô hình để thực hiện một tác vụ cụ thể được gọi là tinh chỉnh (fine tuning).
+- Tất nhiên, đó chính là điều mà việc tinh chỉnh (fine tuning) hướng đến.
+- Và đó chính là điều chúng ta sẽ làm.
+- Và vào cuối tuần này, phần lớn thời gian của tuần này sẽ tập trung vào việc làm sạch dữ liệu, học máy truyền thống và một số mạng nơ-ron.
+- Nhưng vào cuối tuần, chúng ta sẽ tinh chỉnh mô hình biên giới mà bạn có thể thực hiện thông qua các API.
+- Tuần tới là lúc chúng ta thực sự bắt tay vào việc và chuyên nghiệp hóa, và chúng ta sẽ tinh chỉnh mô hình mã nguồn mở của riêng mình.
+- Và bây giờ là lúc tôi sẽ giới thiệu dự án cuối cùng, dự án khoa học dữ liệu thương mại mà chúng ta sẽ thực hiện trong ba tuần tới theo nhiều cách khác nhau.
+### Muc 20
+
+- Vậy nên nó giống như một dự án tốt nghiệp.
+- Đó cũng là ba dự án riêng biệt theo một cách nào đó, nhưng tất cả đều liên kết với nhau và tôi đặt tên cho nó một cách hài hước, The Price Is Right.
+- Đây là về việc xây dựng một nền tảng có thể nhận vào mô tả của một sản phẩm, ví dụ như một sản phẩm gia dụng.
+- Đó có thể là một chiếc tivi, một màn hình máy tính, một chiếc máy tính, một bộ phận của xe hơi, một chiếc máy giặt, hoặc thứ gì đó tương tự.
+- Và dựa trên mô tả về sản phẩm đó, chúng ta sẽ xây dựng các mô hình có thể dự đoán chi phí của nó.
+- Đó chính là những gì chúng tôi đang làm.
+- Điều chúng ta đang cố gắng đạt được thật đơn giản, rõ ràng và dễ hiểu.
+- Nó nên ước tính giá trị thực sự của điều này là bao nhiêu?
+### Muc 21
+
+- À, trên thực tế, và cuối cùng, vào cuối ba tuần tới, chúng ta sẽ tích hợp điều đó vào một dự án lớn, một dự án có thể triển khai.
+- Và nó có thể tìm kiếm trên internet để tìm các ưu đãi.
+- Và khi nó tìm thấy những món hời, nó có thể đánh giá xem món hời này có tốt đến mức nào?
+- Sản phẩm này thực sự đáng giá bao nhiêu?
+- Và liệu đây có phải là một món hời thực sự mà chúng ta nên mua?
+- Và nếu vậy, nó sẽ tự động thực hiện các thao tác.
+- Vậy nên nó sẽ thật tuyệt vời.
+- Nhưng điều đó sẽ xảy ra vào cuối cùng.
+## Phan 8
+
+### Muc 22
+
+- Đó là vào cuối tuần thứ tám.
+- Trong tuần sáu và bảy, chúng ta sẽ xây dựng một hệ thống có độ chính xác rất cao, đặc biệt là trong việc dự đoán chi phí của một thứ gì đó.
+- Bây giờ, vấn đề dự đoán giá trị của một thứ gì đó, chẳng hạn như giá cả cho những người có nền tảng khoa học dữ liệu, bạn sẽ nhận ra đây là một vấn đề hồi quy, tức là vấn đề cố gắng xác định một con số dựa trên các yếu tố khác nhau.
+- Và thông thường, đó là điều mà học máy truyền thống rất giỏi.
+- Nó được thiết kế cho những trường hợp như thế này.
+- Bạn có thể tưởng tượng rằng giá của một sản phẩm có thể phụ thuộc vào một số yếu tố, chẳng hạn như loại sản phẩm đó là gì.
+- Nếu là tivi, có lẽ điều đó phụ thuộc vào kích thước, cụ thể là số inch đường chéo.
+- Và vì vậy, có một số yếu tố mà trong học máy, người ta gọi là các đặc trưng của dữ liệu, mà bạn có thể sử dụng để dự đoán giá của nó.
+### Muc 23
+
+- Vậy có thể bạn sẽ nghĩ đến hồi quy.
+- Điều này có vẻ như là một nhiệm vụ rất phù hợp với các hình thức trí tuệ nhân tạo truyền thống.
+- Không hẳn.
+- Thế là hết chuyện về các mô hình ngôn ngữ lớn (LLMs).
+- Vâng, vẫn còn một số lý do chính đáng để chúng ta thực hiện điều này trong khóa học này và áp dụng nó thông qua học máy và các mô hình ngôn ngữ lớn (LLMs).
+- Một trong số đó là các mô hình ngôn ngữ lớn (LLMs) thường được sử dụng để tạo nội dung chỉ để tạo ngôn ngữ.
+- Và điều đó không phải lúc nào cũng cung cấp cho bạn một cách dễ dàng để đánh giá tác động, đánh giá độ chính xác của những kết quả mà nó đưa ra.
+- Trong trường hợp của chúng ta, vì chúng ta sẽ tính toán giá sản phẩm, chúng ta sẽ có một cách rõ ràng để đánh giá hiệu quả hoạt động của mình, vì chúng ta sẽ biết chính xác chi phí thực tế của các sản phẩm.
+### Muc 24
+
+- Vậy chúng ta sẽ biết được liệu chúng ta có đang làm tốt hay không.
+- Và điều đó thật sự rất thỏa mãn.
+- Trong lĩnh vực trí tuệ nhân tạo (AI) hiện đại, việc có một phương pháp đánh giá hiệu quả hoạt động của mô hình một cách đơn giản và cụ thể như vậy không phải là điều phổ biến.
+- Và chúng ta sẽ có điều đó.
+- Một điều nữa là các mô hình ngôn ngữ lớn (LLMs) có khả năng hiểu sâu sắc về ý nghĩa của ngôn ngữ và trong việc đánh giá giá trị của một thứ gì đó.
+- Không chỉ quan trọng là biết, ví dụ như, ồ, đây là một chiếc TV 60 inch.
+- Bạn cũng cần phải hiểu rõ, được không, đây có phải là một chiếc TV thông minh không?
+- Có phải nó có chất lượng cao không?
+## Phan 9
+
+### Muc 25
+
+- Nó có được định vị là một mặt hàng cao cấp không?
+- Có rất nhiều chi tiết tinh tế trong cách mô tả sản phẩm mà một chuyên gia thực sự có thể sử dụng để xác định giá trị thực sự của nó.
+- Thực ra, có thể có cơ hội cho các mô hình ngôn ngữ lớn (LLMs) làm tốt hơn vì chúng thông minh.
+- Và như chúng ta sẽ thấy, các mô hình biên giới đã rất giỏi trong việc ước tính chi phí của một thứ gì đó.
+- Và họ sở hữu loại trí tuệ đó, loại chuyên môn được tích hợp sẵn trong họ theo nhiều cách khác nhau.
+- Hóa ra đây thực sự là một dự án rất tuyệt vời cho các mô hình ngôn ngữ lớn (LLMs).
+- Bạn sẽ thấy rằng chúng ta sẽ đạt được kết quả tốt, và chúng ta sẽ có thể xếp hạng và đánh giá mọi thứ.
+- Và bạn biết không?
+### Muc 26
+
+- Chúng ta cũng sẽ thực hiện điều này bằng phương pháp học máy truyền thống, vì điều đó sẽ giúp bạn hiểu rõ hơn.
+- Điều gì là tốt cho bạn?
+- Tiêu chuẩn cơ bản là gì?
+- Chúng ta có thể làm gì mà không cần đến các mô hình ngôn ngữ lớn (LLMs)?
+- Chúng ta sẽ có thể sử dụng mạng thần kinh thông thường, và chúng ta sẽ có thể sử dụng cả LLMs nguồn đóng và nguồn mở, và chúng ta sẽ có thể đánh giá chúng bằng một chỉ số rất đơn giản.
+- Độ chính xác của họ trong việc dự đoán giá của một sản phẩm chỉ dựa trên mô tả của nó là bao nhiêu?
+- Được rồi, vậy giá là chính xác.
+- Đó là dự án của chúng tôi.
+### Muc 27
+
+- Đó là dự án tốt nghiệp của chúng tôi.
+- Từ tuần này, chúng ta sẽ tiến hành các công việc theo thứ tự sau đây và hãy nhớ điều này để tránh bị quá tải.
+- Vậy là bạn đang theo dõi hành trình tuần này, tập trung vào việc thu thập dữ liệu, đánh giá và làm việc với các mô hình ngôn ngữ tiên tiến (LLMs) hiện nay.
+- Hôm nay, chúng ta sẽ tiến hành thu thập dữ liệu.
+- Đó là điều mà một số người cho là nhàm chán.
+- Có một khía cạnh nhàm chán của dữ liệu.
+- Khoa học đang phân tích dữ liệu.
+- Tôi rất thích điều này, và tôi hy vọng rằng một phần sự nhiệt tình của tôi đối với việc quản lý dữ liệu sẽ lan tỏa sang bạn.
+## Phan 10
+
+### Muc 28
+
+- Khi bạn xem một số biểu đồ trực quan mà chúng ta sẽ làm việc trên đó.
+- Bạn biết đấy, tôi rất thích những biểu đồ này.
+- Dù sao đi nữa, đó là ngày đầu tiên.
+- Ngày thứ hai, chúng ta sẽ thực hiện một bước tiền xử lý dữ liệu rất thú vị.
+- Điều đó có thể không nghe có vẻ như.
+- Đó thật sự rất tuyệt vời.
+- Đúng vậy.
+- Xin hãy kiên nhẫn với tôi.
+### Muc 29
+
+- Chúng ta sẽ sử dụng Lmms.
+- Chúng ta sẽ sử dụng Lmms theo một cách rất thú vị và phổ biến, có thể không phải là cách mới mẻ.
+- Điều đó từng là điều mới mẻ, nhưng bây giờ không còn nữa.
+- Nó, ừm, nó rất phổ biến như một cách để ghi đè dữ liệu theo cách sẽ mang lại hiệu quả cao cho mô hình của bạn.
+- Ngày thứ ba, chúng ta sẽ quay trở lại quá khứ một chút và chuyển sang phương pháp học máy truyền thống (ML).
+- Việc xây dựng mô hình cơ sở là vô cùng quan trọng.
+- Nếu chúng ta không sử dụng lmms, thì nó sẽ trông như thế nào?
+- Hãy xem nào.
+### Muc 30
+
+- Ngày thứ tư là lúc chúng ta thực hiện việc "zoom qua thời gian".
+- Chúng ta sẽ sử dụng, ừm, mạng nơ-ron nhân tạo với PyTorch như một mạng nơ-ron đơn giản.
+- Và sau đó, chúng ta sẽ chuyển sang các mô hình ngôn ngữ lớn tiên tiến và xem chúng hoạt động như thế nào.
+- Cuối cùng, chúng ta sẽ tinh chỉnh một mô hình ngôn ngữ lớn tiên tiến.
+- Và tôi muốn cảnh báo bạn ngay từ bây giờ rằng vào cuối tuần này, mọi chuyện sẽ kết thúc với một chút thất vọng.
+- Nó sẽ kết thúc với một cảm giác đắng chát trong miệng bạn.
+- Nhưng tôi cần phải nói với bạn điều đó.
+- Tôi sẽ thực hiện điều đó.
+## Phan 11
+
+### Muc 31
+
+- Bạn sẽ phải kiên nhẫn cùng tôi, vì có thể, có thể tôi sẽ để lại cho bạn một chút vị đắng ở cuối tuần này, nhưng tôi sẽ bù đắp lại gấp bội trong tuần thứ bảy.
+- Vậy tuần thứ bảy là gì?
+- Tuần thứ bảy là thời điểm chúng ta hoàn thiện và công bố mã nguồn mở.
+- Nó sẽ trở nên rất lớn và quan trọng, và khi đó chúng ta sẽ triển khai nó.
+- Chúng ta có thể triển khai nó lên nền tảng AI không máy chủ.
+- Vậy đây là một cái nhìn sơ lược về các kỹ thuật triển khai mô hình.
+- Và chúng tôi cũng sẽ đưa Rag trở lại, và chúng tôi sẽ phát triển sản phẩm mà tôi đã đề cập trước đó.
+- Và điều đó sẽ khiến bạn choáng váng.
+### Muc 32
+
+- Và đúng vậy, nó sẽ mang lại kết quả.
+- Đó sẽ là một kết thúc xứng đáng.
+- Vậy nên bạn phải kiên trì đến cùng.
+- Điều này cực kỳ quan trọng.
+- Tuần này sẽ là và thực tế ba tuần tiếp theo sẽ căng thẳng hơn, sâu sắc hơn so với có lẽ năm tuần đầu tiên.
+- Bạn có thể đang nghĩ rằng điều đó thực sự rất căng thẳng.
+- À, nhưng có ba cách khác nhau mà bạn có thể tương tác với tôi trong vấn đề này.
+- Và cả ba đều có ích và hữu dụng.
+### Muc 33
+
+- Và bạn hãy chọn lựa, chọn xem cái nào phù hợp với bạn.
+- Một cách là nói rằng, nhìn này, tôi không nhất thiết phải biết cách tinh chỉnh mô hình củ a mình, nhưng việc có直觉 để hiểu những gì đang xảy ra và có kiến thức cơ bản về thuật ngữ, cách nó hoạt động, kết quả thu được, điều gì hiệu quả và điều gì không, là rất hữu ích.
+- Trong trường hợp đó, hãy xem các bài giảng mà không cần phải thực hiện tất cả các thí nghiệm.
+- Nhưng tôi chỉ mới đến cuối.
+- Tôi lưu lại mọi thứ trong quá trình làm việc để bạn có thể tiếp tục từ bất kỳ điểm nào, và bạn nên chạy kết quả cuối cùng ở cuối để xem mọi thứ diễn ra như thế nào.
+- Và trong suốt quá trình này, nếu có điều gì thực sự thu hút bạn, bạn có thể tái tạo nó.
+- Nhưng nói chung, nếu bạn muốn tiếp cận vấn đề theo cách này, thì hãy tập trung vào直觉.
+- Và đừng lo lắng nếu bạn không hiểu hết mọi thứ, bạn luôn có thể quay lại sau.
+## Phan 12
+
+### Muc 34
+
+- À, không phải là điều quan trọng là bạn phải hiểu nó.
+- Điều quan trọng là nắm bắt được ý chính, bản chất của những gì chúng ta đang làm.
+- Thứ hai là nếu bạn muốn tiếp tục, bạn muốn có thể hiểu điều này và tự mình thực hiện.
+- Nhưng bạn không nhất thiết phải chi tiền cho việc đó, và bạn cũng không muốn dấn sâu vào một việc có thể mất vài ngày để hoàn thành.
+- Trong trường hợp đó, tôi có một phiên bản nhẹ hơn để chúng ta có thể sử dụng trong quá trình thực hiện.
+- Phiên bản Lite là phiên bản có bộ dữ liệu nhỏ hơn, chỉ 20.000 thay vì 800.000, đây sẽ là bộ dữ liệu lớn.
+- Sử dụng bộ dữ liệu Lite.
+- Và cho hôm nay và ngày mai, hãy theo dõi những gì tôi đang làm.
+### Muc 35
+
+- Nhưng cuối cùng, tôi sẽ tải lên dữ liệu đã được chọn lọc và xử lý cuối cùng, và đó chính là dữ liệu mà bạn nên sử dụng.
+- Vì vậy, bạn không cần phải tự mình thực hiện điều đó, vì điều đó đòi hỏi phải tải xuống hàng gigabyte dữ liệu.
+- Và có thể điều đó sẽ vượt quá những gì bạn sẵn sàng chấp nhận vào lúc này.
+- Và tùy thuộc vào các quyết định bạn đưa ra trong quá trình này, chi phí có thể dao động từ miễn phí.
+- Bạn có thể thực hiện điều này mà không tốn bất kỳ chi phí nào, hoặc tối đa $5 nếu bạn muốn.
+- Về vấn đề đó, đó là ước tính của tôi dựa trên kinh nghiệm của tôi với nó.
+- Và tất nhiên, điểm thứ ba là nếu bạn đã quyết định dấn thân, bạn sẽ nghĩ, ồ, cái này.
+- Đây là điều tôi muốn làm.
+### Muc 36
+
+- Trong trường hợp đó, hãy ở bên tôi và làm theo cách tôi làm.
+- Thực hiện bộ dữ liệu 800.000.
+- À, hãy thực hiện đào tạo đầy đủ về mọi thứ và quá trình tuyển chọn kỹ lưỡng.
+- Sẽ có rất nhiều việc phải làm.
+- Một số tác vụ có thể mất vài ngày để hoàn tất hoàn toàn, nhưng tôi muốn đảm bảo với bạn, điều đó thực sự đáng giá.
+- Còn lại, các bạn có thể xem tôi thực hiện và sẽ thấy kết quả.
+- À, nhưng đúng vậy, đó là một vấn đề lớn.
+- Ước tính ở đây nằm trong khoảng từ $5 đến $35 trong số 35 đó.
+## Phan 13
+
+### Muc 37
+
+- Phần lớn nhất, 30, liên quan đến việc tiền xử lý toàn bộ tập dữ liệu lớn.
+- Và một lần nữa, bạn không cần phải làm điều đó vì tôi đã tải lên hình ảnh trước và sau.
+- Vậy bạn có thể đơn giản là lấy cái sau.
+- Đơn giản như vậy thôi.
+- Bạn không cần phải chi tiêu số tiền đó, tức là $30.
+- Bạn có thể thực hiện bước thứ ba ở đây chỉ với ngân sách $5.
+- Được rồi.
+- Vậy đây là ba cách thay thế.
+### Muc 38
+
+- Như tôi đã nói, không có cái nào tốt hơn hay xấu hơn cái kia.
+- Điều đó phụ thuộc vào mức độ sâu mà bạn muốn tìm hiểu về chủ đề này.
+- Dù bạn chọn con đường nào, đó cũng sẽ là một trải nghiệm vô cùng thú vị.
+- Được rồi, hôm nay chúng ta sẽ tập trung vào dữ liệu.
+- Vậy hãy cùng phân tích một số dữ liệu.
+- Andrew Ng nổi tiếng với câu nói: "Trí tuệ nhân tạo (AI) là nguồn điện mới." Và tôi thường nghĩ rằng có một góc nhìn khác về điều đó, một góc nhìn hơi khác một chút, tức là dữ liệu chính là nguồn năng lượng mới, dữ liệu chính là thứ thúc đẩy mọi thứ chúng ta làm.
+- Và khi bạn đang cân nhắc việc thành lập một startup về trí tuệ nhân tạo (AI), điều đầu tiên bạn nghĩ đến thường là: "Vậy nguồn dữ liệu nào chúng ta sẽ sử dụng để có thể xây dựng một hệ thống AI có tính khác biệt?" Vậy bạn nên tìm kiếm dữ liệu ở đâu?
+- Nơi tốt nhất để tìm kiếm dữ liệu chính là dữ liệu độc quyền mà chính bạn đã tạo ra.
+### Muc 39
+
+- À, ví dụ như nếu bạn đang làm công việc kết nối nhân tài với các vị trí công việc, giống như công việc hàng ngày của tôi, thì có lẽ điều quan trọng là hiểu rõ những người đã thành công và hạnh phúc trong sự nghiệp của họ, và sử dụng điều đó như một kho dữ liệu độc quyền.
+- Sau đó, có các trang web như Kaggle, một cộng đồng khoa học dữ liệu nổi tiếng, nơi bạn có thể tải xuống các bộ dữ liệu phong phú.
+- Tương tự, Hugging Face, một nền tảng được ưa chuộng trong cộng đồng mô hình ngôn ngữ lớn (LLM), là nơi bạn có thể tìm thấy các bộ dữ liệu chất lượng cao.
+- Có rất nhiều điều để khám phá trong các tập dữ liệu khuôn mặt ôm và việc tạo ra dữ liệu tổng hợp là điều mà bạn có thể làm và bạn đã làm được.
+- Tôi hy vọng bạn đã hoàn thành điều đó trong tuần trước như một trong các bài tập.
+- Và còn có những công ty chuyên cung cấp dịch vụ thu thập và xử lý dữ liệu theo yêu cầu của bạn.
+- Như vậy, đó là một trong những điều mà quy mô mang lại.
+- Đây là các cách khác nhau mà bạn có thể làm việc với dữ liệu.
+## Phan 14
+
+### Muc 40
+
+- Và khuôn mặt ôm ấp chính là kho tàng dữ liệu đáng kinh ngạc này.
+- Có rất nhiều điều trong đó.
+- Và đó chính xác là nơi chúng ta sẽ đến hôm nay.
+- Có một bộ dữ liệu được gọi là Amazon Reviews 2023, đây là một kho dữ liệu khổng lồ, khổng lồ chứa dữ liệu của Amazon.
+- Nó bao gồm các đánh giá về các sản phẩm.
+- Chúng tôi thực sự sẽ không sử dụng các đánh giá này, nhưng bạn có thể làm nếu muốn xem một góc nhìn khác về dự án này.
+- Nhưng nó có mô tả sản phẩm và cũng có giá của các sản phẩm được lấy từ việc thu thập dữ liệu từ Amazon trong những năm gần đây.
+- Vậy đó là một tập dữ liệu khổng lồ.
+### Muc 41
+
+- Và đó chính là công cụ mà chúng ta sẽ sử dụng cho dự án của mình để cố gắng dự đoán giá của một sản phẩm dựa trên mô tả của nó, vì chúng ta có rất nhiều dữ liệu từ Amazon do Macaulay Lab cung cấp và đã được tải lên Huggingface.
+- Và hôm nay, chúng ta sẽ cùng nhau khám phá dữ liệu.
+- Chúng tôi sẽ tiến hành tuyển chọn một bộ dữ liệu.
+- Chúng tôi sẽ tiến hành kiểm tra chất lượng dữ liệu.
+- Chúng tôi sẽ phân tích dữ liệu này để đưa nó vào định dạng có thể sử dụng được, xem xét nó qua các biểu đồ khác nhau, đánh giá chất lượng dữ liệu, chọn lọc dữ liệu, thực hiện các thao tác như chọn phân phối dữ liệu phù hợp nhất cho mô hình của chúng tôi, và cuối cùng tải nó lên hub.
+- Và tôi muốn nhắc đến rằng có rất nhiều điều về việc đào tạo mô hình rất hấp dẫn, đặc biệt là việc tối ưu hóa siêu tham số, điều này nghe có vẻ rất giống trong Star Trek.
+- Chúng ta sẽ làm tất cả những việc đó sau.
+- Và đó chính là những điều mà mọi người thích nói đến.
+### Muc 42
+
+- Và việc phân tích dữ liệu, sắp xếp và chọn lọc dữ liệu.
+- Điều này có vẻ như đang đi vào chi tiết nhỏ nhặt, đi sâu vào những chi tiết nhỏ nhặt.
+- À, nhưng thực tế là trong quá trình lựa chọn và sắp xếp một bộ dữ liệu tốt, đây chính là phần thường có tác động lớn nhất đến chất lượng của quá trình đào tạo.
+- Tôi đã thực hiện rất nhiều thí nghiệm trong tất cả các thí nghiệm mà tôi đã tiến hành, đặc biệt là các thí nghiệm liên quan đến việc điều chỉnh các siêu tham số, như chúng ta sẽ thấy.
+- Nhưng hóa ra, hiệu ứng mạnh mẽ nhất mà tôi đạt được là khi tôi chọn lọc được một bộ dữ liệu thực sự tốt.
+- Vì vậy, đây có thể không phải là phần hấp dẫn nhất trong quá trình tinh chỉnh mô hình, nhưng nó là một trong những phần quan trọng nhất, và do đó chúng ta cần dành thời gian cho nó.
+- Và đúng rồi, bạn không được bỏ qua tôi.
+- Bạn cần chú ý trong quá trình chúng tôi lựa chọn bộ dữ liệu hoàn hảo.
+## Phan 15
+
+### Muc 43
+
+- Và tôi muốn gieo một ý tưởng về một chủ đề rất quan trọng mà chúng ta sẽ thảo luận chi tiết hơn trong tuần này và trong vài tuần tới.
+- Đánh giá hiệu suất, một vấn đề đã trở thành chủ đề lặp đi lặp lại trong suốt quá trình.
+- Trong suốt khóa học này, việc có một chiến lược đánh giá hiệu quả làm việc tốt cũng rất quan trọng.
+- Bạn biết đấy, và thường người ta nghĩ đến hai loại chỉ số khác nhau.
+- Có các chỉ số được gọi là chỉ số tập trung vào mô hình hoặc chỉ số kỹ thuật.
+- Và đây là các chỉ số rất sát với những gì bạn thực sự đang làm với mô hình khi điều chỉnh các thông số và thử lại.
+- Và thường thì nó cũng được gọi là tổn thất.
+- Đó là mức độ sai lệch của mô hình khi cố gắng dự đoán kết quả.
+### Muc 44
+
+- Và với LMS, bạn thường sử dụng một hàm mất mát gọi là cross-entropy loss.
+- Và chúng ta sẽ thảo luận về hàm mất mát cross-entropy trong thời gian tới.
+- Và loại chỉ số khác được gọi là chỉ số tập trung vào kinh doanh hoặc chỉ số kết quả.
+- Và đây là những chỉ số có sự liên quan chặt chẽ nhất với mục tiêu kinh doanh thực tế của bạn.
+- Với Adams, điều này thường là người dùng đưa ra phản hồi, đánh giá tích cực hoặc tiêu cực về việc phản hồi trong cuộc trò chuyện có phải là một phản hồi tốt hay không.
+- Có những chỉ số tập trung vào hoạt động kinh doanh khác như doanh thu hoặc sự hài lòng của khách hàng, và cuối cùng, dù bạn đang xây dựng hệ thống quản lý học tập (LMS) của mình để làm gì, mục tiêu cuối cùng là đạt được những kết quả đó.
+- Nhưng thường thì việc liên kết các thay đổi mà bạn đang thực hiện trên mô hình với các chỉ số kinh doanh cuối cùng của bạn có thể hơi khó khăn.
+- Vậy có một sự liên tục giữa việc tập trung quá mức vào mô hình và tập trung vào kinh doanh, và bạn luôn cố gắng tìm điểm cân bằng lý tưởng, tức là một chỉ số gần nhất có thể với cả hai.
+### Muc 45
+
+- Nó gần với mô hình và cũng gần với kết quả kinh doanh cuối cùng của bạn.
+- Và trong trường hợp của chúng ta, đối với dự án của tuần này và ba tuần tiếp theo, chúng ta thực sự có một chỉ số như vậy.
+- Chúng ta có một chỉ số tuyệt vời vì nó rất đơn giản.
+- Mô hình của chúng tôi sẽ dự đoán giá của một sản phẩm.
+- Chúng ta có thể xem xét giá thực tế của sản phẩm đó và tính toán sự chênh lệch giữa hai giá đó.
+- Bạn đã sai đến mức nào?
+- Đó chính là sự chênh lệch giá thực tế.
+- Vì vậy, sự chênh lệch tuyệt đối về giá, nếu chúng ta chỉ xem xét và luôn coi đó là một số dương, thì sự chênh lệch đó, sai số đó, rất sát với mô hình của chúng ta.
+## Phan 16
+
+### Muc 46
+
+- Và điều này cũng hoàn toàn phù hợp với mục tiêu kinh doanh của chúng tôi.
+- Và đó là một trong những chỉ số mà chúng ta sẽ theo dõi sát sao trong vài tuần tới.
+- Và tất nhiên, những ai có nền tảng về khoa học dữ liệu sẽ biết rằng một chỉ số tập trung vào mô hình phổ biến hơn được gọi là sai số bình phương trung bình.
+- MSE là phương pháp tính toán bằng cách lấy hiệu số giữa giá dự đoán và giá thực tế, sau đó bình phương kết quả đó.
+- Tuy nhiên, mặc dù đó là một chỉ số đánh giá mô hình rất hiệu quả và được sử dụng rộng rãi trong machine learning truyền thống, nó không thực sự cụ thể và dễ hiểu đối với chúng ta, đặc biệt là đối với những người làm kinh doanh.
+- Dựa trên kết quả, tôi có thể khẳng định rằng mô hình của tôi sai lệch trung bình $100.
+- Nó dự đoán giá, sai lệch $100, và bạn sẽ biết chính xác điều đó có nghĩa là gì, trong khi MSC thì khó nhận ra hơn.
+- Nói rằng sai số bình phương trung bình là 10.000 có nghĩa là gì?
+### Muc 47
+
+- Thật khó để biết chính xác liệu điều đó là tốt hay xấu.
+- Vì vậy, chúng ta sẽ tập trung vào sự chênh lệch giá thực tế của dự án này.
+- Được rồi.
+- Vậy là chúng ta có bộ dữ liệu lớn này.
+- Chúng tôi đã thu thập tất cả các giá sản phẩm từ Amazon thông qua việc thu thập dữ liệu từ internet.
+- Chúng tôi đã thu thập thông tin từ các mô tả sản phẩm và giá cả được trích xuất từ các trang web.
+- Thông thường, người ta chia dữ liệu thành ba nhóm dữ liệu khác nhau.
+- Ba bể bơi.
+### Muc 48
+
+- Đầu tiên trong số đó được gọi là dữ liệu đào tạo.
+- Và rõ ràng đây là phần lớn dữ liệu.
+- Và đó là dữ liệu mà chúng ta sẽ sử dụng trong quá trình đào tạo.
+- Nó cung cấp cho chúng ta các đầu vào và đầu ra trong trường hợp này là mô tả sản phẩm và giá cả của chúng.
+- Và chúng ta sẽ sử dụng điều này để thiết lập các thông số nội bộ của mô hình sao cho nó hoạt động tốt trên dữ liệu.
+- Điều này chưa từng xảy ra trước đây.
+- Đó là dữ liệu đào tạo.
+- Bộ dữ liệu thứ hai được gọi là bộ dữ liệu kiểm tra (validation data), bộ dữ liệu đánh giá (eval data) hoặc bộ dữ liệu kiểm tra (val data).
+## Phan 17
+
+### Muc 49
+
+- Bộ kiểm tra.
+- Và đây là dữ liệu được gọi là dữ liệu kiểm tra vì đây là dữ liệu mà chúng ta không bao gồm trong quá trình đào tạo.
+- Chúng tôi đã kiên trì.
+- Và dữ liệu được giữ lại này sẽ được sử dụng để đánh giá hiệu suất của mô hình trên dữ liệu chưa từng thấy.
+- Nó có thể tổng quát hóa không?
+- Nó hoạt động như thế nào.
+- Và chúng tôi sử dụng dữ liệu xác thực này.
+- Và trong quá trình đào tạo, chúng tôi liên tục sử dụng phương pháp này để đánh giá xem chúng tôi có tiến bộ hay không, tốt hơn hay xấu hơn, vì chúng tôi luôn so sánh kết quả với dữ liệu kiểm tra độc lập.
+### Muc 50
+
+- Và sau đó có một tập dữ liệu thứ ba được gọi là dữ liệu thử nghiệm.
+- Và đây chỉ là một phần dữ liệu ẩn khác được giữ lại, dữ liệu mà bạn giữ lại cho đến tận cuối cùng của toàn bộ quá trình.
+- Vì bạn đã sử dụng dữ liệu kiểm tra này lặp đi lặp lại trong quá trình đào tạo để xem liệu nó có tốt hơn không?
+- Có tốt hơn không?
+- Có tốt hơn không?
+- Được rồi, đây là kết quả tốt nhất.
+- Chúng ta sẽ ở lại đây.
+- Và vì vậy, chúng ta không muốn sử dụng lại dữ liệu đó để kiểm tra mô hình của mình, vì chúng ta đã chọn phiên bản mô hình hoạt động tốt nhất trên dữ liệu kiểm tra đó.
+### Muc 51
+
+- Vì vậy, chúng ta muốn giữ lại một bộ dữ liệu dự phòng nữa, để vào cuối cùng, chúng ta có thể thực hiện một lần kiểm tra nữa và sử dụng dữ liệu kiểm tra này để đưa ra quyết định cuối cùng về việc liệu chúng ta có thể dự đoán chính xác các mô hình trên dữ liệu chưa từng thấy hay không.
+- Mô hình có thể tổng quát hóa được không?
+- Đó là ba tập dữ liệu đào tạo.
+- Xác thực dữ liệu.
+- Dữ liệu thử nghiệm.
+- Trong machine learning truyền thống, tỷ lệ này thường là 80%.
+- Đào tạo mười và mười.
+- À, nhưng mà ngày nay với các mô hình ngôn ngữ lớn (LLMs), vì chúng yêu cầu lượng dữ liệu đào tạo khổng lồ, nên thường bị lệch nặng về các tập dữ liệu đào tạo khổng lồ và các tập dữ liệu kiểm tra và xác thực tương đối nhỏ, đến mức bạn không thể đạt được chỉ số ổn định.
+## Phan 18
+
+### Muc 52
+
+- Vậy là cách chia các tập dữ liệu.
+- Và đó chính là các bộ dữ liệu mà chúng ta sẽ xây dựng hôm nay.
+- Được rồi.
+- Và cuối cùng, cuối cùng thì tôi cũng đã xong việc nói chuyện và trình chiếu slide và tất cả những thứ đó.
+- Đã đến lúc phải đến Casa.
+- Đã đến lúc chúng ta cần chọn lọc và sắp xếp các bộ dữ liệu của mình.
+- Hãy cùng nhau làm điều đó.
+- Và đây chúng ta đang ở trong con trỏ.
+### Muc 53
+
+- Chúng ta đang bước vào tuần thứ sáu.
+- Nhìn xem nó trông tươi mới và mới mẻ như thế nào.
+- Bắt đầu ngày đầu tiên để khởi động hành trình của chúng ta.
+- Và như đã nói, dự án lớn đã bắt đầu.
+- Dự án tốt nghiệp "Giá cả hợp lý".
+- Chúng ta sẽ xây dựng một mô hình dự đoán chi phí của một sản phẩm dựa trên mô tả của sản phẩm, bằng cách sử dụng một phần dữ liệu từ Amazon để đào tạo mô hình.
+- Thứ tự thi đấu.
+- Hôm nay chúng ta đang tổng hợp dữ liệu.
+### Muc 54
+
+- Rất quan trọng, có thể không được lộng lẫy, nhưng vô cùng quan trọng.
+- Sau đó, chúng ta sẽ tiến hành tiền xử lý.
+- Sau đó, vào ngày thứ ba, chúng ta sẽ tập trung vào việc đánh giá các mô hình cơ sở, sử dụng các phương pháp học máy truyền thống, sau đó là các mạng thần kinh học sâu và LMS.
+- Và cuối cùng, vào ngày thứ năm của tuần này, chúng ta sẽ tiến hành điều chỉnh chi tiết mô hình biên.
+- Như tôi đã nói, có lẽ, ừm, không phải kết quả mà bạn mong đợi, nhưng có sự cứu chuộc trên hành trình.
+- Được rồi, trước hết, điều quan trọng nhất là việc quản lý dữ liệu.
+- Chúng tôi sẽ tiến hành phân loại dữ liệu của mình.
+- Và bộ dữ liệu đang ở ngay đây.
+## Phan 19
+
+### Muc 55
+
+- Nó ở trong tư thế ôm mặt.
+- Đó là một phần của tập dữ liệu.
+- Đặt.
+- Nó đến từ Phòng thí nghiệm Macaulay.
+- Đây là bản tổng hợp các đánh giá trên Amazon từ năm 2023.
+- Và bạn có thể cuộn xuống để tìm hiểu nhiều thông tin về, về, ừm, số lượng sản phẩm họ có, số lượng đánh giá họ có, các danh mục khác nhau và vân vân.
+- Và đây là một ví dụ về một trong số rất nhiều bộ dữ liệu mà bạn có thể tìm thấy trên Hugging Face.
+- Hãy đi và khám phá.
+### Muc 56
+
+- Có các bộ dữ liệu về dữ liệu tài chính, dữ liệu y tế và nhiều loại dữ liệu khác để phát triển các ứng dụng thương mại.
+- Vậy chúng ta sẽ bắt đầu với cái này.
+- Khi bạn tự xây dựng các dự án của mình sau này, có rất nhiều điểm khởi đầu tuyệt vời và ý tưởng mà bạn có thể tìm thấy chỉ bằng cách duyệt qua các bộ dữ liệu.
+- Được rồi, nhưng quay lại với con trỏ chuột một lần nữa.
+- Vậy, và tôi đã đề cập rằng, ừm, việc quản lý dữ liệu đôi khi được coi là không hấp dẫn.
+- Và tôi nói đó là điều vô nghĩa.
+- Đây là lúc chúng ta đi vào phần khoa học.
+- À, nó là nó là, à.
+### Muc 57
+
+- Và như tôi đã nói, và điều này hoàn toàn đúng, nó đang hoạt động.
+- Nghiên cứu và phát triển (R&D) trên bộ dữ liệu này đã có tác động lớn nhất đến chất lượng kết quả của dự án này.
+- Vì vậy, chắc chắn rằng việc dành thời gian cho việc quản lý dữ liệu là rất quan trọng.
+- Được rồi.
+- Như thường lệ, tôi sẽ xem xét mã nguồn và sẽ làm điều đó khá nhanh chóng.
+- Tôi sẽ không, ví dụ, giải thích chi tiết về tất cả các nhập khẩu.
+- Và tôi khuyến khích các bạn hãy xem qua tài liệu này, đọc nó theo tốc độ của riêng mình và sử dụng hệ thống quản lý học tập (LMS) để giải thích bất kỳ điều gì bạn không hiểu.
+- Như thường lệ, tôi đang thực hiện một loạt các thao tác nhập dữ liệu và tiến hành tải dữ liệu EMV.
+## Phan 20
+
+### Muc 58
+
+- Tôi chưa nhận được các kiểm tra thông thường ở đây vì đến thời điểm này, tôi tin rằng bạn đã cài đặt EMV đúng cách và đã tải các khóa vào, bao gồm cả token HF_underscore, token khuôn mặt ôm, thứ mà chúng ta đã thiết lập trong tuần thứ ba.
+- Nếu bạn chưa làm điều đó, vui lòng truy cập Huggingface ngay bây giờ.
+- Tạo tài khoản miễn phí.
+- Tạo một khóa API và thêm khóa đó vào tệp môi trường (env file) của bạn.
+- À, với khóa HF_TOKEN, bạn cần nó.
+- Và sau khi bạn đã làm điều đó, khi bạn chạy đoạn code này, nó sẽ chạy và đăng nhập vào Hugging Face trong mã nguồn.
+- Nó cung cấp cho bạn một số ghi chú ở đây.
+- Ghi chú đó có thể an toàn bỏ qua.
+### Muc 59
+
+- Mọi thứ đều hoạt động tốt.
+- Bạn sẽ được đăng nhập vào Hugging Face nếu không bao gồm điều này.
+- Nếu bạn chỉ đăng nhập như vậy, hệ thống sẽ yêu cầu bạn nhập mã token.
+- Và đó là một cách khác để làm điều đó.
+- Và nếu bạn muốn kiểm tra lại xem mình đã đăng nhập chưa, được rồi, thì bạn cũng có thể làm theo cách đó.
+- Được rồi.
+- Bây giờ chúng ta sẽ tải vào một tập dữ liệu.
+- Chúng tôi sẽ nhập dữ liệu từ Amazon chỉ trong một danh mục duy nhất.
+### Muc 60
+
+- Chọn danh mục "Đồ gia dụng".
+- Đó giống như lò vi sóng, máy rửa bát và những thứ tương tự.
+- Và chúng ta sẽ tải nó vào.
+- Và tôi cần nhắc rằng đôi khi bạn có thể gặp lỗi khi thực hiện thao tác đó.
+- Nếu bạn gặp lỗi, hãy nhập vào một ô mới.
+- Nếu bạn đang ở phần UV, bạn nên chạy UV và cập nhật dữ liệu phiên bản 3.6.0, sau đó mọi thứ sẽ hoạt động bình thường.
+- Đó là trường hợp nếu bạn gặp bất kỳ lỗi nào trên đây.
+- Đó là vì một số phiên bản mới nhất của bộ dữ liệu không hỗ trợ thao tác trích xuất dữ liệu này.
+## Phan 21
+
+### Muc 61
+
+- Nhưng tôi có phiên bản 3.6.0.
+- Và khi tôi chạy chương trình đó, nó sẽ tải dữ liệu từ tập dữ liệu đó.
+- Và đối với tôi, nó rất nhanh vì tôi đã tải sẵn rồi.
+- Đối với bạn, có thể mất khoảng 30 giây đến một phút, tùy thuộc vào tốc độ kết nối internet của bạn, và bạn sẽ thấy nó đang thực hiện.
+- Và sau khi hoàn thành việc đó, tôi có thể thấy rằng mình đã tải xuống và sẵn sàng sử dụng 94.000 thiết bị gia dụng.
+- Được rồi, vậy là chúng ta đã tải toàn bộ tập dữ liệu này vào biến có tên là "data set".
+- Vậy nếu tôi xem qua tập dữ liệu này, chúng ta sẽ thấy rằng đây là đối tượng tập dữ liệu Hugging Face.
+- Nó bao gồm nhiều tính năng và chứa 94.000 hàng mà tôi đã đề cập.
+### Muc 62
+
+- Chúng ta có thể xem xét yếu tố đầu tiên ở đây và xem xét điều này.
+- Và điều chúng ta sẽ thấy là đây là một máy làm đá để bàn.
+- Nhưng một vấn đề mà chúng ta gặp phải với dữ liệu này là nó thiếu thông tin về giá.
+- Và chúng tôi muốn sử dụng dữ liệu này để đào tạo một mô hình nhằm ước tính giá của một sản phẩm.
+- Và nếu dữ liệu này thiếu giá, thì nó không có nhiều giá trị.
+- Hãy thử một cái nữa.
+- Hãy xem xét điểm dữ liệu số một.
+- Hãy cùng xem nhé.
+### Muc 63
+
+- Nó cũng thiếu giá.
+- Được rồi, chúng ta tiếp tục nhé.
+- Thực ra, tôi sẽ nhảy cóc đến số 5 và xem xét số 5.
+- Mục 5 cũng thiếu giá.
+- Nhưng khi tôi xem mục sáu, tôi tin rằng mục sáu sẽ có giá.
+- Đây rồi.
+- Giá là 8,99.
+- Đó là gì.
+## Phan 22
+
+### Muc 64
+
+- Đây là bộ kit lắp ráp bánh xe và trục.
+- Được rồi, với suy nghĩ này, chúng ta hãy tiến hành một cuộc điều tra nữa trước đã.
+- Vậy là cũng được.
+- Một điều có thể khiến bạn nghĩ đến là đó là một mức giá rất rẻ.
+- Giá cao nhất của tất cả các mặt hàng mà chúng ta có là bao nhiêu?
+- Đây là một đoạn mã đang lặp qua tất cả các mặt hàng, lấy giá của chúng và xác định giá cao nhất.
+- Được rồi.
+- Món đồ đắt nhất dường như là lò vi sóng điện Turbo Chef bullet Rapid Cook và nó có giá $21.000.
+### Muc 65
+
+- Trời ơi, tôi đã làm rồi.
+- Tôi không biết rằng một lò vi sóng có thể có giá $21.000.
+- Vậy là tôi phải đi tìm cái này, và tôi đã làm như vậy.
+- Tôi đã tìm kiếm nhanh trên Amazon để tìm món đồ này.
+- Và đây là nó.
+- Đây là lò vi sóng đối lưu Turbo Chef Rapid Cook của chúng tôi.
+- Và đó là một món hời.
+- Chỉ $15.861.
+### Muc 66
+
+- Và nó nên như vậy.
+- Trước đây là $21.000.
+- Vậy nên bạn nên nhanh chóng thưởng thức món này.
+- À, và à, ừm, tôi nghĩ ý là nó có lẽ đạt chất lượng thương mại.
+- Và nó cũng là một lò nướng đối lưu và một lò vi sóng.
+- Vậy.
+- Vậy rõ ràng đây là một vấn đề lớn.
+- À, và có lẽ đáng giá số tiền này.
+## Phan 23
+
+### Muc 67
+
+- À, nhưng đó không phải là khoản đầu tư mà tôi sẽ tự mình thực hiện.
+- Nhưng nhưng nó vẫn tồn tại.
+- Đây là một cách tuyệt vời để phân tích dữ liệu của bạn, phát hiện các giá trị ngoại lệ và nhận diện các bất thường, đồng thời xác định loại dữ liệu mà bạn đang tìm kiếm.
+- Được rồi.
+- Vậy là, đã đến lúc chúng ta cần phân tích dữ liệu này, đọc tập dữ liệu khổng lồ từ Hugging Face và chuyển đổi nó thành định dạng phù hợp nhất cho chúng ta.
+- Vậy ở bên trái đây, bạn có thể thấy tôi đã mở rộng một gói có tên là Pricer, trong đó có một số công cụ mà tôi sẽ sử dụng.
+- Và như thường lệ, tôi sẽ không đi vào chi tiết cụ thể về việc lập trình từng phần trong số này, vì mục đích là để bạn tự tìm hiểu cách thực hiện, xem qua hoặc đơn giản là nắm bắt cách thức hoạt động của nó.
+- Bởi vì bạn sẽ muốn xây dựng một thứ gì đó như thế này cho các dự án của mình.
+### Muc 68
+
+- Vậy là tôi đã làm một điều khá truyền thống trong gói này, trong các mục của gói này, ừm, các mục của mô-đun này.
+- Và mô-đun này là nơi tôi đã định nghĩa một đối tượng lớp.
+- Nếu bạn chưa quen với các lớp học, hãy tham khảo hướng dẫn.
+- Hướng dẫn Python.
+- À, nhưng mục này là một ví dụ về lớp pedantic, có nghĩa là nó là một lớp con của mô hình cơ sở từ pedantic.
+- Và điều đó có nghĩa là nó chỉ đơn giản là một lớp mà chúng ta sẽ sử dụng để lưu trữ một số dữ liệu, và nó có thể dễ dàng chuyển đổi thành JSON.
+- Nó mô tả một lược đồ JSON.
+- Bạn có thể chuyển đổi mục này thành JSON và có thể chuyển đổi JSON trở lại thành mục này.
+### Muc 69
+
+- Rất đơn giản.
+- Và chúng tôi định nghĩa nó là có một số trường dữ liệu mà chúng tôi quan tâm cho mục hàng đại diện cho sản phẩm trên Amazon mà chúng tôi đã thu thập dữ liệu.
+- Nó có tiêu đề, một danh mục.
+- Nó có giá.
+- Điều quan trọng là nó sẽ là mô tả đầy đủ của chúng tôi từ Amazon.
+- Tóm tắt sẽ là mô tả tóm tắt của chúng tôi.
+- Trọng lượng là mức độ nặng của nó.
+- À, và sau đó nó sẽ hiển thị một thông báo, một ID mà chúng ta sẽ đề cập đến sau.
+## Phan 24
+
+### Muc 70
+
+- Và có một số chức năng hữu ích, ừm, nhỏ gọn ở đây để có thể tải và lưu nó và các thao tác khác.
+- Đây là đối tượng tạm thời của chúng ta, một mục mà chúng ta sẽ sử dụng cho các mục của mình.
+- Và sau đó, tôi đã viết một lớp, à, hoặc trong trường hợp này chỉ là một tập hợp các hàm trong mô-đun parser này, cho phép tôi đọc dữ liệu từ Hugging Face và chuyển đổi nó thành một đối tượng item.
+- Và nó làm điều đó bằng cách, ví dụ, loại bỏ khoảng trắng không cần thiết bằng cách đặt một giới hạn tối đa cho văn bản.
+- Chúng tôi không muốn có hơn 3000 ký tự trong bất kỳ phần nào và tổng cộng không quá 4000 ký tự.
+- Nếu không, chúng ta có quá nhiều dữ liệu.
+- Một số mô tả sản phẩm này chỉ nói vòng vo.
+- Và chúng ta sẽ chỉ dừng lại ở đây sau khi cảm thấy đã có đủ.
+### Muc 71
+
+- Chúng tôi sẽ giới hạn giá cả.
+- Chúng tôi sẽ nói rằng chúng tôi sẽ không nhận bất kỳ thứ gì có giá dưới $0.50.
+- Nếu có bất kỳ sản phẩm nào có giá trị nhỏ và chúng ta sẽ áp dụng mức giá tối đa là $999.49, tức là sản phẩm có giá trị làm tròn lên 999, và điều này là do đây là khoảng giá mà chúng ta sẽ tập trung vào cho bài tập này.
+- Chúng tôi muốn trở nên rất giỏi trong việc dự đoán các sản phẩm trong phạm vi đó và không muốn bị ảnh hưởng bởi các giá trị ngoại lệ có thể làm sai lệch kết quả.
+- Đó chỉ là một quyết định kinh doanh mà chúng ta đang đưa ra để định hướng cho dự án này.
+- À, chúng tôi không muốn ngăn cản mô hình của mình học cách dự đoán giá của các mặt hàng khác, nhưng chúng tôi sẽ không sử dụng dữ liệu đó cho quá trình đào tạo.
+- Và chúng tôi cũng sẽ nói rằng bất kỳ mô tả sản phẩm nào có ít hơn 600 ký tự là quá ngắn, quá sơ sài.
+- Chúng tôi không muốn sử dụng điều đó cho dữ liệu đào tạo của chúng tôi.
+### Muc 72
+
+- Chúng tôi muốn đào tạo trên dữ liệu vật liệu.
+- Vì vậy, những quyết định này là những quyết định kinh doanh quan trọng mà bạn có thể đưa ra khi viết mã để phân tích dữ liệu mà bạn đã thu thập, cụ thể là lượng dữ liệu khổng lồ trên Hugging Face, và biến nó thành dữ liệu được chọn lọc cẩn thận mà bạn muốn làm việc với.
+- Và sau đó, tôi có một hàm scrub để làm sạch tất cả dữ liệu, một hàm get weight để chuyển đổi trọng lượng của một đối tượng sang đơn vị pound, vì trên Amazon, trọng lượng có thể được hiển thị dưới nhiều đơn vị khác nhau.
+- Và cuối cùng là hàm parse nhận dữ liệu điểm của Hugging Face và chuyển đổi nó thành đối tượng item.
+- Sau khi điền đầy đủ các trường thông tin cần thiết.
+- Vậy điều này chỉ cho bạn một cái nhìn tổng quan.
+- Việc xây dựng một hàm phân tích cú pháp như thế này là rất phổ biến.
+- Đây là loại công việc làm sạch dữ liệu mà một nhà khoa học dữ liệu thường thực hiện.
+## Phan 25
+
+### Muc 73
+
+- Cho phép bạn chuyển đổi dữ liệu bán cấu trúc hoặc không cấu trúc mà bạn có thành dạng dữ liệu có cấu trúc hơn.
+- Với suy nghĩ đó, tôi sẽ quay lại đây và bây giờ tôi sẽ chạy đoạn mã này, có nghĩa là chúng ta đang đọc toàn bộ dữ liệu từ tập dữ liệu Hugging Face và chuyển đổi nó thành các mục.
+- Và khi quá trình đó hoàn tất, chúng ta sẽ có 35.000 mục trong tổng số 94.000 điểm dữ liệu ban đầu.
+- Và tất nhiên, điều đó là vì chúng ta chỉ giữ lại những thứ có giá trị như số sáu trước đây.
+- Và chúng tôi chỉ giữ lại những mục có số ký tự phù hợp mà chúng tôi cho là tốt cho bộ dữ liệu của mình, và chỉ những mục có giá nằm trong khoảng từ $0.50 đến 9.99.49.
+- Vậy là chúng ta còn lại điều đó.
+- Vậy nếu chúng ta xem xét mục đầu tiên trong danh sách, thì thực ra đó chính là mục thứ sáu ở trên.
+- Đây là bộ kit lắp ráp giá đỡ, bánh xe và bulông có giá trị $8.99.
+### Muc 74
+
+- Và nếu tôi in, ừm, hãy in mục 0 đầy đủ.
+- Hãy xem mô tả chi tiết của nó.
+- Đây là nó.
+- À, đây là mô tả đầy đủ về nó.
+- Bạn sẽ thấy rằng có một số khoảng trống ở đây.
+- Và đó là vì một phần của skript phân tích của tôi đã loại bỏ các số sản phẩm nếu chúng quá dài, vì việc giữ chúng trong đó chỉ đơn giản là lãng phí không gian.
+- Vậy là nó đã thực hiện một số bước làm sạch dữ liệu và đây là kết quả cuối cùng mà chúng ta có được.
+- Vậy là, đã đến lúc chúng ta cần xem xét dữ liệu này, trực quan hóa dữ liệu này và có cái nhìn rõ ràng hơn về những gì chúng ta đang làm việc.
+### Muc 75
+
+- Được rồi.
+- Đầu tiên, tôi sẽ thu thập tất cả giá của tất cả các mặt hàng của chúng ta vào một danh sách có tên là "giá".
+- Và sau đó, tất cả các, các, số lượng ký tự trong các mô tả được chuyển đổi thành một thứ gọi là độ dài.
+- Có bao nhiêu, bao nhiêu, ừm, bao nhiêu, mô tả dài bao lâu?
+- Và chúng ta hãy bắt đầu bằng cách vẽ một biểu đồ histogram.
+- Nếu bạn biết biểu đồ histogram như thế này, nó thể hiện độ dài của các mô tả.
+- Vì vậy, độ dài của các mô tả, số ký tự trung bình trong các mô tả đầy đủ của chúng tôi là 1.400 và cao nhất là 4.000.
+- Và đó là con số cao nhất vì bạn có thể nhớ rằng chúng ta đã cắt bớt ở mức 4000.
+## Phan 26
+
+### Muc 76
+
+- Vì vậy, chúng tôi không chấp nhận bất kỳ mô tả nào dài hơn thế.
+- Và đây chính là loại đường cong mà chúng ta có.
+- Chúng ta đã có một mức tối thiểu, nếu bạn còn nhớ.
+- Và sau đó nó dần dần giảm đi.
+- Và bây giờ chúng ta hãy xem một ví dụ về thứ có số lượng ký tự tối đa.
+- Đây là một trong số đó.
+- Đây là bộ lọc thông gió cho máy sấy làm bằng polyester.
+- Và nếu bạn di chuột qua, bạn sẽ thấy có rất nhiều thứ ở đây.
+### Muc 77
+
+- Hãy nhớ làm sạch bộ lọc bụi sau mỗi lần sử dụng nhiều, nhiều, nhiều lần.
+- Thật sự đáng giá, có vẻ như vậy.
+- À, như vậy bạn có thể thấy rằng ở đây có rất nhiều bánh waffle.
+- Chúng ta có lẽ không cần phải sử dụng hết 4000 ký tự.
+- Được rồi, bây giờ chúng ta hãy xem giá cả.
+- Hãy xem những thứ này có giá bao nhiêu.
+- Được rồi.
+- À, nó nghiêng hẳn về phía những thứ rẻ tiền.
+### Muc 78
+
+- Giá trung bình là $56.
+- Giá cao nhất là 999.
+- Đây là phân phối.
+- Và như vậy, bạn có thể thấy chúng ta có một đường cong khá rõ ràng ở đây, đúng không.
+- Và chúng ta hãy in thêm một bản nữa ở đây.
+- Chúng tôi có một tấm che nam châm cho máy rửa chén bằng thép không gỉ có hoa văn chải của MLB.
+- À, và đúng rồi, bạn có thể thấy rằng chúng tôi có, ừm, rất nhiều thông tin về vật liệu, kích thước.
+- Có rất nhiều phụ kiện cho tấm che nam châm của máy rửa chén này.
+## Phan 27
+
+### Muc 79
+
+- Vậy nên, vào thời điểm này, tôi đề nghị bạn xem qua, in ra các mục khác nhau, nắm bắt, cảm nhận, xem các biểu đồ này và xem chúng ta có bao nhiêu văn bản, chi phí của chúng là bao nhiêu.
+- Vậy là bạn đã có cái nhìn tổng quan rất tốt về bộ dữ liệu này, vì bây giờ chúng ta sẽ lấy bộ dữ liệu này về các thiết bị gia dụng và bổ sung thêm rất nhiều dữ liệu khác vào đó.
+- Hãy thêm vào nhiều danh mục khác từ Amazon để chúng ta có một bộ dữ liệu lớn.
+- Và đây là lúc tôi muốn nhắc lại rằng tôi đã làm điều này rồi.
+- Vậy nên bạn không cần phải làm điều đó.
+- Tôi đã thực hiện các bước tiếp theo, nhập một lượng lớn dữ liệu và đã tải lên.
+- Và trong giây lát, tôi sẽ hướng dẫn các bạn cách tải xuống dữ liệu mà tôi đã tải lên, nên các bạn có thể chỉ cần theo dõi tôi nếu muốn.
+- Nếu bạn cũng muốn làm điều này, thì hãy làm cùng tôi.
+### Muc 80
+
+- À, sẽ rất vui, nhưng.
+- Nhưng bạn hoàn toàn không cần phải làm vậy.
+- Vậy tôi đã tạo một lớp có tên là Item loader, nằm trong, ừm, trong, ừm, trong các trình tải (loaders).
+- Và điều này về cơ bản chỉ tải vào một loạt các điểm dữ liệu và gọi hàm phân tích (parser).
+- Và nó cũng cho phép bạn tải các tác vụ song song để chạy rất nhanh, nhưng về cơ bản chỉ là thực thi lại đoạn mã mà chúng ta vừa xem ở trên.
+- Và chúng tôi sẽ chạy lại chương trình này cho các thiết bị gia dụng để cho các bạn thấy nó có thể tải các thiết bị gia dụng.
+- Nó có một thanh tiến trình nhỏ xinh và nó cho biết đã hoàn thành.
+- Được rồi.
+### Muc 81
+
+- Vì vậy, nó nhanh hơn nhiều.
+- Nó thực hiện các tác vụ một cách nhanh chóng và song song.
+- Và như vậy, nó đã hoàn thành nhanh hơn nhiều so với trước đây.
+- Điều tôi sắp làm là áp dụng điều này không chỉ cho các thiết bị gia dụng mà còn cho tất cả các danh mục khác như ô tô, điện tử, sản phẩm văn phòng, dụng cụ và cải tạo nhà cửa, điện thoại di động, đồ chơi, thiết bị gia dụng một lần nữa, và nhạc cụ.
+- Và tôi sẽ bắt đầu và nó sẽ chạy.
+- Bây giờ việc này sẽ mất nhiều thời gian hơn đối với bạn vì nó sẽ phải tải xuống bộ dữ liệu từ Hugging Face trước tiên.
+- Và tôi đã tải xuống và hiện tại nó đang chạy trên máy tính của tôi.
+- Nó cũng đang làm hỏng máy tính của tôi.
+## Phan 28
+
+### Muc 82
+
+- Vậy nên máy tính của tôi có thể đang làm điều này một chút vì tôi đang làm cho máy tính của mình hoạt động quá tải, và tôi sẽ để nó chạy như vậy.
+- Tôi sẽ quay lại ngay để bạn có thể xem kết quả.
+- Và hãy nhớ, bạn không cần phải tự mình làm điều này nếu không muốn, vì tôi đã làm xong rồi.
+- Nhưng nếu bạn muốn thử, thì hãy cứ thử đi.
+- Tôi sẽ gặp bạn ngay lập tức.
+- Được rồi, vậy là đã hoàn thành.
+- Tất cả đã được tải xong.
+- Tôi mất khoảng mười phút.
+### Muc 83
+
+- Nếu bạn quyết định tự làm, có lẽ sẽ mất khoảng một giờ.
+- Lần đầu tiên bạn thực hiện thao tác này, dữ liệu sẽ được tải xuống tùy thuộc vào kết nối internet của bạn.
+- Và một lần nữa, để tóm tắt những gì chúng ta đã làm, chúng ta đã tải một tập dữ liệu từ Huggingface bằng hàm Huggingface Loaddataset.
+- Sau đó, chúng tôi đã sử dụng một hàm mà tôi đã viết có tên là parser, hàm này đọc dữ liệu đó và chuyển đổi nó thành một định dạng có cấu trúc hơn, giúp chúng tôi dễ dàng hiểu và xử lý hơn.
+- Và điều chúng tôi đã chọn là tạo một đối tượng loại item cho mỗi mục, và chúng tôi đã đảm bảo điền vào một số trường như trọng lượng và mô tả chi tiết, nhưng đã loại bỏ một số điểm dữ liệu.
+- Chúng tôi đã loại bỏ những thứ có mô tả ngắn gọn hơn.
+- Chúng tôi đã loại bỏ những thứ không có giá trị, và chúng tôi đã giữ lại những thứ có giá trị mà chúng tôi cho là phù hợp nhất với chúng tôi, cùng với độ dài văn bản phù hợp.
+- Và kết quả là, hiện nay chúng ta đã thu thập được tổng cộng gần 3 triệu mục từ Huggingface.
+### Muc 84
+
+- Vậy là tôi đã nói với bạn rằng có rất nhiều.
+- Nếu chúng ta xem xét một trong số này, chúng ta có thể xem xét các mục.
+- Không.
+- À, đó là một tấm bạt che hàng hóa màu đen có thể thu gọn, cùng với một loại màn che riêng tư phía sau.
+- Hãy chọn một cái ngẫu nhiên.
+- Hãy lấy mục số 1000.
+- Cảm biến nhiệt độ tương thích với xe Volvo.
+- Được rồi.
+## Phan 29
+
+### Muc 85
+
+- Điều đó thật thú vị.
+- Vậy là có rất nhiều thứ ở đây.
+- Thực tế, có gần 3 triệu món đồ.
+- À, và đã đến lúc chúng ta thực sự đào sâu vào vấn đề này.
+- Khi chúng tôi hoàn tất việc chọn lọc bộ dữ liệu của mình.
+- Sau một thời gian tìm hiểu, điều đầu tiên tôi nhận ra là thực tế có một số bản sao trùng lặp trong đây.
+- Có một số bản sao trùng lặp vì cùng một sản phẩm được đề cập trong hai phần khác nhau trên trang web Amazon.
+- Và các bản sao trùng lặp là rất nguy hiểm.
+### Muc 86
+
+- Chúng là vấn đề lớn đối với học máy và cho mọi việc chúng ta sắp thực hiện trong vài tuần tới, và chúng là vấn đề lớn vì bạn có thể vô tình lấy một thứ gì đó và có bản sao trong dữ liệu kiểm tra, hoặc dữ liệu xác thực cũng có trong dữ liệu đào tạo của bạn, do đó điều này được biết đến rộng rãi là rò rỉ dữ liệu hoặc ô nhiễm dữ liệu.
+- Và điều này đặc biệt nguy hiểm, như tôi đã nói, ừm, bạn có thể nói, ừm, vậy thì sao.
+- Vậy có thể chúng ta đã báo cáo độ chính xác của mình một cách không chính xác.
+- Không, vấn đề là khi bạn làm như vậy, không chỉ độ chính xác bị sai, mà kết quả kiểm tra xác thực của bạn còn cho thấy bạn đang làm tốt trên dữ liệu chưa từng thấy, trong khi thực tế đó là dữ liệu đã được xem trước.
+- Bạn đã có dữ liệu này trong tập dữ liệu đào tạo, nhưng cũng vì bạn nhận thấy rằng tập dữ liệu kiểm tra của bạn đang hoạt động tốt hơn.
+- Bạn sẽ tiếp tục huấn luyện vì bạn cho rằng mình đang ngày càng tiến bộ hơn, và do đó có thể bị đánh lừa bởi kết quả tốt từ dữ liệu kiểm tra, điều này có thể dẫn đến kết quả tồi tệ trên dữ liệu chưa từng thấy, hiện tượng này đôi khi được gọi là quá khớp (overfitting) khi xảy ra.
+- Vì vậy, đây là điều mà chúng ta cần phải phòng ngừa.
+- Và trước tiên, chúng ta sẽ trộn đều mọi thứ lại với nhau vì đó là việc nên làm.
+### Muc 87
+
+- Chức năng trộn ngẫu nhiên các chấm sẽ trộn các mục của bạn.
+- Và sau đó, chúng ta sẽ thực hiện đoạn mã này, một đoạn mã khá tinh vi, để đảm bảo chắc chắn rằng chúng ta đã loại bỏ khỏi các mục bất kỳ thứ gì đã được xem trước đó.
+- Vậy là chúng ta bắt đầu với 2,9 triệu mục.
+- Chúng tôi đang kiểm tra để đảm bảo rằng không có hai mục nào có cùng tiêu đề, và cũng không có hai mục nào có cùng mô tả đầy đủ.
+- Và sau khi hoàn thành việc đó, chúng ta hiện còn lại 2.887.000 mục.
+- Vậy là đúng như vậy, bạn có thể thấy rằng chúng tôi đã loại bỏ rất nhiều bản sao trùng lặp khi thực hiện việc đó.
+- Được rồi, bây giờ chúng ta hãy xem lại một lần nữa về độ dài, số lượng ký tự trong khoảng 2,8 đến 2,9 triệu và xem cách phân phối hiện tại như thế nào.
+- Đây là nó.
+## Phan 30
+
+### Muc 88
+
+- Nó tương tự như trước đây, nhưng tất nhiên số lượng trong biểu đồ này lớn hơn nhiều, vì chúng ta có thể thấy có bao nhiêu mục với các độ dài khác nhau.
+- Bạn có thể thấy rằng phần lớn trong số chúng có độ dài trung bình là 1600 ký tự.
+- Và sau đó chúng ta có một đỉnh nhỏ tại mức 4000.
+- Và hãy cùng xem xét cách phân phối giá cả của các mặt hàng hiện nay, khi chúng ta đã có bộ dữ liệu khổng lồ này.
+- Và chúng ta có thể thấy một lần nữa rằng nó nghiêng hẳn về các mặt hàng giá rẻ.
+- Chúng tôi có giá trung bình là 59.
+- Chúng ta rõ ràng có rất nhiều sản phẩm ở phân khúc giá rẻ.
+- Và bạn có thể thấy ở đó đỉnh núi khổng lồ này, trông giống như nằm trong khoảng 30 đến 40.
+### Muc 89
+
+- Và sau đó, nó có một đuôi kéo dài cho đến mức cao nhất là 99,49, nhưng phân phối này có sự lệch lạc nghiêm trọng.
+- Được rồi.
+- Tiếp theo, chúng ta sẽ xem xét các danh mục sản phẩm khác nhau mà chúng ta đã thu thập từ Amazon, vì chúng ta đã thu thập từ nhiều danh mục khác nhau.
+- Hãy xem chúng ta có bao nhiêu trong mỗi cái.
+- Cho đến nay, phần lớn các sản phẩm của chúng tôi là phụ tùng ô tô hoặc sản phẩm liên quan đến ô tô, với số lượng gần một triệu sản phẩm.
+- Và sau đó, bạn có thể thấy rằng chúng ta có số lượng ít hơn của tất cả các thứ khác.
+- À, điều đó cũng bao gồm cả điều đó.
+- Tiếp theo là dụng cụ và cải tạo nhà cửa, sau đó là điện tử.
+### Muc 90
+
+- Được rồi.
+- Vậy có lẽ có hai vấn đề mà tôi quan ngại về bộ dữ liệu này.
+- Nếu chúng ta muốn sử dụng điều này một cách hiệu quả nhất để đào tạo mô hình của mình.
+- Một trong số đó là nó dường như tập trung chủ yếu vào phụ tùng ô tô hoặc các sản phẩm liên quan đến ô tô, như bạn có thể thấy ở đây.
+- Và điều còn lại là nó dường như quá thiên vị về những thứ rẻ tiền.
+- Và tôi thực sự mong muốn chúng ta có thể ước tính chính xác trên toàn bộ phạm vi giá cả này.
+- Vậy đây là hai điều mà tôi muốn sửa chữa.
+- Và một cách để khắc phục điều này là bằng cách lấy phân phối của gần 3 triệu sản phẩm và chọn lọc, chọn một tập con của dữ liệu này và làm cho tập con đó có trọng số cao hơn một chút theo cách bạn mong muốn.
+## Phan 31
+
+### Muc 91
+
+- Và bạn có thể nhận ra rằng có một chút bí quyết trong việc này.
+- Nó có phần hơi mơ hồ.
+- Tôi đang cố gắng xây dựng một bộ dữ liệu tốt hơn.
+- Và như tôi đã nhiều lần nhắc đến trong hành trình chung của chúng ta, liệu có cách nào để bạn tiếp cận vấn đề này một cách khoa học hơn không?
+- Đó chính là bạn nên thu thập và phân tích nhiều bộ dữ liệu khác nhau bằng các phương pháp đa dạng, sau đó thử nghiệm chúng để xác định bộ dữ liệu nào mang lại hiệu quả tốt nhất khi đào tạo mô hình dựa trên chỉ số kết quả kinh doanh của bạn.
+- Đó là cách đúng đắn để làm điều đó.
+- Và tin tốt là tôi đã làm điều đó rồi.
+- Tôi đã làm việc với bộ dữ liệu này trong một thời gian khá dài, và tôi đã thử nghiệm nhiều phương pháp khác nhau, và cuối cùng tôi đã có được bộ dữ liệu này, nó hoạt động rất hiệu quả.
+### Muc 92
+
+- Và tôi sẽ nói với bạn, thực ra đó là điều đầu tiên tôi làm vì tôi có直觉 tốt cho việc này sau khi làm nó một thời gian.
+- Nhưng đôi khi直觉 của tôi sai.
+- Và có một số phương pháp tôi đã thử nghiệm nhưng kết quả không tốt khi áp dụng vào quá trình đào tạo, nhưng phương pháp cụ thể này đã mang lại hiệu quả tốt.
+- Nhưng nếu bạn đang thắc mắc, kiểu như, làm sao tôi có直觉 này?
+- Làm sao tôi biết rằng các sản phẩm quá nghiêng về phía hàng rẻ tiền?
+- Câu trả lời là bạn thử n ghiệm, bạn thử, bạn chạy quá trình đào tạo và xem cái nào hoạt động tốt nhất.
+- Và điều tôi có cho bạn ngay bây giờ sẽ là một bộ dữ liệu.
+- Điều đó sẽ hoạt động khá tốt.
+### Muc 93
+
+- Hãy xem nào.
+- Được rồi.
+- Đây là phần thực sự hấp dẫn.
+- Vậy bây giờ chúng ta sẽ chọn một mẫu ngẫu nhiên từ phân phối tổng thể.
+- Chúng ta sẽ thực hiện điều đó bằng cách sử dụng hàm numpy.
+- Và đây là một hàm cho phép bạn nhập kích thước 820.000.
+- Và tôi sẽ chọn 820.000 từ đó, chọn ra từ dân số lớn hơn.
+- Nhưng tôi sẽ làm điều đó theo cách có trọng số.
+## Phan 32
+
+### Muc 94
+
+- Tôi sẽ ưu tiên một số mục hơn những mục khác, và bạn sẽ truyền vào một danh sách các trọng số, mà tôi sẽ sử dụng.
+- Được rồi.
+- Và cách chúng ta xác định các trọng số đó, tôi sẽ trừ điểm cho những thứ rẻ tiền.
+- Tôi sẽ nói rằng việc nhân giá lên gấp đôi là một cách để khuyến khích người ta chọn những thứ đắt tiền.
+- Và tôi cũng sẽ áp dụng hình phạt đối với các công cụ và đồ dùng cải tạo nhà cửa, toàn bộ danh mục này và danh mục ô tô.
+- Và tôi sẽ áp dụng hình phạt nặng đối với danh mục đó.
+- Và tôi đã phải áp dụng mức phạt cao hơn nhiều vì đáng tiếc là các bộ phận ô tô thường là những mặt hàng đắt tiền hơn, do đó việc tính trọng số này càng làm cho các bộ phận ô tô được ưu tiên hơn nữa.
+- Vì vậy, tôi đã phải điều chỉnh nó bằng cách nhân với 0.05 để có được phân phối tốt.
+### Muc 95
+
+- Vậy hy vọng bạn đã hiểu ý.
+- Đây là một quá trình lặp đi lặp lại, rất thử nghiệm.
+- Bạn lấy mã như thế này.
+- Bạn di chuyển các tạ.
+- Bạn tiếp tục chơi cho đến khi có được một kết quả phân phối mà bạn ưng ý.
+- Vậy hãy xem phân phối mà chúng ta sẽ nhận được ngay bây giờ.
+- Tôi đang chạy chương trình này.
+- Nó đang thực hiện việc lựa chọn này từ dân số lớn hơn.
+### Muc 96
+
+- Hiện tại, chúng ta có 820.000 mặt hàng.
+- Và hãy cùng xem cách giá của họ được phân phối như thế nào.
+- Đây là giá của các mặt hàng.
+- Và ban đầu, bạn có thể nhìn vào đó và nói: "Ồ, nó vẫn còn rất méo mó." Thực ra, điều đó luôn có xu hướng bị lệch vì ngay từ đầu chúng ta đã không có nhiều mặt hàng đắt tiền.
+- Nhưng thực tế, độ lệch thực sự ít hơn nhiều.
+- Tôi nghĩ giá trung bình trước đây là khoảng $59, và bây giờ là $140, một mức giá trung bình hợp lý hơn nhiều, phù hợp hơn với những loại sản phẩm mà tôi muốn thử nghiệm mô hình của chúng ta sau này.
+- Và bạn có thể thấy rằng ở đây có một đuôi dày hơn.
+- Còn nhiều mục khác.
+## Phan 33
+
+### Muc 97
+
+- Bạn cũng có thể nhận thấy có những đỉnh nhọn tại các điểm khác nhau.
+- Và những đợt tăng giá này là do thường thì các sản phẩm thường được định giá ở mức như $399, $499.
+- Và bạn có thể thắc mắc tại sao, tại sao tôi không điều chỉnh cho điều đó nữa?
+- À, đó là vì đó là một đặc điểm thực sự của chính dữ liệu.
+- Thực tế là trong thế giới thực, các sản phẩm có thể có mức giá như vậy.
+- Thực ra, chúng ta muốn mô hình của mình nhận biết điều đó và có khả năng học hỏi từ đó.
+- Vì vậy, việc có thông tin đó trong dữ liệu của chúng ta là điều tốt.
+- Vậy là đây.
+### Muc 98
+
+- Nó vẫn còn méo mó nhưng không méo mó đến mức nghiêm trọng như trước.
+- Chắc chắn đã được sửa chữa.
+- Và đây chính là loại phân phối mà tôi đang tìm kiếm, được rồi.
+- Và tôi sẽ sắp xếp lại dữ liệu một lần nữa.
+- Tôi nhận ra rằng chúng ta đã thực hiện điều đó bằng cách chọn từ dữ liệu đó, nhưng vẫn là một thói quen tốt để trộn ngẫu nhiên dữ liệu của bạn để làm cho nó trở nên đa dạng hơn.
+- Và tôi đang làm việc này ở đây.
+- Hạt ngẫu nhiên Seed42.
+- Đặt hạt giống ngẫu nhiên là cách để cố định các số ngẫu nhiên sao cho chúng luôn giống nhau mỗi khi bạn chạy chương trình này, để bạn và tôi cuối cùng sẽ có cùng một tập dữ liệu.
+### Muc 99
+
+- À, và, à, lý do bạn chọn 42 là vì thông thường người ta thường đặt giá trị hạt giống ngẫu nhiên là 42.
+- Và thực sự có hai lý do cho điều đó.
+- Lý do bạn làm điều đó là để rõ ràng rằng bạn không chọn lọc một cách tùy tiện.
+- 42 là con số mà mọi người thường chọn.
+- Và như vậy, bằng cách luôn thực hiện 42, điều này cho thấy rằng bạn không phải đang thử nghiệm với nhiều con số khác nhau cho đến khi tìm được một con số tình cờ mang lại kết quả tốt.
+- Bạn chỉ cần chọn cái mà mọi người chọn 42.
+- Đó là một trong những lý do.
+- Lý do khác, tất nhiên, là vì nó đang chơi.
+## Phan 34
+
+### Muc 100
+
+- Đây là một lời tri ân dành cho cuốn sách "Hướng dẫn du hành vũ trụ cho người đi nhờ xe".
+- À, câu trả lời 42 cho cuộc sống, vũ trụ và mọi thứ.
+- Đó giống như một câu đùa của những người mê công nghệ, một lời chào nhỏ nhắn dành cho điều đó.
+- Đó là lý do tại sao mọi người luôn đặt giá trị mặc định của họ là 42.
+- Và đây là nó.
+- Chúng ta sẽ xem lại giá một lần nữa.
+- Và tất nhiên, điều này cũng giống như trước đây, chỉ là sự xáo trộn và không ảnh hưởng đến giá cả.
+- Và chúng ta cũng sẽ xem xét cách các yếu tố được phân bổ vào các danh mục khác nhau, đây là điều khác mà chúng ta đã điều chỉnh.
+### Muc 101
+
+- Và đây là các danh mục cuối cùng của chúng ta, bao gồm các sản phẩm điện tử chất lượng cao và các công cụ hàng đầu cùng với các sản phẩm cải thiện nhà cửa.
+- Và sau đó, ngành ô tô dường như là một phân khúc nhỏ, nhỏ nhắn, ừm, của các danh mục khác nhau.
+- Được.
+- Đồ gia dụng và nhạc cụ cũng nằm trong danh sách đó, nhưng số lượng các mặt hàng này ít hơn nhiều.
+- Sẽ thật kỳ lạ nếu tất cả đều giống nhau.
+- Vậy thì điều này dường như hoàn toàn chấp nhận được.
+- Có rất nhiều sản phẩm ô tô, nhưng không đến mức khiến dữ liệu của chúng ta bị quá tải.
+- Được rồi.
+### Muc 102
+
+- Và bây giờ, ừm, chúng ta hãy xem điều đó trong biểu đồ tròn vì một số người thích biểu đồ tròn.
+- Đây là nó.
+- À, và à, bạn có thể thấy.
+- Đúng vậy.
+- Rõ ràng không có gì chiếm ưu thế.
+- Chúng ta không có sự thống trị trong ngành ô tô.
+- À, đây là một sự phân phối sản phẩm rất tốt, rất tốt.
+- Và như tôi đã nói, nếu điều này có vẻ như một bí quyết khó hiểu, thì cũng không sao.
+## Phan 35
+
+### Muc 103
+
+- Bạn nên làm quen với nó.
+- Bạn nên thử nghiệm.
+- Chọn lọc một bộ dữ liệu khác.
+- Yếu tố quan trọng nhất là yếu tố nào hoạt động hiệu quả nhất trong quá trình đào tạo.
+- Được rồi.
+- Sau đó, chúng ta sẽ tiến hành một vài phân tích thêm để xem liệu có đặc điểm nào của dữ liệu mà chúng ta cần lưu ý hay không.
+- Và như vậy, hôm nay chúng ta sẽ kết thúc tại đây.
+- Hãy kết thúc việc này đi.
+### Muc 104
+
+- Một điều quan trọng cần xem xét với dữ liệu của bạn là các mối tương quan.
+- Có rõ ràng rằng dữ liệu của bạn có mối quan hệ nào đó với một mối quan hệ, ví dụ như giữa giá và số lượng ký tự trong mô tả không?
+- Có thể là trường hợp văn bản dài hơn thường được liên kết với các mặt hàng đắt tiền hơn.
+- Và chúng ta có thể làm điều đó bằng cách vẽ biểu đồ để xem liệu điều đó có đúng hay không.
+- Vậy là tôi đang xem biểu đồ này rất ồn ào, cho thấy số lượng ký tự cụ thể trong phần mô tả.
+- À, nó hết bao nhiêu tiền vậy?
+- Và, ừm, có vẻ như không có gì đặc biệt ở đó.
+- Tôi không thấy có nhiều mối liên hệ ở đó.
+### Muc 105
+
+- Không có gì.
+- Tôi không thể nói được gì.
+- À, còn về việc chờ đợi, liệu có phải những thứ nặng hơn thường có giá cao hơn không?
+- Có thể là vậy.
+- Và, ừm, có vẻ như có điều gì đó đang xảy ra ở đây.
+- Đúng.
+- Rõ ràng là có rất nhiều thông tin không chính xác vì có những thứ không có trọng lượng hoặc ít nhất là không được đề cập trong mô tả sản phẩm trên Amazon.
+- Và thế nhưng, chúng có giá cao.
+## Phan 36
+
+### Muc 106
+
+- À, nhưng dường như có điều gì đó đang xảy ra ở đây.
+- Vì vậy, chúng ta có thể có một chút ý tưởng rằng trọng lượng đó có thể là một yếu tố trong việc dự đoán chi phí của một thứ gì đó.
+- Được rồi.
+- Đó là kết thúc của việc xem xét một số mối tương quan.
+- Bạn nên xem thêm.
+- Bạn có thể nghĩ ra nhiều cách khác nhau để khai thác dữ liệu này, nghĩ ra nhiều cách khác nhau để phân tích nó và sử dụng các biểu đồ trực quan này.
+- Tất nhiên tôi đang sử dụng matplotlib.
+- Và đây chỉ là những mẫu có sẵn mà bạn có thể sao chép, dán và điều chỉnh kích thước, tạo biểu đồ histogram mới, tạo biểu đồ thanh mới.
+### Muc 107
+
+- Hãy xem dữ liệu.
+- Bạn cần phải có cái nhìn sâu sắc về dữ liệu này, vì chúng ta sẽ thực hiện một số phân tích dữ liệu chuyên sâu với dữ liệu này, và việc hiểu rõ về nó từ trước là rất quan trọng.
+- Được rồi.
+- Và như vậy, bước cuối cùng là tải lên dữ liệu đã được chọn lọc này lên hub để những người không muốn thực hiện toàn bộ quy trình này có thể tải xuống từ hub, và dữ liệu đã được chọn lọc sẵn, đây là một bộ dữ liệu tuyệt vời.
+- Vậy chúng ta sẽ làm điều đó ngay bây giờ.
+- Vì vậy, việc đẩy nội dung lên trang chủ rất đơn giản.
+- Hub, ừm, bạn cần có tên người dùng của mình và tôi khuyên bạn nếu muốn sử dụng dữ liệu của tôi thì hãy giữ nguyên tên người dùng của tôi ở đây.
+- Các bộ dữ liệu này sẽ được công khai.
+### Muc 108
+
+- Bạn có thể chọn để các bộ dữ liệu mà bạn tạo ra là riêng tư hoặc công khai.
+- Chúng được đặt ở chế độ riêng tư theo mặc định.
+- Khi bạn công khai dữ liệu, điều đó có nghĩa là bất kỳ ai cũng có thể tải xuống dữ liệu của bạn.
+- Tôi sẽ tạo ra hai bộ dữ liệu khác nhau, và trong tuần tới, chúng ta sẽ có hai bộ dữ liệu song song này, một bộ sẽ được gọi là "full" và một bộ sẽ được gọi là "lite", và "full" là bộ dữ liệu lớn và nặng.
+- Tất cả 820.000 sản phẩm dành cho những ai thực sự muốn thử thách bản thân.
+- Và Lite là một phiên bản tiện lợi hơn với 20.020 điểm dữ liệu năm 2000, dành cho những người muốn tập luyện nhưng không muốn dành nhiều ngày để làm điều đó.
+- À, nếu bạn không phải là một người mê công nghệ như tôi, à, nhưng, à, hai bộ dữ liệu này sẽ là "full" và "lite", tên của tôi và sau đó là các mục "raw", "full" và "raw lite".
+- Chúng tôi sẽ chia dữ liệu thành ba phần: dữ liệu đào tạo, dữ liệu kiểm tra và dữ liệu thử nghiệm.
+## Phan 37
+
+### Muc 109
+
+- Hãy nhớ ba nguồn dữ liệu chính cho dự án lớn.
+- Dữ liệu đào tạo sẽ bao gồm 800.000 mẫu, 10.000 mẫu kiểm tra và 10.000 mẫu thử nghiệm.
+- Và tôi sẽ đẩy nó đến hub.
+- Cái kia sẽ nhỏ hơn khá nhiều.
+- Sẽ là 20.000, 1.000 1.000.
+- Gửi điều đó đến trung tâm.
+- Vì vậy, tôi sẽ không chạy nó ngay bây giờ vì tôi đã chạy nó rồi.
+- Tôi đã tải lên nó lên hub rồi.
+### Muc 110
+
+- Bạn sẽ thấy nó ở đó với những tên này.
+- Chúng là tài liệu công khai và ngày mai chúng ta sẽ tải chúng xuống và sử dụng chúng.
+- Và đó là bộ dữ liệu của chúng tôi, đã được tuyển chọn kỹ lưỡng.
+- Và tôi đã ghi chú một điều nhỏ thú vị ở đây rằng tôi rất thích tạo ra những biểu đồ trực quan khác nhau.
+- Và có một bộ sưu tập các màu sắc khác nhau mà bạn có thể sử dụng để tạo ra các loại biểu đồ khác nhau.
+- Có một trang web khá hữu ích, nơi sẽ hiển thị cho bạn các màu sắc khác nhau mà bạn có thể sử dụng.
+- Bạn có thể sử dụng, ừm, ở đây cho các biểu đồ khác nhau của mình.
+- Tôi hy vọng bạn sẽ khám phá điều này.
+### Muc 111
+
+- Tôi hy vọng bạn đang đến đó ngay bây giờ và tạo ra rất nhiều biểu đồ trực quan để thực sự, thực sự nắm vững dữ liệu này và hiểu rõ nó từ A đến Z.
+- Và như vậy, chúng ta sẽ quay lại để kết thúc ngày hôm nay và tự hào về việc đã xây dựng được một bộ dữ liệu xuất sắc.
+- Và vậy, xin chúc mừng, bạn đã tự tạo bộ dữ liệu đào tạo, kiểm tra và thử nghiệm của riêng mình hoặc đã xem tôi thực hiện điều đó.
+- Bạn đã hiểu đủ rồi.
+- Bạn đồng ý với điều đó.
+- Bạn rất vui vì tôi đã làm điều đó, và bạn đã sẵn sàng để tải xuống từ Huggingface hub.
+- Như tôi đã nói, việc bạn thực hiện việc tuyển chọn này không phải là điều quá quan trọng.
+- Điều quan trọng hơn là bạn nắm được ý chính.
+## Phan 38
+
+### Muc 112
+
+- Bạn đã hiểu được ý chính của nó.
+- Bạn hiểu rằng chúng tôi đã chọn lọc bộ dữ liệu này và loại bỏ các giá trị bất thường.
+- Chúng tôi đã loại bỏ những thứ chúng tôi không quan tâm, như những mặt hàng không có giá.
+- Và chúng tôi đã lấy một mẫu từ phân phối, dường như có một mẫu đại diện tốt cho các loại nguyên tử mà chúng tôi quan tâm, và cũng với các loại mô tả mà chúng tôi quan tâm.
+- Đó chính là điều quan trọng nhất.
+- Được rồi.
+- Chúc mừng.
+- Ngoài tất cả những gì bạn đã làm với các mô hình nguồn mở và nguồn đóng, ngoài Rag với Lang Chain, bây giờ bạn có thể chọn điều tra và tùy chỉnh bộ dữ liệu của riêng mình dựa trên dữ liệu mà bạn đã thu thập từ Hugging Face hoặc từ bất kỳ nguồn nào khác như Kaggle.
+### Muc 113
+
+- Được rồi, lần sau sẽ có nhiều thứ hơn.
+- Ngày mai, chúng ta sẽ cùng nhau tìm hiểu một chiến lược gồm năm bước để lựa chọn chương trình đào tạo và triển khai Hệ thống Quản lý Học tập (LMS).
+- Sau đó, chúng ta sẽ thực hiện một việc rất thú vị là tiền xử lý tập dữ liệu.
+- Và đây là một ý tưởng hay từ khoảng sáu tháng qua, khi mọi người sử dụng Hệ thống Quản lý Học tập (LMS) như một cách để nâng cao chất lượng dữ liệu của họ.
+- Và tất nhiên, đây cũng là một kỹ thuật Rag nâng cao để tiền xử lý dữ liệu của bạn.
+- Vậy chúng ta sẽ làm điều đó.
+- Đây cũng sẽ là cơ hội để tôi giới thiệu với các bạn về một cách khác để thực hiện các yêu cầu API đến LMS, được gọi là chế độ batch.
+- Trong chế độ này, bạn không thực hiện yêu cầu theo cách đồng bộ (request-response), mà thay vào đó, bạn gửi một loạt yêu cầu và sau đó quay lại để thu thập một loạt kết quả.
+### Muc 114
+
+- Và đây là một kỹ thuật chuyên nghiệp.
+- Đây là một kỹ thuật công nghệ LM tiên tiến.
+- Và vì vậy, tôi thực sự rất vui khi có thể giới thiệu nó cho các bạn.
+- Được rồi.
+- Có rất nhiều việc phải làm.
+- Chỉ còn một chút thông tin nữa trước khi chúng ta bắt đầu đào tạo, nhưng nó đáng giá.
+- Sẽ rất tuyệt vời.
+- Tôi sẽ gặp bạn vào ngày mai.
+

@@ -1,0 +1,1700 @@
+Được rồi, sự tuyệt vời của tuần thứ hai tiếp tục với tuần thứ hai, ngày thứ tư, và đó là một ngày lớn
+
+khác để nâng cấp.
+
+Vậy là bạn đã biết những điều cơ bản về Transformers rồi.
+
+Thuật ngữ.
+
+Bạn có thể tự tin viết mã bằng API hoàn thành trò chuyện.
+
+Và bây giờ bạn có thể xây dựng trợ lý chatbot AI, bao gồm API tương tác có thể gọi GPT và Claude.
+
+Sau hôm nay, bạn sẽ có thể định nghĩa các công cụ.
+
+Công cụ là một vấn đề lớn.
+
+Nó đã được sử dụng.
+
+Đó là thứ nằm ở khối xây dựng cơ bản của AI di truyền.
+
+Nó cũng được sử dụng để xây dựng các trợ lý chatbot thương mại chức năng, như bạn sẽ thấy, vì chúng ta sẽ thực hiện
+
+điều đó ngày hôm nay.
+
+Và đối với những bạn đã tham gia khóa học AI Agentic của tôi, các bạn đã rất quen thuộc với các công cụ.
+
+Và vì thế ngày hôm nay có thể quá đơn giản đối với bạn, nhưng tôi vẫn sẽ cố gắng làm cho nó hấp dẫn hơn theo một cách nào đó.
+
+Hy vọng là sẽ có điều gì đó mà bạn không ngờ tới.
+
+Nhưng điều chúng ta sẽ làm là nói về các công cụ.
+
+Vậy chính xác thì sao?
+
+Tình hình thế nào rồi?
+
+Điều này có nghĩa là gì?
+
+Có lẽ bạn đã nghe điều này thường xuyên.
+
+Cung cấp công cụ cho mô hình có nghĩa là gì?
+
+Bạn đang cho phép một mô hình biên giới hoặc bất kỳ mô hình nào, một LM, khả năng kết nối với một hàm bên
+
+ngoài, để có thể gọi một hàm là một đoạn mã.
+
+Sau đó, nó cho phép bạn có được những phản hồi sâu hơn, vì bạn có thể mở rộng kiến thức của mô hình, vì nó có thể sử
+
+dụng một công cụ để truy xuất thứ gì đó, có thể là từ cơ sở dữ liệu.
+
+Nó có thể thực hiện các ứng dụng, có thể đặt vé và có thể nâng cao các hoạt động.
+
+Bạn có thể có các công cụ có thể thực hiện những việc như thực thi mã Python, hoặc có thể chạy một trường hợp thử nghiệm, hoặc chỉ có thể
+
+thực hiện một số phép tính.
+
+Tất cả những thứ này đều là những công cụ mà bạn có thể trang bị cho mô hình để thực hiện.
+
+Và chúng tôi thực hiện nhiều điều đó trong khóa học khác của tôi.
+
+Ờ, nhưng chờ một chút đã.
+
+Nếu đây là lần đầu tiên bạn nghe về điều này, bạn có thể nghĩ, hãy chờ đã, chờ
+
+đã.
+
+Vì vậy, bạn sẽ cấp cho LLM khả năng chạy một số mã mà tôi đã viết, có thể sẽ truy xuất thứ gì đó từ cơ sở
+
+dữ liệu hoặc thứ gì đó tương tự.
+
+Đợi đã, nghe có vẻ hơi đáng sợ.
+
+Và LLM giống như một mô hình khoa học dữ liệu.
+
+Đây là mô hình tạo ra token.
+
+Nó sẽ xuất ra mã thông báo, đúng không?
+
+Đó chính là những gì họ làm.
+
+Đó là một mạng nơ-ron sử dụng các tham số có trọng số, blah blah, blah, blah blah.
+
+Và nó sử dụng các lớp chú ý và mọi thứ khác.
+
+Và kết quả cuối cùng thu được chính là xác suất của mã thông báo tiếp theo.
+
+Vậy thì mạng nơ-ron này sẽ đột nhiên quyết định thế nào, tôi sẽ không tạo ra mã thông báo nữa.
+
+Tôi sẽ làm một điều hoàn toàn khác.
+
+Tôi sẽ đi gọi một công cụ.
+
+À, không chỉ vậy, mà có lẽ nó còn chạy trên nền tảng đám mây trong phần cứng của OpenAI ở đâu đó tại
+
+Thung lũng Silicon.
+
+Và nó sẽ đột nhiên trở nên như thế này, tôi sẽ gắn lại một chút giống như một
+
+gradio.
+
+Bản demo có thể quay trở lại, nó sẽ quay trở lại và gọi một số mã của tôi.
+
+Nghe có vẻ lạ.
+
+Chính xác thì điều đó sẽ xảy ra như thế nào?
+
+Mạng lưới nơ-ron bắt đầu như thế nào?
+
+Bắt đầu chạy các chức năng và làm thế nào để chạy các chức năng đó trên máy tính của tôi?
+
+Vậy thì câu trả lời là không.
+
+Cách thức hoạt động thực tế của nó rất bình thường, đơn giản và rõ ràng.
+
+Và không có bùa ngải nào cả.
+
+Và để tôi giải thích điều đó.
+
+Để tôi giải thích rõ hơn cho bạn nhé.
+
+Về mặt lý thuyết, gọi công cụ là mọi người làm cho nó nghe giống như thế này.
+
+Một LLM đang quyết định chạy mã mà tôi đã viết, như hàm đặt chỗ hoặc lệnh gọi cơ sở dữ liệu hoặc thứ gì đó
+
+tương tự.
+
+Vì vậy, bạn có một số mã mà bạn đã viết và nó sẽ thực hiện cuộc gọi đến một LLM như thế này với một lời
+
+nhắc và một phản hồi, và LLM đó sẽ quyết định như một phần của việc tìm ra lời nhắc này.
+
+Bạn biết gì không?
+
+Tôi sẽ thực thi một số mã.
+
+Tôi sẽ chạy một thứ gì đó giống như một công cụ.
+
+Và công cụ đó có thể là thứ gì đó thực hiện cơ sở dữ liệu, tra cứu phép tính, tự chạy một số mã.
+
+Giống như nó có thể là một công cụ lập trình vậy.
+
+Nó có thể làm được tất cả những điều đó.
+
+Và về mặt lý thuyết thì đây chính là những gì sẽ xảy ra.
+
+Nhưng trên thực tế, mọi chuyện không diễn ra như vậy.
+
+Đây chính là những gì xảy ra trong thực tế.
+
+Trong thực tế.
+
+Mã này sẽ gọi đến LLM và nói rằng tôi muốn làm điều này, điều này và điều này.
+
+Và với những gì trả về, LLM sẽ thông báo cho mã để thực hiện điều đó.
+
+Tôi nghĩ chúng ta nên chạy một công cụ, công cụ này, và mã của chúng ta sẽ chạy ra, thực hiện lệnh
+
+gọi Python, trả về câu trả lời, sau đó bạn gọi LLM lần thứ hai với câu trả lời và nói rằng, này,
+
+đây là lịch sử hội thoại.
+
+Tôi đã hỏi bạn một câu hỏi.
+
+Bạn trả lời và nói, hãy gọi một công cụ.
+
+Tôi đã gọi công cụ.
+
+Sau đây là câu trả lời cho câu hỏi đó.
+
+Bây giờ xin hãy trả lời câu hỏi.
+
+Và dựa trên lịch sử cuộc trò chuyện đó và không có gì khác, vì mọi cuộc gọi đều không có trạng thái.
+
+Dựa trên lịch sử đó, LLM sau đó trả về một cái gì đó, phản hồi theo cách tính đến việc
+
+gọi công cụ.
+
+Nó chỉ là thêm tin nhắn vào lịch sử trò chuyện.
+
+Và tin nhắn đó bao gồm yêu cầu gọi một công cụ.
+
+Chỉ có vậy thôi.
+
+LM vẫn chỉ đang tạo ra token.
+
+Đây là một chương trình thống kê tạo ra các mã thông báo có khả năng xảy ra.
+
+Và những mã thông báo đó có thể bao gồm, này, tôi cần bạn chạy một công cụ cho tôi.
+
+Và có thể bạn đã biết điều này rồi, nhưng nếu bạn không biết, bạn sẽ nghĩ, ồ, giờ thì tôi hiểu rồi.
+
+Và một phần nữa của câu đố cần nói đến là bạn có thể tự hỏi, vậy thì LM biết cách phản
+
+hồi bằng những mã thông báo này như thế nào để nói rằng tôi muốn gọi những công cụ này.
+
+Và câu trả lời lại rất đơn giản.
+
+Trong lời nhắc đầu tiên, tin nhắn đầu tiên bạn gửi tới LM, bạn đã nói rằng, này, tôi muốn bạn làm những
+
+việc sau, làm ơn.
+
+Nhân tiện, đây là nhiệm vụ của bạn.
+
+Tôi có khả năng chạy một số công cụ thay mặt bạn.
+
+Nếu bạn muốn tôi chạy bất kỳ công cụ nào trong số này, chỉ cần trả lời và bảo tôi chạy một công cụ, sau đó tôi sẽ liên hệ
+
+lại với bạn.
+
+Chỉ có thế thôi.
+
+Trong lời nhắc đầu tiên, bạn giải thích những công cụ nào có thể chạy theo cách mà LM đã được đào tạo,
+
+do đó nó sẵn sàng mong đợi định dạng gọi công cụ đó.
+
+Bạn thực hiện điều đó bằng cách mô tả nó trong JSON.
+
+Nó đã được đào tạo với rất nhiều JSON này.
+
+Sau đó, nó biết cách gọi một công cụ và tôi có thể biến điều này thành hiện thực đối với bạn nếu bạn chưa biết, hoặc nếu bạn vẫn
+
+chưa hoàn toàn bị thuyết phục.
+
+Tôi vừa mở ChatGPT và đưa ra lời nhắc.
+
+Đột nhiên xuất hiện.
+
+Tôi đã nhập lời nhắc này và bạn cũng có thể làm như vậy.
+
+Và tôi tin rằng đối với những người vẫn chưa thực sự hiểu rõ, hy vọng lời nhắc nhở này sẽ
+
+là động lực thúc đẩy bạn theo hướng tích cực.
+
+Nghe có vẻ tệ, nhưng lại đưa bạn đến một điều tuyệt vời hơn, đó là sự hiểu biết đầy đủ về các công cụ.
+
+Đây rồi.
+
+Ồ, bạn là nhân viên hỗ trợ của một hãng hàng không.
+
+Được rồi, đó là lời nhắc nhở của tôi về GPT.
+
+Bạn trả lời câu hỏi của người dùng.
+
+Bạn cũng có thể truy vấn giá vé.
+
+Chỉ cần trả lời.
+
+Sử dụng công cụ để lấy giá vé cho London, để lấy giá vé cho London hoặc cho một thành phố mà
+
+bạn nêu tên.
+
+Đây là câu hỏi.
+
+Người dùng Tôi muốn đi Paris.
+
+Giá vé máy bay là bao nhiêu và hãy xem ChatGPT phản hồi thế nào.
+
+Nó không phản hồi bằng cách trả lời người dùng.
+
+Nó phản hồi nguyên văn bằng công cụ sử dụng để lấy giá vé đến Paris.
+
+Vì vậy, tôi đã nói với nó rằng bạn có thể sử dụng một công cụ.
+
+Sau đây là cách thực hiện.
+
+Và đây là câu hỏi từ người dùng.
+
+Và kết quả là nó nói, được thôi, tôi muốn sử dụng công cụ của mình.
+
+Vậy thôi.
+
+Đó là cách công cụ hoạt động.
+
+Bạn yêu cầu LLM cung cấp hướng dẫn, bao gồm cả việc cho phép nó gọi một công cụ.
+
+Bạn đưa ra câu hỏi.
+
+Nếu muốn sử dụng công cụ nào đó, nó sẽ nói "Xin hãy cho tôi sử dụng công cụ đó".
+
+Bạn viết mã.
+
+Bạn cần có câu lệnh if trong mã của mình.
+
+Nếu nó muốn công cụ, thì tôi sẽ gọi công cụ.
+
+Và sau đó bạn gọi lại lần thứ hai với lịch sử cuộc trò chuyện, bao gồm cả lệnh gọi công cụ
+
+và câu trả lời.
+
+Tôi biết bạn hiểu mà.
+
+Bạn kiểu như, được thôi, bạn tin tôi chứ?
+
+Bạn đã hiểu rồi.
+
+Được thôi.
+
+Đã đến lúc chúng ta cùng thảo luận về lý do tại sao bạn sử dụng các công cụ.
+
+
+Vậy mọi người thường sử dụng công cụ theo những cách nào?
+
+Vâng, rõ ràng là chúng rất hữu ích khi tra cứu thông tin trong cơ sở dữ liệu.
+
+Tôi đã đề cập đến điều đó rồi.
+
+Chúng hữu ích khi thực sự thực hiện các hành động mà bạn có thể thực hiện trong cuộc trò chuyện với NLM.
+
+Một trợ lý có thể đặt lịch họp, đặt vé máy bay.
+
+Bạn có thể có bằng LLM để thực hiện phép tính.
+
+Một điều mà các học giả llms nổi tiếng là kém là khả năng tính toán.
+
+Vâng, bạn có thể cung cấp cho nó một công cụ có thể tính toán, vì chúng tôi nghi ngờ ChatGPT được cung cấp các công cụ như vậy, đó là lý do
+
+tại sao bây giờ nó có thể thực hiện các phép tính một cách dễ dàng.
+
+Tương tự như vậy, bạn có thể cung cấp cho nó một công cụ có thể thực thi mã Python, có thể theo cách an toàn, như trong một container
+
+Docker hoặc thứ gì đó tương tự.
+
+Điều đó có nghĩa là nó được rào chắn, được thử nghiệm, vì vậy khi bạn làm như vậy, đôi khi
+
+người ta gọi là có một tác nhân mã hóa.
+
+Đây là bằng LLM có khả năng thực thi mã để thực hiện nhiệm vụ của mình.
+
+Một tác nhân mã hóa không nhất thiết phải là một tác nhân viết mã.
+
+Nó thực sự có thể có nghĩa là một tác nhân, một lệnh gọi LLM có khả năng thực thi mã để thực hiện nhiệm vụ của mình.
+
+Và cuối cùng, trong danh sách này sẽ có một ví dụ về nơi bạn có thể có một LLM có thể trực tiếp sửa đổi UI, nó có thể tạo
+
+ra một biểu đồ mới được người dùng trực quan hóa ngay lập tức, do đó nó có thể thực hiện những việc có thể
+
+tương tác ngay lập tức với người dùng.
+
+Và tất nhiên, có rất nhiều cách khác nhau để bạn có thể sử dụng công cụ.
+
+Có lẽ bạn có thể nghĩ đến 100 điều khác mà tôi chưa nêu ra ở đây vì còn rất nhiều, rất nhiều, rất nhiều.
+
+Nhưng quan trọng là có một danh mục cụ thể mà tôi vẫn chưa đề cập đến.
+
+Ừ, đó chính là nơi có sự phấn khích lớn nhất.
+
+Và tất nhiên, tất cả đều liên quan đến AI khổng lồ.
+
+Có, ừm, hai ý tưởng, hai cách bạn có thể sử dụng các công cụ tạo nên một số ý tưởng cốt lõi đằng sau Agentic
+
+AI.
+
+Và trước hết, nói một cách đơn giản, bạn có thể sử dụng một công cụ bao gồm một cuộc gọi khác tới LLM.
+
+Vì vậy, bạn có thể nói với một LLM rằng: Này, anh có ba công cụ khác nhau.
+
+Họ thực hiện A, B và C, và thực ra A, B và C đều là những lời gọi đến các llms khác nhau để thực hiện nhiệm
+
+vụ đó.
+
+Và kết quả là, bạn đang trang bị cho LLM khả năng điều phối các hoạt động của các cuộc gọi LLM
+
+khác.
+
+Và tất nhiên, đó là một trong những ý tưởng cốt lõi của Agentic AI.
+
+Nó cho phép bạn có quy trình làm việc chuyên nghiệp trong đó LLM kiểm soát quy trình làm việc và điều phối
+
+các hoạt động.
+
+Vậy đó là một ý tưởng cốt lõi.
+
+Và ý tưởng cốt lõi khác chỉ là ý tưởng rằng bạn có thể có một công cụ giống như một loại công cụ danh sách việc
+
+cần làm, cho phép Lem lập kế hoạch cho một loạt các hoạt động và sau đó kiểm tra chúng và liên tục tinh chỉnh
+
+chúng và có một số tiêu chí đánh giá mà nó cần đạt được trước khi chắc chắn rằng công việc đã hoàn
+
+thành.
+
+Danh sách và tất cả các chức năng tương tự cho phép bạn xây dựng một hệ thống Lem hoạt động theo vòng lặp, có
+
+khả năng thực hiện các hoạt động và theo dõi chúng cho đến khi hoàn thành.
+
+Và tất nhiên, toàn bộ ý tưởng về vòng lặp tác nhân chính là ý tưởng cốt lõi đằng sau Agentic AI và nó được thực
+
+hiện thông qua việc sử dụng các công cụ.
+
+Và bạn đã thấy điều đó một cách rất rõ ràng qua mã Claude.
+
+Vì vậy, những ý tưởng này và nhiều ý tưởng khác nữa, ừm, tất cả đều hình thành nên một số cơ sở của AI Agentic.
+
+Và vì vậy, bạn có thể thấy các công cụ thiết yếu như thế nào đối với các tác nhân.
+
+Và đó là một số trường hợp sử dụng phổ biến của các công cụ.
+
+Nhưng vẫn còn nhiều điều khác nữa.
+
+Ừm, và tôi nghĩ đã đến lúc chúng ta nên dừng mọi cuộc nói chuyện này lại.
+
+Và chúng tôi đến Cursa và bắt đầu làm việc với các công cụ. Vâng, chúng ta đã ở Casa và bước sang tuần thứ hai.
+
+Chúng ta đang bước sang ngày thứ tư.
+
+Ừ, chúng ta chọn cách trôi qua thật nhanh.
+
+Và tôi thích tuần thứ hai.
+
+Ừ, được thôi.
+
+Ồ, và đây là tuần thứ hai, ngày thứ tư của dự án trợ lý AI hàng không.
+
+Bây giờ chúng ta sẽ tổng hợp lại những nội dung đã học.
+
+Và vì thế, ừm, tôi sẽ thực hiện một số lệnh nhập, bao gồm lệnh nhập gradio tuyệt đẹp là G.
+
+Và bây giờ tôi đã có khởi tạo thông thường.
+
+Như thường lệ, load env override là đúng.
+
+Và sau đó lấy khóa OpenAI.
+
+Bạn có thể sử dụng một khóa khác hoặc lần này tôi thậm chí còn đưa đoạn mã nhỏ vào đây.
+
+Nếu muốn, bạn có thể sử dụng trực tiếp mô hình nguồn mở.
+
+Lạc đà không bướu 3. 2 chỉ xử lý được phòng thí nghiệm này.
+
+Tôi phải nói với bạn rằng, nó khá dễ nhầm lẫn với việc gọi công cụ.
+
+Bạn có thể muốn thử một mô hình lớn hơn nếu có thể.
+
+Nếu bạn có thể cài nó vào máy tính của mình như Phi ba thì tôi nghĩ nó sẽ hoạt động tốt ở đây.
+
+Ừ, vậy thì Phi bốn hoặc Gemma ba.
+
+Ồ, tất cả đều tốt, nhưng bạn nên thử nghiệm và xem.
+
+Tôi nghĩ là llama 3. 2 có thể được thực hiện.
+
+Được thôi.
+
+Thông báo hệ thống.
+
+Hãy nhớ rằng đây là nơi chúng ta thiết lập bối cảnh.
+
+Bạn là trợ lý hữu ích của hãng hàng không Mighty Light II.
+
+Dù đó là gì đi nữa.
+
+Hay thay đổi.
+
+Đại loại như thế.
+
+Trả lời ngắn gọn và lịch sự.
+
+Không quá một câu.
+
+Luôn luôn chính xác.
+
+Nếu bạn không biết câu trả lời, hãy nói.
+
+Bạn còn nhớ tôi đã nói đó là tác phẩm kinh điển không?
+
+Một cách tốt để thử và đảm bảo rằng bạn không bị ảo giác.
+
+Được rồi.
+
+Và bây giờ là chức năng trò chuyện.
+
+Và tôi sẽ không gõ những dòng này chỉ vì bạn biết rõ điều đó.
+
+Đây là một cuộc gọi lại.
+
+Đây là một cuộc gọi lại.
+
+Dòng đầu tiên là loại công cụ giúp đảm bảo lịch sử của chúng ta được sạch sẽ và đẹp đẽ.
+
+Điều này không cần thiết đối với OpenAI, nhưng lại cần thiết đối với Gemini, grok và một số ngôn ngữ khác.
+
+Và sau đó chúng tôi xây dựng các thông báo, ừm, danh sách các từ điển với lời nhắc hệ thống, sử dụng thông báo hệ thống có lịch sử với
+
+lời nhắc người dùng mà chúng tôi gọi là trò chuyện OpenAI hoặc hoàn thành dot create.
+
+Chúng ta truyền vào mô hình của mình mô hình mà chúng ta đang sử dụng GPT bốn một mini là một lựa chọn rất tốt.
+
+Tin nhắn của chúng tôi và chúng tôi trả về các lựa chọn phản hồi không có nội dung tin nhắn.
+
+Và chúng ta hãy cùng xem nó đây.
+
+Và tôi sẽ chào bạn ở đó.
+
+Xin chào.
+
+Tôi có thể giúp gì cho chuyến đi của bạn hôm nay? Tôi muốn đi du lịch.
+
+Tuyệt vời.
+
+Bạn muốn đi du lịch ở đâu?
+
+Làm ơn đi London.
+
+Chắc chắn.
+
+Vui lòng cung cấp thành phố khởi hành và ngày đi mong muốn của bạn.
+
+Khỏe.
+
+Chúng tôi có một bot trò chuyện.
+
+Thật là một tiếng nổ lớn.
+
+Đó là lời nhắc của hệ thống.
+
+Bạn nên thử nghiệm điều này.
+
+Bạn có thể sử dụng lời nhắc hệ thống để thiết lập âm báo.
+
+Bạn có thể biến nó thành một bot trò chuyện châm biếm nếu muốn.
+
+Và bạn có thể cười khúc khích.
+
+Trong ngày hôm nay, tôi sẽ giữ mọi thứ ở mức nghiêm túc bình thường.
+
+Ồ, và bạn có thể thấy rằng nó đưa ra những câu trả lời ngắn gọn và lịch sự.
+
+Nó thực hiện chính xác những gì chúng tôi đã nói.
+
+Đây là một ví dụ hay về việc sử dụng lời nhắc hệ thống, cung cấp cho nó một số thông tin và một số bối cảnh.
+
+Được rồi.
+
+Nhưng đã đến lúc chúng ta phải nói về công cụ.
+
+Được rồi, đến lúc nói về công cụ.
+
+Nhưng chúng ta hãy bắt đầu bằng cách viết một hàm đơn giản.
+
+Đây là chức năng sẽ trở thành công cụ của chúng ta.
+
+Nhưng hiện tại, nó chỉ là một số mã Python.
+
+Nó sẽ được gọi là giá vé.
+
+Điều đó sẽ cho chúng ta biết giá vé để đi đến một địa điểm cụ thể.
+
+Vậy thì nó sẽ được gọi là giá vé.
+
+Và cần phải có một thành phố đích.
+
+Và chúng ta sẽ bắt đầu bằng việc in ấn.
+
+Ối.
+
+In uh, công cụ được gọi là uh, thành phố.
+
+Ừ, chúng ta cần biến nó thành dây f.
+
+Giống như đích đến vậy.
+
+Thành phố gạch chân.
+
+Được thôi, có vẻ ổn.
+
+Và bây giờ chúng ta sẽ nói giá bằng giá vé, tùy thuộc vào thành phố đích
+
+hoặc thành phố chưa biết.
+
+Và sau đó chúng ta sẽ nói, ừ, được rồi, chúng ta bắt đầu thôi.
+
+Với tôi thì có vẻ khá ổn.
+
+Cảm ơn.
+
+Giá vé đến Destination City là giá.
+
+Có vẻ khá ổn.
+
+Ừ, vậy thì, ừ, chúng ta hãy thực hiện điều đó.
+
+Được rồi.
+
+Chúng ta hãy cùng xem điều gì sẽ xảy ra.
+
+Ồ, bạn biết không?
+
+Chúng ta sẽ muốn có thể gọi hàm này bằng, ừm, với một thành phố và chữ thường.
+
+Vậy thì chúng ta hãy nói như thế này, ừm, vì các thành phố ở đây được viết thường như Berlin, và
+
+tôi có thể viết hoa chúng.
+
+Vậy thì hy vọng là điều này sẽ xảy ra.
+
+Chuẩn rồi.
+
+Công cụ gọi đến thành phố Berlin.
+
+Giá vé đi Berlin là 4. 99.
+
+Ừ, được thôi.
+
+Cho đến giờ thì mọi việc vẫn ổn.
+
+Thành phố không xác định.
+
+Có vẻ không rõ ràng lắm phải không?
+
+Giá vé không rõ.
+
+Đấy, thế là xong.
+
+Có vẻ ổn.
+
+Vậy là có Berlin, và nếu chúng ta nói, ừm, có gì ở đây thì sao?
+
+Giá vé không rõ.
+
+Khỏe.
+
+Nếu chúng ta đến London thì đó chính là nơi chúng ta đến.
+
+Có vẻ như nó hoạt động tốt.
+
+Đó là chức năng không có AI.
+
+Cho đến nay, đây chỉ là chức năng cơ bản.
+
+Đó là tra cứu trong từ điển.
+
+Bạn có thể thoải mái tra cứu từ điển này.
+
+Hãy tự đưa ra một số mức giá khác nhau.
+
+Chúng ta sẽ có tất cả những điều này cùng nhau.
+
+Vì vậy, tôi đã đề cập rằng khi chúng ta gọi một LM và nói rằng, này, bạn có thể sử dụng các công cụ, chúng ta phải cho nó biết nó có
+
+thể sử dụng những công cụ nào.
+
+Và cách chúng ta thực hiện là sử dụng JSON, vì các mô hình thích nhận JSON.
+
+Họ được đào tạo rất nhiều về điều đó.
+
+Và chỉ có một định dạng cố định, một loại JSON mà bạn phải sử dụng để cung cấp cho nó, để cho nó biết rằng nó có thể sử dụng
+
+các công cụ này và JSON đã được đào tạo rất nhiều về điều đó.
+
+Vì vậy, nó mong đợi JSON ở định dạng này.
+
+Và đó là một định dạng khá lộn xộn.
+
+Nó khá dài dòng.
+
+Nó có rất nhiều nội dung và khá nhàm chán khi phải viết lại mỗi lần.
+
+Nhưng bạn phải làm vậy.
+
+Có một chú thích.
+
+Bạn không cần phải làm vậy.
+
+Nhưng bây giờ, vì điều này, vì điều này, vì ngày hôm nay, chúng ta phải viết JSON.
+
+Và vì thế tôi viết điều này cho bạn vì tôi sẽ không gõ những dòng này.
+
+Thật là đau đầu.
+
+Đây là JSON để mô tả chức năng này.
+
+Chúng tôi không gọi hàm đó.
+
+Đó chỉ là một cách mô tả thôi.
+
+Chúng tôi đặt tên, lấy giá vé, mô tả, lấy giá vé khứ hồi đến thành phố đích.
+
+Nó có các thuộc tính, bao gồm các tham số, đối số, thành phố đích có kiểu là chuỗi.
+
+Và mô tả là thành phố mà khách hàng muốn đến du lịch.
+
+Bắt buộc phải có.
+
+Vì vậy, đoạn JSON vụng về này là một cách để mô tả chức năng này cho LLM.
+
+Vì vậy, nó biết, này, tôi có chức năng này.
+
+Tôi có thể gọi thay mặt bạn nếu bạn muốn.
+
+Đó chính là tác dụng của nó.
+
+Được rồi.
+
+Vì vậy, tôi đã lấy được JSON đó.
+
+Bây giờ chúng ta sẽ đưa nó vào sâu hơn nữa.
+
+Bây giờ nó không phải là một từ điển Python nữa nhưng chúng ta sẽ chuyển nó thành JSON thực sự.
+
+Ừm, chúng tôi sẽ tạo ra thứ gọi là công cụ, là danh sách những thứ này.
+
+Và một lần nữa chúng ta sẽ gói nó trong một hàm kiểu JSON hơn và đây chính là hàm đó.
+
+Vậy nếu tôi chỉ cho bạn thấy điều đó có nghĩa là gì nếu tôi in công cụ này, thì đây chính là kết quả cuối cùng.
+
+Đây là những gì chúng ta sẽ gửi vào LM vào GPT.
+
+Nhưng nó có thể là bất kỳ thứ nào trong số đó.
+
+Nó chứa một đoạn JSON.
+
+Kiểu này là hàm hàm.
+
+Và đây là nội dung chúng tôi vừa viết.
+
+Tên là lấy giá vé.
+
+Nó lấy một thuộc tính chuỗi, đó là thành phố mà khách hàng muốn đến và lấy
+
+giá vé khứ hồi.
+
+Được rồi, nó chỉ là một loạt JSON mô tả chức năng mà chúng ta có thể chạy thay mặt cho mô hình.
+
+Được rồi, và bây giờ có một số thao tác phức tạp mà chúng ta phải thực hiện để gọi OpenAI.
+
+Câu đố này thực ra có hai phần.
+
+Đầu tiên, khi chúng ta gọi LM, chúng ta sẽ cần truyền vào các công cụ này, JSON mà chúng ta vừa viết.
+
+Nó cần phải biết về điều đó.
+
+Đó là chút rắc rối đầu tiên.
+
+Vấn đề thứ hai là khi LM phản hồi, chúng ta sẽ phải phát hiện xem liệu nó có muốn chạy một công
+
+cụ hay không.
+
+Nếu câu trả lời không phải là câu trả lời dành cho khách hàng thì câu trả lời là, này, tôi cần bạn chạy công cụ mà
+
+bạn đã nói là bạn có.
+
+Và nếu vậy, chúng ta cần chạy công cụ, nhận câu trả lời, sau đó gửi lại dưới dạng tin nhắn mới với toàn bộ
+
+lịch sử cuộc trò chuyện như một cuộc gọi thứ hai tới LM.
+
+Được rồi, chúng ta hãy xem xét hai phần Jankiness đó.
+
+Đây là phần đầu tiên, thực ra đây là cả hai phần của Jankiness.
+
+Đây là tính năng gọi lại trò chuyện mới, tính năng mới mà tôi sẽ cung cấp cho bạn ngay sau đây.
+
+Chúng tôi xóa lịch sử như trước khi thiết lập tin nhắn như trước.
+
+Và đây là mô hình tạo ra OpenAI, mô hình này chứa các thông điệp.
+
+Nhưng kìa, có điều gì đó mới.
+
+Công cụ bằng công cụ.
+
+Và tất nhiên đây là nội dung của JSON.
+
+Vì vậy, chúng ta sẽ truyền JSON vào khi gọi OpenAI.
+
+Và sau đó chúng ta sẽ không trả về nội dung phản hồi như bình thường.
+
+Đầu tiên chúng ta sẽ kiểm tra thứ gọi là lý do hoàn thành.
+
+Chúng tôi đang kiểm tra phản hồi không có lý do.
+
+Và nếu đó là cuộc gọi công cụ, chúng ta sẽ làm điều gì đó khác.
+
+Nếu vậy thì chúng ta sẽ nhận được tin nhắn.
+
+Chúng ta sẽ gọi một thứ gọi là lệnh gọi công cụ xử lý, đó là thứ chúng ta vẫn phải viết mà chưa thực hiện được
+
+cho bạn.
+
+Chúng ta sẽ phải viết điều đó trong một giây.
+
+Ừ, và sau đó chúng ta sẽ nhận được phản hồi.
+
+Chúng ta sẽ đưa tin nhắn vào lịch sử trò chuyện của mình.
+
+Tin nhắn trả về từ OpenAI là phản hồi.
+
+Và sau đó hãy nhìn vào đây.
+
+Chúng ta sẽ gọi OpenAI lần thứ hai, truyền vào tập hợp tin nhắn dài hơn hiện có tin nhắn yêu cầu gọi một công
+
+cụ và tin nhắn trả lời có thông tin về công cụ đó trong đó.
+
+Và cuối cùng, với bất cứ thông tin nào trả về, chúng ta sẽ trả về response. 0. nội dung tin nhắn.
+
+Vậy là có khá nhiều thứ ở đó.
+
+Đó là những gì chúng ta phải làm.
+
+Nhưng bạn đừng để tôi quên rằng tôi chưa nói với bạn một điều nào cả.
+
+Tôi chưa giải thích công cụ gọi tay cầm này có chức năng gì.
+
+Vâng, tôi vừa viết nó ở đây.
+
+Đây rồi.
+
+Đây là câu lệnh if cũ quan trọng.
+
+Chúng tôi lấy thông điệp từ GPT.
+
+Chúng tôi, chúng tôi tìm kiếm đối tượng này được gọi là lệnh gọi công cụ trả về.
+
+Chúng ta nhìn vào tên hàm và xem liệu nó có muốn chạy hàm có tên là lấy giá vé hay không.
+
+Nếu đó là những gì GPT trả về.
+
+Và nếu vậy, chúng ta cũng sẽ đào sâu vào JSON được trả về từ GPT.
+
+Chúng ta lấy đối số là thành phố, ừm, chúng ta có được thành phố đích và sau đó nhìn vào dòng
+
+này ở đây.
+
+Hãy nhìn vào dòng này.
+
+Bạn biết đó là gì.
+
+Đơn giản chỉ cần gọi đây là đoạn mã mà chúng ta đã viết ở đây.
+
+Đó là tất cả những gì nó đang làm.
+
+Vì thế.
+
+Vậy thì những gì chúng ta có ở đây là một câu lệnh if cũ kỹ.
+
+Nếu GPT nói get thì tôi muốn gọi get ticket price thì tôi gọi get ticket price và sau đó tôi khâu
+
+lại để trả lời.
+
+Trong câu trả lời của tôi, tôi phải nói rằng, ừm, bạn nhớ rằng chúng ta có các đối tượng trong câu trả lời.
+
+Chúng ta có người dùng, hệ thống, người dùng và trợ lý là những giá trị vai trò có thể có.
+
+Còn một cái nữa.
+
+Có công cụ nhập vai.
+
+Và đó là những gì tôi có ở đây.
+
+Công cụ vai trò.
+
+Và nội dung là bất cứ thông tin nào nhận được từ cuộc gọi.
+
+Vì vậy, bất cứ thông tin nào trả về từ hàm của chúng tôi, chúng tôi đều đưa thông tin đó vào một thông báo khác trong tập hợp các thông
+
+báo có vai trò là công cụ.
+
+Có thể bạn sẽ giống như thế này?
+
+Ừm, trong trường hợp đó chúng ta sẽ tìm hiểu sâu hơn một chút sau nhé.
+
+Nhưng có lẽ bạn đã nắm được ý tưởng cơ bản.
+
+Vì vậy, nếu chúng ta thực thi ô đó và thực thi ô đó, thì đã đến lúc chúng ta phải mở giao diện trò chuyện và xem liệu
+
+nó có thực sự hoạt động hay không.
+
+
+Chúng ta bắt đầu thôi.
+
+Chúng ta sẽ chạy những mục yêu thích của mình.
+
+Một câu nói ngắn gọn từ ứng dụng Gradio.
+
+Nó đến và chúng ta sẽ chào nó.
+
+Xin chào.
+
+Tôi có thể hỗ trợ bạn thế nào cho chuyến bay hôm nay?
+
+Tôi muốn đi du lịch.
+
+Tuyệt vời.
+
+Bạn muốn đi du lịch ở đâu?
+
+Và tôi sẽ kéo xuống vì tôi muốn bạn chỉ chú ý vào đó.
+
+Ngay dưới đó thôi.
+
+Ừ, tôi muốn đi London, làm ơn.
+
+Được rồi.
+
+Và hãy nhìn xem chuyện gì vừa xảy ra ở đây.
+
+Bạn sẽ thấy thôi.
+
+Công cụ in được gọi là thành phố London.
+
+Đó là câu lệnh in mà tôi đã viết trong hàm của mình.
+
+Và ở đây ghi giá vé đi London là 799 đô la.
+
+Vậy là nó đã có tác dụng.
+
+Nó chỉ tiến hành và thực hiện lệnh gọi công cụ.
+
+Chúng tôi gọi lại lần thứ hai và nhận được phản hồi như vậy.
+
+Ồ.
+
+Và vì tôi sợ rằng bạn có thể hơi bối rối một chút về những gì đã xảy ra do lệnh
+
+gọi công cụ xử lý này, tôi chỉ muốn quay lại đây và cho bạn thấy, trước khi chúng ta gọi OpenAI
+
+lần thứ hai, tôi sẽ in nội dung của thông báo này.
+
+Vì vậy, tôi sẽ nói như thế này cho tin nhắn trong tin nhắn in tin nhắn.
+
+Và theo cách đó, chúng ta sẽ có một loạt bản in ở đây về chính xác nội dung của tập hợp tin
+
+nhắn mà chúng ta truyền lần thứ hai.
+
+Đây là kết quả sau khi chúng tôi chạy công cụ và có được kết quả.
+
+Chúng ta gửi gì tới GPT lần thứ hai?
+
+Chúng ta hãy cùng xem nhé.
+
+Chúng ta chạy cái này, chạy cái này, và chúng ta sẽ khởi chạy lại giao diện này.
+
+Chúng ta bắt đầu thôi.
+
+Chào bạn.
+
+Ừ, tôi muốn đi du lịch.
+
+Bạn muốn đi du lịch ở đâu?
+
+Làm ơn đi London.
+
+Được thôi.
+
+Chúng ta hãy cùng xem điều gì sẽ xảy ra.
+
+Được rồi.
+
+Công cụ được gọi đến thành phố London.
+
+Và bây giờ nó sẽ in ra những gì được gửi tới GPT.
+
+Lần thứ hai bạn thấy điều đó, đó là nội dung hệ thống vai trò.
+
+Bạn là trợ lý hữu ích cho một hãng hàng không tên là Flight, blah blah blah.
+
+Người dùng nói xin chào.
+
+Trợ lý chào bạn, tôi có thể hỗ trợ gì cho chuyến bay hôm nay của bạn?
+
+Người dùng nói, tôi muốn đi du lịch.
+
+Người trợ lý nói, tuyệt, bạn có muốn đi du lịch đến không?
+
+Tôi đã nói với London rằng, làm ơn.
+
+Bây giờ hãy xem điều gì xảy ra tiếp theo.
+
+Tiếp theo là tin nhắn trả về với vai trò là trợ lý và muốn gọi một công cụ.
+
+Và tất cả thông tin chi tiết về lệnh gọi công cụ đều có ở đây.
+
+Nó nói rằng, ừm, tên thành phố đích là London, hãy lấy giá vé.
+
+Đó là nơi tôi có câu lệnh if.
+
+Nếu nó gọi như vậy và mục tiếp theo ở đây là vai trò của công cụ.
+
+Bạn thấy đấy, chúng ta có hệ thống vai trò, vai trò người dùng, trợ lý vai trò, nội dung công cụ trợ lý người dùng.
+
+Giá vé đi London là 799.
+
+Và thực ra, một chi tiết bổ sung ở đây là bạn sẽ thấy ID gọi công cụ được đặt ngay tại đó khớp
+
+với ID gọi công cụ vừa có ở đó.
+
+Và bạn sẽ tìm thấy điều đó trong mã.
+
+Bạn sẽ thấy tôi đã cẩn thận ghi ID lệnh gọi công cụ vào đó.
+
+Và bạn phải làm vậy.
+
+Vì vậy, tôi hy vọng mình không làm mất bạn.
+
+Điều này không thực sự quan trọng nếu bạn không theo dõi tất cả những điều này, nhưng thực tế thì việc thấy
+
+được điều này trong thực tế sẽ rất hữu ích khi chúng ta thực hiện hai cuộc gọi khác nhau để nhận được.
+
+Câu đầu tiên có nội dung là, này, tôi muốn bạn gọi một công cụ.
+
+Và phần thứ hai là nơi chúng tôi truyền lại tất cả thông tin, bao gồm cả kết quả chạy
+
+công cụ.
+
+Và đó chính là kết quả khiến nó phản ứng lại như vậy.
+
+Đấy, thế là xong.
+
+Tuyệt vời.
+
+Được thôi.
+
+Bây giờ tôi sẽ lấy ra bản in đó.
+
+Và bạn có thể đưa nó vào nếu bạn muốn xem.
+
+Và bạn nên thử nghiệm điều này để có được cảm nhận tốt nhất.
+
+Chúng ta hãy chạy lại lần nữa.
+
+Tôi muốn làm một điều gì đó thật nhanh để cho bạn thấy rằng có một vấn đề nhỏ với điều này.
+
+Đây là một vấn đề khá tế nhị mà có thể bạn đã nhận thấy, tôi không biết, nhưng hãy để
+
+tôi chào bạn nhé.
+
+Tôi có thể hỗ trợ chuyến bay của bạn hôm nay như thế nào?
+
+Ừm, vậy tôi sẽ hỏi, giá vé đi London và Paris là bao nhiêu?
+
+Và điều sắp xảy ra bây giờ là lỗi IAM.
+
+Máy tính trả lời là không.
+
+Ừ, đúng vậy.
+
+Đáng yêu.
+
+Và khi Gradio có lỗi, đó là một sự thay đổi nhẹ.
+
+Tôi phải nói rằng việc gỡ lỗi không hề dễ dàng vì có rất nhiều thứ diễn ra bên trong.
+
+Và luôn luôn là một thách thức với một số trong những khuôn khổ này, những khuôn khổ có thể giúp ích rất nhiều cho bạn.
+
+Mọi người gọi chúng là khung có pin.
+
+Ừ, bởi vì một số thao tác gỡ lỗi có thể khó khăn.
+
+Nhưng tôi tình cờ biết vấn đề là gì.
+
+Và vấn đề là cách tôi viết đoạn mã này hơi vụng về.
+
+Tôi chỉ luôn nhìn chính xác vào công cụ số không.
+
+Tôi không ủng hộ trường hợp một LM muốn chạy nhiều công cụ và thực tế là việc đó rất dễ dàng.
+
+Bạn chỉ cần cẩn thận vì có thể bạn sẽ phải gọi nhiều công cụ.
+
+Lấy làm tiếc.
+
+Không có ở đó.
+
+Lựa chọn phản hồi là số không.
+
+Được thôi.
+
+Nó ở đây.
+
+Đó là lỗi nhỏ của tôi.
+
+Tôi chỉ nhận lệnh gọi công cụ bằng lệnh gọi công cụ đầu tiên.
+
+Được thôi.
+
+Vậy thì việc sửa lỗi này rất dễ.
+
+Ồ, và đây là một cải tiến tuyệt vời cho chúng tôi.
+
+Hãy nhìn vào đây.
+
+Ừm, điều chúng ta có thể làm ở đây là có một hàm mới thay vì xử lý lệnh gọi công cụ.
+
+Chúng tôi sẽ xử lý các cuộc gọi công cụ.
+
+Và đây là cách hoạt động của lệnh gọi công cụ xử lý.
+
+Nó không chỉ lấy công cụ đầu tiên mà còn lặp lại lệnh gọi công cụ trong các lệnh gọi công cụ tin nhắn.
+
+Vì vậy, nếu LM yêu cầu chạy nhiều công cụ, chúng ta sẽ chỉ cần lặp lại từng công cụ.
+
+Thật tuyệt phải không?
+
+Và rồi chúng ta lại có câu lệnh if dở tệ ở đây.
+
+Và ừm, rất tuyệt.
+
+Đấy, nó đây rồi.
+
+Và bây giờ chúng ta hy vọng có thể chào nhau.
+
+Được rồi.
+
+Thế này thì sao, cái nào rẻ hơn?
+
+Chuyến bay tới London hay tới Paris?
+
+Viết đúng chính tả.
+
+Paris.
+
+Chúng ta hãy cùng xem nhé.
+
+Chúng ta hãy cùng xem điều gì sẽ xảy ra.
+
+Chúng ta hãy nhìn xuống đây.
+
+Ừ, nhìn kìa, ừ, công cụ được gọi là thành phố.
+
+Luân Đôn.
+
+Công cụ gọi cho thành phố Paris.
+
+Và ở đó có câu trả lời.
+
+Vậy thì mọi chuyện chỉ đơn giản như vậy thôi.
+
+Mã cho phép lặp và gọi từng công cụ mà LM yêu cầu.
+
+Và tất nhiên, LM sẽ đủ thông minh khi nhận được những kết quả đó để diễn giải và
+
+đưa ra câu trả lời có ý nghĩa rằng chuyến bay đến London sẽ rẻ hơn khi chạy cả hai công cụ.
+
+Thật tuyệt phải không?
+
+Và bây giờ còn một vấn đề kỹ thuật nữa.
+
+Bạn có thể.
+
+Tôi không chắc chắn lắm là bạn có thể làm cho nó thất bại theo cách này như thế nào.
+
+Tôi nghĩ là có cách.
+
+Ừ, để tôi thử nhé.
+
+Để tôi thử nhé.
+
+Chúng ta hãy tạo ra một giao diện người dùng mới.
+
+Ừm, trước tiên, xin hãy tìm giá vé máy bay đến London.
+
+Và nếu giá dưới 1.000 đô la, vui lòng kiểm tra giá đến Paris.
+
+Và chỉ thế thôi.
+
+Và chỉ khi điều đó xảy ra thôi.
+
+Tôi muốn buộc nó phải thực hiện lệnh gọi một công cụ trước rồi mới thực hiện lệnh gọi công cụ còn lại.
+
+Ờ, và, ờ, có gì đó không ổn ở đây.
+
+Ồ, và nó dừng lại.
+
+Ừm, lý do là vì nếu bạn nhìn vào mã của tôi, tôi chỉ hỗ trợ một tập hợp lệnh gọi công cụ tuần
+
+tự.
+
+Bây giờ tôi hỗ trợ nhiều yêu cầu gọi công cụ trong phản hồi đầu tiên, nhưng khi phản hồi lại, nó sẽ thực
+
+hiện một cuộc gọi khác mà không có công cụ.
+
+Và thế là xong.
+
+Nó chỉ là một câu lệnh if duy nhất.
+
+Vì vậy, nó không hỗ trợ bất kỳ loại vòng lặp nào.
+
+Nó không hỗ trợ LM thực hiện nhiều hơn một tập hợp các lệnh gọi công cụ theo trình tự, nếu bạn hiểu ý tôi trong bất
+
+kỳ phản hồi nào, nó có thể nói, tôi muốn gọi nhiều công cụ, nhưng nó không thể phản hồi.
+
+Và sau đó tôi gọi lại và nó trả lời, được rồi, bây giờ tôi muốn tạo một công cụ khác không được hỗ trợ
+
+và cho phép nó hỗ trợ.
+
+Nghe có vẻ như sẽ cần rất nhiều công sức.
+
+Nó giống như một vòng lặp vô hạn vậy.
+
+Thực ra bạn có thể làm được điều đó chỉ bằng cách thay đổi điều đó, dù chỉ trong một thời gian.
+
+Chỉ cần thay đổi một từ đó, một từ đó, ừm, vì chúng ta không muốn nó chỉ có một từ
+
+duy nhất nếu chúng ta muốn nó nói trong khi nó muốn gọi các công cụ liên tục làm điều này trong khi nó muốn các công cụ và sau đó cung cấp các công
+
+cụ ở đây vì tôi đã không cung cấp các công cụ lần thứ hai.
+
+Ừ, và, và nó, nó sẽ hoạt động một cách kỳ diệu nếu chúng ta làm theo cách này.
+
+Ừm, bạn có thể nói, liệu có nguy cơ nào ở đây là tình trạng này sẽ kéo dài mãi mãi không?
+
+Ừm, LLMs không có xu hướng làm như vậy.
+
+Giống như họ vẫn thường làm, dừng lại.
+
+Vì vậy, tôi không nghĩ đó là rủi ro về mặt vật chất.
+
+Nhưng rõ ràng nếu đó là mối quan tâm của bạn, thì bạn nên đưa vào đây một cái gì đó có
+
+một số lần lặp lại và dừng lại sau một số nhất định.
+
+Ừm, có lẽ không khôn ngoan khi coi đó là thứ gì đó có thể tồn tại mãi mãi về mặt lý thuyết.
+
+Vì vậy, tất cả những gì tôi phải làm là chạy nó.
+
+Và bây giờ tôi có thể chạy lại cái này ở đây vì, ừ, vâng, chúng ta sẽ sử dụng chức năng trò chuyện
+
+mới, ừ, chỉ để xem, xem nó diễn ra thế nào.
+
+CHÀO.
+
+Vui lòng kiểm tra giá vé đi London.
+
+Và nếu dưới 1.000 đô la, hãy kiểm tra Paris.
+
+Ừm.
+
+Chỉ nếu thôi.
+
+Chỉ nếu thôi.
+
+Hãy xem cách này có hiệu quả không.
+
+Ồ, chắc chắn là vậy.
+
+Nó đã đúng.
+
+Và bạn có thể thấy nó gọi là London và sau đó là Paris.
+
+Ồ, thực sự rất tuyệt.
+
+Vì vậy, hiện tại chúng tôi đã cải thiện chức năng gọi công cụ để có thể gọi nhiều công cụ cùng một lúc.
+
+Và nó có thể gọi các công cụ liên tục, cho đến khi lý do kết thúc không còn là công
+
+cụ gọi nữa thì nó sẽ hoàn thành.
+
+
+Được thôi, cũng hay nếu làm cho nó có cảm giác thương mại thực tế hơn một chút.
+
+Và một cách để thực hiện điều đó là thay vì chỉ tìm kiếm trong một từ điển Python nào đó, hãy
+
+thực hiện truy vấn cơ sở dữ liệu trên cơ sở dữ liệu SQL.
+
+Và cách dễ nhất để thực hiện điều này mà không cần bạn phải cấu hình và thiết lập
+
+nhiều thứ là sử dụng SQL Lite, rất nhanh chóng và dễ dàng, chỉ là một phần của dự án UV và bạn có thể sử dụng nó.
+
+Vì vậy, chúng ta có thể nhập Sqlite3 và viết một số truy vấn cơ sở dữ liệu.
+
+Nếu bạn muốn xây dựng thứ gì đó mang tính công nghiệp hơn một chút, bạn có thể thoải mái thay thế
+
+các truy vấn SQL này bằng thứ gì đó như tra cứu Postgres hoặc thứ gì đó tương tự.
+
+Hoặc bạn cũng có thể sử dụng API như Supabase, hoặc bạn có thể thiết lập SQL trong một dịch vụ được quản lý rồi
+
+thực hiện lệnh gọi API.
+
+Nhưng tôi nghĩ rằng đây là một giải pháp thỏa hiệp tốt khi sử dụng SQL Lite với cơ sở dữ liệu cục bộ.
+
+Và đó chính là những gì chúng ta sẽ làm ngay tại đây.
+
+Và tôi có cơ sở dữ liệu này ở đây.
+
+Giá DB mà tôi sắp xóa nó.
+
+Vì vậy, chúng ta bắt đầu từ con số không.
+
+Ồ, và nó bị bỏ qua.
+
+Vì vậy, bạn vẫn chưa có nó ở đó.
+
+Ừm, vậy thì chúng ta sẽ nói rằng chúng ta muốn một cơ sở dữ liệu có tên là prices DB và điều đầu tiên chúng
+
+ta sẽ làm là chạy câu lệnh SQLite nhỏ này ở đây để tạo bảng.
+
+Nếu nó không tồn tại, nó sẽ có một thành phố và một mức giá cho nó và cam kết điều đó và giá cả DB vừa xuất
+
+hiện.
+
+SQLite rất dễ sử dụng.
+
+Và bây giờ tôi sẽ áp dụng mức giá vé mới.
+
+Ờ, thứ gì đó có thể thay thế cho giá vé rẻ mạt trước đây.
+
+Lần này, nó sẽ lấy một thành phố và công cụ cơ sở dữ liệu có tên là Getting Price cho thành phố đó sẽ nói.
+
+Và ừm, chúng ta bắt đầu thôi.
+
+Sau đó chúng ta nói with với kết nối tới SQLite.
+
+Với cơ sở dữ liệu của mình, chúng ta sẽ chọn giá từ những mức giá mà thành phố bằng.
+
+Và sau đó chúng ta đi qua thành phố phía dưới.
+
+Và rõ ràng là tôi đang sử dụng cách tiếp cận phù hợp ở đây.
+
+Điều đó không khiến tôi dễ bị tấn công bằng SQL injection, vốn luôn là cách tốt nhất để thực hiện điều này.
+
+Và sau đó chúng tôi sẽ trả về giá vé cho thành phố đó và kết quả là không có giá vé nào cho thành phố này.
+
+Vậy là một truy vấn SQL đơn giản.
+
+Bạn không cần biết SQL nếu bạn không cần.
+
+Tất cả những gì bạn cần biết là hãy nhìn vào đây.
+
+Nếu tôi nhận được giá vé đến London, thì hiện tại tôi sẽ không nhận được gì cả vì cơ sở dữ liệu của tôi đang trống
+
+rỗng.
+
+Đó là công cụ cơ sở dữ liệu có tên là Getting Price for London.
+
+Không có dữ liệu giá cho thành phố này.
+
+Và bây giờ tôi chỉ có một phương pháp tiện ích nhỏ để thiết lập giá vé là một hàm tiện ích.
+
+Cung cấp cho nó một thành phố, một mức giá và nó sẽ tự động chèn vào giá.
+
+À, và cập nhật nếu nó đã có ở đó.
+
+Và thế là xong.
+
+Nó viết thành phố bằng chữ thường và giá cả thì ổn.
+
+Và bây giờ chúng ta có thể lấy cuốn từ điển mà tôi đã có trước đó.
+
+Bạn nên thêm thành phố của bạn hoặc bất cứ thứ gì khác mà bạn muốn để chứng minh.
+
+Ừ, và sau đó chúng ta sẽ đặt giá vé cho từng loại vé.
+
+Bùm!
+
+Tôi đã chạy rồi.
+
+Chúng tôi hiện đã ghi một số mức giá vào cơ sở dữ liệu của mình.
+
+Chúng ta hãy cùng xem nhé.
+
+Chúng ta hãy gọi để lấy giá vé London.
+
+Và thế là xong.
+
+Giá là 7. 99 có trong cơ sở dữ liệu SQL của chúng tôi.
+
+Hãy cùng làm điều đó vì Tokyo.
+
+Và thế là xong.
+
+Ta được 1400.
+
+Đó là 1400.
+
+Chúng ta hãy kiểm tra xem nó có hiệu quả không.
+
+Hãy biến Tokyo thành 1420.
+
+Đưa thông tin đó vào cơ sở dữ liệu.
+
+Nhận giá vé đi Tokyo.
+
+Bây giờ là 1420.
+
+Được rồi.
+
+Chúng tôi có cơ sở dữ liệu.
+
+Được rồi.
+
+Khoảnh khắc đã đến.
+
+Bây giờ đã đến lúc chúng ta chạy giao diện trò chuyện này.
+
+Ồ, bây giờ, bạn có thể đang nghĩ.
+
+Đợi đã.
+
+Chúng ta không cần phải thực hiện cuộc gọi lại trong cuộc trò chuyện và thực hiện tất cả những điều đó sao?
+
+Bây giờ chúng ta đã viết lại công cụ của mình rồi?
+
+Và một lần nữa, Python là ngôn ngữ được thông dịch.
+
+Chúng tôi đã tạo lại và thay đổi giá vé thành một triển khai mới.
+
+Vì vậy, khi đến thời điểm cần gọi get ticket price, nó sẽ gọi đến phần triển khai mới.
+
+Ừ, rồi bạn sẽ thấy.
+
+Vậy chúng ta hãy chạy thử cái này nhé. Ừm, vậy thì, ừm.
+
+Chào bạn.
+
+Xin chào.
+
+Tôi có thể hỗ trợ chuyến bay của bạn như thế nào?
+
+Hôm nay, tôi muốn đi du lịch.
+
+Tuyệt vời.
+
+Bạn có thể cho tôi biết điểm đến được không?
+
+Đúng.
+
+Tôi muốn đi London.
+
+Tôi muốn đi London.
+
+Và thế là xong.
+
+Công cụ cơ sở dữ liệu có tên là Getting Price for London.
+
+Giá vé khứ hồi đến London là 7. 99.
+
+Bạn có muốn tiếp tục không?
+
+Thế thì sao?
+
+Chúng tôi đã viết công cụ gọi.
+
+Bây giờ nó có thể gọi nhiều công cụ.
+
+Nó có thể thực hiện những điều này nhiều lần liên tiếp.
+
+Và khi thực hiện như vậy, nó sẽ thực hiện truy vấn SQL với cơ sở dữ liệu SQL - một cơ sở dữ liệu quan hệ
+
+có chứa giá vé.
+
+Đây là kiến thức chuyên môn cơ bản để xây dựng các giải pháp LM thương mại.
+
+Được thôi.
+
+Vì vậy, bài tập dành cho bạn trước hết phải bắt đầu bằng việc đào sâu và đảm bảo rằng bạn hiểu rõ điều
+
+này.
+
+Giống như đưa các câu lệnh in vào, đưa các câu lệnh in vào để xem những gì đang diễn ra trong các thông báo.
+
+Hãy thử điều này.
+
+Hãy chắc chắn rằng bạn đã nắm rõ những gì đang diễn ra và đạt đến điểm mà bạn hoàn toàn hiểu
+
+rằng không có chuyện ma thuật nào cả.
+
+Đây là Llms chỉ đang tạo ra các mã thông báo.
+
+Đây chỉ là những thủ thuật, kỹ thuật thông minh để tìm ra cách chúng ta có thể làm được nhiều hơn với các mã thông
+
+báo mà nó tạo ra để cho phép chúng ta cung cấp chức năng thương mại cho thứ chỉ là công cụ dự đoán mã thông báo tiếp
+
+theo.
+
+Được rồi.
+
+Và khi bạn đã thực sự nắm rõ vấn đề, hãy thêm một công cụ khác để thiết lập giá vé.
+
+Tôi đã cung cấp cho bạn chức năng này rồi.
+
+Bạn chỉ cần gói nó vào một số JSON.
+
+Bạn phải thêm một câu lệnh if nhỏ vào nơi chúng ta có câu lệnh if, và sau đó nó sẽ hoạt động, và sau đó bạn có thể
+
+thực hiện theo cách mà bạn có thể nói, được rồi, tôi đã phát hiện ra giá vé là bao
+
+nhiêu và bạn có thể có nó.
+
+Vì thế nó ghi giá vé.
+
+Và sau đó, bạn sẽ thấy rằng bất kỳ lúc nào trong tương lai, khi bạn quay
+
+lại cuộc trò chuyện, bạn sẽ có thể đọc được giá vé và thấy nó hoạt động tốt, và tôi hy vọng bạn sẽ thực sự thích điều đó.
+
+Bây giờ, tôi muốn đề cập rằng có một điều gì đó hơi ngớ ngẩn về cách triển khai này mà bạn có thể phát
+
+hiện ra.
+
+Nếu bạn tìm ra điều này thì xin chúc mừng vì bạn phải mất một chút thời gian để tìm ra nó.
+
+Ừm, có một điều tôi đang làm mà không phải là tối ưu cho cách các công cụ được
+
+ghi lại.
+
+Và đây rồi.
+
+Tôi đang sử dụng Gradio để theo dõi lịch sử trò chuyện và cách Gradio thực hiện điều đó là chỉ cần ánh
+
+xạ giao diện người dùng ngay tại đây.
+
+Và đó là giao diện người dùng, được sử dụng để điền vào lịch sử được truyền vào, nếu chúng
+
+ta quay lại đây, khi nó gọi, khi nó gọi lại cuộc trò chuyện, lịch sử này sẽ đến trực tiếp từ giao diện người dùng
+
+và hoạt động thực sự tốt như một mẹo đơn giản để có thể theo dõi lịch sử cuộc
+
+trò chuyện.
+
+Nhưng có một vấn đề nhỏ.
+
+Bạn có thấy vấn đề không?
+
+Những trục trặc nhỏ?
+
+Có nghĩa là thứ này ở đây.
+
+Rõ ràng là lệnh gọi công cụ và phản hồi lệnh gọi công cụ bị lãng quên.
+
+Giống như khi radio gọi lại với một lịch sử.
+
+Sẽ không có chuyện đó đâu.
+
+Ồ, hóa ra thường thì mọi chuyện vẫn ổn vì mô hình đủ thông minh.
+
+Nó nhận được thông tin này và thấy rằng nó được gọi là một công cụ.
+
+Ý tôi là, nó tính ra được mức giá trả lại đó từ thực tế là nó thấy rằng nó đã nêu giá đó.
+
+Vậy nên mọi chuyện diễn ra khá ổn.
+
+Hầu hết thời gian.
+
+Nhưng rõ ràng đó là điều không thể chấp nhận được đối với một giải pháp thương mại.
+
+Và cách thực hiện đúng đắn là không dựa vào radio để lưu lại lịch sử cuộc trò chuyện mà thực sự sử
+
+dụng cơ sở dữ liệu để lưu lại lịch sử cuộc trò chuyện và sử dụng cơ sở dữ liệu đó như một cách để
+
+theo dõi chính xác mọi thứ đã nói, bao gồm cả việc gọi công cụ.
+
+Vậy đó là một chi tiết kỹ thuật, nhưng nếu bạn phát hiện ra thì tốt lắm.
+
+Đây là tính năng phù hợp với MVP này, nhưng cần phải cải thiện để có giải pháp mạnh mẽ hơn.
+
+Nhưng tôi phải nói là tôi có.
+
+Tôi tận dụng phần UI cho những thứ tôi đã viết, đặc biệt là cho các ứng dụng nội bộ,
+
+và nó hoàn toàn ổn.
+
+Đó chính là điều tôi muốn nói đến.
+
+Một điểm nữa tôi muốn nói đến là bạn có thể nhận thấy rằng tôi không truyền trực tiếp kết quả.
+
+Tôi vừa mới in chúng.
+
+Tôi đã sử dụng một thứ đơn giản hơn và có lý do cho việc đó.
+
+Thực ra, việc phát trực tiếp khi bạn cũng đang cố gắng hỗ trợ việc gọi công cụ là hoàn toàn khả thi, nhưng
+
+thực sự rất chậm.
+
+Bạn phải làm đủ mọi cách vô nghĩa để xem lý do cuối cùng có phải là lệnh gọi công cụ hay không
+
+và phải ghép nối JSON lại để gọi công cụ.
+
+Bạn có thể tìm kiếm trên Google và bạn sẽ thấy rằng tôi nghĩ trên diễn đàn OpenAI có một số
+
+ví dụ về cách thực hiện, nhưng nó khá lộn xộn và có rất nhiều mã.
+
+Và tôi không muốn làm bạn choáng ngợp với những thứ quá phức tạp.
+
+Và đó là lý do tại sao tôi không truyền trực tiếp kết quả.
+
+Và bên cạnh đó, nó cũng phù hợp với những tin nhắn ngắn gọn.
+
+Trong thực tế, hầu hết thời gian khi bạn thực sự làm việc với các công cụ.
+
+Bạn không thể viết toàn bộ mã này và có JSON này.
+
+Bạn thường sử dụng một khuôn khổ để thực hiện việc này.
+
+Giống như trong khóa học về tác nhân của tôi, chúng tôi thường sử dụng SDK tác nhân OpenAI và nó xử lý mọi
+
+thứ về việc tạo JSON và chọn công cụ.
+
+Và vì thế, mọi việc trở nên dễ dàng hơn rất nhiều.
+
+Và nó cũng xử lý việc truyền phát ngược lại.
+
+Vì vậy, bạn thường không thể tự tay tạo JSON và làm mát công cụ như chúng ta đã làm ngày hôm nay.
+
+Đây là một thói quen tốt nên làm.
+
+Điều đó có nghĩa là bạn thực sự hiểu vấn đề này và bạn có thể thực hiện theo cách truyền thống này, theo cách lâu dài.
+
+Nhưng thường có những cách tắt để người khác có thể xử lý việc này thay bạn, chẳng hạn như OpenAI agent SDK.
+
+Và khi bạn làm như vậy, nó cũng sẽ xử lý được việc phát trực tuyến.
+
+Nhưng tôi chỉ muốn giải thích rằng trong trường hợp bạn thắc mắc tại sao ứng dụng này lại không có tính năng phát trực tuyến.
+
+Và một chú thích cuối cùng, chú thích cuối cùng, đó là, ừm, câu lệnh if mà tôi đã nói với bạn về,
+
+câu lệnh if ừm, chúng ta hãy tìm nó ngay bây giờ. Công cụ if là, ừm, là công cụ phù hợp với hàm của chúng
+
+ta, sau đó gọi hàm này ngay tại đây.
+
+Nếu tên hàm gọi công cụ là lấy giá vé thì hãy gọi lấy giá vé ngay tại đây.
+
+Điều đó thật là vụng về.
+
+Ừ, như bạn thấy đấy.
+
+Và khi bạn viết giá vé cố định, bạn sẽ có, nếu là get ticket price, thì hãy gọi get ticket
+
+price.
+
+Nếu là giá vé cố định thì hãy gọi giá vé cố định.
+
+Python vẫn là Python, và Python là một ngôn ngữ tuyệt đẹp.
+
+Và điều đó có nghĩa là luôn có những cách thanh lịch để thực hiện những việc như thế này.
+
+Và nếu muốn, bạn có thể thử và tìm cách thanh lịch hơn để thực hiện điều đó.
+
+Khi bạn chỉ cần lấy chuỗi mà mô hình yêu cầu, bạn sẽ thấy, nếu bạn có
+
+một hàm có tên như vậy và bạn tự động yêu cầu Python tìm hàm đó và chạy nó.
+
+Và sau đó bạn không cần câu lệnh if, về cơ bản bạn chỉ cần kết nối trực tiếp mô hình của
+
+mình với hàm bạn muốn gọi.
+
+Vì vậy, bạn nên mong muốn một thử thách thú vị.
+
+Vậy thì đây chính là câu trả lời dành cho bạn.
+
+Khi bạn thêm giá vé cố định.
+
+Đừng làm điều đó bằng câu lệnh if.
+
+Hãy thực hiện điều này bằng một số phép thuật của Python để tự động gọi hàm và xử lý trường hợp hàm không
+
+tồn tại.
+
+Để được an toàn.
+
+Vì vậy, tôi hy vọng bạn thích thử thách nhỏ này.
+
+Bạn có phải là người theo kiểu Python và muốn thực hiện theo cách hay và theo kiểu Python không?
+
+Ừ, vậy thì đó chính là thử thách thêm của bạn.
+
+Và điều cuối cùng tôi muốn đề cập đến, tất nhiên là không cần phải nói ra, nhưng việc đưa ra hành động cho LLM của
+
+bạn là vô cùng quan trọng để có thể thêm chức năng thương mại vào bất kỳ cuộc gọi LLM nào mà bạn tưởng tượng, giờ đây
+
+trợ lý AI này có thể làm được nhiều việc hơn là chỉ cho bạn biết giá vé.
+
+Nó thực sự có thể đặt vé cho bạn.
+
+Nó có thể làm được tất cả những điều khác nhau này.
+
+Vì vậy, điều bạn cần suy nghĩ bây giờ là nghĩ về tất cả các cách bạn có thể sử dụng các công cụ trong các ứng
+
+dụng kinh doanh.
+
+Hãy nghĩ đến các trợ lý AI mà bạn có thể xây dựng và các loại công cụ mà họ có thể sử dụng để
+
+thực sự tạo ra tác động thương mại có giá trị.
+
+Vì vậy, hãy tự mình suy nghĩ kỹ về điều đó.
+
+Được thôi.
+
+Tôi sẽ gặp bạn để kết thúc.
+
+Vâng, nếu hôm nay thực sự thỏa mãn và xây dựng được một số kiến thức chuyên môn cốt lõi, chúng ta sẽ hoàn thành vào
+
+ngày mai cho tuần thứ hai.
+
+Ừm, có lẽ là tuần tôi thích nhất.
+
+Ừm, tất nhiên là chúng ta sẽ đi đến điểm mà bạn có thể đưa ra cái nhìn tổng quan về bộ chuyển đổi,
+
+thuật ngữ, mã thông báo, cửa sổ ngữ cảnh, v.v.
+
+Bạn có thể tự tin viết mã bằng API hoàn thành trò chuyện.
+
+Bạn có thể xây dựng một trợ lý AI.
+
+Và bây giờ, bạn có thể thêm các công cụ để có chức năng thương mại thực sự.
+
+Ngày mai chúng ta sẽ hoàn thành tuần thứ hai.
+
+Chúng ta sẽ nói thêm một chút về các tác nhân và hoàn thiện trợ lý AI đa phương thức với một số
+
+tác nhân và công cụ được thêm vào.
+
+Tôi không thể chờ đợi được nữa.
+
+Hẹn gặp lại bạn để kết thúc tuần này.
+
+

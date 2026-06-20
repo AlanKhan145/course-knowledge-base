@@ -1,0 +1,420 @@
+# 011 - Long Polling
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 10min
+
+---
+
+## 1. Summary
+
+This lesson explains **Long Polling**, a backend communication pattern that improves on short polling.
+
+In short polling, the client repeatedly asks the server whether something is ready, and the server immediately responds with either “ready” or “not ready.” This can become very chatty and waste network resources.
+
+In long polling, the client still sends a polling request, but the server does not respond immediately if the result is not ready. Instead, the server keeps the request open and only responds when data becomes available or when a timeout occurs.
+
+Long polling is useful because it reduces unnecessary requests while still allowing the client to control when it asks for data. The instructor also explains that Kafka uses a long polling style for consumers reading from topics.
+
+---
+
+## 2. Key Concepts
+
+### Long Polling
+
+Long polling is a communication pattern where the client sends a request, and the server holds that request open until data is available.
+
+```text id="4phxbd"
+Client → Is it ready?
+Server waits...
+Server → Yes, here is the result
+```
+
+The server does not immediately respond with “not ready.”
+
+---
+
+### Difference Between Short Polling and Long Polling
+
+Short polling:
+
+```text id="zcx77n"
+Client → Is it ready?
+Server → No
+
+Client → Is it ready?
+Server → No
+
+Client → Is it ready?
+Server → Yes
+```
+
+Long polling:
+
+```text id="x5gdwa"
+Client → Is it ready?
+Server waits until ready
+Server → Yes
+```
+
+Short polling creates many requests. Long polling keeps one request open longer.
+
+---
+
+### Server Holds the Request
+
+In long polling, the server receives the request but does not immediately write a response to the socket.
+
+Instead, it waits until:
+
+* The job is ready
+* New data is available
+* A message arrives
+* A timeout happens
+
+---
+
+### Client Is Still Asynchronous
+
+Modern clients usually send requests asynchronously.
+
+This means that while the long polling request is waiting, the client application can still do other work.
+
+```text id="gak4aa"
+Client sends long poll request
+Client continues running UI or other logic
+Server responds later
+```
+
+---
+
+### Long Polling for Job Status
+
+Long polling can be used to check the status of a long-running job.
+
+The flow looks like this:
+
+```text id="73qvvd"
+Client → Submit job
+Server → Return job ID
+
+Client → Long poll with job ID
+Server waits until job is complete
+Server → Return completed result
+```
+
+---
+
+### Long Polling in Kafka
+
+Kafka consumers use a long polling style when consuming messages from a topic.
+
+The consumer asks Kafka whether there are messages available. If there are no messages, Kafka can hold the request open instead of responding immediately.
+
+```text id="oe6m29"
+Consumer → Any messages in this topic?
+Kafka waits...
+Kafka → Yes, here are messages
+```
+
+This reduces unnecessary repeated requests.
+
+---
+
+### Topic and Consumer
+
+In Kafka, a consumer reads messages from a topic.
+
+A topic is a named stream of messages.
+
+```text id="zwaj30"
+Producer → Topic → Consumer
+```
+
+The consumer can long poll the topic and wait for new messages.
+
+---
+
+### Long Polling vs Push
+
+Push means the server sends data to the client whenever it wants.
+
+Long polling means the client still asks for data, but the server waits before responding.
+
+```text id="yf2tzz"
+Push:
+Server → Sends data to client
+
+Long polling:
+Client → Asks for data
+Server waits
+Server → Sends data when ready
+```
+
+Long polling gives the client more control than push.
+
+---
+
+### Flow Control
+
+Long polling allows the client to control when it asks for more data.
+
+This is useful when the client may not be able to handle a large volume of messages.
+
+This is one reason Kafka prefers a pull or long polling model instead of pushing messages directly to consumers.
+
+---
+
+### Timeout
+
+Long polling should usually include a timeout.
+
+The server should not hold the request forever.
+
+Possible timeout cases:
+
+```text id="q4kkqh"
+No data after 30 seconds → Server responds with timeout / empty result
+Client sends another long poll request
+```
+
+Timeouts prevent connections from hanging forever.
+
+---
+
+### Moving Polling from Client to Server
+
+In short polling, the client repeatedly checks:
+
+```text id="ktotvv"
+Client checks
+Client checks
+Client checks
+```
+
+In long polling, the server waits internally:
+
+```text id="r3kdoh"
+Client asks once
+Server waits internally
+Server responds when ready
+```
+
+The repeated checking is moved from the client side to the server side.
+
+---
+
+## 3. Important Notes
+
+* Long polling is still based on request/response.
+* The difference is that the server does not respond immediately.
+* Long polling reduces the chattiness of short polling.
+* It is useful for long-running jobs and message consumption.
+* Kafka uses a long polling style for consumers.
+* Long polling gives clients more control than push.
+* It is useful when clients may not be able to handle forced push traffic.
+* Long polling is less wasteful than short polling.
+* The server must manage open connections carefully.
+* Long polling should usually have a timeout.
+* Long polling is not always perfectly real-time.
+* If the client delays sending the next long poll request, it may miss immediate delivery timing.
+* A bad long polling implementation can block the event loop.
+* Backend code should avoid tight infinite loops while waiting.
+* The backend can use timers, promises, events, or pub/sub mechanisms to know when data is ready.
+
+---
+
+## 4. Examples
+
+### Example 1: Short Polling Problem
+
+```text id="xyt0et"
+Client → Is job ready?
+Server → No
+
+Client → Is job ready?
+Server → No
+
+Client → Is job ready?
+Server → No
+
+Client → Is job ready?
+Server → Yes
+```
+
+This creates many repeated requests.
+
+---
+
+### Example 2: Long Polling Job Status
+
+```text id="fttqdf"
+Client → Is job ready?
+Server waits...
+Job completes
+Server → Yes, job is ready
+```
+
+The client makes fewer requests.
+
+---
+
+### Example 3: Kafka Consumer
+
+```text id="obkyky"
+Consumer → Are there messages in topic A?
+Kafka waits...
+Producer writes new message to topic A
+Kafka → Sends message to consumer
+```
+
+The consumer does not need to constantly ask again and again.
+
+---
+
+### Example 4: Upload Processing
+
+A client uploads a video and receives an upload ID.
+
+```text id="osw766"
+Client → Upload video
+Server → Return upload ID
+
+Client → Long poll upload status
+Server waits until processing changes
+Server → Processing complete
+```
+
+This avoids frequent status checks.
+
+---
+
+### Example 5: Long Polling with Timeout
+
+```text id="09lyj0"
+Client → Any new messages?
+Server waits 30 seconds
+No messages arrive
+Server → No messages yet
+
+Client → Sends another long poll request
+```
+
+This prevents the connection from being open forever.
+
+---
+
+### Example 6: Basic Long Polling Logic
+
+```javascript id="3cvp97"
+app.get("/check-status", async (req, res) => {
+  const jobId = req.query.jobId;
+
+  while (!(await isJobComplete(jobId))) {
+    await sleep(1000);
+  }
+
+  res.json({
+    jobId,
+    status: "complete"
+  });
+});
+```
+
+The server waits before responding.
+
+---
+
+### Example 7: Avoiding a Busy Loop
+
+Bad approach:
+
+```javascript id="g6n5hb"
+while (!isJobComplete(jobId)) {
+  // Do nothing
+}
+```
+
+This can block the event loop and waste CPU.
+
+Better approach:
+
+```javascript id="my6e4d"
+while (!isJobComplete(jobId)) {
+  await sleep(1000);
+}
+```
+
+This gives the event loop time to continue doing other work.
+
+---
+
+### Example 8: Push vs Long Polling
+
+Push model:
+
+```text id="1g4zry"
+Server pushes every message to the client.
+```
+
+Long polling model:
+
+```text id="gek5bw"
+Client asks when it is ready.
+Server responds when data is available.
+```
+
+Long polling is often safer when the client needs to control how much data it receives.
+
+---
+
+## 5. Questions / Review
+
+1. What is long polling?
+
+2. How is long polling different from short polling?
+
+3. Why does short polling become chatty?
+
+4. What does the server do when data is not ready in long polling?
+
+5. Why does long polling reduce network traffic?
+
+6. Is long polling still request/response?
+
+7. Why is long polling useful for long-running jobs?
+
+8. How can long polling be used with a job ID?
+
+9. How does Kafka use long polling?
+
+10. What is the role of the consumer in Kafka?
+
+11. Why did Kafka avoid a pure push model?
+
+12. How does long polling give clients more control?
+
+13. Why can push overload a consumer?
+
+14. What is a timeout in long polling?
+
+15. Why should a long polling request not wait forever?
+
+16. Why is long polling not always perfectly real-time?
+
+17. What happens if the client delays sending the next long poll request?
+
+18. How does long polling move polling from the client to the server?
+
+19. Why can a tight while loop be dangerous in Node.js?
+
+20. How can `sleep` or a timer help avoid blocking the event loop?
+
+21. What are the main advantages of long polling?
+
+22. What are the main disadvantages of long polling?
+
+23. When would you choose long polling over short polling?
+
+24. When would you choose push over long polling?
+
+25. Why is long polling a useful backend communication pattern?

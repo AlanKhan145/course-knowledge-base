@@ -1,0 +1,693 @@
+# 018 - Protocol Properties
+
+**Section:** 03 - Protocols
+**Duration:** 11min
+
+---
+
+## 1. Summary
+
+This lesson explains the main **properties of communication protocols**.
+
+A protocol is a set of rules that allows two parties to communicate. When designing or evaluating a protocol, engineers should consider what problem the protocol is trying to solve and what trade-offs it makes.
+
+The instructor emphasizes that these properties should not be memorized as rigid rules. What matters most is whether the protocol solves the use case, performs well, and fits the system requirements.
+
+The lesson covers important protocol properties such as data format, transfer mode, addressing, directionality, statefulness, routing, reliability, flow control, congestion control, and error handling.
+
+---
+
+## 2. Key Concepts
+
+### Protocol
+
+A protocol is a system of rules that allows two or more parties to communicate.
+
+```text id="q5zyy9"
+If both sides follow the same rules,
+they can understand each other.
+```
+
+Examples of protocols include:
+
+* TCP
+* UDP
+* HTTP
+* gRPC
+* SMTP
+* FTP
+* DHCP
+* WebSocket
+
+---
+
+### Purpose of a Protocol
+
+Every protocol is designed to solve a specific problem.
+
+Important questions:
+
+* What problem does this protocol solve?
+* What kind of communication does it support?
+* Does it prioritize speed, reliability, simplicity, or flexibility?
+* What trade-offs does it make?
+
+---
+
+### Data Format
+
+Data format describes how data is represented on the wire.
+
+A protocol can be:
+
+* Text-based
+* Binary
+
+---
+
+### Text-Based Protocol
+
+A text-based protocol is human-readable, assuming it is not encrypted.
+
+Examples:
+
+* Plain text
+* JSON
+* XML
+* HTTP/1.1
+
+Example:
+
+```http id="og87or"
+GET / HTTP/1.1
+Host: example.com
+```
+
+Text-based protocols are easier to inspect and debug, but they may be larger and slower to parse.
+
+---
+
+### Binary Protocol
+
+A binary protocol is designed for machines, not humans.
+
+Examples:
+
+* Protocol Buffers
+* Redis Serialization Protocol in some contexts
+* HTTP/2 wire format
+* HTTP/3 wire format
+* gRPC payloads
+
+Binary protocols are usually smaller and faster to parse, but harder for humans to read directly.
+
+---
+
+### HTTP/2 as Binary
+
+Even though HTTP stands for Hypertext Transfer Protocol, HTTP/2 changed the wire format to binary.
+
+The high-level API remains similar:
+
+```text id="wrgtga"
+GET request
+Headers
+Body
+Response
+```
+
+But the actual data sent over the network is binary-framed.
+
+---
+
+### Transfer Mode
+
+Transfer mode describes how data is delivered.
+
+Common transfer modes:
+
+* Message-based
+* Stream-based
+
+---
+
+### Message-Based Protocol
+
+A message-based protocol sends discrete messages with clear boundaries.
+
+Each message has a start and an end.
+
+Examples:
+
+* HTTP request/response
+* UDP datagrams
+
+```text id="a86v1l"
+Message 1
+Message 2
+Message 3
+```
+
+Each message is separate.
+
+---
+
+### Stream-Based Protocol
+
+A stream-based protocol sends a continuous stream of bytes.
+
+The protocol itself may not define message boundaries.
+
+Example:
+
+* TCP
+
+```text id="3rxkeb"
+Byte byte byte byte byte byte byte...
+```
+
+Applications built on top of TCP must parse the stream and decide where messages start and end.
+
+---
+
+### TCP as a Stream Protocol
+
+TCP does not preserve message boundaries.
+
+If an application sends multiple messages over TCP, the receiver may simply see a stream of bytes.
+
+The application protocol must define how to split the stream into meaningful messages.
+
+---
+
+### UDP as a Message-Based Protocol
+
+UDP sends datagrams.
+
+Each datagram is a separate message.
+
+```text id="fd9s2c"
+UDP Datagram 1
+UDP Datagram 2
+UDP Datagram 3
+```
+
+If a datagram is too large for the network MTU, IP fragmentation may happen.
+
+---
+
+### Message Parsing
+
+When a message-based protocol is built on top of a stream protocol, parsing becomes important.
+
+Example:
+
+```text id="u04y8i"
+HTTP is message-based.
+TCP is stream-based.
+HTTP over TCP requires parsing.
+```
+
+The receiver must identify where each HTTP request or response starts and ends.
+
+---
+
+### Addressing System
+
+A protocol needs a way to identify where data is coming from and where it is going.
+
+Examples of addressing systems:
+
+* DNS name
+* IP address
+* MAC address
+* Port number
+* URL
+* Host header
+
+---
+
+### DNS Addressing
+
+DNS maps human-readable names to IP addresses.
+
+```text id="yzba2h"
+google.com → IP address
+```
+
+DNS is an application-layer addressing system.
+
+---
+
+### IP Addressing
+
+IP addresses identify devices or interfaces at the network layer.
+
+```text id="vbelb1"
+192.168.1.10
+8.8.8.8
+```
+
+IP addressing is used for routing packets across networks.
+
+---
+
+### MAC Addressing
+
+MAC addresses identify devices at the data link layer.
+
+They are used inside local networks.
+
+Example:
+
+```text id="1sfz1z"
+Device A MAC → Device B MAC
+```
+
+ARP can be used to find the MAC address associated with an IP address on a local network.
+
+---
+
+### Directionality
+
+Directionality describes how data flows between two parties.
+
+Common forms:
+
+* Unidirectional
+* Bidirectional
+* Half duplex
+* Full duplex
+
+---
+
+### Unidirectional
+
+Data flows in one direction.
+
+```text id="8f3fk0"
+Sender → Receiver
+```
+
+Example: A simple server-to-client event feed.
+
+---
+
+### Bidirectional
+
+Both sides can send data.
+
+```text id="k7ve7s"
+Client ↔ Server
+```
+
+Example: WebSocket.
+
+---
+
+### Half Duplex
+
+Both sides can send data, but not at the same time.
+
+```text id="hf4f2a"
+A sends, B waits.
+B sends, A waits.
+```
+
+Some wireless communication behaves this way.
+
+---
+
+### Full Duplex
+
+Both sides can send data at the same time.
+
+```text id="fmyfr0"
+A → B
+A ← B
+```
+
+TCP connections are commonly treated as full duplex.
+
+---
+
+### Protocol State
+
+A protocol can be stateful or stateless.
+
+A stateful protocol remembers information across communication.
+
+A stateless protocol does not rely on stored connection state.
+
+---
+
+### Stateful Protocol
+
+Examples:
+
+* TCP
+* gRPC
+* Some message brokers or streaming protocols
+
+TCP is stateful because it tracks connection state, sequence numbers, windows, and acknowledgements.
+
+---
+
+### Stateless Protocol
+
+Examples:
+
+* UDP
+* Simple request/response protocols in some contexts
+
+UDP does not maintain a connection or remember previous datagrams.
+
+---
+
+### Routing
+
+Routing describes how data moves through gateways, proxies, and networks to reach its destination.
+
+Example:
+
+```text id="yj614w"
+Client → Proxy → Destination Server
+```
+
+A protocol must work correctly when intermediaries are involved.
+
+---
+
+### Proxy Behavior
+
+A proxy may be the immediate destination from the connection’s point of view, even if the final destination is somewhere else.
+
+```text id="631sra"
+Client wants: google.com
+Client connects to: proxy
+Proxy connects to: google.com
+```
+
+Protocols need to define how this kind of routing works.
+
+---
+
+### Flow Control
+
+Flow control prevents a sender from overwhelming a receiver.
+
+TCP includes flow control.
+
+UDP does not provide built-in flow control.
+
+---
+
+### Congestion Control
+
+Congestion control prevents the network itself from being overwhelmed.
+
+TCP includes congestion control.
+
+UDP does not include congestion control by default.
+
+---
+
+### Reliability
+
+Reliability means whether the protocol guarantees delivery.
+
+Reliable protocols may include:
+
+* Acknowledgements
+* Retransmission
+* Ordering
+* Duplicate detection
+
+TCP is reliable.
+
+UDP is not reliable by default.
+
+---
+
+### Error Management
+
+Error management defines how the protocol handles errors.
+
+Questions include:
+
+* What happens if a message is malformed?
+* What happens if there is a timeout?
+* Should the sender retry?
+* Should the receiver return an error code?
+* Should the connection close?
+
+HTTP, for example, has status codes such as `404`, `500`, and `503`.
+
+---
+
+## 3. Important Notes
+
+* A protocol is a set of communication rules.
+* Protocol design depends on the problem being solved.
+* Do not memorize protocol properties as rigid rules.
+* Performance and use-case fit matter most.
+* Data format can be text-based or binary.
+* Text protocols are easier to debug.
+* Binary protocols are usually more efficient.
+* Transfer mode can be message-based or stream-based.
+* TCP is stream-based.
+* UDP is message-based.
+* HTTP is message-based but often runs on top of TCP.
+* Message boundaries must be parsed when using stream-based transport.
+* Protocols need addressing systems.
+* Addressing can happen at multiple layers: DNS, IP, MAC, ports, URLs.
+* Protocols may be unidirectional or bidirectional.
+* Protocols may be half duplex or full duplex.
+* Protocols may be stateful or stateless.
+* Protocols must define how they interact with routing, gateways, and proxies.
+* Flow control protects receivers.
+* Congestion control protects the network.
+* Reliability usually requires acknowledgements and retransmission.
+* Error handling is a core protocol design concern.
+
+---
+
+## 4. Examples
+
+### Example 1: Text-Based HTTP/1.1
+
+```http id="35c9le"
+GET /index.html HTTP/1.1
+Host: example.com
+User-Agent: curl
+```
+
+This is readable by humans.
+
+---
+
+### Example 2: Binary Protocol
+
+Protocol Buffers are binary.
+
+```text id="ocfxjs"
+Machine-readable bytes
+Not designed for direct human reading
+```
+
+This can be more efficient than text formats.
+
+---
+
+### Example 3: TCP Stream
+
+```text id="zb11f7"
+Application sends:
+Message A
+Message B
+
+TCP delivers:
+A stream of bytes
+```
+
+The receiver must parse the bytes and reconstruct the messages.
+
+---
+
+### Example 4: UDP Datagram
+
+```text id="q7dvfb"
+UDP Datagram 1 → complete message
+UDP Datagram 2 → complete message
+```
+
+Each datagram is separate.
+
+---
+
+### Example 5: HTTP Over TCP
+
+```text id="klvveq"
+HTTP message:
+GET / HTTP/1.1
+
+Transport:
+TCP byte stream
+```
+
+HTTP must define how to parse requests and responses from the TCP stream.
+
+---
+
+### Example 6: DNS Addressing
+
+```text id="kpxp1p"
+User enters: google.com
+DNS resolves: google.com → IP address
+Client connects to IP address
+```
+
+DNS helps translate names into network addresses.
+
+---
+
+### Example 7: MAC Address Resolution
+
+```text id="h6xklw"
+Device knows IP address.
+Device needs MAC address.
+ARP finds MAC address on local network.
+```
+
+This happens at a lower network layer.
+
+---
+
+### Example 8: Bidirectional Protocol
+
+WebSocket allows both sides to send data.
+
+```text id="3anrxr"
+Client ↔ Server
+```
+
+This is useful for chat applications and real-time systems.
+
+---
+
+### Example 9: Stateful TCP
+
+```text id="totm41"
+TCP tracks:
+- Connection state
+- Sequence numbers
+- Acknowledgements
+- Flow control window
+- Congestion window
+```
+
+If this state is lost, the connection cannot continue correctly.
+
+---
+
+### Example 10: Stateless UDP
+
+```text id="031g47"
+UDP sends packet.
+UDP does not remember previous packets.
+UDP does not guarantee delivery.
+```
+
+The application must add reliability if it needs it.
+
+---
+
+### Example 11: Proxy Routing
+
+```text id="vkny6j"
+Client → Proxy → google.com
+```
+
+The client may connect to the proxy, while the proxy connects to the final destination.
+
+---
+
+### Example 12: HTTP Error Code
+
+```http id="kpdx4g"
+HTTP/1.1 404 Not Found
+```
+
+This is an example of protocol-level error management.
+
+---
+
+## 5. Questions / Review
+
+1. What is a communication protocol?
+
+2. Why is a protocol described as a set of rules?
+
+3. Why does protocol design depend on the problem being solved?
+
+4. Why should protocol properties not be memorized rigidly?
+
+5. What is data format in protocol design?
+
+6. What is the difference between text-based and binary protocols?
+
+7. Why are text-based protocols easier to debug?
+
+8. Why are binary protocols often more efficient?
+
+9. What is transfer mode?
+
+10. What is a message-based protocol?
+
+11. What is a stream-based protocol?
+
+12. Why is TCP considered stream-based?
+
+13. Why is UDP considered message-based?
+
+14. Why does HTTP need parsing when it runs over TCP?
+
+15. What is an addressing system?
+
+16. What is the role of DNS?
+
+17. What is the role of an IP address?
+
+18. What is the role of a MAC address?
+
+19. What is directionality?
+
+20. What is the difference between unidirectional and bidirectional communication?
+
+21. What is the difference between half duplex and full duplex?
+
+22. What is protocol state?
+
+23. What makes TCP stateful?
+
+24. What makes UDP stateless?
+
+25. What is routing in protocol design?
+
+26. Why do protocols need to work with proxies and gateways?
+
+27. What is flow control?
+
+28. What is congestion control?
+
+29. What does protocol reliability mean?
+
+30. Why does UDP not guarantee delivery?
+
+31. How does TCP provide reliability?
+
+32. What is error management?
+
+33. Why are timeouts important in protocol design?
+
+34. What should engineers consider when designing their own protocol?

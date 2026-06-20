@@ -1,0 +1,1013 @@
+# Ngay 005 - Tuan 1, ngay 5
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-005.txt
+
+## Tong quan
+
+- Chu de mo dau: Vâng, có vẻ như chúng ta mới chỉ bắt đầu hành trình cùng nhau và đã ở ngày thứ năm của tuầ...
+- File goc: day-005.txt
+- So y chinh: 749
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Vâng, có vẻ như chúng ta mới chỉ bắt đầu hành trình cùng nhau và đã ở ngày thứ năm của tuần đầu tiên.
+- Xin chào, xin chào.
+- Hôm nay là giờ biểu diễn.
+- Hôm nay hãy xắn tay áo lên và nhận lời nhắc nhở về những gì bạn có thể làm.
+- Bạn đã có thể gọi API của OpenAI.
+- Bạn có thể sử dụng nó để tóm tắt mọi thứ.
+- Bạn có thể so sánh các llms khác nhau ở biên giới.
+- Và chúng tôi đã giới thiệu về Transformers, mã thông báo, ngữ cảnh, API Windows, ý tưởng về ảo ảnh bộ nhớ và nhiều hơn thế nữa.
+### Muc 2
+
+- Nhưng đến cuối ngày hôm nay, bạn sẽ có thể tự tin viết mã bằng OpenAI API.
+- Hay nói cụ thể hơn là API Hoàn thành trò chuyện.
+- Bạn sẽ sử dụng thứ gọi là nhắc nhở một lần, đây chỉ là tên gọi mỹ miều của việc đưa ra ví dụ.
+- Chúng tôi có thể truyền trực tiếp kết quả.
+- Chúng ta có thể hiển thị nó bằng markdown, về cơ bản chúng ta đã thực hiện rồi, và cũng có thể sử dụng kết quả JSON.
+- Nhưng chúng tôi cũng có thể kết hợp điều này thành một giải pháp thương mại phù hợp mà bạn có thể thực hiện chỉ trong vài phút, và sau đó bạn cũng có thể áp dụng giải pháp này vào các vấn đề thương mại của riêng mình.
+- Được thôi, nghe có vẻ thú vị đấy.
+- Chúng ta hãy giới thiệu vấn đề thương mại.
+### Muc 3
+
+- Được rồi, vậy thì điều chúng ta sẽ làm là xây dựng một thứ có khả năng tạo ra tờ rơi bán hàng cho một công ty.
+- Bạn có thể cung cấp cho nó một địa chỉ web và nó sẽ tạo ra một tờ rơi bán hàng cho các khách hàng hoặc nhà đầu tư tiềm năng trong tương lai hoặc để bạn tuyển dụng vào nhóm của mình.
+- Và cách chúng ta sẽ thực hiện có thể nói là khá giống với việc tóm tắt một trang web, nhưng thực chất nó còn hơn thế nữa.
+- Nó có thể truy cập và kéo nhiều trang web.
+- Sẽ cần một trang web.
+- Công cụ này sẽ tìm các liên kết trên trang web có liên quan đến công ty, sau đó theo dõi các liên kết đó và sử dụng tất cả thông tin đó để xây dựng một tờ rơi bán hàng.
+- Và đây sẽ là sản phẩm thương mại.
+- Và bạn có thể tưởng tượng bạn có thể đóng gói nó lại và sử dụng nó như công cụ tạo tờ rơi bán hàng của mình.
+## Phan 2
+
+### Muc 4
+
+- Vì vậy, tất nhiên chúng ta sẽ sử dụng API OpenAI mà chúng ta đã được giới thiệu.
+- Chúng ta sẽ sử dụng thứ gọi là nhắc nhở một lần, như tôi đã nói, đây là một cái tên mỹ miều để nói rằng, này, hãy tưởng tượng chuỗi đầu vào mà chúng ta có thể đưa vào, một ví dụ về kết quả tốt trông như thế nào, và sử dụng nó như cách để tạo ra, để tăng khả năng đầu ra của chúng ta là những gì chúng ta mong muốn.
+- Và chúng ta cũng sẽ sử dụng một kỹ thuật gọi là phát trực tuyến, cung cấp cho bạn hiệu ứng hình ảnh động quen thuộc của kết quả hiển thị trên màn hình.
+- Vậy đó chính là ý tưởng.
+- Đó là tờ rơi bán hàng.
+- Sẽ có rất nhiều mã hóa và sẽ có nhiều mã hóa.
+- Sẽ bao gồm hai cuộc gọi LM.
+- Và do đó, có một lệnh gọi LM lấy lại kết quả và sau đó sử dụng kết quả đó để thực hiện một lệnh gọi LM khác.
+### Muc 5
+
+- Và đó là một ý tưởng thú vị về việc kết hợp các lệnh gọi LM này để có thêm giá trị thương mại.
+- Được rồi, chúng ta đến Casa thôi.
+- Chúng ta cùng làm nhé.
+- Được rồi.
+- Chúng ta lại quay trở lại Casa rồi.
+- Tôi bước vào tuần thứ nhất, đến ngày thứ năm và đây là phòng thí nghiệm ngày thứ năm của chúng tôi.
+- Hãy nhớ nhấp vào góc trên bên phải và chọn hạt nhân đó, đó chính là hạt nhân VM của bạn.
+- Được rồi.
+### Muc 6
+
+- Vì vậy, thử thách mà chúng tôi đang bắt đầu rất giống với những gì chúng tôi đã làm vào ngày đầu tiên khi tóm tắt trang web.
+- Nhưng chúng tôi đang đưa nó lên một tầm cao mới.
+- Chúng ta sẽ xây dựng một tờ rơi tiếp thị hoặc bán hàng cho công ty bằng cách xem một trang web, tìm các liên kết của trang web đó và xem thêm nhiều trang web khác.
+- Và cuối cùng chúng ta sẽ nói về ứng dụng kinh doanh của nó.
+- Và bây giờ, hãy xem, một số người đã nói với tôi, được thôi, nhưng chúng ta không thể yêu cầu ChatGPT làm điều gì đó như thế này và đưa ra một số hướng dẫn và cung cấp cho nó một URL sao?
+- Trời mưa thật tệ đối với cuộc diễu hành của tôi và đúng là như vậy, bạn có thể và có lẽ sẽ làm rất tốt.
+- Nhưng vấn đề ở đây là.
+- Trước hết, hãy nhớ rằng ChatGPT là sản phẩm được xây dựng dựa trên GPT và có rất nhiều kỹ sư AI làm việc tại OpenAI đang phát triển sản phẩm này.
+## Phan 3
+
+### Muc 7
+
+- Và về cơ bản đó là những gì chúng ta sẽ làm bây giờ.
+- Chúng tôi sẽ hoạt động như một kỹ sư AI đang làm việc trên sản phẩm của mình và sẽ tập trung vào tờ rơi bán hàng thay vì có thể làm bất cứ điều gì.
+- Nó có chức năng đó.
+- Và bên cạnh đó, hãy xem, có rất nhiều sản phẩm AI theo chiều dọc trên điện thoại của tôi.
+- Tôi sử dụng Duolingo để học tiếng Tây Ban Nha và có lẽ đang tiến triển rất tốt.
+- Nhưng, nhưng nhưng tôi sử dụng Duolingo.
+- Và tất nhiên nó cũng có tính năng AI mà bạn có thể sử dụng để trò chuyện với AI.
+- Và bí mật đen tối nằm ở chỗ AI chỉ đang gọi GPT.
+### Muc 8
+
+- Và đoán xem sao?
+- Chúng tôi đã khám phá ra chính mình.
+- Bạn chỉ cần mang theo một con lạc đà và tự làm.
+- Nhưng điều đó không quan trọng.
+- Điều đó không ngăn cản tôi sử dụng Duolingo vì nó rất tiện lợi khi được thiết kế cẩn thận.
+- Các lời nhắc đã được xử lý, thông tin đã được đưa vào đó, vì vậy tôi sử dụng Duolingo và trả số tiền cao cấp đó để có thể sử dụng AI trò chuyện của họ và họ đã kiếm được rất nhiều doanh thu từ đó.
+- Và vì vậy, tôi muốn nhấn mạnh rằng việc có thể tái tạo chức năng trong ChatGPT bằng nhiều lời nhắc khác nhau không làm giảm giá trị thương mại của việc xây dựng thứ gì đó với logic kinh doanh thực hiện lệnh gọi tới ChatGPT.
+- Mọi người đôi khi sử dụng cụm từ trình bao bọc GPT để chỉ chức năng được xây dựng xung quanh ChatGPT và tôi hiểu điều đó.
+### Muc 9
+
+- Và trong suốt tám tuần tới, chúng tôi sẽ xây dựng ngày càng nhiều chức năng giúp chúng tôi thoát khỏi thuật ngữ GPT, trình bao bọc GPT để trở thành thứ gì đó thực sự được thiết kế riêng.
+- Ngày nay, có lẽ bạn có thể cho rằng đây là một trình bao bọc GPT, nhưng đây là điểm khởi đầu và là điểm khởi đầu tuyệt vời.
+- Và chúng ta hãy cùng bắt đầu nhé.
+- Được rồi.
+- Vì vậy, chúng ta bắt đầu với một số nội dung nhập khẩu như thường lệ.
+- Giữ phím Shift và nhấn Enter để chạy.
+- Nếu bất kỳ lần nhập nào trong số này không thành công, thường có nghĩa là bạn chưa chọn đúng hạt nhân.
+- Được thôi.
+## Phan 4
+
+### Muc 10
+
+- Và sau đó như trước, chúng ta sẽ khởi tạo khóa API.
+- Chúng ta hãy sử dụng GPT năm nano.
+- Hiện tại, phiên bản giá rẻ của GPT 5 và khóa API có vẻ ổn.
+- Nếu máy của bạn không hoạt động, hãy đến phòng xử lý sự cố.
+- Được rồi, vậy thì bạn nhớ đến công cụ này, tiện ích nhỏ này mà tôi đã đưa vào.
+- Thực ra, ừm, có chức năng này để lấy nội dung trang web mà chúng ta đã thấy trước đây.
+- Tôi đã đưa ra một hàm khác để lấy liên kết trang web, hàm này chỉ lấy một trang web, tìm bất kỳ liên kết nào trên trang web đó và trả về liên kết đó.
+- Chỉ cần phân tích mã vanilla bằng thư viện này.
+### Muc 11
+
+- Súp đẹp.
+- Rất phổ biến.
+- Nếu đây không phải là điều hiển nhiên thì đây không phải là khóa học về cách cạo.
+- Vì vậy, bạn không cần phải hiểu cách thức hoạt động của nó, chỉ cần biết rằng chúng ta đang sử dụng hàm này.
+- Nhưng nếu bạn quan tâm thì đây là nó.
+- Và đối với những ai muốn chỉ ra, tôi rất ý thức được thực tế là sẽ không hiệu quả khi tôi thực hiện cả hai chức năng này để truy xuất trang web.
+- Nhưng đó là vì tôi không có ý định dạy về việc cạo.
+- Tôi đang cố gắng giảng dạy về AI và tôi muốn giữ cho các chức năng này đơn giản và dễ hiểu để bạn không bị mất tập trung.
+### Muc 12
+
+- Được rồi.
+- Vì vậy, chúng ta có chức năng này để lấy các liên kết trang web mà tôi vừa viết.
+- Không liên quan gì đến AI.
+- Tôi có thể truyền vào một URL như Edward, và nếu tôi chạy lệnh này thì Bam!
+- Tôi chỉ nhận được danh sách tất cả các liên kết có trên trang web đó.
+- Nhưng có hai vấn đề ở đây.
+- Vấn đề đầu tiên là nhiều liên kết trong số này không liên quan đến trang của tôi.
+- Có những liên kết đến Y Combinator và Hacker News.
+## Phan 5
+
+### Muc 13
+
+- Có những liên kết đến những thứ khác có thể không liên quan.
+- Điều này có lẽ liên quan đến loại trang web mà tôi đang điều hành.
+- Vì vậy, có những thứ không liên quan đến trang web của tôi.
+- Và điều thứ hai là một số trong số này có thể là liên kết tương đối thay vì liên kết tuyệt đối hoàn toàn.
+- Nhìn vào đây, tất cả chúng dường như đều là liên kết tuyệt đối, nhưng trên các trang web khác chắc chắn sẽ có liên kết tương đối.
+- Vậy thì thông thường chúng ta sẽ làm gì nếu muốn tìm tất cả các liên kết có liên quan?
+- Chúng ta phải viết một số mã để làm điều đó.
+- Việc ánh xạ URL tương đối thành URL tuyệt đối khá khả thi, nhưng khó hơn bạn tưởng.
+### Muc 14
+
+- Có một số điều khó hiểu liên quan đến việc hiểu URL đó biểu thị điều gì, nhưng bạn có thể xác định được liệu một liên kết có liên quan đến mình hay không.
+- Thật sự rất, rất khó.
+- Trên thực tế, bạn biết đấy, điều này đòi hỏi sự hiểu biết về ý nghĩa của liên kết vì một số thứ có thể là liên kết ngoài nền tảng của tôi, như trang LinkedIn của tôi, vẫn có liên quan, trong khi một số thứ liên quan đến Hacker News thì không.
+- Vì vậy, cố gắng tìm ra logic đó sẽ thực sự khó khăn và phức tạp, đòi hỏi sự hiểu biết và những thứ tương tự như vậy.
+- Cho đến khoảng bốn năm trước thì điều đó hoàn toàn không thể thực hiện được.
+- Giống như chúng ta không có công nghệ để làm điều đó.
+- Và bây giờ chỉ cần một tiếng gọi nhỏ để rời đi.
+- Thật dễ dàng để có thể hiểu được những sắc thái đó.
+### Muc 15
+
+- Vì vậy, khả năng phân tích thông tin và sau đó diễn giải và tái cấu trúc thông tin theo cách gần giống con người.
+- Đó là điều gì đó thật tuyệt vời và mới mẻ.
+- Và bạn có thể sử dụng cùng loại kỹ thuật này để phân tích sơ yếu lý lịch của mọi người, phân tích các đánh giá về nhà hàng, bất cứ thứ gì bạn muốn, và có được sự hiểu biết và phân loại sắc thái về chúng.
+- Nhưng chúng ta sẽ làm điều đó ngay bây giờ.
+- Chúng ta sẽ sử dụng GPT năm nano để tìm ra những cái nào có liên quan và đảm bảo rằng chúng ta có đúng loại URL.
+- Vậy chúng ta phải làm thế nào để thực hiện điều này?
+- Chúng ta bắt đầu thế nào?
+- Vâng, nơi để bắt đầu với những cuộc gọi này luôn là suy nghĩ về lời nhắc.
+## Phan 6
+
+### Muc 16
+
+- Chúng ta muốn gửi chuỗi đầu vào nào đến LM để cho phép nó tạo ra các mã thông báo có khả năng thực hiện nhiệm vụ của chúng ta cao nhất?
+- Được rồi, chúng ta bắt đầu bằng cách nghĩ đến lời nhắc của hệ thống và lời nhắc của người dùng.
+- Vậy là tôi đã viết xong lời nhắc hệ thống.
+- Tôi sẽ không gõ nó ra vì sẽ có rất nhiều thứ phải gõ.
+- Tôi sẽ chỉ cho bạn cách thực hiện ở đây và hướng dẫn bạn qua lời nhắc của hệ thống.
+- Bạn được cung cấp danh sách các liên kết có trên một trang web.
+- Bạn có thể quyết định liên kết nào sẽ phù hợp nhất để đưa vào tờ rơi giới thiệu về công ty, chẳng hạn như liên kết đến trang giới thiệu, trang công ty hoặc trang việc làm.
+- Bạn nên trả lời bằng JSON như trong ví dụ này và có một số JSON.
+### Muc 17
+
+- Nếu bạn không quen với JSON, hãy tìm kiếm trên Google.
+- Tôi chắc chắn là bạn vậy.
+- Vậy là có một số JSON Jason và nó có cấu trúc như thế này mà tôi vừa mới phát minh ra.
+- Tôi vừa phát minh ra cấu trúc này với chìa khóa là các liên kết.
+- Và bên trong đó là một danh sách, mỗi liên kết có một loại như trang giới thiệu và một URL.
+- Và có một URL.
+- Vậy tại sao tôi lại sáng tạo ra Jason?
+- Vâng, vấn đề là thế này.
+### Muc 18
+
+- Các mô hình ngôn ngữ này đã được đào tạo với rất nhiều dữ liệu và hầu hết dữ liệu đó được chia thành ba loại.
+- Hoặc là chỉ đơn giản là tiếng Anh.
+- Họ được đào tạo rất nhiều về tiếng Anh hoặc ngoại ngữ.
+- Họ đã đào tạo rất nhiều ngôn ngữ.
+- Ý tôi là rất nhiều ngôn ngữ tự nhiên.
+- Đó là từ được sử dụng rất nhiều trong ngôn ngữ tự nhiên.
+- Rất nhiều.
+- Thứ hai, chúng được đào tạo với nhiều mã giảm giá.
+## Phan 7
+
+### Muc 19
+
+- Các trang web được chuyển sang dạng markdown.
+- Markdown về cơ bản giống như cách viết tắt của HTML.
+- Họ được đào tạo với rất nhiều markdown.
+- Vì vậy, họ thích markdown và họ thích tạo markdown.
+- Họ thực sự hiểu rõ về markdown.
+- Đó là một cấu trúc mà họ rất quen thuộc.
+- Vì vậy, họ biết đến markdown.
+- Và thứ ba, chúng được đào tạo bằng rất nhiều JSON.
+### Muc 20
+
+- Họ thấy JSON rất nhiều.
+- Và do đó, JSON là thứ mà khi bạn gửi thông tin có cấu trúc đến LLM, nếu bạn sử dụng JSON, nó sẽ trở nên mạch lạc, nó sẽ nhận ra thông tin đó và sẽ hiểu bạn đang làm gì.
+- Và đó là lý do tại sao cần cung cấp cho nó một cấu trúc JSON đẹp mắt, dễ hiểu, có tổ chức và thể hiện thông tin theo cách chúng ta muốn.
+- Tôi muốn một loại cho mỗi liên kết của mình.
+- Đó lại là một điều khó tưởng tượng khác khi phải mã hóa nó.
+- Bạn có thể viết mã theo cách nào để có tiêu đề cho từng loại liên kết và sau đó là URL cho liên kết đó không?
+- Vì vậy, cách tuyệt vời để thể hiện thông tin bạn muốn nhận được là cung cấp cho nó một cấu trúc JSON.
+- Ngày xưa, mọi người thường cố gắng nói rằng, bạn biết đấy, hãy trả lời bằng cách này và gạch đầu dòng đầu tiên với một số thông tin, gạch đầu dòng thứ hai với một số thông tin.
+### Muc 21
+
+- Thật ngớ ngẩn khi cố gắng mô tả một cách nào đó để trình bày dữ liệu.
+- Tốt hơn nhiều nếu sử dụng JSON.
+- Và trong tuần thứ tám, chúng ta sẽ sử dụng thứ gọi là đầu ra có cấu trúc, giúp chúng ta có cách buộc JSON tập trung vào một thông số kỹ thuật cụ thể để đáp ứng một lược đồ.
+- Chúng tôi sẽ không đề cập đến vấn đề đó ở đây.
+- Chúng ta chỉ đề cập đến vấn đề này thôi.
+- Chỉ đưa ra một ví dụ và các ví dụ về những câu trả lời khả thi đôi khi được gọi là gợi ý một lần.
+- Nếu bạn đưa ra một ví dụ, thì đó là một ví dụ.
+- Nếu bạn đưa ra nhiều ví dụ, về lý thuyết thì đó là phương pháp gợi ý nhiều lần, để làm đúng, phương pháp gợi ý nhiều lần là khi bạn đưa ra một câu hỏi ví dụ và sau đó là câu trả lời phù hợp.
+## Phan 8
+
+### Muc 22
+
+- Và sau đó là một câu hỏi khác, và sau đó là một câu trả lời hay.
+- Việc đưa ra nhiều câu trả lời về cơ bản cũng giống như việc nhắc nhở nhiều lần.
+- Vì vậy, trong trường hợp này chúng ta sẽ thực hiện nhắc nhở từng lần một.
+- Chúng tôi sẽ đưa ra một ví dụ.
+- Và chúng tôi muốn nói rằng với ví dụ này, hãy học hỏi từ nó, sao chép nó và mọi chuyện sẽ ổn thôi.
+- Hãy nhớ rằng, tất cả những gì nó làm là lấy thông tin này làm đầu vào và tạo ra các mã thông báo có khả năng xuất hiện tiếp theo cao nhất.
+- Và điều xảy ra là những token có khả năng xuất hiện tiếp theo thực chất lại chính là những thứ mà chúng ta thực sự mong muốn nó xuất hiện tiếp theo.
+- Nó sẽ phân tích dữ liệu đầu vào của chúng ta và đưa ra thông tin này làm đầu ra.
+### Muc 23
+
+- Được rồi.
+- Đó là liên kết nhắc nhở hệ thống của chúng ta.
+- Được gọi là ổn.
+- Đừng lo lắng, tôi sẽ gõ vài dòng ngay bây giờ.
+- Nếu bạn thắc mắc tại sao anh ấy không có kiểu người như vậy thì tôi sẽ có.
+- Tiếp theo là lời nhắc của người dùng.
+- Vậy thì lần này tôi chỉ coi nó là một biến vì nó luôn luôn giống hệt nhau.
+- Liên kết nhắc nhở hệ thống.
+### Muc 24
+
+- Tôi có chức năng này vì chúng ta sẽ tạo lời nhắc cho người dùng mỗi lần khi truyền URL vào.
+- Vì vậy, một URL sẽ xuất hiện và chúng ta sẽ đưa ra lời nhắc cho người dùng.
+- Và đây là những gì nó sẽ nói.
+- Sau đây là danh sách các liên kết trên URL trang web.
+- Vui lòng quyết định xem đâu là liên kết web có liên quan đến tờ rơi giới thiệu về công ty.
+- Trả lời bằng url https đầy đủ theo định dạng JSON.
+- Không bao gồm các điều khoản dịch vụ, quyền riêng tư và liên kết email.
+- Đây là một ví dụ về những điều không nên làm.
+## Phan 9
+
+### Muc 25
+
+- Gần như trái ngược với việc chỉ đưa ra một câu trả lời duy nhất, đây sẽ là những câu trả lời tệ.
+- Và bạn có thể tưởng tượng tôi đưa điều đó vào đó vì nó bao gồm cả họ.
+- Điều này rất phổ biến.
+- Ý tôi là, và có lẽ điều quan trọng nhất mà bạn sẽ học được trong toàn bộ khóa học này là chìa khóa để có được kết quả tốt từ LLMs là thử nghiệm và lặp lại.
+- Tất cả đều là về thử nghiệm.
+- Đó chính là những gì cần có để trở thành một kỹ sư LLM giỏi.
+- Vấn đề là phải trở thành một nhà khoa học dữ liệu giỏi cũng như một kỹ sư giỏi.
+- Và khoa học dữ liệu là về thử nghiệm, và không có cách nào tốt hơn để có được kết quả tốt hơn là liên tục tinh chỉnh lời nhắc của bạn.
+### Muc 26
+
+- Vì vậy, nếu bạn thực hiện thao tác này và nó bắt đầu tạo ra các chính sách bảo mật như những gì nó cho là liên kết có liên quan, bạn quay lại và yêu cầu không bao gồm các chính sách bảo mật.
+- Bạn lặp lại, bạn cải thiện, bạn thêm ví dụ.
+- Đó là cách để đạt được kết quả tuyệt vời.
+- Vì vậy, tất nhiên tôi sẽ gọi để lấy liên kết trang web.
+- Đó chính là hàm mà tôi vừa giới thiệu cho bạn để lấy tất cả các liên kết cho URL này.
+- Và sau đó vào lời nhắc người dùng này, tôi thêm từng liên kết đó và đó là những gì tôi trả về.
+- Được rồi, chúng ta hãy chạy thử nhé.
+- Hãy chạy lệnh get links để lấy liên kết từ người dùng.
+### Muc 27
+
+- Hãy làm điều này vì Edward Comm.
+- Chúng ta hãy xem người dùng nhắc nhở điều gì.
+- Một lần nữa chúng tôi vẫn chưa gọi là LLM.
+- Không có AI nào ở đây cả.
+- Chúng ta chỉ cần tạo một lời nhắc của người dùng mà sau đó chúng ta sẽ gọi bằng LLM.
+- Chúng ta hãy xem nó nói gì nhé.
+- Đây là danh sách các liên kết trên trang web.
+- Vui lòng quyết định nội dung nào sau đây có liên quan đến tờ rơi giới thiệu về công ty.
+## Phan 10
+
+### Muc 28
+
+- Trả lời bằng Https đầy đủ.
+- Đừng làm thế.
+- Đó chính xác là những gì chúng ta vừa xem xét.
+- Và đây là những liên kết được liệt kê ở đó.
+- Đó là tất cả những gì tôi đã làm.
+- Tôi đã xây dựng chuỗi này và mã để xây dựng chuỗi đó nằm trong hàm này để lấy liên kết nhắc nhở người dùng.
+- Vì vậy, bây giờ chúng ta có lời nhắc hệ thống liên kết và lời nhắc người dùng nhận liên kết.
+- Vậy là cuối cùng chúng ta đã sẵn sàng thực hiện cuộc gọi AI đầu tiên.
+### Muc 29
+
+- Và nó sẽ là chức năng này.
+- Chọn các liên kết có liên quan.
+- Được rồi, chúng ta bắt đầu thôi.
+- Vậy đó là API hoàn thành trò chuyện.
+- Vì vậy, hãy nhớ cách bạn thực hiện là bắt đầu bằng cách đảm bảo rằng chúng ta thực sự đã tạo ra một phiên bản OpenAI.
+- Chúng ta đã làm điều đó ở đây chưa?
+- Chúng ta hãy kiểm tra thư viện máy khách Python.
+- Đi ngược lên, ngược lên.
+### Muc 30
+
+- Vâng, chúng tôi đã làm vậy.
+- Đó chính là OpenAI.
+- Và chúng ta có mô hình biến đổi này.
+- Vậy là chúng ta đã có một phiên bản của thư viện máy khách Python rồi.
+- Vì vậy, chúng ta có thể nói phản hồi bằng với OpenAI, thư viện máy khách Python, chấm trò chuyện và hoàn thành.
+- Và sau đó chúng ta gọi lệnh create.
+- Chúng tôi đang tạo một bài đăng ở điểm cuối đó.
+- Được thôi.
+## Phan 11
+
+### Muc 31
+
+- Bây giờ bạn có nhớ chúng ta phải truyền đạt những gì không?
+- Chúng ta phải truyền đạt hai điều.
+- Chúng ta phải truyền vào mô hình, có thể chỉ là mô hình như một con trỏ điền vào.
+- Và tin nhắn.
+- Bây giờ tin nhắn tất nhiên là danh sách các từ điển.
+- Vậy đây là danh sách gồm hai từ điển, trong trường hợp này là từ điển đầu tiên.
+- Chúng ta bắt đầu thôi.
+- Vai trò sẽ là hệ thống và nội dung.
+### Muc 32
+
+- Ồ, xem kìa, chúng ta đi thôi.
+- Nội dung sẽ được cảm ơn.
+- Con trỏ.
+- Hệ thống liên kết nhắc nhở.
+- Nhấn nhanh phím thoát trước khi con trỏ làm lộ trò chơi.
+- Chẳng vui chút nào.
+- Được rồi, đó là lời nhắc của hệ thống liên kết.
+- Bây giờ mục tiếp theo có vai trò là người dùng và nội dung thì ổn.
+### Muc 33
+
+- Được rồi.
+- Lời nhắc của người dùng là gì?
+- Chúng ta không có hằng số.
+- Bây giờ chúng ta cần gọi hàm mà tôi vừa viết cách đây một giây là lấy liên kết đến lời nhắc của người dùng.
+- Xuất sắc.
+- Vậy là xong.
+- Ờ, bỏ con trỏ đi.
+- Hãy dừng lại với sự thông minh của bạn đi.
+## Phan 12
+
+### Muc 34
+
+- Được rồi.
+- Đó là tin nhắn.
+- Tôi đã nói với bạn trước đó rằng chúng ta chỉ cần truyền hai thứ vào model và messages.
+- Nhưng tôi đã nói dối.
+- Chúng ta sẽ phải truyền đạt thêm một điều nữa.
+- Có một tham số bổ sung mà chúng ta sẽ sử dụng, đó là con trỏ đã được điền sẵn, đó là định dạng gạch dưới phản hồi, định dạng gạch dưới phản hồi, đó là cách chúng ta có thể cho API biết rằng chúng ta muốn phản hồi có định dạng đối tượng JSON cụ thể.
+- Đấy, thế là xong.
+- À, bây giờ là một lời đề cập nhanh, một khoảnh khắc dành cho những người kiểu như, tôi biết tất cả những điều này, hãy để tôi đề cập đến một điều mà bạn cũng có thể biết, nhưng có thể không, đó là một trong những điều mà điều này thực sự khá lén lút và những người không quen với điều này sẽ lấy tay bịt tai trong một giây.
+### Muc 35
+
+- Một trong những tác dụng của nó là hạn chế GPT của mô hình trong thời gian suy luận.
+- Khi GPT dự đoán các token có khả năng xuất hiện tiếp theo nhiều nhất, cách thức hoạt động của nó không chỉ là dự đoán đây có phải là token tiếp theo hay không.
+- Nó dự đoán một phân phối xác suất, mã thông báo tiếp theo có khả năng xảy ra.
+- Nó đưa ra xác suất cho mọi mã thông báo tiếp theo có thể có.
+- Và thường thì khi chúng ta nói một cách rộng rãi là chọn mã thông báo tiếp theo, ý chúng ta là chọn mã thông báo hoặc mẫu tiếp theo có xác suất cao nhất dựa trên xác suất hoặc thứ gì đó tương tự như vậy.
+- Vâng, bởi vì đó là cách suy luận hoạt động vì nó thực hiện từng mã thông báo một.
+- Bạn cũng có thể sử dụng điều đó để đảm bảo rằng chúng ta không bao giờ chọn mã thông báo có thể dẫn đến JSON không hợp lệ.
+- Về cơ bản, chúng ta có thể hạn chế nó để buộc phải tạo JSON tại thời điểm suy luận.
+### Muc 36
+
+- LLM có thể dự đoán bất kỳ xác suất nào mà nó muốn, nhưng những xác suất mà chúng ta thực sự chọn sẽ là những xác suất tạo ra JSON có định dạng tốt.
+- Và điều đó thực sự thú vị.
+- Và đó là cách mà ngay cả khi LLM không hiểu ý bạn, nếu bạn nói bạn phải trả lời bằng JSON và nó biết nếu bạn nói bằng tiếng Anh, nhưng về mặt kỹ thuật, nó không biết điều đó, nhưng tại thời điểm suy luận, chúng ta có thể áp dụng các ràng buộc kỹ thuật như vậy.
+- Được thôi.
+- Bây giờ mọi người có thể buông tay bạn ra.
+- Ừ, được thôi.
+- Vậy đó, ừm, đó là đó là, ừm, lệnh gọi API.
+- Bây giờ đã đến lúc chúng ta lấy lại phản hồi và xử lý nó.
+## Phan 13
+
+### Muc 37
+
+- Được rồi, chúng ta tiếp tục nhé.
+- Vì vậy, bây giờ chúng ta nói điều gì đó giống như kết quả là phản hồi C phản hồi chấm lựa chọn không chấm tin nhắn chấm nội dung.
+- Bạn còn nhớ lúc chúng ta đang đào sâu vào JSON không?
+- Chỉ có thế thôi.
+- Và sau đó kết quả trả về sẽ là một văn bản thô.
+- Nhưng đó là định dạng.
+- Nó sẽ giống như văn bản JSON.
+- Và những người quen thuộc với việc sử dụng JSON đều biết rằng bạn có thể chuyển đổi văn bản, một chuỗi chứa các ký tự ngoằn ngoèo, dấu ngoặc kép và các thứ tương tự thành từ điển Python bằng cách sử dụng thư viện JSON tích hợp sẵn.
+### Muc 38
+
+- Và bạn thực hiện điều đó bằng cách nào đó như liên kết bằng độ dài bằng chuỗi tải dấu chấm JSON kết quả.
+- Vì vậy, việc chuyển đổi từ chuỗi kết quả có chứa ký tự curlies thành các từ điển Python thực tế là điều cần thiết.
+- Và đó chính là những gì liên kết sẽ có.
+- Và bây giờ chúng ta chỉ cần trả về liên kết và thế là xong.
+- Đó là những liên kết có liên quan được chúng tôi lựa chọn.
+- Hy vọng là tôi không mắc phải sai lầm nào.
+- Hãy chạy thử nhé.
+- Hãy chọn những liên kết có liên quan cho trang web của tôi.
+### Muc 39
+
+- Vậy thì bây giờ phải thực hiện điều đó.
+- Nó thực hiện thao tác quét web nhanh để lấy dữ liệu.
+- Và nó sẽ đóng gói và gửi đến GPT năm nano với lời nhắc hệ thống và lời nhắc người dùng mà chúng tôi vừa mô tả và yêu cầu GPT năm nano phân tích và trả về các liên kết có liên quan theo định dạng JSON đó và định dạng JSON đó sẽ trả về dưới dạng một chuỗi.
+- Chúng ta sẽ biến nó thành một từ điển Python và in từ điển Python đó ra.
+- Và tôi hy vọng rằng đúng như vậy, điều đó đã xảy ra ngay khi tôi hoàn thành.
+- Đấy, nó đây rồi.
+- Có từ điển rồi.
+- Nếu chúng ta chỉ so sánh nó với ở trên thì đây là nơi chúng ta đã đưa ra phong cách mà chúng ta muốn hệ thống nhắc nhở.
+## Phan 14
+
+### Muc 40
+
+- Hãy nhớ rằng đây là kiểu liên kết mà chúng ta muốn có trong danh sách liên kết.
+- Và nếu chúng ta đến đây hãy xem thử nhé.
+- Chúng tôi có liên kết.
+- Chúng ta có một danh sách và mỗi danh sách có một loại và một loại URL.
+- Trang chủ.
+- Nhập thông tin về trang.
+- Nhập bài đăng trên blog.
+- Thế thì sao?
+### Muc 41
+
+- Chúng tôi vừa sử dụng GPT năm nano để thực hiện phân tích thông minh theo cách tinh tế bằng cách chỉ chọn những trang có liên quan.
+- Và đúng vậy, nó cho rằng LinkedIn là một liên kết có liên quan đến một tờ rơi tiếp thị về tôi.
+- Nhưng nó nghĩ rằng, ừm, tôi đoán vậy, ừm, của tôi, ừm, và nó đưa Facebook và Nebula của tôi vào đó, nhưng nó không đưa, ví dụ, liên kết của tôi tới Hacker News vì điều đó thực sự không liên quan đến tôi.
+- Vì vậy, nó đã suy nghĩ thành công theo cách đó, sắc thái của việc hiểu điều gì làm cho một liên kết trở nên có liên quan.
+- Và đó không phải là việc dễ dàng.
+- Được rồi.
+- Và đây tôi lại nhận được kết quả tương tự.
+- Nhưng lần này tôi chỉ đặt một câu lệnh in ở trên cùng và dưới cùng để trông có tổ chức hơn một chút.
+### Muc 42
+
+- Và lần này, nó sẽ in ra những gì nó đang làm để chúng ta có thể xem sau.
+- Ừm, để tôi trình bày cách chúng ta sẽ làm tương tự với huging face Co, trang web dành cho trung tâm và thư viện nguồn mở mà chúng ta sẽ sử dụng nhiều trong tuần thứ ba và những tuần khác.
+- Vì vậy, khi tôi chạy lệnh này, trước tiên nó sẽ in ra các liên kết có liên quan đến Huggingface Co bằng cách gọi GPT năm nano.
+- Đây là bản in tuyên bố ở đây.
+- Bây giờ đây là cùng một đoạn mã mà bạn thấy tôi gõ một cách khó nhọc và nó trả về kết quả.
+- Nó tải nó.
+- Và sau cùng, nó sẽ in ra, ừm.
+- Ừm, đúng rồi, thế là xong.
+## Phan 15
+
+### Muc 43
+
+- Vậy là xong.
+- Đây là kết quả, ừm, và nó cho biết đã tìm thấy ba liên kết có liên quan.
+- Và đó là trang thương hiệu, trang nghề nghiệp và trang công ty.
+- Tất cả những thông tin đó đều được lấy từ trang web Hugging Face.
+- Và tất nhiên, còn rất nhiều liên kết khác nữa trên trang web Huggingface.
+- Nó đã chọn xuống còn ba cái đó.
+- Được rồi, bây giờ đã đến lúc chúng ta tiến một bước lớn hơn và sử dụng thông tin này để tạo ra một tờ rơi giới thiệu công ty.
+- Vì vậy, bây giờ tôi sẽ viết một hàm có thể tận dụng mọi thứ chúng ta đã xây dựng cho đến nay.
+### Muc 44
+
+- Nó sẽ được gọi là Fetch Page và tất cả các liên kết có liên quan.
+- Được rồi.
+- Và hàm này sẽ đóng gói lệnh gọi tới GPT mà chúng ta vừa viết.
+- Vậy thì đây là chức năng của nó.
+- Nó bắt đầu bằng việc lấy nội dung trang web.
+- Vì vậy, với URL được truyền vào, nó chỉ gọi hàm thu thập dữ liệu mà tôi đã viết ở đây, hàm này sẽ lấy nội dung trang web.
+- Gọi như vậy chỉ để lấy thông tin trên trang web đó.
+- Sau đó, nó gọi thứ khác mà tôi đã viết là thứ mà chúng ta vừa làm cùng nhau cách đây một phút.
+### Muc 45
+
+- Chọn các liên kết có liên quan.
+- Đó là thứ sẽ xuất ra, lấy các liên kết, gọi GPT sub, chọn các liên kết có liên quan và chuyển thành JSON.
+- Vậy là xong một cuộc gọi ở đây.
+- Chúng tôi đóng gói nó như thể nó chỉ gọi mã Python hoặc thực tế là nó sẽ gửi đến AI.
+- Và đây giống như một gợi ý khi mọi người nói về quy trình làm việc của agentic, về việc ghép các lệnh gọi tới llms bằng mã Python.
+- Đó chính là những gì chúng tôi đang làm ở đây.
+- Về cơ bản, chúng ta gọi NLM và gói nó trong một hàm.
+- Được rồi.
+## Phan 16
+
+### Muc 46
+
+- Và sau đó chúng ta sẽ đưa tất cả những điều này vào một đoạn văn bản thật hay.
+- Nó sẽ được ghi ở đầu trang đích.
+- Và sau đó sẽ có nội dung của trang đích và tiêu đề các liên kết có liên quan.
+- Và sau đó nó sẽ lặp lại qua từng liên kết có liên quan mà chúng ta vừa nhận được.
+- Và đối với mỗi mục, nó sẽ đặt tiêu đề có liên kết và sau đó là nội dung.
+- Nếu bạn không quen với markdown, việc đặt hai dấu thăng như thế này có nghĩa là một tiêu đề cấp hai.
+- Được rồi.
+- Vậy thì đây chỉ là việc ghép một khối văn bản lớn lại với nhau.
+### Muc 47
+
+- Ừ, chúng ta hãy cùng xem nó hoạt động thế nào nhé.
+- Chúng ta hãy gọi nó là ôm mặt.
+- Trước hết, khi tôi gọi lệnh đó vì điều đầu tiên nó làm là lấy các liên kết có liên quan, bạn có thể thấy rằng nó đang chọn các liên kết có liên quan để ôm mặt bằng cách gọi GPT năm nano.
+- Vậy là chạy xong.
+- Hãy nhớ rằng mất khoảng 30 giây.
+- Tôi phải nói hết câu chuyện.
+- Nó đã tìm thấy 11 liên kết có liên quan, vì vậy lần này nó tìm thấy nhiều hơn so với lần trước chúng tôi chạy nó.
+- Và đây là toàn văn.
+### Muc 48
+
+- Nó ghi là trang đích.
+- Và đây là nội dung của trang đích Huggingface.
+- Và sau đó liên kết cộng đồng Discord và một số thông tin về cộng đồng Discord, v.v.
+- Vì vậy, nếu chúng ta hiển thị phần tử có thể cuộn này, bạn có thể cuộn qua phần tử này và xem từng liên kết khác nhau có trong đó với các thông tin khác nhau.
+- Được rồi.
+- Cho đến nay, tất cả những gì chúng ta đã làm là gói lệnh gọi hiện có tới GPT mà chúng ta đã thực hiện.
+- Điều chúng ta sẽ làm bây giờ là biến điều này thành lệnh gọi thứ hai tới GPT.
+- Được thôi.
+## Phan 17
+
+### Muc 49
+
+- Vì vậy, lần trước chúng ta có lời nhắc hệ thống liên kết và lời nhắc người dùng lấy liên kết.
+- Vẫn như vậy.
+- Bây giờ chúng ta sẽ có lời nhắc hệ thống và lời nhắc người dùng để tạo tờ rơi.
+- Chúng ta hãy bắt đầu với lời nhắc của hệ thống.
+- Bạn là trợ lý phân tích nội dung của một số trang liên quan trên trang web của công ty, tạo một tài liệu quảng cáo ngắn về công ty cho khách hàng tiềm năng.
+- Các nhà đầu tư và người được tuyển dụng phản hồi theo cách giảm giá mà không cần khối mã.
+- Đó chỉ là cách bổ sung để đảm bảo nó không để lại dấu vết gì xung quanh.
+- Bao gồm thông tin chi tiết về văn hóa công ty, khách hàng và công việc nếu bạn có.
+### Muc 50
+
+- Vậy là có lời nhắc hệ thống của tôi và tôi có một lời nhắc hệ thống thay thế bên dưới, nó sẽ cung cấp cho bạn một phiên bản hài hước của lời nhắc đó.
+- Có lẽ chúng tôi sẽ liên lạc lại với bạn sau.
+- Đây là lời nhắc của hệ thống.
+- Và bây giờ tôi lại có thêm một cái nữa.
+- Nhận lời nhắc người dùng về tờ rơi.
+- Giống như trước đây.
+- Giống như khi chúng ta có lời nhắc người dùng Get Links.
+- Đây là lời nhắc nhở người dùng khi xây dựng một tờ rơi.
+### Muc 51
+
+- Bạn đang xem một công ty có tên là Company Name.
+- Cần có tên công ty và một URL.
+- Nhìn vào một công ty có tên là Company Name.
+- Sau đây là nội dung trang đích và các trang liên quan khác.
+- Sử dụng thông tin này để xây dựng một tập sách nhỏ, sau đó chúng ta sẽ đưa vào đó mọi thứ chúng ta đã xây dựng trong chức năng mà chúng ta đã cùng nhau viết ra cách đây một phút.
+- Tôi chỉ có một thứ nhỏ này để cắt bớt xuống còn 5000 ký tự để không sử dụng hết chi phí API của bạn.
+- Nếu chúng ta, ừm, nếu chúng ta truy cập vào một số trang web lớn.
+- Bạn có thể nhận thấy tôi cũng có một chút cắt xén mà tôi đưa vào, ừm, yêu cầu web nữa.
+## Phan 18
+
+### Muc 52
+
+- Chỉ để giữ cho nó hợp lý thôi.
+- Ừm, và chúng tôi sẽ trả về lời nhắc của người dùng.
+- Được rồi.
+- Vậy chúng ta hãy cùng xem điều gì sẽ xảy ra.
+- Hiện nay.
+- Hãy thử xem sao.
+- Chúng ta hãy thử lấy lời nhắc của người dùng tờ rơi về việc ôm mặt.
+- Chúng ta hãy chạy thử nhé.
+### Muc 53
+
+- Vì vậy, khi chúng ta chạy nó, nó sẽ gọi hàm này ngay tại đây.
+- Và điều đó bắt đầu bằng việc gọi trang tìm nạp và tất cả các liên kết có liên quan.
+- Và bắt đầu bằng việc lấy các liên kết có liên quan.
+- Vì vậy, ngay lúc này khi tôi đang nói, nó sẽ được chuyển tới GPT 5 nano.
+- Và nó đang đưa ra yêu cầu này.
+- Và nó tìm thấy bảy liên kết.
+- Lần này thì mỗi lần lại có một chút khác biệt.
+- Và đây là lời nhắc của người dùng.
+### Muc 54
+
+- Và bạn có thể thấy đó là công ty hạng A của bạn.
+- Bạn đang xem trang web của công ty, blah blah blah blah blah blah.
+- Và bạn có thể nhìn xuyên qua nó và về cơ bản nó sẽ giống hệt những gì chúng ta thấy ở đây.
+- Nó hoạt động tốt.
+- Đã đến lúc chúng ta phải biến khâu cuối cùng thành khâu hoàn thiện, thời điểm chúng ta thực sự tạo ra một tờ rơi.
+- Cuộc gọi thứ hai tới LLM dựa trên cuộc gọi đầu tiên.
+- Được thôi, chúng ta cùng làm nhé.
+- Tôi sẽ gõ cái này để tạo tờ rơi.
+## Phan 19
+
+### Muc 55
+
+- Vì vậy, như thường lệ, nó bắt đầu bằng phản hồi bằng hoàn thành trò chuyện OpenAI và tạo dấu chấm.
+- Được thôi.
+- Vì vậy hãy nhớ rằng chúng ta muốn cung cấp cho nó một mô hình và thông điệp.
+- Và lần này chúng tôi không muốn JSON quay trở lại.
+- Chúng tôi muốn lấy lại văn bản.
+- Vậy thì chỉ có mô hình và tin nhắn thôi.
+- Vì vậy, đối với mô hình này, tôi thực sự khuyên chúng ta không nên sử dụng GPT năm.
+- Chúng ta hãy sử dụng GPT 4.
+### Muc 56
+
+- 1 um nhỏ.
+- Đây là một mô hình đẹp, nhanh và tiện lợi.
+- Nó sẽ nhanh hơn GPT 5 nano một chút.
+- Vì vậy, đối với các thông báo, chúng ta sẽ muốn có lời nhắc hệ thống và thông báo cho người dùng.
+- Và lời nhắc của hệ thống là con trỏ đang hiển thị.
+- Tôi chỉ cần nhấn phím tab.
+- Vậy thì kiện tôi đi.
+- Ừm, lời nhắc hệ thống sẽ là lời nhắc hệ thống tài liệu quảng cáo mà chúng ta vừa viết.
+### Muc 57
+
+- Và lời nhắc nhở người dùng sẽ là lấy thông tin về tài liệu quảng cáo bằng cách truyền vào tên công ty và URL mà chúng ta có.
+- Ở đó.
+- Cảm ơn.
+- Đưa con trỏ lên.
+- Bạn làm cho mọi việc trở nên rất dễ dàng.
+- Và tôi thậm chí không có ý định đó.
+- Nhưng chỉ vì tôi chấp nhận điều đó nên nó đã lấp đầy phần còn lại của vấn đề này đối với tôi.
+- Ừ, vậy thì chúng ta sẽ thực hiện Tôi sẽ Tôi sẽ Tôi sẽ thách thức con trỏ và tôi sẽ nhập nó.
+## Phan 20
+
+### Muc 58
+
+- Chúng ta nhận được bất cứ thông tin phản hồi nào và chúng ta sẽ nói kết quả là nội dung chấm, chấm, chấm phản hồi.
+- Và nhân tiện, nếu bạn đang thắc mắc liệu con trỏ có nhắc bạn làm điều tương tự không và bạn đang nghĩ, tại sao con trỏ không nhắc tôi theo cách nó nhắc?
+- Ed ơi lý do là vì rõ ràng là tôi đã luyện tập bản ghi âm này rồi.
+- Đây không phải là lần đầu tiên tôi làm điều này.
+- Tôi không phải.
+- Lần đầu tiên tôi làm hơi vụng về một chút, và con trỏ biết rằng tôi đã làm và đã thấy rồi.
+- Vì thế?
+- Đó là lý do tại sao nó lại tốt đến vậy.
+### Muc 59
+
+- Ờ, không phải vậy, thực ra nó không biết ngay cả những cái tên mà tôi đặt cho các biến.
+- Chỉ vì nó đã từng được nhìn thấy trước đây thôi.
+- Ờ.
+- Được thôi.
+- Và sau đó tôi đoán chúng ta sẽ làm Chúng ta sẽ hiển thị kết quả markdown.
+- Đấy, thế là xong.
+- Với tôi thì điều đó có vẻ tuyệt vời.
+- Được rồi, chúng ta hãy thực hiện điều đó.
+### Muc 60
+
+- Vậy bây giờ với điều này, chúng ta có thể tạo ra một tờ rơi ôm sát khuôn mặt.
+- Ôm mặt.
+- Ờ, ý tưởng là, nếu tôi chạy cái này, tôi khởi động nó, đầu tiên nó sẽ gọi vì nó đang thu thập lời nhắc của người dùng.
+- Và để thực hiện điều đó, nó sẽ nhận được các liên kết có liên quan.
+- Vậy thì nó gọi GPT năm nano.
+- Bây giờ hãy nhớ lại hàm khác gọi ra để thu thập các liên kết có liên quan.
+- Nó thực hiện phân tích thông minh để xác định điều gì có liên quan và điều gì không liên quan.
+- Làm thế nào để loại bỏ URL tương đối?
+## Phan 21
+
+### Muc 61
+
+- Làm cho chúng trở nên tuyệt đối.
+- Nó đang thực hiện tất cả những điều đó.
+- Mất khoảng 30 giây.
+- Đã tìm thấy 13 liên kết có liên quan.
+- Đó là lời nhắc dành cho người dùng mới.
+- Bây giờ sẽ chuyển sang GPT 4.
+- 1 mini.
+- Và nó sẽ quay trở lại với một tờ rơi tiếp thị mà hy vọng là sẽ hiển thị cho chúng ta bằng markdown trên màn hình này.
+### Muc 62
+
+- Khi tôi nói xong câu này.
+- Nếu tôi có thể kéo dài nó.
+- Đấy, thế là xong.
+- Đây rồi.
+- Đây.
+- Đây là một tờ rơi tiếp thị.
+- Và thật tuyệt vời.
+- Nó ôm sát khuôn mặt.
+### Muc 63
+
+- Tờ rơi về việc ôm mặt.
+- Những gì chúng tôi cung cấp cho trung tâm, không gian dữ liệu và cộng đồng của chúng tôi.
+- Nó còn hơn cả một nền tảng.
+- Đây là một cộng đồng thịnh vượng và phát triển nhanh chóng.
+- Văn hóa công ty, sự nghiệp tại buổi gặp mặt trực tiếp thậm chí còn được đưa vào như một liên kết ở đó.
+- Thật tuyệt.
+- Tại sao nên chọn ôm mặt?
+- Hãy bắt đầu ngay hôm nay.
+## Phan 22
+
+### Muc 64
+
+- Ồ, và chào mừng cộng đồng AI đang xây dựng tương lai, nơi cộng tác, đổi mới và cùng nhau phát triển máy học.
+- Thôi nào, điều này thật ấn tượng.
+- Một tờ rơi được thiết kế đẹp mắt.
+- Và vì chúng tôi được chọn hệ thống nhắc nhở người dùng về các liên kết, chúng tôi có thể tạo ra nó theo cách chúng tôi muốn và biến nó thành thứ gì đó đặc biệt chuyên biệt về việc xây dựng các tập tài liệu quảng cáo cho đối tượng mà chúng tôi chỉ định là khách hàng tiềm năng, nhà đầu tư, ứng viên tiềm năng.
+- Tôi cung cấp cho bạn một công cụ tạo tờ rơi và cách sử dụng nó để tạo tờ rơi ôm sát khuôn mặt.
+- Nhưng hãy đợi đã.
+- Còn nhiều hơn thế nữa.
+- Còn một điều nữa muốn cho bạn thấy.
+### Muc 65
+
+- Tôi muốn cho bạn thấy.
+- Truyền trực tiếp kết quả.
+- Vì vậy, phát trực tuyến, tất nhiên, là khi bạn thấy hình ảnh động máy đánh chữ rất quen thuộc đó.
+- Bạn thấy những thứ chảy ngược trở lại từ LM và thực hiện điều đó cực kỳ dễ dàng.
+- Và đó chính là điều chúng ta sẽ làm ngay bây giờ.
+- Dù sao thì LMS cũng tạo ra mã thông báo nội dung theo từng mã thông báo, vậy tại sao không in từng mã thông báo luôn?
+- Bạn nhớ rằng khi chúng ta gọi lệnh hoàn thành trò chuyện dot create, chúng ta truyền vào hai thứ.
+- Chúng tôi truyền vào mô hình và thông điệp.
+### Muc 66
+
+- Và chúng tôi đã học được rằng bạn có thể truyền vào thứ ba định dạng phản hồi, trong đó có một thứ khác, thứ tư và đó là luồng.
+- Bạn có thể nói stream bằng true theo mặc định.
+- Điều đó là sai.
+- Nếu bạn truyền vào stream bằng true, thì thứ bạn nhận được không phải là đối tượng phản hồi, mà là một đối tượng có tên là stream.
+- Và đó là điều bạn có thể lặp lại, giống như tôi làm ở đây đối với chunk trong luồng.
+- Và khi bạn lặp lại nó, bạn sẽ nhận lại từng khối khi nó được hình thành, khi nó phản hồi, khi nó chảy ngược trở lại từ LM.
+- Vì vậy, điều này cung cấp cho bạn một cơ chế dễ dàng để có thể truyền trực tiếp kết quả trở lại giao diện người dùng của bạn.
+- Bây giờ, vì chúng tôi đang đưa markdown trở lại nên tôi không thể in nó được.
+## Phan 23
+
+### Muc 67
+
+- Tôi phải làm điều gì đó thông minh để đảm bảo rằng tôi cập nhật mức giảm giá mà tôi đã có.
+- Vì vậy, điều này có vẻ phức tạp hơn mức cần thiết, có lẽ đôi khi bạn thấy vậy, nhưng trước tiên tôi phải hiển thị một số markdown trống và lấy thứ gì đó gọi là trình xử lý hiển thị, để tôi có thể cập nhật markdown đó mỗi lần bằng phản hồi.
+- Đó là lý do tại sao ở đây có phần dài dòng hơn một chút so với những gì bạn thường thấy.
+- Nó có thể chỉ là một câu lệnh in nếu chúng ta không sử dụng markdown.
+- Nhưng đây mới chính là thịt.
+- Những gì chúng ta làm là khi lặp lại từng phần, chúng ta xem xét phần đó, chúng ta lựa chọn phần đó, không có nội dung nào.
+- Và điều đó có vẻ khá quen thuộc với bạn vì nó rất giống với các lựa chọn phản hồi, không có nội dung, nhưng là khối nội dung bằng không thay vì tin nhắn.
+- Và đó là vì delta chỉ đại diện cho một lượng nhỏ thêm mà chúng ta nhận được chảy ngược trở lại cho phần cụ thể này.
+### Muc 68
+
+- Vì vậy, chúng tôi tổng hợp tất cả các khối này để phản hồi và cập nhật mức giảm giá.
+- Và điều đó có nghĩa là nó sẽ được hiển thị cho chúng ta theo một định dạng đẹp mắt.
+- Và chúng tôi đang sử dụng GPT bốn mini ngay tại đó.
+- Được rồi.
+- Hãy thử nghiệm xem sao.
+- Vậy chúng ta sẽ nói ừm, phát trực tiếp tờ rơi.
+- Chúng ta hãy thử phát trực tiếp khuôn mặt ôm và trang web Hugging Face.
+- Chúng ta hãy bắt đầu thôi.
+### Muc 69
+
+- Vì vậy, hãy nhớ điều đầu tiên xảy ra là nó sẽ gọi các liên kết có liên quan được chọn giống nhau gọi là GPT năm nano.
+- Và đây là thứ sẽ thoát khỏi GPT năm nano và thu thập và phân tích cú pháp tạo JSON, tìm kiếm các liên kết có liên quan.
+- Và như tôi đã nói, việc này mất khoảng 20 30 giây.
+- Đôi khi mất nhiều thời gian hơn vì đây là mô hình lý luận.
+- Và vì thế, bạn có thể thoải mái suy nghĩ nhiều như bạn muốn.
+- Nhưng chuyện đó đã xảy ra.
+- Nó đã quay trở lại và kết quả đã bắt đầu được công bố.
+- Bạn thấy đấy, theo cách phát trực tiếp như thế này, chúng ta có thể thấy tất cả thông tin được phản hồi và điều đó thật tuyệt vời phải không?
+## Phan 24
+
+### Muc 70
+
+- Trải nghiệm người dùng tuyệt vời hơn nhiều với hình ảnh động máy đánh chữ và điều mà bạn thực sự hiểu bây giờ là điều này không chỉ liên quan đến trải nghiệm người dùng.
+- Trên thực tế, điều này cho bạn thấy những gì đang xảy ra với mô hình.
+- Mô hình sẽ tạo ra đầu ra là một mã thông báo tại một thời điểm và phản hồi bằng mã thông báo đã được tạo ra, sau đó đưa mã thông báo đó trở lại và tạo ra mã thông báo tiếp theo.
+- Và chúng tôi đang nhận được dòng token ổn định trở lại bằng cách sử dụng công nghệ có tên là ZK.
+- Nếu bạn quen với những thứ này thì đó chính là giao thức.
+- Đó là cách dữ liệu quay trở lại với chúng ta.
+- Ừm, và đó là tất cả những gì chúng ta có, một tờ rơi giới thiệu công ty được phát trực tuyến.
+- Và, ừm, trông tuyệt vời.
+### Muc 71
+
+- Và, ừm, nó lại bao gồm văn hóa công ty, khách hàng, cộng đồng.
+- Và tôi thực sự thích nó.
+- Hỗ trợ thế hệ máy học tiếp theo hướng tới một tương lai mở tốt đẹp hơn.
+- Ồ, vậy là tờ rơi quảng cáo thứ hai của công ty chúng tôi đã thành công.
+- Và tất nhiên, tôi sẽ không thể hoàn thành công việc của mình nếu tôi không quay lại và thay đổi lời nhắc hệ thống và chỉ cho bạn cách chúng ta có thể có một phong cách tờ rơi khá khác biệt.
+- Chúng ta hãy cùng xem nhé.
+- Chúng ta quay lại thôi.
+- Bỏ chú thích ở các dòng bên dưới để có thông tin chi tiết hơn.
+### Muc 72
+
+- Ồ, hãy giữ lại phần bình luận đó để làm cho tờ rơi hài hước hơn.
+- Ừ, vậy thì, ừ, chúng ta hãy thực hiện điều đó.
+- Bây giờ chúng ta có lời nhắc hệ thống khác.
+- Ừm, và bây giờ, ừ, được rồi, chúng ta sẽ cuộn xuống.
+- Có thể bạn đang bối rối.
+- Một số người hiểu lầm rằng tôi không cần phải đánh giá lại điều này, nhưng đó là vì chúng ta đang sử dụng when khi bạn làm việc với những sổ ghi chép này, bạn thường tận dụng thực tế là tất cả các biến này về cơ bản đều là biến toàn cục.
+- Rõ ràng đây không phải là cách làm tốt.
+- Nếu bạn đang xây dựng một phần mềm kỹ thuật sản xuất và bạn đang xây dựng mọi thứ theo cách mà bạn muốn triển khai chúng cuối cùng, điều mà bạn biết đấy, rõ ràng là tôi có đề cập trong khóa học sản xuất của mình, nhưng khi bạn ở chế độ là một nhà khoa học và bạn đang khám phá và tìm hiểu các gợi ý khác nhau, thì việc làm việc theo kiểu sổ tay này là hoàn toàn có thể chấp nhận được.
+## Phan 25
+
+### Muc 73
+
+- Trên thực tế, nó được khuyến khích vì nó cho phép thử nghiệm nhanh chóng.
+- Vì vậy, chúng ta đang sử dụng biến toàn cục.
+- Đó là lý do tại sao nó lại hiệu quả.
+- Nếu chúng ta chỉ thay đổi một chỗ thôi.
+- Và đó không phải là điều đáng lo ngại.
+- Nhưng chúng ta hãy quay lại đây và chạy thử cái này ở đây.
+- Và tại thời điểm này, nó sẽ tiếp tục hoạt động để chọn các liên kết có liên quan.
+- Việc này mất khoảng 20-30 giây.
+### Muc 74
+
+- Và cuối cùng chúng ta sẽ phát trực tuyến một tập sách nhỏ.
+- Và tờ rơi này sẽ có đôi chút khác biệt so với tờ rơi chúng tôi đã làm trước đây.
+- Và tất nhiên nó đã tìm thấy 14 liên kết có liên quan.
+- Bây giờ nó sắp tắt rồi.
+- Và chúng ta hãy xem nó mang lại điều gì.
+- Ừm, phương châm của chúng tôi là giữ sự cởi mở, giữ đạo đức và giữ sự bao dung.
+- Có gì đang diễn ra trong bếp AI?
+- Khách hàng, văn hóa và nghề nghiệp.
+### Muc 75
+
+- Hãy cùng chúng tôi khám phá nhé.
+- Nguồn mở là cốt lõi.
+- Và sau đó là biểu tượng trái tim.
+- AI đạo đức ủng hộ những người uống trà bình thường và những người giải quyết vấn đề nghiêm túc.
+- Luôn học hỏi, luôn chia sẻ.
+- Luôn luôn phát triển.
+- Ừm, và vì thế, bạn biết đấy, bạn có thể nói rằng rõ ràng là có rất nhiều ảo giác đang diễn ra ở đây.
+- Nó đang bịa ra chuyện này.
+## Phan 26
+
+### Muc 76
+
+- Đây không hẳn là phương châm ôm mặt, nhưng đó là điều chúng tôi yêu cầu.
+- Chúng tôi yêu cầu nó sáng tạo, tưởng tượng, mang đến cho nó một góc nhìn hài hước phù hợp với cảm giác ôm mặt.
+- Ừm, và, bạn biết đấy, tôi sẽ để bạn tự đánh giá xem liệu bạn có nghĩ rằng khi nhìn vào trang web ôm mặt này, liệu nó có làm tốt việc này không.
+- Sẵn sàng tham gia vòng tròn AI Hug, thế là xong.
+- Tất cả đều là bịa đặt.
+- Nhưng tôi cho rằng điều đó rất phù hợp với mục tiêu của chúng ta.
+- Và nếu chúng ta muốn, nếu phong cách của chúng ta là muốn tạo ra những tờ rơi có thể làm nổi bật khía cạnh hài hước và vui tươi nhất của công ty bạn, thì đây có thể là một kết quả thực sự tốt.
+- Và nếu không, đã đến lúc quay lại với lời nhắc.
+### Muc 77
+
+- Đây là thời gian để lặp lại, thử nghiệm, khám phá và cải thiện kết quả cho đến khi nó phù hợp với mục tiêu của bạn.
+- Vâng, tôi hy vọng rằng bạn thấy điều đó thú vị và bổ ích và bạn không nghĩ rằng, ồ, tôi có thể làm điều đó với ChatGPT.
+- Nhưng bạn nhận ra rằng việc áp dụng các lệnh gọi GPT vào nhiều lệnh gọi GPT dễ dàng như thế nào, giống như một quy trình làm việc của tác nhân, có thể là để đạt được mục đích thương mại.
+- Và với bối cảnh đó, đã đến lúc nói về ứng dụng kinh doanh của những gì chúng tôi vừa làm.
+- Về cơ bản, chúng tôi đã thực hiện những gì chúng tôi đã làm trong ngày đầu tiên.
+- Chúng tôi đã mở rộng nó để thực hiện một số cuộc gọi LLM và tạo ra một tài liệu phù hợp với mục tiêu.
+- Và đó rõ ràng là một bước đệm.
+- Đó là thứ chúng ta có thể sử dụng để làm những việc lớn lao và tốt đẹp hơn.
+### Muc 78
+
+- Thật đơn giản.
+- Tôi hiểu, tôi hiểu.
+- Ừm, nhưng việc tạo ra nội dung như thế này dựa trên việc tổng hợp, thu thập một số dữ liệu, hiểu dữ liệu đó, tổng hợp dữ liệu đó và tạo ra đầu ra mà loại trường hợp sử dụng đó rất phổ biến và có thể áp dụng cho bất kỳ loại hình doanh nghiệp nào, cho dù đó là viết bài đăng trên blog, tạo hướng dẫn sản phẩm dựa trên thông số kỹ thuật hay tạo nội dung email.
+- Có rất nhiều điều bạn có thể làm để đưa nó tiến xa hơn.
+- Và đó chính là thử thách dành cho bạn.
+- Hãy nghĩ xem bạn có thể áp dụng việc tổng hợp thông tin và tạo nội dung vào doanh nghiệp của mình như thế nào, hoặc có thể là một vấn đề trong cuộc sống cá nhân mà bạn muốn giải quyết?
+- Giống như học sinh mà tôi đã đề cập trước đó, hãy thử tạo một nguyên mẫu chứng minh khái niệm bằng cách sử dụng sổ ghi chép theo cách này.
+- Tôi biết một số người rất muốn chuyển thẳng sang mô-đun Python, nhưng tôi thì muốn vậy.
+## Phan 27
+
+### Muc 79
+
+- Tôi muốn bạn hãy tận hưởng việc ghi chép, hãy trở thành một nhà khoa học, hãy thử nghiệm, khám phá, chỉnh sửa.
+- Đây là một tư duy khác biệt và đôi khi không đến một cách tự nhiên với những người quen làm việc trong môi trường IDE với nhiều mô-đun Python.
+- Ừm, nhưng đó là một tư duy quan trọng và mặc dù có thể hơi khó khăn khi bắt đầu với sự sẵn lòng thử nghiệm, điều chỉnh, thay đổi, định hình này.
+- Đây là một tư duy khác biệt và cực kỳ quan trọng để khai thác tối đa tiềm năng của AI.
+- Vậy hãy thực hiện nhiệm vụ đó.
+- Áp dụng nó vào điều gì đó có ý nghĩa với bạn.
+- Hãy tìm trong thư mục đóng góp của cộng đồng những điều khác mà mọi người đã làm.
+- Có rất nhiều.
+### Muc 80
+
+- Thật tuyệt vời.
+- Và hãy xem qua một số cách triển khai của họ.
+- Thêm vào của riêng bạn.
+- Làm điều gì đó thú vị.
+- Và ừm, sau khi bạn hoàn thành, hãy chia sẻ nó.
+- Ừm, bạn có thể xem hướng dẫn cách tạo PR, yêu cầu kéo và sau đó tôi có thể hợp nhất nó vào kho lưu trữ để cộng đồng có thể đóng góp.
+- Vui lòng giữ lại tiền thừa trong phần đóng góp của cộng đồng.
+- Nếu không thì mọi thứ sẽ vượt khỏi tầm kiểm soát của tôi.
+### Muc 81
+
+- Vậy nên hãy giữ nguyên như vậy.
+- Hãy đảm bảo rằng bạn xóa sạch các kết quả đầu ra của sổ tay sao cho gọn gàng và chặt chẽ, đồng thời đưa ra lời giải thích hợp lý về những gì bạn đã làm vì lợi ích của những sinh viên khác.
+- Và tôi rất thích điều đó.
+- Và tất nhiên, nếu bạn đăng về vấn đề này trên LinkedIn, tôi sẽ cho ý kiến.
+- Tất nhiên là tôi sẽ làm vậy.
+- Cảm ơn.
+- Và đó là cách tuyệt vời để nâng cao chuyên môn của bạn.
+- Hãy cho mọi người biết tất cả những thứ mà bạn đang trở thành chuyên gia.
+## Phan 28
+
+### Muc 82
+
+- Và còn một bài tập nữa dành cho bạn.
+- Tôi thích đưa ra một số bài tập.
+- À, cái này là để xem sổ bài tập tuần một mà tôi vừa để ở đó, nó sẽ giúp bạn luyện tập một chút.
+- Vậy chúng ta hãy cùng xem bài tập tuần này là gì nhé.
+- Tôi muốn xem bạn có quen thuộc với OpenAI và Olama không để xây dựng một công cụ có thể xử lý câu hỏi kỹ thuật, bạn chỉ cần nhập câu hỏi vào đây và trả lời bằng cách giải thích câu hỏi đó.
+- Vì vậy, tôi có một vài gợi ý nhỏ bên dưới, nhưng hãy sử dụng điều này như một cách để gọi mô hình để bạn có thể nhập lại câu hỏi ở đây và mô hình sẽ giải thích câu hỏi đó.
+- Nó sẽ giải thích cho bạn biết điều đó có nghĩa là gì.
+- Và đó là một công cụ mà bạn có thể tự sử dụng trong suốt khóa học này như một cách để có được gia sư AI riêng cho mình.
+### Muc 83
+
+- Và sau đó bạn có thể thử nghiệm lại các lời nhắc, tất cả đều là về thử nghiệm và bạn có thể làm cho chúng ngày càng tốt hơn.
+- Và khi nó trả lời được câu hỏi nào đó, bạn có thể đưa câu hỏi đó vào như một ví dụ về câu trả lời hay.
+- Và nếu nó đưa ra cho bạn một câu trả lời tệ thì đó chỉ là một lời giải thích không tốt.
+- Bạn có thể đưa điều đó vào như một ví dụ phản bác và nói rằng, đừng làm theo cách này, và đây chính là điều sai ở đây.
+- Và bạn đưa ra càng nhiều ví dụ thì đó sẽ là lời nhắc nhở nhiều lần.
+- Bạn sẽ thấy kết quả đầu ra ngày càng tốt hơn.
+- Vì vậy, hãy thử thực hiện bài tập ở tuần đầu tiên.
+- Bạn cũng sẽ thấy có một giải pháp ở đó nếu bạn cần, nhưng thực ra bạn không cần nó.
+### Muc 84
+
+- Bạn làm được rồi.
+- Ừm, vậy thì hãy sử dụng cả OpenAI và llama.
+- Hoặc nếu bạn không sử dụng OpenAI thì chỉ cần llama.
+- Và với lạc đà không bướu, bạn có thể thử một số mô hình khác nhau.
+- Hãy xem liệu câu trả lời năm bốn có tốt hơn câu trả lời lạc đà không bướu 3 không.
+- 2 hoặc hơn Quen uh, hoặc thậm chí là Deepsea.
+- Vậy nên hãy tận hưởng điều đó nhé.
+- Hãy sử dụng cách đó để xây dựng gia sư của riêng bạn và theo thời gian, bạn có thể cải thiện lời nhắc đó ngày càng tốt hơn để phù hợp với bạn và giải thích mọi thứ theo cách bạn muốn.
+## Phan 29
+
+### Muc 85
+
+- Ồ, và điều đó sẽ rất thú vị.
+- Và một lần nữa tôi muốn đề cập đến các nguồn tài nguyên hữu ích.
+- Có các liên kết đến tài nguyên khóa học, bao gồm các video tôi đang nói về các thông số.
+- Ờ, đúng rồi.
+- LinkedIn của tôi.
+- Tôi đã nhắc đến việc tôi có tài khoản LinkedIn và bạn có thể kết nối với tôi nếu bạn chưa kết nối chưa?
+- Làm sao bạn có thể kiên trì được lâu như vậy?
+- Bạn đã kháng cự như thế nào?
+### Muc 86
+
+- Đừng chống cự.
+- Ừ, kết nối với tôi nhé.
+- Ờ, và sau đó.
+- Và sau đó, ừm, x ừm, tôi là người mới với X.
+- Tôi không theo kịp hoàn toàn, nhưng vẫn phải làm.
+- Ừm, trên X, hãy theo dõi tôi, liên kết với tôi, bất kể là gì, hãy làm điều đó và dạy tôi.
+- Hãy cho tôi biết tôi phải làm gì để có thể sử dụng X nhiều hơn một chút.
+- Có lẽ là tốt.
+### Muc 87
+
+- Tốt, tốt cho tôi khi làm vậy.
+- Ừm, và ồ, và vâng.
+- Và cuối cùng, biên tập viên của tôi sẽ giết tôi nếu tôi không đề cập đến điều đó, ừm, cách mà Udemy, một trong những cách chính để quyết định có nên hiển thị khóa học này cho người khác hay không là liệu khóa học đó có được xếp hạng hay không.
+- Vì vậy, nếu bạn có thời gian để đánh giá khóa học, tất nhiên bạn có thể muốn để lại để xem.
+- Có thể tuần thứ hai sẽ bị điếc hoàn toàn.
+- Không phải vậy.
+- Ừm, nhưng, ừm, bất cứ khi nào bạn muốn, ừm, nếu bạn có thể đánh giá khóa học, điều đó sẽ tạo ra sự khác biệt rất lớn.
+- Một sự khác biệt rất lớn.
+## Phan 30
+
+### Muc 88
+
+- Và tôi sẽ vô cùng biết ơn.
+- Vì vậy, đó sẽ là lời yêu cầu và lời kêu gọi mà tôi sẽ đưa ra.
+- Và tôi sẽ gặp lại các bạn trong phần tóm tắt.
+- Và một lần nữa, tôi chỉ muốn tóm tắt lại thử thách mà tôi dành cho bạn hoặc nhiều thử thách khác.
+- Trước hết, tất nhiên là phải chỉnh sửa trình tạo tài liệu quảng cáo nơi có chiếc mũ nhà khoa học dữ liệu.
+- Cuộc thí nghiệm.
+- Hãy thử các lời nhắc khác nhau, thêm nhiều ví dụ về lời nhắc nhiều lần, thử nhiều kiểu khác nhau, sau đó thêm một lệnh gọi LM khác.
+- Tôi không nhắc đến điều đó ngay lúc đó, nhưng.
+### Muc 89
+
+- Nhưng hãy thử thêm một lệnh gọi LM thứ ba có tác dụng khác với tờ rơi, chẳng hạn như dịch sang tiếng Tây Ban Nha hoặc ngôn ngữ bạn chọn, hoặc dịch sang một ngôn ngữ khác.
+- Vì vậy, bạn sẽ có hai tờ rơi, một bản gốc và một bản dịch.
+- Vì vậy, hãy thêm một cuộc gọi LM thứ ba vào hỗn hợp, giống như một quy trình làm việc của tác nhân gồm một cuộc gọi, tiếp theo là một cuộc gọi, rồi lại một cuộc gọi nữa.
+- Và điều còn lại tôi đã đề cập là tìm cách áp dụng điều này vào doanh nghiệp của bạn.
+- Hãy đưa ra một số thử thách tương tự liên quan đến việc chắt lọc một số thông tin, tổng hợp chúng và đưa ra kết quả.
+- Có rất nhiều cách để áp dụng điều này.
+- Và sau đó là bài tập, bài tập mà tôi rất mong được thấy bạn thực hiện là xây dựng gia sư kỹ thuật của riêng bạn bằng cách sử dụng GPT five, nano hoặc Llama, hoặc cả hai để trả lời các câu hỏi của bạn.
+- Làm theo lời nhắc và làm cho nó phù hợp với bạn.
+### Muc 90
+
+- Hãy biến nó thành thứ gì đó mang tính cá nhân để có thể trả lời các câu hỏi.
+- Với nền tảng của bạn, biết những gì bạn biết và những gì bạn không biết, thì đây thực sự có thể là một gia sư được cá nhân hóa.
+- Và bạn càng dành nhiều thời gian cho những lời nhắc nhở đó thì mọi việc sẽ càng tốt hơn.
+- Nó sẽ càng được trau chuốt, hoàn thiện hơn cho phù hợp với hoàn cảnh của bạn.
+- Và bạn đang xây dựng thứ gì đó có giá trị thực sự cho chính mình theo cách mà không công cụ nào khác có thể làm được vì bạn có toàn quyền kiểm soát những lời nhắc đó.
+- Những điều đó sẽ là.
+- Đó là một thử thách trong bài tập của bạn.
+- Và sau đó nhớ đưa nó vào PR và gửi đi.
+## Phan 31
+
+### Muc 91
+
+- Tôi rất mong được hợp nhất nó, đăng nó lên LinkedIn và tôi cũng rất mong được khuếch đại nó.
+- Cái này.
+- Cách tốt nhất để học là thông qua việc xây dựng.
+- Và thế là bạn đã hoàn thành tuần đầu tiên.
+- Đã xong một tuần.
+- Ôi trời ơi!
+- Tôi hy vọng bạn đã có một tuần vui vẻ.
+- Tôi hy vọng rằng dù bạn là người mới bắt đầu hay chuyên nghiệp thì bài viết này cũng có ích cho bạn.
+### Muc 92
+
+- Hy vọng là sẽ có nhiều điều thú vị tại thời điểm này.
+- Bạn đã nắm được những điều cơ bản.
+- Những nguyên tắc cơ bản của Transformers, mã thông báo, chi phí API, v.v., giờ cũng được đưa vào như nhắc nhở nhiều lần nhưng cũng như ảo ảnh về trí nhớ.
+- Ừ, bạn có thể so sánh với LMS tiên tiến hàng đầu.
+- Bạn thậm chí có thể chơi một trò chơi khá thú vị với chúng và giờ đây bạn có thể tự tin sử dụng API hoàn thành trò chuyện.
+- Bạn có thể truyền phát ngược, bạn có thể sử dụng markdown, bạn có thể tạo JSON với các định dạng phản hồi và bạn có thể sử dụng llama.
+- Bạn cũng có thể sử dụng OpenAI API để gọi một con llama.
+- Và sau tuần tới, chúng tôi sẽ nâng mức đó lên.
+### Muc 93
+
+- Bạn sẽ có thể thành thạo hơn trên nhiều API mô hình biên giới khác nhau.
+- Chúng tôi sẽ sử dụng API cho OpenAI, Anthropic và Gemini.
+- Vâng, trên thực tế, chúng ta chỉ có thể sử dụng OpenAI API, thư viện máy khách đó.
+- Chúng tôi sẽ sử dụng thư viện đó để truy cập vào các API khác nhau mà bạn sẽ sử dụng để làm việc với các tác nhân.
+- Bắt đầu bằng cách gọi các công cụ và bạn sẽ triển khai một nhân viên hỗ trợ khách hàng với giao diện trò chuyện, và nó sẽ đa phương thức và sẽ khiến bạn phải kinh ngạc.
+- Tuần thứ hai thực sự là một tuần tuyệt vời.
+- Tôi phải nói rằng.
+- Có thể nó sẽ đồng hạng nhất vào tuần sau.
+## Phan 32
+
+### Muc 94
+
+- Ừ, nhưng nó thực sự rất thú vị đối với tôi.
+- Và, điều mà chúng ta thực sự sẽ làm là thứ gọi là gradio, đây là điều mang lại cho tôi niềm vui lớn lao.
+- Vì vậy, tôi không thể chờ đến tuần thứ hai.
+- Và tôi hy vọng bạn cũng không thể chờ đợi được.
+- Tôi sẽ gặp lại bạn sau.
+

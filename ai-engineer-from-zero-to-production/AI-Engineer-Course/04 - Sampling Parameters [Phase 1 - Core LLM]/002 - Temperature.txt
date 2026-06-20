@@ -1,0 +1,68 @@
+# Temperature
+
+## Overview
+Temperature is the single most impactful sampling parameter in an LLM's inference pipeline. It scales the logit distribution before softmax, directly controlling how concentrated or spread out the probability mass is across candidate tokens. AI Engineers must understand temperature deeply because it is the primary dial between deterministic, factual responses and creative, varied output.
+
+## Key Points
+- Temperature is a scalar divisor applied to raw logits before the softmax function: `softmax(logits / T)`. A temperature of 1.0 leaves the model's learned distribution unchanged
+- Values below 1.0 (e.g., 0.2) sharpen the distribution — the highest-probability token becomes overwhelmingly likely, producing more predictable, conservative output
+- Values above 1.0 (e.g., 1.5) flatten the distribution — lower-probability tokens receive relatively more probability mass, producing more varied and sometimes surprising output
+- Temperature of 0 (or near 0) is effectively greedy decoding: the model always picks the single highest-probability token, making output fully deterministic (given the same prompt)
+- Production rule of thumb: use low temperature (0.0–0.3) for factual retrieval, classification, and code generation; use higher temperature (0.7–1.2) for creative writing, brainstorming, and dialogue
+
+## Code Example
+```python
+import os
+from anthropic import Anthropic
+
+client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+PROMPT = "Complete this sentence with one word: The sky is"
+
+def generate_with_temperature(temperature: float, n_samples: int = 3) -> list[str]:
+    """Generate multiple completions at a given temperature to observe variance."""
+    results = []
+    for i in range(n_samples):
+        response = client.messages.create(
+            model="claude-sonnet-4-5",
+            max_tokens=10,
+            temperature=temperature,
+            messages=[{"role": "user", "content": PROMPT}],
+        )
+        results.append(response.content[0].text.strip())
+    return results
+
+
+def main():
+    temperatures = [0.0, 0.5, 1.0, 1.5]
+
+    for temp in temperatures:
+        samples = generate_with_temperature(temp, n_samples=3)
+        print(f"\nTemperature={temp}")
+        for j, sample in enumerate(samples, 1):
+            print(f"  Sample {j}: {sample}")
+
+    # Demonstrate temperature effect on a creative task
+    print("\n--- Creative writing comparison ---")
+    creative_prompt = "Write a one-sentence story opening."
+
+    for temp in [0.1, 0.9]:
+        response = client.messages.create(
+            model="claude-sonnet-4-5",
+            max_tokens=60,
+            temperature=temp,
+            messages=[{"role": "user", "content": creative_prompt}],
+        )
+        print(f"\nTemperature={temp}:")
+        print(" ", response.content[0].text.strip())
+
+
+if __name__ == "__main__":
+    main()
+```
+
+## Notes
+Temperature is often misunderstood as a simple "creativity knob," but it modifies the entire probability distribution — including the likelihood of factual errors. At high temperatures, models are more likely to hallucinate or produce grammatically odd output because low-probability (often incorrect) tokens become more competitive. Additionally, different model families are calibrated at different baseline temperatures; the same value of 0.7 may feel conservative on one model and quite variable on another. Always benchmark your chosen temperature against a held-out set of representative prompts before deploying to production.
+
+## Summary
+Temperature controls the sharpness of the model's token probability distribution at inference time. After this lesson you can select an appropriate temperature for any task and explain why, rather than defaulting to arbitrary values.

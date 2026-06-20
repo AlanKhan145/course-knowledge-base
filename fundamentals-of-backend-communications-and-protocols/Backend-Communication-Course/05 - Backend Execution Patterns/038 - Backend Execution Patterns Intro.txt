@@ -1,0 +1,398 @@
+# 038 - Backend Execution Patterns Intro
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 5min
+
+---
+
+## 1. Summary
+
+This lecture introduces a new section: **Backend Execution Patterns**.
+
+So far, the course has focused on how clients communicate with backend systems.
+
+Previous sections covered:
+
+* Request-response
+* Publish-subscribe
+* Polling
+* Long polling
+* Server-sent events
+* WebSockets
+* gRPC
+* HTTP/1.1, HTTP/2, HTTP/3
+* TCP, UDP, QUIC
+* HTTPS communication patterns
+
+Now the focus moves inside the backend itself.
+
+This section studies how backend applications:
+
+1. Accept connections
+2. Dispatch work
+3. Execute requests
+4. Read from sockets
+5. Write responses
+6. Interact with the operating system and kernel
+
+Understanding backend execution is critical because performance is not only about protocols. It is also about how the backend actually handles work internally.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 Backend Execution Means What Happens Inside the Server
+
+Backend execution patterns describe how a backend server handles incoming work.
+
+When a request arrives, many things happen before the application code runs.
+
+A simplified path looks like this:
+
+```text id="z56of2"
+Client request
+→ Network interface
+→ Operating system kernel
+→ Socket
+→ Listener
+→ Backend application
+→ Worker / thread / event loop
+→ Application logic
+→ Response
+```
+
+This section focuses on that internal execution path.
+
+---
+
+### 2.2 Accepting a Connection Is Not Simple
+
+It may sound simple to say:
+
+> The backend accepts a connection.
+
+But under the hood, many things are involved.
+
+The operating system receives network packets, manages sockets, keeps connection state, and exposes system calls to the backend application.
+
+The backend application does not directly control the network card. It communicates with the kernel through operating system APIs.
+
+This relationship between the backend and the OS is extremely important for performance.
+
+---
+
+### 2.3 Backend and Kernel Have a Close Relationship
+
+The backend application depends on the operating system kernel for:
+
+* Accepting connections
+* Reading data from sockets
+* Writing data to sockets
+* Scheduling processes and threads
+* Managing memory
+* Handling I/O events
+
+If the backend and OS interact inefficiently, performance can suffer.
+
+The instructor describes this relationship as symbiotic, but it can become “toxic” if there is too much unnecessary communication or overhead between the application and the OS.
+
+---
+
+### 2.4 Reading and Writing Connections Matter
+
+After a backend accepts a connection, it still has to read and write data efficiently.
+
+Important questions include:
+
+* How does the application read from a socket?
+* How does it know data is available?
+* Does it block while waiting?
+* Does it use one thread per connection?
+* Does it use an event loop?
+* Does it use multiple worker processes?
+* How does it write responses back?
+
+These details strongly affect scalability and latency.
+
+---
+
+### 2.5 Processes and Threads Are Fundamental
+
+To understand backend execution, we need to understand the difference between:
+
+* A process
+* A thread
+
+Different backend systems use different execution models.
+
+Common models include:
+
+* Single process, single thread
+* Single process, multiple threads
+* Multiple processes
+* Event-driven single-threaded execution
+* Multi-process event-driven execution
+* Worker pools
+
+Each model has tradeoffs.
+
+---
+
+### 2.6 Real Backend Systems Use Different Execution Patterns
+
+This section will discuss real backend systems and how they manage execution.
+
+Examples include:
+
+* NGINX
+* Envoy
+* Memcached
+
+These systems are widely used and optimized for high-performance backend workloads.
+
+Their internal architectures are not always easy to understand, but they reveal important lessons about backend execution.
+
+---
+
+### 2.7 Idempotency Is Important
+
+The lecture also mentions idempotency as an important backend concept.
+
+An operation is idempotent if repeating it multiple times produces the same final result.
+
+For example:
+
+```text id="es3n1g"
+GET /user/123
+```
+
+is usually idempotent because reading the same user multiple times should not change server state.
+
+But:
+
+```text id="szijut"
+POST /payment
+```
+
+may not be idempotent because repeating it could create multiple payments.
+
+Idempotency matters because backend systems often retry requests, handle failures, or process duplicate messages.
+
+---
+
+## 3. Important Notes
+
+### Backend Engineers Should Know the Whole Stack
+
+A backend engineer does not need to specialize deeply in every protocol and execution model.
+
+However, every backend engineer should have shallow knowledge of how these systems work.
+
+This includes:
+
+* Communication patterns
+* Protocol behavior
+* HTTPS latency
+* OS-level execution
+* Process and thread models
+* I/O handling
+* Request dispatching
+
+Specializing in one area can help differentiate a backend engineer from others.
+
+---
+
+### Backend Execution Is Often Poorly Explained
+
+The instructor notes that backend execution details are rarely discussed clearly.
+
+To understand systems like NGINX, Envoy, or Memcached, engineers often need to read:
+
+* Architecture documents
+* Source code
+* Engineering blogs
+* Research papers
+* Talks by the original developers
+
+This is because internal execution models are often hidden behind simple user-facing APIs.
+
+---
+
+### Performance Depends on Internal Architecture
+
+Two servers can expose the same HTTP API but perform very differently internally.
+
+The difference may come from:
+
+* How they accept connections
+* How they distribute work
+* How they use threads
+* How they interact with the kernel
+* How they manage memory
+* How they handle blocking I/O
+* How they scale across CPU cores
+
+Backend execution patterns help explain these differences.
+
+---
+
+### The OS Is Part of Backend Performance
+
+Backend performance is not only about application code.
+
+The operating system is deeply involved.
+
+The kernel decides how network packets are delivered, how sockets are managed, and how processes or threads are scheduled.
+
+Understanding this relationship helps explain real-world latency and throughput behavior.
+
+---
+
+## 4. Examples
+
+### Example 1: Simple Request Execution Path
+
+```text id="0ieybx"
+1. Client sends request
+2. Server network interface receives packets
+3. Kernel processes packets
+4. Kernel places data into a socket buffer
+5. Backend application accepts the connection
+6. Backend reads data from the socket
+7. Backend dispatches request to execution logic
+8. Application generates response
+9. Backend writes response to socket
+10. Kernel sends response packets back to client
+```
+
+This path shows that a request passes through many layers before and after application logic runs.
+
+---
+
+### Example 2: Single-Threaded Backend
+
+A single-threaded backend may use one thread to handle many connections.
+
+```text id="k18yhv"
+One process
+One thread
+One event loop
+Many connections
+```
+
+This model can be efficient if most work is I/O-bound.
+
+However, CPU-heavy tasks can block the event loop.
+
+---
+
+### Example 3: Multi-Threaded Backend
+
+A multi-threaded backend may assign work to multiple threads.
+
+```text id="bgopqw"
+One process
+Multiple threads
+Each thread handles work
+```
+
+This can use multiple CPU cores better, but it introduces complexity such as locking, synchronization, and shared memory issues.
+
+---
+
+### Example 4: Multi-Process Backend
+
+A multi-process backend may run several worker processes.
+
+```text id="qe7d1f"
+Master process
+→ Worker process 1
+→ Worker process 2
+→ Worker process 3
+```
+
+This model can improve isolation and CPU utilization.
+
+NGINX is a common example of a system that uses a master-worker process model.
+
+---
+
+### Example 5: Backend and Kernel Interaction
+
+The backend does not directly read packets from the network card.
+
+Instead, it asks the kernel for data.
+
+Simplified:
+
+```text id="tkn02f"
+Application: Is there data to read?
+Kernel: Yes, this socket has data.
+Application: Give me the data.
+Kernel: Here is the data from the socket buffer.
+```
+
+Efficient backend systems try to reduce unnecessary waiting and unnecessary communication with the kernel.
+
+---
+
+### Example 6: Why Idempotency Matters
+
+Imagine a payment request:
+
+```text id="04i8er"
+POST /charge
+amount=100
+```
+
+If the backend retries this request after a timeout, the user might be charged twice unless the operation is idempotent.
+
+A safer design may include an idempotency key:
+
+```text id="pk9apa"
+POST /charge
+Idempotency-Key: abc-123
+amount=100
+```
+
+If the same request is retried, the backend can detect that it has already processed it.
+
+---
+
+## 5. Questions / Review
+
+1. What are backend execution patterns?
+
+2. How are backend execution patterns different from communication patterns?
+
+3. What happens after a client request reaches the server machine?
+
+4. Why is accepting a connection more complex than it sounds?
+
+5. What role does the operating system kernel play in backend execution?
+
+6. Why is the relationship between the backend application and the OS important?
+
+7. What is the difference between a process and a thread?
+
+8. What are some common backend execution models?
+
+9. Why are systems like NGINX, Envoy, and Memcached useful examples?
+
+10. Why is idempotency important in backend systems?
+
+11. How can retries cause problems if an operation is not idempotent?
+
+12. Why should backend engineers understand at least the basics of execution patterns?
+
+---
+
+## Short Takeaway
+
+Backend execution patterns explain how a backend server accepts, dispatches, and executes requests.
+
+This section moves beyond communication protocols and looks inside the server itself.
+
+To understand backend performance, we need to understand the relationship between the application, the operating system, sockets, processes, threads, and I/O.
+
+A backend is not just code that receives requests. It is a system that works closely with the kernel to manage connections, read data, execute logic, and write responses efficiently.

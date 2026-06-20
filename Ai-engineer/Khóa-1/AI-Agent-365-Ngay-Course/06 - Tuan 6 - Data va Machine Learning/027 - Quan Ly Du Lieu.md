@@ -1,0 +1,1068 @@
+# Ngay 027 - Tuan 6, ngay 2
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-027.txt
+
+## Tong quan
+
+- Chu de mo dau: Hy vọng rằng chi tiết rùng rợn về việc quản lý dữ liệu hôm qua không làm bạn chán nản, vì...
+- File goc: day-027.txt
+- So y chinh: 792
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Hy vọng rằng chi tiết rùng rợn về việc quản lý dữ liệu hôm qua không làm bạn chán nản, vì hôm nay chúng ta sẽ tiếp tục với một số nội dung liên quan đến dữ liệu.
+- Nhưng sau đó, sau đó chúng ta sẽ hoàn tất việc xử lý dữ liệu sau hôm nay.
+- Vậy là, ngoài tất cả những gì bạn có thể làm với việc tạo dữ liệu và với Rag, bạn còn có thể chọn lọc, phân tích và quản lý bộ dữ liệu riêng của mình.
+- Hôm nay sẽ có một chút thảo luận.
+- Điều tôi muốn trình bày là một chiến lược để lựa chọn và áp dụng các mô hình nhằm giải quyết các vấn đề thương mại, đây chính là nội dung chính của dự án tốt nghiệp này.
+- Và sau đó, hãy xắn tay áo lên và tiến hành xử lý trước.
+- Một cách rất thú vị để thu thập dữ liệu chất lượng cao nhất bằng cách sử dụng Nlms.
+- Đây cũng sẽ là cơ hội để chúng ta tìm hiểu về kỹ thuật chuyên nghiệp sử dụng chế độ batch với LM inference, đây là một kỹ năng quan trọng mà bạn nên nắm vững.
+### Muc 2
+
+- Được rồi, trước khi chúng ta đi vào phần kỹ thuật chi tiết, hãy để tôi giải thích cho bạn về chiến lược năm bước.
+- Vậy là bạn được giao nhiệm vụ xây dựng một hệ thống trí tuệ nhân tạo (AI) để giải quyết một vấn đề nào đó.
+- Và bạn muốn biết cách bắt đầu.
+- Người ta thường bắt đầu bằng cách đặt câu hỏi về kiến trúc, về thiết kế kỹ thuật.
+- Như tôi đã từng đề cập với bạn một hoặc hai lần, và đề xuất của tôi là hãy lùi lại một bước và tiếp cận vấn đề này như cách bạn tiếp cận bất kỳ dự án khoa học nào khác, để áp dụng giải pháp cho một vấn đề thương mại.
+- Và năm bước đó là, trước hết, hiểu rõ vấn đề mà bạn đang giải quyết.
+- Sau đó, để chuẩn bị, hãy chọn mô hình phù hợp cho nhiệm vụ mà chúng ta đã thảo luận trong tuần thứ tư.
+- Tùy chỉnh mô hình đó.
+### Muc 3
+
+- Xác định cách áp dụng nó vào vấn đề hiện tại và sau đó triển khai vào sản xuất.
+- Đây là năm bước.
+- Và điều đó hoàn toàn không có gì đáng ngạc nhiên khi bước đầu tiên của tôi sẽ tập trung hoàn toàn vào việc hiểu rõ.
+- Đó là, ý tôi là, đây là những kiến thức cơ bản nhất.
+- Tôi chắc chắn rằng bạn đã biết điều này rồi.
+- Và thế nhưng, con người, con người luôn vội vàng lao vào tìm kiếm giải pháp.
+- Điều này vô cùng quan trọng, ngay cả trong thế giới ngày nay, khi có quá nhiều sự ồn ào xung quanh trí tuệ nhân tạo (AI) và việc phát triển các giải pháp AI cho các vấn đề.
+- Trước khi bạn bắt tay vào làm việc với AI, hãy đảm bảo rằng bạn hiểu rõ vấn đề và tự hỏi liệu AI có phải là giải pháp phù hợp trong trường hợp này hay không.
+## Phan 2
+
+### Muc 4
+
+- Trước tiên, thu thập các yêu cầu kinh doanh.
+- Đừng.
+- Đừng để yêu cầu kinh doanh nói rằng tôi cần một trợ lý AI cho.
+- Đó không phải là yêu cầu.
+- Đó là một giải pháp.
+- Thách thức các nhà tài trợ và chính bản thân bạn để luôn đặt vấn đề thương mại lên hàng đầu.
+- Và khi bạn đã xác định được vấn đề cần giải quyết, câu hỏi tiếp theo tất nhiên là: Làm thế nào để đánh giá thành công?
+- Làm thế nào để xác định rằng bạn thực sự đang giải quyết vấn đề đó?
+### Muc 5
+
+- Sau đó, hãy xem xét dữ liệu mà bạn có, bao gồm số lượng, chất lượng và định dạng của dữ liệu.
+- Nó có cấu trúc không?
+- Nó có không cấu trúc không?
+- À, bạn có đủ dữ liệu không?
+- Và sau đó, hãy thách thức các nhà tài trợ giải thích về các yêu cầu không chức năng: mức độ mở rộng cần thiết là bao nhiêu?
+- Độ trễ nào là chấp nhận được?
+- Ngân sách là bao nhiêu?
+- Thời gian đưa sản phẩm ra thị trường là bao lâu?
+### Muc 6
+
+- Khi nào nó cần phải hoạt động?
+- Đây là những câu hỏi bạn nên đặt ra cho bất kỳ dự án nào và cũng nên áp dụng cho dự án AI.
+- Và bước thứ hai là chuẩn bị.
+- Đầu tiên, bạn nên xem xét các giải pháp không sử dụng machine learning (LM), có thể là các giải pháp hiện có đã tồn tại, hoặc các giải pháp chỉ sử dụng mã Python thay vì bất kỳ loại trí tuệ nhân tạo (AI) nào, sau đó là các giải pháp machine learning truyền thống.
+- Sử dụng những điều này để xây dựng mô hình cơ sở (baseline model) - mô hình trước khi bạn áp dụng các phương pháp phức tạp hơn, đó là điểm xuất phát của bạn.
+- Vì vậy, khi bạn tạo ra một thứ gì đó phức tạp, bạn có thể nhận ra rằng mình đang cải thiện so với điểm xuất phát ban đầu.
+- Bởi vì đôi khi, có thể điểm xuất phát đã là điều gì đó có thể giải quyết vấn đề của bạn.
+- Và vì vậy, đó là một nguyên tắc quan trọng cần tuân thủ, ngay cả khi bạn chắc chắn rằng các mô hình ngôn ngữ lớn (LLMs) là hướng đi đúng đắn, hãy thiết lập một cơ sở ban đầu để làm việc.
+## Phan 3
+
+### Muc 7
+
+- Và khi bạn chọn chương trình Thạc sĩ Luật (LLM), bạn nên tuân theo chính xác kịch bản mà chúng tôi đã chuẩn bị trong tuần thứ tư.
+- Hãy xem xét những điều cơ bản.
+- Xem các bảng xếp hạng, bảng xếp hạng hàng đầu và các đấu trường.
+- Sử dụng điều đó để lựa chọn thủ công một tập hợp các mô hình ngôn ngữ (LLMs) mà bạn sẽ sử dụng cho các hoạt động nghiên cứu và phát triển (R&D) tiếp theo, sau đó là quá trình xử lý dữ liệu.
+- Đó là một phần của bước hai.
+- Đó là những gì chúng ta đã làm hôm qua và sẽ hoàn thành hôm nay.
+- Điều đó liên quan đến việc xây dựng một bộ dữ liệu chất lượng cao, giúp bạn có cơ hội thành công cao nhất trong quá trình đào tạo.
+- Và tất nhiên, như tôi đã nói hôm qua, bạn có thể tạo nhiều bộ dữ liệu và sử dụng chúng để thử huấn luyện với từng bộ và xác định bộ nào hoạt động tốt nhất.
+### Muc 8
+
+- Được rồi.
+- Vậy là bạn đã hiểu rõ vấn đề trước tiên.
+- Bạn đã chuẩn bị tập dữ liệu và các mô hình ứng viên.
+- Bây giờ là lúc bạn cần chọn mô hình mà bạn sẽ sử dụng.
+- Bạn đã có các ứng viên, tiến hành các thí nghiệm nghiên cứu và phát triển (R&D), xây dựng các mẫu thử nghiệm, đào tạo và kiểm định cho đến khi có được mô hình hoạt động tốt nhất cho vấn đề cụ thể.
+- Bạn đã biết điều này từ tuần thứ tư.
+- Bạn biết cách làm điều này.
+- Đó là bước ba và bước bốn.
+### Muc 9
+
+- Sau đó, bạn sẽ áp dụng mô hình mà bạn đã chọn để giải quyết vấn đề kinh doanh hiện tại.
+- Và có nhiều kỹ thuật khác nhau mà bạn có thể áp dụng ở giai đoạn này.
+- Và bạn có thể muốn sử dụng nhiều trong số các kỹ thuật đa dạng này, um, và đây là những kỹ thuật mà tôi đã đề cập đến trong quá trình thảo luận, chỉ cần cải thiện các lời nhắc và sử dụng các phương pháp như Multi-shot prompting là một điểm khởi đầu.
+- Gợi ý nhiều lần.
+- Khi bạn cung cấp nhiều ví dụ về câu hỏi và câu trả lời để cố gắng định hướng mô hình tạo ra đầu ra nhất quán với đầu vào, điều này tạo ra một điểm khởi đầu dễ dàng.
+- Rag sẽ là cái thứ hai.
+- Rag mà bạn đã quá quen thuộc.
+- Hiện tại, chúng tôi đang tìm cách chọn lọc ngữ cảnh phù hợp và đưa nó vào prompt, có thể sử dụng các mô hình nhúng và độ tương đồng vector để thực hiện việc tìm kiếm ngữ cảnh đó một cách hiệu quả, thông qua một hệ thống trí tuệ nhân tạo di truyền.
+## Phan 4
+
+### Muc 10
+
+- Chúng ta chưa nói nhiều về điều đó, và tất nhiên tôi có một khóa học riêng biệt về chủ đề này.
+- À, nhưng chúng ta sẽ làm điều đó một chút vào tuần thứ tám.
+- Chúng tôi sẽ phát triển một nền tảng đại lý, nhưng về cơ bản, nó thực chất là một phần mở rộng lớn của việc gợi ý và thậm chí một phần của Rag.
+- Nhưng nhưng điều này liên quan đến việc có thể chia cuộc gọi LM của bạn thành nhiều cuộc gọi LM và có thể một trong số những cuộc gọi LM đó sẽ quyết định cuộc gọi nào trong số những cuộc gọi còn lại và thứ tự gọi.
+- Đó giống như một người điều phối.
+- LM, bây giờ bạn đã có một số hiểu biết về việc quy trình làm việc được xác định bởi một LM, và việc sử dụng các công cụ như một cách để trang bị cho LM khả năng thực hiện các tác vụ như phân tích dữ liệu, hoặc, hoặc, chỉ đơn giản là thực hiện các phần nghiên cứu khác nhau, có thể là thu thập dữ liệu web như một cách để giải quyết vấn đề kinh doanh một cách hiệu quả hơn khi sử dụng các đại lý.
+- Và tất nhiên, không có gì ngạc nhiên, yếu tố thứ tư là tinh chỉnh, ừm, tinh chỉnh, tức là chúng ta có mô hình ngôn ngữ (LM) này, chúng ta có thể cung cấp cho nó dữ liệu mà chúng ta đã thu thập được, và chúng ta có thể làm cho nó trở nên tốt hơn nữa trong việc thực hiện nhiệm vụ này.
+- Đó là việc tinh chỉnh.
+### Muc 11
+
+- Đó là những gì chúng ta sẽ làm vào cuối tuần này.
+- Và sau đó là cả tuần sau.
+- Tôi nghĩ rằng việc dành một chút thời gian để xem xét điều này và nhận ra rằng ba phương pháp đầu tiên đều là các kỹ thuật thời gian suy luận, tập trung vào cách thức hoạt động tại thời điểm chạy chương trình, sau khi bạn đã huấn luyện mô hình, để tận dụng tối đa hệ thống quản lý học tập (LMS) dựa trên cách bạn gọi chúng và chuỗi đầu vào mà bạn sử dụng.
+- Chỉ có phương pháp cuối cùng là...
+- Có liên quan gì đến việc thực sự đào tạo mô hình để làm điều đó theo cách khác không?
+- Và điều này thật thú vị vì, ừm, trong quá khứ, đào tạo luôn là bước đầu tiên.
+- Đào tạo giống như việc lớn mà ai cũng làm.
+- Và tôi đã đề cập một vài lần trong khóa học, có hai phương pháp song song khác nhau để cải thiện hiệu suất của mô hình trong quá trình suy luận và trong quá trình đào tạo.
+### Muc 12
+
+- Và trong lịch sử gần đây, thời gian suy luận đã thực sự ngày càng trở thành cách mà con người dành phần lớn thời gian của mình.
+- Người ta đang tập trung rất nhiều vào việc cải thiện thời gian suy luận, vì đó là nơi chúng ta đã thấy hiệu quả cao nhất trong khoảng một năm qua.
+- Nhưng trước đó, nó luôn diễn ra vào giờ tập luyện.
+- Và thực tế là đây là hai phương pháp hoàn toàn độc lập mà bạn có thể sử dụng để cải thiện hiệu suất của mô hình, cả trong quá trình đào tạo và suy luận.
+- Và vì vậy, trong hai tuần tới, chúng ta sẽ tập trung vào thời gian đào tạo và xem chúng ta có thể làm được gì với nó.
+- Và chúng ta sẽ tạo ra những điều thật tuyệt vời từ nó.
+- À, và sau đó chúng ta sẽ quay lại thời gian suy luận vào tuần thứ tám khi chúng ta thêm rag một lần nữa, và khi chúng ta sử dụng trí tuệ nhân tạo di truyền (genetic AI), để đến cuối cùng chúng ta sẽ sử dụng cả thời gian đào tạo và thời gian suy luận.
+- Đó không phải là một sự lựa chọn giữa hai phương án.
+## Phan 5
+
+### Muc 13
+
+- Nó có thể là cả hai.
+- À, và à, đúng vậy.
+- Nhưng đây là bốn kỹ thuật.
+- Và mọi người thường hỏi, kiểu như, kiểu như, làm sao tôi biết nên sử dụng kỹ thuật nào cho một vấn đề kinh doanh cụ thể?
+- Và, bạn biết đấy, có, có, ừm, có, có một câu trả lời dài và một câu trả lời ngắn.
+- Câu trả lời ngắn gọn là bạn nên thử tất cả và, ừm, xem cái nào hoạt động tốt nhất cho công việc hiện tại.
+- Không có con đường tắt nào cho nghiên cứu và phát triển (R&D).
+- Thực hiện nghiên cứu và phát triển (R&D).
+### Muc 14
+
+- Hãy thử từng cái một.
+- Hãy thử kết hợp nhiều phiên bản của từng loại và xem loại nào hoạt động tốt nhất.
+- Nhưng câu trả lời chi tiết hơn sẽ là, ừm, rõ ràng việc tinh chỉnh là một việc rất tốn kém.
+- Đây là một vấn đề rất quan trọng.
+- Chúng ta sẽ mất rất nhiều thời gian để làm việc này.
+- Sẽ mất rất nhiều thời gian để đến đó.
+- Cuối cùng, việc tinh chỉnh là quá trình giúp mô hình học được một kỹ năng mới, cho phép nó mở rộng khả năng, thực hiện những việc mới, theo cách khác biệt và hiệu quả hơn.
+- Trong khi đó, việc cung cấp thông tin cho một thứ như rag chủ yếu chỉ là cung cấp thông tin đã có sẵn.
+### Muc 15
+
+- Điều này liên quan đến việc cung cấp chuyên môn dựa trên kiến thức mà bạn có trong cơ sở kiến thức, nhưng nó sẽ không giúp nó mở rộng kiến thức vượt ra ngoài cơ sở kiến thức đó.
+- Nếu bạn đang tìm cách bổ sung kiến thức chuyên môn vào một mô hình, thì "model rag" chính là lựa chọn hàng đầu của bạn.
+- Nếu bạn muốn dạy cho mô hình một kỹ năng mới, một kỹ năng mà nó có thể áp dụng cho dữ liệu mới mà nó chưa từng gặp trước đây, thì việc tinh chỉnh mô hình (fine tuning) dường như là giải pháp phù hợp.
+- Và đó là lý do tại sao, khi nói đến việc ước tính giá của một sản phẩm, điều này dường như là một lựa chọn phù hợp vì chúng ta không chỉ muốn nó có thể ước tính giá của các sản phẩm mà chúng ta đã có trong dữ liệu đã thu thập.
+- Chúng tôi muốn nó học được kỹ năng chung đó và có thể áp dụng nó vào dữ liệu mới.
+- Điều này chưa từng xảy ra trước đây, và đó là lý do tại sao việc tinh chỉnh chi tiết cảm thấy đúng đắn.
+- Nhưng một lần nữa, câu trả lời đúng là hãy thử tất cả.
+- Sử dụng các chỉ số đánh giá để đo lường và lựa chọn các phương pháp phù hợp nhất với mục tiêu kinh doanh của bạn.
+## Phan 6
+
+### Muc 16
+
+- Vậy là bạn đã hiểu rõ các yêu cầu kinh doanh, sau đó bạn đã chuẩn bị sẵn sàng với các mô hình ứng viên, mô hình cơ sở và bộ dữ liệu được chọn lọc.
+- Bạn đã chọn mô hình phù hợp cho nhiệm vụ hiện tại, sau đó tùy chỉnh mô hình để áp dụng vào vấn đề kinh doanh của mình bằng cách thử nghiệm nhiều kỹ thuật khác nhau, đo lường chỉ số kinh doanh của bạn so với các kỹ thuật đó và chọn những kỹ thuật có hiệu quả tốt nhất so với chỉ số đánh giá của bạn.
+- Tuyệt vời.
+- Nhưng có năm bước.
+- Điều đó có nghĩa là còn một bước nữa là hoàn tất.
+- Đó là gì?
+- Chà, tất nhiên đó là quá trình đưa sản phẩm vào sản xuất, sau đó triển khai những gì bạn đã xây dựng và đưa vào hoạt động.
+- Và như bạn có thể đã biết, tôi có cả một khóa học về chủ đề đó.
+### Muc 17
+
+- Đó là một lĩnh vực chuyên môn riêng biệt.
+- Đôi khi người ta còn gọi nó là MLOps.
+- Đó là một nghề riêng biệt.
+- À, và phần lớn trong số đó liên quan đến việc lựa chọn kiến trúc hosting và triển khai trong môi trường sản xuất hoặc nhà cung cấp đám mây sản xuất như AWS, GCP hoặc Azure, sau đó xem xét các yếu tố như khả năng mở rộng, liệu có thể theo dõi nó không?
+- Có an toàn không?
+- Có tuân thủ không?
+- Khả năng quan sát là vô cùng quan trọng đối với Agentic.
+- Tôi có thể theo dõi những gì các hệ thống học máy (LLMs) đang giao tiếp với nhau và theo dõi chúng.
+### Muc 18
+
+- Và sau đó đo lường các đánh giá của bạn.
+- Và điểm chính ở đây, điểm quan trọng là quá trình đánh giá không dừng lại sau bước thứ tư.
+- Khi bạn đã áp dụng mô hình vào vấn đề của mình, bạn cần liên tục đánh giá mô hình trong quá trình triển khai để theo dõi hiệu quả của nó và điều chỉnh cho hiện tượng gọi là "model drift" - xu hướng của hệ thống thường bắt đầu hoạt động kém hiệu quả theo thời gian khi dữ liệu thực tế bắt đầu lệch khỏi dữ liệu đào tạo.
+- Vì vậy, việc quay lại và liên tục đào tạo lại cũng như đánh giá hiệu suất là phần quan trọng nhất của bước năm.
+- Đó là quy trình năm bước để áp dụng mô hình vào việc áp dụng trí tuệ nhân tạo (AI) hoặc không áp dụng AI cho một vấn đề kinh doanh.
+- Và chúng ta cơ bản đang tuân theo năm bước này trong quá trình thực hiện dự án tốt nghiệp này.
+- Chúng ta đã xem xét các yêu cầu vào ngày hôm qua.
+- Và chúng ta sẽ xem thêm một lần nữa ngay bây giờ.
+## Phan 7
+
+### Muc 19
+
+- Và chúng tôi đã đang chọn lọc bộ dữ liệu của mình, ừm, trong vài ngày qua.
+- Vậy hãy làm theo năm bước sau đây và luôn ghi nhớ năm bước này.
+- Và hãy luôn tự rèn luyện bản thân bằng cách áp dụng nghiêm túc năm bước này.
+- Tôi nói cho các bạn biết, tôi nhận được rất nhiều câu hỏi từ những người rõ ràng đang lao vào việc phát triển giải pháp và xây dựng trí tuệ nhân tạo (AI) cho X, nhưng họ lại không suy nghĩ về X là gì và vấn đề họ đang cố gắng giải quyết là gì, cũng như cách họ sẽ đo lường thành công?
+- À, và sau đó tiến hành nghiên cứu và phát triển (R&D), đeo chiếc mũ của nhà khoa học dữ liệu, trở thành một nhà khoa học, à, tham gia vào các thí nghiệm và nghiên cứu, không có con đường tắt nào cho việc thí nghiệm.
+- Được rồi.
+- Vậy bây giờ chúng ta hãy cùng ôn lại nhanh về dự án tốt nghiệp của mình.
+- Giá cả hợp lý.
+### Muc 20
+
+- Nhắc lại cho tôi các yêu cầu kinh doanh.
+- Dựa trên mô tả của sản phẩm, hãy dự đoán giá thực tế của nó nên là bao nhiêu.
+- Đầu vào là mô tả sản phẩm, đầu ra là giá thực tế của sản phẩm đó.
+- Và giải pháp cuối cùng sẽ được tích hợp vào một nền tảng tự động có khả năng tìm kiếm trên internet, phát hiện các ưu đãi, đánh giá xem đó có phải là ưu đãi tốt hay không dựa trên dự đoán về giá thực tế, và sau đó thông báo cho chúng ta nếu có cơ hội nào đó với giá phù hợp.
+- À, và cách chúng ta sẽ đánh giá xem chúng ta có thành công hay không là chúng ta sẽ đơn giản chỉ xem xét sự chênh lệch giá tuyệt đối.
+- Sự khác biệt giữa dự đoán và giá thực tế là gì?
+- Đó là cả một chỉ số mô hình và một chỉ số kết quả kinh doanh.
+- Điều đó thật đơn giản một cách tuyệt vời.
+### Muc 21
+
+- À, và đó chính là tiêu chí hoàn hảo để chúng ta tập trung phát triển mạnh mẽ.
+- Đó chính là điều chúng ta sẽ tìm hiểu.
+- Vậy, thứ tự thi đấu lần này chỉ là tóm tắt lại những gì tôi đã nói hôm qua.
+- Nhưng để bạn biết chúng ta đang ở đâu trong câu chuyện, tuần này chúng ta sẽ tập trung vào việc đánh giá dữ liệu và các mô hình tiên tiến.
+- Chúng tôi đã tổng hợp dữ liệu vào ngày hôm qua.
+- Hôm nay chúng ta sẽ thực hiện một bước gọi là tiền xử lý, trong đó chúng ta sẽ sử dụng một mô hình ngôn ngữ lớn (LLM) để chỉnh sửa lại các mô tả của mình sao cho chúng hoàn hảo cho việc đào tạo.
+- Và chúng ta cũng sẽ sử dụng chế độ batch, một tính năng chuyên nghiệp như thế này.
+- Ngày mai, chúng ta sẽ làm việc với machine learning truyền thống, điều mà tôi thực sự thích.
+## Phan 8
+
+### Muc 22
+
+- Tôi hy vọng bạn cũng sẽ thích nó.
+- Tôi biết điều này có vẻ như là quay ngược thời gian, nhưng nó thực sự mang lại cảm giác thỏa mãn như bạn sẽ thấy.
+- Và đến ngày thứ tư, chúng ta sẽ bước vào thế giới của mạng nơ-ron và các mô hình tiên tiến, và bạn sẽ thấy sự phát triển của chúng.
+- Và đến ngày thứ năm, bạn nghĩ rằng tuần này vốn dĩ là để tinh chỉnh.
+- Phải đến ngày thứ năm, chúng ta mới có thể tinh chỉnh mô hình biên giới, việc này được thực hiện thông qua một API.
+- Vậy nên, không phải là bạn thực sự tham gia trực tiếp vào việc đó, nhưng chúng ta vẫn sẽ làm và sẽ xem kết quả ra sao.
+- Và như tôi đã nói, tôi muốn thiết lập kỳ vọng của bạn.
+- Nó không có gì đặc biệt.
+### Muc 23
+
+- À, đó sẽ là lịch thi đấu cho tuần thứ sáu.
+- Và tuần sau sẽ là lúc thực sự bắt tay vào làm việc.
+- Chúng ta sẽ tập trung vào việc hoàn thiện mô hình mã nguồn mở của riêng mình.
+- À, nói chung, mọi người thường sử dụng cụm từ như "tự xây dựng mô hình nguồn mở" của riêng mình.
+- Bây giờ, tất nhiên, chúng ta sẽ bắt đầu từ một mô hình đã được huấn luyện sẵn.
+- Chúng ta sẽ sử dụng llama cho một meta mà chúng ta đã từng thấy trong quá khứ.
+- À, chúng ta sẽ bắt đầu với việc bạn nghe thấy cụm từ "tôi tinh chỉnh mô hình của mình" và đó chính là ý nghĩa của nó.
+- Điều đó không có nghĩa là bạn bắt đầu từ con số không hoàn toàn, và đã chi hàng triệu đô la để đào tạo nó trên các token.
+### Muc 24
+
+- Điều đó có nghĩa là bạn đã sử dụng một mô hình đã được huấn luyện sẵn, sau đó bạn tiếp tục tinh chỉnh nó bằng dữ liệu của mình.
+- Đó thường là cách làm nếu bạn muốn đào tạo một mô hình từ đầu, đó là một việc làm thú vị, nhưng thường thì nó sẽ cần phải là một mô hình ngôn ngữ lớn (LLM) đơn giản, có thể thực hiện các tác vụ như viết, viết truyện cho trẻ em hoặc những việc tương tự dựa trên một tập dữ liệu rất hạn chế.
+- Và đó là những dự án tuyệt vời để thực hiện, nhưng chúng thường không có tính ứng dụng thương mại, với rất ít ngoại lệ.
+- Khi bạn nghe nói về điều này trong ngành công nghiệp, đây là ý nghĩa của nó.
+- Đó chính là công việc hàng ngày của tôi.
+- Đó là điều mà mọi người thường làm.
+- Sử dụng một mô hình ngôn ngữ lớn (LLM) mã nguồn mở đã được huấn luyện sẵn và tinh chỉnh nó.
+- Được rồi.
+## Phan 9
+
+### Muc 25
+
+- Và rồi vào tuần thứ tám, chúng ta sẽ làm đủ thứ chuyện hay ho.
+- Chúng ta quay trở lại từ đầu và xây dựng một nền tảng Agentic, và nó sẽ rất tuyệt vời.
+- Đó là thứ tự thi đấu.
+- Và tôi muốn nhắc nhở các bạn, có ba cách khác nhau để các bạn có thể theo dõi, và một trong số đó là chỉ cần nắm bắt ý chính của những gì đang diễn ra.
+- Hãy lắng nghe cách tôi giải thích các quyết định mà tôi đang đưa ra và cảm nhận về nó.
+- Ồ, thế là tốt rồi.
+- Đó là một cách thực sự tốt.
+- Bạn có thể quay lại và làm lại bất cứ lúc nào.
+### Muc 26
+
+- Nếu bạn thực sự có một dự án cần áp dụng nó.
+- Thứ hai là nếu bạn muốn làm việc này cùng tôi, nhưng không muốn mất hàng ngày để làm nó.
+- Và vì vậy, bạn sẵn lòng sử dụng bộ dữ liệu nhẹ.
+- Và bạn nhớ là chúng ta đã tải lên phiên bản nhẹ vào cuối ngày hôm qua, và không thực sự đi qua và chọn lọc dữ liệu, cũng như không thực hiện tiền xử lý như tôi làm hôm nay, mặc dù bạn có thể làm điều đó trên tập dữ liệu nhẹ nếu muốn.
+- À, nhưng mà, nhưng mà, nhưng mà, hãy chỉ tập trung vào việc lấy dữ liệu mà tôi đã tổng hợp.
+- À, và cái thứ ba là, kiểu như, hãy làm lớn.
+- À, hãy đi cùng tôi từng bước một.
+- Thực hiện phân tích dữ liệu đầy đủ, thiết lập ngưỡng 800.000, và xây dựng mô hình của riêng bạn.
+### Muc 27
+
+- Và tôi sẽ nói rằng, trong số đó, tôi mong đợi bạn, tôi mong đợi bạn, và tôi yêu cầu bạn phải chiến đấu cùng tôi.
+- Bạn cần phải cố gắng đánh bại tôi.
+- Nếu bạn chỉ làm y như tôi, thì việc này chẳng có gì thú vị cả.
+- Điều tuyệt vời nhất về dự án này là chúng ta sẽ đưa ra một con số cụ thể, một con số rất chính xác, và tôi sẽ đưa ra con số tốt nhất của mình, và nó sẽ tốt hơn nhiều so với con số tôi có cách đây một năm.
+- Sẽ thật tuyệt vời, nhưng bạn có thể làm tốt hơn vì cách để làm tốt hơn, tất cả những gì cần làm là thử nghiệm.
+- Không có phép thuật, không có mánh khóe.
+- Không phải là bạn cần phải biết một thông số ẩn nào đó để nó tốt hơn, mà đơn giản là bạn phải thử nghiệm và điều chỉnh.
+- Và nếu bạn thử đủ lần, bạn sẽ đánh bại tôi.
+## Phan 10
+
+### Muc 28
+
+- Và đó chính là thách thức.
+- Nếu bạn định làm việc thứ ba, nếu bạn muốn làm lớn, thì bạn phải đối đầu với tôi.
+- Bạn phải đánh bại tôi.
+- Vậy hãy tập trung, quan sát những gì tôi đang làm và đảm bảo rằng bạn có thể nghĩ ra một vài thí nghiệm để thử.
+- Một trong số họ sẽ đánh bại tôi và tôi không thể chờ đợi để nghe về điều đó.
+- Bạn phải đăng điều đó và bạn phải thể hiện chiến thắng của mình.
+- Hãy tự hào và tự tin khi giải thích những gì bạn đã làm trong bài viết của mình.
+- Hãy đăng lên LinkedIn và tôi chắc chắn sẽ góp ý và đảm bảo rằng tôi sẽ lan tỏa nó.
+### Muc 29
+
+- Được rồi, vậy là đã đến lúc chúng ta quay lại với con trỏ.
+- Đã đến lúc chúng ta cần tiền xử lý dữ liệu bằng chế độ batch.
+- Được rồi, chúng ta đang ở Corsa.
+- Chúng ta bước vào tuần thứ sáu.
+- Chúng ta bước sang ngày thứ hai.
+- Và chào mừng các bạn quay trở lại với dự án tốt nghiệp của chương trình "The Price Is Right".
+- Và chúng ta đang ở ngày thứ hai của quá trình tiền xử lý dữ liệu.
+- Vậy là thế này.
+### Muc 30
+
+- Điều chúng ta sắp làm là sử dụng mô hình ngôn ngữ lớn (LLM) để viết lại dữ liệu của chúng ta.
+- Trong trường hợp này, mô tả chi tiết về sản phẩm được trình bày dưới dạng ngắn gọn, súc tích và rõ ràng, đồng thời cung cấp một mô tả xuất sắc về sản phẩm đó, rất phù hợp cho mục đích đào tạo.
+- Và trên thực tế, trong tương lai, khi chúng ta cố gắng thực hiện suy luận trên các sản phẩm mới và chưa từng gặp trước đây, chúng ta có thể sử dụng cùng một quá trình tiền xử lý để chuyển đổi bất kỳ dữ liệu nào sang định dạng có cấu trúc tương tự.
+- Vậy nên đây là một kỹ thuật rất hay.
+- Đó là một cách làm rất tốt.
+- Và đây là điều mà ý tưởng này, ý tưởng về việc chuyển đổi dữ liệu không cấu trúc thành dữ liệu có cấu trúc theo một định dạng cụ thể.
+- Đó là một vấn đề chưa được giải quyết chỉ cách đây vài năm.
+- Điều đó đơn giản là không thể thực hiện được.
+## Phan 11
+
+### Muc 31
+
+- Và bây giờ, đó là điều mà các mô hình ngôn ngữ lớn (LLMs) có thể thực hiện chỉ trong nháy mắt.
+- Rất đơn giản.
+- Và, và, và đó chính là lý do tại sao chúng ta sẽ làm điều đó.
+- Thật tuyệt vời.
+- Và điều đó chắc chắn có tác động lớn đến kết quả.
+- Và nếu bạn thắc mắc tại sao kết quả của tôi hôm nay sẽ tốt hơn so với một năm trước, thì đó là vì tôi đang thực hiện tiền xử lý.
+- Lần trước tôi không làm điều này, và đây thực sự là một kỹ thuật rất mạnh mẽ.
+- Ừm, được rồi.
+### Muc 32
+
+- Và như tôi đã nói, tôi cũng sẽ sử dụng kỹ thuật gọi là chế độ batch, tức là khi bạn gọi một mô hình ngôn ngữ lớn (LLM) không sử dụng cách thông thường như OpenAI Create, mà bạn thực hiện trong chế độ batch.
+- Điều này có nghĩa là bạn xếp hàng một số lượng lớn yêu cầu, gửi chúng đến LLM và sau đó quay lại lấy kết quả sau.
+- Và không chỉ vậy, điều đó còn rất tiện lợi cho việc lập trình, vì bạn không cần phải ngồi đó chờ đợi.
+- Nó cũng rẻ hơn nhiều, thực tế, hầu hết các nhà cung cấp đều cung cấp dịch vụ này ở chế độ batch với giá chỉ bằng một nửa.
+- Và quả thực, chúng ta sẽ sử dụng grok.
+- Grok với hàng đợi.
+- Nền tảng suy luận.
+- Không, không, không phải là sự hiểu biết của Elon.
+### Muc 33
+
+- À, hiểu với một hàng đợi.
+- Chúng ta sẽ sử dụng mô hình nguồn mở của OpenAI.
+- Chúng ta sẽ làm điều đó hôm nay.
+- À, và Grok với hàng đợi có chế độ xử lý theo lô, rất, rất tương tự như chế độ xử lý theo lô của OpenAI.
+- Chúng cơ bản là giống nhau.
+- Vậy đó là những gì chúng ta sẽ làm.
+- À, và chúng ta cũng sẽ sử dụng Light LM, như bạn còn nhớ, Light LM vì tôi rất thích Light LM.
+- Một lần nữa, giá trị kinh doanh ở đây là đây là một cách cực kỳ mạnh mẽ để chuyển đổi dữ liệu không cấu trúc, như mô tả sản phẩm của chúng ta, thành một dạng dữ liệu chặt chẽ, có cấu trúc và được phân tích theo cách mà trước đây không thể tưởng tượng được.
+## Phan 12
+
+### Muc 34
+
+- Vậy là chúng ta có một số mặt hàng nhập khẩu ở đây và bây giờ là thời điểm thích hợp cho bạn.
+- Bạn có thể chỉ cần xem tôi làm gì, vì cuối cùng tôi sẽ tải lên một bộ dữ liệu và bạn có thể sử dụng bộ dữ liệu mà tôi tải lên ở cuối.
+- Hoặc bạn có thể chọn vào và thực hiện điều này ở chế độ nhẹ.
+- Nếu chế độ sáng được đặt là true, bạn sẽ sử dụng tập con nhỏ đó, bao gồm 20.000 mẫu cộng 1.000 mẫu cộng 1.000 mẫu từ tập huấn luyện và tập kiểm tra.
+- Bạn có thể sử dụng dữ liệu đó.
+- Hoặc nếu bạn tắt chế độ sáng, bạn sẽ sử dụng chế độ tối.
+- Và, ừm, và tôi cũng đã làm điều đó.
+- Nhưng nhưng tôi sẽ không làm điều đó ngay bây giờ.
+### Muc 35
+
+- Chúng ta sẽ sử dụng cái nhỏ này cho bây giờ.
+- À, bạn có thể làm bất kỳ điều nào trong số đó mà bạn muốn, nhưng chắc chắn phải tuân theo nó.
+- Hãy xem tôi làm điều này để bạn có thể hiểu rõ hơn.
+- Được rồi.
+- Và điều đầu tiên tôi sẽ làm là tải bộ dữ liệu mà tôi vừa tải lên hôm qua.
+- Bạn nhớ tên của nó là "items raw light" nếu là phiên bản nhẹ hoặc "items raw full" nếu là phiên bản đầy đủ.
+- Và tôi sẽ tải dữ liệu kiểm tra và dữ liệu thử nghiệm của mô hình vào, sau đó kết hợp chúng lại và xem kết quả như thế nào khi dữ liệu được tải vào.
+- Đường.
+### Muc 36
+
+- Tất cả dữ liệu của chúng ta đang được nhập vào ngay bây giờ.
+- Và thế là xong.
+- Chúng tôi đã tải lên 22.000 mục, tương đương với toàn bộ tập dữ liệu nhẹ.
+- Được rồi.
+- Tiếp theo, tôi sẽ đi qua các mục này.
+- Và tôi sẽ gán cho mỗi cái một số, đó chính là thứ tự.
+- Nó có trong danh sách.
+- À, vậy, à, để tôi chỉ cho bạn xem ý tôi là gì.
+## Phan 13
+
+### Muc 37
+
+- Nếu tôi, nếu tôi chỉ nhìn vào mục đầu tiên, uh, trong danh sách, nó có một trường gọi là ID, nhưng hiện tại trường đó đang được đặt là "không".
+- Sau khi tôi chạy lệnh này, nếu tôi kiểm tra lại ID này, nó hiện đã được đặt thành 0.
+- Và mục số một được đặt là một.
+- Và mục số hai được đặt thành hai.
+- Và điều đó sẽ rất hữu ích khi chúng ta chuyển sang chế độ xử lý hàng loạt, như bạn sẽ thấy.
+- Được rồi.
+- Bây giờ đến phần tiền xử lý.
+- Dưới đây là một thông báo hệ thống để bạn tham khảo.
+### Muc 38
+
+- Tôi đang nói đến việc tạo ra một mô tả ngắn gọn về sản phẩm.
+- Chỉ trả lời theo định dạng này.
+- Không bao gồm.
+- Xin lỗi.
+- Đúng.
+- Không bao gồm số hiệu linh kiện.
+- Tôi đã loại bỏ một số trong số chúng, nhưng vẫn còn một số đã lọt qua.
+- Tiêu đề.
+### Muc 39
+
+- Dấu chấm phẩy.
+- Thể loại.
+- Thương hiệu Colon.
+- Dấu chấm phẩy.
+- Mô tả.
+- Dấu chấm phẩy.
+- Chi tiết.
+- Dấu chấm phẩy.
+## Phan 14
+
+### Muc 40
+
+- Bây giờ, những người am hiểu sẽ chỉ ra rằng thường tốt hơn là yêu cầu các mô hình trả lời dưới dạng JSON, thay vì cung cấp một định dạng hơi cồng kềnh như thế này.
+- À, các mô hình rất giỏi trong việc tạo ra JSON, và thực tế bạn có thể đi xa hơn bằng cách sử dụng một kỹ thuật gọi là "đầu ra có cấu trúc", trong đó các mô hình được yêu cầu trả lời dưới dạng JSON.
+- Và như vậy, bạn có thể đạt được kết quả rất chính xác, hoàn toàn phù hợp với một phương pháp cụ thể.
+- Và tôi đã làm điều đó ban đầu, và chúng ta sẽ sử dụng đầu ra có cấu trúc trong tuần thứ tám.
+- Và tôi định làm điều đó ở đây.
+- Nhưng chúng tôi đang làm việc với một tập dữ liệu khổng lồ chứa rất nhiều mục, và điều đó đã khiến chi phí trở nên khá cao vì JSON có rất nhiều thành phần phức tạp.
+- Và có một số thủ thuật mới để giảm kích thước của JSON.
+- Nhưng thực ra, trong trường hợp của chúng tôi, tôi đã quyết định giữ mọi thứ thật đơn giản và chỉ làm theo cách này.
+### Muc 41
+
+- Nó hoạt động rất tốt.
+- Nếu bạn đang thực hiện điều này cho sản xuất và có ngân sách lớn hơn, bạn có thể chọn sử dụng định dạng JSON thay thế.
+- Chúng ta sẽ làm điều đó vào tuần thứ tám.
+- À, nhưng hiện tại, cách tiếp cận này hoạt động rất hiệu quả.
+- Nó có chi phí thấp, nó nhanh chóng.
+- À, và điều này sẽ rất hiệu quả cho chúng ta ngay bây giờ.
+- Đó là lời nhắc hệ thống của tôi.
+- À, vậy tôi có thể đưa điều đó vào, vào một số tin nhắn và tôi có thể gọi là hoàn thành.
+### Muc 42
+
+- Tôi sẽ sử dụng Grok với một câu hỏi.
+- Và hãy nhớ rằng bạn có thể thay thế điều này bằng bất kỳ mô hình nào mà bạn muốn.
+- Xem hướng dẫn số 9 để được nhắc nhở nếu bạn muốn biết cách thực hiện điều đó.
+- À, nhưng đó chính là điều tôi sẽ làm.
+- Tôi sẽ sử dụng GPT OS, phiên bản mã nguồn mở của mô hình OpenAI.
+- À, và đó là loại nhỏ nhất, rất rẻ và rất nhanh.
+- Và tôi sẽ in ra những gì chúng ta nhận được.
+- À, và tôi cũng sẽ in số lượng token đã được sử dụng.
+## Phan 15
+
+### Muc 43
+
+- Và chúng ta sẽ thực hiện điều này cho mục số 0.
+- Hãy cùng xem qua xem mục số 0 là gì.
+- Các mục 0.0.
+- Vậy đây là, là, là, là những thứ đó.
+- Hãy in nó.
+- Vậy là chúng ta thực sự thấy nó trông đẹp mắt.
+- Được rồi, bắt đầu nhé.
+- Đây chính là điều đó.
+### Muc 44
+
+- Đó là điều này, ừm.
+- Ồ f59.
+- Và tay nắm cửa trong 613 Andover kèm khóa chốt, màu đồng cổ điển, chỉ phần nửa trong.
+- Như vậy, bạn có thể thấy nó rất thiếu cấu trúc.
+- Chúng tôi cũng có tất cả các tính năng và thông tin từ việc trích xuất dữ liệu từ Amazon như đã liệt kê ở đây.
+- Vậy câu hỏi là khi chúng ta chạy nó qua mô hình ngôn ngữ lớn (LLM), cụ thể là qua OSS 20, kết quả sẽ trông như thế nào?
+- Và chúng tôi cung cấp cho nó lời nhắc hệ thống này.
+- Và sau đó, đây là điều chúng ta sẽ làm.
+### Muc 45
+
+- Bây giờ chúng ta hãy xem chúng ta có gì ở đây.
+- Chúng tôi có nó, tôi đang chạy nó và thế là chúng ta quay lại.
+- Bạn có thấy nhanh không?
+- À mà này?
+- Có phải điên không?
+- À, chúng ta quay lại, à, tay nắm cửa F59, tay nắm nửa vòng, đồng thau mài dầu, một mảnh duy nhất, tay nắm cửa đồng thau mài dầu gắn vào tay nắm khóa chết để tăng cường tính năng bảo mật.
+- Lắp đặt dễ dàng, yêu cầu chuẩn bị cửa tối thiểu 4 inch và bảo hành trọn đời cho phần cơ khí và lớp hoàn thiện.
+- Và bạn có thể thấy điều này thật tuyệt vời.
+## Phan 16
+
+### Muc 46
+
+- Ý tôi là, đây chính xác là điều chúng ta mong muốn.
+- Chắc chắn rằng điều này sẽ tốt hơn.
+- Sẽ dễ dàng hơn cho chúng ta để đào tạo một mô hình dự đoán chi phí của một thứ gì đó dựa trên mô tả này, so với việc dựa trên những dữ liệu lộn xộn này, chứa quá nhiều thông tin và dữ liệu quá lớn.
+- Chúng ta đã thành công trong việc làm cho nó ngắn gọn và chặt chẽ hơn nhiều.
+- Trong mô tả đã được chỉnh sửa này, có nhiều thông tin hữu ích hơn so với những thông tin không cần thiết.
+- Và đó chính là mục đích của quá trình tiền xử lý.
+- Sử dụng mô hình ngôn ngữ lớn (LLM) để cập nhật dữ liệu của bạn sao cho tạo ra một phiên bản phù hợp nhất cho việc đào tạo.
+- Đó là những gì chúng tôi đã làm.
+### Muc 47
+
+- Và bạn có thể thấy rằng đã có 446 token được nhập vào, nhưng kết quả chỉ là 125 token, và chi phí cho điều đó chỉ là 0,011 xu.
+- Và đừng hiểu lầm điều đó.
+- Đó không phải là $0,011.
+- Đó là 0,011 xu.
+- Đó là 1/10.000 của một đô la.
+- Vậy nên, nó chắc chắn rẻ.
+- Đó chính là điều tuyệt vời của phần mềm nguồn mở (OSS).
+- Nhưng tất nhiên, tin xấu là đối với bộ dữ liệu đầy đủ, chúng ta có rất nhiều dữ liệu này.
+### Muc 48
+
+- Chúng tôi có 800.000 điểm dữ liệu.
+- Và vì vậy, đáng tiếc là một con số rất nhỏ nhân với một con số rất lớn vẫn cho ra một con số khá lớn.
+- Vì vậy, chúng ta cần phải tiết kiệm chi phí, ngay cả khi giá cả đã rất rẻ.
+- Vâng, có một cách để chúng ta có thể tiết kiệm chi phí một cách hiệu quả, đó là sử dụng mô hình địa phương miễn phí.
+- Chúng ta sẽ làm điều đó tiếp theo.
+- Vậy bây giờ bạn đang sử dụng một con lama và với LM nhẹ, tất cả những gì bạn cần làm là chuyển sang sử dụng llama llama 3.2.
+- Và đây là cơ sở API.
+- À, vậy bây giờ nó sẽ chạy trên máy tính của tôi ngay tại đây.
+## Phan 17
+
+### Muc 49
+
+- Nó sẽ sử dụng Llama 3.2 để đạt được mục tiêu tương tự.
+- Ồ, xin lỗi.
+- Được rồi.
+- Chờ đã.
+- Hãy chạy chương trình đó trên máy tính của tôi để tôi có thể xem.
+- Lại một lần nữa, nó diễn ra rất nhanh.
+- À, GPU của tôi đột nhiên tăng vọt trong giây lát.
+- Ừm, vậy chúng ta hãy xem chúng ta có gì ở đây.
+### Muc 50
+
+- Thôi thì chúng ta so sánh xem.
+- Bạn có thể thấy ngay rằng Llama 3.2 hoàn toàn miễn phí.
+- À, như bạn sẽ thấy từ chi phí rất chính xác đó, 0.00 $0.00.
+- À, nó, à, nó không được làm tốt lắm về mặt, về mặt, à, về mặt, à, về mặt đầu ra, à, bạn có thể thấy rằng, rằng có điều gì đó kỳ lạ đang xảy ra với tiêu đề ở đây.
+- À, nó không, nó không hiển thị tiêu đề.
+- Thay vào đó, nó đặt một tiêu đề giống như tiêu đề Markdown vào danh mục của họ, ừm, danh mục.
+- Nó đề cập đến an ninh gia đình, điều này khiến người ta cảm thấy đó là một danh mục rất cụ thể.
+- Tôi thực sự không quan tâm lắm, nhưng những danh mục này sẽ là gợi ý cho hệ thống LM đang cố gắng đoán giá sau này.
+### Muc 51
+
+- Nhưng dù sao đi nữa, bạn vẫn muốn một danh mục cảm thấy phù hợp như vậy.
+- À, thương hiệu này đã làm đúng.
+- À, mô tả này cung cấp một giải pháp lối vào an toàn và sang trọng.
+- Không sao, không sao.
+- À, nhưng rõ ràng nó không có độ chính xác như OSS 20 b.
+- À, thực ra, điều này khiến tôi muốn nhắc thêm một điều nữa.
+- Bạn có thể nhận thấy.
+- Số token đầu ra chỉ là 48, trong khi số token đầu ra ở đây là một con số lớn hơn nhiều.
+## Phan 18
+
+### Muc 52
+
+- Và thế nhưng chúng trông giống hệt nhau về mặt hình thức.
+- Và khi tôi thấy con số 125, tôi nhớ mình đã nghĩ, chắc chắn đó không phải là con số ít hơn 125, ừm, token đầu ra.
+- Vấn đề là, điều quan trọng cần biết là khi hệ thống LM tính toán số lượng token đầu ra, nó bao gồm cả những token được gọi là "reasoning tokens" - tức là những token mà hệ thống OSS OS tạo ra trong quá trình suy luận để đưa ra câu trả lời tốt nhất.
+- Vậy là nó cũng có một số token lý luận như vậy.
+- Vì con số này gần với 48 ở đây, nên đây là một mô tả ngắn gọn và súc tích.
+- Được rồi, vậy nếu bạn muốn tiếp tục và làm việc với điều này, bạn có thể chọn sử dụng Llama 3.2 cho dữ liệu của mình.
+- Tất nhiên là mất rất nhiều thời gian.
+- Llama 3.2 không thực sự nhanh như chớp, nhưng bạn có thể viết lại mọi thứ bằng Llama 3.2.
+### Muc 53
+
+- Và dù sao đi nữa, dữ liệu này vẫn sẽ tốt hơn rất nhiều so với dữ liệu gốc.
+- Nhưng tôi sẽ sử dụng Grok với một câu hỏi.
+- Đó là cách chúng ta sẽ tiền xử lý tất cả dữ liệu của mình.
+- Và tôi sẽ thực hiện điều này cho 20.000 mẫu trong tập dữ liệu Lite, cũng như cho 800.000 hoặc 820.000 mẫu trong tập dữ liệu đầy đủ.
+- Và tôi sẽ sử dụng chế độ batch này như một cách để thực hiện việc này một cách nhanh chóng và với chi phí chỉ bằng một nửa.
+- Hãy đi làm điều đó ngay bây giờ.
+- Từ điểm này trở đi, chúng ta sẽ tập trung vào việc sử dụng Grok với Q cho phần còn lại của bài thực hành này.
+- Nhưng bạn có thể áp dụng một phương pháp tương tự trực tiếp cho OpenAI.
+### Muc 54
+
+- Nếu bạn muốn có một API gần như hoàn toàn giống hệt.
+- Hoặc bạn có thể lặp qua và sử dụng Llama 3.2 cho tập dữ liệu 20.000 nếu bạn thích.
+- Nhưng đây là những gì chúng ta sẽ làm.
+- Đầu tiên, chúng ta sẽ có một hàm trợ giúp nhỏ này để tạo ra một dòng JSON.
+- Mỗi yêu cầu khác nhau mà chúng ta muốn gửi đến Grok với hàng đợi sẽ được biểu diễn bằng một dòng JSON riêng biệt.
+- Đó là cách hoạt động của chế độ batch.
+- Bạn còn nhớ chúng ta đã đề cập sơ qua về điều này trong tuần thứ năm.
+- JSON L là một loại tệp không chỉ là một khối JSON duy nhất (như trong tệp JSON thông thường), mà là một tệp trong đó mỗi dòng là một tài liệu JSON riêng biệt.
+## Phan 19
+
+### Muc 55
+
+- Đó được gọi là JSON hoặc các dòng JSON.
+- À, và trên mỗi dòng, chúng ta sẽ có một mục ghi rõ mô hình mà chúng ta muốn.
+- Nó có các tin nhắn, đây sẽ là danh sách thông thường của OpenAI gồm các từ điển kèm theo lời nhắc hệ thống.
+- Và lời nhắc cho người dùng sẽ là toàn bộ mục.
+- À, và như bạn có thể thấy, những gì chúng ta có ở đây là gương.
+- Cuộc gọi mà chúng ta thực sự đã thực hiện trước đó ở đây.
+- Vậy chính xác là cuộc gọi đó mà chúng ta đang đưa vào tệp JSON của mình.
+- Và chúng tôi cũng có mặt trong mỗi dòng.
+### Muc 56
+
+- Bạn cũng cần gán một số ID để xác định từng dòng trong tệp đầu vào khi gửi theo chế độ batch, vì sau đó bạn sẽ nhận được phản hồi cho từng dòng trong tệp đầu vào của mình.
+- Và đó là lý do tại sao tôi đặt ID đó là số thứ tự của từng mục, vì chúng ta sẽ sử dụng nó làm cách để xếp hàng các mục trong mỗi dòng.
+- Được rồi.
+- Đó được gọi là tạo JSON L.
+- Và để giúp bạn hiểu rõ hơn, hãy để tôi chỉ cho bạn cách thực hiện điều đó với JSON l của các mục có giá trị bằng 0.
+- Đây là lời nhắc nhở về những mục có giá trị bằng không.
+- Tôi nghĩ chúng ta đã biết điều này.
+- Ừm.
+### Muc 57
+
+- Bây giờ là tay nắm cửa bên trong Andover kèm khóa chốt an toàn.
+- Đây là kết quả khi tôi gọi hàm make JSON L với phần tử thứ zero.
+- Tôi nhận được ID khách hàng là 0 vì đó là ID mà chúng tôi đã đặt cho phương thức POST hoàn tất cuộc trò chuyện.
+- Và sau đó, bạn sẽ thấy danh sách người dùng hệ thống DeCSS, và toàn bộ thông tin này được lấy từ dữ liệu không cấu trúc và quá trình suy luận có độ phức tạp thấp.
+- Đó là kết quả mà chúng ta nhận được khi gọi hàm make jsonl.
+- Nó tương đương với một cuộc gọi API trong một dòng JSON.
+- Được rồi, bây giờ tôi có một tệp make function sẽ đi qua và tạo ra một tệp hoàn chỉnh bằng cách lặp qua từng mục từ đầu đến cuối và tạo ra một tệp JSONL.
+- Và một lần nữa, nếu bạn không chắc chắn về ý của tôi, điều đó sẽ trở nên hoàn toàn rõ ràng với bạn ngay bây giờ.
+## Phan 20
+
+### Muc 58
+
+- Tôi sẽ gọi tệp makefile bắt đầu từ chỉ số 0 và kết thúc tại chỉ số 1000.
+- Tôi muốn bạn tạo cho tôi một tệp JSONL.
+- Gọi nó là zero_1000.jsonl và đặt nó vào một thư mục có tên jsonl.
+- Để tôi xử lý việc đó.
+- Nó đã chạy.
+- Hãy đi và xem thử.
+- Dưới đây là một thư mục có tên Jsonl.
+- Tôi có ngay đây.
+### Muc 59
+
+- Đây là tệp tin mà chúng ta vừa tạo.
+- Và hy vọng rằng điều này sẽ giúp bạn hiểu rõ hơn.
+- Đó là một tệp tin có.
+- Nếu tôi cuộn xuống hết, hy vọng nó sẽ có 1000 dòng.
+- Hãy xem nào.
+- Nó thực sự có 1000 dòng.
+- Và nếu chúng ta quay lại đỉnh một lần nữa, đây là dòng đầu tiên.
+- Mỗi cái bạn thấy đều có ID tùy chỉnh 01234567.
+### Muc 60
+
+- Và khi tôi tiếp tục, bạn sẽ thấy rằng mỗi cái trông giống như một cuộc gọi API.
+- Nó có phần này ở đây cho biết mô hình mà chúng ta đang cố gắng gọi là gì.
+- Và sau đây là các thông điệp, hệ thống, nhà sáng tạo nội dung, mô tả ngắn gọn, v.v., v.v.
+- Và vì vậy, bạn có thể xem qua từng mục này, mỗi dòng chứa một phần dữ liệu không cấu trúc khác nhau từ một mục.
+- Và chúng ta sẽ yêu cầu Grok xử lý toàn bộ tệp này và xử lý tất cả dữ liệu này cùng nhau để cho ra kết quả.
+- Được rồi.
+- Và hãy nhớ, nếu bạn không hiểu hết những điều này, hãy cố gắng nắm bắt ý tưởng về những gì tôi đang nói đến, đó là việc gọi theo lô và LM thông qua các tệp JSONL.
+- Và bạn sẽ có thể hưởng lợi từ điều này, tôi sẽ tải lên kết quả.
+## Phan 21
+
+### Muc 61
+
+- Bạn có thể tải chúng xuống và sử dụng ngay lập tức.
+- Được rồi, bây giờ tôi đang sử dụng, ừm, grok, ừm, cung cấp một thư viện grok, mà chúng ta sẽ sử dụng trực tiếp.
+- Nếu bạn gọi OpenAI ở chế độ batch, nó cơ bản là hoàn toàn giống nhau.
+- Grok đã sao chép OpenAI trong việc này.
+- Và đây là cách tiếp cận khá phổ biến đối với hầu hết các nhà cung cấp.
+- Được rồi.
+- Vậy là tôi đang khởi tạo thư viện Grok bằng cách truyền khóa API Grok của mình vào.
+- Được rồi.
+### Muc 62
+
+- Vậy nên, khi làm việc ở chế độ batch, có những bước cụ thể mà bạn cần thực hiện.
+- Có ba bước cơ bản như sau.
+- Bạn tạo một tệp tin.
+- Bạn sau đó sử dụng tệp đó để tạo một lô.
+- Và sau đó bạn lấy lô dữ liệu.
+- Và đó chính là điều chúng ta sẽ làm ngay bây giờ.
+- Vậy việc đầu tiên bạn cần làm là tạo một tệp trong Grok.
+- Chúng tôi đang thông báo cho Grok rằng tôi đã có tệp này.
+### Muc 63
+
+- Nó được gọi là zero underscore 1000.
+- Jason, tôi muốn bạn tải lên tệp này.
+- Và mục đích của nó là để sử dụng cho các tác vụ xử lý hàng loạt.
+- Đó chính là điều đó.
+- Tôi đang tải lên tệp đó lên grok và tải xuống.
+- Nó đi kèm với một phản hồi tệp, uh, trong đó có một ID, và nó chứa số byte đã tạo, tên, mục đích và các thông tin khác.
+- Và bây giờ tôi có thể thu thập ID đó.
+- Vậy đây là tệp mà tôi đã tải lên grok.
+## Phan 22
+
+### Muc 64
+
+- Nó đang nằm ở đó trên grok.
+- Với ID này đã hoàn tất.
+- Chúng tôi đã tạo ra thời gian cho tệp của mình.
+- Vậy là chúng ta đã tạo xong tệp tin.
+- Đã đến lúc chúng ta sử dụng tệp đó để tạo một lô.
+- Vì vậy, thay vì gọi "grok create", chúng ta gọi "grok batches create".
+- Chúng tôi yêu cầu quý vị hoàn thành việc này trong vòng 24 giờ tới.
+- Không cần vội.
+### Muc 65
+
+- Hãy từ từ.
+- Bởi vì đó là cách chúng ta được giảm giá 50%.
+- À, chúng tôi cho rằng đó là một tính năng hoàn thành cuộc trò chuyện tiêu chuẩn.
+- Và chúng ta cung cấp cho nó tệp đầu vào, tức là tệp có ID của tệp mà chúng ta vừa tải lên, tệp đó có định dạng JSONL.
+- Mỗi dòng là một yêu cầu API khác nhau.
+- Vậy là chúng ta vừa tạo xong lô hàng của mình.
+- Được rồi.
+- Nó có mã lô này, hãy thu thập mã đó vào...
+### Muc 66
+
+- ừm...
+- vào...
+- xin lỗi.
+- Được rồi, bắt đầu nhé.
+- ID phản hồi là nơi chúng ta lấy ID đó và khi đã sẵn sàng, chúng ta có thể thực hiện bước tiếp theo là lấy lô dữ liệu đó và xem tình trạng của nó.
+- Vậy là bắt đầu nhé.
+- Chúng tôi đã sử dụng lệnh `grok create` để tạo tệp.
+- Sau đó, chúng tôi đã sử dụng lệnh `grok create` để tạo một lô từ tệp.
+## Phan 23
+
+### Muc 67
+
+- Và bây giờ chúng ta đang thực hiện lệnh grok retrieve.
+- Bây giờ hãy tìm hiểu xem đang xảy ra điều gì.
+- Chúng tôi nhận được, đây là ID lô, khoảng thời gian hoàn thành, điểm cuối, ID tệp đầu vào và trạng thái là đã hoàn thành.
+- Vậy Grok có 24 giờ để hoàn thành việc đó, nhưng nó đã làm được ngay lập tức, điều này thường xảy ra với các tệp tin như vậy.
+- Điều đó sẽ không có vấn đề gì cả.
+- Chắc hẳn hai bạn cũng đã gặp phải tình huống này, tôi nghĩ vậy nếu hai bạn đang làm việc này.
+- Không có lỗi.
+- Mọi thứ trông đều tuyệt vời.
+### Muc 68
+
+- Vậy là đã xảy ra.
+- Chúng tôi đã thành công rồi.
+- Và sau đó, có một bước nữa mà tôi cần đề cập, đó là thu thập kết quả.
+- Và bạn làm điều đó với nội dung grok.
+- Vậy là bắt đầu nhé.
+- Hiểu nội dung.
+- Và tôi vừa ghi nội dung đó vào một tệp có tên Batch results Jsonl cũng nằm trong thư mục Jsonl.
+- Hãy cùng xem qua.
+### Muc 69
+
+- À, đây rồi.
+- Kết quả của lô này ở ngay đây.
+- Và đây là nó.
+- Đây là nội dung của tệp tin.
+- Đây là một tệp tin, trong đó mỗi dòng là một JSONL.
+- À, đó là một đoạn JSON.
+- Này, những ID tùy chỉnh này không khớp nhau.
+- Nó không quay trở lại theo thứ tự mà chúng ta đã gửi, vì thứ này đã hoạt động và có một loạt các quy trình grok xử lý nó, và nó quay trở lại theo một thứ tự khác.
+## Phan 24
+
+### Muc 70
+
+- Vì vậy, chúng ta không thể dựa vào thứ tự của tệp.
+- Chúng ta cần xem xét ID tùy chỉnh này và bạn sẽ thấy rằng ở đây có rất nhiều phản hồi.
+- Và nếu bạn xem xét kỹ, bạn sẽ thấy rằng ở đâu đó trên hành trình này, chúng ta thực sự nên có câu trả lời thực sự của mình, ừm, câu trả lời thực sự, ừm, nếu tôi cuộn sang phải.
+- À, đây là phần thân.
+- Có một ID ở đây.
+- À, và sau đó chúng ta sẽ thấy rằng thực tế có phản hồi, nơi chúng ta sẽ thấy nội dung của phản hồi.
+- Được rồi, bắt đầu nhé.
+- À, nội dung của trợ lý tin nhắn.
+### Muc 71
+
+- Và bạn có thể thấy ngay tại đây trên màn hình, bạn thấy tất cả các tiêu đề này, đây là tất cả các tiêu đề được trả về từ danh mục tiêu đề thương hiệu của mô hình, uh, hiển thị ra.
+- Chúng tôi đã nhận được phản hồi từ Grok cho từng mục trong số này.
+- Tuyệt vời.
+- Và bây giờ, cuối cùng, chúng ta có thể viết một đoạn mã Python cơ bản để lặp qua dữ liệu đó.
+- Và sau đó, chúng ta có thể thu thập ID và sử dụng nó để trích xuất phần tóm tắt.
+- Và hãy nhìn vào dòng này ở đây.
+- Tóm tắt ID mục là tóm tắt mà chúng ta sẽ trích xuất từ dòng JSONL đó.
+- Và đó chính là điều chúng ta sẽ thực hiện tiếp theo.
+### Muc 72
+
+- Và sau đó chúng ta sẽ phân tích kết quả.
+- Và để tóm tắt nhanh, và tôi biết bạn không cần tóm tắt.
+- Bạn đã theo dõi tất cả những điều này, nhưng tóm tắt vẫn là điều cần thiết.
+- Lặp lại là điều tốt.
+- Lặp lại là cách bạn học.
+- Vậy là chúng tôi bắt đầu bằng cách tạo một tệp JSONL.
+- Sau đó, chúng tôi đã tạo Grok để tải lên tệp JSONL của mình và tạo một tệp trong Grok.
+- Cũng tương tự với OpenAI.
+## Phan 25
+
+### Muc 73
+
+- Và sau đó chúng tôi đã thực hiện lệnh `grok create` để thông báo rằng chúng tôi đã tải lên một tệp tin.
+- Chúng tôi muốn bạn chuyển đổi điều đó thành một tác vụ mà bạn cần thực thi.
+- Sau đó, chúng tôi đã chạy lệnh `grok batches dot retrieve` để kiểm tra tiến độ.
+- Và cuối cùng, xử lý nội dung của các tệp với tệp kết quả đầu ra.
+- Khi hoàn tất, chúng tôi đã thu thập dữ liệu đó và lưu vào tệp JSONL.
+- Và bây giờ chúng ta có tệp JSONL này.
+- Với tất cả các kết quả, điều chúng ta có thể làm là lặp qua chúng.
+- Chúng ta có thể một lần nữa, chúng ta có thể, chúng ta có thể lấy ra ID thực tế, vốn thực chất là một chỉ số.
+### Muc 74
+
+- Và sau đó chúng ta có thể trích xuất phần nội dung phản hồi.
+- Nội dung mà nếu bạn thực sự tuân theo dòng JSONL đó, bạn sẽ thấy đó chính là những gì cần thiết để đạt được đến giai đoạn này.
+- Trong khi tôi đang lướt qua nó một cách khó khăn vừa nãy, ừm, và sau đó chúng ta sẽ nhận được bản tóm tắt đó và nói rằng bản tóm tắt các mục chính là bản tóm tắt đó và nó đã được chạy rồi.
+- Vậy xin nhắc lại rằng đây là, ừm, mục 0.0.
+- Đây là bộ phận điều khiển bên trong cho cửa xe Andover.
+- Và bây giờ, mục 0.0.
+- Tóm tắt đã được viết lại.
+- Và đây là nó.
+### Muc 75
+
+- Điều này đã được gửi lại từ Grok và đã được đưa vào mục 0.0.
+- Tóm tắt.
+- Thế thì sao nhỉ.
+- Nó đã thành công.
+- Chúng tôi vừa mới cập nhật.
+- Chúng ta cũng có thể thực hiện điều này cho mặt hàng số 1000.
+- Số hiệu sản phẩm 999.
+- Đây rồi.
+## Phan 26
+
+### Muc 76
+
+- Nó cũng ở đó.
+- Nhưng nếu chúng ta chọn mục số 1000, tôi nghĩ đó sẽ là quá nhiều.
+- Không có gì ở đó.
+- Chúng tôi chỉ thực hiện 1000 đầu tiên, tức là từ 0 đến 999.
+- Tất cả đều đã được điền đầy đủ trong đợt này.
+- À, và nó xảy ra nhanh như chớp.
+- Chúng tôi đã thực hiện tất cả những điều này, và chi phí sẽ rất, rất thấp.
+- Được rồi.
+### Muc 77
+
+- Và bây giờ chúng ta đã làm xong điều đó.
+- Đã đến lúc phải thực hiện điều đó cho tất cả mọi người.
+- Hãy làm đi.
+- Vậy chúng ta cơ bản phải làm chính xác những gì đã ghi trong sổ tay ở trên.
+- Điều đó chỉ được thực hiện cho một tệp duy nhất, từ 0 đến 1000.
+- Và chúng tôi muốn áp dụng lại quy trình đó cho nhiều tệp tin khác nhau và đảm bảo rằng logic được áp dụng hoàn toàn giống nhau.
+- Và cách đơn giản để làm những việc như vậy là khi bạn nghe thấy điều gì đó như thế, bạn nên nghĩ: "Ồ, nghe có vẻ như mình nên tạo một mô-đun Python để làm điều đó và gói gọn mọi thứ một cách gọn gàng." Và đó chính xác là điều tôi đã làm.
+- Và mô-đun này được gọi là batch.
+### Muc 78
+
+- Nó nằm trong thư mục.
+- Đây là nó.
+- Đợt.
+- À, và bạn có thể thấy ở đây rằng đây chính xác là những gì chúng ta vừa thảo luận.
+- Có một thông báo hệ thống, đó chính là thông báo hệ thống mà chúng ta vừa mới viết cùng nhau cách đây không lâu.
+- Và sau đó nó lấy kích thước lô.
+- Chúng ta sẽ có 1000 trong mỗi tệp của chúng ta.
+- À, bạn có thể có nhiều hơn thế nữa.
+## Phan 27
+
+### Muc 79
+
+- Bạn có thể có tối đa 10.000.
+- À, ít nhất thì tôi nghĩ là hơn thế nữa đối với grok.
+- Nhưng tôi thấy rằng tốt hơn là nên giữ các tệp này có kích thước tương đối nhỏ để chúng chạy khá nhanh.
+- Và vậy, những gì tôi có ở đây chỉ là một số phương pháp trong lớp này, giúp việc xử lý trở nên dễ dàng.
+- Cụ thể, phương pháp Jason creates the JSON file sẽ tạo ra tệp JSON với mỗi hàng chứa chính xác những gì cần thiết.
+- Tạo tệp, xây dựng toàn bộ tệp, ừm, và sau đó gửi tệp bằng cách gọi hàm create để thực sự gửi tệp lên grok.
+- Gửi các cuộc gọi theo lô.
+- Grok tạo ra.
+### Muc 80
+
+- Để tạo một lô từ một tệp đã sẵn sàng, hãy kiểm tra xem tệp đó đã sẵn sàng hay chưa bằng cách gọi hàm `grok batches dot retrieve` và sau đó `fetch`.
+- Kết quả đầu ra là nội dung của tệp và cuối cùng, phần mã Python nhỏ đó sẽ tra cứu ID và áp dụng nó vào mục mà nó đang đề cập đến.
+- Và sau đó, tôi có một số phương thức của lớp trợ giúp như create để thiết lập mọi thứ, run để gọi, tạo tệp, gửi tệp, nộp lô và fetch để lấy dữ liệu.
+- Nếu lô này đã hoàn thành, hãy đi lấy kết quả.
+- Áp dụng kết quả đầu ra.
+- Vì vậy, tôi không muốn đi vào chi tiết quá nhiều về điều này, vì nó cũng giống như những gì đã được ghi chép trong cuốn sổ tay ở đây.
+- Cùng một nội dung được đóng gói thành một mô-đun.
+- Một cách tốt để thực hiện điều này khi bạn muốn chạy một tác vụ nhiều lần, chính xác là điều chúng ta sẽ làm ngay bây giờ.
+### Muc 81
+
+- Chúng tôi sẽ chạy thuật toán đó cho tất cả các giá trị 20.000, 22.000 trong tập dữ liệu nhẹ.
+- Được rồi.
+- Vậy tôi sẽ chạy lệnh tạo chế độ sáng với tùy chọn "true".
+- Vậy nó sẽ tạo ra 22 lô.
+- 22 nhân 1000 bằng 22.000.
+- Và có thể bạn vừa nhận thấy rằng nó vừa tạo ra một thư mục mới có tên là "light", chứa hai thư mục con trống là "batches" và "outputs".
+- Được rồi.
+- Bây giờ tôi sẽ thực hiện chạy theo lô.
+## Phan 28
+
+### Muc 82
+
+- Và khi tôi làm điều đó, chúng ta sẽ có một trong những thanh tiến trình Tqdm đẹp mắt này.
+- Hãy nhớ rằng bạn có thể bọc bất kỳ danh sách, bất kỳ đối tượng có thể lặp nào trong Tqdm và nó sẽ tự động tạo ra một thanh tiến trình nhỏ xinh.
+- Bạn thấy đấy, tôi dùng cái đó ở khắp mọi nơi, nên có lẽ bạn đã quen với nó rồi.
+- À, vậy là bắt đầu nhé.
+- Thanh tiến trình đang được điền đầy.
+- Và khi chúng ta mở ở đây, bạn sẽ thấy rằng nó đang được tạo ra.
+- À, bạn thấy nó đang tạo từng cái một, tạo ra một loạt các tệp JSON.
+- Mỗi cái trong số này, tất nhiên, chứa một loạt các yêu cầu API.
+### Muc 83
+
+- Chúng tôi đang hoạt động.
+- Chúng tôi đang tạo ra tất cả những thứ này, ừm, và những lô dữ liệu được tạo ra, những tệp tin đó.
+- Và nó cũng đã gửi chúng đến Grok.
+- Vậy tất cả những cái này đang chạy ngay bây giờ.
+- Và tại bất kỳ thời điểm nào, tôi có thể gọi hàm batch và nó sẽ thực thi và tra cứu trạng thái của tất cả các mục đó trong grok.
+- Và bây giờ nó đang thông báo cho tôi rằng nó đã hoàn thành 7 trong số 22 lô.
+- Và tôi nên nói với bạn rằng nếu bạn quyết định tự mình thực hiện điều này, như đã đề cập trong phần bình luận ở trên, chi phí cho việc này đối với tôi chỉ dưới một đô la.
+- À, chi phí có thể khác nhau tùy theo khu vực, tôi không chắc, nhưng tôi nghĩ là giống nhau.
+### Muc 84
+
+- À, tổng chi phí chỉ dưới một đô la.
+- Ngrok để chạy điều này, chiếm 50%.
+- Giá chỉ bằng một nửa so với chi phí thực tế.
+- Chỉ cần gọi từng cái một cách thủ công.
+- Và bạn có thể nói rằng trong trường hợp này, chúng ta thực sự có thể làm điều đó thủ công.
+- Vậy nên chi phí sẽ là $2 thay vì $1.
+- Và nó vẫn sẽ khá nhanh vì đây là tốc độ rất nhanh cho 20.000.
+- Có thể bạn sẽ phải để nó chạy trong một hoặc hai giờ.
+## Phan 29
+
+### Muc 85
+
+- Nhưng hãy nhớ, tôi sắp thực hiện điều này cho 800.000 người và việc làm điều đó theo cách khác ngoài phương pháp xử lý theo lô là hoàn toàn không thực tế.
+- Vậy hãy chạy lại lệnh batch dot fetch.
+- Xem chúng tôi đang làm thế nào.
+- Bạn có thể chạy lệnh này bao nhiêu lần tùy thích, và nó sẽ chỉ thu thập những gì còn lại.
+- Hiện tại đã hoàn thành 18 trong số 22.
+- À, Grok xử lý việc này rất nhanh.
+- Và đây là, đây là việc xử lý, ừm, toàn bộ 22.000 dữ liệu trong tập dữ liệu ánh sáng.
+- Chạy lại một lần nữa, hoàn thành 21 trong số 22 lô.
+### Muc 86
+
+- À, vậy.
+- Vậy là chỉ trong giây lát nữa, nó sẽ hoàn thành.
+- Và bây giờ, nó thực sự đã hoàn thành tất cả 22 trong số 22 lô.
+- Thật tuyệt vời.
+- Vậy là chúng tôi đã tạo ra 22 tệp tin này.
+- Nếu bây giờ tôi mở thư mục đầu ra, bạn sẽ thấy có 22 tệp đầu ra.
+- Và các kết quả đầu ra này sẽ khớp với từng tệp đầu vào tương ứng.
+- Mặc dù thứ tự trong mỗi trường hợp có thể khác nhau.
+### Muc 87
+
+- Và hãy kiểm tra lại một lần nữa để đảm bảo rằng, ừm, tất cả các mục trong danh sách của chúng ta hiện tại, mỗi mục đều đã có phần tóm tắt.
+- Và quả nhiên, không có gì được in ra.
+- Điều đó có nghĩa là không có trường hợp nào có tóm tắt trống.
+- Chúng tôi vừa mới cập nhật.
+- Hãy cùng nhau đi xem qua một số trong số đó.
+- Chúng tôi vừa mới cập nhật.
+- Xem các mặt hàng.
+- À, số.
+## Phan 30
+
+### Muc 88
+
+- Tôi nên chọn số nào?
+- Số 10.234.
+- Tóm tắt.
+- Chúng ta nên tìm thấy một tóm tắt hay.
+- In ra giấy.
+- Hãy đảm bảo rằng nó trông đẹp mắt.
+- Đây rồi.
+- Nhà kho màu đỏ.
+### Muc 89
+
+- Phông nền chụp ảnh và quay phim chuyên nghiệp.
+- Đây là nó.
+- Hãy xem văn bản gốc trông như thế nào.
+- Điều gì đó.
+- Điều đó còn tệ hơn nhiều.
+- Chúng tôi đã dọn dẹp gọn gàng.
+- Chúng tôi đã làm nó ngắn hơn.
+- Đây là nó.
+### Muc 90
+
+- Đó là thành công dựa trên 20.000 điểm dữ liệu.
+- 22.000 trong nháy mắt.
+- Được rồi, vậy bạn không cần phải tự làm điều này vì bạn đã thấy tôi làm rồi.
+- Bây giờ tôi sẽ tải nó lên hub.
+- Vậy bạn có thể tận dụng những gì tôi đã làm.
+- Miễn là bạn hiểu được ý chính của điều này.
+- Chúng tôi đang sử dụng mô hình ngôn ngữ lớn (LLM) để viết lại văn bản, cụ thể là văn bản không cấu trúc từ dữ liệu thu thập từ Amazon thông qua công cụ thu thập dữ liệu không ổn định, mà chúng tôi đã thu thập từ Hugging Face.
+- Chúng tôi đã viết lại nội dung này để nó trở nên sắc bén, súc tích, chứa đựng thông tin rõ ràng và không có thông tin thừa.
+## Phan 31
+
+### Muc 91
+
+- Điều này sẽ hữu ích để chuyển sang LLM để xác định chi phí là bao nhiêu.
+- Và chúng tôi đã sử dụng chế độ xử lý theo lô để giao tiếp với Grok, tương tự như chế độ xử lý theo lô khi giao tiếp với OpenAI.
+- Đó là một kỹ thuật phổ biến.
+- Viết tệp JSONL của bạn, sau đó tạo tệp đó trong nhà cung cấp, sau đó chuyển đổi tệp đó thành một lô, tạo lô dựa trên tệp và sau đó thu thập kết quả.
+- À, kiểm tra, kiểm tra tình trạng.
+- Và sau đó, khi bạn nhận được tên tệp đầu ra, hãy thu thập các kết quả đó.
+- Và những bước đó rất phổ biến trong số nhiều nhà cung cấp hệ thống quản lý học tập (LMS).
+- Đây là một cách để thực hiện các tác vụ xử lý hàng loạt (batch runs) nhanh chóng, chi phí thấp và có tính chất không đồng bộ (asynchronous) đối với các yêu cầu gửi đến Hệ thống Quản lý Học tập (LMS).
+### Muc 92
+
+- Vì vậy, đó là một kỹ năng tuyệt vời để có được.
+- Được rồi.
+- Cuối cùng, tôi sẽ kiểm tra tất cả các mặt hàng trong danh sách 20.000 của chúng ta.
+- Và tôi sẽ xóa sạch dữ liệu và ID vì chúng ta không cần chúng nữa.
+- Chúng ta sẽ không bao giờ sử dụng mô tả đầy đủ đó nữa.
+- Và chúng ta không cần phải làm ô nhiễm tập dữ liệu của mình bằng nó.
+- Vậy hãy chạy lệnh đó và chúng ta đã xóa sạch dữ liệu đó.
+- Và cuối cùng, tôi sẽ tải lên dữ liệu đó vào một bộ dữ liệu mới, trước đây được gọi là "items raw light" và "items raw full".
+### Muc 93
+
+- Bây giờ tôi sẽ gọi chúng là "Items light" và "Items full".
+- Và nếu ở chế độ sáng, tôi chỉ tải lên bộ dữ liệu sáng nếu ở chế độ đầy đủ.
+- Tôi sẽ tải lên cả hai bộ dữ liệu.
+- À, nhập 800.000, ừm, và sau đó 10.000 giá trị 10.000 thử nghiệm.
+- Nếu không thì chỉ có 20.001 và một.
+- Và tôi sẽ không chạy ô này bây giờ vì tôi đã làm điều đó rồi.
+- Nhưng bạn có thể, ừm, và bạn sẽ có thể sở hữu bộ dữ liệu riêng của mình.
+- Nhưng tôi đã làm được.
+## Phan 32
+
+### Muc 94
+
+- Và như vậy, chúng ta có thể xem nó trông như thế nào trong tư thế ôm mặt.
+- Nếu tôi khởi động nó, nó sẽ hiển thị giao diện chính.
+- Đây là việc xem xét một tập dữ liệu.
+- Đây là tập dữ liệu của tôi.
+- Đó là, ừm, những món đồ nhẹ mà bạn đang thấy ở đây.
+- Và bạn có thể thấy rằng ở đây có một trình duyệt dữ liệu nhỏ gọn, nơi bạn có thể xem tiêu đề và danh mục.
+- Đây là tất cả các trường dữ liệu mà chúng tôi đã thu thập từ việc trích xuất dữ liệu từ Amazon.
+- À, vậy điều này có thể hoặc không thể khớp với danh mục đã được OSS gán.
+### Muc 95
+
+- Giá mà chúng ta có ở đây, trọng lượng là một lĩnh vực mà chúng ta đã thực hiện.
+- Và đây là tóm tắt, bạn có thể thấy ở đây tóm tắt có tiêu đề và chứa tất cả các chi tiết trong đó.
+- À, đây là dữ liệu.
+- Tôi vừa nhấp vào nó ở đây để chúng ta có thể xem qua.
+- Đây là dữ liệu được tạo ra bởi GPT-20 thông qua Grok ở chế độ batch.
+- Đây là dữ liệu như hiện tại.
+- Đó là bộ dữ liệu nhẹ.
+- Chúng ta cũng có thể xem xét toàn bộ tập dữ liệu.
+### Muc 96
+
+- Dưới đây là tập dữ liệu đầy đủ.
+- Hãy nhìn sang đây, bạn có thể thấy số lượng hàng là 820.000 hàng ở đây, trong khi đó, với bộ dữ liệu đơn giản hơn, chỉ có 20.000 hàng.
+- À, thế là xong.
+- 22.000 ở đó và 820.000.
+- Đó là một tập dữ liệu khổng lồ.
+- Quá nhiều dữ liệu.
+- Điều này sẽ rất tuyệt vời cho việc đào tạo.
+- Đó là 250MB.
+## Phan 33
+
+### Muc 97
+
+- Đây không phải là một tệp tin khổng lồ mà chúng ta có ở đây.
+- Vậy nên, việc này sẽ không có vấn đề gì khi bạn làm việc với nó.
+- Và bạn có thể xem tất cả dữ liệu có trong đây.
+- Chi phí này khoảng $30, tôi nghĩ tổng chi phí để chạy tất cả các tác vụ này trong Grok là dưới $30.
+- Và điều đó mất vài giờ.
+- Tôi phải quay lại và lấy nó vài giờ sau đó để lấy hết mọi thứ.
+- Nhưng nó khá thú vị và mang lại cảm giác thỏa mãn.
+- Nhưng thực ra bạn không cần phải làm điều đó vì tôi đã làm rồi.
+### Muc 98
+
+- Chúng tôi sẽ tiếp tục sử dụng bộ dữ liệu này trong tương lai, tất cả các phiên bản Lite, nhưng ít nhất bạn đã có cái nhìn tổng quan về cách tôi thực hiện, và bạn đã hiểu đủ để có thể làm điều tương tự nếu bao giờ muốn thực hiện một dự án tương tự.
+- Và với lời chúc mừng nồng nhiệt đó, chúng ta đã hoàn tất phần dữ liệu.
+- Chúng tôi có một bộ dữ liệu đẹp, được chọn lọc và xử lý kỹ lưỡng, sẽ mang lại kết quả rất tốt cho quá trình đào tạo của chúng tôi.
+- Và hy vọng rằng bạn đã có một cái nhìn rõ ràng về những gì cần thiết để tạo ra một bộ dữ liệu tốt và các loại thí nghiệm mà bạn có thể muốn thực hiện.
+- Và như một phần thưởng nhỏ, chúng ta đã có cơ hội khám phá việc chạy trong chế độ batch, một tính năng cực kỳ hữu ích khi chạy trong chế độ batch và bộ nhớ đệm lệnh, và đây là hai trong số những thủ thuật thường được sử dụng để giảm chi phí.
+- Được rồi, hãy nhớ rằng hôm nay, ngoài các mô hình gọi cho mã nguồn, văn bản và rag, chúng ta đã thảo luận về chiến lược năm bước để giải quyết vấn đề với AI, bắt đầu từ việc xác định vấn đề và đánh giá.
+- Lần sau, chúng ta sẽ tìm hiểu về các mô hình cơ sở.
+- Tạo ra một mô hình cơ sở có nghĩa là gì?
+### Muc 99
+
+- Tôi sẽ giới thiệu cho các bạn về các phương pháp học máy truyền thống.
+- Chúng ta sẽ không đi sâu vào các phương pháp học máy truyền thống vì đây không phải là một khóa học về học máy truyền thống.
+- Và tôi nghĩ rằng bạn sẽ cảm thấy khó chịu nếu tôi quá hào hứng với ML truyền thống, nhưng tôi sẽ cố gắng kiềm chế bản thân và cung cấp cho bạn đủ thông tin để chúng ta có thể xây dựng một mô hình cơ sở, đây là một điểm khởi đầu tuyệt vời.
+- Vậy nên, chúng ta biết rằng nếu chúng ta hợp tác với các mô hình ngôn ngữ lớn (LLMs), chúng ta thực sự đang làm tốt hơn so với việc tiếp tục sử dụng các phương pháp truyền thống.
+- Vì vậy, đây là một việc làm tốt, và nó cũng sẽ cung cấp cho chúng ta một nền tảng vững chắc để cải thiện.
+- Và chúng ta cũng sẽ sử dụng một số phương pháp học máy (ML) hiện đại, truyền thống và đang được ưa chuộng, như các mô hình như Random Forest và XGBoost mà mọi người thường thích thử nghiệm.
+- Cho đến ngày nay, chúng vẫn được sử dụng rộng rãi trong sản xuất, vì vậy còn rất nhiều việc phải làm vào ngày mai.
+- Tôi sẽ gặp bạn sau.
+

@@ -1,0 +1,233 @@
+# 017 - Protocols Intro
+
+**Section:** 03 - Protocols
+**Duration:** 1min
+
+---
+
+## 1. Summary
+
+This lesson introduces the **Protocols** section of the course.
+
+In this section, the instructor will explain what a protocol is, what properties define a protocol, and what engineers should consider when designing their own protocol.
+
+The section will also cover several important and widely used protocols, especially the fundamental ones used in backend engineering and networking.
+
+The instructor notes that there are many protocols in the world, so the course will focus on the most important and commonly used ones, such as TCP, UDP, HTTP/1.1, HTTP/2, HTTP/3, WebSocket, WebRTC, and gRPC.
+
+---
+
+## 2. Key Concepts
+
+### Protocol
+
+A protocol is a set of rules that allows two or more systems to communicate.
+
+A protocol defines things such as:
+
+* Message format
+* Communication rules
+* Connection behavior
+* Error handling
+* Ordering
+* Reliability
+* Security
+* State management
+
+---
+
+### Protocol Properties
+
+Protocol properties are the characteristics that define how a protocol behaves.
+
+Examples include:
+
+* Is it reliable or unreliable?
+* Is it connection-oriented or connectionless?
+* Is it stateful or stateless?
+* Does it support streaming?
+* Does it support multiplexing?
+* Does it provide ordering?
+* Does it provide encryption?
+
+---
+
+### Protocol Design
+
+When designing a protocol, engineers need to think about trade-offs.
+
+Important design questions include:
+
+* How will messages be structured?
+* How will both sides know where a message starts and ends?
+* How will errors be handled?
+* Should the protocol be fast or reliable?
+* Should it support streaming?
+* Should it support encryption?
+* Should it be human-readable or binary?
+
+---
+
+### Fundamental Protocols
+
+The course focuses on fundamental protocols that are important for backend communication.
+
+These include:
+
+* UDP
+* TCP
+* HTTP/1.1
+* HTTP/2
+* HTTP/3
+* WebSocket
+* WebRTC
+* gRPC
+
+---
+
+### Popular vs Complete Coverage
+
+The instructor explains that it is impossible to cover every protocol.
+
+Instead, the course focuses on popular and foundational protocols that help students understand the core principles behind backend communication.
+
+---
+
+## 3. Important Notes
+
+* This section shifts from backend communication patterns to actual protocols.
+* A protocol is more than just a name; it is a complete communication agreement.
+* Understanding protocol properties helps engineers understand backend behavior.
+* Protocols affect performance, reliability, latency, security, and scalability.
+* TCP and UDP are foundational transport protocols.
+* HTTP/1.1, HTTP/2, and HTTP/3 are core web protocols.
+* WebSocket and WebRTC are important for real-time communication.
+* gRPC is important for modern service-to-service communication.
+* The course does not cover every protocol, only selected important ones.
+* Learning these protocols gives a strong foundation for understanding many other protocols later.
+
+---
+
+## 4. Examples
+
+### Example 1: TCP
+
+TCP is a reliable, connection-oriented protocol.
+
+It is used when systems need ordered and reliable delivery.
+
+```text id="djvli4"
+Client ↔ TCP Connection ↔ Server
+```
+
+---
+
+### Example 2: UDP
+
+UDP is a connectionless protocol.
+
+It is faster and simpler than TCP, but it does not guarantee delivery or ordering.
+
+```text id="349imy"
+Client → UDP Datagram → Server
+```
+
+---
+
+### Example 3: HTTP/1.1
+
+HTTP/1.1 is a request/response protocol commonly used on the web.
+
+```text id="1q2zx0"
+Client → HTTP Request → Server
+Client ← HTTP Response ← Server
+```
+
+---
+
+### Example 4: HTTP/2
+
+HTTP/2 improves HTTP by adding features such as multiplexing.
+
+```text id="mj0y4i"
+One connection:
+  Stream 1
+  Stream 2
+  Stream 3
+```
+
+---
+
+### Example 5: HTTP/3
+
+HTTP/3 is built on top of QUIC and uses UDP underneath.
+
+It is designed to improve performance and reduce some limitations of TCP-based HTTP.
+
+---
+
+### Example 6: WebSocket
+
+WebSocket allows two-way communication between client and server.
+
+```text id="t1i2zb"
+Client ↔ WebSocket Connection ↔ Server
+```
+
+This is useful for chat, games, and real-time apps.
+
+---
+
+### Example 7: WebRTC
+
+WebRTC is used for real-time peer-to-peer communication, such as video calls and audio calls.
+
+```text id="8qwtki"
+Peer A ↔ Real-time media/data ↔ Peer B
+```
+
+---
+
+### Example 8: gRPC
+
+gRPC is often used for backend service-to-service communication.
+
+It usually uses Protocol Buffers and HTTP/2.
+
+```text id="dp2hio"
+Service A → gRPC Call → Service B
+```
+
+---
+
+## 5. Questions / Review
+
+1. What is a protocol?
+
+2. Why are protocols important in backend engineering?
+
+3. What are protocol properties?
+
+4. What should engineers consider when designing a protocol?
+
+5. Why is it impossible to cover every protocol in one course?
+
+6. Why does the course focus on fundamental protocols?
+
+7. What is TCP commonly used for?
+
+8. What is UDP commonly used for?
+
+9. How is HTTP/1.1 related to request/response?
+
+10. What problem does HTTP/2 try to improve?
+
+11. What is HTTP/3 built on top of?
+
+12. Why is WebSocket useful?
+
+13. What is WebRTC commonly used for?
+
+14. Why is gRPC useful for backend communication?
+
+15. How can understanding these protocols help backend engineers?

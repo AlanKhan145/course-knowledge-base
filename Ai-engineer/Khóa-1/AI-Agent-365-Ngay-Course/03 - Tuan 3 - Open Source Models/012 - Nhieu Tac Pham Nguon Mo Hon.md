@@ -1,0 +1,770 @@
+# Ngay 012 - Tuan 3, ngay 2
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-012.txt
+
+## Tong quan
+
+- Chu de mo dau: Vâng, nếu bạn quay lại đây, thì bạn sẽ không phải trì hoãn đến tuần thứ ba, ngày đầu tiên.
+- File goc: day-012.txt
+- So y chinh: 568
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Vâng, nếu bạn quay lại đây, thì bạn sẽ không phải trì hoãn đến tuần thứ ba, ngày đầu tiên.
+- Và thực tế là bạn muốn tuần thứ ba, ngày thứ hai.
+- Và tôi là ai mà có thể ngăn cản bạn làm điều đó?
+- Đây rồi.
+- Chào mừng đến với nhiều tác phẩm nguồn mở hơn.
+- Và hôm nay chúng ta sẽ thực sự xem xét một số mã.
+- Vâng, chúng ta đã xem một số mã vào ngày hôm qua nhưng thực ra hôm nay chúng ta sẽ xem xét kỹ hơn.
+- Tất nhiên là bạn đã đến giai đoạn có thể tự tin lập trình bằng các mô hình frontier.
+### Muc 2
+
+- Bạn xây dựng các hệ thống AI đa phương thức bằng các công cụ.
+- Và bây giờ bạn đã biết về hai nền tảng mới này, Hugging Face và Google Colab cũng như Hugging Face.
+- Bạn cũng hiểu là có hai điều.
+- Đó là trung tâm, là thư viện mã.
+- Tất cả những điều đó đều rõ ràng với bạn.
+- Và bây giờ chúng ta sẽ bắt đầu với động tác ôm mặt.
+- Chúng ta sẽ hiểu lại hai điều này.
+- Số hai.
+### Muc 3
+
+- Hai.
+- Có hai cấp độ mã khác nhau trong huging face, đây cũng là một trong hai điều khác nhau bạn có thể làm với huging face.
+- Và hôm nay chúng ta sẽ tập trung vào đường ống.
+- Chúng ta sẽ sử dụng đường ống cho một loạt các tác vụ suy luận khác nhau để tạo ra văn bản, hình ảnh và âm thanh.
+- Chúng ta hãy bắt đầu nhé.
+- Được rồi, hôm qua chúng ta đã xác định rằng ôm mặt là một hành động có nhiều ý nghĩa khác nhau.
+- Đó là trung tâm, là trang web, và sau đó là mã mà họ đã viết mà bạn có thể sử dụng và bản thân mã đó, API ôm mặt, bản thân các thư viện cũng có thể được chia thành hai.
+- Có hai phần.
+## Phan 2
+
+### Muc 4
+
+- Ồ, có đoạn mã cấp thấp mà chúng ta sẽ sử dụng nhiều trong khóa học này.
+- Khi bạn thực sự mày mò với các mã thông báo, với các lệnh gọi riêng lẻ tới các mô hình, bạn đang nhìn vào mạng nơ-ron sâu, đoạn mã đó, đó là nơi những thứ thực sự hấp dẫn xảy ra.
+- Và chúng ta sẽ dành nhiều thời gian, đặc biệt là trong tuần này, tuần thứ bảy, để đào sâu vào vấn đề đó.
+- Nhưng cần phải mất một chút thời gian để học được mã đó.
+- Và thế là Hucking Face đã xây dựng thêm một cấp độ thư viện khác trên đó, cung cấp cho bạn một loại giao diện đơn giản hơn để bạn có thể làm việc rất, rất nhanh chóng trên các tác vụ thông thường và không phải đi sâu vào quá nhiều chi tiết.
+- Và do đó có hai cấp độ khác nhau, cấp độ cao hơn và cấp độ thấp hơn.
+- Và cấp độ cao hơn được gọi là đường ống.
+- Đây là API cấp cao.
+### Muc 5
+
+- Nó cho phép bạn thực hiện các tác vụ thông thường một cách rất dễ dàng.
+- Cấp độ thấp hơn là nói về các trình phân tích mã thông báo và mô hình.
+- Đây là API chi tiết thực sự, nơi bạn có thể làm việc với mạng nơ-ron sâu bên dưới và cung cấp cho bạn nhiều sức mạnh nhất cũng như nhiều kênh kiểm soát nhất.
+- Nhanh chóng và đơn giản.
+- Chạy nhanh lên.
+- Tokenizer và mô hình là nơi bạn có được sức mạnh thô sơ, vì vậy bạn sử dụng đường ống.
+- Sau đó, khi bạn muốn thực hiện một nhiệm vụ được cấu hình sẵn, đó là nhiệm vụ suy luận.
+- Vì vậy, khi bạn cố gắng chạy một mô hình để đạt được mục tiêu kinh doanh và mô hình đó đã được đào tạo, bạn có thể thực hiện điều đó bằng một loạt mã sử dụng huging face, các thư viện cấp thấp hơn.
+### Muc 6
+
+- Nhưng họ đã làm cho mọi việc trở nên đơn giản hơn bằng cách chỉ cần mã hóa nó cho bạn để sử dụng trong một số trường hợp thông thường.
+- Và bạn có thể sử dụng những thứ này, những đường ống này để làm cho cuộc sống trở nên đơn giản hơn.
+- Ví dụ, phân tích tình cảm là việc xác định xem một câu cụ thể là câu hay, câu vui hay câu buồn, bài đánh giá phim tích cực hay bài đánh giá phim tiêu cực.
+- Một bộ phân loại, một thứ gì đó lấy một thứ gì đó và nói rằng đó là một người hay một địa điểm?
+- Nhiệm vụ nhận dạng thực thể được đặt tên là nhiệm vụ sử dụng một câu và gắn thẻ các từ rồi hỏi đây là người hay địa điểm?
+- Ừm, trả lời câu hỏi là nhiệm vụ cốt lõi của Jen AI khi đưa ra một câu hỏi và một số bối cảnh, bạn có thể trả lời được không?
+- Tóm tắt.
+- Tất nhiên là chúng tôi đã làm vậy ngay trong tuần đầu tiên.
+## Phan 3
+
+### Muc 7
+
+- Bạn biết đấy, đây là nhiệm vụ cốt lõi của Jen AI.
+- Và sau đó, biên dịch là một phần khác mà chúng ta chưa chắc đã đề cập trực tiếp, nhưng bạn có thể đã đưa nó vào như một phần của bài tập trong tuần một cũng như trong tuần hai.
+- Vậy đây đều là những nhiệm vụ suy luận cực kỳ phổ biến.
+- Bạn có một mô hình và bạn muốn chạy nó.
+- Và điều này giúp bạn thực hiện điều đó chỉ bằng một vài dòng mã bằng cách sử dụng đường ống ôm khuôn mặt.
+- Và bây giờ chúng ta sẽ tiến hành tạo nội dung bằng cách sử dụng đường ống.
+- Chúng ta sẽ thực hiện một số nội dung văn bản, hình ảnh và âm thanh mà chúng ta đã thực hiện rồi, nhưng chúng ta sẽ thực hiện lại lần nữa.
+- Bây giờ bạn đã biết đường ống là gì, bạn sẽ có thêm thông tin để tìm hiểu.
+### Muc 8
+
+- Và vì thế, trước tiên tôi sẽ đến Google Colab, nơi chúng tôi chạy chương trình này.
+- Nhưng một lần nữa tôi sẽ bắt đầu bằng cách trỏ tới con trỏ để chỉ cho bạn biết liên kết tới Colab ở đâu.
+- Chúng ta hãy đến đó.
+- Nhận ra điều này.
+- Đó là con trỏ.
+- Chúng ta sẽ vào thư mục tuần thứ ba.
+- Chúng ta bước sang ngày thứ hai và đây là tình hình hiện tại của chúng ta.
+- Tuần thứ ba ngày thứ hai ôm khuôn mặt đường ống.
+### Muc 9
+
+- Bạn nhấp vào liên kết ở ngay đây.
+- Và Google Colab xuất hiện.
+- Tuần thứ ba, ngày thứ hai.
+- Đi thôi.
+- Và một lần nữa, khuôn mặt ôm mang đến cho bạn hai cấp độ khác nhau mà bạn có thể thực hiện.
+- Một là bài ở cấp độ thấp hơn mà chúng ta sẽ làm vào ngày mai.
+- Nhưng ngày nay chúng ta đang làm việc với đường ống.
+- Và đường ống thì rất đơn giản.
+## Phan 4
+
+### Muc 10
+
+- Bạn tạo một đường ống như thế này.
+- Bạn tạo một đường ống bằng cách cho nó biết nhiệm vụ bạn muốn thực hiện để tạo ra một đối tượng đường ống như thế này mà không chạy nhiệm vụ đó.
+- Nó chỉ tạo ra thứ này, đường ống của tôi, thực chất là một hàm mà bạn có thể gọi, lúc này bạn đã xây dựng được thứ gì đó.
+- Và tại bất kỳ thời điểm nào bạn cũng có thể gọi đường ống đó với dữ liệu đầu vào và bạn sẽ nhận được kết quả và thế là xong.
+- Đơn giản chỉ có vậy thôi.
+- Bạn tạo một đường ống với nhiều tham số khác nhau, nhiệm vụ cũng có thể bao gồm những thứ khác nữa.
+- Và sau đó bạn gọi nó bằng các đầu vào khác nhau.
+- Và rõ ràng là bạn có thể thực hiện điều này nhiều lần bằng nhiều đầu vào khác nhau.
+### Muc 11
+
+- Đây giống như một hoạt động một lần để xây dựng đường ống của bạn.
+- Đó là API đường ống.
+- Một số mẹo sử dụng Google Colab Pro để bạn bắt đầu.
+- Tôi muốn đề cập rằng mã khoa học dữ liệu, giống như mã mà chúng ta sẽ chạy thường xuyên, khá là hay nói.
+- Nó sẽ cung cấp cho bạn rất nhiều tin nhắn.
+- Nó sẽ thường xuyên đưa ra cảnh báo cho bạn.
+- Họ thích đưa ra cảnh báo, cảnh báo về việc không khuyến khích sử dụng nữa, tức là cho bạn biết rằng một số thứ có thể bị xóa và có thể sẽ bị xóa trong tương lai, nhưng hiện tại nó vẫn còn đó.
+- Nhưng điều này cho bạn biết rằng chuyện đó sẽ xảy ra vào một thời điểm nào đó.
+### Muc 12
+
+- Và những đoạn văn bản và cảnh báo khác, và bạn sẽ phần nào miễn nhiễm với những thứ này khi có rất nhiều thứ xuất hiện và nhìn vào chúng, liếc nhìn chúng.
+- Nếu có điều gì khiến bạn lo lắng thì hãy tìm hiểu kỹ hơn.
+- Nhưng nếu không thì hãy lưu ý nhé.
+- Và nếu sau này có điều gì không ổn, hãy nhớ lại những gì bạn đã thấy và xem liệu có bất kỳ manh mối nào về những gì đã xảy ra sau đó không, nhưng đừng để điều đó cản trở bạn.
+- Tôi nhận được rất nhiều câu hỏi từ những người nhìn thấy cảnh báo và lo lắng rằng có lỗi, họ nói.
+- Và thực tế không phải vậy.
+- Chỉ là ôm mặt và trò chuyện thôi.
+- Bạn có thể bỏ qua nó một cách an toàn và tiếp tục.
+## Phan 5
+
+### Muc 13
+
+- Vì vậy, hãy xây dựng bản năng để nhận biết đâu là lỗi thực sự và điều gì đó bị hỏng thay vì chỉ ôm mặt và nói nhiều.
+- Đó chỉ là điều cần làm để tích lũy kinh nghiệm trong thời điểm hiện tại.
+- Cứ để mọi chuyện diễn ra tự nhiên khi bạn nhìn thấy nhiều ghi chú và cảnh báo khác nhau.
+- Điều khác cần đề cập là tại bất kỳ thời điểm nào trong ngày hôm nay hoặc hôm qua, hoặc trong bất kỳ buổi hợp tác nào trong tương lai, bạn có thể gặp phải lỗi thời gian chạy như thế này: Cuda là bắt buộc nhưng không khả dụng cho blah blah blah.
+- Hãy cân nhắc việc cài đặt blah blah blah.
+- Đây là thông báo lỗi rất dễ gây hiểu lầm.
+- Mọi người thường gặp trường hợp đó và sau đó họ nghĩ, ồ, tôi cần cài đặt một số thứ và họ bắt đầu cài đặt, rồi họ gửi email cho tôi và nói rằng, tôi bị kẹt rồi.
+- Và có những trang cài đặt và trời ơi, bạn đang làm gì vậy?
+### Muc 14
+
+- Ừm, và, ừm, lý do thực sự xảy ra là Google đã quyết định đẩy bạn ra khỏi hộp GPU và đặt bạn vào hộp CPU giữa lúc bạn đang làm việc, và bạn không nhận ra vì Google không phải lúc nào cũng nhận ra.
+- Nó giống như một ghi chú ở đâu đó ở đây vậy.
+- Tôi nghĩ là rất dễ bỏ qua.
+- Và đột nhiên bạn thấy mình đang ở trên một máy tính khác không có GPU và không có bất kỳ thứ gì được cài đặt và hoạt động.
+- Và giải pháp cho vấn đề này khi nó xảy ra rất đơn giản.
+- Bạn phải thực hiện theo các bước tôi đã đề cập ngày hôm qua khi vào menu thời gian chạy, ừm, ngắt kết nối và xóa thời gian chạy, sau đó bạn vào chỉnh sửa và xóa tất cả đầu ra.
+- Vậy là mọi thứ đã được thiết lập lại.
+- Vì vậy, bạn không nên tự làm mình bối rối.
+### Muc 15
+
+- Bạn không cần phải làm như vậy, nhưng điều đó có nghĩa là bạn khá rõ ràng.
+- Và sau đó bạn quay lại đỉnh của phòng thí nghiệm và chạy nó từ trên xuống, bán bất kỳ cài đặt Pip nào xuống dưới và mọi thứ sẽ ổn thôi.
+- Và hãy rèn luyện tính kỷ luật khi thực hiện điều đó, nếu có điều gì đó không ổn và nếu bạn bị loại khỏi cuộc chơi thì đó là điều cần lưu ý, hãy nhớ cẩn thận với điều đó.
+- À, và đừng bị phân tâm bởi nhiều cài đặt kỳ lạ.
+- Được rồi, giải quyết xong vấn đề đó, chúng ta tiếp tục thôi.
+- Được thôi, bạn sẽ thấy ở bên phải đây.
+- Tôi đã kết nối với T4 rồi.
+- Bạn có thể phải nhấn nút đó để kết nối với T4.
+## Phan 6
+
+### Muc 16
+
+- Nhớ thả xuống.
+- Hãy đảm bảo rằng mục này hiển thị kết nối tới thời gian chạy được lưu trữ T4.
+- Nếu bạn không chắc chắn đó có phải là T4 hay không, hãy thay đổi loại thời gian chạy.
+- Hãy đảm bảo T4 được chọn và luôn vào đây để xem tài nguyên để bạn có thể nắm được bức tranh tổng quan về những gì đang diễn ra.
+- Kiểm tra RAM GPU của bạn.
+- Bạn có thể thấy tôi đã chạy chương trình này và xem xét GPU Ram, nhưng kể từ khi tôi vào runtime và khởi động lại phiên làm việc, chương trình này đã xóa sạch toàn bộ RAM nhưng vẫn giữ nguyên ổ đĩa.
+- Tôi sẽ làm nó nhỏ hơn một chút để không chiếm quá nhiều chỗ, nhưng tôi luôn để mắt đến nó.
+- Tôi luôn để mắt đến nó ở bên phải.
+### Muc 17
+
+- Được rồi.
+- À, một chút chia sẻ nhỏ nữa của tôi.
+- Tôi biết tôi đã nói điều này khá nhiều vào tuần trước, nhưng tôi chỉ muốn đề cập thêm một lần nữa về sự khác biệt giữa đào tạo và suy luận mà nhiều bạn đã biết.
+- Nhưng để củng cố, trong trường hợp bạn chưa làm vậy, khi bạn sử dụng mô hình khoa học dữ liệu lần đầu tiên, điều đầu tiên bạn cần làm là cung cấp cho nó thật nhiều dữ liệu, thật nhiều ví dụ để đào tạo nó thực hiện tốt những gì bạn muốn.
+- Và tất nhiên, với GPT, chữ P trong GPT là viết tắt của pre-trained (được đào tạo trước), có nghĩa là OpenAI đã chi khoảng 100 triệu đô la để bơm tất cả dữ liệu trên internet và nhiều dữ liệu khác thông qua đó để cố gắng giúp nó dự đoán mã thông báo tiếp theo một cách thực sự tốt.
+- Và quá trình đào tạo đó là một cuộc tranh cãi lớn, điều đó vẫn xảy ra.
+- Và khi hoàn tất, bạn sẽ có một mô hình được đào tạo trước.
+- Từ thời điểm đó trở đi, hoạt động bạn đang thực hiện được gọi là suy luận.
+### Muc 18
+
+- Ý bạn là chúng ta hiện có thông tin đầu vào mới mà bạn chưa từng thấy trước đây.
+- Bạn không thấy điều này trong quá trình đào tạo.
+- Nó khác biệt lắm.
+- Và chúng tôi muốn bạn dự đoán điều gì sẽ xảy ra tiếp theo.
+- Chúng tôi muốn bạn hoàn thành nhiệm vụ của mình cho thông tin đầu vào mới này và toàn bộ nội dung đó.
+- Việc chạy một mô hình đã được đào tạo được gọi là suy luận.
+- Đây là một từ hoa mỹ, nhưng nó chỉ nói rằng hãy chạy mô hình và chúng ta sẽ thực hiện suy luận ngày hôm nay.
+- API đường ống chủ yếu liên quan đến suy luận.
+## Phan 7
+
+### Muc 19
+
+- Được rồi.
+- Sau đó là tế bào đầu tiên.
+- Đây là bản cài đặt pip.
+- Hãy nhớ rằng ô trên cùng luôn là nơi bạn cài đặt pip và bạn luôn phải chạy lại ô này nếu bị loại.
+- Nếu bạn đang thắc mắc lệnh này có tác dụng gì thì lệnh pip install minus q có nghĩa là vui lòng im lặng.
+- Đừng cho tôi quá nhiều thông tin.
+- Nếu không, lệnh cài đặt pip có thể lấp đầy màn hình bằng thông tin.
+- Nâng cấp trừ có nghĩa là ngay cả khi bạn đã cài đặt phần mềm này, tôi vẫn muốn bạn cài đặt lại cẩn thận theo hướng dẫn mà tôi sẽ cung cấp cho bạn.
+### Muc 20
+
+- Bộ dữ liệu là một trong những thư viện nổi tiếng và Pip đã được cài đặt sẵn trên mọi colab, nhưng tôi muốn buộc nó phải sử dụng phiên bản 3.
+- 6.
+- 0, đây là phiên bản từ khoảng sáu tuần trước.
+- Bởi vì sau đó, Hucking Face vừa phát hành bản cập nhật và họ đã thay đổi một loạt thứ, nghĩa là một số mã Hucking Face không hoạt động với phiên bản đó, vân vân.
+- Quá trình này được gọi là ghim phiên bản.
+- Nó đang ghim các tập dữ liệu vào 3.
+- 6.
+- 0.
+### Muc 21
+
+- Và khi bạn nhìn vào ô này, bạn có thể thấy tôi đã ghim nhiều hơn nữa và bạn có thể có nhiều hơn trong các lần hợp tác sau.
+- Và đó là bởi vì theo thời gian, mọi thứ thay đổi và mọi người liên tục làm hỏng đồ đạc.
+- Và vì vậy, những người nghèo như tôi phải đến và ghim các phiên bản thư viện để đảm bảo mọi thứ vẫn hoạt động.
+- Đây là hoạt động rất phổ biến mà mọi người thường tham gia.
+- Được thôi.
+- Vì vậy, điều đầu tiên cần làm là chạy tế bào này.
+- Và đối với tôi, nó sẽ chạy tốt và nhanh vì tôi đã cài đặt phiên bản đó.
+- Nó sẽ thấy rằng, ừm, và điều đó sẽ xảy ra ngay lập tức.
+## Phan 8
+
+### Muc 22
+
+- Xong rồi.
+- Được rồi.
+- Vì vậy, ô tiếp theo giống với ô mà chúng ta đã làm lần trước khi kiểm tra GPU.
+- Nếu bạn đã làm đúng mọi thứ thì chúng ta sẽ đạt T4.
+- Ở đây phải ghi là Tesla T4.
+- Đấy, nó đây rồi.
+- Tuyệt vời.
+- Và chúng ta có trí nhớ không?
+### Muc 23
+
+- Chúng tôi có 15GB RAM GPU mà chúng tôi rất thích.
+- Và tiếp theo là một tấn hàng nhập khẩu.
+- Và bạn sẽ thấy ở đây chúng ta đang nhập một số đường ống từ đường ống nhập khẩu máy biến áp.
+- Ồ, đó chính là điều quan trọng nhất mà chúng ta có ở đây.
+- Và chúng tôi cũng đang nhập một thứ gọi là đường ống khuếch tán, đây là một tập hợp các đường ống khác dành cho các mô hình khuếch tán mà chúng ta đã gặp lần trước.
+- Nhưng chúng tạo ra hình ảnh hơn là văn bản.
+- Được rồi, chạy thôi.
+- Tiếp theo là kết nối tới tài khoản ôm mặt.
+### Muc 24
+
+- Bây giờ, bạn đã làm điều này ngày hôm qua vì bạn rất tuyệt và cảm ơn bạn.
+- Nhưng nếu bạn không làm vậy thì bạn đã làm tệ và phải thất vọng.
+- Nhưng bạn có thể khắc phục tình hình nhanh chóng bằng cách ôm mặt.
+- Thiết lập tài khoản tạo miễn phí.
+- Đi tới thẻ menu hình đại diện.
+- Tạo mã thông báo API.
+- Hãy chắc chắn rằng nó có quyền ghi.
+- Nếu bạn không làm điều đó, mọi thứ sẽ trở nên tồi tệ.
+## Phan 9
+
+### Muc 25
+
+- Ừ, và sau đó, nhớ nhé, bạn hãy thêm nó vào bí mật của mình.
+- Bạn nhấn nút này ở đây và thực tế bạn sẽ cần phải làm điều này.
+- Ngay cả khi bạn đã thực hiện việc đó ngày hôm qua, bạn vẫn cần phải kích hoạt nó.
+- Cấp quyền truy cập cho sổ ghi chép này mỗi khi nó nhớ mã thông báo.
+- Bạn không cần phải dán lại nhưng bạn cần cấp cho nó quyền truy cập vào colab này.
+- Ừm, và đúng như tôi đã nói ở đây, ngay cả khi bạn đã làm điều đó, bạn vẫn cần phải nhấp vào nút phím đó và bật công tắc.
+- Và sau đó khi bạn chạy nó, bạn sẽ thấy phím ôm mặt trông ổn cho đến thời điểm này.
+- Và nó sẽ đăng nhập.
+### Muc 26
+
+- Tuyệt vời.
+- Được rồi.
+- Tiến lên.
+- Như tôi đã đề cập trước đó, có hai bước để sử dụng đường ống.
+- Đầu tiên là khi bạn tạo đường ống mà bạn muốn sử dụng.
+- Và khi bạn làm như vậy, bạn thực hiện bằng cách chỉ định một nhiệm vụ.
+- Và tùy chọn bạn có thể chỉ định những thứ khác cho nhiệm vụ này, chẳng hạn như tôi muốn tóm tắt hoặc bất cứ điều gì, bất cứ điều gì bạn muốn làm, mô hình bạn có thể chỉ định là mô hình nguồn mở nào bạn muốn sử dụng cho mục đích này.
+- Bạn không cần phải chỉ định một vì ôm mặt có thể tự động chọn một.
+### Muc 27
+
+- Vì vậy, chúng ta bắt đầu bằng cách không chỉ định cụ thể.
+- Và thiết bị là nơi bạn có thể nói xem bạn có muốn sử dụng GPU hay không và chúng tôi sẽ làm vậy.
+- Và thiết bị bạn chỉ định nếu muốn sử dụng GPU Nvidia như chúng tôi là Cuda.
+- Cuda là tên của công nghệ cụ thể do Nvidia phát minh, chạy trên card đồ họa, cho phép bạn thực hiện phép tính này song song.
+- Rất lớn.
+- Ờ, nó giống như một ngôn ngữ lập trình vậy.
+- Nó tương tự như C++, nhưng được thiết kế cho loại tính toán song song này.
+- Ừ, và sau đó ừ, nếu bạn đang làm điều này, nếu bạn đang thử điều này cục bộ trên máy tính của mình.
+## Phan 10
+
+### Muc 28
+
+- Ừ, bạn thật táo bạo, vậy nếu bạn sử dụng PC thì Cuda sẽ là giải pháp phù hợp với chip Nvidia.
+- Nếu bạn đang sử dụng máy Mac, bạn phải sử dụng thứ gọi là MPs, viết tắt của Metal Performance Shader, đây là tên thư viện đồ họa của Apple dành cho Apple Silicon nếu bạn đang sử dụng máy tính Apple Silicon.
+- Vậy thì, sau khi bạn đã thực hiện xong và thiết lập xong, bạn có thể gọi nó thường xuyên tùy thích bằng các đầu vào khác nhau.
+- Và, ừm, nó sẽ làm được điều đó.
+- Được thôi.
+- Bạn nói thế là đủ rồi.
+- Chúng ta hãy làm điều này.
+- Được rồi.
+### Muc 29
+
+- Vậy thì chúng ta bắt đầu thôi.
+- Phân tích tình cảm.
+- Máy phân tích tình cảm đơn giản của tôi, bạn có thể gọi nó theo tên bạn muốn.
+- Đây chỉ là việc tạo ra đường ống.
+- Nhiệm vụ là điều đầu tiên bạn phải vượt qua.
+- Phân tích tình cảm là một ví dụ về nhiệm vụ.
+- Chúng ta sẽ làm tất cả các nhiệm vụ sau.
+- Thiết bị Cuda đang nói rằng tôi muốn sử dụng Tôi có T4, tôi muốn sử dụng Ram này ở đây và tôi muốn nó phân loại.
+### Muc 30
+
+- Tôi vô cùng phấn khích khi sắp trở thành bậc thầy về LLM.
+- Vì vậy, khi tôi chạy nó, nó bắt đầu với một loạt văn bản, cảnh báo và nhiều thứ khác.
+- Và như tôi đã nói, kiểu như, ai quan tâm chứ?
+- Nó nói rằng không có mô hình nào được cung cấp theo mặc định và tên của mô hình và bản sửa đổi khi sử dụng đường ống mà không chỉ định tên mô hình và bản sửa đổi trong quá trình sản xuất là không được khuyến khích.
+- Vâng, thật may cho Huggingface vì đã không giới thiệu nó.
+- Dù sao thì chúng tôi vẫn đang thực hiện và hiện tại chúng tôi chưa đưa vào sản xuất.
+- Ừm, và ừm, nhưng thiết bị này được thiết lập thành Cuda giống như, này, tôi muốn cho bạn biết chúng ta đang sử dụng GPU.
+- Tốt.
+## Phan 11
+
+### Muc 31
+
+- Ừm, đây là kết quả, ừm, đánh giá từ mô hình cụ thể này là đây là một tuyên bố tích cực.
+- Ừ, đó là một câu nói vui vẻ và nó cho điểm là 99.
+- Có 9% khả năng là nó sẽ tích cực như vậy.
+- Tuyệt vời.
+- Nhiệm vụ đầu tiên của bạn không chạy trên máy tính của bạn mà chạy trên máy tính bạn thuê từ Google và chạy khá dễ dàng.
+- Chúc mừng.
+- Được thôi, chúng ta hãy tăng tiền cược lên một chút.
+- Chúng ta hãy thử điều này ở đây.
+### Muc 32
+
+- Hãy nhớ rằng, vì chúng ta đã tạo xong đường ống nên chúng ta có thể gọi nó nhiều lần tùy thích với các đầu vào khác nhau.
+- Và chúng ta sẽ gọi nó bằng thông tin đầu vào ở đây.
+- Tôi nên hào hứng hơn khi sắp đạt đến trình độ thành thạo LM.
+- Và đó là một câu hỏi khó vì tất nhiên tình cảm này có phần không chắc chắn.
+- Đó không phải là một tình cảm tốt đẹp.
+- Tôi thực sự nên nói rằng tôi nên phấn khích hơn.
+- Ừ, nhưng thật sự rất khó để có thể thấy được điều đó.
+- Và bạn tưởng tượng bất kỳ manh mối rõ ràng nào mà điều gì đó đang tìm kiếm sẽ coi đó là một tình cảm tích cực.
+### Muc 33
+
+- Và chắc chắn, nếu chúng ta chạy nó, nó sẽ mang lại cảm giác tích cực.
+- Ờ, nó cho tỷ lệ phần trăm cơ hội thấp hơn một chút, không phải 99.
+- 9.
+- Bây giờ chỉ còn 90 thôi.
+- 1.
+- Ừm, nhưng dù sao thì, tôi đoán là nó phân loại sai, tôi không biết, có thể còn phải tranh luận, nhưng đó có lẽ không phải là câu trả lời đúng.
+- Vậy chúng ta hãy thử một mô hình khác.
+- Hãy nhớ rằng khi bạn tạo một đường ống, bạn có thể chỉ định một mô hình.
+## Phan 12
+
+### Muc 34
+
+- Và mô hình mà bạn đưa ra ở đây là bất cứ điều gì bạn có thể lấy từ việc ôm mặt.
+- Bạn còn nhớ khi chúng ta ôm nhau trên sân ga và trung tâm không?
+- Một trong những tùy chọn, một trong những mục thanh điều hướng là mô hình.
+- Và khi bạn vào đó, bạn có thể tìm kiếm các mô hình khác nhau cho các nhiệm vụ khác nhau và phân loại hoặc phân tích tình cảm là một trong số đó.
+- Sau đó, bạn có thể xem xét các mô hình khác nhau, sử dụng cách đó để duyệt qua các mô hình và đọc về chúng, xem ai là người tạo ra chúng, xem kết quả của họ và xem họ nhận được bao nhiêu ngôi sao, đồng thời sử dụng cách đó để lựa chọn và thử một số mô hình và thực hiện một số thử nghiệm.
+- Về tên gọi của mô hình này, để giải thích thì Bert là một mô hình cực kỳ nổi tiếng được Google tạo ra vào những ngày đầu.
+- Đây là một trong những Transformers đầu tiên.
+- Ừm, từ không phân biệt chữ hoa và chữ thường ở đây có nghĩa là mô hình cụ thể này không quan tâm đến việc chữ cái được viết hoa hay viết thường.
+### Muc 35
+
+- Mọi thứ chỉ cần chuyển đổi thành chữ thường hoặc bất cứ thứ gì.
+- Nó bỏ qua.
+- Trường hợp.
+- Không phân biệt chữ hoa và chữ thường.
+- Đó chính là từ tôi đang tìm kiếm.
+- Ừ, đó là mô hình tình cảm, đa ngôn ngữ.
+- Vì vậy, nó cũng có thể thực hiện điều này bằng nhiều ngôn ngữ khác nhau.
+- Thật thú vị.
+### Muc 36
+
+- Ừm, nếu không thì bây giờ chúng ta sẽ khám phá và thử nghiệm một mô hình khác.
+- Vậy thì trước hết chúng ta hãy thử xem, tôi rất hào hứng khi sắp trở thành bậc thầy về LLM.
+- Vậy thì thực ra đây là cách đưa ra xếp hạng sao chứ không chỉ là đánh giá tích cực và tiêu cực.
+- Vì vậy, nó tinh tế hơn một chút và cho biết chắc chắn 60% rằng đây là xếp hạng năm sao.
+- Được rồi.
+- Thật thú vị.
+- Đây là điều khiến tôi vô cùng phấn khích.
+- Chúng ta hãy thay đổi nó sao cho thú vị hơn nhé.
+## Phan 13
+
+### Muc 37
+
+- Tôi nên phấn khích hơn.
+- Chúng ta hãy thử xem.
+- Tôi nên phấn khích hơn, nhưng điều đó có lẽ không tuyệt vời chút nào.
+- Ừ, chúng ta hãy xem nó có thể tìm ra cách không nhé.
+- Đúng.
+- Vì vậy, nó dự đoán rằng đây là bài đánh giá ba sao.
+- Và rõ ràng là chúng ta đều biết từ các bài đánh giá rằng trên thực tế, đánh giá ba sao rõ ràng là không đáng tin cậy.
+- Ừ, tôi cho rằng điều đó khá chính xác.
+### Muc 38
+
+- Có thể thấy rằng đây thực chất là một vùng lãnh thổ có ba ngôi sao, không hơn không kém.
+- Vì vậy, tất nhiên, hành động của bạn bây giờ là hãy nhìn vào Hushing Face Harbor, đến các mô hình, tìm các mô hình phân loại khác nhau, thử nghiệm và khám phá.
+- Hãy xem bạn học được gì khi thử nhiều mô hình phổ biến khác nhau và xem bạn có thể đạt được những kết quả khác nhau như thế nào tại đây.
+- Điều tuyệt vời nhất của đường ống là nó rất dễ thử nghiệm.
+- Được rồi.
+- Tiếp theo, thứ được gọi là nhận dạng thực thể được đặt tên mà tôi đã đề cập là thứ có thể gắn thẻ các từ tùy theo việc chúng có liên quan đến các loại sự vật khác nhau hay không.
+- Vậy thì đây là một câu.
+- Ừm, trước hết chúng ta sẽ tạo đường ống.
+### Muc 39
+
+- Nhiệm vụ này được đặt tên là thiết bị nhận dạng thực thể Cuda.
+- Ừm, sau đó khi đã có đường ống NER, chúng ta có thể gọi nó và chúng ta sẽ gọi nó bằng một đầu vào.
+- Các kỹ sư AI đang tìm hiểu về các quy trình tuyệt vời thông qua việc ôm mặt trong Google Colab, từ biên tập viên Donna.
+- Rất nhiều thực thể sẽ lặp lại kết quả và in ra từng kết quả.
+- Chúng ta hãy chạy thử nhé.
+- Chúng ta nhận được một loạt thông tin cảnh báo.
+- Bỏ qua, bỏ qua.
+- Ừ, và ừ, hãy nhìn xem.
+## Phan 14
+
+### Muc 40
+
+- Tôi thậm chí còn chưa đọc nó là gì.
+- Rõ ràng là nó không vui về điều gì đó, nhưng tôi không quan tâm.
+- Cái.
+- Được rồi, chúng ta có một loạt các thực thể này.
+- Ừm, một số là tổ chức, một số là hỗn hợp, và một số là của từng người.
+- Được rồi.
+- Và ừm, chúng ta hãy cùng xem chúng là gì nhé.
+- Vì vậy, mỗi người đều được cấp một chỉ số.
+### Muc 41
+
+- Ừ, đầu tiên là AI và tiếp theo là kỹ sư.
+- Và sau đó bạn sẽ thấy khuôn mặt ôm chặt đó bị tách ra vì nó thực hiện theo từng token một, ừm, tôi đoán là chúng ta sẽ nói đến token sau một chút, nhưng bạn nhớ chúng từ, ừm, từ tuần đầu tiên.
+- Ừm, vậy là mỗi mã thông báo đều được gắn thẻ, nhưng tất cả đều được thực hiện như một thứ ôm chặt khuôn mặt.
+- Và, ừm, Google Colab cũng được thực hiện như một, như một thứ hỗn tạp.
+- Nó không biết đó là gì, nhưng biên tập viên Donna đã đưa một người đến đó.
+- Vì vậy, cần phân loại chính xác những thứ khác nhau trong câu này.
+- Ồ, và cung cấp cho bạn một chỉ mục về chúng.
+- Vậy đó là nhiệm vụ nhận dạng thực thể được đặt tên.
+### Muc 42
+
+- Và có rất nhiều hoạt động kinh doanh khi điều quan trọng là có thể thực hiện được điều này, có thể rút ra khỏi một câu, những thứ đang được đề cập đến là gì?
+- Tiếp theo là lời chào đầu tiên của chúng ta khi làm một điều gì đó, đây chỉ là bước đầu tiên hướng tới The Mighty Rag.
+- Vấn đề là phải trả lời các câu hỏi khi bạn được cung cấp một chút bối cảnh.
+- Vậy giả sử chúng ta có một câu hỏi như đường ống ôm mặt là gì?
+- Và chúng tôi có một số bối cảnh cung cấp thêm thông tin chi tiết về vấn đề này.
+- Đường ống là API cấp cao để suy luận llms với các tác vụ chung.
+- Vì vậy chúng ta có thể có một đường ống.
+- Chúng ta có thể tạo một đường ống mà chúng ta sẽ gọi là trình trả lời câu hỏi, có chức năng trả lời các câu hỏi.
+## Phan 15
+
+### Muc 43
+
+- Và ý tưởng là bạn luôn có thể gọi nó bằng một câu hỏi và một số bối cảnh.
+- Và sau đó chúng ta sẽ in kết quả.
+- Vậy thì tôi sẽ chạy ngay thôi.
+- Và không còn nghi ngờ gì nữa, nó sẽ làm tốt công việc đó, đó chính là câu trả lời.
+- Việc suy luận llms với các nhiệm vụ thông thường khá đơn giản.
+- Không có gì.
+- Vấn đề này không phải là khoa học tên lửa.
+- Ừ, nhưng tôi nghĩ chúng ta đang sử dụng những mô hình khá, khá nhỏ.
+### Muc 44
+
+- Nhân tiện, nếu bạn mất nhiều thời gian hơn thì đó là vì tôi đã chạy nó rồi, nghĩa là tôi đã tải xuống tất cả các mô hình rồi.
+- Khi bạn chạy lệnh này, nó sẽ tải xuống mô hình mỗi lần.
+- Sẽ mất nhiều thời gian hơn so với lần đầu tiên của tôi, nhưng tôi không muốn lãng phí thời gian.
+- Ừ, vậy nên hãy thoải mái với thực tế là nó sẽ mất nhiều thời gian hơn một chút, nhưng rõ ràng là thời gian đó chỉ được dùng để xây dựng đường ống của bạn.
+- Sau khi xây dựng xong, bạn có thể chạy nó nhanh chóng và thường xuyên tùy ý.
+- Hiệu suất giống như tôi.
+- Ừm, và.
+- Vâng, bạn có thể nói là chỉ để liên kết hai điều cuối cùng lại với nhau.
+### Muc 45
+
+- Được thôi, điều đó rất tốt, nhưng cách duy nhất bạn có thể làm được điều đó là luôn cung cấp bối cảnh có liên quan phù hợp với câu hỏi đang được hỏi.
+- Vâng, đây là một suy nghĩ.
+- Bạn có thể chạy nhận dạng thực thể được đặt tên trên câu hỏi.
+- Và sau đó đối với các thực thể trả về, bạn có thể tra cứu chúng trong cơ sở dữ liệu của mình để lấy lại bất kỳ thông tin nào bạn có.
+- Nếu khách hàng đang trò chuyện với bạn về một sản phẩm khác, bạn có thể sử dụng tính năng nhận dạng thực thể được đặt tên để tìm ra tên sản phẩm mà họ đang hỏi.
+- Và sau đó bạn có thể tra cứu thông tin đó trong cơ sở dữ liệu của mình và đưa vào bối cảnh rồi đặt câu hỏi.
+- Bạn thấy hết rồi.
+- Mọi thứ đều kết hợp lại với nhau.
+## Phan 16
+
+### Muc 46
+
+- Đó là cách bạn có thể sử dụng những nhiệm vụ khác nhau này.
+- Tất nhiên, có một cách tốt hơn và tổng quát hơn.
+- Và chúng ta sẽ giải quyết vấn đề đó trong vài tuần nữa.
+- Và nó được gọi là Rag.
+- Nhưng điều này cung cấp cho bạn một số nền tảng thú vị mà bạn có thể áp dụng ngay.
+- Và hai điều tiếp theo chỉ là những điều Genii tiêu chuẩn.
+- Trước hết là tóm tắt.
+- Đây là một đường ống.
+### Muc 47
+
+- Nhiệm vụ chúng tôi giao là tóm tắt.
+- Sau đó chúng ta có một số văn bản mà tôi đã nói lan man về thư viện Transformers ôm mặt, một công cụ cực kỳ linh hoạt và mạnh mẽ cho blah blah blah.
+- Và sau đó chúng ta yêu cầu nó tóm tắt lại.
+- Chúng ta cung cấp cho nó một số trường như độ dài tối đa, v.v.
+- Và ở đây chúng ta có được kết quả tốt đẹp và súc tích.
+- Ờ, thư viện Transformers ôm mặt.
+- Công cụ cực kỳ linh hoạt và mạnh mẽ để xử lý ngôn ngữ tự nhiên.
+- Không phải là quá súc tích, nhưng nó súc tích hơn bài viết dài dòng của tôi ở đây.
+### Muc 48
+
+- Vậy đó.
+- Đó là tóm tắt, ừm, theo kiểu ôm mặt.
+- Ừm, và bây giờ là dịch thuật, từ tiếng Anh sang tiếng Pháp.
+- Chúng ta sẽ sử dụng đường ống dịch này từ Ian sang tiếng Pháp.
+- Và đây là một câu.
+- Các nhà khoa học dữ liệu thực sự kinh ngạc trước sức mạnh và sự đơn giản của API đường ống Hugging Face.
+- Và chúng tôi sẽ dịch điều đó, ừm, và ừm, dành cho những người nói tiếng Pháp, các bạn có thể xem liệu bạn có thấy điều này hữu ích không.
+- Chúng ta hãy cùng chờ xem.
+## Phan 17
+
+### Muc 49
+
+- Ờ, nó đang nghĩ về điều đó.
+- Được rồi.
+- Tôi không phải.
+- Tôi sẽ không đọc nó ra đâu.
+- Ừm, trình độ tiếng Pháp ở trường trung học của tôi sẽ không duy trì được.
+- Ừ, bạn đang xem xét kỹ lưỡng, nhưng đúng thế đấy.
+- Đó chính là câu trả lời.
+- Hy vọng là điều đó có thể chấp nhận được.
+### Muc 50
+
+- Ừ, bây giờ, ừ, bạn cũng có thể dịch giữa các ngôn ngữ khác.
+- Và tôi đã đặt một liên kết đến trang Người mẫu khuôn mặt ôm ở đó đã được lọc theo bản dịch.
+- Và bạn có thể chọn theo ngôn ngữ.
+- Bạn có thể lọc theo ngôn ngữ và sau đó chọn mô hình sẽ dịch cho bạn.
+- Có một số ngôn ngữ rất cụ thể.
+- Có một phong trào lớn hướng tới việc tạo ra các trình biên dịch cho các ngôn ngữ hiếm hơn, ừm, đây là thứ gì đó giống như một ngôn ngữ đang dần biến mất, mà mọi người muốn khuyến khích và muốn mọi người sử dụng nó nhiều hơn.
+- Và thật tuyệt vời khi có rất nhiều mô hình như vậy.
+- Vậy nên hãy ngừng nói và chạy ngay đi.
+### Muc 51
+
+- Ừ, chúng ta cũng có thể sử dụng từ này để dịch sang tiếng Tây Ban Nha.
+- Và một lần nữa, trình độ tiếng Tây Ban Nha của tôi vẫn còn kém, ừm, chưa tốt bằng trình độ đó.
+- Nhưng nhưng, ừm, hy vọng đây là một bản dịch tốt.
+- Bạn sẽ có thể xác nhận.
+- Được rồi, đó là hai trường hợp sử dụng AI cổ điển.
+- Và bạn có thể nghĩ, đợi đã, biên tập viên, tôi có thể sử dụng ChatGPT cho việc đó.
+- Hoặc tôi có thể sử dụng GPT AI để tóm tắt và dịch.
+- Và tất nhiên là bạn có thể.
+## Phan 18
+
+### Muc 52
+
+- Có, nhưng bạn phải trả tiền và phải thực hiện hàng nghìn tỷ phép tính.
+- Lần này chúng tôi sử dụng một mô hình nguồn mở nhỏ hơn rất nhiều, được tối ưu hóa chỉ dành cho việc dịch thuật hoặc chỉ được tinh chỉnh chỉ dành cho việc dịch thuật hoặc chỉ dành cho việc tóm tắt.
+- Và vì vậy, về cơ bản bạn có thể làm một việc gì đó miễn phí hoặc, bạn biết đấy, chúng tôi đang có một hộp miễn phí ở đây, nhưng nếu bạn muốn làm ở quy mô lớn, bạn sẽ phải trả một khoản phí, nhưng sẽ rất rẻ và rất nhanh.
+- Và bạn có tất cả mã và trọng số.
+- Vì vậy, bằng cách tập trung vào một nhiệm vụ và sử dụng một mô hình nhỏ chuyên biệt cho nhiệm vụ đó, bạn có thể làm được nhiều việc hơn với ít nguồn lực hơn.
+- Bạn có thể hoàn thành nhiều việc hơn với mức giá rất rẻ và rất nhanh.
+- Vậy đó chính là vấn đề.
+- Thôi, chúng ta tiếp tục nhé.
+### Muc 53
+
+- Phân loại là thứ mà bạn có thể đưa vào bộ phân loại.
+- Phân loại không có nghĩa là tôi sẽ không đưa cho bạn bất kỳ ví dụ nào.
+- Tôi chỉ muốn cho bạn một câu thôi.
+- Tôi sẽ đưa cho bạn một số cái xô.
+- Và tôi sẽ nói hãy đưa câu đó vào một cái xô.
+- Và vì thế câu của chúng ta là ôm mặt.
+- Thư viện Transformers thật tuyệt vời.
+- Và các nhãn là công nghệ, thể thao hoặc chính trị.
+### Muc 54
+
+- Ừ, và ừ, chúng ta hãy xem nó nói gì.
+- Xem nó nói gì.
+- Nó sẽ bỏ vào trong xô.
+- Đầu tiên nó sẽ đưa ra một số cảnh báo vì nó rất thích làm như vậy.
+- Và đây rồi.
+- Các nhãn.
+- Áp dụng vào công nghệ, thể thao và chính trị.
+- Điều này cho thấy có tới 95% khả năng đây là công nghệ.
+## Phan 19
+
+### Muc 55
+
+- Điều này mang lại 3% khả năng đây là môn thể thao.
+- Và nó cho điểm là 1.
+- 8% khả năng liên quan đến chính trị.
+- Ừm, vậy là bạn đã hiểu rồi.
+- Bạn nên thử nghiệm điều này và tìm ra loại xô nào, loại nào hiệu quả.
+- Tốt.
+- Và bạn cũng có thể thử nghiệm với nhiều mô hình khác nhau và xem liệu có thể hoàn toàn tự tin rằng đó là công nghệ hay không.
+- Được rồi.
+### Muc 56
+
+- Và sau đó là văn bản cuối cùng.
+- Một trong những nội dung liên quan đến văn bản sẽ là tạo văn bản.
+- Rõ ràng đó là điều chính mà Llms thực hiện, nếu tôi muốn bạn nhớ một điều về việc sử dụng đường ống Huggingface, thì đó là và bây giờ sẽ sử dụng Gpt2 theo mặc định.
+- Gpt2.
+- Hãy nhớ rằng dòng thời gian Gpt2 là từ thời xa xưa, nhưng thực hiện điều này cũng khá thú vị vì nó giúp bạn hiểu được đôi chút về những gì các mô hình này từng làm.
+- Ừm, mọi chuyện sẽ rất ngẫu nhiên.
+- Và tôi muốn nói với mọi người rằng nó rất giống nhau.
+- GPT 2 rất giống với việc bạn cầm điện thoại lên và nhấn nút dự đoán văn bản nhiều lần.
+### Muc 57
+
+- Thậm chí còn tệ hơn thế nữa.
+- Ngay cả văn bản dự đoán cũng tốt hơn thế.
+- Bây giờ, nếu có một điều tôi muốn bạn nhớ về việc sử dụng đường ống ôm mặt, thì đó là bạn không cần phải là một lập trình viên để hiểu cách chúng hoạt động.
+- Khá tốt đấy.
+- Cách tốt nhất để tìm hiểu về chúng là sử dụng chúng trong vài ngày.
+- Tôi không thể không đồng ý với điều đó.
+- Tuy nhiên, có một số điều bạn nên làm để học các công cụ.
+- Bạn có thể sử dụng các lệnh sau để thêm một số tính năng vào danh sách Hugo của mình.
+## Phan 20
+
+### Muc 58
+
+- Bây giờ, chúng ta đi thôi.
+- Bây giờ chúng ta đang đi vào một lãnh thổ ngẫu nhiên nào đó.
+- Về cơ bản, bạn biết đấy, bạn có thể thấy tất cả những thứ này giờ đây đều hoàn toàn vô nghĩa.
+- Bởi vì hãy nhớ rằng, những gì llms thực sự làm chỉ là tạo ra văn bản có vẻ hợp lý.
+- Họ không thực sự được đào tạo để cung cấp cho bạn sự thật, chỉ là những điều đáng tin.
+- Họ bắt chước những vật tượng trưng đáng tin cậy.
+- Thực tế là những mô hình lớn hơn thường là sự thật là điều đáng chú ý và có phần đáng ngạc nhiên.
+- Nhưng đây là những gì bạn thấy khi sử dụng một mô hình nhỏ hơn, một mô hình ban đầu, bạn sẽ thấy những điều vô nghĩa này.
+### Muc 59
+
+- Thật là chuyện vô lý.
+- Nó bắt đầu, để đưa ra, ừm, điều này có nghĩa là bạn có thể sử dụng bất kỳ công cụ nào, chẳng hạn như plugin ôm mặt chẳng hạn.
+- Tôi thích cách nó chân thành như vậy với những câu như ngoặc đơn nhưng lại hoàn toàn vô nghĩa.
+- Vậy đó, bạn đã có nó rồi.
+- Đó là cách tạo văn bản sử dụng mô hình mặc định GPT hai từ trước đến nay.
+- Và với mẹo tiếp theo, tôi muốn quay lại với việc tạo hình ảnh.
+- Cái này giống hệt cái tôi đã chỉ cho bạn hôm qua.
+- Ừ, nhưng, ừ, giờ thì bạn đã biết thêm một chút về nó rồi.
+### Muc 60
+
+- Chúng tôi lại sử dụng đường ống, nhưng sử dụng đường ống cho các mô hình khuếch tán thay vì các bộ chuyển đổi, các mô hình tạo hình ảnh.
+- Tôi đang sử dụng cái này.
+- Tôi nghĩ cái đầu tiên tôi đã cho các bạn xem ngày hôm qua, sự khuếch tán ổn định, tôi nghĩ tôi đã gọi nó là sự khuếch tán ổn định ngày hôm qua khi tôi đột nhiên cảm thấy bối rối, tôi nghĩ, điều đó nghe có vẻ không đúng.
+- Khuếch tán ổn định là tên của mô hình từ công ty stable diffusion Excel turbo có tên là stability AI.
+- Ừm, và ừm, đây là lời nhắc nhở mà chúng ta đã thực hiện ngày hôm qua, lớp học của chúng tôi về kỹ thuật AI theo phong cách nghệ thuật đại chúng sôi động.
+- Và bạn sẽ nhớ rằng nó không phải là tuyệt vời, nhưng nó là một hình ảnh hoàn toàn ổn, xét đến việc chúng ta đang chạy trên một hộp miễn phí nhỏ, ừm, một chiếc T trên đám mây.
+- Ừm, nhìn kìa.
+- Nó có lời phàn nàn đó.
+## Phan 21
+
+### Muc 61
+
+- Thay vào đó hãy sử dụng dtype.
+- Vâng, vâng, có lẽ chúng ta có thể thực hiện được sự thay đổi đó.
+- Ừ, bạn có thể thoải mái thay đổi torch dtype thành dtype vì nó đang phàn nàn về thứ gì đó đã lỗi thời, nhưng nó vẫn hoạt động tốt.
+- Chúng ta sẽ để nó làm việc của nó và tôi cũng sẽ làm vậy.
+- Cái này.
+- Cái này có thể mất mười phút.
+- Vậy nên tôi sẽ gặp bạn khi mọi việc hoàn tất và với tôi thì mọi việc đã xong.
+- Và đây lại là nó một lần nữa.
+### Muc 62
+
+- Một hình ảnh khác, điên rồ nhưng vui nhộn được tạo ra khi bạn và tôi cùng nhau học một lớp theo phong cách nghệ thuật đại chúng sôi động.
+- Bạn có thể thấy nó gần như tận dụng hết sức mạnh của GPU.
+- Có thể bạn sẽ cần phải khởi động lại.
+- Bạn cần phải khởi động lại phiên chạy và nhớ chạy lệnh pip install đó.
+- Ồ xin lỗi, bạn không cần phải chạy lệnh pip install nếu bạn chỉ cần khởi động lại phiên làm việc.
+- Không cần phải làm phiền tôi đâu.
+- Ừ, vậy thì chỉ cần khởi động lại phiên làm việc và sau đó, bạn có thể chạy lại lệnh cài đặt pip, nhưng điều đó sẽ không tạo ra bất kỳ sự khác biệt nào.
+- Nó đã được cài đặt rồi.
+### Muc 63
+
+- Bạn chỉ cần chạy lại ô này.
+- Ừ, và, ừ, điều đó sẽ hiệu quả thôi.
+- Và cuối cùng là tạo ra âm thanh.
+- Chúng tôi cũng đã làm điều này ngày hôm qua.
+- Tôi sẽ thử chạy hai chương trình này trên máy tính này, nhưng rõ ràng là nó gần đạt đến mức tối đa rồi.
+- Chúng ta hãy xem nó có thể xử lý được không.
+- Đây là cách sử dụng lại đường ống Transformers.
+- Xong rồi.
+## Phan 22
+
+### Muc 64
+
+- Đây là công cụ tổng hợp văn bản thành giọng nói của Microsoft Speech Five.
+- Và nếu bạn gặp lỗi về tập dữ liệu, điều đó có nghĩa là bạn chưa chạy lệnh pip install ở trên cùng.
+- Bạn sẽ cần phải bắt đầu lại với một máy chủ mới và sau đó chạy lệnh cài đặt pip.
+- Nhưng chúng ta hãy cùng lắng nghe nhé.
+- Xin chào một kỹ sư trí tuệ nhân tạo đang trên con đường trở thành bậc thầy.
+- Rất tuyệt.
+- Được rồi.
+- Xin chào bạn nữa nhé.
+### Muc 65
+
+- Vậy là xong.
+- Đó là sử dụng đường ống.
+- Bạn có thể thấy định dạng của chúng hoàn toàn giống nhau.
+- Chúng ta tạo ra đường ống của mình, chúng ta gọi nó là bộ tổng hợp và sau đó chúng ta gọi bộ tổng hợp.
+- Chúng ta cũng phải truyền vào điều đặc biệt này, nó giống như mô tả loại bài phát biểu mà chúng ta đang tìm kiếm.
+- Được rồi.
+- Đó là chuyến tham quan các đường ống chính mà bạn có thể dễ dàng tiếp cận từ khuôn mặt ôm sát.
+- Nhưng khoan đã, vẫn còn nữa.
+### Muc 66
+
+- Còn nhiều hơn thế nữa.
+- Có rất nhiều đường ống dẫn dành cho máy biến áp và bộ khuếch tán, và một sinh viên đã đề xuất tôi đưa thêm liên kết đến đó, đây là một ý tưởng tuyệt vời.
+- Và đây rồi.
+- Nếu bạn vào trang này, trang trước sẽ chuyển hướng bạn đến đó, bạn sẽ nhận được danh sách tất cả các loại đường ống khác nhau mà bạn có thể chọn trong tài liệu về đường ống.
+- Và sau đó, riêng biệt, tôi cũng đã liên kết đến trang bộ khuếch tán cho bạn thấy tất cả các loại đường ống liên quan đến hình ảnh khuếch tán khác nhau.
+- Vì vậy, nhiệm vụ của bạn là hãy đi khám phá và thử nghiệm.
+- Đây là khoảnh khắc của bạn.
+- Đường ống rất dễ sử dụng.
+## Phan 23
+
+### Muc 67
+
+- Bạn không cần phải lo lắng.
+- Sẽ khó hơn khi chúng ta đi sâu hơn vào ngày mai.
+- Nhưng hiện tại, tất cả chỉ là thử nghiệm.
+- Và điều cần lưu ý là bạn đang sử dụng các mô hình nguồn mở, vì vậy tất cả đều miễn phí.
+- Vậy đây là tất cả những thứ mà mọi người đã xây dựng và chia sẻ và bạn có thể tận hưởng.
+- Vậy nên hãy thực hiện và coi đó là cơ hội để vừa học tập nghiêm túc vừa có được niềm vui thực sự.
+- Nhưng khi bạn tìm hiểu thêm về Google Colab, tôi nghĩ rằng điều quan trọng là tôi phải cung cấp cho bạn ít nhất một mẹo chuyên nghiệp nữa để bạn có thể sử dụng nhiều tính năng của Colab.
+- Có một cài đặt đặc biệt có sẵn trong Google Colab mà một sinh viên đã chú ý đến.
+### Muc 68
+
+- Vì vậy, nếu bạn có thể vào phần cài đặt, mở Cài đặt để đảm bảo rằng bạn đang tận dụng lợi thế này để đa dạng hóa và sau đó đánh dấu vào chế độ Corgi, cài đặt này ngay tại đây, một cài đặt quan trọng và bạn nhấn lưu.
+- Ồ, chế độ Corgi là thuật ngữ kỹ thuật để chỉ chế độ mà bạn có thể thiết lập để có một chú Corgi chạy ngang qua đầu Google Colab của bạn.
+- Ồ, và bạn có thể tự hỏi, tại sao Google lại cảm thấy cần phải có một chú chó Corgi chạy ngang qua phòng thí nghiệm của bạn?
+- Và tôi nghĩ Google sẽ nói, tại sao không?
+- Ừm, bạn có thể nuôi nhiều chú chó Corgi, nhiều chú chó Corgi trong phòng làm việc của bạn, nhưng bạn không cần phải dừng lại ở đó.
+- Bạn cũng có thể có, ừm, có một chú chó corgi khác sắp tới.
+- Chúng ta thật may mắn.
+- Bạn cũng có thể nuôi mèo và cua nếu muốn.
+### Muc 69
+
+- Và nếu quản lý của bạn lo ngại rằng bạn không làm việc đủ chăm chỉ, bạn có thể chứng minh bạn đã làm việc chăm chỉ như thế nào.
+- Ừm, nhưng ở đây cũng có một thiết lập cho mức công suất của Colab.
+- Bạn có thể lo lắng khi thấy nó không có nguồn điện.
+- Thật đáng để có một chút sức mạnh trong colab của bạn.
+- Và nếu bạn biến nó thành một thứ gì đó mạnh hơn, thì nếu tôi hỏi, chính xác thì thứ này đang làm gì, tôi tự hỏi, ừm, tôi không biết chuyện gì đang xảy ra.
+- Ồ, mọi thứ có vẻ hơi điên rồ.
+- Ừm, nó có tia lửa, và sau đó bạn sẽ nhận được điểm kết hợp ở bên phải để chứng minh sức mạnh của mình, và.
+- Được thôi, đây chính là điều bạn đang nghĩ.
+## Phan 24
+
+### Muc 70
+
+- Cố lên.
+- Tôi còn phải học một số điều, nhưng phải sử dụng năng lượng một cách thận trọng.
+- Ừ, tôi luôn làm việc với nhiều nguồn điện.
+- Ờ, có chút ngớ ngẩn.
+- Google đang đùa giỡn với bạn phải không?
+- Ừ, nếu bạn muốn giải trí cho người khác thì cứ thoải mái sử dụng các cài đặt khác nhau.
+- Nhưng tôi nghĩ tại thời điểm này có lẽ tôi sẽ không dùng điện trong suốt thời gian còn lại của khóa học.
+- Wow, bạn đã đạt đến mốc 30% và còn 30% nữa trên đường đến đó.
+### Muc 71
+
+- Với tư cách là chuyên gia về LM, bạn có thể tự tin lập trình bằng các mô hình frontier.
+- Bạn có thể xây dựng một AI đa phương thức hỗ trợ trong khi ngủ và tính đến thời điểm hiện tại, bạn có thể sử dụng các quy trình ôm mặt cho nhiều tác vụ suy luận phổ biến khác nhau.
+- Ngoài ra, bạn có thể làm điều đó với những chú chó corgi chạy trên nóc chuồng nếu bạn muốn.
+- Được thôi, lần tới chúng ta sẽ xắn tay áo lên và bắt đầu nhé.
+- Chúng ta sẽ tìm hiểu sâu hơn về các trình phân tích cú pháp để dịch giữa văn bản và mã thông báo, hiểu các mã thông báo đặc biệt và mẫu trò chuyện.
+- Và tôi hy vọng bạn sẽ có được khoảnh khắc vỡ lẽ khi thực sự hiểu được cách thức hoạt động của những thứ này.
+- Được rồi, hãy chuẩn bị cho điều đó.
+- Hẹn gặp lại bạn sau.
+

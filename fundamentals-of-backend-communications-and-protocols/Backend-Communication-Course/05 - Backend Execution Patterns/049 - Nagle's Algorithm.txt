@@ -1,0 +1,360 @@
+# 049 - Nagle's Algorithm
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 12 min
+
+---
+
+## 1. Summary
+
+Nagle’s Algorithm is a TCP optimization technique designed to reduce the number of small packets sent over the network.
+
+In the early days of protocols like Telnet, users often typed one character at a time. Sending each character immediately meant sending very small payloads, sometimes only 1 byte, with large TCP/IP header overhead. Since a TCP header is around 20 bytes and an IP header is around 20 bytes, sending 1 byte of data could require about 40 bytes of overhead.
+
+To avoid wasting bandwidth, Nagle’s Algorithm combines small pieces of data into larger TCP segments before sending them.
+
+However, this optimization can introduce unexpected latency. In modern applications, especially low-latency systems, this delay can hurt performance more than it helps. Because of this, many modern clients and libraries disable Nagle’s Algorithm by enabling `TCP_NODELAY`.
+
+---
+
+## 2. Key Concepts
+
+### Nagle’s Algorithm
+
+Nagle’s Algorithm tries to reduce inefficient small TCP packets.
+
+Instead of immediately sending every tiny piece of data, TCP may wait until:
+
+1. There is enough data to fill a full segment, usually up to the MSS.
+2. Or previously sent data has been acknowledged.
+
+This means small writes may be delayed.
+
+---
+
+### MSS - Maximum Segment Size
+
+**MSS** stands for **Maximum Segment Size**.
+
+It is the maximum amount of TCP payload data that can be placed inside one TCP segment.
+
+A common MSS value is:
+
+```txt
+1460 bytes
+```
+
+This usually comes from an Ethernet MTU of 1500 bytes minus:
+
+```txt
+20 bytes IP header
+20 bytes TCP header
+```
+
+So:
+
+```txt
+1500 - 20 - 20 = 1460 bytes
+```
+
+---
+
+### ACK - Acknowledgement
+
+TCP is a reliable protocol.
+
+When one side sends data, the receiver must acknowledge that it received the data by sending an **ACK**.
+
+Nagle’s Algorithm becomes important when there is already unacknowledged data in flight.
+
+If there is no unacknowledged data, TCP may send the small segment immediately.
+
+But if there is unacknowledged data, TCP may wait before sending another small segment.
+
+---
+
+### TCP_NODELAY
+
+`TCP_NODELAY` is a socket option that disables Nagle’s Algorithm.
+
+When `TCP_NODELAY` is enabled, TCP sends data immediately instead of waiting to combine small packets.
+
+In C-like low-level socket APIs, this option is commonly called:
+
+```txt
+TCP_NODELAY
+```
+
+Enabling `TCP_NODELAY` means:
+
+```txt
+Do not delay small packets.
+Send the data immediately.
+```
+
+---
+
+## 3. Important Notes
+
+Nagle’s Algorithm was useful when bandwidth was expensive and small packets were a serious problem.
+
+However, in many modern backend and client-side applications, latency is more important than saving a small amount of bandwidth.
+
+This is why many tools and libraries disable Nagle’s Algorithm by default.
+
+For example, `curl` changed its default behavior in 2016 to enable `TCP_NODELAY` by default. This was done after developers found unnecessary slowness during TLS handshakes caused by Nagle’s Algorithm.
+
+---
+
+### Nagle’s Algorithm Is Sender-Side
+
+Nagle’s Algorithm affects the sender.
+
+The sender can be:
+
+```txt
+Client -> Server
+Server -> Client
+```
+
+So this is not only a “client-side” issue. A backend server can also experience this problem when sending responses back to clients.
+
+For example, a server may send most of a SQL query result, but the final small piece of data may be delayed because it does not fill a complete TCP segment and there is still unacknowledged data in flight.
+
+---
+
+### Why It Causes Delay
+
+The delay happens because TCP may wait for one of two things:
+
+```txt
+1. More data to fill the segment
+2. An ACK from the receiver
+```
+
+If neither happens quickly, the application experiences latency.
+
+This can look like a random network delay even when the network itself is healthy.
+
+---
+
+### Why Many Applications Disable It
+
+Modern applications often prefer low latency over bandwidth optimization.
+
+Examples:
+
+```txt
+HTTP clients
+TLS handshakes
+Real-time applications
+APIs
+Streaming systems
+Interactive applications
+Backend services
+```
+
+For these systems, waiting to fill a TCP segment can cause noticeable performance problems.
+
+---
+
+## 4. Examples
+
+### Example 1: Sending a Small Payload
+
+Assume the MSS is:
+
+```txt
+1460 bytes
+```
+
+Application A wants to send:
+
+```txt
+500 bytes
+```
+
+The application calls the operating system and says:
+
+```txt
+Send these 500 bytes to B.
+```
+
+But because 500 bytes is smaller than 1460 bytes, TCP may decide to wait.
+
+It may wait for more data so it can fill the segment.
+
+Later, the application writes another:
+
+```txt
+960 bytes
+```
+
+Now the total becomes:
+
+```txt
+500 + 960 = 1460 bytes
+```
+
+The segment is full, so TCP sends it.
+
+The problem is that the original 500 bytes were delayed.
+
+---
+
+### Example 2: Sending 5000 Bytes
+
+Assume the MSS is:
+
+```txt
+1460 bytes
+```
+
+Application A wants to send:
+
+```txt
+5000 bytes
+```
+
+TCP can split this into:
+
+```txt
+1460 bytes
+1460 bytes
+1460 bytes
+620 bytes
+```
+
+The first three segments are full, so they are sent immediately.
+
+But the last segment is only:
+
+```txt
+620 bytes
+```
+
+If there is still unacknowledged data in flight, Nagle’s Algorithm may delay this final small segment.
+
+It waits until:
+
+```txt
+An ACK is received
+```
+
+or:
+
+```txt
+More data arrives to fill the segment
+```
+
+This creates latency.
+
+The higher the network latency between A and B, the longer the delay can become.
+
+---
+
+### Example 3: TLS Handshake Delay
+
+TLS handshakes require multiple small messages between client and server.
+
+If Nagle’s Algorithm delays some of those small messages, the TLS handshake can become slower.
+
+This is one reason why tools like `curl` decided to enable `TCP_NODELAY` by default.
+
+---
+
+### Example 4: Backend Response Delay
+
+Imagine a backend server returning a response.
+
+Most of the response is sent in full TCP segments, but the final part is small.
+
+For example:
+
+```txt
+Full segment
+Full segment
+Full segment
+Small remaining segment
+```
+
+If Nagle’s Algorithm is enabled, that final small segment may be delayed until an ACK comes back.
+
+From the user’s perspective, the application feels slower for no obvious reason.
+
+---
+
+## 5. Questions / Review
+
+### Question 1
+
+What problem was Nagle’s Algorithm originally designed to solve?
+
+**Answer:**
+It was designed to reduce the number of small TCP packets and avoid wasting bandwidth on large TCP/IP headers for tiny payloads.
+
+---
+
+### Question 2
+
+What does MSS mean?
+
+**Answer:**
+MSS means **Maximum Segment Size**. It is the maximum amount of TCP payload data that can fit inside one TCP segment.
+
+---
+
+### Question 3
+
+Why can Nagle’s Algorithm hurt performance?
+
+**Answer:**
+It can delay small packets while waiting for more data or waiting for an ACK. This creates extra latency.
+
+---
+
+### Question 4
+
+When does Nagle’s Algorithm usually delay data?
+
+**Answer:**
+It usually delays small data when there is already unacknowledged data in flight.
+
+---
+
+### Question 5
+
+What does `TCP_NODELAY` do?
+
+**Answer:**
+`TCP_NODELAY` disables Nagle’s Algorithm and tells TCP to send data immediately without waiting to combine small packets.
+
+---
+
+### Question 6
+
+Is Nagle’s Algorithm only a client-side issue?
+
+**Answer:**
+No. It affects the sender. The sender can be a client or a server.
+
+---
+
+### Question 7
+
+Why do many modern applications disable Nagle’s Algorithm?
+
+**Answer:**
+Because modern applications often care more about low latency than saving a small amount of bandwidth.
+
+---
+
+## Final Takeaway
+
+Nagle’s Algorithm reduces bandwidth waste by combining small TCP writes into larger segments.
+
+However, this can introduce unwanted latency, especially when small packets are waiting for ACKs.
+
+For modern low-latency systems, disabling Nagle’s Algorithm with `TCP_NODELAY` is often better.
+
+In backend engineering, this is an important performance setting because a small TCP-level behavior can create delays that are difficult to debug at the application level.

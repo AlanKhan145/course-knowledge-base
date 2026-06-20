@@ -1,0 +1,399 @@
+# 044 - Single Listener, Acceptor, and Multiple Readers Thread Execution Pattern
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 6min
+
+---
+
+## 1. Summary
+
+This lecture explains the **single listener, single acceptor, and multiple readers thread execution pattern**.
+
+In this model, one main process or thread is responsible for:
+
+1. Listening on the socket
+2. Accepting new connections
+
+After a connection is accepted, the main acceptor assigns that connection to one of many reader threads.
+
+The reader threads are responsible for reading data from the assigned connections.
+
+A common example of this kind of architecture is **Memcached**.
+
+This model is more scalable than a purely single-threaded model because multiple reader threads can use multiple CPU cores.
+
+However, it can still suffer from load imbalance. One reader thread may receive a very busy connection, while another reader thread may have almost no work.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 Single Listener
+
+There is still only one listener.
+
+The listener creates the listening socket and binds it to an address and port.
+
+Conceptually:
+
+```text id="i5r90r"
+socket()
+bind(address, port)
+listen()
+```
+
+The listener owns the listening socket.
+
+---
+
+### 2.2 Single Acceptor
+
+The same main process or thread also acts as the acceptor.
+
+It continuously calls `accept()` to take established connections from the kernel accept queue.
+
+Conceptually:
+
+```text id="ovp2qc"
+while true:
+    connection = accept(listening_socket)
+    assign connection to a reader thread
+```
+
+The acceptor’s main job is to accept connections quickly and hand them off.
+
+It does not focus on reading all request data itself.
+
+---
+
+### 2.3 Multiple Reader Threads
+
+After a connection is accepted, it is assigned to one of several reader threads.
+
+Each reader thread handles one or more connections.
+
+```text id="ih7fxl"
+Reader thread 1 → connection A, connection B
+Reader thread 2 → connection C
+Reader thread 3 → connection D, connection E
+Reader thread 4 → connection F
+```
+
+The reader threads call `read()` or use event-based I/O to read data from their assigned connections.
+
+---
+
+### 2.4 One Process, Many Threads
+
+This architecture usually uses one process with multiple threads.
+
+```text id="62dxot"
+One backend process
+├── Main thread: listener + acceptor
+├── Worker thread 1: reader
+├── Worker thread 2: reader
+├── Worker thread 3: reader
+└── Worker thread 4: reader
+```
+
+The process owns the memory.
+
+All threads share that memory.
+
+This can reduce memory usage compared to multiple processes, but it introduces synchronization concerns.
+
+---
+
+### 2.5 Memcached as an Example
+
+Memcached is a simple and popular in-memory key-value store.
+
+It does not try to provide many complex database features.
+
+Its main job is simple:
+
+```text id="5ug7ws"
+Store key-value data in memory.
+Retrieve key-value data quickly.
+```
+
+Because it focuses on doing one thing well, its architecture is optimized for fast network I/O and simple request handling.
+
+In this pattern, a main thread accepts connections and dispatches them to worker threads.
+
+---
+
+### 2.6 Connection Assignment
+
+When the acceptor accepts a new connection, it chooses a reader thread and assigns the connection to it.
+
+This is a form of load balancing.
+
+A simple strategy might be:
+
+```text id="toeftu"
+Connection 1 → Thread 1
+Connection 2 → Thread 2
+Connection 3 → Thread 3
+Connection 4 → Thread 4
+Connection 5 → Thread 1
+```
+
+This is often called round-robin assignment.
+
+However, assigning connections evenly does not always mean assigning work evenly.
+
+---
+
+### 2.7 The Reader May Also Process the Request
+
+After a reader thread reads the data, different architectures can do different things.
+
+Option 1:
+
+```text id="7d0wtq"
+Reader thread reads request
+Reader thread processes request
+Reader thread sends response
+```
+
+Option 2:
+
+```text id="dg55v4"
+Reader thread reads request
+Reader thread passes request to worker thread
+Worker thread processes request
+Writer sends response
+```
+
+This depends on the backend system design.
+
+---
+
+## 3. Important Notes
+
+### This Model Improves Parallelism
+
+Compared with a single-threaded model, this architecture can use multiple CPU cores better.
+
+Multiple reader threads can work at the same time.
+
+This helps when there are many connections and many requests.
+
+---
+
+### The Acceptor Has a Narrow Job
+
+The acceptor should remain fast.
+
+Its job is not to do heavy request processing.
+
+Its job is:
+
+```text id="mk4dxq"
+accept connection
+assign connection
+go back to accept()
+```
+
+If the acceptor becomes slow, the accept queue may fill up.
+
+---
+
+### Load Balancing Is Not Perfect
+
+This model can have unfair work distribution.
+
+Even if each thread receives the same number of connections, the actual workload may be very different.
+
+For example:
+
+```text id="7pdjcw"
+Thread 1 → one very busy HTTP/2 connection
+Thread 2 → five mostly idle HTTP/1.1 connections
+```
+
+Thread 1 may be overloaded while Thread 2 is almost idle.
+
+---
+
+### One Connection Does Not Equal One Unit of Work
+
+A connection can be light or heavy.
+
+A light connection may send one small HTTP/1.1 request.
+
+A heavy connection may use HTTP/2 with many streams.
+
+That means one connection can generate much more work than many other connections.
+
+This makes connection-based load balancing imperfect.
+
+---
+
+### Shared Memory Requires Care
+
+Because this is a multi-threaded architecture, all threads share the same process memory.
+
+If multiple threads access shared data, they may need:
+
+* Locks
+* Mutexes
+* Atomic operations
+* Careful data structure design
+
+Without proper synchronization, race conditions can occur.
+
+---
+
+## 4. Examples
+
+### Example 1: Architecture Overview
+
+```text id="t6k077"
+Client connections
+        ↓
+Kernel accept queue
+        ↓
+Main thread
+├── listen()
+└── accept()
+        ↓
+Dispatch connections
+        ↓
+Reader threads
+├── Reader thread 1
+├── Reader thread 2
+├── Reader thread 3
+└── Reader thread 4
+```
+
+The main thread accepts connections and assigns them to reader threads.
+
+---
+
+### Example 2: Connection Assignment
+
+```text id="a7qrpf"
+Accepted connection A → Reader thread 1
+Accepted connection B → Reader thread 2
+Accepted connection C → Reader thread 3
+Accepted connection D → Reader thread 4
+Accepted connection E → Reader thread 1
+```
+
+This spreads connections across multiple reader threads.
+
+---
+
+### Example 3: Reader Thread Responsibility
+
+```text id="x8g8n5"
+Reader thread
+├── owns assigned connection file descriptors
+├── waits for data
+├── reads request bytes
+├── parses or forwards request
+└── may send response
+```
+
+The reader thread is responsible for handling I/O on its assigned connections.
+
+---
+
+### Example 4: Good Load Distribution
+
+```text id="ne6677"
+Thread 1 → 2 normal connections
+Thread 2 → 2 normal connections
+Thread 3 → 2 normal connections
+Thread 4 → 2 normal connections
+```
+
+If all connections behave similarly, this model works well.
+
+---
+
+### Example 5: Bad Load Distribution
+
+```text id="ut87az"
+Thread 1 → 1 very busy HTTP/2 connection
+Thread 2 → 5 idle HTTP/1.1 connections
+Thread 3 → 4 idle HTTP/1.1 connections
+Thread 4 → 3 idle HTTP/1.1 connections
+```
+
+Thread 1 may do most of the work while the other threads are mostly idle.
+
+This is the main weakness of assigning work by connection.
+
+---
+
+### Example 6: Simple Pseudocode
+
+```text id="ffcu88"
+main thread:
+    create listening socket
+    start reader threads
+
+    while running:
+        connection = accept(listening_socket)
+        thread = choose_reader_thread()
+        assign(connection, thread)
+
+reader thread:
+    while running:
+        wait for data on assigned connections
+        read data
+        process or forward request
+```
+
+This shows the separation between accepting and reading.
+
+---
+
+## 5. Questions / Review
+
+1. What does the listener do in this architecture?
+
+2. What does the acceptor do?
+
+3. What do the reader threads do?
+
+4. Why does this model use multiple reader threads?
+
+5. Why is Memcached a good example for this pattern?
+
+6. How does the main thread assign connections to reader threads?
+
+7. Why can this architecture use multiple CPU cores better than a single-threaded model?
+
+8. What is the main job of the acceptor?
+
+9. Why should the acceptor avoid heavy processing?
+
+10. Why is connection-based load balancing imperfect?
+
+11. How can one connection be heavier than another connection?
+
+12. Why can HTTP/2 make load balancing by connection more difficult?
+
+13. What shared-memory problems can happen in this architecture?
+
+14. What are the main advantages of this model?
+
+15. What are the main disadvantages of this model?
+
+---
+
+## Short Takeaway
+
+The single listener, single acceptor, and multiple readers pattern keeps connection acceptance simple while allowing multiple threads to read from client connections.
+
+One main thread listens and accepts connections.
+
+Then it assigns each accepted connection to a reader thread.
+
+This improves parallelism compared to a purely single-threaded design.
+
+However, the model can suffer from load imbalance because one connection may produce much more work than another connection.

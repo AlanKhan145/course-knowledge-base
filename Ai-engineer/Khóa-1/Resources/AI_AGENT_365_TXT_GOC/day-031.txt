@@ -1,0 +1,2090 @@
+
+Tuần thứ sáu thật là thú vị, nhưng bây giờ đã là chuyện xưa rồi.
+
+Chào mừng đến với tuần thứ bảy của chương trình chính của LM Engineering, một tuần vô cùng quan trọng.
+
+Đây là lúc mọi thứ trở nên chuyên nghiệp.
+
+Đây là lúc chúng ta tiến xa hơn.
+
+Nhưng trước khi đi sâu vào những vấn đề phức tạp hơn, hãy cùng nhau ôn lại những gì chúng ta đã có thể làm được.
+
+Tất nhiên, bạn biết đấy, bạn có thể tạo ra rất nhiều văn bản và mã nguồn.
+
+Bạn có thể sử dụng các mô hình front-end, các mô hình nguồn mở cùng với các công cụ.
+
+Và bạn cũng có thể sử dụng các giải pháp Rag để giải quyết các vấn đề kinh doanh, cung cấp
+
+chuyên môn, tra cứu trong cơ sở kiến thức bằng cách sử dụng chuỗi dài, chuỗi dài 1.0 không kém.
+
+Và hãy làm điều đó mà không cần chuỗi ngôn ngữ.
+
+Và bạn hiểu rõ tầm quan trọng của việc đánh giá và bạn biết cách đánh giá
+
+cả khả năng truy xuất thông tin lẫn khả năng trả lời câu hỏi của mình.
+
+Và rồi tuần trước, tất nhiên chúng ta đã xem xét một chiến lược gồm năm bước.
+
+Khi đối mặt với một vấn đề kinh doanh, làm thế nào để bạn phát triển một giải
+
+pháp AI bằng cách bắt đầu từ việc hiểu rõ yêu cầu và các tiêu chí đánh giá?
+
+Đánh giá.
+
+Rất quan trọng.
+
+Và sau đó, chúng tôi bắt tay vào giải quyết một vấn đề liên quan đến việc dự đoán một con số hoặc giá trị từ một đoạn văn bản.
+
+Chúng tôi đã giải quyết vấn đề đó bằng cách sử dụng học máy truyền thống, bắt đầu từ
+
+các phương pháp cơ bản như hồi quy tuyến tính cho đến các thuật toán phức tạp như XGBoost.
+
+Và sau đó, chúng tôi chuyển sang mạng nơ-ron sâu.
+
+Được rồi, trước tiên là một mạng nơ-ron sâu.
+
+Và sau đó chúng tôi đã đến LMS.
+
+Sau đó, chúng tôi đã thực hiện việc tinh chỉnh mô hình biên.
+
+Điều đó thật đáng thất vọng.
+
+Chúng ta đã học được khi nào không nên sử dụng việc tinh chỉnh, tôi đoán vậy.
+
+Và sau đó, chúng tôi đã sử dụng một mạng nơ-ron sâu để hoàn tất công việc.
+
+Và trong quá trình đó, chúng ta đã xem xét việc đánh giá mục tiêu bằng cách sử dụng biểu đồ y
+
+hat y mà chúng ta đã thực hiện, đồng thời đi sâu vào cách theo dõi hiệu suất của các thí nghiệm.
+
+Và vì vậy, hôm nay, chúng ta đã chuyển sang việc tinh chỉnh mô hình.
+
+Và thường khi mọi người nói về việc tinh chỉnh mô hình nguồn mở, họ sử
+
+dụng cụm từ như "tôi đã tự xây dựng mô hình của mình từ đầu".
+
+Và nếu bạn nghe nói rằng đôi khi mọi người thực sự có ý
+
+nói rằng họ đã tự tay xây dựng thứ gì đó từ đầu.
+
+Thông thường, điều đó sẽ là tạo ra một mô hình ngôn ngữ lớn (LLM) dạng đồ chơi có thể thực hiện những tác vụ rất đơn giản.
+
+Thông thường, khi mọi người nói rằng mỗi ngày chúng ta xây dựng một mô hình ngôn ngữ (LM) như thể chúng ta đã có một mô hình ngôn ngữ (LM).
+
+Trong công việc hàng ngày của tôi, điều đó có nghĩa là bạn đã sử dụng mô hình nguồn mở và tinh chỉnh
+
+nó bằng một kỹ thuật như Q Laura, mà chúng ta sẽ sử dụng, đây là kỹ thuật phổ biến nhất, uh, sử
+
+dụng các kỹ thuật như vậy để tinh chỉnh mô hình nhằm cải thiện hiệu quả trong mục tiêu kinh doanh của bạn.
+
+Đó là ý nghĩa của nó.
+
+Như tôi đã nói, có một số trường hợp các công ty đã tinh chỉnh,
+
+chưa tinh chỉnh hoặc tự xây dựng mô hình của riêng mình từ đầu.
+
+Bloomberg đã nổi tiếng với việc này thông qua Bloomberg GPT.
+
+Nhưng tôi nghĩ điều trở nên rõ ràng rất, rất nhanh là nếu bạn làm điều đó, thì
+
+Frontier Labs sẽ nhanh chóng tung ra một mô hình tốt hơn và bạn sẽ phải quay lại.
+
+Bạn sẽ tự nhủ với bản thân: "Okay, liệu mình có nên
+
+đào tạo lại mọi thứ một lần nữa, tận dụng công nghệ
+
+mới nhất không?" Và điều đó sẽ cực kỳ tốn kém.
+
+Vì vậy, về mặt thương mại, chiến lược tốt hơn thường là tập trung vào việc tinh chỉnh mô
+
+hình nguồn mở đã được đào tạo sẵn bởi các phòng thí nghiệm như Meta hoặc DeepSeq, thay vì
+
+cố gắng xây dựng một mô hình từ đầu hoặc sử dụng Gemma của Google hay Five của Microsoft.
+
+Được rồi, vậy thì chúng ta bắt đầu nhé.
+
+Hãy bắt đầu, như thường lệ, vào đầu tuần bằng cách nhắc
+
+nhở bản thân về vị trí của chúng ta trên hành trình.
+
+Đây rồi.
+
+Bạn đã bắt đầu cách đây khoảng sáu tuần ở phía bên trái.
+
+Chúng tôi đã dành tuần đầu tiên để tìm hiểu về API hoàn thành cuộc trò chuyện.
+
+Chúng tôi đang nói về những thứ như token và những thứ tương tự.
+
+Đến tuần thứ hai, chúng tôi đã xem xét tất cả các API biên giới.
+
+Chúng tôi đang sử dụng các công cụ lần đầu tiên.
+
+Giao diện người dùng đa phương thức.
+
+Chúng tôi đã có một chút vui vẻ với việc liên quan đến hãng hàng không trong tuần thứ ba.
+
+Chúng tôi đã tìm hiểu về việc ôm mặt.
+
+Tất nhiên, chúng ta sẽ quay lại vấn đề đó hôm nay.
+
+Chúng tôi cũng đã xem xét Google Colab.
+
+Chúng ta sẽ sử dụng rất nhiều trong tuần này, hầu như chỉ sử dụng,
+
+với một ngoại lệ, và chúng ta đã thực hiện công việc mã nguồn mở.
+
+Đó chính là lúc bạn lần đầu tiên tiếp xúc với việc ôm Face Transformers.
+
+Và chúng tôi thực sự đã xem xét một mô hình.
+
+Nếu bạn còn nhớ, trong tuần thứ tư, chúng ta đã tìm hiểu về các lớp của một mô hình, tập trung vào việc lựa chọn mô
+
+hình ngôn ngữ (LM) phù hợp cho nhiệm vụ cụ thể, và chúng ta đã sử dụng nó để tạo mã với kết quả ấn tượng.
+
+Tuần thứ năm là Rag.
+
+Chúng tôi đã sử dụng chuỗi Lang 1-0.
+
+Chúng tôi đã làm việc trên một số câu hỏi và đánh giá kết quả đạt được.
+
+Và sau đó chúng tôi đã làm điều đó mà không cần chuỗi dài.
+
+Tuần thứ sáu tập trung vào việc tinh chỉnh mô hình biên, mặc dù tôi
+
+nói vậy, nhưng đó lại là phần khiến tôi thất vọng nhất trong tuần.
+
+Chúng tôi đã thực hiện nhiều dự án tuyệt vời khác, bao gồm cả việc làm việc với các mô hình học máy truyền thống (ML).
+
+Đó là một trải nghiệm thú vị khi biên tập một bộ dữ liệu mà một số
+
+người ghét, nhưng tôi lại yêu thích nó và luôn thích khám phá sâu vào dữ liệu.
+
+Và sau đó, chúng tôi đã đạt được một số thành công.
+
+Dù có tinh chỉnh hay không, cuối cùng cũng sẽ huấn luyện một mạng thần kinh sâu hơn.
+
+Thật sự là một tuần rất thú vị.
+
+Tuần này.
+
+Tuần này là giai đoạn tinh chỉnh và mô hình mã nguồn mở, mà một số người có thể so sánh với việc xây dựng một mô hình.
+
+Và tuần sau, tập cuối sẽ tổng hợp tất cả với một dự án trí tuệ nhân tạo (AI) và sự trở lại của rag.
+
+Nhiều thứ.
+
+Và sau tất cả những điều đó, bạn có
+
+thể tự hào đeo huy hiệu kỹ sư LM.
+
+Bạn sẽ trở thành một kỹ sư trí tuệ nhân tạo.
+
+Chỉ còn vài tuần nữa là kết thúc, và tôi có một số tuần quan trọng đang chờ đón bạn.
+
+Và một lần nữa, đừng giết tôi.
+
+Nhưng để nhắc lại, The Price Is Right là tên của dự án tốt nghiệp mà chúng ta đang thực hiện.
+
+Ý tưởng là bạn được cung cấp mô tả về một sản phẩm và dự đoán giá của nó.
+
+Bạn biết đấy, tôi biết, tôi biết dự án này là về cái gì.
+
+Và điều đó thật tuyệt vời vì chúng ta đang sở hữu giá trị thực sự của các sản phẩm mà chúng ta đang có trong tay.
+
+Cuối cùng, chúng ta sẽ tích hợp điều này vào một giải pháp trí tuệ nhân tạo (AI) có khả năng tự chủ, nhằm tìm kiếm các giao dịch hời.
+
+Đó sẽ là phần thưởng ở cuối cùng.
+
+Và các mô hình biên giới đã đạt được kết quả ấn tượng.
+
+Tất nhiên, họ đã được đào tạo với hàng trăm triệu đô la được đầu tư vào.
+
+Câu hỏi là, liệu chúng ta có thể tinh chỉnh một mô hình mã nguồn mở nhỏ hơn hàng nghìn lần và cố gắng
+
+đạt được hiệu suất tương đương với mô hình tiên tiến nhất, nhưng với chi phí chỉ bằng một phần nhỏ? Về cơ
+
+bản, nó chỉ bằng một phần nhỏ về kích thước và chúng ta có thể tự vận hành nó mà không tốn phí.
+
+Đó chính là thách thức mà chúng tôi đang đặt ra.
+
+Đó chính là mục tiêu mà chúng ta sẽ cố gắng đạt được trong tuần này.
+
+Và như vậy, chúng ta hãy bắt đầu với lịch thi đấu cho tuần này.
+
+Vậy tuần trước, như các bạn còn nhớ, tất nhiên chúng ta đã thực hiện đánh giá các mô hình biên giới trong quá trình làm sạch dữ liệu.
+
+Vậy nên tuần này, chúng ta sẽ tập trung vào việc tinh chỉnh mô hình mã nguồn mở.
+
+Năm.
+
+Năm ngày, năm bước.
+
+Hôm nay tôi sẽ giới thiệu Q Laura, đây sẽ là một ngày với một số nội
+
+dung lý thuyết, nhưng trong bối cảnh thực hành, tôi sẽ cho các bạn thấy các lớp.
+
+Chúng ta sẽ thảo luận về các chiều.
+
+Sẽ rất thú vị.
+
+Ngày mai chúng ta sẽ quay lại xem xét dữ liệu một lần nữa.
+
+Chúng ta sẽ tinh chỉnh bộ dữ liệu của mình.
+
+Vì vậy, nó hoàn hảo để tinh chỉnh một chút và biến nó thành các gợi ý.
+
+Sau đó, chúng ta sẽ chạy mô hình này trên một mô hình cơ sở để đánh giá điểm xuất phát của chúng ta.
+
+Ngày thứ ba và thứ tư là phần quan trọng nhất của tuần.
+
+Đây là thời điểm chúng ta tiến hành đào tạo, và ngày thứ năm là lúc chúng ta tổng hợp lại mọi thứ.
+
+Và chúng tôi đánh giá hiệu suất của mình và xem liệu chúng tôi có
+
+đạt được mô hình biên giới với một biến thể nguồn mở nhỏ hay không.
+
+Được rồi.
+
+Và tất nhiên, tuần sau là lúc chúng ta sẽ thêm vào rag agentic, vân vân, vân vân.
+
+Sẽ thật tuyệt vời.
+
+Được rồi.
+
+Đó là tất cả những gì cần thiết để chuẩn bị cho phần tiếp theo.
+
+Hãy lên sân khấu.
+
+Tôi sẽ giải thích cho bạn Q Laura là gì và cách nó cho phép chúng ta sử dụng một thiết
+
+bị phần cứng tương đối nhỏ để tinh chỉnh các mô hình có kích thước và hình dạng như vậy.
+
+Hãy bắt tay vào việc.
+
+
+Vậy Q Laura là tên của trò chơi.
+
+Đó chính là những gì chúng ta sẽ làm trong tuần này.
+
+Và Q Laura thực chất là hai ý tưởng khác nhau, hai thủ thuật khác nhau, và
+
+một trong số đó được gọi là Laura, còn cái kia cơ bản là Q, và chúng
+
+được kết hợp lại để tạo thành Q Laura, thực tế có hai thủ thuật khác nhau.
+
+À, vậy chúng ta sẽ bắt đầu bằng việc nói về Laura và đảm bảo rằng bạn cảm thấy thoải mái với điều đó.
+
+Và sau đó đặt chữ Q ở phía trước của nó.
+
+Vậy đây là thông tin chi tiết.
+
+Chúng ta sắp chụp một mẫu.
+
+Chúng ta thực sự sẽ chọn llama 3.2 từ meta, có lẽ vì lý do nào đó, tôi
+
+nghĩ là vì meta là nền tảng đầu tiên đưa ra các mô hình nguồn mở này.
+
+Trong ngành công nghiệp, việc bắt đầu với mô hình llama đã trở nên phổ biến đến mức đó chính là mô hình mà họ sử dụng.
+
+Và vì vậy, tôi nghĩ đây là một sự chuẩn bị tuyệt vời để bạn có thể tìm hiểu sâu hơn về mô hình llama.
+
+Nếu bạn muốn sử dụng bất kỳ tùy chọn nào khác, thì chắc chắn bạn có thể làm điều đó.
+
+Họ đều sẽ làm rất tốt.
+
+Họ có thể vượt qua hiệu suất với llama, có thể không.
+
+Bạn có thể thử xem sao, nhưng llama là một mô hình tuyệt vời để bắt đầu.
+
+Vậy chúng ta sẽ sử dụng Llama 3.2 và mô hình này có 3 tỷ tham số.
+
+Đây là một mô hình nhỏ.
+
+Mô hình có 3 tỷ trọng lượng được coi là mô hình nhỏ, gần như có thể chạy trên một thiết bị di động như điện thoại.
+
+Nhưng khi nói đến việc tập luyện, 3 tỷ lần tập vẫn là
+
+một con số khổng lồ, dù xét theo bất kỳ tiêu chuẩn nào.
+
+Hãy nhớ rằng mạng thần kinh sâu khổng lồ từ tuần trước có 200
+
+triệu tham số và điều đó đã làm quá tải máy tính của tôi.
+
+3 tỷ là con số khổng lồ.
+
+Điều này thực sự quá sức đối với chúng tôi khi phải đào tạo trên một GPU duy nhất.
+
+Bạn cần phải có trang thiết bị chuyên dụng cho loại công việc đó.
+
+À, vậy là có một mẹo.
+
+Có một mẹo giúp chúng ta có thể huấn luyện một thứ gì đó vô cùng khổng lồ.
+
+Và thủ thuật đó được gọi là Laura, viết tắt của Low Rank adapter.
+
+Và tôi đã tiết lộ một phần bí mật của trò chơi bằng cách nói ra thủ thuật đó.
+
+Nhưng nếu bạn chưa hiểu, hãy làm ngay bây giờ.
+
+Vậy nên, kiến trúc của Llama 3.2 là điều chúng ta đã đề cập sơ qua trong tuần
+
+thứ ba, và có thể bạn còn nhớ nó bao gồm 28 nhóm mô-đun xếp chồng lên nhau,
+
+được gọi là các lớp giải mã Llama, và mỗi lớp có các loại lớp khác nhau.
+
+Nó có các lớp gọi là lớp tự chú ý.
+
+Có thể bạn đã tìm hiểu về điều đó khi tôi giải thích cho bạn trong tuần thứ ba.
+
+Đây là các lớp mà qua việc học từ dữ liệu, chúng học được những phần nào của chuỗi đầu vào quan
+
+trọng nhất, và cần tập trung vào những phần nào khi tính toán token tiếp theo có khả năng cao nhất.
+
+Và sau đó, nó có các lớp mạng nơ-ron đa lớp (MLP), đây là
+
+các lớp được kết nối với lớp phía trên và có các trọng số.
+
+Và sau đó, nó có một hàm kích hoạt gọi là Selu, mà tôi nghĩ là
+
+đã từng giới thiệu cho bạn một cách sơ lược, và sau đó là Layernorm.
+
+Vậy, đây là tất cả những điều mà bạn có thể tìm hiểu sâu hơn.
+
+Chúng ta sẽ xem xét chúng ngay sau đây và có cái nhìn tổng quan hơn về chúng.
+
+Nhưng điều cần lưu ý là tất cả những thành phần này cùng nhau tạo thành
+
+một mô-đun, và có tổng cộng 28 mô-đun như vậy được xếp chồng lên nhau.
+
+Và điều này tạo nên kiến trúc Lama.
+
+Và các thông số này chiếm tổng cộng 13GB bộ nhớ ngay trước khi bạn bắt đầu quá trình đào tạo.
+
+Để lưu trữ dữ liệu này, cần 13GB bộ nhớ GPU.
+
+Như bạn đã biết, quá trình đào tạo bao gồm bốn bước sau.
+
+Quá trình đào tạo bao gồm việc thực hiện một lượt truyền qua tất
+
+cả 13GB tham số này và sau đó tính toán độ mất mát.
+
+Chúng ta đã sai lầm đến mức nào?
+
+Và sau đó là đường chuyền lùi.
+
+Nếu bạn điều chỉnh tất cả 3 tỷ thông số này.
+
+13GB dữ liệu, liệu điều đó có làm tình hình tốt hơn hay xấu
+
+đi? Và sau đó là bước đi đúng hướng để giảm thiểu tổn thất.
+
+Vâng, điều đầu tiên bạn làm với Laura là bạn nói, bạn biết đấy? Chúng
+
+ta thực sự sẽ không thay đổi bất kỳ thông số nào trong số này.
+
+Không có thông số nào trong số 3 tỷ thông số này sẽ được thay đổi.
+
+Chúng ta sẽ đóng băng chúng, đóng băng tất cả các trọng lượng này.
+
+Chúng sẽ không được tối ưu hóa dựa trên gradient.
+
+Chúng tôi sẽ không thay đổi chúng chút nào.
+
+Họ sẽ giữ nguyên trạng thái.
+
+Được rồi.
+
+Vậy nên chúng ta không đào tạo họ.
+
+Vâng, đúng vậy, chúng ta sẽ tiến hành đào tạo.
+
+Chúng ta sẽ trước tiên chọn một số lớp trong số này mà chúng ta cho là quan
+
+trọng nhất, những lớp mà việc thay đổi chúng có khả năng cao nhất để thay đổi
+
+hành vi của mô hình llama, và những lớp này được gọi là các mô-đun mục tiêu.
+
+Nghe có vẻ rất khoa học viễn tưởng.
+
+Nghe có vẻ như một điều gì đó trong Star Trek, nhưng chúng là các mô-đun.
+
+Bạn còn nhớ tôi đã nói rằng có những chồng mô-đun này, và
+
+các mô-đun mục tiêu chính là những mô-đun mà bạn đang nhắm đến.
+
+Vậy đó là những gì họ là.
+
+Vậy bạn đang nghĩ, được rồi, tôi hiểu ý bạn và chúng ta sẽ điều chỉnh các thông số của các mô-đun mục tiêu này.
+
+Không, bạn không cần thay đổi bất kỳ điều gì trong Llama 3.2, mọi thứ đều đã được cố định.
+
+Nhưng bạn đã xác định được các mô-đun mục tiêu này.
+
+Bạn làm gì với các mô-đun mục tiêu này?
+
+Bạn tạo ra một ma trận riêng biệt, một bộ tham số trọng số riêng
+
+biệt với ít chiều hơn, ít chiều hơn rất nhiều so với kiến trúc Llama.
+
+Và những thành phần này được đặt sang một bên, và vì chúng có ít chiều hơn và có thứ hạng thấp
+
+hơn (thứ hạng ở đây cũng có nghĩa là chiều), nên chúng được gọi là bộ điều chỉnh thứ hạng thấp.
+
+Đó chính là những ma trận nhỏ mà bạn tạo ra ở một bên, đúng không.
+
+Và bạn đang nghĩ, vậy chúng ta sẽ làm gì với các ma trận này?
+
+Well, các ma trận này được sử dụng để điều chỉnh các mô-đun mục tiêu.
+
+Chúng được áp dụng cho các mô-đun mục tiêu.
+
+Và chính những ma trận nhỏ hơn này là những gì chúng ta sử dụng để huấn luyện và thực hiện quá trình truyền về phía trước.
+
+Sau đó, chúng tôi điều chỉnh các thông số này và tính toán xem việc thay
+
+đổi những thông số nhỏ này ảnh hưởng như thế nào đến mức tổn thất.
+
+Và sau đó chúng ta điều chỉnh chúng để chúng được sử dụng.
+
+Chúng tôi đào tạo các mô-đun này và áp dụng chúng vào mô-đun mục tiêu.
+
+Và việc áp dụng chúng có ý nghĩa gì.
+
+Nghe có vẻ rất hiện đại.
+
+Nó rất hiện đại.
+
+Chúng chỉ được cộng lại với nhau.
+
+Vậy nên, nói chung, Laura nghe có vẻ rất sang trọng, rất
+
+phức tạp và đi kèm với rất nhiều thuật ngữ kỹ thuật.
+
+Nhưng về cơ bản, điều chúng tôi muốn nói là mô hình llama quá lớn để huấn luyện, vì
+
+vậy chúng tôi huấn luyện một mô hình nhỏ hơn và sau đó thêm nó vào mô hình lớn.
+
+À, và à, và đó là cách nó hoạt động.
+
+Và bạn huấn luyện các bộ điều chỉnh nhỏ hơn này, các bộ điều chỉnh Laura có thứ hạng thấp, và trong quá trình huấn
+
+luyện, mỗi lần thực hiện một lượt truyền qua, bạn chỉ cần thêm giá trị của các bộ điều chỉnh có thứ hạng thấp vào.
+
+Nghe có vẻ khá đơn giản lúc này.
+
+Như thường lệ, có một chút phức tạp về kỹ thuật.
+
+Có điều gì đó khiến nó không hoàn toàn đơn giản như vậy.
+
+Vấn đề nằm ở kích thước của ma trận và thực tế là bạn không thể đơn
+
+giản cộng một tập hợp nhỏ các ma trận vào một tập hợp lớn các ma trận.
+
+Và trên thực tế, điều xảy ra là không có một
+
+bộ thông số Lora duy nhất cho mỗi mô-đun mục tiêu.
+
+Có hai.
+
+Và chúng được gọi là Lora A và Lora B. Lora A và Lora
+
+B được nhân với nhau, và kết quả đó được cộng vào mô-đun đích.
+
+Và các kích thước đã được tính toán sao cho bạn có thể thực hiện điều đó.
+
+Và tôi sẽ không đi sâu vào đại số tuyến tính.
+
+Tôi sẽ cho bạn thấy độ phức tạp.
+
+Và nếu bạn muốn, bạn có thể tra cứu nó.
+
+Hoặc bạn có thể thực hiện điều đó trên một tờ giấy và tự mình kiểm chứng
+
+rằng bằng cách nhân hai ma trận nhỏ hơn có hình dạng cụ thể với nhau, bạn
+
+có thể thu được một ma trận lớn hơn có thể được thêm vào mô-đun mục tiêu.
+
+Không cần thiết phải biết điều đó.
+
+Đơn giản là có một thủ thuật cho phép bạn làm việc với ít tham số hơn, đồng thời
+
+cho phép các tham số này được thêm vào và ảnh hưởng, tác động, điều chỉnh toàn bộ
+
+mô-đun mục tiêu, giúp chúng ta có thể đào tạo một tập hợp tham số nhỏ hơn nhiều.
+
+Mặc dù OpenAI không công khai chi tiết về cách thức tinh chỉnh GPT hoạt động, nhưng chúng ta
+
+đều có thể hiểu rằng đây chính là kỹ thuật mà họ gần như chắc chắn sử dụng.
+
+Chúng cũng cho phép bạn xây dựng và tinh chỉnh một ma trận nhỏ, sau đó
+
+ma trận này được sử dụng để điều chỉnh các lớp lớn hơn trong GPT.
+
+Và đó chính là những gì chúng ta sẽ làm trong tuần này.
+
+Và như một bước cuối cùng nhỏ khi bạn thực hiện việc nhân
+
+và cộng này, bạn cũng nhân ma trận này với một hệ số.
+
+Và yếu tố đó được gọi là alpha.
+
+Đó là cách bạn nhân kết quả của việc nhân Laura với a hoặc b để mở rộng quy mô.
+
+Cuối cùng, mô-đun mục tiêu đã được bổ sung thêm alpha nhân với A nhân với Laura B.
+
+Và đó là tất cả những gì về Laura.
+
+Bây giờ bạn đã biết Laura.
+
+
+Vậy một lần nữa.
+
+Đây là nó.
+
+Đây là hình ảnh.
+
+Chúng tôi đã cố định các trọng số trong Llama 3.2.
+
+Chúng tôi đã xác định được một số mô-đun mục tiêu trong đó.
+
+Và sau đó, đối với mỗi mô-đun mục tiêu, chúng tôi sẽ xác
+
+định một cặp ma trận được gọi là Laura A và Laura B.
+
+Và điều này đã diễn ra theo cách khiến mô-đun mục tiêu có số lượng chiều rất lớn.
+
+Nó có rất nhiều khía cạnh.
+
+Laura A và Laura B có số chiều ít hơn nhiều so với thiết kế ban đầu, đến
+
+mức bạn có thể nhân Laura A với Laura B, và kết quả sẽ là một ma trận
+
+lớn hơn với số chiều đúng, sau đó bạn có thể mở rộng nó bằng hệ số alpha.
+
+Bạn thêm điều đó vào mô-đun mục tiêu, và điều đó cho phép bạn đào tạo Laura A
+
+và Laura B, và để chúng ảnh hưởng đến mô-đun mục tiêu sao cho bạn có thể cơ
+
+bản ảnh hưởng đến toàn bộ Llama 3.2 chỉ bằng cách tinh chỉnh một số ma trận nhỏ.
+
+Đó là cách nó hoạt động.
+
+Được rồi.
+
+Và bây giờ, chúng ta sẽ giới thiệu một số siêu tham số quan trọng đi kèm với điều đó.
+
+Hãy nhớ rằng, hyperparameters chỉ là một thuật ngữ hoa mỹ để chỉ bất kỳ
+
+loại cài đặt nào không phải là các tham số thực tế của mô hình.
+
+Đó là một yếu tố khác ảnh hưởng đến toàn bộ quá trình đào tạo và bạn có thể tìm hiểu thêm về những yếu tố đó.
+
+Hãy thử chúng.
+
+Đặt chúng khác nhau.
+
+À, trước khi bắt đầu quá trình huấn luyện, việc điều chỉnh các siêu tham số và
+
+thử nghiệm với các giá trị khác nhau được gọi là tối ưu hóa siêu tham số.
+
+Và thực ra, đó chỉ là quá trình thử và sai.
+
+Và đây là một phần quan trọng của quá trình đào tạo, thử nghiệm các siêu tham số khác nhau và xem những cái nào hoạt động tốt nhất.
+
+Vậy các siêu tham số cho quá trình Lora
+
+là gì? Những siêu tham số nào là quan
+
+trọng? Có thể bạn đã biết chúng rồi.
+
+Đầu tiên trong số đó, tất nhiên, là r, tức là
+
+số chiều trong các ma trận có chiều thấp hơn này.
+
+À, thường thì bạn thấy mọi người bắt đầu với ma trận
+
+8 chiều, sau đó tăng lên 16 và rồi lên 32.
+
+Nhưng 8, 16, 32 là những giá trị rất phổ biến cho R.
+
+Nói chung, trong lĩnh vực khoa học dữ liệu, có một quy tắc là các siêu tham số thường là lũy thừa của hai.
+
+Bạn sẽ thường thấy chúng ta sẽ thực hiện nhiều việc như vậy, và bạn cũng sẽ thường thấy
+
+rằng mọi người sử dụng các lũy thừa khác nhau của số 2 cho các siêu tham số.
+
+Và tôi nghĩ đó là một loại truyền thuyết đô thị và huyền thoại rằng một số trong số này là
+
+cần thiết vì chúng cải thiện khả năng của mô hình trong việc sử dụng bộ nhớ một cách hiệu quả.
+
+Nhưng phần lớn những điều này chỉ là huyền thoại hơn là thực tế.
+
+Đã trở thành một quan niệm mê tín rằng mọi người thường chỉ tập trung vào các số mũ hai cho các tham số siêu.
+
+Và ý tưởng cho rằng điều này hiệu quả hơn cho bộ nhớ vì
+
+tất nhiên, các byte được tổ chức thành các lũy thừa của hai.
+
+À, tôi không biết liệu điều đó có thật hay không.
+
+À, vậy đó, đó chỉ là điều mà mọi người đều làm.
+
+Nó giống như.
+
+Thật ra, nó phổ biến đến mức gần như đã trở thành bản năng thứ hai.
+
+Tôi cảm thấy không thoải mái khi cố gắng xác định kích thước lô không phải là lũy thừa của
+
+hai, vì điều này đã ăn sâu vào suy nghĩ của tôi rằng nó phải là lũy thừa của hai.
+
+Nhưng như chúng ta sẽ thấy, chúng ta có thể thử nghiệm một số phương pháp với điều này.
+
+Bạn chắc chắn không cần phải cảm thấy bị giới hạn bởi một lũy thừa của hai.
+
+Bạn có thể có giá trị R, là 11 nếu bạn muốn.
+
+Điều đó sẽ khiến người ta cảm thấy khó chịu.
+
+Dù sao đi nữa.
+
+Nó sẽ cảm thấy xấu xa.
+
+Nhưng không phải vậy.
+
+Không sao đâu.
+
+Dù sao đi nữa, đó là của chúng tôi.
+
+Vậy còn cái khác là
+
+gì? Cái khác là Alpha.
+
+Bạn nhớ alpha là gì.
+
+Alpha đơn giản là hệ số nhân.
+
+Bạn đang nhân hai ma trận này với giá trị nào trước khi thêm vào mô-đun mục tiêu.
+
+Và quy tắc chung mà mọi người thường áp dụng là chọn alpha bằng gấp đôi R.
+
+Bạn không cần phải làm vậy.
+
+Nhưng tôi luôn làm như vậy.
+
+Tôi đã từng thử sử dụng các giá trị khác nhau của alpha, và tôi có thể xác nhận rằng khi làm như vậy,
+
+các giá trị khác nhau của alpha hoạt động kém hơn so với việc chỉ sử dụng double, nhưng chỉ kém hơn một chút.
+
+Thành thật mà nói, điều đó không tạo ra sự khác biệt lớn.
+
+À, nhưng đúng vậy, giá trị ban đầu của alpha ít nhất phải gấp đôi
+
+giá trị của R. Vì vậy, nếu R là 32, thì alpha sẽ là 64.
+
+Đó chính là điều bạn nên làm.
+
+Nhưng chắc chắn bạn nên thử một vài lựa chọn khác để xem liệu có thể đạt kết quả tốt hơn không.
+
+Đó là R và alpha.
+
+Và sau đó là việc bạn chọn các mô-đun mục tiêu nào.
+
+Và đây là điều mà một lần nữa, đó chỉ là một quy tắc chung.
+
+Bạn thường chọn những người thu hút sự chú ý.
+
+Bạn sẽ thấy ngay khi chúng ta vào trong và chọn chúng.
+
+Đó thường là những lớp mà bạn nhắm đến, ít nhất là ban đầu.
+
+Và sau đó, bạn có thể quyết định cũng nhắm mục tiêu vào các lớp MLP.
+
+Nếu bạn muốn có sự linh hoạt hơn, bạn muốn có khả năng hấp thụ
+
+dữ liệu đào tạo và điều chỉnh mô hình một cách linh hoạt hơn nữa.
+
+À, nhưng thông thường, bạn sẽ bắt đầu bằng cách chỉ tác động vào phần đầu chú ý.
+
+Thử xem thế nào?
+
+Thêm vào nếu cần.
+
+À, và đúng vậy, đó thường là điều mà mọi người thường làm hầu hết thời gian.
+
+Hướng đến sự chú ý của người dùng.
+
+Tôi đã cố gắng, tôi đã thử cả hai cách với dự án này và tôi đã đạt được.
+
+Tôi nghĩ rằng tôi đạt được kết quả tốt hơn một chút khi có nhiều hơn chỉ
+
+là sự chú ý, nhưng chỉ một chút thôi, và nó mất nhiều thời gian hơn.
+
+Về cơ bản, nguyên tắc chung là bắt đầu với các tiêu đề chính, mà bạn sẽ thấy ngay sau đây.
+
+Bây giờ tôi biết bạn đang nghĩ gì.
+
+Bạn đang nghĩ, ừm, bạn đã giải thích về Laura rất rõ ràng, nhưng chúng ta không ở đây để tìm hiểu về Laura.
+
+Chúng tôi ở đây để tìm hiểu về Laura.
+
+Vậy hãy nghe về tín hiệu.
+
+Vậy, tín hiệu tất nhiên đại diện cho quá trình lượng tử hóa.
+
+Đó là điều chúng ta đã gặp trong tuần thứ ba.
+
+Vậy là bạn đã biết một chút về điều này.
+
+Ý tưởng là xem xét kỹ lưỡng ngay cả với llama llama 3.2, nó có 3 tỷ trọng số.
+
+Đó vẫn là một lượng dữ liệu rất lớn.
+
+Mỗi thông số trong số này, mỗi thông số trong số này được mô hình hóa dưới dạng số thực 32 bit.
+
+Và điều đó tương đương với 32 bit, tức là khoảng bốn byte.
+
+Vậy là 3 tỷ lần cho mỗi lần cắn.
+
+Bạn có thể tự tính toán.
+
+Đó sẽ là khoảng 12GB.
+
+Thực ra là 13GB.
+
+À, làm tròn.
+
+À, vậy nên nó chiếm 13GB RAM và, à, có một ý tưởng mà ai đó
+
+đã nảy ra, nghe giống như một trong những ý tưởng của thực tập sinh.
+
+Nó giống như, ừm, kiểu như vậy.
+
+Được rồi, vậy thì sao nếu chúng ta giữ lại tất cả các trọng số này,
+
+giữ lại 3 tỷ trọng số, nhưng thay vì mỗi trọng số có 32 bit.
+
+Nếu chúng ta giảm độ chính xác của từng cái
+
+thì sao? Đây là cách để hiểu vấn đề.
+
+Bạn có thể hình dung mỗi trọng số này giống như một núm vặn, một bộ
+
+điều chỉnh độ sáng, một công tắc điều chỉnh độ sáng cho đèn của bạn.
+
+Bạn đang xoay núm điều chỉnh này.
+
+Đèn đang sáng và tối, và điều chúng tôi muốn nói là, được rồi, chúng
+
+ta có tất cả các chế độ khác nhau mà đèn có thể bật.
+
+Nếu chúng ta làm cho nó có độ phân giải thô hơn thì sao? Chúng
+
+ta đã thiết lập sao cho chỉ có 256 tùy chọn khả dụng ở đây,
+
+hoặc nói cách khác, với 8 bit chỉ có 256 tùy chọn khả dụng.
+
+Nhấp chuột 256 lần.
+
+Hoặc chúng ta có thể làm cho nó thậm chí còn thô hơn.
+
+Có thể chỉ có 16 vị trí khả dĩ.
+
+Đó là bốn bit.
+
+Chỉ 16.
+
+Click click click.
+
+Và ánh sáng sẽ trở nên sáng hơn, sáng hơn, sáng hơn.
+
+Nhưng hãy giữ lại tất cả các tạ của bạn.
+
+Nếu chúng ta thử thay đổi con số đó thành chỉ sử dụng các số có 4 bit thì sao?
+
+À, ý tôi là phản ứng đầu tiên của bạn có thể là "Ừ, được thôi, không sao cả."
+
+Nhưng nhưng điều đó đang loại bỏ rất nhiều thông tin đã được huấn luyện trong quá trình huấn luyện trước.
+
+Đã có rất nhiều điều chỉnh cẩn thận các thông số để tạo ra một mô hình tốt.
+
+Nếu bạn giảm tất cả xuống chỉ còn 16 vị trí khả thi, bạn sẽ mất rất nhiều thông tin.
+
+Và có lẽ điều đó không khác biệt lắm so với việc loại bỏ ba phần tư
+
+các lớp và chỉ còn lại một phần tư các lớp với độ chính xác tuyệt đối.
+
+Ừm.
+
+À, cũng hơi buồn cười.
+
+Đây là một trong những tình huống kỳ lạ mà bạn có thể vừa có bánh vừa ăn bánh, khi giảm xuống chỉ còn bốn
+
+bit, điều này chắc chắn sẽ làm giảm hiệu suất mô hình, giống như việc nhấp chuột một cách thô sơ, nhấp, nhấp, nhấp.
+
+Kết quả càng giảm, độ chính xác càng kém.
+
+Họ đạt kết quả kém hơn trên tất cả các chỉ số đánh giá, nhưng không
+
+đến mức bạn có thể nghĩ, không đến mức gần như bạn có thể nghĩ.
+
+Họ chỉ làm kém hơn một chút.
+
+Họ cũng không làm tệ hơn là bao.
+
+Chúng chắc chắn không tệ gấp bốn lần.
+
+Nó tốt hơn nhiều, nhiều lần so với việc loại bỏ ba phần tư
+
+các lớp, điều đó sẽ gây hậu quả nghiêm trọng cho mô hình.
+
+Ừm, ừm, vậy, ừm, vậy đó là một kết quả thí nghiệm kỳ lạ.
+
+Điều đó rất mang tính thực nghiệm.
+
+Nó giống như chúng ta đã thử và nó cũng tạm được.
+
+Và chúng tôi tiết kiệm không gian lưu trữ đến mức chỉ còn một phần tư, mang
+
+lại sự tiết kiệm bộ nhớ đáng kể mà không ảnh hưởng quá nhiều đến hiệu suất.
+
+Chỉ có một ảnh hưởng nhỏ đến hiệu suất.
+
+Và hóa ra đây là một mẹo rất hay.
+
+Chỉ thử nghiệm thôi nhưng nó hoạt động rất tốt.
+
+Giả định là khi chúng ta thực hiện đào tạo, chúng ta có xu hướng thu được nhiều chi tiết hơn
+
+mức cần thiết, tức là có nhiều thông tin được tích hợp vào mạng thần kinh hơn mức cần thiết.
+
+Và việc giảm độ chính xác là một phương pháp rất hiệu quả để nén mạng thần kinh.
+
+Bạn vẫn giữ được hầu hết khả năng giải thích, vẫn giữ được hầu hết trí
+
+tuệ của mạng thần kinh, đồng thời giảm đáng kể dung lượng mà nó chiếm dụng.
+
+Đó chính là cách suy nghĩ đó.
+
+Đó là một thủ thuật thông minh cho phép chúng ta nén mạng thần kinh
+
+một cách rất hiệu quả, tương tự như cách một tệp MP3 vẫn nghe khá
+
+tốt, mặc dù nó nhỏ hơn rất nhiều so với tệp WAV đầy đủ.
+
+Cũng giống như vậy, tôi nghĩ.
+
+Và đúng vậy, việc giảm từ 32 bit xuống còn 8 bit là rất phổ biến. Hoặc thậm chí
+
+giảm xuống còn 4 bit, tức là chỉ có 16 vị trí khả dĩ, thực sự rất nhỏ.
+
+Và đó chính là điều chúng ta sẽ làm.
+
+Và đó chính là lý do tại sao màu sắc phổ biến nhất thường được mã hóa xuống còn 4 bit trong hầu hết các trường hợp.
+
+Và có một vài điểm kỹ thuật cần lưu ý, đó là điểm thường gây
+
+nhầm lẫn, thậm chí ngay cả đối với các chuyên gia đôi khi cũng vậy.
+
+À, trước hết, cần lưu ý rằng khi tôi nói rằng nó giảm xuống còn khoảng 16 vị trí khả thi.
+
+Một số có 4 bit thường nằm trong khoảng từ 0 đến 15, với 16 giá trị khả dĩ.
+
+Nhưng không phải là chúng ta coi những con số này là số nguyên, như
+
+cách thông thường người ta hiểu một số có 4 bit, mà không phải vậy.
+
+Thay vào đó, nó được hiểu là một số thập phân, với 16 vị trí khả dĩ,
+
+và những vị trí này được ánh xạ sang 16 giá trị số thập phân khả dĩ.
+
+Và họ thường sử dụng một phân phối chuẩn để có thể đại diện một cách thông minh
+
+cho một khoảng giá trị số thập phân có thể có với chỉ 16 vị trí thô.
+
+Vì vậy, bạn có thể coi 16 thiết lập này như việc duyệt qua
+
+các giá trị có thể có của một số thập phân, theo cách
+
+mà có thể giữ lại một phần kiến thức của mạng thần kinh.
+
+Đó là điểm quan trọng.
+
+Nó không được chuyển đổi thành số nguyên.
+
+Và một điểm kỹ thuật khác thường khiến mọi người bối rối là
+
+việc lượng tử hóa này được áp dụng cho mô hình cơ sở.
+
+Mô hình cơ sở đang được lượng tử hóa xuống còn bốn bit.
+
+Chúng tôi không thực hiện lượng tử hóa các ma trận Laura.
+
+Chúng ta sẽ thảo luận về độ chính xác của chúng vào lần sau, nhưng hiện tại chúng ta đang lượng tử hóa mô hình cơ sở xuống còn bốn bit.
+
+À, và điều đó khiến người ta bối rối vì cái tên Laura
+
+nghe giống như đang nói đến "Laura lượng tử" hay gì đó.
+
+Điều bạn đang lượng hóa là mô hình cơ sở.
+
+Các ma trận Laura là riêng biệt.
+
+Vậy đó là hai điều kiện quan trọng, ừm, cần lưu ý trong trường hợp này.
+
+Nhưng bây giờ, bạn đã hiểu rõ về lượng tử hóa và bạn cũng đã hiểu rõ về Q Laura.
+
+
+À, đây quả là một bất ngờ thú vị.
+
+Chúng tôi không ở Cursa.
+
+Chúng tôi đã chuyển sang Google Colab.
+
+Tuần này chủ yếu là các buổi thực hành, trừ một buổi.
+
+Tôi sẽ sử dụng Google Colab, và hiện tại tôi đang xem Colab cho tuần thứ bảy, ngày đầu tiên.
+
+Và có thể bạn đang tự hỏi, làm thế nào để tìm được liên kết
+
+đến Colab? Có rất nhiều nơi bạn có thể tìm thấy liên kết đến Skylab.
+
+Một trong số đó chỉ cần di chuột đến tuần thứ bảy, ngày đầu tiên.
+
+Vào ngày đó, có một phòng thí nghiệm trong kho lưu trữ.
+
+Tôi có một liên kết đến đây.
+
+Tôi cũng đã đặt một liên kết trong tệp readme và ở bất kỳ đâu khác mà tôi có thể nghĩ đến để đặt liên kết.
+
+Việc tìm kiếm một liên kết có lẽ khá dễ dàng, nhưng bạn có thể bắt đầu bằng cách truy cập vào ngày đầu tiên của tuần thứ bảy.
+
+Tìm liên kết đến Colab.
+
+Colab này là phiên bản mới của tuần thứ bảy, ngày đầu tiên Q Laura.
+
+Giới thiệu.
+
+Khi chúng ta đi sâu vào ma trận Q Laura, các mô hình và tất cả những điều thú vị đó.
+
+Và đây chúng ta đang ở trong Colab.
+
+Và trước hết, có một số điều cần nhắc nhở bạn.
+
+Bây giờ ở góc trên bên phải trong Colab, như bạn có thể nhớ từ tuần thứ ba, chúng ta đang xem
+
+phần này, bạn có thể chọn loại runtime và chúng ta muốn chọn T4. Hãy đảm bảo rằng T4 đã được chọn.
+
+Không cần phải có RAM cao.
+
+Đây là hộp miễn phí mà bạn nhận được miễn phí từ Google.
+
+Miễn là bạn có tài khoản Google, đó là tất cả những gì bạn cần, và điều này cũng hoàn toàn miễn phí.
+
+À, vậy bạn có thể sử dụng điều này miễn phí, nhưng bạn cần phải sử dụng T4.
+
+Và điều khác cần nhắc nhở bạn là trong quá trình làm việc, bạn có thể gặp phải lỗi
+
+thời gian chạy kỳ lạ "Cuda là bắt buộc, nhưng không khả dụng cho các bit và byte".
+
+Và hãy nhớ, đó là điều bình thường.
+
+Điều đó không có nghĩa là bạn cần cài đặt hoặc nhập các gói Pip,
+
+mà có nghĩa là bạn cần ngắt kết nối và xóa môi trường chạy.
+
+Bắt đầu lại từ đầu, bao gồm dòng đầu tiên này ở đây để cài đặt, ừm, các bit và byte.
+
+Nhưng nếu bạn không bắt đầu với một phiên bản mới và thực hiện điều
+
+đó từ đầu, thì bạn sẽ không thể giải quyết được vấn đề này.
+
+Điều này xảy ra khi Google âm thầm thay thế phần cứng của bạn bằng một thiết bị có cấu hình thấp hơn
+
+vì họ hết dung lượng hoặc lý do nào đó, và sau đó bạn không thể tiếp tục sử dụng như bình thường.
+
+Bạn phải quay lại đỉnh.
+
+Hy vọng bạn còn nhớ điều đó.
+
+À, và còn một điều nữa cần nhớ.
+
+À, tôi xin lỗi, à, nhưng còn một điều nữa.
+
+Và đó là vấn đề về nút "hugging face" của bạn, hy vọng là bạn đã thực
+
+hiện điều này trong tuần thứ ba, nhưng ở đây có biểu tượng nút nhỏ này.
+
+Khi bạn nhấn vào đây, bạn sẽ thấy rằng tất cả các phím tắt mà bạn đã từng thiết lập trong Colab đều sẽ xuất hiện ở đây.
+
+Bạn chỉ cần kích hoạt tính năng này hoặc nó có thể đã được kích hoạt sẵn cho bạn.
+
+À, và hãy đảm bảo rằng token khuôn mặt ôm ấp đó có sẵn cho phòng thí nghiệm này, nếu không nó sẽ yêu cầu
+
+bạn khi bạn đến đó và bạn phải lấy token khuôn mặt ôm ấp đó từ tài khoản khuôn mặt ôm ấp của mình.
+
+Thực ra, có một liên kết ở phần sau của bài thực hành này, và với liên kết đó, bạn đã sẵn sàng.
+
+Bạn đã sẵn sàng.
+
+Bạn hy vọng bây giờ đã kết nối.
+
+Bạn có thể đã vào chế độ chạy và chọn "Khởi động lại phiên" hoặc
+
+chỉ cần nhấn nút "Kết nối" ở đây để truy cập vào hộp T4.
+
+Cách kiểm tra là bạn vào đây, sau đó vào phần "Xem tài nguyên" và
+
+bạn có thể thấy rằng bạn có một hộp T4 với GPU có 15GB.
+
+Này, tôi cần khởi động lại phiên làm việc của mình ở đây để chúng ta bắt đầu lại từ đầu.
+
+Khởi động lại phiên
+
+làm việc? Có.
+
+Vậy hãy đảm bảo rằng RAM của chúng ta hoàn toàn trống.
+
+Bạn có thể thấy tôi đang có ba phiên làm việc đang hoạt động, và
+
+tôi đang tiêu tốn nhiều vì hiện tại tôi đang làm rất nhiều việc.
+
+Nhưng hy vọng rằng bạn chỉ có một phiên làm việc đang hoạt động, đó chính là phiên này.
+
+Được rồi.
+
+Sẵn sàng.
+
+Hãy bắt đầu thôi.
+
+Được rồi.
+
+Và điều đầu tiên cần làm luôn là chạy dòng lệnh này ở đây:
+
+`pip install`, sau đó nhấn Enter để thực thi nó, tất nhiên rồi.
+
+À mà này, "minus Q" có nghĩa là "im lặng".
+
+Vì vậy, nó không cung cấp cho bạn một lượng lớn kết quả.
+
+Và việc nâng cấp "minus minus" có nghĩa là nó sẽ nhận được phiên bản mới nhất
+
+của "bits and bytes", đây là gói phần mềm xử lý quá trình lượng tử hóa.
+
+Một cái tên hài hước, bit và byte.
+
+À, và sau đó chúng ta có rất nhiều thư viện nhập vào ở đây, mà, ừm, và tôi không chắc tất cả những thư viện này
+
+đều cần thiết, nhưng có lẽ tôi có thể cắt giảm bớt một chút, nhưng dù sao thì cũng có rất nhiều thư viện nhập vào, bao
+
+gồm việc nhập thư viện Transformers, thư viện nổi tiếng từ Hugging Face mà chúng ta đã tìm hiểu lần đầu tiên trong tuần thứ ba.
+
+Và bây giờ có rất nhiều hằng số mà chúng ta sẽ làm việc với ở đây.
+
+À, hằng số đầu tiên là một hằng số được gọi là mô hình cơ sở, đây là mô
+
+hình mà chúng ta sẽ sử dụng làm mô hình cơ sở để tinh chỉnh trong tuần này.
+
+Và chúng tôi đang chọn phiên bản llama 3.2.
+
+Phiên bản 3 tỷ của nó.
+
+Nếu bạn muốn, bạn có thể chọn bất kỳ mẫu cơ bản nào khác mà bạn cảm thấy phù hợp với kích thước của mình.
+
+Kích thước tương tự.
+
+Các kích thước tương tự như Gemma, Phi hoặc deep seq.
+
+À, và tất cả họ đều sẽ làm tốt.
+
+Tất nhiên, điều này yêu cầu bạn phải được phê duyệt quyền truy cập, và chúng tôi đã thực hiện điều đó vào tuần thứ ba.
+
+Nếu bạn bỏ qua tuần thứ ba và bạn không nên bỏ qua tuần thứ ba, điều đó thật tuyệt vời.
+
+Nhưng nếu bạn đã làm điều đó, thì bây giờ bạn sẽ cần phải đi yêu cầu phê duyệt cho llama,
+
+và bạn có thể muốn quay lại xem các video của tuần ba nếu bạn không biết cách làm điều đó.
+
+Hoặc bạn có thể sử dụng Kwan uh từ Alibaba Cloud, dịch vụ này có nhiều.
+
+Tôi không nghĩ họ có bất kỳ quy trình phê duyệt nào cả.
+
+Hoặc nếu họ làm, thì quá trình đó diễn ra rất nhanh chóng và hiệu quả.
+
+Bất kỳ mô hình nào trong số đó cũng sẽ hoạt động rất tốt.
+
+Llama là loài phổ biến nhất trong ngành công nghiệp.
+
+Meta thực sự đã làm rất tốt trong việc đưa sản phẩm này ra thị trường một cách nhanh chóng.
+
+Vì vậy, tôi tập trung vào điều này cho bạn để bạn có thể sử dụng phương pháp mà bạn có khả năng gặp phải trong thực tế.
+
+Được rồi, tôi không nhớ là đã chạy các hằng số chưa, nhưng bây giờ tôi đã chạy cái này.
+
+Còn gì nữa?
+
+Chế độ sáng.
+
+Bạn nhớ đấy, chế độ sáng là đúng.
+
+Nếu bạn chỉ muốn sử dụng bộ dữ liệu đơn giản, hãy đặt giá trị false cho bộ dữ
+
+liệu ngắn. Nếu bạn muốn sử dụng toàn bộ bộ dữ liệu khổng lồ, hãy đặt giá trị true.
+
+Mặc dù chúng ta sẽ làm, nhưng hiện tại chúng ta sẽ xem xét cả hai một chút.
+
+Vậy bây giờ chúng ta sẽ xem xét mô hình đã được tinh
+
+chỉnh này, đây là mô hình mà tôi đã tinh chỉnh sẵn.
+
+Và thế là tôi đang lao vào một cách vội vã.
+
+Đây là việc nhìn về tương lai.
+
+Lý do tôi làm điều này là để cho bạn thấy các lớp của nó.
+
+Nhưng bạn không cần phải làm vậy.
+
+Rõ ràng chúng ta sẽ tiến hành xây dựng và tự mình thực hiện một số điều chỉnh chi tiết.
+
+Vậy nên bạn không cần lo lắng rằng mình chưa có một trong những thứ này,
+
+nhưng nó là công khai, nên bạn có thể sử dụng nó như hiện tại.
+
+Được rồi, bây giờ tôi đang đăng nhập vào Hugging Face.
+
+Điều này phụ thuộc vào việc tôi đã cấp quyền truy cập.
+
+Nếu bạn chưa thực hiện, một cửa sổ pop-up nhỏ sẽ xuất hiện với nội dung "Cho phép truy cập
+
+vào token Hugging Face của bạn" và bạn nhấn "Có", sau đó bạn sẽ được đăng nhập vào Hugging Face.
+
+Được rồi, bây giờ chúng ta sẽ xem xét các phiên bản khác nhau
+
+của mô hình llama 3.2 ở các mức độ lượng tử hóa khác nhau.
+
+Vậy đây là cách chúng ta lần đầu tiên tải llama.
+
+À, chúng ta đang truyền vào mô hình cơ sở này và sẽ tải nó vào.
+
+Chúng ta đã làm điều này trước đây vào tuần thứ ba.
+
+Vậy điều này có lẽ không còn xa lạ với bạn.
+
+Hiện tại, mô hình Llama 3.2 đang được tải xuống vào hộp này.
+
+Và thế là bộ nhớ GPU của chúng ta tăng vọt.
+
+Nó đang tiêu tốn khoảng 12GB RAM ngay lập tức.
+
+Và ừm, chúng ta sẽ để nó chạy.
+
+Và khi hoàn thành, chúng ta sẽ in ra dấu vết bộ nhớ.
+
+Và sau đó, chúng ta sẽ xem xét mô hình chính nó, mà chúng ta đã làm trước
+
+đó, vào tuần thứ ba, để nhắc lại về các lớp khác nhau của mạng thần kinh.
+
+Ừm, được rồi.
+
+Điều đó dường như đã diễn ra rất nhanh đối với tôi vì, ừm, kể từ lần cuối cùng, ừm, mặc dù tôi đã khởi
+
+động lại kernel này, nó đang chạy trên một hệ thống đã hoạt động sẵn, và tôi đã chạy nó một lần trước đó.
+
+Lần đầu tiên bạn chạy chương trình này, nó sẽ mất khoảng hai phút.
+
+Được rồi, bây giờ tôi sẽ in kích thước bộ nhớ, và nó chiếm 12,9GB bộ nhớ.
+
+À, phần lớn điều đó hiện đang được xử lý trên GPU.
+
+Và đó chính là, ừm, quy mô của nó.
+
+Và bây giờ chúng ta sẽ đi sâu vào chính mô hình cơ bản.
+
+Được rồi.
+
+Vậy hãy in mô hình cơ bản.
+
+Và đây là cách nó trông như thế nào.
+
+Khi bạn in nó ra, bạn sẽ thấy tất cả các lớp của mạng thần kinh.
+
+Đây là một đối tượng tập hợp PyTorch với một chuỗi các lớp, tương tự
+
+như mạng thần kinh mà chúng ta đã xây dựng cách đây vài ngày.
+
+À, cũng giống như vậy, nhưng mà, nhưng mà, ừm, nhưng mà nhiều hơn, ừm, nên chúng ta đã xem qua điều này một cách sơ lược trong tuần thứ ba.
+
+Vì vậy, một số điều trong số này có thể đã quen thuộc với bạn.
+
+Có một lớp nhúng.
+
+Sau đó có 28 bộ các lớp giải mã Lama này.
+
+Và mỗi mô hình đều có bước tự chú ý (self-attention) tiếp theo là MLP
+
+(Multi-Layer Perceptron), sau đó được đưa vào layernorm và cuối cùng là vào smaller norm.
+
+Và rồi, ừm, đó là, đó là cơ bản là vậy.
+
+Và sau đó đi đến tận cùng của nó.
+
+Và bạn còn nhớ vào tuần thứ ba, tôi đã cung cấp cho bạn một số liên kết để
+
+đọc thêm. Nếu bạn muốn tìm hiểu sâu hơn, bạn có thể xem lại những liên kết đó.
+
+Bạn cũng có thể dán đoạn văn này vào ChatGPT và yêu cầu: "Hãy giải thích chi tiết về kiến trúc của Llama cho tôi."
+
+Nếu bạn muốn tìm hiểu sâu hơn, hãy giải thích từng phần.
+
+Và nói chung, tôi muốn từ từ đưa bạn vào sâu hơn trong chủ đề này khi chúng ta tiến hành khóa học.
+
+Vậy các lớp của một mạng thần kinh như thế này, mỗi lớp là một tập hợp các thành
+
+phần gọi là neuron, những thuật toán này cơ bản thực hiện một phép tính hồi quy tuyến tính,
+
+chỉ là tổng có trọng số, sau đó đưa kết quả qua một hàm gọi là hàm phi tuyến
+
+tính, trong trường hợp của Llama là hàm SELU, mà tôi nghĩ đã chia sẻ liên kết trước
+
+đó, cách thực hiện điều này, vì việc thực hiện các phép hồi quy tuyến tính cơ bản
+
+là thực hiện nhiều phép nhân và cộng, cuối cùng nó chỉ là một phép tính ma trận.
+
+Mỗi lớp cơ bản chỉ thực hiện một số phép nhân ma trận.
+
+Và đó chính là cách để thực hiện tất cả các mô hình hồi quy tuyến tính này một cách song song.
+
+Lại là từ các video YouTube của tôi.
+
+Điều này giống như việc thực hiện nhiều thao tác trộn âm thanh trên các bàn trộn âm thanh cùng lúc.
+
+Và ma trận là một cách nhanh chóng để thực hiện điều đó.
+
+Và đó là lý do tại sao các tác vụ này đều dựa trên tính toán ma trận và tại sao chúng chạy
+
+rất nhanh trên GPU, vì GPU được thiết kế để thực hiện nhiều phép tính ma trận, ban đầu là để xử lý
+
+song song với tốc độ cao, nhằm hiển thị các trò chơi, xây dựng từng khung hình của một lần làm mới màn
+
+hình khi bạn hiển thị một thế giới 3D lên màn hình 2D bằng các đa giác và các thành phần khác.
+
+Nhiều phép tính ma trận.
+
+Vì vậy, mỗi lớp trong số này bao gồm việc xử lý một ma trận và có
+
+một số cấp độ, một số chiều là đầu vào cho lớp này và một số chiều.
+
+Đó là kết quả.
+
+Và nó chứa các ma trận với các tham số để có thể tạo ra các đầu ra từ các đầu vào.
+
+Và do đó, lớp đầu tiên này, ma trận nhúng, có số chiều đầu vào là 128.000.
+
+Và đó là, đó là, đó là 128.000 số khác nhau được nhập vào.
+
+Và kết quả đầu ra chỉ có 3072 chiều.
+
+Và đó chính là điểm chính, đó là loại chiều sâu nội tại của mô hình llama.
+
+Vậy, khi nhìn vào điều đó, bạn có thể tự hỏi, vậy rốt cuộc có
+
+gì trong 128.000 chiều không gian này? Và câu trả lời rất đơn giản.
+
+Thực ra, điều này được sử dụng để truyền các token, tức là
+
+các token có trong chuỗi đầu vào cho mô hình và các token.
+
+Bạn có thể nhớ rằng đối với llama, thực tế có 128.256 giá trị khác nhau có thể có của token đó.
+
+À, đó là chỉ số token.
+
+Và nếu bạn đang theo dõi tất cả những điều này, đừng lo lắng nếu bạn không
+
+hiểu, nhưng nếu bạn hiểu, bạn có thể thắc mắc: "Chờ đã, tại sao nó không
+
+chỉ là một chiều?" Đó là một số có thể có nhiều giá trị khác nhau.
+
+Tại sao không chỉ có một chiều được truyền vào và 3000 chiều được tạo
+
+ra từ lớp nhúng này? Câu trả lời là điều này liên quan đến điều
+
+tôi vừa đề cập khi chúng ta thảo luận, tôi nghĩ là chỉ cách đây
+
+vài ngày, rằng các mạng thần kinh thích nhận đầu vào là các vectơ one-hot,
+
+tức là các vectơ chỉ chứa 0 và 1, không chứa nhiều số khác nhau.
+
+Và như vậy, token được chuyển đổi thành một vectơ ma trận one-hot, trong đó tất cả các
+
+phần tử đều bằng 0 trừ vị trí đại diện cho token này, nơi nó bằng 1.
+
+Vậy nếu chỉ số token đầu tiên của bạn là từ, thì vector sẽ là 100.000 và 128.000 số 0.
+
+Nếu token đầu tiên là từ "yes" và đó là số hai,
+
+thì bạn sẽ nhận được giá trị 010000 cho 128.000 số 0.
+
+Vậy các token đầu vào được chuyển đổi thành một vectơ one-hot, là một vectơ
+
+có 128.000 chiều với chỉ một giá trị 1 ở đâu đó trong đó.
+
+Và lớp nhúng có nhiệm vụ nhận vector one-hot khổng lồ với rất nhiều
+
+giá trị 0 và chỉ một giá trị 1, sau đó nén nó thành
+
+một vector có 3000 chiều, đó chính là vector nhúng cho token đó.
+
+Và đó chính là chức năng của lớp nhúng, lớp đầu tiên của mô hình Llama.
+
+Và có lẽ đó là nhiều chi tiết hơn bạn cần.
+
+Nhưng mà, tôi nghĩ rằng đối với những ai quan tâm, tôi muốn chia sẻ góc nhìn đó một lần nữa.
+
+Dán đoạn văn này vào mô hình ngôn ngữ lớn (LLM) yêu thích của bạn nếu bạn
+
+muốn tìm hiểu sâu hơn về ý nghĩa của nó, sau đó bạn có thể xem xét
+
+các chiều khác và nhớ rằng đây là số chiều đi vào và số chiều đi ra.
+
+Và như vậy, bạn có thể thấy rằng có bốn loại lớp khác nhau trong lớp chú ý.
+
+Tôi nhớ lại, chúng ta đã đề cập sơ qua về điều này trong tuần
+
+thứ ba, nhưng có các ký tự Q, K, V và O cho đầu ra.
+
+À, truy vấn, khóa, giá trị và kết quả.
+
+Và họ có 3000 chiều.
+
+Và một số trong số chúng có tới 1000 chiều.
+
+À, và kết quả cuối cùng có 3000 chiều.
+
+À, và đó chính là cơ chế tự chú ý (self-attention) và mô hình mạng nơ-ron đa lớp (MLP) mà bạn
+
+có thể thấy, có một cổng (gate) với đầu vào là 3000 và đầu ra là 8000. Sau đó, nó chia
+
+tách, lấy 3000 chiều và mở rộng ra thành 8000, rồi lại thu gọn 8000 chiều đó trở lại thành 3000.
+
+Và đó chính là bộ lớp MLP.
+
+À, và tất cả những điều này được thực hiện 28 lần.
+
+À, và sau đó có một đầu LLM, và đầu này có các đặc trưng đầu vào với 3000 chiều bên trong.
+
+Số chiều của đầu ra một lần nữa là 128.000.
+
+Đó chính là điều đang xuất hiện ở phần cuối cùng.
+
+Và đó là gì.
+
+Bạn có thể tưởng tượng được không?
+
+Bạn nghĩ đó có thể là gì?
+
+Cái gì? Mỗi chiều trong số 128.000
+
+chiều đó chứa đựng điều gì?
+
+Mỗi chiều trong số đó đại diện cho xác suất rằng số
+
+token đó sẽ là token tiếp theo xuất hiện sau đầu vào.
+
+Đó là kết quả được hiển thị trên màn hình.
+
+Vậy nên, điều này có thể chi tiết hơn so với những gì bạn mong đợi.
+
+Đó là nhiều chi tiết hơn bạn cần.
+
+Điều quan trọng là bạn cần có một chút cảm nhận về những gì bạn đang thấy ở đây.
+
+Hãy xem qua để có cái nhìn tổng quan, sau đó nhập vào ChatGPT hoặc mô hình ngôn ngữ lớn (LLM) yêu thích của bạn.
+
+Hãy cảm nhận xem việc có những lớp khác nhau và tính đa chiều khác nhau có ý nghĩa như thế nào.
+
+Không phải là bạn cần phải biết tất cả những điều này để trở thành một kỹ sư trí tuệ
+
+nhân tạo, nhưng việc có một chút hiểu biết về những gì đang diễn ra sẽ rất hữu ích.
+
+Và sau khi bạn đã làm điều đó, và sau khi bạn đã thử nghiệm một chút, hãy khởi
+
+động lại phiên làm việc bằng cách thực hiện lệnh "runtime restart session" để xóa sạch mọi thứ.
+
+Chúng ta cần giảm dung lượng RAM GPU xuống và sau đó tăng trở lại mức tối đa.
+
+Và tôi sẽ gặp lại các bạn trong video tiếp theo để xem cùng một nội dung, nhưng đã được lượng tử hóa.
+
+
+Được rồi.
+
+Và như vậy, bạn đã khởi động lại phiên làm việc của mình.
+
+Bộ nhớ GPU của bạn đã giảm xuống còn 0.
+
+Trở lại đầu trang.
+
+Bạn cần chạy lệnh pip install ở trên cùng.
+
+Nếu không, bạn sẽ gặp lỗi kỳ lạ về bit và byte.
+
+Chạy lại các lệnh nhập, chạy lại các hằng số, sau đó cuộn qua những gì chúng ta đã làm.
+
+À, xin lỗi.
+
+Và đăng nhập với khuôn mặt.
+
+À, sau đó cuộn xuống, à, và, à, quay lại đây đến
+
+ô này có ghi "Tải mô hình cơ sở bằng 8 bit".
+
+Và đây là nơi chúng ta thiết lập cấu hình lượng tử này, một đối tượng
+
+bit và byte, trong đó chúng ta chỉ định rằng việc tải 8 bit là đúng.
+
+Và sau đó, ngoài ra, chúng ta vẫn sử dụng cùng một mã để tải vào mô hình cơ sở.
+
+Nhưng chúng ta truyền vào cấu hình lượng tử đó.
+
+Vậy là chúng ta đang làm điều đó.
+
+Vậy bây giờ nó sẽ tải nó vào.
+
+Và khi nó tải dữ liệu vào, nó chuyển đổi
+
+từng thông số từ 16 bit xuống còn 8 bit.
+
+Và hãy cùng xem.
+
+Dung lượng bộ nhớ trước đó là 0,9 gigabyte.
+
+Đó là mức độ lớn của nó.
+
+Vậy điều chúng ta muốn biết là kích thước của nó sẽ là bao
+
+nhiêu sau khi chúng ta đã chuyển đổi nó thành phiên bản 8 bit?
+
+Chúng ta cũng sẽ in lại mô hình cơ bản để xem nó
+
+trông như thế nào, nhằm hiểu rõ hơn về mô hình cơ bản.
+
+Và tôi sẽ gặp bạn ngay lập tức sau khi điều này được tải xong cho tôi.
+
+Được rồi.
+
+Vậy là đã được tải xong.
+
+Chúng tôi có mẫu cơ bản ở đây.
+
+À, bây giờ là phiên bản 8 bit.
+
+Dung lượng bộ nhớ chiếm dụng nhỏ hơn nhiều.
+
+Dung lượng là 3,6 GB.
+
+Và nếu chúng ta xem xét ở đây, bạn sẽ thấy rằng chúng ta đã in nó ra.
+
+Nó trông rất giống nhau.
+
+Bạn có thấy sự khác biệt nào ở đây không.
+
+Cùng kiến trúc.
+
+Nhưng bạn sẽ thấy rằng các lớp này đã được thay thế bằng một tín hiệu tuyến tính 8 bit.
+
+Trước đây nó là tuyến tính và bây giờ nó ghi là tuyến tính 8 bit.
+
+Độ chính xác đã bị giảm.
+
+Mẫu cơ bản có kích thước nhỏ hơn.
+
+À, nhưng về cơ bản thì nó hoàn toàn giống nhau, à, cùng kiến trúc, độ chính xác
+
+thấp hơn trong các trọng số, họ chọn qua 256 giá trị khả thi thay vì vậy.
+
+Được rồi.
+
+Và như vậy, đã đến lúc khởi động lại phiên làm việc một lần nữa để giải phóng GPU.
+
+Khởi động lại phiên làm việc.
+
+À, vâng.
+
+Và sau đó quay lại đỉnh một lần nữa và, quay lại đỉnh một lần nữa.
+
+Chạy các lệnh cài đặt pip, chạy các lệnh nhập, chạy các hằng số,
+
+đăng nhập vào Hugging Face, sau đó hãy đến và tham gia cùng tôi.
+
+Hãy bỏ qua việc đầu tiên chúng ta đã làm.
+
+Vượt qua phiên bản 8 bit.
+
+Khởi động lại phiên làm việc.
+
+Đây rồi.
+
+Đã đến lúc tải tokenizer và mô hình cơ sở bằng bốn bit.
+
+Và đây là cấu hình bits và bytes mà chúng tôi sử dụng.
+
+Được rồi.
+
+Vậy cấu hình lượng tử này là nơi chúng ta mô tả
+
+cách chúng ta muốn đưa mô hình này xuống còn 4 bit.
+
+Và nếu bit thứ tư là 1, có nghĩa là chúng ta thực hiện 4 bit.
+
+Sử dụng double quant giống như một thủ thuật bổ sung mà nó sử dụng để thực hiện điều này.
+
+Quá trình lượng tử hóa hai lần này giúp tiết kiệm thêm một chút không gian, do đó nó thậm chí còn hiệu quả hơn.
+
+Và mọi người thích làm điều này.
+
+Điều này có nghĩa là khi bạn thực hiện các tác vụ tính toán, có một số cách khác nhau để thực hiện.
+
+Bạn có thể sử dụng một số loại dữ liệu khác nhau.
+
+Và loại này, float16 nhị phân, là loại đặc biệt nhanh trên loại GPU này.
+
+Thực ra, chúng tôi sẽ chuyển đổi giữa chúng tùy thuộc vào loại GPU mà bạn đang sử dụng.
+
+Khi chúng ta có phiên bản cuối cùng của mã, và phiên bản này ở đây cho biết
+
+rằng chúng ta sẽ giảm nó xuống còn 4 bit, tương ứng với 16 giá trị khả thi.
+
+Nhưng làm thế nào chúng ta quyết định cách ánh xạ 16 giá trị khả dĩ đó thành các số thực tế.
+
+Và Ncf4 là một phương pháp cụ thể để thực hiện điều đó, và đây là phương pháp phổ biến nhất hiện nay.
+
+Và đây là cái hoạt động rất hiệu quả.
+
+Và nó cố gắng gán 16 giá trị khả dĩ cho các vị trí
+
+mà các số có thể xuất hiện trong không gian số thập phân.
+
+Vì vậy, điều này cơ bản cung cấp cho bạn một cấu hình có thể điều chỉnh độ chính
+
+xác của toàn bộ mô hình dựa trên Lama xuống chỉ còn bốn bit một cách rất hiệu quả.
+
+Và tôi thực sự nên đã chạy chương trình này trong khi đang nói chuyện.
+
+À, nhưng thế là xong.
+
+Bây giờ chúng ta sẽ làm điều này.
+
+Chúng ta sẽ tải nó vào, và bạn sẽ thấy rằng GPU và RAM cũng vậy.
+
+Bạn đã thấy lần trước nó chỉ tăng lên một chút.
+
+Chúng tôi không cần phải khởi động lại kernel.
+
+Có thể.
+
+Nếu bạn không làm điều đó, có lẽ bạn đã tự mình phát hiện ra điều đó.
+
+Chúng tôi hiện đang tải nó vào theo từng phần nhỏ.
+
+Và sau đó, chúng ta sẽ in lại dấu vết bộ nhớ và mô hình cơ sở một lần nữa.
+
+Và đây là dung lượng bộ nhớ chỉ còn 2.2GB.
+
+Nó thực sự rất nhỏ.
+
+Và đây là sơ đồ kiến trúc mạng thần kinh mà chúng tôi đã in ra.
+
+Lại một lần nữa, đó là cùng một kiến trúc, cùng một cấu trúc lớp.
+
+Nhưng bạn sẽ thấy rằng chúng tôi đã thay thế các lớp này bằng bốn lớp tuyến tính
+
+4 bit bên trong đây khi chúng tôi đã giảm độ chính xác xuống mức thấp nhất.
+
+Đó chính là tác dụng của quá trình lượng tử hóa.
+
+Nó đã điều chỉnh xuống mức độ chính xác cực kỳ nhỏ này.
+
+Được rồi.
+
+Và cuối cùng, điều chúng ta sẽ làm là tải mô hình đã được tinh chỉnh.
+
+Đây giống như một cái nhìn thoáng qua về tương lai.
+
+Chúng tôi sẽ xây dựng mô hình được tinh chỉnh này trong vài ngày tới, nhưng tôi
+
+đã làm xong rồi, nên tôi sẽ chỉ tải mô hình mà tôi đã tạo trước đó.
+
+À, và à, đây là cách bạn làm điều đó.
+
+Mô hình thư viện này đại diện cho việc tinh chỉnh hiệu quả về tham số.
+
+Và đó là, ừm, tên gọi thân mật cho thư viện của họ thực hiện Lora.
+
+Vậy chúng ta đang tải mô hình cơ sở và một số mô hình Llama, cùng với một số ma trận Lora lên trên đó.
+
+Đó chính là những gì tôi đang tải vào bây giờ.
+
+Vậy đây là mô hình 4 bit, phiên bản 2.2GB của mô hình của
+
+chúng tôi nhưng đã được tải thêm một số tham số bổ sung.
+
+Vậy kích thước của nó là bao nhiêu?
+
+Kích thước tổng cộng là 2.27GB.
+
+Vậy là dung lượng 2.2GB kèm theo khoảng 70MB dữ liệu bổ sung và phần dữ liệu bổ sung đó.
+
+Đó chính là nơi kỳ diệu xảy ra.
+
+Các phần bổ sung là các ma trận Lora.
+
+Được rồi.
+
+Hãy xem các ma trận Lora này.
+
+Chúng ta có thể in mô hình đã được tinh chỉnh và thở phào nhẹ nhõm, vì có khá nhiều thứ cần làm.
+
+Đây là nó.
+
+Hãy cùng xem qua.
+
+Bây giờ nó có thể hiển thị trên nhiều trang.
+
+Tôi có thể cần thu nhỏ màn hình để bạn có thể nhìn thấy toàn bộ nội dung này.
+
+Zoom ra xa thêm lần nữa.
+
+Trời ơi.
+
+À, ừm, hy vọng bạn có thể nhìn thấy điều này trên màn hình của mình.
+
+Có khá nhiều điều để tiếp thu ở đây.
+
+À, và chúng ta hãy dành một chút thời gian để xem qua cái này.
+
+Vì vậy, ban đầu, rõ ràng có rất nhiều điểm tương đồng.
+
+Đó là điều tương tự như những gì chúng ta đã xem xét trước đây ở mức độ tổng quan.
+
+Nhưng bên trong có rất nhiều chi tiết hơn.
+
+Như vậy, bạn có thể thấy rằng mô hình cơ sở
+
+hiện được gọi là mô hình Lora, nó vẫn là Llama.
+
+Nó vẫn giữ nguyên lớp nhúng, không có gì thay đổi ở đó.
+
+Và sau đó là 28 lớp giải mã llama.
+
+Được rồi.
+
+Và đây là phần tự chú ý ngay tại đây.
+
+Và bây giờ hãy nhớ rằng sự chú ý vào bản thân có các chữ cái Q, k, V và O.
+
+Mỗi cái trong số đó đều lớn hơn rất nhiều.
+
+Bây giờ họ cũng có cùng một lớp tuyến tính bốn bit như chúng ta đã có trước đây.
+
+Nhưng bây giờ họ có Laura A và Laura B.
+
+Đây là hai ma trận Laura được nhân với nhau để có thể thêm vào
+
+lớp nền, nhưng được nhân với hệ số nhân alpha nếu bạn đang theo dõi.
+
+Nếu bạn nhớ tất cả những điều này, tôi khuyên bạn nên tìm hiểu kỹ và xem xét về chiều không gian.
+
+Vậy trong trường hợp này, đây là một thiết lập rất điển hình của Laura mà tôi có ở đây.
+
+Kích thước của ma trận Laura nằm ở đâu?
+
+R có 3232 chiều.
+
+Vậy, điều bạn sẽ thấy ở đây là Lama có 3000 chiều trong 3000 chiều trong dự án Q của nó.
+
+Nếu bạn xem xét kỹ Laura A và Laura B, bạn sẽ thấy rằng Laura A có 3000
+
+chiều vào và 32 chiều ra, trong khi Laura B có 32 chiều vào và 3000 chiều ra.
+
+Và như vậy, bạn có thể thực hiện tất cả các phép tính toán nếu bạn nhớ kiến thức về đại số ma trận.
+
+Nhưng nếu bạn có một ma trận có hình dạng như vậy và một
+
+ma trận có hình dạng như thế này, và bạn nhân chúng với nhau.
+
+Bạn có một vật có hình dạng như vậy mà bạn có thể dễ dàng thêm vào đó.
+
+Đó là cách nó hoạt động.
+
+Đó là lý do tại sao Laura đang đào tạo hai ma trận nhỏ, một
+
+ma trận trông giống như vậy và một ma trận trông giống như vậy.
+
+Và khi các ma trận này được nhân với nhau, bạn sẽ thu được một ma trận lớn, có thể
+
+được cộng sau khi nhân với hệ số alpha, giúp bạn hiểu rõ hơn về những gì đang xảy ra.
+
+Đây là thủ thuật toán học cho phép chúng ta chỉ cần huấn luyện các ma trận Laura
+
+và Laura B nhỏ và để chúng tác động và điều chỉnh ma trận Lama lớn hơn.
+
+Và chúng tôi đang thực hiện điều đó cho từng trường hợp của q, k, V và O.
+
+Và chúng tôi không can thiệp vào MLP.
+
+Và thế là hết.
+
+Đó là Q Laura, tức là phần Laura và phần Q hoạt động trong một mô hình được tinh chỉnh kỹ lưỡng.
+
+Một lần nữa, hãy nắm bắt bản năng.
+
+Và nếu bạn muốn đi sâu hơn, hãy đưa nó vào LM yêu thích của bạn, để nó phân tích kỹ lưỡng.
+
+Bạn cũng có thể xem mã nguồn thực tế của mô hình "hugging face" để hiểu cách mạng thần kinh này được xây dựng.
+
+Và cuối cùng, điều tôi muốn làm là thực hiện một số phép tính ma trận nhanh để cho các bạn thấy một điều.
+
+Vậy, cấu hình Q Laura phổ biến nhất và là cấu hình chúng ta sẽ
+
+sử dụng cho chế độ tập luyện nhẹ nếu chế độ nhẹ được bật.
+
+Đó là khóa đào tạo mà bạn muốn tham gia, một khóa đào tạo khá tiêu chuẩn.
+
+Kích thước tập dữ liệu đào tạo là 20.000.
+
+Và theo nguyên tắc chung, người ta thường nói rằng đó nên là điểm
+
+khởi đầu của bạn khi thực hiện việc tinh chỉnh Laura như vậy.
+
+Mặc dù không có, bạn nên thử nghiệm.
+
+Đôi khi, ít dữ liệu hơn cũng có thể mang lại kết quả tuyệt vời.
+
+À, vậy, ừm, kích thước bên trong là 32.
+
+Đó là giá trị chung.
+
+Và bạn sẽ nhớ rằng 32 chính là kích thước bên trong mà bạn thấy ngay tại đây.
+
+Với R là 32, có bao nhiêu tham số trong cấu hình Q Laura của chúng
+
+ta? Bạn có thể xem xét các ma trận khác nhau trong mạng thần kinh
+
+đó và sẽ thấy rằng q, k, v và O là bốn lớp chú ý.
+
+Chúng tôi đã thêm các bảng kích thước này.
+
+Vậy tổng cộng có bao nhiêu tham số trong các ma trận đó.
+
+Vậy là tóm lại.
+
+Và đây là cài đặt mặc định tiêu chuẩn nhất với Q, trong đó các mô-đun mục tiêu của bạn là các lớp tự chú ý.
+
+Điều đó rất phổ biến.
+
+Vì vậy, việc bắt đầu bằng các chữ cái q, v và o là rất phổ biến.
+
+Và như vậy, nếu chúng ta cộng tổng số tham số mà mỗi lớp Laura có, tổng của bốn lớp này sẽ là.
+
+Có 28 lớp.
+
+Vậy tôi phải nhân con số đó với 28.
+
+Hãy nhớ rằng khi sử dụng Q Laura, trong quá trình lượng tử hóa
+
+mô hình cơ sở, bạn không cần lượng tử hóa các ma trận Laura.
+
+Đó là các số nguyên 32 bit đầy đủ.
+
+Vậy chúng ta nhân con số đó với bốn để tính cho bốn byte và chia kết quả đó cho một triệu.
+
+Để chúng ta có thể tính toán bằng megabyte.
+
+Đây sẽ là kích thước tổng thể của ma trận Laura trong cấu hình của chúng ta.
+
+Sẽ có tổng cộng 18 triệu tham số và điều đó tương đương với 73MB dữ liệu. Được rồi, để tóm tắt lại, chúng ta vừa mới tìm hiểu về số lượng tham số trong ma
+
+trận Lora và trường hợp điển hình khi áp dụng Lora cho các lớp chú ý (attention layers),
+
+cụ thể là các lớp V và O, với R bằng 32, đó là các chiều nội bộ.
+
+Và chúng tôi đã tính toán rằng sẽ có 18 triệu tham số và nó sẽ chiếm 73MB dung lượng.
+
+Và 18 triệu là một con số rất lớn, chắc chắn rồi.
+
+Đó là một con số lớn.
+
+Nhưng hãy nhớ rằng mô hình llama có 3 tỷ tham số.
+
+Vì vậy, điều này nhỏ hơn đáng kể so với Llama và Llama.
+
+Hãy nhớ rằng con lạc đà ban đầu có dung lượng khoảng 12GB.
+
+Đây chỉ là 17MB.
+
+Và con số 17 đó có thể đã quen thuộc với bạn.
+
+Bởi vì nếu bạn nhớ, chúng ta đã nói rằng dung lượng bộ nhớ của toàn
+
+bộ hệ thống là 2.27GB, và mô hình gốc chưa được lượng tử hóa là 2.2GB.
+
+Và sự khác biệt giữa hai con số đó là 17MB.
+
+Vậy là nó hoạt động.
+
+Nó thực sự hiệu quả.
+
+Sự khác biệt ở đây là những thông số bổ sung này đã được đưa ra từ chính toán học này.
+
+À, và chỉ để thực sự chứng minh rằng nó hoạt động.
+
+Tôi còn một điều nữa muốn cho bạn xem.
+
+Hãy xem này.
+
+Tôi sẽ vào chế độ ôm mặt và tôi sẽ cho các bạn
+
+xem đây chính là mô hình mà chúng ta vừa xem qua.
+
+Đây là mô hình được tinh chỉnh kỹ lưỡng và được lưu trữ trong Hugging Face.
+
+Khi bạn đang xem một mô hình ở chế độ "hugging face", bạn có thể luôn chuyển sang tab "Tệp và Phiên bản".
+
+Tôi đang ở trong các mô hình ngay bây giờ.
+
+Đây là mô hình mà chúng ta vừa xem ở đó.
+
+Và nếu tôi xem xét các tệp tin đó, có một tệp tin có tên là "adapter model tensors".
+
+Và đó chính là tệp tin cần tìm.
+
+Đó chính là các ma trận Q Laura và Laura được lưu trữ trong thư mục này.
+
+Bạn không cần phải làm điều này.
+
+Tôi làm điều này chỉ để chứng minh cho bạn thấy rằng kích thước thực tế của tệp này trên đĩa là 73,4MB dữ liệu.
+
+Đó chính là nội dung chúng ta sẽ tập luyện vào cuối tuần này.
+
+Bạn sẽ có số này.
+
+Và tôi chỉ muốn nhân cơ hội này để cho các bạn thấy rằng 73,4 - hãy nhớ con số 73,4 này.
+
+Đó là 73,4.
+
+Đúng vậy.
+
+Thực sự đúng là những ma trận này chính là những gì chúng ta đang xây dựng.
+
+Đây là các thông số.
+
+Và đó chính là điều được lưu giữ trong cái ôm.
+
+Và như vậy, hy vọng điều này sẽ giúp bạn hiểu rõ hơn.
+
+Bạn có thể thực sự nhìn thấy thực tế đằng sau nó.
+
+Nhưng nếu bạn muốn đi theo hướng nhẹ nhàng, tôi sẽ đi theo hướng nặng hơn là
+
+đào tạo một mô hình lớn với tất cả 800.000 điểm dữ liệu, và tôi có thể
+
+chi tiêu thoải mái để sử dụng các ma trận Cultura và Lora mạnh mẽ hơn.
+
+Và tôi sẽ hơi điên rồ một chút ở đây.
+
+Điều này thật quá đáng.
+
+Bạn thường không tìm thấy sự phù hợp với một tập dữ liệu lớn như vậy.
+
+À, nhưng chúng ta sẽ làm và vì vậy tôi sẽ thử đặt R ở mức 256.
+
+Lại là một lũy thừa của hai.
+
+Bạn luôn có các số mũ hai.
+
+À, nhưng, ừm, r bằng 256.
+
+Đó chắc chắn là con số cao hơn so với mức thông thường, nhưng 800.000 là lượng dữ liệu lớn hơn so với mức mà mọi người thường sử dụng.
+
+Vậy nên tôi cảm thấy điều đó đáng giá.
+
+À, và nếu chúng ta tính toán xem điều đó có nghĩa là gì, thì điều đó có nghĩa là R sẽ là một con số lớn hơn.
+
+Đây là cùng một phép tính như trước đây cho các lớp chú ý của chúng ta.
+
+Tôi không chỉ tập trung vào các lớp chú ý, mà còn tập trung vào các lớp MLP.
+
+À, và đó là điều thường xảy ra khi bạn đang tập luyện nhiều hơn.
+
+Bạn có nhiều dữ liệu hơn, hãy nhắm mục tiêu càng nhiều càng tốt.
+
+Và như vậy, nếu chúng ta cộng tất cả những điều đó lại, chúng ta nhân với 28 cho số lượng các lớp giải mã xếp chồng này.
+
+À, và sau đó nhân với bốn cho bốn byte, à, trong một số 32 bit.
+
+Và sau đó chúng ta hãy in ra và xem điều này sẽ mất bao lâu.
+
+Vậy thì mô hình này sẽ có 389 triệu tham số.
+
+Vì vậy, có nhiều thông số hơn.
+
+Nó vẫn ít hơn gấp mười lần so với của llama.
+
+Bạn biết đấy, chúng ta vẫn chỉ bằng 10% kích thước của mô hình lớn.
+
+Nhưng chắc chắn đó là một mẫu lớn hơn.
+
+Và nó sẽ là phiên bản 1.1.55, với dung lượng dữ liệu lên đến 6 gigabyte mà chúng ta sẽ lưu trữ trên đĩa.
+
+Vậy nên nó sẽ là một mẫu lớn hơn.
+
+Và đó sẽ là phần quan trọng hơn mà tôi cũng sẽ huấn luyện để cho các bạn thấy toàn bộ.
+
+Và nếu bạn muốn, bạn cũng có thể làm điều đó, nếu điều
+
+này làm bạn hài lòng, nhưng loại nhẹ cũng sẽ hoàn toàn ổn.
+
+Và để cho bạn thấy điều này trong định dạng đầy đủ.
+
+Đây là mô hình mà tôi đã lưu trữ toàn bộ mô hình.
+
+Và bạn có thể thấy ở đây rằng tổng dung lượng của tất cả các mô hình adapter an toàn là 1,56 GB.
+
+Hãy nhớ con số 1,56 GB.
+
+Đây rồi.
+
+Cùng số.
+
+Đó chính là điều đó.
+
+Đó là 1,5GB 1,56GB, tức là tất cả những dữ liệu này đang được lưu trữ.
+
+Và điều đó thực sự mang lại cho bạn một cảm nhận cụ thể về việc thực
+
+hiện điều đó có nghĩa là gì? Q Laura, với một mô hình, nó thực sự trông
+
+như thế nào bên trong? Và cách thức này được ánh xạ như thế nào đến các
+
+thông số thực tế mà chúng ta đào tạo và sau đó lưu trữ trên đĩa,
+
+và cách chúng thực sự được áp dụng để điều chỉnh mô hình của bạn? Tốt.
+
+Hãy quay lại các slide để tóm tắt và nhắc lại cho các bạn.
+
+Sau đó, chúng tôi bắt đầu bằng việc nói rằng phiên bản gốc Llama 3.2, uh,
+
+có dung lượng dữ liệu là 13GB. Khi chúng tôi giảm xuống còn 8 bit, uh,
+
+dung lượng dữ liệu đã giảm xuống còn 3.6GB mà chúng tôi phải tải vào đó.
+
+Khi chúng tôi giảm xuống còn 4 bit, dung lượng dữ liệu là 2,2 GB.
+
+Nó nhỏ hơn rất nhiều, rất nhiều.
+
+Nhưng trong quá trình tinh chỉnh Q Laura, khi chúng ta chỉ tinh chỉnh các
+
+ma trận Laura, chúng ta không cần phải tinh chỉnh 2,2 GB dữ liệu.
+
+Chỉ 73MB.
+
+Đó là tất cả những gì xảy ra khi R bằng 32, khi chúng ta không quá lo lắng.
+
+À, và, à, cần lưu ý rằng chúng đại diện cho các số 32 bit.
+
+Chỉ có rất ít trong số họ.
+
+Và đó là lý do tại sao tổng cộng, lượng dữ liệu cần được đào tạo chỉ là 73MB.
+
+Đó là các kích thước mà chúng ta đang xem xét ở đây.
+
+Hy vọng rằng bây giờ mọi thứ đã trở nên rất thực tế đối với bạn.
+
+Như tôi đã nói, điều quan trọng không phải là bạn phải hiểu rõ về
+
+các lớp của mạng thần kinh, các ma trận và những thứ tương tự.
+
+Thật tốt khi có直觉，因为这意味着事情将开始顺利进行
+
+Và nếu bạn đã biết những điều này rồi, hy vọng một số thông tin trong đây vẫn thú vị
+
+và bạn đã tìm hiểu sâu hơn. Có thể, ừm, như, như, bạn biết đấy, tôi đã đơn giản hóa
+
+một số thứ, nhưng nhưng tất cả đều nằm trong tinh thần của những gì chúng ta đang làm.
+
+Và như vậy, ừm, hôm nay thực sự là một ngày mà chúng ta đã đi sâu hơn, nâng cao
+
+hơn, chuyên nghiệp hơn, vì bây giờ một số việc mà bạn đã có thể làm, như giải quyết
+
+các vấn đề liên quan đến API và mã nguồn mở, đã trở nên dễ dàng hơn với bạn.
+
+Công cụ, trợ lý và thậm chí cả vải lau có thể được sử dụng với chuỗi ngôn ngữ 1.0 hoặc không có chuỗi ngôn ngữ.
+
+Nhưng bạn cũng có thể chọn lọc dữ liệu, xây dựng mô hình cơ sở, và tinh chỉnh
+
+mô hình tiên tiến với kết quả không như mong đợi trong trường hợp của chúng ta.
+
+À, nhưng bây giờ bạn cũng có thể giải thích.
+
+Q Laura, bạn biết về phần Q và phần Laura, bạn hiểu, hy vọng có直觉 tốt về các
+
+h điều đó được chuyển đổi thành các thông số thực tế và kích thước trên đĩa.
+
+Và bạn cũng biết về các mô-đun mục tiêu R và Alpha, cùng ba tham số siêu quan trọng.
+
+Và quả thực, nếu bạn đang nghĩ về việc tôi đã đề cập trước đó về việc nhắm mục tiêu
+
+vào các lớp tự chú ý hoặc các lớp mạng nơ-ron đa lớp (MLP) như các mô-đun mục tiêu, và
+
+bạn có thể đang tự hỏi, vậy làm thế nào để biết công thức nào để xác định khi nào
+
+nên sử dụng cái nào? À, và tất nhiên, câu trả lời cho điều đó chính là công thức gốc.
+
+Đó là một siêu tham số, có nghĩa là bạn phải thực hiện tối
+
+ưu hóa siêu tham số, điều này cơ bản có nghĩa là Có.
+
+Đó là quá trình thử và sai.
+
+Bạn thực hiện một số thí nghiệm, bạn thử một số mô-đun mục tiêu.
+
+Bạn thấy điều gì xảy ra.
+
+Quy tắc chung hữu ích.
+
+Bắt đầu với các lớp chú ý.
+
+Bắt đầu với bốn lớp chú ý mà tôi đã đề cập ở đó.
+
+Đó là nơi mọi người hầu như luôn bắt đầu.
+
+Nếu bạn cần thêm sức mạnh, thêm khả năng giải thích, thì thường bạn sẽ thêm các lớp MLP.
+
+Có một số trường hợp bạn muốn thêm tiêu đề ML.
+
+Các LM cũng có mặt ở phía trước, nhưng chúng khá hiếm.
+
+Đó là lúc bạn muốn xuất ra một thứ có định dạng cụ thể,
+
+khác biệt, và bạn sẽ muốn thực hiện một số đào tạo ở đó.
+
+À, nhưng mà đây chỉ là những nguyên tắc chung thôi.
+
+Cách quan trọng nhất để chọn được các mô-đun mục tiêu phù hợp là thử nghiệm và
+
+xác định xem mô-đun nào hoạt động tốt nhất với chỉ số đánh giá của bạn.
+
+Không có con đường tắt nào cho việc thử nghiệm.
+
+Và như vậy, việc thử nghiệm chính là điều chúng ta sẽ thực hiện trong lần tới.
+
+Chúng ta sẽ làm thêm một chút về dữ liệu.
+
+Chúng ta cần chuẩn bị tập dữ liệu để tinh chỉnh mô hình.
+
+Chúng ta sẽ xem xét mô hình cơ sở mà chúng ta sẽ sử dụng và đánh giá nó so với mục tiêu kinh doanh.
+
+Và rồi chúng ta đến với khoảnh khắc hấp dẫn nhất.
+
+Vậy đấy, tuần này thật sự, thật sự thú vị. Tôi không thể chờ đợi được nữa.
+
+Tôi sẽ gặp bạn vào ngày mai.

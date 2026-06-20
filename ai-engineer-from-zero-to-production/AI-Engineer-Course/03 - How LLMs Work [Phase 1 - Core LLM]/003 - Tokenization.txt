@@ -1,0 +1,88 @@
+# Tokenization
+
+## Overview
+Tokenization is the process of splitting raw text into the atomic units — called tokens — that an LLM actually processes. It is the first and last transformation in every LLM interaction: text in, tokens processed, tokens out, text back. Getting tokenization wrong is one of the most common sources of subtle bugs in production AI systems, including unexpected cost overruns, context limit errors, and mangled outputs in non-English languages.
+
+## Key Points
+- Tokens are not words. Modern LLMs use Byte-Pair Encoding (BPE) or similar subword algorithms. Common words like "the" are one token; rare words like "tokenization" may split into multiple tokens ("token", "ization"). Spaces, punctuation, and capitalization all affect token boundaries.
+- Token count determines cost and feasibility. All major LLM APIs (OpenAI, Anthropic, Google) bill per input token and per output token. A rough rule of thumb: 1 token ≈ 0.75 English words, or 100 tokens ≈ 75 words. Non-English text, code, and JSON are typically less efficient (more tokens per character).
+- Every model has its own tokenizer vocabulary. GPT-4 uses the cl100k_base vocabulary (~100k tokens). Llama 3 uses a different 128k-token vocabulary. You cannot assume token counts are identical across models — always use the target model's tokenizer for accurate estimates.
+- Special tokens frame the conversation. Chat models use tokens like `<|system|>`, `<|user|>`, `<|assistant|>`, and `<|end_of_turn|>` to delimit roles. These consume tokens you did not explicitly write, which is why the raw API always uses slightly more tokens than your visible message text.
+- Token boundaries affect model behavior. Arithmetic errors in LLMs (e.g., "9.11 > 9.9") are partly explained by tokenization: numbers are tokenized as strings, not as numeric values, so the model has no native sense of magnitude.
+- Counting tokens before an API call is a production best practice. It lets you validate that you are within the context window, estimate cost before committing, and log token usage for monitoring dashboards.
+
+## Code Example
+```python
+# Exploring tokenization with the tiktoken library (used by OpenAI models)
+# Run: pip install tiktoken
+
+import tiktoken
+
+# Load the tokenizer for gpt-4o (cl100k_base encoding)
+enc = tiktoken.encoding_for_model("gpt-4o")
+
+# --- Basic encoding and decoding ---
+text = "Tokenization is tricky for AI Engineers."
+tokens = enc.encode(text)
+print(f"Text:   {text!r}")
+print(f"Tokens: {tokens}")
+print(f"Count:  {len(tokens)} tokens")
+print()
+
+# Decode back to verify round-trip accuracy
+decoded = enc.decode(tokens)
+print(f"Decoded: {decoded!r}")
+print()
+
+# --- Inspect individual token boundaries ---
+print("Token breakdown:")
+for token_id in tokens:
+    token_bytes = enc.decode_single_token_bytes(token_id)
+    print(f"  {token_id:6d} -> {token_bytes!r}")
+print()
+
+# --- Compare efficiency across text types ---
+samples = {
+    "English prose":  "The transformer architecture revolutionized natural language processing.",
+    "Python code":    "def compute_embedding(text: str) -> list[float]:\n    return model.encode(text)",
+    "JSON payload":   '{"role": "user", "content": "Hello, how are you?"}',
+    "Vietnamese":     "Xin chào, bạn có khỏe không?",
+    "Numbers":        "The answer is 9.11 which is less than 9.9",
+}
+
+print(f"{'Sample type':<20} {'Chars':>6} {'Tokens':>7} {'Chars/Token':>12}")
+print("-" * 50)
+for label, sample in samples.items():
+    token_count = len(enc.encode(sample))
+    char_count = len(sample)
+    ratio = char_count / token_count
+    print(f"{label:<20} {char_count:>6} {token_count:>7} {ratio:>12.2f}")
+
+# --- Practical: count tokens in a chat message list ---
+def count_chat_tokens(messages: list[dict], model: str = "gpt-4o") -> int:
+    """
+    Approximate token count for a list of chat messages.
+    Accounts for per-message overhead tokens added by the API.
+    """
+    enc = tiktoken.encoding_for_model(model)
+    tokens_per_message = 3  # <|start|>{role}\n{content}<|end|>
+    tokens_per_reply = 3    # reply primed with <|start|>assistant<|im_start|>
+    total = tokens_per_reply
+    for msg in messages:
+        total += tokens_per_message
+        total += len(enc.encode(msg["role"]))
+        total += len(enc.encode(msg["content"]))
+    return total
+
+messages = [
+    {"role": "system", "content": "You are a helpful AI assistant."},
+    {"role": "user",   "content": "Explain tokenization in two sentences."},
+]
+print(f"\nEstimated tokens for chat messages: {count_chat_tokens(messages)}")
+```
+
+## Notes
+A critical gotcha for non-English speakers: languages like Chinese, Japanese, Korean, Arabic, and Vietnamese are significantly less token-efficient than English. A Vietnamese sentence of 20 words might consume 40-60 tokens versus 25 for the same English sentence. This has real cost and context-window implications for global products. Additionally, be aware that tokenization is lossy for some structured data: UUIDs, base64 strings, and long numbers fragment into many small tokens, making them expensive to process and harder for the model to reason about — where possible, keep structured data outside the LLM's context or compress it first.
+
+## Summary
+Tokenization is the bridge between human text and the numerical world of LLMs. Accurate token counting before every API call is a non-negotiable production habit that controls cost, prevents context-overflow errors, and helps you understand why LLMs struggle with arithmetic and non-English text.

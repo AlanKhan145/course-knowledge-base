@@ -1,0 +1,684 @@
+# 015 - Stateful vs Stateless
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 23min
+
+---
+
+## 1. Summary
+
+This lesson explains the difference between **stateful** and **stateless** systems, backends, and protocols.
+
+The instructor emphasizes that this topic can be controversial because the exact definition depends on the level of discussion: application, backend service, whole system, function, or protocol.
+
+A **stateful backend** stores information about clients and depends on that information being available for the system to work correctly. A **stateless backend** does not rely on local memory or local state between requests. Instead, the client sends the required state with every request, or the backend retrieves state from an external system such as a database.
+
+The lesson explains statefulness using login sessions, load balancing, sticky sessions, TCP, UDP, DNS, QUIC, HTTP, cookies, and JWT.
+
+The key idea is that statefulness is not always bad, and statelessness is not automatically good. Both approaches have trade-offs.
+
+---
+
+## 2. Key Concepts
+
+### State
+
+State is information remembered by a system.
+
+Examples of state include:
+
+* User session
+* Login status
+* TCP sequence number
+* Database record
+* Shopping cart
+* Connection status
+* JWT token data
+* Cache entry
+
+The important question is not simply whether state exists, but whether the system depends on that state to function correctly.
+
+---
+
+### Stateful Backend
+
+A stateful backend stores state about clients and relies on that state being available.
+
+Example:
+
+```text id="4kycez"
+Client logs in
+Backend stores session in memory
+Client sends session ID later
+Backend checks local memory
+```
+
+If the backend restarts and loses the session, the client workflow may break.
+
+---
+
+### Stateless Backend
+
+A stateless backend does not rely on local memory from previous requests.
+
+Each request should contain enough information for the backend to process it, or the backend should retrieve needed state from an external system.
+
+```text id="h50b9j"
+Client → Request with session ID
+Backend → Checks database / external store
+Backend → Responds
+```
+
+The backend itself can be restarted or replaced without breaking the client workflow.
+
+---
+
+### Stateless Backend Can Still Use a Database
+
+A backend can be stateless even if the whole system stores state in a database.
+
+The backend application is stateless because it does not depend on local memory.
+
+The full system may still be stateful because the database stores important data.
+
+```text id="0q7a6a"
+Backend app: stateless
+Database: stateful
+Whole system: stateful
+```
+
+---
+
+### Scope Matters
+
+Stateful vs stateless depends on what level you are discussing.
+
+You can talk about:
+
+* Stateful function
+* Stateless function
+* Stateful backend
+* Stateless backend
+* Stateful protocol
+* Stateless protocol
+* Stateful system
+* Stateless system
+
+The answer can change depending on the scope.
+
+---
+
+### Restart Test
+
+A useful test for statelessness:
+
+```text id="t190x7"
+Can I restart the backend application while idle,
+then continue client workflows without breaking?
+```
+
+If yes, the backend is likely stateless.
+
+If no, the backend probably depends on local state.
+
+---
+
+### Stateful Login Session
+
+A common stateful example is storing user sessions inside backend memory.
+
+```text id="9y3rrm"
+User logs in
+Backend creates session S1
+Backend stores S1 in memory
+Client receives S1 as cookie
+Client sends S1 with future requests
+Backend checks local memory for S1
+```
+
+This works until the backend restarts or the client is routed to another backend instance.
+
+---
+
+### Stateless Login Session
+
+A stateless backend can store the session in a shared database or external store.
+
+```text id="j6hnxg"
+User logs in
+Backend creates session S1
+Backend stores S1 in database
+Client receives S1 as cookie
+Client sends S1 with future requests
+Any backend instance can check S1 in database
+```
+
+Now the backend can restart, and another backend instance can still validate the session.
+
+---
+
+### Load Balancing Problem
+
+Stateful backends can break behind a load balancer.
+
+Example:
+
+```text id="38aa6f"
+Request 1 → Backend A → Session stored in Backend A memory
+Request 2 → Backend B → Backend B does not know the session
+```
+
+The user may be forced to log in again.
+
+---
+
+### Sticky Sessions
+
+Sticky sessions make the load balancer send the same client to the same backend instance.
+
+```text id="if9s6k"
+Client A → always routed to Backend A
+Client B → always routed to Backend B
+```
+
+This can help stateful applications, but it reduces flexibility and can make scaling harder.
+
+---
+
+### Stateful Protocol
+
+A stateful protocol stores and depends on connection state.
+
+Example: TCP.
+
+TCP tracks:
+
+* Connection state
+* Sequence numbers
+* Acknowledgements
+* Window size
+* Flow control
+* Congestion control
+* Connection lifecycle
+
+If this state is lost, the TCP connection cannot continue correctly.
+
+---
+
+### Stateless Protocol
+
+A stateless protocol does not depend on a persistent connection state.
+
+Example: UDP.
+
+UDP sends independent datagrams.
+
+```text id="bw7of0"
+UDP datagram 1
+UDP datagram 2
+UDP datagram 3
+```
+
+Each datagram is independent. UDP itself does not maintain a connection.
+
+---
+
+### DNS over UDP
+
+DNS commonly uses UDP.
+
+Because UDP is stateless, DNS uses a query ID to match responses with requests.
+
+```text id="k4j0zo"
+Client → DNS query with query ID 123
+DNS Server → Response with query ID 123
+```
+
+The query ID helps the client know which response belongs to which request.
+
+---
+
+### TCP Is Stateful
+
+TCP is stateful because both client and server maintain connection information.
+
+```text id="sbqk5x"
+Client TCP state ↔ Server TCP state
+```
+
+They track the connection together.
+
+If the state is lost, the connection breaks.
+
+---
+
+### UDP Is Stateless
+
+UDP is stateless because it does not create or maintain a connection.
+
+```text id="xzse2d"
+Send datagram
+No connection state required
+```
+
+The application layer must handle identity, ordering, retries, or matching responses if needed.
+
+---
+
+### QUIC
+
+QUIC is interesting because it is built on UDP but behaves more like a stateful transport protocol.
+
+QUIC uses connection IDs to identify connections over UDP.
+
+```text id="2udzny"
+UDP packet + QUIC connection ID
+```
+
+This allows QUIC to maintain connection state even though UDP itself is stateless.
+
+---
+
+### HTTP Is Stateless
+
+HTTP is usually considered stateless.
+
+Each HTTP request contains the information needed for that request.
+
+```text id="vswpua"
+Request 1 → independent
+Request 2 → independent
+Request 3 → independent
+```
+
+However, HTTP often uses cookies to carry state between requests.
+
+---
+
+### Cookies
+
+Cookies allow the client to send state with each HTTP request.
+
+```text id="gsjduy"
+Cookie: session_id=S1
+```
+
+This helps a stateless HTTP protocol support user sessions.
+
+---
+
+### Stateless on Top of Stateful
+
+A stateless protocol can be built on top of a stateful protocol.
+
+Example:
+
+```text id="pkqcr3"
+HTTP is stateless
+TCP is stateful
+HTTP runs on top of TCP
+```
+
+If the TCP connection breaks, HTTP can simply create another connection and send another request.
+
+---
+
+### Stateful on Top of Stateless
+
+A stateful protocol can be built on top of a stateless protocol.
+
+Example:
+
+```text id="c71ij7"
+QUIC is stateful
+UDP is stateless
+QUIC runs on top of UDP
+```
+
+QUIC carries the connection state using its own protocol mechanisms.
+
+---
+
+### Fully Stateless System
+
+A fully stateless system is rare.
+
+A simple example is a service that checks whether a number is prime.
+
+```text id="xbg7y5"
+Client → Is 17 prime?
+Server → Yes
+```
+
+The server does not need to store anything.
+
+---
+
+### JWT
+
+JWT stands for **JSON Web Token**.
+
+JWT can be used to build stateless authentication because the token contains user information and claims.
+
+```text id="appb83"
+Client → Sends JWT
+Backend → Verifies signature
+Backend → Processes request
+```
+
+The backend does not need to look up a session in a database for every request.
+
+---
+
+### JWT Trade-Off
+
+JWT has advantages and disadvantages.
+
+Advantage:
+
+```text id="17g6a2"
+No server-side session lookup required
+```
+
+Disadvantage:
+
+```text id="m7h84v"
+If the token is stolen, revoking it is harder
+```
+
+With a database-backed session, the server can mark a session as invalid. With a stateless JWT, revocation is more difficult unless extra mechanisms are added.
+
+---
+
+### Refresh Token and Access Token
+
+A common JWT design uses:
+
+* Short-lived access token
+* Longer-lived refresh token
+
+The access token should expire quickly to reduce risk.
+
+The refresh token can be used to get a new access token.
+
+---
+
+### TLS
+
+TLS is important because tokens and cookies must be protected in transit.
+
+Without encryption, attackers may steal tokens or session IDs.
+
+---
+
+## 3. Important Notes
+
+* Stateful vs stateless is a scoped discussion.
+* Do not focus only on rigid definitions.
+* Focus on the side effects and engineering trade-offs.
+* A backend can be stateless while the whole system is stateful.
+* A database usually makes the whole system stateful.
+* Stateless backend services are easier to restart and scale.
+* Stateful backend services may need sticky sessions.
+* Storing session data in backend memory can break when load balancing is introduced.
+* Storing session data in a shared database or cache can make backend instances stateless.
+* TCP is stateful.
+* UDP is stateless.
+* DNS over UDP uses query IDs to match requests and responses.
+* QUIC is stateful even though it runs on top of UDP.
+* HTTP is considered stateless even though it often uses cookies.
+* JWT can reduce server-side state but introduces revocation challenges.
+* Statelessness is not automatically better.
+* Stateful systems are not automatically bad.
+* Every design has trade-offs.
+* Understanding limitations is more important than memorizing definitions.
+
+---
+
+## 4. Examples
+
+### Example 1: Stateful Backend Session
+
+```text id="i1tlg0"
+1. User logs in.
+2. Backend validates username and password.
+3. Backend creates session S1.
+4. Backend stores S1 in local memory.
+5. Client receives S1 as a cookie.
+6. Client sends S1 on future requests.
+7. Backend checks local memory.
+```
+
+Problem:
+
+```text id="e8e0iw"
+If the backend restarts, S1 is lost.
+```
+
+The user may be forced to log in again.
+
+---
+
+### Example 2: Stateful Backend Behind Load Balancer
+
+```text id="eyhxy5"
+Login request → Backend A
+Backend A stores session S1
+
+Profile request → Backend B
+Backend B does not know S1
+User is treated as unauthenticated
+```
+
+This is a common issue with stateful backends.
+
+---
+
+### Example 3: Sticky Session Solution
+
+```text id="brs1uj"
+Client → Load Balancer → Backend A
+Future requests from same client → Backend A
+```
+
+The user continues to hit the backend that has the session.
+
+This works, but it creates tighter coupling between the client and a specific backend instance.
+
+---
+
+### Example 4: Stateless Backend Session
+
+```text id="mbmzdh"
+1. User logs in.
+2. Backend validates credentials.
+3. Backend creates session S1.
+4. Backend stores S1 in database or Redis.
+5. Client receives S1 as a cookie.
+6. Any backend instance can validate S1 by checking the shared store.
+```
+
+Now Backend A, Backend B, and Backend C can all handle the same user.
+
+---
+
+### Example 5: Stateless Backend Restart
+
+```text id="gzix2l"
+Backend A crashes.
+Backend B starts.
+Client sends request with session ID.
+Backend B checks database.
+Request succeeds.
+```
+
+The workflow continues because the session was not stored only in Backend A memory.
+
+---
+
+### Example 6: TCP as Stateful Protocol
+
+```text id="ls1gcw"
+TCP connection:
+- SYN
+- SYN-ACK
+- ACK
+- Established
+- Sequence numbers
+- Acknowledgements
+- Window sizes
+```
+
+TCP requires both sides to remember connection state.
+
+---
+
+### Example 7: UDP as Stateless Protocol
+
+```text id="3jp1tm"
+Client → UDP datagram → Server
+Client → UDP datagram → Server
+```
+
+Each datagram is independent.
+
+UDP does not know whether the previous datagram arrived.
+
+---
+
+### Example 8: DNS Query ID
+
+```text id="11n1r9"
+Client sends:
+Query ID = 500
+Domain = google.com
+
+Server responds:
+Query ID = 500
+IP address = x.x.x.x
+```
+
+The query ID helps match the response to the request.
+
+---
+
+### Example 9: HTTP with Cookies
+
+```http id="80y32u"
+GET /profile HTTP/1.1
+Host: example.com
+Cookie: session_id=S1
+```
+
+HTTP itself is stateless, but cookies allow the client to carry state.
+
+---
+
+### Example 10: JWT Authentication
+
+```text id="mk05cc"
+Client logs in
+Server returns JWT
+Client sends JWT with future requests
+Server verifies JWT signature
+```
+
+The backend may not need to store a server-side session.
+
+---
+
+### Example 11: JWT Revocation Problem
+
+```text id="duazx3"
+JWT is valid for 1 hour.
+Attacker steals JWT.
+Server has no session record to invalidate.
+Attacker may use token until it expires.
+```
+
+This is why short-lived access tokens and refresh tokens are commonly used.
+
+---
+
+### Example 12: Stateless Prime Number Service
+
+```text id="u6o1ob"
+Client → Is 29 prime?
+Server → Yes
+```
+
+The server does not need a database or previous state.
+
+The input contains everything needed to compute the result.
+
+---
+
+## 5. Questions / Review
+
+1. What is state?
+
+2. What is a stateful backend?
+
+3. What is a stateless backend?
+
+4. Why does scope matter when discussing stateful vs stateless?
+
+5. Can a backend be stateless while the whole system is stateful?
+
+6. Why does using a database often make the whole system stateful?
+
+7. What is the restart test for statelessness?
+
+8. Why can storing sessions in backend memory be risky?
+
+9. What happens if a stateful backend restarts?
+
+10. Why can load balancing break stateful sessions?
+
+11. What are sticky sessions?
+
+12. What are the disadvantages of sticky sessions?
+
+13. How does storing sessions in a shared database make backend instances stateless?
+
+14. Why is TCP considered stateful?
+
+15. What state does TCP maintain?
+
+16. Why is UDP considered stateless?
+
+17. How does DNS match responses to requests when using UDP?
+
+18. What is a DNS query ID?
+
+19. Why is QUIC stateful even though it uses UDP?
+
+20. What is a QUIC connection ID?
+
+21. Why is HTTP considered stateless?
+
+22. How do cookies help HTTP carry state?
+
+23. How can a stateless protocol run on top of a stateful protocol?
+
+24. How can a stateful protocol run on top of a stateless protocol?
+
+25. What is a fully stateless system?
+
+26. Why is a prime number checker a good example of a stateless service?
+
+27. How can JWT support stateless authentication?
+
+28. What is the main revocation problem with JWT?
+
+29. Why are access tokens usually short-lived?
+
+30. Why is TLS important when using cookies or tokens?
+
+31. Is stateless always better than stateful?
+
+32. Is stateful always bad?
+
+33. Why should engineers focus on trade-offs instead of definitions?
+
+34. What is the most important lesson from stateful vs stateless design?

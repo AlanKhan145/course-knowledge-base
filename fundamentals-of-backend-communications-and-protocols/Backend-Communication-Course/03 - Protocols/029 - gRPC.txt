@@ -1,0 +1,1542 @@
+# 029 - gRPC
+
+**Section:** 03 - Protocols  
+**Duration:** 49 minutes  
+
+---
+
+## 1. Summary
+
+gRPC is a modern RPC framework originally developed by Google.
+
+RPC stands for:
+
+```text
+Remote Procedure Call
+```
+
+The core idea of RPC is simple:
+
+```text
+Call a function on another machine as if it were a local function.
+```
+
+gRPC is built on top of HTTP/2.
+
+It takes advantage of HTTP/2 streams to support different communication modes:
+
+- Unary request-response
+- Server streaming
+- Client streaming
+- Bidirectional streaming
+
+gRPC commonly uses Protocol Buffers, also called Protobuf, as its message format.
+
+Protocol Buffers are:
+
+- Binary
+- Compact
+- Schema-based
+- Language-neutral
+- Fast to serialize and deserialize
+
+gRPC is attractive for backend engineers because it gives one unified way to define APIs and generate client/server code in many languages.
+
+It is especially popular in microservices and internal service-to-service communication.
+
+---
+
+## 2. Key Concepts
+
+## 2.1 What Is RPC?
+
+RPC means:
+
+```text
+Remote Procedure Call
+```
+
+Instead of thinking in terms of HTTP endpoints like:
+
+```http
+POST /todos
+GET /todos
+```
+
+RPC thinks in terms of service methods:
+
+```text
+CreateTodo()
+ReadTodos()
+UploadFile()
+StreamLogs()
+```
+
+The client calls a method.
+
+The server executes that method.
+
+The server returns a response.
+
+---
+
+## 2.2 What Is gRPC?
+
+gRPC is an RPC framework that uses:
+
+```text
+HTTP/2 as the transport
+Protocol Buffers as the default message format
+Generated client/server stubs
+```
+
+Simplified stack:
+
+```text
+Application method call
+gRPC
+Protocol Buffers
+HTTP/2
+TCP
+IP
+```
+
+---
+
+## 2.3 Why gRPC Exists
+
+There are many ways for client and server to communicate:
+
+- REST
+- SOAP
+- GraphQL
+- WebSocket
+- TCP
+- UDP
+- Server-Sent Events
+- Custom protocols
+
+The problem is that every protocol needs client libraries.
+
+For every programming language, you may need:
+
+```text
+A client library
+A server library
+Serialization logic
+Error handling logic
+Compatibility rules
+Documentation
+Versioning
+```
+
+Maintaining all of this is hard.
+
+gRPC tries to solve this by standardizing:
+
+```text
+Service definition
+Message format
+Client generation
+Server generation
+Streaming model
+```
+
+---
+
+## 2.4 Protocol Buffers
+
+Protocol Buffers, or Protobuf, are a schema-based binary serialization format.
+
+You define messages and services in a `.proto` file.
+
+Then you generate code for your language.
+
+Example languages:
+
+- JavaScript
+- TypeScript
+- Python
+- Go
+- Java
+- C#
+- C++
+- Rust
+
+The same `.proto` file can generate clients and servers for many languages.
+
+---
+
+## 2.5 `.proto` File
+
+A `.proto` file defines:
+
+- Package
+- Messages
+- Services
+- RPC methods
+
+Example:
+
+```proto
+syntax = "proto3";
+
+package todoPackage;
+
+service Todo {
+  rpc CreateTodo (TodoItem) returns (TodoItem);
+  rpc ReadTodos (Empty) returns (TodoItems);
+}
+
+message Empty {}
+
+message TodoItem {
+  int32 id = 1;
+  string text = 2;
+}
+
+message TodoItems {
+  repeated TodoItem items = 1;
+}
+```
+
+This file describes the API contract.
+
+Both client and server use the same contract.
+
+---
+
+## 2.6 Service
+
+A service groups related RPC methods.
+
+Example:
+
+```proto
+service Todo {
+  rpc CreateTodo (TodoItem) returns (TodoItem);
+  rpc ReadTodos (Empty) returns (TodoItems);
+}
+```
+
+This defines a `Todo` service with two methods:
+
+```text
+CreateTodo
+ReadTodos
+```
+
+---
+
+## 2.7 Message
+
+A message defines the structure of data.
+
+Example:
+
+```proto
+message TodoItem {
+  int32 id = 1;
+  string text = 2;
+}
+```
+
+This means a `TodoItem` has:
+
+```text
+id: integer
+text: string
+```
+
+The numbers are field tags.
+
+Example:
+
+```proto
+int32 id = 1;
+string text = 2;
+```
+
+These numbers are part of the binary encoding.
+
+They should be managed carefully because they affect compatibility.
+
+---
+
+## 2.8 Repeated Fields
+
+A repeated field represents an array or list.
+
+Example:
+
+```proto
+message TodoItems {
+  repeated TodoItem items = 1;
+}
+```
+
+This means:
+
+```text
+TodoItems contains many TodoItem objects.
+```
+
+---
+
+## 2.9 Generated Stubs
+
+gRPC generates client and server code from the `.proto` file.
+
+These generated pieces are often called:
+
+```text
+stubs
+```
+
+The client stub lets the client call remote methods.
+
+The server stub helps the server implement those methods.
+
+Example:
+
+```text
+.proto file
+→ generate JavaScript client
+→ generate Python server
+→ both understand the same schema
+```
+
+This is one of gRPC's biggest benefits.
+
+---
+
+## 3. gRPC Communication Modes
+
+gRPC supports four main communication modes.
+
+---
+
+## 3.1 Unary RPC
+
+Unary RPC is normal request-response.
+
+The client sends one request.
+
+The server sends one response.
+
+```text
+Client → Request → Server
+Client ← Response ← Server
+```
+
+Example:
+
+```proto
+rpc CreateTodo (TodoItem) returns (TodoItem);
+```
+
+Use cases:
+
+- Create user
+- Get profile
+- Submit order
+- Fetch item by ID
+
+---
+
+## 3.2 Server Streaming
+
+In server streaming, the client sends one request.
+
+The server sends multiple responses.
+
+```text
+Client → Request → Server
+Client ← Response 1 ← Server
+Client ← Response 2 ← Server
+Client ← Response 3 ← Server
+```
+
+Example:
+
+```proto
+rpc ReadTodosStream (Empty) returns (stream TodoItem);
+```
+
+Use cases:
+
+- Download large data
+- Stream logs
+- Stream progress events
+- Live updates from server
+- Search results one by one
+
+---
+
+## 3.3 Client Streaming
+
+In client streaming, the client sends multiple requests.
+
+The server sends one response.
+
+```text
+Client → Message 1 → Server
+Client → Message 2 → Server
+Client → Message 3 → Server
+Client ← Response ← Server
+```
+
+Example:
+
+```proto
+rpc UploadTodos (stream TodoItem) returns (UploadSummary);
+```
+
+Use cases:
+
+- File upload
+- Large payload upload
+- Batch events
+- Client-side data stream
+
+---
+
+## 3.4 Bidirectional Streaming
+
+In bidirectional streaming, both client and server send streams of messages.
+
+```text
+Client ⇄ Server
+```
+
+Example:
+
+```proto
+rpc Chat (stream ChatMessage) returns (stream ChatMessage);
+```
+
+Use cases:
+
+- Chat
+- Multiplayer systems
+- Live collaboration
+- Real-time telemetry
+- Interactive systems
+
+---
+
+## 3.5 Why HTTP/2 Matters
+
+gRPC uses HTTP/2 streams.
+
+HTTP/2 gives gRPC:
+
+- Multiplexing
+- Stream IDs
+- Binary framing
+- Flow control
+- One connection with multiple streams
+
+This allows gRPC to support request-response and streaming models using the same protocol foundation.
+
+---
+
+## 4. Example: Todo gRPC API
+
+## 4.1 Todo Proto File
+
+Create a file:
+
+```text
+todo.proto
+```
+
+Content:
+
+```proto
+syntax = "proto3";
+
+package todoPackage;
+
+service Todo {
+  rpc CreateTodo (TodoItem) returns (TodoItem);
+  rpc ReadTodos (Empty) returns (TodoItems);
+  rpc ReadTodosStream (Empty) returns (stream TodoItem);
+}
+
+message Empty {}
+
+message TodoItem {
+  int32 id = 1;
+  string text = 2;
+}
+
+message TodoItems {
+  repeated TodoItem items = 1;
+}
+```
+
+This defines:
+
+```text
+Package: todoPackage
+Service: Todo
+Methods:
+  - CreateTodo
+  - ReadTodos
+  - ReadTodosStream
+Messages:
+  - Empty
+  - TodoItem
+  - TodoItems
+```
+
+---
+
+## 4.2 Unary Method: CreateTodo
+
+Definition:
+
+```proto
+rpc CreateTodo (TodoItem) returns (TodoItem);
+```
+
+Meaning:
+
+```text
+Client sends one TodoItem.
+Server returns one TodoItem.
+```
+
+Flow:
+
+```text
+Client → CreateTodo request
+Server → Created TodoItem response
+```
+
+---
+
+## 4.3 Unary Method: ReadTodos
+
+Definition:
+
+```proto
+rpc ReadTodos (Empty) returns (TodoItems);
+```
+
+Meaning:
+
+```text
+Client sends an empty request.
+Server returns a list of TodoItem objects.
+```
+
+Flow:
+
+```text
+Client → ReadTodos request
+Server → TodoItems response
+```
+
+---
+
+## 4.4 Server Streaming Method: ReadTodosStream
+
+Definition:
+
+```proto
+rpc ReadTodosStream (Empty) returns (stream TodoItem);
+```
+
+Meaning:
+
+```text
+Client sends one request.
+Server streams TodoItem objects one by one.
+```
+
+Flow:
+
+```text
+Client → ReadTodosStream request
+Server → TodoItem 1
+Server → TodoItem 2
+Server → TodoItem 3
+Server → End stream
+```
+
+This is better than sending a huge array all at once when there are many items.
+
+---
+
+## 5. Node.js Conceptual Example
+
+## 5.1 Server Responsibilities
+
+A gRPC server generally does this:
+
+```text
+1. Load the .proto file.
+2. Create a gRPC server.
+3. Register service methods.
+4. Bind to an address and port.
+5. Start listening.
+```
+
+Conceptual server structure:
+
+```js
+const todos = [];
+
+function createTodo(call, callback) {
+  const todo = {
+    id: todos.length + 1,
+    text: call.request.text,
+  };
+
+  todos.push(todo);
+
+  callback(null, todo);
+}
+
+function readTodos(call, callback) {
+  callback(null, { items: todos });
+}
+
+function readTodosStream(call) {
+  for (const todo of todos) {
+    call.write(todo);
+  }
+
+  call.end();
+}
+```
+
+---
+
+## 5.2 Client Responsibilities
+
+A gRPC client generally does this:
+
+```text
+1. Load the .proto file.
+2. Create a client for the service.
+3. Call remote methods.
+4. Handle responses or streams.
+```
+
+Conceptual unary call:
+
+```js
+client.createTodo(
+  { id: -1, text: "Do laundry" },
+  (error, response) => {
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    console.log("Created todo:", response);
+  }
+);
+```
+
+Conceptual server streaming call:
+
+```js
+const stream = client.readTodosStream({});
+
+stream.on("data", (todo) => {
+  console.log("Received todo:", todo);
+});
+
+stream.on("end", () => {
+  console.log("Server finished streaming");
+});
+```
+
+---
+
+## 5.3 Why Streaming Is Useful
+
+Imagine the server has:
+
+```text
+30,000 todo items
+```
+
+Returning all items in one response may be expensive.
+
+Instead, the server can stream items one by one.
+
+Benefits:
+
+- Lower memory pressure
+- Earlier first response
+- Better backpressure handling
+- Better user experience
+- Easier progress display
+
+---
+
+## 6. Pros of gRPC
+
+## 6.1 Fast and Compact
+
+gRPC commonly uses Protocol Buffers.
+
+Protobuf is binary and compact.
+
+Compared to JSON, it can be smaller and faster to parse.
+
+---
+
+## 6.2 Strong Schema
+
+The `.proto` file defines the API contract.
+
+This makes the interface explicit.
+
+Benefits:
+
+- Clear request and response types
+- Code generation
+- Type safety
+- Better consistency across languages
+- Easier API documentation
+
+---
+
+## 6.3 Language Neutral
+
+The same `.proto` file can generate code for many languages.
+
+Example:
+
+```text
+Go server
+Python client
+JavaScript client
+Java service
+C# service
+```
+
+They can all communicate using the same contract.
+
+---
+
+## 6.4 Multiple Communication Modes
+
+gRPC supports:
+
+```text
+Unary
+Server streaming
+Client streaming
+Bidirectional streaming
+```
+
+This makes gRPC flexible.
+
+One protocol can cover many communication styles.
+
+---
+
+## 6.5 Built on HTTP/2
+
+Because gRPC uses HTTP/2, it benefits from:
+
+- Multiplexing
+- Streams
+- Flow control
+- One connection with many RPC calls
+
+---
+
+## 6.6 Good for Microservices
+
+gRPC is popular for service-to-service communication.
+
+It works well when:
+
+- Services are internal
+- Schemas are known
+- Multiple languages are used
+- Performance matters
+- Streaming is useful
+- APIs are controlled by one organization
+
+---
+
+## 6.7 Request Cancellation
+
+gRPC supports the idea of canceling requests.
+
+This is useful when:
+
+```text
+Client no longer needs the result
+Timeout happened
+User navigated away
+Operation became irrelevant
+```
+
+Cancellation is not always simple internally, because the server must cooperate and stop processing.
+
+But the protocol supports the concept.
+
+---
+
+## 7. Cons of gRPC
+
+## 7.1 Schema Required
+
+gRPC requires a schema.
+
+You must maintain `.proto` files.
+
+This is good for strict systems, but it can slow down rapid iteration.
+
+Some teams prefer REST/JSON because it feels more flexible.
+
+---
+
+## 7.2 Thick Client
+
+gRPC clients rely on generated code and gRPC libraries.
+
+This means:
+
+- Libraries must be maintained.
+- Generated code must be regenerated.
+- Bugs can happen in libraries.
+- Version mismatches can happen.
+
+---
+
+## 7.3 Browser Support Is Not Native
+
+Browsers do not expose low-level HTTP/2 stream APIs to JavaScript.
+
+Because of that, browser JavaScript cannot directly use full native gRPC in the same way backend services can.
+
+A common solution is:
+
+```text
+gRPC-Web
+```
+
+or a proxy:
+
+```text
+Browser → gRPC-Web proxy → gRPC service
+```
+
+---
+
+## 7.4 Proxies Can Be Tricky
+
+gRPC uses HTTP/2 streams.
+
+Layer 7 proxies must understand gRPC if they want to inspect, route, or load balance at the RPC level.
+
+This is more complex than simple HTTP/1.1 routing.
+
+However, many modern proxies support gRPC.
+
+---
+
+## 7.5 Error Handling Requires Design
+
+gRPC has status codes, but application-level error design is still important.
+
+You need to decide:
+
+- What errors mean
+- What metadata to include
+- How clients should retry
+- Which errors are permanent
+- Which errors are transient
+
+---
+
+## 7.6 Timeouts Matter
+
+Long-running gRPC streams can hit timeouts.
+
+Timeouts can happen in:
+
+- Client
+- Server
+- Proxy
+- Load balancer
+- Service mesh
+- Network middlebox
+
+If a connection dies, all streams on that connection may be affected.
+
+---
+
+## 7.7 One Connection Can Be a Risk
+
+Because HTTP/2 allows many streams on one connection, many RPC calls may share the same TCP connection.
+
+If that connection fails, all active streams on it are affected.
+
+This is sometimes described as:
+
+```text
+Putting many eggs in one basket
+```
+
+---
+
+## 7.8 Can Be Overkill
+
+For a simple public API, REST with JSON may be easier.
+
+gRPC is powerful, but it adds:
+
+- Schema management
+- Code generation
+- HTTP/2 requirements
+- Client library requirements
+- Proxy considerations
+
+Use it when the benefits are worth the complexity.
+
+---
+
+## 8. gRPC vs REST
+
+| Feature | REST/JSON | gRPC |
+|---|---|---|
+| Message format | Usually JSON | Usually Protobuf |
+| Schema | Optional or external | Required `.proto` |
+| Transport | HTTP/1.1 or HTTP/2 | HTTP/2 |
+| Browser support | Native | Needs gRPC-Web/proxy |
+| Streaming | Limited, requires extra patterns | Built in |
+| Type safety | Weaker by default | Stronger with generated code |
+| Human-readable | Yes | No, binary |
+| Best for | Public APIs, simple apps | Internal services, microservices, streaming |
+
+---
+
+## 9. gRPC Communication Modes Summary
+
+| Mode | Client Sends | Server Sends | Use Case |
+|---|---|---|---|
+| Unary | One request | One response | Normal RPC call |
+| Server streaming | One request | Many responses | Logs, progress, downloads |
+| Client streaming | Many requests | One response | Uploads, batch events |
+| Bidirectional streaming | Many messages | Many messages | Chat, live collaboration |
+
+---
+
+## 10. Why Not Build Your Own Protocol?
+
+You can build your own protocol.
+
+Some companies have done this.
+
+The problem is adoption and maintenance.
+
+A custom protocol requires:
+
+- Custom libraries
+- Documentation
+- Training
+- Debugging tools
+- Proxy support
+- Monitoring support
+- New employee onboarding
+- Long-term maintenance
+
+Even if the protocol works well, it may be hard for new engineers to learn.
+
+This is one reason popular protocols often win.
+
+gRPC is popular, well-supported, and widely understood.
+
+---
+
+## 11. gRPC in Cloud Native Systems
+
+In cloud native systems, gRPC is often used between services.
+
+Example:
+
+```text
+User Service → Order Service
+Order Service → Payment Service
+Payment Service → Notification Service
+```
+
+In service mesh architectures, sidecars or proxies may handle some communication concerns.
+
+Example:
+
+```text
+Application container
+Sidecar proxy
+Network
+Sidecar proxy
+Application container
+```
+
+The proxy can help with:
+
+- Routing
+- Load balancing
+- TLS
+- Retries
+- Observability
+- Policy
+
+This can make gRPC easier to operate in large systems.
+
+---
+
+## 12. Important Notes
+
+## 12.1 gRPC Is Built on HTTP/2
+
+gRPC depends heavily on HTTP/2 streams.
+
+This is what enables its different communication modes.
+
+---
+
+## 12.2 Protobuf Is the Default Message Format
+
+gRPC commonly uses Protocol Buffers.
+
+Protobuf is compact, binary, and schema-based.
+
+---
+
+## 12.3 gRPC Is Great for Internal APIs
+
+gRPC is especially good for internal service-to-service communication.
+
+It is less convenient for direct browser usage.
+
+---
+
+## 12.4 Schema Changes Must Be Managed Carefully
+
+Because Protobuf uses field numbers, changing schemas requires care.
+
+Avoid reusing field numbers.
+
+Maintain backward compatibility when possible.
+
+---
+
+## 12.5 Streaming Is a Major Strength
+
+gRPC streaming is one of its biggest advantages.
+
+You can implement:
+
+- Server streaming
+- Client streaming
+- Bidirectional streaming
+
+without inventing a new protocol each time.
+
+---
+
+## 12.6 REST Is Still Useful
+
+gRPC does not replace REST in every case.
+
+REST is still useful for:
+
+- Public APIs
+- Browser-first apps
+- Simple CRUD services
+- Human-readable debugging
+- Systems where JSON flexibility matters
+
+---
+
+## 12.7 Choose Based on Workload
+
+Use gRPC when you need:
+
+```text
+Strong schemas
+High performance
+Service-to-service communication
+Streaming
+Multi-language clients
+Code generation
+```
+
+Use REST/JSON when you need:
+
+```text
+Simplicity
+Browser compatibility
+Human readability
+Public API friendliness
+Loose schema flexibility
+```
+
+---
+
+## 13. Examples
+
+## Example 1: Unary RPC
+
+Proto:
+
+```proto
+rpc CreateTodo (TodoItem) returns (TodoItem);
+```
+
+Flow:
+
+```text
+Client → CreateTodo request
+Server → Created TodoItem response
+```
+
+Use case:
+
+```text
+Create a todo item.
+```
+
+---
+
+## Example 2: Server Streaming
+
+Proto:
+
+```proto
+rpc ReadTodosStream (Empty) returns (stream TodoItem);
+```
+
+Flow:
+
+```text
+Client → Request todos
+Server → Todo 1
+Server → Todo 2
+Server → Todo 3
+Server → End
+```
+
+Use case:
+
+```text
+Read many todo items gradually.
+```
+
+---
+
+## Example 3: Client Streaming
+
+Proto:
+
+```proto
+rpc UploadTodos (stream TodoItem) returns (UploadSummary);
+```
+
+Flow:
+
+```text
+Client → Todo 1
+Client → Todo 2
+Client → Todo 3
+Server → UploadSummary
+```
+
+Use case:
+
+```text
+Upload many items.
+```
+
+---
+
+## Example 4: Bidirectional Streaming
+
+Proto:
+
+```proto
+rpc Chat (stream ChatMessage) returns (stream ChatMessage);
+```
+
+Flow:
+
+```text
+Client ⇄ Server
+```
+
+Use case:
+
+```text
+Real-time chat.
+```
+
+---
+
+## Example 5: Todo Proto File
+
+```proto
+syntax = "proto3";
+
+package todoPackage;
+
+service Todo {
+  rpc CreateTodo (TodoItem) returns (TodoItem);
+  rpc ReadTodos (Empty) returns (TodoItems);
+  rpc ReadTodosStream (Empty) returns (stream TodoItem);
+}
+
+message Empty {}
+
+message TodoItem {
+  int32 id = 1;
+  string text = 2;
+}
+
+message TodoItems {
+  repeated TodoItem items = 1;
+}
+```
+
+---
+
+## Example 6: Conceptual Server Handler
+
+```js
+const todos = [];
+
+function createTodo(call, callback) {
+  const todo = {
+    id: todos.length + 1,
+    text: call.request.text,
+  };
+
+  todos.push(todo);
+
+  callback(null, todo);
+}
+
+function readTodos(call, callback) {
+  callback(null, { items: todos });
+}
+
+function readTodosStream(call) {
+  for (const todo of todos) {
+    call.write(todo);
+  }
+
+  call.end();
+}
+```
+
+---
+
+## Example 7: Conceptual Client Call
+
+```js
+client.createTodo(
+  { id: -1, text: "Do laundry" },
+  (error, response) => {
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    console.log("Created:", response);
+  }
+);
+```
+
+---
+
+## Example 8: Conceptual Streaming Client
+
+```js
+const stream = client.readTodosStream({});
+
+stream.on("data", (todo) => {
+  console.log("Todo:", todo);
+});
+
+stream.on("end", () => {
+  console.log("Server finished streaming");
+});
+```
+
+---
+
+## 14. Questions / Review
+
+## Question 1
+
+What does RPC stand for?
+
+**Answer:**
+
+RPC stands for **Remote Procedure Call**.
+
+---
+
+## Question 2
+
+What is gRPC?
+
+**Answer:**
+
+gRPC is a modern RPC framework built on HTTP/2 that commonly uses Protocol Buffers for message serialization.
+
+---
+
+## Question 3
+
+What transport protocol does gRPC use?
+
+**Answer:**
+
+gRPC uses HTTP/2.
+
+---
+
+## Question 4
+
+What message format does gRPC commonly use?
+
+**Answer:**
+
+gRPC commonly uses Protocol Buffers.
+
+---
+
+## Question 5
+
+What is a `.proto` file?
+
+**Answer:**
+
+A `.proto` file defines messages, services, and RPC methods for gRPC and Protocol Buffers.
+
+---
+
+## Question 6
+
+What is unary RPC?
+
+**Answer:**
+
+Unary RPC is one request and one response.
+
+---
+
+## Question 7
+
+What is server streaming?
+
+**Answer:**
+
+Server streaming is when the client sends one request and the server sends many responses.
+
+---
+
+## Question 8
+
+What is client streaming?
+
+**Answer:**
+
+Client streaming is when the client sends many messages and the server returns one response.
+
+---
+
+## Question 9
+
+What is bidirectional streaming?
+
+**Answer:**
+
+Bidirectional streaming is when both client and server send streams of messages to each other.
+
+---
+
+## Question 10
+
+Why is gRPC good for microservices?
+
+**Answer:**
+
+Because it is fast, schema-based, supports many languages, supports streaming, and works well for service-to-service communication.
+
+---
+
+## Question 11
+
+Why is Protobuf compact?
+
+**Answer:**
+
+Because it uses a binary encoding and field numbers instead of verbose text keys like JSON.
+
+---
+
+## Question 12
+
+What is a generated stub?
+
+**Answer:**
+
+A generated stub is client or server code generated from a `.proto` file.
+
+It helps call or implement RPC methods.
+
+---
+
+## Question 13
+
+Why can gRPC be harder to use in browsers?
+
+**Answer:**
+
+Browsers do not expose low-level HTTP/2 stream APIs needed for native gRPC.
+
+A proxy or gRPC-Web is usually needed.
+
+---
+
+## Question 14
+
+What is one disadvantage of requiring schemas?
+
+**Answer:**
+
+Schemas must be maintained and versioned carefully, which can slow down flexible development.
+
+---
+
+## Question 15
+
+What is one advantage of requiring schemas?
+
+**Answer:**
+
+Schemas make contracts clear and allow code generation and type safety.
+
+---
+
+## Question 16
+
+Why can proxies be tricky with gRPC?
+
+**Answer:**
+
+Because gRPC uses HTTP/2 streams and binary messages, so layer 7 proxies must understand gRPC to inspect or route it properly.
+
+---
+
+## Question 17
+
+What happens if a shared HTTP/2 connection dies?
+
+**Answer:**
+
+All active gRPC streams on that connection may be affected and may need to be reestablished.
+
+---
+
+## Question 18
+
+When might REST be better than gRPC?
+
+**Answer:**
+
+REST may be better for simple public APIs, browser-first applications, and cases where human-readable JSON is preferred.
+
+---
+
+## Question 19
+
+When might gRPC be better than REST?
+
+**Answer:**
+
+gRPC may be better for internal microservices, high-performance communication, strict schemas, and streaming use cases.
+
+---
+
+## Question 20
+
+What is the main takeaway of gRPC?
+
+**Answer:**
+
+gRPC provides one powerful framework for request-response and streaming communication using HTTP/2 and Protocol Buffers.
+
+---
+
+## 15. Final Takeaway
+
+gRPC is a powerful protocol framework for modern backend communication.
+
+Its core idea is:
+
+```text
+Define a service in a .proto file.
+Generate client and server code.
+Communicate using HTTP/2 streams and Protobuf messages.
+```
+
+The most important gRPC concepts are:
+
+```text
+RPC
+Protocol Buffers
+.proto file
+Service
+Message
+Stub
+Unary RPC
+Server streaming
+Client streaming
+Bidirectional streaming
+HTTP/2 streams
+Schema-based APIs
+```
+
+gRPC is especially useful when services need fast, typed, multi-language, service-to-service communication.
+
+But it is not always the best choice.
+
+The decision depends on the workload.
+
+Use gRPC when you need:
+
+```text
+Performance
+Streaming
+Strong contracts
+Microservice communication
+Multi-language support
+Code generation
+```
+
+Use REST/JSON when you need:
+
+```text
+Simplicity
+Browser-native support
+Human-readable messages
+Public API friendliness
+Flexible schemas
+```
+
+gRPC is not magic, but it solves many backend communication problems with one unified protocol model.

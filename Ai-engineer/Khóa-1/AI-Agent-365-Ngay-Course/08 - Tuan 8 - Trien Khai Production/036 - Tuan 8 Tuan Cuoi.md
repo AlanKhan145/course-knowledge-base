@@ -1,0 +1,1180 @@
+# Ngay 036 - Tuan 8, ngay 1
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-036.txt
+
+## Tong quan
+
+- Chu de mo dau: Thôi thì, tôi đã hứa với các bạn một kết thúc, và đó chính là điều các bạn sẽ nhận được.
+- File goc: day-036.txt
+- So y chinh: 874
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Thôi thì, tôi đã hứa với các bạn một kết thúc, và đó chính là điều các bạn sẽ nhận được.
+- Chào mừng đến với tuần thứ tám.
+- Chào mừng đến với tuần cuối cùng.
+- Sẽ là một tuần đầy bão tố.
+- Hãy bắt tay vào việc.
+- Vậy là bạn đã biết rằng bạn có thể tạo mã nguồn, tạo văn bản, sử dụng các mô hình nguồn đóng trả phí và mô hình nguồn mở thông qua Llama trên Hugging Face.
+- Bạn có thể sử dụng các công cụ, tạo trợ lý, sử dụng rag với chuỗi ngôn ngữ và không có chuỗi ngôn ngữ, và đánh giá nó.
+- Bạn có thể áp dụng chiến lược gồm năm bước để giải quyết vấn đề, bao gồm: thu thập và xử lý dữ liệu, xây dựng mô hình cơ sở, và tinh chỉnh mô hình tiên tiến.
+### Muc 2
+
+- Và bây giờ, bạn có thể tự tin thực hiện quy trình tinh chỉnh mô hình của riêng mình bắt đầu từ một mô hình đã được huấn luyện sẵn, biến nó thành một mô hình có thể vượt trội so với các mô hình hàng đầu hiện có, miễn là có đủ dữ liệu và nhiệm vụ phù hợp.
+- Tuần vừa qua thật là một tuần đáng nhớ.
+- Lần này mọi thứ đều hoàn hảo.
+- Tuần này sẽ tập trung vào việc rà soát lại tất cả các phần nhỏ mà chúng ta đã thực hiện trong quá trình làm việc, và kết hợp chúng lại thành một tổng thể, trong đó các đại lý được tích hợp vào hệ thống.
+- Đương nhiên là các đại lý.
+- Rất thú vị.
+- Chúng tôi sẽ đưa các nhân viên vào.
+- Chúng tôi cũng sẽ mang lại, ừm, rag một lần nữa, một phiên bản lặp lại của rag theo cách mà hy vọng sẽ khiến bạn bất ngờ.
+### Muc 3
+
+- Và chúng ta sẽ bắt đầu bằng việc triển khai một mô hình ngôn ngữ lớn (LLM) trên nền tảng AI không máy chủ có tên là models.com, điều này thực sự tuyệt vời.
+- Vậy chúng ta sẽ thực hiện một số việc nhằm hướng tới việc đưa sản phẩm của bạn vào sản xuất.
+- Chúng tôi sẽ sử dụng mô hình ngôn ngữ được tinh chỉnh (LM), triển khai nó trên đám mây thông qua models.com, và sau đó biến nó thành một tác nhân.
+- Tất cả những điều đó sẽ xảy ra hôm nay, nhưng hãy xem sơ đồ một lần.
+- À, bạn đã bắt đầu từ đó, ở tận bên kia.
+- Hoàn toàn ở phía bên trái.
+- Có vẻ như đã lâu lắm rồi kể từ khi chúng ta hoàn thành phần nền tảng và API hoàn thiện cuộc trò chuyện.
+- Chúng tôi đã xem xét các API tiên tiến khác nhau.
+## Phan 2
+
+### Muc 4
+
+- Chúng tôi đã thiết kế giao diện người dùng (UI) lần đầu tiên và tích hợp đa phương thức.
+- Sau đó, vào tuần thứ ba, chúng ta đã tìm hiểu về "Hugging Face".
+- Chúng tôi đã sử dụng các pipeline và sau đó là các thư viện model transformers.
+- Và sau đó, vào tuần thứ tư, chúng tôi đã chọn mô hình ngôn ngữ (LM) phù hợp cho nhiệm vụ cụ thể.
+- Và chúng tôi đã phát triển một giải pháp giúp việc chuyển đổi mã nguồn từ Python sang C++ trở nên nhanh chóng hơn rất nhiều.
+- Trong tuần thứ năm, chúng ta đã tìm hiểu sâu về Rag.
+- Chúng tôi đã xây dựng một hệ thống trả lời câu hỏi và chúng tôi đã làm điều đó mà không cần sử dụng chuỗi dài.
+- Và sau đó, vào tuần thứ sáu, chúng tôi đã chọn lọc một bộ dữ liệu và kết thúc tuần với việc tinh chỉnh mô hình biên giới một cách đáng thất vọng mà không đạt được nhiều thành công.
+### Muc 5
+
+- Nhưng chúng tôi đã bù đắp cho điều đó vào tuần thứ bảy, như tôi đã hứa.
+- Chúng tôi đã tinh chỉnh một mô hình nguồn mở và nó đã vượt trội so với mô hình tiên tiến nhất.
+- Và bây giờ, trong tuần thứ tám, một anh chàng hiền lành, sự trở lại của Rag, và nhiều điều khác nữa sẽ được kết hợp lại để đến cuối tuần này, bạn có thể nói, "Okay, mình đã làm được." Tôi là một kỹ sư LM và muốn nhắc nhở các bạn về dự án tốt nghiệp, nhưng để cung cấp thêm thông tin, dự án tốt nghiệp hiện nay đã trở nên hấp dẫn hơn.
+- Vậy chúng ta sẽ xây dựng một khung công nghệ di truyền tự động hóa, sử dụng mô hình mà chúng ta đã phát triển và biến nó thành một sản phẩm.
+- Ý tưởng là cảm thấy thực sự chủ động, điều mà tôi sẽ định nghĩa ngay sau đây.
+- Nhưng lý tưởng nhất là bạn muốn một thứ gì đó có cảm giác như nó tồn tại vượt ra ngoài bối cảnh của một cuộc trò chuyện với người dùng.
+- Và vì vậy, chúng ta sẽ cần có một hệ thống đang hoạt động.
+- Sẽ theo dõi các ưu đãi được đăng tải trực tuyến bằng cách đăng ký theo dõi các nguồn cấp dữ liệu RSS.
+### Muc 6
+
+- Và khi nó tìm thấy các giao dịch đã được công bố, nó sẽ kiểm tra các giao dịch đó.
+- Nó sẽ chọn những quả có vẻ ngon ngọt và sẽ ước tính giá cả thực sự của chúng.
+- Ai biết nó sẽ làm điều đó như thế nào.
+- Và sau khi xem xét điều đó, nó sẽ nói: "Được rồi, vậy đây là một số thứ trực tuyến." Đây là mức giá ưu đãi mà họ đang được đề nghị.
+- Dưới đây là số tiền mà tôi cho rằng họ thực sự đáng giá dựa trên tất cả những gì tôi biết.
+- Và bây giờ tôi đã xác định được đâu là giao dịch hấp dẫn nhất.
+- Và để nó có thể thực sự độc lập và tự do.
+- Sau đó, nó sẽ gửi một thông báo đẩy đến điện thoại của bạn, điện thoại của tôi và điện thoại của bạn với ưu đãi đó để chúng ta có thể nắm bắt được ưu đãi đó và có thể mua cho mình một chiếc TV mới hoặc bất cứ thứ gì khác.
+## Phan 3
+
+### Muc 7
+
+- Vậy chúng ta sẽ có bảy đại lý khác nhau hợp tác trong dự án này.
+- Họ sẽ thực hiện nhiều công việc khác nhau, bao gồm xác định các giao dịch, định giá chúng, và tất nhiên, như bạn đã đoán, chúng ta sẽ sử dụng mô hình của mình - mô hình vượt trội so với các mô hình hiện có - để ước tính giá cả.
+- Nhưng chúng ta sẽ làm nhiều hơn thế nữa.
+- Chúng tôi cũng sẽ xây dựng một mô hình thứ hai để ước tính giá cả.
+- Và nó sẽ sử dụng Rag để chúng ta có thể kết hợp tất cả lại với nhau.
+- Đó là dự án tốt nghiệp.
+- Kết luận.
+- Đó là giá đúng.
+### Muc 8
+
+- Chúng tôi sẽ hoàn tất việc triển khai và bắt đầu cung cấp các ưu đãi cho quý khách hàng vào cuối tuần này.
+- Và để thông báo cho các bạn về lịch trình, những gì tôi đã chuẩn bị cho các bạn, và tôi nên cảnh báo các bạn rằng tuần này sẽ diễn ra với tốc độ rất nhanh.
+- Những điểm mạnh của bạn ở thời điểm này, bạn biết đấy, những thứ này.
+- Bạn làm được mà.
+- Chúng ta có thể đi nhanh.
+- Vì vậy, tất nhiên, vào tuần thứ sáu, hai tuần trước, chúng tôi đã tổng hợp dữ liệu, đánh giá các mô hình và thử nghiệm các mô hình tiên tiến.
+- Tuần trước, chúng tôi đã hoàn thiện mô hình mã nguồn mở của mình.
+- Vậy tuần này, tôi có gì dành cho các bạn?
+### Muc 9
+
+- Dưới đây là lịch trình cho năm ngày tới.
+- Hôm nay, trong ngày đầu tiên, chúng ta sẽ triển khai mô hình LLM đã được tinh chỉnh của mình lên internet bằng nền tảng AI không máy chủ Modalerts.com, đây là cách tuyệt vời để đưa mô hình của bạn vào sản xuất.
+- Đó là thứ tôi sử dụng trong công việc hàng ngày của mình.
+- Nó cực kỳ phổ biến vì những lý do mà chúng ta sẽ thảo luận vào ngày mai.
+- Chúng ta sẽ tạo ra một mô hình định giá thay thế, sử dụng mô hình biên với Rag.
+- Điều đó sẽ rất thú vị.
+- Vào ngày thứ ba, chúng ta sẽ xây dựng một trình quét (scanner agent) có khả năng đăng ký theo dõi các nguồn tin RSS, phân tích chúng và tìm kiếm các ưu đãi tốt, cùng với một trình nhắn tin (messaging agent) có thể gửi thông báo đẩy (push notification) đến điện thoại của chúng ta.
+- Và đến ngày thứ tư, đây là lúc mọi thứ trở nên căng thẳng hơn.
+## Phan 4
+
+### Muc 10
+
+- Chúng ta sẽ xây dựng một tác nhân lập kế hoạch tự động có khả năng điều phối các hoạt động giữa các tác nhân và quyết định nên làm gì vào thời điểm nào.
+- Và sau đó, chúng ta sẽ kết thúc với phần kết thúc hoành tráng vào ngày thứ năm.
+- Đây là những gì tôi đã chuẩn bị cho bạn.
+- Được rồi, tôi muốn nhắc lại với các bạn rằng có ba cách khác nhau để các bạn có thể theo dõi nội dung này.
+- Điều quan trọng là bạn có thể nắm bắt được bản chất của vấn đề.
+- Bạn không cần phải chạy mã nguồn, đặc biệt là nếu trong vài tuần qua mọi thứ còn rất mới mẻ với bạn và bạn cảm thấy nó đã trở nên quá phức tạp.
+- Tất cả đều ổn.
+- Hãy nắm bắt bản chất của vấn đề, hiểu rõ các khái niệm.
+### Muc 11
+
+- Tuy nhiên, nếu bạn muốn tiếp tục, đó sẽ là điều tuyệt vời.
+- Bạn nên sử dụng bộ dữ liệu nhẹ để mọi thứ diễn ra nhanh chóng.
+- Có một số nơi bạn có thể rút ngắn thời gian, đặc biệt là khi có sự cố xảy ra.
+- Nếu có gì đó xảy ra, bạn có thể bỏ qua nhiều thứ.
+- Tôi sẽ cố gắng và sẽ chỉ cho bạn khi chúng ta đến đó.
+- Bạn cũng có thể bắt tay vào việc và tìm cách vượt qua các phần khác nhau của nó một cách dễ dàng trong tuần này đặc biệt.
+- Và sau đó, lựa chọn thứ ba là bạn có thể xắn tay áo lên và bắt tay vào làm, sử dụng toàn bộ tập dữ liệu, điều chỉnh và thực hiện một số thay đổi để cải thiện nó hơn nữa trong quá trình thực hiện.
+- Đây là dành cho những người thực sự muốn đi sâu vào chi tiết.
+### Muc 12
+
+- Tuần này sẽ có rất nhiều cơ hội cho điều đó.
+- Tuần này, tất nhiên, chúng ta sẽ giới thiệu một hệ thống trí tuệ nhân tạo (AI) dựa trên di truyền.
+- Và như bạn đã biết, tôi có một khóa học toàn diện về trí tuệ nhân tạo di truyền.
+- Và vì vậy, chúng ta sẽ không đi vào chi tiết quá nhiều về các đại lý.
+- Nhưng tôi nghĩ tôi nên bắt đầu bằng cách định nghĩa thế nào là các đại lý để các bạn có cái nhìn tổng quan.
+- Tất nhiên, có rất nhiều định nghĩa khác nhau về các đại lý.
+- Thực tế, có những meme cho rằng một trí tuệ nhân tạo di truyền có thể trở thành bất cứ điều gì bạn muốn.
+- Nói chung, mọi người thường suy nghĩ về những điều như: Liệu nó có tính tự chủ không?
+## Phan 5
+
+### Muc 13
+
+- Liệu nó có khả năng hành động độc lập không?
+- Liệu nó có phải là một nền tảng có sự tồn tại vượt ra ngoài việc chỉ trò chuyện với một người dùng cá nhân không?
+- Bất kỳ điều gì như vậy đều khiến bạn có cảm giác rằng bạn đang làm việc với một trí tuệ nhân tạo (AI) có khả năng tự học.
+- Nhưng có một số định nghĩa đã được đưa ra, và tôi nghĩ tôi sẽ trình bày một số trong số đó ngay bây giờ để bạn có bối cảnh.
+- Định nghĩa đầu tiên là một định nghĩa mà tôi không chắc Sam Altman đã trực tiếp sử dụng những từ ngữ này, nhưng ông ấy đã nói những điều tương tự như vậy.
+- À, và trong một thời gian, OpenAI đã có một định nghĩa ngầm hiểu rằng các tác nhân (agents) là các hệ thống trí tuệ nhân tạo (AI) có thể thực hiện công việc cho bạn một cách độc lập.
+- Vì vậy, đây là một phiên bản có phần nhân cách hóa của nó, tức là so sánh nó với công nhân con người.
+- Và nó giống như một hệ thống trí tuệ nhân tạo (AI) mà bạn có thể xem xét, một thứ mà bạn có thể giao phó, và bạn có thể hình dung, giống như OpenAI, thứ từng được gọi là "operator", nay được gọi là "GPT agent".
+### Muc 14
+
+- Đây, ý tưởng này là bạn có thể yêu cầu một thứ gì đó và nói với nó: "Này, hãy tìm cho tôi một đặt chỗ nhà hàng có sẵn vào thứ Năm tuần sau cho món ăn Trung Quốc trong khu vực của tôi." Và nó sẽ bắt đầu tìm kiếm, tìm một địa điểm phù hợp, có thể tra cứu trên OpenTable và đặt chỗ cho bạn, cùng với tất cả các bước còn lại.
+- Và bạn có cảm giác rằng có điều gì đó không ổn và đang diễn ra.
+- Đó là định nghĩa đầu tiên về các tác nhân mà người ta đã đưa ra và thảo luận.
+- Và vào khoảng đầu năm 2025, đã xuất hiện một quan điểm cho rằng cách đúng đắn để định nghĩa các tác nhân là một hệ thống AI mà trong đó mô hình ngôn ngữ (LM) kiểm soát quy trình làm việc, nơi mô hình ngôn ngữ (LM) kiểm soát quy trình làm việc.
+- Đây là điều đã nảy sinh từ đó.
+- Tôi đã thấy nó trên Hugging Face.
+- Anthropic đã đề cập đến vấn đề này trong bài viết blog quan trọng của họ, "Xây dựng các tác nhân hiệu quả." À, ý tưởng ở đây là bạn có một hệ thống nào đó mà không có thứ tự cố định cho các bước thực hiện.
+- Bạn không làm A, sau đó B, rồi C, mà thay vào đó, bạn trước tiên yêu cầu một mô hình ngôn ngữ (LM) và nói: "Này, bạn có thể làm A, B hoặc C và bạn cần đạt được mục tiêu này." Bây giờ hãy quyết định xem bạn muốn làm gì và vào lúc nào.
+### Muc 15
+
+- Và nó tạo ra các token.
+- Và trong các token đó, nó mô tả xem bạn thực hiện A, B hay C, và bạn viết mã để thực hiện hành động dựa trên dự đoán của mô hình ngôn ngữ (LM).
+- Và vì vậy, bạn có thể coi đó là một hệ thống mà trong đó LM có một mức độ tự chủ nhất định.
+- Nó có quyền lựa chọn với sự chủ động, quyết định các bước nào sẽ được thực hiện và theo thứ tự nào.
+- Và điều này thực sự được sử dụng để so sánh với một khái niệm gọi là "agentic workflow", theo định nghĩa của Anthropic, đó là một quy trình trong đó có nhiều cuộc gọi mô hình ngôn ngữ (LM) như A, B, C, nhưng chúng được điều phối bằng mã Python.
+- Hãy làm A, sau đó làm B, sau đó làm C thay vì thông qua cuộc gọi LM.
+- Và đó là sự phân biệt giữa trí tuệ nhân tạo (AI) có khả năng tự chủ thực sự và các quy trình làm việc của tác nhân chỉ sử dụng nhiều lần gọi mô hình ngôn ngữ (LM).
+- Và định nghĩa thứ ba, là định nghĩa mới đang nổi lên mà mọi người thực sự ủng hộ, là một hệ thống tác nhân là hệ thống có một tác nhân, một LM chạy các công cụ trong vòng lặp để đạt được mục tiêu.
+## Phan 6
+
+### Muc 16
+
+- Vậy là bạn có một mô hình ngôn ngữ (LM) hoặc có thể là nhiều mô hình ngôn ngữ (LLMs), và có một mục tiêu cụ thể nào đó, và nó được trang bị một bộ công cụ, những thứ mà chúng ta đã thực hiện trong tuần hai.
+- Và để thực hiện mục tiêu đó.
+- Nó có thể gọi một công cụ.
+- Và nếu nó chưa đạt được mục tiêu đó, mã Python của bạn sẽ gọi lại nó trong một vòng lặp.
+- Và nó cứ tiếp tục được gọi đi gọi lại nhiều lần.
+- Và loại nơi mà bạn thực sự cảm nhận được trải nghiệm này là khi sử dụng một thứ gì đó như mã nguồn mà tôi đã trình diễn ngay từ đầu.
+- Bạn thực sự có thể thấy điều đó ở đó với danh sách việc cần làm, và nó đang lặp lại và thực hiện các hoạt động.
+- Nhưng phần lớn, nhiều hoạt động khác nhau mà chúng ta thực hiện với hệ thống quản lý học tập (LMS) được trang bị các công cụ đều liên quan đến việc sử dụng vòng lặp.
+### Muc 17
+
+- Vì vậy, điều này áp dụng cho hầu hết các hệ thống loại này.
+- Vậy thì những gì chúng ta sẽ xây dựng trong tuần này gần như đáp ứng đầy đủ cả ba định nghĩa này.
+- Chủ yếu là cái màu vàng.
+- Sẽ có một hệ thống quản lý quy trình làm việc (workflow) chịu trách nhiệm điều khiển quy trình làm việc liên quan đến việc gọi các hệ thống quản lý học tập (LMS) khác.
+- Nhưng đến một mức độ nào đó, sẽ có một vòng lặp.
+- Và vì vậy, có một ý tưởng trong đó rằng có điều gì đó lặp đi lặp lại cho đến khi nó sẵn sàng.
+- À, vậy là chúng ta đã đáp ứng đủ cả ba tiêu chí trong tuần này.
+- Hy vọng rằng điều này sẽ cung cấp cho bạn một số thông tin hữu ích và tạo tiền đề cho những gì sắp tới.
+### Muc 18
+
+- Vậy nên tuần này chúng ta sẽ xây dựng bảy loại đại lý khác nhau.
+- Và bây giờ tôi đang sử dụng đại lý theo cách không phù hợp với các định nghĩa mà tôi vừa trình bày cho bạn.
+- Toàn bộ nền tảng giống như một kiến trúc đại lý.
+- Và thường thì khi bạn thực hiện điều này, mỗi lần gọi LM khác nhau, bạn gọi nó là một agent trong kiến trúc agent của mình, nhưng không phải mỗi lần gọi đều chạy trong một vòng lặp.
+- Thực tế chỉ có một cái đang chạy lặp lại.
+- Những cuộc gọi LM khác này chỉ là các cuộc gọi LM riêng biệt đang được phối hợp để đạt được mục tiêu của chúng ta.
+- Nhưng bạn thường gọi họ là đại lý hoặc đại lý phụ.
+- Vậy, kiến trúc đại lý của chúng tôi là cách thức các cuộc gọi mô hình ngôn ngữ (LM) khác nhau sẽ được phối hợp để giải quyết vấn đề của chúng tôi và đạt được mục tiêu kinh doanh.
+## Phan 7
+
+### Muc 19
+
+- Và tôi muốn nhấn mạnh rằng điều tôi sắp làm là điều mà cá nhân tôi rất không ủng hộ, và tôi thường phản đối những người làm điều này.
+- Vậy nên tôi cảm thấy như mình đã sa vào chính cái bẫy mà mình tạo ra.
+- Tôi thường nhận thấy rằng khi mọi người cố gắng giải quyết một vấn đề kinh doanh, họ thường vội vàng áp dụng kiến trúc đại lý.
+- Cảm giác như đây là điều bạn muốn làm, đặc biệt là đối với những người trong chúng ta có nền tảng kỹ sư phần mềm, quen với việc thiết kế kiến trúc để giải quyết vấn đề.
+- Và điều này rất phổ biến khi mọi người thường xác định các trách nhiệm giống con người và gán chúng cho các tác nhân.
+- Và đó, đó là một cái bẫy.
+- Đó không phải là cách đúng để làm điều đó.
+- Cách đúng đắn để thực hiện là không nên bắt đầu bằng việc nhân cách hóa và gán trách nhiệm, mà thay vào đó, hãy tập trung vào mục tiêu kinh doanh, thử nghiệm các lệnh của bạn, tiến hành đánh giá, và xác định cách tốt nhất để tổ chức các cuộc gọi LLM nhằm giải quyết mục tiêu kinh doanh này.
+### Muc 20
+
+- Và tôi sẽ giải thích chi tiết hơn về điều này trong hướng dẫn số 12 trong thư mục hướng dẫn.
+- Vì vậy, việc nhảy vào kiến trúc đại lý có thể rất hấp dẫn.
+- Và tôi khuyên bạn nên luôn bắt đầu bằng việc tập trung vào vấn đề kinh doanh.
+- Bắt đầu với giải pháp đơn giản nhất có thể, thường chỉ là một lần gọi LLM, và chia thành nhiều lần gọi LLM vì điều này giúp bạn giải quyết vấn đề kinh doanh hiệu quả hơn, không chỉ vì nó nghe có vẻ như đó là những vai trò mà con người sẽ đảm nhận nếu họ đang làm việc trên vấn đề này.
+- Vậy bạn sẽ phải tin tưởng tôi rằng tôi không chỉ đơn giản là nhảy vào một kiến trúc cổ xưa chỉ vì nó nghe có vẻ như đó là những tác nhân phù hợp.
+- Nhưng tôi đã bắt đầu với một LM đơn giản, và sau đó chia nhỏ nó thành nhiều phần khi nhận ra rằng đó là cách hiệu quả hơn để giải quyết vấn đề.
+- Và đó là cách bạn nên làm với các vấn đề trong tương lai mà bạn sẽ giải quyết.
+- Dù sao đi nữa, chúng ta sẽ giả định rằng điều đó đã xảy ra, và đây là các tác nhân mà chúng ta sẽ phát triển trong tuần này.
+### Muc 21
+
+- Tôi muốn bắt đầu từ bên phải trước tiên vì việc bắt đầu từ đó và làm ngược lại sẽ dễ dàng hơn.
+- Chúng ta sẽ xây dựng một trình quét.
+- Đây là một công cụ có khả năng đăng ký theo dõi các nguồn tin RSS, phát hiện các ưu đãi hấp dẫn và tiềm năng đáng để khám phá.
+- Và nó sẽ thực hiện những giao dịch hứa hẹn.
+- Sẽ có một đại lý nhóm, một thuật ngữ mới.
+- Đó là một từ rất thú vị.
+- Đây là một công cụ có khả năng xác định giá trị thực sự của một thứ gì đó trên thị trường.
+- Và nó được gọi là mô hình tổng hợp vì nó kết hợp nhiều mô hình khác nhau.
+## Phan 8
+
+### Muc 22
+
+- Bạn có thể nhớ rằng chúng ta đã gặp thuật ngữ này khi thảo luận về mô hình rừng ngẫu nhiên, vốn là một tập hợp các mô hình.
+- Vâng, đó sẽ là dàn diễn viên của chúng ta và nó sẽ rất tuyệt vời.
+- Và chúng tôi cũng sẽ có một trình quản lý tin nhắn sẽ gửi thông báo đẩy.
+- Và để nó có cảm giác như một đại lý thực sự, nó phải có một cuộc gọi LLM nào đó bên trong.
+- Vì vậy, nó sẽ sử dụng một mô hình ngôn ngữ lớn (LLM) để làm nổi bật thông điệp và đảm bảo rằng nó đủ hào hứng và phù hợp với chúng ta.
+- Vậy những người ở bên phải là một số trong số các đại lý sẽ tham gia xây dựng.
+- Và tất nhiên, chúng ta sẽ có một nhà lập kế hoạch, một đại lý lập kế hoạch.
+- Điều này điều phối các hoạt động xung quanh các tác nhân khác.
+### Muc 23
+
+- Đó là nhiệm vụ của nó.
+- Sau đó, chúng ta sẽ sử dụng một khung làm việc cho các tác nhân (agent framework), đây là một công cụ có khả năng quản lý bộ nhớ để đảm bảo rằng tác nhân lập kế hoạch (planning agent) không hiển thị cùng một giao dịch hai lần.
+- Và việc ghi nhật ký để chúng ta có thể bắt đầu xây dựng khả năng quan sát, một vấn đề mà tôi thường xuyên đề cập trong các khóa học khác của mình về Trí tuệ Nhân tạo Tự chủ (Agentic AI) và Quản lý Vận hành Học máy (MLOps).
+- Vậy chúng ta sẽ chỉ làm một số bước cơ bản xung quanh vấn đề đó.
+- Vậy là chúng ta đã có một thứ gì đó.
+- Và tất nhiên, chúng ta sẽ có một giao diện người dùng ở trên tất cả những điều này.
+- Hiện nay có rất nhiều khung công cụ (framework) giúp bạn xây dựng các hệ thống đại lý (agentic setups) một cách dễ dàng.
+- Có một nhóm người ở đó.
+### Muc 24
+
+- Trí tuệ nhân tạo (AI) rất phổ biến.
+- Thứ nhất, có SDK của OpenAI, đây là công cụ yêu thích của tôi.
+- Như một số người đã biết, Google có ADK, có Landgraf và còn nhiều khung làm việc cho các tác nhân khác nữa.
+- Và chủ yếu, chúng giúp bạn trong các tác vụ như định nghĩa công cụ, giao tiếp giữa các mô hình ngôn ngữ lớn (LLMs), quản lý khả năng quan sát, bộ nhớ và các tác vụ tương tự.
+- Và họ làm điều đó bằng cách xử lý mã keo cho bạn.
+- Chúng là những khái niệm trừu tượng được áp dụng cho các cuộc gọi LM.
+- Và trong bài đăng blog quan trọng của mình có tiêu đề "Xây dựng các tác nhân hiệu quả", Anthropic đã mạnh mẽ khuyến nghị rằng, đặc biệt khi mới bắt đầu và với các vấn đề đơn giản, bạn nên bắt đầu mà không sử dụng các khung tác nhân, bởi vì phần lớn, bạn có thể đạt được tất cả những điều này chỉ bằng cách gọi Lrms, và qua đó, bạn thực sự hiểu được cách nó hoạt động như thế nào.
+- Bạn không đang loại bỏ những chi tiết quan trọng, và đó chính xác là điều chúng ta sẽ làm trong tuần này.
+## Phan 9
+
+### Muc 25
+
+- Chúng ta sẽ không sử dụng một trong những khung làm việc đại lý phức tạp này, vốn tự động xử lý nhiều công việc chi tiết phức tạp cho bạn.
+- Chúng ta sẽ tự mình xử lý những chi tiết nhỏ nhặt, và điều đó sẽ rất đơn giản.
+- Chúng ta sẽ xây dựng tất cả những điều này từ những nguyên lý cơ bản, chỉ bằng cách gọi các hàm lrms và sử dụng các công cụ, và bạn sẽ được chứng kiến toàn bộ quá trình.
+- Nếu bạn muốn sử dụng các khung làm việc cho agent, thì tất nhiên khóa học của tôi sử dụng rất nhiều trong số đó và bạn sẽ trở nên rất quen thuộc với chúng.
+- Nhưng việc tự làm nó thật sự rất có giá trị.
+- Và thật lòng mà nói, thường thì tự làm là đủ, đúng như Anthropic đã đề xuất.
+- Được rồi, nhưng hôm nay, trước khi chúng ta đi sâu vào kiến trúc đại lý, và có thể bạn đã nhận thấy rằng tôi đã nói có bảy đại lý, nhưng dường như không có bảy.
+- Đó là vì có một chi tiết nhỏ mà tôi sẽ cho bạn xem sau.
+### Muc 26
+
+- Nhưng trước khi đi vào vấn đề chính, chúng ta sẽ tìm hiểu về Modalerts.com.
+- Nền tảng không máy chủ dành cho các đội ngũ AI, nơi cho rằng modal là một nền tảng thực sự tuyệt vời để chạy các mô hình của bạn, uh, để thực hiện suy luận trên đám mây.
+- Họ cũng làm những việc khác nữa.
+- Nhưng việc thực hiện suy luận là một trong những tính năng được sử dụng phổ biến nhất của họ.
+- Và đó là cách tôi sử dụng chúng trong công việc hàng ngày của mình.
+- Và nhiều người cũng làm như vậy.
+- Có rất nhiều công cụ tương tự như modal trên thị trường, và có những công cụ dành cho AWS, như SageMaker, đây là nền tảng chính của họ.
+- À, có cái pod chạy.
+### Muc 27
+
+- Có rất nhiều trường hợp như vậy mà modal thực sự nổi bật.
+- Đầu tiên, nó cực kỳ dễ dàng để cài đặt và cấu hình, khác với một số sản phẩm khác.
+- Khi bạn định nghĩa hạ tầng của mình, bạn chỉ cần thực hiện điều đó thông qua một ít mã code, và đó chính là nơi bạn thiết lập loại máy chủ mà bạn muốn và các tính năng khác nhau của nền tảng.
+- Vậy nên nó thực sự rất tiện lợi.
+- Ngoài ra, với dịch vụ modal, bạn chỉ phải trả tiền cho tài nguyên tính toán mà bạn sử dụng.
+- Bạn chỉ phải trả tiền cho những chiếc đồng hồ mà bạn sử dụng.
+- Vì vậy, bất cứ khi nào nền tảng của bạn không hoạt động, bạn sẽ không tốn một xu nào.
+- Và điều đó thực sự tuyệt vời.
+## Phan 10
+
+### Muc 28
+
+- Và cuối cùng, Modal, ít nhất là cho đến nay, có một chương trình khuyến mãi cho phép bạn nhận được $30 tín dụng miễn phí mỗi tháng, và chúng ta thậm chí còn không đạt được mức đó.
+- Và điều đó có nghĩa là, về cơ bản, đối với các nhiệm vụ mà chúng ta thực hiện trong khóa học này, hoàn toàn miễn phí, ít nhất là cho đến thời điểm hiện tại.
+- Và hy vọng rằng điều đó vẫn còn đúng với bạn.
+- Bạn sẽ biết ngay lập tức.
+- Đó chính là thứ chúng ta sẽ sử dụng.
+- Chúng ta sẽ sử dụng modal.
+- Và tôi nghĩ bạn sẽ thích nó.
+- Hãy đi làm ngay bây giờ nhé.
+### Muc 29
+
+- Vui lòng mở trình duyệt ưa thích của bạn và truy cập vào chế độ không phải mô hình.
+- Và đây chính là hạ tầng AI mà các nhà phát triển yêu thích.
+- Hoặc có thể họ có một màn hình khởi động khác khi bạn nhìn thấy nó.
+- Nhưng mà, nhưng mà, ừm, đây là trang chủ.
+- Và bạn có thể cuộn xuống.
+- Bạn có thể thấy họ có những tên tuổi lớn đứng sau.
+- Bạn có thể tìm hiểu thêm về những gì họ làm và tại sao họ lại tuyệt vời, và suy luận chính là mục đích mà chúng ta sẽ sử dụng họ.
+- Nhưng chắc chắn họ còn làm rất nhiều việc khác nữa.
+### Muc 30
+
+- Họ cũng cung cấp sổ tay.
+- À, giống như Google Colab.
+- Bạn có thể chạy các tác vụ theo lô, bạn cũng có thể thực hiện đào tạo trong chế độ modal.
+- Nhưng chúng ta sẽ sử dụng nó cho trường hợp sử dụng phổ biến nhất, đó là suy luận.
+- Bạn sẽ nhấn nút Đăng ký vì tôi nghĩ bạn chưa có tài khoản.
+- Thực ra, đối với trường hợp này, tôi sử dụng tài khoản GitHub của mình làm phương thức xác thực, nhưng bạn có thể sử dụng bất kỳ phương thức nào khác nếu muốn.
+- Và bây giờ tôi sẽ đăng nhập vì tôi đã đăng nhập rồi.
+- Tôi chắc chắn rằng bạn sẽ cần trả lời một loạt câu hỏi để, ừm, để, để đăng ký.
+## Phan 11
+
+### Muc 31
+
+- Và thế là bạn sẽ làm điều đó, sau đó bạn vào đây và có thể thấy rằng, tôi đã sử dụng nó khá nhiều trong vài ngày qua, và tôi vẫn còn $27.50 trong số tín dụng của tháng này.
+- À, và tôi không thể nào vượt qua được chúng, và hy vọng bạn cũng vậy.
+- À, và bạn sẽ đến phía trước.
+- Có một số ứng dụng đang hiển thị, và, ừm, điều này có nghĩa là bạn không nên thấy bất kỳ ứng dụng nào lúc này.
+- Có ứng dụng dành cho tôi vì tôi đã thực hiện một số triển khai.
+- Và đây sẽ là ngôi nhà của bạn trong một thời gian ngắn.
+- Vậy hãy lưu lại trang này và sau đó chúng ta sẽ chuyển sang con trỏ.
+- Vậy là chúng ta đã đến đây, bắt đầu một tuần mới lần cuối cùng.
+### Muc 32
+
+- Tuần thứ tám.
+- Chúng ta đến đây.
+- Bạn có thể thấy đó là một thư mục cũ kỹ và bận rộn.
+- Chúng tôi có.
+- Chúng ta có khá nhiều việc phải làm trong tuần này, bắt đầu từ tuần thứ tám.
+- Ngày đầu tiên.
+- Vào phòng thí nghiệm.
+- Hãy nhớ thiết lập kernel của bạn nếu bạn chưa làm điều đó.
+### Muc 33
+
+- Tôi có một lời cảnh báo nhỏ ở đây để thông báo cho bạn.
+- Hãy chắc chắn rằng bạn đã cập nhật mã nguồn mới nhất, vì tôi thường xuyên cập nhật các thay đổi và tuần này là một tuần quan trọng.
+- Và hãy kiểm tra hướng dẫn, hướng dẫn Git.
+- Nếu bạn không chắc chắn về cách thực hiện git pull, hợp nhất và các thao tác liên quan khác.
+- Được rồi, để nhắc lại, tuần này chúng ta sẽ có một buổi học trực tuyến vào hôm nay.
+- Và sau đó chúng ta sẽ làm Rag vào ngày mai, thêm một vài nhân viên nữa vào thứ Tư hoặc gì đó.
+- Ngày thứ ba là của tôi.
+- Hôm nay là thứ Hai đối với bạn, nhưng có lẽ không phải vậy.
+## Phan 12
+
+### Muc 34
+
+- À, sau đó chúng ta sẽ thực hiện phần lập kế hoạch và cuối cùng là phần kết thúc cho "The Price Is Right", tên của dự án của chúng ta.
+- Được rồi.
+- Và tôi sẽ bắt đầu với chỉ một vài tệp nhập.
+- Bây giờ chúng ta sắp làm rất nhiều việc.
+- Và Modal là một trong những nền tảng ưa chuộng việc in ấn các tài liệu có chứa biểu tượng cảm xúc, điều này thực sự rất độc đáo.
+- Nhưng một số máy tính không thích điều đó và gặp sự cố, dẫn đến nhiều lỗi.
+- Nếu bạn chạy ô tiếp theo này, tức là in vùng địa phương hoặc lấy mã hóa ưa thích, nó nên hiển thị UTF-8.
+- Trên máy Mac, tính năng này được kích hoạt mặc định, nhưng không phải lúc nào cũng vậy trên máy tính cá nhân (PC).
+### Muc 35
+
+- Và nếu không, hãy thử chạy ô tiếp theo, ô đó sẽ thiết lập nó thành UTF-8, sau đó có thể thử khởi động lại kernel và làm lại thao tác đó, rồi xem kết quả thế nào.
+- Nếu vẫn không được và bạn vẫn gặp vấn đề khi chạy các lệnh modal, thì có một cách khắc phục đơn giản là không chạy các lệnh modal từ bên trong notebook, mà hãy chạy chúng trong terminal thay thế.
+- À, và tôi sẽ giải thích lại điều đó khi chúng ta đến đó, được không?
+- Tiếp theo, chúng ta cần thiết lập các token cho modal.
+- Và đây là một quy trình khá đơn giản, mà lẽ ra phải rất dễ dàng.
+- Và modal, đã cố gắng làm cho nó thật đơn giản, nhưng đôi khi nó không hoạt động cho mọi người, vì vậy tôi muốn rất cẩn thận về điều đó.
+- Đầu tiên, chúng ta sẽ chuyển sang chế độ modal và tìm kiếm các token API của mình.
+- Được rồi.
+### Muc 36
+
+- Vậy bạn nhấp vào liên kết này trong cửa sổ pop-up, sau đó truy cập vào bảng điều khiển của bạn nếu bạn đã đăng nhập.
+- Sau đó, hãy vào cài đặt avatar của bạn ngay tại đây để vào cài đặt.
+- Và bạn có thể thấy rằng ở đây có một liên kết dành cho các token API.
+- Bây giờ tôi sẽ không nhấp vào đó vì nó sẽ hiển thị các token của bạn ngay lập tức.
+- Nhưng bạn nhấp vào đó và nhấn nút Tạo token mới.
+- Và khi bạn làm điều đó, nó sẽ hiển thị cho bạn, uh, bạn sẽ nhấp vào "API tokens" và nhấp vào "New Token".
+- Và nó sẽ cung cấp cho bạn một thứ gì đó tương tự như sau để chạy bộ token modal trừ đi ID token.
+- Và sau đó sẽ có một k, sau đó là một a, giống như một thứ gì đó trừ đi token bí mật, sau đó là một s và một loạt các thứ khác.
+## Phan 13
+
+### Muc 37
+
+- Đó là ID token và khóa bí mật token, lần lượt là a và s.
+- À, bây giờ nó yêu cầu chúng ta chạy lệnh này trên dòng lệnh, và đó chính là điều chúng ta sẽ làm.
+- Vậy hãy mở cửa sổ terminal, tức là, ừm, như thế này, tức là, ừm, phím Control và phím backtick.
+- Và bạn sẽ muốn nhập chính xác lệnh mà nó đã hướng dẫn, với một ngoại lệ, vì chúng ta đang làm việc với UV, bạn không chạy lệnh như modal token set.
+- Bạn thực hiện điều này, bạn nói, ừm, chạy và sau đó bạn thực hiện thiết lập token modal, và bạn có thể dán chính xác những gì họ có trong modal.
+- Và bây giờ bạn nên dán vào một đoạn văn bản có nội dung "UV run modal token set minus minus token id id".
+- Và sau đó nó nên có một thứ gì đó bắt đầu bằng AK và sau đó là token bí mật.
+- Và điều đó nên có điều gì đó bắt đầu bằng.
+### Muc 38
+
+- Và khi bạn làm điều đó, nó sẽ chạy và nó sẽ thông báo cho bạn rằng nó đã chạy, và mọi thứ sẽ diễn ra suôn sẻ.
+- Các token modal của bạn đã được thiết lập.
+- À, thỉnh thoảng bạn có thể gặp một số vấn đề.
+- Con người làm.
+- Đối với hầu hết mọi người, điều này hoạt động rất tốt nếu bạn làm như vậy.
+- Đầu tiên, hãy thử chạy.
+- Bạn đã chạy lệnh `modal token new` trước khi chạy lệnh `token set`.
+- À, nếu cách đó vẫn không hiệu quả, có một gợi ý từ học sinh của David rằng anh ấy đã có thể sửa lỗi trên máy tính cá nhân của mình, và anh ấy cung cấp một số hướng dẫn ở đây.
+### Muc 39
+
+- Và sau đó, đề xuất thứ ba mà ai đó đưa ra có lẽ là đơn giản nhất, đó là chỉ cần lấy ID token modal và khóa bí mật token modal.
+- Hai mục, một bắt đầu bằng AK và một bắt đầu bằng a.s., hãy thêm chúng vào tệp EMV của bạn, sau đó chạy lệnh load EMV và đảm bảo rằng biến môi trường đó đã được thiết lập.
+- Điều đó cũng sẽ hoạt động.
+- Và nếu không có giải pháp nào trong số đó hiệu quả, hãy nhắn tin cho tôi hoặc gửi email cho tôi, tôi sẽ tham gia và chúng ta sẽ giải quyết vấn đề này.
+- Tôi chắc chắn nó sẽ hoạt động, nhưng 99% trong số các bạn sẽ thấy nó hoạt động rất tốt.
+- Modal đã cố gắng làm cho điều này trở nên thật đơn giản, vì vậy điểm đặc biệt của Modal là họ cố gắng làm cho việc viết mã Python mà bạn có thể chạy trực tiếp trên máy tính của mình trở nên vô cùng đơn giản.
+- Chà, chúng ta đều biết cách làm điều đó, nhưng với cùng một đoạn mã Python đó, bạn có thể nói, "Okay, bây giờ tôi không muốn nó chạy trên máy tính của mình." Tôi muốn chạy nó trên đám mây, trên máy tính của bạn, nhưng tôi muốn nó chỉ là cùng một mã Python mà tôi đã viết ngay tại đây.
+- Và họ làm điều đó một cách thực sự, thực sự dễ dàng.
+## Phan 14
+
+### Muc 40
+
+- Và đối với bất kỳ ai đã từng làm việc với các nền tảng không máy chủ như AWS Lambda hoặc các nền tảng tương tự, việc đạt được điều mà tôi vừa đề cập không hề dễ dàng như nó có vẻ.
+- Được.
+- Họ không phải ai cũng làm như vậy sao?
+- Không, họ không làm thế.
+- Nếu bạn muốn trải nghiệm thực tế về điều đó, hãy tham gia khóa học MLOps, AI và sản xuất của tôi.
+- À, nhưng chúng ta sẽ đi xem tệp này.
+- Xin chào.
+- Được rồi, vậy Hello.py hãy loại bỏ cửa sổ terminal đó.
+### Muc 41
+
+- Đây là Hello.py.
+- Nó có một tính năng nhập từ cửa sổ modal, từ cửa sổ modal chúng ta tạo ra hình ảnh, và chúng ta thực hiện một tính năng gọi là ứng dụng modal.
+- Xin chào.
+- Đừng lo lắng về điều này.
+- Chỉ cần có cảm giác về nó.
+- Và sau đó, chúng ta thực hiện một thao tác gọi là xử lý hình ảnh.
+- Đó là loại phiên bản Linux.
+- Và chúng ta cài đặt gói requests.
+### Muc 42
+
+- Đây chỉ là một thông báo modal.
+- Nếu chúng ta quyết định chạy ứng dụng này từ xa, chúng ta sẽ cần loại hạ tầng nào để chạy nó?
+- Và sau đó, tôi có một hàm có tên là hello.
+- Và tôi vừa có một trình trang trí nhỏ này thông báo cho modal rằng: "À mà này, nếu tôi muốn chạy hàm này trên thế giới của bạn, tôi muốn sử dụng hình ảnh này để thực hiện nó." Đó chính là cách bạn kể lại chuyện đó.
+- Chỉ là một chiếc máy tính đơn giản, chạy hệ điều hành Linux và đã cài đặt gói requests thông qua pip.
+- Được rồi.
+- Vậy chức năng hello này làm gì?
+- Nó nhập các yêu cầu và sau đó chỉ đơn giản là tra cứu xem gì đang chạy cái thứ nhỏ này để tra cứu.
+## Phan 15
+
+### Muc 43
+
+- Địa chỉ IP của dịch vụ đang chạy hiện tại là gì?
+- Và sau đó, nó ảnh hưởng đến thành phố, khu vực và cả đất nước.
+- Và nó gửi lời chào từ bất kỳ nơi nào mã này thực sự đang chạy.
+- À, vậy đó là tất cả những gì nó làm.
+- À, nó chỉ đơn giản là hiển thị thông báo "Xin chào từ" và sau đó là vị trí hiện tại của phần mềm đang chạy.
+- Bạn có theo kịp đến đây không?
+- Được rồi.
+- Hãy quay trở lại ngày đầu tiên.
+### Muc 44
+
+- Vậy tôi sẽ nhập nó.
+- Tôi sẽ nhập uh hello.
+- Và trước tiên, bạn sẽ thực hiện điều này bằng cách sử dụng app.run, một decorator nhỏ mà bạn đặt xung quanh nó.
+- Xin lỗi.
+- Quản lý ngữ cảnh.
+- Tôi sẽ chào Dot, và việc nói điều đó chỉ có nghĩa là hàm mà chúng ta vừa viết.
+- Xin chào.
+- Tôi chỉ muốn chạy nó trên máy tính của mình.
+### Muc 45
+
+- Tôi chỉ muốn chạy nó ngay tại đây.
+- Và khi tôi làm điều đó, tôi đang chạy hàm hello này trên máy cục bộ.
+- Lần đầu tiên sẽ mất một chút thời gian vì nó cần tải một số dữ liệu và nó hiển thị thông báo "Xin chào từ Thành phố New York, New York, Hoa Kỳ" vì nó vừa chạy cho tôi và đó là nơi tôi đang ở.
+- Vậy là hoạt động tốt.
+- Sẽ thật tuyệt nếu bạn có thể lấy chính xác đoạn mã đó và chạy nó từ xa trên một trong các máy tính của modal mà không cần thay đổi gì nhiều, phải không?
+- Sẽ thật tuyệt phải không?
+- Đúng vậy, đó chính là điều mà ô tiếp theo sẽ làm.
+- Hãy làm đi.
+## Phan 16
+
+### Muc 46
+
+- Được rồi, đây là ô tiếp theo.
+- Nó đang làm điều tương tự như trước đây với lệnh run.
+- Nhưng bây giờ thay vì gọi "hello local", chúng ta gọi "hello remote".
+- Và đó là tất cả những gì bạn cần làm: lấy mã này, sử dụng cấu hình mà tôi đã cung cấp cho bạn ở đó và chạy nó ở chế độ modal trên đám mây của bạn.
+- Và đó chính là điều nó đã làm.
+- Và ừm, đúng vậy, bạn có thể thấy rằng nó ghi "Xin chào từ Phoenix, Arizona." Vậy nên nó đã chạy ở đâu đó từ xa.
+- Và nếu chúng ta quay lại đây, bạn có thể thấy được vẻ đẹp của những gì modal đang mang lại cho chúng ta.
+- Trước hết, điều này cho phép chúng ta chỉ cần viết một số mã và trang trí nó.
+### Muc 47
+
+- Và tùy thuộc vào việc chúng ta thực hiện trên máy cục bộ hay từ xa, đoạn mã này sẽ chạy trên máy tính của tôi hoặc được chuyển lên đám mây.
+- Và điều thứ hai mà modal giúp chúng ta dễ dàng là nó cho phép chúng ta sử dụng mã để mô tả loại phần cứng mà chúng ta muốn sử dụng.
+- Tôi nghĩ chúng ta chỉ đơn giản là muốn một hệ thống Linux cơ bản.
+- Chúng tôi muốn cài đặt gói requests bằng pip trên hệ thống.
+- Đó là tất cả những gì chúng tôi mong muốn.
+- Và bây giờ, nếu tôi gọi từ xa, tôi muốn bạn mở hộp đó và chạy chương trình này ở đó.
+- Và nó đã hoạt động.
+- Và bạn nên thử nghiệm với các cách triển khai khác nhau, các việc khác nhau mà bạn có thể muốn làm và xem kết quả như thế nào.
+### Muc 48
+
+- Điều này khá hay vì nó thực sự báo cáo vị trí mà nó đang chạy, và thực tế chúng ta có thể chạy lại nó để xem liệu nó có chạy ở cùng vị trí đó hay không.
+- Nó vẫn ở Phoenix, Arizona, hay là ở đâu khác?
+- Và lần này nó ở Washington, Virginia.
+- Vì vậy, họ có nhiều trung tâm dữ liệu.
+- Tôi nghĩ đối với bạn, đó là một nơi hoàn toàn khác biệt và bạn có thể khám phá nó.
+- Và thực tế, bạn có thể cụ thể về nơi bạn muốn nó được đặt.
+- Vậy là tôi có một ví dụ mà một sinh viên đã chỉ ra cho tôi, điều này thật thú vị, đó là khi bạn truy cập vào hello, bạn có thể thấy ở đây rằng tôi đang sử dụng một decorator khác.
+- Tôi muốn hình ảnh này, nhưng tôi muốn khu vực là EU.
+## Phan 17
+
+### Muc 49
+
+- Và sau đó tôi có "Hello Europe" và cũng giống như vậy.
+- Đúng vậy.
+- Vậy nếu chúng ta quay lại đây và chạy đoạn code này, chúng ta chỉ đang chạy cùng một đoạn code.
+- Nhưng lần này chúng tôi sẽ gửi nó sang châu Âu, nơi nó đang hoạt động và quay trở lại.
+- Và đặc biệt nếu bạn nghĩ đến một điều gì đó như GDPR, có thể điều quan trọng đối với bạn là điều này đang được thực hiện tại Châu Âu.
+- Và thế là chúng ta bắt đầu chạy ở Đức.
+- À, và tôi cũng có một liên kết đến các cài đặt khu vực khác nhau, nơi bạn có thể chọn khu vực mà bạn muốn ứng dụng chạy.
+- Nó tiêu tốn nhiều tín dụng hơn một chút, nhưng chỉ nhiều hơn một chút nếu bạn muốn nó chạy ở một vị trí cụ thể, và nó cung cấp tất cả chi tiết trên trang web của họ.
+### Muc 50
+
+- Vậy hãy thử nghiệm với điều này.
+- Hãy tự mình trải nghiệm quá trình viết mã và xem nó hoạt động ở các nơi khác nhau trên thế giới.
+- Được rồi.
+- Trước đây.
+- Trước khi chúng ta tiếp tục phần tiếp theo, có một bước cấu hình nhỏ nữa mà bạn cần thực hiện.
+- Và một lần nữa, đây là điều khá đơn giản mà 99% mọi người đều làm được một cách suôn sẻ.
+- Nhưng đối với một số người, có một sự cố.
+- Và vì vậy, điều đó có thể gây ra vấn đề.
+### Muc 51
+
+- Vậy hãy để tôi nói rõ ràng về điều đó.
+- Vậy đây là về việc thông báo cho Modal biết bí mật của bạn là gì để chúng tôi có thể đăng nhập vào tài khoản Hugging Face của bạn trên các hộp Modal của bạn.
+- Và tôi có một công thức mà tôi gọi là "công thức bất khả xâm phạm" ở đây.
+- À, vậy việc đầu tiên cần làm là quay lại chế độ modal.
+- Vậy để tôi nhấp vào liên kết đó để quay lại cửa sổ modal.
+- Đây là nó.
+- Đây là modal.
+- Và truy cập vào bảng điều khiển của bạn.
+## Phan 18
+
+### Muc 52
+
+- Bây giờ, trên bảng điều khiển của bạn có một phần được gọi là "bí mật".
+- Nhấn vào đó và đây là kết quả.
+- Chúng ta đang ở phần "Secrets" và nhấn "Tạo Mật khẩu Mới".
+- Đây là nơi chúng ta thiết lập một bí mật mới trong cửa sổ modal.
+- Và có một danh mục được gọi là "Hugging Face".
+- Và bạn có thể chọn danh mục đó.
+- Và đây chúng ta đang ở trong danh mục này.
+- Bây giờ các bí mật trong modal đã có tên.
+### Muc 53
+
+- Tên đó là tên sẽ được sử dụng sau này trong mã để chỉ định rằng bạn muốn tải bí mật này và bạn có một bí mật với tên, và tên mà bạn muốn đặt.
+- Nó giống như phiên bản mặc định sẽ xuất hiện ở đây, đó là "Hugging Face hyphen secret".
+- Bạn không cần phải gọi nó như vậy, nhưng nó cần phải khớp với những gì có trong mã nguồn.
+- Và đó chính là những gì chúng ta sẽ có trong mã nguồn theo mặc định trong kho lưu trữ.
+- Vì vậy, nếu tên không phải là như vậy, nó sẽ không khớp với phần trong mã.
+- Khi chúng ta cố gắng thu thập bí mật này và nói rằng, đây là bí mật mà tôi quan tâm, tốt nhất là nên giữ nguyên các thiết lập mặc định, giữ nó như một bí mật riêng tư, và nhớ rằng vì chúng ta sẽ thấy nó trong mã nguồn, nó sẽ giống như một cái bẫy.
+- Nhưng điều đó khác với điều này.
+- Chìa khóa.
+### Muc 54
+
+- Bí mật của bạn có một khóa và một giá trị.
+- Khóa phải chính xác là token HF mặc định, vì nó được đặt làm biến môi trường.
+- Khi bạn thông báo cho modal rằng bạn muốn sử dụng khóa bí mật này, nó sẽ thiết lập khóa đó làm khóa môi trường.
+- và giá trị ở đây.
+- Tất nhiên, đây phải là bí mật khuôn mặt ôm ấp thực sự của bạn HF_blah_blah_blah_blah_blah_blah mà bạn có thể sao chép từ khuôn mặt ôm ấp.
+- À, và sau khi bạn đã thiết lập xong, bạn cần có cụm từ "Hugging Face secret", cụm từ "HF token" và cụm từ "HF_" (với dấu gạch dưới) để chỉ giá trị thực của token Hugging Face.
+- À, và tôi nghĩ điều này có lẽ quá rõ ràng đối với hầu hết các bạn.
+- À, nhưng nếu bạn làm sai bất kỳ điều gì trong số đó, tất nhiên, thì sau này sẽ xảy ra những điều kỳ lạ.
+## Phan 19
+
+### Muc 55
+
+- Và lý do tại sao vẫn chưa rõ.
+- Và mọi người thực sự đã bị mắc kẹt với điều đó.
+- Và đừng quên nhấn "Xong", tất nhiên.
+- Và sau khi bạn đã làm tất cả những điều đó, tất nhiên, khi bạn vào phần bí mật, bạn sẽ thấy bí mật khuôn mặt ôm ấp này.
+- Và, và ừm, khi nó được sử dụng lần cuối cùng cách đây không lâu.
+- Đó là điều bạn nên thấy.
+- Bạn không muốn nhìn thấy dòng thứ hai.
+- Đó là vì trong quá khứ, modal thường sử dụng điều đó làm mặc định và họ đã thay đổi nó, điều này gây nhầm lẫn.
+### Muc 56
+
+- À, đây chính là cái mà bạn muốn có.
+- Tôi hy vọng điều đó có ý nghĩa.
+- Nếu bạn có bất kỳ câu hỏi nào, tất nhiên bạn có thể luôn luôn, luôn luôn liên hệ với tôi trên nền tảng, nhưng hãy đảm bảo rằng bạn đã thiết lập đúng và sau đó chúng ta sẽ quay lại với con trỏ.
+- Được rồi.
+- Vậy là chúng ta đã đến đây.
+- Và hy vọng rằng đây là công thức hoàn hảo cho IMDb.com.
+- Nhấp vào bí mật.
+- Thêm biểu tượng mặt ôm và điền vào.
+### Muc 57
+
+- Nhấp vào "Xong".
+- Đó là điều bạn đã làm.
+- Được rồi.
+- Bây giờ tôi muốn cho các bạn xem một tệp khác ở đây có tên là llama pie.
+- Vậy là bánh llama ngắn quá.
+- Hãy xem này.
+- Hãy xem thử điều này đơn giản như thế nào.
+- Nó nhập mô-đun và nhập lại hình ảnh.
+## Phan 20
+
+### Muc 58
+
+- Và sau đó, chúng ta sẽ tạo một ứng dụng có tên là llama.
+- Và đây là nơi chúng ta định nghĩa lại hình ảnh mà chúng ta muốn, đó là một hệ thống Linux đơn giản.
+- Chúng tôi muốn cài đặt torch transformers bằng pip và tăng tốc ba thư viện phổ biến từ Hugging.
+- Xin lỗi, đây là lỗi từ PyTorch.
+- Rõ ràng hai cái này đến từ biểu tượng ôm mặt, và sau đó "secrets" là nơi chúng ta định nghĩa bí mật mà chúng ta muốn sử dụng.
+- Và đó chính là cái được gọi là "bí mật ôm mặt".
+- Và đây là nơi mà nếu bạn đặt tên cho nó khác đi, nếu tên của nó khác đi, bạn cũng phải thay đổi nó ở đây.
+- Và trong tất cả các tệp khác mà tôi có cho tuần này.
+### Muc 59
+
+- À, vậy.
+- Vậy đây là nơi chúng ta thông báo cho modal rằng chúng ta muốn sử dụng khóa bí mật có tên đó.
+- Nói cách khác, chúng tôi muốn bạn tìm ra bí mật đó và thiết lập khóa đó thành một biến môi trường với giá trị tương ứng.
+- Vậy nó sẽ tạo ra một biến môi trường có tên là HDF_underscore_token, đó chính là biến mà chúng ta cần.
+- Đây là nơi chúng ta chỉ định GPU.
+- Chúng tôi muốn một GPU T4.
+- Và đó chính là mô hình mà chúng ta sẽ làm việc với.
+- Và như vậy, chúng ta có một hàm trang trí tương tự như hàm apt trước đây.
+### Muc 60
+
+- Chúng tôi chỉ định hình ảnh mà chúng tôi muốn các bí mật.
+- Chúng ta sẽ sử dụng GPU mà chúng ta muốn trên thiết bị này.
+- Và chúng tôi đã đặt một khoảng thời gian chờ để nó không tiếp tục mãi mãi.
+- Và đoạn mã này chính là mã tiêu chuẩn cho mô hình Hugging Face Transformers, sẽ tải tokenizer vào mô hình của chúng ta, mô hình Lama, và thực hiện suy luận để dự đoán các token tiếp theo sau đầu vào.
+- Đó là tất cả những gì chúng ta đang làm với hàm rất đơn giản này.
+- Được rồi.
+- Vậy chúng ta quay lại ngày đầu tiên.
+- À, vậy chúng ta sẽ nhập khẩu nó.
+## Phan 21
+
+### Muc 61
+
+- Và bây giờ chúng ta sẽ nói "uh" với chế độ bật đầu ra.
+- Nó sẽ in rất nhiều thứ.
+- Và đây chính là nơi bạn có thể gặp vấn đề với Unicode.
+- Có lẽ chúng ta sẽ xem chuyện gì sẽ xảy ra.
+- À, bạn có thể luôn lấy nó ra.
+- Và sau đó, bằng cách chạy lệnh apt, kết quả sẽ tạo ra hàm mà chúng ta vừa viết là remote.
+- Và đoạn văn mà tôi muốn nhờ llama hoàn thành là "text never gonna give you up".
+- Không bao giờ, ừm, hầu hết, hầu hết con người trên hành tinh này bây giờ sẽ không thể ngăn cản Rick Astley khỏi việc, ừm, việc bài hát của anh ấy vang lên trong tâm trí họ.
+### Muc 62
+
+- Tôi muốn rickroll llama 3.2 nếu bạn quen với meme đó.
+- Vì vậy, khi tôi chạy lệnh này vì đã bật chế độ hiển thị kết quả, chúng ta có thể thấy nhiều hoạt động diễn ra khi theo dõi quá trình thực thi từ xa.
+- Và đúng vậy, bạn sẽ thấy đây là một quá trình khá ồn ào, à, hiển thị dưới dạng một phần tử có thể cuộn để bạn có thể xem toàn bộ.
+- À, và điều này có thể mất khá nhiều thời gian, tùy thuộc vào việc bạn đã từng làm điều đó trước đây hay chưa và các yếu tố khác.
+- Vậy đây là điều mà tôi sẽ để lại cho các bạn trong một phút và sẽ quay lại sau.
+- À, và sẽ mất một chút thời gian, nhưng sau đó nó sẽ chạy và chúng ta sẽ xem llama 3.2 nghĩ gì về phần tiếp theo của điều đó.
+- Và điểm quan trọng là điều này đang được thực thi từ xa trên đám mây.
+- Và nó phải làm như vậy.
+### Muc 63
+
+- Vậy là nó đang khởi tạo một hộp có GPU.
+- Sau đó, nó tiến hành quá trình tải xuống các tệp hình ảnh khuôn mặt ôm.
+- Vì vậy, chúng ta phải đưa phiên bản Llama 3.2 vào môi trường.
+- Và sau đó là thực hiện cuộc gọi LLM.
+- Vậy tôi sẽ gặp bạn ngay sau khi có kết quả.
+- Được rồi.
+- Và đã hoàn thành.
+- Và đúng vậy, chúng tôi sẽ không bao giờ từ bỏ bạn.
+## Phan 22
+
+### Muc 64
+
+- Tôi sẽ không bao giờ làm bạn thất vọng.
+- Không bao giờ.
+- Và tất cả những điều đó.
+- Đúng, chúng tôi đã biết trước điều gì sẽ xảy ra.
+- À, nếu việc đó quá khó khăn đối với bạn, thì tôi đã đưa ra một số ví dụ khác mà llama 3.2 không thể giúp được, nhưng nó sẽ hoàn thành những phần được đánh dấu đỏ mà bạn thấy ở đây.
+- Thêm vào đó, đây là nhật ký thực tế đang chạy trên máy chủ từ xa đó.
+- Bạn có thể thấy nó đã làm chính xác những gì bạn có thể đã quen thuộc với việc tải các điểm kiểm tra từ việc ôm mặt.
+- Và sau đó, ừm, bạn luôn nhận được một cảnh báo nhỏ về các mặt nạ chú ý mà bạn có thể bỏ qua.
+### Muc 65
+
+- Mọi thứ đều ổn.
+- Được rồi, vậy là đã hoạt động rất tốt.
+- Bây giờ tôi muốn giới thiệu với các bạn một khái niệm khác gọi là "preiser ephemeral", và tôi gọi nó là "ephemeral" để phân biệt với những gì chúng ta sẽ làm sau này, điều đó sẽ không phải là "femoral".
+- Femoral có nghĩa là thoáng qua, như thể nó tồn tại rồi lại biến mất.
+- À, vậy đây cơ bản là hoàn toàn giống nhau.
+- À, nhưng chúng ta sẽ thực sự tìm kiếm mô hình thực sự, mô hình mà chúng ta đã tinh chỉnh, mô hình mà chúng ta đã thực hiện trong tuần thứ bảy, và chúng ta sẽ thực sự sử dụng mô hình đó.
+- À, để tôi cho bạn xem cái này.
+- Vậy là chúng ta lại nhập modal.
+### Muc 66
+
+- Lần này, chúng tôi gọi ứng dụng là Preiser.
+- Và chúng ta cài đặt lại gói Pytorch's torch, gói này được cài đặt từ thư viện Hugging Faces, bao gồm các thành phần Transformers, Bits và Bytes, cùng với các công cụ tăng tốc và tinh chỉnh hiệu quả thông số.
+- Tên của gói này chứa các thành phần liên quan đến Laura.
+- Hừm.
+- À, và một lần nữa, chúng ta có được bí mật này.
+- Vậy nếu bạn đã thay đổi tên, thì bạn cần sử dụng tên của mình ở đó.
+- À, và sau đó là các hằng số, chúng ta sẽ sử dụng hộp T4.
+- Đây là mẫu cơ bản.
+## Phan 23
+
+### Muc 67
+
+- Đây là tên phiên bản và số phiên bản đã mang lại kết quả tuyệt vời đó.
+- À, kết quả tốt nhất của chúng tôi cho đến nay.
+- Đây là mô hình mạnh nhất của chúng tôi trên hành tinh mà chúng tôi đang sử dụng ở đây.
+- Và, ừm, đó là tên mô hình của chúng tôi.
+- Đây là nội dung được trích dẫn trực tiếp từ bài tập hợp tác ngày thứ năm của tuần thứ bảy, không có bất kỳ sự thay đổi nào.
+- Và sau đó, tôi chỉ có một giá cho một chức năng duy nhất.
+- Và tất nhiên, nó được thiết kế để tận dụng các tính năng bí mật của GPU và thời gian chờ mà chúng ta có ở đó.
+- Và về giá cả, bạn có thể kiểm tra và so sánh mã này, như người ta thường nói khi so sánh các sản phẩm trong nhà thuốc, so sánh với thành phần của chúng.
+### Muc 68
+
+- So sánh điều này với những gì chúng ta đã có trong Colab vào tuần thứ bảy, ngày thứ năm.
+- Và bạn sẽ thấy rằng chúng tôi cũng đang làm điều tương tự.
+- Chúng tôi đang thực hiện suy luận trên mô hình đã được tinh chỉnh của mình ngay tại đây.
+- Và sau đó chúng ta sẽ trả lại giá.
+- Tôi có một số mã nguồn không ổn định ở đây, vì nếu nó tạo ra văn bản chứa số, tôi muốn loại bỏ số đó và trả về số.
+- Và đó chính là chức năng của hàm này.
+- Đó là sự khác biệt duy nhất mà tôi nghĩ giữa với với với Colab.
+- Được rồi.
+### Muc 69
+
+- Vậy hãy quay lại ngày đầu tiên.
+- Đây là nó.
+- Chúng ta sẽ nhập khẩu điều đó.
+- Và bây giờ tôi sẽ bắt đầu, và nó sẽ bắt đầu hoạt động.
+- Hiện tại, nó đang liên hệ với modal.
+- Nó đang tạo ra một hộp mới.
+- Bây giờ nó sẽ cài đặt tất cả các gói đó.
+- Và sau đó nó sẽ tải xuống các trọng số mô hình, vì đây là phiên bản lớn, nên các trọng số mô hình này có dung lượng hơn một gigabyte.
+## Phan 24
+
+### Muc 70
+
+- Vậy nên sẽ mất một thời gian.
+- Lần này, việc đó chỉ mất vài phút đối với tôi.
+- Đôi khi điều này có thể mất rất nhiều thời gian.
+- À, vậy có thể bạn sẽ phải chờ khá lâu đấy.
+- Đúng vậy, nó không nên mất quá nửa giờ, nhưng đôi khi nó có thể mất gần như vậy, tùy thuộc vào nhiều yếu tố khác nhau.
+- Vậy tôi sẽ đi lại và quay lại ngay sau khi xong việc, và tôi sẽ báo cáo lại thời gian mất bao Được rồi, vậy là đã xong và thực ra chỉ mất một phút và 20 giây.
+- Vậy là cả màn kịch kéo dài nửa giờ của tôi hoàn toàn sai lầm.
+- Và có thể bạn đã mất nhiều thời gian hơn, tôi không biết.
+### Muc 71
+
+- Như một lời nhắc nhở, đây là micro Quadcast HyperX condenser mà tôi đã gửi, chính là micro mà tôi đã sử dụng để ghi âm bộ video gốc này.
+- Khi tôi mua nó, nó đã tốn của tôi khoảng $130, vì vậy ước tính này thấp hơn khá nhiều, trừ khi tôi bị lừa khi trả số tiền đó.
+- Nhưng mô hình của chúng tôi cho rằng nó rẻ hơn một chút.
+- À, điều đó thật đáng chú ý.
+- À, nhưng lần này chúng tôi đã gọi mô hình được tinh chỉnh của mình đang chạy trên đám mây, và điều đó không lý tưởng vì nó mất một phút rưỡi, vì nó phải tải tất cả dữ liệu trong một phút 20 giây, nhưng nó vẫn hoạt động.
+- Nó hoạt động bình thường trên một máy chủ T4 trong đám mây.
+- Được rồi, tiếp theo, tôi cần giải thích một vấn đề kỹ thuật nhỏ mà chúng ta đang gặp phải.
+- Được rồi, đây là một vấn đề tinh tế mà có thể bạn đã nhận ra.
+### Muc 72
+
+- Khi chúng tôi đào tạo tất cả dữ liệu của mình trong mô hình độc quyền của chúng tôi, chúng tôi luôn tiền xử lý tất cả dữ liệu, cả trong dữ liệu đào tạo và dữ liệu kiểm tra, để có một định dạng cụ thể.
+- Định dạng đã được xử lý trước của chúng tôi, bao gồm tiêu đề, danh mục và các thành phần khác.
+- Đó chính là định dạng mà mô hình đã được huấn luyện để dự đoán.
+- Vì vậy, việc chuyển đổi sang định dạng khác có thể không phải là giải pháp tối ưu.
+- Có vẻ như nó hoạt động tốt, nhưng không phải là lý tưởng.
+- Và nếu chúng ta muốn điều này đáng tin cậy, chúng ta cần tiền xử lý mọi thứ trước khi đưa vào mô hình để đảm bảo nó có định dạng nhất quán.
+- Và việc tiền xử lý theo cách này là một việc làm rất phổ biến.
+- À, vậy tôi sẽ sử dụng cùng một đoạn mã mà chúng ta đã sử dụng trước đây.
+## Phan 25
+
+### Muc 73
+
+- Đây là một tệp có tên là Pre-processor, nằm trong thư mục này.
+- Và điều chúng ta có thể làm là sử dụng trình tiền xử lý (pre-processor) để tiền xử lý (pre-process) và chèn một số văn bản.
+- Và nếu tôi in điều đó, kết quả thu được sẽ được đưa qua một bộ tiền xử lý, mà theo mặc định tôi đang sử dụng Llama 3.2 chạy trên máy tính cục bộ của tôi.
+- Nếu bạn muốn, bạn cũng có thể chọn một mẫu khác.
+- Vậy đây là trường hợp nếu tôi muốn sử dụng Grok trên đám mây và có một tùy chọn cho phép phân loại dữ liệu vào các danh mục khác nhau.
+- Nhưng điều này cho phép chúng ta có một mô hình, đó là mô hình OSS, và sử dụng Grok theo mặc định.
+- Nó sẽ sử dụng điều này.
+- Tôi cũng có khả năng này, bạn có thể thêm nó vào tệp EMV của mình.
+### Muc 74
+
+- Nếu bạn muốn chỉ định rằng bạn muốn sử dụng một trình tiền xử lý cụ thể.
+- Khi chúng tôi triển khai nền tảng đại lý của mình, tệp EMV của bạn sẽ điều khiển điều đó.
+- À, nhưng hy vọng điều này sẽ giúp bạn hiểu rõ hơn.
+- Nếu chúng ta muốn đạt được hiệu suất tốt nhất, thì trước khi gọi mô hình của mình, chúng ta nên chuyển đổi văn bản của đối tượng mà chúng ta muốn định giá sang cùng định dạng đã được sử dụng trong quá trình đào tạo.
+- Với suy nghĩ đó, tôi có thể bắt đầu lại việc chạy ứng dụng Dot và định giá micro đó như trước đây.
+- Thay vì chỉ truyền vào phiên bản văn bản gốc, chỉ một câu ngắn gọn mô tả về nó, tôi đã tiền xử lý nó và chuyển đổi thành một định dạng tương tự như thế này, chính là định dạng mà chúng ta đang sử dụng, cũng là định dạng mà mô hình đã được đào tạo trên đó, để đảm bảo tính nhất quán trong định dạng.
+- Và nói thật lòng, có thể chúng ta sẽ ổn cả hai cách.
+- Nhưng nó chắc chắn nhất quán hơn.
+### Muc 75
+
+- Thực hành tốt hơn là xử lý dữ liệu của bạn tại thời điểm suy luận theo cùng cách mà bạn đã xử lý dữ liệu tại thời điểm đào tạo.
+- Và đó chính là lý do tại sao chúng ta làm theo cách này.
+- Vậy là lại như vậy, có lẽ việc này sẽ mất khoảng thời gian tương tự, khoảng một phút và 20 giây.
+- Và bạn cũng có thể thấy nó đang chạy.
+- Và tôi sẽ gặp lại bạn sau 20 năm nữa khi nó hoàn thành.
+- Và thế là xong.
+- Đã hoàn thành.
+- Và nó mất một phút và tám giây.
+## Phan 26
+
+### Muc 76
+
+- Và điều thú vị là, nó cho ra chính xác cùng một con số.
+- Thỉnh thoảng tôi đã có thể đạt được kết quả tốt hơn trong quá khứ.
+- Tôi đã làm điều đó, nhưng vì lý do gì đó, lần này văn bản trước khi xử lý hoàn toàn giống nhau, nên không có sự khác biệt nào giữa quá trình xử lý trước và việc viết nó.
+- Hãy chắc chắn rằng chúng ta đã làm đúng những gì đã được phê duyệt.
+- Đây có phải là, ừm, đúng vậy.
+- Bạn có thể thấy nó ở đó.
+- Chúng tôi đã đưa ra một phiên bản tốt hơn của nó, một phiên bản nhất quán hơn với cách nó được đào tạo.
+- Và chúng tôi đã nhận được câu trả lời hoàn toàn giống nhau.
+### Muc 77
+
+- Vậy có lẽ điều đó có nghĩa là chúng ta đã huấn luyện mô hình một cách tốt để nó có khả năng chống lại điều này, nhưng việc thực hiện tiền xử lý theo cách này vẫn là một phương pháp tốt hơn.
+- Được rồi.
+- Điều đó đã cho bạn thấy cách chúng ta có thể thực hiện cuộc gọi đến modal trên đám mây để định giá một thứ gì đó.
+- Khởi tạo một hộp T4, tải mô hình của chúng ta vào đó và chạy nó.
+- Phần còn lại mà tôi muốn trình bày với các bạn bây giờ là cách chúng ta làm cho điều này hiệu quả hơn.
+- Chúng tôi không muốn phải tải xuống và xây dựng lại mỗi lần.
+- Chúng tôi muốn có thể thực hiện việc triển khai.
+- Vậy chúng ta có một thành phần modal có thể gọi được, thay vì ý tưởng tạm thời rằng mỗi lần chỉ có một đoạn mã được gửi đi.
+### Muc 78
+
+- Vậy đó là điều chúng ta sẽ làm tiếp theo.
+- Vì vậy, ý tưởng là thay vì chỉ gọi hàm này từ xa, mỗi lần chúng ta triển khai mã nguồn lên modal, chúng ta sẽ có một cách để truy cập nó trên đám mây và sau đó có thể gọi nó theo cách đó.
+- Vậy là tôi đã tạo ra một mô-đun Python mới có tên là Pricer Service, và nó về cơ bản hoàn toàn giống với tập hợp các Pi tạm thời.
+- Chúng ta sẽ sử dụng điều này để triển khai nó, nhưng nó cũng giống như vậy.
+- Tôi đã đặt cho nó một tên khác, Preiser hyphen service, nhưng nó vẫn sử dụng cùng một hộp và có cùng chức năng giá.
+- Đây là phiên bản mà chúng ta muốn triển khai và sau đó sử dụng.
+- Vậy chúng ta hãy đến phòng thí nghiệm.
+- Và đây là cách bạn triển khai một mô-đun Python.
+## Phan 27
+
+### Muc 79
+
+- Đó là triển khai mô-đun và sau đó là tên mô-đun.
+- Nhưng vì chúng ta đang ở trong môi trường UV, bạn cần thực hiện triển khai mô-đun chạy UV.
+- Và sau đó là tên mô-đun, và bạn có thể chạy nó từ một notebook bằng cách thêm dấu chấm than đó.
+- Nếu điều này gây ra bất kỳ vấn đề nào liên quan đến biểu tượng cảm xúc, thì bạn có thể cần phải chạy UV, sau đó chạy lệnh deploy modal từ dòng lệnh trong terminal.
+- Nhưng khi tôi chạy chương trình này, nó sẽ thực sự chạy rất nhanh vì nó biết rằng tôi đã thực hiện điều đó trước đó.
+- Có thể sẽ mất vài phút vì nó cần triển khai và cài đặt.
+- À, vậy là đã xảy ra rồi.
+- Và tiếp theo, thay vì cách bạn gọi nó, bạn trước tiên nói với Modell: "Này, nghe này, tôi biết rằng tôi có một chức năng trong một dịch vụ mà tôi đã đặt tên là Priceless Service." Và hàm này được gọi là price.
+### Muc 80
+
+- Tôi muốn bạn cung cấp cho tôi một tham số cho hàm có tên là price.
+- Và bây giờ, bạn có thể coi nó như một hàm thông thường mà bạn có thể gọi, nhưng nó đại diện cho một hàm modal.
+- Vậy là tôi đã chạy chương trình đó và bây giờ chúng ta có kết quả này.
+- Và sau đó, tôi có thể gọi hàm Pricer.Remote và truyền vào đó một lệnh mà tôi muốn thực thi.
+- Và sau đó, nó sẽ được chạy từ xa trên môi trường triển khai của chúng tôi.
+- Vậy để tôi bắt đầu nhé.
+- Nó đi rồi.
+- Tôi sẽ chuyển sang chế độ modal để chúng ta có thể xem nó hoạt động như thế nào.
+### Muc 81
+
+- Chúng ta truy cập vào bảng điều khiển.
+- Bạn có thể thấy rằng chúng tôi cung cấp dịch vụ giá cả.
+- Đó chính là điều chúng tôi vừa triển khai.
+- Và đây là giá.
+- Và nó đang chạy ngay bây giờ.
+- Tôi vào đây và bạn sẽ thấy nó ở đó.
+- Tôi vừa mới bắt đầu.
+- Nó đã khởi động.
+## Phan 28
+
+### Muc 82
+
+- Nó đang chạy ngay bây giờ.
+- Hãy vào trong.
+- Bạn có thể xem những gì đang diễn ra ở đây trong chế độ xem dòng thời gian này, dòng thời gian thực thi.
+- Xem giai đoạn khởi động.
+- Quá trình thực thi đã bắt đầu.
+- Dưới đây là các bản ghi nơi chúng ta có thể xem nó đang làm gì.
+- Nó đang tải xuống hai tệp tin.
+- Có nhiều chuyện đang xảy ra và bạn có thể ngồi đây và xem.
+### Muc 83
+
+- À, bạn giống như một người tò mò theo dõi mã nguồn của mình chạy từ xa trên máy chủ của họ, và việc đó chỉ đơn giản là tải xuống một số tệp tin.
+- Đây là mã thông thường để tải xuống mô hình, giống như mã chuyển đổi khuôn mặt.
+- À, nó đang tải ở các điểm kiểm tra.
+- Và sau đó, chúng ta sẽ thấy một loạt thông báo khi nó thực hiện công việc của mình.
+- Và tôi sẽ gặp lại bạn ngay lập tức khi nó hoàn tất.
+- Và thế là xong.
+- Nó đã hoàn thành.
+- Chỉ mất khoảng một phút và năm giây.
+### Muc 84
+
+- Chúng ta có thể, ừm, nhìn thấy, nhìn thấy tất cả những điều này.
+- Tôi nghĩ là xong rồi.
+- Ừm, được rồi.
+- Và bây giờ chúng ta có thể quay lại con trỏ và trong con trỏ.
+- Chúng ta có thể cuộn xuống và thấy ở đây rằng nó đã hoàn thành.
+- Và nó lại trả lời với 90.
+- Vậy là chúng tôi đã gửi văn bản và nó được chạy từ xa trên ứng dụng đã triển khai của chúng tôi trong chế độ modal trên đám mây.
+- Và chúng tôi đã nhận được số 90.
+## Phan 29
+
+### Muc 85
+
+- Được rồi.
+- Còn một việc nữa cần làm với điều này, đó là cho các bạn xem giá cả và dịch vụ cho phiên bản cải tiến của sản phẩm này, mà tôi đang có ngay đây.
+- Và vì tôi đã đặt tên cho dịch vụ này là "Giá dịch vụ 2", nếu bạn xem xét kỹ, tôi đã sử dụng cùng một tên, cùng một tên mô-đun, "Giá dịch vụ".
+- Vậy nên, điều này thực sự sẽ ghi đè lên bản triển khai mà chúng ta vừa thực hiện bằng một bản triển khai mới.
+- Điều đó tốt hơn một chút.
+- Vậy thì nó tốt hơn ở điểm nào?
+- Nó hầu như giống nhau nếu bạn xem qua, nó hầu như giống nhau.
+- Nhưng có một số điểm khác biệt.
+### Muc 86
+
+- Đầu tiên, thay vì sử dụng một hàm, nó sử dụng một lớp.
+- Nó có một lớp, một khía cạnh hướng đối tượng, uh, có một phần nào đó xử lý việc thiết lập và sau đó là phương thức tính giá.
+- Và tại sao chúng ta lại làm theo cách này?
+- Bởi vì điều này cho phép chúng ta tải dữ liệu vào hệ thống một cách miễn phí và dữ liệu này sẽ được lưu trữ lâu dài.
+- Điều này sẽ được lưu vào bộ nhớ đệm trên thiết bị.
+- Và điều đó có nghĩa là nó sẽ có thể khởi động nhanh hơn nhiều trong tương lai.
+- Trong tương lai, thời gian khởi động sẽ chỉ mất khoảng 30 giây, thay vì một phút và một chút như hiện tại.
+- Và cách thực hiện điều đó với modal là bạn có thể chỉ định, um, một volume, uh, và các volume mà chúng ta đang chỉ định ở đây, chúng ta đang yêu cầu có một thư mục cache, và để điều đó trở thành một thứ gì đó cho phép chúng ta xem ở đây, có một volume được gọi là HRF Hub Cache.
+### Muc 87
+
+- Và điều đó cung cấp cho chúng ta một không gian lưu trữ cố định, một phần lưu trữ liên tục được liên kết với triển khai này và sẽ luôn được gắn với nó.
+- Điều đó có nghĩa là chúng ta sẽ không cần phải tải lại các trọng số mô hình mỗi lần, vì các trọng số mô hình sẽ được lưu trữ cùng với bản triển khai này.
+- Vậy hãy xem cách thức hoạt động của nó như thế nào.
+- Nhưng nó cũng rất, rất ngắn gọn và rất đơn giản.
+- Và bạn có thể thấy rằng bạn sử dụng trình trang trí này để chỉ định rằng đây là phần mã cần được thực thi lần đầu tiên.
+- Đây, đây là, ừm, đây là được xây dựng, container này được xây dựng.
+- Và sau đó, trong các lần tiếp theo, nó sẽ chỉ gọi giá của chúng ta.
+- Được rồi.
+## Phan 30
+
+### Muc 88
+
+- Với suy nghĩ đó, hãy quay trở lại phòng thí nghiệm.
+- Và đã đến lúc chúng ta triển khai dịch vụ quy trình.
+- Và sau đó chúng ta sẽ thử gọi số đó.
+- Vậy tôi sẽ bắt đầu triển khai.
+- Và một lần nữa, điều này diễn ra nhanh chóng đối với tôi, nhưng có thể không nhanh như vậy đối với bạn vì nó cần phải được triển khai thực tế.
+- Và lần đầu tiên sẽ mất vài phút, sau đó chúng ta hãy chạy nó.
+- Được rồi, bắt đầu nhé.
+- Tôi sẽ bắt đầu.
+### Muc 89
+
+- Chúng tôi đang gọi lần này từ tên.
+- Bạn nhớ đấy, điều này tương tự như trước đây chúng ta đã nói về dấu chấm chấm từ tên.
+- Bây giờ nó là một lớp học.
+- Chúng ta lấy lại lớp đó và tạo một đối tượng mới của nó.
+- Chúng tôi gọi giá từ xa.
+- Và bây giờ chúng ta vào đây và truy cập vào bảng điều khiển.
+- Chúng ta nên kiểm tra xem nó đang chạy ở đây.
+- Hãy cùng nhau bắt đầu.
+### Muc 90
+
+- Được rồi, bắt đầu nhé.
+- Đang chờ xử lý.
+- Hiện tại, nó đang trong quá trình khởi động.
+- À, nó cần phải, phải, phải xây dựng nó.
+- Và bây giờ chúng ta bắt đầu.
+- Nó có những cảnh báo thông thường và tôi nghĩ có lẽ nó đã hoàn thành.
+- Được rồi.
+- Nó đã hoàn thành rồi vì tôi đã chạy nó một lần rồi.
+## Phan 31
+
+### Muc 91
+
+- Nó đã xây dựng xong container.
+- Vì vậy, nó thực sự rất nhanh.
+- Chỉ mất 30 giây, không phải một phút rưỡi như trước đây, nên thời gian đã giảm đi một nửa so với trước, điều này thật tuyệt vời.
+- À, và như vậy, à, điều đó thực sự giúp bạn hiểu cách thức hoạt động của nó.
+- Nếu chúng ta quay lại phòng thí nghiệm, bạn có thể thấy lại, bạn chỉ cần thực hiện lệnh "pricer dot price remote".
+- À, để tôi thêm một ít mã nữa, một khối mã khác ở đây, à, như vậy.
+- Và chúng ta hãy chạy lại một lần nữa.
+- À, và lần thứ hai bạn chạy nó, hãy xem nó nhanh như thế nào, vì nó đã sẵn sàng ở đó và đã ấm lên, sẵn sàng cho chúng ta.
+### Muc 92
+
+- Nó gần như ngay lập tức.
+- Và đó là việc lấy văn bản đó, gửi nó lên đám mây, chạy nó trên modal, và nhận kết quả trở lại.
+- Và bây giờ chúng ta không còn ngồi đó chờ đợi như trước đây với công cụ định giá tạm thời.
+- Đây, đây chính là AI không máy chủ thực sự.
+- Chúng tôi chỉ thanh toán cho các yêu cầu thực tế mà chúng tôi đưa ra.
+- Việc định nghĩa mã nguồn của chúng tôi thật dễ dàng, mô tả cơ sở hạ tầng mà chúng tôi mong muốn, hộp T4, các tính năng của nó, mô tả khối lượng dữ liệu mà chúng tôi muốn lưu trữ trong bộ nhớ đệm, và sau đó chúng tôi có thể nhận được lớp định giá này.
+- À, trường hợp này.
+- Xin lỗi.
+### Muc 93
+
+- Giáo sư của lớp này tạo ra một thực thể của nó.
+- Và chỉ cần truy cập vào pricer.price, chúng ta có thể gọi nó nhiều lần, ừm, trên đám mây.
+- Bây giờ, có rất nhiều điều đáng yêu về modal.
+- Và tài liệu hướng dẫn của họ rất tốt.
+- Và bạn có thể tìm hiểu về tất cả các mẹo và kỹ thuật liên quan đến modal.
+- Và tôi khuyến khích bạn làm điều đó.
+- Tôi sẽ không đi sâu vào modal, vì có thể bạn đang sử dụng nó hoặc không.
+- Tôi muốn cho bạn cảm nhận về nó.
+## Phan 32
+
+### Muc 94
+
+- Hy vọng điều này là đủ.
+- Vậy là bạn đã thấy cách tự viết các hàm hoặc lớp của riêng mình.
+- Gọi cho họ tại địa phương hoặc gọi cho họ qua đám mây.
+- Xác định loại phần cứng bạn đang sử dụng bằng mã.
+- Thật sự tuyệt vời.
+- Rất dễ sử dụng.
+- Một mẹo nhỏ hữu ích cho bạn đây.
+- Một trong những đặc điểm của chế độ modal vừa là lợi thế vừa là nhược điểm là sau một khoảng thời gian ngắn, chế độ modal sẽ đưa máy tính của bạn, máy tính từ xa của bạn vào chế độ ngủ.
+### Muc 95
+
+- Và sau đó sẽ mất thêm 30 giây để khởi động lại và tải mô hình vào bộ nhớ.
+- Mặc dù mô hình được lưu trữ trong bộ nhớ đệm trên đĩa, nó không được lưu trữ trong bộ nhớ, do đó nó vẫn cần tải lại mô hình đó trong 30 giây mỗi khi mô hình bị "lạnh", và mất hai phút trước khi mô hình đó bị "lạnh".
+- Và điều đó có thể là do bạn không có đủ thời gian.
+- Bạn có thể thấy mình thường phải chờ đợi 30 giây, điều này có thể gây phiền toái.
+- Tôi nghĩ đến lúc này chúng ta có lẽ đã.
+- Nếu tôi chạy chương trình này ngay bây giờ, có lẽ nó sẽ mất khoảng 30 giây.
+- Đây rồi.
+- À, vậy bạn có thể thông báo cho modal rằng bạn muốn ghi đè lên hành vi đó.
+### Muc 96
+
+- Bạn có thể yêu cầu nó tạo thêm container, thay vì để số lượng container giảm xuống còn 0.
+- Luôn duy trì ít nhất một cái luôn hoạt động.
+- Tất nhiên bạn sẽ phải trả nhiều hơn cho điều đó, nhưng đó là điều bạn có thể làm nếu đang làm việc với một hệ thống sản xuất luôn cần phải có khả năng phản hồi, điều đó có thể không phải là một bước đi mạnh mẽ như việc chỉ cần nói với modal: "Thay vì làm mát hộp của tôi sau hai phút, vui lòng để nó hoạt động lâu hơn." Vui lòng để nguyên trong vòng 20 phút.
+- Bạn có thể thiết lập để modal giữ cho hộp hiển thị liên tục, và đây là một đoạn mã bạn có thể chạy để giữ hộp hiển thị trong tối đa 20 phút mỗi lần, và đoạn mã này sẽ đặt lại thời gian hiển thị về 2 phút sau khi bạn thực hiện thao tác đó.
+- Nhưng chúng ta sẽ để nó chạy trong hai phút trước đã.
+- Và bạn thấy đấy, nó vẫn khá nhanh ngay cả khi phải làm nóng.
+- Nhưng nếu tôi chạy nó lần thứ hai ngay bây giờ, nó sẽ rất nhanh.
+- Đây rồi.
+## Phan 33
+
+### Muc 97
+
+- Lecture thumbnail 6:06 / 6:18 Và bây giờ.
+- Và bây giờ, tôi muốn giới thiệu nhân viên đầu tiên của chúng tôi.
+- Và nó được gọi là đại lý chuyên môn.
+- Và đây là điều sẽ cho phép chúng ta định giá một sản phẩm bằng cách sử dụng mô hình độc quyền của chúng ta thông qua việc gọi đến đám mây.
+- Và tất cả các đại lý của tôi đều nằm trong gói Python agents.
+- Và chuyên gia này chính là chuyên gia trong lĩnh vực này.
+- Và bạn sẽ nhận thấy rằng nó rất ngắn.
+- Đó là một đại lý rất đơn giản.
+### Muc 98
+
+- À, nó, à, nó có một phương thức init.
+- Và trong phương thức init của lớp đại lý này, nó nói rằng, uh, lớp Pricer, uh, lớp Pricer là tên mô hình, nó được gọi là dịch vụ giá.
+- Và tên của lớp là Pricer.
+- Và đó là lớp Pricer của chúng ta.
+- Và nó tạo ra một đối tượng mới của lớp đó và gán nó cho biến thực thể pricer.
+- Vậy chúng ta đang tạo một thực thể của lớp điều khiển từ xa modal của chúng ta.
+- Và chúng tôi biết điều đó vì chúng tôi vừa triển khai nó.
+- Chính xác là điều gì.
+### Muc 99
+
+- Đây là một hộp T4 có dung lượng chứa các trọng số của chúng ta, và nó chứa một hàm duy nhất, một phương thức giá, có khả năng định giá từ xa một mô tả.
+- Và đây là đại lý của chúng tôi dưới dạng hàm giá.
+- Nó yêu cầu một mô tả và đơn giản là gọi hàm self.price.remote.
+- Gọi phương thức từ xa trên đối tượng từ xa của chúng ta.
+- Giá của lớp học của chúng tôi.
+- Đang truyền trong mô tả.
+- Kết quả đã có.
+- Vậy nên đây là một buổi học rất ngắn.
+## Phan 34
+
+### Muc 100
+
+- Và phần lớn trong số này là các bình luận và ghi nhật ký.
+- Thực ra, ở đây chỉ có hai dòng mã thôi.
+- Dòng đó và dòng này.
+- Thế là xong.
+- Đó là đại lý đầu tiên của chúng tôi.
+- Và đó là tất cả những gì cần thiết để trở thành một đại lý.
+- Có rất nhiều người.
+- Người ta thường nghĩ rằng các đại lý có nhiều điều kỳ diệu, nhưng thực tế không phải vậy.
+### Muc 101
+
+- Đó là một thứ bao quanh một cuộc gọi đến mô hình ngôn ngữ lớn (LLM), chính xác là điều chúng ta đang làm.
+- Và điều thú vị là chính mô hình LLM không chạy trên máy tính của tôi.
+- Nó đang chạy trên các mô-đun đám mây, trí tuệ nhân tạo không máy chủ.
+- À, nhưng tôi hiểu ý bạn.
+- Chờ đã.
+- Ed, anh đang nói là anh đã nói dối.
+- Bạn đã không nói cho chúng tôi biết toàn bộ sự thật.
+- Tôi thấy rằng đại lý chuyên gia này là một lớp con của lớp có tên là agent mà bạn đã nhập vào.
+### Muc 102
+
+- Bạn đã nói với chúng tôi rằng bạn sẽ không sử dụng một khung làm việc cho các tác nhân (agent framework) để xử lý tất cả các tương tác giữa các tác nhân.
+- Nhưng bạn có một thứ gì đó ở đây và một lớp cha sẽ thực hiện một số tác vụ.
+- Vậy tôi nên tiết lộ lớp cha này cho bạn.
+- Đây là lớp cha.
+- Nó được gọi là agent và lớp cha, đây là tổng thể của khung làm việc agent mà tôi đã xây dựng cho bạn ở đây.
+- Đây chỉ là một thành phần có chức năng ghi nhật ký duy nhất, chỉ thực hiện việc ghi lại thông tin nhật ký, và nó chỉ chọn một màu khác nhau dựa trên lớp con.
+- Và tôi đã làm điều này vì một lý do rất quan trọng, đó là nó sẽ trông thật tuyệt vời.
+- Vì vậy, tôi muốn rằng nếu mỗi lớp con khác nhau của chúng ta ghi một thông báo nhật ký, nó sẽ hiển thị với một màu khác nhau.
+## Phan 35
+
+### Muc 103
+
+- Vậy bạn sẽ thấy tất cả các đại lý khác nhau đăng nhập với các màu sắc khác nhau.
+- Hoàn toàn bề ngoài.
+- Ý tôi là, tôi chắc chắn rằng tất cả điều này đều nằm trong tinh thần của khả năng quan sát.
+- Để có thể theo dõi các nhân viên của chúng tôi và cách chúng tôi có thể làm điều đó sao cho có thể nhận biết ngay lập tức ai là ai, đó là nếu họ xuất hiện với các màu sắc khác nhau, um, kèm theo việc chỉ ra đó là nhân viên nào, nhân viên nào, nhân viên nào.
+- À, đó là phạm vi của khung làm việc đại lý mà chúng ta đang sử dụng ở đây.
+- Không có gì hơn thế.
+- Thực sự chỉ cần một vài dòng code cho chuyên gia đầu tiên của chúng ta.
+- Được rồi, hãy xem nó hoạt động như thế nào.
+### Muc 104
+
+- Được rồi.
+- Đầu tiên, tôi đã thiết lập hệ thống ghi nhật ký để chúng ta có thể xem các thông báo nhật ký mà tôi đã hứa với các bạn.
+- Và chúng ta sẽ nhập khẩu đại lý chuyên gia và sau đó tạo một bản sao mới của đại lý chuyên gia này.
+- Và khi chúng ta thực hiện điều đó, chúng ta ngay lập tức nhận được một thông báo nhật ký màu đỏ.
+- Màu đỏ là màu của nhân viên chuyên trách.
+- Và nó cho bạn biết rằng đó là một đại lý chuyên nghiệp.
+- Rất tốt.
+- Và bây giờ chúng ta sẽ yêu cầu nó định giá một chiếc iPhone 14 Pro Max.
+### Muc 105
+
+- Hãy xem điều gì sẽ xảy ra khi chúng ta bắt đầu.
+- Nó cho biết đại lý chuyên gia đang gọi mô hình được tinh chỉnh từ xa.
+- Đã được vài phút kể từ khi tôi làm điều đó, nên nó đã nguội, vì vậy chúng ta cần mở cửa sổ modal để xem điều đó.
+- Hãy đưa vấn đề này ra thảo luận.
+- Đây là nó.
+- Đi đến bảng điều khiển.
+- Đây là bộ xử lý.
+- Nó đang chạy ngay bây giờ.
+## Phan 36
+
+### Muc 106
+
+- Đây là nó.
+- Đang chờ xử lý.
+- Khi khởi động từ trạng thái lạnh, quá trình này mất khoảng 30 giây.
+- Như vậy, bạn có thể thấy nó đang ở đây và chờ đợi một container.
+- Và chỉ trong giây lát nữa, thập niên 30 sẽ bắt đầu và nó sẽ diễn ra, hy vọng là nhanh chóng và suôn sẻ.
+- Và sau đó, tất nhiên, chúng ta sẽ thử chạy nó lần thứ hai.
+- Được rồi.
+- Nó vừa mới xảy ra và sẽ diễn ra rất nhanh chóng.
+### Muc 107
+
+- Bây giờ chúng ta hãy quay lại với con trỏ.
+- Đây là nó.
+- Cuộn xuống và chúng ta sẽ thấy ở đó có thêm một số thông báo nhật ký.
+- Nó đang sử dụng mô hình tinh chỉnh và dự đoán giá là $700.
+- Đây là kết quả.
+- Thay vào đó, hãy chọn iPhone 10, hiện nay nó cực kỳ nhanh và dự đoán giá khoảng $350 cho model đó.
+- Và tất nhiên, khi chạy lần thứ hai, nó rất nhanh và chúng ta nhận được các tin nhắn đã đọc.
+- Mọi thứ đều hoạt động bình thường.
+### Muc 108
+
+- Modal đang hoạt động.
+- Đây là quá trình đang diễn ra.
+- Đây là đại lý đầu tiên của chúng tôi.
+- Đây chỉ là mã nguồn chạy cục bộ tại đây.
+- Đây chỉ là một lớp Python đơn giản.
+- Nhưng khi gọi nó, nó sẽ tự động kết nối đến nơi chúng ta đang triển khai AI không máy chủ.
+- Chúng tôi đang gọi một phương thức từ xa trên một lớp, sau đó chạy mô hình chuyên biệt của chúng tôi trên đám mây và thực hiện dự đoán giá.
+- Đây là nó.
+## Phan 37
+
+### Muc 109
+
+- Đại lý đầu tiên của chúng tôi đã chính thức hoạt động.
+- Thôi thì, tôi đã hứa với các bạn một tuần đầy sự kiện và hy vọng nó sẽ không làm các bạn thất vọng.
+- Hôm nay chúng ta đã hoàn thành được rất nhiều việc.
+- Chúng tôi đã triển khai lên modal và đã xây dựng một agent, và nó thật tuyệt vời.
+- Thực ra, ngày mai chính là ngày quan trọng nhất trong cả tuần.
+- Ngày mai sẽ rất quan trọng.
+- Chúng ta sẽ xây dựng một đường ống dữ liệu không đồng nhất, một loại công cụ định giá mới, sau đó là một mô hình tập hợp, và cuối cùng là cung cấp mã nguồn sẵn sàng cho sản xuất để gọi nhiều mô hình khác nhau.
+- Vậy là có quá nhiều việc phải làm vào ngày mai.
+### Muc 110
+
+- Vậy nên hãy chắc chắn rằng bạn có một giấc ngủ ngon để nạp lại năng lượng.
+- Tôi sẽ gặp bạn vào ngày mai để thảo luận về việc trở lại của Rag.
+

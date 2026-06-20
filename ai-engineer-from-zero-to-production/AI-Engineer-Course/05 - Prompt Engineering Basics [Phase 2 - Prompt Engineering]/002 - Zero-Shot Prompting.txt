@@ -1,0 +1,102 @@
+# Zero-Shot Prompting
+
+## Overview
+Zero-shot prompting means asking a model to perform a task with no worked examples — just a plain instruction. It is the simplest prompting strategy and the correct starting point before reaching for more complex techniques. Understanding why zero-shot works (and when it fails) gives you a mental model for all other prompting approaches.
+
+## Key Points
+- Zero-shot relies entirely on the model's pre-trained knowledge and instruction-following capability, which means it works best for tasks the model has "seen" many times during training (summarization, translation, classification, basic Q&A).
+- Instruction clarity is the single biggest lever: vague instructions produce vague outputs. Use precise verbs ("Extract", "Classify", "Summarize in one sentence") rather than open-ended ones ("Tell me about", "What do you think").
+- Task decomposition matters even in zero-shot: breaking a complex request into explicit steps ("First identify the sentiment, then explain why") significantly improves accuracy.
+- Context framing — providing the domain or purpose — helps the model weight relevant knowledge: "You are reviewing a medical record. Identify any drug names mentioned." outperforms "List drug names."
+- Zero-shot is the cheapest prompt in terms of token cost; it should always be your baseline before adding examples or chain-of-thought instructions.
+- Evaluation is essential: run your zero-shot prompt against at least 20 representative inputs before concluding it works or fails — a single test case is never enough.
+
+## Code Example
+```python
+# zero_shot_prompting.py
+# Demonstrates zero-shot prompting with the OpenAI API.
+# Requirements: pip install openai python-dotenv
+
+import os
+from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+
+def zero_shot(task_instruction: str, user_input: str, model: str = "gpt-4o-mini") -> str:
+    """
+    Send a zero-shot prompt and return the model's response text.
+
+    Args:
+        task_instruction: A clear, specific instruction describing the task.
+        user_input: The raw input the model should act on.
+        model: The OpenAI model to use.
+
+    Returns:
+        The model's response as a plain string.
+    """
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            # The instruction lives in the user turn for this simple demo.
+            # In production you would move it to the system prompt (see Lesson 006).
+            {
+                "role": "user",
+                "content": f"{task_instruction}\n\nInput:\n{user_input}"
+            }
+        ],
+        temperature=0,   # Deterministic output — always use 0 for classification/extraction tasks
+        max_tokens=256,
+    )
+    return response.choices[0].message.content.strip()
+
+
+# --- Example 1: Sentiment classification ---
+sentiment_instruction = (
+    "Classify the sentiment of the following customer review as exactly one of: "
+    "POSITIVE, NEGATIVE, or NEUTRAL. "
+    "Respond with only the label and nothing else."
+)
+
+review = "The delivery was late but the product quality exceeded my expectations."
+label = zero_shot(sentiment_instruction, review)
+print(f"Sentiment: {label}")
+# Expected output: POSITIVE or NEUTRAL (model may differ — log and evaluate)
+
+
+# --- Example 2: Entity extraction ---
+extraction_instruction = (
+    "Extract all company names from the text below. "
+    "Return them as a comma-separated list. "
+    "If no company names are present, return 'None'."
+)
+
+news_snippet = (
+    "Apple and Microsoft announced a joint partnership while Google remained silent. "
+    "Smaller players like Hugging Face watched from the sidelines."
+)
+companies = zero_shot(extraction_instruction, news_snippet)
+print(f"Companies: {companies}")
+# Expected output: Apple, Microsoft, Google, Hugging Face
+
+
+# --- Example 3: Step-decomposed zero-shot (structured reasoning) ---
+reasoning_instruction = (
+    "Answer the following question using this exact format:\n"
+    "Step 1: [identify what is being asked]\n"
+    "Step 2: [relevant facts or reasoning]\n"
+    "Step 3: [final answer in one sentence]"
+)
+
+question = "Why does increasing temperature in LLM sampling produce more creative but less reliable outputs?"
+answer = zero_shot(reasoning_instruction, question)
+print(f"\nStructured Answer:\n{answer}")
+```
+
+## Notes
+Zero-shot performance degrades significantly on tasks that require domain-specific reasoning (legal, medical, finance) or multi-step logic — these are strong signals to switch to few-shot or chain-of-thought prompting. Setting `temperature=0` is a best practice for any task with a "correct" answer (classification, extraction, structured output); reserve higher temperatures for creative generation. Be aware that zero-shot accuracy varies across model versions: a prompt that scores 92% on `gpt-4o` may score only 74% on `gpt-4o-mini`, so always benchmark on the specific model you intend to ship.
+
+## Summary
+Zero-shot prompting is your first tool and your baseline benchmark — master writing precise, decomposed instructions before adding examples or other complexity, and always measure accuracy against a representative test set before shipping.

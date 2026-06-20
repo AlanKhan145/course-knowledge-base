@@ -1,0 +1,1094 @@
+# 058 - JSON Web Token JWT, Its Pros and Cons
+
+Section: 07 - Extras
+Duration: 57min
+
+---
+
+## 1. Summary
+
+This lecture explains **JSON Web Token**, usually called **JWT** or **Jot**, and compares it with traditional session-based authentication.
+
+JWT is an internet standard for creating JSON-based tokens that carry claims inside the token itself. These claims may include information such as username, role, expiration time, and other metadata.
+
+The main reason JWT became popular is that it allows authentication to be mostly stateless. A backend service can verify the token without querying a centralized session database on every request.
+
+The lecture first explains traditional session-based authentication, then introduces JWT, refresh tokens, symmetric and asymmetric signing, code examples using Express/Postgres, and finally the pros and cons of JWT.
+
+The main takeaway is that JWT is powerful, especially for APIs and microservices, but it is not perfect. It solves some problems and creates new ones, especially around token revocation, refresh token storage, key management, and client-side complexity.
+
+---
+
+## 2. Key Concepts
+
+### Authentication
+
+Authentication answers the question:
+
+```text id="u3tmij"
+Who are you?
+```
+
+For example:
+
+```text id="457mnv"
+Username: admin
+Password: testing123
+```
+
+The server checks whether the credentials are valid.
+
+If they are valid, the user is authenticated.
+
+---
+
+### Authorization
+
+Authorization answers the question:
+
+```text id="2ve7cs"
+What are you allowed to do?
+```
+
+For example:
+
+```text id="dbh9kg"
+User role: admin
+Allowed action: delete user
+```
+
+Authentication proves identity.
+
+Authorization checks permissions.
+
+---
+
+### Session-Based Authentication
+
+Traditional session-based authentication works by storing session state on the server side.
+
+When a user logs in successfully, the server generates a random session ID.
+
+The server stores this session ID in a database or session store.
+
+The client receives the session ID and sends it with every future request.
+
+Flow:
+
+```text id="7s87p6"
+User logs in
+→ Server validates username/password
+→ Server creates session ID
+→ Server stores session ID in database
+→ Server sends session ID to client
+→ Client sends session ID with every request
+→ Server looks up session ID in database
+→ Server authenticates user
+```
+
+---
+
+### Session ID
+
+A session ID is usually a long random string.
+
+It does not contain user data by itself.
+
+It is only a pointer to server-side session data.
+
+The database may store:
+
+* session ID,
+* username,
+* role,
+* expiration time,
+* login time,
+* last activity time,
+* device information,
+* IP information.
+
+---
+
+### HTTP Is Stateless
+
+HTTP is stateless.
+
+This means each request is independent.
+
+The server does not automatically remember the user from a previous request.
+
+So the client must send some kind of identity proof with every request.
+
+In session-based authentication, that proof is the session ID.
+
+In JWT authentication, that proof is the JWT access token.
+
+---
+
+### Stateful System vs Stateless Application
+
+Session-based authentication is often called stateful, but the lecture makes an important distinction.
+
+The whole system is stateful because session data is stored in a database.
+
+However, the application servers can still be stateless.
+
+If one application server dies, another server can continue handling the user as long as it can access the shared session database.
+
+So:
+
+```text id="esml8u"
+System: stateful
+Application servers: stateless
+State location: database/session store
+```
+
+---
+
+### Problem with Session-Based Authentication
+
+The main issue with session-based authentication is that every authenticated request may require a database lookup.
+
+Flow:
+
+```text id="hknh37"
+Client sends session ID
+→ Server queries database
+→ Database returns session data
+→ Server processes request
+```
+
+This adds:
+
+* extra latency,
+* extra database load,
+* extra dependency on central storage.
+
+Caching can reduce the cost, but caching session state in application servers can introduce consistency problems.
+
+---
+
+### JWT
+
+JWT stands for **JSON Web Token**.
+
+A JWT contains claims inside the token itself.
+
+It usually has three parts:
+
+```text id="7sh3vn"
+header.payload.signature
+```
+
+Example structure:
+
+```text id="7de67k"
+xxxxx.yyyyy.zzzzz
+```
+
+The payload may contain information such as:
+
+```json id="f5ronn"
+{
+  "name": "Edmond Dantes",
+  "role": "admin",
+  "exp": 1712345678
+}
+```
+
+The backend can verify the JWT signature and trust the claims without querying the database on every request.
+
+---
+
+### JWT Header
+
+The header describes metadata about the token.
+
+It usually includes:
+
+```json id="17lkel"
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+```
+
+`alg` defines the signing algorithm.
+
+`typ` says the token type is JWT.
+
+---
+
+### JWT Payload
+
+The payload contains claims.
+
+Claims are statements about the user or token.
+
+Examples:
+
+```json id="fafyhi"
+{
+  "sub": "user-123",
+  "name": "Edmond",
+  "role": "admin",
+  "exp": 1712345678
+}
+```
+
+Important: the JWT payload is not encrypted by default.
+
+It is Base64URL-encoded and can be read by the client.
+
+Do not put sensitive secrets in the JWT payload.
+
+---
+
+### JWT Signature
+
+The signature protects the token from tampering.
+
+The server signs the header and payload using a secret or private key.
+
+If a user changes the payload from:
+
+```json id="gjvpjp"
+{
+  "role": "user"
+}
+```
+
+to:
+
+```json id="8j0tl5"
+{
+  "role": "admin"
+}
+```
+
+the signature will no longer match.
+
+The server will reject the token.
+
+---
+
+### Signed, Not Encrypted
+
+A normal JWT is signed, not encrypted.
+
+This means:
+
+```text id="jofrfy"
+The payload can be read.
+The payload cannot be safely changed without invalidating the signature.
+```
+
+So JWT gives integrity and authenticity, not privacy.
+
+If the data must be hidden, it should not be placed in a normal JWT payload.
+
+---
+
+### Symmetric JWT
+
+In symmetric JWT signing, the same secret key is used to sign and verify the token.
+
+Example algorithm:
+
+```text id="b3hxtk"
+HS256 = HMAC-SHA256
+```
+
+Flow:
+
+```text id="89pfxm"
+Auth service signs token with secret key.
+Other services verify token with the same secret key.
+```
+
+Problem:
+
+Every service that verifies the token must know the secret.
+
+If any service has the secret, it can also create valid tokens.
+
+This is risky in microservices.
+
+---
+
+### Asymmetric JWT
+
+In asymmetric JWT signing, one key signs the token and a different key verifies it.
+
+Usually:
+
+```text id="cgzphh"
+Private key signs the token.
+Public key verifies the token.
+```
+
+Flow:
+
+```text id="d063e3"
+Authentication service owns private key.
+Other services only receive public key.
+Services can verify tokens but cannot create new valid tokens.
+```
+
+This is safer for microservices and zero-trust environments.
+
+However, asymmetric algorithms are usually slower than symmetric algorithms.
+
+---
+
+### Access Token
+
+An access token is the token sent with normal API requests.
+
+It proves that the user is authenticated.
+
+Example:
+
+```http id="b0bbu3"
+Authorization: Bearer <access_token>
+```
+
+Access tokens should usually be short-lived.
+
+This reduces damage if the token is stolen.
+
+---
+
+### Refresh Token
+
+A refresh token is used to get a new access token.
+
+The lecture describes refresh tokens as a workaround for the weakness of short-lived JWT access tokens.
+
+Flow:
+
+```text id="s64uxf"
+Access token expires
+→ Client sends refresh token
+→ Server validates refresh token
+→ Server issues new access token
+```
+
+Refresh tokens are usually longer-lived than access tokens.
+
+They are sensitive because if a refresh token is stolen, an attacker can generate new access tokens.
+
+---
+
+### Refresh Token Storage
+
+Refresh tokens often require server-side storage.
+
+For example, the backend may store refresh tokens in a database.
+
+This allows the server to revoke or blacklist a refresh token.
+
+This makes the system partially stateful again.
+
+The lecture emphasizes that refresh tokens are similar to sessions in this sense.
+
+---
+
+### Token Revocation
+
+Token revocation means making a token invalid before it expires.
+
+This is easy with sessions:
+
+```text id="rex4xb"
+Delete session ID from database.
+Next request fails.
+```
+
+This is harder with stateless JWTs:
+
+```text id="0bwz1c"
+Token is valid until expiration.
+Server has no central state to check.
+```
+
+To revoke JWTs, you usually need some state again, such as:
+
+* blacklist,
+* denylist,
+* token version,
+* database lookup,
+* introspection endpoint,
+* short expiration with refresh tokens.
+
+---
+
+### Logout Problem
+
+With session-based authentication, logout is simple.
+
+The server deletes the session.
+
+With JWT, logout is harder.
+
+If the access token is still valid, it can continue working until it expires.
+
+A common strategy is:
+
+```text id="26a8bo"
+Delete/revoke refresh token
+Wait for short-lived access token to expire
+```
+
+This means logout may not be truly immediate unless the server checks token state on every request.
+
+---
+
+### JWT in Cookies
+
+JWTs can be stored in cookies.
+
+A safer cookie configuration may include:
+
+```text id="ka7eyn"
+HttpOnly
+Secure
+SameSite=Strict or SameSite=Lax
+```
+
+`HttpOnly` prevents JavaScript from reading the cookie.
+
+`Secure` ensures the cookie is only sent over HTTPS.
+
+`SameSite` helps reduce CSRF risk.
+
+---
+
+### JWT in Local Storage
+
+JWTs can also be stored in browser local storage.
+
+However, local storage is accessible from JavaScript.
+
+If the site has an XSS vulnerability, an attacker may steal the token.
+
+This makes local storage risky for sensitive long-lived tokens.
+
+---
+
+### Secret Management
+
+JWT requires key management.
+
+Keys should not be hardcoded in source code.
+
+They should be stored in a secure system such as:
+
+* environment variables,
+* secret manager,
+* vault,
+* key management service,
+* cloud KMS.
+
+However, even environment variables raise the question:
+
+```text id="rvmvth"
+Where do the environment variables come from?
+Who can read them?
+How are they rotated?
+```
+
+Secret management is a real operational problem.
+
+---
+
+### Key Rotation
+
+If a JWT signing key is leaked, the system needs to rotate it.
+
+This means:
+
+* generate a new key,
+* stop trusting the old key,
+* update services,
+* decide what happens to old tokens,
+* possibly force users to log in again.
+
+This is harder in distributed systems.
+
+---
+
+## 3. Important Notes
+
+### JWT Is Powerful Because It Is Stateless
+
+The biggest benefit of JWT is that a service can verify the user without querying a central session database.
+
+This is useful for APIs and distributed systems.
+
+A service only needs the verification key.
+
+---
+
+### JWT Carries Useful Claims
+
+JWT can carry useful information such as:
+
+* user ID,
+* username,
+* role,
+* expiration,
+* permissions,
+* tenant ID,
+* feature flags.
+
+This reduces database lookups.
+
+However, the payload is readable, so sensitive secrets should not be placed inside it.
+
+---
+
+### JWT Is Good for APIs
+
+JWT works well with APIs because clients can send tokens in the `Authorization` header.
+
+Example:
+
+```http id="86wss3"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIs...
+```
+
+Any backend service that knows how to verify the token can authenticate the request.
+
+---
+
+### JWT Is Not Automatically Better Than Sessions
+
+JWT solves the database lookup problem, but it creates other problems.
+
+Examples:
+
+* token revocation,
+* logout,
+* refresh token storage,
+* key sharing,
+* key rotation,
+* token theft,
+* client complexity,
+* insecure library configuration.
+
+There is no universally best authentication method.
+
+The right choice depends on the system.
+
+---
+
+### Short-Lived Access Tokens Reduce Risk
+
+If an access token is stolen, the attacker can use it until it expires.
+
+Shorter expiration reduces the attack window.
+
+For example:
+
+```text id="yo0p9t"
+Access token lifetime: 10–15 minutes
+Refresh token lifetime: days or weeks
+```
+
+However, short-lived access tokens require a way to refresh them.
+
+---
+
+### Refresh Tokens Add State Back
+
+Refresh tokens solve the user experience problem of short access token lifetimes.
+
+But they usually require database validation.
+
+This means JWT is no longer completely stateless.
+
+The system becomes:
+
+```text id="k94bxr"
+Access token verification: mostly stateless
+Refresh token validation: stateful
+```
+
+---
+
+### Symmetric Secrets Are Dangerous in Microservices
+
+If all services share the same symmetric secret, then every service can create valid tokens.
+
+This violates least privilege.
+
+A compromised service can become an authentication authority.
+
+For microservices, asymmetric signing is often safer.
+
+---
+
+### Asymmetric Signing Is Better for Zero Trust
+
+With asymmetric JWT:
+
+```text id="aa1bmn"
+Auth service has private key.
+Other services have public key.
+```
+
+Other services can verify tokens but cannot create new ones.
+
+This is a better fit for microservices and zero-trust architecture.
+
+---
+
+### JWT Payload Is Public
+
+A common mistake is thinking JWT payloads are encrypted.
+
+They are not encrypted by default.
+
+Anyone with the token can decode the header and payload.
+
+The signature prevents tampering, not reading.
+
+Do not put passwords, secrets, private keys, or sensitive personal data in a normal JWT payload.
+
+---
+
+### Algorithm Confusion and `none` Algorithm
+
+Some JWT libraries historically had insecure behavior around algorithms.
+
+One famous issue is accepting tokens with:
+
+```json id="y82w05"
+{
+  "alg": "none"
+}
+```
+
+If a server accepts unsigned tokens, an attacker can create arbitrary tokens.
+
+JWT libraries must be configured carefully.
+
+The server should explicitly allow only trusted algorithms.
+
+---
+
+### Token Size Matters
+
+JWTs are sent with requests.
+
+Large JWTs increase request size.
+
+This affects:
+
+* bandwidth,
+* latency,
+* header size,
+* proxy limits,
+* CPU verification cost.
+
+Do not put too much data inside a JWT.
+
+---
+
+### Logout Is Immediate with Sessions, Not Always with JWT
+
+With sessions:
+
+```text id="x9irtg"
+Delete session from database.
+User is logged out immediately.
+```
+
+With JWT:
+
+```text id="f64e1m"
+Access token may remain valid until it expires.
+Refresh token can be revoked.
+User may still have access until access token expiration.
+```
+
+This is a major trade-off.
+
+---
+
+## 4. Examples
+
+### Example 1: Session-Based Login Flow
+
+```text id="r94qdp"
+1. User sends username and password.
+2. Server validates credentials against database.
+3. Server creates random session ID.
+4. Server stores session ID and metadata in database.
+5. Server sends session ID to client.
+6. Client sends session ID with every request.
+7. Server queries database to validate session ID.
+8. Server processes request.
+```
+
+Example session table:
+
+```text id="gqky0e"
+username | password_hash | role  | session_id
+admin    | bcrypt_hash   | admin | abc123randomsession
+```
+
+---
+
+### Example 2: Session-Based Request
+
+Client sends:
+
+```http id="gjynf4"
+GET /hello HTTP/1.1
+Cookie: session_id=abc123randomsession
+```
+
+Server does:
+
+```text id="mjh66x"
+Read session_id
+→ Query database
+→ Find user and role
+→ Validate expiration
+→ Respond
+```
+
+Response:
+
+```text id="caow3v"
+Hi admin, you are authenticated.
+```
+
+---
+
+### Example 3: JWT Login Flow
+
+```text id="cykxhz"
+1. User sends username and password.
+2. Server validates credentials against database.
+3. Server creates JWT payload.
+4. Server signs JWT using secret/private key.
+5. Server sends JWT to client.
+6. Client sends JWT with every request.
+7. Server verifies JWT signature.
+8. Server trusts claims and processes request.
+```
+
+Example payload:
+
+```json id="2covtk"
+{
+  "name": "Edmond",
+  "role": "admin",
+  "exp": 1712345678
+}
+```
+
+---
+
+### Example 4: JWT Request
+
+Client sends:
+
+```http id="djrk0t"
+GET /hello HTTP/1.1
+Authorization: Bearer <jwt_access_token>
+```
+
+Server does:
+
+```text id="1gh8th"
+Read token
+→ Verify signature
+→ Check expiration
+→ Extract claims
+→ Respond
+```
+
+No database lookup is required for normal access token verification.
+
+---
+
+### Example 5: JWT Structure
+
+A JWT has three parts:
+
+```text id="sf512l"
+header.payload.signature
+```
+
+Example:
+
+```text id="h85xtu"
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.
+eyJuYW1lIjoiRWRtb25kIiwicm9sZSI6ImFkbWluIn0
+.
+signature_here
+```
+
+The first two parts are readable after Base64URL decoding.
+
+The signature proves that the token was created by a trusted signer.
+
+---
+
+### Example 6: Access Token and Refresh Token Flow
+
+Login:
+
+```text id="q7b0vj"
+User logs in
+→ Server returns access token and refresh token
+```
+
+Normal request:
+
+```text id="clqf50"
+Client sends access token
+→ Server verifies access token
+→ Request succeeds
+```
+
+When access token expires:
+
+```text id="tmes8z"
+Client sends refresh token to /token endpoint
+→ Server checks refresh token in database
+→ Server issues new access token
+→ Client uses new access token
+```
+
+---
+
+### Example 7: Logout with JWT
+
+Logout flow:
+
+```text id="to3bo6"
+Client clicks logout
+→ Server deletes/revokes refresh token
+→ Client removes stored tokens
+→ Existing access token may still work until expiration
+```
+
+This is why short access token lifetime matters.
+
+---
+
+### Example 8: Symmetric JWT
+
+Using HMAC:
+
+```text id="oqypkh"
+Secret key signs token.
+Same secret key verifies token.
+```
+
+Problem:
+
+```text id="9vcgls"
+Every service with the secret can also create tokens.
+```
+
+This is risky if many services need to verify tokens.
+
+---
+
+### Example 9: Asymmetric JWT
+
+Using RSA:
+
+```text id="37595q"
+Authentication service signs token with private key.
+Other services verify token with public key.
+```
+
+Benefit:
+
+```text id="u4ruls"
+Other services can verify tokens but cannot create them.
+```
+
+This is safer for microservices.
+
+---
+
+### Example 10: Cookie Settings
+
+A safer cookie for an access token may look conceptually like:
+
+```http id="gk8mva"
+Set-Cookie: access_token=<jwt>; HttpOnly; Secure; SameSite=Strict
+```
+
+Meaning:
+
+```text id="nzg10x"
+HttpOnly: JavaScript cannot read it.
+Secure: sent only over HTTPS.
+SameSite=Strict: helps reduce CSRF.
+```
+
+---
+
+### Example 11: Bad Secret Storage
+
+Bad:
+
+```javascript id="i4swxa"
+const ACCESS_TOKEN_SECRET = "my-secret-key";
+```
+
+Better:
+
+```javascript id="lnwljl"
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+```
+
+Best for production:
+
+```text id="dmwtj9"
+Use a secret manager, vault, or KMS.
+Rotate keys safely.
+Limit access to secrets.
+Audit secret usage.
+```
+
+---
+
+## 5. Questions / Review
+
+1. What does JWT stand for?
+
+2. What problem was JWT designed to solve?
+
+3. How does session-based authentication work?
+
+4. Why does session-based authentication usually require a database lookup?
+
+5. Why is HTTP considered stateless?
+
+6. What is the difference between a stateful system and a stateless application?
+
+7. What are the three parts of a JWT?
+
+8. What information is usually stored in the JWT header?
+
+9. What are JWT claims?
+
+10. Why should sensitive data not be placed in a normal JWT payload?
+
+11. Is a normal JWT encrypted or signed?
+
+12. What does the JWT signature protect against?
+
+13. What is the difference between symmetric and asymmetric JWT signing?
+
+14. Why is symmetric signing risky in microservices?
+
+15. Why is asymmetric signing better for zero-trust systems?
+
+16. What is an access token?
+
+17. Why should access tokens be short-lived?
+
+18. What is a refresh token?
+
+19. Why do refresh tokens make the system partially stateful again?
+
+20. Why is JWT logout harder than session logout?
+
+21. What is token revocation?
+
+22. Why is token revocation easy with sessions but hard with stateless JWTs?
+
+23. Where can JWTs be stored on the client?
+
+24. Why is local storage risky for tokens?
+
+25. Why are `HttpOnly`, `Secure`, and `SameSite` useful cookie attributes?
+
+26. What is key rotation?
+
+27. Why should secrets not be hardcoded in source code?
+
+28. What is the danger of accepting JWTs with `alg: none`?
+
+29. Why can large JWTs become a performance problem?
+
+30. When would session-based authentication be better than JWT?
+
+31. When would JWT be better than session-based authentication?
+
+---
+
+## Quick Comparison: Session vs JWT
+
+| Feature                         | Session-Based Auth        | JWT-Based Auth                                 |
+| ------------------------------- | ------------------------- | ---------------------------------------------- |
+| State location                  | Server/database           | Token itself                                   |
+| Normal request validation       | Database/session lookup   | Signature verification                         |
+| Application servers             | Stateless if DB is shared | Stateless for access tokens                    |
+| Logout                          | Easy and immediate        | Hard unless state is added                     |
+| Revocation                      | Easy                      | Hard                                           |
+| Token data                      | Session ID only           | Claims inside token                            |
+| Payload readable by client      | Usually no useful data    | Yes                                            |
+| Good for APIs                   | Yes                       | Very good                                      |
+| Good for microservices          | Possible                  | Good with asymmetric signing                   |
+| Key management complexity       | Lower                     | Higher                                         |
+| Client complexity               | Lower                     | Higher with refresh tokens                     |
+| Database dependency per request | Usually yes               | Usually no                                     |
+| Risk if stolen                  | Session can be deleted    | JWT valid until expiration/revocation strategy |
+
+---
+
+## Quick Comparison: Access Token vs Refresh Token
+
+| Feature                 | Access Token                             | Refresh Token                |
+| ----------------------- | ---------------------------------------- | ---------------------------- |
+| Purpose                 | Access APIs                              | Get new access token         |
+| Lifetime                | Short                                    | Longer                       |
+| Sent with every request | Yes                                      | No                           |
+| Stored server-side      | Usually no                               | Often yes                    |
+| Revocable               | Hard if stateless                        | Easier if stored             |
+| Risk if stolen          | Limited by short expiry                  | High                         |
+| Best storage            | Secure cookie or memory depending on app | Very secure storage required |
+
+---
+
+## Final Takeaway
+
+JWT is a powerful authentication mechanism because it allows services to verify users without querying a centralized session database on every request.
+
+It works especially well for APIs and distributed systems.
+
+However, JWT is not magic.
+
+It introduces hard problems around:
+
+```text id="tlxbef"
+token theft
+token revocation
+logout
+refresh token storage
+key management
+key rotation
+client complexity
+library configuration
+```
+
+Session-based authentication is simpler and easier to revoke, but it usually requires centralized state.
+
+JWT is more scalable for stateless access, but harder to control once tokens are issued.
+
+There is no perfect solution.
+
+Choose session-based authentication or JWT based on the actual requirements of the system.

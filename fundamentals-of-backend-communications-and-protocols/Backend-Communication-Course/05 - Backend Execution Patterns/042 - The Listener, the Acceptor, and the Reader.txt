@@ -1,0 +1,393 @@
+# 042 - The Listener, the Acceptor, and the Reader
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 2min
+
+---
+
+## 1. Summary
+
+This lecture introduces three important roles in backend connection handling:
+
+1. **Listener**
+2. **Acceptor**
+3. **Reader**
+
+In earlier lectures, we learned how the kernel accepts TCP connections, manages queues, and stores data in buffers.
+
+Now we start looking at how backend applications can be architected around these operations.
+
+A backend process can perform all three jobs by itself:
+
+```text id="kfw8d6"
+Listen
+Accept
+Read
+```
+
+But a backend can also separate these responsibilities across multiple processes or threads.
+
+For example:
+
+```text id="xi1auc"
+1 listener
+7 acceptors
+5 readers
+```
+
+This separation is where backend execution patterns, multithreading, and multiprocessing become important.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 The Listener
+
+The listener is the process or thread responsible for creating the listening socket.
+
+Its job is to listen on a specific address and port.
+
+Conceptually, it does:
+
+```text id="uivohp"
+Create socket
+Bind socket to IP address and port
+Call listen()
+```
+
+Example:
+
+```text id="0z1llu"
+Listen on 192.168.1.10:8080
+```
+
+The listener owns or creates the listening socket file descriptor.
+
+That listening socket is used to receive new incoming connection attempts.
+
+---
+
+### 2.2 The Acceptor
+
+The acceptor is the process or thread that calls `accept()` on the listening socket.
+
+Its job is to take fully established connections from the kernel’s accept queue.
+
+When `accept()` succeeds, the kernel returns a new file descriptor.
+
+That new file descriptor represents one client connection.
+
+Conceptually:
+
+```text id="1ser18"
+connection_fd = accept(listening_socket_fd)
+```
+
+The acceptor does not necessarily read the request body.
+
+Its main job is to accept ready connections.
+
+---
+
+### 2.3 The Reader
+
+The reader is responsible for reading data from an accepted connection.
+
+Once the acceptor gets a connection file descriptor, the reader can call `read()` or use an async I/O mechanism to read request bytes.
+
+Conceptually:
+
+```text id="l8ty5m"
+data = read(connection_fd)
+```
+
+The reader receives raw bytes from the connection.
+
+Those bytes may then be:
+
+* Decrypted by TLS
+* Parsed as HTTP
+* Converted into a request object
+* Passed to application logic
+
+---
+
+### 2.4 The Writer
+
+The lecture focuses mostly on reading, but writing is the reverse side.
+
+A writer sends data back to the client.
+
+It may:
+
+* Serialize the HTTP response
+* Encrypt the response with TLS
+* Call `send()` or `write()`
+* Put data into the kernel send buffer
+
+The reader and writer can be the same process or thread, or they can be separated.
+
+---
+
+### 2.5 One Backend Can Do All Roles
+
+A simple backend can do everything in one process and one thread.
+
+```text id="evr4en"
+Single backend process
+├── Listener
+├── Acceptor
+└── Reader / Writer
+```
+
+This is simple, but it may not scale well for high traffic.
+
+---
+
+### 2.6 Roles Can Be Separated
+
+A more advanced backend can separate responsibilities.
+
+Example:
+
+```text id="enqrky"
+Listener process
+→ Acceptor workers
+→ Reader workers
+→ Application logic
+```
+
+Or:
+
+```text id="neqhyo"
+One listener
+Multiple acceptor threads
+Multiple reader threads
+```
+
+This allows the backend to scale connection handling more carefully.
+
+---
+
+### 2.7 This Leads to Backend Execution Patterns
+
+Once we separate listener, acceptor, and reader roles, we can design different backend architectures.
+
+Examples:
+
+* Single-threaded server
+* Multi-threaded server
+* Multi-process server
+* Event-loop server
+* Acceptor-worker model
+* Reader-worker model
+
+Different real-world systems choose different models.
+
+---
+
+## 3. Important Notes
+
+### Listener, Acceptor, and Reader Are Roles
+
+These are not always separate physical components.
+
+They are logical roles.
+
+The same thread may perform all of them.
+
+Or different threads/processes may perform different roles.
+
+---
+
+### Listening Is Not the Same as Accepting
+
+Listening means the server is ready to receive connection attempts.
+
+Accepting means the application takes a completed connection from the kernel accept queue.
+
+These are different steps.
+
+```text id="rah51s"
+listen() prepares the socket
+accept() receives a completed connection
+```
+
+---
+
+### Accepting Is Not the Same as Reading
+
+Accepting a connection does not mean the request has been read.
+
+After accepting, the backend still needs to read data from the connection.
+
+```text id="fzukqz"
+accept() → connection exists
+read() → request data is received
+```
+
+---
+
+### Architecture Depends on Workload
+
+A backend with low traffic may use one process for everything.
+
+A high-performance proxy or web server may separate responsibilities across multiple workers.
+
+The best design depends on:
+
+* Number of connections
+* Request volume
+* CPU usage
+* I/O behavior
+* Latency requirements
+* Memory model
+* Threading model
+
+---
+
+## 4. Examples
+
+### Example 1: Simple Single-Process Backend
+
+```text id="6n4ar7"
+Process 1
+├── listen()
+├── accept()
+├── read()
+├── process request
+└── write response
+```
+
+This is the simplest design.
+
+One process performs all jobs.
+
+---
+
+### Example 2: Single Listener and Multiple Acceptors
+
+```text id="qzq3fu"
+Listener
+   |
+   v
+Listening socket
+   |
+   ├── Acceptor 1
+   ├── Acceptor 2
+   ├── Acceptor 3
+   └── Acceptor 4
+```
+
+Multiple acceptors can call `accept()` on the listening socket.
+
+This can help accept many connections faster.
+
+---
+
+### Example 3: Acceptors and Readers Separated
+
+```text id="byvbwe"
+Listener
+   |
+   v
+Acceptors
+   |
+   v
+Connection queue
+   |
+   v
+Readers
+   |
+   v
+Application logic
+```
+
+In this model, acceptors focus on accepting connections quickly.
+
+Readers focus on reading request data from accepted connections.
+
+---
+
+### Example 4: One Thread Does Everything
+
+```text id="bsh6sa"
+Thread 1:
+1. listen
+2. accept connection
+3. read request
+4. process request
+5. send response
+6. accept next connection
+```
+
+This is simple but may block if reading or processing takes too long.
+
+---
+
+### Example 5: Role Separation
+
+```text id="2ihd0j"
+Thread 1:
+- Listener
+
+Thread 2:
+- Acceptor
+
+Thread 3:
+- Reader
+
+Thread 4:
+- Reader
+
+Thread 5:
+- Reader
+```
+
+This is more complex, but it can improve scalability when designed correctly.
+
+---
+
+## 5. Questions / Review
+
+1. What is the listener responsible for?
+
+2. What is the acceptor responsible for?
+
+3. What is the reader responsible for?
+
+4. Is listening the same as accepting?
+
+5. Is accepting the same as reading?
+
+6. What does `listen()` do?
+
+7. What does `accept()` return?
+
+8. What does the connection file descriptor represent?
+
+9. Can the same process act as listener, acceptor, and reader?
+
+10. Why might a backend separate listener, acceptor, and reader roles?
+
+11. How does this topic relate to multithreading?
+
+12. How does this topic relate to multiprocessing?
+
+13. Why do high-performance backends care about connection-handling architecture?
+
+---
+
+## Short Takeaway
+
+A backend connection-handling system can be understood through three roles.
+
+The **listener** creates and listens on the socket.
+
+The **acceptor** calls `accept()` and receives established connections from the kernel.
+
+The **reader** reads data from those accepted connections.
+
+In simple systems, one process or thread may do all three jobs.
+
+In high-performance systems, these roles may be separated across multiple threads or processes to improve scalability and throughput.

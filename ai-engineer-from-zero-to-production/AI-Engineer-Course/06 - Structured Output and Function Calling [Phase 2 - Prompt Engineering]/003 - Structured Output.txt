@@ -1,0 +1,102 @@
+# Structured Output
+
+## Overview
+Structured Output is an API-level feature (available in OpenAI GPT-4o and later, and via Anthropic's tool-use mechanism) that guarantees the model's response conforms to a JSON Schema you provide — not just most of the time, but every time. This lesson covers how to use the feature, its limitations, and when to prefer it over prompt-only JSON extraction.
+
+## Key Points
+- OpenAI's `response_format` with `type: "json_schema"` and `strict: true` uses constrained decoding (a modified beam search over only tokens that keep the output valid) — it is not prompt engineering, it is a generation-level constraint
+- Structured Output guarantees schema conformance but does NOT guarantee semantic correctness — the model can still put the wrong value in the right field
+- The schema you pass must satisfy OpenAI's subset rules: all objects must have `additionalProperties: false`, all properties must be listed in `required`, and recursive `$ref` schemas are not supported
+- For Anthropic Claude, the equivalent pattern is tool use with a single tool definition — the model is forced to produce the tool call payload, which is your structured output
+- Structured Output adds a small latency cost on the first request for a new schema (OpenAI caches the compiled grammar server-side); subsequent identical-schema calls are fast
+- Always parse the returned string with `json.loads` even in strict mode — the API returns a JSON string in `message.content`, not a Python dict
+- Use `model.parse()` (Pydantic integration) with the `openai` SDK v1.40+ for the cleanest end-to-end pattern
+
+## Code Example
+```python
+# pip install openai pydantic
+import json
+from openai import OpenAI
+from pydantic import BaseModel
+from typing import List
+
+client = OpenAI()  # reads OPENAI_API_KEY from environment
+
+# --- Approach 1: Raw JSON Schema via response_format ---
+
+schema = {
+    "type": "object",
+    "properties": {
+        "sentiment": {
+            "type": "string",
+            "enum": ["positive", "negative", "neutral"],
+            "description": "Overall sentiment of the review"
+        },
+        "score": {
+            "type": "number",
+            "description": "Sentiment confidence score from 0.0 to 1.0"
+        },
+        "key_phrases": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Up to 5 key phrases that drove the sentiment"
+        }
+    },
+    "required": ["sentiment", "score", "key_phrases"],
+    "additionalProperties": False
+}
+
+review_text = "The course was incredibly well structured. I loved the hands-on labs, though the final project felt a bit rushed."
+
+response = client.chat.completions.create(
+    model="gpt-4o-2024-08-06",
+    messages=[
+        {"role": "system", "content": "You are a sentiment analysis engine. Analyze the review and return structured output."},
+        {"role": "user", "content": review_text}
+    ],
+    response_format={
+        "type": "json_schema",
+        "json_schema": {
+            "name": "sentiment_result",
+            "strict": True,
+            "schema": schema
+        }
+    }
+)
+
+raw_json = response.choices[0].message.content
+result = json.loads(raw_json)
+print("Approach 1 result:", result)
+
+# --- Approach 2: Pydantic + parse() for cleaner integration (SDK >= 1.40) ---
+
+class SentimentResult(BaseModel):
+    sentiment: str          # enum enforced at Pydantic level too
+    score: float
+    key_phrases: List[str]
+
+parsed_response = client.beta.chat.completions.parse(
+    model="gpt-4o-2024-08-06",
+    messages=[
+        {"role": "system", "content": "You are a sentiment analysis engine."},
+        {"role": "user", "content": review_text}
+    ],
+    response_format=SentimentResult   # SDK auto-generates schema from Pydantic model
+)
+
+typed_result: SentimentResult = parsed_response.choices[0].message.parsed
+print(f"\nApproach 2 result:")
+print(f"  Sentiment : {typed_result.sentiment}")
+print(f"  Score     : {typed_result.score:.2f}")
+print(f"  Phrases   : {typed_result.key_phrases}")
+
+# --- Check for refusals (model may refuse harmful prompts even in structured mode) ---
+if parsed_response.choices[0].message.refusal:
+    print("Model refused:", parsed_response.choices[0].message.refusal)
+```
+
+## Notes
+One critical production gotcha: if the model is asked to produce structured output for a prompt it deems harmful or ambiguous, it will set `message.refusal` instead of `message.parsed` — your code must check for this or you will get a `None` dereference. A second gotcha is cost: because the schema grammar is compiled into the generation process, very large schemas (>50 fields) can noticeably increase both latency and token usage. For complex nested schemas, consider splitting extraction into multiple focused calls rather than one monolithic schema. Anthropic's equivalent (forcing tool use) achieves the same reliability but uses a different API shape — abstract this behind a provider-agnostic wrapper in production code.
+
+## Summary
+You can now use OpenAI's Structured Output feature with both raw JSON Schema and Pydantic models to get schema-guaranteed responses, and you understand the key limitations and production edge cases to handle.

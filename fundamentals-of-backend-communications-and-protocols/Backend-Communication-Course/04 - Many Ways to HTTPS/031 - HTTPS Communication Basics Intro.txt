@@ -1,0 +1,240 @@
+# 031 - HTTPS Communication Basics Intro
+
+**Section:** 04 - Many Ways to HTTPS
+**Duration:** 3min
+
+---
+
+## 1. Summary
+
+In the previous section, we explored many different communication protocols, including TCP, UDP, HTTP/1.1, HTTP/2, HTTP/3, WebSocket, WebRTC, and gRPC.
+
+This new section focuses on **the many ways HTTPS communication can happen** and how each configuration can affect **latency**.
+
+HTTPS is everywhere, but because it is so widely used, there are many possible ways to configure it. These configurations can change how fast or slow communication feels between a client and a backend server.
+
+At a basic level, HTTPS communication usually involves three main steps:
+
+1. Establish a connection.
+2. Establish encryption.
+3. Send data.
+
+After communication is finished, the connection may be closed. However, because connection setup and encryption setup are expensive, we usually want to keep the connection open for as long as possible so multiple requests can reuse it.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 HTTPS Communication Has Multiple Stages
+
+Every HTTPS request is not just “send request, get response.”
+
+Before data can be exchanged securely, the client and server often need to:
+
+1. Open a network connection.
+2. Perform a TLS handshake.
+3. Exchange encrypted application data.
+4. Optionally close the connection.
+
+Each step can add latency.
+
+---
+
+### 2.2 Connection Setup Is Expensive
+
+To communicate with a backend server, the client must first establish a connection.
+
+When HTTPS runs over TCP, this usually requires a TCP handshake before TLS can even begin.
+
+That means the client may need to wait for multiple round trips before it can send useful data.
+
+---
+
+### 2.3 TLS Setup Is Also Expensive
+
+HTTPS uses TLS to encrypt data.
+
+TLS protects communication, but it also introduces setup cost. The client and server need to negotiate encryption settings before sending secure application data.
+
+Different TLS versions have different performance characteristics.
+
+For example:
+
+* TLS 1.2 usually requires more round trips.
+* TLS 1.3 reduces handshake latency.
+* TLS 1.3 with 0-RTT can allow data to be sent even earlier in some cases.
+
+---
+
+### 2.4 The Goal Is to Reduce Round Trips
+
+A major theme of this section is reducing the number of network round trips.
+
+A round trip means:
+
+> The client sends something to the server, then waits for the server to respond.
+
+More round trips usually mean more latency.
+
+Modern protocols and optimizations try to collapse multiple steps together so data can be sent faster.
+
+---
+
+### 2.5 QUIC Can Combine Multiple Steps
+
+QUIC is designed to improve transport performance compared to traditional HTTPS over TCP.
+
+One of its advantages is that it can combine connection setup and encryption setup more efficiently.
+
+This helps reduce latency, especially for new connections.
+
+---
+
+## 3. Important Notes
+
+### HTTPS Is Not Only One Configuration
+
+Even though people often say “HTTPS” as if it is one simple thing, HTTPS can run in different ways depending on the transport protocol and TLS version.
+
+This section will explore several HTTPS configurations, including:
+
+1. HTTPS over TCP with TLS 1.2
+2. HTTPS over TCP with TLS 1.3
+3. HTTPS over QUIC
+4. HTTPS over TCP Fast Open
+5. HTTPS over TCP with TLS 1.3 and 0-RTT
+6. HTTPS over QUIC with 0-RTT
+
+Each configuration has different latency behavior.
+
+---
+
+### Older TLS Versions Are Mostly Ignored
+
+The lecture does not focus on TLS 1.1 because it is deprecated and rarely used today.
+
+The focus is mainly on TLS 1.2, TLS 1.3, and modern optimizations.
+
+---
+
+### Keeping Connections Open Improves Performance
+
+Opening a connection and establishing TLS are expensive operations.
+
+Because of that, it is usually better to reuse existing connections instead of creating a new connection for every request.
+
+This is why persistent connections, connection pooling, HTTP/2 multiplexing, and QUIC can be very useful.
+
+---
+
+## 4. Examples
+
+### Example 1: Basic HTTPS Flow
+
+A simple HTTPS request may look like this:
+
+```text
+Client → Server: Establish connection
+Client ↔ Server: Perform TLS handshake
+Client → Server: Send encrypted HTTP request
+Server → Client: Send encrypted HTTP response
+Client ↔ Server: Close or reuse connection
+```
+
+The expensive parts are usually:
+
+```text
+Connection setup
+TLS handshake
+```
+
+The useful part is:
+
+```text
+Sending application data
+```
+
+---
+
+### Example 2: HTTPS over TCP with TLS 1.2
+
+```text
+1. TCP handshake
+2. TLS 1.2 handshake
+3. Send HTTP request
+4. Receive HTTP response
+```
+
+This can take several round trips before real application data is exchanged.
+
+---
+
+### Example 3: HTTPS over TCP with TLS 1.3
+
+```text
+1. TCP handshake
+2. Faster TLS 1.3 handshake
+3. Send HTTP request
+4. Receive HTTP response
+```
+
+TLS 1.3 reduces the number of round trips compared to TLS 1.2.
+
+---
+
+### Example 4: HTTPS over QUIC
+
+```text
+1. QUIC connection setup
+2. TLS encryption integrated into QUIC
+3. Send HTTP request
+4. Receive HTTP response
+```
+
+QUIC can combine transport and encryption setup more efficiently.
+
+---
+
+### Example 5: HTTPS with 0-RTT
+
+```text
+1. Client reconnects to a known server
+2. Client sends early data immediately
+3. Server processes the request faster
+```
+
+0-RTT is designed to reduce latency even further, especially for repeat connections.
+
+---
+
+## 5. Questions / Review
+
+1. What are the three basic stages of HTTPS communication?
+
+2. Why are connection setup and TLS setup considered expensive?
+
+3. What is a round trip?
+
+4. Why does reducing round trips improve latency?
+
+5. Why is TLS 1.3 usually faster than TLS 1.2?
+
+6. What is the purpose of 0-RTT?
+
+7. How does QUIC help improve HTTPS communication?
+
+8. Why should backend systems try to reuse connections instead of closing them after every request?
+
+9. What is the difference between sending data and preparing the connection to send data?
+
+10. Why can HTTPS have many different performance characteristics even though it is still called HTTPS?
+
+---
+
+## Short Takeaway
+
+HTTPS communication is more than just sending encrypted data.
+
+Before the data is sent, the client often needs to establish a connection and negotiate encryption. These setup steps can add latency.
+
+This section explores different ways to configure HTTPS so that connection setup, encryption setup, and data transfer become faster and more efficient.

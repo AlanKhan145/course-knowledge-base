@@ -1,0 +1,897 @@
+# Ngay 010 - Tuan 2, ngay 5
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-010.txt
+
+## Tong quan
+
+- Chu de mo dau: Bạn có thích tuần thứ hai không?
+- File goc: day-010.txt
+- So y chinh: 663
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Bạn có thích tuần thứ hai không?
+- Bạn có chưa?
+- Bởi vì tôi đã giữ lại những thứ tốt nhất để dùng đến ngày thứ năm của tuần thứ hai.
+- Một kết luận cũ rích.
+- Tôi sẽ.
+- Tôi sẽ thắt nơ cho câu hỏi này ngay bây giờ.
+- Tất nhiên, bạn đã có cái nhìn tổng quan về thuật ngữ chính của Transformers.
+- Bạn có thể tự tin viết mã bằng Chat Completions API và xây dựng một trợ lý AI với các công cụ chuyên môn.
+### Muc 2
+
+- Hôm nay là ngày trọng đại.
+- Được rồi.
+- Tôi sẽ bắt đầu bằng một chút thông tin về Agentic AI.
+- Và sau đó chúng ta sẽ nói về các tác nhân thực hiện quy trình công việc.
+- Và chúng ta sẽ hoàn thiện trợ lý AI của mình.
+- Và nó sẽ rất tuyệt đẹp.
+- Chúng ta hãy bắt đầu thôi.
+- Trước tiên để định nghĩa tác nhân, tôi sẽ đưa ra cho bạn một vài định nghĩa khác nhau.
+### Muc 3
+
+- Và có một meme nổi tiếng rằng mọi người có rất nhiều ý nghĩa và cách diễn giải khác nhau về từ "agent".
+- Việc bạn không thể thực sự định nghĩa được tác nhân hoặc nó có thể là bất cứ thứ gì bạn muốn đã trở thành một trò đùa.
+- Nhưng tôi cảm thấy có hai định nghĩa về tác nhân thực sự được chấp nhận.
+- Ờ, thực ra có rất nhiều thứ có một định nghĩa chung chung mà tôi không tuân theo, đó là gọi một thứ gì đó là agentic nếu nó liên quan đến nhiều cuộc gọi đến LMS trong những ngày đầu.
+- Đó là điều chúng ta vẫn thường nói.
+- Bất cứ điều gì liên quan đến nhiều cuộc gọi LM được ghép lại với nhau đều được coi là quy trình làm việc của tác nhân, một mô hình tác nhân.
+- Và bạn vẫn có thể nói như vậy, nhưng không hẳn vậy.
+- Thật sự.
+## Phan 2
+
+### Muc 4
+
+- Có hai định nghĩa phổ biến.
+- Và đầu tiên là hệ thống mà LM kiểm soát quy trình làm việc.
+- Vì vậy, một LM có khả năng xác định điều gì sẽ xảy ra khi nào và gắn liền với điều đó chính là ý tưởng về tính tự chủ và LM có khả năng đưa ra quyết định.
+- Và một lần nữa hãy nhớ luôn giữ vững lập trường.
+- LMS chỉ tạo ra mã thông báo.
+- Đó là tất cả những gì họ làm.
+- Họ dự đoán những token tiếp theo có thể xuất hiện.
+- Vì vậy, khi tôi nói LM kiểm soát quy trình làm việc, ý tôi là LM dự đoán mã thông báo.
+### Muc 5
+
+- Và những mã thông báo đó có thể được diễn giải để kiểm soát quy trình làm việc.
+- Được thôi.
+- Đó là định nghĩa thứ nhất.
+- Định nghĩa thứ hai là định nghĩa mới hơn mới xuất hiện gần đây.
+- Và nó kể về một tác nhân LMN chạy một công cụ theo vòng lặp để đạt được mục tiêu.
+- Và điều đó mang lại cho bạn cảm giác giống như mật mã Claude về một tác nhân có quá trình suy nghĩ liên tục.
+- Và đây là định nghĩa mới đang nổi lên về tác nhân.
+- Nhưng như tôi đã nói, có rất nhiều định nghĩa và bạn thực sự có thể gọi bất cứ thứ gì bạn muốn là tác nhân.
+### Muc 6
+
+- Nhưng đây là một số hương vị có thể hợp lý.
+- Và thường có một số đặc điểm về tác nhân hoặc đặc điểm nổi bật mà bạn tìm kiếm.
+- Một tác nhân thường có khả năng lưu giữ bộ nhớ theo một cách nào đó.
+- Nó thường có khả năng lập kế hoạch để có thể lên kế hoạch cho các hoạt động trước.
+- Có một cảm giác tự chủ, một lần nữa, đây là một trong những từ được sử dụng rất nhiều.
+- Nhưng ý tưởng ở đây là bạn đang sử dụng thực tế là LMN tạo ra mã thông báo như một cách cho phép nó đưa ra quyết định về những gì sẽ xảy ra tiếp theo.
+- Và khả năng của LMN trong việc điều phối, quyết định những gì sẽ xảy ra tiếp theo, sử dụng các công cụ, nói cách khác, các công cụ có thể gọi các cựu học viên LMS khác và những người đã học khóa học biết rằng không nhất thiết phải thông qua các công cụ.
+- Có thể là do nó tạo ra đầu ra JSON, đầu ra có cấu trúc và bạn đang diễn giải đầu ra có cấu trúc đó về những gì tác nhân sẽ làm tiếp theo.
+## Phan 3
+
+### Muc 7
+
+- Và những người thực sự hiểu biết về vấn đề này biết rằng hai điều đó về cơ bản là giống nhau, rằng việc tạo ra các đầu ra có cấu trúc và sử dụng các công cụ về cơ bản là giống nhau.
+- Nhưng dù sao thì, tôi lạc đề rồi.
+- Điều cuối cùng cần nói là tác nhân là thứ sử dụng các công cụ.
+- Nói chung, nó được trang bị các công cụ để có thể thực hiện nhiều hành động khác nhau.
+- Đó là một số tính năng, một số sự kết hợp của các tính năng đó.
+- Bạn càng đánh dấu nhiều mục thì khả năng bạn đang làm việc với AI di truyền càng cao.
+- Và bây giờ chúng ta sẽ không thực hiện tất cả những điều đó vì tôi thực hiện chúng trong khóa học đồng hành của mình, một AI di truyền và bất kỳ ai đến từ đó đều biết rõ điều đó.
+- Chúng tôi sử dụng các khuôn khổ tác nhân để hỗ trợ và thực hiện tất cả những điều này, nhưng những gì chúng tôi sẽ làm hôm nay chỉ là những bước đi nhỏ theo hướng đó, thêm vào một chút hành vi tác nhân.
+### Muc 8
+
+- Ở đây chúng ta sẽ thực hiện ba điều.
+- Chúng ta sẽ thêm chức năng tạo hình ảnh dưới dạng lệnh gọi LM riêng biệt có thể tạo hình ảnh và sau đó đưa vào UI của chúng ta.
+- Chúng ta cũng sẽ ghép những thứ này lại với nhau, thực hiện một loạt lệnh gọi LM.
+- Điều đó cũng sẽ tạo ra âm thanh.
+- Và sau đó chúng ta sẽ đưa nó vào một giải pháp tốt.
+- Như tôi đã nói, có lẽ nó không phải là AI Agentic hoàn chỉnh, nhưng chắc chắn đây là một bước tiến theo hướng đó.
+- Và đó là việc sử dụng công cụ một cách lành mạnh.
+- Tất nhiên rồi.
+### Muc 9
+
+- Được rồi, chúng ta đi thôi.
+- Chúng ta hãy chuyển đến con trỏ.
+- Hãy mang điều này về nhà nhé.
+- Đây là chuyến đi cuối cùng của chúng tôi đến Cursor trong tuần thứ hai.
+- Và chúng ta hãy vào đây.
+- Và chúng ta sẽ chuyển sang ngày thứ năm trong tuần thứ hai và đưa ra phần cuối cùng của trợ lý AI hàng không, và chúng ta sẽ thực hiện một số thao tác nhập.
+- Bạn sẽ nhận thấy SQL Lite đã được thêm vào một cách lén lút.
+- Lần này chúng ta sẽ khởi tạo mọi thứ, bao gồm cả việc trỏ đến cơ sở dữ liệu giá ngay tại đó.
+## Phan 4
+
+### Muc 10
+
+- Và miễn là bạn chạy phòng thí nghiệm trước đó, nó sẽ thiết lập cơ sở dữ liệu giá đó và hy vọng là bạn sẽ điền vào đó một số mức giá.
+- Thông báo hệ thống.
+- Bạn là trợ lý hữu ích của một hãng hàng không tên là flighty.
+- Lighti cung cấp các lối tắt, câu trả lời và tất cả những thứ đó.
+- Được thôi.
+- Đây là giá vé.
+- Chúng tôi sẽ tóm tắt nhanh lại mọi việc ở đây.
+- Tất nhiên đây là phiên bản SQL.
+### Muc 11
+
+- Lệnh này sẽ tìm trong DB của Price và thực hiện lệnh SQL.
+- Và chúng ta hãy kiểm tra xem nó có hoạt động không.
+- Nếu chúng ta hỏi giá ở London thì chúng ta sẽ nhận được 7.
+- 99.
+- Nếu bạn không thiết lập cơ sở dữ liệu, bạn luôn có thể sao chép cơ sở dữ liệu cơ bản, ừm, cơ sở dữ liệu chỉ cần tra cứu trong từ điển hoặc tự viết.
+- Được rồi, bây giờ là hàm giá, đây là nơi chúng ta đặt một số JSON không rõ ràng để mô tả công cụ này cho LM.
+- Đây rồi.
+- Bạn nhận ra nó, lấy giá vé, mô tả nó, thành phố đích.
+### Muc 12
+
+- Và sau đó nếu tôi in nó ra, bạn sẽ thấy đó là JSON sẽ được gửi đến LM.
+- Được thôi.
+- Tiếp theo chúng ta có chức năng trò chuyện.
+- Chúng tôi thực hiện một chút công việc cọ rửa cái, cái từ điển đó.
+- Chúng tôi, ừm, của lịch sử.
+- Chúng tôi dọn dẹp nó, ừm, chỉ để sử dụng cho Gemini hoặc Grok.
+- Ừ, sau đó chúng tôi ghép các tin nhắn lại với nhau.
+- Chúng tôi gọi việc hoàn thành trò chuyện mở là dot create.
+## Phan 5
+
+### Muc 13
+
+- Chúng tôi nhận được kết quả và sẽ ngay lập tức khởi chạy giao diện trên đó.
+- Chúng ta hãy cùng xem nó trông như thế nào nhé.
+- Đây rồi.
+- Được rồi, trông quen quen.
+- Ừ, và, ừ, nhưng nó vẫn chưa có công cụ nào cả.
+- Đây chỉ là câu trả lời trống rỗng mà tôi có thể nói ra.
+- Chào bạn.
+- Ồ, giá vé đi London là bao nhiêu?
+### Muc 14
+
+- Và sau đó, ừm, rõ ràng là nó sẽ không nói với tôi.
+- Chúng ta hãy cùng xem chuyện gì sẽ xảy ra nhé.
+- Ừm, từ New York vào ngày 1 tháng 12 năm 2025.
+- Hy vọng là nó sẽ nói là "ừ".
+- Hiện chưa có sẵn.
+- Vậy nên nó sẽ không bịa ra chuyện gì đâu.
+- Nó sẽ không gây ảo giác vì chúng tôi đã yêu cầu nó không làm như vậy trong lời nhắc hệ thống.
+- Khỏe.
+### Muc 15
+
+- Tốt lắm.
+- Đây là chức năng trò chuyện được cải tiến của chúng tôi.
+- Một lần nữa chúng ta có thứ gì đó có thể làm sạch nó.
+- Chúng ta có những thông điệp mà chúng ta tạo ra và bây giờ chúng ta truyền vào công cụ bằng công cụ ở đây.
+- Và sau đó chúng ta có vòng lặp while.
+- Hãy nhớ rằng đây là phiên bản đẹp được thực hiện rất đẹp.
+- Thực hiện vòng lặp while khi cần gọi một số công cụ.
+- Sau đó, chúng ta sẽ gọi các lệnh gọi công cụ xử lý nằm ngay bên dưới, rồi thêm kết quả vào tin nhắn.
+## Phan 6
+
+### Muc 16
+
+- Đó là chức năng trò chuyện.
+- Đây là lệnh gọi công cụ xử lý lặp lại các lệnh gọi công cụ.
+- Nếu bằng giá vé thì gọi giá vé.
+- Có thể bạn đã làm cho nó thanh lịch hơn một chút.
+- Có lẽ nếu bạn có thời gian cho việc đó.
+- Ừ, thì ra là vậy.
+- Và bây giờ chúng ta sẽ chạy chương trình này và thử nghiệm, rồi chúng ta sẽ nói "Xin chào".
+- Xin chào.
+### Muc 17
+
+- Tôi có thể hỗ trợ bạn đặt chuyến bay hôm nay như thế nào?
+- Tôi muốn đi du lịch.
+- Tuyệt vời.
+- Chúng tôi muốn đi du lịch tới.
+- Làm ơn đi London.
+- Và bạn có thể thấy công cụ cơ sở dữ liệu có tên là lấy giá vé.
+- Giá vé khứ hồi là 7 đô la.
+- 99.
+### Muc 18
+
+- Thành công!
+- Đó là tóm tắt lại lần trước và từ bây giờ trở đi.
+- Vì vậy, trước khi tiếp tục, tôi muốn dành một phút để giải thích một điều có thể khiến bạn thấy khó hiểu.
+- Và nếu bạn không thấy khó hiểu và nếu bạn không thực sự quan tâm đến điều này, thì bạn có thể giải thích nhanh hơn và đợi cho đến khi chúng ta tiếp tục.
+- Nhưng tôi muốn giải thích cách thức hoạt động thực sự của Gradio.
+- Kiểu như, nó đang làm gì vậy?
+- Và giao diện người dùng mà bạn thấy ở đây là gì?
+- Và tại sao URL này lại như vậy?
+## Phan 7
+
+### Muc 19
+
+- Và, và những gì thực sự đang diễn ra ở hậu trường.
+- Điều đó có nghĩa là bạn có thể viết một số mã Python và đột nhiên có một giao diện người dùng.
+- Và thực ra, nó thực sự rất đơn giản.
+- Không có gì đặc biệt phức tạp về nó, nhưng đó là một loạt các ý tưởng thực sự hay dẫn đến hiệu ứng gần như kỳ diệu khi có thể nhanh chóng tạo ra một giao diện người dùng (UI) và có MVP thực sự nhanh chóng.
+- Và điều này rất dễ giải thích vì về cơ bản Gradio thực hiện ba việc.
+- Nó thực hiện ba điều mà tôi sẽ kể cho bạn nghe sau đây.
+- Và khi bạn thấy điều đó, khi nó thực hiện ba điều đó, kết quả cuối cùng chính là hiệu ứng kỳ diệu của một MVP dễ dàng.
+- Vậy là có ba điều.
+### Muc 20
+
+- Thứ nhất, đây là điều đầu tiên mà radio làm.
+- Bạn đã viết một số mã Python để mô tả giao diện người dùng mà bạn muốn.
+- Trong trường hợp này, giao diện rất đơn giản.
+- Đôi khi trong những ngày trước, chúng ta có GR markdown, GR drop down cho hộp chọn và một vài thứ khác trong hộp văn bản GR.
+- Và chúng tôi đã mô tả một giao diện bằng cách tạo ra các đối tượng vô tuyến này, có thể là giao diện trò chuyện hỗn hợp hoặc giao diện cụ thể hơn.
+- Và khi làm như vậy, chúng tôi đã cho đài phát thanh biết những gì họ muốn và những gì chúng tôi muốn, và Gradio sử dụng thông tin đó để tạo ra giao diện đầu cuối.
+- Trên thực tế, nó sử dụng svelte, một framework giao diện người dùng, rất tuyệt vì nó chỉ tạo ra JavaScript cơ bản.
+- Vì vậy, nó sử dụng thông tin này để tạo ra mô tả cơ bản về giao diện trang web của bạn.
+### Muc 21
+
+- Và đó, đó giống như một mã được tạo dựa trên mô tả cấp cao của bạn trong Python, cho phép chúng ta mô tả giao diện người dùng trong Python được dịch thành giao diện người dùng JavaScript đơn giản.
+- Được thôi, có lẽ bạn đã đoán được phần đó rồi.
+- Vậy số hai là gì?
+- Vâng, điều thứ hai là việc tiếp theo mà nó làm là khi bạn gọi lệnh Dot launch, nó sẽ khởi động một máy chủ.
+- Nó sử dụng Starlette, một nền tảng máy chủ ứng dụng cho phép khởi động máy chủ web một cách dễ dàng.
+- Và nó có chức năng để máy chủ web có thể lắng nghe.
+- Và nếu ai đó truy cập vào điểm cuối của máy chủ web đó, nó sẽ phục vụ giao diện mà nó vừa tạo ra.
+- Vì vậy, nó sẽ nằm đó chờ ai đó nhấn vào và sau đó sẽ phục vụ giao diện cho ứng dụng của bạn.
+## Phan 8
+
+### Muc 22
+
+- Và điều đó khá hiển nhiên khi bạn nghĩ về nó.
+- Và trên thực tế, đây là một máy chủ web luôn chạy ở đó, sẵn sàng phục vụ ứng dụng của bạn.
+- Nó bắt đầu.
+- Họ chọn một cổng có vẻ như là cổng số 7, 860, tôi nghĩ đó là cổng mà nó lắng nghe.
+- Nhưng nếu hết, nếu đã có người sử dụng, nó sẽ chọn mục tiếp theo và tiếp tục tính toán cho đến khi tìm được mục còn trống.
+- Bạn có thể chỉ định cổng nào bạn muốn, nhưng cổng này, ví dụ, cổng hiện tại mà chúng ta đang xem xét, đang chạy trên máy chủ cục bộ của tôi trên cổng bảy, tám, 60 và bất kỳ ai truy cập vào URL đó sẽ thấy giao diện người dùng được tạo tự động này được hiển thị trên trình duyệt của họ.
+- Và quả thực, nếu tôi nhấp vào đây ngay lúc này, một trang web sẽ hiện ra.
+- Đây là nội dung được hiển thị và hiện đang chạy trong cửa sổ trình duyệt của tôi.
+### Muc 23
+
+- Và điều này được thực hiện bởi máy chủ starlet chạy ở chế độ nền.
+- Và thực sự, nếu tôi vào View Source, chúng ta sẽ thấy tất cả những thứ được tạo ra.
+- Trên thực tế, nó giống như một trang đang chạy thứ gì đó trong iframe.
+- Nếu chúng ta muốn xem, nếu chúng ta muốn đi sâu vào JavaScript để xem chúng ta thực sự đang xem gì ở đây, xem liệu chúng ta có thể tìm thấy điều đó bằng cách nhìn xung quanh, ừm, đây có phải là nó không?
+- Đây chỉ là iframe mà nó đang chạy bên trong.
+- Ờ.
+- Đợi đã.
+- Chúng ta bắt đầu thôi.
+### Muc 24
+
+- Đây rồi.
+- Đây là mã.
+- Ừm, đúng rồi.
+- Vậy thì đây chính là mô tả.
+- Nếu bạn quen thuộc với giao diện người dùng, thì đây giống như mã giao diện người dùng được thu nhỏ.
+- Nếu tôi tìm kiếm từ khóa svelte thì sẽ thấy ngay kết quả.
+- Chúng ta có thể thấy rằng đây thực sự là một ứng dụng giao diện người dùng mượt mà đang chạy trong cửa sổ trình duyệt của tôi.
+- Và đó chính là những gì chúng ta đang thấy ở đây.
+## Phan 9
+
+### Muc 25
+
+- Tôi biết là tôi sẽ giải thích hơi dài dòng một chút cho bạn, nhưng để bạn hiểu được tất cả những gì đã xảy ra, nó đã tạo ra một trang JavaScript.
+- Và đó là những gì chúng ta thấy khi truy cập vào cổng số bảy, tám, bảy, sáu, đây là cổng trống tiếp theo trên máy tính cục bộ của tôi.
+- Được rồi.
+- Và chỉ phần cuối cùng của bước thứ hai là bạn có thể tự hỏi tại sao điều này lại xuất hiện trong sổ tay của chúng ta như vậy?
+- Vâng, đó chỉ là một tính năng của máy tính xách tay.
+- Các ô đầu ra của sổ ghi chép có thể hiển thị nội dung web.
+- Và nếu đây là điều chúng tôi đang cố gắng thực hiện, thì đây chính là điều chúng tôi đã tạo ra.
+- Sau đó, đầu ra của sổ ghi chép có thể hiển thị trang web đó bên trong.
+### Muc 26
+
+- Giống như bạn có thể nghĩ về việc chạy một cửa sổ trình duyệt nhỏ bên trong ô đầu ra của sổ ghi chép đó.
+- Và đó là lý do tại sao chúng ta thấy nó ở đây, cũng như có thể vào trang web đó để biết đó là bước thứ hai trong những gì Gradio thực hiện.
+- Và bây giờ chỉ còn bước thứ ba nữa thôi.
+- Bạn đã hiểu ra chưa?
+- Được thôi.
+- Vì vậy, bước thứ ba là ngoài việc mô tả những gì chúng ta đang làm, chúng ta sẽ cho Gradio biết các hàm gọi lại của mình, một số hàm trong mã mà chúng ta muốn đính kèm vào giao diện người dùng.
+- Trong trường hợp này, đó chỉ là chức năng trò chuyện đơn giản.
+- Nhưng vẫn còn những thứ khác mà chúng tôi đã chơi trong những ngày trước và những gì Gradio làm.
+### Muc 27
+
+- Bạn có thể tưởng tượng được không?
+- Máy chủ của nó rất đơn giản.
+- Nếu bạn nhấn vào gốc thì bạn sẽ nhận được trang web, trang giao diện người dùng đã được tạo.
+- Nó cũng tạo ra các tuyến đường cho từng lệnh gọi lại của bạn.
+- Trong trường hợp của chúng tôi, chỉ có một cuộc trò chuyện, do đó có một tuyến đường phụ trợ cho cuộc trò chuyện đó.
+- Và nếu ai đó nhấn vào đường dẫn cuối cùng đó, nó sẽ gọi chức năng trò chuyện mà chúng ta vừa có ở đây.
+- Mã đó sẽ được gọi nếu ai đó truy cập vào tuyến đường đó trên máy chủ đó.
+- Và tất nhiên, không có gì ngạc nhiên khi trong mã giao diện mà nó tạo ra, nó đảm bảo rằng nếu bạn nhấp vào nút gửi, nó sẽ gọi tuyến đường mà bạn muốn - tuyến trò chuyện sẽ khiến phản hồi được trả về.
+## Phan 10
+
+### Muc 28
+
+- Và nó đảm bảo rằng bất cứ thông tin nào trả về đều được điền chính xác vào UI.
+- Tất cả những điều đó đều được tích hợp vào mã giao diện người dùng để gọi đúng tuyến đường và đưa kết quả vào đúng trường.
+- Và tất cả những điều đó đều được phản ánh trong dòng mã đó.
+- Và nếu bạn nhìn lại một vài ngày trước những sự việc có nội dung cụ thể hơn, bạn có thể thấy chính xác cách thức hoạt động của nó.
+- Bây giờ, bạn có thể thấy cách thức mà từng bước trong ba bước đó kết hợp lại với nhau cho phép bạn tạo ra giao diện người dùng như thế này.
+- Và nếu bạn đang tự hỏi rằng, Ed, đây là mười phút trong cuộc đời tôi, tôi sẽ không lấy lại được.
+- Điều này có liên quan gì tới AI?
+- Nó không hẳn như vậy, nhưng nó thực sự giúp bạn hiểu cách bạn có thể xây dựng những loại ứng dụng này, cách chúng kết nối với logic kinh doanh của bạn và thực tế là các trình quan sát starlet có khả năng mở rộng rất cao.
+### Muc 29
+
+- Chúng có thể chịu được tải trọng rất cao.
+- Vậy thì đây không chỉ là một món đồ chơi.
+- Đó là thứ có thể được sử dụng cho những thứ như ứng dụng nội bộ.
+- Ừm, và nó có thể đưa bạn đi rất xa.
+- Ừm, bạn cũng có thể xây dựng một giao diện người dùng hoàn chỉnh riêng biệt và vẫn sử dụng các lệnh gọi lại Gradio làm giao diện phụ trợ.
+- Vì vậy, Gradio chỉ có thể chạy ở chế độ API, do đó, nó có thể tạo thành bước đệm tốt cho ứng dụng chiến lược trong tương lai của bạn với giao diện tùy chỉnh bằng ngôn ngữ khác như Next.
+- ứng dụng js hoặc thứ gì đó.
+- Ừ, để tất cả những điều đó có thể trở thành một phần trong quá trình di cư tự nhiên của bạn.
+### Muc 30
+
+- Vì vậy, nó không chỉ là một nền tảng tạo mẫu có công suất khá cao, có thể được sử dụng cho các ứng dụng có kích thước khá lớn, mà còn có một lộ trình di chuyển rất tự nhiên để đưa nó vào sản xuất.
+- Được rồi, nói chuyện phiếm về kỹ thuật thế là đủ.
+- Nó được ghi ở đó, nếu bạn muốn đọc về nó.
+- Hãy cùng làm những điều thú vị nhé.
+- Chúng ta hãy tiếp tục và xây dựng một trợ lý AI đa phương thức.
+- Được rồi, trước hết, điều này rất vui.
+- Chúng ta sẽ tạo ra một API khác ngoài API hoàn thành trò chuyện mà chúng ta đã chán.
+- Chúng ta sẽ tạo một API để tạo ra hình ảnh.
+## Phan 11
+
+### Muc 31
+
+- Có một OpenAI tạo ra bằng cách sử dụng thư viện máy khách Python OpenAI và bạn truyền vào một mô hình và một lời nhắc về định dạng kích thước và phản hồi.
+- Vậy thì đây chính là cấu trúc.
+- Và chúng tôi đang sử dụng một mô hình có tên là Dall-E ba, đây là trình tạo hình ảnh của OpenAI từ khoảng một năm rưỡi trước.
+- Họ có phiên bản mới hơn với GPT.
+- Ừm, nhưng bạn phải trải qua khá nhiều thủ tục rườm rà để được chấp thuận thì mới có thể gọi nó thông qua API.
+- Và tôi không muốn bạn phải trải qua điều đó.
+- Dall-E three nhanh hơn và dễ hơn nhiều, và tôi thực sự rất thích hình ảnh Dall-E three.
+- Ừm, bây giờ tôi sẽ đề cập đến một điều là mỗi lần bạn tạo ra một hình ảnh, chi phí khoảng 0 đô la.
+### Muc 32
+
+- 04.
+- Và tất cả những thứ khác tôi không biết, nhưng hầu hết các cuộc gọi khác trong khóa học này đều có giá cực kỳ rẻ.
+- Chỉ là một phần rất nhỏ của một xu, nhưng phần này là 0 đô la.
+- 0,04 mỗi loại, vì vậy hãy lưu ý điều đó.
+- Tôi nghĩ nó đáng giá 0 đô la.
+- 04.
+- Nhưng nếu bạn không làm được thì đừng làm.
+- Vì vậy, lời nhắc tôi đưa ra ở đây là bạn có thể gọi hàm này là artist bằng cách truyền vào một thành phố.
+### Muc 33
+
+- Và nó sẽ tạo ra một lời nhắc, một hình ảnh đại diện cho một nghề nghiệp ở thành phố này, thể hiện các địa điểm du lịch và mọi thứ độc đáo về thành phố này theo phong cách nghệ thuật đại chúng sống động.
+- Được thôi, đó là lời nhắc.
+- Với lời nhắc đó, chúng ta hãy tạo một hình ảnh cho Thành phố New York và hiển thị nó.
+- Và bây giờ khi chúng ta chạy chương trình này, có một điều tôi muốn nói là nó không thực sự nhanh, nhưng nó thực hiện được rất nhiều việc.
+- Nó đang tạo ra hình ảnh này.
+- Và nhân tiện, chúng tôi sẽ thực hiện điều này với các mô hình nguồn mở vào đầu tuần thứ ba, nếu bạn thắc mắc.
+- Vì vậy, bạn có thể mong đợi điều đó.
+- Ừ, nhưng đúng vậy, chương trình này hiện đang chạy bằng Dall-E ba.
+## Phan 12
+
+### Muc 34
+
+- Và đây là kết quả.
+- Hãy nhìn vào đây.
+- Hãy xem thử nhé.
+- Ý tôi là chất lượng của những thứ này thật tuyệt vời.
+- Tất nhiên, đây là hình ảnh của Quảng trường Thời đại.
+- Kỳ lạ thay, tôi đoán nghệ thuật đại chúng lại mang lại cho nó một chút sự kín đáo.
+- Có nước chảy qua Quảng trường Thời đại.
+- À, và ở đây có Tượng Nữ thần Tự do.
+### Muc 35
+
+- Và, ừm, rõ ràng là tất cả chỉ mang tính minh họa, chúng ta cứ để nó tự làm, nhưng tôi nghĩ nó thực sự tuyệt đẹp.
+- Tôi thích cái này, ừm, rõ ràng là có biển báo xe taxi màu vàng.
+- Có chữ New York được viết ở đó.
+- Thật tuyệt vời.
+- Tôi đoán chắc chắn là Sàn giao dịch chứng khoán New York.
+- Tôi nghĩ chắc chắn nơi này có nét gì đó giống New York, không còn nghi ngờ gì nữa.
+- Ừ, tôi nghĩ điều này thực sự rất, rất ấn tượng.
+- Ừ, được thôi.
+### Muc 36
+
+- Ngoài ra, tôi còn một thứ nữa mà chúng ta chưa hoàn thành với hình ảnh.
+- Chúng tôi cũng muốn có một phương tiện truyền thông khác.
+- Vì vậy, tôi có một API khác dành cho bạn.
+- Lần này là OpenAI.
+- Và bạn đưa vào một mô hình.
+- Chúng tôi đang sử dụng GPT bốn TTS TS, TTS là viết tắt của Text to Speech và chúng tôi cung cấp cho nó giọng nói.
+- Và tôi còn có một số giọng nói khác nữa nếu bạn muốn thử.
+- Tôi sẽ sử dụng Onyx và đầu vào là một thông điệp.
+## Phan 13
+
+### Muc 37
+
+- Vì vậy, người nói có thể nói chuyện bằng một tin nhắn và chúng tôi sẽ trả về nội dung của tin nhắn đó.
+- Vì vậy, tôi sẽ không làm gì với nó ngay bây giờ.
+- Tôi chỉ cho bạn xem một người biết nói thôi.
+- Ừ, được thôi.
+- Cũng công bằng thôi.
+- Bây giờ đã đến lúc chúng ta phải tổng hợp tất cả lại.
+- Vì vậy, tôi có một cuộc trò chuyện ngắn gọn hơn dành cho bạn và tôi sẽ nói qua về điều này, và đây thực sự là một bài tập dành cho bạn.
+- Bạn có thể bối rối rằng cuộc trò chuyện này chỉ ghi lại lịch sử.
+### Muc 38
+
+- Không cần lịch sử và thông điệp.
+- Và đó là vì chúng ta sắp thực hiện một số thao tác tùy chỉnh cho radio và trước tiên chúng ta sẽ thử nghiệm một chút, và chúng ta sẽ chỉ có một lệnh gọi lại, ừm, với một biến duy nhất chứa toàn bộ lịch sử, bao gồm cả lời nhắc gần đây nhất, bạn sẽ thấy điều đó sau một giây, nhưng điều đó có thể khiến bạn phải dừng lại một chút để suy nghĩ.
+- Vì vậy, chúng ta bắt đầu bằng cách xóa lịch sử.
+- Như thường lệ, chúng tôi tổng hợp tất cả tin nhắn, thêm lời nhắc hệ thống rồi thêm lịch sử, như tôi đã nói, sẽ có tin nhắn gần đây nhất.
+- Và sau đó chúng ta gọi open create bằng các công cụ của mình, và sau đó chúng ta có vòng lặp while để tạo thông điệp.
+- À, tôi vừa mới cập nhật lệnh gọi công cụ xử lý của chúng ta.
+- Bây giờ có thể xử lý các cuộc gọi công cụ và trả về các thành phố.
+- Bởi vì nếu một cuộc gọi công cụ tình cờ liên quan đến một thành phố, thì tôi sẽ yêu cầu nó được trả lại.
+### Muc 39
+
+- Và tôi đưa điều đó vào các phản hồi và thành phố để biến đổi.
+- Được rồi.
+- Ngoài ra mọi thứ đều rất giống nhau.
+- Không có sự khác biệt thực sự.
+- Ừm, và sau đó với bất cứ điều gì xảy ra, tôi sẽ đưa điều đó vào lịch sử.
+- Và bây giờ chúng ta chỉ có một thứ ở đây.
+- Ừ, bạn sẽ thấy giọng nói này tương đương với câu trả lời của người nói.
+- Vì vậy, bất cứ thứ gì trả về, tôi cũng sẽ đưa nó vào talker để talker thực sự có thể tạo ra âm thanh cho bất cứ thứ gì trả về từ LM.
+## Phan 14
+
+### Muc 40
+
+- Và tôi cũng có những thành phố nhỏ này.
+- Vì vậy, nếu có bất kỳ thành phố nào xuất hiện từ đây, nếu, nếu người dùng yêu cầu một số thành phố, thì tôi sẽ lấy thành phố đầu tiên và tạo thành hình ảnh nghệ thuật đại chúng về nó.
+- Và rồi tôi quay trở lại từ đây.
+- Bạn nhớ trước khi trò chuyện, chức năng gọi lại trò chuyện sẽ lấy tin nhắn trong lịch sử và chỉ trả về tin nhắn tiếp theo.
+- Vâng, tôi sẽ yêu cầu nó trả về ba thứ trong toàn bộ lịch sử, giọng nói và hình ảnh nếu có.
+- Được rồi.
+- Chuyện đó khác.
+- Chúng ta hãy cùng xem cách kết nối chúng lại với nhau nhé.
+### Muc 41
+
+- Vâng, trước tiên tôi muốn giới thiệu cho bạn cách xử lý lệnh gọi công cụ và trả về thành phố.
+- Đây rồi.
+- Về cơ bản, điều này giống hệt như việc xử lý các lệnh gọi công cụ trước đó.
+- Nhưng tôi lén lút tạo một danh sách trống các thành phố và bất kỳ thành phố nào được gọi trong công cụ.
+- Tôi chỉ thêm nó vào danh sách các thành phố của mình và trả lại ở đây.
+- Vậy thôi.
+- Tôi đảm bảo với bạn rằng tôi không thực hiện bất kỳ thay đổi nào khác.
+- Đó là cùng một tay cầm.
+### Muc 42
+
+- Tool gọi nó như vậy đúng như tên gọi.
+- Nó cũng trả về các thành phố.
+- Và nó sẽ được sử dụng ở đây để vẽ hình ảnh nếu có một thành phố ở đó.
+- Được rồi, đó là tất cả những gì tôi cần để chạy những ô này, chạy cái đó, chạy cái đó.
+- Và cuối cùng chúng ta cần xem giao diện người dùng của Gradio.
+- Vì vậy, có ba loại giao diện người dùng đồ họa khác nhau.
+- Trước đây tôi chưa nói với bạn điều đó, nhưng bây giờ tôi nói cho bạn biết.
+- Vâng.
+## Phan 15
+
+### Muc 43
+
+- Ồ, và lần đầu tiên chúng ta gặp loại được gọi là giao diện.
+- Đó là một trong những thứ đầu tiên chúng tôi làm theo kiểu hét to.
+- Và về cơ bản đó là giao diện người dùng đơn giản và chuẩn mực nhất.
+- Bạn có một hàm gọi lại do bạn chỉ định.
+- Bạn cung cấp một số đầu vào, một số đầu ra và thế là xong.
+- Bạn có thể cho phép gắn cờ bằng thông tin sai nếu bạn muốn.
+- Nếu bạn không muốn dùng nút cờ thì bạn đã có ngay một giao diện.
+- Giao diện đơn giản.
+### Muc 44
+
+- Giao diện trò chuyện là giao diện chúng tôi đã sử dụng trong vài ngày qua.
+- Đó là kiểu bot trò chuyện tiêu chuẩn, trông hơi giống ứng dụng nhắn tin tức thời.
+- Đó là một dạng giao diện người dùng được thiết kế sẵn.
+- Một lần nữa, chỉ có một lệnh gọi lại được gọi là chat, phải có cấu trúc mà chúng ta hiện đã biết rất rõ và đó lại là một giao diện người dùng đóng hộp cơ bản khác.
+- Loại thứ ba dành cho giao diện người dùng tùy chỉnh.
+- Khi bạn không muốn chọn sản phẩm đóng hộp và thực sự muốn tự mình sản xuất các bộ phận khác nhau, bạn sẽ muốn bố trí các thành phần UI khác nhau.
+- Và có khả năng bạn muốn nhiều hơn một cuộc gọi lại.
+- Bạn có thể muốn có các nút khác nhau có thể gọi các chức năng khác nhau.
+### Muc 45
+
+- Và khi bạn ở trong thế giới đó, bạn đang ở trong một khu vực gọi là hộp xám.
+- Đó chính là những gì bạn đang làm.
+- Và tôi sẽ không nói rằng đây không phải là bài học trên radio.
+- Ừm, vậy thì tôi sẽ không đề cập đến mọi thứ.
+- Tôi nghĩ tôi đã liên kết tới các tài nguyên dành cho Gradio trước đây.
+- Chúng rất tuyệt vời và dễ sử dụng, nhưng ít nhất tôi cũng sẽ chỉ cho bạn cách sử dụng khối GR để thiết kế giao diện người dùng.
+- Và đây là nó.
+- Đây là bộ khối GR gồm có ba mảnh.
+## Phan 16
+
+### Muc 46
+
+- Tại sao những thứ này luôn đi theo bộ ba?
+- Nó gồm có ba phần.
+- Đầu tiên, bạn hãy xác định bất kỳ lệnh gọi lại nào mà bạn có.
+- Vâng, chúng tôi đã nhận được cuộc gọi lại.
+- Nó được gọi là trò chuyện.
+- Và lệnh gọi lại sẽ thực hiện mọi thứ.
+- Tôi có một lệnh gọi lại nhỏ ở đây, lệnh này giúp giao diện người dùng trông đẹp mắt hơn, được gọi là lệnh đưa tin nhắn vào bot trò chuyện và lệnh này sẽ đảm bảo rằng khi chúng ta nhập tin nhắn và nhấn enter, lệnh sẽ di chuyển tin nhắn đó ngay vào cửa sổ bot trò chuyện trước khi gọi bot trò chuyện của chúng ta.
+- Nếu không thì trông có vẻ hơi lộn xộn.
+### Muc 47
+
+- Vậy thì đây chính là những gì nó làm.
+- Bạn sẽ thấy nó chỉ trong một giây.
+- Vậy là xong phần gọi lại.
+- Bước thứ hai là nơi bạn xác định giao diện người dùng (UI).
+- Đây chính là những gì Gradio sẽ sử dụng để xây dựng giao diện người dùng tinh tế ở chế độ nền.
+- Và bạn nói sử dụng trình quản lý ngữ cảnh với các khối GR làm UI và sau đó bạn có thể thực hiện điều này bằng cách sử dụng GR để bố trí từng hàng trên giao diện người dùng của bạn.
+- Khi đó tôi sẽ có ba hàng.
+- Hàng trên cùng có màn hình chatbot.
+### Muc 48
+
+- Đó là kiểu truyền đạt thông điệp và hình ảnh qua lại.
+- Hàng tiếp theo có đầu ra âm thanh và hàng cuối cùng có hộp văn bản GR.
+- Trò chuyện với trợ lý AI của chúng tôi.
+- Vậy đó là giao diện người dùng được định nghĩa ở đây.
+- Và cuối cùng, bạn phải cung cấp cho Gradio đoạn mã để kết nối mọi thứ lại với nhau.
+- Điều này cho nó biết lệnh gọi lại nào cần được gọi, khi nào và trong hoàn cảnh nào, để nó biết cách kết nối giao diện người dùng để gọi các tuyến khác nhau trên máy chủ phụ trợ.
+- Và đây là cách bạn thực hiện.
+- Bạn chọn một mục tương tự, như hộp văn bản này và nói message dot submit.
+## Phan 17
+
+### Muc 49
+
+- Điều đó có nghĩa là nếu người dùng nhấn enter vào ô này.
+- Đây chính là điều tôi muốn bạn làm.
+- Tôi muốn bạn đưa tin nhắn vào bot trò chuyện và cung cấp thông tin đầu vào và đầu ra cho nó.
+- Và sau đó tôi sẽ nói hãy gọi chức năng trò chuyện.
+- Và đây là đầu vào, đầu ra và đầu ra.
+- Với chức năng bot trò chuyện này, dữ liệu đầu vào sẽ là lịch sử trò chuyện và dữ liệu đầu ra sẽ là.
+- Sẽ có ba đầu ra và chúng sẽ chuyển đến lịch sử bot trò chuyện, âm thanh và hình ảnh.
+- Đó chính là cách Gradio nên kết nối họ.
+### Muc 50
+
+- Lịch sử chatbot, âm thanh và hình ảnh.
+- Quay lại với hàm trò chuyện của chúng ta, hàm trò chuyện này trả về lịch sử chatbot, âm thanh và hình ảnh.
+- Và đó là cách nó hoạt động.
+- Quá trình này sẽ chạy theo một tuyến đường và máy chủ sẽ truy cập vào tuyến đường đó.
+- Nó sẽ trả về ba thứ này.
+- Và ba điều đó sau đó sẽ được hiển thị trên UI.
+- Nếu bạn không tuân theo tất cả những điều này thì thực sự không có vấn đề gì.
+- Bạn nên dựa vào trực giác để nhận biết điều đó.
+### Muc 51
+
+- Hãy thử xem vì đã đến lúc xem liệu điều này có thực sự hiệu quả hay không.
+- Được rồi.
+- Khoảnh khắc chân lý đã đến.
+- Chúng ta hãy chạy thử nhé.
+- Nó sẽ có quyền xác thực.
+- Nó sẽ.
+- Tôi cần phải đăng nhập với tư cách là add bananas.
+- Bạn có thể thay đổi điều này theo ý mình.
+## Phan 18
+
+### Muc 52
+
+- Nó bay lên.
+- Bùm.
+- Chúng tôi có giao diện người dùng.
+- Chúng ta sẽ ký thêm chuối.
+- Đây rồi.
+- Chúng tôi có giao diện người dùng.
+- Như tôi đã hứa, cái này có ba hàng.
+- Hàng trên cùng có một bot trò chuyện và một hình ảnh.
+### Muc 53
+
+- Hàng thứ hai có âm thanh và hàng thứ ba trò chuyện với trợ lý AI của chúng tôi bằng cách nhập văn bản.
+- Chúng ta hãy chào nhau nhé.
+- Xin chào!
+- Tôi có thể hỗ trợ bạn lập kế hoạch du lịch hôm nay như thế nào?
+- Tốt, tốt.
+- Bạn có mong đợi điều đó không?
+- Bạn có biết chuyện đó sắp xảy ra không?
+- Được rồi, được rồi, chúng ta hãy thử xem nhé.
+### Muc 54
+
+- Hãy thử xem sao.
+- Ừ, tôi muốn đi du lịch.
+- Tuyệt vời.
+- Bạn muốn đi du lịch ở đâu?
+- Làm ơn đi London.
+- Bây giờ, lần này, nếu nó hoạt động tốt, nó sẽ thực hiện lệnh gọi công cụ.
+- Và kết quả là London sẽ quay trở lại.
+- Và vì thế, nó cũng sẽ thực hiện việc tạo hình ảnh, có thể mất khoảng 20 giây.
+## Phan 19
+
+### Muc 55
+
+- Giá vé khứ hồi đến London là 799 đô la.
+- Bạn có muốn đặt vé không?
+- Và chúng ta có nó rồi.
+- Vậy là xong.
+- Chúng tôi vừa vận hành thành công trợ lý đa phương thức của mình.
+- Nó tạo ra hình ảnh cực kỳ thú vị về London với London Eye, Big Ben và những chiếc ô.
+- Đáng yêu.
+- Bài hát chế giễu người Anh và một ít trà London, xe buýt và taxi.
+### Muc 56
+
+- Cảnh đẹp tuyệt vời trên sông Thames và một số điểm dừng ở đó.
+- Bức ảnh rất đẹp.
+- Chúng tôi có âm thanh.
+- Tất nhiên chúng tôi cũng đặt được vé bằng cách sử dụng truy vấn SQL với một công cụ.
+- Mọi thứ đều được giữ chặt.
+- Tôi đoán là có khoảng bốn cuộc gọi LM liên quan ở đây.
+- Hai cái cho cái này, một cái cho lệnh gọi công cụ, một cái cho kết quả cuối cùng, hình ảnh và âm thanh và tất cả đã kết hợp lại với nhau và tôi hy vọng bạn sẽ ngạc nhiên hơn nữa về việc chúng tôi đã xây dựng nó dễ dàng như thế nào.
+- Chúng tôi chỉ xây dựng nó trong vài phút hoặc thậm chí là vài giờ, nhưng thực sự rất, rất dễ.
+### Muc 57
+
+- Và nó thực sự mạnh mẽ.
+- Nó có rất nhiều chức năng và rất sáng tạo.
+- Và hơn hết, bạn nên nghĩ về tất cả những điều khác nhau mà bạn có thể làm để khiến mọi việc trở nên tốt đẹp hơn.
+- Mọi thứ bạn có thể làm với điều này.
+- Đây là một bức tranh mà bạn có thể xây dựng.
+- Và tôi thích điều này đến mức không thể dừng lại ở đó.
+- Tôi cần đưa ra thêm một ví dụ nữa.
+- Chúng ta hãy làm lại một lần nữa và chào nhau nhé.
+## Phan 20
+
+### Muc 58
+
+- Xin chào.
+- Tôi có thể hỗ trợ bạn thế nào cho chuyến bay hôm nay?
+- Và chúng ta hãy thử nghĩ xem, đi Paris hay Tokyo rẻ hơn?
+- Chúng ta hãy cùng xem nhé.
+- Vì vậy, nó sẽ thực hiện những cuộc gọi công cụ đó.
+- Và sau đó một trong số chúng sẽ được chọn để chụp ảnh.
+- Và chúng ta hãy xem nó sẽ mang lại điều gì.
+- Chúng ta hãy xem chúng ta sẽ nhận được gì sau khoảng 17 giây suy nghĩ.
+### Muc 59
+
+- Chúng ta bắt đầu thôi.
+- Giá vé khứ hồi đến Paris là 899 đô la, rẻ hơn so với giá vé khứ hồi đến Tokyo là 1.420 đô la.
+- Và chúng ta có nó rồi.
+- Và còn có một bức tranh tuyệt đẹp về Paris, tất nhiên là có Tháp Eiffel và mọi thứ khác trông thật lộng lẫy.
+- Thực tế là nó được tạo ra để đáp ứng các yêu cầu công cụ và có thể so sánh chúng ngay tại đó.
+- Và nếu tôi lật sang đây, tất nhiên chúng ta sẽ thấy rằng công cụ cơ sở dữ liệu được sử dụng cho cả Paris và Tokyo, đúng như chúng ta mong đợi.
+- Và bạn có thể đếm được số lượng cuộc gọi LM liên quan đến việc đảm bảo toàn bộ quá trình này được thực hiện suôn sẻ.
+- Vậy là chúng ta đã hoàn thành xong dự án nhỏ này, dự án kết luận, dự án cuối cùng của tuần thứ hai.
+### Muc 60
+
+- Và tôi thực sự thích nó.
+- Và tất nhiên, bây giờ chúng ta nên nói về các bài tập của bạn và cách áp dụng chúng vào doanh nghiệp của bạn.
+- Vì vậy, chắc chắn là nếu bạn đã xây dựng các công cụ ngày hôm qua thì bạn nên tích hợp chúng vào đây.
+- Nếu chưa thì đã đến lúc tạo ra một số công cụ rồi.
+- Có thể là một công cụ để đặt giá, có thể là công cụ có thể giả vờ thực sự đặt chỗ bằng cách ghi lại hồ sơ đặt chỗ vào cơ sở dữ liệu, cơ sở dữ liệu SQL.
+- Và một sinh viên đã làm điều đó và đóng góp vào cộng đồng.
+- Bạn phải xem thử.
+- Trên thực tế, có rất nhiều thứ ở đó có tác dụng khác nhau.
+## Phan 21
+
+### Muc 61
+
+- Một sinh viên khác đã xây dựng một thứ có thể kết nối với Amadeus API, giống như một API đặt vé thích hợp để thu thập giá vé và thời gian bay thực tế.
+- Tôi nghĩ là có rất nhiều thứ sáng tạo đang diễn ra.
+- Bạn có thể sử dụng các công cụ này để kết nối với các truy vấn cơ sở dữ liệu hoặc với API để thêm chức năng.
+- Ồ, và thậm chí còn quan trọng hơn thế nữa là hãy gạt trợ lý hàng không AI sang một bên và áp dụng nó vào doanh nghiệp của bạn.
+- Bây giờ bạn không chỉ có thể tạo văn bản mà còn có thể tạo hình ảnh và âm thanh.
+- Hãy nghĩ đến những phần khác nhau mà bạn có thể kết hợp lại với nhau, cùng với việc gọi công cụ để xây dựng thứ gì đó thực sự mạnh mẽ, thứ gì đó có thể thực sự tạo ra giá trị thương mại ngay lập tức và bạn sẽ có thể hoàn thành nó chỉ trong vài giờ, giống như chúng tôi đã làm, thêm vào một số công cụ, đưa vào một số chức năng, thực hiện một vài lệnh gọi LM khác nhau và bạn đã có nó.
+- Và, ừm, rất nhiều thứ bạn có thể làm với nó.
+- Và bạn phải làm vậy.
+### Muc 62
+
+- Yêu cầu nghiêm ngặt duy nhất là bạn phải thấy vui khi làm việc với Gradio và các API này, sau đó ghép chúng lại với nhau, và tất nhiên, hãy gửi nội dung vào mục đóng góp cộng đồng, đăng lên LinkedIn để tôi có thể cân nhắc và chúc mừng bạn, chia sẻ và khuếch đại những thành tích cũng như chuyên môn của bạn, với những người xung quanh, có thể bao gồm cả khách hàng hoặc nhà tuyển dụng trong tương lai.
+- Được thôi.
+- Vâng, vậy là kết thúc tuần thực hành thứ hai.
+- Tôi nên nhắc lại một lần nữa, như đã nói ở đây, biên tập viên của tôi sẽ giết tôi nếu tôi không nói rằng, ừm, việc đánh giá khóa học trên Udemy tạo ra sự khác biệt lớn đến mức những người khác có thể nghe về nó.
+- Vì thế.
+- Vâng, nếu bạn thích khóa học này và muốn giúp tôi giới thiệu khóa học này đến nhiều người khác, vui lòng đánh giá khóa học.
+- Tôi sẽ vô cùng biết ơn.
+- Ừm, nhưng bây giờ, phần kết thúc, chúng ta hãy quay lại các slide để kết thúc.
+### Muc 63
+
+- Ồ, bạn có tin được không?
+- Bằng cách nào đó, bạn đã đi được 25% chặng đường trên hành trình trở thành chuyên gia.
+- Bạn đã đạt được 25% mục tiêu để trở thành kỹ sư LLM.
+- Bạn có thể làm gì?
+- Bạn có thể cung cấp tổng quan về Transformers, lịch sử của chúng, thuật ngữ như mã thông báo, ngữ cảnh, cửa sổ, những thứ tương tự như vậy.
+- Bạn có thể tự tin viết mã bằng API hoàn thành trò chuyện và thậm chí có thể sử dụng một số API khác nữa.
+- Bây giờ, bạn có thể xây dựng một trợ lý AI đa phương thức với giao diện người dùng tốt hơn và sử dụng nhiều công cụ.
+- Và nếu bạn đã hoàn thành thử thách trong tuần, bạn đã tìm ra cách áp dụng thử thách này vào doanh nghiệp của mình.
+## Phan 22
+
+### Muc 64
+
+- Bạn đã xây dựng được thứ gì đó có giá trị thương mại đối với bạn và bạn đã giới thiệu nó với mọi người xung quanh.
+- Bạn đã đưa nó vào phần đóng góp của cộng đồng.
+- Bạn đã đăng nó lên LinkedIn.
+- Và tôi đã cân nhắc và xin chúc mừng bạn.
+- Quả là một tuần thành công lớn.
+- Được rồi, tuần thứ ba thì hoàn toàn khác.
+- Nó hoàn toàn khác biệt theo nhiều cách.
+- Chúng tôi sẽ làm việc với các mô hình nguồn mở, không phải các mô hình nguồn đóng biên giới này, và không sử dụng Allamah, giống như cách đóng gói với API tương thích với AI mở.
+### Muc 65
+
+- Không còn chuyện đó nữa.
+- Chúng tôi sẽ sử dụng mã khuôn mặt ôm để thực sự có mã của mạng nơ-ron, chúng tôi sẽ tự mình chạy mã đó và chúng tôi sẽ sử dụng mã đó như một cơ hội để đi sâu hơn một chút vào bản chất thực sự của những thứ này.
+- Và chúng tôi sẽ làm việc với các trình phân tích cú pháp, đường ống, trình biến đổi và chúng tôi sẽ chạy suy luận của các mô hình nguồn mở.
+- Chúng tôi sẽ sử dụng GPU, card đồ họa sử dụng công cụ tuyệt vời này, Google Colab, giúp bạn truy cập vào GPU trên đám mây, ngay cả khi bạn không có GPU trong máy tính của mình, hoặc thậm chí nếu có, sẽ có một GPU mạnh hơn trên đám mây dành cho bạn.
+- Và nó miễn phí.
+- Ừ, được thôi.
+- Có rất nhiều điều đáng mong đợi.
+- Tuần tới thực sự sẽ rất khó khăn, nhưng cũng rất vui và tôi rất mong được gặp bạn vào lúc đó.
+### Muc 66
+
+- Vâng, tôi biết tuần đã kết thúc, nhưng tôi muốn thêm một chút gì đó nữa.
+- Chỉ.
+- Chỉ là một mẩu nhỏ.
+- Điều gì đó mà tôi nghĩ sẽ làm bạn thích thú.
+- Chỉ mất vài phút thôi và tôi nghĩ bạn sẽ đồng ý rằng điều đó đáng giá.
+- Xin hãy chiều lòng tôi.
+- Hãy cùng tôi bước vào tuần thứ hai và cuốn sổ tay mới này.
+- Thêm nữa, thêm nữa.
+## Phan 23
+
+### Muc 67
+
+- Bạn có thấy nó đang ẩn nấp ở đó không?
+- Đây là một điều đặc biệt mà tôi muốn chia sẻ với bạn.
+- Đây là một ý tưởng được lấy cảm hứng từ nhà viết công nghệ Simon Willison, người có một blog tuyệt vời.
+- Và một trong những điều anh ấy thích làm là thử thách các mô hình bằng cách yêu cầu họ vẽ những con chim hạc đang đạp xe và một số thứ khác.
+- Và bây giờ chúng ta sẽ thực hiện một việc tương tự để khám phá nhiều mô hình khác nhau, thực hiện một tác vụ như một bản xem trước, như một lời gợi ý cho những gì sẽ diễn ra trong các tuần tới, đặc biệt là tuần thứ tư khi chúng ta sẽ chọn mô hình phù hợp cho tác vụ cụ thể.
+- Được rồi, chúng ta bắt đầu nhé.
+- Chúng tôi sẽ yêu cầu một số người mẫu tạo ra một bức ảnh, vẽ một hình ảnh, một hình ảnh ngớ ngẩn để kiểm tra khả năng của họ.
+- Nhưng đây là điều cần lưu ý.
+### Muc 68
+
+- Chúng ta đã tìm hiểu cách sử dụng công nghệ tạo hình ảnh.
+- Chúng ta đã thấy cách điều khiển mô hình để thực sự vẽ.
+- Tạo một hình ảnh.
+- Và có thể bạn đã biết rằng nó sử dụng các mô hình khuếch tán này.
+- Chúng ta thực sự sẽ sử dụng nó trong tuần thứ ba sắp tới.
+- Nhưng chúng ta sẽ làm điều gì đó khác biệt.
+- Chúng ta sẽ không yêu cầu nó tạo ra một hình ảnh, mà thay vào đó, chúng ta sẽ yêu cầu nó vẽ một tệp SVG.
+- Và SVG là một loại tệp hình ảnh, nhưng thực chất những gì nó chứa bên trong chỉ là một mô tả đơn giản bằng văn bản về cách vẽ các đường và hình dạng tạo nên hình ảnh.
+### Muc 69
+
+- Nó thực sự giống như việc vẽ một đường ở đây, một hộp ở đây, tô đầy nó, vẽ một hộp ở đây, được trình bày dưới dạng một loạt các bước trong một tài liệu có cấu trúc tương tự như tài liệu XML.
+- Đó chính là SVG.
+- Vì vậy, theo nhiều cách, việc yêu cầu một mô hình tạo ra một tệp SVG thực chất là yêu cầu nó suy nghĩ kỹ lưỡng.
+- Làm thế nào để xây dựng hình ảnh này và vẽ từng đường nét một.
+- Và điều đó thực sự thú vị vì nó tập trung nhiều hơn vào khả năng trí tuệ của mô hình trong việc tạo ra bức tranh này hơn là về việc tạo hình ảnh, vốn chủ yếu dựa vào việc sử dụng các mô hình đặc biệt được huấn luyện dựa trên toàn bộ dữ liệu đào tạo của chúng.
+- Được rồi.
+- Đó là bối cảnh.
+- Phần còn lại của bối cảnh liên quan đến router mở.
+## Phan 24
+
+### Muc 70
+
+- Tôi biết tôi đã đề cập đến Open Router trước đây, nhưng Open Router là một nền tảng cho phép bạn truy cập vào nhiều mô hình khác nhau.
+- Và nó làm điều đó bằng cách chuyển hướng yêu cầu của bạn đến các mô hình khác nhau.
+- Một trong những tính năng đột phá của Open Router là bạn có thể sử dụng một khóa API duy nhất, khóa của chính bạn để mở router và sử dụng nó như một cổng kết nối.
+- Tất nhiên, nó không phải là một lớp trừu tượng.
+- Đó là một bộ định tuyến.
+- Chúng tôi đã thảo luận về sự khác biệt giữa chúng.
+- Vậy tôi sẽ sử dụng router mở.
+- Bạn có thể chỉ cần xem tôi làm gì.
+### Muc 71
+
+- Bạn không cần phải chạy chương trình này nếu không muốn.
+- Nhưng nếu bạn cũng muốn làm điều này thì bạn cũng nên làm.
+- Vậy là tôi có một số mặt hàng nhập khẩu như thường lệ.
+- Và ở đây, bạn nhớ từ hướng dẫn số 9 trong thư mục hướng dẫn rằng chúng ta có thể sử dụng URL cơ sở của router.
+- Chúng tôi có thể sử dụng khóa API.
+- Tôi sẽ kiểm tra xem khóa API đã được thiết lập chưa và hiện tại mọi thứ trông ổn.
+- Hy vọng bạn đã hiểu điều đó.
+- Và bây giờ tôi đang tạo một thực thể của thư viện khách hàng Python được cấu hình cho router mở.
+### Muc 72
+
+- Được rồi.
+- Và bây giờ đến phần bài tập.
+- Và tôi không có ý nói đến một nhiệm vụ dành cho bạn, mà là một nhiệm vụ dành cho mô hình.
+- Vậy chúng ta sẽ đưa ra một thử thách.
+- Và trong trường hợp của tôi, tôi sẽ đi làm bằng cách trượt patin với một chú gấu trúc.
+- Nhưng bạn nên nghĩ ra điều gì đó khác biệt và thú vị.
+- Không quá phức tạp.
+- Bạn muốn cho nó một chút tự do sáng tạo và một điều gì đó mà nó có thể thực hiện một cách thực tế từ các đường nét và hình dạng.
+## Phan 25
+
+### Muc 73
+
+- Vậy, hãy tạo một tệp SVG cho thử thách này và trả lời bằng chính tệp SVG đó.
+- Đó là cách thiết lập.
+- Và sau đó, tôi có một hàm nghệ sĩ có thể nhận bất kỳ mô hình nào chúng ta muốn cung cấp cho nó, và nó gọi hàm mở router, tạo các bước trong mô hình, các tin nhắn và nỗ lực suy luận.
+- Và nó tính toán thời gian và trả về tổng hợp của nó và kết quả.
+- Đó là chức năng của nghệ sĩ.
+- Được rồi.
+- Bây giờ chúng ta hãy xem các mô hình.
+- Vì vậy, chúng ta sẽ liên tục yêu cầu các mô hình từ các nghệ sĩ cho phiên bản nguồn mở của GPT 120, cụ thể là GPT-5 Nano với khả năng suy luận thấp.
+### Muc 74
+
+- Chúng ta đang ngày càng mạnh mẽ hơn, tôi nghĩ vậy.
+- Hãy tìm phiên bản mới nhất cho tôi.
+- 3.2 Suy nghĩ của Kimi Katou hiện tại đối với tôi là vào đầu năm 2026.
+- Mô hình mã nguồn mở mạnh mẽ nhất trên hành tinh, tôi tin rằng có thể khác nhau đối với bạn, và bạn có thể tự do lựa chọn bất kỳ mô hình nào bạn muốn.
+- Đây là từ moonshot AI.
+- Công ty khởi nghiệp trí tuệ nhân tạo (AI) Trung Quốc sau đó đã nhanh chóng nắm bắt phiên bản 4.1 từ ông Musk, sau đó là Claude.
+- Opus 4.5 là mô hình hàng đầu hiện nay của Anthropic, sử dụng GPT 5.2 với khả năng suy luận cao.
+- Mô hình mạnh nhất của OpenAI hiện tại đối với tôi.
+### Muc 75
+
+- Và cuối cùng, bản xem trước Gemini 3 Pro.
+- Đây là các mẫu của chúng tôi.
+- Và khi tôi chạy chương trình này, nó sẽ chạy.
+- Họ đều sẽ chạy.
+- Hiện tại, chúng đang hoạt động liên tục, thực hiện các thao tác xử lý và lưu trữ kết quả trở lại.
+- Và đối với những ai đã theo học khóa học Agentic hoặc một số khóa học khác của tôi, các bạn sẽ biết rõ cách thực hiện điều này dưới dạng mã async, nghĩa là các tác vụ sẽ chạy song song thay vì lần lượt, nhưng tôi không muốn làm phức tạp thêm bằng cách đưa nó vào đây.
+- Vì tôi đã làm theo cách này, một cách đơn giản và trực tiếp, nên việc này sẽ mất khoảng năm phút để hoàn thành.
+- Nhưng đối với bạn, nếu bạn biết cách, hãy thoải mái chuyển đổi điều này thành một tác vụ không đồng bộ và nó sẽ chỉ mất khoảng một hoặc hai phút, nhưng tôi sẽ gặp lại bạn sau khoảng năm phút nữa khi tất cả các nghệ sĩ của chúng ta đã hoàn thành công việc.
+## Phan 26
+
+### Muc 76
+
+- Được rồi, điều đó không mất đến năm phút.
+- Điều đó mất 12,5 phút.
+- Tôi xin lỗi nếu phải mất nhiều thời gian như vậy để bạn làm điều đó.
+- Tôi mất năm phút.
+- Tôi nghĩ có sự biến động khá lớn, nhưng bây giờ đã đến lúc chúng ta xem kết quả.
+- Nó sẽ vẽ từng cái một.
+- Tôi đã viết một skript nhỏ có tên là "revealer", có nghĩa là nó vẽ từng đường SVG một để chúng ta có thể thấy nó hiển thị dần dần.
+- Hãy chạy từng mô hình một để xem kết quả.
+### Muc 77
+
+- Họ đã vẽ hình con gấu trúc của chúng ta như thế nào?
+- Được rồi, tôi đã thu nhỏ màn hình một chút và bây giờ chúng ta bắt đầu.
+- Đây là cái đầu tiên.
+- Đây là GPT OS 120 b.
+- Trông khá ổn đấy.
+- Tôi khá thích điều đó.
+- Những đôi giày trượt patin đẹp.
+- Làm tốt lắm.
+### Muc 78
+
+- Mô hình mã nguồn mở đã hoàn thành xuất sắc nhiệm vụ.
+- Được rồi.
+- Và sau một chút ngừng lại, đây là cái tiếp theo.
+- Đây là khu vực tìm kiếm sâu 3,2 ha với, ừm, ván trượt ở các độ cao khác nhau.
+- Đó là con đường.
+- Một sơ đồ đẹp và chi tiết đã được cung cấp cho chúng ta, mang tính chất phân tích sâu sắc.
+- Đây là Kimi Katou, mô hình nguồn mở mạnh mẽ nhất trên hành tinh.
+- Và đội mũ hoặc có bong bóng thoại.
+## Phan 27
+
+### Muc 79
+
+- Tôi không chắc đó là gì.
+- Có thể bạn có thể cho biết đó là gì.
+- Tôi không chắc chắn.
+- Có vẻ thú vị.
+- Một cách giải thích thú vị ở đây là Grock 4.1 nhanh.
+- Và điều đó thật thú vị.
+- Đó thật là thú vị.
+- À, lại nữa, có chuyện gì đó liên quan đến mũ đang xảy ra.
+### Muc 80
+
+- Công việc được trình bày một cách dứt khoát ở đây.
+- Và chắc chắn là giày trượt patin.
+- Đây là Claude, phiên bản 4.5, mô hình mạnh nhất của Anthropic tính đến thời điểm hiện tại.
+- Thật ấn tượng.
+- Giày trượt patin, những đường nét nhỏ và văn phòng được viết là "văn phòng" để tránh nhầm lẫn.
+- Và bây giờ là GPT 5.2, mô hình mạnh mẽ nhất từ OpenAI.
+- Và hãy xem cái này.
+- Hãy nhìn con gấu trúc này.
+### Muc 81
+
+- Và có những đường nét hành động xuất hiện, tôi thích điều đó.
+- Đường nét xoáy.
+- Cuối cùng nhưng không kém phần quan trọng, Gemini 3 Pro.
+- Ôi, wow Wow, nhìn kìa.
+- Hãy nhìn những đôi giày trượt patin đang loạng choạng trong các đường nét hành động.
+- Đó quả là một hình ảnh ấn tượng.
+- Đó quả là một hình ảnh ấn tượng.
+- Được rồi, tôi nghĩ Gemini 3 Pro là lựa chọn tốt nhất.
+## Phan 28
+
+### Muc 82
+
+- Đó là một bộ sưu tập hình ảnh ấn tượng.
+- Tôi thực sự yêu thích nó.
+- Vậy GPT-5 Nano là mô hình duy nhất không thể hoàn thành.
+- Nó gặp vấn đề trong quá trình tạo ra, nhưng mọi người khác đều làm rất tốt.
+- Một bộ sưu tập tuyệt vời các tệp SVG được vẽ tay, từng đường nét một.
+- Ừm.
+- Thật ấn tượng.
+- Hy vọng là bạn đã xoắn nó.
+### Muc 83
+
+- Bạn đã nghĩ ra một ý tưởng mới mẻ.
+- Bạn có một bộ sưu tập hình ảnh tuyệt vời và đang tận hưởng trải nghiệm thực hành này, khám phá khả năng của các mô hình tiên tiến và mô hình nguồn mở thông qua API Open Router.
+- Và bây giờ, cuối cùng, đây thực sự là kết thúc của tuần thứ hai.
+- Đó là kết thúc của phần bổ sung.
+- Tôi hy vọng bạn đã thích nó.
+- Hy vọng điều này đã khiến bạn hào hứng với những phương pháp khoa học thực sự sẽ được giới thiệu trong tuần thứ tư, nhưng hiện tại, đã đến lúc nghỉ ngơi một chút và sau đó chuyển sang tuần thứ ba để tìm hiểu về các mô hình nguồn mở.
+- Tôi không thể chờ đợi để gặp bạn lúc đó.
+

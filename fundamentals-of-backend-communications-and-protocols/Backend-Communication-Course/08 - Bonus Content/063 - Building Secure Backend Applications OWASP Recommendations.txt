@@ -1,0 +1,1061 @@
+# 063 - Building Secure Backend Applications OWASP Recommendations
+
+Section: 08 - Bonus Content
+Duration: 28min
+
+---
+
+## 1. Summary
+
+This lecture introduces the **OWASP Top 10** security risks and explains why backend and frontend developers should understand them when designing web applications.
+
+OWASP stands for **Open Web Application Security Project**. The OWASP Top 10 is a list of common and dangerous web application security risks. It is not a complete list of every possible attack, but it is a very good starting point for building more secure applications.
+
+The lecture covers ten major security categories:
+
+```text id="a5w7o1"
+1. Injection
+2. Broken Authentication
+3. Sensitive Data Exposure
+4. XML External Entities / XXE
+5. Broken Access Control
+6. Security Misconfiguration
+7. Cross-Site Scripting / XSS
+8. Insecure Deserialization
+9. Using Components with Known Vulnerabilities
+10. Insufficient Logging and Monitoring
+```
+
+The main message is that secure backend design is not only about writing correct business logic. Developers must also think about input validation, authentication, authorization, data protection, dependency security, logging, monitoring, and safe configuration.
+
+Security should be part of the design from the beginning.
+
+---
+
+## 2. Key Concepts
+
+### OWASP
+
+OWASP stands for:
+
+```text id="r99kf3"
+Open Web Application Security Project
+```
+
+It is a community focused on improving web application security.
+
+The OWASP Top 10 is a widely used reference for common web application security risks.
+
+It helps developers, architects, and organizations build awareness around secure coding and secure system design.
+
+---
+
+### Security as a Design Concern
+
+Security should not be added only at the end.
+
+It should be part of:
+
+* backend design,
+* frontend design,
+* database design,
+* deployment,
+* infrastructure,
+* authentication,
+* authorization,
+* logging,
+* monitoring,
+* dependency management.
+
+A backend can be functionally correct but still insecure.
+
+---
+
+### 1. Injection
+
+Injection happens when untrusted user input is interpreted as code or commands.
+
+The most famous example is SQL injection.
+
+SQL injection occurs when user input is directly concatenated into a SQL query.
+
+Bad example:
+
+```javascript id="3hiryb"
+const query = "SELECT * FROM users WHERE name = '" + name + "'";
+```
+
+If an attacker controls `name`, they may inject SQL logic.
+
+Example attack idea:
+
+```sql id="rilth4"
+' OR 1=1 --
+```
+
+This can change the meaning of the query and return data that should not be returned.
+
+Injection can also happen in:
+
+* SQL,
+* NoSQL,
+* shell commands,
+* LDAP,
+* XML,
+* template engines,
+* expression languages.
+
+---
+
+### SQL Injection
+
+SQL injection allows an attacker to manipulate SQL queries.
+
+Possible impact:
+
+* leak data,
+* bypass login,
+* modify data,
+* delete data,
+* drop tables,
+* escalate privileges.
+
+Mitigation:
+
+* use parameterized queries,
+* use prepared statements,
+* avoid string concatenation,
+* validate input,
+* restrict database user permissions,
+* apply least privilege.
+
+---
+
+### Least Privilege for Database Users
+
+The lecture emphasizes that the backend application's database user should not have unnecessary privileges.
+
+For example, a REST API that only reads data should not connect as a database admin.
+
+Better design:
+
+```text id="wbifai"
+Read-only endpoint → DB user with SELECT only
+Write endpoint     → DB user with limited INSERT/UPDATE
+Admin tasks        → separate privileged user
+```
+
+If SQL injection happens, limited permissions reduce damage.
+
+---
+
+### 2. Broken Authentication
+
+Broken authentication happens when login, session management, password handling, or token handling is implemented incorrectly.
+
+Examples:
+
+* no rate limit on login attempts,
+* weak password reset flow,
+* long-lived sessions,
+* insecure session tokens,
+* predictable tokens,
+* exposed credentials,
+* missing MFA for sensitive systems,
+* poor session invalidation.
+
+Attackers may use:
+
+* brute force,
+* credential stuffing,
+* stolen tokens,
+* session hijacking,
+* weak password reset flows.
+
+---
+
+### Credential Stuffing
+
+Credential stuffing is when attackers try leaked username/password pairs from other websites.
+
+If your application allows unlimited login attempts, attackers can automate login attempts.
+
+Mitigation:
+
+* rate limit login attempts,
+* add progressive delays,
+* lock accounts temporarily,
+* detect suspicious IPs,
+* use MFA,
+* monitor failed login attempts.
+
+---
+
+### Session Management
+
+Sessions should be handled carefully.
+
+Problems include:
+
+* sessions that never expire,
+* sessions that remain valid after logout,
+* session cookies without secure attributes,
+* weak session IDs,
+* session tokens exposed to JavaScript.
+
+A session that lasts too long can be dangerous, especially on shared computers.
+
+---
+
+### 3. Sensitive Data Exposure
+
+Sensitive data exposure happens when private or important data is not properly protected.
+
+Sensitive data includes:
+
+* passwords,
+* access tokens,
+* financial information,
+* healthcare data,
+* personal identifiable information,
+* emails,
+* addresses,
+* social security numbers,
+* payment details.
+
+Sensitive data must be protected both:
+
+```text id="d1vazs"
+at rest
+in transit
+```
+
+---
+
+### Data at Rest
+
+Data at rest means data stored in:
+
+* databases,
+* disks,
+* backups,
+* object storage,
+* logs,
+* caches.
+
+Protection methods:
+
+* password hashing,
+* encryption at rest,
+* access control,
+* database permissions,
+* secret management,
+* log redaction,
+* backup protection.
+
+Passwords should never be stored in plain text.
+
+They should be hashed using strong password hashing algorithms.
+
+---
+
+### Data in Transit
+
+Data in transit means data moving across the network.
+
+It should be protected using TLS.
+
+TLS protects traffic between two parties by encrypting communication.
+
+Examples:
+
+```text id="t9mhaj"
+Browser ↔ Web Server
+Service A ↔ Service B
+Backend ↔ Database
+Client ↔ API Gateway
+```
+
+HTTPS is HTTP over TLS.
+
+Without TLS, attackers on the network may sniff or modify sensitive data.
+
+---
+
+### 4. XML External Entities / XXE
+
+XXE stands for **XML External Entity**.
+
+It happens when an XML parser processes external entity references in unsafe ways.
+
+An attacker can craft XML that causes the server to read local files, scan internal systems, or perform unwanted network requests.
+
+Dangerous XML pattern:
+
+```xml id="d59yrd"
+<!DOCTYPE foo [
+  <!ENTITY xxe SYSTEM "file:///etc/passwd">
+]>
+<root>&xxe;</root>
+```
+
+If the parser expands the entity, it may read the server's `/etc/passwd` file and include it in the parsed XML.
+
+Mitigation:
+
+* disable external entities,
+* disable DTD processing if not needed,
+* use safe XML parsers,
+* avoid XML when possible,
+* validate uploaded XML,
+* limit file and network access.
+
+---
+
+### 5. Broken Access Control
+
+Broken access control happens when authenticated users can access resources or actions they are not authorized to use.
+
+Authentication answers:
+
+```text id="faoq3m"
+Who are you?
+```
+
+Authorization answers:
+
+```text id="70cbbc"
+What are you allowed to access?
+```
+
+A user may be logged in but still not allowed to access `/admin`.
+
+Examples:
+
+* normal user accesses admin endpoint,
+* user views another user's account,
+* user changes URL ID to access someone else's data,
+* backend trusts frontend-only checks,
+* missing permission checks in APIs,
+* reverse proxy bypass,
+* request smuggling.
+
+---
+
+### HTTP Request Smuggling
+
+The lecture mentions HTTP request smuggling as an example of access control bypass.
+
+Request smuggling can happen when a reverse proxy and backend server disagree about where one HTTP request ends and the next begins.
+
+If the proxy and backend parse HTTP/1.1 differently, an attacker may bypass proxy-level controls and reach backend routes they should not reach.
+
+This is especially dangerous in systems with:
+
+* reverse proxies,
+* API gateways,
+* load balancers,
+* backend services,
+* mixed HTTP parser behavior.
+
+---
+
+### 6. Security Misconfiguration
+
+Security misconfiguration happens when systems are deployed with unsafe settings.
+
+Examples:
+
+* database exposed to public internet,
+* default passwords,
+* open cloud storage,
+* debug mode enabled,
+* verbose error messages,
+* missing security headers,
+* overly permissive firewall rules,
+* weak database access rules,
+* unnecessary services enabled.
+
+The lecture strongly emphasizes that databases should not be exposed directly to the public internet.
+
+A database should usually be protected behind:
+
+* private network,
+* firewall,
+* backend application,
+* VPN,
+* access controls.
+
+---
+
+### Database Exposure
+
+Exposing databases like PostgreSQL, MongoDB, Elasticsearch, or Redis to the public internet is extremely dangerous.
+
+Attackers scan the internet for open services.
+
+Bad design:
+
+```text id="zxbwca"
+Internet → PostgreSQL
+```
+
+Better design:
+
+```text id="1bhxfq"
+Internet → Reverse Proxy / API Gateway → Backend App → Database
+```
+
+The backend should control access to the database.
+
+---
+
+### 7. Cross-Site Scripting / XSS
+
+XSS happens when untrusted user input is included in a web page without proper escaping or validation.
+
+An attacker can inject JavaScript that runs in another user's browser.
+
+Impact:
+
+* steal session tokens,
+* make requests as the victim,
+* deface pages,
+* redirect users,
+* perform unauthorized actions,
+* spread malicious scripts.
+
+Example:
+
+```html id="s1d9bz"
+<script>
+  fetch("/transfer", { method: "POST" });
+</script>
+```
+
+If this script runs in the victim's browser while they are logged in, it may perform actions using the victim's session.
+
+---
+
+### Stored XSS
+
+Stored XSS happens when malicious script is saved in the database and later shown to users.
+
+Example:
+
+```text id="8ax3g1"
+Attacker posts malicious comment.
+Comment is stored in database.
+Other users view the comment.
+Script executes in their browsers.
+```
+
+Stored XSS can spread widely.
+
+---
+
+### Reflected XSS
+
+Reflected XSS happens when malicious input is immediately reflected in a response.
+
+Example:
+
+```text id="jmyr1f"
+User visits crafted URL.
+Server includes query parameter in HTML.
+Browser executes injected script.
+```
+
+---
+
+### XSS Mitigation
+
+Mitigation includes:
+
+* escaping output,
+* sanitizing HTML,
+* avoiding unsafe DOM APIs,
+* using Content Security Policy,
+* disabling inline scripts,
+* using framework-safe rendering,
+* marking cookies as HttpOnly,
+* validating input,
+* avoiding direct insertion of user content into HTML.
+
+Content Security Policy can help limit where scripts are loaded from and whether inline scripts are allowed.
+
+---
+
+### 8. Insecure Deserialization
+
+Serialization converts an object into a format that can be stored or transmitted.
+
+Deserialization converts that format back into an object.
+
+Examples of serialized formats:
+
+* JSON,
+* XML,
+* protobuf,
+* binary object serialization,
+* language-specific serialized objects.
+
+Insecure deserialization happens when an application deserializes untrusted data in a dangerous way.
+
+An attacker may craft serialized input that triggers:
+
+* remote code execution,
+* privilege escalation,
+* injection,
+* denial of service,
+* object manipulation.
+
+Mitigation:
+
+* do not deserialize untrusted data,
+* use safe formats,
+* avoid language-native unsafe serialization,
+* validate schemas,
+* use allowlists,
+* limit object types,
+* run deserialization in restricted environments.
+
+---
+
+### 9. Using Components with Known Vulnerabilities
+
+Applications often depend on third-party libraries, frameworks, packages, and system components.
+
+If a dependency has a known vulnerability, the application becomes vulnerable too.
+
+Examples:
+
+* old OpenSSL versions,
+* vulnerable npm packages,
+* outdated Docker images,
+* vulnerable web frameworks,
+* old database drivers,
+* unpatched OS libraries.
+
+The lecture references Heartbleed as an example of a serious vulnerability in OpenSSL.
+
+Mitigation:
+
+* update dependencies,
+* scan dependencies,
+* use lockfiles,
+* monitor CVEs,
+* remove unused packages,
+* rebuild containers regularly,
+* patch operating systems,
+* use dependency management tools.
+
+---
+
+### 10. Insufficient Logging and Monitoring
+
+Insufficient logging and monitoring means the application does not collect enough information to detect or investigate attacks.
+
+Without logs and monitoring, attackers can:
+
+* stay hidden,
+* pivot inside systems,
+* maintain persistence,
+* tamper with data,
+* attack more services,
+* avoid detection.
+
+Good logging and monitoring help with:
+
+* attack detection,
+* incident response,
+* forensic analysis,
+* debugging,
+* audit trails,
+* anomaly detection.
+
+Examples of events to log:
+
+* failed logins,
+* permission failures,
+* suspicious input,
+* admin actions,
+* token failures,
+* rate-limit violations,
+* database errors,
+* service crashes.
+
+---
+
+## 3. Important Notes
+
+### OWASP Top 10 Is a Starting Point
+
+The OWASP Top 10 does not cover every possible vulnerability.
+
+It is a first step.
+
+Developers should use it to build security awareness and improve secure coding culture.
+
+---
+
+### Backend and Frontend Both Matter
+
+Some vulnerabilities are backend-heavy, such as SQL injection or database misconfiguration.
+
+Others involve frontend behavior, such as XSS.
+
+But many issues require both frontend and backend defenses.
+
+For example, XSS may happen in the frontend, but backend output escaping, cookie settings, and CSP are also important.
+
+---
+
+### Input Must Never Be Trusted
+
+User input should always be treated as untrusted.
+
+This includes:
+
+* URL parameters,
+* request body,
+* headers,
+* cookies,
+* uploaded files,
+* XML,
+* JSON,
+* form fields,
+* query strings.
+
+Even internal services should validate input.
+
+---
+
+### Authentication Is Not Authorization
+
+A common mistake is thinking that once a user is logged in, they can access everything.
+
+Authentication only proves identity.
+
+Authorization must be checked for every protected action and resource.
+
+---
+
+### Secure Defaults Matter
+
+Bad defaults create vulnerabilities.
+
+Examples:
+
+```text id="s3qwo9"
+default admin password
+debug mode enabled
+public database port
+open cloud bucket
+missing TLS
+permissive CORS
+verbose error pages
+```
+
+Production systems should have secure defaults.
+
+---
+
+### Do Not Expose Databases Publicly
+
+There is usually no good reason to expose a production database directly to the public internet.
+
+The database should be reachable only by trusted backend services or controlled administrative paths.
+
+---
+
+### XSS Can Bypass Many Protections
+
+If an attacker can run JavaScript in the victim's browser, they may perform actions as that victim.
+
+SameSite cookies help with CSRF, but they do not fully protect against XSS because the malicious script runs inside the same site.
+
+This is why preventing script injection is critical.
+
+---
+
+### Dependency Security Is Application Security
+
+Your application is only as secure as the components it depends on.
+
+If a dependency is vulnerable, your application may be vulnerable even if your own code is clean.
+
+---
+
+### Logging Is Security Infrastructure
+
+Logging is not just for debugging.
+
+It is part of security.
+
+If you cannot see attacks, you cannot respond to them.
+
+If you cannot reconstruct what happened, incident response becomes much harder.
+
+---
+
+## 4. Examples
+
+### Example 1: SQL Injection
+
+Bad code:
+
+```javascript id="ijdc4d"
+const sql = "SELECT * FROM users WHERE name = '" + req.query.name + "'";
+```
+
+Attacker input:
+
+```sql id="wijuc6"
+' OR 1=1 --
+```
+
+Resulting query:
+
+```sql id="y1fdlo"
+SELECT * FROM users WHERE name = '' OR 1=1 --'
+```
+
+This may return all users.
+
+Better approach:
+
+```javascript id="z3fo7n"
+const result = await db.query(
+  "SELECT * FROM users WHERE name = $1",
+  [req.query.name]
+);
+```
+
+Parameterized queries prevent SQL injection.
+
+---
+
+### Example 2: Broken Authentication
+
+Bad behavior:
+
+```text id="jpsvxh"
+User can try unlimited passwords.
+No rate limit.
+No lockout.
+No alert.
+```
+
+Attacker runs a script with thousands of password attempts.
+
+Better behavior:
+
+```text id="0stzzd"
+After failed attempts:
+  add delay
+  rate limit IP/user
+  require CAPTCHA or MFA
+  alert user/admin
+  temporarily lock account
+```
+
+---
+
+### Example 3: Sensitive Data Exposure
+
+Bad:
+
+```text id="6t3o3i"
+Store passwords in plain text.
+Send login over HTTP.
+Log access tokens.
+Expose user addresses in public API.
+```
+
+Better:
+
+```text id="sfq25s"
+Hash passwords.
+Use HTTPS/TLS.
+Redact sensitive logs.
+Encrypt sensitive data at rest.
+Use strict access controls.
+```
+
+---
+
+### Example 4: XXE Attack
+
+Malicious XML:
+
+```xml id="jj48wp"
+<!DOCTYPE foo [
+  <!ENTITY xxe SYSTEM "file:///etc/passwd">
+]>
+<user>
+  <name>&xxe;</name>
+</user>
+```
+
+If the XML parser expands the external entity, it may leak server files.
+
+Mitigation:
+
+```text id="ndahni"
+Disable external entity expansion.
+Disable DTDs if not needed.
+Use safe XML parser settings.
+```
+
+---
+
+### Example 5: Broken Access Control
+
+Bad endpoint:
+
+```http id="5nn6ln"
+GET /api/users/123/profile
+```
+
+The backend only checks if the user is logged in.
+
+It does not check if the logged-in user is allowed to access user `123`.
+
+Better:
+
+```text id="hro2yn"
+Check authentication.
+Check ownership or role.
+Reject if user cannot access this resource.
+```
+
+---
+
+### Example 6: Security Misconfiguration
+
+Bad deployment:
+
+```text id="ybwfqk"
+PostgreSQL port 5432 open to the internet.
+Default database user enabled.
+Weak password.
+No firewall restriction.
+```
+
+Better deployment:
+
+```text id="6foy7m"
+Database in private network.
+Only backend can connect.
+Firewall restricts access.
+Strong credentials.
+TLS if needed.
+Auditing enabled.
+```
+
+---
+
+### Example 7: Cross-Site Scripting
+
+User submits:
+
+```html id="b22y73"
+<script>alert("hacked")</script>
+```
+
+If the application renders it directly into HTML, the script runs in other users' browsers.
+
+Better:
+
+```text id="6b73k2"
+Escape output.
+Sanitize HTML.
+Use safe rendering APIs.
+Use CSP.
+Avoid inline scripts.
+```
+
+---
+
+### Example 8: Insecure Deserialization
+
+Bad behavior:
+
+```text id="xrrgwk"
+Server accepts serialized object from user.
+Server deserializes it blindly.
+Deserializer executes dangerous behavior.
+```
+
+Better:
+
+```text id="mj3f8m"
+Use JSON/protobuf with strict schema.
+Validate input.
+Never deserialize arbitrary objects from untrusted users.
+Allow only expected types.
+```
+
+---
+
+### Example 9: Vulnerable Dependencies
+
+Bad:
+
+```text id="i4tg1h"
+Application uses old vulnerable OpenSSL version.
+Application uses outdated npm package with known RCE.
+Docker image has unpatched OS packages.
+```
+
+Better:
+
+```text id="4btcb1"
+Run dependency scanning.
+Patch regularly.
+Use lockfiles.
+Remove unused dependencies.
+Monitor vulnerability feeds.
+```
+
+---
+
+### Example 10: Insufficient Logging
+
+Bad:
+
+```text id="jnhuj9"
+No logs for failed login attempts.
+No logs for admin actions.
+No alert on repeated 403 responses.
+No monitoring for suspicious traffic.
+```
+
+Better:
+
+```text id="dvwy2o"
+Log security-relevant events.
+Add alerts.
+Monitor anomalies.
+Keep audit trails.
+Protect logs from tampering.
+```
+
+---
+
+## 5. Questions / Review
+
+1. What does OWASP stand for?
+
+2. Why is the OWASP Top 10 useful for backend developers?
+
+3. Why is OWASP Top 10 only a starting point?
+
+4. What is injection?
+
+5. What is SQL injection?
+
+6. Why is string concatenation dangerous in SQL queries?
+
+7. How do parameterized queries prevent SQL injection?
+
+8. Why should backend database users follow least privilege?
+
+9. What is broken authentication?
+
+10. What is credential stuffing?
+
+11. How can rate limiting improve authentication security?
+
+12. What is sensitive data exposure?
+
+13. What is the difference between data at rest and data in transit?
+
+14. Why is TLS important?
+
+15. What is XXE?
+
+16. How can XML external entities leak server files?
+
+17. What is the difference between authentication and authorization?
+
+18. What is broken access control?
+
+19. How can HTTP request smuggling bypass access control?
+
+20. What is security misconfiguration?
+
+21. Why should databases not be exposed to the public internet?
+
+22. What is XSS?
+
+23. What is the difference between stored XSS and reflected XSS?
+
+24. Why does SameSite not fully protect against XSS?
+
+25. How does Content Security Policy help reduce XSS risk?
+
+26. What is serialization?
+
+27. What is deserialization?
+
+28. Why is insecure deserialization dangerous?
+
+29. Why are vulnerable dependencies a security risk?
+
+30. What was Heartbleed an example of?
+
+31. Why are logging and monitoring part of security?
+
+32. What kinds of events should a backend log?
+
+33. Why is incident response difficult without logs?
+
+34. Which OWASP risks are most relevant to backend systems?
+
+35. Which OWASP risks are most relevant to frontend systems?
+
+---
+
+## Quick OWASP Top 10 Table
+
+| #  | Risk                      | Main Problem                  | Example Defense                  |
+| -- | ------------------------- | ----------------------------- | -------------------------------- |
+| 1  | Injection                 | User input becomes code/query | Parameterized queries            |
+| 2  | Broken Authentication     | Login/session flaws           | Rate limit, MFA, secure sessions |
+| 3  | Sensitive Data Exposure   | Data not protected            | TLS, hashing, encryption         |
+| 4  | XXE                       | Unsafe XML parsing            | Disable external entities        |
+| 5  | Broken Access Control     | User accesses forbidden data  | Enforce authorization            |
+| 6  | Security Misconfiguration | Unsafe deployment/settings    | Secure defaults, hardening       |
+| 7  | XSS                       | Script injection in browser   | Escaping, CSP, sanitization      |
+| 8  | Insecure Deserialization  | Unsafe object reconstruction  | Strict schemas, safe parsers     |
+| 9  | Vulnerable Components     | Bad dependencies              | Patch and scan dependencies      |
+| 10 | Insufficient Logging      | Cannot detect attacks         | Logs, alerts, monitoring         |
+
+---
+
+## Final Takeaway
+
+Secure backend development requires awareness of common attack categories.
+
+The OWASP Top 10 gives developers a practical checklist for thinking about security risks during design and implementation.
+
+The most important habits are:
+
+```text id="zf9tgy"
+Never trust user input.
+Use parameterized queries.
+Separate authentication from authorization.
+Protect sensitive data.
+Use TLS.
+Avoid unsafe XML/deserialization.
+Use secure configuration.
+Patch dependencies.
+Prevent XSS.
+Log and monitor security events.
+```
+
+Security is not one feature.
+
+It is a system-wide design discipline.

@@ -1,0 +1,429 @@
+# 012 - Server-Sent Events
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 13min
+
+---
+
+## 1. Summary
+
+This lesson introduces **Server-Sent Events**, also called **SSE**.
+
+Server-Sent Events are a communication pattern that allows a server to continuously send events to a client over a single HTTP connection. The client sends one request, and the server responds with a long-running response that does not end immediately.
+
+Unlike normal request/response, where the server sends one complete response and closes the response, SSE keeps the response open and streams small events over time.
+
+SSE is useful for real-time notifications, live updates, logs, dashboards, status updates, and server-to-client event feeds. It works over standard HTTP and can be used directly in browsers through the `EventSource` API.
+
+However, SSE also has limitations. The client must stay connected, the server must keep the response open, and HTTP/1.1 browser connection limits can become a problem when many SSE connections are opened to the same domain.
+
+---
+
+## 2. Key Concepts
+
+### Server-Sent Events
+
+Server-Sent Events allow the server to send multiple messages to the client over one long-lived HTTP response.
+
+```text id="hx31w9"
+Client → HTTP request → Server
+Client ← Event 1 ← Server
+Client ← Event 2 ← Server
+Client ← Event 3 ← Server
+```
+
+The response remains open.
+
+---
+
+### One Request, Long Response
+
+The core idea of SSE is:
+
+```text id="0fk2qd"
+One request
+One response
+Response keeps streaming data
+Response does not end immediately
+```
+
+The server keeps writing events into the response body.
+
+---
+
+### Unending Response
+
+In normal HTTP request/response:
+
+```text id="8n6uwr"
+Client → Request
+Server → Response
+Connection can finish
+```
+
+In SSE:
+
+```text id="bfk0ul"
+Client → Request
+Server → Response starts
+Server → Sends event
+Server → Sends event
+Server → Sends event
+Response stays open
+```
+
+The response behaves like a stream.
+
+---
+
+### HTTP-Based Streaming
+
+SSE is built on top of HTTP.
+
+It does not require WebSocket.
+
+The server uses a special content type:
+
+```http id="mtw11l"
+Content-Type: text/event-stream
+```
+
+This tells the client that the response should be interpreted as an event stream.
+
+---
+
+### Event Format
+
+Each event is sent as text.
+
+A simple SSE message looks like this:
+
+```text id="g6vx10"
+data: Hello from server
+
+```
+
+The event starts with `data:` and ends with two newline characters.
+
+---
+
+### EventSource
+
+Browsers provide a built-in API called `EventSource` for reading SSE streams.
+
+```javascript id="s48zx1"
+const source = new EventSource("/stream");
+
+source.onmessage = function(event) {
+  console.log(event.data);
+};
+```
+
+The browser automatically parses the stream and extracts events.
+
+---
+
+### Server-to-Client Only
+
+SSE is mainly one-way communication from server to client.
+
+```text id="fnkpme"
+Server → Client
+```
+
+The client starts the connection, but after that, the server sends events through the response stream.
+
+For two-way communication, WebSocket is usually more appropriate.
+
+---
+
+### Mini Responses
+
+The instructor describes SSE events as “mini responses” inside one long HTTP response.
+
+Each event can be treated like a small message inside the larger stream.
+
+```text id="xpgkw1"
+HTTP response:
+  event 1
+  event 2
+  event 3
+  event 4
+```
+
+---
+
+### Real-Time Notifications
+
+SSE is useful when the backend wants to send real-time updates to the client.
+
+Examples:
+
+* User logged in
+* Message received
+* Job progress changed
+* Notification created
+* New log line available
+* Dashboard metric updated
+
+---
+
+### Chunked Streaming
+
+SSE relies on streaming data in chunks.
+
+The server does not need to send the full response at once. It can write part of the response, flush it, then write more later.
+
+---
+
+### HTTP/1.1 Connection Limit
+
+With HTTP/1.1, browsers often limit the number of TCP connections to the same domain.
+
+The instructor mentions that Chrome commonly allows around six connections per domain.
+
+This matters because each SSE stream keeps one connection busy.
+
+If all available connections are used by SSE streams, other requests to the same domain may be blocked or delayed.
+
+---
+
+### HTTP/2 Advantage
+
+HTTP/2 supports multiplexing, which allows multiple streams over one connection.
+
+This makes HTTP/2 better for SSE-like workloads because multiple requests can share the same underlying connection.
+
+```text id="8o3xz7"
+HTTP/1.1:
+One request per busy connection
+
+HTTP/2:
+Multiple streams over one connection
+```
+
+---
+
+## 3. Important Notes
+
+* SSE is a server-to-client streaming pattern.
+* SSE works over normal HTTP.
+* SSE uses one request and one long-running response.
+* The server does not immediately end the response.
+* The server sends events as chunks inside the response body.
+* The browser can parse SSE using the built-in `EventSource` API.
+* The content type for SSE is `text/event-stream`.
+* SSE is simpler than WebSocket for one-way server updates.
+* SSE is useful for notifications and live updates.
+* The client must be online and connected to receive events.
+* SSE has similar load concerns to push because the server can send many messages.
+* The client may not be able to process events fast enough.
+* The server may need to manage disconnected clients.
+* HTTP/1.1 connection limits can cause problems with many SSE streams.
+* HTTP/2 helps because it supports multiplexing.
+* SSE should be used carefully when many long-lived connections are expected.
+
+---
+
+## 4. Examples
+
+### Example 1: Basic SSE Flow
+
+```text id="tzwpp8"
+Client → GET /stream
+Server → Content-Type: text/event-stream
+Server → data: event 1
+Server → data: event 2
+Server → data: event 3
+```
+
+The response stays open while the server keeps sending events.
+
+---
+
+### Example 2: Notification Stream
+
+```text id="katjuh"
+Client opens notification stream
+Server sends: User logged in
+Server sends: New message received
+Server sends: Job completed
+```
+
+The client does not need to poll repeatedly.
+
+---
+
+### Example 3: SSE Server with Express
+
+```javascript id="3c5zws"
+const express = require("express");
+const app = express();
+
+app.get("/stream", (req, res) => {
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  let counter = 0;
+
+  setInterval(() => {
+    counter++;
+    res.write(`data: Hello from server ${counter}\n\n`);
+  }, 1000);
+});
+
+app.listen(8888, () => {
+  console.log("Server listening on port 8888");
+});
+```
+
+This server sends one event every second.
+
+---
+
+### Example 4: SSE Client with EventSource
+
+```javascript id="0whx6o"
+const source = new EventSource("http://localhost:8888/stream");
+
+source.onmessage = function(event) {
+  console.log(event.data);
+};
+```
+
+The browser connects to the SSE endpoint and prints each message.
+
+---
+
+### Example 5: Event Message Format
+
+```text id="3v78r1"
+data: Hello from server
+
+```
+
+The blank line at the end marks the boundary of the event.
+
+---
+
+### Example 6: Job Progress Updates
+
+```text id="5wju4s"
+Client → GET /job-progress/123
+Server → data: 10%
+Server → data: 20%
+Server → data: 30%
+Server → data: done
+```
+
+This is useful for showing live progress in the UI.
+
+---
+
+### Example 7: Live Dashboard
+
+```text id="l1rgpc"
+Server → data: CPU usage 45%
+Server → data: CPU usage 48%
+Server → data: CPU usage 52%
+```
+
+SSE can stream metrics to a dashboard in near real time.
+
+---
+
+### Example 8: HTTP/1.1 Connection Problem
+
+Suppose a browser allows six connections to one domain.
+
+```text id="7atqb9"
+Connection 1 → SSE stream
+Connection 2 → SSE stream
+Connection 3 → SSE stream
+Connection 4 → SSE stream
+Connection 5 → SSE stream
+Connection 6 → SSE stream
+```
+
+Now all six connections are busy.
+
+Other requests may have to wait:
+
+```text id="6un57a"
+GET /style.css → waits
+GET /app.js → waits
+GET /api/data → waits
+```
+
+This is why SSE should be designed carefully, especially with HTTP/1.1.
+
+---
+
+### Example 9: HTTP/2 Multiplexing
+
+With HTTP/2, multiple streams can share the same connection.
+
+```text id="cjav61"
+One TCP connection:
+  Stream 1 → SSE
+  Stream 2 → CSS
+  Stream 3 → JavaScript
+  Stream 4 → API request
+```
+
+This reduces the connection starvation problem.
+
+---
+
+## 5. Questions / Review
+
+1. What are Server-Sent Events?
+
+2. How is SSE different from normal request/response?
+
+3. Why does SSE use one long-running response?
+
+4. What does it mean that the response “does not end”?
+
+5. What content type is used for SSE?
+
+6. What is the browser API used for SSE?
+
+7. Is SSE bidirectional or mostly one-way?
+
+8. When would SSE be better than polling?
+
+9. When would WebSocket be better than SSE?
+
+10. What does an SSE event look like?
+
+11. Why does an SSE event end with two newline characters?
+
+12. What are “mini responses” in the context of SSE?
+
+13. Why is SSE useful for notifications?
+
+14. Why must the client stay online for SSE?
+
+15. What happens if the client disconnects?
+
+16. Why can SSE have similar load problems to push?
+
+17. What is the HTTP/1.1 connection limit problem?
+
+18. Why can many SSE connections block other browser requests?
+
+19. Why is HTTP/2 better for SSE-style workloads?
+
+20. What is multiplexing?
+
+21. How does the Express server send SSE messages?
+
+22. How does the browser parse SSE messages?
+
+23. What are good use cases for SSE?
+
+24. What are the main disadvantages of SSE?
+
+25. Why does understanding HTTP internals help when using SSE?

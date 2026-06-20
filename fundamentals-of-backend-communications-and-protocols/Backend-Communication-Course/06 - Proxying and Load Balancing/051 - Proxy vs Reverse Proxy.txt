@@ -1,0 +1,637 @@
+# 051 - Proxy vs Reverse Proxy
+
+**Section:** 06 - Proxying and Load Balancing
+**Duration:** 20 min
+
+---
+
+## 1. Summary
+
+A **proxy** is a server that makes requests on behalf of a client.
+
+A **reverse proxy** is a server that receives client requests and forwards them to backend servers.
+
+The main difference is about **who is hidden from whom**.
+
+In a normal proxy, the client knows the final destination server, but the destination server may not know the original client.
+
+In a reverse proxy, the client does not know the real backend server. The client only talks to the reverse proxy, and the reverse proxy decides which backend server should handle the request.
+
+This concept is very important in backend engineering because many backend systems use reverse proxies for load balancing, API gateways, CDNs, ingress controllers, authentication, caching, routing, and microservices communication.
+
+---
+
+## 2. Key Concepts
+
+### Proxy
+
+A proxy is a server that makes requests on your behalf.
+
+For example, suppose your client wants to access:
+
+```text
+google.com
+```
+
+But your machine is configured to use a proxy.
+
+Instead of opening a TCP connection directly to Google, your client opens a TCP connection to the proxy.
+
+Then the proxy opens a new TCP connection to Google.
+
+The flow looks like this:
+
+```text
+Client -> Proxy -> Destination Server
+```
+
+From the destination server’s point of view, the request comes from the proxy, not directly from the original client.
+
+---
+
+### Proxy at Layer 4 and Layer 7
+
+At **Layer 4**, the TCP connection is between:
+
+```text
+Client -> Proxy
+```
+
+Then the proxy creates another TCP connection:
+
+```text
+Proxy -> Destination Server
+```
+
+At **Layer 7**, the HTTP request still contains the intended destination.
+
+For example, the client may send an HTTP request that tells the proxy:
+
+```text
+Please connect me to google.com
+```
+
+The proxy then forwards the request to the destination server.
+
+---
+
+### What the Server Sees in a Proxy Setup
+
+In a proxy setup, the final server usually sees the proxy’s IP address, not the original client’s IP address.
+
+However, some proxies may add headers such as:
+
+```text
+X-Forwarded-For
+Forwarded
+X-Real-IP
+```
+
+These headers can reveal the original client’s IP address at Layer 7.
+
+So, a proxy can hide the client at the network level, but it does not always guarantee anonymity.
+
+---
+
+### Reverse Proxy
+
+A reverse proxy is the opposite pattern.
+
+The client sends a request to what it believes is the final server.
+
+For example:
+
+```text
+Client -> google.com
+```
+
+But `google.com` may actually be a reverse proxy.
+
+The reverse proxy then forwards the request to one of many backend servers.
+
+The flow looks like this:
+
+```text
+Client -> Reverse Proxy -> Backend Server
+```
+
+The client does not know which backend server actually handled the request.
+
+---
+
+### Main Difference
+
+| Concept                         | Proxy                                                 | Reverse Proxy                                      |
+| ------------------------------- | ----------------------------------------------------- | -------------------------------------------------- |
+| Who configures it?              | Usually the client                                    | Usually the server/backend owner                   |
+| Who is hidden?                  | The client is hidden from the server                  | The backend server is hidden from the client       |
+| Client knows final destination? | Yes                                                   | No                                                 |
+| Server knows original client?   | Not always                                            | Usually the reverse proxy knows the client         |
+| Common use                      | Anonymity, logging, blocking, debugging, service mesh | Load balancing, API gateway, CDN, routing, caching |
+
+---
+
+## 3. Important Notes
+
+### Proxy: Client Knows the Destination
+
+With a proxy, the client knows the final destination.
+
+For example, the client knows it wants to reach:
+
+```text
+google.com
+```
+
+But instead of connecting directly to Google, it asks the proxy to make the request.
+
+So the client knows:
+
+```text
+I want to go to google.com.
+```
+
+The destination server may only know:
+
+```text
+I received a request from the proxy.
+```
+
+---
+
+### Reverse Proxy: Client Does Not Know the Backend
+
+With a reverse proxy, the client only knows the public entry point.
+
+For example:
+
+```text
+api.example.com
+```
+
+But behind that reverse proxy, there may be many backend services:
+
+```text
+users-service
+posts-service
+messages-service
+payments-service
+analytics-service
+```
+
+The client does not know these internal servers exist.
+
+The reverse proxy decides where the request should go.
+
+---
+
+### A Load Balancer Is Usually a Reverse Proxy
+
+A load balancer often works as a reverse proxy.
+
+It receives client requests and distributes them across multiple backend servers.
+
+Example:
+
+```text
+Client -> Load Balancer -> Server 1
+                         -> Server 2
+                         -> Server 3
+```
+
+However:
+
+```text
+A load balancer is a type of reverse proxy.
+But not every reverse proxy is a load balancer.
+```
+
+A reverse proxy may only do routing, caching, authentication, or TLS termination without doing load balancing.
+
+---
+
+### API Gateway as a Reverse Proxy
+
+An API gateway is usually a reverse proxy.
+
+It receives all external API traffic and routes requests to the correct backend service.
+
+Example:
+
+```text
+/api/users      -> User Service
+/api/posts      -> Post Service
+/api/messages   -> Message Service
+/api/payments   -> Payment Service
+```
+
+The client only talks to the API gateway.
+
+The client does not need to know the internal microservice architecture.
+
+---
+
+### CDN as a Reverse Proxy
+
+A CDN, or Content Delivery Network, is also a form of reverse proxy.
+
+The client connects to the CDN edge server.
+
+The CDN may serve cached content directly.
+
+If the content is not cached, the CDN forwards the request to the origin server.
+
+Example:
+
+```text
+Client -> CDN Edge Server -> Origin Server
+```
+
+The client may never talk directly to the origin server.
+
+---
+
+### Service Mesh and Sidecar Proxies
+
+In microservices, a proxy can also be deployed as a **sidecar**.
+
+For example:
+
+```text
+Application Container -> Sidecar Proxy -> Other Services
+```
+
+Tools such as Envoy, Linkerd, and service mesh systems use this pattern.
+
+The application sends traffic through the sidecar proxy.
+
+The proxy can then provide:
+
+```text
+Logging
+Tracing
+Metrics
+Retries
+Timeouts
+mTLS
+Traffic routing
+```
+
+This is useful because infrastructure behavior can be added without putting all of that logic directly inside the application code.
+
+---
+
+### Proxies Add Cost
+
+A proxy is useful, but it is not free.
+
+It adds another hop.
+
+That means it can add:
+
+```text
+Latency
+Resource usage
+Operational complexity
+Configuration complexity
+Failure points
+```
+
+Engineering is about trade-offs.
+
+A proxy can be very powerful, but you should always ask whether the benefit is worth the cost.
+
+---
+
+## 4. Examples
+
+### Example 1: Normal Proxy for Anonymity
+
+A client wants to visit a website but does not want the website to see its real IP address.
+
+The request goes through a proxy:
+
+```text
+Client -> Proxy -> Website
+```
+
+The website sees the proxy’s IP address.
+
+However, this does not guarantee complete privacy because the proxy itself may see the client’s traffic or add headers that reveal the original client.
+
+---
+
+### Example 2: Corporate Proxy for Blocking Websites
+
+In an organization, all employee traffic may go through a corporate proxy.
+
+When a user tries to visit a website, the proxy checks whether the website is allowed.
+
+Example:
+
+```text
+Client -> Corporate Proxy -> Website
+```
+
+If the website is blocked, the proxy refuses the request.
+
+This is commonly used for:
+
+```text
+Access control
+Security policy enforcement
+Logging
+Monitoring
+Content filtering
+```
+
+---
+
+### Example 3: Proxy for Debugging
+
+Debugging tools such as Fiddler, Charles Proxy, or mitmproxy work as proxies.
+
+They allow developers to inspect requests sent by an application.
+
+Example:
+
+```text
+Application -> Debugging Proxy -> Server
+```
+
+This is useful when you want to see:
+
+```text
+HTTP method
+Request URL
+Headers
+Body
+Response status
+Response body
+Latency
+```
+
+For HTTPS traffic, the debugging proxy may need to install a trusted certificate so it can decrypt and inspect the traffic.
+
+---
+
+### Example 4: Reverse Proxy for Load Balancing
+
+A user visits:
+
+```text
+example.com
+```
+
+But behind `example.com`, there are multiple backend servers.
+
+```text
+Client -> Reverse Proxy -> Backend Server 1
+                        -> Backend Server 2
+                        -> Backend Server 3
+```
+
+The reverse proxy can distribute traffic across the servers.
+
+This improves:
+
+```text
+Scalability
+Availability
+Throughput
+Fault tolerance
+```
+
+---
+
+### Example 5: Reverse Proxy for Path-Based Routing
+
+A reverse proxy can route requests based on URL paths.
+
+Example:
+
+```text
+/api/posts      -> Posts Service
+/api/messages   -> Messages Service
+/api/search     -> Search Service
+/api/payments   -> Payments Service
+```
+
+This is common in microservice architectures.
+
+The client sees one API endpoint, but the backend is split into multiple services.
+
+---
+
+### Example 6: Reverse Proxy for Canary Deployment
+
+A reverse proxy can send only a small percentage of traffic to a new version of a service.
+
+Example:
+
+```text
+90% traffic -> Old Version
+10% traffic -> New Version
+```
+
+This is useful for testing a new feature safely.
+
+If the new version has a problem, you can reduce traffic to it or roll it back.
+
+This technique is often called:
+
+```text
+Canary deployment
+A/B testing
+Progressive rollout
+```
+
+However, the application should be designed carefully, often in a stateless way, so users do not break when requests go to different backend versions.
+
+---
+
+### Example 7: Proxy and Reverse Proxy Used Together
+
+A client may use a proxy, and the destination may also use a reverse proxy.
+
+The flow can look like this:
+
+```text
+Client -> Forward Proxy -> Reverse Proxy -> Backend Server
+```
+
+The client knows it is using a proxy.
+
+But the client may not know that the destination server is actually a reverse proxy.
+
+This is very common on the internet.
+
+---
+
+## 5. Questions / Review
+
+### Question 1
+
+What is a proxy?
+
+**Answer:**
+A proxy is a server that makes requests on behalf of a client.
+
+---
+
+### Question 2
+
+What is a reverse proxy?
+
+**Answer:**
+A reverse proxy is a server that receives client requests and forwards them to backend servers.
+
+---
+
+### Question 3
+
+What is the main difference between a proxy and a reverse proxy?
+
+**Answer:**
+In a proxy setup, the client knows the destination server, but the server may not know the original client.
+
+In a reverse proxy setup, the client does not know the real backend server. It only knows the reverse proxy.
+
+---
+
+### Question 4
+
+Is a load balancer a reverse proxy?
+
+**Answer:**
+Usually, yes. A load balancer commonly acts as a reverse proxy because it receives client requests and forwards them to backend servers.
+
+But not every reverse proxy is a load balancer.
+
+---
+
+### Question 5
+
+Is an API gateway a reverse proxy?
+
+**Answer:**
+Yes, an API gateway is usually a reverse proxy. It receives API requests and routes them to internal backend services.
+
+---
+
+### Question 6
+
+Can a proxy and reverse proxy be used at the same time?
+
+**Answer:**
+Yes.
+
+Example:
+
+```text
+Client -> Proxy -> Reverse Proxy -> Backend Server
+```
+
+The client may know about the proxy, but it may not know that the destination is using a reverse proxy.
+
+---
+
+### Question 7
+
+Can a proxy replace a VPN for anonymity?
+
+**Answer:**
+Not really.
+
+A proxy works at Layer 4 and above and is usually protocol-aware.
+
+A VPN works at the IP layer and encrypts IP packets.
+
+A proxy may inspect, log, or modify traffic depending on how it is configured.
+
+---
+
+### Question 8
+
+Are proxies only used for HTTP traffic?
+
+**Answer:**
+No.
+
+HTTP proxies are common, but there are many types of proxies, such as:
+
+```text
+HTTP proxy
+HTTPS proxy
+SOCKS proxy
+TCP proxy
+Layer 4 proxy
+Layer 7 proxy
+```
+
+---
+
+### Question 9
+
+What is HTTP CONNECT tunnel mode?
+
+**Answer:**
+HTTP CONNECT allows a client to ask a proxy to open a TCP connection to a destination server.
+
+After that, the proxy acts like a tunnel.
+
+Example:
+
+```text
+Client -> Proxy -> Destination Server
+```
+
+In this mode, the proxy forwards bytes between the client and server.
+
+If TLS is established end-to-end, the proxy may know the destination but cannot see the encrypted content unless it performs TLS interception.
+
+---
+
+### Question 10
+
+Why are reverse proxies important in backend engineering?
+
+**Answer:**
+Reverse proxies are important because they enable:
+
+```text
+Load balancing
+API gateways
+CDNs
+Ingress routing
+Authentication
+Caching
+Canary deployments
+Microservices routing
+TLS termination
+Traffic control
+```
+
+---
+
+## Final Takeaway
+
+A proxy makes requests on behalf of a client.
+
+A reverse proxy receives requests on behalf of backend servers.
+
+The simplest way to remember the difference is:
+
+```text
+Proxy:
+The client knows the destination.
+The destination may not know the client.
+
+Reverse Proxy:
+The client knows the reverse proxy.
+The client does not know the real backend server.
+```
+
+Both are fundamental backend and networking concepts.
+
+Many modern systems, including API gateways, load balancers, CDNs, ingress controllers, service meshes, and sidecars, are built on top of these proxy patterns.

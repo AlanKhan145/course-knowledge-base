@@ -1,0 +1,26 @@
+# Module Introduction — Prompt Engineering Basics
+
+## Overview
+This module covers the foundational techniques of prompt engineering — the craft of communicating effectively with large language models to produce reliable, accurate, and useful outputs. As an AI Engineer, writing good prompts is not a soft skill; it is a core technical competency that directly determines product quality. By the end of this module you will have a repeatable system for designing, testing, and managing prompts in production applications.
+
+## Key Points
+- Prompt engineering is the primary control surface between your application logic and the model's behavior — getting it wrong means getting wrong outputs at scale.
+- This module covers the complete beginner-to-intermediate stack: zero-shot, few-shot, role prompting, output formatting, system prompts, and anti-patterns.
+- Every technique is grounded in how LLMs actually process tokens — understanding the mechanism helps you reason about why a prompt works or fails.
+- By the end you will build a reusable Prompt Library (the Lab) that you will carry forward into every subsequent module.
+- These skills apply across all major providers (OpenAI, Anthropic, Mistral, open-source models) and are the prerequisite for advanced topics like RAG, agents, and evaluation.
+
+## What This Module Covers
+- [ ] Zero-Shot Prompting — getting results with no examples
+- [ ] Few-Shot Prompting — guiding behavior with in-context examples
+- [ ] Role and Behavior Prompting — shaping model persona and expertise
+- [ ] Constraints and Output Format — controlling length, structure, and tone
+- [ ] System Prompts — separating instructions from user input at the API level
+- [ ] Prompt Anti-Patterns and the Standard Prompt Formula — what breaks prompts and a repeatable template
+- [ ] Lab: Build a Prompt Library — a versioned, tested collection of reusable prompts
+
+## Notes
+Prompt engineering is sometimes dismissed as "just writing text," but in production systems a single poorly worded instruction can cause thousands of malformed outputs per hour. The techniques in this module are backed by published research (OpenAI, DeepMind, Anthropic) and by hard-won engineering experience. Treat prompts like code: version them, test them, and review changes before deploying.
+
+## Summary
+After completing this module, you will be able to design structured, reliable prompts for real-world AI applications and understand why each design decision affects model behavior — setting a solid foundation for every advanced module that follows.

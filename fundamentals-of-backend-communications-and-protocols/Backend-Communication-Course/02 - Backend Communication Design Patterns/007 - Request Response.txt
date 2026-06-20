@@ -1,0 +1,793 @@
+# 007 - Request Response
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 28min
+
+---
+
+## 1. Summary
+
+This lesson explains the **Request Response** communication pattern, one of the most common and important backend communication models.
+
+In this model, a client sends a request to a server, the server parses and processes that request, and then the server sends a response back to the client.
+
+Although the model looks simple, the instructor explains that many important things happen behind the scenes: request boundaries, response boundaries, parsing, serialization, deserialization, network transfer, server-side execution, and client-side response consumption.
+
+The lesson also shows that request/response is used everywhere, including HTTP, DNS, RPC, SQL, REST APIs, SOAP, and GraphQL. However, the pattern is not always the best choice, especially for real-time notifications, chat applications, very large uploads, or long-running operations.
+
+The instructor also demonstrates request/response using `curl`, showing how a client connects to a server, sends HTTP headers, receives response headers, and then receives the response body.
+
+---
+
+## 2. Key Concepts
+
+### Request Response Model
+
+The request/response model is a communication pattern where:
+
+```text
+Client → Request → Server
+Client ← Response ← Server
+```
+
+The client sends a request, the backend processes it, and the backend sends a response.
+
+This is one of the most classic backend communication patterns.
+
+---
+
+### Request
+
+A request is data sent from the client to the server.
+
+However, in networking, a request is not automatically a single object. It is usually transmitted as bytes over the network.
+
+In TCP, data is sent as a continuous stream, so the server must know:
+
+* Where the request starts
+* Where the request ends
+* Whether the client sent one request or multiple requests
+* How to parse the request correctly
+
+---
+
+### Request Boundary
+
+A request boundary defines the beginning and end of a request.
+
+This is very important because the server must distinguish between:
+
+```text
+One large request
+```
+
+and
+
+```text
+Three smaller requests
+```
+
+The boundary is usually defined by the protocol and message format.
+
+---
+
+### Parsing the Request
+
+Parsing means reading the raw request data and understanding its structure.
+
+For example, in HTTP, the server needs to understand:
+
+```text
+GET / HTTP/1.1
+Host: example.com
+User-Agent: curl
+Accept: */*
+```
+
+The server must identify the method, path, protocol version, headers, and body.
+
+---
+
+### Processing the Request
+
+Parsing and processing are different.
+
+Parsing means understanding the request structure.
+
+Processing means executing the actual operation.
+
+For example:
+
+```text
+GET /users/1
+```
+
+Parsing tells the server:
+
+* This is a GET request.
+* The path is `/users/1`.
+* The client is using HTTP/1.1.
+
+Processing means:
+
+* Query the database.
+* Find user with ID `1`.
+* Build the response.
+* Send it back to the client.
+
+---
+
+### Response
+
+A response is the data sent back from the server to the client after the request is processed.
+
+The client must also know:
+
+* Where the response starts
+* Where the response ends
+* How to parse the response
+* How to consume the response body
+
+---
+
+### Response Boundary
+
+Just like requests, responses also need clear boundaries.
+
+The client must know when the response headers end and when the response body begins.
+
+In HTTP, this is usually handled by the protocol using headers such as:
+
+```text
+Content-Length
+Transfer-Encoding
+```
+
+---
+
+### Serialization and Deserialization
+
+Serialization means converting an object into a format that can be sent over the network.
+
+Deserialization means converting received data back into an object that the program can use.
+
+Common formats include:
+
+* JSON
+* XML
+* Protocol Buffers
+* Plain text
+* Custom binary formats
+
+---
+
+### Cost of Serialization
+
+Serialization and deserialization are not free. They consume CPU time and memory.
+
+For example:
+
+* XML is usually more expensive to parse than JSON.
+* JSON is human-readable but can still be slow for large payloads.
+* Protocol Buffers are faster and smaller but less human-readable.
+
+This is one reason why some systems move from XML/SOAP to JSON/REST, and from JSON to Protocol Buffers.
+
+---
+
+### Request Response Is Everywhere
+
+The request/response model appears in many systems:
+
+* HTTP
+* DNS
+* RPC
+* SQL
+* REST APIs
+* SOAP APIs
+* GraphQL APIs
+
+Even though these systems look different, they often follow the same basic pattern:
+
+```text
+Send request → Process request → Return response
+```
+
+---
+
+### HTTP as Request Response
+
+HTTP is one of the most common request/response protocols.
+
+Example:
+
+```text
+Client → GET / HTTP/1.1 → Server
+Client ← HTTP/1.1 200 OK ← Server
+```
+
+The client sends an HTTP request, and the server returns an HTTP response.
+
+---
+
+### DNS as Request Response
+
+DNS also follows the request/response pattern.
+
+Example:
+
+```text
+Client → What is the IP address of google.com?
+DNS Server → Here is the IP address.
+```
+
+DNS usually uses UDP and includes a query ID so the client can match responses to requests.
+
+This is important because the client may send many DNS requests at the same time.
+
+---
+
+### Do Not Rely on Order
+
+The instructor emphasizes that backend engineers should not rely on response order.
+
+Requests and responses may not always arrive in the order expected, especially in networked systems.
+
+This is why identifiers, such as DNS query IDs, are important.
+
+---
+
+### RPC
+
+RPC stands for **Remote Procedure Call**.
+
+It allows a client to call a function or method that actually runs on a remote server.
+
+Example:
+
+```text
+result = remoteService.getUser(123)
+```
+
+To the programmer, it may look like a normal local function call. However, it actually crosses the network.
+
+This abstraction can be useful, but it can also be dangerous because remote calls have network latency, failures, and uncertainty.
+
+---
+
+### Leaky Abstraction
+
+A leaky abstraction happens when a system hides complexity, but the hidden complexity still affects the user.
+
+For example, RPC may make a remote call look like a local function call, but the programmer still has to deal with:
+
+* Network delay
+* Server failure
+* Timeout
+* Retries
+* Serialization cost
+
+The abstraction “leaks” because the network still matters.
+
+---
+
+### SQL as Request Response
+
+SQL also follows request/response.
+
+Example:
+
+```text
+Client → SELECT * FROM users WHERE id = 1;
+Database → Query result
+```
+
+The database parses the SQL query, prepares an execution plan, executes it, and sends the result back.
+
+---
+
+### REST
+
+REST stands for **Representational State Transfer**.
+
+REST APIs commonly use HTTP and request/response.
+
+Example:
+
+```text
+GET /users/1
+POST /users
+PUT /users/1
+DELETE /users/1
+```
+
+Each request usually targets a resource.
+
+---
+
+### SOAP
+
+SOAP stands for **Simple Object Access Protocol**.
+
+It often uses XML and is still found in some enterprise systems.
+
+SOAP is less common in modern web APIs but still exists in older or enterprise environments.
+
+---
+
+### GraphQL
+
+GraphQL is a request/response API style that allows clients to ask for exactly the data they need.
+
+Instead of making many REST requests, the client can send one GraphQL query.
+
+Example:
+
+```graphql
+{
+  user(id: 1) {
+    name
+    comments {
+      text
+    }
+  }
+}
+```
+
+GraphQL can reduce client-side chattiness, but the backend may still need to perform multiple database queries internally.
+
+---
+
+### Anatomy of an HTTP Request
+
+A basic HTTP request may look like this:
+
+```http
+GET / HTTP/1.1
+Host: google.com
+User-Agent: curl
+Accept: */*
+```
+
+Important parts include:
+
+* Method: `GET`
+* Path: `/`
+* Protocol version: `HTTP/1.1`
+* Headers: `Host`, `User-Agent`, `Accept`
+* Optional body
+
+---
+
+### Libraries Hide Request Parsing
+
+Backend developers usually do not manually parse raw HTTP bytes.
+
+Frameworks and libraries do this work.
+
+For example:
+
+* Node.js HTTP server
+* Express.js
+* FastAPI
+* Spring Boot
+* ASP.NET
+* Go HTTP package
+
+These libraries parse requests, identify boundaries, read headers, and expose convenient request objects to developers.
+
+---
+
+### Large File Uploads
+
+Uploading a file can be done through request/response.
+
+There are two common approaches:
+
+1. Send the whole file in one request.
+2. Split the file into chunks and send each chunk as a separate request.
+
+Chunked upload is more complex but allows resumable uploads.
+
+---
+
+### Whole File Upload
+
+The simplest approach is to send the entire file in one request.
+
+```text
+Client → Entire image file → Server
+Server → Upload complete → Client
+```
+
+This is simple but has problems:
+
+* Large files may fail.
+* The upload may not be resumable.
+* If the connection drops, the client may need to start over.
+* The server may receive only part of the file.
+
+---
+
+### Chunked Upload
+
+In chunked upload, the client splits the file into smaller pieces.
+
+```text
+Client → Chunk 1 → Server
+Client → Chunk 2 → Server
+Client → Chunk 3 → Server
+```
+
+Each chunk can have an identifier.
+
+If the connection fails, the client can resume from the missing chunk instead of uploading the whole file again.
+
+---
+
+### Request Response Limitations
+
+Request/response does not work well for every system.
+
+It may be a poor fit for:
+
+* Notification systems
+* Chat applications
+* Real-time applications
+* Long-running requests
+* Very large uploads
+* Systems where the server needs to push data to the client
+
+---
+
+### Polling as a Workaround
+
+For notification systems, the client may repeatedly ask:
+
+```text
+Do I have a notification?
+Do I have a notification?
+Do I have a notification?
+```
+
+This is called polling.
+
+Polling still uses request/response, but it can waste network resources and create latency.
+
+---
+
+### Long-Running Requests
+
+Some requests take a long time to process.
+
+In a pure request/response model, the client must wait until the server finishes.
+
+Problems include:
+
+* Client timeout
+* Server resource usage
+* Lost connection
+* Unclear job status
+* Poor user experience
+
+For long-running operations, asynchronous processing may be better.
+
+---
+
+### Request Response Timeline
+
+A request/response cycle includes multiple time costs:
+
+```text
+Client writes request
+↓
+Request travels through network
+↓
+Server receives and parses request
+↓
+Server processes request
+↓
+Server writes response
+↓
+Response travels through network
+↓
+Client receives and parses response
+```
+
+Even if server execution is fast, network transfer, serialization, parsing, and response processing still take time.
+
+---
+
+### Network Cost
+
+A request does not instantly arrive at the server.
+
+It must travel over the network.
+
+If using TCP, the request may be split into TCP segments, placed into IP packets, routed through the internet, and reassembled by the receiver.
+
+---
+
+### Curl Demo
+
+The instructor demonstrates request/response using `curl`.
+
+Example command:
+
+```bash
+curl -v --trace output.txt http://google.com
+```
+
+This shows details such as:
+
+* DNS lookup
+* TCP connection
+* Request headers
+* Response headers
+* Response body
+
+---
+
+### HTTP 301 Redirect
+
+In the demo, `google.com` returns:
+
+```http
+HTTP/1.1 301 Moved Permanently
+```
+
+This means the requested resource has moved, often to another location such as:
+
+```text
+www.google.com
+```
+
+Curl does not automatically follow redirects unless configured to do so.
+
+---
+
+## 3. Important Notes
+
+* Request/response is simple, elegant, and widely used.
+* A request is not just a high-level object; it is transmitted as bytes.
+* The client and server must agree on the request structure.
+* The protocol defines how the request and response should be understood.
+* The message format defines how the payload should be parsed.
+* Parsing and processing are different steps.
+* Serialization and deserialization can be expensive.
+* Human-readable formats like JSON are convenient but may have performance costs.
+* Binary formats like Protocol Buffers are harder to read but often faster and smaller.
+* HTTP, DNS, RPC, SQL, REST, SOAP, and GraphQL all use request/response in different ways.
+* Do not rely on response order in backend systems.
+* Large uploads may need chunking to support resumability.
+* Request/response is not always good for real-time systems.
+* Polling can work, but it may waste resources.
+* Long-running requests may be better handled asynchronously.
+* Frameworks and libraries do a lot of hidden backend work.
+* Understanding what libraries do internally makes you a better backend engineer.
+
+---
+
+## 4. Examples
+
+### Example 1: Basic Request Response
+
+```text
+Client → Request: Get user profile
+Server → Response: User profile data
+```
+
+This is the simplest form of request/response.
+
+---
+
+### Example 2: HTTP Request
+
+```http
+GET /users/1 HTTP/1.1
+Host: api.example.com
+Accept: application/json
+```
+
+The server parses the method, path, protocol version, and headers.
+
+---
+
+### Example 3: HTTP Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 42
+
+{"id":1,"name":"Alice"}
+```
+
+The client parses the response headers and then consumes the response body.
+
+---
+
+### Example 4: DNS Request Response
+
+```text
+Client → What is the IP address of google.com?
+DNS Resolver → 142.250.x.x
+```
+
+The client uses a query ID to match the response to the correct request.
+
+---
+
+### Example 5: SQL Request Response
+
+```sql
+SELECT name FROM users WHERE id = 1;
+```
+
+The database receives the query, parses it, creates an execution plan, runs the query, and returns the result.
+
+---
+
+### Example 6: RPC
+
+```text
+Client calls: getUser(123)
+Remote server executes: getUser(123)
+Remote server returns: User data
+```
+
+It looks like a local function call, but it crosses the network.
+
+---
+
+### Example 7: GraphQL Reducing Multiple Requests
+
+Instead of making several REST calls:
+
+```text
+GET /users/1
+GET /users/1/comments
+GET /users/1/posts
+```
+
+The client can send one GraphQL query:
+
+```graphql
+{
+  user(id: 1) {
+    name
+    comments {
+      text
+    }
+    posts {
+      title
+    }
+  }
+}
+```
+
+This reduces client-to-backend chattiness.
+
+---
+
+### Example 8: Whole File Upload
+
+```text
+Client → Entire image file → Server
+Server → Upload completed
+```
+
+Simple, but if the connection fails, the upload may need to restart from the beginning.
+
+---
+
+### Example 9: Chunked File Upload
+
+```text
+Client → Chunk 1/7 → Server
+Client → Chunk 2/7 → Server
+Client → Chunk 3/7 → Server
+```
+
+If the upload fails after chunk 3, the client can resume from chunk 4.
+
+---
+
+### Example 10: Polling Notifications
+
+```text
+Client → Do I have notifications?
+Server → No
+
+Client → Do I have notifications?
+Server → No
+
+Client → Do I have notifications?
+Server → Yes
+```
+
+This works, but it may create unnecessary traffic and latency.
+
+---
+
+### Example 11: Curl Request Response Demo
+
+```bash
+curl -v --trace output.txt http://google.com
+```
+
+This command can show:
+
+```text
+DNS lookup
+TCP connection
+HTTP request headers
+HTTP response headers
+HTTP response body
+```
+
+It helps reveal what happens behind a simple request.
+
+---
+
+## 5. Questions / Review
+
+1. What is the request/response communication pattern?
+
+2. Why is request/response considered simple and elegant?
+
+3. Why is defining a request important in backend communication?
+
+4. What is a request boundary?
+
+5. Why does a server need to know where a request starts and ends?
+
+6. What is the difference between parsing a request and processing a request?
+
+7. What is a response boundary?
+
+8. Why does serialization have a cost?
+
+9. What is the difference between JSON, XML, and Protocol Buffers?
+
+10. Why did many systems move from XML/SOAP to JSON/REST?
+
+11. Why might some systems move from JSON to Protocol Buffers?
+
+12. How is HTTP an example of request/response?
+
+13. How is DNS an example of request/response?
+
+14. Why should backend engineers not rely on response order?
+
+15. What is RPC?
+
+16. Why can RPC be considered a leaky abstraction?
+
+17. How does SQL follow the request/response model?
+
+18. What is REST?
+
+19. What is SOAP?
+
+20. How does GraphQL reduce client-side chattiness?
+
+21. What are the main parts of an HTTP request?
+
+22. Why do backend developers usually not manually parse HTTP requests?
+
+23. What is the problem with uploading a large file in one request?
+
+24. How does chunked upload improve resumability?
+
+25. Why is request/response not ideal for notification systems?
+
+26. What is polling?
+
+27. Why can polling create unnecessary network traffic?
+
+28. Why are long-running requests difficult in a pure request/response model?
+
+29. What time costs exist in a request/response cycle?
+
+30. What can `curl --trace` show about a request/response interaction?

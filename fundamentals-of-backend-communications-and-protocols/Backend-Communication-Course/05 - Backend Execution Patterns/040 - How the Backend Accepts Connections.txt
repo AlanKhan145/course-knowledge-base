@@ -1,0 +1,875 @@
+# 040 - How the Backend Accepts Connections
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 29min
+
+---
+
+## 1. Summary
+
+This lecture explains how a backend server accepts TCP connections.
+
+At a high level, we often say:
+
+> The backend accepts a connection.
+
+But this hides a lot of important details.
+
+In reality, the operating system kernel does most of the early TCP connection work. The backend application only gets involved after the kernel has completed enough of the connection setup.
+
+This lecture explains:
+
+* How TCP connections are established
+* How a server listens on an IP address and port
+* What happens inside the kernel
+* What SYN queue and accept queue mean
+* What `accept()` does
+* What file descriptors are
+* Why backlog size matters
+* Why slow connection acceptance can hurt performance
+* How SYN flooding works
+* Why reverse proxies care so much about accepting connections quickly
+
+Understanding this lifecycle is essential for backend performance and troubleshooting.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 TCP Three-Way Handshake
+
+TCP is a stateful protocol.
+
+Before two machines can exchange data reliably, they must establish a connection.
+
+The TCP three-way handshake is:
+
+```text id="f5dufs"
+Client → Server: SYN
+Server → Client: SYN-ACK
+Client → Server: ACK
+```
+
+The purpose of this handshake is to synchronize sequence numbers between the client and server.
+
+Each side maintains its own sequence number, and both sides acknowledge the other side’s numbers.
+
+This state is what allows TCP to provide ordered and reliable delivery.
+
+---
+
+### 2.2 The Backend Application Does Not Do the Handshake Directly
+
+When a client sends a TCP `SYN`, the backend application usually does not handle it directly.
+
+The kernel handles the TCP handshake.
+
+The backend application tells the kernel:
+
+```text id="j0w5u1"
+I want to listen on this IP address and this port.
+```
+
+Then the kernel creates the necessary socket and internal queues.
+
+After the kernel completes the TCP handshake, the backend application can accept the established connection.
+
+---
+
+### 2.3 Listening Requires an Address and a Port
+
+A server does not only listen on a port.
+
+It listens on:
+
+```text id="0ro1vj"
+IP address + port
+```
+
+Example:
+
+```text id="ygqgtx"
+127.0.0.1:8080
+192.168.1.3:8080
+0.0.0.0:8080
+```
+
+The IP address matters because a machine can have multiple network interfaces.
+
+Examples:
+
+* Loopback interface: `127.0.0.1`
+* Private network interface: `192.168.1.3`
+* Public network interface: public cloud IP
+* IPv6 loopback: `::1`
+
+---
+
+### 2.4 Listening on `0.0.0.0`
+
+When an application listens on `0.0.0.0`, it listens on all available IPv4 interfaces.
+
+This can be dangerous if done accidentally.
+
+Example:
+
+```text id="snsa4g"
+app.listen(8080)
+```
+
+Depending on the framework or runtime, this may bind to all interfaces.
+
+That means the service could become reachable from places you did not intend.
+
+For internal services, admin APIs, databases, and dashboards, this can be a serious security risk.
+
+A safer choice for local-only services is:
+
+```text id="pk9i2b"
+127.0.0.1:8080
+```
+
+That only accepts connections from the same machine.
+
+---
+
+### 2.5 Database Exposure Risk
+
+Databases should usually not be exposed directly to the public Internet.
+
+A common mistake is running a database that listens on all interfaces.
+
+Example:
+
+```text id="5c1rxc"
+0.0.0.0:5432
+0.0.0.0:3306
+0.0.0.0:27017
+```
+
+This can accidentally expose PostgreSQL, MySQL, MongoDB, Elasticsearch, or other systems publicly.
+
+Even if authentication exists, direct public exposure increases risk.
+
+A better design is:
+
+```text id="1m6fi8"
+Public Internet
+→ Reverse proxy / API gateway
+→ Private backend network
+→ Database
+```
+
+The database should usually live in a private network.
+
+---
+
+### 2.6 Kernel Space vs User Space
+
+The backend application runs in user space.
+
+The operating system kernel runs in kernel space.
+
+The kernel manages low-level resources such as:
+
+* TCP state
+* Network packets
+* Socket buffers
+* SYN queue
+* Accept queue
+* File descriptors
+* Network interface interaction
+
+The backend application interacts with the kernel through system calls such as:
+
+```text id="fq5s6l"
+socket()
+bind()
+listen()
+accept()
+read()
+write()
+close()
+```
+
+This separation is important because the kernel and backend application do different jobs.
+
+---
+
+### 2.7 What Happens When the Server Calls `listen()`
+
+When a backend server listens on an address and port, the kernel creates internal data structures.
+
+Conceptually, the kernel creates:
+
+1. A listening socket
+2. A SYN queue
+3. An accept queue
+
+```text id="u8jvxx"
+Listening socket
+├── SYN queue
+└── Accept queue
+```
+
+The listening socket represents the server’s ability to accept new connections on that address and port.
+
+---
+
+### 2.8 SYN Queue
+
+The SYN queue stores half-open TCP connection attempts.
+
+When the client sends a `SYN`, the kernel records information about that attempt.
+
+This information includes:
+
+* Source IP
+* Source port
+* Destination IP
+* Destination port
+* TCP sequence information
+* TCP state
+
+The connection is not fully established yet.
+
+The server has sent a `SYN-ACK`, but it is still waiting for the client’s final `ACK`.
+
+```text id="fr4r04"
+Client sends SYN
+→ Kernel stores entry in SYN queue
+→ Kernel sends SYN-ACK
+```
+
+---
+
+### 2.9 Accept Queue
+
+The accept queue stores fully established connections.
+
+When the client sends the final `ACK`, the kernel matches it with an entry in the SYN queue.
+
+If the match is valid, the kernel moves the connection from the SYN queue to the accept queue.
+
+```text id="p1dp8h"
+SYN queue
+→ connection handshake completes
+→ accept queue
+```
+
+At this point, the connection is ready for the backend application to accept.
+
+---
+
+### 2.10 `accept()`
+
+The backend application calls `accept()` to take a ready connection from the accept queue.
+
+When `accept()` succeeds, the kernel returns a file descriptor.
+
+That file descriptor represents the accepted connection.
+
+The backend application can then use that descriptor to:
+
+* Read from the connection
+* Write to the connection
+* Close the connection
+
+```text id="57jjda"
+fd = accept(listening_socket)
+
+read(fd)
+write(fd)
+close(fd)
+```
+
+---
+
+### 2.11 File Descriptors
+
+In Linux, many things are represented as file descriptors.
+
+Examples:
+
+* Files
+* Sockets
+* TCP connections
+* Pipes
+* Devices
+* Terminals
+
+A file descriptor is just an integer from the application’s point of view.
+
+But that integer points to an underlying kernel object.
+
+For a TCP connection, the file descriptor is the application’s handle to that connection.
+
+---
+
+### 2.12 Socket vs Connection
+
+A socket and a connection are related, but they are not exactly the same.
+
+The listening socket is what the server listens on.
+
+A connection is created when a client connects.
+
+One listening socket can produce many connections.
+
+```text id="m5s43g"
+Listening socket: 192.168.1.3:8080
+
+Accepted connections:
+├── client A connection
+├── client B connection
+├── client C connection
+└── client D connection
+```
+
+This is why a single backend process can theoretically handle thousands of connections.
+
+They are represented as many file descriptors.
+
+The hard part is efficiently managing, reading, and writing all of them.
+
+---
+
+### 2.13 The 10K Connections Problem
+
+Handling many connections is not just about accepting them.
+
+The challenge is managing thousands of file descriptors efficiently.
+
+The backend must decide:
+
+* Which connection has data ready?
+* Which connection should be read?
+* Which connection can be written to?
+* Should the application block?
+* Should it use async I/O?
+* Should it use an event loop?
+* Should it use multiple workers?
+
+This is the classic “10K connections problem.”
+
+---
+
+### 2.14 What Happens When `accept()` Has No Connection?
+
+If the backend calls `accept()` and the accept queue is empty, the call may block.
+
+That means the thread waits until a connection becomes available.
+
+This is why high-performance backends often use non-blocking I/O, event loops, or async mechanisms.
+
+Examples include:
+
+* `select`
+* `poll`
+* `epoll`
+* `kqueue`
+* `io_uring`
+
+These mechanisms help the application avoid blocking unnecessarily.
+
+---
+
+### 2.15 Backlog
+
+The backlog controls how many pending connections can wait in the kernel queues.
+
+When a server calls `listen()`, it usually provides a backlog value.
+
+Conceptually:
+
+```text id="mdwsjs"
+listen(socket, backlog)
+```
+
+A larger backlog allows more pending connections to wait.
+
+A smaller backlog can fill quickly under load.
+
+However, larger queues also require more memory and kernel resources.
+
+---
+
+### 2.16 What Happens When the Accept Queue Is Full?
+
+If the accept queue is full, the kernel cannot move newly established connections into it.
+
+This usually means the application is not calling `accept()` fast enough.
+
+In that case:
+
+* New connections may be delayed
+* Some handshakes may fail
+* Clients may wait
+* Clients may retry
+* Connections may time out
+
+This is one reason reverse proxies are designed to accept connections very quickly.
+
+---
+
+### 2.17 Reverse Proxies Accept Connections Fast
+
+Reverse proxies such as NGINX, Envoy, HAProxy, and API gateways often focus heavily on accepting connections efficiently.
+
+At the edge, they may receive a huge number of client connections.
+
+Their job is to:
+
+1. Accept connections quickly
+2. Read requests efficiently
+3. Route traffic to backend services
+4. Avoid filling kernel queues
+5. Keep latency low
+
+If the reverse proxy accepts connections too slowly, clients may fail before the backend application even processes the request.
+
+---
+
+### 2.18 NIC, Frames, IP Packets, and TCP Segments
+
+A network interface card, or NIC, receives network frames.
+
+The frame contains an IP packet.
+
+The IP packet contains a TCP segment.
+
+Simplified flow:
+
+```text id="1kbduh"
+NIC receives frame
+→ OS processes IP packet
+→ Kernel processes TCP segment
+→ Kernel checks destination IP and port
+→ Kernel finds matching listening socket
+```
+
+The kernel must inspect and match packet information to the correct socket.
+
+This requires CPU work.
+
+At very high traffic levels, networking itself can consume significant CPU resources.
+
+---
+
+### 2.19 Networking Can Consume CPU
+
+Connection establishment is not free.
+
+The kernel must do work such as:
+
+* Parse packets
+* Match IP addresses
+* Match ports
+* Manage queues
+* Allocate connection state
+* Maintain TCP state
+* Calculate checksums
+* Manage retransmissions
+
+On very busy servers, some CPU cores may effectively be dedicated to networking work.
+
+This is why placing too many heavy services on the same machine can create resource competition.
+
+Example:
+
+```text id="equora"
+Reverse proxy
+Database
+Application server
+Background workers
+```
+
+If all of them run on the same machine, they compete for CPU, memory, disk, and network resources.
+
+---
+
+### 2.20 Smart NICs and Offloading
+
+Some modern network cards can offload parts of networking work from the CPU.
+
+This means the NIC handles some processing that the kernel would otherwise do.
+
+The goal is to reduce CPU pressure.
+
+This area includes ideas such as:
+
+* TCP offload
+* Packet filtering offload
+* Smart NICs
+* Hardware-assisted networking
+
+These optimizations are advanced and depend on hardware, drivers, and operating system support.
+
+---
+
+### 2.21 SYN Flooding
+
+A SYN flood is a type of attack where clients send many `SYN` packets but never complete the handshake.
+
+The server stores these half-open attempts in the SYN queue.
+
+If enough fake or incomplete attempts arrive, the SYN queue can fill.
+
+Then legitimate clients may be unable to connect.
+
+```text id="mi1oih"
+Attacker sends SYN
+Server replies SYN-ACK
+Attacker never sends ACK
+
+SYN queue fills up
+Legitimate clients cannot connect
+```
+
+This is why SYN flooding is dangerous.
+
+---
+
+### 2.22 SYN Cookies
+
+SYN cookies are a defense against SYN flooding.
+
+Instead of storing all connection state in the SYN queue, the server encodes enough state into the SYN-ACK response.
+
+When the client replies with the final ACK, the server can reconstruct or validate the state.
+
+This makes part of the handshake more stateless.
+
+The goal is to avoid filling the SYN queue with fake half-open connections.
+
+---
+
+### 2.23 Troubleshooting Connection Problems
+
+When a browser keeps loading, many things could be wrong.
+
+Possible causes include:
+
+* TCP connection cannot be established
+* SYN queue is full
+* Accept queue is full
+* TLS handshake is slow or failing
+* Backend accepted the connection but is not reading
+* Backend CPU is overloaded
+* Backend is waiting on database or disk
+* Request reached the app but response is slow
+* Network path has packet loss
+* Reverse proxy is overloaded
+
+This is why backend troubleshooting requires understanding multiple layers.
+
+---
+
+## 3. Important Notes
+
+### Binding to the Correct Interface Is Important
+
+Always be intentional about the address your backend listens on.
+
+For local-only services, use:
+
+```text id="d4thl2"
+127.0.0.1
+```
+
+For private network services, bind to the private IP.
+
+For public services, bind publicly only when that is truly intended.
+
+Do not accidentally expose internal services using:
+
+```text id="kdoe07"
+0.0.0.0
+```
+
+---
+
+### The Kernel Does the TCP Handshake
+
+The backend process does not directly perform the SYN, SYN-ACK, ACK handshake.
+
+The kernel manages that.
+
+The application receives a ready connection only after it calls `accept()`.
+
+---
+
+### Accepting Connections Fast Matters
+
+If the backend does not call `accept()` fast enough, the accept queue can fill.
+
+Once queues fill, clients may experience connection delays or failures.
+
+This is especially important for:
+
+* Reverse proxies
+* API gateways
+* Load balancers
+* High-traffic web servers
+* Edge servers
+
+---
+
+### Backlog Is a Tuning Parameter
+
+The backlog value affects how many pending connections can wait.
+
+A small backlog may fail under bursts of traffic.
+
+A very large backlog uses more memory and may hide application slowness.
+
+Backlog tuning should match the workload and server architecture.
+
+---
+
+### File Descriptors Are Central to Linux Networking
+
+In Linux, accepted connections are represented by file descriptors.
+
+A backend server with 10,000 active connections may have thousands of file descriptors open.
+
+Efficiently managing those descriptors is a major part of backend execution design.
+
+---
+
+## 4. Examples
+
+### Example 1: Basic TCP Connection Establishment
+
+```text id="xm13zh"
+Client                                      Server Kernel
+  |                                             |
+  | -------- SYN ----------------------------> |
+  |                                             |
+  |                          Add to SYN queue  |
+  |                                             |
+  | <-------- SYN-ACK ------------------------- |
+  |                                             |
+  | -------- ACK ----------------------------> |
+  |                                             |
+  |              Move connection to accept queue|
+  |                                             |
+```
+
+The kernel handles this before the backend application accepts the connection.
+
+---
+
+### Example 2: Backend Accepts the Connection
+
+```text id="26oatm"
+Server Kernel                         Backend Process
+     |                                      |
+     | ---- ready connection in queue ----> |
+     |                                      |
+     | <--------- accept() ---------------- |
+     |                                      |
+     | -------- file descriptor ----------> |
+     |                                      |
+```
+
+The backend receives a file descriptor for the connection.
+
+---
+
+### Example 3: Listening on Localhost
+
+```text id="uz985o"
+127.0.0.1:8080
+```
+
+Only clients on the same machine can connect.
+
+This is useful for:
+
+* Local admin APIs
+* Development servers
+* Internal dashboards
+* Services behind a local reverse proxy
+
+---
+
+### Example 4: Listening on All Interfaces
+
+```text id="k4xf1i"
+0.0.0.0:8080
+```
+
+The service listens on all IPv4 interfaces.
+
+This may include:
+
+* Localhost
+* Private network IP
+* Public IP
+
+Use this only when public or broad network access is intended.
+
+---
+
+### Example 5: SYN Queue and Accept Queue
+
+```text id="0mfbnn"
+Listening Socket
+├── SYN Queue
+│   ├── half-open connection 1
+│   ├── half-open connection 2
+│   └── half-open connection 3
+│
+└── Accept Queue
+    ├── established connection 1
+    ├── established connection 2
+    └── established connection 3
+```
+
+The SYN queue holds incomplete handshakes.
+
+The accept queue holds completed connections waiting for the application.
+
+---
+
+### Example 6: Accept Queue Full
+
+```text id="k24b5e"
+Many clients complete TCP handshakes
+↓
+Kernel tries to move connections to accept queue
+↓
+Accept queue is full
+↓
+New connections are delayed or fail
+```
+
+This may happen when the backend application is too slow to accept connections.
+
+---
+
+### Example 7: Blocking `accept()`
+
+```c id="e9roa3"
+int fd = accept(server_socket, NULL, NULL);
+```
+
+If no connection is waiting, this call can block.
+
+That means the thread stops doing useful work until a connection arrives.
+
+High-performance servers often avoid this using non-blocking I/O or event-driven designs.
+
+---
+
+### Example 8: SYN Flood
+
+```text id="dczkhz"
+Attacker:
+SYN
+SYN
+SYN
+SYN
+SYN
+
+Server:
+Stores half-open connections in SYN queue
+Waits for ACKs that never arrive
+Queue fills
+Legitimate clients cannot connect
+```
+
+SYN cookies can help defend against this by reducing the need to store state for every SYN.
+
+---
+
+### Example 9: Browser Keeps Loading
+
+A browser loading forever does not always mean the application code is slow.
+
+The delay may happen at many layers:
+
+```text id="33mwbf"
+DNS lookup
+TCP handshake
+TLS handshake
+Accept queue
+Backend read
+Backend processing
+Database query
+Response write
+Network delivery
+```
+
+Good troubleshooting means finding which layer is actually causing the delay.
+
+---
+
+## 5. Questions / Review
+
+1. What is the TCP three-way handshake?
+
+2. What is the purpose of the SYN packet?
+
+3. What is the purpose of the SYN-ACK packet?
+
+4. What is the purpose of the final ACK packet?
+
+5. Does the backend application directly perform the TCP handshake?
+
+6. What does it mean for a server to listen on an IP address and port?
+
+7. Why can listening on `0.0.0.0` be dangerous?
+
+8. Why should databases usually not be exposed directly to the public Internet?
+
+9. What is the difference between kernel space and user space?
+
+10. What is a listening socket?
+
+11. What is the SYN queue?
+
+12. What is the accept queue?
+
+13. When is a connection moved from the SYN queue to the accept queue?
+
+14. What does the `accept()` system call do?
+
+15. What is a file descriptor?
+
+16. Why can one listening socket produce many accepted connections?
+
+17. What happens if `accept()` is called when the accept queue is empty?
+
+18. What happens if the accept queue is full?
+
+19. What is backlog?
+
+20. Why do reverse proxies need to accept connections quickly?
+
+21. What is a SYN flood?
+
+22. How do SYN cookies help defend against SYN flooding?
+
+23. Why can networking itself consume CPU?
+
+24. Why is troubleshooting connection problems difficult?
+
+---
+
+## Short Takeaway
+
+A backend does not accept a TCP connection immediately when a client sends a `SYN`.
+
+First, the kernel handles the TCP handshake.
+
+The kernel stores half-open connections in the SYN queue and fully established connections in the accept queue.
+
+The backend application later calls `accept()` to take a ready connection from the accept queue.
+
+That accepted connection is represented as a file descriptor.
+
+If the backend accepts too slowly, queues can fill and clients may fail to connect.
+
+Understanding this lifecycle is essential for building, tuning, and troubleshooting high-performance backend systems.

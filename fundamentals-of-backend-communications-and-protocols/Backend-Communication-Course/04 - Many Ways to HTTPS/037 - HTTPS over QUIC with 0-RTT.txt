@@ -1,0 +1,315 @@
+# 037 - HTTPS over QUIC with 0-RTT
+
+**Section:** 04 - Many Ways to HTTPS
+**Duration:** 2min
+
+---
+
+## 1. Summary
+
+This lecture explains the fastest HTTPS communication pattern discussed in this section:
+
+> HTTPS over QUIC with 0-RTT
+
+This is essentially **HTTP/3 over QUIC with 0-RTT enabled**.
+
+QUIC already improves performance by combining transport connection setup and TLS 1.3 encryption setup. With 0-RTT, QUIC can go even further.
+
+If the client has connected to the server before and still has a valid pre-shared key, it can immediately send:
+
+1. The QUIC connection request
+2. The TLS 1.3 resumption information
+3. Encrypted HTTP/3 request data
+
+All of this can happen in the first flight of packets.
+
+This reduces waiting time as much as possible and can produce extremely fast response times when configured correctly.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 QUIC Already Combines Connection and Encryption
+
+With TCP-based HTTPS, the client usually needs:
+
+```text id="cozn2m"
+TCP handshake
+TLS handshake
+HTTP request
+```
+
+With QUIC, the transport handshake and TLS 1.3 handshake are integrated.
+
+This already reduces latency compared to TCP-based HTTPS.
+
+---
+
+### 2.2 0-RTT Makes QUIC Even Faster
+
+0-RTT allows a returning client to send encrypted application data before waiting for the server’s handshake response.
+
+If the client has a valid pre-shared key from a previous connection, it can immediately send early data.
+
+In HTTP/3, that early data can be an HTTP request, such as a `GET` request.
+
+---
+
+### 2.3 Pre-Shared Key Is Required
+
+0-RTT requires a previous successful connection.
+
+During that earlier connection, the server gives the client information that can be used later for session resumption.
+
+On a future connection, the client uses this information as a pre-shared key.
+
+If the server accepts it, the client’s early encrypted data can be processed immediately.
+
+---
+
+### 2.4 QUIC 0-RTT Sends Everything Early
+
+With HTTPS over QUIC and 0-RTT, the client can send in the same first flight:
+
+```text id="5wqhnh"
+QUIC connection setup
+TLS 1.3 ClientHello
+Pre-shared key information
+Encrypted HTTP/3 request
+```
+
+This is why it is so powerful.
+
+The client does not need to wait for the server before sending useful application data.
+
+---
+
+### 2.5 Server Can Accept or Reject 0-RTT
+
+The server is not required to accept 0-RTT data.
+
+If the pre-shared key is valid and the server allows early data, it can decrypt and process the HTTP request.
+
+If the server rejects 0-RTT, the client may need to resend the request after the normal handshake completes.
+
+---
+
+## 3. Important Notes
+
+### This Is the Fastest Pattern in This Section
+
+Among the HTTPS communication patterns discussed in this section, HTTPS over QUIC with 0-RTT has the least handshake waiting.
+
+It removes the separate TCP handshake and combines QUIC connection setup, TLS setup, and early application data.
+
+However, it still cannot remove physical network latency, server processing time, or response transmission time.
+
+---
+
+### QUIC Runs Over UDP
+
+QUIC runs on top of UDP.
+
+That means there is no TCP three-way handshake.
+
+Instead, QUIC handles connection setup, encryption, reliability, stream management, and congestion control itself.
+
+The stack looks like this:
+
+```text id="cp98u4"
+HTTP/3
+QUIC with TLS 1.3
+UDP
+IP
+```
+
+---
+
+### 0-RTT Has Replay Risk
+
+Just like TLS 1.3 0-RTT over TCP, QUIC 0-RTT has replay concerns.
+
+Early data should only be used for safe and idempotent operations.
+
+Good candidates:
+
+```text id="uc32o1"
+GET /home
+GET /static/app.js
+GET /image.png
+```
+
+Bad candidates:
+
+```text id="5t72fv"
+POST /payment
+DELETE /account
+PUT /balance
+```
+
+Requests that change server state should be handled carefully and usually should not use 0-RTT.
+
+---
+
+### Hard to Deploy Correctly
+
+HTTPS over QUIC with 0-RTT is powerful, but it is not trivial to deploy.
+
+It requires:
+
+* QUIC support
+* HTTP/3 support
+* TLS 1.3 resumption support
+* Correct 0-RTT configuration
+* Replay protection strategy
+* Infrastructure that can handle early data safely
+
+The instructor notes that this is difficult to do effectively and mentions large edge networks such as Cloudflare as an example of environments where this kind of optimization can be managed well.
+
+---
+
+## 4. Examples
+
+### Example 1: HTTPS over QUIC Without 0-RTT
+
+```text id="x8zot2"
+Client                                           Server
+  |                                                |
+  | -------- QUIC Initial + TLS ClientHello ----> |
+  | <-------- QUIC Initial + TLS ServerHello ----- |
+  | <-------- Certificate + Finished ------------- |
+  | -------- Finished --------------------------> |
+  |                                                |
+  |          Secure QUIC connection established    |
+  |                                                |
+  | -------- Encrypted HTTP/3 GET --------------> |
+  | <-------- Encrypted HTTP/3 response ---------- |
+```
+
+The client waits for part of the handshake before sending the HTTP request.
+
+---
+
+### Example 2: HTTPS over QUIC With 0-RTT
+
+```text id="9q9l4j"
+Client                                                        Server
+  |                                                             |
+  | ---- QUIC Initial + TLS ClientHello + PSK + HTTP/3 GET ---> |
+  |                                                             |
+  | <---- ServerHello + Handshake Data + HTTP/3 Response ------- |
+  |                                                             |
+  | ---- Handshake Finished -----------------------------------> |
+  |                                                             |
+```
+
+The client sends useful HTTP/3 request data immediately.
+
+---
+
+### Example 3: First Connection vs Later Connection
+
+First connection:
+
+```text id="8cucqg"
+Client connects normally using QUIC.
+QUIC and TLS 1.3 handshake complete.
+Server sends session resumption information.
+Client stores it.
+```
+
+Later connection:
+
+```text id="3s2zg8"
+Client uses stored resumption information.
+Client sends QUIC handshake + TLS ClientHello + early HTTP/3 data.
+Server accepts the PSK and processes early data.
+```
+
+---
+
+### Example 4: Why It Is Fast
+
+Normal TCP-based HTTPS:
+
+```text id="twsle1"
+Connect
+Wait
+Encrypt
+Wait
+Send request
+Wait
+Receive response
+```
+
+QUIC with 0-RTT:
+
+```text id="31mqxi"
+Connect + encrypt + send request immediately
+Wait
+Receive response
+```
+
+The main improvement is reducing waiting time before the first useful request is sent.
+
+---
+
+### Example 5: Safe 0-RTT HTTP/3 Request
+
+```http id="py8kri"
+GET /static/logo.png HTTP/3
+Host: example.com
+```
+
+This is safer because it does not modify server state.
+
+---
+
+### Example 6: Unsafe 0-RTT HTTP/3 Request
+
+```http id="mk1o7k"
+POST /checkout HTTP/3
+Host: shop.com
+
+item_id=123&confirm=true
+```
+
+This is risky because replaying the request could cause duplicate actions.
+
+---
+
+## 5. Questions / Review
+
+1. What protocol does HTTP/3 run on top of?
+
+2. Why is HTTPS over QUIC faster than HTTPS over TCP?
+
+3. What does 0-RTT allow the client to do?
+
+4. What must the client have before it can use 0-RTT?
+
+5. What can be sent in the first flight of QUIC 0-RTT packets?
+
+6. Can the server reject 0-RTT data?
+
+7. What happens if the server rejects 0-RTT data?
+
+8. Why is 0-RTT risky for non-idempotent requests?
+
+9. Why is QUIC with 0-RTT considered the fastest pattern in this section?
+
+10. Why is QUIC with 0-RTT difficult to deploy correctly?
+
+---
+
+## Short Takeaway
+
+HTTPS over QUIC with 0-RTT is the fastest HTTPS communication pattern discussed in this section.
+
+Because QUIC runs over UDP, there is no TCP three-way handshake.
+
+Because QUIC integrates TLS 1.3, connection setup and encryption setup happen together.
+
+With 0-RTT, a returning client can also send encrypted HTTP/3 request data immediately using a pre-shared key from a previous connection.
+
+This can greatly reduce startup latency, but it must be used carefully because early data can have replay risks.

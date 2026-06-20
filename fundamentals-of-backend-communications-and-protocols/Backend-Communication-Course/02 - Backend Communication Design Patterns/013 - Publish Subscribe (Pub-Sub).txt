@@ -1,0 +1,515 @@
+# 013 - Publish Subscribe (Pub/Sub)
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 17min
+
+---
+
+## 1. Summary
+
+This lesson introduces the **Publish/Subscribe**, or **Pub/Sub**, backend communication pattern.
+
+Pub/Sub is designed to solve the problem of many services needing to communicate with each other. Instead of every service directly calling every other service, services publish messages to a central broker. Other services can then subscribe to the topics or queues they care about.
+
+This pattern reduces coupling between services and works well in microservice architectures. It allows one publisher to send data once, while many subscribers can consume it independently.
+
+The instructor explains Pub/Sub using a YouTube video upload example. After a video is uploaded, multiple services may need to process it: compression, formatting, copyright checking, notification, and more. Instead of chaining many request/response calls, each service can publish and consume events through a broker.
+
+The lesson also demonstrates Pub/Sub using RabbitMQ, where a publisher sends a job to a queue and a consumer receives it.
+
+---
+
+## 2. Key Concepts
+
+### Publish/Subscribe
+
+Publish/Subscribe is a communication model where one service publishes messages and other services subscribe to receive them.
+
+```text id="7qfz7v"
+Publisher → Broker → Subscriber
+```
+
+The publisher does not need to know who the subscribers are.
+
+---
+
+### Publisher
+
+A publisher is a service or client that sends data to a broker.
+
+Example:
+
+```text id="1n2io6"
+Upload Service → Publishes "video_uploaded" event
+```
+
+The publisher’s job is to publish the message and move on.
+
+---
+
+### Subscriber / Consumer
+
+A subscriber, also called a consumer, receives messages from the broker.
+
+Example:
+
+```text id="d05c75"
+Compression Service ← Consumes "video_uploaded" event
+```
+
+A service can be both a consumer and a publisher.
+
+---
+
+### Broker
+
+A broker is the middle system that receives messages from publishers and delivers them to subscribers.
+
+Examples of brokers:
+
+* RabbitMQ
+* Kafka
+* Redis Pub/Sub
+* Google Pub/Sub
+* AWS SNS/SQS
+* NATS
+
+The broker helps decouple services from each other.
+
+---
+
+### Topic
+
+A topic is a named stream or category of messages.
+
+Example:
+
+```text id="d0k5sw"
+Topic: raw-mp4-videos
+Topic: compressed-videos
+Topic: video-4k-ready
+```
+
+Subscribers can subscribe to the topics they care about.
+
+---
+
+### Queue
+
+A queue stores messages until consumers process them.
+
+```text id="it6prd"
+Producer → Queue → Consumer
+```
+
+Queues are useful for background jobs and workload distribution.
+
+---
+
+### Decoupling
+
+Pub/Sub reduces coupling between services.
+
+In direct request/response, one service must know about another service.
+
+In Pub/Sub, the publisher only knows about the broker.
+
+```text id="dhpmte"
+Tightly coupled:
+Service A → Service B → Service C
+
+Loosely coupled:
+Service A → Broker
+Service B ← Broker
+Service C ← Broker
+```
+
+---
+
+### Multiple Receivers
+
+Pub/Sub is useful when many services need to react to the same event.
+
+Example:
+
+```text id="4fr5z0"
+Video uploaded
+→ Compression Service
+→ Copyright Service
+→ Notification Service
+→ Analytics Service
+```
+
+The publisher does not need to call each service directly.
+
+---
+
+### Microservices
+
+Pub/Sub fits naturally with microservice architecture.
+
+Each service can focus on one responsibility and communicate through events.
+
+---
+
+### Request/Response Problem with Many Services
+
+Request/response can become difficult when a workflow has many dependent services.
+
+Example:
+
+```text id="0vbs13"
+Upload Service → Compression Service → Format Service → Notification Service
+```
+
+If one service fails, the whole chain may break.
+
+Pub/Sub avoids direct chaining by using a broker.
+
+---
+
+### Message Delivery
+
+Message delivery is one of the hardest problems in Pub/Sub systems.
+
+Important questions include:
+
+* Did the subscriber receive the message?
+* Was the message processed successfully?
+* Was the message delivered twice?
+* Was the message lost?
+* Should the system retry?
+* Should the message be acknowledged?
+
+---
+
+### Acknowledgement
+
+An acknowledgement, or ack, tells the broker that the consumer successfully processed the message.
+
+```text id="3wfueo"
+Broker → Message → Consumer
+Consumer → Ack → Broker
+Broker removes message
+```
+
+If the consumer does not acknowledge the message, the broker may deliver it again.
+
+---
+
+### At-Least-Once Delivery
+
+At-least-once delivery means a message will be delivered one or more times.
+
+This avoids message loss, but the consumer may receive duplicates.
+
+---
+
+### Exactly-Once Delivery
+
+Exactly-once delivery means a message is processed only once.
+
+This is very difficult to guarantee in distributed systems.
+
+Systems like Kafka and RabbitMQ provide different delivery guarantees depending on configuration and usage.
+
+---
+
+### RabbitMQ
+
+RabbitMQ is a message broker that supports queues and Pub/Sub-style communication.
+
+It commonly uses AMQP, which stands for **Advanced Message Queuing Protocol**.
+
+RabbitMQ can push messages to consumers.
+
+---
+
+### Kafka vs RabbitMQ
+
+RabbitMQ often uses a push model, where messages are pushed to consumers.
+
+Kafka usually uses a pull or long polling model, where consumers request messages when they are ready.
+
+```text id="z0rr5m"
+RabbitMQ:
+Broker pushes messages to consumers
+
+Kafka:
+Consumers poll broker for messages
+```
+
+Both systems can support Pub/Sub-style architectures, but their internal models are different.
+
+---
+
+## 3. Important Notes
+
+* Pub/Sub is useful when multiple services need the same event.
+* It avoids direct service-to-service mesh communication.
+* The publisher does not need to know who consumes the message.
+* The subscriber does not need to know who published the message.
+* The broker becomes the central communication point.
+* Pub/Sub is great for microservices.
+* It creates loose coupling between services.
+* A service can be both a subscriber and a publisher.
+* Pub/Sub allows background processing.
+* Pub/Sub can work even when some consumers are temporarily offline, depending on broker configuration.
+* Message delivery is complex.
+* Duplicate messages are possible.
+* Lost messages are possible if the system is not configured correctly.
+* Acknowledgements are important for reliable processing.
+* Pub/Sub adds operational complexity.
+* The broker must be monitored, scaled, and kept healthy.
+* Network saturation can happen if many clients publish or consume heavily.
+* Choosing between push, polling, and long polling depends on the system requirements.
+
+---
+
+## 4. Examples
+
+### Example 1: Direct Request/Response Chain
+
+A video upload workflow using direct request/response may look like this:
+
+```text id="zl4jlz"
+Client → Upload Service
+Upload Service → Compression Service
+Compression Service → Format Service
+Format Service → Notification Service
+Notification Service → Response back
+```
+
+Problem:
+
+```text id="ihp26h"
+If one service fails, the whole chain may fail.
+```
+
+---
+
+### Example 2: Pub/Sub Video Upload Workflow
+
+With Pub/Sub, the upload service publishes an event.
+
+```text id="b87ywy"
+Upload Service → Publishes raw video event → Broker
+```
+
+Then other services consume the event independently.
+
+```text id="u96faf"
+Compression Service ← Consumes raw video
+Copyright Service ← Consumes raw video
+Analytics Service ← Consumes raw video
+```
+
+This is more flexible and less tightly coupled.
+
+---
+
+### Example 3: Video Processing Pipeline
+
+```text id="7glmmc"
+Upload Service
+→ publishes to topic: raw-mp4-videos
+
+Compression Service
+→ consumes raw-mp4-videos
+→ publishes to topic: compressed-videos
+
+Format Service
+→ consumes compressed-videos
+→ publishes to topics:
+   - video-480p-ready
+   - video-720p-ready
+   - video-1080p-ready
+   - video-4k-ready
+
+Notification Service
+→ consumes video-4k-ready
+→ notifies users
+```
+
+Each service only cares about the topics it consumes and publishes.
+
+---
+
+### Example 4: One Publisher, Many Subscribers
+
+```text id="rles9m"
+Publisher → Event: user_logged_in
+
+Subscribers:
+- Security Service
+- Analytics Service
+- Notification Service
+- Audit Log Service
+```
+
+All subscribers can react to the same event.
+
+---
+
+### Example 5: RabbitMQ Publisher
+
+A publisher connects to RabbitMQ, creates or asserts a queue, and sends a message.
+
+```javascript id="kcdmug"
+const amqp = require("amqplib");
+
+async function publishJob(input) {
+  const connection = await amqp.connect(process.env.AMQP_URL);
+  const channel = await connection.createChannel();
+
+  const queue = "jobs";
+
+  await channel.assertQueue(queue);
+  channel.sendToQueue(queue, Buffer.from(JSON.stringify({ input })));
+
+  await channel.close();
+  await connection.close();
+}
+
+publishJob(107);
+```
+
+This publishes a job to the `jobs` queue.
+
+---
+
+### Example 6: RabbitMQ Consumer
+
+A consumer connects to RabbitMQ and waits for messages.
+
+```javascript id="3ldcwc"
+const amqp = require("amqplib");
+
+async function consumeJobs() {
+  const connection = await amqp.connect(process.env.AMQP_URL);
+  const channel = await connection.createChannel();
+
+  const queue = "jobs";
+
+  await channel.assertQueue(queue);
+
+  channel.consume(queue, message => {
+    const job = JSON.parse(message.content.toString());
+
+    console.log("Received job:", job);
+
+    channel.ack(message);
+  });
+}
+
+consumeJobs();
+```
+
+The consumer receives the job and acknowledges it after processing.
+
+---
+
+### Example 7: Message Without Acknowledgement
+
+If the consumer receives a message but does not acknowledge it, the broker may keep the message.
+
+```text id="5z8t6o"
+Broker → Sends message to Consumer A
+Consumer A dies before ack
+Broker → Sends message to Consumer B
+```
+
+This prevents message loss but can create duplicate processing.
+
+---
+
+### Example 8: Consumer as Publisher
+
+A compression service can consume one event and publish another.
+
+```text id="6xsp8v"
+Compression Service:
+Consumes: raw-video-uploaded
+Publishes: video-compressed
+```
+
+This allows workflows to be built as a chain of events without direct service dependencies.
+
+---
+
+### Example 9: Pub/Sub Compared to Push
+
+Pub/Sub is about message distribution through a broker.
+
+Push is about how messages are delivered to consumers.
+
+A broker can use push or pull internally.
+
+```text id="57qvl8"
+RabbitMQ → often pushes messages
+Kafka → consumers usually pull messages
+```
+
+---
+
+## 5. Questions / Review
+
+1. What does Pub/Sub stand for?
+
+2. What problem does the Pub/Sub pattern solve?
+
+3. What is a publisher?
+
+4. What is a subscriber or consumer?
+
+5. What is a broker?
+
+6. What is a topic?
+
+7. What is a queue?
+
+8. How does Pub/Sub reduce coupling between services?
+
+9. Why is Pub/Sub useful in microservice architectures?
+
+10. Why can request/response become problematic with many services?
+
+11. In the video upload example, why is direct chaining difficult?
+
+12. How does Pub/Sub improve the video processing workflow?
+
+13. Can a service be both a consumer and a publisher?
+
+14. What is message delivery?
+
+15. Why is message delivery difficult in distributed systems?
+
+16. What is an acknowledgement?
+
+17. What happens if a consumer does not acknowledge a message?
+
+18. What does at-least-once delivery mean?
+
+19. Why can duplicate messages happen?
+
+20. Why is exactly-once delivery difficult?
+
+21. What is RabbitMQ?
+
+22. What is AMQP?
+
+23. How is RabbitMQ different from Kafka in delivery style?
+
+24. What are the advantages of Pub/Sub?
+
+25. What are the disadvantages of Pub/Sub?
+
+26. Why does Pub/Sub add operational complexity?
+
+27. How can Pub/Sub cause network saturation?
+
+28. When should you consider using Pub/Sub?
+
+29. When might request/response be simpler than Pub/Sub?
+
+30. Why is understanding push, polling, and long polling useful when studying Pub/Sub?

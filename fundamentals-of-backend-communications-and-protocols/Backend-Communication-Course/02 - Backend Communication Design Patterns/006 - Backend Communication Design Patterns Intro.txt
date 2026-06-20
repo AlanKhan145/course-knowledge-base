@@ -1,0 +1,222 @@
+# 006 - Backend Communication Design Patterns Intro
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 2min
+
+---
+
+## 1. Summary
+
+This lesson introduces the first major section of the course: **Backend Communication Design Patterns**.
+
+The instructor explains that backend applications exist to communicate with clients and other systems. Over many years of building software, he noticed that common communication patterns repeatedly appear in backend systems.
+
+These patterns are based on real-world experience, articles, and observations of how large companies such as Netflix, Google, and Twitter build backend applications.
+
+The goal of this section is to study the common patterns behind backend communication, understand their first principles, and learn how they appear in real systems.
+
+---
+
+## 2. Key Concepts
+
+### Backend Communication
+
+Backend applications usually need to communicate with clients, services, databases, queues, proxies, or other backend systems.
+
+Communication is one of the core responsibilities of backend engineering.
+
+---
+
+### Design Patterns
+
+A design pattern is a repeated solution to a common engineering problem.
+
+In backend communication, design patterns help explain how data moves between systems and how clients interact with servers.
+
+---
+
+### First Principles
+
+The instructor emphasizes that even complex backend systems are built from basic communication principles.
+
+Understanding these first principles makes it easier to understand advanced systems later.
+
+---
+
+### Request / Response Model
+
+The request/response model is one of the simplest and most common backend communication patterns.
+
+A client sends a request, and the backend returns a response.
+
+```text id="3euuua"
+Client → Request → Backend
+Client ← Response ← Backend
+```
+
+---
+
+### Synchronous and Asynchronous Communication
+
+The section will explain the difference between synchronous and asynchronous communication.
+
+Synchronous communication usually means the client waits for the operation to finish.
+
+Asynchronous communication means the operation may continue in the background, and the response may come later or through another channel.
+
+---
+
+### Push Model
+
+In the push model, the backend sends data to the client when something happens.
+
+This is useful for real-time updates and notification systems.
+
+---
+
+### Poll Model
+
+In the poll model, the client repeatedly asks the backend whether new data is available.
+
+This is simple to implement but may be inefficient if done too frequently.
+
+---
+
+### Long Poll Model
+
+Long polling is a variation of polling where the server holds the request open until new data is available or a timeout occurs.
+
+It can simulate real-time behavior without requiring a fully persistent two-way connection.
+
+---
+
+### Publish / Subscribe
+
+In the publish/subscribe model, producers publish messages to a broker or topic, and subscribers receive messages from that topic.
+
+This pattern is common in event-driven systems.
+
+---
+
+### Multiplexing and Demultiplexing
+
+Multiplexing and demultiplexing are networking concepts that also appear in backend communication protocols.
+
+Multiplexing allows multiple data streams to share one connection or channel.
+
+Demultiplexing separates those streams back into individual logical flows.
+
+---
+
+## 3. Important Notes
+
+* Backend communication patterns appear repeatedly in real-world systems.
+* The patterns in this course are not the only possible patterns.
+* New patterns may emerge in the future.
+* Large companies often use combinations of these patterns in production systems.
+* Understanding first principles is more important than memorizing names.
+* Request/response is simple but extremely important.
+* Synchronous and asynchronous communication affect system performance and user experience.
+* Push, polling, and long polling are different ways to deliver updates.
+* Publish/subscribe is useful for decoupling systems.
+* Multiplexing is a low-level networking idea, but it is also important in backend protocols.
+
+---
+
+## 4. Examples
+
+### Example 1: Request / Response
+
+A browser asks a backend API for user information.
+
+```text id="52cm9r"
+Browser → GET /users/123 → Backend
+Browser ← User data ← Backend
+```
+
+This is a classic request/response interaction.
+
+---
+
+### Example 2: Polling
+
+A client checks every few seconds to see if a new notification exists.
+
+```text id="n56eej"
+Client → Any new notifications?
+Server → No
+
+Client → Any new notifications?
+Server → Yes, here is one notification.
+```
+
+This is simple, but it can create unnecessary traffic.
+
+---
+
+### Example 3: Push
+
+A server sends a notification to the client as soon as an event happens.
+
+```text id="x05x2c"
+Server → New message notification → Client
+```
+
+This is more suitable for real-time applications.
+
+---
+
+### Example 4: Long Polling
+
+The client sends a request, and the server keeps the request open until new data is available.
+
+```text id="x89j9w"
+Client → Any new messages?
+Server waits...
+Server → Yes, here is a new message.
+```
+
+This is useful when real-time-like behavior is needed without a full persistent connection.
+
+---
+
+### Example 5: Publish / Subscribe
+
+A video platform publishes an event when a user uploads a video.
+
+```text id="rsxqim"
+Video Service → Publish "video_uploaded" event → Message Broker
+Notification Service ← Subscribes to event
+Recommendation Service ← Subscribes to event
+Analytics Service ← Subscribes to event
+```
+
+This allows multiple services to react to the same event independently.
+
+---
+
+## 5. Questions / Review
+
+1. What is the main purpose of backend communication?
+
+2. What is a backend communication design pattern?
+
+3. Why does the instructor focus on first principles?
+
+4. What is the request/response model?
+
+5. What is the difference between synchronous and asynchronous communication?
+
+6. What is the push model?
+
+7. What is the poll model?
+
+8. How is long polling different from normal polling?
+
+9. What is the publish/subscribe model?
+
+10. Why are multiplexing and demultiplexing included in a backend communication section?
+
+11. Are the patterns in this course the only possible backend communication patterns?
+
+12. Why is it useful to study how large companies design backend systems?

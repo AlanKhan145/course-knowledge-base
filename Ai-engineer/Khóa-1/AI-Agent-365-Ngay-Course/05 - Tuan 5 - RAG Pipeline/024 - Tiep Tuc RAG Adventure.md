@@ -1,0 +1,1515 @@
+# Ngay 024 - Tuan 5, ngay 4
+
+Nguon goc: ../AI_AGENT_365_TXT_GOC/day-024.txt
+
+## Tong quan
+
+- Chu de mo dau: Bạn có thích Tuần lễ Rag không?
+- File goc: day-024.txt
+- So y chinh: 1127
+- Cach doc: di theo tung phan, tung muc, tung y chinh ben duoi.
+
+## Phan 1
+
+### Muc 1
+
+- Bạn có thích Tuần lễ Rag không?
+- Tôi hy vọng là vậy.
+- Chào mừng đến với tuần thứ năm, ngày thứ tư khi chúng ta tiếp tục cuộc phiêu lưu ở Rag.
+- Và hôm nay tôi phải nói với bạn rằng, hôm nay thực sự là một ngày khó khăn.
+- Chúng tôi sẽ che đậy.
+- Chúng ta sẽ đề cập đến chủ đề có lẽ là quan trọng nhất của toàn bộ khóa học.
+- Hôm nay chúng ta sẽ tìm hiểu về vấn đề này.
+- Nó liên quan đến việc đánh giá, đến việc thẩm định.
+### Muc 2
+
+- Vấn đề là phải làm sao để đưa tính khoa học vào một hoạt động thực tế vốn là một hình thức nghệ thuật.
+- Và như thường lệ, để củng cố những gì bạn đã học, bạn có thể tạo mã.
+- Bạn có thể tạo văn bản bằng cách sử dụng nhiều mô hình nguồn đóng và nguồn mở.
+- Bạn có thể chọn mô hình phù hợp cho dự án của mình.
+- Và bây giờ, kể từ ngày hôm qua, bạn có thể triển khai hệ thống Rag của riêng mình, một hệ thống trả lời câu hỏi chuyên gia sử dụng Rag.
+- Chúng tôi đã xây dựng nó.
+- Nó đã có hiệu quả.
+- Xin chúc mừng!
+### Muc 3
+
+- Bây giờ chúng ta chuyển sang chủ đề quan trọng này, được rồi, bạn đã xây dựng được nó.
+- Làm sao để biết nó có thực sự hiệu quả hay không?
+- Vâng, làm sao bạn có thể đánh giá hiệu suất?
+- Và chúng ta có thể thực hiện điều này theo một số cách.
+- Chúng ta có thể đánh giá hiệu suất của quá trình truy xuất.
+- Chúng ta giỏi đến mức nào trong việc tìm kiếm bối cảnh có liên quan?
+- Và chúng ta cũng có thể đánh giá hiệu suất của câu hỏi thông qua chính câu trả lời.
+- Liệu nó có đưa ra câu trả lời tốt cho những câu hỏi đó không?
+## Phan 2
+
+### Muc 4
+
+- Và tất nhiên điều đó phù hợp nhất với mục tiêu kinh doanh của chúng tôi.
+- Và hôm nay chúng ta sẽ thực hiện tất cả những điều đó.
+- Và sau đó, chúng tôi cũng sẽ thử nghiệm những thứ như chiến lược phân đoạn và bộ mã hóa để xem chúng ảnh hưởng đến đánh giá của chúng tôi như thế nào.
+- Vì vậy, tôi muốn thúc đẩy đánh giá bằng cách giải thích điều tuyệt vời về vải rag.
+- Và sau đó có lẽ điều gì không tốt lắm về vải vụn bắt đầu với điều gì tốt.
+- Vâng, trước hết, việc đưa thông tin ra ngoài rất nhanh chóng.
+- Lần trước, chúng tôi chỉ mất vài phút để có một hệ thống trả lời câu hỏi biết mọi thứ về Ensure Elm.
+- Thực sự rất nhanh để xây dựng những thứ này.
+### Muc 5
+
+- Và một điểm tương đồng nữa là đây là cách tiếp cận có khả năng mở rộng khá cao.
+- Chúng ta có thể dễ dàng thu thập được lượng dữ liệu gấp 100 lần.
+- Chúng tôi mất nhiều thời gian hơn một chút.
+- Nhưng nhưng điều đó không thể để qua đêm được.
+- Chúng tôi sẽ có một kho dữ liệu vectơ được điền đầy đủ và sau đó thực hiện truy vấn sẽ rất nhanh, do đó chúng tôi có thể khai thác được chuyên môn sâu rộng.
+- Sự tương phản với hai điểm đầu tiên này là thực hiện một việc gì đó giống như tinh chỉnh, mà chúng ta sẽ thực hiện sau trong khóa học, đó là công việc khó khăn, tốn thời gian và tốn kém.
+- Cái này thực sự nhanh lắm.
+- Và tất nhiên, vải vụn sẽ tiết kiệm được độ dài ngữ cảnh.
+### Muc 6
+
+- Chúng ta không cần phải nhồi nhét quá nhiều ngữ cảnh, quá nhiều thông tin vào nội dung.
+- Chúng ta chỉ chọn phần quan trọng.
+- Và một điểm rất tương đồng nữa là nó giúp chúng ta tránh làm ô nhiễm bối cảnh bằng nhiều thông tin không liên quan, không cần thiết.
+- Để trả lời câu hỏi này, chúng ta có thể tập trung cửa sổ ngữ cảnh vào thông tin có liên quan nhất để LLM trả lời chính xác câu hỏi này.
+- Bây giờ tôi biết bạn đang nghĩ gì.
+- Bạn đang nghĩ, tất cả những điều này nghe có vẻ tuyệt vời.
+- Có gì không thích ở vải vụn?
+- Thật tuyệt vời.
+## Phan 3
+
+### Muc 7
+
+- Và mọi người đều thích vải vụn.
+- Mọi người luôn nói về việc tại sao bây giờ lại có người phản đối và đưa ra những điều tồi tệ?
+- Vâng, đây rồi.
+- Đầu tiên, rag về cơ bản là một chiếc máy biến áp lớn mà chúng ta đã chế tạo, máy biến áp.
+- Chúng có các lớp mạng nơ-ron chịu trách nhiệm tìm ra cách chú ý đến những gì quan trọng trong thông tin đầu vào.
+- Ồ, và đó chính là điều họ giỏi.
+- Và họ đã được đào tạo.
+- Họ thực sự rất giỏi trong việc đó.
+### Muc 8
+
+- Vấn đề của chúng ta là chúng ta có quá nhiều thông tin và chúng ta không muốn lãng phí sức mạnh của máy biến áp vào việc cố gắng tìm ra rằng chỉ có thông tin nhỏ bé này là quan trọng.
+- Vì vậy, chúng tôi đang sử dụng Rag.
+- Chúng tôi sử dụng bộ mã hóa và độ tương đồng của vectơ này như một dạng hack, chỉ để nói rằng, à, chúng tôi có thể phóng to phần này và đó có lẽ là tất cả những gì quan trọng.
+- Và có lẽ vì các vectơ liên quan đến những khối này đặt chúng ở những vị trí khác nhau nên chúng có thể không liên quan.
+- Nhưng có rất nhiều khả năng xảy ra nếu bạn không để ý.
+- Và đó là tất cả những gì thuộc về kiểu thủ thuật đơn giản mà hiệu quả.
+- Đây là một thủ thuật biểu diễn.
+- Đây là cách loại bỏ những thứ có thể không quan trọng.
+### Muc 9
+
+- Tập trung vào những gì đang diễn ra.
+- Nhưng kết quả là, bạn phải gọi nó bằng đúng tên của nó.
+- Về cơ bản thì đây là một mẹo.
+- Được rồi.
+- Và có lẽ bạn đang nghĩ, ừ thì, vậy thì sao nếu đó là hack?
+- Nếu nó hoạt động tốt thì đó chính là vấn đề.
+- Nó không phải lúc nào cũng hiệu quả.
+- Rất là.
+## Phan 4
+
+### Muc 10
+
+- Mọi người thích nói rằng đó là kinh nghiệm, ừm, đó là cách nói hoa mỹ của việc thử và sai.
+- Nó mang tính thử nghiệm rất cao.
+- Bạn chỉ cần thử nhiều cách tiếp cận khác nhau, thử nhiều kỹ thuật giẻ lau khác nhau và xem cách nào hiệu quả nhất.
+- Ừm, không phải lúc nào cách này cũng đúng.
+- Tôi thường nhận được những câu hỏi từ học sinh như thế này, tôi đã thiết lập như thế này và có loại đầu vào như thế này, và bây giờ tôi cần biết tôi nên sử dụng loại mã hóa nào?
+- Tôi nên dùng loại mảnh nào, tôi nên dùng loại giẻ nào, loại giẻ nào, và tôi có thể có trực giác.
+- Tôi có thể đoán và tôi thường làm như vậy, và tôi luôn là người có ý kiến.
+- Nhưng bạn sẽ không biết cho đến khi bạn thử.
+### Muc 11
+
+- Vấn đề chủ yếu là thử nghiệm.
+- Hãy thử nghiệm để xem phương pháp nào hiệu quả nhất.
+- Ừ, bởi vì xét cho cùng, đó chỉ là một dạng tối ưu hóa hiệu suất để cố gắng đạt được kết quả tốt hơn.
+- Và kết quả của tất cả những điều này, tôi đoán mục đích cuối cùng cũng giống nhau.
+- Nhưng đôi khi bạn có thể gặp phải tình huống bất ngờ này khi bạn nghĩ mình đang làm mọi thứ đúng, nhưng bạn lại đặt ra câu hỏi như ai đã giành được giải thưởng danh giá này?
+- Và bạn chỉ nhận được câu trả lời, tôi không biết.
+- Và bạn thốt lên, ôi không, chuyện gì đang xảy ra thế này?
+- Hiện nay?
+### Muc 12
+
+- Bạn xắn tay áo lên, đào sâu tìm hiểu, bạn phát hiện ra rằng thông tin đó đang xuất hiện trong một số bối cảnh, nhưng do chiến lược phân chia thông tin của bạn, do một lý do nào đó, những thông tin sai lệch đang xuất hiện ở đó, và bạn phải suy nghĩ về nó theo một cách hơi khác hoặc thêm vào một hương vị khác, hoặc thay đổi một tham số.
+- Hãy làm điều gì đó khác đi để câu hỏi đó bắt đầu được trả lời.
+- Và đôi khi cũng thật khó chịu khi bạn giải quyết được một vấn đề nhưng lại có một vấn đề khác xuất hiện ở nơi khác, và khi bạn giải quyết xong vấn đề đó thì một vấn đề khác lại xuất hiện và bạn liên tục gặp phải những vấn đề nhỏ kỳ lạ này.
+- Và đây, đây là tất cả vì về cơ bản đây là một bản hack.
+- Và đây là những tác dụng phụ của việc đây không phải là phương pháp khoa học thực sự.
+- Không phải là chúng ta đang huấn luyện sự chú ý của máy biến áp, điều này sẽ nghiêm ngặt hơn, mà đúng hơn là một cách tắt để cố gắng nắm bắt bối cảnh có liên quan.
+- Và ý cuối cùng của tôi là, thực ra thì vẫn như vậy.
+- Nhưng điều quan trọng nhất là câu trả lời cho câu hỏi của bạn, và mọi chuyện không phải lúc nào cũng diễn ra theo cách bạn nghĩ.
+## Phan 5
+
+### Muc 13
+
+- Thông thường với Rag, tôi có ý tưởng về cách thực hiện một điều gì đó, và tôi nghĩ rằng đó là một ý tưởng tuyệt vời, và tôi đã xây dựng ý tưởng đó, dành nhiều công sức cho nó, và tôi đã thực hiện tất cả, kết hợp tất cả lại với nhau.
+- Và sau đó khi tôi đặt câu hỏi, tôi nhận được câu trả lời sai hoặc tôi nhận được câu trả lời là tôi không biết.
+- Và đôi khi những ý tưởng hay nhất lại là những thứ mà bạn nghĩ rằng nó có thể thực hiện được nhưng cuối cùng lại không hiệu quả vì nó hơi sáo rỗng.
+- Bởi vì bạn không bao giờ biết chắc chắn liệu những phần phù hợp có được nổi lên hay không.
+- Vậy thì, vậy thì chắc chắn là lại một lần nữa, thực sự là quay lại với trò đập chuột chũi.
+- Đây là nơi có nhiều vấn đề khác nhau nảy sinh.
+- Bạn đang cố gắng giải quyết chúng.
+- Nhưng những vấn đề khác lại nảy sinh và bạn phải thử nghiệm cho đến khi đạt được kết quả mong muốn.
+### Muc 14
+
+- Không phải lúc nào cũng trực quan.
+- Đôi khi những thứ bạn nghĩ sẽ hiệu quả thực ra lại không có tác dụng.
+- Và những thứ mà bạn nghĩ, ồ, tôi sẽ thử xem sao.
+- Và đột nhiên mọi thứ trở nên tuyệt vời.
+- Vậy nên vải rag có một khía cạnh thực nghiệm và mang tính thử nghiệm cao.
+- Và để giúp bạn có được cảm nhận thực tế về điều này, hãy nghĩ đến thứ gì đó giống như việc phân chia.
+- Đây là điều bạn chỉ mới biết trong vài ngày gần đây.
+- Và trừ khi bạn đã biết về nó, ý tưởng này là bạn lấy một tài liệu và thay vì cố gắng đưa toàn bộ tài liệu đó vào kho lưu trữ vectơ của mình, bạn chia nó thành nhiều phần và bạn lấy từng phần đó và tạo một vectơ cho phần đó.
+### Muc 15
+
+- Người ta cho rằng một câu hỏi có thể sẽ áp dụng cho một phần tài liệu của bạn thay vì toàn bộ tài liệu.
+- Vâng, điều đó còn tùy thuộc vào câu hỏi.
+- Và nó phụ thuộc vào việc các khối của bạn lớn đến mức nào theo một cách rất kỳ lạ, nếu bạn làm các khối của mình quá lớn, thì sẽ có quá nhiều câu hỏi được đặt ra ở đây.
+- Và không có khả năng một câu hỏi cụ thể nào sẽ trùng khớp với toàn bộ tài liệu.
+- Nếu chúng ta hỏi về giải thưởng IoT dành cho Maxine và chúng ta có toàn bộ tài liệu về nhân sự của Maxine với nhiều thông tin, thì câu hỏi về người giành được giải thưởng IoT sẽ ít có khả năng liên quan đến toàn bộ quá trình hoạt động của cô ấy.
+- Và điều đó có nghĩa là chúng ta nên chia thành nhiều phần nhỏ để giải thưởng II o t của Maxine có thể nằm trong một phần.
+- Được rồi.
+- Nhưng nếu chúng ta làm vậy, sẽ có nguy cơ chúng ta sẽ trở nên quá nhỏ bé đến nỗi thậm chí không có tên Maxine.
+## Phan 6
+
+### Muc 16
+
+- Chúng tôi chỉ biết tên của cô ấy thôi, đó thực sự là một vấn đề mà chúng tôi gặp phải.
+- Ồ, và chúng tôi không có phần như tiêu đề của tài liệu có tên cô ấy trên đó.
+- Và kết quả là phần đó quá nhỏ.
+- Và ngay cả khi nó được chọn, việc đưa phần đó vào bối cảnh vẫn chưa đủ để trả lời câu hỏi.
+- Và đó lại là một vấn đề khác nữa.
+- Và vì thế đôi khi các khối cần phải lớn hơn.
+- Đôi khi chúng cần phải nhỏ hơn.
+- Đôi khi bạn cần nhiều sự chồng chéo hơn giữa chúng.
+### Muc 17
+
+- Bất kỳ điều nào trong số những điều này cũng có thể giúp bạn cải thiện hiệu suất chơi nhạc của mình.
+- Và có thể bạn đang nghĩ điều này nghe có vẻ điên rồ.
+- Ừ, bạn biết đấy, nghe giống như một loại thuật giả kim mà bạn sử dụng để tìm ra cách làm cho thứ này hoạt động, mà tôi chỉ có thể có được thông qua hàng tấn kinh nghiệm tự mình thực hiện việc này.
+- Vâng, may mắn thay, không, điều đó có, có giống như một, giống như một lối tắt.
+- Có một quá trình như thế này.
+- Có một cách để bạn có thể sử dụng hình thức nghệ thuật này, thuật giả kim này, và đưa khoa học vào đó.
+- Và điều đó phụ thuộc vào việc đánh giá, đó chính là mục đích của evals.
+- Và, đây thực sự là một chủ đề thường gặp với LMS, đó là lý do tại sao tôi đề cập rằng đây có lẽ là chủ đề quan trọng nhất khi làm việc với LMS, phần lớn là thử nghiệm, lặp đi lặp lại, hãy thử lời nhắc, thử điều này.
+### Muc 18
+
+- Và đôi khi điều đó có thể khiến bạn cảm thấy không thỏa mãn.
+- Và cách để làm cho nó thỏa mãn là xây dựng các đánh giá, tìm cách đo lường hiệu suất thiết lập của bạn theo cách định lượng.
+- Sau đó, bạn có thể thử nghiệm, bạn có thể lặp lại và bạn có cách để đánh giá xem bạn đang tiến bộ hay tệ hơn theo cách mà bạn đã quyết định.
+- Đây sẽ là ngôi sao dẫn đường của tôi.
+- Đây là số liệu của tôi.
+- Tôi sẽ tiếp tục lặp lại cho đến khi số liệu này cao hơn và điều đó cung cấp cho bạn một kỹ thuật.
+- Nó cung cấp cho bạn một quy trình liên quan đến thuật giả kim.
+- Được rồi.
+## Phan 7
+
+### Muc 19
+
+- Bây giờ chúng ta hãy nói về việc đánh giá.
+- Như tôi đã nói, đây là chúng.
+- Mọi thứ đều quan trọng.
+- Đây là một slide lớn.
+- Vậy là có ba bước.
+- Bước một là xây dựng bộ dữ liệu vàng của bạn, tổng hợp và chọn lọc một bộ câu hỏi và câu trả lời sẽ là câu trả lời tham khảo để bạn đo lường hiệu suất của mình.
+- Vì vậy, nếu ở Shoreham, thì bạn hãy xây dựng bộ câu hỏi này về công ty, đó là những câu hỏi nguyên mẫu tuyệt vời.
+- Và về cơ bản, có rất nhiều cách khác nhau để thực hiện điều đó.
+### Muc 20
+
+- Không chỉ có một cách duy nhất nhưng cách mà tôi sẽ sử dụng trong tuần này, và đó là một cách phổ biến, là bạn đưa ra một loạt câu hỏi, sau đó với mỗi câu hỏi, bạn có thể xác định một vài từ khóa có liên quan đến ngữ cảnh.
+- Điều đó sẽ cho phép chúng tôi kiểm tra xem các khối mà chúng tôi đưa ra có chứa các từ khóa này hay không.
+- Vì vậy, tất nhiên, nếu câu hỏi là ai đã giành được giải thưởng IIO o t danh giá, thì chúng ta sẽ muốn Maxine và Thompson - tên và họ của cô ấy là hai từ khóa lý tưởng nhất sẽ nằm trong các phần.
+- Và chúng ta đã biết rằng Maxine có tên trong đó, nhưng tên cuối cùng thì không.
+- Vâng, đó chính là kiểu chuyện đó.
+- Và sau đó chúng ta cũng muốn có một câu trả lời tham khảo, một câu trả lời hoàn hảo, giống như câu trả lời của Maxine Thompson hoặc Thomas đã giành được Giải thưởng Jyoti danh giá.
+- Vậy nên chúng ta cũng muốn như vậy.
+- Vậy bạn lấy những thứ này ở đâu?
+### Muc 21
+
+- Vâng, tất nhiên là bạn có thể tự nghĩ ra chúng bằng cách xem xét dữ liệu của mình và đưa ra các câu hỏi, tự nhủ rằng, nếu hệ thống của tôi có thể trả lời những câu hỏi này thì tôi sẽ hài lòng.
+- Thế thì tôi ổn rồi.
+- Đây là nơi tôi đặt ra tiêu chuẩn.
+- Nhưng có một nơi tốt hơn để bạn có thể nhận được câu hỏi.
+- Và đó là đâu?
+- Vâng, đó là từ người dùng của bạn.
+- Nếu đây là một hệ thống thực sự đang được đưa vào sản xuất, có thể đây là điều bạn đang cố gắng cải thiện hệ thống hiện có.
+- Có thể đây là cách bạn cố gắng tự động hóa các câu hỏi hiện có mà mọi người gửi đến qua email ngày hôm nay và phải mất 24 giờ để ai đó phản hồi.
+## Phan 8
+
+### Muc 22
+
+- Điều đó có nghĩa là bạn có những câu hỏi thực sự của người dùng và bạn có câu trả lời thực sự từ chuyên gia.
+- Và đó luôn là nguồn dữ liệu vàng tốt nhất của bạn.
+- Và bạn có thể có rất nhiều.
+- Ừ, vậy thì đó là một nơi tuyệt vời để đến.
+- Và điều đáng chú ý nữa là bộ thử nghiệm này có thể là một thứ sống động, có thể thở.
+- Bạn có thể bổ sung thêm theo thời gian khi bạn có thêm nhiều ví dụ hơn.
+- Bởi vì tất nhiên, một trong những nhược điểm của cách tiếp cận này là vì bạn sẽ tối ưu hóa cho bộ thử nghiệm này nên hệ thống của bạn sẽ phụ thuộc rất nhiều vào các thử nghiệm này.
+- Và có thể bạn sẽ làm tốt khi giải quyết tất cả các bài kiểm tra này.
+### Muc 23
+
+- Nhưng nó không khái quát được.
+- Vâng, khi đưa ra một câu hỏi mới, nó đột nhiên thất bại.
+- Vì vậy, điều rất quan trọng khi đánh giá là bạn phải dành thời gian cố gắng xây dựng bộ dữ liệu thử nghiệm tốt nhất có thể và liên tục bổ sung vào đó, đặc biệt là khi bạn gặp phải vấn đề.
+- Và sau đó thường có hai loại thử nghiệm mà bạn sẽ thực hiện bằng cách sử dụng dữ liệu thử nghiệm của mình.
+- Trước hết, bạn sẽ đo lường mức độ hiệu quả của việc truy xuất thông tin.
+- Bạn giỏi đến mức nào trong việc tìm kiếm nội dung có liên quan?
+- Và có rất nhiều số liệu bạn có thể đo lường.
+- Trên thực tế có rất nhiều số liệu và mỗi người đều có số liệu yêu thích của mình.
+### Muc 24
+
+- Và tôi sẽ đề cập đến những thứ mà tôi cho là phổ biến nhất.
+- Tôi sẽ không đi sâu vào quá nhiều chi tiết.
+- Tôi chỉ cho bạn biết những điều bạn nên biết.
+- Nhưng nó không phải là điều quá quan trọng.
+- À, tôi sẽ trình bày công thức này ngay sau đây.
+- Nhưng MRI có nghĩa là thứ hạng tương hỗ, về cơ bản là một nếu đó là con số tốt nhất nếu phần đầu tiên của bạn, ừm, luôn có thông tin mà bạn muốn, nội dung có liên quan, thì bạn sẽ có MRI là một và điều đó thật tuyệt.
+- Ndcg chuẩn hóa mức tăng tích lũy chiết khấu.
+- Loại thước đo nào đánh giá khả năng nổi của bạn?
+## Phan 9
+
+### Muc 25
+
+- Ừm, bối cảnh quan trọng nhất là ở trên cùng.
+- Và sau đó là khả năng nhớ lại và độ chính xác mà tôi sẽ trình bày ngay sau đây.
+- Nhưng tất cả những cách này đều giúp bạn đánh giá cụ thể xem bạn có đang đưa ra đúng bối cảnh hay không.
+- Và điều này rất tốt vì nó đo lường rất chính xác những gì bạn đang làm với giẻ rách.
+- Vì vậy, nó rất giống với một mô hình đo lường.
+- Đây là yếu tố liên quan chặt chẽ đến hiệu suất của mô hình của bạn.
+- Và do đó, thực hiện một thay đổi nhỏ đối với Rag sẽ tạo ra sự thay đổi ngay lập tức đối với số liệu này.
+- Và bạn có thể lặp lại một cách nhanh chóng.
+### Muc 26
+
+- Bạn có thể nhanh chóng lặp lại mọi thứ, thay đổi kích thước khối và xem điều gì xảy ra.
+- Và đó là những gì chúng ta sẽ làm ngay bây giờ.
+- Được rồi.
+- Và điều còn lại cần kiểm tra chính là câu trả lời thực tế.
+- Vậy là bạn đã có câu trả lời tham khảo mà bạn đã ghi lại.
+- Và bây giờ bạn đã có câu trả lời mà hệ thống của bạn đưa ra dựa trên ngữ cảnh.
+- Ồ, và bạn có thể so sánh hai cái đó.
+- Và tất nhiên, có nhiều cách khác nhau để thực hiện điều đó.
+### Muc 27
+
+- Bạn có thể làm những việc như so sánh từ, tìm kiếm số lượng và tần suất của các từ trùng lặp.
+- Nhưng điều đó có vẻ không ổn.
+- Sẽ tuyệt hơn nếu có thể sử dụng Llms theo một cách nào đó.
+- Có thể bạn sẽ vector hóa chúng và xem chúng giống nhau đến mức nào.
+- Nhưng hóa ra cách được sử dụng nhiều, thực sự dễ dàng, được gọi là LLM với tư cách là người đánh giá, đó là khi bạn yêu cầu một LLM suy nghĩ về điều này và nói rằng đây có phải là câu trả lời hay hay không trong bối cảnh của câu trả lời tham khảo.
+- Vậy về cơ bản bạn đang nói với một LLM khác rằng, này, đây là câu trả lời.
+- Sau đây là câu trả lời tham khảo.
+- Hãy đánh giá câu trả lời này so với câu trả lời tham khảo.
+## Phan 10
+
+### Muc 28
+
+- Và LLMs rất giỏi việc đó.
+- Và đây là nhiệm vụ tương đối dễ dàng đối với một LLM.
+- Và nó luôn luôn tốt.
+- Bạn nên sử dụng một bằng LLM có trình độ cao hơn làm giám khảo.
+- Bạn nên làm như vậy vì nó sẽ đánh giá.
+- Hôm nay chúng ta sẽ sử dụng một công cụ khá nhẹ vì việc so sánh hai công cụ này rất đơn giản.
+- Và bạn có thể chấm điểm từ 1 đến 5 hoặc bạn có thể đo kích thước của nó.
+- Bạn có thể yêu cầu điểm theo một số cách.
+### Muc 29
+
+- Câu trả lời chính xác đến mức nào?
+- Câu trả lời đầy đủ đến mức nào?
+- Vì vậy, Maxine tự nó sẽ không đủ tốt.
+- Chúng tôi muốn thấy Maxine Thompson muốn thấy cả hai cái tên cùng nhau, để có thể tự tin rằng nó đã hoàn chỉnh.
+- Vậy thì nó có liên quan thế nào?
+- Đây là mặt trái của sự hoàn thiện.
+- Có thể là Maxine Thompson, nhưng sau đó lại đưa ra nhiều thông tin khác về Maxine mà thực ra không trả lời được câu hỏi.
+- Quá nhiều thứ thừa thãi.
+### Muc 30
+
+- Đó sẽ là một sự liên quan.
+- Đinh.
+- Vì vậy, để đạt điểm cao ở cả ba câu hỏi, câu trả lời phải chính xác.
+- Đúng vậy.
+- Có đầy đủ thông tin rồi.
+- Nó đầy đủ và không có bất kỳ thông tin không liên quan nào.
+- Vậy là mọi thứ đều có liên quan.
+- Đó sẽ là tính chính xác, đầy đủ và phù hợp.
+## Phan 11
+
+### Muc 31
+
+- Nhưng đây đều là những cách để bạn đo lường chất lượng câu trả lời của mình.
+- Vì vậy, có lẽ bạn có thể thấy một sự đánh đổi quen thuộc đang diễn ra ở đây.
+- Đo lường khả năng truy xuất là điều nằm trong tầm kiểm soát của chúng ta.
+- Nếu việc truy xuất dữ liệu gặp trục trặc, chúng ta sẽ biết chính xác phải làm gì.
+- Giống như việc dễ dàng nhìn thấy những gì đang xảy ra, bối cảnh nào đang được đưa ra, chúng ta có thể kiểm soát nó như thế nào.
+- Vì vậy, nó giống như một mô hình rất gần với phép đo thu hồi.
+- nhưng đó không phải là vấn đề kinh doanh cốt lõi mà chúng tôi đang cố gắng giải quyết.
+- Vấn đề kinh doanh cuối cùng mà chúng tôi đang cố gắng giải quyết chính là những câu trả lời hay.
+### Muc 32
+
+- Vì vậy, việc đo lường câu trả lời mặc dù ít nằm trong tầm kiểm soát của chúng ta hơn nhưng lại phù hợp hơn với mục tiêu của người dùng cuối mà chúng ta có.
+- Và tất nhiên, còn có nhiều số liệu khác nữa ở phía hạ lưu.
+- Chúng ta thực sự có thể thu thập phản hồi của người dùng cuối về câu trả lời.
+- Và bạn biết đấy, nếu thỉnh thoảng bạn sử dụng ChatGPT, bạn sẽ nhận được lời nhắc, ừm, nó hoạt động thế nào?
+- Bạn thích câu trả lời nào trong hai câu trả lời sau?
+- Và đó chính là những gì đang diễn ra.
+- Bạn biết đấy, chúng tôi đang thu thập dữ liệu đào tạo để nó có thể, nó có thể, ừm, giải quyết vấn đề và có thể tự sửa trong tương lai.
+- Vì vậy, việc đo lường và nhận phản hồi từ người dùng cuối luôn là cách tốt nhất.
+### Muc 33
+
+- Nhưng đó là nơi xa nhất về phía hạ lưu.
+- Sau đó, việc khó khăn nhất là phải liên kết lại với độ chính xác của mô hình.
+- Vì vậy, nhìn chung chúng ta thường đo lường khả năng truy xuất và sau đó là độ chính xác của câu trả lời.
+- Quá trình truy xuất là quá trình lặp lại nhanh nhất và có thể thấy được tác động tức thời.
+- Câu trả lời khó hơn một chút.
+- Bạn cần kết nối nhiều điểm hơn để tìm ra lý do tại sao câu trả lời không được chấm điểm cao nhưng lại phù hợp hơn với mục tiêu cuối cùng.
+- Được rồi, chúng ta sắp đi làm việc này.
+- Tôi có thể cảm nhận được sự bồn chồn của bạn và tôi sẽ nói thêm một chút nữa rồi chúng ta sẽ bắt đầu làm việc.
+## Phan 12
+
+### Muc 34
+
+- Tôi chỉ muốn cho bạn biết về những số liệu này thôi.
+- Vậy thì MRI.
+- MRI là viết tắt của bậc tương hỗ trung bình.
+- Nghe có vẻ hơi kỹ thuật nhưng thực ra không hẳn vậy.
+- Nó chỉ nói là được thôi.
+- Vậy hãy xem xét xem các khối nổi lên cao đến mức nào.
+- Cú đánh đầu tiên cách mặt đất bao xa?
+- Lần đầu tiên chúng tôi có được nội dung có liên quan.
+### Muc 35
+
+- Và nếu nó ở vị trí đầu tiên thì gọi là số 1.
+- Nếu nó ở vị trí thứ hai, hãy gọi nó là một trên, gọi nó là một trên hai là nghịch đảo của hai một nửa rồi một trên ba, một phần ba, một phần tư, v.v.
+- Vậy thì, phần trên cùng sẽ là một nửa, một phần ba, một phần tư, một phần năm.
+- Và chỉ cần lấy giá trị trung bình của nó.
+- Đó là thứ hạng tương hỗ trung bình.
+- Vì vậy, MRR bằng một có nghĩa là bạn luôn đưa cú đánh vào khối đầu tiên được lấy lại.
+- Vậy thì thật tuyệt vời.
+- Đó là MRI.
+### Muc 36
+
+- Và sau đó là Ndcg.
+- Nhưng nó không phổ biến lắm.
+- Vì vậy, tôi sẽ không, tôi sẽ không bị mắc kẹt ở đây.
+- Tôi sẽ chỉ cho bạn công thức này.
+- Công thức này có chứa logarit.
+- Vậy nên nó không dễ dàng như vậy.
+- Nhưng ý tưởng ở đây là không chỉ nhìn vào cú đánh đầu tiên.
+- Nó xem xét tất cả các lượt truy cập và đặt ra câu hỏi các lượt truy cập trong những phần này được phân bổ tốt như thế nào?
+## Phan 13
+
+### Muc 37
+
+- Liệu những phần có liên quan có xu hướng nằm ở một vài phần đầu tiên hay chúng nằm ở bên dưới không?
+- Vì vậy, vấn đề quan trọng hơn là sự phân bổ các phần trong kết quả của bạn.
+- Nhưng nếu tất cả các phần có nội dung liên quan đều nằm trong số ít phần hàng đầu thì bạn sẽ đạt được mục tiêu hoàn hảo với ndcg của mình.
+- Được rồi.
+- Độ chính xác và khả năng thu hồi là những thuật ngữ rất phổ biến trong học máy từ thống kê.
+- Có thể bạn đã từng nghe đến chúng trước đây.
+- Người ta thường nói như vậy khi nói về độ chính xác và khả năng nhớ lại.
+- Nhưng khi nói đến vải vụn, khả năng nhớ lại là yếu tố quan trọng hơn.
+### Muc 38
+
+- Vậy chúng ta hãy bắt đầu với điều đó.
+- Vậy nên tôi đặt nó ở đây là độ hồi tưởng ở k trong đó k là một số như độ hồi tưởng ở mức ba hoặc độ hồi tưởng ở mức năm.
+- Và điều đó có nghĩa là nhớ lại ở mức ba sẽ là nói xem có bao nhiêu phần trăm bài kiểm tra của bạn nếu bạn làm ba phần đầu, thì đó có phải là một thành công không?
+- Có bối cảnh liên quan trong ba phần trên cùng được gọi là hồi tưởng ở phần ba.
+- Và vì vậy, nếu bạn đạt 50%, điều đó có nghĩa là trong một nửa số trường hợp, một nửa số trường hợp thử nghiệm của bạn, ba phần đầu tiên có bối cảnh liên quan ở đâu đó trong đó.
+- Đó chính là ý nghĩa của việc nhớ lại lúc ba tuổi.
+- Thu hồi ở k có nghĩa là ở k phần trên cùng trong bất kỳ phần trăm nào trong các bài kiểm tra mà bạn đã trúng đích.
+- Và có một điều gì đó tương tự.
+### Muc 39
+
+- Trong trường hợp này, chúng ta sẽ xử lý rất nhiều từ khóa.
+- Ừm, và do đó nó phức tạp hơn một chút vì bạn có thể có trường hợp tất cả các từ khóa nằm trong một khối hoặc một số từ khóa nằm trong các khối khác nhau.
+- Vì vậy, thông thường trong trường hợp này bạn sẽ sử dụng thứ gì đó như tỷ lệ bao phủ từ khóa.
+- Ừm, tỷ lệ phần trăm từ khóa của bạn được bao phủ trong bộ thử nghiệm là bao nhiêu?
+- Nhưng nó khá giống nhau, chỉ là một chút thay đổi nhỏ về khả năng nhớ lại.
+- Đây là một loại thước đo về phong cách thu hồi.
+- Được rồi.
+- Và sau đó độ chính xác là tỷ lệ các khối được đưa lên bề mặt có chứa nội dung có liên quan.
+## Phan 14
+
+### Muc 40
+
+- Vì vậy, nếu K là là là là bằng năm chẳng hạn.
+- Vì vậy, nếu bạn luôn hiển thị năm phần thì trung bình có bao nhiêu phần trong năm phần đó có nội dung liên quan.
+- Bạn thấy đấy, suy nghĩ theo hướng ngược lại thì đúng hơn.
+- Vì vậy, điểm số 50% có nghĩa là được, trong khoảng một nửa số phần được đưa lên trên mỗi tờ báo của chúng tôi, chúng tôi sẽ đưa ra nội dung có liên quan, bối cảnh có liên quan, ngay cả khi điều đó đúng với tất cả các trường hợp thử nghiệm, 100% các trường hợp thử nghiệm, nhưng độ chính xác của bạn là 50%.
+- Nếu trong mỗi trường hợp, nó chỉ chiếm một nửa trong top năm.
+- Ừm, ừm, trung bình, tôi đoán nếu là sáu, thì sẽ có ba trong sáu, ừm, bị đánh vào khối đó.
+- Vì vậy, câu hỏi này có vẻ hơi khó hiểu vì bạn có thể nghĩ, được rồi, vậy thì sao?
+- Tại sao tôi lại quan tâm đến việc những gì chắc chắn nhớ lại lại quan trọng hơn nhiều?
+### Muc 41
+
+- Tôi muốn biết có bao nhiêu phần trăm bài kiểm tra của tôi đạt kết quả tốt.
+- Vâng, câu trả lời là nếu điều bạn thực sự quan tâm là đảm bảo rằng bạn không lãng phí thời gian của người mẫu vào nội dung không liên quan và gây mất tập trung.
+- Nếu đó là vấn đề đối với bạn, nếu các phần xấu xuất hiện, thì độ chính xác sẽ là vấn đề vì bạn thực sự muốn xem xét kỹ lưỡng độ chính xác, vì đó là những gì độ chính xác đang nắm bắt.
+- Bao nhiêu phần trăm trong số các khối của bạn là trúng đích?
+- Ờ, đúng là như vậy đấy.
+- Nhưng điều này không phổ biến lắm.
+- Bạn có thể tưởng tượng rằng chúng tôi không quan tâm nhiều đến việc có nội dung không liên quan trong đó hay không.
+- Điều chúng tôi thực sự quan tâm là khả năng nhớ lại hoặc phạm vi từ khóa.
+### Muc 42
+
+- Chúng tôi thực sự muốn đảm bảo rằng chúng tôi đang làm tốt việc đưa ra những điều quan trọng ở đâu đó trong các phần.
+- Tốt nhất là nên đặt ở vị trí cao trong các phần sẽ hiển thị khi người dùng đặt câu hỏi.
+- Được rồi.
+- Và tôi nhận ra tôi đã nói với bạn rất nhiều điều.
+- Rất nhiều thứ như biểu thức, toán học và những thứ tương tự, nhưng chúng không thực sự quan trọng.
+- Thật hữu ích khi bạn đã thấy và nghe những định nghĩa này.
+- Chúng ta sẽ xem xét chúng.
+- Chúng ta sẽ xem xét mã.
+## Phan 15
+
+### Muc 43
+
+- Chúng ta sẽ chơi với nó.
+- Tôi nghĩ biết về MRI là một điều tốt.
+- Vì vậy, chúng ta sẽ đề cập thêm về vấn đề đó.
+- Hiểu được ý nghĩa của phạm vi từ khóa là điều khá hiển nhiên và hiểu rằng đó là một chỉ số về kiểu thu hồi thông tin.
+- Mọi chuyện đều ổn.
+- Và phần còn lại thì không thực sự quan trọng.
+- Nhưng tất nhiên, khi hiểu được ba điều mà bộ kiểm tra quản lý đặt ra, hãy đo lường hiệu quả truy xuất của bạn và đo lường chất lượng câu trả lời của bạn theo cách khoa học để thực hiện và sử dụng điều đó làm cơ sở cho quá trình thử nghiệm.
+- Đó chính là chìa khóa.
+### Muc 44
+
+- Đó chính là vấn đề.
+- Và đó chính là những gì chúng ta sẽ làm ngay bây giờ.
+- Được rồi, chúng ta đang ở Corsa.
+- Chúng ta đang bước sang tuần thứ năm.
+- Chúng ta đang bước sang ngày thứ tư.
+- Chào mừng đến với phần đánh giá.
+- Đây là một chủ đề rất quan trọng và tôi muốn bạn ghi nhớ cách bạn sẽ áp dụng điều này vào doanh nghiệp của mình.
+- Hãy nhớ rằng tuần lễ này rất hữu ích cho bất kỳ doanh nghiệp nào.
+### Muc 45
+
+- Đây là một trong những giải pháp LM có thể áp dụng ngay lập tức.
+- Và hãy thực sự suy nghĩ về cách bạn có thể áp dụng điều này vào các vấn đề kinh doanh mà bạn gặp phải.
+- Tôi thường thấy mọi người quá tập trung vào kiến trúc và những thứ như tôi nên sử dụng framework Rag nào?
+- Tôi có nên sử dụng chuỗi dài hay không?
+- Tôi có nên sử dụng bất kỳ loại nào trong số những loại này không?
+- Và tôi thường cảm thấy rằng đó là vì các kỹ sư đang rơi vào vùng an toàn của mình khi đặt ra những câu hỏi về kiến trúc.
+- Thành thật mà nói, việc bạn sử dụng chuỗi dài hay không cũng không quan trọng, vì điều đó không tạo ra sự khác biệt nào cả.
+- Vấn đề chỉ là bạn có sử dụng mã keo của họ hay không.
+## Phan 16
+
+### Muc 46
+
+- Điều gì tạo nên sự khác biệt?
+- Bạn đánh giá thành công như thế nào?
+- Bạn đã thực sự nghĩ kỹ về điều đó chưa?
+- Bạn đã nghĩ đến cách điều chỉnh hiệu suất của hệ thống Rag sao cho phù hợp với mục tiêu kinh doanh cuối cùng chưa?
+- Đó là điều khó khăn.
+- Và bạn có thể nói rằng điều đó nghe có vẻ giống như vấn đề kinh doanh hơn là kỹ thuật, nhưng những người thực sự có thể hiểu được điều đó là những người làm kỹ thuật.
+- Chính bạn, với kiến thức về vấn đề bạn đang cố gắng giải quyết, có thể kết nối những điểm đó lại với nhau.
+- Và đó là lý do tại sao việc có thể làm được điều đó lại là một siêu năng lực.
+### Muc 47
+
+- Kết nối các điểm giữa những gì bạn đang làm ở đây và kết quả kinh doanh cuối cùng.
+- Được rồi.
+- Hết lời phàn nàn.
+- Chúng ta hãy bắt đầu nhé.
+- Vì vậy, chúng ta sẽ thực hiện một số đánh giá trong sổ tay.
+- Và sau đó chúng ta sẽ chuyển sang các mô-đun.
+- Và tôi có một vài điều muốn chỉ ra cho bạn.
+- Tôi có một gói Python hoàn chỉnh ở đây có tên là evaluation, một thư mục trong tuần thứ năm.
+### Muc 48
+
+- À, và nếu chúng ta nói đến vấn đề này, có một vài điều tôi muốn chỉ cho bạn biết.
+- Một trong số đó là thế này.
+- Tập tin này kiểm tra.
+- Bạn biết jsonl là gì chứ, bạn biết mà.
+- Được thôi, vậy thì đừng nghe phần này nữa.
+- L là loại tệp JSON trong đó mỗi dòng là một tài liệu JSON được định dạng chuẩn, nhưng toàn bộ tệp thì không.
+- Và bạn có thể nghĩ thế nào?
+- Nói cách khác, nó giống như một danh sách JSON, nhưng không có dấu ngoặc vuông ở hai bên và không có dấu phẩy ở cuối mỗi dòng.
+## Phan 17
+
+### Muc 49
+
+- Mỗi dòng là một từ điển, một đối tượng JSON riêng biệt.
+- Và vì vậy bạn có thể nói, được thôi, tại sao không đưa nó vào một bộ sưu tập và đặt dấu phẩy?
+- Bởi vì định dạng tệp này thuận tiện hơn nhiều vì có thể thêm vào một cách nhanh chóng.
+- Bạn có thể thêm các dòng vào đó và điều này thuận tiện hơn nhiều cho những việc như thế này, vì nó giống như phiên bản JSON của tệp CSV trong đó mỗi dòng đại diện cho một hàng và các tệp này rất phổ biến đối với những thứ như dữ liệu thử nghiệm.
+- Và chúng sẽ rất phổ biến đối với dữ liệu hàng loạt mà chúng ta sẽ sử dụng tại một thời điểm nào đó khi thực hiện các lệnh gọi API hàng loạt.
+- Thật tốt khi bạn đã biết về Jsonl nếu bạn đã từng làm.
+- Vì vậy, ở mỗi hàng ở đây tôi có một câu hỏi.
+- Và câu hỏi ở hàng đầu tiên có thể quen thuộc với bạn, một câu hỏi như ai đã giành được giải thưởng danh giá năm 2023.
+### Muc 50
+
+- Một số từ khóa.
+- Đây là những từ cần được nêu trong ngữ cảnh, và sau đó câu trả lời tham khảo sẽ xuất hiện.
+- Và tôi tin là tôi cũng xếp từng cái vào một danh mục.
+- Bạn sẽ thấy ở phần cuối thực sự có một danh mục sự thật trực tiếp.
+- Vì vậy, mỗi loại đều được phân loại để thuận tiện cho chúng ta.
+- Bây giờ bạn có thể nói, đây có phải là định dạng chuẩn cho các bài kiểm tra không?
+- Không, không có định dạng chuẩn cụ thể nào cả.
+- Mặc dù khi chúng ta xem dữ liệu trong Huggingface, bạn sẽ thấy có định dạng huggingface, nhưng đây chỉ là tệp JSON, giống như tệp CSV chứa đầy nội dung mà chúng ta sẽ sử dụng để thử nghiệm.
+### Muc 51
+
+- Bạn có thể sử dụng bất kỳ định dạng nào bạn muốn vì chúng ta sẽ tải nó bằng Python ngay bây giờ.
+- Vì vậy, tôi có mô-đun Python này là Test.
+- con nhện.
+- Đây là một mô-đun Python rất phức tạp.
+- Nó là một, nó sử dụng từ ngữ khoa trương, ừm, và tôi nghĩ rằng hầu hết các bạn có lẽ đã từng trải nghiệm từ khoa trương theo một cách nào đó.
+- Tôi sẽ không đề cập chi tiết đến vấn đề này ngay bây giờ, nhưng có lẽ chúng ta sẽ đề cập đến nó khá nhiều lần trong quá trình này.
+- Ừ, nhưng đây là cách mô tả lược đồ JSON bằng một đối tượng Python bằng cách để một đối tượng Python là một lớp con của mô hình cơ sở.
+- Và trong chương trình học của tôi, chúng tôi sử dụng rất nhiều Pydantic vì nó đi kèm với rất nhiều khung lập trình khổng lồ, vì vậy bạn nhập mô hình cơ sở và sau đó bạn có thể thấy ở đây tôi tạo ra thứ gọi là câu hỏi kiểm tra có các từ khóa câu hỏi, câu trả lời tham khảo và danh mục.
+## Phan 18
+
+### Muc 52
+
+- Và tôi có một chức năng duy nhất để kiểm tra tải tất cả chúng bằng những thứ rất đơn giản.
+- Tất cả những điều này chỉ là mã Python mẫu.
+- Và điều đó có nghĩa là tôi quay lại đây, cuốn sổ ghi chép này vừa chạy cách đây một giây.
+- Tôi có thể nhập chính mô-đun mà chúng ta vừa xem xét để kiểm tra.
+- Tôi có thể gọi các bài kiểm tra tải và điều đó chỉ cần tải tất cả chúng vào.
+- Để tôi cho bạn biết có bao nhiêu cái nhé.
+- Có 150 bài kiểm tra như thế này.
+- Được rồi.
+### Muc 53
+
+- Chúng ta hãy thực hiện bài kiểm tra đầu tiên ở vị trí số 0.
+- Và sau đó nếu chúng ta chỉ tải nó trong JSON, chúng ta sẽ phải xử lý nó như một từ điển và chọn từng mục trong dấu ngoặc vuông.
+- Nhưng vì chúng ta đang sử dụng Pydantic nên chúng ta có thể gọi tên biến Python là question, category, reference answer và keywords.
+- Chúng ta hãy cùng xem nhé.
+- Vậy câu hỏi đặt ra là ai đã giành được Giải thưởng Jyoti danh giá năm 2023.
+- Loại nào?
+- Thể loại.
+- Đó là sự thật hiển nhiên.
+### Muc 54
+
+- Câu trả lời Maxine Thompson đã giành được giải thưởng nhà đổi mới danh giá của năm vào năm 2023.
+- Và từ khóa Maxine Thompson I o t y không có gì đáng ngạc nhiên.
+- Bạn có thể thấy nó được tải từ jsonl.
+- Chúng tôi đã có một loạt các bài kiểm tra.
+- Bạn có thể làm điều tương tự cho doanh nghiệp của mình.
+- Đây đều là những thông tin rất chuẩn mực.
+- Và vâng, hy vọng là bạn sẽ nghĩ rằng, trời ơi, biên tập viên là người làm việc chăm chỉ để viết 150 câu hỏi đó.
+- Nhưng hy vọng là bạn không nghĩ như vậy vì bạn biết rõ là tôi đã viết bài đầu tiên và sau đó tôi nói, được thôi, Claude.
+## Phan 19
+
+### Muc 55
+
+- Vâng.
+- Ồ, và tất nhiên, bạn không chỉ biết rằng llms rất tuyệt vời trong việc tạo dữ liệu tổng hợp mà bạn thậm chí có thể đã tự xây dựng một trình tạo dữ liệu tổng hợp trong tuần thứ ba như một phần của bài tập đó.
+- Trong trường hợp đó, bạn có thể thấy rằng bạn thực sự đã thử nghiệm với việc xây dựng các tập dữ liệu JSON và có thể bạn đã tạo một tập dữ liệu JSON, nhưng nếu chưa, bạn có thể quay lại và sử dụng nó để tạo một tập dữ liệu cho doanh nghiệp của mình để bạn có thể sử dụng để thử nghiệm sản phẩm của riêng mình.
+- Được rồi.
+- Được thôi.
+- Điều tiếp theo chúng ta sẽ làm là xem có bao nhiêu trong từng danh mục.
+- Và đây là một chút thú vị của Python.
+- Nếu bạn chưa quen, có một lớp gọi là Counter and Collections cho phép bạn đếm các thứ như số lượng danh mục.
+### Muc 56
+
+- Chúng ta có thể làm được điều đó.
+- Và chúng ta có thể thấy chúng ta có 70 câu hỏi liên quan đến sự kiện trực tiếp, 20 câu hỏi liên quan đến thời gian, một phần tư liên quan đến thời gian.
+- Một người đã ở đâu đó trong bao lâu?
+- Câu hỏi kiểu đó, 20 câu hỏi được xếp vào một danh mục gọi là mở rộng, đây là những câu hỏi mà rag thực sự gặp khó khăn, là những câu hỏi đòi hỏi bạn phải xem xét nhiều tài liệu mới có thể trả lời được, chẳng hạn như có bao nhiêu nhân viên có mức lương trên 60.000 đô la?
+- Và đó chính là điểm yếu của vải vụn, vì nó không nằm trong bất kỳ khối vải nào.
+- Sẽ có nhiều người so sánh, những người đã tồn tại lâu hơn.
+- Hai nhân viên có số lượng và bất cứ điều gì liên quan đến việc ai có mức lương cao hơn mức này hoặc điều gì đó tương tự như vậy, mối quan hệ ai báo cáo với ai, những thứ đại loại như vậy.
+- Và toàn diện.
+### Muc 57
+
+- Một điểm yếu khác của vải vụn là một câu hỏi liên quan đến mọi thứ nói chung mà bạn chỉ có thể biết nếu bạn đọc nhiều tài liệu.
+- Vì vậy, điều này thực sự khó khăn đối với giẻ rách vì nó chỉ chọn được một vài đoạn tại một thời điểm.
+- Vì vậy, cả hai phạm trù bao quát và toàn diện, tôi chỉ có một số ít câu hỏi, nhưng đây là hai trong số những lĩnh vực mà rag gặp khó khăn nhất.
+- Được thôi, nếu tất cả những điều này có vẻ quá nhiều đối với bạn và bạn muốn hành động nhiều hơn, chúng ta sẽ bắt đầu ngay.
+- Nhưng đây là điều tốt.
+- Đây chính là loại khoa học dữ liệu này.
+- Đây là một chút về khoa học dữ liệu và chính điều này tạo nên sự khác biệt thực sự cho dự án của bạn.
+- Vì vậy, tôi có một mô-đun có tên là eval trong gói đánh giá này.
+## Phan 20
+
+### Muc 58
+
+- Và phần này dài hơn một chút.
+- Và tôi không có ý định hướng dẫn bạn chi tiết về vấn đề này.
+- Tôi chỉ muốn cho bạn thấy rằng về cơ bản có hai điều đang diễn ra ở đây.
+- Có một phương pháp đánh giá khả năng truy xuất được thực hiện bằng một bài kiểm tra và nó sẽ xác định khả năng truy xuất đó tốt đến mức nào.
+- Và còn một cách khác gọi là đánh giá câu trả lời và đánh giá.
+- Việc truy xuất chỉ là tính toán MRR, thứ hạng nghịch đảo trung bình.
+- Và bạn có thể thấy rằng nó sẽ rất đơn giản.
+- Chúng ta sẽ đi xem sao.
+### Muc 59
+
+- Nó chỉ lấy giá trị trung bình của tất cả các từ khóa.
+- Nó cũng sẽ tính toán phạm vi bao phủ của từ khóa, tức là số từ khóa được tìm thấy trên tổng số từ khóa.
+- Ừ, thì ra các từ khóa trong bài kiểm tra này đã được đề cập kỹ đến vậy.
+- Và sau đó, ừ, đúng rồi, đó là, đó là ừ, nó cũng sẽ tính toán ndcg, mà nó thực hiện ngay tại đây.
+- Ừ, vậy chúng ta hãy xem qua những phép tính này thật nhanh nhé.
+- MRR, đó là thứ tôi thực sự muốn tập trung nhất vào thứ hạng tương hỗ trung bình.
+- Nhìn xem nó dễ thế nào.
+- Nó chỉ nói nếu tìm thấy một, nó sẽ trả về một chia cho hạng, vì vậy nếu ở vị trí một, nó sẽ thực hiện phép chia một cho một bằng một.
+### Muc 60
+
+- Nếu ở vị trí thứ hai, nó sẽ là một nửa, ở vị trí thứ ba, nó sẽ là một phần ba.
+- Siêu dễ.
+- Vậy thôi.
+- Bạn có thể xem cách tính ndcg.
+- Nó tính toán thứ này.
+- Bạn có thể thấy nó có logarit của 1 cộng 2 ở bên dưới.
+- Nếu bạn quen thuộc với những thứ này, bạn sẽ biết chính xác những gì đang diễn ra.
+- Ngoài ra, điều đó không thực sự quan trọng.
+## Phan 21
+
+### Muc 61
+
+- Tôi không muốn sa lầy vào toán học.
+- Bạn sẽ thấy khá rõ ràng điều đó được phản ánh qua các con số.
+- Ừm, nhưng đó là cái gọi là chuẩn hóa, nghĩa là nó cố gắng đảm bảo rằng nếu điều tốt nhất có thể làm được, xét theo ngữ cảnh, là có hai, hai thứ trên bề mặt, hai phần tốt, thì nó chỉ muốn đảm bảo rằng hai phần đó và hai vị trí đầu tiên, và nó sẽ không bị phạt vì các phần khác không có nội dung.
+- Vậy đó chính là mục đích của việc bình thường hóa.
+- Và đó, đó là điều bạn sẽ thấy ở đây.
+- Được rồi.
+- Vậy đó là cách tính toán quá trình truy xuất.
+- Đó là cách chúng tôi tính toán tất cả các số liệu đó.
+### Muc 62
+
+- Và bây giờ tôi muốn cho bạn xem câu trả lời đánh giá.
+- Đó là điều khác nữa.
+- Hãy nhớ rằng chúng ta đã đánh giá quá trình truy xuất bằng cách tính toán các số liệu thống kê đó.
+- Đánh giá câu trả lời là lúc chúng tôi quyết định sử dụng LLM làm giám khảo.
+- Chúng tôi sẽ liên hệ với một LLM và hỏi xem câu trả lời này so với câu trả lời tham khảo như thế nào?
+- Bây giờ tôi sẽ sử dụng một kỹ thuật đặc biệt được gọi là đầu ra có cấu trúc, đây là một kỹ thuật thực sự mạnh mẽ và thực sự hữu ích.
+- Nhưng tôi sẽ không giải thích điều này với bạn vì chúng ta sẽ quay lại vấn đề này sau.
+- Vì vậy, bạn sẽ phải tin chắc rằng tôi đang làm điều gì đó thông minh và nó hiệu quả, cực kỳ hữu ích và bạn sẽ sử dụng nó thường xuyên.
+### Muc 63
+
+- Nếu bạn đã tham gia khóa học của tôi một lần nữa, bạn đã sử dụng rất nhiều đầu ra có cấu trúc, vì vậy chúng ta sẽ sử dụng lại.
+- Nhưng tôi sẽ không đi tiếp.
+- Tôi sẽ cho bạn biết một chút trực giác về nó.
+- Tôi sẽ gieo hạt giống vì chúng ta sẽ quay lại với nó.
+- Nhưng để đánh giá câu trả lời thì rất đơn giản là gọi đến một LLM.
+- Nó sẽ nói với LLM, trước tiên chúng ta sẽ làm điều này ngay tại đây.
+- Chúng ta sẽ gọi là câu trả lời cho câu hỏi.
+- Bây giờ hãy trả lời câu hỏi.
+## Phan 22
+
+### Muc 64
+
+- Nghe có quen không?
+- Bạn có biết điều đó không?
+- Tôi hy vọng là vậy, vì câu trả lời cho câu hỏi chính là nội dung chúng ta đã viết ngày hôm qua.
+- Câu trả lời nằm ở phần triển khai.
+- Nó chính là thứ này đây.
+- Đó là thứ bắt đầu bằng năm dòng mã và hiện đã được phát triển thêm một chút.
+- Nó giống như 7 hoặc 8, ừm, giống như mười.
+- Ờ, nhưng nó ở đó.
+### Muc 65
+
+- Đây là câu trả lời cho câu hỏi.
+- Đây là phương pháp chính thực sự quyết định chức năng quyết định cách trả lời một câu hỏi cụ thể sau khi tra cứu ngữ cảnh.
+- Vậy đó là những gì chúng tôi đã làm.
+- Ừm, ừm, quay lại đánh giá.
+- Vì vậy, chúng tôi sẽ thu thập câu trả lời đó.
+- Trên thực tế, chúng tôi gọi đây là để có được câu trả lời.
+- Và sau đó có một lời nhắc ở đây khi tôi nhắc nhở một LM, bạn là một chuyên gia đánh giá chất lượng câu trả lời.
+- Đánh giá câu trả lời được tạo ra bằng cách so sánh với câu trả lời tham khảo.
+### Muc 66
+
+- Chỉ cho điểm 5/5 cho câu trả lời hoàn hảo.
+- Và sau đó tôi đặt câu hỏi.
+- Đây chính là câu hỏi.
+- Câu trả lời được tạo ra.
+- Đây là câu trả lời được tạo ra.
+- Câu trả lời tham khảo.
+- Và đây là câu trả lời tham khảo.
+- Và sau đó nó yêu cầu hãy đánh giá câu trả lời được tạo ra theo những chiều hướng này.
+## Phan 23
+
+### Muc 67
+
+- Được rồi.
+- Đó là lời kêu gọi chúng ta gửi tới LLM để đánh giá hiệu suất của mình.
+- Và chúng ta đang sử dụng light LM ở đây tôi đã nhập light LM.
+- Đây là hàm hoàn thành mà tôi hy vọng bạn còn nhớ.
+- Thật đẹp.
+- Thật dễ dàng.
+- Trước khi tôi cho bạn xem kết quả có cấu trúc, tôi cảm thấy bạn cần phải thấy điều gì đó hoạt động.
+- Nói nhiều quá rồi.
+### Muc 68
+
+- Chúng ta hãy quay lại ngày thứ tư và xem xét điều này.
+- Vì vậy, từ eval, chúng ta sẽ nhập lệnh truy xuất đánh giá.
+- Đây là công cụ tính toán số liệu thống kê và đánh giá câu trả lời.
+- Đó chính là công việc của LLM với tư cách là thẩm phán.
+- Vì vậy, chúng ta sẽ thực hiện những lần nhập khẩu đó.
+- Và bây giờ khi nhập khẩu thì sẽ mất nhiều thời gian.
+- Ừm, bây giờ chúng ta sẽ gọi là đánh giá và truy xuất.
+- Vậy thì đây là câu hỏi dành cho câu hỏi này.
+### Muc 69
+
+- Người đã giành được giải thưởng IIoT danh giá mà bạn sẽ nhớ.
+- Nó rất nhanh.
+- Bạn nhớ rằng ừm, ừm, và thực ra không phải tất cả những gì nó làm là lấy lại bối cảnh có liên quan và sau đó đánh giá bối cảnh đó.
+- Đó là việc đánh giá việc lấy lại.
+- Và bạn còn nhớ rằng chúng ta đã đưa khối đá lên mặt nước bằng Maxine, nhưng nó không có họ và thực ra nó không phải vậy.
+- Tôi không nghĩ nó ở vị trí quá cao.
+- Và chắc chắn là bạn thấy MRR ở đây đang chỉ ra rằng phần thông tin quan trọng nổi lên nằm ở phía dưới một chút.
+- Và cái này, cái này, ừm, DCG là một con số khá thấp.
+## Phan 24
+
+### Muc 70
+
+- Đã tìm thấy hai từ khóa, nhưng chúng nằm ở phía dưới.
+- Đây là một trong ba từ khóa có thể có.
+- Và do đó phạm vi từ khóa là hai phần ba, vì chúng tôi có thể tìm thấy hai phần ba số từ khóa trong lần tra cứu cụ thể này.
+- Đó là phạm vi từ khóa tương tự như số liệu về kiểu thu hồi.
+- Được rồi.
+- Đó là số liệu thống kê thu thập của chúng tôi.
+- Bạn có thể thấy nó hoạt động hoàn hảo.
+- Bạn có thể quay lại và xem qua mã.
+### Muc 71
+
+- Nếu bạn muốn biết công thức này có logarit của hai cộng n ở mẫu số hay không, hãy quay lại và xem lại.
+- Và bạn cũng có thể tra cứu trên Google để biết công thức và lý do chính xác cũng như cách thức hoạt động và lý do tại sao.
+- Nhưng nó không phổ biến bằng MRI và phạm vi từ khóa.
+- Đó là những điều thực sự phổ biến.
+- Đây là số liệu thống kê để kiểm tra hiệu quả của việc thu hồi Rag của bạn.
+- Được thôi.
+- Bây giờ chúng ta sẽ gọi người lớn là người đánh giá.
+- Trả lời.
+### Muc 72
+
+- Đây chính là thứ thực sự làm nên vai trò của LM như một thẩm phán.
+- Vì vậy, tôi chạy chương trình này và về cơ bản nó sẽ thực hiện việc thu gom giẻ rách.
+- Sau đó, nó sẽ gọi LM để trả lời câu hỏi bằng hàm trả lời mà chúng ta đã thấy trong quá trình triển khai.
+- Và sau đó gọi LM làm thẩm phán để phán xét.
+- Và chúng tôi đã quay lại đánh giá.
+- Và ở đây nó nói rằng câu trả lời xác định đúng Maxine vì người chiến thắng đề cập đến giải thưởng IoT, nhưng lại bỏ qua tên đầy đủ của Thompson, tên này có trong tài liệu tham khảo.
+- Và tôi thực sự có thể in ra bốn trường phản hồi, độ chính xác, tính đầy đủ và tính liên quan.
+- Đây là bốn lĩnh vực, ừm, và ừm, nó, ừm, nó cung cấp một số.
+## Phan 25
+
+### Muc 73
+
+- Tôi hiểu rồi, tôi hiểu rồi, vậy là nó cho điểm 5 về độ chính xác, về độ hoàn chỉnh vì nó không nói là Thompson để đạt được 5/5, chúng ta cần có họ của cô ấy nhưng 5 điểm về độ liên quan vì nó chỉ chứa thông tin có liên quan.
+- Vì vậy, nó vẫn cho điểm tốt, mặc dù câu trả lời thiếu từ Thompson để đạt được năm, năm, năm, nó cũng cần phải có từ đó nữa.
+- Và điều đó hoàn toàn có lý.
+- Vì vậy, điều này cho thấy LMS đóng vai trò là thẩm phán đánh giá câu hỏi này.
+- Và nó hoạt động thực sự tốt.
+- Tôi đã nói với bạn là tôi muốn quay lại và xem nhanh đoạn mã sau khi chúng ta thấy nó chạy, nếu chúng ta quay lại chỉ để xem lại nó.
+- Vì vậy, tôi đã đề cập rằng chúng ta đang sử dụng LMS nhẹ.
+- Vì vậy, thay vì OpenAI tạo ra nó, tôi chỉ truyền các thông tin hoàn thiện vào mô hình, tôi truyền các thông điệp mà chúng tôi vừa tạo ra.
+### Muc 74
+
+- Và sau đó còn có thứ này nữa mà tôi đang truyền vào một thứ khác gọi là định dạng phản hồi.
+- Và sau đó tôi sẽ đưa câu trả lời này vào để đánh giá.
+- Chuyện đó là sao vậy?
+- Vâng, đây là thứ gọi là đầu ra có cấu trúc, tức là khi bạn gọi một LM và nói rằng, này, tôi không muốn bạn chỉ trả lời bằng một ngôn ngữ cũ nào đó.
+- Tôi muốn bạn phản hồi bằng JSON và tôi muốn nó phải tuân theo lược đồ mà tôi sẽ cho bạn biết, tôi cần JSON được định dạng theo một cách cụ thể.
+- Và với LM nhẹ, bạn có thể làm điều đó bằng cách truyền vào một đối tượng phức tạp.
+- Ý tôi là nếu chúng ta đến đây, bạn sẽ thấy một cái ngay đây.
+- Đây là một vật thể mang tính giáo điều.
+### Muc 75
+
+- Đây là lớp con của mô hình cơ sở.
+- Và tôi định nghĩa các lĩnh vực ở đây là phản hồi, độ chính xác, tính đầy đủ và tính liên quan.
+- Nghe quen quá.
+- Vậy là chúng ta vừa mới thấy một giây trước.
+- Phải.
+- Ừm, và với mỗi loại, tôi sẽ mô tả một chút.
+- Và vì tôi đang chuyển lớp này vào, nên khi tôi gọi đến light LM, điều đó có nghĩa là phải cuộn xuống.
+- Lấy làm tiếc.
+## Phan 26
+
+### Muc 76
+
+- Tìm lại xem.
+- Điều đó có nghĩa là vì tôi đã truyền thông tin đó vào nên bất kỳ phản hồi nào mà AI mở tạo ra đều sẽ tuân theo thông số kỹ thuật đó.
+- Và nó sẽ như vậy.
+- Nó sẽ tạo ra thứ gì đó giống Jason, phản ánh vật thể đó.
+- Và điều đó có nghĩa là chúng ta có thể lấy bất cứ thứ gì trả về và biến nó thành một đối tượng đánh giá câu trả lời.
+- Vì thế nếu tôi lạc mất bạn ở đó.
+- Đừng lo lắng về điều đó.
+- Chúng ta sẽ đề cập đến các kết quả có cấu trúc trong tuần thứ tám.
+### Muc 77
+
+- Nó thực sự rất quan trọng.
+- Thành thật mà nói, nó thực sự hữu ích.
+- Đây là một công cụ tuyệt vời để giúp llms của bạn tạo ra những sản phẩm đầu ra chất lượng cao và nhất quán.
+- Ừ, trong khóa học.
+- Chúng tôi sử dụng nó mọi lúc.
+- Vì vậy, nếu bạn đến đây từ khóa học của tôi, thì bạn biết đấy, các kết quả đầu ra có cấu trúc từ trước ra sau, bạn sẽ nghĩ, được rồi, dừng lại.
+- Nhưng nếu bạn mới biết đến nó, hãy cố gắng có trực giác.
+- Hãy để tôi gieo một hạt giống.
+### Muc 78
+
+- Ừ, chúng ta sẽ nói thêm về đầu ra có cấu trúc trong tương lai.
+- Nhưng bạn có thể thấy rằng chúng tôi đã buộc LLM phải đưa ra câu trả lời này.
+- Và bây giờ tôi đang sử dụng GPT bốn một nano ngay tại đây và chạy cái này trong một giây.
+- Tất nhiên, chúng ta sắp chạy điều này cho toàn bộ tập kết quả.
+- Và nó sẽ tốn khoảng 0 đô la.
+- 02.
+- 2 đến 0 đô la.
+- 03 tối đa là bao nhiêu tiền.
+## Phan 27
+
+### Muc 79
+
+- Vừa đẹp vừa rẻ.
+- Nó không quá rẻ, nhưng nếu bạn muốn nó miễn phí, bạn có thể chỉ cần thay đổi nó thành mô hình Obama.
+- Bạn có thể thực hiện nó tại địa phương.
+- Bạn có thể chọn bất kỳ mô hình nào bạn muốn, thực hiện thông qua light LM hoặc bạn có thể chỉ cần thay thế cuộc gọi đó bằng light LM bằng cuộc gọi mà bạn chọn.
+- Ừm, nhưng giả sử Lemkin có thể nói chuyện với Obama.
+- Nó có thể giao tiếp với bất cứ thứ gì khác.
+- Ừm, nhưng tôi khuyên bạn nên giữ lại một nano nếu bạn không ngại chi khoảng 10 hoặc 0 đô la.
+- 15, sau đó bạn có thể chọn một mini và có thể có được kết quả chính xác hơn.
+### Muc 80
+
+- Chắc chắn bạn sẽ nhận được những kết quả quan trọng hơn một chút vì mini có thể suy nghĩ thấu đáo và có thể quan trọng hơn một chút.
+- Ừm, nhưng dù sao thì Nano vẫn sẽ làm tốt công việc này.
+- Hiện tại, điều đó tốt cho chúng ta.
+- Điều này cho chúng ta thấy cách chúng ta sử dụng GPT cho một nano với tư cách là LM làm giám khảo và chúng ta sử dụng các đầu ra có cấu trúc để khiến nó phản hồi theo cách này với phản hồi và điểm số của nó.
+- Được rồi, đã đến lúc hành động.
+- Bạn đang chờ đợi hành động.
+- Chờ đợi!
+- Không còn nữa.
+### Muc 81
+
+- Đã đến lúc rồi.
+- Có lớp học này ở đây.
+- Người đánh giá.
+- Và đó chính là.
+- Đó là công việc kinh doanh.
+- Đó chính là nơi mọi chuyện xảy ra.
+- Và nó giống như một sự tưởng tượng.
+- Giống như ứng dụng Gradio.
+## Phan 28
+
+### Muc 82
+
+- Bạn nhìn qua, bạn sẽ thấy nó rất tinh xảo.
+- Và tôi sẽ không hướng dẫn bạn sử dụng ứng dụng Gradio này.
+- Và bạn đang tự hỏi tại sao lại không?
+- Bởi vì tôi không viết nó.
+- Tôi nhờ Claude viết bài này vì llms giỏi một số thứ.
+- Chúng có vấn đề.
+- Chúng rất đau đớn, đặc biệt là với một số thứ như khoa học dữ liệu, điều này có thể rất khó khăn.
+- Nhưng khi nói đến việc xây dựng giao diện người dùng, nếu bạn đã viết sẵn logic nghiệp vụ trong một thứ gì đó như eval, và bạn muốn có một giao diện người dùng và bạn có thể mô tả nó, thì họ sẽ rất tuyệt vời khi chỉ cần tạo ra một ứng dụng Gradio.
+### Muc 83
+
+- Và miễn là bạn có thể xem qua, đọc lại và chỉnh sửa nó thì bạn đã rất tuyệt rồi.
+- Và đó chính là những gì tôi đã làm ở đây.
+- Vì vậy, tôi chắc chắn sẽ không hướng dẫn bạn thực hiện việc này.
+- Chúng ta không cần phải được hướng dẫn.
+- Tất cả những gì chúng ta cần làm là chạy nó và xem giao diện người dùng trông như thế nào khi chạy đánh giá.
+- Được rồi, bắt đầu thôi.
+- Bạn đã chạy.
+- Ồ, xin lỗi.
+### Muc 84
+
+- Đầu tiên tôi phải bước sang tuần thứ năm.
+- Hãy bước sang tuần thứ năm, như bạn đã nói.
+- Và sau đó bạn chạy đánh giá.
+- Ừm, trình đánh giá chấm pi.
+- Và sau đó chúng ta hãy xem điều gì xảy ra.
+- Vậy đây là giao diện người dùng, nếu may mắn, nếu Claude đã hoàn thành nhiệm vụ của mình, thì sẽ.
+- Đấy, thế là xong.
+- Rất tuyệt.
+## Phan 29
+
+### Muc 85
+
+- Nó được phóng to.
+- Để tôi thu nhỏ lại một chút để chúng ta có thể nhìn thấy mọi thứ.
+- Đây rồi.
+- Đấy, thế là xong.
+- Bây giờ bạn có thể thấy mọi thứ trên một màn hình.
+- Vậy là có hai tấm kính.
+- Có đánh giá chạy uh để đánh giá truy xuất và đánh giá chạy để đánh giá câu trả lời.
+- Vậy chúng ta hãy xem điều gì xảy ra khi tôi nhấn nút này ngay tại đây.
+### Muc 86
+
+- Vậy thì bắt đầu thôi.
+- Đó là việc đánh giá.
+- Nó khá nhanh.
+- Và bùm, đây là kết quả của chúng ta.
+- Tôi có thể phóng to hình ảnh này vì chúng ta chỉ nhìn vào nửa trên.
+- Chúng ta bắt đầu thôi.
+- Vì vậy, chúng ta thấy số liệu thống kê MRI của chúng ta là thứ hạng tương hỗ trung bình.
+- Ta được 0.
+### Muc 87
+
+- 7298 ndcg mà bạn nhớ giống như cách phân phối tốt của tất cả các kết quả xếp hạng.
+- Tất cả các cú đánh, chúng đều nằm ở đầu các khối hay chúng phân tán khắp khối?
+- Và đó là 0.
+- 7387.
+- Độ bao phủ từ khóa chỉ ở mức trên 80% và đã chạy 150 lần thử nghiệm vì có 150 hàng trong tệp JSON đó.
+- Và nó cũng cung cấp cho chúng ta một biểu đồ thanh đẹp mắt.
+- Thật đẹp phải không?
+- Biểu đồ thanh cho thấy hiệu suất của từng danh mục trong bảy danh mục mà chúng tôi có như thế nào?
+## Phan 30
+
+### Muc 88
+
+- Và bạn có thể thấy nó hoạt động khá kém.
+- Khả năng mở rộng của nó kém nhất.
+- Tôi thực sự ngạc nhiên khi nó không quá tệ và toàn diện vì điều đó rất khó.
+- Nhưng mối quan hệ bao trùm và toàn diện đều không tốt.
+- Tất cả đều là những câu hỏi khó.
+- Mối quan hệ cũng khó khăn vì nó nằm giữa hai khối khác nhau.
+- Và sau đó, những cái này, nó đã làm khá tốt về mặt số liệu, tốt nhất là vì đó chỉ là cái nhìn trực tiếp và sự thật trực tiếp.
+- Cũng khá tốt.
+### Muc 89
+
+- Được rồi.
+- Đó là việc đánh giá quá trình thu hồi của chúng ta.
+- Thật tuyệt.
+- À, tiếp theo và nhân tiện, bạn sẽ thấy tôi đã tô màu nó, tôi tùy ý quyết định rằng 70% sẽ được đọc.
+- Và tôi đã đặt ra một số ngưỡng.
+- Tôi nghĩ nó chuyển sang màu vàng từ 80 và màu xanh lá cây từ 90, giống như một thứ gì đó để chúng ta hướng tới.
+- Ừm, nhưng, ừ, đúng rồi, ừ, thực sự thì con số phù hợp sẽ phụ thuộc vào vấn đề kinh doanh của bạn và những gì có thể chấp nhận được đối với bạn.
+- Vì vậy, không có một con số tuyệt đối nào cả.
+### Muc 90
+
+- Bạn biết đấy, MRI phải bằng 0.
+- 9.
+- Bạn chỉ cần thực hiện một số thử nghiệm để hiểu giải pháp đó sẽ hiệu quả như thế nào đối với vấn đề của bạn và đảm bảo rằng nó đạt được tiêu chuẩn mà bạn đã đặt ra, tức là tiêu chuẩn mà doanh nghiệp của bạn có thể chấp nhận được.
+- Được rồi.
+- Nhưng vấn đề khi đặt ra tiêu chuẩn cho những thứ này là nó hơi trừu tượng.
+- Và điều không trừu tượng chính là việc đánh giá các câu trả lời thực tế.
+- Vậy chúng ta hãy bắt đầu thôi.
+- Và bây giờ tôi có tin xấu, đó là tốc độ này không thực sự nhanh.
+## Phan 31
+
+### Muc 91
+
+- Việc này mất một chút thời gian.
+- Tôi, thực ra tôi đã tạo ra một phiên bản của chương trình này, đó là chương trình đa luồng và chạy tất cả song song.
+- Thật tuyệt vời.
+- Nhưng tôi nhận ra rằng nó khá nhiều.
+- Không nhiều đến thế đâu.
+- Chỉ cần thêm một chút mã nữa thôi.
+- Và tôi nghĩ rằng, ừm, tốt hơn là nên giữ mọi thứ đơn giản.
+- Bạn biết đấy, giống như tôi không cố dạy bạn cách thực hiện những thứ đa luồng phức tạp hay những thứ không đồng bộ hay bất cứ thứ gì tương tự vậy.
+### Muc 92
+
+- Vì vậy, nếu bạn muốn thực hiện điều này, bạn có thể làm cho nó không đồng bộ nếu bạn biết về điều đó, hoặc bạn có thể sử dụng thứ gì đó như xử lý đa luồng, nhóm, ừm, để làm cho nó có thể chạy song song.
+- Nhưng điều đó không cần thiết.
+- Nếu bạn không làm thế.
+- Bạn chỉ cần đợi một phút để chạy.
+- Vì vậy, tôi sẽ tạm thời ngừng hoạt động một lát.
+- Và khi tôi quay lại, công việc sẽ hoàn tất và chúng ta sẽ xem kết quả.
+- Được rồi.
+- Nó vừa hoàn thành và bạn có thể thấy kết quả.
+### Muc 93
+
+- Và có thể bạn cũng có được thứ gì đó tương tự.
+- Chúng tôi đã làm tốt về mặt liên quan.
+- Mô hình này không đưa ra thông tin không liên quan, đúng như những gì bạn mong đợi.
+- Nhưng chúng tôi đã không làm tốt ở những mục khác.
+- Độ chính xác vừa rơi vào vùng đỏ với mức 3.
+- 99.
+- Độ hoàn thiện ở mức 3.
+- 85, và có một câu chuyện hơi buồn ở bên phải.
+## Phan 32
+
+### Muc 94
+
+- Đây.
+- Bạn sẽ thấy rằng tính toàn diện thực sự là vấn đề khó khăn.
+- Spanning cũng không hiệu quả lắm.
+- Và sau đó bạn sẽ lại thấy điều đó.
+- Số học là một trong những thứ tốt nhất.
+- Đây là kết quả của tình trạng hiện tại của chúng ta.
+- Và tin tốt là vẫn còn nhiều chỗ để phát triển.
+- Chúng ta có cơ hội để làm tốt hơn.
+### Muc 95
+
+- Nhưng tôi hy vọng là bạn có thể thấy.
+- Tôi hy vọng điều này mang lại cho bạn cảm giác thực tế và rõ ràng rằng việc có những con số này sẽ giúp chúng ta có mục tiêu để phấn đấu.
+- Nếu bây giờ tôi thay đổi một chiến lược như chiến lược phân đoạn, chúng ta sẽ thấy những con số này thay đổi.
+- Và nó sẽ cung cấp cho chúng ta một cách định lượng nào đó để biết rằng chúng ta đã làm tốt hơn, không chỉ là một cảm giác định tính, hoặc thậm chí nếu bạn nhớ khi chúng ta nhìn vào không gian vectơ, chúng ta có cảm giác, được rồi, bộ mã hóa này trông đẹp hơn.
+- Có vẻ như mọi thứ được nhóm lại với nhau nhiều hơn và trông đẹp hơn, ngăn nắp hơn.
+- Nhưng bạn không biết sao, điều đó không nhất thiết nói với chúng ta điều gì đó có ý nghĩa.
+- Điều này cung cấp cho chúng ta một con số.
+- Nó cung cấp cho chúng ta một con số.
+### Muc 96
+
+- Và nó đang gây cho chúng ta rắc rối to.
+- Vì vậy, đây là điều chúng ta có thể đạt được.
+- Và điều tôi muốn bạn làm bây giờ là viết ra những con số này.
+- Và chúng ta sẽ không tập trung vào mọi thứ vì có quá nhiều thứ phải lo lắng ở đây.
+- Chúng ta sẽ tập trung vào MRI, tức là 0.
+- 7298 và độ chính xác là 3.
+- 99.
+- Và giờ đây chúng ta đã có công cụ tuyệt vời này, một công cụ thực sự hữu ích và đơn giản để có thể đo lường cách chúng ta thực hiện việc này, công cụ này sẽ cung cấp cho chúng ta khuôn khổ cần thiết để thử nghiệm và cải thiện, đó chính là những gì chúng ta sẽ làm trong phần còn lại của ngày hôm nay.
+## Phan 33
+
+### Muc 97
+
+- Và rồi ngày mai sẽ còn lớn hơn nữa.
+- Và chúng ta sẽ đi sâu vào rack.
+- Ừ, vậy, vậy, ừm, vâng, hãy ghi chú lại, chụp ảnh màn hình.
+- Ừ, hãy tự mình chạy việc này đi.
+- Bạn có thể nhận được kết quả hơi khác nhau mỗi lần.
+- Ừ, điều này chắc chắn là luôn có một chút khác biệt, nhưng hãy xem bạn nhận được gì và sau đó hãy sẵn sàng thực hiện một số cải tiến.
+- Và thực ra, ngay trước khi chúng ta tiến hành một số thí nghiệm, tôi muốn lưu ý rằng bạn đang nhìn vào thứ này.
+- Tôi hy vọng bạn có một Tôi hy vọng bạn nghĩ rằng wow, điều này thật tuyệt.
+### Muc 98
+
+- Biểu đồ và số liệu trông thực sự tuyệt vời.
+- Và bạn có thể nghĩ rằng, ừm, nhưng đây giống như một giao diện người dùng mà chúng tôi vừa mới tạo ra.
+- Tôi chắc chắn muốn tập trung vào điều đúng đắn.
+- Điều thú vị nhất về việc này có lẽ là phần ít hấp dẫn nhất.
+- Điều tuyệt vời là chúng tôi đã xây dựng được bộ thử nghiệm đó.
+- Đó chính là những gì chúng ta thực sự dùng để đánh giá mọi thứ.
+- Vì vậy, chỉ cần tập trung vào bản chất của vấn đề, chúng ta có thể thấy được kết quả theo cách này.
+- Bởi vì chúng tôi đã làm bài tập về nhà là xây dựng một bộ thử nghiệm vàng và kiểm tra nó, đảm bảo rằng nó tốt và mang tính đại diện, phù hợp với kỳ vọng kinh doanh của chúng tôi.
+### Muc 99
+
+- Những câu hỏi và câu trả lời này có lẽ là những thông tin mà chúng tôi thu thập được từ người dùng doanh nghiệp.
+- Chúng tôi đã dành thời gian để biên soạn bộ thử nghiệm đó.
+- Đó chính là giá trị.
+- Thực tế là tất nhiên, giá trị là biết rằng MRR là một điều quan trọng cần biết.
+- Vì vậy, việc hiểu cách tính toán và bản chất của nó là rất quan trọng, nhưng sau đó thực sự tính toán và vẽ nó trong một giao diện người dùng đẹp mắt như vậy, chỉ mất khoảng nửa giờ với mã Claude.
+- Hoặc có thể có nhiều công cụ quan sát khác nhau có thể thực hiện được điều này.
+- Và đây là một phép tính khá dễ dàng.
+- Vì vậy, tôi chỉ muốn chắc chắn rằng bạn hứng thú với điều đúng đắn.
+## Phan 34
+
+### Muc 100
+
+- Ồ, màn hình trông có vẻ lạ mắt.
+- Điều thú vị, tin hay không thì tùy, là phần ít hấp dẫn hơn của việc đào sâu vào dữ liệu, xây dựng một bộ thử nghiệm vàng có thể là Ngôi sao dẫn đường cho sự cải tiến của chúng ta.
+- Được rồi, bây giờ chúng ta hãy tiến hành một số thí nghiệm nhé.
+- Được rồi, chúng ta hãy tiến hành một thí nghiệm.
+- Bây giờ chúng ta sẽ đến thư mục triển khai.
+- Đây chính là nơi chúng ta sẽ sống bây giờ vì tất cả những gì chúng ta cần thay đổi là cách tiếp cận tiếp nhận hoặc cách tiếp cận trả lời.
+- Chúng ta không cần phải thay đổi bất cứ điều gì khác và sau đó chạy lại đánh giá.
+- Vậy chúng ta hãy cùng tìm hiểu nhé.
+### Muc 101
+
+- Vì vậy, điều đầu tiên bạn thường làm là phân chia.
+- Đúng là một cú chém mạnh mẽ.
+- Vì vậy, hiện tại chúng ta đang chia nhỏ thành từng phần có kích thước khoảng 1000 ký tự.
+- Chúng ta hãy thử thay đổi nó thành 500.
+- Chúng ta hãy chia thành những phần nhỏ hơn.
+- Ừ, điều đó có nghĩa là chúng ta sẽ có số lượng khối gấp đôi.
+- Bây giờ, khi chúng ta làm điều này, ừm, điều đáng nhớ là chúng ta sẽ làm nổi năm khối mỗi lần.
+- Và với tôi thì có vẻ như nếu chúng ta muốn có những phần nhỏ hơn thì sẽ công bằng hơn nếu chúng ta muốn có nhiều phần hơn.
+### Muc 102
+
+- Ừm, nếu không thì nhìn chung sẽ có ít bối cảnh hơn.
+- Vì thế.
+- Vì vậy, nếu chúng ta đi đến câu trả lời ở trên cùng ở đây, thì giá trị truy xuất k là năm.
+- Điều đó có nghĩa là chúng tôi luôn cố gắng thu thập năm tài liệu có liên quan mà bạn thấy ngay tại đây.
+- K bằng năm khi chúng ta gọi retriever dot invoke.
+- Vậy chúng ta hãy làm mười nhé.
+- Vì vậy, thay vì năm tài liệu có 1000 ký tự, bây giờ chúng ta sẽ hiển thị mười tài liệu có 500 ký tự.
+- Có vẻ công bằng.
+## Phan 35
+
+### Muc 103
+
+- Ồ, vậy thì lượng ngữ cảnh sẽ sử dụng trong cả hai trường hợp là như nhau.
+- Được thôi.
+- Tốt đấy.
+- Chúng ta hãy cùng thử nghiệm điều này nhé.
+- Được rồi.
+- Vì vậy, tôi sẽ đưa ra một thiết bị đầu cuối mới.
+- Tôi sắp bước sang tuần thứ năm.
+- Tôi sẽ bắt đầu thực hiện.
+### Muc 104
+
+- Và sau đó tôi sẽ làm.
+- Bạn đã chạy ingest dot pi.
+- Hãy nhớ rằng điều này sẽ xây dựng lại các vectơ.
+- Ừm, tái hấp thụ.
+- Vì vậy, trước khi chúng ta có 400 và một cái gì đó.
+- Vì vậy, bây giờ chúng ta đang mong đợi khoảng 8 hoặc 900 vectơ được tạo ra và đưa vào kho dữ liệu của chúng ta.
+- Và thế là xong.
+- 970 vectơ.
+### Muc 105
+
+- Bởi vì có sự chồng chéo mà bạn mong đợi sẽ nhiều hơn gấp đôi.
+- Ừ, vậy là chúng ta đã có nó rồi.
+- Ừm, rất nhiều vectơ, 970 vectơ.
+- Bây giờ chúng ta hãy chạy lại quá trình đánh giá.
+- Trên thực tế, nếu màn hình của bạn vẫn đang chạy từ trước, bạn phải thoát khỏi màn hình đó và tạo màn hình mới vì chúng ta đã tạo lại cơ sở dữ liệu.
+- Vì vậy, bạn sẽ cần phải khởi chạy ứng dụng Gradio mới.
+- Vậy chúng ta hãy bắt tay vào thực hiện ngay bây giờ nhé.
+- Và sau đó chúng ta hãy chạy một cuộc đánh giá nhé.
+## Phan 36
+
+### Muc 106
+
+- Vì vậy, tôi thực hiện CD lên, tôi tiến tới tuần thứ năm và bây giờ tôi đã chạy trình đánh giá.
+- con nhện.
+- Nó sẽ đưa người đánh giá của chúng ta lên.
+- MRI mà chúng ta đang so sánh là 0.
+- 7298.
+- Đó là điều chúng ta phải vượt qua.
+- Hãy nhấn chạy đánh giá.
+- Chúng ta hãy cùng xem chúng ta nhận được gì nhé.
+### Muc 107
+
+- Xin hãy đánh trống nào.
+- Và chúng tôi làm tốt hơn.
+- Những phần nhỏ hơn có nghĩa là chúng ta làm tốt hơn.
+- Ồ thú vị đấy.
+- Được rồi.
+- Chúng ta hãy cùng lưu ý điều đó nhé.
+- Tất cả đều biến mất, chuyển sang màu vàng.
+- Ờ, tôi chỉ muốn chúng ta tập trung vào một việc thôi.
+### Muc 108
+
+- Cả hai.
+- Cả MRI và cả ba chỉ số đều được cải thiện.
+- Chúng tôi đã đi đúng hướng với phạm vi từ khóa với nhiều phần nhỏ hơn.
+- Chúng ta hãy thử những phần lớn hơn.
+- Nhưng tôi xin lưu ý điều này.
+- Vì vậy, với 500, tôi sẽ ghi chú lại một chút.
+- Và vì vậy bạn nên cố gắng viết điều này ra để chúng ta không bị mất dấu.
+- Bởi vì nếu chúng ta muốn khoa học thì chúng ta cũng có thể khoa học.
+## Phan 37
+
+### Muc 109
+
+- Được rồi.
+- Bây giờ chúng ta hãy chia thành những phần lớn hơn và thử lại nhé.
+- Vì vậy, tôi sẽ đóng nó lại.
+- Bây giờ tôi sẽ quay lại để tiếp tục, tôi sẽ thay đổi kích thước khối.
+- Chúng ta sẽ tăng lên và tôi sẽ không tăng gấp đôi con số 2000, tôi sẽ tăng lên 1, 6, 6, 7.
+- Và bạn thắc mắc tại sao?
+- Tại sao bạn lại làm thế?
+- Ồ, tại sao lại có con số kỳ lạ như vậy?
+### Muc 110
+
+- Bởi vì tôi muốn giữ nguyên lượng không gian ngữ cảnh nên tôi sẽ trả lời dấu chấm pi và nói rằng, chúng ta hãy đi xuống ba, K bằng ba, vì ba của một, sáu, sáu, bảy sẽ ra cùng một số, đến ừm, đến 10.000, nghĩa là xin lỗi, đến 5000.
+- Ồ, đúng vậy không?
+- Đúng.
+- Ba lần một sáu, sáu, sáu bảy 6667 sẽ bằng 5000.
+- Vì vậy, hiện tại chúng ta đang điền vào cùng một lượng ngữ cảnh.
+- Về cơ bản thì có ba phần lớn hơn so với năm phần mà chúng ta phải bắt đầu so với mười phần nhỏ hơn nhiều.
+- Vì vậy, chúng ta có sự nhất quán ở đó.
+- Được rồi.
+### Muc 111
+
+- Vì vậy, chúng ta hãy so sánh táo với táo.
+- Được thôi.
+- Chúng ta cần chạy lại lệnh ingest CBD để chạy ingest dot pi.
+- Bắt đầu thôi.
+- Hãy để nó làm việc của nó.
+- Chúng tôi mong đợi ít hơn nhiều, ít hơn nữa, 235 vectơ được rồi.
+- Và bây giờ chúng ta sẽ đi đến thư mục trên cùng của thư mục cha.
+- Và chúng ta sẽ chạy evaluator dot pi.
+## Phan 38
+
+### Muc 112
+
+- Và nó sẽ mang đến một giao diện mới để chúng ta chạy.
+- Và chúng ta sẽ xem bạn có gì để đặt cược.
+- Bạn nghĩ sao?
+- Tốt hơn hay tệ hơn, tốt hơn hay tệ hơn.
+- Chúng ta sẽ sớm tìm ra thôi.
+- Đánh giá đang chạy.
+- Và chúng tôi thấy điều đó thật thú vị.
+- Thế thì sao?
+### Muc 113
+
+- Bạn có mong đợi điều đó không?
+- Bởi vì tôi không phải vậy.
+- Của nó.
+- Tôi nghĩ mọi chuyện sẽ tệ hơn, nhưng không phải vậy.
+- Nó tốt hơn một chút.
+- Vậy chúng ta hãy cùng xem lại nhé.
+- Vì vậy, có một khối có kích thước là, ừm, ừm, một sáu, sáu bảy, ừm, là, là ừm, .
+- 7475.
+### Muc 114
+
+- Đó là MRI, tốt hơn.
+- Vì vậy, có kích thước khối là 1667, kích thước khối lớn hơn sẽ tốt hơn kích thước khối là 1000 và có kích thước khối là 500 thì tốt hơn cả hai.
+- Đó là điều tốt nhất.
+- Vì vậy, rõ ràng là cần phải có nhiều thử nghiệm hơn nữa ở đây.
+- Bạn có thể có được những con số tốt hơn bằng cách tiếp tục thử nghiệm và điều quan trọng là phải cố gắng giữ cho mọi thứ đều bình đẳng.
+- Giả sử bạn muốn thử và giữ nguyên lượng thông tin trong cửa sổ ngữ cảnh, do đó bạn chỉ thay đổi một tham số.
+- Nếu bạn muốn có nhiều thông tin hơn trong cửa sổ ngữ cảnh, bức tranh sẽ thay đổi đôi chút.
+- Được thôi.
+## Phan 39
+
+### Muc 115
+
+- Vâng, điều đó thật thú vị.
+- Bạn nên thực hiện nhiều thí nghiệm hơn nữa.
+- Thứ này thật hấp dẫn.
+- Nhưng bây giờ chúng ta sẽ thử các loại chiến lược phân chia khác nhau.
+- Một trong những lý do mọi người thích Lang Chain, và tôi hoàn toàn hiểu lý do đó là vì nó có rất nhiều thứ.
+- Đây thực sự là thứ mà họ gọi là khung tích hợp pin, có nhiều thứ đi kèm và một trong số đó là rất nhiều loại bộ chia khác nhau có thể chia các phần theo nhiều cách khác nhau.
+- Và trong trường hợp của chúng tôi, cơ sở kiến thức thực sự được tạo thành từ các tài liệu đánh dấu.
+- Và hóa ra, bạn có tin không, có một công cụ tách văn bản markdown được thiết kế để tách các tài liệu markdown?
+### Muc 116
+
+- Thực ra là có hai cái.
+- Có một trình phân tách văn bản markdown có thể tự động thực hiện việc này, và có một trình phân tách văn bản tiêu đề markdown khi bạn chỉ định cách bạn muốn nó thực hiện.
+- Nhưng chúng ta sẽ chọn một giải pháp đơn giản.
+- Về cơ bản, chúng ta sẽ tìm được trình phân tách văn bản ký tự đệ quy.
+- Và chúng tôi sẽ bình luận dòng này.
+- Và thay vào đó chúng ta sẽ nói trình tách văn bản hãy nhìn vào đó.
+- Nó đã điền đầy đủ thông tin cho chúng ta.
+- Nhưng tôi không nghĩ bạn cần phải nêu rõ điều này.
+### Muc 117
+
+- Tôi nghĩ chúng ta có thể làm như vậy và nó sẽ tự tìm ra cách giải quyết.
+- Đấy, thế là tốt rồi.
+- Vậy chúng ta hãy xem tôi có đúng không nhé.
+- Chúng ta hãy chạy UV để tiêu thụ.
+- py, ừm, và chúng ta sẽ xem liệu nó có chạy và thực hiện một số thao tác phân tách tài liệu không.
+- Nó đã thực hiện được 109 vectơ.
+- Chúng ta hãy thử nghiệm chúng nhé.
+- Và tôi phải nói rằng tôi sẽ để lại câu trả lời này py với k là ba vì đây rõ ràng là những khối lớn hơn với ít vectơ hơn.
+## Phan 40
+
+### Muc 118
+
+- Vì vậy, chỉ cần thử và so sánh một cách thô thiển sẽ giúp duy trì khả năng truy xuất k ở mức ba.
+- Và bây giờ chúng ta sẽ vào thư mục cha và chạy uv evaluator.
+- trình đánh giá py.
+- con nhện.
+- Tiếp theo là khuôn khổ đánh giá của chúng tôi.
+- Và chúng ta sẽ xem liệu công cụ chia tách markdown này có hoạt động tốt hơn hay không.
+- Đây rồi.
+- Tiến hành định giá.
+### Muc 119
+
+- Bắt đầu thôi.
+- Và ta nhận được 0.
+- 738 là aha.
+- Vì vậy, nó hoạt động tốt hơn MRR ban đầu của chúng tôi khi chúng tôi chỉ phân tách ký tự đơn giản ở 1000 khối.
+- Nhưng nó còn tệ hơn bất kỳ điều gì chúng ta đã làm sau đó.
+- Vì lý do nào đó, việc sử dụng bộ chia giảm giá đã không mang lại hiệu quả.
+- Và không vì lý do gì mà chúng ta có thể biết chính xác chuyện gì đang xảy ra.
+- Điều đang xảy ra là khi chúng ta chỉ tập trung vào tiêu đề, các phần của chúng ta trở nên quá lớn.
+### Muc 120
+
+- Ừm, và đó là lý do tại sao chúng ta thấy hiệu suất giảm sút ở đó.
+- Nhưng thật tuyệt khi biết rằng chúng ta có công cụ chia tách markdown tuyệt vời này, phòng khi chúng ta muốn.
+- Được rồi.
+- Bây giờ bạn có thấy chán các thí nghiệm không?
+- Bạn đã đủ chưa?
+- Vâng, tôi chưa làm vậy.
+- Tôi chỉ mới bắt đầu thôi.
+- TÔI.
+## Phan 41
+
+### Muc 121
+
+- Còn một loạt thí nghiệm nữa cần phải thực hiện.
+- Thật vui.
+- Đây là cái gì.
+- Đây chính là mục đích của kỹ thuật.
+- Vấn đề là các thí nghiệm.
+- Vậy nên, ừm, tôi đã thiết lập lại mọi thứ về kích thước khối là 500.
+- Bộ tách văn bản ký tự đệ quy.
+- Đó là kết quả tốt nhất của chúng tôi cho đến nay.
+### Muc 122
+
+- Bây giờ chúng ta sẽ thay đổi mô hình nhúng, bộ mã hóa.
+- Vì vậy, chúng tôi đã sử dụng toàn bộ mini Ml6 v2.
+- Vì vậy, thay vào đó, hãy nhập nhúng OpenAI.
+- Và chúng ta hãy nhúng vào.
+- Là nhúng OpenAI.
+- Chúng ta sẽ sử dụng văn bản nhúng nhỏ làm mô hình, gồm ba phần nhỏ.
+- Và tôi sẽ bình luận về điều đó.
+- Và hãy chú ý một chi tiết nhỏ ở đây.
+### Muc 123
+
+- Nếu bạn thực hiện thao tác này, hãy đảm bảo thực hiện sau khi đã tải dot EMV để thiết lập khóa OpenAI.
+- Được rồi.
+- Sao chép lại.
+- Chúng ta hãy cùng trả lời câu hỏi chấm pi.
+- Chúng ta cũng phải thay đổi phần nhúng ở đây nữa.
+- Đấy, thế là xong.
+- Tôi đã làm điều đó rồi.
+- Chúng ta cũng có thể bình luận dòng phía trên và đảm bảo rằng chúng ta đang nhập.
+## Phan 42
+
+### Muc 124
+
+- Vâng, chúng tôi đang nhập nó ngay tại đây.
+- Xuất sắc.
+- Chúng tôi đang trong tình trạng tốt.
+- Chỉ cần thế thôi.
+- Bây giờ chúng ta có thể thử sử dụng mô hình nhúng của OpenAI.
+- Được rồi, chúng ta sẽ mở một cửa sổ terminal mới.
+- Tôi bước vào tuần thứ năm.
+- Tôi vào thư mục triển khai và thực hiện.
+### Muc 125
+
+- Bạn đã chạy lệnh ingest.
+- con nhện.
+- Bây giờ, việc này sẽ tải lại dữ liệu của chúng ta bằng cách chạy lại đường ống dữ liệu.
+- Lần này thay vì sử dụng mô hình nhúng khuôn mặt ôm, chúng tôi sử dụng nhúng OpenAI.
+- Đã xong 1500 kích thước ở đó.
+- Thật thú vị.
+- Chúng ta hãy quay lại và chạy trình đánh giá.
+- Được rồi, bắt đầu thôi.
+### Muc 126
+
+- Tôi chỉ chạy giá trị UV.
+- Giá trị tám hai.
+- Và ứng dụng Gradio sẽ xuất hiện chỉ trong giây lát và chúng ta sẽ xem nó hoạt động như thế nào.
+- Đây rồi.
+- Chúng ta hãy tiến hành đánh giá.
+- Xin hãy đánh trống nào.
+- Bắt đầu thôi.
+- Bây giờ mất nhiều thời gian hơn một chút vì chúng tôi sẽ chạy các vectơ này bằng OpenAI.
+## Phan 43
+
+### Muc 127
+
+- Thật thú vị.
+- Vẫn khá nhanh.
+- Bạn là gì?
+- Bạn đang nghĩ gì thế?
+- Bạn nghĩ điều đó có hiệu quả không?
+- Liệu nó có giống nhau không?
+- Tôi nói cho bạn biết, như tôi đã nói, thường thì những điều bạn nghĩ sẽ tạo ra sự khác biệt lớn nhất cuối cùng lại chẳng tạo ra nhiều sự khác biệt.
+- Vậy thì ai có thể nói được điều đó?
+### Muc 128
+
+- Nhưng chắc chắn là nó đang diễn ra theo chiều hướng đó.
+- Được thôi.
+- Kết quả sắp xuất hiện.
+- Bạn có thể quyết định.
+- Hãy nhớ rằng thành tích tốt nhất của chúng ta cho đến nay là 0.
+- 7604.
+- Đó là thành quả tốt nhất của chúng tôi cho đến nay.
+- Chúng ta bắt đầu thôi.
+### Muc 129
+
+- 0.
+- 78490 .
+- 7849.
+- Tốt nhất của chúng tôi.
+- Đây là cách nhúng OpenAI.
+- Chúng ta đang nhận được 0.
+- 7849 cho MRR của chúng tôi.
+- Ồ, tuyệt quá.
+## Phan 44
+
+### Muc 130
+
+- Có phải là thỏa mãn không?
+- Chúng tôi đã thay đổi một thứ gì đó trừu tượng.
+- Mô hình nhúng ở hậu trường.
+- Chúng tôi biết điều này sẽ tạo ra một sơ đồ tốt hơn, nhưng giờ đây theo cách định lượng, chúng tôi có thể thấy rằng chúng tôi có được kết quả tốt hơn.
+- Đó là những gì tôi muốn thấy, được rồi, hãy thử mô hình lớn.
+- Và vì thế, đơn giản là chúng ta biến từ nhỏ này thành lớn.
+- Và chúng ta đến đây và biến điều này thành điều lớn lao.
+- Và chúng tôi vừa thay đổi nó ở hai nơi đó.
+### Muc 131
+
+- Hoặc nhấn ctrl c để ra khỏi đây, chúng ta vào thư mục thực hiện.
+- Chúng tôi thực hiện việc hấp thụ tia UV.
+- con nhện.
+- Và bây giờ chúng ta lại chạy với mô hình mã hóa lớn hơn.
+- Tương tự, bộ mã hóa lớn hơn 3000 chiều.
+- Chúng ta hãy xem điều gì sẽ xảy ra.
+- Vậy là chúng ta đã có 970 vectơ với 3000 chiều trong kho vectơ.
+- Tuyệt vời.
+### Muc 132
+
+- Bây giờ chúng ta quay lại đánh giá UV.
+- con nhện.
+- Bây giờ chúng ta có cách kể chuyện có phương pháp này.
+- Việc thêm vào các chiều không gian bổ sung có giúp ích hay cản trở chúng ta?
+- Chúng ta chạy nó đi.
+- Nó diễn ra, ừm, một lần nữa, không nhanh bằng khi chúng ta sử dụng mô hình khuôn mặt ôm sát.
+- Tốc độ này chậm hơn một chút, nhưng vẫn vượt qua được con số mà chúng tôi đạt được với OpenAI, ừm, một mô hình nhỏ có ba mô hình là 0.
+- 7849, tức là 0.
+## Phan 45
+
+### Muc 133
+
+- 7849 là con số cần vượt qua.
+- Và bây giờ chúng ta sẽ xem chúng ta sẽ nhận được gì với mô hình lớn OpenAI.
+- Và tôi hy vọng bạn cũng ghi chép lại.
+- Bạn có nhớ chúng ta bắt đầu từ đâu không?
+- Đó là con số 0.
+- 7298.
+- Vậy là chúng ta đã tiến được một chặng đường khá dài với công nghệ MRI.
+- Đây rồi.
+### Muc 134
+
+- Tiếng trống 0.
+- 7903.
+- Tuyệt vời 0.
+- 7903.
+- Chắc chắn là tốt hơn rất nhiều.
+- Chúng ta đang đi xa rồi.
+- Xuất sắc.
+- Được rồi.
+### Muc 135
+
+- Việc cuối cùng tôi phải làm bây giờ là chạy đánh giá ở đây.
+- Chúng ta hãy tiến hành đánh giá đầy đủ để xem liệu tất cả những thay đổi trong MRI có thực sự giúp ích cho câu trả lời của chúng ta hay không.
+- Chúng ta hãy bắt đầu thôi và tôi sẽ quay lại ngay sau đây.
+- Và hãy nói với tôi rằng điều này không thực sự thỏa mãn.
+- Ở đây chúng ta có kết quả tốt hơn trên mọi phương diện.
+- Và một lần nữa, điều này thật tuyệt vì nó mang tính định lượng.
+- chúng ta có thể thấy rõ ràng và chính xác rằng chúng ta đã di chuyển kim.
+- Trên thực tế, chúng ta đã có những thay đổi ở mọi khía cạnh so với khi chúng ta bắt đầu sử dụng MRI.
+## Phan 46
+
+### Muc 136
+
+- Tôi đã ghi nó xuống mức 0.
+- 7298 NdYAG.
+- Tôi nhớ là chúng ta bắt đầu từ con số 0.
+- 7387.
+- Và từ khóa được đề cập ở mức 83.
+- 8% khi chúng tôi bắt đầu.
+- Bây giờ chúng ta đã ở mức 92.
+- 5% trong màu xanh lá cây.
+### Muc 137
+
+- Chuyển sang tin tức mới quan trọng.
+- Đánh giá câu trả lời.
+- Hãy xem chúng ta đã di chuyển kim như thế nào.
+- Lúc đó là 3 giờ.
+- 99 hơi nghiêng về phía đội Đỏ.
+- Bây giờ chúng ta đã ở mức 4.
+- 21 độ chính xác đáng nể hơn nhiều.
+- Độ hoàn thiện ở mức 3.
+### Muc 138
+
+- 85 ở mức 4.
+- 05.
+- Và mức độ liên quan là 4.
+- 57 hiện tại là 4.
+- 71.
+- Có lẽ là điều ít quan trọng nhất trong số đó.
+- Nhưng dù sao thì đó cũng là một sự tăng trưởng tốt.
+- Chúng tôi đã cải thiện trên mọi phương diện và điều đó có vẻ trừu tượng.
+## Phan 47
+
+### Muc 139
+
+- Chúng tôi đã thử nghiệm với nhiều kích thước phần khác nhau về cách chia nhỏ tài liệu.
+- Và tôi đã chọn ra cái tốt nhất, tốt nhất mà chúng tôi đã làm.
+- Và chúng tôi cũng đã thử nghiệm với ba mẫu mã hóa khác nhau và thật bất ngờ, mẫu mã này lại là mẫu đắt nhất và hấp dẫn nhất.
+- Giá vẫn rất rẻ, nhưng chỉ áp dụng cho số lượng tài liệu rất ít.
+- Tuy nhiên, mô hình tốn kém nhất có nhiều kích thước nhất, nhưng rõ ràng mô hình mã hóa mạnh nhất là mô hình có thể thu thập được ngữ cảnh chính xác nhất và mang lại cho chúng ta kết quả chính xác nhất trong các thử nghiệm.
+- Vậy đó, bạn đã có nó rồi.
+- Kết quả thử nghiệm và thí nghiệm thành công của chúng tôi đã cải thiện đường ống Rag của chúng tôi.
+- Wow, tôi đã nói với bạn rằng hôm nay sẽ là một ngày khó khăn và tôi hy vọng bạn cũng đồng ý rằng tôi đã làm được điều đó.
+### Muc 140
+
+- Hôm nay là một ngày có ý nghĩa và kết quả là bạn đã thăng tiến.
+- Chúc mừng.
+- Không còn nghi ngờ gì nữa, ngoài những gì tôi vẫn nói, bạn có thể tạo văn bản thành mã bằng nhiều mô hình nguồn đóng và nguồn mở.
+- Bạn có thể sử dụng các công cụ.
+- Bạn cũng có thể chọn LLM phù hợp cho dự án của mình dựa trên các tiêu chuẩn đánh giá.
+- Nhưng bây giờ bạn thực sự biết cách xây dựng một công nhân tri thức, một đường ống có chuyên môn, bạn có thể sử dụng Lang chain và sắc độ, và bây giờ bạn có thể đánh giá hiệu quả của nó theo hai cách khi truy xuất và khi trả lời câu hỏi.
+- Và bạn có thể thực hiện những việc như thử nghiệm với các khối dữ liệu và bộ mã hóa, nhưng bạn có thể thực hiện theo cách định lượng khi bạn tự tin rằng mình đang tạo ra thay đổi.
+- Và nó thực sự thỏa mãn.
+### Muc 141
+
+- Được thôi, lần tới, lần tới tôi sẽ tiết lộ rất nhiều thông tin chuyên nghiệp.
+- Hóa ra có cả một vườn bách thú các kỹ thuật.
+- Thực tế, có một ngành công nghiệp thủ công với nhiều cách khác nhau giúp bạn có thể đưa vải vụn lên một tầm cao mới, tạo ra nhiều kỹ thuật khác nhau và chúng ta sẽ khám phá rất nhiều trong số đó.
+- Chúng tôi thực sự sẽ thử nhiều cách trong số đó.
+- Bạn sẽ có được kinh nghiệm thực tế khi thực hiện những kỹ thuật này, chẳng hạn như xếp hạng lại, xử lý trước truy vấn, v.v.
+- Khi chúng ta tìm hiểu cách bạn có thể thúc đẩy hiệu suất Rag tốt hơn và đến cuối ngày mai, tức là hết tuần thứ năm, bạn sẽ trở thành một chuyên gia rag.
+- Hẹn gặp lại bạn sau.
+

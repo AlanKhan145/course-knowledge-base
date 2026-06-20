@@ -1,0 +1,382 @@
+# 050 - When Do You Use Threads
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 2 min
+
+---
+
+## 1. Summary
+
+Threads are lightweight units of execution inside a process.
+
+A program is static code stored on disk.
+A process is a running instance of that program.
+A thread is an execution path inside a process.
+
+Threads can be useful, but they also introduce complexity. They often involve shared memory, locking, race conditions, synchronization problems, and debugging difficulties.
+
+Because of that, we usually avoid using threads unless they provide a clear benefit.
+
+Threads are most useful when a task has one or more of these properties:
+
+```txt
+1. I/O blocking
+2. Heavy CPU-bound work
+3. Large volume of small tasks
+```
+
+In these cases, moving work to threads can improve performance and allow the main process or main thread to continue doing its job.
+
+---
+
+## 2. Key Concepts
+
+### Program
+
+A program is static.
+
+It is compiled code stored on disk in a specific executable format.
+
+Example:
+
+```txt
+server.exe
+app
+backend-service
+```
+
+The program itself is not running yet.
+
+---
+
+### Process
+
+A process is a program in execution.
+
+When the operating system starts a program, it creates a process.
+
+A process has its own:
+
+```txt
+Memory space
+File descriptors
+Execution state
+Resources
+```
+
+---
+
+### Thread
+
+A thread is a lightweight execution unit inside a process.
+
+Multiple threads inside the same process share the same memory space.
+
+This makes communication between threads fast, but it also creates safety problems.
+
+Because threads share memory, they can accidentally modify the same data at the same time.
+
+This can lead to:
+
+```txt
+Race conditions
+Deadlocks
+Data corruption
+Lock contention
+Hard-to-debug bugs
+```
+
+---
+
+## 3. Important Notes
+
+### Threads Are Powerful but Dangerous
+
+Threads can improve performance, but they make programs harder to reason about.
+
+The main problems are:
+
+```txt
+Shared state
+Locks
+Synchronization
+Race conditions
+Deadlocks
+Complex debugging
+```
+
+So the goal is not to use threads everywhere.
+
+The goal is to use threads only when they are worth the complexity.
+
+---
+
+### Use Case 1: I/O Blocking Tasks
+
+Some I/O operations can block the thread that performs them.
+
+For example:
+
+```txt
+Reading from disk
+Writing to disk
+Writing logs
+Loading files
+Saving files
+```
+
+If the main thread performs a blocking disk write, it may not be able to continue executing other work until that write finishes.
+
+This is why many logging systems use a secondary thread.
+
+The main thread sends log messages to another thread, and the logging thread writes them to disk.
+
+This allows the main thread to continue handling requests.
+
+---
+
+### File I/O vs Socket I/O
+
+File I/O and socket I/O are not always handled the same way.
+
+Socket I/O is often managed asynchronously using mechanisms such as:
+
+```txt
+epoll
+select
+poll
+kqueue
+IOCP
+```
+
+This allows a process to handle many network connections without creating one thread per connection.
+
+File I/O, however, may still block depending on the operating system and the kernel API being used.
+
+Modern APIs such as `io_uring` can make file I/O asynchronous, which may reduce the need for extra threads.
+
+---
+
+### Use Case 2: Heavy CPU-Bound Work
+
+A CPU-bound task is a task that requires a lot of CPU time.
+
+Examples:
+
+```txt
+Image processing
+Video encoding
+Compression
+Encryption
+Machine learning inference
+Large calculations
+Parsing huge files
+```
+
+If the main thread performs heavy CPU work, it may block the rest of the application.
+
+For example, a backend server may stop accepting new requests while it is busy processing a large CPU-heavy task.
+
+By offloading that work to another thread, the operating system may run it on another CPU core.
+
+This allows the main thread to continue doing its normal work.
+
+---
+
+### Use Case 3: Large Volume of Small Tasks
+
+Threads can also help when there are many small tasks and one process or one thread cannot provide enough throughput.
+
+For example:
+
+```txt
+Accepting many incoming connections
+Processing many small requests
+Handling many short-lived jobs
+Dispatching many independent tasks
+```
+
+A single thread can only accept or process work so fast.
+
+Using multiple threads can increase throughput by spreading work across CPU cores.
+
+In some server designs, multiple threads may accept connections and process requests.
+
+To improve this further, some systems use port reuse, such as `SO_REUSEPORT`, to reduce locking around accepting connections.
+
+---
+
+## 4. Examples
+
+### Example 1: Logging on a Separate Thread
+
+A backend service receives a request.
+
+The main thread needs to log information to disk.
+
+If the main thread writes directly to disk, it may block.
+
+Instead, the application can send the log message to a logging thread.
+
+```txt
+Main thread:
+- Handles request
+- Sends log message to queue
+- Continues processing
+
+Logging thread:
+- Reads log message from queue
+- Writes log to disk
+```
+
+This improves responsiveness because the main thread does not wait for disk I/O.
+
+---
+
+### Example 2: CPU-Heavy Image Processing
+
+Imagine a server that receives uploaded images.
+
+For each image, it needs to:
+
+```txt
+Resize the image
+Compress the image
+Generate thumbnails
+Extract metadata
+```
+
+These operations can consume a lot of CPU time.
+
+If the main request-handling thread does all of this work, the server may become slow.
+
+A better design is to move the CPU-heavy image processing to worker threads.
+
+```txt
+Main thread:
+- Accepts request
+- Saves task
+- Returns response or waits for result
+
+Worker thread:
+- Processes image
+- Stores output
+```
+
+---
+
+### Example 3: Many Small Client Connections
+
+A server may receive a huge number of client connections.
+
+A single thread may not accept and process all connections fast enough.
+
+In this case, the server can use multiple threads.
+
+```txt
+Thread 1: Accepts and handles connections
+Thread 2: Accepts and handles connections
+Thread 3: Accepts and handles connections
+Thread 4: Accepts and handles connections
+```
+
+This can increase throughput because multiple CPU cores can participate.
+
+---
+
+## 5. Questions / Review
+
+### Question 1
+
+What is a process?
+
+**Answer:**
+A process is a running instance of a program.
+
+---
+
+### Question 2
+
+What is a thread?
+
+**Answer:**
+A thread is a lightweight execution unit inside a process.
+
+---
+
+### Question 3
+
+Why should we avoid using threads when they are not needed?
+
+**Answer:**
+Because threads introduce complexity such as shared state, locking, race conditions, deadlocks, and difficult debugging.
+
+---
+
+### Question 4
+
+What are three good use cases for threads?
+
+**Answer:**
+
+```txt
+1. I/O blocking tasks
+2. Heavy CPU-bound tasks
+3. Large volume of small tasks
+```
+
+---
+
+### Question 5
+
+Why are threads useful for blocking I/O?
+
+**Answer:**
+Because the blocking operation can happen on a secondary thread while the main thread continues doing other work.
+
+---
+
+### Question 6
+
+Why are threads useful for CPU-bound tasks?
+
+**Answer:**
+Because CPU-heavy work can run on another core, allowing the main thread to continue handling other tasks.
+
+---
+
+### Question 7
+
+Why can threads help with a large volume of small tasks?
+
+**Answer:**
+Because multiple threads can process many tasks in parallel and increase throughput.
+
+---
+
+### Question 8
+
+Do asynchronous I/O APIs always require threads?
+
+**Answer:**
+No. Some asynchronous I/O APIs, such as `epoll` for socket I/O or `io_uring` for file I/O, can reduce or remove the need for threads.
+
+---
+
+## Final Takeaway
+
+Threads are useful when they solve a real execution problem.
+
+Use threads when:
+
+```txt
+A task blocks on I/O
+A task consumes a lot of CPU
+A huge number of small tasks needs more throughput
+```
+
+But threads are not free.
+
+They bring complexity, locking problems, shared-state bugs, and synchronization issues.
+
+Use them when the performance benefit is worth the complexity.

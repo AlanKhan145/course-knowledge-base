@@ -1,0 +1,1074 @@
+Vâng, mọi chuyện sắp trở nên thực tế rồi.
+
+Chào mừng mọi người đến với tuần thứ ba.
+
+Ngày thứ ba.
+
+Đây là nơi chúng ta đào sâu vào.
+
+Bạn đã tự tin lập trình bằng các mô hình biên giới, xây dựng trợ lý AI và sử dụng các đường ống trong
+
+huging face.
+
+Hãy ghi nhớ chúng, tạo một đường ống và sau đó gọi nó thường xuyên tùy thích với các đầu vào khác nhau.
+
+Nhưng bây giờ chúng ta sẽ thực sự chạy đoạn mã vẫn chạy khi bạn tạo một đường ống.
+
+Nhưng chúng ta sẽ tự mình thực hiện việc này và bắt đầu bằng cách xem xét những thứ gọi là trình
+
+phân tích cú pháp.
+
+Tokenizer là những thứ chuyển đổi giữa văn bản và số thành một mô hình.
+
+Chúng là những thứ toán học.
+
+Họ xử lý số liệu chứ không phải chữ viết.
+
+Và việc hiểu các mã thông báo đặc biệt cũng như cách thức hoạt động của các mẫu trò chuyện là một vấn đề lớn.
+
+Và để giới thiệu về trình phân tích mã thông báo.
+
+Vì vậy, các trình phân tích cú pháp là một đoạn mã ánh xạ giữa ngôn ngữ tự nhiên và số, biểu diễn ngôn ngữ
+
+tự nhiên đó và đó là nhiệm vụ của nó.
+
+Và để rõ ràng hơn, thực ra có hai bước để thực hiện công việc này.
+
+Và đây là điều gây ra một số nhầm lẫn.
+
+Có một chút lỗi thuật ngữ ở đây mà nhiều người hiểu hơi sai, kể cả tôi, nhưng thực tế thì không
+
+phải vậy.
+
+Thực ra thì điều đó không quan trọng.
+
+Nhưng đôi khi mọi người lại sử dụng những thuật ngữ này một cách lỏng lẻo.
+
+Nhưng nói một cách nghiêm túc thì thứ bạn bắt đầu là ngôn ngữ tự nhiên.
+
+Các từ và chữ cái tạo nên một câu.
+
+Đó là điểm khởi đầu của bạn.
+
+Đầu tiên, một trình phân tích cú pháp sẽ biến những thứ này thành một nhóm các thứ gọi là mã thông báo, thực chất là những đoạn từ nhỏ
+
+phải không?
+
+Giống như khi chúng ta thực hiện điều này vào tuần đầu tiên trong giao diện người dùng, chúng ta thấy phần này được tô màu theo từng phần.
+
+Mỗi thứ đó là một vật tượng trưng.
+
+Một token là một khối chữ cái tạo nên một phần của một từ, hoặc có thể là một từ hoàn chỉnh,
+
+hoặc đôi khi có thể là hai từ, nhưng đó là một token.
+
+Sau đó, một bộ mã hóa sẽ biến nó thành một con số.
+
+Mỗi mã thông báo, mỗi mã thông báo có thể có đều có một số khác nhau liên quan đến nó.
+
+Vậy nên từ và tôi nghĩ chúng ta đã thấy có số 300, một con số mà tôi đã quên, với GPT.
+
+Ừm, vậy thì, vậy thì, mỗi, mỗi mã thông báo có thể được ánh xạ tới một số đôi khi được gọi là ID mã thông
+
+báo và nó giống như chỉ mục của nó trong danh sách tất cả các mã thông báo có thể.
+
+Và để chính xác hơn, có hai thuật ngữ khác nhau là token và token ID.
+
+Token là phần rời rạc của từ.
+
+ID mã thông báo là số biểu thị điều đó.
+
+Mọi người thường nói token khi họ muốn nói đến ID token và điều đó không thực sự quan trọng.
+
+Nhưng nói một cách chính xác thì token là khối, còn ID là số.
+
+Và do đó, trình phân tích cú pháp có một từ điển.
+
+Và tôi muốn nói cả hai theo nghĩa của Python.
+
+Nhưng cũng giống như theo nghĩa thông thường, nó có một chức năng tra cứu chứa danh sách tất cả các mã thông báo có thể
+
+có mà nó biết và một ID được liên kết với mỗi mã thông báo mà nó sẽ sử dụng để tra cứu một phần và thay
+
+thế phần đó bằng ID của nó.
+
+Và từ điển đó chứa đựng từ vựng đó, tất cả những thứ có thể phân chia mọi thứ thành tất cả các
+
+mã thông báo có thể.
+
+Và nó cũng chứa một số mã thông báo đặc biệt không liên quan đến bất kỳ từ ngữ tự nhiên nào, các mã thông báo đặc biệt
+
+sẽ được sử dụng để thông báo cho mô hình về điều gì đó.
+
+Một ví dụ về mã thông báo đặc biệt.
+
+Có một cái đại diện.
+
+Đây là phần mở đầu của một lời nhắc.
+
+Đây là khởi đầu cho những gì tôi muốn nói với bạn.
+
+Đó là một vật đặc biệt.
+
+Và vì thế đó là thứ có con số riêng của nó.
+
+Giống như chúng ta nói đó là số mười.
+
+Khi đó, số mười sẽ được sử dụng trong các số mà chúng ta truyền vào LM bất cứ khi nào chúng ta muốn biểu diễn.
+
+Đây là phần mở đầu của lời nhắc.
+
+Chúng ta sẽ điền số mười vào đó.
+
+Và đó là cách nó sẽ biết.
+
+Đây là phần mở đầu của lời nhắc.
+
+Và để tôi nói rõ hơn, trong trường hợp bạn có bất kỳ sự nhầm lẫn nào về điểm này, khi tôi nói rằng
+
+LM sẽ biết rằng mười là điểm bắt đầu của một lời nhắc hoặc điều gì đó, tôi không ám chỉ rằng có điều
+
+gì đó trong mạng nơ-ron mà chúng ta đã cấu hình sao cho số mười có nghĩa là điểm bắt đầu của lời nhắc
+
+hoặc có bất kỳ điều gì vốn có trong kiến trúc biến áp đang mong đợi các mã thông báo đặc biệt.
+
+Tôi chỉ muốn nói với bạn rằng chúng tôi dành số mười cho mục đích này.
+
+Và trong tất cả dữ liệu đào tạo, khối lượng và khối lượng dữ liệu đào tạo.
+
+Chúng ta liên tục sử dụng số mười ở đầu mỗi lời nhắc, và vì chúng ta luôn làm như vậy nên mạng nơ-ron
+
+đã học được theo thời gian từ tất cả các ví dụ rằng đó là dấu hiệu cho thấy điều tiếp theo chính
+
+là sự khởi đầu.
+
+Và nó ngày càng dự đoán tốt hơn các mã thông báo tiếp theo khi nhìn thấy các loại cấu trúc tương tự.
+
+Vì vậy, nó giống như các mô hình cũ dự đoán xếp hạng tín dụng của một ai đó dựa trên một vài
+
+yếu tố.
+
+Bạn cung cấp thông tin cho nó và bằng cách đưa ra đủ ví dụ, theo thời gian, nó sẽ học cách cân
+
+nhắc các yếu tố khác nhau này để dự đoán xếp hạng tín dụng của một ai đó.
+
+Vâng, rõ ràng là chúng giống nhau, nhưng lớn hơn rất nhiều lần.
+
+Và khi đưa ra đủ ví dụ, với số mười luôn bắt đầu một lời nhắc mới, nó đã nhìn thấy những mô hình đó và sao
+
+chép những mô hình đó.
+
+Và do đó, việc bắt đầu một lời nhắc bằng số mười với ID mã thông báo đó sẽ định hướng thống kê một cách chính xác để
+
+có thể dự đoán các mẫu tốt hơn.
+
+Đó chính là vấn đề.
+
+Tôi hy vọng điều này có ý nghĩa với bạn vì nó thực sự quan trọng.
+
+Chúng ta sẽ quay lại vấn đề này một vài lần, nhưng ý tưởng về các mã thông báo đặc biệt này chỉ hữu ích khi chúng ta đã
+
+thực hiện theo cách đó trong tất cả dữ liệu đào tạo.
+
+Đó chính là mục đích của chúng hiện nay, các LLM khác nhau không cần sử dụng cùng một phương pháp để mã hóa, để biến
+
+văn bản thành ID mã thông báo.
+
+Trên thực tế, họ thường không làm vậy.
+
+Thông thường, khi ai đó xây dựng một mô hình, họ sẽ xây dựng một trình phân tích cú pháp mà họ
+
+cho là hợp lý nhất, trình này sẽ xử lý các từ, biến chúng thành ID theo cách họ muốn và sử dụng các mã thông báo
+
+đặc biệt theo cách họ muốn để đào tạo.
+
+Và do đó, bạn có thể có một trình phân tích cú pháp khác nhau cho mỗi mô hình mà bạn làm việc.
+
+Ừm, meta đã dẫn đầu xu hướng llms nguồn mở với mô hình llama, và có một trình phân tích llama, Microsoft
+
+là fi.
+
+Chúng ta sẽ xem xét trình phân tích cú pháp của nó.
+
+Tìm kiếm sâu có một trình phân tích mã thông báo.
+
+Chúng ta sẽ sử dụng chức năng tìm kiếm sâu của nó hiện đang ở chế độ tìm kiếm sâu 3. 2 cho tôi.
+
+Nhưng đó vẫn là mô hình thử nghiệm.
+
+Vì vậy, chúng ta sẽ sử dụng Deep seek 3. 1 Sau đó chúng ta sẽ xem xét một mã thông báo coda cho Quinn 2. 5 coda.
+
+Và chúng ta sẽ cùng tìm hiểu về các công cụ phân tích mã thông báo khác nhau này ngay sau đây.
+
+Và điều quan trọng cần ghi nhớ là mỗi mô hình đều có mã thông báo riêng.
+
+Không có lý do gì mà một mô hình cụ thể lại cần sử dụng cùng một bộ phân tích như một mô hình khác.
+
+Đây chỉ là một phần trong cách họ quyết định ánh xạ các từ thành số cho mục đích của mô hình đó và chỉ để giải quyết
+
+hai câu hỏi điển hình mà mọi người thường có.
+
+Một trong số đó là, ừm, mọi người hỏi, được rồi, vậy điều đó có quan trọng không?
+
+Có phải một mô hình hiệu quả hơn vì nó có thể sử dụng ít mã thông báo hơn cho cùng một câu, do đó rẻ hơn không?
+
+Thành thật mà nói, không đáng phải lo lắng về bất cứ điều gì như thế.
+
+Những quyết định này là những quyết định rất nhỏ, tầm thường mà mọi người đưa ra để cố gắng khai thác thêm một chút sức mạnh
+
+từ mô hình của họ.
+
+Nếu một trình tạo mã thông báo tạo ra ít mã thông báo hơn, thì có thể bạn sẽ tiết kiệm được một phần nhỏ xu về mặt sử dụng mã
+
+thông báo đầu vào của mình.
+
+Nhưng có thể mô hình đưa ra kết quả tệ hơn một chút hoặc tốt hơn một chút.
+
+Bạn biết đấy, yếu tố quan trọng hơn nhiều chính là chất lượng của kết quả.
+
+Dựa trên thông tin bạn cung cấp, thay vì chính xác có bao nhiêu mã thông báo được ánh xạ tới và cách thức hoạt động.
+
+Đây có vẻ là một vấn đề gây hoang mang, vì vậy bạn không nên quá bận tâm đến lý do tại sao các trình tạo mã thông báo khác nhau lại tạo ra
+
+số lượng mã thông báo khác nhau.
+
+Điều quan trọng hơn là phải hiểu rằng trình tạo mã thông báo thuộc về một mô hình mà không cần
+
+bận tâm đến loại mã thông báo mà nó tạo ra.
+
+Và điểm cuối cùng có thể gây nhầm lẫn cho một số người đã từng nghe về vectơ.
+
+Vectơ là một tính chất quan trọng của llms và chúng ta sẽ còn quay lại với vectơ nhiều lần.
+
+Và các mã thông báo không giống như các vectơ, và các vectơ đến từ sâu hơn trong mạng nơ-ron sau khi
+
+các mã thông báo đã được nhúng vào mô hình.
+
+Và đối với những người biết về các vectơ này, chỉ cần nhớ rằng tất cả các mô hình,
+
+bao gồm cả các mô hình tạo ra vectơ, đều lấy mã thông báo làm đầu vào.
+
+Bởi vì các mô hình thống kê chỉ có thể nói bằng con số, nên chúng không biết ý nghĩa
+
+của một từ.
+
+Vì vậy, bạn phải nhập thứ gì đó dưới dạng số.
+
+Và những con số mà chúng ta chọn chính là ID mã thông báo.
+
+Đó là cách đầu tiên chúng ta đưa thông tin vào mô hình.
+
+Những gì xuất hiện có thể là một phép nhúng vector.
+
+Có thể đây sẽ là mã thông báo tiếp theo.
+
+Có thể chúng ta sẽ nhận được nhiều lợi ích khác nhau từ nó.
+
+Những gì có trong đó là ID mã thông báo cho tất cả các mô hình.
+
+Và do đó, việc phân chia mã thông báo giống như một bước trước khi bạn tìm hiểu về những thứ như vectơ mà chúng ta sẽ đề cập sau.
+
+Vì vậy, nếu điều đó khiến bạn bối rối thì tôi sẽ giải thích rõ hơn nhé.
+
+Và với điều đó chúng ta sẽ quay lại Google Colab.
+
+Và lần này tôi sẽ không lấy con trỏ và nói rằng nó sẽ diễn ra vào tuần thứ ba ngày thứ ba, vì bây giờ bạn biết
+
+mình phải đi đâu rồi.
+
+Bạn biết cách đưa vấn đề đó ra thảo luận.
+
+Bạn sẽ không hỏi tôi đâu.
+
+Vậy chúng ta sẽ đi thẳng tới Colab.
+
+Và hãy nhớ rằng, chúng ta đang xem xét cách tương tác sâu sắc và mạnh mẽ hơn thông qua hành động ôm mặt.
+
+Và sức mạnh thực sự của nó nằm ở việc sử dụng các mô hình, điều mà chúng ta sẽ thực hiện vào ngày mai.
+
+Những gì chúng ta đang làm ngày hôm nay giống như một phần tiền truyện.
+
+Chính Tokenizers đang thiết lập nền tảng cho những gì chúng ta sẽ làm vào ngày mai.
+
+Nhưng bây giờ chúng ta hãy bắt đầu và làm việc với một số công cụ phân tích cú pháp.
+
+
+Được rồi, vậy là chúng ta đã có Colab, tuần thứ ba ngày thứ ba của Colab.
+
+Tôi muốn bắt đầu bằng cách nói rằng, phòng thí nghiệm ngày hôm nay về cơ bản sẽ là thứ bạn có thể chạy trên máy
+
+tính của mình nếu muốn.
+
+Chúng tôi thực sự sẽ không sử dụng bất kỳ tính năng colab nào và nó không cần phải chạy trên GPU T4.
+
+Bạn có thể chạy nó trên hộp CPU trong Colab nếu muốn, nhưng tôi sẽ chỉ chạy trên T4.
+
+Hãy giữ nó nhất quán với những ngày khác để chúng ta không thay đổi bất cứ điều gì, nhưng hãy ghi
+
+nhớ điều đó.
+
+Vậy là bạn đã đưa ra sự hợp tác này.
+
+Tốt nhất là bạn nên kết nối với T4.
+
+Tôi sẽ nhớ xem tài nguyên.
+
+Vậy là bạn đã thấy chuyện gì đang xảy ra.
+
+Chúng ta hãy làm cho nó nhỏ hơn một chút.
+
+Và cũng nhớ vào nút khóa và bật cho phép truy cập máy tính xách tay để lấy mã thông báo khuôn mặt ôm của bạn.
+
+Nếu không, nó sẽ nhắc bạn và hỏi bạn có muốn làm điều đó tại đúng thời điểm không.
+
+Hãy nhớ những mẹo chuyên nghiệp.
+
+Đừng lo lắng về cảnh báo.
+
+Chúng xuất hiện liên tục.
+
+Và hãy nhớ, nếu bạn gặp phải lỗi Cuda nào đó mà bạn sẽ không gặp phải hôm nay vì chúng tôi sẽ không thực hiện.
+
+Nhưng hãy nhớ rằng để có tương lai, bạn phải bắt đầu lại mọi thứ.
+
+Được thôi.
+
+Vì vậy, chúng ta sẽ bắt đầu với một số nội dung nhập khẩu.
+
+Và chúng ta sẽ đăng nhập bằng cách ôm mặt và kiểm tra xem chúng ta có Google Colab, ừm, GPU
+
+không.
+
+Ừm, không phải là bạn cần một cái, nhưng nếu bạn làm theo quy định, ừm, chúng tôi cần
+
+và nó có 15GB.
+
+Xuất sắc.
+
+Được rồi.
+
+Tiếp theo là một quy trình nhỏ cần trải qua, đây là một quy trình cực kỳ phổ biến mà mọi người làm kỹ
+
+sư AI đều phải trải qua.
+
+Và nó được gọi là chấp nhận các điều khoản dịch vụ với nhà cung cấp mô hình.
+
+Và đây là thông tin chi tiết sử dụng llama 3. 1 llama, đây là mô hình mã nguồn mở của Meta.
+
+Có một điều gây nhầm lẫn là, O llama được đặt tên như một cách để tỏ lòng tôn kính loài llama, nhưng đó là lý do tại sao những cái tên này lại gây nhầm
+
+lẫn.
+
+Nhưng Llama là hình mẫu của Mata.
+
+Lạc đà không bướu 3. 1 là giá trị chúng ta sẽ sử dụng, mặc dù giá trị này đã hơn một
+
+năm tuổi, nhưng nó vẫn phù hợp với kích thước cụ thể này cho mô hình có 8 tỷ tham số.
+
+Đây là một giải pháp tuyệt vời được nhiều người sử dụng.
+
+Đây là một tiêu chuẩn công nghiệp nên tôi muốn tiếp tục sử dụng nó vì bạn sẽ thường xuyên gặp phải
+
+nó.
+
+Nhưng để sử dụng nó, bạn cần phải đồng ý với các điều khoản dịch vụ của meta, có nghĩa là tôi sẽ không sử dụng
+
+nó cho mục đích xấu hay những mục đích tương tự như vậy.
+
+Và cách bạn thực hiện là bạn phải truy cập vào trang người mẫu của họ trên Hugging Face.
+
+Vì vậy, khi bạn nhấp vào liên kết này, nó sẽ dẫn đến đây.
+
+Đây là trang mẫu.
+
+Đây là Meta Llama Llama 3. 1 trang dành cho meta.
+
+Và nếu bạn nhìn lên đây, nó sẽ ghi là mô hình có cổng, nghĩa là bạn không được phép truy cập cho đến khi meta
+
+chấp thuận.
+
+Bạn được cấp quyền truy cập vì tôi đã cấp.
+
+Bạn sẽ không được coi là đã làm điều này trừ khi bạn đã từng làm điều này trước đây. Trong trường hợp đó,
+
+những gì bạn sẽ thấy ở đây thực chất là một biểu mẫu nhỏ để đồng ý với các điều khoản dịch vụ của metas.
+
+Và vấn đề ở đây là, mặc dù có một quy trình nhỏ cần phải thực hiện.
+
+Họ sẽ yêu cầu bạn cung cấp địa chỉ email, thông tin này sẽ được lưu lại để đảm bảo
+
+rằng bạn không sử dụng nó cho mục đích xấu.
+
+Và có một mẹo nhỏ là khi bạn cung cấp địa chỉ email, bạn cần đảm bảo rằng nó trùng
+
+khớp với địa chỉ email được liên kết với tài khoản hug face của bạn.
+
+Nếu không, tôi tin rằng điều đó sẽ gây ra thêm quá trình xem xét và quy trình bổ sung.
+
+Vì vậy, nếu bạn muốn chắc chắn rằng việc này diễn ra dễ dàng thì hãy thử sử dụng
+
+cùng một địa chỉ email.
+
+Một điều nữa là nó sẽ yêu cầu bạn cung cấp thông tin về tổ chức của bạn tại một thời điểm nào đó.
+
+Cái gì cái gì cái gì cái gì công ty liên kết với.
+
+Và tất nhiên, lời khuyên của tôi là bạn nên làm bất cứ điều gì bạn muốn làm,
+
+nhưng tôi khuyên bạn nên coi những gì chúng ta đang làm ở đây là một nỗ lực giáo dục, và đúng là như
+
+vậy.
+
+Và tôi đề nghị bạn hãy ghi vào đó một cái gì đó như, đối với tôi, tôi sẽ ghi là Ed Donna, Giáo
+
+dục cá nhân.
+
+Và đó là cách tôi gọi sự liên kết của mình, bởi vì meta đang sử dụng điều này như một cách để kiểm tra xem bạn
+
+có thực sự làm việc cho đối thủ cạnh tranh của họ không, và bạn không cố gắng xây dựng thứ gì
+
+đó mà sau đó sẽ lấy đi thứ gì đó của họ hoặc tương tự như vậy, sử dụng nó một lần nữa, có thể cho mục
+
+đích xấu.
+
+Và do đó, việc cung cấp cho họ thông tin về một công ty mà họ phải nghiên cứu có thể làm chậm quá
+
+trình này.
+
+Vì vậy, tôi đề nghị bạn hãy nói rõ rằng bạn sử dụng thông tin này cho mục đích giáo dục cá nhân.
+
+Bao gồm vai trò của bạn như nhà phát triển AI, nhà nghiên cứu AI, người thử nghiệm AI, bất cứ vai trò nào bạn muốn.
+
+Đại loại như thế.
+
+Ừm, hãy đảm bảo rằng bạn đang trao đổi với meta rằng bạn đang sử dụng thông tin này cho mục đích giáo dục và bạn biết đấy, hãy đảm
+
+bảo rằng bạn không cung cấp cho họ bất kỳ thông tin nào.
+
+Điều đó có nghĩa là họ nghĩ, ôi trời, chúng ta phải xem xét lại vấn đề này thêm nữa.
+
+Theo kinh nghiệm của tôi, khi bạn làm điều này, một trong ba điều sau sẽ xảy ra.
+
+Bạn có thể được chấp thuận chỉ trong vài phút hoặc thậm chí vài giây.
+
+Lần đầu tiên tôi làm điều này, tôi đã làm mới màn hình.
+
+Lúc đó là đêm muộn thứ bảy.
+
+Ừm, giống như giữa đêm ở Anh vậy.
+
+Lần đầu tiên tôi làm điều này.
+
+Và nó đã được chấp thuận gần như ngay lập tức.
+
+Và vì vậy tôi cho rằng nó có phần mang tính thuật toán nếu bạn rơi vào nhiều tham số cơ bản khác nhau.
+
+Ừ, tôi nghe nói có người phải mất một hoặc hai ngày mới được chấp thuận.
+
+Và sau đó tôi nghe nói có người phải mất đến vài tuần, và tôi nghĩ chỉ cần một hoặc hai ngày là đủ nếu
+
+chỉ cần một người nhanh mắt quan sát.
+
+Và phải mất vài tuần nếu câu trả lời của bạn không khớp với những gì họ mong đợi.
+
+Và vì thế cần phải xem xét sâu hơn.
+
+Vì vậy, hãy cố gắng tránh rơi vào nhóm đó.
+
+Hãy thực hiện theo cách đơn giản nếu bạn gặp phải tình huống này.
+
+Tôi đã tổng hợp một bảng hướng dẫn khắc phục sự cố hướng dẫn bạn qua các bước khác nhau mà bạn có thể
+
+gặp phải.
+
+Và cuối cùng, đây là một số công cụ và mẹo khác giúp bạn có thể đảm bảo điều đó.
+
+Và tôi muốn nói đến việc ghi tên bạn vào đó để thể hiện sự giáo dục cá nhân.
+
+Và cuối cùng, nếu bạn không nhận được sự chấp thuận của Lama thì điều đó thực sự không quan trọng.
+
+Những mô hình khác mà chúng ta sẽ xem xét, nhiều mô hình trong số đó không cần phải được chấp thuận.
+
+Tôi không nghĩ tìm kiếm sâu có tác dụng.
+
+Tôi không nghĩ Quen làm vậy.
+
+Quen thì tôi biết là không.
+
+Và chúng thực sự tuyệt vời.
+
+Đây là những mô hình tuyệt vời.
+
+Bạn có thể sử dụng chúng thay cho Lama trong suốt khóa học.
+
+Bạn thậm chí có thể đạt được kết quả tốt hơn.
+
+Vì vậy, tôi tập trung vào Lama vì nó rất phổ biến trong ngành.
+
+Tôi nghĩ sẽ tốt hơn nếu cho bạn thấy các mô hình mà bạn có thể sử dụng trong công việc, nhưng thực ra bạn không
+
+cần điều đó.
+
+À, và nếu bạn gặp bất kỳ vấn đề gì, chỉ cần sử dụng Quen.
+
+Và hy vọng là bạn đã được chấp thuận cho Lama 3. 1 ngay lập tức.
+
+Nếu không thì hãy xem tôi nhé.
+
+Ồ, và điều chúng ta sẽ làm bây giờ là tạo ra trình phân tích cú pháp đầu tiên.
+
+Chúng tôi thực hiện điều đó bằng cách sử dụng lớp khuôn mặt ôm gọi là auto tokenizer, trong đó có một lớp tĩnh.
+
+Phương thức lớp này là Frompretrained, ừm, lấy tên của một mô hình từ khuôn mặt đang ôm.
+
+Vậy nên tên của mô hình khuôn mặt ôm.
+
+Nó bắt đầu bằng ID khuôn mặt ôm, đó là meta llama, tên của Meta trong tài khoản Meta Llama, và sau đó là tên của
+
+chính người mẫu, meta llama 3. 18 B.
+
+Vì vậy, bạn truyền dữ liệu đó vào bằng phương tiện đã được đào tạo trước.
+
+Đây là mô hình được đào tạo trước.
+
+Tôi muốn bạn ôm mặt và tra cứu điều này.
+
+Và trình phân tích cú pháp tự động có nghĩa là hãy tạo đúng loại trình phân tích cú pháp cho mô hình này và trả về biến trình
+
+phân tích cú pháp này.
+
+Vì vậy tôi sẽ làm như vậy.
+
+Bạn có thể thấy tôi đã chạy rồi, nên nó chạy nhanh đối với bạn.
+
+Có lẽ mất khoảng 20 giây hoặc lâu hơn.
+
+Được thôi.
+
+Bây giờ tôi sẽ lấy một số văn bản.
+
+Tôi rất vui mừng được giới thiệu Tokenizers thực tế cho các kỹ sư LLM của mình.
+
+Và tôi gọi trình phân tích văn bản đó.
+
+Và mã hóa đó là một trong những phương thức chính mà bạn có thể gọi trên một trình phân tích mã thông báo để chuyển
+
+văn bản thành mã thông báo, sau đó tôi sẽ in chúng.
+
+Hay nói một cách khoa trương hơn, nó thực chất là biến văn bản thành mã thông báo.
+
+Nó chuyển văn bản thành ID mã thông báo.
+
+Nhưng một lần nữa tôi lại cẩu thả.
+
+Và mọi người thường nói mã thông báo khi thực sự, nói một cách nghiêm túc, là mã ID mã thông báo.
+
+Và chúng ở đây, vì các mã thông báo chỉ là các đoạn từ.
+
+Ừ, đây là ID mã thông báo.
+
+Chúng ở đó.
+
+Ừ, bạn có thể thấy có rất nhiều thứ.
+
+Ừ, chúng ta hãy xem có bao nhiêu cái nhé.
+
+Vì vậy, trong câu đó có 61 ký tự bao gồm 12 từ và có 15 mã thông báo.
+
+Có vẻ gần như phù hợp với quy tắc chung đó.
+
+Bạn còn nhớ nguyên tắc chung chứ.
+
+Nguyên tắc chung là khoảng 0. 75, ừm, một từ cho một mã thông báo.
+
+Trung bình.
+
+Vậy đó, bạn đã có nó rồi.
+
+Đây là các mã thông báo.
+
+Đây là những con số.
+
+Những con số như thế này có ý nghĩa với một LLM.
+
+Người ta mong đợi rằng nó đã được đào tạo từ nhiều con số như thế.
+
+Bạn không thể đưa văn bản đó vào mô hình thống kê được.
+
+Một thứ có trọng số với nhiều tham số kết hợp các con số.
+
+Cần phải có số liệu.
+
+Bạn cần số để kết hợp các số.
+
+Và đây là những con số mà nó mong đợi nhận được.
+
+Và vì thế tôi đã nói rằng mã hóa là một trong những phương pháp chính trên trình phân tích mã thông báo.
+
+Cái còn lại là giải mã.
+
+Vì vậy, nếu chúng ta có một loạt mã thông báo hoặc ID mã thông báo, chúng ta có thể giải mã chúng.
+
+Và những gì chúng ta sẽ nhận lại được chính là điều này.
+
+Vâng, điều đó thật thú vị phải không?
+
+Nó không giống hệt như những gì chúng ta đã bắt đầu vì nó có một thứ kỳ lạ ở phần
+
+đầu.
+
+Đó là cái gì thế?
+
+Vâng, tất nhiên, như bạn có thể đoán, đó là một mã thông báo đặc biệt đang được giải mã.
+
+Điều xảy ra là khi chúng tôi chuyển nó thành ID mã thông báo, chúng tôi nhận được ID mã thông báo lớn này
+
+ngay từ đầu, không phải là chữ I.
+
+Tôi tin rằng 40 là I.
+
+Con số khổng lồ ở đây, 128.000, tôi nghĩ thực ra là con số tối đa, tôi nghĩ đó là số lượng
+
+mã thông báo ở đó.
+
+Chúng ta sẽ kiểm tra điều đó sau.
+
+Ừm, đó là ánh xạ tới ký hiệu đặc biệt này ở đầu văn bản.
+
+Và như tôi đã nói với bạn, đó là một mã thông báo đặc biệt cho LLM biết rằng, này, đây là phần mở đầu của một số
+
+văn bản gửi cho bạn.
+
+Và không phải như tôi đã nói, không có gì đặc biệt trong kiến trúc mạng nơ-ron.
+
+Vấn đề là chúng tôi đã thực hiện tất cả dữ liệu đào tạo theo cách đó.
+
+Vì vậy, việc khớp mẫu xảy ra bên trong nó mong đợi loại mẫu đó.
+
+Được rồi.
+
+Và điều cuối cùng muốn giới thiệu với bạn là giải mã hàng loạt tokenizer.
+
+Giải mã hàng loạt có đôi chút khác biệt so với giải mã.
+
+Nó khác nhau như thế nào?
+
+Vâng, bởi vì thay vì cung cấp cho bạn toàn bộ câu như thế này, nó chỉ cung cấp cho bạn các
+
+mã thông báo riêng lẻ.
+
+Tôi rất vui mừng khi được giới thiệu Tokenizers thực tế cho các kỹ sư của tôi.
+
+Và đó là cách cho bạn thấy sự phân chia mã thông báo riêng lẻ.
+
+Và chú ý khoảng trống ở phía trước.
+
+Bạn có nhớ rằng từ tuần đầu tiên, điều đó cho bạn thấy rằng một số mã thông báo
+
+này có ý nghĩa giống như phần đầu của từ được gán cho chúng, trong khi LLM ở đây thì không.
+
+Đó chỉ là một dấu hiệu cho thấy một phần của từ có chứa LLM.
+
+Đó là mã hóa và giải mã bằng Tokenizer.
+
+
+Và còn một phương pháp khác mà chúng ta có thể gọi là thêm từ vựng.
+
+Và điều này cung cấp cho bạn danh sách tất cả các mã thông báo đặc biệt có trong từ vựng của nó.
+
+Có tất cả những thứ này, ừm, có đoạn văn bản đầu tiên mà chúng ta đã thấy.
+
+Vậy nên tôi đã nghĩ nó sẽ vượt quá 28.000.
+
+Tôi nghĩ tôi nghĩ đây thực sự là giới hạn ở đây.
+
+Ờ, ờ, thế là xong.
+
+Tôi nghĩ đó có thể là con số lớn nhất.
+
+Cái, ừm.
+
+Ừm, vậy thì, ừm, chúng ta thấy có một đoạn văn bản bắt đầu, một ký hiệu đặc biệt, một đoạn văn bản kết thúc và sau đó có rất nhiều
+
+thứ được dành riêng.
+
+Có một tiêu đề, ừm, tất cả những thứ này là một từ vựng đặc biệt được tích hợp vào từ vựng liên quan đến trình phân tích
+
+cú pháp.
+
+Và trên thực tế, trình phân tích cú pháp có một trường từ vựng cung cấp cho bạn từ điển của mọi thứ, rất lớn.
+
+Vì vậy, tôi sẽ không in nó ra, nhưng tôi sẽ lấy toàn bộ nội dung để chúng ta có thể thấy thực
+
+sự nó có bao nhiêu thứ.
+
+Và đúng vậy, nó có 128.256, vì có 256 số đặc biệt được nhét vào cuối con
+
+số 128.000.
+
+Đó là tổng kích thước của loài lạc đà không bướu.
+
+Bộ phân tích mã thông báo.
+
+Được thôi.
+
+Tiến thêm một bước nữa, mô hình con lạc đà mà chúng ta đang xem xét là một ví dụ về cái
+
+gọi là mô hình cơ sở.
+
+Bạn còn nhớ tôi đã đề cập cách đây rất lâu rằng có các mô hình cơ sở, mô hình trò chuyện và mô hình lý
+
+luận.
+
+Và đây là mô hình cơ sở, nghĩa là nó không mong đợi những thứ như lời nhắc của hệ thống và lời nhắc của
+
+người dùng.
+
+Nó không có thông tin đó trong dữ liệu đào tạo.
+
+Nó ở đó như một tấm vải trắng vậy.
+
+Có rất nhiều dữ liệu đào tạo, nên nó không quá trống, nhưng vẫn trống hơn một số canvas khác.
+
+Bạn có thể thoải mái thay đổi theo hướng khác nếu muốn.
+
+Có một biến thể của những mô hình này được gọi là biến thể trò chuyện.
+
+Đôi khi chúng còn được gọi là các biến thể hướng dẫn.
+
+Và đây là những mô hình được đào tạo cụ thể hơn với lời nhắc của hệ thống, lời nhắc của người dùng, phản hồi của
+
+trợ lý, các loại phản hồi qua lại mà chúng tôi đã thử nghiệm trong vài
+
+tuần qua, chúng được gọi là mô hình trò chuyện hoặc hướng dẫn.
+
+Và thực tế, khi ôm mặt, người ta thường gọi họ bằng từ hướng dẫn thay vì trò chuyện.
+
+Mặc dù bạn có thể nhìn thấy cả hai.
+
+Các biến thể hướng dẫn là những biến thể đã được tinh chỉnh cụ thể để mong đợi chuỗi
+
+lời nhắc này và những người tốt bụng tại Hugging Face đã viết một tiện ích đặc biệt có tên là Apply Chat Template và Apply
+
+chat template sẽ lấy dữ liệu đầu vào dưới dạng danh sách các từ điển mà chúng tôi biết và yêu
+
+thích khi sử dụng API của OpenAI và sẽ chuyển đổi dữ liệu đó thành một tập hợp các mã thông báo và văn bản đặc biệt phù hợp
+
+với lời nhắc.
+
+Bây giờ, bạn có thể đang thắc mắc.
+
+Bạn có thể đang nghĩ, khoan đã, khoan đã, cái gì cơ?
+
+Cái đó có tác dụng gì?
+
+Và tôi sẽ cho bạn biết nó sẽ đến với bạn chỉ trong một giây khi tôi cho bạn xem nó.
+
+Trước hết, chúng ta hãy tạo một công cụ phân tích, nhưng không phải công cụ chúng ta đã làm trước đó, trông giống
+
+như thế này.
+
+Nhưng lần này chúng ta sẽ thêm dấu gạch nối hướng dẫn vào cuối, nghĩa là chúng ta muốn biến thể hướng dẫn và biến
+
+thể này có bộ phân tích cú pháp khác với mô hình cơ sở.
+
+Được rồi.
+
+Bây giờ chúng ta sẽ có được trình phân tích cú pháp khác nhau này.
+
+Đang tải.
+
+Và nó khác biệt vì có nhiều mã thông báo đặc biệt hơn ở đó.
+
+Và chúng ta hãy cùng xem nhé.
+
+Vì vậy, chúng ta sẽ đưa ra một thông báo sử dụng định dạng OpenAI mà chúng ta biết là danh sách các từ điển,
+
+vai trò, nội dung hệ thống.
+
+Bạn là trợ lý hữu ích, người dùng nội dung sẽ kể một câu chuyện cười vui vẻ cho một nhóm các nhà khoa học dữ liệu.
+
+Đấy, thế là xong.
+
+Một ví dụ hay về bộ nhắc nhở cho một mô hình, và tôi sẽ gọi tokenizer dot apply chat template, đây là cách bạn có thể nói
+
+rằng tôi sẽ truyền vào một danh sách các từ điển.
+
+Và tôi muốn bạn biến điều này thành thứ phù hợp để đưa vào mô hình.
+
+Để tôi chạy thử và cho bạn thấy những gì bạn thấy.
+
+Chúng ta thấy phần đầu của văn bản ở đây.
+
+ID tiêu đề bắt đầu và ID tiêu đề kết thúc của hệ thống.
+
+Trên thực tế, có một thông tin được chèn vào đây là ngày hết hạn kiến thức.
+
+Và ngày hôm nay là một ngày khác nhưng cũng là một ngày rất lâu trong quá khứ.
+
+Nhưng nó dành cho mẫu trò chuyện cụ thể này.
+
+Bạn là một trợ lý hữu ích đến từ đây.
+
+Và sau đó là mã thông báo đặc biệt EOT và sau đó bắt đầu tiêu đề người dùng kết thúc tiêu đề.
+
+Có rất nhiều thứ xảy ra ở đây và sau đó là trợ lý.
+
+Vâng, hãy nhìn vào phần kết thúc ở đây.
+
+Sau đó bắt đầu ID đầu trợ lý kết thúc ID tiêu đề.
+
+Chuyện gì đang xảy ra ở đây vậy?
+
+Vậy thì đây chính là khoảnh khắc để bạn có được khoảnh khắc Eureka mà có thể bạn đã biết rồi, nhưng nếu
+
+chưa thì bạn sẽ có khoảnh khắc Eureka.
+
+Ừm, tôi đã đưa cho bạn ý tưởng này trong vài tuần qua rằng định dạng OpenAI này giống như một phần trong những gì LLM
+
+mong đợi, giống như mô hình khoa học dữ liệu đang tìm kiếm, danh sách các thông điệp được truyền vào như thể mạng
+
+nơ-ron sâu, kiến trúc biến đổi có thể có một phần dành cho lời nhắc hệ thống và một phần
+
+dành cho lời nhắc của người dùng và chúng được truyền vào theo nhiều
+
+cách khác nhau.
+
+Nhưng tất nhiên mọi việc không diễn ra như vậy.
+
+Và LLM là một mô hình khoa học dữ liệu.
+
+Nó lấy một dãy số và dự đoán số tiếp theo có khả năng xảy ra cao nhất.
+
+Nó chỉ liên quan đến một tập hợp các con số.
+
+Không cần nhiều bộ số.
+
+Chắc chắn là không cần JSON.
+
+Nó không phải là thứ gì đó giống như phần mềm.
+
+Đây là mô hình khoa học dữ liệu.
+
+Ồ, và có khoảnh khắc này khi bạn nhận ra điều gì thực sự đang xảy ra ở đây.
+
+Điều thực sự xảy ra là khi bạn nhập, khi bạn tạo danh sách các từ điển này và các phần còn
+
+lại, nó sẽ được chuyển đổi thành thứ gì đó có trình tự, một loạt các từ có các mã thông báo đặc biệt được chèn
+
+vào để nói rằng, đây là phần đầu của dấu nhắc hệ thống.
+
+Đây là lời nhắc kết thúc hệ thống.
+
+Đây là phần đầu của lời nhắc nhở người dùng.
+
+Đây là kết thúc.
+
+Đây là sự khởi đầu của phản ứng hỗ trợ.
+
+Và đó chính là điều tôi muốn nói ở cuối đây.
+
+Và mô hình sẽ làm gì.
+
+Nó sẽ dự đoán những gì xảy ra tiếp theo.
+
+Và nó chỉ cảm thấy có nghĩa vụ phải dự đoán điều gì đó có vẻ phù hợp với phản ứng của Học sinh đối
+
+với mọi thứ diễn ra trước đó.
+
+Và lý do nó buộc phải làm như vậy, lý do nó biết những mã thông báo đặc biệt này có ý nghĩa gì, không phải vì
+
+bất cứ điều gì được tích hợp vào mạng nơ-ron.
+
+Nhưng một lần nữa, lý do chỉ là vì dữ liệu đào tạo trông như vậy.
+
+Hàng tấn dữ liệu đào tạo đã được xây dựng với các mã thông báo đặc biệt này cùng với phản hồi của trợ lý tin nhắn người dùng,
+
+phản hồi của trợ lý tin nhắn người dùng.
+
+Và do đó, có rất nhiều ví dụ về mặt thống kê cho thấy nó có khả năng dự đoán các mã thông báo phù
+
+hợp với phản hồi hỗ trợ.
+
+Chỉ có vậy thôi.
+
+Và hy vọng rằng đó là mảnh ghép cuối cùng của câu đố, đối với bạn thì giống như kiểu, đúng rồi, tôi hiểu rồi.
+
+Không có gì đặc biệt về lời nhắc của người dùng, lời nhắc của hệ thống và những thứ còn lại.
+
+Chỉ là chúng được xác định bằng những mã thông báo đặc biệt.
+
+Và có rất nhiều thông tin như vậy trong dữ liệu đào tạo.
+
+Vì vậy, phương pháp khớp mẫu của LLM được sử dụng để nhìn thấy những mẫu đó.
+
+Và do đó, các mã thông báo mà nó tạo ra phù hợp với mục tiêu của chúng tôi là nhận được phản hồi từ trợ lý.
+
+Vậy thôi.
+Và chúng ta sẽ tiếp tục khám phá Tokenizer bằng cách xem xét một số Tokenizer khác mà chúng
+
+ta sẽ xem xét trong số năm Tokenizer từ Microsoft Deep SEQ, 3. 1 từ công ty mới nổi của Trung Quốc là Sky và encoder 2. 5 từ Alibaba Cloud.
+
+Vì vậy, tôi sẽ tải những biến đó vào.
+
+Như thường lệ, tên người dùng Microsoft sẽ là khuôn mặt ôm chặt theo sau là tên model thứ năm của họ để
+
+hướng dẫn mini.
+
+Vậy đây là biến thể Instruct và sau đó chúng ta sẽ lấy một số văn bản.
+
+Tôi rất háo hức được giới thiệu cách thức hoạt động của Máy nhận diện khuôn mặt ôm cho các kỹ sư LLM của mình.
+
+Chúng ta hãy biến nó thành mã thông báo hoặc ID mã thông báo rồi giải mã chúng.
+
+Và chúng ta sẽ làm điều đó cho Lama và sau đó là năm bốn.
+
+Vì vậy, đối với Lama, bạn có thể thấy ở đây có một mã thông báo văn bản dành cho người mới bắt đầu.
+
+Và rồi tôi tò mò muốn cho cô ấy thấy khuôn mặt đang ôm mình.
+
+Bộ mã hóa.
+
+Và nếu bạn nhìn xuống đây, bạn sẽ thấy chúng ta đang nhìn vào phiên bản năm bốn.
+
+Vì vậy, các con số hoàn toàn khác nhau.
+
+Đó là điều đầu tiên cần chú ý, chỉ là ID khác nhau.
+
+Nó đã được đào tạo với nhiều con số khác nhau và điều đó không thành vấn đề.
+
+Vì vậy, bất kỳ con số nào được đào tạo cũng phải nhất quán.
+
+Và nó không bắt đầu bằng một mã thông báo đặc biệt.
+
+Vì vậy, họ có cách tiếp cận khác, cấu trúc khác.
+
+Họ đã thử nghiệm và quyết định rằng phương pháp này phù hợp hơn với mô hình của họ.
+
+Và bạn cũng sẽ nhận thấy rằng hầu hết các từ đều có cùng tầm quan trọng.
+
+Ngoại trừ việc nhìn vào khuôn mặt ôm chặt khi nhắc đến loài lạc đà không bướu.
+
+Tokenizer thì ôm mặt, nhưng khi đến Phi bốn thì lại ôm mặt.
+
+Thật khác biệt.
+
+Các trình phân tích cú pháp khác nhau có hành vi hơi khác nhau.
+
+Và điều đáng trân trọng là chúng khác biệt nhưng không cần phải lo lắng về điều đó.
+
+Ừ, và ừ, đây là cách hiển thị mẫu trò chuyện.
+
+Uh llama chúng ta có tiêu đề văn bản dành cho người mới bắt đầu này.
+
+Bạn sẽ thấy con lạc đà có thứ gì đó mà họ cũng nhét vào đó.
+
+Ừ nhưng rồi lại có những tiêu đề này.
+
+Mua năm tặng một thì đơn giản hơn nhiều.
+
+Nó có hệ thống người dùng cuối và trợ lý.
+
+Và sau đó là phản ứng.
+
+Đó là sự khác biệt giữa chúng.
+
+Các mẫu trò chuyện ứng dụng trông hoàn toàn khác biệt.
+
+Và điều quan trọng là phương pháp này được sử dụng một cách nhất quán trong quá trình đào tạo.
+
+Và bây giờ chúng ta hãy xem xét bộ phân tích sâu sáu.
+
+Và những gì tôi có ở đây chỉ là hiển thị các mã thông báo llamas cạnh nhau.
+
+Và đây là năm bốn mã thông báo.
+
+Và đây là sáu mã thông báo sâu cho cùng một câu.
+
+Để minh họa thêm một lần nữa, các con số hoàn toàn khác nhau.
+
+Từ vựng khác nhau thì ID khác nhau.
+
+Điều quan trọng nhất là tính nhất quán với dữ liệu đào tạo.
+
+Một lần nữa, nếu bạn nhìn vào mẫu trò chuyện Deep Six, nó trông hoàn toàn khác.
+
+Nó có một mã thông báo đặc biệt cho đầu câu, sau đó là người dùng và trợ lý.
+
+Và lời nhắc trợ lý chỉ xuất hiện ở phía trước toàn bộ nội dung.
+
+Mọi việc được tổ chức như thế đó.
+
+Khi tìm kiếm sâu, bạn có thể thấy những điểm khác biệt tinh tế giữa chúng.
+
+Và công cụ cuối cùng tôi muốn giới thiệu cho bạn là công cụ phân tích mã.
+
+Đây là công cụ phân tích cú pháp dành cho lập trình viên Quinn.
+
+Và vì vậy chúng ta đưa vào trình phân tích cú pháp. Tôi có một số mã như def hello world person print.
+
+Xin chào mọi người.
+
+Ồ, đây là một chương trình Python rất phức tạp.
+
+Và sau đó chúng ta sẽ phân chia nó thành nhiều phần và in ra riêng biệt các kết quả.
+
+Đây nhé.
+
+Bạn thấy đấy, những gì tôi đã làm ở đây là tôi đã đặt tên của một mã thông báo và sau đó là những từ mà nó đại diện.
+
+Và bạn có thể thấy rằng, ừm, ví dụ, thế giới gạch dưới là thứ ánh xạ tới một mã thông báo nào đó.
+
+Và vâng, bạn có thể thấy rằng có một số cấu trúc như dấu ngoặc đóng.
+
+Colon nhận được một mã thông báo.
+
+Và đó có vẻ là một mã thông báo khá sớm.
+
+Và tôi chưa thực hiện phân tích sâu về vấn đề này, nhưng tôi hình dung rằng có nhiều mã thông báo phổ biến hơn trong
+
+trình phân tích này liên quan đến các cấu trúc mã hóa phổ biến hơn là trong trình phân tích không được thiết
+
+kế cho mô hình mã hóa.
+
+Vì vậy, họ có thể đã tối ưu hóa mã thông báo của mình để đảm bảo rằng họ có thể hiểu được ý nghĩa sâu sắc nhất
+
+liên quan đến mã thông báo theo cách họ mã hóa.
+
+Vì vậy, điều đáng hiểu là trình phân tích cú pháp được liên kết với mô hình.
+
+Các mô hình khác nhau có thể có chiến lược khác nhau về cách chuyển đổi ngôn ngữ tự nhiên thành các ID mã thông báo
+
+này, vì các mô hình hiểu được các con số thông qua ID mã thông báo.
+
+Ngôn ngữ hoặc thậm chí danh sách các từ điển không được truyền vào các mô hình này.
+
+Hôm nay là một ngày khá nhẹ nhàng.
+
+Chúng tôi vừa mới vượt qua chuyện đó khá nhanh, nhưng tôi sẽ bù lại vào ngày mai.
+
+Ngày mai sẽ không dễ dàng, nhưng những gì bạn có thể làm bây giờ là bạn có thể lập trình bằng các mô hình frontier.
+
+Bạn có thể xây dựng một trợ lý AI đa phương thức.
+
+Nhưng điều quan trọng là bạn không chỉ có thể sử dụng đường ống ôm mặt mà còn biết về Tokenizer
+
+và cách chúng chuyển ngôn ngữ thành số, từ thành số và các đoạn từ thành số.
+
+Lần tới chúng ta sẽ ôm chặt mặt nhau.
+
+Chúng tôi sử dụng các mô hình.
+
+Chúng tôi sử dụng mô hình khuôn mặt ôm sát để tạo ra một số văn bản và về cơ bản, nó thực hiện chức năng tương tự như những gì chúng tôi đã làm
+
+với các đường ống.
+
+Nhưng bây giờ chúng ta thực sự đang tự mình điều khiển quá trình suy luận của mô hình, điều này thực sự thú vị.
+
+Và còn nhiều thứ khác tôi muốn cho bạn xem vào ngày mai.
+
+Vậy nên, hãy chuẩn bị cho một ngày trọng đại và tôi sẽ gặp lại bạn ở phía bên kia.
+
+
+
+

@@ -1,0 +1,1195 @@
+# 027 - HTTP 2
+
+**Section:** 03 - Protocols  
+**Duration:** 17 minutes  
+
+---
+
+## 1. Summary
+
+HTTP/2 is an improved version of HTTP designed to solve several limitations of HTTP/1.1.
+
+HTTP/1.1 is simple and still widely used, but it has performance limitations when a browser needs to load many resources from the same domain.
+
+Examples of resources:
+
+- HTML
+- CSS
+- JavaScript
+- Images
+- Fonts
+- API calls
+
+In HTTP/1.1, each TCP connection can effectively handle one active request at a time because HTTP/1.1 pipelining did not work well in practice.
+
+Browsers solved this by opening multiple TCP connections per domain, often around six.
+
+HTTP/2 improves this by allowing many requests and responses to share a single TCP connection using **multiplexing**.
+
+The main idea of HTTP/2:
+
+```text
+One TCP connection
+Many concurrent streams
+Each stream has its own ID
+Responses can arrive independently
+```
+
+HTTP/2 is faster than HTTP/1.1 in workloads where the client sends many concurrent requests.
+
+However, HTTP/2 is not always faster for every workload.
+
+It has trade-offs such as:
+
+- More protocol complexity
+- More CPU work
+- TCP head-of-line blocking
+- More complex backend implementation
+- Server Push not being successful
+
+---
+
+## 2. Key Concepts
+
+## 2.1 HTTP/1.1 Recap
+
+In HTTP/1.1, the browser opens a TCP connection and sends a request.
+
+Example:
+
+```text
+Request index.html
+Wait for response
+Request app.js
+Wait for response
+Request style.css
+Wait for response
+Request image.png
+Wait for response
+```
+
+One connection becomes busy while waiting for the response.
+
+Because of this, browsers usually open multiple connections to the same domain.
+
+Example:
+
+```text
+Connection 1 → index.html
+Connection 2 → app.js
+Connection 3 → style.css
+Connection 4 → image1.png
+Connection 5 → image2.png
+Connection 6 → image3.png
+```
+
+This improves concurrency but costs more resources.
+
+---
+
+## 2.2 HTTP/1.1 Connection Limit
+
+Browsers limit the number of TCP connections per domain.
+
+A common number is around:
+
+```text
+6 connections per domain
+```
+
+This means the browser cannot send unlimited concurrent requests to the same origin.
+
+If there are many resources, some requests must wait.
+
+Example:
+
+```text
+100 images
+6 connections
+Only 6 can actively download at a time
+```
+
+This is one of the problems HTTP/2 tries to solve.
+
+---
+
+## 2.3 HTTP/1.1 Pipelining Problem
+
+HTTP/1.1 had a feature called pipelining.
+
+The client could send multiple requests before receiving responses.
+
+Example:
+
+```text
+Request 1
+Request 2
+Request 3
+```
+
+But responses had to come back in the same order.
+
+```text
+Response 1
+Response 2
+Response 3
+```
+
+If Response 1 was slow, Response 2 and Response 3 had to wait.
+
+This caused head-of-line blocking at the HTTP level.
+
+Because of this, HTTP/1.1 pipelining was usually disabled.
+
+---
+
+## 2.4 HTTP/2 Multiplexing
+
+HTTP/2 solves the pipelining problem with multiplexing.
+
+Instead of relying on strict response order, HTTP/2 gives each request/response a stream ID.
+
+Example:
+
+```text
+Stream 1 → index.html
+Stream 3 → app.js
+Stream 5 → style.css
+Stream 7 → image.png
+```
+
+Each stream is independent at the HTTP/2 layer.
+
+The server can respond to Stream 7 before Stream 1 if Stream 7 is ready first.
+
+This is very different from HTTP/1.1 pipelining.
+
+---
+
+## 2.5 Streams
+
+A stream is an independent logical channel inside one HTTP/2 connection.
+
+One TCP connection can carry many streams.
+
+Example:
+
+```text
+TCP Connection
+├── Stream 1
+├── Stream 3
+├── Stream 5
+├── Stream 7
+└── Stream 9
+```
+
+Each stream belongs to a request/response exchange.
+
+The client and server use stream IDs to know which data belongs to which request.
+
+---
+
+## 2.6 Stream IDs
+
+HTTP/2 uses stream IDs.
+
+Client-initiated streams usually use odd numbers.
+
+Example:
+
+```text
+1
+3
+5
+7
+```
+
+Server-initiated streams use even numbers.
+
+Example:
+
+```text
+2
+4
+6
+8
+```
+
+This helps both sides identify streams clearly.
+
+---
+
+## 2.7 Binary Protocol
+
+HTTP/1.1 is text-based.
+
+Example:
+
+```http
+GET /index.html HTTP/1.1
+Host: example.com
+```
+
+HTTP/2 is binary.
+
+It uses frames instead of plain-text request and response messages.
+
+This makes HTTP/2 more efficient for machines, but harder for humans to inspect manually.
+
+---
+
+## 2.8 Frames
+
+HTTP/2 breaks communication into frames.
+
+Frames are small pieces of data that belong to streams.
+
+Example:
+
+```text
+HEADERS frame → Stream 1
+DATA frame    → Stream 1
+HEADERS frame → Stream 3
+DATA frame    → Stream 3
+```
+
+Because frames include stream IDs, HTTP/2 can interleave data from multiple streams on the same TCP connection.
+
+---
+
+## 2.9 Header Compression
+
+HTTP/2 supports header compression.
+
+HTTP/1.1 headers can be repetitive.
+
+Example:
+
+```http
+User-Agent: ...
+Cookie: ...
+Accept: ...
+Authorization: ...
+```
+
+If every request repeats the same headers, bandwidth is wasted.
+
+HTTP/2 compresses headers to reduce overhead.
+
+HTTP/2 uses a header compression mechanism called:
+
+```text
+HPACK
+```
+
+HTTP/3 uses a different header compression mechanism called:
+
+```text
+QPACK
+```
+
+---
+
+## 2.10 HTTP/2 Over TLS
+
+In practice, HTTP/2 is usually used over TLS.
+
+Browsers generally require TLS for HTTP/2.
+
+This is partly because of protocol ossification.
+
+---
+
+## 2.11 Protocol Ossification
+
+Protocol ossification happens when middleboxes, proxies, routers, or firewalls assume a protocol must always look a certain way.
+
+HTTP/1.1 is text-based and old.
+
+Many middleboxes expect HTTP traffic on port 80 to look like HTTP/1.1.
+
+HTTP/2 uses a binary format.
+
+If HTTP/2 was sent as cleartext over port 80, some middleboxes might reject or break it.
+
+TLS hides the protocol details from these middleboxes.
+
+This made HTTP/2 deployment more practical.
+
+---
+
+## 2.12 ALPN
+
+ALPN stands for:
+
+```text
+Application-Layer Protocol Negotiation
+```
+
+ALPN is a TLS extension.
+
+It lets the client and server negotiate which protocol to use.
+
+Example:
+
+```text
+Client supports: h2, http/1.1
+Server chooses: h2
+```
+
+`h2` means HTTP/2.
+
+This negotiation happens during the TLS handshake.
+
+---
+
+## 3. HTTP/2 Server Push
+
+## 3.1 What Was Server Push?
+
+HTTP/2 Server Push allowed the server to send resources before the client explicitly requested them.
+
+Example:
+
+```text
+Client requests index.html
+Server also pushes style.css
+Server also pushes app.js
+Server also pushes logo.png
+```
+
+The idea was:
+
+```text
+If the server knows the client will need these files,
+send them early.
+```
+
+---
+
+## 3.2 Why Server Push Sounded Useful
+
+A web page usually needs many resources.
+
+Example:
+
+```html
+index.html
+style.css
+app.js
+image.png
+```
+
+Instead of waiting for the browser to parse the HTML and discover the resources, the server could push them early.
+
+This sounded like a performance improvement.
+
+---
+
+## 3.3 Why Server Push Failed in Practice
+
+Server Push had many problems.
+
+The server often did not know what the client already had cached.
+
+Example:
+
+```text
+Client already has style.css cached.
+Server pushes style.css anyway.
+Bandwidth is wasted.
+```
+
+Another problem:
+
+HTTP traditionally follows one request → one response.
+
+Server Push broke that mental model.
+
+Clients had to handle extra responses they did not explicitly ask for.
+
+This added complexity.
+
+Because of these problems, HTTP/2 Server Push did not become successful and is no longer widely used.
+
+---
+
+## 3.4 Early Hints
+
+A better approach is:
+
+```text
+103 Early Hints
+```
+
+Early Hints allow the server to tell the client about resources it may need.
+
+Instead of pushing the resource directly, the server hints:
+
+```text
+You may want to preload style.css
+You may want to preload app.js
+```
+
+The client can then decide whether to fetch them.
+
+This is better because the client can check its cache and make smarter decisions.
+
+---
+
+## 4. Pros of HTTP/2
+
+## 4.1 Multiplexing Over One TCP Connection
+
+HTTP/2 can send many requests over one TCP connection.
+
+This reduces the need for multiple TCP connections.
+
+Example:
+
+```text
+HTTP/1.1:
+6 TCP connections
+
+HTTP/2:
+1 TCP connection with many streams
+```
+
+This saves resources on both client and server.
+
+---
+
+## 4.2 Better Concurrency
+
+With HTTP/2, the browser can send many requests concurrently over one connection.
+
+Example:
+
+```text
+Stream 1 → HTML
+Stream 3 → CSS
+Stream 5 → JavaScript
+Stream 7 → Image
+Stream 9 → Font
+```
+
+The server can process and respond to streams independently.
+
+---
+
+## 4.3 Header Compression
+
+HTTP/2 compresses headers using HPACK.
+
+This reduces repeated header overhead.
+
+This is useful when requests contain large or repeated headers, such as cookies or authorization headers.
+
+---
+
+## 4.4 Secure by Default in Browsers
+
+HTTP/2 is usually used over TLS in browsers.
+
+This gives security by default in most real-world deployments.
+
+---
+
+## 4.5 Better for Many Small Resources
+
+HTTP/2 performs well when loading many small resources from the same origin.
+
+Example:
+
+```text
+100 images
+many CSS files
+many JavaScript chunks
+many API calls
+```
+
+Because multiplexing avoids the browser's HTTP/1.1 connection limit, HTTP/2 can load these resources faster.
+
+---
+
+## 5. Cons of HTTP/2
+
+## 5.1 TCP Head-of-Line Blocking
+
+HTTP/2 solves head-of-line blocking at the HTTP layer, but it still runs over TCP.
+
+TCP is an ordered byte stream.
+
+If one TCP segment is lost, later bytes cannot be delivered to the application until the missing segment is retransmitted.
+
+This creates TCP-level head-of-line blocking.
+
+Example:
+
+```text
+HTTP/2 streams:
+Stream 1
+Stream 3
+Stream 5
+Stream 7
+```
+
+If a TCP packet containing part of Stream 1 is lost, TCP may block delivery of later bytes.
+
+Even if later bytes belong to Stream 3 or Stream 7, the application may not receive them until TCP repairs the missing data.
+
+This is one of the major limitations that HTTP/3 tries to solve.
+
+---
+
+## 5.2 More CPU Work
+
+HTTP/2 is more complex than HTTP/1.1.
+
+The backend must understand:
+
+- Binary frames
+- Stream IDs
+- Header compression
+- Flow control
+- Multiplexing
+- Stream state
+
+This requires more parsing and processing.
+
+More processing means more CPU usage.
+
+Nothing is free.
+
+---
+
+## 5.3 More Implementation Complexity
+
+HTTP/1.1 is text-based and relatively simple.
+
+HTTP/2 is binary and more complex.
+
+Servers, clients, proxies, and load balancers need proper HTTP/2 support.
+
+This can make debugging and implementation more difficult.
+
+---
+
+## 5.4 Server Push Failed
+
+HTTP/2 Server Push sounded powerful, but it did not work well in practice.
+
+Problems:
+
+- Client may already have resource cached.
+- Server may push unnecessary resources.
+- Client APIs became more complex.
+- It broke the traditional request-response model.
+- It was difficult to tune correctly.
+
+Because of that, Server Push is not a major practical benefit today.
+
+---
+
+## 5.5 Not Always Faster
+
+HTTP/2 is not automatically faster for every workload.
+
+It is faster when there are many concurrent requests.
+
+But if your application sends only one request at a time, HTTP/2 may not give much benefit.
+
+Example:
+
+```text
+One request per second
+Small response
+No parallel resource loading
+```
+
+In this case, HTTP/1.1 may be good enough.
+
+Performance depends on workload.
+
+---
+
+## 6. HTTP/1.1 vs HTTP/2
+
+| Feature | HTTP/1.1 | HTTP/2 |
+|---|---|---|
+| Format | Text-based | Binary |
+| Connection usage | Multiple connections often needed | One connection can carry many streams |
+| Multiplexing | No practical multiplexing | Yes |
+| Header compression | No modern header compression | HPACK |
+| Pipelining | Exists but usually disabled | Replaced by multiplexing |
+| Server Push | No | Exists but not successful |
+| Browser security | Can be HTTP or HTTPS | Usually HTTPS in browsers |
+| Debugging | Easier to read manually | Harder because binary |
+| TCP HOL blocking | Yes | Still yes at TCP layer |
+| Best for | Simple workloads | Many concurrent requests |
+
+---
+
+## 7. HTTP/2 Performance Example
+
+Imagine a page loads 100 small images.
+
+With HTTP/1.1:
+
+```text
+Browser opens about 6 connections.
+Only a limited number of resources download at once.
+Other resources wait.
+```
+
+With HTTP/2:
+
+```text
+Browser opens one TCP connection.
+All image requests can be sent as streams.
+Responses can be multiplexed.
+```
+
+This makes HTTP/2 much faster for that workload.
+
+Simplified:
+
+```text
+HTTP/1.1:
+6 lanes
+
+HTTP/2:
+1 connection, many logical streams
+```
+
+The improvement is clear when loading many small resources over a slow network.
+
+---
+
+## 8. HTTP/2 and Workload Thinking
+
+The main lesson is:
+
+```text
+Do not assume HTTP/2 is always faster.
+Understand your workload.
+```
+
+HTTP/2 is great when:
+
+```text
+Many concurrent requests
+Many small resources
+Browser loading pages
+Repeated headers
+Need one efficient connection
+```
+
+HTTP/1.1 may be fine when:
+
+```text
+Few requests
+Simple backend API
+One request at a time
+Very fast responses
+No heavy browser resource loading
+```
+
+As a backend engineer, the right choice depends on the traffic pattern.
+
+---
+
+## 9. HTTP/2 and HTTP/3
+
+HTTP/2 runs over TCP.
+
+```text
+HTTP/2
+TLS
+TCP
+IP
+```
+
+HTTP/3 runs over QUIC.
+
+```text
+HTTP/3
+QUIC
+UDP
+IP
+```
+
+HTTP/3 was designed to address limitations of HTTP/2 over TCP, especially TCP head-of-line blocking.
+
+QUIC moves stream handling into the transport layer.
+
+This allows streams to be handled more independently.
+
+---
+
+## 10. Important Notes
+
+## 10.1 HTTP/2 Is About Multiplexing
+
+The biggest practical feature of HTTP/2 is multiplexing.
+
+Many requests and responses can share one TCP connection.
+
+---
+
+## 10.2 HTTP/2 Is Binary
+
+HTTP/2 is not a simple text protocol like HTTP/1.1.
+
+This improves machine efficiency but makes manual inspection harder.
+
+---
+
+## 10.3 HTTP/2 Still Uses TCP
+
+HTTP/2 still depends on TCP.
+
+So it still suffers from TCP-level head-of-line blocking.
+
+---
+
+## 10.4 HTTP/2 Can Increase CPU Usage
+
+HTTP/2 does more work than HTTP/1.1.
+
+The server must parse frames, manage streams, handle compression, and track flow control.
+
+This can increase CPU usage.
+
+---
+
+## 10.5 Server Push Is Not a Main Selling Point Anymore
+
+HTTP/2 Server Push is mostly considered unsuccessful.
+
+Modern systems prefer alternatives such as Early Hints.
+
+---
+
+## 10.6 Performance Depends on Workload
+
+HTTP/2 is not magically faster.
+
+It is faster for workloads with many concurrent requests.
+
+For simple workloads, the benefit may be small.
+
+---
+
+## 10.7 HTTP/2 Deployment Usually Uses TLS
+
+In browsers, HTTP/2 is usually negotiated through TLS using ALPN.
+
+The negotiated protocol name is:
+
+```text
+h2
+```
+
+---
+
+## 11. Examples
+
+## Example 1: HTTP/1.1 Loading Resources
+
+A page needs:
+
+```text
+index.html
+style.css
+app.js
+image1.png
+image2.png
+image3.png
+```
+
+HTTP/1.1 may use multiple TCP connections:
+
+```text
+Connection 1 → index.html
+Connection 2 → style.css
+Connection 3 → app.js
+Connection 4 → image1.png
+Connection 5 → image2.png
+Connection 6 → image3.png
+```
+
+If there are more resources, some must wait.
+
+---
+
+## Example 2: HTTP/2 Loading Resources
+
+HTTP/2 can use one TCP connection:
+
+```text
+TCP Connection
+├── Stream 1 → index.html
+├── Stream 3 → style.css
+├── Stream 5 → app.js
+├── Stream 7 → image1.png
+├── Stream 9 → image2.png
+└── Stream 11 → image3.png
+```
+
+All streams share the same connection.
+
+---
+
+## Example 3: Stream IDs
+
+Client sends requests:
+
+```text
+Stream 1 → GET /index.html
+Stream 3 → GET /app.js
+Stream 5 → GET /style.css
+```
+
+Server can respond:
+
+```text
+Stream 5 → style.css response
+Stream 1 → index.html response
+Stream 3 → app.js response
+```
+
+The client can match each response using the stream ID.
+
+---
+
+## Example 4: TCP Head-of-Line Blocking
+
+HTTP/2 streams:
+
+```text
+Stream 1
+Stream 3
+Stream 5
+```
+
+TCP segments:
+
+```text
+Segment 1
+Segment 2
+Segment 3
+```
+
+If Segment 1 is lost, TCP cannot deliver later bytes to the application until Segment 1 is retransmitted.
+
+Even if Segment 2 and Segment 3 arrived, they may be blocked.
+
+This is TCP head-of-line blocking.
+
+---
+
+## Example 5: ALPN Negotiation
+
+During TLS handshake, the client says:
+
+```text
+I support:
+- h2
+- http/1.1
+```
+
+The server replies:
+
+```text
+Use h2
+```
+
+Then the connection uses HTTP/2.
+
+---
+
+## Example 6: Server Push Problem
+
+Server thinks the client needs:
+
+```text
+style.css
+app.js
+logo.png
+```
+
+So the server pushes them.
+
+But the client already has them cached.
+
+Result:
+
+```text
+Bandwidth wasted
+Extra complexity
+Poor practical benefit
+```
+
+This is one reason Server Push did not succeed.
+
+---
+
+## 12. Questions / Review
+
+## Question 1
+
+What is the main goal of HTTP/2?
+
+**Answer:**
+
+The main goal of HTTP/2 is to improve performance by allowing multiple concurrent streams over a single TCP connection.
+
+---
+
+## Question 2
+
+What is multiplexing in HTTP/2?
+
+**Answer:**
+
+Multiplexing means multiple requests and responses can share one TCP connection at the same time.
+
+---
+
+## Question 3
+
+What is a stream in HTTP/2?
+
+**Answer:**
+
+A stream is an independent logical channel inside an HTTP/2 connection.
+
+---
+
+## Question 4
+
+Why does HTTP/2 use stream IDs?
+
+**Answer:**
+
+Stream IDs allow the client and server to know which frames belong to which request or response.
+
+---
+
+## Question 5
+
+Is HTTP/2 text-based like HTTP/1.1?
+
+**Answer:**
+
+No.
+
+HTTP/2 is a binary protocol.
+
+---
+
+## Question 6
+
+What is HPACK?
+
+**Answer:**
+
+HPACK is HTTP/2's header compression mechanism.
+
+---
+
+## Question 7
+
+Why did HTTP/1.1 browsers open multiple connections per domain?
+
+**Answer:**
+
+Because one HTTP/1.1 connection could effectively handle only one active request at a time in practice.
+
+Multiple connections improved concurrency.
+
+---
+
+## Question 8
+
+What problem did HTTP/1.1 pipelining have?
+
+**Answer:**
+
+Responses had to return in order.
+
+A slow response could block later responses.
+
+---
+
+## Question 9
+
+Does HTTP/2 completely remove head-of-line blocking?
+
+**Answer:**
+
+No.
+
+HTTP/2 removes HTTP-level head-of-line blocking, but it still has TCP-level head-of-line blocking.
+
+---
+
+## Question 10
+
+Why can HTTP/2 increase CPU usage?
+
+**Answer:**
+
+Because the server must process binary frames, streams, header compression, and flow control.
+
+---
+
+## Question 11
+
+What was HTTP/2 Server Push?
+
+**Answer:**
+
+Server Push allowed the server to send resources before the client requested them.
+
+---
+
+## Question 12
+
+Why did Server Push not become successful?
+
+**Answer:**
+
+Because it often pushed unnecessary cached resources, added complexity, and broke the simple request-response model.
+
+---
+
+## Question 13
+
+What is ALPN?
+
+**Answer:**
+
+ALPN stands for **Application-Layer Protocol Negotiation**.
+
+It is used during TLS to negotiate protocols such as HTTP/2.
+
+---
+
+## Question 14
+
+What protocol name represents HTTP/2 in ALPN?
+
+**Answer:**
+
+```text
+h2
+```
+
+---
+
+## Question 15
+
+What is protocol ossification?
+
+**Answer:**
+
+Protocol ossification happens when middleboxes expect a protocol to look a fixed way, making it hard to evolve or change the protocol.
+
+---
+
+## Question 16
+
+Why is HTTP/2 usually used over TLS in browsers?
+
+**Answer:**
+
+Because TLS hides HTTP/2's binary protocol from middleboxes and enables protocol negotiation through ALPN.
+
+---
+
+## Question 17
+
+When is HTTP/2 usually faster than HTTP/1.1?
+
+**Answer:**
+
+HTTP/2 is usually faster when the client sends many concurrent requests, such as loading many page resources.
+
+---
+
+## Question 18
+
+When might HTTP/2 not provide much benefit?
+
+**Answer:**
+
+When the workload sends only a few requests or one request at a time, HTTP/2 may not offer much improvement.
+
+---
+
+## Question 19
+
+What protocol does HTTP/3 use underneath?
+
+**Answer:**
+
+HTTP/3 uses QUIC, which runs over UDP.
+
+---
+
+## Question 20
+
+What HTTP/2 limitation does HTTP/3 try to solve?
+
+**Answer:**
+
+HTTP/3 tries to solve TCP head-of-line blocking by using QUIC streams over UDP.
+
+---
+
+## 13. Final Takeaway
+
+HTTP/2 improves HTTP/1.1 mainly through multiplexing.
+
+The core idea is:
+
+```text
+Use one TCP connection.
+Create many logical streams.
+Send many requests concurrently.
+Use stream IDs to match responses.
+```
+
+The most important HTTP/2 concepts are:
+
+```text
+Binary framing
+Streams
+Stream IDs
+Multiplexing
+Header compression
+HPACK
+ALPN
+TLS
+Server Push
+TCP head-of-line blocking
+CPU overhead
+Workload-dependent performance
+```
+
+HTTP/2 is powerful when a client needs to load many resources concurrently.
+
+But HTTP/2 is not automatically faster for every system.
+
+As a backend engineer, always ask:
+
+```text
+What is my workload?
+How many concurrent requests do I have?
+Is multiplexing useful here?
+Can my backend handle the extra CPU cost?
+```
+
+HTTP/2 is a major step forward from HTTP/1.1, but its limitations also explain why HTTP/3 and QUIC were created.

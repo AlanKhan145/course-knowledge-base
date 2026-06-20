@@ -1,0 +1,131 @@
+# Function Calling
+
+## Overview
+Function Calling is the mechanism by which an LLM decides, mid-conversation, that it needs to invoke an external function to fulfill a user request — and produces a structured payload describing which function to call and with what arguments. The model does not execute code; it generates a call specification that your application is responsible for executing and feeding back. This lesson covers the full request-response cycle and the patterns you need in production.
+
+## Key Points
+- The model never executes your function — it returns a `tool_calls` object with the function name and JSON-encoded arguments; your code runs the function and returns the result in a follow-up message
+- The `tools` array in your API request describes available functions using JSON Schema for their parameters; the `description` of each function is critical — the model reads it to decide when to call that function
+- Set `tool_choice: "auto"` to let the model decide, `"required"` to force at least one call, or `{"type": "function", "function": {"name": "..."}` to force a specific function
+- A single model turn can produce multiple parallel tool calls (e.g., look up weather for three cities simultaneously) — always loop over `message.tool_calls`, not just index 0
+- The conversation history for function calling has a specific shape: `assistant` message with `tool_calls`, followed by one `tool` message per call (with matching `tool_call_id`), then the next `assistant` response
+- Function arguments returned by the model are a JSON string, not a dict — always call `json.loads(call.function.arguments)` before use
+- Never trust the model's argument values blindly — validate them with Pydantic or manual checks before executing sensitive operations
+
+## Code Example
+```python
+# pip install openai
+import json
+from openai import OpenAI
+
+client = OpenAI()
+
+# ── Step 1: Define the tools available to the model ──────────────────────────
+
+tools = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_course_info",
+            "description": "Retrieve metadata about a course by its ID, including title, instructor, and number of lessons.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "course_id": {
+                        "type": "string",
+                        "description": "The unique identifier of the course, e.g. 'ai-eng-101'"
+                    }
+                },
+                "required": ["course_id"],
+                "additionalProperties": False
+            },
+            "strict": True
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "enroll_user",
+            "description": "Enroll a user in a course. Call this only after confirming the user wants to enroll.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "user_id": {"type": "string", "description": "The user's unique ID"},
+                    "course_id": {"type": "string", "description": "The course to enroll in"}
+                },
+                "required": ["user_id", "course_id"],
+                "additionalProperties": False
+            },
+            "strict": True
+        }
+    }
+]
+
+# ── Step 2: Simulated backend functions ──────────────────────────────────────
+
+def get_course_info(course_id: str) -> dict:
+    """Simulated database lookup."""
+    courses = {
+        "ai-eng-101": {"title": "AI Engineer from Zero to Production", "instructor": "Jane Doe", "lessons": 120},
+        "ml-basics": {"title": "Machine Learning Basics", "instructor": "John Smith", "lessons": 45}
+    }
+    return courses.get(course_id, {"error": f"Course '{course_id}' not found"})
+
+def enroll_user(user_id: str, course_id: str) -> dict:
+    """Simulated enrollment action."""
+    return {"status": "enrolled", "user_id": user_id, "course_id": course_id}
+
+# Dispatcher: maps function name -> callable
+FUNCTION_MAP = {
+    "get_course_info": get_course_info,
+    "enroll_user": enroll_user
+}
+
+# ── Step 3: Run the agentic loop ─────────────────────────────────────────────
+
+def run_agent(user_message: str):
+    messages = [
+        {"role": "system", "content": "You are a course assistant. Help users find and enroll in courses."},
+        {"role": "user", "content": user_message}
+    ]
+
+    while True:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            tools=tools,
+            tool_choice="auto",
+            messages=messages
+        )
+
+        assistant_message = response.choices[0].message
+        messages.append(assistant_message)   # always append the assistant turn
+
+        # If no tool calls, we have the final answer
+        if not assistant_message.tool_calls:
+            print("Final answer:", assistant_message.content)
+            break
+
+        # Execute every tool call the model requested
+        for tool_call in assistant_message.tool_calls:
+            fn_name = tool_call.function.name
+            fn_args = json.loads(tool_call.function.arguments)  # string -> dict
+
+            print(f"Calling {fn_name}({fn_args})")
+            fn_result = FUNCTION_MAP[fn_name](**fn_args)
+
+            # Append tool result to message history
+            messages.append({
+                "role": "tool",
+                "tool_call_id": tool_call.id,
+                "content": json.dumps(fn_result)
+            })
+        # Loop continues — model will now synthesize a response using tool results
+
+run_agent("Can you tell me about the ai-eng-101 course and then enroll user U42 in it?")
+```
+
+## Notes
+A subtle but important production concern is that the model may hallucinate argument values — for example, it may invent a `course_id` that does not exist if you did not provide it in context. Always validate inputs before executing write operations like `enroll_user`. Additionally, the `"strict": True` flag on function definitions (available in GPT-4o) activates the same constrained decoding as Structured Output for the arguments payload, eliminating malformed argument JSON entirely — enable it whenever you can. Finally, set reasonable `max_tokens` limits and a loop iteration cap (e.g., 10 iterations) to prevent runaway agentic loops in production.
+
+## Summary
+You now understand the complete function calling request-response cycle — from defining tools, to handling parallel calls, to feeding results back — and can build safe, validated, agentic workflows around it.

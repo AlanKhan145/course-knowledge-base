@@ -1,0 +1,683 @@
+# 019 - OSI Model
+
+**Section:** 03 - Protocols  
+**Duration:** 47 minutes  
+
+---
+
+## 1. Summary
+
+The OSI Model, or **Open Systems Interconnection Model**, is a conceptual framework used to understand how network communication works.
+
+It divides network communication into **seven layers**, from the physical transmission of signals to the application that users interact with.
+
+The main goal of the OSI Model is to create a standard way for different systems, devices, and applications to communicate with each other.
+
+Thanks to this model, an application does not need to know whether data is traveling through:
+
+- Wi-Fi
+- Ethernet
+- Fiber
+- LTE
+- Satellite
+
+Each layer has its own responsibility and passes data to the next layer.
+
+For backend engineers, the most important layers are usually:
+
+- **Layer 4: Transport Layer**
+- **Layer 7: Application Layer**
+
+These layers are closely related to TCP, UDP, HTTP, APIs, proxies, load balancers, and backend communication.
+
+---
+
+## 2. Key Concepts
+
+## 2.1 Why Do We Need a Communication Model?
+
+Without a standard communication model, every application would need to understand the physical network medium it is using.
+
+For example, an application would need different logic for:
+
+- Wi-Fi
+- Ethernet
+- LTE
+- Fiber
+- Satellite
+
+That would be very hard to build and maintain.
+
+The OSI Model solves this problem by separating communication into layers.
+
+Each layer can change or improve independently without breaking the entire system.
+
+---
+
+## 2.2 The Seven Layers of the OSI Model
+
+The OSI Model has seven layers:
+
+| Layer | Name |
+|---|---|
+| Layer 7 | Application |
+| Layer 6 | Presentation |
+| Layer 5 | Session |
+| Layer 4 | Transport |
+| Layer 3 | Network |
+| Layer 2 | Data Link |
+| Layer 1 | Physical |
+
+---
+
+## Layer 7: Application Layer
+
+The application layer is the layer closest to the user and the software application.
+
+This is where application protocols live.
+
+Examples:
+
+- HTTP
+- HTTPS
+- FTP
+- gRPC
+- Web APIs
+- Browser requests
+- Backend services
+
+When a backend server receives an HTTP request, it mainly works at the application layer.
+
+Example:
+
+```http
+POST /users
+Content-Type: application/json
+```
+
+The application layer answers the question:
+
+> What does the application want to do with this data?
+
+---
+
+## Layer 6: Presentation Layer
+
+The presentation layer is responsible for how data is represented.
+
+It handles tasks such as:
+
+- Encoding
+- Decoding
+- Serialization
+- Deserialization
+- Data formatting
+- Compression
+- Encryption-related representation
+
+Example:
+
+A JavaScript object cannot be sent directly over the network.
+
+```js
+{
+  "name": "Alice",
+  "age": 20
+}
+```
+
+It must be serialized into bytes before transmission.
+
+The presentation layer answers the question:
+
+> How should the data be formatted or represented?
+
+---
+
+## Layer 5: Session Layer
+
+The session layer manages communication sessions between two systems.
+
+It can involve:
+
+- Connection establishment
+- Session management
+- Stateful communication
+- Connection reuse
+- Connection pooling
+- TLS-related session behavior
+
+Some proxies and service mesh tools work heavily around this layer because they manage connections between services.
+
+The session layer answers the question:
+
+> Do we have an active communication session?
+
+---
+
+## Layer 4: Transport Layer
+
+The transport layer is one of the most important layers for backend engineers.
+
+It is responsible for process-to-process communication.
+
+Main protocols:
+
+- TCP
+- UDP
+- QUIC
+
+Important concepts:
+
+- Ports
+- TCP connections
+- Segments
+- Reliability
+- Flow control
+- Congestion control
+- Retransmission
+
+Example:
+
+HTTPS usually uses port **443**.
+
+```text
+Client → Server: TCP connection to port 443
+```
+
+TCP data units are usually called:
+
+```text
+Segments
+```
+
+UDP data units are usually called:
+
+```text
+Datagrams
+```
+
+The transport layer answers the question:
+
+> Which application process should receive this data?
+
+---
+
+## Layer 3: Network Layer
+
+The network layer is responsible for IP addressing and routing.
+
+Main concept:
+
+```text
+IP packet
+```
+
+Devices that operate mainly at this layer:
+
+- Routers
+- Layer 3 firewalls
+- VPNs
+
+Example:
+
+```text
+Source IP: 192.168.1.10
+Destination IP: 142.250.190.78
+```
+
+Routers use destination IP addresses to decide where to forward packets.
+
+The network layer answers the question:
+
+> Where should this packet go?
+
+---
+
+## Layer 2: Data Link Layer
+
+The data link layer is responsible for local network communication.
+
+Main concepts:
+
+- Frames
+- MAC addresses
+
+Devices that operate mainly at this layer:
+
+- Switches
+- Network interface cards
+
+Example:
+
+```text
+Source MAC: AA:BB:CC:DD:EE:FF
+Destination MAC: 11:22:33:44:55:66
+```
+
+A switch uses MAC addresses to forward frames to the correct port.
+
+The data link layer answers the question:
+
+> Which device in the local network should receive this frame?
+
+---
+
+## Layer 1: Physical Layer
+
+The physical layer is responsible for transmitting raw bits through a physical medium.
+
+Examples:
+
+- Electrical signals
+- Radio waves
+- Light signals
+- Fiber optics
+- Ethernet cables
+- Wi-Fi signals
+
+At this layer, data is just bits:
+
+```text
+101010101010
+```
+
+The physical layer answers the question:
+
+> How are bits physically transmitted?
+
+---
+
+## 3. Important Notes
+
+## 3.1 Data Names Change by Layer
+
+Each layer has its own name for the data unit.
+
+| Layer | Data Unit |
+|---|---|
+| Layer 2 | Frame |
+| Layer 3 | Packet |
+| Layer 4 TCP | Segment |
+| Layer 4 UDP | Datagram |
+| Layer 7 | Application Data |
+
+A simple way to remember:
+
+```text
+Layer 2 = Frame
+Layer 3 = Packet
+Layer 4 = Segment / Datagram
+Layer 7 = Application Data
+```
+
+---
+
+## 3.2 Backend Engineers Mostly Care About Layer 4 and Layer 7
+
+Backend engineers usually work most often with:
+
+```text
+Layer 7: HTTP, APIs, JSON, gRPC
+Layer 4: TCP, UDP, ports, connections
+```
+
+Examples:
+
+| Component | Common Layer |
+|---|---|
+| API Gateway | Layer 7 |
+| Reverse Proxy | Layer 7 |
+| CDN | Layer 7 |
+| TCP Load Balancer | Layer 4 |
+| Firewall | Layer 3 / Layer 4 |
+| Router | Layer 3 |
+| Switch | Layer 2 |
+
+---
+
+## 3.3 Not Every Device Uses All Seven Layers
+
+A device only processes the layers it needs.
+
+For example:
+
+```text
+Switch → usually Layer 2
+Router → usually Layer 3
+Firewall → often Layer 3 or Layer 4
+Reverse Proxy → often Layer 7
+CDN → Layer 7
+```
+
+The higher a device goes in the OSI model, the more data it needs to inspect.
+
+That usually means more processing cost.
+
+---
+
+## 3.4 OSI Model vs TCP/IP Model
+
+The OSI Model has seven layers.
+
+The TCP/IP Model is simpler.
+
+It usually combines:
+
+```text
+OSI Layer 5 + Layer 6 + Layer 7
+```
+
+into one broader layer:
+
+```text
+Application Layer
+```
+
+A simplified TCP/IP model looks like this:
+
+| TCP/IP Layer | Related OSI Layers |
+|---|---|
+| Application | Layer 5, 6, 7 |
+| Transport | Layer 4 |
+| Internet | Layer 3 |
+| Network Access | Layer 1, 2 |
+
+The OSI Model is more detailed.
+
+The TCP/IP Model is more practical.
+
+---
+
+## 4. Examples
+
+## Example 1: Sending an HTTPS POST Request
+
+Imagine a client sends this request:
+
+```http
+POST /login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "123456"
+}
+```
+
+The request moves down the OSI layers like this:
+
+```text
+Application Layer:
+Create HTTP POST request.
+
+Presentation Layer:
+Serialize JSON into bytes.
+
+Session Layer:
+Establish or reuse a secure session.
+
+Transport Layer:
+Send data through TCP to port 443.
+
+Network Layer:
+Wrap data into IP packets.
+
+Data Link Layer:
+Wrap packets into frames with MAC addresses.
+
+Physical Layer:
+Convert bits into electrical, radio, or light signals.
+```
+
+On the server side, the process happens in reverse:
+
+```text
+Physical signals
+→ Bits
+→ Frames
+→ IP packets
+→ TCP segments
+→ Session handling
+→ JSON decoding
+→ Application receives request
+```
+
+---
+
+## Example 2: Switch vs Router
+
+A switch works mainly at Layer 2.
+
+It looks at:
+
+```text
+MAC address
+```
+
+A router works mainly at Layer 3.
+
+It looks at:
+
+```text
+IP address
+```
+
+Summary:
+
+```text
+Switch = forwards frames inside a local network
+Router = forwards packets between networks
+```
+
+---
+
+## Example 3: Firewall
+
+A firewall may inspect:
+
+```text
+Source IP
+Destination IP
+Source Port
+Destination Port
+Protocol
+```
+
+That means many firewalls work at Layer 3 and Layer 4.
+
+Example rule:
+
+```text
+Block all traffic to port 22 from unknown IP addresses.
+```
+
+This rule blocks SSH access from unwanted sources.
+
+---
+
+## Example 4: Layer 7 Reverse Proxy
+
+A reverse proxy such as Nginx, Envoy, or a CDN can inspect application-level data.
+
+For example:
+
+```text
+If path starts with /images → send to image server
+If path starts with /api → send to API server
+```
+
+This requires understanding the HTTP request path.
+
+Therefore, it operates at Layer 7.
+
+---
+
+## Example 5: CDN
+
+A CDN, or Content Delivery Network, also works mainly at Layer 7.
+
+A CDN can:
+
+- Read HTTP requests
+- Cache static files
+- Serve images, CSS, JavaScript, and videos
+- Route requests to nearby servers
+- Reduce latency
+
+Because it needs to understand application content, it operates at the application layer.
+
+---
+
+## 5. Questions / Review
+
+## Question 1
+
+What does OSI stand for?
+
+**Answer:**
+
+OSI stands for **Open Systems Interconnection**.
+
+---
+
+## Question 2
+
+How many layers are in the OSI Model?
+
+**Answer:**
+
+There are **seven layers**.
+
+---
+
+## Question 3
+
+Which layer is responsible for IP addresses?
+
+**Answer:**
+
+Layer 3, the **Network Layer**.
+
+---
+
+## Question 4
+
+Which layer uses MAC addresses?
+
+**Answer:**
+
+Layer 2, the **Data Link Layer**.
+
+---
+
+## Question 5
+
+Which layer uses ports?
+
+**Answer:**
+
+Layer 4, the **Transport Layer**.
+
+---
+
+## Question 6
+
+What is the difference between a packet and a frame?
+
+**Answer:**
+
+A **packet** belongs to Layer 3 and contains IP information.
+
+A **frame** belongs to Layer 2 and contains MAC address information.
+
+---
+
+## Question 7
+
+Why is a reverse proxy usually considered a Layer 7 component?
+
+**Answer:**
+
+Because it can inspect application-level data such as:
+
+- HTTP paths
+- Headers
+- Methods
+- Request body
+- Cookies
+
+---
+
+## Question 8
+
+Why is the OSI Model useful for backend engineers?
+
+**Answer:**
+
+It helps backend engineers understand:
+
+- Where their application operates
+- How data moves through the network
+- How proxies work
+- How firewalls work
+- How load balancers work
+- How CDNs work
+- How to debug networking issues
+
+---
+
+## Question 9
+
+What is the main difference between TCP and UDP?
+
+**Answer:**
+
+TCP is connection-oriented and reliable.
+
+UDP is connectionless and does not guarantee delivery.
+
+---
+
+## Question 10
+
+Which OSI layers are most important for backend development?
+
+**Answer:**
+
+The most important layers are usually:
+
+```text
+Layer 4: Transport Layer
+Layer 7: Application Layer
+```
+
+---
+
+## Final Takeaway
+
+The OSI Model is not just theory.
+
+It helps engineers understand how data travels from one application to another.
+
+Every request, whether it is HTTP, gRPC, or raw TCP, passes through multiple layers.
+
+The most important idea to remember:
+
+```text
+Layer 7 = Application logic, HTTP, APIs
+Layer 4 = TCP, UDP, ports
+Layer 3 = IP routing
+Layer 2 = MAC addresses and frames
+Layer 1 = physical signals
+```
+
+A strong understanding of these layers makes it easier to:
+
+- Debug networking issues
+- Design backend systems
+- Configure proxies
+- Understand load balancers
+- Understand firewalls
+- Understand CDNs
+- Reason about network performance

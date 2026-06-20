@@ -1,0 +1,109 @@
+# Python Essentials for AI Engineers
+
+## Overview
+This lesson covers the Python patterns that appear most frequently in AI engineering codebases: type hints, dataclasses, generators, comprehensions, and context managers. The goal is not to teach Python from zero but to highlight the specific idioms that make AI code more readable, testable, and production-ready.
+
+## Key Points
+- Use type hints everywhere — they are not optional in production AI code; they enable Pydantic validation, IDE autocomplete, and static analysis with mypy
+- Dataclasses are the lightweight alternative to full Pydantic models; use them for internal data structures that do not need serialization or HTTP validation
+- Generators are essential for streaming LLM responses — yield tokens one at a time instead of buffering the full completion in memory
+- List and dict comprehensions replace verbose for-loops; they are faster (C-level iteration) and more readable for data transformation pipelines
+- Context managers (with statements) ensure resources like HTTP sessions, file handles, and database connections are always properly closed, even when exceptions occur
+- f-strings with format specifiers (f"{value:.2f}") are the correct tool for building prompt templates — avoid string concatenation which breaks with special characters
+
+## Code Example
+```python
+from __future__ import annotations
+
+import time
+from contextlib import contextmanager
+from dataclasses import dataclass, field
+from typing import Generator, Iterator
+
+# -------------------------------------------------------------------
+# 1. Type hints + dataclass for a prompt template
+# -------------------------------------------------------------------
+@dataclass
+class PromptTemplate:
+    system: str
+    user_template: str
+    max_tokens: int = 512
+    tags: list[str] = field(default_factory=list)  # mutable default — always use field()
+
+    def render(self, **kwargs: str) -> dict[str, str]:
+        """Return an OpenAI-style message dict."""
+        return {
+            "system": self.system,
+            "user": self.user_template.format(**kwargs),
+        }
+
+
+# -------------------------------------------------------------------
+# 2. Generator for simulated streaming output
+# -------------------------------------------------------------------
+def stream_tokens(text: str, delay: float = 0.02) -> Iterator[str]:
+    """Yield tokens one at a time — mirrors how LLM streaming APIs behave."""
+    for token in text.split():
+        time.sleep(delay)
+        yield token + " "
+
+
+def collect_stream(stream: Iterator[str]) -> str:
+    """Accumulate streamed tokens into a single string."""
+    return "".join(stream)
+
+
+# -------------------------------------------------------------------
+# 3. Comprehensions for data transformation
+# -------------------------------------------------------------------
+raw_messages = [
+    {"role": "user", "content": "  Hello  "},
+    {"role": "assistant", "content": "Hi there"},
+    {"role": "user", "content": ""},          # empty — should be filtered
+]
+
+# Filter out empty messages and strip whitespace in one expression
+clean_messages: list[dict[str, str]] = [
+    {**msg, "content": msg["content"].strip()}
+    for msg in raw_messages
+    if msg["content"].strip()
+]
+
+
+# -------------------------------------------------------------------
+# 4. Context manager for timing code blocks
+# -------------------------------------------------------------------
+@contextmanager
+def timer(label: str) -> Generator[None, None, None]:
+    start = time.perf_counter()
+    try:
+        yield
+    finally:
+        elapsed = time.perf_counter() - start
+        print(f"[{label}] elapsed: {elapsed:.3f}s")
+
+
+# -------------------------------------------------------------------
+# Demo
+# -------------------------------------------------------------------
+if __name__ == "__main__":
+    template = PromptTemplate(
+        system="You are a helpful assistant.",
+        user_template="Summarise this text in {words} words: {text}",
+        tags=["summarisation", "short-form"],
+    )
+    rendered = template.render(words="50", text="Artificial intelligence is transforming every industry.")
+    print(rendered)
+
+    print(f"\nCleaned messages: {clean_messages}")
+
+    with timer("stream"):
+        result = collect_stream(stream_tokens("Hello world from a streaming demo", delay=0.01))
+    print(f"Stream result: {result.strip()}")
+```
+
+## Notes
+A common mistake is using a mutable default argument in a dataclass (e.g., `tags: list[str] = []`). Python shares that list across all instances, causing subtle bugs when one instance appends to it. Always use `field(default_factory=list)`. Similarly, when building prompt templates, prefer `str.format(**kwargs)` over f-strings because the template string is usually stored in a config file or database at runtime, not in source code. For type checking, run `mypy --strict` in CI — it catches a surprising number of AI pipeline bugs before they hit production.
+
+## Summary
+You can now write type-safe, memory-efficient Python using the idioms that appear in real AI engineering codebases — and you understand why generators matter for streaming and why dataclasses are preferred for lightweight internal data models.

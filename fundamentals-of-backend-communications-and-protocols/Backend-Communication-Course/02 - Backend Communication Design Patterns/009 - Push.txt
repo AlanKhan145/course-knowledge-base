@@ -1,0 +1,422 @@
+# 009 - Push
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 20min
+
+---
+
+## 1. Summary
+
+This lesson introduces the **Push** communication pattern in backend systems.
+
+The push model is useful when the server knows about an event and needs to send information to the client immediately, without waiting for the client to ask for it.
+
+Unlike request/response, where the client must initiate every interaction, push allows the server to send data to connected clients as soon as an event happens.
+
+This pattern is useful for real-time systems such as chat applications, notifications, live updates, and message queues. However, push also has disadvantages: the client must be online, the server must maintain connections, and the client may not be able to handle the amount of data being pushed.
+
+The lesson also demonstrates a simple WebSocket chat application where the server pushes messages to all connected clients.
+
+---
+
+## 2. Key Concepts
+
+### Push Model
+
+In the push model, the server sends data to the client without the client explicitly requesting that specific data at that moment.
+
+```text id="hf9y0x"
+Server → Push data → Client
+```
+
+The client only needs to have an active connection to the server.
+
+---
+
+### Why Request Response Is Not Always Ideal
+
+Request/response works well when the client knows what it wants.
+
+However, it is not ideal when the server knows about an event first.
+
+For example:
+
+* Someone uploads a video.
+* Someone sends a chat message.
+* Someone logs in.
+* Someone comments on a post.
+* A notification is created.
+
+In these cases, the client may not know that something happened unless the server tells it.
+
+---
+
+### Server-Known Events
+
+A server-known event is an event that happens on the backend or somewhere in the system, but the client does not know about it yet.
+
+Example:
+
+```text id="lyxebe"
+User A sends a message.
+Server receives the message.
+User B does not know yet.
+Server pushes the message to User B.
+```
+
+---
+
+### Client Must Be Connected
+
+For push to work directly, the client must be online and connected to the server.
+
+```text id="ofh2n0"
+Client connected → Server can push data
+Client disconnected → Server cannot directly push data
+```
+
+If the client is offline, the server may need to store the message and deliver it later.
+
+---
+
+### Bidirectional Protocol
+
+Push usually requires a protocol that allows the server to send data to the client.
+
+A bidirectional protocol allows both sides to send data.
+
+Examples:
+
+* WebSocket
+* TCP-based custom protocols
+* gRPC streaming
+
+---
+
+### WebSocket
+
+WebSocket is a common protocol for push-style communication.
+
+It creates a persistent connection between client and server.
+
+```text id="amsb6g"
+Client ↔ WebSocket Connection ↔ Server
+```
+
+After the connection is established, the server can push messages to the client at any time.
+
+---
+
+### RabbitMQ Push Model
+
+RabbitMQ commonly uses a push-style model.
+
+Consumers connect to RabbitMQ, and when messages are available in a queue, RabbitMQ pushes them to the connected consumers.
+
+```text id="f3uopt"
+Producer → Queue → RabbitMQ pushes message → Consumer
+```
+
+This is different from Kafka, where consumers usually pull messages at their own pace.
+
+---
+
+### Kafka Pull Model
+
+Kafka uses a pull-based model instead of a push-based model.
+
+In Kafka, consumers ask for messages when they are ready.
+
+```text id="z729e1"
+Consumer → Poll Kafka for messages
+Kafka → Return available messages
+```
+
+This gives consumers more control over how much data they receive.
+
+---
+
+### Real-Time Updates
+
+Push is useful when the client needs to receive updates immediately.
+
+Common use cases include:
+
+* Chat messages
+* Live notifications
+* Online gaming
+* Collaborative editing
+* Live dashboards
+* Stock price updates
+* System monitoring alerts
+
+---
+
+### Backpressure Problem
+
+One major problem with push is that the server may push data faster than the client can process it.
+
+```text id="qlofyw"
+Server pushes too fast
+Client cannot keep up
+Client memory grows
+Client slows down or crashes
+```
+
+This is one reason why push must be designed carefully.
+
+---
+
+### Push vs Polling
+
+Push:
+
+```text id="x61k7y"
+Server sends data when it is ready.
+```
+
+Polling:
+
+```text id="4c4p9u"
+Client repeatedly asks if data is available.
+```
+
+Push is more immediate, but polling gives the client more control.
+
+---
+
+### Mobile Push Notifications
+
+Large platforms often do not push directly to every device themselves.
+
+For mobile notifications, services usually push notifications through:
+
+* Apple Push Notification Service, APNs
+* Firebase Cloud Messaging, FCM
+
+Example:
+
+```text id="7o6gkd"
+Backend → Apple / Google push service → User device
+```
+
+This avoids maintaining direct connections to millions of devices.
+
+---
+
+## 3. Important Notes
+
+* Push is useful when the server knows something the client does not know yet.
+* Push is good for real-time communication.
+* Push requires an active connection or an external push delivery system.
+* The client must be online to receive direct push messages.
+* Push can create scalability problems if many clients are connected.
+* Pushing notifications to millions of users is complex.
+* The server must track connected clients.
+* The server must handle disconnected clients correctly.
+* The client may not be able to process pushed messages fast enough.
+* Push can overload weak clients.
+* Kafka avoids this problem by using a pull model.
+* RabbitMQ commonly pushes messages to consumers.
+* WebSocket is a common way to implement push in web applications.
+* Push is not magic; usually the server is just writing data to an open socket.
+* Push systems need connection management, error handling, and cleanup logic.
+
+---
+
+## 4. Examples
+
+### Example 1: Chat Application
+
+A chat application is a classic example of push.
+
+```text id="k7z3lo"
+User A → Sends message → Server
+Server → Pushes message → User B
+```
+
+User B does not need to keep asking whether a new message exists. The server sends it immediately.
+
+---
+
+### Example 2: Notification System
+
+When someone comments on your post, the server already knows the event happened.
+
+```text id="nb7z20"
+User comments on post
+Server creates notification
+Server pushes notification to post owner
+```
+
+This is better than making the client ask repeatedly:
+
+```text id="knclz7"
+Do I have notifications?
+Do I have notifications?
+Do I have notifications?
+```
+
+---
+
+### Example 3: YouTube Notification
+
+When a creator uploads a video, millions of users may need to be notified.
+
+Direct push to every user would be difficult:
+
+```text id="xe2vxa"
+YouTube Server → Push to 100 million users
+```
+
+Instead, large systems often use mobile push platforms:
+
+```text id="c9ztsz"
+YouTube Server → Apple / Google Push Service → User Devices
+```
+
+---
+
+### Example 4: RabbitMQ Push
+
+RabbitMQ can push messages to consumers when new messages arrive.
+
+```text id="i8lkqe"
+Producer → Sends message to queue
+RabbitMQ → Pushes message to connected consumer
+Consumer → Processes message
+```
+
+The consumer receives messages without constantly asking for them.
+
+---
+
+### Example 5: Kafka Pull
+
+Kafka uses a pull model.
+
+```text id="x1rj41"
+Consumer → Polls Kafka
+Kafka → Sends available messages
+```
+
+This allows the consumer to control how much data it reads.
+
+---
+
+### Example 6: WebSocket Chat Server
+
+A simple WebSocket server stores all connected clients.
+
+When one client sends a message, the server loops through the connected clients and sends the message to each one.
+
+```text id="qeed7e"
+Client A → Message → Server
+Server → Push message → Client A
+Server → Push message → Client B
+Server → Push message → Client C
+```
+
+---
+
+### Example 7: Basic WebSocket Client
+
+```javascript id="ccbtwy"
+const ws = new WebSocket("ws://localhost:8080");
+
+ws.onmessage = function(event) {
+  console.log(event.data);
+};
+
+ws.send("Hello everyone!");
+```
+
+This client connects to the server, listens for pushed messages, and sends a message.
+
+---
+
+### Example 8: Basic Server Logic
+
+```javascript id="lfcuuh"
+const connections = [];
+
+server.on("connection", connection => {
+  connections.push(connection);
+
+  connection.on("message", message => {
+    for (const c of connections) {
+      if (c.connected) {
+        c.send(message);
+      }
+    }
+  });
+});
+```
+
+The server pushes each received message to all connected clients.
+
+---
+
+### Example 9: Disconnected Client Problem
+
+If a client disconnects, the server must not keep sending messages to that closed connection.
+
+Bad behavior:
+
+```text id="pq9qli"
+Server tries to send to disconnected client
+Message fails
+Server may waste resources or crash
+```
+
+Better behavior:
+
+```text id="c92rdx"
+Check if connection is active
+Send only to connected clients
+Remove disconnected clients from list
+```
+
+---
+
+## 5. Questions / Review
+
+1. What is the push communication pattern?
+
+2. How is push different from request/response?
+
+3. Why is request/response not ideal for real-time notifications?
+
+4. What is a server-known event?
+
+5. Why must the client usually be online for direct push to work?
+
+6. Why is WebSocket useful for push communication?
+
+7. What does it mean for a protocol to be bidirectional?
+
+8. Why is chat a good example of the push model?
+
+9. How does RabbitMQ use the push model?
+
+10. Why does Kafka prefer a pull model?
+
+11. What are the advantages of push?
+
+12. What are the disadvantages of push?
+
+13. What is backpressure?
+
+14. How can pushing too much data hurt a client?
+
+15. Why is sending notifications to millions of users difficult?
+
+16. Why do mobile apps often rely on Apple or Google push services?
+
+17. In the WebSocket demo, why does the server keep an array of connections?
+
+18. What happens when one client sends a message to the server?
+
+19. Why must the server handle disconnected clients?
+
+20. When would polling be better than push?

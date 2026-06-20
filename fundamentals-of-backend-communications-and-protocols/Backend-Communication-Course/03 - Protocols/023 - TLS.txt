@@ -1,0 +1,1185 @@
+# 023 - TLS
+
+**Section:** 03 - Protocols  
+**Duration:** 27 minutes  
+
+---
+
+## 1. Summary
+
+TLS stands for **Transport Layer Security**.
+
+TLS is a standard protocol used to encrypt communication between two parties.
+
+It is commonly used to protect communication between:
+
+- Client and server
+- Browser and website
+- Backend service and backend service
+- Application and database
+- API client and API server
+
+Without TLS, data can be sent as plain text.
+
+That means anyone in the middle of the network path could potentially read the request and response.
+
+TLS solves this by encrypting the communication.
+
+The most common example is:
+
+```text
+HTTP + TLS = HTTPS
+```
+
+HTTPS is simply HTTP running over TLS.
+
+TLS is important because it provides:
+
+- Encryption
+- Server authentication
+- Data integrity
+- Secure key exchange
+
+TLS can be used with many protocols, not only HTTP.
+
+---
+
+## 2. Key Concepts
+
+## 2.1 Why Do We Need TLS?
+
+Without TLS, HTTP traffic is sent in plain text.
+
+Example HTTP request:
+
+```http
+GET / HTTP/1.1
+Host: example.com
+```
+
+If this request is not encrypted, devices in the middle can read it.
+
+Examples of middle devices:
+
+- Router
+- ISP
+- Proxy
+- Wi-Fi access point
+- Corporate firewall
+
+TLS encrypts the communication so that only the client and server can understand the data.
+
+---
+
+## 2.2 HTTP vs HTTPS
+
+HTTP usually uses port:
+
+```text
+80
+```
+
+HTTPS usually uses port:
+
+```text
+443
+```
+
+HTTP sends data without encryption.
+
+HTTPS sends HTTP data through TLS encryption.
+
+Simple comparison:
+
+| Protocol | Encryption | Common Port |
+|---|---|---|
+| HTTP | No | 80 |
+| HTTPS | Yes, through TLS | 443 |
+
+---
+
+## 2.3 HTTP Without TLS
+
+With normal HTTP, the flow looks like this:
+
+```text
+1. TCP connection opens.
+2. Client sends HTTP request.
+3. Server sends HTTP response.
+4. TCP connection closes or stays open.
+```
+
+Example:
+
+```text
+Client → Server: GET / HTTP/1.1
+Server → Client: HTTP/1.1 200 OK
+```
+
+The problem:
+
+```text
+The request and response are plain text.
+```
+
+Anyone in the middle may be able to inspect the content.
+
+---
+
+## 2.4 HTTPS With TLS
+
+With HTTPS, the flow is different:
+
+```text
+1. TCP connection opens.
+2. TLS handshake happens.
+3. Client and server agree on encryption keys.
+4. HTTP request is encrypted.
+5. HTTP response is encrypted.
+6. TCP connection closes or stays open.
+```
+
+The important difference is the TLS handshake.
+
+Before sending the HTTP request, the client and server first agree on how to encrypt the communication.
+
+---
+
+## 2.5 TLS and the OSI Model
+
+TLS is often difficult to place exactly in the OSI Model.
+
+A practical way to think about it:
+
+```text
+TCP = Layer 4
+TLS = between Layer 4 and Layer 7
+HTTP = Layer 7
+```
+
+Some people describe TLS as a session-layer concept because it creates secure session state between client and server.
+
+A simplified view:
+
+```text
+HTTP
+TLS
+TCP
+IP
+Ethernet/Wi-Fi
+Physical network
+```
+
+---
+
+## 2.6 Symmetric Encryption
+
+Symmetric encryption uses the same key for encryption and decryption.
+
+Example:
+
+```text
+Same key encrypts the data.
+Same key decrypts the data.
+```
+
+The advantage of symmetric encryption:
+
+```text
+It is fast.
+```
+
+This makes it good for encrypting large amounts of data.
+
+Examples of symmetric encryption algorithms:
+
+- AES
+- ChaCha20
+
+TLS uses symmetric encryption after the handshake is complete.
+
+---
+
+## 2.7 Asymmetric Encryption
+
+Asymmetric encryption uses two keys:
+
+```text
+Public key
+Private key
+```
+
+The public key can be shared.
+
+The private key must remain secret.
+
+Data encrypted with the public key can be decrypted with the private key.
+
+The advantage of asymmetric encryption:
+
+```text
+It helps solve the key exchange problem.
+```
+
+The disadvantage:
+
+```text
+It is slower than symmetric encryption.
+```
+
+Because asymmetric encryption is slower, TLS does not usually use it to encrypt all application data.
+
+Instead, TLS uses it during the handshake to help securely establish a symmetric key.
+
+---
+
+## 2.8 The Key Exchange Problem
+
+TLS needs both the client and server to have the same symmetric key.
+
+But the client cannot simply send the key in plain text.
+
+If it did, someone in the middle could steal the key.
+
+The key question is:
+
+```text
+How can client and server agree on the same secret key
+without sending the secret key directly across the network?
+```
+
+TLS solves this with key exchange algorithms.
+
+Examples:
+
+- RSA key exchange
+- Diffie-Hellman
+- Elliptic Curve Diffie-Hellman
+
+---
+
+## 2.9 Certificate
+
+A certificate helps the client verify the identity of the server.
+
+When connecting to a website, the server sends a certificate.
+
+The certificate contains information such as:
+
+- Domain name
+- Public key
+- Certificate authority
+- Validity period
+- Signature
+
+The client checks whether the certificate is valid.
+
+This helps answer the question:
+
+```text
+Am I really talking to the correct server?
+```
+
+---
+
+## 2.10 Certificate Authority
+
+A Certificate Authority, or CA, is a trusted organization that signs certificates.
+
+The browser or operating system already trusts a list of root CAs.
+
+When a server sends a certificate, the client checks whether it can trace the certificate back to a trusted root CA.
+
+This system is called:
+
+```text
+PKI
+```
+
+PKI stands for:
+
+```text
+Public Key Infrastructure
+```
+
+---
+
+## 3. TLS 1.2 Handshake
+
+## 3.1 TLS 1.2 Overview
+
+TLS 1.2 is still widely used, especially for backward compatibility.
+
+A simplified TLS 1.2 handshake looks like this:
+
+```text
+1. TCP handshake
+2. TLS ClientHello
+3. TLS ServerHello + Certificate
+4. Key exchange
+5. ChangeCipherSpec
+6. Finished
+7. Encrypted HTTP communication
+```
+
+---
+
+## 3.2 ClientHello
+
+The client sends a `ClientHello`.
+
+The client says:
+
+```text
+I want to start a TLS session.
+Here are the TLS versions I support.
+Here are the cipher suites I support.
+Here are my extensions.
+```
+
+The ClientHello may include extensions such as:
+
+- SNI
+- Supported cipher suites
+- Supported TLS versions
+- Key exchange parameters
+- Pre-shared key information
+
+---
+
+## 3.3 SNI
+
+SNI stands for:
+
+```text
+Server Name Indication
+```
+
+SNI allows the client to tell the server which hostname it wants to connect to.
+
+This is useful when one server hosts many websites.
+
+Example:
+
+```text
+example.com
+api.example.com
+shop.example.com
+```
+
+All may share the same IP address, but the server needs to know which certificate to use.
+
+---
+
+## 3.4 ServerHello
+
+The server replies with `ServerHello`.
+
+The server chooses:
+
+```text
+TLS version
+Cipher suite
+Key exchange method
+```
+
+The server also sends its certificate.
+
+The certificate allows the client to verify the server identity.
+
+---
+
+## 3.5 RSA Key Exchange in TLS 1.2
+
+In older TLS 1.2 configurations, RSA could be used for key exchange.
+
+Simplified flow:
+
+```text
+1. Server sends certificate with public key.
+2. Client generates a pre-master secret.
+3. Client encrypts the pre-master secret using the server public key.
+4. Client sends encrypted pre-master secret to server.
+5. Server decrypts it using the private key.
+6. Both sides derive the symmetric encryption key.
+```
+
+After that, both client and server use the symmetric key to encrypt communication.
+
+---
+
+## 3.6 Why Not Use Asymmetric Encryption for Everything?
+
+Asymmetric encryption is slow.
+
+It requires more CPU and is not efficient for large data.
+
+So TLS uses asymmetric encryption only for small handshake data.
+
+Then it uses symmetric encryption for the actual application data.
+
+Example:
+
+```text
+Asymmetric encryption → key exchange
+Symmetric encryption  → actual HTTP data
+```
+
+---
+
+## 3.7 Problem with RSA Key Exchange
+
+RSA key exchange has a forward secrecy problem.
+
+Imagine an attacker records encrypted traffic today.
+
+At the time of recording, the attacker cannot decrypt it.
+
+But if the server private key is leaked in the future, the attacker may be able to decrypt old recorded sessions.
+
+This is dangerous.
+
+This is why RSA key exchange is no longer preferred.
+
+---
+
+## 3.8 Forward Secrecy
+
+Forward secrecy means:
+
+```text
+Even if the server private key is leaked in the future,
+old recorded sessions should remain secure.
+```
+
+This is important because attackers may record encrypted traffic and try to decrypt it later.
+
+Modern TLS prefers key exchange methods that provide forward secrecy.
+
+---
+
+## 4. Diffie-Hellman Key Exchange
+
+## 4.1 What Is Diffie-Hellman?
+
+Diffie-Hellman is a key exchange algorithm.
+
+It allows two parties to agree on a shared secret over an insecure network.
+
+The key idea:
+
+```text
+Client and server can create the same shared secret
+without directly sending the secret itself.
+```
+
+This shared secret can then be used to derive a symmetric key.
+
+---
+
+## 4.2 Diffie-Hellman Intuition
+
+In Diffie-Hellman, both sides have private values.
+
+```text
+Client private value = X
+Server private value = Y
+```
+
+There are also public values that can be shared.
+
+Even if an attacker sees the public values, the attacker cannot easily recover the private values.
+
+Both sides combine:
+
+```text
+Their own private value
+The other side's public value
+```
+
+The result is the same shared secret on both sides.
+
+---
+
+## 4.3 Diffie-Hellman Simplified Math
+
+Diffie-Hellman uses modular arithmetic.
+
+Public values:
+
+```text
+g
+n
+```
+
+Client private value:
+
+```text
+x
+```
+
+Server private value:
+
+```text
+y
+```
+
+Client computes:
+
+```text
+g^x mod n
+```
+
+Server computes:
+
+```text
+g^y mod n
+```
+
+They exchange these public results.
+
+Then the server computes:
+
+```text
+(g^x mod n)^y mod n
+```
+
+The client computes:
+
+```text
+(g^y mod n)^x mod n
+```
+
+Both produce the same shared secret:
+
+```text
+g^(xy) mod n
+```
+
+An attacker may see:
+
+```text
+g
+n
+g^x mod n
+g^y mod n
+```
+
+But the attacker cannot easily recover:
+
+```text
+x
+y
+g^(xy) mod n
+```
+
+---
+
+## 4.4 Why Diffie-Hellman Helps
+
+Diffie-Hellman helps because the final symmetric key is not directly sent over the network.
+
+Even if someone records the traffic, they do not have the private values needed to compute the shared secret.
+
+This supports forward secrecy when ephemeral keys are used.
+
+---
+
+## 4.5 Elliptic Curve Diffie-Hellman
+
+A more modern version is:
+
+```text
+ECDHE
+```
+
+ECDHE stands for:
+
+```text
+Elliptic Curve Diffie-Hellman Ephemeral
+```
+
+ECDHE is widely used because it provides strong security with smaller keys and better performance.
+
+---
+
+## 5. TLS 1.3
+
+## 5.1 TLS 1.3 Overview
+
+TLS 1.3 improves TLS 1.2.
+
+It removes old and insecure options.
+
+It also makes the handshake faster.
+
+TLS 1.3 prefers modern key exchange methods such as Diffie-Hellman or Elliptic Curve Diffie-Hellman.
+
+---
+
+## 5.2 TLS 1.2 vs TLS 1.3
+
+| Feature | TLS 1.2 | TLS 1.3 |
+|---|---|---|
+| Handshake | More round trips | Fewer round trips |
+| Old algorithms | Supports more legacy options | Removes many old options |
+| Forward secrecy | Depends on configuration | Built into modern design |
+| Performance | Slower | Faster |
+| Security | Good if configured well | Better defaults |
+
+---
+
+## 5.3 TLS 1.3 Faster Handshake
+
+TLS 1.3 reduces unnecessary negotiation.
+
+Instead of doing many back-and-forth steps, the client can send key exchange parameters earlier.
+
+This reduces latency.
+
+A simplified TLS 1.3 flow:
+
+```text
+1. TCP handshake
+2. ClientHello with key share
+3. ServerHello with key share
+4. Both sides derive symmetric keys
+5. Encrypted communication starts
+```
+
+This is faster than older TLS handshakes.
+
+---
+
+## 5.4 Zero RTT
+
+TLS 1.3 can support **0-RTT** in some cases.
+
+0-RTT means:
+
+```text
+Zero round-trip time
+```
+
+If the client and server communicated before, they may use pre-shared key information to start encrypted communication faster.
+
+This can reduce latency.
+
+However, 0-RTT has special security considerations and must be used carefully.
+
+---
+
+## 6. Important Notes
+
+## 6.1 TLS Encrypts Application Data
+
+TLS encrypts data above the transport layer.
+
+For HTTPS:
+
+```text
+HTTP data is encrypted by TLS.
+TLS data is sent over TCP.
+TCP segments are sent over IP.
+```
+
+Simplified stack:
+
+```text
+HTTP
+TLS
+TCP
+IP
+Ethernet/Wi-Fi
+Physical network
+```
+
+---
+
+## 6.2 TLS Uses Both Symmetric and Asymmetric Cryptography
+
+TLS uses asymmetric cryptography to help with:
+
+```text
+Authentication
+Key exchange
+```
+
+TLS uses symmetric cryptography for:
+
+```text
+Fast data encryption
+```
+
+This combination gives both security and performance.
+
+---
+
+## 6.3 Certificates Prove Server Identity
+
+TLS is not only about encryption.
+
+It also helps the client verify that the server is really who it claims to be.
+
+This is done through certificates and certificate authorities.
+
+---
+
+## 6.4 TLS Does Not Hide Everything
+
+TLS encrypts the HTTP request and response content.
+
+However, some metadata may still be visible depending on the situation.
+
+Examples:
+
+- Server IP address
+- Timing
+- Packet sizes
+- Some handshake metadata
+- Sometimes hostname information through SNI
+
+So TLS protects content, but it does not make all network metadata invisible.
+
+---
+
+## 6.5 Private Keys Must Stay Private
+
+The server private key must never be leaked.
+
+If a private key leaks, it can create serious security problems.
+
+With older key exchange methods like RSA key exchange, leaked private keys could potentially expose old recorded traffic.
+
+Modern forward-secrecy-based handshakes reduce this risk.
+
+---
+
+## 6.6 Forward Secrecy Is Important
+
+Forward secrecy protects past sessions.
+
+Even if a long-term private key leaks later, previous recorded sessions should remain safe.
+
+Modern TLS configurations prefer forward secrecy.
+
+---
+
+## 6.7 TLS 1.0 and TLS 1.1 Are Obsolete
+
+Older versions such as TLS 1.0 and TLS 1.1 are no longer recommended.
+
+Modern systems should use:
+
+```text
+TLS 1.2
+TLS 1.3
+```
+
+TLS 1.3 is preferred when available.
+
+---
+
+## 6.8 TLS Adds Latency, but It Is Necessary
+
+TLS adds handshake steps before application data can be exchanged.
+
+However, this cost is necessary for secure communication.
+
+Modern TLS versions reduce this cost significantly.
+
+---
+
+## 7. Examples
+
+## Example 1: HTTP Without TLS
+
+```text
+Client opens TCP connection to server on port 80.
+Client sends plain HTTP request.
+Server sends plain HTTP response.
+```
+
+Request:
+
+```http
+GET / HTTP/1.1
+Host: example.com
+```
+
+Problem:
+
+```text
+Anyone in the middle may read the request and response.
+```
+
+---
+
+## Example 2: HTTPS With TLS
+
+```text
+Client opens TCP connection to server on port 443.
+Client and server perform TLS handshake.
+Client and server agree on encryption keys.
+Client sends encrypted HTTP request.
+Server sends encrypted HTTP response.
+```
+
+Simplified:
+
+```text
+HTTP request
+→ encrypted by TLS
+→ sent through TCP
+→ sent through IP
+```
+
+---
+
+## Example 3: TLS 1.2 With RSA Key Exchange
+
+```text
+1. Client opens TCP connection.
+2. Client sends ClientHello.
+3. Server sends certificate with public key.
+4. Client generates pre-master secret.
+5. Client encrypts pre-master secret with server public key.
+6. Server decrypts it with private key.
+7. Both derive symmetric key.
+8. Encrypted communication starts.
+```
+
+Problem:
+
+```text
+If the server private key is leaked later,
+old recorded sessions may be at risk.
+```
+
+---
+
+## Example 4: TLS With Diffie-Hellman
+
+```text
+1. Client generates private value.
+2. Server generates private value.
+3. Both exchange public key exchange values.
+4. Client computes shared secret.
+5. Server computes shared secret.
+6. Both derive the same symmetric key.
+7. Encrypted communication starts.
+```
+
+Benefit:
+
+```text
+The symmetric key is never directly sent over the network.
+```
+
+---
+
+## Example 5: TLS 1.3 Handshake
+
+Simplified TLS 1.3:
+
+```text
+Client → Server: ClientHello + key share
+Server → Client: ServerHello + key share + certificate
+Client and server derive symmetric keys
+Encrypted communication starts
+```
+
+TLS 1.3 reduces round trips compared to TLS 1.2.
+
+---
+
+## Example 6: HTTPS Stack
+
+When visiting:
+
+```text
+https://example.com
+```
+
+The protocol stack looks like this:
+
+```text
+HTTP request
+TLS encryption
+TCP connection
+IP routing
+Ethernet/Wi-Fi frame
+Physical transmission
+```
+
+---
+
+## 8. Questions / Review
+
+## Question 1
+
+What does TLS stand for?
+
+**Answer:**
+
+TLS stands for **Transport Layer Security**.
+
+---
+
+## Question 2
+
+What is the main purpose of TLS?
+
+**Answer:**
+
+The main purpose of TLS is to encrypt communication between two parties and help authenticate the server.
+
+---
+
+## Question 3
+
+What is HTTPS?
+
+**Answer:**
+
+HTTPS is HTTP running over TLS.
+
+```text
+HTTP + TLS = HTTPS
+```
+
+---
+
+## Question 4
+
+What port does HTTP usually use?
+
+**Answer:**
+
+HTTP usually uses port:
+
+```text
+80
+```
+
+---
+
+## Question 5
+
+What port does HTTPS usually use?
+
+**Answer:**
+
+HTTPS usually uses port:
+
+```text
+443
+```
+
+---
+
+## Question 6
+
+Why is plain HTTP insecure?
+
+**Answer:**
+
+Plain HTTP sends data without encryption, so someone in the middle may be able to read the request and response.
+
+---
+
+## Question 7
+
+What is symmetric encryption?
+
+**Answer:**
+
+Symmetric encryption uses the same key to encrypt and decrypt data.
+
+---
+
+## Question 8
+
+Why does TLS use symmetric encryption for application data?
+
+**Answer:**
+
+Because symmetric encryption is much faster than asymmetric encryption.
+
+---
+
+## Question 9
+
+What is asymmetric encryption?
+
+**Answer:**
+
+Asymmetric encryption uses a public key and a private key.
+
+---
+
+## Question 10
+
+What is a certificate used for in TLS?
+
+**Answer:**
+
+A certificate helps the client verify the identity of the server.
+
+---
+
+## Question 11
+
+What is a Certificate Authority?
+
+**Answer:**
+
+A Certificate Authority is a trusted organization that signs certificates.
+
+---
+
+## Question 12
+
+What is PKI?
+
+**Answer:**
+
+PKI stands for **Public Key Infrastructure**.
+
+It is the system used to manage certificates, public keys, private keys, and trust.
+
+---
+
+## Question 13
+
+What is the TLS handshake?
+
+**Answer:**
+
+The TLS handshake is the process where client and server agree on encryption settings, verify identity, and derive encryption keys.
+
+---
+
+## Question 14
+
+What is the key exchange problem?
+
+**Answer:**
+
+The key exchange problem is how two parties can agree on a shared secret key without sending the secret directly over the network.
+
+---
+
+## Question 15
+
+What is Diffie-Hellman used for?
+
+**Answer:**
+
+Diffie-Hellman is used to allow two parties to agree on a shared secret over an insecure network.
+
+---
+
+## Question 16
+
+What is forward secrecy?
+
+**Answer:**
+
+Forward secrecy means old recorded sessions should remain secure even if a long-term private key is leaked later.
+
+---
+
+## Question 17
+
+Why is RSA key exchange no longer preferred?
+
+**Answer:**
+
+Because it does not provide strong forward secrecy. If the server private key is leaked later, old recorded sessions may be decrypted.
+
+---
+
+## Question 18
+
+What is TLS 1.3?
+
+**Answer:**
+
+TLS 1.3 is a newer version of TLS that improves security and reduces handshake latency.
+
+---
+
+## Question 19
+
+What is 0-RTT?
+
+**Answer:**
+
+0-RTT is a TLS 1.3 feature that allows a client to send data faster when it has communicated with the server before.
+
+---
+
+## Question 20
+
+Does TLS hide all metadata?
+
+**Answer:**
+
+No.
+
+TLS encrypts application data, but some metadata such as IP address, timing, packet size, and sometimes hostname information may still be visible.
+
+---
+
+## 9. Final Takeaway
+
+TLS is the standard protocol used to secure communication over the network.
+
+The most common form is:
+
+```text
+HTTPS = HTTP over TLS
+```
+
+TLS provides:
+
+```text
+Encryption
+Authentication
+Integrity
+Secure key exchange
+```
+
+TLS combines asymmetric cryptography and symmetric cryptography.
+
+Asymmetric cryptography helps with identity and key exchange.
+
+Symmetric cryptography encrypts the actual application data efficiently.
+
+The most important TLS ideas are:
+
+```text
+Certificate
+Certificate Authority
+Public key
+Private key
+Symmetric key
+TLS handshake
+Key exchange
+Diffie-Hellman
+Forward secrecy
+TLS 1.2
+TLS 1.3
+```
+
+For backend engineers, TLS is essential because modern applications must protect data in transit.
+
+Understanding TLS helps explain:
+
+- Why HTTPS is secure
+- Why certificates matter
+- Why private keys must be protected
+- Why TLS handshakes add latency
+- Why TLS 1.3 is faster than TLS 1.2
+- Why forward secrecy is important

@@ -1,0 +1,2207 @@
+Tôi có tin xấu cho bạn.
+
+Hôm nay là một trong những ngày hiếm hoi mà chúng ta không phải làm thí nghiệm.
+
+Hôm nay không có phòng thí nghiệm, nhưng tôi có thứ tốt hơn.
+
+Như bạn sẽ thấy.
+
+Nhưng trước tiên, hãy nhanh chóng làm điều chúng ta vẫn thường làm.
+
+Tóm tắt lại những gì chúng ta đã làm cho đến nay.
+
+Bạn biết được quá trình tiến triển để trở nên thành thạo.
+
+Bạn đã có ấn tượng đầu tiên về các mô hình biên giới OpenAI, Gemini, llama, nhiều mô hình khác thông qua llama như Deep
+
+Distilled và Llama 3. 2.
+
+Và bạn đã xây dựng được thứ gì đó có thể tóm tắt các trang web bằng cách sử dụng OpenAI API và hy vọng là cả chú lạc đà của bạn
+
+nữa.
+
+Điều bạn có thể làm vào cuối ngày hôm nay là so sánh một loạt các mô hình biên giới.
+
+Bạn sẽ biết được sự khác biệt giữa mô hình trò chuyện và mô hình lý luận.
+
+Bạn sẽ đánh giá cao những gì họ làm tốt và những gì họ gặp khó khăn.
+
+Chúng ta hãy bắt đầu thôi.
+
+Vì vậy, có ba giống llms khác nhau phản ánh những gì chúng được đào tạo để làm, những nhiệm vụ mà
+
+chúng đặt ra để hoàn thành.
+
+Và điểm khởi đầu được gọi là mô hình cơ sở, là một LM chỉ có chức năng lấy chuỗi thông tin làm đầu
+
+vào và dự đoán những gì sẽ xảy ra tiếp theo.
+
+Đó là tất cả những gì nó làm.
+
+Và những mô hình cơ bản này, bạn không thường xuyên bắt gặp.
+
+Chúng ta sẽ thực hiện điều này sau khi chúng ta bắt tay vào làm việc.
+
+Ừm, nhưng chúng thực sự tồn tại trước khi được dạy cách làm những việc như trò chuyện với ai đó.
+
+Vấn đề chỉ là hoàn thành chuỗi.
+
+Nhưng bạn có một mô hình cơ bản và bạn có thể sử dụng nó khá thường xuyên và nó nằm trong túi của bạn.
+
+Nếu bạn cầm điện thoại lên và soạn tin nhắn văn bản, sử dụng tính năng dự đoán văn bản, nếu bạn nói
+
+"xin chào", rồi bạn thấy lời nhắc, bạn sẽ đến trang tiếp theo và liên tục nhấn
+
+nút đó, giống như bạn đang sử dụng mô hình cơ sở.
+
+Nó chỉ hoàn thiện chuỗi, cung cấp cho bạn kết quả đầu ra có khả năng xảy ra tiếp theo sau một đầu vào
+
+cụ thể.
+
+Lặp đi lặp lại.
+
+Và mỗi lần bạn chọn một từ đưa vào chuỗi, rồi dự đoán từ tiếp theo theo
+
+sau chuỗi này, thì đó chính là mô hình cơ sở.
+
+Và trước khi ChatGPT ra mắt vào năm 2022.
+
+Trước đó là các phiên bản trước đó của các mô hình, như GPT ba.
+
+Đó chỉ là một mô hình cơ bản và những người sử dụng nó như tôi vào thời điểm đó, chúng tôi rất quen thuộc với việc bạn nhập
+
+một số văn bản và sau đó nó sẽ bắt đầu dự đoán những gì sẽ xảy ra tiếp theo, và có nhiều
+
+cách khác nhau mà bạn có thể buộc nó thử và trả lời các câu hỏi.
+
+Bạn sẽ nói như câu hỏi trong lời nhắc.
+
+Bạn sẽ đưa ra câu hỏi dạng Q và A, sau đó là dấu hai chấm và câu trả lời. Q dấu hai chấm, một câu hỏi khác, một dấu hai chấm, một câu
+
+trả lời.
+
+Và sau đó bạn sẽ đặt dấu q và câu hỏi thực tế mà bạn muốn hỏi.
+
+Và sau đó bạn sẽ thêm chữ A, và điều đó sẽ khiến nó suy nghĩ giống như đang ở chế độ hỏi
+
+đáp và đưa ra câu trả lời cho bạn.
+
+Và đó là cách mà rất nhiều người sử dụng các mô hình cơ sở này.
+
+Và OpenAI đã nảy ra ý tưởng và nghĩ rằng, chờ đã, chúng ta có thể đào tạo các mô hình của mình nhiều hơn một chút với
+
+dữ liệu được cấu trúc theo cách này với một loại phản hồi tin nhắn, một phản hồi tin nhắn và việc làm đó được gọi
+
+là tạo ra một biến thể trò chuyện hoặc còn được gọi là biến thể Instruct, mô hình trò chuyện hoặc mô hình Instruct.
+
+Đây là mô hình được đào tạo để hoạt động theo phong cách nhanh chóng như thế này.
+
+Và họ nảy ra ý tưởng rằng nên có một thông tin tổng thể mô tả toàn bộ cuộc
+
+trò chuyện, sau đó sẽ có một tin nhắn từ một người dùng đến AI và câu trả lời của nó, rồi
+
+một tin nhắn khác và rồi, cấu trúc tổng thể đó đầu tiên được gọi là lời nhắc hệ thống.
+
+Ừ, bạn biết là tôi sẽ nói thế mà.
+
+Và tin nhắn tiếp theo được gọi là lời nhắc người dùng.
+
+Và sau đó trợ lý trả lời và trợ lý nhắc nhở người dùng trả lời.
+
+Và đó chính là đào tạo.
+
+Một mô hình theo cách này được biết đến là tạo ra một biến thể trò chuyện.
+
+Họ sử dụng một phương pháp tiếp cận cụ thể gọi là học tăng cường từ phản hồi của con người RL,
+
+và đó chính là phương pháp chuyển từ GPT bình thường sang ChatGPT.
+
+Đó là phiên bản trò chuyện.
+
+Và thế là mô hình trò chuyện trở nên thịnh hành.
+
+Và chúng ta sẽ trò chuyện với ChatGPT.
+
+Và mọi người nhanh chóng nhận ra rằng có một số thủ thuật, một số thủ thuật kỹ thuật nhanh chóng
+
+để tận dụng tối đa mô hình.
+
+Và một trong số đó được gọi là chuỗi suy nghĩ.
+
+Việc gợi ý cũng đơn giản như khi bạn yêu cầu người mẫu làm điều gì đó, bạn thêm vào câu cuối cùng
+
+ừm, hãy suy nghĩ từng bước một.
+
+Và chỉ bằng cách nói rằng bạn sẽ nhận được thứ gì đó rõ ràng sẽ hoạt động tốt hơn, nó sẽ thực
+
+hiện mọi việc một cách có phương pháp và trình tự mà nó dự đoán sẽ có nhiều khả năng giải
+
+quyết được vấn đề hơn chỉ vì bạn bảo nó suy nghĩ từng bước.
+
+Nghe có vẻ ngớ ngẩn nhưng thực ra lại hiệu quả.
+
+Và một lần nữa, điều đó lại khiến mọi người phải suy nghĩ.
+
+Có lẽ chúng ta có thể huấn luyện mô hình bằng nhiều ví dụ cho thấy nó suy nghĩ từng bước, sau đó cho
+
+thấy nó đi đến kết luận.
+
+Và thực hiện đào tạo như vậy.
+
+Đào tạo một mô hình để mô hình trò chuyện có thể suy nghĩ kỹ về những gì nó đang làm trước
+
+khi thực hiện.
+
+Người ta gọi nó là việc tạo ra mô hình lý luận hoặc tạo ra mô hình tư duy.
+
+Và điều đó dẫn đến những mô hình lý luận này.
+
+Chúng là những mô hình được đào tạo để đầu tiên đưa ra các bước suy nghĩ và sau đó đưa ra câu trả lời.
+
+Và tôi nghĩ chúng ta đã thấy điều đó ngay từ đầu, vào ngày đầu tiên, phần thỏa mãn tức thời,
+
+khi chúng ta thấy mô hình OSS của OpenAI suy nghĩ thấu đáo mọi việc trước khi đưa ra câu trả lời, và đó
+
+chính là mô hình lý luận.
+
+Đầu tiên là quá trình suy nghĩ và hiện nay một số mô hình hiện đại nhất được gọi là mô
+
+hình lai.
+
+Nhưng thực ra không phải vậy.
+
+Nó thực sự chỉ là một biến thể của mô hình tư duy lý luận có khả năng quyết định mức độ suy nghĩ mà
+
+nó thực hiện.
+
+Và ở một số chế độ, nó giống với việc chỉ là một mô hình trò chuyện hơn.
+
+Nó hầu như không có bất kỳ lý luận nào cả.
+
+Và trong những trường hợp khác, nó sẽ tiếp tục suy luận khá nhiều, và quyết định suy luận bao nhiêu
+
+dựa trên câu hỏi bạn hỏi, mức độ phức tạp của câu đố, hoặc nếu chỉ ở chế độ trò chuyện, chỉ đơn giản là chào
+
+hỏi, thì nó sẽ không bận tâm đến việc suy luận câu trả lời.
+
+Và do đó, loại mô hình có khả năng quyết định cần phải suy nghĩ bao nhiêu được gọi là mô hình
+
+lai.
+
+Và Gemini Pro 25 là một mẫu máy lai.
+
+Vậy là nó có bốn và GPT cũng có năm.
+
+Những mẫu xe mới nhất này đều là ví dụ về mẫu xe lai.
+
+Ừm, và sau đó là phiên bản mới nhất của mô hình nguồn mở, khi họ có cả mô hình lai và mô
+
+hình chỉ là trò chuyện và lập luận trong trường hợp bạn muốn chọn mô hình đó, bạn chỉ cần một
+
+mô hình ở chế độ trò chuyện.
+
+Và lượng lý luận mà một mô hình lý luận thực hiện đôi khi được gọi là ngân sách lý luận hoặc
+
+nỗ lực lý luận của nó.
+
+Và có một kỹ thuật gọi là ép buộc ngân sách.
+
+Khi bạn biến một mô hình thành một mô hình lý luận, hãy suy nghĩ lâu hơn, bạn sẽ khiến nó lý luận nhiều hơn.
+
+Và có nhiều thủ thuật khác nhau để đạt được điều này.
+
+Và chúng khá đáng chú ý, nhiều trong số chúng khá là khó hiểu và ngớ ngẩn.
+
+Và tôi nghĩ khi tôi giải thích điều này với bạn, bạn sẽ nghĩ, thật sao?
+
+Ồ, nhưng hóa ra có một bài báo tuyệt vời tên là S1 mà bạn có thể tìm kiếm trên Google.
+
+Tôi sẽ đặt, đặt một liên kết vào các nguồn tài nguyên.
+
+Ừm, S1 giải thích rằng đó là một khám phá vào tháng 1 năm 2025.
+
+Ừ, đó là những gì bạn có thể làm khi một mô hình đưa ra suy nghĩ của riêng nó.
+
+Trace, nếu bạn muốn suy nghĩ thêm, không chỉ để đi đến kết luận mà còn để quay lại và
+
+suy nghĩ thêm, thì có một mẹo toán học rất phức tạp liên quan đến một số phép tính
+
+thực sự phức tạp.
+
+Không, không phải vậy.
+
+Nó chỉ bao gồm việc thêm trọng lượng từ vào dấu vết suy nghĩ.
+
+Vì vậy, nó đưa ra một cái gì đó giống như tôi nên tôi nên cân nhắc blah, blah, blah, blah
+
+blah.
+
+Và sau đó bạn chỉ cần chèn trọng số của từ vào chuỗi này.
+
+Và bằng cách làm như vậy, nó tiếp tục chuỗi các từ có khả năng xuất hiện nhiều nhất sau weight.
+
+Và nó nói rằng, khoan đã, tôi nên suy nghĩ lại, tôi có chắc không?
+
+Để tôi xem xét lại nhé.
+
+Và vì vậy, họ đã phát hiện ra rằng các nhà khoa học chỉ cần thêm trọng số từ theo định kỳ vào chuỗi khi bạn khiến nó dự đoán
+
+các mã thông báo tiếp theo, khiến nó suy nghĩ về lý luận của mình và lý luận sâu hơn một chút, đồng
+
+thời tự thách thức và cân nhắc các lập luận mà nó đưa ra và xem xét liệu chúng có còn chính xác hay
+
+không.
+
+Và vì thế chỉ cần thêm trọng số vào từ là có thể có kết quả tốt hơn.
+
+Và kỹ thuật đó được gọi là ép buộc ngân sách.
+
+Và còn nhiều cách khác nữa để thực hiện điều đó.
+
+Nhưng đó là cái được biết đến nhiều nhất.
+
+Và lần đầu tiên bạn nghe điều đó, bạn sẽ nghĩ chắc chắn nó phải phức tạp
+
+hơn thế.
+
+Vâng, đừng đọc báo và bạn sẽ thấy.
+
+Và nhìn chung, các mô hình suy luận có ngân sách suy luận cao thực hiện tốt hơn
+
+ở hầu hết các tiêu chuẩn khác nhau.
+
+Và chúng ta sẽ xem xét các điểm chuẩn, bảng xếp hạng và mọi thứ khác vào tuần thứ tư.
+
+Vì vậy sẽ có nhiều thời gian để làm điều đó.
+
+Nhưng nhìn chung họ thực hiện rất tốt những mô hình lý luận này.
+
+Và vì vậy, bạn có thể tự hỏi, tại sao chúng ta không luôn sử dụng một mô hình lý luận?
+
+Tại sao lại có xe lai?
+
+Tại sao lại phải trò chuyện?
+
+Và có một số lý do.
+
+Không phải lúc nào mô hình lý luận cũng tốt hơn cho việc giải quyết vấn đề.
+
+Ồ, đặc biệt là nếu bạn không ngại lãng phí một chút.
+
+Chắc chắn là chúng sẽ luôn giải câu đố tốt hơn, và chúng thường thông minh hơn, giống như
+
+chúng đạt điểm cao hơn trong bất kỳ bài kiểm tra trí thông minh nào, mô hình trò chuyện.
+
+Tất nhiên, chúng nhanh hơn vì chúng không cần phải tạo ra tất cả những lý luận này thành dấu vết.
+
+Vì vậy, chúng tốt hơn cho các trường hợp sử dụng tương tác nếu bạn muốn trò chuyện và các mô hình trò chuyện cũng tốt hơn, thật đáng
+
+ngạc nhiên.
+
+Ừ, thì chúng tốt hơn trong trường hợp sử dụng đó.
+
+Rõ ràng là chúng nhanh hơn và rẻ hơn vì chúng không cần phải sản xuất tất cả những thứ này, những thứ này, những
+
+thứ này, những thứ này, ừm, những phần ở giữa, những mã thông báo suy nghĩ.
+
+Chúng ta sẽ nói thêm về chi phí và những vấn đề khác sau.
+
+Ừm, nhưng đúng là họ giỏi hơn ở khoản đó.
+
+Và, ừm, tôi đặt dấu chấm hỏi ở đây vì mọi người không chắc chắn về điều này, nhưng có vẻ
+
+như các mô hình trò chuyện thường giỏi hơn ở khía cạnh sáng tạo hơn trong việc tạo ra nội dung.
+
+Nếu bạn muốn ai đó viết email cho bạn, đôi khi bạn thấy rằng các mô hình lý luận có
+
+vẻ suy nghĩ quá mức.
+
+Có lẽ những gì họ đưa ra khá lạnh lùng và mang tính phân tích, trong khi các mô hình trò chuyện có
+
+xu hướng tạo ra nội dung trôi chảy hơn.
+
+Nhưng điều này nghe có vẻ vô lý.
+
+Không có số liệu thực sự tốt nào về vấn đề này.
+
+Đây chủ yếu là cách mọi người nghĩ về nó theo kiểu giai thoại.
+
+Bạn nên tự mình thử và xem bạn có đồng ý với điều đó không.
+
+Và một mô hình cơ sở sẽ tốt hơn trong trường hợp rất cụ thể khi bạn đang cố gắng đào tạo một mô hình để thực hiện một điều gì đó khác biệt,
+
+để cung cấp cho nó một kỹ năng mới, đó là điều chúng ta sẽ thực hiện sau trong khóa học.
+
+Và khi bạn làm điều đó, tốt hơn hết là nên bắt đầu với một mô hình cơ sở.
+
+Bạn không nhất thiết phải tham gia vào một cấu trúc trò chuyện hoặc một cấu trúc lý luận.
+
+Bạn muốn có cơ hội đào tạo nó để có một cấu trúc khác biệt.
+
+Và trong trường hợp đó, tốt hơn là bắt đầu với một cơ sở.
+
+Vậy thì đó chính là lúc bạn sử dụng từng loại mô hình trong ba loại đó. Được rồi, chúng ta hãy nói về các mô hình biên giới lớn, các phòng thí nghiệm và các sản phẩm trò chuyện.
+
+Đôi khi bạn cũng nghe thấy thuật ngữ đó đối với những mô hình lớn này, còn được gọi là mô hình nền tảng.
+
+Và mô hình nền tảng được sử dụng rất giống với mô hình biên giới.
+
+Về mặt lý thuyết, mô hình nền tảng là một trong những khối xây dựng chính mà nhiều công ty khác
+
+sao chép.
+
+Nhưng không nhất thiết phải có định nghĩa tốt cho các mô hình nền tảng và mô hình biên giới này vì chúng thường được sử dụng
+
+thay thế cho nhau.
+
+Vì vậy, OpenAI và OpenAI tất nhiên có phạm vi mô hình GPT.
+
+GPT năm là mô hình kết hợp giữa trò chuyện và lý luận.
+
+Họ cũng có phạm vi mô hình O, là các mô hình lý luận thuần túy.
+
+Nhưng GPT năm thực sự thay thế tất cả các chữ O và chuỗi GPT trước đó.
+
+Tôi vẫn thích sử dụng GPT 4. 1, là biến thể ra đời ngay trước GPT năm vì đây là mô hình
+
+trò chuyện thuần túy và nhanh hơn nhiều so với GPT năm, ngay cả khi bạn yêu cầu GPT năm đưa ra lý luận ít nhất có thể.
+
+GPT 4. 1 vẫn nhanh hơn nhiều, tương tác hơn nhiều.
+
+Vì vậy, có nhiều trường hợp sử dụng mà tôi thích hơn, như chúng ta sẽ thấy.
+
+Giao diện người dùng trò chuyện tất nhiên là ChatGPT.
+
+Bạn biết rõ điều đó, chúng tôi sẽ sử dụng nó.
+
+Claude thật là nhân văn.
+
+Ừ, và Claude có ba kích cỡ khác nhau, như tôi đã nói trước đó, haiku, sonnet và opus.
+
+Và ừm, chúng ta có lẽ sẽ chủ yếu sử dụng khổ thơ sonnet cỡ trung bình.
+
+Và, ừm, phiên bản 4. Phiên bản 5 là phiên bản mới nhất mà tôi vừa ra mắt ngày hôm qua.
+
+Ừ, nhưng đó là thông tin mới nhất.
+
+Và có thể đối với bạn, có một cái mới, có thể đối với bạn, đã có Claude năm rồi.
+
+Ừ, nhưng bạn nên sử dụng phiên bản mới nhất và xem nó so sánh như thế nào.
+
+Với cái gì?
+
+Với những gì tôi làm.
+
+Google có Gemini.
+
+Với tôi, Song Tử là 2. 5.
+
+Nhưng tôi cá là khi bạn xem xong video này thì đã có ba người ra ngoài rồi.
+
+Và tôi sẽ làm vậy.
+
+Tôi không thể chờ đợi để thử nó.
+
+Ừ, giao diện trò chuyện của họ đã đổi tên, nhưng tôi nghĩ Gemini Advanced là tên họ gọi nó vào một
+
+thời điểm nào đó, nhưng mọi người vẫn gọi là Gemini.
+
+Thực sự thì, giao diện trò chuyện của họ, sản phẩm trò chuyện của họ và sau đó là x dot AI chính là nhánh AI của Elon Musk.
+
+Ờ, tôi nghĩ bây giờ công ty đó cũng sở hữu công ty trước đây có tên là Twitter.
+
+Ừ, nhưng ừ, x AI có mô hình gọi là grok và nền tảng trò chuyện cũng gọi là grok, viết bằng chữ K, không nên nhầm
+
+lẫn với grok viết bằng chữ q mà chúng ta sẽ nói đến vào một ngày khác và sau đó là deep sky.
+
+Đây là một ví dụ khác.
+
+Đây là điều kỳ lạ ở đây.
+
+Bạn có biết tại sao nó lại kỳ lạ không?
+
+Đây là điều kỳ lạ vì họ mở mã nguồn cho tất cả các mô hình của mình, bao gồm cả mô hình lớn nhất.
+
+Ờ, công nghệ sâu, AI, công ty Trung Quốc.
+
+Họ có công nghệ sâu và sản phẩm trò chuyện của họ cũng được gọi là Deep Seek.
+
+Và khi tôi nêu những điều này ở trên, tất nhiên tôi cũng nên đề cập rằng OpenAI cũng có mô hình
+
+nguồn mở của họ.
+
+OpenAI có OSS mà chúng tôi đã sử dụng ngay từ đầu.
+
+Ừm, vậy thì họ cũng đã đến để tham gia vào cuộc tìm kiếm sâu sắc, có lẽ, như tôi đã nói, được khơi mào bởi cuộc tìm kiếm sâu sắc.
+
+Họ cũng có một mô hình mã nguồn mở.
+
+Được rồi, chúng ta hãy dành một phút để nói về điều gì làm cho các mô hình biên giới trở nên tuyệt vời và sau đó là một số
+
+nhược điểm của chúng.
+
+Ý tôi là, bạn biết đấy, tôi không cần phải nói với bạn vào thời điểm này, mọi người đều rất quen thuộc
+
+với một số điều gây sốc về các mô hình biên giới, khả năng tổng hợp thông tin như chúng ta đã thấy khi
+
+chúng ta có nó, để tóm tắt các trang web.
+
+Ý tôi là, điều này thật phi thường.
+
+Họ rất giỏi trong việc trả lời câu hỏi một cách chi tiết, với những câu trả lời có cấu trúc, được nghiên cứu kỹ lưỡng và
+
+có phần tóm tắt.
+
+Hãy hỏi nó một câu hỏi để cân nhắc ưu và nhược điểm của một điều gì đó, và bạn sẽ nhận được câu trả lời đáng chú ý.
+
+Vì vậy, điều đó không cần phải nói nữa.
+
+Mọi người đều biết điều này.
+
+À, tất nhiên, việc tạo nội dung cũng là công việc của họ, nhưng nếu bạn yêu cầu
+
+họ làm những việc như soạn email cho bạn, soạn bài thuyết trình hoặc soạn thảo cách giải quyết
+
+một dự án, họ sẽ làm với chất lượng tuyệt vời.
+
+Họ có thể xây dựng nên bộ xương.
+
+Tôi thường sử dụng nó như một cách để bắt đầu một sáng kiến mới và đưa ra những ý tưởng và cùng
+
+nhau hoàn thiện nó.
+
+Thật mạnh mẽ.
+
+Và tất nhiên là viết mã.
+
+Chúng ta đều biết điều này.
+
+Nếu bạn đã từng sử dụng mã, chắc hẳn bạn sẽ vô cùng kinh ngạc.
+
+Khả năng viết mã của họ, viết mã trong một thứ mà bạn biết đấy, rõ ràng là chúng ta sẽ
+
+nói về AI đại lý sau, nhưng khả năng thực hiện nó như thể có nhiều hoạt động đồng thời diễn ra và lặp lại mọi
+
+thứ trong một loại vòng lặp nào đó, trong đó nó xây dựng một số bài kiểm tra mã, nó sửa, nó xây dựng
+
+thêm.
+
+Ý tôi là, chuyện này thật đáng kinh ngạc.
+
+Và tôi, tôi đã viết ở đây lần đầu tiên tôi tham gia khóa học này cách đây một năm, đã vượt xa Stack Overflow để trở thành nguồn tài
+
+nguyên dành cho các kỹ sư, và tôi có một biểu đồ cho thấy Stack Overflow đang giảm dần về lượng người truy
+
+cập hàng ngày.
+
+Nhưng bây giờ nói như vậy thì quá rõ ràng.
+
+Stack Overflow thực sự điên rồ, từng có lúc tưởng chừng như không thể đánh bại.
+
+Không thể đánh bại.
+
+Đó chính là nơi mọi người thường xuyên lui tới.
+
+Bây giờ người ta hiếm khi nhắc đến nó nữa.
+
+Mọi người không bao giờ vào Stack Overflow.
+
+Bạn có thể đặt câu hỏi của mình vào ChatGPT hoặc Claude.
+
+Ừ, thế là hết.
+
+Vì vậy, chỉ trong vòng vài năm, các chương trình trò chuyện trực tuyến này đã vượt qua
+
+mọi nguồn lực khác về khả năng giải quyết vấn đề và gỡ lỗi.
+
+Thật đáng chú ý.
+
+Và thành thật mà nói, tôi thấy Claude và ChatGPT đã giải quyết được những vấn đề khiến tôi đau đầu,
+
+và họ làm điều đó một cách dễ dàng.
+
+Đôi khi thì không, nhưng thường thì có thể.
+
+Và họ làm điều đó rất nhanh chóng, rất rõ ràng và giải thích chính xác những gì cần làm.
+
+Thật sự ấn tượng.
+
+Nhưng nhìn xem, tôi thường là người khá lạc quan và nhiệt tình, nếu bạn không nhận ra điều đó.
+
+Nhưng điều đó không có nghĩa là tôi bị cuốn vào sự cường điệu đó.
+
+Tôi hoàn toàn nhận thức được rằng llms có những nhược điểm và tôi trải nghiệm chúng mỗi ngày.
+
+Ừ, chắc chắn là có rồi.
+
+Mặc dù họ rất giỏi trong một số lĩnh vực khoa học, nhưng họ lại có chuyên môn đáng kinh ngạc trong một số lĩnh vực khác và có
+
+trình độ trên tiến sĩ trong một số lĩnh vực, trong khi ở những lĩnh vực khác họ lại chưa có kiến thức đó.
+
+Kiến thức đào tạo của họ còn nhiều hạn chế nhưng họ có thể vượt qua rất tốt.
+
+Họ có điều này rất nổi tiếng.
+
+Ngưỡng kiến thức này xảy ra khi quá trình đào tạo của họ kéo dài đến khi họ có kiến thức hạn chế sau
+
+điểm đó.
+
+Vì vậy, nếu Gemini đang giúp sửa mã của bạn, nó thường sẽ làm điều này khi thay đổi mô hình của
+
+bạn.
+
+Nếu bạn đang sử dụng GPT, nó sẽ loại bỏ GPT 3 hoặc GPT 4. 1, và nó sẽ báo rằng bạn đã sử dụng một mô
+
+hình không tồn tại và sẽ đưa vào GPT 3. 5 turbo cách đây khoảng hai năm, giống như một thứ gì đó
+
+lỗi thời đến mức đáng xấu hổ.
+
+Nhưng nó sẽ làm như vậy rất, rất mạnh mẽ, rất, rất tức giận khi nói với bạn rằng bạn đã sử dụng một mô hình
+
+chưa tồn tại.
+
+Giống như là, tốt lắm.
+
+Ồ, và tất nhiên, nhiều sản phẩm bạn sử dụng, chẳng hạn như ChatGPT, hiện có khả năng thực
+
+hiện tìm kiếm trên web.
+
+Và đây là chức năng mà các kỹ sư AI như bạn và tôi đã tích hợp vào ChatGPT để sử dụng cho OpenAI.
+
+Nó không phải là một phần của LLM, mô hình, mà là một phần của mã bổ sung được thêm vào để
+
+hỗ trợ.
+
+Bản thân mô hình đã bị cắt bỏ khi được đào tạo và không có thông tin nào khác ngoài thông tin đó.
+
+Và tất nhiên, llms cũng có thể mắc lỗi và lỗi này có thể rất nguy hiểm.
+
+Họ có thể rất tự tin khi mắc lỗi vì tất cả những gì họ làm là dự đoán từ tiếp theo, từ tiếp theo,
+
+mã thông báo tiếp theo có khả năng xảy ra nhất.
+
+Họ đang dự đoán những gì họ tin là sẽ xảy ra tiếp theo theo một cách hợp lý.
+
+Vì vậy, tính hợp lý là điều họ được đào tạo.
+
+Họ đã được đào tạo để có giọng nói tự tin.
+
+Đó là tất cả những gì họ làm.
+
+Thực tế là từ tiếp theo có khả năng xảy ra nhất thường là sự thật.
+
+Thực tế có phần đáng ngạc nhiên.
+
+Chúng ta nên ngạc nhiên khi biết rằng các người mẫu không còn bị ảo giác nhiều nữa.
+
+Ồ, thực tế là chúng thường chính xác và phù hợp với nhiệm vụ của chúng ta là điều đáng chú ý.
+
+Ừ, nhưng tất nhiên điều đó có nghĩa là đôi khi họ cũng bị ảo giác.
+
+Và khi họ ảo giác, họ làm như vậy với sự tin chắc lớn lao.
+
+Và đó là lý do tại sao việc sử dụng llms để hỗ trợ lập trình cho những người mới vào nghề, đặc biệt là những người mới vào
+
+nghề, lại đặc biệt nguy hiểm.
+
+Ban đầu, mọi người nghĩ rằng llms sẽ hữu ích nhất cho những người mới vào nghề vì chúng giúp các
+
+nhà phát triển mới vào nghề thăng tiến.
+
+Nhưng thực tế không hẳn như vậy.
+
+Chúng hữu ích nhất đối với một nhà phát triển cao cấp, người có thể sử dụng LLM để tạo mã và chắc chắn họ có
+
+thể theo dõi, sửa lỗi và đưa ra thử thách cho các nhà phát triển mới vào nghề.
+
+Chúng rất hữu ích, như chúng ta đã thấy từ con trỏ, nhưng chúng cũng có thể nguy hiểm vì chúng có thể khiến bạn
+
+đi lạc hướng.
+
+Họ có thể tự tin đưa ra điều gì đó hoàn toàn sai.
+
+Và tôi nhận được rất nhiều mã được gửi cho tôi rõ ràng là do một LLM tự động tạo ra và đi chệch
+
+hướng một cách điên rồ.
+
+Và tất nhiên, người đó không biết.
+
+Tôi sẽ nhấn mạnh lại vấn đề này bằng cách đưa ra một ví dụ cụ thể.
+
+Và, bạn biết đấy, tôi biết điều này sẽ mất một chút thời gian, nhưng tôi nghĩ sẽ hữu ích cho bạn khi
+
+nghe những điều như thế này.
+
+Một học viên trong khóa học này đã gửi cho tôi một số mã và nói rằng nó không hoạt động.
+
+Tại sao không?
+
+Và điều đó thực sự gây sốc.
+
+Có rất nhiều mã và phải mất một thời gian tôi mới hiểu được chuyện gì đang xảy ra.
+
+Và cuối cùng tôi cũng được chứng kiến chuyện gì đang xảy ra.
+
+Vì vậy, họ đã cố gắng trò chuyện với một mô hình nguồn mở, nhưng vô tình họ đã không nhập tên của biến thể
+
+trò chuyện, biến thể hướng dẫn của mô hình mà họ đã nhập vào tên của biến thể cơ sở, nó đang sử dụng khuôn
+
+mặt ôm sát, gọi mã trực tiếp.
+
+Vì vậy, bạn nhập tên của mẫu xe và họ sẽ sử dụng phiên bản cơ sở.
+
+Và nó đã thất bại vì không biết cách mong đợi lời nhắc của hệ thống và lời nhắc của người dùng vì các mô hình cơ sở không
+
+được đào tạo theo cách đó.
+
+Vì vậy, nó đã thất bại và họ đã sử dụng LLM để giúp họ, nhưng nó đã thất bại.
+
+Và LLM thấy rằng nó không thành công vì họ đã truyền thông tin trò chuyện, lời nhắc của hệ thống và lời nhắc
+
+của người dùng vào một mô hình không mong đợi điều đó.
+
+Vậy LLM đã làm gì?
+
+Vâng, nó nói là được, người mẫu không mong đợi điều này.
+
+Chúng ta sẽ phải chuyển đổi mô hình này thành một biến thể trò chuyện bằng cách tạo ra tất cả thông tin cần thiết
+
+để có thể thực hiện được điều đó.
+
+Và đó là lý do tại sao có rất nhiều trang mã thực sự phức tạp tạo ra đủ thứ liên
+
+quan đến mã thông báo đặc biệt và đủ thứ khác.
+
+Và vì vậy, thay vì hiểu rằng gốc rễ của vấn đề chỉ đơn giản là tên mô hình
+
+được viết sai, LLM lại tự tin giải quyết vấn đề hiển nhiên nhất.
+
+Được rồi, người mẫu không ngờ tới cuộc trò chuyện này.
+
+Chúng ta sẽ phải dạy nó cách mong đợi những nội dung trò chuyện.
+
+Nó không lùi lại một bước và nói, không, không, hãy để tôi thách thức toàn bộ tình hình.
+
+Lùi lại một bước.
+
+Có lẽ nguyên nhân gốc rễ chỉ là do người dùng nhập sai tên model và đó là một ví dụ điển hình.
+
+Người cấp dưới không biết rõ hơn.
+
+Họ không hiểu tại sao lại tạo ra nhiều mã như vậy, nhưng mọi việc dường như đang tiến triển.
+
+Họ đã tiến xa hơn.
+
+Còn nhiều chuyện khác đang xảy ra.
+
+Vậy là nó có vẻ hiệu quả.
+
+Họ đã không làm vậy.
+
+Họ không nhận ra rằng họ đang bị dẫn đi lạc đường.
+
+Họ không thấy rằng 3 hoặc 4 trang mã trông có vẻ ngớ ngẩn và có vẻ như sai.
+
+Họ đã đồng ý, ừm, và rồi cuối cùng, khi mọi việc không diễn ra suôn sẻ, họ không
+
+biết chắc tại sao.
+
+Và đối với tôi, việc có được tất cả những đoạn mã này rất khó để hiểu chuyện gì đang xảy ra,
+
+ý định của họ là gì.
+
+Tôi không biết rằng phần lớn nội dung này được tạo ra bởi một câu chuyện dài như vậy của LLM, nhưng nó xuất phát từ chính cốt lõi
+
+này.
+
+Vì thế.
+
+Vì vậy, tôi hy vọng nó sẽ hữu ích và giúp bạn hiểu lý do tại sao.
+
+Uh llms rất tuyệt vời trong việc tạo ra nội dung.
+
+Nhưng mà chúng là vậy.
+
+Chúng có thể đúng, chúng có thể sai.
+
+Họ có thể đưa ra kết luận ngay lập tức.
+
+Họ có xu hướng không suy nghĩ và lùi lại một bước.
+
+Họ có xu hướng áp dụng các biện pháp tạm thời và cố gắng tiến về phía trước, đặc biệt là với các nhiệm vụ lập trình.
+
+Và do đó, chúng hoạt động tốt nhất khi được giám sát.
+
+Đó là điểm mấu chốt, những llms mà bạn sử dụng cho những việc như mã hóa hoặc cho các loại
+
+tạo nội dung khác, chúng hoạt động tốt nhất.
+
+Hãy nghĩ về nó như một nhà phân tích cấp dưới.
+
+Bạn có một nhà phân tích cấp dưới vô cùng chăm chỉ và không biết mệt mỏi, có thể đi làm theo yêu cầu của bạn, nhưng bạn
+
+có trách nhiệm kiểm tra công việc đó, đảm bảo công việc đi đúng hướng, đúng lộ trình và đảm bảo bạn đang thử thách công
+
+việc đó để đảm bảo công việc không đi đến kết luận vội vàng và đi chệch hướng một
+
+cách điên rồ.
+
+Đó là việc của anh.
+
+
+Vậy thì phần lớn khóa học này là về việc kết nối với LMS, trên nền tảng đám mây thông qua API hoặc trực tiếp trên máy tính
+
+của chúng ta với LMS nguồn mở.
+
+Nhưng chỉ trong giây lát, chúng ta sẽ sử dụng các sản phẩm trò chuyện, các sản phẩm web được các phòng thí nghiệm này
+
+xây dựng để chúng ta có thể trải nghiệm thông qua UI.
+
+Và tôi biết bạn có thể sử dụng ChatGPT mọi lúc, nhưng chúng ta hãy cùng thử nghiệm
+
+một chút với các sản phẩm trước khi tìm hiểu về mã.
+
+Vậy chúng ta hãy bắt đầu bằng cách đặt một câu hỏi khá đơn giản.
+
+Kiểu mà họ rất giỏi trong ChatGPT năm, chẳng hạn, làm sao tôi có thể quyết định xem có phải là vấn đề kinh doanh
+
+không.
+
+Có phù hợp với giải pháp LLM không?
+
+Bởi vì, nhân tiện, không phải mọi thứ đều như vậy.
+
+Vì vậy, chúng tôi sẽ hỏi câu hỏi đó và sẽ quay lại để trả lời.
+
+Và nó nói hãy nhìn vào điều đó.
+
+Nhiều nhóm rất hào hứng với Llms trước khi dừng lại và tự hỏi liệu chúng có thực sự phù hợp với vấn đề kinh doanh
+
+hay không.
+
+Sau đây là cách mô tả có cấu trúc để quyết định và xác định vấn đề một cách rõ ràng.
+
+Đầu vào có cấu trúc và không có cấu trúc.
+
+Kiểm tra sự mơ hồ và tính mở.
+
+Đó là điều mà llms đặc biệt có sức mạnh.
+
+Ừm, đánh giá giá trị kinh doanh so với rủi ro, tính khả dụng của dữ liệu, sự phù hợp trong hoạt động, một phép thử nhanh.
+
+Và nói chung, đây là ví dụ về một câu trả lời tuyệt vời.
+
+Nó mạch lạc.
+
+Nó có cấu trúc.
+
+Nó có cách tổ chức thông tin rất tốt bằng các tiêu đề và mục phụ.
+
+Và nó cung cấp cho bạn cả hai mặt của cuộc tranh luận.
+
+Nó cân bằng rất tốt.
+
+Tôi biết bạn biết điều này.
+
+Đây là loại câu hỏi mà các Tiến sĩ Luật rất giỏi.
+
+Được rồi, chúng ta hãy bắt đầu cuộc trò chuyện mới.
+
+Chúng ta hãy đặt một câu hỏi thú vị hơn so với các câu hỏi khác.
+
+Có những loại câu hỏi nào?
+
+Bạn trả lời tốt nhất câu hỏi nào và bạn thấy câu hỏi nào khó nhất?
+
+Những LMS nào khác có khả năng bổ sung cho LMS của bạn?
+
+Chúng ta hãy xem liệu nó có thể nhận biết và phản ánh được điểm mạnh và điểm yếu của nó hay không.
+
+Vâng, chắc chắn là rất vui khi được trả lời.
+
+Câu hỏi hay đấy.
+
+Cảm ơn.
+
+Họ luôn có xu hướng nói rằng tôi sẽ chia phần này thành ba phần.
+
+Điểm mạnh của tôi là giảng dạy và giải thích có cấu trúc.
+
+Trả lời bằng công cụ hỗ trợ.
+
+Được rồi.
+
+Tuần tới chúng ta sẽ nói về các công cụ.
+
+Cá nhân hóa và trí nhớ.
+
+Bởi vì tôi có thể nhớ bối cảnh về bạn.
+
+Đó là tính năng được tích hợp sẵn trong sản phẩm ChatGPT giúp nhận biết và tổng hợp trên nhiều
+
+miền.
+
+Đúng là như vậy.
+
+Thật tuyệt vời.
+
+Những thông tin mới mẻ mà nó thấy có tính thách thức.
+
+Đúng vậy.
+
+Như chúng tôi đã nói, dữ liệu đào tạo có giới hạn nên không biết được.
+
+Nó dựa vào tìm kiếm trên web để có được thông tin mới nhất và thường không biết về một số điều.
+
+Độ chính xác toán học trong các phép suy luận dài là một điều rất cụ thể, nhưng cũng khá công bằng.
+
+Những vấn đề sâu sắc, chủ quan hoặc cá nhân.
+
+Tôi có thể đưa ra khuôn khổ cho việc suy nghĩ, nhưng tôi không thể thay thế các chuyên gia trong
+
+lĩnh vực y học, luật pháp hay trị liệu, cũng như các chuỗi lý luận mơ hồ cực kỳ dài dòng.
+
+Tôi thực sự nghĩ rằng họ khá giỏi trong việc này, nhưng tất nhiên là họ có một thứ gọi là cửa sổ ngữ
+
+cảnh mà chúng ta sẽ nói đến vào ngày mai.
+
+Và đúng là có vấn đề nếu bạn vượt ra ngoài cửa sổ ngữ cảnh, trong khi những cái khác lại bổ sung cho tôi.
+
+Vì vậy, nó thừa nhận rằng Claude từ nhân học, vốn là đối thủ lớn của nó, thường được khen ngợi vì lập luận theo
+
+ngữ cảnh dài và phong cách trò chuyện nhẹ nhàng, giống con người.
+
+Thật tuyệt vời khi GPT rất sẵn lòng thảo luận về cách các llms khác vượt trội và có hiểu biết sâu rộng.
+
+Song Tử mạnh về khả năng lý luận đa phương thức theo thời gian thực.
+
+Hỗn hợp thú vị từ Mistral nhẹ, nhanh và hiệu quả, và nó có đề cập ở đây rằng trong phiên bản cuối cùng
+
+của khóa học này tôi đã tham gia, nhưng Cohered không còn được trích dẫn thường xuyên nữa, nhưng
+
+nó được cho là tốt về độ chính xác.
+
+Ừm, và sau đó có một số mô hình được tinh chỉnh chuyên biệt chắc chắn sẽ vượt trội hơn GPT.
+
+Đúng vậy.
+
+Tóm lại, đó là một công việc tốt, có cấu trúc, nhiều bước, giải thích và tích hợp.
+
+Claude giỏi về lý luận giống con người.
+
+Gemini cho các nhiệm vụ đa phương thức mới.
+
+Câu trả lời thật sự hấp dẫn và hay, và rất tự nhận thức theo một cách kỳ lạ.
+
+Ờ, có rất nhiều thứ thú vị.
+
+Có thể bạn có câu trả lời khác, nhưng bạn nên dành thời gian đọc kỹ câu trả lời đó.
+
+Chắc chắn có điều gì đó tốt đẹp ở đó.
+
+Được rồi, đây là một câu hỏi đầy thử thách.
+
+Hãy nhìn vào đây.
+
+Cảm giác ghen tị là như thế nào?
+
+Bạn sẽ trả lời câu hỏi đó thế nào?
+
+Bạn sẽ trả lời câu hỏi đó thế nào?
+
+Chúng ta hãy cùng xem GPT 5 trả lời câu hỏi đó như thế nào.
+
+Ghen tuông giống như một hỗn hợp các cảm xúc chồng lên nhau.
+
+Đó không chỉ là một cảm giác.
+
+Nó thường là sự kết hợp của nỗi sợ hãi, bất an, tức giận, khao khát, tất cả đều hướng về một người hoặc một tình huống.
+
+Mọi người mô tả nó theo nhiều cách khác nhau về mặt thể chất: cảm giác tức ngực, nóng bừng,
+
+bồn chồn, tăng đột biến adrenaline, về mặt cảm xúc.
+
+Sự bất an.
+
+Sợ mất mát, tức giận hoặc oán giận.
+
+Xấu hổ hay tội lỗi.
+
+Suy nghĩ ám ảnh về mặt tinh thần và cảm xúc chung.
+
+Giống như một cơn bão của sự yếu đuối và tính cạnh tranh cùng một lúc.
+
+Ý tôi là, một lần nữa, trong trường hợp này, bạn có thể lập luận rằng đây là điều có thể
+
+tìm thấy trong dữ liệu đào tạo của nó vì có lẽ có rất nhiều bài viết tương tự như thế này.
+
+Nhưng đừng bao giờ sợ hãi.
+
+Trong các phòng thí nghiệm tương lai, chúng ta sẽ mở rộng nó hơn nữa với những loại câu hỏi tương tự
+
+chắc chắn nằm ngoài kiến thức đào tạo của nó, và bạn sẽ thấy rằng nó sẽ đưa ra câu trả lời đáng kinh ngạc cho hai câu
+
+hỏi đó và bạn có thể tự mình thử.
+
+Hãy nghĩ ra câu hỏi khó nhất mà bạn có thể nghĩ ra.
+
+Chúng ta cũng sẽ làm bài tập này và đưa ra một số câu hỏi khá khó.
+
+Nhưng hãy cố gắng hết sức và thử trên GPT 5.
+
+Một điều gì đó rất con người, giống như một điều gì đó đòi hỏi phải suy nghĩ thật sâu sắc và trí tuệ để trả lời và xem bạn
+
+nhận được câu trả lời như thế nào.
+
+Tôi nghĩ bạn sẽ ấn tượng.
+
+Vì vậy, trong những ngày đầu của GPT, có một câu hỏi mà một số người có sức ảnh hưởng đã đặt ra, câu hỏi này đã cho thấy những
+
+mặt còn hạn chế của nó.
+
+Họ hỏi, cần bao nhiêu cầu vồng để nhảy từ Hawaii đến 17?
+
+Và họ nhận được một câu trả lời ngớ ngẩn, điên rồ và chẳng có ý nghĩa gì cả.
+
+Và cũng khá thú vị khi thấy thời thế đã thay đổi.
+
+Đi thôi.
+
+Cần bao nhiêu cầu vồng để nhảy từ Hawaii đến 17?
+
+Và chúng ta hãy xem nó xử lý như thế nào.
+
+Nó đang suy nghĩ về điều đó.
+
+Và bạn sẽ thấy rằng nó đưa ra một câu trả lời rất, ừm, quyến rũ, như thể bạn đang nói chuyện với một người rất
+
+thông minh.
+
+Và nó nói rằng, đó là một câu hỏi rất mang tính thơ ca.
+
+Cần bao nhiêu cầu vồng để nhảy từ số 1 đến số 17?
+
+Nghe giống như một câu đố hoặc lời bài hát hơn là một phép đo theo nghĩa đen.
+
+Này, cầu vồng không phải là đơn vị đo khoảng cách hay số lượng, nên câu trả lời không phải theo nghĩa đen.
+
+Nếu bạn nói theo nghĩa bóng, nó có thể có nghĩa là và sau đó, bạn biết đấy, nó có thể là như vậy.
+
+Hay là anh muốn em?
+
+Và bạn biết đấy, đó chỉ là một câu trả lời rất hợp lý và thông minh.
+
+Và thật đáng chú ý khi thấy nó hoạt động như thế nào.
+
+Được rồi.
+
+Bây giờ, chúng ta hãy chuyển sang một số câu hỏi mẹo.
+
+Được rồi.
+
+Vậy nên một câu hỏi mà tôi thường hỏi, nhưng lại gặp vấn đề là có bao nhiêu chữ cái.
+
+Ồ, chữ A xuất hiện bao nhiêu lần trong câu này?
+
+Vì vậy, tôi thường hỏi tất cả các người mẫu câu hỏi này.
+
+Ừ, và ừ, bạn sẽ thấy nó có thể xử lý được như thế nào.
+
+Nhưng tôi nghĩ bạn sẽ thấy rằng thực sự rất dễ dàng để làm được điều đó.
+
+Ừ, chúng ta sẽ xem sao.
+
+Ừ, nó chỉ cho chúng ta câu trả lời thôi.
+
+Đó thực sự là câu trả lời, bao gồm cả bức thư đó.
+
+Ừm, bạn có thể thấy một, hai, ba, bốn, nhưng trước đây nó thực sự khó khăn vì các phiên bản trò chuyện
+
+của mô hình chỉ dự đoán mã thông báo tiếp theo thực sự khó thực hiện loại phân
+
+tích đó cho một câu hỏi.
+
+Và hơn nữa, thứ thực sự được truyền vào LLM không phải là các chữ cái, mà là các khối chữ cái gọi là mã thông
+
+báo sẽ được truyền vào ngày mai.
+
+Và do đó, việc phân tích các mã thông báo và hiểu được một chữ cái xuất hiện bao nhiêu lần trong đó là đặc biệt
+
+khó khăn.
+
+Nhưng ChatGPT 5 không gặp vấn đề gì với nó cũng như bất kỳ mô hình biên giới hàng đầu nào khác.
+
+Và câu hỏi khó hơn nữa là có bao nhiêu từ?
+
+Câu trả lời của bạn cho câu hỏi này có đòi hỏi phải tự phản ánh không?
+
+Đây là một dạng câu hỏi siêu hình, vì trong số lượng từ mà nó đưa ra, nó sẽ cần
+
+phải đếm số từ đó.
+
+Vì vậy, đây thực sự là một câu hỏi khó và đầy thách thức, và chúng ta hãy xem liệu GPT 5 có thể xử lý được mức độ phức
+
+tạp này hay không.
+
+À, câu trả lời thật tuyệt vời.
+
+Thật tuyệt đẹp, tôi thích nó.
+
+Một ừ ừ, cái đó, ừ, cái đó thật tuyệt.
+
+Ồ, điều đó cho thấy các mô hình biên giới không có vấn đề gì với loại câu hỏi này.
+
+Vì vậy, bài viết này đã cung cấp cho bạn một chuyến tham quan thú vị về khả năng, một số điểm mạnh nhất của các
+
+mô hình này.
+
+Và bây giờ chúng ta hãy xem xét một số đối thủ cạnh tranh của nó và xem họ hoạt động như thế nào.
+
+
+Và bây giờ tôi đã đến Claude Claude AI, đó là nơi trò chuyện của Claude.
+
+Và chúng ta sẽ sử dụng bài thơ thứ 4. 5, phiên bản mới nhất của tôi, và hỏi nó cùng một
+
+câu hỏi về việc so sánh nó với các mô hình khác và xem nó phản ứng thế nào với câu hỏi này.
+
+Ừm, thực ra, đối với các mô hình trước đây, nó từng từ chối trả lời câu hỏi này, bởi vì một trong những điều
+
+mà Claude được đào tạo rất bài bản, ừm, là cái gọi là sự liên kết hoặc đảm bảo rằng nó tuân theo các mô hình
+
+bảo mật tốt và việc tranh luận về các mô hình khác là một trong những điều mà nó cho là bị giới hạn, nhưng
+
+không còn nữa.
+
+Bây giờ nó sẽ phản hồi.
+
+Bài viết cho biết điểm mạnh của nó là sự tinh tế, lập luận và lối viết dài.
+
+Tôi đồng ý, tôi thấy Claude rất giỏi việc đó.
+
+Chắc chắn là tạo mã và gỡ lỗi.
+
+À, và lý luận đạo đức, suy nghĩ về những trường hợp khó khăn và giải thích lý luận của mình, điều
+
+đó rất thú vị.
+
+Những lĩnh vực đầy thách thức và chuyên môn cao, giống như GPT đã nói.
+
+Thông tin thời gian thực?
+
+Chắc chắn.
+
+Bối cảnh cực kỳ dài.
+
+Tuyệt đối.
+
+Bất kỳ ai đã sử dụng.
+
+Claude Code hiểu cảm giác khi bạn bắt đầu lấp đầy ngữ cảnh và hiệu suất bắt đầu giảm
+
+sút và các mô hình bổ sung cho nhiệm vụ đa phương thức thì tốt, đây là một sai lầm ngay lập tức đối với các mô hình như GPT bốn, tất
+
+nhiên, GPT năm là mô hình mới và GPT bốn là mô hình một.
+
+Trước đó, bản thân GPT bốn, bản gốc, là một mô hình khá cũ.
+
+Vì vậy, bạn sẽ thấy ngay Claude đã mắc lỗi khi thể hiện, như đã nói, rằng nó không có thông
+
+tin thời gian thực, ừm, sự bối rối.
+
+Thực ra, tôi không nhớ là tôi đã từng có mục đó trong danh sách của mình.
+
+Tôi đã cởi nó ra.
+
+Nhưng điều đáng lo ngại nhất, tất nhiên, là một công cụ tìm kiếm đặc biệt mạnh về khả năng tìm kiếm theo thời gian thực.
+
+Ừm, và đó chính là câu trả lời.
+
+Rất tuyệt.
+
+Được thôi, chúng ta hãy bắt đầu một cuộc trò chuyện mới nhé.
+
+Chúng ta hãy hỏi một câu hỏi khác mang tính cảm xúc.
+
+Giả sử, bạn sẽ mô tả màu xanh lam như thế nào với một người chưa bao giờ nhìn thấy được.
+
+Chúng ta hãy xem nó nói gì nhé.
+
+Ừ, tôi đã cố gắng kết nối nó với các giác quan và cảm giác khác mà chúng biết thông qua nhiệt độ.
+
+Màu xanh là màu mát.
+
+Đó là cảm giác râm mát trong ngày nóng nực, cảm giác mát lạnh của nước lạnh trên da.
+
+Thông qua cảm xúc, không gian, âm thanh, ẩn dụ.
+
+Ừ, tôi sẽ để bạn đọc cái này.
+
+Bạn cũng nên chạy cái này.
+
+Tôi nói cho bạn biết, nó thật là tuyệt vời.
+
+Nếu bạn yêu cầu tôi thử trả lời một câu hỏi như thế này, tôi sẽ không thể đạt đến mức
+
+độ sâu sắc, hương vị, sắc thái và cách mà Claude mô tả điều này theo một cách đầy chất thơ như vậy.
+
+Ừ, đúng là nó mang lại cảm giác rất phong phú.
+
+Và đây là một trong những điểm mạnh nhất của Claude, ừm, một câu trả lời rất gợi cảm.
+
+Vậy hãy tận hưởng điều đó nhé.
+
+Và sau đó chúng ta hãy thử nhé.
+
+Câu trả lời của bạn cho câu này có bao nhiêu từ và chúng ta hãy xem kết quả thế nào nhé.
+
+Ồ, và điều thú vị là đây từng là cách tôi thử nghiệm các mô hình.
+
+Nhưng chúng ta hãy cùng xem nhé.
+
+Năm sáu, bảy tám, 910 và trả lời sai.
+
+Thế thì sao?
+
+Ồ, đó thực sự là một điều thú vị.
+
+Ừ, bình thường thì nó vẫn đúng.
+
+Ừ, nhưng chúng ta vừa trải qua bài sonnet thứ 4. 5 mắc lỗi.
+
+Rõ ràng là không.
+
+Ít nhất là theo thử nghiệm này.
+
+Không đạt tới mức độ sức mạnh của GPT Five.
+
+Nhưng tôi nghĩ nếu bạn chạy thử thì có lẽ bạn sẽ tìm được câu trả lời đúng.
+
+Ừ, nhưng ít nhất thì đây là điểm dữ liệu thứ nhất.
+
+Ừm, Claude Sonnet 4. 5 vẫn chưa đạt được mục tiêu, nhưng hãy để tôi thử lại một lần nữa với opus 4. 1.
+
+Đây là số nhỏ hơn, 4. 1, nhưng đây là mô hình lớn nhất mà nhân loại có.
+
+Vậy có bao nhiêu từ trong câu trả lời của bạn cho câu hỏi này?
+
+Chúng ta hãy cùng xem opus sẽ suy nghĩ như thế nào trong một chút.
+
+Bây giờ nó lại sai nữa rồi.
+
+Tác phẩm đó thế nào?
+
+Đã hiểu sai.
+
+Ừm, tôi cảm thấy chúng ta nên thử lại lần nữa.
+
+Bạn cũng có thể.
+
+Không chỉ là mười từ, không phải 11, mà tất nhiên là vì người ta nói rằng thực tế nó được đưa ra nhiều
+
+hơn thế nữa.
+
+Chúng ta hãy thử lại lần nữa nhé.
+
+Được rồi.
+
+123456789 mười.
+
+Nhìn kìa.
+
+Bảy.
+
+Tám.
+
+Chín.
+
+Mười.
+
+Ờ.
+
+Được rồi, bây giờ chúng ta hãy thử suy nghĩ mở rộng.
+
+Vì vậy, chúng ta yêu cầu nó thực hiện lại điều đó bằng cách suy nghĩ sâu hơn.
+
+Ừ, được thôi.
+
+Bây giờ nó nói có mười từ 123, bốn, năm, sáu, bảy, tám, chín, mười.
+
+Họ đã làm đúng nhờ suy nghĩ sâu rộng.
+
+Vậy là tác phẩm thứ 4. 1 Mô hình lớn nhất của Anthropic với tư duy mở rộng được bật.
+
+Đã có câu trả lời đúng cho câu hỏi.
+
+Làm tốt.
+
+Và bây giờ chúng ta sẽ đến Gemini và nhanh chóng xem qua nó.
+
+Tôi chắc rằng bạn có thể hỏi nhiều câu hỏi như thế này.
+
+Hãy hỏi về sự ghen tị.
+
+Hỏi về màu xanh.
+
+Nhưng chúng ta chỉ trả lời câu hỏi vui thôi.
+
+Ồ, có bao nhiêu từ trong câu trả lời của bạn cho câu hỏi này?
+
+Dấu chấm hỏi.
+
+Hãy cùng xem chúng ta muốn chọn mẫu nào nhé.
+
+Chúng tôi sẽ thử 2. 5 Chuyên nghiệp
+
+Chúng tôi sẽ thử xem sao.
+
+Đó là suy nghĩ về điều đó.
+
+Chúng ta hãy xem liệu nó có làm được điều đó không.
+
+Đây là một câu hỏi ẩn dụ.
+
+Nó biết đó là một câu hỏi ẩn dụ.
+
+Và tất nhiên đây là cách suy nghĩ thấu đáo.
+
+Nó tạo ra các dấu hiệu cho quá trình suy nghĩ của mình vì đây là một mô hình lý luận.
+
+Trước khi chúng ta có Gemini 2. Câu trả lời thực sự của 5 Pro cho câu hỏi này, trời ơi, tôi phải mất một giây
+
+để đếm.
+
+Ba.
+
+Bốn.
+
+Năm.
+
+Sáu.
+
+1819.
+
+21.
+
+Đến hai.
+
+Từ 3 đến 4.
+
+Ba.
+
+Năm.
+
+Tôi được 25.
+
+Vì vậy, tôi không nghĩ là nó đúng, mặc dù câu trả lời rất dài dòng.
+
+Trừ khi tôi có vấn đề về đếm, nhưng đó là câu trả lời của Gemini.
+
+Song Tử 2. 5 Pro là câu trả lời dài dòng và thật đáng buồn là sai.
+
+Tiếp theo, hãy lắng nghe chia sẻ của ông. Xạ hương.
+
+Có bao nhiêu từ trong câu trả lời của bạn cho câu hỏi này?
+
+Chúng ta hãy cùng xem nhé.
+
+Bạn thấy gì rồi đấy, Ellen?
+
+Ồ, nhìn kìa.
+
+Thật là một điều thông minh.
+
+Ồ, tôi nhận ra mình đã chọn từ "grok" để chỉ sự nhanh nhẹn, nên có thể, ừm, có thể không công bằng, nhưng đó là sự công nhận.
+
+12345.
+
+Sáu.
+
+Bảy.
+
+Nó đã đúng.
+
+Tốt cho grok là một mô hình cực kỳ mạnh mẽ.
+
+Và, ừm, ngay cả biến thể nhanh cũng có thể giải đúng câu đố nhỏ của chúng tôi.
+
+Ồ, làm tốt lắm.
+
+Và một câu trả lời hay.
+
+Bạn nên thử thêm nhiều câu hỏi hơn khi thử nghiệm với grok for from exi.
+
+Được rồi.
+
+Và cuối cùng là tìm kiếm sâu.
+
+Có bao nhiêu từ trong câu trả lời của bạn cho câu hỏi này?
+
+Hãy cùng xem Deep Seek nói gì nhé.
+
+Và tôi đã không bật chế độ suy nghĩ sâu sắc.
+
+Chúng tôi chỉ làm những việc bình thường thôi.
+
+Ừm.
+
+Vâng, nó có một điểm thú vị ở đây, nhưng nó không nhận ra rằng nó có thể chỉ
+
+cần nhìn vào nó và nghĩ rằng, đây là rất nhiều công việc.
+
+Và điều tôi thấy là những người mắc bệnh nặng với những thách thức như thế này thường có thể rơi vào vòng
+
+xoáy suy nghĩ và bị mắc kẹt trong vòng luẩn quẩn.
+
+Ừ, vậy thì, ừ, ừm, nhưng hãy nhìn vào đây.
+
+Vì vậy, ừ ừ, câu trả lời của tôi chỉ có hai từ.
+
+Câu trả lời đó có hai từ.
+
+Vậy thì đây là một giả định đúng.
+
+Số lượng của nó là hai.
+
+Nhưng sau đó nó lại tính sai và đưa ra kết quả là số duy nhất là 2.
+
+Vì vậy, nó suy nghĩ quá nhiều đến mức tự mắc kẹt trong một vòng lặp.
+
+Nó suy nghĩ quá nhiều và kết quả là đưa ra con số sai, nhưng vẫn là mô hình siêu mạnh mẽ và bí mật sâu sắc.
+
+Nhưng điều đó đã không xảy ra.
+
+Nó vấp phải bài kiểm tra rất khó khăn và đầy thử thách này.
+
+Đó là chuyến tham quan nhanh của tôi về các LMS khác nhau thông qua giao diện trò chuyện của chúng.
+
+Tuy nhiên, tôi muốn nhấn mạnh rằng các giao diện trò chuyện này có thể làm được nhiều hơn là chỉ tương
+
+tác với LMS.
+
+Như bạn có thể biết, có rất nhiều tính năng mà bạn nhận được và trong số những
+
+tính năng nổi tiếng nhất, một trong số đó là Nghiên cứu chuyên sâu, đây là tính năng cho phép bạn để LLM làm việc
+
+thay bạn và sau đó quay lại đưa ra câu trả lời.
+
+Vậy chúng ta hãy bắt đầu với ChatGPT năm.
+
+Thực ra tôi trả tiền cho loại siêu cao cấp.
+
+Tôi trả 200 đô la một tháng cho gói cao cấp nhất của ChatGPT vì tôi sử dụng nó rất nhiều.
+
+Tôi cũng làm như vậy với nhân loại.
+
+Và điều đó có nghĩa là tôi có thể chạy 250 tìm kiếm chuyên sâu mỗi tháng và chúng ta sẽ sử dụng một trong số chúng ngay bây giờ.
+
+Ừm, thực ra, với tôi hôm nay là ngày 1 tháng 10, nên tôi còn cả tháng phía trước.
+
+Ừ, để tôi thử cách này cho bạn nhé.
+
+Hãy nói rằng, ừm, làm ơn, ừm, nghiên cứu và xác định, ừm, tác động thương mại
+
+lớn nhất mà AI thế hệ mới và AI Agentic đã có, ừm.
+
+Tóm lại, hãy tóm tắt những điều thành công nhất.
+
+Ứng dụng thương mại.
+
+Ừm, với doanh thu.
+
+Được cho là của.
+
+Giải pháp và những cải tiến cụ thể được sử dụng.
+
+Vậy hãy giả sử bạn được yêu cầu viết một bài báo về chủ đề đó để nghiên cứu.
+
+Tôi chỉ nghĩ ra điều đó một cách ngẫu nhiên, nhưng thật thú vị khi xem nó đưa ra kết quả gì.
+
+Và bây giờ chúng ta có thể nhấn nút cộng này và tôi có thể chọn nghiên cứu sâu và tôi có thể nhấn nút phát.
+
+Và điều đầu tiên nó sẽ làm là quay lại và hỏi tôi một số câu hỏi làm rõ.
+
+Ờ, thế thì nó đến rồi đây.
+
+Bạn chỉ quan tâm đến các công ty đại chúng thôi sao?
+
+Và tôi sẽ nói một, hoặc hai.
+
+Có nên tập trung vào bất kỳ ngành công nghiệp cụ thể nào không?
+
+Doanh thu lớn nhất.
+
+Ba.
+
+Bạn đang tìm kiếm toàn cầu?
+
+Đúng.
+
+Toàn cầu.
+
+Bốn.
+
+Tôi nên đưa vào sớm hơn hay muộn hơn?
+
+KHÔNG.
+
+Lý tưởng nhất.
+
+Tất cả là 225.
+
+Được rồi.
+
+Ừm.
+
+Có vẻ tuyệt vời đấy.
+
+Hãy bắt đầu thôi.
+
+Vì vậy, chúng tôi trả lời những câu hỏi làm rõ vấn đề và bắt đầu.
+
+Và nó bắt đầu quá trình nghiên cứu.
+
+Và quá trình này đôi khi sẽ kéo dài trong vài phút, đôi khi kéo dài nửa giờ hoặc một giờ
+
+trong khi nó thực hiện nghiên cứu.
+
+Và đây là nhiều lệnh gọi LM.
+
+Và đây là ví dụ đầu tiên về cái được gọi là AI di truyền.
+
+Tất nhiên, tôi tưởng tượng, bạn biết đấy, những thứ bạn đã thấy trước đây, nhưng nó đang hoạt động và đang
+
+xử lý và chúng ta sẽ quay lại khi hoàn tất.
+
+Và ở bên phải đây, bạn thấy nó bắt đầu xây dựng danh sách các nguồn.
+
+Vâng, nó thực hiện suy nghĩ này.
+
+Và khi nói điều đó, tôi thường thấy rằng việc này giống như có một nhà phân tích cấp dưới đi làm việc cho
+
+bạn.
+
+Nó sẽ thực hiện nghiên cứu rất mạnh mẽ.
+
+Và những gì thu được sẽ có chất lượng cao.
+
+Chúng ta hãy cùng chờ xem.
+
+
+Và trong khi tôi đang ngồi đây, GPT vẫn đang hoạt động.
+
+Tôi có thể nhìn thấy bên phải.
+
+Hiện tại nó đã xem xét 12 nguồn, đang đọc các nguồn và tôi thấy nó đang chuyển động.
+
+Và bạn có cảm giác kỳ lạ rằng có một thực thể nào đó đang hoạt động ngoài kia.
+
+Bạn hiểu ý tôi chứ, đây là từ mà mọi người thích dùng khi nói đến quyền tự chủ.
+
+Có cảm giác rằng có điều gì đó đang xảy ra.
+
+Có một thứ gì đó hoặc một ai đó đang thực hiện công việc và đổ mồ hôi để tạo ra nghiên cứu sâu
+
+sắc này.
+
+Vì vậy chúng tôi sẽ tiếp tục chạy.
+
+Trong khi đó, tôi sẽ mở một cuộc trò chuyện mới và cho bạn xem một nội dung khác.
+
+Chúng ta đã nói trước đó về câu hỏi đó, ừm, về việc cần bao nhiêu cầu vồng để nhảy từ
+
+Hawaii đến 17?
+
+Hãy hỏi, hãy vẽ một hình ảnh và tưởng tượng ra một hình ảnh để cho thấy cần bao nhiêu cầu vồng để nhảy
+
+từ Hawaii đến 17.
+
+TRONG.
+
+Ừ, đúng vậy.
+
+Chúng ta cứ để nguyên như vậy thôi.
+
+Vậy là đủ thách thức rồi.
+
+Chúng ta hãy xem nó xử lý thế nào nhé.
+
+Và, ừm, thế là xong.
+
+Bắt đầu thôi.
+
+Bắt đầu.
+
+Nó sẽ hoạt động theo hướng đó.
+
+Ừ, trong khi thực hiện điều đó, nó vẫn sẽ tiếp tục thực hiện nghiên cứu chuyên sâu.
+
+Và tôi sẽ gặp lại bạn ngay khi cả hai điều đó hoàn tất.
+
+Vâng, trên thực tế, trong khi chúng đang chạy, chúng ta sẽ sử dụng ChatGPT theo một cách khác.
+
+Chúng ta sẽ thử Chế độ tác nhân.
+
+Tôi sẽ vào chế độ tác nhân như thế này và mô tả một nhiệm vụ.
+
+Tôi sẽ nói, làm ơn tìm cho tôi một nhà hàng ở NYC, ừm, còn chỗ trống vào tối nay lúc 9 giờ tối.
+
+tôi..
+
+Ừm, và phục vụ đồ ăn Anh.
+
+Hãy làm cho món này thực sự khó khăn bằng cách thêm bánh banoffee vào thực đơn.
+
+Bánh Banoffee là món tráng miệng yêu thích của tôi.
+
+Nếu bạn không biết bánh banoffee là gì thì bạn phải tìm hiểu nhé.
+
+Thật tuyệt vời.
+
+Chúng tôi, người Anh, không nổi tiếng về sự lựa chọn thực phẩm hay kỹ năng nấu nướng.
+
+Ngoại trừ bánh banoffee, đây là bí mật lớn của chúng tôi.
+
+Chúng tôi muốn giữ bí mật này cho riêng mình, nhưng nó thật tuyệt vời.
+
+Được rồi, tôi nhấn enter và xem điều gì xảy ra.
+
+Nó nói là đang thiết lập máy tính để bàn của tôi.
+
+Đã hiểu.
+
+Tôi sẽ tìm những nhà hàng ở Thành phố New York phục vụ ẩm thực Anh, đặc biệt là món bánh banoffee.
+
+Vậy điều đang xảy ra ngay lúc này là khi tôi nhấn tiếp tục, nó sẽ tiếp tục và thực hiện
+
+việc này.
+
+Nó sẽ tự động mở một cửa sổ trình duyệt ở phía sau và chúng ta có thể xem nó thực hiện chức năng của mình.
+
+Thật điên rồ.
+
+Thật là điên rồ.
+
+Vậy những gì bạn thấy ở đây, ý tôi là, nếu bạn nghĩ rằng nghiên cứu sâu sắc đó mang lại cho bạn cảm giác rằng có điều
+
+gì đó đang hiệu quả.
+
+Những gì bạn thấy là nó thực sự có tác dụng.
+
+Nó chỉ gặp vấn đề với cookie của trình duyệt.
+
+Nó đã vượt qua được rồi.
+
+Bức ảnh này chụp Jones Woods Foundry, một quán rượu Anh ở Upper East Side.
+
+Và ừm, chúng ta sẽ để nó làm việc của nó.
+
+Đã tìm thấy kết quả phù hợp.
+
+Nó đang tìm kiếm sự sẵn có.
+
+Được rồi.
+
+Và hy vọng là bạn có thể cảm nhận được điều gì đó đang xảy ra.
+
+Nó đã được chuyển sang resi, hệ thống đặt chỗ nhà hàng.
+
+Nó đang tìm kiếm khách.
+
+Nhìn kìa.
+
+Hãy nhìn cách con chuột di chuyển.
+
+Không phải tôi đâu, tôi hứa đấy.
+
+Ờ, và, ờ, nó đã tìm thấy cái này.
+
+Và, ừm, sản phẩm này đã được xác nhận có sẵn tại Jones Woods Foundry.
+
+Đã kiểm tra điều này.
+
+Đó là tìm kiếm trên web.
+
+Ồ, và nó vẫn tiếp tục diễn ra.
+
+Ừm, rõ ràng là phải kiểm tra kỹ lưỡng xem có đúng là bánh banoffee không.
+
+Ừ, sẽ rất đáng thất vọng nếu điều đó không xảy ra.
+
+Ừ, nhưng chúng tôi sẽ làm.
+
+Chúng ta sẽ để điều đó tiếp tục.
+
+Khi chúng ta quay lại với các tác vụ khác đang chạy.
+
+Được rồi.
+
+Chúng ta hãy cùng xem bức ảnh của chúng ta.
+
+Trước hết, đây là nó.
+
+Trên thực tế, nó đã đưa ra hai bức ảnh từ Hawaii đến số 17.
+
+Và câu này, tôi nghĩ nó hơi theo nghĩa đen một chút, có lẽ nếu gợi ý thêm một chút thì nó có thể sáng tạo hơn, nhưng
+
+đây là phiên bản khá theo nghĩa đen của nó.
+
+Mẫu Dall-E thứ ba có tính sáng tạo hơn nhiều.
+
+Ừ, nhưng nhưng cái này chắc chắn vẫn làm được những gì tôi yêu cầu.
+
+Và tôi chắc rằng bạn rất quen thuộc với khả năng tạo hình ảnh của cả GPT, Midjourney
+
+và tất cả chúng.
+
+Ừm, chúng ta hãy xem báo cáo thương mại và những gì bạn sẽ thấy ở đây là báo cáo theo định dạng giảm giá.
+
+Tất nhiên, đây là một báo cáo cực kỳ chi tiết.
+
+Thật thú vị, nó thực sự tập trung vào các công ty công nghệ dường như đã đạt được thành công thương mại lớn
+
+nhất.
+
+Vì vậy, OpenAI tự coi mình là số một.
+
+Nó cung cấp hình ảnh nhân học và thực tế là hình ảnh Midjourney của Runway.
+
+Phòng thí nghiệm tạo video 11.
+
+Tất nhiên là Voice và sau đó là Microsoft Copilot.
+
+Và GitHub copilot.
+
+GitHub copilot và Microsoft Copilot.
+
+Con trỏ mà chúng ta sử dụng cho mã di truyền.
+
+Ừm, nó tập trung nhiều vào các trường hợp sử dụng công nghệ hơn là các trường hợp sử dụng kinh doanh
+
+trực tiếp như công ty luật như Harvey hay đại loại như vậy.
+
+Ừm, hoặc công ty có tên là Nebula nhưng thật đáng buồn là không được coi là một trong những công ty hàng đầu thế giới.
+
+Ờ.
+
+Ừm, được thôi.
+
+Chúng ta nên sửa lại điều đó.
+
+Vì vậy, ừm, bạn sẽ thấy đó là trích dẫn, là nguồn, là trích dẫn TechCrunch.
+
+Nó cung cấp các liên kết đến nơi bạn có thể xác thực những gì nó nói.
+
+Ừm, và ừm, phần cuối có tóm tắt rất toàn diện.
+
+Vì vậy, không có gì ngạc nhiên.
+
+Tôi nghĩ bạn đã từng thấy điều này rồi.
+
+Đây là một trong những trường hợp sử dụng tác nhân đầu tiên, nghiên cứu sâu.
+
+Và nó thực sự ấn tượng.
+
+Và như tôi đã nói, phần kỳ lạ của nó là cảm giác rằng có điều gì đó đã xảy ra và hoạt động vì lợi ích
+
+của tôi trong khi tôi bận chụp ảnh Hawaii cho đến năm 17 tuổi hoặc bất kỳ điều vô nghĩa nào khác mà tôi
+
+đang làm.
+
+Và về chủ đề làm việc cho tôi.
+
+Chúng ta hãy cùng xem kết quả từ tác nhân khi nó diễn ra.
+
+Sự việc thực sự đã kết thúc bằng việc xuất hiện Jones Wood Foundry, một quán rượu Anh ở Upper East Side.
+
+Thực đơn bữa tối có vẻ như bao gồm cả bánh banoffee.
+
+Ồ, và nó đã kiểm tra các đặt chỗ.
+
+Chúng tôi thấy nó kiểm tra các đặt chỗ.
+
+Và quả thực là có thời gian vào lúc 9 giờ tối. ông dành cho bốn người và cung cấp địa chỉ cũng
+
+như đường dẫn đến địa chỉ đó và thông tin đặt chỗ.
+
+Và câu đùa cuối cùng.
+
+Câu đùa mà tôi sẽ để lại cho bạn.
+
+Nếu bạn muốn, tôi có thể đặt chuyến xe lúc 9 giờ tối. ông đặt chỗ cho bốn người dưới tên của bạn.
+
+Chỉ cần cho tôi biết và tôi sẽ tiến hành.
+
+Vì vậy, giống như bạn có một trợ lý, một trợ lý thực sự làm việc hậu trường, có thể thực hiện
+
+các nhiệm vụ thay mặt bạn.
+
+và điều đó thật hấp dẫn và tôi thấy nó đáng kinh ngạc.
+
+Và cuối cùng, trong bản demo công cụ cuối cùng của chúng tôi, hãy cùng xem Claude Code, một công cụ mà có
+
+thể bạn đã quen thuộc.
+
+Tôi đã quay lại con trỏ.
+
+Tôi quay lại thư mục kỹ thuật LM và đây là tôi, và tôi sẽ nói, ừm, tôi sẽ nhập Claude, lệnh này thực
+
+sự sẽ khởi chạy mã Claude.
+
+Ờ, và, ờ, nó đây rồi.
+
+Bùm!
+
+Đúng.
+
+Tiếp tục.
+
+Chúng ta đang sử dụng mã Claude.
+
+Và bây giờ tôi sẽ nói như sau.
+
+Vui lòng đọc, ừm, ngày một và ngày hai Pi MB trong thư mục tuần một.
+
+Và sau đó, hãy viết giải pháp cho thử thách đó vào ngày thứ hai.
+
+Tôi
+
+là một mô-đun python có tên là um solution. py trong tuần đầu tiên mà tôi có thể chạy bằng UV.
+
+Được thôi.
+
+Bạn nghĩ sao?
+
+Liệu nó có làm được không?
+
+Chúng ta hãy cùng xem nhé.
+
+Vậy thì đọc cả hai cuốn sổ đều được.
+
+Chúng ta hãy xem nó sẽ làm gì tiếp theo.
+
+Nó đang suy nghĩ về điều đó.
+
+Bạn có thể thấy rằng việc này đã hoàn tất.
+
+Bây giờ tôi sẽ tạo ra các giải pháp py triển khai trình tóm tắt trang web bằng llama thay vì OpenAI.
+
+Chúng ta bắt đầu thôi.
+
+giải pháp. con nhện.
+
+Nó gợi ý điều gì đó mà tôi sẽ đồng ý.
+
+Xong rồi.
+
+Đây là giải pháp. con nhện.
+
+Chúng ta hãy cùng kiểm tra nhé.
+
+Tóm tắt trang web.
+
+Khi sử dụng llama thay vì OpenAI, tôi thấy nó sử dụng URL cơ sở llama.
+
+Mô hình chính xác.
+
+Nó có trợ lý thông minh có thể phân tích nội dung của một trang web.
+
+Nó có thông điệp phù hợp.
+
+Nó có bản tóm tắt đúng.
+
+Ừm, chúng ta hãy thử xem sao.
+
+Bạn đã chạy.
+
+Ừm, để xem nào.
+
+Ồ, nó sử dụng URL nào?
+
+Nhập URL, nó sẽ sử dụng đầu vào được chứ?
+
+Bạn đã chạy giải pháp dot pi.
+
+Ồ xin lỗi, tôi phải ở trong thư mục tuần đầu tiên và tôi phải ở trong một thiết bị đầu cuối mới.
+
+Chúng ta bắt đầu tuần đầu tiên của CD.
+
+Bạn đã chạy solution dot solution dot pi.
+
+Chúng ta bắt đầu thôi.
+
+Nhập URL để tóm tắt.
+
+Được rồi, chúng ta hãy làm https Edward donna. com lấy và tóm tắt.
+
+Nó nói rằng.
+
+Và thế là xong.
+
+Nó chỉ là một trang web chứa đầy những lời lẽ tự phụ của người sáng lập Edward Donna.
+
+Vậy nên nó chỉ được gọi là Llama và Llama 3. 2 chạy cục bộ trên máy tính của tôi.
+
+Nhưng điều tuyệt vời nhất là nó đã giải quyết được vấn đề đó và viết ra đoạn mã mà chúng ta vừa thấy.
+
+Claude đọc lại mã những gì chúng tôi đã làm trong ngày đầu tiên, đọc lại những gì tôi thiết lập trong ngày
+
+thứ hai với oh llama để hiểu những gì đang diễn ra, hiểu thử thách mà tôi đã đặt ra, sau đó viết một giải
+
+pháp có tên là solutions mà chúng tôi có thể chạy và nhận được kết quả đúng ngay lập tức.
+
+Và nếu bạn đã xây dựng giải pháp ngày hôm qua và bây giờ bạn tự trách mình khi biết rằng bạn có thể thực hiện
+
+tất cả chỉ bằng mã Claude.
+
+Nhưng điều đó có đáng chú ý không?
+
+Và điều này đưa mọi thứ lại gần nhau hơn.
+
+Điều này cho bạn thấy đây là một sản phẩm.
+
+Nó đang sử dụng Claude.
+
+Bài thơ này sử dụng bài thơ sonnet số 4 của Claude. 5.
+
+Và nó khổng lồ lắm.
+
+Và đó là suy nghĩ và hành động thay mặt chúng ta và giải quyết vấn đề theo cách đó, tất cả chỉ trong một
+
+bước.
+
+Và đó là bản demo nhanh về Claude Code.
+
+Và thật tuyệt vời khi điều đó thực sự hữu ích và là điều mà bạn có thể muốn
+
+tự mình thực hiện ngày hôm qua.
+
+Vậy là chúng ta đã có nó rồi.
+
+Đó là bản demo cuối cùng của những công cụ này, đó là mã Claude dành cho bạn.
+
+
+Và một lần nữa, khóa học này không hướng dẫn sử dụng những công cụ cuối cùng này.
+
+Đây là về việc xây dựng của riêng chúng ta.
+
+Chúng tôi sẽ xây dựng các công cụ như ChatGPT rồi phát triển chúng theo nhiều hướng khác nhau, cung cấp cho chúng tính
+
+chuyên môn.
+
+Nhưng tôi muốn cho bạn thấy, để bạn có thể cảm nhận trực tiếp về chúng.
+
+Nếu bạn quan tâm đến việc sử dụng bất kỳ tài nguyên nào trong số này, tôi sẽ đặt liên kết đến tất cả các tài nguyên đó trong phần
+
+tài nguyên, bao gồm cả mã Claude, nếu bạn muốn.
+
+Tôi thích mã của Claude.
+
+Ừ, nhưng tất nhiên, cả tác nhân con trỏ nữa.
+
+Tuyệt vời.
+
+Ừm, nhưng, ừ, đúng rồi, điểm mấu chốt là tất cả các mô hình biên giới đều cực kỳ mạnh.
+
+Ồ, thật sao?
+
+Nó thực sự đáng kinh ngạc.
+
+Ừm, rất giỏi về sắc thái, về tổng hợp thông tin.
+
+Ừm, Claude thường là người được mọi người yêu thích.
+
+Đây là món tôi thích nhất.
+
+Ờ, tôi không biết tại sao.
+
+Vì nhiều lý do khác nhau, mọi người trong cộng đồng đã rất yêu mến Claude.
+
+Ừm, nhưng, ừ, vâng, chúng ta sẽ xem bảng xếp hạng sau và so sánh một số mẫu xe này.
+
+Và hiện tại, GPT 5 có lẽ được coi là mẫu máy mạnh nhất hành tinh.
+
+Và một trong những điều thú vị là khi chúng hội tụ về khả năng, giá cả và tốc
+
+độ ngày càng trở nên quan trọng hơn.
+
+Và chúng ta sẽ xem làm thế nào bạn có thể cân bằng giữa trí thông minh và giá cả để tìm ra giải pháp phù hợp
+
+nhất với yêu cầu kinh doanh của mình.
+
+Vào những tuần sau đó.
+
+Được rồi.
+
+Vậy là chúng ta đã kết thúc quá trình khám phá các mô hình biên giới.
+
+Nhưng còn một điều nữa tôi muốn cho bạn thấy.
+
+Hôm nay chúng tôi không làm thí nghiệm, nhưng tôi có giải pháp tốt nhất tiếp theo.
+
+Tôi có bản demo để cung cấp cho bạn về sản phẩm tôi đã xây dựng, bạn có thể tự mình xem mã và kết quả, nhưng tôi
+
+sẽ truy cập trang web của tôi tại madonna. com.
+
+Và tôi đã viết một trò chơi có tên là Outsmart.
+
+Và Outsmart là cách để LLMs cạnh tranh, cố gắng và qua mặt nhau trong một trò chơi thông minh rất xấu
+
+xí.
+
+Có bốn cầu thủ được nêu tên là Alex, Blake, Charlie và Drew nên có thể là A, B, C, D và trên trang
+
+web của tôi.
+
+Alex do GPT bốn thủ vai, Claude thủ vai Blake, Charlie thủ vai Sonnet, Gemini thủ vai Flash và
+
+Deep Sega thủ vai Drew.
+
+Phiên bản nhỏ.
+
+Trong llama 70 B, có bốn người chơi một trò chơi, mỗi người bắt đầu với 12 đồng
+
+xu, như bạn thấy ở đây.
+
+Và mỗi lần, mỗi lượt chơi, họ được quyền chọn lấy một đồng xu từ người chơi này và đưa một đồng xu cho người chơi
+
+khác.
+
+Nhưng trước khi quyết định sẽ làm điều đó với người chơi nào, họ sẽ trao
+
+đổi tin nhắn với tất cả những người chơi khác để thảo luận, cố gắng thiết lập cách thức vừa ngoại
+
+giao vừa lập mưu và thương lượng xem ai sẽ nhận được bao nhiêu tiền.
+
+Và nếu hai trong số họ cùng tấn công một người chơi và cùng đưa tiền cho nhau thì họ được coi
+
+là một liên minh.
+
+Đó là một động thái đặc biệt.
+
+Nếu họ làm vậy, và nếu đúng như vậy, họ sẽ thắng thêm tiền và lấy thêm tiền từ người mà họ đã bắt
+
+nạt.
+
+Vì vậy, nó giúp họ có khả năng thử nghiệm, lập mưu và hình thành liên minh với nhau.
+
+Và điều thú vị ở đây là họ sẽ có thể nói cho chúng ta biết suy nghĩ bên trong của
+
+họ, và chúng ta sẽ được xem những thông điệp họ gửi cho nhau.
+
+Nghe có vẻ vui phải không?
+
+Tôi thấy đây là cách tuyệt vời để hiểu rõ hơn về những gì các mô hình này có thể làm và cách chúng hoạt động.
+
+Nhưng sẽ không vui nếu chúng ta chơi những mô hình này với nhau, vì tôi hơi keo kiệt và
+
+không đưa những mô hình đắt tiền nhất lên mạng để mọi người chơi, vì mọi người chơi
+
+những trò chơi này rất nhiều.
+
+Tôi chơi khoảng 4 hoặc 5 ván mỗi ngày.
+
+Ừm, nhưng chúng ta hãy chuyển sang phần tôi chạy cục bộ và chạy cục bộ.
+
+Mọi người trong nhóm tôi là Alex và Người chơi A, tôi đều dùng GPT OS 120, phiên bản mã nguồn mở mới của GPT chạy trên nền tảng đám mây, vì máy tính
+
+của tôi không đủ lớn, nhưng đó là GPT mã nguồn mở.
+
+Trong Blake, chúng ta có GPT năm, mẫu flagship trong Charlie mà chúng ta có thể hiểu được mẫu của Elon Musk và trong Drew,
+
+chúng ta có Claude Sonnet 4. 5 đã được phát hành cách đây vài ngày.
+
+Đối với tôi, đây cũng là một trong những mô hình mạnh nhất trên hành tinh dành cho những đối thủ mạnh.
+
+Và chúng ta sẽ chơi một trò chơi tìm kẻ thông minh hơn.
+
+Và thế là tôi bắt đầu trò chơi bằng cách nhấn nút chạy trò chơi và họ bắt đầu chơi.
+
+Hiện tại, với những mẫu máy mới nhất như GPT 5, tôi không đưa ra một ngân sách cụ thể, nên bạn có thể mất bao lâu tùy
+
+thích, và thực tế là mất rất nhiều thời gian.
+
+Họ đã sử dụng trò chơi này, trước đây di chuyển khá nhanh, nhưng bây giờ lại chậm lại.
+
+Cả bốn người chơi đều có thể suy nghĩ song song cùng một lúc, nhưng bạn sẽ thấy GPT OS suy nghĩ thực sự
+
+nhanh.
+
+Ừm, nó chạy trên nền tảng có tên là grok với một gợi ý mà chúng ta sẽ xem xét vào lúc
+
+khác, rất nhanh.
+
+Những phương pháp khác mất nhiều thời gian hơn, và GPT năm là phương pháp mất nhiều thời gian nhất.
+
+Và chúng ta sẽ thấy nó chờ ở đó để Blake hành động.
+
+Bây giờ, khi bạn đang suy nghĩ, tôi xin nói cho bạn biết rằng mã nguồn của tất cả những điều này đều có
+
+sẵn trực tuyến để bạn có thể xem.
+
+Tôi đã cố gắng xây dựng nó theo cách dễ đọc và dễ hiểu nhất.
+
+Đây được gọi là ứng dụng Streamlit.
+
+Tôi sử dụng Streamlit trong hầu hết khóa học này.
+
+Chúng ta sẽ xem xét các giao diện người dùng khác nhau sử dụng thứ gọi là Gradio, thứ mà tôi rất thích, và một số thứ
+
+khác tôi đã xây dựng trên trang web của mình cũng sử dụng nó, nhưng đây là ứng dụng Streamlit.
+
+Tôi biết có rất nhiều người hâm mộ Streamlit ngoài kia, vì vậy bạn có thể thấy cách tôi đã làm và nó đang bận rộn chạy
+
+trốn.
+
+Và nếu bạn đến đấu trường, bạn có thể bắt đầu chạy.
+
+Và vì tôi sử dụng các mô hình nhỏ hơn trực tiếp trên internet nên nó chạy nhanh hơn.
+
+Trên thực tế, chúng ta có thể, chúng ta có thể khởi động một cú đánh chỉ trong một giây.
+
+Nhưng đây là cách chạy.
+
+Và khi nó hoàn thành mỗi lượt, chúng ta có thể vào trong, xem nó đang làm gì, đang nghĩ gì và thấy
+
+được chiến lược của nó.
+
+Vì vậy, tôi sẽ quay lại ngay khi bước đầu tiên hoàn tất.
+
+Vậy là động thái đầu tiên đã diễn ra.
+
+Và bạn sẽ thấy bên phải đây là biểu đồ nhỏ cho bạn thấy số tiền mà mọi người có sau mỗi lần di
+
+chuyển.
+
+Và dựa trên nước đi đầu tiên, người chiến thắng sớm là mã nguồn mở.
+
+Alex.
+
+GPT OS một TB đã vươn lên dẫn đầu, bạn sẽ thấy điều đó ở đây.
+
+Mỗi người đều cho chúng ta biết chiến lược của họ.
+
+Tôi yêu cầu mỗi mô hình giải thích chiến lược của mình, thành lập liên minh, rút lui bằng cách đưa cho mô hình một đồng xu và
+
+lấy từ Charlie.
+
+Nếu anh ấy đáp lại, cả hai chúng tôi đều nhận được thêm.
+
+Hãy giữ thái độ trung lập ngay bây giờ để bạn có thể đọc được từng chiến lược của họ.
+
+Claude cho biết, bước đầu tiên là thiết lập lòng tin và khám phá các cơ hội liên minh.
+
+Ừm, và sau đó nếu bạn mở hộp này ra bằng những suy nghĩ bên trong, bạn thực sự có thể thấy những
+
+thông điệp mà họ trao đổi với nhau, và bạn có thể đọc về chính xác những âm mưu mà họ đang ấp ủ ở đây, và
+
+thấy mọi thứ diễn ra như thế nào.
+
+Và bạn có thể thấy ở đây Alex và Drew đang liên minh với nhau, được thể hiện bằng màu
+
+xanh lá cây, và Charlie Grok bốn người đang bị cả hai cùng nhau tấn công.
+
+Vì vậy, với những mô hình lớn này, mọi việc không diễn ra nhanh chóng.
+
+Ừm, phải mất một chút thời gian để chạy, nhưng thật sự rất thú vị khi thấy kết quả quá trình
+
+suy nghĩ của họ, và nó cho bạn cái nhìn sâu sắc thực sự về cách họ làm việc và cách họ suy nghĩ.
+
+Bởi vì khi bắt nó đưa ra chiến lược theo cách này, chúng ta đang buộc nó phải suy luận nhiều hơn để đưa thêm công
+
+sức vào quá trình suy nghĩ, để diễn đạt chiến lược của nó.
+
+Và đó là một mẹo tuyệt vời để tận dụng tối đa các mô hình, đó là để họ giải thích chiến lược của mình
+
+để thực sự đưa họ vào chế độ lý luận này.
+
+Được thôi, tôi sẽ để nó chạy thêm vài lượt nữa.
+
+Tôi sẽ gặp bạn ngay.
+
+Và một bước ngoặt thứ hai đã xảy ra.
+
+Và hiện tại GPT five đang dẫn đầu với 15 đồng tiền.
+
+Ờ, với OSS của OpenAI.
+
+Alex bỏ một điểm, ừm, bạn có thể thấy rằng, ừm, Blake và Charlie hiện đang cùng
+
+nhau liên minh, và họ, ừm, cũng vậy, vậy.
+
+Nhưng Charlie là người ở trong tình thế tệ nhất.
+
+Nhưng Drew mới là người bị tấn công.
+
+Vì vậy, Claude Sonnet 45 đang bị cả hai nhóm này hợp tác chống lại.
+
+Vậy là Drew đang gặp rắc rối.
+
+Vì thế, nó rất vui.
+
+Tôi phải nói với bạn rằng, tôi có thể nghiện bộ phim này và xem nó trong một thời gian dài, nhưng đó không
+
+phải là vấn đề.
+
+Lý do để làm điều này là để bạn có thể thực sự cảm nhận được những đặc điểm khác nhau của
+
+các mô hình và khả năng mà llms có, và để giúp chúng suy nghĩ về những gì chúng đang làm
+
+và các loại giải quyết vấn đề mà chúng có thể làm, và xem cách chúng tương tác
+
+với nhau trong trò chơi này.
+
+Tôi hy vọng bạn thấy vui khi sử dụng nó.
+
+Nhưng bây giờ điều tôi sắp làm là một điều vô cùng tàn nhẫn.
+
+Tôi sẽ không cho bạn biết kết quả của trò chơi này vì chúng ta sẽ để dành điều đó cho ngày mai.
+
+Chúng ta sẽ đợi đến ngày hôm sau mới biết được ai là người chiến thắng, hoặc sẽ để
+
+trò chơi này diễn ra.
+
+Tôi sẽ quay lại với các slide, để tóm tắt nhanh và để bạn chờ đợi như trong một bộ phim truyền
+
+hình dài tập rẻ tiền.
+
+Ừm, cho đến khi chúng ta tới ngày mai.
+
+Vậy hẹn gặp lại các bạn ở phần kết thúc.
+
+Vâng, tôi rất tiếc khi phải để bạn chờ đợi, nhưng hãy vui mừng vì bạn mới 7 tuổi. Bạn đã đi được 5% trên con đường trở
+
+thành bậc thầy rồi.
+
+Bạn đã đi trên con đường này và đã học được rất nhiều điều.
+
+Tôi biết hôm nay chúng ta không thực sự tìm hiểu về mã hóa AI, đó chính là mục đích của bài viết này, nhưng bạn
+
+có góc nhìn sâu sắc về những gì những thứ này có thể làm.
+
+Ngoài khả năng viết mã để gọi các mô hình front-end và tóm tắt, giờ đây bạn có thể thảo luận
+
+về những điểm mạnh và một số hạn chế của các mô hình frontier.
+
+Bạn có thể so sánh và đối chiếu chúng.
+
+Bây giờ bạn đã có trực giác về sự khác biệt giữa chúng và tôi chắc chắn bạn có hiểu biết
+
+tốt về trò chuyện so với lý luận cũng như các mô hình lai và thậm chí là mô hình cơ bản.
+
+Ngày mai chúng ta sẽ nói về sự phát triển mạnh mẽ của kiến trúc máy biến áp.
+
+Tôi sẽ cung cấp cho bạn một số trực giác về một số phát triển mới nhất như Agentic,
+
+AI, vòng lặp tác nhân kỹ thuật ngữ cảnh và chúng tôi sẽ đề cập đến một số điều cơ bản mà nhiều khả năng
+
+bạn đã biết.
+
+Nhưng tôi hy vọng có thể cung cấp thêm một số thông tin thú vị mà bạn chưa biết về mã thông báo,
+
+ngữ cảnh, tham số cửa sổ và chi phí API.
+
+Tôi không thể chờ đợi được nữa.
+
+Hẹn gặp lại bạn sau.
+
+

@@ -1,0 +1,387 @@
+# 045 - Single Listener, Acceptor, and Reader with Message Load Balancing Execution Pattern
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 3min
+
+---
+
+## 1. Summary
+
+This lecture explains an improved execution pattern:
+
+> Single listener, single acceptor, single reader, but with message-level load balancing.
+
+In the previous pattern, connections were assigned to reader threads.
+
+That approach can be unfair because one connection may be much busier than another.
+
+In this pattern, the backend does not assign raw connections to worker threads.
+
+Instead, one part of the system accepts and reads connections, then parses the incoming data into complete requests or messages.
+
+After that, complete messages are distributed to worker threads.
+
+This creates better load balancing because workers receive actual units of work rather than raw connections.
+
+A system mentioned in this lecture is **RAMCloud**, a high-speed storage system designed for large-scale data center applications.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 Connection-Level Load Balancing Problem
+
+In the previous model, each connection was assigned to a reader thread.
+
+Example:
+
+```text id="7h1tfw"
+Connection A → Thread 1
+Connection B → Thread 2
+Connection C → Thread 3
+```
+
+The problem is that connections are not equal.
+
+One connection may send a huge amount of data.
+
+Another connection may be mostly idle.
+
+So even if the number of connections is balanced, the actual work may not be balanced.
+
+---
+
+### 2.2 Message-Level Load Balancing
+
+Message-level load balancing solves this by distributing complete requests or messages instead of connections.
+
+The front part of the system reads from connections and turns raw bytes into logical messages.
+
+Then those messages are sent to worker threads.
+
+```text id="o6s8ti"
+Connection data
+→ Reader parses request
+→ Complete message
+→ Worker thread
+```
+
+Workers do not receive raw sockets.
+
+They receive ready-to-process work items.
+
+---
+
+### 2.3 Single Listener and Single Acceptor
+
+This model still has a single listener and acceptor.
+
+One component is responsible for:
+
+* Listening on the socket
+* Accepting connections
+* Reading from connections
+* Parsing incoming data into messages
+
+Conceptually:
+
+```text id="5e4hkc"
+Listener + Acceptor + Reader
+→ produces complete requests
+```
+
+---
+
+### 2.4 Worker Threads Execute Requests
+
+Worker threads are clean execution workers.
+
+Their job is not to accept connections or read raw socket bytes.
+
+Their job is to execute complete requests.
+
+```text id="p1sger"
+Worker thread:
+    receive request message
+    execute request
+    produce response
+```
+
+This makes the worker role simpler.
+
+---
+
+### 2.5 Protocol-Aware Reader
+
+To perform message-level load balancing, the reader must understand the protocol.
+
+It must know how to split raw bytes into complete messages.
+
+For HTTP, it must understand:
+
+* Request line
+* Headers
+* Content length
+* Body boundaries
+
+For gRPC, it must understand:
+
+* HTTP/2 frames
+* Streams
+* gRPC message framing
+
+This is why the reader has to be protocol-aware.
+
+---
+
+### 2.6 This Is Hard to Build
+
+This design is powerful, but difficult.
+
+The system must own more of the networking and protocol stack.
+
+It must correctly handle:
+
+* Socket reads
+* TLS decryption
+* Protocol parsing
+* Message boundaries
+* Request dispatching
+* Response routing
+* Backpressure
+* Worker scheduling
+
+This is usually implemented in lower-level systems languages such as C, C++, Rust, or sometimes Go.
+
+---
+
+## 3. Important Notes
+
+### Better Than Connection-Based Balancing
+
+This model is usually fairer than assigning connections to worker threads.
+
+Why?
+
+Because work is balanced by request, not by connection.
+
+A single busy connection can produce many messages, and those messages can be distributed across multiple workers.
+
+```text id="pgtq3p"
+One busy connection
+→ Request 1 → Worker 1
+→ Request 2 → Worker 2
+→ Request 3 → Worker 3
+```
+
+This prevents one thread from being stuck with all the work from one heavy connection.
+
+---
+
+### Still Not Perfect
+
+This model improves fairness, but it does not eliminate all imbalance.
+
+Some requests may still be much heavier than others.
+
+Example:
+
+```text id="7s2bye"
+Request A: simple cache lookup
+Request B: large data scan
+Request C: expensive computation
+```
+
+Even with message-level balancing, a heavy request can keep one worker busy longer than others.
+
+---
+
+### Single Front Component Can Become a Bottleneck
+
+The listener, acceptor, and reader component does a lot of work.
+
+It must:
+
+* Accept connections
+* Read data
+* Decrypt TLS if needed
+* Parse protocol messages
+* Dispatch work to workers
+
+If this component becomes too busy, it can become the bottleneck.
+
+The lecture mentions that this can be improved by running multiple such components and using operating system support to distribute listening and accepting work.
+
+---
+
+### This Pattern Requires Clear Boundaries
+
+The architecture separates responsibilities clearly:
+
+```text id="q7tf49"
+Front component:
+    network I/O + protocol parsing
+
+Worker threads:
+    request execution
+```
+
+This separation makes the worker pool cleaner.
+
+Workers do not need to understand raw socket management.
+
+---
+
+## 4. Examples
+
+### Example 1: Previous Connection-Based Model
+
+```text id="4ltn0t"
+Acceptor
+   |
+   ├── Connection A → Reader thread 1
+   ├── Connection B → Reader thread 2
+   └── Connection C → Reader thread 3
+```
+
+Problem:
+
+```text id="wj62p7"
+Connection A may be extremely busy.
+Connection B may be idle.
+Connection C may be idle.
+```
+
+Thread 1 becomes overloaded while others wait.
+
+---
+
+### Example 2: Message-Level Load Balancing Model
+
+```text id="4b7f6b"
+Connections
+   |
+   v
+Listener + Acceptor + Reader
+   |
+   v
+Parsed request messages
+   |
+   ├── Message 1 → Worker thread 1
+   ├── Message 2 → Worker thread 2
+   ├── Message 3 → Worker thread 3
+   └── Message 4 → Worker thread 4
+```
+
+Here, workers receive complete request messages instead of raw connections.
+
+---
+
+### Example 3: Busy Connection Distributed Across Workers
+
+```text id="w1be1q"
+One HTTP/2 connection sends many requests:
+
+Request 1 → Worker 1
+Request 2 → Worker 2
+Request 3 → Worker 3
+Request 4 → Worker 4
+```
+
+This is better than assigning the entire busy connection to one reader thread.
+
+---
+
+### Example 4: Front Component Responsibility
+
+```text id="0kkxpo"
+Front component:
+1. listen()
+2. accept()
+3. read()
+4. decrypt if needed
+5. parse protocol
+6. create request message
+7. send message to worker
+```
+
+This component must be efficient because all incoming work passes through it.
+
+---
+
+### Example 5: Worker Thread Responsibility
+
+```text id="o4t0mh"
+Worker thread:
+1. receive complete request message
+2. execute operation
+3. generate result
+4. return response
+```
+
+The worker does not need to manage the listening socket or accept queue.
+
+---
+
+### Example 6: Conceptual Pseudocode
+
+```text id="13ic63"
+front thread:
+    while running:
+        accept new connections
+        read from connections
+        parse complete messages
+        dispatch messages to worker queue
+
+worker thread:
+    while running:
+        message = get_next_message()
+        execute(message)
+        return response
+```
+
+This shows the difference between network handling and request execution.
+
+---
+
+## 5. Questions / Review
+
+1. What problem does message-level load balancing try to solve?
+
+2. Why is connection-level load balancing sometimes unfair?
+
+3. What does the listener do in this pattern?
+
+4. What does the acceptor do in this pattern?
+
+5. What does the reader do in this pattern?
+
+6. What do worker threads receive in this model?
+
+7. Why is a complete request message better than a raw connection for load balancing?
+
+8. Why does the reader need to be protocol-aware?
+
+9. What are examples of protocol details the reader must understand?
+
+10. Why is this pattern hard to implement?
+
+11. What can become the bottleneck in this model?
+
+12. How can one busy connection be distributed across multiple workers?
+
+13. Why can request-level load balancing still be imperfect?
+
+14. What is the main difference between this pattern and the previous multiple-reader model?
+
+---
+
+## Short Takeaway
+
+The message load balancing execution pattern improves on connection-based worker assignment.
+
+Instead of assigning whole connections to reader threads, the backend reads and parses data first, then dispatches complete request messages to worker threads.
+
+This gives better load balancing because workers receive actual units of work.
+
+However, it is harder to implement because the front component must understand the protocol, parse messages correctly, and dispatch them efficiently.

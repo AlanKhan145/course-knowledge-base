@@ -1,0 +1,327 @@
+# 034 - HTTPS over QUIC (HTTP/3)
+
+**Section:** 04 - Many Ways to HTTPS
+**Duration:** 2min
+
+---
+
+## 1. Summary
+
+This lecture explains **HTTPS over QUIC**, which is also known as **HTTP/3**.
+
+Unlike HTTP/1.1 and HTTP/2, which usually run over TCP, HTTP/3 runs over QUIC.
+
+QUIC is built on top of UDP, but from the application point of view, it behaves like a stateful connection between the client and the server.
+
+The major advantage of QUIC is that it combines connection establishment and TLS encryption setup into the same process.
+
+Instead of doing:
+
+```text id="6cubhb"
+TCP handshake first
+Then TLS handshake
+Then send data
+```
+
+QUIC can do:
+
+```text id="1zx53n"
+QUIC connection setup + TLS 1.3 handshake together
+Then send encrypted data
+```
+
+This reduces latency and makes HTTPS communication faster.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 HTTP/3 Uses QUIC Instead of TCP
+
+HTTP/3 does not run on top of TCP.
+
+It runs on top of QUIC.
+
+QUIC itself runs on top of UDP.
+
+The stack looks like this:
+
+```text id="thj4ym"
+HTTP/3
+QUIC
+UDP
+IP
+```
+
+This is different from HTTP/1.1 and HTTP/2:
+
+```text id="3v0egy"
+HTTP/1.1 or HTTP/2
+TLS
+TCP
+IP
+```
+
+---
+
+### 2.2 QUIC Combines Transport and Encryption Setup
+
+With TCP-based HTTPS, the client first establishes a TCP connection.
+
+Then, after TCP is ready, the client performs the TLS handshake.
+
+With QUIC, the transport handshake and TLS 1.3 handshake are combined.
+
+This is possible because QUIC was designed in a modern era where encryption is expected by default.
+
+---
+
+### 2.3 QUIC Uses TLS 1.3 Internally
+
+QUIC does not use TLS as a separate layer in the same way HTTPS over TCP does.
+
+Instead, QUIC integrates TLS 1.3 into its own handshake.
+
+That means QUIC can establish a secure connection more efficiently.
+
+The connection setup and encryption setup happen together.
+
+---
+
+### 2.4 QUIC Runs Over UDP
+
+QUIC is built on top of UDP.
+
+UDP itself is connectionless, but QUIC adds connection-like behavior on top of it.
+
+From the client and server point of view, QUIC still feels like a stateful connection.
+
+QUIC provides features such as:
+
+* Connection establishment
+* Encryption
+* Reliability
+* Stream management
+* Congestion control
+* Multiplexing
+
+So even though QUIC uses UDP packets underneath, it behaves more like a modern secure transport protocol.
+
+---
+
+### 2.5 Data Is Still Encrypted
+
+HTTP/3 data is encrypted using keys generated during the QUIC/TLS 1.3 handshake.
+
+The client encrypts the HTTP request using the shared symmetric key.
+
+The server decrypts it, processes the request, and sends back an encrypted response.
+
+Anyone in the middle can see packets moving across the network, but they cannot understand the encrypted HTTP content.
+
+---
+
+## 3. Important Notes
+
+### QUIC Reduces Round Trips
+
+Traditional HTTPS over TCP usually requires:
+
+```text id="s77rqu"
+1. TCP handshake
+2. TLS handshake
+3. HTTP request
+```
+
+HTTPS over QUIC can combine the connection and encryption setup:
+
+```text id="6mo3sa"
+1. QUIC handshake + TLS 1.3 handshake
+2. HTTP request
+```
+
+This is one of the main reasons HTTP/3 can reduce connection startup latency.
+
+---
+
+### QUIC Was Designed With Encryption in Mind
+
+TCP was created before encryption became a default requirement for the web.
+
+TLS was added later on top of TCP.
+
+QUIC was designed in a different era, where encryption is expected for almost all web traffic.
+
+Because of that, QUIC integrates encryption directly into the connection setup.
+
+---
+
+### QUIC Is Stateful Even Though UDP Is Connectionless
+
+UDP does not create a connection by itself.
+
+However, QUIC builds a connection abstraction on top of UDP.
+
+So while the network packets are UDP datagrams, the client and server still maintain QUIC connection state.
+
+---
+
+### HTTP/3 Is HTTPS over QUIC
+
+When people say HTTP/3, they are usually talking about HTTP semantics running over QUIC.
+
+So in this section:
+
+```text id="tvsaz3"
+HTTPS over QUIC = HTTP/3
+```
+
+---
+
+## 4. Examples
+
+### Example 1: HTTPS over TCP with TLS 1.3
+
+Traditional TCP-based HTTPS looks like this:
+
+```text id="mnu36g"
+Client                                      Server
+  |                                           |
+  | -------- TCP SYN ----------------------> |
+  | <-------- TCP SYN-ACK ------------------ |
+  | -------- TCP ACK ----------------------> |
+  |                                           |
+  |          TCP connection established       |
+  |                                           |
+  | -------- TLS ClientHello --------------> |
+  | <-------- TLS ServerHello -------------- |
+  | <-------- Certificate ------------------ |
+  | -------- TLS Finished -----------------> |
+  |                                           |
+  |          TLS session established          |
+  |                                           |
+  | -------- Encrypted HTTP request -------> |
+  | <-------- Encrypted HTTP response ------ |
+```
+
+TCP and TLS are separate setup phases.
+
+---
+
+### Example 2: HTTPS over QUIC / HTTP/3
+
+With QUIC, connection setup and TLS setup happen together:
+
+```text id="sqqc6f"
+Client                                           Server
+  |                                                |
+  | -------- QUIC Initial + TLS ClientHello ----> |
+  | <-------- QUIC Initial + TLS ServerHello ----- |
+  | <-------- Certificate + TLS data ------------- |
+  | -------- QUIC/TLS Finished ------------------> |
+  |                                                |
+  |          Secure QUIC connection established    |
+  |                                                |
+  | -------- Encrypted HTTP/3 request ----------> |
+  | <-------- Encrypted HTTP/3 response ---------- |
+```
+
+QUIC carries TLS 1.3 handshake data inside QUIC packets.
+
+---
+
+### Example 3: Protocol Stack Comparison
+
+HTTP/2 over TCP:
+
+```text id="nt5f2i"
+HTTP/2
+TLS 1.2 or TLS 1.3
+TCP
+IP
+```
+
+HTTP/3 over QUIC:
+
+```text id="wjk55s"
+HTTP/3
+QUIC with TLS 1.3
+UDP
+IP
+```
+
+The big change is replacing TCP with QUIC.
+
+---
+
+### Example 4: Why QUIC Is Faster
+
+With TCP-based HTTPS:
+
+```text id="xpvluo"
+Connect first
+Encrypt second
+Send data third
+```
+
+With QUIC:
+
+```text id="v3kc5e"
+Connect and encrypt together
+Then send data
+```
+
+This reduces the waiting time before encrypted HTTP data can be sent.
+
+---
+
+### Example 5: Encrypted HTTP/3 Request
+
+A browser using HTTP/3 sends an HTTP request over QUIC.
+
+Conceptually, the request may be:
+
+```http
+GET /index.html HTTP/3
+Host: example.com
+```
+
+But on the wire, the content is encrypted.
+
+An observer may see UDP packets, but they cannot read the actual HTTP request or response.
+
+---
+
+## 5. Questions / Review
+
+1. What protocol does HTTP/3 run on top of?
+
+2. Does HTTP/3 use TCP?
+
+3. What protocol does QUIC use underneath?
+
+4. Why can QUIC reduce connection startup latency?
+
+5. How does QUIC handle TLS differently from HTTPS over TCP?
+
+6. Why were TCP and TLS originally separate setup phases?
+
+7. Why does QUIC combine connection setup and encryption setup?
+
+8. Is QUIC stateless or stateful from the client-server point of view?
+
+9. Can someone in the middle read HTTP/3 request data?
+
+10. What is the relationship between HTTPS over QUIC and HTTP/3?
+
+---
+
+## Short Takeaway
+
+HTTPS over QUIC is essentially HTTP/3.
+
+Unlike HTTP/1.1 and HTTP/2, HTTP/3 does not use TCP. It uses QUIC, which runs on top of UDP.
+
+QUIC combines connection establishment and TLS 1.3 encryption setup into the same handshake process.
+
+This reduces round trips, lowers latency, and allows encrypted HTTP data to be exchanged more quickly.

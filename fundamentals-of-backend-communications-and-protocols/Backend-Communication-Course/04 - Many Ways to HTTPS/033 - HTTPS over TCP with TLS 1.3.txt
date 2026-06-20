@@ -1,0 +1,310 @@
+# 033 - HTTPS over TCP with TLS 1.3
+
+**Section:** 04 - Many Ways to HTTPS
+**Duration:** 4min
+
+---
+
+## 1. Summary
+
+This lecture explains how **HTTPS over TCP works with TLS 1.3** and how it improves performance compared to TLS 1.2.
+
+HTTPS over TCP with TLS 1.3 still requires a TCP connection first. That means the client and server still need to perform the TCP three-way handshake.
+
+However, the TLS part is faster.
+
+Compared to TLS 1.2, TLS 1.3 reduces the handshake by one round trip. This means encrypted application data can be sent sooner.
+
+TLS 1.3 is generally recommended over TLS 1.2 unless there is a backward compatibility issue with older clients or libraries.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 TLS 1.3 Still Runs Over TCP
+
+When using HTTPS over TCP with TLS 1.3, the first step is still TCP connection establishment.
+
+The TCP three-way handshake is still required:
+
+```text
+Client → Server: SYN
+Server → Client: SYN-ACK
+Client → Server: ACK
+```
+
+After this, the client and server have a stateful TCP connection.
+
+---
+
+### 2.2 HTTP/1.1 and HTTP/2 Can Use TLS 1.3 Over TCP
+
+HTTPS over TCP can be used with:
+
+* HTTP/1.1
+* HTTP/2
+
+HTTP/3 is different because it does not run over TCP. HTTP/3 runs over QUIC.
+
+So this lecture is mainly about HTTP/1.1 or HTTP/2 using TLS 1.3 over TCP.
+
+---
+
+### 2.3 TLS 1.3 Reduces the Handshake Cost
+
+TLS 1.2 usually requires more handshake steps before encrypted data can be sent.
+
+TLS 1.3 improves this by allowing the key exchange to happen earlier.
+
+In TLS 1.3, the client sends key exchange information immediately in the `ClientHello`.
+
+This allows the server to generate the shared key faster.
+
+---
+
+### 2.4 ClientHello in TLS 1.3 Is More Direct
+
+In TLS 1.2, the client gives the server a large list of supported options.
+
+In TLS 1.3, the client is more direct.
+
+The client sends:
+
+* Supported TLS version
+* Supported cipher suites
+* Supported key exchange groups
+* Public key exchange parameters
+* TLS extensions such as SNI
+* ALPN information for choosing HTTP/1.1 or HTTP/2
+
+The important difference is that the client already sends its public key exchange material in the first message.
+
+---
+
+### 2.5 ServerHello Completes the Key Exchange Faster
+
+The server receives the `ClientHello`, chooses compatible options, and sends back:
+
+* Selected cipher suite
+* Server public key exchange parameters
+* Certificate
+* Other TLS 1.3 handshake data
+
+The server can combine its private key exchange value with the client’s public value to generate the shared symmetric key.
+
+Then the client receives the server’s public value and does the same.
+
+Now both sides have the same symmetric key.
+
+---
+
+### 2.6 Certificate Validation Still Happens
+
+TLS 1.3 is faster, but it does not skip security.
+
+The client still needs to verify the server certificate.
+
+The client checks that:
+
+* The certificate is valid.
+* The certificate belongs to the correct domain.
+* The certificate is trusted.
+* The certificate has not expired or been revoked.
+
+Only after validation should the client trust the connection.
+
+---
+
+## 3. Important Notes
+
+### TLS 1.3 Saves One Round Trip
+
+The biggest improvement over TLS 1.2 is that TLS 1.3 can complete the handshake with fewer round trips.
+
+Simplified comparison:
+
+```text
+TLS 1.2:
+TCP handshake → TLS handshake → More TLS steps → Send encrypted data
+
+TLS 1.3:
+TCP handshake → Faster TLS handshake → Send encrypted data
+```
+
+This makes TLS 1.3 better for latency-sensitive applications.
+
+---
+
+### TLS 1.3 Is Usually Recommended
+
+If your system supports TLS 1.3, it is usually a good idea to use it.
+
+Main reasons:
+
+* Lower latency
+* Stronger modern security defaults
+* Cleaner handshake design
+* Fewer outdated cryptographic options
+
+The main reason to stay with TLS 1.2 is backward compatibility.
+
+---
+
+### Compatibility Can Be a Limitation
+
+Some old clients, old browsers, old operating systems, or old libraries may not support TLS 1.3.
+
+In those cases, servers often support both TLS 1.2 and TLS 1.3.
+
+Modern clients can use TLS 1.3, while older clients can fall back to TLS 1.2.
+
+---
+
+### TLS 1.3 Still Uses Symmetric Encryption for Data
+
+Like TLS 1.2, TLS 1.3 uses symmetric encryption for actual application data.
+
+The handshake is used to safely generate shared keys.
+
+After that, HTTP requests and responses are encrypted using symmetric encryption.
+
+---
+
+## 4. Examples
+
+### Example 1: HTTPS over TCP with TLS 1.3 Flow
+
+```text
+Client                                      Server
+  |                                           |
+  | -------- SYN --------------------------> |
+  | <-------- SYN-ACK ---------------------- |
+  | -------- ACK --------------------------> |
+  |                                           |
+  |          TCP connection established       |
+  |                                           |
+  | -------- ClientHello + KeyShare -------> |
+  | <-------- ServerHello + KeyShare -------- |
+  | <-------- Certificate ------------------- |
+  | <-------- Finished ---------------------- |
+  | -------- Finished ---------------------> |
+  |                                           |
+  |          TLS 1.3 session established      |
+  |                                           |
+  | -------- Encrypted HTTP GET -----------> |
+  | <-------- Encrypted HTTP 200 OK -------- |
+  |                                           |
+```
+
+---
+
+### Example 2: TLS 1.2 vs TLS 1.3
+
+```text
+TLS 1.2:
+1. TCP handshake
+2. ClientHello
+3. ServerHello
+4. Key exchange messages
+5. Finished messages
+6. Send encrypted HTTP request
+
+TLS 1.3:
+1. TCP handshake
+2. ClientHello with key share
+3. ServerHello with key share
+4. Finished messages
+5. Send encrypted HTTP request
+```
+
+TLS 1.3 reduces the amount of negotiation needed before encryption begins.
+
+---
+
+### Example 3: TLS 1.3 ClientHello
+
+A simplified TLS 1.3 `ClientHello` may contain:
+
+```text
+ClientHello:
+- I support TLS 1.3
+- I support these cipher suites
+- I support these key exchange groups
+- Here is my public key share
+- Here is my SNI extension
+- Here is my ALPN extension
+```
+
+The client does not wait for the server to ask for key exchange parameters later.
+
+It sends them immediately.
+
+---
+
+### Example 4: TLS 1.3 ServerHello
+
+A simplified TLS 1.3 `ServerHello` may contain:
+
+```text
+ServerHello:
+- Use TLS 1.3
+- Use this cipher suite
+- Here is my public key share
+- Here is my certificate
+- Here is my finished message
+```
+
+The server can generate the shared key quickly because it already received the client’s public key share.
+
+---
+
+### Example 5: Why TLS 1.3 Is Faster
+
+In TLS 1.2, the client and server spend more time negotiating before generating keys.
+
+In TLS 1.3, the client sends key exchange information earlier.
+
+That means the server can respond with everything needed to complete the handshake sooner.
+
+Result:
+
+```text
+Fewer round trips = lower latency
+```
+
+---
+
+## 5. Questions / Review
+
+1. Does TLS 1.3 over TCP still require the TCP three-way handshake?
+
+2. Which HTTP versions can use HTTPS over TCP with TLS 1.3?
+
+3. Why is HTTP/3 not included in HTTPS over TCP?
+
+4. What is the main latency improvement of TLS 1.3 compared to TLS 1.2?
+
+5. What does the client include earlier in TLS 1.3?
+
+6. What is a key share?
+
+7. Why can the server generate the symmetric key faster in TLS 1.3?
+
+8. Does TLS 1.3 still require certificate validation?
+
+9. Why is TLS 1.3 generally recommended over TLS 1.2?
+
+10. When might a system still need to support TLS 1.2?
+
+---
+
+## Short Takeaway
+
+HTTPS over TCP with TLS 1.3 is similar to HTTPS over TCP with TLS 1.2, but faster.
+
+The TCP connection still has to be established first.
+However, TLS 1.3 improves the TLS handshake by sending key exchange information earlier.
+
+This saves one round trip compared to TLS 1.2, allowing encrypted HTTP data to be sent sooner.
+
+Use TLS 1.3 whenever possible, unless older clients require TLS 1.2 for compatibility.

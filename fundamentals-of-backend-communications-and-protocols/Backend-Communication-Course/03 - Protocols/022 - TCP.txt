@@ -1,0 +1,1532 @@
+# 022 - TCP
+
+**Section:** 03 - Protocols  
+**Duration:** 55 minutes  
+
+---
+
+## 1. Summary
+
+TCP stands for **Transmission Control Protocol**.
+
+TCP is one of the most widely used transport protocols in backend engineering.
+
+It is used when applications need reliable communication.
+
+TCP is built on top of IP and belongs to **Layer 4**, the **Transport Layer**, in the OSI Model.
+
+Unlike UDP, TCP does not just send data and forget about it.
+
+TCP controls the transmission.
+
+It provides:
+
+- Connection establishment
+- Reliable delivery
+- Ordered data
+- Retransmission
+- Acknowledgements
+- Flow control
+- Congestion control
+- Bidirectional communication
+
+Most of the time, TCP is implemented by the operating system kernel.
+
+As application developers, we usually do not manually handle TCP segments.
+
+For example, when we send an HTTP request using Axios, Fetch, or a backend HTTP client, the application data is eventually converted into a stream of bytes, split into TCP segments, placed inside IP packets, and transmitted through the network.
+
+TCP is the protocol of choice for many reliable applications such as:
+
+- Web communication
+- SSH
+- Database connections
+- Remote shell
+- File transfer
+- Chat systems
+- APIs
+
+---
+
+## 2. Key Concepts
+
+## 2.1 TCP Is a Layer 4 Protocol
+
+TCP belongs to **Layer 4**, the Transport Layer.
+
+Layer 3, the IP layer, gives us:
+
+```text
+IP address
+```
+
+Layer 4 gives us:
+
+```text
+Port
+```
+
+The IP address identifies a host.
+
+The port identifies a process or application inside that host.
+
+Example:
+
+```text
+IP address: 10.0.0.2
+Port:       22
+```
+
+This can represent an SSH server running on host `10.0.0.2`.
+
+---
+
+## 2.2 TCP Uses Ports
+
+TCP uses ports to address applications running on a host.
+
+A single machine can run many applications at the same time.
+
+Example:
+
+```text
+Port 22   → SSH
+Port 80   → HTTP
+Port 443  → HTTPS
+Port 5432 → PostgreSQL
+```
+
+Without ports, IP can only identify the machine.
+
+With ports, TCP can identify the exact application process.
+
+---
+
+## 2.3 TCP Is Connection-Oriented
+
+TCP has the concept of a **connection**.
+
+Before sending data, the client and server must establish a connection.
+
+This connection creates shared state between both sides.
+
+The state can include:
+
+- Source IP
+- Source port
+- Destination IP
+- Destination port
+- Sequence numbers
+- Acknowledgement numbers
+- Window size
+- Buffers
+- Connection status
+
+Because TCP stores state, TCP is called a **stateful protocol**.
+
+This is different from UDP, which is stateless and connectionless.
+
+---
+
+## 2.4 TCP Connection 4-Tuple
+
+A TCP connection is identified by four values:
+
+```text
+Source IP
+Source Port
+Destination IP
+Destination Port
+```
+
+Example:
+
+```text
+10.0.0.1:5555 → 10.0.0.2:22
+```
+
+This uniquely identifies one TCP connection.
+
+Another client can connect to the same server and same port as long as the 4-tuple is different.
+
+Example:
+
+```text
+10.0.0.1:5555 → 10.0.0.2:22
+10.0.0.3:6000 → 10.0.0.2:22
+10.0.0.4:7000 → 10.0.0.2:22
+```
+
+All of these are different TCP connections.
+
+---
+
+## 2.5 Socket and File Descriptor
+
+In the operating system, a TCP connection is represented by a socket or file descriptor.
+
+A file descriptor is a number used by the OS to refer to an open resource.
+
+For TCP, the file descriptor points to connection state.
+
+The OS can use the 4-tuple to find the correct socket.
+
+If a TCP segment arrives and no matching connection exists, the OS can reject or drop it.
+
+---
+
+## 2.6 TCP Provides Reliable Communication
+
+TCP is designed for reliable delivery.
+
+It handles:
+
+```text
+Lost data
+Duplicated data
+Out-of-order data
+Retransmission
+Acknowledgement
+Flow control
+Congestion control
+```
+
+This is useful when data must arrive correctly.
+
+Examples:
+
+- SQL query
+- SSH command
+- HTTP response
+- Chat message
+- File download
+
+For these use cases, receiving corrupted, missing, or reordered data would be a serious problem.
+
+---
+
+## 2.7 TCP Is a Byte Stream
+
+TCP is stream-based.
+
+It does not preserve message boundaries.
+
+This means TCP sends a continuous stream of bytes.
+
+Example:
+
+The sender writes:
+
+```text
+hello
+world
+```
+
+The receiver may read:
+
+```text
+helloworld
+```
+
+or:
+
+```text
+hel
+lowor
+ld
+```
+
+TCP guarantees byte order, but it does not tell the application where one message starts or ends.
+
+The application protocol must define message boundaries.
+
+For example:
+
+- HTTP uses headers and body length.
+- WebSocket uses frames.
+- Database protocols define their own message format.
+
+---
+
+## 2.8 TCP Is Bidirectional
+
+TCP supports bidirectional communication.
+
+This means:
+
+```text
+Client can send data to server.
+Server can send data to client.
+```
+
+TCP itself is not request-response.
+
+HTTP often uses request-response, but TCP is just a bidirectional byte stream.
+
+This makes TCP useful for protocols like:
+
+- SSH
+- WebSocket
+- Database connections
+- Long-lived backend connections
+
+---
+
+## 3. TCP Connection Establishment
+
+## 3.1 Three-Way Handshake
+
+TCP uses a **three-way handshake** to establish a connection.
+
+The three steps are:
+
+```text
+SYN
+SYN-ACK
+ACK
+```
+
+This handshake allows both sides to agree on initial sequence numbers and prepare connection state.
+
+---
+
+## 3.2 Step 1: SYN
+
+The client sends a SYN segment.
+
+SYN means:
+
+```text
+Synchronize
+```
+
+The client is asking to start a connection.
+
+Example:
+
+```text
+Client → Server: SYN, seq = 1000
+```
+
+The client is saying:
+
+```text
+I want to connect.
+My initial sequence number is 1000.
+```
+
+---
+
+## 3.3 Step 2: SYN-ACK
+
+The server replies with SYN-ACK.
+
+This means:
+
+```text
+I received your SYN.
+I also want to synchronize my sequence number.
+```
+
+Example:
+
+```text
+Server → Client: SYN-ACK, seq = 5000, ack = 1001
+```
+
+The server is saying:
+
+```text
+I received your sequence 1000.
+My initial sequence number is 5000.
+```
+
+---
+
+## 3.4 Step 3: ACK
+
+The client sends ACK.
+
+Example:
+
+```text
+Client → Server: ACK, ack = 5001
+```
+
+After this, the connection is established.
+
+Both sides now have TCP state.
+
+---
+
+## 3.5 Three-Way Handshake Diagram
+
+```text
+Client                              Server
+
+SYN, seq=1000        ───────────────>
+
+                      <────────────── SYN-ACK, seq=5000, ack=1001
+
+ACK, ack=5001        ───────────────>
+
+Connection established
+```
+
+After the handshake, application data can be sent.
+
+---
+
+## 4. Sending Data with TCP
+
+## 4.1 TCP Segment
+
+TCP data is split into pieces called **segments**.
+
+A TCP segment is placed inside an IP packet.
+
+```text
+TCP Segment
+→ IP Packet
+→ Layer 2 Frame
+→ Physical Signal
+```
+
+At Layer 3, the IP packet does not care that the payload is TCP.
+
+It only routes the packet using IP addresses.
+
+---
+
+## 4.2 Sequence Numbers
+
+TCP uses sequence numbers to track bytes.
+
+Each side has its own sequence number.
+
+Sequence numbers help TCP:
+
+- Detect missing data
+- Reorder data
+- Retransmit lost data
+- Know what has been received
+
+Example:
+
+```text
+Segment 1 → sequence number 1000
+Segment 2 → sequence number 2000
+Segment 3 → sequence number 3000
+```
+
+If Segment 3 is lost, the receiver can detect that there is missing data.
+
+---
+
+## 4.3 Acknowledgement Numbers
+
+TCP uses acknowledgements, usually called **ACKs**.
+
+An ACK tells the sender which data has been received.
+
+Example:
+
+```text
+Client sends Segment 1, Segment 2, Segment 3.
+Server receives Segment 1 and Segment 2.
+Server sends ACK for Segment 2.
+```
+
+This means:
+
+```text
+I received everything up to Segment 2.
+```
+
+If Segment 3 was not acknowledged, the sender may retransmit it.
+
+---
+
+## 4.4 Retransmission
+
+Retransmission is one of the most important features of TCP.
+
+Example:
+
+```text
+Client sends Segment 1
+Client sends Segment 2
+Client sends Segment 3
+
+Server receives Segment 1
+Server receives Segment 2
+Segment 3 is lost
+```
+
+The server only acknowledges the data it received.
+
+The client notices that Segment 3 was not acknowledged.
+
+Then TCP retransmits Segment 3.
+
+```text
+Client retransmits Segment 3
+Server receives Segment 3
+Server sends ACK
+```
+
+This is how TCP provides reliable delivery.
+
+---
+
+## 4.5 Out-of-Order Delivery
+
+IP packets can take different routes through the network.
+
+Because of that, TCP segments may arrive out of order.
+
+Example:
+
+```text
+Sent order:
+Segment 1
+Segment 2
+Segment 3
+
+Received order:
+Segment 2
+Segment 3
+Segment 1
+```
+
+TCP reorders the data before delivering it to the application.
+
+The application receives the bytes in the correct order.
+
+---
+
+## 4.6 Can TCP Send More Data Before Receiving ACK?
+
+Yes.
+
+TCP does not need to send one segment and wait for one ACK before sending the next segment.
+
+That would be too slow.
+
+TCP can send multiple segments before receiving acknowledgements.
+
+However, there is a limit.
+
+That limit is controlled by:
+
+```text
+Flow control
+Congestion control
+```
+
+---
+
+## 5. Flow Control and Congestion Control
+
+## 5.1 Flow Control
+
+Flow control protects the receiver.
+
+It answers this question:
+
+```text
+How much data can the receiver handle?
+```
+
+The receiver advertises a window size.
+
+The sender should not send more unacknowledged data than the receiver can handle.
+
+---
+
+## 5.2 Window Size
+
+The TCP window size tells the sender how much data the receiver can accept.
+
+Example:
+
+```text
+Window size = 65 KB
+```
+
+This means the sender can send up to 65 KB of unacknowledged data before waiting.
+
+The window size is part of TCP flow control.
+
+---
+
+## 5.3 Congestion Control
+
+Congestion control protects the network.
+
+It answers this question:
+
+```text
+How much traffic can the network path handle?
+```
+
+Even if the receiver can handle a lot of data, the routers between client and server may be congested.
+
+TCP uses congestion control to avoid overwhelming the network.
+
+---
+
+## 5.4 Flow Control vs Congestion Control
+
+| Concept | Protects | Main Question |
+|---|---|---|
+| Flow Control | Receiver | Can the receiver handle this much data? |
+| Congestion Control | Network | Can the network path handle this much traffic? |
+
+---
+
+## 6. Closing a TCP Connection
+
+## 6.1 Four-Way Handshake
+
+TCP uses a closing process often described as a **four-way handshake**.
+
+The main steps are:
+
+```text
+FIN
+ACK
+FIN
+ACK
+```
+
+One side starts the close.
+
+The other side acknowledges it.
+
+Then the other side closes its direction.
+
+Finally, the first side acknowledges that close.
+
+---
+
+## 6.2 TCP Close Diagram
+
+```text
+Client                              Server
+
+FIN                  ───────────────>
+
+                      <────────────── ACK
+
+                      <────────────── FIN
+
+ACK                  ───────────────>
+
+Connection closed
+```
+
+---
+
+## 6.3 TIME_WAIT
+
+The side that actively closes the connection may enter a state called:
+
+```text
+TIME_WAIT
+```
+
+This state exists to make sure old delayed segments from the previous connection do not interfere with a new connection.
+
+TIME_WAIT is important because old packets may still be moving through the network.
+
+If the connection is immediately reused, old segments could cause confusion.
+
+---
+
+## 7. TCP Segment Anatomy
+
+## 7.1 TCP Header Size
+
+The TCP header is usually:
+
+```text
+20 bytes
+```
+
+With options, it can go up to:
+
+```text
+60 bytes
+```
+
+This is similar to the IP header.
+
+The minimum TCP/IP overhead is usually:
+
+```text
+20 bytes IP header + 20 bytes TCP header = 40 bytes
+```
+
+In the maximum case:
+
+```text
+60 bytes IP header + 60 bytes TCP header = 120 bytes
+```
+
+This means small messages can have large overhead.
+
+---
+
+## 7.2 TCP Header Fields
+
+Important TCP header fields include:
+
+- Source port
+- Destination port
+- Sequence number
+- Acknowledgement number
+- Window size
+- Flags
+- Checksum
+- Urgent pointer
+- Options
+
+---
+
+## 7.3 Source Port and Destination Port
+
+TCP ports are 16-bit numbers.
+
+Port range:
+
+```text
+0 - 65535
+```
+
+Example:
+
+```text
+Source port:      5555
+Destination port: 22
+```
+
+The destination port tells the receiver which application should receive the data.
+
+The source port helps identify the connection and allows the receiver to respond correctly.
+
+---
+
+## 7.4 Sequence Number
+
+The sequence number tracks the position of bytes in the TCP stream.
+
+TCP sequence numbers are important for:
+
+- Ordering
+- Retransmission
+- Detecting missing data
+- Reliable delivery
+
+---
+
+## 7.5 Acknowledgement Number
+
+The acknowledgement number tells the other side what data has been received.
+
+TCP can acknowledge received data while also sending new data.
+
+That is why the acknowledgement number has its own field.
+
+---
+
+## 7.6 Window Size
+
+The window size is used for flow control.
+
+It tells the sender how much data the receiver can currently accept.
+
+---
+
+## 7.7 TCP Flags
+
+TCP has multiple flags.
+
+Important flags include:
+
+| Flag | Meaning |
+|---|---|
+| SYN | Start connection |
+| ACK | Acknowledge data |
+| FIN | Close connection |
+| RST | Reset connection |
+| PSH | Push data |
+| URG | Urgent data |
+| ECE | ECN Echo |
+| CWR | Congestion Window Reduced |
+
+The most important flags for beginners are:
+
+```text
+SYN
+ACK
+FIN
+RST
+```
+
+---
+
+## 7.8 Maximum Segment Size
+
+MSS stands for:
+
+```text
+Maximum Segment Size
+```
+
+It defines the largest TCP payload that can fit inside one segment without fragmentation.
+
+MSS depends on MTU.
+
+Common Ethernet MTU:
+
+```text
+1500 bytes
+```
+
+Typical calculation:
+
+```text
+MTU = 1500 bytes
+IP header = 20 bytes
+TCP header = 20 bytes
+
+MSS = 1500 - 20 - 20 = 1460 bytes
+```
+
+So a common TCP MSS is:
+
+```text
+1460 bytes
+```
+
+---
+
+## 7.9 Jumbo Frames
+
+Some networks use larger frames called jumbo frames.
+
+Example:
+
+```text
+MTU = 9000 bytes
+```
+
+With a larger MTU, TCP can use larger segments.
+
+This can improve efficiency in some controlled networks, such as data centers.
+
+---
+
+## 8. TCP Server Concepts
+
+## 8.1 bind
+
+A TCP server must bind to an address and port.
+
+Example:
+
+```text
+127.0.0.1:8800
+```
+
+Binding means:
+
+```text
+Listen for traffic on this IP address and port.
+```
+
+---
+
+## 8.2 listen
+
+After binding, a TCP server must listen for incoming connection requests.
+
+Listening allows the OS TCP stack to accept SYN packets and perform the handshake process.
+
+---
+
+## 8.3 backlog
+
+When a server listens, it usually has a backlog queue.
+
+The backlog controls how many pending connections can wait before the application accepts them.
+
+If the backlog is full, new connection attempts may fail or be delayed.
+
+This is important for high-performance servers and proxies.
+
+---
+
+## 8.4 accept
+
+After a TCP connection is established, the server must accept it.
+
+Accepting a connection gives the application a new socket.
+
+That socket is used to read and write data for that specific connection.
+
+---
+
+## 8.5 TCP Server Flow
+
+A TCP server generally does this:
+
+```text
+Create socket
+Bind socket to address and port
+Listen for incoming connections
+Accept a connection
+Read and write data
+Close connection
+```
+
+---
+
+## 9. Important Notes
+
+## 9.1 TCP Is Reliable, but Not Magic
+
+TCP provides reliable delivery while the connection is alive.
+
+However, if the connection breaks completely, the application still needs to handle the error.
+
+TCP can retransmit lost data, but it cannot guarantee success forever.
+
+---
+
+## 9.2 TCP Has More Overhead Than UDP
+
+TCP has more features than UDP.
+
+Because of that, TCP also has more overhead.
+
+TCP requires:
+
+- Handshake
+- State
+- Memory
+- Sequence tracking
+- Acknowledgements
+- Retransmission logic
+- Flow control
+- Congestion control
+
+UDP is simpler and lower latency, but less reliable.
+
+---
+
+## 9.3 TCP Connections Consume Memory
+
+Every TCP connection consumes memory on the client and server.
+
+The operating system must store connection state.
+
+This means a server has a limit on how many TCP connections it can handle.
+
+The limit depends on:
+
+- Memory
+- CPU
+- File descriptor limits
+- Kernel settings
+- Application design
+
+---
+
+## 9.4 TCP Is Good for Correctness
+
+TCP is a good choice when correctness matters.
+
+Use TCP for:
+
+- Web APIs
+- File downloads
+- SSH
+- Database queries
+- Payment systems
+- Chat messages
+- Business-critical communication
+
+---
+
+## 9.5 TCP Is Not Always Best for Low Latency
+
+TCP is reliable, but reliability costs time.
+
+For real-time applications like games or video calls, old data may become useless quickly.
+
+In those cases, UDP or protocols built on UDP may be better.
+
+---
+
+## 9.6 HTTP and TCP
+
+HTTP/1.1 and HTTP/2 usually run on top of TCP.
+
+HTTP/3 runs on QUIC, which is built on UDP.
+
+Simple view:
+
+```text
+HTTP/1.1 → TCP
+HTTP/2   → TCP
+HTTP/3   → QUIC → UDP
+```
+
+---
+
+## 9.7 TCP Is Not Request-Response
+
+TCP itself is not request-response.
+
+TCP is a bidirectional byte stream.
+
+Request-response is a pattern implemented by protocols above TCP, such as HTTP.
+
+---
+
+## 9.8 Small Writes Can Be Inefficient
+
+Sending tiny pieces of data can be inefficient because every TCP segment and IP packet has headers.
+
+Example:
+
+```text
+1 byte of data
++ 20 bytes TCP header
++ 20 bytes IP header
+= 41 bytes minimum at TCP/IP level
+```
+
+This is why buffering and algorithms such as Nagle's algorithm exist.
+
+---
+
+## 10. Examples
+
+## Example 1: TCP Three-Way Handshake
+
+```text
+Client wants to connect to SSH server.
+
+Client: 10.0.0.1:5555
+Server: 10.0.0.2:22
+```
+
+Handshake:
+
+```text
+Client → Server: SYN
+Server → Client: SYN-ACK
+Client → Server: ACK
+```
+
+After this, the connection is established.
+
+---
+
+## Example 2: TCP Retransmission
+
+```text
+Client sends:
+Segment 1
+Segment 2
+Segment 3
+```
+
+Server receives:
+
+```text
+Segment 1
+Segment 2
+```
+
+Segment 3 is lost.
+
+Server acknowledges only up to Segment 2.
+
+Client retransmits Segment 3.
+
+```text
+Client → Server: Segment 3 again
+Server → Client: ACK
+```
+
+---
+
+## Example 3: TCP Closing
+
+```text
+Client → Server: FIN
+Server → Client: ACK
+Server → Client: FIN
+Client → Server: ACK
+```
+
+After this, the connection is closed.
+
+---
+
+## Example 4: MSS Calculation
+
+Given:
+
+```text
+MTU = 1500 bytes
+IP header = 20 bytes
+TCP header = 20 bytes
+```
+
+Calculation:
+
+```text
+MSS = 1500 - 20 - 20
+MSS = 1460 bytes
+```
+
+So the maximum TCP payload is:
+
+```text
+1460 bytes
+```
+
+---
+
+## Example 5: TCP Server in Node.js
+
+```js
+import net from "net";
+
+const server = net.createServer((socket) => {
+  console.log(
+    `TCP handshake successful with ${socket.remoteAddress}:${socket.remotePort}`
+  );
+
+  socket.write("Hello client, this is the TCP server.\n");
+
+  socket.on("data", (data) => {
+    console.log(`Received data: ${data.toString()}`);
+  });
+
+  socket.on("end", () => {
+    console.log("Client disconnected.");
+  });
+});
+
+server.listen(8800, "127.0.0.1", () => {
+  console.log("TCP server listening on 127.0.0.1:8800");
+});
+```
+
+Run:
+
+```bash
+node index.js
+```
+
+Connect with netcat:
+
+```bash
+nc 127.0.0.1 8800
+```
+
+Send a message:
+
+```text
+hello server
+```
+
+The server receives the data through the TCP connection.
+
+---
+
+## Example 6: Multiple TCP Connections
+
+Open two terminals.
+
+Terminal 1:
+
+```bash
+nc 127.0.0.1 8800
+```
+
+Terminal 2:
+
+```bash
+nc 127.0.0.1 8800
+```
+
+Both clients connect to the same server address and port.
+
+However, each client has a different source port.
+
+Example:
+
+```text
+127.0.0.1:64409 → 127.0.0.1:8800
+127.0.0.1:64428 → 127.0.0.1:8800
+```
+
+These are two different TCP connections.
+
+---
+
+## Example 7: Basic TCP Server Flow in C
+
+A low-level TCP server usually follows these steps:
+
+```text
+socket()
+bind()
+listen()
+accept()
+send() / recv()
+close()
+```
+
+Example structure:
+
+```c
+int server_fd = socket(AF_INET, SOCK_STREAM, 0);
+
+bind(server_fd, ...);
+
+listen(server_fd, 5);
+
+int client_fd = accept(server_fd, ...);
+
+send(client_fd, "hello", 5, 0);
+
+close(client_fd);
+close(server_fd);
+```
+
+Important difference from UDP:
+
+```text
+UDP uses SOCK_DGRAM.
+TCP uses SOCK_STREAM.
+```
+
+TCP also requires:
+
+```text
+listen()
+accept()
+```
+
+UDP does not require those steps.
+
+---
+
+## 11. Questions / Review
+
+## Question 1
+
+What does TCP stand for?
+
+**Answer:**
+
+TCP stands for **Transmission Control Protocol**.
+
+---
+
+## Question 2
+
+Which OSI layer does TCP belong to?
+
+**Answer:**
+
+TCP belongs to **Layer 4**, the **Transport Layer**.
+
+---
+
+## Question 3
+
+Is TCP connection-oriented or connectionless?
+
+**Answer:**
+
+TCP is connection-oriented.
+
+---
+
+## Question 4
+
+What is the TCP three-way handshake?
+
+**Answer:**
+
+The TCP three-way handshake is:
+
+```text
+SYN
+SYN-ACK
+ACK
+```
+
+It establishes a TCP connection.
+
+---
+
+## Question 5
+
+What is a TCP connection identified by?
+
+**Answer:**
+
+A TCP connection is identified by:
+
+```text
+Source IP
+Source Port
+Destination IP
+Destination Port
+```
+
+---
+
+## Question 6
+
+What is a TCP segment?
+
+**Answer:**
+
+A TCP segment is the Layer 4 unit of TCP data.
+
+It is placed inside an IP packet.
+
+---
+
+## Question 7
+
+What does TCP use sequence numbers for?
+
+**Answer:**
+
+TCP uses sequence numbers to track byte order, detect missing data, and support retransmission.
+
+---
+
+## Question 8
+
+What is an ACK?
+
+**Answer:**
+
+ACK stands for acknowledgement.
+
+It tells the sender that data was received.
+
+---
+
+## Question 9
+
+What happens if a TCP segment is lost?
+
+**Answer:**
+
+TCP can retransmit the lost segment.
+
+---
+
+## Question 10
+
+Does TCP preserve message boundaries?
+
+**Answer:**
+
+No.
+
+TCP is a byte stream.
+
+The application protocol must define message boundaries.
+
+---
+
+## Question 11
+
+Is TCP bidirectional?
+
+**Answer:**
+
+Yes.
+
+Both sides can send and receive data over the same connection.
+
+---
+
+## Question 12
+
+What is flow control?
+
+**Answer:**
+
+Flow control prevents the sender from overwhelming the receiver.
+
+---
+
+## Question 13
+
+What is congestion control?
+
+**Answer:**
+
+Congestion control prevents the sender from overwhelming the network.
+
+---
+
+## Question 14
+
+What is the TCP window size?
+
+**Answer:**
+
+The window size tells the sender how much data the receiver can accept.
+
+---
+
+## Question 15
+
+How large is the minimum TCP header?
+
+**Answer:**
+
+The minimum TCP header is:
+
+```text
+20 bytes
+```
+
+---
+
+## Question 16
+
+What is MSS?
+
+**Answer:**
+
+MSS stands for **Maximum Segment Size**.
+
+It is the largest TCP payload that can fit into one segment without fragmentation.
+
+---
+
+## Question 17
+
+How do we calculate MSS with a 1500-byte MTU?
+
+**Answer:**
+
+```text
+MSS = MTU - IP header - TCP header
+MSS = 1500 - 20 - 20
+MSS = 1460 bytes
+```
+
+---
+
+## Question 18
+
+What is TIME_WAIT?
+
+**Answer:**
+
+TIME_WAIT is a TCP state used after closing a connection.
+
+It helps prevent old delayed segments from interfering with future connections.
+
+---
+
+## Question 19
+
+What is the difference between UDP and TCP?
+
+**Answer:**
+
+UDP is connectionless and does not guarantee delivery.
+
+TCP is connection-oriented and provides reliable, ordered delivery.
+
+---
+
+## Question 20
+
+When should you use TCP?
+
+**Answer:**
+
+Use TCP when you need:
+
+- Reliable delivery
+- Ordered data
+- Error recovery
+- Flow control
+- Congestion control
+
+Examples:
+
+- Web APIs
+- SSH
+- Database connections
+- File transfer
+- Chat systems
+
+---
+
+## 12. Final Takeaway
+
+TCP is a reliable, stateful, connection-oriented Layer 4 protocol.
+
+Its core idea is:
+
+```text
+Establish a connection.
+Send ordered bytes.
+Acknowledge received data.
+Retransmit lost data.
+Control the transmission.
+Close the connection cleanly.
+```
+
+TCP is more complex than UDP, but it gives applications reliability.
+
+The most important TCP concepts are:
+
+```text
+Port
+Connection
+Socket
+File descriptor
+Three-way handshake
+Sequence number
+Acknowledgement
+Retransmission
+Flow control
+Congestion control
+Four-way close
+TIME_WAIT
+MSS
+```
+
+For backend engineers, TCP is essential because most reliable backend communication depends on it.
+
+Understanding TCP helps explain:
+
+- Why connections have latency
+- Why servers have connection limits
+- Why retransmission happens
+- Why slow networks affect APIs
+- Why small writes can be inefficient
+- Why load balancers and proxies must handle many connections carefully

@@ -1,0 +1,519 @@
+# 010 - Polling
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 14min
+
+---
+
+## 1. Summary
+
+This lesson explains **Polling**, especially **Short Polling**, as a backend communication design pattern.
+
+Polling is commonly used when a request takes a long time to process. Instead of keeping the client waiting for one long response, the backend immediately returns a handle, such as a job ID or task ID. The client then repeatedly asks the backend for the status of that job.
+
+Polling is simple and useful for long-running tasks, but it can become very chatty. If many clients poll too frequently, the backend receives many useless requests, most of which return “not ready yet.” This can waste bandwidth, backend resources, and infrastructure cost.
+
+The lesson also demonstrates a simple Node.js and Express application where the client submits a job, receives a job ID, and then repeatedly checks the job status using short polling.
+
+---
+
+## 2. Key Concepts
+
+### Polling
+
+Polling is a communication pattern where the client repeatedly asks the server whether something is ready or whether a new event has happened.
+
+```text id="vlkd23"
+Client → Is it ready?
+Server → No
+
+Client → Is it ready?
+Server → No
+
+Client → Is it ready?
+Server → Yes
+```
+
+---
+
+### Short Polling
+
+Short polling means the client sends a request and the server responds immediately.
+
+The response is usually quick:
+
+```text id="sjjc4s"
+Client → Is job complete?
+Server → No, still processing
+```
+
+or:
+
+```text id="72owvq"
+Client → Is job complete?
+Server → Yes, here is the result
+```
+
+It is called “short” because each polling request is short-lived.
+
+---
+
+### Long-Running Requests
+
+Polling is useful when a request takes a long time to complete.
+
+Examples:
+
+* Uploading a video
+* Processing an image
+* Generating a report
+* Running a background job
+* Exporting a large file
+* Training or running a heavy AI task
+
+Instead of making the client wait for the whole process, the backend can process it asynchronously.
+
+---
+
+### Asynchronous Backend Processing
+
+Polling is often used with asynchronous backend processing.
+
+The flow usually looks like this:
+
+```text id="hhje96"
+Client → Submit job
+Server → Return job ID immediately
+Backend → Process job in background
+Client → Poll job status
+Server → Return progress or result
+```
+
+---
+
+### Handle / Job ID / Task ID
+
+When the client submits a long-running request, the server returns a unique identifier.
+
+This identifier can be called:
+
+* Job ID
+* Task ID
+* Request ID
+* Handle
+* Future
+* Upload ID
+
+Example response:
+
+```json id="r0oua9"
+{
+  "job_id": "job_12345"
+}
+```
+
+The client uses this ID to check the job status later.
+
+---
+
+### Polling Is Still Request Response
+
+Each polling request is still a normal request/response interaction.
+
+However, the whole system behaves differently because the original long request is split into multiple smaller request/response calls.
+
+Instead of:
+
+```text id="motkxj"
+Client → Long request
+Client waits...
+Server → Final response
+```
+
+Polling uses:
+
+```text id="l3cmhg"
+Client → Submit request
+Server → Job ID
+
+Client → Check status
+Server → Not ready
+
+Client → Check status
+Server → Not ready
+
+Client → Check status
+Server → Done
+```
+
+---
+
+### Progress Checking
+
+Polling can return more than just “done” or “not done.”
+
+It can also return progress.
+
+Example:
+
+```json id="p3kylg"
+{
+  "job_id": "job_12345",
+  "progress": 60,
+  "status": "processing"
+}
+```
+
+This allows the client to show progress bars or status updates.
+
+---
+
+### Client Disconnect Safety
+
+One benefit of polling is that the client can disconnect safely after receiving the job ID.
+
+The client can save the job ID locally and check again later.
+
+```text id="s9yyre"
+Client receives job ID
+Client disconnects
+Client reconnects later
+Client checks job status using job ID
+```
+
+This is useful for long-running jobs.
+
+---
+
+### Backend Job Storage
+
+For polling to work well, the backend must store job state somewhere.
+
+Possible storage options:
+
+* Memory
+* Database
+* Redis
+* Message queue
+* Persistent job store
+* Disk
+
+The backend also needs to decide how long completed jobs should be kept.
+
+---
+
+### Polling Frequency
+
+Polling frequency means how often the client checks the backend.
+
+Example:
+
+```text id="txtpli"
+Poll every 1 second
+Poll every 5 seconds
+Poll every 30 seconds
+```
+
+Polling too often creates unnecessary load.
+
+Polling too slowly increases user-visible delay.
+
+---
+
+### Chatty Communication
+
+Polling can become very chatty because the client sends many repeated requests.
+
+Most of those requests may return:
+
+```text id="pi7pxx"
+Not ready yet
+```
+
+At large scale, this can waste backend resources.
+
+---
+
+### Network Bandwidth Cost
+
+Frequent polling can consume a lot of network bandwidth.
+
+This matters especially in cloud environments, where bandwidth and request volume can affect cost.
+
+---
+
+### Backend Resource Waste
+
+Even a simple status check is not free.
+
+The backend still has to:
+
+* Accept the request
+* Parse the request
+* Authenticate the client
+* Check the job ID
+* Read job status
+* Send a response
+
+When thousands of clients poll frequently, this adds up.
+
+---
+
+## 3. Important Notes
+
+* Polling is very common and easy to implement.
+* Short polling usually means the server responds immediately.
+* Polling is useful for long-running backend tasks.
+* The backend should return a job ID quickly instead of making the client wait.
+* The client uses the job ID to check the job status later.
+* Each poll is still a request/response call.
+* Polling makes the overall workflow asynchronous.
+* The client can disconnect and later resume checking status if it saves the job ID.
+* The backend must store job state somewhere.
+* Completed jobs should not be stored forever unless required.
+* Polling can become very chatty.
+* Too many polling requests can waste bandwidth.
+* Too many polling requests can waste backend CPU, memory, and network resources.
+* Polling frequency must be configured carefully.
+* Polling is simple, but it may not scale well for high-volume real-time systems.
+* Long polling can reduce some of the disadvantages of short polling.
+
+---
+
+## 4. Examples
+
+### Example 1: Basic Polling Flow
+
+```text id="hj2lux"
+Client → Submit job
+Server → job_id = 123
+
+Client → Is job 123 done?
+Server → No
+
+Client → Is job 123 done?
+Server → No
+
+Client → Is job 123 done?
+Server → Yes
+```
+
+This is the basic short polling pattern.
+
+---
+
+### Example 2: Video Upload Processing
+
+A user uploads a video.
+
+```text id="rkoegc"
+Client → Upload video
+Server → Return upload ID
+Backend → Process video in background
+Client → Poll upload status
+Server → 40% processed
+Client → Poll upload status
+Server → 80% processed
+Client → Poll upload status
+Server → Done
+```
+
+This prevents the client from waiting on one very long request.
+
+---
+
+### Example 3: Report Generation
+
+A user requests a large report.
+
+```text id="ok0zcp"
+Client → Generate report
+Server → Return job ID
+
+Client → Check report status
+Server → Processing
+
+Client → Check report status
+Server → Done, download link ready
+```
+
+This is better than keeping the HTTP request open for a long time.
+
+---
+
+### Example 4: Node.js Job Store
+
+A simple in-memory job store can use a dictionary.
+
+```javascript id="h6yxox"
+const jobs = {};
+```
+
+Each key is a job ID, and each value is the job progress.
+
+```javascript id="xjbc33"
+jobs[jobId] = {
+  progress: 0
+};
+```
+
+---
+
+### Example 5: Submit Job Endpoint
+
+```javascript id="u8p714"
+app.post("/submit", (req, res) => {
+  const jobId = `job:${Date.now()}`;
+
+  jobs[jobId] = {
+    progress: 0
+  };
+
+  updateJob(jobId);
+
+  res.json({ jobId });
+});
+```
+
+The client submits a job, and the backend immediately returns a job ID.
+
+---
+
+### Example 6: Check Status Endpoint
+
+```javascript id="sdtjbe"
+app.get("/check-status", (req, res) => {
+  const jobId = req.query.jobId;
+  const job = jobs[jobId];
+
+  res.json({
+    jobId,
+    status: job
+  });
+});
+```
+
+The client uses the job ID to check the current progress.
+
+---
+
+### Example 7: Updating Job Progress
+
+```javascript id="b8za2h"
+function updateJob(jobId) {
+  jobs[jobId].progress += 10;
+
+  if (jobs[jobId].progress < 100) {
+    setTimeout(() => updateJob(jobId), 3000);
+  }
+}
+```
+
+This simulates a background job that progresses over time.
+
+---
+
+### Example 8: Curl Submit Request
+
+```bash id="40zk1w"
+curl -X POST http://localhost:8080/submit
+```
+
+Example response:
+
+```json id="g5vifc"
+{
+  "jobId": "job:1710000000000"
+}
+```
+
+---
+
+### Example 9: Curl Poll Request
+
+```bash id="9e66sy"
+curl "http://localhost:8080/check-status?jobId=job:1710000000000"
+```
+
+Example response:
+
+```json id="sq0drn"
+{
+  "jobId": "job:1710000000000",
+  "status": {
+    "progress": 50
+  }
+}
+```
+
+---
+
+### Example 10: Polling at Scale
+
+One client polling every 5 seconds is not a problem.
+
+```text id="qcyo14"
+1 client × 1 request every 5 seconds = small load
+```
+
+But many clients polling frequently can become expensive.
+
+```text id="ul0q7q"
+100,000 clients × 1 request every 5 seconds = 20,000 requests per second
+```
+
+Most of those requests may simply return “not ready.”
+
+---
+
+## 5. Questions / Review
+
+1. What is polling?
+
+2. What is short polling?
+
+3. Why is short polling called “short”?
+
+4. When is polling useful?
+
+5. Why is polling often used for long-running backend tasks?
+
+6. What is a job ID?
+
+7. Why does the backend return a job ID immediately?
+
+8. How does the client use the job ID?
+
+9. Why is polling still based on request/response?
+
+10. How does polling make a backend workflow asynchronous?
+
+11. What happens if the client disconnects after receiving the job ID?
+
+12. Where can the backend store job state?
+
+13. Why should the backend not keep completed jobs forever?
+
+14. What is polling frequency?
+
+15. What happens if the client polls too often?
+
+16. What happens if the client polls too slowly?
+
+17. Why is polling considered chatty?
+
+18. How can polling waste network bandwidth?
+
+19. How can polling waste backend resources?
+
+20. Why can polling become expensive at large scale?
+
+21. What is the difference between one long request and multiple polling requests?
+
+22. Why might polling be better than holding one request open for a long time?
+
+23. What kind of response can a polling endpoint return?
+
+24. How can polling support progress bars?
+
+25. Why is long polling introduced as an improvement over short polling?

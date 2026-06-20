@@ -1,0 +1,150 @@
+# 001 - Welcome
+
+**Section:** 01 - Introduction
+**Duration:** 6min
+
+---
+
+## 1. Summary
+
+This opening lesson introduces the course **Backend Communication Design Patterns**. The instructor, Hussein, shares his long experience in software engineering, especially in **backend engineering**, **database engineering**, and communication systems.
+
+The main goal of this course is to help learners understand how backend systems communicate, the common design patterns used in backend applications, and the important protocols that power modern software systems, such as TCP, UDP, HTTP/1.1, HTTP/2, HTTP/3, QUIC, gRPC, WebSocket, and WebRTC.
+
+The lesson emphasizes that backend engineers should not treat frameworks and libraries as complete “black boxes.” Instead, they should understand what happens behind the scenes so they can debug issues, improve performance, reduce latency, and design more reliable systems.
+
+---
+
+## 2. Key Concepts
+
+### Backend Engineering
+
+Backend engineering focuses on server-side logic, databases, networking, protocols, request handling, and communication between clients and servers.
+
+### Backend Communication Design Patterns
+
+Backend systems often follow common communication patterns. By understanding these patterns, engineers can recognize how many real-world backend applications are designed.
+
+Some examples of backend communication patterns include:
+
+* Request / Response
+* Synchronous vs Asynchronous workloads
+* Push
+* Polling
+* Long Polling
+* Server-Sent Events
+* Publish / Subscribe
+* Stateful vs Stateless
+* Sidecar Pattern
+
+### Protocols
+
+Protocols are rules that allow systems to communicate with each other. This course covers both low-level and high-level protocols, including:
+
+* UDP
+* TCP
+* TLS
+* HTTP/1.1
+* HTTP/2
+* HTTP/3
+* QUIC
+* gRPC
+* WebSocket
+* WebRTC
+
+### Understanding What Happens Under the Wire
+
+The instructor highlights the importance of understanding how data is actually transferred as bytes, how requests are formed, how connections are accepted by the operating system, and how backend applications process those connections.
+
+### Avoiding Black Box Thinking
+
+Backend engineers should understand how their tools, frameworks, and libraries work internally. This helps them:
+
+* Debug problems faster
+* Understand performance issues
+* Identify latency sources
+* Fix bugs more effectively
+* Build more reliable backend systems
+
+---
+
+## 3. Important Notes
+
+* Backend engineering is not only about writing APIs. It also involves networking, protocols, operating systems, kernels, sockets, and execution models.
+* A request is essentially a sequence of bytes. The backend application must read, parse, and interpret those bytes into a meaningful request.
+* Before a request reaches the backend application code, it passes through many layers such as the network, operating system, kernel, socket, runtime, and framework.
+* This course is mainly designed for **intermediate to advanced** learners.
+* Learners should ideally have experience building at least one backend application before taking this course.
+* Full-stack engineers can benefit greatly from this course because they already work across frontend, backend, and databases.
+* The main purpose of the course is to uncover what happens behind the abstractions in backend systems.
+
+---
+
+## 4. Examples
+
+### Example 1: When a Backend System Is Slow
+
+If an API response is slow, an engineer who only knows the framework may not know where the problem is.
+
+An engineer with deeper backend knowledge can investigate questions such as:
+
+* Did the request reach the server?
+* Is there a TCP connection issue?
+* Is the TLS handshake slow?
+* Is the backend application reading the request slowly?
+* Is the database query slow?
+* Is the framework doing something blocking?
+* Is there a problem with the protocol or network?
+
+### Example 2: A Framework as an Abstraction
+
+A web framework may allow developers to write a simple API like this:
+
+```python
+@app.get("/users")
+def get_users():
+    return users
+```
+
+However, many things happen behind this simple code:
+
+* The server opens a socket.
+* The operating system accepts a connection.
+* The application reads bytes from the connection.
+* The framework parses the HTTP request.
+* The router finds the correct endpoint.
+* The handler function is executed.
+* The response is serialized.
+* The response bytes are sent back to the client.
+
+### Example 3: Different Protocols for Different Use Cases
+
+* HTTP is useful for standard request/response communication.
+* WebSocket is useful for real-time two-way communication.
+* Server-Sent Events are useful for one-way server push.
+* gRPC is useful for microservices that need strong contracts and good performance.
+* UDP is useful for systems that prioritize speed over reliability, such as streaming or real-time applications.
+
+---
+
+## 5. Questions / Review
+
+1. What is the main goal of this course?
+
+2. Why does the instructor describe backend engineering as a form of art?
+
+3. How do backend communication design patterns help engineers build systems?
+
+4. Why is it important to understand protocols such as TCP, UDP, HTTP, gRPC, and WebSocket?
+
+5. What does “black box” mean in backend engineering?
+
+6. Why should engineers understand how frameworks work internally?
+
+7. What layers does a request pass through before reaching the backend application code?
+
+8. Who is this course mainly designed for?
+
+9. Why can a request be described as “a bunch of bytes”?
+
+10. How does understanding low-level backend details help when debugging latency or bugs?

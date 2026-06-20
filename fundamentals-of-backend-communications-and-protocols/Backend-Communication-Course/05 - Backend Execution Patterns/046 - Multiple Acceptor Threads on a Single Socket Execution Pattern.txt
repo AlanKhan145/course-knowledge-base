@@ -1,0 +1,338 @@
+# 046 - Multiple Acceptor Threads on a Single Socket Execution Pattern
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 2min
+
+---
+
+## 1. Summary
+
+This lecture explains an execution pattern where multiple acceptor threads or workers call `accept()` on the same listening socket.
+
+The idea is simple:
+
+```text id="ze99mr"
+One listening socket
+Multiple acceptors
+```
+
+Each acceptor tries to accept new connections from the same kernel accept queue.
+
+This can help a backend accept many incoming connections faster, especially under heavy traffic.
+
+However, it also introduces contention because multiple acceptors are competing for the same socket and the same accept queue.
+
+A common example related to this pattern is **NGINX**, which has used an accept mutex mechanism to control which worker accepts new connections.
+
+In real NGINX, this is usually discussed in terms of worker processes rather than application threads, but the architectural idea is similar: multiple workers share access to the same listening socket.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 Single Listening Socket
+
+In this pattern, there is one listening socket.
+
+The socket is created by the listener.
+
+```text id="ln8wo3"
+socket()
+bind()
+listen()
+```
+
+After that, multiple acceptor threads or workers can access that socket.
+
+---
+
+### 2.2 Multiple Acceptors
+
+Instead of having only one acceptor, multiple workers call `accept()` on the same socket.
+
+```text id="upovyp"
+Acceptor 1 → accept(socket)
+Acceptor 2 → accept(socket)
+Acceptor 3 → accept(socket)
+Acceptor 4 → accept(socket)
+```
+
+Each acceptor tries to take a ready connection from the kernel accept queue.
+
+---
+
+### 2.3 Shared Accept Queue
+
+The listening socket has an accept queue managed by the kernel.
+
+All acceptors are trying to remove connections from the same accept queue.
+
+```text id="0awqo6"
+Kernel accept queue
+├── connection A
+├── connection B
+├── connection C
+└── connection D
+
+Multiple acceptors compete to accept them
+```
+
+This can improve throughput, but it can also create contention.
+
+---
+
+### 2.4 Contention
+
+Contention happens when multiple workers compete for the same resource.
+
+In this case, the shared resource is the listening socket and its accept queue.
+
+If two acceptors try to accept at the same time, the system must coordinate them.
+
+This coordination can require locking.
+
+---
+
+### 2.5 Accept Mutex
+
+An accept mutex is a lock used to control which worker is allowed to call `accept()`.
+
+Instead of all workers trying to accept at the same time, only one worker gets permission.
+
+Conceptually:
+
+```text id="mubshh"
+Worker 1 gets accept mutex
+Worker 1 accepts connections
+Worker 1 releases accept mutex
+
+Worker 2 gets accept mutex
+Worker 2 accepts connections
+Worker 2 releases accept mutex
+```
+
+This reduces accept contention and avoids workers stepping on each other.
+
+---
+
+### 2.6 Each Accepted Connection Belongs to a Worker
+
+Once a worker successfully accepts a connection, that connection belongs to that worker.
+
+The worker receives a new connection file descriptor.
+
+Then it can read from and write to that connection.
+
+```text id="a8ba2e"
+Worker accepts connection
+→ gets connection file descriptor
+→ owns that connection
+→ reads request data
+→ sends response
+```
+
+---
+
+## 3. Important Notes
+
+### Multiple Acceptors Can Improve Connection Acceptance
+
+If many clients are connecting at the same time, one acceptor may not be enough.
+
+Multiple acceptors can help drain the accept queue faster.
+
+This can reduce connection waiting time under high load.
+
+---
+
+### But Multiple Acceptors Can Compete
+
+The downside is contention.
+
+All acceptors are trying to use the same listening socket.
+
+Without coordination, this can cause inefficient wakeups, locking overhead, or unfairness.
+
+---
+
+### Accept Mutex Reduces Competition
+
+The accept mutex exists to avoid too many workers trying to accept at once.
+
+It serializes access to `accept()`.
+
+This may sound slower, but it can improve efficiency by reducing unnecessary contention.
+
+---
+
+### This Pattern Is Useful for High-Traffic Servers
+
+This model is common in high-performance servers and reverse proxies.
+
+It is especially relevant when a server receives many new connections.
+
+Examples of systems where this kind of design matters:
+
+* Reverse proxies
+* Load balancers
+* Web servers
+* API gateways
+* Edge servers
+
+---
+
+### Worker Processes vs Threads
+
+The lecture describes this as multiple acceptor threads.
+
+In some real systems, the workers may be processes instead of threads.
+
+The core idea remains the same:
+
+```text id="4gzm22"
+Multiple execution units share one listening socket and accept from it.
+```
+
+---
+
+## 4. Examples
+
+### Example 1: Single Socket, Multiple Acceptors
+
+```text id="ef70xx"
+                   ┌──────────────┐
+                   │ Listen Socket │
+                   └──────┬───────┘
+                          │
+              ┌───────────┼───────────┐
+              │           │           │
+        Acceptor 1   Acceptor 2   Acceptor 3
+```
+
+Each acceptor can call `accept()` on the same socket.
+
+---
+
+### Example 2: Accept Queue Shared by All Acceptors
+
+```text id="ytp8rk"
+Kernel accept queue
+┌──────────────────────────┐
+│ connection 1              │
+│ connection 2              │
+│ connection 3              │
+│ connection 4              │
+└──────────────────────────┘
+        ↑        ↑        ↑
+        │        │        │
+   Worker 1  Worker 2  Worker 3
+```
+
+Workers compete to accept ready connections.
+
+---
+
+### Example 3: With Accept Mutex
+
+```text id="utix0k"
+Worker 1: waiting for accept mutex
+Worker 2: has accept mutex → calls accept()
+Worker 3: waiting for accept mutex
+Worker 4: waiting for accept mutex
+```
+
+Only one worker accepts at a time.
+
+This reduces contention.
+
+---
+
+### Example 4: Accepted Connection Ownership
+
+```text id="353ydh"
+Worker 2 calls accept()
+        ↓
+Kernel returns connection_fd
+        ↓
+Worker 2 owns connection_fd
+        ↓
+Worker 2 reads and writes that connection
+```
+
+After accepting, the worker is responsible for that connection.
+
+---
+
+### Example 5: Benefit Under Heavy Load
+
+```text id="5ynz3s"
+Many clients connect at once
+        ↓
+Accept queue fills quickly
+        ↓
+Multiple workers help accept connections
+        ↓
+Queue drains faster
+```
+
+This can improve connection handling under high traffic.
+
+---
+
+### Example 6: Main Tradeoff
+
+```text id="cd74b3"
+Benefit:
+More acceptors can accept more connections.
+
+Cost:
+More acceptors can compete for the same socket.
+```
+
+The architecture must balance parallelism and contention.
+
+---
+
+## 5. Questions / Review
+
+1. What does this execution pattern mean?
+
+2. How many listening sockets are used in this pattern?
+
+3. Why would a backend use multiple acceptors?
+
+4. What resource do the acceptors compete for?
+
+5. What is the accept queue?
+
+6. Why can multiple acceptors create contention?
+
+7. What is an accept mutex?
+
+8. How does an accept mutex reduce contention?
+
+9. What happens after a worker accepts a connection?
+
+10. Why is this pattern useful for high-traffic servers?
+
+11. What is the difference between accepting a connection and reading from it?
+
+12. Why might real systems use worker processes instead of threads?
+
+13. What is the main advantage of this pattern?
+
+14. What is the main disadvantage of this pattern?
+
+---
+
+## Short Takeaway
+
+The multiple acceptors on a single socket pattern allows several workers to call `accept()` on the same listening socket.
+
+This can help a server accept many incoming connections faster.
+
+However, because all acceptors share the same socket and accept queue, they may compete with each other.
+
+An accept mutex can reduce this contention by allowing only one worker to accept at a time.
+
+Once a worker accepts a connection, that worker owns the connection and handles its reads and writes.

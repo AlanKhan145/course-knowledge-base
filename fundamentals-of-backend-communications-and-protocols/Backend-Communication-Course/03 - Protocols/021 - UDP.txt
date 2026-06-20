@@ -1,0 +1,1237 @@
+# 021 - UDP
+
+**Section:** 03 - Protocols  
+**Duration:** 48 minutes  
+
+---
+
+## 1. Summary
+
+UDP stands for **User Datagram Protocol**.
+
+UDP is a **Layer 4 transport protocol** that sits on top of IP.
+
+Compared to TCP, UDP is much simpler.
+
+UDP sends data as independent messages called **datagrams**.
+
+A UDP datagram is placed inside an IP packet and then delivered through the network.
+
+The main idea of UDP is:
+
+```text
+Send the message.
+If it arrives, it arrives.
+If it does not arrive, UDP does not care.
+```
+
+UDP does not provide:
+
+- Connection establishment
+- Guaranteed delivery
+- Acknowledgements
+- Retransmission
+- Ordering
+- Flow control
+- Congestion control
+
+Because of this, UDP is fast, lightweight, and low-latency.
+
+It is commonly used in systems where speed matters more than perfect reliability.
+
+Examples:
+
+- DNS
+- Video streaming
+- Online games
+- VPNs
+- WebRTC
+- Real-time audio/video communication
+
+---
+
+## 2. Key Concepts
+
+## 2.1 UDP Is a Layer 4 Protocol
+
+UDP belongs to **Layer 4**, the **Transport Layer**, in the OSI Model.
+
+Layer 3 gives us:
+
+```text
+IP address
+```
+
+Layer 4 gives us:
+
+```text
+Port
+```
+
+IP addresses identify hosts.
+
+Ports identify applications or processes inside a host.
+
+Example:
+
+```text
+IP address: 10.0.0.2
+Port:       53
+```
+
+Together, they identify a specific process on a specific machine.
+
+---
+
+## 2.2 UDP Sits on Top of IP
+
+UDP data is placed inside an IP packet.
+
+The structure looks like this:
+
+```text
+UDP Datagram
+→ IP Packet
+→ Layer 2 Frame
+→ Physical Signal
+```
+
+The IP packet contains:
+
+```text
+Source IP address
+Destination IP address
+```
+
+The UDP datagram contains:
+
+```text
+Source port
+Destination port
+Length
+Checksum
+Data
+```
+
+---
+
+## 2.3 Datagram
+
+UDP is message-based.
+
+Each UDP message is called a **datagram**.
+
+A datagram has a clear start and end.
+
+This is different from TCP.
+
+TCP is a stream of bytes.
+
+UDP is a sequence of independent messages.
+
+Comparison:
+
+| Protocol | Data Model |
+|---|---|
+| TCP | Byte stream |
+| UDP | Message / datagram |
+
+With UDP, if the application sends one datagram, the receiver receives that datagram as one message if it arrives.
+
+With TCP, the application sends bytes, and the operating system may split or combine them into TCP segments.
+
+---
+
+## 2.4 UDP Is Connectionless
+
+UDP is connectionless.
+
+This means there is no handshake before sending data.
+
+A UDP client can immediately send a datagram to a server.
+
+Example:
+
+```text
+Client → UDP datagram → Server
+```
+
+There is no step like:
+
+```text
+Connect first
+Then send data
+```
+
+This makes UDP faster than TCP for some use cases.
+
+---
+
+## 2.5 UDP Is Stateless
+
+UDP does not store connection state.
+
+The server does not remember:
+
+- Connection state
+- Sequence numbers
+- Window size
+- Acknowledgements
+- Retransmission state
+
+Each datagram is independent.
+
+This makes UDP lightweight and scalable.
+
+However, this also means UDP does not know whether the receiver actually received the data.
+
+---
+
+## 2.6 Ports
+
+UDP uses ports to identify applications.
+
+A port is a 16-bit number.
+
+Port range:
+
+```text
+0 - 65535
+```
+
+Example:
+
+```text
+DNS usually uses UDP port 53
+```
+
+A UDP datagram has both:
+
+```text
+Source port
+Destination port
+```
+
+The destination port tells the receiver which application should receive the datagram.
+
+The source port tells the receiver where to send a reply.
+
+---
+
+## 2.7 Why Do We Need a Source Port?
+
+The source port is needed so the receiver can send data back to the correct application.
+
+Example:
+
+```text
+Client IP:   10.0.0.1
+Client port: 50555
+
+Server IP:   10.0.0.2
+Server port: 53
+```
+
+The client sends a DNS request to the server:
+
+```text
+10.0.0.1:50555 → 10.0.0.2:53
+```
+
+The server replies:
+
+```text
+10.0.0.2:53 → 10.0.0.1:50555
+```
+
+Without the source port, the server would not know which application on the client should receive the response.
+
+---
+
+## 2.8 UDP Multiplexing and Demultiplexing
+
+Multiplexing means combining multiple inputs into one output.
+
+Demultiplexing means taking one input and separating it into multiple outputs.
+
+UDP uses ports for this.
+
+Multiple applications on the same machine can use the same IP address but different ports.
+
+Example:
+
+```text
+App A → Port 5000
+App B → Port 6000
+App C → Port 7000
+```
+
+All apps share the same IP address, but the port number tells the operating system which app should receive each datagram.
+
+---
+
+## 2.9 UDP 4-Tuple
+
+A UDP communication flow can be identified by:
+
+```text
+Source IP
+Source Port
+Destination IP
+Destination Port
+```
+
+Example:
+
+```text
+10.0.0.1:50555 → 10.0.0.2:53
+```
+
+This tells us:
+
+```text
+Who sent the datagram
+Which app sent it
+Who should receive it
+Which app should receive it
+```
+
+---
+
+## 3. UDP Datagram Anatomy
+
+## 3.1 UDP Header
+
+The UDP header is very small.
+
+It is only:
+
+```text
+8 bytes
+```
+
+The UDP header contains four fields:
+
+| Field | Size |
+|---|---|
+| Source Port | 16 bits |
+| Destination Port | 16 bits |
+| Length | 16 bits |
+| Checksum | 16 bits |
+
+Total:
+
+```text
+16 + 16 + 16 + 16 = 64 bits = 8 bytes
+```
+
+---
+
+## 3.2 Source Port
+
+The source port identifies the application that sent the datagram.
+
+Example:
+
+```text
+Source port: 50555
+```
+
+This is often a temporary port chosen by the operating system.
+
+---
+
+## 3.3 Destination Port
+
+The destination port identifies the application that should receive the datagram.
+
+Example:
+
+```text
+Destination port: 53
+```
+
+Port 53 is commonly used for DNS.
+
+---
+
+## 3.4 Length
+
+The length field describes the size of the UDP datagram.
+
+It includes:
+
+```text
+UDP header + UDP data
+```
+
+---
+
+## 3.5 Checksum
+
+The checksum is used to detect corruption.
+
+Networks transmit data as electrical, radio, or light signals.
+
+During transmission, bits may be corrupted.
+
+The checksum helps detect whether the datagram was damaged.
+
+Important note:
+
+```text
+UDP can detect corruption, but it does not fix it.
+```
+
+If a datagram is corrupted, UDP does not automatically retransmit it.
+
+The application must decide what to do.
+
+---
+
+## 4. UDP Use Cases
+
+## 4.1 DNS
+
+DNS often uses UDP.
+
+DNS resolves domain names into IP addresses.
+
+Example:
+
+```text
+google.com → 142.250.xxx.xxx
+```
+
+DNS is usually small and fast, so UDP is a good fit.
+
+Typical DNS port:
+
+```text
+UDP 53
+```
+
+---
+
+## 4.2 Video Streaming
+
+UDP is useful for video streaming because low latency is important.
+
+If one video frame is lost, the application may continue playing.
+
+It is often better to skip a small piece of data than to wait for retransmission.
+
+Example:
+
+```text
+A missing frame may cause a small glitch,
+but waiting too long may ruin the real-time experience.
+```
+
+---
+
+## 4.3 Online Games
+
+Many multiplayer games use UDP.
+
+Reason:
+
+```text
+Low latency is more important than perfect reliability.
+```
+
+In a game, if one position update is lost, the next update may arrive soon.
+
+The game can continue.
+
+Waiting for old data may make the game feel laggy.
+
+---
+
+## 4.4 VPN
+
+Some VPN implementations use UDP.
+
+Using TCP inside TCP can create performance problems because both layers may try to handle retransmission.
+
+UDP is often preferred because it gives the VPN more control over reliability and timing.
+
+---
+
+## 4.5 WebRTC
+
+WebRTC is used for real-time communication in browsers.
+
+Examples:
+
+- Video calls
+- Audio calls
+- Peer-to-peer communication
+
+Browsers do not usually expose raw UDP sockets directly.
+
+WebRTC gives browsers a safe way to use UDP-like real-time communication.
+
+---
+
+## 5. Pros of UDP
+
+## 5.1 Simple
+
+UDP is simple.
+
+It does not have many complex features.
+
+It mainly provides:
+
+```text
+Source port
+Destination port
+Length
+Checksum
+Data
+```
+
+This simplicity makes it easier to build custom protocols on top of UDP.
+
+---
+
+## 5.2 Small Header
+
+UDP has an 8-byte header.
+
+TCP has a larger and more complex header.
+
+A smaller header means less overhead.
+
+This can be useful when sending many small messages.
+
+---
+
+## 5.3 Low Latency
+
+UDP has no handshake.
+
+The client can immediately send data.
+
+There is no connection setup delay.
+
+This makes UDP useful for real-time applications.
+
+---
+
+## 5.4 Stateless
+
+UDP does not store connection state.
+
+This means servers do not need to keep memory for each connection.
+
+That can make UDP scalable for some workloads.
+
+---
+
+## 5.5 Application-Level Control
+
+UDP allows developers to build their own reliability logic.
+
+For example, an application can decide:
+
+```text
+Which messages must be resent
+Which messages can be ignored
+Which messages need ordering
+Which messages can arrive out of order
+```
+
+This is useful in games, video calls, and custom real-time systems.
+
+---
+
+## 6. Cons of UDP
+
+## 6.1 No Acknowledgement
+
+UDP does not tell the sender whether the datagram arrived.
+
+There is no built-in acknowledgement.
+
+The sender sends the datagram and moves on.
+
+---
+
+## 6.2 No Guaranteed Delivery
+
+UDP does not guarantee that data will arrive.
+
+A datagram may be:
+
+- Delivered
+- Lost
+- Dropped
+- Corrupted
+- Arrive out of order
+
+UDP does not automatically fix these problems.
+
+---
+
+## 6.3 No Ordering
+
+UDP does not guarantee order.
+
+If the sender sends:
+
+```text
+Message 1
+Message 2
+Message 3
+```
+
+The receiver may receive:
+
+```text
+Message 2
+Message 1
+Message 3
+```
+
+or may not receive some messages at all.
+
+---
+
+## 6.4 No Flow Control
+
+Flow control protects the receiver from being overwhelmed.
+
+UDP does not provide built-in flow control.
+
+The sender can send data faster than the receiver can process it.
+
+If the receiver cannot keep up, packets may be dropped.
+
+---
+
+## 6.5 No Congestion Control
+
+Congestion control protects the network.
+
+UDP does not provide built-in congestion control.
+
+If an application sends too much UDP traffic, it can contribute to network congestion.
+
+Applications using UDP should implement their own rate control when needed.
+
+---
+
+## 6.6 Easier to Abuse
+
+Because UDP is connectionless and stateless, it can be abused in attacks.
+
+For example:
+
+- UDP flooding
+- DNS amplification
+- Source IP spoofing
+
+A server may have to spend resources processing datagrams even though there was no prior handshake.
+
+This is why UDP services need careful security and rate limiting.
+
+---
+
+## 7. UDP vs TCP
+
+| Feature | UDP | TCP |
+|---|---|---|
+| Layer | Layer 4 | Layer 4 |
+| Connection | Connectionless | Connection-oriented |
+| Data model | Datagram/message | Byte stream |
+| Handshake | No | Yes |
+| Reliability | No built-in guarantee | Reliable |
+| Ordering | No guarantee | Ordered |
+| Acknowledgement | No | Yes |
+| Retransmission | No | Yes |
+| Flow control | No | Yes |
+| Congestion control | No built-in | Yes |
+| Header size | 8 bytes | Larger |
+| Latency | Lower | Higher |
+| Use cases | DNS, games, streaming, WebRTC | HTTP, HTTPS, SSH, databases |
+
+---
+
+## 8. Examples
+
+## Example 1: UDP Request and Response
+
+Client sends a DNS request:
+
+```text
+Client: 10.0.0.1:50555
+Server: 10.0.0.2:53
+```
+
+Request:
+
+```text
+Source IP:        10.0.0.1
+Source Port:      50555
+Destination IP:   10.0.0.2
+Destination Port: 53
+```
+
+Response:
+
+```text
+Source IP:        10.0.0.2
+Source Port:      53
+Destination IP:   10.0.0.1
+Destination Port: 50555
+```
+
+---
+
+## Example 2: UDP Datagram Inside IP Packet
+
+A UDP datagram is placed inside an IP packet.
+
+```text
++--------------------------------------------------+
+| IP Header                                        |
+| Source IP: 10.0.0.1                              |
+| Destination IP: 10.0.0.2                         |
+| Protocol: UDP                                    |
+|                                                  |
+|   +------------------------------------------+   |
+|   | UDP Header                               |   |
+|   | Source Port: 50555                       |   |
+|   | Destination Port: 53                     |   |
+|   | Length                                   |   |
+|   | Checksum                                 |   |
+|   |                                          |   |
+|   | Data                                     |   |
+|   +------------------------------------------+   |
++--------------------------------------------------+
+```
+
+---
+
+## Example 3: Testing UDP with Netcat
+
+You can test UDP using `netcat`.
+
+Command:
+
+```bash
+nc -u 127.0.0.1 5500
+```
+
+Explanation:
+
+```text
+nc      = netcat
+-u      = UDP mode
+127.0.0.1 = localhost
+5500    = destination port
+```
+
+Then type a message:
+
+```text
+hello
+```
+
+The UDP server listening on port `5500` can receive the datagram.
+
+---
+
+## Example 4: Simple UDP Server in Node.js
+
+```js
+import dgram from "dgram";
+
+const server = dgram.createSocket("udp4");
+
+server.on("message", (message, info) => {
+  console.log(`Server got: ${message.toString()}`);
+  console.log(`From: ${info.address}:${info.port}`);
+});
+
+server.bind(5500, "127.0.0.1", () => {
+  console.log("UDP server listening on 127.0.0.1:5500");
+});
+```
+
+Run the server:
+
+```bash
+node index.js
+```
+
+Test with netcat:
+
+```bash
+nc -u 127.0.0.1 5500
+```
+
+Then send:
+
+```text
+hi
+```
+
+The server should print the received message.
+
+---
+
+## Example 5: Basic UDP Server in C
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+
+#define PORT 5501
+#define BUFFER_SIZE 1024
+
+int main() {
+    int sockfd;
+    char buffer[BUFFER_SIZE];
+
+    struct sockaddr_in server_addr;
+    struct sockaddr_in client_addr;
+
+    socklen_t client_len = sizeof(client_addr);
+
+    sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+
+    if (sockfd < 0) {
+        perror("socket creation failed");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(&server_addr, 0, sizeof(server_addr));
+    memset(&client_addr, 0, sizeof(client_addr));
+
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(PORT);
+    server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+
+    if (bind(sockfd, (const struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+        perror("bind failed");
+        close(sockfd);
+        exit(EXIT_FAILURE);
+    }
+
+    int n = recvfrom(
+        sockfd,
+        buffer,
+        BUFFER_SIZE,
+        0,
+        (struct sockaddr *)&client_addr,
+        &client_len
+    );
+
+    buffer[n] = '\0';
+
+    printf("Received: %s\n", buffer);
+
+    close(sockfd);
+
+    return 0;
+}
+```
+
+Compile:
+
+```bash
+gcc main.c -o udp_server
+```
+
+Run:
+
+```bash
+./udp_server
+```
+
+Test with netcat:
+
+```bash
+nc -u 127.0.0.1 5501
+```
+
+Send:
+
+```text
+hello from netcat
+```
+
+The C server receives one datagram and exits.
+
+To keep receiving messages, the server needs a loop.
+
+---
+
+## 9. Important Notes
+
+## 9.1 UDP Is Fast but Not Reliable
+
+UDP is fast because it does less work than TCP.
+
+But that also means the application must handle reliability if reliability is required.
+
+---
+
+## 9.2 UDP Does Not Mean Bad
+
+UDP is not worse than TCP.
+
+It is designed for different use cases.
+
+Use UDP when:
+
+```text
+Low latency is more important than perfect delivery.
+```
+
+Use TCP when:
+
+```text
+Correctness, ordering, and reliability are required.
+```
+
+---
+
+## 9.3 UDP Is Good for Real-Time Systems
+
+UDP is commonly used when old data becomes useless quickly.
+
+Examples:
+
+```text
+Game position updates
+Voice packets
+Video frames
+Real-time sensor data
+```
+
+If a new update arrives, an old lost update may not matter anymore.
+
+---
+
+## 9.4 UDP Applications Often Build Their Own Logic
+
+Applications using UDP may implement their own:
+
+- Acknowledgements
+- Retransmission
+- Ordering
+- Rate limiting
+- Flow control
+- Congestion control
+- Encryption
+- Authentication
+
+This gives developers more control but also more responsibility.
+
+---
+
+## 9.5 Be Careful When Binding Addresses
+
+When building a UDP server, be careful which address you bind to.
+
+Example:
+
+```js
+server.bind(5500, "127.0.0.1");
+```
+
+This listens only on localhost.
+
+If you listen on all interfaces, your server may be exposed to the network.
+
+For local testing, prefer:
+
+```text
+127.0.0.1
+```
+
+---
+
+## 10. Questions / Review
+
+## Question 1
+
+What does UDP stand for?
+
+**Answer:**
+
+UDP stands for **User Datagram Protocol**.
+
+---
+
+## Question 2
+
+Which OSI layer does UDP belong to?
+
+**Answer:**
+
+UDP belongs to **Layer 4**, the **Transport Layer**.
+
+---
+
+## Question 3
+
+What is a UDP datagram?
+
+**Answer:**
+
+A UDP datagram is an independent message sent using UDP.
+
+---
+
+## Question 4
+
+Is UDP connection-oriented or connectionless?
+
+**Answer:**
+
+UDP is connectionless.
+
+---
+
+## Question 5
+
+Does UDP require a handshake?
+
+**Answer:**
+
+No.
+
+UDP does not require a handshake before sending data.
+
+---
+
+## Question 6
+
+Does UDP guarantee delivery?
+
+**Answer:**
+
+No.
+
+UDP does not guarantee delivery.
+
+---
+
+## Question 7
+
+Does UDP guarantee ordering?
+
+**Answer:**
+
+No.
+
+UDP does not guarantee that datagrams arrive in order.
+
+---
+
+## Question 8
+
+Does UDP have built-in retransmission?
+
+**Answer:**
+
+No.
+
+UDP does not automatically retransmit lost datagrams.
+
+---
+
+## Question 9
+
+Why does UDP need ports?
+
+**Answer:**
+
+Ports identify applications or processes inside a host.
+
+---
+
+## Question 10
+
+Why does UDP need a source port?
+
+**Answer:**
+
+The source port allows the receiver to send a response back to the correct application.
+
+---
+
+## Question 11
+
+How large is the UDP header?
+
+**Answer:**
+
+The UDP header is **8 bytes**.
+
+---
+
+## Question 12
+
+What fields are in the UDP header?
+
+**Answer:**
+
+The UDP header contains:
+
+```text
+Source Port
+Destination Port
+Length
+Checksum
+```
+
+---
+
+## Question 13
+
+What is UDP commonly used for?
+
+**Answer:**
+
+UDP is commonly used for:
+
+- DNS
+- Video streaming
+- Online games
+- VPNs
+- WebRTC
+- Real-time communication
+
+---
+
+## Question 14
+
+Why is UDP useful for video streaming?
+
+**Answer:**
+
+Because low latency is more important than perfect delivery.
+
+A lost video frame may be acceptable, but waiting too long may ruin the experience.
+
+---
+
+## Question 15
+
+Why is UDP useful for online games?
+
+**Answer:**
+
+Because games need fast updates.
+
+If one update is lost, the next update may arrive soon.
+
+---
+
+## Question 16
+
+What is the main advantage of UDP?
+
+**Answer:**
+
+The main advantage is low latency and simplicity.
+
+---
+
+## Question 17
+
+What is the main disadvantage of UDP?
+
+**Answer:**
+
+The main disadvantage is lack of built-in reliability.
+
+---
+
+## Question 18
+
+Can UDP detect corrupted data?
+
+**Answer:**
+
+Yes, UDP has a checksum.
+
+However, UDP does not automatically repair or retransmit corrupted data.
+
+---
+
+## Question 19
+
+Why can UDP be abused in attacks?
+
+**Answer:**
+
+Because it is connectionless and stateless.
+
+A server may process datagrams without a prior handshake.
+
+---
+
+## Question 20
+
+When should you choose TCP instead of UDP?
+
+**Answer:**
+
+Choose TCP when you need:
+
+- Reliable delivery
+- Ordered data
+- Acknowledgements
+- Retransmission
+- Flow control
+- Congestion control
+
+Examples:
+
+- Web requests
+- File downloads
+- SSH
+- Database connections
+
+---
+
+## 11. Final Takeaway
+
+UDP is a simple, fast, connectionless Layer 4 protocol.
+
+Its core idea is:
+
+```text
+Send independent messages called datagrams.
+Do not guarantee delivery.
+Do not guarantee order.
+Do not manage connection state.
+```
+
+UDP is powerful because it gives applications more control.
+
+It is a good fit for:
+
+```text
+Low-latency systems
+Real-time communication
+Streaming
+Games
+DNS
+Custom protocols
+```
+
+But UDP also gives developers more responsibility.
+
+If an application needs reliability, ordering, security, or congestion control, it must build those features itself or use another protocol that provides them.

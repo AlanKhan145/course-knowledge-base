@@ -1,0 +1,855 @@
+# 039 - The Process, the Thread, and How They Compete for CPU Time
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 28min
+
+---
+
+## 1. Summary
+
+This lecture explains the difference between a **process** and a **thread**, and why this difference is essential for understanding backend execution patterns.
+
+Before studying how servers such as NGINX, Envoy, Apache, Redis, Memcached, PostgreSQL, MySQL, or SQL Server execute requests, we need a clear mental model of:
+
+* What a process is
+* What a thread is
+* How processes and threads use memory
+* How they compete for CPU time
+* How different execution models affect backend performance
+
+A backend application can be designed in different ways:
+
+1. Single process, single thread
+2. Multiple processes
+3. Single process, multiple threads
+4. Hybrid models
+
+Each model has tradeoffs in memory usage, CPU usage, complexity, safety, and performance.
+
+The main idea is that CPU time is limited. Processes and threads compete for CPU execution time, and the operating system scheduler decides when each one gets to run.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 What Is a Process?
+
+A process is a running instance of a program.
+
+From the CPU perspective, a process is mostly a sequence of instructions that must be executed.
+
+Those instructions may come from:
+
+* A compiled binary
+* A JIT-compiled program
+* Runtime-generated machine code
+
+A process also has its own isolated memory space.
+
+That means one process usually cannot directly read or write another process’s memory.
+
+A process typically has:
+
+* A process ID, also called PID
+* Its own virtual memory address space
+* Its own heap
+* Its own stack
+* File descriptors
+* Network sockets
+* Execution state
+* Security permissions
+
+Example:
+
+```text
+Redis process
+→ owns memory
+→ stores cached key-value data
+→ has a PID
+→ gets scheduled by the OS
+```
+
+---
+
+### 2.2 Process Memory Isolation
+
+Each process has its own memory space.
+
+If a backend process stores data in memory, that data belongs to that process.
+
+For example, Redis is an in-memory cache.
+
+That means Redis stores key-value data inside the memory space of the Redis process.
+
+```text
+Redis Process
+┌─────────────────────────────┐
+│ Code instructions            │
+│ Heap memory                  │
+│ Key-value cache data         │
+│ Stack                        │
+│ File descriptors             │
+└─────────────────────────────┘
+```
+
+Other processes cannot freely access this memory unless shared memory or inter-process communication is explicitly used.
+
+---
+
+### 2.3 CPU Time Is a Scarce Resource
+
+The CPU can only execute a limited number of instructions at a time.
+
+If a machine has 4 CPU cores, it cannot truly execute 100 CPU-bound processes at the exact same time.
+
+The operating system scheduler decides which process or thread gets CPU time.
+
+When many processes or threads want to run, they compete for CPU execution.
+
+```text
+Many processes / threads
+        ↓
+Operating system scheduler
+        ↓
+Limited CPU cores
+```
+
+CPU time is precious.
+
+Backend systems try to avoid unnecessary waiting, blocking, and context switching.
+
+---
+
+### 2.4 What Happens When a Process Blocks?
+
+A process can only use CPU while it has CPU instructions to execute.
+
+If it performs an operation that waits for something else, it may be removed from the CPU temporarily.
+
+Examples of blocking operations:
+
+* Reading from disk
+* Waiting for network data
+* Waiting for a database response
+* Waiting for a lock
+* Waiting for I/O
+* Sleeping
+
+When that happens, the operating system may schedule another runnable process or thread on the CPU.
+
+This is good for overall system utilization, but too much blocking can hurt backend latency.
+
+---
+
+### 2.5 What Is a Thread?
+
+A thread is a unit of execution inside a process.
+
+In Linux, threads are often treated as lightweight processes.
+
+A thread has:
+
+* Its own thread ID
+* Its own stack
+* Its own execution state
+* Its own CPU scheduling
+* Access to the parent process memory
+
+The main difference is memory sharing.
+
+Threads inside the same process share the same memory address space.
+
+```text
+Process
+┌─────────────────────────────┐
+│ Shared heap memory           │
+│ Shared file descriptors      │
+│                             │
+│ Thread 1 stack               │
+│ Thread 2 stack               │
+│ Thread 3 stack               │
+└─────────────────────────────┘
+```
+
+This makes threads lighter than full processes, but it also introduces concurrency problems.
+
+---
+
+### 2.6 Process vs Thread
+
+| Concept        | Process                               | Thread                                               |
+| -------------- | ------------------------------------- | ---------------------------------------------------- |
+| Memory         | Has its own isolated memory space     | Shares memory with other threads in the same process |
+| ID             | Has a process ID                      | Has a thread ID                                      |
+| Scheduling     | Scheduled by the OS                   | Also scheduled by the OS                             |
+| Communication  | Requires IPC or shared memory         | Can communicate through shared memory                |
+| Safety         | More isolated                         | Less isolated                                        |
+| Memory cost    | Usually higher                        | Usually lower                                        |
+| Complexity     | Simpler isolation                     | More synchronization issues                          |
+| Failure impact | One process crash may not kill others | One thread crash can affect the whole process        |
+
+---
+
+### 2.7 Single-Threaded Process
+
+A single-threaded process uses one main thread for execution.
+
+Example:
+
+```text
+One process
+One main thread
+One execution path
+```
+
+Node.js is commonly described as a single-threaded event-loop-based runtime for JavaScript execution, although it also uses internal worker threads for some operations.
+
+The benefit is simplicity.
+
+The application does not need to deal with many shared-memory threading problems.
+
+The downside is that CPU-heavy work can block the main thread.
+
+---
+
+### 2.8 Multi-Process Architecture
+
+A multi-process backend starts multiple processes.
+
+Each process has its own memory space.
+
+Example:
+
+```text
+Master process
+├── Worker process 1
+├── Worker process 2
+├── Worker process 3
+└── Worker process 4
+```
+
+NGINX is a common example of a server that uses a master-worker process model.
+
+Benefits:
+
+* Better CPU core utilization
+* Stronger isolation between workers
+* A worker crash may not kill the whole server
+* Easier memory isolation
+
+Costs:
+
+* More memory usage
+* More complex coordination
+* Need for inter-process communication or shared memory when workers must share state
+
+---
+
+### 2.9 Shared Memory Between Processes
+
+Although processes usually have separate memory, they can also use shared memory.
+
+Databases often use shared buffer areas.
+
+Examples:
+
+* PostgreSQL has shared buffers.
+* MySQL/InnoDB has a buffer pool.
+
+These memory areas store frequently used pages from disk.
+
+The idea is to avoid reading from disk repeatedly.
+
+```text
+Process 1 ┐
+Process 2 ├── Shared buffer memory
+Process 3 ┘
+```
+
+Shared memory improves performance, but it requires careful synchronization.
+
+---
+
+### 2.10 Copy-on-Write
+
+When a process forks, the operating system does not always copy all memory immediately.
+
+Instead, it can use **copy-on-write**, also called COW.
+
+The parent process and child process initially point to the same memory pages.
+
+As long as both only read the pages, no copy is needed.
+
+When one process tries to modify a page, the OS copies that page.
+
+```text
+Before write:
+Parent process ─┐
+                 ├── Same memory page
+Child process  ─┘
+
+After parent writes:
+Parent process ─── New copied page
+Child process  ─── Original page
+```
+
+This is efficient because only modified pages are copied.
+
+---
+
+### 2.11 Redis Snapshot Example
+
+Redis uses memory heavily because it is an in-memory data store.
+
+Redis can persist data to disk using snapshots.
+
+A naive snapshot design would block the main Redis process while writing memory to disk.
+
+That would be bad because clients would have to wait.
+
+Instead, Redis can fork a child process.
+
+The child process writes the snapshot to disk.
+
+The parent process continues serving requests.
+
+Copy-on-write helps make this efficient.
+
+The child sees a consistent snapshot of memory, while the parent can continue modifying data.
+
+```text
+Redis parent process
+→ continues serving clients
+
+Redis child process
+→ writes snapshot to disk
+```
+
+This design avoids stopping the whole server during snapshot persistence.
+
+---
+
+### 2.12 Multi-Threaded Architecture
+
+A multi-threaded backend uses one process with multiple threads.
+
+Example:
+
+```text
+One process
+├── Thread 1
+├── Thread 2
+├── Thread 3
+└── Thread 4
+```
+
+Benefits:
+
+* Lower memory usage than multiple processes
+* Shared memory makes communication easier
+* Can use multiple CPU cores
+* Good for parallel work
+
+Costs:
+
+* Race conditions
+* Locking complexity
+* Deadlocks
+* Shared-memory bugs
+* Harder debugging
+
+Examples of systems that can use multi-threading:
+
+* Apache
+* Envoy
+* SQL Server
+
+---
+
+### 2.13 Race Conditions
+
+A race condition happens when multiple threads access shared data at the same time and the result depends on timing.
+
+Example:
+
+```text
+counter = 2
+```
+
+Two threads both try to increment the counter.
+
+Expected result:
+
+```text
+counter = 4
+```
+
+But the actual result may be:
+
+```text
+counter = 3
+```
+
+Why?
+
+Because incrementing is not a single operation.
+
+It usually involves:
+
+```text
+1. Read value
+2. Add 1
+3. Store value
+```
+
+If both threads read `2` at the same time, both calculate `3`, and both store `3`.
+
+One increment is lost.
+
+---
+
+### 2.14 Locks, Mutexes, and Latches
+
+To prevent race conditions, threads use synchronization mechanisms.
+
+Common examples:
+
+* Lock
+* Mutex
+* Latch
+* Semaphore
+* Read-write lock
+
+A lock ensures that only one thread can access a critical section at a time.
+
+Example:
+
+```text
+Thread 1 locks variable
+Thread 1 updates variable
+Thread 1 unlocks variable
+
+Thread 2 waits
+Thread 2 locks variable
+Thread 2 updates variable
+Thread 2 unlocks variable
+```
+
+Locks solve correctness problems, but they can create waiting.
+
+Waiting reduces throughput and increases latency.
+
+---
+
+### 2.15 SQL Server Clustered Index Contention Example
+
+The lecture gives an example from SQL Server.
+
+In SQL Server, a clustered index defines the physical order of rows in the table structure.
+
+If a table uses an auto-incrementing clustered key, new rows are usually inserted at the end of the index.
+
+This can create a “last page” contention problem.
+
+Imagine many threads inserting rows at the same time:
+
+```text
+Thread 1 → insert row with ID 101
+Thread 2 → insert row with ID 102
+Thread 3 → insert row with ID 103
+Thread 4 → insert row with ID 104
+```
+
+Because all rows go to the same final page, all threads compete to write to the same memory page.
+
+Only one thread can safely modify that page at a time.
+
+So the threads must lock, wait, write, and unlock.
+
+```text
+Lock page
+Insert row
+Unlock page
+Next thread waits
+Lock page
+Insert row
+Unlock page
+```
+
+This reduces write throughput.
+
+The problem is not only SQL syntax. It is related to how multi-threaded execution, locking, memory pages, and index structure interact.
+
+---
+
+### 2.16 Too Many Processes or Threads Can Hurt Performance
+
+More processes or threads do not always mean better performance.
+
+If a machine has 4 CPU cores and the application creates 100 CPU-bound processes, those processes will compete for limited CPU time.
+
+The scheduler must constantly switch between them.
+
+This creates overhead called context switching.
+
+```text
+100 runnable processes
+4 CPU cores
+→ many processes waiting
+→ more context switching
+→ possible worse performance
+```
+
+For CPU-bound workloads, a common rule of thumb is to align the number of active workers with the number of available CPU cores or hardware threads.
+
+For I/O-bound workloads, the ideal number may be different because many workers may spend time waiting on I/O.
+
+---
+
+### 2.17 CPU-Bound vs I/O-Bound Workloads
+
+A backend workload can be CPU-bound or I/O-bound.
+
+CPU-bound work spends most of its time using the CPU.
+
+Examples:
+
+* Encryption
+* Compression
+* Hashing
+* Mathematical computation
+* Image/video processing
+* Machine learning inference
+
+I/O-bound work spends most of its time waiting for external resources.
+
+Examples:
+
+* Reading from disk
+* Calling a database
+* Calling another service
+* Waiting for network responses
+* Reading files
+
+This distinction matters because it affects the best execution model.
+
+---
+
+### 2.18 Context Switching
+
+A context switch happens when the CPU stops running one process or thread and starts running another.
+
+The operating system must save the current execution state and load another one.
+
+Context switching is necessary, but too much of it can hurt performance.
+
+Too many runnable processes or threads can increase context switching overhead.
+
+This can reduce throughput and increase latency.
+
+---
+
+## 3. Important Notes
+
+### Processes Provide Isolation
+
+Processes are safer because memory is isolated.
+
+If one worker process crashes, other workers may continue running.
+
+This is one reason multi-process designs are common in high-performance servers.
+
+---
+
+### Threads Are Lightweight but Dangerous
+
+Threads are cheaper than processes in memory usage.
+
+However, because threads share memory, they are easier to misuse.
+
+Shared-memory bugs can be subtle and difficult to reproduce.
+
+---
+
+### CPU Scheduling Shapes Backend Performance
+
+Backend engineers often think only about application code.
+
+But the operating system scheduler has a huge impact on performance.
+
+If a backend has too many runnable workers, they all compete for CPU time.
+
+If workers block too often, they get removed from the CPU.
+
+If locks are heavily contended, threads spend time waiting instead of doing useful work.
+
+---
+
+### More Parallelism Is Not Always Better
+
+Adding more processes or threads can improve performance only up to a point.
+
+After that, it can make performance worse because of:
+
+* Memory overhead
+* Lock contention
+* Scheduling overhead
+* Context switching
+* Cache misses
+* Coordination costs
+
+The best architecture depends on workload type.
+
+---
+
+### Backend Architecture Depends on Workload
+
+There is no single perfect execution model.
+
+A good design depends on whether the backend is:
+
+* CPU-bound
+* I/O-bound
+* Memory-heavy
+* Connection-heavy
+* Disk-heavy
+* Lock-heavy
+* Latency-sensitive
+* Throughput-oriented
+
+This is why different systems use different architectures.
+
+---
+
+## 4. Examples
+
+### Example 1: Process Mental Model
+
+```text
+Process
+├── Program instructions
+├── PID
+├── Own virtual memory
+├── Heap
+├── Stack
+├── File descriptors
+└── Sockets
+```
+
+A process is a running program with its own isolated resources.
+
+---
+
+### Example 2: Thread Mental Model
+
+```text
+Process
+├── Shared heap
+├── Shared file descriptors
+├── Thread 1
+├── Thread 2
+└── Thread 3
+```
+
+Threads share the process memory but have their own execution state.
+
+---
+
+### Example 3: Single-Threaded Backend
+
+```text
+One process
+One main thread
+Many requests handled through an event loop
+```
+
+Example style:
+
+```text
+Node.js-style event loop
+```
+
+Good for:
+
+* I/O-heavy workloads
+* Many concurrent connections
+* Simpler programming model
+
+Bad for:
+
+* Long CPU-heavy tasks on the main thread
+
+---
+
+### Example 4: Multi-Process Backend
+
+```text
+Master process
+├── Worker process 1
+├── Worker process 2
+├── Worker process 3
+└── Worker process 4
+```
+
+Good for:
+
+* Using multiple CPU cores
+* Process isolation
+* High-performance servers
+
+Example:
+
+```text
+NGINX worker processes
+```
+
+---
+
+### Example 5: Multi-Threaded Backend
+
+```text
+One process
+├── Worker thread 1
+├── Worker thread 2
+├── Worker thread 3
+└── Worker thread 4
+```
+
+Good for:
+
+* Shared-memory workloads
+* Parallel request execution
+* Lower memory usage than many processes
+
+Risk:
+
+```text
+Race conditions
+Lock contention
+Deadlocks
+```
+
+---
+
+### Example 6: Copy-on-Write Snapshot
+
+```text
+1. Redis parent process has memory data.
+2. Redis forks a child process.
+3. Parent continues serving requests.
+4. Child writes snapshot to disk.
+5. OS copies only pages that change.
+```
+
+This allows Redis to persist a snapshot without blocking the main process for the entire disk write.
+
+---
+
+### Example 7: Race Condition with Increment
+
+```text
+Initial value: counter = 2
+
+Thread 1 reads counter = 2
+Thread 2 reads counter = 2
+
+Thread 1 adds 1 → 3
+Thread 2 adds 1 → 3
+
+Thread 1 stores 3
+Thread 2 stores 3
+
+Final value: 3
+Expected value: 4
+```
+
+This is why synchronization is needed.
+
+---
+
+### Example 8: Too Many Workers
+
+```text
+Machine:
+4 CPU cores
+
+Application:
+100 CPU-bound worker processes
+```
+
+Problem:
+
+```text
+Only 4 can run at a time.
+96 are waiting.
+The OS constantly switches between workers.
+Context switching overhead increases.
+```
+
+More workers can make the system slower instead of faster.
+
+---
+
+## 5. Questions / Review
+
+1. What is a process?
+
+2. What resources does a process usually own?
+
+3. What is a thread?
+
+4. What is the main difference between a process and a thread?
+
+5. Why is process memory isolation useful?
+
+6. Why can shared memory between threads be dangerous?
+
+7. What is CPU scheduling?
+
+8. Why is CPU time considered a scarce resource?
+
+9. What happens when a process blocks on I/O?
+
+10. What is the difference between CPU-bound and I/O-bound workloads?
+
+11. What is a single-threaded execution model?
+
+12. What are the benefits of a multi-process backend?
+
+13. What are the benefits of a multi-threaded backend?
+
+14. What is a race condition?
+
+15. Why are locks needed in multi-threaded programs?
+
+16. How can locks reduce throughput?
+
+17. What is copy-on-write?
+
+18. How does Redis use fork and copy-on-write for snapshots?
+
+19. Why can too many processes or threads hurt performance?
+
+20. What is context switching?
+
+21. Why should the number of workers often relate to the number of CPU cores?
+
+22. Why does understanding processes and threads make someone a better backend engineer?
+
+---
+
+## Short Takeaway
+
+A process is a running program with its own isolated memory and resources.
+
+A thread is a lighter execution unit inside a process that shares memory with other threads.
+
+Both processes and threads compete for CPU time.
+
+The operating system scheduler decides which process or thread runs and when.
+
+Multi-process architectures provide stronger isolation but often use more memory.
+
+Multi-threaded architectures use memory more efficiently but introduce race conditions, locks, and contention.
+
+Backend performance depends heavily on choosing the right execution model for the workload.

@@ -1,0 +1,340 @@
+# 032 - HTTPS over TCP with TLS 1.2
+
+**Section:** 04 - Many Ways to HTTPS
+**Duration:** 6min
+
+---
+
+## 1. Summary
+
+This lecture explains how **HTTPS works over TCP using TLS 1.2**.
+
+Before a client can securely send HTTP data to a server, several steps must happen:
+
+1. A TCP connection must be established.
+2. A TLS 1.2 handshake must happen.
+3. The client and server must agree on encryption settings.
+4. Both sides must generate the same symmetric key.
+5. Encrypted HTTP data can finally be exchanged.
+
+HTTPS over TCP is used by:
+
+* HTTP/1.1
+* HTTP/2
+
+However, HTTP/3 does not run over TCP. HTTP/3 runs over QUIC.
+
+TLS 1.2 is the minimum TLS version discussed in this course because older versions such as TLS 1.0 and TLS 1.1 are deprecated and insecure.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 HTTPS Runs on Top of TCP
+
+When using HTTPS over TCP, the client must first create a TCP connection with the server.
+
+This is done using the TCP three-way handshake:
+
+```text
+Client → Server: SYN
+Server → Client: SYN-ACK
+Client → Server: ACK
+```
+
+After this handshake, a stateful TCP connection exists between the client and server.
+
+However, this connection is not encrypted yet.
+
+---
+
+### 2.2 TCP Alone Is Not Secure
+
+After the TCP connection is established, the client and server can technically send data.
+
+But at this point, the data would be unencrypted.
+
+That is not acceptable for HTTPS.
+
+So before sending HTTP requests and responses, the client and server must establish encryption using TLS.
+
+---
+
+### 2.3 TLS 1.2 Handshake Comes After TCP
+
+TLS 1.2 runs after TCP connection establishment.
+
+The TLS handshake is used to:
+
+* Negotiate supported TLS options.
+* Choose a cipher suite.
+* Choose a key exchange algorithm.
+* Exchange public parameters.
+* Generate a shared symmetric key.
+* Start encrypted communication.
+
+Only after the TLS handshake is complete can the client send an encrypted HTTP request.
+
+---
+
+### 2.4 Symmetric Encryption Is Used for Actual Data
+
+HTTPS does not use asymmetric encryption for all application data because that would be too expensive.
+
+Instead, the client and server agree on a shared symmetric key.
+
+After that, both sides use this same key to encrypt and decrypt data.
+
+Common symmetric encryption algorithms include:
+
+* AES-GCM
+* ChaCha20-Poly1305
+
+The key idea is:
+
+```text
+Same symmetric key → encrypt data
+Same symmetric key → decrypt data
+```
+
+---
+
+### 2.5 The Symmetric Key Cannot Be Sent Directly
+
+The client cannot simply generate a symmetric key and send it to the server in plaintext.
+
+If it did that, anyone in the middle could capture the key and decrypt the communication.
+
+Instead, TLS uses a key exchange algorithm.
+
+The key exchange allows both the client and server to independently generate the same shared secret without sending the final secret key directly over the network.
+
+---
+
+### 2.6 TLS 1.2 Negotiation
+
+TLS 1.2 starts with a `ClientHello`.
+
+The client tells the server:
+
+* Supported TLS versions
+* Supported cipher suites
+* Supported key exchange algorithms
+* Supported symmetric encryption algorithms
+* TLS extensions, such as SNI
+
+The server responds with a `ServerHello`.
+
+The server chooses:
+
+* The TLS version
+* The cipher suite
+* The key exchange method
+* The encryption algorithm
+
+This negotiation decides how the secure connection will work.
+
+---
+
+## 3. Important Notes
+
+### TLS 1.2 Requires Multiple Steps
+
+With HTTPS over TCP and TLS 1.2, the client usually needs multiple round trips before it can send the real HTTP request.
+
+The sequence is roughly:
+
+```text
+1. TCP handshake
+2. TLS 1.2 handshake
+3. Encrypted HTTP request
+4. Encrypted HTTP response
+```
+
+This is why TLS 1.2 can add noticeable latency, especially when opening a new connection.
+
+---
+
+### HTTP/3 Does Not Use TCP
+
+HTTPS over TCP applies to HTTP/1.1 and HTTP/2.
+
+HTTP/3 is different because it runs over QUIC, not TCP.
+
+So when discussing HTTPS over TCP, HTTP/3 is not included.
+
+---
+
+### TLS 1.0 and TLS 1.1 Are Deprecated
+
+Older TLS versions are not the focus of this course.
+
+TLS 1.0 and TLS 1.1 are considered insecure and deprecated.
+
+They may still exist in some legacy systems for backward compatibility, but they should not be used in modern secure systems.
+
+---
+
+### TLS 1.2 Is Secure but Slower Than Newer Options
+
+TLS 1.2 is still important to understand because it has been widely used.
+
+However, compared with TLS 1.3 and QUIC-based HTTPS, it usually requires more round trips before application data can be sent.
+
+That means higher connection startup latency.
+
+---
+
+## 4. Examples
+
+### Example 1: HTTPS over TCP with TLS 1.2 Flow
+
+```text
+Client                                     Server
+  |                                           |
+  | -------- SYN --------------------------> |
+  | <-------- SYN-ACK ---------------------- |
+  | -------- ACK --------------------------> |
+  |                                           |
+  |          TCP connection established       |
+  |                                           |
+  | -------- ClientHello ------------------> |
+  | <-------- ServerHello ------------------ |
+  | <-------- Certificate ------------------ |
+  | <-------- Server key parameters -------- |
+  | -------- Client key parameters --------> |
+  | -------- Finished ---------------------> |
+  | <-------- Finished --------------------- |
+  |                                           |
+  |          TLS session established          |
+  |                                           |
+  | -------- Encrypted HTTP GET -----------> |
+  | <-------- Encrypted HTTP 200 OK -------- |
+  |                                           |
+```
+
+---
+
+### Example 2: TCP Handshake
+
+Before TLS starts, TCP must establish a connection.
+
+```text
+SYN → SYN-ACK → ACK
+```
+
+This creates a reliable stateful connection between the client and server.
+
+---
+
+### Example 3: TLS 1.2 ClientHello
+
+The client sends something conceptually like:
+
+```text
+ClientHello:
+- I support TLS 1.2
+- I support these cipher suites
+- I support these key exchange algorithms
+- I support AES-GCM
+- I support ChaCha20-Poly1305
+- I support SNI
+```
+
+The client is basically giving the server a list of supported options.
+
+---
+
+### Example 4: TLS 1.2 ServerHello
+
+The server responds with selected options:
+
+```text
+ServerHello:
+- Use TLS 1.2
+- Use this cipher suite
+- Use this key exchange algorithm
+- Use this encryption algorithm
+- Here is my certificate
+- Here are my public key exchange parameters
+```
+
+The server chooses one compatible configuration from the client’s supported list.
+
+---
+
+### Example 5: Shared Symmetric Key Generation
+
+The client and server exchange public parameters.
+
+Then each side combines:
+
+```text
+Its own private value
++
+The other side’s public value
+```
+
+From this, both sides generate the same symmetric key.
+
+The final symmetric key itself is never sent directly over the network.
+
+---
+
+### Example 6: Sending Encrypted HTTP Data
+
+After the TLS handshake is complete, the client can send an encrypted HTTP request:
+
+```text
+GET /index.html HTTP/1.1
+Host: example.com
+```
+
+But on the wire, it is encrypted.
+
+The server receives encrypted bytes, decrypts them using the shared symmetric key, processes the request, and sends back an encrypted response:
+
+```text
+HTTP/1.1 200 OK
+```
+
+---
+
+## 5. Questions / Review
+
+1. Why does HTTPS over TCP need a TCP handshake first?
+
+2. What are the three steps in the TCP three-way handshake?
+
+3. Why is the TCP connection not enough for HTTPS security?
+
+4. What is the purpose of the TLS 1.2 handshake?
+
+5. Why does HTTPS use symmetric encryption for application data?
+
+6. Why can’t the client simply send the symmetric key directly to the server?
+
+7. What is the role of the `ClientHello` message?
+
+8. What is the role of the `ServerHello` message?
+
+9. Which HTTP versions can run over TCP?
+
+10. Why is HTTP/3 not part of HTTPS over TCP?
+
+11. Why are TLS 1.0 and TLS 1.1 not discussed in detail?
+
+12. Why does TLS 1.2 usually have more latency than TLS 1.3 or QUIC?
+
+---
+
+## Short Takeaway
+
+HTTPS over TCP with TLS 1.2 requires multiple setup phases before real HTTP data can be sent.
+
+First, the client establishes a TCP connection.
+Then, the client and server perform a TLS 1.2 handshake.
+During that handshake, they negotiate encryption settings and generate a shared symmetric key.
+Only after that can encrypted HTTP requests and responses be exchanged.
+
+This setup is secure, but it introduces latency because it requires several network round trips before application data can flow.

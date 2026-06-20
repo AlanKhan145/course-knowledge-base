@@ -1,0 +1,586 @@
+# 053 - WebSocket Proxying
+
+Section: 06 - Proxying and Load Balancing
+Duration: 23min
+
+---
+
+## 1. Summary
+
+This lecture explains how WebSocket proxying works with **Layer 4** and **Layer 7** proxies/load balancers.
+
+WebSocket is different from normal HTTP request-response traffic because after the HTTP upgrade request succeeds, the connection becomes **long-lived**, **stateful**, and **bidirectional**.
+
+With **Layer 4 proxying**, the proxy does not understand WebSocket at all. It simply creates a TCP tunnel between the client and the backend server. TLS is passed through to the backend, so the proxy cannot decrypt or inspect the traffic.
+
+With **Layer 7 proxying**, the proxy terminates TLS, reads the HTTP upgrade request, understands that the client wants to upgrade to WebSocket, chooses a backend, opens another connection to that backend, and then tunnels WebSocket messages between both sides.
+
+The most important point is that WebSocket load balancing is usually done at the **connection level**, not the message level. Once a WebSocket connection is assigned to a backend, all messages for that connection must keep going to the same backend.
+
+---
+
+## 2. Key Concepts
+
+### Layer 4 Proxying
+
+A Layer 4 proxy works at the transport layer.
+
+It sees:
+
+* source IP address
+* destination IP address
+* source port
+* destination port
+* TCP connection state
+* TCP segments
+
+It does not inspect application data.
+
+Even if the data contains HTTP or WebSocket messages, Layer 4 does not care. It treats everything as raw bytes.
+
+---
+
+### Layer 7 Proxying
+
+A Layer 7 proxy works at the application layer.
+
+It can see everything from Layer 4 plus application-level data.
+
+For HTTP/WebSocket traffic, it can inspect:
+
+* HTTP method
+* URL path
+* headers
+* cookies
+* upgrade headers
+* authentication information
+* request body, if needed
+
+To inspect HTTPS traffic, the Layer 7 proxy must terminate TLS.
+
+That means the TLS session is established between:
+
+```text
+Client ↔ Proxy
+```
+
+Then the proxy may establish another TLS session with the backend:
+
+```text
+Proxy ↔ Backend
+```
+
+So in Layer 7 proxying, there are usually two separate secure connections.
+
+---
+
+### WebSocket Upgrade
+
+WebSocket starts as an HTTP request.
+
+The client sends an HTTP upgrade request, usually with headers like:
+
+```text
+Upgrade: websocket
+Connection: Upgrade
+```
+
+If the server accepts, it responds with:
+
+```text
+101 Switching Protocols
+```
+
+After this response, the connection is no longer normal HTTP request-response. It becomes a persistent WebSocket connection.
+
+---
+
+### Layer 4 WebSocket Proxying
+
+In Layer 4 WebSocket proxying, the proxy acts as a dumb TCP tunnel.
+
+The flow looks like this:
+
+```text
+Client
+  ↓
+Layer 4 Proxy / NGINX
+  ↓
+WebSocket Backend Server
+```
+
+The proxy does not understand:
+
+* TLS handshake
+* HTTP upgrade request
+* WebSocket frames
+* WebSocket messages
+
+It simply forwards bytes between the client and backend.
+
+If the client sends a TLS handshake, the proxy forwards it to the backend.
+
+If the client sends a WebSocket upgrade request, the proxy forwards it to the backend.
+
+If the backend responds with `101 Switching Protocols`, the proxy forwards it back to the client.
+
+After that, all WebSocket messages are tunneled through the proxy.
+
+---
+
+### End-to-End TLS in Layer 4
+
+With Layer 4 proxying, TLS can remain end-to-end between the client and backend.
+
+The proxy does not have the TLS key and cannot decrypt the traffic.
+
+The flow is:
+
+```text
+Client TLS Session ↔ Backend Server
+```
+
+The proxy is only in the middle forwarding encrypted bytes.
+
+This means:
+
+* the proxy cannot inspect messages,
+* the proxy cannot modify messages,
+* the proxy cannot apply application-layer rules,
+* the proxy does not need the TLS private key,
+* the backend owns the certificate and TLS session.
+
+---
+
+### Layer 7 WebSocket Proxying
+
+In Layer 7 WebSocket proxying, the proxy understands the HTTP upgrade request.
+
+The flow looks like this:
+
+```text
+Client
+  ↓ TLS Session 1
+Layer 7 Proxy / NGINX
+  ↓ TLS Session 2
+WebSocket Backend Server
+```
+
+The proxy first terminates TLS with the client.
+
+Then it reads the HTTP upgrade request.
+
+Then it decides which backend should receive the WebSocket connection.
+
+Then it opens a connection to the backend and sends its own upgrade request.
+
+If the backend accepts, the backend responds with `101 Switching Protocols`.
+
+Then the proxy sends `101 Switching Protocols` back to the client.
+
+At that point, the proxy links the two WebSocket connections together.
+
+---
+
+### Two WebSocket Connections in Layer 7
+
+With Layer 7 proxying, there are technically two WebSocket connections:
+
+```text
+Client ↔ Proxy
+Proxy  ↔ Backend
+```
+
+The proxy decrypts messages from the client, may inspect or modify them, then re-encrypts them before sending them to the backend.
+
+The same happens in reverse.
+
+This means the proxy can perform smart application-level logic.
+
+---
+
+### Smart Routing
+
+Layer 7 proxying allows smart routing based on URL paths.
+
+For example:
+
+```text
+/chat       → chat WebSocket server
+/feed       → feed WebSocket server
+/super-chat → premium chat server
+/media      → media server
+/index.html → normal HTTP server
+```
+
+Layer 4 cannot do this because it cannot read the URL path.
+
+Layer 4 can only route based on IP address, port, and connection metadata.
+
+---
+
+### Connection-Level Load Balancing
+
+For WebSockets, load balancing usually happens when the connection is created.
+
+Once a WebSocket connection is assigned to a backend, all future WebSocket messages must go to the same backend.
+
+You cannot normally send each WebSocket message to a different backend.
+
+That would break connection state.
+
+WebSocket is stateful, ordered, and connection-based.
+
+---
+
+### No Backend Connection Pooling for Active WebSockets
+
+Normal HTTP requests can often reuse backend connections.
+
+But WebSocket connections are long-lived and private.
+
+Once a backend connection is assigned to a client WebSocket connection, it usually stays reserved for that client until the connection closes.
+
+If there are `N` connected WebSocket clients, the proxy may need `N` backend WebSocket connections.
+
+This makes WebSocket proxying more expensive than normal HTTP proxying.
+
+---
+
+## 3. Important Notes
+
+### Layer 4 WebSocket Proxy Pros
+
+Layer 4 WebSocket proxying is simple.
+
+The proxy does not need to understand WebSocket.
+
+It works with any protocol because it only tunnels TCP data.
+
+TLS can remain end-to-end between client and backend.
+
+The proxy does not need the backend certificate or private key.
+
+It is usually faster because it does less processing.
+
+---
+
+### Layer 4 WebSocket Proxy Cons
+
+Layer 4 cannot inspect the WebSocket upgrade request.
+
+It cannot route based on:
+
+* path
+* headers
+* cookies
+* authentication
+* user identity
+* WebSocket subprotocol
+* message content
+
+It also cannot filter, block, transform, or validate WebSocket messages.
+
+Layer 4 can only load balance at the connection level.
+
+---
+
+### Layer 7 WebSocket Proxy Pros
+
+Layer 7 can understand the HTTP upgrade request.
+
+It can route WebSocket connections intelligently.
+
+It can inspect:
+
+* request path
+* headers
+* cookies
+* authentication tokens
+* WebSocket subprotocols
+
+It can be used for:
+
+* API gateway logic
+* authentication
+* authorization
+* path-based routing
+* service-based routing
+* filtering
+* logging
+* message inspection, if supported
+
+---
+
+### Layer 7 WebSocket Proxy Cons
+
+Layer 7 is more expensive.
+
+It must:
+
+* terminate TLS,
+* decrypt traffic,
+* parse HTTP,
+* detect the WebSocket upgrade,
+* open a backend connection,
+* possibly create another TLS session,
+* forward messages in both directions.
+
+It also requires the proxy to have certificates/private keys for the client-facing TLS connection.
+
+Some teams dislike this because the proxy can see decrypted traffic.
+
+---
+
+### Timeout Configuration Is Critical
+
+WebSocket connections can stay idle for a long time.
+
+If the proxy timeout is too short, it may close the connection even though the WebSocket session is still valid.
+
+For WebSockets, you must configure:
+
+* read timeout,
+* write timeout,
+* idle timeout,
+* keep-alive behavior,
+* ping/pong behavior.
+
+Bad timeout configuration is one of the most common WebSocket proxying problems.
+
+---
+
+### WebSocket Is Not Request-Response
+
+Normal HTTP works like this:
+
+```text
+Client sends request
+Server sends response
+Connection may be reused
+```
+
+WebSocket works differently:
+
+```text
+Client and server keep one open connection
+Either side can send messages at any time
+Communication is bidirectional
+```
+
+Because of this, WebSocket connections must preserve order and state.
+
+---
+
+### Message-by-Message Load Balancing
+
+Normal proxies do not usually load balance WebSocket message by message.
+
+They load balance at connection creation time.
+
+A custom message-level WebSocket load balancer is possible, but it must understand the application protocol and message semantics.
+
+For example, if messages are independent and stateless, you could build a custom system that forwards messages to different workers.
+
+But this is application-specific and must be designed carefully.
+
+---
+
+## 4. Examples
+
+### Example 1: Layer 4 WebSocket Proxy
+
+A client wants to connect to a secure WebSocket server:
+
+```text
+wss://example.com/chat
+```
+
+The flow:
+
+```text
+Client opens TCP connection to proxy
+Proxy opens TCP connection to backend
+Client sends TLS handshake
+Proxy forwards TLS handshake to backend
+Backend completes TLS handshake with client
+Client sends WebSocket upgrade request
+Proxy forwards encrypted bytes to backend
+Backend responds with 101 Switching Protocols
+Proxy forwards response to client
+WebSocket tunnel is established
+```
+
+The proxy does not understand that this is WebSocket.
+
+It only forwards bytes.
+
+---
+
+### Example 2: Layer 7 WebSocket Proxy
+
+A client connects to:
+
+```text
+wss://example.com/chat
+```
+
+The flow:
+
+```text
+Client opens TCP connection to proxy
+Client performs TLS handshake with proxy
+Proxy decrypts the traffic
+Client sends HTTP WebSocket upgrade request
+Proxy reads the path /chat
+Proxy chooses the chat backend
+Proxy opens connection to backend
+Proxy sends WebSocket upgrade request to backend
+Backend responds with 101 Switching Protocols
+Proxy responds to client with 101 Switching Protocols
+WebSocket proxying starts
+```
+
+Now there are two WebSocket connections:
+
+```text
+Client ↔ Proxy
+Proxy ↔ Backend
+```
+
+---
+
+### Example 3: Smart Layer 7 Routing
+
+Layer 7 proxy config can route different paths to different services:
+
+```text
+/chat       → chat-service
+/feed       → feed-service
+/super-chat → premium-chat-service
+/media      → media-service
+```
+
+This is possible because the proxy can read the HTTP path before the WebSocket upgrade is completed.
+
+---
+
+### Example 4: WebSocket Message Flow in Layer 7
+
+After the WebSocket connection is established:
+
+```text
+Client sends message
+Proxy decrypts message
+Proxy may inspect or filter message
+Proxy encrypts message for backend
+Backend receives message
+Backend sends response
+Proxy decrypts backend response
+Proxy encrypts response for client
+Client receives response
+```
+
+This gives the proxy more control, but also increases cost and complexity.
+
+---
+
+### Example 5: Why Messages Cannot Be Load Balanced Randomly
+
+Suppose a client has a WebSocket connection assigned to Server A.
+
+The client sends message 1:
+
+```text
+message 1 → Server A
+```
+
+Then the proxy sends message 2 to Server B:
+
+```text
+message 2 → Server B
+```
+
+Server B may not understand the message because it does not have the connection state.
+
+That is why WebSocket load balancing normally keeps all messages from the same connection on the same backend.
+
+---
+
+## 5. Questions / Review
+
+1. What is the difference between Layer 4 and Layer 7 proxying?
+
+2. What information can a Layer 4 proxy see?
+
+3. What information can a Layer 7 proxy see?
+
+4. Why does a Layer 4 proxy not need to understand WebSocket?
+
+5. What does it mean for Layer 4 proxying to act as a TCP tunnel?
+
+6. In Layer 4 WebSocket proxying, where does the TLS handshake terminate?
+
+7. Why can Layer 4 proxying preserve end-to-end encryption?
+
+8. Why can Layer 7 proxying inspect WebSocket upgrade requests?
+
+9. What does TLS termination mean in Layer 7 proxying?
+
+10. Why does a Layer 7 proxy need certificates and private keys?
+
+11. Why are there two WebSocket connections in Layer 7 proxying?
+
+12. How can Layer 7 route `/chat` and `/feed` to different backend services?
+
+13. Why can Layer 4 not route based on URL path?
+
+14. Why is timeout configuration important for WebSockets?
+
+15. Why are WebSocket connections more expensive than normal HTTP requests?
+
+16. Why can WebSocket backend connections not always be pooled like normal HTTP connections?
+
+17. Why is WebSocket load balancing usually done at the connection level?
+
+18. What would happen if a proxy sent WebSocket messages from the same connection to different backend servers?
+
+19. When would you choose Layer 4 WebSocket proxying?
+
+20. When would you choose Layer 7 WebSocket proxying?
+
+---
+
+## Quick Comparison
+
+| Feature               | Layer 4 WebSocket Proxy               | Layer 7 WebSocket Proxy                                  |
+| --------------------- | ------------------------------------- | -------------------------------------------------------- |
+| Understands WebSocket | No                                    | Yes, at least the upgrade request                        |
+| Sees IP/port          | Yes                                   | Yes                                                      |
+| Sees HTTP path        | No                                    | Yes                                                      |
+| Sees headers          | No                                    | Yes                                                      |
+| Terminates TLS        | No, usually pass-through              | Yes                                                      |
+| Can inspect messages  | No                                    | Possible                                                 |
+| Can route by path     | No                                    | Yes                                                      |
+| End-to-end encryption | Yes                                   | No, TLS terminates at proxy                              |
+| Backend connection    | Private tunnel                        | Private after upgrade                                    |
+| Load balancing level  | Connection level                      | Usually connection level                                 |
+| Complexity            | Lower                                 | Higher                                                   |
+| Performance cost      | Lower                                 | Higher                                                   |
+| Best for              | Simple tunneling, arbitrary protocols | API gateway, path routing, auth, smart WebSocket routing |
+
+---
+
+## Final Takeaway
+
+WebSocket proxying is different from normal HTTP proxying because WebSocket connections are long-lived, stateful, and bidirectional.
+
+A Layer 4 proxy treats WebSocket as raw TCP data and simply tunnels traffic between client and backend.
+
+A Layer 7 proxy understands the HTTP upgrade request, can terminate TLS, inspect headers and paths, choose a backend intelligently, and then tunnel WebSocket traffic after the upgrade.
+
+For WebSockets, load balancing is usually done per connection, not per message.
+
+If you need speed, simplicity, and end-to-end encryption, use Layer 4.
+
+If you need smart routing, API gateway behavior, authentication, or path-based WebSocket routing, use Layer 7.

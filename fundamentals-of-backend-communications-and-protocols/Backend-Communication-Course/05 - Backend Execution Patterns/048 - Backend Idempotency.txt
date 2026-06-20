@@ -1,0 +1,556 @@
+# 048 - Backend Idempotency
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 6min
+
+---
+
+## 1. Summary
+
+This lecture explains **idempotency**, a critical concept in backend request execution.
+
+After learning how connections are accepted, how sockets are read, and how requests reach the backend, we now need to ask an important question:
+
+> What happens if the same request is executed more than once?
+
+This can happen because of:
+
+* Client retries
+* Browser retries
+* Network timeouts
+* Proxy retries
+* Load balancer retries
+* User clicking the same button again
+* Unclear request status after connection loss
+
+Idempotency means a request can be repeated without causing unintended side effects on the backend.
+
+This is especially important for operations like payments, orders, account updates, and data creation.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 What Is Idempotency?
+
+Idempotency means that executing the same operation multiple times has the same effect as executing it once.
+
+In backend systems:
+
+```text id="zg2p40"
+Same request sent once
+=
+Same request sent multiple times
+```
+
+The backend state should not be incorrectly changed by retries.
+
+---
+
+### 2.2 Why Requests Get Retried
+
+A client may not always know whether a request succeeded.
+
+Example:
+
+```text id="s8pmhm"
+Client sends request
+Server processes request
+Network connection drops
+Client never receives response
+Client retries request
+```
+
+From the client’s perspective, the request failed.
+
+From the server’s perspective, the request may have already succeeded.
+
+This mismatch creates the duplicate execution problem.
+
+---
+
+### 2.3 Duplicate Comment Example
+
+Imagine a user writes a comment on YouTube or Instagram.
+
+The user clicks submit.
+
+The server receives the request and saves the comment.
+
+But the client times out before receiving the response.
+
+The UI asks:
+
+```text id="az6zp9"
+Request failed. Try again?
+```
+
+The user clicks retry.
+
+If the backend is not idempotent, it may create the same comment twice.
+
+```text id="2e56mv"
+First request  → creates comment
+Retry request  → creates duplicate comment
+```
+
+This is annoying but usually not catastrophic.
+
+---
+
+### 2.4 Duplicate Payment Example
+
+Now imagine the same problem with payment.
+
+```text id="1wi5aj"
+First request  → charges user $100
+Retry request  → charges user $100 again
+```
+
+This is a serious problem.
+
+Financial systems must be designed carefully to avoid duplicate charges.
+
+This is where idempotency becomes critical.
+
+---
+
+### 2.5 Idempotency Key
+
+A common solution is to attach a unique identifier to each request.
+
+This is often called an **idempotency key**.
+
+Example:
+
+```http id="l4f4uc"
+POST /payments
+Idempotency-Key: 8f6f9b50-2a53-4f78-aef1-7e9d8f920abc
+```
+
+The backend stores this key when processing the request.
+
+If the same key appears again, the backend knows the request has already been handled.
+
+---
+
+### 2.6 Request ID / UUID
+
+An idempotency key is usually a unique value such as a UUID.
+
+The client generates it before sending the request.
+
+```text id="o9j9mg"
+Request ID: 123e4567-e89b-12d3-a456-426614174000
+```
+
+The backend checks:
+
+```text id="qzfvkw"
+Have I already processed this request ID?
+```
+
+If yes, it avoids executing the operation again.
+
+---
+
+### 2.7 Store Processed Requests
+
+To implement idempotency, the backend usually needs to store processed request IDs.
+
+Example table:
+
+```text id="058rrc"
+idempotency_keys
+├── key
+├── user_id
+├── endpoint
+├── status
+├── response
+├── created_at
+└── expires_at
+```
+
+When a request arrives:
+
+```text id="7ii0fl"
+1. Check if idempotency key exists.
+2. If not, process request and store result.
+3. If yes, return the stored result or skip duplicate execution.
+```
+
+---
+
+### 2.8 Upsert
+
+Another technique is using an **upsert**.
+
+Upsert means:
+
+```text id="gtvcg0"
+Insert if it does not exist.
+Update if it already exists.
+```
+
+In databases, this can help avoid duplicate rows.
+
+For example, instead of blindly inserting a new comment every time, the backend can enforce uniqueness on a request ID.
+
+```text id="aikj1c"
+INSERT comment with request_id
+If request_id already exists, do not create a duplicate
+```
+
+This makes the operation safer under retries.
+
+---
+
+### 2.9 Idempotency Is About Backend State
+
+The important question is:
+
+> Does repeating this request change backend state incorrectly?
+
+If the answer is yes, the operation needs idempotency protection.
+
+Examples that need protection:
+
+* Creating a payment
+* Creating an order
+* Creating a booking
+* Posting a comment
+* Sending an email
+* Updating account balance
+* Creating a database row
+
+---
+
+## 3. Important Notes
+
+### GET Should Be Idempotent and Safe
+
+GET requests should not change backend state.
+
+A GET request is intended for reading data.
+
+Example:
+
+```http id="sejw1q"
+GET /users/123
+```
+
+You should be able to call this many times without changing the backend.
+
+```text id="vix3bo"
+Read
+Read
+Read
+Read
+```
+
+The backend state should remain the same.
+
+---
+
+### Never Use GET for Important Writes
+
+Do not use GET requests to perform important state-changing actions.
+
+Bad example:
+
+```http id="a2fcg7"
+GET /delete-user?id=123
+```
+
+This is dangerous because browsers, proxies, crawlers, CDNs, and prefetchers may send or retry GET requests automatically.
+
+GET should not be used for actions such as:
+
+* Creating payments
+* Deleting users
+* Updating balances
+* Submitting forms
+* Creating orders
+
+---
+
+### POST Is Usually Not Idempotent by Default
+
+POST often creates new state.
+
+Example:
+
+```http id="qkgmjf"
+POST /comments
+```
+
+If the same POST request is repeated, it may create duplicate data.
+
+Therefore, POST requests often need explicit idempotency keys when retries are possible.
+
+---
+
+### Some Methods Are Naturally More Idempotent
+
+In HTTP semantics:
+
+* GET should be safe and idempotent.
+* PUT is usually idempotent if it replaces a resource.
+* DELETE is usually idempotent in final state.
+* POST is not idempotent by default.
+* PATCH may or may not be idempotent depending on design.
+
+Example of idempotent PUT:
+
+```http id="fvhn7q"
+PUT /users/123/profile
+```
+
+Sending the same profile update multiple times should leave the resource in the same final state.
+
+---
+
+### Proxies and Browsers May Retry
+
+Retries may happen outside your direct control.
+
+They can come from:
+
+* Browser behavior
+* Mobile app retry logic
+* Reverse proxies
+* Layer 7 load balancers
+* CDNs
+* API gateways
+* Service mesh retries
+
+This means backend systems must be designed to tolerate duplicate requests.
+
+---
+
+### Logs Are a Special Case
+
+A GET request may produce logs.
+
+That is usually acceptable.
+
+But you should not make logs from GET requests the source of truth for important business logic.
+
+Why?
+
+Because GET requests may be retried, cached, prefetched, or duplicated.
+
+---
+
+## 4. Examples
+
+### Example 1: Non-Idempotent Comment Creation
+
+```http id="7q8bzt"
+POST /comments
+
+{
+  "video_id": "v1",
+  "text": "Great video!"
+}
+```
+
+If the client retries this request, the backend may create:
+
+```text id="pks1cd"
+Comment 1: Great video!
+Comment 2: Great video!
+```
+
+This is duplicate data.
+
+---
+
+### Example 2: Idempotent Comment Creation with Request ID
+
+```http id="fx2iwp"
+POST /comments
+Idempotency-Key: comment-abc-123
+
+{
+  "video_id": "v1",
+  "text": "Great video!"
+}
+```
+
+Backend logic:
+
+```text id="86frqu"
+If key does not exist:
+    create comment
+    store key
+
+If key already exists:
+    return existing result
+    do not create duplicate comment
+```
+
+Result:
+
+```text id="no15ml"
+Only one comment is created.
+```
+
+---
+
+### Example 3: Dangerous Payment Retry
+
+```http id="iu3yeq"
+POST /payments
+
+{
+  "user_id": "u1",
+  "amount": 100
+}
+```
+
+If retried without idempotency:
+
+```text id="drtqla"
+First request  → charge $100
+Second request → charge $100 again
+```
+
+This is unacceptable.
+
+---
+
+### Example 4: Safe Payment with Idempotency Key
+
+```http id="wpczus"
+POST /payments
+Idempotency-Key: pay-789
+
+{
+  "user_id": "u1",
+  "amount": 100
+}
+```
+
+Backend:
+
+```text id="8p4kc9"
+First request:
+    process payment
+    store result under key pay-789
+
+Retry request:
+    find key pay-789
+    return previous result
+    do not charge again
+```
+
+---
+
+### Example 5: Upsert Example
+
+Suppose each comment has a unique `request_id`.
+
+```sql id="8dlu3v"
+INSERT INTO comments (request_id, user_id, text)
+VALUES ('comment-abc-123', 'user-1', 'Great video!')
+ON CONFLICT (request_id)
+DO NOTHING;
+```
+
+This prevents duplicate inserts for the same request ID.
+
+---
+
+### Example 6: GET Should Not Write
+
+Bad design:
+
+```http id="elapd9"
+GET /charge-user?amount=100
+```
+
+This is dangerous because GET may be retried or prefetched.
+
+Better design:
+
+```http id="i16m8j"
+POST /payments
+Idempotency-Key: pay-123
+```
+
+State-changing operations should use the proper HTTP method and idempotency protection.
+
+---
+
+### Example 7: Retry Timeline
+
+```text id="bj8z93"
+1. Client sends POST /payments with key abc.
+2. Server charges card successfully.
+3. Server response is lost due to network issue.
+4. Client retries POST /payments with same key abc.
+5. Server sees key abc already processed.
+6. Server returns previous result.
+7. User is charged only once.
+```
+
+This is the core value of idempotency.
+
+---
+
+## 5. Questions / Review
+
+1. What does idempotency mean?
+
+2. Why is idempotency important in backend systems?
+
+3. Why might a client retry a request?
+
+4. What can happen if a POST request is retried without idempotency?
+
+5. Why are duplicate comments annoying but duplicate payments dangerous?
+
+6. What is an idempotency key?
+
+7. Why are UUIDs commonly used for idempotency keys?
+
+8. Where can the backend store processed idempotency keys?
+
+9. What should the backend do when it receives a duplicate idempotency key?
+
+10. What is an upsert?
+
+11. How can upsert help with idempotency?
+
+12. Why should GET requests not change backend state?
+
+13. Why can browsers, proxies, or CDNs retry GET requests?
+
+14. Is POST idempotent by default?
+
+15. Which HTTP methods are usually considered idempotent?
+
+16. Why should financial systems care deeply about idempotency?
+
+17. What is the difference between retrying safely and duplicating work?
+
+18. Why should logs from GET requests not always be treated as business source of truth?
+
+---
+
+## Short Takeaway
+
+Idempotency means a request can be repeated without causing unintended backend changes.
+
+This is critical because clients, browsers, proxies, and load balancers may retry requests.
+
+Without idempotency, retries can create duplicate comments, duplicate orders, duplicate payments, or corrupted state.
+
+A common solution is to attach an idempotency key or request ID to each important request.
+
+The backend stores the result of that key and avoids executing the same operation twice.
+
+GET requests should remain safe and should not perform important writes.
+
+POST requests that change state should often use explicit idempotency protection.

@@ -1,0 +1,1317 @@
+Và bây giờ là tuần thứ tư, ngày thứ ba, và cuối cùng cũng đến ngày chúng tôi phải quay lại phòng thí nghiệm.
+
+Đã đến lúc bạn có thể lập trình bằng các mô hình frontier.
+
+Bạn có thể xây dựng các giải pháp bằng llms nguồn mở và giờ đây bạn có thể chọn LLM phù hợp cho nhiệm vụ đang thực hiện dựa trên
+
+số liệu thống kê và bảng xếp hạng.
+
+Hôm nay, chúng ta sẽ đánh giá các mô hình về khả năng mã hóa của chúng và chúng ta sẽ sử dụng
+
+các mô hình biên giới để tạo mã và sẽ xây dựng, xây dựng, xây dựng và con trỏ.
+
+Nhưng trước khi bắt đầu, tôi có một vài thông báo nữa muốn đưa ra.
+
+Ừ, nhưng hãy nghe tôi nói hết đã.
+
+Có một điều cực kỳ quan trọng mà mọi kỹ sư AI cần biết.
+
+Và đây là nhiệm vụ chính của bạn với tư cách là một kỹ sư AI, một kỹ sư LLM, rằng đây là điều bạn phải
+
+tự mình thực hiện.
+
+Và đó là việc đẩy lùi doanh nghiệp của bạn và tìm ra vấn đề trong kinh doanh.
+
+Đây là tình huống mà tôi thường gặp phải.
+
+Tôi thấy mọi người đến gặp tôi và nói những điều như, tôi muốn một tác nhân AI cho tổ chức của mình hoặc điều gì đó
+
+tương tự.
+
+Tôi thường xuyên nhận được những câu hỏi như vậy từ nhiều người, bao gồm cả những người cấp cao,
+
+giám đốc điều hành cấp cao, những người đến từ nhiều hoàn cảnh khác nhau.
+
+Và câu hỏi mà tôi muốn nói lại với họ, cũng chính là câu hỏi mà tất cả các bạn
+
+cần phải nói lại với những người đã nói điều này với bạn, nhưng bạn đang giải quyết vấn đề kinh doanh nào?
+
+Đưa mọi người trở lại vấn đề kinh doanh.
+
+Đừng để các doanh nhân nói về giải pháp.
+
+Và đôi khi tôi thấy rằng khi tôi nói điều đó với ai đó, câu hỏi tôi nhận được chỉ là vẻ mặt bối
+
+rối.
+
+Họ thực sự không hiểu.
+
+Và họ nói điều gì đó như, tôi muốn có thể nói chuyện với điện thoại của mình và hỏi, doanh số bán hàng hôm nay của tôi
+
+là bao nhiêu?
+
+Vậy hãy cho tôi một người đại diện.
+
+Và tất nhiên, câu trả lời của bạn cho câu hỏi đó là có.
+
+Tuyệt vời.
+
+Ừm, vậy thì vấn đề kinh doanh nào sẽ được giải quyết?
+
+Điều quan trọng là chúng ta đang sống trong một thế giới mà sự cường điệu xung quanh AI thế hệ mới và AI đặc vụ lớn đến mức ai cũng muốn
+
+có một chút, điều đó thật tuyệt vời và thú vị, nhưng chúng ta cần phải luôn đưa mọi người
+
+trở lại với vấn đề thực sự đang được giải quyết.
+
+Trước tiên và quan trọng nhất, bạn cần hiểu rõ vấn đề, cách bạn sẽ đo lường thành công và sử
+
+dụng điều đó để xác định giải pháp phù hợp cho vấn đề kinh doanh hiện tại.
+
+Nó phải bắt đầu từ vấn đề và bạn sẽ thấy trong thư mục của mình.
+
+Tôi tin rằng Hướng dẫn 12 có một số lời khuyên hữu ích về những việc bạn nên làm tiếp theo.
+
+Khi bạn đạt đến thời điểm có mục tiêu kinh doanh rõ ràng thì đôi khi AI đại lý hoặc AI thế hệ mới có thể không
+
+phải là giải pháp phù hợp.
+
+Trong trường hợp ai đó muốn xem số liệu bán hàng trên điện thoại của họ hôm nay, có lẽ một tài liệu Google mở ra
+
+hiển thị số liệu bán hàng sẽ dễ dàng hơn là có thứ gì đó để bạn nói chuyện hoặc bất cứ thứ gì khác.
+
+Vì vậy hãy luôn quay lại vấn đề đó.
+
+Và tôi còn có một điều khó chịu nữa.
+
+Và điều này cũng được đề cập trong hướng dẫn 12.
+
+Và điều này có liên quan đến việc lựa chọn phèn chua phù hợp.
+
+Tôi không, tôi không đi lạc đề.
+
+Với tư cách là một kỹ sư AI.
+
+Bạn đội hai chiếc mũ khác nhau.
+
+Bạn có hai công việc trong một, bạn là nhà khoa học dữ liệu và bạn cũng là kỹ sư phần mềm.
+
+Bạn đang ở đúng ngã ba đường đó, và tôi thấy rằng 80% câu hỏi tôi nhận được về các dự án thông qua
+
+Udemy hoặc trong ngành đều liên quan đến các vấn đề kỹ thuật.
+
+Mọi người hỏi tôi nên sử dụng kiến trúc nào?
+
+Tôi sẽ thực hiện tích hợp như thế nào?
+
+Đường ống dữ liệu của tôi sẽ như thế nào?
+
+Tôi nên sử dụng framework nào?
+
+Tôi có nên sử dụng lang chain không?
+
+Tôi có nên sử dụng đèn chiếu sáng không?
+
+Tôi nên sử dụng cơ sở dữ liệu vector nào, mã nguồn mở như Croma hay nên sử dụng pinecone
+
+hoặc V8?
+
+Đây là tất cả những câu hỏi mà mọi người thường hỏi, và tôi cảm thấy mọi người thường hỏi những câu hỏi đó vì chúng nằm trong
+
+vùng an toàn của họ.
+
+Đây là những mối quan tâm về kỹ thuật mà nhiều người xuất phát từ AI, từ nền tảng kỹ thuật
+
+phần mềm.
+
+Và đây là loại câu hỏi mà họ thường hỏi.
+
+Nhưng theo tôi, đó không phải là câu hỏi quan trọng nhất và cũng không phải là câu hỏi quyết định sự thành
+
+bại của dự án của bạn.
+
+Vậy điều gì sẽ làm cho giải pháp của bạn trở nên khác biệt?
+
+Điều gì thực sự quan trọng?
+
+Theo tôi, 80% câu hỏi tôi hỏi đều liên quan đến phần khoa học của câu chuyện.
+
+Bạn đang giải quyết vấn đề kinh doanh nào mà chúng ta vừa đề cập?
+
+Và bạn sẽ đo lường điều đó như thế nào?
+
+Bạn đã giải quyết được vấn đề kinh doanh đó.
+
+Bạn sẽ đo lường thành công như thế nào và bạn có dữ liệu gì cũng như những thiếu sót là gì?
+
+Bạn cần dữ liệu gì?
+
+Bởi vì hãy nhớ rằng dữ liệu chính là thứ sẽ giúp bạn tạo sự khác biệt.
+
+Đó là cách LM của bạn có thể vượt trội hơn những LM khác.
+
+Vậy đó là những câu hỏi khó.
+
+Và đó là những câu hỏi mà bạn nên hỏi trước tiên và quan trọng nhất, đồng thời dành nhiều thời gian nhất vì bạn
+
+sẽ chọn cơ sở dữ liệu vector nào dựa trên các kiến trúc, khuôn khổ khác nhau.
+
+Điều này rất quan trọng.
+
+Đây là quyết định bạn phải đưa ra, nhưng không phải là quyết định quan trọng nhất.
+
+Nó chỉ là thứ yếu so với khoa học.
+
+Và điều này dẫn đến năm bước bạn nên thực hiện để lựa chọn, sau đó đào tạo và áp dụng LM vào một vấn đề thương
+
+mại.
+
+Và chúng ta sẽ trình bày chi tiết năm bước này vào tuần thứ sáu.
+
+Khi chúng ta thực hiện một dự án tốt nghiệp thực sự, một trường hợp thực tế về việc áp dụng LM để giải quyết một vấn đề kinh doanh
+
+khó khăn.
+
+Nhưng chỉ cần nói với bạn, năm bước bây giờ, để tôi gieo mầm cho sau này, trước hết bạn cần hiểu các
+
+yêu cầu kinh doanh của mình, vấn đề kinh doanh mà bạn đang giải quyết và cách bạn
+
+sẽ đo lường thành công một cách chi tiết.
+
+Sau đó, bạn cần chuẩn bị bằng cách chọn các mô hình ứng viên thông qua bảng xếp hạng, có thể xem xét các thông tin
+
+cơ bản về mô hình để hiểu mô hình nào phù hợp nhất với nhiệm vụ đang thực hiện.
+
+Sau đó, bạn chọn mô hình mà bạn sẽ chọn bằng cách xây dựng nguyên mẫu, kiểm tra số liệu kinh doanh của bạn so với
+
+các nguyên mẫu mà bạn tùy chỉnh, bằng cách xây dựng những thứ như Rag mà chúng ta sẽ làm vào tuần tới, tinh chỉnh những thứ mà chúng
+
+ta sẽ làm trong hai tuần tiếp theo và có thể là AI di truyền vào tuần cuối cùng.
+
+Và sau đó bạn đưa sản phẩm ra thị trường và triển khai.
+
+Vậy đây là năm bước bạn phải trải qua.
+
+Và tất nhiên, điều chúng ta tập trung trong tuần này là chuẩn bị, tức là xem bảng xếp hạng,
+
+xác định lựa chọn phù hợp và các mô hình ứng viên.
+
+Và hy vọng là bây giờ bạn có thể thấy điều đó phù hợp như thế nào sau khi hiểu được các yêu cầu kinh doanh của mình và
+
+trước khi thực sự xây dựng nguyên mẫu.
+
+Nhưng hãy giữ nguyên suy nghĩ đó.
+
+Chúng tôi sẽ quay lại vấn đề này sau hai tuần nữa và sẽ chơi hết mình.
+
+Hiện tại, chúng ta đang thực hiện thử thách kỹ thuật, xây dựng một sản phẩm có thể chuyển đổi
+
+mã Python thành mã C++ nhanh để tăng hiệu suất.
+
+Giả sử chúng ta không biết cách viết C++, chúng ta biết cách viết Python, chúng ta muốn dịch nó.
+
+Và bạn có thể thấy cách này có thể được mở rộng để trở thành bất kỳ nền tảng mã chuyển đổi nào.
+
+Và rõ ràng là chúng ta đều biết đây là trường hợp sử dụng tuyệt vời cho một giải pháp đại lý có khả năng lấy toàn bộ
+
+cơ sở mã và chuyển nó từ công nghệ này sang công nghệ khác.
+
+Và chúng ta sẽ không làm việc theo cách chân thực.
+
+Chúng ta sẽ giả định rằng chúng ta chỉ có một tập lệnh bằng Python và muốn chuyển đổi nó thành một tập
+
+lệnh bằng C++.
+
+Nhưng bạn có thể nghĩ rằng nếu bạn đã tham gia một số khóa học về đại lý như khóa học của tôi, hoặc có thể bạn đã biết
+
+về nó, bạn có thể mở rộng khóa học này thành một nền tảng đại lý hoàn chỉnh cho riêng mình, và nếu không, sau tuần thứ tám
+
+khi chúng ta xây dựng được một quy trình đại lý nhỏ, bạn có thể quay lại và áp dụng nó ở đó và điều đó sẽ thực
+
+sự tuyệt vời.
+
+Nhưng hiện tại, chúng tôi chỉ tập trung vào việc lựa chọn LM và đưa ra phương án như thế nào để
+
+kiểm tra mục tiêu kinh doanh và xác thực mục tiêu đó cho các mô hình khác nhau.
+
+Và tất nhiên, vấn đề kinh doanh mà chúng tôi đang cố gắng giải quyết ở đây chính là về hiệu suất.
+
+Chúng tôi có nhu cầu này vì mục đích kinh doanh.
+
+Mã chúng ta đang viết cần phải chạy nhanh hơn và điều đó giúp chúng ta có cách đơn giản để đo lường thành công.
+
+Chúng tôi có thể đảm bảo rằng câu trả lời là chính xác và nhanh chóng.
+
+Vậy đó chính là thách thức.
+
+Chúng ta hãy cùng giải quyết vấn đề này nhé.
+
+Và bài kiểm tra cụ thể mà chúng ta sẽ sử dụng để xem liệu chúng ta đã giải quyết được vấn đề hay chưa là chúng ta có một đoạn mã Python
+
+nhỏ ở đây.
+
+Đó là bài kiểm tra mà chúng tôi sẽ sử dụng để xác thực.
+
+Nó là thứ thực hiện một số phép tính.
+
+Nó sử dụng một công thức toán học và một vòng lặp toán học như thế này và Python nổi tiếng là kém ở khả năng này vì
+
+tất cả đều được diễn giải và là thứ lặp lại qua một vòng lặp.
+
+Và nếu bạn xem qua mã, bạn có thể thấy rằng về cơ bản nó thực hiện phép
+
+tính một trừ một phần ba cộng một phần năm, trừ một phần bảy cộng một phần chín, và nó cứ tiếp tục như vậy 100.000 lần.
+
+Và cuối cùng, bạn sẽ lấy kết quả và nhân nó với bốn rồi in ra cùng với thời gian
+
+thực hiện.
+
+Vậy đó là bài kiểm tra của chúng ta.
+
+Đó là những gì chúng ta sẽ làm và chúng ta sẽ xem kết quả thế nào.
+
+
+Nhiệm vụ của chúng ta hôm nay là lựa chọn các mô hình mã nguồn đóng tiên tiến và thử nghiệm chúng.
+
+Ngày mai chúng ta sẽ chuyển sang mô hình nguồn mở.
+
+Nhưng cho đến nay, đó vẫn là mô hình biên giới nguồn đóng, mô hình trả phí.
+
+Và chúng ta cần tìm kiếm ở đâu đó để biết được mô hình nào là tốt nhất để mã hóa.
+
+Và tôi tự hỏi chúng ta sẽ tìm kiếm điều đó ở đâu.
+
+Ừm, tất nhiên là chúng ta sẽ chuyển thẳng sang phân tích nhân tạo và chúng ta có thể xem
+
+các biểu đồ chung này hoặc chúng ta có thể cuộn xuống và xem cụ thể một số điểm chuẩn mã hóa.
+
+Và đặc biệt, tôi nghĩ rằng live code bench sẽ là nơi tốt để chúng ta bắt đầu.
+
+Chúng ta cũng có thể xem mã C vì, ừm, vì chúng ta sẽ sử dụng những thứ này một cách khoa học.
+
+Nhưng chúng ta hãy cùng xem những gì chúng ta có ở đây.
+
+GPT năm cao đứng đầu danh sách.
+
+Vậy chúng ta hãy viết điều đó ra.
+
+GPT năm ở chế độ lý luận cao.
+
+Ừm, grok four hoạt động tốt, grok four nhanh, ừm, vì lý do nào đó, có vẻ như đây là phiên bản
+
+mà họ đã đưa lên rất cao.
+
+Và grok bốn có hiệu quả kém hơn một chút so với grok nhanh, nhưng có vẻ như vậy.
+
+Điều đó có vẻ rất đáng ngạc nhiên với tôi.
+
+Ừm, và sau đó là Gemini 2. 5 Pro và sau đó, ừm, chúng ta sẽ bước vào vùng đất mã nguồn mở tại thời điểm đó.
+
+Ồ, và điều thú vị là nó trông giống Claude 4. 5 không có trong danh sách hàng đầu ở đây.
+
+Ừ, chúng ta hãy kéo xuống đây và xem còn gì nữa không.
+
+Trong phần mã hóa.
+
+Ồ, trong mã khoa học thì có Claude 4. 5 bài sonnet thực sự có tính chất rất cao.
+
+Vâng, nó ở tận dưới đó.
+
+Vì vậy, nếu chúng ta xem xét hai điều này, có vẻ như chúng ta sẽ muốn xem xét GPT năm.
+
+Uh grok bốn.
+
+Đó là phần trên cùng của cái này.
+
+Và Claude 4. 5 bài thơ sonnet.
+
+Đây rõ ràng là những ứng cử viên sáng giá.
+
+Có thể là Gemini 2/5 Pro nữa.
+
+Vì vậy, chúng ta sẽ có được tập hợp các mô hình mã hóa mạnh nhất mà chúng ta sẽ thử.
+
+Bây giờ chúng ta sẽ không xem xét Agentic vì, ừm, chúng ta sẽ không sử dụng nó ở chế độ agentic.
+
+Được rồi, đó là những mô hình chúng tôi đã chọn.
+
+Chúng ta cũng có thể xem một số bảng xếp hạng khác, nhưng tôi sẽ để bạn làm điều đó.
+
+Chúng sẽ có tính nhất quán rộng rãi.
+
+Chúng ta hãy chuyển đến con trỏ.
+
+Nó đã chờ đợi chúng ta quá lâu rồi.
+
+Chúng ta hãy cùng bắt tay vào viết mã nhé.
+
+Chào mừng bạn trở lại với cursor.
+
+Chào mừng đến với tuần thứ tư.
+
+Đến ngày thứ ba.
+
+Bạn có bỏ lỡ con trỏ không?
+
+Tất nhiên rồi.
+
+Vì vậy, cuốn sổ tay này trong phòng thí nghiệm ngày nay thực sự là một cuốn sổ dành cho những mọt sách như chúng ta.
+
+Đây là một trò chơi dành cho những người thông minh.
+
+Nếu bạn là một mọt sách, bạn sẽ thích trò chơi này.
+
+Nếu bạn không phải là một mọt sách, bạn sẽ nghĩ rằng, ồ, tôi không thực sự đồng tình với bạn về vấn đề đó.
+
+Vậy thì bạn chỉ cần đưa cái này cho tôi thôi.
+
+Bạn biết đấy, bạn có thể trợn mắt vài lần nếu tôi tỏ ra mọt sách.
+
+Câu này có vẻ hơi kỳ quặc.
+
+Tôi đảm bảo với bạn rằng nó vẫn sẽ rất vui.
+
+Được rồi, xin nhắc lại là bạn cần phải tải mã mới nhất thường xuyên vì tôi liên tục đưa các bản cập nhật vào phòng thí nghiệm,
+
+vì vậy hãy nhớ thực hiện lệnh git pull.
+
+Hãy xem hướng dẫn để biết thêm chi tiết, đảm bảo bạn có mã mới nhất và đồng bộ hóa UV
+
+sau đó để đảm bảo bạn cũng có tất cả các gói mới nhất.
+
+Và một lưu ý quan trọng là trong phòng thí nghiệm này, tôi sẽ sử dụng một số mô hình biên
+
+giới tốt nhất trên hành tinh và chúng có giá riêng.
+
+Nhiều nhất thì nó vẫn chỉ là xu, nhưng nếu bạn quan tâm đến giá cả thì tôi cũng có những mẫu rẻ hơn
+
+mà bạn có thể sử dụng.
+
+Và ngày mai chúng ta cũng sẽ thực hiện điều này cho các mô hình nguồn mở.
+
+Vì vậy, bạn có thể đợi đến ngày mai và không phải chi tiêu gì cả, hoàn toàn tùy thuộc vào bạn.
+
+Sự lựa chọn của bạn.
+
+Nhưng chúng ta sẽ bắt đầu với các mô hình biên giới ngay bây giờ.
+
+Vậy hãy bắt đầu bằng một số mặt hàng nhập khẩu.
+
+Và tiếp theo chúng ta sẽ tải các biến môi trường.
+
+Tôi sẽ tải các khóa cho OpenAI anthropic, Google và Grok.
+
+Với k grok, bạn không cần phải chọn bất kỳ cái nào bạn có.
+
+Nếu bạn có OpenAI và muốn, bạn có thể bỏ qua những điều này.
+
+Nếu bạn có bộ định tuyến mở, bạn có thể sử dụng nó thay thế.
+
+Thay thế bất kỳ cái nào bạn muốn.
+
+Tôi đã tải chúng vào rồi.
+
+Bây giờ tôi sẽ kết nối tới các thư viện máy khách Python.
+
+Tôi đang tạo một phiên bản OpenAI ở đây, sau đó tôi thực hiện thủ thuật thông thường cho Gemini và Grok.
+
+Tôi đang sử dụng thư viện máy khách OpenAI và chuyển sang URL cơ sở, thế là xong.
+
+Xong rồi.
+
+Đây là bốn mẫu mà tôi chọn GPT năm Claude Sonnet 45, grok cho mẫu lớn, không phải không grok
+
+cho mẫu nhanh.
+
+Và chúng tôi sẽ sử dụng grok bốn vì chúng tôi thấy rằng AI phân tích nhân tạo hoạt động tốt hơn trong các bài kiểm
+
+tra Python khoa học này.
+
+Và Song Tử 2. 5 Pro, nếu bạn muốn giữ chi phí ở mức siêu thấp, đây là một số biến thể
+
+rẻ hơn mà bạn có thể thử.
+
+Chỉ cần nhớ sử dụng lại những điều này vào ngày mai khi chúng ta xem một số mô hình thì được rồi,
+
+bây giờ chúng ta sẽ bắt đầu với phần chính của bài này.
+
+Vậy chúng ta sẽ viết một giải pháp chuyển Python thành mã C++ hiệu quả, được tối ưu hóa hiệu
+
+suất cao cho máy của bạn.
+
+Sau đó, nó có thể được biên dịch trên máy của bạn thành mã máy gốc.
+
+Và mã máy đó có thể chạy như một tệp thực thi.
+
+Nếu bạn không quen thuộc với tất cả những thứ đó, nếu bạn.
+
+Bạn biết đấy, khi tôi nói rằng Python là một ngôn ngữ được thông dịch, nếu
+
+bạn không hoàn toàn chắc chắn điều đó có nghĩa là gì và rằng bạn biên dịch C++ và chạy mã máy theo cách gốc,
+
+bạn có thể yêu cầu ChatGPT giải thích hoặc bạn chỉ cần xem và để nó tự hiểu.
+
+Điều đó không quan trọng lắm.
+
+Đó không phải là mục đích của bài tập này.
+
+Vấn đề không phải là biên dịch ngôn ngữ và chạy mã máy.
+
+Vấn đề là LLM có thể thực hiện việc chuyển đổi từ công nghệ này sang công nghệ khác, ngay cả khi chúng ta không biết
+
+cách sử dụng công nghệ đó.
+
+Đây là loại công việc mà một LLM có thể làm, nhưng mỗi LLM có thể làm với những khả năng khác nhau.
+
+Vì vậy, bạn biết đấy, bước thực tế là biên dịch C++ này thành mã máy gốc và thực thi nó trên máy của
+
+bạn, điều đó hoàn toàn là tùy chọn.
+
+Nếu bạn là một mọt sách như tôi và muốn làm điều đó, muốn thấy toàn bộ hệ thống chạy và có cảm giác rằng bạn đang
+
+sử dụng máy tính của mình một cách tối đa, thì bạn chắc chắn nên làm điều đó.
+
+Nhưng đó không phải là vấn đề chính.
+
+Điểm chính là về mã chuyển đổi, vì vậy bạn có thể bỏ qua phần thực sự thực hiện chuyển đổi.
+
+Và tôi sẽ làm vậy.
+
+Ngoài ra, nhờ một sinh viên đã gửi cho tôi thông tin này, tôi sẽ chỉ cho bạn một trang
+
+web mà bạn có thể truy cập để chạy mã C++ mà bạn dán vào trang web đó.
+
+Vì vậy, bạn không thể biên dịch và xây dựng toàn bộ mà chỉ cần sử dụng trang web này.
+
+Đó là cách thực hiện hoàn toàn tốt.
+
+Được thôi.
+
+Chúng ta hãy bắt đầu bằng cách tìm hiểu cách biên dịch nếu bạn muốn thực hiện điều đó.
+
+Vì vậy, tôi đã viết một hàm trợ giúp nhỏ để lấy thông tin hệ thống.
+
+Và khi tôi nói tôi đã viết, tôi có bằng LLM để viết nó vì nó giống như một thứ nhàm chán, chỉ
+
+in ra mọi thứ về máy tính của bạn.
+
+Và họ rất giỏi trong việc này.
+
+Vì vậy, nếu bạn chạy lệnh này, nó sẽ in ra đoạn mã JSON này cho tôi biết rằng tôi đang sử dụng máy Mac có hệ điều hành Darwin.
+
+Nó có tất cả các thông tin chi tiết về nó và cho thấy tôi đã cài đặt nhiều thứ khác nhau.
+
+Và bây giờ tôi sẽ sử dụng LLM như một cách để cho tôi biết những gì tôi cần phải làm để có thể chạy.
+
+Biên dịch và chạy C++ trên máy tính của tôi.
+
+Vậy thông điệp của tôi là.
+
+Sau đây là báo cáo về thông tin hệ thống của máy tính tôi.
+
+Tôi muốn chạy trình biên dịch C++ để biên dịch một tệp C++ và thực thi tệp đó.
+
+Vâng, xin hãy cho tôi biết chính xác những gì tôi cần làm và sau đó tôi nên sử dụng lệnh biên dịch và lệnh
+
+chạy như thế nào.
+
+Sau đó tôi cung cấp thông tin hệ thống của mình và gửi hướng dẫn này tới OpenAI tới GPT năm.
+
+Và khi làm điều này, tôi không ừm, điều này không liên quan đến dự án của chúng tôi.
+
+Đây chỉ là việc thiết lập môi trường của chúng ta.
+
+Và tôi yêu cầu GPT 5 giúp chúng tôi một tay vì tôi không biết bạn đang chạy trên máy tính nào.
+
+Bạn có thể có đủ loại cấu hình kỳ lạ.
+
+Vấn đề khi chạy mã C++ là nó phụ thuộc rất nhiều vào hệ thống vì bạn đang biến nó thành
+
+mã gốc và nó sẽ chạy cục bộ.
+
+Vì vậy, những gì chúng tôi sẽ in ra ở đây sẽ cho bạn biết nếu bạn cần thiết lập trình biên dịch C++, nó sẽ cho bạn
+
+biết chính xác những gì bạn cần làm.
+
+Và nó nói với tôi rằng tôi đã sẵn sàng.
+
+Tôi không cần phải làm gì cả.
+
+Và nó cho tôi biết rằng tôi cần hai lệnh.
+
+Lệnh biên dịch sẽ trông như thế này và lệnh chạy cũng sẽ trông như thế này.
+
+Và bạn có thể thấy điều đó ở ô tiếp theo.
+
+Tôi đã đưa ra lệnh biên dịch và lệnh chạy, mà tôi thực hiện chính xác theo những gì GPT 5 đã chỉ
+
+dẫn.
+
+Vậy đó là những gì bạn cần làm nếu bạn muốn thực hiện công việc biên dịch gốc, nếu điều đó khiến bạn
+
+quan tâm.
+
+Ừ, điều đó thực sự khiến tôi quan tâm.
+
+Ừ, vậy thì hãy làm theo hướng dẫn nếu cần để cài đặt trình biên dịch C++ và sau đó đảm bảo rằng bạn đã thay
+
+đổi hai dòng này.
+
+Đây là dành cho máy Mac.
+
+Bạn sẽ muốn thay đổi nó.
+
+Và tôi có thể viết những thứ như hướng dẫn cho máy tính, v.v.
+
+Nhưng nó phụ thuộc rất nhiều vào nền tảng của bạn nên những gì tôi đưa vào có thể không phù hợp với một số người.
+
+Tốt hơn hết là bạn nên tìm hiểu thông qua chương trình LLM bằng cách sử dụng cấu hình hệ thống hiện tại của mình.
+
+Sau khi bạn đã thực hiện xong và có nó ở đó, chúng ta sẽ kiểm tra nó ngay.
+
+Chúng ta hãy bắt đầu với nhiệm vụ chính là chuyển mã.
+
+
+Được rồi, chúng ta hãy tiếp tục và chuyển một số mã sang LMS.
+
+Tôi nên nói rằng tôi thực sự đã thay đổi lệnh biên dịch này thành phiên bản hiệu quả hơn.
+
+Sau khi thử đi thử lại GPT năm lần, bạn có thể muốn thực hiện điều đó để đảm bảo
+
+rằng bạn có lệnh biên dịch thực sự tốt và hiệu quả.
+
+Được thôi.
+
+Tiến lên.
+
+Đây là lời nhắc hệ thống của tôi.
+
+Nhiệm vụ của bạn là chuyển đổi Python thành C++ hiệu suất cao.
+
+Chỉ trả lời bằng C++, không cung cấp bất kỳ lời giải thích nào khác.
+
+Nó cần phải tạo ra kết quả đầu ra giống hệt nhau.
+
+Thời gian nhanh nhất.
+
+Đó chỉ là lời nhắc nhở liên tục của hệ thống.
+
+Lời nhắc của người dùng sẽ phụ thuộc vào python mà chúng ta muốn thay đổi.
+
+Vì thế.
+
+Vì vậy chúng ta muốn có cổng.
+
+Vì vậy, đây là một hàm nhắc nhở người dùng cho python được truyền vào.
+
+Và tôi nói hãy chuyển mã Python này sang C++.
+
+Đây chính là loại hệ thống mà chúng ta đang sử dụng.
+
+Đây là lệnh chúng ta sẽ sử dụng để biên dịch mã và bây giờ chỉ phản hồi bằng C++.
+
+Đây là mã để chuyển và đó là nơi tôi đưa vào dấu nhắc mã Python mà chúng ta đang làm việc.
+
+Được rồi.
+
+Vì thế tôi thực hiện điều đó.
+
+Và bây giờ tôi có thêm một hàm đơn giản nữa là messages sử dụng Python.
+
+Đây chỉ là thứ trả về danh sách các từ điển thông thường mà bạn biết rõ.
+
+Nó có một dấu nhắc hệ thống được đặt ở đó và dấu nhắc người dùng sẽ sử dụng hàm mà chúng ta
+
+vừa viết.
+
+Vậy đó, chúng ta bắt đầu thôi.
+
+Xong rồi.
+
+Và sau đó một hàm tiện ích nhỏ khác sẽ ghi đầu ra bằng một số mã C++.
+
+Và chúng ta sẽ ghi nó vào một tệp có tên là main và chạy tệp đó.
+
+Và bây giờ chúng ta đã sẵn sàng cho chức năng lớn nhất của port có tên là port.
+
+Và chức năng được gọi là port có chức năng gì?
+
+Vâng, cần có một máy khách như OpenAI hoặc bất kỳ mô hình thư viện máy khách nào, một tên mô hình và mã Python để
+
+chuyển.
+
+Chỉ có điều gì đó hơi khó hiểu ở đây là nếu GPT nằm trong tên mô hình để sử dụng mô hình OpenAI,
+
+chuỗi GPT, thì nỗ lực suy luận sẽ rất cao.
+
+Đó là cờ được sử dụng cho GPT.
+
+JPG và sau đó chúng ta sẽ gọi phần hoàn thiện của khách hàng là dot create.
+
+Chúng ta truyền vào mô hình, chúng ta truyền vào các thông điệp, thông điệp đến thẳng từ hàm này ngay tại
+
+đây.
+
+Và sau đó nếu chúng ta sử dụng chuỗi GPT, chúng ta sẽ chuyển qua phần suy luận.
+
+Và chúng ta sẽ làm gì với phản hồi nhận được?
+
+Vâng, tôi nghĩ bạn biết chính xác chúng tôi sẽ làm gì với phản hồi đó.
+
+Chúng tôi có phản hồi. 0. nội dung.
+
+Và sau đó chỉ cần loại bỏ một số thứ ở đây.
+
+Nếu nó phản hồi bằng bất kỳ dấu tích nào trong ba dấu tích đó và sau đó xóa nó và
+
+xóa bất kỳ ba dấu tích nào khác chỉ để dọn dẹp đầu ra rồi ghi vào tệp.
+
+Và đó chính là chức năng cổng của chúng ta.
+
+Được rồi.
+
+Và bây giờ tôi đang định nghĩa một chuỗi.
+
+Tôi có một số mã Python ở đây nhưng tôi không chạy nó.
+
+Tôi không hiển thị nó dưới dạng mã Python.
+
+Tôi đang đưa nó vào một biến văn bản.
+
+Bạn có thể thắc mắc tại sao điều này lại trở nên rõ ràng.
+
+Vậy chức năng này có tác dụng gì?
+
+Vâng, nó tính toán được điều gì đó.
+
+Nó thực hiện công thức toán học nhỏ mà tôi đã chỉ cho bạn trước đó, rằng nó đếm và thực hiện được.
+
+Giống như một trừ một phần ba cộng một phần năm, trừ một phần bảy cộng một phần chín, trừ một phần mười một cộng một phần mười ba, v.v.
+
+đối với các số lẻ, cứ tiếp tục như vậy.
+
+Và tôi nghĩ là tôi đã đưa ra con số này hơi cao so với slide tôi đã cho bạn xem lần trước.
+
+Tôi nghĩ tôi đã nói 100.000, và tôi nghĩ tôi đã đọc nhầm từ slide là 100 triệu và bây giờ tôi
+
+đã biến nó thành 200 triệu.
+
+Vì vậy, với nhiều lần lặp lại như thế này, chúng tôi thực sự muốn Python được cải thiện.
+
+Vì vậy, chúng tôi đang thực hiện tất cả những điều đó.
+
+Chúng tôi đang tìm câu trả lời.
+
+Chúng ta nhân nó với bốn rồi in ra kết quả.
+
+Đó chính là trò chơi chúng ta đang chơi.
+
+Đó chính là chức năng của sợi dây này.
+
+Vì thế tôi chạy theo cách đó.
+
+Vậy là tôi có chuỗi đó ở đó.
+
+Và sau đó nếu tôi chạy nó ở đây, đây là thứ cho phép bạn chạy một chuỗi trong Python.
+
+Nó diễn giải chuỗi đó thành mã Python.
+
+Và trình thông dịch Python sẽ chạy nó.
+
+Đó chính là chức năng của exac ở đây.
+
+Vì vậy, nếu bạn thích exac.
+
+Hai cộng hai, ừm, nó sẽ làm được điều đó chính xác.
+
+Hai cộng hai.
+
+Hoặc tôi cho rằng chúng ta nên viết in hai cộng hai như thế này.
+
+Và chạy lệnh này thì bạn sẽ thấy bốn.
+
+Đó chính là chức năng của exac.
+
+Ừm, cần một sợi dây.
+
+Và thứ này đảm bảo rằng nó xử lý những thứ như biến toàn cục và biến cục bộ một cách chính xác.
+
+Vậy là xong.
+
+Và với tất cả những phần giới thiệu đó, chúng ta có thể chạy hàm Python có tên là py, đây là một chuỗi dưới dạng văn bản.
+
+Nó sẽ hiểu đây là mã và thực hiện mã đó.
+
+Và cuối cùng nó sẽ được in.
+
+Kết quả của việc thực hiện này cùng với thời gian thực hiện.
+
+Và từ tiêu đề của chuỗi, bạn có thể đã có gợi ý về nội dung mà nó sẽ tạo ra.
+
+Vâng, hóa ra lấy một trừ đi ba cộng với năm, blah blah blah blah nhân bốn là một cách
+
+để tính gần đúng số pi.
+
+Đây thực sự là một công thức tính số pi rất chậm.
+
+Phải mất một thời gian dài để hội tụ và bạn có thể thấy rằng sau 200 triệu lần lặp, thì 3. 14159265 và chữ số đó phải
+
+là ba.
+
+Vì thế.
+
+Vậy là mọi chuyện đã sai ở đó, nhưng nó vẫn hoàn thành được.
+
+Phải mất 19 giây để thực hiện việc đó.
+
+Và đó chính là tiêu chuẩn để chúng ta tối ưu hóa.
+
+Và chúng ta sẽ bắt đầu với mô hình hàng đầu.
+
+Chúng ta sẽ bắt đầu với GPT năm, công cụ đứng đầu bảng xếp hạng phân tích nhân
+
+tạo cho loại công cụ này.
+
+Và vì vậy, những gì chúng ta đang làm là gọi hàm port của mình.
+
+Chúng tôi truyền vào thư viện máy khách OpenAI, mô hình OpenAI, là GPT năm và chuỗi py.
+
+Để tôi nói tiếp nhé.
+
+Ờ, vậy thì điều đó có nghĩa là gì, nếu chúng ta chỉ nhắc nhở bản thân khi quay lại cảng, nó sẽ gọi thế
+
+này, nó sẽ có nỗ lực lý luận cao.
+
+Sau đó, nó sẽ là ừm, gọi tin nhắn cho tin nhắn để lấy lời nhắc hệ thống và chúng ta định nghĩa
+
+ở đây và lời nhắc người dùng cho điều này.
+
+Và điều đó sẽ thả mã Python vào đó và yêu cầu chuyển mã.
+
+Viết lại mã Python này thành mã C++ hiệu quả.
+
+Và tất nhiên là phải tập thể dục.
+
+Mục đích của việc này không phải là để loại bỏ những đoạn mã kém chất lượng.
+
+Điều này nhằm mục đích cho bạn thấy rằng chúng ta có thể thực hiện một nhiệm vụ kinh doanh, một nhiệm vụ kinh doanh mà chúng ta có thể đo lường.
+
+Chúng ta có thể chọn một mô hình như GPT năm có thể thực hiện tốt nhiệm vụ đó, sau đó chúng ta có
+
+thể thực hiện nhiệm vụ và thử nghiệm.
+
+Bây giờ, vì chúng ta đang ở chế độ lý luận cao nên nó sẽ mất thời gian để xử lý, đúng như mong
+
+đợi.
+
+Và tôi sẽ gặp lại bạn ở phía bên kia khi nó đã hoàn tất quá trình suy nghĩ và chuyển mã của chúng ta.
+
+Được rồi, GPT năm đã hoàn thành.
+
+Chỉ mất chưa đầy hai phút và nó đã viết lại mã Python của chúng tôi thành mã C++.
+
+Chúng ta hãy cùng xem kết quả nhé.
+
+Nó ở đây tại Main. cpp và đây là một tập tin khá lớn.
+
+Lần đầu tiên bạn nhìn thấy đoạn mã này, bạn có thể nghĩ rằng có vẻ như có rất nhiều mã cho một đoạn mã Python ngắn như vậy.
+
+Và câu trả lời là họ đã thực hiện một điều gì đó khá thông minh ở đây.
+
+Nó thực hiện một việc gọi là mở vòng lặp, trong đó nó thực hiện thủ công nhiều bước của vòng lặp trong
+
+một lần lặp.
+
+Không rõ liệu đó có nhất thiết là một ý tưởng hay không, vì trình biên dịch vốn dĩ phải giỏi
+
+việc đó, nhưng chúng ta hãy cùng xem nó hoạt động như thế nào.
+
+Và nhân tiện, không phải lúc nào cũng như vậy.
+
+Tôi đã thực hiện thí nghiệm này vài lần.
+
+Đây là một phiên bản khá thú vị, nhưng bạn có thể có những kết quả khác.
+
+Nhưng lần này thì việc này đã xong rồi.
+
+Vậy thì đó chính là điều chúng ta sẽ làm.
+
+Ồ, và bạn có thể thấy nó có vẻ đang làm đúng việc.
+
+Vậy nên có vẻ như đây là một đoạn mã tốt, mọi thứ, theo như tôi thấy, từ kiến thức C++ hơi kém của
+
+tôi, đều có vẻ ổn.
+
+Bây giờ đã đến lúc chúng ta thực sự biên dịch và thực thi nó.
+
+Được thôi.
+
+Bây giờ chúng ta sẽ biên dịch mã này theo cách gốc cho máy của tôi.
+
+Và sau đó thực thi nó dưới dạng mã máy trên máy của tôi.
+
+Và bạn cũng có thể làm được điều này.
+
+Nhưng bạn không cần phải làm vậy.
+
+Vấn đề ở đây là về việc chuyển mã, không phải về việc chạy C++ hiệu suất cao.
+
+Thật vui nhưng bạn không cần phải làm vậy.
+
+Và trong giây lát, chúng tôi cũng sẽ thực hiện việc này trên một trang web để bạn thực sự có thể thực hiện mà không
+
+cần phải chạm vào hộp.
+
+Nhưng nếu bạn muốn, tất nhiên chúng tôi đã thực hiện, nếu bạn còn nhớ trước đó, chúng tôi đã thực hiện lệnh này
+
+từ GPT năm.
+
+Trên thực tế, tôi đã lặp lại điều này.
+
+Nhưng đây giống như một cách hiệu quả để biên dịch và chạy C++.
+
+Và bây giờ chúng ta sẽ biên dịch và chạy hàm này.
+
+Nó biên dịch main. cpp vào file thực thi chính, có thể là mesnex nếu bạn dùng PC hoặc main nếu bạn
+
+dùng máy Mac hoặc Linux.
+
+Và sau đó tôi sẽ chạy nó ba lần và in ra kết quả.
+
+Bạn không cần điều đó.
+
+Đấy, thế là xong.
+
+Đây rồi.
+
+Bây giờ chúng ta sẽ làm điều này.
+
+Xin hãy đánh trống nào.
+
+Hãy nhớ rằng 19 giây là khoảng thời gian Python cần để đạt được điều đó.
+
+Hãy chạy nó và thế là xong.
+
+Ở đó.
+
+Có kết quả rồi.
+
+Bạn có thể thấy nó nhanh hơn một chút trong mã máy gốc.
+
+Ừ, và chúng ta hãy cùng tìm hiểu xem nó nhanh hơn bao nhiêu nhé.
+
+Vâng, và tôi nhận ra đây chỉ là một thử nghiệm nên không mang tính khoa học cao.
+
+Nhưng bạn sẽ tha thứ cho tôi vì đã làm điều này một chút.
+
+Vẫy tay.
+
+Chúng ta sẽ chọn cái này ở đây.
+
+Đầu tiên là.
+
+Đó là, ừm.
+
+Chúng ta sẽ chọn cái ở giữa.
+
+Vì vậy, tôi không chọn lọc.
+
+Chúng ta sẽ chọn con đường ở giữa.
+
+89 hai 2089 200, tôi rất xin lỗi.
+
+Tôi nghĩ đây là giải pháp trung dung.
+
+Đây là một trong những điều chúng ta sẽ chọn và xem xét.
+
+Thêm dấu thập phân vào đó.
+
+Đấy, thế là xong.
+
+Và chúng ta sẽ thấy điều đó.
+
+Ha ha.
+
+Tuyệt vời.
+
+Ồ, GPT 5 nhanh hơn đáng kinh ngạc tới 230 lần.
+
+Nhanh hơn 230 lần quả là ấn tượng.
+
+Và bây giờ tôi sẽ nói rằng không phải lúc nào cũng nhanh hơn thế này.
+
+Nhiều khi tốc độ nhanh hơn khoảng 45 lần.
+
+Mã mà nó tạo ra, giống như một dạng mã chuẩn, ừm, gần như là bản dịch trực tiếp từ Python sang C++ mà
+
+không cần phải thực hiện những thao tác mở rộng đó.
+
+Nhưng với khả năng mở cuộn lần này, tốc độ đã nhanh hơn gấp 230 lần.
+
+Xin chúc mừng GPT năm.
+
+Không có gì ngạc nhiên khi bạn đứng đầu bảng xếp hạng Phân tích nhân tạo.
+
+Và nếu bạn không muốn thực hiện việc này trên máy tính, chúng tôi cũng có thể thực hiện trên trang web.
+
+Chúng ta hãy nhanh chóng lấy đoạn mã C++ này và sao chép vào bảng tạm.
+
+Quay lại phòng thí nghiệm, khởi chạy trang web này tại đây và chọn tất cả những mục này.
+
+Ở phía bên trái.
+
+Bạn dán mã C++ vào đây và chỉ cần nhấn nút chạy để chạy và xem nó hoạt động như thế nào.
+
+Và chúng ta có nó rồi.
+
+Nó chạy.
+
+Rõ ràng là nó chậm hơn khi bạn chạy nó trên một bộ xử lý từ xa, nhưng vẫn nhanh hơn đáng
+
+kể so với thời gian 19 giây khi chạy trên Python.
+
+Tốc độ nhanh hơn khoảng 20 lần.
+
+Thật là ấn tượng.
+
+Ừm, đặc biệt là khi xem xét cách chúng ta tiến hành trực tuyến.
+
+Thật sự rất thú vị.
+
+Thật tuyệt khi thấy hiệu suất này tăng tốc, ừm, với GPT 5 chuyển mã của chúng tôi từ Python sang C++.  Chúng ta hãy cùng xem các mô hình khác hoạt động thế nào.
+
+Vì vậy, chúng ta sẽ chạy bài thơ 4 của Claude. 5, hiểu bốn từ ông. Xạ hương.
+
+Song Tử 2. 5 Chuyên nghiệp
+
+Chúng ta hãy bắt đầu với cả ba điều trên.
+
+Đầu tiên họ sẽ sử dụng mô hình này để chuyển mã.
+
+Sau đó, họ sẽ gọi, gọi, biên dịch và chạy mã.
+
+Bây giờ chúng ta hãy xem, chúng ta đã có câu trả lời từ anthropic và chúng ta có thể xem nó được so sánh như thế nào.
+
+Nó, ừm, nó rõ ràng là, ừm, cùng đẳng cấp, ừm, nhưng không nhanh bằng.
+
+Chúng ta hãy cùng xem nhé.
+
+Vâng.
+
+Có vẻ như đây là mã kiểu khá thông thường, vì vậy nó không thực hiện thao tác mở vòng lặp như chúng ta đã thấy
+
+trước đây.
+
+Ừ, và nếu chúng ta quay lại phòng thí nghiệm, chúng ta sẽ thấy rằng kết quả là như vậy.
+
+Vâng, nhưng không tốt bằng, ừm, GPT năm có thể vượt trội hơn một chút so với nhân loại.
+
+Nhưng đây là bản chuyển mã hoàn toàn đáng tin cậy, chạy mượt và nhanh, một kết quả khá tốt.
+
+Tôi nghĩ chúng ta có thể hài lòng với điều đó.
+
+Và bây giờ Grock và Gemini sẽ mất nhiều thời gian hơn.
+
+Họ suy nghĩ nhiều hơn về điều đó, vì vậy tôi sẽ tạm dừng và gặp lại các bạn sau khi họ hoàn thành để chúng ta có thể
+
+biết được điểm số cuối cùng.
+
+Được rồi, một thời gian đã trôi qua và thực ra tôi đã chạy thử nó một vài lần, tất nhiên là tôi làm vậy vì
+
+mục đích học tập của bạn chứ không phải vì tôi thích nó.
+
+Ừ, và ừ, đúng rồi, lần chạy này có lẽ là hiệu suất ổn định nhất mà tôi nhận được từ các mô hình, nhưng
+
+nó rất đa dạng, vì vậy bạn có thể nhận được những kết quả khác nhau.
+
+Chúng ta sẽ bắt đầu bằng cách tiết lộ về loài người, xin lỗi, chúng ta đã thấy loài người rồi.
+
+Chúng tôi vừa xem xét, ừm, anthropic hoạt động tốt hơn GPT năm một chút vì cách nó thực hiện một
+
+số thao tác mở.
+
+Bây giờ chúng ta hãy xem Grock.
+
+Ông Musk thực sự là người rất năng động.
+
+Nó chiến đấu trong suy nghĩ trong năm phút, 5. 5 phút cho việc này và việc này.
+
+Đây là kết quả ngoạn mục, một kết quả ngoạn mục từ Grock.
+
+Hãy nhìn vào đây.
+
+Thật là tuyệt vời.
+
+Có phải vậy không?
+
+Vâng.
+
+Một số lượng lớn nữa.
+
+Nhanh hơn.
+
+Ừm, chúng ta có thể, ừm, trước tiên hãy xem xét mã nguồn.
+
+Vì vậy, tôi đã chạy grox ở đây và bạn có thể thấy rằng cách biên dịch mã nhanh
+
+hơn là sử dụng thư viện luồng.
+
+Vì vậy, có một số mã khá nặng ở đây vì nó đưa vào các thư viện luồng.
+
+Và nó đảm bảo rằng nó khởi động một thứ gì đó sử dụng luồng cấp hệ điều hành và chạy mọi thứ
+
+theo cách đa luồng.
+
+Tất nhiên là tôi biết bạn đang nghĩ gì.
+
+Mã Python, mã Python gốc không được viết để có thể xử lý đa luồng và có thể thực hiện được,
+
+nhưng không sao cả.
+
+Đó là một phần thách thức đối với mô hình này.
+
+Không chỉ cần chuyển mã sang một ngôn ngữ lập trình khác.
+
+Chúng tôi bảo nó làm mọi thứ có thể để đạt được kết quả tương tự nhanh hơn.
+
+Vì vậy, việc tận dụng các luồng là hoàn toàn được phép.
+
+Điều đó nằm trong quy định.
+
+Và tôi đã đặt ra các quy tắc để tôi có thể nói như vậy.
+
+Vậy thì tôi phải nói là làm tốt lắm, grok.
+
+Làm tốt.
+
+Quả là một màn trình diễn ấn tượng.
+
+Tăng tốc lên.
+
+Nhưng chúng ta hãy quay lại phòng thí nghiệm để xem liệu Gemini có thể theo kịp grok hay không, hay nó thậm chí còn tụt hậu so với
+
+GPT năm?
+
+Hay thực tế là nó thậm chí còn không đưa ra được câu trả lời đúng?
+
+Chúng ta sẽ tìm hiểu ngay thôi.
+
+Và rất tiết lộ.
+
+Song Tử 2. 5 Chuyên nghiệp
+
+Đây rồi.
+
+Song Tử 2. 5 Pro thực sự tuyệt vời.
+
+Nó đã nghiền nát nó.
+
+Hãy nhìn vào những thời điểm này.
+
+Về mặt vật chất, nó hoạt động tốt hơn grok, hoạt động tốt hơn GPT năm, hoạt động tốt hơn Claude.
+
+Vậy là Song Tử đang đứng đầu với những kết quả tuyệt vời.
+
+Chúng cực kỳ nhanh và tôi đảm bảo với bạn rằng tôi đã chạy thử nhiều lần rồi.
+
+Và Gemini hầu như luôn luôn, ngoại trừ một lần trong bài kiểm tra của tôi vượt quá 5 hoặc 6.
+
+Gemini đã đạt được những kết quả thực sự tuyệt vời.
+
+Bạn cũng nên chạy thử và xem kết quả có giống vậy không.
+
+Bạn đang tìm kiếm gì?
+
+Vâng, nếu chúng ta xem đoạn mã mà Gemini đã viết, bạn có thể thấy nó khá phức tạp.
+
+Có rất nhiều điều cần nói đến.
+
+Và những gì đang xảy ra ở đây thực sự là nhiều thứ.
+
+Trước hết, nó chắc chắn cũng đang thực hiện mã luồng.
+
+Và tôi không phải là chuyên gia, nhưng có vẻ như nó đang thực hiện một điều gì đó thậm chí còn phức tạp hơn.
+
+Tôi nghĩ cả hai, Grock và Gemini, đều cẩn thận tìm kiếm số lượng sợi chỉ để tối đa hóa
+
+khả năng song song.
+
+Ừm, bạn có thể thấy rằng nó đã thực hiện điều đó ở đây, và nó thực hiện rất nhiều tác vụ
+
+luồng, và sau đó nó kết thúc bằng cách gọi calculate chunk theo cách đa luồng này đồng thời.
+
+Và điều quan trọng ở đây là nó cũng đã xác định được một số cải tiến đối với thuật toán bằng
+
+cách đơn giản hóa đại số, thực hiện phép tính tương tự theo cách hiệu quả hơn, giảm số phép tính
+
+dấu phẩy động, ít phép tính hơn, hiệu suất nhanh hơn.
+
+Và đó chắc chắn là tuân thủ theo các quy tắc.
+
+Nó thực hiện cùng một phép tính nên sẽ đưa ra cùng một câu trả lời.
+
+Chỉ cần thực hiện ít phép tính toán hơn là được.
+
+Thật tuyệt vời.
+
+Tốt lắm.
+
+Và điều đó có nghĩa là Song Tử thực sự đã làm được ba điều.
+
+Nó đã dịch mã từ Python sang C++, thật tuyệt vời.
+
+Công thức cũng được cải tiến.
+
+Người ta đã tìm ra cách đơn giản hóa công thức để tính toán cùng một câu trả lời tốt hơn.
+
+Và thứ ba, nó cũng đã thực hiện cải tiến thiết kế cho cấu trúc mã để cho phép mã
+
+có thể chạy đa luồng và nhiều phép tính song song.
+
+Vì vậy, ba thay đổi khác nhau đó đã kết hợp lại với nhau để mang đến cho chúng ta hiệu suất tuyệt
+
+vời này, thời gian nhỏ bé ở giữa mà tôi sẽ chọn là, ừm, 0. 013 giây so với 19 giây ở Python.
+
+Và thực ra tôi chỉ nhìn lại và thấy rằng grok đã mã hóa cứng số luồng mà Gemini đã tính toán.
+
+Vậy thì đó có thể là một lý do nữa khiến Gemini làm tốt hơn.
+
+Thật là thú vị.
+
+Ít nhất thì tôi nghĩ nó rất thú vị.
+
+Và tôi đã thực hiện phép tính nhanh ở đây chỉ để xem chúng ta sẽ đạt được tốc độ như thế nào và mã hóa cứng
+
+các con số của tôi để bạn có thể thấy kết quả.
+
+Nếu chúng ta chạy chương trình này, chúng ta sẽ thấy điều đó từ phân tích này.
+
+Ở vị trí thứ tư là Claude Sonnet 4. 5 với tốc độ tăng lên 148 lần, vẫn rất ấn tượng.
+
+Và bạn có thể nhận thấy rằng Claude thực ra không như vậy vì tôi cũng vậy.
+
+Tôi đang tìm hiểu về API của OpenAI.
+
+Trên thực tế, nó không sử dụng chế độ suy nghĩ có ý nghĩa.
+
+Và vì thế, bạn biết đấy, có lẽ điều đó đã cản trở nó.
+
+Và GPT năm ở vị trí thứ ba với tốc độ tăng tốc đáng kinh ngạc lên tới 233 lần, điều mà bất kỳ ai cũng sẽ hài lòng.
+
+Nhưng sau đó hãy dùng Wow với tốc độ tăng lên 1060 lần.
+
+Thật là điên rồ.
+
+Và không phải lúc nào cũng đạt được điều đó.
+
+Trong các thử nghiệm của tôi thì kết quả có lúc đúng lúc sai, nhưng tôi nghĩ mình đã chụp được bức ảnh này.
+
+Đúng vậy, và điều đó thật tuyệt.
+
+Và rồi ở vị trí đầu tiên, ở vị trí đầu tiên, giành được vương miện.
+
+Song Tử 2. 5 Pro Một điều bất ngờ.
+
+Vị trí đầu tiên gây tranh cãi không phải là vị trí đứng đầu bảng xếp hạng phân tích
+
+nhân tạo, nhưng là vị trí đứng đầu trong thử nghiệm tăng tốc mã Python của chúng tôi lên 1440 lần.
+
+Thật tuyệt vời.
+
+Tôi rất vui vì điều này.
+
+Một trong những điều tuyệt vời nhất là thí nghiệm này mang lại cảm giác thực tế vì chúng ta có được kết quả kinh doanh
+
+thực sự.
+
+Chúng tôi có mục tiêu kinh doanh là tăng tốc một số mã và thật tuyệt vời, chúng tôi đã đạt được mục tiêu đó.
+
+Và tất nhiên chúng ta nên vào trang web mà tôi đã giới thiệu trước đó để xem mã C++ từ Gemini có hoạt động tốt
+
+ở đó không.
+
+Tất nhiên, nó sẽ không chạy theo kiểu đa luồng khi được đưa lên đám mây, nhưng chúng
+
+ta vẫn nên thấy được điều gì đó.
+
+Vậy chúng ta hãy cùng xem nhé.
+
+Đây rồi.
+
+Bạn còn nhớ trang web này không?
+
+Tôi đã sao chép mã của Gemini vào bảng tạm của mình.
+
+Tôi có thể nhấn dán.
+
+Đây là tất cả những thứ phức tạp này với nhiều luồng và phần cứng đồng thời.
+
+Chỉ có trời mới biết chuyện này sẽ gây ra hậu quả gì.
+
+Hãy thử chạy nó trên đám mây và xem kết quả ra sao.
+
+Ừ, bạn biết đấy, nó nhanh lắm.
+
+Nhưng như tôi nghĩ, ừm, tôi không nghĩ là nó nhanh hơn đáng kể so với những gì chúng ta thấy
+
+ở phiên bản GPT thứ năm.
+
+Ờ, vậy thì nó vẫn nhanh hơn khoảng 20 lần.
+
+Ừm, nhưng tôi nghĩ thực ra nó chậm hơn một chút so với phiên bản trước, phải không?
+
+Ừm, có thể tất cả những thứ này sẽ chạy cùng lúc, làm tăng thêm chi phí khi chạy trên đám mây.
+
+Điều này không sao cả, vì hướng dẫn mà chúng tôi đưa ra cho Gemini là tối ưu hóa cho nền tảng của tôi.
+
+Chúng tôi thậm chí còn đưa thông tin chi tiết về hệ thống vào đó.
+
+Chúng ta hãy quay lại và tự nhắc lại xem GPT đã đưa ra ý tưởng gì nhé.
+
+Đây là nội dung GPT đã được mở ra.
+
+Sao chép lại.
+
+Chúng ta hãy đưa thông tin đó trở lại trang web.
+
+Vậy là chúng ta đã ở mức 0. 9 giây ở đây, đưa lại vào GPT năm và chạy nó và nhắc nhở bản thân những gì chúng ta nhận được.
+
+Chuẩn rồi.
+
+Đấy, thế là xong.
+
+Tôi nhớ GPT năm rồi phải không?
+
+Nó nhanh hơn một chút.
+
+Điều thú vị là khi nó được triển khai trên một hộp khác trên internet, nhưng điều đó vẫn có lợi cho
+
+Gemini vì nó cho thấy Gemini đã tiếp nhận thử thách, hiểu rõ nhiệm vụ và hoàn
+
+thiện nó cho hộp của tôi.
+
+Xin chúc mừng Song Tử lần nữa.
+
+Vâng, như tôi đã nói, tôi hơi lo rằng điều này quá tự mãn, rằng tôi thực sự thích
+
+thú, nhưng tôi hy vọng rằng bạn cũng thích một phần nào đó.
+
+Thật thú vị khi đưa ra những thử thách phức tạp như thế này cho các mô hình, đặc biệt là khi có kết quả rất
+
+cụ thể từ nó.
+
+Vì vậy, ngày mai chúng ta sẽ chuyển sang mô hình nguồn mở.
+
+Chúng ta có rất nhiều thứ để xem.
+
+Ý tưởng là sử dụng điều này như một cách đánh giá khả năng viết mã của các mô hình nguồn mở, sau
+
+đó đánh giá các mô hình nguồn mở cùng với các mô hình trả phí về khả năng đạt được mục tiêu kinh doanh và chỉ xây dựng một
+
+giải pháp sử dụng các mô hình nguồn mở để tạo mã.
+
+Đó chính là những gì tôi dành cho bạn vào ngày mai.
+
+Hẹn gặp lại bạn sau.
+
+

@@ -1,0 +1,423 @@
+# 043 - Single Listener, Acceptor, and Reader Thread Execution Pattern
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 3min
+
+---
+
+## 1. Summary
+
+This lecture explains the **single listener, single acceptor, and single reader thread execution pattern**.
+
+A common example of this pattern is **Node.js**.
+
+In this model, one process is responsible for all major connection-handling roles:
+
+1. Listening on an address and port
+2. Accepting new connections
+3. Reading from accepted connections
+4. Writing responses back to clients
+
+This architecture is simple because the backend application does not need to manage multiple application threads directly.
+
+However, the downside is that one thread must coordinate many connections. If there are too many connections or too much work, the single thread can become a bottleneck.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 One Process Does Everything
+
+In this pattern, there is one backend process.
+
+That process acts as:
+
+* Listener
+* Acceptor
+* Reader
+* Writer
+
+Conceptually:
+
+```text id="gipxaw"
+Single backend process
+├── listen()
+├── accept()
+├── read()
+└── write()
+```
+
+This makes the architecture easy to understand.
+
+---
+
+### 2.2 Node.js as an Example
+
+Node.js is a good example of this pattern.
+
+In Node.js, the JavaScript application logic usually runs on a single main thread.
+
+The same process:
+
+* Creates the server
+* Listens on the port
+* Accepts connections
+* Reads request data
+* Runs callbacks
+* Sends responses
+
+Node.js hides many low-level details from developers.
+
+As a developer, you usually write:
+
+```js id="6xj4ou"
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.end("Hello");
+});
+
+server.listen(8080);
+```
+
+Behind the scenes, Node.js handles the socket, accepts connections, reads data, parses HTTP, and calls your request handler.
+
+---
+
+### 2.3 Kernel Queues Still Exist
+
+Even though the Node.js process looks simple, the kernel still manages important data structures.
+
+The kernel still has:
+
+* SYN queue
+* Accept queue
+* Receive buffers
+* Send buffers
+
+Node.js interacts with the kernel through system calls and event notification mechanisms.
+
+---
+
+### 2.4 Asynchronous Reading
+
+Node.js does not usually block on one connection at a time.
+
+Instead, it uses an event-driven model.
+
+On Linux, Node.js relies on mechanisms such as `epoll` through libuv.
+
+Conceptually, Node.js asks the OS:
+
+```text id="mwf35v"
+Here are many file descriptors.
+Tell me when any of them are ready to read or write.
+```
+
+Then Node.js reads only from connections that are ready.
+
+---
+
+### 2.5 Event Loop
+
+The event loop is central to this model.
+
+It allows one thread to manage many connections.
+
+Simplified:
+
+```text id="qjjl20"
+while server is running:
+    wait for events
+    accept ready connections
+    read ready sockets
+    run callbacks
+    write responses
+```
+
+This is why Node.js can handle many concurrent connections without creating one thread per connection.
+
+---
+
+### 2.6 The Same Thread Handles Many Connections
+
+In this model, the same thread may read from many connections.
+
+Example:
+
+```text id="0mrql7"
+Connection 1 → read
+Connection 2 → read
+Connection 3 → read
+Connection 4 → read
+Connection 5 → read
+```
+
+The event loop tries to move between connections efficiently.
+
+But if one task blocks the event loop, all other connections may suffer.
+
+---
+
+### 2.7 The Main Problem
+
+The main weakness of this model is that one thread can become too busy.
+
+If the single thread cannot accept or read fast enough:
+
+* Accept queue may fill
+* Receive buffers may fill
+* Clients may slow down
+* Requests may wait longer
+* Latency may increase
+
+This is especially problematic if the application does CPU-heavy work on the main thread.
+
+---
+
+### 2.8 Scaling with Multiple Processes
+
+One common way to scale this model is to run multiple Node.js processes.
+
+Each process remains simple and mostly single-threaded.
+
+But together, they can use multiple CPU cores.
+
+Example:
+
+```text id="wt5cqn"
+CPU core 1 → Node process 1
+CPU core 2 → Node process 2
+CPU core 3 → Node process 3
+CPU core 4 → Node process 4
+```
+
+This keeps each process simple while still taking advantage of multicore machines.
+
+---
+
+## 3. Important Notes
+
+### Simple Architecture
+
+The biggest advantage of this pattern is simplicity.
+
+The developer does not usually deal with:
+
+* Manual thread creation
+* Shared-memory locking
+* Mutexes
+* Race conditions between application threads
+
+This makes the programming model easier.
+
+---
+
+### Not Good for CPU-Heavy Work on the Main Thread
+
+If the main event loop performs CPU-heavy work, it cannot process other connections efficiently.
+
+Bad examples for the main thread:
+
+* Large JSON processing
+* Heavy encryption work
+* Image processing
+* Machine learning inference
+* Large synchronous file operations
+* Expensive loops
+
+These tasks can block the event loop.
+
+---
+
+### Good for I/O-Heavy Workloads
+
+This pattern works well when most tasks are I/O-bound.
+
+Examples:
+
+* Waiting for database responses
+* Calling external APIs
+* Handling many lightweight HTTP requests
+* Serving many concurrent network connections
+
+The event loop can switch between connections while waiting for I/O.
+
+---
+
+### Multiple Processes Can Improve CPU Utilization
+
+A single Node.js process usually cannot fully use all CPU cores for JavaScript execution.
+
+To use multiple cores, you can run multiple processes.
+
+Common approaches:
+
+* Node.js cluster module
+* PM2 cluster mode
+* Multiple containers
+* Multiple service replicas
+* Load balancer in front of many instances
+
+---
+
+### The OS Is Shared
+
+When you run multiple Node.js processes, they all share the same operating system resources.
+
+They compete for:
+
+* CPU time
+* Memory
+* Network bandwidth
+* File descriptors
+* Kernel queues
+
+So scaling with more processes helps, but it must still be tuned carefully.
+
+---
+
+## 4. Examples
+
+### Example 1: Single Listener, Acceptor, and Reader
+
+```text id="i75a19"
+Client connections
+        ↓
+Kernel
+        ↓
+Single backend process
+        ├── Listener
+        ├── Acceptor
+        ├── Reader
+        └── Writer
+```
+
+One process handles all roles.
+
+---
+
+### Example 2: Node.js Event Loop
+
+```text id="hczij8"
+Node.js process
+┌──────────────────────────────┐
+│ Event loop                    │
+│                              │
+│ 1. Accept ready connection    │
+│ 2. Read ready socket          │
+│ 3. Run request callback       │
+│ 4. Write response             │
+│ 5. Move to next event         │
+└──────────────────────────────┘
+```
+
+The event loop allows one thread to handle many connections asynchronously.
+
+---
+
+### Example 3: Too Many Connections for One Thread
+
+```text id="bs3g5c"
+Connection 1  ┐
+Connection 2  ├── waiting for same event loop
+Connection 3  │
+Connection 4  │
+Connection 5  │
+Connection 6  │
+Connection 7  ┘
+```
+
+If the event loop becomes busy, all connections may wait.
+
+---
+
+### Example 4: Scaling with Multiple Node.js Processes
+
+```text id="gb3leo"
+Load balancer
+     |
+     ├── Node process 1
+     ├── Node process 2
+     ├── Node process 3
+     └── Node process 4
+```
+
+Each Node.js process is still simple, but the system can use multiple CPU cores.
+
+---
+
+### Example 5: Good Use Case
+
+This model works well for an I/O-heavy API.
+
+```text id="748774"
+Client request
+→ Node.js receives request
+→ Node.js calls database
+→ Event loop handles other connections while waiting
+→ Database responds
+→ Node.js sends response
+```
+
+The process is not blocked while waiting for the database.
+
+---
+
+### Example 6: Bad Use Case
+
+This model performs poorly if the main thread does expensive CPU work.
+
+```text id="gk99bi"
+Client request
+→ Node.js receives request
+→ Application runs heavy CPU loop for 5 seconds
+→ Event loop is blocked
+→ Other clients wait
+```
+
+Even if there are many connections, they cannot be processed while the event loop is blocked.
+
+---
+
+## 5. Questions / Review
+
+1. What does “single listener, acceptor, and reader” mean?
+
+2. Why is Node.js a good example of this pattern?
+
+3. Which roles are handled by the same process in this model?
+
+4. What is the event loop?
+
+5. How can one thread manage many connections?
+
+6. What does `epoll` help with on Linux?
+
+7. Why does this model work well for I/O-heavy workloads?
+
+8. Why can CPU-heavy work be dangerous in this model?
+
+9. What happens if the single thread cannot read connections fast enough?
+
+10. How can multiple Node.js processes help with scalability?
+
+11. Does running multiple Node.js processes remove all OS-level competition?
+
+12. What are the main advantages of this execution pattern?
+
+13. What are the main disadvantages of this execution pattern?
+
+---
+
+## Short Takeaway
+
+The single listener, acceptor, and reader pattern uses one process or thread to handle listening, accepting, reading, and writing.
+
+Node.js is a common example.
+
+This architecture is simple and works well for I/O-heavy workloads because the event loop can manage many connections asynchronously.
+
+However, one thread can become a bottleneck if there are too many connections or if the application performs CPU-heavy work.
+
+To scale across multiple CPU cores, applications often run multiple single-threaded processes.

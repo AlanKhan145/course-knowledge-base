@@ -1,0 +1,719 @@
+# 008 - Synchronous vs Asynchronous Workloads
+
+**Section:** 02 - Backend Communication Design Patterns
+**Duration:** 43min
+
+---
+
+## 1. Summary
+
+This lesson explains the difference between **synchronous** and **asynchronous** workloads, one of the most important concepts in backend engineering.
+
+The main idea is simple: when a caller starts an operation, can it continue doing other work while waiting for the result?
+
+In **synchronous execution**, the caller sends a request or starts an operation and then blocks until the receiver finishes and returns a response. The caller cannot continue executing other work during that time.
+
+In **asynchronous execution**, the caller starts an operation and can continue doing other work while waiting for the result. The result may be delivered later through a callback, promise, event loop, completion queue, or another mechanism.
+
+The lesson explains this idea at many levels: programming languages, operating systems, Node.js, backend request processing, queues, PostgreSQL commits, replication, Linux asynchronous I/O, file system cache, and Node.js demos.
+
+---
+
+## 2. Key Concepts
+
+### Synchronous Workload
+
+A synchronous workload blocks the caller until the operation finishes.
+
+```text id="1hyim5"
+Caller → Request → Receiver
+Caller waits...
+Receiver → Response → Caller
+Caller continues
+```
+
+The caller and receiver are “in sync” because the caller’s progress depends on the receiver’s response.
+
+---
+
+### Asynchronous Workload
+
+An asynchronous workload allows the caller to continue doing other work while waiting.
+
+```text id="g7igsm"
+Caller → Request → Receiver
+Caller continues doing other work
+Receiver finishes later
+Receiver → Callback / Event / Result → Caller
+```
+
+The caller and receiver are not forced to move at the same rhythm.
+
+---
+
+### The Core Question
+
+The main question behind synchronous vs asynchronous execution is:
+
+```text id="ndq73l"
+Can I do other work while waiting for this operation to finish?
+```
+
+If the answer is no, it is synchronous.
+
+If the answer is yes, it is asynchronous.
+
+---
+
+### Synchronous I/O
+
+Synchronous I/O means the caller performs an I/O operation and blocks until the operation completes.
+
+Examples of I/O include:
+
+* Reading from disk
+* Writing to disk
+* Reading from the network
+* Writing to the network
+* Waiting for a database response
+
+In synchronous I/O, the program cannot continue executing the next instruction until the I/O operation finishes.
+
+---
+
+### Blocking
+
+Blocking means the current execution cannot continue.
+
+For example:
+
+```text id="ulx4mw"
+Read file
+Wait until file is fully read
+Then continue
+```
+
+During the wait, the caller is not doing useful work.
+
+---
+
+### CPU and Context Switching
+
+When a process blocks on I/O, the operating system may remove it from the CPU and run another process instead.
+
+This is called **context switching**.
+
+Context switching allows the CPU to work on something else, but it has a cost. One context switch may be small, but many context switches can add up.
+
+---
+
+### Synchronous File Read
+
+A synchronous file read blocks the main thread.
+
+```javascript id="mjvkxs"
+const fs = require("fs");
+
+console.log("1");
+
+const result = fs.readFileSync("test.txt");
+console.log(result.toString());
+
+console.log("2");
+```
+
+Expected output:
+
+```text id="jlra1b"
+1
+file content
+2
+```
+
+The program cannot print `2` until the file has finished reading.
+
+---
+
+### Asynchronous I/O
+
+Asynchronous I/O allows the caller to request an operation and continue running.
+
+The result is handled later.
+
+```text id="6pxi95"
+Start file read
+Continue executing code
+File read completes later
+Callback is executed
+```
+
+---
+
+### Ways to Detect Async Completion
+
+There are two major ways to know when asynchronous work is ready or complete:
+
+1. **Readiness-based model**
+
+   * The program asks whether something is ready.
+   * Examples: `select`, `poll`, `epoll`.
+
+2. **Completion-based model**
+
+   * The operating system tells the program when the operation is complete.
+   * Examples: Windows IO Completion Ports, Linux `io_uring`.
+
+---
+
+### Readiness vs Completion
+
+Readiness means:
+
+```text id="q8guu3"
+There is data available to read.
+```
+
+Completion means:
+
+```text id="c0da8n"
+The operation has already completed.
+```
+
+They are related but not the same.
+
+---
+
+### Node.js and Asynchronous I/O
+
+Node.js is built around asynchronous execution.
+
+On Linux, Node.js commonly uses mechanisms like `epoll`. On Windows, it uses completion-based mechanisms.
+
+Node.js also uses worker threads internally for some operations that cannot be made truly non-blocking.
+
+---
+
+### Worker Thread Trick
+
+Sometimes an operation is blocking by nature. To avoid blocking the main thread, Node.js can let another thread perform the blocking work.
+
+```text id="i1daoe"
+Main Thread → Assign blocking work to Worker Thread
+Main Thread → Continues running
+Worker Thread → Blocks while doing I/O
+Worker Thread → Calls back when done
+```
+
+From the programmer’s perspective, the operation feels asynchronous because the main thread remains free.
+
+---
+
+### Callback
+
+A callback is a function that runs later when an asynchronous operation finishes.
+
+Example:
+
+```javascript id="kj0w4c"
+fs.readFile("test.txt", (err, data) => {
+  console.log(data.toString());
+});
+```
+
+The callback is executed after the file is read.
+
+---
+
+### Promise
+
+A promise is a cleaner abstraction over callbacks.
+
+```javascript id="o2totb"
+readFile("test.txt")
+  .then(data => {
+    console.log(data.toString());
+  });
+```
+
+A promise represents a value that will be available in the future.
+
+---
+
+### Async / Await
+
+`async` and `await` make asynchronous code look more like synchronous code.
+
+```javascript id="yfk2k1"
+const data = await readFile("test.txt");
+console.log(data.toString());
+```
+
+Although it looks blocking, the main event loop is not necessarily blocked. The runtime can still do other work.
+
+---
+
+### Event Loop
+
+The event loop is a loop that keeps checking for work to do.
+
+It checks for things like:
+
+* Completed I/O
+* Timers
+* Callbacks
+* Network events
+* Pending tasks
+
+This allows Node.js to handle many asynchronous operations efficiently.
+
+---
+
+### Synchronous vs Asynchronous in Request Response
+
+In request/response systems, synchronicity can be viewed as a client-side property.
+
+The question is:
+
+```text id="19zpeh"
+Can the client continue doing work while waiting for the response?
+```
+
+Modern HTTP clients such as `fetch` and `axios` are usually asynchronous.
+
+---
+
+### System-Level Synchronous Processing
+
+Even if the client uses async code, the overall system may still behave synchronously if the backend must finish the work before returning a response.
+
+Example:
+
+```text id="c6oib3"
+Client sends request
+Backend performs long operation
+Client waits for final response
+```
+
+The client may not block the whole application, but it is still waiting for the backend result.
+
+---
+
+### Asynchronous Backend Processing
+
+Asynchronous backend processing means the backend does not complete the whole task immediately.
+
+Instead, it accepts the request, places work into a queue, and returns quickly.
+
+```text id="tdu8e1"
+Client → Request
+Backend → Put job into queue
+Backend → Return job ID
+Worker → Process job later
+Client → Check job status later
+```
+
+This is useful for long-running tasks.
+
+---
+
+### Queue
+
+A queue is a data structure used to store work that will be processed later.
+
+In backend systems, queues are commonly used for:
+
+* Video processing
+* Email sending
+* Image resizing
+* Report generation
+* Payment workflows
+* Background jobs
+
+---
+
+### Job ID
+
+When the backend accepts asynchronous work, it often returns a job ID.
+
+```json id="c932gm"
+{
+  "job_id": "abc123",
+  "status": "queued"
+}
+```
+
+The client can use this ID later to check whether the job is done.
+
+---
+
+### PostgreSQL Synchronous Commit
+
+In PostgreSQL, a synchronous commit waits until the write-ahead log, also called WAL, is flushed to disk.
+
+```text id="jeqn7q"
+Transaction completes logically
+WAL is flushed to disk
+Database returns success
+```
+
+This provides stronger durability but can be slower.
+
+---
+
+### PostgreSQL Asynchronous Commit
+
+With asynchronous commit, PostgreSQL can return success before the WAL is fully flushed to disk.
+
+```text id="quzbsv"
+Transaction completes logically
+Database returns success
+WAL is flushed later
+```
+
+This can be faster, but it introduces risk. If the server crashes before the WAL is flushed, some committed data may be lost.
+
+---
+
+### Write-Ahead Log, WAL
+
+The write-ahead log is a journal of changes used by databases for durability and crash recovery.
+
+If a crash happens, the database can replay the WAL to recover the latest consistent state.
+
+---
+
+### Synchronous Replication
+
+In synchronous replication, the primary database waits for replicas to confirm before committing.
+
+```text id="dctewf"
+Primary → Commit request
+Replicas → Confirm commit
+Primary → Return success
+```
+
+This improves consistency but increases latency.
+
+---
+
+### Asynchronous Replication
+
+In asynchronous replication, the primary commits first and replicates changes later.
+
+```text id="cws9oj"
+Primary → Commit
+Primary → Return success
+Replicas receive changes later
+```
+
+This improves performance but may reduce consistency if the primary fails before replicas catch up.
+
+---
+
+### OS File System Cache
+
+When an application writes to a file, the data may not go directly to disk immediately.
+
+The operating system may store it in the file system cache and flush it later.
+
+This improves performance because the OS can batch multiple writes together.
+
+---
+
+### fsync
+
+`fsync` forces data to be flushed to disk.
+
+Databases often care about `fsync` because they need strong durability guarantees.
+
+Skipping the OS cache can improve correctness but may reduce performance.
+
+---
+
+### Node.js Demo: Sync vs Async
+
+The instructor demonstrates the difference using Node.js file reading.
+
+Synchronous version:
+
+```javascript id="d2xti4"
+const fs = require("fs");
+
+console.log("1");
+
+const data = fs.readFileSync("test.txt");
+console.log(data.toString());
+
+console.log("2");
+```
+
+Output:
+
+```text id="wqqyyw"
+1
+file content
+2
+```
+
+Asynchronous version:
+
+```javascript id="br31bg"
+const fs = require("fs");
+
+console.log("1");
+
+fs.readFile("test.txt", (err, data) => {
+  console.log(data.toString());
+});
+
+console.log("2");
+```
+
+Possible output:
+
+```text id="ji3xab"
+1
+2
+file content
+```
+
+The asynchronous version schedules the file read and continues executing.
+
+---
+
+## 3. Important Notes
+
+* Synchronous execution blocks the caller.
+* Asynchronous execution allows the caller to continue doing other work.
+* The key question is whether the caller can make progress while waiting.
+* Synchronous I/O can waste time if the program is only waiting.
+* Blocking operations can cause the operating system to perform context switching.
+* Context switching is small but can become expensive at scale.
+* Asynchronous execution is common in backend systems, client applications, operating systems, and databases.
+* Node.js uses asynchronous I/O heavily.
+* Async/await looks synchronous but still uses asynchronous behavior underneath.
+* Asynchronous backend processing often uses queues and job IDs.
+* A client may be asynchronous while the whole system is still synchronous.
+* PostgreSQL commits and replication can be synchronous or asynchronous.
+* Synchronous systems often provide stronger guarantees.
+* Asynchronous systems often improve throughput and responsiveness.
+* Asynchronous replication can improve performance but may weaken consistency.
+* File system caching improves performance by batching writes.
+* Databases often bypass or control caching because they care about durability.
+* Understanding async behavior helps backend engineers optimize systems and debug performance issues.
+
+---
+
+## 4. Examples
+
+### Example 1: Synchronous Meeting
+
+Asking someone a question in a meeting is synchronous.
+
+```text id="zqnwdy"
+You ask a question.
+Everyone waits for the answer.
+The meeting continues after the answer.
+```
+
+The conversation is blocked until the person responds.
+
+---
+
+### Example 2: Asynchronous Email
+
+Sending an email is asynchronous.
+
+```text id="zyj2cn"
+You send an email.
+You continue working.
+The receiver replies later.
+```
+
+You do not sit and wait for the response before doing anything else.
+
+---
+
+### Example 3: Synchronous File Read
+
+```javascript id="x77gyt"
+const fs = require("fs");
+
+console.log("Before read");
+
+const data = fs.readFileSync("large-file.txt");
+
+console.log("After read");
+```
+
+The program cannot print `After read` until the file is fully read.
+
+---
+
+### Example 4: Asynchronous File Read
+
+```javascript id="xnfi37"
+const fs = require("fs");
+
+console.log("Before read");
+
+fs.readFile("large-file.txt", (err, data) => {
+  console.log("File read completed");
+});
+
+console.log("After scheduling read");
+```
+
+The program can continue after scheduling the read.
+
+---
+
+### Example 5: Async Backend Job
+
+A client requests a long-running report.
+
+```text id="h72mbf"
+Client → Generate monthly report
+Backend → Queues job
+Backend → Returns job_id
+Worker → Generates report later
+Client → Checks job status later
+```
+
+This avoids making the client wait for the whole report generation process.
+
+---
+
+### Example 6: Synchronous Backend Processing
+
+```text id="xoiln5"
+Client → Upload video
+Backend → Process video immediately
+Client waits...
+Backend → Response when processing is done
+```
+
+This can be slow and may cause timeout issues.
+
+---
+
+### Example 7: Asynchronous Backend Processing
+
+```text id="6e1ncm"
+Client → Upload video
+Backend → Stores video and queues processing job
+Backend → Returns immediately
+Worker → Processes video in background
+Client → Receives result later
+```
+
+This is usually better for long-running workloads.
+
+---
+
+### Example 8: Synchronous Replication
+
+```text id="sbcybc"
+Client → Commit transaction
+Primary database → Sends commit to replicas
+Replicas → Confirm
+Primary database → Returns success
+```
+
+The client waits longer, but consistency is stronger.
+
+---
+
+### Example 9: Asynchronous Replication
+
+```text id="739w5s"
+Client → Commit transaction
+Primary database → Returns success
+Primary database → Replicates later
+```
+
+The client gets a faster response, but replicas may lag behind.
+
+---
+
+### Example 10: OS File Cache
+
+```text id="1rxzv6"
+Application writes file
+OS stores write in memory cache
+OS flushes many writes to disk later
+```
+
+This improves performance by reducing frequent disk writes.
+
+---
+
+## 5. Questions / Review
+
+1. What is the main difference between synchronous and asynchronous workloads?
+
+2. What does it mean for a caller to be blocked?
+
+3. Why can synchronous I/O waste time?
+
+4. What happens when a process blocks on I/O?
+
+5. What is context switching?
+
+6. Why can too many context switches become costly?
+
+7. What is asynchronous I/O?
+
+8. What is the difference between readiness-based and completion-based asynchronous I/O?
+
+9. What is `epoll` used for?
+
+10. What is `io_uring` used for?
+
+11. Why does Node.js use worker threads for some operations?
+
+12. What is a callback?
+
+13. What is a promise?
+
+14. Why does async/await look synchronous even though it is asynchronous?
+
+15. What is the event loop?
+
+16. Why are most modern network client libraries asynchronous?
+
+17. How can a client be asynchronous while the overall system is still synchronous?
+
+18. What is asynchronous backend processing?
+
+19. Why are queues useful for long-running backend tasks?
+
+20. What is a job ID?
+
+21. How can a client check whether an asynchronous job is complete?
+
+22. What is PostgreSQL synchronous commit?
+
+23. What is PostgreSQL asynchronous commit?
+
+24. What is the risk of asynchronous commit?
+
+25. What is the write-ahead log, WAL?
+
+26. What is synchronous replication?
+
+27. What is asynchronous replication?
+
+28. What is the trade-off between consistency and performance in replication?
+
+29. Why does the operating system use a file system cache?
+
+30. Why do databases care about `fsync`?
+
+31. In the Node.js demo, why does `readFileSync` print output in order?
+
+32. In the Node.js demo, why does `readFile` allow `console.log("2")` to run before the file content is printed?
+
+33. Why is asynchronous execution important in backend engineering?
+
+34. Why does understanding async behavior help with performance optimization?

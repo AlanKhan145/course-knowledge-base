@@ -1,0 +1,1658 @@
+# 025 - HTTPS, TLS, Keys, and Certificates
+
+**Section:** 03 - Protocols  
+**Duration:** 1hr 2min  
+
+---
+
+## 1. Summary
+
+HTTPS stands for:
+
+```text
+Hypertext Transfer Protocol Secure
+```
+
+HTTPS is HTTP protected by TLS.
+
+Simple formula:
+
+```text
+HTTPS = HTTP + TLS
+```
+
+TLS stands for:
+
+```text
+Transport Layer Security
+```
+
+TLS is used to encrypt communication between two parties.
+
+In web communication, TLS usually protects communication between:
+
+- Browser and server
+- Client and API
+- Backend service and backend service
+- Client and CDN
+- CDN and origin server
+
+TLS provides:
+
+- Encryption
+- Authentication
+- Data integrity
+- Secure key exchange
+
+Without TLS, HTTP requests and responses can be sent in plain text.
+
+That means someone in the middle, such as an ISP, router, proxy, or Wi-Fi attacker, may be able to inspect the traffic.
+
+HTTPS solves this by encrypting HTTP data before it is sent over TCP.
+
+---
+
+## 2. Key Concepts
+
+## 2.1 HTTP vs HTTPS
+
+HTTP is not encrypted.
+
+HTTPS is encrypted using TLS.
+
+| Protocol | Meaning | Encryption |
+|---|---|---|
+| HTTP | Hypertext Transfer Protocol | No |
+| HTTPS | HTTP over TLS | Yes |
+
+HTTP usually uses:
+
+```text
+Port 80
+```
+
+HTTPS usually uses:
+
+```text
+Port 443
+```
+
+---
+
+## 2.2 HTTPS Is Not Always End-to-End
+
+Many people think HTTPS means the data is encrypted all the way from the client to the final backend server.
+
+That is not always true.
+
+Example:
+
+```text
+Client → CDN → Origin Server
+```
+
+The TLS connection may be terminated at the CDN.
+
+Example:
+
+```text
+Client → Cloudflare: encrypted
+Cloudflare decrypts the request
+Cloudflare → Origin Server: encrypted again or sometimes plain inside private network
+```
+
+This process is called:
+
+```text
+TLS termination
+```
+
+TLS termination commonly happens at:
+
+- CDN
+- Load balancer
+- API gateway
+- Reverse proxy
+- Ingress controller
+
+Important idea:
+
+```text
+TLS protects communication between two TLS endpoints.
+```
+
+If there is a proxy or CDN in the middle, that proxy may decrypt and re-encrypt the traffic.
+
+---
+
+## 2.3 Where Does TLS Sit?
+
+TLS sits between HTTP and TCP.
+
+Simplified protocol stack:
+
+```text
+HTTP
+TLS
+TCP
+IP
+Ethernet/Wi-Fi
+Physical Network
+```
+
+The application produces HTTP data.
+
+TLS encrypts that data.
+
+TCP sends encrypted bytes.
+
+The operating system kernel does not care whether the bytes are encrypted or not.
+
+To the kernel, it is just a stream of bytes sent to an IP address and port.
+
+---
+
+## 2.4 Node.js and HTTPS
+
+Node.js supports both:
+
+- HTTP client
+- HTTP server
+- HTTPS client
+- HTTPS server
+
+The difference between HTTP and HTTPS is that HTTPS adds TLS handling.
+
+For an HTTPS server, Node.js needs:
+
+```text
+Private key
+Certificate
+```
+
+The private key stays on the server.
+
+The certificate is sent to clients so they can verify the server identity.
+
+---
+
+## 3. Encryption Basics
+
+## 3.1 Two Types of Encryption
+
+There are two major types of encryption:
+
+```text
+Symmetric encryption
+Asymmetric encryption
+```
+
+This is one of the most important concepts in TLS.
+
+---
+
+## 3.2 Symmetric Encryption
+
+Symmetric encryption uses the same key to encrypt and decrypt data.
+
+```text
+Same key encrypts.
+Same key decrypts.
+```
+
+Example:
+
+```text
+Plain text + key → encrypted data
+Encrypted data + same key → plain text
+```
+
+The main advantage:
+
+```text
+Symmetric encryption is fast.
+```
+
+The main problem:
+
+```text
+Both parties must have the same key.
+```
+
+This creates the key exchange problem.
+
+---
+
+## 3.3 Key Exchange Problem
+
+If two parties need the same symmetric key, how do they share it safely?
+
+They cannot simply send the key over the network.
+
+If they do, someone in the middle can steal it.
+
+The core question:
+
+```text
+How can two parties agree on the same secret key
+without sending the secret key directly?
+```
+
+TLS solves this problem using asymmetric cryptography and key exchange algorithms.
+
+---
+
+## 3.4 Asymmetric Encryption
+
+Asymmetric encryption uses two keys:
+
+```text
+Public key
+Private key
+```
+
+The public key can be shared with anyone.
+
+The private key must stay secret.
+
+The two keys are mathematically related.
+
+Important rule:
+
+```text
+You can derive the public key from the private key.
+You cannot realistically derive the private key from the public key.
+```
+
+---
+
+## 3.5 Encrypting With Public Key
+
+If someone encrypts data using your public key, only your private key can decrypt it.
+
+Example:
+
+```text
+Client encrypts message with server public key.
+Only server private key can decrypt it.
+```
+
+This provides confidentiality.
+
+Anyone can have the public key, but only the private key owner can decrypt messages encrypted with that public key.
+
+---
+
+## 3.6 Digital Signatures
+
+Asymmetric cryptography can also be used for digital signatures.
+
+A digital signature proves that a message was created or approved by the private key owner.
+
+Simplified process:
+
+```text
+Private key signs data.
+Public key verifies the signature.
+```
+
+This is not mainly for hiding data.
+
+It is for proving:
+
+- Authenticity
+- Integrity
+- Non-tampering
+
+If someone changes the message, the signature verification fails.
+
+---
+
+## 3.7 Symmetric vs Asymmetric Encryption
+
+| Feature | Symmetric Encryption | Asymmetric Encryption |
+|---|---|---|
+| Keys | One shared key | Public key + private key |
+| Speed | Fast | Slower |
+| Used for | Large data encryption | Key exchange, signatures, authentication |
+| Problem | Key exchange | More CPU-expensive |
+
+TLS uses both.
+
+```text
+Asymmetric cryptography helps establish trust and exchange keys.
+Symmetric cryptography encrypts the actual data.
+```
+
+---
+
+## 4. Certificates
+
+## 4.1 What Is a Certificate?
+
+A certificate is a document that contains a public key and metadata about its owner.
+
+A certificate helps answer this question:
+
+```text
+Does this public key really belong to this website?
+```
+
+A certificate is not just a public key.
+
+It also contains identity and trust information.
+
+---
+
+## 4.2 What Is Inside a Certificate?
+
+A certificate may contain:
+
+- Public key
+- Subject name
+- Subject Alternative Name
+- Issuer
+- Validity period
+- Signature algorithm
+- Digital signature
+- Certificate version
+- Metadata
+
+The most important field for websites is usually:
+
+```text
+Subject Alternative Name
+```
+
+This field contains the domain names the certificate is valid for.
+
+Example:
+
+```text
+example.com
+www.example.com
+api.example.com
+```
+
+---
+
+## 4.3 X.509
+
+Most TLS certificates use the X.509 standard.
+
+X.509 defines the structure of certificates.
+
+When people talk about TLS certificates on the web, they usually mean X.509 certificates.
+
+---
+
+## 4.4 Self-Signed Certificate
+
+A self-signed certificate is signed by its own private key.
+
+This means the certificate owner signs their own certificate.
+
+Self-signed certificates are often used for:
+
+- Local development
+- Testing
+- Internal services
+- Learning TLS
+
+But public browsers usually do not trust self-signed certificates by default.
+
+Why?
+
+Because anyone can create one.
+
+There is no trusted third party verifying the identity.
+
+---
+
+## 4.5 Certificate Authority
+
+A Certificate Authority, or CA, is a trusted organization that signs certificates.
+
+A CA says:
+
+```text
+I verified this identity.
+This public key belongs to this domain.
+```
+
+Examples of CAs include organizations that issue public TLS certificates.
+
+When a CA signs a certificate, clients can verify the signature using the CA's public key.
+
+---
+
+## 4.6 Certificate Chain
+
+A website certificate is usually part of a chain.
+
+Example:
+
+```text
+Website Certificate
+→ Intermediate CA Certificate
+→ Root CA Certificate
+```
+
+The browser verifies the chain.
+
+It checks whether the chain eventually leads to a trusted root certificate.
+
+---
+
+## 4.7 Root Certificate
+
+A root certificate is at the top of the certificate chain.
+
+Root certificates are usually self-signed.
+
+But they are trusted because they are pre-installed in a trusted certificate store.
+
+Certificate stores exist in:
+
+- Operating systems
+- Browsers
+- Programming runtimes
+- Some applications
+
+If a root certificate is trusted, certificates signed under that root can also be trusted.
+
+---
+
+## 4.8 Certificate Store
+
+A certificate store is a trusted list of root certificates.
+
+When a browser or client receives a certificate, it checks:
+
+```text
+Who signed this certificate?
+Who signed that signer?
+Does the chain end at a trusted root certificate?
+```
+
+If the chain ends at a trusted root, the certificate is accepted.
+
+If not, the client may reject the connection.
+
+---
+
+## 4.9 Full Chain
+
+Servers sometimes send the full certificate chain.
+
+This may include:
+
+```text
+Website certificate
+Intermediate certificate
+Other chain certificates
+```
+
+The root certificate is usually already in the client certificate store.
+
+Sending the full chain helps clients verify the certificate even if they do not already have the intermediate certificates.
+
+---
+
+## 4.10 Why Bad Root Certificates Are Dangerous
+
+If a malicious or untrusted root certificate is installed on a machine, it can break TLS trust.
+
+A malicious actor could generate certificates that appear trusted by that machine.
+
+This enables man-in-the-middle attacks.
+
+That is why certificate stores must be protected.
+
+---
+
+## 5. TLS and Session Keys
+
+## 5.1 TLS Uses Session Keys
+
+TLS usually encrypts application data using symmetric keys.
+
+These are often called:
+
+```text
+Session keys
+```
+
+A session key is created for a TLS session.
+
+The session key is used to encrypt and decrypt the data during that session.
+
+---
+
+## 5.2 Why Session Keys?
+
+Symmetric encryption is fast.
+
+So TLS uses symmetric encryption for actual data transfer.
+
+Example:
+
+```text
+HTTP request
+→ encrypted with session key
+→ sent over TCP
+```
+
+The hard part is safely creating and sharing the session key.
+
+---
+
+## 5.3 TLS Key Exchange
+
+TLS needs a way for client and server to agree on session keys.
+
+Older methods used RSA key exchange.
+
+Modern methods use Diffie-Hellman or Elliptic Curve Diffie-Hellman.
+
+Key exchange methods help both sides derive the same secret without sending the secret directly.
+
+---
+
+## 6. TLS 1.2 With RSA Key Exchange
+
+## 6.1 Basic Flow
+
+A simplified TLS 1.2 RSA key exchange works like this:
+
+```text
+1. Client opens TCP connection.
+2. Client sends ClientHello.
+3. Server sends certificate containing public key.
+4. Client verifies certificate.
+5. Client generates a symmetric secret.
+6. Client encrypts that secret with server public key.
+7. Server decrypts it with private key.
+8. Both sides derive session keys.
+9. Encrypted communication begins.
+```
+
+---
+
+## 6.2 Why This Works
+
+If the client encrypts the secret with the server public key, only the server private key can decrypt it.
+
+Someone in the middle may see the encrypted secret.
+
+But they cannot decrypt it without the private key.
+
+This allows the client and server to agree on a symmetric session key.
+
+---
+
+## 6.3 Weakness of RSA Key Exchange
+
+The weakness is lack of forward secrecy.
+
+Imagine an attacker records encrypted traffic today.
+
+They cannot decrypt it now.
+
+But if the server private key leaks in the future, the attacker may decrypt old recorded sessions.
+
+This is a serious issue.
+
+---
+
+## 6.4 Heartbleed Example
+
+Heartbleed was a famous OpenSSL vulnerability from 2014.
+
+It allowed attackers to read memory from vulnerable servers.
+
+In some cases, sensitive data such as private keys could be exposed.
+
+If a private key is leaked, old RSA key exchange sessions may become vulnerable if they were recorded.
+
+---
+
+## 6.5 Forward Secrecy
+
+Forward secrecy means:
+
+```text
+Even if a long-term private key is leaked later,
+old recorded sessions should remain protected.
+```
+
+RSA key exchange does not provide strong forward secrecy.
+
+This is why modern TLS prefers Diffie-Hellman-based key exchange.
+
+---
+
+## 7. Diffie-Hellman Key Exchange
+
+## 7.1 What Is Diffie-Hellman?
+
+Diffie-Hellman is a key exchange algorithm.
+
+It lets two parties create the same shared secret without directly sending the secret over the network.
+
+This helps solve the key exchange problem.
+
+---
+
+## 7.2 Diffie-Hellman Idea
+
+Instead of sending the symmetric key, both sides send enough public information to derive the same key.
+
+Each side keeps a private value.
+
+Example:
+
+```text
+Client private value = x
+Server private value = y
+```
+
+There are also public values:
+
+```text
+g
+n
+```
+
+The client and server exchange public computations.
+
+Then each side combines:
+
+```text
+Their own private value
+The other side's public value
+```
+
+Both end up with the same shared secret.
+
+---
+
+## 7.3 Diffie-Hellman Simplified Math
+
+Public values:
+
+```text
+g
+n
+```
+
+Client private value:
+
+```text
+x
+```
+
+Server private value:
+
+```text
+y
+```
+
+Client computes:
+
+```text
+g^x mod n
+```
+
+Server computes:
+
+```text
+g^y mod n
+```
+
+They exchange those values.
+
+Then:
+
+```text
+Client computes: (g^y mod n)^x mod n
+Server computes: (g^x mod n)^y mod n
+```
+
+Both produce the same shared secret:
+
+```text
+g^(xy) mod n
+```
+
+An attacker may see:
+
+```text
+g
+n
+g^x mod n
+g^y mod n
+```
+
+But cannot realistically derive the private values:
+
+```text
+x
+y
+```
+
+---
+
+## 7.4 Diffie-Hellman and Man-in-the-Middle
+
+Diffie-Hellman alone does not prove identity.
+
+A man-in-the-middle attacker could intercept the exchange and replace public values.
+
+So TLS still needs certificates and digital signatures.
+
+The server signs its key exchange data.
+
+The client verifies the signature using the public key from the trusted certificate.
+
+This proves that the key exchange came from the real server.
+
+---
+
+## 7.5 ECDHE
+
+ECDHE stands for:
+
+```text
+Elliptic Curve Diffie-Hellman Ephemeral
+```
+
+ECDHE is a modern key exchange method commonly used in TLS.
+
+It provides forward secrecy and better performance than traditional Diffie-Hellman with large numbers.
+
+---
+
+## 8. TLS 1.3
+
+## 8.1 TLS 1.3 Improvements
+
+TLS 1.3 simplifies and improves TLS.
+
+It removes many older and weaker options.
+
+It is faster and more secure by default.
+
+TLS 1.3 uses modern key exchange methods such as ECDHE.
+
+---
+
+## 8.2 TLS 1.3 Handshake
+
+A simplified TLS 1.3 handshake:
+
+```text
+1. Client sends ClientHello with key share.
+2. Server sends ServerHello with key share and certificate.
+3. Server signs handshake data.
+4. Client verifies certificate and signature.
+5. Both derive session keys.
+6. Encrypted communication begins.
+```
+
+TLS 1.3 can establish encryption faster than older TLS versions because it reduces round trips.
+
+---
+
+## 8.3 Why Certificates Still Matter in TLS 1.3
+
+Even if Diffie-Hellman creates a shared secret, the client still needs to know who it is talking to.
+
+Certificates solve this.
+
+The certificate proves:
+
+```text
+This public key belongs to this server identity.
+```
+
+The signature proves:
+
+```text
+This handshake data came from the private key owner.
+```
+
+Without certificates, Diffie-Hellman could be vulnerable to man-in-the-middle attacks.
+
+---
+
+## 9. Node.js HTTPS
+
+## 9.1 HTTPS Client in Node.js
+
+Node.js has an `https` module.
+
+Example:
+
+```js
+import https from "https";
+
+https.get("https://example.com", (res) => {
+  console.log("statusCode:", res.statusCode);
+
+  res.on("data", (chunk) => {
+    process.stdout.write(chunk);
+  });
+});
+```
+
+The HTTPS client handles TLS behind the scenes.
+
+It verifies certificates using the trusted certificate store.
+
+---
+
+## 9.2 HTTPS Server in Node.js
+
+To create an HTTPS server, Node.js needs:
+
+```text
+Private key
+Certificate
+```
+
+Example:
+
+```js
+import https from "https";
+import fs from "fs";
+
+const options = {
+  key: fs.readFileSync("private-key.pem"),
+  cert: fs.readFileSync("certificate.pem"),
+};
+
+const server = https.createServer(options, (req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Hello HTTPS\n");
+});
+
+server.listen(8443, "127.0.0.1", () => {
+  console.log("HTTPS server listening on https://127.0.0.1:8443");
+});
+```
+
+---
+
+## 9.3 Generate a Private Key With OpenSSL
+
+Generate a private key:
+
+```bash
+openssl genrsa -out private-key.pem 4096
+```
+
+This creates:
+
+```text
+private-key.pem
+```
+
+Important:
+
+```text
+Never commit private keys to GitHub.
+Never share private keys publicly.
+```
+
+---
+
+## 9.4 Generate a Self-Signed Certificate
+
+Generate a self-signed X.509 certificate:
+
+```bash
+openssl req -new -x509 \
+  -key private-key.pem \
+  -out certificate.pem \
+  -days 365
+```
+
+OpenSSL will ask questions such as:
+
+```text
+Country Name
+State
+Locality
+Organization
+Common Name
+Email Address
+```
+
+For local development, the common name may be:
+
+```text
+localhost
+```
+
+---
+
+## 9.5 Test HTTPS Server With curl
+
+Test the local HTTPS server:
+
+```bash
+curl https://localhost:8443
+```
+
+If the certificate is self-signed, curl may reject it.
+
+Error idea:
+
+```text
+certificate verify failed
+```
+
+For local testing only, you can skip verification:
+
+```bash
+curl -k https://localhost:8443
+```
+
+or:
+
+```bash
+curl --insecure https://localhost:8443
+```
+
+Important:
+
+```text
+Do not use --insecure in production.
+```
+
+---
+
+## 9.6 Inspect TLS With curl
+
+Use verbose mode:
+
+```bash
+curl -v https://example.com
+```
+
+This can show TLS information such as:
+
+- ClientHello
+- ServerHello
+- Certificate
+- TLS version
+- Cipher suite
+- ALPN result
+- Certificate verification result
+
+This is useful for debugging TLS connections.
+
+---
+
+## 10. Important Notes
+
+## 10.1 HTTPS Adds More Work
+
+HTTPS does more work than HTTP.
+
+It adds:
+
+- TLS handshake
+- Certificate verification
+- Key exchange
+- Encryption
+- Decryption
+
+This adds CPU cost and latency.
+
+Modern TLS is optimized, but the cost still exists.
+
+---
+
+## 10.2 TLS Termination Changes Trust Boundaries
+
+If TLS terminates at a CDN or reverse proxy, that component can see decrypted traffic.
+
+Example:
+
+```text
+Client → CDN: encrypted
+CDN decrypts request
+CDN → Backend: encrypted again or internal traffic
+```
+
+This is normal in many architectures, but engineers must understand the trust boundary.
+
+---
+
+## 10.3 Private Keys Must Stay Secret
+
+The private key is the most sensitive part of HTTPS server setup.
+
+If the private key leaks, attackers may impersonate the server or compromise older recorded traffic depending on the TLS configuration.
+
+Private keys should be protected carefully.
+
+---
+
+## 10.4 Certificates Are About Trust
+
+A certificate connects identity to a public key.
+
+Without certificates, a client may receive a public key but not know who it belongs to.
+
+Certificates allow clients to verify:
+
+```text
+This public key belongs to this domain.
+```
+
+---
+
+## 10.5 Self-Signed Certificates Are Useful but Not Publicly Trusted
+
+Self-signed certificates are fine for local development.
+
+But public clients do not trust them by default.
+
+For public websites, use a certificate signed by a trusted CA.
+
+---
+
+## 10.6 Certificate Chain Must Be Valid
+
+A certificate is trusted only if it chains back to a trusted root certificate.
+
+If the chain is broken, expired, or signed by an unknown authority, the client rejects it.
+
+---
+
+## 10.7 Do Not Disable Certificate Verification in Production
+
+Disabling certificate verification removes one of the main protections of TLS.
+
+Commands like this are only for local testing:
+
+```bash
+curl -k https://localhost:8443
+```
+
+In production, certificate verification should remain enabled.
+
+---
+
+## 10.8 TLS Can Be Mutual
+
+Usually, TLS verifies the server.
+
+But TLS can also verify the client.
+
+This is called:
+
+```text
+mTLS
+```
+
+mTLS stands for:
+
+```text
+Mutual TLS
+```
+
+In mTLS, both sides present certificates.
+
+This is commonly used in internal service-to-service communication.
+
+---
+
+## 11. Examples
+
+## Example 1: HTTP vs HTTPS
+
+HTTP:
+
+```text
+Client → plain HTTP request → Server
+```
+
+HTTPS:
+
+```text
+Client → encrypted HTTP request through TLS → Server
+```
+
+HTTP stack:
+
+```text
+HTTP
+TCP
+IP
+```
+
+HTTPS stack:
+
+```text
+HTTP
+TLS
+TCP
+IP
+```
+
+---
+
+## Example 2: TLS Termination at CDN
+
+```text
+Browser
+  ↓ encrypted TLS
+CDN / Cloudflare
+  ↓ decrypted and inspected
+  ↓ optionally re-encrypted
+Origin Server
+```
+
+Important:
+
+```text
+HTTPS encrypts traffic between TLS endpoints.
+A CDN can be a TLS endpoint.
+```
+
+---
+
+## Example 3: Symmetric Encryption
+
+```text
+Shared key: K
+
+Plain text + K → Cipher text
+Cipher text + K → Plain text
+```
+
+Problem:
+
+```text
+Both sides need K.
+But K cannot be sent in plain text.
+```
+
+---
+
+## Example 4: Asymmetric Encryption
+
+```text
+Public key  = shared
+Private key = secret
+```
+
+Client encrypts with public key:
+
+```text
+Message + server public key → encrypted message
+```
+
+Server decrypts with private key:
+
+```text
+Encrypted message + server private key → original message
+```
+
+---
+
+## Example 5: Digital Signature
+
+Server signs data with private key:
+
+```text
+Data + private key → signature
+```
+
+Client verifies using public key:
+
+```text
+Data + signature + public key → valid or invalid
+```
+
+If the data changes, the signature fails.
+
+---
+
+## Example 6: Certificate Chain
+
+```text
+example.com certificate
+  signed by Intermediate CA
+    signed by Root CA
+      trusted by OS/browser certificate store
+```
+
+If the root CA is trusted, the chain can be trusted.
+
+---
+
+## Example 7: TLS 1.2 RSA Key Exchange
+
+```text
+ClientHello
+Server certificate with public key
+Client generates secret
+Client encrypts secret with server public key
+Server decrypts secret with private key
+Both derive session key
+Encrypted HTTP begins
+```
+
+Weakness:
+
+```text
+If the private key leaks later, old recorded sessions may be at risk.
+```
+
+---
+
+## Example 8: Diffie-Hellman Key Exchange
+
+```text
+Client private value: x
+Server private value: y
+Public values: g and n
+```
+
+Client sends:
+
+```text
+g^x mod n
+```
+
+Server sends:
+
+```text
+g^y mod n
+```
+
+Both compute:
+
+```text
+g^(xy) mod n
+```
+
+Result:
+
+```text
+Both sides derive the same shared secret.
+The secret itself is never sent directly.
+```
+
+---
+
+## Example 9: Generate Local HTTPS Files
+
+Generate private key:
+
+```bash
+openssl genrsa -out private-key.pem 4096
+```
+
+Generate self-signed certificate:
+
+```bash
+openssl req -new -x509 \
+  -key private-key.pem \
+  -out certificate.pem \
+  -days 365
+```
+
+Run HTTPS server using those files in Node.js.
+
+---
+
+## Example 10: Local HTTPS Server
+
+```js
+import https from "https";
+import fs from "fs";
+
+const options = {
+  key: fs.readFileSync("private-key.pem"),
+  cert: fs.readFileSync("certificate.pem"),
+};
+
+https
+  .createServer(options, (req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Hello HTTPS\n");
+  })
+  .listen(8443, () => {
+    console.log("Server running at https://localhost:8443");
+  });
+```
+
+Test:
+
+```bash
+curl -k https://localhost:8443
+```
+
+---
+
+## 12. Questions / Review
+
+## Question 1
+
+What does HTTPS stand for?
+
+**Answer:**
+
+HTTPS stands for **Hypertext Transfer Protocol Secure**.
+
+---
+
+## Question 2
+
+What is the relationship between HTTPS and TLS?
+
+**Answer:**
+
+HTTPS is HTTP running over TLS.
+
+```text
+HTTPS = HTTP + TLS
+```
+
+---
+
+## Question 3
+
+What does TLS provide?
+
+**Answer:**
+
+TLS provides:
+
+- Encryption
+- Authentication
+- Data integrity
+- Secure key exchange
+
+---
+
+## Question 4
+
+Does HTTPS always mean end-to-end encryption to the final backend?
+
+**Answer:**
+
+No.
+
+TLS may terminate at a CDN, load balancer, reverse proxy, or API gateway.
+
+---
+
+## Question 5
+
+What is TLS termination?
+
+**Answer:**
+
+TLS termination is when a proxy, CDN, or server decrypts TLS traffic and handles the plaintext request internally.
+
+---
+
+## Question 6
+
+What are the two major types of encryption?
+
+**Answer:**
+
+The two major types are:
+
+```text
+Symmetric encryption
+Asymmetric encryption
+```
+
+---
+
+## Question 7
+
+What is symmetric encryption?
+
+**Answer:**
+
+Symmetric encryption uses the same key to encrypt and decrypt data.
+
+---
+
+## Question 8
+
+Why is symmetric encryption used for application data?
+
+**Answer:**
+
+Because it is fast and efficient for large amounts of data.
+
+---
+
+## Question 9
+
+What is asymmetric encryption?
+
+**Answer:**
+
+Asymmetric encryption uses a public key and a private key.
+
+---
+
+## Question 10
+
+What is a public key?
+
+**Answer:**
+
+A public key is a key that can be shared with others.
+
+It can be used for encryption or signature verification depending on the use case.
+
+---
+
+## Question 11
+
+What is a private key?
+
+**Answer:**
+
+A private key is a secret key that must be protected.
+
+It can decrypt data encrypted with the public key or create digital signatures.
+
+---
+
+## Question 12
+
+What is a digital signature?
+
+**Answer:**
+
+A digital signature proves that data was signed by the private key owner and has not been changed.
+
+---
+
+## Question 13
+
+What is a certificate?
+
+**Answer:**
+
+A certificate is a document that binds a public key to an identity, such as a domain name.
+
+---
+
+## Question 14
+
+What is X.509?
+
+**Answer:**
+
+X.509 is the standard format commonly used for TLS certificates.
+
+---
+
+## Question 15
+
+What is a certificate authority?
+
+**Answer:**
+
+A certificate authority is a trusted organization that signs certificates.
+
+---
+
+## Question 16
+
+What is a certificate chain?
+
+**Answer:**
+
+A certificate chain links a website certificate to an intermediate CA and then to a trusted root CA.
+
+---
+
+## Question 17
+
+What is a root certificate?
+
+**Answer:**
+
+A root certificate is a trusted certificate at the top of a certificate chain.
+
+It is usually stored in the OS or browser certificate store.
+
+---
+
+## Question 18
+
+What is forward secrecy?
+
+**Answer:**
+
+Forward secrecy means old recorded sessions remain protected even if a long-term private key leaks later.
+
+---
+
+## Question 19
+
+Why is RSA key exchange weaker than modern Diffie-Hellman-based exchange?
+
+**Answer:**
+
+Because RSA key exchange may expose old recorded sessions if the server private key leaks later.
+
+Diffie-Hellman-based exchange can provide forward secrecy.
+
+---
+
+## Question 20
+
+What files does a basic Node.js HTTPS server need?
+
+**Answer:**
+
+A Node.js HTTPS server needs:
+
+```text
+Private key
+Certificate
+```
+
+---
+
+## Question 21
+
+Why does curl reject a self-signed certificate?
+
+**Answer:**
+
+Because the certificate is not signed by a trusted certificate authority.
+
+---
+
+## Question 22
+
+What does `curl -k` do?
+
+**Answer:**
+
+It disables certificate verification for that request.
+
+It should only be used for local testing, not production.
+
+---
+
+## Question 23
+
+What is mTLS?
+
+**Answer:**
+
+mTLS stands for **Mutual TLS**.
+
+It means both client and server authenticate each other using certificates.
+
+---
+
+## 13. Final Takeaway
+
+HTTPS is HTTP protected by TLS.
+
+TLS uses cryptography to secure communication.
+
+The most important concepts are:
+
+```text
+Symmetric encryption
+Asymmetric encryption
+Public key
+Private key
+Digital signature
+Certificate
+Certificate authority
+Certificate chain
+Root certificate
+Session key
+TLS handshake
+Forward secrecy
+Diffie-Hellman
+ECDHE
+mTLS
+```
+
+TLS usually works like this:
+
+```text
+1. Client connects to server.
+2. Server presents certificate.
+3. Client verifies certificate chain.
+4. Client and server perform key exchange.
+5. Both derive session keys.
+6. HTTP data is encrypted with symmetric encryption.
+7. Encrypted bytes are sent over TCP.
+```
+
+For backend engineers, HTTPS and TLS are essential because they protect data in transit.
+
+Understanding TLS helps explain:
+
+- Why HTTPS is secure
+- Why certificates matter
+- Why private keys must be protected
+- Why self-signed certificates are not trusted publicly
+- Why TLS adds performance cost
+- Why TLS termination changes trust boundaries
+- Why forward secrecy matters
+- Why modern TLS prefers ECDHE

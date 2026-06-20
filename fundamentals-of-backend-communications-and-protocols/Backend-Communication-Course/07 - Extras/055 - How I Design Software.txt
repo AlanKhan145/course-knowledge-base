@@ -1,0 +1,675 @@
+# 055 - How I Design Software
+
+Section: 07 - Extras
+Duration: 5min
+
+---
+
+## 1. Summary
+
+This lecture explains the instructor's personal approach to designing software.
+
+The main idea is that software design becomes clearer when it is written down in detail. The instructor tried several approaches before reaching this conclusion:
+
+* code-first design,
+* diagram-first design,
+* PowerPoint-first design,
+* writing-first design.
+
+The code-first approach can help with prototyping, but it often leaves the designer lost later because the system's reasoning is not clearly documented.
+
+The diagram-first approach can help visualize components, but diagrams alone are often either too detailed or too high-level. They may show the shape of the system but not the reasoning behind it.
+
+PowerPoint can help communicate ideas in meetings, but slides often hide important details.
+
+The instructor's preferred approach is to design software through writing. He creates several documents for different stakeholders, starting from user workflows and gradually moving into deeper technical design.
+
+The process is:
+
+```text id="s1v87i"
+Workflow Document
+→ Design Overview
+→ Component Design
+→ Design Overview Diagram
+→ Reviews and Updates
+```
+
+Writing takes time, but it forces the designer to think deeply, discover missing requirements, clarify assumptions, and produce documents that can answer future questions.
+
+---
+
+## 2. Key Concepts
+
+### Writing-First Software Design
+
+Writing-first design means documenting the system before or while building it.
+
+Instead of starting with code or diagrams, the designer starts by explaining the system in text.
+
+This forces clear thinking.
+
+If an idea cannot be explained clearly in writing, it probably has not been fully understood yet.
+
+---
+
+### Why Code-First Can Fail
+
+The code-first approach means starting by building a prototype.
+
+This can be useful for experimentation, but it has problems.
+
+The designer may later look at the code and feel lost.
+
+Important design decisions may not be documented.
+
+It becomes difficult to answer questions such as:
+
+* Why does this component exist?
+* What requirement does this feature solve?
+* Why was this database chosen?
+* Why does this workflow behave this way?
+* What are the limitations of this design?
+
+Code shows what the system does, but it does not always explain why.
+
+---
+
+### Why Diagram-First Can Fail
+
+Diagrams are useful, but they are not enough by themselves.
+
+A diagram can show components and connections, but it usually cannot explain deep technical reasoning.
+
+Some diagrams are too detailed and become hard to understand.
+
+Other diagrams are too high-level and feel like marketing material.
+
+A good diagram needs companion documents.
+
+The document explains the reasoning.
+The diagram visualizes the structure.
+
+---
+
+### Why PowerPoint-First Can Fail
+
+Slides are useful for meetings and presentations.
+
+However, slides are usually short and simplified.
+
+They may not capture:
+
+* edge cases,
+* trade-offs,
+* failure modes,
+* technical limitations,
+* deep design reasoning,
+* implementation details.
+
+PowerPoint is good for communication, but it is not enough as the main design artifact.
+
+---
+
+### Workflow Document
+
+The workflow document explains how the software will be used.
+
+It focuses on the user, the business process, and the real-world use cases.
+
+The purpose is to answer:
+
+```text id="s21n3p"
+Who uses the software?
+Why do they use it?
+What are they trying to accomplish?
+What steps do they follow?
+What requirements does each step create?
+```
+
+The workflow document helps reduce unnecessary scope.
+
+If a feature does not connect to a real workflow or requirement, it may not need to exist.
+
+---
+
+### Stakeholders
+
+Stakeholders are people who care about the project.
+
+They may include:
+
+* users,
+* customers,
+* product managers,
+* designers,
+* frontend engineers,
+* backend engineers,
+* DevOps engineers,
+* security engineers,
+* managers,
+* business owners.
+
+Different stakeholders need different levels of detail.
+
+Non-technical stakeholders may care about the workflow.
+
+Technical stakeholders may care about architecture, protocols, databases, and scaling.
+
+---
+
+### Design Overview
+
+The design overview is a technical explanation of how the software works.
+
+It translates the workflow into a technical system.
+
+It explains:
+
+* frontend,
+* backend,
+* UI/UX,
+* APIs,
+* protocols,
+* databases,
+* reverse proxies,
+* background jobs,
+* caching,
+* scaling,
+* security,
+* failure handling,
+* non-functional requirements.
+
+The design overview connects user requirements to technical decisions.
+
+For example:
+
+```text id="sag2fb"
+Because the workflow expects many client requests, we may use HTTP/2 to improve request multiplexing.
+```
+
+---
+
+### Non-Functional Requirements
+
+Some system requirements do not directly come from a user clicking a button.
+
+Examples:
+
+* health checks,
+* logging,
+* metrics,
+* monitoring,
+* background jobs,
+* retries,
+* rate limiting,
+* authentication,
+* authorization,
+* backups,
+* scaling,
+* failover.
+
+These are still important.
+
+They should be documented in the design overview even if they are not visible in the user workflow.
+
+---
+
+### Component Design
+
+Component design goes deeper than the design overview.
+
+Each major component may get its own document.
+
+A component design document explains:
+
+* what the component does,
+* what it receives,
+* what it outputs,
+* what APIs it exposes,
+* what data it owns,
+* what other components it talks to,
+* what computations it performs,
+* what edge cases it handles,
+* what security concerns exist,
+* what limitations it has.
+
+The goal is that reading the component design should feel almost like reading the source code before it is written.
+
+---
+
+### Design Overview Diagram
+
+After the writing is done, the instructor creates diagrams.
+
+The diagram is not the first step.
+
+It is the final visual representation of the written design.
+
+The diagram shows:
+
+* components,
+* communication paths,
+* data flow,
+* dependencies,
+* external systems,
+* protocols.
+
+The diagram should be simple.
+
+Blocks, arrows, labels, and short notes are enough.
+
+The purpose is clarity, not artistic perfection.
+
+---
+
+### Review Process
+
+The documents should be reviewed with the right stakeholders.
+
+Workflow documents should be reviewed with product/business/non-technical stakeholders.
+
+Design overview and component design documents should be reviewed with technical stakeholders.
+
+This review process helps discover:
+
+* missing requirements,
+* unclear workflows,
+* wrong assumptions,
+* technical risks,
+* unnecessary features,
+* scalability problems,
+* security issues.
+
+---
+
+## 3. Important Notes
+
+### Start with the Workflow
+
+The workflow is the most important starting point.
+
+If the workflow is unclear, the technical design will also be unclear.
+
+A strong workflow document prevents building features just because they seem cool.
+
+In commercial software, every important feature should connect back to a user need or business requirement.
+
+---
+
+### State the Obvious
+
+Writing obvious details may feel unnecessary, but it helps.
+
+When obvious things are written down, hidden assumptions become visible.
+
+This often creates useful questions for stakeholders.
+
+For example:
+
+```text id="4gtoeo"
+What happens if the user forgets their password?
+What happens if payment fails?
+What happens if the backend job is delayed?
+What happens if the user closes the browser?
+What happens if two users edit the same object?
+```
+
+Stating the obvious often reveals missing edge cases.
+
+---
+
+### Design Documents Are Not Only for Engineers
+
+Different documents serve different audiences.
+
+The workflow document should be readable by non-technical people.
+
+The design overview can use technical language.
+
+The component design can go fully technical.
+
+This separation makes communication easier.
+
+---
+
+### Good Design Links Back to Requirements
+
+A design decision should usually be traceable back to a requirement.
+
+For example:
+
+```text id="dvy6ft"
+Requirement:
+Users need real-time updates.
+
+Design decision:
+Use Server-Sent Events or WebSocket.
+
+Reason:
+The client needs to receive updates without constantly polling the backend.
+```
+
+This prevents random architecture decisions.
+
+---
+
+### Component Documents May Grow Over Time
+
+At first, a component may seem simple enough to describe in the design overview.
+
+Later, as more details appear, it may need its own document.
+
+Some components may become large enough to become independent projects.
+
+---
+
+### Diagrams Are Useful After Thinking
+
+Diagrams are most useful after the design has been written.
+
+If diagrams come first, they may hide uncertainty.
+
+Writing forces the designer to think.
+
+Diagrams help communicate the result.
+
+---
+
+### This Approach Takes Time
+
+The main limitation is time.
+
+Writing detailed design documents can be slow.
+
+Keeping them updated also takes effort.
+
+If the project changes but the documents do not, the documents become misleading.
+
+---
+
+### Ownership Matters
+
+Someone must own the documents.
+
+If the original designer leaves, the next team may not keep the documents updated.
+
+Documentation only stays useful if the team treats it as part of the software.
+
+---
+
+### PowerPoint Still Has a Place
+
+Even though slides are not enough for design, they are useful in meetings.
+
+If participants have not read the documents, a short slide deck can summarize:
+
+* workflow,
+* design overview,
+* key components,
+* risks,
+* open questions.
+
+But slides should support the design documents, not replace them.
+
+---
+
+## 4. Examples
+
+### Example 1: Workflow Document
+
+For a food delivery app, the workflow document may describe:
+
+```text id="wc2csh"
+1. Customer opens the app.
+2. Customer searches for restaurants.
+3. Customer selects a restaurant.
+4. Customer adds food items to cart.
+5. Customer applies coupon.
+6. Customer chooses delivery address.
+7. Customer pays.
+8. Restaurant receives order.
+9. Driver accepts delivery.
+10. Customer tracks driver location.
+11. Order is delivered.
+12. Customer rates the order.
+```
+
+This document focuses on how the software is used.
+
+It does not need to explain databases or backend architecture yet.
+
+---
+
+### Example 2: Questions from Workflow
+
+While writing the workflow, many questions appear:
+
+```text id="5kd9a1"
+What happens if the payment fails?
+Can the customer cancel the order?
+Can the restaurant reject the order?
+What happens if no driver accepts?
+How often should driver location update?
+Should the customer receive push notifications?
+What happens if the app is closed?
+```
+
+These questions should be discussed with stakeholders.
+
+---
+
+### Example 3: Design Overview
+
+After the workflow is clear, the design overview may say:
+
+```text id="o1x1ro"
+The mobile app communicates with the backend through HTTPS APIs.
+
+Restaurant search uses a read-optimized search service.
+
+Order creation goes through the order service.
+
+Payment is handled by an external payment provider.
+
+Driver location updates are streamed to the customer using WebSocket or Server-Sent Events.
+
+Background jobs handle notification retries and order timeout checks.
+
+PostgreSQL stores orders, users, restaurants, and payments.
+
+Redis stores temporary tracking state and short-lived session data.
+```
+
+This is more technical than the workflow document.
+
+---
+
+### Example 4: Component Design for Order Service
+
+A component design document for the order service may include:
+
+```text id="w5u4qr"
+Component: Order Service
+
+Purpose:
+Creates, updates, and tracks customer orders.
+
+Inputs:
+- customer ID
+- restaurant ID
+- cart items
+- coupon code
+- delivery address
+- payment confirmation
+
+Outputs:
+- order ID
+- order status
+- estimated delivery time
+
+Responsibilities:
+- validate cart
+- calculate price
+- apply coupon
+- create order
+- persist order
+- emit order-created event
+- handle cancellation
+- handle restaurant rejection
+- handle timeout
+
+Dependencies:
+- user service
+- restaurant service
+- payment service
+- notification service
+- driver dispatch service
+
+Failure Cases:
+- payment failure
+- restaurant unavailable
+- item unavailable
+- duplicate order submission
+- database timeout
+```
+
+This document is detailed enough to guide implementation.
+
+---
+
+### Example 5: Design Overview Diagram
+
+After writing the documents, draw a simple diagram:
+
+```text id="wvx2iy"
+Mobile App
+   |
+   v
+API Gateway
+   |
+   +--> User Service
+   |
+   +--> Restaurant Service
+   |
+   +--> Order Service
+   |        |
+   |        +--> PostgreSQL
+   |        +--> Redis
+   |
+   +--> Payment Provider
+   |
+   +--> Notification Service
+   |
+   +--> Driver Tracking Service
+```
+
+The diagram is simple, but it becomes meaningful because the documents already explain the details.
+
+---
+
+### Example 6: Requirement Linked to Design Decision
+
+```text id="ckpi0l"
+Workflow requirement:
+Customer must see driver location in near real time.
+
+Design decision:
+Use WebSocket for driver tracking.
+
+Reason:
+The server needs to push frequent location updates to the client while the order is active.
+```
+
+This makes the design decision easier to defend.
+
+---
+
+## 5. Questions / Review
+
+1. Why can code-first design become confusing later?
+
+2. What are the limitations of diagram-first design?
+
+3. Why are diagrams not enough by themselves?
+
+4. Why can PowerPoint be useful but insufficient for software design?
+
+5. What is the main benefit of writing-first software design?
+
+6. Why should software design start with the workflow?
+
+7. What should a workflow document explain?
+
+8. Who is the audience for the workflow document?
+
+9. How does a workflow document help reduce unnecessary scope?
+
+10. What kind of questions can appear while writing the workflow?
+
+11. What is the purpose of the design overview document?
+
+12. How is the design overview different from the workflow document?
+
+13. What technical topics can appear in the design overview?
+
+14. What are non-functional requirements?
+
+15. Why might health checks or background jobs not appear in the workflow?
+
+16. What is the purpose of a component design document?
+
+17. What should a component design document include?
+
+18. When should a component get its own document?
+
+19. Why does the instructor create diagrams after writing the documents?
+
+20. What should a design overview diagram show?
+
+21. What are the limitations of this writing-first approach?
+
+22. Why is document ownership important?
+
+23. Why can documents become outdated?
+
+24. How can PowerPoint still help in meetings?
+
+25. What does it mean for a design decision to link back to a requirement?
+
+---
+
+## Quick Process
+
+```text id="mlk80w"
+1. Block uninterrupted writing time.
+2. Write the user workflow in detail.
+3. Collect questions from the workflow.
+4. Review workflow with stakeholders.
+5. Write the technical design overview.
+6. Review design overview with technical stakeholders.
+7. Write detailed component design documents.
+8. Draw the design overview diagram.
+9. Review with the team.
+10. Keep documents updated as the system changes.
+```
+
+---
+
+## Final Takeaway
+
+The instructor's software design approach is based on writing.
+
+Writing forces the designer to think clearly, expose assumptions, discover missing requirements, and explain technical decisions.
+
+The recommended order is:
+
+```text id="ppk96p"
+Workflow first
+Design overview second
+Component design third
+Diagram last
+```
+
+This approach is time-consuming, and documents can become outdated if nobody maintains them.
+
+However, when done well, design documents become a reliable source of truth. They explain not only what the system does, but also why it was built that way.

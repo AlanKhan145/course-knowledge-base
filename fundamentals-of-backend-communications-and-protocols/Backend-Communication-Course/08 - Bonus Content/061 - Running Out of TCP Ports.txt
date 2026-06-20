@@ -1,0 +1,726 @@
+# 061 - Running Out of TCP Ports
+
+Section: 08 - Bonus Content
+Duration: 19min
+
+---
+
+## 1. Summary
+
+This lecture explains a real backend bug caused by running out of **ephemeral TCP source ports**.
+
+The system had a public web server that accepted client requests and then sent jobs/messages to a message broker. The message broker supported multiplexing, so the web server should have reused one or a few backend connections.
+
+However, a bug caused the web server to create a new TCP connection to the message broker for every incoming request.
+
+After a few thousand requests, the web server accumulated tens of thousands of outgoing connections. Eventually, it ran out of available ephemeral source ports for connections to the message broker.
+
+When this happened, new requests started hanging or timing out. The proxy also returned timeout errors, which made the issue look like a normal backend timeout problem.
+
+The root cause was inefficient connection management:
+
+```text id="q6jnzy"
+Wrong behavior:
+Every request creates a new connection to the message broker.
+
+Correct behavior:
+Reuse an existing connection or use a connection pool/multiplexed connection.
+```
+
+The main lesson is that TCP connections are not free. If a backend creates too many outbound connections to the same destination, it can exhaust the finite range of ephemeral source ports.
+
+---
+
+## 2. Key Concepts
+
+### TCP Connection Identity
+
+A TCP connection is identified by a 4-tuple:
+
+```text id="k9m1ma"
+Source IP
+Source Port
+Destination IP
+Destination Port
+```
+
+Example:
+
+```text id="klpm2p"
+10.0.0.5:45001 → 10.0.0.20:5672
+```
+
+This means:
+
+```text id="o4str0"
+Source IP:        10.0.0.5
+Source Port:      45001
+Destination IP:   10.0.0.20
+Destination Port: 5672
+```
+
+The source port is usually assigned by the kernel when the client opens an outbound connection.
+
+---
+
+### Ephemeral Port
+
+An ephemeral port is a temporary source port assigned by the operating system for outbound connections.
+
+When a process connects to a remote server, it usually specifies the destination IP and destination port.
+
+The kernel chooses the source port.
+
+Example:
+
+```text id="fc4xsf"
+Web server connects to message broker.
+
+Destination:
+  IP:   10.0.0.20
+  Port: 5672
+
+Kernel chooses:
+  Source port: 45001
+```
+
+The source port comes from a limited ephemeral port range.
+
+---
+
+### Ephemeral Port Range
+
+Operating systems have a configured range of ephemeral ports.
+
+The lecture mentions a Linux range similar to:
+
+```text id="ls50n9"
+32768 to 60999
+```
+
+This gives roughly tens of thousands of possible ports.
+
+The exact range depends on the OS and kernel configuration.
+
+On Linux, it can often be checked with:
+
+```bash id="rdvy8f"
+cat /proc/sys/net/ipv4/ip_local_port_range
+```
+
+---
+
+### Why Ports Can Run Out
+
+If the source IP, destination IP, and destination port are fixed, then the only value that can vary is the source port.
+
+Example:
+
+```text id="87m3r6"
+Source IP:        fixed web server IP
+Destination IP:   fixed message broker IP
+Destination Port: fixed message broker port
+Source Port:      only changing value
+```
+
+This means the number of simultaneous connections from that web server to that broker endpoint is limited by the available ephemeral source ports.
+
+If the application keeps creating new connections and does not reuse or close them properly, it can exhaust the range.
+
+---
+
+### Public Client Connections Are Different
+
+A web server can receive many client connections without hitting the same limit in the same way because client source IPs vary.
+
+Example:
+
+```text id="wvrwno"
+Client A IP: 1.1.1.1
+Client B IP: 2.2.2.2
+Client C IP: 3.3.3.3
+```
+
+Each client has its own source IP and source port.
+
+So the 4-tuples are different.
+
+But when one web server opens many outbound connections to one message broker, the source IP, destination IP, and destination port may stay fixed.
+
+Only the source port changes.
+
+That is why the limit can be hit.
+
+---
+
+### Message Broker Connection Reuse
+
+Many message brokers support long-lived connections and multiplexing.
+
+This means one connection can carry many messages or requests concurrently.
+
+In that case, the web server should not create a new connection for every request.
+
+Correct design:
+
+```text id="l2e9sv"
+Open one connection to the broker
+Reuse it for many messages
+Multiplex messages over the same connection
+```
+
+Wrong design:
+
+```text id="gwz5ld"
+For every HTTP request:
+  open new broker connection
+  send message
+  keep connection alive
+```
+
+The wrong design wastes ports, memory, kernel resources, and broker resources.
+
+---
+
+### Multiplexing
+
+Multiplexing means sending multiple logical operations over a single physical connection.
+
+For example, a message broker may allow many messages to be in-flight over the same TCP connection.
+
+This avoids creating a new connection for every job.
+
+Benefits:
+
+* fewer TCP handshakes,
+* fewer open sockets,
+* fewer ephemeral ports used,
+* less kernel memory,
+* less application overhead,
+* better throughput.
+
+---
+
+### Keep-Alive
+
+Keep-alive means keeping a connection open instead of closing it after one operation.
+
+There are different types of keep-alive:
+
+```text id="jg7ees"
+TCP keep-alive:
+  Kernel-level mechanism.
+
+Application keep-alive:
+  Application sends ping/pong messages.
+```
+
+In the lecture, the connections were kept alive by application-level ping/pong behavior.
+
+This made the bug worse because old connections stayed open instead of timing out quickly.
+
+---
+
+### Ping/Pong
+
+Ping/pong is an application-level mechanism used to keep connections alive.
+
+The client sends a small ping message.
+
+The server replies with a pong message.
+
+This tells both sides:
+
+```text id="70ygjz"
+The connection is still alive.
+Do not close it.
+```
+
+This is common in WebSocket-like protocols and message broker protocols.
+
+In the bug from the lecture, ping/pong kept unnecessary connections alive and helped exhaust ephemeral ports.
+
+---
+
+### Blocking Backend Call
+
+The web server made a blocking request to the message broker.
+
+That means the HTTP request could not complete until the broker operation completed.
+
+Flow:
+
+```text id="q3h6sl"
+Client sends request to web server
+→ Web server tries to connect to message broker
+→ Web server waits for broker response
+→ Client waits for web server response
+```
+
+When the web server could no longer create connections to the broker, the request stayed blocked.
+
+Eventually, clients and proxies timed out.
+
+---
+
+### Proxy Timeout
+
+A proxy timeout happens when a reverse proxy waits too long for the backend to respond.
+
+In this bug, the proxy timeout was a symptom, not the root cause.
+
+The real problem was that the web server could not create new outbound connections to the message broker because ephemeral ports were exhausted.
+
+---
+
+## 3. Important Notes
+
+### Bugs Teach Backend Engineering
+
+The lecture begins with the idea that bugs are a major part of gaining engineering experience.
+
+Some backend issues are not obvious from code alone.
+
+You often need to investigate system behavior using tools like:
+
+```bash id="fcs0gl"
+netstat
+ss
+lsof
+tcpdump
+```
+
+The important skill is understanding what the system is doing at runtime.
+
+---
+
+### Start with Runtime Behavior
+
+The instructor did not immediately jump into the source code.
+
+Instead, he inspected the running server.
+
+He checked open connections and noticed an abnormal number of outbound connections from the web server to the message broker.
+
+This kind of black-box investigation is important.
+
+You can learn a lot about a system even without reading the code first.
+
+---
+
+### Too Many Outbound Connections Is a Red Flag
+
+If a web server should have one or two connections to a message broker, but it has 10,000 or 20,000, something is wrong.
+
+That usually indicates:
+
+* missing connection reuse,
+* broken connection pooling,
+* new connection per request,
+* connection leak,
+* keep-alive bug,
+* slow cleanup,
+* stuck sockets.
+
+---
+
+### One Connection Can Go Very Far
+
+If the protocol supports multiplexing, one connection can handle a huge amount of work.
+
+Opening more connections is not always better.
+
+Sometimes one well-managed connection is more efficient than thousands of poorly managed ones.
+
+---
+
+### Ephemeral Ports Are Finite
+
+Even though there are tens of thousands of ephemeral ports, they are not infinite.
+
+If a backend opens a large number of connections to the same destination, it can run out.
+
+This can happen faster than expected if connections are kept alive or not closed properly.
+
+---
+
+### The 4-Tuple Matters
+
+The connection limit is not just about the source port alone.
+
+It is about the uniqueness of the TCP 4-tuple:
+
+```text id="1hiw5f"
+Source IP
+Source Port
+Destination IP
+Destination Port
+```
+
+If three values are fixed, only the source port can vary.
+
+That creates a practical limit.
+
+---
+
+### Client-to-Web Server Is Usually Not the Same Problem
+
+Many clients can connect to the same web server because their source IPs differ.
+
+But one web server connecting repeatedly to one backend service has much less variation.
+
+That is why outbound connection exhaustion can happen between backend services.
+
+---
+
+### Application-Level Keep-Alive Can Make Leaks Worse
+
+If the application sends ping/pong messages to keep connections alive, leaked connections may never disappear quickly.
+
+This keeps ports occupied.
+
+It also consumes:
+
+* memory,
+* file descriptors,
+* kernel resources,
+* message broker resources,
+* CPU for keep-alive chatter.
+
+---
+
+### Connection Pooling Is Critical
+
+A backend should usually use a connection pool or a shared client for services like:
+
+* databases,
+* message brokers,
+* Redis,
+* HTTP upstream services,
+* gRPC services.
+
+Creating a new connection per request is often inefficient and dangerous.
+
+---
+
+### Loopback Can Also Exhaust Ports
+
+The lecture notes that this can also happen on localhost or loopback connections.
+
+Example:
+
+```text id="cjay5s"
+127.0.0.1:ephemeral → 127.0.0.1:8080
+```
+
+If many local TCP connections are created to the same local destination, the same kind of port exhaustion can occur.
+
+This matters in sidecar proxy architectures where services communicate over localhost.
+
+---
+
+### Sidecar Proxying Can Depend on Local TCP
+
+In containerized or service-mesh systems, a service may communicate with a local sidecar proxy over TCP.
+
+This may involve loopback connections.
+
+If the service creates too many local connections to the sidecar, ephemeral port exhaustion can happen locally too.
+
+---
+
+### Kernel Behavior Can Vary
+
+Different operating systems and kernels have different ephemeral port ranges and reuse behavior.
+
+Some kernels may allow more port reuse in certain 4-tuple cases.
+
+Others may be more conservative because some applications assume source ports are globally unique.
+
+The important lesson is to understand your system's actual behavior.
+
+---
+
+## 4. Examples
+
+### Example 1: Correct Message Broker Usage
+
+A web server connects to a message broker.
+
+Correct behavior:
+
+```text id="idjuxd"
+Start web server
+→ Create one broker connection
+→ Reuse connection for many requests
+→ Send messages over the same connection
+```
+
+Connection count:
+
+```text id="h3s1xf"
+Web server → Message broker: 1 connection
+```
+
+This is efficient.
+
+---
+
+### Example 2: Buggy Message Broker Usage
+
+Wrong behavior:
+
+```text id="10htvo"
+For every incoming HTTP request:
+  create new connection to message broker
+  send message
+  keep connection alive
+```
+
+After many requests:
+
+```text id="gjq2lq"
+Web server → Message broker: 20,000 connections
+```
+
+Eventually, the web server runs out of ephemeral ports.
+
+---
+
+### Example 3: TCP 4-Tuple
+
+Connection from web server to message broker:
+
+```text id="ipbz4l"
+Source IP:        10.0.0.5
+Source Port:      45001
+Destination IP:   10.0.0.20
+Destination Port: 5672
+```
+
+Another connection:
+
+```text id="hk1xpv"
+Source IP:        10.0.0.5
+Source Port:      45002
+Destination IP:   10.0.0.20
+Destination Port: 5672
+```
+
+Only the source port changes.
+
+Eventually, the available source ports can be exhausted.
+
+---
+
+### Example 4: Why Many Clients Are Different
+
+Client A:
+
+```text id="kk2gwo"
+1.1.1.1:50001 → web-server:443
+```
+
+Client B:
+
+```text id="qgl9ha"
+2.2.2.2:50001 → web-server:443
+```
+
+Even if both clients use the same source port, the 4-tuple is different because the source IP is different.
+
+This is why many external clients can connect to the same web server.
+
+---
+
+### Example 5: Detecting Too Many Connections
+
+You can inspect connections using tools such as:
+
+```bash id="q0c93g"
+netstat -an | grep ESTABLISHED
+```
+
+or:
+
+```bash id="wb42dr"
+ss -tan
+```
+
+To inspect connections from a web server to a specific message broker:
+
+```bash id="19fbex"
+ss -tan | grep ":5672"
+```
+
+If you expect one or two connections but see thousands, there may be a connection leak or missing pooling.
+
+---
+
+### Example 6: Port Range on Linux
+
+Check ephemeral port range:
+
+```bash id="t61u2y"
+cat /proc/sys/net/ipv4/ip_local_port_range
+```
+
+Example output:
+
+```text id="9byh9c"
+32768 60999
+```
+
+This means the kernel can use ports in that range for outbound ephemeral source ports.
+
+---
+
+### Example 7: Blocking Request Failure
+
+Flow during the bug:
+
+```text id="eypss6"
+Client sends request to web server
+→ Web server tries to create broker connection
+→ Kernel cannot assign source port
+→ Broker call blocks or fails
+→ Web server does not respond
+→ Client/proxy times out
+```
+
+The timeout looks like a backend slowness problem, but the root cause is port exhaustion.
+
+---
+
+### Example 8: Localhost Port Exhaustion
+
+A service connects repeatedly to a sidecar proxy:
+
+```text id="79srst"
+127.0.0.1:ephemeral → 127.0.0.1:15001
+```
+
+If the service opens thousands of local TCP connections and keeps them alive, it can exhaust local ephemeral ports.
+
+This can happen even though all traffic stays on the same machine.
+
+---
+
+### Example 9: Fixing the Bug
+
+Bad code pattern:
+
+```text id="ko4obi"
+handleRequest(req):
+  broker = new BrokerConnection()
+  broker.send(message)
+```
+
+Better pattern:
+
+```text id="vsrkqs"
+Start application:
+  broker = createSharedBrokerConnection()
+
+handleRequest(req):
+  broker.send(message)
+```
+
+Or:
+
+```text id="1eet2p"
+Use a connection pool.
+Reuse existing connections.
+Close idle connections.
+Avoid one connection per request.
+```
+
+---
+
+## 5. Questions / Review
+
+1. What is an ephemeral port?
+
+2. Who usually assigns the ephemeral source port?
+
+3. What are the four values that identify a TCP connection?
+
+4. Why can a web server run out of ephemeral ports when connecting to one backend service?
+
+5. Why is client-to-web-server traffic usually different from web-server-to-backend traffic?
+
+6. What was the bug described in this lecture?
+
+7. Why should the web server have used one or a few connections to the message broker?
+
+8. What is multiplexing?
+
+9. How does multiplexing reduce the number of required TCP connections?
+
+10. Why did application-level ping/pong make the bug worse?
+
+11. What is the difference between TCP keep-alive and application-level keep-alive?
+
+12. Why did the web requests start timing out?
+
+13. Why can proxy timeouts make the root cause harder to identify?
+
+14. What tool did the instructor use to inspect connections?
+
+15. What is the danger of creating a new backend connection per incoming request?
+
+16. What resources are consumed by too many open TCP connections?
+
+17. How can connection pooling prevent this problem?
+
+18. Why can localhost or loopback connections also run out of ephemeral ports?
+
+19. How can sidecar proxy architectures be affected by ephemeral port exhaustion?
+
+20. Why is understanding the TCP 4-tuple important?
+
+21. What command can show the Linux ephemeral port range?
+
+22. Why is one well-managed connection sometimes better than thousands of connections?
+
+23. How would you investigate a backend that hangs after a few thousand requests?
+
+24. What metrics or signs would suggest connection leakage?
+
+25. What is the main lesson from this bug?
+
+---
+
+## Quick Flow of the Bug
+
+```text id="3o2upm"
+Normal design:
+Client → Web Server → Reused Broker Connection → Message Broker
+
+Buggy design:
+Client request 1 → Web Server → New Broker Connection 1
+Client request 2 → Web Server → New Broker Connection 2
+Client request 3 → Web Server → New Broker Connection 3
+...
+Client request 20000 → Web Server → New Broker Connection 20000
+
+Result:
+Ephemeral source ports exhausted
+→ New broker connections cannot be created
+→ Web requests block
+→ Proxy/client timeouts
+```
+
+---
+
+## Final Takeaway
+
+Ephemeral ports are finite.
+
+When one backend machine opens many outbound TCP connections to the same destination IP and port, the source port becomes the main variable in the TCP 4-tuple.
+
+If the application creates a new connection per request and keeps those connections alive, it can eventually exhaust the available ephemeral ports.
+
+The fix is usually to reuse connections, use connection pooling, use multiplexing when supported, close unused connections, and monitor outbound connection counts.
+
+One efficient connection can often handle far more work than thousands of poorly managed connections.

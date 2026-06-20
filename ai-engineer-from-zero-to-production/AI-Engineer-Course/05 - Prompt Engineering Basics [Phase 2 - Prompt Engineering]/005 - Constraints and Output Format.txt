@@ -1,0 +1,155 @@
+# Constraints and Output Format
+
+## Overview
+Controlling what a model outputs — its format, length, structure, tone, and what it must omit — is as important as telling it what to do. Without explicit output constraints, models default to verbose, conversational prose that is difficult to parse programmatically or display consistently in a UI. This lesson teaches you to specify output format as a first-class concern, not an afterthought.
+
+## Key Points
+- Always specify the output format explicitly: "Return a JSON object with keys 'title', 'summary', and 'tags'" leaves no ambiguity, whereas "Give me the result in a structured way" is interpreted inconsistently across runs.
+- Length constraints should use concrete units, not vague qualifiers: "Summarize in exactly 2 sentences" and "Respond in under 80 words" are enforceable; "Keep it brief" is not.
+- For machine-readable output (JSON, CSV, XML), instruct the model to return only the raw structure with no markdown fences, no preamble, and no explanation — parsing fails silently when models add "Here is the JSON:" before the data.
+- Negative constraints ("Do not include", "Never add", "Omit") are valid and effective, but models honor them less reliably than positive instructions — always validate programmatically.
+- Tone and register constraints (formal, casual, technical, empathetic) belong in the prompt explicitly; do not rely on role assignment alone to control tone.
+- Structured output mode (JSON mode / response_format parameter) available in GPT-4o and Claude removes the need for many format instructions by guaranteeing valid JSON at the API level — use it whenever your output is machine-consumed.
+
+## Code Example
+```python
+# constraints_output_format.py
+# Demonstrates explicit output format control, JSON mode, and format validation.
+# Requirements: pip install openai python-dotenv
+
+import os
+import json
+from openai import OpenAI
+from dotenv import load_dotenv
+
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+
+# --- Helper: safe JSON parser with error feedback ---
+def parse_json_output(raw: str) -> dict | None:
+    """
+    Attempt to parse JSON from model output.
+    Models sometimes wrap JSON in markdown fences — strip them first.
+    """
+    # Strip common markdown wrappers
+    cleaned = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError as e:
+        print(f"[PARSE ERROR] {e}\nRaw output:\n{raw}")
+        return None
+
+
+# --- Example 1: Enforcing JSON output via prompt instructions ---
+def extract_article_metadata(article_text: str) -> dict | None:
+    """
+    Extract structured metadata from an article using format constraints in the prompt.
+    No JSON mode — relies on prompt instructions only (lower reliability).
+    """
+    prompt = (
+        "Extract metadata from the article below.\n\n"
+        "Return ONLY a JSON object with this exact schema — no preamble, no markdown fences:\n"
+        "{\n"
+        '  "title": "string",\n'
+        '  "author": "string or null",\n'
+        '  "publication_date": "YYYY-MM-DD or null",\n'
+        '  "topics": ["string"],\n'
+        '  "word_count_estimate": integer\n'
+        "}\n\n"
+        f"Article:\n{article_text}"
+    )
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0,
+        max_tokens=300,
+    )
+    raw = response.choices[0].message.content
+    return parse_json_output(raw)
+
+
+# --- Example 2: JSON mode (response_format) — guaranteed valid JSON ---
+def classify_support_ticket(ticket_text: str) -> dict | None:
+    """
+    Classify a support ticket using OpenAI's JSON mode.
+    response_format={"type": "json_object"} guarantees the output is valid JSON.
+    The prompt must still describe the expected schema.
+    """
+    system = (
+        "You classify customer support tickets. "
+        "Always respond with a JSON object containing:\n"
+        '  "category": one of ["billing", "technical", "account", "feature_request", "other"],\n'
+        '  "priority": one of ["low", "medium", "high", "critical"],\n'
+        '  "one_line_summary": a string under 15 words,\n'
+        '  "requires_human": boolean'
+    )
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": system},
+            {"role": "user",   "content": ticket_text},
+        ],
+        response_format={"type": "json_object"},  # Enforced at API level
+        temperature=0,
+        max_tokens=200,
+    )
+    raw = response.choices[0].message.content
+    return json.loads(raw)  # Safe to parse directly — JSON mode guarantees validity
+
+
+# --- Example 3: Length and tone constraints ---
+def generate_product_description(product_name: str, features: list[str]) -> str:
+    """
+    Generate a product description with explicit length and tone constraints.
+    """
+    features_list = "\n".join(f"- {f}" for f in features)
+    prompt = (
+        f"Write a product description for '{product_name}'.\n\n"
+        f"Features:\n{features_list}\n\n"
+        "Constraints:\n"
+        "- Exactly 3 sentences.\n"
+        "- Tone: confident and professional, not salesy or hyperbolic.\n"
+        "- Do not use exclamation marks.\n"
+        "- Do not repeat the product name more than once.\n"
+        "- Target audience: enterprise procurement managers."
+    )
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role": "user", "content": prompt}],
+        temperature=0.4,
+        max_tokens=150,
+    )
+    return response.choices[0].message.content.strip()
+
+
+# --- Run all examples ---
+if __name__ == "__main__":
+    # Example 1
+    article = (
+        "By Jane Smith, Published 2024-11-15. "
+        "The latest advances in retrieval-augmented generation have reshaped how enterprises "
+        "deploy large language models. This 1,200-word deep-dive covers vector databases, "
+        "chunking strategies, and reranking approaches used by leading AI teams."
+    )
+    metadata = extract_article_metadata(article)
+    print("Article Metadata:", json.dumps(metadata, indent=2))
+
+    # Example 2
+    ticket = "I was charged twice for my Pro subscription this month. Order #INV-2024-8821."
+    classification = classify_support_ticket(ticket)
+    print("\nTicket Classification:", json.dumps(classification, indent=2))
+
+    # Example 3
+    desc = generate_product_description(
+        "DataSync Pro",
+        ["Real-time database replication", "SOC 2 Type II certified", "Sub-10ms latency", "No-code setup"]
+    )
+    print(f"\nProduct Description:\n{desc}")
+```
+
+## Notes
+JSON mode (response_format) does not validate your schema — it only guarantees syntactically valid JSON. The model can still return unexpected keys, wrong data types, or missing required fields. Always validate the parsed output against your expected schema using a library like Pydantic or jsonschema before passing it to downstream logic. For applications where output format correctness is mission-critical (data pipelines, API responses), add a retry loop: catch validation errors, include the error message in a follow-up prompt ("Your previous response was missing the 'priority' key, please correct it and return only the JSON"), and retry up to 3 times before failing gracefully.
+
+## Summary
+Treating output format as an explicit, programmatically validated contract — rather than a suggestion — is what separates reliable production AI features from fragile demos; use JSON mode where available and always validate structure downstream.

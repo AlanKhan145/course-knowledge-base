@@ -1,0 +1,763 @@
+# 059 - SELECT COUNT Can Impact Your Backend Application Performance, Here Is Why
+
+Section: 07 - Extras
+Duration: 20min
+
+---
+
+## 1. Summary
+
+This lecture explains why `SELECT COUNT` can become expensive on large database tables and how it can impact backend application performance.
+
+Counting rows sounds simple, but the database still has to do real work. It may need to scan an index, scan table pages, check row visibility, filter rows, or count only non-null values depending on the query.
+
+For small tables or small ranges, `COUNT` is usually fine. But on large tables with millions or hundreds of millions of rows, exact counting can become slow and expensive.
+
+The lecture uses PostgreSQL examples to show the difference between:
+
+```sql id="pm8p3f"
+SELECT COUNT(g)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+and:
+
+```sql id="g2se3k"
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+It also shows why `COUNT(*)` can sometimes use an **index-only scan**, why updates can cause **heap fetches**, and how `VACUUM` can help PostgreSQL use the visibility map more effectively.
+
+The lecture ends with an alternative: if the exact count is not required, use PostgreSQL planner estimates from `EXPLAIN` instead of running an expensive exact count.
+
+---
+
+## 2. Key Concepts
+
+### SELECT COUNT
+
+`SELECT COUNT` aggregates rows and returns a number.
+
+Examples:
+
+```sql id="jhuhm5"
+SELECT COUNT(*)
+FROM grades;
+```
+
+```sql id="82vrwg"
+SELECT COUNT(g)
+FROM grades;
+```
+
+The two queries are not exactly the same.
+
+---
+
+### COUNT(*)
+
+`COUNT(*)` counts all rows that match the query condition.
+
+It does not mean the database fetches all columns.
+
+A common misconception is that `COUNT(*)` reads every field from every row.
+
+Modern databases do not usually do that.
+
+`COUNT(*)` means:
+
+```text id="mu2w0e"
+Count all matching rows.
+```
+
+If the database can answer the count using an index, it may avoid reading the full table.
+
+---
+
+### COUNT(column)
+
+`COUNT(column)` counts only rows where that column is not `NULL`.
+
+Example:
+
+```sql id="sx1hiv"
+SELECT COUNT(g)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+If some rows have `g IS NULL`, they are not counted.
+
+This may force the database to check the actual column value.
+
+If the index is only on `id`, but the query counts `g`, PostgreSQL may need to visit the table heap to check whether `g` is null.
+
+---
+
+### Index Scan
+
+An index scan means the database uses an index to find matching rows.
+
+However, it may still need to visit the actual table pages to fetch columns or check visibility.
+
+Example:
+
+```text id="vptqkx"
+Index tells PostgreSQL which rows match.
+PostgreSQL still visits the heap table to get needed data.
+```
+
+This is usually better than scanning the entire table, but it can still be expensive.
+
+---
+
+### Index-Only Scan
+
+An index-only scan means PostgreSQL can answer the query using only the index.
+
+This is usually faster than an index scan because the database does not need to fetch full table rows.
+
+Example:
+
+```sql id="w77876"
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+If the index on `id` contains enough information and the visibility map says the rows are visible, PostgreSQL may use an index-only scan.
+
+---
+
+### Heap Fetches
+
+Even during an index-only scan, PostgreSQL may still need to visit the heap table.
+
+This is shown as:
+
+```text id="yak72o"
+Heap Fetches: 6002
+```
+
+Heap fetches happen when PostgreSQL cannot fully trust the index visibility information.
+
+It must go back to the table heap to check whether rows are visible to the current transaction.
+
+Heap fetches make the query slower.
+
+---
+
+### MVCC
+
+PostgreSQL uses MVCC, which stands for **Multi-Version Concurrency Control**.
+
+When a row is updated or deleted, PostgreSQL may keep old row versions so other transactions can still see the correct snapshot.
+
+Because of this, an index entry may still point to row versions that need visibility checks.
+
+This is why PostgreSQL sometimes needs heap fetches even when using an index-only scan.
+
+---
+
+### Visibility Map
+
+The visibility map tells PostgreSQL whether pages contain rows that are visible to all transactions.
+
+If a page is marked as all-visible, PostgreSQL can trust the index and avoid heap fetches.
+
+If the visibility map is not updated or a table has recent updates/deletes, PostgreSQL may need to check the heap.
+
+---
+
+### VACUUM
+
+`VACUUM` cleans up old row versions and updates visibility information.
+
+After running `VACUUM`, PostgreSQL may be able to use index-only scans more efficiently.
+
+Example:
+
+```sql id="2ep3kn"
+VACUUM grades;
+```
+
+After vacuuming, heap fetches may drop to zero if the visibility map can confirm that rows are visible.
+
+---
+
+### EXPLAIN
+
+`EXPLAIN` shows the query plan PostgreSQL intends to use.
+
+Example:
+
+```sql id="iev028"
+EXPLAIN
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+Important: `EXPLAIN` does not execute the query.
+
+It only estimates the plan.
+
+---
+
+### EXPLAIN ANALYZE
+
+`EXPLAIN ANALYZE` executes the query and shows the actual runtime.
+
+Example:
+
+```sql id="nciph1"
+EXPLAIN ANALYZE
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+Use `EXPLAIN ANALYZE` when you want real execution information.
+
+Use plain `EXPLAIN` when you only want the estimated plan.
+
+---
+
+### Planner Estimates
+
+PostgreSQL stores table statistics.
+
+The query planner uses these statistics to estimate how many rows a query may return.
+
+Example:
+
+```sql id="uf6wpu"
+EXPLAIN (FORMAT JSON)
+SELECT *
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+The plan may include an estimated row count.
+
+This number is not exact, but it can be very fast to retrieve.
+
+---
+
+### ANALYZE
+
+`ANALYZE` updates table statistics.
+
+Example:
+
+```sql id="w9birs"
+ANALYZE grades;
+```
+
+PostgreSQL uses these statistics to pick query plans and estimate row counts.
+
+If statistics are outdated, estimates may be inaccurate.
+
+---
+
+## 3. Important Notes
+
+### Counting Is Work
+
+Counting rows requires the database to inspect data structures.
+
+Depending on the query, the database may need to:
+
+* scan an index,
+* scan the table,
+* check visibility,
+* filter rows,
+* check null values,
+* aggregate the result.
+
+On large tables, this can be expensive.
+
+---
+
+### COUNT(*) Is Usually Better Than COUNT(column)
+
+If you want to count rows, use:
+
+```sql id="rkq147"
+COUNT(*)
+```
+
+not:
+
+```sql id="kitrkm"
+COUNT(column)
+```
+
+unless you specifically want to count only non-null values.
+
+`COUNT(column)` has different semantics because it ignores `NULL`.
+
+---
+
+### COUNT(*) Does Not Mean Fetch All Columns
+
+`COUNT(*)` does not mean:
+
+```text id="z7s1fq"
+Fetch all columns and count them.
+```
+
+It means:
+
+```text id="3h2pf9"
+Count matching rows.
+```
+
+The database optimizer can often find a more efficient way to do that.
+
+---
+
+### Index-Only Scan Is Usually Better
+
+An index-only scan can be faster because it avoids table heap access.
+
+However, it only works well when PostgreSQL can trust the visibility map.
+
+After updates or deletes, PostgreSQL may need heap fetches again.
+
+---
+
+### Updates Can Make COUNT Slower
+
+After updating many rows, PostgreSQL may need to visit the heap to verify visibility.
+
+Example:
+
+```sql id="yceuwy"
+UPDATE grades
+SET g = 20
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+After this, an index-only scan may still show many heap fetches.
+
+This makes the count slower.
+
+---
+
+### VACUUM Can Improve Index-Only Scan Behavior
+
+After running:
+
+```sql id="r39eve"
+VACUUM grades;
+```
+
+PostgreSQL may update visibility information.
+
+Then the same `COUNT(*)` query may return to a true index-only scan with zero heap fetches.
+
+---
+
+### Exact Count Gets Slower as Rows Grow
+
+The more rows the database must count, the more work it performs.
+
+Counting 3,000 rows may be fast.
+
+Counting millions or hundreds of millions of rows may take seconds or minutes.
+
+The lecture shows an example where counting a table with around 300 million rows took around two minutes.
+
+---
+
+### Caching Can Hide Real Cost
+
+If you run the same query multiple times, it may become faster because data is cached.
+
+This can hide the real cost of the query.
+
+When testing performance, focus on the query plan and not only the runtime from repeated local tests.
+
+---
+
+### EXPLAIN Estimates Can Be Much Faster
+
+If the application does not require an exact count, planner estimates can be used instead.
+
+This can be useful for large-scale UI numbers such as:
+
+* view counts,
+* like counts,
+* follower counts,
+* search result estimates,
+* analytics previews.
+
+An estimate may return in milliseconds while an exact count may take seconds or minutes.
+
+---
+
+### Estimates Are Not Accurate
+
+Planner estimates are approximate.
+
+They can be off by thousands, hundreds of thousands, or millions depending on table size and statistics.
+
+Use estimates only when exact accuracy is not required.
+
+Bad use cases for estimates:
+
+* billing,
+* banking,
+* inventory,
+* security decisions,
+* legal reporting,
+* exact analytics.
+
+Good use cases for estimates:
+
+* approximate likes,
+* approximate views,
+* approximate search result count,
+* dashboard preview,
+* large-scale social numbers.
+
+---
+
+### Accuracy vs Performance Trade-Off
+
+Exact count gives correctness but costs more.
+
+Estimated count gives speed but sacrifices accuracy.
+
+The backend engineer must choose based on the product requirement.
+
+```text id="odrqar"
+Need exact number? Use COUNT.
+Need fast approximate number? Use planner estimate or precomputed counters.
+```
+
+---
+
+## 4. Examples
+
+### Example 1: COUNT(column)
+
+```sql id="062wrp"
+SELECT COUNT(g)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+This counts only rows where `g` is not null.
+
+If 3001 rows match the `id` condition, but some `g` values are null, the result may be:
+
+```text id="8asikj"
+2900
+```
+
+Because `COUNT(g)` ignores nulls.
+
+---
+
+### Example 2: COUNT(*)
+
+```sql id="88ejzo"
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+This counts all matching rows.
+
+If 3001 rows match the condition, the result is:
+
+```text id="3sxubu"
+3001
+```
+
+Null values do not matter.
+
+---
+
+### Example 3: EXPLAIN ANALYZE
+
+```sql id="3t2etq"
+EXPLAIN ANALYZE
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+This executes the query and shows the actual plan.
+
+Possible plan:
+
+```text id="fo09cj"
+Aggregate
+  -> Index Only Scan using grades_id_idx on grades
+```
+
+This means PostgreSQL used the index to count rows without reading the full table.
+
+---
+
+### Example 4: Heap Fetches After Update
+
+Update rows:
+
+```sql id="g5wd7n"
+UPDATE grades
+SET g = 20
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+Then run:
+
+```sql id="lzuahb"
+EXPLAIN ANALYZE
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+You may see:
+
+```text id="yifyl8"
+Index Only Scan
+Heap Fetches: 6002
+```
+
+This means PostgreSQL had to go back to the table heap even though the plan was index-only.
+
+---
+
+### Example 5: VACUUM Reduces Heap Fetches
+
+Run:
+
+```sql id="z30plb"
+VACUUM grades;
+```
+
+Then run the count query again:
+
+```sql id="c58rc2"
+EXPLAIN ANALYZE
+SELECT COUNT(*)
+FROM grades
+WHERE id BETWEEN 1000 AND 4000;
+```
+
+You may now see:
+
+```text id="xxvn3x"
+Heap Fetches: 0
+```
+
+This means PostgreSQL can trust the visibility map and avoid table heap access.
+
+---
+
+### Example 6: Exact Count on Huge Table
+
+```sql id="3whho6"
+SELECT COUNT(*)
+FROM grades;
+```
+
+On a table with hundreds of millions of rows, this may take a long time.
+
+Example from the lecture:
+
+```text id="ypm6rm"
+300 million rows
+Exact count took around 2 minutes
+```
+
+This is too slow for a normal backend request.
+
+---
+
+### Example 7: Estimate Count with EXPLAIN
+
+Instead of running:
+
+```sql id="ao7jgv"
+SELECT COUNT(*)
+FROM grades
+WHERE g BETWEEN 10 AND 20;
+```
+
+use:
+
+```sql id="mq08sa"
+EXPLAIN (FORMAT JSON)
+SELECT *
+FROM grades
+WHERE g BETWEEN 10 AND 20;
+```
+
+The planner returns an estimated row count.
+
+This is not exact, but it is much faster.
+
+---
+
+### Example 8: Backend Endpoint for Actual Count
+
+```javascript id="llomfh"
+app.get("/count", async (req, res) => {
+  const result = await pool.query(`
+    SELECT COUNT(*)
+    FROM grades
+    WHERE g BETWEEN $1 AND $2
+  `, [0, 10]);
+
+  res.json({
+    count: Number(result.rows[0].count)
+  });
+});
+```
+
+This returns an exact count, but may be slow on a large table.
+
+---
+
+### Example 9: Backend Endpoint for Estimate Count
+
+```javascript id="i2v9yz"
+app.get("/estimate", async (req, res) => {
+  const result = await pool.query(`
+    EXPLAIN (FORMAT JSON)
+    SELECT *
+    FROM grades
+    WHERE g BETWEEN $1 AND $2
+  `, [0, 10]);
+
+  const plan = result.rows[0]["QUERY PLAN"][0].Plan;
+
+  res.json({
+    estimate: plan["Plan Rows"]
+  });
+});
+```
+
+This returns a planner estimate much faster.
+
+The estimate may be inaccurate, but it avoids scanning the full table.
+
+---
+
+### Example 10: UI Use Case
+
+For a social media app:
+
+```text id="tzl9cj"
+Exact likes: 3,178,492
+Estimated likes: 3.1M
+```
+
+Most users do not care about the exact number.
+
+An estimate is often good enough.
+
+For financial systems, this would not be acceptable.
+
+---
+
+## 5. Questions / Review
+
+1. Why can `SELECT COUNT` be slow on large tables?
+
+2. What is the difference between `COUNT(*)` and `COUNT(column)`?
+
+3. Why does `COUNT(column)` ignore null values?
+
+4. Does `COUNT(*)` fetch every column from the table?
+
+5. What is an index scan?
+
+6. What is an index-only scan?
+
+7. Why is an index-only scan usually faster than an index scan?
+
+8. What are heap fetches?
+
+9. Why can heap fetches happen during an index-only scan?
+
+10. What is MVCC?
+
+11. Why does PostgreSQL keep old row versions?
+
+12. What is the visibility map?
+
+13. How can `VACUUM` improve index-only scans?
+
+14. What is the difference between `EXPLAIN` and `EXPLAIN ANALYZE`?
+
+15. Why should you be careful when using `EXPLAIN ANALYZE`?
+
+16. What does `ANALYZE` do?
+
+17. Why do repeated local queries sometimes look faster than they really are?
+
+18. Why can caching hide the real cost of a count query?
+
+19. When is an exact count necessary?
+
+20. When is an estimated count acceptable?
+
+21. How can PostgreSQL planner estimates be used as an alternative to exact count?
+
+22. Why are planner estimates not always accurate?
+
+23. Why might a backend application avoid exact count for large UI numbers?
+
+24. What are examples where approximate count is acceptable?
+
+25. What are examples where approximate count is dangerous?
+
+---
+
+## Quick Comparison: Exact Count vs Estimate
+
+| Feature                   | Exact Count              | Estimated Count            |
+| ------------------------- | ------------------------ | -------------------------- |
+| Query style               | `SELECT COUNT(*)`        | `EXPLAIN` planner estimate |
+| Accuracy                  | Exact                    | Approximate                |
+| Speed on huge tables      | Can be slow              | Usually fast               |
+| Database work             | Scans rows/index entries | Uses statistics            |
+| Good for billing          | Yes                      | No                         |
+| Good for social UI counts | Sometimes too expensive  | Often good enough          |
+| Affected by table size    | Strongly                 | Less directly              |
+| Depends on statistics     | No for correctness       | Yes                        |
+| User-facing example       | Exact report             | Approximate likes/views    |
+
+---
+
+## Final Takeaway
+
+`SELECT COUNT` looks simple, but it can be expensive on large tables.
+
+The database must still do work to count matching rows, whether through an index, an index-only scan, or a table scan.
+
+`COUNT(*)` is usually better when you want all rows.
+`COUNT(column)` is different because it only counts non-null values.
+
+In PostgreSQL, index-only scans can be fast, but updates and deletes may introduce heap fetches until `VACUUM` updates visibility information.
+
+If your application does not need an exact number, planner estimates from `EXPLAIN` can provide a much faster approximate count.
+
+The key trade-off is:
+
+```text id="w9ky20"
+Exact count = accuracy but more work.
+Estimated count = speed but less accuracy.
+```
+
+Choose based on the product requirement.

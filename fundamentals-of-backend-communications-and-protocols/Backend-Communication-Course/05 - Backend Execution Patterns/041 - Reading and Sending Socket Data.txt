@@ -1,0 +1,838 @@
+# 041 - Reading and Sending Socket Data
+
+**Section:** 05 - Backend Execution Patterns
+**Duration:** 21min
+
+---
+
+## 1. Summary
+
+In the previous lecture, we learned how a backend accepts TCP connections.
+
+We discussed:
+
+* TCP three-way handshake
+* SYN queue
+* Accept queue
+* `accept()`
+* File descriptors
+* Backlog
+* Connection establishment problems
+
+This lecture moves to the next stage:
+
+> Once a connection is established, how does the backend read and send data?
+
+A TCP connection by itself does not mean the backend has already received an HTTP request. It only means that the client and server now have a reliable connection.
+
+After that, actual data must be:
+
+1. Received by the kernel
+2. Stored in the receive buffer
+3. Read by the backend process
+4. Copied into user-space memory
+5. Decrypted if TLS is used
+6. Parsed into an HTTP request
+7. Processed by the backend application
+8. Serialized into a response
+9. Encrypted if TLS is used
+10. Sent through the kernel send buffer
+
+This lecture explains the role of **receive buffers**, **send buffers**, **read operations**, **send operations**, **TLS decryption**, **HTTP parsing**, and **kernel-user space copying**.
+
+---
+
+## 2. Key Concepts
+
+### 2.1 Connection Establishment Is Not Data Transfer
+
+After TCP connection establishment, no useful application data has necessarily been exchanged yet.
+
+The connection is only ready.
+
+The backend still needs to read data from the connection.
+
+```text
+TCP connection established
+        ↓
+Client sends request bytes
+        ↓
+Backend reads bytes
+        ↓
+Backend parses request
+        ↓
+Backend sends response
+```
+
+---
+
+### 2.2 The Kernel Creates More Than SYN and Accept Queues
+
+In the previous lecture, we discussed two kernel queues:
+
+* SYN queue
+* Accept queue
+
+But after a connection is accepted, the kernel also manages buffers for data transfer.
+
+Important buffers:
+
+* Receive buffer
+* Send buffer
+
+Conceptually:
+
+```text
+Connection
+├── Receive buffer
+└── Send buffer
+```
+
+The receive buffer stores incoming data from the client.
+
+The send buffer stores outgoing data from the server.
+
+---
+
+### 2.3 Receive Buffer
+
+When the client sends data, the backend application does not immediately receive it directly.
+
+The data first arrives at the network interface card, then goes through the kernel networking stack.
+
+Simplified flow:
+
+```text
+Client sends data
+→ NIC receives frame
+→ Kernel parses IP packet
+→ Kernel parses TCP segment
+→ Kernel matches connection
+→ Kernel stores payload in receive buffer
+```
+
+The backend process later calls `read()` to copy that data from the kernel receive buffer into its own memory.
+
+---
+
+### 2.4 The Kernel Receives Data Before the Application Reads It
+
+The kernel can receive TCP data even if the backend application has not called `read()` yet.
+
+The kernel places the data into the receive buffer.
+
+This is useful because the network and the application do not have to run at exactly the same time.
+
+However, the receive buffer has limited space.
+
+If the backend does not read fast enough, the receive buffer can fill up.
+
+---
+
+### 2.5 TCP Acknowledgements and Receive Window
+
+When the kernel receives data, it sends acknowledgements back to the client.
+
+The kernel also advertises how much receive buffer space is still available.
+
+This is called the receive window.
+
+Example:
+
+```text
+Receive buffer size: 1000 bytes
+Received data: 500 bytes
+Remaining space: 500 bytes
+```
+
+The server may tell the client:
+
+```text
+I received your data.
+I can still accept 500 more bytes.
+```
+
+This is part of TCP flow control.
+
+---
+
+### 2.6 Delayed Acknowledgement
+
+The kernel does not always acknowledge every single byte immediately.
+
+It may use delayed acknowledgement.
+
+Instead of sending an ACK for every tiny piece of data, the kernel may wait briefly and acknowledge more data together.
+
+This reduces unnecessary network traffic.
+
+Without delayed ACK, the network could waste bandwidth sending too many acknowledgement packets.
+
+---
+
+### 2.7 What Happens If the Receive Buffer Is Full?
+
+If the backend application does not read from the receive buffer quickly enough, the buffer may become full.
+
+When that happens:
+
+* The kernel cannot store more incoming data
+* The advertised receive window may shrink
+* The client may slow down or stop sending
+* Packets may be dropped or retransmitted
+* The request may become slow
+
+This is why backend applications should read from connections efficiently.
+
+---
+
+### 2.8 `read()`
+
+The backend process calls `read()` to get data from the connection.
+
+Conceptually:
+
+```c
+read(fd, buffer, size);
+```
+
+Where:
+
+* `fd` is the file descriptor for the connection
+* `buffer` is user-space memory
+* `size` is the maximum number of bytes to read
+
+The kernel copies data from the receive buffer into the process memory.
+
+```text
+Kernel receive buffer
+        ↓ copy
+Application memory
+```
+
+---
+
+### 2.9 Copying Between Kernel Space and User Space
+
+The kernel and application do not share the same normal memory space.
+
+The kernel has kernel space.
+
+The backend process has user space.
+
+When the application reads data, the data is copied from kernel space to user space.
+
+This copying has a cost.
+
+For small systems, the cost may seem tiny.
+
+But at high scale, many copies can add up.
+
+```text
+Kernel memory → User memory
+Kernel memory → User memory
+Kernel memory → User memory
+```
+
+This is why zero-copy techniques are important in high-performance systems.
+
+---
+
+### 2.10 Zero-Copy Idea
+
+Zero-copy is an optimization that tries to avoid unnecessary memory copying.
+
+Instead of copying data repeatedly between kernel space and user space, the system may allow data to be referenced or transferred more directly.
+
+The exact support depends on the operating system, kernel version, API, and runtime.
+
+Examples of related ideas include:
+
+* `sendfile`
+* memory mapping
+* `splice`
+* `io_uring`
+* shared kernel-user ring buffers
+
+The main goal is:
+
+```text
+Less copying = less CPU usage = better performance
+```
+
+---
+
+### 2.11 Raw TCP Bytes Are Not Yet an HTTP Request
+
+After the backend reads bytes from the socket, it still does not automatically have a nice HTTP request object.
+
+It only has raw bytes.
+
+If HTTPS is used, those bytes are encrypted.
+
+The backend must:
+
+1. Decrypt the bytes using TLS
+2. Parse the HTTP protocol
+3. Extract method, path, headers, and body
+4. Create a request object
+5. Pass that object to application code
+
+---
+
+### 2.12 TLS Decryption Happens in User Space
+
+TLS is usually handled by libraries in user space.
+
+Examples:
+
+* OpenSSL
+* LibreSSL
+* BoringSSL
+* wolfSSL
+* rustls
+
+The kernel usually does not decrypt HTTPS data for the application.
+
+The backend application or its HTTP/TLS library decrypts the bytes.
+
+Simplified flow:
+
+```text
+Encrypted bytes from socket
+→ TLS library decrypts bytes
+→ Plain HTTP bytes
+→ HTTP parser reads request
+```
+
+---
+
+### 2.13 HTTP Parsing
+
+After decryption, the HTTP library parses the request.
+
+For HTTP/1.1, it may parse something like:
+
+```http
+GET /about HTTP/1.1
+Host: example.com
+Content-Length: 10
+```
+
+The parser needs to understand:
+
+* Method
+* Path
+* HTTP version
+* Headers
+* Body length
+* Body content
+
+Only after parsing can the framework create a request object.
+
+---
+
+### 2.14 Frameworks Hide This Complexity
+
+As backend developers, we often only see something like this:
+
+```js
+app.get('/about', (req, res) => {
+  res.send('Hello');
+});
+```
+
+But before `req` exists, a lot of work has already happened:
+
+```text
+TCP data received
+→ Kernel receive buffer
+→ read()
+→ User-space memory
+→ TLS decrypt
+→ HTTP parse
+→ Request object created
+→ Framework handler called
+```
+
+Frameworks hide this work, but the work still happens.
+
+---
+
+### 2.15 Blocking `read()`
+
+If the application calls `read()` when no data is available, the call may block.
+
+That means the thread stops running and waits for data.
+
+```text
+Application calls read()
+Receive buffer is empty
+Application blocks
+OS schedules another process/thread
+```
+
+Blocking is simple but can reduce scalability.
+
+High-performance servers often use non-blocking or asynchronous I/O.
+
+---
+
+### 2.16 Readiness-Based I/O
+
+Readiness-based I/O means the application asks the kernel:
+
+> Tell me when this file descriptor is ready to read or write.
+
+Examples:
+
+* `select`
+* `poll`
+* `epoll`
+* `kqueue`
+
+The application does not blindly call `read()`.
+
+It waits until the kernel says data is available.
+
+Simplified:
+
+```text
+Application: Tell me which sockets are ready.
+Kernel: Socket 5 has data.
+Application: read(socket 5)
+```
+
+This avoids blocking on empty sockets.
+
+---
+
+### 2.17 Completion-Based I/O
+
+Completion-based I/O means the application submits an operation and later receives a completion notification.
+
+Examples:
+
+* Windows IOCP
+* Linux `io_uring`
+
+Conceptually:
+
+```text
+Application: Please read from this socket.
+Kernel: I will do it when possible.
+Kernel later: The read is complete. Here is the result.
+```
+
+This can reduce overhead and improve async I/O performance.
+
+---
+
+### 2.18 Send Buffer
+
+The send buffer is used when the backend wants to send data to the client.
+
+When the application writes a response, the data does not necessarily go immediately to the network.
+
+The data usually goes into the kernel send buffer first.
+
+Simplified flow:
+
+```text
+Application response
+→ HTTP library serializes response
+→ TLS library encrypts response
+→ send()
+→ Kernel send buffer
+→ TCP segments
+→ Network
+→ Client
+```
+
+---
+
+### 2.19 `send()` Does Not Mean “Immediately Sent”
+
+When the application calls `send()`, the data is copied into the kernel send buffer.
+
+That does not guarantee the data has already reached the client.
+
+The kernel may wait before sending it.
+
+Reasons include:
+
+* TCP segmentation
+* Congestion control
+* Flow control
+* Nagle’s algorithm
+* Waiting for ACKs
+* Network conditions
+
+So `send()` often means:
+
+```text
+The kernel accepted the data for sending.
+```
+
+Not:
+
+```text
+The client has already received the data.
+```
+
+---
+
+### 2.20 Nagle’s Algorithm
+
+Nagle’s algorithm tries to reduce inefficient tiny TCP packets.
+
+For example, sending one byte of data in a TCP segment is wasteful because the headers may be much larger than the actual data.
+
+Nagle’s algorithm may wait until there is enough data to send a fuller TCP segment.
+
+This improves network efficiency but can increase latency.
+
+Tradeoff:
+
+```text
+Efficiency vs latency
+```
+
+Some applications disable Nagle’s algorithm using `TCP_NODELAY` when they care more about low latency than packet efficiency.
+
+---
+
+### 2.21 Send Buffer and ACKs
+
+After the kernel sends data to the client, it waits for acknowledgements.
+
+When the client acknowledges received data, the kernel can remove acknowledged bytes from the send buffer.
+
+This is part of TCP’s sliding window behavior.
+
+```text
+Send data
+→ Wait for ACK
+→ Remove acknowledged data from send buffer
+```
+
+---
+
+### 2.22 What Happens If the Send Buffer Is Full?
+
+If the send buffer is full, the application may not be able to write more data immediately.
+
+Depending on the socket mode:
+
+* Blocking socket: `send()` may block
+* Non-blocking socket: `send()` may return an error such as `EAGAIN` or `EWOULDBLOCK`
+
+This is why high-performance systems also monitor when sockets are ready for writing.
+
+---
+
+## 3. Important Notes
+
+### Reading Fast Matters
+
+If the backend does not read from the receive buffer fast enough, the client will eventually slow down.
+
+The server’s receive window may shrink, and TCP flow control will limit how much more data the client can send.
+
+---
+
+### Sending Fast Is Not Fully Controlled by the App
+
+The application can call `send()`, but the kernel controls when bytes actually leave the machine.
+
+The kernel must respect TCP rules, congestion control, flow control, and packet efficiency.
+
+---
+
+### TLS and HTTP Are Usually Library Work
+
+Backend developers rarely manually decrypt TLS or parse HTTP.
+
+Libraries and frameworks do that.
+
+But understanding the hidden layers helps explain latency, CPU usage, and memory copying.
+
+---
+
+### Copying Has a Cost
+
+Every copy between kernel space and user space costs CPU time.
+
+At high throughput, this cost becomes significant.
+
+Zero-copy and async I/O techniques exist because this cost matters.
+
+---
+
+### Blocking I/O Can Hurt Scalability
+
+If a process blocks on `read()` or `send()`, it may stop doing useful work.
+
+This is why scalable servers use event loops, non-blocking sockets, worker pools, or async I/O systems.
+
+---
+
+## 4. Examples
+
+### Example 1: Incoming Request Data
+
+```text
+Client
+  |
+  | sends encrypted HTTP request bytes
+  v
+NIC
+  |
+  v
+Kernel networking stack
+  |
+  v
+Receive buffer
+  |
+  v
+Application calls read()
+  |
+  v
+User-space memory
+  |
+  v
+TLS decrypt
+  |
+  v
+HTTP parse
+  |
+  v
+Request object
+  |
+  v
+Application handler
+```
+
+---
+
+### Example 2: Receive Buffer Filling Up
+
+```text
+Receive buffer capacity: 1000 bytes
+
+Client sends 500 bytes
+Receive buffer now has 500 bytes
+Available space: 500 bytes
+
+Application does not read
+
+Client sends 500 more bytes
+Receive buffer now has 1000 bytes
+Available space: 0 bytes
+```
+
+Now the server cannot accept more data for that connection until the application reads.
+
+---
+
+### Example 3: Blocking Read
+
+```c
+char buffer[4096];
+
+read(fd, buffer, sizeof(buffer));
+```
+
+If no data is available, this may block.
+
+The thread waits and cannot do other work.
+
+---
+
+### Example 4: Non-Blocking Readiness Model
+
+```text
+Application gives kernel many file descriptors:
+
+fd 10
+fd 11
+fd 12
+fd 13
+
+Kernel later says:
+fd 12 is ready to read
+
+Application reads only fd 12
+```
+
+This avoids wasting time reading from sockets with no data.
+
+---
+
+### Example 5: HTTP Request Parsing
+
+Raw decrypted bytes:
+
+```http
+GET /about HTTP/1.1
+Host: example.com
+Content-Length: 0
+```
+
+HTTP library turns this into a request object:
+
+```js
+{
+  method: "GET",
+  path: "/about",
+  headers: {
+    host: "example.com",
+    "content-length": "0"
+  }
+}
+```
+
+Then the framework passes that object to your handler.
+
+---
+
+### Example 6: Outgoing Response Data
+
+```text
+Application handler
+  |
+  v
+Response object
+  |
+  v
+HTTP serialization
+  |
+  v
+TLS encryption
+  |
+  v
+send()
+  |
+  v
+Kernel send buffer
+  |
+  v
+TCP segments
+  |
+  v
+Client
+```
+
+---
+
+### Example 7: Nagle’s Algorithm
+
+Without Nagle’s algorithm:
+
+```text
+Send 1 byte
+Send 1 byte
+Send 1 byte
+Send 1 byte
+```
+
+This creates many tiny TCP packets.
+
+With Nagle’s algorithm:
+
+```text
+Wait briefly
+Combine small writes
+Send larger segment
+```
+
+This saves bandwidth but may add latency.
+
+---
+
+### Example 8: Disabling Nagle for Low Latency
+
+Some applications prefer lower latency.
+
+They may disable Nagle’s algorithm:
+
+```text
+TCP_NODELAY = true
+```
+
+This tells TCP to send small pieces of data sooner instead of waiting to batch them.
+
+Useful for:
+
+* Interactive applications
+* Low-latency APIs
+* Real-time protocols
+* Some RPC systems
+
+---
+
+## 5. Questions / Review
+
+1. What happens after a TCP connection is established?
+
+2. What is the purpose of the receive buffer?
+
+3. What is the purpose of the send buffer?
+
+4. Does the backend application receive network data directly from the NIC?
+
+5. What does the kernel do when TCP data arrives?
+
+6. What is TCP flow control?
+
+7. What is the receive window?
+
+8. Why can delayed acknowledgements improve efficiency?
+
+9. What happens if the backend does not read fast enough?
+
+10. What does `read()` do?
+
+11. Why does data need to be copied from kernel space to user space?
+
+12. Why can copying become expensive at high scale?
+
+13. What is zero-copy?
+
+14. Why are raw TCP bytes not immediately an HTTP request?
+
+15. Where does TLS decryption usually happen?
+
+16. What does an HTTP parser do?
+
+17. Why do frameworks hide most of this complexity?
+
+18. What happens if `read()` is called when no data is available?
+
+19. What is readiness-based I/O?
+
+20. What is completion-based I/O?
+
+21. What does `send()` actually do?
+
+22. Does `send()` guarantee the client received the data?
+
+23. What is Nagle’s algorithm?
+
+24. Why might an application disable Nagle’s algorithm?
+
+25. What happens if the send buffer is full?
+
+---
+
+## Short Takeaway
+
+After a TCP connection is accepted, the backend still has to read and write data.
+
+Incoming data first lands in the kernel receive buffer. The backend must call `read()` to copy it into user-space memory.
+
+If HTTPS is used, the backend or its libraries must decrypt the bytes, parse the HTTP request, and create a request object.
+
+Outgoing responses go through the opposite path: the application creates a response, the HTTP library serializes it, the TLS library encrypts it, and the kernel places it in the send buffer.
+
+Reading and sending socket data efficiently is critical for backend performance because slow reads, full buffers, blocking I/O, excessive copying, and small packet delays can all increase latency.

@@ -1,0 +1,502 @@
+# 052 - Layer 4 vs Layer 7 Load Balancers
+
+Section: 06 - Proxying and Load Balancing
+Duration: 28min
+
+---
+
+## 1. Summary
+
+This lecture explains the difference between **Layer 4 load balancers** and **Layer 7 load balancers**.
+
+A load balancer is a type of reverse proxy. Its job is to receive traffic from clients and distribute that traffic to one or more backend servers. The main difference between Layer 4 and Layer 7 load balancers is **how much they understand about the traffic**.
+
+A **Layer 4 load balancer** works at the transport layer. It understands TCP/UDP concepts such as IP addresses, ports, and connections. It does not understand HTTP, gRPC, WebSocket, SQL, or any application-level protocol. It simply forwards TCP segments from one connection to one selected backend connection.
+
+A **Layer 7 load balancer** works at the application layer. It understands the application protocol, such as HTTP. It can inspect requests, read headers, check paths, apply API gateway rules, cache responses, terminate TLS, and route traffic based on request content.
+
+Layer 4 is simple, fast, protocol-agnostic, and efficient for raw connection forwarding. Layer 7 is smarter and more flexible, but it is more expensive because it needs to parse, buffer, decrypt, and understand application-level data.
+
+There is no universally better option. Layer 4 and Layer 7 load balancers solve different problems.
+
+---
+
+## 2. Key Concepts
+
+### Load Balancer
+
+A load balancer is a reverse proxy with extra logic for distributing traffic across multiple backend servers.
+
+Every load balancer is a reverse proxy, but not every reverse proxy is a load balancer.
+
+A reverse proxy may simply forward requests to a backend. A load balancer additionally decides **which backend** should receive the traffic.
+
+---
+
+### Layer 4 Load Balancer
+
+A Layer 4 load balancer works at the transport layer.
+
+It understands:
+
+* IP addresses
+* ports
+* TCP connections
+* TCP segments
+* UDP packets, depending on the setup
+
+It does not understand:
+
+* HTTP paths
+* HTTP headers
+* cookies
+* request bodies
+* gRPC methods
+* SQL queries
+* WebSocket messages
+* authentication data
+
+To a Layer 4 load balancer, the application data is just bytes.
+
+---
+
+### Layer 4 Connection Mapping
+
+When a client opens a TCP connection to a Layer 4 load balancer, the load balancer selects one backend connection.
+
+After that, all TCP segments from that client connection must go to the same backend connection.
+
+This is important because TCP is stateful. TCP segments have sequence numbers and connection state. If the load balancer sends different segments from the same TCP connection to different backend servers, the backend TCP streams would break.
+
+So Layer 4 load balancing is usually sticky per connection.
+
+---
+
+### Layer 4 Backend Connection Warm-Up
+
+A Layer 4 load balancer may open several connections to backend servers in advance.
+
+This is called warming up connections.
+
+The goal is to avoid creating a new TCP connection for every request. By keeping connections warm, the system avoids repeated TCP handshakes and can forward data faster.
+
+---
+
+### NAT Mode
+
+In some Layer 4 setups, the load balancer may behave like a NAT/router.
+
+Instead of terminating and creating separate TCP connections, it may rewrite destination IP addresses and ports.
+
+In this mode, traffic can behave more like a single end-to-end TCP connection, with the load balancer modifying packet routing information.
+
+---
+
+### Layer 7 Load Balancer
+
+A Layer 7 load balancer works at the application layer.
+
+It understands application protocols such as:
+
+* HTTP/1.1
+* HTTP/2
+* gRPC, if supported
+* WebSocket, if supported
+* other protocols only if the load balancer knows how to parse them
+
+A Layer 7 load balancer does not just forward raw segments. It reads and buffers data until it understands a complete logical request.
+
+For HTTP, it may read:
+
+* request line
+* path
+* method
+* headers
+* body
+* cookies
+* host
+* authentication information
+
+---
+
+### Logical Request
+
+A logical request is a complete application-level request.
+
+For example, one HTTP request may be split across multiple TCP segments.
+
+A Layer 4 load balancer sees only those segments.
+
+A Layer 7 load balancer buffers those segments, parses them, and understands that together they form one HTTP request.
+
+After understanding the full request, it can decide which backend should handle it.
+
+---
+
+### TLS Termination
+
+Layer 7 load balancers often terminate TLS.
+
+This means the client establishes an HTTPS connection with the load balancer, not directly with the backend server.
+
+To do this, the load balancer must have access to the TLS certificate and private key.
+
+After decrypting the request, the load balancer can inspect HTTP headers, paths, cookies, and body data.
+
+This enables smart routing, caching, authentication, and API gateway logic.
+
+However, it also introduces security and trust concerns because the load balancer can read the decrypted traffic.
+
+---
+
+### Protocol Awareness
+
+Layer 7 load balancing only works if the load balancer understands the protocol.
+
+For example:
+
+* If it understands HTTP, it can route by path.
+* If it understands gRPC, it can route by service or method.
+* If it does not understand a custom protocol, it cannot safely do Layer 7 routing.
+
+In that case, Layer 4 load balancing may be more appropriate.
+
+---
+
+## 3. Important Notes
+
+### Layer 4 Pros
+
+Layer 4 load balancing is simple.
+
+It does not need to parse application data. It only cares about IP addresses, ports, and connection state.
+
+Layer 4 is usually faster because there is less work to do.
+
+It is protocol-agnostic. It can support HTTP, gRPC, WebSocket, PostgreSQL, MySQL, Redis, or any custom TCP protocol because it does not need to understand the content.
+
+It can be more private in some setups because the load balancer does not need to decrypt the application data.
+
+It works well when you need raw TCP or UDP forwarding.
+
+---
+
+### Layer 4 Cons
+
+Layer 4 load balancing is not smart at the request level.
+
+It cannot route based on:
+
+* URL path
+* HTTP method
+* headers
+* cookies
+* user identity
+* request body
+* API version
+* workload type
+
+It cannot easily say:
+
+* `/images` should go to image servers
+* `/comments` should go to comment servers
+* `/analytics` should go to analytics servers
+
+It also cannot cache application responses because it does not understand the application protocol.
+
+Another limitation is that it is sticky per connection. If a client sends many HTTP requests over one TCP connection, they usually go to the same backend.
+
+---
+
+### Layer 7 Pros
+
+Layer 7 load balancing is much smarter.
+
+It can route traffic based on application-level information.
+
+For HTTP, it can use:
+
+* path
+* host
+* headers
+* method
+* cookies
+* authentication tokens
+* content type
+
+This makes it useful for:
+
+* microservices
+* API gateways
+* authentication
+* authorization
+* request filtering
+* rate limiting
+* caching
+* routing by endpoint
+* routing by service
+* TLS termination
+
+Layer 7 can also use backend connections more efficiently because it can treat each logical request separately.
+
+Multiple requests from the same client connection can be routed to different backend servers, depending on the protocol and implementation.
+
+---
+
+### Layer 7 Cons
+
+Layer 7 load balancing is more expensive.
+
+It needs to:
+
+* read data
+* buffer data
+* parse protocol messages
+* understand request boundaries
+* decrypt TLS traffic if HTTPS is used
+* possibly re-encrypt traffic to the backend
+
+This makes it slower and more resource-intensive than Layer 4.
+
+Layer 7 also requires protocol support. If the load balancer does not understand the protocol, it cannot safely perform Layer 7 routing.
+
+Another concern is TLS termination. The certificate and private key must live on the load balancer, which some teams may not want, especially if the load balancer is managed by a third party.
+
+---
+
+### HTTP Request Smuggling Risk
+
+Layer 7 load balancers must agree with backend servers on where a request starts and ends.
+
+If the load balancer and backend parse HTTP requests differently, attackers may exploit this mismatch.
+
+This class of vulnerability is known as HTTP request smuggling.
+
+It happens because Layer 7 devices parse application-level requests, and parsing inconsistencies can become security issues.
+
+---
+
+### WebSocket and Protocol Upgrade
+
+Some Layer 7 load balancers can downgrade behavior to Layer 4-like forwarding when a protocol upgrade happens.
+
+For example, HTTP may upgrade to WebSocket.
+
+After the upgrade, the connection becomes long-lived and bidirectional. The load balancer may no longer be able to apply the same Layer 7 rules.
+
+This can affect:
+
+* authentication checks
+* header filtering
+* request blocking
+* routing rules
+* API gateway policies
+
+---
+
+## 4. Examples
+
+### Example 1: Layer 4 Load Balancing with HTTP
+
+A client opens one TCP connection to the load balancer.
+
+The client sends:
+
+```text
+GET /api/users
+```
+
+The HTTP request may be split into several TCP segments.
+
+The Layer 4 load balancer does not know this is an HTTP request. It only sees TCP segments.
+
+It selects one backend connection and forwards all segments to that backend.
+
+If the client later sends another request over the same TCP connection:
+
+```text
+GET /api/orders
+```
+
+that request also goes to the same backend connection.
+
+The Layer 4 load balancer cannot route `/api/users` to one backend and `/api/orders` to another backend because it does not understand HTTP paths.
+
+---
+
+### Example 2: Layer 7 Load Balancing with HTTP
+
+A client sends:
+
+```text
+GET /api/users
+```
+
+The Layer 7 load balancer reads the full HTTP request.
+
+It sees:
+
+```text
+Method: GET
+Path: /api/users
+```
+
+Then it can decide:
+
+```text
+/api/users → user-service
+```
+
+If the same client later sends:
+
+```text
+GET /api/orders
+```
+
+the Layer 7 load balancer can route it differently:
+
+```text
+/api/orders → order-service
+```
+
+This is possible because Layer 7 understands HTTP.
+
+---
+
+### Example 3: Smart Routing
+
+A Layer 7 load balancer can route traffic like this:
+
+```text
+/images      → image service
+/comments    → comment service
+/analytics   → analytics service
+/auth        → authentication service
+```
+
+A Layer 4 load balancer cannot do this based on path.
+
+At Layer 4, one workaround is to use different ports:
+
+```text
+Port 8001 → image service
+Port 8002 → comment service
+Port 8003 → analytics service
+```
+
+But this is less flexible than Layer 7 routing.
+
+---
+
+### Example 4: TLS Termination
+
+With Layer 7 HTTPS load balancing:
+
+```text
+Client HTTPS connection → Load Balancer
+Load Balancer decrypts request
+Load Balancer reads HTTP path and headers
+Load Balancer forwards request to backend
+```
+
+This allows the load balancer to inspect the request.
+
+But it also means the load balancer needs the TLS certificate and private key.
+
+---
+
+### Example 5: Any Protocol with Layer 4
+
+A Layer 4 load balancer can forward many protocols without understanding them:
+
+```text
+HTTP
+gRPC
+WebSocket
+PostgreSQL
+MySQL
+Redis
+Custom TCP protocol
+```
+
+This works because Layer 4 treats everything as TCP segments.
+
+---
+
+## 5. Questions / Review
+
+1. What is the main difference between a reverse proxy and a load balancer?
+
+2. Why is every load balancer a reverse proxy, but not every reverse proxy a load balancer?
+
+3. What OSI layer does a Layer 4 load balancer operate on?
+
+4. What information can a Layer 4 load balancer understand?
+
+5. Why does a Layer 4 load balancer usually keep traffic sticky per TCP connection?
+
+6. Why can Layer 4 load balancers support almost any protocol?
+
+7. What are the main advantages of Layer 4 load balancing?
+
+8. What are the main disadvantages of Layer 4 load balancing?
+
+9. What OSI layer does a Layer 7 load balancer operate on?
+
+10. What is a logical request?
+
+11. Why does a Layer 7 load balancer need to buffer data?
+
+12. Why does a Layer 7 load balancer need to understand the application protocol?
+
+13. What does TLS termination mean?
+
+14. Why do some teams dislike putting TLS private keys on a Layer 7 load balancer?
+
+15. How can a Layer 7 load balancer route `/images` and `/comments` to different backends?
+
+16. Why can Layer 7 load balancing be useful for microservices?
+
+17. Why is Layer 7 load balancing more expensive than Layer 4 load balancing?
+
+18. What is HTTP request smuggling?
+
+19. Why can protocol upgrades like WebSocket reduce Layer 7 visibility?
+
+20. When would you choose Layer 4 instead of Layer 7?
+
+21. When would you choose Layer 7 instead of Layer 4?
+
+---
+
+## Quick Comparison
+
+| Feature                    | Layer 4 Load Balancer  | Layer 7 Load Balancer                  |
+| -------------------------- | ---------------------- | -------------------------------------- |
+| OSI Layer                  | Transport layer        | Application layer                      |
+| Understands IP/Port        | Yes                    | Yes                                    |
+| Understands TCP connection | Yes                    | Yes                                    |
+| Understands HTTP path      | No                     | Yes                                    |
+| Understands headers        | No                     | Yes                                    |
+| Understands request body   | No                     | Usually yes                            |
+| Protocol-aware             | No                     | Yes                                    |
+| Protocol-agnostic          | Yes                    | No                                     |
+| Can cache responses        | No                     | Yes                                    |
+| Can route by URL path      | No                     | Yes                                    |
+| Can do API gateway logic   | No                     | Yes                                    |
+| Can terminate TLS          | Usually not required   | Common                                 |
+| Performance cost           | Lower                  | Higher                                 |
+| Flexibility                | Lower                  | Higher                                 |
+| Best for                   | Raw TCP/UDP forwarding | HTTP APIs, microservices, API gateways |
+
+---
+
+## Final Takeaway
+
+Layer 4 load balancers are simple, fast, and protocol-agnostic. They forward connections and TCP segments without understanding the application data.
+
+Layer 7 load balancers are smarter and more flexible. They understand application-level requests and can make routing decisions based on paths, headers, cookies, authentication, and other request data.
+
+Use Layer 4 when you need speed, simplicity, or support for arbitrary protocols.
+
+Use Layer 7 when you need smart routing, microservice routing, caching, authentication, API gateway behavior, or request-level control.

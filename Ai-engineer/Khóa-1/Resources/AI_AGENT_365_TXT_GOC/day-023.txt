@@ -1,0 +1,1912 @@
+Và chào mừng đến tuần thứ năm, ngày thứ ba.
+
+Hôm qua chúng ta đã thực hiện phần đầu tiên của Rag bằng cách lấy tài liệu, đưa chúng vào vectơ, vào
+
+sắc độ.
+
+Hôm nay chúng ta sẽ hoàn thành nó.
+
+Chúng tôi đang hoàn thiện đường ống Rag.
+
+Mọi chuyện sẽ xảy ra vào hôm nay.
+
+Và tôi nói cho bạn biết, mọi chuyện sẽ cực kỳ đơn giản.
+
+Tôi nghĩ bạn sẽ ngạc nhiên khi thấy việc xây dựng đường ống Rag dễ dàng đến thế nào.
+
+Và để nhắc lại nhanh những gì bạn đã làm, bạn có thể tạo văn bản, tạo mô hình
+
+biên giới mã bằng các mô hình nguồn mở.
+
+Khi sử dụng thư viện Huggingface Transformers, bạn có thể chọn mô hình phù hợp cho dự án của mình,
+
+được hỗ trợ bởi các số liệu từ bảng xếp hạng và điểm chuẩn, v.v.
+
+Và bây giờ.
+
+Và bây giờ bạn có thể giải thích cách Rag sử dụng nhúng vector.
+
+Cần có tài liệu.
+
+Nó biến tài liệu thành nhiều phần.
+
+Nó biến các khối thành các vectơ.
+
+Nó lưu trữ các vectơ trong sắc độ.
+
+Được rồi, hôm nay chúng ta sẽ hoàn thiện bức tranh.
+
+Đến cuối ngày hôm nay, bạn sẽ có thể sử dụng chuỗi dài Lang để xây dựng đường
+
+ống Rag, bạn sẽ có thể cung cấp một chuyên gia trả lời câu hỏi bằng Rag.
+
+Và điều tuyệt vời nhất là bạn sẽ có thể có một giao diện người dùng gradio nhỏ gọn, giống
+
+như ứng dụng Rag không chỉ có khả năng trả lời các câu hỏi một cách chuyên môn mà còn có thể
+
+hiển thị cho bạn các tài liệu mà ứng dụng này lấy nguồn chuyên môn đó.
+
+Thật tuyệt phải không?
+
+Chúng ta sẽ làm tất cả những điều đó ngày hôm nay.
+
+Chúng ta hãy bắt đầu nhé.
+
+Và đừng giết tôi.
+
+Nhưng chúng ta sẽ bắt đầu bằng cách một lần nữa tóm tắt lại ý tưởng lớn đằng sau vải vụn.
+
+Tôi biết bạn nói là bạn hiểu rồi.
+
+Chúng ta có phải sử dụng lại và làm lại cùng một slide không?
+
+Nhưng đúng vậy, vì đôi khi sự lặp lại lại có ích.
+
+Và để phòng ngừa, vì một số người vẫn còn hiểu lầm về Rag.
+
+Và điều quan trọng là phải hiểu được những điều cơ bản, người dùng sẽ đặt câu hỏi.
+
+Nó liên quan đến mã của chúng ta.
+
+Chúng ta có thể lấy câu hỏi đó và thử xem liệu chúng ta có thể thực hiện truy vấn SQL hay không, nếu chúng ta có thể thực hiện tìm kiếm
+
+văn bản.
+
+Nhưng làm vậy sẽ bỏ sót những thông tin quan trọng.
+
+Có một cách tốt hơn để làm điều đó.
+
+Có một mẹo liên quan đến việc sử dụng LMS, một loại LM khác, không phải loại LM tự hồi quy mà chúng ta thường
+
+dùng, mà là loại AR đôi khi được gọi là bộ mã hóa, đôi khi được gọi là mô hình nhúng.
+
+Đấy, nó đây rồi.
+
+Và chúng ta gọi nó là để chuyển câu hỏi thành một vectơ.
+
+Và sau đó chúng ta có thể nói được rồi, hãy xem trong cơ sở dữ liệu.
+
+Chúng tôi có rất nhiều tài liệu khác mà chúng tôi đã lập chỉ mục bằng cách tạo các vectơ cho từng
+
+tài liệu.
+
+Và chúng tôi đưa chúng vào một cơ sở dữ liệu có khả năng tìm kiếm tài liệu có vectơ đặc biệt nhanh, với các chỉ mục
+
+gần với vectơ mà chúng tôi truyền vào.
+
+Và chúng ta có thể sử dụng điều đó để tìm ra bối cảnh có liên quan.
+
+Đưa điều đó vào lời nhắc cho LM.
+
+Lấy lại kết quả chính là ý tưởng lớn đằng sau Rag.
+
+Và đó là những gì chúng ta sẽ thực hiện ngày hôm nay.
+
+Và một lần nữa để nhắc lại những gì chúng ta đã làm ngày hôm qua, chúng ta đọc tất cả các tài liệu trong một loạt các
+
+thư mục ở bốn thư mục khác nhau.
+
+Chúng tôi chia chúng thành nhiều phần.
+
+Quá trình phức tạp này chỉ đơn giản là nói, được rồi, chúng ta hãy lấy văn bản và cắt nó ra.
+
+Chúng tôi sử dụng trình phân tách văn bản ký tự đệ quy chỉ tìm hai dòng trống, sau đó là một dòng trống
+
+và sau đó là khoảng trắng để tách tất cả.
+
+Chúng tôi làm thế.
+
+Chúng ta có một số phần chồng chéo giữa các khối.
+
+Bạn có nhớ 1000 ký tự, 200 ký tự chồng lên nhau không?
+
+Và sau đó chúng ta sử dụng nó để biến chúng thành các vectơ.
+
+Và sau đó chúng tôi lưu trữ chúng trong chroma.
+
+Và tôi nhấn mạnh rằng có sự khác biệt giữa bộ mã hóa.
+
+Mô hình nhúng biến các vectơ và sắc độ thành kho lưu trữ dữ liệu.
+
+Có thể là một loạt các kho dữ liệu khác.
+
+Đó là nơi chúng được lưu trữ.
+
+Có khả năng truy xuất nhanh chóng.
+
+Tôi đã nói rồi, bạn biết đấy, những bộ mã hóa phổ biến.
+
+Chúng tôi đã nhúng văn bản OpenAI.
+
+Chúng ta hãy xem xét nhỏ và lớn, ba nhỏ và ba lớn.
+
+Chúng tôi đã xem xét nhưng không xem xét nhúng Gemini, nhưng chúng rất tuyệt.
+
+À, và còn có cả mẫu xe ôm mặt mini Ml6 V2 nữa, mà chúng ta đã xem xét đầu tiên.
+
+Và tôi đã nói rằng bộ mã hóa riêng biệt là vector lưu trữ nơi bạn đặt và lấy chúng.
+
+Và chúng tôi sử dụng chroma, kho dữ liệu mã nguồn mở.
+
+Ngoài ra còn có Kudrin, có phó tướng, còn nhiều người khác nữa.
+
+Có những ứng dụng trả phí có khả năng mở rộng và phục hồi tốt hơn nhiều.
+
+Nhưng bạn phải trả tiền cho chúng.
+
+Tiền nào của nấy.
+
+Và còn có quả thông nữa.
+
+Chúng ta vẫn còn nhiều, nhiều hơn nữa.
+
+Và sau đó tôi cũng đề cập rằng bản thân các cơ sở dữ liệu chính thống đều hỗ trợ các vectơ cho
+
+những gì bạn đăng ký ở đây, đây là một quyết định về cơ sở hạ tầng, liên quan đến
+
+những thứ như chi phí liên quan, cấu trúc hỗ trợ và hiệu suất.
+
+Và một số trong số chúng, tôi nghĩ tôi đã đề cập, có các tính năng tiên tiến hơn
+
+như elastic cho phép bạn lọc rất nhanh đồng thời tìm kiếm các vectơ gần nhất.
+
+Vì vậy, đây là những loại đánh đổi mà bạn cần cân nhắc khi chọn kho lưu trữ vector của mình.
+
+Nhưng ngoài ra, bạn phải chọn bộ mã hóa, mô hình nhúng của mình để có được loại vectơ
+
+phù hợp cho vấn đề bạn đang giải quyết.
+
+Và chúng ta sẽ nói thêm về điều đó vào ngày mai.
+
+Được rồi.
+
+Bây giờ chúng ta sẽ nói về Lang Chain.
+
+Chúng ta sẽ sử dụng Lang Chain để triển khai đường ống Rag và tôi muốn nhấn mạnh rằng sử dụng chuỗi dài là một giải
+
+pháp tốt.
+
+Đây là một trong những nơi đầu tiên mà dây xích dài thực sự phát huy tác dụng, vì rất dễ sử dụng dây xích
+
+dài để xây dựng đường ống giẻ rách.
+
+Và vì thế nó trở nên rất, rất phổ biến.
+
+Vì vậy, việc tôi giới thiệu nó cho trường hợp sử dụng này là điều hợp lý.
+
+Nhưng tôi sẽ nhấn mạnh rằng thực ra cũng rất dễ để xây dựng đường ống Rag mà không cần sử dụng dây xích
+
+dài.
+
+Không phải chuỗi dài là phần thiết yếu để xây dựng Rag.
+
+Nó làm mọi việc nhanh hơn một chút đối với chúng tôi.
+
+Bạn sẽ thấy chỉ cần một vài dòng mã là xong, nhưng sẽ chỉ cần thêm một vài dòng mã nữa nếu chúng
+
+ta thực hiện theo cách thủ công, giống như phương pháp tấn công thủ công bằng vũ lực, đó là những gì chúng ta làm trong
+
+tuần thứ tám.
+
+Tôi nói là dùng vũ lực, nhưng thực ra chỉ cần thêm vài dòng mã nữa thôi.
+
+Thực ra cũng chẳng có gì hơn thế nhiều.
+
+Nhưng dù sao đi nữa, hiện tại chúng ta sẽ tập trung vào chuỗi dài và bạn sẽ thấy tại sao mọi người lại thích chuỗi dài.
+
+Chúng ta sẽ lấy hai khái niệm trừu tượng chính.
+
+Một trong số đó là LM, ừm, và nó giống như một vật thể.
+
+Và thực tế là chúng ta đã gặp trường hợp này rồi.
+
+Chúng tôi đã sử dụng sự trừu tượng này trong Lang Chain cách đây vài tuần khi
+
+tôi so sánh nó với LM nhẹ và chúng tôi thấy cách bạn có thể sử dụng Lang Chain chỉ để gói gọn một LM để bạn có thể hoán
+
+đổi AI mở hoặc nhân học hoặc Lama hoặc bất cứ thứ gì tại chỗ.
+
+Và nó sẽ phản ứng theo cách tương tự.
+
+Và sau đó, một khái niệm trừu tượng khác mà chúng ta sẽ sử dụng là thứ gọi là bộ thu thập dữ liệu.
+
+Và một bộ thu thập dữ liệu là một sự trừu tượng xung quanh sắc độ, kho dữ liệu và mô hình nhúng.
+
+Tất cả những điều đó đều được gói gọn trong thứ gọi là máy thu hồi.
+
+Vì vậy, bạn chỉ cần yêu cầu người tìm kiếm lấy lại các tài liệu gần giống với tài liệu khác.
+
+Vậy đây là hai khái niệm trừu tượng chính.
+
+Và giống như nhiều chuỗi ngôn ngữ trừu tượng khác, nó phản hồi khi gọi phương thức.
+
+Nếu bạn có bằng LLM, bạn có thể nói my LLM dot invoke.
+
+Nếu bạn có một chú chó săn mồi, bạn có thể nói my retriever dot invoke.
+
+Và còn nhiều đối tượng khác trong chuỗi Lang có cùng hành vi này, ừm, công cụ.
+
+Ồ, và nhiều thứ khác nữa.
+
+Đó là một phần rất phổ biến của khuôn khổ.
+
+Trên thực tế, nó được gọi là runnable trong Lang chain nếu bạn có thể gọi invoke.
+
+Và trong phiên bản trước, tính năng chạy được là một tính năng đã được đề cập rất nhiều.
+
+Vì vậy, bạn đã thấy runnable trong mã rất nhiều và mọi người đã nói về nó.
+
+Nhưng có vẻ như họ đã lấy nó ra như một loại main, như một giao diện, như một thứ mà bạn,
+
+mà bạn đặc biệt đề cập đến trong mã trong chuỗi ngôn ngữ một không.
+
+Ừm, vậy thì, mặc dù chúng ta biết rằng tất cả những thứ này đều có thể chạy được, nhưng đó không phải là thuật ngữ thường được sử
+
+dụng trong Lang chain 1. 0.
+
+Và chắc chắn chúng ta sẽ sử dụng Lang Chain 1. 0, phiên bản mới của Lang chain.
+
+Vậy thì chúng ta sẽ có một con chó săn.
+
+Nó sẽ sử dụng phương thức invoke.
+
+Ngoài ra còn có các phương thức khác mà bạn có thể gọi như Stream và Invoke để gọi bất đồng bộ.
+
+Chúng tôi sẽ không làm những điều đó.
+
+Nhưng bạn có thể lưu ý rằng có những điều chung mà bất kỳ sự trừu tượng chính nào trong Lang
+
+Chain cũng sẽ phản hồi.
+
+Được rồi.
+
+Nhưng chúng ta sẽ giải quyết vấn đề bằng LM và retriever.
+
+Chúng tôi sẽ triệu hồi họ.
+
+Chúng ta hãy thực hiện điều đó bằng con trỏ ngay bây giờ. Và chúng ta lại quay trở lại với con trỏ.
+
+Chúng ta đang bước sang tuần thứ năm.
+
+Chúng ta sẽ bước sang ngày thứ ba.
+
+Chào mừng đến ngày thứ ba.
+
+Chúng tôi đang xây dựng công cụ trả lời câu hỏi chuyên gia để đảm bảo Elm.
+
+Đây sẽ là một chuỗi dài triển khai một không của đường ống Rag sử dụng kho lưu trữ vectơ mà chúng ta đã tạo lần trước.
+
+Bây giờ, bạn có thể nhớ lần trước khi chúng ta tạo kho vector, đầu tiên chúng ta sử dụng bộ mã hóa từ Huggingface,
+
+tất cả đều là mini Ml6 v2.
+
+Sau đó, chúng tôi quay lại và thực hiện lại với một vài mô hình OpenAI tốt hơn nhiều.
+
+Vâng, thực ra tôi vừa quay lại và chạy lại nó với mô hình ban đầu vì tôi không biết
+
+bạn sẽ sử dụng mô hình nào.
+
+Và trong trường hợp bạn vẫn giữ nguyên bản gốc, bản yếu hơn, thì đó chính là điều bạn cần làm.
+
+Đó chính là cách tôi đang sử dụng hiện tại.
+
+Bạn có thể lựa chọn.
+
+Bạn có thể quay lại và làm điều đó nếu muốn hoặc tiếp tục làm những gì bạn đã làm.
+
+Được thôi.
+
+Chúng ta hãy bắt đầu với một số nội dung nhập khẩu.
+
+Vì vậy, có rất nhiều mặt hàng nhập khẩu theo chuỗi dài ở đây.
+
+Và đây là những điều thú vị.
+
+Đây là lần đầu tiên từ chuỗi Lang OpenAI nhập trò chuyện OpenAI.
+
+Đó chính là sự trừu tượng hóa LM mà tôi đã đề cập.
+
+Trò chuyện.
+
+OpenAI là một trong những llms mà bạn có thể tạo ra.
+
+Nó sẽ phản hồi lệnh invoke from Cromer import Cromer.
+
+Lần trước chúng ta đã có sự trừu tượng đó.
+
+Ừm, điều này liên quan đến một số thông điệp mà chúng ta sẽ sử dụng.
+
+Và đây là các mô hình nhúng mà chúng ta đã xem xét.
+
+Tôi chỉ nhắc đến điều đó thôi.
+
+Vì vậy, tôi sẽ chạy những lệnh nhập này.
+
+Đấy, chúng đi rồi.
+
+Ừm, vậy thì, ừm, chỉ mất vài giây thôi.
+
+Có rất nhiều thứ để nhập khẩu.
+
+Ừm, để cho các bạn thấy ở đây, chúng ta có trò chuyện nhập khẩu OpenAI.
+
+Trí tuệ nhân tạo mở.
+
+Bạn cũng có thể lấy thông tin từ Lang Chain.
+
+Ờ, llama nhập khẩu llama Tôi đã viết sai chữ Lang chain, nhưng vẫn điền được.
+
+Ừ, và tôi có thể nói từ lang chain underscore anthropic import chat anthropic.
+
+Ừm, nếu bạn làm thế này, bạn chỉ cần thay thế Chat OpenAI bằng Chat llama hoặc Chat Anthropic và nó sẽ hoạt động,
+
+đó thực sự là lời hứa về chuỗi dài mà những khái niệm trừu tượng này có thể hoán đổi được.
+
+Tất cả chúng đều phản hồi khi invoke và điều đó cho phép bạn thao tác mọi thứ khá dễ dàng, tương tự như cách
+
+trừu tượng hóa như light LM thực hiện, nhưng với chuỗi dài thì nó nặng hơn một chút.
+
+Đây là một gói hoàn toàn khác mà bạn phải cài đặt và nhập.
+
+Được rồi.
+
+Vậy nên tôi sẽ lấy nó ra.
+
+Ừm, hy vọng là bạn hiểu được điều đó.
+
+Và bây giờ chúng ta sẽ thiết lập một số hằng số và sau đó bắt đầu sử dụng giẻ lau nhé.
+
+Trước tiên, chúng ta sẽ tạo đối tượng nhúng, toàn bộ đối tượng mini lm l6 v2.
+
+Và chúng ta cũng sẽ kết nối với Cromer bằng đối tượng nhúng.
+
+Bạn có thể thấy như tôi đã nói, tôi đang sử dụng khuôn mặt ôm này, mã nguồn mở.
+
+Vì vậy, nếu bạn vẫn đang sử dụng nhúng OpenAI, bạn cần đảm bảo sử dụng đối tượng nhúng OpenAI tại đây,
+
+nhập đối tượng đó rồi sử dụng tại đây.
+
+Ừ, hoặc nếu bạn muốn sử dụng cái này thì cứ sử dụng.
+
+Bạn có thể phải quay lại và tạo lại cơ sở dữ liệu của mình.
+
+Điều quan trọng là bạn phải sử dụng cùng một vectơ nhất quán, vì nếu bạn có các vectơ trong
+
+cơ sở dữ liệu là vectơ chiều OpenAI 3000 và bây giờ chúng ta sử dụng vectơ này ở đây, vectơ này sẽ được sử dụng khi chúng
+
+ta đưa ra truy vấn.
+
+Chúng tôi trả lời câu hỏi của bạn.
+
+Chúng ta biến nó thành một vectơ.
+
+Vâng, nếu chúng là những mô hình khác nhau thì rắc rối sẽ xảy ra.
+
+Bạn sẽ tạo ra vectơ 300 chiều này từ khuôn mặt đang ôm.
+
+Và bạn sẽ cố gắng so sánh nó với 3000 vectơ chiều, những vectơ hoàn toàn khác nhau.
+
+Bạn cũng nhớ chúng trông khác biệt thế nào trong hình ảnh đó.
+
+Hoàn toàn khác biệt trong kho dữ liệu vector của bạn.
+
+Và sẽ có lỗi xảy ra.
+
+Sẽ có một dấu vết ngăn xếp xấu xí về sự không khớp trong các kích thước.
+
+Và anh sẽ quay lại hỏi tôi, Ed, có chuyện gì thế?
+
+Và tôi sẽ nói rằng bạn có nhiều mô hình vectơ khác nhau, vì vậy đừng làm vậy.
+
+Ừ, hãy đảm bảo rằng chúng nhất quán.
+
+Vậy chúng ta hãy chạy thử nhé.
+
+Và bây giờ chúng ta sẽ tạo phần nhúng của mình.
+
+Và chúng tôi đã tải kho dữ liệu của mình vào cùng một thư mục.
+
+Thư mục này là vector db.
+
+Bạn có thể thấy nó ngay ở đó.
+
+Chúng tôi đã tải nó vào rồi.
+
+Và chúng tôi cũng đã nói về mô hình nhúng mà chúng tôi đang sử dụng.
+
+Được rồi.
+
+Bây giờ đã đến lúc chúng ta tạo ra hai vật thể chuỗi dài lớn là LM và retriever.
+
+Cả hai đều ở đó.
+
+Hãy cùng tạo ra chúng.
+
+Vì vậy, bạn có thể thấy rằng tôi tạo đối tượng thu hồi bằng cách thực hiện lưu trữ vector, lưu trữ vector sắc độ là dot
+
+làm trình thu hồi.
+
+Và điều đó chỉ gói gọn nó thành một đối tượng truy xuất, một đối tượng mà chúng ta có thể gọi dot invoke trên đó.
+
+Và nó sẽ thực hiện tra cứu giẻ rách.
+
+Thật dễ dàng và tiện lợi với tính năng trò chuyện mở AI.
+
+Tất cả những gì chúng ta phải làm là tạo nó như thế này.
+
+Chúng ta truyền vào tên mô hình và tôi cũng truyền vào thứ gì đó gọi là nhiệt độ và đó chính là thứ tạo
+
+nên LM.
+
+Vậy nhiệt độ này là bao nhiêu?
+
+Tôi nghĩ vấn đề này thỉnh thoảng được nêu ra và tôi không chắc mình đã từng giải thích rõ ràng về nó chưa.
+
+Vậy thì hãy để tôi dành một phút để nói về nhiệt độ ngay bây giờ.
+
+Nhiệt độ có lẽ là một yếu tố bạn đã nghe khá nhiều, vì tất cả
+
+các LMS đều lấy nhiệt độ làm đầu vào và là yếu tố kiểm soát mức độ đa dạng trong kết quả đầu
+
+ra từ mô hình.
+
+Đây là tham số kiểm soát mức độ khác biệt mỗi lần bạn gọi nó.
+
+Nhiệt độ bằng 0 có nghĩa là có thể dự đoán được, xác định được, và nhiệt độ cao hơn có nghĩa là sẽ có nhiều
+
+sự đa dạng hơn, nhiều hương vị hơn, nhiều sự khác biệt hơn trong các câu trả lời.
+
+Mỗi lần bạn gọi nó.
+
+Một số người mô tả điều này như là sự sáng tạo, nhiệt độ cao hơn để tạo ra nhiều sản phẩm sáng tạo hơn.
+
+Tôi không nghĩ điều đó hoàn toàn đúng.
+
+Điều đó không sai, nhưng tôi nghĩ nó có phần gây hiểu lầm.
+
+Vì vậy, tôi muốn giải thích rõ hơn để bạn hiểu rõ hơn.
+
+Vậy thực ra nó có tác dụng gì?
+
+Vâng, thực ra nó kiểm soát thời điểm suy luận khi bạn tạo từng mã thông báo, nó liên quan đến cách
+
+bạn chọn mã thông báo nào sẽ xuất hiện tiếp theo.
+
+Một mô hình, một LM thực sự không đưa ra mã thông báo tiếp theo vì tôi nghĩ bạn biết, thứ mà nó thực sự đưa ra là
+
+xác suất của tất cả các mã thông báo tiếp theo có thể có.
+
+Mỗi từ tiếp theo có thể đều có một xác suất nào đó, ngay cả khi xác suất đó rất nhỏ.
+
+Nhưng mọi thứ đều có giá trị của nó.
+
+Ừm, và thông thường khi tôi nói một cách rộng rãi, chúng ta chọn mã thông báo tiếp theo khi tôi đang nói đến
+
+điều mà tôi muốn nói là bạn chỉ có thể chọn mã thông báo có xác suất cao nhất, mã thông báo mà mô hình
+
+cho là có khả năng là mã thông báo tiếp theo cao nhất.
+
+Và với nhiệt độ bằng không, tất cả những gì bạn phải làm là chọn bất kỳ mã thông báo nào có xác suất cao nhất và bạn chọn
+
+mã thông báo đó và mã thông báo đó mỗi lần.
+
+Và đó được gọi là nhiệt độ bằng không.
+
+Đầu ra có thể dự đoán được, đáng tin cậy và mang tính quyết định nhất.
+
+Và nhiệt độ cao hơn có nghĩa là đôi khi bạn chọn những mã thông báo không đạt được xác suất cao nhất nhưng có thể đạt được xác
+
+suất cao thứ hai hoặc tương tự như vậy.
+
+Trên thực tế, trong trường hợp của OpenAI, nhiệt độ thay đổi từ 0 đến 2, và nhiệt độ bằng 1 có nghĩa
+
+là nếu một mã thông báo được đưa ra với xác suất 10%, thì bạn sẽ chọn mã thông báo đó trong 110% thời gian bạn thực sự lấy mẫu mã thông báo
+
+nào sẽ xuất hiện tiếp theo dựa trên xác suất mà chúng nhận được.
+
+Vì vậy, nếu một mã thông báo có xác suất 1% thì điều đó thực sự không có khả năng xảy ra.
+
+Vẫn là 1 trong 100 lần.
+
+Bạn có thể chọn cái đó nếu nhiệt độ là một.
+
+Vì vậy, những gì được đưa ra sẽ đa dạng hơn.
+
+Và thực sự điều đó có nghĩa là nó sáng tạo hơn, nhưng không nhất thiết.
+
+Điều này thực sự chỉ có nghĩa là các từ ngữ được lựa chọn sẽ khác nhau và đôi khi có thể hơi kỳ lạ nếu
+
+nhiệt độ đủ cao.
+
+Trên thực tế, khi nhiệt độ tăng lên đến 2, bạn có thể nhận được những câu trả lời khá kỳ lạ.
+
+Vậy đó chính là ý nghĩa của nhiệt độ và những gì nó kiểm soát.
+
+Và thêm hai lưu ý nữa.
+
+Một trong số đó là, ừm, tôi đã sử dụng những từ như xác định và có thể tái tạo.
+
+Điều đó cũng không hoàn toàn đúng, vì ngay cả ở nhiệt độ bằng 0, kết quả đầu ra cũng không nhất thiết có thể
+
+tái tạo được.
+
+Bởi vì có sự ngẫu nhiên.
+
+Có những con số ngẫu nhiên liên quan đến việc chạy llms.
+
+Bạn có thể thực hiện một thao tác gọi là thiết lập hạt giống ngẫu nhiên, nghĩa là các số ngẫu nhiên sẽ giống
+
+nhau mỗi lần.
+
+Và thực sự chúng ta sẽ làm điều đó vào tuần thứ 6 đến tuần thứ 8.
+
+Và điều đó có thể đặc biệt quan trọng khi bạn đang thử nghiệm và cố gắng đảm bảo rằng bạn thực sự
+
+nhận được cùng một câu trả lời mỗi lần.
+
+Vì vậy, chúng ta sẽ thiết lập các hạt giống ngẫu nhiên sau và bạn sẽ thấy điều đó.
+
+Và ngay cả khi bạn đặt một hạt giống ngẫu nhiên, vẫn không đảm bảo rằng kết quả sẽ giống nhau mỗi lần.
+
+Vì có những thay đổi ở mô hình biên giới trong phòng thí nghiệm nên họ thay đổi mô hình của mình.
+
+Và cũng bởi vì có những tối ưu hóa hiệu suất có nghĩa là nhiều phép tính diễn ra song song theo cách không phải lúc
+
+nào cũng đảm bảo được, rằng những kết quả tương tự sẽ xuất hiện theo cùng một cách chính xác.
+
+Và kết quả là, không có gì được đảm bảo hoàn toàn là có thể tái tạo được.
+
+Nhưng nếu bạn có nhiệt độ bằng không và thực hiện thao tác gọi là đặt hạt giống ngẫu nhiên, thì rất
+
+có thể bạn sẽ nhận được cùng một câu trả lời mỗi lần.
+
+Và chúng ta sẽ thực hiện điều đó sau trong khóa học.
+
+Nhưng hiện tại, chúng tôi đang đặt nhiệt độ ở mức 0, khá phổ biến
+
+với các hệ thống Rag, vì bạn muốn có sự đảm bảo chắc chắn hơn về độ tin cậy, nhưng nhiệt độ thường
+
+ở mức 0. 5 0. 7 cũng vậy.
+
+Và tôi đã đề cập rằng nhiệt độ đó không thực sự giống với sự sáng tạo.
+
+Nếu bạn muốn mô hình của mình sáng tạo hơn và có tính sáng tạo cao hơn, cách đúng đắn để thực hiện điều đó
+
+là thông qua lời nhắc của hệ thống.
+
+Cách đúng đắn để làm điều đó là hướng dẫn người mẫu sáng tạo.
+
+Hãy đưa ra ví dụ về ý nghĩa của sự sáng tạo đối với bạn.
+
+Đó chính là mục đích của sự sáng tạo.
+
+Và nếu bạn muốn nó đưa ra những câu trả lời khác, cách tốt nhất là cho nó biết những câu trả lời trước đó
+
+và nói rằng, bây giờ tôi muốn một câu trả lời khác.
+
+Đó là cách đáng tin cậy nhất để thực hiện.
+
+Bạn có thể sử dụng nhiệt độ cho mục đích đó, nhưng theo kinh nghiệm của tôi thì nó không đáng tin cậy lắm.
+
+Tốt hơn là nên tập trung vào việc nhắc nhở nếu bạn muốn mô hình của mình có hành vi cụ thể.
+
+Được rồi, đây chỉ là một phần phụ, nhưng tôi nghĩ đây là một phần phụ rất quan trọng, nên tôi rất vui vì chúng tôi đã thực hiện nó.
+
+Chúng ta hãy tiếp tục.
+
+Bây giờ với bước tiến lớn là tạo ra hai khái niệm trừu tượng, retriever và LM, tôi đã chạy nó, thế là
+
+xong. Được rồi.
+
+Vì vậy, chúng ta đã tạo ra đối tượng truy xuất và đối tượng LLM.
+
+Và tôi đã hứa với bạn rằng bạn có thể gọi invoke trên bất kỳ đối tượng nào trong số này.
+
+Và bạn có thể nghĩ, được thôi, để tôi xem sao.
+
+Tôi không chắc mình có tin bạn không.
+
+Được rồi, chúng ta sẽ đi và làm thôi.
+
+Vậy thì chúng ta bắt đầu thôi.
+
+Retriever Dot triệu hồi.
+
+Aviary là ai?
+
+Vậy một con chó săn sẽ làm gì nếu chúng ta nói với nó ai là aviary?
+
+Bạn nghĩ sao?
+
+Cái gì?
+
+Cái gì?
+
+Nó nên làm gì?
+
+Đúng vậy.
+
+Chính xác.
+
+Nó sẽ lấy được bối cảnh có liên quan.
+
+Một số thông tin liên quan đến người nuôi chim.
+
+Vậy hãy chạy nó và bùm!
+
+Kết quả trả về là các đối tượng tài liệu.
+
+Mỗi cái đều có ID, có siêu dữ liệu và có nguồn.
+
+Và bạn có thể thấy rằng trang đầu tiên đã được kéo ra khỏi tài liệu và có nội dung trang.
+
+Trên thực tế, đây là những tài liệu dài mà chúng ta đã gặp ngày hôm qua.
+
+Và chúng là những khối đại diện cho bốn khối khác nhau được tìm thấy gần nhất với câu hỏi
+
+đó.
+
+Avery là ai?
+
+Vậy điều gì thực sự đã xảy ra khi chúng tôi gọi đến Vogue?
+
+Nó đã lấy đi mảnh vỡ đó.
+
+Avery là ai?
+
+Sau đó, nó sử dụng bộ mã hóa thu hồi mà chúng tôi đã thiết lập ở đây.
+
+Vì vậy, hàm nhúng, là Omni v2 để biến nó thành một vectơ, sau đó gọi là chroma để tìm các
+
+vectơ gần nhất.
+
+Và đó chính là tình hình hiện tại.
+
+Sau đó định vị những tài liệu đó và in chúng ở đó.
+
+Rất tuyệt, rất dễ.
+
+Được thôi.
+
+Và bây giờ chúng ta sẽ gọi.
+
+Avery là ai?
+
+Vậy thì điều đó sẽ có tác dụng gì?
+
+Hãy suy nghĩ về điều đó.
+
+Bạn nghĩ nó sẽ in được gì?
+
+Được thôi.
+
+Bạn đã có suy nghĩ của mình và có thể nó không phải là điều bạn mong đợi.
+
+Điều đó phụ thuộc vào việc bạn đã chứng kiến mọi thứ đang diễn ra ở đây nhiều đến mức nào.
+
+Vì vậy, nó không cho chúng ta biết về Avery Lancaster.
+
+Bạn có nghĩ rằng đó sẽ là khoảnh khắc đó không?
+
+Ừ, nhưng không, bởi vì, nhìn này, đây là LM này chỉ là trò chuyện OpenAI dựa trên một mô hình.
+
+Chúng tôi chưa nói gì về chú chó săn của mình.
+
+Sự trừu tượng của al-alam chỉ là sự trừu tượng xung quanh OpenAI, hoặc xung quanh một con lạc đà không bướu, hoặc xung quanh một loài người
+
+hoặc bất kỳ một trong số rất nhiều, rất nhiều mô hình khác nhau mà bạn có thể sử dụng với Gemini chuỗi dài, bất cứ
+
+thứ gì.
+
+Ừm, và những gì chúng ta nhận được chỉ là câu trả lời chung chung cho câu hỏi như OpenAI tạo ra với ai là aviary?
+
+Chúng ta quay lại.
+
+Aviary là tên gọi chung có thể dùng cho cả con đực và con cái.
+
+Nó cũng có thể ám chỉ blah blah blah blah blah blah blah.
+
+Nói cách khác, chắc chắn là không có chuyện gì xảy ra ở đó cả.
+
+Vì vậy, chúng ta có hai đối tượng, hai đối tượng chuỗi dài, có thể gọi bất kỳ đối tượng nào.
+
+Vậy thì còn phải làm gì nữa?
+
+Vâng, về cơ bản chúng ta phải ghép chúng lại với nhau.
+
+Chúng ta cần sử dụng cả hai thứ này trong một thứ gọi là giẻ rách.
+
+Chúng ta hãy làm điều này nhé.
+
+Bạn đã sẵn sàng.
+
+Chúng ta sẽ bắt đầu với một biến hằng số gọi là mẫu dấu nhắc hệ thống.
+
+Nó sẽ mô tả lời nhắc hệ thống của chúng ta.
+
+Một số tính năng này đã được đóng gói sẵn cho bạn trong phiên bản trước của Chain.
+
+Và bây giờ tôi nghĩ cách thông dụng nhất để thực hiện chuỗi ngôn ngữ này là tự mình viết ra, cách mà tôi thích hơn nhiều.
+
+Tôi thích hơn nhiều khi những điều này không bị giấu khỏi chúng ta, vì vậy tôi khá vui khi chúng ta có
+
+thể tự viết lời nhắc của riêng mình ở đây.
+
+Vì vậy, mẫu nhắc nhở của hệ thống là bạn là trợ lý thân thiện, hiểu biết đại diện cho công ty trong lĩnh
+
+vực của mình.
+
+Bạn đang trò chuyện với người dùng về đảm bảo miền.
+
+Nếu có liên quan, hãy sử dụng bối cảnh cho sẵn để trả lời bất kỳ câu hỏi nào.
+
+Nếu bạn không biết câu trả lời, hãy nói rõ và nêu rõ bối cảnh.
+
+Và sau đó có một chỗ giữ chỗ nhỏ mà chúng ta sẽ thay thế bằng từ con với with theo ngữ cảnh mà chúng ta tìm thấy
+
+từ trình thu thập thông tin của mình.
+
+Được rồi.
+
+Vậy thôi.
+
+Đó là một hằng số.
+
+Và chức năng này, chức năng này, tôi xin giới thiệu với các bạn.
+
+Rag trong đó là gì vậy, năm dòng mã đó là gì vậy?
+
+Chỉ có thế thôi.
+
+Được rồi.
+
+Vậy tôi đang nói rằng đây là một chức năng được gọi là trả lời câu hỏi.
+
+Có một câu hỏi được đưa ra.
+
+Nó cũng cung cấp biến số gọi là lịch sử mà chúng ta sẽ bỏ qua.
+
+Bạn có thể nghĩ tại sao lại như vậy?
+
+Nhưng có lẽ bạn đã đoán được lý do rồi.
+
+Nhưng dù sao đi nữa, trước tiên chúng ta sẽ lấy đối tượng thu hồi.
+
+Đây là một trong hai chuỗi trừu tượng dài mà chúng ta đang xử lý và chúng ta gọi invoke cho câu hỏi đó.
+
+Và chúng ta đã biết mình sẽ nhận lại được gì.
+
+Chúng tôi lấy lại một số tài liệu có liên quan, được chứ?
+
+Và chúng ta sẽ đập chúng lại với nhau, lấy nội dung trang và đập chúng lại với nhau bằng cách thêm các dòng trống
+
+ở giữa.
+
+Vậy thì đó chỉ là những phần được trình bày trong bối cảnh biến đổi này.
+
+Được rồi.
+
+Cho đến giờ thì mọi việc vẫn ổn.
+
+Rất dễ.
+
+Tiếp theo chúng ta sẽ xem xét mẫu lời nhắc hệ thống mà tôi vừa nêu ở trên.
+
+Và chúng ta sẽ thay đổi điều đó.
+
+Chúng ta sẽ thay thế trong ngữ cảnh bằng ngữ cảnh mà chúng ta vừa tạo ra ở đây.
+
+Về cơ bản, nó chỉ lấy kết quả này và đưa nó vào đây theo kiểu Python phức tạp.
+
+Đó chính là tác dụng của dòng này.
+
+Bây giờ chúng ta có một lời nhắc hệ thống sẽ chứa tất cả những thông tin này cùng với các tài liệu đã truy xuất ở đó.
+
+Và bây giờ chúng ta thực hiện lệnh LM invoke và truyền lệnh này vào như một thông báo hệ thống.
+
+Và chúng ta chuyển câu hỏi này vào như cái mà Lang chain gọi là thông điệp của con người, mà chúng ta chỉ biết là
+
+người dùng.
+
+Chúng ta đã quen với việc nó là người dùng.
+
+Nhưng Lang Chain có ý tưởng về một thông điệp hệ thống và một thông điệp của con người.
+
+Ồ, thay vì danh sách Dix, thì đó là danh sách các đối tượng này, các đối tượng chuỗi Lang này và chúng ta
+
+trả về nội dung phản hồi.
+
+Đó là kết quả, ừm, đó là thành ngữ chuỗi lang, ừm, cách rút ra kết quả từ phản hồi
+
+này.
+
+Và đó là tất cả những gì cần làm.
+
+Về cơ bản, chúng ta gọi invoke trên retriever và invoke trên LM.
+
+Và chúng tôi đang khâu chúng lại với nhau.
+
+Và tôi đang thực hiện điều đó ngay bây giờ.
+
+Được rồi.
+
+Bạn đã sẵn sàng thử chưa?
+
+Tôi sinh ra đã sẵn sàng.
+
+Bạn đang suy nghĩ.
+
+Đúng.
+
+Được thôi, vậy chúng ta sẽ gọi nó là câu trả lời cho câu hỏi Avery là ai?
+
+Và chúng tôi hy vọng sẽ có phản hồi tốt hơn một chút so với vấn đề tên riêng ở đây.
+
+Chúng ta hãy cùng xem những gì chúng ta nhận được.
+
+Avery là ai?
+
+Avery Lancaster là người đồng sáng lập và giám đốc điều hành của công ty bảo hiểm Elm.
+
+Bà đã gắn bó với công ty kể từ khi thành lập và đóng vai trò quan trọng.
+
+Blah blah blah, blah, blah.
+
+Có, nó hiệu quả.
+
+Chúng ta vừa làm xong Rag.
+
+Chúng tôi vừa thực hiện truy xuất, tạo dữ liệu tăng cường, năm dòng mã.
+
+Đó chính là sự kỳ diệu của những chuỗi dài, sự trừu tượng giúp chúng ta làm mọi việc dễ dàng hơn.
+
+Ừ, và, ừ, đúng rồi, tôi hy vọng là bạn đang nghĩ, khoan đã, sao lại dễ thế được?
+
+Thực sự thì dễ như vậy.
+
+Phần chuỗi dài của điều này là gói nhỏ đẹp mắt xung quanh việc thực hiện lệnh invoke và invoke thông
+
+báo hệ thống này, thông báo của con người thực chất là loại lancioni, nhưng có lẽ bạn có thể hiểu rằng sẽ không
+
+có gì hơn nếu tự mình thực hiện điều này.
+
+Chỉ cần xây dựng mẫu nhắc nhở hệ thống, thực hiện truy vấn trong Chroma rồi thực hiện a.
+
+Tạo mật khẩu trong lời nhắc hệ thống và thông báo cho người dùng.
+
+Chúng ta cũng có thể làm được điều đó.
+
+Có lẽ sẽ có mười dòng mã thay vì năm dòng.
+
+Lang đã làm cho nó thậm chí còn thanh lịch hơn, đơn giản hơn và nhanh hơn.
+
+Nhưng vải vụn không hề khó làm đến thế, và tôi chắc rằng bạn không thấy ngạc nhiên.
+
+Nhưng tôi cũng có thể thay đổi điều này thành Lancaster là ai và có lẽ nó sẽ xử lý được.
+
+Lancaster có thể dễ dàng nhắc đến Avery Lancaster.
+
+Vì vậy, không giống như cách hack khó chịu mà chúng ta đã thực hiện hai ngày trước chỉ để tìm kiếm từ Lancaster,
+
+nó có thể xử lý cả tên và họ.
+
+Và tôi tưởng tượng nếu chúng ta làm vậy, Avery Lancaster là ai?
+
+Nhưng bây giờ chúng ta lại viết sai tên cô ấy như thế này.
+
+Tôi nghĩ là nó có thể xử lý được điều đó.
+
+Có vẻ như có lỗi đánh máy trong tên dựa trên thông tin tôi có.
+
+Có thể bạn đang nhắc đến Avery Lancaster.
+
+Thật tuyệt vời phải không?
+
+Thật không thể tin được phải không?
+
+Đó chính là sự kết hợp mờ nhạt đang diễn ra.
+
+Đó là vì nó đã tìm thấy vectơ cho Avery.
+
+Lancaster gần với hướng di chuyển của Avery, nhưng viết sai thành Lancaster.
+
+Mặc dù các từ ngữ thì khác nhau.
+
+Và bạn có thể thử nghiệm điều này và cảm nhận xem điều gì hiệu quả, điều gì không,
+
+bạn có thể tiến xa đến đâu.
+
+Tất nhiên, chúng tôi dựa vào thực tế là tất cả mini LM, L6, v2 đều khá tốt trong việc này,
+
+nhưng nếu bạn sử dụng mô hình nhúng OpenAI thì sẽ còn tốt hơn nữa.
+
+Và tôi biết bạn đang chờ đợi điều gì.
+
+Bạn, ít nhất bạn cũng biết tại sao tôi lại đưa câu chuyện đó vào đó.
+
+Có thể bạn đã làm vậy.
+
+Ừ, tất nhiên là vì lý do gì?
+
+Chúng ta có thể đến tiếp theo.
+
+Bạn có quen thuộc với điều đó không?
+
+Thực tế là, ừm, với Gradio, chúng ta có chức năng trò chuyện có thể ghi lại tin nhắn và
+
+lịch sử.
+
+Vâng, không có gì kỳ diệu ở từ "chat" cả.
+
+Không nhất thiết phải gọi là trò chuyện.
+
+Có thể gọi là bất cứ tên gì miễn là có câu hỏi và lịch sử.
+
+Vì vậy, chúng ta có thể chỉ cần tạo một giao diện trò chuyện và truyền câu trả lời vào dưới dạng hàm gọi lại,
+
+hàm này sẽ gọi với câu hỏi và lịch sử.
+
+Ừ, và ừ, vâng, chỉ, chỉ, ừm, tôi biết bạn hiểu điều này, nhưng hãy để tôi làm điều này.
+
+Để tôi trả chuối lại đây.
+
+Nếu tôi trả về bananas, thì khi tôi khởi chạy giao diện người dùng ở đây và tôi nói xin chào, nó sẽ trả
+
+về bananas.
+
+Avery Bananas là ai?
+
+Ừ, tôi chắc là bạn hiểu điều này, nhưng một số bạn có thể đã bỏ qua tuần thứ hai, và vì thế bạn có
+
+thể không quen.
+
+Ồ, tuyệt vời.
+
+Vậy nên, phòng trường hợp đó chỉ là một chương trình thôi.
+
+Đó là tất cả những gì đang diễn ra ở đây.
+
+Tôi lấy nó ra.
+
+Bây giờ, đây là hàm mà Gradio sẽ gọi run để mở ra một giao diện mới.
+
+Bây giờ chúng ta sẽ nói Avery là ai?
+
+Và nếu nó ghi là chuối, tôi sẽ rất ngạc nhiên.
+
+Ừ, và, ừ, chúng ta sẽ xem điều gì xảy ra.
+
+Avery Lancaster là đồng sáng lập kiêm giám đốc điều hành của ensure.
+
+Tôi ở đó.
+
+Bạn đã có nó.
+
+Thị trường là gì?
+
+Tôi.
+
+Ừ, tôi tin là đó là một trong những sản phẩm đó.
+
+Ồ, tôi có viết sai chính tả không nhỉ?
+
+Ừ, thế là xong.
+
+Tôi viết sai chính tả rồi.
+
+Thị trường bảo hiểm đảm bảo sự đổi mới.
+
+Vì thế?
+
+Vậy thì đây là một ví dụ tuyệt vời.
+
+Ừ, tất nhiên là cố ý, ừ, về cách kho dữ liệu vector có thể xử lý lỗi đánh máy và tra cứu
+
+tên sản phẩm phù hợp, ngay cả khi tôi gõ sai tên sản phẩm.
+
+Ồ, đẹp quá.
+
+Chúng ta đã thấy vải vụn hoạt động thông qua giao diện người dùng đồ họa.
+
+Chúng tôi đã thấy nó có khả năng tiếp nhận một câu hỏi, chuyển nó thành một vectơ, tra cứu trong chroma,
+
+tìm ngữ cảnh liên quan, đưa vào lời nhắc hệ thống, gửi đến một LLM và nhận lại câu trả lời thể hiện chuyên
+
+môn trong lĩnh vực đó.
+
+Đó chính là Rag tóm lại, và không chỉ tóm tắt mà còn là Rag trong năm dòng mã.
+
+Được cung cấp bởi Long-chain. Vâng, tôi nghĩ là bạn rất ngạc nhiên khi thấy việc xây dựng một đường ống bằng giẻ rách lại dễ dàng đến thế, và bạn có thể
+
+tự nghĩ, liệu có ổn không, nhưng chúng ta đã thực hiện điều đó rất
+
+nhiều trong sổ tay và theo cách thử nghiệm, và hy vọng là bạn cảm thấy thoải mái khi làm điều đó.
+
+Điều quan trọng là phải có khả năng trở thành người thử nghiệm, nhưng sẽ đến lúc bạn
+
+muốn bỏ chiếc mũ đó ra và đội vào thứ gì đó đã sẵn sàng để chế tạo và sẵn sàng triển khai
+
+trong sản xuất.
+
+Và để làm như vậy, chúng ta sẽ muốn thực hiện điều đó trong các mô-đun Python.
+
+Và đó chính là những gì tôi đã làm.
+
+Tôi đã lấy mã chúng ta đưa vào sổ tay và biến chúng thành các mô-đun để chúng ta xem xét.
+
+Và đó cũng chính là cách bạn tự làm.
+
+Nếu bạn đang xây dựng đường ống dẫn nước thích hợp.
+
+Và cách tôi thực hiện là tôi đã tạo ra hai mô-đun Python khác nhau và đặt chúng vào một thư mục
+
+duy nhất có tên là implementation, một gói, một gói Python implementation.
+
+Và lý do tôi làm như vậy là vì vào cuối tuần này chúng ta sẽ cải thiện bài viết này và chúng ta sẽ muốn
+
+có một cách triển khai khác.
+
+Và tôi muốn có thể hoán đổi nó.
+
+Và tôi muốn bạn cũng thực hiện và làm cho nó tốt hơn nữa.
+
+Và điều này cho phép chúng ta có thể có những triển khai có thể hoán đổi trong một thư mục.
+
+Có hai mô-đun chúng ta sẽ có trong thư mục này.
+
+Được rồi.
+
+Hai mô-đun này là gì?
+
+Vì vậy, cái đầu tiên được gọi là ingest. con nhện.
+
+Và về cơ bản thì nó giống như phòng thí nghiệm mà chúng ta đã làm không phải hôm nay mà là ngày hôm qua.
+
+Người sẽ đọc trong cơ sở kiến thức, chuyển tài liệu thành các khối, chuyển các khối thành các vectơ, lưu
+
+trữ chúng trong sắc độ và tất cả sẽ được đưa vào ingest.
+
+Bạn có thể làm được.
+
+Bạn đã chạy, nhập py và nó sẽ thực hiện tất cả những điều đó.
+
+Và nó có thể là một phần trong đường ống Rag của bạn, đường ống tiếp nhận dữ liệu có chứa các
+
+tệp mới.
+
+Lệnh này sẽ tự động được gọi và chạy.
+
+Mô-đun còn lại được gọi là câu trả lời. con nhện.
+
+Và đây là một mô-đun rất đơn giản.
+
+Nó có hai chức năng chính có thể được thế giới bên ngoài gọi đến.
+
+Một trong số đó được gọi là lấy bối cảnh.
+
+Với một câu hỏi, chúng ta sẽ có ngữ cảnh liên quan và ngữ cảnh còn lại được gọi là câu hỏi trả lời.
+
+Đưa ra một câu hỏi và một số thông tin lịch sử, công cụ sẽ lấy bối cảnh liên quan và trả lời câu hỏi
+
+đó.
+
+Và ý tưởng là bạn có thể thay đổi điều này.
+
+Bạn có thể viết trình thu thập dữ liệu của riêng mình để thu thập dữ liệu và câu trả lời của riêng bạn để đi kèm với nó, bằng cách sử dụng bộ
+
+mã hóa nhất quán, v.v.
+
+Bạn chỉ cần triển khai ngữ cảnh tìm nạp và trả lời câu hỏi, mọi thứ khác sẽ hoạt động.
+
+Đó chính là giàn giáo mà tôi đã dựng lên.
+
+Và đó là hai mô-đun mà tôi đã viết.
+
+Vậy chúng ta sẽ thực sự sử dụng những mô-đun này như thế nào?
+
+Vâng, tôi có một số cách để chúng ta có thể áp dụng những điều này vào thực tế.
+
+Và điều chúng ta sẽ làm hôm nay là tôi đã tạo ra một ứng dụng gradio có tên là App. py, nằm trong tuần thứ năm và là thư
+
+mục cha để triển khai và App. py sẽ hiển thị giao diện người dùng Gradio đẹp mắt.
+
+Và chúng ta sẽ gọi là câu trả lời. py để có câu trả lời cho các câu hỏi.
+
+Và chúng ta luôn có thể thay đổi bằng một triển khai khác và vẫn giữ nguyên giao diện người dùng đó.
+
+Và nó là.
+
+Vì vậy, điều đó có nghĩa là cuối cùng chúng ta sẽ có thể thực hiện hai lần chạy tia UV khác nhau.
+
+Chúng ta có thể nói rằng UV run ingests Py thực sự sẽ thực hiện điều đó từ bên trong thư mục triển khai.
+
+Vì vậy chúng ta sẽ thực hiện CD.
+
+Và sau đó bạn chạy ingest. py và nó sẽ chạy toàn bộ quá trình ingest.
+
+Và bạn có thể tưởng tượng điều này có thể xảy ra nếu bạn có đường ống dữ liệu.
+
+Đây có thể là tính năng được kích hoạt tự động bất cứ khi nào có tệp thay đổi trong thư mục đó.
+
+Hoặc một tác vụ cron chạy tác vụ này mỗi giờ hoặc tương tự như vậy.
+
+Vì thế.
+
+Vì vậy, dữ liệu này sẽ tự động được điền vào kho dữ liệu Chrome của chúng ta.
+
+Và sau đó từ thư mục tuần thứ năm, thư mục cha mà chúng ta có thể thực hiện chạy ứng dụng. con nhện.
+
+Và tất nhiên điều đó sẽ khởi chạy giao diện người dùng của chúng ta.
+
+Được rồi.
+
+Chúng ta hãy cùng xem xét điều này nhé.
+
+Vì vậy, trong tuần thứ năm sẽ có phần triển khai thư mục này.
+
+Và chắc chắn nó chỉ có hai lớp, hai mô-đun lớp hai.
+
+Tiếp nhận và trả lời.
+
+Chúng ta hãy bắt đầu bằng cách xem xét ingest.
+
+Và đây thực sự chỉ là những thứ từ phòng thí nghiệm này sang phòng thí nghiệm khác.
+
+Một là khi chúng tôi làm phiên bản giả.
+
+Phòng thí nghiệm số 2 là phiên bản phù hợp.
+
+Bạn có thể xem phòng thí nghiệm thứ hai và so sánh.
+
+Bạn sẽ thấy về cơ bản chúng là giống nhau.
+
+Tôi đã dọn dẹp nó một chút để đưa vào ingest pie.
+
+Ừm, đây là cách để đảm bảo chúng ta có đường dẫn đúng đến cơ sở dữ liệu và kho kiến thức của mình.
+
+Đây là nơi chúng ta tạo ra các phần nhúng, các phần nhúng ôm sát khuôn mặt.
+
+Và sau đó bạn có thể thấy tôi đã lấy tài liệu, lấy tài liệu bằng cách sử dụng mã chuỗi lang, tạo các phần
+
+bằng cách sử dụng trình phân tách văn bản ký tự đệ quy.
+
+Kích thước khối là 1000, chồng chéo 200 ký tự trên mỗi khối và chúng tôi chia nhỏ các
+
+tài liệu cung cấp cho chúng tôi các khối, tạo nhúng, xóa sắc độ nếu đã có, sau đó tạo sắc độ
+
+bằng cách truyền các khối, truyền nhúng, truyền tên thư mục.
+
+Và sau đó nó in ra rằng chúng ta đã tạo các vectơ có kích thước.
+
+Và nếu bạn đã chạy rồi thì nó sẽ làm gì?
+
+Vâng, nó sẽ lấy các tài liệu, tạo các phần từ các tài liệu đó, tạo các phần nhúng
+
+từ các phần đó.
+
+Và thế là xong.
+
+Đó chính là những gì Ingest Pie làm.
+
+Chúng ta có nên thấy nó hoạt động không?
+
+Chúng ta hãy thử xem nhé.
+
+Được rồi, trước hết, chúng ta sẽ mở một cửa sổ terminal mới và con trỏ chuột, hãy giữ phím control shift và dấu ngoặc ngược
+
+để có một terminal mới.
+
+Ừ, hoặc bạn cũng có thể vào menu xem và chọn terminal để mở terminal.
+
+Và chúng ta bắt đầu từ thư mục kỹ thuật LM.
+
+Vì vậy, chúng ta thực hiện CD tuần thứ năm để chuyển sang tuần thứ năm.
+
+Và sau đó chúng ta sẽ đi vào thư mục triển khai CD implementation.
+
+Nếu tôi thực hiện LZ, bạn sẽ thấy chúng ta có Pi và Pi ở ngay đó.
+
+Chúng tôi có.
+
+Bạn đã chạy ingest dot pi và gõ một tiếng trống rồi bắt đầu chạy.
+
+Vì vậy, nó đang thực hiện việc lấy tài liệu.
+
+Sau đó, nó sẽ tạo ra các phần của những tài liệu đó rồi tạo các phần nhúng.
+
+Và sau đó nó sẽ in thông báo quá trình tiếp nhận hoàn tất vì nó in nhanh hơn tôi có thể nói.
+
+Tất cả những điều đó.
+
+Và nó cho biết có 413 vectơ với 384 chiều trong kho vectơ.
+
+Đó là một lần chạy ingest thành công.
+
+Được rồi, đến lúc xem đáp án chấm pi.
+
+Vì vậy, nhấn phím control và dấu ngoặc ngược một lần nữa sẽ xóa thiết bị đầu cuối đó.
+
+Hoặc bạn chỉ cần nhấn vào nút thùng rác hoặc nút X ở đó.
+
+Đi đến câu trả lời. con nhện.
+
+Chúng ta hãy cùng xem xét điều này.
+
+Như tôi đã nói, đây chỉ là đoạn mã giống hệt từ phòng thí nghiệm thứ ba.
+
+Cùng một tập hợp các mục nhập.
+
+Một cách lạ mắt hơn để đảm bảo chúng ta đang tìm đúng vị trí cho cơ sở dữ liệu vectơ theo cách độc
+
+lập với nền tảng.
+
+Ừm, cùng một mô hình ở đây.
+
+Tất cả mini LM L62.
+
+Lưu ý rằng có hai địa điểm khác nhau.
+
+Nếu chúng ta thay đổi mô hình này ở hai nơi để thay đổi nó.
+
+Lấy lại.
+
+Được rồi, tôi đã tách phần này ra.
+
+Đây là số lượng phần được đưa vào.
+
+Được lấy lại và đưa vào lời nhắc.
+
+Tôi nghĩ chúng ta đã thấy điều đó trước đây.
+
+Trên thực tế, bạn có thể chỉ định số lượng phần bạn muốn.
+
+Và ở đây chúng ta chỉ định năm lời nhắc hệ thống giống như trước.
+
+Giống như trước, chúng ta tạo bộ lưu trữ vector cho bộ thu thập và LM.
+
+Đây là hai đối tượng chính mà chúng ta cần xây dựng để có thể gọi invoke và fetch.
+
+Context là một trong những chức năng mà tôi đã nói với bạn về những chức năng cực kỳ lớn.
+
+Chúng tôi đang triển khai.
+
+Nó lấy một câu hỏi và chỉ cần gọi retriever dot invoke cho câu hỏi đó.
+
+Và đây là nơi chúng ta truyền k vào.
+
+K là năm nên có năm khối được lấy ra.
+
+Và đây là điều quan trọng khác.
+
+Trả lời câu hỏi.
+
+Cần có một câu hỏi và một chút lịch sử.
+
+Vậy là tôi có thứ gì đó ở đây.
+
+Nó dài hơn năm dòng một chút.
+
+Bạn có thể nói vậy.
+
+Có nhiều hơn năm dòng.
+
+Bây giờ có thêm một vài dòng nữa vì có một vài điều tôi làm khác
+
+ở đây, liên quan đến một số vấn đề nhỏ với ứng dụng Gradio đơn giản lần trước.
+
+Tôi tự hỏi liệu bạn có tìm thấy chúng không.
+
+Nếu bạn chơi với nó, bạn có thể nhanh chóng phát hiện ra rằng nó có một vài
+
+trục trặc.
+
+Vậy thì vấn đề đầu tiên, tất nhiên, là chúng ta đã hoàn toàn phớt lờ lịch sử.
+
+Vậy nếu người dùng nói, nếu bạn nói như thế này, ừm, ai là Avery?
+
+Và sau đó bạn nói, và trước đó cô ấy đã làm gì?
+
+Nó sẽ không thể trả lời câu hỏi đó vì nó không biết đó là ai.
+
+Mỗi lần.
+
+Giống như một thông điệp hoàn toàn mới vậy.
+
+Chúng tôi không trao đổi lịch sử trò chuyện mỗi quý.
+
+LLM không có quốc tịch.
+
+Cũng giống như khi tôi nói tên tôi là Ed vậy.
+
+Tôi là ai?
+
+Một vài tuần trước, bạn thấy rằng nó không có tác dụng gì cả.
+
+Vì vậy, lần này tôi đã làm đúng rồi.
+
+Chúng tôi tiếp thu lịch sử và thực sự sử dụng nó.
+
+Ừm, vậy thì chuỗi lang, điều này được truyền vào như danh sách dict thông thường từ định dạng AI mở.
+
+Chuỗi Lang không thích điều đó Chuỗi Lang thích loại tin nhắn lạ mắt với đối tượng tin nhắn
+
+của con người và đối tượng tin nhắn AI.
+
+Và thực sự có một cách thuận tiện để nói, ừm, chuyển đổi thành tin nhắn.
+
+Vì vậy, đối tượng chuỗi lang mà tôi nhập vào đây để chuyển đổi thành tin nhắn.
+
+Và nếu bạn làm như vậy thì nó sẽ chuyển đổi các tin nhắn theo phong cách AI mở thành các tin nhắn theo phong cách chuỗi ngôn ngữ.
+
+Vì vậy chúng tôi làm như vậy.
+
+Và sau đó khi tôi gọi invoke LM invoke, tôi sẽ gọi nó với các thông báo được định dạng phù hợp, với thông báo gốc, với thông
+
+báo hệ thống và sau đó với toàn bộ lịch sử được chuyển đổi thành định dạng chuỗi Lang.
+
+Bạn không hiểu rõ điều đó.
+
+Đưa vào một vài tuyên bố in.
+
+Khi bạn chạy nó một vài lần, bạn sẽ thấy chính xác ý tôi là gì.
+
+Thay đổi nó từ định dạng OpenAI mà Gradio truyền vào thành định dạng chuỗi Lang của các thông điệp hệ
+
+thống, thông điệp của con người và thông điệp AI trong một danh sách.
+
+Vậy đó là những gì lệnh này thực hiện và nó đóng gói gọn gàng để chúng ta có thể gọi invoke.
+
+Tôi còn làm một việc nữa mà bạn có thể đã nhận thấy.
+
+Chức năng bổ sung này tôi đưa vào có tên là Câu hỏi kết hợp.
+
+Và điều này khá tinh tế.
+
+Và bạn có thể muốn thực hiện điều này theo cách khác.
+
+Điều này phụ thuộc vào cách bạn muốn làm mọi việc.
+
+Hãy xem bạn có thể hiểu được chuyện gì đang xảy ra ở đó không.
+
+Vậy thì câu trả lời là đây là một điều tinh tế mà Lang thường làm sau hậu trường theo cách mà bạn
+
+không thể kiểm soát được nhiều.
+
+Vì vậy, tôi thích thực tế là mọi việc đều nằm trong tầm tay chúng ta khi triển khai.
+
+Vậy câu hỏi đặt ra là, khi bạn tra cứu ngữ cảnh có liên quan, bạn chỉ nên làm điều đó dựa trên câu hỏi gần đây
+
+nhất của người dùng hay bạn cần xem xét tất cả các cuộc trò chuyện cho đến nay và tra cứu ngữ
+
+cảnh dựa trên câu hỏi đó?
+
+Hoặc có lẽ bạn nên thực hiện từng câu hỏi riêng lẻ và thu thập toàn bộ bối cảnh đó.
+
+Có nhiều cách khác nhau để thực hiện và nó thực sự phụ thuộc vào trường hợp sử dụng.
+
+Tùy thuộc vào việc bạn đang cố gắng làm gì.
+
+Tùy thuộc vào từng tình huống.
+
+Vậy nên không có câu trả lời đúng.
+
+Vì vậy, tôi đã từng sử dụng tính năng này để chỉ xem xét ngữ cảnh dựa trên tin nhắn gần đây nhất mà bạn đưa ra.
+
+Nhưng điều đó không hay lắm vì bạn có thể hỏi những câu như, ừm, Avery là ai?
+
+Và tất nhiên là nó sẽ trả lời.
+
+Và sau đó bạn có thể hỏi, trước đó cô ấy đã làm gì?
+
+Và mặc dù nó đang lấy toàn bộ lịch sử để biết chúng ta đang nói về Avery, nhưng khi
+
+nó tra cứu ngữ cảnh, nó sẽ tra cứu dựa trên câu lệnh, cô ấy đã làm gì trước đó.
+
+Và không có bối cảnh liên quan nào cho điều đó.
+
+Nó không biết đó là Avery.
+
+Vì vậy, có lẽ cách tốt hơn để thực hiện là khi tìm kiếm ngữ cảnh, đừng chỉ tìm kiếm ngữ cảnh dựa trên tin nhắn gần đây
+
+nhất, hãy tìm kiếm ngữ cảnh dựa trên tất cả những điều người dùng đã nói cho đến nay, rồi đóng gói chúng lại.
+
+đưa nó vào một câu hỏi kết hợp và tìm ngữ cảnh cho câu hỏi kết hợp đó.
+
+Vì vậy, một lần nữa, nếu bạn chưa hiểu rõ, hãy đưa vào một số câu lệnh in.
+
+Bạn sẽ hiểu chính xác ý tôi.
+
+Khi tôi tra cứu trong Chrome.
+
+Tôi không chỉ tra cứu dựa trên câu hỏi gần đây nhất của người dùng mà còn dựa trên mọi thông tin mà người
+
+dùng đã nói.
+
+Và có thể nếu bạn đi trước tôi một bước, bạn có thể nghĩ ra cách tốt hơn để làm điều đó và có cách tốt
+
+hơn để thực hiện nó.
+
+Và chúng ta có thể đề cập đến điều đó vào cuối tuần, có lẽ khi chúng ta nghĩ đến những triển khai nâng cao hơn.
+
+Nhưng bạn có thể giải đố ngay bây giờ và xem liệu bạn có thể tìm ra cách nào hay hơn
+
+để thực hiện việc đó, để đảm bảo rằng chúng ta thực hiện truy vấn tốt về một điều gì đó thực sự tốt dựa trên điều gần đây nhất, có thể
+
+dựa trên một số thông tin trong lịch sử.
+
+Hãy suy nghĩ về điều đó.
+
+Chúng ta sẽ xem lại ngay bây giờ.
+
+Thôi, chúng ta tiếp tục thôi.
+
+Chúng tôi có chức năng trả lời câu hỏi.
+
+Tôi nghĩ điều còn lại chắc chắn là chúng ta phải thử nghiệm điều này.
+
+Và còn cách nào tốt hơn để thử nghiệm nó hơn là trên giao diện người dùng Gradio đẹp mắt?
+
+
+  Vâng, trước khi chúng ta nói về giao diện Whizzy, hãy để tôi giới thiệu cho bạn một giao diện ít Whizzy hơn.
+
+Ờ, cuốn sổ tay ngày thứ ba mà chúng ta đã xem trước đó có vấn đề gì vậy?
+
+Bạn còn nhớ chúng ta đã có hệ thống trả lời câu hỏi năm dòng rất đẹp, thanh lịch và đơn giản, hoạt động tốt, và chúng ta đã
+
+đưa vào đó một giao diện người dùng đẹp mắt.
+
+Và đây rồi.
+
+Và chúng ta có thể hỏi, Avery là ai?
+
+Và nó sẽ ổn thôi.
+
+Tất nhiên là nó sẽ thực hiện tìm kiếm giẻ rách.
+
+Nó sẽ cho chúng ta câu trả lời tuyệt vời.
+
+Vâng, hãy xem thử nhé.
+
+Nếu tôi hỏi lương của cô ấy là bao nhiêu?
+
+Ờ, chúng ta sẽ nhận lại được thứ gì đó, ờ, kỳ lạ.
+
+Mức lương hiện tại của Samantha Green là 70.000 đô la.
+
+Chuyện đó có nghĩa là gì?
+
+Có hai điều đã xảy ra gây ra vấn đề ở đây.
+
+Hai điều tôi đã chỉ cho bạn, chúng tôi đã khắc phục, ừm, trong quá trình triển khai mô-đun thích
+
+hợp, hai vấn đề với điều này, ừm, với phiên bản đơn giản này.
+
+Trước hết, thậm chí còn không xem xét đến lịch sử mà không được chuyển đến LM.
+
+Vì vậy, khi tôi nói cô ấy ở đó, nó không biết rằng tôi vẫn đang nhắc đến Avery, nhưng
+
+ngay cả khi nó biết, nó vẫn gặp vấn đề, vì đây là văn bản đang được sử dụng để tra cứu Rag.
+
+Và vì thế, chỉ cần chọn một tài liệu ngẫu nhiên có ghi mức lương.
+
+Người đầu tiên tình cờ là Samantha Green.
+
+Và đó là lý do tại sao chúng ta nhận được một câu trả lời đánh lạc hướng, một thứ gì đó có vẻ như là
+
+một chủ đề hoàn toàn khác.
+
+Vậy đó là hai vấn đề.
+
+Chúng tôi không lưu giữ lịch sử trò chuyện khi gọi LM, nhưng chúng tôi cũng tra cứu ngữ cảnh dựa trên
+
+điều này.
+
+Vì vậy, hai bản sửa lỗi mà tôi vừa chỉ cho bạn trong phiên bản dài hơn, đầu tiên là xây dựng lịch sử phù
+
+hợp và chuyển nó vào chuỗi ngôn ngữ bằng cách sử dụng hàm chuyển đổi chuỗi ngôn ngữ.
+
+Và thứ hai, tôi không chỉ tìm hiểu bối cảnh của vấn đề này.
+
+Tôi đang xem xét bối cảnh kết hợp của toàn bộ văn bản này để đảm bảo Avery thực sự có mặt trong
+
+đó.
+
+Đó là lý do tại sao tôi đã làm điều đó.
+
+Bây giờ bạn thấy nó bị hỏng rồi.
+
+Hãy cùng xem giao diện mới của Gradio trông như thế nào nhé.
+
+Và thế là tôi mở ra một thiết bị đầu cuối mới với phím điều khiển chuyển đổi Backtick.
+
+Nó đâu rồi?
+
+Đấy, nó đây rồi.
+
+Được rồi.
+
+Và bây giờ tôi bước sang tuần thứ năm và chạy ứng dụng UV Dot Pi, và tôi hy vọng là một cửa sổ mới sẽ hiện
+
+ra.
+
+Sau một khoảng dừng ngắn để Gradio chuyển số và đó là kết quả.
+
+Bùm!
+
+Bắt đầu thôi!
+
+Trợ lý chuyên gia đảm bảo.
+
+Một giao diện người dùng nhỏ gọn, đẹp mắt và chúng ta có một cuộc trò chuyện ở bên trái và chúng ta đã lấy lại được.
+
+Nội dung sẽ xuất hiện ở đây bên phải.
+
+Thật tuyệt phải không?
+
+Được rồi, rõ ràng là tôi có thể nói aviary là gì và chúng ta sẽ xem nó hoạt động như thế nào.
+
+Chúng ta có gì?
+
+Vậy là chúng ta có được câu trả lời hay.
+
+Tất nhiên là chúng ta biết câu trả lời này.
+
+Và ở bối cảnh liên quan bên phải đây, chúng ta có thông tin quay trở lại đây cùng với nguồn gốc của nó,
+
+nơi mà nó đến từ đó.
+
+Và văn bản màu trắng này thực sự là những gì được cung cấp trong bối cảnh cho LM.
+
+Màu cam chỉ là một ghi chú về siêu dữ liệu cho chúng ta biết nguồn gốc của nó.
+
+Nhưng thứ này không được cung cấp cho LM, mà chỉ có những đốm trắng này.
+
+Dưới đây là tất cả.
+
+Đây là tất cả thông tin được truyền đạt về Avery.
+
+Chúng ta có bao nhiêu khối?
+
+Chúng ta có một, hai.
+
+Ba.
+
+Bốn.
+
+Năm.
+
+Năm.
+
+Có năm khối được lấy ra vì chúng ta đặt K thành năm.
+
+Xinh đẹp.
+
+Và bây giờ tôi có thể quay lại đây và tôi có thể nói.
+
+Và lương của cô ấy là bao nhiêu?
+
+Và chúng tôi hy vọng rằng chúng ta sẽ thấy sự kết hợp của nhiều điều.
+
+Mức lương hiện tại của Avery Lancaster là 2. 25.
+
+Chúng ta thấy rằng bối cảnh liên quan được lấy ra có liên quan đến văn bản này và văn bản này.
+
+Vậy thì mọi chuyện vẫn xoay quanh Avery.
+
+Mức lương hiện tại chỉ đứng thứ hai.
+
+Và vì thế cuộc trò chuyện cũng được gửi kèm theo lịch sử tới uh cho một nano.
+
+Và nó có thể khẳng định chắc chắn rằng chúng ta đang nói về Avery.
+
+Và tôi đã hiểu bối cảnh.
+
+Tôi biết mức lương của cô ấy.
+
+Đó là cách nó phản ứng.
+
+Đây là giẻ rách có lịch sử kèm theo tra cứu.
+
+Tuyệt vời.
+
+Nó đang hoạt động.
+
+Bây giờ tôi sẽ quay lại với con trỏ.
+
+Tôi chỉ muốn vào cơ sở kiến thức, vào nhân viên và tôi muốn tìm một tài liệu nhân viên cụ
+
+thể.
+
+Tôi muốn tìm Maxine Thompson.
+
+Đây rồi.
+
+Đây là Maxine Thompson.
+
+Chúng ta hãy trình bày điều đó theo phong cách đánh dấu nhẹ nhàng.
+
+Chúng ta hãy cùng xem nhé.
+
+Đây là hồ sơ nhân sự của cô ấy.
+
+Chúng ta sẽ dọn dẹp thiết bị đầu cuối ở đó.
+
+Ừ, nếu chúng ta nhìn xung quanh đây, bạn sẽ thấy rằng cô ấy đã được công nhận là nhà đổi mới sáng tạo
+
+đầu tiên của năm 2023, nhận được giải thưởng IIoT danh giá, giải thưởng nhà đổi mới sáng tạo đầu tiên của năm 2023.
+
+Tốt cho Maxine.
+
+Bây giờ, tôi tự hỏi liệu đường ống R rag có thể lấy lại được điều đó hay không.
+
+Đó là một câu hỏi đầy thách thức.
+
+Chúng ta hãy cùng tìm hiểu nhé.
+
+Chúng ta hãy quay lại thiết bị đầu cuối.
+
+Chúng ta hãy khởi động ứng dụng Gradio.
+
+Chúng ta bắt đầu thôi.
+
+Và sau đó chúng ta sẽ đặt câu hỏi.
+
+Chúng tôi sẽ nói được rồi sau đó cho chúng tôi biết ai đã giành được giải thưởng I o t y danh giá.
+
+Cứ cho là vậy đi.
+
+Chúng ta hãy xem nó có thể làm được gì.
+
+Nó nói rằng Maxine đã được nhận ra.
+
+Nó đúng như vậy.
+
+Và bạn có thể thấy ở bên phải những gì đang diễn ra và chúng ta sẽ thấy ngay ở đó rằng, ừm, nó
+
+đã tìm thấy thông tin chi tiết ở đâu đó ở đây.
+
+Ừ, thế là xong.
+
+Bởi vì cô ấy đã nhận được giải thưởng danh giá.
+
+Cũng được nhắc đến trong chương trình khuyến mãi của cô ấy, và nó có liên quan trực tiếp đến tên cô ấy.
+
+Nhưng bạn có thể nhận thấy điều gì đó không hoàn hảo ở đây.
+
+Bạn có thể nhận thấy nó ghi là Maxine, nhưng không phải là Maxine Thompson.
+
+Nó không nhận ra tên đầy đủ của cô ấy.
+
+Và đó là điều hơi nhàm chán mà đoạn này tìm thấy ở đây đề cập rằng cô ấy đã nhận được giải thưởng đó trong một
+
+đoạn nhỏ khá hay ho, nhưng không có tên đầy đủ của cô ấy trong đoạn đó, vì tên
+
+đầy đủ của cô ấy nằm ở đầu tài liệu HR chứ không phải ở giữa.
+
+Và đây là một ví dụ về một vấn đề nhỏ khó chịu với Rag khi phân đoạn mà phân đoạn đó có thể trả lời câu hỏi, nhưng nó
+
+có thể không chứa một số ngữ cảnh quan trọng từ nơi khác trong tài liệu, nghĩa là bạn nhận được
+
+một câu trả lời tạm được nhưng không hoàn hảo.
+
+Vậy nên đây là điều thú vị để chúng ta quan sát.
+
+Cũng ổn, nhưng không hoàn chỉnh như mong đợi.
+
+Và còn nhiều vấn đề khác nữa.
+
+Có một số vấn đề với cách tôi thực hiện tra cứu lịch sử và cách đó hơi phức tạp.
+
+Giả sử tôi bắt đầu một cuộc trò chuyện mới và tôi hỏi, ừm, Avery là ai?
+
+Ờ, giống như thế này.
+
+Ồ, Avery là ai?
+
+Và chúng ta quay lại bên phải và trả lời rồi nói, ừm, Avery đã làm gì trước đó?
+
+Chúng ta sẽ quay lại trò chuyện thêm về Avery trước khi thành lập Ensure Elm, cô ấy đã làm việc ở vị trí quản lý sản phẩm
+
+cấp cao hoặc từng trải qua những vị trí tương tự, và làm việc rất tốt.
+
+Và bây giờ chúng ta sẽ nói xem ai là người chiến thắng giải thưởng danh giá này.
+
+Trao giải và xem nó hoạt động thế nào.
+
+Và kỳ lạ thay, nó vẫn chưa có câu trả lời.
+
+Nó không biết.
+
+Tại sao điều đó lại xảy ra?
+
+Vâng, đó là vì tôi đã thực hiện thay đổi đó.
+
+Vì vậy, khi tôi lấy lại ngữ cảnh, tôi kết hợp cái này, cái này và cái này.
+
+Và bây giờ, thứ mà tôi đang tra cứu trong kho dữ liệu của mình có quá nhiều thứ khác ngoài tôi. hoặc. t.
+
+Có quá nhiều thông tin về chuồng chim.
+
+Và vì vậy, nếu chúng ta nhìn sang bên phải, nó vẫn tìm thấy những thông tin về chuồng chim.
+
+Điều đó không thực sự thỏa đáng.
+
+Vậy là chúng ta có vấn đề rồi.
+
+Sự thay đổi mà tôi thực hiện đã giúp công cụ này tốt hơn trong việc tra cứu ngữ cảnh liên quan đến toàn bộ cuộc trò chuyện,
+
+nhưng đồng thời cũng khiến công cụ này kém hơn.
+
+Nếu sau đó bạn đổi chủ đề và muốn nói về một điều hoàn toàn khác thì bạn vẫn đang khơi lại bối cảnh
+
+từ trước đó trong cuộc trò chuyện và điều đó không có ích gì.
+
+Vậy bạn sẽ khắc phục điều đó như thế nào?
+
+Có nhiều cách để khắc phục vấn đề này, nhưng có một số cách tốt hơn những cách khác và chúng tôi
+
+sẽ giải quyết các vấn đề như thế này trong vài ngày tới.
+
+Nhưng điều tôi thực sự muốn nói với bạn là giẻ rách có thể được dùng rất nhiều lần.
+
+Và chúng ta sẽ thực sự nỗ lực hơn nữa vào ngày mai.
+
+Nhưng điều quan trọng là phải nhận ra rằng Rag là một phương pháp thử nghiệm, thực sự khá phức tạp khi cố gắng
+
+tìm kiếm bối cảnh có liên quan.
+
+Và nó thường xuyên có thể xảy ra sai sót.
+
+Bạn có thể tìm thấy những ví dụ thực tế về cách làm việc với giẻ rách rất hiệu quả.
+
+Giống như việc Maxine giành được giải thưởng đang dần lộ diện vậy.
+
+Nhưng bạn cũng có thể thấy rằng nó không nêu được tên đầy đủ của cô ấy.
+
+Nó chưa hoàn thiện.
+
+Và sau khi chúng ta nói về Avery một chút, chúng ta vẫn không thể tìm ra ai là người giành được Giải thưởng Coty.
+
+Vậy nên rất dễ để đi chệch hướng.
+
+Vì vậy, cách đúng đắn để tiếp cận Rag là đưa ra mỗi vấn đề như thế này như một vấn đề mới cần giải
+
+quyết.
+
+Và nó giống như trò đập chuột chũi vậy, bạn tìm ra vấn đề rồi sửa nó, rồi lại tìm ra vấn
+
+đề khác và sửa nó.
+
+Và đôi khi khi giải quyết một vấn đề, bạn lại gây ra một vấn đề khác, giống như chúng ta có tôi, khi
+
+tôi giải quyết vấn đề đó, tôi lại tạo ra vấn đề mới này.
+
+Vì vậy, Rag chủ yếu tập trung vào những câu đố kiểu này và cải thiện hệ thống rag của bạn ngày càng tốt hơn thông
+
+qua một loạt các kỹ thuật khác nhau.
+
+Đó chính là mục đích của Rag.
+
+Và có một kỹ thuật cho phép chúng ta thực hiện điều đó theo cách khoa học hơn.
+
+Và đó chính là nội dung chúng ta sẽ đề cập vào ngày mai.
+
+Và trong lúc này, trước khi tôi rời khỏi màn hình, nhiệm vụ dành cho bạn trước khi chúng ta chuyển sang ngày mai là mở
+
+giao diện người dùng này.
+
+Bạn đã chạy ứng dụng. con nhện.
+
+Sau khi thực hiện CD, bạn đã chạy ingest py để điền dữ liệu vào kho lưu trữ của mình.
+
+Sau đó thực hiện một ứng dụng đã chạy. py và thử nghiệm và tìm ra những điểm chưa hoàn thiện.
+
+Tìm ra điểm mạnh và điểm yếu của nó.
+
+Hãy nhìn vào những phần bên phải.
+
+Bạn có hiểu tại sao các khối lại nổi lên không?
+
+Hãy thử và tìm những ví dụ thực sự tuyệt vời về việc rag thực hiện công việc tuyệt vời khi thể hiện chuyên môn sâu sắc về thông tin ẩn giấu
+
+trong các tài liệu, nhưng sau đó cũng tìm những trường hợp mà rag không thể trả lời một điều gì đó rõ ràng có trong
+
+tài liệu và có được cảm nhận thực sự tốt về những gì đang hoạt động tốt.
+
+Vậy điểm mù là gì?
+
+Những điểm chưa tốt và hãy đưa chúng vào danh sách vì chúng ta sẽ giải quyết chúng, sửa chữa
+
+chúng trong khi làm cho tờ báo của mình ngày càng tốt hơn, bắt đầu từ ngày mai và trước ngày mai.
+
+Tôi hy vọng rằng bạn sẽ dành chút thời gian, ừm, để, bạn biết đấy, nếu bạn là người uống rượu, thì tôi nghĩ
+
+rằng nó xứng đáng với một ly rượu vang ngon.
+
+Ừm, thậm chí có thể là một ly sâm panh.
+
+Bạn đã tạo ra một sản phẩm vải vụn.
+
+Bạn có thể làm được điều này.
+
+Bây giờ bạn có thể viết ingest dot pi của riêng mình.
+
+Bạn có thể viết ứng dụng của riêng mình. py và dot pi của bạn và có thứ gì đó có khả năng vector hóa, phân đoạn,
+
+vector hóa, lưu trữ một loạt tài liệu, sau đó bạn có thể đặt câu hỏi về chúng.
+
+Và rõ ràng là nó có chuyên môn về toàn bộ cơ sở kiến thức của bạn và chỉ riêng bạn mà thôi.
+
+Bạn biết rõ rằng nó không bao giờ có thể biết được toàn bộ cơ sở kiến thức.
+
+Nó thực hiện thủ thuật sử dụng tính tương đồng của vectơ để tìm kiếm ngữ nghĩa trên dữ liệu của bạn, chọn ra một vài
+
+phần ngữ cảnh có liên quan, đưa chúng vào lời nhắc và nhận lại câu trả lời dựa trên kiến thức đó
+
+mỗi lần.
+
+Đó là một trò lừa.
+
+Đây là một trò ảo thuật.
+
+Nó hoạt động thực sự tốt và mang lại ấn tượng rằng bạn có một chuyên gia về toàn bộ kiến thức của
+
+mình, nhưng nó vẫn còn một số điểm chưa hoàn thiện.
+
+Tóm lại, bây giờ bạn có thể tạo mã, tạo văn bản bằng các mô hình giao diện người dùng.
+
+Với các mô hình nguồn mở, bạn có thể sử dụng các công cụ.
+
+Bạn có thể tự tin chọn đúng mẫu cho dự án của mình và thêm nó vào danh sách.
+
+Bạn có thể triển khai hệ thống trả lời câu hỏi chuyên gia Rag và bí mật, bí mật đen tối.
+
+Chỉ.
+
+Chỉ có bạn và tôi biết là lần sau thực sự sẽ khá dễ dàng.
+
+Nhưng lần sau, chúng ta sẽ phải kỷ luật hơn.
+
+Bạn có thể giải thích tầm quan trọng của việc đánh giá.
+
+Vì vậy, việc có thể đo lường hiệu quả của hệ thống Rag là rất quan trọng.
+
+Và chúng ta sẽ có thể thử nghiệm với những thứ như bộ mã hóa và chiến lược phân đoạn và sử dụng số liệu của mình,
+
+sử dụng các đánh giá để có thể đánh giá mức độ khác biệt mà chúng ta tạo ra và có thể đưa ra quyết định về các
+
+giải pháp khác nhau mà chúng ta muốn xây dựng.
+
+Được thôi.
+
+Rất nhiều thứ.
+
+Ngày mai sẽ thực sự, thực sự tuyệt vời.
+
+Ừm, tôi rất mong chờ điều đó.
+
+Tôi hy vọng bạn cũng vậy.
+
+Tôi sẽ gặp lại bạn sau.
+
+

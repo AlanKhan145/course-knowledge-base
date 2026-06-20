@@ -1,0 +1,788 @@
+# 056 - The Journey of a Request to the Backend
+
+Section: 07 - Extras
+Duration: 5min
+
+---
+
+## 1. Summary
+
+This lecture explains what happens to a request before the backend application actually processes it.
+
+Most developers focus only on the final processing step, such as querying a database or running business logic. However, a request goes through several lower-level stages before it becomes something the application can understand.
+
+The instructor breaks the journey into six main steps:
+
+```text id="q6w8eu"
+1. Accept
+2. Read
+3. Decrypt
+4. Parse
+5. Decode
+6. Process
+```
+
+Each step can become a bottleneck.
+
+Each step may be handled by the same thread, a dedicated thread, a thread pool, or a separate process depending on the backend design.
+
+Understanding this journey helps backend engineers design more efficient servers, proxies, frameworks, databases, and load balancers.
+
+---
+
+## 2. Key Concepts
+
+### The Request Is Not Immediately a Request
+
+When a client sends something to a backend, the backend does not immediately receive a high-level request object.
+
+At first, the server receives raw network bytes.
+
+Those bytes may be:
+
+* encrypted,
+* compressed,
+* split across packets,
+* only half of a request,
+* multiple requests together,
+* protocol metadata,
+* binary frames,
+* JSON text,
+* protobuf bytes.
+
+The backend must gradually transform these bytes into something the application can process.
+
+---
+
+### Step 1: Accept
+
+The first step is accepting the connection.
+
+Most backend requests are sent over a connection, usually TCP or QUIC.
+
+For TCP, when a client connects to a server on a port such as `443`, the operating system kernel completes the TCP three-way handshake.
+
+After the handshake, the connection is placed into the listener socket's accept queue.
+
+The backend application must call the `accept()` syscall on the listener socket.
+
+This creates a file descriptor representing the accepted client connection.
+
+Simplified flow:
+
+```text id="sqz6xo"
+Client connects
+→ Kernel completes TCP handshake
+→ Connection enters accept queue
+→ Application calls accept()
+→ Application gets connection file descriptor
+```
+
+---
+
+### Accept Queue
+
+The accept queue stores completed connections waiting for the application to accept them.
+
+If the application is slow to call `accept()`, the queue can fill up.
+
+When the accept queue is full, new connections may fail or be dropped.
+
+The accept queue size is controlled by the `backlog` parameter when listening on a socket.
+
+---
+
+### Backlog
+
+The backlog is the maximum number of pending connections that can wait in the accept queue.
+
+For example, in Node.js:
+
+```javascript id="e4cy3g"
+server.listen(3000, "0.0.0.0", backlog);
+```
+
+A larger backlog can help absorb bursts of new connections.
+
+However, it does not solve the problem if the application is consistently too slow to accept connections.
+
+---
+
+### Dedicated Acceptor Thread
+
+Many backend systems dedicate one thread to accepting new connections.
+
+This keeps connection acceptance fast and separate from request processing.
+
+However, if one acceptor thread cannot keep up, multiple threads or processes may be used.
+
+---
+
+### SO_REUSEPORT
+
+When multiple threads or processes accept on the same socket, they can block each other.
+
+`SO_REUSEPORT` helps solve this by allowing multiple listener sockets on the same port.
+
+Each thread or process can own its own listener socket and accept queue.
+
+This can improve connection acceptance scalability.
+
+Systems like NGINX and HAProxy commonly use this type of design.
+
+---
+
+### Step 2: Read
+
+After a connection is accepted, the client can send data.
+
+The data first reaches the Network Interface Card, then the operating system kernel.
+
+The kernel places the incoming bytes into the connection's receive queue.
+
+The backend application must call `read()` or `recv()` to move data from the kernel receive queue into user-space memory.
+
+Simplified flow:
+
+```text id="t0v3pc"
+Client sends bytes
+→ NIC receives packets
+→ Kernel stores bytes in receive queue
+→ Application calls read()/recv()
+→ Bytes move into application memory
+```
+
+At this stage, the application still only has raw bytes.
+
+It does not yet know whether the bytes form a full request.
+
+---
+
+### Receive Queue
+
+The receive queue is managed by the kernel.
+
+It stores incoming data for a connection until the application reads it.
+
+If the application reads too slowly, the receive queue can fill up.
+
+This may cause backpressure, packet drops, or slower client-side sending.
+
+---
+
+### Raw Bytes
+
+The bytes read from the connection may not map perfectly to requests.
+
+One read operation may contain:
+
+```text id="llzdl0"
+half of one request
+one full request
+multiple requests
+protocol metadata
+encrypted data
+compressed data
+```
+
+This is why the backend needs protocol parsing.
+
+---
+
+### Step 3: Decrypt
+
+If TLS is used, the bytes read from the connection are encrypted.
+
+The backend cannot parse HTTP headers or request boundaries until the data is decrypted.
+
+The application uses an SSL/TLS library, such as OpenSSL, to decrypt the bytes.
+
+After decryption, the backend gets plaintext bytes.
+
+Decryption is CPU-bound.
+
+That means it consumes CPU cycles and can become expensive under high traffic.
+
+---
+
+### TLS Termination
+
+When the backend or proxy decrypts TLS traffic, it is performing TLS termination.
+
+Before TLS termination, the request content is hidden.
+
+After TLS termination, the application can see the plaintext protocol data.
+
+For example, only after decryption can the server see:
+
+* HTTP method,
+* path,
+* headers,
+* body,
+* cookies,
+* protocol frames.
+
+---
+
+### Step 4: Parse
+
+After decryption, the backend has readable plaintext bytes.
+
+However, plaintext bytes are still not necessarily a complete request object.
+
+The server must parse the protocol.
+
+For HTTP/1.1, parsing means identifying things such as:
+
+* request line,
+* headers,
+* content length,
+* transfer encoding,
+* body boundaries.
+
+For HTTP/2 and HTTP/3, parsing is more complex because they are binary protocols with frames, streams, metadata, and flow control.
+
+Parsing also consumes CPU cycles.
+
+HTTP/2 and HTTP/3 parsing can be more expensive than HTTP/1.1 parsing because they carry more protocol-level metadata.
+
+---
+
+### Protocol Boundaries
+
+The backend must know where a request starts and where it ends.
+
+For HTTP/1.1, the end may be determined by:
+
+```text id="08hpn1"
+Content-Length
+Transfer-Encoding: chunked
+Connection close
+```
+
+For HTTP/2 and HTTP/3, the request is represented using frames.
+
+The parser must assemble frames and understand stream-level metadata.
+
+---
+
+### Step 5: Decode
+
+After parsing the protocol, the backend may still need to decode the request body.
+
+For example, if the request body is JSON, the backend must deserialize it:
+
+```javascript id="hwtx2s"
+JSON.parse(body)
+```
+
+If the body is protobuf, the backend must decode protobuf bytes into language-level objects.
+
+If the body is compressed, the backend must decompress it before processing.
+
+If the content is text, the backend must decode the bytes using the correct character encoding, such as UTF-8.
+
+Decoding transforms raw or semi-structured data into application-level structures.
+
+---
+
+### Deserialization
+
+Deserialization converts bytes or text into objects.
+
+Examples:
+
+```text id="psb5n9"
+JSON string → JavaScript object
+Protobuf bytes → generated language object
+UTF-8 bytes → text string
+Form data → key-value structure
+```
+
+This step has CPU and memory cost.
+
+Even if a framework does it automatically, it is not free.
+
+---
+
+### Step 6: Process
+
+Processing is the final step.
+
+This is the step most developers usually think about.
+
+Processing may include:
+
+* running business logic,
+* querying a database,
+* writing to disk,
+* calling another service,
+* checking authentication,
+* reading from cache,
+* doing expensive computation,
+* generating a response.
+
+This step may happen in the same thread, but for expensive work it is often better to use a worker pool.
+
+---
+
+### Worker Pool
+
+A worker pool is a group of workers dedicated to processing tasks.
+
+Instead of making the accept/read/decrypt/parse thread do expensive business logic, the backend can hand off the parsed request to a worker.
+
+This helps avoid blocking the networking layer.
+
+A simplified architecture:
+
+```text id="ppdtug"
+Acceptor thread
+→ Reader/decryption/parser
+→ Worker pool
+→ Response writer
+```
+
+---
+
+## 3. Important Notes
+
+### Each Step Can Become a Bottleneck
+
+The backend request journey is a pipeline.
+
+If any step is slow, the whole system can suffer.
+
+Possible bottlenecks:
+
+```text id="nq31ig"
+Accept bottleneck → accept queue fills up
+Read bottleneck → receive queue fills up
+Decrypt bottleneck → CPU becomes busy
+Parse bottleneck → protocol processing becomes slow
+Decode bottleneck → JSON/protobuf parsing becomes expensive
+Process bottleneck → business logic or database becomes slow
+```
+
+---
+
+### The Kernel Does Important Work Before the Application
+
+Before the backend application sees anything, the kernel has already done important work.
+
+For TCP, the kernel handles:
+
+* receiving packets,
+* TCP handshake,
+* connection state,
+* receive queue,
+* retransmission,
+* ordering,
+* acknowledgements.
+
+The application only sees the connection after the kernel has accepted it into the queue.
+
+---
+
+### Accepting Connections Too Slowly Is Dangerous
+
+If the application does not call `accept()` fast enough, the accept queue grows.
+
+If the queue fills up, new clients may fail to connect.
+
+This can happen even before the application processes a single request.
+
+So connection acceptance must be designed carefully.
+
+---
+
+### Reading Is Not the Same as Parsing
+
+Reading only moves bytes from kernel space to user space.
+
+It does not mean the backend understands the request.
+
+Parsing is a separate step that interprets the bytes according to the agreed protocol.
+
+---
+
+### One Read Does Not Equal One Request
+
+A common mistake is assuming one socket read equals one request.
+
+This is false.
+
+One read may contain:
+
+* less than one request,
+* exactly one request,
+* more than one request.
+
+The protocol parser is responsible for assembling complete requests.
+
+---
+
+### Decryption Happens Before Protocol Understanding
+
+If TLS is used, the backend cannot understand HTTP details until the data is decrypted.
+
+Encrypted bytes hide:
+
+* headers,
+* paths,
+* methods,
+* body,
+* protocol frames.
+
+The server must decrypt first, then parse.
+
+---
+
+### HTTP Versions Have Different Wire Formats
+
+HTTP/1.1, HTTP/2, and HTTP/3 are not just different versions with small changes.
+
+They have different on-the-wire representations.
+
+HTTP/1.1 is text-based.
+
+HTTP/2 and HTTP/3 are binary and frame-based.
+
+This changes the parsing cost and implementation complexity.
+
+---
+
+### Frameworks Hide Cost, But Do Not Remove It
+
+Frameworks like Express, FastAPI, Spring, or Django may automatically parse JSON bodies.
+
+However, the cost still exists.
+
+For example:
+
+```javascript id="hwhs8x"
+app.use(express.json());
+```
+
+This may feel automatic, but internally the framework still reads the body and calls JSON parsing logic.
+
+Automatic does not mean free.
+
+---
+
+### UTF-8 Decoding Matters
+
+Text is not just bytes.
+
+If the request body contains UTF-8 text, the backend must decode the bytes correctly.
+
+Some characters may use multiple bytes.
+
+For example, one character may take 1, 2, 3, or 4 bytes in UTF-8.
+
+If the server treats bytes incorrectly, the text may become corrupted.
+
+---
+
+### Request Compression Is Possible
+
+Although less common, clients may send compressed request bodies.
+
+Before the backend can process the body, it must decompress it.
+
+This adds another CPU and memory cost.
+
+---
+
+### No Single Correct Threading Model
+
+There is no universal design for how to assign these steps to threads.
+
+One backend may do everything in one event loop.
+
+Another backend may use separate threads for accepting, reading, decrypting, parsing, and processing.
+
+Another backend may use worker pools.
+
+The right design depends on workload, traffic, protocol, latency requirements, and system architecture.
+
+---
+
+## 4. Examples
+
+### Example 1: Full Request Journey
+
+A client sends an HTTPS request:
+
+```http id="48q92u"
+POST /api/orders HTTP/1.1
+Content-Type: application/json
+
+{
+  "item_id": 123,
+  "quantity": 2
+}
+```
+
+The backend journey:
+
+```text id="hdh3pe"
+1. Accept
+   Kernel completes TCP handshake.
+   Application calls accept() and gets a connection file descriptor.
+
+2. Read
+   Application calls read()/recv().
+   Raw encrypted bytes move from kernel receive queue to process memory.
+
+3. Decrypt
+   TLS library decrypts the bytes.
+   Backend now has plaintext HTTP bytes.
+
+4. Parse
+   HTTP parser reads method, path, headers, and body boundaries.
+
+5. Decode
+   JSON parser converts request body into an object.
+
+6. Process
+   Backend validates order, writes to database, and returns response.
+```
+
+---
+
+### Example 2: Accept Queue Bottleneck
+
+Suppose many clients connect at the same time.
+
+```text id="meegsb"
+Client 1 connects
+Client 2 connects
+Client 3 connects
+...
+Client 10000 connects
+```
+
+The kernel places completed connections in the accept queue.
+
+If the backend accepts too slowly:
+
+```text id="n28nyi"
+Accept queue fills up
+→ New connections wait
+→ Queue reaches backlog limit
+→ New connections fail
+```
+
+This problem happens before request processing even begins.
+
+---
+
+### Example 3: One Read Is Half a Request
+
+The client sends:
+
+```http id="1ndx3k"
+GET /profile HTTP/1.1
+Host: example.com
+```
+
+The application may read only part of it:
+
+```text id="86e4fh"
+GET /profile HT
+```
+
+The parser cannot process a full request yet.
+
+It must wait for more bytes.
+
+---
+
+### Example 4: One Read Contains Multiple Requests
+
+A single read may contain:
+
+```http id="o9gnv6"
+GET /a HTTP/1.1
+Host: example.com
+
+GET /b HTTP/1.1
+Host: example.com
+```
+
+The parser must detect that there are two separate requests.
+
+This is why reading and parsing are different steps.
+
+---
+
+### Example 5: JSON Decoding Cost
+
+The backend receives this body:
+
+```json id="v3i79y"
+{
+  "name": "Alice",
+  "age": 25
+}
+```
+
+Before the application can use it, the backend or framework must parse it:
+
+```javascript id="38k6tz"
+const body = JSON.parse(rawBody);
+```
+
+After decoding:
+
+```javascript id="trptbl"
+body.name // "Alice"
+body.age  // 25
+```
+
+This costs CPU and creates memory allocations.
+
+---
+
+### Example 6: Worker Pool Processing
+
+A backend may use a worker pool like this:
+
+```text id="ldjv7c"
+Networking thread:
+  accept connection
+  read bytes
+  decrypt
+  parse
+  decode request
+
+Worker pool:
+  process business logic
+  query database
+  generate response
+```
+
+This prevents expensive business logic from blocking connection acceptance and reading.
+
+---
+
+### Example 7: SO_REUSEPORT
+
+Without `SO_REUSEPORT`:
+
+```text id="1uqtru"
+Multiple workers compete on one listener socket
+```
+
+With `SO_REUSEPORT`:
+
+```text id="l4jy0q"
+Worker 1 owns listener socket 1 and accept queue 1
+Worker 2 owns listener socket 2 and accept queue 2
+Worker 3 owns listener socket 3 and accept queue 3
+```
+
+This allows better connection distribution across workers.
+
+---
+
+## 5. Questions / Review
+
+1. Why is request processing only the final step of the backend request journey?
+
+2. What are the six steps a request goes through before and during processing?
+
+3. What happens during the Accept step?
+
+4. What is the accept queue?
+
+5. What is the backlog parameter?
+
+6. What happens if the backend is slow to accept connections?
+
+7. Why might a backend dedicate one thread to accepting connections?
+
+8. What problem does `SO_REUSEPORT` solve?
+
+9. What happens during the Read step?
+
+10. What is the receive queue?
+
+11. Why does the backend receive raw bytes instead of a ready request object?
+
+12. Why does one socket read not always equal one request?
+
+13. What happens during the Decrypt step?
+
+14. Why can the backend not parse HTTP headers before TLS decryption?
+
+15. Why is decryption CPU-bound?
+
+16. What happens during the Parse step?
+
+17. How is HTTP/1.1 parsing different from HTTP/2 or HTTP/3 parsing?
+
+18. Why can protocol parsing become expensive?
+
+19. What happens during the Decode step?
+
+20. Why does JSON need to be parsed before the application can use it?
+
+21. Why is UTF-8 decoding necessary?
+
+22. What is request decompression?
+
+23. What happens during the Process step?
+
+24. Why might processing be moved to a worker pool?
+
+25. Why is there no single correct threading model for all backends?
+
+---
+
+## Quick Pipeline
+
+```text id="cavkn5"
+Client
+  ↓
+TCP/QUIC connection
+  ↓
+Kernel accept queue
+  ↓
+accept()
+  ↓
+Connection file descriptor
+  ↓
+Kernel receive queue
+  ↓
+read()/recv()
+  ↓
+Encrypted raw bytes in user space
+  ↓
+TLS decryption
+  ↓
+Plaintext protocol bytes
+  ↓
+HTTP/Protocol parsing
+  ↓
+Decoded request object
+  ↓
+Business processing
+  ↓
+Response
+```
+
+---
+
+## Final Takeaway
+
+A backend request does not immediately become application logic.
+
+Before the backend can process it, the system must accept the connection, read raw bytes, decrypt them, parse the protocol, decode the payload, and only then run business logic.
+
+Each step has cost.
+
+Each step can become a bottleneck.
+
+A good backend engineer understands the full journey from the frontend, through the kernel, into the backend process, and finally into the application code.

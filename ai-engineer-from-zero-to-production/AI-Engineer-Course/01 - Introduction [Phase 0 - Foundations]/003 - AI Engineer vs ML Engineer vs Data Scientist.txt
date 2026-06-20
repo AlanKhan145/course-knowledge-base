@@ -1,0 +1,93 @@
+# AI Engineer vs ML Engineer vs Data Scientist
+
+## Overview
+Three roles that are frequently confused — AI Engineer, ML Engineer, and Data Scientist — have meaningfully different responsibilities, skill sets, and day-to-day work. This lesson draws clear boundaries between them so you can accurately position yourself in the job market and understand where this course fits.
+
+## Key Points
+- A Data Scientist focuses on analysis, statistical modeling, and extracting insights from data — their primary output is a report, a dashboard, or a trained model handed off to others; they rarely own production systems.
+- An ML Engineer takes models (often built by Data Scientists) and productionizes them — they handle training pipelines, feature stores, model serving, and MLOps infrastructure using tools like MLflow, Kubeflow, or SageMaker.
+- An AI Engineer works at the application layer above pre-trained foundation models — they integrate LLMs, build RAG pipelines and agents, write evaluation suites, and own the end-to-end AI feature in a product without necessarily training any model.
+- The key technical differentiator: Data Scientists and ML Engineers need deep knowledge of statistics and model internals (backpropagation, regularization, feature engineering); AI Engineers need deep knowledge of prompt design, context management, retrieval architecture, and LLM API behavior.
+- In 2024/2025 many companies have all three roles; at smaller startups the AI Engineer often absorbs parts of all three, making it the most versatile and highest-leverage AI role for product-focused teams.
+
+## Code Example
+```python
+# Illustration of the three roles through the lens of a sentiment analysis feature
+
+# --- DATA SCIENTIST ROLE ---
+# Exploratory analysis and model prototyping (offline, notebook-style)
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+def data_scientist_prototype(reviews: list[str], labels: list[int]):
+    """Train a custom sentiment classifier — Data Scientist deliverable."""
+    vec = TfidfVectorizer(max_features=5000)
+    X = vec.fit_transform(reviews)
+    model = LogisticRegression()
+    model.fit(X, labels)
+    print("Model accuracy on training data:", model.score(X, labels))
+    return model, vec
+
+
+# --- ML ENGINEER ROLE ---
+# Serialize and serve the trained model via an API (productionization)
+import joblib
+from fastapi import FastAPI
+
+def ml_engineer_serve(model, vec):
+    """Package the custom model into a FastAPI service — ML Engineer deliverable."""
+    joblib.dump({"model": model, "vectorizer": vec}, "sentiment_model.pkl")
+    app = FastAPI()
+
+    @app.post("/predict")
+    def predict(text: str):
+        artifact = joblib.load("sentiment_model.pkl")
+        X = artifact["vectorizer"].transform([text])
+        label = artifact["model"].predict(X)[0]
+        return {"sentiment": "positive" if label == 1 else "negative"}
+
+    return app  # Run with: uvicorn main:app
+
+
+# --- AI ENGINEER ROLE ---
+# Use a foundation model via API — no custom training needed
+from openai import OpenAI
+
+def ai_engineer_sentiment(review: str) -> dict:
+    """
+    Zero-shot sentiment analysis using an LLM.
+    No training data required. Faster to build, easier to maintain.
+    Trade-off: higher per-call cost, external API dependency.
+    """
+    client = OpenAI()
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {
+                "role": "system",
+                "content": (
+                    "You are a sentiment classifier. "
+                    "Respond with ONLY a JSON object: "
+                    '{"sentiment": "positive"|"negative"|"neutral", "confidence": 0.0-1.0}'
+                ),
+            },
+            {"role": "user", "content": f"Review: {review}"},
+        ],
+        temperature=0,
+        response_format={"type": "json_object"},
+    )
+    import json
+    return json.loads(response.choices[0].message.content)
+
+
+if __name__ == "__main__":
+    result = ai_engineer_sentiment("This product is absolutely fantastic!")
+    print(result)  # {"sentiment": "positive", "confidence": 0.97}
+```
+
+## Notes
+The lines between these roles are blurring — many job postings labeled "ML Engineer" in 2024 actually describe AI Engineer work. When evaluating a job listing, look at the responsibilities: if it mentions fine-tuning, training pipelines, or feature engineering, it skews toward ML Engineer; if it mentions RAG, agents, LangChain, or prompt engineering, it is an AI Engineer role. Data Scientists who want to transition into AI Engineering should focus on API integration, async Python, and system design rather than learning more statistics. One important career note: AI Engineers command comparable or higher salaries than ML Engineers at product companies because they ship user-facing features faster.
+
+## Summary
+Data Scientists analyze and model data, ML Engineers productionize custom-trained models, and AI Engineers build applications on top of pre-trained foundation models — this course makes you highly effective at the third, most product-centric role.
