@@ -1,0 +1,64 @@
+# 006 - Dplyr
+
+**Hoc phan:** 02 - Programming and Data Handling
+**Module:** Module 09 - Data Cleanup
+**Nhom noi dung:** Using Libraries for Cleanup
+**Nguon roadmap:** Data Cleanup / Using Libraries for Cleanup
+**Loai bai:** Data library
+**Thu tu trong module:** 006
+**Thoi luong goi y:** 22 phut
+
+---
+
+## 1. Tom tat
+
+Bai nay giai thich **Dplyr** trong boi canh Data Analyst hien dai. Sau bai hoc, ban nen biet topic nay giup tra loi cau hoi data nao, nam o dau trong workflow va co the bien thanh query, spreadsheet, notebook, chart, dashboard hoac portfolio artifact.
+
+## 2. Muc tieu hoc tap
+
+- Giai thich duoc Dplyr bang ngon ngu cua ban.
+- Nhan biet topic nay nam o dau trong workflow data analyst.
+- Ap dung vao mot dataset, query, spreadsheet, notebook, chart hoac dashboard nho.
+
+## 3. Khai niem chinh
+
+- Dplyr la thu vien R de manipulate data theo pipeline ro rang.
+- Verb pho bien gom select, filter, mutate, summarize va arrange.
+- Dplyr giup workflow data cleaning/doc phan tich de doc hon.
+
+## 4. Vi du / Demo
+
+```r
+cleaned <- raw |>
+  distinct() |>
+  mutate(order_date = as.Date(order_date)) |>
+  group_by(region) |>
+  summarise(revenue = sum(revenue))
+```
+
+## 5. Bai tap thuc hanh
+
+- Viet 5 dong tom tat bai hoc khong nhin tai lieu.
+- Ap dung topic vao mot vi du data nho.
+- Ghi lai insight, caveat va mot cau hoi can phan tich tiep.
+
+## 6. Loi thuong gap
+
+- Hoc thuoc dinh nghia nhung khong ap dung vao dataset.
+- Khong ghi lai gia dinh va caveat.
+- Tao output kho tai lap vi thao tac tay qua nhieu.
+
+## 7. Checklist hoan thanh
+
+- Toi co the giai thich **Dplyr** trong 1-2 phut.
+- Toi co mot vi du nho hoac artifact thuc hanh cho bai nay.
+- Toi biet topic nay lien quan den dataset, metric, chart, insight hoac business question nao.
+- Toi da ghi lai it nhat mot caveat hoac cau hoi can phan tich tiep.
+
+## 8. Outcome lien quan
+
+Clean messy datasets by handling missing values, duplicates, outliers and transformations.
+
+## 9. Tong ket
+
+**Dplyr** la mot moc trong lo trinh Data Analyst. Hay bien no thanh mot bang tinh, query, notebook, chart, dashboard hoac portfolio note de kien thuc co cho bam.

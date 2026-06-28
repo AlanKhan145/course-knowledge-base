@@ -1,0 +1,61 @@
+# 002 - What is a Software Architect
+
+**Hoc phan:** 01 - Understand the Basics
+**Module:** Module 01 - Introduction to Software Architecture
+**Nhom noi dung:** Lessons
+**Nguon roadmap:** 1. 01 - Understand the Basics / Lessons
+**Loai bai:** Lesson
+**Thu tu trong module:** 002
+**Thoi luong goi y:** 18 phut
+
+---
+
+## 1. Tom tat
+
+Bai nay giai thich **What is a Software Architect** trong boi canh Software Architecture hien dai. Sau bai hoc, ban nen nam khai niem, biet vi sao no quan trong doi voi Architect va co mot bai tap nho de ap dung.
+
+Software Architect la nguoi dua ra cac lua chon thiet ke phan mem cap cao, bao gom tieu chuan ky thuat, cong cu, nguyen tac thiet ke va nen tang.
+
+## 2. Muc tieu hoc tap
+
+- Giai thich duoc **What is a Software Architect** bang ngon ngu cua ban trong 1-2 phut.
+- Nhan biet khi nao kien thuc nay anh huong den quyet dinh kien truc.
+- Thuc hanh vi du nho va ghi lai cac diem can luu y.
+
+## 3. Khai niem chinh
+
+- Architect khac Developer o cho Architect tap trung vao high-level design, Developer tap trung vao implementation
+- Architect can hieu sau ca business va technical requirements
+- Architect chiu trach nhiem cho cac quyet dinh co impact lon va lau dai
+- Vai tro nay doi hoi kinh nghiem lap trinh thuc te va ky nang soft skills
+
+## 4. Vi du / Demo
+
+```text
+Tinh huong: Ban dang thiet ke mot he thong moi va can quyet dinh ve What is a Software Architect.
+Phan tich: Xac dinh trade-off, requirement, va ket qua mong muon.
+Quyet dinh: Ap dung khai niem tren vao boi canh cu the.
+```
+
+## 5. Bai tap thuc hanh
+
+- Viet 5 dong tom tat bai hoc nay khong nhin tai lieu.
+- Tim mot he thong thuc te (Google, Netflix, Amazon) su dung khai niem nay va ghi lai cach ho ap dung.
+- Tao vi du nho hoac ve so do mo ta khai niem.
+
+## 6. Loi thuong gap
+
+- Hoc thuoc dinh nghia nhung khong biet ap dung vao bai toan thuc te.
+- Bo qua trade-off: moi giai phap deu co diem manh va diem yeu.
+- Ap dung may moc ma khong can nhac den context cu the cua he thong.
+
+## 7. Checklist hoan thanh
+
+- Toi co the giai thich **What is a Software Architect** trong 1-2 phut khong can nhin tai lieu.
+- Toi biet it nhat mot truong hop su dung thuc te.
+- Toi hieu cac trade-off chinh khi ap dung khai niem nay.
+- Toi da ghi lai it nhat mot cau hoi can tim hieu sau neu con mo ho.
+
+## 8. Tong ket
+
+**What is a Software Architect** la mot kiem kien thuc quan trong trong hanh trang cua Software Architect. Hay bien no thanh vi du cu the, so do hoac checklist de kien thuc co cho bam vung trong thuc te.

@@ -1,0 +1,48 @@
+# 027 - Timeout Settings
+
+**Hoc phan:** 02 - Installation Configuration and Security
+**Module:** Module 05 - Configuring PostgreSQL
+**Nhom noi dung:** Operational Configuration
+**Nguon roadmap:** Configuring PostgreSQL / Operational Configuration
+**Loai bai:** config
+**Thu tu trong module:** 027
+**Thoi luong goi y:** 32 phut
+
+---
+
+## 1. Tom tat
+
+Bai nay giai thich **Timeout Settings** trong boi canh PostgreSQL DBA Roadmap 2026. Sau bai hoc, ban nen biet topic nay nam o dau trong van hanh PostgreSQL, lien quan den SQL, cau hinh, bao mat, backup, HA, monitoring, tuning hoac troubleshooting nhu the nao.
+
+## 2. Muc tieu hoc tap
+
+- Giai thich duoc Timeout Settings bang ngon ngu cua ban.
+- Nhan biet topic nay anh huong den availability, durability, security, performance hoac recovery risk nao.
+- Ap dung vao mot artifact nho: SQL, psql command, config diff, runbook, diagram, restore drill, alert rule hoac README.
+
+## 3. Khai niem chinh
+
+- Timeout Settings is part of the Operational Configuration topic in the PostgreSQL DBA roadmap.
+- Learn it by connecting the concept to reliability, recovery, security, performance and operational risk.
+- A PostgreSQL DBA should know how to inspect it, change it safely and document the result.
+
+## 4. Thuc hanh
+
+1. Find the active setting with SHOW or pg_settings.
+2. Change it only in a local lab and record whether reload or restart is required.
+3. Document the expected impact and rollback command.
+
+## 5. Bai tap
+
+Inspect the active setting, propose a safe change, and document reload/restart plus rollback.
+
+## 6. Checklist hoan thanh
+
+- [ ] Co dinh nghia ngan gon.
+- [ ] Co vi du hoac lenh trong PostgreSQL lab.
+- [ ] Co artifact nho de dua vao DBA portfolio.
+- [ ] Co ghi chu ve rollback, monitoring, security, backup hoac downtime risk neu lien quan.
+
+## 7. Ghi chu san xuat
+
+Khi dua vao production, hay hoi: co anh huong downtime khong, co can backup truoc khong, rollback la gi, ai nhan alert, monitoring nao xac nhan thanh cong va tai lieu/runbook nao can cap nhat.

@@ -1,0 +1,61 @@
+# 003 - Hadoop Spark MapReduce
+
+**Hoc phan:** 06 - Working with Data
+**Module:** Module 09 - Working with Data
+**Nhom noi dung:** Lessons
+**Nguon roadmap:** 6. 06 - Working with Data / Lessons
+**Loai bai:** Lesson
+**Thu tu trong module:** 003
+**Thoi luong goi y:** 18 phut
+
+---
+
+## 1. Tom tat
+
+Bai nay giai thich **Hadoop Spark MapReduce** trong boi canh Software Architecture hien dai. Sau bai hoc, ban nen nam khai niem, biet vi sao no quan trong doi voi Architect va co mot bai tap nho de ap dung.
+
+Cac cong nghe xu ly du lieu lon (Big Data): Hadoop lam distributed storage va batch processing, Spark nhanh hon voi in-memory processing.
+
+## 2. Muc tieu hoc tap
+
+- Giai thich duoc **Hadoop Spark MapReduce** bang ngon ngu cua ban trong 1-2 phut.
+- Nhan biet khi nao kien thuc nay anh huong den quyet dinh kien truc.
+- Thuc hanh vi du nho va ghi lai cac diem can luu y.
+
+## 3. Khai niem chinh
+
+- Hadoop HDFS: distributed file system cho big data
+- MapReduce: xu ly batch parallel tren cluster
+- Spark: xu ly nhanh hon Hadoop nho in-memory computing
+- Hive, Pig la abstraction phia tren Hadoop cho nguoi khong viet Java
+
+## 4. Vi du / Demo
+
+```text
+Tinh huong: Ban dang thiet ke mot he thong moi va can quyet dinh ve Hadoop Spark MapReduce.
+Phan tich: Xac dinh trade-off, requirement, va ket qua mong muon.
+Quyet dinh: Ap dung khai niem tren vao boi canh cu the.
+```
+
+## 5. Bai tap thuc hanh
+
+- Viet 5 dong tom tat bai hoc nay khong nhin tai lieu.
+- Tim mot he thong thuc te (Google, Netflix, Amazon) su dung khai niem nay va ghi lai cach ho ap dung.
+- Tao vi du nho hoac ve so do mo ta khai niem.
+
+## 6. Loi thuong gap
+
+- Hoc thuoc dinh nghia nhung khong biet ap dung vao bai toan thuc te.
+- Bo qua trade-off: moi giai phap deu co diem manh va diem yeu.
+- Ap dung may moc ma khong can nhac den context cu the cua he thong.
+
+## 7. Checklist hoan thanh
+
+- Toi co the giai thich **Hadoop Spark MapReduce** trong 1-2 phut khong can nhin tai lieu.
+- Toi biet it nhat mot truong hop su dung thuc te.
+- Toi hieu cac trade-off chinh khi ap dung khai niem nay.
+- Toi da ghi lai it nhat mot cau hoi can tim hieu sau neu con mo ho.
+
+## 8. Tong ket
+
+**Hadoop Spark MapReduce** la mot kiem kien thuc quan trong trong hanh trang cua Software Architect. Hay bien no thanh vi du cu the, so do hoac checklist de kien thuc co cho bam vung trong thuc te.

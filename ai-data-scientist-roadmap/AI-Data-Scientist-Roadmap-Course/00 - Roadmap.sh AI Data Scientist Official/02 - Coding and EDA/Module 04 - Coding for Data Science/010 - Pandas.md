@@ -1,0 +1,67 @@
+# 010 - Pandas
+
+**Hoc phan:** 02 - Coding and EDA
+**Module:** Module 04 - Coding for Data Science
+**Nhom noi dung:** Python for Data
+**Nguon roadmap:** Coding for Data Science / Python for Data
+**Loai bai:** Coding
+**Thu tu trong module:** 010
+**Thoi luong goi y:** 20 phut
+
+---
+
+## 1. Tom tat
+
+Bai nay giai thich **Pandas** trong boi canh AI & Data Scientist. Sau bai hoc, ban nen biet topic nay giup tra loi cau hoi data nao, lien quan den model/experiment/deployment nao va co the bien thanh notebook, metric, chart, API hoac portfolio artifact.
+
+## 2. Muc tieu hoc tap
+
+- Giai thich duoc Pandas bang ngon ngu cua ban.
+- Nhan biet topic nay nam o dau trong workflow AI/Data Scientist.
+- Ap dung vao mot dataset, notebook, model, experiment, dashboard hoac deployment artifact nho.
+
+## 3. Khai niem chinh
+
+- Pandas provides DataFrame operations for loading, cleaning, transforming and summarizing data.
+- Core skills include filtering, groupby, merge, missing data handling and datetime processing.
+- Pandas work should be reproducible and documented, not a chain of hidden manual edits.
+
+## 4. Vi du / Demo
+
+```python
+import pandas as pd
+
+df = pd.read_csv("sales.csv")
+monthly = df.groupby("month", as_index=False)["revenue"].sum()
+```
+
+## 5. Bai tap thuc hanh
+
+- Chon mot dataset CSV nho va tao notebook thuc hanh.
+- Luu cac buoc clean/transform de tai lap duoc.
+- Viet 3 insight kem chart hoac bang so lieu.
+
+## 6. Loi thuong gap
+
+- Thao tac tay nhieu nen khong tai lap duoc analysis.
+- Khong luu data raw va changelog cleaning.
+- Chi ve chart ma khong viet insight/co khuyen nghi.
+
+## 7. Checklist hoan thanh
+
+- Toi co the giai thich **Pandas** trong 1-2 phut.
+- Toi co mot notebook, query, chart, model, API hoac ghi chu thuc hanh cho bai nay.
+- Toi biet topic nay lien quan den dataset, metric, model, experiment hoac deployment nao.
+- Toi da ghi lai it nhat mot caveat, assumption hoac cau hoi can phan tich tiep.
+
+## 8. Outcome lien quan
+
+Use Python, SQL, data libraries, notebooks and Git to build reproducible data workflows.
+
+## 9. Project lien quan
+
+Mini project: SQL + Python Data Analysis with a small sales database and Pandas report.
+
+## 10. Tong ket
+
+**Pandas** la mot moc trong lo trinh AI & Data Scientist. Hay bien no thanh mot notebook, query, chart, experiment, model, API, Docker service hoac portfolio note de kien thuc co cho bam.

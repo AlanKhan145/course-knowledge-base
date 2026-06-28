@@ -1,0 +1,56 @@
+# 006 - Cloud Security Checklist
+
+**Học phần:** 19 - Dự án thực hành cuối khóa
+**Module:** Module 19 - Dự án thực hành cuối khóa
+**Loại bài:** Capstone project
+**Thứ tự trong module:** 006
+**Thời lượng gợi ý:** 2-4 giờ
+
+---
+
+## 1. Tóm tắt
+Project này giúp bạn biến phần **Dự án thực hành cuối khóa** thành một sản phẩm portfolio cụ thể. Trọng tâm là làm đúng scope, ghi lại bằng chứng và trình bày kết quả đủ rõ để người khác có thể review.
+
+## 2. Mục tiêu học tập
+- Hoàn thành project **Cloud Security Checklist** theo yêu cầu đã nêu.
+- Tạo sản phẩm bàn giao có thể đưa vào portfolio.
+- Viết lại quy trình, bằng chứng và bài học rút ra sau khi thực hành.
+
+## 3. Yêu cầu thực hiện
+- Chọn AWS, GCP hoặc Azure
+- Kiểm tra IAM
+- Kiểm tra storage permission
+- Kiểm tra logging
+- Kiểm tra network exposure
+- Đề xuất cải thiện
+
+## 4. Sản phẩm bàn giao
+- Cloud security checklist
+- Risk matrix
+- Remediation plan
+
+## 5. Ví dụ / Lab gợi ý
+```text
+Input: yêu cầu project và môi trường lab hợp pháp
+Process: thực hiện từng bước, ghi lại bằng chứng, quyết định và lỗi gặp phải
+Output: README, checklist, report, diagram hoặc runbook theo yêu cầu project
+```
+
+## 6. Bài tập thực hành
+- Viết 5 dòng tóm tắt bài học không nhìn tài liệu.
+- Tạo một ví dụ nhỏ, checklist, command, sơ đồ hoặc ghi chú lab.
+- Ghi lại một lỗi hoặc rủi ro thực tế liên quan đến bài học.
+
+## 7. Lỗi thường gặp
+- Chạy theo công cụ trước khi hiểu vấn đề nền tảng.
+- Học thuộc định nghĩa nhưng không tạo artifact thực hành.
+- Không ghi lại scope, giả định, bằng chứng và câu hỏi còn mở.
+
+## 8. Checklist hoàn thành
+- Tôi có thể giải thích **Cloud Security Checklist** trong 1-2 phút.
+- Tôi có ghi chú hoặc artifact thực hành cho bài này.
+- Tôi biết bài này liên quan đến risk, control, evidence hoặc owner nào.
+- Tôi đã ghi lại câu hỏi còn mở để quay lại sau.
+
+## 9. Tổng kết
+**Cloud Security Checklist** là một project portfolio. Hoàn thành nó bằng bằng chứng rõ ràng, báo cáo ngắn gọn và checklist có thể tái sử dụng.

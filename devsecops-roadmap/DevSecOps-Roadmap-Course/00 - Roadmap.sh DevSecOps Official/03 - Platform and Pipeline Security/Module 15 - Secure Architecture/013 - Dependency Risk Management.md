@@ -1,0 +1,60 @@
+# 013 - Dependency Risk Management
+
+**Hoc phan:** 03 - Platform and Pipeline Security
+**Module:** Module 15 - Secure Architecture
+**Nhom noi dung:** Topics
+**Nguon roadmap:** Secure Architecture / Topics
+**Loai bai:** Secure architecture
+**Thu tu trong module:** 013
+**Thoi luong goi y:** 26 phut
+
+---
+
+## 1. Tom tat
+
+Bai nay giai thich **Dependency Risk Management** trong boi canh DevSecOps hien dai. Sau bai hoc, ban nen biet topic nay giam risk nao, nam o dau trong lifecycle va co the ap dung vao code, pipeline, cloud, runtime hay incident response.
+
+## 2. Muc tieu hoc tap
+
+- Giai thich duoc Dependency Risk Management bang ngon ngu cua ban.
+- Nhan biet topic nay nam o dau trong DevSecOps lifecycle.
+- Tao duoc mot artifact nho: checklist, script, config, scan, detection rule hoac runbook.
+
+## 3. Khai niem chinh
+
+- Dependency risk gom CVE, license, maintainer health, transitive dependency va malicious package.
+- Can policy update, pin version, lockfile, SCA va exception process.
+- Khong nen nang cap tu dong len production khi chua co test va rollback.
+
+## 4. Vi du / Demo
+
+```text
+Threat -> vulnerable pattern -> safe pattern -> test case -> pipeline gate
+```
+
+## 5. Bai tap thuc hanh
+
+- Viet mot checklist review 5 dong cho topic nay.
+- Tao mot test case hoac pseudo-code cho safe pattern.
+- Ghi lai pipeline gate nao co the bat loi nay som.
+
+## 6. Loi thuong gap
+
+- Chi sua loi sau khi scan thay vi thiet ke safe pattern tu dau.
+- Khong co test case nen loi co the quay lai.
+- Bo qua trade-off ve UX, reliability va kha nang van hanh.
+
+## 7. Checklist hoan thanh
+
+- Toi co the giai thich **Dependency Risk Management** trong 1-2 phut.
+- Toi co mot artifact nho hoac ghi chu thuc hanh cho bai nay.
+- Toi biet topic nay lien quan den risk, control, evidence va owner nao.
+- Toi da ghi lai it nhat mot cau hoi can tim hieu sau neu con mo ho.
+
+## 8. Outcome lien quan
+
+Design systems with layered controls, zero trust, secure APIs and supply chain protection.
+
+## 9. Tong ket
+
+**Dependency Risk Management** la mot moc trong lo trinh DevSecOps. Hay bien no thanh mot checklist, script, config, scan, detection rule, dashboard hoac runbook de kien thuc co cho bam.
