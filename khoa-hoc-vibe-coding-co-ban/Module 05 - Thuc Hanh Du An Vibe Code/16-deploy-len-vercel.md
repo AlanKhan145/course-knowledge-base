@@ -4,91 +4,246 @@
 
 Sau bài này, bạn sẽ:
 
-* Hiểu **deploy (triển khai)** là gì và vì sao cần thiết để người khác dùng được app của bạn.
-* Biết cách đưa ứng dụng đã build lên internet bằng **Vercel** — hoàn toàn miễn phí.
+* Hiểu **deploy / triển khai** là gì.
+* Biết vì sao cần deploy để người khác có thể dùng app của bạn.
+* Biết cách đưa ứng dụng web lên internet bằng **Vercel**.
 * Có được một đường link thật để chia sẻ ứng dụng cho bất kỳ ai.
 
 ---
 
 ## 1. Deploy Là Gì? Vì Sao Cần Thiết?
 
-Cho đến nay, các ứng dụng bạn build chỉ chạy được trên máy tính của chính bạn (trong bản xem trước của công cụ AI hoặc trình duyệt cá nhân). **Deploy** là quá trình đưa ứng dụng đó lên một máy chủ trên internet, để bất kỳ ai có đường link cũng có thể truy cập và sử dụng.
+Trong các bài trước, app của bạn thường chỉ chạy được trên máy cá nhân hoặc trong bản preview của công cụ AI.
+
+**Deploy** là quá trình đưa ứng dụng lên một máy chủ trên internet, để người khác có thể truy cập bằng đường link.
 
 ```text
-Chưa deploy: Chỉ bạn dùng được, trên máy của bạn
-Đã deploy: Bất kỳ ai, ở bất kỳ đâu, đều dùng được qua một đường link
+Chưa deploy:
+App chỉ chạy trên máy của bạn
+
+Đã deploy:
+App chạy trên internet, ai có link cũng dùng được
 ```
+
+### So Sánh Trước Và Sau Khi Deploy
+
+| Trạng thái  | Người dùng được app | Cách truy cập                    |
+| ----------- | ------------------- | -------------------------------- |
+| Chưa deploy | Chỉ bạn             | Mở trên máy cá nhân hoặc preview |
+| Đã deploy   | Bất kỳ ai có link   | Truy cập qua trình duyệt         |
+
+---
 
 ## 2. Vercel Là Gì?
 
-**Vercel** là nền tảng cho phép deploy ứng dụng web **miễn phí**, đơn giản, không cần biết về máy chủ hay hạ tầng kỹ thuật. Đây là lựa chọn phổ biến cho các dự án cá nhân và Vibe Coding vì:
+**Vercel** là nền tảng giúp bạn deploy ứng dụng web lên internet rất nhanh, đặc biệt phù hợp với các dự án cá nhân, landing page, app React, Next.js hoặc HTML/CSS/JS đơn giản.
 
-| Ưu điểm                          | Giải thích                                                        |
-| ------------------------------------ | ------------------------------------------------------------------------ |
-| Miễn phí cho dự án cá nhân            | Không tốn chi phí cho các ứng dụng quy mô nhỏ                             |
-| Kết nối trực tiếp với GitHub          | Mỗi lần cập nhật code, app tự động cập nhật trên internet                  |
-| Có đường link công khai ngay lập tức  | Nhận được URL dạng `ten-app.vercel.app` để chia sẻ                        |
-| Không cần kiến thức về server         | Toàn bộ quá trình deploy chỉ qua vài cú click                              |
+Bạn có thể truy cập tại [Vercel](https://vercel.com).
+
+### Vì Sao Nên Dùng Vercel?
+
+| Ưu điểm                      | Giải thích                                              |
+| ---------------------------- | ------------------------------------------------------- |
+| Miễn phí cho dự án cá nhân   | Phù hợp với app nhỏ, demo, sản phẩm học tập             |
+| Kết nối trực tiếp với GitHub | Cập nhật code lên GitHub là Vercel có thể tự deploy lại |
+| Có link công khai ngay       | Link thường có dạng `ten-app.vercel.app`                |
+| Không cần tự quản lý server  | Không phải cấu hình máy chủ phức tạp                    |
+| Deploy nhanh                 | Thường chỉ mất vài chục giây đến vài phút               |
+
+---
 
 ## 3. Chuẩn Bị Trước Khi Deploy
 
-| Việc cần chuẩn bị          | Ghi chú                                                             |
-| ------------------------------ | -------------------------------------------------------------------------- |
-| Tài khoản GitHub                | Nơi lưu trữ code của ứng dụng                                              |
-| Tài khoản Vercel                 | Đăng ký miễn phí, có thể đăng nhập trực tiếp bằng tài khoản GitHub          |
-| Code ứng dụng hoàn chỉnh         | Đã kiểm tra chạy đúng qua checklist ở Bài 12                                |
+Trước khi đưa app lên Vercel, bạn cần chuẩn bị một vài thứ cơ bản.
+
+| Việc cần chuẩn bị        | Ghi chú                                |
+| ------------------------ | -------------------------------------- |
+| Tài khoản GitHub         | Dùng để lưu trữ code của app           |
+| Tài khoản Vercel         | Có thể đăng nhập bằng tài khoản GitHub |
+| Code ứng dụng hoàn chỉnh | App nên chạy ổn ở local hoặc preview   |
+| Tên dự án rõ ràng        | Giúp link deploy dễ nhớ hơn            |
+
+---
 
 ## 4. Quy Trình Deploy Lên Vercel
 
 ```mermaid
 flowchart TD
-    A["Tải code ứng dụng lên GitHub (tạo repository mới)"] --> B["Đăng nhập Vercel bằng tài khoản GitHub"]
-    B --> C["Chọn 'New Project' trong Vercel"]
-    C --> D["Chọn repository GitHub chứa code ứng dụng"]
-    D --> E["Vercel tự động nhận diện cấu hình, bấm Deploy"]
-    E --> F["Chờ vài phút để Vercel build và triển khai"]
-    F --> G["Nhận đường link công khai dạng ten-app.vercel.app"]
+    A["Hoàn thiện code ứng dụng"] --> B["Đưa code lên GitHub"]
+    B --> C["Đăng nhập Vercel bằng GitHub"]
+    C --> D["Chọn New Project"]
+    D --> E["Chọn repository chứa app"]
+    E --> F["Xác nhận cấu hình deploy"]
+    F --> G["Bấm Deploy"]
+    G --> H["Vercel build ứng dụng"]
+    H --> I["Nhận link công khai"]
 ```
+
+---
 
 ## 5. Các Bước Chi Tiết
 
-1. **Tải code lên GitHub**: Nếu chưa quen thao tác Git, có thể nhờ AI hướng dẫn từng bước cụ thể, hoặc dùng tính năng tải file trực tiếp trên giao diện web của GitHub (Upload files).
-2. **Đăng nhập Vercel**: Vào [vercel.com], chọn "Continue with GitHub" để liên kết tài khoản.
-3. **Tạo dự án mới**: Chọn "Add New Project", sau đó chọn đúng repository chứa code ứng dụng bạn muốn deploy.
-4. **Xác nhận cấu hình**: Với ứng dụng HTML/CSS/JS thuần, Vercel thường tự nhận diện đúng cấu hình mặc định — chỉ cần bấm **Deploy**.
-5. **Nhận link**: Sau khi build xong (thường vài chục giây đến vài phút), Vercel cung cấp đường link dạng `https://ten-du-an.vercel.app`.
+### Bước 1: Tải Code Lên GitHub
+
+Trước tiên, bạn cần đưa source code của ứng dụng lên GitHub.
+
+Nếu chưa quen dùng Git, bạn có thể dùng cách đơn giản hơn:
+
+* Tạo repository mới trên GitHub.
+* Chọn **Upload files**.
+* Kéo thả toàn bộ code dự án vào.
+* Bấm **Commit changes**.
+
+Nếu dùng Git trong terminal, quy trình thường là:
+
+```bash
+git init
+git add .
+git commit -m "Initial deploy"
+git branch -M main
+git remote add origin <repository-url>
+git push -u origin main
+```
+
+---
+
+### Bước 2: Đăng Nhập Vercel
+
+Truy cập [Vercel](https://vercel.com), sau đó chọn:
+
+```text
+Continue with GitHub
+```
+
+Việc này giúp Vercel đọc được danh sách repository trong GitHub của bạn.
+
+---
+
+### Bước 3: Tạo Dự Án Mới
+
+Trong dashboard Vercel:
+
+```text
+Add New → Project
+```
+
+Sau đó chọn repository chứa code ứng dụng bạn muốn deploy.
+
+---
+
+### Bước 4: Xác Nhận Cấu Hình
+
+Với các app phổ biến như:
+
+* React
+* Next.js
+* Vite
+* HTML/CSS/JS thuần
+
+Vercel thường tự nhận diện đúng cấu hình.
+
+Ví dụ với app React/Vite, Vercel có thể tự nhận:
+
+| Mục              | Ví dụ           |
+| ---------------- | --------------- |
+| Framework Preset | Vite            |
+| Build Command    | `npm run build` |
+| Output Directory | `dist`          |
+
+Thông thường, nếu Vercel đã tự điền đúng, bạn chỉ cần bấm:
+
+```text
+Deploy
+```
+
+---
+
+### Bước 5: Nhận Link Công Khai
+
+Sau khi build xong, Vercel sẽ cung cấp một link dạng:
+
+```text
+https://ten-du-an.vercel.app
+```
+
+Đây là link thật để bạn gửi cho người khác dùng thử app.
+
+---
 
 ## 6. Kiểm Tra Sau Khi Deploy
 
-Sau khi có link, hãy kiểm tra lại toàn bộ ứng dụng **trên chính đường link đó** (không phải bản xem trước cũ), vì đôi khi có khác biệt giữa môi trường thử nghiệm và môi trường thật:
+Sau khi có link, không nên dừng lại ngay. Bạn cần kiểm tra app trên chính link thật, vì môi trường production đôi khi khác với môi trường preview/local.
 
-| Việc cần kiểm tra                              | Ghi chú                                                    |
-| --------------------------------------------------- | ----------------------------------------------------------------- |
-| Mở link trên trình duyệt máy tính                     | Kiểm tra giao diện và chức năng như bình thường                    |
-| Mở link trên điện thoại                                | Đảm bảo giao diện responsive vẫn hoạt động tốt                     |
-| Thử lại toàn bộ luồng thao tác chính                  | Không chỉ mở trang, mà thực sự thao tác thử từng chức năng          |
-| Gửi link cho một người khác thử                       | Xác nhận người ngoài cũng truy cập và dùng được bình thường          |
+| Việc cần kiểm tra           | Mục đích                                         |
+| --------------------------- | ------------------------------------------------ |
+| Mở link trên máy tính       | Kiểm tra giao diện desktop                       |
+| Mở link trên điện thoại     | Kiểm tra responsive                              |
+| Thử toàn bộ chức năng chính | Đảm bảo app không chỉ mở được mà còn dùng được   |
+| Gửi link cho người khác     | Kiểm tra người ngoài có truy cập được không      |
+| Kiểm tra lỗi console nếu có | Phát hiện lỗi JavaScript hoặc lỗi tải tài nguyên |
+
+---
 
 ## 7. Cập Nhật App Sau Khi Đã Deploy
 
-Điểm mạnh của Vercel là khi bạn cập nhật code trên GitHub (ví dụ sửa lỗi hoặc thêm tính năng mới), Vercel sẽ **tự động build lại và cập nhật app** trên cùng một đường link, không cần deploy lại thủ công.
+Một điểm mạnh của Vercel là sau khi kết nối với GitHub, mỗi lần bạn cập nhật code lên GitHub, Vercel có thể tự động build lại.
 
 ```mermaid
 flowchart LR
-    A["Sửa code, cập nhật lên GitHub"] --> B["Vercel tự động phát hiện thay đổi"]
-    B --> C["Tự động build lại"]
-    C --> D["App trên link cũ được cập nhật tự động"]
+    A["Sửa code trên máy"] --> B["Commit thay đổi"]
+    B --> C["Push lên GitHub"]
+    C --> D["Vercel phát hiện thay đổi"]
+    D --> E["Tự động build lại"]
+    E --> F["Link cũ được cập nhật"]
 ```
+
+Điều này có nghĩa là bạn không cần tạo link mới mỗi lần sửa app. Người dùng vẫn truy cập cùng một link, nhưng nội dung app đã được cập nhật.
+
+---
+
+## 8. Checklist Deploy App Lên Vercel
+
+Trước khi coi app là đã deploy thành công, hãy kiểm tra nhanh checklist sau:
+
+```text
+[ ] App đã chạy ổn ở local hoặc preview
+[ ] Code đã được đưa lên GitHub
+[ ] Đã đăng nhập Vercel bằng GitHub
+[ ] Đã chọn đúng repository
+[ ] Vercel build thành công
+[ ] Đã nhận được link .vercel.app
+[ ] Link mở được trên máy tính
+[ ] Link mở được trên điện thoại
+[ ] Chức năng chính hoạt động bình thường
+[ ] Đã gửi link cho người khác kiểm tra thử
+```
+
+---
+
+## 9. Lỗi Thường Gặp Khi Deploy
+
+| Lỗi                                  | Nguyên nhân thường gặp             | Cách xử lý                                     |
+| ------------------------------------ | ---------------------------------- | ---------------------------------------------- |
+| Build failed                         | Thiếu package hoặc lỗi code        | Xem log lỗi trong Vercel                       |
+| Trang trắng                          | Sai cấu hình build/output          | Kiểm tra `Build Command` và `Output Directory` |
+| App chạy local được nhưng deploy lỗi | Biến môi trường chưa cấu hình      | Thêm Environment Variables trong Vercel        |
+| Hình ảnh không hiển thị              | Sai đường dẫn file                 | Kiểm tra lại đường dẫn ảnh trong project       |
+| Link mở được nhưng tính năng lỗi     | Khác biệt giữa local và production | Test lại toàn bộ luồng trên link thật          |
 
 ---
 
 ## Điều Cần Ghi Nhớ
 
-* Deploy là bước biến app từ "chạy trên máy bạn" thành "chạy trên internet, ai cũng dùng được".
-* Vercel miễn phí, kết nối trực tiếp với GitHub, không cần kiến thức về server.
-* Sau khi deploy, luôn kiểm tra lại toàn bộ chức năng trên chính đường link thật.
-* Mỗi lần cập nhật code trên GitHub, Vercel tự động build lại — không cần deploy thủ công lần nữa.
+* **Deploy** là bước biến app từ “chỉ chạy trên máy bạn” thành “chạy trên internet”.
+* **Vercel** giúp deploy app web miễn phí và rất nhanh.
+* App nên được đưa lên **GitHub** trước khi deploy.
+* Sau khi deploy, luôn kiểm tra app trên **link thật**.
+* Khi cập nhật code lên GitHub, Vercel có thể tự động cập nhật app trên cùng một link.
+
+---
 
 ## Tóm Tắt Bài Học
 
-Deploy là cột mốc quan trọng biến ứng dụng cá nhân thành sản phẩm thật mà bất kỳ ai cũng có thể truy cập. Với Vercel, quá trình này chỉ mất vài phút và hoàn toàn miễn phí. Trong bài tiếp theo, bạn sẽ học cách kết nối API Key AI thật vào ứng dụng — bước "kích hoạt não" để app có khả năng tự sinh nội dung thông minh thay vì chỉ dùng dữ liệu mẫu cố định.
+Deploy là cột mốc quan trọng giúp ứng dụng cá nhân trở thành một sản phẩm thật có thể chia sẻ cho người khác. Với Vercel, bạn không cần biết nhiều về server hay hạ tầng kỹ thuật, chỉ cần đưa code lên GitHub, kết nối với Vercel và bấm deploy.
+
+Sau bài này, bạn đã biết cách đưa app lên internet miễn phí và có một đường link thật để chia sẻ. Ở bài tiếp theo, bạn sẽ học cách kết nối **API Key AI thật** vào ứng dụng, giúp app có khả năng sinh nội dung thông minh thay vì chỉ dùng dữ liệu mẫu cố định.

@@ -1,22 +1,55 @@
-# Bài 15: Thực Hành Build App Soạn Văn Bản — Nhập Thông Tin, Xuất Văn Bản Hoàn Chỉnh
+# Bài 15: Thực Hành Build App Soạn Văn Bản
+
+## Nhập Thông Tin, Xuất Văn Bản Hoàn Chỉnh
 
 ## Mục Tiêu Bài Học
 
 Sau bài này, bạn sẽ:
 
-* Build được một ứng dụng **nhập dữ liệu → sinh văn bản hoàn chỉnh**, dạng ứng dụng rất phổ biến trong công việc thực tế (soạn email, mô tả sản phẩm, bài đăng mạng xã hội...).
-* Hiểu cách thiết kế form nhập liệu có cấu trúc để tạo ra prompt chất lượng cho AI sinh nội dung.
-* Đây là bước đệm quan trọng trước khi kết nối AI API thật ở Bài 17.
+* Build được một ứng dụng dạng **nhập dữ liệu → sinh văn bản hoàn chỉnh**.
+* Hiểu cách thiết kế form nhập liệu có cấu trúc để tạo prompt tốt cho AI.
+* Biết cách làm bản demo trước khi kết nối AI API thật.
+* Chuẩn bị nền tảng để học kết nối AI API ở Bài 17.
 
 ---
 
-## 1. Bài Toán: App Soạn Văn Bản Dùng Để Làm Gì?
+# 1. Bài Toán: App Soạn Văn Bản Dùng Để Làm Gì?
 
-Rất nhiều công việc hằng ngày cần soạn văn bản theo khuôn mẫu: email xin nghỉ phép, mô tả sản phẩm bán hàng, bài đăng quảng cáo... Một ứng dụng cho phép người dùng **điền thông tin vào form**, sau đó tự động tạo ra văn bản hoàn chỉnh, sẽ tiết kiệm rất nhiều thời gian.
+Trong công việc hằng ngày, rất nhiều nội dung được viết theo khuôn mẫu, ví dụ:
 
-Trong bài này, ta thực hành với ví dụ: **App soạn mô tả sản phẩm bán hàng**.
+* Email xin nghỉ phép.
+* Mô tả sản phẩm bán hàng.
+* Bài đăng mạng xã hội.
+* Tin nhắn chăm sóc khách hàng.
+* Nội dung quảng cáo ngắn.
 
-## 2. Viết PRD Cho App Soạn Văn Bản
+Nếu mỗi lần đều phải viết từ đầu, người dùng sẽ mất nhiều thời gian. Vì vậy, ta có thể tạo một ứng dụng cho phép người dùng:
+
+```text
+Nhập thông tin cần thiết → Bấm nút tạo → Nhận văn bản hoàn chỉnh
+```
+
+Trong bài này, ta thực hành với ví dụ:
+
+> **App soạn mô tả sản phẩm bán hàng**
+
+---
+
+# 2. Luồng Hoạt Động Của App
+
+```mermaid
+flowchart TD
+    A["Người dùng nhập thông tin sản phẩm"] --> B["Bấm nút Tạo mô tả sản phẩm"]
+    B --> C["Ứng dụng đọc dữ liệu từ form"]
+    C --> D["Ghép dữ liệu thành đoạn mô tả mẫu"]
+    D --> E["Hiển thị kết quả bên phải"]
+    E --> F["Người dùng bấm Sao chép"]
+    F --> G["Văn bản được copy vào clipboard"]
+```
+
+---
+
+# 3. PRD Cho App Soạn Mô Tả Sản Phẩm
 
 ```text
 # PRD: Công Cụ Soạn Mô Tả Sản Phẩm Bán Hàng
@@ -26,91 +59,219 @@ Trong bài này, ta thực hành với ví dụ: **App soạn mô tả sản ph�
 và nhận về đoạn mô tả sản phẩm hoàn chỉnh, hấp dẫn.
 
 ## 2. Đối tượng người dùng
-Người bán hàng online cần viết mô tả sản phẩm nhanh, không giỏi viết lách.
+Người bán hàng online cần viết mô tả sản phẩm nhanh,
+nhưng không giỏi viết lách.
 
 ## 3. Vấn đề cần giải quyết
-Viết mô tả sản phẩm hấp dẫn tốn thời gian và không phải ai cũng có kỹ năng viết tốt.
+Viết mô tả sản phẩm hấp dẫn tốn thời gian,
+và không phải ai cũng có kỹ năng viết nội dung tốt.
 
 ## 4. Danh sách chức năng
-- Form nhập: Tên sản phẩm, Đặc điểm nổi bật (3-5 gạch đầu dòng), Đối tượng khách hàng, Tông giọng văn (vui vẻ / chuyên nghiệp / sang trọng).
+- Form nhập thông tin sản phẩm.
 - Nút "Tạo mô tả sản phẩm".
-- Khu vực hiển thị kết quả văn bản đã tạo.
-- Nút "Sao chép" để copy văn bản kết quả.
+- Khu vực hiển thị văn bản kết quả.
+- Nút "Sao chép" để copy văn bản.
 
 ## 5. Yêu cầu giao diện
-- Bố cục: form nhập liệu bên trái, kết quả văn bản bên phải.
-- Phong cách: gọn gàng, rõ ràng, dễ điền thông tin.
+- Bố cục gồm 2 phần:
+  - Bên trái: form nhập liệu.
+  - Bên phải: kết quả văn bản.
+- Giao diện gọn gàng, rõ ràng, dễ sử dụng.
 
 ## 6. Tiêu chí hoàn thành
-- Điền đầy đủ form, bấm tạo, nhận được đoạn mô tả hợp lý và sao chép được kết quả.
+- Người dùng điền đầy đủ form.
+- Bấm nút tạo mô tả.
+- Nhận được đoạn mô tả sản phẩm hợp lý.
+- Có thể sao chép kết quả thành công.
 ```
-
-## 3. Thiết Kế Form Nhập Liệu Có Cấu Trúc
-
-Điểm mấu chốt của loại app này là **form nhập liệu phải đủ chi tiết** để prompt gửi cho AI có đầy đủ thông tin sinh văn bản chất lượng.
-
-| Trường thông tin           | Vì sao cần thiết                                             |
-| ------------------------------ | ------------------------------------------------------------------ |
-| Tên sản phẩm                    | Là chủ thể chính của đoạn mô tả                                     |
-| Đặc điểm nổi bật                | Nội dung cốt lõi để AI triển khai thành câu văn                     |
-| Đối tượng khách hàng            | Giúp AI chọn từ ngữ, giọng văn phù hợp người đọc                    |
-| Tông giọng văn                  | Quyết định phong cách: vui vẻ, trang trọng hay sang trọng           |
-
-## 4. Các Bước Thực Hành
-
-```mermaid
-flowchart TD
-    A["Chuẩn bị PRD"] --> B["Bước 1: Build form nhập liệu 4 trường thông tin"]
-    B --> C["Bước 2: Thêm nút Tạo mô tả + khu vực hiển thị kết quả"]
-    C --> D["Bước 3: Kết nối logic ghép thông tin form thành đoạn văn (bản demo, chưa dùng AI thật)"]
-    D --> E["Bước 4: Thêm nút Sao chép kết quả"]
-    E --> F["Kiểm tra: điền form, tạo mô tả, sao chép có hoạt động không?"]
-```
-
-## 5. Prompt Mẫu Cho Từng Bước
-
-**Bước 1:**
-
-```text
-Hãy build một form nhập liệu với 4 trường:
-- Tên sản phẩm (ô nhập văn bản ngắn).
-- Đặc điểm nổi bật (ô nhập văn bản nhiều dòng).
-- Đối tượng khách hàng (ô nhập văn bản ngắn).
-- Tông giọng văn (menu chọn: Vui vẻ / Chuyên nghiệp / Sang trọng).
-```
-
-**Bước 2 và 3 (bản demo, ghép logic đơn giản trước khi có AI thật):**
-
-```text
-Hãy thêm nút "Tạo mô tả sản phẩm". Khi bấm, hãy ghép các thông tin đã nhập
-thành một đoạn mô tả mẫu theo khuôn có sẵn (chưa cần dùng AI thật ở bước này),
-hiển thị kết quả trong khung bên phải, để tôi kiểm tra luồng hoạt động trước.
-```
-
-**Bước 4:**
-
-```text
-Hãy thêm nút "Sao chép" bên dưới khung kết quả,
-khi bấm sẽ copy toàn bộ văn bản kết quả vào clipboard
-và hiển thị thông báo ngắn "Đã sao chép!".
-```
-
-## 6. Vì Sao Làm Bản Demo (Chưa Kết Nối AI Thật) Trước?
-
-Ở bài này, ta cố tình build phần logic sinh văn bản dưới dạng **bản demo đơn giản** (ghép câu theo khuôn có sẵn), thay vì kết nối AI thật ngay. Lý do:
-
-* Đảm bảo **toàn bộ giao diện và luồng thao tác hoạt động đúng** trước khi thêm độ phức tạp của việc gọi AI.
-* Dễ debug hơn — nếu có lỗi, biết chắc là do giao diện/logic, không lẫn với lỗi kết nối AI.
-* Đây là bước đệm hợp lý trước khi học kết nối AI API Key thật ở Bài 17.
 
 ---
 
-## Điều Cần Ghi Nhớ
+# 4. Thiết Kế Form Nhập Liệu Có Cấu Trúc
 
-* App dạng "nhập thông tin → xuất văn bản" cần form nhập liệu đủ chi tiết để có kết quả chất lượng.
-* Nên build và kiểm tra luồng hoạt động bằng bản demo trước khi kết nối AI thật.
-* Vẫn áp dụng nguyên tắc chia nhỏ từng bước prompt như các bài trước.
+Điểm quan trọng nhất của app dạng này là **form nhập liệu phải đủ rõ**.
 
-## Tóm Tắt Bài Học
+Nếu form quá sơ sài, AI hoặc logic tạo nội dung sẽ không có đủ thông tin để viết hay.
 
-Bài này giúp bạn build hoàn chỉnh giao diện và luồng hoạt động của một ứng dụng soạn văn bản tự động — dạng ứng dụng có tính ứng dụng rất cao trong công việc. Trong bài tiếp theo, bạn sẽ học cách đưa ứng dụng này (và các ứng dụng khác đã build) lên internet bằng Vercel, để có thể truy cập từ bất kỳ đâu.
+| Trường thông tin     | Mục đích                                      |
+| -------------------- | --------------------------------------------- |
+| Tên sản phẩm         | Xác định sản phẩm chính cần mô tả             |
+| Đặc điểm nổi bật     | Cung cấp ý chính để triển khai thành nội dung |
+| Đối tượng khách hàng | Giúp chọn cách viết phù hợp với người đọc     |
+| Tông giọng văn       | Quyết định phong cách nội dung                |
+
+Ví dụ form:
+
+| Trường               | Kiểu nhập           |
+| -------------------- | ------------------- |
+| Tên sản phẩm         | Ô nhập văn bản ngắn |
+| Đặc điểm nổi bật     | Ô nhập nhiều dòng   |
+| Đối tượng khách hàng | Ô nhập văn bản ngắn |
+| Tông giọng văn       | Menu chọn           |
+
+---
+
+# 5. Các Bước Thực Hành
+
+```mermaid
+flowchart TD
+    A["Chuẩn bị PRD"] --> B["Bước 1: Build form nhập liệu"]
+    B --> C["Bước 2: Thêm nút tạo mô tả"]
+    C --> D["Bước 3: Viết logic demo ghép văn bản"]
+    D --> E["Bước 4: Hiển thị kết quả"]
+    E --> F["Bước 5: Thêm nút sao chép"]
+    F --> G["Kiểm tra toàn bộ luồng"]
+```
+
+---
+
+# 6. Prompt Mẫu Cho Từng Bước
+
+## Bước 1: Build Form Nhập Liệu
+
+```text
+Hãy build một form nhập liệu với 4 trường:
+
+- Tên sản phẩm: ô nhập văn bản ngắn.
+- Đặc điểm nổi bật: ô nhập văn bản nhiều dòng.
+- Đối tượng khách hàng: ô nhập văn bản ngắn.
+- Tông giọng văn: menu chọn gồm Vui vẻ, Chuyên nghiệp, Sang trọng.
+
+Giao diện chia làm 2 cột:
+- Bên trái là form nhập liệu.
+- Bên phải là khu vực hiển thị kết quả.
+```
+
+---
+
+## Bước 2: Thêm Nút Tạo Mô Tả
+
+```text
+Hãy thêm nút "Tạo mô tả sản phẩm".
+
+Khi người dùng bấm nút này, ứng dụng sẽ lấy dữ liệu đã nhập từ form
+và chuẩn bị tạo đoạn mô tả sản phẩm.
+```
+
+---
+
+## Bước 3: Tạo Logic Demo Chưa Dùng AI Thật
+
+```text
+Hãy viết logic demo để ghép các thông tin đã nhập thành một đoạn mô tả mẫu.
+
+Chưa cần kết nối AI thật ở bước này.
+
+Ví dụ:
+- Tên sản phẩm sẽ được đưa vào câu mở đầu.
+- Đặc điểm nổi bật sẽ được triển khai thành phần lợi ích.
+- Đối tượng khách hàng sẽ được nhắc đến trong đoạn mô tả.
+- Tông giọng văn sẽ ảnh hưởng đến cách viết.
+```
+
+---
+
+## Bước 4: Hiển Thị Kết Quả
+
+```text
+Hãy hiển thị đoạn mô tả sản phẩm đã tạo trong khung kết quả bên phải.
+
+Nếu người dùng chưa nhập đủ thông tin,
+hãy hiển thị thông báo yêu cầu điền đầy đủ form.
+```
+
+---
+
+## Bước 5: Thêm Nút Sao Chép
+
+```text
+Hãy thêm nút "Sao chép" bên dưới khung kết quả.
+
+Khi bấm nút này:
+- Copy toàn bộ văn bản kết quả vào clipboard.
+- Hiển thị thông báo ngắn: "Đã sao chép!".
+```
+
+---
+
+# 7. Ví Dụ Dữ Liệu Đầu Vào Và Kết Quả
+
+## Dữ liệu người dùng nhập
+
+| Trường               | Nội dung                                          |
+| -------------------- | ------------------------------------------------- |
+| Tên sản phẩm         | Bình giữ nhiệt inox 500ml                         |
+| Đặc điểm nổi bật     | Giữ nóng 8 giờ, giữ lạnh 12 giờ, thiết kế nhỏ gọn |
+| Đối tượng khách hàng | Dân văn phòng, học sinh, người hay di chuyển      |
+| Tông giọng văn       | Chuyên nghiệp                                     |
+
+## Kết quả demo có thể tạo ra
+
+```text
+Bình giữ nhiệt inox 500ml là lựa chọn tiện lợi cho dân văn phòng,
+học sinh và những người thường xuyên di chuyển.
+
+Sản phẩm có khả năng giữ nóng lên đến 8 giờ, giữ lạnh đến 12 giờ,
+giúp bạn luôn có đồ uống phù hợp trong suốt ngày dài. Với thiết kế nhỏ gọn,
+bình dễ dàng mang theo khi đi học, đi làm hoặc đi du lịch.
+
+Đây là sản phẩm phù hợp cho những ai cần một chiếc bình bền đẹp,
+tiện dụng và hỗ trợ tốt cho sinh hoạt hằng ngày.
+```
+
+---
+
+# 8. Vì Sao Chưa Kết Nối AI Thật Ở Bài Này?
+
+Ở bài này, ta cố tình làm bản demo bằng logic ghép câu đơn giản trước.
+
+Lý do:
+
+* Dễ kiểm tra giao diện và luồng thao tác.
+* Dễ phát hiện lỗi form, lỗi nút bấm, lỗi hiển thị.
+* Không bị rối bởi lỗi API key, lỗi mạng hoặc lỗi gọi AI.
+* Có nền tảng ổn định trước khi học kết nối AI thật ở Bài 17.
+
+Có thể hiểu đơn giản:
+
+```text
+Làm app chạy đúng trước → Sau đó mới làm app thông minh hơn
+```
+
+---
+
+# 9. Checklist Kiểm Tra Sau Khi Build
+
+| Hạng mục                              | Đã đạt? |
+| ------------------------------------- | ------- |
+| Form có đủ 4 trường thông tin         | ☐       |
+| Người dùng nhập được dữ liệu          | ☐       |
+| Có nút "Tạo mô tả sản phẩm"           | ☐       |
+| Bấm nút tạo ra văn bản kết quả        | ☐       |
+| Kết quả hiển thị rõ ràng bên phải     | ☐       |
+| Có nút "Sao chép"                     | ☐       |
+| Copy văn bản vào clipboard thành công | ☐       |
+| Có thông báo "Đã sao chép!"           | ☐       |
+
+---
+
+# 10. Điều Cần Ghi Nhớ
+
+* App dạng **nhập thông tin → xuất văn bản** rất phổ biến trong công việc thực tế.
+* Chất lượng văn bản đầu ra phụ thuộc nhiều vào chất lượng form đầu vào.
+* Nên build bản demo trước khi kết nối AI thật.
+* Chia nhỏ prompt theo từng bước sẽ giúp AI code đúng hơn và dễ sửa lỗi hơn.
+
+---
+
+# Tóm Tắt Bài Học
+
+Trong bài này, bạn đã học cách xây dựng một app soạn văn bản tự động theo luồng:
+
+```text
+Nhập thông tin sản phẩm → Tạo mô tả → Hiển thị kết quả → Sao chép văn bản
+```
+
+Đây là dạng app rất thực tế, có thể áp dụng cho nhiều nhu cầu như viết email, mô tả sản phẩm, bài đăng quảng cáo hoặc nội dung chăm sóc khách hàng.
+
+Ở bài tiếp theo, bạn sẽ học cách đưa ứng dụng đã build lên internet bằng **Vercel**, để có thể truy cập và chia sẻ từ bất kỳ đâu.

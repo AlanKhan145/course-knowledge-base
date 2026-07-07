@@ -20,6 +20,8 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Claude AI Agents Cowork Masterclass](./claude-aiagents-cowork-masterclass/) | Claude Code, Claude Cowork, Agent Automation | English | ✅ |
 | [Claude Code & Claude Cowork Masterclass 2026](./claude-code-cowork-masterclass-2026/) | Claude Code, Claude Cowork, Agentic Workflows | Vietnamese | ✅ |
 | [Claude Code - The Practical Guide](./claude-code-the-practical-guide/) | Claude Code Setup, Agentic Workflows, Scheduled Tasks | English | ✅ |
+| [Khóa Học Vibe Coding](./khoa-hoc-vibe-coding/) | Vibe Coding, Prompting, Model AI, Debugging, Refactor, UI/UX Polish, Đóng Gói & Phát Hành | Vietnamese | ✅ |
+| [Khóa Học Vibe Coding Cơ Bản Cho Người Mới Bắt Đầu](./khoa-hoc-vibe-coding-co-ban/) | Vibe Coding, PRD, ChatGPT, Claude, Google AI Studio, Google Stitch, Vercel, Antigravity | Vietnamese | ✅ |
 | [LangChain - Agentic AI Engineering](./langchain/) | LangChain, LangGraph, Agentic AI Apps | English | ✅ |
 | [RAG: Basic to Advanced](./rag-basic-to-advanced/) | LangChain, Vector DBs, Embeddings, RAG Chatbots | English | ✅ |
 | [Ultimate RAG Bootcamp](./ultimate-rag-bootcamp/) | Traditional/Advanced/Multimodal/Agentic/Graph RAG, LangGraph, LangSmith | English | ✅ |
