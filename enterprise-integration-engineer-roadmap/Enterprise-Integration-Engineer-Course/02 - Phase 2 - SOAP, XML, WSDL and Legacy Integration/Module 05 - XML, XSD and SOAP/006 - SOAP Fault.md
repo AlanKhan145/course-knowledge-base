@@ -1,0 +1,6 @@
+# 006 - SOAP Fault
+
+**Phase:** Phase 2 - SOAP, XML, WSDL and Legacy Integration
+**Module:** Module 05 - XML, XSD and SOAP
+
+---
