@@ -1,46 +1,227 @@
 # 025 - Day 4 - YOLO Mode: Building a Next.js Website with GPT Codex in Cursor
 
-## Thông tin bài học
+## Lesson Information
 
-| Mục        | Thông tin         |
-| ---------- | ----------------- |
-| Bài học    | 025         |
-| Thời lượng | 11min        |
-| Tuần       | Week 1 - Vibe Coding Foundation            |
-| Module     | Week 1 Day 4 - YOLO Mode, Model Choice, OpenRouter         |
+| Item     | Details                                             |
+| -------- | --------------------------------------------------- |
+| Lesson   | 025                                                 |
+| Duration | 11 minutes                                          |
+| Week     | Week 1 - Vibe Coding Foundation                     |
+| Module   | Week 1 Day 4 - YOLO Mode, Model Choice, OpenRouter  |
+| Topic    | Building a Next.js website with GPT Codex in Cursor |
 
-## Nội dung chính
+## Main Idea
 
-Build website Next.js bằng GPT Codex trong Cursor: khởi tạo project, tạo layout/component/pages, dùng agent để iterate UI và kiểm tra lỗi build và runtime.
+In this lesson, you use **YOLO Mode** inside Cursor to let an AI coding agent build a professional **Next.js website** from a simple instruction. The workflow includes creating a project folder, setting up environment variables, adding a resume or LinkedIn PDF, selecting a strong coding model, running the project locally, and asking the agent to fix errors when they appear.
 
-## Mục tiêu học tập
+## Learning Objectives
 
-Sau bài học này, học viên có thể:
+By the end of this lesson, learners will be able to:
 
-- Hiểu và áp dụng các khái niệm được trình bày trong bài
-- Thực hành theo demo để nắm kỹ năng thực tế
-- Kết nối kiến thức với các bài học trước và sau trong module
+* Create a new Cursor project for a Next.js website.
+* Set up an `.env` file for API keys safely.
+* Add `.env` to `.gitignore` to avoid leaking secrets.
+* Give a high-level instruction to an AI coding agent.
+* Use YOLO Mode to let the agent create files and run commands automatically.
+* Start a Next.js project locally with `npm run dev`.
+* Copy runtime/build errors back into the agent for fast iteration.
 
-## Khái niệm trọng tâm
+## Core Workflow
 
-### Khái niệm 1
+```mermaid
+flowchart TD
+    A["Open Cursor Project"] --> B["Create .env File"]
+    B --> C["Create .gitignore"]
+    C --> D["Add LinkedIn PDF or Resume"]
+    D --> E["Choose Codex Model"]
+    E --> F["Send Website Prompt"]
+    F --> G["Agent Builds Next.js App"]
+    G --> H["Run npm run dev"]
+    H --> I{"Website Works?"}
+    I -->|Yes| J["Review and Improve UI"]
+    I -->|No| K["Paste Error Back to Agent"]
+    K --> G
+```
 
-Đây là khái niệm cốt lõi trong bài học này. Học viên cần nắm vững và kết nối với các bài học liên quan trong tuần **Week 1 - Vibe Coding Foundation**.
+## Step 1: Create a New Project in Cursor
 
-### Khái niệm 2
+Open Cursor and create a new project folder, for example:
 
-Khái niệm thứ hai bổ sung và mở rộng hiểu biết về chủ đề. Thực hành ngay sau khi học để củng cố.
+```text
+Site
+```
 
-### Khái niệm 3
+This folder will become the workspace where the AI agent creates the website.
 
-Ứng dụng thực tế: cách áp dụng các khái niệm vào workflow coding agent hàng ngày.
+## Step 2: Create the `.env` File
 
-## Tại sao bài học này quan trọng
+Inside the project folder, create a file named exactly:
 
-Bài học này là mắt xích thiết yếu trong **Week 1 Day 4 - YOLO Mode, Model Choice, OpenRouter**. Build website Next.js bằng GPT Codex trong Cursor: khởi tạo project, tạo layout/component/pages, dùng agent để iterate UI và kiểm tra lỗi build và runtime.
+```text
+.env
+```
 
-Học viên nắm chắc bài này sẽ có nền tảng vững chắc để tiến sang các bài học nâng cao hơn trong khóa học.
+Add your API key in the correct format:
 
-## Tóm tắt
+```env
+OPENROUTER_API_KEY=your_api_key_here
+```
 
-Bài **025 - Day 4 - YOLO Mode: Building a Next.js Website with GPT Codex in Cursor** (11min) thuộc **Week 1 Day 4 - YOLO Mode, Model Choice, OpenRouter** trong tuần **Week 1 - Vibe Coding Foundation**. Build website Next.js bằng GPT Codex trong Cursor: khởi tạo project, tạo layout/component/pages, dùng agent để iterate UI và kiểm tra lỗi build và runtime. Học viên được khuyến khích thực hành lại demo, áp dụng vào project cá nhân và kết nối kiến thức với các bài học liền kề để xây dựng hiểu biết toàn diện về AI coding agents.
+If you are using OpenAI directly, use:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+```
+
+The name must be exact. If the variable is misspelled, the app may not work.
+
+## Step 3: Create `.gitignore`
+
+Create another file named:
+
+```text
+.gitignore
+```
+
+Add:
+
+```gitignore
+.env
+```
+
+This prevents your API key from being accidentally committed to Git.
+
+## Step 4: Add Your Profile or Resume
+
+The instructor uses a LinkedIn profile exported as a PDF:
+
+```text
+LinkedIn.pdf
+```
+
+If LinkedIn does not allow you to export your profile, you can use:
+
+* A resume PDF
+* A CV PDF
+* A plain text file containing your profile information
+* Manually copied LinkedIn text
+
+The goal is to give the AI enough personal information to build a customized website.
+
+## Step 5: Configure Cursor Agent Settings
+
+In Cursor settings, go to the agent section and check:
+
+| Setting              | Suggested Option                             |
+| -------------------- | -------------------------------------------- |
+| Usage Summary        | Always                                       |
+| Auto Run / YOLO Mode | Run Everything Unsandboxed, if comfortable   |
+| Model                | A strong coding model such as GPT Codex High |
+
+If you are not comfortable with full YOLO Mode, choose a safer mode where Cursor asks for approval before running actions.
+
+## Step 6: Send the Website-Building Prompt
+
+Example prompt:
+
+```text
+Please build me a professional website running locally.
+
+My LinkedIn profile is in LinkedIn.pdf.
+
+Make the website stunning. Enterprise meets edgy.
+
+It should include:
+- About me
+- My career journey
+- Links to a future portfolio
+
+Iterate to make it as slick and professional as possible.
+
+Let me know when complete.
+
+Use Next.js.
+```
+
+This is intentionally high-level. In YOLO Mode, the agent is trusted to create the project structure, install dependencies, build pages, and make design decisions.
+
+## Step 7: Run the Website Locally
+
+After the agent finishes, it may tell you to run:
+
+```bash
+cd web
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+If the page loads correctly, review the design and functionality.
+
+## Step 8: Fix Errors by Pasting Them Back
+
+If the website fails to load or shows an error, copy the full error message from the browser or terminal and paste it directly into the Cursor agent.
+
+In YOLO workflow, you can simply send the error and let the agent fix it.
+
+## Key Concepts
+
+### 1. YOLO Mode
+
+YOLO Mode means allowing the AI agent to act with minimal interruption. It can create files, edit code, run commands, install packages, and attempt fixes automatically.
+
+This is fast, but it also requires caution because the agent may make mistakes or run commands you did not manually approve.
+
+### 2. Environment Variables
+
+API keys should be stored in `.env` files, not hardcoded into frontend code.
+
+Good practice:
+
+```env
+OPENROUTER_API_KEY=your_key_here
+```
+
+Bad practice:
+
+```js
+const apiKey = "your_key_here";
+```
+
+Secrets should stay outside public code.
+
+### 3. Iterative AI Coding
+
+The first generated version may not work perfectly. The real workflow is:
+
+```text
+Prompt → Generate → Run → Check → Paste Error → Fix → Run Again
+```
+
+This loop is one of the most important habits in AI-assisted coding.
+
+## Practical Notes
+
+| Situation                       | What To Do                                          |
+| ------------------------------- | --------------------------------------------------- |
+| Website does not load           | Paste the full error into the agent                 |
+| Missing API key error           | Check `.env` spelling and variable name             |
+| Wrong project folder            | Use `cd` into the folder the agent created          |
+| Design looks basic              | Ask the agent to improve UI and polish interactions |
+| Agent claims it fixed something | Run the app yourself to verify                      |
+
+## Why This Lesson Matters
+
+This lesson shows the power and risk of agentic coding. With one strong prompt, Cursor and GPT Codex can generate a complete local Next.js website using your profile content.
+
+However, the lesson also demonstrates an important limitation: the agent may say something is fixed before proving it. That is why human review, local testing, and error-checking remain essential.
+
+## Summary
+
+In this lesson, you build a local **Next.js personal website** using **GPT Codex inside Cursor**. You prepare the project, add API keys safely, provide your LinkedIn or resume PDF, enable YOLO Mode, and let the agent generate the site. Then you run the app locally, inspect the result, and use errors as feedback for the next iteration.
+
+The key takeaway: **AI agents can move fast, but you are still responsible for checking the output.**

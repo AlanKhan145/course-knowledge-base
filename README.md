@@ -1,6 +1,6 @@
 # Course Knowledge Base
 
-Personal notes and resources from Udemy courses (plus roadmap.sh-derived study material) covering AI Engineering, LLM/RAG/Agent Development, Mobile Development, Backend Systems, DevOps/Security, Data & Analytics, Product & Leadership, Design, and Game Development.
+Personal notes and resources from Udemy courses (plus roadmap.sh-derived study material) covering AI Engineering, LLM/RAG/Agent Development, Evolutionary Computation, Mobile Development, Backend Systems, DevOps/Security, Data & Analytics, Product & Leadership, Design, and Game Development.
 
 ## Status legend
 
@@ -20,6 +20,7 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Claude AI Agents Cowork Masterclass](./claude-aiagents-cowork-masterclass/) | Claude Code, Claude Cowork, Agent Automation | English | ✅ |
 | [Claude Code & Claude Cowork Masterclass 2026](./claude-code-cowork-masterclass-2026/) | Claude Code, Claude Cowork, Agentic Workflows | Vietnamese | ✅ |
 | [Claude Code - The Practical Guide](./claude-code-the-practical-guide/) | Claude Code Setup, Agentic Workflows, Scheduled Tasks | English | ✅ |
+| [Khóa Học Tính Toán Tiến Hóa](./khoa-hoc-tinh-toan-tien-hoa/) | Genetic Algorithms, Genetic Programming, Differential Evolution, PSO, ACO, Multi-Objective Optimization | Vietnamese | ✅ |
 | [Khóa Học Vibe Coding](./khoa-hoc-vibe-coding/) | Vibe Coding, Prompting, Model AI, Debugging, Refactor, UI/UX Polish, Đóng Gói & Phát Hành | Vietnamese | ✅ |
 | [Khóa Học Vibe Coding Cơ Bản Cho Người Mới Bắt Đầu](./khoa-hoc-vibe-coding-co-ban/) | Vibe Coding, PRD, ChatGPT, Claude, Google AI Studio, Google Stitch, Vercel, Antigravity | Vietnamese | ✅ |
 | [LangChain - Agentic AI Engineering](./langchain/) | LangChain, LangGraph, Agentic AI Apps | English | ✅ |
