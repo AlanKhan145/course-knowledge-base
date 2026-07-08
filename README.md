@@ -85,10 +85,6 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 |--------|--------|----------|--------|
 | [Creative Writing: How to Write a Novel](./writing/creative-writing-how-to-write-a-novel/) | Novel Structure, Character, Plot, Editing | English | ✅ |
 
-## Personal projects
-
-`projects/` holds side projects built while applying course material (not course notes): `genie-ai-backend` (LLM backend service), `astrology`, and a cross-course roadmap doc (`ROADMAP-Auth-Payment-Notification.md`) synthesizing Auth/Payment/Push-Notification patterns from the iOS, Flutter, and Node.js courses.
-
 ## Structure
 
 Each course folder contains:
