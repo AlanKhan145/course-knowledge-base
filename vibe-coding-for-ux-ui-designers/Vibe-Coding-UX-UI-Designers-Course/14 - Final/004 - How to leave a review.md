@@ -1,0 +1,28 @@
+# 004 - How to leave a review
+
+## Section
+
+Final
+
+## Duration
+
+Not listed
+
+## Main Idea
+
+A short administrative lesson on leaving a course review on Udemy. By the end of the lesson, learners should see how How to leave a review connects to designing and shipping AI-assisted UX/UI work without traditional coding.
+
+## Key Topics Mentioned
+
+* Udemy review process
+
+## Review Questions
+
+1. What is the main purpose of How to leave a review in the context of Final?
+2. How would you apply this to a real UX/UI design or prototyping task?
+3. What are the key steps or ideas demonstrated in this lesson?
+4. What risk or limitation should you keep in mind when using this in your own work?
+
+## Summary
+
+A short administrative lesson on leaving a course review on Udemy. This lesson is one building block toward the section's goal: Closes out the course with design-authorship ethics, a look at future AI design trends, final recommendations, and the administrative steps for reviews and certificates.

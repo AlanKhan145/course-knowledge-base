@@ -32,8 +32,15 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | Course | Topics | Language | Status |
 |--------|--------|----------|--------|
 | [Frontend Developer Roadmap 2026](./frontend-developer-roadmap/) | HTML, CSS, JS, React, TypeScript, Next.js, Testing, Performance | English | ✅ |
+| [Figma to Angular Mastery: Design to Code with AI](./figma-to-angular-mastery/) | Figma to Angular, Atomic Design, Tailwind CSS v4, Windsurf AI Coding | English | ✅ |
+| [Vibe-Coding Figma Design System Components with Cursor & Figma MCP](./figma-mcp-cursor-vibe-coding/) | Figma MCP, Cursor, Design Tokens, React Components | English | ✅ |
+| [From Figma to Cursor & Claude Code with MCP: Building Sidebling.com](./figma-to-cursor-claude-code-mcp/) | Figma MCP, Cursor, Claude Code, Nuxt.js, OpenAI API | English | ✅ |
+| [Claude Code + Figma MCP Server for Design to Code](./claude-code-figma-mcp-design-to-code/) | Claude Code, Figma Dev Mode MCP Server, Design-to-Code, React/MUI, Fusion | English | ✅ |
+| [Design to Code with Figma MCP and Cursor](./design-to-code-figma-mcp-cursor/) | Figma Variables, Auto Layout, Figma MCP, Cursor, ReactJS, Design System JSON, Expo, iOS Simulator | English | ✅ |
+| [Converting Figma Designs to Code with Cursor + Figma MCP](./figma-to-code-cursor-mcp/) | MCP Architecture, Figma Context MCP, Cursor, One-Shot Design-to-Code | English | ✅ |
 | [Full-Stack Developer Roadmap](./full-stack-developer-roadmap/) | Frontend + Backend + DevOps Fundamentals | Vietnamese | ✅ |
 | [Flutter & Dart: The Complete Guide](./flutter-dart-the-complete-guide/) | Flutter, Dart, Firebase, State Management | English | ✅ |
+| [3-in-1 Flutter AI Masterclass: 15 Apps with Cursor & Figma](./flutter-ai-masterclass-cursor-figma/) | Flutter, Cursor AI, Figma AI, Firebase, OpenAI API, Design-to-Code | English | ✅ |
 | [Android Developer Roadmap](./android-roadmap/) | Kotlin, Android SDK, Jetpack, App Architecture | Vietnamese | ✅ |
 | [iOS Developer Roadmap](./ios-roadmap/) | Swift, UIKit/SwiftUI, iOS App Architecture | Vietnamese | ✅ |
 
@@ -77,6 +84,9 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Engineering Manager Roadmap](./engineering-manager-roadmap/) | Technical Leadership, People Management, Delivery, Metrics, Culture, Incident Management | Vietnamese | ✅ |
 | [DevRel Roadmap](./devrel-roadmap/) | Developer Relations, Advocacy, Community, Technical Content, Onboarding, DevRel Metrics | Vietnamese | ✅ |
 | [UX Design Roadmap](./ux-design-roadmap/) | Human Decision Making, Behavior Design, Product Discovery, Prototyping, UX Testing | Vietnamese | ✅ |
+| [The Complete Vibe coding for UX/UI Designers](./vibe-coding-for-ux-ui-designers/) | Prompting, Figma AI, Design Systems, Lovable, Cursor, Windsurf, v0, AI Ethics | English | ✅ |
+| [Build a Design System - Full Course](./build-a-design-system-full-course/) | Figma Variables & Modes, Design Tokens, Multi-Brand Theming, Dark Mode, Type Scale, Component Library, Publishing | English | ✅ |
+| [Design System & Figma Variable Set Up - Full Tutorial](./design-system-figma-variable-setup-full-tutorial/) | Figma Variables, Design Tokens, Brand/Alias/Mapped Collections, Multi-Brand, Dark Mode, Responsive Type Scale | English | ✅ |
 | [Technical Writer Roadmap](./technical-writer-roadmap/) | Product Docs, Developer Docs, API Reference, Docs-as-Code, Content SEO, Portfolio | Vietnamese | ✅ |
 
 ### Writing
