@@ -14,7 +14,7 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | Course | Topics | Language | Status |
 |--------|--------|----------|--------|
 | [AI Agent 365 Ngày](./Ai-engineer/) | LLM Engineering, Fine-tuning, RAG Pipeline, Production | Vietnamese | ✅ |
-| [AI Coder: Complete Claude Code & Coding Agents](./ai-coder-complete-claude-code-coding-agents/) | Agentic Coding, Context Engineering, Claude Code, Coding Agent Workflows | Vietnamese | ✅ |
+| [AI Coder: Complete Claude Code & Coding Agents](./ai-coder-complete-claude-code-coding-agents/) | Agentic Coding, Context Engineering, Claude Code, Coding Agent Workflows | English | ✅ |
 | [AI & Data Scientist Roadmap](./ai-data-scientist-roadmap/) | Statistics, ML, Data Science Workflow | Vietnamese | ✅ |
 | [AI Engineer Roadmap](./ai-engineer-roadmap/) | LLM Apps, Prompting, Agents, Evaluation | Vietnamese | ✅ |
 | [Claude AI Agents Cowork Masterclass](./claude-aiagents-cowork-masterclass/) | Claude Code, Claude Cowork, Agent Automation | English | ✅ |
