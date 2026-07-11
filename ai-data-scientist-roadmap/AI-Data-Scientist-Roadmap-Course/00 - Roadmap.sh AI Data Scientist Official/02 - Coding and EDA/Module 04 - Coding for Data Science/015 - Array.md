@@ -1676,10 +1676,7 @@ Complete the following tasks:
 ### Normalization Formula
 
 $$
-x_{\text{normalized}}
-=====================
-
-\frac{x-x_{\min}}{x_{\max}-x_{\min}}
+x_{\text{normalized}} = \frac{x-x_{\min}}{x_{\max}-x_{\min}}
 $$
 
 ### Python Implementation

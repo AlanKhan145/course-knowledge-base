@@ -360,11 +360,9 @@ Python dictionaries use an optimized open-addressing strategy internally.
 
 The **load factor** measures how full a hash map is.
 
-[
-\text{Load Factor} =
-\frac{\text{Number of Stored Entries}}
-{\text{Number of Buckets}}
-]
+$$
+\text{Load Factor} = \frac{\text{Number of Stored Entries}} {\text{Number of Buckets}}
+$$
 
 For example:
 
@@ -411,9 +409,9 @@ The worst case can become (O(n)) when:
 
 A hash map generally requires:
 
-[
+$$
 O(n)
-]
+$$
 
 space, although its internal bucket array may use more memory than the number of stored entries.
 

@@ -300,9 +300,7 @@ There is no obvious relationship between nearby observations.
 The **Autocorrelation Function**, or **ACF**, calculates autocorrelation over multiple lags.
 
 $$
-\operatorname{ACF}(k)
-=
-\operatorname{Corr}(y_t, y_{t-k})
+\operatorname{ACF}(k) = \operatorname{Corr}(y_t, y_{t-k})
 $$
 
 An ACF plot usually contains:
@@ -497,11 +495,7 @@ Autocorrelated residuals violate this assumption.
 A common residual relationship is:
 
 $$
-\varepsilon_t
-=
-\phi\varepsilon_{t-1}
-+
-u_t
+\varepsilon_t = \phi\varepsilon_{t-1} + u_t
 $$
 
 where:
@@ -525,13 +519,7 @@ When residuals are autocorrelated:
 Suppose a sales model predicts:
 
 $$
-\text{Sales}_t
-=
-\beta_0
-+
-\beta_1 \text{Advertising}_t
-+
-\varepsilon_t
+\text{Sales}_t = \beta_0 + \beta_1 \text{Advertising}_t + \varepsilon_t
 $$
 
 If residuals remain positive for several consecutive periods:
@@ -634,15 +622,7 @@ Points appear randomly scattered.
 The Durbin–Watson statistic is commonly used to detect first-order autocorrelation in regression residuals.
 
 $$
-DW
-=
-\frac{
-\sum_{t=2}^{n}
-(\varepsilon_t-\varepsilon_{t-1})^2
-}{
-\sum_{t=1}^{n}
-\varepsilon_t^2
-}
+DW = \frac{ \sum_{t=2}^{n} (\varepsilon_t-\varepsilon_{t-1})^2 }{ \sum_{t=1}^{n} \varepsilon_t^2 }
 $$
 
 Its value is approximately between 0 and 4.
@@ -693,11 +673,7 @@ $$
 The test statistic is:
 
 $$
-Q
-=
-n(n+2)
-\sum_{k=1}^{h}
-\frac{r_k^2}{n-k}
+Q = n(n+2) \sum_{k=1}^{h} \frac{r_k^2}{n-k}
 $$
 
 where:
@@ -767,27 +743,13 @@ An autoregressive model predicts the current value using previous values.
 An AR(1) model is:
 
 $$
-y_t
-=
-c
-+
-\phi_1 y_{t-1}
-+
-\varepsilon_t
+y_t = c + \phi_1 y_{t-1} + \varepsilon_t
 $$
 
 An AR(2) model is:
 
 $$
-y_t
-=
-c
-+
-\phi_1 y_{t-1}
-+
-\phi_2 y_{t-2}
-+
-\varepsilon_t
+y_t = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \varepsilon_t
 $$
 
 The model explicitly uses autocorrelation for prediction.
@@ -819,11 +781,7 @@ $$
 $$
 
 $$
-\text{rolling\_mean\_7}_t
-=
-\frac{1}{7}
-\sum_{i=1}^{7}
-y_{t-i}
+\text{rolling\_mean\_7}_t = \frac{1}{7} \sum_{i=1}^{7} y_{t-i}
 $$
 
 Common time-series features include:
@@ -885,9 +843,7 @@ A rolling feature must only use information available before the prediction time
 Incorrect:
 
 $$
-\text{rolling\_mean}_t
-=
-\frac{y_{t-1}+y_t+y_{t+1}}{3}
+\text{rolling\_mean}_t = \frac{y_{t-1}+y_t+y_{t+1}}{3}
 $$
 
 This uses the future value $y_{t+1}$.
@@ -895,9 +851,7 @@ This uses the future value $y_{t+1}$.
 Correct:
 
 $$
-\text{rolling\_mean}_t
-=
-\frac{y_{t-3}+y_{t-2}+y_{t-1}}{3}
+\text{rolling\_mean}_t = \frac{y_{t-3}+y_{t-2}+y_{t-1}}{3}
 $$
 
 The feature should usually be shifted before calculating the rolling statistic.

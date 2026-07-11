@@ -1465,9 +1465,9 @@ Output:
 
 A common preprocessing transformation is:
 
-[
+$$
 z = \frac{x-\mu}{\sigma}
-]
+$$
 
 where:
 
@@ -1881,9 +1881,9 @@ product_id, month, units_sold, unit_price, advertising_cost
 4. Detect missing or invalid values.
 5. Calculate revenue:
 
-[
+$$
 \text{revenue} = \text{units sold} \times \text{unit price}
-]
+$$
 
 6. Calculate:
 

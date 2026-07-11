@@ -715,14 +715,9 @@ print(df.loc[invalid_date_mask, ["customer_id", "signup_date"]])
 
 A conversion success rate can be calculated as:
 
-[
-\text{Conversion Success Rate}
-==============================
-
-\frac{\text{Number of successfully converted non-null values}}
-{\text{Number of original non-null values}}
-\times 100
-]
+$$
+\text{Conversion Success Rate} = \frac{\text{Number of successfully converted non-null values}} {\text{Number of original non-null values}} \times 100
+$$
 
 In Python:
 

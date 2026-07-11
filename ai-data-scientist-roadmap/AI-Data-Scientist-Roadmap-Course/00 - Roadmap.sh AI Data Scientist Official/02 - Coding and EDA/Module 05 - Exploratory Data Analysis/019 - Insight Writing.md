@@ -568,15 +568,15 @@ Suppose conversion increases from 10% to 15%.
 
 ### Percentage-Point Increase
 
-[
+$$
 15% - 10% = 5 \text{ percentage points}
-]
+$$
 
 ### Relative Percentage Increase
 
-[
+$$
 \frac{15% - 10%}{10%} \times 100 = 50%
-]
+$$
 
 Correct statement:
 

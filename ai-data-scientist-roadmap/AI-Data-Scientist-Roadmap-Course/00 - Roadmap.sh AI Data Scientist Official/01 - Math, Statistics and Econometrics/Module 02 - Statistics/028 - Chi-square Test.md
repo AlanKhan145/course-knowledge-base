@@ -25,13 +25,9 @@ The central question is:
 
 The chi-square statistic is:
 
-[
-\chi^2
-======
-
-\sum
-\frac{(O-E)^2}{E}
-]
+$$
+\chi^2 = \sum \frac{(O-E)^2}{E}
+$$
 
 where:
 
@@ -195,13 +191,9 @@ The chi-square test measures how different the observed counts are from these ex
 
 The chi-square statistic is:
 
-[
-\chi^2
-======
-
-\sum_{i=1}^{k}
-\frac{(O_i-E_i)^2}{E_i}
-]
+$$
+\chi^2 = \sum_{i=1}^{k} \frac{(O_i-E_i)^2}{E_i}
+$$
 
 where:
 
@@ -211,9 +203,9 @@ where:
 
 Each cell contributes:
 
-[
+$$
 \frac{(O_i-E_i)^2}{E_i}
-]
+$$
 
 to the final statistic.
 
@@ -230,49 +222,39 @@ to the final statistic.
 
 Suppose a category has:
 
-[
+$$
 O=120
-]
+$$
 
 and:
 
-[
+$$
 E=100
-]
+$$
 
 Its contribution is:
 
-[
-\frac{(120-100)^2}{100}
-=======================
-
-# \frac{400}{100}
-
-4
-]
+$$
+\frac{(120-100)^2}{100} = # \frac{400}{100} 4
+$$
 
 Another category has:
 
-[
+$$
 O=102
-]
+$$
 
 and:
 
-[
+$$
 E=100
-]
+$$
 
 Its contribution is:
 
-[
-\frac{(102-100)^2}{100}
-=======================
-
-# \frac{4}{100}
-
-0.04
-]
+$$
+\frac{(102-100)^2}{100} = # \frac{4}{100} 0.04
+$$
 
 Therefore, a difference of 20 produces much stronger evidence against the null hypothesis than a difference of 2.
 
@@ -282,20 +264,15 @@ Therefore, a difference of 20 produces much stronger evidence against the null h
 
 The test statistic follows a chi-square distribution under the null hypothesis:
 
-[
-X
-\sim
-\chi^2_{\nu}
-]
+$$
+X \sim \chi^2_{\nu}
+$$
 
 where:
 
-[
-\nu
-===
-
-\text{degrees of freedom}
-]
+$$
+\nu = \text{degrees of freedom}
+$$
 
 The chi-square distribution:
 
@@ -356,25 +333,17 @@ Suppose a categorical variable has (k) possible categories.
 
 The null hypothesis is:
 
-[
-H_0:
-p_1=p_{1,0},
-\quad
-p_2=p_{2,0},
-\quad
-\dots,
-\quad
-p_k=p_{k,0}
-]
+$$
+H_0: p_1=p_{1,0}, \quad p_2=p_{2,0}, \quad \dots, \quad p_k=p_{k,0}
+$$
 
 This means that the population proportions follow the expected distribution.
 
 The alternative hypothesis is:
 
-[
-H_1:
-\text{At least one population proportion differs}
-]
+$$
+H_1: \text{At least one population proportion differs}
+$$
 
 ---
 
@@ -382,9 +351,9 @@ H_1:
 
 If the expected proportion for category (i) is (p_i), then:
 
-[
+$$
 E_i=np_i
-]
+$$
 
 where:
 
@@ -393,15 +362,15 @@ where:
 
 The expected probabilities must satisfy:
 
-[
+$$
 \sum_{i=1}^{k}p_i=1
-]
+$$
 
 The expected counts must satisfy:
 
-[
+$$
 \sum_{i=1}^{k}E_i=n
-]
+$$
 
 ---
 
@@ -409,20 +378,17 @@ The expected counts must satisfy:
 
 When all expected probabilities are specified in advance:
 
-[
+$$
 df=k-1
-]
+$$
 
 where (k) is the number of categories.
 
 If one or more parameters are estimated from the sample, the degrees of freedom may need to be reduced:
 
-[
-df
-==
-
-k-1-m
-]
+$$
+df = k-1-m
+$$
 
 where (m) is the number of estimated parameters.
 
@@ -447,38 +413,27 @@ The observed assignment is:
 
 The expected counts under a 50/50 allocation are:
 
-[
-E_{\text{control}}
-==================
+$$
+E_{\text{control}} = # 10{,}000(0.50) 5{,}000
+$$
 
-# 10{,}000(0.50)
-
-5{,}000
-]
-
-[
-E_{\text{treatment}}
-====================
-
-# 10{,}000(0.50)
-
-5{,}000
-]
+$$
+E_{\text{treatment}} = # 10{,}000(0.50) 5{,}000
+$$
 
 ---
 
 ### 14.1 Define the Hypotheses
 
-[
-H_0:
-p_{\text{control}}=0.50
-]
+$$
+H_0: p_{\text{control}}=0.50
+$$
 
 and:
 
-[
+$$
 p_{\text{treatment}}=0.50
-]
+$$
 
 The alternative is that the observed allocation does not follow the planned allocation.
 
@@ -486,36 +441,17 @@ The alternative is that the observed allocation does not follow the planned allo
 
 ### 14.2 Calculate the Chi-Square Statistic
 
-[
-\chi^2
-======
+$$
+\chi^2 = \frac{(5300-5000)^2}{5000} + \frac{(4700-5000)^2}{5000} = \frac{300^2}{5000} + \frac{(-300)^2}{5000} = \frac{90{,}000}{5000} + \frac{90{,}000}{5000}
+$$
 
-\frac{(5300-5000)^2}{5000}
-+
-\frac{(4700-5000)^2}{5000}
-]
-
-# [
-
-\frac{300^2}{5000}
-+
-\frac{(-300)^2}{5000}
-]
-
-# [
-
-\frac{90{,}000}{5000}
-+
-\frac{90{,}000}{5000}
-]
-
-[
+$$
 =18+18
-]
+$$
 
-[
+$$
 \chi^2=36
-]
+$$
 
 ---
 
@@ -523,15 +459,15 @@ The alternative is that the observed allocation does not follow the planned allo
 
 There are two categories:
 
-[
+$$
 k=2
-]
+$$
 
 Therefore:
 
-[
+$$
 df=k-1=1
-]
+$$
 
 A chi-square statistic of 36 with one degree of freedom produces a very small p-value.
 
@@ -577,69 +513,33 @@ In a new production sample of 1,000 images, the observed counts are:
 
 Expected counts:
 
-[
-E_{\text{cat}}
-==============
+$$
+E_{\text{cat}} = # 1000(0.50) 500
+$$
 
-# 1000(0.50)
+$$
+E_{\text{dog}} = # 1000(0.30) 300
+$$
 
-500
-]
-
-[
-E_{\text{dog}}
-==============
-
-# 1000(0.30)
-
-300
-]
-
-[
-E_{\text{bird}}
-===============
-
-# 1000(0.20)
-
-200
-]
+$$
+E_{\text{bird}} = # 1000(0.20) 200
+$$
 
 The chi-square statistic is:
 
-[
-\chi^2
-======
+$$
+\chi^2 = \frac{(430-500)^2}{500} + \frac{(350-300)^2}{300} + \frac{(220-200)^2}{200} = \frac{4900}{500} + \frac{2500}{300} + \frac{400}{200} = 9.8+8.333+2
+$$
 
-\frac{(430-500)^2}{500}
-+
-\frac{(350-300)^2}{300}
-+
-\frac{(220-200)^2}{200}
-]
-
-# [
-
-\frac{4900}{500}
-+
-\frac{2500}{300}
-+
-\frac{400}{200}
-]
-
-# [
-
-9.8+8.333+2
-]
-
-[
+$$
 \chi^2\approx20.133
-]
+$$
 
 Degrees of freedom:
 
-[
+$$
 df=3-1=2
-]
+$$
 
 The large statistic suggests that the current class distribution differs from the expected baseline.
 
@@ -668,24 +568,19 @@ Example questions:
 
 For two categorical variables (A) and (B):
 
-[
-H_0:
-A \text{ and } B \text{ are independent}
-]
+$$
+H_0: A \text{ and } B \text{ are independent}
+$$
 
-[
-H_1:
-A \text{ and } B \text{ are associated}
-]
+$$
+H_1: A \text{ and } B \text{ are associated}
+$$
 
 Independence means:
 
-[
-P(A_i \cap B_j)
-===============
-
-P(A_i)P(B_j)
-]
+$$
+P(A_i \cap B_j) = P(A_i)P(B_j)
+$$
 
 for every pair of categories (i) and (j).
 
@@ -716,17 +611,9 @@ The table has:
 
 For cell ((i,j)), the expected frequency is:
 
-[
-E_{ij}
-======
-
-\frac{
-(\text{row total}_i)
-(\text{column total}_j)
-}{
-\text{grand total}
-}
-]
+$$
+E_{ij} = \frac{ (\text{row total}_i) (\text{column total}_j) }{ \text{grand total} }
+$$
 
 This formula reflects what would be expected if the row and column variables were independent.
 
@@ -736,73 +623,27 @@ This formula reflects what would be expected if the row and column variables wer
 
 For mobile users who converted:
 
-[
-E_{\text{mobile, converted}}
-============================
-
-\frac{
-4000\times1110
-}{
-9000
-}
-]
-
-# [
-
-493.333
-]
+$$
+E_{\text{mobile, converted}} = \frac{ 4000\times1110 }{ 9000 } = 493.333
+$$
 
 For mobile users who did not convert:
 
-[
-E_{\text{mobile, not converted}}
-================================
-
-\frac{
-4000\times7890
-}{
-9000
-}
-]
-
-# [
-
-3506.667
-]
+$$
+E_{\text{mobile, not converted}} = \frac{ 4000\times7890 }{ 9000 } = 3506.667
+$$
 
 For desktop users who converted:
 
-[
-E_{\text{desktop, converted}}
-=============================
-
-\frac{
-4000\times1110
-}{
-9000
-}
-=
-
-493.333
-]
+$$
+E_{\text{desktop, converted}} = \frac{ 4000\times1110 }{ 9000 } = 493.333
+$$
 
 For tablet users who converted:
 
-[
-E_{\text{tablet, converted}}
-============================
-
-\frac{
-1000\times1110
-}{
-9000
-}
-]
-
-# [
-
-123.333
-]
+$$
+E_{\text{tablet, converted}} = \frac{ 1000\times1110 }{ 9000 } = 123.333
+$$
 
 The complete expected table is approximately:
 
@@ -818,36 +659,31 @@ The complete expected table is approximately:
 
 For an (r\times c) table:
 
-[
-\chi^2
-======
-
-\sum_{i=1}^{r}
-\sum_{j=1}^{c}
-\frac{(O_{ij}-E_{ij})^2}{E_{ij}}
-]
+$$
+\chi^2 = \sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij}-E_{ij})^2}{E_{ij}}
+$$
 
 Each cell contributes to the total statistic.
 
 For example, the mobile-converted contribution is:
 
-[
+$$
 \frac{(420-493.33)^2}{493.33}
-]
+$$
 
-[
+$$
 \approx10.899
-]
+$$
 
 The desktop-converted contribution is:
 
-[
+$$
 \frac{(600-493.33)^2}{493.33}
-]
+$$
 
-[
+$$
 \approx23.063
-]
+$$
 
 Cells with large observed-versus-expected differences dominate the final statistic.
 
@@ -857,35 +693,29 @@ Cells with large observed-versus-expected differences dominate the final statist
 
 For an (r\times c) contingency table:
 
-[
-df
-==
-
-(r-1)(c-1)
-]
+$$
+df = (r-1)(c-1)
+$$
 
 For the device and conversion table:
 
-[
+$$
 r=3
-]
+$$
 
-[
+$$
 c=2
-]
+$$
 
 Therefore:
 
-[
-df
-==
+$$
+df = (3-1)(2-1)
+$$
 
-(3-1)(2-1)
-]
-
-[
+$$
 df=2
-]
+$$
 
 ---
 
@@ -893,34 +723,25 @@ df=2
 
 The p-value is calculated from:
 
-[
-P
-\left(
-\chi^2_{df}
-\geq
-\chi^2_{\text{observed}}
-\right)
-]
+$$
+P \left( \chi^2_{df} \geq \chi^2_{\text{observed}} \right)
+$$
 
 Decision rule:
 
-[
-p\leq\alpha
-\quad\Longrightarrow\quad
-\text{Reject }H_0
-]
+$$
+p\leq\alpha \quad\Longrightarrow\quad \text{Reject }H_0
+$$
 
-[
-p>\alpha
-\quad\Longrightarrow\quad
-\text{Fail to reject }H_0
-]
+$$
+p>\alpha \quad\Longrightarrow\quad \text{Fail to reject }H_0
+$$
 
 For a typical significance level:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 a small p-value indicates evidence of an association between the categorical variables.
 
@@ -1105,9 +926,9 @@ A common rule of thumb is:
 
 A stricter practical guideline is:
 
-[
+$$
 E_{ij}\geq5
-]
+$$
 
 for every cell.
 
@@ -1133,9 +954,9 @@ With a small sample, the test may not detect it.
 
 With millions of observations, the test may produce:
 
-[
+$$
 p<0.001
-]
+$$
 
 even when the practical difference is negligible.
 
@@ -1171,14 +992,9 @@ Effect-size measures help quantify association strength.
 
 For a (2\times2) contingency table, the **phi coefficient** is:
 
-[
-\phi
-====
-
-\sqrt{
-\frac{\chi^2}{n}
-}
-]
+$$
+\phi = \sqrt{ \frac{\chi^2}{n} }
+$$
 
 where:
 
@@ -1187,9 +1003,9 @@ where:
 
 The phi coefficient ranges approximately from:
 
-[
+$$
 0\leq\phi\leq1
-]
+$$
 
 for a standard (2\times2) table.
 
@@ -1201,18 +1017,9 @@ A value near zero indicates weak association.
 
 For larger contingency tables, use **Cramér's (V)**:
 
-[
-V
-=
-
-\sqrt{
-\frac{
-\chi^2
-}{
-n\min(r-1,c-1)
-}
-}
-]
+$$
+V = \sqrt{ \frac{ \chi^2 }{ n\min(r-1,c-1) } }
+$$
 
 where:
 
@@ -1222,9 +1029,9 @@ where:
 
 Its range is:
 
-[
+$$
 0\leq V\leq1
-]
+$$
 
 General interpretation guidelines are sometimes given as:
 
@@ -1245,50 +1052,35 @@ The practical meaning depends on the domain, table size, sample size, and busine
 
 Suppose:
 
-[
+$$
 \chi^2=50
-]
+$$
 
-[
+$$
 n=5000
-]
+$$
 
 and the table has:
 
-[
+$$
 r=3,\qquad c=2
-]
+$$
 
 Then:
 
-[
-\min(r-1,c-1)
-=============
-
-# \min(2,1)
-
-1
-]
+$$
+\min(r-1,c-1) = # \min(2,1) 1
+$$
 
 Therefore:
 
-[
-V
-=
+$$
+V = \sqrt{ \frac{50}{5000} } = \sqrt{0.01}
+$$
 
-\sqrt{
-\frac{50}{5000}
-}
-]
-
-# [
-
-\sqrt{0.01}
-]
-
-[
+$$
 V=0.10
-]
+$$
 
 The result may be statistically significant, but the association is relatively weak.
 
@@ -1302,13 +1094,9 @@ After a significant chi-square result, inspect which cells contribute most stron
 
 The Pearson residual for cell ((i,j)) is:
 
-[
-R_{ij}
-======
-
-\frac{O_{ij}-E_{ij}}
-{\sqrt{E_{ij}}}
-]
+$$
+R_{ij} = \frac{O_{ij}-E_{ij}} {\sqrt{E_{ij}}}
+$$
 
 Interpretation:
 
@@ -1318,9 +1106,9 @@ Interpretation:
 
 A rough interpretation is:
 
-[
+$$
 |R_{ij}|>2
-]
+$$
 
 may indicate a notable deviation.
 
@@ -1332,20 +1120,9 @@ However, when many cells are inspected, multiple-comparison concerns should be c
 
 A more adjusted residual can account for row and column proportions:
 
-[
-R_{ij}^{*}
-==========
-
-\frac{
-O_{ij}-E_{ij}
-}{
-\sqrt{
-E_{ij}
-(1-p_{i\cdot})
-(1-p_{\cdot j})
-}
-}
-]
+$$
+R_{ij}^{*} = \frac{ O_{ij}-E_{ij} }{ \sqrt{ E_{ij} (1-p_{i\cdot}) (1-p_{\cdot j}) } }
+$$
 
 where:
 
@@ -1360,21 +1137,15 @@ Standardized residuals are useful for identifying which cells drive the overall 
 
 Each cell's contribution to the chi-square statistic is:
 
-[
-C_{ij}
-======
-
-\frac{(O_{ij}-E_{ij})^2}{E_{ij}}
-]
+$$
+C_{ij} = \frac{(O_{ij}-E_{ij})^2}{E_{ij}}
+$$
 
 The proportion of the total statistic contributed by a cell is:
 
-[
-\text{Contribution share}_{ij}
-==============================
-
-\frac{C_{ij}}{\chi^2}
-]
+$$
+\text{Contribution share}_{ij} = \frac{C_{ij}}{\chi^2}
+$$
 
 Cells with large contribution shares deserve closer investigation.
 
@@ -1419,23 +1190,21 @@ The chi-square test asks:
 
 Hypotheses:
 
-[
-H_0:
-\text{Experiment group and conversion are independent}
-]
+$$
+H_0: \text{Experiment group and conversion are independent}
+$$
 
-[
-H_1:
-\text{Experiment group and conversion are associated}
-]
+$$
+H_1: \text{Experiment group and conversion are associated}
+$$
 
 For a (2\times2) table, the chi-square test and the two-proportion z-test are closely related.
 
 Without a continuity correction:
 
-[
+$$
 \chi^2=z^2
-]
+$$
 
 Therefore, both tests produce equivalent two-sided conclusions under the same assumptions.
 
@@ -1472,15 +1241,13 @@ A chi-square test can determine whether conversion depends on the experiment var
 
 The hypotheses are:
 
-[
-H_0:
-p_A=p_B=p_C
-]
+$$
+H_0: p_A=p_B=p_C
+$$
 
-[
-H_1:
-\text{At least one conversion rate differs}
-]
+$$
+H_1: \text{At least one conversion rate differs}
+$$
 
 A significant result does not identify which pairs differ.
 
@@ -1504,31 +1271,31 @@ Testing many hypotheses increases the chance of false positives.
 
 If (m) independent tests are performed at significance level (\alpha), the probability of at least one false positive is approximately:
 
-[
+$$
 1-(1-\alpha)^m
-]
+$$
 
 For:
 
-[
+$$
 m=10
-]
+$$
 
 and:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 the probability is:
 
-[
+$$
 1-0.95^{10}
-]
+$$
 
-[
+$$
 \approx0.401
-]
+$$
 
 Therefore, there is approximately a 40.1% chance of at least one false positive under the global null.
 
@@ -1538,37 +1305,31 @@ Therefore, there is approximately a 40.1% chance of at least one false positive 
 
 The Bonferroni-adjusted significance threshold is:
 
-[
-\alpha_{\text{adjusted}}
-========================
-
-\frac{\alpha}{m}
-]
+$$
+\alpha_{\text{adjusted}} = \frac{\alpha}{m}
+$$
 
 For:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 and:
 
-[
+$$
 m=3
-]
+$$
 
 the adjusted threshold is:
 
-[
-\alpha_{\text{adjusted}}
-========================
+$$
+\alpha_{\text{adjusted}} = \frac{0.05}{3}
+$$
 
-\frac{0.05}{3}
-]
-
-[
+$$
 \approx0.0167
-]
+$$
 
 Bonferroni is simple but can be conservative.
 
@@ -1658,15 +1419,15 @@ Possible confounders include:
 
 A very large dataset may produce:
 
-[
+$$
 p<0.0001
-]
+$$
 
 while:
 
-[
+$$
 V=0.02
-]
+$$
 
 This indicates a statistically detectable but extremely weak association.
 
@@ -1841,19 +1602,9 @@ For a (2\times2) contingency table, some implementations apply **Yates' continui
 
 The corrected statistic uses:
 
-[
-\chi^2
-======
-
-\sum
-\frac{
-\left(
-|O-E|-0.5
-\right)^2
-}{
-E
-}
-]
+$$
+\chi^2 = \sum \frac{ \left( |O-E|-0.5 \right)^2 }{ E }
+$$
 
 The correction reduces the statistic and makes the test more conservative.
 
@@ -2508,15 +2259,13 @@ A new sample can be compared with the baseline using a goodness-of-fit test.
 
 Hypotheses:
 
-[
-H_0:
-\text{Current distribution matches baseline}
-]
+$$
+H_0: \text{Current distribution matches baseline}
+$$
 
-[
-H_1:
-\text{Current distribution differs from baseline}
-]
+$$
+H_1: \text{Current distribution differs from baseline}
+$$
 
 A significant result may trigger:
 
@@ -2720,21 +2469,9 @@ Suppose conversion is associated with device type, but device type is also stron
 
 A regression model may be needed:
 
-[
-\operatorname{logit}
-\left(
-P(Y=1)
-\right)
-=======
-
-\beta_0
-+
-\beta_1X_1
-+
-\beta_2X_2
-+
-\dots
-]
+$$
+\operatorname{logit} \left( P(Y=1) \right) = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots
+$$
 
 Logistic regression can estimate an association while controlling for additional variables.
 
@@ -2876,9 +2613,9 @@ A company records the following data:
 
 Use:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 ### Tasks
 
@@ -3153,13 +2890,9 @@ The **chi-square test** evaluates whether observed categorical frequencies diffe
 
 Its core formula is:
 
-[
-\chi^2
-======
-
-\sum
-\frac{(O-E)^2}{E}
-]
+$$
+\chi^2 = \sum \frac{(O-E)^2}{E}
+$$
 
 The test can answer three major types of questions:
 

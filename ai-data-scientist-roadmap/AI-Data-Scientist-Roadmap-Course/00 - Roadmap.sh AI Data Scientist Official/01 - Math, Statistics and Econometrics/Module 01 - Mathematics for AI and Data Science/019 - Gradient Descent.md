@@ -163,21 +163,11 @@ $$
 The gradients are:
 
 $$
-\frac{\partial J}{\partial w}
-=============================
-
-\frac{2}{n}
-\sum_{i=1}^{n}
-(\hat{y}_i - y_i)x_i
+\frac{\partial J}{\partial w} = \frac{2}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)x_i
 $$
 
 $$
-\frac{\partial J}{\partial b}
-=============================
-
-\frac{2}{n}
-\sum_{i=1}^{n}
-(\hat{y}_i - y_i)
+\frac{\partial J}{\partial b} = \frac{2}{n} \sum_{i=1}^{n} (\hat{y}_i - y_i)
 $$
 
 Then the parameters are updated as:
@@ -335,37 +325,21 @@ $$
 Gradient with respect to $w$:
 
 $$
-\frac{\partial J}{\partial w}
-=============================
-
-2(\hat{y} - y)x
+\frac{\partial J}{\partial w} = 2(\hat{y} - y)x
 $$
 
 $$
-\frac{\partial J}{\partial w}
-=============================
-
-# 2(2 - 6)(2)
-
--16
+\frac{\partial J}{\partial w} = # 2(2 - 6)(2) -16
 $$
 
 Gradient with respect to $b$:
 
 $$
-\frac{\partial J}{\partial b}
-=============================
-
-2(\hat{y} - y)
+\frac{\partial J}{\partial b} = 2(\hat{y} - y)
 $$
 
 $$
-\frac{\partial J}{\partial b}
-=============================
-
-# 2(2 - 6)
-
--8
+\frac{\partial J}{\partial b} = # 2(2 - 6) -8
 $$
 
 Using learning rate:

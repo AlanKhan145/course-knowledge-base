@@ -62,12 +62,7 @@ After completing this lesson, you should be able to:
 Suppose an A/B test estimates the following treatment effect:
 
 $$
-\hat{\tau}
-==========
-
-## \bar{Y}_{T}
-
-\bar{Y}_{C}
+\hat{\tau} = ## \bar{Y}_{T} \bar{Y}_{C}
 $$
 
 where:
@@ -79,14 +74,7 @@ where:
 The standard error of the difference in means is approximately:
 
 $$
-SE(\hat{\tau})
-==============
-
-\sqrt{
-\frac{s_T^2}{n_T}
-+
-\frac{s_C^2}{n_C}
-}
+SE(\hat{\tau}) = \sqrt{ \frac{s_T^2}{n_T} + \frac{s_C^2}{n_C} }
 $$
 
 where:
@@ -162,33 +150,19 @@ Let:
 The CUPED-adjusted outcome is:
 
 $$
-Y_i^{\text{CUPED}}
-==================
-
-## Y_i
-
-\theta(X_i-\mu_X)
+Y_i^{\text{CUPED}} = ## Y_i \theta(X_i-\mu_X)
 $$
 
 The optimal coefficient is:
 
 $$
-\theta
-======
-
-\frac{\operatorname{Cov}(Y,X)}
-{\operatorname{Var}(X)}
+\theta = \frac{\operatorname{Cov}(Y,X)} {\operatorname{Var}(X)}
 $$
 
 The experiment is then analyzed using the adjusted outcome:
 
 $$
-\hat{\tau}_{\text{CUPED}}
-=========================
-
-## \bar{Y}^{\text{CUPED}}_T
-
-\bar{Y}^{\text{CUPED}}_C
+\hat{\tau}_{\text{CUPED}} = ## \bar{Y}^{\text{CUPED}}_T \bar{Y}^{\text{CUPED}}_C
 $$
 
 ### 4.2 Interpretation
@@ -214,10 +188,7 @@ The adjustment does not mean that historical behavior caused the experiment outc
 When $\theta$ is selected optimally, the adjusted variance is approximately:
 
 $$
-\operatorname{Var}(Y^{\text{CUPED}})
-====================================
-
-\operatorname{Var}(Y)(1-\rho^2)
+\operatorname{Var}(Y^{\text{CUPED}}) = \operatorname{Var}(Y)(1-\rho^2)
 $$
 
 where $\rho$ is the correlation between the pre-experiment covariate $X$ and the experiment outcome $Y$.
@@ -225,10 +196,7 @@ where $\rho$ is the correlation between the pre-experiment covariate $X$ and the
 Therefore, the expected variance-reduction rate is:
 
 $$
-\text{Variance Reduction}
-=========================
-
-\rho^2
+\text{Variance Reduction} = \rho^2
 $$
 
 ### Example
@@ -256,11 +224,7 @@ less variance than the original metric.
 The new standard error is proportional to:
 
 $$
-\sqrt{1-\rho^2}
-===============
-
-\sqrt{0.51}
-\approx 0.714
+\sqrt{1-\rho^2} = \sqrt{0.51} \approx 0.714
 $$
 
 This means that the standard error may be approximately 28.6% smaller:
@@ -352,12 +316,7 @@ Assume the following values:
 First, calculate $\theta$:
 
 $$
-\theta
-======
-
-# \frac{6.40}{8.00}
-
-0.80
+\theta = # \frac{6.40}{8.00} 0.80
 $$
 
 Consider a user with:
@@ -368,19 +327,11 @@ Consider a user with:
 The adjusted outcome is:
 
 $$
-Y_i^{\text{CUPED}}
-==================
-
-15-0.80(14-10)
+Y_i^{\text{CUPED}} = 15-0.80(14-10)
 $$
 
 $$
-Y_i^{\text{CUPED}}
-==================
-
-# 15-3.20
-
-11.80
+Y_i^{\text{CUPED}} = # 15-3.20 11.80
 $$
 
 This user had above-average historical revenue. CUPED removes the predictable portion associated with that baseline behavior.
@@ -391,19 +342,11 @@ Now consider another user with:
 * Historical revenue: $X_i=7$
 
 $$
-Y_i^{\text{CUPED}}
-==================
-
-9-0.80(7-10)
+Y_i^{\text{CUPED}} = 9-0.80(7-10)
 $$
 
 $$
-Y_i^{\text{CUPED}}
-==================
-
-# 9+2.40
-
-11.40
+Y_i^{\text{CUPED}} = # 9+2.40 11.40
 $$
 
 This user had below-average historical revenue, so the outcome receives an upward adjustment.
@@ -455,22 +398,13 @@ where:
 The CUPAC-adjusted metric is:
 
 $$
-Y_i^{\text{CUPAC}}
-==================
-
-## Y_i
-
-\theta(Z_i-\mu_Z)
+Y_i^{\text{CUPAC}} = ## Y_i \theta(Z_i-\mu_Z)
 $$
 
 where:
 
 $$
-\theta
-======
-
-\frac{\operatorname{Cov}(Y,Z)}
-{\operatorname{Var}(Z)}
+\theta = \frac{\operatorname{Cov}(Y,Z)} {\operatorname{Var}(Z)}
 $$
 
 CUPAC was introduced as a practical method that uses predictions as covariates to reduce noise in online experiments.
@@ -553,14 +487,7 @@ CUPED and CUPAC can also be understood as regression adjustment.
 A simple experiment regression is:
 
 $$
-Y_i
-===
-
-\alpha
-+
-\tau T_i
-+
-\varepsilon_i
+Y_i = \alpha + \tau T_i + \varepsilon_i
 $$
 
 where:
@@ -572,31 +499,13 @@ where:
 With covariate adjustment:
 
 $$
-Y_i
-===
-
-\alpha
-+
-\tau T_i
-+
-\beta X_i
-+
-\varepsilon_i
+Y_i = \alpha + \tau T_i + \beta X_i + \varepsilon_i
 $$
 
 For CUPAC, replace $X_i$ with a model prediction:
 
 $$
-Y_i
-===
-
-\alpha
-+
-\tau T_i
-+
-\beta \hat{Y}_i
-+
-\varepsilon_i
+Y_i = \alpha + \tau T_i + \beta \hat{Y}_i + \varepsilon_i
 $$
 
 The coefficient $\tau$ represents the treatment effect after accounting for predictable baseline variation.
@@ -1051,28 +960,19 @@ $$
 If CUPED reduces variance by a proportion $r$, then:
 
 $$
-\operatorname{Var}_{adjusted}
-=============================
-
-(1-r)\operatorname{Var}_{raw}
+\operatorname{Var}_{adjusted} = (1-r)\operatorname{Var}_{raw}
 $$
 
 The adjusted standard error becomes:
 
 $$
-SE_{adjusted}
-=============
-
-SE_{raw}\sqrt{1-r}
+SE_{adjusted} = SE_{raw}\sqrt{1-r}
 $$
 
 The adjusted MDE is therefore approximately:
 
 $$
-MDE_{adjusted}
-==============
-
-MDE_{raw}\sqrt{1-r}
+MDE_{adjusted} = MDE_{raw}\sqrt{1-r}
 $$
 
 ### Example
@@ -1092,19 +992,11 @@ $$
 Then:
 
 $$
-MDE_{adjusted}
-==============
-
-2.0%\sqrt{1-0.36}
+MDE_{adjusted} = 2.0%\sqrt{1-0.36}
 $$
 
 $$
-MDE_{adjusted}
-==============
-
-# 2.0%\times0.8
-
-1.6%
+MDE_{adjusted} = # 2.0%\times0.8 1.6%
 $$
 
 The experiment can now detect a smaller effect with approximately the same sample size and significance requirements.
@@ -1118,29 +1010,13 @@ A CUPED or CUPAC implementation should be evaluated using more than one metric.
 ### 17.1 Variance-Reduction Rate
 
 $$
-VR
-==
-
-1-
-\frac{
-\operatorname{Var}(Y_{adjusted})
-}{
-\operatorname{Var}(Y_{raw})
-}
+VR = 1- \frac{ \operatorname{Var}(Y_{adjusted}) }{ \operatorname{Var}(Y_{raw}) }
 $$
 
 ### 17.2 Standard-Error Reduction
 
 $$
-SER
-===
-
-1-
-\frac{
-SE_{adjusted}
-}{
-SE_{raw}
-}
+SER = 1- \frac{ SE_{adjusted} }{ SE_{raw} }
 $$
 
 ### 17.3 Effective Sample-Size Multiplier
@@ -1148,33 +1024,19 @@ $$
 An approximate precision multiplier is:
 
 $$
-\text{Effective Sample Multiplier}
-==================================
-
-\frac{
-\operatorname{Var}(Y_{raw})
-}{
-\operatorname{Var}(Y_{adjusted})
-}
+\text{Effective Sample Multiplier} = \frac{ \operatorname{Var}(Y_{raw}) }{ \operatorname{Var}(Y_{adjusted}) }
 $$
 
 For example, if:
 
 $$
-\operatorname{Var}(Y_{adjusted})
-================================
-
-0.60\operatorname{Var}(Y_{raw})
+\operatorname{Var}(Y_{adjusted}) = 0.60\operatorname{Var}(Y_{raw})
 $$
 
 then:
 
 $$
-\text{Effective Sample Multiplier}
-==================================
-
-\frac{1}{0.60}
-\approx1.67
+\text{Effective Sample Multiplier} = \frac{1}{0.60} \approx1.67
 $$
 
 The adjusted analysis has approximately the same variance as a raw analysis with 1.67 times as many observations, under simplified assumptions.
@@ -1232,10 +1094,7 @@ lessons_completed_experiment
 Calculate:
 
 $$
-\hat{\tau}_{raw}
-================
-
-\bar{Y}_T-\bar{Y}_C
+\hat{\tau}_{raw} = \bar{Y}_T-\bar{Y}_C
 $$
 
 Report:

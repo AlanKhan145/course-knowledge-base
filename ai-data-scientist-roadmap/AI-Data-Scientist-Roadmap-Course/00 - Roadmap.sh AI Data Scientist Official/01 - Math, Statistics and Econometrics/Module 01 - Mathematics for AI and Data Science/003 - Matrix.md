@@ -219,17 +219,7 @@ B =
 $$
 
 $$
-A + B =
-\begin{bmatrix}
-1+5 & 2+6 \
-3+7 & 4+8
-\end{bmatrix}
-=============
-
-\begin{bmatrix}
-6 & 8 \
-10 & 12
-\end{bmatrix}
+A + B = \begin{bmatrix} 1+5 & 2+6 \ 3+7 & 4+8 \end{bmatrix} = \begin{bmatrix} 6 & 8 \ 10 & 12 \end{bmatrix}
 $$
 
 ---
@@ -239,18 +229,7 @@ $$
 A matrix can be multiplied by a scalar.
 
 $$
-2A =
-2
-\begin{bmatrix}
-1 & 2 \
-3 & 4
-\end{bmatrix}
-=============
-
-\begin{bmatrix}
-2 & 4 \
-6 & 8
-\end{bmatrix}
+2A = 2 \begin{bmatrix} 1 & 2 \ 3 & 4 \end{bmatrix} = \begin{bmatrix} 2 & 4 \ 6 & 8 \end{bmatrix}
 $$
 
 ---
@@ -341,17 +320,7 @@ B =
 $$
 
 $$
-AB =
-\begin{bmatrix}
-1 \cdot 5 + 2 \cdot 6 \
-3 \cdot 5 + 4 \cdot 6
-\end{bmatrix}
-=============
-
-\begin{bmatrix}
-17 \
-39
-\end{bmatrix}
+AB = \begin{bmatrix} 1 \cdot 5 + 2 \cdot 6 \ 3 \cdot 5 + 4 \cdot 6 \end{bmatrix} = \begin{bmatrix} 17 \ 39 \end{bmatrix}
 $$
 
 ---
@@ -498,19 +467,7 @@ w =
 $$
 
 $$
-Xw =
-\begin{bmatrix}
-20(0.5) + 170(0.1) \
-25(0.5) + 175(0.1) \
-30(0.5) + 180(0.1)
-\end{bmatrix}
-=============
-
-\begin{bmatrix}
-27 \
-30 \
-33
-\end{bmatrix}
+Xw = \begin{bmatrix} 20(0.5) + 170(0.1) \ 25(0.5) + 175(0.1) \ 30(0.5) + 180(0.1) \end{bmatrix} = \begin{bmatrix} 27 \ 30 \ 33 \end{bmatrix}
 $$
 
 ---

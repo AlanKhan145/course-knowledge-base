@@ -261,12 +261,9 @@ Common strategies include:
 
 The missing rate for a column can be calculated as:
 
-[
-\text{Missing Rate} =
-\frac{\text{Number of Missing Values}}
-{\text{Total Number of Rows}}
-\times 100%
-]
+$$
+\text{Missing Rate} = \frac{\text{Number of Missing Values}} {\text{Total Number of Rows}} \times 100%
+$$
 
 Python example:
 
@@ -523,19 +520,19 @@ Therefore:
 
 The interquartile range is:
 
-[
+$$
 IQR = Q_3 - Q_1
-]
+$$
 
 The commonly used outlier boundaries are:
 
-[
+$$
 \text{Lower Bound} = Q_1 - 1.5 \times IQR
-]
+$$
 
-[
+$$
 \text{Upper Bound} = Q_3 + 1.5 \times IQR
-]
+$$
 
 Python example:
 
@@ -1109,11 +1106,9 @@ Data quality can be evaluated using measurable dimensions.
 
 The proportion of required values that are available.
 
-[
-\text{Completeness} =
-\frac{\text{Non-Missing Values}}
-{\text{Expected Values}}
-]
+$$
+\text{Completeness} = \frac{\text{Non-Missing Values}} {\text{Expected Values}}
+$$
 
 ---
 
@@ -1121,11 +1116,9 @@ The proportion of required values that are available.
 
 The degree to which records or identifiers are not duplicated.
 
-[
-\text{Uniqueness Rate} =
-\frac{\text{Unique Records}}
-{\text{Total Records}}
-]
+$$
+\text{Uniqueness Rate} = \frac{\text{Unique Records}} {\text{Total Records}}
+$$
 
 ---
 
@@ -1133,11 +1126,9 @@ The degree to which records or identifiers are not duplicated.
 
 The proportion of values that follow defined rules.
 
-[
-\text{Validity Rate} =
-\frac{\text{Valid Values}}
-{\text{Total Values}}
-]
+$$
+\text{Validity Rate} = \frac{\text{Valid Values}} {\text{Total Values}}
+$$
 
 ---
 

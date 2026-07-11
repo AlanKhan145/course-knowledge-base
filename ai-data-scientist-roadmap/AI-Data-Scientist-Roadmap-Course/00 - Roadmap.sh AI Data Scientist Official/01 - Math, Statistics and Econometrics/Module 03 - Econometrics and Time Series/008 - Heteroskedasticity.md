@@ -840,12 +840,7 @@ Alternative models may include:
 For example, a Poisson model assumes:
 
 $$
-E(Y_i \mid X_i)
-===============
-
-# \operatorname{Var}(Y_i \mid X_i)
-
-\lambda_i
+E(Y_i \mid X_i) = # \operatorname{Var}(Y_i \mid X_i) \lambda_i
 $$
 
 The variance naturally changes with the expected value.
@@ -934,12 +929,7 @@ $$
 Mean squared error gives greater weight to large absolute errors:
 
 $$
-MSE
-===
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-(y_i - \hat{y}_i)^2
+MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
 $$
 
 When high-value observations naturally have larger errors, the model may focus heavily on them.
@@ -996,25 +986,13 @@ $$
 and:
 
 $$
-\sigma_t^2
-==========
-
-\alpha_0
-+
-\alpha_1 \varepsilon_{t-1}^2
+\sigma_t^2 = \alpha_0 + \alpha_1 \varepsilon_{t-1}^2
 $$
 
 A GARCH(1,1) model extends this idea:
 
 $$
-\sigma_t^2
-==========
-
-\alpha_0
-+
-\alpha_1 \varepsilon_{t-1}^2
-+
-\beta_1 \sigma_{t-1}^2
+\sigma_t^2 = \alpha_0 + \alpha_1 \varepsilon_{t-1}^2 + \beta_1 \sigma_{t-1}^2
 $$
 
 This allows current volatility to depend on:

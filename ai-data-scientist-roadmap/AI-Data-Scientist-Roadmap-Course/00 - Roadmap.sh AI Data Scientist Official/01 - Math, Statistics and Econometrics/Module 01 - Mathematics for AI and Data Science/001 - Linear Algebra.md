@@ -402,17 +402,7 @@ $$
 Then:
 
 $$
-u + v =
-\begin{bmatrix}
-2 + 1 \\
-1 + 3
-\end{bmatrix}
-=
-
-\begin{bmatrix}
-3 \\
-4
-\end{bmatrix}
+u + v = \begin{bmatrix} 2 + 1 \\ 1 + 3 \end{bmatrix} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}
 $$
 
 ### Geometric Diagram
@@ -449,18 +439,7 @@ $$
 Then:
 
 $$
-3v =
-3
-\begin{bmatrix}
-2 \\
-1
-\end{bmatrix}
-=
-
-\begin{bmatrix}
-6 \\
-3
-\end{bmatrix}
+3v = 3 \begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 6 \\ 3 \end{bmatrix}
 $$
 
 Scalar multiplication changes vector length.
@@ -581,17 +560,7 @@ $$
 Then:
 
 $$
-Ax =
-\begin{bmatrix}
-1 \times 5 + 2 \times 6 \\
-3 \times 5 + 4 \times 6
-\end{bmatrix}
-=
-
-\begin{bmatrix}
-17 \\
-39
-\end{bmatrix}
+Ax = \begin{bmatrix} 1 \times 5 + 2 \times 6 \\ 3 \times 5 + 4 \times 6 \end{bmatrix} = \begin{bmatrix} 17 \\ 39 \end{bmatrix}
 $$
 
 ### Shape Rule
@@ -988,23 +957,7 @@ $$
 Example:
 
 $$
-\begin{bmatrix}
-3 \\
-2
-\end{bmatrix}
-=
-
-3
-\begin{bmatrix}
-1 \\
-0
-\end{bmatrix}
-+
-2
-\begin{bmatrix}
-0 \\
-1
-\end{bmatrix}
+\begin{bmatrix} 3 \\ 2 \end{bmatrix} = 3 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + 2 \begin{bmatrix} 0 \\ 1 \end{bmatrix}
 $$
 
 ---
@@ -1442,19 +1395,7 @@ $$
 Compute:
 
 $$
-Xw =
-\begin{bmatrix}
-2 \times 5 + 6 \times 3 \\
-4 \times 5 + 7 \times 3 \\
-6 \times 5 + 8 \times 3
-\end{bmatrix}
-=
-
-\begin{bmatrix}
-28 \\
-41 \\
-54
-\end{bmatrix}
+Xw = \begin{bmatrix} 2 \times 5 + 6 \times 3 \\ 4 \times 5 + 7 \times 3 \\ 6 \times 5 + 8 \times 3 \end{bmatrix} = \begin{bmatrix} 28 \\ 41 \\ 54 \end{bmatrix}
 $$
 
 Add bias:

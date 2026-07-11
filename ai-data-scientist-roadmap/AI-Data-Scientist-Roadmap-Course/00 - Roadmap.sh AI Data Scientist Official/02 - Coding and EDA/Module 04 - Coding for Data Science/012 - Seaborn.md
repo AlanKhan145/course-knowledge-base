@@ -764,9 +764,9 @@ Avoid including too many columns because the number of charts grows rapidly.
 
 For `p` variables, a pair plot creates approximately:
 
-[
+$$
 p^2
-]
+$$
 
 panels.
 

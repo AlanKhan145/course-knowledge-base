@@ -115,10 +115,7 @@ The **sensitivity of the test** refers to its ability to reject $H_0$ when a mea
 This ability is usually measured using **statistical power**.
 
 $$
-\text{Power}
-============
-
-P(\text{reject } H_0 \mid H_1 \text{ is true})
+\text{Power} = P(\text{reject } H_0 \mid H_1 \text{ is true})
 $$
 
 Statistical power is also related to the Type II error rate:
@@ -156,10 +153,7 @@ Every hypothesis test can produce one of four outcomes.
 A Type I error occurs when the test reports an effect even though no real effect exists.
 
 $$
-\alpha
-======
-
-P(\text{reject } H_0 \mid H_0 \text{ is true})
+\alpha = P(\text{reject } H_0 \mid H_0 \text{ is true})
 $$
 
 The significance level is commonly set to:
@@ -173,10 +167,7 @@ $$
 A Type II error occurs when the test fails to detect a real effect.
 
 $$
-\beta
-=====
-
-P(\text{do not reject } H_0 \mid H_1 \text{ is true})
+\beta = P(\text{do not reject } H_0 \mid H_1 \text{ is true})
 $$
 
 A test with a large $\beta$ has low power and low sensitivity.
@@ -230,10 +221,7 @@ When $\lvert \Delta \rvert$ increases, the signal becomes easier to distinguish 
 A standardized effect size may be expressed using Cohen's $d$:
 
 $$
-d
-=
-
-\frac{\mu_T-\mu_C}{\sigma}
+d = \frac{\mu_T-\mu_C}{\sigma}
 $$
 
 where $\sigma$ is the standard deviation.
@@ -249,14 +237,7 @@ Larger samples reduce the standard error.
 For the difference between two independent means:
 
 $$
-SE(\bar{X}_T-\bar{X}_C)
-=======================
-
-\sqrt{
-\frac{\sigma_T^2}{n_T}
-+
-\frac{\sigma_C^2}{n_C}
-}
+SE(\bar{X}_T-\bar{X}_C) = \sqrt{ \frac{\sigma_T^2}{n_T} + \frac{\sigma_C^2}{n_C} }
 $$
 
 As $n_T$ and $n_C$ increase, the standard error becomes smaller.
@@ -301,10 +282,7 @@ Experiment A will usually have greater sensitivity.
 The signal-to-noise relationship can be represented approximately as:
 
 $$
-\text{Signal-to-noise ratio}
-============================
-
-\frac{\text{Effect size}}{\text{Standard error}}
+\text{Signal-to-noise ratio} = \frac{\text{Effect size}}{\text{Standard error}}
 $$
 
 Higher metric variance increases the denominator and lowers the signal-to-noise ratio.
@@ -507,12 +485,7 @@ $$
 The relative uplift is:
 
 $$
-\text{Relative uplift}
-======================
-
-# \frac{0.11-0.10}{0.10}
-
-0.10
+\text{Relative uplift} = # \frac{0.11-0.10}{0.10} 0.10
 $$
 
 Therefore, the expected relative uplift is 10%.
@@ -537,21 +510,13 @@ $$
 where:
 
 $$
-\bar{p}
-=======
-
-\frac{p_C+p_T}{2}
+\bar{p} = \frac{p_C+p_T}{2}
 $$
 
 For this experiment:
 
 $$
-\bar{p}
-=======
-
-# \frac{0.10+0.11}{2}
-
-0.105
+\bar{p} = # \frac{0.10+0.11}{2} 0.105
 $$
 
 Using:
@@ -731,14 +696,7 @@ The effect may be statistically significant but too small to justify:
 A complete experiment decision should evaluate:
 
 $$
-\text{Expected Business Value}
-==============================
-
-\text{Effect Size}
-\times
-\text{Population Size}
-\times
-\text{Value per Outcome}
+\text{Expected Business Value} = \text{Effect Size} \times \text{Population Size} \times \text{Value per Outcome}
 $$
 
 The team should also compare the expected benefit with implementation and opportunity costs.
@@ -909,10 +867,7 @@ Testing many metrics, segments or treatment variants increases the probability o
 If $m$ independent hypotheses are tested at level $\alpha$, the probability of at least one false positive is:
 
 $$
-P(\text{at least one false positive})
-=====================================
-
-1-(1-\alpha)^m
+P(\text{at least one false positive}) = 1-(1-\alpha)^m
 $$
 
 For example, with 20 independent tests and:
@@ -934,10 +889,7 @@ This means there is approximately a 64.2% probability of observing at least one 
 Corrections such as Bonferroni reduce the per-test significance level:
 
 $$
-\alpha_{\text{adjusted}}
-========================
-
-\frac{\alpha}{m}
+\alpha_{\text{adjusted}} = \frac{\alpha}{m}
 $$
 
 However, stricter thresholds can reduce power and test sensitivity.
@@ -1014,10 +966,7 @@ Examples:
 For clustered data, the effective sample size may be approximated using the design effect:
 
 $$
-\text{Design Effect}
-====================
-
-1+(m-1)\rho
+\text{Design Effect} = 1+(m-1)\rho
 $$
 
 where:
@@ -1042,10 +991,7 @@ Ignoring clustering can make a test appear more sensitive than it actually is.
 In medical testing and machine learning classification, **sensitivity** often means the true positive rate:
 
 $$
-\text{Sensitivity}
-==================
-
-\frac{TP}{TP+FN}
+\text{Sensitivity} = \frac{TP}{TP+FN}
 $$
 
 This is also called **recall**.
@@ -1217,12 +1163,7 @@ $$
 For an expected effect of 0.5 minutes:
 
 $$
-d
-=
-
-# \frac{0.5}{4}
-
-0.125
+d = \frac{0.5}{4} = 0.125
 $$
 
 This is a relatively small standardized effect, so the experiment may require a large sample.

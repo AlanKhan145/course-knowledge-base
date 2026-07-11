@@ -457,9 +457,9 @@ print(result)
 
 Time complexity:
 
-[
+$$
 O(n)
-]
+$$
 
 Linear search works with unsorted data but becomes inefficient for very large collections.
 
@@ -502,9 +502,9 @@ print(binary_search(numbers, 7))
 
 Time complexity:
 
-[
+$$
 O(\log n)
-]
+$$
 
 Binary search requires sorted input.
 
@@ -532,9 +532,9 @@ print(sorted_sales)
 
 Python's built-in sorting implementation is highly optimized and generally has a time complexity of:
 
-[
+$$
 O(n \log n)
-]
+$$
 
 Sorting is commonly used for:
 
@@ -578,9 +578,9 @@ print(high_value_rows)
 
 Filtering usually requires examining each observation:
 
-[
+$$
 O(n)
-]
+$$
 
 ---
 
@@ -675,9 +675,9 @@ exists = 999_999 in customer_ids
 
 Expected complexity:
 
-[
+$$
 O(n)
-]
+$$
 
 Using a set:
 
@@ -689,9 +689,9 @@ exists = 999_999 in customer_ids
 
 Expected average complexity:
 
-[
+$$
 O(1)
-]
+$$
 
 The second version uses more memory but provides much faster repeated membership checks.
 
@@ -932,9 +932,9 @@ for customer in customers:
 
 This may require approximately:
 
-[
+$$
 O(n \times m)
-]
+$$
 
 A dictionary lookup is often better:
 

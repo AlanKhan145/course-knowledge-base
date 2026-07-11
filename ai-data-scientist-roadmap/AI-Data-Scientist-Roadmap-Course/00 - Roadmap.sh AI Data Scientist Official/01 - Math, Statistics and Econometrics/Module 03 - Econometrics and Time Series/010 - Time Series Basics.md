@@ -80,9 +80,9 @@ After completing this lesson, you should be able to:
 
 A time series is a set of observations indexed by time:
 
-[
+$$
 y_1, y_2, y_3, \ldots, y_T
-]
+$$
 
 where:
 
@@ -91,9 +91,9 @@ where:
 
 A general representation is:
 
-[
+$$
 y_t = f(t) + \varepsilon_t
-]
+$$
 
 where:
 
@@ -137,9 +137,9 @@ For example, randomly shuffling daily sales data may allow the model to train on
 
 A useful conceptual decomposition is:
 
-[
+$$
 y_t = T_t + S_t + C_t + \varepsilon_t
-]
+$$
 
 where:
 
@@ -291,9 +291,9 @@ A model trained before the break may perform poorly after the break.
 
 An additive decomposition assumes:
 
-[
+$$
 y_t = T_t + S_t + \varepsilon_t
-]
+$$
 
 It is appropriate when the seasonal variation remains approximately constant as the overall level changes.
 
@@ -307,9 +307,9 @@ Example:
 
 A multiplicative decomposition assumes:
 
-[
+$$
 y_t = T_t \times S_t \times \varepsilon_t
-]
+$$
 
 It is appropriate when seasonal fluctuations become larger as the level of the series increases.
 
@@ -319,16 +319,9 @@ Example:
 
 A logarithmic transformation can convert multiplicative relationships into approximately additive ones:
 
-[
-\log(y_t)
-=========
-
-\log(T_t)
-+
-\log(S_t)
-+
-\log(\varepsilon_t)
-]
+$$
+\log(y_t) = \log(T_t) + \log(S_t) + \log(\varepsilon_t)
+$$
 
 ---
 
@@ -338,9 +331,9 @@ Time series observations are often dependent on previous observations.
 
 For example:
 
-[
+$$
 y_t = \phi y_{t-1} + \varepsilon_t
-]
+$$
 
 The current value (y_t) depends on the previous value (y_{t-1}).
 
@@ -354,15 +347,15 @@ A **lag** is a previous value of the same variable.
 
 The first lag is:
 
-[
+$$
 \operatorname{Lag}*1(y_t) = y*{t-1}
-]
+$$
 
 The seventh lag for daily data is:
 
-[
+$$
 \operatorname{Lag}*7(y_t) = y*{t-7}
-]
+$$
 
 Example:
 
@@ -392,24 +385,15 @@ Rolling statistics summarize recent observations over a moving window.
 
 A rolling mean with window size (k) is:
 
-[
-\operatorname{MA}_t^{(k)}
-=========================
-
-\frac{1}{k}
-\sum_{i=0}^{k-1} y_{t-i}
-]
+$$
+\operatorname{MA}_t^{(k)} = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
+$$
 
 For a seven-day moving average:
 
-[
-\operatorname{MA}_t^{(7)}
-=========================
-
-\frac{
-y_t + y_{t-1} + \cdots + y_{t-6}
-}{7}
-]
+$$
+\operatorname{MA}_t^{(7)} = \frac{ y_t + y_{t-1} + \cdots + y_{t-6} }{7}
+$$
 
 Useful rolling features include:
 
@@ -447,12 +431,9 @@ The `shift(1)` ensures that the current target value is not included in its own 
 
 For lag (k):
 
-[
-\rho_k
-======
-
-\operatorname{Corr}(y_t, y_{t-k})
-]
+$$
+\rho_k = \operatorname{Corr}(y_t, y_{t-k})
+$$
 
 Examples:
 
@@ -485,17 +466,17 @@ A weakly stationary series has:
 
 Conceptually:
 
-[
+$$
 \mathbb{E}[y_t] = \mu
-]
+$$
 
-[
+$$
 \operatorname{Var}(y_t) = \sigma^2
-]
+$$
 
-[
+$$
 \operatorname{Cov}(y_t, y_{t-k}) = \gamma_k
-]
+$$
 
 A series with a strong trend or changing variance is usually non-stationary.
 
@@ -521,15 +502,15 @@ To make a series more stable, analysts may use:
 
 First-order differencing is:
 
-[
+$$
 \Delta y_t = y_t - y_{t-1}
-]
+$$
 
 Seasonal differencing with period (s) is:
 
-[
+$$
 \Delta_s y_t = y_t - y_{t-s}
-]
+$$
 
 ---
 
@@ -564,20 +545,17 @@ Predicting one step ahead is usually easier than predicting many steps ahead.
 
 Predict only the next value:
 
-[
+$$
 \hat{y}_{t+1}
-]
+$$
 
 ### Multi-Step Forecast
 
 Predict several future values:
 
-[
-\hat{y}*{t+1},
-\hat{y}*{t+2},
-\ldots,
-\hat{y}_{t+h}
-]
+$$
+\hat{y}*{t+1}, \hat{y}*{t+2}, \ldots, \hat{y}_{t+h}
+$$
 
 where (h) is the forecast horizon.
 
@@ -602,13 +580,9 @@ A complex model is not useful if it cannot outperform a reasonable baseline.
 
 Predict the historical mean:
 
-[
-\hat{y}_{t+h}
-=============
-
-\frac{1}{T}
-\sum_{t=1}^{T} y_t
-]
+$$
+\hat{y}_{t+h} = \frac{1}{T} \sum_{t=1}^{T} y_t
+$$
 
 This is simple but often weak for trending or seasonal data.
 
@@ -618,9 +592,9 @@ This is simple but often weak for trending or seasonal data.
 
 Predict the most recent observation:
 
-[
+$$
 \hat{y}_{t+1} = y_t
-]
+$$
 
 This baseline can be surprisingly strong when the series changes slowly.
 
@@ -630,21 +604,21 @@ This baseline can be surprisingly strong when the series changes slowly.
 
 Predict the value from the same position in the previous seasonal cycle:
 
-[
+$$
 \hat{y}*t = y*{t-s}
-]
+$$
 
 For daily data with weekly seasonality:
 
-[
+$$
 \hat{y}*t = y*{t-7}
-]
+$$
 
 For monthly data with yearly seasonality:
 
-[
+$$
 \hat{y}*t = y*{t-12}
-]
+$$
 
 Strong seasonality often makes the seasonal naive forecast difficult to beat.
 
@@ -654,13 +628,9 @@ Strong seasonality often makes the seasonal naive forecast difficult to beat.
 
 Predict using a recent average:
 
-[
-\hat{y}_{t+1}
-=============
-
-\frac{1}{k}
-\sum_{i=0}^{k-1} y_{t-i}
-]
+$$
+\hat{y}_{t+1} = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
+$$
 
 This can reduce short-term noise but may react slowly to sudden changes.
 
@@ -785,14 +755,9 @@ Let:
 
 ### 18.1 Mean Absolute Error
 
-[
-\operatorname{MAE}
-==================
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-|y_t-\hat{y}_t|
-]
+$$
+\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
+$$
 
 Advantages:
 
@@ -804,16 +769,9 @@ Advantages:
 
 ### 18.2 Root Mean Squared Error
 
-[
-\operatorname{RMSE}
-===================
-
-\sqrt{
-\frac{1}{n}
-\sum_{t=1}^{n}
-(y_t-\hat{y}_t)^2
-}
-]
+$$
+\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
+$$
 
 Advantages:
 
@@ -824,16 +782,9 @@ Advantages:
 
 ### 18.3 Mean Absolute Percentage Error
 
-[
-\operatorname{MAPE}
-===================
-
-\frac{100}{n}
-\sum_{t=1}^{n}
-\left|
-\frac{y_t-\hat{y}_t}{y_t}
-\right|
-]
+$$
+\operatorname{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t-\hat{y}_t}{y_t} \right|
+$$
 
 Limitations:
 
@@ -845,17 +796,9 @@ Limitations:
 
 ### 18.4 Weighted Absolute Percentage Error
 
-[
-\operatorname{WAPE}
-===================
-
-\frac{
-\sum_{t=1}^{n}|y_t-\hat{y}*t|
-}{
-\sum*{t=1}^{n}|y_t|
-}
-\times 100
-]
+$$
+\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}*t| }{ \sum*{t=1}^{n}|y_t| } \times 100
+$$
 
 WAPE is often useful for evaluating aggregate demand forecasts.
 
@@ -863,18 +806,9 @@ WAPE is often useful for evaluating aggregate demand forecasts.
 
 ### 18.5 Mean Absolute Scaled Error
 
-[
-\operatorname{MASE}
-===================
-
-\frac{
-\frac{1}{n}
-\sum_{t=1}^{n}|y_t-\hat{y}*t|
-}{
-\frac{1}{T-1}
-\sum*{t=2}^{T}|y_t-y_{t-1}|
-}
-]
+$$
+\operatorname{MASE} = \frac{ \frac{1}{n} \sum_{t=1}^{n}|y_t-\hat{y}*t| }{ \frac{1}{T-1} \sum*{t=2}^{T}|y_t-y_{t-1}| }
+$$
 
 Interpretation:
 
@@ -1181,9 +1115,9 @@ A metric may hide problems such as:
 
 The residual or forecast error is:
 
-[
+$$
 e_t = y_t - \hat{y}_t
-]
+$$
 
 Create forecast errors:
 
@@ -1568,14 +1502,9 @@ Useful monitoring metrics include:
 
 Forecast bias can be estimated as:
 
-[
-\operatorname{Bias}
-===================
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-(\hat{y}_t-y_t)
-]
+$$
+\operatorname{Bias} = \frac{1}{n} \sum_{t=1}^{n} (\hat{y}_t-y_t)
+$$
 
 A positive bias means systematic overprediction under this definition. A negative bias means systematic underprediction.
 

@@ -147,17 +147,7 @@ $$
 For example:
 
 $$
-\widehat{\text{House Price}}
-============================
-
-50{,}000
-+
-120 \times \text{Area}
-+
-15{,}000 \times \text{Bedrooms}
--------------------------------
-
-2{,}000 \times \text{Age}
+\widehat{\text{House Price}} = 50{,}000 + 120 \times \text{Area} + 15{,}000 \times \text{Bedrooms} - 2{,}000 \times \text{Age}
 $$
 
 Possible interpretation:
@@ -242,13 +232,7 @@ $$
 The OLS estimate is:
 
 $$
-\hat{\boldsymbol{\beta}}
-========================
-
-\left(
-\mathbf{X}^{T}\mathbf{X}
-\right)^{-1}
-\mathbf{X}^{T}\mathbf{y}
+\hat{\boldsymbol{\beta}} = \left( \mathbf{X}^{T}\mathbf{X} \right)^{-1} \mathbf{X}^{T}\mathbf{y}
 $$
 
 This solution requires $\mathbf{X}^{T}\mathbf{X}$ to be invertible.
@@ -284,12 +268,7 @@ In multiple regression, $\beta_j$ represents the expected change in $Y$ for a on
 Suppose:
 
 $$
-\widehat{\text{Sales}}
-======================
-
-2{,}000
-+
-3.5 \times \text{Advertising}
+\widehat{\text{Sales}} = 2{,}000 + 3.5 \times \text{Advertising}
 $$
 
 If advertising is measured in dollars, a one-dollar increase is associated with 3.5 additional sales units.
@@ -523,15 +502,7 @@ Adding predictors can increase ordinary $R^2$ even when they provide little valu
 Adjusted $R^2$ penalizes unnecessary predictors:
 
 $$
-\bar{R}^2
-=========
-
-## 1
-
-\left(
-1 - R^2
-\right)
-\frac{n - 1}{n - p - 1}
+\bar{R}^2 = ## 1 \left( 1 - R^2 \right) \frac{n - 1}{n - p - 1}
 $$
 
 Where:
@@ -598,14 +569,7 @@ Although the relationship is nonlinear in $X$, the model remains linear in the c
 A right-skewed target may be transformed:
 
 $$
-\log(Y)
-=======
-
-\beta_0
-+
-\beta_1 X
-+
-\varepsilon
+\log(Y) = \beta_0 + \beta_1 X + \varepsilon
 $$
 
 A log transformation can:
@@ -943,17 +907,7 @@ Do not interpret p-values without considering:
 Suppose a model predicts weekly sales:
 
 $$
-\widehat{\text{Sales}}
-======================
-
-1{,}200
-+
-4.8 \times \text{Advertising}
------------------------------
-
-30 \times \text{Price}
-+
-250 \times \text{Promotion}
+\widehat{\text{Sales}} = 1{,}200 + 4.8 \times \text{Advertising} - 30 \times \text{Price} + 250 \times \text{Promotion}
 $$
 
 Assume:

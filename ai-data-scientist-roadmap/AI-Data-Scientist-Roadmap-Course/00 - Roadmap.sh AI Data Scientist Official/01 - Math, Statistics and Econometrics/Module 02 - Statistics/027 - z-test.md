@@ -89,13 +89,9 @@ A statistical test helps answer:
 
 The z-test converts an observed difference into a standardized statistic:
 
-[
-z
-=
-
-\frac{\text{Observed statistic} - \text{Expected statistic}}
-{\text{Standard error}}
-]
+$$
+z = \frac{\text{Observed statistic} - \text{Expected statistic}} {\text{Standard error}}
+$$
 
 The resulting z-score represents how many standard errors the observation is away from the value expected under the null hypothesis.
 
@@ -156,9 +152,9 @@ The **null hypothesis**, written as (H_0), usually represents:
 
 Example:
 
-[
+$$
 H_0:\mu = 500
-]
+$$
 
 This means the population mean is assumed to be 500 unless the sample provides sufficient evidence against it.
 
@@ -172,25 +168,25 @@ Examples:
 
 #### Two-sided alternative
 
-[
+$$
 H_1:\mu \neq 500
-]
+$$
 
 The population mean may be either greater than or less than 500.
 
 #### Right-tailed alternative
 
-[
+$$
 H_1:\mu > 500
-]
+$$
 
 The population mean is greater than 500.
 
 #### Left-tailed alternative
 
-[
+$$
 H_1:\mu < 500
-]
+$$
 
 The population mean is less than 500.
 
@@ -202,17 +198,17 @@ The **significance level**, denoted by (\alpha), is the probability threshold us
 
 A common choice is:
 
-[
+$$
 \alpha = 0.05
-]
+$$
 
 This represents a 5% tolerance for a Type I error.
 
 Typical values include:
 
-[
+$$
 \alpha \in {0.10,\ 0.05,\ 0.01}
-]
+$$
 
 A smaller significance level requires stronger evidence before rejecting the null hypothesis.
 
@@ -224,17 +220,13 @@ The **p-value** is the probability of observing a result at least as extreme as 
 
 Decision rule:
 
-[
-\text{If } p \leq \alpha,
-\quad
-\text{reject } H_0
-]
+$$
+\text{If } p \leq \alpha, \quad \text{reject } H_0
+$$
 
-[
-\text{If } p > \alpha,
-\quad
-\text{fail to reject } H_0
-]
+$$
+\text{If } p > \alpha, \quad \text{fail to reject } H_0
+$$
 
 Important:
 
@@ -248,23 +240,15 @@ It only means that the available evidence is not strong enough to reject it.
 
 The general z-statistic is:
 
-[
-z
-=
-
-\frac{\text{Observed value} - \text{Expected value under }H_0}
-{\text{Standard error}}
-]
+$$
+z = \frac{\text{Observed value} - \text{Expected value under }H_0} {\text{Standard error}}
+$$
 
 It can also be written as:
 
-[
-z
-=
-
-\frac{\hat{\theta}-\theta_0}
-{\operatorname{SE}(\hat{\theta})}
-]
+$$
+z = \frac{\hat{\theta}-\theta_0} {\operatorname{SE}(\hat{\theta})}
+$$
 
 where:
 
@@ -287,12 +271,9 @@ The **standard error** measures how much a sample statistic is expected to vary 
 
 For a sample mean:
 
-[
-\operatorname{SE}(\bar{x})
-==========================
-
-\frac{\sigma}{\sqrt{n}}
-]
+$$
+\operatorname{SE}(\bar{x}) = \frac{\sigma}{\sqrt{n}}
+$$
 
 where:
 
@@ -301,11 +282,9 @@ where:
 
 As the sample size increases:
 
-[
-n \uparrow
-\quad\Longrightarrow\quad
-\operatorname{SE} \downarrow
-]
+$$
+n \uparrow \quad\Longrightarrow\quad \operatorname{SE} \downarrow
+$$
 
 Therefore, larger samples usually produce more precise estimates.
 
@@ -339,21 +318,21 @@ However, a large sample does not automatically remove:
 
 The z-test uses the **standard normal distribution**:
 
-[
+$$
 Z \sim \mathcal{N}(0,1)
-]
+$$
 
 It has:
 
-[
+$$
 \mu_Z = 0
-]
+$$
 
 and:
 
-[
+$$
 \sigma_Z = 1
-]
+$$
 
 A z-score indicates the number of standard deviations or standard errors from the center of the distribution.
 
@@ -374,21 +353,21 @@ Probability density
 
 For a two-sided test with:
 
-[
+$$
 \alpha = 0.05
-]
+$$
 
 the critical z-values are approximately:
 
-[
+$$
 z_{\alpha/2} = \pm 1.96
-]
+$$
 
 The null hypothesis is rejected when:
 
-[
+$$
 |z| > 1.96
-]
+$$
 
 ---
 
@@ -400,27 +379,25 @@ Use a two-tailed test when a difference in either direction matters.
 
 Hypotheses:
 
-[
+$$
 H_0:\mu=\mu_0
-]
+$$
 
-[
+$$
 H_1:\mu\neq\mu_0
-]
+$$
 
 Decision rule for (\alpha=0.05):
 
-[
-z < -1.96
-\quad\text{or}\quad
-z > 1.96
-]
+$$
+z < -1.96 \quad\text{or}\quad z > 1.96
+$$
 
 Equivalent form:
 
-[
+$$
 |z| > 1.96
-]
+$$
 
 Example question:
 
@@ -436,31 +413,31 @@ Use a right-tailed test when only an increase matters.
 
 Hypotheses:
 
-[
+$$
 H_0:\mu\leq\mu_0
-]
+$$
 
-[
+$$
 H_1:\mu>\mu_0
-]
+$$
 
 For:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 the critical value is approximately:
 
-[
+$$
 z_{0.05}=1.645
-]
+$$
 
 Reject the null hypothesis when:
 
-[
+$$
 z > 1.645
-]
+$$
 
 Example question:
 
@@ -474,25 +451,25 @@ Use a left-tailed test when only a decrease matters.
 
 Hypotheses:
 
-[
+$$
 H_0:\mu\geq\mu_0
-]
+$$
 
-[
+$$
 H_1:\mu<\mu_0
-]
+$$
 
 For:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 reject the null hypothesis when:
 
-[
+$$
 z < -1.645
-]
+$$
 
 Example question:
 
@@ -514,27 +491,27 @@ For left-tailed tests, use the corresponding negative value.
 
 For example:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 Left-tailed:
 
-[
+$$
 z_{\text{critical}}=-1.645
-]
+$$
 
 Right-tailed:
 
-[
+$$
 z_{\text{critical}}=1.645
-]
+$$
 
 Two-tailed:
 
-[
+$$
 z_{\text{critical}}=\pm1.96
-]
+$$
 
 ---
 
@@ -544,13 +521,13 @@ A one-sample z-test compares a sample mean with a known or hypothesized populati
 
 ### 10.1 Hypotheses
 
-[
+$$
 H_0:\mu=\mu_0
-]
+$$
 
-[
+$$
 H_1:\mu\neq\mu_0
-]
+$$
 
 The alternative may also be one-sided.
 
@@ -558,13 +535,9 @@ The alternative may also be one-sided.
 
 ### 10.2 Formula
 
-[
-z
-=
-
-\frac{\bar{x}-\mu_0}
-{\sigma/\sqrt{n}}
-]
+$$
+z = \frac{\bar{x}-\mu_0} {\sigma/\sqrt{n}}
+$$
 
 where:
 
@@ -579,90 +552,79 @@ where:
 
 Suppose the historical average API response time is:
 
-[
+$$
 \mu_0=500\text{ ms}
-]
+$$
 
 A sample of:
 
-[
+$$
 n=100
-]
+$$
 
 requests has:
 
-[
+$$
 \bar{x}=480\text{ ms}
-]
+$$
 
 Assume the known population standard deviation is:
 
-[
+$$
 \sigma=80\text{ ms}
-]
+$$
 
 We want to test whether the average response time has changed.
 
 #### Step 1: Define hypotheses
 
-[
+$$
 H_0:\mu=500
-]
+$$
 
-[
+$$
 H_1:\mu\neq500
-]
+$$
 
 #### Step 2: Calculate the standard error
 
-[
-\operatorname{SE}
-=================
+$$
+\operatorname{SE} = \frac{80}{\sqrt{100}}
+$$
 
-\frac{80}{\sqrt{100}}
-]
-
-[
-\operatorname{SE}
-=================
-
-# \frac{80}{10}
-
-8
-]
+$$
+\operatorname{SE} = \frac{80}{10} = 8
+$$
 
 #### Step 3: Calculate the z-statistic
 
-[
-z
-=
+$$
+z = \frac{480-500}{8}
+$$
 
-\frac{480-500}{8}
-]
-
-[
+$$
 z=-2.5
-]
+$$
 
 #### Step 4: Compare with the critical value
 
 For a two-sided test at:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 the critical values are:
 
-[
+$$
 \pm1.96
-]
+$$
 
 Since:
 
-[
+$$
 |-2.5|>1.96
-]
+$$
 
 we reject the null hypothesis.
 
@@ -674,9 +636,9 @@ There is statistically significant evidence that the average API response time d
 
 The sample indicates an average reduction of:
 
-[
+$$
 500-480=20\text{ ms}
-]
+$$
 
 However, the team should still determine whether a 20-millisecond improvement is operationally meaningful.
 
@@ -688,47 +650,41 @@ A confidence interval provides a range of plausible values for the population me
 
 When the population standard deviation is known:
 
-[
-\bar{x}
-\pm
-z_{\alpha/2}
-\frac{\sigma}{\sqrt{n}}
-]
+$$
+\bar{x} \pm z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+$$
 
 For a 95% confidence interval:
 
-[
+$$
 z_{\alpha/2}=1.96
-]
+$$
 
 Using the API latency example:
 
-[
-480
-\pm
-1.96
-\left(\frac{80}{\sqrt{100}}\right)
-]
+$$
+480 \pm 1.96 \left(\frac{80}{\sqrt{100}}\right)
+$$
 
-[
+$$
 480\pm1.96(8)
-]
+$$
 
-[
+$$
 480\pm15.68
-]
+$$
 
 Therefore:
 
-[
+$$
 [464.32,\ 495.68]
-]
+$$
 
 Because 500 milliseconds is outside this interval, the result is consistent with rejecting:
 
-[
+$$
 H_0:\mu=500
-]
+$$
 
 ---
 
@@ -738,13 +694,13 @@ A two-sample z-test compares the means of two independent populations.
 
 ### 12.1 Hypotheses
 
-[
+$$
 H_0:\mu_1-\mu_2=0
-]
+$$
 
-[
+$$
 H_1:\mu_1-\mu_2\neq0
-]
+$$
 
 ---
 
@@ -752,17 +708,9 @@ H_1:\mu_1-\mu_2\neq0
 
 When the population standard deviations are known:
 
-[
-z
-=
-
-\frac{(\bar{x}_1-\bar{x}_2)-\Delta_0}
-{\sqrt{
-\frac{\sigma_1^2}{n_1}
-+
-\frac{\sigma_2^2}{n_2}
-}}
-]
+$$
+z = \frac{(\bar{x}_1-\bar{x}_2)-\Delta_0} {\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} }}
+$$
 
 where:
 
@@ -774,23 +722,15 @@ where:
 
 When:
 
-[
+$$
 \Delta_0=0
-]
+$$
 
 the formula becomes:
 
-[
-z
-=
-
-\frac{\bar{x}_1-\bar{x}_2}
-{\sqrt{
-\frac{\sigma_1^2}{n_1}
-+
-\frac{\sigma_2^2}{n_2}
-}}
-]
+$$
+z = \frac{\bar{x}_1-\bar{x}_2} {\sqrt{ \frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} }}
+$$
 
 ---
 
@@ -800,91 +740,61 @@ Suppose two model-serving systems are compared.
 
 #### System A
 
-[
+$$
 \bar{x}_A=210\text{ ms}
-]
+$$
 
-[
+$$
 \sigma_A=40\text{ ms}
-]
+$$
 
-[
+$$
 n_A=200
-]
+$$
 
 #### System B
 
-[
+$$
 \bar{x}_B=225\text{ ms}
-]
+$$
 
-[
+$$
 \sigma_B=50\text{ ms}
-]
+$$
 
-[
+$$
 n_B=250
-]
+$$
 
 The standard error is:
 
-[
-\operatorname{SE}
-=================
-
-\sqrt{
-\frac{40^2}{200}
-+
-\frac{50^2}{250}
-}
-]
-
-# [
-
-\sqrt{
-\frac{1600}{200}
-+
-\frac{2500}{250}
-}
-]
-
-# [
-
-\sqrt{8+10}
-]
-
-# [
-
-\sqrt{18}
-\approx4.243
-]
+$$
+\operatorname{SE} = \sqrt{ \frac{40^2}{200} + \frac{50^2}{250} } = \sqrt{ \frac{1600}{200} + \frac{2500}{250} } = \sqrt{8+10} = \sqrt{18} \approx4.243
+$$
 
 The z-statistic is:
 
-[
-z
-=
+$$
+z = \frac{210-225}{4.243}
+$$
 
-\frac{210-225}{4.243}
-]
-
-[
+$$
 z\approx-3.535
-]
+$$
 
 Since:
 
-[
+$$
 |-3.535|>1.96
-]
+$$
 
 the difference is statistically significant at the 5% level.
 
 The estimated latency reduction is:
 
-[
+$$
 225-210=15\text{ ms}
-]
+$$
 
 The business team should evaluate whether this reduction justifies deployment cost, engineering effort, and infrastructure changes.
 
@@ -896,13 +806,13 @@ A one-sample proportion z-test compares an observed sample proportion with a hyp
 
 ### 13.1 Hypotheses
 
-[
+$$
 H_0:p=p_0
-]
+$$
 
-[
+$$
 H_1:p\neq p_0
-]
+$$
 
 ---
 
@@ -910,39 +820,25 @@ H_1:p\neq p_0
 
 If (x) successes occur in (n) observations:
 
-[
-\hat{p}
-=======
-
-\frac{x}{n}
-]
+$$
+\hat{p} = \frac{x}{n}
+$$
 
 ---
 
 ### 13.3 Standard Error Under the Null Hypothesis
 
-[
-\operatorname{SE}_0
-===================
-
-\sqrt{
-\frac{p_0(1-p_0)}{n}
-}
-]
+$$
+\operatorname{SE}_0 = \sqrt{ \frac{p_0(1-p_0)}{n} }
+$$
 
 ---
 
 ### 13.4 z-Test Formula
 
-[
-z
-=
-
-\frac{\hat{p}-p_0}
-{\sqrt{
-\frac{p_0(1-p_0)}{n}
-}}
-]
+$$
+z = \frac{\hat{p}-p_0} {\sqrt{ \frac{p_0(1-p_0)}{n} }}
+$$
 
 ---
 
@@ -950,102 +846,77 @@ z
 
 A production classification model is expected to have an accuracy of:
 
-[
+$$
 p_0=0.80
-]
+$$
 
 It is evaluated on:
 
-[
+$$
 n=1000
-]
+$$
 
 independent observations and correctly predicts:
 
-[
+$$
 x=830
-]
+$$
 
 cases.
 
 The observed accuracy is:
 
-[
-\hat{p}
-=======
-
-# \frac{830}{1000}
-
-0.83
-]
+$$
+\hat{p} = # \frac{830}{1000} 0.83
+$$
 
 Hypotheses:
 
-[
+$$
 H_0:p=0.80
-]
+$$
 
-[
+$$
 H_1:p>0.80
-]
+$$
 
 Calculate the null standard error:
 
-[
-\operatorname{SE}_0
-===================
+$$
+\operatorname{SE}_0 = \sqrt{ \frac{0.80(1-0.80)}{1000} } = \sqrt{ \frac{0.16}{1000} } = \sqrt{0.00016}
+$$
 
-\sqrt{
-\frac{0.80(1-0.80)}{1000}
-}
-]
-
-# [
-
-\sqrt{
-\frac{0.16}{1000}
-}
-]
-
-# [
-
-\sqrt{0.00016}
-]
-
-[
+$$
 \approx0.01265
-]
+$$
 
 Calculate the z-statistic:
 
-[
-z
-=
+$$
+z = \frac{0.83-0.80}{0.01265}
+$$
 
-\frac{0.83-0.80}{0.01265}
-]
-
-[
+$$
 z\approx2.372
-]
+$$
 
 For a right-tailed test with:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 the critical value is:
 
-[
+$$
 1.645
-]
+$$
 
 Since:
 
-[
+$$
 2.372>1.645
-]
+$$
 
 we reject the null hypothesis.
 
@@ -1071,27 +942,27 @@ Examples:
 
 ### 14.1 Hypotheses
 
-[
+$$
 H_0:p_1=p_2
-]
+$$
 
 or:
 
-[
+$$
 H_0:p_1-p_2=0
-]
+$$
 
 For a two-sided test:
 
-[
+$$
 H_1:p_1\neq p_2
-]
+$$
 
 For a right-tailed test:
 
-[
+$$
 H_1:p_1>p_2
-]
+$$
 
 ---
 
@@ -1099,21 +970,15 @@ H_1:p_1>p_2
 
 For group 1:
 
-[
-\hat{p}_1
-=========
-
-\frac{x_1}{n_1}
-]
+$$
+\hat{p}_1 = \frac{x_1}{n_1}
+$$
 
 For group 2:
 
-[
-\hat{p}_2
-=========
-
-\frac{x_2}{n_2}
-]
+$$
+\hat{p}_2 = \frac{x_2}{n_2}
+$$
 
 ---
 
@@ -1121,52 +986,25 @@ For group 2:
 
 Under the null hypothesis that the two proportions are equal, calculate the pooled proportion:
 
-[
-\hat{p}
-=======
-
-\frac{x_1+x_2}
-{n_1+n_2}
-]
+$$
+\hat{p} = \frac{x_1+x_2} {n_1+n_2}
+$$
 
 ---
 
 ### 14.4 Pooled Standard Error
 
-[
-\operatorname{SE}_{\text{pooled}}
-=================================
-
-\sqrt{
-\hat{p}(1-\hat{p})
-\left(
-\frac{1}{n_1}
-+
-\frac{1}{n_2}
-\right)
-}
-]
+$$
+\operatorname{SE}_{\text{pooled}} = \sqrt{ \hat{p}(1-\hat{p}) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) }
+$$
 
 ---
 
 ### 14.5 z-Statistic
 
-[
-z
-=
-
-\frac{\hat{p}_1-\hat{p}_2}
-{
-\sqrt{
-\hat{p}(1-\hat{p})
-\left(
-\frac{1}{n_1}
-+
-\frac{1}{n_2}
-\right)
-}
-}
-]
+$$
+z = \frac{\hat{p}_1-\hat{p}_2} { \sqrt{ \hat{p}(1-\hat{p}) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) } }
+$$
 
 ---
 
@@ -1176,68 +1014,49 @@ Suppose an e-commerce company compares two checkout designs.
 
 ### Control Group A
 
-[
+$$
 n_A=5000
-]
+$$
 
-[
+$$
 x_A=500
-]
+$$
 
-[
-\hat{p}_A
-=========
-
-# \frac{500}{5000}
-
-0.10
-]
+$$
+\hat{p}_A = # \frac{500}{5000} 0.10
+$$
 
 ### Treatment Group B
 
-[
+$$
 n_B=5000
-]
+$$
 
-[
+$$
 x_B=575
-]
+$$
 
-[
-\hat{p}_B
-=========
-
-# \frac{575}{5000}
-
-0.115
-]
+$$
+\hat{p}_B = # \frac{575}{5000} 0.115
+$$
 
 The observed absolute difference is:
 
-[
-\hat{p}_B-\hat{p}_A
-===================
-
-# 0.115-0.10
-
-0.015
-]
+$$
+\hat{p}_B-\hat{p}_A = # 0.115-0.10 0.015
+$$
 
 Therefore, the treatment improved conversion by:
 
-[
+$$
 1.5\text{ percentage points}
-]
+$$
 
 The relative uplift is:
 
-[
-\frac{0.115-0.10}{0.10}
-\times100%
-==========
-
-15%
-]
+$$
+\frac{0.115-0.10}{0.10} \times100% = 15%
+$$
 
 ---
 
@@ -1245,62 +1064,37 @@ The relative uplift is:
 
 Suppose the company wants to determine whether treatment B has a different conversion rate.
 
-[
+$$
 H_0:p_A=p_B
-]
+$$
 
-[
+$$
 H_1:p_A\neq p_B
-]
+$$
 
 ---
 
 ### 15.2 Calculate the Pooled Proportion
 
-[
-\hat{p}
-=======
+$$
+\hat{p} = \frac{500+575}{5000+5000} = \frac{1075}{10000}
+$$
 
-\frac{500+575}{5000+5000}
-]
-
-# [
-
-\frac{1075}{10000}
-]
-
-[
+$$
 =0.1075
-]
+$$
 
 ---
 
 ### 15.3 Calculate the Pooled Standard Error
 
-[
-\operatorname{SE}
-=================
+$$
+\operatorname{SE} = \sqrt{ 0.1075(1-0.1075) \left( \frac{1}{5000} + \frac{1}{5000} \right) } = \sqrt{ 0.1075(0.8925)(0.0004) }
+$$
 
-\sqrt{
-0.1075(1-0.1075)
-\left(
-\frac{1}{5000}
-+
-\frac{1}{5000}
-\right)
-}
-]
-
-# [
-
-\sqrt{
-0.1075(0.8925)(0.0004)
-}
-]
-
-[
+$$
 \approx0.006195
-]
+$$
 
 ---
 
@@ -1308,34 +1102,31 @@ H_1:p_A\neq p_B
 
 Using treatment minus control:
 
-[
-z
-=
+$$
+z = \frac{0.115-0.10}{0.006195}
+$$
 
-\frac{0.115-0.10}{0.006195}
-]
-
-[
+$$
 z\approx2.421
-]
+$$
 
 For a two-sided test with:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 the critical value is:
 
-[
+$$
 1.96
-]
+$$
 
 Since:
 
-[
+$$
 |2.421|>1.96
-]
+$$
 
 we reject the null hypothesis.
 
@@ -1373,68 +1164,47 @@ Before a full rollout, the team should also evaluate:
 
 For estimation, the unpooled standard error is commonly used:
 
-[
-\operatorname{SE}_{\text{unpooled}}
-===================================
-
-\sqrt{
-\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}
-+
-\frac{\hat{p}_2(1-\hat{p}_2)}{n_2}
-}
-]
+$$
+\operatorname{SE}_{\text{unpooled}} = \sqrt{ \frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2} }
+$$
 
 A confidence interval for the difference is:
 
-[
-(\hat{p}*1-\hat{p}*2)
-\pm
-z*{\alpha/2}
-\operatorname{SE}*{\text{unpooled}}
-]
+$$
+(\hat{p}*1-\hat{p}*2) \pm z*{\alpha/2} \operatorname{SE}*{\text{unpooled}}
+$$
 
 For the A/B example:
 
-[
-\operatorname{SE}_{\text{unpooled}}
-===================================
+$$
+\operatorname{SE}_{\text{unpooled}} = \sqrt{ \frac{0.115(0.885)}{5000} + \frac{0.10(0.90)}{5000} }
+$$
 
-\sqrt{
-\frac{0.115(0.885)}{5000}
-+
-\frac{0.10(0.90)}{5000}
-}
-]
-
-[
+$$
 \approx0.006195
-]
+$$
 
 The 95% confidence interval is:
 
-[
-0.015
-\pm
-1.96(0.006195)
-]
+$$
+0.015 \pm 1.96(0.006195)
+$$
 
-[
-0.015
-\pm
-0.012142
-]
+$$
+0.015 \pm 0.012142
+$$
 
 Therefore:
 
-[
+$$
 [0.002858,\ 0.027142]
-]
+$$
 
 Expressed in percentage points:
 
-[
+$$
 [0.286,\ 2.714]
-]
+$$
 
 This interval does not contain zero, which is consistent with rejecting the null hypothesis.
 
@@ -1446,46 +1216,33 @@ A/B test results are often presented using both absolute and relative changes.
 
 ### Absolute difference
 
-[
-\text{Absolute difference}
-==========================
-
-\hat{p}_B-\hat{p}_A
-]
+$$
+\text{Absolute difference} = \hat{p}_B-\hat{p}_A
+$$
 
 For the example:
 
-[
+$$
 0.115-0.10=0.015
-]
+$$
 
 This is a:
 
-[
+$$
 1.5\text{ percentage-point increase}
-]
+$$
 
 ### Relative uplift
 
-[
-\text{Relative uplift}
-======================
-
-\frac{\hat{p}_B-\hat{p}_A}{\hat{p}_A}
-]
-
-# [
-
-# \frac{0.015}{0.10}
-
-0.15
-]
+$$
+\text{Relative uplift} = \frac{\hat{p}_B-\hat{p}_A}{\hat{p}_A} = # \frac{0.015}{0.10} 0.15
+$$
 
 Therefore:
 
-[
+$$
 \text{Relative uplift}=15%
-]
+$$
 
 These values should not be confused:
 
@@ -1542,29 +1299,23 @@ For means, the sample mean should be approximately normally distributed.
 
 The Central Limit Theorem often supports this when the sample size is sufficiently large:
 
-[
-\bar{X}
-\approx
-\mathcal{N}
-\left(
-\mu,
-\frac{\sigma^2}{n}
-\right)
-]
+$$
+\bar{X} \approx \mathcal{N} \left( \mu, \frac{\sigma^2}{n} \right)
+$$
 
 For proportions, the normal approximation is usually considered reasonable when expected counts are sufficiently large.
 
 For a one-sample proportion test:
 
-[
+$$
 np_0 \geq 10
-]
+$$
 
 and:
 
-[
+$$
 n(1-p_0)\geq10
-]
+$$
 
 For two-proportion tests, each group should have enough expected successes and failures.
 
@@ -1613,23 +1364,17 @@ Both tests compare observed statistics with values expected under a null hypothe
 
 The one-sample t-statistic is:
 
-[
-t
-=
-
-\frac{\bar{x}-\mu_0}
-{s/\sqrt{n}}
-]
+$$
+t = \frac{\bar{x}-\mu_0} {s/\sqrt{n}}
+$$
 
 where (s) is the sample standard deviation.
 
 As the degrees of freedom increase:
 
-[
-t_{\nu}
-\rightarrow
-\mathcal{N}(0,1)
-]
+$$
+t_{\nu} \rightarrow \mathcal{N}(0,1)
+$$
 
 Therefore, the t-distribution approaches the standard normal distribution for large samples.
 
@@ -1664,9 +1409,9 @@ A statistical decision can be correct or incorrect.
 
 A Type I error occurs when we reject a true null hypothesis.
 
-[
+$$
 P(\text{Type I error})=\alpha
-]
+$$
 
 Example:
 
@@ -1680,9 +1425,9 @@ This is a false positive.
 
 A Type II error occurs when we fail to reject a false null hypothesis.
 
-[
+$$
 P(\text{Type II error})=\beta
-]
+$$
 
 Example:
 
@@ -1696,15 +1441,15 @@ This is a false negative.
 
 Statistical power is the probability of detecting a true effect.
 
-[
+$$
 \text{Power}=1-\beta
-]
+$$
 
 A common target is:
 
-[
+$$
 \text{Power}=0.80
-]
+$$
 
 Power tends to increase when:
 
@@ -1722,40 +1467,31 @@ A statistically significant result is not automatically valuable.
 
 For example, suppose a new model decreases average latency from:
 
-[
+$$
 200.0\text{ ms}
-]
+$$
 
 to:
 
-[
+$$
 199.7\text{ ms}
-]
+$$
 
 With millions of requests, the difference may be statistically significant.
 
 However, the improvement is only:
 
-[
+$$
 0.3\text{ ms}
-]
+$$
 
 The engineering cost may exceed the practical benefit.
 
 A complete decision should consider:
 
-[
-\text{Decision}
-===============
-
-f(
-\text{statistical evidence},
-\text{effect size},
-\text{business value},
-\text{risk},
-\text{cost}
-)
-]
+$$
+\text{Decision} = f( \text{statistical evidence}, \text{effect size}, \text{business value}, \text{risk}, \text{cost} )
+$$
 
 Good reporting includes:
 
@@ -1777,19 +1513,9 @@ The **minimum detectable effect**, or MDE, is the smallest effect that an experi
 
 For a two-group proportion experiment with equal sample sizes, a rough approximation is:
 
-[
-n
-\approx
-\frac{
-2\bar{p}(1-\bar{p})
-\left(
-z_{1-\alpha/2}
-+
-z_{1-\beta}
-\right)^2
-}
-{\delta^2}
-]
+$$
+n \approx \frac{ 2\bar{p}(1-\bar{p}) \left( z_{1-\alpha/2} + z_{1-\beta} \right)^2 } {\delta^2}
+$$
 
 where:
 
@@ -1801,11 +1527,9 @@ where:
 
 Important relationship:
 
-[
-\delta \downarrow
-\quad\Longrightarrow\quad
-n \uparrow
-]
+$$
+\delta \downarrow \quad\Longrightarrow\quad n \uparrow
+$$
 
 Detecting smaller effects requires larger samples.
 
@@ -1817,24 +1541,19 @@ When many hypotheses are tested, the probability of false positives increases.
 
 Suppose 20 independent tests are performed with:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 The probability of at least one false positive is approximately:
 
-[
-1-(1-\alpha)^{20}
-]
+$$
+1-(1-\alpha)^{20} = 1-0.95^{20}
+$$
 
-# [
-
-1-0.95^{20}
-]
-
-[
+$$
 \approx0.642
-]
+$$
 
 Therefore, there is approximately a 64.2% probability of at least one false positive under the global null.
 
@@ -1842,12 +1561,9 @@ Possible corrections include:
 
 ### Bonferroni correction
 
-[
-\alpha_{\text{adjusted}}
-========================
-
-\frac{\alpha}{m}
-]
+$$
+\alpha_{\text{adjusted}} = \frac{\alpha}{m}
+$$
 
 where (m) is the number of tests.
 
@@ -2453,15 +2169,15 @@ The normal approximation may be poor when the sample contains too few observatio
 
 For proportion tests, check:
 
-[
+$$
 np_0
-]
+$$
 
 and:
 
-[
+$$
 n(1-p_0)
-]
+$$
 
 For very small samples, consider an exact method such as Fisher's exact test.
 
@@ -2605,13 +2321,9 @@ Test whether a new model achieves a higher correct-prediction proportion than a 
 
 Possible metric:
 
-[
-\hat{p}
-=======
-
-\frac{\text{Correct predictions}}
-{\text{Total predictions}}
-]
+$$
+\hat{p} = \frac{\text{Correct predictions}} {\text{Total predictions}}
+$$
 
 Caution:
 
@@ -2623,13 +2335,9 @@ Two model predictions on the same test examples are paired rather than independe
 
 Compare click-through rates between two ranking or recommendation algorithms.
 
-[
-\text{CTR}
-==========
-
-\frac{\text{Clicks}}
-{\text{Impressions}}
-]
+$$
+\text{CTR} = \frac{\text{Clicks}} {\text{Impressions}}
+$$
 
 Potential issue:
 
@@ -2641,13 +2349,9 @@ Multiple impressions from the same user may violate independence.
 
 Compare product, checkout, pricing, or onboarding variants.
 
-[
-\text{Conversion rate}
-======================
-
-\frac{\text{Converted users}}
-{\text{Eligible users}}
-]
+$$
+\text{Conversion rate} = \frac{\text{Converted users}} {\text{Eligible users}}
+$$
 
 ---
 
@@ -2655,13 +2359,13 @@ Compare product, checkout, pricing, or onboarding variants.
 
 Test whether a production error rate exceeds a target threshold.
 
-[
+$$
 H_0:p\leq p_0
-]
+$$
 
-[
+$$
 H_1:p>p_0
-]
+$$
 
 This can support quality-control or alerting systems.
 
@@ -2685,9 +2389,9 @@ Important guardrails may include:
 
 Test whether average latency differs from an operational target.
 
-[
+$$
 H_0:\mu=\mu_0
-]
+$$
 
 However, latency data is often skewed. Means alone may hide tail behavior.
 
@@ -2707,9 +2411,9 @@ A proportion z-test can detect changes in categorical feature frequencies.
 
 Example:
 
-[
+$$
 H_0:p_{\text{current}}=p_{\text{reference}}
-]
+$$
 
 For many categories, a chi-square test may be more appropriate than running many separate z-tests.
 
@@ -2755,29 +2459,29 @@ A product team tests a new recommendation algorithm.
 
 #### Control group
 
-[
+$$
 n_A=8000
-]
+$$
 
-[
+$$
 x_A=960
-]
+$$
 
 #### Treatment group
 
-[
+$$
 n_B=8200
-]
+$$
 
-[
+$$
 x_B=1066
-]
+$$
 
 Use:
 
-[
+$$
 \alpha=0.05
-]
+$$
 
 ### Tasks
 
@@ -2978,13 +2682,9 @@ A **z-test** evaluates whether an observed sample statistic is sufficiently far 
 
 The core idea is:
 
-[
-z
-=
-
-\frac{\text{Observed difference}}
-{\text{Standard error}}
-]
+$$
+z = \frac{\text{Observed difference}} {\text{Standard error}}
+$$
 
 A large absolute z-score indicates that the observed result would be unusual if the null hypothesis were true.
 

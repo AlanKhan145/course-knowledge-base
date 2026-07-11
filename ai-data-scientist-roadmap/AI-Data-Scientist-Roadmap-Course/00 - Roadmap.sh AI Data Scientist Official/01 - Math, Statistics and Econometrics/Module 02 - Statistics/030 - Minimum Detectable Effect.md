@@ -141,11 +141,7 @@ The Minimum Detectable Effect is the smallest value of $\delta$ that an experime
 In simple terms:
 
 $$
-\text{MDE}
-==========
-
-\text{the smallest effect detectable at significance level } \alpha
-\text{ and power } 1-\beta
+\text{MDE} = \text{the smallest effect detectable at significance level } \alpha \text{ and power } 1-\beta
 $$
 
 Common experiment settings are:
@@ -353,30 +349,17 @@ Therefore, the absolute MDE is:
 Relative MDE compares the absolute change with the baseline value.
 
 $$
-\text{Relative MDE}
-===================
-
-\frac{p_B-p_A}{p_A}
+\text{Relative MDE} = \frac{p_B-p_A}{p_A}
 $$
 
 Using the previous example:
 
 $$
-\text{Relative MDE}
-===================
-
-\frac{0.11-0.10}{0.10}
+\text{Relative MDE} = \frac{0.11-0.10}{0.10}
 $$
 
 $$
-\text{Relative MDE}
-===================
-
-# \frac{0.01}{0.10}
-
-# 0.10
-
-10%
+\text{Relative MDE} = # \frac{0.01}{0.10} # 0.10 10%
 $$
 
 Therefore:
@@ -964,17 +947,11 @@ The business requires a relative improvement of at least 5%.
 The absolute MDE is:
 
 $$
-\text{Absolute MDE}
-===================
-
-0.080 \times 0.05
+\text{Absolute MDE} = 0.080 \times 0.05
 $$
 
 $$
-\text{Absolute MDE}
-===================
-
-0.004
+\text{Absolute MDE} = 0.004
 $$
 
 Therefore, the experiment should be designed to detect an increase from:
@@ -1172,21 +1149,11 @@ The treatment must detect an increase from:
 ### Task 1: Calculate the Relative MDE
 
 $$
-\text{Relative MDE}
-===================
-
-\frac{0.22-0.20}{0.20}
+\text{Relative MDE} = \frac{0.22-0.20}{0.20}
 $$
 
 $$
-\text{Relative MDE}
-===================
-
-# \frac{0.02}{0.20}
-
-# 0.10
-
-10%
+\text{Relative MDE} = # \frac{0.02}{0.20} # 0.10 10%
 $$
 
 ### Task 2: Define the Hypotheses

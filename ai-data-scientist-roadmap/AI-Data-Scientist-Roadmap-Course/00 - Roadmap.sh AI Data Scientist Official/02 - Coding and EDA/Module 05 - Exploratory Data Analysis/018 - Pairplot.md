@@ -235,9 +235,9 @@ A practical pairplot often contains approximately three to six numerical variabl
 
 For `n` variables, the plot contains approximately:
 
-[
+$$
 n \times n
-]
+$$
 
 cells.
 

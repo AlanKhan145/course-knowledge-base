@@ -59,21 +59,21 @@ A bar chart visualizes a numerical value for each category.
 
 For a category (c_i), the corresponding bar height can represent a statistic such as:
 
-[
+$$
 v_i = \operatorname{count}(c_i)
-]
+$$
 
 or:
 
-[
+$$
 v_i = \sum_{j \in c_i} x_j
-]
+$$
 
 or:
 
-[
+$$
 v_i = \frac{1}{n_i}\sum_{j \in c_i} x_j
-]
+$$
 
 where:
 
@@ -310,9 +310,9 @@ It answers questions such as:
 
 For category (i) and subgroup (j):
 
-[
+$$
 p_{ij} = \frac{n_{ij}}{\sum_j n_{ij}} \times 100
-]
+$$
 
 ---
 
@@ -455,13 +455,9 @@ plt.show()
 
 Because `churn` is encoded as `0` and `1`:
 
-[
-\text{Churn Rate}
-=================
-
-\frac{\text{Number of Churned Customers}}
-{\text{Total Customers}}
-]
+$$
+\text{Churn Rate} = \frac{\text{Number of Churned Customers}} {\text{Total Customers}}
+$$
 
 ---
 
@@ -921,19 +917,15 @@ However, the churn rate may reveal that Region B has a larger proportion of cust
 
 Compare:
 
-[
+$$
 \text{Churn Count} = \sum_i \text{Churn}_i
-]
+$$
 
 with:
 
-[
-\text{Churn Rate}
-=================
-
-\frac{\text{Churn Count}}
-{\text{Customer Count}}
-]
+$$
+\text{Churn Rate} = \frac{\text{Churn Count}} {\text{Customer Count}}
+$$
 
 ---
 

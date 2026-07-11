@@ -163,12 +163,7 @@ Examples include:
 For example:
 
 $$
-\text{total_cost}
-=================
-
-\text{material_cost}
-+
-\text{labor_cost}
+\text{total_cost} = \text{material_cost} + \text{labor_cost}
 $$
 
 Including all three variables creates an exact dependency.
@@ -221,14 +216,7 @@ $$
 If the model also includes an intercept, one variable can be exactly derived from the others:
 
 $$
-\text{is_premium}
-=================
-
-## 1
-
-## \text{is_basic}
-
-\text{is_standard}
+\text{is_premium} = ## 1 ## \text{is_basic} \text{is_standard}
 $$
 
 This creates perfect multicollinearity.
@@ -274,11 +262,7 @@ The estimated variance of an OLS coefficient depends partly on how much of a pre
 For predictor $x_j$:
 
 $$
-\operatorname{Var}(\hat{\beta}_j)
-=================================
-
-\frac{\sigma^2}
-{\operatorname{SST}_j(1-R_j^2)}
+\operatorname{Var}(\hat{\beta}_j) = \frac{\sigma^2} {\operatorname{SST}_j(1-R_j^2)}
 $$
 
 where:
@@ -463,19 +447,7 @@ This step can reveal exact dependencies before any statistical calculation.
 The Pearson correlation coefficient between two variables $x$ and $z$ is:
 
 $$
-r_{xz}
-======
-
-\frac{
-\sum_{i=1}^{n}(x_i-\bar{x})(z_i-\bar{z})
-}{
-\sqrt{
-\sum_{i=1}^{n}(x_i-\bar{x})^2
-}
-\sqrt{
-\sum_{i=1}^{n}(z_i-\bar{z})^2
-}
-}
+r_{xz} = \frac{ \sum_{i=1}^{n}(x_i-\bar{x})(z_i-\bar{z}) }{ \sqrt{ \sum_{i=1}^{n}(x_i-\bar{x})^2 } \sqrt{ \sum_{i=1}^{n}(z_i-\bar{z})^2 } }
 $$
 
 Values close to $1$ or $-1$ indicate strong pairwise linear relationships.
@@ -513,10 +485,7 @@ For each predictor $x_j$:
 3. Calculate:
 
 $$
-\operatorname{VIF}_j
-====================
-
-\frac{1}{1-R_j^2}
+\operatorname{VIF}_j = \frac{1}{1-R_j^2}
 $$
 
 ### Interpretation
@@ -545,12 +514,7 @@ The acceptable level depends on:
 Tolerance is the inverse of VIF:
 
 $$
-\operatorname{Tolerance}_j
-==========================
-
-# 1-R_j^2
-
-\frac{1}{\operatorname{VIF}_j}
+\operatorname{Tolerance}_j = # 1-R_j^2 \frac{1}{\operatorname{VIF}_j}
 $$
 
 Low tolerance means that little unique variation remains in the predictor after accounting for the other predictors.
@@ -568,11 +532,7 @@ $$
 The condition number is based on the singular values of the design matrix:
 
 $$
-\kappa(X)
-=========
-
-\frac{\sigma_{\max}(X)}
-{\sigma_{\min}(X)}
+\kappa(X) = \frac{\sigma_{\max}(X)} {\sigma_{\min}(X)}
 $$
 
 where:
@@ -635,12 +595,7 @@ $$
 Its VIF is:
 
 $$
-\operatorname{VIF}_j
-====================
-
-# \frac{1}{1-0.90}
-
-10
+\operatorname{VIF}_j = # \frac{1}{1-0.90} 10
 $$
 
 The variance of its coefficient is ten times larger than it would be if the predictor were uncorrelated with the other predictors.
@@ -654,12 +609,7 @@ $$
 then:
 
 $$
-\operatorname{VIF}_j
-====================
-
-# \frac{1}{1-0.99}
-
-100
+\operatorname{VIF}_j = # \frac{1}{1-0.99} 100
 $$
 
 The coefficient estimate is likely to be extremely unstable.
@@ -930,14 +880,7 @@ These could be combined into a property-size or capacity index.
 Another example:
 
 $$
-\text{total_marketing_spend}
-============================
-
-\text{search_spend}
-+
-\text{social_spend}
-+
-\text{display_spend}
+\text{total_marketing_spend} = \text{search_spend} + \text{social_spend} + \text{display_spend}
 $$
 
 Use the combined feature when the total has clearer business meaning than the individual components.
@@ -976,10 +919,7 @@ Centering is useful when multicollinearity is created by polynomial or interacti
 For a variable $x$:
 
 $$
-x_{\text{centered}}
-===================
-
-x-\bar{x}
+x_{\text{centered}} = x-\bar{x}
 $$
 
 Then construct:
@@ -1005,10 +945,7 @@ Centering does not eliminate essential relationships between genuinely similar v
 Standardization transforms a feature as:
 
 $$
-z
-=
-
-\frac{x-\bar{x}}{s_x}
+z = \frac{x-\bar{x}}{s_x}
 $$
 
 Standardization helps when:
@@ -1027,18 +964,7 @@ Standardization does not remove the underlying correlation between variables.
 Ridge regression adds an $L_2$ penalty:
 
 $$
-\hat{\beta}^{\text{ridge}}
-==========================
-
-\arg\min_{\beta}
-\left[
-\sum_{i=1}^{n}
-\left(
-y_i-\beta_0-\sum_{j=1}^{p}\beta_jx_{ij}
-\right)^2
-+
-\lambda\sum_{j=1}^{p}\beta_j^2
-\right]
+\hat{\beta}^{\text{ridge}} = \arg\min_{\beta} \left[ \sum_{i=1}^{n} \left( y_i-\beta_0-\sum_{j=1}^{p}\beta_jx_{ij} \right)^2 + \lambda\sum_{j=1}^{p}\beta_j^2 \right]
 $$
 
 Ridge regression:
@@ -1057,18 +983,7 @@ It introduces bias in exchange for lower variance.
 Lasso regression adds an $L_1$ penalty:
 
 $$
-\hat{\beta}^{\text{lasso}}
-==========================
-
-\arg\min_{\beta}
-\left[
-\sum_{i=1}^{n}
-\left(
-y_i-\beta_0-\sum_{j=1}^{p}\beta_jx_{ij}
-\right)^2
-+
-\lambda\sum_{j=1}^{p}|\beta_j|
-\right]
+\hat{\beta}^{\text{lasso}} = \arg\min_{\beta} \left[ \sum_{i=1}^{n} \left( y_i-\beta_0-\sum_{j=1}^{p}\beta_jx_{ij} \right)^2 + \lambda\sum_{j=1}^{p}|\beta_j| \right]
 $$
 
 Lasso can set some coefficients exactly to zero.
@@ -1088,17 +1003,7 @@ This behavior must be considered when interpreting the selected variables.
 Elastic Net combines $L_1$ and $L_2$ penalties:
 
 $$
-\text{Objective}
-================
-
-\text{SSE}
-+
-\lambda
-\left[
-\alpha\sum_{j=1}^{p}|\beta_j|
-+
-(1-\alpha)\sum_{j=1}^{p}\beta_j^2
-\right]
+\text{Objective} = \text{SSE} + \lambda \left[ \alpha\sum_{j=1}^{p}|\beta_j| + (1-\alpha)\sum_{j=1}^{p}\beta_j^2 \right]
 $$
 
 Elastic Net is often useful when:
@@ -1183,18 +1088,7 @@ Multicollinearity is not limited to cross-sectional regression. It frequently oc
 For example:
 
 $$
-y_t
-===
-
-\beta_0
-+
-\beta_1 x_t
-+
-\beta_2 x_{t-1}
-+
-\beta_3 x_{t-2}
-+
-\varepsilon_t
+y_t = \beta_0 + \beta_1 x_t + \beta_2 x_{t-1} + \beta_3 x_{t-2} + \varepsilon_t
 $$
 
 When $x_t$ changes slowly, adjacent lags may be strongly correlated.
@@ -1276,12 +1170,7 @@ A retail company wants to predict weekly sales using:
 The model includes:
 
 $$
-\text{total advertising spend}
-==============================
-
-\text{search spend}
-+
-\text{social spend}
+\text{total advertising spend} = \text{search spend} + \text{social spend}
 $$
 
 This creates perfect multicollinearity if all three variables are included.
@@ -1325,11 +1214,7 @@ $$
 and:
 
 $$
-\text{search share}
-===================
-
-\frac{\text{search spend}}
-{\text{total spend}}
+\text{search share} = \frac{\text{search spend}} {\text{total spend}}
 $$
 
 This specification separates:

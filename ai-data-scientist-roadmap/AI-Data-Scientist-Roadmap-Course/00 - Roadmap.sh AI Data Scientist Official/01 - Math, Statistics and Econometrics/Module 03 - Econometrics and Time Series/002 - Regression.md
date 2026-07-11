@@ -204,17 +204,11 @@ If advertising spending is measured in dollars, the slope means:
 For an advertising budget of 10,000 dollars:
 
 $$
-\widehat{\text{Sales}}
-======================
-
-20{,}000 + 3.5 \times 10{,}000
+\widehat{\text{Sales}} = 20{,}000 + 3.5 \times 10{,}000
 $$
 
 $$
-\widehat{\text{Sales}}
-======================
-
-55{,}000
+\widehat{\text{Sales}} = 55{,}000
 $$
 
 ---
@@ -315,37 +309,13 @@ Most real-world problems involve more than one explanatory variable.
 Multiple linear regression is written as:
 
 $$
-Y_i
-===
-
-\beta_0
-+
-\beta_1 X_{i1}
-+
-\beta_2 X_{i2}
-+
-\cdots
-+
-\beta_p X_{ip}
-+
-\varepsilon_i
+Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \cdots + \beta_p X_{ip} + \varepsilon_i
 $$
 
 The fitted model is:
 
 $$
-\hat{Y}_i
-=========
-
-\hat{\beta}_0
-+
-\hat{\beta}*1 X*{i1}
-+
-\hat{\beta}*2 X*{i2}
-+
-\cdots
-+
-\hat{\beta}*p X*{ip}
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}*1 X*{i1} + \hat{\beta}*2 X*{i2} + \cdots + \hat{\beta}*p X*{ip}
 $$
 
 ### House-price example
@@ -353,17 +323,7 @@ $$
 A model could be:
 
 $$
-\widehat{\text{Price}}
-======================
-
-50{,}000
-+
-2{,}000 \times \text{Size}
-+
-15{,}000 \times \text{Bedrooms}
--------------------------------
-
-1{,}500 \times \text{Age}
+\widehat{\text{Price}} = 50{,}000 + 2{,}000 \times \text{Size} + 15{,}000 \times \text{Bedrooms} - 1{,}500 \times \text{Age}
 $$
 
 Possible interpretation:
@@ -485,12 +445,7 @@ An explanatory variable should not be an exact linear combination of other expla
 For example, including all three variables below would create perfect multicollinearity:
 
 $$
-\text{Total Cost}
-=================
-
-\text{Fixed Cost}
-+
-\text{Variable Cost}
+\text{Total Cost} = \text{Fixed Cost} + \text{Variable Cost}
 $$
 
 Strong but imperfect correlations can also make coefficient estimates unstable.
@@ -590,10 +545,7 @@ Possible consequences:
 A common diagnostic is the Variance Inflation Factor:
 
 $$
-\text{VIF}_j
-============
-
-\frac{1}{1-R_j^2}
+\text{VIF}_j = \frac{1}{1-R_j^2}
 $$
 
 Where $R_j^2$ comes from regressing feature $j$ on the other features.
@@ -620,14 +572,7 @@ VIF thresholds are guidelines, not universal laws.
 Mean Absolute Error measures the average absolute prediction error.
 
 $$
-\text{MAE}
-==========
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-\left|
-Y_i-\hat{Y}_i
-\right|
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left| Y_i-\hat{Y}_i \right|
 $$
 
 Advantages:
@@ -643,14 +588,7 @@ Advantages:
 Mean Squared Error gives larger errors more weight.
 
 $$
-\text{MSE}
-==========
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-\left(
-Y_i-\hat{Y}_i
-\right)^2
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} \left( Y_i-\hat{Y}_i \right)^2
 $$
 
 Advantages:
@@ -669,16 +607,7 @@ Disadvantage:
 Root Mean Squared Error returns the error to the target's original unit.
 
 $$
-\text{RMSE}
-===========
-
-\sqrt{
-\frac{1}{n}
-\sum_{i=1}^{n}
-\left(
-Y_i-\hat{Y}_i
-\right)^2
-}
+\text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} \left( Y_i-\hat{Y}_i \right)^2 }
 $$
 
 RMSE is more sensitive to large errors than MAE.
@@ -690,22 +619,7 @@ RMSE is more sensitive to large errors than MAE.
 The coefficient of determination measures how much target variation is explained by the model.
 
 $$
-R^2
-===
-
-## 1
-
-\frac{
-\sum_{i=1}^{n}
-\left(
-Y_i-\hat{Y}*i
-\right)^2
-}{
-\sum*{i=1}^{n}
-\left(
-Y_i-\bar{Y}
-\right)^2
-}
+R^2 = ## 1 \frac{ \sum_{i=1}^{n} \left( Y_i-\hat{Y}*i \right)^2 }{ \sum*{i=1}^{n} \left( Y_i-\bar{Y} \right)^2 }
 $$
 
 Interpretation:
@@ -731,15 +645,7 @@ Regular $R^2$ usually does not decrease when extra variables are added.
 Adjusted $R^2$ penalizes unnecessary predictors:
 
 $$
-\bar{R}^2
-=========
-
-## 1
-
-\left(
-1-R^2
-\right)
-\frac{n-1}{n-p-1}
+\bar{R}^2 = ## 1 \left( 1-R^2 \right) \frac{n-1}{n-p-1}
 $$
 
 Where:
@@ -790,14 +696,7 @@ A relationship may become easier to model after transforming variables.
 A log-level model is:
 
 $$
-Y
-=
-
-\beta_0
-+
-\beta_1 \log(X)
-+
-\varepsilon
+Y = \beta_0 + \beta_1 \log(X) + \varepsilon
 $$
 
 A one-percent increase in $X$ is associated with an approximate change of:
@@ -811,14 +710,7 @@ units in $Y$.
 A log-log model is:
 
 $$
-\log(Y)
-=======
-
-\beta_0
-+
-\beta_1 \log(X)
-+
-\varepsilon
+\log(Y) = \beta_0 + \beta_1 \log(X) + \varepsilon
 $$
 
 In this model, $\beta_1$ is approximately an elasticity:
@@ -832,16 +724,7 @@ In this model, $\beta_1$ is approximately an elasticity:
 A curved relationship can be modeled using polynomial features:
 
 $$
-Y
-=
-
-\beta_0
-+
-\beta_1 X
-+
-\beta_2 X^2
-+
-\varepsilon
+Y = \beta_0 + \beta_1 X + \beta_2 X^2 + \varepsilon
 $$
 
 Although this model is nonlinear in $X$, it is linear in the coefficients.
@@ -853,18 +736,7 @@ Although this model is nonlinear in $X$, it is linear in the coefficients.
 An interaction allows the effect of one variable to depend on another variable.
 
 $$
-Y
-=
-
-\beta_0
-+
-\beta_1 X_1
-+
-\beta_2 X_2
-+
-\beta_3 X_1X_2
-+
-\varepsilon
+Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1X_2 + \varepsilon
 $$
 
 For example, the effect of advertising spending may depend on whether a campaign runs during a holiday period.
@@ -886,16 +758,7 @@ Use two indicator variables and select one category as the reference group.
 Example:
 
 $$
-Y
-=
-
-\beta_0
-+
-\beta_1 D_{\text{Central}}
-+
-\beta_2 D_{\text{South}}
-+
-\varepsilon
+Y = \beta_0 + \beta_1 D_{\text{Central}} + \beta_2 D_{\text{South}} + \varepsilon
 $$
 
 The North region is the reference category.
@@ -956,18 +819,7 @@ It can therefore perform a form of feature selection.
 Elastic Net combines Ridge and Lasso penalties:
 
 $$
-\text{Loss}
-===========
-
-\text{Squared Error}
-+
-\lambda_1
-\sum_{j=1}^{p}
-|\beta_j|
-+
-\lambda_2
-\sum_{j=1}^{p}
-\beta_j^2
+\text{Loss} = \text{Squared Error} + \lambda_1 \sum_{j=1}^{p} |\beta_j| + \lambda_2 \sum_{j=1}^{p} \beta_j^2
 $$
 
 It is often useful when many features are correlated.
@@ -1143,22 +995,7 @@ Regression can also model trend, seasonality and external drivers.
 A basic time-dependent regression may be:
 
 $$
-Y_t
-===
-
-\beta_0
-+
-\beta_1 t
-+
-\beta_2 D_{\text{Monday},t}
-+
-\beta_3 D_{\text{Tuesday},t}
-+
-\cdots
-+
-\beta_k X_t
-+
-\varepsilon_t
+Y_t = \beta_0 + \beta_1 t + \beta_2 D_{\text{Monday},t} + \beta_3 D_{\text{Tuesday},t} + \cdots + \beta_k X_t + \varepsilon_t
 $$
 
 Where:

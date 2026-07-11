@@ -132,19 +132,19 @@ Let:
 
 According to the Central Limit Theorem:
 
-[
+$$
 \bar{x} \approx N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)
-]
+$$
 
 This means the sample mean is approximately normally distributed with:
 
-[
+$$
 \text{Mean of sample means} = \mu
-]
+$$
 
-[
+$$
 \text{Standard error} = \frac{\sigma}{\sqrt{n}}
-]
+$$
 
 ---
 
@@ -152,9 +152,9 @@ This means the sample mean is approximately normally distributed with:
 
 The **standard error** measures how much the sample mean varies from sample to sample.
 
-[
+$$
 SE = \frac{\sigma}{\sqrt{n}}
-]
+$$
 
 As sample size increases, standard error decreases.
 
@@ -257,9 +257,9 @@ The Central Limit Theorem works best when:
 
 A common rule of thumb is:
 
-[
+$$
 n \geq 30
-]
+$$
 
 However, this is only a rough guideline.
 

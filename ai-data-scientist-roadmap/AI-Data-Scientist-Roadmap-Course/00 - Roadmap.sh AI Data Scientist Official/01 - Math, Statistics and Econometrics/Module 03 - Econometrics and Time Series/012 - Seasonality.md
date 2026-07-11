@@ -56,9 +56,9 @@ After completing this lesson, you should be able to:
 
 A time series can often be represented using several components:
 
-[
+$$
 Y_t = T_t + S_t + R_t
-]
+$$
 
 where:
 
@@ -69,9 +69,9 @@ where:
 
 A more complete decomposition may also include a cyclical component:
 
-[
+$$
 Y_t = T_t + S_t + C_t + R_t
-]
+$$
 
 where (C_t) represents longer-term cycles that do not necessarily repeat at a fixed interval.
 
@@ -132,9 +132,9 @@ This is known as **multiple seasonality**.
 
 An additive seasonal model is appropriate when the size of the seasonal effect remains approximately constant over time.
 
-[
+$$
 Y_t = T_t + S_t + R_t
-]
+$$
 
 Suppose monthly sales increase by approximately 1,000 units every December, regardless of the general sales level.
 
@@ -156,9 +156,9 @@ The seasonal increase remains close to the same absolute amount.
 
 A multiplicative seasonal model is appropriate when the seasonal effect grows or decreases with the level of the series.
 
-[
+$$
 Y_t = T_t \times S_t \times R_t
-]
+$$
 
 Suppose December sales are consistently about 30% higher than a normal month.
 
@@ -176,16 +176,9 @@ The seasonal effect is proportional to the current level.
 
 A logarithmic transformation can sometimes convert multiplicative relationships into additive ones:
 
-[
-\log(Y_t)
-=========
-
-\log(T_t)
-+
-\log(S_t)
-+
-\log(R_t)
-]
+$$
+\log(Y_t) = \log(T_t) + \log(S_t) + \log(R_t)
+$$
 
 ---
 
@@ -195,9 +188,9 @@ A seasonal index represents how a specific seasonal period differs from the typi
 
 For an additive model:
 
-[
+$$
 S_j = \bar{Y}_j - \bar{Y}
-]
+$$
 
 where:
 
@@ -206,9 +199,9 @@ where:
 
 For a multiplicative model:
 
-[
+$$
 S_j = \frac{\bar{Y}_j}{\bar{Y}}
-]
+$$
 
 For example, a December seasonal index of (1.30) means that December values are typically 30% above the overall average.
 
@@ -298,26 +291,23 @@ The autocorrelation function measures the relationship between a series and its 
 
 For lag (k):
 
-[
-\rho_k
-======
-
-\operatorname{Corr}(Y_t, Y_{t-k})
-]
+$$
+\rho_k = \operatorname{Corr}(Y_t, Y_{t-k})
+$$
 
 Strong autocorrelation at seasonal lags can indicate seasonality.
 
 For monthly data with yearly seasonality, significant peaks may appear at:
 
-[
+$$
 12,\ 24,\ 36,\ \ldots
-]
+$$
 
 For daily data with weekly seasonality, peaks may appear at:
 
-[
+$$
 7,\ 14,\ 21,\ \ldots
-]
+$$
 
 ```python
 from statsmodels.graphics.tsaplots import plot_acf
@@ -398,9 +388,9 @@ flowchart LR
 
 A seasonal baseline predicts the current value using the value from the same seasonal position in the previous cycle.
 
-[
+$$
 \hat{Y}*t = Y*{t-m}
-]
+$$
 
 where (m) is the seasonal period.
 
@@ -408,15 +398,15 @@ Examples:
 
 For daily data with weekly seasonality:
 
-[
+$$
 \hat{Y}*t = Y*{t-7}
-]
+$$
 
 For monthly data with yearly seasonality:
 
-[
+$$
 \hat{Y}*t = Y*{t-12}
-]
+$$
 
 ```python
 seasonal_period = 12
@@ -438,22 +428,9 @@ There are several ways to include seasonality in a forecasting model.
 
 For monthly data, create one indicator variable for each month.
 
-[
-Y_t
-===
-
-\beta_0
-+
-\beta_1 t
-+
-\gamma_2 D_{2,t}
-+
-\cdots
-+
-\gamma_{12} D_{12,t}
-+
-\epsilon_t
-]
+$$
+Y_t = \beta_0 + \beta_1 t + \gamma_2 D_{2,t} + \cdots + \gamma_{12} D_{12,t} + \epsilon_t
+$$
 
 One month must be omitted as the reference category to avoid perfect multicollinearity.
 
@@ -474,11 +451,9 @@ This approach works well when the seasonal effect is relatively stable and easy 
 
 Fourier features represent smooth seasonal patterns using sine and cosine functions.
 
-[
-\sin\left(\frac{2\pi kt}{m}\right),
-\qquad
-\cos\left(\frac{2\pi kt}{m}\right)
-]
+$$
+\sin\left(\frac{2\pi kt}{m}\right), \qquad \cos\left(\frac{2\pi kt}{m}\right)
+$$
 
 where:
 
@@ -508,15 +483,15 @@ Fourier features are useful when:
 
 Seasonal differencing removes repeated seasonal patterns:
 
-[
+$$
 Y'*t = Y_t - Y*{t-m}
-]
+$$
 
 For monthly data with yearly seasonality:
 
-[
+$$
 Y'*t = Y_t - Y*{t-12}
-]
+$$
 
 ```python
 df["seasonal_difference"] = df["sales"].diff(12)
@@ -532,9 +507,9 @@ It should not be applied automatically. Excessive differencing may remove useful
 
 A Seasonal ARIMA model is commonly written as:
 
-[
+$$
 \operatorname{ARIMA}(p,d,q)(P,D,Q)_m
-]
+$$
 
 where:
 
@@ -546,9 +521,9 @@ For monthly sales with yearly seasonality, (m=12).
 
 Example:
 
-[
+$$
 \operatorname{ARIMA}(1,1,1)(1,1,1)_{12}
-]
+$$
 
 This model includes both regular and seasonal autoregressive, differencing, and moving-average terms.
 
@@ -693,55 +668,29 @@ Common forecasting metrics include:
 
 ### Mean Absolute Error
 
-[
-\operatorname{MAE}
-==================
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-|Y_t-\hat{Y}_t|
-]
+$$
+\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |Y_t-\hat{Y}_t|
+$$
 
 ### Root Mean Squared Error
 
-[
-\operatorname{RMSE}
-===================
-
-\sqrt{
-\frac{1}{n}
-\sum_{t=1}^{n}
-(Y_t-\hat{Y}_t)^2
-}
-]
+$$
+\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (Y_t-\hat{Y}_t)^2 }
+$$
 
 ### Mean Absolute Percentage Error
 
-[
-\operatorname{MAPE}
-===================
-
-\frac{100}{n}
-\sum_{t=1}^{n}
-\left|
-\frac{Y_t-\hat{Y}_t}{Y_t}
-\right|
-]
+$$
+\operatorname{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{Y_t-\hat{Y}_t}{Y_t} \right|
+$$
 
 MAPE can become unstable when actual values are zero or close to zero.
 
 ### Mean Absolute Scaled Error
 
-[
-\operatorname{MASE}
-===================
-
-\frac{
-\frac{1}{n}\sum |Y_t-\hat{Y}*t|
-}{
-\frac{1}{T-m}\sum*{t=m+1}^{T}|Y_t-Y_{t-m}|
-}
-]
+$$
+\operatorname{MASE} = \frac{ \frac{1}{n}\sum |Y_t-\hat{Y}*t| }{ \frac{1}{T-m}\sum*{t=m+1}^{T}|Y_t-Y_{t-m}| }
+$$
 
 For seasonal data, the denominator can use a seasonal naive forecast.
 
@@ -865,9 +814,9 @@ This demo produces three useful artifacts:
 
 After modeling seasonality, inspect the residuals:
 
-[
+$$
 e_t = Y_t - \hat{Y}_t
-]
+$$
 
 A useful model should leave residuals with:
 

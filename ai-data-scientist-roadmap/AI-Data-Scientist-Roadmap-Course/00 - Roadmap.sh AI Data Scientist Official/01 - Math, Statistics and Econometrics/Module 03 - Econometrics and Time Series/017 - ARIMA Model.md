@@ -129,20 +129,7 @@ An autoregressive model predicts the current value using previous values of the 
 An AR model of order (p), written as AR((p)), is:
 
 $$
-y_t
-===
-
-c
-+
-\phi_1 y_{t-1}
-+
-\phi_2 y_{t-2}
-+
-\cdots
-+
-\phi_p y_{t-p}
-+
-\varepsilon_t
+y_t = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \cdots + \phi_p y_{t-p} + \varepsilon_t
 $$
 
 where:
@@ -167,16 +154,7 @@ For daily demand:
 ### AR(2) example
 
 $$
-y_t
-===
-
-c
-+
-\phi_1y_{t-1}
-+
-\phi_2y_{t-2}
-+
-\varepsilon_t
+y_t = c + \phi_1y_{t-1} + \phi_2y_{t-2} + \varepsilon_t
 $$
 
 This model uses the previous two observations.
@@ -206,19 +184,13 @@ If (d=1), the ARIMA model is fitted to the first-differenced series.
 ### Second difference
 
 $$
-\Delta^2 y_t
-============
-
-\Delta y_t-\Delta y_{t-1}
+\Delta^2 y_t = \Delta y_t-\Delta y_{t-1}
 $$
 
 Equivalently:
 
 $$
-\Delta^2y_t
-===========
-
-y_t-2y_{t-1}+y_{t-2}
+\Delta^2y_t = y_t-2y_{t-1}+y_{t-2}
 $$
 
 If (d=2), the series is differenced twice.
@@ -253,20 +225,7 @@ The moving-average component models the current value using previous forecast er
 An MA model of order (q), written as MA((q)), is:
 
 $$
-y_t
-===
-
-\mu
-+
-\varepsilon_t
-+
-\theta_1\varepsilon_{t-1}
-+
-\theta_2\varepsilon_{t-2}
-+
-\cdots
-+
-\theta_q\varepsilon_{t-q}
+y_t = \mu + \varepsilon_t + \theta_1\varepsilon_{t-1} + \theta_2\varepsilon_{t-2} + \cdots + \theta_q\varepsilon_{t-q}
 $$
 
 where:
@@ -279,14 +238,7 @@ where:
 ### MA(1) example
 
 $$
-y_t
-===
-
-\mu
-+
-\varepsilon_t
-+
-\theta_1\varepsilon_{t-1}
+y_t = \mu + \varepsilon_t + \theta_1\varepsilon_{t-1}
 $$
 
 This means that a forecasting error from the previous time step influences the current observation.
@@ -298,11 +250,7 @@ The moving-average component of ARIMA is not the same as a rolling average.
 A rolling average is a data-smoothing transformation:
 
 $$
-\operatorname{SMA}_t
-====================
-
-\frac{1}{k}
-\sum_{i=0}^{k-1} y_{t-i}
+\operatorname{SMA}_t = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
 $$
 
 The MA component in ARIMA uses previous **errors**, not previous observations.
@@ -322,16 +270,7 @@ $$
 Then the ARMA model for (z_t) is:
 
 $$
-z_t
-===
-
-c
-+
-\sum_{i=1}^{p}\phi_i z_{t-i}
-+
-\varepsilon_t
-+
-\sum_{j=1}^{q}\theta_j\varepsilon_{t-j}
+z_t = c + \sum_{i=1}^{p}\phi_i z_{t-i} + \varepsilon_t + \sum_{j=1}^{q}\theta_j\varepsilon_{t-j}
 $$
 
 ### Example: ARIMA(1,1,1)
@@ -345,16 +284,7 @@ $$
 Then model the differenced values as:
 
 $$
-z_t
-===
-
-c
-+
-\phi_1z_{t-1}
-+
-\varepsilon_t
-+
-\theta_1\varepsilon_{t-1}
+z_t = c + \phi_1z_{t-1} + \varepsilon_t + \theta_1\varepsilon_{t-1}
 $$
 
 The final forecast is transformed back to the original scale.
@@ -604,11 +534,7 @@ $$
 ### Mean forecast
 
 $$
-\hat{y}_{t+h}
-=============
-
-\frac{1}{n}
-\sum_{t=1}^{n}y_t
+\hat{y}_{t+h} = \frac{1}{n} \sum_{t=1}^{n}y_t
 $$
 
 If ARIMA cannot outperform an appropriate baseline, its additional complexity may not be justified.
@@ -876,25 +802,13 @@ The interval communicates forecast uncertainty.
 ### Mean Absolute Error
 
 $$
-\operatorname{MAE}
-==================
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-|y_t-\hat{y}_t|
+\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
 $$
 
 ### Root Mean Squared Error
 
 $$
-\operatorname{RMSE}
-===================
-
-\sqrt{
-\frac{1}{n}
-\sum_{t=1}^{n}
-(y_t-\hat{y}_t)^2
-}
+\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
 $$
 
 Python implementation:
@@ -1001,19 +915,13 @@ A model with a slightly worse AIC may perform better on future observations.
 ### Akaike Information Criterion
 
 $$
-\operatorname{AIC}
-==================
-
--2\log(L)+2k
+\operatorname{AIC} = -2\log(L)+2k
 $$
 
 ### Bayesian Information Criterion
 
 $$
-\operatorname{BIC}
-==================
-
--2\log(L)+k\log(n)
+\operatorname{BIC} = -2\log(L)+k\log(n)
 $$
 
 where:
@@ -1231,20 +1139,7 @@ Examples include:
 The model can be written conceptually as:
 
 $$
-y_t
-===
-
-\text{ARIMA structure}
-+
-\beta_1x_{1,t}
-+
-\beta_2x_{2,t}
-+
-\cdots
-+
-\beta_kx_{k,t}
-+
-\varepsilon_t
+y_t = \text{ARIMA structure} + \beta_1x_{1,t} + \beta_2x_{2,t} + \cdots + \beta_kx_{k,t} + \varepsilon_t
 $$
 
 In `statsmodels`, this is commonly implemented using `SARIMAX`.

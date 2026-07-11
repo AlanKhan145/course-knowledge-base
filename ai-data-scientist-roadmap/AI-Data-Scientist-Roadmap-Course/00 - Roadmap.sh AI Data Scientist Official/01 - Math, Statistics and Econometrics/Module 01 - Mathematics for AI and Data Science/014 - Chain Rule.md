@@ -95,12 +95,7 @@ total effect = effect of outer function × effect of inner function
 Mathematically:
 
 $$
-\frac{dy}{dx}
-=============
-
-\frac{dy}{du}
-\cdot
-\frac{du}{dx}
+\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
 $$
 
 where:
@@ -142,12 +137,7 @@ $$
 Now apply the Chain Rule:
 
 $$
-\frac{dy}{dx}
-=============
-
-\frac{dy}{du}
-\cdot
-\frac{du}{dx}
+\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}
 $$
 
 Calculate each part:
@@ -270,14 +260,7 @@ Here, the loss `L` depends on `a`, `a` depends on `z`, and `z` depends on `w`.
 So if we want to know how the loss changes when the weight `w` changes, we use:
 
 $$
-\frac{dL}{dw}
-=============
-
-\frac{dL}{da}
-\cdot
-\frac{da}{dz}
-\cdot
-\frac{dz}{dw}
+\frac{dL}{dw} = \frac{dL}{da} \cdot \frac{da}{dz} \cdot \frac{dz}{dw}
 $$
 
 This is the Chain Rule.
@@ -423,12 +406,7 @@ $$
 Apply Chain Rule:
 
 $$
-\frac{dL}{dw}
-=============
-
-\frac{dL}{d\hat{y}}
-\cdot
-\frac{d\hat{y}}{dw}
+\frac{dL}{dw} = \frac{dL}{d\hat{y}} \cdot \frac{d\hat{y}}{dw}
 $$
 
 Calculate each part:
@@ -584,21 +562,13 @@ $$
 then:
 
 $$
-\frac{da}{dw}
-=============
-
-\frac{da}{dz}
-\cdot
-\frac{dz}{dw}
+\frac{da}{dw} = \frac{da}{dz} \cdot \frac{dz}{dw}
 $$
 
 So:
 
 $$
-\frac{da}{dw}
-=============
-
-\sigma(z)(1 - \sigma(z))x
+\frac{da}{dw} = \sigma(z)(1 - \sigma(z))x
 $$
 
 This is a direct Chain Rule example in neural networks.

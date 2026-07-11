@@ -131,17 +131,7 @@ $$
 The gradient is:
 
 $$
-\nabla f(3, 4) =
-\begin{bmatrix}
-2(3) \
-2(4)
-\end{bmatrix}
-=============
-
-\begin{bmatrix}
-6 \
-8
-\end{bmatrix}
+\nabla f(3, 4) = \begin{bmatrix} 2(3) \ 2(4) \end{bmatrix} = \begin{bmatrix} 6 \ 8 \end{bmatrix}
 $$
 
 So:
@@ -743,17 +733,7 @@ $$
 At `(2, 3)`:
 
 $$
-\nabla f(2, 3) =
-\begin{bmatrix}
-6(2) \
-4(3)
-\end{bmatrix}
-=============
-
-\begin{bmatrix}
-12 \
-12
-\end{bmatrix}
+\nabla f(2, 3) = \begin{bmatrix} 6(2) \ 4(3) \end{bmatrix} = \begin{bmatrix} 12 \ 12 \end{bmatrix}
 $$
 
 ---

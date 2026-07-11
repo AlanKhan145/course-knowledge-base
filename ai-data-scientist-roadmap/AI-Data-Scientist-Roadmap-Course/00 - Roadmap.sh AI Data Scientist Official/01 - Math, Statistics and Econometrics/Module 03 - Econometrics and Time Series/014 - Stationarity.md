@@ -182,14 +182,7 @@ Example:
 A logarithmic transformation can convert a multiplicative relationship into an additive one:
 
 $$
-\log(Y_t)
-=========
-
-\log(T_t)
-+
-\log(S_t)
-+
-\log(N_t)
+\log(Y_t) = \log(T_t) + \log(S_t) + \log(N_t)
 $$
 
 This transformation is useful when variability grows with the level of the series.
@@ -452,11 +445,7 @@ A raw time-series plot helps determine whether variation appears structured or i
 A rolling mean smooths short-term fluctuations:
 
 $$
-MA_t
-====
-
-\frac{1}{k}
-\sum_{i=0}^{k-1} y_{t-i}
+MA_t = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
 $$
 
 where $k$ is the rolling-window size.
@@ -500,10 +489,7 @@ An increasing rolling standard deviation may indicate:
 The autocorrelation function measures the correlation between a time series and its lagged values:
 
 $$
-\rho_k
-======
-
-\operatorname{Corr}(Y_t,Y_{t-k})
+\rho_k = \operatorname{Corr}(Y_t,Y_{t-k})
 $$
 
 For white noise, autocorrelations should be approximately zero at all nonzero lags.
@@ -689,14 +675,7 @@ plt.show()
 The observed sales series is generated as:
 
 $$
-\text{Sales}_t
-==============
-
-\text{Trend}_t
-+
-\text{Seasonality}_t
-+
-\text{Noise}_t
+\text{Sales}_t = \text{Trend}_t + \text{Seasonality}_t + \text{Noise}_t
 $$
 
 The rolling mean reduces short-term fluctuations and makes the underlying trend easier to observe.
@@ -980,12 +959,7 @@ Limitations:
 Simple exponential smoothing gives more weight to recent observations:
 
 $$
-S_t
-===
-
-\alpha Y_t
-+
-(1-\alpha)S_{t-1}
+S_t = \alpha Y_t + (1-\alpha)S_{t-1}
 $$
 
 where:
@@ -1220,12 +1194,7 @@ Even a theoretically perfect model cannot predict truly random noise.
 Conceptually:
 
 $$
-\text{Total Prediction Error}
-=============================
-
-\text{Reducible Error}
-+
-\text{Irreducible Error}
+\text{Total Prediction Error} = \text{Reducible Error} + \text{Irreducible Error}
 $$
 
 Reducible error may come from:
@@ -1437,14 +1406,7 @@ Common regression and forecasting metrics include the following.
 ### 26.1 Mean Absolute Error
 
 $$
-MAE
-===
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-\left|
-y_t-\hat{y}_t
-\right|
+MAE = \frac{1}{n} \sum_{t=1}^{n} \left| y_t-\hat{y}_t \right|
 $$
 
 MAE is easy to interpret and is less sensitive to extreme errors than RMSE.
@@ -1454,16 +1416,7 @@ MAE is easy to interpret and is less sensitive to extreme errors than RMSE.
 ### 26.2 Root Mean Squared Error
 
 $$
-RMSE
-====
-
-\sqrt{
-\frac{1}{n}
-\sum_{t=1}^{n}
-\left(
-y_t-\hat{y}_t
-\right)^2
-}
+RMSE = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} \left( y_t-\hat{y}_t \right)^2 }
 $$
 
 RMSE penalizes large errors more strongly than MAE.
@@ -1473,18 +1426,7 @@ RMSE penalizes large errors more strongly than MAE.
 ### 26.3 Mean Absolute Percentage Error
 
 $$
-MAPE
-====
-
-\frac{100}{n}
-\sum_{t=1}^{n}
-\left|
-\frac{
-y_t-\hat{y}_t
-}{
-y_t
-}
-\right|
+MAPE = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{ y_t-\hat{y}_t }{ y_t } \right|
 $$
 
 MAPE can become unstable when actual values are zero or close to zero.
@@ -1496,18 +1438,7 @@ MAPE can become unstable when actual values are zero or close to zero.
 A useful alternative for time-series comparison is the Mean Absolute Scaled Error:
 
 $$
-MASE
-====
-
-\frac{
-\frac{1}{n}
-\sum_{t=1}^{n}
-|y_t-\hat{y}*t|
-}{
-\frac{1}{T-m}
-\sum*{t=m+1}^{T}
-|y_t-y_{t-m}|
-}
+MASE = \frac{ \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}*t| }{ \frac{1}{T-m} \sum*{t=m+1}^{T} |y_t-y_{t-m}| }
 $$
 
 where $m$ is the seasonal period.

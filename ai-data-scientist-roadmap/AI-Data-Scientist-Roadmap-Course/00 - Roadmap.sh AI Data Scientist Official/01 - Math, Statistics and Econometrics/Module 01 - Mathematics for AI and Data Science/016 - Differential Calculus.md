@@ -45,21 +45,21 @@ Differential calculus is the mathematics of **local change**.
 
 If a function is written as:
 
-[
+$$
 y = f(x)
-]
+$$
 
 then the derivative tells us how much (y) changes when (x) changes slightly:
 
-[
+$$
 \frac{dy}{dx}
-]
+$$
 
 In machine learning, we often care about a loss function:
 
-[
+$$
 L(\theta)
-]
+$$
 
 where:
 
@@ -141,23 +141,23 @@ Examples:
 
 For a single-variable function:
 
-[
+$$
 f(x) = x^2
-]
+$$
 
 the derivative is:
 
-[
+$$
 f'(x) = 2x
-]
+$$
 
 This means the slope changes depending on the value of (x).
 
 Example:
 
-[
+$$
 f'(3) = 2 \times 3 = 6
-]
+$$
 
 So at (x = 3), the function is increasing with slope 6.
 
@@ -169,15 +169,15 @@ A differential represents a very small change.
 
 If:
 
-[
+$$
 y = f(x)
-]
+$$
 
 then:
 
-[
+$$
 dy \approx f'(x)dx
-]
+$$
 
 This means:
 
@@ -193,19 +193,19 @@ In ML, this is useful because we often ask:
 
 For a function with many variables:
 
-[
+$$
 f(x, y) = x^2 + y^2
-]
+$$
 
 The partial derivatives are:
 
-[
+$$
 \frac{\partial f}{\partial x} = 2x
-]
+$$
 
-[
+$$
 \frac{\partial f}{\partial y} = 2y
-]
+$$
 
 Each partial derivative measures the effect of changing one variable while keeping the others fixed.
 
@@ -217,27 +217,23 @@ The gradient is a vector of partial derivatives.
 
 For:
 
-[
+$$
 f(x, y) = x^2 + y^2
-]
+$$
 
 the gradient is:
 
-[
-\nabla f(x, y) =
-\begin{bmatrix}
-2x \
-2y
-\end{bmatrix}
-]
+$$
+\nabla f(x, y) = \begin{bmatrix} 2x \ 2y \end{bmatrix}
+$$
 
 The gradient points in the direction of steepest increase.
 
 For minimizing loss, we move in the opposite direction:
 
-[
+$$
 \theta_{new} = \theta_{old} - \alpha \nabla L(\theta)
-]
+$$
 
 where:
 
@@ -253,15 +249,15 @@ The chain rule explains how to differentiate composed functions.
 
 If:
 
-[
+$$
 z = f(g(x))
-]
+$$
 
 then:
 
-[
+$$
 \frac{dz}{dx} = f'(g(x))g'(x)
-]
+$$
 
 This is the mathematical foundation of **backpropagation** in neural networks.
 
@@ -284,9 +280,9 @@ The Jacobian generalizes derivatives to vector-valued functions.
 
 If:
 
-[
+$$
 f: \mathbb{R}^n \rightarrow \mathbb{R}^m
-]
+$$
 
 then the Jacobian stores all first-order partial derivatives.
 
@@ -306,13 +302,9 @@ The Hessian stores second-order derivatives.
 
 It tells us about curvature:
 
-[
-H =
-\begin{bmatrix}
-\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} \
-\frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2}
-\end{bmatrix}
-]
+$$
+H = \begin{bmatrix} \frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} \ \frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2} \end{bmatrix}
+$$
 
 In ML, Hessians are useful for understanding:
 
@@ -327,49 +319,49 @@ In ML, Hessians are useful for understanding:
 
 Suppose we have:
 
-[
+$$
 f(x) = x^2
-]
+$$
 
 At:
 
-[
+$$
 x = 3
-]
+$$
 
 The derivative is:
 
-[
+$$
 f'(x) = 2x
-]
+$$
 
 So:
 
-[
+$$
 f'(3) = 6
-]
+$$
 
 Now use a small change:
 
-[
+$$
 dx = 0.01
-]
+$$
 
 Approximate change:
 
-[
+$$
 dy \approx f'(3)dx = 6 \times 0.01 = 0.06
-]
+$$
 
 Actual change:
 
-[
+$$
 f(3.01) - f(3) = 3.01^2 - 3^2
-]
+$$
 
-[
+$$
 = 9.0601 - 9 = 0.0601
-]
+$$
 
 The approximation is very close.
 
@@ -414,29 +406,29 @@ Actual change: 0.060099999999999376
 
 For a simple prediction problem:
 
-[
+$$
 \hat{y} = wx
-]
+$$
 
 The Mean Squared Error loss for one data point is:
 
-[
+$$
 L(w) = (wx - y)^2
-]
+$$
 
 Derivative with respect to (w):
 
-[
+$$
 \frac{dL}{dw} = 2(wx - y)x
-]
+$$
 
 This tells us how the loss changes when the weight (w) changes.
 
 Gradient descent update:
 
-[
+$$
 w_{new} = w_{old} - \alpha \frac{dL}{dw}
-]
+$$
 
 This is the basic idea behind model training.
 
@@ -563,9 +555,9 @@ This is useful for:
 
 Do not only memorize:
 
-[
+$$
 \frac{d}{dx}x^2 = 2x
-]
+$$
 
 Understand that it means:
 
@@ -631,21 +623,21 @@ Always check:
 
 Given:
 
-[
+$$
 f(x) = 3x^2 + 2x + 1
-]
+$$
 
 Find:
 
-[
+$$
 f'(x)
-]
+$$
 
 Then calculate:
 
-[
+$$
 f'(4)
-]
+$$
 
 ---
 
@@ -653,33 +645,33 @@ f'(4)
 
 Use:
 
-[
+$$
 f(x) = x^3
-]
+$$
 
 At:
 
-[
+$$
 x = 2
-]
+$$
 
 Compare:
 
-[
+$$
 f'(2)dx
-]
+$$
 
 with:
 
-[
+$$
 f(2 + dx) - f(2)
-]
+$$
 
 for:
 
-[
+$$
 dx = 0.01
-]
+$$
 
 ---
 
@@ -687,21 +679,21 @@ dx = 0.01
 
 Given:
 
-[
+$$
 f(x, y) = x^2 + 3y^2
-]
+$$
 
 Find:
 
-[
+$$
 \nabla f(x, y)
-]
+$$
 
 Then calculate the gradient at:
 
-[
+$$
 x = 2, y = 1
-]
+$$
 
 ---
 
@@ -709,19 +701,19 @@ x = 2, y = 1
 
 Given:
 
-[
+$$
 \hat{y} = wx
-]
+$$
 
-[
+$$
 L(w) = (wx - y)^2
-]
+$$
 
 Derive:
 
-[
+$$
 \frac{dL}{dw}
-]
+$$
 
 Then test it with:
 
@@ -784,15 +776,15 @@ Differential calculus is especially important for:
 
 Build a small notebook that trains a one-parameter linear model:
 
-[
+$$
 \hat{y} = wx
-]
+$$
 
 Use MSE loss:
 
-[
+$$
 L(w) = \frac{1}{n}\sum_{i=1}^{n}(wx_i - y_i)^2
-]
+$$
 
 Implement:
 

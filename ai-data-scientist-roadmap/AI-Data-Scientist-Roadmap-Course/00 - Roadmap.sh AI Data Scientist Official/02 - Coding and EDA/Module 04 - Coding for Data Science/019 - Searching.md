@@ -422,9 +422,9 @@ At each step, binary search removes approximately half of the remaining values.
 
 For (n) elements:
 
-[
+$$
 T(n) = O(\log_2 n)
-]
+$$
 
 Approximate maximum comparisons:
 
@@ -543,9 +543,9 @@ if category in valid_categories:
 
 Average membership lookup in a set is:
 
-[
+$$
 O(1)
-]
+$$
 
 ### Dictionary Lookup
 
@@ -1040,9 +1040,9 @@ Binary search is fast, but the data may need to be sorted first.
 
 Sorting usually costs:
 
-[
+$$
 O(n \log n)
-]
+$$
 
 For a single search, sorting first may be more expensive than using linear search.
 

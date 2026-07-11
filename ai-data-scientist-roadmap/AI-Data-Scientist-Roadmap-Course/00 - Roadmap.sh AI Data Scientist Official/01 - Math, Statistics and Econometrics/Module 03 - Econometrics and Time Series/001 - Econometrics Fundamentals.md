@@ -158,14 +158,7 @@ The error term contains all factors affecting $Y_i$ that are not explicitly incl
 For example:
 
 $$
-\text{Sales}_i
-==============
-
-\beta_0
-+
-\beta_1 \text{Advertising}_i
-+
-\varepsilon_i
+\text{Sales}_i = \beta_0 + \beta_1 \text{Advertising}_i + \varepsilon_i
 $$
 
 If the estimated coefficient is:
@@ -191,37 +184,13 @@ Real outcomes are usually affected by more than one factor.
 A multiple regression model is:
 
 $$
-Y_i
-===
-
-\beta_0
-+
-\beta_1 X_{1i}
-+
-\beta_2 X_{2i}
-+
-\cdots
-+
-\beta_k X_{ki}
-+
-\varepsilon_i
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \cdots + \beta_k X_{ki} + \varepsilon_i
 $$
 
 For example:
 
 $$
-\text{Sales}_i
-==============
-
-\beta_0
-+
-\beta_1 \text{Advertising}_i
-+
-\beta_2 \text{Price}_i
-+
-\beta_3 \text{Holiday}_i
-+
-\varepsilon_i
+\text{Sales}_i = \beta_0 + \beta_1 \text{Advertising}_i + \beta_2 \text{Price}_i + \beta_3 \text{Holiday}_i + \varepsilon_i
 $$
 
 This model estimates the relationship between advertising and sales while holding price and holiday status constant.
@@ -371,10 +340,7 @@ Before fitting a statistical model, describe the expected relationship.
 For example:
 
 $$
-\text{Demand}
-=============
-
-f(\text{Price}, \text{Income}, \text{Promotion}, \text{Season})
+\text{Demand} = f(\text{Price}, \text{Income}, \text{Promotion}, \text{Season})
 $$
 
 Expected relationships might include:
@@ -448,39 +414,13 @@ Model specification means deciding:
 Example:
 
 $$
-\text{Sales}_t
-==============
-
-\beta_0
-+
-\beta_1 \text{AdSpend}_t
-+
-\beta_2 \text{Price}_t
-+
-\beta_3 \text{Holiday}_t
-+
-\varepsilon_t
+\text{Sales}_t = \beta_0 + \beta_1 \text{AdSpend}_t + \beta_2 \text{Price}_t + \beta_3 \text{Holiday}_t + \varepsilon_t
 $$
 
 A richer model may include trend and seasonality:
 
 $$
-\text{Sales}_t
-==============
-
-\beta_0
-+
-\beta_1 \text{AdSpend}_t
-+
-\beta_2 \text{Price}*t
-+
-\beta_3 \text{Holiday}*t
-+
-\beta_4 t
-+
-\sum*{m=2}^{12}\gamma_m D*{m,t}
-+
-\varepsilon_t
+\text{Sales}_t = \beta_0 + \beta_1 \text{AdSpend}_t + \beta_2 \text{Price}*t + \beta_3 \text{Holiday}*t + \beta_4 t + \sum*{m=2}^{12}\gamma_m D*{m,t} + \varepsilon_t
 $$
 
 Where:
@@ -497,10 +437,7 @@ Ordinary Least Squares, or OLS, chooses coefficients that minimize the sum of sq
 The residual for observation $i$ is:
 
 $$
-\hat{\varepsilon}_i
-===================
-
-Y_i - \hat{Y}_i
+\hat{\varepsilon}_i = Y_i - \hat{Y}_i
 $$
 
 OLS minimizes:
@@ -515,16 +452,7 @@ $$
 The fitted value is:
 
 $$
-\hat{Y}_i
-=========
-
-\hat{\beta}_0
-+
-\hat{\beta}*1 X*{1i}
-+
-\cdots
-+
-\hat{\beta}*k X*{ki}
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}*1 X*{1i} + \cdots + \hat{\beta}*k X*{ki}
 $$
 
 ---
@@ -572,16 +500,7 @@ The model must be linear in its coefficients.
 This model is linear in parameters:
 
 $$
-Y_i
-===
-
-\beta_0
-+
-\beta_1 X_i
-+
-\beta_2 X_i^2
-+
-\varepsilon_i
+Y_i = \beta_0 + \beta_1 X_i + \beta_2 X_i^2 + \varepsilon_i
 $$
 
 Although $X_i^2$ is nonlinear in $X$, the coefficients still enter linearly.
@@ -605,16 +524,7 @@ For example, do not include all twelve monthly dummy variables together with an 
 That would create:
 
 $$
-D_{\text{Jan}}
-+
-D_{\text{Feb}}
-+
-\cdots
-+
-D_{\text{Dec}}
-==============
-
-1
+D_{\text{Jan}} + D_{\text{Feb}} + \cdots + D_{\text{Dec}} = 1
 $$
 
 One month should be treated as the reference category.
@@ -640,10 +550,7 @@ If this assumption fails, coefficient estimates may be biased.
 The classical assumption of homoskedasticity is:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i)
-==========================================
-
-\sigma^2
+\operatorname{Var}(\varepsilon_i \mid X_i) = \sigma^2
 $$
 
 When the error variance changes across observations, the data is heteroskedastic.
@@ -689,29 +596,13 @@ Omitted variable bias occurs when:
 Suppose the true model is:
 
 $$
-\text{Sales}
-============
-
-\beta_0
-+
-\beta_1 \text{Advertising}
-+
-\beta_2 \text{DemandSeason}
-+
-\varepsilon
+\text{Sales} = \beta_0 + \beta_1 \text{Advertising} + \beta_2 \text{DemandSeason} + \varepsilon
 $$
 
 But we estimate:
 
 $$
-\text{Sales}
-============
-
-\beta_0
-+
-\beta_1 \text{Advertising}
-+
-\varepsilon
+\text{Sales} = \beta_0 + \beta_1 \text{Advertising} + \varepsilon
 $$
 
 If companies advertise more during high-demand seasons, the advertising coefficient may incorrectly capture part of the seasonal effect.
@@ -750,23 +641,13 @@ Common sources include:
 We may estimate:
 
 $$
-\text{Sales}_t
-==============
-
-\beta_0
-+
-\beta_1 \text{Advertising}_t
-+
-\varepsilon_t
+\text{Sales}_t = \beta_0 + \beta_1 \text{Advertising}_t + \varepsilon_t
 $$
 
 But advertising may respond to expected sales:
 
 $$
-\text{Advertising}_t
-====================
-
-f(\text{Expected Sales}_t)
+\text{Advertising}_t = f(\text{Expected Sales}_t)
 $$
 
 Therefore, advertising affects sales, but expected sales may also affect advertising.
@@ -880,14 +761,7 @@ Interpretation:
 ### 15.2 Log-level model
 
 $$
-\log(Y)
-=======
-
-\beta_0
-+
-\beta_1 X
-+
-\varepsilon
+\log(Y) = \beta_0 + \beta_1 X + \varepsilon
 $$
 
 Approximate interpretation:
@@ -899,14 +773,7 @@ Approximate interpretation:
 ### 15.3 Level-log model
 
 $$
-Y
-=
-
-\beta_0
-+
-\beta_1 \log(X)
-+
-\varepsilon
+Y = \beta_0 + \beta_1 \log(X) + \varepsilon
 $$
 
 Approximate interpretation:
@@ -918,14 +785,7 @@ Approximate interpretation:
 ### 15.4 Log-log model
 
 $$
-\log(Y)
-=======
-
-\beta_0
-+
-\beta_1 \log(X)
-+
-\varepsilon
+\log(Y) = \beta_0 + \beta_1 \log(X) + \varepsilon
 $$
 
 Interpretation:
@@ -943,26 +803,13 @@ A dummy variable represents a category using values 0 and 1.
 For example:
 
 $$
-\text{Promotion}_i
-==================
-
-\begin{cases}
-1, & \text{if a promotion is active} \
-0, & \text{otherwise}
-\end{cases}
+\text{Promotion}_i = \begin{cases} 1, & \text{if a promotion is active} \ 0, & \text{otherwise} \end{cases}
 $$
 
 Model:
 
 $$
-\text{Sales}_i
-==============
-
-\beta_0
-+
-\beta_1 \text{Promotion}_i
-+
-\varepsilon_i
+\text{Sales}_i = \beta_0 + \beta_1 \text{Promotion}_i + \varepsilon_i
 $$
 
 Interpretation:
@@ -980,23 +827,7 @@ An interaction allows the effect of one variable to depend on another variable.
 Example:
 
 $$
-\text{Sales}
-============
-
-\beta_0
-+
-\beta_1 \text{Advertising}
-+
-\beta_2 \text{Holiday}
-+
-\beta_3
-\left(
-\text{Advertising}
-\times
-\text{Holiday}
-\right)
-+
-\varepsilon
+\text{Sales} = \beta_0 + \beta_1 \text{Advertising} + \beta_2 \text{Holiday} + \beta_3 \left( \text{Advertising} \times \text{Holiday} \right) + \varepsilon
 $$
 
 When `Holiday = 0`, the advertising effect is:
@@ -1090,38 +921,13 @@ Suppose we have weekly data with:
 A possible model is:
 
 $$
-\text{Sales}_t
-==============
-
-\beta_0
-+
-\beta_1 \text{AdSpend}_t
-+
-\beta_2 \text{Price}_t
-+
-\beta_3 \text{Promotion}_t
-+
-\beta_4 \text{Holiday}_t
-+
-\varepsilon_t
+\text{Sales}_t = \beta_0 + \beta_1 \text{AdSpend}_t + \beta_2 \text{Price}_t + \beta_3 \text{Promotion}_t + \beta_4 \text{Holiday}_t + \varepsilon_t
 $$
 
 Assume the estimated model is:
 
 $$
-\widehat{\text{Sales}}_t
-========================
-
-12{,}000
-+
-1.8 \text{AdSpend}_t
---------------------
-
-450 \text{Price}_t
-+
-2{,}100 \text{Promotion}_t
-+
-3{,}500 \text{Holiday}_t
+\widehat{\text{Sales}}_t = 12{,}000 + 1.8 \text{AdSpend}_t - 450 \text{Price}_t + 2{,}100 \text{Promotion}_t + 3{,}500 \text{Holiday}_t
 $$
 
 Possible interpretations:
@@ -1196,10 +1002,7 @@ A real analysis should include:
 A residual is the difference between the observed and predicted values:
 
 $$
-\hat{\varepsilon}_i
-===================
-
-Y_i - \hat{Y}_i
+\hat{\varepsilon}_i = Y_i - \hat{Y}_i
 $$
 
 Good residuals should behave like unexplained noise.
@@ -1271,25 +1074,13 @@ Econometric evaluation should consider more than one metric.
 Mean Absolute Error:
 
 $$
-MAE
-===
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-|Y_i-\hat{Y}_i|
+MAE = \frac{1}{n} \sum_{i=1}^{n} |Y_i-\hat{Y}_i|
 $$
 
 Root Mean Squared Error:
 
 $$
-RMSE
-====
-
-\sqrt{
-\frac{1}{n}
-\sum_{i=1}^{n}
-(Y_i-\hat{Y}_i)^2
-}
+RMSE = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} (Y_i-\hat{Y}_i)^2 }
 $$
 
 ### 22.3 Business metrics
@@ -1464,20 +1255,7 @@ $$
 Estimate:
 
 $$
-\text{Sales}_t
-==============
-
-\beta_0
-+
-\beta_1 \text{Advertising}_t
-+
-\beta_2 \text{Price}_t
-+
-\beta_3 \text{Promotion}_t
-+
-\beta_4 \text{Holiday}_t
-+
-\varepsilon_t
+\text{Sales}_t = \beta_0 + \beta_1 \text{Advertising}_t + \beta_2 \text{Price}_t + \beta_3 \text{Promotion}_t + \beta_4 \text{Holiday}_t + \varepsilon_t
 $$
 
 ### Task 5: Add temporal structure

@@ -328,15 +328,15 @@ Suppose:
 
 The null hypothesis states that there is no difference:
 
-[
+$$
 H_0: p_A = p_B
-]
+$$
 
 The alternative hypothesis states that the rates are different:
 
-[
+$$
 H_1: p_A \neq p_B
-]
+$$
 
 A two-sided test is appropriate when both positive and negative effects matter.
 
@@ -346,13 +346,13 @@ A two-sided test is appropriate when both positive and negative effects matter.
 
 When the experiment is specifically testing whether Variant B performs better:
 
-[
+$$
 H_0: p_B \leq p_A
-]
+$$
 
-[
+$$
 H_1: p_B > p_A
-]
+$$
 
 A one-sided test should only be selected before the data is observed.
 
@@ -362,9 +362,9 @@ A one-sided test should only be selected before the data is observed.
 
 The conversion rate is:
 
-[
+$$
 \hat{p} = \frac{x}{n}
-]
+$$
 
 Where:
 
@@ -386,13 +386,13 @@ Purchases = 1,120
 
 The conversion rates are:
 
-[
+$$
 \hat{p}_A = \frac{1000}{10000} = 0.10
-]
+$$
 
-[
+$$
 \hat{p}_B = \frac{1120}{10000} = 0.112
-]
+$$
 
 Therefore:
 
@@ -409,15 +409,15 @@ B conversion rate = 11.2%
 
 Absolute lift is the direct difference between the treatment and control metrics.
 
-[
+$$
 \text{Absolute Lift} = \hat{p}_B - \hat{p}_A
-]
+$$
 
 For the previous example:
 
-[
+$$
 0.112 - 0.10 = 0.012
-]
+$$
 
 Therefore:
 
@@ -431,21 +431,13 @@ Absolute lift = 1.2 percentage points
 
 Relative lift compares the difference with the control rate.
 
-[
-\text{Relative Lift}
-====================
+$$
+\text{Relative Lift} = \frac{\hat{p}_B - \hat{p}_A}{\hat{p}_A}
+$$
 
-\frac{\hat{p}_B - \hat{p}_A}{\hat{p}_A}
-]
-
-[
-\text{Relative Lift}
-====================
-
-# \frac{0.112 - 0.10}{0.10}
-
-0.12
-]
+$$
+\text{Relative Lift} = # \frac{0.112 - 0.10}{0.10} 0.12
+$$
 
 Therefore:
 
@@ -474,35 +466,21 @@ When comparing two conversion rates, a two-proportion z-test is commonly used.
 
 The pooled conversion rate is:
 
-[
-\hat{p}
-=======
-
-\frac{x_A+x_B}{n_A+n_B}
-]
+$$
+\hat{p} = \frac{x_A+x_B}{n_A+n_B}
+$$
 
 The standard error under the null hypothesis is:
 
-[
-SE
-==
-
-\sqrt{
-\hat{p}(1-\hat{p})
-\left(
-\frac{1}{n_A}+\frac{1}{n_B}
-\right)
-}
-]
+$$
+SE = \sqrt{ \hat{p}(1-\hat{p}) \left( \frac{1}{n_A}+\frac{1}{n_B} \right) }
+$$
 
 The z-statistic is:
 
-[
-z
-=
-
-\frac{\hat{p}_B-\hat{p}_A}{SE}
-]
+$$
+z = \frac{\hat{p}_B-\hat{p}_A}{SE}
+$$
 
 The z-statistic is then converted into a p-value.
 
@@ -514,15 +492,15 @@ A small p-value indicates that the observed difference would be unlikely if the 
 
 The significance level is usually represented by:
 
-[
+$$
 \alpha
-]
+$$
 
 A common choice is:
 
-[
+$$
 \alpha = 0.05
-]
+$$
 
 Decision rule:
 
@@ -546,11 +524,9 @@ A confidence interval estimates a range of plausible values for the true treatme
 
 For a difference in conversion rates:
 
-[
-(\hat{p}_B-\hat{p}*A)
-\pm
-z*{\alpha/2} \times SE
-]
+$$
+(\hat{p}_B-\hat{p}*A) \pm z*{\alpha/2} \times SE
+$$
 
 Example result:
 
@@ -605,9 +581,9 @@ Smaller effects require larger sample sizes.
 
 Statistical power is:
 
-[
+$$
 1-\beta
-]
+$$
 
 It represents the probability of detecting an effect when a real effect of the specified size exists.
 
@@ -808,9 +784,9 @@ For example:
 
 The expected number of false positives is approximately:
 
-[
+$$
 50 \times 0.05 = 2.5
-]
+$$
 
 Possible corrections include:
 
@@ -878,21 +854,15 @@ Average profit per conversion = $8
 
 Expected additional conversions:
 
-[
-2{,}000{,}000 \times (0.112-0.10)
-=================================
-
-24{,}000
-]
+$$
+2{,}000{,}000 \times (0.112-0.10) = 24{,}000
+$$
 
 Expected additional monthly profit:
 
-[
-24{,}000 \times 8
-=================
-
-$192{,}000
-]
+$$
+24{,}000 \times 8 = $192{,}000
+$$
 
 A complete recommendation should also account for:
 
@@ -1082,15 +1052,15 @@ Duration:
 
 Absolute lift:
 
-[
+$$
 10.8%-10.0%=0.8\text{ percentage points}
-]
+$$
 
 Relative lift:
 
-[
+$$
 \frac{10.8%-10.0%}{10.0%}=8%
-]
+$$
 
 Possible conclusion:
 

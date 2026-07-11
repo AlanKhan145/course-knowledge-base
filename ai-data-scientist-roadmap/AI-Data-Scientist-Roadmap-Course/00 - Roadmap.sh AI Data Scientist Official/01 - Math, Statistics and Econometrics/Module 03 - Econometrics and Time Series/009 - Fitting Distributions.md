@@ -126,12 +126,7 @@ Examples include:
 The empirical cumulative distribution function is:
 
 $$
-\hat{F}_n(x)
-============
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-\mathbf{1}(x_i \leq x)
+\hat{F}_n(x) = \frac{1}{n} \sum_{i=1}^{n} \mathbf{1}(x_i \leq x)
 $$
 
 where $\mathbf{1}(\cdot)$ is an indicator function.
@@ -246,13 +241,7 @@ A distribution may produce a good numerical fit while still violating important 
 The normal probability density function is:
 
 $$
-f(x)
-====
-
-\frac{1}{\sigma\sqrt{2\pi}}
-\exp\left(
--\frac{(x-\mu)^2}{2\sigma^2}
-\right)
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\left( -\frac{(x-\mu)^2}{2\sigma^2} \right)
 $$
 
 where:
@@ -305,11 +294,7 @@ Common applications:
 The exponential density function is:
 
 $$
-f(x)
-====
-
-\lambda e^{-\lambda x},
-\qquad x \geq 0
+f(x) = \lambda e^{-\lambda x}, \qquad x \geq 0
 $$
 
 where $\lambda$ is the event rate.
@@ -317,10 +302,7 @@ where $\lambda$ is the event rate.
 Its expected value is:
 
 $$
-\mathbb{E}[X]
-=============
-
-\frac{1}{\lambda}
+\mathbb{E}[X] = \frac{1}{\lambda}
 $$
 
 The exponential distribution is commonly used for waiting times when the event rate is assumed to be constant.
@@ -328,10 +310,7 @@ The exponential distribution is commonly used for waiting times when the event r
 A major property is memorylessness:
 
 $$
-P(X > s+t \mid X > s)
-=====================
-
-P(X > t)
+P(X > s+t \mid X > s) = P(X > t)
 $$
 
 This assumption may be unrealistic when the probability of an event changes over time.
@@ -343,13 +322,7 @@ This assumption may be unrealistic when the probability of an event changes over
 The gamma density function can be written as:
 
 $$
-f(x)
-====
-
-\frac{1}{\Gamma(k)\theta^k}
-x^{k-1}
-e^{-x/\theta},
-\qquad x > 0
+f(x) = \frac{1}{\Gamma(k)\theta^k} x^{k-1} e^{-x/\theta}, \qquad x > 0
 $$
 
 where:
@@ -384,19 +357,7 @@ Common applications:
 The Weibull density is:
 
 $$
-f(x)
-====
-
-\frac{k}{\lambda}
-\left(
-\frac{x}{\lambda}
-\right)^{k-1}
-\exp\left[
--\left(
-\frac{x}{\lambda}
-\right)^k
-\right],
-\qquad x \geq 0
+f(x) = \frac{k}{\lambda} \left( \frac{x}{\lambda} \right)^{k-1} \exp\left[ -\left( \frac{x}{\lambda} \right)^k \right], \qquad x \geq 0
 $$
 
 where:
@@ -424,11 +385,7 @@ The Weibull distribution is frequently used in:
 The Poisson probability mass function is:
 
 $$
-P(X=x)
-======
-
-\frac{\lambda^x e^{-\lambda}}{x!},
-\qquad x = 0,1,2,\ldots
+P(X=x) = \frac{\lambda^x e^{-\lambda}}{x!}, \qquad x = 0,1,2,\ldots
 $$
 
 Its mean and variance are both equal to $\lambda$:
@@ -488,43 +445,25 @@ Maximum likelihood estimation, or MLE, selects parameters that make the observed
 For independent observations:
 
 $$
-L(\theta)
-=========
-
-\prod_{i=1}^{n}
-f(x_i \mid \theta)
+L(\theta) = \prod_{i=1}^{n} f(x_i \mid \theta)
 $$
 
 The MLE is:
 
 $$
-\hat{\theta}_{\text{MLE}}
-=========================
-
-\arg\max_{\theta}
-L(\theta)
+\hat{\theta}_{\text{MLE}} = \arg\max_{\theta} L(\theta)
 $$
 
 Because products of many probabilities can become extremely small, we usually maximize the log-likelihood:
 
 $$
-\ell(\theta)
-============
-
-# \log L(\theta)
-
-\sum_{i=1}^{n}
-\log f(x_i \mid \theta)
+\ell(\theta) = # \log L(\theta) \sum_{i=1}^{n} \log f(x_i \mid \theta)
 $$
 
 Therefore:
 
 $$
-\hat{\theta}_{\text{MLE}}
-=========================
-
-\arg\max_{\theta}
-\ell(\theta)
+\hat{\theta}_{\text{MLE}} = \arg\max_{\theta} \ell(\theta)
 $$
 
 MLE is widely used because it is:
@@ -545,23 +484,13 @@ The method of moments matches theoretical moments to sample moments.
 For example, the first sample moment is:
 
 $$
-m_1
-===
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-x_i
+m_1 = \frac{1}{n} \sum_{i=1}^{n} x_i
 $$
 
 The second sample moment is:
 
 $$
-m_2
-===
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-x_i^2
+m_2 = \frac{1}{n} \sum_{i=1}^{n} x_i^2
 $$
 
 These sample moments are matched with theoretical moments to solve for the unknown parameters.
@@ -569,21 +498,13 @@ These sample moments are matched with theoretical moments to solve for the unkno
 For a normal distribution:
 
 $$
-\hat{\mu}
-=========
-
-\bar{x}
+\hat{\mu} = \bar{x}
 $$
 
 and:
 
 $$
-\hat{\sigma}^2
-==============
-
-\frac{1}{n}
-\sum_{i=1}^{n}
-(x_i-\bar{x})^2
+\hat{\sigma}^2 = \frac{1}{n} \sum_{i=1}^{n} (x_i-\bar{x})^2
 $$
 
 The method of moments is often simple and computationally efficient, but it may be less statistically efficient than MLE.
@@ -601,14 +522,7 @@ Bayesian estimation combines:
 Bayes' rule gives:
 
 $$
-p(\theta \mid x)
-================
-
-\frac{
-p(x \mid \theta)p(\theta)
-}{
-p(x)
-}
+p(\theta \mid x) = \frac{ p(x \mid \theta)p(\theta) }{ p(x) }
 $$
 
 or proportionally:
@@ -720,16 +634,7 @@ P–P plots emphasize the center of the distribution, while Q–Q plots are ofte
 The Kolmogorov–Smirnov statistic is:
 
 $$
-D_n
-===
-
-\sup_x
-\left|
-\hat{F}_n(x)
-------------
-
-F(x \mid \hat{\theta})
-\right|
+D_n = \sup_x \left| \hat{F}_n(x) - F(x \mid \hat{\theta}) \right|
 $$
 
 It measures the largest absolute difference between the empirical and theoretical CDFs.
@@ -771,15 +676,7 @@ It is useful when extreme values are important, such as:
 For grouped observations, the statistic is:
 
 $$
-\chi^2
-======
-
-\sum_{j=1}^{k}
-\frac{
-(O_j-E_j)^2
-}{
-E_j
-}
+\chi^2 = \sum_{j=1}^{k} \frac{ (O_j-E_j)^2 }{ E_j }
 $$
 
 where:
@@ -827,12 +724,7 @@ Therefore, the number of parameters should also be considered.
 The Akaike Information Criterion is:
 
 $$
-\mathrm{AIC}
-============
-
-## 2k
-
-2\ell(\hat{\theta})
+\mathrm{AIC} = ## 2k 2\ell(\hat{\theta})
 $$
 
 where:
@@ -854,12 +746,7 @@ AIC balances:
 The Bayesian Information Criterion is:
 
 $$
-\mathrm{BIC}
-============
-
-## k\log(n)
-
-2\ell(\hat{\theta})
+\mathrm{BIC} = ## k\log(n) 2\ell(\hat{\theta})
 $$
 
 where:
@@ -884,12 +771,7 @@ $$
 For candidate model $i$:
 
 $$
-\Delta_i
-========
-
-## \mathrm{AIC}_i
-
-\mathrm{AIC}_{\min}
+\Delta_i = ## \mathrm{AIC}_i \mathrm{AIC}_{\min}
 $$
 
 A common interpretation is:
@@ -1157,10 +1039,7 @@ the variance is much larger than the mean.
 A Poisson model assumes:
 
 $$
-\operatorname{Var}(X)
-=====================
-
-\mathbb{E}[X]
+\operatorname{Var}(X) = \mathbb{E}[X]
 $$
 
 Therefore, the data show evidence of overdispersion, and a negative binomial model may be more appropriate.
@@ -1183,18 +1062,7 @@ Distribution fitting is also important in regression analysis.
 A regression model may assume:
 
 $$
-Y_i
-===
-
-\beta_0
-+
-\beta_1 X_{i1}
-+
-\cdots
-+
-\beta_p X_{ip}
-+
-\varepsilon_i
+Y_i = \beta_0 + \beta_1 X_{i1} + \cdots + \beta_p X_{ip} + \varepsilon_i
 $$
 
 where the error term is often assumed to satisfy:
@@ -1208,12 +1076,7 @@ $$
 After estimating the model, we inspect residuals:
 
 $$
-e_i
-===
-
-## y_i
-
-\hat{y}_i
+e_i = ## y_i \hat{y}_i
 $$
 
 Residual diagnostics can help answer:
@@ -1285,12 +1148,7 @@ After fitting a distribution, unusual observations can be detected using tail pr
 For an observation $x$:
 
 $$
-p_{\text{upper}}
-================
-
-# P(X \geq x)
-
-1-F(x)
+p_{\text{upper}} = # P(X \geq x) 1-F(x)
 $$
 
 An observation may be flagged when:
@@ -1385,11 +1243,7 @@ Suppose transaction values follow a fitted gamma distribution and transaction co
 A simulation can estimate total future revenue:
 
 $$
-R
-=
-
-\sum_{i=1}^{N}
-V_i
+R = \sum_{i=1}^{N} V_i
 $$
 
 where:
@@ -1421,11 +1275,7 @@ For example, transaction values may come from:
 A mixture model can be written as:
 
 $$
-f(x)
-====
-
-\sum_{j=1}^{K}
-\pi_j f_j(x \mid \theta_j)
+f(x) = \sum_{j=1}^{K} \pi_j f_j(x \mid \theta_j)
 $$
 
 where:

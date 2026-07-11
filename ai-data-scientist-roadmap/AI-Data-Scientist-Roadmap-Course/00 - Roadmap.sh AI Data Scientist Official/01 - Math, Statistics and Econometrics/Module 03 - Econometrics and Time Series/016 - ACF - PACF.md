@@ -104,26 +104,13 @@ $$
 The population autocorrelation at lag $k$ is:
 
 $$
-\rho_k
-=
-
-\frac{
-\operatorname{Cov}(y_t, y_{t-k})
-}{
-\sqrt{
-\operatorname{Var}(y_t)
-\operatorname{Var}(y_{t-k})
-}
-}
+\rho_k = \frac{ \operatorname{Cov}(y_t, y_{t-k}) }{ \sqrt{ \operatorname{Var}(y_t) \operatorname{Var}(y_{t-k}) } }
 $$
 
 For a stationary time series, the variance is constant over time, so this is commonly written as:
 
 $$
-\rho_k
-=
-
-\frac{\gamma_k}{\gamma_0}
+\rho_k = \frac{\gamma_k}{\gamma_0}
 $$
 
 where:
@@ -190,20 +177,7 @@ y(t-2) ───────────────► y(t)
 The PACF at lag $k$ can be interpreted as the coefficient of $y_{t-k}$ in the regression:
 
 $$
-y_t
-=
-
-\beta_0
-+
-\beta_1 y_{t-1}
-+
-\beta_2 y_{t-2}
-+
-\cdots
-+
-\beta_k y_{t-k}
-+
-\varepsilon_t
+y_t = \beta_0 + \beta_1 y_{t-1} + \beta_2 y_{t-2} + \cdots + \beta_k y_{t-k} + \varepsilon_t
 $$
 
 The PACF at lag $k$ corresponds to:
@@ -341,20 +315,7 @@ These repeated spikes suggest that observations separated by one seasonal cycle 
 An autoregressive process of order $p$, written as AR($p$), is:
 
 $$
-y_t
-=
-
-c
-+
-\phi_1 y_{t-1}
-+
-\phi_2 y_{t-2}
-+
-\cdots
-+
-\phi_p y_{t-p}
-+
-\varepsilon_t
+y_t = c + \phi_1 y_{t-1} + \phi_2 y_{t-2} + \cdots + \phi_p y_{t-p} + \varepsilon_t
 $$
 
 Typical identification pattern:
@@ -383,18 +344,7 @@ PACF:  significant spikes at lags 1 and 2, then approximately zero
 A moving-average process of order $q$, written as MA($q$), is:
 
 $$
-y_t
-=
-
-\mu
-+
-\varepsilon_t
-+
-\theta_1 \varepsilon_{t-1}
-+
-\cdots
-+
-\theta_q \varepsilon_{t-q}
+y_t = \mu + \varepsilon_t + \theta_1 \varepsilon_{t-1} + \cdots + \theta_q \varepsilon_{t-q}
 $$
 
 Typical identification pattern:

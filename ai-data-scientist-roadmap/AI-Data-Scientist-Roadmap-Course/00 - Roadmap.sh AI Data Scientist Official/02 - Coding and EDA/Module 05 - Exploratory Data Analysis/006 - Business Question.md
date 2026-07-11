@@ -438,13 +438,9 @@ Churn rate = Number of churned customers / Total eligible customers
 
 In mathematical form:
 
-[
-\text{Churn Rate}
-=================
-
-\frac{\text{Number of Churned Customers}}
-{\text{Total Eligible Customers}}
-]
+$$
+\text{Churn Rate} = \frac{\text{Number of Churned Customers}} {\text{Total Eligible Customers}}
+$$
 
 ---
 

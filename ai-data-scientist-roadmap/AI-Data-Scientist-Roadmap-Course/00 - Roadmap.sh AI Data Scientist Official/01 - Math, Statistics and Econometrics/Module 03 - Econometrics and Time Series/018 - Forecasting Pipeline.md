@@ -192,17 +192,11 @@ The model is updated after the true observation becomes available.
 Predict the next value and use the prediction to generate later forecasts.
 
 $$
-\hat{y}_{t+1}
-=============
-
-f(y_t,y_{t-1},\ldots)
+\hat{y}_{t+1} = f(y_t,y_{t-1},\ldots)
 $$
 
 $$
-\hat{y}_{t+2}
-=============
-
-f(\hat{y}_{t+1},y_t,\ldots)
+\hat{y}_{t+2} = f(\hat{y}_{t+1},y_t,\ldots)
 $$
 
 Advantages:
@@ -242,10 +236,7 @@ Disadvantages:
 Train one model that predicts multiple future values simultaneously:
 
 $$
-[\hat{y}*{t+1},\hat{y}*{t+2},\ldots,\hat{y}_{t+h}]
-==================================================
-
-f(X_t)
+[\hat{y}*{t+1},\hat{y}*{t+2},\ldots,\hat{y}_{t+h}] = f(X_t)
 $$
 
 This approach is common in neural forecasting models.
@@ -530,11 +521,7 @@ $$
 ### 15.3 Moving-average baseline
 
 $$
-\hat{y}_{t+1}
-=============
-
-\frac{1}{k}
-\sum_{i=0}^{k-1}y_{t-i}
+\hat{y}_{t+1} = \frac{1}{k} \sum_{i=0}^{k-1}y_{t-i}
 $$
 
 ---
@@ -646,11 +633,7 @@ For daily sales:
 A rolling mean summarizes recent observations.
 
 $$
-\operatorname{RollingMean}_{t,k}
-================================
-
-\frac{1}{k}
-\sum_{i=1}^{k}y_{t-i}
+\operatorname{RollingMean}_{t,k} = \frac{1}{k} \sum_{i=1}^{k}y_{t-i}
 $$
 
 The feature must exclude the current observation.
@@ -709,21 +692,11 @@ For example, December and January are close in time, even though their numeric v
 Cyclical encoding uses sine and cosine transformations:
 
 $$
-x_{\sin}
-========
-
-\sin\left(
-\frac{2\pi x}{P}
-\right)
+x_{\sin} = \sin\left( \frac{2\pi x}{P} \right)
 $$
 
 $$
-x_{\cos}
-========
-
-\cos\left(
-\frac{2\pi x}{P}
-\right)
+x_{\cos} = \cos\left( \frac{2\pi x}{P} \right)
 $$
 
 where (P) is the period.
@@ -1006,12 +979,7 @@ Advantages:
 ### Mean Absolute Error
 
 $$
-\operatorname{MAE}
-==================
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-|y_t-\hat{y}_t|
+\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
 $$
 
 MAE is easy to explain:
@@ -1023,14 +991,7 @@ MAE is easy to explain:
 ### Root Mean Squared Error
 
 $$
-\operatorname{RMSE}
-===================
-
-\sqrt{
-\frac{1}{n}
-\sum_{t=1}^{n}
-(y_t-\hat{y}_t)^2
-}
+\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
 $$
 
 RMSE penalizes large errors more strongly than MAE.
@@ -1040,14 +1001,7 @@ RMSE penalizes large errors more strongly than MAE.
 ### Mean Absolute Percentage Error
 
 $$
-\operatorname{MAPE}
-===================
-
-\frac{100}{n}
-\sum_{t=1}^{n}
-\left|
-\frac{y_t-\hat{y}_t}{y_t}
-\right|
+\operatorname{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t-\hat{y}_t}{y_t} \right|
 $$
 
 MAPE is problematic when actual values are zero or close to zero.
@@ -1057,15 +1011,7 @@ MAPE is problematic when actual values are zero or close to zero.
 ### Weighted Absolute Percentage Error
 
 $$
-\operatorname{WAPE}
-===================
-
-\frac{
-\sum_{t=1}^{n}|y_t-\hat{y}*t|
-}{
-\sum*{t=1}^{n}|y_t|
-}
-\times 100
+\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}*t| }{ \sum*{t=1}^{n}|y_t| } \times 100
 $$
 
 WAPE is often useful for aggregate demand forecasting.
@@ -1245,12 +1191,7 @@ A small p-value suggests that the model may be incomplete.
 Forecast bias measures whether a model consistently overpredicts or underpredicts.
 
 $$
-\operatorname{Bias}
-===================
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-(\hat{y}_t-y_t)
+\operatorname{Bias} = \frac{1}{n} \sum_{t=1}^{n} (\hat{y}_t-y_t)
 $$
 
 Interpretation:
@@ -1281,16 +1222,7 @@ A point forecast represents only one expected value.
 A prediction interval communicates uncertainty:
 
 $$
-P(
-L_{t+h}
-\leq
-y_{t+h}
-\leq
-U_{t+h}
-)
-=
-
-1-\alpha
+P( L_{t+h} \leq y_{t+h} \leq U_{t+h} ) = 1-\alpha
 $$
 
 For a 95% interval:
@@ -1692,15 +1624,7 @@ For a 95% prediction interval, approximately 95% of actual observations should f
 Coverage is:
 
 $$
-\operatorname{Coverage}
-=======================
-
-\frac{1}{n}
-\sum_{t=1}^{n}
-\mathbb{1}
-\left(
-L_t \leq y_t \leq U_t
-\right)
+\operatorname{Coverage} = \frac{1}{n} \sum_{t=1}^{n} \mathbb{1} \left( L_t \leq y_t \leq U_t \right)
 $$
 
 Poor coverage may indicate:
