@@ -288,7 +288,7 @@ $$
 The model searches for coefficients that minimize this value:
 
 $$
-\underset{b_0,b_1,\ldots,b_p}{\operatorname{minimize}}
+\underset{b_0,b_1,\ldots,b_p}{\text{minimize}}
 \quad
 \sum_{i=1}^{n}
 \left(
@@ -1114,7 +1114,7 @@ Regularization adds a penalty to the objective function.
 Ridge Regression uses an (L_2) penalty:
 
 $$
-\underset{\beta}{\operatorname{minimize}}
+\underset{\beta}{\text{minimize}}
 \quad
 \sum_{i=1}^{n}
 \left(
@@ -1137,7 +1137,7 @@ Ridge Regression:
 Lasso Regression uses an (L_1) penalty:
 
 $$
-\underset{\beta}{\operatorname{minimize}}
+\underset{\beta}{\text{minimize}}
 \quad
 \sum_{i=1}^{n}
 \left(

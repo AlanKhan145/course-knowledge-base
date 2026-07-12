@@ -467,7 +467,7 @@ $$
 For growth from $y_0$ to $y_T$ over $T$ periods:
 
 $$
-\operatorname{CAGR} = \left(\frac{y_T}{y_0}\right)^{1/T} - 1
+\text{CAGR} = \left(\frac{y_T}{y_0}\right)^{1/T} - 1
 $$
 
 For business reporting, CAGR describes the constant per-period growth rate that would produce the same total change over the full interval.
@@ -585,13 +585,13 @@ A moving average smooths short-term fluctuations.
 For a window of size $k$:
 
 $$
-\operatorname{MA}_t^{(k)} = \frac{1}{k}\sum_{i=0}^{k-1} y_{t-i}
+\text{MA}_t^{(k)} = \frac{1}{k}\sum_{i=0}^{k-1} y_{t-i}
 $$
 
 For example, a seven-day moving average is:
 
 $$
-\operatorname{MA}_t^{(7)} = \frac{y_t+y_{t-1}+\cdots+y_{t-6}}{7}
+\text{MA}_t^{(7)} = \frac{y_t+y_{t-1}+\cdots+y_{t-6}}{7}
 $$
 
 Python example:
@@ -640,7 +640,7 @@ A centered moving average uses observations before and after the current period.
 For an odd window size:
 
 $$
-\operatorname{CMA}_t^{(3)} = \frac{y_{t-1}+y_t+y_{t+1}}{3}
+\text{CMA}_t^{(3)} = \frac{y_{t-1}+y_t+y_{t+1}}{3}
 $$
 
 It is useful for historical decomposition but unsafe for real-time forecasting because it uses future information.
@@ -1232,13 +1232,13 @@ Common metrics include:
 ### Mean Absolute Error
 
 $$
-\operatorname{MAE} = \frac{1}{n}\sum_{t=1}^{n}\left|y_t-\hat{y}_t\right|
+\text{MAE} = \frac{1}{n}\sum_{t=1}^{n}\left|y_t-\hat{y}_t\right|
 $$
 
 ### Root Mean Squared Error
 
 $$
-\operatorname{RMSE} = \sqrt{\frac{1}{n}\sum_{t=1}^{n}(y_t-\hat{y}_t)^2}
+\text{RMSE} = \sqrt{\frac{1}{n}\sum_{t=1}^{n}(y_t-\hat{y}_t)^2}
 $$
 
 Python example:

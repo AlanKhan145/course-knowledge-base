@@ -198,7 +198,7 @@ flowchart LR
 The new output layer contains three units:
 
 $$
-\hat{y} = \operatorname{softmax}(Wz+b)
+\hat{y} = \text{softmax}(Wz+b)
 $$
 
 where:

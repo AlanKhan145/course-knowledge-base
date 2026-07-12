@@ -309,7 +309,7 @@ Min-max scaling can be sensitive to outliers.
 Robust scaling uses the median and interquartile range instead of the mean and standard deviation.
 
 $$
-x' = \frac{x-\operatorname{median}(x)} {Q_3-Q_1}
+x' = \frac{x-\text{median}(x)} {Q_3-Q_1}
 $$
 
 Example:
@@ -653,7 +653,7 @@ Target encoding replaces a category with a statistic calculated from the target.
 For regression:
 
 $$
-\text{encoded category} = \operatorname{mean}(y \mid \text{category})
+\text{encoded category} = \text{mean}(y \mid \text{category})
 $$
 
 For example:

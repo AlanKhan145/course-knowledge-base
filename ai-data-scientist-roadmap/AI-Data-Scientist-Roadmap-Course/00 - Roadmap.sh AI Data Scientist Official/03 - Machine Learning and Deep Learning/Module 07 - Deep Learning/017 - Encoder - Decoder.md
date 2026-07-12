@@ -194,7 +194,7 @@ The encoder can be implemented with:
 Conceptually:
 
 $$
-H=\operatorname{Encoder}(X)
+H=\text{Encoder}(X)
 $$
 
 where:
@@ -353,7 +353,7 @@ $$
 The token probabilities are:
 
 $$
-P(y_t)=\operatorname{softmax}(z_t)
+P(y_t)=\text{softmax}(z_t)
 $$
 
 ```mermaid
@@ -417,9 +417,9 @@ At decoder step $t$, Attention calculates weights:
 
 $$
 \alpha_{t,i} =
-\operatorname{softmax}
+\text{softmax}
 \left(
-\operatorname{score}(s_{t-1},h_i)
+\text{score}(s_{t-1},h_i)
 \right)
 $$
 
@@ -517,12 +517,12 @@ Multiple encoder layers are placed sequentially:
 
 $$
 H^{(1)} =
-\operatorname{EncoderLayer}_1(X)
+\text{EncoderLayer}_1(X)
 $$
 
 $$
 H^{(2)} =
-\operatorname{EncoderLayer}_2(H^{(1)})
+\text{EncoderLayer}_2(H^{(1)})
 $$
 
 $$
@@ -531,7 +531,7 @@ $$
 
 $$
 H^{(N)} =
-\operatorname{EncoderLayer}_N(H^{(N-1)})
+\text{EncoderLayer}_N(H^{(N-1)})
 $$
 
 The final encoder output becomes the source memory:
@@ -663,8 +663,8 @@ Encoder output
 The Cross-Attention operation is:
 
 $$
-\operatorname{CrossAttention}(Q,K,V) =
-\operatorname{softmax}
+\text{CrossAttention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V
@@ -1226,7 +1226,7 @@ flowchart TD
 A sequence score may use the sum of log probabilities:
 
 $$
-\operatorname{score}(Y) =
+\text{score}(Y) =
 \sum_{t=1}^{|Y|}
 \log P(y_t\mid y_{<t},X)
 $$
@@ -1236,8 +1236,8 @@ Because longer sequences accumulate more negative log probabilities, length norm
 Example:
 
 $$
-\operatorname{normalizedScore}(Y) =
-\frac{\operatorname{score}(Y)}
+\text{normalizedScore}(Y) =
+\frac{\text{score}(Y)}
 {|Y|^\alpha}
 $$
 
@@ -1255,7 +1255,7 @@ Alternatives include:
 
 $$
 P_T(y) =
-\operatorname{softmax}
+\text{softmax}
 \left(
 \frac{z}{T}
 \right)
@@ -2493,7 +2493,7 @@ encoder_decoder_project/
 2. The encoder represents the source input:
 
 $$
-M=\operatorname{Encoder}(X)
+M=\text{Encoder}(X)
 $$
 
 3. The decoder predicts the target autoregressively:

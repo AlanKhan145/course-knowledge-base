@@ -348,13 +348,13 @@ A **lag** is a previous value of the same variable.
 The first lag is:
 
 $$
-\operatorname{Lag}_1(y_t) = y_{t-1}
+\text{Lag}_1(y_t) = y_{t-1}
 $$
 
 The seventh lag for daily data is:
 
 $$
-\operatorname{Lag}_7(y_t) = y_{t-7}
+\text{Lag}_7(y_t) = y_{t-7}
 $$
 
 Example:
@@ -386,13 +386,13 @@ Rolling statistics summarize recent observations over a moving window.
 A rolling mean with window size (k) is:
 
 $$
-\operatorname{MA}_t^{(k)} = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
+\text{MA}_t^{(k)} = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
 $$
 
 For a seven-day moving average:
 
 $$
-\operatorname{MA}_t^{(7)} = \frac{ y_t + y_{t-1} + \cdots + y_{t-6} }{7}
+\text{MA}_t^{(7)} = \frac{ y_t + y_{t-1} + \cdots + y_{t-6} }{7}
 $$
 
 Useful rolling features include:
@@ -432,7 +432,7 @@ The `shift(1)` ensures that the current target value is not included in its own 
 For lag (k):
 
 $$
-\rho_k = \operatorname{Corr}(y_t, y_{t-k})
+\rho_k = \text{Corr}(y_t, y_{t-k})
 $$
 
 Examples:
@@ -471,11 +471,11 @@ $$
 $$
 
 $$
-\operatorname{Var}(y_t) = \sigma^2
+\text{Var}(y_t) = \sigma^2
 $$
 
 $$
-\operatorname{Cov}(y_t, y_{t-k}) = \gamma_k
+\text{Cov}(y_t, y_{t-k}) = \gamma_k
 $$
 
 A series with a strong trend or changing variance is usually non-stationary.
@@ -756,7 +756,7 @@ Let:
 ### 18.1 Mean Absolute Error
 
 $$
-\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
+\text{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
 $$
 
 Advantages:
@@ -770,7 +770,7 @@ Advantages:
 ### 18.2 Root Mean Squared Error
 
 $$
-\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
+\text{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
 $$
 
 Advantages:
@@ -783,7 +783,7 @@ Advantages:
 ### 18.3 Mean Absolute Percentage Error
 
 $$
-\operatorname{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t-\hat{y}_t}{y_t} \right|
+\text{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t-\hat{y}_t}{y_t} \right|
 $$
 
 Limitations:
@@ -797,7 +797,7 @@ Limitations:
 ### 18.4 Weighted Absolute Percentage Error
 
 $$
-\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \sum_{t=1}^{n}|y_t| } \times 100
+\text{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \sum_{t=1}^{n}|y_t| } \times 100
 $$
 
 WAPE is often useful for evaluating aggregate demand forecasts.
@@ -807,13 +807,13 @@ WAPE is often useful for evaluating aggregate demand forecasts.
 ### 18.5 Mean Absolute Scaled Error
 
 $$
-\operatorname{MASE} = \frac{ \frac{1}{n} \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \frac{1}{T-1} \sum_{t=2}^{T}|y_t-y_{t-1}| }
+\text{MASE} = \frac{ \frac{1}{n} \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \frac{1}{T-1} \sum_{t=2}^{T}|y_t-y_{t-1}| }
 $$
 
 Interpretation:
 
-* (\operatorname{MASE}<1): better than the naive baseline
-* (\operatorname{MASE}>1): worse than the naive baseline
+* (\text{MASE}<1): better than the naive baseline
+* (\text{MASE}>1): worse than the naive baseline
 
 Metric selection should reflect the real cost of forecast errors.
 
@@ -1503,7 +1503,7 @@ Useful monitoring metrics include:
 Forecast bias can be estimated as:
 
 $$
-\operatorname{Bias} = \frac{1}{n} \sum_{t=1}^{n} (\hat{y}_t-y_t)
+\text{Bias} = \frac{1}{n} \sum_{t=1}^{n} (\hat{y}_t-y_t)
 $$
 
 A positive bias means systematic overprediction under this definition. A negative bias means systematic underprediction.

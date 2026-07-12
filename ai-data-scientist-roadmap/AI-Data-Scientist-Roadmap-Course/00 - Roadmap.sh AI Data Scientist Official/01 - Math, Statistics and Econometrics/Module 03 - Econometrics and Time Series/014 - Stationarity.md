@@ -275,11 +275,11 @@ $$
 $$
 
 $$
-\operatorname{Var}(\epsilon_t) = \sigma^2
+\text{Var}(\epsilon_t) = \sigma^2
 $$
 
 $$
-\operatorname{Cov}(\epsilon_t, \epsilon_{t-k}) = 0
+\text{Cov}(\epsilon_t, \epsilon_{t-k}) = 0
 \qquad \text{for } k \neq 0
 $$
 
@@ -489,7 +489,7 @@ An increasing rolling standard deviation may indicate:
 The autocorrelation function measures the correlation between a time series and its lagged values:
 
 $$
-\rho_k = \operatorname{Corr}(Y_t,Y_{t-k})
+\rho_k = \text{Corr}(Y_t,Y_{t-k})
 $$
 
 For white noise, autocorrelations should be approximately zero at all nonzero lags.

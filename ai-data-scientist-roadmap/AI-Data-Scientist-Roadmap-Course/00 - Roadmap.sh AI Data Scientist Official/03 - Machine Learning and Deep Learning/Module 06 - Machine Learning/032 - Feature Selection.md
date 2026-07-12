@@ -327,13 +327,13 @@ If nearly every sample has the same value, the feature may not help distinguish 
 Variance is calculated as:
 
 $$
-\operatorname{Var}(X) = \frac{1}{n} \sum_{i=1}^{n}(x_i-\bar{x})^2
+\text{Var}(X) = \frac{1}{n} \sum_{i=1}^{n}(x_i-\bar{x})^2
 $$
 
 A feature can be removed when:
 
 $$
-\operatorname{Var}(X_j) < \tau
+\text{Var}(X_j) < \tau
 $$
 
 where (\tau) is a chosen threshold.
@@ -977,7 +977,7 @@ Multicollinearity occurs when one feature can be strongly explained by other fea
 For feature (j), the Variance Inflation Factor is:
 
 $$
-\operatorname{VIF}_j = \frac{1}{1-R_j^2}
+\text{VIF}_j = \frac{1}{1-R_j^2}
 $$
 
 where (R_j^2) is obtained by predicting feature (j) from the remaining features.

@@ -606,7 +606,7 @@ For lag (k), the autocorrelation can be expressed conceptually as:
 
 $$
 \rho_k =
-\operatorname{Corr}(e_t, e_{t-k})
+\text{Corr}(e_t, e_{t-k})
 $$
 
 If residual autocorrelation is large, the model has left time-dependent information unexplained.

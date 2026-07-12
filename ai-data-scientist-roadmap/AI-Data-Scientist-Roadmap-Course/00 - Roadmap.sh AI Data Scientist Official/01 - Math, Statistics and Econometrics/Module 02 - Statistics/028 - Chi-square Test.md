@@ -2470,7 +2470,7 @@ Suppose conversion is associated with device type, but device type is also stron
 A regression model may be needed:
 
 $$
-\operatorname{logit} \left( P(Y=1) \right) = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots
+\text{logit} \left( P(Y=1) \right) = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dots
 $$
 
 Logistic regression can estimate an association while controlling for additional variables.

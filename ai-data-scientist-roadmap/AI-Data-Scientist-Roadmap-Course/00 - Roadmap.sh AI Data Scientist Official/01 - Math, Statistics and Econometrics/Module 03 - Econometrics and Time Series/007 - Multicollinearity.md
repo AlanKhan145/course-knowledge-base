@@ -262,13 +262,13 @@ The estimated variance of an OLS coefficient depends partly on how much of a pre
 For predictor $x_j$:
 
 $$
-\operatorname{Var}(\hat{\beta}_j) = \frac{\sigma^2} {\operatorname{SST}_j(1-R_j^2)}
+\text{Var}(\hat{\beta}_j) = \frac{\sigma^2} {\text{SST}_j(1-R_j^2)}
 $$
 
 where:
 
 * $\sigma^2$ is the error variance.
-* $\operatorname{SST}_j$ is the total variation of predictor $x_j$.
+* $\text{SST}_j$ is the total variation of predictor $x_j$.
 * $R_j^2$ is obtained by regressing $x_j$ on all other predictors.
 
 As $R_j^2$ approaches $1$:
@@ -280,7 +280,7 @@ $$
 Therefore:
 
 $$
-\operatorname{Var}(\hat{\beta}_j) \rightarrow \infty
+\text{Var}(\hat{\beta}_j) \rightarrow \infty
 $$
 
 Strong multicollinearity increases the uncertainty of the coefficient estimate.
@@ -470,7 +470,7 @@ $$
 x_3 \approx x_1 + x_2
 $$
 
-Neither correlation $\operatorname{Corr}(x_3,x_1)$ nor $\operatorname{Corr}(x_3,x_2)$ must be extremely high, even though $x_3$ is strongly explained by the combination of $x_1$ and $x_2$.
+Neither correlation $\text{Corr}(x_3,x_1)$ nor $\text{Corr}(x_3,x_2)$ must be extremely high, even though $x_3$ is strongly explained by the combination of $x_1$ and $x_2$.
 
 ---
 
@@ -485,7 +485,7 @@ For each predictor $x_j$:
 3. Calculate:
 
 $$
-\operatorname{VIF}_j = \frac{1}{1-R_j^2}
+\text{VIF}_j = \frac{1}{1-R_j^2}
 $$
 
 ### Interpretation
@@ -514,7 +514,7 @@ The acceptable level depends on:
 Tolerance is the inverse of VIF:
 
 $$
-\operatorname{Tolerance}_j = # 1-R_j^2 \frac{1}{\operatorname{VIF}_j}
+\text{Tolerance}_j = # 1-R_j^2 \frac{1}{\text{VIF}_j}
 $$
 
 Low tolerance means that little unique variation remains in the predictor after accounting for the other predictors.
@@ -522,7 +522,7 @@ Low tolerance means that little unique variation remains in the predictor after 
 A tolerance value below $0.1$ is often treated as a warning sign:
 
 $$
-\operatorname{Tolerance}_j < 0.1
+\text{Tolerance}_j < 0.1
 $$
 
 ---
@@ -595,7 +595,7 @@ $$
 Its VIF is:
 
 $$
-\operatorname{VIF}_j = # \frac{1}{1-0.90} 10
+\text{VIF}_j = # \frac{1}{1-0.90} 10
 $$
 
 The variance of its coefficient is ten times larger than it would be if the predictor were uncorrelated with the other predictors.
@@ -609,7 +609,7 @@ $$
 then:
 
 $$
-\operatorname{VIF}_j = # \frac{1}{1-0.99} 100
+\text{VIF}_j = # \frac{1}{1-0.99} 100
 $$
 
 The coefficient estimate is likely to be extremely unstable.

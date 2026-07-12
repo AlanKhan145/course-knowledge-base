@@ -626,11 +626,11 @@ Consider a network with:
 The forward pass is:
 
 $$
-\mathbf{h}^{(1)} = \operatorname{ReLU} \left( W^{(1)}\mathbf{x} + \mathbf{b}^{(1)} \right)
+\mathbf{h}^{(1)} = \text{ReLU} \left( W^{(1)}\mathbf{x} + \mathbf{b}^{(1)} \right)
 $$
 
 $$
-\mathbf{h}^{(2)} = \operatorname{ReLU} \left( W^{(2)}\mathbf{h}^{(1)} + \mathbf{b}^{(2)} \right)
+\mathbf{h}^{(2)} = \text{ReLU} \left( W^{(2)}\mathbf{h}^{(1)} + \mathbf{b}^{(2)} \right)
 $$
 
 $$
@@ -903,7 +903,7 @@ An attention layer allows a model to determine which parts of the input are most
 In a simplified form:
 
 $$
-\operatorname{Attention}(Q,K,V) = \operatorname{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right)V
+\text{Attention}(Q,K,V) = \text{softmax} \left( \frac{QK^T}{\sqrt{d_k}} \right)V
 $$
 
 Attention is central to Transformer architectures.

@@ -292,7 +292,7 @@ $$
 #### ReLU activation
 
 $$
-\operatorname{ReLU}(z)=\max(0,z)
+\text{ReLU}(z)=\max(0,z)
 $$
 
 ReLU introduces nonlinearity and is computationally efficient.

@@ -60,7 +60,7 @@ A bar chart visualizes a numerical value for each category.
 For a category (c_i), the corresponding bar height can represent a statistic such as:
 
 $$
-v_i = \operatorname{count}(c_i)
+v_i = \text{count}(c_i)
 $$
 
 or:

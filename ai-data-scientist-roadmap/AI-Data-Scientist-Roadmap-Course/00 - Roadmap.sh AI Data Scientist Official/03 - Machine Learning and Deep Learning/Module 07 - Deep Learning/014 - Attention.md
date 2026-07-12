@@ -270,8 +270,8 @@ Value = document content
 The standard Attention operation used in Transformers is:
 
 $$
-\operatorname{Attention}(Q,K,V) =
-\operatorname{softmax}
+\text{Attention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V
@@ -337,7 +337,7 @@ Softmax converts the scores into normalized attention weights:
 
 $$
 A =
-\operatorname{softmax}
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)
@@ -463,7 +463,7 @@ Because $\sqrt{1}=1$, scaling does not change the values.
 For the first token:
 
 $$
-\operatorname{softmax}([1,3])
+\text{softmax}([1,3])
 \approx
 [0.119,0.881]
 $$
@@ -471,7 +471,7 @@ $$
 For the second token:
 
 $$
-\operatorname{softmax}([2,6])
+\text{softmax}([2,6])
 \approx
 [0.018,0.982]
 $$
@@ -630,8 +630,8 @@ When predicting token $t$, the model must not access tokens after position $t$.
 A causal mask is added to the attention scores:
 
 $$
-\operatorname{MaskedAttention}(Q,K,V) =
-\operatorname{softmax}
+\text{MaskedAttention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^\top + M}{\sqrt{d_k}}
 \right)V
@@ -716,8 +716,8 @@ Different heads can learn different types of relationships, such as:
 For head $i$:
 
 $$
-\operatorname{head}_i =
-\operatorname{Attention}
+\text{head}_i =
+\text{Attention}
 \left(
 QW_i^Q,
 KW_i^K,
@@ -728,12 +728,12 @@ $$
 The heads are concatenated:
 
 $$
-\operatorname{MultiHead}(Q,K,V) =
-\operatorname{Concat}
+\text{MultiHead}(Q,K,V) =
+\text{Concat}
 \left(
-\operatorname{head}_1,
+\text{head}_1,
 \dots,
-\operatorname{head}_h
+\text{head}_h
 \right)W^O
 $$
 
@@ -867,17 +867,17 @@ A common conceptual representation is:
 
 $$
 X' =
-\operatorname{LayerNorm}
+\text{LayerNorm}
 \left(
-X + \operatorname{MultiHeadAttention}(X)
+X + \text{MultiHeadAttention}(X)
 \right)
 $$
 
 $$
 Y =
-\operatorname{LayerNorm}
+\text{LayerNorm}
 \left(
-X' + \operatorname{FFN}(X')
+X' + \text{FFN}(X')
 \right)
 $$
 
@@ -886,9 +886,9 @@ Some modern architectures use pre-normalization instead:
 $$
 X' =
 X +
-\operatorname{MultiHeadAttention}
+\text{MultiHeadAttention}
 \left(
-\operatorname{LayerNorm}(X)
+\text{LayerNorm}(X)
 \right)
 $$
 
@@ -1551,13 +1551,13 @@ Record:
 Incorrect:
 
 $$
-\operatorname{softmax}(QK^\top)V
+\text{softmax}(QK^\top)V
 $$
 
 Standard scaled Attention:
 
 $$
-\operatorname{softmax}
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V
@@ -1649,7 +1649,7 @@ $$
 Attention weights:
 
 $$
-A = \operatorname{softmax}(S)
+A = \text{softmax}(S)
 $$
 
 The scores are unnormalized. The weights are normalized.
@@ -1809,8 +1809,8 @@ README.md
 6. Scaled dot-product Attention is defined as:
 
 $$
-\operatorname{Attention}(Q,K,V) =
-\operatorname{softmax}
+\text{Attention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V

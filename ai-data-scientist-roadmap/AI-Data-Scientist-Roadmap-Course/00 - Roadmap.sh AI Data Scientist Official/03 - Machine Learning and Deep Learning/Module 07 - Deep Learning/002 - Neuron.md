@@ -456,7 +456,7 @@ Compared with sigmoid, tanh is zero-centered. However, it can still suffer from 
 The Rectified Linear Unit is defined as:
 
 $$
-\operatorname{ReLU}(z) = \max(0,z)
+\text{ReLU}(z) = \max(0,z)
 $$
 
 ```text

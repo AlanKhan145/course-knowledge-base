@@ -774,13 +774,13 @@ Heteroscedasticity can matter because standard linear regression assumes constan
 The residual variance assumption is:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i) = \sigma^2
+\text{Var}(\varepsilon_i \mid X_i) = \sigma^2
 $$
 
 Under heteroscedasticity:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i) \neq \sigma^2
+\text{Var}(\varepsilon_i \mid X_i) \neq \sigma^2
 $$
 
 Possible responses include:

@@ -319,7 +319,7 @@ Activation functions introduce nonlinearity.
 The **Rectified Linear Unit** is:
 
 $$
-\operatorname{ReLU}(z) = \max(0,z)
+\text{ReLU}(z) = \max(0,z)
 $$
 
 ```text
@@ -424,7 +424,7 @@ Z^{[1]} = W^{[1]}X + b^{[1]}
 $$
 
 $$
-A^{[1]} = \operatorname{ReLU}(Z^{[1]})
+A^{[1]} = \text{ReLU}(Z^{[1]})
 $$
 
 ### Output layer
@@ -442,7 +442,7 @@ $$
 The complete operation is:
 
 $$
-\hat{Y} = \sigma \left( W^{[2]} \operatorname{ReLU} \left( W^{[1]}X+b^{[1]} \right) +b^{[2]} \right)
+\hat{Y} = \sigma \left( W^{[2]} \text{ReLU} \left( W^{[1]}X+b^{[1]} \right) +b^{[2]} \right)
 $$
 
 This is the prediction process used during both training and inference.
@@ -484,7 +484,7 @@ $$
 ### Step 2: Hidden activation
 
 $$
-A^{[1]} = \operatorname{ReLU}(Z^{[1]})
+A^{[1]} = \text{ReLU}(Z^{[1]})
 $$
 
 $$

@@ -289,19 +289,19 @@ Tanh is commonly found in:
 The **Rectified Linear Unit**, or ReLU, is one of the most common activation functions for hidden layers.
 
 $$
-\operatorname{ReLU}(x)=\max(0,x)
+\text{ReLU}(x)=\max(0,x)
 $$
 
 Equivalently:
 
 $$
-\operatorname{ReLU}(x) = \begin{cases} 0, & x \leq 0 \ x, & x > 0 \end{cases}
+\text{ReLU}(x) = \begin{cases} 0, & x \leq 0 \ x, & x > 0 \end{cases}
 $$
 
 ### Derivative
 
 $$
-\operatorname{ReLU}'(x) = \begin{cases} 0, & x < 0 \ 1, & x > 0 \end{cases}
+\text{ReLU}'(x) = \begin{cases} 0, & x < 0 \ 1, & x > 0 \end{cases}
 $$
 
 At (x=0), the mathematical derivative is undefined. Deep-learning libraries choose a practical subgradient, commonly (0).
@@ -335,7 +335,7 @@ $$
 its output is always:
 
 $$
-\operatorname{ReLU}(z)=0
+\text{ReLU}(z)=0
 $$
 
 Its local gradient is also zero. As a result, its parameters may stop updating. This neuron is sometimes described as a **dead neuron**.
@@ -412,7 +412,7 @@ PReLU is more flexible than Leaky ReLU but introduces additional parameters and 
 The Exponential Linear Unit is defined as:
 
 $$
-\operatorname{ELU}(x) = \begin{cases} x, & x>0 \ \alpha(e^x-1), & x\leq0 \end{cases}
+\text{ELU}(x) = \begin{cases} x, & x>0 \ \alpha(e^x-1), & x\leq0 \end{cases}
 $$
 
 ELU produces negative outputs for negative inputs and has a smooth negative region.
@@ -436,13 +436,13 @@ ELU produces negative outputs for negative inputs and has a smooth negative regi
 Softplus is a smooth approximation of ReLU.
 
 $$
-\operatorname{Softplus}(x) = \log(1+e^x)
+\text{Softplus}(x) = \log(1+e^x)
 $$
 
 Its derivative is the sigmoid function:
 
 $$
-\frac{d}{dx}\operatorname{Softplus}(x) = \sigma(x)
+\frac{d}{dx}\text{Softplus}(x) = \sigma(x)
 $$
 
 ### Advantages
@@ -464,7 +464,7 @@ $$
 The **Gaussian Error Linear Unit** is commonly used in Transformer architectures.
 
 $$
-\operatorname{GELU}(x) = x\Phi(x)
+\text{GELU}(x) = x\Phi(x)
 $$
 
 Where (\Phi(x)) is the cumulative distribution function of the standard normal distribution.
@@ -472,7 +472,7 @@ Where (\Phi(x)) is the cumulative distribution function of the standard normal d
 A common approximation is:
 
 $$
-\operatorname{GELU}(x) \approx \frac{x}{2} \left[ 1+ \tanh \left( \sqrt{\frac{2}{\pi}} \left( x+0.044715x^3 \right) \right) \right]
+\text{GELU}(x) \approx \frac{x}{2} \left[ 1+ \tanh \left( \sqrt{\frac{2}{\pi}} \left( x+0.044715x^3 \right) \right) \right]
 $$
 
 Unlike ReLU, GELU smoothly scales negative and positive inputs instead of using a hard threshold.
@@ -493,7 +493,7 @@ GELU is widely used in:
 The Sigmoid Linear Unit is:
 
 $$
-\operatorname{SiLU}(x) = x\sigma(x)
+\text{SiLU}(x) = x\sigma(x)
 $$
 
 It is also commonly called **Swish**.
@@ -522,7 +522,7 @@ Softmax converts a vector of logits into a probability distribution.
 For class (i):
 
 $$
-\operatorname{Softmax}(z_i) = \frac{e^{z_i}} {\sum_{j=1}^{K}e^{z_j}}
+\text{Softmax}(z_i) = \frac{e^{z_i}} {\sum_{j=1}^{K}e^{z_j}}
 $$
 
 The outputs satisfy:
@@ -694,13 +694,13 @@ $$
 However, weights and biases can shift, scale, or flip its input:
 
 $$
-h_i(x)=\operatorname{ReLU}(w_ix+b_i)
+h_i(x)=\text{ReLU}(w_ix+b_i)
 $$
 
 A network can then combine many transformed ReLU functions:
 
 $$
-y(x)= \sum_{i=1}^{m}v_i \operatorname{ReLU}(w_ix+b_i) +c
+y(x)= \sum_{i=1}^{m}v_i \text{ReLU}(w_ix+b_i) +c
 $$
 
 Each hidden neuron creates a different piecewise-linear component. Adding many of these components produces a complex function.

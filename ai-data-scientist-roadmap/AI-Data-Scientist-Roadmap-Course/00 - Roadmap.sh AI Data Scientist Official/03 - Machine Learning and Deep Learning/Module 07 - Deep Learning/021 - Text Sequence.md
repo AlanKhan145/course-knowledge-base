@@ -859,7 +859,7 @@ royalty
 Similarity is commonly measured using cosine similarity:
 
 $$
-\operatorname{cosine}(u,v) =
+\text{cosine}(u,v) =
 \frac{u\cdot v}
 {\lVert u\rVert\lVert v\rVert}
 $$
@@ -1110,8 +1110,8 @@ Attention allows a model to focus on relevant sequence positions.
 Given query $Q$, key $K$, and value $V$:
 
 $$
-\operatorname{Attention}(Q,K,V) =
-\operatorname{softmax}
+\text{Attention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^T}{\sqrt{d_k}}
 \right)V
@@ -1226,8 +1226,8 @@ Common encoder-based tasks include:
 Multi-head attention applies several attention operations in parallel.
 
 $$
-\operatorname{MultiHead}(Q,K,V) =
-\operatorname{Concat}
+\text{MultiHead}(Q,K,V) =
+\text{Concat}
 (\text{head}_1,\ldots,\text{head}_h)W^O
 $$
 
@@ -1773,7 +1773,7 @@ Some token labels are correct, but the complete entity is not correctly extracte
 A common metric is perplexity.
 
 $$
-\operatorname{Perplexity} =
+\text{Perplexity} =
 \exp
 \left(
 -\frac{1}{T}

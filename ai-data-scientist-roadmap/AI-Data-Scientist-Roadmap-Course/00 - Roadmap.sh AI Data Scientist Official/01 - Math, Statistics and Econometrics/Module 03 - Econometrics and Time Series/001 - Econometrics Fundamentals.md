@@ -550,7 +550,7 @@ If this assumption fails, coefficient estimates may be biased.
 The classical assumption of homoskedasticity is:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i) = \sigma^2
+\text{Var}(\varepsilon_i \mid X_i) = \sigma^2
 $$
 
 When the error variance changes across observations, the data is heteroskedastic.
@@ -570,7 +570,7 @@ For time-dependent observations, errors should not be strongly correlated over t
 A simplified condition is:
 
 $$
-\operatorname{Cov}(\varepsilon_t,\varepsilon_{t-1}) = 0
+\text{Cov}(\varepsilon_t,\varepsilon_{t-1}) = 0
 $$
 
 Serial correlation is common in:
@@ -625,7 +625,7 @@ The estimated relationship may then exaggerate the true effect of advertising.
 Endogeneity means an explanatory variable is correlated with the model error:
 
 $$
-\operatorname{Cov}(X_i,\varepsilon_i) \neq 0
+\text{Cov}(X_i,\varepsilon_i) \neq 0
 $$
 
 Common sources include:

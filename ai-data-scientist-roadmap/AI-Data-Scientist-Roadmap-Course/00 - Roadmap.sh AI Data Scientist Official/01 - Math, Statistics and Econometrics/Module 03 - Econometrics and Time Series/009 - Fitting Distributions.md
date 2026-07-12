@@ -337,7 +337,7 @@ $$
 $$
 
 $$
-\operatorname{Var}(X) = k\theta^2
+\text{Var}(X) = k\theta^2
 $$
 
 The gamma distribution is useful for positive and right-skewed data.
@@ -395,7 +395,7 @@ $$
 $$
 
 $$
-\operatorname{Var}(X) = \lambda
+\text{Var}(X) = \lambda
 $$
 
 The Poisson distribution is appropriate for event counts when:
@@ -419,7 +419,7 @@ Examples include:
 Count data often have:
 
 $$
-\operatorname{Var}(X) > \mathbb{E}[X]
+\text{Var}(X) > \mathbb{E}[X]
 $$
 
 This is called **overdispersion**.
@@ -1039,7 +1039,7 @@ the variance is much larger than the mean.
 A Poisson model assumes:
 
 $$
-\operatorname{Var}(X) = \mathbb{E}[X]
+\text{Var}(X) = \mathbb{E}[X]
 $$
 
 Therefore, the data show evidence of overdispersion, and a negative binomial model may be more appropriate.

@@ -682,7 +682,7 @@ For lag $k$:
 
 $$
 \rho_k =
-\operatorname{Corr}(y_t,y_{t-k})
+\text{Corr}(y_t,y_{t-k})
 $$
 
 Examples:
@@ -775,13 +775,13 @@ $$
 2. Constant variance
 
 $$
-\operatorname{Var}(y_t)=\sigma^2
+\text{Var}(y_t)=\sigma^2
 $$
 
 3. Autocovariance depending only on lag
 
 $$
-\operatorname{Cov}(y_t,y_{t-k}) =
+\text{Cov}(y_t,y_{t-k}) =
 \gamma_k
 $$
 
@@ -918,11 +918,11 @@ E[\epsilon_t]=0
 $$
 
 $$
-\operatorname{Var}(\epsilon_t)=\sigma^2
+\text{Var}(\epsilon_t)=\sigma^2
 $$
 
 $$
-\operatorname{Cov}
+\text{Cov}
 (\epsilon_t,\epsilon_{t-k})
 =0
 \quad
@@ -1710,8 +1710,8 @@ Dilated convolutions can increase the receptive field without extremely deep net
 Transformers use attention to connect different timestamps.
 
 $$
-\operatorname{Attention}(Q,K,V) =
-\operatorname{softmax}
+\text{Attention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^T}{\sqrt{d_k}}
 \right)V

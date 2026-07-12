@@ -371,8 +371,8 @@ $$
 Scaled dot-product attention is:
 
 $$
-\operatorname{Attention}(Q,K,V) =
-\operatorname{softmax}
+\text{Attention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^T}{\sqrt{d_k}}
 \right)V
@@ -629,8 +629,8 @@ For example, one attention head may learn:
 For attention head $h$:
 
 $$
-\operatorname{head}_h =
-\operatorname{Attention}
+\text{head}_h =
+\text{Attention}
 \left(
 QW_h^Q,
 KW_h^K,
@@ -641,12 +641,12 @@ $$
 The head outputs are concatenated:
 
 $$
-\operatorname{MultiHead}(Q,K,V) =
-\operatorname{Concat}
+\text{MultiHead}(Q,K,V) =
+\text{Concat}
 (
-\operatorname{head}_1,
+\text{head}_1,
 \dots,
-\operatorname{head}_H
+\text{head}_H
 )W_O
 $$
 
@@ -715,7 +715,7 @@ A complete encoder contains several stacked encoder blocks.
 After attention, each token representation passes through a small neural network:
 
 $$
-\operatorname{FFN}(x) =
+\text{FFN}(x) =
 \phi(xW_1+b_1)W_2+b_2
 $$
 
@@ -751,7 +751,7 @@ The feed-forward network transforms the information stored inside each token rep
 A residual connection adds the input of a sublayer to its output:
 
 $$
-y=x+\operatorname{Sublayer}(x)
+y=x+\text{Sublayer}(x)
 $$
 
 Residual connections help:
@@ -778,7 +778,7 @@ Layer normalization stabilizes activations across the feature dimension.
 A simplified form is:
 
 $$
-\operatorname{LayerNorm}(x) =
+\text{LayerNorm}(x) =
 \gamma
 \frac{x-\mu}{\sqrt{\sigma^2+\epsilon}}
 +

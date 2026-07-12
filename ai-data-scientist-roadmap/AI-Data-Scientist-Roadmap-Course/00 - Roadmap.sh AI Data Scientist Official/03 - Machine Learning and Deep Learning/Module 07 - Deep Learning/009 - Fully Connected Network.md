@@ -439,7 +439,7 @@ Nonlinear activation functions allow the network to learn nonlinear relationship
 #### ReLU
 
 $$
-\operatorname{ReLU}(z)=\max(0,z)
+\text{ReLU}(z)=\max(0,z)
 $$
 
 Advantages:
@@ -494,7 +494,7 @@ z^{(1)}=W^{(1)}x+b^{(1)}
 $$
 
 $$
-a^{(1)}=\operatorname{ReLU}\left(z^{(1)}\right)
+a^{(1)}=\text{ReLU}\left(z^{(1)}\right)
 $$
 
 $$
@@ -502,7 +502,7 @@ z^{(2)}=W^{(2)}a^{(1)}+b^{(2)}
 $$
 
 $$
-a^{(2)}=\operatorname{ReLU}\left(z^{(2)}\right)
+a^{(2)}=\text{ReLU}\left(z^{(2)}\right)
 $$
 
 $$

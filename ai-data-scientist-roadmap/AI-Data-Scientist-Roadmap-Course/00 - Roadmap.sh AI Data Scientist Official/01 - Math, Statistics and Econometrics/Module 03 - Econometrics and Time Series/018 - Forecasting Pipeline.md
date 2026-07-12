@@ -633,7 +633,7 @@ For daily sales:
 A rolling mean summarizes recent observations.
 
 $$
-\operatorname{RollingMean}_{t,k} = \frac{1}{k} \sum_{i=1}^{k}y_{t-i}
+\text{RollingMean}_{t,k} = \frac{1}{k} \sum_{i=1}^{k}y_{t-i}
 $$
 
 The feature must exclude the current observation.
@@ -979,7 +979,7 @@ Advantages:
 ### Mean Absolute Error
 
 $$
-\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
+\text{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
 $$
 
 MAE is easy to explain:
@@ -991,7 +991,7 @@ MAE is easy to explain:
 ### Root Mean Squared Error
 
 $$
-\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
+\text{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
 $$
 
 RMSE penalizes large errors more strongly than MAE.
@@ -1001,7 +1001,7 @@ RMSE penalizes large errors more strongly than MAE.
 ### Mean Absolute Percentage Error
 
 $$
-\operatorname{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t-\hat{y}_t}{y_t} \right|
+\text{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{y_t-\hat{y}_t}{y_t} \right|
 $$
 
 MAPE is problematic when actual values are zero or close to zero.
@@ -1011,7 +1011,7 @@ MAPE is problematic when actual values are zero or close to zero.
 ### Weighted Absolute Percentage Error
 
 $$
-\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \sum_{t=1}^{n}|y_t| } \times 100
+\text{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \sum_{t=1}^{n}|y_t| } \times 100
 $$
 
 WAPE is often useful for aggregate demand forecasting.
@@ -1191,7 +1191,7 @@ A small p-value suggests that the model may be incomplete.
 Forecast bias measures whether a model consistently overpredicts or underpredicts.
 
 $$
-\operatorname{Bias} = \frac{1}{n} \sum_{t=1}^{n} (\hat{y}_t-y_t)
+\text{Bias} = \frac{1}{n} \sum_{t=1}^{n} (\hat{y}_t-y_t)
 $$
 
 Interpretation:
@@ -1624,7 +1624,7 @@ For a 95% prediction interval, approximately 95% of actual observations should f
 Coverage is:
 
 $$
-\operatorname{Coverage} = \frac{1}{n} \sum_{t=1}^{n} \mathbb{1} \left( L_t \leq y_t \leq U_t \right)
+\text{Coverage} = \frac{1}{n} \sum_{t=1}^{n} \mathbb{1} \left( L_t \leq y_t \leq U_t \right)
 $$
 
 Poor coverage may indicate:

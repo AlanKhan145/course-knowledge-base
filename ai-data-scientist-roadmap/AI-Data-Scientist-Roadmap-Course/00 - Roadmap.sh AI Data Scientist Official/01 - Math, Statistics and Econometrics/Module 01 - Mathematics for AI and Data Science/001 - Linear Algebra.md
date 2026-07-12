@@ -898,7 +898,7 @@ $$
 Their span is:
 
 $$
-\operatorname{span}(v_1, v_2) = \{a v_1 + b v_2 \mid a,b \in \mathbb{R}\}
+\text{span}(v_1, v_2) = \{a v_1 + b v_2 \mid a,b \in \mathbb{R}\}
 $$
 
 ### Case 1: Two independent vectors in 2D
@@ -909,7 +909,7 @@ Their span covers the whole 2D plane.
 ```
 
 $$
-\operatorname{span}(v_1, v_2) = \mathbb{R}^2
+\text{span}(v_1, v_2) = \mathbb{R}^2
 $$
 
 ### Case 2: Two dependent vectors
@@ -920,7 +920,7 @@ Their span is only one line.
 ```
 
 $$
-\operatorname{span}(v_1, v_2) = \text{a line}
+\text{span}(v_1, v_2) = \text{a line}
 $$
 
 ---

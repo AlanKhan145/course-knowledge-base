@@ -228,7 +228,7 @@ Regression models predict continuous values such as:
 Mean Squared Error, or MSE, is:
 
 $$
-\operatorname{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i-\hat{y}_i)^2
+\text{MSE} = \frac{1}{N} \sum_{i=1}^{N} (y_i-\hat{y}_i)^2
 $$
 
 For one example:
@@ -294,7 +294,7 @@ A large error produces a large gradient.
 Root Mean Squared Error is:
 
 $$
-\operatorname{RMSE} = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_i-\hat{y}_i)^2 }
+\text{RMSE} = \sqrt{ \frac{1}{N} \sum_{i=1}^{N} (y_i-\hat{y}_i)^2 }
 $$
 
 RMSE is often easier to interpret because it uses the same unit as the target.
@@ -308,7 +308,7 @@ However, neural networks are commonly trained with MSE and evaluated with RMSE b
 Mean Absolute Error, or MAE, is:
 
 $$
-\operatorname{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i-\hat{y}_i|
+\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} |y_i-\hat{y}_i|
 $$
 
 For one example:
@@ -805,7 +805,7 @@ Focal loss is useful for highly imbalanced classification tasks.
 For the true-class probability (p_t):
 
 $$
-\operatorname{FL}(p_t) = -\alpha_t(1-p_t)^\gamma\log(p_t)
+\text{FL}(p_t) = -\alpha_t(1-p_t)^\gamma\log(p_t)
 $$
 
 where:
@@ -1247,13 +1247,13 @@ $$
 ### MSE
 
 $$
-\operatorname{MSE} = # \frac{1^2+2^2+8^2}{3} # \frac{69}{3} 23
+\text{MSE} = # \frac{1^2+2^2+8^2}{3} # \frac{69}{3} 23
 $$
 
 ### MAE
 
 $$
-\operatorname{MAE} = # \frac{|1|+|2|+|8|}{3} \frac{11}{3} \approx3.67
+\text{MAE} = # \frac{|1|+|2|+|8|}{3} \frac{11}{3} \approx3.67
 $$
 
 The residual (8) contributes:

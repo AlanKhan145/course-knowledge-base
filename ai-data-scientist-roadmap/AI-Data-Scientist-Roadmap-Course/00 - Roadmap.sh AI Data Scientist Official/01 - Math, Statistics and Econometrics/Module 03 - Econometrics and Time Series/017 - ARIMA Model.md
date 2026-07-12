@@ -98,7 +98,7 @@ ARIMA stands for:
 An ARIMA model is written as:
 
 $$
-\operatorname{ARIMA}(p,d,q)
+\text{ARIMA}(p,d,q)
 $$
 
 where:
@@ -250,7 +250,7 @@ The moving-average component of ARIMA is not the same as a rolling average.
 A rolling average is a data-smoothing transformation:
 
 $$
-\operatorname{SMA}_t = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
+\text{SMA}_t = \frac{1}{k} \sum_{i=0}^{k-1} y_{t-i}
 $$
 
 The MA component in ARIMA uses previous **errors**, not previous observations.
@@ -303,15 +303,15 @@ The final forecast is transformed back to the original scale.
 Special cases include:
 
 $$
-\operatorname{ARIMA}(p,0,0)=\operatorname{AR}(p)
+\text{ARIMA}(p,0,0)=\text{AR}(p)
 $$
 
 $$
-\operatorname{ARIMA}(0,0,q)=\operatorname{MA}(q)
+\text{ARIMA}(0,0,q)=\text{MA}(q)
 $$
 
 $$
-\operatorname{ARIMA}(p,0,q)=\operatorname{ARMA}(p,q)
+\text{ARIMA}(p,0,q)=\text{ARMA}(p,q)
 $$
 
 ---
@@ -802,13 +802,13 @@ The interval communicates forecast uncertainty.
 ### Mean Absolute Error
 
 $$
-\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
+\text{MAE} = \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t|
 $$
 
 ### Root Mean Squared Error
 
 $$
-\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
+\text{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (y_t-\hat{y}_t)^2 }
 $$
 
 Python implementation:
@@ -915,13 +915,13 @@ A model with a slightly worse AIC may perform better on future observations.
 ### Akaike Information Criterion
 
 $$
-\operatorname{AIC} = -2\log(L)+2k
+\text{AIC} = -2\log(L)+2k
 $$
 
 ### Bayesian Information Criterion
 
 $$
-\operatorname{BIC} = -2\log(L)+k\log(n)
+\text{BIC} = -2\log(L)+k\log(n)
 $$
 
 where:
@@ -1094,7 +1094,7 @@ A standard ARIMA model does not explicitly represent a repeating seasonal cycle.
 Seasonal ARIMA, or SARIMA, is written as:
 
 $$
-\operatorname{SARIMA}(p,d,q)(P,D,Q)_s
+\text{SARIMA}(p,d,q)(P,D,Q)_s
 $$
 
 where:
@@ -1113,7 +1113,7 @@ Examples:
 Example:
 
 $$
-\operatorname{SARIMA}(1,1,1)(1,1,1)_{12}
+\text{SARIMA}(1,1,1)(1,1,1)_{12}
 $$
 
 This model includes both ordinary and yearly seasonal relationships for monthly data.
@@ -1409,15 +1409,15 @@ Record MAE and RMSE.
 Use ACF and PACF to propose at least three models, such as:
 
 $$
-\operatorname{ARIMA}(1,1,0)
+\text{ARIMA}(1,1,0)
 $$
 
 $$
-\operatorname{ARIMA}(0,1,1)
+\text{ARIMA}(0,1,1)
 $$
 
 $$
-\operatorname{ARIMA}(1,1,1)
+\text{ARIMA}(1,1,1)
 $$
 
 Explain why each candidate is reasonable.
@@ -1612,7 +1612,7 @@ Monitor:
 
 1. **ARIMA combines autoregression, differencing, and moving-average error terms.**
 
-2. **The model is written as (\operatorname{ARIMA}(p,d,q)).**
+2. **The model is written as (\text{ARIMA}(p,d,q)).**
 
 3. **The parameter (p) represents the number of autoregressive lags.**
 

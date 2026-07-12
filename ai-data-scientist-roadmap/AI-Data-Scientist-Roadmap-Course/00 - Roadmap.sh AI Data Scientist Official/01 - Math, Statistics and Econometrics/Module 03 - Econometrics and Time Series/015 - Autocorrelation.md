@@ -115,11 +115,11 @@ The autocorrelation at lag $k$ is commonly written as:
 $$
 \rho_k =
 \frac{
-\operatorname{Cov}(y_t, y_{t-k})
+\text{Cov}(y_t, y_{t-k})
 }{
 \sqrt{
-\operatorname{Var}(y_t)
-\operatorname{Var}(y_{t-k})
+\text{Var}(y_t)
+\text{Var}(y_{t-k})
 }
 }
 $$
@@ -129,9 +129,9 @@ For a stationary time series, this is often simplified to:
 $$
 \rho_k =
 \frac{
-\operatorname{Cov}(y_t, y_{t-k})
+\text{Cov}(y_t, y_{t-k})
 }{
-\operatorname{Var}(y_t)
+\text{Var}(y_t)
 }
 $$
 
@@ -300,7 +300,7 @@ There is no obvious relationship between nearby observations.
 The **Autocorrelation Function**, or **ACF**, calculates autocorrelation over multiple lags.
 
 $$
-\operatorname{ACF}(k) = \operatorname{Corr}(y_t, y_{t-k})
+\text{ACF}(k) = \text{Corr}(y_t, y_{t-k})
 $$
 
 An ACF plot usually contains:
@@ -486,7 +486,7 @@ However, high autocorrelation can also be caused by trend, persistence, or smoot
 In classical linear regression, errors are often assumed to be independent:
 
 $$
-\operatorname{Cov}(\varepsilon_t,\varepsilon_s)=0
+\text{Cov}(\varepsilon_t,\varepsilon_s)=0
 \quad \text{for } t \neq s
 $$
 

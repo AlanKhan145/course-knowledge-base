@@ -104,7 +104,7 @@ $$
 The population autocorrelation at lag $k$ is:
 
 $$
-\rho_k = \frac{ \operatorname{Cov}(y_t, y_{t-k}) }{ \sqrt{ \operatorname{Var}(y_t) \operatorname{Var}(y_{t-k}) } }
+\rho_k = \frac{ \text{Cov}(y_t, y_{t-k}) }{ \sqrt{ \text{Var}(y_t) \text{Var}(y_{t-k}) } }
 $$
 
 For a stationary time series, the variance is constant over time, so this is commonly written as:
@@ -409,7 +409,7 @@ As a result, ACF and PACF should be combined with model validation.
 An ARIMA model is written as:
 
 $$
-\operatorname{ARIMA}(p,d,q)
+\text{ARIMA}(p,d,q)
 $$
 
 where:
@@ -476,19 +476,19 @@ This suggests an AR(1) structure for the differenced series.
 A candidate model is therefore:
 
 $$
-\operatorname{ARIMA}(1,1,0)
+\text{ARIMA}(1,1,0)
 $$
 
 However, this model must still be compared with alternatives such as:
 
 $$
-\operatorname{ARIMA}(0,1,1)
+\text{ARIMA}(0,1,1)
 $$
 
 and:
 
 $$
-\operatorname{ARIMA}(1,1,1)
+\text{ARIMA}(1,1,1)
 $$
 
 using time-series validation.
@@ -920,15 +920,15 @@ Compare the original and differenced results.
 Propose at least three candidates, such as:
 
 $$
-\operatorname{ARIMA}(1,1,0)
+\text{ARIMA}(1,1,0)
 $$
 
 $$
-\operatorname{ARIMA}(0,1,1)
+\text{ARIMA}(0,1,1)
 $$
 
 $$
-\operatorname{ARIMA}(1,1,1)
+\text{ARIMA}(1,1,1)
 $$
 
 Explain why each candidate is reasonable.

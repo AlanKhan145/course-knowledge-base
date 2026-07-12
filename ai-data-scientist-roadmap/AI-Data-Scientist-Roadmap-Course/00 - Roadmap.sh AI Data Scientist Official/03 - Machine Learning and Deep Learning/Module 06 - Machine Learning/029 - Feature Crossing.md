@@ -766,7 +766,7 @@ Feature hashing maps crossed values into a fixed number of numerical buckets.
 Conceptually:
 
 $$
-\text{bucket} = \operatorname{hash}(\text{crossed value}) \bmod B
+\text{bucket} = \text{hash}(\text{crossed value}) \bmod B
 $$
 
 where (B) is the number of hash buckets.

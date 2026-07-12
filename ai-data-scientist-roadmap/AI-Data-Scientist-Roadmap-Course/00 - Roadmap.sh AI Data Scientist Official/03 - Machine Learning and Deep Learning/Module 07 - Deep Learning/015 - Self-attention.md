@@ -405,8 +405,8 @@ The Query is compared with every Key. The matching scores determine how much of 
 The standard formula is:
 
 $$
-\operatorname{SelfAttention}(X) =
-\operatorname{softmax}
+\text{SelfAttention}(X) =
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V
@@ -421,8 +421,8 @@ $$
 we can also write:
 
 $$
-\operatorname{SelfAttention}(X) =
-\operatorname{softmax}
+\text{SelfAttention}(X) =
+\text{softmax}
 \left(
 \frac{XW_Q(XW_K)^\top}{\sqrt{d_k}}
 \right)XW_V
@@ -516,7 +516,7 @@ Softmax converts the scores into normalized attention weights:
 
 $$
 A =
-\operatorname{softmax}
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)
@@ -657,7 +657,7 @@ $$
 For the first row:
 
 $$
-\operatorname{softmax}([0.707,0.707])
+\text{softmax}([0.707,0.707])
 =
 [0.5,0.5]
 $$
@@ -665,7 +665,7 @@ $$
 For the second row:
 
 $$
-\operatorname{softmax}([0,0.707])
+\text{softmax}([0,0.707])
 \approx
 [0.330,0.670]
 $$
@@ -824,8 +824,8 @@ $$
 The masked formula becomes:
 
 $$
-\operatorname{SelfAttention}(Q,K,V) =
-\operatorname{softmax}
+\text{SelfAttention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^\top+M}{\sqrt{d_k}}
 \right)V
@@ -907,8 +907,8 @@ For example, one head might learn to focus on:
 The formula is:
 
 $$
-\operatorname{head} =
-\operatorname{softmax}
+\text{head} =
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V
@@ -927,8 +927,8 @@ Multi-Head Self-Attention runs several Self-Attention operations in parallel.
 For head $i$:
 
 $$
-\operatorname{head}_i =
-\operatorname{Attention}
+\text{head}_i =
+\text{Attention}
 \left(
 XW_i^Q,
 XW_i^K,
@@ -939,13 +939,13 @@ $$
 The outputs are concatenated:
 
 $$
-\operatorname{MultiHead}(X) =
-\operatorname{Concat}
+\text{MultiHead}(X) =
+\text{Concat}
 \left(
-\operatorname{head}_1,
-\operatorname{head}_2,
+\text{head}_1,
+\text{head}_2,
 \ldots,
-\operatorname{head}_h
+\text{head}_h
 \right)W^O
 $$
 
@@ -1149,17 +1149,17 @@ A simplified post-normalization formulation is:
 
 $$
 X' =
-\operatorname{LayerNorm}
+\text{LayerNorm}
 \left(
-X+\operatorname{SelfAttention}(X)
+X+\text{SelfAttention}(X)
 \right)
 $$
 
 $$
 Y =
-\operatorname{LayerNorm}
+\text{LayerNorm}
 \left(
-X'+\operatorname{FFN}(X')
+X'+\text{FFN}(X')
 \right)
 $$
 
@@ -1168,9 +1168,9 @@ Many modern models use pre-normalization:
 $$
 X' =
 X+
-\operatorname{SelfAttention}
+\text{SelfAttention}
 \left(
-\operatorname{LayerNorm}(X)
+\text{LayerNorm}(X)
 \right)
 $$
 
@@ -1941,13 +1941,13 @@ In Cross-Attention, Query and Key–Value may come from different sources.
 Incorrect:
 
 $$
-\operatorname{softmax}(QK^\top)V
+\text{softmax}(QK^\top)V
 $$
 
 Standard formulation:
 
 $$
-\operatorname{softmax}
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V
@@ -2029,7 +2029,7 @@ $$
 Weights:
 
 $$
-A=\operatorname{softmax}(S)
+A=\text{softmax}(S)
 $$
 
 Scores are unnormalized. Weights are normalized.
@@ -2200,8 +2200,8 @@ $$
 7. Scaled dot-product Self-Attention is:
 
 $$
-\operatorname{SelfAttention}(X) =
-\operatorname{softmax}
+\text{SelfAttention}(X) =
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V

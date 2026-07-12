@@ -65,7 +65,7 @@ where:
 A regression model is **homoskedastic** when the conditional variance of its error term is constant:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i) = \sigma^2
+\text{Var}(\varepsilon_i \mid X_i) = \sigma^2
 $$
 
 This means that the model has approximately the same level of uncertainty across the feature space.
@@ -75,7 +75,7 @@ This means that the model has approximately the same level of uncertainty across
 A regression model is **heteroskedastic** when the conditional variance changes across observations:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i) = \sigma_i^2
+\text{Var}(\varepsilon_i \mid X_i) = \sigma_i^2
 $$
 
 The variance $\sigma_i^2$ may increase or decrease depending on one or more predictors.
@@ -83,7 +83,7 @@ The variance $\sigma_i^2$ may increase or decrease depending on one or more pred
 A common pattern is:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i)
+\text{Var}(\varepsilon_i \mid X_i)
 \text{ increases as }
 x_i
 \text{ increases}
@@ -438,12 +438,12 @@ The Breusch-Pagan test evaluates whether the error variance depends on the expla
 
 $$
 H_0:
-\operatorname{Var}(\varepsilon_i \mid X_i) = \sigma^2
+\text{Var}(\varepsilon_i \mid X_i) = \sigma^2
 $$
 
 $$
 H_1:
-\operatorname{Var}(\varepsilon_i \mid X_i)
+\text{Var}(\varepsilon_i \mid X_i)
 \text{ depends on one or more predictors}
 $$
 
@@ -840,7 +840,7 @@ Alternative models may include:
 For example, a Poisson model assumes:
 
 $$
-E(Y_i \mid X_i) = # \operatorname{Var}(Y_i \mid X_i) \lambda_i
+E(Y_i \mid X_i) = # \text{Var}(Y_i \mid X_i) \lambda_i
 $$
 
 The variance naturally changes with the expected value.
@@ -921,7 +921,7 @@ $$
 and:
 
 $$
-\operatorname{Var}(Y \mid X)
+\text{Var}(Y \mid X)
 $$
 
 ### 14.3 Loss-function selection
@@ -1045,7 +1045,7 @@ The residual plot shows that prediction errors increase sharply for expensive pr
 The model exhibits heteroskedasticity because:
 
 $$
-\operatorname{Var}(\varepsilon_i \mid X_i)
+\text{Var}(\varepsilon_i \mid X_i)
 $$
 
 increases with predicted price.

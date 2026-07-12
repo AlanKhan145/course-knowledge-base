@@ -100,8 +100,8 @@ Before studying Positional Encoding, you should understand:
 The Self-Attention calculation is:
 
 $$
-\operatorname{Attention}(Q,K,V) =
-\operatorname{softmax}
+\text{Attention}(Q,K,V) =
+\text{softmax}
 \left(
 \frac{QK^\top}{\sqrt{d_k}}
 \right)V
@@ -1086,7 +1086,7 @@ Relative distance = 8 - 5 = 3
 The attention calculation can include a relative position term:
 
 $$
-\operatorname{score}(i,j) =
+\text{score}(i,j) =
 \frac{q_i k_j^\top}{\sqrt{d_k}}
 +
 b_{i,j}
@@ -1234,7 +1234,7 @@ However, extending a RoPE-based model beyond its trained context length may requ
 A simplified form is:
 
 $$
-\operatorname{score}(i,j) =
+\text{score}(i,j) =
 \frac{q_i k_j^\top}{\sqrt{d_k}}
 -
 m|i-j|

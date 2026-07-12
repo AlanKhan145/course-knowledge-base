@@ -411,7 +411,7 @@ A predicted box is rarely identical to the ground-truth box. We therefore need a
 **Intersection over Union**, or IoU, compares two bounding boxes.
 
 $$
-\operatorname{IoU}(A,B) =
+\text{IoU}(A,B) =
 \frac{|A\cap B|}
 {|A\cup B|}
 $$

@@ -156,7 +156,7 @@ $$
 The optimal coefficient is:
 
 $$
-\theta = \frac{\operatorname{Cov}(Y,X)} {\operatorname{Var}(X)}
+\theta = \frac{\text{Cov}(Y,X)} {\text{Var}(X)}
 $$
 
 The experiment is then analyzed using the adjusted outcome:
@@ -188,7 +188,7 @@ The adjustment does not mean that historical behavior caused the experiment outc
 When $\theta$ is selected optimally, the adjusted variance is approximately:
 
 $$
-\operatorname{Var}(Y^{\text{CUPED}}) = \operatorname{Var}(Y)(1-\rho^2)
+\text{Var}(Y^{\text{CUPED}}) = \text{Var}(Y)(1-\rho^2)
 $$
 
 where $\rho$ is the correlation between the pre-experiment covariate $X$ and the experiment outcome $Y$.
@@ -404,7 +404,7 @@ $$
 where:
 
 $$
-\theta = \frac{\operatorname{Cov}(Y,Z)} {\operatorname{Var}(Z)}
+\theta = \frac{\text{Cov}(Y,Z)} {\text{Var}(Z)}
 $$
 
 CUPAC was introduced as a practical method that uses predictions as covariates to reduce noise in online experiments.
@@ -810,7 +810,7 @@ A covariate that is unrelated to the outcome provides little variance reduction.
 Useful diagnostics include:
 
 $$
-\operatorname{Corr}(X,Y)
+\text{Corr}(X,Y)
 $$
 
 and:
@@ -960,7 +960,7 @@ $$
 If CUPED reduces variance by a proportion $r$, then:
 
 $$
-\operatorname{Var}_{adjusted} = (1-r)\operatorname{Var}_{raw}
+\text{Var}_{adjusted} = (1-r)\text{Var}_{raw}
 $$
 
 The adjusted standard error becomes:
@@ -1010,7 +1010,7 @@ A CUPED or CUPAC implementation should be evaluated using more than one metric.
 ### 17.1 Variance-Reduction Rate
 
 $$
-VR = 1- \frac{ \operatorname{Var}(Y_{adjusted}) }{ \operatorname{Var}(Y_{raw}) }
+VR = 1- \frac{ \text{Var}(Y_{adjusted}) }{ \text{Var}(Y_{raw}) }
 $$
 
 ### 17.2 Standard-Error Reduction
@@ -1024,13 +1024,13 @@ $$
 An approximate precision multiplier is:
 
 $$
-\text{Effective Sample Multiplier} = \frac{ \operatorname{Var}(Y_{raw}) }{ \operatorname{Var}(Y_{adjusted}) }
+\text{Effective Sample Multiplier} = \frac{ \text{Var}(Y_{raw}) }{ \text{Var}(Y_{adjusted}) }
 $$
 
 For example, if:
 
 $$
-\operatorname{Var}(Y_{adjusted}) = 0.60\operatorname{Var}(Y_{raw})
+\text{Var}(Y_{adjusted}) = 0.60\text{Var}(Y_{raw})
 $$
 
 then:

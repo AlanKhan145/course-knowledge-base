@@ -689,7 +689,7 @@ Model training means finding model parameters that reduce prediction error on th
 The optimization objective can be represented as:
 
 $$
-\theta^* = \underset{\theta}{\operatorname{argmin}} \frac{1}{n} \sum_{i=1}^{n} L\left(y_i,f_{\theta}(x_i)\right)
+\theta^* = \underset{\theta}{\text{argmin}} \frac{1}{n} \sum_{i=1}^{n} L\left(y_i,f_{\theta}(x_i)\right)
 $$
 
 Where:
@@ -712,7 +712,7 @@ The training process attempts to minimize the average loss.
 Mean Squared Error is defined as:
 
 $$
-\operatorname{MSE} = \frac{1}{n} \sum_{i=1}^{n} \left(y_i-\hat{y}_i\right)^2
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} \left(y_i-\hat{y}_i\right)^2
 $$
 
 Large errors receive a stronger penalty because the error is squared.
@@ -722,7 +722,7 @@ Large errors receive a stronger penalty because the error is squared.
 Mean Absolute Error is defined as:
 
 $$
-\operatorname{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left|y_i-\hat{y}_i\right|
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left|y_i-\hat{y}_i\right|
 $$
 
 MAE is usually easier to interpret because it has the same unit as the target.
@@ -734,7 +734,7 @@ MAE is usually easier to interpret because it has the same unit as the target.
 For binary classification, a common loss function is binary cross-entropy, also called Log Loss.
 
 $$
-\operatorname{LogLoss} = -\frac{1}{n} \sum_{i=1}^{n} \left[ y_i\log(p_i) + (1-y_i)\log(1-p_i) \right]
+\text{LogLoss} = -\frac{1}{n} \sum_{i=1}^{n} \left[ y_i\log(p_i) + (1-y_i)\log(1-p_i) \right]
 $$
 
 Where:
@@ -1098,7 +1098,7 @@ print(
 ### 20.1 Mean Absolute Error
 
 $$
-\operatorname{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left|y_i-\hat{y}_i\right|
+\text{MAE} = \frac{1}{n} \sum_{i=1}^{n} \left|y_i-\hat{y}_i\right|
 $$
 
 MAE measures the average absolute prediction error.
@@ -1114,7 +1114,7 @@ This means predictions differ from actual values by approximately 12,000 USD on 
 ### 20.2 Mean Squared Error
 
 $$
-\operatorname{MSE} = \frac{1}{n} \sum_{i=1}^{n} \left(y_i-\hat{y}_i\right)^2
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} \left(y_i-\hat{y}_i\right)^2
 $$
 
 MSE gives larger errors more influence because the errors are squared.
@@ -1122,7 +1122,7 @@ MSE gives larger errors more influence because the errors are squared.
 ### 20.3 Root Mean Squared Error
 
 $$
-\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} \left(y_i-\hat{y}_i\right)^2 }
+\text{RMSE} = \sqrt{ \frac{1}{n} \sum_{i=1}^{n} \left(y_i-\hat{y}_i\right)^2 }
 $$
 
 RMSE has the same unit as the target.
@@ -1132,7 +1132,7 @@ It penalizes large prediction errors more strongly than MAE.
 ### 20.4 Mean Absolute Percentage Error
 
 $$
-\operatorname{MAPE} = \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i-\hat{y}_i}{y_i} \right|
+\text{MAPE} = \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i-\hat{y}_i}{y_i} \right|
 $$
 
 MAPE expresses error as a percentage.
@@ -1184,7 +1184,7 @@ Abbreviations:
 ### 21.2 Accuracy
 
 $$
-\operatorname{Accuracy} = \frac{TP+TN} {TP+TN+FP+FN}
+\text{Accuracy} = \frac{TP+TN} {TP+TN+FP+FN}
 $$
 
 Accuracy measures the proportion of all predictions that are correct.
@@ -1197,7 +1197,7 @@ Accuracy is most useful when:
 ### 21.3 Precision
 
 $$
-\operatorname{Precision} = \frac{TP} {TP+FP}
+\text{Precision} = \frac{TP} {TP+FP}
 $$
 
 Precision answers:
@@ -1209,7 +1209,7 @@ Precision is important when false positives are expensive.
 ### 21.4 Recall
 
 $$
-\operatorname{Recall} = \frac{TP} {TP+FN}
+\text{Recall} = \frac{TP} {TP+FN}
 $$
 
 Recall answers:
@@ -1221,7 +1221,7 @@ Recall is important when false negatives are expensive.
 ### 21.5 Specificity
 
 $$
-\operatorname{Specificity} = \frac{TN} {TN+FP}
+\text{Specificity} = \frac{TN} {TN+FP}
 $$
 
 Specificity measures the proportion of actual negative observations correctly identified.
@@ -1229,7 +1229,7 @@ Specificity measures the proportion of actual negative observations correctly id
 ### 21.6 F1-Score
 
 $$
-F_1 = 2 \times \frac{ \operatorname{Precision} \times \operatorname{Recall} }{ \operatorname{Precision} + \operatorname{Recall} }
+F_1 = 2 \times \frac{ \text{Precision} \times \text{Recall} }{ \text{Precision} + \text{Recall} }
 $$
 
 F1-score is the harmonic mean of precision and recall.
@@ -1239,7 +1239,7 @@ It is useful when both false positives and false negatives matter.
 ### 21.7 Balanced Accuracy
 
 $$
-\operatorname{BalancedAccuracy} = \frac{ \operatorname{Recall} + \operatorname{Specificity} }{2}
+\text{BalancedAccuracy} = \frac{ \text{Recall} + \text{Specificity} }{2}
 $$
 
 Balanced accuracy can be more informative than standard accuracy for imbalanced datasets.
@@ -1435,7 +1435,7 @@ Prediction error can be understood through bias and variance.
 A simplified decomposition is:
 
 $$
-\operatorname{ExpectedError} = \operatorname{Bias}^2 + \operatorname{Variance} + \operatorname{IrreducibleNoise}
+\text{ExpectedError} = \text{Bias}^2 + \text{Variance} + \text{IrreducibleNoise}
 $$
 
 ### High Bias
@@ -1570,13 +1570,13 @@ age
 A simplified age calculation is:
 
 $$
-\operatorname{Age} = \operatorname{CurrentYear} - \operatorname{BirthYear}
+\text{Age} = \text{CurrentYear} - \text{BirthYear}
 $$
 
 ### Example 2: Average Order Value
 
 $$
-\operatorname{AverageOrderValue} = \frac{ \operatorname{TotalSpend} }{ \operatorname{NumberOfOrders} }
+\text{AverageOrderValue} = \frac{ \text{TotalSpend} }{ \text{NumberOfOrders} }
 $$
 
 ### Example 3: Time Features
@@ -1624,7 +1624,7 @@ In $k$-fold cross-validation:
 The average cross-validation score is:
 
 $$
-\operatorname{CVScore} = \frac{1}{k} \sum_{j=1}^{k} s_j
+\text{CVScore} = \frac{1}{k} \sum_{j=1}^{k} s_j
 $$
 
 Where:
@@ -1821,7 +1821,7 @@ Regularization reduces overfitting by penalizing model complexity.
 L1 regularization adds the absolute value of coefficients to the loss:
 
 $$
-J(\beta) = \operatorname{Loss}(\beta) + \lambda \sum_{j=1}^{p} \left|\beta_j\right|
+J(\beta) = \text{Loss}(\beta) + \lambda \sum_{j=1}^{p} \left|\beta_j\right|
 $$
 
 L1 regularization can reduce some coefficients to exactly zero.
@@ -1833,7 +1833,7 @@ It may therefore perform feature selection.
 L2 regularization adds squared coefficients to the loss:
 
 $$
-J(\beta) = \operatorname{Loss}(\beta) + \lambda \sum_{j=1}^{p} \beta_j^2
+J(\beta) = \text{Loss}(\beta) + \lambda \sum_{j=1}^{p} \beta_j^2
 $$
 
 L2 regularization usually reduces coefficient size without forcing many coefficients to zero.

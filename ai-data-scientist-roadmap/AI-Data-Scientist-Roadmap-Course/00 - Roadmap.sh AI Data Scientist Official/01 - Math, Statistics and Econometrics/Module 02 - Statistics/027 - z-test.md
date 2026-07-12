@@ -247,14 +247,14 @@ $$
 It can also be written as:
 
 $$
-z = \frac{\hat{\theta}-\theta_0} {\operatorname{SE}(\hat{\theta})}
+z = \frac{\hat{\theta}-\theta_0} {\text{SE}(\hat{\theta})}
 $$
 
 where:
 
 * (\hat{\theta}) is the statistic estimated from the sample.
 * (\theta_0) is the value assumed by the null hypothesis.
-* (\operatorname{SE}(\hat{\theta})) is the standard error of the statistic.
+* (\text{SE}(\hat{\theta})) is the standard error of the statistic.
 
 The specific formula depends on whether we are testing:
 
@@ -272,7 +272,7 @@ The **standard error** measures how much a sample statistic is expected to vary 
 For a sample mean:
 
 $$
-\operatorname{SE}(\bar{x}) = \frac{\sigma}{\sqrt{n}}
+\text{SE}(\bar{x}) = \frac{\sigma}{\sqrt{n}}
 $$
 
 where:
@@ -283,7 +283,7 @@ where:
 As the sample size increases:
 
 $$
-n \uparrow \quad\Longrightarrow\quad \operatorname{SE} \downarrow
+n \uparrow \quad\Longrightarrow\quad \text{SE} \downarrow
 $$
 
 Therefore, larger samples usually produce more precise estimates.
@@ -589,11 +589,11 @@ $$
 #### Step 2: Calculate the standard error
 
 $$
-\operatorname{SE} = \frac{80}{\sqrt{100}}
+\text{SE} = \frac{80}{\sqrt{100}}
 $$
 
 $$
-\operatorname{SE} = \frac{80}{10} = 8
+\text{SE} = \frac{80}{10} = 8
 $$
 
 #### Step 3: Calculate the z-statistic
@@ -769,7 +769,7 @@ $$
 The standard error is:
 
 $$
-\operatorname{SE} = \sqrt{ \frac{40^2}{200} + \frac{50^2}{250} } = \sqrt{ \frac{1600}{200} + \frac{2500}{250} } = \sqrt{8+10} = \sqrt{18} \approx4.243
+\text{SE} = \sqrt{ \frac{40^2}{200} + \frac{50^2}{250} } = \sqrt{ \frac{1600}{200} + \frac{2500}{250} } = \sqrt{8+10} = \sqrt{18} \approx4.243
 $$
 
 The z-statistic is:
@@ -829,7 +829,7 @@ $$
 ### 13.3 Standard Error Under the Null Hypothesis
 
 $$
-\operatorname{SE}_0 = \sqrt{ \frac{p_0(1-p_0)}{n} }
+\text{SE}_0 = \sqrt{ \frac{p_0(1-p_0)}{n} }
 $$
 
 ---
@@ -883,7 +883,7 @@ $$
 Calculate the null standard error:
 
 $$
-\operatorname{SE}_0 = \sqrt{ \frac{0.80(1-0.80)}{1000} } = \sqrt{ \frac{0.16}{1000} } = \sqrt{0.00016}
+\text{SE}_0 = \sqrt{ \frac{0.80(1-0.80)}{1000} } = \sqrt{ \frac{0.16}{1000} } = \sqrt{0.00016}
 $$
 
 $$
@@ -995,7 +995,7 @@ $$
 ### 14.4 Pooled Standard Error
 
 $$
-\operatorname{SE}_{\text{pooled}} = \sqrt{ \hat{p}(1-\hat{p}) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) }
+\text{SE}_{\text{pooled}} = \sqrt{ \hat{p}(1-\hat{p}) \left( \frac{1}{n_1} + \frac{1}{n_2} \right) }
 $$
 
 ---
@@ -1089,7 +1089,7 @@ $$
 ### 15.3 Calculate the Pooled Standard Error
 
 $$
-\operatorname{SE} = \sqrt{ 0.1075(1-0.1075) \left( \frac{1}{5000} + \frac{1}{5000} \right) } = \sqrt{ 0.1075(0.8925)(0.0004) }
+\text{SE} = \sqrt{ 0.1075(1-0.1075) \left( \frac{1}{5000} + \frac{1}{5000} \right) } = \sqrt{ 0.1075(0.8925)(0.0004) }
 $$
 
 $$
@@ -1165,19 +1165,19 @@ Before a full rollout, the team should also evaluate:
 For estimation, the unpooled standard error is commonly used:
 
 $$
-\operatorname{SE}_{\text{unpooled}} = \sqrt{ \frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2} }
+\text{SE}_{\text{unpooled}} = \sqrt{ \frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2} }
 $$
 
 A confidence interval for the difference is:
 
 $$
-(\hat{p}_1-\hat{p}_2) \pm z_{\alpha/2} \operatorname{SE}_{\text{unpooled}}
+(\hat{p}_1-\hat{p}_2) \pm z_{\alpha/2} \text{SE}_{\text{unpooled}}
 $$
 
 For the A/B example:
 
 $$
-\operatorname{SE}_{\text{unpooled}} = \sqrt{ \frac{0.115(0.885)}{5000} + \frac{0.10(0.90)}{5000} }
+\text{SE}_{\text{unpooled}} = \sqrt{ \frac{0.115(0.885)}{5000} + \frac{0.10(0.90)}{5000} }
 $$
 
 $$

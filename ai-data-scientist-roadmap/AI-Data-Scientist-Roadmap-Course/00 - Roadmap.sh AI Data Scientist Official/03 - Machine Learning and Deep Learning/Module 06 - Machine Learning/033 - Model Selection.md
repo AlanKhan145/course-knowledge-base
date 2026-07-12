@@ -96,13 +96,13 @@ $$
 The selected model is:
 
 $$
-M^* = \arg\max_{M_i \in \mathcal{M}} \operatorname{Score}(M_i)
+M^* = \arg\max_{M_i \in \mathcal{M}} \text{Score}(M_i)
 $$
 
 For an error metric such as MAE or RMSE, the objective becomes:
 
 $$
-M^* = \arg\min_{M_i \in \mathcal{M}} \operatorname{Error}(M_i)
+M^* = \arg\min_{M_i \in \mathcal{M}} \text{Error}(M_i)
 $$
 
 In practice, model selection is usually a multi-objective decision:
@@ -253,7 +253,7 @@ $$
 Another option is the median:
 
 $$
-\hat{y}_i = \operatorname{median}(y_{\text{train}})
+\hat{y}_i = \text{median}(y_{\text{train}})
 $$
 
 The median is often more robust to outliers.

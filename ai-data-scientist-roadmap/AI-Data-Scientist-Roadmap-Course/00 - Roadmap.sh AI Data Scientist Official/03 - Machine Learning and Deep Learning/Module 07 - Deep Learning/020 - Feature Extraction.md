@@ -902,7 +902,7 @@ Possible levels include:
 Embedding similarity can be measured using cosine similarity:
 
 $$
-\operatorname{cosine}(u,v) =
+\text{cosine}(u,v) =
 \frac{u\cdot v}
 {\lVert u\rVert\lVert v\rVert}
 $$

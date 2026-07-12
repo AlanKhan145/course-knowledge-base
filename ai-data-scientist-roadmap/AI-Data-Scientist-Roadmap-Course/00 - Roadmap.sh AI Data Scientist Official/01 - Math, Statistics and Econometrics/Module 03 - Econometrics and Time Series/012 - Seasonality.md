@@ -292,7 +292,7 @@ The autocorrelation function measures the relationship between a series and its 
 For lag (k):
 
 $$
-\rho_k = \operatorname{Corr}(Y_t, Y_{t-k})
+\rho_k = \text{Corr}(Y_t, Y_{t-k})
 $$
 
 Strong autocorrelation at seasonal lags can indicate seasonality.
@@ -508,7 +508,7 @@ It should not be applied automatically. Excessive differencing may remove useful
 A Seasonal ARIMA model is commonly written as:
 
 $$
-\operatorname{ARIMA}(p,d,q)(P,D,Q)_m
+\text{ARIMA}(p,d,q)(P,D,Q)_m
 $$
 
 where:
@@ -522,7 +522,7 @@ For monthly sales with yearly seasonality, (m=12).
 Example:
 
 $$
-\operatorname{ARIMA}(1,1,1)(1,1,1)_{12}
+\text{ARIMA}(1,1,1)(1,1,1)_{12}
 $$
 
 This model includes both regular and seasonal autoregressive, differencing, and moving-average terms.
@@ -669,19 +669,19 @@ Common forecasting metrics include:
 ### Mean Absolute Error
 
 $$
-\operatorname{MAE} = \frac{1}{n} \sum_{t=1}^{n} |Y_t-\hat{Y}_t|
+\text{MAE} = \frac{1}{n} \sum_{t=1}^{n} |Y_t-\hat{Y}_t|
 $$
 
 ### Root Mean Squared Error
 
 $$
-\operatorname{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (Y_t-\hat{Y}_t)^2 }
+\text{RMSE} = \sqrt{ \frac{1}{n} \sum_{t=1}^{n} (Y_t-\hat{Y}_t)^2 }
 $$
 
 ### Mean Absolute Percentage Error
 
 $$
-\operatorname{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{Y_t-\hat{Y}_t}{Y_t} \right|
+\text{MAPE} = \frac{100}{n} \sum_{t=1}^{n} \left| \frac{Y_t-\hat{Y}_t}{Y_t} \right|
 $$
 
 MAPE can become unstable when actual values are zero or close to zero.
@@ -689,15 +689,15 @@ MAPE can become unstable when actual values are zero or close to zero.
 ### Mean Absolute Scaled Error
 
 $$
-\operatorname{MASE} = \frac{ \frac{1}{n}\sum |Y_t-\hat{Y}_t| }{ \frac{1}{T-m}\sum_{t=m+1}^{T}|Y_t-Y_{t-m}| }
+\text{MASE} = \frac{ \frac{1}{n}\sum |Y_t-\hat{Y}_t| }{ \frac{1}{T-m}\sum_{t=m+1}^{T}|Y_t-Y_{t-m}| }
 $$
 
 For seasonal data, the denominator can use a seasonal naive forecast.
 
 Interpretation:
 
-* (\operatorname{MASE}<1): the model outperforms the seasonal naive baseline.
-* (\operatorname{MASE}>1): the seasonal naive baseline performs better.
+* (\text{MASE}<1): the model outperforms the seasonal naive baseline.
+* (\text{MASE}>1): the seasonal naive baseline performs better.
 
 ---
 

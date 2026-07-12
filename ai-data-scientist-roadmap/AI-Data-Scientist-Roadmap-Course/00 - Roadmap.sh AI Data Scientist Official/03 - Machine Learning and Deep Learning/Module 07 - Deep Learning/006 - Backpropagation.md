@@ -601,13 +601,13 @@ Each input receives the upstream gradient multiplied by the other input.
 ### ReLU
 
 $$
-\operatorname{ReLU}(z)=\max(0,z)
+\text{ReLU}(z)=\max(0,z)
 $$
 
 Its derivative is:
 
 $$
-\operatorname{ReLU}'(z) = \begin{cases} 1, & z>0 \ 0, & z<0 \end{cases}
+\text{ReLU}'(z) = \begin{cases} 1, & z>0 \ 0, & z<0 \end{cases}
 $$
 
 When (z<0), the gradient is blocked.
