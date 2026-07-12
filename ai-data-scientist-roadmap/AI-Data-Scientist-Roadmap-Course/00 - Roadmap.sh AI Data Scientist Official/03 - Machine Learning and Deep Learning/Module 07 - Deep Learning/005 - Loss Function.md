@@ -122,7 +122,7 @@ These terms are sometimes used interchangeably, but they can have slightly diffe
 An objective function may contain both data loss and regularization:
 
 $$
-J(\theta) = \underbrace{ \frac{1}{N} \sum_{i=1}^{N} L(y_i,\hat{y}*i) }*{\text{Data loss}} + \underbrace{ \lambda R(\theta) }_{\text{Regularization}}
+J(\theta) = \underbrace{ \frac{1}{N} \sum_{i=1}^{N} L(y_i,\hat{y}_i) }_{\text{Data loss}} + \underbrace{ \lambda R(\theta) }_{\text{Regularization}}
 $$
 
 For example, L2 regularization adds a penalty for large weights:
@@ -181,7 +181,7 @@ Parameter update
 Mathematically, gradient descent updates a parameter using:
 
 $$
-\theta_{t+1} = ## \theta_t \eta \nabla_{\theta}J(\theta_t)
+\theta_{t+1} = \theta_t - \eta \nabla_{\theta}J(\theta_t)
 $$
 
 where:

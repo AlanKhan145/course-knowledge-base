@@ -315,7 +315,7 @@ $$
 The fitted model is:
 
 $$
-\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}*1 X*{i1} + \hat{\beta}*2 X*{i2} + \cdots + \hat{\beta}*p X*{ip}
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_{i1} + \hat{\beta}_2 X_{i2} + \cdots + \hat{\beta}_p X_{ip}
 $$
 
 ### House-price example
@@ -619,7 +619,7 @@ RMSE is more sensitive to large errors than MAE.
 The coefficient of determination measures how much target variation is explained by the model.
 
 $$
-R^2 = ## 1 \frac{ \sum_{i=1}^{n} \left( Y_i-\hat{Y}*i \right)^2 }{ \sum*{i=1}^{n} \left( Y_i-\bar{Y} \right)^2 }
+R^2 = 1 - \frac{ \sum_{i=1}^{n} \left( Y_i-\hat{Y}_i \right)^2 }{ \sum_{i=1}^{n} \left( Y_i-\bar{Y} \right)^2 }
 $$
 
 Interpretation:
@@ -645,7 +645,7 @@ Regular $R^2$ usually does not decrease when extra variables are added.
 Adjusted $R^2$ penalizes unnecessary predictors:
 
 $$
-\bar{R}^2 = ## 1 \left( 1-R^2 \right) \frac{n-1}{n-p-1}
+\bar{R}^2 = 1 - \left( 1-R^2 \right) \frac{n-1}{n-p-1}
 $$
 
 Where:
@@ -776,11 +776,11 @@ Ridge regression minimizes:
 $$
 \sum_{i=1}^{n}
 \left(
-Y_i-\hat{Y}*i
+Y_i-\hat{Y}_i
 \right)^2
 +
 \lambda
-\sum*{j=1}^{p}
+\sum_{j=1}^{p}
 \beta_j^2
 $$
 
@@ -800,11 +800,11 @@ Lasso regression minimizes:
 $$
 \sum_{i=1}^{n}
 \left(
-Y_i-\hat{Y}*i
+Y_i-\hat{Y}_i
 \right)^2
 +
 \lambda
-\sum*{j=1}^{p}
+\sum_{j=1}^{p}
 |\beta_j|
 $$
 

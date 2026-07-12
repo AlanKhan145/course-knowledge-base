@@ -348,13 +348,13 @@ A **lag** is a previous value of the same variable.
 The first lag is:
 
 $$
-\operatorname{Lag}*1(y_t) = y*{t-1}
+\operatorname{Lag}_1(y_t) = y_{t-1}
 $$
 
 The seventh lag for daily data is:
 
 $$
-\operatorname{Lag}*7(y_t) = y*{t-7}
+\operatorname{Lag}_7(y_t) = y_{t-7}
 $$
 
 Example:
@@ -554,7 +554,7 @@ $$
 Predict several future values:
 
 $$
-\hat{y}*{t+1}, \hat{y}*{t+2}, \ldots, \hat{y}_{t+h}
+\hat{y}_{t+1}, \hat{y}_{t+2}, \ldots, \hat{y}_{t+h}
 $$
 
 where (h) is the forecast horizon.
@@ -605,19 +605,19 @@ This baseline can be surprisingly strong when the series changes slowly.
 Predict the value from the same position in the previous seasonal cycle:
 
 $$
-\hat{y}*t = y*{t-s}
+\hat{y}_t = y_{t-s}
 $$
 
 For daily data with weekly seasonality:
 
 $$
-\hat{y}*t = y*{t-7}
+\hat{y}_t = y_{t-7}
 $$
 
 For monthly data with yearly seasonality:
 
 $$
-\hat{y}*t = y*{t-12}
+\hat{y}_t = y_{t-12}
 $$
 
 Strong seasonality often makes the seasonal naive forecast difficult to beat.
@@ -797,7 +797,7 @@ Limitations:
 ### 18.4 Weighted Absolute Percentage Error
 
 $$
-\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}*t| }{ \sum*{t=1}^{n}|y_t| } \times 100
+\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \sum_{t=1}^{n}|y_t| } \times 100
 $$
 
 WAPE is often useful for evaluating aggregate demand forecasts.
@@ -807,7 +807,7 @@ WAPE is often useful for evaluating aggregate demand forecasts.
 ### 18.5 Mean Absolute Scaled Error
 
 $$
-\operatorname{MASE} = \frac{ \frac{1}{n} \sum_{t=1}^{n}|y_t-\hat{y}*t| }{ \frac{1}{T-1} \sum*{t=2}^{T}|y_t-y_{t-1}| }
+\operatorname{MASE} = \frac{ \frac{1}{n} \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \frac{1}{T-1} \sum_{t=2}^{T}|y_t-y_{t-1}| }
 $$
 
 Interpretation:

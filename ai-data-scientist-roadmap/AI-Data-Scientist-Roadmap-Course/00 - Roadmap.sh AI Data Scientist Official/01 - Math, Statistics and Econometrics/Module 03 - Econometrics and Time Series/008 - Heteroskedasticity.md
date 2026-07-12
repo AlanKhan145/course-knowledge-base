@@ -196,9 +196,9 @@ An incorrect standard error produces an incorrect $t$-statistic.
 A standard confidence interval is commonly calculated as:
 
 $$
-\hat{\beta}*j
+\hat{\beta}_j
 \pm
-t*{\alpha/2}
+t_{\alpha/2}
 SE(\hat{\beta}_j)
 $$
 

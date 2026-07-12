@@ -389,7 +389,7 @@ flowchart LR
 A seasonal baseline predicts the current value using the value from the same seasonal position in the previous cycle.
 
 $$
-\hat{Y}*t = Y*{t-m}
+\hat{Y}_t = Y_{t-m}
 $$
 
 where (m) is the seasonal period.
@@ -399,13 +399,13 @@ Examples:
 For daily data with weekly seasonality:
 
 $$
-\hat{Y}*t = Y*{t-7}
+\hat{Y}_t = Y_{t-7}
 $$
 
 For monthly data with yearly seasonality:
 
 $$
-\hat{Y}*t = Y*{t-12}
+\hat{Y}_t = Y_{t-12}
 $$
 
 ```python
@@ -484,13 +484,13 @@ Fourier features are useful when:
 Seasonal differencing removes repeated seasonal patterns:
 
 $$
-Y'*t = Y_t - Y*{t-m}
+Y'_t = Y_t - Y_{t-m}
 $$
 
 For monthly data with yearly seasonality:
 
 $$
-Y'*t = Y_t - Y*{t-12}
+Y'_t = Y_t - Y_{t-12}
 $$
 
 ```python
@@ -689,7 +689,7 @@ MAPE can become unstable when actual values are zero or close to zero.
 ### Mean Absolute Scaled Error
 
 $$
-\operatorname{MASE} = \frac{ \frac{1}{n}\sum |Y_t-\hat{Y}*t| }{ \frac{1}{T-m}\sum*{t=m+1}^{T}|Y_t-Y_{t-m}| }
+\operatorname{MASE} = \frac{ \frac{1}{n}\sum |Y_t-\hat{Y}_t| }{ \frac{1}{T-m}\sum_{t=m+1}^{T}|Y_t-Y_{t-m}| }
 $$
 
 For seasonal data, the denominator can use a seasonal naive forecast.

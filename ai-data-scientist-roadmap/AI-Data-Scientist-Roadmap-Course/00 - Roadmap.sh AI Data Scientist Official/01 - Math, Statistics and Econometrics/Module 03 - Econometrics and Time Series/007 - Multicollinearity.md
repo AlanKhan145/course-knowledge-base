@@ -216,7 +216,7 @@ $$
 If the model also includes an intercept, one variable can be exactly derived from the others:
 
 $$
-\text{is_premium} = ## 1 ## \text{is_basic} \text{is_standard}
+\text{is_premium} = 1 - \text{is_basic} - \text{is_standard}
 $$
 
 This creates perfect multicollinearity.

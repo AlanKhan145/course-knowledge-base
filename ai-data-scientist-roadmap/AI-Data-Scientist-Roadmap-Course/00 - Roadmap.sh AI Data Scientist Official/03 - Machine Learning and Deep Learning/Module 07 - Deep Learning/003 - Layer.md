@@ -793,7 +793,7 @@ Typical use cases:
 A simplified recurrent computation is:
 
 $$
-\mathbf{h}_t = f \left( W_x\mathbf{x}*t + W_h\mathbf{h}*{t-1} + \mathbf{b} \right)
+\mathbf{h}_t = f \left( W_x\mathbf{x}_t + W_h\mathbf{h}_{t-1} + \mathbf{b} \right)
 $$
 
 where:

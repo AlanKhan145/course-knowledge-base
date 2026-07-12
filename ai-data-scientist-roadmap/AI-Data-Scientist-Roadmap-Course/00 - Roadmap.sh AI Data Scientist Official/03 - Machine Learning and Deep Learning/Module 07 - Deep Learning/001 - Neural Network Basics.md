@@ -633,7 +633,7 @@ After calculating gradients, an optimizer updates the parameters.
 The basic gradient-descent update is:
 
 $$
-w_{\text{new}} = ## w_{\text{old}} \eta \frac{\partial L}{\partial w}
+w_{\text{new}} = w_{\text{old}} - \eta \frac{\partial L}{\partial w}
 $$
 
 where (\eta) is the **learning rate**.

@@ -775,13 +775,13 @@ Influential observations should be inspected for:
 Training residuals are calculated on data used to fit the model:
 
 $$
-e_i^{\text{train}} = ## y_i^{\text{train}} \hat{y}_i^{\text{train}}
+e_i^{\text{train}} = y_i^{\text{train}} - \hat{y}_i^{\text{train}}
 $$
 
 Test residuals are calculated on unseen data:
 
 $$
-e_i^{\text{test}} = ## y_i^{\text{test}} \hat{y}_i^{\text{test}}
+e_i^{\text{test}} = y_i^{\text{test}} - \hat{y}_i^{\text{test}}
 $$
 
 Training residuals are usually smaller because the model was optimized using the training observations.

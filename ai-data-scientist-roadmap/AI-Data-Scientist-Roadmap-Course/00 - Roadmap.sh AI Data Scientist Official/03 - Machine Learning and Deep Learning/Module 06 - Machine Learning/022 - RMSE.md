@@ -438,7 +438,7 @@ An RMSE value is meaningful only when it is compared with a baseline.
 A simple regression baseline might always predict the mean target value:
 
 $$
-\hat{y}*i=\bar{y}*{\text{train}}
+\hat{y}_i=\bar{y}_{\text{train}}
 $$
 
 For example:

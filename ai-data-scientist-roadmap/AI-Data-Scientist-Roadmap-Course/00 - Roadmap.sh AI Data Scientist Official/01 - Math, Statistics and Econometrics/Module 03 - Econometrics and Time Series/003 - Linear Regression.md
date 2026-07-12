@@ -135,13 +135,13 @@ $$
 \hat{Y}_i =
 \hat{\beta}_0
 +
-\hat{\beta}*1 X*{i1}
+\hat{\beta}_1 X_{i1}
 +
-\hat{\beta}*2 X*{i2}
+\hat{\beta}_2 X_{i2}
 +
 \cdots
 +
-\hat{\beta}*p X*{ip}
+\hat{\beta}_p X_{ip}
 $$
 
 For example:
@@ -463,16 +463,10 @@ R^2 =
 \frac{
 \sum_{i=1}^{n}
 \left(
-y_i - \hat{y}*i
+y_i - \hat{y}_i
 \right)^2
 }{
-\sum*{i=1}^{n}
-\left(
-y_i - \bar{y}
-\righty}*i
-\right)^2
-}{
-\sum*{i=1}^{n}
+\sum_{i=1}^{n}
 \left(
 y_i - \bar{y}
 \right)^2
@@ -502,7 +496,7 @@ Adding predictors can increase ordinary $R^2$ even when they provide little valu
 Adjusted $R^2$ penalizes unnecessary predictors:
 
 $$
-\bar{R}^2 = ## 1 \left( 1 - R^2 \right) \frac{n - 1}{n - p - 1}
+\bar{R}^2 = 1 - \left( 1 - R^2 \right) \frac{n - 1}{n - p - 1}
 $$
 
 Where:

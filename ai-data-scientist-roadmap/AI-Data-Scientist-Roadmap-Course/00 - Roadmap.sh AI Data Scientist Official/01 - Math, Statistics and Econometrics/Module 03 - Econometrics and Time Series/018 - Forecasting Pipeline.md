@@ -104,7 +104,7 @@ $$
 The forecasting objective is to estimate future observations:
 
 $$
-\hat{y}*{t+1}, \hat{y}*{t+2}, \ldots, \hat{y}_{t+h}
+\hat{y}_{t+1}, \hat{y}_{t+2}, \ldots, \hat{y}_{t+h}
 $$
 
 where (h) is the forecast horizon.
@@ -236,7 +236,7 @@ Disadvantages:
 Train one model that predicts multiple future values simultaneously:
 
 $$
-[\hat{y}*{t+1},\hat{y}*{t+2},\ldots,\hat{y}_{t+h}] = f(X_t)
+[\hat{y}_{t+1},\hat{y}_{t+2},\ldots,\hat{y}_{t+h}] = f(X_t)
 $$
 
 This approach is common in neural forecasting models.
@@ -507,13 +507,13 @@ $$
 The forecast uses the value from the previous seasonal cycle:
 
 $$
-\hat{y}*t=y*{t-s}
+\hat{y}_t=y_{t-s}
 $$
 
 For daily data with weekly seasonality:
 
 $$
-\hat{y}*t=y*{t-7}
+\hat{y}_t=y_{t-7}
 $$
 
 ---
@@ -1011,7 +1011,7 @@ MAPE is problematic when actual values are zero or close to zero.
 ### Weighted Absolute Percentage Error
 
 $$
-\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}*t| }{ \sum*{t=1}^{n}|y_t| } \times 100
+\operatorname{WAPE} = \frac{ \sum_{t=1}^{n}|y_t-\hat{y}_t| }{ \sum_{t=1}^{n}|y_t| } \times 100
 $$
 
 WAPE is often useful for aggregate demand forecasting.

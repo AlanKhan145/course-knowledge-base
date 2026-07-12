@@ -1171,7 +1171,7 @@ $$
 A confidence interval for the difference is:
 
 $$
-(\hat{p}*1-\hat{p}*2) \pm z*{\alpha/2} \operatorname{SE}*{\text{unpooled}}
+(\hat{p}_1-\hat{p}_2) \pm z_{\alpha/2} \operatorname{SE}_{\text{unpooled}}
 $$
 
 For the A/B example:

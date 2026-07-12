@@ -147,7 +147,7 @@ $$
 A fitted model might produce:
 
 $$
-\widehat{\text{price}} = 80{,}000 + 180(\text{size}) + 15{,}000(\text{bedrooms}) - ## 2{,}500(\text{age}) 10{,}000(\text{distance})
+\widehat{\text{price}} = 80{,}000 + 180(\text{size}) + 15{,}000(\text{bedrooms}) - 2{,}500(\text{age}) - 10{,}000(\text{distance})
 $$
 
 Interpretation:
@@ -569,7 +569,7 @@ RMSE is useful when large prediction errors are especially costly.
 The coefficient of determination is usually written as (R^2).
 
 $$
-R^2 = 1 - \frac{ \sum_{i=1}^{n} \left( y_i - \hat{y}*i \right)^2 }{ \sum*{i=1}^{n} \left( y_i - \bar{y} \right)^2 }
+R^2 = 1 - \frac{ \sum_{i=1}^{n} \left( y_i - \hat{y}_i \right)^2 }{ \sum_{i=1}^{n} \left( y_i - \bar{y} \right)^2 }
 $$
 
 Where:
@@ -1118,11 +1118,11 @@ $$
 \quad
 \sum_{i=1}^{n}
 \left(
-y_i - \hat{y}*i
+y_i - \hat{y}_i
 \right)^2
 +
 \lambda
-\sum*{j=1}^{p}
+\sum_{j=1}^{p}
 \beta_j^2
 $$
 
@@ -1141,11 +1141,11 @@ $$
 \quad
 \sum_{i=1}^{n}
 \left(
-y_i - \hat{y}*i
+y_i - \hat{y}_i
 \right)^2
 +
 \lambda
-\sum*{j=1}^{p}
+\sum_{j=1}^{p}
 |\beta_j|
 $$
 

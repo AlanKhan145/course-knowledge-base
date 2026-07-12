@@ -525,7 +525,7 @@ A confidence interval estimates a range of plausible values for the true treatme
 For a difference in conversion rates:
 
 $$
-(\hat{p}_B-\hat{p}*A) \pm z*{\alpha/2} \times SE
+(\hat{p}_B-\hat{p}_A) \pm z_{\alpha/2} \times SE
 $$
 
 Example result:

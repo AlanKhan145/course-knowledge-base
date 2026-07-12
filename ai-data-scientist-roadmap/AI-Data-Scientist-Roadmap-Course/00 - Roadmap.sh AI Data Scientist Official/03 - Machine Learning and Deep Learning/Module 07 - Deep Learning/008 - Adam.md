@@ -112,7 +112,7 @@ Therefore, moving in the opposite direction should reduce the loss.
 The basic gradient-descent update is:
 
 $$
-\theta_t = ## \theta_{t-1} \alpha g_t
+\theta_t = \theta_{t-1} - \alpha g_t
 $$
 
 where:
@@ -140,7 +140,7 @@ Adam addresses several of these limitations.
 SGD updates parameters using the current mini-batch gradient:
 
 $$
-\theta_t = ## \theta_{t-1} \alpha g_t
+\theta_t = \theta_{t-1} - \alpha g_t
 $$
 
 SGD is simple and computationally efficient, but its path toward a minimum can be noisy.
@@ -169,7 +169,7 @@ $$
 The parameter update becomes:
 
 $$
-\theta_t = ## \theta_{t-1} \alpha m_t
+\theta_t = \theta_{t-1} - \alpha m_t
 $$
 
 Momentum has two main effects:
@@ -201,7 +201,7 @@ The square is applied element by element.
 Parameters are updated using:
 
 $$
-\theta_t = ## \theta_{t-1} \alpha \frac{g_t} {\sqrt{v_t}+\epsilon}
+\theta_t = \theta_{t-1} - \alpha \frac{g_t} {\sqrt{v_t}+\epsilon}
 $$
 
 RMSProp gives every parameter an adaptive update scale.
@@ -313,7 +313,7 @@ Therefore, the correction factors gradually approach 1.
 ### Step 4: Update the parameters
 
 $$
-\theta_t = ## \theta_{t-1} \alpha \frac{\hat{m}_t} {\sqrt{\hat{v}_t}+\epsilon}
+\theta_t = \theta_{t-1} - \alpha \frac{\hat{m}_t} {\sqrt{\hat{v}_t}+\epsilon}
 $$
 
 This equation contains both key ideas:
@@ -524,7 +524,7 @@ $$
 ### Parameter update
 
 $$
-\theta_1 = ## 2.0 0.001 \frac{0.5} {\sqrt{0.25}+10^{-8}}
+\theta_1 = 2.0 - 0.001 \frac{0.5} {\sqrt{0.25}+10^{-8}}
 $$
 
 Approximately:
@@ -598,7 +598,7 @@ AdamW:
 A simplified AdamW-style update is:
 
 $$
-\theta_t = ## \theta_{t-1} \alpha \frac{\hat{m}_t} {\sqrt{\hat{v}_t}+\epsilon} - \alpha\lambda\theta_{t-1}
+\theta_t = \theta_{t-1} - \alpha \frac{\hat{m}_t} {\sqrt{\hat{v}_t}+\epsilon} - \alpha\lambda\theta_{t-1}
 $$
 
 where (\lambda) is the weight-decay coefficient.
@@ -1094,7 +1094,7 @@ $$
 The final update is:
 
 $$
-\theta_t = ## \theta_{t-1} \alpha \frac{\hat{m}_t} {\sqrt{\hat{v}_t}+\epsilon}
+\theta_t = \theta_{t-1} - \alpha \frac{\hat{m}_t} {\sqrt{\hat{v}_t}+\epsilon}
 $$
 
 Adam often provides fast and stable initial training, but it is not automatically the best optimizer for every model.

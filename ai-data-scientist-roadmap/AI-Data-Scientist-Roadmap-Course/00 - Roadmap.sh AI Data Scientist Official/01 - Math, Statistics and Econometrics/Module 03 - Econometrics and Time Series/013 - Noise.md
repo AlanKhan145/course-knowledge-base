@@ -744,7 +744,7 @@ The `robust=True` option reduces the influence of extreme observations on the es
 A simple one-step naive forecast uses the previous observed value:
 
 $$
-\hat{y}*t = y*{t-1}
+\hat{y}_t = y_{t-1}
 $$
 
 ```python
@@ -804,7 +804,7 @@ plt.show()
 For daily data with weekly seasonality, a stronger baseline is:
 
 $$
-\hat{y}*t = y*{t-7}
+\hat{y}_t = y_{t-7}
 $$
 
 ```python
@@ -1127,9 +1127,9 @@ A forecast should therefore include:
 A simplified prediction interval may be written as:
 
 $$
-\hat{y}*{t+h}
+\hat{y}_{t+h}
 \pm
-z*{1-\alpha/2}
+z_{1-\alpha/2}
 \cdot
 SE\left(\hat{y}_{t+h}\right)
 $$
@@ -1438,7 +1438,7 @@ MAPE can become unstable when actual values are zero or close to zero.
 A useful alternative for time-series comparison is the Mean Absolute Scaled Error:
 
 $$
-MASE = \frac{ \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}*t| }{ \frac{1}{T-m} \sum*{t=m+1}^{T} |y_t-y_{t-m}| }
+MASE = \frac{ \frac{1}{n} \sum_{t=1}^{n} |y_t-\hat{y}_t| }{ \frac{1}{T-m} \sum_{t=m+1}^{T} |y_t-y_{t-m}| }
 $$
 
 where $m$ is the seasonal period.

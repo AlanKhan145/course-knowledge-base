@@ -420,7 +420,7 @@ $$
 A richer model may include trend and seasonality:
 
 $$
-\text{Sales}_t = \beta_0 + \beta_1 \text{AdSpend}_t + \beta_2 \text{Price}*t + \beta_3 \text{Holiday}*t + \beta_4 t + \sum*{m=2}^{12}\gamma_m D*{m,t} + \varepsilon_t
+\text{Sales}_t = \beta_0 + \beta_1 \text{AdSpend}_t + \beta_2 \text{Price}_t + \beta_3 \text{Holiday}_t + \beta_4 t + \sum_{m=2}^{12}\gamma_m D_{m,t} + \varepsilon_t
 $$
 
 Where:
@@ -452,7 +452,7 @@ $$
 The fitted value is:
 
 $$
-\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}*1 X*{1i} + \cdots + \hat{\beta}*k X*{ki}
+\hat{Y}_i = \hat{\beta}_0 + \hat{\beta}_1 X_{1i} + \cdots + \hat{\beta}_k X_{ki}
 $$
 
 ---
@@ -701,9 +701,9 @@ A confidence interval represents uncertainty around an estimated coefficient.
 A general form is:
 
 $$
-\hat{\beta}*j
+\hat{\beta}_j
 \pm
-z*{\alpha/2}
+z_{\alpha/2}
 \cdot
 SE(\hat{\beta}_j)
 $$
@@ -1117,7 +1117,7 @@ $$
 ### Seasonal naive forecast
 
 $$
-\hat{Y}*t = Y*{t-s}
+\hat{Y}_t = Y_{t-s}
 $$
 
 Where $s$ is the seasonal period.

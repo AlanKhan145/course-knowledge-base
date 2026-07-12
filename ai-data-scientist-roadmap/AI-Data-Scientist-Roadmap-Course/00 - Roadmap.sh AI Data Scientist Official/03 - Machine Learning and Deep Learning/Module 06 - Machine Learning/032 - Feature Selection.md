@@ -762,7 +762,7 @@ They combine some advantages of filter and wrapper methods.
 L1 regularization adds the absolute values of model coefficients to the loss function.
 
 $$
-\mathcal{L}_{\text{L1}} = \mathcal{L}*{\text{original}} + \lambda \sum*{j=1}^{p}|w_j|
+\mathcal{L}_{\text{L1}} = \mathcal{L}_{\text{original}} + \lambda \sum_{j=1}^{p}|w_j|
 $$
 
 L1 regularization can force some coefficients to exactly zero:

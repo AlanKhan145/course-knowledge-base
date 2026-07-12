@@ -62,7 +62,7 @@ The remaining 20% is not explained by the model.
 The R-squared metric is defined as:
 
 $$
-R^2 = 1- \frac{ \sum_{i=1}^{n}(y_i-\hat{y}*i)^2 }{ \sum*{i=1}^{n}(y_i-\bar{y})^2 }
+R^2 = 1- \frac{ \sum_{i=1}^{n}(y_i-\hat{y}_i)^2 }{ \sum_{i=1}^{n}(y_i-\bar{y})^2 }
 $$
 
 Where:

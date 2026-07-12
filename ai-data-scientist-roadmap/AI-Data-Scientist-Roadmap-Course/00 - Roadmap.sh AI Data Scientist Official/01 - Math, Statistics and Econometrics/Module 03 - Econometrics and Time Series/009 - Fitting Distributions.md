@@ -724,7 +724,7 @@ Therefore, the number of parameters should also be considered.
 The Akaike Information Criterion is:
 
 $$
-\mathrm{AIC} = ## 2k 2\ell(\hat{\theta})
+\mathrm{AIC} = 2k - 2\ell(\hat{\theta})
 $$
 
 where:
@@ -746,7 +746,7 @@ AIC balances:
 The Bayesian Information Criterion is:
 
 $$
-\mathrm{BIC} = ## k\log(n) 2\ell(\hat{\theta})
+\mathrm{BIC} = k\log(n) - 2\ell(\hat{\theta})
 $$
 
 where:
@@ -771,7 +771,7 @@ $$
 For candidate model $i$:
 
 $$
-\Delta_i = ## \mathrm{AIC}_i \mathrm{AIC}_{\min}
+\Delta_i = \mathrm{AIC}_i - \mathrm{AIC}_{\min}
 $$
 
 A common interpretation is:
@@ -1076,7 +1076,7 @@ $$
 After estimating the model, we inspect residuals:
 
 $$
-e_i = ## y_i \hat{y}_i
+e_i = y_i - \hat{y}_i
 $$
 
 Residual diagnostics can help answer:

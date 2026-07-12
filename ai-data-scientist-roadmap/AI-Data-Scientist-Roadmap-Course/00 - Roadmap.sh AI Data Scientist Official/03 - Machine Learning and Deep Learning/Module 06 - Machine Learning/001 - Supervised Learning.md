@@ -74,7 +74,7 @@ In supervised learning, the model learns from examples for which the correct ans
 A supervised dataset can be represented as:
 
 $$
-D = \left{(x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\right}
+D = \left\{(x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\right\}
 $$
 
 Where:
@@ -1144,7 +1144,7 @@ However, MAPE can behave poorly when actual values are zero or close to zero.
 The coefficient of determination is represented by $R^2$.
 
 $$
-R^2 = ## 1 \frac{ \sum_{i=1}^{n} \left(y_i-\hat{y}*i\right)^2 }{ \sum*{i=1}^{n} \left(y_i-\bar{y}\right)^2 }
+R^2 = 1 - \frac{ \sum_{i=1}^{n} \left(y_i-\hat{y}_i\right)^2 }{ \sum_{i=1}^{n} \left(y_i-\bar{y}\right)^2 }
 $$
 
 Where $\bar{y}$ is the mean of the true targets:
@@ -1570,7 +1570,7 @@ age
 A simplified age calculation is:
 
 $$
-\operatorname{Age} = ## \operatorname{CurrentYear} \operatorname{BirthYear}
+\operatorname{Age} = \operatorname{CurrentYear} - \operatorname{BirthYear}
 $$
 
 ### Example 2: Average Order Value

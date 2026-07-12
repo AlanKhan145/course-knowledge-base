@@ -613,7 +613,7 @@ Compared with MAE, RMSE is more sensitive to large errors.
 R-squared measures how much target variance is explained by the model.
 
 $$
-R^2 = ## 1 \frac{ \sum_{i=1}^{n}(y_i-\hat{y}*i)^2 }{ \sum*{i=1}^{n}(y_i-\bar{y})^2 }
+R^2 = 1 - \frac{ \sum_{i=1}^{n}(y_i-\hat{y}_i)^2 }{ \sum_{i=1}^{n}(y_i-\bar{y})^2 }
 $$
 
 Plain-text equivalent:
@@ -1144,7 +1144,7 @@ False negative loss:         $1,000
 A simplified utility function could be:
 
 $$
-\text{Utility} = ## 500(TP) ## 10(FP) 1000(FN)
+\text{Utility} = 500(TP) - 10(FP) - 1000(FN)
 $$
 
 Plain-text equivalent:

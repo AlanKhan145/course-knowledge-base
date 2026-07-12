@@ -247,13 +247,13 @@ Without a baseline, a score has little context.
 A common regression baseline predicts the training-set mean:
 
 $$
-\hat{y}*i = \bar{y}*{\text{train}}
+\hat{y}_i = \bar{y}_{\text{train}}
 $$
 
 Another option is the median:
 
 $$
-\hat{y}*i = \operatorname{median}(y*{\text{train}})
+\hat{y}_i = \operatorname{median}(y_{\text{train}})
 $$
 
 The median is often more robust to outliers.
@@ -694,7 +694,7 @@ RMSE has the same unit as the target while strongly penalizing large errors.
 ### R-Squared
 
 $$
-R^2 = 1- \frac{ \sum_{i=1}^{n}(y_i-\hat{y}*i)^2 }{ \sum*{i=1}^{n}(y_i-\bar{y})^2 }
+R^2 = 1- \frac{ \sum_{i=1}^{n}(y_i-\hat{y}_i)^2 }{ \sum_{i=1}^{n}(y_i-\bar{y})^2 }
 $$
 
 (R^2) measures how much variance is explained relative to a mean baseline.
@@ -1619,7 +1619,7 @@ A production model may also be evaluated using:
 A weighted decision score can be used when several criteria matter.
 
 $$
-S(M) = ## w_pP(M) ## w_lL(M) w_cC(M) + w_iI(M) + w_sS_t(M)
+S(M) = w_pP(M) - w_lL(M) - w_cC(M) + w_iI(M) + w_sS_t(M)
 $$
 
 where:

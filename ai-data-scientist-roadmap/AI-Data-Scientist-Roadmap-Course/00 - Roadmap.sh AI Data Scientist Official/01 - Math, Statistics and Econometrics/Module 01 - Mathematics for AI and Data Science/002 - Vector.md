@@ -705,7 +705,7 @@ The model predicts house price using a dot product.
 In gradient descent, the gradient is a vector that tells the model how to update parameters.
 
 $$
-\vec{w}*{new} = \vec{w}*{old} - \alpha \nabla L(\vec{w})
+\vec{w}_{new} = \vec{w}_{old} - \alpha \nabla L(\vec{w})
 $$
 
 Where:
@@ -986,7 +986,7 @@ Vectors appear in this project as:
 Gradient descent update:
 
 $$
-\vec{w}*{new} = \vec{w}*{old} - \alpha \nabla L(\vec{w})
+\vec{w}_{new} = \vec{w}_{old} - \alpha \nabla L(\vec{w})
 $$
 
 This is one of the most important vector-based operations in machine learning.

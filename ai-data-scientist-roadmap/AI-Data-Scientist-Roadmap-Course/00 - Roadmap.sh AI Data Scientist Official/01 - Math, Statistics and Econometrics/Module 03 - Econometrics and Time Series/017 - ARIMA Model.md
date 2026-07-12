@@ -61,7 +61,7 @@ $$
 The goal of forecasting is to estimate future values:
 
 $$
-\hat{y}*{t+1}, \hat{y}*{t+2}, \ldots, \hat{y}_{t+h}
+\hat{y}_{t+1}, \hat{y}_{t+2}, \ldots, \hat{y}_{t+h}
 $$
 
 where (h) is the forecast horizon.
@@ -522,13 +522,13 @@ $$
 For a seasonal period (s):
 
 $$
-\hat{y}*t=y*{t-s}
+\hat{y}_t=y_{t-s}
 $$
 
 For daily data with weekly seasonality:
 
 $$
-\hat{y}*t=y*{t-7}
+\hat{y}_t=y_{t-7}
 $$
 
 ### Mean forecast

@@ -62,7 +62,7 @@ After completing this lesson, you should be able to:
 Suppose an A/B test estimates the following treatment effect:
 
 $$
-\hat{\tau} = ## \bar{Y}_{T} \bar{Y}_{C}
+\hat{\tau} = \bar{Y}_{T} - \bar{Y}_{C}
 $$
 
 where:
@@ -150,7 +150,7 @@ Let:
 The CUPED-adjusted outcome is:
 
 $$
-Y_i^{\text{CUPED}} = ## Y_i \theta(X_i-\mu_X)
+Y_i^{\text{CUPED}} = Y_i - \theta(X_i-\mu_X)
 $$
 
 The optimal coefficient is:
@@ -162,7 +162,7 @@ $$
 The experiment is then analyzed using the adjusted outcome:
 
 $$
-\hat{\tau}_{\text{CUPED}} = ## \bar{Y}^{\text{CUPED}}_T \bar{Y}^{\text{CUPED}}_C
+\hat{\tau}_{\text{CUPED}} = \bar{Y}^{ -\text{CUPED}}_T \bar{Y}^{\text{CUPED}}_C
 $$
 
 ### 4.2 Interpretation
@@ -398,7 +398,7 @@ where:
 The CUPAC-adjusted metric is:
 
 $$
-Y_i^{\text{CUPAC}} = ## Y_i \theta(Z_i-\mu_Z)
+Y_i^{\text{CUPAC}} = Y_i - \theta(Z_i-\mu_Z)
 $$
 
 where:

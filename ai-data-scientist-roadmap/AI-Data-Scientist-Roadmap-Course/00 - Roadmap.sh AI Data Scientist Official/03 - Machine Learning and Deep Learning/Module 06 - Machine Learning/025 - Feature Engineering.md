@@ -152,7 +152,7 @@ The relationship between `2005` and the current value of the property may not be
 A more useful representation may be:
 
 $$
-\text{property age} = ## \text{sale year} \text{construction year}
+\text{property age} = \text{sale year} - \text{construction year}
 $$
 
 If the house was sold in 2026:
@@ -776,11 +776,11 @@ Durations are frequently more meaningful than raw dates.
 For house price prediction:
 
 $$
-\text{property age} = ## \text{sale year} \text{construction year}
+\text{property age} = \text{sale year} - \text{construction year}
 $$
 
 $$
-\text{years since renovation} = ## \text{sale year} \text{renovation year}
+\text{years since renovation} = \text{sale year} - \text{renovation year}
 $$
 
 Example:
@@ -982,7 +982,7 @@ Rolling and lag features are common in time series and behavioral data.
 A lag feature uses a previous value:
 
 $$
-\text{lag}*1(t) = y*{t-1}
+\text{lag}_1(t) = y_{t-1}
 $$
 
 A rolling mean may be:
