@@ -1,8 +1,8 @@
 # Module 05 - Prompt Engineering
 
-**Hoc phan:** 02 - Model Platforms and Prompting
+**Course:** 02 - Model Platforms and Prompting
 
-Module nay gom 10 bai tu AI Engineer roadmap.
+This module contains 10 lessons from the AI Engineer roadmap. All 10 lessons have been rewritten as complete, full-length English lessons (concepts, worked examples, API snippets, checklists and review questions) instead of the original short outline stubs.
 
 ## Outcome
 
@@ -12,12 +12,12 @@ Design prompts that are clear, constrained, testable and robust across realistic
 
 Project 4: Prompt Lab with saved prompt templates, versioning and output comparison.
 
-## Nhom noi dung
+## Content Groups
 
 - Output Control
 - Prompt Patterns
 
-## Danh sach bai hoc
+## Lessons
 
 - [001 - Writing Prompts](001 - Writing Prompts.md)
 - [002 - Prompt Engineering Roadmap](002 - Prompt Engineering Roadmap.md)
@@ -30,8 +30,8 @@ Project 4: Prompt Lab with saved prompt templates, versioning and output compari
 - [009 - Prompt Versioning](009 - Prompt Versioning.md)
 - [010 - Robust Prompt Engineering](010 - Robust Prompt Engineering.md)
 
-## Cach hoc module nay
+## How to study this module
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 demo AI app that.
-- Tao artifact nho: prompt, API route, notebook, RAG eval, agent trace, multimodal demo, dashboard hoac portfolio note.
+- Follow the lessons in order if you are new to prompt engineering.
+- For each lesson, write down 3 key ideas and build 1 small real AI app demo.
+- Create a small artifact per lesson: a prompt template, API route, notebook, RAG eval, agent tool, or portfolio note.

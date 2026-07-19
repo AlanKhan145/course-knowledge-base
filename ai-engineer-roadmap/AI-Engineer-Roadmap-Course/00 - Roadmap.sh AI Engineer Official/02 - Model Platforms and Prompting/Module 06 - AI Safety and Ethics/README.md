@@ -4,6 +4,8 @@
 
 Module nay gom 14 bai tu AI Engineer roadmap.
 
+**Trang thai noi dung:** bai 001 va 002 da duoc viet lai thanh bai giang tieng Anh day du (khai niem, vi du, code snippet, checklist, cau hoi on tap). Cac bai 003-014 van la ban outline ngan, se duoc nang cap dan.
+
 ## Outcome
 
 Identify and reduce safety, security, privacy, bias and misuse risks in AI applications.

@@ -3,20 +3,24 @@
 Building a scalable, multi-brand, tokens-first design system in Figma -- from primitive variables through themed,
 purpose-based tokens, typography, and a full component library, to publishing.
 
-Structured markdown study notes derived from the course's module/lesson outline.
+Structured markdown study notes derived from the course's module/lesson outline. All 50 lesson notes have been
+rewritten as full, detailed study lessons in Vietnamese (with English design-system terminology kept intact):
+each covers concepts, step-by-step Figma build instructions, token/variable tables, mermaid diagrams, and review
+questions -- replacing the original short English outline stubs.
 
 ## Course Stats
 
 - Modules: 9
 - Lessons: 50
 - Listed span: 0:00 - 3:30:19 (chapter start times within one continuous course video)
-- Language: English
+- Course video language: English
+- Study notes language: Vietnamese (English design terms preserved)
 - Category: Design / Design Systems / Figma
 
 ## Note on Source Data
 
 The numbers next to each lesson in the original outline are chapter/section start times inside one continuous
-course video, not individual per-lesson durations -- so "Video Timestamp" in each lesson note marks where that
+course video, not individual per-lesson durations -- so the timestamp in each lesson note marks where that
 lesson begins, not how long it runs. Lesson notes are written from the lesson titles, their module context, and
 standard Figma design-system practice (variables, modes, component properties), since no transcript was provided.
 
