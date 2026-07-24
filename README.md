@@ -89,6 +89,12 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Design System & Figma Variable Set Up - Full Tutorial](./design-system-figma-variable-setup-full-tutorial/) | Figma Variables, Design Tokens, Brand/Alias/Mapped Collections, Multi-Brand, Dark Mode, Responsive Type Scale | English | ✅ |
 | [Technical Writer Roadmap](./technical-writer-roadmap/) | Product Docs, Developer Docs, API Reference, Docs-as-Code, Content SEO, Portfolio | Vietnamese | ✅ |
 
+### 3D & Creative Tools
+
+| Course | Topics | Language | Status |
+|--------|--------|----------|--------|
+| [Complete Blender Creator: 3D Modelling](./complete-blender-creator-3d-modelling/) | Blender 4.3/4.4, Box Modelling, Modifiers, Materials & Shader Nodes, UV Mapping, Rigging & Animation, Sculpting | English | ✅ |
+
 ### Writing
 
 | Course | Topics | Language | Status |
