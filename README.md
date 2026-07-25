@@ -94,6 +94,7 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | Course | Topics | Language | Status |
 |--------|--------|----------|--------|
 | [Complete Blender Creator: 3D Modelling](./complete-blender-creator-3d-modelling/) | Blender 4.3/4.4, Box Modelling, Modifiers, Materials & Shader Nodes, UV Mapping, Rigging & Animation, Sculpting | English | ✅ |
+| [Blender 3D for Beginners: Complete Modeling & Texturing Guide](./blender-3d-for-beginners-complete-modeling-and-texturing-guide/) | Blender Fundamentals, Organic & Hard-Surface Modeling, Modifiers, Digital Sculpting, Material Creation, Final Character Project | English | ✅ |
 
 ### Writing
 
