@@ -1,5 +1,21 @@
 # 071 — Wrap Up – UV Mapping
+So hopefully you enjoyed that section and you feel a bit more confident when it comes to mapping again.
 
+Don't panic if it doesn't look exactly like mine, but hopefully your understanding how lives work and
+
+with a bit of practice you'll be able to create some fun, slightly more realistic looking items.
+
+Now to take this further, you could have some fun adding models to your scene, crates being the obvious
+
+one, maybe adding some detail to the road, adding something like a pavement or sidewalk.
+
+If you call it that, you could have more buildings and more variety there, perhaps even start building
+
+some of the items such as the doors and windows and then mapping those objects to the different areas
+
+of the image textures you've already got.
+
+Let's now jump to the next section where you'll be animating and rigging a character.
 | Thuộc tính | Nội dung |
 |---|---|
 | **Module** | Module 04 — UV Mapping |

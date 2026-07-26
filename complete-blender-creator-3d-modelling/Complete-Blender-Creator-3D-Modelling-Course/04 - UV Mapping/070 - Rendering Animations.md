@@ -1,4 +1,155 @@
 # 070 — Rendering Animations
+In this lecture, we will render out our final animation and I'll talk a bit about rendering as a video
+
+file or rendering as still images.
+
+So here's where I got up to last time and I'm back in the animation workspace and rendering out animations
+
+is slightly different to still frames, so it's a good idea to do a test within EV as it will render
+
+faster and you can see what your animation is going to look like and then perhaps set a longer render
+
+in cycles.
+
+If I go across to the output properties, I can change the resolution to something like 50% for the
+
+sake of a test, so it should render nice and fast.
+
+It's a good idea to double check your frame range just here.
+
+My start is one and my end frame is 100.
+
+The most important section I would say is under the output settings.
+
+Now, currently, if I were to render my animation, that would be to go up to render and render animations.
+
+So control f 12 is the shortcut.
+
+It would send it to my temporary files.
+
+So make sure you've changed where it's going.
+
+Now I'm going to put it into a folder called Plane Animation Renders.
+
+So a double click on that.
+
+Make sure I'm inside that folder and press accept.
+
+The reason I render it out to a folder is because the default for blender and the best way to render
+
+is with still images.
+
+So you'll end up with 100 still images.
+
+I then bring them into an external program such as Adobe Premiere, in my case to bring them all together.
+
+Now you can render it out as a movie file, so it's just one file.
+
+And I would suggest that if you don't have an external program that you want to use and you just want
+
+a video file, and it's perfectly fine to do that.
+
+There are slight advantages to still images, but I'll talk about those in a moment.
+
+So in order to render out as a movie file, we go to file format, I'll click on the dropdown there
+
+and ffmpeg is going to be your best option, so I'll click on that.
+
+And under encoding, the current container is called Matryoshka, which is very good if you get a problem
+
+whilst rendering, but it's not recognized by all players.
+
+So you might want to change this to something like MPEG four.
+
+For the quality you'll probably want perceptually lossless, so you won't be able to see any loss in
+
+quality, but the file sizes won't be quite as big as lossless and encoding.
+
+Speed is best to turn this to slowest because it doesn't actually take very long at all.
+
+You won't notice the difference, but you'll get the best encoding.
+
+So that's if you're rendering out as a video file.
+
+And now if I press control F 12, you can see it going through very quickly through my frames because
+
+it's 50% for one and it's eve for two.
+
+And at this point, if I want to playback my animation, I can find my file and play it, or I can come
+
+up to the render settings and say Vue animation.
+
+And you can see it playing there.
+
+So I'm happy that my animation is working and I'm comfortable with that.
+
+At this point, I would turn the resolution up to 100 and then go across the cycles and wait the 300
+
+seconds for it to render completely.
+
+So that's rendering out with a video format.
+
+However, as I was saying, a preferred method for many people is to render out with still images.
+
+Most people, if I go across the file format, will go with the default, which is a PNG sequence.
+
+There's two advantages to this.
+
+One, you can have an alpha channel in the background.
+
+So if I go back to the render properties and go down to where it says film, I can actually set the
+
+background to Transparent and you can see I've now got a transparent background so I could put it in
+
+my own sky.
+
+And this is very good if you want to do some special effects and put an object into some real life footage,
+
+but I don't need to do that for the moment, so I'll unpick that and go back to my render properties.
+
+So that's one advantage of a PNG that it has this alpha channel and you can use that alpha channel to
+
+place in your own backgrounds.
+
+The other advantage is that if anything goes wrong, you'll have all the frames up to the point of the
+
+error that will be okay and then you can just restart from that point.
+
+So with it set back to PNG, if I render now with control F 12, you can see once again it goes through
+
+at the same pace and I'll quickly speed this up for you.
+
+This time I have lots of single frames, as you can see here.
+
+So there's frame one and you can see I can go through my animation frame by frame and like I was saying,
+
+I would send these across to a program such as Adobe Premiere to put them all into sequence.
+
+A free program such as Da Vinci, Resolve or even MovieMaker will do the same thing if you don't want
+
+to use those programs or you don't need the functionality of having an alpha channel in your file,
+
+then you may as well just render as a video file, as I talked about earlier with the file format ffmpeg
+
+and make the adjustments I talked about earlier.
+
+And to be fair, I find it very rare that I do get a crash, so you should be fine.
+
+Just rendering out as a video file from Blender.
+
+So pause the video here and render out your final animation.
+
+Of course, you can choose whether to use still images and put them all together in something like Adobe
+
+Premiere or render them out as a movie file.
+
+Once you've done that, it would be great if you share your work with the community and take a look
+
+at how other people have got on as well.
+
+And of course, do remember to save your work.
+
+
 
 | Thuộc tính | Nội dung |
 |---|---|

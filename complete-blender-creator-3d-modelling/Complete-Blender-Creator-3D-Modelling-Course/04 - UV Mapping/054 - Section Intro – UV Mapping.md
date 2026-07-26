@@ -1,4 +1,29 @@
 # 054 — Section Intro – UV Mapping
+So we're upping the level of design again, looking at adding image textures to our models.
+
+So we're moving from the low poly style to a more realistic style kind of within the realms of older
+
+games that use these techniques to good effect.
+
+And we're going to work on the plane model you can see behind me here.
+
+So we'll be once again doing some modeling.
+
+But this time our focus will be on using photographic images as textures on the side of the plane and
+
+buildings.
+
+We'll start the section with some very simple exercises to learn the skills.
+
+So making some very simple houses and barrels then move on to making the plane with the textures.
+
+And to finish, we'll introduce you to some very basic animation techniques to get you ready for the
+
+following section, which is all about animation.
+
+So let's get started.
+
+
 
 | Thuộc tính | Nội dung |
 |---|---|

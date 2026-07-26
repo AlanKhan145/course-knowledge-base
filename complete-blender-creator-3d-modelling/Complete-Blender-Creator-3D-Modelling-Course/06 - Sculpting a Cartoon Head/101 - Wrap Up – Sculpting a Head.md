@@ -1,5 +1,41 @@
 # 101 — Wrap Up – Sculpting a Head
+So hopefully you've enjoyed the process and you've come up with something that may be similar to mine.
 
+Again, as always, don't panic if it's not similar.
+
+The most important thing is that you've finished the section and you've had a go at the techniques.
+
+That's far more valuable than the outcomes, especially at this stage in your blended journey.
+
+Taking things further, you could try the same process with a different character.
+
+What's often a little easier is maybe a beast of some description.
+
+With human faces.
+
+It's easy to recognize when something's gone wrong, but it's a lot easier if you sculptor, beastly
+
+creature.
+
+Now, as I said in the section, these models are very high poly, which in many ways does limit their
+
+use.
+
+They're great as artistic pieces and concept art, and also work well for 3D prints.
+
+However, to use these models in films or games, you would need to do what's called re typology.
+
+This is the process of taking a high poly sculpt and turning it into a low poly object.
+
+Now, as always do, remember to share your work with myself and game Dev TV as we love to see how you're
+
+getting on and not just on the community but on social media as well.
+
+Make sure you tag us.
+
+Thanks very much for taking the course.
+
+I really hope you enjoyed it and I'm excited to see your work.
 | Thuộc tính | Nội dung |
 |---|---|
 | **Module** | Module 06 — Sculpting a Cartoon Head |

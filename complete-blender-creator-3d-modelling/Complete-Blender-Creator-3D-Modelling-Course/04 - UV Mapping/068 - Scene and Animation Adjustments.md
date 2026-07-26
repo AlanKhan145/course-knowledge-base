@@ -1,5 +1,197 @@
 # 068 — Scene and Animation Adjustments
+In this lecture, I'll be giving you the challenge of making a scene like this, and I'll be giving
 
+a rundown of how I made it.
+
+And we'll be looking at how we can extend our animations nice and easily.
+
+So we'll start off by giving you the challenge of making a similar scene to what I've done here.
+
+If you don't feel confident, then do look at my run through, which I'll show you in just a moment.
+
+But it's worth having a go see how you get on.
+
+You will need to grab a few more textures for buildings from textures.
+
+So pause the video here and have a go at that.
+
+So to start with, I wanted to work on the houses, so I decided to move the origin point to the bottom
+
+face so I could scale them up and down nice and easily.
+
+So selecting that bottom and face shift s to get to my cursor menu and cursor to selected and then right
+
+click in object mode origin to 3D cursor.
+
+So now my origin is at the bottom and I can scale them really easily.
+
+So I duplicated one building off to the side.
+
+Just test and I can scale now in the z axis nice and easily move the barrels to the front so they're
+
+not in the way of the extra buildings.
+
+I'm about to create and now create lots of new buildings with different heights.
+
+Now I need to texture them with different textures.
+
+So I selected on a new building and created a new texture based on the old one.
+
+So add new material button just there.
+
+And as I'm starting to build up more objects in the scene, I decided it would be a good idea to label
+
+my original material and the new material.
+
+So back to Building two and I changed the texture to a different texture that I downloaded from textures.
+
+It's much grayer looking, but it seems to work okay.
+
+And I went across to the movie editing workspace and move the front face UVs to a position that looked
+
+like a front of a building.
+
+And I thought about changing the side, but I thought that probably won't be seen.
+
+So didn't worry too much.
+
+Then I linked that with another house with the control l command, and I'll have about three houses
+
+or so to repeat over and over.
+
+And I use the different parts of the texture just to add some variation.
+
+So now it's just a case of going through the houses, deciding what textures I want, maybe reshaping
+
+them, resizing them and moving the front face eaves into position.
+
+Again, I'm not worried about the side faces because they probably won't be seen much.
+
+Here's another texture downloaded from textures.
+
+Our position, the UVs for the front face, but I think it was quite bad so I changed it later on.
+
+Then I created more houses just by duplicating the same ones over and over, and the same with the barrels
+
+just over and over, just for simplicity.
+
+And I organize the position a bit more later on.
+
+Now the floor is far too white, so I change it to a grey color to start off with to see if that would
+
+make a difference and work with my scene.
+
+And then I thought it would be much nicer to actually get a floor material instead.
+
+So I repositioned it to look more like a road.
+
+I could have done a pavement here as well.
+
+I think that would have been nice, but it would take a little bit longer.
+
+And of course, I unwrapped it with you and then set up a new material with an image texture of the
+
+front plugged into the color, then found my floor material.
+
+Made sure that texture was hooked up.
+
+It's a bit stretched, so I needed to change the gloves for this.
+
+I took the gloves and scaled them right up so you can see it repeated over and over and it seems to
+
+be a seamless texture, this one.
+
+So it's quite nice.
+
+So I can't see any repetition.
+
+I scaled the floor up a little bit and reposition my camera to see whether I could cover the scene with
+
+it.
+
+Obviously, I reposition my camera much more later on anyway.
+
+Then I jump across to the shading workspace and to the world tab so I can insert an dry into the background.
+
+If you press control T on the world tab, it will bring up the nodes for you and you can then choose
+
+your dry.
+
+I chose the basic outdoor tree from Polly Haven and it was a bit bright, the first one.
+
+So I changed it to a less bright one.
+
+I did turn on the screen space reflections at this point just to see if that would make any difference.
+
+But I chose a much less bright try and deleted the light in the scene.
+
+And at this point I thought I'd experiment with some camera positions and building positions.
+
+So I duplicated all my buildings and put them across the other side and then made a kind of windy street
+
+like you'd expect to see in an old town.
+
+Then I moved my whole town across so the plane would fly over the top.
+
+It's easier to move the town than it is the plane because that's got some animation on it.
+
+Then I went across the animation workspace because it's easier to see where my camera is and I move
+
+that into a position that I was comfortable with.
+
+Checked my animation was roughly working okay and it looks fairly good going across the houses like
+
+this and then move some of my barrels into position.
+
+Of course, if you've got some crates, you can move those into position as well.
+
+But hopefully from this you'll get the idea of how you can create the scene than I did here.
+
+So I've got my far more interesting scene completed now, but it would be nice if the animation was
+
+a tiny bit longer and the plane started further back, so it flew right over the houses.
+
+So if I come to the start again and select my plane controller, I want to change this keyframe for
+
+that.
+
+It's fairly simple.
+
+I can just move this back in the why.
+
+So gee, then why move this right back over to here out of shot so quite far back there and I to insert
+
+keyframe on the location of rotation to make my animation longer I can extend it to maybe 4 seconds
+
+so 100 frames and my end keyframe here that's still with the plane controller selected I can just press
+
+G to grab to move that across to frame 100.
+
+Now let's see what that looks like.
+
+It comes from a distance there, but my propeller stops at frame 50, as you can see there.
+
+So I need to change that.
+
+But the plane position is correct.
+
+So I just zoom in a touch and select the plane propeller controller and you can see my two key frames
+
+there.
+
+I just need to extend this all the way to the end here.
+
+So now when I press play, we should see a plane flying over our scene like this.
+
+So your challenge then is to make any changes that you feel are necessary to your scene, experiment
+
+with different camera positions and different house positions, and change the length of your animation
+
+from 2 seconds to 4 seconds.
+
+And once you've done that, make sure you saved your work.
+
+Ready for next time.
 | Thuộc tính | Nội dung |
 |---|---|
 | **Module** | Module 04 — UV Mapping |

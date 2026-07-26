@@ -1,4 +1,41 @@
 # 072 — Section Intro – Rigging & Animation
+In this next section, we'll be learning about animation with the end goal being to create a walk cycle
+
+for a character which we make together.
+
+I'll also be introducing how to make more detailed models using modifiers and further modeling techniques
+
+in order to make the character.
+
+So we'll be moving on from the low poly style onto more detailed, higher polygon models.
+
+Now, animation is a very big subject, so this is very much the basics to get you started.
+
+We should be putting together a full animation course in the near future, so do look out for that.
+
+But hopefully this will give you enough of an insight to be able to create fun and simple animations
+
+for your models and characters.
+
+Don't panic if it's going wrong and your animation ends up a bit messy.
+
+Try your best to have a go at the techniques shown, because even though it may not completely work
+
+for you, going through the process will be very rewarding.
+
+And the next time you try and animate, you'll find things much easier.
+
+Now you might be asking, what is a walk cycle?
+
+Well, particularly in games you animate small actions which are character performs, such as walk cycles
+
+and running, and you look those over and over with a certain button pressed.
+
+So as a player presses that button, they see that cycle over and over, which looks like it's walking.
+
+So let's get started making our character.
+
+
 
 | Thuộc tính | Nội dung |
 |---|---|

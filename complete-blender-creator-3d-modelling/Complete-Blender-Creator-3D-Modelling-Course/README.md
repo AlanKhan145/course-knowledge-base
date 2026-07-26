@@ -17,9 +17,6 @@ Khóa học Blender theo hướng thực hành dự án (project-based), dành c
 | [04](04 - UV Mapping/README.md) | UV Mapping | 18 | 2 giờ 21 phút | Máy bay có texture UV + animation |
 | [05](05 - Rigging & Animation/README.md) | Rigging & Animation | 16 | 2 giờ 19 phút | Nhân vật Blob Man với rig và walk cycle |
 | [06](06 - Sculpting a Cartoon Head/README.md) | Sculpting a Cartoon Head | 14 | 1 giờ 51 phút | Đầu nhân vật hoạt hình được sculpt và tô màu |
-| [07](07 - Important Messages and Updates/README.md) | Important Messages and Updates | 1 | ~1 phút | — |
-| [08](08 - Updates and Important Messages/README.md) | Updates and Important Messages | 1 | ~1 phút | — |
-| [09](09 - Bonus - One Last Thing/README.md) | Bonus: One Last Thing… | 1 | ~1 phút | — |
 
 ## Lộ trình học
 
@@ -30,7 +27,6 @@ flowchart TD
     C --> D[04 - UV Mapping<br/>UV, texture, animation, HDRI]
     D --> E[05 - Rigging & Animation<br/>Bone, armature, IK, weight painting]
     E --> F[06 - Sculpting a Cartoon Head<br/>Sculpting, painting, lighting nhân vật]
-    F --> G[07-09 - Thông báo & Bonus]
 ```
 
 ## Các kỹ năng chính đạt được sau khóa học

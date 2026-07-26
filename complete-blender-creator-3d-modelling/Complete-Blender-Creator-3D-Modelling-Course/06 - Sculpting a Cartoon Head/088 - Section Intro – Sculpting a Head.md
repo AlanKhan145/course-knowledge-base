@@ -1,5 +1,40 @@
 # 088 — Section Intro – Sculpting a Head
 
+So now you have a reasonably good understanding of the different basic modeling techniques.
+
+We're now look at the more advanced technique of sculpting.
+
+This is an important technique that's used a great deal in the industry.
+
+Most high end triple-A games have used sculpting to create characters and much of the scenery and models.
+
+It's a much more free artistic approach to modeling, and it's great fun.
+
+It still requires some technical knowledge, but much less than some areas modeling and asset creation.
+
+But it does require a lot of skill and practice to be good at it.
+
+Now don't let that put you off as you can.
+
+Create some great models with a low level of ability, but just be aware that this is something that
+
+can be slow to progress in.
+
+Now, often artists will use what's known as a graphics tablet or better still, a display tablet.
+
+So this is using a pen to draw objects on the screen.
+
+This isn't necessary for this section and I'll be using a mouse for the entire process.
+
+But if you wanted to take this to the next level, or maybe you've already got a graphics tablet, then
+
+this is the time to have a go and maybe get used to it.
+
+We'll be making an evil devil criminal mastermind bust.
+
+So the head and shoulders, which you can see in the background here.
+
+So let's dive in and start sculpting.
 | Thuộc tính | Nội dung |
 |---|---|
 | **Module** | Module 06 — Sculpting a Cartoon Head |

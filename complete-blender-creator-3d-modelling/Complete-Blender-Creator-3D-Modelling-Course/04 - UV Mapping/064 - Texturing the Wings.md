@@ -1,4 +1,309 @@
 # 064 — Texturing the Wings
+In this lecture, we'll be texturing the wings, moving our UVs into position over our texture.
+
+So here's where we got up to last time.
+
+And as I've done previously, I'm going to come up to the top corner here and bring down a new window
+
+for the shader editor.
+
+So across to the left hand side and change it to the shader editor, I press end to get rid of the side
+
+panel.
+
+And let's zoom in on our material now.
+
+In the resources that come with the lecture, we've got a spitfire texture, so I can click and drag
+
+that into my shader editor.
+
+When I do that, the texture comes into our UV editor.
+
+That's not always the case, so you may have to just select it from the dropdown menu here.
+
+So we've got a spitfire texture and you can see that I've reversed the text on one side, hence why
+
+if I select all my model, we've got two sides to the main body of the plane.
+
+Just a quick note on the texture.
+
+I've got this from Wikimedia Commons and I've adapted it from this photo here.
+
+So a special thanks to Alan Wilson for taking a great photo and allowing people to use it.
+
+So back into Blender, I can now hook my texture up and I'll rename the material plane and let's go
+
+across the menu at the top and into material preview mode.
+
+And we can see the plane texture looks almost random the way it's spread out on our object.
+
+But notice the wings are exactly the same on both sides, the same at the back.
+
+But they're just in the sky at the moment, as you can see there.
+
+And that's because we unwrapped whilst our mirror modifier was on, whereas the main body, we applied
+
+the mirror modifier and then unwrapped it.
+
+So we have two separate UV islands for them.
+
+So pause the video here and catch up with me bringing in your spitfire texture and hooking it up to
+
+the principle beiersdorf and move into material preview mode so you can see that texture on your plane.
+
+Pause the video and have a go at that.
+
+Okay.
+
+Let's take a closer look at the texture.
+
+If I press control spacebar, that will go into full screen mode and zoom in a touch.
+
+Now we can see we haven't got any wings on our texture.
+
+Now you could find a copyright free image of a Spitfires wing and add it to this texture, maybe in
+
+a space such as here.
+
+But I want to show you that it's not always necessary.
+
+It depends on the complexity of your model and how detailed you want to go.
+
+So I press control spacebar to come out of full screen mode and we'll start with the tail wings at the
+
+back so that it's nice and easy to view.
+
+I'm going to press alt a to deselect all and l to select linked and remember that by seam.
+
+So we're selecting that area there.
+
+Do make sure that you select the other side as well.
+
+So l on the other side we'll select that as well.
+
+Now I've got my two islands on top of each other here.
+
+I'll select one of those G to grab and you can see when I move that around, I can move it onto my plane
+
+and we get the texture from the plane.
+
+I'll do that because we want to select both of those islands at the same time and then to grab and move
+
+it on to my plane.
+
+Now you can see it's fairly effective choosing a random position on my plane here.
+
+So we could try having a little bit of text in there.
+
+For example, it's a little bit more tricky if I try and get the target in.
+
+It sort of warps slightly, but it's possible maybe something towards the front of the plane.
+
+We've got this sort of strange yellow line here which is coming across here.
+
+So a position around these numbers somewhere around here, it's not great, but it works reasonably
+
+well.
+
+Notice how I've got part of the texture in the sky just there, and that looks to be the front just
+
+here.
+
+So we can see a tiny bit of sky and it's stretched a little bit there.
+
+It's not too bad, but it's not great.
+
+You may want to scale it down and move it into position where you've got no text and no sky.
+
+Maybe somewhere around here and see how that looks.
+
+It's not too bad, but my panelling, because I've rotated it, is offered a funny angle.
+
+So maybe rotating it isn't the best idea.
+
+Maybe going in line like this is better.
+
+So it's working reasonably well just by placing it onto a random position like this.
+
+Ideally you'd have a texture that has a tail wing in it and a main wing as well.
+
+So I want you to have a go now at moving the UVs of the back tail wing.
+
+You can rotate it and scale it, but try and find a position where the texture kind of fits.
+
+It's probably best not to have any text on it, as that can distort slightly and it doesn't mirror very
+
+well to the other side.
+
+So pause the video and have a go at that.
+
+Now it can get a bit tougher when we come to the main wing.
+
+If I come out a bit and move across to the wing, so alt a to deselect all and then l to select the
+
+top two here.
+
+Let's find those.
+
+There they are.
+
+And like I say, this is a bit tougher for the main wings because they're much bigger.
+
+So now when I try and scale these down and move them into position, if I scale them down very small
+
+and move them into a position of that texture of those panels there, it's not too bad.
+
+But we do start seeing a little bit of graininess as a texture becomes more pixelated, but I think
+
+that's relatively nice.
+
+Probably around here we can get away with and it looks fairly decent.
+
+So that's that position in there.
+
+It's a little bit distorted around the front here, which is probably this area just here.
+
+And maybe I can come in, go across to vertex mode selection and select just that area there and move
+
+it into a new position.
+
+Getting a lot of stretch now, so I probably have to move these two down as well.
+
+Remember, I can't just click once because that will move just one side.
+
+I have to box select to move those into position.
+
+So we're getting a bit of stretch there, which you can see a bit clearer in object mode.
+
+Back to edit mode.
+
+Now though, as those textures become close together, we could box, select those next to and maybe
+
+edge slide them down to reduce that stretch these ones too.
+
+But watch what happens to my texture and particularly this graphic here as I move that down.
+
+That also becomes stretched as we change the size of this face here.
+
+So a little bit of movement there.
+
+So the edge here doesn't become too stretched.
+
+But if I go much further, you can see that graphic being stretched there.
+
+So probably somewhere around about here and that looks relatively good.
+
+A little bit of a line across there of white.
+
+But I think we're okay.
+
+So a fairly successful position just there.
+
+So pause video here, catch it with me and position the UVs of the top of your wings.
+
+Okay.
+
+So we've got the underside of the wings to do.
+
+Now, depending on the use of this, this may not be as important as the top.
+
+You may not see the underside of the plane as much, but we've got to try and find a position for both
+
+of those.
+
+So remember to deselect all and select both of those with L.
+
+And a small challenge to you is to position the UVs of the underside of the main wings and the tail
+
+wings.
+
+Pause the video and have a go at that.
+
+Okay.
+
+So I'll zoom out to find those.
+
+Now, hopefully you remembered you need to go back into island mode if you want to select them as one
+
+big island.
+
+You can do this in vertex mode and just select the whole lot.
+
+Of course, it's just a little bit easier in island mode and we can rotate those, scale them down to
+
+touch and try and move them into a useful position.
+
+We can have it similar to the other one.
+
+So somewhere around about here you can scale this as well if you want to try and make it longer and
+
+thinner.
+
+But of course that does stretch the textures slightly as well.
+
+So you can see if I come over the text there, it's slightly stretched, so a bit of experimentation.
+
+I'll scale that back in the Y there.
+
+Somewhere around here looks quite interesting.
+
+Let's just go into object mode and see what that looks like.
+
+A little bit stretched, but I can go to the vertices and try and change them slightly there.
+
+Just a touch to line that up a bit more.
+
+And it's kind of working okay.
+
+Of course, any text I use is going to have some mirror writing on one side, so maybe going over text
+
+isn't the best idea.
+
+So let's select them all again.
+
+And go over the graphic like we did before.
+
+Rotate that into some sort of position around here.
+
+And that looks fairly good.
+
+Let's zoom in a bit and again into vertex mode and let's move that down slightly.
+
+Move this one down very slightly.
+
+So that very end there hasn't got those distinguishing marks.
+
+Back into object mode to see what that looks like.
+
+That's not too bad.
+
+Okay.
+
+And the back into edit mode again.
+
+These select all l on both those back faces there back to island mode and select both those g to grab.
+
+Scale it down slightly and move it into position, perhaps somewhere around here.
+
+Just double check that.
+
+That's okay.
+
+And that looks alright.
+
+There's a little bit of writing there, but you can't really notice it.
+
+Okay.
+
+So hopefully got an okay with that.
+
+In the next video, we'll be texturing the body and I'll show you some different techniques.
+
+But of course do make sure you saved your work.
+
+Ready for next time.
+
+
 
 | Thuộc tính | Nội dung |
 |---|---|

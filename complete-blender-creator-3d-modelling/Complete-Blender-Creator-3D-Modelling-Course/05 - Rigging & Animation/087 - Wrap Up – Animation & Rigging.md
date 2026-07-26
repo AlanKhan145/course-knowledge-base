@@ -1,4 +1,29 @@
 # 087 — Wrap Up – Animation & Rigging
+So hopefully he got an okay with that and managed to produce a walk cycle that looks something similar
+
+to mine.
+
+As I've said earlier, animation can be a very big and very complicated thing to learn, so don't panic
+
+if it's not completely the same or it's a bit off in places.
+
+The important thing is that you made it to the end and the next time you try some animation it'll be
+
+so much easier to take things further.
+
+I would recommend trying out a different type of movement with your character, maybe a run cycle,
+
+or perhaps look up some details about how you could improve your walk cycle to make it more exaggerated
+
+or maybe comical.
+
+Hopefully, this has got you a bit excited about character modeling, and in the next section we're
+
+going to try out some sculpting techniques to make an interesting, evil character's head.
+
+So when you're ready, let's jump to the next section.
+
+
 
 | Thuộc tính | Nội dung |
 |---|---|

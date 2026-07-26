@@ -1,5 +1,215 @@
 # 081 — Rig Ready Meshes
+ In this lecture, we'll be getting our mesh ready for rigging, and I'll be talking a little bit about
 
+topology and deformation.
+
+Okay, so here's where we got up to last time and our characters looking nice, but there's a few adjustments
+
+that would help us before we make our skeleton and rig our character.
+
+So it deforms a little bit better in order to illustrate the point about how the deformation can be
+
+affected by the topology.
+
+So not only the amount of faces, edges and vertices, but their positioning as well.
+
+I've got two objects in my scene and incidentally, if I select one of these objects and go to the object
+
+properties under viewport visibility, I've set it to wireframe so you can actually see the edges whilst
+
+in object mode.
+
+And I have one object with one loop cut around the middle and one object with three loop cuts around
+
+the middle.
+
+I've also got two images, so this could be something like an elbow joint or something along those lines
+
+with the first one.
+
+If I select that armature and go into post mode and press R, then X to rotate around the x axis and
+
+bring that down.
+
+You can see the result to the topology there.
+
+I'll just turn the overlays off so it hides the bones.
+
+In the second one when I rotate this one by the x axis and let's hide the bones, you can see it deforms
+
+a lot more nicely because it's got that extra topology around the joint.
+
+Now, if I put a subdivision surface modifier on both of these.
+
+And again turn the overlays off.
+
+It's interesting to see the difference.
+
+You still get a much cleaner deformation when we have that extra topology around the joint, then you
+
+do the single.
+
+So the base topology before the subdivision surface modifier is applied does make a big difference.
+
+So let's head back to our character now and I'll go to the front view and into edit mode with our character
+
+and I'll go to x ray mode.
+
+I'll zoom in just to touch and on the side here as well.
+
+Now there's areas of bend.
+
+So the elbow joint, for example, if we've only got one loop cut around there, it's not going to bend
+
+as well.
+
+However, if I press control B to bevel this and use my will to create an extra loop cut in there,
+
+we've now got three loop cuts and that should help the deformation work well.
+
+I'll come back to front view.
+
+We can do the same for the loop around the wrist.
+
+So control B to Bevel.
+
+And again, we can create three cuts.
+
+You don't always need three.
+
+And there's often clever ways of making the topology work without three loop cuts.
+
+But it is nice and simple.
+
+So back to front view.
+
+We can do the same for the shoulder, but we can actually just put an extra loop cut in here because
+
+it's got one either side.
+
+So control R2, the loop cut and double click to put that in the middle there for the neck and the waist.
+
+I think we're okay.
+
+We've got a fair bit of topology around there for the hip joint.
+
+We could do with an extra loop cut in here.
+
+So control R and bring that up into here.
+
+You can have three for this.
+
+But in the case of the hip, you do get a lot of pinching anyway.
+
+So two should be fine and you'll see the results of this in a moment.
+
+I think it's preferable to put the hip a little bit higher here and maybe bring this one down slightly
+
+to create a touch more space, and then we can tidy these areas up around here.
+
+Our character is a bit androgynous at the moment, so if I want it to be male, then I'll bring the
+
+hips in a bit more female.
+
+They'll just come out slightly more.
+
+Male anatomy is slightly easier for beginners, so I'll just bring it in slightly.
+
+Lastly, we've got the knee and the ankle, so I want you to pause the video here and catch up with
+
+me creating these extra loop cuts.
+
+And I want you to do the same for the knee and the ankle.
+
+Remember, though, that the ankle already has two.
+
+So take that into consideration.
+
+Pause the video and have a go at that.
+
+So hopefully that made sense.
+
+We can select the loop for the knee and control B to Bevel and we've got our three loop cuts there and
+
+we can press control R for the ankle to create three loop cuts there.
+
+Now, our character is very simple.
+
+It hasn't got a thumb or fingers and it hasn't actually got any toes, although there is a loop cut
+
+there for it.
+
+But we're not going to bend the toes just for the sake of simplicity as this is a beginners course.
+
+But if I were going to, I would think about the amount of loop cuts there and on the fingers as well.
+
+But what we've got here should work nicely.
+
+There is one other aspect though.
+
+At the moment it's in a tee pose, so it looks like the letter T coming up here and out here.
+
+Now this is fine and lots of characters are made like this and rigged in this way.
+
+However, I find an A pose is a little bit better, especially for beginners, because the deformation
+
+is kind of easier to control.
+
+So I'll select my entire arm.
+
+I'll make my three D cursor to this point here because then I can rotate around the three D cursor and
+
+bring the arm down to here.
+
+So I'll choose the 3D cursor here R to rotate and bring it down.
+
+So it looks more like an A now hence in a frame.
+
+And at this point I can tidy up the topology a little bit so there's less pinching under the arm, so
+
+it will rig it a little bit better.
+
+So I'll move into the shoulder joint and select these, bring them across slightly.
+
+This one here, bring it up and these here and bring it out.
+
+I'll just be a little bit careful.
+
+There's no overlap, so something like this looks quite nice.
+
+I just want to make one tiny adjustment and bring that back and bring these up slightly.
+
+So the chest is sticking out, but the top of the neck isn't sticking out too much.
+
+Let's go to solid mode just to check on what we've got there and back to object mode and make sure that
+
+looks okay.
+
+It is sometimes helpful to have a slight bend at the arm so we can see our topology when we're rigging.
+
+So that's the last thing we do.
+
+Back into edit mode and I will select these.
+
+Let's go back to x ray mode and select them again.
+
+And in the side view I can just bring them back g then x like this and that works well back to solid
+
+mode, back to object mode.
+
+And this is what we've got.
+
+Okay.
+
+So in the next lecture, we'll set up the armature and the skeleton.
+
+But for now, make sure you've caught up with me just making those minor adjustments to the mesh as
+
+I've done here.
+
+And of course, once you've done that, make sure you've saved your work.
+
+Ready for next time.
 | Thuộc tính | Nội dung |
 |---|---|
 | **Module** | Module 05 — Rigging & Animation |
