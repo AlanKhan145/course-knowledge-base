@@ -1,363 +1,725 @@
 # 064 — Texturing the Wings
-In this lecture, we'll be texturing the wings, moving our UVs into position over our texture.
 
-So here's where we got up to last time.
-
-And as I've done previously, I'm going to come up to the top corner here and bring down a new window
-
-for the shader editor.
-
-So across to the left hand side and change it to the shader editor, I press end to get rid of the side
-
-panel.
-
-And let's zoom in on our material now.
-
-In the resources that come with the lecture, we've got a spitfire texture, so I can click and drag
-
-that into my shader editor.
-
-When I do that, the texture comes into our UV editor.
-
-That's not always the case, so you may have to just select it from the dropdown menu here.
-
-So we've got a spitfire texture and you can see that I've reversed the text on one side, hence why
-
-if I select all my model, we've got two sides to the main body of the plane.
-
-Just a quick note on the texture.
-
-I've got this from Wikimedia Commons and I've adapted it from this photo here.
-
-So a special thanks to Alan Wilson for taking a great photo and allowing people to use it.
-
-So back into Blender, I can now hook my texture up and I'll rename the material plane and let's go
-
-across the menu at the top and into material preview mode.
-
-And we can see the plane texture looks almost random the way it's spread out on our object.
-
-But notice the wings are exactly the same on both sides, the same at the back.
-
-But they're just in the sky at the moment, as you can see there.
-
-And that's because we unwrapped whilst our mirror modifier was on, whereas the main body, we applied
-
-the mirror modifier and then unwrapped it.
-
-So we have two separate UV islands for them.
-
-So pause the video here and catch up with me bringing in your spitfire texture and hooking it up to
-
-the principle beiersdorf and move into material preview mode so you can see that texture on your plane.
-
-Pause the video and have a go at that.
-
-Okay.
-
-Let's take a closer look at the texture.
-
-If I press control spacebar, that will go into full screen mode and zoom in a touch.
-
-Now we can see we haven't got any wings on our texture.
-
-Now you could find a copyright free image of a Spitfires wing and add it to this texture, maybe in
-
-a space such as here.
-
-But I want to show you that it's not always necessary.
-
-It depends on the complexity of your model and how detailed you want to go.
-
-So I press control spacebar to come out of full screen mode and we'll start with the tail wings at the
-
-back so that it's nice and easy to view.
-
-I'm going to press alt a to deselect all and l to select linked and remember that by seam.
-
-So we're selecting that area there.
-
-Do make sure that you select the other side as well.
-
-So l on the other side we'll select that as well.
-
-Now I've got my two islands on top of each other here.
-
-I'll select one of those G to grab and you can see when I move that around, I can move it onto my plane
-
-and we get the texture from the plane.
-
-I'll do that because we want to select both of those islands at the same time and then to grab and move
-
-it on to my plane.
-
-Now you can see it's fairly effective choosing a random position on my plane here.
-
-So we could try having a little bit of text in there.
-
-For example, it's a little bit more tricky if I try and get the target in.
-
-It sort of warps slightly, but it's possible maybe something towards the front of the plane.
-
-We've got this sort of strange yellow line here which is coming across here.
-
-So a position around these numbers somewhere around here, it's not great, but it works reasonably
-
-well.
-
-Notice how I've got part of the texture in the sky just there, and that looks to be the front just
-
-here.
-
-So we can see a tiny bit of sky and it's stretched a little bit there.
-
-It's not too bad, but it's not great.
-
-You may want to scale it down and move it into position where you've got no text and no sky.
-
-Maybe somewhere around here and see how that looks.
-
-It's not too bad, but my panelling, because I've rotated it, is offered a funny angle.
-
-So maybe rotating it isn't the best idea.
-
-Maybe going in line like this is better.
-
-So it's working reasonably well just by placing it onto a random position like this.
-
-Ideally you'd have a texture that has a tail wing in it and a main wing as well.
-
-So I want you to have a go now at moving the UVs of the back tail wing.
-
-You can rotate it and scale it, but try and find a position where the texture kind of fits.
-
-It's probably best not to have any text on it, as that can distort slightly and it doesn't mirror very
-
-well to the other side.
-
-So pause the video and have a go at that.
-
-Now it can get a bit tougher when we come to the main wing.
-
-If I come out a bit and move across to the wing, so alt a to deselect all and then l to select the
-
-top two here.
-
-Let's find those.
-
-There they are.
-
-And like I say, this is a bit tougher for the main wings because they're much bigger.
-
-So now when I try and scale these down and move them into position, if I scale them down very small
-
-and move them into a position of that texture of those panels there, it's not too bad.
-
-But we do start seeing a little bit of graininess as a texture becomes more pixelated, but I think
-
-that's relatively nice.
-
-Probably around here we can get away with and it looks fairly decent.
-
-So that's that position in there.
-
-It's a little bit distorted around the front here, which is probably this area just here.
-
-And maybe I can come in, go across to vertex mode selection and select just that area there and move
-
-it into a new position.
-
-Getting a lot of stretch now, so I probably have to move these two down as well.
-
-Remember, I can't just click once because that will move just one side.
-
-I have to box select to move those into position.
-
-So we're getting a bit of stretch there, which you can see a bit clearer in object mode.
-
-Back to edit mode.
-
-Now though, as those textures become close together, we could box, select those next to and maybe
-
-edge slide them down to reduce that stretch these ones too.
-
-But watch what happens to my texture and particularly this graphic here as I move that down.
-
-That also becomes stretched as we change the size of this face here.
-
-So a little bit of movement there.
-
-So the edge here doesn't become too stretched.
-
-But if I go much further, you can see that graphic being stretched there.
-
-So probably somewhere around about here and that looks relatively good.
-
-A little bit of a line across there of white.
-
-But I think we're okay.
-
-So a fairly successful position just there.
-
-So pause video here, catch it with me and position the UVs of the top of your wings.
-
-Okay.
-
-So we've got the underside of the wings to do.
-
-Now, depending on the use of this, this may not be as important as the top.
-
-You may not see the underside of the plane as much, but we've got to try and find a position for both
-
-of those.
-
-So remember to deselect all and select both of those with L.
-
-And a small challenge to you is to position the UVs of the underside of the main wings and the tail
-
-wings.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So I'll zoom out to find those.
-
-Now, hopefully you remembered you need to go back into island mode if you want to select them as one
-
-big island.
-
-You can do this in vertex mode and just select the whole lot.
-
-Of course, it's just a little bit easier in island mode and we can rotate those, scale them down to
-
-touch and try and move them into a useful position.
-
-We can have it similar to the other one.
-
-So somewhere around about here you can scale this as well if you want to try and make it longer and
-
-thinner.
-
-But of course that does stretch the textures slightly as well.
-
-So you can see if I come over the text there, it's slightly stretched, so a bit of experimentation.
-
-I'll scale that back in the Y there.
-
-Somewhere around here looks quite interesting.
-
-Let's just go into object mode and see what that looks like.
-
-A little bit stretched, but I can go to the vertices and try and change them slightly there.
-
-Just a touch to line that up a bit more.
-
-And it's kind of working okay.
-
-Of course, any text I use is going to have some mirror writing on one side, so maybe going over text
-
-isn't the best idea.
-
-So let's select them all again.
-
-And go over the graphic like we did before.
-
-Rotate that into some sort of position around here.
-
-And that looks fairly good.
-
-Let's zoom in a bit and again into vertex mode and let's move that down slightly.
-
-Move this one down very slightly.
-
-So that very end there hasn't got those distinguishing marks.
-
-Back into object mode to see what that looks like.
-
-That's not too bad.
-
-Okay.
-
-And the back into edit mode again.
-
-These select all l on both those back faces there back to island mode and select both those g to grab.
-
-Scale it down slightly and move it into position, perhaps somewhere around here.
-
-Just double check that.
-
-That's okay.
-
-And that looks alright.
-
-There's a little bit of writing there, but you can't really notice it.
-
-Okay.
-
-So hopefully got an okay with that.
-
-In the next video, we'll be texturing the body and I'll show you some different techniques.
-
-But of course do make sure you saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Texturing the Wings |
-| **Thời lượng** | 8:43 |
-| **Chủ đề chính** | Tạo texture cho cánh |
+| Thuộc tính              | Nội dung                                       |
+| ----------------------- | ---------------------------------------------- |
+| **Module**              | Module 04 — UV Mapping                         |
+| **Bài học**             | Texturing the Wings                            |
+| **Thời lượng**          | 8:43                                           |
+| **Chủ đề chính**        | Định vị UV và tạo texture cho các cánh máy bay |
+| **Phần mềm**            | Blender                                        |
+| **Đối tượng thực hành** | Máy bay Spitfire                               |
+
+---
 
 ## 1. Mục tiêu bài học
-- Thiết lập Material và Shader Node cơ bản cho cánh máy bay bằng Principled BSDF.
-- Gán Image Texture khớp với UV đã unwrap ở bài trước.
-- Hiểu vai trò của các map bổ sung: Base Color, Roughness, Normal Map (nếu có) trong việc tăng độ chi tiết bề mặt cánh.
-- Kiểm tra kết quả texture trong Material Preview / Rendered Shading.
 
-## 2. Nội dung chính
-Sau khi có UV hoàn chỉnh, bước texturing bắt đầu bằng việc tạo Material mới cho cánh trong Shader Editor. Node gốc của mọi vật liệu PBR trong Blender là **Principled BSDF**, kết nối tới output **Material Output**. Để đưa hình ảnh texture lên bề mặt, cần thêm node **Image Texture**, nạp file ảnh (ví dụ texture kim loại/sơn máy bay), và nối đầu ra Color vào input Base Color của Principled BSDF.
+Sau bài học này, người học có thể:
 
-Vì UV đã được unwrap đúng ở bài trước, Image Texture sẽ tự động ánh xạ theo UV Map mặc định của object — không cần thêm node UV Map trừ khi object có nhiều UV Map và cần chỉ định rõ map nào được dùng.
+* Đưa ảnh texture Spitfire vào **Shader Editor**.
+* Kết nối Image Texture với shader **Principled BSDF**.
+* Hiểu ảnh hưởng của **Mirror Modifier** đến UV của hai bên cánh.
+* Chọn từng UV Island bằng lệnh **Select Linked**.
+* Di chuyển, xoay và thu phóng UV Island để tìm vùng texture phù hợp.
+* Điều chỉnh từng UV Vertex nhằm giảm hiện tượng kéo giãn texture.
+* Nhận biết các vấn đề như:
 
-Ngoài Base Color, có thể tăng độ chân thực bằng:
-- **Roughness map hoặc giá trị Roughness thủ công:** kiểm soát độ bóng/mờ của bề mặt (sơn cánh máy bay thường có độ bóng vừa phải, khác với kim loại trần).
-- **Normal Map:** nếu có ảnh normal map, dùng thêm node **Normal Map** trước khi nối vào input Normal của Principled BSDF, giúp bề mặt trông có chi tiết lồi lõm (đinh tán, đường ghép panel) mà không cần thêm hình học thật.
-- **Metallic:** với các chi tiết kim loại trên cánh (viền, bản lề), có thể tăng giá trị Metallic cục bộ bằng cách kết hợp mask hoặc Image Texture riêng.
+  * Texture bị kéo dãn.
+  * Texture bị vỡ hạt hoặc pixel hóa.
+  * Chữ bị đảo ngược do cánh đối xứng.
+  * Một phần UV lấy nhầm vùng bầu trời.
+  * Hoa văn và đường panel bị nghiêng hoặc biến dạng.
 
-Sau khi thiết lập xong, chuyển Viewport Shading sang **Material Preview** hoặc **Rendered** để xem trước kết quả gần với ảnh render thật, kiểm tra texture có bị lệch, kéo dãn hay lặp lại bất thường không.
+---
 
-## 3. Quy trình thực hành gợi ý
-1. Chọn object cánh (hoặc phần mesh cánh nếu material áp theo Face/Material Slot), mở Shading workspace.
-2. Tạo Material mới, đặt tên rõ ràng (ví dụ "Wing_Material").
-3. Thêm node Image Texture, nạp ảnh texture cánh, nối Color vào Base Color của Principled BSDF.
-4. Điều chỉnh Roughness (giá trị số hoặc map) cho phù hợp với chất liệu sơn/kim loại của cánh.
-5. Nếu có Normal Map, thêm node Normal Map, nạp ảnh, nối vào input Normal của Principled BSDF.
-6. Chuyển Viewport Shading sang Material Preview để kiểm tra kết quả trực quan trên toàn bộ cánh.
-7. Quay lại UV Editor nếu phát hiện texture bị lệch, chỉnh sửa island tương ứng.
+## 2. Tổng quan quy trình
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Shift+A` (trong Shader Editor) | Thêm node mới (Image Texture, Normal Map...) |
-| `Ctrl+T` (khi chọn Image Texture node) | Tự động thêm Mapping + Texture Coordinate node |
-| `Z` | Pie menu chuyển Viewport Shading |
-| `N` (trong UV Editor) | Mở sidebar để kiểm tra thông tin UV |
+Quá trình tạo texture cho cánh trong bài học gồm bốn giai đoạn chính:
 
-## 5. Lưu ý & lỗi thường gặp
-- Quên nối node Image Texture vào đúng input (Base Color) khiến vật liệu hiển thị màu xám mặc định của Principled BSDF.
-- Ảnh texture có màu bị sai không gian màu (Color Space) — Base Color nên để "Color", còn Roughness/Normal map nên đặt "Non-Color" trong Image Texture node.
-- UV bị méo từ bài trước sẽ lộ rõ khi áp texture thật, đặc biệt các texture có hoa văn kẻ thẳng (đường panel, chữ số hiệu).
-- Không kiểm tra ở Rendered Shading (Eevee/Cycles) mà chỉ xem Material Preview có thể bỏ sót lỗi ánh sáng/material chỉ xuất hiện khi render thật.
+```text
+Nhập ảnh texture
+        ↓
+Kết nối texture với vật liệu
+        ↓
+Chọn UV Island của từng phần cánh
+        ↓
+Di chuyển – xoay – scale – chỉnh vertex
+        ↓
+Kiểm tra kết quả trên mô hình 3D
+```
 
-## 6. Checklist thực hành
-- [ ] Đã tạo Material và kết nối Image Texture vào Base Color của cánh.
-- [ ] Đã thiết lập Roughness phù hợp với chất liệu cánh.
-- [ ] Đã thêm Normal Map (nếu có) để tăng chi tiết bề mặt.
-- [ ] Đã kiểm tra kết quả bằng Material Preview/Rendered Shading, không còn lỗi UV lệch.
+Bài học không sử dụng một ảnh texture riêng dành cho cánh. Thay vào đó, các UV Island của cánh được đặt lên những vùng phù hợp có sẵn trên texture phần thân máy bay.
 
-## 7. Tóm tắt
-Bài học thiết lập vật liệu và texture cho cánh máy bay bằng Shader Editor và Principled BSDF, tận dụng trực tiếp UV layout đã chuẩn bị, tạo tiền đề cho việc texturing phần thân ở bài tiếp theo.
+Đây là một phương pháp đơn giản, phù hợp khi:
+
+* Mô hình không cần độ chính xác tuyệt đối.
+* Cánh không xuất hiện quá gần camera.
+* Mục tiêu là tạo kết quả trực quan tương đối nhanh.
+* Ảnh texture gốc không có đầy đủ hình ảnh của mọi bộ phận.
+
+---
+
+## 3. Chuẩn bị Shader Editor
+
+### 3.1. Mở thêm Shader Editor
+
+Từ góc của một khu vực giao diện:
+
+1. Kéo để chia thêm một cửa sổ.
+2. Mở menu **Editor Type**.
+3. Chuyển cửa sổ mới thành **Shader Editor**.
+4. Nhấn `N` để đóng Sidebar nếu không cần sử dụng.
+
+Việc mở đồng thời Shader Editor, UV Editor và 3D Viewport giúp theo dõi cả ba yếu tố:
+
+```text
+Shader Editor  → Thiết lập vật liệu
+UV Editor      → Điều chỉnh UV Island
+3D Viewport    → Quan sát texture trên mô hình
+```
+
+---
+
+### 3.2. Nhập ảnh texture
+
+Trong tài nguyên của bài học có một ảnh texture Spitfire.
+
+Có thể nhập ảnh bằng cách:
+
+* Kéo trực tiếp file ảnh vào Shader Editor.
+* Hoặc tạo node **Image Texture** rồi chọn ảnh từ danh sách.
+
+Khi kéo ảnh vào Shader Editor, Blender thường đồng thời hiển thị ảnh đó trong UV Editor. Tuy nhiên, điều này không phải lúc nào cũng xảy ra.
+
+Nếu ảnh chưa xuất hiện trong UV Editor:
+
+1. Mở danh sách ảnh ở thanh trên của UV Editor.
+2. Chọn đúng ảnh texture Spitfire.
+
+---
+
+### 3.3. Kết nối node vật liệu
+
+Kết nối node theo sơ đồ:
+
+```text
+┌───────────────────────┐
+│ Image Texture         │
+│                       │
+│ Color ────────────────┼──────────┐
+└───────────────────────┘          │
+                                   ▼
+                        ┌───────────────────────┐
+                        │ Principled BSDF       │
+                        │                       │
+                        │ Base Color            │
+                        └───────────┬───────────┘
+                                    │ BSDF
+                                    ▼
+                        ┌───────────────────────┐
+                        │ Material Output       │
+                        │ Surface               │
+                        └───────────────────────┘
+```
+
+Thao tác:
+
+1. Chọn node **Image Texture**.
+2. Nối đầu ra `Color` vào đầu vào `Base Color` của Principled BSDF.
+3. Đặt tên vật liệu, chẳng hạn:
+
+```text
+Plane
+```
+
+4. Chuyển 3D Viewport sang **Material Preview** để xem texture trên mô hình.
+
+---
+
+## 4. Vì sao texture ban đầu trông lộn xộn?
+
+Sau khi kết nối texture, hình ảnh trên máy bay có thể trông gần như ngẫu nhiên.
+
+Nguyên nhân là các UV Island chưa được đặt đúng vị trí trên ảnh texture.
+
+Một điểm quan trọng là sự khác nhau giữa phần thân và phần cánh.
+
+### Phần thân máy bay
+
+Mirror Modifier đã được **Apply** trước khi unwrap. Vì vậy, hai bên thân có các UV Island riêng biệt.
+
+```text
+Thân bên trái  → UV Island riêng
+Thân bên phải  → UV Island riêng
+```
+
+### Phần cánh
+
+Cánh được unwrap khi **Mirror Modifier vẫn còn hoạt động**. Vì vậy, UV của hai bên cánh nằm chồng lên nhau.
+
+```text
+Cánh trái
+    └── dùng chung UV Island
+Cánh phải
+```
+
+Kết quả là hai cánh sử dụng cùng một vùng texture và có hình ảnh giống nhau.
+
+Điều này giúp:
+
+* Tiết kiệm không gian UV.
+* Hai cánh có texture đồng nhất.
+* Chỉ cần điều chỉnh một UV Island cho cả hai bên.
+
+Tuy nhiên, nó cũng tạo ra hạn chế:
+
+* Chữ hoặc ký hiệu có thể bị đảo ngược ở một bên.
+* Không thể tạo hoa văn khác nhau cho từng cánh nếu vẫn dùng UV chồng lên nhau.
+
+---
+
+## 5. Tạo texture cho cánh đuôi phía trên
+
+### 5.1. Chọn hai UV Island
+
+Trong Edit Mode:
+
+1. Nhấn `Alt + A` để bỏ chọn toàn bộ.
+2. Di chuột lên một phần cánh đuôi.
+3. Nhấn `L` để chọn phần hình học liên kết.
+4. Chọn phần đối diện tương ứng bằng `L`.
+
+Khi chọn bằng `L`, nên sử dụng tùy chọn giới hạn theo đường seam để chỉ chọn đúng vùng UV mong muốn.
+
+Do hai cánh đối xứng sử dụng chung UV, hai UV Island có thể đang nằm chồng lên nhau.
+
+---
+
+### 5.2. Đặt UV Island lên texture
+
+Trong UV Editor, sử dụng:
+
+* `G`: di chuyển.
+* `S`: thu phóng.
+* `R`: xoay.
+
+Quy trình thử nghiệm:
+
+```text
+Chọn UV Island
+      ↓
+Scale nhỏ lại
+      ↓
+Di chuyển lên vùng thân máy bay
+      ↓
+Quan sát kết quả trong 3D Viewport
+      ↓
+Điều chỉnh lại nếu texture bị méo
+```
+
+Không nhất thiết phải tìm đúng hình ảnh cánh trên texture. Có thể sử dụng một vùng sơn hoặc đường panel trên thân máy bay để tạo cảm giác hợp lý.
+
+---
+
+### 5.3. Những vùng nên tránh
+
+Khi đặt UV cánh đuôi, nên tránh các vùng sau:
+
+#### Vùng bầu trời
+
+Nếu UV Island vượt ra khỏi thân máy bay trong ảnh, cánh có thể xuất hiện một mảng màu xanh của bầu trời.
+
+#### Vùng có nhiều chữ
+
+Chữ dễ bị:
+
+* Kéo giãn.
+* Méo.
+* Đảo ngược ở cánh đối diện.
+* Làm lộ rõ việc UV không khớp chính xác.
+
+#### Vùng có biểu tượng lớn
+
+Các biểu tượng hình tròn hoặc ký hiệu lớn dễ bị biến dạng theo hình dạng của cánh.
+
+#### Vùng có đường panel nghiêng
+
+Nếu xoay UV Island, các đường panel có thể xuất hiện ở góc không tự nhiên.
+
+---
+
+## 6. Tạo texture cho mặt trên của cánh chính
+
+Cánh chính lớn hơn cánh đuôi nên việc tìm vùng texture phù hợp sẽ khó hơn.
+
+### 6.1. Chọn mặt trên cánh
+
+1. Nhấn `Alt + A` để bỏ chọn.
+2. Di chuột lên mặt trên của cánh chính.
+3. Nhấn `L` để chọn vùng liên kết.
+4. Đảm bảo cả hai phần cần thiết đã được chọn.
+
+---
+
+### 6.2. Thu nhỏ UV Island
+
+Vì UV Island của cánh chính khá lớn, cần thu nhỏ để đặt vừa một vùng trên texture:
+
+```text
+S → kéo chuột vào trong
+```
+
+Sau đó sử dụng `G` để đưa UV Island vào vùng có các đường panel hoặc màu sơn tương đối đồng nhất.
+
+---
+
+### 6.3. Lưu ý về độ phân giải
+
+Nếu UV Island bị thu nhỏ quá nhiều, nó chỉ sử dụng một số lượng nhỏ pixel trên ảnh texture.
+
+Khi đó texture có thể:
+
+* Trông mờ.
+* Xuất hiện hạt.
+* Bị pixel hóa.
+* Mất chi tiết đường panel.
+
+Hiện tượng này liên quan đến **Texel Density**.
+
+```text
+UV Island lớn trên texture
+→ sử dụng nhiều pixel
+→ texture rõ hơn
+
+UV Island nhỏ trên texture
+→ sử dụng ít pixel
+→ texture dễ bị mờ hoặc vỡ
+```
+
+Do đó, cần tìm sự cân bằng giữa:
+
+* Vị trí texture phù hợp.
+* Độ chi tiết.
+* Mức độ kéo giãn.
+* Không gian còn trống trên ảnh.
+
+---
+
+## 7. Điều chỉnh từng UV Vertex
+
+Nếu một phần đầu cánh bị méo hoặc lấy nhầm vùng texture, không nhất thiết phải di chuyển toàn bộ UV Island.
+
+Có thể chuyển sang **Vertex Select Mode** trong UV Editor để chỉnh từng điểm.
+
+### Quy trình
+
+1. Chuyển từ Island Select sang **Vertex Select**.
+2. Box Select các vertex ở vùng cần sửa.
+3. Nhấn `G` để di chuyển.
+4. Quan sát kết quả trên mô hình.
+
+Khi UV của hai cánh đang chồng lên nhau, một cú click có thể chỉ chọn vertex của một UV Island.
+
+Vì vậy, nên dùng Box Select:
+
+```text
+B → kéo khung quanh các vertex
+```
+
+Cách này giúp chọn đồng thời vertex của cả hai UV Island chồng lên nhau.
+
+---
+
+## 8. Cân bằng giữa kéo giãn và vị trí texture
+
+Di chuyển một vertex có thể sửa lỗi tại một khu vực nhưng lại làm kéo giãn face bên cạnh.
+
+Ví dụ:
+
+```text
+Di chuyển cạnh đầu cánh xuống
+        ↓
+Giảm vùng texture bị lệch ở đầu cánh
+        ↓
+Face phía sau trở nên dài hơn trong UV
+        ↓
+Biểu tượng hoặc đường panel bị kéo giãn
+```
+
+Vì vậy, không nên chỉ tập trung vào một điểm. Cần quan sát toàn bộ cánh sau mỗi lần chỉnh sửa.
+
+Một quy trình hiệu quả:
+
+1. Di chuyển một lượng nhỏ.
+2. Chuyển sang Object Mode để kiểm tra.
+3. Quay lại Edit Mode.
+4. Điều chỉnh tiếp nếu cần.
+5. Dừng khi đạt mức cân bằng hợp lý.
+
+---
+
+## 9. Tạo texture cho mặt dưới cánh chính
+
+Mặt dưới của cánh thường ít được camera nhìn thấy hơn mặt trên. Vì vậy, độ chính xác có thể không cần cao bằng.
+
+Tuy nhiên, vẫn phải tránh các lỗi rõ ràng như:
+
+* Vùng bầu trời.
+* Chữ lớn.
+* Các mảng màu không liên quan.
+* Texture kéo giãn quá mức.
+
+### Các bước
+
+1. Nhấn `Alt + A` để bỏ chọn.
+2. Nhấn `L` trên từng phần mặt dưới của cánh.
+3. Chuyển sang **Island Select Mode**.
+4. Chọn cả hai UV Island.
+5. Xoay bằng `R` nếu cần.
+6. Thu nhỏ bằng `S`.
+7. Di chuyển bằng `G`.
+8. Kiểm tra trong Object Mode.
+
+Có thể thay đổi tỷ lệ riêng theo từng trục:
+
+```text
+S, X → scale theo chiều ngang
+S, Y → scale theo chiều dọc
+```
+
+Tuy nhiên, scale không đồng đều sẽ làm texture bị kéo dài hoặc ép lại.
+
+---
+
+## 10. Vấn đề chữ bị đảo ngược
+
+Do hai cánh sử dụng UV chồng lên nhau, cùng một vùng texture sẽ được phản chiếu sang phía đối diện.
+
+Nếu vùng texture có chữ:
+
+```text
+Cánh thứ nhất → chữ đọc bình thường
+Cánh đối diện → chữ có thể bị phản chiếu
+```
+
+Vì vậy, nên ưu tiên các vùng:
+
+* Chỉ có màu sơn.
+* Có đường panel đơn giản.
+* Có hoa văn đối xứng.
+* Không chứa chữ hoặc số dễ nhận biết.
+
+Nếu cần chữ hiển thị đúng ở cả hai cánh, phải sử dụng UV riêng cho từng bên, thay vì để chúng chồng lên nhau.
+
+---
+
+## 11. Tạo texture cho mặt dưới cánh đuôi
+
+Thao tác tương tự các phần trước:
+
+1. Trở lại Edit Mode.
+2. Nhấn `Alt + A` để bỏ chọn.
+3. Nhấn `L` trên hai mặt dưới của cánh đuôi.
+4. Chuyển sang Island Select Mode.
+5. Chọn cả hai UV Island.
+6. Nhấn `G` để di chuyển.
+7. Nhấn `S` để điều chỉnh kích thước.
+8. Đặt UV lên vùng texture phù hợp.
+9. Kiểm tra kết quả trong Object Mode.
+
+Vì đây là vùng nhỏ và ít nổi bật, một chút chữ hoặc biến dạng nhẹ có thể không dễ nhận thấy.
+
+---
+
+## 12. Chuyển đổi giữa Edit Mode và Object Mode
+
+Trong quá trình chỉnh UV, nên thường xuyên chuyển đổi giữa hai chế độ:
+
+| Chế độ          | Mục đích                                     |
+| --------------- | -------------------------------------------- |
+| **Edit Mode**   | Chọn face, UV Island và chỉnh các UV Vertex  |
+| **Object Mode** | Quan sát texture trên toàn bộ mô hình rõ hơn |
+
+Phím chuyển đổi:
+
+```text
+Tab
+```
+
+Quy trình lặp lại:
+
+```text
+Edit Mode
+→ chỉnh UV
+→ Tab
+→ Object Mode
+→ kiểm tra
+→ Tab
+→ Edit Mode
+→ tiếp tục chỉnh
+```
+
+Việc kiểm tra thường xuyên giúp phát hiện sớm:
+
+* Texture bị giãn.
+* Đường panel bị lệch.
+* Chữ bị phản chiếu.
+* UV lấy nhầm vùng trời.
+* Màu giữa các phần cánh không đồng nhất.
+
+---
+
+## 13. Phím tắt quan trọng
+
+| Phím tắt          | Chức năng                                |
+| ----------------- | ---------------------------------------- |
+| `Ctrl + Spacebar` | Phóng to hoặc khôi phục khu vực hiện tại |
+| `N`               | Mở hoặc đóng Sidebar                     |
+| `Tab`             | Chuyển giữa Object Mode và Edit Mode     |
+| `Alt + A`         | Bỏ chọn toàn bộ                          |
+| `L`               | Chọn phần hình học hoặc UV liên kết      |
+| `B`               | Box Select                               |
+| `G`               | Di chuyển UV                             |
+| `R`               | Xoay UV                                  |
+| `S`               | Thu phóng UV                             |
+| `S`, `X`          | Scale UV theo trục X                     |
+| `S`, `Y`          | Scale UV theo trục Y                     |
+| `Z`               | Mở Viewport Shading Pie Menu             |
+
+---
+
+## 14. Sơ đồ lựa chọn chế độ UV
+
+```text
+Muốn chọn toàn bộ một phần cánh?
+              │
+              ├── Có → Island Select hoặc nhấn L
+              │
+              └── Không
+                   │
+                   └── Muốn chỉnh một khu vực nhỏ?
+                            │
+                            ├── Vertex Select
+                            │    └── Dùng B để chọn các vertex chồng nhau
+                            │
+                            └── Edge Select
+                                 └── Điều chỉnh cạnh UV
+```
+
+---
+
+## 15. Lỗi thường gặp và cách khắc phục
+
+### 15.1. Texture xuất hiện ngẫu nhiên
+
+**Nguyên nhân:** UV Island chưa được đặt đúng trên ảnh.
+
+**Cách khắc phục:** Chọn từng UV Island và sử dụng `G`, `R`, `S` để định vị lại.
+
+---
+
+### 15.2. Một phần cánh có màu trời
+
+**Nguyên nhân:** Một phần UV Island nằm trên vùng bầu trời của ảnh texture.
+
+**Cách khắc phục:**
+
+* Di chuyển toàn bộ UV Island.
+* Hoặc chỉnh riêng các UV Vertex ở đầu cánh.
+
+---
+
+### 15.3. Chữ xuất hiện ngược
+
+**Nguyên nhân:** Hai cánh sử dụng UV chồng lên nhau và được phản chiếu bởi Mirror Modifier.
+
+**Cách khắc phục:**
+
+* Tránh vùng có chữ.
+* Hoặc tạo UV riêng cho từng cánh nếu cần độ chính xác cao.
+
+---
+
+### 15.4. Texture bị mờ hoặc pixel hóa
+
+**Nguyên nhân:** UV Island bị scale quá nhỏ, chỉ sử dụng rất ít pixel của texture.
+
+**Cách khắc phục:**
+
+* Tăng kích thước UV Island.
+* Sử dụng ảnh texture có độ phân giải cao hơn.
+* Dành nhiều không gian texture hơn cho cánh.
+
+---
+
+### 15.5. Đường panel bị nghiêng
+
+**Nguyên nhân:** UV Island bị xoay không phù hợp với hướng các đường panel trên texture.
+
+**Cách khắc phục:**
+
+* Hạn chế xoay UV quá nhiều.
+* Căn cạnh cánh song song với các đường panel.
+* Thử một vùng texture khác.
+
+---
+
+### 15.6. Một bên UV di chuyển nhưng bên kia không di chuyển
+
+**Nguyên nhân:** Chỉ một UV Vertex hoặc một UV Island trong hai island chồng nhau được chọn.
+
+**Cách khắc phục:** Dùng `B` để Box Select, bảo đảm chọn cả hai lớp UV.
+
+---
+
+### 15.7. Chỉnh một điểm làm vùng khác bị giãn
+
+**Nguyên nhân:** Thay đổi hình dạng UV Face làm tỷ lệ giữa UV và mesh không còn đồng đều.
+
+**Cách khắc phục:**
+
+* Di chuyển nhiều vertex lân cận cùng lúc.
+* Chỉ điều chỉnh từng khoảng nhỏ.
+* Kiểm tra liên tục trong Object Mode.
+* Chấp nhận một mức biến dạng nhỏ nếu vùng đó không nổi bật.
+
+---
+
+## 16. Kinh nghiệm chọn vùng texture
+
+Khi ảnh texture không có hình cánh riêng, nên ưu tiên các vùng theo thứ tự:
+
+1. Vùng màu sơn đồng nhất.
+2. Vùng có đường panel mảnh.
+3. Vùng có hoa văn nhỏ, khó nhận biết.
+4. Vùng có biểu tượng đơn giản.
+5. Vùng có chữ hoặc số chỉ khi không còn lựa chọn khác.
+6. Không nên sử dụng vùng bầu trời hoặc nền ảnh.
+
+Có thể đánh giá nhanh bằng bảng sau:
+
+| Loại vùng texture     | Mức độ phù hợp |
+| --------------------- | -------------: |
+| Màu sơn đồng nhất     |        Rất tốt |
+| Đường panel đơn giản  |            Tốt |
+| Hoa văn nhỏ           |        Khá tốt |
+| Biểu tượng tròn lớn   |     Trung bình |
+| Chữ và số             |      Không nên |
+| Bầu trời hoặc nền ảnh |      Nên tránh |
+
+---
+
+## 17. Quy trình thực hành hoàn chỉnh
+
+### Bước 1: Nhập texture
+
+* Mở Shader Editor.
+* Kéo ảnh Spitfire Texture vào.
+* Chọn ảnh trong UV Editor nếu ảnh chưa tự động hiển thị.
+
+### Bước 2: Thiết lập vật liệu
+
+* Nối `Color` của Image Texture vào `Base Color`.
+* Đặt tên material.
+* Chuyển sang Material Preview.
+
+### Bước 3: Chỉnh cánh đuôi phía trên
+
+* Chọn hai vùng bằng `L`.
+* Di chuyển UV lên vùng không có chữ và bầu trời.
+* Xoay hoặc scale nếu cần.
+
+### Bước 4: Chỉnh mặt trên cánh chính
+
+* Chọn UV Island của cánh chính.
+* Thu nhỏ và định vị lên vùng có đường panel.
+* Kiểm tra hiện tượng pixel hóa.
+* Chỉnh từng vertex nếu đầu cánh bị lệch.
+
+### Bước 5: Chỉnh mặt dưới cánh chính
+
+* Chọn đúng các island mặt dưới.
+* Xoay và scale để tìm vùng phù hợp.
+* Tránh chữ vì một bên sẽ bị phản chiếu.
+
+### Bước 6: Chỉnh mặt dưới cánh đuôi
+
+* Chọn hai UV Island.
+* Scale nhỏ.
+* Đặt vào vùng texture ít nổi bật.
+
+### Bước 7: Kiểm tra toàn bộ mô hình
+
+* Chuyển sang Object Mode.
+* Xoay góc nhìn quanh máy bay.
+* Kiểm tra cả mặt trên và mặt dưới.
+
+### Bước 8: Lưu file
+
+```text
+Ctrl + Shift + S
+```
+
+Nên lưu một phiên bản mới để có thể quay lại nếu phần texturing tiếp theo gặp lỗi.
+
+---
+
+## 18. Checklist thực hành
+
+### Thiết lập vật liệu
+
+* [ ] Đã nhập ảnh Spitfire Texture.
+* [ ] Đã chọn đúng ảnh trong UV Editor.
+* [ ] Đã nối Image Texture vào Base Color.
+* [ ] Đã chuyển sang Material Preview.
+
+### Cánh đuôi
+
+* [ ] Đã chọn đúng UV Island mặt trên.
+* [ ] Đã đặt UV tránh vùng bầu trời.
+* [ ] Đã hạn chế sử dụng vùng có chữ.
+* [ ] Đã hoàn thành mặt dưới cánh đuôi.
+
+### Cánh chính
+
+* [ ] Đã hoàn thành texture cho mặt trên.
+* [ ] Đã hoàn thành texture cho mặt dưới.
+* [ ] Texture không bị pixel hóa quá rõ.
+* [ ] Đầu cánh không bị kéo giãn nghiêm trọng.
+* [ ] Các đường panel có hướng tương đối hợp lý.
+
+### Kiểm tra cuối
+
+* [ ] Đã kiểm tra trong Object Mode.
+* [ ] Đã kiểm tra cả hai bên cánh.
+* [ ] Không có mảng bầu trời rõ ràng trên cánh.
+* [ ] Không có chữ đảo ngược quá dễ nhận thấy.
+* [ ] Đã lưu file trước khi sang bài tiếp theo.
+
+---
+
+## 19. Tóm tắt bài học
+
+Trong bài học này, ảnh texture Spitfire được kết nối với vật liệu của máy bay bằng Shader Editor. Sau đó, các UV Island của cánh chính và cánh đuôi được di chuyển lên những vùng phù hợp của ảnh texture.
+
+Do ảnh không có texture cánh hoàn chỉnh, quá trình này chủ yếu dựa trên thử nghiệm:
+
+```text
+Chọn UV
+→ di chuyển
+→ scale
+→ xoay
+→ kiểm tra
+→ chỉnh vertex
+```
+
+Các cánh được unwrap trong khi Mirror Modifier còn hoạt động nên hai bên sử dụng UV chồng lên nhau. Cách này tiết kiệm không gian UV nhưng có thể khiến chữ và ký hiệu bị phản chiếu.
+
+Điểm quan trọng nhất của bài học là tìm được sự cân bằng giữa:
+
+* Vị trí UV phù hợp.
+* Độ rõ của texture.
+* Mức độ kéo giãn.
+* Hướng của đường panel.
+* Tính đối xứng giữa hai cánh.
+
+Ở bài tiếp theo, phần thân máy bay sẽ được tạo texture bằng một số kỹ thuật khác.

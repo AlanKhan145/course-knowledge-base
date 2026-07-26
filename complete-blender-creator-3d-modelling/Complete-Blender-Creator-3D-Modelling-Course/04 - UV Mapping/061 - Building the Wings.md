@@ -1,474 +1,778 @@
 # 061 — Building the Wings
-In this lecture, we'll be building the tailfin and the different wings.
 
-Okay, so here's where we got up to last time, and I don't really need this panel on the side here
-
-anymore.
-
-So I press end to get rid of that and we'll start working on rounding out the shape of our plane.
-
-So first of all, I can do a loop, cut down the middle, so control R and then a loop cut down the
-
-middle there, double left click.
-
-So it's right in the center.
-
-And at this point I can then come round to the bottom here out left click to select that edge loop going
-
-along the bottom G.G. to edge slide, come in to the middle and jig to edge slide.
-
-So it goes back up.
-
-So that's how we can create those rounded shapes.
-
-So I can select this one here.
-
-TG To edge, slide down and jig to edge slide towards the middle.
-
-Now it does look a little bit strange because we've got this top bit here that looks a little bit out,
-
-but I can go to edge, slide that in towards the middle and jig to edge, slide it down like this.
-
-So we've got a nice rounded out plane like so, so pause the video here and add that edge loop around
-
-the middle, then select your edge loops with alt left click and use the g g command or the edge slide
-
-command to create some roundness to your shape.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So now we need to sort out the back slightly because it should go into a flat position at the back here.
-
-So become less rounded like this all the way towards the back.
-
-And also, you might notice that this line along here sticks out a little bit more than this line.
-
-That's okay.
-
-We can modify those as we go along.
-
-First of all, let's select these back verts here.
-
-And if I press se x and zero, that will scale them in the x axis to zero and therefore line them up.
-
-I can then press g, then x to move them in like this.
-
-Same with these ones s zero.
-
-Enter G, then x to move them inwards.
-
-We could go to top view at this point to line those up.
-
-And that's about right.
-
-I'll select the next one is a long piece.
-
-If I go to Side View, that's where our fin starts from.
-
-So back to top view and I'll press then X just to scale them in slightly but not all the way to zero.
-
-So somewhere around here, then G, then X to move those in.
-
-So it's starting to move out to some sort of roundness there.
-
-These ones I can then scale in the X very slightly and again G then x and move those inwards.
-
-So it slowly comes out to this position here.
-
-I'll just g then x to me that in a slight bit there.
-
-So that's that one that was sticking out there.
-
-And you can see we've got a gradual slope inwards, which is looking reasonably good.
-
-It sticks out a little bit too much with these two.
-
-Hopefully you can see that.
-
-So I can press G than X to move those inwards.
-
-And again, have a good look around, make sure they're roughly in line.
-
-And that's working nicely by the looks of things.
-
-I might bring this one and this one in slightly as well.
-
-G then x it may not follow quite my reference, but I think it will work a bit better.
-
-Okay, I'll take a good look around, make sure that's all.
-
-Okay.
-
-So pause the video here and flatten out the back of your plane's body.
-
-So we're ready for the tail fin.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So now I'm going to go into face mode and select these back to faces for going to side view.
-
-You can see that's where the tail fin is going to extend from now.
-
-If I press E to extrude now and pull that up, if I come back around to perspective view, you can see
-
-that they're sticking out slightly.
-
-So I'll do that and just show you again e to extrude and notice that's extruding along that blue line
-
-there, which is the normals of that face.
-
-So again, I'll undo that.
-
-So when I press E to extrude, if I press Z once, I can move it freely.
-
-But if I press Z again, so in essence said twice, that will actually go upwards along the Z axis.
-
-So I'll go to somewhere like here, go to side view and just line that up.
-
-So scale in the Y.
-
-Teeth, grab art, rotate and scale it out a little bit in the Y.
-
-So it's roughly in the right place.
-
-So somewhere around there and now if I come round to the side and press SW said zero, I've flattened
-
-it out, which should help us for the next extrusion.
-
-So if I go to side view again e to extrude upwards scale in the Y to bring that in to somewhere around
-
-here, I'm not quite following the reference which has this edge loop a little bit lower, but that
-
-should be fine.
-
-Now if I go round to the side here, you can see that it's flattened out, although this edge just at
-
-the end here is a little bit wide.
-
-So I'll go to edge mode there, g g to edge slide to bring that in slightly.
-
-And that looks like it's a little bit more in line.
-
-So back to face mode, select those two top faces side view E to extrude to bring that upwards S to
-
-scale in the Y and move that into position and finish off the other extrusions as well.
-
-One, they're e to extrude and scale that one down as well.
-
-Now it looks like there's an extra line there, but there's not.
-
-And I'll show you why in just a moment.
-
-But for now, I want you to extrude that tail so it goes upwards.
-
-So remember to tap Z twice and you might want to scale in the Z zero to flatten them out as well.
-
-So pause the video and catch up with me.
-
-Okay.
-
-Let's go to side view and I might just want to tidy up a touch.
-
-So let's zoom in a bit.
-
-One to go to vertex mode and I'll just bring this one out slightly.
-
-This one looks a little bit out of place and the bottom here, I can grab those and pull them in these
-
-ones too.
-
-I'll try and make it a little bit more in line actually than the reference.
-
-This one can come in, these can come in slightly and this one can come up slightly by the looks of
-
-things.
-
-This somewhere around here, I'm trying to follow my reference a little bit more now because I need
-
-to extrude from this area for the tail wing.
-
-So probably somewhere around here I think, and it looks like there's a little bit of a mess here.
-
-So TG To edge slide and just slide that down.
-
-So it's roughly in line back to side view, this one can go up slightly and this one across slightly
-
-and I think that looks quite good.
-
-Now to round this out, I can select from the top here down to the bottom here.
-
-So that's control left clicking and drag to edge slide to bring those in and it creates some roundness.
-
-I'm also going to scale in the Z to create some roundness like that as well, just a tiny bit.
-
-And then from this one to this one jig and let's tidy the top up just a touch.
-
-So g to slide those down attach.
-
-Not as good decide for you and maybe just create a bit more roundness around here and a little bit more
-
-curve.
-
-So let's go back into object mode and see how I'm looking.
-
-That's not looking too bad.
-
-Into edit mode, you can see the topology that seems to be working well.
-
-Okay.
-
-So pause the video here and round out the back area of your plane.
-
-Okay.
-
-Let's go back to cyber you.
-
-Incidentally, the topology line that you can see on the reference here is just the rounding out that
-
-I was doing just a moment ago.
-
-And that's why it may look like there's an extra line in the reference.
-
-So now interface mode with three and select these two faces here I can now press I to inset to bring
-
-those in slightly and scale in the Y to bring them in to the right size for the tail wing.
-
-Let's go to top view for this e to extrude outwards to around here.
-
-Let's just check that that's gone out smoothly.
-
-Yes, it has.
-
-There were nice and flat.
-
-There was no angles, so they didn't go up or across.
-
-I can always check with front view if I want to and that looks good.
-
-So back to top view scale in the Y and maybe just adjust these slightly.
-
-So I'll bring this back slightly here.
-
-That looks pretty good.
-
-So select all E to extrude scale in the Y down to somewhere like here g to grab and maybe just bring
-
-these out slightly to there.
-
-Let's see how that's looking.
-
-That seems to be working.
-
-Well, we could select these end ones here, maybe go to proportional edit and scale in the Z.
-
-I'll just bring my circle of influence down and scale those down so it becomes a bit thinner towards
-
-the edge.
-
-I think that would be a bit more accurate than my reference.
-
-In fact.
-
-Okay, that's looking nice and working well, so pause the video here and catch up with me.
-
-First, we need to do the inset of those two faces and then we can extrude out for our tail wing.
-
-Pause the video and have a go that.
-
-Okay.
-
-Let's go to the side view again and just have a look at where our wing is coming from.
-
-So let's zoom in a bit on this.
-
-Now we can see there's an extra loop cut that I missed there and we're using this loop cut for the back
-
-of the wing so I can press control art to a loop cut here and move that along.
-
-And if I go to front view, we're coming out from that face, they're back to side view.
-
-So I believe it's if I go to face mode with three these two faces here, let's just have a quick look
-
-around the plane.
-
-Make sure I'm right there.
-
-That looks about right.
-
-Just go to side view.
-
-Look at our reference.
-
-That seems to be roughly in line, although it can be a little bit confusing around this plane around
-
-the wing.
-
-But we can probably sort that out once we got the base shape.
-
-Remember, let's go to top view for this with seven and extrude outwards so e to extrude to somewhere
-
-like here scale in the Y o and remember I've got proportional edit on so I'll turn that off scale in
-
-the y g to move that into position somewhere around there.
-
-And let's go to edge mode and bring those ones into here.
-
-But before extruding, let's just check what's happening with the direction.
-
-Now it's slightly off, so we need to go to front view.
-
-And first of all, I can scale these in the X zero so they flatten out and move them up slightly to
-
-here scale in the Z and it looks like my whole shape here can come down slightly.
-
-So G then Z with all those selected, they can come down slightly like this, which means I can move
-
-these into position.
-
-Let's just see what's happened there.
-
-That seems to have worked and that's why there's a slight dip in the shape here.
-
-But that seems to work quite well, I think.
-
-So to create that dip, I was able to select all these and I can move them up and downwards like that,
-
-as you can see.
-
-And I line them up with the front view there.
-
-So pause the video here and do that first extrusion and make sure it lines up nicely with the reference.
-
-And once you've done that, I want to challenge you to complete the rest of the wing from here, pause
-
-the video and have a go at that.
-
-Okay.
-
-So I'll select those end faces there.
-
-Back to top view E to extrude outwards to somewhere around here.
-
-And let's just go into perspective mode and see how we're getting on back to front view scale that down
-
-a bit g to grab into position.
-
-Back to top view and I could extrude the wing out and then edit or I could edit.
-
-Now probably easier just to extrude the wing out and then move it into position.
-
-So just about there, I'll move across slightly.
-
-One to go to vertex mode, you could choose edge mode as well.
-
-Move that into position there.
-
-Move that into position there.
-
-This one down to here and this one up to here.
-
-Just have a look how we're looking.
-
-That seems to be looking great to front view and these need to scale down so scale into Z, move them
-
-upwards, a little bit of rotation perhaps.
-
-And this one, they look like they move backwards slightly.
-
-I don't think that makes too much difference though.
-
-So how we looking and it looks like that's working really nicely so into object mode turn off x ray
-
-just so we can see our plane and the body of the planes looking really good there.
-
-Now, the very last thing that I think would be helpful if I zoom in a bit and go into edit mode, is
-
-to select the edge loop here and the edge loop just underneath it and scale in the Z I think is sort
-
-of a bit more roundness to the wing maybe at the back here as well.
-
-So these two scale and the Z.
-
-And I think that works a little bit better.
-
-Anyway, this one at the Frontier gig to edge slide and move that backwards and this edge along here
-
-to bring that forward slightly looks a tiny bit more like a wing.
-
-Then these are minor adjustments which you don't really have to follow along with, but I think it makes
-
-a bit of a difference.
-
-So hopefully got an okay making the wing take a moment to make any adjustments you think are necessary.
-
-Now you've seen the way I've done it.
-
-Once you've done that, make sure you saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Building the Wings |
-| **Thời lượng** | 11:49 |
-| **Chủ đề chính** | Dựng cánh máy bay |
+| Thuộc tính       | Nội dung                                                             |
+| ---------------- | -------------------------------------------------------------------- |
+| **Module**       | Module 04 — UV Mapping                                               |
+| **Bài học**      | Building the Wings                                                   |
+| **Thời lượng**   | 11:49                                                                |
+| **Chủ đề chính** | Bo tròn thân sau, dựng cánh đuôi đứng, cánh đuôi ngang và cánh chính |
 
 ## 1. Mục tiêu bài học
-- Dựng hình cánh máy bay dựa trên ảnh tham chiếu Top/Front.
-- Tạo profile cánh máy bay (airfoil) với độ dày và độ vuốt thon hợp lý.
-- Gắn kết (bridge/join) cánh vào thân máy bay một cách liền mạch.
-- Tiếp tục tận dụng Mirror Modifier để dựng đối xứng cả hai cánh.
 
-## 2. Nội dung chính
-Cánh máy bay có đặc điểm hình học riêng: nhìn từ trên xuống (top view) có hình thang thon dần ra đầu cánh; nhìn từ mặt cắt ngang (cross-section) có dạng airfoil — mặt trên cong nhẹ, mặt dưới phẳng hơn hoặc cong ít hơn, mép trước (leading edge) tròn, mép sau (trailing edge) mỏng nhọn.
+Sau bài học này, bạn có thể:
 
-Cách tiếp cận dựng cánh phổ biến:
-- Bắt đầu từ một mặt phẳng (plane) hoặc trích xuất một số face từ thân máy bay tại vị trí gắn cánh.
-- Extrude dọc theo trục cánh (thường là trục X hoặc Y tùy hướng máy bay) nhiều lần, mỗi lần scale nhỏ dần để tạo độ thon (taper) từ gốc cánh đến đầu cánh.
-- Thêm độ dày cho cánh bằng Solidify Modifier hoặc bằng cách extrude/inset thủ công để tạo mặt cắt airfoil đơn giản (không nhất thiết phải mô phỏng khí động học chính xác cho một dự án học tập cơ bản).
-- Dùng Loop Cut để thêm các đoạn dọc theo chiều dài cánh nếu cần uốn cong nhẹ hoặc thêm chi tiết (ví dụ điểm gắn động cơ, đèn tín hiệu).
+* Bo tròn thân máy bay bằng **Loop Cut** và **Edge Slide**.
+* Thu gọn, làm phẳng phần cuối thân để chuẩn bị dựng đuôi.
+* Extrude trực tiếp từ thân để tạo:
 
-Việc gắn cánh vào thân cần đảm bảo mesh liền mạch, không có khe hở: có thể dùng `Bridge Edge Loops` để nối các cạnh rời giữa gốc cánh và lỗ hổng tương ứng trên thân, hoặc dùng Boolean Modifier (Union) nếu cánh và thân là hai mesh riêng biệt rồi hợp nhất, tuy Boolean thường tạo topology phức tạp hơn cần dọn dẹp sau đó.
+  * **Cánh đuôi đứng** — vertical stabilizer.
+  * **Cánh đuôi ngang** — horizontal stabilizer.
+  * **Cánh chính** — main wings.
+* Dùng các góc nhìn **Top**, **Front** và **Side** để căn hình theo ảnh tham chiếu.
+* Điều chỉnh topology để thân và cánh chuyển tiếp mềm mại.
+* Làm mỏng dần đầu cánh bằng **Proportional Editing**.
 
-Vì máy bay đối xứng, chỉ cần dựng một bên cánh và để Mirror Modifier (đã áp dụng từ bài trước cho thân) tự động tạo cánh còn lại, miễn là cánh được model ở đúng phía và nằm trong phạm vi ảnh hưởng của modifier.
+---
 
-## 3. Quy trình thực hành gợi ý
-1. Xác định vị trí gốc cánh trên thân máy bay dựa theo ảnh tham chiếu Top và Front.
-2. Extrude từ cạnh/mặt thân tại vị trí gắn cánh, kéo dài theo hướng cánh, scale nhỏ dần qua từng lần extrude để tạo độ thon.
-3. Kiểm tra hình dạng cánh từ góc nhìn Top (Numpad 7) để khớp đường viền hình thang trong ảnh tham chiếu.
-4. Thêm độ dày bằng Solidify Modifier hoặc extrude mặt cắt để tạo airfoil đơn giản.
-5. Dùng Bridge Edge Loops hoặc chỉnh tay để nối liền mạch cánh với thân, tránh khe hở hoặc chồng mặt (overlapping faces).
-6. Kiểm tra lại toàn bộ trong Perspective View và xác nhận Mirror Modifier tạo đúng cánh đối xứng bên còn lại.
-7. Recalculate Normals (`Shift+N`) nếu phát hiện mặt bị đảo pháp tuyến sau các thao tác extrude/bridge.
+## 2. Tổng quan quy trình
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `E` | Extrude |
-| `S` | Scale (tạo độ thon dần cho cánh) |
-| `Ctrl+R` | Loop Cut |
-| `Edge menu → Bridge Edge Loops` | Nối liền hai vòng cạnh rời |
-| `Shift+N` | Recalculate Normals (đưa pháp tuyến về đúng hướng ra ngoài) |
-| `Numpad 7` | Góc nhìn Top, dùng để đối chiếu hình dạng cánh |
+```text
+Thân máy bay ban đầu
+        │
+        ▼
+Thêm Loop Cut giữa thân
+        │
+        ▼
+Edge Slide để bo tròn tiết diện
+        │
+        ▼
+Thu hẹp và làm phẳng phần đuôi
+        │
+        ├───────────────┐
+        ▼               ▼
+Cánh đuôi đứng     Cánh đuôi ngang
+        │               │
+        └───────┬───────┘
+                ▼
+      Thêm Loop Cut ở thân
+                │
+                ▼
+        Extrude cánh chính
+                │
+                ▼
+     Căn chỉnh Top/Front/Side
+                │
+                ▼
+       Làm mỏng và bo đầu cánh
+```
 
-## 5. Lưu ý & lỗi thường gặp
-- Scale cánh không đều qua các lần extrude tạo cánh gồ ghề thay vì đường viền thon mượt như trong ảnh tham chiếu.
-- Không kiểm tra góc nhìn Top khiến hình dạng cánh (độ thon, góc quét) bị sai dù nhìn từ Front vẫn có vẻ ổn.
-- Bridge Edge Loops giữa hai vòng cạnh có số lượng vertex không khớp sẽ báo lỗi hoặc tạo topology xoắn; cần đảm bảo số vertex hai bên bằng nhau.
-- Quên kiểm tra normal sau khi bridge/extrude phức tạp dễ gây lỗi bóng đổ đen hoặc mặt trong suốt khi render.
+---
 
-## 6. Checklist thực hành
-- [ ] Đã dựng được hình dạng cánh thon dần theo đúng ảnh tham chiếu Top.
-- [ ] Đã thêm độ dày/mặt cắt airfoil đơn giản cho cánh.
-- [ ] Đã nối cánh với thân liền mạch, không có khe hở.
-- [ ] Đã kiểm tra Mirror Modifier tạo đúng cánh đối xứng và normal không bị đảo.
+## 3. Bo tròn thân máy bay
 
-## 7. Tóm tắt
-Bài học tiếp nối việc dựng thân máy bay bằng cách xây dựng cánh — bộ phận có hình dạng thon và mặt cắt airfoil đặc trưng — rồi gắn kết liền mạch vào thân, tận dụng Mirror Modifier để hoàn thành cả hai bên cánh một cách đối xứng.
+### 3.1. Thêm vòng cạnh ở giữa thân
+
+Trong **Edit Mode**, thêm một vòng cạnh chạy quanh giữa thân:
+
+1. Nhấn `Ctrl + R`.
+2. Di chuột lên thân để hiển thị đường Loop Cut.
+3. Nhấn chuột trái để tạo.
+4. Nhấn chuột phải để đặt vòng cạnh chính xác ở giữa.
+
+Vòng cạnh mới giúp tạo thêm topology để điều chỉnh tiết diện thân máy bay.
+
+### 3.2. Dùng Edge Slide tạo độ cong
+
+Chọn từng vòng cạnh bằng:
+
+```text
+Alt + chuột trái
+```
+
+Sau đó sử dụng:
+
+```text
+G → G
+```
+
+để kích hoạt **Edge Slide**.
+
+Trượt các vòng cạnh:
+
+* Cạnh dưới hướng vào giữa.
+* Cạnh bên điều chỉnh lên hoặc xuống.
+* Cạnh trên trượt nhẹ để tiết diện không bị nhô ra bất thường.
+
+Mục tiêu là biến tiết diện thân từ dạng góc cạnh thành một hình bo tròn mềm mại hơn.
+
+### Nguyên tắc
+
+```text
+Ít vòng cạnh + vị trí hợp lý
+          ↓
+Hình dạng low-poly mềm mại
+          ↓
+Topology vẫn đơn giản, dễ chỉnh sửa
+```
+
+Không cần thêm quá nhiều Loop Cut. Trong phong cách low-poly, vị trí của các vòng cạnh quan trọng hơn số lượng cạnh.
+
+---
+
+## 4. Làm phẳng phần cuối thân máy bay
+
+Phần thân gần đuôi cần dần chuyển từ tiết diện tròn sang một mặt sau hẹp và tương đối phẳng.
+
+### 4.1. Căn thẳng các đỉnh cuối
+
+Chọn các vertex ở cuối thân rồi sử dụng:
+
+```text
+S → X → 0
+```
+
+Thao tác này scale toàn bộ đỉnh được chọn về cùng một tọa độ trên trục X, giúp chúng thẳng hàng.
+
+Sau đó di chuyển chúng vào trong:
+
+```text
+G → X
+```
+
+Lặp lại với các hàng vertex kế tiếp.
+
+### 4.2. Tạo độ thuôn dần
+
+Không nên làm tất cả các vòng cạnh phẳng ngay lập tức. Thay vào đó:
+
+* Vòng cuối cùng: có thể scale về `0` trên trục X.
+* Vòng kế trước: scale nhỏ nhưng không về `0`.
+* Những vòng xa hơn: chỉ thu vào một chút.
+
+Kết quả cần tạo được độ chuyển tiếp:
+
+```text
+Thân rộng và tròn
+      ↓
+Thu hẹp từ từ
+      ↓
+Phần đuôi hẹp và phẳng
+```
+
+### 4.3. Kiểm tra từ Top View
+
+Dùng:
+
+```text
+Numpad 7
+```
+
+để kiểm tra hình dáng từ trên xuống.
+
+Đường viền hai bên thân cần thu vào từ từ, không xuất hiện đoạn lồi hoặc gãy đột ngột.
+
+---
+
+## 5. Dựng cánh đuôi đứng
+
+Cánh đuôi đứng được extrude trực tiếp từ các mặt phía trên ở cuối thân máy bay.
+
+### 5.1. Chọn mặt gốc
+
+Chuyển sang **Face Select**:
+
+```text
+3
+```
+
+Chọn hai mặt phía trên ở phần đuôi.
+
+Dùng **Side View** để kiểm tra vị trí bắt đầu của cánh đuôi:
+
+```text
+Numpad 3
+```
+
+### 5.2. Extrude theo trục Z
+
+Khi nhấn `E`, Blender có thể mặc định extrude theo normal của mặt. Nếu mặt đang nghiêng, phần extrude cũng sẽ bị lệch.
+
+Để ép chuyển động theo trục Z toàn cục, trong trường hợp thao tác đang bị ràng buộc theo normal:
+
+```text
+E → Z → Z
+```
+
+Trong đó:
+
+* Lần nhấn `Z` đầu tiên thay đổi hoặc hủy ràng buộc hiện tại.
+* Lần nhấn `Z` tiếp theo khóa theo trục Z toàn cục.
+
+Extrude cánh lên thành nhiều đoạn nhỏ thay vì kéo một lần duy nhất.
+
+### 5.3. Tạo độ thuôn
+
+Sau mỗi lần extrude:
+
+```text
+S → Y
+```
+
+để làm cánh hẹp dần theo chiều dày.
+
+Có thể dùng:
+
+```text
+S → Z → 0
+```
+
+để làm phẳng một hàng vertex theo chiều cao trước khi tiếp tục extrude.
+
+Quy trình cơ bản:
+
+```text
+Chọn mặt
+   ↓
+Extrude lên
+   ↓
+Scale hẹp lại
+   ↓
+Căn theo Side View
+   ↓
+Extrude đoạn tiếp theo
+```
+
+### 5.4. Điều chỉnh cạnh bằng Edge Slide
+
+Nếu một cạnh ở cánh đuôi quá rộng hoặc lệch vị trí:
+
+1. Chuyển sang **Edge Select** bằng `2`.
+2. Chọn cạnh.
+3. Nhấn `G → G`.
+4. Trượt cạnh đến vị trí phù hợp.
+
+Edge Slide giữ cạnh nằm trên bề mặt hiện tại, hạn chế làm biến dạng topology xung quanh.
+
+---
+
+## 6. Làm tròn vùng nối giữa thân và cánh đuôi
+
+Sau khi extrude, vùng nối giữa thân và cánh đuôi có thể trông khá vuông hoặc gãy.
+
+### 6.1. Chỉnh vertex theo ảnh tham chiếu
+
+Trong **Side View**:
+
+* Di chuyển các vertex ở cạnh trước và cạnh sau.
+* Tạo đường cong nhẹ ở gốc cánh.
+* Làm phần đáy cánh hòa vào thân.
+* Chỉnh đỉnh cánh thuôn dần.
+
+Sử dụng:
+
+```text
+G
+```
+
+hoặc khóa theo từng trục:
+
+```text
+G → X
+G → Y
+G → Z
+```
+
+### 6.2. Trượt các vòng cạnh
+
+Chọn một chuỗi cạnh bằng `Ctrl + chuột trái`, sau đó:
+
+```text
+G → G
+```
+
+để di chuyển chúng gần nhau hơn.
+
+Việc đưa các edge loop lại gần nhau có thể tạo một đoạn cong rõ hơn mà không cần thêm hình học mới.
+
+### 6.3. Kiểm tra trong Object Mode
+
+Nhấn:
+
+```text
+Tab
+```
+
+để tạm chuyển về Object Mode và đánh giá silhouette tổng thể.
+
+Sau đó quay lại Edit Mode để tiếp tục chỉnh topology.
+
+> Một mô hình có topology đều chưa chắc đã đẹp. Cần thường xuyên kiểm tra hình khối trong Object Mode để đánh giá silhouette thực tế.
+
+---
+
+## 7. Dựng cánh đuôi ngang
+
+Cánh đuôi ngang được tạo từ các mặt bên của phần đuôi, ngay dưới cánh đuôi đứng.
+
+### 7.1. Tạo mặt gốc bằng Inset
+
+Chuyển sang Face Select và chọn hai mặt bên tại vị trí gắn cánh.
+
+Nhấn:
+
+```text
+I
+```
+
+để **Inset Faces**, tạo một vùng mặt nhỏ hơn bên trong.
+
+Sau đó dùng:
+
+```text
+S → Y
+```
+
+để điều chỉnh chiều cao hoặc độ rộng của vùng inset, tùy hướng mô hình.
+
+Inset tạo ra topology bao quanh gốc cánh, giúp vùng nối giữa cánh và thân rõ ràng hơn.
+
+### 7.2. Extrude cánh ra ngoài
+
+Chuyển sang **Top View**:
+
+```text
+Numpad 7
+```
+
+Sau đó:
+
+```text
+E
+```
+
+để extrude cánh ra hai bên.
+
+Sau mỗi lần extrude:
+
+* Scale nhỏ dần để tạo độ thuôn.
+* Dùng `G` để điều chỉnh vị trí.
+* So sánh đường viền với ảnh tham chiếu.
+
+Có thể chia cánh thành hai hoặc ba đoạn extrude:
+
+```text
+Gốc cánh → đoạn giữa → đầu cánh
+```
+
+Càng ra xa thân, cánh càng mỏng và hẹp.
+
+### 7.3. Làm mỏng đầu cánh
+
+Chọn các vertex ở đầu cánh và bật **Proportional Editing**:
+
+```text
+O
+```
+
+Sau đó scale theo trục đứng:
+
+```text
+S → Z
+```
+
+Dùng con lăn chuột để điều chỉnh vùng ảnh hưởng.
+
+Kết quả là độ dày cánh giảm dần về phía đầu, thay vì thay đổi đột ngột.
+
+---
+
+## 8. Dựng cánh chính
+
+Cánh chính được tạo bằng cách thêm Loop Cut vào thân rồi extrude các mặt bên ra ngoài.
+
+### 8.1. Tạo Loop Cut xác định mép sau cánh
+
+Trong Side View, xác định vị trí trước và sau của gốc cánh theo ảnh tham chiếu.
+
+Thêm Loop Cut:
+
+```text
+Ctrl + R
+```
+
+Sau đó trượt vòng cạnh đến vị trí phù hợp.
+
+Vòng cạnh này tạo thêm một dải mặt trên thân để sử dụng làm gốc cánh.
+
+### 8.2. Chọn mặt gốc cánh
+
+Chuyển sang Face Select:
+
+```text
+3
+```
+
+Chọn các mặt bên tương ứng với vị trí cánh chính.
+
+Kiểm tra từ nhiều góc:
+
+* **Side View**: kiểm tra vị trí trước–sau.
+* **Front View**: kiểm tra độ cao.
+* **Top View**: kiểm tra góc quét và chiều dài cánh.
+
+### 8.3. Extrude đoạn đầu tiên
+
+Trong Top View:
+
+```text
+E
+```
+
+để extrude mặt ra ngoài.
+
+Sau đó:
+
+```text
+S → Y
+```
+
+để thu hẹp chiều rộng của đoạn cánh.
+
+Nếu **Proportional Editing** vẫn đang bật từ thao tác trước, nên tắt bằng:
+
+```text
+O
+```
+
+trước khi scale, tránh làm biến dạng các phần không mong muốn.
+
+### 8.4. Căn cánh trong Front View
+
+Chuyển sang:
+
+```text
+Numpad 1
+```
+
+Chọn các vertex hoặc cạnh của cánh rồi:
+
+```text
+S → X → 0
+```
+
+hoặc trục tương ứng với hướng mô hình, để làm phẳng hàng vertex.
+
+Sau đó:
+
+```text
+G → Z
+```
+
+để nâng hoặc hạ cánh theo ảnh tham chiếu.
+
+Trong mô hình của bài học, phần cánh có một độ hạ nhẹ so với thân, vì vậy cần kiểm tra Front View thay vì chỉ dựng hoàn toàn phẳng.
+
+---
+
+## 9. Hoàn thiện hình dạng cánh chính
+
+### 9.1. Extrude nhiều đoạn
+
+Tiếp tục chọn các mặt ở đầu cánh rồi extrude:
+
+```text
+E
+```
+
+Sau mỗi đoạn:
+
+* Scale nhỏ hơn.
+* Di chuyển để khớp đường viền.
+* Kiểm tra Perspective View.
+* Quay lại Top hoặc Front View để chỉnh chính xác.
+
+Cách làm phù hợp:
+
+```text
+Extrude đoạn gốc
+      ↓
+Extrude đoạn giữa
+      ↓
+Extrude ra đầu cánh
+      ↓
+Chỉnh từng vertex theo reference
+```
+
+### 9.2. Chỉnh đầu cánh bằng Vertex Select
+
+Chuyển sang Vertex Select:
+
+```text
+1
+```
+
+Điều chỉnh riêng từng vertex để tạo hình đầu cánh:
+
+* Mép trước có thể cong hoặc nhô ra.
+* Mép sau thu lại.
+* Đầu cánh hẹp hơn phần gốc.
+* Chiều dày giảm dần.
+
+Không nhất thiết tất cả vertex phải thẳng hàng tuyệt đối; ưu tiên silhouette phù hợp với ảnh tham chiếu.
+
+### 9.3. Kiểm tra độ cao và góc cánh
+
+Trong Front View:
+
+* Scale đầu cánh theo trục Z để giảm chiều dày.
+* Di chuyển đầu cánh lên hoặc xuống.
+* Xoay nhẹ nếu cánh có góc nghiêng.
+
+Có thể sử dụng:
+
+```text
+R
+```
+
+để xoay phần đầu cánh một góc nhỏ.
+
+---
+
+## 10. Bo tròn profile cánh
+
+Sau khi hoàn thành hình dạng cơ bản, cánh có thể vẫn trông quá vuông.
+
+Chọn các edge loop phía trên và phía dưới cánh:
+
+```text
+Alt + chuột trái
+```
+
+Sau đó scale theo chiều cao:
+
+```text
+S → Z
+```
+
+để tạo độ cong nhẹ.
+
+Có thể tiếp tục:
+
+* Trượt edge loop phía trước về sau.
+* Trượt edge loop phía sau về trước.
+* Điều chỉnh khoảng cách giữa các vòng cạnh.
+
+Mục tiêu không phải tạo airfoil khí động học chính xác, mà tạo một profile low-poly có:
+
+* Mép trước tương đối tròn.
+* Phần giữa có độ dày.
+* Mép sau mỏng hơn.
+* Đầu cánh thuôn.
+
+---
+
+## 11. Vai trò của các góc nhìn
+
+| Góc nhìn             |   Phím tắt | Nội dung cần kiểm tra                           |
+| -------------------- | ---------: | ----------------------------------------------- |
+| **Front View**       | `Numpad 1` | Độ cao, độ nghiêng và độ dày cánh               |
+| **Side View**        | `Numpad 3` | Vị trí cánh trên thân, hình dạng cánh đuôi đứng |
+| **Top View**         | `Numpad 7` | Chiều dài, độ thuôn và góc quét của cánh        |
+| **Perspective View** | `Numpad 5` | Silhouette và hình khối tổng thể                |
+
+Một bộ phận có thể đúng ở một góc nhưng sai ở góc khác. Vì vậy, cần luân phiên kiểm tra cả ba hướng trực giao.
+
+```text
+Top View đúng
+     +
+Front View đúng
+     +
+Side View đúng
+     =
+Hình khối 3D hợp lý
+```
+
+---
+
+## 12. Phím tắt và công cụ quan trọng
+
+| Phím tắt            | Chức năng                               |
+| ------------------- | --------------------------------------- |
+| `N`                 | Hiện hoặc ẩn Sidebar của Viewport       |
+| `Tab`               | Chuyển Object Mode ↔ Edit Mode          |
+| `1`                 | Vertex Select trong Edit Mode           |
+| `2`                 | Edge Select trong Edit Mode             |
+| `3`                 | Face Select trong Edit Mode             |
+| `Ctrl + R`          | Thêm Loop Cut                           |
+| `Alt + chuột trái`  | Chọn một edge loop                      |
+| `Ctrl + chuột trái` | Chọn đường cạnh ngắn nhất giữa hai điểm |
+| `G → G`             | Edge Slide                              |
+| `E`                 | Extrude                                 |
+| `I`                 | Inset Faces                             |
+| `S → X/Y/Z`         | Scale theo một trục                     |
+| `S → X/Y/Z → 0`     | Làm phẳng các vertex theo một trục      |
+| `G → X/Y/Z`         | Di chuyển theo một trục                 |
+| `R`                 | Rotate                                  |
+| `O`                 | Bật hoặc tắt Proportional Editing       |
+| `Numpad 1`          | Front View                              |
+| `Numpad 3`          | Side View                               |
+| `Numpad 7`          | Top View                                |
+| `Numpad 5`          | Perspective ↔ Orthographic              |
+| `Shift + N`         | Recalculate Normals                     |
+
+---
+
+## 13. Lưu ý quan trọng
+
+### 13.1. Extrude có thể đi theo normal
+
+Khi extrude từ một mặt nghiêng, Blender có thể di chuyển phần mới theo normal của mặt thay vì theo trục thế giới.
+
+Hãy kiểm tra đường chỉ hướng xuất hiện khi extrude và khóa lại trục khi cần.
+
+### 13.2. Không chỉ kiểm tra Top View
+
+Cánh có thể đúng hình thang khi nhìn từ trên xuống nhưng:
+
+* Nằm quá cao.
+* Bị nghiêng.
+* Có độ dày không đều.
+* Không nối tự nhiên với thân.
+
+Luôn kiểm tra thêm Front View và Perspective View.
+
+### 13.3. Tắt Proportional Editing sau khi dùng
+
+Nếu quên tắt `O`, thao tác scale hoặc di chuyển một nhóm vertex có thể kéo theo cả vùng thân và làm biến dạng mô hình.
+
+### 13.4. Không extrude cánh trong một bước duy nhất
+
+Extrude toàn bộ chiều dài cánh chỉ bằng một đoạn khiến việc tạo độ thuôn, góc quét và độ dày trở nên khó khăn.
+
+Nên chia thành nhiều đoạn để kiểm soát hình dạng tốt hơn.
+
+### 13.5. Ưu tiên silhouette
+
+Các chỉnh sửa nhỏ như trượt cạnh vài pixel hoặc di chuyển một vertex có thể không giống tuyệt đối ảnh tham chiếu, nhưng vẫn chấp nhận được nếu silhouette tổng thể đẹp và hợp lý.
+
+---
+
+## 14. Lỗi thường gặp và cách khắc phục
+
+| Lỗi                                     | Nguyên nhân                            | Cách khắc phục                                    |
+| --------------------------------------- | -------------------------------------- | ------------------------------------------------- |
+| Thân máy bay vẫn vuông                  | Các edge loop chưa được phân bố hợp lý | Dùng `G → G` để điều chỉnh khoảng cách vòng cạnh  |
+| Phần cuối thân bị gãy                   | Scale các vòng cạnh quá khác nhau      | Tạo độ thu hẹp dần qua nhiều vòng                 |
+| Cánh đuôi đứng bị lệch                  | Extrude theo normal của mặt            | Khóa chuyển động theo trục Z                      |
+| Cánh đuôi ngang quá dày                 | Không scale đầu cánh                   | Scale theo trục Z hoặc dùng Proportional Editing  |
+| Cánh chính không khớp reference         | Chỉ kiểm tra một góc nhìn              | So sánh lần lượt Top, Front và Side View          |
+| Cả thân bị biến dạng khi chỉnh đầu cánh | Proportional Editing vẫn bật           | Nhấn `O` để tắt hoặc giảm vùng ảnh hưởng          |
+| Gốc cánh quá vuông                      | Thiếu topology bao quanh               | Dùng Inset hoặc điều chỉnh edge loop gần gốc cánh |
+| Đầu cánh không thuôn                    | Các lần extrude có cùng kích thước     | Scale nhỏ dần sau từng lần extrude                |
+| Bóng đổ xuất hiện vùng đen              | Normal có thể bị đảo                   | Chọn toàn bộ và nhấn `Shift + N`                  |
+
+---
+
+## 15. Quy trình thực hành đề xuất
+
+### Giai đoạn A — Hoàn thiện thân sau
+
+1. Thêm Loop Cut giữa thân.
+2. Dùng Edge Slide để bo tròn tiết diện.
+3. Chọn các vertex cuối thân.
+4. Scale về cùng trục để làm phẳng.
+5. Thu hẹp dần những vòng cạnh phía trước.
+6. Kiểm tra silhouette trong Top View.
+
+### Giai đoạn B — Cánh đuôi đứng
+
+1. Chọn hai mặt phía trên đuôi.
+2. Extrude lên theo trục Z.
+3. Scale nhỏ dần theo chiều dày.
+4. Lặp lại nhiều đoạn.
+5. Chỉnh vertex trong Side View.
+6. Bo tròn vùng nối với thân.
+
+### Giai đoạn C — Cánh đuôi ngang
+
+1. Chọn mặt bên ở đuôi.
+2. Inset để tạo vùng gốc cánh.
+3. Extrude ra ngoài trong Top View.
+4. Scale nhỏ dần qua từng đoạn.
+5. Làm mỏng đầu cánh bằng Proportional Editing.
+
+### Giai đoạn D — Cánh chính
+
+1. Thêm Loop Cut tại vị trí gốc cánh.
+2. Chọn các mặt bên của thân.
+3. Extrude đoạn gốc.
+4. Căn chiều cao trong Front View.
+5. Extrude thêm các đoạn giữa và đầu.
+6. Chỉnh riêng từng vertex.
+7. Bo profile cánh bằng các edge loop.
+8. Kiểm tra toàn bộ trong Object Mode.
+
+---
+
+## 16. Checklist thực hành
+
+### Thân máy bay
+
+* [ ] Đã thêm Loop Cut giữa thân.
+* [ ] Thân có tiết diện bo tròn hơn.
+* [ ] Phần cuối thân thu hẹp từ từ.
+* [ ] Các vertex cuối thân đã được căn phẳng.
+* [ ] Không còn cạnh nhô ra bất thường.
+
+### Cánh đuôi đứng
+
+* [ ] Được extrude từ các mặt phía trên thân.
+* [ ] Extrude đúng theo trục Z.
+* [ ] Hình dạng thuôn dần lên phía trên.
+* [ ] Vùng nối với thân không quá vuông.
+* [ ] Silhouette khớp tương đối với Side View.
+
+### Cánh đuôi ngang
+
+* [ ] Đã tạo vùng gốc cánh bằng Inset.
+* [ ] Cánh được extrude ra ngoài đúng hướng.
+* [ ] Đầu cánh hẹp và mỏng hơn gốc.
+* [ ] Không bị nghiêng ngoài ý muốn.
+* [ ] Hai bên đối xứng qua Mirror Modifier.
+
+### Cánh chính
+
+* [ ] Gốc cánh nằm đúng vị trí trên thân.
+* [ ] Cánh có độ thuôn từ gốc đến đầu.
+* [ ] Đường viền khớp với Top View.
+* [ ] Độ cao khớp với Front View.
+* [ ] Profile cánh được bo tròn nhẹ.
+* [ ] Không có mặt chồng lên nhau hoặc khe hở.
+* [ ] Proportional Editing đã được tắt sau khi sử dụng.
+* [ ] File đã được lưu trước khi sang bài tiếp theo.
+
+---
+
+## 17. Bài tập tự luyện
+
+Không nhìn lại video, hãy thử:
+
+1. Tạo một bản sao của mô hình.
+2. Thay đổi hình dạng cánh chính:
+
+   * Cánh dài và hẹp.
+   * Cánh ngắn và rộng.
+   * Cánh quét mạnh về phía sau.
+3. Thay đổi cánh đuôi đứng:
+
+   * Cao và hẹp.
+   * Thấp và rộng.
+   * Nghiêng nhẹ về phía sau.
+4. Kiểm tra mỗi thiết kế từ Top, Front, Side và Perspective View.
+5. So sánh silhouette của ba phiên bản.
+
+Mục tiêu của bài tập là hiểu cách vị trí các vertex và edge loop ảnh hưởng đến kiểu dáng tổng thể của máy bay.
+
+---
+
+## 18. Tóm tắt
+
+Trong bài học này, phần thân sau của máy bay được hoàn thiện trước bằng cách thêm **Loop Cut**, sử dụng **Edge Slide** để bo tròn và scale các vertex để tạo phần đuôi thuôn, phẳng.
+
+Từ topology có sẵn trên thân:
+
+* Các mặt phía trên được extrude để tạo **cánh đuôi đứng**.
+* Các mặt bên ở đuôi được inset và extrude để tạo **cánh đuôi ngang**.
+* Một Loop Cut mới được thêm vào thân để xác định gốc **cánh chính**, sau đó cánh được dựng qua nhiều lần extrude và scale.
+
+Kỹ năng quan trọng nhất của bài không chỉ là Extrude, mà là liên tục kiểm tra mô hình từ **Top View**, **Front View**, **Side View** và **Perspective View**. Điều này giúp hình dạng cánh đúng cả về đường viền, độ cao, độ dày và khả năng chuyển tiếp tự nhiên với thân máy bay.

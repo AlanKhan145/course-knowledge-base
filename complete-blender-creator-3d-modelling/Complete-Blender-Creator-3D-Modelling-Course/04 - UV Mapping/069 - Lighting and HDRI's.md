@@ -1,264 +1,692 @@
-# 069 — Lighting and HDRI's
-In this lecture, we'll be looking at lighting and in particular actress and how we can rotate those
-
-to make our scenes look even better.
-
-And I'll be talking a little bit again about Eve and Cycles.
-
-Okay.
-
-So here's where we got up to last time, and I've got my camera at the front of the scene there and
-
-all my buildings curving around the corner.
-
-I'm in the shading workspace and in order to talk about lighting, I'm going to bring across my side
-
-windows here.
-
-Change this one to the 3D viewport and change it to camera view.
-
-I'll zoom in a bit and let's make sure that on rendered.
-
-So we're seeing the final result here but I've also got my 3D viewport next to it so I can make some
-
-decisions on lighting down at the bottom here I've got the shader editor so I can change any materials.
-
-However, this is probably more suitable if I change it to the world tab, then I've got my HDR in the
-
-background so I can change the strength if I need to to affect the lighting.
-
-So pause the video here and catch up with me and set up your workspace accordingly.
-
-Okay.
-
-So you can probably see I'll zoom in a tiny bit more on my camera here.
-
-And in fact, let's get rid of the overlays and the gizmos so we can see a bit more of the final result
-
-there.
-
-Now, you can probably see that it's a little bit flat in the sense that there's not a lot of shadows
-
-and contrast.
-
-And I'm in the render engine, Evy, and that's often a common problem with the shadows cast by our
-
-tree in the background.
-
-Now in the render properties, I can change the ambient occlusion.
-
-Turn that up a bit to give it a little bit more contrast around places.
-
-So a little bit more shading within the crevices.
-
-So I've gone up to 1.4, but that does depend on how big your scene is and it gives it a bit more depth.
-
-So that slightly helps.
-
-We could come down to the shadows option here and turn it to high bit depth, but you don't really notice
-
-a huge amount of difference with that.
-
-Now what we can also do is go into our world settings here.
-
-So I've got my dry plugged in.
-
-And just as a quick reminder, I'll unplug that if I select on my background and press control t that's
-
-with the node wrangler installed and I'll press g to grab to move that down.
-
-You can see that that gives me three nodes, the environment, texture, but also a mapping node and
-
-a texture coordinate.
-
-So I'll just delete those ones and hook up my original once again.
-
-And a quick reminder, the tree is downloaded from Poly Haven and it does offer light into our scene.
-
-Now, the useful thing about the mapping node, which incidentally if I press shift eight add is under
-
-vector and there's mapping, I can use this to rotate my dry.
-
-So with the Z axis, so that's the one going up and down.
-
-Of course I can rotate it around and you can see in the top viewport there my tree rotating around and
-
-I can make the scene look a little bit more interesting.
-
-Maybe having a bit more light in the background like this looks quite stunning.
-
-Maybe a little bit further round away from the light.
-
-Somewhere around there, it looks quite interesting.
-
-So my light's coming from somewhere over here.
-
-If you want to be able to see that, you can in your 3D viewport change to render.
-
-And we can see where the light's coming from, which is there, and therefore giving some shadows from
-
-the buildings on the left to the right.
-
-So pause the video here and have a go at rotating around your dry.
-
-Now if I change across to cycles, so in the random properties across the cycles and I'll change across
-
-to the GPU so it's faster and turn the noise on for both the viewport and the render so it renders much
-
-faster.
-
-We can see that the scene looks a lot more interesting now because of that realistic lighting that cycles
-
-is giving us.
-
-So the sun's coming from over here.
-
-It's bouncing off these and offering a little bit of light here.
-
-Whereas EV, if I jump back to that, has way too much light in our scene and isn't faking it particularly
-
-well.
-
-So my recommendation would be to render in cycles.
-
-However, it does depend on the speed of your machine.
-
-You can set a time limit to each frames, render time.
-
-And if I change this to something like 3 seconds, I can then render out.
-
-And once it gets to 3 seconds it will pause.
-
-Then D noise the image and it looks fairly reasonable.
-
-But I've got a very good graphics card which renders very fast, so 3 seconds for my graphics card may
-
-produce a lot better renders than a lower grade one.
-
-I'll close this down and the reason I would change it to 3 seconds is because we've now got 100 of these
-
-to render.
-
-So it will take us 300 seconds.
-
-So a few minutes.
-
-That's why setting a time limit is very useful.
-
-But for those that haven't got a powerful graphics card, you may want to change it back to EV and you
-
-could try some modifications to increase the shadow intensity.
-
-One example would be to add in a sunlight of our own that we can control.
-
-So shift eight, add light and then sun.
-
-Let's point it from the same direction the sun's coming from.
-
-So over here.
-
-So I'll come to top view G to grab to move it towards that sun over there and point it down towards
-
-my scene like this.
-
-Now under the lighting settings, I'll increase it a tiny bit to something like three.
-
-So it's quite a powerful sun and I'll come to our background and reduce the strength of our background.
-
-I'll just quickly check that the angles, okay.
-
-And reduce the background to zero so I can see exactly how the sun's positioned and bring it up and
-
-then point it down.
-
-So we've got a bit more shadow in our scene like this somewhere around there, I think, and then bring
-
-the background up a little bit more and we've got a bit more shadows being cast from these buildings
-
-here.
-
-I'll just bring the background up a touch more so about 0.3 for the background and a sun value of three
-
-as well.
-
-We could also give this a little bit more yellow, so it looks a little bit more like a sun somewhere
-
-around there, I think.
-
-And the scene's looking a little bit nicer.
-
-It's not ideal and cycles is certainly a lot better, but it does give us that option.
-
-So your challenge then is to set up the lighting for your scene and decide whether you want to use Eve
-
-or cycles.
-
-You might want to do a test in cycles to see how good the image looks with maybe a three second render.
-
-And if that takes too long, then you'll need to set up the lighting within EV and maybe put in an extra
-
-sun.
-
-Once you've done that, save your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Lighting and HDRI's |
-| **Thời lượng** | 6:14 |
-| **Chủ đề chính** | Ánh sáng HDRI trong Eevee và Cycles |
+# 069 — Thiết lập ánh sáng và HDRI
+
+| Thuộc tính         | Nội dung                                                                    |
+| ------------------ | --------------------------------------------------------------------------- |
+| **Module**         | Module 04 — UV Mapping                                                      |
+| **Bài học**        | Lighting and HDRI’s                                                         |
+| **Thời lượng**     | 6:14                                                                        |
+| **Chủ đề chính**   | Thiết lập ánh sáng HDRI, so sánh Eevee và Cycles                            |
+| **Kết quả đầu ra** | Một scene có ánh sáng, bóng đổ và độ tương phản phù hợp để render animation |
+
+---
 
 ## 1. Mục tiêu bài học
-- Hiểu khái niệm HDRI (High Dynamic Range Image) và vai trò của nó trong World Lighting.
-- Biết cách thiết lập Environment Texture trong World Properties bằng Shader Node.
-- Nắm được sự khác biệt khi sử dụng HDRI giữa Eevee và Cycles.
-- Điều chỉnh cường độ (Strength) và góc xoay (Rotation) của HDRI cho phù hợp với scene máy bay.
 
-## 2. Nội dung chính
-**HDRI** là ảnh môi trường có dải sáng động (dynamic range) rất rộng, thường chụp panorama 360° của một không gian thực (bầu trời, studio, ngoại cảnh), dùng để chiếu sáng và phản chiếu môi trường lên toàn bộ scene một cách chân thực mà không cần dựng nhiều nguồn sáng thủ công.
+Sau bài học này, bạn có thể:
 
-Trong Blender, HDRI được thiết lập ở **World Properties**, thông qua Shader Node của World: thêm node **Environment Texture**, nạp file ảnh HDRI (định dạng .hdr hoặc .exr), nối vào input Color của node **Background**, sau đó nối Background vào **World Output**. Có thể điều chỉnh:
-- **Strength:** cường độ sáng tổng thể mà HDRI cung cấp cho scene.
-- **Mapping + Texture Coordinate (Generated):** thêm node Mapping trước Environment Texture để xoay góc HDRI (Rotation Z), thay đổi hướng nguồn sáng chính mà không cần xoay toàn bộ scene.
+* Thiết lập không gian làm việc để quan sát ánh sáng trong scene.
+* Điều chỉnh cường độ ánh sáng của HDRI.
+* Xoay HDRI để thay đổi hướng chiếu sáng.
+* Cải thiện độ tương phản và bóng đổ trong Eevee.
+* So sánh chất lượng ánh sáng giữa Eevee và Cycles.
+* Thiết lập giới hạn thời gian render cho từng frame.
+* Bổ sung đèn Sun khi Eevee không tạo được bóng đổ đủ rõ.
+* Chọn render engine phù hợp với cấu hình máy tính.
 
-Về khác biệt giữa hai render engine:
-- **Eevee** (Eevee Next trong Blender 4.2+): là engine rasterization thời gian thực, HDRI ảnh hưởng ánh sáng và phản chiếu (reflection) dựa trên xấp xỉ (probe phản chiếu, Screen Space Reflections...). Cần đảm bảo **Light Probes** (Reflection Cubemap/Irradiance Volume) được đặt hợp lý nếu muốn phản chiếu HDRI chính xác trên các bề mặt bóng (kim loại thân/cánh máy bay), mặc dù với World HDRI cơ bản, ánh sáng nền và phản chiếu môi trường mặc định đã hoạt động khá tốt trực tiếp.
-- **Cycles:** là engine raytracing, HDRI được lấy mẫu (sample) trực tiếp như một nguồn sáng thực sự, cho phản chiếu và ánh sáng gián tiếp (global illumination) chính xác hơn nhưng thời gian render lâu hơn, đặc biệt với hình ảnh có nhiều bề mặt phản chiếu như thân kim loại máy bay.
+---
 
-Với dự án máy bay, HDRI bầu trời (sky HDRI) là lựa chọn tự nhiên, vừa cung cấp ánh sáng mặt trời hợp lý, vừa tạo phản chiếu bầu trời/mây trên bề mặt kim loại/sơn bóng của máy bay.
+## 2. Bối cảnh scene
 
-## 3. Quy trình thực hành gợi ý
-1. Chuyển sang tab Shading, chọn World (thay vì Object) ở phía trên Shader Editor.
-2. Thêm node Environment Texture (`Shift+A → Texture → Environment Texture`), nạp file HDRI bầu trời.
-3. Nối Environment Texture vào Background, Background vào World Output (thường đã có sẵn, chỉ cần thay Color input).
-4. Thêm Texture Coordinate (Generated) + Mapping node trước Environment Texture để có thể xoay HDRI sau này.
-5. Chuyển Viewport Shading sang Rendered để xem trực tiếp hiệu ứng ánh sáng HDRI trên máy bay.
-6. Thử chuyển đổi giữa Eevee và Cycles trong Render Properties, quan sát khác biệt về phản chiếu và chất lượng ánh sáng.
-7. Điều chỉnh Strength và Rotation Z của Mapping node để có góc chiếu sáng đẹp nhất cho máy bay.
+Ở đầu bài học, scene đã có:
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Shift+A` (Shader Editor, World) | Thêm node Environment Texture, Mapping... |
-| `Z` | Chuyển Viewport Shading sang Rendered để xem trước HDRI |
-| World Properties → Surface | Truy cập nhanh thiết lập World Shader không cần Shader Editor |
-| Render Properties → Render Engine | Chuyển đổi giữa Eevee và Cycles |
+* Máy bay được animate bay qua các tòa nhà.
+* Các tòa nhà được sắp xếp thành một tuyến đường cong.
+* Camera đặt ở phía trước scene.
+* HDRI được sử dụng làm ánh sáng môi trường.
+* Shader Editor đang được mở trong workspace **Shading**.
 
-## 5. Lưu ý & lỗi thường gặp
-- Chọn nhầm ngữ cảnh node (đang chỉnh Object Material thay vì World) khiến không thấy Environment Texture ảnh hưởng gì tới scene.
-- HDRI có Strength quá cao/quá thấp khiến scene bị cháy sáng (overexposed) hoặc quá tối.
-- Không thêm Mapping node khiến không thể xoay hướng chiếu sáng của HDRI khi cần đổi góc mặt trời.
-- Chỉ xem trước ở Eevee mà không kiểm tra Cycles (hoặc ngược lại) có thể dẫn đến bất ngờ về sự khác biệt phản chiếu khi render engine cuối cùng khác với lúc preview.
+Mục tiêu tiếp theo là làm cho scene có:
 
-## 6. Checklist thực hành
-- [ ] Đã thiết lập Environment Texture với ảnh HDRI trong World Shader.
-- [ ] Đã thêm Mapping node để có thể xoay hướng HDRI.
-- [ ] Đã so sánh kết quả ánh sáng/phản chiếu giữa Eevee và Cycles.
-- [ ] Đã điều chỉnh Strength/Rotation cho ánh sáng phù hợp với scene máy bay.
+* Bóng đổ rõ hơn.
+* Độ tương phản tốt hơn.
+* Hướng ánh sáng đẹp hơn.
+* Chiều sâu không gian rõ ràng hơn.
 
-## 7. Tóm tắt
-Bài học giới thiệu HDRI như một phương pháp chiếu sáng môi trường nhanh và chân thực, thiết lập qua World Shader Node, đồng thời làm rõ khác biệt xử lý HDRI giữa Eevee và Cycles — chuẩn bị ánh sáng hoàn chỉnh cho bài render animation cuối cùng.
+---
+
+## 3. Thiết lập workspace để chỉnh ánh sáng
+
+Trong workspace **Shading**, chia giao diện thành các khu vực sau:
+
+| Khu vực                   | Công dụng                                          |
+| ------------------------- | -------------------------------------------------- |
+| **Camera View**           | Xem trước bố cục cuối cùng                         |
+| **3D Viewport**           | Quan sát và điều chỉnh các đối tượng, nguồn sáng   |
+| **Shader Editor — World** | Chỉnh HDRI và ánh sáng môi trường                  |
+| **Properties Editor**     | Chuyển render engine và chỉnh các thiết lập render |
+
+### Bố cục gợi ý
+
+```text
+┌──────────────────────────┬──────────────────────────┐
+│                          │                          │
+│       Camera View        │       3D Viewport        │
+│                          │                          │
+├──────────────────────────┴──────────────────────────┤
+│                                                    │
+│              Shader Editor — World                 │
+│                                                    │
+└────────────────────────────────────────────────────┘
+```
+
+### Các bước thực hiện
+
+1. Chuyển sang workspace **Shading**.
+2. Đổi một cửa sổ thành **3D Viewport**.
+3. Chuyển viewport đó sang **Camera View**.
+4. Bật chế độ **Rendered** để xem ánh sáng gần với kết quả cuối.
+5. Trong Shader Editor, chuyển từ **Object** sang **World**.
+6. Có thể tắt **Overlays** và **Gizmos** trong Camera View để hình ảnh dễ quan sát hơn.
+
+---
+
+## 4. Vấn đề ánh sáng ban đầu
+
+Trong Eevee, scene ban đầu có thể trông hơi phẳng vì:
+
+* Bóng đổ chưa rõ.
+* Các vùng tiếp xúc giữa vật thể thiếu độ tối.
+* Mặt trước và mặt sau của các tòa nhà có độ sáng gần giống nhau.
+* Ánh sáng môi trường từ HDRI phủ tương đối đều lên toàn bộ scene.
+
+Kết quả là scene thiếu chiều sâu và độ tương phản.
+
+---
+
+## 5. Tăng độ tương phản bằng Ambient Occlusion
+
+Trong phiên bản Blender được sử dụng trong khóa học, có thể bật **Ambient Occlusion** trong Render Properties.
+
+Ambient Occlusion giúp tạo thêm vùng tối tại:
+
+* Góc tường.
+* Khe giữa các vật thể.
+* Chân tòa nhà.
+* Những khu vực có các bề mặt nằm gần nhau.
+* Các phần bị che khuất khỏi ánh sáng môi trường.
+
+Giảng viên tăng giá trị Ambient Occlusion lên khoảng:
+
+```text
+1.4
+```
+
+Tuy nhiên, giá trị phù hợp phụ thuộc vào:
+
+* Kích thước scene.
+* Khoảng cách giữa các vật thể.
+* Cường độ HDRI.
+* Phong cách hình ảnh mong muốn.
+
+> Ambient Occlusion không thay thế ánh sáng vật lý. Nó chủ yếu là một hiệu ứng bổ sung để tăng cảm giác tiếp xúc và chiều sâu.
+
+Ngoài ra, có thể bật tùy chọn bóng đổ có độ chính xác cao hơn, chẳng hạn **High Bit Depth**, nhưng trong scene này sự khác biệt không quá lớn.
+
+---
+
+## 6. Cấu trúc World Shader sử dụng HDRI
+
+HDRI được thiết lập trong **World Shader** bằng các node chính:
+
+```text
+Texture Coordinate
+        │
+        ▼
+     Mapping
+        │
+        ▼
+Environment Texture
+        │ Color
+        ▼
+    Background
+        │
+        ▼
+   World Output
+```
+
+### Vai trò của từng node
+
+| Node                    | Vai trò                                       |
+| ----------------------- | --------------------------------------------- |
+| **Texture Coordinate**  | Cung cấp tọa độ để định hướng ảnh môi trường  |
+| **Mapping**             | Điều chỉnh vị trí, tỉ lệ và góc xoay của HDRI |
+| **Environment Texture** | Nạp ảnh HDRI                                  |
+| **Background**          | Kiểm soát màu và cường độ ánh sáng môi trường |
+| **World Output**        | Xuất World Shader ra toàn bộ scene            |
+
+---
+
+## 7. Thêm nhanh Mapping bằng Node Wrangler
+
+Khi đã bật add-on **Node Wrangler**, có thể:
+
+1. Chọn node **Environment Texture**.
+2. Nhấn:
+
+```text
+Ctrl + T
+```
+
+Node Wrangler sẽ tự động thêm:
+
+* **Texture Coordinate**
+* **Mapping**
+
+Sau đó kết nối chúng với Environment Texture.
+
+Nếu thêm thủ công:
+
+```text
+Shift + A
+→ Vector
+→ Mapping
+```
+
+---
+
+## 8. Xoay HDRI để thay đổi hướng ánh sáng
+
+Một trong những lợi ích lớn nhất của node Mapping là có thể xoay HDRI mà không cần xoay toàn bộ scene.
+
+Trong node **Mapping**, thay đổi:
+
+```text
+Rotation Z
+```
+
+Thao tác này sẽ xoay ảnh HDRI quanh scene.
+
+### Khi xoay HDRI, những yếu tố sau sẽ thay đổi
+
+* Vị trí mặt trời hoặc vùng sáng nhất.
+* Hướng bóng đổ.
+* Mặt nào của tòa nhà được chiếu sáng.
+* Cường độ vùng sáng phía sau scene.
+* Phản chiếu môi trường trên các vật liệu.
+* Độ nổi bật của máy bay so với hậu cảnh.
+
+### Nguyên tắc lựa chọn góc HDRI
+
+Một góc HDRI tốt thường tạo ra:
+
+* Một phía của tòa nhà sáng.
+* Phía còn lại tối hơn.
+* Bóng đổ chạy theo một hướng rõ ràng.
+* Máy bay tách biệt khỏi hậu cảnh.
+* Vùng sáng không làm mất chi tiết vật thể.
+
+```text
+Vùng sáng HDRI
+      ☀
+       ╲
+        ╲  ánh sáng
+         ╲
+     ┌─────────┐
+     │ Tòa nhà │ ─────────► Bóng đổ
+     └─────────┘
+```
+
+Nên vừa xoay HDRI vừa quan sát:
+
+* Camera View.
+* Rendered View.
+* Hướng bóng đổ trong 3D Viewport.
+
+---
+
+## 9. Điều chỉnh Strength của HDRI
+
+Node **Background** có tham số **Strength**, dùng để kiểm soát cường độ ánh sáng từ HDRI.
+
+| Strength | Hiệu ứng                                   |
+| -------: | ------------------------------------------ |
+| Quá thấp | Scene tối, thiếu chi tiết                  |
+| Vừa phải | Ánh sáng cân bằng, bóng đổ dễ quan sát     |
+|  Quá cao | Scene phẳng, cháy sáng và thiếu tương phản |
+
+Trong Eevee, nếu HDRI tạo quá nhiều ánh sáng đều, có thể giảm Strength để nguồn sáng Sun bổ sung tạo bóng đổ rõ hơn.
+
+---
+
+## 10. So sánh Eevee và Cycles
+
+### 10.1. Eevee
+
+Eevee ưu tiên tốc độ và khả năng xem trước theo thời gian thực.
+
+**Ưu điểm:**
+
+* Render nhanh.
+* Thích hợp với máy cấu hình thấp hoặc trung bình.
+* Phù hợp để kiểm tra animation.
+* Dễ xem trước ánh sáng trong viewport.
+
+**Hạn chế trong scene này:**
+
+* Ánh sáng có thể trông phẳng.
+* Ánh sáng gián tiếp không chân thực bằng Cycles.
+* HDRI có thể làm toàn bộ scene sáng tương đối đồng đều.
+* Cần bổ sung Ambient Occlusion hoặc đèn Sun để tăng bóng đổ.
+
+---
+
+### 10.2. Cycles
+
+Cycles mô phỏng đường đi của ánh sáng bằng ray tracing.
+
+**Ưu điểm:**
+
+* Ánh sáng tự nhiên hơn.
+* Bóng đổ chân thực hơn.
+* Ánh sáng có thể phản xạ giữa các tòa nhà.
+* Các vùng khuất nhận được ánh sáng gián tiếp hợp lý.
+* HDRI hoạt động như một nguồn sáng môi trường thực tế hơn.
+
+**Hạn chế:**
+
+* Render chậm hơn.
+* Đòi hỏi nhiều tài nguyên máy tính.
+* Render animation nhiều frame có thể mất nhiều thời gian.
+
+### So sánh tổng quát
+
+| Tiêu chí              | Eevee                    | Cycles                      |
+| --------------------- | ------------------------ | --------------------------- |
+| Tốc độ                | Rất nhanh                | Chậm hơn                    |
+| Ánh sáng gián tiếp    | Xấp xỉ                   | Chân thực hơn               |
+| Bóng đổ               | Cần tinh chỉnh           | Tự nhiên hơn                |
+| HDRI                  | Nhanh nhưng có thể phẳng | Ánh sáng và phản xạ tốt hơn |
+| Phù hợp               | Preview, máy yếu         | Render cuối, máy mạnh       |
+| Animation nhiều frame | Tiết kiệm thời gian      | Cần tối ưu kỹ               |
+
+---
+
+## 11. Thiết lập Cycles để render nhanh hơn
+
+Khi chuyển sang Cycles:
+
+1. Mở **Render Properties**.
+2. Chọn:
+
+```text
+Render Engine: Cycles
+```
+
+3. Nếu máy có GPU phù hợp, chọn:
+
+```text
+Device: GPU Compute
+```
+
+4. Bật **Denoise** cho:
+
+   * Viewport.
+   * Render cuối.
+
+Denoise giúp giảm nhiễu sau khi render, cho phép sử dụng số sample thấp hơn hoặc thời gian render ngắn hơn.
+
+---
+
+## 12. Giới hạn thời gian render cho từng frame
+
+Vì animation có nhiều frame, thời gian render cho mỗi frame ảnh hưởng rất lớn đến tổng thời gian.
+
+Trong bài học, animation có khoảng:
+
+```text
+100 frame
+```
+
+Nếu đặt giới hạn:
+
+```text
+3 giây/frame
+```
+
+Thời gian render lý thuyết là:
+
+```text
+100 × 3 = 300 giây
+```
+
+Tương đương khoảng:
+
+```text
+5 phút
+```
+
+Sau khi đạt giới hạn thời gian, Blender sẽ dừng lấy mẫu và áp dụng Denoise.
+
+### Công thức ước tính
+
+```text
+Tổng thời gian ≈ Số frame × Thời gian mỗi frame
+```
+
+Ví dụ:
+
+| Số frame | Thời gian/frame | Tổng thời gian lý thuyết |
+| -------: | --------------: | -----------------------: |
+|      100 |          3 giây |                   5 phút |
+|      100 |         10 giây |          16 phút 40 giây |
+|      250 |          5 giây |          20 phút 50 giây |
+|      500 |         10 giây |    1 giờ 23 phút 20 giây |
+
+> Thời gian thực tế có thể dài hơn do quá trình tải scene, lưu file, denoise và ghi từng frame ra ổ đĩa.
+
+---
+
+## 13. Giải pháp thay thế trong Eevee: thêm đèn Sun
+
+Nếu máy không đủ mạnh để render Cycles, có thể tiếp tục sử dụng Eevee và bổ sung một đèn Sun.
+
+### Thêm đèn Sun
+
+```text
+Shift + A
+→ Light
+→ Sun
+```
+
+### Quy trình thiết lập
+
+1. Thêm đèn **Sun**.
+2. Chuyển sang góc nhìn từ trên xuống.
+3. Đặt và xoay Sun sao cho hướng sáng gần giống vùng mặt trời trong HDRI.
+4. Tạm giảm Strength của HDRI xuống gần `0`.
+5. Điều chỉnh góc Sun để quan sát bóng đổ rõ ràng.
+6. Tăng lại Strength của HDRI để bổ sung ánh sáng môi trường.
+7. Cân bằng giữa Sun và HDRI.
+
+Trong ví dụ của bài học:
+
+```text
+Sun Strength ≈ 3
+HDRI Background Strength ≈ 0.3
+```
+
+Đây chỉ là giá trị tham khảo, không phải giá trị bắt buộc.
+
+---
+
+## 14. Phối hợp HDRI và Sun trong Eevee
+
+Cách phối hợp ánh sáng:
+
+```text
+HDRI
+ ├─ Cung cấp ánh sáng môi trường
+ ├─ Làm sáng các vùng trong bóng râm
+ └─ Tạo hình ảnh nền và phản chiếu môi trường
+
+Sun
+ ├─ Tạo hướng sáng chính
+ ├─ Tạo bóng đổ rõ ràng
+ └─ Tăng độ tương phản cho scene
+```
+
+### Sơ đồ ánh sáng
+
+```text
+                 HDRI
+        ánh sáng môi trường đều
+             ↘   ↓   ↙
+
+          ┌─────────────┐
+Sun ─────►│    Scene    │─────► Bóng đổ
+          └─────────────┘
+
+HDRI Strength thấp  +  Sun mạnh
+        │
+        ▼
+Scene có ánh sáng nền nhưng vẫn giữ bóng rõ
+```
+
+---
+
+## 15. Điều chỉnh màu của đèn Sun
+
+Màu trắng hoàn toàn có thể làm ánh sáng trông hơi lạnh hoặc nhân tạo.
+
+Có thể chỉnh màu Sun hơi ngả:
+
+* Vàng nhạt.
+* Cam nhạt.
+* Vàng kem.
+
+Điều này giúp nguồn sáng giống ánh nắng hơn.
+
+Không nên dùng màu vàng quá đậm vì có thể:
+
+* Làm sai màu vật liệu.
+* Khiến toàn bộ scene bị ám màu.
+* Làm vùng sáng trông không tự nhiên.
+
+---
+
+## 16. Quy trình lựa chọn render engine
+
+```text
+Bắt đầu
+   │
+   ▼
+Thử render một frame bằng Cycles
+   │
+   ├─ Chất lượng tốt và thời gian chấp nhận được
+   │            │
+   │            ▼
+   │       Dùng Cycles
+   │
+   └─ Render quá chậm
+                │
+                ▼
+          Chuyển sang Eevee
+                │
+                ▼
+     Giảm HDRI + thêm Sun + tăng tương phản
+```
+
+### Gợi ý quyết định
+
+* Dùng **Cycles** khi ưu tiên chất lượng hình ảnh.
+* Dùng **Eevee** khi ưu tiên tốc độ.
+* Trước khi render toàn bộ animation, luôn render thử một vài frame.
+* Kiểm tra cả những frame có nhiều vật thể và bóng đổ phức tạp.
+
+---
+
+## 17. Phím tắt và công cụ liên quan
+
+| Phím tắt hoặc công cụ | Chức năng                                         |
+| --------------------- | ------------------------------------------------- |
+| `Shift + A`           | Thêm object, light hoặc shader node               |
+| `Ctrl + T`            | Node Wrangler: thêm Texture Coordinate và Mapping |
+| `G`                   | Di chuyển object hoặc node                        |
+| `R`                   | Xoay object                                       |
+| `Z`                   | Mở menu Viewport Shading                          |
+| `Numpad 0`            | Chuyển sang Camera View                           |
+| `Numpad 7`            | Góc nhìn từ trên xuống                            |
+| **Rendered View**     | Xem trước ánh sáng và vật liệu                    |
+| **World Shader**      | Chỉnh HDRI và Background Strength                 |
+| **Render Properties** | Chọn Eevee hoặc Cycles                            |
+| **Denoise**           | Giảm nhiễu trong Cycles                           |
+| **Time Limit**        | Giới hạn thời gian lấy mẫu cho mỗi frame          |
+
+---
+
+## 18. Lỗi thường gặp
+
+### 18.1. Xoay node Mapping nhưng HDRI không thay đổi
+
+**Nguyên nhân có thể:**
+
+* Mapping chưa được nối với Environment Texture.
+* Đang chỉnh Material Shader thay vì World Shader.
+* Đang thay đổi sai trục xoay.
+* Viewport chưa ở chế độ Rendered.
+
+**Cách khắc phục:**
+
+* Kiểm tra chuỗi kết nối node.
+* Chuyển Shader Editor sang **World**.
+* Điều chỉnh **Rotation Z**.
+* Bật Rendered View.
+
+---
+
+### 18.2. Scene quá sáng và không có bóng rõ
+
+**Nguyên nhân:**
+
+* HDRI Strength quá cao.
+* Ánh sáng môi trường lấn át nguồn sáng chính.
+* Eevee không mô phỏng ánh sáng gián tiếp giống Cycles.
+
+**Cách khắc phục:**
+
+* Giảm Background Strength.
+* Thêm đèn Sun.
+* Tăng Ambient Occlusion.
+* Thử render bằng Cycles.
+
+---
+
+### 18.3. Scene quá tối sau khi giảm HDRI
+
+**Cách khắc phục:**
+
+* Tăng nhẹ Background Strength.
+* Tăng Sun Strength.
+* Điều chỉnh hướng Sun.
+* Kiểm tra Color Management và Exposure.
+
+---
+
+### 18.4. Cycles render quá chậm
+
+**Cách khắc phục:**
+
+* Chuyển sang GPU Compute.
+* Bật Denoise.
+* Giảm số sample.
+* Đặt Time Limit.
+* Giảm độ phân giải khi render thử.
+* Render một vùng nhỏ trước khi render toàn bộ.
+* Chuyển sang Eevee nếu cần.
+
+---
+
+### 18.5. Hướng Sun không khớp với HDRI
+
+Nếu Sun chiếu từ bên trái nhưng vùng mặt trời trong HDRI nằm bên phải, ánh sáng sẽ thiếu nhất quán.
+
+**Cách khắc phục:**
+
+1. Tạm giảm Background Strength về `0`.
+2. Chỉnh Sun cho bóng đổ đúng hướng.
+3. Tăng HDRI trở lại.
+4. Xoay HDRI để vùng sáng khớp với Sun.
+
+---
+
+## 19. Quy trình thực hành đề xuất
+
+### Bước 1 — Chuẩn bị workspace
+
+* Mở Camera View.
+* Mở một 3D Viewport riêng.
+* Chuyển Shader Editor sang World.
+* Bật Rendered View.
+
+### Bước 2 — Kiểm tra HDRI
+
+* Kiểm tra Environment Texture.
+* Thêm Texture Coordinate và Mapping.
+* Xoay Rotation Z.
+* Chọn hướng ánh sáng đẹp nhất.
+
+### Bước 3 — Thử với Eevee
+
+* Điều chỉnh Ambient Occlusion.
+* Giảm hoặc tăng HDRI Strength.
+* Kiểm tra bóng đổ.
+
+### Bước 4 — Thử với Cycles
+
+* Chuyển sang GPU Compute.
+* Bật Denoise.
+* Đặt giới hạn khoảng 3 giây cho một frame thử nghiệm.
+* Render một frame để đánh giá.
+
+### Bước 5 — Tối ưu Eevee nếu Cycles quá chậm
+
+* Thêm Sun.
+* Đặt hướng Sun khớp với HDRI.
+* Điều chỉnh Sun Strength.
+* Giảm HDRI Strength để tăng độ tương phản.
+
+### Bước 6 — Lưu dự án
+
+Sau khi chọn được thiết lập ánh sáng phù hợp:
+
+```text
+File → Save
+```
+
+Nên lưu thêm một phiên bản dự phòng trước khi render animation.
+
+---
+
+## 20. Thử thách cuối bài
+
+Thiết lập ánh sáng hoàn chỉnh cho scene và quyết định sử dụng:
+
+* **Cycles** với HDRI và Denoise; hoặc
+* **Eevee** với HDRI, Ambient Occlusion và đèn Sun bổ sung.
+
+Hãy render thử ít nhất một frame trước khi quyết định.
+
+### Câu hỏi tự đánh giá
+
+1. Hướng ánh sáng có làm nổi bật máy bay không?
+2. Các tòa nhà có bóng đổ rõ ràng không?
+3. Scene có đủ độ tương phản không?
+4. Vùng sáng có bị cháy không?
+5. Vùng tối có còn nhìn thấy chi tiết không?
+6. Thời gian render mỗi frame có phù hợp không?
+7. HDRI và đèn Sun có cùng hướng chiếu sáng không?
+
+---
+
+## 21. Checklist thực hành
+
+* [ ] Đã thiết lập Camera View và Rendered View.
+* [ ] Đã chuyển Shader Editor sang World.
+* [ ] Đã thêm hoặc kiểm tra Environment Texture.
+* [ ] Đã thêm Texture Coordinate và Mapping.
+* [ ] Đã thử xoay HDRI bằng Rotation Z.
+* [ ] Đã điều chỉnh Background Strength.
+* [ ] Đã kiểm tra Ambient Occlusion trong Eevee.
+* [ ] Đã thử render một frame bằng Cycles.
+* [ ] Đã bật GPU Compute nếu máy hỗ trợ.
+* [ ] Đã bật Denoise.
+* [ ] Đã ước tính tổng thời gian render animation.
+* [ ] Đã thử thêm Sun nếu tiếp tục dùng Eevee.
+* [ ] Đã cân bằng HDRI Strength và Sun Strength.
+* [ ] Đã lưu file sau khi hoàn tất.
+
+---
+
+## 22. Tóm tắt bài học
+
+Bài học tập trung vào việc hoàn thiện ánh sáng cho scene animation bằng HDRI.
+
+Các điểm quan trọng nhất gồm:
+
+* HDRI vừa cung cấp hình nền vừa chiếu sáng toàn bộ scene.
+* Node Mapping cho phép xoay HDRI và thay đổi hướng ánh sáng.
+* Eevee render nhanh nhưng có thể cần Ambient Occlusion và đèn Sun để tạo bóng rõ hơn.
+* Cycles cho ánh sáng, bóng đổ và phản xạ chân thực hơn nhưng render chậm hơn.
+* Denoise và Time Limit giúp kiểm soát thời gian render Cycles.
+* Trước khi render toàn bộ animation, cần thử nghiệm một vài frame và ước tính tổng thời gian.
+* Sau khi hoàn thành ánh sáng, lưu dự án để chuẩn bị cho bước render animation tiếp theo.

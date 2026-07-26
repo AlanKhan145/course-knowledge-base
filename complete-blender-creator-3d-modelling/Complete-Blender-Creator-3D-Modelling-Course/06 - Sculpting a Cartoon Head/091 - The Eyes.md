@@ -1,306 +1,776 @@
-# 091 — The Eyes
-In this lecture, we'll be adding eyeballs and working on the shape of the eye socket and eyelids.
-
-Okay.
-
-So here's what we got up to last time.
-
-And at this point, it's quite handy to get the eyeballs in so we can sculpt around them.
-
-Now, you can go back to layout mode for this, or you can just change to object mode.
-
-So control tab and then across to object mode.
-
-As you can see, we're an object mode.
-
-Now I can then shift right click to move my 3D cursor and that would be something helpful to be able
-
-to see.
-
-So I'll go up to the overlays and just make sure my 3D cursor is visible there and then shift to add
-
-mesh and then you vSphere once again.
-
-Now the front of it looks a little bit like an eyeball, and when we come to texture that will be really
-
-helpful.
-
-So I press our x 90 so that it's pointing forwards and then I'll scale it right down to somewhere around
-
-here.
-
-Then I'll go into front view, zoom in a touch.
-
-And again, it does depend a lot on your character as to how big you want the eyeballs to be.
-
-Stylized females often have bigger eyeballs and the men have smaller eyeballs, and for men it doesn't
-
-matter too much.
-
-You could go smaller, you bigger, smaller, sometimes looks a little bit more sinister and bigger
-
-looks a bit more friendly.
-
-So I'll scale mine down because this is going to be perhaps a criminal mastermind or something like
-
-that with a normal human sized eyeball.
-
-You have six eyeballs across.
-
-You can even press shift D and move it across in the x axis.
-
-So it's touching shift R to repeat the last action and create six of these, select them all and then
-
-G to grab in the X and move them into position and then you can scale them down and get the right kind
-
-of size somewhere around here.
-
-So I'll just move them across to they are actually in the center around about there and you can see
-
-that just where the cranium ends there, we've got six fitting in and then I can go in and delete the
-
-ones that I don't need.
-
-It's possibly a bit over complicated to do it like that, especially with stylized characters.
-
-You can just get your eye and make it roughly the right size for the look and feel of the character.
-
-In terms of position of the eye, this would be roughly the correct position.
-
-We'd probably bring it back in very slightly, but for a stylized character that's a little bit sinister
-
-G, then X and move it in a bit further.
-
-So they're quite close together.
-
-I'll come around to side view and just position that as well.
-
-So I'll press G to grab in the Y to move it backwards and we're round about there.
-
-I'll just zoom out just a touch.
-
-And if we look at the blender units, I'm a couple of small blender units away from the bridge of the
-
-nose, so pause the video and add an eyeball and position it so that it's similar to mine.
-
-Now we've done that.
-
-We of course need to merit to the other side.
-
-So we'll use a mirror modifier.
-
-So select the spanner, add modifier mirror.
-
-Now at the moment it's mirroring on itself to where the origin is just there.
-
-But if I use a mirror object and use my picker to pick the person, it's going to use their origin and
-
-therefore jump to the other side.
-
-And we've got a very strange looking person now, so pause the video here and add in your mirror modifier
-
-and choose the person as the mirror object.
-
-You may want to label your objects at this point because we have got two spheres in the scene and that
-
-could get confusing.
-
-So with this one, I call it head and this one I call Eyes.
-
-Of course, it's just one object that's mirrored, so it is both the eyes.
-
-So at this point, we can do a little bit of modification to the shape.
-
-Now we know where the eyes are.
-
-So I'll select on the character, make sure you do that first before going into scope mode, then go
-
-to scope mode, control tab, scope mode and we can start moving the brown line and things into position.
-
-Now just a quick note from side view.
-
-There's the top of my eyes just here along this green.
-
-Again, this is a stylized character, so it can be off slightly and I might move my brow down slightly
-
-because I want their head and cranium to look a bit bigger, like they've got a big brain and they're
-
-a criminal mastermind.
-
-So I'll go back to the grab brush and resize my brush and start pulling that down and I'll give you
-
-a bit of a frown.
-
-So more down on these front bits here and less so on these back bits here.
-
-Also, it tends to stick out a bit the brow line.
-
-So this bit goes in a touch and the brown line comes out a bit like this, a little bit of a dent in
-
-the middle and bring those out here round about there.
-
-You can make this more prominent if you want them to look a bit more Neanderthal.
-
-But a round about there looks good.
-
-I bring this back very slightly.
-
-We want to be able to put the eyelid in here in a moment.
-
-That's about right.
-
-I'll bring this in a little bit closer and maybe smooth that out.
-
-Just a touch.
-
-Not quite such a massive hook like that, but something like this I think works well.
-
-I might want to squeeze this back a little bit further.
-
-So we've got a lot of space to put in some eyelids that looks about right.
-
-So pause the video here and work on the eye socket.
-
-So it's similar to mine.
-
-Okay.
-
-So for the eyelids, we'll want to find a mesh.
-
-So shift our and we'll bring this down to 0.02.
-
-It can be fairly rough like mine is just here left click and then control our to mesh we've got this
-
-fine mesh now the clay strips is kind of handy for this and I'll show you on a different part of the
-
-mesh what that does reduce my brush with F and it's strips like this basically and of course digging
-
-in would be like this.
-
-So if I use the clay strips and pull out the mesh for the eyelid just here looks a bit messy at the
-
-moment.
-
-I'll do the same at the bottom and then we'll tied it up in a moment so you can see this sort of very
-
-puffy eyes.
-
-But as I start to smooth out, I'll make my brush a little bit bigger and just tap whilst holding down
-
-shift to slowly smooth it out like this.
-
-That's looking a bit better now.
-
-We can either use the grab brush or we could start drawing a bit more.
-
-But the grab brush is probably just as easy.
-
-I can pull this out now so it overlaps the eyelid and the top of the eyelid is assuming that this is
-
-our pupil and this is our iris.
-
-We cover just a bit of the iris up like this, and the inside of the eye comes down a touch like this.
-
-So there's that classic sort of almond shape, and this tends to be a little bit lower down here, and
-
-you might want to push it back a little bit as well.
-
-So it goes around the eyes and then for the bottom eyelid, I'll just even it out a bit to the bottom
-
-of the iris works quite nicely.
-
-So just tapping away, moving this mesh and let's zoom out.
-
-And that's about right a bit of a squint on our character will work fine.
-
-The brown line looks a little bit high now, so I'll just bring that down a little bit more.
-
-This sort of thing comes with a bit of experience and let's just have a good look around and we're kind
-
-of getting there.
-
-I could possibly come back a little bit there, a little bit of touching up.
-
-Try not to add too much detail at this stage.
-
-Okay, so we've got some eyes in and that looks kind of fun.
-
-So pause the video here and add in your eyelids.
-
-They can be quite puffy like mine for the moment.
-
-We can add some detail to these later on.
-
-Then once you've done the eyelids, have a good look around, make sure you're happy with your shape
-
-and save your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 06 — Sculpting a Cartoon Head |
-| **Bài học** | The Eyes |
-| **Thời lượng** | 6:40 |
-| **Chủ đề chính** | Điêu khắc mắt |
+# 091 — The Eyes: Tạo mắt, hốc mắt và mí mắt
+
+| Thuộc tính       | Nội dung                                 |
+| ---------------- | ---------------------------------------- |
+| **Module**       | Module 06 — Sculpting a Cartoon Head     |
+| **Bài học**      | The Eyes                                 |
+| **Thời lượng**   | 6 phút 40 giây                           |
+| **Phần mềm**     | Blender                                  |
+| **Chủ đề chính** | Tạo cầu mắt, hốc mắt, chân mày và mí mắt |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Tạo hốc mắt (eye sockets) hợp lý về mặt giải phẫu cách điệu cho nhân vật hoạt hình.
-- Sử dụng quả cầu tạm (temporary sphere) làm khối cầu mắt để định vị và định hình mí mắt xung quanh.
-- Luyện tập brush Crease và Draw/Clay Strips ở quy mô nhỏ hơn so với bài Base Shape.
-- Hiểu vai trò của bố cục mắt trong biểu cảm nhân vật hoạt hình.
+Sau bài học này, người học có thể:
 
-## 2. Nội dung chính
+* Thêm một **UV Sphere** làm cầu mắt tham chiếu.
+* Xác định kích thước và vị trí mắt phù hợp với tính cách nhân vật.
+* Dùng **Mirror Modifier** để tạo mắt đối xứng.
+* Điều chỉnh vùng hốc mắt và chân mày bằng brush **Grab**.
+* Đắp mí mắt trên và mí mắt dưới bằng **Clay Strips**.
+* Sử dụng **Smooth** để làm mềm bề mặt vùng mắt.
+* Kiểm tra hình khối khuôn mặt từ nhiều góc nhìn trước khi tiếp tục.
 
-Mắt là một trong những đặc điểm quan trọng nhất quyết định "tính cách" của nhân vật hoạt hình. Quy trình phổ biến để sculpt mắt:
+---
 
-1. Thêm tạm một hoặc hai UV Sphere nhỏ làm khối cầu mắt (eyeball placeholder) — không sculpt trực tiếp mà chỉ dùng để tham chiếu vị trí, kích thước.
-2. Trên mesh đầu, dùng brush **Crease** hoặc **Draw** ở strength thấp để khoét nhẹ hốc mắt xung quanh vị trí quả cầu.
-3. Dùng brush **Inflate** hoặc **Clay Strips** để đắp mí mắt trên và mí mắt dưới bao quanh khối cầu, tạo cảm giác mí mắt "ôm" lấy mắt.
-4. Dùng **Grab** để tinh chỉnh vị trí, kích thước hốc mắt sao cho hai bên đối xứng (nhờ Symmetry X).
-5. Dùng **Smooth** để làm mượt chuyển tiếp giữa mí mắt và phần còn lại của khuôn mặt.
+## 2. Vai trò của mắt trong thiết kế nhân vật
 
-Với phong cách hoạt hình (cartoon/stylized), mắt thường được phóng đại kích thước và đặt thấp/rộng hơn tỷ lệ giải phẫu thực tế để tạo nét dễ thương hoặc biểu cảm đặc trưng — đây là lựa chọn nghệ thuật quan trọng cần cân nhắc trước khi khoét hốc mắt.
+Mắt là một trong những bộ phận ảnh hưởng mạnh nhất đến tính cách và cảm xúc của nhân vật.
 
-## 3. Quy trình thực hành gợi ý
+### Ảnh hưởng của kích thước mắt
 
-- Thêm một Icosphere nhỏ, đặt tạm vào vị trí mắt mong muốn trên đầu (chỉ dùng làm mốc tham chiếu).
-- Dùng Crease nhẹ để phác viền hốc mắt quanh khối cầu tạm.
-- Dùng Clay Strips/Inflate để đắp mí mắt trên và dưới.
-- Kiểm tra đối xứng hai mắt qua Symmetry X, chỉnh Grab nếu lệch.
-- Smooth toàn bộ vùng mắt để chuyển tiếp mượt với khuôn mặt.
-- Ẩn/xóa quả cầu tạm sau khi hốc mắt đã định hình ổn (có thể giữ lại một quả cầu chính thức làm eyeball sau này).
+| Đặc điểm mắt           | Cảm giác thường tạo ra                  |
+| ---------------------- | --------------------------------------- |
+| Mắt lớn                | Thân thiện, trẻ trung, dễ thương        |
+| Mắt nhỏ                | Nghiêm nghị, bí hiểm, đáng ngờ          |
+| Hai mắt gần nhau       | Tạo cảm giác sắc sảo hoặc hơi nham hiểm |
+| Hai mắt xa nhau        | Tạo cảm giác ngây thơ, hiền lành        |
+| Chân mày thấp, cau lại | Giận dữ, tập trung hoặc nguy hiểm       |
+| Mí mắt khép nhẹ        | Nghi ngờ, khó chịu hoặc đang quan sát   |
 
-## 4. Phím tắt & công cụ liên quan
+Trong bài học, nhân vật được định hướng theo phong cách **criminal mastermind** — một nhân vật phản diện có trí tuệ lớn. Vì vậy:
 
-| Phím tắt / Brush | Chức năng |
-|---|---|
-| Brush **Crease** | Khoét viền hốc mắt |
-| Brush **Inflate/Deflate** | Phồng lên/hóp vào để tạo mí mắt |
-| Brush **Clay Strips** | Đắp khối mí mắt |
-| Brush **Grab** | Tinh chỉnh vị trí, kích thước hốc mắt |
-| `Shift` (giữ) | Smooth tạm thời |
-| `X` | Symmetry đối xứng hai mắt |
-| `Ctrl` (giữ) | Đảo chiều brush (Inflate → Deflate) |
+* Kích thước mắt được giữ tương đối gần với mắt người thật.
+* Hai mắt được đặt hơi gần nhau.
+* Chân mày được kéo xuống tạo biểu cảm cau có.
+* Phần hộp sọ phía trên được giữ lớn để tạo cảm giác nhân vật có bộ não lớn.
 
-## 5. Lưu ý & lỗi thường gặp
+---
 
-- Khoét hốc mắt quá sâu ngay từ đầu khiến khó chỉnh sửa lại tỷ lệ sau này.
-- Hai mắt không đối xứng do quên bật Symmetry hoặc chỉnh tay một bên.
-- Quên đặt quả cầu tham chiếu mắt khiến khó ước lượng đúng kích thước hốc mắt.
-- Mí mắt bị "dính" thẳng vào bề mặt da mà không có độ dày/chuyển tiếp tự nhiên.
+## 3. Quy trình tổng quát
 
-## 6. Checklist thực hành
+```text
+Chuyển sang Object Mode
+        ↓
+Thêm UV Sphere làm cầu mắt
+        ↓
+Xoay và thu nhỏ cầu mắt
+        ↓
+Đặt vị trí theo mặt trước và mặt bên
+        ↓
+Thêm Mirror Modifier
+        ↓
+Chọn đầu làm Mirror Object
+        ↓
+Quay lại Sculpt Mode
+        ↓
+Điều chỉnh hốc mắt và chân mày
+        ↓
+Remesh với kích thước nhỏ hơn
+        ↓
+Đắp mí mắt bằng Clay Strips
+        ↓
+Smooth và chỉnh bằng Grab
+        ↓
+Kiểm tra từ nhiều góc nhìn
+        ↓
+Lưu file
+```
 
-- [ ] Đã thêm quả cầu tham chiếu cho vị trí mắt.
-- [ ] Đã khoét hốc mắt bằng Crease.
-- [ ] Đã đắp mí mắt bằng Clay Strips/Inflate.
-- [ ] Hai mắt đối xứng và cân đối qua Symmetry X.
-- [ ] Vùng mắt đã được Smooth chuyển tiếp mượt với khuôn mặt.
+---
 
-## 7. Tóm tắt
+# 4. Phần 1 — Thêm cầu mắt
 
-Bài học hướng dẫn cách điêu khắc hốc mắt và mí mắt cho nhân vật hoạt hình bằng cách dùng quả cầu tham chiếu, kết hợp các brush Crease, Inflate và Clay Strips, chú trọng tính đối xứng và tỷ lệ cách điệu phù hợp phong cách cartoon.
+## 4.1. Chuyển sang Object Mode
+
+Từ Sculpt Mode, nhấn:
+
+```text
+Ctrl + Tab
+```
+
+Sau đó chọn:
+
+```text
+Object Mode
+```
+
+Cầu mắt là một object riêng biệt nên cần được tạo trong Object Mode.
+
+---
+
+## 4.2. Hiển thị 3D Cursor
+
+Mở menu **Viewport Overlays** và bảo đảm tùy chọn hiển thị **3D Cursor** đang được bật.
+
+Sau đó có thể dùng:
+
+```text
+Shift + chuột phải
+```
+
+để đặt 3D Cursor gần vị trí muốn tạo mắt.
+
+---
+
+## 4.3. Thêm UV Sphere
+
+Sử dụng:
+
+```text
+Shift + A
+→ Mesh
+→ UV Sphere
+```
+
+UV Sphere được sử dụng thay vì sculpt trực tiếp cầu mắt trên mesh đầu.
+
+Lợi ích:
+
+* Dễ xác định kích thước mắt.
+* Dễ định vị hốc mắt.
+* Giúp mí mắt được tạo theo đúng độ cong.
+* Có thể giữ lại để làm cầu mắt chính thức khi tạo vật liệu sau này.
+
+---
+
+## 4.4. Xoay cầu mắt về phía trước
+
+Sau khi tạo UV Sphere, xoay nó 90 độ quanh trục X:
+
+```text
+R → X → 90 → Enter
+```
+
+Việc này giúp phần trước của UV Sphere hướng về phía trước khuôn mặt, thuận lợi hơn khi tạo texture cho mắt sau này.
+
+---
+
+## 4.5. Thu nhỏ cầu mắt
+
+Dùng:
+
+```text
+S
+```
+
+để thu nhỏ UV Sphere đến kích thước phù hợp.
+
+Kích thước không cần hoàn toàn chính xác về giải phẫu. Nó phụ thuộc vào phong cách nhân vật:
+
+* Nhân vật nữ cách điệu thường có mắt lớn hơn.
+* Nhân vật nam có thể có mắt nhỏ hơn.
+* Mắt lớn khiến nhân vật thân thiện hơn.
+* Mắt nhỏ khiến nhân vật trông đáng ngờ hoặc nham hiểm hơn.
+
+---
+
+# 5. Ước lượng kích thước mắt
+
+Một tỷ lệ tham khảo đối với đầu người tương đối thực tế là:
+
+```text
+Chiều rộng phần sọ ≈ 6 lần chiều rộng một cầu mắt
+```
+
+Có thể kiểm tra bằng cách:
+
+1. Nhân đôi cầu mắt.
+2. Xếp khoảng sáu cầu mắt liên tiếp theo chiều ngang.
+3. So sánh tổng chiều rộng với phần sọ.
+4. Điều chỉnh kích thước cầu mắt.
+5. Xóa các bản sao không cần thiết.
+
+### Phím tắt liên quan
+
+```text
+Shift + D
+```
+
+Nhân đôi object.
+
+```text
+G → X
+```
+
+Di chuyển bản sao theo trục X.
+
+```text
+Shift + R
+```
+
+Lặp lại thao tác vừa thực hiện.
+
+> Cách đo bằng sáu cầu mắt chỉ là phương pháp tham khảo. Với nhân vật cartoon, có thể lựa chọn kích thước tự do dựa trên cảm giác hình ảnh.
+
+---
+
+# 6. Định vị cầu mắt
+
+## 6.1. Kiểm tra từ mặt trước
+
+Chuyển sang Front View và điều chỉnh vị trí cầu mắt.
+
+```text
+G → X
+```
+
+để di chuyển theo chiều ngang.
+
+Trong bài học, mắt được đưa hơi gần đường giữa khuôn mặt nhằm tạo cảm giác sắc sảo và hơi nham hiểm.
+
+---
+
+## 6.2. Kiểm tra từ mặt bên
+
+Chuyển sang Side View và sử dụng:
+
+```text
+G → Y
+```
+
+để đẩy cầu mắt vào trong hoặc ra ngoài khuôn mặt.
+
+Cầu mắt không nên:
+
+* Nằm hoàn toàn bên ngoài đầu.
+* Lún quá sâu vào hộp sọ.
+* Cắt xuyên qua sống mũi.
+* Đặt quá xa khỏi hốc mắt dự kiến.
+
+Mục tiêu là để phần trước cầu mắt lộ ra vừa đủ, đồng thời vẫn còn không gian để tạo mí mắt bao quanh.
+
+---
+
+# 7. Tạo mắt đối xứng bằng Mirror Modifier
+
+## 7.1. Thêm Mirror Modifier
+
+Chọn object cầu mắt, sau đó mở:
+
+```text
+Modifier Properties
+→ Add Modifier
+→ Mirror
+```
+
+Nếu không đặt Mirror Object, Blender sẽ đối xứng object dựa trên chính **origin của cầu mắt**. Điều này thường không tạo ra kết quả mong muốn.
+
+---
+
+## 7.2. Chọn đầu làm Mirror Object
+
+Trong thiết lập Mirror Modifier:
+
+1. Tìm trường **Mirror Object**.
+2. Dùng công cụ Eyedropper.
+3. Chọn object đầu nhân vật.
+
+Khi đó, mắt sẽ được phản chiếu qua origin của đầu, tạo thành mắt còn lại ở phía đối diện.
+
+```text
+Cầu mắt bên trái
+        │
+        │ Mirror qua origin của đầu
+        ↓
+Cầu mắt bên phải
+```
+
+Object mắt vẫn chỉ là một object gốc nhưng được hiển thị thành hai mắt nhờ modifier.
+
+---
+
+## 7.3. Đặt tên object
+
+Để tránh nhầm lẫn giữa nhiều object hình cầu, nên đổi tên:
+
+```text
+Head
+Eyes
+```
+
+Mặc dù chỉ có một object cầu mắt, tên `Eyes` vẫn hợp lý vì Mirror Modifier đang tạo cả hai mắt.
+
+---
+
+# 8. Phần 2 — Điều chỉnh hốc mắt và chân mày
+
+## 8.1. Chọn đúng object đầu
+
+Trước khi chuyển sang Sculpt Mode, phải chọn object đầu.
+
+Sau đó sử dụng:
+
+```text
+Ctrl + Tab
+→ Sculpt Mode
+```
+
+Nếu chọn nhầm object mắt, các brush sculpt sẽ tác động lên cầu mắt thay vì khuôn mặt.
+
+---
+
+## 8.2. Kiểm tra vị trí chân mày từ mặt bên
+
+Trong Side View, so sánh:
+
+* Đỉnh của cầu mắt.
+* Vùng chân mày.
+* Độ nhô của trán.
+* Khoảng trống dành cho mí mắt.
+
+Với nhân vật trong bài, chân mày được kéo xuống một chút để:
+
+* Tạo biểu cảm cau có.
+* Làm phần hộp sọ phía trên có cảm giác lớn hơn.
+* Tăng vẻ thông minh nhưng nguy hiểm của nhân vật.
+
+---
+
+## 8.3. Điều chỉnh bằng Grab Brush
+
+Sử dụng **Grab Brush** để kéo các khối lớn.
+
+Các thao tác chính:
+
+* Kéo phần giữa chân mày xuống nhiều hơn.
+* Giữ phần ngoài chân mày cao hơn một chút.
+* Đẩy vùng phía dưới chân mày vào trong.
+* Kéo đường chân mày nhô ra phía trước.
+* Tạo một vùng lõm nhẹ ở giữa hai chân mày.
+* Giữ đủ không gian giữa chân mày và cầu mắt để thêm mí mắt.
+
+### Hình dạng chân mày gợi ý
+
+```text
+Ngoài mắt          Giữa trán          Ngoài mắt
+    \                  /\                  /
+     \________________/  \________________/
+           thấp và hơi cau xuống
+```
+
+Không nên tạo chân mày quá nhô, trừ khi muốn nhân vật mang vẻ thô sơ hoặc giống người Neanderthal.
+
+---
+
+# 9. Phần 3 — Tăng mật độ lưới cho vùng mí mắt
+
+Mí mắt là chi tiết nhỏ hơn so với hình khối tổng thể của đầu. Vì vậy cần một mesh có mật độ cao hơn.
+
+## 9.1. Điều chỉnh Voxel Size
+
+Trong Sculpt Mode, sử dụng:
+
+```text
+Shift + R
+```
+
+để điều chỉnh kích thước voxel.
+
+Trong bài học, giá trị được giảm xuống khoảng:
+
+```text
+0.02
+```
+
+Giá trị voxel nhỏ hơn tạo ra nhiều polygon hơn và cho phép sculpt chi tiết chính xác hơn.
+
+---
+
+## 9.2. Thực hiện Voxel Remesh
+
+Sau khi chọn kích thước voxel, sử dụng:
+
+```text
+Ctrl + R
+```
+
+để remesh.
+
+Kết quả:
+
+* Mesh trở nên dày hơn.
+* Có đủ topology để tạo mí mắt.
+* Các brush nhỏ hoạt động mượt hơn.
+* Hình dạng cũ được phân bố lại thành lưới đồng đều hơn.
+
+> Không nên giảm voxel quá thấp quá sớm vì số lượng polygon có thể tăng mạnh và làm Blender chậm.
+
+---
+
+# 10. Phần 4 — Tạo mí mắt bằng Clay Strips
+
+## 10.1. Đắp mí mắt trên
+
+Chọn brush:
+
+```text
+Clay Strips
+```
+
+Sau đó dùng phím:
+
+```text
+F
+```
+
+để giảm kích thước brush.
+
+Đắp một dải clay phía trên cầu mắt, tương ứng với mí mắt trên.
+
+Ban đầu hình dạng có thể khá thô và phồng. Đây là điều bình thường vì bước này chỉ nhằm tạo khối.
+
+---
+
+## 10.2. Đắp mí mắt dưới
+
+Tiếp tục dùng Clay Strips để tạo một dải clay phía dưới cầu mắt.
+
+Ở giai đoạn đầu, khu vực mắt có thể trông giống như bị sưng:
+
+```text
+Khối chân mày
+      ↓
+  ───────────
+   Mí mắt trên
+      ◯ Cầu mắt
+   Mí mắt dưới
+  ───────────
+```
+
+Không cần cố tạo bề mặt hoàn hảo ngay khi dùng Clay Strips.
+
+---
+
+# 11. Làm mượt mí mắt
+
+Giữ:
+
+```text
+Shift
+```
+
+trong khi kéo brush để tạm thời kích hoạt Smooth.
+
+Nên:
+
+* Tăng kích thước Smooth Brush một chút.
+* Chạm nhẹ nhiều lần.
+* Làm mềm các cạnh gồ ghề.
+* Giữ lại khối lượng của mí mắt.
+* Tránh giữ chuột quá lâu tại một vị trí.
+
+Cách làm tốt:
+
+```text
+Nhiều lần chạm nhẹ
+        tốt hơn
+Một lần smooth quá mạnh
+```
+
+Smooth quá mạnh có thể làm mất hoàn toàn độ dày của mí mắt.
+
+---
+
+# 12. Tinh chỉnh mí mắt bằng Grab Brush
+
+Sau khi có khối cơ bản, chuyển lại **Grab Brush** để tạo hình chính xác hơn.
+
+## 12.1. Mí mắt trên
+
+Mí mắt trên nên:
+
+* Ôm theo bề mặt cầu mắt.
+* Che nhẹ phần trên của mống mắt.
+* Hạ thấp hơn ở phía gần sống mũi.
+* Có độ cong rõ ràng hơn mí mắt dưới.
+
+Giả sử:
+
+* Vòng lớn là cầu mắt.
+* Vòng giữa là mống mắt.
+* Điểm giữa là đồng tử.
+
+Mí trên nên che một phần nhỏ phía trên mống mắt:
+
+```text
+       Mí mắt trên
+      ───────────
+    /             \
+   |     Iris      |
+   |       ●       |
+    \_____________/
+       Mí mắt dưới
+```
+
+Nếu để lộ toàn bộ mống mắt phía trên, nhân vật có thể trông quá ngạc nhiên hoặc sợ hãi.
+
+---
+
+## 12.2. Khóe mắt trong
+
+Phần gần sống mũi thường được kéo thấp xuống nhẹ.
+
+Điều này góp phần tạo hình dạng mắt giống hạt hạnh nhân:
+
+```text
+Khóe trong thấp → mắt cong lên → khóe ngoài
+```
+
+---
+
+## 12.3. Mí mắt dưới
+
+Mí mắt dưới nên:
+
+* Nhẹ hơn mí mắt trên.
+* Ôm sát phần dưới cầu mắt.
+* Nằm gần đáy mống mắt.
+* Không che quá nhiều cầu mắt.
+* Có thể được đẩy nhẹ ra sau để bám theo độ cong.
+
+---
+
+# 13. Tạo biểu cảm nheo mắt
+
+Trong bài học, nhân vật được tạo một chút biểu cảm **squint** — nheo mắt.
+
+Đặc điểm:
+
+* Mí trên hạ xuống.
+* Mí dưới được nâng nhẹ.
+* Khoảng mở của mắt nhỏ hơn.
+* Chân mày kéo xuống.
+* Mắt trông tập trung hoặc nghi ngờ.
+
+```text
+Chân mày cau xuống
+        ↓
+    \________/
+     \      /
+      \____/
+     Mắt nheo nhẹ
+```
+
+Biểu cảm này phù hợp với nhân vật phản diện hoặc nhân vật đang quan sát, tính toán.
+
+---
+
+# 14. Kiểm tra hình khối
+
+Sau khi tạo mí mắt, cần xoay model và kiểm tra từ nhiều hướng.
+
+## Mặt trước
+
+Kiểm tra:
+
+* Khoảng cách giữa hai mắt.
+* Chiều cao hai mắt.
+* Độ đối xứng.
+* Biểu cảm tổng thể.
+* Hình dạng mí mắt.
+
+## Mặt bên
+
+Kiểm tra:
+
+* Cầu mắt có nằm quá sâu không.
+* Chân mày có nhô quá nhiều không.
+* Mí mắt có ôm theo cầu mắt không.
+* Trán và hốc mắt có chuyển tiếp tự nhiên không.
+
+## Góc ba phần tư
+
+Đây là góc quan trọng để đánh giá:
+
+* Độ sâu của hốc mắt.
+* Độ dày mí mắt.
+* Độ cong của cầu mắt.
+* Mối quan hệ giữa mũi, mắt và chân mày.
+
+---
+
+# 15. Phím tắt và công cụ được sử dụng
+
+| Phím tắt / Công cụ            | Chức năng                      |
+| ----------------------------- | ------------------------------ |
+| `Ctrl + Tab`                  | Mở menu chuyển đổi mode        |
+| `Shift + chuột phải`          | Đặt vị trí 3D Cursor           |
+| `Shift + A`                   | Thêm object mới                |
+| `R → X → 90`                  | Xoay object 90 độ quanh trục X |
+| `S`                           | Thay đổi kích thước            |
+| `G → X`                       | Di chuyển theo trục X          |
+| `G → Y`                       | Di chuyển theo trục Y          |
+| `Shift + D`                   | Nhân đôi object                |
+| `Shift + R` trong Object Mode | Lặp lại thao tác trước         |
+| **Mirror Modifier**           | Tạo mắt đối xứng               |
+| **Grab Brush**                | Kéo và điều chỉnh hình khối    |
+| `F`                           | Thay đổi kích thước brush      |
+| `Shift + R` trong Sculpt Mode | Điều chỉnh Voxel Size          |
+| `Ctrl + R` trong Sculpt Mode  | Thực hiện Voxel Remesh         |
+| **Clay Strips**               | Đắp khối mí mắt                |
+| Giữ `Shift` khi sculpt        | Kích hoạt Smooth tạm thời      |
+
+---
+
+# 16. Lưu ý quan trọng
+
+## 16.1. Cầu mắt là khối tham chiếu
+
+Không nên sculpt mí mắt mà không có cầu mắt bên trong.
+
+Cầu mắt giúp xác định:
+
+* Độ cong mí mắt.
+* Độ sâu hốc mắt.
+* Phần cầu mắt cần lộ ra.
+* Vị trí mống mắt sau này.
+
+---
+
+## 16.2. Chọn đúng Mirror Object
+
+Nếu hai mắt không nằm đối xứng chính xác, hãy kiểm tra:
+
+* Mirror Object có phải là object đầu không.
+* Origin của đầu có nằm đúng giữa không.
+* Cầu mắt gốc có nằm đúng một phía không.
+* Object mắt có transform bất thường không.
+
+---
+
+## 16.3. Không thêm quá nhiều chi tiết
+
+Ở giai đoạn này chỉ cần hoàn thiện:
+
+* Kích thước mắt.
+* Vị trí mắt.
+* Hình dạng hốc mắt.
+* Độ dày mí mắt.
+* Biểu cảm cơ bản.
+
+Chưa cần tạo:
+
+* Nếp nhăn mí mắt.
+* Tuyến lệ.
+* Lông mi.
+* Da chi tiết.
+* Nếp gấp nhỏ quanh mắt.
+
+---
+
+## 16.4. Đừng Smooth quá mạnh
+
+Smooth quá nhiều có thể:
+
+* Làm mất mí mắt.
+* Làm cầu mắt lộ quá nhiều.
+* Xóa biểu cảm nheo mắt.
+* Khiến vùng mắt trở nên phẳng.
+
+Nên dùng các lần chạm nhẹ thay vì một nét dài.
+
+---
+
+# 17. Lỗi thường gặp và cách khắc phục
+
+| Lỗi                              | Nguyên nhân                               | Cách khắc phục                     |
+| -------------------------------- | ----------------------------------------- | ---------------------------------- |
+| Mắt thứ hai xuất hiện sai vị trí | Mirror đang dùng origin của chính cầu mắt | Chọn object đầu làm Mirror Object  |
+| Hai mắt quá xa nhau              | Cầu mắt gốc đặt quá xa đường giữa         | Dùng `G → X` đưa mắt vào gần hơn   |
+| Mắt bị lồi                       | Cầu mắt đặt quá xa về phía trước          | Kiểm tra Side View và dùng `G → Y` |
+| Mắt bị chìm                      | Cầu mắt nằm quá sâu trong đầu             | Đưa cầu mắt ra ngoài một chút      |
+| Không có chỗ tạo mí mắt          | Chân mày hoặc hốc mắt quá gần cầu mắt     | Dùng Grab mở rộng vùng quanh mắt   |
+| Mí mắt trông như khối u          | Clay Strips quá mạnh và chưa Smooth       | Smooth nhẹ rồi chỉnh lại bằng Grab |
+| Mí mắt bị mất hoàn toàn          | Smooth quá nhiều                          | Đắp lại một lớp Clay Strips mỏng   |
+| Nhân vật trông quá ngạc nhiên    | Mí trên không che mống mắt                | Kéo mí trên xuống nhẹ              |
+| Chân mày giống người nguyên thủy | Gờ chân mày nhô quá mạnh                  | Dùng Grab đẩy vào và Smooth nhẹ    |
+| Blender bị chậm                  | Voxel Size quá nhỏ                        | Tăng Voxel Size trước khi remesh   |
+
+---
+
+# 18. Checklist thực hành
+
+## Cầu mắt
+
+* [ ] Đã chuyển sang Object Mode.
+* [ ] Đã thêm một UV Sphere.
+* [ ] Đã xoay UV Sphere 90 độ quanh trục X.
+* [ ] Đã điều chỉnh kích thước mắt phù hợp.
+* [ ] Đã kiểm tra mắt từ Front View.
+* [ ] Đã kiểm tra mắt từ Side View.
+* [ ] Đã đặt tên object mắt.
+
+## Đối xứng
+
+* [ ] Đã thêm Mirror Modifier.
+* [ ] Đã chọn object đầu làm Mirror Object.
+* [ ] Hai mắt nằm đúng vị trí đối xứng.
+
+## Hốc mắt và chân mày
+
+* [ ] Đã chọn object đầu trước khi vào Sculpt Mode.
+* [ ] Đã điều chỉnh hốc mắt bằng Grab Brush.
+* [ ] Đã tạo đủ không gian cho mí mắt.
+* [ ] Chân mày thể hiện đúng tính cách nhân vật.
+* [ ] Gờ chân mày không nhô quá mức.
+
+## Mí mắt
+
+* [ ] Đã giảm Voxel Size xuống mức phù hợp.
+* [ ] Đã thực hiện Voxel Remesh.
+* [ ] Đã đắp mí mắt trên bằng Clay Strips.
+* [ ] Đã đắp mí mắt dưới.
+* [ ] Mí trên che nhẹ phần trên của mống mắt.
+* [ ] Mí dưới nằm gần đáy mống mắt.
+* [ ] Đã Smooth nhẹ vùng mắt.
+* [ ] Đã dùng Grab để tạo hình hạt hạnh nhân.
+
+## Hoàn thiện
+
+* [ ] Đã kiểm tra mặt trước.
+* [ ] Đã kiểm tra mặt bên.
+* [ ] Đã kiểm tra góc ba phần tư.
+* [ ] Không thêm quá nhiều chi tiết nhỏ.
+* [ ] Đã lưu file Blender.
+
+---
+
+# 19. Bài tập thực hành
+
+Tạo ba phiên bản mắt khác nhau từ cùng một model đầu:
+
+### Phiên bản 1 — Thân thiện
+
+* Mắt lớn hơn.
+* Hai mắt mở rộng.
+* Chân mày nâng nhẹ.
+* Mí trên che ít mống mắt.
+
+### Phiên bản 2 — Phản diện
+
+* Mắt nhỏ hơn.
+* Hai mắt gần nhau hơn.
+* Chân mày hạ thấp.
+* Mắt nheo nhẹ.
+* Gờ chân mày rõ hơn.
+
+### Phiên bản 3 — Mệt mỏi
+
+* Mí trên hạ thấp.
+* Mí dưới hơi phồng.
+* Chân mày ít căng.
+* Khóe mắt ngoài hơi thấp.
+
+Mục tiêu của bài tập là quan sát cách một số thay đổi nhỏ quanh mắt có thể làm thay đổi toàn bộ tính cách nhân vật.
+
+---
+
+# 20. Tóm tắt bài học
+
+Bài học hướng dẫn tạo cầu mắt và điêu khắc vùng mắt cho nhân vật hoạt hình. Một **UV Sphere** được dùng làm cầu mắt tham chiếu, sau đó được đặt đúng vị trí và nhân đối xứng bằng **Mirror Modifier**.
+
+Trên mesh đầu, **Grab Brush** được sử dụng để điều chỉnh hốc mắt và chân mày. Sau khi tăng mật độ mesh bằng **Voxel Remesh**, mí mắt trên và dưới được đắp bằng **Clay Strips**, làm mượt bằng **Smooth** và tinh chỉnh bằng **Grab**.
+
+Điểm quan trọng nhất không phải là tạo chi tiết thật sớm, mà là bảo đảm cầu mắt, hốc mắt, mí mắt và chân mày phối hợp với nhau để tạo đúng biểu cảm và tính cách của nhân vật.

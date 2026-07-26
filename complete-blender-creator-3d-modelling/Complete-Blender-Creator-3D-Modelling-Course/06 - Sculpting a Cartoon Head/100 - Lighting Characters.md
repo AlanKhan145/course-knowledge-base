@@ -1,412 +1,971 @@
 # 100 — Lighting Characters
-In this lecture, we'll look at the three point lighting system, a really excellent way of showing
 
-off single models to their full potential.
-
-So here's where we got up to last time.
-
-And in order to set up the lighting, I'm going to first take you to the shading workspace.
-
-And just under the world settings, I'm going to show you that I've got a very basic gray background
-
-as the default.
-
-So if I go across to rendered mode, it will look something like this.
-
-And we've got a light in our scene just up there which is giving us this light.
-
-So I thought I'd start by showing you that there's nothing special about this scene and we're going
-
-to set up for three point lighting.
-
-We could use the shading workspace, but it's possibly easier in the layout workspace.
-
-We don't need the timeline.
-
-So I'll get rid of that and I'll open up a new window.
-
-This one, I'll make the camera view and this one just leave it as the three D view to set up our lights.
-
-So I'll go into camera, view, press and on my keyboard and go to view and then lock camera to view.
-
-I'll press in again to clear that and move my camera into a suitable position, just somewhere nice
-
-and simple like this.
-
-Maybe we can chop off just the bottom section there I'll press and again to turn off lock camera to
-
-view and and again to remove that menu.
-
-And then I can zoom into this and get a better view.
-
-I'll press t to get rid of the side panel here.
-
-I'll come across to render preview and I'll turn off the overlays and the gizmos on the right hand side.
-
-So I've got a nice clear view of our character.
-
-In fact, I'm just going to move the camera slightly closer because it's a little bit far out just there.
-
-That's perfect.
-
-And I'll turn off lock camera's view in case I accidentally go out a camera view, I can easily get
-
-it back with zero.
-
-So on this side I want to set up our lights.
-
-But before I do that, just catch up with me setting up your workspace in the same way I've done here.
-
-Okay.
-
-So as I was saying, we've got one light in our scene and we're going to go for a three point lighting
-
-system, which I've talked a little bit about before.
-
-But we're going to go into a bit more detail now.
-
-We'll start off with Top View and I'll bring this round to the front.
-
-So grab and bring it round to the front and this will be the key light.
-
-So probably the most important light in the scene and already it's giving us a nice look to our character.
-
-I'll go to the light properties or the object data properties.
-
-I want to change the colour to give it a slight yellow tint that creates a bit more warmth.
-
-As you can see there, the power of 1000 watts should be fine and I'm going to change it to an area
-
-light and grab this yellow dot to point it towards my character.
-
-Now the great thing about area lights is we can soften the shadows or harden the shadows by changing
-
-the size.
-
-So the shadows currently are very hard, so the edges are very sharp like this.
-
-I can zoom in a bit and you can see them there and down here, if I were to make my light bigger.
-
-So I press the scale and scale it up.
-
-So it's somewhere around here.
-
-You can see the shadows become a lot softer.
-
-I'll zoom out just a touch.
-
-And for something to look a bit sinister and aggressive, hard shadows are quite good.
-
-So I'll decrease the size of my light and make these shadows quite hard.
-
-So pause the video and catch it with me.
-
-Change the position of your light so it's pointing down towards the front of your character from the
-
-right hand side like this and change the size of the light.
-
-So it's similar to mine, so fairly small and I'll press in on my keyboard so you can see the scale.
-
-It's roughly 9.6, so anywhere near there should be fine.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So I'll press and get rid of that toolbar.
-
-So that's the first slide and possibly the most important because it's the one that's illuminating our
-
-character the most.
-
-The second light, if I come round to roughly top of you here and shift to duplicate that light is from
-
-the other side.
-
-So I'll point that one inwards as well.
-
-This is known as the fill light because it fills in some of those shadows and stops them being so dark.
-
-And this time we want a very soft light here.
-
-So I make it really big, which is a soft light, so we don't add too many shadows.
-
-And you can see it kind of kills the shadows somewhat and it looks a lot more flat.
-
-But if I reduce the power to something like 300, then we bring some of those shadows back.
-
-But we also manage to light up the other side slightly.
-
-We could even change the color of this, maybe make it slightly more ready, which will give it a bit
-
-more intensity.
-
-And let's just have a look around our character a bit and see how that's looking.
-
-So this side is still a lot darker because this is a much less powerful light, but we want to be able
-
-to see that other side of the character.
-
-So we make it slightly dark but not too dark.
-
-Hence the feel like if I press h I can hide that light and then alt h will bring it back and you can
-
-see the influence of that light.
-
-So there's without lots of shadow and there's with the light.
-
-Now you could argue if I press h that this is a bit more intense and alt h it loses some of that intensity
-
-as we brighten up that area.
-
-So maybe bringing it down to 100 might help more.
-
-So H to hide alt h to bring it back.
-
-That's a little bit too dim now.
-
-So probably 200 and again h and alt h and we can see the difference there, perhaps somewhere between
-
-about 150.
-
-So a little bit of experimentation.
-
-This so h and alt h.
-
-There we go.
-
-Just a little bit of light from this is helping to light this side slightly.
-
-And that way we can still see the details in our character.
-
-So pause the video and catch it with me creating an area light on the other side and you can just duplicate
-
-the one over here, make it much bigger, of course, pointing at our character again, but reduce the
-
-power to something like 150 and maybe give it a little bit more color perhaps towards the reds.
-
-Pause the video and have a go at that.
-
-The last light we use is a backlight.
-
-So I'll come back to the top here.
-
-Select one of these again, shift each duplicate, bring it round to the back and pointed at our character.
-
-Now I tend to like to have a fairly low light, so going fairly straight like this towards our character
-
-and that's pointing upwards very slightly.
-
-It doesn't have to, it can be fairly straight like this and usually from one side.
-
-So I'll just rotate that in the Z, maybe bring it across a little bit more roundabout here.
-
-So just off to the side and you can have one from the other side as well, which can also help, but
-
-I'll show you that in a second.
-
-So for our back light again, I'll just press H to hide and you can see it offers quite an outline and
-
-separates the character from the background.
-
-So when I press alt h to bring it back, you can really see the influence of that.
-
-So h to hide alt h to bring it back.
-
-I might rotate it a little more and bring it further round to the back and try that again.
-
-H and then alt h and you can see this sort of glow on the outside of our character.
-
-Before I was getting a bit too much on the chin, I felt that's why I moved it further round.
-
-So H and alt h and I think that's working well.
-
-Now what I like to do with this one is I like to increase the power of this so to 3000, and it gives
-
-it this really intense glow in the background there.
-
-And often like to go for a blue, for a backlight.
-
-It's very good for stylized characters.
-
-As you can see there, we've got this sort of blue outline which looks quite interesting.
-
-So pause the video here and create your backlight.
-
-It's a similar size to our key light, so nice and small and therefore gives hard shadows.
-
-It's very powerful to 3000 watts and I like to give it a blue colour and it comes from behind like this.
-
-So pause the video and have a go at that.
-
-Okay.
-
-Now we can start really experimenting.
-
-I feel like this side needs a little bit of separation from the background as well so I can duplicate
-
-this backlights shift to duplicate and bring it round this way.
-
-And suddenly we got this shoulder standing out and I can come round here and you can see some intensity
-
-from that side as well.
-
-I feel like this will probably be our finished angle and we've got a nice blue glow around there, maybe
-
-a little bit further round to around here, and that's looking quite nice.
-
-You might even want to animate a camera to show the whole of your character, but that's working well.
-
-I think we can also experiment with some of the positioning of, let's say, the full light.
-
-We could bring it much lower and pointing upwards like this.
-
-And you can see that creates a different kind of look, giving a bit more of a glow to this side.
-
-You could even experiment with turning it a bit more green, which can also change the feel.
-
-I think I prefer the red glow though myself, but I could try a bit more saturation and that's quite
-
-interesting in itself.
-
-So that's from low down.
-
-We could try it from much higher up somewhere around here.
-
-I bring it a little bit closer.
-
-That will increase the intensity slightly.
-
-The distance from the subject does make a difference to how bright it is and I'll move that across to
-
-there and that's working in a very interesting way as well.
-
-And for an experiment I could try moving this to different angles.
-
-Our key light here that looks very odd and almost gallery, but let's try it from a low angle down here
-
-that looks very sinister and very unusual, but it's good to try these things and see how you get on.
-
-I much prefer the original angle, so I'm going to move it back up to there again.
-
-I could try a little bit more warmth this time.
-
-So coming across the orange is a bit more there and that creates a very interesting look.
-
-And I quite like what we've got here for last thing I do want to do is just go to the render properties
-
-and turn on screen space reflections as well.
-
-It's not offering an awful lot, but you can sometimes see the reflection in the eyes and that can help
-
-a little bit.
-
-So just in here, you can possibly see a bit of a reflection.
-
-There's not much going on.
-
-You'd see more if you're in cycles.
-
-But I want to keep this to Evy to show you what you can produce with this instant render.
-
-Of course, let's quickly check cycles and see what that looks like.
-
-We've got a much softer look here and I'll just turn the noise on so it's a little bit faster.
-
-It looks a lot less intense.
-
-So we'd certainly have to reduce the power of some of the lights, maybe make them smaller for harder
-
-shadows and so on.
-
-So I'll go back to Evy, which I think has a better intensity to it for this stylized character that
-
-we've got here.
-
-So your challenge then is to play with this three point light system.
-
-Of course, mine's a bit like a four point light system because I've got two back lights, but by all
-
-means, play with that.
-
-Maybe hide some lights to see what that looks like, change the colours, change the intensity and see
-
-how you get on.
-
-Once you've done that, make sure you've saved your work and render out your work and share it with
-
-the community so you can get some feedback and chat to others about how they're getting on.
-
-I hope you've enjoyed the process of making this character and you've come up with something that you're
-
-proud of.
-
-I look forward to seeing your creations.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 06 — Sculpting a Cartoon Head |
-| **Bài học** | Lighting Characters |
-| **Thời lượng** | 10:26 |
-| **Chủ đề chính** | Thiết lập ánh sáng ba điểm |
+## Thiết lập ánh sáng cho nhân vật
+
+| Thuộc tính              | Nội dung                                 |
+| ----------------------- | ---------------------------------------- |
+| **Module**              | Module 06 — Sculpting a Cartoon Head     |
+| **Bài học**             | Lighting Characters                      |
+| **Thời lượng**          | 10:26                                    |
+| **Chủ đề chính**        | Thiết lập hệ thống ánh sáng ba điểm      |
+| **Render Engine chính** | Eevee                                    |
+| **Đối tượng thực hành** | Nhân vật đầu cartoon đã sculpt và tô màu |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Hiểu nguyên lý ánh sáng ba điểm (three-point lighting): Key Light, Fill Light, Rim Light.
-- Thiết lập một scene ánh sáng cơ bản trong Blender để làm nổi bật nhân vật vừa sculpt.
-- Làm quen với các loại Light trong Blender (Point, Sun, Area, Spot) và khi nào nên dùng loại nào cho từng vai trò ánh sáng.
-- Hiểu vai trò của World Background/HDRI trong việc bổ sung ánh sáng môi trường.
+Sau bài học này, người học có thể:
 
-## 2. Nội dung chính
+* Hiểu nguyên lý của hệ thống **Three-Point Lighting**.
+* Phân biệt vai trò của:
 
-**Three-point lighting** là kỹ thuật chiếu sáng kinh điển trong nhiếp ảnh/điện ảnh, được áp dụng rộng rãi khi render chân dung nhân vật 3D:
+  * **Key Light** — đèn chính.
+  * **Fill Light** — đèn bù.
+  * **Back Light/Rim Light** — đèn hậu hoặc đèn viền.
+* Thiết lập nhiều cửa sổ làm việc để vừa điều chỉnh đèn vừa quan sát Camera.
+* Sử dụng **Area Light** để kiểm soát độ cứng và mềm của bóng.
+* Điều chỉnh:
 
-- **Key Light (đèn chính)**: nguồn sáng mạnh nhất, đặt chếch khoảng 30-45 độ so với trục camera-nhân vật, thường hơi cao hơn tầm mắt nhân vật. Đây là nguồn sáng định hình khối chính và tạo bóng đổ chủ đạo. Thường dùng **Area Light** vì cho bóng đổ mềm, tự nhiên hơn Point Light.
-- **Fill Light (đèn phụ)**: đặt ở phía đối diện Key Light, cường độ thấp hơn (thường bằng 1/3 đến 1/2 Key Light), có nhiệm vụ làm dịu bớt vùng bóng tối do Key Light tạo ra, giúp chi tiết trong vùng tối vẫn nhìn rõ mà không làm mất tương phản khối. Có thể dùng Area Light cường độ thấp hoặc thậm chí một mặt phẳng phản xạ (bounce card).
-- **Rim Light (đèn viền/hắt sáng)**: đặt phía sau nhân vật, chếch một góc, chiếu ngược về phía camera để tạo viền sáng dọc theo cạnh silhouette (tóc, vai, tai, sừng), giúp tách nhân vật khỏi hậu cảnh và tăng chiều sâu. Thường dùng Spot Light hoặc Area Light nhỏ, cường độ vừa phải để không bị cháy sáng (overblown).
+  * Vị trí đèn.
+  * Góc chiếu.
+  * Công suất.
+  * Kích thước.
+  * Màu sắc.
+* Tạo ánh sáng có phong cách mạnh, bí hiểm và phù hợp với nhân vật phản diện.
+* So sánh nhanh kết quả giữa Eevee và Cycles.
+* Render một hình ảnh hoàn chỉnh để trình bày sản phẩm.
 
-Ngoài ba đèn chính, có thể thêm một **World/HDRI** nhẹ làm ánh sáng môi trường nền (ambient), giúp các vùng bóng tối hoàn toàn không bị đen tuyệt đối (crushed blacks), tạo cảm giác tự nhiên hơn.
+---
 
-Khi thiết lập, nên kiểm tra bằng **Rendered Preview** (`Z` > Rendered) hoặc render thử với Eevee/Cycles để đánh giá tương tác ánh sáng với Material đã gán ở bài trước (đặc biệt là độ bóng mắt và sừng dưới Key Light).
+# 2. Khái niệm Three-Point Lighting
 
-## 3. Quy trình thực hành gợi ý
+**Three-Point Lighting** là hệ thống ánh sáng gồm ba nguồn sáng chính được sử dụng phổ biến trong:
 
-1. Đặt Camera ở góc nhìn chân dung mong muốn (thường hơi thấp hoặc ngang tầm mắt nhân vật).
-2. Thêm một Area Light làm Key Light, đặt chếch 30-45 độ, hơi cao hơn nhân vật, cường độ mạnh nhất.
-3. Thêm một Area Light thứ hai làm Fill Light, đối diện Key Light, cường độ thấp hơn (khoảng 1/3-1/2 Key).
-4. Thêm một Spot/Area Light nhỏ phía sau làm Rim Light, chiếu ngược về camera để tạo viền sáng.
-5. Thêm World background (màu đơn giản hoặc HDRI nhẹ) để bổ sung ánh sáng môi trường.
-6. Chuyển sang Rendered Preview, tinh chỉnh cường độ (Power) và vị trí từng đèn cho đến khi khối mặt và các chi tiết (mắt, sừng) được làm nổi bật rõ ràng.
-7. Render thử một khung hình để đánh giá tổng thể.
+* Nhiếp ảnh chân dung.
+* Điện ảnh.
+* Hoạt hình.
+* Trình bày sản phẩm.
+* Render nhân vật 3D.
 
-## 4. Phím tắt & công cụ liên quan
+Ba nguồn sáng phối hợp với nhau để làm rõ hình khối, giữ lại chi tiết trong vùng tối và tách nhân vật khỏi hậu cảnh.
 
-| Thao tác | Chức năng |
-|---|---|
-| `Shift+A` > Light | Thêm nguồn sáng (Point/Sun/Spot/Area) |
-| Light Data Properties > **Power** | Điều chỉnh cường độ đèn |
-| Light Data Properties > **Size** | Điều chỉnh độ mềm bóng đổ (Area Light) |
-| `Z` > Rendered | Xem trước kết quả render trực tiếp trong viewport |
-| World Properties > **Color/HDRI** | Thiết lập ánh sáng môi trường nền |
-| `Numpad 0` | Chuyển sang góc nhìn Camera |
+```text
+                      BACK LIGHT
+                   Đèn hậu/đèn viền
+                           ↓
+                    ┌────────────┐
+                    │  NHÂN VẬT  │
+                    └────────────┘
+                       ↙        ↘
+              KEY LIGHT       FILL LIGHT
+               Đèn chính       Đèn bù
 
-## 5. Lưu ý & lỗi thường gặp
+                         CAMERA
+                            ↑
+```
 
-- Fill Light quá mạnh làm mất hoàn toàn tương phản khối do Key Light tạo ra, khiến khuôn mặt trông "phẳng".
-- Rim Light quá mạnh gây cháy sáng viền silhouette, mất chi tiết ở vùng đó.
-- Chỉ dùng một nguồn sáng duy nhất (thiếu Fill/Rim) khiến vùng tối bị mất chi tiết và nhân vật khó tách khỏi nền.
-- Không kiểm tra dưới Rendered Preview mà chỉ dựa vào Solid Shading, dẫn đến kết quả render cuối khác xa mong đợi.
+Một cách bố trí nhìn từ trên xuống:
 
-## 6. Checklist thực hành
+```text
+                         Back Light
+                              │
+                              ▼
 
-- [ ] Đã thiết lập Key Light với vị trí và cường độ hợp lý.
-- [ ] Đã thêm Fill Light làm dịu vùng bóng tối.
-- [ ] Đã thêm Rim Light tạo viền sáng tách nhân vật khỏi nền.
-- [ ] Đã thiết lập World background/HDRI bổ sung ánh sáng môi trường.
-- [ ] Đã kiểm tra kết quả ở Rendered Preview và tinh chỉnh cường độ từng đèn.
+              Fill Light → [Nhân vật] ← Key Light
+                              │
+                              ▼
+                            Camera
+```
 
-## 7. Tóm tắt
+> Trong bài học, hệ thống cuối cùng có thể sử dụng **bốn đèn** vì giảng viên thêm một Back Light thứ hai để tạo viền sáng cho cả hai bên nhân vật.
 
-Bài học giới thiệu kỹ thuật ánh sáng ba điểm (Key, Fill, Rim) và hướng dẫn thiết lập một scene ánh sáng cơ bản trong Blender để làm nổi bật nhân vật đầu cartoon vừa sculpt và tô màu, chuẩn bị cho bước render/hoàn thiện dự án.
+---
+
+# 3. Vai trò của từng nguồn sáng
+
+## 3.1. Key Light — Đèn chính
+
+**Key Light** là nguồn sáng quan trọng nhất trong cảnh.
+
+Nó quyết định:
+
+* Hướng chiếu sáng chính.
+* Hình dạng bóng đổ.
+* Độ nổi của khuôn mặt.
+* Cảm giác mạnh, mềm, đáng sợ hoặc thân thiện của nhân vật.
+
+Trong bài học:
+
+* Đèn được đặt phía trước nhân vật.
+* Lệch sang một bên.
+* Nằm cao hơn khuôn mặt.
+* Hướng xuống phía nhân vật.
+* Có màu vàng hoặc cam nhẹ để tạo cảm giác ấm.
+* Sử dụng loại **Area Light**.
+* Công suất khoảng **1000 W**.
+* Kích thước tương đối nhỏ để tạo bóng cứng.
+
+### Hiệu ứng
+
+* Đèn nhỏ → bóng sắc, mạnh và rõ.
+* Đèn lớn → bóng mềm và chuyển tiếp nhẹ.
+* Đặt thấp → khuôn mặt có cảm giác bí hiểm hoặc đáng sợ.
+* Đặt cao → ánh sáng tự nhiên và dễ đọc hơn.
+
+---
+
+## 3.2. Fill Light — Đèn bù
+
+**Fill Light** được đặt ở phía đối diện Key Light.
+
+Nhiệm vụ của nó là:
+
+* Làm sáng nhẹ vùng tối.
+* Giữ lại chi tiết trong phần khuôn mặt bị bóng che.
+* Giảm độ tương phản quá mạnh.
+* Tránh vùng tối bị đen hoàn toàn.
+
+Trong bài học:
+
+* Fill Light được tạo bằng cách nhân bản Key Light.
+* Đặt ở phía đối diện.
+* Có kích thước lớn để tạo ánh sáng mềm.
+* Công suất thấp hơn Key Light rất nhiều.
+* Màu đỏ hoặc đỏ cam nhẹ.
+* Công suất được thử nghiệm trong khoảng:
+
+  * 100 W.
+  * 150 W.
+  * 200 W.
+
+Giảng viên lựa chọn khoảng **150 W** vì mức này đủ để thấy chi tiết nhưng không làm khuôn mặt bị phẳng.
+
+### Nguyên tắc quan trọng
+
+```text
+Fill Light quá yếu
+        ↓
+Vùng tối mất chi tiết
+
+Fill Light hợp lý
+        ↓
+Thấy chi tiết nhưng vẫn giữ tương phản
+
+Fill Light quá mạnh
+        ↓
+Khuôn mặt phẳng, thiếu chiều sâu
+```
+
+---
+
+## 3.3. Back Light/Rim Light — Đèn hậu hoặc đèn viền
+
+Back Light được đặt phía sau nhân vật và hướng về phía nhân vật.
+
+Nguồn sáng này tạo ra một đường viền sáng trên:
+
+* Đầu.
+* Tai.
+* Vai.
+* Sừng.
+* Cằm.
+* Silhouette của nhân vật.
+
+Mục đích chính là:
+
+* Tách nhân vật khỏi hậu cảnh.
+* Làm rõ đường viền.
+* Tăng cảm giác chiều sâu.
+* Tạo phong cách điện ảnh hoặc hoạt hình.
+
+Trong bài học:
+
+* Sử dụng **Area Light** nhỏ.
+* Đặt phía sau và lệch sang một bên.
+* Hướng gần như ngang vào nhân vật.
+* Công suất khoảng **3000 W**.
+* Màu xanh lam.
+* Kích thước nhỏ để ánh sáng có cường độ và đường viền rõ.
+
+Giảng viên còn nhân bản Back Light để tạo thêm một đường viền ở phía còn lại.
+
+---
+
+# 4. Thiết lập Workspace
+
+Để dễ điều chỉnh ánh sáng, bài học sử dụng hai cửa sổ 3D Viewport.
+
+## Cửa sổ thứ nhất
+
+Dùng để:
+
+* Xem Camera.
+* Quan sát kết quả ánh sáng.
+* Kiểm tra bố cục cuối cùng.
+
+## Cửa sổ thứ hai
+
+Dùng để:
+
+* Di chuyển đèn.
+* Xoay đèn.
+* Điều chỉnh vị trí trong không gian 3D.
+* Quan sát cảnh từ trên xuống hoặc từ bên cạnh.
+
+Sơ đồ bố trí:
+
+```text
+┌──────────────────────────┬──────────────────────────┐
+│                          │                          │
+│      CAMERA VIEW         │       3D VIEWPORT        │
+│                          │                          │
+│  Quan sát kết quả cuối   │  Di chuyển và chỉnh đèn │
+│                          │                          │
+└──────────────────────────┴──────────────────────────┘
+```
+
+---
+
+# 5. Thiết lập Camera
+
+## Bước 1: Chuyển sang Camera View
+
+Nhấn:
+
+```text
+Numpad 0
+```
+
+## Bước 2: Khóa Camera theo góc nhìn
+
+Nhấn `N` để mở Sidebar, sau đó vào:
+
+```text
+View
+└── Lock
+    └── Camera to View
+```
+
+Khi bật tùy chọn này, việc điều hướng trong Viewport sẽ đồng thời di chuyển Camera.
+
+## Bước 3: Chọn bố cục chân dung
+
+Điều chỉnh sao cho:
+
+* Khuôn mặt nằm ở trung tâm.
+* Sừng không bị cắt quá nhiều.
+* Có thể cắt một phần thân dưới.
+* Nhân vật chiếm phần lớn khung hình.
+* Góc nhìn thể hiện rõ mắt, mũi và hình dạng khuôn mặt.
+
+## Bước 4: Tắt Camera to View
+
+Sau khi có bố cục phù hợp, tắt **Camera to View** để tránh vô tình làm thay đổi Camera trong lúc chỉnh ánh sáng.
+
+---
+
+# 6. Làm sạch cửa sổ Camera
+
+Để quan sát ánh sáng rõ hơn:
+
+* Chuyển sang **Rendered Preview**.
+* Tắt Overlays.
+* Tắt Gizmos.
+* Ẩn Toolbar bằng phím `T`.
+* Có thể đóng Timeline nếu không cần làm hoạt ảnh.
+
+Kết quả là một cửa sổ Camera sạch, gần giống với khung hình render cuối.
+
+---
+
+# 7. Quy trình thiết lập ánh sáng
+
+## 7.1. Bước 1 — Kiểm tra World Background
+
+Trong **World Properties**, bài học sử dụng một màu nền xám đơn giản.
+
+```text
+World Properties
+└── Surface
+    └── Background
+        ├── Color: Xám
+        └── Strength: Mức cơ bản
+```
+
+Nền xám giúp:
+
+* Dễ quan sát màu sắc của ánh sáng.
+* Thấy rõ đường viền của nhân vật.
+* Không gây phân tâm.
+* Phù hợp với ánh sáng màu xanh và cam.
+
+---
+
+## 7.2. Bước 2 — Tạo Key Light
+
+Chọn nguồn sáng có sẵn hoặc thêm một đèn mới:
+
+```text
+Shift + A
+└── Light
+    └── Area
+```
+
+Thiết lập:
+
+| Thuộc tính  |                 Giá trị gợi ý |
+| ----------- | ----------------------------: |
+| Loại đèn    |                    Area Light |
+| Vai trò     |                     Key Light |
+| Power       |                 Khoảng 1000 W |
+| Màu sắc     |            Vàng hoặc cam nhạt |
+| Kích thước  |                 Tương đối nhỏ |
+| Vị trí      | Phía trước, lệch sang một bên |
+| Độ cao      |             Cao hơn khuôn mặt |
+| Hướng chiếu |          Hướng xuống nhân vật |
+
+### Điều chỉnh hướng Area Light
+
+Area Light chỉ chiếu sáng theo một mặt.
+
+Cần xoay đèn để mặt phát sáng hướng vào nhân vật. Có thể sử dụng:
+
+```text
+R
+```
+
+hoặc kéo điểm điều khiển hướng của đèn trong Viewport.
+
+### Điều chỉnh bóng đổ
+
+Độ mềm của bóng phụ thuộc nhiều vào kích thước Area Light:
+
+```text
+Area Light nhỏ
+      ↓
+Bóng cứng, cạnh sắc
+      ↓
+Phù hợp nhân vật bí hiểm
+
+Area Light lớn
+      ↓
+Bóng mềm
+      ↓
+Phù hợp chân dung nhẹ nhàng
+```
+
+Trong bài học, Key Light được giữ khá nhỏ để tạo bóng rõ và tăng cảm giác đáng sợ.
+
+---
+
+## 7.3. Bước 3 — Tạo Fill Light
+
+Nhân bản Key Light:
+
+```text
+Shift + D
+```
+
+Sau đó:
+
+1. Di chuyển đèn sang phía đối diện.
+2. Xoay đèn hướng vào nhân vật.
+3. Tăng kích thước đèn.
+4. Giảm công suất.
+5. Đổi màu sang đỏ hoặc đỏ cam nhẹ.
+
+| Thuộc tính  |                    Giá trị gợi ý |
+| ----------- | -------------------------------: |
+| Loại đèn    |                       Area Light |
+| Vai trò     |                       Fill Light |
+| Power       |                     Khoảng 150 W |
+| Màu sắc     |                   Đỏ hoặc đỏ cam |
+| Kích thước  |                              Lớn |
+| Vị trí      |               Đối diện Key Light |
+| Hướng chiếu | Hướng vào vùng tối của khuôn mặt |
+
+Fill Light lớn tạo ánh sáng mềm và không sinh thêm nhiều bóng sắc.
+
+---
+
+## 7.4. Kiểm tra ảnh hưởng của Fill Light
+
+Có thể ẩn tạm nguồn sáng bằng:
+
+```text
+H
+```
+
+Hiện lại tất cả đối tượng đã ẩn bằng:
+
+```text
+Alt + H
+```
+
+Quy trình kiểm tra:
+
+```text
+Bật Fill Light
+      ↓
+Quan sát vùng tối
+
+Ẩn Fill Light
+      ↓
+So sánh độ tương phản
+
+Hiện lại Fill Light
+      ↓
+Điều chỉnh Power
+```
+
+Việc bật và tắt từng đèn giúp đánh giá chính xác nguồn sáng đang đóng góp gì vào kết quả.
+
+---
+
+## 7.5. Bước 4 — Tạo Back Light
+
+Tiếp tục nhân bản một Area Light:
+
+```text
+Shift + D
+```
+
+Di chuyển đèn ra phía sau nhân vật.
+
+Thiết lập:
+
+| Thuộc tính  |                   Giá trị gợi ý |
+| ----------- | ------------------------------: |
+| Loại đèn    |                      Area Light |
+| Vai trò     |            Back Light/Rim Light |
+| Power       |                   Khoảng 3000 W |
+| Màu sắc     |                        Xanh lam |
+| Kích thước  |                             Nhỏ |
+| Vị trí      |     Phía sau, lệch sang một bên |
+| Hướng chiếu | Hướng vào cạnh sau của nhân vật |
+
+### Mục tiêu của Back Light
+
+Back Light phải tạo được một đường viền sáng nhưng không chiếu quá nhiều vào mặt trước.
+
+```text
+Back Light đặt quá ngang
+        ↓
+Ánh sáng tràn lên cằm và khuôn mặt
+
+Back Light đặt lệch về phía sau
+        ↓
+Viền sáng tập trung ở đầu, sừng và vai
+```
+
+Nếu ánh sáng xuất hiện quá nhiều trên cằm, hãy:
+
+* Di chuyển đèn ra sau hơn.
+* Xoay đèn lệch khỏi Camera.
+* Giảm Power.
+* Thu nhỏ vùng chiếu sáng bằng Spot Light nếu cần.
+
+---
+
+## 7.6. Bước 5 — Thêm Back Light thứ hai
+
+Hệ thống ánh sáng ba điểm chỉ yêu cầu một Back Light, nhưng bài học nhân bản thêm một đèn hậu để tạo viền sáng ở phía còn lại.
+
+```text
+Back Light trái  →  Nhân vật  ←  Back Light phải
+```
+
+Đèn thứ hai giúp:
+
+* Làm nổi bật vai.
+* Tạo viền cho phía đối diện.
+* Tăng cảm giác cân bằng.
+* Làm silhouette rõ hơn.
+
+Tuy nhiên, cần tránh để cả hai Back Light có cường độ quá mạnh vì nhân vật có thể bị bao quanh bởi viền sáng cháy.
+
+---
+
+# 8. Thông số ánh sáng tham khảo
+
+| Đèn          | Loại |         Power | Kích thước | Màu sắc   | Vai trò                     |
+| ------------ | ---- | ------------: | ---------- | --------- | --------------------------- |
+| Key Light    | Area | Khoảng 1000 W | Nhỏ        | Vàng/cam  | Định hình khuôn mặt         |
+| Fill Light   | Area |  Khoảng 150 W | Lớn        | Đỏ/đỏ cam | Làm sáng vùng tối           |
+| Back Light 1 | Area | Khoảng 3000 W | Nhỏ        | Xanh lam  | Tạo viền phía sau           |
+| Back Light 2 | Area |     Tùy chỉnh | Nhỏ        | Xanh lam  | Tạo thêm viền phía đối diện |
+
+> Các giá trị trên không phải công thức cố định. Kết quả còn phụ thuộc vào khoảng cách giữa đèn và nhân vật, kích thước mô hình, Color Management và Render Engine.
+
+---
+
+# 9. Ảnh hưởng của khoảng cách
+
+Khoảng cách giữa nguồn sáng và nhân vật ảnh hưởng trực tiếp đến độ sáng.
+
+```text
+Đưa đèn lại gần
+      ↓
+Ánh sáng mạnh hơn
+
+Đưa đèn ra xa
+      ↓
+Ánh sáng yếu hơn
+```
+
+Vì vậy, không nên chỉ điều chỉnh Power. Có thể phối hợp:
+
+* Power.
+* Distance.
+* Size.
+* Rotation.
+* Color.
+* Exposure của cảnh.
+
+---
+
+# 10. Thử nghiệm vị trí ánh sáng
+
+Sau khi hoàn thành hệ thống cơ bản, bài học khuyến khích thử nhiều vị trí khác nhau.
+
+## 10.1. Đặt Fill Light thấp
+
+Khi Fill Light đặt dưới khuôn mặt và hướng lên:
+
+* Khuôn mặt trở nên bí hiểm.
+* Các hốc mắt nổi bật hơn.
+* Bóng đổ có cảm giác không tự nhiên.
+* Phù hợp với nhân vật phản diện hoặc kinh dị.
+
+## 10.2. Đặt Fill Light cao
+
+Khi Fill Light đặt cao:
+
+* Ánh sáng tự nhiên hơn.
+* Trán và sừng được chiếu rõ.
+* Vùng mặt dưới vẫn giữ được độ tối.
+
+## 10.3. Đặt Key Light thấp
+
+Key Light chiếu từ dưới lên có thể tạo cảm giác:
+
+* Đáng sợ.
+* Kỳ lạ.
+* Không ổn định.
+* Giống ánh sáng sân khấu hoặc ánh sáng từ ngọn lửa.
+
+## 10.4. Đổi màu Key Light
+
+Một số màu có thể thử nghiệm:
+
+| Màu       | Cảm giác            |
+| --------- | ------------------- |
+| Vàng nhạt | Ấm áp, tự nhiên     |
+| Cam       | Mạnh, điện ảnh      |
+| Đỏ        | Nguy hiểm, hung dữ  |
+| Xanh lam  | Lạnh, bí ẩn         |
+| Xanh lá   | Ma quái, độc hại    |
+| Tím       | Huyền bí, giả tưởng |
+
+---
+
+# 11. Phối màu ánh sáng
+
+Bài học sử dụng cặp màu tương phản:
+
+```text
+Key Light  → Vàng/cam  → Ánh sáng ấm
+Fill Light → Đỏ        → Tăng cảm giác dữ dội
+Back Light → Xanh lam  → Ánh sáng lạnh
+```
+
+Sự kết hợp ánh sáng nóng và lạnh tạo ra độ tương phản màu:
+
+```text
+Ánh sáng ấm phía trước
+          +
+Ánh sáng lạnh phía sau
+          ↓
+Nhân vật nổi bật và có chiều sâu
+```
+
+Đây là cách phối màu thường thấy trong:
+
+* Poster phim.
+* Game fantasy.
+* Cinematic render.
+* Concept art.
+* Chân dung nhân vật stylized.
+
+---
+
+# 12. Screen Space Reflections
+
+Trong bài học, giảng viên bật **Screen Space Reflections** trong Render Properties.
+
+Mục đích là tăng khả năng hiển thị phản xạ trên:
+
+* Mắt.
+* Sừng.
+* Các vật liệu bóng.
+* Bề mặt có độ phản chiếu cao.
+
+Hiệu ứng trong cảnh này không quá rõ, nhưng có thể tạo thêm điểm sáng nhỏ trong mắt, giúp nhân vật có sức sống hơn.
+
+> Tùy phiên bản Blender và cấu hình Eevee, tên hoặc vị trí của tùy chọn phản xạ có thể khác nhau.
+
+---
+
+# 13. So sánh Eevee và Cycles
+
+## Eevee
+
+Trong bài học, Eevee cho kết quả:
+
+* Ánh sáng có cường độ mạnh.
+* Màu sắc nổi bật.
+* Xem trước gần như tức thì.
+* Phù hợp với nhân vật stylized.
+* Dễ thử nghiệm nhiều vị trí đèn.
+
+## Cycles
+
+Khi chuyển sang Cycles:
+
+* Ánh sáng trông mềm hơn.
+* Hiệu ứng bớt dữ dội.
+* Nhiễu xuất hiện trong quá trình xem trước.
+* Có thể cần bật Denoise.
+* Có thể cần điều chỉnh lại công suất và kích thước đèn.
+
+| Tiêu chí        | Eevee                      | Cycles                  |
+| --------------- | -------------------------- | ----------------------- |
+| Tốc độ          | Rất nhanh                  | Chậm hơn                |
+| Xem trước       | Gần như tức thì            | Cần lấy mẫu             |
+| Ánh sáng        | Mạnh, rõ, stylized         | Tự nhiên, mềm           |
+| Phản xạ         | Xấp xỉ theo thời gian thực | Chính xác hơn           |
+| Phù hợp bài học | Rất phù hợp                | Dùng để thử nghiệm thêm |
+
+Trong trường hợp này, giảng viên chọn **Eevee** vì nó giữ được độ mạnh và phong cách của ánh sáng tốt hơn cho nhân vật cartoon.
+
+---
+
+# 14. Phím tắt và công cụ liên quan
+
+| Phím/Công cụ          | Chức năng                                 |
+| --------------------- | ----------------------------------------- |
+| `Shift + A`           | Thêm đối tượng hoặc nguồn sáng            |
+| `Shift + D`           | Nhân bản nguồn sáng                       |
+| `G`                   | Di chuyển đèn                             |
+| `R`                   | Xoay đèn                                  |
+| `S`                   | Thay đổi kích thước                       |
+| `H`                   | Ẩn đèn đang chọn                          |
+| `Alt + H`             | Hiện lại tất cả đối tượng bị ẩn           |
+| `N`                   | Mở hoặc đóng Sidebar                      |
+| `T`                   | Mở hoặc đóng Toolbar                      |
+| `Numpad 0`            | Chuyển sang Camera View                   |
+| `Z` → Rendered        | Chuyển sang Rendered Preview              |
+| Light Data Properties | Điều chỉnh loại đèn, Power, Size và Color |
+| World Properties      | Điều chỉnh màu và cường độ nền            |
+| Render Properties     | Chọn Eevee/Cycles và cấu hình render      |
+
+---
+
+# 15. Lỗi thường gặp
+
+## 15.1. Key Light quá trực diện
+
+### Hiện tượng
+
+* Hai bên khuôn mặt sáng gần như nhau.
+* Bóng đổ rất ít.
+* Hình khối không rõ.
+
+### Cách khắc phục
+
+* Di chuyển Key Light lệch sang một bên.
+* Đặt đèn cao hơn.
+* Giảm kích thước để tăng độ rõ của bóng.
+
+---
+
+## 15.2. Key Light quá nhỏ
+
+### Hiện tượng
+
+* Bóng quá cứng.
+* Khuôn mặt có nhiều mảng tối sắc.
+* Chi tiết bị chia cắt mạnh.
+
+### Cách khắc phục
+
+* Tăng Size của Area Light.
+* Đưa đèn lại gần rồi giảm Power.
+* Thêm Fill Light nhẹ.
+
+---
+
+## 15.3. Fill Light quá mạnh
+
+### Hiện tượng
+
+* Mất phần lớn bóng đổ.
+* Khuôn mặt trông phẳng.
+* Không còn cảm giác chiều sâu.
+
+### Cách khắc phục
+
+* Giảm Power.
+* Đưa đèn ra xa.
+* Tăng kích thước nhưng giảm cường độ.
+* Ẩn đèn bằng `H` để so sánh trước và sau.
+
+---
+
+## 15.4. Fill Light quá yếu
+
+### Hiện tượng
+
+* Một nửa khuôn mặt gần như đen.
+* Không thấy chi tiết mắt, tai hoặc má.
+* Màu vật liệu bị mất trong vùng tối.
+
+### Cách khắc phục
+
+* Tăng Power từ từ.
+* Đưa đèn lại gần.
+* Điều chỉnh góc chiếu vào vùng tối.
+
+---
+
+## 15.5. Back Light không tạo được viền
+
+### Nguyên nhân
+
+* Đèn chưa hướng đúng vào nhân vật.
+* Đèn nằm chính giữa phía sau.
+* Đèn bị nhân vật che hoàn toàn.
+* Power quá thấp.
+* Nền quá sáng.
+
+### Cách khắc phục
+
+* Di chuyển Back Light lệch sang một bên.
+* Đưa đèn lên cao hoặc xuống thấp.
+* Tăng Power.
+* Giảm độ sáng của World Background.
+
+---
+
+## 15.6. Back Light làm cháy sáng
+
+### Hiện tượng
+
+* Viền sáng quá dày.
+* Sừng và vai mất màu.
+* Một phần khuôn mặt bị ánh sáng xanh phủ lên.
+
+### Cách khắc phục
+
+* Giảm Power.
+* Di chuyển đèn ra xa.
+* Xoay đèn về phía sau nhiều hơn.
+* Tăng kích thước nếu muốn viền sáng mềm hơn.
+* Chỉ giữ một Back Light nếu đèn thứ hai không cần thiết.
+
+---
+
+## 15.7. Ánh sáng có màu quá bão hòa
+
+### Hiện tượng
+
+* Da nhân vật bị đổi màu hoàn toàn.
+* Màu vật liệu gốc không còn rõ.
+* Ánh sáng đỏ hoặc xanh trở nên gắt.
+
+### Cách khắc phục
+
+* Giảm Saturation của màu đèn.
+* Dùng màu gần trắng nhưng hơi lệch về màu mong muốn.
+* Giảm Power của đèn màu.
+* Giữ Key Light có màu trung tính hơn.
+
+---
+
+## 15.8. Cycles khác Eevee quá nhiều
+
+Đây là hiện tượng bình thường vì hai Render Engine xử lý ánh sáng khác nhau.
+
+Khi chuyển sang Cycles, cần kiểm tra lại:
+
+* Power của từng đèn.
+* Kích thước nguồn sáng.
+* Exposure.
+* Color Management.
+* Số lượng Sample.
+* Denoise.
+
+---
+
+# 16. Quy trình thực hành hoàn chỉnh
+
+```text
+Chuẩn bị nhân vật đã tô màu
+           ↓
+Thiết lập Camera
+           ↓
+Chia Viewport thành hai cửa sổ
+           ↓
+Chuyển Camera View sang Rendered Preview
+           ↓
+Tạo Key Light màu vàng/cam
+           ↓
+Tạo Fill Light màu đỏ, công suất thấp
+           ↓
+Tạo Back Light màu xanh, công suất cao
+           ↓
+Kiểm tra từng đèn bằng H và Alt + H
+           ↓
+Thử nghiệm vị trí, màu và khoảng cách
+           ↓
+Thêm Back Light thứ hai nếu cần
+           ↓
+Kiểm tra phản xạ trên mắt và sừng
+           ↓
+So sánh Eevee với Cycles
+           ↓
+Lưu file và render kết quả
+```
+
+---
+
+# 17. Bài tập thực hành
+
+Hãy tạo ít nhất ba phiên bản ánh sáng khác nhau cho cùng một nhân vật.
+
+## Phiên bản 1 — Ánh sáng tiêu chuẩn
+
+* Key Light màu vàng nhạt.
+* Fill Light màu trung tính.
+* Back Light màu trắng.
+* Độ tương phản vừa phải.
+
+## Phiên bản 2 — Nhân vật phản diện
+
+* Key Light màu cam hoặc đỏ.
+* Fill Light màu đỏ tối.
+* Back Light màu xanh lam mạnh.
+* Bóng đổ tương đối cứng.
+
+## Phiên bản 3 — Phong cách ma quái
+
+* Key Light đặt thấp.
+* Fill Light màu xanh lá.
+* Back Light màu tím hoặc xanh lam.
+* World Background tối.
+
+Sau đó so sánh:
+
+* Phiên bản nào thể hiện hình khối rõ nhất?
+* Phiên bản nào phù hợp với tính cách nhân vật?
+* Đèn nào gây ảnh hưởng lớn nhất?
+* Màu sắc nào làm vật liệu mắt và sừng nổi bật nhất?
+
+---
+
+# 18. Thử thách nâng cao
+
+Có thể mở rộng bài tập bằng cách:
+
+* Animate Camera quay quanh nhân vật.
+* Animate cường độ đèn.
+* Animate màu Back Light.
+* Tạo một vòng quay Turntable.
+* Thêm nền Gradient.
+* Thêm mặt phẳng nền phía sau.
+* Sử dụng Depth of Field.
+* Thêm Bloom hoặc Glare trong Compositor.
+* Render nhiều góc Camera.
+* So sánh kết quả giữa Eevee và Cycles.
+
+Ví dụ quy trình Turntable:
+
+```text
+Nhân vật đứng yên
+      +
+Camera quay quanh nhân vật
+      +
+Ánh sáng giữ nguyên
+      ↓
+Video trình bày model 360°
+```
+
+---
+
+# 19. Checklist thực hành
+
+## Camera và bố cục
+
+* [ ] Camera đã đặt ở góc nhìn phù hợp.
+* [ ] Nhân vật chiếm phần lớn khung hình.
+* [ ] Không cắt mất các chi tiết quan trọng.
+* [ ] Đã tắt Camera to View sau khi hoàn thành bố cục.
+* [ ] Camera View đã được chuyển sang Rendered Preview.
+
+## Key Light
+
+* [ ] Key Light nằm phía trước và lệch sang một bên.
+* [ ] Đèn được đặt cao hơn khuôn mặt.
+* [ ] Màu vàng hoặc cam không quá bão hòa.
+* [ ] Power đủ để định hình khuôn mặt.
+* [ ] Bóng đổ có độ cứng phù hợp.
+
+## Fill Light
+
+* [ ] Fill Light nằm đối diện Key Light.
+* [ ] Kích thước đèn đủ lớn để tạo ánh sáng mềm.
+* [ ] Power thấp hơn Key Light.
+* [ ] Vùng tối vẫn còn nhưng không mất chi tiết.
+* [ ] Khuôn mặt không bị chiếu sáng quá phẳng.
+
+## Back Light
+
+* [ ] Back Light nằm phía sau nhân vật.
+* [ ] Đèn lệch sang một bên để tạo đường viền.
+* [ ] Màu xanh làm nổi silhouette.
+* [ ] Viền sáng không bị cháy.
+* [ ] Có thể nhìn rõ sừng, đầu và vai trên nền.
+
+## Hoàn thiện
+
+* [ ] Đã bật/tắt từng đèn để kiểm tra ảnh hưởng.
+* [ ] Đã thử nghiệm nhiều vị trí ánh sáng.
+* [ ] Đã kiểm tra phản xạ trên mắt.
+* [ ] Đã so sánh Eevee và Cycles.
+* [ ] Đã lưu file Blender.
+* [ ] Đã render một hình ảnh hoàn chỉnh.
+
+---
+
+# 20. Tóm tắt bài học
+
+Bài học hướng dẫn sử dụng hệ thống **Three-Point Lighting** để trình bày một nhân vật 3D:
+
+* **Key Light** tạo ánh sáng chính và định hình khuôn mặt.
+* **Fill Light** làm sáng nhẹ vùng tối nhưng vẫn giữ tương phản.
+* **Back Light** tạo đường viền để tách nhân vật khỏi hậu cảnh.
+* Kích thước Area Light quyết định độ mềm hoặc cứng của bóng.
+* Khoảng cách và Power đều ảnh hưởng đến cường độ ánh sáng.
+* Màu cam, đỏ và xanh có thể kết hợp để tạo phong cách điện ảnh.
+* Có thể thêm Back Light thứ hai để làm rõ cả hai bên silhouette.
+* Eevee phù hợp để thử nghiệm và render nhanh nhân vật stylized.
+* Ánh sáng không có một công thức cố định; cần liên tục thử nghiệm vị trí, màu sắc và cường độ.
+
+Mục tiêu cuối cùng không chỉ là làm nhân vật sáng hơn mà là sử dụng ánh sáng để thể hiện:
+
+* Hình khối.
+* Tính cách.
+* Tâm trạng.
+* Điểm tập trung.
+* Cảm giác chiều sâu của cảnh.

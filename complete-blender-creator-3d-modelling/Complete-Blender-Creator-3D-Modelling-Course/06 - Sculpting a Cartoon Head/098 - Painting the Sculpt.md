@@ -1,590 +1,794 @@
-# 098 — Painting the Sculpt
-In this lecture, we'll learn about how we can paint our scalps to add even more character and realism
-
-to our models.
-
-In this lecture, I'll go fairly detailed into the types of colors needed for a stylized character like
-
-this.
-
-Don't panic if you can't quite get there or yours doesn't look similar to mine, just try and enjoy
-
-the process and experiment.
-
-So here's where we got up to last time, and in order to add color to our objects, there's an option
-
-down the bottom called paint.
-
-Now, it's important to mention that there is another way of painting objects within Blender, and that's
-
-called texture painting, and it even has its own workspace up here.
-
-The reason I'm not using that and using a specific one for sculpting is that this is an extremely high
-
-poly mesh with three quarters of a million faces.
-
-In order to use texture painting, you need to unwrap your mesh, which we've talked about in previous
-
-units.
-
-But because it's so high poly, it's not advised to try that with in blender.
-
-For most machines it will just crash if you try and unwrap a model of this size.
-
-Also, if you use the texture painting to paint on it, even if it is unwrapped, it will lag a lot
-
-and it won't respond well.
-
-However, the painting within scope mode means we don't have to do any of that.
-
-It is, of course, important to say at this point, if you wanted to use this character in a game,
-
-then this sort of high poly count would be ill advised.
-
-Also, because they're such high poly meshes, they take more processing power to render, they take
-
-more memory to store and they're more awkward to rig and so on.
-
-But the paint mode that we have available to us in sculpting is very clever.
-
-It uses something along the lines of vertex painting, as I understand it, which gives a paint value
-
-to each vertex on your model.
-
-And for that reason they're able to make it run a lot smoother and faster in sculpt mode, and you can
-
-come up with some very effective results.
-
-So with my paint option enabled, I'll change the color, which is up the top here.
-
-You can also change it in the sidebar over here and I'll scroll down just to touch because there's also
-
-a color picker here and it's useful to have this open.
-
-And I'll show you why in a moment.
-
-First of all, let's change it up here to start with, and I'll change it to a sort of pinky red color.
-
-And you can see it changing up here and in here as well, and I'll change it.
-
-So it's a little bit darker.
-
-So it's sort of quite dark, ready colored skin somewhere around here.
-
-And let's start painting that on and you can see it paints fairly quickly.
-
-There's no lag and it's doing a great job.
-
-We can also turn X symmetry on, but to be aware we've changed the symmetry slightly.
-
-So it won't always be precise, but it will speed things up a bit.
-
-So I'll use that to paint notice though when I paint the second time, it gives a deeper read.
-
-That's because the strength of our brush up here is only at 0.6.
-
-You can change that in the same way as any brush.
-
-So I can press shift f for the strength and turn it up to one and fill them in with this ready color.
-
-Now you might be thinking that is extremely red and perhaps be thinking that I'm going for a sort of
-
-devil character.
-
-Well, yes, I am going for a reddish coloured character, but it's actually down to the way it's displayed
-
-in solid mode.
-
-If I go to material preview mode, we can't actually see anything and I'll explain why in a moment.
-
-But I'll go back to solid mode for now, and I want you to catch it with me painting your character's
-
-head a similar color to what I have here.
-
-And that's not what I've got in the viewport, but in my color options down here.
-
-Remember, you need to be in paint mode for this and you've also got your tools at the top here for
-
-the strength and size of your brush.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So we'll go across to the shading workspace to explain a bit more about the color.
-
-Let's zoom in on our character.
-
-And because our character is upright, we might as well join these two together, bring these out and
-
-join these two together and change this to the Shader editor.
-
-I'll press end to get rid of that panel and I'll zoom in on our character attach.
-
-This is a much more sensible workspace for a character that's upright like this.
-
-I'll add a new material for the head and I'll label it head and you can see my nodes just here.
-
-So we've got a base color and that's shown in our object.
-
-So how do we get hold of the information that we had in the sculpting workspace?
-
-I'll go back to shading.
-
-Well, that's in a special location.
-
-If I go to the object data properties here, you can see that there's a color attributes option here.
-
-And if I click on that dropdown, we've got this new color option here.
-
-If I were to delete that, I would delete my red that I have painted.
-
-So as soon as you start painting, it creates one of these for you.
-
-So we need to hook this up to the base color of our node.
-
-For that I can press shift a to add and under input.
-
-As you'd expect, there's a tribute just here, but we're not looking for that.
-
-We're looking for the color attribute just here.
-
-So I'm going to click on that, bring that to the front and hook it up, and it changes to our not so
-
-ready color.
-
-Now, it's important to note, if I zoom into the color attribute that there's a box down the bottom
-
-here, and if I click on that, I can choose my color.
-
-And that is the same.
-
-It's assuming because there's only one color attribute on this object that we want to use that.
-
-But it's a good idea to actually say which one you want because you could have several in here and you
-
-can add new ones here if you wanted to paint several different styles of head.
-
-So now we've got a color on our character.
-
-We can go back to the sculpting workspace and jump to material preview mode, and that looks a lot more
-
-pinky like skin.
-
-And in fact, I might go a little bit more red across to here.
-
-So he's a little bit more devilish and make sure he's completely covered in this.
-
-Checking the back of the ears as well.
-
-Make sure you get those and also down the bottom there.
-
-So pause the video and catch it with me.
-
-I'll go back to the shading workspace so you can see the node set up.
-
-It's the color attribute node and remember you can search for these nodes.
-
-If I press shift a, there's the search option there as well, but it is under input and color attribute.
-
-I'll go back to the sculpting workspace, so pause the video and catch up with me.
-
-Okay, so now comes the fun part.
-
-But before you start painting, there's a really useful option down the bottom here.
-
-It's called color palette.
-
-I'll open that up and I'll click new.
-
-So we created a new color palette there.
-
-And if I press the plus sign here that stores this color we have in here, that's really useful because
-
-I might start painting with a different color and then think, Oh, I want to use that color to go back
-
-over the new color that I've made, and it's difficult to select that exact color.
-
-So storing it in your color palette makes it much easier, and I can just click on it and it will pop
-
-in here if that were a different color.
-
-So for example, if I chose a more ready color, so cheeks are often red, the nose is often red and
-
-the ears.
-
-So I'll paint those in a bit red.
-
-I've got a bit of a red color there and I'll make it a little bit darker somewhere down here and pretty
-
-much stripped down to about five ish and just paint across the middle there.
-
-He's got a sort of red middle bit, a bit more on the cheeks, a bit more on the nose and a little bit
-
-more on the ears.
-
-Just make the brush a little bit smaller so I can be a little bit more precise.
-
-And you can see I've got some on the skull layer.
-
-I'm not going to worry too much for the moment.
-
-Just get those ears nice and red, the nose around the bottom here, nice and red.
-
-So I've got a red middle and now I want to get rid of this red up here.
-
-So first of all, I'll save that red.
-
-So I'll press the plus sign on that and I can go back to my original color and kind of erase that by
-
-painting over it with the original color.
-
-That's basically how you erase colors when you're coloring in this sort of method, and already it's
-
-looking quite interesting.
-
-So pause the video here and catch it with me.
-
-Creating your color palette, painting the middle section a reddish color, and perhaps a little bit
-
-extra on the cheeks, the nose and the edge of the ears here.
-
-Pause the video and have a go at that.
-
-Okay.
-
-Let's paint the lips.
-
-So I'll go a little bit more red, slightly towards the purples this way in my color wheel and a little
-
-bit darker somewhere around here, it's a bit of a stylized character this and let's paint that in and
-
-see how that looks.
-
-Not too bad.
-
-I might have to turn symmetry off now though, because we're getting a little bit more detailed.
-
-It's not quite precise.
-
-So I'll come down to this side here.
-
-Let's turn this strength up to one so that I can paint that on a little bit more clearly.
-
-So some around here a little bit tricky.
-
-This with the mouse, much easier with a graphics tablet.
-
-And let's get into there and try and paint this.
-
-I'll speed this up just a touch.
-
-Okay.
-
-We've got to be a bit careful because it looks a little bit like a very elaborate pantomime character.
-
-So I'll save that color with the plus and go back to my original skin colour, bring the strength right
-
-down, brush a bit bigger and just tone it down a bit.
-
-In some areas, as I was saying, it kind of works like an eraser that's just about working.
-
-I'll go back to this one strength up just a touch and refine it very slightly just in here.
-
-And that's not looking too bad.
-
-Bit at the top there needs removing and there's a bit of red in there as well to make it even more difficult.
-
-But with a low strength, you can kind of blend these things together and that's not looking too bad.
-
-There is also a smear brush here which you can use to blend things together.
-
-And if I turn the strength down, it does a much softer job.
-
-So if you do need to use the smear brush to kind of help you with some of these areas, blur them just
-
-a touch, make them blend into each other, then that can be quite helpful.
-
-I'll go back to the paint brush now, so pause the video here and catch it with me painting the lips
-
-in a sort of purply colour.
-
-Okay.
-
-I'll scroll down to my palette again, and with that purple color, I'll increase the strength to about
-
-0.6.
-
-And this is very useful for creating bags under the eyes like this.
-
-I'll undo that actually, because I might get away with the symmetry on this one.
-
-Just make it a little bit faster.
-
-So I've got sort of bags under his eyes like that, and that's working reasonably well.
-
-I'll turn the strength down a bit further and go round a little bit further round the outside, and
-
-I'm getting away with the symmetry there, so that's good.
-
-We could also create a little bit of shading in the ears like this with that purple color as well,
-
-perhaps even under the nose just there as well.
-
-So you can paint a little bit of shadow on, although the lighting will do that and a little bit later.
-
-So you don't have to worry too much about that.
-
-So pause the video here and work on the eyes and shade any areas where you want a little bit more shadow.
-
-But don't worry too much about that.
-
-Okay.
-
-Now, interestingly, most faces, when you're painting them, they have this red bit across the middle.
-
-The bottom part tends to be a little bit more blue, especially for males.
-
-So we'll go over to the blues over here.
-
-I'm going sort of around the circle this way.
-
-And if I hold down control and use the wheel, I can actually make this area a bit bigger.
-
-So you can see it a little bit more clearly.
-
-And that's holding down control and using the wheel if you need to change the size of the menus.
-
-So from the reds here and the skin colors here, I'm going around the circle towards the blue, so I'm
-
-keeping the same saturation level, but heading towards the blues might make it a little bit darker
-
-as well.
-
-Brush nice and big low strength were about 0.25 and I'll just rush in here giving some of that darkness,
-
-that sort of blue color might go a little bit further round, possibly exaggerating a little bit here.
-
-But remember, you can always tone this back by adding that to your color palette and then going back
-
-to your more pinky colours and bringing those in.
-
-It's not too bad, but I still feel it's not quite blue enough, so I'll come around a little bit further
-
-into somewhere around here.
-
-Might be a touch too dark as well.
-
-That's a bit better.
-
-That's what I'm looking for.
-
-Sort of blue like this, not too far down the neck.
-
-And in fact, you can use some of this red first, remember to add this colour.
-
-So add the colour and then add a bit of this red to the chest area here.
-
-Like so we can do the same sort of thing at the back.
-
-And that's working relatively well.
-
-I'm finding the skin a little bit shiny, so I'll just go across to the shading mode and bring the roughness
-
-of my principal beiersdorf up.
-
-And that's looking a little bit better, I think.
-
-Let's go back to sculpting.
-
-That's a bit more like it.
-
-It's a bit less distracting.
-
-So pause the video here, catch up with me and add some blue to the chin area.
-
-Don't worry if it goes too far, you can always turn it back later.
-
-So we have a bluey colour, which I've exaggerated a bit here, and I might turn that back in a moment.
-
-Then a red colour in the middle and you actually go for a yellow colour at the top.
-
-So I'll go across the yellows a little bit brighter.
-
-In fact, I'll choose this one here first just to look at the brightness and then come across the yellows.
-
-So I want it roughly the same brightness as the original one here.
-
-So I've got that there again, not too high strength and just come across the top with a bit of that
-
-yellow might be a bit too strong there.
-
-Something like this anyway.
-
-I still feel like my brush is a little bit strong, actually.
-
-That's better.
-
-Just a subtle bit of yellow.
-
-It's not really that subtle at the moment, but we're getting there.
-
-I can just go back to my original color.
-
-Very low strength, so under 0.1.
-
-And I can just add a little bit of that original color just to kind of soften this out, this effect.
-
-And I made a classic mistake.
-
-I didn't add that yellow to the color palette.
-
-It's around here.
-
-I know that much.
-
-So I can add it in now.
-
-And I've got my colors here.
-
-And at any time I want to increase them, I think a bit more red around the cheeks.
-
-Now I'll just increase the strength of touch here to 0.1 and then a little bit more strength, that
-
-red around here and around the nose and around the ears and take out a tiny bit of this blue.
-
-It's a little bit too much at the moment.
-
-The mirror, as you can see, is not quite accurate here.
-
-So it's adding more to this side than this side.
-
-So I'll have to turn that off and just do some of this by hand.
-
-That's absolutely fine.
-
-And I need a little bit more on the lips.
-
-So this sort of reddish color, again, a nice low strength.
-
-And I'll just.
-
-Increase.
-
-These middle bit's a little bit more.
-
-A little bit darker.
-
-Right in the crevice, I think.
-
-As I've said before, a lot of that will be picked up by the lighting as well.
-
-But I always like to paint a little bit of extra shadow in these crevices.
-
-You don't really have to do this.
-
-It just adds a little bit of vibrancy to your models.
-
-So don't worry too much if you're finding this bit a bit tricky.
-
-One last thing.
-
-A little bit of darkness under the nose here, adding a little bit of shadow, especially in the nostril
-
-areas there.
-
-I might go really dark on this.
-
-Okay.
-
-So hopefully you're getting okay with this.
-
-And as usual, catch up with me.
-
-Try your best to get relatively close to what I've got here.
-
-And of course, don't panic if it doesn't look exactly like mine, but this is roughly what you're heading
-
-towards.
-
-Again, experiment a bit, try and enjoy the process and have some fun.
-
-And of course, remember to save your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 06 — Sculpting a Cartoon Head |
-| **Bài học** | Painting the Sculpt |
-| **Thời lượng** | 14:39 |
-| **Chủ đề chính** | Tô màu trực tiếp lên mô hình |
+# 098 — Tô màu mô hình Sculpt trong Blender
+
+| Thuộc tính         | Nội dung                                                      |
+| ------------------ | ------------------------------------------------------------- |
+| **Module**         | Module 06 — Sculpting a Cartoon Head                          |
+| **Bài học**        | Painting the Sculpt                                           |
+| **Thời lượng**     | 14:39                                                         |
+| **Chủ đề chính**   | Tô màu trực tiếp lên mô hình trong Sculpt Mode                |
+| **Kỹ thuật chính** | Sculpt Paint, Color Attribute, bảng màu và phối màu khuôn mặt |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Hiểu sự khác biệt giữa Vertex Paint và Texture Paint trong Blender.
-- Thiết lập một texture/image để tô màu trực tiếp lên bề mặt sculpt (Texture Paint Mode).
-- Sử dụng các brush tô màu cơ bản (Draw, Soft, Blur, Smear) để tô da, sừng, mắt, môi.
-- Hiểu vai trò của UV (kể cả UV đơn giản/tự động) khi texture paint.
+Sau bài học này, anh có thể:
 
-## 2. Nội dung chính
+* Hiểu cách tô màu trực tiếp lên mô hình trong **Sculpt Mode**.
+* Phân biệt **Sculpt Paint** với **Texture Paint**.
+* Tạo vật liệu sử dụng dữ liệu từ **Color Attribute**.
+* Xây dựng bảng màu để dễ dàng tái sử dụng màu.
+* Phối màu da theo ba vùng chính:
 
-Blender cung cấp hai cách tô màu trực tiếp lên mesh mà không cần rời sang phần mềm khác:
+  * Vàng ở phần trên khuôn mặt.
+  * Đỏ ở vùng giữa.
+  * Xanh tím ở phần dưới.
+* Tô màu cho môi, má, mũi, tai, bọng mắt và các vùng bóng tối.
+* Dùng **Smear Brush** để hòa trộn ranh giới màu.
+* Điều chỉnh độ bóng của da bằng thông số **Roughness**.
 
-- **Vertex Paint**: màu được lưu trực tiếp trên từng vertex của mesh (Color Attribute). Ưu điểm là nhanh, không cần UV, phù hợp phác thảo màu sắc tổng thể hoặc mesh mật độ cao (như mesh sculpt nhiều chi tiết). Nhược điểm: độ phân giải màu phụ thuộc mật độ mesh — vùng ít vertex sẽ có màu bị nội suy mờ.
-- **Texture Paint**: màu được vẽ lên một hình ảnh (Image Texture) thông qua tọa độ UV, cho độ phân giải cao và độc lập với mật độ mesh, phù hợp khi cần chi tiết màu sắc rõ nét (ví dụ vân da, chi tiết mắt). Yêu cầu mesh đã có UV Map hợp lệ — có thể dùng **Smart UV Project** hoặc UV đơn giản cho mục đích tô màu nhanh (không cần UV tối ưu như khi bake).
+---
 
-Quy trình Texture Paint cơ bản:
+## 2. Phương pháp tô màu được sử dụng
 
-1. Chuyển mesh sang Object Mode, tạo UV (Edit Mode > `U` > Smart UV Project) nếu chưa có.
-2. Vào tab **Texturing** hoặc Texture Paint Mode, tạo Image Texture mới (New Image) với kích thước phù hợp (ví dụ 2048x2048), gán vào Material.
-3. Chọn brush **Draw** để tô màu nền cho từng vùng lớn: màu da, màu sừng, màu môi, màu tròng mắt.
-4. Dùng brush **Soft** (falloff mềm) để chuyển màu mượt giữa các vùng.
-5. Dùng brush **Blur** để làm mờ, hòa trộn ranh giới màu.
-6. Dùng brush **Smear** để kéo vệt màu, tạo hiệu ứng chuyển sắc tự nhiên (ví dụ ửng hồng ở má).
-7. Có thể dùng Color Picker (`X` để đổi màu Primary/Secondary hoặc `Ctrl+click` để hút màu từ canvas) để lấy mẫu màu đã vẽ.
+Trong bài học này, mô hình có khoảng **750.000 mặt**, vì vậy việc unwrap UV và sử dụng Texture Paint trực tiếp sẽ rất nặng.
 
-Với Vertex Paint, quy trình tương tự nhưng thao tác trực tiếp trên Color Attribute của mesh (Object Data Properties > Color Attributes), không cần UV hay Image Texture, phù hợp để nhanh chóng phác thảo phối màu trước khi quyết định texture paint chi tiết hơn.
+Thay vào đó, Blender cho phép tô màu ngay trong Sculpt Mode bằng công cụ **Paint**.
 
-## 3. Quy trình thực hành gợi ý
+Màu được lưu trong một lớp dữ liệu gọi là:
 
-1. Tạo UV nhanh cho mesh bằng Smart UV Project (nếu dùng Texture Paint).
-2. Tạo Image Texture mới, gán Material cơ bản cho object.
-3. Vào Texture Paint Mode, dùng brush Draw tô các mảng màu lớn: da, sừng, môi, mắt.
-4. Dùng Soft/Blur để làm mượt chuyển tiếp giữa các mảng màu.
-5. Dùng Smear để tạo các vùng ửng màu tự nhiên (má, tai).
-6. Kiểm tra lại kết quả ở chế độ Material Preview/Rendered để đánh giá màu dưới ánh sáng.
-7. Lưu Image Texture ra file (Image > Save As) để không mất dữ liệu tô màu.
+> **Color Attribute**
 
-## 4. Phím tắt & công cụ liên quan
+Color Attribute lưu thông tin màu trên các điểm hoặc góc của mesh, tương tự phương pháp **Vertex Paint**.
 
-| Phím tắt / Brush | Chức năng |
-|---|---|
-| Brush **Draw** | Tô màu cơ bản lên bề mặt |
-| Brush **Soft** | Tô màu với falloff mềm |
-| Brush **Blur** | Làm mờ, hòa trộn màu |
-| Brush **Smear** | Kéo vệt màu, tạo chuyển sắc |
-| `X` | Hoán đổi màu Primary/Secondary |
-| `Ctrl+Click` (giữ khi tô) | Hút màu (Color Picker) từ canvas |
-| `U` (Edit Mode) | Mở menu UV Mapping (Smart UV Project...) |
+### Sơ đồ hoạt động
 
-## 5. Lưu ý & lỗi thường gặp
+```text
+Brush Paint trong Sculpt Mode
+              │
+              ▼
+      Color Attribute của mesh
+              │
+              ▼
+       Color Attribute Node
+              │
+              ▼
+ Base Color của Principled BSDF
+              │
+              ▼
+     Màu hiển thị trên mô hình
+```
 
-- Texture Paint trên mesh chưa có UV hoặc UV lỗi khiến màu bị méo/lặp lại bất thường.
-- Quên Save Image sau khi tô, dẫn đến mất toàn bộ công tô màu khi đóng file.
-- Dùng Vertex Paint trên mesh mật độ thấp cho chi tiết nhỏ khiến màu bị loang/mờ không như ý.
-- Tô màu quá đều, thiếu biến thiên sắc độ (variation) khiến bề mặt trông phẳng, thiếu chân thực dù là phong cách cartoon.
+---
 
-## 6. Checklist thực hành
+## 3. Sculpt Paint và Texture Paint
 
-- [ ] Đã tạo UV cơ bản cho mesh (nếu dùng Texture Paint).
-- [ ] Đã tạo Image Texture và gán vào Material.
-- [ ] Đã tô màu nền cho các vùng chính: da, sừng, môi, mắt.
-- [ ] Đã dùng Soft/Blur/Smear để làm mượt chuyển tiếp màu.
-- [ ] Đã lưu Image Texture ra file.
+### 3.1. Sculpt Paint
 
-## 7. Tóm tắt
+Sculpt Paint là phương pháp được sử dụng trong bài học.
 
-Bài học giới thiệu hai phương pháp tô màu trực tiếp lên mô hình sculpt trong Blender — Vertex Paint và Texture Paint — cùng quy trình thực hành tô màu da, sừng và các chi tiết khuôn mặt bằng các brush Draw, Soft, Blur, Smear.
+* Không cần UV Map.
+* Không cần tạo Image Texture.
+* Phù hợp với mesh sculpt có mật độ polygon cao.
+* Tô màu nhanh và ít giật hơn.
+* Màu được lưu trong Color Attribute.
+* Chất lượng màu phụ thuộc vào mật độ mesh.
+
+### 3.2. Texture Paint
+
+Texture Paint là phương pháp tô màu lên một hình ảnh thông qua UV.
+
+* Cần UV Map.
+* Cần Image Texture.
+* Phù hợp với mô hình đã retopology.
+* Cho phép tạo texture có độ phân giải xác định.
+* Thường được sử dụng cho game, animation và xuất sang phần mềm khác.
+
+### Bảng so sánh
+
+| Đặc điểm                       | Sculpt Paint              | Texture Paint              |
+| ------------------------------ | ------------------------- | -------------------------- |
+| Cần UV Map                     | Không                     | Có                         |
+| Cần Image Texture              | Không                     | Có                         |
+| Nơi lưu màu                    | Color Attribute           | File hình ảnh              |
+| Phù hợp mesh rất nhiều polygon | Tốt                       | Không tối ưu               |
+| Phù hợp mô hình game           | Chỉ dùng tạm hoặc để bake | Phù hợp hơn                |
+| Độ chi tiết màu                | Phụ thuộc mật độ mesh     | Phụ thuộc độ phân giải ảnh |
+| Hiệu năng khi sculpt           | Nhanh                     | Có thể giật hoặc treo      |
+
+> **Lưu ý:** Mesh khoảng 750.000 mặt không thích hợp để đưa trực tiếp vào game, rig hoặc animation. Trong quy trình chuyên nghiệp, cần retopology và bake dữ liệu từ high-poly sang low-poly.
+
+---
+
+## 4. Bật công cụ Paint trong Sculpt Mode
+
+Trong Sculpting Workspace:
+
+1. Chọn mô hình đầu.
+2. Đảm bảo đang ở **Sculpt Mode**.
+3. Chọn công cụ **Paint** trong danh sách brush.
+4. Chọn màu tại thanh công cụ phía trên hoặc trong bảng Brush Settings.
+5. Điều chỉnh:
+
+   * Kích thước brush.
+   * Strength.
+   * Symmetry.
+   * Màu sắc.
+
+Khi bắt đầu tô, Blender sẽ tự động tạo một **Color Attribute** cho mô hình.
+
+---
+
+## 5. Tô màu nền cho da
+
+Màu nền được chọn là một màu:
+
+* Đỏ hồng.
+* Hơi tối.
+* Có sắc da.
+* Phù hợp với nhân vật mang phong cách quỷ hoặc phản diện.
+
+### Quy trình
+
+1. Chọn màu đỏ hồng tối.
+2. Bật đối xứng theo trục X để tô nhanh hai bên khuôn mặt.
+3. Tăng Strength lên gần `1.0` khi cần phủ màu hoàn toàn.
+4. Tô toàn bộ:
+
+   * Mặt.
+   * Đầu.
+   * Tai.
+   * Sau tai.
+   * Cổ.
+   * Phần đáy đầu.
+
+### Lưu ý về Strength
+
+Nếu Strength nhỏ hơn `1.0`, mỗi lần tô chồng lên sẽ khiến màu đậm hơn.
+
+```text
+Một lần tô       → màu nhạt
+Nhiều lần tô     → màu đậm dần
+Strength = 1.0   → màu gần với màu đã chọn
+```
+
+---
+
+## 6. Thiết lập vật liệu hiển thị Color Attribute
+
+Sau khi tô trong Sculpt Mode, màu có thể chưa xuất hiện trong **Material Preview** vì vật liệu chưa đọc dữ liệu Color Attribute.
+
+### Các bước thiết lập
+
+1. Chuyển sang **Shading Workspace**.
+2. Chọn mô hình đầu.
+3. Tạo một Material mới.
+4. Đặt tên, ví dụ:
+
+```text
+Head
+```
+
+5. Trong Shader Editor, thêm node:
+
+```text
+Shift + A
+→ Input
+→ Color Attribute
+```
+
+6. Chọn đúng tên Color Attribute đã được tạo.
+7. Nối đầu ra màu của node vào:
+
+```text
+Principled BSDF → Base Color
+```
+
+### Sơ đồ node
+
+```text
+┌────────────────────────┐
+│ Color Attribute        │
+│ Attribute: Color       │
+│                        │
+│ Color ─────────────────┼─────────┐
+└────────────────────────┘         │
+                                   ▼
+                         ┌────────────────────┐
+                         │ Principled BSDF    │
+                         │                    │
+                         │ Base Color ◄───────┘
+                         └─────────┬──────────┘
+                                   │
+                                   ▼
+                         ┌────────────────────┐
+                         │ Material Output    │
+                         └────────────────────┘
+```
+
+> Nếu xóa Color Attribute trong **Object Data Properties**, toàn bộ màu đã tô bằng lớp đó cũng sẽ bị xóa.
+
+---
+
+## 7. Tạo và sử dụng bảng màu
+
+Trước khi tô chi tiết, nên tạo một **Color Palette**.
+
+### Cách thực hiện
+
+1. Mở phần **Color Palette** trong cài đặt brush.
+2. Chọn **New**.
+3. Nhấn dấu `+` để lưu màu hiện tại.
+4. Mỗi khi tạo một màu quan trọng, tiếp tục nhấn `+`.
+
+### Các màu nên lưu
+
+* Màu da nền.
+* Màu đỏ cho má, tai và mũi.
+* Màu tím cho môi.
+* Màu tím tối cho bọng mắt.
+* Màu xanh cho cằm.
+* Màu vàng cho trán.
+* Màu tối cho hốc mũi và nếp sâu.
+
+### Lợi ích
+
+Khi tô sai, anh không có công cụ tẩy màu theo kiểu xóa dữ liệu đơn giản. Thay vào đó, anh có thể chọn lại màu da nền và tô đè lên vùng sai.
+
+```text
+Tô sai màu
+    │
+    ▼
+Chọn lại màu da trong Palette
+    │
+    ▼
+Giảm Strength
+    │
+    ▼
+Tô đè để làm mờ hoặc xóa màu sai
+```
+
+---
+
+## 8. Phối màu khuôn mặt theo ba vùng
+
+Một khuôn mặt thường không chỉ có một màu da đồng nhất. Việc thêm biến thiên màu sẽ làm mô hình sinh động và tự nhiên hơn.
+
+### Phân bố màu cơ bản
+
+```text
+        ┌─────────────────────┐
+        │ VÙNG TRÊN           │
+        │ Vàng nhẹ            │
+        │ Trán, đỉnh đầu      │
+        ├─────────────────────┤
+        │ VÙNG GIỮA           │
+        │ Đỏ hoặc hồng        │
+        │ Má, mũi, tai        │
+        ├─────────────────────┤
+        │ VÙNG DƯỚI           │
+        │ Xanh hoặc tím lạnh  │
+        │ Cằm, quanh miệng    │
+        └─────────────────────┘
+```
+
+Cách phối màu này thường được gọi gần với nguyên tắc:
+
+> **Red – Yellow – Blue facial zones**
+
+Đây không phải quy tắc bắt buộc, nhưng là nền tảng hữu ích khi tô da người hoặc nhân vật stylized.
+
+---
+
+## 9. Tô vùng đỏ ở giữa khuôn mặt
+
+Vùng giữa khuôn mặt thường có sắc đỏ mạnh hơn do tuần hoàn máu và cấu trúc da.
+
+### Các vùng cần tô
+
+* Hai bên má.
+* Phần giữa và đầu mũi.
+* Mép vành tai.
+* Bên trong tai.
+* Một phần ngực và cổ.
+
+### Thiết lập gợi ý
+
+| Thuộc tính           |          Giá trị tham khảo |
+| -------------------- | -------------------------: |
+| Strength ban đầu     |               Khoảng `0.5` |
+| Strength để hòa trộn |                  `0.1–0.3` |
+| Kích thước brush     |               Vừa hoặc lớn |
+| Symmetry             | Có thể bật khi tô vùng lớn |
+
+Không nên tô đỏ quá đều. Hãy tập trung sắc đỏ ở trung tâm rồi giảm dần ra xung quanh.
+
+---
+
+## 10. Tô màu môi
+
+Màu môi được chọn theo hướng:
+
+* Đỏ tím.
+* Tối hơn da.
+* Có độ bão hòa vừa phải.
+
+### Quy trình
+
+1. Chọn màu đỏ tím.
+2. Giảm kích thước brush.
+3. Có thể tắt Symmetry vì khuôn mặt đã được chỉnh lệch nhẹ.
+4. Tô từng bên môi cẩn thận.
+5. Tăng Strength để làm rõ vùng giữa môi.
+6. Giảm Strength khi cần làm mềm viền.
+7. Sử dụng màu da để sửa những vùng tô tràn.
+
+### Tránh lỗi “trang điểm sân khấu”
+
+Nếu màu môi quá đậm và viền quá sắc, nhân vật có thể trông giống đang trang điểm quá mức.
+
+Cách khắc phục:
+
+* Giảm Strength.
+* Tô đè bằng màu da.
+* Dùng Smear Brush.
+* Chỉ giữ màu tối ở khe môi và các nếp sâu.
+
+---
+
+## 11. Sử dụng Smear Brush để hòa màu
+
+**Smear Brush** kéo và trộn các màu lân cận trên bề mặt.
+
+Công cụ này hữu ích cho:
+
+* Làm mờ viền môi.
+* Hòa màu giữa má và da.
+* Làm mềm vùng xanh dưới cằm.
+* Chuyển tiếp giữa vùng đỏ, vàng và xanh.
+* Xử lý những mảng màu bị gắt.
+
+### Cách sử dụng
+
+1. Chọn Smear Brush.
+2. Giảm Strength.
+3. Kéo nhẹ theo hướng chuyển màu.
+4. Không kéo quá nhiều vì màu có thể bị bẩn hoặc nhòe.
+
+```text
+Ranh giới màu sắc nét
+          │
+          ▼
+Smear với Strength thấp
+          │
+          ▼
+Chuyển màu mềm và tự nhiên hơn
+```
+
+---
+
+## 12. Tạo bọng mắt và vùng bóng tím
+
+Sử dụng màu tím của môi hoặc một màu tím tối hơn để tạo:
+
+* Bọng mắt.
+* Vùng dưới mí mắt.
+* Hốc tai.
+* Dưới mũi.
+* Các vùng lõm nhẹ trên khuôn mặt.
+
+### Kỹ thuật
+
+* Dùng brush có kích thước vừa.
+* Strength khoảng `0.2–0.6`.
+* Tô nhiều lớp nhẹ thay vì một lớp quá mạnh.
+* Có thể bật X Symmetry nếu hai bên còn tương đối giống nhau.
+
+Bọng mắt giúp nhân vật:
+
+* Trông mệt mỏi.
+* Có vẻ già hơn.
+* Đáng sợ hoặc phản diện hơn.
+* Có chiều sâu hơn quanh mắt.
+
+---
+
+## 13. Thêm sắc xanh ở vùng cằm
+
+Vùng dưới của khuôn mặt, đặc biệt ở nhân vật nam, thường có sắc lạnh hơn.
+
+Màu này có thể gợi cảm giác:
+
+* Râu mọc dưới da.
+* Bóng lạnh.
+* Vùng da dày.
+* Sự thay đổi sắc độ tự nhiên.
+
+### Các bước
+
+1. Từ màu da đỏ hồng, di chuyển vòng màu về phía xanh.
+2. Giữ mức saturation tương đối gần màu da.
+3. Giảm brightness một chút.
+4. Dùng brush lớn.
+5. Đặt Strength khoảng `0.25`.
+6. Tô nhẹ:
+
+   * Cằm.
+   * Hàm.
+   * Quanh miệng.
+   * Phần dưới má.
+
+Không nên kéo màu xanh quá xa xuống cổ, trừ khi đó là chủ ý thiết kế.
+
+---
+
+## 14. Thêm sắc vàng ở vùng trán
+
+Phần trên khuôn mặt có thể được thêm một lớp vàng nhẹ.
+
+### Vùng áp dụng
+
+* Trán.
+* Thái dương.
+* Đỉnh đầu.
+* Khu vực phía trên chân mày.
+
+### Kỹ thuật
+
+* Chọn màu vàng có độ sáng gần màu da nền.
+* Dùng Strength thấp.
+* Tô theo lớp mỏng.
+* Sau đó dùng màu da với Strength dưới `0.1` để làm mềm hiệu ứng.
+
+Mục tiêu là tạo cảm giác ấm nhẹ, không biến toàn bộ trán thành màu vàng rõ rệt.
+
+---
+
+## 15. Tô bóng trong các nếp sâu
+
+Các vùng lõm có thể được tô tối hơn để tăng chiều sâu:
+
+* Khe giữa hai môi.
+* Lỗ mũi.
+* Dưới mũi.
+* Hốc tai.
+* Nếp mí.
+* Nếp gấp quanh miệng.
+
+### Nguyên tắc
+
+Ánh sáng trong cảnh sau này cũng sẽ tạo bóng, vì vậy không cần vẽ bóng quá mạnh.
+
+Màu tối được tô trực tiếp chỉ nên dùng để:
+
+* Tăng độ rõ của hình khối.
+* Làm nhân vật stylized hơn.
+* Nhấn mạnh các vùng quan trọng.
+* Tăng độ tương phản thị giác.
+
+---
+
+## 16. Điều chỉnh Roughness của da
+
+Nếu da trông quá bóng, hãy chuyển sang Shading Workspace và tăng thông số:
+
+```text
+Principled BSDF → Roughness
+```
+
+### Ảnh hưởng của Roughness
+
+|  Roughness | Kết quả                           |
+| ---------: | --------------------------------- |
+|       Thấp | Da bóng, phản xạ mạnh             |
+| Trung bình | Da mềm, phù hợp nhân vật stylized |
+|        Cao | Da lì, ít phản xạ                 |
+
+Đối với đầu nhân vật stylized, mức Roughness trung bình hoặc hơi cao thường dễ nhìn hơn.
+
+---
+
+## 17. Symmetry và vấn đề bất đối xứng
+
+X Symmetry giúp tô nhanh hai bên đầu, nhưng nó chỉ chính xác khi hình học hai bên còn đối xứng.
+
+Trong quá trình sculpt, nếu anh đã:
+
+* Kéo lệch miệng.
+* Chỉnh một bên mắt.
+* Thay đổi một bên má.
+* Làm tai không giống nhau.
+
+thì kết quả tô đối xứng có thể lệch.
+
+### Cách xử lý
+
+* Bật Symmetry khi tô các vùng lớn.
+* Tắt Symmetry khi tô:
+
+  * Môi.
+  * Mí mắt.
+  * Lỗ mũi.
+  * Nếp gấp.
+  * Chi tiết bất đối xứng.
+
+---
+
+## 18. Phím tắt và thao tác quan trọng
+
+| Phím hoặc thao tác                    | Chức năng                                              |
+| ------------------------------------- | ------------------------------------------------------ |
+| `Shift + F`                           | Thay đổi Strength của brush                            |
+| `F`                                   | Thay đổi kích thước brush trong nhiều cấu hình Blender |
+| `Shift + A`                           | Mở menu thêm node trong Shader Editor                  |
+| `Shift + A → Input → Color Attribute` | Thêm node đọc màu từ Color Attribute                   |
+| Dấu `+` trong Color Palette           | Lưu màu hiện tại vào bảng màu                          |
+| X Symmetry                            | Tô đồng thời hai bên mô hình                           |
+| Paint Brush                           | Tô màu lên mô hình                                     |
+| Smear Brush                           | Kéo và hòa trộn màu                                    |
+| Material Preview                      | Xem màu thông qua vật liệu                             |
+| Solid Mode                            | Có thể hiển thị màu khác với vật liệu thực tế          |
+
+> Các phím tắt có thể thay đổi tùy phiên bản Blender và keymap đang sử dụng.
+
+---
+
+## 19. Lỗi thường gặp
+
+### 19.1. Không thấy màu trong Material Preview
+
+**Nguyên nhân:** Material chưa sử dụng Color Attribute.
+
+**Cách sửa:**
+
+```text
+Color Attribute Node
+→ nối Color
+→ Base Color của Principled BSDF
+```
+
+---
+
+### 19.2. Màu hiển thị khác giữa Solid Mode và Material Preview
+
+Solid Mode có thể sử dụng cách hiển thị màu riêng của viewport.
+
+Để đánh giá màu vật liệu chính xác hơn, nên kiểm tra bằng:
+
+* Material Preview.
+* Rendered View.
+
+---
+
+### 19.3. Màu bị quá đậm
+
+**Nguyên nhân:**
+
+* Strength quá cao.
+* Tô chồng nhiều lần.
+* Màu quá bão hòa.
+
+**Cách sửa:**
+
+* Chọn màu da nền.
+* Giảm Strength xuống dưới `0.1`.
+* Tô nhẹ để trung hòa.
+* Dùng Smear Brush.
+
+---
+
+### 19.4. Màu đối xứng bị lệch
+
+**Nguyên nhân:** Hai bên mesh không còn đối xứng hoàn toàn.
+
+**Cách sửa:** Tắt X Symmetry và chỉnh từng bên bằng tay.
+
+---
+
+### 19.5. Quên lưu màu vào Palette
+
+Khi cần dùng lại, rất khó chọn chính xác màu cũ bằng mắt.
+
+**Cách tránh:** Mỗi khi tạo được màu quan trọng, nhấn dấu `+` ngay lập tức.
+
+---
+
+### 19.6. Xóa nhầm Color Attribute
+
+Nếu xóa Color Attribute đang chứa dữ liệu màu, phần màu đã tô có thể mất hoàn toàn.
+
+Nên:
+
+* Đặt tên rõ ràng cho Color Attribute.
+* Không xóa thuộc tính màu khi chưa kiểm tra.
+* Lưu file Blender theo nhiều phiên bản.
+
+---
+
+### 19.7. Dùng mô hình high-poly trực tiếp trong game
+
+Mesh 750.000 mặt sẽ:
+
+* Tốn bộ nhớ.
+* Khó rig.
+* Khó animation.
+* Render chậm.
+* Không tối ưu thời gian thực.
+
+Quy trình phù hợp hơn:
+
+```text
+High-poly Sculpt
+       │
+       ▼
+   Retopology
+       │
+       ▼
+Low-poly Mesh + UV
+       │
+       ▼
+Bake Normal / Color / AO
+       │
+       ▼
+ Texture Paint bổ sung
+       │
+       ▼
+ Game hoặc Animation
+```
+
+---
+
+## 20. Quy trình thực hành hoàn chỉnh
+
+```text
+01. Chọn mô hình đầu
+        │
+        ▼
+02. Vào Sculpt Mode
+        │
+        ▼
+03. Chọn Paint Brush
+        │
+        ▼
+04. Tô màu da nền
+        │
+        ▼
+05. Tạo Material cho đầu
+        │
+        ▼
+06. Thêm Color Attribute Node
+        │
+        ▼
+07. Nối vào Base Color
+        │
+        ▼
+08. Tạo Color Palette
+        │
+        ▼
+09. Tô đỏ cho má, mũi và tai
+        │
+        ▼
+10. Tô tím cho môi và bọng mắt
+        │
+        ▼
+11. Tô xanh cho cằm
+        │
+        ▼
+12. Tô vàng nhẹ cho trán
+        │
+        ▼
+13. Thêm màu tối vào các nếp sâu
+        │
+        ▼
+14. Dùng Smear để hòa màu
+        │
+        ▼
+15. Điều chỉnh Roughness
+        │
+        ▼
+16. Kiểm tra ở Material Preview
+        │
+        ▼
+17. Lưu file
+```
+
+---
+
+## 21. Checklist thực hành
+
+### Thiết lập màu
+
+* [ ] Đã chọn Paint Brush trong Sculpt Mode.
+* [ ] Đã tô phủ màu da nền lên toàn bộ đầu.
+* [ ] Đã kiểm tra sau tai và phía dưới cổ.
+* [ ] Đã tạo Color Attribute tự động khi bắt đầu tô.
+* [ ] Đã tạo Material riêng cho đầu.
+* [ ] Đã nối Color Attribute vào Base Color.
+
+### Bảng màu
+
+* [ ] Đã tạo Color Palette.
+* [ ] Đã lưu màu da nền.
+* [ ] Đã lưu màu đỏ.
+* [ ] Đã lưu màu môi.
+* [ ] Đã lưu màu xanh.
+* [ ] Đã lưu màu vàng.
+* [ ] Đã lưu màu bóng tối.
+
+### Phối màu khuôn mặt
+
+* [ ] Đã thêm đỏ vào má, mũi và tai.
+* [ ] Đã tô môi màu đỏ tím.
+* [ ] Đã thêm bọng mắt.
+* [ ] Đã thêm sắc xanh ở cằm.
+* [ ] Đã thêm sắc vàng nhẹ trên trán.
+* [ ] Đã tô tối các nếp sâu.
+* [ ] Đã hòa trộn những ranh giới quá sắc.
+
+### Hoàn thiện
+
+* [ ] Đã kiểm tra X Symmetry.
+* [ ] Đã sửa thủ công những vùng bị lệch.
+* [ ] Đã điều chỉnh Roughness nếu da quá bóng.
+* [ ] Đã kiểm tra trong Material Preview.
+* [ ] Đã lưu file Blender.
+
+---
+
+## 22. Bài tập mở rộng
+
+Sau khi hoàn thành bài học, anh có thể thử tạo thêm các phiên bản màu khác:
+
+### Phiên bản quỷ lửa
+
+* Da đỏ sẫm.
+* Trán cam vàng.
+* Hốc mắt tím đen.
+* Sừng nâu hoặc đen.
+* Tai đỏ rực.
+
+### Phiên bản quỷ băng
+
+* Da xanh xám.
+* Mũi và tai tím lạnh.
+* Môi xanh đậm.
+* Trán xanh nhạt.
+* Hốc mắt xanh tím.
+
+### Phiên bản nhân vật già
+
+* Da ít bão hòa.
+* Nhiều tím dưới mắt.
+* Sắc đỏ tập trung ở mũi.
+* Tăng bóng trong nếp nhăn.
+* Thêm màu xám quanh cằm.
+
+### Phiên bản hoạt hình vui nhộn
+
+* Màu da sáng.
+* Má đỏ rõ.
+* Môi bão hòa cao.
+* Chuyển màu mềm.
+* Ít vùng bóng tối.
+
+---
+
+## 23. Tóm tắt bài học
+
+Bài học hướng dẫn tô màu trực tiếp lên mô hình high-poly bằng công cụ **Paint trong Sculpt Mode**. Phương pháp này sử dụng **Color Attribute**, nhờ đó không cần unwrap UV hoặc tạo Image Texture.
+
+Quy trình chính gồm:
+
+1. Tô màu da nền.
+2. Tạo Material.
+3. Đọc dữ liệu màu bằng Color Attribute Node.
+4. Tạo bảng màu.
+5. Phối đỏ ở vùng giữa khuôn mặt.
+6. Phối xanh ở vùng cằm.
+7. Phối vàng nhẹ ở vùng trán.
+8. Tô môi và bọng mắt bằng màu tím.
+9. Nhấn mạnh các nếp sâu bằng màu tối.
+10. Hòa màu bằng Smear Brush.
+11. Điều chỉnh Roughness để giảm độ bóng.
+
+Điểm quan trọng nhất là không cần làm cho mô hình giống hoàn toàn mẫu của giảng viên. Hãy thử nghiệm màu sắc, điều chỉnh Strength và xây dựng cá tính riêng cho nhân vật.

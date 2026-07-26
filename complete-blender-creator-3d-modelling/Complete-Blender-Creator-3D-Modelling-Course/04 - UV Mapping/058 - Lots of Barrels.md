@@ -1,404 +1,747 @@
-# 058 — Lots of Barrels
-In this lecture, we'll be taking our knowledge of UVs further by creating a few barrels and adding
+# 058 — Tạo nhiều thùng gỗ với các texture khác nhau
 
-different material textures to each one.
+## Lots of Barrels
 
-So here's where we got up to last time with our barrel, and I'm still in edit mode with the barrel
+| Thuộc tính       | Nội dung                                                                          |
+| ---------------- | --------------------------------------------------------------------------------- |
+| **Module**       | Module 04 — UV Mapping                                                            |
+| **Bài học**      | Lots of Barrels                                                                   |
+| **Thời lượng**   | 11:15                                                                             |
+| **Chủ đề chính** | Nhân bản vật thể, tạo Material độc lập, lặp texture bằng UV và sử dụng Edge Slide |
 
-selected.
-
-I'm just going to open up my shader editor and zoom out a touch.
-
-So we've got our four textures ready here and of course we can find and look at those textures within
-
-here as well with the different names.
-
-And in order to show you a few more things about U.V. unwrapping, I'm going to duplicate the barrel
-
-three times, so I've got four different barrels to add my textures to.
-
-So into object mode, select barrel and in fact, I'll hide the building for the moment so it's not
-
-distracting.
-
-Select the barrel shift D to duplicate in the x axis and I'll press shift R to repeat that action twice.
-
-So we got four barrels ready here.
-
-Now it is worth noting at this point that you can see the textures are all exactly the same, yet it
-
-is very common to use one single texture for an object like this and repeat it over and over.
-
-Some of the tricks that environmental artists use is just selecting them, rotating them around the
-
-Z axis slightly, and suddenly it looks like a slightly different barrel.
-
-So it's worth bearing that in mind.
-
-Also, if I undo that, ideally with your textures, you try and keep away from distinguishing marks.
-
-So this white line that's going around here is repeated over each barrel, and it's quite a distinguishing
-
-mark, which makes us realize immediately that it's a repeated texture.
-
-So that's just something to be aware of.
-
-So just pause the video for a moment, catch it with me and duplicate your barrel so that you have one
-
-for each texture that you've downloaded.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So with the second barrel selected, I'm going to link up my bottom texture and that is ending in four.
-
-Underscore one, underscore em.
-
-So I'll link that up to the base color.
-
-And of course all my barrels change because they're all sharing the same texture.
-
-So I'll undo that.
-
-What I need to do is to create a new texture based on this one for this new barrel.
-
-Well, hopefully you remember, that's this button up here, add new material.
-
-But if I use this one, it creates a new texture material zero to which I'll rename barrel to.
-
-But now when I change it to the texture shown here, it only changes that one barrel.
-
-I'll just click on the original barrel and change the name there as well.
-
-So Barrel one and re select barrel two with the barrel two texture.
-
-I could of course rename my objects in the outline as well, but there's no real need for that as we
-
-haven't got many items in our scene.
-
-So the reason I wanted to show you this texture, which if we look down at the bottom is ending in four,
-
-underscore one, underscore M so let's find that texture within here four underscore one, underscore
-
-M And let's just bring that texture out so we can see it nice and easily.
-
-Now, as I mentioned, it's darker here on the metal part than it is at the top here.
-
-So if I zoom in with the period key and move around until I find my seam, it's very obvious where it
-
-is.
-
-That's because the metal gets darker here and lighter here.
-
-So the barrel looks relatively good from somewhere like here where it's got nice dark metal brackets
-
-there.
-
-But as soon as I come round where the seam is, it gets very light.
-
-It's also worth saying at this point that these seams are often unavoidable.
-
-So what often happens is we try and hide those against a wall or foliage or something like that.
-
-So hopefully that highlights the point about using textures that are relatively consistent.
-
-So if I go back to my first one and choose that texture within here, so that's ending in underscore
-
-for underscore M you can see that that's relatively consistent throughout.
-
-And if I move around my barrel, it's actually a little bit harder to find the seam on this one, which
-
-makes it a good texture for texturing.
-
-Okay, so let's go to my third one and for this one you can follow along.
-
-I make my shader editor a bit bigger, zoom out a touch and I'm going to hook the second one up, which
-
-is underscore to underscore M I'm going to create a new material called Barrel three and I'm going to
-
-hook up my second material ending in two, underscore M up to the base color and I'll open that texture
-
-up in the UV editor.
-
-So to underscore M there, and that's just the planks.
-
-Now this is nice and consistent in color, but as a barrel it's not working particularly well.
-
-The planks seem very wide.
-
-If I go into edit mode and select all to look at the UVs, we can see that my big flat island here.
-
-If I select that with all the middle faces going around, it's covering the whole texture.
-
-We know it's the right way round because my slats are going up and down, so that's good.
-
-But what I can do here is scale in the Y and go outside the bounds of the texture to make those slats
-
-look a bit thinner.
-
-And now it's ending up looking a little bit more like a barrel.
-
-I'll zoom out a bit to show you the result of that.
-
-So when your UVs go outside the bounds of this texture, it just repeats itself.
-
-And that's common in most programs, including game engines.
-
-And if I deselect all with alt a, the texture is nice and consistent in terms of the tone.
-
-So the light bits and dark bits, so you don't really notice the repetition.
-
-So if we come around to our seam, it's actually difficult to see that it's repeating.
-
-You can in fact get what are called seamless textures so that when you repeat them like this, you don't
-
-see the edge overlap.
-
-This is close to a seamless texture.
-
-So when we repeat it like this, we don't really see where the overlap is.
-
-And you can see there's a tiny little notch there and it's not coming through on this side.
-
-So we know it's not actually seamless, although it's very close to.
-
-So somewhere along the line we should actually see that line.
-
-But to be honest, I can't notice it.
-
-So it's a very close to seamless texture.
-
-Okay, so I'll just select all again, just so you can see my UVs and I want you to pause the video
-
-here, catch up with me, create a new material for this barrel and attach that plank texture or a similar
-
-texture and just expand those UVs in my case in the Y axis so that they repeat around your barrel,
-
-pause the video and have a go at that.
-
-Okay.
-
-So if I just zoom out a bit and go back to object mode, it doesn't quite work as well as the first
-
-one as a barrel because it hasn't got those brackets at the top and the bottom, but it does give a
-
-reasonably convincing result.
-
-Now for the fourth barrel, if I just zoom in on that and create a new material.
-
-So this is barrel four and I'll zoom out.
-
-I want you to use the texture ending in 19 underscore.
-
-M So that's this one at the bottom here and I want you to try and texture your barrel so it looks fairly
-
-convincing using this texture.
-
-So you'll have to move around the UV slightly.
-
-You may have to repeat them by scaling it in one of the two axes, depending on how you've unwrapped
-
-it and try and come up with something that looks relatively good.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So hopefully you're going to go with that.
-
-So I'll just hook up this top material and we can see that it doesn't look quite right yet.
-
-So I'll go into edit mode, select all and have a look at the islands.
-
-Firstly, I'll select this big island here and the slats look like they're going the right way, but
-
-they do look a bit stretched.
-
-So if I press se them y that makes this bigger.
-
-The slats go round a bit further and let's have a look what that looks like.
-
-It's looking a bit better.
-
-Perhaps we'll try it a bit further.
-
-So scale in the Y again.
-
-And around there it looks fairly convincing, as if these wooden brackets are holding it together.
-
-The top looks a little bit odd, though, so maybe we could select one of those faces.
-
-I'll go to face mode for that.
-
-Select the face and select it in here and just scale it in the X so it's not so stretched.
-
-Maybe move it into a different position somewhere around here.
-
-Scale it up a touch.
-
-So it kind of repeats across my shape and perhaps that's working a little bit better.
-
-It's still not as convincing as the first, but it is a little bit better than the second because it
-
-has these wooden slats in it, in my opinion anyway.
-
-So hopefully you've gotten okay with that task and you realized about scaling up the UVs.
-
-If I go into edit mode again, select all the big island, the one going around the middle.
-
-I needed to rescale so that the slats fitted the model more closely.
-
-And if I go into object mode, this type of wooden board texture seems to just about work, has a barrel
-
-and go some way to show that you don't have to use a specific barrel texture for a barrel, which goes
-
-for any object.
-
-So sometimes if you want a specific material, it's not always the case that you can find it or the
-
-textures you find aren't quite suitable because they change in tone like we were talking about earlier
-
-or they don't repeat very well.
-
-So you might have to use a different type of texture for an object to get a close approximation to it
-
-that comes with more experience, and you'll find that out in your 3D artist journey.
-
-Now, one last thing that I do want to show you.
-
-Let's go back to our original barrel because it's probably a little bit easier to see.
-
-I'll zoom in on that, go to edit mode and select all and I'll just check which texture that is.
-
-So it's underscore underscore four.
-
-So let's find that in here and I'll just zoom in on that slightly so we can clearly see it.
-
-Now, if I select an edge loop, so into edge mode, alt left click on an edge loop and press g to grab
-
-and move it upwards.
-
-You can see that it stretches my texture.
-
-I'll undo those changes though.
-
-However, if I press G twice or jpg, as I like to say for edge slide, you can see that I can slide
-
-it along my edges of my shape and it actually moves the UVs as well as the edge on the object.
-
-So the edge slide can be a very useful tool for adjusting your objects without drastically changing
-
-the UVs.
-
-You might want to pause the video here and just have an experiment with that.
-
-So select an edge loop and use the edge slide command so G.G. to see how it actually moves with the
-
-UVs as well as the shapes topology.
-
-So lastly, if I bring back my building, which is this cube here, I'll go into object mode, zoom
-
-out and select that building and press the period key to zoom in on that.
-
-If I go into edit mode for this and let's say choose this edge here and press g g, I can edge slide
-
-this edge to change the shape of my building without changing the shape of the UVs.
-
-Now if I press C which is for clamp because currently it's clamped to the original size of the shape
-
-and you can see those commands at the top of my window.
-
-So there's E for even alt or C for clamp.
-
-Now I can go upwards and use the rest of the texture and make my building taller so I can then come
-
-to this side, press g, g and then c four clamp to turn the clamping off.
-
-And it will use the rest of my texture up there as well.
-
-And now I've got a taller building.
-
-I'll just select all and go across to my building texture just there and you can see how it's stretched
-
-those buildings and interesting faces.
-
-This one because it's actually repeating, which I believe is this one round the back here.
-
-And you can see how the texture is repeated starting on the bottom again and going upwards half way
-
-into this window here.
-
-So the edge slide tool is very useful for moving your UVs around as well as your topology or the shape
-
-of the object.
-
-So lastly, pause the video here and have a go at changing the shape of your building using the edge
-
-slide command.
-
-So choosing an edge double tapping g and remember to turn off clamp with C so it goes beyond the original
-
-border or edges of the shape.
-
-Once you've done that, make sure you've saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Lots of Barrels |
-| **Thời lượng** | 11:15 |
-| **Chủ đề chính** | Làm việc với nhiều texture thùng gỗ |
+---
 
 ## 1. Mục tiêu bài học
-- Biết cách nhân bản (duplicate) một thùng gỗ đã UV-map để tạo nhiều biến thể.
-- Hiểu sự khác nhau giữa việc dùng chung một Material/UV và tạo biến thể texture riêng cho từng bản sao.
-- Biết cách quản lý Material Slot và Image Texture để mỗi thùng có thể mang một texture khác nhau (gỗ cũ, gỗ mới, có nhãn, không nhãn...).
-- Tổ chức scene gọn gàng bằng Collection khi số lượng object tăng lên.
 
-## 2. Nội dung chính
-Sau khi đã có một thùng gỗ với UV hoàn chỉnh, một tình huống thực tế thường gặp là cần nhiều thùng tương tự nhau nhưng có texture khác nhau đôi chút (gỗ sẫm màu hơn, có thêm nhãn dán, đai kim loại gỉ sét...) để tránh cảm giác lặp lại (tiling) rõ rệt trong scene.
+Sau bài học này, bạn có thể:
 
-Có hai cách tiếp cận chính:
-- **Duplicate Object (`Shift+D`)** tạo bản sao độc lập với mesh và material riêng — cho phép chỉnh sửa UV hoặc gán texture khác mà không ảnh hưởng tới thùng gốc.
-- **Duplicate Linked (`Alt+D`)** tạo bản sao dùng chung mesh data — tiết kiệm bộ nhớ nhưng mọi chỉnh sửa mesh/UV sẽ áp dụng cho tất cả bản sao liên kết, nên không phù hợp nếu muốn UV hoặc texture khác nhau.
+* Nhân bản một vật thể đã UV unwrap để tạo nhiều biến thể.
+* Hiểu sự khác nhau giữa việc nhân bản object và việc dùng chung Material.
+* Tạo một Material độc lập cho từng thùng gỗ.
+* Thay đổi `Image Texture` mà không làm ảnh hưởng đến các object khác.
+* Nhận biết texture phù hợp hoặc không phù hợp để bao quanh vật thể.
+* Điều chỉnh kích thước UV để texture lặp lại nhiều lần.
+* Hiểu cách UV hoạt động khi vượt ra ngoài vùng tọa độ chuẩn.
+* Sử dụng `Edge Slide` để thay đổi topology mà hạn chế làm biến dạng UV.
+* Tắt giới hạn `Clamp` khi cần trượt cạnh ra ngoài phạm vi ban đầu.
 
-Vì mục tiêu là có nhiều thùng với texture khác nhau, `Shift+D` (Duplicate Object) là lựa chọn phù hợp hơn cho các bản cần material riêng, trong khi những bản dùng chung texture có thể tận dụng `Alt+D` để tiết kiệm tài nguyên.
+---
 
-Về mặt vật liệu, mỗi thùng có thể có một Material riêng biệt (hoặc một Material dùng chung với Image Texture khác nhau qua Material Slot), miễn là UV layout đã unwrap từ bài trước đảm bảo texture khớp đúng vị trí trên mesh, bất kể ảnh texture nào được gán vào.
+## 2. Tổng quan quy trình
 
-## 3. Quy trình thực hành gợi ý
-1. Từ thùng gỗ đã hoàn chỉnh UV, nhân bản bằng `Shift+D` để tạo vài bản sao, đặt rải rác trong scene.
-2. Đặt tên lại các object và Material cho rõ ràng (Barrel_01, Barrel_02...) trong Outliner.
-3. Với mỗi bản sao cần texture khác, tạo hoặc gán một Material mới, thay Image Texture trong Shader Editor.
-4. Kiểm tra lại UV của từng bản trong UV Editor để chắc chắn texture mới vẫn khớp đúng với layout gỗ/nắp/đai.
-5. Gom các thùng vào một Collection riêng (ví dụ "Barrels") để dễ quản lý và ẩn/hiện khi cần.
-6. Dùng Randomize Transform (nếu có) hoặc xoay/scale thủ công nhẹ từng thùng để tránh cảm giác các bản sao giống hệt nhau.
+Trong bài học, một thùng gỗ đã hoàn thành UV Mapping được nhân bản thành bốn thùng. Mỗi thùng sau đó được gán một texture khác nhau để kiểm tra:
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Shift+D` | Duplicate Object (bản sao độc lập, mesh/material riêng) |
-| `Alt+D` | Duplicate Linked (bản sao dùng chung mesh data) |
-| `M` | Move to Collection |
-| `G` / `R` / `S` | Di chuyển / xoay / scale object trong 3D Viewport |
-| `Ctrl+C` / `Ctrl+V` | Copy/Paste một số thuộc tính (ví dụ Material) giữa các object |
+* Texture nào phù hợp với hình dạng thùng.
+* Texture nào làm lộ đường nối UV.
+* Cách làm cho các tấm gỗ trông nhỏ và tự nhiên hơn.
+* Cách tận dụng texture không được thiết kế riêng cho thùng gỗ.
 
-## 5. Lưu ý & lỗi thường gặp
-- Dùng nhầm `Alt+D` khi muốn UV/texture độc lập sẽ khiến chỉnh sửa trên một bản sao ảnh hưởng tới toàn bộ các bản liên kết.
-- Không đổi tên object/material khi số lượng thùng tăng lên khiến Outliner trở nên lộn xộn, khó chỉnh sửa về sau.
-- Gán nhầm Image Texture vào sai Material Slot khiến một số thùng hiển thị texture sai hoặc trống (màu hồng/tím báo lỗi thiếu texture).
-- Sao chép quá nhiều bản với texture độ phân giải cao có thể ảnh hưởng hiệu năng viewport; cân nhắc dùng Instance hoặc giảm độ phân giải preview khi cần.
+```mermaid
+flowchart LR
+    A[Thùng gỗ đã UV unwrap] --> B[Nhân bản thành 4 thùng]
+    B --> C[Tạo Material riêng]
+    C --> D[Gán texture khác nhau]
+    D --> E[Kiểm tra đường seam]
+    E --> F[Scale và di chuyển UV]
+    F --> G[Đánh giá kết quả]
+    G --> H[Điều chỉnh topology bằng Edge Slide]
+```
 
-## 6. Checklist thực hành
-- [ ] Đã nhân bản được nhiều thùng gỗ từ một thùng gốc đã UV-map.
-- [ ] Đã gán texture khác nhau cho ít nhất hai bản sao.
-- [ ] Đã kiểm tra UV vẫn khớp đúng sau khi đổi texture.
-- [ ] Đã tổ chức các thùng vào một Collection riêng.
+---
 
-## 7. Tóm tắt
-Bài học mở rộng từ một thùng gỗ đơn lẻ sang một nhóm nhiều thùng với texture đa dạng, thông qua kỹ thuật duplicate object và quản lý material/UV hợp lý. Đây là kỹ năng tổ chức scene quan trọng khi số lượng asset tăng lên trong các dự án thực tế.
+# 3. Nhân bản thùng gỗ
+
+## 3.1. Tạo bốn thùng
+
+Từ thùng gỗ ban đầu:
+
+1. Chuyển về **Object Mode**.
+2. Chọn thùng gỗ.
+3. Nhấn:
+
+```text
+Shift + D
+```
+
+4. Nhấn `X` để giới hạn chuyển động theo trục X.
+5. Đặt bản sao bên cạnh thùng ban đầu.
+6. Nhấn:
+
+```text
+Shift + R
+```
+
+hai lần để lặp lại thao tác nhân bản và di chuyển trước đó.
+
+Kết quả là có tổng cộng bốn thùng:
+
+```text
+Barrel 1 ── Barrel 2 ── Barrel 3 ── Barrel 4
+```
+
+> `Shift + R` thực hiện lại thao tác cuối cùng, bao gồm cả khoảng cách di chuyển của lần nhân bản trước.
+
+---
+
+## 3.2. Vì sao các thùng vẫn có texture giống nhau?
+
+Mặc dù đã dùng `Shift + D`, các thùng vẫn có thể tham chiếu đến cùng một Material.
+
+Do đó, nếu thay đổi `Image Texture` bên trong Material đang dùng chung, tất cả các thùng sử dụng Material đó đều thay đổi theo.
+
+Quan hệ ban đầu có thể được hình dung như sau:
+
+```mermaid
+flowchart TD
+    M[Material Barrel dùng chung]
+    M --> B1[Barrel 1]
+    M --> B2[Barrel 2]
+    M --> B3[Barrel 3]
+    M --> B4[Barrel 4]
+```
+
+Muốn mỗi thùng sử dụng một texture khác nhau, cần tạo một bản sao độc lập của Material cho từng thùng.
+
+---
+
+# 4. Tránh cảm giác texture bị lặp
+
+Khi nhiều object sử dụng cùng một texture, người xem có thể nhanh chóng nhận ra sự lặp lại.
+
+Ví dụ, nếu texture có một đường màu trắng rất nổi bật, đường này sẽ xuất hiện giống hệt nhau trên tất cả các thùng.
+
+## 4.1. Cách giảm cảm giác lặp
+
+Có thể áp dụng một số biện pháp đơn giản:
+
+* Xoay mỗi thùng một góc nhỏ quanh trục Z.
+* Đặt mặt có đường seam quay về phía tường.
+* Che đường seam bằng cây cỏ, hộp, đá hoặc các vật thể khác.
+* Tránh sử dụng texture có dấu vết quá đặc trưng.
+* Ưu tiên texture có độ sáng và màu sắc đồng đều.
+* Sử dụng nhiều biến thể texture cho các object đặt gần nhau.
+
+Ví dụ:
+
+```text
+Thùng 1: R Z 0°
+Thùng 2: R Z 25°
+Thùng 3: R Z -40°
+Thùng 4: R Z 90°
+```
+
+Việc xoay nhẹ object không thay đổi texture, nhưng làm vị trí các chi tiết trên texture xuất hiện khác nhau từ góc nhìn của camera.
+
+---
+
+# 5. Tạo Material riêng cho từng thùng
+
+## 5.1. Hiện tượng Material dùng chung
+
+Khi chọn thùng thứ hai và nối một texture khác vào cổng `Base Color`, tất cả các thùng đều đổi texture.
+
+Điều này xảy ra vì chúng vẫn đang dùng chung một Material datablock.
+
+## 5.2. Tạo bản sao độc lập
+
+Thực hiện với thùng thứ hai:
+
+1. Chọn thùng thứ hai.
+2. Mở **Material Properties** hoặc **Shader Editor**.
+3. Nhấn nút số người dùng nằm cạnh tên Material để tạo bản sao độc lập.
+4. Đổi tên Material mới:
+
+```text
+Barrel 2
+```
+
+5. Gán texture thứ hai vào `Base Color`.
+
+Lặp lại với các thùng còn lại:
+
+```text
+Barrel 1 → Material Barrel 1
+Barrel 2 → Material Barrel 2
+Barrel 3 → Material Barrel 3
+Barrel 4 → Material Barrel 4
+```
+
+Sau khi tách Material:
+
+```mermaid
+flowchart TD
+    M1[Material Barrel 1] --> B1[Barrel 1]
+    M2[Material Barrel 2] --> B2[Barrel 2]
+    M3[Material Barrel 3] --> B3[Barrel 3]
+    M4[Material Barrel 4] --> B4[Barrel 4]
+```
+
+> Chỉ đổi tên object không làm Material trở nên độc lập. Cần tạo một Material datablock mới cho object đó.
+
+---
+
+# 6. Thùng thứ nhất — Texture tương đối đồng đều
+
+Texture của thùng đầu tiên có độ sáng và màu sắc khá nhất quán trên toàn ảnh.
+
+Khi texture được quấn quanh thân thùng:
+
+* Đường seam khó nhận biết hơn.
+* Phần kim loại không thay đổi độ sáng đột ngột.
+* Vùng tiếp giáp giữa hai đầu texture tương đối tự nhiên.
+
+Đây là loại texture phù hợp cho các vật thể có bề mặt bao quanh như:
+
+* Thùng gỗ.
+* Cột trụ.
+* Ống nước.
+* Thân cây.
+* Chai và lọ.
+
+## Đặc điểm của texture phù hợp
+
+| Đặc điểm                   | Lợi ích                                 |
+| -------------------------- | --------------------------------------- |
+| Màu sắc đồng đều           | Hạn chế sự khác biệt tại đường nối      |
+| Ánh sáng ít thay đổi       | Tránh một bên quá sáng, một bên quá tối |
+| Chi tiết không quá nổi bật | Khó nhận ra texture bị lặp              |
+| Có khả năng tile           | Có thể lặp texture trên diện tích lớn   |
+
+---
+
+# 7. Thùng thứ hai — Đường seam dễ nhận thấy
+
+Texture thứ hai có phần kim loại tối ở một phía nhưng sáng hơn ở phía còn lại.
+
+Khi hai đầu ảnh gặp nhau tại đường seam:
+
+```text
+Vùng kim loại tối │ Seam │ Vùng kim loại sáng
+```
+
+Sự thay đổi độ sáng đột ngột làm đường nối trở nên rất rõ.
+
+## 7.1. Đường seam không phải lúc nào cũng tránh được
+
+Trong nhiều mô hình, đặc biệt là vật thể dạng trụ, cần có ít nhất một đường cắt để trải bề mặt 3D thành mặt phẳng UV.
+
+Do đó, giải pháp thực tế thường là:
+
+* Đặt seam ở phía sau object.
+* Quay seam về phía tường.
+* Che seam bằng foliage hoặc vật thể khác.
+* Chọn texture có hai mép gần giống nhau.
+* Sử dụng seamless texture.
+
+---
+
+# 8. Thùng thứ ba — Lặp texture bằng cách scale UV
+
+Texture thứ ba chỉ chứa các tấm ván gỗ và không có đai thùng.
+
+Khi UV thân thùng phủ toàn bộ chiều rộng hoặc chiều cao của texture, các tấm ván xuất hiện quá lớn.
+
+## 8.1. Kiểm tra UV Island
+
+1. Chọn thùng thứ ba.
+2. Chuyển sang **Edit Mode**.
+3. Nhấn `A` để chọn toàn bộ mesh.
+4. Trong UV Editor, chọn UV Island của phần thân thùng.
+
+UV Island lớn ở giữa thường tương ứng với các mặt chạy quanh thân thùng.
+
+---
+
+## 8.2. Scale UV vượt ra ngoài ảnh
+
+Trong bài, UV được scale theo trục Y:
+
+```text
+S → Y
+```
+
+Khi UV Island lớn hơn phạm vi ảnh, Blender sẽ lặp lại texture.
+
+Ví dụ:
+
+```text
+Trước khi scale:
+
+┌──────────── Texture ────────────┐
+│       ┌──── UV Island ────┐     │
+│       └───────────────────┘     │
+└─────────────────────────────────┘
+
+
+Sau khi scale:
+
+          ┌────── UV Island ──────┐
+┌─────────┼──── Texture ──────────┼───────┐
+│         │                        │       │
+└─────────┼────────────────────────┼───────┘
+          └────────────────────────┘
+```
+
+Khi UV vượt khỏi vùng từ `0` đến `1`, texture được lặp lại theo chế độ mặc định của node `Image Texture`.
+
+---
+
+## 8.3. Tại sao scale UV làm tấm ván nhỏ hơn?
+
+Giả sử một texture có tám tấm ván:
+
+* Nếu UV chỉ bao phủ texture một lần, thân thùng hiển thị tám tấm ván.
+* Nếu UV bao phủ texture hai lần, thân thùng hiển thị khoảng mười sáu tấm ván.
+* Nếu UV bao phủ texture ba lần, các tấm ván càng nhỏ và dày hơn.
+
+```text
+UV nhỏ  → Texture phóng lớn trên object
+UV lớn  → Texture thu nhỏ và lặp nhiều lần
+```
+
+Sau khi scale UV, texture ván gỗ trông phù hợp với kích thước thùng hơn.
+
+---
+
+# 9. Seamless texture
+
+## 9.1. Seamless texture là gì?
+
+**Seamless texture** là ảnh được thiết kế sao cho:
+
+* Mép trái nối tự nhiên với mép phải.
+* Mép trên nối tự nhiên với mép dưới.
+* Khi ảnh được lặp lại, người xem khó nhận ra vị trí tiếp giáp.
+
+```text
+Texture A │ Texture A │ Texture A
+──────────┼───────────┼──────────
+Không xuất hiện đường nối rõ ràng
+```
+
+Texture ván gỗ trong bài chưa hoàn toàn seamless, nhưng hai mép khá giống nhau nên đường lặp rất khó nhận biết.
+
+## 9.2. Dấu hiệu texture không seamless
+
+* Vân gỗ bị ngắt đột ngột.
+* Có một đường sáng hoặc tối tại vị trí lặp.
+* Một chi tiết xuất hiện ở mép này nhưng không tiếp tục ở mép kia.
+* Màu sắc hai đầu ảnh không giống nhau.
+
+---
+
+# 10. Thùng thứ tư — Tận dụng một texture khác
+
+Texture thứ tư không được thiết kế riêng cho thùng gỗ. Tuy nhiên, bằng cách điều chỉnh UV, nó vẫn có thể tạo ra một kết quả tương đối thuyết phục.
+
+## 10.1. Điều chỉnh phần thân thùng
+
+1. Chọn thùng thứ tư.
+2. Tạo Material riêng, ví dụ:
+
+```text
+Barrel 4
+```
+
+3. Gắn texture được yêu cầu vào `Base Color`.
+4. Chuyển sang **Edit Mode**.
+5. Chọn UV Island của thân thùng.
+6. Scale theo trục phù hợp:
+
+```text
+S → Y
+```
+
+Mục tiêu là làm các tấm gỗ hoặc thanh ngang có tỷ lệ phù hợp với hình dạng thùng.
+
+---
+
+## 10.2. Điều chỉnh phần nắp
+
+Nếu texture trên mặt nắp bị kéo giãn:
+
+1. Chuyển sang **Face Select**.
+2. Chọn mặt nắp trên mô hình.
+3. Chọn UV Island tương ứng trong UV Editor.
+4. Scale theo trục X:
+
+```text
+S → X
+```
+
+5. Di chuyển UV đến vùng texture phù hợp:
+
+```text
+G
+```
+
+6. Scale toàn bộ UV Island nếu cần:
+
+```text
+S
+```
+
+Mục tiêu là:
+
+* Hạn chế texture bị kéo giãn.
+* Đặt phần nắp vào khu vực texture có chi tiết phù hợp.
+* Làm cho họa tiết lặp lại tự nhiên trên bề mặt.
+
+---
+
+# 11. Không nhất thiết phải dùng texture đúng tên vật thể
+
+Một bài học quan trọng là không phải lúc nào cũng cần tìm kiếm đúng cụm từ:
+
+```text
+barrel texture
+```
+
+Một texture ván gỗ, sàn gỗ hoặc tường gỗ vẫn có thể dùng cho thùng nếu:
+
+* Hướng vân gỗ phù hợp.
+* Tỷ lệ các tấm gỗ có thể điều chỉnh bằng UV.
+* Màu sắc tương đối đồng nhất.
+* Texture lặp lại tốt.
+* Các chi tiết phù hợp với hình dáng của vật thể.
+
+Ví dụ:
+
+| Texture ban đầu | Có thể dùng cho             |
+| --------------- | --------------------------- |
+| Ván sàn gỗ      | Thùng, tường, hộp gỗ        |
+| Tấm kim loại    | Ống, máy móc, cửa           |
+| Đá lát đường    | Tường đá, nền, cột          |
+| Vải thô         | Bao tải, ghế, rèm           |
+| Da              | Túi, ghế, trang bị nhân vật |
+
+Khả năng tái sử dụng texture sẽ tăng dần theo kinh nghiệm của người làm 3D.
+
+---
+
+# 12. Thay đổi topology bằng Edge Slide
+
+## 12.1. Di chuyển cạnh thông thường
+
+Nếu chọn một edge loop và nhấn:
+
+```text
+G
+```
+
+sau đó di chuyển cạnh lên hoặc xuống, topology thay đổi nhưng texture có thể bị kéo giãn.
+
+Nguyên nhân là cạnh trên mô hình di chuyển, trong khi UV không được điều chỉnh tương ứng theo cấu trúc bề mặt.
+
+---
+
+## 12.2. Edge Slide với `G`, `G`
+
+Chọn một cạnh hoặc edge loop, sau đó nhấn:
+
+```text
+G → G
+```
+
+Lệnh này kích hoạt **Edge Slide**.
+
+Edge Slide cho phép cạnh trượt dọc theo các cạnh lân cận thay vì di chuyển tự do trong không gian 3D.
+
+```text
+Di chuyển thông thường:
+
+      ↑
+──────●──────
+      │
+      │
+
+Edge Slide:
+
+────────●────
+         ↔
+Cạnh trượt dọc theo topology
+```
+
+Trong bài học, khi dùng Edge Slide:
+
+* Cạnh trên mesh di chuyển.
+* UV tương ứng cũng được cập nhật.
+* Texture ít bị biến dạng hơn so với thao tác `G` thông thường.
+
+---
+
+## 12.3. Chọn cả edge loop
+
+Để chọn một vòng cạnh:
+
+```text
+Alt + Left Click
+```
+
+Sau đó sử dụng:
+
+```text
+G → G
+```
+
+để trượt toàn bộ edge loop.
+
+---
+
+# 13. Edge Slide trên tòa nhà
+
+Kỹ thuật Edge Slide cũng được áp dụng cho mô hình tòa nhà đã UV unwrap.
+
+## 13.1. Làm tòa nhà cao hơn
+
+1. Hiện lại object tòa nhà.
+2. Chọn tòa nhà.
+3. Chuyển sang **Edit Mode**.
+4. Chọn cạnh ngang cần điều chỉnh.
+5. Nhấn:
+
+```text
+G → G
+```
+
+6. Trượt cạnh lên trên.
+
+Theo mặc định, Edge Slide bị giới hạn trong phạm vi của các cạnh lân cận. Đây là chế độ **Clamp**.
+
+---
+
+## 13.2. Tắt Clamp
+
+Trong khi đang dùng Edge Slide, nhấn:
+
+```text
+C
+```
+
+để bật hoặc tắt Clamp.
+
+Khi Clamp được tắt, cạnh có thể trượt ra ngoài giới hạn ban đầu của topology.
+
+```text
+G → G → C
+```
+
+Quy trình này cho phép kéo cạnh lên cao hơn và tận dụng phần texture còn lại phía trên.
+
+---
+
+## 13.3. Ảnh hưởng lên UV
+
+Khi cạnh được trượt, UV cũng được kéo dài hoặc mở rộng tương ứng.
+
+Nếu UV vượt ra ngoài giới hạn ảnh, texture sẽ lặp lại:
+
+```text
+UV nằm trong ảnh   → Texture xuất hiện một lần
+UV vượt khỏi ảnh   → Texture tự động lặp lại
+```
+
+Vì vậy, khi làm tòa nhà cao hơn, một số cửa sổ hoặc tầng có thể bị lặp lại từ phần dưới của texture.
+
+Cần kiểm tra kỹ để tránh:
+
+* Cửa sổ bị cắt đôi.
+* Một tầng bắt đầu lặp lại ở vị trí không hợp lý.
+* Chi tiết kiến trúc không khớp giữa các mặt.
+* Texture bị kéo giãn quá mức.
+
+---
+
+# 14. So sánh các thao tác quan trọng
+
+| Thao tác                 | Kết quả trên mesh               | Ảnh hưởng đến UV                                   |
+| ------------------------ | ------------------------------- | -------------------------------------------------- |
+| `G`                      | Di chuyển cạnh tự do            | Dễ làm texture bị kéo giãn                         |
+| `G`, `G`                 | Trượt cạnh theo topology        | UV được điều chỉnh phù hợp hơn                     |
+| `G`, `G`, `C`            | Edge Slide không giới hạn Clamp | Có thể mở rộng mesh và UV ra ngoài phạm vi ban đầu |
+| `S`, `Y` trong UV Editor | Scale UV theo trục Y            | Texture nhỏ lại hoặc lặp nhiều lần                 |
+| `S`, `X` trong UV Editor | Scale UV theo trục X            | Điều chỉnh độ rộng texture                         |
+| `G` trong UV Editor      | Di chuyển UV Island             | Chọn khu vực khác của texture                      |
+
+---
+
+# 15. Phím tắt quan trọng
+
+| Phím tắt           | Chức năng                                                      |
+| ------------------ | -------------------------------------------------------------- |
+| `Tab`              | Chuyển giữa Object Mode và Edit Mode                           |
+| `Shift + D`        | Nhân bản object                                                |
+| `Shift + R`        | Lặp lại thao tác cuối                                          |
+| `A`                | Chọn toàn bộ                                                   |
+| `Alt + A`          | Bỏ chọn toàn bộ                                                |
+| `1`                | Vertex Select                                                  |
+| `2`                | Edge Select                                                    |
+| `3`                | Face Select                                                    |
+| `Alt + Left Click` | Chọn edge loop                                                 |
+| `G`                | Di chuyển                                                      |
+| `G`, `G`           | Edge Slide                                                     |
+| `C` khi Edge Slide | Bật hoặc tắt Clamp                                             |
+| `S`                | Scale                                                          |
+| `S`, `X`           | Scale theo trục X                                              |
+| `S`, `Y`           | Scale theo trục Y                                              |
+| `R`, `Z`           | Xoay quanh trục Z                                              |
+| `Numpad .`         | Frame Selected, tập trung vào object hoặc thành phần được chọn |
+| `Ctrl + Z`         | Hoàn tác                                                       |
+
+---
+
+# 16. Các lỗi thường gặp
+
+## 16.1. Đổi texture làm tất cả các thùng thay đổi
+
+**Nguyên nhân:** Các thùng đang sử dụng chung một Material.
+
+**Khắc phục:**
+
+* Chọn object cần chỉnh.
+* Tạo bản sao độc lập của Material.
+* Đổi tên Material.
+* Sau đó mới thay `Image Texture`.
+
+---
+
+## 16.2. Đường seam quá rõ
+
+**Nguyên nhân:**
+
+* Hai đầu texture có màu sắc khác nhau.
+* Ánh sáng được vẽ trực tiếp trên texture.
+* Chi tiết ở hai mép không nối tiếp nhau.
+
+**Khắc phục:**
+
+* Chọn texture đồng đều hơn.
+* Sử dụng seamless texture.
+* Quay seam về phía khuất.
+* Che seam bằng object khác.
+
+---
+
+## 16.3. Các tấm gỗ quá rộng
+
+**Nguyên nhân:** UV Island chỉ phủ texture một lần nên texture bị phóng lớn trên mô hình.
+
+**Khắc phục:**
+
+```text
+Chọn UV Island → S → trục phù hợp
+```
+
+Scale UV lớn hơn để texture lặp lại nhiều lần.
+
+---
+
+## 16.4. Texture bị kéo giãn trên nắp
+
+**Nguyên nhân:** Tỷ lệ UV Island không phù hợp với vùng ảnh được chọn.
+
+**Khắc phục:**
+
+* Chọn riêng mặt nắp.
+* Scale UV theo X hoặc Y.
+* Di chuyển UV sang vùng texture phù hợp.
+* Kiểm tra trong 3D Viewport sau mỗi thay đổi.
+
+---
+
+## 16.5. Cửa sổ của tòa nhà bị lặp sai vị trí
+
+**Nguyên nhân:** Sau khi Edge Slide, UV vượt ra ngoài vùng texture và ảnh bắt đầu lặp lại.
+
+**Khắc phục:**
+
+* Kiểm tra UV Island sau khi chỉnh topology.
+* Di chuyển hoặc scale UV lại.
+* Chỉ mở rộng tòa nhà trong phạm vi texture cho phép.
+* Sử dụng texture có khả năng tile nếu cần nhiều tầng lặp lại.
+
+---
+
+# 17. Bài thực hành
+
+## Bài tập 1 — Tạo bốn thùng
+
+* Nhân bản thùng ban đầu thành bốn object.
+* Đặt các thùng thành một hàng.
+* Xoay nhẹ từng thùng quanh trục Z.
+
+## Bài tập 2 — Material độc lập
+
+* Tạo một Material riêng cho mỗi thùng.
+* Đặt tên lần lượt:
+
+```text
+Barrel 1
+Barrel 2
+Barrel 3
+Barrel 4
+```
+
+* Gán một texture khác nhau cho mỗi Material.
+
+## Bài tập 3 — Lặp texture ván gỗ
+
+* Chọn UV Island của thân thùng.
+* Scale UV vượt ra ngoài giới hạn ảnh.
+* Quan sát texture lặp lại.
+* Điều chỉnh đến khi kích thước các tấm ván hợp lý.
+
+## Bài tập 4 — Điều chỉnh topology
+
+* Chọn một edge loop trên thùng.
+* Thử di chuyển bằng `G`.
+* Hoàn tác.
+* Thử lại bằng `G`, `G`.
+* So sánh mức độ biến dạng của texture.
+
+## Bài tập 5 — Làm tòa nhà cao hơn
+
+* Chọn cạnh ngang của tòa nhà.
+* Sử dụng:
+
+```text
+G → G → C
+```
+
+* Kéo cạnh lên trên.
+* Kiểm tra cách UV và texture thay đổi.
+
+---
+
+# 18. Checklist hoàn thành
+
+* [ ] Đã nhân bản thùng thành bốn object.
+* [ ] Đã hiểu rằng các object có thể vẫn dùng chung Material.
+* [ ] Đã tạo Material độc lập cho từng thùng.
+* [ ] Đã gán các texture khác nhau cho từng Material.
+* [ ] Đã kiểm tra đường seam của từng texture.
+* [ ] Đã scale UV để texture lặp lại.
+* [ ] Đã điều chỉnh riêng UV của thân và nắp thùng.
+* [ ] Đã thử chọn edge loop bằng `Alt + Left Click`.
+* [ ] Đã sử dụng `G`, `G` để Edge Slide.
+* [ ] Đã thử tắt Clamp bằng phím `C`.
+* [ ] Đã thay đổi chiều cao tòa nhà bằng Edge Slide.
+* [ ] Đã lưu file trước khi chuyển sang bài tiếp theo.
+
+---
+
+# 19. Tóm tắt bài học
+
+Bài học mở rộng kiến thức UV Mapping thông qua việc tạo bốn thùng gỗ sử dụng các texture khác nhau.
+
+Các nội dung quan trọng gồm:
+
+1. Các object được nhân bản có thể vẫn tham chiếu đến cùng một Material.
+2. Muốn thay texture riêng cho từng thùng, cần tạo Material độc lập.
+3. Texture đồng đều sẽ giúp che giấu đường seam tốt hơn.
+4. UV có thể được scale ra ngoài giới hạn ảnh để texture tự động lặp lại.
+5. Không nhất thiết phải sử dụng texture được tạo riêng cho đúng loại object.
+6. `Edge Slide` bằng `G`, `G` giúp thay đổi topology mà hạn chế phá vỡ UV.
+7. Phím `C` cho phép tắt Clamp để cạnh có thể trượt ra ngoài giới hạn ban đầu.
+
+> Ý tưởng cốt lõi: **UV Mapping không chỉ là trải mô hình lên texture, mà còn là quá trình chủ động scale, di chuyển và tái sử dụng texture sao cho phù hợp nhất với hình dạng của object.**

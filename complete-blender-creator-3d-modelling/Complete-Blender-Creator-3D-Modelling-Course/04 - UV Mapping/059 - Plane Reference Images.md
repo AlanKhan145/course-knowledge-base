@@ -1,277 +1,843 @@
 # 059 — Plane Reference Images
-In this next section of lectures, we'll be taking our knowledge of UVA unwrapping to the next level
 
-by unwrapping a complex object.
-
-So a spitfire aeroplane.
-
-In this particular lecture, we'll be importing the reference images so we can make the model of our
-
-Spitfire.
-
-Now I've started a new scene, so it's nice and simple and there's no distractions.
-
-But you could easily put this into the scene with our barrels and our building, and you could then
-
-change the shape of the building to be some sort of airport hangar or radio tower or something similar
-
-to that, and build a whole airport.
-
-And I'll be showing you how you can take objects from one scene to another so we can easily append as
-
-it's known or import the plane we make into our other scene.
-
-So let's import our images in the resources that come with this lecture, you'll see that you've got
-
-a plane front, a plane side, and a plane top images which we can bring into Blender.
-
-So I'll click the front one and just bring that in and bring the side one in and bring the top one in
-
-as well.
-
-I'll minimise that and I'll just select all these three alt g to remove any movement and alt r to remove
-
-any rotation.
-
-I'll click on the cube and press H to hide for the moment and select our first one here, which looks
-
-like the front.
-
-I'll rotate by the x 90 degrees.
-
-Oh, actually I selected the side view but that's fine.
-
-I can rotate by the x 90 degrees for that and r z 90.
-
-So that side view, I'm going to label this as well.
-
-That will help us.
-
-I'll select the next one, which looks like Top View, and that's the correct rotation.
-
-So I'll double click on that and also rename that top and the last one there.
-
-This looks like front view are X 90 and just check that and that looks correct.
-
-So I'll double click on that and type in front.
-
-Also, I'll select all three of these and move them to a new collection.
-
-So m new collection plane ref.
-
-Now I can easily hide them in the viewport and make the visible when I need to.
-
-Okay, now they need a little bit of lining up.
-
-So first of all, I move the side and the front view away from the middle.
-
-So G then X for the side view.
-
-I move that this way and the front view here g then y and move it backwards and the top view.
-
-G then z.
-
-To move it downwards.
-
-That way, when I bring my Q back by clicking on the I, I can model in front of each of these views
-
-side, front and top.
-
-So pause the video and catch it with me placing your reference images into the scene so that they've
-
-got the right rotation and that they're in a location where you can model in front of them.
-
-Okay.
-
-So what I need to do now is line them up.
-
-So we'll start with one view.
-
-So in this case, I'll take the top view and I'll just zoom in slightly, make sure that top view is
-
-selected.
-
-I'll just go to the object data properties and turn the opacity on and bring that down to something
-
-like point five.
-
-In this case seems to work well now we can see instantly that it doesn't quite line up with the middle.
-
-So I can press g the x and move that across, hold down shift to move in smaller increments and move
-
-it into the middle there and left click.
-
-So how do I get the front of the plane here in top view to line up with the front of the plane inside
-
-view there?
-
-Well, I'll go back to Top View and I'm going to use my starting cube, the default cube, as we call
-
-it, as a reference.
-
-And I can move my cube, so g then Y to the front of the plane.
-
-So it's bang on the front of the plane just there.
-
-Now when I go to side view, I can select my side image and g then y holding down shift to move that
-
-to exactly the front there.
-
-But how do I know the back end is lining up?
-
-Well, let's take our cube.
-
-I'll go to top for you again.
-
-And this time I go into edit mode and into wireframe, select the back of the cube g, then y and move
-
-that.
-
-So it's touching the back there.
-
-So this cube is exactly the right length.
-
-So back into object mode, back into side view, and we can see that my side view is nowhere near the
-
-right size.
-
-If I scale this now, it will scale the front as well.
-
-And we can do that and we can press each to grab and move it into position, scale it a bit again.
-
-But instead if I move the 3D cursor to here and then change my transform pivot point to the 3D cursor
-
-and press the scale, it will scale from the front there and I can move that precisely to the back.
-
-So I should have the top and side view lining up nicely now.
-
-So pause the video and have a go at that.
-
-So you've got your top view and side view lined up with each other.
-
-Lastly then is the rear view.
-
-So I'll go to top for you again.
-
-Select my cube.
-
-Oh, I'm going by the 3D cursor here.
-
-So I'll turn it back to medium point and scale by the X and make sure it's the width of my wings.
-
-That way when I go to front view, making sure that my front image is selected, I can scale that down
-
-so the wings touch the edge of the box like this.
-
-Lastly, then, we need to make sure that the side view and the front view are in line.
-
-So let's say the bottom of the plane.
-
-So I go to side view, select my cube, which seems to be a little bit awkward at the moment, and it's
-
-actually just a highlight problem.
-
-It wasn't highlighting correctly, probably because I'm in x ray mode, let's try wireframe instead.
-
-That will make it a bit easier.
-
-And again, go to side view and I'll scale my cube so it's the right height for the plane.
-
-So somewhere around here G then said to move it upwards.
-
-I'll just zoom in so we can see it nice and easily.
-
-So that's hitting the bottom of the plane there and I'm going to edit mode and choose the top of the
-
-cube.
-
-G then said to move that upwards.
-
-So it's hitting the top of the rudder there and the bottom of the plane back into object mode, back
-
-to front view this time select my front view and G then said to move it upwards and about there looks
-
-good and I'll grab it in the x axis to make sure it's nicely aligned there and I'll scale it up as well
-
-because I'm not quite touching the edge with my wings.
-
-Lastly, I'll turn off perspective for each of the views so that they don't appear in perspective mode.
-
-Now when I go to front view, side view and top view, I'll just see those.
-
-But when I go into 3D view, I'm not distracted by them.
-
-The very last thing for me to do, I think side view, I might turn the opacity on for that as well.
-
-So it's not too distracting.
-
-So your challenge then is to make sure all your reference images are aligned and ready for our plane
-
-model.
-
-Once you've done that, make sure you've saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Plane Reference Images |
-| **Thời lượng** | 6:19 |
-| **Chủ đề chính** | Nhập ảnh tham chiếu máy bay |
+## Thiết lập ảnh tham chiếu máy bay
+
+| Thuộc tính              | Nội dung                                       |
+| ----------------------- | ---------------------------------------------- |
+| **Module**              | Module 04 — UV Mapping                         |
+| **Bài học**             | Plane Reference Images                         |
+| **Thời lượng**          | 6:19                                           |
+| **Chủ đề chính**        | Nhập, xoay và căn chỉnh ảnh tham chiếu máy bay |
+| **Đối tượng thực hành** | Máy bay Spitfire                               |
+| **Ảnh sử dụng**         | Front View, Side View và Top View              |
+
+---
 
 ## 1. Mục tiêu bài học
-- Biết cách nhập ảnh tham chiếu (reference image) vào scene Blender bằng `Add → Image → Reference`.
-- Sắp xếp đúng ảnh Front View và Side View của máy bay tại vị trí, góc quay và tỷ lệ chính xác.
-- Hiểu sự khác biệt giữa Reference Image và Background Image, và vì sao Reference phù hợp hơn cho modelling 3D.
-- Khóa (lock) ảnh tham chiếu để tránh chọn nhầm trong quá trình modelling.
 
-## 2. Nội dung chính
-Trước khi dựng mô hình máy bay, cần thiết lập ảnh tham chiếu làm nền để đảm bảo tỷ lệ và hình dáng chính xác. Blender hỗ trợ hai loại ảnh tham chiếu:
-- **Reference Image** (`Add → Image → Reference`): một object Empty đặc biệt hiển thị ảnh trong không gian 3D, có thể xoay, di chuyển, scale tự do như một object bình thường, hiển thị từ mọi góc nhìn (không chỉ ortho).
-- **Background Image** (trong View properties của viewport, tab Background Images khi ở chế độ Orthographic): ảnh chỉ hiển thị khi nhìn thẳng theo trục ortho, không phải một object thực sự trong scene, không xuất hiện khi render.
+Sau bài học này, người học có thể:
 
-Đối với dự án modelling từ nhiều góc (front, side), Reference Image thường tiện hơn vì có thể sắp xếp cả hai ảnh cùng lúc trong scene, xoay đúng 90° để mỗi ảnh chỉ hiển thị rõ khi nhìn từ góc tương ứng (Numpad 1 cho Front, Numpad 3 cho Side).
+* Nhập nhiều ảnh tham chiếu vào Blender.
+* Thiết lập ba góc nhìn của máy bay:
 
-Các bước quan trọng khi thiết lập:
-- Đặt ảnh Front tại gốc tọa độ, xoay để mặt phẳng ảnh vuông góc với trục Y (nhìn từ Front — Numpad 1).
-- Đặt ảnh Side xoay 90° quanh trục Z để mặt phẳng ảnh vuông góc với trục X (nhìn từ Side — Numpad 3).
-- Canh chỉnh vị trí (Location) sao cho hai ảnh khớp về chiều cao và chiều dài thân máy bay (dùng một điểm chuẩn chung, ví dụ mũi máy bay hoặc trục cánh).
-- Điều chỉnh Opacity/Depth trong Object Data Properties của Reference để ảnh không che khuất mesh khi modelling.
+  * Front View
+  * Side View
+  * Top View
+* Xoay từng ảnh đúng theo hệ trục tọa độ.
+* Đặt các ảnh vào một Collection riêng.
+* Căn chỉnh chiều dài, chiều rộng và chiều cao giữa các ảnh.
+* Sử dụng Cube mặc định làm công cụ đo và đối chiếu tỷ lệ.
+* Điều chỉnh độ trong suốt của ảnh tham chiếu.
+* Chỉ hiển thị ảnh ở đúng góc nhìn trực giao.
+* Chuẩn bị scene để bắt đầu dựng mô hình máy bay.
 
-Sau khi sắp xếp xong, nên khóa Reference Images (đặt vào Collection riêng và bật Disable Selection, hoặc dùng Lock Object Transform) để tránh vô tình di chuyển ảnh trong lúc thao tác mesh.
+---
 
-## 3. Quy trình thực hành gợi ý
-1. Chuẩn bị hai ảnh máy bay: một ảnh nhìn từ Front, một ảnh nhìn từ Side, cùng tỷ lệ.
-2. Vào `Add → Image → Reference`, chọn ảnh Front, đặt tại gốc tọa độ.
-3. Thêm ảnh Side tương tự, xoay 90° quanh trục Z (`R Z 90 Enter`).
-4. Chuyển góc nhìn Front (Numpad 1) và Side (Numpad 3) để kiểm tra từng ảnh hiển thị đúng và không lệch tỷ lệ.
-5. Canh chỉnh Location/Scale của hai ảnh để khớp với nhau theo một điểm chuẩn chung.
-6. Đưa hai Reference Image vào một Collection riêng, đặt tên rõ ràng, và khóa lại (Disable Selection trong Outliner) để tránh chọn nhầm khi modelling.
+## 2. Tổng quan bài học
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Add → Image → Reference` | Thêm ảnh tham chiếu vào scene |
-| `Numpad 1` / `Ctrl+Numpad 1` | Góc nhìn Front / Back |
-| `Numpad 3` / `Ctrl+Numpad 3` | Góc nhìn Right / Left |
-| `Numpad 7` | Góc nhìn Top |
-| `R` sau đó `X`/`Y`/`Z` | Xoay object theo trục tương ứng |
-| `Numpad .` | Đưa object đã chọn vào giữa khung nhìn (Frame Selected) |
+Trong phần tiếp theo của khóa học, kiến thức về UV Unwrapping sẽ được áp dụng cho một vật thể phức tạp hơn: máy bay Spitfire.
 
-## 5. Lưu ý & lỗi thường gặp
-- Hai ảnh không cùng tỷ lệ khung hình hoặc không được scale khớp nhau khiến mô hình bị sai tỷ lệ giữa chiều dài và chiều cao.
-- Quên xoay ảnh Side 90° khiến cả hai ảnh cùng nằm trên một mặt phẳng, không thể dùng làm tham chiếu hai góc nhìn riêng biệt.
-- Không khóa Reference Image dễ dẫn đến việc vô tình kéo/xoay ảnh trong lúc chọn vertex gần đó.
-- Đặt Opacity ảnh quá cao che khuất mesh đang chỉnh sửa, gây khó quan sát wireframe.
+Trước khi dựng mô hình, cần thiết lập chính xác ba ảnh tham chiếu:
 
-## 6. Checklist thực hành
-- [ ] Đã thêm được ảnh Reference cho cả góc Front và Side.
-- [ ] Đã xoay và canh chỉnh hai ảnh khớp tỷ lệ với nhau.
-- [ ] Đã kiểm tra hiển thị đúng khi chuyển Numpad 1 / Numpad 3.
-- [ ] Đã khóa các Reference Image để tránh chọn nhầm.
+```text
+                    Front View
+                        │
+                        │ chiều cao
+                        ▼
+Side View ───── chiều dài ───── Top View
+                                      │
+                                      │ chiều rộng cánh
+                                      ▼
+```
 
-## 7. Tóm tắt
-Bài học thiết lập nền tảng cho toàn bộ quá trình modelling máy bay: nhập và canh chỉnh chính xác hai ảnh tham chiếu Front và Side bằng Reference Image, tạo cơ sở tỷ lệ đúng cho các bước dựng hình ở những bài tiếp theo.
+Ba ảnh phải thống nhất với nhau về:
+
+* Vị trí mũi máy bay.
+* Vị trí đuôi máy bay.
+* Chiều dài thân.
+* Chiều rộng cánh.
+* Chiều cao thân và đuôi đứng.
+
+Nếu các ảnh không được căn chỉnh chính xác, mô hình dựng từ các góc nhìn khác nhau sẽ bị sai tỷ lệ.
+
+---
+
+## 3. Chuẩn bị scene
+
+Giảng viên bắt đầu bằng một scene Blender mới để tránh bị phân tâm bởi những object không cần thiết.
+
+Tuy nhiên, máy bay sau khi hoàn thành có thể được đưa vào scene trước đó, chẳng hạn:
+
+* Khu vực sân bay.
+* Nhà chứa máy bay.
+* Tháp radio.
+* Công trình quân sự.
+* Scene có các thùng gỗ và tòa nhà đã dựng trước đó.
+
+Blender cho phép đưa object từ file này sang file khác bằng tính năng **Append**.
+
+---
+
+## 4. Nhập ba ảnh tham chiếu
+
+Trong tài nguyên của bài học có ba ảnh:
+
+* `plane_front`
+* `plane_side`
+* `plane_top`
+
+Có thể nhập bằng cách kéo trực tiếp ảnh từ thư mục vào Blender hoặc sử dụng:
+
+```text
+Shift + A
+→ Image
+→ Reference
+```
+
+Sau khi nhập đủ ba ảnh:
+
+1. Chọn cả ba ảnh.
+2. Xóa mọi thay đổi vị trí:
+
+```text
+Alt + G
+```
+
+3. Xóa mọi góc xoay:
+
+```text
+Alt + R
+```
+
+Việc này đưa các ảnh về trạng thái chuẩn trước khi bắt đầu bố trí.
+
+---
+
+## 5. Xoay đúng từng ảnh
+
+### 5.1. Side View
+
+Ảnh nhìn bên cần được xoay để nằm đúng trên mặt phẳng nhìn cạnh.
+
+```text
+R → X → 90
+R → Z → 90
+```
+
+Sau đó đổi tên object thành:
+
+```text
+Side
+```
+
+---
+
+### 5.2. Top View
+
+Ảnh nhìn từ trên xuống đã có hướng xoay phù hợp nên không cần chỉnh thêm nhiều.
+
+Đổi tên object thành:
+
+```text
+Top
+```
+
+---
+
+### 5.3. Front View
+
+Ảnh nhìn phía trước cần xoay 90° quanh trục X:
+
+```text
+R → X → 90
+```
+
+Đổi tên object thành:
+
+```text
+Front
+```
+
+> Luôn kiểm tra trực tiếp bằng các góc Front, Side và Top thay vì chỉ dựa vào giá trị Rotation.
+
+---
+
+## 6. Tổ chức ảnh trong Collection riêng
+
+Chọn cả ba ảnh tham chiếu và nhấn:
+
+```text
+M
+→ New Collection
+```
+
+Đặt tên Collection:
+
+```text
+Plane Ref
+```
+
+Cấu trúc Outliner gợi ý:
+
+```text
+Scene Collection
+├── Plane Ref
+│   ├── Front
+│   ├── Side
+│   └── Top
+├── Cube
+├── Camera
+└── Light
+```
+
+Lợi ích của Collection riêng:
+
+* Bật hoặc tắt toàn bộ ảnh tham chiếu nhanh chóng.
+* Giữ Outliner gọn gàng.
+* Tránh chọn nhầm ảnh khi modelling.
+* Dễ khóa hoặc vô hiệu hóa khả năng chọn ảnh.
+
+---
+
+## 7. Bố trí ảnh trong không gian 3D
+
+Các ảnh cần được đẩy ra khỏi tâm scene để có khoảng trống dựng mô hình.
+
+### Side View
+
+Di chuyển theo trục X:
+
+```text
+G → X
+```
+
+### Front View
+
+Di chuyển theo trục Y:
+
+```text
+G → Y
+```
+
+### Top View
+
+Di chuyển xuống dưới theo trục Z:
+
+```text
+G → Z
+```
+
+Sơ đồ bố trí:
+
+```text
+                   Front Reference
+                         │
+                         │ trục Y
+                         │
+Side Reference ─────── Model ───────
+                         │
+                         │ trục Z
+                         │
+                   Top Reference
+```
+
+Mục tiêu là tạo một vùng trống ở giữa để dựng mesh mà không bị các mặt phẳng ảnh cắt xuyên qua object.
+
+---
+
+## 8. Điều chỉnh độ trong suốt
+
+Chọn ảnh tham chiếu, vào:
+
+```text
+Object Data Properties
+→ Opacity
+```
+
+Bật Opacity và đặt giá trị khoảng:
+
+```text
+0.5
+```
+
+Độ trong suốt giúp:
+
+* Quan sát mesh phía trước ảnh.
+* Không bị ảnh che vertex và edge.
+* Dễ so sánh đường biên của model với bản vẽ.
+
+Có thể dùng mức tham khảo:
+
+|   Opacity | Công dụng                          |
+| --------: | ---------------------------------- |
+|     `1.0` | Ảnh rõ hoàn toàn                   |
+|     `0.7` | Ảnh khá rõ                         |
+|     `0.5` | Cân bằng giữa ảnh và mesh          |
+| `0.2–0.3` | Phù hợp khi cần tập trung vào mesh |
+
+---
+
+## 9. Căn giữa Top View
+
+Chuyển sang góc nhìn trên:
+
+```text
+Numpad 7
+```
+
+Chọn ảnh Top View và căn đường tâm máy bay trùng với trục giữa của scene:
+
+```text
+G → X
+```
+
+Giữ `Shift` khi di chuyển để điều chỉnh chậm và chính xác hơn.
+
+Cần bảo đảm:
+
+```text
+Cánh trái ───── Trục giữa máy bay ───── Cánh phải
+```
+
+Đường tâm thân máy bay phải nằm đúng giữa hệ tọa độ.
+
+---
+
+## 10. Dùng Cube để căn chiều dài máy bay
+
+Cube mặc định được dùng như một thước đo ba chiều.
+
+### 10.1. Đặt đầu Cube tại mũi máy bay
+
+Trong Top View:
+
+1. Chọn Cube.
+2. Di chuyển Cube đến mũi máy bay:
+
+```text
+G → Y
+```
+
+Đặt một mặt của Cube trùng chính xác với đầu mũi máy bay.
+
+---
+
+### 10.2. Kéo Cube đến đuôi máy bay
+
+1. Chuyển Cube sang Edit Mode:
+
+```text
+Tab
+```
+
+2. Bật Wireframe:
+
+```text
+Z
+→ Wireframe
+```
+
+3. Chọn các vertex ở phía sau Cube.
+4. Di chuyển chúng đến đuôi máy bay:
+
+```text
+G → Y
+```
+
+Lúc này Cube có chiều dài đúng bằng chiều dài máy bay trong Top View.
+
+```text
+Mũi máy bay |==========================| Đuôi máy bay
+                  chiều dài Cube
+```
+
+---
+
+## 11. Căn Side View theo Top View
+
+Chuyển sang Side View:
+
+```text
+Numpad 3
+```
+
+Chọn ảnh Side View.
+
+Trước tiên, căn mũi của Side View với mặt trước Cube:
+
+```text
+G → Y
+```
+
+Sau đó cần điều chỉnh tỷ lệ để đuôi ảnh Side View trùng với đầu còn lại của Cube.
+
+---
+
+## 12. Scale từ một điểm cố định bằng 3D Cursor
+
+Nếu scale bình thường, cả mũi và đuôi ảnh đều di chuyển. Điều này có thể làm mất vị trí mũi máy bay đã căn trước đó.
+
+Giải pháp là scale quanh 3D Cursor.
+
+### Quy trình
+
+1. Đặt 3D Cursor tại mũi máy bay.
+2. Đổi Transform Pivot Point thành:
+
+```text
+3D Cursor
+```
+
+3. Chọn ảnh Side View.
+4. Scale ảnh:
+
+```text
+S
+```
+
+Ảnh sẽ được phóng to hoặc thu nhỏ từ vị trí mũi, giữ nguyên điểm mốc phía trước.
+
+```text
+3D Cursor
+    ●──────────────────────►
+    Mũi cố định       Đuôi thay đổi khi scale
+```
+
+Kết quả cần đạt:
+
+* Mũi Side View trùng mũi Top View.
+* Đuôi Side View trùng đuôi Top View.
+* Hai ảnh có cùng chiều dài máy bay.
+
+Sau khi hoàn tất, đổi Pivot Point trở lại:
+
+```text
+Median Point
+```
+
+---
+
+## 13. Căn chiều rộng cánh giữa Top và Front View
+
+Chuyển sang Top View và chọn Cube.
+
+Scale Cube theo trục X để khớp với sải cánh:
+
+```text
+S → X
+```
+
+Hai mặt bên Cube cần chạm vào hai đầu cánh:
+
+```text
+Đầu cánh trái |====================| Đầu cánh phải
+                    Cube
+```
+
+Sau đó chuyển sang Front View:
+
+```text
+Numpad 1
+```
+
+Chọn ảnh Front View và scale để hai đầu cánh trong ảnh chạm vào hai cạnh Cube.
+
+Có thể sử dụng:
+
+```text
+S
+G → X
+```
+
+Mục tiêu:
+
+* Cánh trái và cánh phải đối xứng.
+* Tâm máy bay nằm giữa.
+* Sải cánh Front View khớp Top View.
+
+---
+
+## 14. Căn chiều cao giữa Side và Front View
+
+Chuyển sang Side View.
+
+### 14.1. Đặt đáy Cube tại đáy máy bay
+
+Chọn Cube và di chuyển theo trục Z:
+
+```text
+G → Z
+```
+
+Đặt đáy Cube trùng với phần thấp nhất của máy bay.
+
+---
+
+### 14.2. Kéo đỉnh Cube đến phần cao nhất
+
+1. Vào Edit Mode.
+2. Chọn các vertex phía trên Cube.
+3. Di chuyển lên:
+
+```text
+G → Z
+```
+
+Đặt đỉnh Cube chạm vào phần cao nhất của bánh lái đứng hoặc đuôi đứng.
+
+```text
+Đỉnh đuôi đứng
+      ▲
+      │
+      │ chiều cao Cube
+      │
+      ▼
+Đáy máy bay
+```
+
+---
+
+### 14.3. Căn Front View theo Cube
+
+Chuyển sang Front View, chọn ảnh Front và điều chỉnh:
+
+```text
+G → Z
+G → X
+S
+```
+
+Cần bảo đảm:
+
+* Đáy máy bay trùng với đáy Cube.
+* Đỉnh máy bay trùng với đỉnh Cube.
+* Hai đầu cánh vẫn khớp chiều rộng Cube.
+* Tâm máy bay trùng với trục giữa.
+
+---
+
+## 15. Quan hệ căn chỉnh giữa ba ảnh
+
+Ba ảnh cần thỏa mãn các điều kiện sau:
+
+| Thuộc tính        | Ảnh dùng để đối chiếu  |
+| ----------------- | ---------------------- |
+| Chiều dài thân    | Top View ↔ Side View   |
+| Chiều rộng cánh   | Top View ↔ Front View  |
+| Chiều cao máy bay | Side View ↔ Front View |
+| Vị trí mũi        | Top View ↔ Side View   |
+| Vị trí đuôi       | Top View ↔ Side View   |
+| Đường tâm         | Top View ↔ Front View  |
+| Đáy máy bay       | Side View ↔ Front View |
+
+Sơ đồ kiểm tra:
+
+```text
+Top View
+├── Cung cấp chiều dài
+│   └── Đối chiếu với Side View
+│
+└── Cung cấp chiều rộng cánh
+    └── Đối chiếu với Front View
+
+Side View
+└── Cung cấp chiều cao
+    └── Đối chiếu với Front View
+```
+
+---
+
+## 16. Chỉ hiển thị ảnh trong góc nhìn trực giao
+
+Trong Object Data Properties của từng ảnh tham chiếu, tắt khả năng hiển thị trong Perspective View.
+
+Mục đích:
+
+* Ảnh Front chỉ xuất hiện khi nhìn Front.
+* Ảnh Side chỉ xuất hiện khi nhìn Side.
+* Ảnh Top chỉ xuất hiện khi nhìn Top.
+* Ảnh không gây rối khi xoay góc nhìn 3D tự do.
+
+Kết quả mong muốn:
+
+| Góc nhìn         | Ảnh hiển thị                  |
+| ---------------- | ----------------------------- |
+| Front View       | Front Reference               |
+| Side View        | Side Reference                |
+| Top View         | Top Reference                 |
+| Perspective View | Không hiển thị ảnh tham chiếu |
+
+Thiết lập này giúp viewport sạch và dễ quan sát mô hình hơn.
+
+---
+
+## 17. Quy trình thực hành hoàn chỉnh
+
+```text
+Nhập 3 ảnh
+    ↓
+Reset Location và Rotation
+    ↓
+Xoay đúng Front, Side, Top
+    ↓
+Đổi tên object
+    ↓
+Đưa vào Collection Plane Ref
+    ↓
+Di chuyển ảnh ra khỏi tâm scene
+    ↓
+Căn giữa Top View
+    ↓
+Dùng Cube đo chiều dài
+    ↓
+Căn Side View với Top View
+    ↓
+Dùng Cube đo sải cánh
+    ↓
+Căn Front View với Top View
+    ↓
+Dùng Cube đo chiều cao
+    ↓
+Căn Front View với Side View
+    ↓
+Điều chỉnh Opacity
+    ↓
+Ẩn ảnh trong Perspective View
+    ↓
+Lưu file
+```
+
+---
+
+## 18. Phím tắt và công cụ sử dụng
+
+| Phím hoặc thao tác              | Chức năng                        |
+| ------------------------------- | -------------------------------- |
+| `Shift + A → Image → Reference` | Thêm ảnh tham chiếu              |
+| `Alt + G`                       | Xóa Location của object          |
+| `Alt + R`                       | Xóa Rotation của object          |
+| `R → X → 90`                    | Xoay 90° quanh trục X            |
+| `R → Z → 90`                    | Xoay 90° quanh trục Z            |
+| `G → X`                         | Di chuyển theo trục X            |
+| `G → Y`                         | Di chuyển theo trục Y            |
+| `G → Z`                         | Di chuyển theo trục Z            |
+| `S → X`                         | Scale theo trục X                |
+| `S`                             | Scale đồng đều                   |
+| `M`                             | Di chuyển object sang Collection |
+| `H`                             | Ẩn object đã chọn                |
+| `Tab`                           | Chuyển Object Mode và Edit Mode  |
+| `Z → Wireframe`                 | Chuyển sang Wireframe            |
+| `Numpad 1`                      | Front View                       |
+| `Numpad 3`                      | Side View                        |
+| `Numpad 7`                      | Top View                         |
+| Giữ `Shift` khi di chuyển       | Điều chỉnh với bước nhỏ          |
+| `3D Cursor Pivot`               | Scale quanh vị trí 3D Cursor     |
+| `Median Point`                  | Pivot mặc định của vùng chọn     |
+
+---
+
+## 19. Lưu ý quan trọng
+
+### 19.1. Không căn từng ảnh độc lập
+
+Không nên chỉ căn ảnh dựa trên cảm giác. Mỗi kích thước cần được kiểm tra chéo giữa hai góc nhìn:
+
+* Chiều dài: Top và Side.
+* Chiều rộng: Top và Front.
+* Chiều cao: Side và Front.
+
+---
+
+### 19.2. Không scale Side View từ tâm
+
+Nếu mũi máy bay đã được căn đúng, scale từ tâm sẽ làm mũi bị lệch.
+
+Nên:
+
+1. Đặt 3D Cursor tại mũi.
+2. Chọn Pivot là 3D Cursor.
+3. Scale ảnh từ mũi về phía đuôi.
+
+---
+
+### 19.3. Trả Pivot Point về Median Point
+
+Sau khi scale bằng 3D Cursor, cần đổi Pivot Point trở lại `Median Point`.
+
+Nếu quên, các thao tác scale và rotate tiếp theo có thể hoạt động bất thường.
+
+---
+
+### 19.4. Kiểm tra đúng object trước khi thao tác
+
+Vì các ảnh tham chiếu nằm gần nhau, rất dễ chọn nhầm Front, Side hoặc Top.
+
+Nên:
+
+* Đặt tên object rõ ràng.
+* Kiểm tra tên trong Outliner.
+* Sử dụng Collection riêng.
+* Ẩn ảnh không cần thiết trong từng giai đoạn.
+
+---
+
+### 19.5. Phân biệt Wireframe và X-Ray
+
+Nếu object khó chọn hoặc không hiển thị vùng chọn đúng, có thể chuyển từ X-Ray sang Wireframe.
+
+```text
+Z
+→ Wireframe
+```
+
+Wireframe giúp nhìn và chọn các vertex của Cube dễ hơn trong quá trình đo kích thước.
+
+---
+
+## 20. Lỗi thường gặp
+
+### Ảnh không nằm đúng mặt phẳng
+
+**Nguyên nhân:** Xoay sai trục hoặc thiếu một bước xoay.
+
+**Cách khắc phục:**
+
+```text
+Alt + R
+```
+
+Sau đó xoay lại theo đúng hướng.
+
+---
+
+### Mũi máy bay khớp nhưng đuôi bị lệch
+
+**Nguyên nhân:** Side View và Top View có tỷ lệ khác nhau.
+
+**Cách khắc phục:**
+
+* Dùng Cube đo chiều dài.
+* Đặt 3D Cursor tại mũi.
+* Scale Side View từ 3D Cursor.
+
+---
+
+### Cánh trong Front View không khớp Top View
+
+**Nguyên nhân:** Scale Front View chưa đúng hoặc ảnh chưa được căn giữa.
+
+**Cách khắc phục:**
+
+```text
+G → X
+S
+```
+
+Đảm bảo hai đầu cánh chạm vào hai cạnh Cube.
+
+---
+
+### Front View đúng chiều rộng nhưng sai chiều cao
+
+**Nguyên nhân:** Chỉ căn theo sải cánh mà chưa căn theo Side View.
+
+**Cách khắc phục:**
+
+* Dùng Cube đo chiều cao trong Side View.
+* Căn lại Front View theo đáy và đỉnh Cube.
+
+---
+
+### Ảnh che khuất mô hình
+
+**Nguyên nhân:** Opacity quá cao.
+
+**Cách khắc phục:**
+
+```text
+Object Data Properties
+→ Opacity ≈ 0.5
+```
+
+---
+
+### Ảnh xuất hiện khi xoay Perspective View
+
+**Nguyên nhân:** Ảnh đang được phép hiển thị trong mọi góc nhìn.
+
+**Cách khắc phục:** Tắt hiển thị Perspective trong Object Data Properties.
+
+---
+
+## 21. Checklist thực hành
+
+### Nhập và tổ chức ảnh
+
+* [ ] Đã nhập ảnh Front View.
+* [ ] Đã nhập ảnh Side View.
+* [ ] Đã nhập ảnh Top View.
+* [ ] Đã reset Location bằng `Alt + G`.
+* [ ] Đã reset Rotation bằng `Alt + R`.
+* [ ] Đã đổi tên từng ảnh rõ ràng.
+* [ ] Đã đưa ảnh vào Collection `Plane Ref`.
+
+### Xoay và bố trí
+
+* [ ] Front View nằm đúng mặt phẳng.
+* [ ] Side View nằm đúng mặt phẳng.
+* [ ] Top View nằm đúng mặt phẳng.
+* [ ] Các ảnh đã được đẩy ra khỏi tâm scene.
+* [ ] Có đủ không gian để dựng model ở giữa.
+
+### Căn chỉnh tỷ lệ
+
+* [ ] Top View đã được căn giữa.
+* [ ] Top và Side có cùng chiều dài.
+* [ ] Top và Front có cùng chiều rộng cánh.
+* [ ] Side và Front có cùng chiều cao.
+* [ ] Mũi máy bay khớp ở các góc nhìn.
+* [ ] Đuôi máy bay khớp ở các góc nhìn.
+* [ ] Đáy máy bay khớp giữa Side và Front.
+
+### Hiển thị
+
+* [ ] Opacity đã được giảm xuống mức phù hợp.
+* [ ] Ảnh chỉ xuất hiện trong góc Orthographic tương ứng.
+* [ ] Ảnh không làm rối Perspective View.
+* [ ] Pivot Point đã được trả về Median Point.
+
+### Hoàn tất
+
+* [ ] Đã lưu file Blender.
+* [ ] Scene đã sẵn sàng để bắt đầu dựng máy bay.
+
+---
+
+## 22. Thử thách cuối bài
+
+Hoàn thiện việc căn chỉnh cả ba ảnh tham chiếu sao cho:
+
+1. Mũi và đuôi của Top View trùng với Side View.
+2. Hai đầu cánh của Top View trùng với Front View.
+3. Độ cao của Side View trùng với Front View.
+4. Các ảnh nằm đúng trên trục giữa.
+5. Ảnh không xuất hiện khi xoay Perspective View.
+6. Scene được lưu lại để tiếp tục ở bài học sau.
+
+---
+
+## 23. Tóm tắt
+
+Bài học tập trung vào việc thiết lập ba ảnh tham chiếu của máy bay Spitfire trong Blender.
+
+Quy trình quan trọng nhất là:
+
+```text
+Top + Side  → xác định chiều dài
+Top + Front → xác định chiều rộng
+Side + Front → xác định chiều cao
+```
+
+Cube mặc định được sử dụng như một công cụ đo tạm thời, giúp chuyển kích thước từ góc nhìn này sang góc nhìn khác. Việc sử dụng 3D Cursor làm Pivot Point giúp scale ảnh từ một điểm cố định mà không làm lệch vị trí mũi máy bay.
+
+Khi ba ảnh Front, Side và Top đã được căn chỉnh chính xác, scene sẽ có một hệ thống tham chiếu đáng tin cậy để bắt đầu dựng mô hình máy bay trong các bài học tiếp theo.

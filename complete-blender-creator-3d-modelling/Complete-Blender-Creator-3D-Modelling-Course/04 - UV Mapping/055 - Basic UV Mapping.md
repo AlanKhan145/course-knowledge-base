@@ -1,486 +1,808 @@
 # 055 — Basic UV Mapping
-In this lecture, we'll be learning about the basics of UV mapping and making a really simple building.
 
-So I'm in the general start up file, and I've got my cube in the center.
-
-And I'm going to select that.
-
-Now any of the basic primitives.
-
-So if I press shift A to add and mesh each of these apart from the circle comes with a UV map.
-
-We can find that if I come down to the bottom here under Object Data properties UV maps, you can see
-
-that here.
-
-So take a look at that map.
-
-We need to go to the UV editing workspace at the top here.
-
-And you can see that UV map just there.
-
-A UV map is all the faces of my object put into 2D.
-
-So I can now place a 2D image on my 3D object and blender knows how.
-
-Then to map it out onto that 3D object.
-
-The UV editing workspace puts our object into edit mode, and if I deselect all with alt A, my UV map
-
-disappears and select all with A, it comes back again and I can zoom in with my wheel to see my UV
-
-map a bit easier.
-
-So we've got the 3D viewport over on the right hand side, and we've got the UV editor on the left.
-
-If I just show you that up here, that's the UV editor, not the image editor.
-
-They look very similar, but they have slight differences.
-
-Now, in order to see the effects of this UV map, I need to put an image onto my object.
-
-Now I can create an image within the UV editor, but it can be a little bit confusing as to what's happening
-
-if I don't also show you the shader editor.
-
-So I'm going to come to the top corner here, click and drag a new window out and change this to the
-
-shader editor so you can see what's happening.
-
-I don't need my tool options over here, so I'll press N to get rid of that panel and zoom in so you
-
-can see it's got a principled bsdf on my default cube over here.
-
-And I'll scroll across to the top and change it to Material Preview mode so we can see it turns white
-
-as my material is white over here.
-
-So I'll need to bring in an image texture node just here and plug it into my base color.
-
-So shift a to add texture and image texture.
-
-Bring that into the front there, but I'm not hooking it up just yet, so take a quick moment to catch
-
-up with me.
-
-Select your cube, go across to the UV editing workspace, open a new shader window and bring in an
-
-image texture node.
-
-Okay, so you'll notice within the UV editor that I've got a new option here and an open option just
-
-as I have in the image texture node.
-
-So if I press new in here to create a new image, we can create images within blender.
-
-I'll call it test.
-
-The pixel resolution is roughly 1000 pixels squared, so that's how many pixels are on the image.
-
-And that would be classed as A1K image.
-
-You can obviously change these, but roughly a thousand pixels is just fine for us.
-
-I'll talk a little bit more about pixels later.
-
-The generator type.
-
-If I click on that, we can have a blank texture, or I can change it to something like a color grid
-
-and press okay.
-
-And that looks like this.
-
-It's a grid with colors and letters to help us see where different faces are on our 2D image.
-
-So take a quick moment to catch up with me and bring in a new texture.
-
-Now notice it's only in my UV editor.
-
-It's not within my shader editor, so we're not able to see it on my object.
-
-Also, my image texture node is still the same.
-
-I need to bring this test image into my image texture node, and then hook it up in order to see the
-
-texture on my object, so I can click on the down arrow to find all the textures within blender at the
-
-moment.
-
-And we've got this one we created here.
-
-So I'll click on test, Hook It up, and it automatically uses the UVs of the cube in order to map it
-
-onto our cube, which we can see here.
-
-So take a moment to catch up with me and create a new colour grid and hook the texture up to our base
-
-colour.
-
-I'll just move the shader editor up slightly so I can zoom in on my UVs just here, and hopefully you
-
-can see my UVs here on top of the image.
-
-And that corresponds to where the UVs are on my 3D object.
-
-I'll explain a little bit further.
-
-Currently, if I move across my panel at the top, I go to face mode.
-
-You can see the different faces as I select them in the UV editor.
-
-And when I select all you can hopefully just about see all the faces there.
-
-So these are the different faces of the box.
-
-And you can see it's being kind of flattened out like this.
-
-I can also if I move across the top panel in the UV editor I can change from vertices.
-
-So currently I can select vertices within here edges and faces.
-
-So that's F4 and F5.
-
-Let's see if we can find that on our object that's around to the side here.
-
-So if I press G to grab now in the UV editor you can see I can now move that face and affect which numbers
-
-on my grid are being shown.
-
-It's also stretching the textures around as well.
-
-So those faces that it is attached to are being stretched.
-
-I'll right click to cancel that.
-
-Come round to the side so you can see that more clearly.
-
-G to grab.
-
-And you can see those other faces being stretched as the edges joining to them are being moved.
-
-So this top face, for example, which is just here, if I go to the edge and choose the very edge here,
-
-press G to grab in the x axis and move that inwards.
-
-You can see me stretching the texture.
-
-I can make it cover more or cover less, but I'll right click to cancel that.
-
-Incidentally, we can also scale with S and R to rotate and that changes it accordingly.
-
-So pause the video here and just experiment with that, selecting some edges and vertices and moving
-
-them, and see how that affects the image on your cube.
-
-Once you've done that, make sure you undo any movement and bring it back to where I am here.
-
-Now for this next bit, I want to show you what it looks like with an actual image on our cube, and
-
-we're going to make a house.
-
-That means you might want to download a texture.
-
-The texture site I often use is textures.
-
-Com you do need to create an account, and you get 15 free credits each day, and each texture costs
-
-a certain amount of credits.
-
-its grant from the future here and unfortunately textures.
-
-Com has decided to make it a subscription based site, so you actually have to pay now.
-
-So what we've done is to put some different textures in the resources folder that you can use.
-
-We've also put links in there for other texture sites that you can use.
-
-So hopefully this doesn't detract from your enjoyment of the course.
-
-If you feel there's something that we've missed or haven't included, then please do let us know in
-
-the forums and we'll try and fix that as soon as possible.
-
-Thanks for your patience and enjoy the rest of the course.
-
-It's got a really extensive library of textures.
-
-If I go to Browse Library and we're going to choose buildings, so I'll choose on buildings and we can
-
-see that it's got lots of folders of lots of different types of buildings.
-
-So I'll choose old apartments, for example.
-
-What we're looking for is something nice and flat like this.
-
-So we can put our faces onto different areas and map out an apartment building, much like this one
-
-here.
-
-So I'll choose this one by left clicking on that.
-
-Here are the download options if you want to search for this image.
-
-It's buildings house old 0338.
-
-But you can choose any building you find as long as it's nice and flat, like this one here.
-
-And I would encourage you to choose your own.
-
-I'll go for the bigger resolution with two credits as we'll get a sharper image, so I'll click on that
-
-to download.
-
-And now I'm back into blender.
-
-I can go across to my shader editor and open up an image.
-
-I have a whole folder full of textures and if I type in buildings in the search bar, we can see this
-
-building that I downloaded here to make sure the name appears down the bottom here.
-
-So I'll click it again.
-
-Make sure that name appears and open image and we can see that image stretched across my object.
-
-Now you may see the image appear in the bottom here, as this is now the main image on this object.
-
-Sometimes you need to go into object mode and back into edit mode to see it, but that isn't working
-
-either.
-
-So I'm going to have to actually click on my down arrow here and choose that textures texture here.
-
-And there's my building, so it doesn't always match up with the texture here.
-
-If I had chosen a different object and come back to this one.
-
-It probably would, but just be aware that you may have to find your texture in the drop down.
-
-And this drop down gives a list of all the textures loaded into blender.
-
-Now if I press Ctrl spacebar to make this window full screen, you can see the outline of my box once
-
-again, and it's stretched slightly to correspond to the aspect ratio of my image.
-
-The aspect ratio is the difference between the height and the width, and this is quite a long, thin
-
-image and therefore my faces have been stretched in accordance to that.
-
-So I'll press Ctrl and spacebar and go back to our object.
-
-And you can kind of see how they've been stretched.
-
-If I choose this face here, you can see that it's stretched across there.
-
-It's also the wrong way round.
-
-So I'm going to have to rotate some of my faces as well.
-
-Now, one thing that's slightly confusing, if I select all and go to face mode and select this face
-
-in the UV editor and press G to grab, you can see that the faces around it that are joined to it are
-
-also being stretched once again.
-
-G to grab you can see they're being stretched However, if I select just this face that makes only that
-
-face visible in the UV editor and now press G to grab it separates it.
-
-That can be a little bit confusing.
-
-So if I select any of these individual faces, select that face, make sure you're in face mode for
-
-that and you grab I can now move them into different positions, but do make sure you've just got that
-
-face selected.
-
-So I'll choose this front face here.
-
-This can be the front of the house.
-
-So I'll have this door here.
-
-I'll rotate it 90 degrees and it's difficult to see, but I think it's actually -90.
-
-And press enter and then start scaling it in the x axis.
-
-So s then x and g to grab to move that into position.
-
-Let's see what that's looking like.
-
-That's kind of working as the front of our house.
-
-Although I don't want this top window in here.
-
-So let's scale it down just a touch more.
-
-I'm trying to keep it fairly square S then y.
-
-If I don't keep it square, you can see that it stretches my texture like this.
-
-So probably somewhere around here, then G then Y to bring it down.
-
-What is a tiny bit confusing is that this is x and Y, and I often think this is up and therefore z.
-
-But no, it's just x and y for a flat image.
-
-Okay, so pause the video here and catch up with me moving one of your faces to correspond with that
-
-part of the house on the image.
-
-Okay, so I've moved one into position.
-
-Let's come round to the side here.
-
-Select this one.
-
-Select the face again R -90 and I'll move this into a different position.
-
-Let's say over here scaling the x so it's square.
-
-Bring it down and I'll scale it down a little bit more so the top windows aren't quite in.
-
-Somewhere around here I can probably scale in the X.
-
-Just a touch does stretch it a little bit, but I think we're okay so we can't see too much stretch
-
-there for the top roof.
-
-If I select that, we don't really want any windows on there because that doesn't make sense.
-
-So let's scale it down and scale in the Y.
-
-So it's square.
-
-And then I can move it to a position where it's just plaster like this.
-
-I'll zoom in a bit, scale it down just a touch more and somewhere around there.
-
-Now, obviously this is covering less pixels than our side images such as this one.
-
-Here you can see that's covering a bigger area.
-
-So this one here, if I zoom in to this is a little bit more pixelated and blurry, whereas these ones
-
-are a bit more sharp.
-
-So the higher the resolution the sharper your images are going to be in here, and the smaller area
-
-you are covering with your UVs, the more pixelated it will be because we're seeing less pixels.
-
-So I've got two sides done and the roof done.
-
-Your challenge then, is to catch up with me and finish off the other sides of the cube.
-
-By placing those corresponding faces into position.
-
-You can use any position on your image.
-
-It doesn't even matter if you overlap another one and choose exactly the same position as you've already
-
-used on another wall.
-
-So pause the video and have a go at that.
-
-So let's take this face for example.
-
-I'll select the face in the image editor R -90 to rotate it around.
-
-Scale it down, scaling the X to make it square.
-
-So somewhere around here and I can just have this area around here.
-
-So I'll scale in the X and just have that one window this time on the side there looks a little bit
-
-strange because it's not lining up with this window.
-
-So I could press G to grab in the Y to make them a bit more aligned, and scaling the Y as well to just
-
-try and make them level somewhere around there.
-
-Now notice that this is probably overlapping this image here.
-
-As you can see, as I select both those, or I can select them both together and you can see they clearly
-
-overlap.
-
-And like I said earlier that's absolutely fine.
-
-So let's come around to the last one.
-
-Select that face are -90 G to grab.
-
-And I'll choose this top window up here.
-
-So I'll scale it down a bit.
-
-Scaling the X move to that top window and try and scale it so it fits roughly in line with the other
-
-ones.
-
-Not the best house, but it just about works.
-
-Okay, so hopefully you got an okay with that.
-
-Do make sure you've saved this scene because we'll be continuing with it next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Basic UV Mapping |
-| **Thời lượng** | 12:58 |
-| **Chủ đề chính** | Kiến thức UV Mapping cơ bản |
+| Thuộc tính             | Nội dung                                                      |
+| ---------------------- | ------------------------------------------------------------- |
+| **Module**             | Module 04 — UV Mapping                                        |
+| **Bài học**            | Basic UV Mapping                                              |
+| **Thời lượng**         | 12:58                                                         |
+| **Chủ đề chính**       | Làm quen với UV Mapping và áp texture lên mô hình 3D          |
+| **Sản phẩm thực hành** | Một ngôi nhà đơn giản được tạo từ Cube và texture ảnh tòa nhà |
+
+---
 
 ## 1. Mục tiêu bài học
-- Hiểu khái niệm UV mapping là gì và tại sao mọi mô hình 3D cần có UV trước khi áp texture.
-- Làm quen với UV Editor và mối quan hệ giữa không gian UV (0–1) và bề mặt mesh trong 3D Viewport.
-- Biết các phương pháp unwrap cơ bản: Unwrap, Smart UV Project, Cube/Cylinder/Sphere Projection.
-- Biết cách dùng texture caro (checker texture) để kiểm tra chất lượng UV.
 
-## 2. Nội dung chính
-UV mapping là quá trình "trải phẳng" bề mặt 3D của một mesh ra một không gian 2D gọi là UV space (tọa độ U, V nằm trong khoảng 0 đến 1), để texture 2D có thể được ánh xạ chính xác lên bề mặt mô hình. Mỗi vertex của mesh, khi tham gia vào một mặt (face), sẽ có một tọa độ UV tương ứng lưu trong UV Map của object.
+Sau bài học này, bạn có thể:
 
-Trong Blender, UV Editor là workspace/editor chuyên dụng để xem và chỉnh sửa layout UV. Khi ở Edit Mode và bật UV Sync Selection (hoặc chọn face/vertex ở 3D Viewport), UV Editor sẽ hiển thị các UV tương ứng.
+* Hiểu UV Mapping là gì.
+* Biết cách mở và sử dụng workspace **UV Editing**.
+* Hiểu mối liên hệ giữa:
 
-Các phương pháp tạo UV cơ bản:
-- **Unwrap (phím U → Unwrap):** thuật toán "trải phẳng" mesh dựa trên seam đã đánh dấu, cho kết quả tự nhiên nhất với mesh phức tạp.
-- **Smart UV Project:** tự động phân tích góc cạnh mesh và tự tạo seam + unwrap, phù hợp cho mesh hard-surface đơn giản hoặc để có kết quả nhanh.
-- **Cube Projection / Cylinder Projection / Sphere Projection:** chiếu UV theo hình khối cơ bản, phù hợp với mesh có hình dạng gần giống khối lập phương, trụ, hoặc cầu.
-- **Project from View:** chiếu UV theo góc nhìn hiện tại của viewport.
+  * Mặt của mô hình trong 3D Viewport.
+  * UV layout trong UV Editor.
+  * Hình ảnh texture trong vật liệu.
+* Tạo một ảnh kiểm tra dạng **Color Grid** trong Blender.
+* Gắn Image Texture vào đầu vào **Base Color** của Principled BSDF.
+* Di chuyển, xoay và thay đổi kích thước từng mặt UV.
+* Sử dụng một ảnh mặt tiền tòa nhà để tạo mô hình ngôi nhà đơn giản.
+* Hiểu ảnh hưởng của độ phân giải và diện tích UV đến độ sắc nét của texture.
 
-Để kiểm tra chất lượng UV, một texture caro (checker/UV grid) thường được gán tạm thời lên vật liệu: nếu các ô vuông trên bề mặt mô hình đều nhau, không bị kéo dãn hoặc méo, UV được coi là tốt.
+---
 
-## 3. Quy trình thực hành gợi ý
-1. Tạo hoặc mở một mesh đơn giản (cube, cylinder) trong Edit Mode.
-2. Chọn toàn bộ mesh (A), mở menu UV bằng phím U để xem các tùy chọn unwrap.
-3. Thử Smart UV Project trước để có cái nhìn tổng quan về layout UV tự động.
-4. Mở UV Editor (đổi một panel sang UV Editing workspace) để xem UV layout song song với 3D Viewport.
-5. Tạo một Image Texture kiểu UV Grid (checker) và gán vào Material để kiểm tra độ méo của UV trên bề mặt.
-6. So sánh kết quả giữa Unwrap thường (chưa có seam) và Smart UV Project để thấy sự khác biệt.
+## 2. UV Mapping là gì?
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `U` | Mở menu UV Mapping (Unwrap, Smart UV Project, Cube/Cylinder/Sphere Projection...) |
-| `A` | Chọn toàn bộ mesh trong Edit Mode |
-| `Alt+A` | Bỏ chọn toàn bộ |
-| `N` | Mở/đóng sidebar (xem thông tin UV, Item panel) |
-| `Tab` | Chuyển giữa Object Mode và Edit Mode |
+**UV Mapping** là quá trình trải các mặt của một mô hình 3D thành một bố cục phẳng 2D.
 
-## 5. Lưu ý & lỗi thường gặp
-- Unwrap khi chưa có seam nào sẽ cho kết quả không tối ưu vì Blender tự chọn cạnh để cắt mesh.
-- Smart UV Project có thể tạo quá nhiều island nhỏ nếu Angle Limit quá thấp, gây khó khăn khi texturing thủ công.
-- Quên gán checker texture để kiểm tra dễ dẫn đến việc không phát hiện UV bị kéo dãn cho tới khi bake hoặc texture thật đã áp lên.
-- Không phải mesh nào cũng nên dùng Cube/Cylinder Projection — chỉ phù hợp với hình dạng gần giống hình khối tương ứng.
+Bố cục 2D này được gọi là **UV Map**.
 
-## 6. Checklist thực hành
-- [ ] Đã mở được UV Editor và hiểu quan hệ giữa 3D Viewport và UV space.
-- [ ] Đã thử Unwrap cơ bản và Smart UV Project trên cùng một mesh.
-- [ ] Đã thử ít nhất một phương pháp Projection (Cube/Cylinder/Sphere).
-- [ ] Đã gán checker texture để kiểm tra chất lượng UV.
+Blender sử dụng UV Map để xác định phần nào của ảnh texture sẽ được hiển thị trên từng mặt của mô hình.
 
-## 7. Tóm tắt
-Bài học cung cấp nền tảng lý thuyết và thực hành về UV mapping: khái niệm UV space, các công cụ unwrap cơ bản trong Blender, và cách dùng checker texture để đánh giá chất lượng UV trước khi đi sâu vào seam và UV islands ở bài tiếp theo.
+```text
+Ảnh texture 2D
+       │
+       ▼
+     UV Map
+       │
+       ▼
+Bề mặt mô hình 3D
+```
+
+Ví dụ, một khối lập phương có sáu mặt. Khi được trải phẳng, sáu mặt này sẽ xuất hiện trong UV Editor dưới dạng một bố cục 2D.
+
+```text
+                 ┌───────┐
+                 │ Mặt trên│
+         ┌───────┼───────┼───────┬───────┐
+         │Mặt trái│Mặt trước│Mặt phải│Mặt sau │
+         └───────┼───────┼───────┴───────┘
+                 │Mặt dưới│
+                 └───────┘
+```
+
+Blender sẽ dựa vào vị trí của từng mặt UV trên ảnh để lấy màu và chi tiết tương ứng.
+
+---
+
+## 3. UV Map mặc định của các primitive
+
+Phần lớn các primitive cơ bản trong Blender đã có sẵn UV Map khi được tạo.
+
+Có thể kiểm tra UV Map tại:
+
+```text
+Object Data Properties
+└── UV Maps
+```
+
+Các primitive như Cube thường đã được Blender tạo UV Map tự động.
+
+Riêng đối tượng **Circle** thường chỉ gồm các đỉnh và cạnh khi mới tạo, chưa có bề mặt hoàn chỉnh để ánh xạ texture theo cách thông thường.
+
+---
+
+## 4. Làm quen với workspace UV Editing
+
+Chọn Cube, sau đó chuyển sang workspace:
+
+```text
+UV Editing
+```
+
+Workspace này thường được chia thành hai khu vực chính:
+
+| Khu vực                  | Chức năng                        |
+| ------------------------ | -------------------------------- |
+| **UV Editor bên trái**   | Hiển thị và chỉnh sửa UV Map     |
+| **3D Viewport bên phải** | Hiển thị và chỉnh sửa mô hình 3D |
+
+Khi chuyển sang UV Editing, Blender thường tự động đưa đối tượng vào **Edit Mode**.
+
+### Hiển thị UV
+
+Trong Edit Mode:
+
+* Nhấn `A` để chọn toàn bộ mesh.
+* Nhấn `Alt + A` để bỏ chọn toàn bộ.
+
+UV Editor chỉ hiển thị UV của những thành phần đang được chọn.
+
+```text
+Chọn mặt trong 3D Viewport
+            │
+            ▼
+UV tương ứng xuất hiện trong UV Editor
+```
+
+---
+
+## 5. Phân biệt UV Editor và Image Editor
+
+UV Editor và Image Editor có giao diện khá giống nhau, nhưng chức năng không hoàn toàn giống nhau.
+
+### UV Editor
+
+Dùng để:
+
+* Xem UV Map.
+* Chọn UV vertex, edge hoặc face.
+* Di chuyển UV.
+* Xoay UV.
+* Scale UV.
+* Đặt UV lên các khu vực khác nhau của ảnh.
+
+### Image Editor
+
+Chủ yếu dùng để:
+
+* Xem ảnh.
+* Xem kết quả render.
+* Xem các image data-block trong Blender.
+
+Trong bài học này cần sử dụng đúng **UV Editor**.
+
+---
+
+## 6. Chuẩn bị Shader Editor
+
+Để quan sát rõ cách texture được nối vào vật liệu, tạo thêm một cửa sổ Shader Editor.
+
+### Các bước
+
+1. Kéo từ góc của một panel để chia cửa sổ.
+2. Đổi loại editor mới thành **Shader Editor**.
+3. Nhấn `N` để đóng sidebar nếu không cần.
+4. Chuyển 3D Viewport sang **Material Preview**.
+5. Quan sát node **Principled BSDF** của vật liệu mặc định.
+
+Sơ đồ workspace lúc này:
+
+```text
+┌──────────────────────┬──────────────────────┐
+│      UV Editor       │     3D Viewport      │
+│                      │                      │
+│   UV và texture 2D   │   Mô hình có texture │
+├──────────────────────┴──────────────────────┤
+│                Shader Editor                │
+│ Image Texture → Principled BSDF → Output    │
+└─────────────────────────────────────────────┘
+```
+
+---
+
+## 7. Thêm node Image Texture
+
+Trong Shader Editor, thêm node:
+
+```text
+Shift + A
+└── Texture
+    └── Image Texture
+```
+
+Sau đó nối node vào vật liệu:
+
+```text
+Image Texture: Color
+          │
+          ▼
+Principled BSDF: Base Color
+```
+
+Sơ đồ node cơ bản:
+
+```text
+┌─────────────────┐
+│  Image Texture  │
+│                 │
+│ Color ──────────┼──────────────┐
+└─────────────────┘              │
+                                 ▼
+                     ┌────────────────────┐
+                     │ Principled BSDF    │
+                     │ Base Color         │
+                     └─────────┬──────────┘
+                               │
+                               ▼
+                     ┌────────────────────┐
+                     │ Material Output    │
+                     └────────────────────┘
+```
+
+Blender sẽ tự động sử dụng UV Map hiện có của Cube để đặt ảnh lên mô hình.
+
+---
+
+## 8. Tạo Color Grid để kiểm tra UV
+
+Trong UV Editor, nhấn **New** để tạo một ảnh mới.
+
+### Thiết lập gợi ý
+
+| Thuộc tính         | Giá trị        |
+| ------------------ | -------------- |
+| **Name**           | `test`         |
+| **Width**          | Khoảng 1000 px |
+| **Height**         | Khoảng 1000 px |
+| **Generated Type** | Color Grid     |
+
+Một ảnh khoảng `1000 × 1000 px` thường được gọi gần đúng là texture **1K**.
+
+Color Grid chứa:
+
+* Các ô màu.
+* Ký hiệu.
+* Đường lưới.
+* Các vùng dễ nhận biết.
+
+Nó giúp quan sát:
+
+* Mặt nào đang sử dụng khu vực nào của texture.
+* Texture có bị kéo giãn hay không.
+* UV có bị xoay sai hướng hay không.
+* Kích thước texture giữa các mặt có đồng đều hay không.
+
+---
+
+## 9. Gắn ảnh Color Grid vào vật liệu
+
+Ảnh vừa tạo mới chỉ xuất hiện trong UV Editor. Nó chưa tự động được gắn vào node Image Texture.
+
+Trong node Image Texture:
+
+1. Nhấn vào danh sách ảnh.
+2. Chọn ảnh `test`.
+3. Nối đầu ra **Color** vào **Base Color**.
+
+Quy trình đầy đủ:
+
+```text
+Tạo ảnh Color Grid trong UV Editor
+                  │
+                  ▼
+Chọn ảnh đó trong node Image Texture
+                  │
+                  ▼
+Nối Color vào Base Color
+                  │
+                  ▼
+Quan sát texture trên Cube
+```
+
+Sau khi kết nối, Color Grid sẽ xuất hiện trên các mặt của Cube.
+
+---
+
+## 10. Mối quan hệ giữa UV và mô hình
+
+Mỗi vùng UV đại diện cho một mặt hoặc một nhóm mặt trên mô hình.
+
+Khi chọn một mặt của Cube trong 3D Viewport, mặt UV tương ứng sẽ được đánh dấu trong UV Editor.
+
+### Các chế độ chọn trong UV Editor
+
+UV Editor cho phép chọn theo:
+
+* Vertex.
+* Edge.
+* Face.
+
+Việc chọn đúng chế độ rất quan trọng khi chỉnh sửa UV.
+
+---
+
+## 11. Biến đổi UV
+
+Các thao tác trong UV Editor khá giống các thao tác với object trong 3D Viewport.
+
+| Phím                  | Chức năng                |
+| --------------------- | ------------------------ |
+| `G`                   | Di chuyển UV             |
+| `S`                   | Thay đổi kích thước UV   |
+| `R`                   | Xoay UV                  |
+| `X`                   | Giới hạn theo trục ngang |
+| `Y`                   | Giới hạn theo trục dọc   |
+| `Esc` hoặc chuột phải | Hủy thao tác             |
+
+### Di chuyển UV
+
+```text
+G
+```
+
+Khi di chuyển một UV face sang vùng khác của ảnh, phần texture hiển thị trên mặt 3D cũng thay đổi.
+
+### Scale UV
+
+```text
+S
+```
+
+Scale UV lớn hơn làm mặt đó sử dụng một vùng lớn hơn của ảnh.
+
+Scale UV nhỏ hơn làm mặt đó chỉ sử dụng một vùng nhỏ của ảnh.
+
+### Xoay UV
+
+```text
+R
+```
+
+Xoay UV giúp chỉnh đúng hướng của cửa sổ, cửa ra vào hoặc các chi tiết khác trên texture.
+
+Ví dụ:
+
+```text
+R
+-90
+Enter
+```
+
+---
+
+## 12. UV kết nối và hiện tượng kéo giãn
+
+Khi nhiều mặt UV vẫn đang nối với nhau, việc di chuyển một mặt có thể kéo theo các cạnh và mặt xung quanh.
+
+```text
+Di chuyển một mặt UV đang nối
+              │
+              ▼
+Các UV lân cận bị kéo giãn
+              │
+              ▼
+Texture trên mô hình bị méo
+```
+
+Tuy nhiên, nếu chỉ chọn riêng một mặt trên mô hình, UV Editor có thể chỉ hiển thị mặt đó. Khi di chuyển, bạn có thể đặt mặt UV này độc lập vào một vị trí mới trên ảnh.
+
+Điểm cần chú ý:
+
+* Chọn đúng một mặt trong 3D Viewport.
+* Chuyển sang Face Select nếu cần.
+* Kiểm tra trong UV Editor trước khi di chuyển.
+* Quan sát trực tiếp kết quả trên mô hình.
+
+---
+
+## 13. Thay Color Grid bằng texture tòa nhà
+
+Sau khi hiểu cách UV hoạt động, bài học chuyển sang sử dụng một ảnh texture thật.
+
+Texture được chọn là một ảnh mặt tiền tòa nhà có đặc điểm:
+
+* Bề mặt khá phẳng.
+* Có cửa ra vào.
+* Có nhiều cửa sổ.
+* Có những vùng tường trống.
+* Góc chụp tương đối trực diện.
+
+Ảnh kiểu này phù hợp để tạo một ngôi nhà đơn giản từ Cube.
+
+> Tài nguyên khóa học đã cung cấp sẵn một số texture do trang texture được nhắc trong video chuyển sang mô hình thuê bao.
+
+---
+
+## 14. Mở texture trong Blender
+
+Trong node Image Texture:
+
+1. Nhấn **Open**.
+2. Tìm ảnh tòa nhà.
+3. Chọn ảnh.
+4. Nhấn **Open Image**.
+
+Ảnh sẽ được gắn vào vật liệu và xuất hiện trên Cube.
+
+Đôi khi ảnh trong UV Editor không tự động đổi theo node Image Texture. Trong trường hợp đó:
+
+1. Mở danh sách ảnh ở phía trên UV Editor.
+2. Chọn đúng texture tòa nhà đã được nạp.
+
+Danh sách này chứa toàn bộ ảnh đang được nạp trong file Blender.
+
+---
+
+## 15. Aspect Ratio của texture
+
+**Aspect Ratio** là tỷ lệ giữa chiều rộng và chiều cao của ảnh.
+
+Ví dụ:
+
+```text
+Ảnh vuông:     1000 × 1000
+Ảnh ngang:     2000 × 1000
+Ảnh dọc:       1000 × 2000
+```
+
+Texture tòa nhà trong bài có dạng dài và mỏng. Vì vậy, UV layout có thể trông như bị kéo giãn để phù hợp với tỷ lệ của ảnh.
+
+Điều này không nhất thiết có nghĩa là mesh bị thay đổi. Đây là cách UV được hiển thị trên một ảnh có tỷ lệ khác với ảnh vuông.
+
+---
+
+## 16. Tạo mặt trước của ngôi nhà
+
+Chọn một mặt Cube để làm mặt trước.
+
+### Các bước cơ bản
+
+1. Chọn mặt trước trong 3D Viewport.
+2. Chọn UV face tương ứng.
+3. Xoay UV khoảng `-90°` nếu texture bị nằm ngang.
+4. Scale UV để vừa với khu vực cửa ra vào.
+5. Di chuyển UV đến đúng vị trí.
+6. Quan sát kết quả trong Material Preview.
+
+Ví dụ thao tác:
+
+```text
+R → -90 → Enter
+S → thu nhỏ
+S → X → điều chỉnh chiều rộng
+S → Y → điều chỉnh chiều cao
+G → đặt vào khu vực cửa ra vào
+```
+
+Mục tiêu là đặt UV của mặt trước lên khu vực có:
+
+* Cửa ra vào.
+* Một phần tường.
+* Một số cửa sổ phù hợp.
+
+---
+
+## 17. Giữ đúng tỷ lệ khi chỉnh UV
+
+Nếu scale UV không đồng đều theo X và Y, texture có thể bị méo.
+
+Ví dụ:
+
+```text
+Scale quá rộng theo X
+        │
+        ▼
+Cửa sổ và cửa ra vào bị kéo ngang
+```
+
+```text
+Scale quá cao theo Y
+        │
+        ▼
+Cửa sổ và cửa ra vào bị kéo dọc
+```
+
+Cần cố gắng giữ cho các chi tiết như cửa sổ và cửa ra vào có hình dạng hợp lý.
+
+Không nhất thiết UV face phải hoàn toàn vuông, nhưng cần tránh sự biến dạng quá rõ ràng.
+
+---
+
+## 18. Đặt UV cho các mặt bên
+
+Tiếp tục chọn từng mặt bên của Cube.
+
+Với mỗi mặt:
+
+1. Chọn mặt trong 3D Viewport.
+2. Xoay UV đúng hướng.
+3. Scale UV.
+4. Di chuyển UV đến một khu vực khác trên ảnh.
+5. Chọn vùng có cửa sổ hoặc tường phù hợp.
+6. So sánh độ cao cửa sổ giữa các mặt.
+
+Ví dụ, có thể căn các cửa sổ ở mặt bên sao cho gần cùng độ cao với cửa sổ ở mặt trước.
+
+```text
+Mặt trước:  ────[ Cửa sổ ]────
+Mặt bên:    ────[ Cửa sổ ]────
+                    ▲
+              Cùng độ cao
+```
+
+---
+
+## 19. Đặt UV cho mặt mái
+
+Mặt trên của Cube có thể được sử dụng làm mái.
+
+Không nên đặt UV mặt mái lên khu vực có cửa sổ hoặc cửa ra vào, vì điều này không hợp lý về mặt hình ảnh.
+
+Thay vào đó:
+
+1. Chọn mặt trên.
+2. Thu nhỏ UV.
+3. Đặt UV vào một vùng tường trơn hoặc vùng không có cửa sổ.
+4. Điều chỉnh sao cho texture ít bị kéo giãn.
+
+---
+
+## 20. UV chồng lên nhau
+
+Các UV face có thể chồng lên nhau.
+
+Ví dụ, hai mặt bên có thể cùng sử dụng một khu vực cửa sổ trên texture.
+
+```text
+UV mặt trái ─┐
+             ├── Cùng sử dụng một vùng texture
+UV mặt phải ─┘
+```
+
+Điều này được gọi là **UV Overlap**.
+
+Trong bài thực hành đơn giản này, UV chồng lên nhau hoàn toàn có thể chấp nhận được.
+
+### Khi UV overlap hữu ích
+
+* Hai mặt cần có texture giống nhau.
+* Hai bức tường sử dụng cùng một kiểu cửa sổ.
+* Muốn tiết kiệm diện tích texture.
+* Mô hình có nhiều phần đối xứng.
+
+### Hạn chế
+
+Nếu sau này cần vẽ chi tiết riêng cho từng mặt, UV overlap có thể gây vấn đề vì chỉnh một khu vực ảnh sẽ ảnh hưởng đến tất cả mặt đang sử dụng khu vực đó.
+
+---
+
+## 21. Độ phân giải và độ sắc nét
+
+Texture được tạo thành từ các pixel.
+
+Một UV face càng chiếm nhiều diện tích trên ảnh thì mặt đó càng sử dụng nhiều pixel.
+
+```text
+UV chiếm diện tích lớn
+          │
+          ▼
+Sử dụng nhiều pixel
+          │
+          ▼
+Texture sắc nét hơn
+```
+
+Ngược lại:
+
+```text
+UV chiếm diện tích nhỏ
+          │
+          ▼
+Sử dụng ít pixel
+          │
+          ▼
+Texture dễ bị mờ hoặc vỡ hạt
+```
+
+Ví dụ, nếu UV của mái chỉ nằm trên một vùng rất nhỏ của ảnh, texture trên mái có thể mờ hơn các mặt tường.
+
+### Hai yếu tố ảnh hưởng đến chất lượng
+
+1. **Độ phân giải của ảnh texture**
+2. **Diện tích UV sử dụng trên ảnh**
+
+Texture có độ phân giải cao hơn thường cho kết quả sắc nét hơn, nhưng cũng sử dụng nhiều bộ nhớ hơn.
+
+---
+
+## 22. Quy trình thực hành hoàn chỉnh
+
+```text
+Chọn Cube
+    │
+    ▼
+Mở workspace UV Editing
+    │
+    ▼
+Tạo Material và mở Shader Editor
+    │
+    ▼
+Thêm node Image Texture
+    │
+    ▼
+Tạo Color Grid để kiểm tra UV
+    │
+    ▼
+Nối Image Texture vào Base Color
+    │
+    ▼
+Thử di chuyển, xoay và scale UV
+    │
+    ▼
+Mở texture tòa nhà
+    │
+    ▼
+Chọn từng mặt Cube
+    │
+    ▼
+Đặt từng UV face lên cửa, cửa sổ hoặc tường
+    │
+    ▼
+Kiểm tra texture trong Material Preview
+    │
+    ▼
+Điều chỉnh biến dạng và độ sắc nét
+    │
+    ▼
+Lưu file Blender
+```
+
+---
+
+## 23. Phím tắt và công cụ quan trọng
+
+| Phím hoặc công cụ     | Chức năng                             |
+| --------------------- | ------------------------------------- |
+| `Shift + A`           | Thêm object hoặc node mới             |
+| `Tab`                 | Chuyển giữa Object Mode và Edit Mode  |
+| `A`                   | Chọn toàn bộ                          |
+| `Alt + A`             | Bỏ chọn toàn bộ                       |
+| `G`                   | Di chuyển UV                          |
+| `S`                   | Scale UV                              |
+| `R`                   | Xoay UV                               |
+| `X`                   | Giới hạn thao tác theo trục X         |
+| `Y`                   | Giới hạn thao tác theo trục Y         |
+| `N`                   | Mở hoặc đóng sidebar                  |
+| `Ctrl + Spacebar`     | Phóng to hoặc thu nhỏ editor hiện tại |
+| Chuột phải hoặc `Esc` | Hủy thao tác đang thực hiện           |
+| **Material Preview**  | Xem texture trực tiếp trên mô hình    |
+| **New**               | Tạo ảnh mới trong Blender             |
+| **Open**              | Mở ảnh texture từ máy tính            |
+
+> Trong UV Editor chỉ sử dụng hai trục `X` và `Y`. Không có trục `Z` vì UV là không gian phẳng 2D.
+
+---
+
+## 24. Lỗi thường gặp
+
+### 24.1. Texture chỉ xuất hiện trong UV Editor
+
+**Nguyên nhân:** Ảnh chưa được chọn trong node Image Texture.
+
+**Cách xử lý:**
+
+* Mở danh sách ảnh trong node Image Texture.
+* Chọn đúng ảnh.
+* Nối đầu ra Color vào Base Color.
+
+---
+
+### 24.2. UV Editor hiển thị sai ảnh
+
+**Nguyên nhân:** UV Editor đang hiển thị một image data-block khác.
+
+**Cách xử lý:**
+
+* Mở danh sách ảnh ở đầu UV Editor.
+* Chọn đúng texture tòa nhà.
+
+---
+
+### 24.3. Texture bị xoay ngang
+
+**Cách xử lý:**
+
+```text
+R → -90 → Enter
+```
+
+Hoặc xoay đến khi cửa sổ và cửa ra vào đúng chiều.
+
+---
+
+### 24.4. Texture bị kéo giãn
+
+**Nguyên nhân:**
+
+* Scale UV không đều.
+* Di chuyển một mặt UV khi nó vẫn nối với các mặt xung quanh.
+* UV face có tỷ lệ không phù hợp với vùng ảnh.
+
+**Cách xử lý:**
+
+* Điều chỉnh lại theo trục X và Y.
+* Chọn riêng từng mặt.
+* Quan sát trực tiếp trong Material Preview.
+
+---
+
+### 24.5. Texture bị mờ
+
+**Nguyên nhân:**
+
+* UV chỉ chiếm một vùng rất nhỏ trên ảnh.
+* Texture có độ phân giải thấp.
+
+**Cách xử lý:**
+
+* Cho UV sử dụng vùng ảnh lớn hơn.
+* Sử dụng texture có độ phân giải cao hơn.
+* Tránh thu nhỏ UV quá mức.
+
+---
+
+### 24.6. Chọn một mặt nhưng nhiều mặt bị biến dạng
+
+**Nguyên nhân:** Các mặt UV vẫn đang nối với nhau hoặc nhiều thành phần đang được chọn.
+
+**Cách xử lý:**
+
+* Bỏ chọn toàn bộ.
+* Chọn riêng một mặt trong 3D Viewport.
+* Chuyển sang Face Select.
+* Kiểm tra phần UV đang được hiển thị trước khi chỉnh sửa.
+
+---
+
+## 25. Bài tập thực hành
+
+Sử dụng một Cube và một texture mặt tiền tòa nhà để tạo ngôi nhà đơn giản.
+
+### Yêu cầu
+
+* Mặt trước có cửa ra vào.
+* Các mặt bên có cửa sổ.
+* Cửa sổ giữa các mặt tương đối thẳng hàng.
+* Mặt trên không chứa cửa sổ hoặc cửa ra vào.
+* Texture không bị kéo giãn quá rõ.
+* Có thể cho phép các UV face chồng lên nhau.
+* Lưu lại file để sử dụng trong bài học tiếp theo.
+
+### Thử nghiệm thêm
+
+* Di chuyển một UV vertex và quan sát texture.
+* Di chuyển một UV edge và quan sát vùng bị kéo giãn.
+* Scale UV theo X.
+* Scale UV theo Y.
+* Xoay UV 90°.
+* Đặt hai mặt UV lên cùng một khu vực texture.
+* So sánh độ sắc nét giữa UV lớn và UV nhỏ.
+
+---
+
+## 26. Checklist hoàn thành
+
+* [ ] Đã tìm thấy UV Map trong Object Data Properties.
+* [ ] Đã mở workspace UV Editing.
+* [ ] Đã phân biệt UV Editor với Image Editor.
+* [ ] Đã tạo thêm cửa sổ Shader Editor.
+* [ ] Đã thêm node Image Texture.
+* [ ] Đã tạo ảnh Color Grid khoảng 1K.
+* [ ] Đã nối Image Texture vào Base Color.
+* [ ] Đã thử di chuyển UV bằng `G`.
+* [ ] Đã thử scale UV bằng `S`.
+* [ ] Đã thử xoay UV bằng `R`.
+* [ ] Đã mở texture tòa nhà.
+* [ ] Đã đặt UV cho mặt trước của ngôi nhà.
+* [ ] Đã đặt UV cho các mặt bên.
+* [ ] Đã đặt mặt mái vào vùng texture phù hợp.
+* [ ] Đã hiểu UV overlap có thể được sử dụng trong bài này.
+* [ ] Đã kiểm tra độ kéo giãn và độ sắc nét của texture.
+* [ ] Đã lưu file Blender.
+
+---
+
+## 27. Tóm tắt bài học
+
+UV Mapping cho phép Blender biết cách đặt một hình ảnh 2D lên bề mặt mô hình 3D.
+
+Trong bài học này, Cube được sử dụng để minh họa quy trình:
+
+1. Xem UV Map mặc định.
+2. Tạo Color Grid để kiểm tra UV.
+3. Gắn Image Texture vào vật liệu.
+4. Di chuyển, xoay và scale các mặt UV.
+5. Thay Color Grid bằng ảnh mặt tiền tòa nhà.
+6. Đặt từng mặt của Cube lên các vùng phù hợp của ảnh.
+7. Hoàn thiện một ngôi nhà đơn giản.
+
+Điểm quan trọng nhất là hiểu mối quan hệ:
+
+```text
+Mặt của mesh
+     ↕
+UV face trong UV Editor
+     ↕
+Khu vực tương ứng trên texture
+```
+
+Khi UV thay đổi, phần texture hiển thị trên mô hình cũng thay đổi. UV càng sử dụng nhiều pixel thì hình ảnh trên mô hình càng sắc nét. Ngược lại, UV quá nhỏ hoặc bị scale không đều sẽ khiến texture bị mờ hoặc biến dạng.

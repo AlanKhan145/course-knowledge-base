@@ -1,486 +1,1102 @@
 # 075 — The Graph Editor
-In this lecture, we'll be looking at the graph editor to create a bouncing ball animation.
 
-So I've started a new blender file, and a quick challenge to you is to add in a sphere and a plane
-
-for a floor, and I want you to animate the sphere so it falls from a small height over about one second
-
-and hits the floor and stay still.
-
-So you'll need two key frames, one at the top and one at the bottom, and your animation should last
-
-for one second.
-
-So pause the video and have a go at that.
-
-Okay.
-
-So hopefully you got an okay with that.
-
-I'll select the cube and delete it.
-
-Shift eight and you've sphere and shift eight, add mesh and then plane.
-
-I'll scale the plane up so it becomes like a floor and I'll move my sphere up in the Z axis.
-
-So it's going to fall down and hit the floor.
-
-Now I can press the record button and I'll just lift the timeline up a little bit so you can see the
-
-keyframes are press g to grab and press enter just so it's enters a keyframe because I have the record
-
-button active I'll go across 25 frames but do remember if I go to my output properties that the frame
-
-rate by default is 24.
-
-So I'll just change that to 25.
-
-You can keep it on 24 if you like, and go to 24 frames.
-
-It doesn't make too much difference, but at 25 frames I can now press G to grab in the Z axis and move
-
-it onto the floor.
-
-Now it's a little bit tricky from this view here, so I'll go to front view, zoom in a bit G to grab
-
-and there's that axis and get it a little bit more accurate to there.
-
-And you'll notice that I moved it twice, but because I was over the keyframe the second time I moved
-
-it where I was adjusting the position slightly, it overwrite the original ones.
-
-We've still got two key frames here, so I changed my end frame to 25 just for the moment.
-
-Zoom out of touch and press play and you can see my ball falling to the floor.
-
-So hopefully came up with something similar to this.
-
-Let's go across to the animation workspace now that gives us our camera view and the dope sheet as well.
-
-But what I want to show you this time is the graph editor.
-
-So I'll come across to my window options here and change it to the graph editor.
-
-And you can see this animation column here which has the dope sheet and timeline at the top.
-
-Then there's the graph editor and I'll bring this up slightly and let's zoom in on my object so I can
-
-see it a little bit more clearly.
-
-And I'll zoom out of my graph editor using the wheel of my mouse.
-
-Let's just pause the video and catch it with me.
-
-Making sure you've changed your dope sheet to the graph editor and you've got a similar layout to mine
-
-in terms of space.
-
-Now the graph editor shares some similarities to the dope sheet in the sense that we've got our object
-
-here and we've got the object transformed here or the channels.
-
-Now it gives them a particular colour.
-
-We are actually only moving in the Z location so I can select this one and shift select all the way
-
-down to the scale, right click and delete channels that will make it a little bit easier to understand.
-
-So I've got three channels for location now.
-
-I know it's not moving in the X and Y, but I'll leave those in there just to show you some elements
-
-of the graph editor.
-
-You'll see these have colors associated with them.
-
-So the Z here has a blue and it's actually this one here.
-
-I know that because it's got some animation on it.
-
-It goes from this height here down to this height here, and it's focusing on the object, origin of
-
-the object.
-
-That's why it's not all the way down to zero here.
-
-The object origin is actually above the floor, hence the line is above the floor.
-
-Here the x and y are at zero at the moment.
-
-So if I hide those, you can see those key frames deleting.
-
-I can highlight a channel.
-
-So if I click on the x, you can see it in purple there.
-
-It's actually red, but it's over the top of the blue line of zero.
-
-So it's got a purply color to it.
-
-So it's a mixture of the blue, which is the zero line and the red.
-
-Therefore purple, if I highlight the Y location, you can see a mixture of blue and green which gives
-
-us a slightly turquoise color.
-
-And the z is this one here highlighted.
-
-I can actually change the height of this holding down control, pressing the will of my mouse and moving
-
-it upwards will change the height.
-
-If I hold down control and use the will of my mouse and move across, it changes the width.
-
-So I'll make it a bit thinner here because we're going to add some frames to the end and bring this
-
-to the beginning.
-
-So now I've explained the X and Y, I'll select both those and delete them.
-
-So I'm just left with my Z location, which we can see here.
-
-So pause the video and catch it with me.
-
-Delete the channels we don't need because we're just using the Z location and zoom in.
-
-So you're seeing a similar size to what I can see here.
-
-Pause the video and have a go at that.
-
-Okay.
-
-Let's start making our ball bounce.
-
-I've got 25 frames that are at the moment.
-
-I'll bring it a little bit further this way.
-
-Let's go to 100 frames so it's going to fall and then it needs to come back up and down and up and down
-
-and up and down.
-
-So it hits the ground at frame 25 and it's going to bounce back up, not quite another 25 frames because
-
-we're going to have it decay in terms of its bounce.
-
-And I know one second is a long time for a ball to drop, but we're sort that out in a moment.
-
-So I'll go an extra 20 frames and I can duplicate this key frame here.
-
-So shift DX to duplicate and move it out to here.
-
-And remember, you can constrain it to the x axis by pressing x.
-
-So it's exactly the same height as the starting keyframe.
-
-So I left click there to set it and I can press G to grab in the Y to move it down.
-
-Now that is slightly confusing because it's the Y axis in this 2D graph here, but obviously our object
-
-is moving in the Z axis.
-
-So up and down in 2D windows like this is always going to be the y axis, then it's going to fall again.
-
-So it's going to hit the floor and I can duplicate this one.
-
-So shift D and then X and I actually want to keep this in exactly the same position a bit shorter again.
-
-And I want 65 now, which is fine because it's going to go up and down at the same speed.
-
-Then I'll select this one here, shift each duplicate in the x axis, bring it along, and this time
-
-it's going to be shorter and not bounce as high.
-
-So if I go to 80, that's 15 frames and then G, then Y to bring that down so it doesn't bounce quite
-
-as high.
-
-And I'll bring that down a bit further.
-
-So it starts to die off and I'm around two and one half up.
-
-It doesn't matter if you've got different heights to me.
-
-We can change this all in a moment and then I'll duplicate this one shift dx in the X, move it across
-
-and again another 15 frames and let's just see what that looks like.
-
-So I'll press play.
-
-So it falls down, bounces, bounces again and dies and the bounces stop.
-
-It doesn't look much like a ball bouncing at the moment, but before I continue, pause the video here
-
-and catch it with me, making sure you've got a similar bouncing ball to what I have here.
-
-Okay.
-
-Now, hopefully you're getting the idea of the graph, Ed, that we've got the height axis coming up
-
-here for the Z and obviously time going along the bottom here.
-
-But what I'm finding is when I drag across my timeline as it comes to the first point, the falling
-
-slows down.
-
-And you can see that in the graph here, it's speed of falling increases and this is constant here,
-
-but then its speed of falling here slows down and we get an effect.
-
-If I bring the timeline back to here and press play where it doesn't seem to be hitting the ground,
-
-so it slows down and almost hovers, one way of fixing that is changing the interpolation.
-
-If I click on this keyframe here, I can actually change the way this is interpolated and change these
-
-curves.
-
-So they're a bit sharper and therefore we get a bounce.
-
-If I press a T, the interpolation is the most important for us as beginners.
-
-There's constant which I'll show you looks like this.
-
-So that's an on off and in fact I'll select all my key frames with A and then press T and then press
-
-constant.
-
-So you can see this on all five days.
-
-So it's on the floor.
-
-Up on the floor.
-
-Up.
-
-Certainly doesn't look like bouncing.
-
-So I press a T again and incidentally you can find this menu under key and then interpolation mode.
-
-Then we've got linear, which if I play that takes away any curves.
-
-So that's good for the bottom of our bounce, but not for the top as it looks like it's hitting a ceiling.
-
-Then lastly, if I press t again, we have the busier now the busier create these curves and if I select
-
-this one here and scale in the X to bring it right in like this, we get a bounce and it's correct at
-
-the top here as it slows down and comes back down again.
-
-So we need to make this one sharp, like this one.
-
-I can press a T and change it to linear, which is fine, but it's a little bit awkward and I have to
-
-move this a handle here and it has that because it's linked to another one that is a busier handle.
-
-It's actually just a bit easier to select it and scale it right in and I'll do the same for this one.
-
-Scaled it right in, so I'll press play at the start.
-
-And we've got a ball bouncing very slowly at the moment.
-
-Okay.
-
-So pause the video here and just take a quick look at the interpolation modes by pressing T.
-
-But we're going to leave it with busy air for the moment.
-
-So select your bottom keyframes and give them a much sharper point by scaling them all down.
-
-Okay.
-
-Now it's far too slow.
-
-This bounce, it looks like there's not much gravity.
-
-What I can do is select all my points and scale in the X to shorten this.
-
-But obviously I'm scaling into this sort of middle point of all our keyframes, so I'll undo that.
-
-And if I move my play head to the front, incidentally, I do want to move this keyframe to frame zero,
-
-so press g than x with that across one and the frame start to zero.
-
-I'm not sure why that's not default, to be honest, and I can select all my key frames.
-
-And I can use this button here, the pivot point and change it to 2D cursor much like the transform
-
-pivot up here has 3D cursor.
-
-If I now scale from here in the x axis, it will scale according to where my play head is.
-
-So I'll bring it to 50 frames and I want you to pause the video here and catch it with me reducing the
-
-length of the animation to 50 frames.
-
-So let's see what that looks like by pressing play.
-
-That's not too bad.
-
-It seems to be falling at the right rate, but these top keyframes are a little bit sharp still, and
-
-it doesn't stay at the top of the bounce long enough.
-
-So if I select them all, change my pivot point to individual centers and then press scale in the X,
-
-I can make this much wider and now play it and it looks like a bouncing ball, although I do need a
-
-little bit more bounces along here.
-
-So pause the video here and catch it with me selecting your top key frames and using the individual
-
-centers.
-
-Pivot point scale them up in the x so they spend a longer time at the top of the bounce.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So a challenge to you then is to continue the bouncing so it gets smaller and smaller until it stops,
-
-maybe at around 70, 75, something like that.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So I can move our play head across.
-
-I can duplicate these key frames and bring them down here.
-
-I could move the ball in the viewport as well.
-
-It's entirely up to you.
-
-I'd like to be able to see the gradual decline of the height, so I'd rather duplicate a keyframe from
-
-here and move it across to here and this one as well.
-
-So that's around this height.
-
-Probably needs to scale in a little bit like this and shift each duplicate to bring it down to about
-
-there.
-
-And this one as well needs to become a little bit shorter actually.
-
-So probably around here and G then X to make that across.
-
-And this is a bit tricky because there's no middle point.
-
-So I'll come to here and I'll bring this one back.
-
-So gee than X, so it has the same amount of frames, one side to the other.
-
-I can zoom in a bit to make sure we can see that nice and easily.
-
-So that's one, two, three, one, two, three.
-
-And again, I need to scale this in so there's a bit more of a curve.
-
-Last one.
-
-So shift D, I'll move it down here.
-
-And this time it's going to be to scale it down a bit and shift D to duplicate in the x axis across
-
-there.
-
-And you could do even a final one at a very short height here.
-
-I'll speed that footage up a little bit and I'm just going to select all the bottom ones because really
-
-they're not quite sharp enough so I can scale them all down.
-
-Just make sure I've got the individual centres on scale them all in the X so they're very, very sharp
-
-like this.
-
-Zoom out of touch and let's play our animation.
-
-And that looks great.
-
-Now, males will stop it at frame 80.
-
-Now, if I was rendering with still frames, I'd actually stop it at frame 72 and just repeat the last
-
-frame.
-
-But if it's a video file, I want a little bit of stillness before I restart my animation so it's bouncing
-
-like this.
-
-And then there's just a bit of stillness before it restarts the animation like this.
-
-Of course, you might like to render your animation.
-
-Just make sure you've moved your camera into the right position and that you set up the output correctly
-
-and change the file format to ffmpeg.
-
-If you want a video file, also remember to save your work before you start rendering and I'll see you
-
-in the next lecture.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 05 — Rigging & Animation |
-| **Bài học** | The Graph Editor |
-| **Thời lượng** | 12:56 |
-| **Chủ đề chính** | Làm việc với Graph Editor |
+| Thuộc tính       | Nội dung                                          |
+| ---------------- | ------------------------------------------------- |
+| **Module**       | Module 05 — Rigging & Animation                   |
+| **Bài học**      | The Graph Editor                                  |
+| **Thời lượng**   | 12:56                                             |
+| **Chủ đề chính** | Sử dụng Graph Editor để tạo hoạt ảnh quả bóng nảy |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Hiểu vai trò của Graph Editor trong việc kiểm soát chi tiết đường cong animation (F-Curve).
-- Biết cách đọc trục X (thời gian) và trục Y (giá trị thuộc tính) trên đồ thị.
-- Nắm được cách chỉnh handle của keyframe để thay đổi kiểu nội suy (Bezier, Linear, Constant).
-- Biết cách dùng Graph Editor để tạo easing, làm mượt hoặc tạo hiệu ứng bật/nảy (bounce, overshoot) cho animation.
+Sau bài học này, bạn sẽ có thể:
 
-## 2. Nội dung chính
+* Hiểu vai trò của **Graph Editor** trong Blender.
+* Đọc được đường cong chuyển động hay **F-Curve**.
+* Phân biệt trục thời gian và trục giá trị trong Graph Editor.
+* Xóa các kênh animation không cần thiết.
+* Nhân bản và di chuyển keyframe trực tiếp trên đồ thị.
+* Phân biệt ba kiểu nội suy:
 
-Graph Editor là công cụ chuyên sâu để chỉnh sửa animation ở mức đường cong (F-Curve), khác với Timeline hay Dope Sheet chỉ hiển thị keyframe như các điểm rời rạc. Trong Graph Editor, trục hoành (X) biểu diễn thời gian (frame), còn trục tung (Y) biểu diễn giá trị của thuộc tính đang animate (ví dụ vị trí Z, góc xoay X...). Mỗi keyframe xuất hiện dưới dạng một điểm trên đường cong, có hai handle (tay cầm) ở hai bên để kiểm soát độ cong của đường trước và sau điểm đó.
+  * Constant
+  * Linear
+  * Bezier
+* Điều chỉnh handle để tạo:
 
-Kiểu nội suy (Interpolation) quyết định hình dạng đường cong giữa hai keyframe: Bezier (mặc định) tạo chuyển động mượt có ease-in/ease-out, Linear tạo chuyển động đều tốc độ, Constant giữ nguyên giá trị đột ngột nhảy sang keyframe kế tiếp (thường dùng cho hiệu ứng animation dạng stop-motion hoặc thay đổi trạng thái tức thời). Loại handle của từng keyframe (Vector, Auto, Auto Clamped, Free, Aligned) cũng ảnh hưởng đến cách đường cong uốn quanh điểm đó.
+  * Điểm va chạm sắc.
+  * Đỉnh chuyển động mềm.
+  * Hiệu ứng giảm dần độ cao của cú nảy.
+* Co giãn toàn bộ thời gian animation bằng Pivot Point.
+* Tạo hoàn chỉnh một animation quả bóng nảy rồi dừng lại.
 
-Graph Editor đặc biệt hữu ích khi cần tinh chỉnh timing và spacing của animation theo 12 nguyên tắc animation cổ điển — ví dụ tạo overshoot (đường cong vọt qua giá trị đích rồi quay lại) cho cảm giác đàn hồi, hoặc ease-in/ease-out để chuyển động tự nhiên hơn thay vì đều đều máy móc.
+---
 
-## 3. Quy trình thực hành gợi ý
+## 2. Graph Editor là gì?
 
-1. Tạo một animation đơn giản với 2-3 keyframe Location trên Timeline.
-2. Mở Graph Editor (đổi một vùng làm việc sang Animation workspace hoặc chuyển Editor Type).
-3. Chọn một keyframe, quan sát handle của nó và thử kéo handle để thay đổi độ cong.
-4. Thử đổi Interpolation của một đoạn từ Bezier sang Linear rồi sang Constant, quan sát khác biệt khi play animation.
-5. Thử kéo handle tạo hiệu ứng overshoot (đường cong vượt qua giá trị đích).
-6. Dùng phím N để mở sidebar và nhập giá trị Frame/Value chính xác cho một keyframe.
+**Graph Editor** là trình chỉnh sửa animation dưới dạng các đường cong.
 
-## 4. Phím tắt & công cụ liên quan
+Mỗi thuộc tính được animate sẽ tạo thành một **F-Curve** riêng, chẳng hạn:
 
-| Phím tắt | Chức năng |
-|---|---|
-| `T` | Mở menu chọn kiểu Interpolation (trong Graph Editor) |
-| `V` | Đổi kiểu Handle Type của keyframe đang chọn |
-| `N` | Mở/đóng sidebar thông tin keyframe (Frame, Value) |
-| `Home` | Đưa toàn bộ đường cong vào khung nhìn (View All) |
-| `G` / `S` | Di chuyển / co giãn keyframe hoặc handle trong đồ thị |
-| `A` | Chọn tất cả keyframe trong Graph Editor |
+* `X Location`
+* `Y Location`
+* `Z Location`
+* `X Rotation`
+* `Y Rotation`
+* `Z Rotation`
+* `Scale`
 
-## 5. Lưu ý & lỗi thường gặp
+Trong bài thực hành này, quả bóng chỉ di chuyển theo chiều cao nên chủ yếu sử dụng:
 
-- Chỉnh Graph Editor khi chưa chọn đúng kênh (channel) F-Curve cần sửa, dẫn đến chỉnh nhầm thuộc tính khác.
-- Kéo handle quá tay tạo overshoot không mong muốn, khiến animation trông "giật" thay vì mượt.
-- Quên phím Home để căn khung nhìn, khiến đường cong bị thu nhỏ hoặc phóng to khó thao tác.
-- Nhầm lẫn giữa chỉnh keyframe (điểm chính) và chỉnh handle (tay cầm điều khiển độ cong).
+```text
+Z Location
+```
 
-## 6. Checklist thực hành
+### Cách đọc Graph Editor
 
-- [ ] Đã mở được Graph Editor và nhận diện trục X/Y.
-- [ ] Đã thử đổi Interpolation giữa Bezier, Linear, Constant.
-- [ ] Đã thử kéo handle để tạo easing hoặc overshoot.
-- [ ] Đã dùng sidebar (N) để nhập giá trị keyframe chính xác.
+```text
+Giá trị Z
+    ▲
+    │           ●
+    │         ╱   ╲
+    │       ╱       ╲
+    │ ●   ╱           ╲   ●
+    │  ╲╱               ╲╱
+    └──────────────────────────► Frame
+       0   25   45   65   80
+```
 
-## 7. Tóm tắt
+* **Trục X:** thời gian, được biểu diễn bằng số frame.
+* **Trục Y:** giá trị của thuộc tính đang animate.
+* **Điểm tròn:** keyframe.
+* **Đường nối:** sự thay đổi giá trị giữa các keyframe.
+* **Độ dốc của đường cong:** tốc độ chuyển động.
 
-Graph Editor cho phép kiểm soát animation ở mức đường cong chi tiết, từ kiểu nội suy đến hình dạng handle, giúp tạo ra chuyển động tự nhiên và có chủ đích thay vì animation cứng nhắc mặc định.
+---
+
+## 3. Timeline, Dope Sheet và Graph Editor
+
+| Công cụ          | Chức năng                                                  |
+| ---------------- | ---------------------------------------------------------- |
+| **Timeline**     | Hiển thị tổng quan các keyframe theo thời gian             |
+| **Dope Sheet**   | Hiển thị chi tiết keyframe của từng đối tượng và từng kênh |
+| **Graph Editor** | Hiển thị và chỉnh sửa đường cong giá trị của animation     |
+
+Có thể hiểu đơn giản:
+
+```text
+Timeline
+   ↓
+Xem animation có keyframe ở đâu
+
+Dope Sheet
+   ↓
+Quản lý keyframe theo đối tượng và thuộc tính
+
+Graph Editor
+   ↓
+Kiểm soát tốc độ, độ cong và cảm giác chuyển động
+```
+
+---
+
+# 4. Bài thực hành: Tạo quả bóng rơi
+
+## 4.1. Chuẩn bị Scene
+
+Tạo một Blender File mới và thực hiện:
+
+1. Xóa Cube mặc định.
+2. Thêm một quả cầu:
+
+   * `Shift + A`
+   * Chọn **Mesh → UV Sphere**
+3. Thêm mặt sàn:
+
+   * `Shift + A`
+   * Chọn **Mesh → Plane**
+4. Phóng to Plane để tạo thành sàn.
+5. Di chuyển quả cầu lên trên theo trục Z.
+
+Scene cơ bản:
+
+```text
+          ○  Sphere
+          │
+          │
+          ▼
+──────────────────── Plane
+```
+
+---
+
+## 4.2. Thiết lập tốc độ khung hình
+
+Trong **Output Properties**, đặt:
+
+```text
+Frame Rate: 25 FPS
+```
+
+Khi đó:
+
+```text
+25 frame = 1 giây
+```
+
+Bạn cũng có thể giữ tốc độ mặc định là `24 FPS`, nhưng bài học sử dụng `25 FPS` để dễ tính toán.
+
+---
+
+## 4.3. Tạo hai keyframe đầu tiên
+
+Bật nút **Auto Keying**, còn được gọi là nút Record.
+
+### Keyframe đầu tiên
+
+Tại frame đầu:
+
+1. Đặt quả bóng ở trên cao.
+2. Nhấn `G`.
+3. Nhấn `Enter` để xác nhận vị trí.
+
+Do Auto Keying đang bật, Blender sẽ tự động tạo keyframe.
+
+### Keyframe thứ hai
+
+1. Di chuyển playhead đến frame `25`.
+2. Nhấn `G → Z`.
+3. Hạ quả bóng xuống sát mặt sàn.
+4. Xác nhận vị trí.
+
+Kết quả:
+
+|    Frame | Trạng thái          |
+| -------: | ------------------- |
+| 0 hoặc 1 | Quả bóng ở trên cao |
+|       25 | Quả bóng chạm sàn   |
+
+Khi phát animation, quả bóng sẽ rơi xuống sàn trong khoảng một giây.
+
+> Khi thay đổi vị trí nhiều lần ngay trên cùng một frame, Blender sẽ ghi đè giá trị keyframe cũ thay vì tạo thêm keyframe mới.
+
+---
+
+# 5. Mở Graph Editor
+
+Chuyển sang **Animation Workspace**, sau đó đổi một khu vực thành:
+
+```text
+Editor Type → Graph Editor
+```
+
+Graph Editor sẽ hiển thị các kênh transform của đối tượng.
+
+Ví dụ:
+
+```text
+Object Transforms
+├── X Location
+├── Y Location
+├── Z Location
+├── X Rotation
+├── Y Rotation
+├── Z Rotation
+├── X Scale
+├── Y Scale
+└── Z Scale
+```
+
+---
+
+## 5.1. Màu của các kênh Location
+
+Blender thường sử dụng màu theo trục tọa độ:
+
+| Kênh         | Màu        |
+| ------------ | ---------- |
+| `X Location` | Đỏ         |
+| `Y Location` | Xanh lá    |
+| `Z Location` | Xanh dương |
+
+Trong bài này, chỉ có `Z Location` thay đổi nên đường màu xanh dương là đường cong quan trọng nhất.
+
+---
+
+## 5.2. Xóa các kênh không cần thiết
+
+Để đồ thị dễ quan sát hơn:
+
+1. Chọn các kênh Rotation và Scale.
+2. Nhấn chuột phải.
+3. Chọn **Delete Channels**.
+4. Xóa tiếp `X Location` và `Y Location`.
+5. Chỉ giữ lại `Z Location`.
+
+Cấu trúc sau khi dọn dẹp:
+
+```text
+Object Transforms
+└── Z Location
+```
+
+> Chỉ xóa channel khi chắc chắn thuộc tính đó không được sử dụng trong animation.
+
+---
+
+# 6. Điều khiển khung nhìn trong Graph Editor
+
+## Thu phóng thông thường
+
+Sử dụng con lăn chuột để phóng to hoặc thu nhỏ.
+
+## Thay đổi chiều cao hiển thị
+
+Giữ:
+
+```text
+Ctrl + con lăn chuột
+```
+
+Di chuyển theo chiều dọc để thay đổi tỷ lệ trục giá trị.
+
+## Thay đổi chiều rộng hiển thị
+
+Giữ:
+
+```text
+Ctrl + con lăn chuột
+```
+
+Di chuyển theo chiều ngang để thay đổi tỷ lệ trục thời gian.
+
+## Hiển thị toàn bộ đường cong
+
+Nhấn:
+
+```text
+Home
+```
+
+Blender sẽ tự động căn toàn bộ keyframe vào vùng nhìn.
+
+---
+
+# 7. Xây dựng chuỗi chuyển động nảy
+
+Ban đầu, quả bóng chỉ có hai trạng thái:
+
+```text
+Cao → Chạm sàn
+```
+
+Để tạo chuyển động nảy, cần bổ sung thêm các đỉnh và điểm chạm sàn.
+
+Ví dụ:
+
+```text
+Cao
+ ↓
+Chạm sàn
+ ↑
+Nảy cao
+ ↓
+Chạm sàn
+ ↑
+Nảy thấp hơn
+ ↓
+Chạm sàn
+ ↑
+Nảy rất thấp
+ ↓
+Dừng
+```
+
+---
+
+## 7.1. Kéo dài animation
+
+Đặt End Frame thành khoảng:
+
+```text
+100
+```
+
+Sau đó tạo thêm các keyframe.
+
+Một bố cục frame tham khảo:
+
+| Frame | Trạng thái              |
+| ----: | ----------------------- |
+|     0 | Vị trí bắt đầu trên cao |
+|    25 | Chạm sàn lần đầu        |
+|    45 | Đỉnh nảy thứ nhất       |
+|    65 | Chạm sàn lần hai        |
+|    80 | Đỉnh nảy thứ hai        |
+|    95 | Chạm sàn lần ba         |
+
+Các con số không bắt buộc phải giống hoàn toàn. Điều quan trọng là:
+
+* Mỗi lần nảy sau thấp hơn lần trước.
+* Khoảng thời gian giữa các lần nảy dần ngắn lại.
+
+---
+
+## 7.2. Nhân bản keyframe
+
+Để nhân bản một keyframe:
+
+```text
+Shift + D
+```
+
+Sau đó nhấn:
+
+```text
+X
+```
+
+để giới hạn chuyển động theo trục thời gian.
+
+Ví dụ:
+
+1. Chọn keyframe ở đỉnh đầu tiên.
+2. Nhấn `Shift + D`.
+3. Nhấn `X`.
+4. Di chuyển keyframe đến frame mới.
+5. Nhấn chuột trái để xác nhận.
+
+---
+
+## 7.3. Thay đổi độ cao của keyframe
+
+Trong Graph Editor:
+
+```text
+G → Y
+```
+
+được sử dụng để thay đổi giá trị theo chiều dọc của đồ thị.
+
+Điều này có thể gây nhầm lẫn:
+
+* Trong 3D Viewport, quả bóng di chuyển theo `Z`.
+* Trong Graph Editor, việc kéo điểm lên xuống lại dùng trục `Y` của giao diện 2D.
+
+```text
+3D Viewport:
+G → Z = thay đổi chiều cao của quả bóng
+
+Graph Editor:
+G → Y = thay đổi giá trị Z trên đồ thị
+```
+
+---
+
+# 8. Hiểu tốc độ thông qua độ dốc
+
+Độ dốc của đường cong thể hiện tốc độ thay đổi của thuộc tính.
+
+```text
+Đường gần nằm ngang
+→ Chuyển động chậm
+
+Đường càng dốc
+→ Chuyển động càng nhanh
+
+Đường nằm ngang hoàn toàn
+→ Đối tượng đứng yên
+```
+
+Với quả bóng rơi:
+
+* Khi bắt đầu rơi, tốc độ thấp.
+* Khi đến gần mặt đất, tốc độ tăng.
+* Sau khi bật lên, tốc độ giảm dần.
+* Tại đỉnh, vận tốc theo chiều dọc gần bằng `0`.
+* Sau đó quả bóng lại tăng tốc khi rơi xuống.
+
+---
+
+# 9. Interpolation Mode
+
+Kiểu nội suy quyết định cách Blender tính chuyển động giữa hai keyframe.
+
+Chọn keyframe và nhấn:
+
+```text
+T
+```
+
+Hoặc mở:
+
+```text
+Key → Interpolation Mode
+```
+
+Ba kiểu nội suy quan trọng gồm:
+
+---
+
+## 9.1. Constant
+
+```text
+●─────────┐
+          │
+          └─────────●
+```
+
+Đặc điểm:
+
+* Giá trị được giữ nguyên cho đến keyframe tiếp theo.
+* Sau đó thay đổi đột ngột.
+* Không có chuyển động chuyển tiếp.
+
+Ứng dụng:
+
+* Stop-motion.
+* Chuyển trạng thái tức thời.
+* Bật hoặc tắt thuộc tính.
+* Animation theo từng pose.
+
+Đối với quả bóng:
+
+```text
+Ở trên → lập tức xuống sàn → lập tức lên trên
+```
+
+Vì vậy Constant không phù hợp với chuyển động nảy tự nhiên.
+
+---
+
+## 9.2. Linear
+
+```text
+●────────╲────────●
+```
+
+Đặc điểm:
+
+* Giá trị thay đổi với tốc độ không đổi.
+* Đường nối giữa hai keyframe là đường thẳng.
+* Không có ease-in hoặc ease-out.
+
+Ứng dụng:
+
+* Chuyển động cơ học.
+* Băng chuyền.
+* Camera di chuyển đều.
+* Vật thể quay với tốc độ ổn định.
+
+Đối với quả bóng, Linear có thể làm điểm chạm đất sắc, nhưng đỉnh chuyển động sẽ giống như quả bóng va vào một trần vô hình.
+
+---
+
+## 9.3. Bezier
+
+```text
+●──────╲
+        ╲
+         ╲──────●
+```
+
+Đặc điểm:
+
+* Tạo đường cong mượt.
+* Có ease-in và ease-out.
+* Có thể điều chỉnh bằng các handle.
+* Là kiểu nội suy mặc định của Blender.
+
+Bezier phù hợp với:
+
+* Chuyển động tự nhiên.
+* Quả bóng nảy.
+* Nhân vật tăng tốc hoặc giảm tốc.
+* Camera bắt đầu và dừng nhẹ nhàng.
+
+> Từ đúng là **Bezier**, không phải “Busier” hoặc “Busy Air” như một số bản ghi âm tự động có thể nhận diện sai.
+
+---
+
+## 9.4. So sánh nhanh
+
+| Interpolation | Hình dạng   | Tốc độ             | Ứng dụng                    |
+| ------------- | ----------- | ------------------ | --------------------------- |
+| **Constant**  | Bậc thang   | Thay đổi đột ngột  | Stop-motion, đổi trạng thái |
+| **Linear**    | Đường thẳng | Không đổi          | Chuyển động máy móc         |
+| **Bezier**    | Đường cong  | Tăng giảm tự nhiên | Animation hữu cơ            |
+
+---
+
+# 10. Tạo điểm chạm đất sắc
+
+Nếu sử dụng Bezier mặc định, quả bóng thường giảm tốc trước khi chạm đất.
+
+Kết quả là quả bóng có cảm giác:
+
+* Lơ lửng gần mặt đất.
+* Chạm đất quá nhẹ.
+* Không tạo được lực va chạm.
+
+Đường cong không phù hợp:
+
+```text
+      ╲
+       ╲
+        ╲___
+            ●
+```
+
+Đường cong phù hợp:
+
+```text
+       ╲
+        ╲
+         ╲
+          ●
+         ╱
+```
+
+Điểm chạm sàn cần tạo thành một góc nhọn.
+
+## Cách thực hiện
+
+1. Chọn keyframe ở mặt đất.
+2. Chọn hoặc kéo các handle.
+3. Nhấn `S → X`.
+4. Thu hai handle lại gần keyframe.
+
+Kết quả:
+
+* Quả bóng đi xuống nhanh.
+* Đổi hướng ngay tại điểm chạm.
+* Chuyển động trông giống một cú nảy thực sự.
+
+---
+
+# 11. Tạo đỉnh nảy mềm
+
+Ở đỉnh của cú nảy, quả bóng cần:
+
+1. Chậm dần khi đi lên.
+2. Dừng trong khoảnh khắc rất ngắn.
+3. Tăng tốc khi rơi xuống.
+
+Vì vậy, đường cong ở đỉnh cần tròn và rộng:
+
+```text
+          ______
+       __/      \__
+```
+
+Không nên quá nhọn:
+
+```text
+          /\
+         /  \
+```
+
+Đỉnh quá nhọn khiến quả bóng giống như:
+
+* Va vào trần.
+* Đổi hướng ngay lập tức.
+* Không chịu tác động của trọng lực.
+
+## Cách điều chỉnh
+
+1. Chọn các keyframe ở đỉnh.
+2. Đặt Pivot Point thành **Individual Centers**.
+3. Nhấn `S → X`.
+4. Kéo rộng các handle theo chiều ngang.
+
+Mỗi đỉnh sẽ được điều chỉnh quanh chính keyframe đó.
+
+---
+
+# 12. Làm animation nhanh hơn
+
+Animation ban đầu dài khoảng một giây cho lần rơi đầu tiên nên có thể trông quá chậm.
+
+Để tăng tốc:
+
+1. Đưa playhead hoặc 2D Cursor về đầu animation.
+2. Đặt Pivot Point thành **2D Cursor**.
+3. Chọn toàn bộ keyframe bằng `A`.
+4. Nhấn:
+
+```text
+S → X
+```
+
+5. Co toàn bộ keyframe lại gần điểm bắt đầu.
+
+Ví dụ:
+
+```text
+Trước: 0 → 100 frame
+Sau:   0 → 50 frame
+```
+
+Animation sẽ diễn ra nhanh gấp đôi.
+
+---
+
+## 12.1. Tại sao cần dùng 2D Cursor?
+
+Nếu dùng Pivot Point mặc định, các keyframe sẽ co giãn quanh tâm của toàn bộ vùng chọn:
+
+```text
+        Tâm vùng chọn
+             ↓
+●────●────●────●────●
+```
+
+Điều này có thể làm keyframe đầu tiên bị thay đổi vị trí.
+
+Khi dùng **2D Cursor** tại frame `0`:
+
+```text
+2D Cursor
+    ↓
+    ●────●────●────●
+```
+
+Toàn bộ animation được co giãn từ đầu mà không làm thay đổi thời điểm bắt đầu.
+
+---
+
+# 13. Pivot Point trong Graph Editor
+
+Các Pivot Point thường dùng:
+
+| Pivot Point            | Công dụng                                        |
+| ---------------------- | ------------------------------------------------ |
+| **Median Point**       | Scale quanh tâm của toàn bộ keyframe đã chọn     |
+| **2D Cursor**          | Scale quanh vị trí của 2D Cursor                 |
+| **Individual Centers** | Scale từng keyframe hoặc từng cặp handle độc lập |
+
+Trong bài này:
+
+```text
+2D Cursor
+→ Co ngắn toàn bộ thời gian animation từ frame đầu
+
+Individual Centers
+→ Điều chỉnh độ rộng handle của từng đỉnh hoặc điểm chạm
+```
+
+---
+
+# 14. Hoàn thiện chuyển động giảm dần
+
+Một quả bóng thực tế sẽ mất dần năng lượng sau mỗi lần chạm đất.
+
+Do đó:
+
+```text
+Độ cao cú nảy sau < Độ cao cú nảy trước
+```
+
+Đồng thời:
+
+```text
+Thời gian cú nảy sau < Thời gian cú nảy trước
+```
+
+Ví dụ:
+
+| Lần nảy | Độ cao            | Thời lượng   |
+| ------: | ----------------- | ------------ |
+|       1 | Cao nhất          | Dài nhất     |
+|       2 | Thấp hơn          | Ngắn hơn     |
+|       3 | Thấp hơn nữa      | Ngắn hơn nữa |
+|       4 | Rất thấp          | Rất ngắn     |
+|       5 | Gần như không nảy | Dừng         |
+
+Sơ đồ F-Curve hoàn chỉnh:
+
+```text
+Giá trị Z
+    ▲
+    │ ●
+    │  ╲
+    │   ╲          ●
+    │    ╲       ╱   ╲
+    │     ╲     ╱     ╲     ●
+    │      ╲   ╱       ╲   ╱ ╲    ●
+    │       ╲ ╱         ╲ ╱   ╲  ╱ ╲__
+    │        ●           ●     ● ●
+    └──────────────────────────────────► Frame
+         0   20   35   50   61  70  75
+```
+
+Đường cong thể hiện:
+
+* Đỉnh đầu tiên cao nhất.
+* Các đỉnh sau thấp dần.
+* Khoảng cách thời gian ngắn dần.
+* Các điểm chạm đất nằm trên cùng một giá trị Z.
+* Cuối animation, đường cong nằm ngang.
+
+---
+
+# 15. Tạo khoảng đứng yên cuối animation
+
+Sau lần nảy cuối, nên để quả bóng đứng yên trong một số frame.
+
+Ví dụ:
+
+```text
+Frame 72: Quả bóng dừng
+Frame 80: Kết thúc animation
+```
+
+Đường cong cuối:
+
+```text
+●──────────────
+```
+
+Điều này giúp:
+
+* Người xem nhận biết animation đã kết thúc.
+* Quả bóng không lập tức quay lại vị trí đầu khi video lặp.
+* Animation có nhịp nghỉ tự nhiên.
+
+Nếu render thành chuỗi ảnh tĩnh, có thể:
+
+* Kết thúc tại frame quả bóng dừng.
+* Lặp lại frame cuối trong quá trình dựng video.
+
+Nếu render trực tiếp thành video, nên để thêm một khoảng đứng yên ngay trong Blender.
+
+---
+
+# 16. Quy trình hoàn chỉnh
+
+```text
+Tạo Sphere và Plane
+        ↓
+Đặt quả bóng ở trên cao
+        ↓
+Tạo keyframe đầu
+        ↓
+Tạo keyframe chạm đất
+        ↓
+Mở Graph Editor
+        ↓
+Chỉ giữ lại Z Location
+        ↓
+Nhân bản keyframe để tạo các cú nảy
+        ↓
+Giảm dần độ cao mỗi lần nảy
+        ↓
+Giảm dần khoảng thời gian mỗi lần nảy
+        ↓
+Làm sắc các điểm chạm đất
+        ↓
+Làm tròn các đỉnh chuyển động
+        ↓
+Co ngắn toàn bộ timing
+        ↓
+Thêm khoảng đứng yên ở cuối
+        ↓
+Kiểm tra và render
+```
+
+---
+
+# 17. Phím tắt quan trọng
+
+| Phím tắt        | Chức năng                                    |
+| --------------- | -------------------------------------------- |
+| `Shift + A`     | Thêm đối tượng                               |
+| `G`             | Di chuyển keyframe hoặc đối tượng            |
+| `G → X`         | Di chuyển keyframe theo thời gian            |
+| `G → Y`         | Thay đổi giá trị keyframe trong Graph Editor |
+| `S`             | Scale keyframe hoặc handle                   |
+| `S → X`         | Scale theo trục thời gian                    |
+| `Shift + D`     | Nhân bản keyframe                            |
+| `Shift + D → X` | Nhân bản và di chuyển theo thời gian         |
+| `A`             | Chọn tất cả keyframe                         |
+| `T`             | Chọn Interpolation Mode                      |
+| `V`             | Chọn Handle Type                             |
+| `N`             | Mở hoặc đóng Sidebar                         |
+| `Home`          | Hiển thị toàn bộ đường cong                  |
+| `Spacebar`      | Phát hoặc tạm dừng animation                 |
+
+---
+
+# 18. Handle Type liên quan
+
+Ngoài Interpolation Mode, có thể nhấn `V` để thay đổi loại handle.
+
+| Handle Type      | Đặc điểm                                                    |
+| ---------------- | ----------------------------------------------------------- |
+| **Auto**         | Blender tự tạo đường cong mượt                              |
+| **Auto Clamped** | Mượt nhưng hạn chế overshoot ngoài ý muốn                   |
+| **Vector**       | Tạo đoạn thẳng và góc sắc                                   |
+| **Aligned**      | Hai handle nằm trên cùng một đường nhưng có thể khác độ dài |
+| **Free**         | Hai handle có thể chỉnh độc lập                             |
+
+Đối với bài quả bóng nảy:
+
+* **Auto/Bezier:** phù hợp với đỉnh cú nảy.
+* **Vector:** hữu ích để tạo điểm va chạm sắc.
+* **Free:** phù hợp khi cần điều chỉnh riêng phần đi xuống và bật lên.
+* **Auto Clamped:** giúp tránh đường cong vượt quá giá trị không mong muốn.
+
+---
+
+# 19. Timing và Spacing
+
+Graph Editor giúp quan sát hai khái niệm animation quan trọng.
+
+## Timing
+
+Timing là khoảng thời gian giữa các keyframe.
+
+```text
+Keyframe cách xa nhau
+→ Chuyển động chậm
+
+Keyframe gần nhau
+→ Chuyển động nhanh
+```
+
+## Spacing
+
+Spacing là khoảng cách mà đối tượng di chuyển giữa các frame.
+
+Trong Graph Editor:
+
+* Đường cong dốc thể hiện spacing lớn.
+* Đường cong phẳng thể hiện spacing nhỏ.
+
+Đối với quả bóng:
+
+```text
+Gần đỉnh
+→ Các vị trí gần nhau
+→ Quả bóng chuyển động chậm
+
+Gần mặt đất
+→ Các vị trí cách xa nhau
+→ Quả bóng chuyển động nhanh
+```
+
+---
+
+# 20. Lỗi thường gặp
+
+## 20.1. Quả bóng lơ lửng trước khi chạm đất
+
+**Nguyên nhân:** Bezier handle tại điểm chạm quá rộng.
+
+**Cách sửa:**
+
+* Chọn keyframe chạm sàn.
+* Thu ngắn handle bằng `S → X`.
+* Hoặc sử dụng Vector Handle.
+
+---
+
+## 20.2. Quả bóng giống như va vào trần
+
+**Nguyên nhân:** Đỉnh đường cong quá nhọn hoặc đang dùng Linear.
+
+**Cách sửa:**
+
+* Dùng Bezier.
+* Kéo handle ở đỉnh rộng hơn.
+* Tạo đường cong tròn ở vị trí cao nhất.
+
+---
+
+## 20.3. Quả bóng nảy mãi với cùng độ cao
+
+**Nguyên nhân:** Các keyframe ở đỉnh có cùng giá trị Z.
+
+**Cách sửa:**
+
+* Chọn từng đỉnh.
+* Nhấn `G → Y`.
+* Hạ dần các đỉnh sau.
+
+---
+
+## 20.4. Các cú nảy có cùng thời lượng
+
+**Nguyên nhân:** Khoảng cách giữa các keyframe không giảm.
+
+**Cách sửa:**
+
+* Di chuyển các keyframe sau gần nhau hơn bằng `G → X`.
+
+---
+
+## 20.5. Scale animation làm thay đổi frame bắt đầu
+
+**Nguyên nhân:** Pivot Point đang đặt tại Median Point.
+
+**Cách sửa:**
+
+* Đưa 2D Cursor đến frame đầu.
+* Chọn Pivot Point là **2D Cursor**.
+* Thực hiện `S → X`.
+
+---
+
+## 20.6. Chỉnh nhầm đường cong
+
+**Nguyên nhân:** Nhiều channel đang hiển thị cùng lúc.
+
+**Cách sửa:**
+
+* Chọn đúng `Z Location`.
+* Ẩn hoặc xóa các channel không sử dụng.
+* Kiểm tra màu và tên của channel.
+
+---
+
+## 20.7. Quả bóng xuyên qua mặt sàn
+
+**Nguyên nhân:** Giá trị Z tại các keyframe chạm đất không giống nhau.
+
+**Cách sửa:**
+
+* Chọn tất cả keyframe chạm sàn.
+* Đặt cùng một giá trị trong Sidebar bằng phím `N`.
+* Kiểm tra vị trí Origin của quả bóng.
+
+---
+
+# 21. Render animation
+
+Trước khi render:
+
+* Đặt Camera ở vị trí phù hợp.
+* Kiểm tra Start Frame và End Frame.
+* Kiểm tra Frame Rate.
+* Chọn thư mục lưu.
+* Lưu file Blender.
+
+Để xuất video:
+
+```text
+Output Properties
+└── File Format: FFmpeg Video
+```
+
+Sau đó sử dụng:
+
+```text
+Render → Render Animation
+```
+
+Phím tắt:
+
+```text
+Ctrl + F12
+```
+
+> Luôn lưu file trước khi bắt đầu render animation.
+
+---
+
+# 22. Bài tập thực hành
+
+## Bài tập 1 — Quả bóng nảy cơ bản
+
+Tạo một quả bóng:
+
+* Rơi từ trên cao.
+* Chạm sàn.
+* Nảy ít nhất ba lần.
+* Mỗi lần nảy thấp hơn lần trước.
+* Dừng tại khoảng frame `70–80`.
+
+## Bài tập 2 — So sánh Interpolation
+
+Tạo ba quả bóng có cùng keyframe nhưng sử dụng:
+
+1. Constant
+2. Linear
+3. Bezier
+
+Quan sát sự khác nhau về cảm giác chuyển động.
+
+## Bài tập 3 — Thay đổi vật liệu giả định
+
+Tạo ba phiên bản animation:
+
+* Bóng cao su: nảy cao và lâu.
+* Bóng bowling: gần như không nảy.
+* Bóng xốp: nảy thấp và mất năng lượng nhanh.
+
+Thực hiện bằng cách thay đổi:
+
+* Độ cao các đỉnh.
+* Khoảng thời gian giữa các lần nảy.
+* Hình dạng handle.
+
+---
+
+# 23. Checklist thực hành
+
+* [ ] Đã tạo Sphere và Plane.
+* [ ] Đã đặt Frame Rate phù hợp.
+* [ ] Đã tạo keyframe quả bóng ở trên cao.
+* [ ] Đã tạo keyframe quả bóng chạm sàn.
+* [ ] Đã mở Graph Editor.
+* [ ] Đã nhận diện trục Frame và Value.
+* [ ] Đã chỉ giữ lại channel `Z Location`.
+* [ ] Đã nhân bản keyframe bằng `Shift + D`.
+* [ ] Đã tạo ít nhất ba lần nảy.
+* [ ] Đã giảm dần độ cao của mỗi lần nảy.
+* [ ] Đã giảm dần thời gian giữa các lần nảy.
+* [ ] Đã thử Constant, Linear và Bezier.
+* [ ] Đã làm sắc các keyframe chạm đất.
+* [ ] Đã làm tròn các keyframe ở đỉnh.
+* [ ] Đã sử dụng Pivot Point `2D Cursor`.
+* [ ] Đã sử dụng Pivot Point `Individual Centers`.
+* [ ] Đã thêm khoảng đứng yên cuối animation.
+* [ ] Đã lưu file trước khi render.
+
+---
+
+# 24. Tóm tắt bài học
+
+Graph Editor cho phép kiểm soát animation ở mức chi tiết thông qua các đường cong F-Curve.
+
+Trong animation quả bóng nảy:
+
+* Trục X biểu diễn thời gian.
+* Trục Y biểu diễn chiều cao của quả bóng.
+* Độ dốc biểu diễn tốc độ.
+* Đỉnh cong mềm thể hiện quả bóng chậm lại khi lên cao.
+* Điểm đáy sắc thể hiện va chạm nhanh với mặt đất.
+* Các đỉnh thấp dần thể hiện sự mất năng lượng.
+* Khoảng cách keyframe ngắn dần làm các lần nảy diễn ra nhanh hơn.
+* Đường nằm ngang cuối animation thể hiện quả bóng đã dừng.
+
+Cấu trúc chuyển động chính:
+
+```text
+Rơi nhanh
+   ↓
+Va chạm sắc
+   ↓
+Nảy lên và chậm dần
+   ↓
+Đạt đỉnh
+   ↓
+Rơi nhanh trở lại
+   ↓
+Mất dần năng lượng
+   ↓
+Dừng hoàn toàn
+```
+
+Graph Editor không chỉ cho biết đối tượng đang ở đâu mà còn cho biết **đối tượng di chuyển như thế nào**, từ đó giúp animation trở nên tự nhiên, có trọng lượng và có chủ đích hơn.

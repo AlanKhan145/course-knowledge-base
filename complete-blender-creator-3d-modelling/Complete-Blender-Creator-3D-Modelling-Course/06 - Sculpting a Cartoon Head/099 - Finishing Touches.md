@@ -1,328 +1,562 @@
-# 099 — Finishing Touches
-In this lecture, we'll be finishing off the character with the eyes and the horns and just adding a
+# 099 — Hoàn thiện các chi tiết cuối cùng
 
-few finishing touches to the face.
+## Finishing Touches
 
-So here's where we got up to last time.
+| Thuộc tính       | Nội dung                                                                       |
+| ---------------- | ------------------------------------------------------------------------------ |
+| **Module**       | Module 06 — Sculpting a Cartoon Head                                           |
+| **Bài học**      | 099 — Finishing Touches                                                        |
+| **Thời lượng**   | 7 phút 16 giây                                                                 |
+| **Chủ đề chính** | Hoàn thiện mắt, sừng, các nốt trên da và tăng chiều sâu bằng Ambient Occlusion |
 
-We need to texture the horns and the eyes and maybe just touch up a tiny bit on the face.
-
-Once those aspects are in.
-
-So let's go across to the shading workspace and I'll select the eyes and zoom in on those with period
-
-key and I'll zoom right into here and into edit mode.
-
-And because we've rotated this UV sphere around the x axis like this, we've got a nice setup for making
-
-this middle bit, the pupil and the bit around it, the iris and then the rest of it white.
-
-And I want to challenge you to have a go at creating that.
-
-So you'll want three color slots, one with a black, one with an iris color, maybe red in this case,
-
-or a menacing green, something like that.
-
-And then the other one on the outside to be white.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So hopefully you got an okay with that.
-
-So first of all, I'll create a new material that's slot one and I'll just bring this window out slightly
-
-so you can easily see what I'm naming things and I'll call this ise white.
-
-So we need two more slots.
-
-So one, two and for the second one I'll create a new material and call this ise red.
-
-I think I'll choose for the iris.
-
-And then the last one new material and ise black for the pupils.
-
-Then I have to go in and obviously change the colors.
-
-So I'll bring the black down to the black and also I'll bring the roughness right down to zero.
-
-So it's nice and shiny and I'll go to face mode, select those middle faces just there and under the
-
-slots, choose a sign.
-
-So we got the pupil there.
-
-Let's go to the red now.
-
-I'll change this to a red color.
-
-Some around here, maybe a little bit darker.
-
-Bring the roughness down and alt left.
-
-Click on this face loop around here up to the slots and choose a sign and we've got a red color last.
-
-I'm just going to go to slot one with the white and just decrease the whiteness slightly.
-
-If it's too white, it's a little bit bright.
-
-It looks a bit strange because it's yellow at the moment.
-
-But if I come out of edit mode and we've got these menacing red eyes and of course at this point we
-
-could go to slot two and perhaps experiment, see what green eyes look like.
-
-Purple eyes, blue eyes, whatever you fancy.
-
-I think menacing red eyes like this could go a little bit darker.
-
-Maybe somewhere around here looks quite good.
-
-Okay, so hopefully you got an okay with that.
-
-Now, one thing you might notice if we zoom right in is that we've still got flat shading on the face
-
-and the eyes, but I think I might have put smooth shading on the horns.
-
-I can't quite remember, but I'll just select.
-
-All right, click shade smooth.
-
-Now we've got smooth shading everywhere and we can't see those lumps and bumps.
-
-So that's good.
-
-And let's just it to the horns.
-
-So I'll create a new material name these horns and let's change that to a sort of browny red colour
-
-somewhere around here with a bit of darkness.
-
-And that looks fairly good.
-
-Let's just deselect that.
-
-I quite like that.
-
-Shiny horns or rough horns, I think somewhere in the middle looks about right.
-
-Excellent.
-
-Okay, so pause the video and catch up with me, making sure you've textured the horns and added smooth
-
-shading to everything.
-
-I'll just position my head back in the center here.
-
-And I haven't actually painted the moles that we've got around the place so I can select the head and
-
-go back to scalp mode and I'll scroll down my brush, probably a brownie color somewhere around here,
-
-fairly dark.
-
-Zoom in a touch.
-
-Remember, you can press alt left, click to zoom in on an area and I'll give that a bit of brown up
-
-the strength of the brush a little bit, something like that.
-
-Let's make that a little bit wider.
-
-Oh, I've gone over the edge slightly there.
-
-That looks okay.
-
-I'm just going smaller and smaller than my brush to make sure that the very end is sort of.
-
-More dark than the other parts.
-
-This one's a little bit tricky because it's sort of a strange wide shape.
-
-Let's just see how we're getting on there.
-
-That's not too bad.
-
-Let's just go to the next one.
-
-And then we go and maybe I'll make this one a bit more ready color just to see what sort of difference
-
-that makes.
-
-Sometimes if you zoom out early, you get a little bit of a line.
-
-So if I'm pressing this and then zoom out, sometimes creates a little bit of a line, that's a bit
-
-of a bug.
-
-So I just come in and finish this off again.
-
-Just in there.
-
-Here we go.
-
-So pause the video and catch it with me and paint in your moles or warts or whatever they might be.
-
-I feel like this one here is just super big.
-
-So I'm going to add a bit of red on the outside of it as if it's a bit inflamed.
-
-I press our middle mouse button to make it a little bit easier to paint that in.
-
-There we go.
-
-Now, lastly, just as a touch up, I think the eyes could be a little bit darker, make them look a
-
-bit more sunken.
-
-So I'll come to that purple colour around about here, maybe a little bit darker and across a bit further
-
-to the purples.
-
-Just check my strength point too.
-
-Should be fine.
-
-And I can turn symmetry on for this because the eyes are reasonably symmetrical and just come across
-
-the eyes like this.
-
-Let's just have a look what that looks like.
-
-That's not too bad.
-
-I can use the smear brush if I need to just smear that out of touch.
-
-And I prefer that.
-
-There is one more thing.
-
-Actually, the horns don't seem to blend in with the skull, so I'm going to go back to the paint and
-
-use this sort of red color here, coming to the horns and still got symmetry on, remember.
-
-So this will be happening on the other side and just add a little bit of red to there.
-
-Hopefully that makes a bit more sense, that sort of protrusion now.
-
-I bring the strength down, make the brush very big and just read that area around it up a little bit
-
-as well.
-
-I think that makes a bit more sense.
-
-Just a tiny bit more red around here.
-
-So it's not quite so yellowy up the side there.
-
-And there we go.
-
-Okay.
-
-So a few minor touch ups there.
-
-So pause the video and catch up with me making any minor adjustments like I've done here.
-
-Now, the last thing I want to look at is just across cross at the render settings.
-
-So the render properties just here are just seem out of touch so you can see them all with control,
-
-middle click.
-
-And I just want to see the effects of the ambient occlusion.
-
-So I'll just take that and you can see all these crevices around the place getting filled in.
-
-So if I turn it off and on, you can see that makes quite a difference and I'll open up the dialog and
-
-just change the distance very slightly.
-
-Give it a bit of a boost like this.
-
-I'm at about 40 centimetres there and I think that's about right.
-
-You have to be a bit careful.
-
-If you go too high, you get these sort of strange areas of ambient occlusion which don't quite make
-
-sense, like under the neck there, and that's not necessary.
-
-So 0.4 seemed to be fairly optimal.
-
-So once again, turn that off and on just to see what that looks like.
-
-And that's really helping our mesh.
-
-So catch up with me and just experiment a little bit with your ambient occlusion.
-
-It does depend on the size of your mesh, but it's probably fairly similar to mine.
-
-So 0.4 should work quite well.
-
-Once you've done that, make sure you saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 06 — Sculpting a Cartoon Head |
-| **Bài học** | Finishing Touches |
-| **Thời lượng** | 7:16 |
-| **Chủ đề chính** | Thêm các chi tiết cuối |
+---
 
 ## 1. Mục tiêu bài học
 
-- Rà soát tổng thể mô hình để phát hiện và sửa các điểm còn thiếu sót trước khi render.
-- Thêm các chi tiết cuối cùng: lông mày, mí mắt tinh chỉnh, chất liệu bề mặt (roughness khác nhau cho da/sừng/mắt).
-- Chuẩn bị mesh cho bước render/lighting: kiểm tra Normals, độ mượt Shading (Shade Smooth/Auto Smooth).
+Sau bài học này, bạn sẽ biết cách:
 
-## 2. Nội dung chính
+* Tạo màu cho **lòng trắng, mống mắt và đồng tử** bằng nhiều Material Slot.
+* Điều chỉnh **Roughness** để mắt có độ bóng tự nhiên.
+* Tạo vật liệu màu nâu đỏ cho sừng.
+* Áp dụng **Shade Smooth** để loại bỏ cảm giác đa giác, gồ ghề.
+* Sơn các nốt ruồi, mụn cóc hoặc phần da bị viêm.
+* Làm tối vùng hốc mắt để khuôn mặt có chiều sâu và vẻ dữ tợn hơn.
+* Tạo vùng chuyển tiếp giữa chân sừng và da đầu.
+* Sử dụng **Ambient Occlusion** để tăng độ rõ của các khe và vùng lõm.
+* Kiểm tra và lưu mô hình trước khi chuyển sang bài tiếp theo.
 
-Đây là giai đoạn hoàn thiện trước khi chuyển sang thiết lập ánh sáng và render. Các công việc thường thực hiện:
+---
 
-- **Kiểm tra Shading**: chọn object, `Object > Shade Smooth` (hoặc Shade Auto Smooth trong Blender 4.x để giữ các cạnh cứng hợp lý mà vẫn mượt bề mặt cong) để tránh mesh trông "gãy khối" do hiển thị Flat Shading mặc định.
-- **Thêm chi tiết nhỏ còn thiếu**: lông mày (có thể sculpt nhô nhẹ hoặc chỉ vẽ bằng Texture Paint), độ bóng ướt cho mắt, các nếp nhăn biểu cảm cuối cùng.
-- **Thiết lập Material cơ bản cho từng vùng**: da (roughness cao, hơi mờ), sừng (roughness thấp hơn, hơi bóng như sừng động vật thật), mắt (roughness rất thấp để tạo độ bóng ướt đặc trưng). Có thể dùng nhiều Material Slot ứng với các Face Sets hoặc Vertex Groups đã phân chia trong lúc sculpt/paint.
-- **Kiểm tra Normals**: `Mesh > Normals > Recalculate Outside` (`Shift+N`) nếu phát hiện vùng bị tối bất thường do pháp tuyến bị đảo ngược, thường xảy ra sau nhiều thao tác Mask Extract hoặc Remesh.
-- **Dọn dẹp Multiresolution**: cân nhắc giữ hoặc Apply cấp độ Multiresolution phù hợp cho mục đích cuối (render tĩnh có thể giữ cấp cao nhất, còn nếu sẽ rig/animate thì cần base mesh nhẹ hơn ở Level 0).
-- **Đặt tên object/collection rõ ràng** để dễ quản lý scene khi bước sang thiết lập ánh sáng.
+## 2. Quy trình tổng thể
 
-## 3. Quy trình thực hành gợi ý
+```text
+Hoàn thiện mắt
+      ↓
+Tạo vật liệu cho sừng
+      ↓
+Áp dụng Shade Smooth
+      ↓
+Sơn nốt ruồi và mụn cóc
+      ↓
+Làm tối vùng hốc mắt
+      ↓
+Tạo vùng đỏ quanh chân sừng
+      ↓
+Bật Ambient Occlusion
+      ↓
+Kiểm tra và lưu file
+```
 
-1. Áp Shade Auto Smooth cho toàn bộ mesh đầu để có bề mặt mượt hợp lý.
-2. Thêm lông mày và các chi tiết biểu cảm nhỏ còn thiếu bằng Draw/Clay Strips hoặc Texture Paint.
-3. Gán Material riêng cho da, sừng, mắt với thông số Roughness khác nhau.
-4. Kiểm tra Normals bằng `Shift+N`, sửa nếu phát hiện vùng tối bất thường.
-5. Xem lại toàn bộ mesh ở chế độ Rendered Preview để đánh giá dưới ánh sáng mặc định.
-6. Đặt tên rõ ràng cho các object/collection liên quan (Head, Horns, Eyes...).
+---
 
-## 4. Phím tắt & công cụ liên quan
+# 3. Hoàn thiện vật liệu cho mắt
 
-| Thao tác | Chức năng |
-|---|---|
-| Object > **Shade Auto Smooth** | Làm mượt shading, giữ cạnh cứng hợp lý |
-| `Shift+N` | Recalculate Normals (Outside) |
-| Material Properties > **Roughness** | Điều chỉnh độ bóng bề mặt (da/sừng/mắt) |
-| Sculpt Mode > **Face Sets** | Phân vùng mesh, hỗ trợ gán Material theo vùng |
-| `Z` | Chuyển shading để kiểm tra Rendered Preview |
+## 3.1. Chuẩn bị
 
-## 5. Lưu ý & lỗi thường gặp
+Chuyển sang workspace:
 
-- Quên Shade Smooth/Auto Smooth khiến bề mặt trông lởm chởm khi render dù sculpt đã mượt.
-- Dùng chung một Roughness cho toàn bộ mesh làm mất cảm giác chất liệu khác nhau giữa da, sừng, mắt.
-- Không kiểm tra Normals sau khi dùng Mask Extract/Remesh, dẫn đến vùng bị tối/lỗi shading khi render.
-- Bỏ sót chi tiết nhỏ (lông mày, độ bóng mắt) khiến nhân vật thiếu sức sống dù khối tổng thể đã tốt.
+```text
+Shading Workspace
+```
 
-## 6. Checklist thực hành
+Sau đó:
 
-- [ ] Đã áp Shade Auto Smooth cho mesh.
-- [ ] Đã thêm các chi tiết nhỏ còn thiếu (lông mày, biểu cảm).
-- [ ] Đã gán Material với Roughness phù hợp cho da, sừng, mắt.
-- [ ] Đã kiểm tra và sửa Normals nếu cần.
-- [ ] Đã xem tổng thể ở Rendered Preview.
+1. Chọn một nhãn cầu.
+2. Nhấn phím `.` trên bàn phím số để tập trung vào object.
+3. Chuyển sang **Edit Mode**.
+4. Quan sát các vòng mặt ở phía trước nhãn cầu.
 
-## 7. Tóm tắt
+Do UV Sphere đã được xoay quanh trục X từ trước, các vòng mặt phía trước có thể được sử dụng thuận tiện để phân chia:
 
-Bài học hướng dẫn hoàn thiện mô hình trước khi render: chỉnh Shading mượt, thêm chi tiết nhỏ còn thiếu, thiết lập Material với Roughness khác nhau cho từng vùng và kiểm tra Normals, chuẩn bị sẵn sàng cho bước thiết lập ánh sáng ở bài tiếp theo.
+* Đồng tử.
+* Mống mắt.
+* Lòng trắng.
+
+---
+
+## 3.2. Tạo ba Material Slot
+
+Tạo ba vật liệu riêng cho mắt:
+
+| Material    | Vùng áp dụng | Màu sắc       |
+| ----------- | ------------ | ------------- |
+| `Eye_White` | Lòng trắng   | Trắng hơi xám |
+| `Eye_Red`   | Mống mắt     | Đỏ sẫm        |
+| `Eye_Black` | Đồng tử      | Đen           |
+
+> Nên đặt tên rõ ràng thay vì sử dụng các tên mặc định như `Material.001`.
+
+---
+
+## 3.3. Tạo đồng tử
+
+Chọn material `Eye_Black` và thiết lập:
+
+* **Base Color:** màu đen.
+* **Roughness:** gần `0`.
+
+Roughness thấp giúp đồng tử có bề mặt bóng, tạo cảm giác mắt ướt.
+
+Tiếp theo:
+
+1. Chuyển sang chế độ chọn mặt.
+2. Chọn cụm mặt nhỏ nhất ở chính giữa mắt.
+3. Chọn Material Slot `Eye_Black`.
+4. Nhấn **Assign**.
+
+---
+
+## 3.4. Tạo mống mắt
+
+Chọn material `Eye_Red` và thiết lập:
+
+* **Base Color:** đỏ sẫm.
+* **Roughness:** thấp để mống mắt có độ bóng.
+
+Sau đó:
+
+1. Giữ `Alt` và nhấn chuột trái vào một cạnh thuộc vòng mống mắt.
+2. Blender sẽ chọn toàn bộ vòng mặt tương ứng.
+3. Chọn Material Slot `Eye_Red`.
+4. Nhấn **Assign**.
+
+Mống mắt có thể sử dụng những màu khác tùy phong cách nhân vật:
+
+* Đỏ: dữ tợn, nguy hiểm.
+* Xanh lá: ma quái.
+* Tím: huyền bí.
+* Xanh dương: lạnh lùng.
+
+Trong bài học, màu đỏ sẫm được sử dụng để tăng vẻ đe dọa cho nhân vật.
+
+---
+
+## 3.5. Điều chỉnh lòng trắng
+
+Chọn material `Eye_White`.
+
+Không nên sử dụng màu trắng hoàn toàn vì mắt có thể:
+
+* Quá sáng.
+* Trông thiếu tự nhiên.
+* Tách biệt quá mạnh khỏi khuôn mặt.
+
+Thay vào đó, hãy dùng màu:
+
+```text
+Trắng hơi xám hoặc trắng ngà
+```
+
+---
+
+## 3.6. Sơ đồ cấu tạo màu của mắt
+
+```text
+┌───────────────────────────┐
+│         Lòng trắng        │
+│       ┌───────────┐       │
+│       │  Mống mắt │       │
+│       │   ┌───┐   │       │
+│       │   │ ● │   │       │
+│       │   └───┘   │       │
+│       └───────────┘       │
+└───────────────────────────┘
+
+● Trung tâm: Eye_Black
+Vòng giữa: Eye_Red
+Vùng ngoài: Eye_White
+```
+
+---
+
+# 4. Làm mượt bề mặt
+
+Khi quan sát gần, mắt hoặc khuôn mặt có thể vẫn xuất hiện các mặt đa giác.
+
+Để làm mượt:
+
+1. Chuyển về **Object Mode**.
+2. Chọn object cần xử lý.
+3. Nhấn chuột phải.
+4. Chọn **Shade Smooth**.
+
+Thực hiện với:
+
+* Đầu.
+* Hai mắt.
+* Hai chiếc sừng.
+
+Kết quả:
+
+* Các mặt đa giác không còn hiện rõ.
+* Bề mặt cong trông mượt hơn.
+* Ánh sáng phản xạ đều hơn.
+
+> Shade Smooth chỉ thay đổi cách Blender nội suy ánh sáng trên bề mặt, không làm tăng số lượng polygon.
+
+---
+
+# 5. Tạo vật liệu cho sừng
+
+Chọn object sừng và tạo một material mới:
+
+```text
+Horns
+```
+
+## Thiết lập gợi ý
+
+| Thuộc tính     | Giá trị gợi ý |
+| -------------- | ------------- |
+| **Base Color** | Nâu đỏ sẫm    |
+| **Roughness**  | Trung bình    |
+| **Metallic**   | 0             |
+
+Không nên để sừng:
+
+* Quá bóng như nhựa.
+* Quá nhám và thiếu điểm phản sáng.
+
+Mức Roughness trung bình tạo cảm giác sừng có bề mặt cứng nhưng vẫn phản chiếu một lượng ánh sáng vừa phải.
+
+---
+
+# 6. Sơn các nốt ruồi và mụn cóc
+
+Sau khi hoàn thiện mắt và sừng:
+
+1. Chọn object đầu.
+2. Chuyển sang **Sculpt Mode**.
+3. Chọn chế độ **Paint**.
+4. Chọn màu nâu sẫm.
+5. Tăng hoặc giảm Strength tùy vùng cần sơn.
+
+## Kỹ thuật sơn
+
+* Bắt đầu với brush lớn để phủ màu cơ bản.
+* Giảm dần kích thước brush khi tiến về đầu nốt.
+* Làm phần trung tâm hoặc đầu nốt tối hơn.
+* Có thể sử dụng màu đỏ quanh mép để tạo cảm giác da bị kích ứng.
+
+```text
+Màu đỏ nhạt bên ngoài
+          ↓
+Màu nâu ở phần thân
+          ↓
+Màu nâu đen ở trung tâm
+```
+
+Cách phối màu này giúp nốt trên da trông có chiều sâu hơn thay vì chỉ là một mảng màu phẳng.
+
+---
+
+## Lưu ý khi zoom trong lúc sơn
+
+Trong bài học, thao tác zoom khi đang giữ chuột sơn đôi khi tạo ra một đường màu ngoài ý muốn.
+
+Để hạn chế:
+
+1. Thả chuột trước khi zoom.
+2. Điều chỉnh góc nhìn.
+3. Tiếp tục sơn sau khi camera đã ổn định.
+4. Sơn đè nhẹ lên đường lỗi nếu cần.
+
+---
+
+# 7. Làm tối vùng hốc mắt
+
+Để đôi mắt có cảm giác nằm sâu hơn trong hộp sọ:
+
+1. Chọn màu tím sẫm hoặc đỏ tím.
+2. Đặt Strength khoảng `0.2`.
+3. Bật đối xứng vì vùng mắt tương đối cân đối.
+4. Sơn nhẹ quanh mí và hốc mắt.
+
+Không nên tô quá đậm ngay từ đầu. Hãy sử dụng nhiều nét nhẹ để kiểm soát màu tốt hơn.
+
+## Hiệu ứng đạt được
+
+* Hốc mắt trông sâu hơn.
+* Khuôn mặt dữ tợn hơn.
+* Mắt nổi bật hơn.
+* Tạo cảm giác da mỏng hoặc thâm quanh mắt.
+
+Nếu vùng chuyển màu quá gắt, sử dụng **Smear Brush** để kéo và hòa màu nhẹ nhàng.
+
+---
+
+# 8. Tạo vùng chuyển tiếp quanh chân sừng
+
+Ban đầu, sừng có thể trông giống như một vật thể riêng được đặt lên đầu thay vì mọc ra từ hộp sọ.
+
+Để cải thiện:
+
+1. Quay lại Paint Brush.
+2. Chọn màu đỏ hoặc đỏ nâu.
+3. Bật Symmetry.
+4. Sơn quanh chân sừng.
+5. Giảm Strength.
+6. Tăng kích thước brush để tạo vùng đỏ lan nhẹ ra xung quanh.
+
+```text
+Sừng màu nâu đỏ
+        ↓
+Chân sừng đỏ đậm
+        ↓
+Vùng da đỏ nhạt
+        ↓
+Màu da bình thường
+```
+
+Hiệu ứng chuyển màu này giúp:
+
+* Sừng hòa vào phần đầu tốt hơn.
+* Tạo cảm giác sừng đang xuyên qua hoặc mọc từ da.
+* Tăng mức độ chân thực cho vùng tiếp giáp.
+
+---
+
+# 9. Sử dụng Ambient Occlusion
+
+## 9.1. Ambient Occlusion là gì?
+
+Ambient Occlusion, thường viết tắt là **AO**, tạo bóng nhẹ tại những vùng ánh sáng khó tiếp cận, chẳng hạn:
+
+* Hốc mắt.
+* Khe giữa các nếp nhăn.
+* Chân sừng.
+* Góc miệng.
+* Khe dưới cằm.
+* Vùng tiếp giáp giữa các bộ phận.
+
+AO giúp các chi tiết điêu khắc nổi rõ hơn mà không cần thay đổi mesh.
+
+---
+
+## 9.2. Bật Ambient Occlusion
+
+Trong phần **Render Properties**:
+
+1. Tìm tùy chọn **Ambient Occlusion**.
+2. Bật tùy chọn này.
+3. So sánh mô hình trước và sau khi bật.
+4. Mở phần thiết lập chi tiết.
+5. Điều chỉnh thông số khoảng cách.
+
+Trong bài học, giá trị khoảng:
+
+```text
+Distance ≈ 0.4 m
+```
+
+cho kết quả phù hợp với kích thước của mô hình.
+
+---
+
+## 9.3. Ảnh hưởng của Distance
+
+```text
+Distance quá thấp
+      ↓
+AO chỉ xuất hiện ở các khe rất nhỏ
+      ↓
+Hiệu ứng khó nhận thấy
+```
+
+```text
+Distance hợp lý
+      ↓
+Các khe và vùng lõm rõ ràng hơn
+      ↓
+Mô hình có chiều sâu
+```
+
+```text
+Distance quá cao
+      ↓
+Xuất hiện mảng tối không hợp lý
+      ↓
+Các vùng như dưới cổ bị bẩn hoặc tối quá mức
+```
+
+Giá trị AO phụ thuộc vào kích thước thực tế của object. Vì vậy, `0.4` chỉ là mức tham khảo phù hợp với mô hình trong bài học.
+
+---
+
+# 10. Phím tắt và công cụ liên quan
+
+| Phím hoặc công cụ     | Chức năng                                    |
+| --------------------- | -------------------------------------------- |
+| `.` trên Numpad       | Tập trung góc nhìn vào object đang chọn      |
+| `Tab`                 | Chuyển giữa Object Mode và Edit Mode         |
+| `Alt + Click trái`    | Chọn một vòng cạnh hoặc vòng mặt             |
+| **Assign**            | Gán material hiện tại cho các mặt đang chọn  |
+| **Shade Smooth**      | Làm mượt cách hiển thị bề mặt                |
+| **Paint Brush**       | Sơn màu trực tiếp lên mô hình                |
+| **Smear Brush**       | Kéo và hòa trộn màu                          |
+| **Symmetry**          | Sơn đồng thời hai bên đối xứng               |
+| **Roughness**         | Điều khiển độ nhám hoặc độ bóng của vật liệu |
+| **Ambient Occlusion** | Tăng bóng tại khe, góc và vùng lõm           |
+
+---
+
+# 11. Lỗi thường gặp
+
+## 11.1. Toàn bộ mắt chỉ có một màu
+
+**Nguyên nhân:**
+
+* Chưa tạo đủ Material Slot.
+* Chưa chọn đúng mặt.
+* Quên nhấn **Assign**.
+
+**Khắc phục:**
+
+* Tạo ba material riêng.
+* Chọn đúng vòng mặt trong Edit Mode.
+* Gán từng material cho đúng vùng.
+
+---
+
+## 11.2. Mắt trông như nhựa
+
+**Nguyên nhân:**
+
+* Toàn bộ mắt có Roughness bằng `0`.
+* Lòng trắng quá sáng.
+* Không có sự khác biệt giữa các vùng mắt.
+
+**Khắc phục:**
+
+* Chỉ để Roughness rất thấp cho đồng tử và mống mắt.
+* Sử dụng trắng hơi xám cho lòng trắng.
+* Điều chỉnh Roughness khác nhau giữa các material.
+
+---
+
+## 11.3. Bề mặt mắt hoặc sừng bị gãy khối
+
+**Nguyên nhân:**
+
+* Object vẫn sử dụng Flat Shading.
+
+**Khắc phục:**
+
+```text
+Chọn object → Chuột phải → Shade Smooth
+```
+
+---
+
+## 11.4. Nốt ruồi trông như một mảng màu phẳng
+
+**Nguyên nhân:**
+
+* Chỉ sử dụng một màu.
+* Brush quá lớn.
+* Màu không thay đổi từ ngoài vào trong.
+
+**Khắc phục:**
+
+* Dùng màu đỏ hoặc nâu nhạt ở mép.
+* Tăng độ tối dần vào trung tâm.
+* Giảm kích thước brush khi sơn phần đầu nốt.
+
+---
+
+## 11.5. Chân sừng trông như bị dán lên đầu
+
+**Nguyên nhân:**
+
+* Không có vùng chuyển tiếp màu sắc.
+* Màu da và màu sừng tách biệt hoàn toàn.
+
+**Khắc phục:**
+
+* Sơn đỏ quanh chân sừng.
+* Dùng brush lớn, Strength thấp để hòa màu ra vùng da xung quanh.
+
+---
+
+## 11.6. Ambient Occlusion tạo mảng đen bất thường
+
+**Nguyên nhân:**
+
+* Distance quá lớn.
+
+**Khắc phục:**
+
+* Giảm Distance.
+* So sánh trạng thái bật và tắt AO.
+* Chỉ tăng đến khi các khe được nhấn rõ mà không làm tối những vùng rộng.
+
+---
+
+# 12. Checklist thực hành
+
+## Mắt
+
+* [ ] Đã tạo material cho lòng trắng.
+* [ ] Đã tạo material cho mống mắt.
+* [ ] Đã tạo material cho đồng tử.
+* [ ] Đã gán đúng material cho từng nhóm mặt.
+* [ ] Đã điều chỉnh Roughness để mắt có độ bóng.
+* [ ] Đã giảm độ trắng của lòng trắng mắt.
+
+## Sừng và bề mặt
+
+* [ ] Đã tạo vật liệu nâu đỏ cho sừng.
+* [ ] Đã điều chỉnh Roughness của sừng.
+* [ ] Đã áp dụng Shade Smooth cho đầu, mắt và sừng.
+* [ ] Đã sơn vùng đỏ quanh chân sừng.
+
+## Chi tiết khuôn mặt
+
+* [ ] Đã sơn các nốt ruồi hoặc mụn cóc.
+* [ ] Đã tạo vùng màu tối hơn ở trung tâm các nốt.
+* [ ] Đã làm tối hốc mắt.
+* [ ] Đã sử dụng Smear Brush nếu vùng chuyển màu quá gắt.
+
+## Render
+
+* [ ] Đã bật Ambient Occlusion.
+* [ ] Đã thử giá trị Distance khoảng `0.4`.
+* [ ] Đã kiểm tra các vùng tối bất thường.
+* [ ] Đã lưu file Blender.
+
+---
+
+# 13. Bài tập thực hành
+
+Hãy tạo ba phiên bản mắt khác nhau cho nhân vật:
+
+| Phiên bản | Màu mống mắt | Cảm giác             |
+| --------- | ------------ | -------------------- |
+| 1         | Đỏ sẫm       | Hung dữ, nguy hiểm   |
+| 2         | Xanh lá      | Độc ác, ma quái      |
+| 3         | Tím          | Huyền bí, siêu nhiên |
+
+Sau đó so sánh:
+
+* Phiên bản nào phù hợp nhất với màu da?
+* Phiên bản nào nổi bật nhất khi bật Ambient Occlusion?
+* Roughness nào giúp mắt trông tự nhiên nhất?
+* Màu quanh hốc mắt có cần thay đổi theo màu mống mắt hay không?
+
+---
+
+# 14. Tóm tắt bài học
+
+Trong bài học này, nhân vật được hoàn thiện thông qua các bước:
+
+1. Chia mắt thành ba vùng vật liệu: lòng trắng, mống mắt và đồng tử.
+2. Điều chỉnh Roughness để tạo độ bóng cho mắt.
+3. Tạo vật liệu nâu đỏ cho sừng.
+4. Áp dụng Shade Smooth cho các bề mặt cong.
+5. Sơn nốt ruồi, mụn cóc và vùng da bị kích ứng.
+6. Làm tối hốc mắt để tăng chiều sâu và biểu cảm.
+7. Sơn đỏ quanh chân sừng để sừng hòa vào hộp sọ.
+8. Bật Ambient Occlusion và điều chỉnh Distance khoảng `0.4`.
+9. Kiểm tra tổng thể và lưu file.
+
+Đây là giai đoạn hoàn thiện màu sắc và khả năng hiển thị của mô hình, giúp nhân vật có chiều sâu, chất liệu rõ ràng và sẵn sàng cho các bước trình bày hoặc render tiếp theo.

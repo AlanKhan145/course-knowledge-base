@@ -1,497 +1,1198 @@
-# 085 — Animating the Walk Cycle
-In this video, we'll be working on animating the walk cycle for our TV head character.
-
-Okay, so here's where we got up to last time, and let's go across to the animation workspace to work
-
-on our animation.
-
-I'm still in white paint mode, so I'll turn back to object mode and I'll go to side view with our character
-
-because that's the most important for a walk cycle with this view over here.
-
-I'll change it out of camera view because that can actually be a bit distracting at this moment.
-
-And I'll zoom in.
-
-So we've got a three quarter view like this.
-
-Also, I want to be able to see the bones, so I'll come across to the overlays and turn those on.
-
-Now it's my understanding that this should show the bones.
-
-Now, if I click on the overlays and bones are selected there, I'm not sure quite why it's not been
-
-selected.
-
-So let's select on the bones there.
-
-It just needed updating.
-
-So once I've selected the bones, we can see them in our three quarter view.
-
-It's helpful to have a three quarter view like this because when I go to post mode with control tab,
-
-of course you can select pose mode up here as well.
-
-I can now select the back bones quite easily, which is a little bit more difficult from purely side
-
-view here.
-
-It's also helpful to have a floor in the scene.
-
-It's easy enough inside view because we've got our grid line for the Y axis, but it would be helpful
-
-to have it in our three quarter view as well.
-
-So I'll just quickly go back to object mode with control tab shift data, add mesh and plane scale that
-
-right up and alt g to remove any movement.
-
-So just pause the video here and set up your scene in the same way I have.
-
-Now there's one other really helpful thing that we can do for work cycles.
-
-I'm going to use the outlier because we won't need to select objects using the outlier.
-
-And I'll bring that out slightly and zoom in our character a bit more.
-
-And I'll change this to the image editor so I can bring an image into here of a walk cycle.
-
-So I'll go to open and in the resources you can find a walk cycle graphic.
-
-Just here you can choose either the PSD or the JPEG.
-
-Blender can read both, but I'll choose the JPEG for now and press open.
-
-And you can see we've got all the frames of our walk cycle that we need here that we can easily mimic.
-
-So I'll press control, spacebar, so you can see that nice.
-
-And clearly the red is obviously the back side of the character and the blue the front and you've got
-
-the frames indicated at the top here.
-
-Now you can see our character does dig into the floor very slightly on occasions and for a simplistic
-
-walk cycle that we're doing that will work fine.
-
-But for more complicated walk cycles, you'd have a bend in the toes.
-
-Now you may also notice that it's 24 frames long.
-
-It's really nice to keep it at 24 frames for a walk cycle because it divides into three nice and easily.
-
-So we've got a picture every three frames and we can also have 24 nice and easily as well.
-
-So this is one of those occasions where the default of 24 frames per second is very helpful.
-
-Now you may also notice it starts on frame zero, but the frame zero is precisely the same as frame
-
-24.
-
-So when we actually come to render our animation, we'll want to start on frame one so as not to have
-
-a repeated frame.
-
-And if we always see that repeated frame in our animation, you'll get a slight glitch.
-
-It's hardly noticeable to the naked eye.
-
-But for this, when we actually render our file, we'll start it on frame one, which perhaps is why
-
-Blender has it as a default for things like walk cycles.
-
-Now you may also notice that frame one is precisely the same as frame 12, but flipped.
-
-So if you look at the legs, they're precisely the same.
-
-But doing the reverse and the same for the arms, although there is a slight more bend in the hands,
-
-which is actually a limitation of this picture reference, but basically going from 0369 are exactly
-
-the same as 15, 18 and 21, but flipped.
-
-So look at frame three and the position and you can see that frame 15 is the flipped version.
-
-And that's something we can do within Blender, which is very helpful and makes creating these walk
-
-cycles and run cycles much quicker.
-
-So I press control, spacebar and zoom out to touch so we can see the beginning frames.
-
-So pause the video here and insert that reference image.
-
-Okay.
-
-So let's start animating our select my bones go into post mode and immediately you'll see that were
-
-the wrong way round for our reference.
-
-So instead of this side view, I'll press control three to go to reverse side view as I call it.
-
-Remember, you can press the tilde and go to left view instead of right for you.
-
-The same with my three quarter view here.
-
-That will be a little bit easier.
-
-Now we want to position our character to the first keyframe here so you can zoom in a little bit on
-
-that if you like, and you could open this up even because we don't need anything from here either.
-
-First of all, I'll just come around to front view slightly and R then Y for the upper arm to bring
-
-that down and the same the other side are.
-
-Then y now I'm using the global axes.
-
-You can also use the local axes.
-
-So our x x and you can see that's very slightly different due to our bone roll, but because of the
-
-way our character is positioned nicely along the global axis along the Y, we can just use the y axis,
-
-hence why the bone roll wasn't so important as a beginner.
-
-But that does make it fairly important that when you're in three quarter view, you don't just press
-
-R to rotate, otherwise it will come out at a slight angle, press r, then y to make sure it's constrained
-
-to the y axis.
-
-Okay, so my arms are in position.
-
-Let's work on the rest of the body.
-
-So I'll grab the bottom foot and I'll bring my three quarter view back around so I can make sure I've
-
-got the right selection there and g to grab to move that backwards to somewhere around here and the
-
-other one forwards slightly.
-
-And we can see that our character is slightly high up.
-
-There's no bend in this leg when he's touching the floor.
-
-So we want to select the base bone there and G, then Z to move it down.
-
-So there's a very slight bend there.
-
-You can also see that the character's leaning forward slightly, so r to rotate, lean them forward
-
-very slightly somewhere around there.
-
-And I can now bring this down a little bit more because of that base foot being a bit lower.
-
-So it's touching the floor there.
-
-You can zoom in and be a bit more precise with this character.
-
-It's better to dig in slightly to the floor, so at no point it looks like it's floating.
-
-And then the back foot here, we can select this bone across here and rotate that again, digging very
-
-slightly into the floor.
-
-But I think we're about right there.
-
-Don't worry if it's not precisely the same as this, just as long as it's in the rough same position,
-
-you should be fine.
-
-Now for the arms, I'll rotate those forward and we can have a little bit of a swing to the hand as
-
-well.
-
-So it swings upwards and then it will swing backwards as well.
-
-You'll see that in a moment and select the backbone.
-
-There are two rotate and that comes backwards to here and again a little bit of swing to our hand.
-
-And there we have the first pose so I can select all and press I to insert a keyframe location and rotation.
-
-However, I'm not on frame zero, but I'll do this anyway.
-
-So location and rotation, it's inserted in there and I can actually move this back to frame zero and
-
-just move these backwards quite easily if you accidentally put it in the wrong frame.
-
-But remember, we are starting at frame zero this time, so pause the video here and catch it with me.
-
-Positioning your character so it's the same as the reference image and insert the keyframe on frame
-
-zero for that pose.
-
-Okay.
-
-So I'll just go into full screen for our reference image and remember that frame zero is precisely the
-
-same as frame 24.
-
-So control spacebar to come out of full screen mode and I can duplicate this to frame 24 first let's
-
-make the end frame 24 so we don't have all this wasted space and let's zoom in on that area.
-
-So we've got our walk cycle of 24 frames just there.
-
-Now I can press shift DX to duplicate these key frames and move them all the way across.
-
-Do make sure you have every single bone selected when you do that.
-
-It's a common mistake to make when you have one selected and you only copy the keyframe for that one
-
-bone.
-
-As I was saying earlier, that frame zero and frame 12 are the same but flipped.
-
-Well, we can select all with a and we can right click and copy pose.
-
-So let's control C for short.
-
-We'll go to frame 12 and we can right click and paste flipped.
-
-So X flipped across the x axis, which is one reason why you always model with the x axis going across.
-
-So I'll do that.
-
-Remember to insert the keyframe as well though.
-
-So I to insert the keyframe for location and rotation.
-
-And now when I scrub across my timeline, we've actually got a very basic walk cycle and I can press
-
-play and he looks a bit like he's walking, but we can go further, of course.
-
-So pause the video here and copy your frame zero to frame 24, make sure you have all the bones selected
-
-and then copy and paste the flipped at frame 12.
-
-Okay.
-
-So what about these in-between frames?
-
-Well, let's go across to frame three.
-
-At this point, it's a good idea to have the record button enabled.
-
-And I'll show you one more thing you can do.
-
-Let's take our spine.
-
-One bone.
-
-You can see that I've recorded location and rotation, but if I start using the record button now,
-
-it will record the scale as well, which is pointless and we don't need it and it can clog things up
-
-if we wanted to go to the graph editor or anything like that.
-
-So I'll minimize the spine again.
-
-And under keying where it says Active Keying Set, I can click in that box and change it to only effect
-
-the location and rotation.
-
-Now, with my record button on when I position my bones, it will only record the movement and rotation.
-
-So frame three, the character moves downward slightly.
-
-So let's select that middle bone there and grab in the Z axis and move it down slightly.
-
-Our foot here needs to come down to make sure it's touching the floor and digging into the floor slightly
-
-is absolutely fine.
-
-And this bone we can flatten that out like.
-
-So this one may be a tiny bit of adjustment just to around there.
-
-The arms have a general swing to them anyway, so they're in roughly the right position.
-
-So that looks fine.
-
-I won't duplicate it yet.
-
-I'll go to frame six and do that one.
-
-So the character comes back up slightly, which you will find happens anyway.
-
-So it drops down and then comes back up very slightly, but we can make it come back up a little bit
-
-further than that because there's quite a big dip there as it goes up to frame nine, which is the highest
-
-point.
-
-So somewhere around there, let's sort out the legs a bit more.
-
-So the right leg I'll select in here and it's just back a little bit more, make sure that's on the
-
-floor and then the left leg that's firmly planted on the floor.
-
-So I'll bring that down to here.
-
-Just there should work nicely that all looks about right and then cross to frame nine and that's a similar
-
-height to frame 12, but it's slightly taller.
-
-So let's just jump from frame zero to frame nine and you can see the height doesn't move.
-
-So we need to move it up very slightly.
-
-So G, then Z move it up very slightly to somewhere around there.
-
-Just zoom in on this again.
-
-So the left leg, the back leg, let's position that first.
-
-That's roughly around.
-
-Right.
-
-But we might want to just bring it down a touch more and make sure it's touching the floor or just very
-
-slightly inserted into the floor like this.
-
-And the front foot up a little bit more with a bit of rotation there close to the floor, but not quite
-
-touching.
-
-And notice I'm not exactly the same as this position here.
-
-My foot is slightly above the floor.
-
-This one's almost touching.
-
-Doesn't matter too much.
-
-Don't worry too much about it.
-
-Okay, so I've got my first 12 frames.
-
-Okay, so pause the video and catch up with me animating those first frames up to frame nine.
-
-Now I need to copy these frames and flip them to frame 15.
-
-Now, don't follow along this, but I'll just show you what happens if I select all I can press control
-
-C and then select on frame 15 making sure my mouse is in the three D viewport and then control shift
-
-v to paste.
-
-Now notice, however, that this is key framed every single one because I've pasted the pose for all
-
-my bones, whereas this only has a few bones selected and those are the ones I selected and moved.
-
-So I'm going to undo that to make sure you don't have any problems at all.
-
-I think it's a good idea to go to frame three, let's say, and press eye to insert a keyframe for all
-
-of your bones, just to be absolutely sure you're copying everything to frame 15.
-
-Same with frame six, just press eye and it will insert all those key frames and frame nine and press
-
-eye and insert all those key frames.
-
-So your challenge then is to copy key frame three and place it in key frame 15 as a flipped pose.
-
-The same with frame six and that will be the same as 18 and then frame nine, which will be the same
-
-as 21.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So hopefully you got an okay with that.
-
-I select frame three control.
-
-See, now just be aware if you press control, see within the dope sheet that would have copied everything
-
-that's been selected.
-
-So do make sure you're doing this in the three D viewport.
-
-So control C and then choose frame 15 control shift V.
-
-To paste that frame, you can actually select two key frames in the dope sheet and control C and then
-
-I can go to frame 18 and control shift V to paste the flipped of both those key frames.
-
-But I don't want to overcomplicate things at this stage, so let's play our animation and we've got
-
-a great looking walk cycle.
-
-They're nice and simple, especially when you've got the references and it works really effectively.
-
-So hopefully you got an okay with that.
-
-As always, make sure you've saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 05 — Rigging & Animation |
-| **Bài học** | Animating the Walk Cycle |
-| **Thời lượng** | 13:11 |
-| **Chủ đề chính** | Tạo hoạt ảnh đi bộ |
+# 085 — Tạo hoạt ảnh chu kỳ đi bộ
+
+## Animating the Walk Cycle
+
+| Thuộc tính                | Nội dung                                       |
+| ------------------------- | ---------------------------------------------- |
+| **Module**                | Module 05 — Rigging & Animation                |
+| **Bài học**               | Animating the Walk Cycle                       |
+| **Thời lượng**            | 13:11                                          |
+| **Chủ đề chính**          | Tạo hoạt ảnh chu kỳ đi bộ cho nhân vật TV Head |
+| **Độ dài chu kỳ**         | 24 frame                                       |
+| **Chế độ làm việc chính** | Pose Mode                                      |
+| **Kiểu keyframe**         | Location & Rotation                            |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Hiểu các pha chính (key pose) của một chu kỳ đi bộ: Contact, Down, Passing, Up.
-- Biết cách dùng IK Target của chân để giữ bàn chân bám đất tự nhiên trong lúc đi.
-- Tạo một animation walk cycle lặp (loop) mượt mà cho Blob Man.
-- Làm quen với việc dùng Graph Editor để tinh chỉnh timing giữa các pha đi bộ.
+Sau bài học này, anh có thể:
 
-## 2. Nội dung chính
+* Chuẩn bị giao diện Blender để tạo walk cycle.
+* Sử dụng hình ảnh tham chiếu chu kỳ đi bộ.
+* Tạo các tư thế chính tại frame `0`, `3`, `6`, `9` và `12`.
+* Sao chép và lật đối xứng tư thế bằng **Paste X-Flipped Pose**.
+* Tạo một walk cycle hoàn chỉnh dài `24 frame`.
+* Thiết lập Auto Keying chỉ ghi lại **Location & Rotation**.
+* Tránh lỗi lặp thừa frame khi render animation dạng vòng lặp.
 
-Walk cycle là một trong những bài tập animation kinh điển nhất, dựa trên 4 pha chuyển động lặp lại của mỗi bước chân: Contact (chân chạm đất, cả hai chân đang mở rộng nhất, một trước một sau), Down (trọng tâm cơ thể hạ thấp nhất khi chân chịu lực), Passing (chân chịu lực đứng thẳng, chân kia đang lướt qua ở giữa), và Up (trọng tâm cơ thể nâng cao nhất khi chuẩn bị bước tiếp theo). Bốn pha này lặp lại xen kẽ giữa hai chân để tạo thành một chu kỳ hoàn chỉnh, thường kéo dài khoảng 12-24 frame cho một bước tùy tốc độ đi mong muốn (chậm hơn dùng nhiều frame hơn).
+---
 
-Nhờ đã thiết lập IK ở bài trước, việc animate chân trở nên trực quan hơn nhiều: chỉ cần di chuyển IK Target của bàn chân đến các vị trí Contact tương ứng và chèn keyframe, không cần xoay từng khớp đùi/cẳng chân theo FK. Điều quan trọng là giữ bàn chân đứng yên tại chỗ (không trượt) trong suốt pha chân đang chịu lực trên mặt đất — đây là lỗi phổ biến nhất khi mới tập animate walk cycle (hiện tượng "foot sliding").
+# 2. Chuẩn bị không gian làm việc
 
-Ngoài chuyển động chân, một walk cycle thuyết phục cần thêm các yếu tố phụ: lên xuống của hông/cột sống (hip sway theo phương thẳng đứng, khớp với nhịp Down/Up), xoay nhẹ hông theo phương ngang khi đổi trọng tâm, và chuyển động đối trọng của tay (tay trái vung ra trước khi chân phải bước tới, và ngược lại) để giữ thăng bằng tự nhiên. Sau khi tạo xong một chu kỳ, có thể nhân bản (duplicate) hoặc dùng modifier NLA/Cyclic Extrapolation trong Graph Editor để lặp animation liên tục mà không cần tạo lại từ đầu mỗi bước.
+## 2.1. Chuyển sang Animation Workspace
 
-## 3. Quy trình thực hành gợi ý
+Chuyển sang workspace:
 
-1. Xác định độ dài một chu kỳ walk (ví dụ 24 frame) và đặt keyframe cho 4 pha chính: Contact, Down, Passing, Up cho từng chân.
-2. Dùng IK Target của chân, di chuyển đến vị trí Contact (chân trước/sau) tại các frame tương ứng và chèn keyframe.
-3. Animate hông (root/spine bone) lên xuống theo nhịp Down/Up, và xoay nhẹ theo phương ngang.
-4. Animate tay vung đối trọng với chân (FK đơn giản là đủ cho tay).
-5. Play lại toàn bộ chu kỳ, kiểm tra hiện tượng foot sliding — nếu có, chỉnh lại keyframe IK Target để bàn chân đứng yên đúng lúc chịu lực.
-6. Mở Graph Editor để tinh chỉnh timing/easing giữa các pha, đảm bảo chuyển động không đều đều máy móc.
-7. Thiết lập lặp animation (duplicate chu kỳ hoặc Cyclic Extrapolation) để xem thử nhân vật đi liên tục nhiều bước.
+```text
+Animation
+```
 
-## 4. Phím tắt & công cụ liên quan
+Nếu nhân vật vẫn đang ở **Weight Paint Mode**, hãy chuyển về:
 
-| Phím tắt / thao tác | Chức năng |
-|---|---|
-| `I` | Insert Keyframe cho IK Target hoặc bone hông/tay tại mỗi pha |
-| `G` | Di chuyển IK Target đến vị trí Contact/Passing |
-| Graph Editor > Channel > Extrapolation Mode > Make Cyclic (F-Modifier) | Lặp animation tự động theo chu kỳ |
-| `Shift+D` | Duplicate keyframe/action để nối tiếp chu kỳ đi bộ |
-| `Ctrl+Tab` | Vào Pose Mode để animate bone |
-| `Spacebar` | Play để kiểm tra toàn bộ walk cycle |
+```text
+Object Mode
+```
 
-## 5. Lưu ý & lỗi thường gặp
+Sau đó chọn armature và chuyển sang:
 
-- Foot sliding: bàn chân bị trượt trên mặt đất trong pha chịu lực do keyframe IK Target không giữ đúng vị trí cố định.
-- Thiếu chuyển động đối trọng của tay khiến dáng đi trông cứng và thiếu tự nhiên.
-- Bỏ qua chuyển động lên xuống của hông (hip sway) làm walk cycle trông như "trượt" thay vì "bước đi".
-- Timing đều tuyệt đối giữa các pha (không dùng easing trong Graph Editor) khiến chuyển động trông máy móc, thiếu trọng lượng.
-- Chu kỳ nối tiếp không khớp (frame cuối khác frame đầu) gây giật khi animation lặp lại.
+```text
+Pose Mode
+```
 
-## 6. Checklist thực hành
+Có thể sử dụng:
 
-- [ ] Đã xác định và keyframe 4 pha chính (Contact, Down, Passing, Up) cho cả hai chân.
-- [ ] Đã kiểm tra và khắc phục hiện tượng foot sliding.
-- [ ] Đã animate chuyển động hông lên xuống và tay vung đối trọng.
-- [ ] Đã tinh chỉnh timing bằng Graph Editor.
-- [ ] Đã thiết lập animation lặp liên tục nhiều bước.
+```text
+Ctrl + Tab
+```
 
-## 7. Tóm tắt
+---
 
-Walk cycle được xây dựng từ 4 pha chuyển động lặp lại (Contact, Down, Passing, Up), kết hợp IK cho chân, chuyển động hông và tay đối trọng để tạo dáng đi tự nhiên. Đây là bài tập tổng hợp toàn bộ kỹ năng rigging và animation đã học trong module.
+## 2.2. Thiết lập góc nhìn
+
+Walk cycle cần được quan sát rõ từ bên cạnh vì phần lớn chuyển động diễn ra theo chiều trước–sau.
+
+Nên sử dụng hai góc nhìn:
+
+* Một cửa sổ ở **Side View**.
+* Một cửa sổ ở góc **3/4 View**.
+
+Góc nhìn 3/4 giúp chọn các bone ở phía sau nhân vật dễ dàng hơn.
+
+### Phím tắt góc nhìn
+
+| Phím tắt          | Chức năng                                    |
+| ----------------- | -------------------------------------------- |
+| `Numpad 3`        | Right View                                   |
+| `Ctrl + Numpad 3` | Left View                                    |
+| `` ` ``           | Mở View Pie Menu                             |
+| `Ctrl + Spacebar` | Phóng to hoặc thu nhỏ vùng làm việc hiện tại |
+
+Trong bài học, nhân vật ban đầu quay ngược hướng so với hình tham chiếu nên sử dụng:
+
+```text
+Ctrl + Numpad 3
+```
+
+để chuyển sang góc nhìn từ phía đối diện.
+
+---
+
+## 2.3. Hiển thị armature
+
+Nếu không nhìn thấy bone trong cửa sổ 3D:
+
+1. Mở **Viewport Overlays**.
+2. Bật hiển thị **Bones**.
+3. Chọn lại armature nếu giao diện chưa cập nhật.
+
+Việc nhìn thấy bone là cần thiết để lựa chọn và điều khiển từng phần của rig.
+
+---
+
+## 2.4. Thêm mặt sàn
+
+Một mặt sàn giúp dễ kiểm tra xem bàn chân có:
+
+* Chạm đất hay không.
+* Bị lơ lửng.
+* Lún quá sâu xuống mặt đất.
+
+Thao tác:
+
+```text
+Shift + A
+→ Mesh
+→ Plane
+```
+
+Sau đó:
+
+```text
+S
+```
+
+để phóng to mặt phẳng.
+
+Có thể sử dụng:
+
+```text
+Alt + G
+```
+
+để đưa mặt phẳng trở về vị trí gốc nếu nó đang bị lệch.
+
+---
+
+# 3. Thêm hình ảnh tham chiếu walk cycle
+
+## 3.1. Chuyển một vùng giao diện thành Image Editor
+
+Trong bài học, vùng **Outliner** được đổi thành:
+
+```text
+Image Editor
+```
+
+Sau đó chọn:
+
+```text
+Open
+```
+
+và mở hình ảnh walk cycle được cung cấp trong tài nguyên bài học.
+
+Hình tham chiếu sử dụng hai màu:
+
+* **Đỏ:** tay và chân ở phía sau.
+* **Xanh:** tay và chân ở phía trước.
+
+---
+
+## 3.2. Cấu trúc hình tham chiếu
+
+Walk cycle trong bài dài `24 frame`.
+
+Các tư thế tham chiếu được đặt cách nhau `3 frame`:
+
+```text
+0 → 3 → 6 → 9 → 12 → 15 → 18 → 21 → 24
+```
+
+Trong đó:
+
+* Frame `0` giống frame `24`.
+* Frame `12` là phiên bản đối xứng của frame `0`.
+* Frame `15` là phiên bản đối xứng của frame `3`.
+* Frame `18` là phiên bản đối xứng của frame `6`.
+* Frame `21` là phiên bản đối xứng của frame `9`.
+
+### Sơ đồ chu kỳ
+
+```text
+0 ─── 3 ─── 6 ─── 9 ─── 12 ─── 15 ─── 18 ─── 21 ─── 24
+│                          │                              │
+│                          └── Pose 0 được lật đối xứng   │
+│                                                         │
+└──────────────────────────── Pose 0 được lặp lại ────────┘
+```
+
+Hoặc biểu diễn theo nửa chu kỳ:
+
+```text
+Nửa chu kỳ thứ nhất          Nửa chu kỳ thứ hai
+0 → 3 → 6 → 9 → 12          12 → 15 → 18 → 21 → 24
+                              ↑
+                    Các pose được lật trái–phải
+```
+
+---
+
+# 4. Vì sao sử dụng 24 frame?
+
+Blender mặc định thường sử dụng:
+
+```text
+24 FPS
+```
+
+Chu kỳ `24 frame` phù hợp vì:
+
+* Dễ chia thành các khoảng `3 frame`.
+* Một chu kỳ tương ứng khoảng một giây ở 24 FPS.
+* Có đủ frame để tạo chuyển động rõ ràng.
+* Việc xác định các tư thế đối xứng trở nên đơn giản.
+
+Tuy nhiên, khi render một chu kỳ lặp, không nên render đồng thời cả frame `0` và frame `24`, vì hai frame này giống nhau.
+
+Nếu cả hai cùng xuất hiện, animation có thể bị khựng nhẹ ở điểm nối.
+
+### Thiết lập render phù hợp
+
+```text
+Start Frame: 1
+End Frame: 24
+```
+
+Frame `0` vẫn được sử dụng để xây dựng animation, nhưng không nhất thiết phải xuất hiện trong đoạn render cuối.
+
+---
+
+# 5. Tạo tư thế đầu tiên tại frame 0
+
+## 5.1. Chọn armature và vào Pose Mode
+
+Thao tác:
+
+```text
+Chọn Armature
+→ Ctrl + Tab
+→ Pose Mode
+```
+
+Đặt playhead tại:
+
+```text
+Frame 0
+```
+
+---
+
+## 5.2. Điều chỉnh cánh tay trên
+
+Chọn bone cánh tay trên và xoay quanh trục `Y`:
+
+```text
+R → Y
+```
+
+Không nên chỉ nhấn `R` trong góc nhìn 3/4 vì bone có thể bị xoay lệch khỏi mặt phẳng chuyển động.
+
+### So sánh
+
+```text
+R
+```
+
+Xoay tự do theo góc nhìn hiện tại, dễ làm tay lệch sang bên.
+
+```text
+R → Y
+```
+
+Giới hạn chuyển động quanh trục Y toàn cục, giúp tay vung đúng hướng trước–sau.
+
+> Vì nhân vật được dựng thẳng theo các trục toàn cục nên sử dụng Global Axis là đủ cho bài tập cơ bản này.
+
+---
+
+## 5.3. Đặt vị trí hai chân
+
+Chọn các IK controller hoặc bone điều khiển bàn chân:
+
+* Một chân đưa về phía trước.
+* Một chân đưa về phía sau.
+
+Sử dụng:
+
+```text
+G
+```
+
+để di chuyển bàn chân.
+
+Điều chỉnh sao cho tư thế gần giống hình tham chiếu.
+
+Không cần khớp hoàn toàn từng pixel; điều quan trọng là:
+
+* Hai chân mở ra rõ ràng.
+* Có một chân trước và một chân sau.
+* Nhân vật vẫn giữ được trọng lượng và sự cân bằng.
+
+---
+
+## 5.4. Hạ thân người xuống
+
+Nếu hai chân quá thẳng hoặc nhân vật đang đứng quá cao, chọn bone gốc hoặc bone điều khiển phần thân dưới:
+
+```text
+G → Z
+```
+
+Hạ nhân vật xuống một chút để đầu gối có độ cong nhẹ.
+
+Bàn chân nên:
+
+* Chạm mặt sàn.
+* Hoặc lún rất nhẹ xuống mặt sàn.
+
+Lún nhẹ thường tốt hơn việc để chân lơ lửng vì lỗi lơ lửng dễ nhận thấy hơn trong animation.
+
+---
+
+## 5.5. Nghiêng thân người
+
+Chọn bone thân chính và sử dụng:
+
+```text
+R
+```
+
+để nghiêng nhân vật nhẹ về phía trước.
+
+Không nên nghiêng quá nhiều vì nhân vật có thể trông như sắp ngã.
+
+---
+
+## 5.6. Điều chỉnh bàn chân sau
+
+Bàn chân sau có thể cần được xoay nhẹ để nằm gần mặt sàn hơn:
+
+```text
+R
+```
+
+Trong bài tập đơn giản, bàn chân có thể lún nhẹ xuống mặt sàn.
+
+Đối với animation phức tạp hơn, rig thường cần thêm bone hoặc controller cho:
+
+* Gót chân.
+* Mũi chân.
+* Động tác nhấc gót.
+* Chuyển trọng lượng từ gót sang mũi.
+
+---
+
+## 5.7. Tạo chuyển động tay
+
+Tay phải và tay trái vung ngược chiều với chân.
+
+Ví dụ:
+
+```text
+Chân trái tiến về trước
+→ Tay phải vung về trước
+```
+
+```text
+Chân phải tiến về trước
+→ Tay trái vung về trước
+```
+
+Ngoài cánh tay trên, có thể xoay nhẹ bone bàn tay để tạo cảm giác tay thả lỏng và tự nhiên hơn.
+
+---
+
+## 5.8. Chèn keyframe
+
+Khi tư thế đầu tiên hoàn tất:
+
+1. Chọn toàn bộ bone:
+
+```text
+A
+```
+
+2. Chèn keyframe:
+
+```text
+I
+```
+
+3. Chọn:
+
+```text
+Location & Rotation
+```
+
+Đây là pose tại frame `0`.
+
+---
+
+# 6. Sao chép pose đầu tiên sang frame 24
+
+Frame `24` phải giống hoàn toàn frame `0` để tạo vòng lặp khép kín.
+
+## Thao tác trong Dope Sheet
+
+1. Chọn toàn bộ keyframe tại frame `0`.
+2. Nhấn:
+
+```text
+Shift + D
+```
+
+3. Di chuyển bản sao đến frame:
+
+```text
+24
+```
+
+Có thể nhấn:
+
+```text
+X
+```
+
+để giới hạn thao tác duplicate theo chiều ngang của timeline.
+
+### Lưu ý quan trọng
+
+Phải bảo đảm tất cả các bone đều được chọn trước khi sao chép.
+
+Nếu chỉ chọn một bone, Blender chỉ sao chép keyframe của bone đó. Kết quả là frame `24` sẽ không khớp hoàn toàn với frame `0`.
+
+---
+
+# 7. Tạo pose đối xứng tại frame 12
+
+Frame `12` có cùng tư thế với frame `0`, nhưng tay và chân được đổi bên.
+
+Thay vì tạo lại toàn bộ pose bằng tay, Blender có thể lật pose qua trục X.
+
+## Quy trình
+
+### Bước 1: Sao chép pose tại frame 0
+
+Đặt playhead tại frame `0`.
+
+Trong 3D Viewport:
+
+```text
+A
+Ctrl + C
+```
+
+Hoặc:
+
+```text
+Pose
+→ Copy Pose
+```
+
+### Bước 2: Chuyển đến frame 12
+
+```text
+Frame 12
+```
+
+### Bước 3: Dán pose đối xứng
+
+```text
+Ctrl + Shift + V
+```
+
+Hoặc:
+
+```text
+Pose
+→ Paste X-Flipped Pose
+```
+
+### Bước 4: Chèn keyframe
+
+```text
+I
+→ Location & Rotation
+```
+
+---
+
+## Vì sao có thể lật pose theo trục X?
+
+Rig được xây dựng đối xứng qua trục X:
+
+```text
+Bên trái ← X = 0 → Bên phải
+```
+
+Các bone trái và phải cũng cần có tên đối xứng đúng chuẩn, chẳng hạn:
+
+```text
+upper_arm.L
+upper_arm.R
+```
+
+```text
+foot.L
+foot.R
+```
+
+Nhờ đó Blender có thể xác định bone nào cần đổi sang phía đối diện.
+
+---
+
+# 8. Kiểm tra walk cycle cơ bản
+
+Sau khi có các pose tại:
+
+```text
+0 → 12 → 24
+```
+
+nhấn Play để kiểm tra.
+
+Nhân vật đã có chuyển động giống bước đi cơ bản, nhưng animation vẫn còn đơn giản vì Blender chỉ nội suy trực tiếp giữa ba tư thế.
+
+Các frame trung gian `3`, `6` và `9` sẽ giúp:
+
+* Tạo độ nhún của cơ thể.
+* Điều khiển vị trí chân chính xác hơn.
+* Làm rõ quá trình chuyển trọng lượng.
+* Tránh chuyển động quá thẳng và máy móc.
+
+---
+
+# 9. Thiết lập Auto Keying
+
+## 9.1. Vấn đề với Auto Keying mặc định
+
+Nếu bật nút **Auto Keying**, Blender có thể tự ghi cả:
+
+* Location.
+* Rotation.
+* Scale.
+
+Trong bài này, Scale không được sử dụng.
+
+Việc ghi thêm Scale có thể:
+
+* Tạo ra các channel không cần thiết.
+* Làm Dope Sheet và Graph Editor rối hơn.
+* Gây khó khăn khi chỉnh sửa animation.
+
+---
+
+## 9.2. Chọn Active Keying Set
+
+Trong Timeline, tại mục:
+
+```text
+Active Keying Set
+```
+
+chọn:
+
+```text
+Location & Rotation
+```
+
+Sau đó bật nút:
+
+```text
+Auto Keying
+```
+
+Từ thời điểm này, khi di chuyển hoặc xoay bone, Blender chỉ tự tạo keyframe cho:
+
+* Vị trí.
+* Góc xoay.
+
+---
+
+# 10. Tạo pose tại frame 3
+
+Frame `3` là giai đoạn cơ thể hạ xuống sau khi chân trước chạm đất.
+
+## 10.1. Hạ thân người
+
+Chọn bone điều khiển thân hoặc root:
+
+```text
+G → Z
+```
+
+Hạ nhân vật xuống một chút.
+
+Đây thường là vị trí thấp nhất trong nửa đầu walk cycle.
+
+---
+
+## 10.2. Điều chỉnh chân chạm đất
+
+Chân chịu lực cần chạm mặt sàn rõ ràng.
+
+Di chuyển controller bàn chân:
+
+```text
+G
+```
+
+Nếu cần, xoay bàn chân:
+
+```text
+R
+```
+
+Bàn chân có thể lún nhẹ xuống sàn nhưng không nên bị lơ lửng.
+
+---
+
+## 10.3. Kiểm tra tay
+
+Chuyển động của tay giữa frame `0` và frame `12` đã được Blender nội suy.
+
+Nếu tay đã có vị trí phù hợp, không nhất thiết phải chỉnh quá nhiều tại frame `3`.
+
+---
+
+# 11. Tạo pose tại frame 6
+
+Frame `6` là giai đoạn chân sau bắt đầu vượt qua chân trụ.
+
+## 11.1. Nâng cơ thể trở lại
+
+Sau khi hạ xuống ở frame `3`, phần thân bắt đầu nâng lên:
+
+```text
+G → Z
+```
+
+Không cần nâng quá cao vì điểm cao nhất nằm gần frame `9`.
+
+---
+
+## 11.2. Chân trụ
+
+Chân trụ cần tiếp tục đứng chắc trên mặt sàn.
+
+Điều chỉnh controller để:
+
+* Bàn chân tiếp xúc với mặt đất.
+* Đầu gối không bị khóa quá cứng.
+* Cơ thể không trượt bất thường.
+
+---
+
+## 11.3. Chân đang bước
+
+Chân còn lại được đưa về gần giữa cơ thể.
+
+Có thể điều chỉnh:
+
+```text
+G
+R
+```
+
+sao cho bàn chân đang chuẩn bị đi qua chân trụ.
+
+---
+
+# 12. Tạo pose tại frame 9
+
+Frame `9` là điểm cơ thể được nâng lên cao nhất trong nửa chu kỳ đầu.
+
+## 12.1. Nâng thân người
+
+Chọn bone gốc hoặc bone thân:
+
+```text
+G → Z
+```
+
+Nâng nhân vật cao hơn frame `6` một chút.
+
+So sánh trực tiếp với frame `0` để chắc chắn có sự thay đổi độ cao.
+
+---
+
+## 12.2. Điều chỉnh chân sau
+
+Chân đang ở phía sau cần tiếp tục chạm đất hoặc vừa bắt đầu rời khỏi mặt đất, tùy hình tham chiếu.
+
+Trong bài học, bàn chân có thể được đặt hơi lún nhẹ vào sàn để tránh hiện tượng lơ lửng.
+
+---
+
+## 12.3. Nâng chân phía trước
+
+Chân đang di chuyển về phía trước cần được nâng lên:
+
+```text
+G → Z
+```
+
+Có thể xoay bàn chân:
+
+```text
+R
+```
+
+để mũi chân hướng tự nhiên hơn.
+
+Không bắt buộc phải sao chép chính xác hoàn toàn hình tham chiếu. Chỉ cần bảo đảm:
+
+* Chân đang di chuyển không xuyên sàn quá nhiều.
+* Chân không bị duỗi cứng.
+* Tư thế tổng thể có cảm giác đang tiến về phía trước.
+
+---
+
+# 13. Hoàn thiện keyframe cho toàn bộ bone
+
+Trong quá trình sử dụng Auto Keying, Blender chỉ tạo keyframe cho các bone đã được chỉnh sửa.
+
+Điều này có thể gây vấn đề khi sao chép pose đối xứng, vì một số bone không có keyframe tại frame `3`, `6` hoặc `9`.
+
+Để bảo đảm mỗi pose chứa đầy đủ dữ liệu:
+
+## Tại frame 3
+
+```text
+A
+I
+→ Location & Rotation
+```
+
+## Tại frame 6
+
+```text
+A
+I
+→ Location & Rotation
+```
+
+## Tại frame 9
+
+```text
+A
+I
+→ Location & Rotation
+```
+
+Sau bước này, toàn bộ bone đều có keyframe tại các frame cần thiết.
+
+---
+
+# 14. Sao chép và lật các pose trung gian
+
+Nửa sau của walk cycle là phiên bản đối xứng của nửa đầu.
+
+|   Pose gốc | Pose đối xứng |
+| ---------: | ------------: |
+|  Frame `0` |    Frame `12` |
+|  Frame `3` |    Frame `15` |
+|  Frame `6` |    Frame `18` |
+|  Frame `9` |    Frame `21` |
+| Frame `12` |    Frame `24` |
+
+---
+
+## 14.1. Sao chép frame 3 sang frame 15
+
+Trong 3D Viewport:
+
+```text
+Frame 3
+A
+Ctrl + C
+```
+
+Chuyển đến:
+
+```text
+Frame 15
+```
+
+Dán đối xứng:
+
+```text
+Ctrl + Shift + V
+```
+
+Nếu Auto Keying không tự tạo keyframe, nhấn:
+
+```text
+I
+→ Location & Rotation
+```
+
+---
+
+## 14.2. Sao chép frame 6 sang frame 18
+
+```text
+Frame 6
+A
+Ctrl + C
+```
+
+Chuyển đến frame `18`:
+
+```text
+Ctrl + Shift + V
+```
+
+Sau đó chèn keyframe nếu cần.
+
+---
+
+## 14.3. Sao chép frame 9 sang frame 21
+
+```text
+Frame 9
+A
+Ctrl + C
+```
+
+Chuyển đến frame `21`:
+
+```text
+Ctrl + Shift + V
+```
+
+Sau đó chèn keyframe nếu cần.
+
+---
+
+## 14.4. Chú ý vị trí con trỏ chuột
+
+Lệnh sao chép pose phải được thực hiện khi con trỏ chuột nằm trong:
+
+```text
+3D Viewport
+```
+
+Nếu nhấn `Ctrl + C` trong Dope Sheet, Blender sẽ sao chép các keyframe đang được chọn thay vì sao chép pose hiện tại.
+
+### Phân biệt
+
+| Vị trí con trỏ  | `Ctrl + C` thực hiện |
+| --------------- | -------------------- |
+| **3D Viewport** | Copy Pose            |
+| **Dope Sheet**  | Copy Keyframes       |
+
+---
+
+# 15. Sơ đồ walk cycle hoàn chỉnh
+
+```text
+Frame:   0     3     6     9     12    15    18    21    24
+         │     │     │     │      │     │     │     │     │
+         A     B     C     D      A'    B'    C'    D'    A
+```
+
+Trong đó:
+
+* `A`: Pose tiếp xúc đầu tiên.
+* `B`: Cơ thể hạ xuống.
+* `C`: Chân di chuyển đi qua giữa.
+* `D`: Cơ thể nâng lên.
+* `A'`: Pose A được lật trái–phải.
+* `B'`: Pose B được lật trái–phải.
+* `C'`: Pose C được lật trái–phải.
+* `D'`: Pose D được lật trái–phải.
+
+### Dòng chuyển động
+
+```text
+Chạm đất
+   ↓
+Hạ trọng tâm
+   ↓
+Chân đi qua
+   ↓
+Nâng trọng tâm
+   ↓
+Đổi chân
+   ↓
+Lặp lại đối xứng
+```
+
+---
+
+# 16. Kiểm tra animation
+
+Nhấn:
+
+```text
+Spacebar
+```
+
+để phát animation.
+
+Quan sát các yếu tố sau:
+
+## Chân
+
+* Cả hai bàn chân có thay phiên bước hay không?
+* Chân có chạm mặt sàn không?
+* Có frame nào chân lơ lửng bất thường không?
+* Bàn chân có xuyên sàn quá sâu không?
+
+## Thân người
+
+* Nhân vật có hạ xuống tại frame `3` và `15` không?
+* Nhân vật có nâng lên tại frame `9` và `21` không?
+* Thân người có nghiêng nhẹ về phía trước không?
+
+## Tay
+
+* Tay có vung ngược chiều với chân không?
+* Chuyển động tay có quá mạnh hoặc quá cứng không?
+* Bàn tay có độ thả lỏng nhẹ không?
+
+## Vòng lặp
+
+* Frame `0` và frame `24` có giống nhau không?
+* Có hiện tượng giật tại điểm kết thúc chu kỳ không?
+* Có bone nào bị thiếu keyframe trong nửa sau không?
+
+---
+
+# 17. Các phím tắt quan trọng
+
+| Phím tắt           | Chức năng                                            |
+| ------------------ | ---------------------------------------------------- |
+| `Ctrl + Tab`       | Mở menu chuyển Object Mode, Edit Mode hoặc Pose Mode |
+| `Numpad 3`         | Right View                                           |
+| `Ctrl + Numpad 3`  | Left View                                            |
+| `` ` ``            | Mở View Pie Menu                                     |
+| `Ctrl + Spacebar`  | Phóng to vùng giao diện hiện tại                     |
+| `Shift + A`        | Thêm object mới                                      |
+| `Alt + G`          | Xóa Location, đưa object về vị trí mặc định          |
+| `A`                | Chọn toàn bộ bone hoặc keyframe                      |
+| `G`                | Di chuyển bone hoặc controller                       |
+| `G`, `Z`           | Di chuyển theo trục Z                                |
+| `R`                | Xoay bone                                            |
+| `R`, `Y`           | Xoay quanh trục Y                                    |
+| `I`                | Chèn keyframe                                        |
+| `Shift + D`        | Nhân bản keyframe                                    |
+| `Ctrl + C`         | Copy Pose khi con trỏ ở 3D Viewport                  |
+| `Ctrl + Shift + V` | Paste X-Flipped Pose                                 |
+| `Spacebar`         | Phát hoặc dừng animation                             |
+
+---
+
+# 18. Lỗi thường gặp
+
+## 18.1. Chỉ sao chép keyframe của một bone
+
+### Hiện tượng
+
+Frame đối xứng bị thiếu chuyển động ở tay, chân hoặc thân.
+
+### Nguyên nhân
+
+Không chọn toàn bộ bone trước khi copy hoặc duplicate.
+
+### Cách khắc phục
+
+```text
+A
+```
+
+để chọn toàn bộ bone trước khi:
+
+```text
+Ctrl + C
+```
+
+hoặc thao tác với keyframe.
+
+---
+
+## 18.2. Quên chèn keyframe sau khi dán pose
+
+### Hiện tượng
+
+Pose xuất hiện tạm thời nhưng biến mất khi chuyển sang frame khác.
+
+### Nguyên nhân
+
+Pose đã được dán nhưng chưa được ghi thành keyframe.
+
+### Cách khắc phục
+
+```text
+I
+→ Location & Rotation
+```
+
+---
+
+## 18.3. Copy trong nhầm cửa sổ
+
+### Hiện tượng
+
+`Ctrl + C` không sao chép pose như mong muốn.
+
+### Nguyên nhân
+
+Con trỏ chuột đang nằm trong Dope Sheet.
+
+### Cách khắc phục
+
+Di chuyển con trỏ vào 3D Viewport trước khi nhấn:
+
+```text
+Ctrl + C
+```
+
+---
+
+## 18.4. Tay hoặc chân xoay lệch sang bên
+
+### Nguyên nhân
+
+Chỉ sử dụng:
+
+```text
+R
+```
+
+trong góc nhìn 3/4.
+
+### Cách khắc phục
+
+Giới hạn trục xoay:
+
+```text
+R → Y
+```
+
+---
+
+## 18.5. Ghi thừa Scale keyframe
+
+### Hiện tượng
+
+Dope Sheet xuất hiện thêm nhiều channel Scale không cần thiết.
+
+### Cách khắc phục
+
+Đặt **Active Keying Set** thành:
+
+```text
+Location & Rotation
+```
+
+trước khi bật Auto Keying.
+
+---
+
+## 18.6. Nhân vật bị lơ lửng
+
+### Nguyên nhân
+
+Bone thân được đặt quá cao hoặc bàn chân không chạm mặt sàn.
+
+### Cách khắc phục
+
+Hạ root hoặc body controller:
+
+```text
+G → Z
+```
+
+Điều chỉnh bàn chân chạm hoặc lún rất nhẹ xuống sàn.
+
+---
+
+## 18.7. Animation bị giật khi lặp
+
+### Nguyên nhân
+
+* Frame `0` và frame `24` không giống nhau.
+* Render đồng thời hai frame giống nhau.
+* Một số bone thiếu keyframe tại frame cuối.
+
+### Cách khắc phục
+
+* Duplicate chính xác frame `0` sang frame `24`.
+* Khi xuất vòng lặp, bắt đầu render từ frame `1`.
+* Kiểm tra toàn bộ bone tại frame `24`.
+
+---
+
+# 19. Checklist thực hành
+
+## Chuẩn bị
+
+* [ ] Đã chuyển sang Animation Workspace.
+* [ ] Đã chuyển armature sang Pose Mode.
+* [ ] Đã bật hiển thị bone trong Viewport Overlays.
+* [ ] Đã thêm mặt phẳng làm sàn.
+* [ ] Đã mở hình ảnh walk cycle trong Image Editor.
+* [ ] Đã đặt End Frame thành `24`.
+
+## Key pose
+
+* [ ] Đã tạo pose đầu tiên tại frame `0`.
+* [ ] Đã duplicate frame `0` sang frame `24`.
+* [ ] Đã paste X-Flipped pose tại frame `12`.
+* [ ] Đã tạo pose tại frame `3`.
+* [ ] Đã tạo pose tại frame `6`.
+* [ ] Đã tạo pose tại frame `9`.
+
+## Nửa chu kỳ đối xứng
+
+* [ ] Đã copy frame `3` sang frame `15`.
+* [ ] Đã copy frame `6` sang frame `18`.
+* [ ] Đã copy frame `9` sang frame `21`.
+* [ ] Đã sử dụng Paste X-Flipped Pose.
+* [ ] Đã chèn đầy đủ Location & Rotation keyframe.
+
+## Kiểm tra
+
+* [ ] Hai chân bước luân phiên.
+* [ ] Hai tay vung ngược chiều với chân.
+* [ ] Cơ thể có chuyển động lên xuống.
+* [ ] Bàn chân không bị lơ lửng rõ ràng.
+* [ ] Frame `0` và `24` giống nhau.
+* [ ] Walk cycle chạy liên tục không bị giật.
+
+---
+
+# 20. Quy trình rút gọn
+
+```text
+Chuẩn bị Animation Workspace
+        ↓
+Thêm sàn và hình tham chiếu
+        ↓
+Tạo pose tại frame 0
+        ↓
+Duplicate frame 0 → frame 24
+        ↓
+Paste X-Flipped frame 0 → frame 12
+        ↓
+Tạo pose frame 3, 6 và 9
+        ↓
+Chèn keyframe cho toàn bộ bone
+        ↓
+Lật pose:
+3 → 15
+6 → 18
+9 → 21
+        ↓
+Play và kiểm tra vòng lặp
+        ↓
+Lưu file
+```
+
+---
+
+# 21. Tóm tắt bài học
+
+Trong bài học này, walk cycle được xây dựng bằng một chu kỳ dài `24 frame`.
+
+Nửa đầu chu kỳ gồm các pose tại:
+
+```text
+0 → 3 → 6 → 9 → 12
+```
+
+Nửa sau được tạo nhanh bằng cách lật đối xứng các pose:
+
+```text
+3 → 15
+6 → 18
+9 → 21
+```
+
+Frame `0` được duplicate sang frame `24` để bảo đảm điểm đầu và điểm cuối giống nhau.
+
+Các kỹ thuật quan trọng nhất gồm:
+
+* Sử dụng hình ảnh tham chiếu.
+* Điều khiển chân bằng IK.
+* Chèn keyframe Location & Rotation.
+* Sử dụng Auto Keying đúng Keying Set.
+* Copy Pose và Paste X-Flipped Pose.
+* Tạo chuyển động lên xuống của thân người.
+* Vung tay ngược chiều với chân.
+* Kiểm tra kỹ điểm nối của animation loop.
+
+Đây là một walk cycle cơ bản nhưng hiệu quả, giúp tổng hợp các kỹ năng về armature, IK, weight painting, pose và keyframe đã học trong các bài trước.

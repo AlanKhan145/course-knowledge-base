@@ -1,315 +1,676 @@
 # 063 — Unwrapping the Plane
-In this lecture will be unwrapping the body of the plane so we can place a spitfire texture onto it.
 
-Okay, so here's where we got up to last time.
-
-So I select the body of my plane and go into edit mode.
-
-Now, in order to edit UVs, it's nice to be in the movie editing workspace, so I'll jump across to
-
-there, zoom in on that space and zoom in on my airplane.
-
-Now it can be a bit daunting unwrapping complex objects, but as always, we take the main object and
-
-we break it down into separate pieces.
-
-In this case, the main wings, the tail wing and the body can be three separate islands.
-
-Now, it's worth also mentioning that we have a mirror, and when you unwrap with the mirror modifier,
-
-the exact same thing is happening on the other side.
-
-So if I do any marking of seams or anything like that, that will be copied to the other side.
-
-Also, when I unwrap this science, UVs will be in exactly the same position as the mirrored side.
-
-Just bear that in mind.
-
-It may not make complete sense, but I'll show you what I mean in a moment.
-
-So let's come around to the side here and think about where we need the seams to go.
-
-So I'm in edge mode at the moment and I'm going to select the edges between my wing and the body of
-
-the plane.
-
-Then I can press control e mark seems.
-
-Now we can unwrap parts of the model separately so I can press L over the wing and that selects the
-
-linked by the seams.
-
-So if I just open up this dialog box here, you can see that Seams is selected.
-
-So it's selecting this island, as it were, that's broken off from the main body by this seam.
-
-With all that selected, I can press you to unwrap and unwrap and just unwrap the wing.
-
-Now it's not working because it's as if someone has squashed it from here and flattened it out.
-
-So we need another seam to break this in half.
-
-So I'll select the edges coming around the bottom here and again control e mark seams.
-
-Remember you can right click and mark seams as well.
-
-Now when I press l it will only select the bottom.
-
-I need to select the top part of the wing as well.
-
-So Press L again and that adds to my selection.
-
-So the whole wing is now selected you to unwrap and unwrap and we can see the top half of my wing here
-
-and the bottom half there.
-
-Also, remember that this wing is being unwrapped as well and it's in exactly the same position.
-
-So any texture I add here will look exactly the same on the other side.
-
-Again, you'll see that in detail later on.
-
-So pause the video here and catch up with me and unwrap the main wing.
-
-Remember to mark the seams around where it connects to the body and separate the top from the bottom.
-
-Pause the video and have a go at that.
-
-Now I want to give you a small challenge of unwrapping the back tail wing, pause the video and have
-
-a go at that.
-
-Okay.
-
-So if I select a part of it and press period, kill my numpad, I can zoom in on that area and now I
-
-can select these edges going around here.
-
-Right click Mark Sims and let's separate the top from the bottom by selecting these around here.
-
-Now it's worth mentioning that I pressed alt left click to select this edge loop, but it also goes
-
-across here and we don't need these selected here or here.
-
-So I'll deselect those and this time right click mark themes.
-
-So I've separated those out.
-
-I can now deselect all with alt a l select the top and l select the bottom as well and you to unwrap.
-
-And there they are, unwrap there.
-
-So we know that's working well.
-
-So let's zoom out and think about the body.
-
-Now, it may be that we can unwrap the whole of the body as one, so alt eight select all l to select
-
-the body you to unwrap and unwrap.
-
-And that looks fairly decent.
-
-If we take a look at something like the front here, we can see it sort of goes around the corner,
-
-but it squashed it out reasonably well.
-
-So that's quite successful.
-
-Let's select all now and see how it's unwrapped.
-
-Looks a bit strange because it's all on top of each other, but we can easily with it all selected to
-
-another unwrap so you to unwrap and unwrap and it's placed them into position.
-
-But I have got an error message down the bottom here saying object has non-uniform scale, so I must
-
-have scaled my object at some point.
-
-So it'd be a good idea to go back into object mode, control a, set my scale back into edit mode and
-
-unwrap once again.
-
-Very slight difference there, but it's always worth doing that so you get a better unwrap.
-
-Okay, so pause the video and catch it with me and select all your plane and unwrap it.
-
-You should end up with something similar to what I've got here.
-
-Pause the video and have a go at that.
-
-Now, if for any reason you didn't end up with the same as I have here, let's say, for example, that
-
-this particular edge here, if I press control a and clear seam and then select all and unwrap, you
-
-can see that it's tried to add the wing, which is actually this tiny section here to the whole of the
-
-body, and it's gone completely wrong.
-
-So I'll undo those steps and select all making sure I'm back to here.
-
-So if for any reason you don't see what I see here, just go round checking that you haven't left any
-
-spaces.
-
-Okay.
-
-At this point, I don't want you to follow along with me, but I'm just going to show you what happens
-
-if I go to our mirror modifier and apply my mirror or have to be an object mode for that.
-
-So tap into object mode and apply the mirror, then back into edit mode.
-
-Make sure everything's selected and unwrap.
-
-Now first of all, the unwrap has gone wrong, but you can see I've got double the amount of wings.
-
-So one, two, three, four and tail wings.
-
-One, two, three, four.
-
-And I haven't got a seam down the middle.
-
-So if I out left click to select that middle edge loop there and control mark seams then select all
-
-new to unwrap and unwrap.
-
-Now we can see double the middle body of the plane as well.
-
-So I'll undo those steps and I've got my mirror modifier back, back into edit mode and I've got only
-
-half.
-
-But the UVs are right on top of each other now when texturing, I'm happy for the wings to be exactly
-
-the same on this side as this side.
-
-And of course, the tail wing as well.
-
-But the main body, we don't want it to have the same this side as this side, because the graphic we're
-
-going to be using or the texture we're going to be using has some writing on it.
-
-And if it's mirrored to the other side, the writing will be the wrong way round.
-
-So I do want to apply my mirror so the two halves can be placed onto my texture in different places.
-
-So I'll go back to object mode and apply my mirror back into edit mode.
-
-You can see my UVs are still there, so it's all still unwrapped and the two halves are on top of each
-
-other.
-
-So if I select islands, for example, select this wing and press G to grab, you can see the other
-
-one is there.
-
-I'll undo that change though.
-
-So I have to create a loop, cut down the middle.
-
-So left click to select that loop going all the way through and right click mark seems now I can press
-
-L over the middle and l on the other side as well.
-
-And you to unwrap and unwrap.
-
-Now I've got two body sections, let's select all.
-
-So here are my two body sections and they're separate, but I've still got my wings that are right on
-
-top of each other.
-
-So again G to grab and you can see the other one underneath there and I can therefore box select both
-
-of these so they're both selected and move them together so I can create space and move them into the
-
-right position later on.
-
-I always want to keep these together.
-
-They're going to be exactly the same from one side to the other, the same for the tail wings.
-
-There's two there and I can box, select them and move them together.
-
-Or I can just select one G to grab and you can see it's on top of the other.
-
-Now, just as a quick reminder, if I select all with a and press you to unwrap and unwrap my wings
-
-now are not right on top of each other and it's actually fairly awkward for me to position them so that
-
-they are.
-
-So I'm going to undo that.
-
-That's why I wanted to unwrap the body separately into two sections so it didn't disrupt my other UV
-
-islands, being right on top of each other from when we unwrapped when it had a mirror.
-
-Hopefully that all makes sense, but just pause the video here and catch up with me applying the mirror
-
-and marking that seam down the middle, but making sure that you only unwrap the body of the plane.
-
-So select the body of the plane using L and only unwrap that section.
-
-That means the wings will keep their position, each wing being right on top of each other.
-
-Once you've done that, make sure you've saved your work.
-
-Ready for next time.
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Unwrapping the Plane |
-| **Thời lượng** | 8:05 |
-| **Chủ đề chính** | Unwrap thân máy bay |
+| Thuộc tính            | Nội dung                                            |
+| --------------------- | --------------------------------------------------- |
+| **Module**            | Module 04 — UV Mapping                              |
+| **Bài học**           | Unwrapping the Plane                                |
+| **Thời lượng**        | 8:05                                                |
+| **Chủ đề chính**      | Unwrap UV cho thân, cánh chính và cánh đuôi máy bay |
+| **Workspace sử dụng** | UV Editing                                          |
+
+---
 
 ## 1. Mục tiêu bài học
-- Áp dụng toàn bộ kiến thức seam/UV island từ đầu module vào một mô hình phức tạp nhiều bộ phận: máy bay.
-- Lên kế hoạch chia mesh máy bay thành các nhóm UV island hợp lý theo từng bộ phận (thân, cánh, đuôi, propeller).
-- Đặt seam ở vị trí ít lộ (đường nối tự nhiên, mặt dưới, khe giữa các panel).
-- Pack toàn bộ island vào một hoặc nhiều UV map, đảm bảo tỷ lệ texel hợp lý.
 
-## 2. Nội dung chính
-Máy bay là một mesh phức tạp gồm nhiều bộ phận với hình dạng khác nhau: thân dạng ống thon, cánh dạng tấm phẳng thon, đuôi tương tự cánh nhưng nhỏ hơn, propeller dạng cánh quạt mỏng. Mỗi bộ phận nên được unwrap theo chiến lược phù hợp với hình dạng của nó, giống như đã luyện tập với thùng gỗ ở đầu module, nhưng với nhiều nhóm island hơn.
+Sau bài học này, người học có thể:
 
-Chiến lược tổng quát:
-- **Thân máy bay:** đặt seam dọc theo đường ít lộ (thường là mặt dưới bụng máy bay) và các seam vòng tại các vị trí phân đoạn tự nhiên (mũi, gốc cánh, đuôi) để chia thân thành các island vừa phải, dễ pack.
-- **Cánh và đuôi:** vì là các tấm dẹt gần phẳng, thường chỉ cần một seam ở mép trước hoặc mép sau để "mở" mặt trên và mặt dưới cánh ra thành một island tương đối phẳng, ít méo.
-- **Propeller/chi tiết nhỏ:** có thể unwrap riêng lẻ hoặc dùng Smart UV Project nếu hình dạng đơn giản và không cần kiểm soát texture chi tiết.
+* Phân tích một mô hình phức tạp và chia nó thành các **UV island** nhỏ, dễ quản lý.
+* Đặt seam cho:
 
-Sau khi đánh seam từng bộ phận, chọn toàn bộ mesh và `U → Unwrap` để tạo tất cả island cùng lúc, sau đó dùng `U → Pack Islands` để tự động sắp xếp chúng gọn trong không gian UV 0–1, tránh chồng lấn và tối ưu tỷ lệ texel giữa các phần lớn (thân, cánh) và phần nhỏ (chi tiết).
+  * Cánh chính.
+  * Cánh đuôi.
+  * Thân máy bay.
+* Hiểu cách **Mirror Modifier** ảnh hưởng đến UV.
+* Tận dụng UV chồng lên nhau cho những bộ phận có texture đối xứng.
+* Áp dụng Mirror Modifier khi hai bên thân máy bay cần texture khác nhau.
+* Khắc phục lỗi **Non-Uniform Scale** trước khi unwrap.
+* Tránh làm thay đổi các UV island đã được chồng chính xác.
 
-Có thể cân nhắc sử dụng nhiều UV Map (UV Maps trong Object Data Properties) nếu số lượng chi tiết quá lớn để dồn vào một texture, nhưng với một dự án học tập ở quy mô này, một UV map duy nhất được pack hợp lý thường là đủ.
+---
 
-## 3. Quy trình thực hành gợi ý
-1. Rà soát lại toàn bộ mesh máy bay, xác định ranh giới tự nhiên giữa các bộ phận (thân, cánh, đuôi, propeller).
-2. Đánh seam theo từng bộ phận: seam dọc mặt dưới thân, seam mép cánh, seam quanh gốc các chi tiết nhỏ.
-3. Bật Live Unwrap để quan sát UV cập nhật khi thêm seam, tinh chỉnh nếu island bị méo nhiều.
-4. Chọn toàn bộ mesh, `U → Unwrap`.
-5. Gán checker texture để kiểm tra độ méo trên toàn bộ mô hình, đặc biệt các vùng cong như mũi máy bay.
-6. `U → Pack Islands` để sắp xếp UV gọn gàng; kéo/scale thủ công thêm nếu cần ưu tiên độ phân giải cho các phần quan trọng (thân, cánh chính) hơn chi tiết nhỏ.
-7. Lưu lại bố cục UV cuối cùng, chuẩn bị cho bước texturing cánh và thân ở các bài tiếp theo.
+## 2. Tư duy chia mô hình thành UV island
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Ctrl+E → Mark Seam` | Đánh dấu seam |
-| `U → Unwrap` | Unwrap toàn bộ mesh theo seam |
-| `U → Pack Islands` | Tự động sắp xếp UV island |
-| `U → Smart UV Project` | Unwrap tự động cho các chi tiết nhỏ, đơn giản |
-| `L` | Chọn toàn bộ mesh liên kết (linked) dưới con trỏ, hữu ích khi chọn từng bộ phận riêng để unwrap |
+Mô hình máy bay có hình dạng tương đối phức tạp. Thay vì cố unwrap toàn bộ mô hình thành một mảnh duy nhất, cần chia nó thành các khu vực riêng biệt.
 
-## 5. Lưu ý & lỗi thường gặp
-- Cố gắng unwrap toàn bộ máy bay thành một island duy nhất khiến độ méo rất lớn ở các vùng cong phức tạp.
-- Không ưu tiên tỷ lệ texel giữa các bộ phận (thân lớn dùng chung diện tích UV với chi tiết nhỏ) khiến texture bị mờ ở phần lớn hoặc quá nét ở phần nhỏ.
-- Đặt seam ở mặt trên/mặt dễ thấy của cánh và thân khiến đường nối texture lộ rõ khi hoàn thiện.
-- Quên Pack Islands sau khi unwrap khiến các island chồng lên nhau, gây lỗi texture khi áp vào các bài sau.
+Trong bài học, máy bay được chia thành ba nhóm chính:
 
-## 6. Checklist thực hành
-- [ ] Đã đánh seam hợp lý cho từng bộ phận của máy bay.
-- [ ] Đã unwrap toàn bộ mesh và kiểm tra độ méo bằng checker texture.
-- [ ] Đã Pack Islands và cân đối tỷ lệ texel giữa các phần.
-- [ ] UV layout đã sẵn sàng để chuyển sang bước texturing.
+```text
+Máy bay
+├── Cánh chính
+│   ├── Mặt trên
+│   └── Mặt dưới
+├── Cánh đuôi
+│   ├── Mặt trên
+│   └── Mặt dưới
+└── Thân máy bay
+    ├── Nửa bên trái
+    └── Nửa bên phải
+```
 
-## 7. Tóm tắt
-Bài học áp dụng đầy đủ quy trình seam – island – pack đã học vào mô hình máy bay phức tạp, tạo ra một layout UV hoàn chỉnh cho toàn bộ mô hình, là nền tảng trực tiếp cho việc texturing cánh và thân ở hai bài tiếp theo.
+Mỗi nhóm sẽ trở thành một hoặc nhiều UV island độc lập.
+
+Nguyên tắc chung:
+
+> Một phần mesh cần có đủ seam để có thể “mở phẳng” mà không bị kéo giãn hoặc gấp chồng lên nhau.
+
+---
+
+## 3. Chuẩn bị môi trường làm việc
+
+### Bước 1: Chọn thân máy bay
+
+1. Chọn object máy bay.
+2. Nhấn `Tab` để chuyển sang **Edit Mode**.
+3. Chuyển sang workspace **UV Editing**.
+4. Phóng to mô hình để dễ lựa chọn edge.
+
+### Bước 2: Chuyển sang Edge Select
+
+Nhấn:
+
+```text
+2
+```
+
+Hoặc chọn biểu tượng **Edge Select** trên thanh công cụ.
+
+Việc đặt seam chủ yếu được thực hiện bằng cách chọn các cạnh của mesh.
+
+---
+
+## 4. Ảnh hưởng của Mirror Modifier đến UV
+
+Ở thời điểm đầu bài học, máy bay vẫn đang sử dụng **Mirror Modifier**.
+
+Điều này có hai ảnh hưởng quan trọng:
+
+1. Seam được đặt ở một bên sẽ tự động xuất hiện ở phía đối xứng.
+2. UV của hai phía đối xứng sẽ nằm chính xác chồng lên nhau.
+
+Ví dụ:
+
+```text
+UV cánh trái
+      ↓
+┌─────────────┐
+│             │
+│ UV cánh phải│  ← Hai UV island nằm cùng vị trí
+│             │
+└─────────────┘
+```
+
+### Khi nào UV chồng lên nhau có lợi?
+
+UV chồng lên nhau phù hợp khi hai phía sử dụng texture giống hệt nhau, chẳng hạn:
+
+* Cánh trái và cánh phải.
+* Hai cánh đuôi.
+* Những chi tiết hoàn toàn đối xứng.
+
+Lợi ích:
+
+* Tiết kiệm diện tích UV.
+* Hai bên có độ phân giải texture giống nhau.
+* Không cần đặt texture riêng cho từng phía.
+
+### Khi nào UV chồng lên nhau gây vấn đề?
+
+Nếu texture có:
+
+* Chữ viết.
+* Logo.
+* Biểu tượng có hướng.
+* Họa tiết không đối xứng.
+
+Texture ở phía đối diện sẽ bị lật ngược.
+
+Ví dụ:
+
+```text
+Bên trái:   SPITFIRE
+Bên phải:   ERIFTIPS
+```
+
+Vì vậy, phần thân máy bay cần hai UV island riêng biệt.
+
+---
+
+## 5. Unwrap cánh chính
+
+### 5.1. Tách cánh khỏi thân máy bay
+
+Chọn toàn bộ các cạnh nằm quanh vị trí cánh nối với thân máy bay.
+
+Sau đó sử dụng:
+
+```text
+Ctrl + E → Mark Seam
+```
+
+Hoặc:
+
+```text
+Nhấp chuột phải → Mark Seam
+```
+
+Đường seam này tách cánh chính khỏi thân máy bay.
+
+---
+
+### 5.2. Thử unwrap cánh
+
+Đưa con trỏ lên cánh và nhấn:
+
+```text
+L
+```
+
+`L` chọn toàn bộ phần mesh được liên kết dưới con trỏ. Khi tùy chọn **Seams** được sử dụng làm ranh giới, vùng chọn sẽ dừng tại các cạnh đã đánh seam.
+
+Tiếp theo:
+
+```text
+U → Unwrap
+```
+
+Ở lần unwrap đầu tiên, kết quả chưa tốt vì toàn bộ cánh vẫn giống như một khối kín bị ép phẳng.
+
+---
+
+### 5.3. Tách mặt trên và mặt dưới cánh
+
+Để cánh được mở phẳng đúng cách, cần thêm một seam chạy dọc quanh cạnh cánh.
+
+Có thể đặt seam tại phần mép hoặc mặt dưới ít nhìn thấy.
+
+```text
+Cánh nhìn ngang
+
+          Mặt trên
+       ┌────────────┐
+Seam → └────────────┘ ← Seam
+          Mặt dưới
+```
+
+Sau khi đặt seam:
+
+1. Nhấn `Alt + A` để bỏ chọn tất cả.
+2. Đưa con trỏ lên mặt trên và nhấn `L`.
+3. Đưa con trỏ lên mặt dưới và nhấn `L` lần nữa.
+4. Nhấn `U → Unwrap`.
+
+Kết quả sẽ gồm:
+
+* Một UV island cho mặt trên.
+* Một UV island cho mặt dưới.
+
+Do Mirror Modifier vẫn còn hoạt động, UV của cánh bên đối diện sẽ nằm chồng lên các island này.
+
+---
+
+## 6. Unwrap cánh đuôi
+
+Cánh đuôi được xử lý tương tự cánh chính.
+
+### Quy trình
+
+1. Chọn một phần cánh đuôi.
+2. Nhấn phím `.` trên Numpad để tập trung góc nhìn vào vùng đã chọn.
+3. Chọn các cạnh quanh vị trí nối giữa cánh đuôi và thân.
+4. Chọn **Mark Seam**.
+5. Chọn edge loop chạy quanh mép cánh để tách mặt trên và mặt dưới.
+6. Bỏ chọn những cạnh không cần thiết nếu edge loop lan sang khu vực khác.
+7. Đánh dấu seam.
+8. Nhấn `Alt + A` để bỏ chọn.
+9. Nhấn `L` trên mặt trên.
+10. Nhấn `L` trên mặt dưới.
+11. Nhấn `U → Unwrap`.
+
+### Lưu ý khi chọn Edge Loop
+
+Phím:
+
+```text
+Alt + nhấp chuột trái
+```
+
+dùng để chọn một edge loop.
+
+Tuy nhiên, edge loop có thể tiếp tục chạy sang các vùng không mong muốn. Khi đó cần bỏ chọn thủ công những cạnh thừa trước khi đánh seam.
+
+---
+
+## 7. Unwrap thân máy bay khi còn Mirror Modifier
+
+Sau khi tách cánh chính và cánh đuôi, phần còn lại là thân máy bay.
+
+### Cách thực hiện
+
+1. Nhấn `Alt + A` để bỏ chọn.
+2. Đưa con trỏ lên thân máy bay.
+3. Nhấn `L` để chọn phần thân.
+4. Nhấn:
+
+```text
+U → Unwrap
+```
+
+Trong trường hợp này, Blender có thể unwrap phần thân tương đối tốt ngay cả khi chưa có thêm seam, vì object hiện mới chỉ chứa một nửa thân và được Mirror Modifier tạo ra phía còn lại.
+
+Tuy nhiên, UV của hai phía thân vẫn nằm chồng lên nhau.
+
+---
+
+## 8. Khắc phục lỗi Non-Uniform Scale
+
+Khi unwrap toàn bộ object, Blender có thể hiển thị cảnh báo:
+
+```text
+Object has non-uniform scale
+```
+
+Điều này xảy ra khi object đã được scale trong **Object Mode** nhưng giá trị scale chưa được áp dụng.
+
+Ví dụ:
+
+```text
+Scale X: 1.500
+Scale Y: 0.800
+Scale Z: 1.000
+```
+
+Scale không đồng nhất có thể khiến:
+
+* UV bị méo.
+* Tỷ lệ giữa các island không chính xác.
+* Kết quả unwrap không ổn định.
+
+### Cách khắc phục
+
+1. Nhấn `Tab` để về **Object Mode**.
+2. Nhấn:
+
+```text
+Ctrl + A → Scale
+```
+
+3. Kiểm tra Scale đã trở về:
+
+```text
+X = 1
+Y = 1
+Z = 1
+```
+
+4. Quay lại **Edit Mode**.
+5. Chọn phần cần thiết.
+6. Thực hiện `U → Unwrap` lại.
+
+---
+
+## 9. Kiểm tra seam bị thiếu
+
+Nếu kết quả unwrap khác đáng kể so với bài giảng, nguyên nhân phổ biến là seam không tạo thành một đường khép kín.
+
+Ví dụ, nếu thiếu một cạnh seam tại vị trí cánh nối với thân:
+
+```text
+Seam đúng
+
+Thân ┃ Cánh
+     ┃
+     ┗━━━━━━━━
+
+Seam bị hở
+
+Thân ┃ Cánh
+     ┃
+     ┗━━━━  ━━
+           ↑
+       Thiếu seam
+```
+
+Blender có thể cố nối cánh với thân thành cùng một UV island, khiến kết quả:
+
+* Bị kéo giãn mạnh.
+* Xuất hiện những UV island rất nhỏ.
+* Hình dạng UV không còn nhận biết được.
+* Cánh bị nhập chung với thân.
+
+### Cách kiểm tra
+
+* Quan sát toàn bộ đường nối giữa các bộ phận.
+* Kiểm tra seam có chạy liên tục hay không.
+* Dùng `L` để thử chọn từng phần.
+* Nếu `L` chọn lan sang bộ phận khác, seam vẫn chưa tách hoàn toàn.
+
+### Xóa seam
+
+Chọn cạnh cần xóa seam, sau đó:
+
+```text
+Ctrl + E → Clear Seam
+```
+
+Hoặc:
+
+```text
+Nhấp chuột phải → Clear Seam
+```
+
+---
+
+## 10. Áp dụng Mirror Modifier
+
+Cánh và cánh đuôi có thể tiếp tục dùng UV đối xứng, nhưng hai bên thân máy bay cần được đặt ở các vị trí khác nhau trên texture.
+
+Nguyên nhân là texture Spitfire có thể chứa chữ hoặc họa tiết riêng cho từng phía.
+
+Do đó, cần áp dụng Mirror Modifier.
+
+### Các bước
+
+1. Nhấn `Tab` để về **Object Mode**.
+2. Mở tab **Modifiers**.
+3. Trong Mirror Modifier, mở menu tùy chọn.
+4. Chọn:
+
+```text
+Apply
+```
+
+5. Nhấn `Tab` để quay lại **Edit Mode**.
+
+Sau khi Apply:
+
+* Mesh đã có đầy đủ cả hai phía.
+* Hai bên không còn được tạo tự động bởi modifier.
+* Có thể chỉnh sửa từng bên độc lập.
+* Các UV cũ vẫn còn, nhưng các phần đối xứng vẫn đang nằm chồng lên nhau.
+
+---
+
+## 11. Tạo seam giữa hai nửa thân máy bay
+
+Sau khi Apply Mirror, phần thân máy bay trở thành một mesh hoàn chỉnh.
+
+Để tách hai phía thân thành hai UV island riêng, cần đặt một seam chạy dọc đường chính giữa máy bay.
+
+### Thực hiện
+
+1. Dùng `Alt + nhấp chuột trái` để chọn edge loop chạy dọc chính giữa thân.
+2. Chọn:
+
+```text
+Ctrl + E → Mark Seam
+```
+
+Sơ đồ:
+
+```text
+Nhìn từ trên xuống
+
+       Mũi máy bay
+            ▲
+            │
+    ┌───────┼───────┐
+    │       │       │
+    │ Trái  │ Phải  │
+    │       │       │
+    └───────┼───────┘
+            │
+            ▼
+         Đuôi máy bay
+
+            │
+       Seam chính giữa
+```
+
+Seam này cho phép Blender tách thân thành:
+
+* UV thân bên trái.
+* UV thân bên phải.
+
+---
+
+## 12. Chỉ unwrap lại phần thân máy bay
+
+Đây là bước quan trọng nhất của bài học.
+
+Sau khi Apply Mirror và đặt seam giữa thân, không nên chọn toàn bộ máy bay rồi unwrap lại.
+
+Nếu chọn toàn bộ và `U → Unwrap`:
+
+* UV hai cánh trái và phải sẽ không còn chồng chính xác lên nhau.
+* UV hai cánh đuôi cũng bị tách và sắp xếp lại.
+* Việc căn chỉnh các UV đối xứng trở nên khó khăn hơn.
+
+### Quy trình đúng
+
+1. Nhấn `Alt + A` để bỏ chọn tất cả.
+2. Đưa con trỏ lên nửa thân thứ nhất.
+3. Nhấn `L`.
+4. Đưa con trỏ lên nửa thân còn lại.
+5. Nhấn `L` lần nữa.
+6. Chỉ khi hai nửa thân đang được chọn, nhấn:
+
+```text
+U → Unwrap
+```
+
+Kết quả:
+
+```text
+UV layout
+
+┌───────────┐    ┌───────────┐
+│ Thân trái │    │ Thân phải │
+└───────────┘    └───────────┘
+
+┌───────────┐
+│ 2 cánh    │  ← Vẫn chồng lên nhau
+└───────────┘
+
+┌───────────┐
+│ 2 đuôi    │  ← Vẫn chồng lên nhau
+└───────────┘
+```
+
+---
+
+## 13. Quản lý các UV island chồng lên nhau
+
+Trong UV Editor, khi chọn một UV island của cánh và nhấn:
+
+```text
+G
+```
+
+có thể thấy một island giống hệt nằm bên dưới.
+
+Điều này xác nhận rằng UV của hai cánh đang chồng chính xác lên nhau.
+
+### Di chuyển hai island cùng lúc
+
+Để giữ chúng chồng lên nhau:
+
+1. Dùng **Box Select** để chọn đồng thời cả hai island.
+2. Nhấn `G` để di chuyển.
+3. Không chọn và di chuyển riêng từng island.
+
+Quy tắc tương tự được áp dụng cho cánh đuôi.
+
+### Không unwrap toàn bộ lần nữa
+
+Sau khi đã có bố cục mong muốn, tránh:
+
+```text
+A → U → Unwrap
+```
+
+Thao tác này sẽ tính toán lại tất cả UV và phá vỡ các cặp island đang chồng lên nhau.
+
+---
+
+## 14. Quy trình tổng thể
+
+```text
+Chọn máy bay
+      ↓
+Vào Edit Mode và UV Editing
+      ↓
+Đặt seam quanh gốc cánh chính
+      ↓
+Đặt seam tách mặt trên/dưới cánh
+      ↓
+Unwrap cánh chính
+      ↓
+Đặt seam và unwrap cánh đuôi
+      ↓
+Unwrap thân khi Mirror còn hoạt động
+      ↓
+Phát hiện Non-Uniform Scale?
+      ├── Có → Ctrl + A → Scale → Unwrap lại
+      └── Không
+      ↓
+Áp dụng Mirror Modifier
+      ↓
+Đặt seam dọc chính giữa thân
+      ↓
+Chỉ chọn hai nửa thân bằng L
+      ↓
+Chỉ unwrap phần thân
+      ↓
+Giữ UV cánh và đuôi chồng lên nhau
+      ↓
+Lưu file
+```
+
+---
+
+## 15. Phím tắt và công cụ quan trọng
+
+| Phím hoặc thao tác          | Chức năng                             |
+| --------------------------- | ------------------------------------- |
+| `Tab`                       | Chuyển giữa Object Mode và Edit Mode  |
+| `2`                         | Chuyển sang Edge Select               |
+| `L`                         | Chọn phần mesh liên kết dưới con trỏ  |
+| `Alt + A`                   | Bỏ chọn toàn bộ trong Edit Mode       |
+| `Alt + Click trái`          | Chọn Edge Loop                        |
+| `Ctrl + E → Mark Seam`      | Đánh dấu seam                         |
+| `Ctrl + E → Clear Seam`     | Xóa seam                              |
+| `U → Unwrap`                | Unwrap phần mesh đang được chọn       |
+| `Ctrl + A → Scale`          | Áp dụng tỷ lệ của object              |
+| `G`                         | Di chuyển mesh hoặc UV island         |
+| `A`                         | Chọn tất cả                           |
+| `.` trên Numpad             | Tập trung góc nhìn vào vùng được chọn |
+| `Shift + B` hoặc Box Select | Chọn nhiều UV island trong một vùng   |
+
+---
+
+## 16. Lỗi thường gặp
+
+### 16.1. Cánh bị nối với thân trong UV
+
+**Nguyên nhân:** Seam quanh gốc cánh chưa khép kín.
+
+**Cách xử lý:**
+
+* Kiểm tra lại toàn bộ đường seam.
+* Dùng `L` để xem cánh có được chọn riêng hay không.
+* Bổ sung cạnh seam còn thiếu.
+
+---
+
+### 16.2. Cánh bị ép hoặc kéo giãn
+
+**Nguyên nhân:** Chỉ có seam quanh gốc cánh, chưa có seam tách mặt trên và mặt dưới.
+
+**Cách xử lý:**
+
+* Đặt thêm seam dọc theo cạnh cánh.
+* Unwrap lại cả mặt trên và mặt dưới.
+
+---
+
+### 16.3. Blender báo Non-Uniform Scale
+
+**Nguyên nhân:** Object đã được scale không đồng đều trong Object Mode.
+
+**Cách xử lý:**
+
+```text
+Object Mode → Ctrl + A → Scale
+```
+
+Sau đó unwrap lại.
+
+---
+
+### 16.4. Chữ trên một bên thân bị ngược
+
+**Nguyên nhân:** Hai phía thân vẫn sử dụng UV chồng lên nhau do Mirror Modifier.
+
+**Cách xử lý:**
+
+* Apply Mirror Modifier.
+* Đặt seam giữa thân.
+* Unwrap hai nửa thân thành hai UV island riêng.
+
+---
+
+### 16.5. UV của hai cánh không còn chồng lên nhau
+
+**Nguyên nhân:** Đã chọn toàn bộ mesh và unwrap lại sau khi Apply Mirror.
+
+**Cách xử lý:**
+
+* Hoàn tác thao tác bằng `Ctrl + Z`.
+* Chỉ chọn hai nửa thân bằng `L`.
+* Chỉ unwrap phần thân.
+
+---
+
+### 16.6. Edge Loop chọn lan sang phần khác
+
+**Nguyên nhân:** Topology tạo thành một vòng cạnh liên tục qua nhiều bộ phận.
+
+**Cách xử lý:**
+
+* Dùng `Alt + Click` để chọn loop.
+* Giữ `Shift` và bỏ chọn các cạnh không cần thiết.
+* Chỉ Mark Seam sau khi vùng chọn đã chính xác.
+
+---
+
+## 17. Checklist thực hành
+
+* [ ] Đã chuyển sang workspace UV Editing.
+* [ ] Đã đặt seam quanh vị trí cánh chính nối với thân.
+* [ ] Đã tách mặt trên và mặt dưới của cánh chính.
+* [ ] Đã unwrap cánh chính thành các UV island hợp lý.
+* [ ] Đã đặt seam và unwrap cánh đuôi.
+* [ ] Đã kiểm tra các phần có thể được chọn riêng bằng phím `L`.
+* [ ] Đã Apply Scale nếu Blender báo Non-Uniform Scale.
+* [ ] Đã hiểu UV đối xứng sẽ chồng lên nhau khi dùng Mirror Modifier.
+* [ ] Đã Apply Mirror Modifier để tách hai phía thân.
+* [ ] Đã đặt seam dọc chính giữa thân máy bay.
+* [ ] Chỉ unwrap lại hai nửa thân.
+* [ ] UV cánh trái và phải vẫn chồng chính xác lên nhau.
+* [ ] UV cánh đuôi vẫn chồng chính xác lên nhau.
+* [ ] Hai phía thân đã trở thành hai UV island độc lập.
+* [ ] Đã lưu file trước khi chuyển sang bài tiếp theo.
+
+---
+
+## 18. Tóm tắt
+
+Trong bài học này, mô hình máy bay được chia thành các UV island dựa trên cấu trúc thực tế của nó. Cánh chính và cánh đuôi được tách khỏi thân, sau đó chia thành mặt trên và mặt dưới để unwrap phẳng hơn.
+
+Khi Mirror Modifier còn hoạt động, UV của các bộ phận đối xứng nằm chồng lên nhau. Cách này phù hợp với cánh và cánh đuôi vì hai phía có thể sử dụng cùng một texture.
+
+Tuy nhiên, phần thân máy bay có chữ và họa tiết định hướng nên hai phía không thể dùng chung UV. Vì vậy, Mirror Modifier được áp dụng, một seam được tạo dọc chính giữa thân và chỉ hai nửa thân được unwrap lại.
+
+Điểm quan trọng nhất là:
+
+> Sau khi Apply Mirror, chỉ unwrap lại phần thân máy bay để giữ UV của hai cánh và hai cánh đuôi chồng chính xác lên nhau.

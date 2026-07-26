@@ -1,301 +1,782 @@
 # 076 — Bone Basics
-In this lecture, I'll be going through the basics of bones and we'll be setting up a snake for animation.
 
-So I'm in a new start up file and I'm going to use my default cube as the basis for my snake.
+## Kiến thức cơ bản về Bone trong Blender
 
-I'll come to front view with one on my numpad and zoom out a touch and scale the snake in the x axis.
+| Thuộc tính       | Nội dung                                   |
+| ---------------- | ------------------------------------------ |
+| **Module**       | Module 05 — Rigging & Animation            |
+| **Bài học**      | Bone Basics                                |
+| **Thời lượng**   | 7:06                                       |
+| **Chủ đề chính** | Tạo Armature và chuỗi bone cho mô hình rắn |
 
-So it's four metres long, roughly somewhere around there.
-
-So one, two, three, four meters.
-
-And that's what our snake looks like at the moment.
-
-Now, if I go into edit mode, you can see the vertices of my object there.
-
-And if I try and add some bones to this to animate it now, it wouldn't work because we haven't got
-
-enough topology to deform.
-
-Let's say I try and take these ends and rotate them and move them.
-
-It can't bend because there's no extra vertices.
-
-So I'll undo that and I'll add some loop cuts going across the middle.
-
-So control R use the wheel of my mouse to somewhere around there, which looks roughly around ten and
-
-left click twice to set them in place.
-
-So we've got lots of cuts across there.
-
-I can come to my dialog box here and show you that it's actually ten.
-
-If you want to follow along precisely with me, it won't make too much difference if you have nine or
-
-11, but you can type in ten here to have the same as me.
-
-I'll minimize that and we'll come back into object mode.
-
-So pause the video here and catch it with me.
-
-Scale your cube in the x axis and then do lots of loop cuts.
-
-So we've got some points to animate.
-
-Now I want to show you a useful modifier here for adding and smoothing out topology.
-
-If we go across to spanner or wrench here and add modifier, it's the subdivision surface modifier.
-
-So if I click on that, you can see instantly that it becomes a bit more smooth.
-
-And if I zoom in a bit, you can see that it's added some more topology and in fact it's divided every
-
-face into for if I go into edit mode, that will show what it looks like before the result.
-
-So there's our original mesh and the subdivision service modifier is dividing it up and giving it more
-
-faces, which is great because the more faces we have, the better the distortion in our movement,
-
-which I'll show you in a moment when we add the bones.
-
-So pause the video here and add in a subdivision surface modifier to your object.
-
-So I'll come out to edit mode back into object mode and we need to add some bones to our snake in order
-
-to move those vertices.
-
-So I come to front view once again and I'll press shift eight and and the bones are called an armature.
-
-So an armature is made up with one or more bones.
-
-So I click on that and that adds a bone into the middle, but we can't see it very well.
-
-That's because it's behind our snake.
-
-So if I come to the object data properties here where we've got this funny sort of stickman and go to
-
-viewport display, if I scroll down a bit, there's an option in front.
-
-If I tick on that, you will always see the bone in front of the object wherever I move to.
-
-So that's very useful.
-
-I'll go back to front view and zoom out to touch.
-
-Now Bones have three modes.
-
-If we come up to here, we've got object mode, edit mode and pose mode.
-
-Edit mode is what we use for creating the skeleton.
-
-So the shape of the armature and pose mode is what we use for animating it.
-
-So we always build our skeletons in edit mode.
-
-So I'll go to edit mode.
-
-I'll zoom into our bone once again, just to show you that you can now select the base, the middle
-
-to the middle selects the whole bone or the end.
-
-So if I select the base and press g to grab it will move the base and make the bone longer and the same
-
-for the end there.
-
-Whereas the middle I can move the whole bone like this.
-
-So I'll zoom out and with the whole bone selected our press g to grab and move it somewhere to the front
-
-here.
-
-It doesn't have to be to the very front.
-
-This bone will affect all this area.
-
-Here I'll select the end and just extend it slightly.
-
-So it's covering about three blender units there in the same way as modeling.
-
-I can have the end selected and press E to extrude and I can constraint the x axis and bring it out
-
-so it's the same length.
-
-Okay, so pause the video here and catch up with me inserting a bone and going into edit mode and placing
-
-it at the front and then extruding from the end to create a new bone.
-
-And I want you to create a few more bones until you get to the middle point here and make them roughly
-
-even pause video and have a go that.
-
-Okay.
-
-So I'll extrude in the x axis once again to here and just keep doing that all the way along until I
-
-get to the middle.
-
-Now, this end one is a bit longer than the others, so I can easily just come into these points and
-
-g to grab in the x and just even it out a little bit.
-
-Unfortunately, there's no command for distribute like there might be in something like Photoshop or
-
-something along those lines.
-
-So we would have to go by the grid lines.
-
-It's not important if they're slightly different sizes, it won't make too much difference to our animation.
-
-Okay, so just take a moment to even out your bones a little bit if you haven't already.
-
-Okay.
-
-So we go to the middle and I can actually select all my bones and do remember I am still in the edit
-
-mode at this point.
-
-So you're always editing the shape of your armature in edit mode and I'm going to press shift duplicate
-
-in the x axis and bring them across to the end here.
-
-Now we've actually got two sets of bones within our armature, so these bones over here are joined together.
-
-If I press G to grab on this joint here, you can see it moves both the bones.
-
-We can join those together.
-
-But before we do that, I want to show you Poe's mode and how them not being connected would cause us
-
-a problem.
-
-So I'll go across to Poe's mode and when I select the bones they turn blue now indicating that they're
-
-in pose mode and there is a parenting system going on.
-
-This one is parented to this one, which is parenting this one all the way down to the end.
-
-So if I press r to rotate on this one, it rotates the end one as well.
-
-So it's a bit like a shoulder joint and then a forearm joint, for example.
-
-I can then rotate this one independently.
-
-So this would be an elbow, for example.
-
-And that is the reason we need these ones joint these ones, because we would want to rotate this one
-
-and have them all rotate.
-
-So I'll undo those movements and go back to edit mode in order to connect to this bone.
-
-To this bone, we select this bone first.
-
-So that's the one we want to connect and then the one we want to connect to last.
-
-So that is the active object highlighted in yellow and as usual we press control p to parent.
-
-Now there's an option here to keep offset that would actually connect them but keep them a distance
-
-apart.
-
-Whereas connected.
-
-If I press that you'll see it actually moves and joins together.
-
-So now when I go into Poe's mode and rotate this one, you'll see it rotates all the other ones along
-
-the line.
-
-So I'll go back into edit mode and I want you to catch it with me duplicating your beginning section
-
-of bones and move them to the end and then join the middle two together with control.
-
-P to parent remember you're selecting connected pause the video and have a go at that.
-
-Now lastly, I'll show you that you can select a random bone and shift DX to duplicate and can you see
-
-the black dotted line?
-
-If I zoom in a bit closer there, that's to show that they are connected with an offset.
-
-So remember the control p command and there was keep offset.
-
-That would be an offset if I go to Poe's mode now and let's say rotate this one here to rotate, can
-
-you see how it's still affected this one here because they are connected with an offset.
-
-So that's the idea behind an offset.
-
-So I'll go back into edit mode, select this bone and press delete to delete the bones.
-
-Okay.
-
-So in the next video we'll talk about animating our snake.
-
-So make sure you save your work here.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 05 — Rigging & Animation |
-| **Bài học** | Bone Basics |
-| **Thời lượng** | 7:06 |
-| **Chủ đề chính** | Kiến thức cơ bản về bone |
+---
 
 ## 1. Mục tiêu bài học
 
-- Hiểu bone (xương) là gì trong Blender và vai trò của nó trong hệ thống rigging.
-- Biết cách thêm một Armature/bone mới vào scene.
-- Nắm được cấu trúc của một bone: Head, Tail, Roll.
-- Phân biệt các chế độ làm việc với Armature: Object Mode, Edit Mode, Pose Mode.
+Sau bài học này, bạn có thể:
 
-## 2. Nội dung chính
+* Hiểu vai trò của **Bone** và **Armature** trong Blender.
+* Chuẩn bị topology phù hợp để mesh có thể uốn cong.
+* Thêm Armature vào scene và hiển thị bone xuyên qua mesh.
+* Phân biệt **Object Mode**, **Edit Mode** và **Pose Mode**.
+* Tạo chuỗi bone bằng công cụ **Extrude**.
+* Hiểu quan hệ cha–con giữa các bone.
+* Phân biệt hai kiểu parenting:
 
-Bone là đơn vị cơ bản cấu tạo nên một Armature — bộ khung xương dùng để điều khiển biến dạng của mesh trong quá trình animate. Mỗi bone có hình dạng kim tự tháp thon dài, gồm hai điểm chính: Head (gốc, đầu rộng) và Tail (đỉnh, đầu nhọn). Bone thường được nối tiếp nhau thành chuỗi (chain) mô phỏng cấu trúc xương thật, ví dụ chuỗi xương tay gồm upper arm, forearm, hand.
+  * **Connected**
+  * **Keep Offset**
+* Chuẩn bị bộ xương cơ bản cho animation con rắn.
 
-Armature có ba chế độ làm việc chính, tương tự như mesh: Object Mode (di chuyển/scale cả Armature như một object), Edit Mode (chỉnh cấu trúc bone — thêm, xóa, nối, đổi tên bone, giống chỉnh mesh ở Edit Mode) và Pose Mode (xoay/di chuyển bone để tạo dáng và animate — đây là chế độ dùng để animate nhân vật, tương tự việc điều khiển con rối). Chuyển sang Pose Mode bằng Ctrl+Tab hoặc chọn từ dropdown chế độ.
+---
 
-Một khái niệm quan trọng khác là Roll — góc xoay của bone quanh trục dọc của chính nó, quyết định hướng "lên/xuống local" của bone, ảnh hưởng đến cách các constraint và IK hoạt động sau này. Bone cũng có quan hệ cha-con (parent-child) trong hệ thống phân cấp (bone hierarchy), thể hiện qua Bone Constraint Properties và Armature outliner — bone con sẽ di chuyển theo bone cha khi bone cha được xoay/di chuyển.
+## 2. Bone và Armature là gì?
 
-## 3. Quy trình thực hành gợi ý
+### 2.1. Bone
 
-1. Thêm một Armature mới qua Add > Armature (mặc định là một bone đơn).
-2. Vào Edit Mode của Armature (Tab), quan sát Head và Tail của bone.
-3. Kéo dài Tail bằng cách chọn và di chuyển (G) để tạo bone dài hơn.
-4. Thử extrude (E) từ Tail của bone đầu tiên để tạo bone thứ hai nối tiếp.
-5. Chuyển sang Pose Mode (Ctrl+Tab), thử xoay (R) bone để quan sát cách nó biến dạng khung xương.
-6. Quay lại Object Mode, kiểm tra Armature hiển thị đúng trong Outliner.
+**Bone** là một phần tử xương dùng để điều khiển mesh.
 
-## 4. Phím tắt & công cụ liên quan
+Một bone cơ bản có ba vùng có thể lựa chọn:
 
-| Phím tắt | Chức năng |
-|---|---|
-| `Shift+A` | Add > Armature (thêm bone mới) |
-| `Tab` | Chuyển giữa Object Mode và Edit Mode của Armature |
-| `Ctrl+Tab` | Chuyển nhanh sang Pose Mode |
-| `E` | Extrude — kéo dài chuỗi bone từ Tail |
-| `G` / `R` / `S` | Move / Rotate / Scale bone (Edit Mode hoặc Pose Mode) |
-| `N` | Mở sidebar xem thông tin bone (Roll, Length...) |
+* **Head**: điểm gốc của bone.
+* **Body**: phần thân, dùng để chọn toàn bộ bone.
+* **Tail**: điểm cuối của bone.
 
-## 5. Lưu ý & lỗi thường gặp
+```text
+       Tail
+        ●
+       / \
+      /   \
+     /     \
+    /       \
+   ●─────────
+  Head
+```
 
-- Nhầm lẫn giữa Edit Mode (chỉnh cấu trúc xương) và Pose Mode (tạo dáng/animate) — thao tác nhầm mode dễ làm hỏng rig.
-- Không đặt tên bone rõ ràng (ví dụ Bone.001, Bone.002) khiến việc quản lý rig phức tạp về sau khó khăn.
-- Quên rằng xoay bone ở Object Mode sẽ xoay toàn bộ Armature, không phải một bone riêng lẻ.
-- Bỏ qua Roll của bone khiến hướng xoay không tự nhiên khi thiết lập IK hoặc constraint sau này.
+Khi chọn từng phần:
 
-## 6. Checklist thực hành
+| Phần được chọn | Kết quả khi nhấn `G`                           |
+| -------------- | ---------------------------------------------- |
+| Head           | Di chuyển điểm đầu và thay đổi chiều dài bone  |
+| Tail           | Di chuyển điểm cuối và thay đổi chiều dài bone |
+| Body           | Di chuyển toàn bộ bone                         |
 
-- [ ] Đã thêm một Armature mới vào scene.
-- [ ] Đã hiểu và xác định được Head, Tail của bone.
-- [ ] Đã thử extrude để tạo chuỗi nhiều bone.
-- [ ] Đã chuyển qua lại giữa Object Mode, Edit Mode, Pose Mode.
-- [ ] Đã đổi tên ít nhất một bone cho dễ quản lý.
+### 2.2. Armature
 
-## 7. Tóm tắt
+**Armature** là một object chứa một hoặc nhiều bone.
 
-Bone là thành phần cốt lõi của Armature, được chỉnh cấu trúc ở Edit Mode và animate ở Pose Mode. Hiểu rõ Head/Tail/Roll và ba chế độ làm việc là nền tảng bắt buộc trước khi xây dựng rig phức tạp hơn cho nhân vật.
+```text
+Armature
+├── Bone 1
+├── Bone 2
+├── Bone 3
+└── Bone 4
+```
+
+Mesh là phần hình học nhìn thấy, còn Armature là bộ khung được dùng để điều khiển và tạo chuyển động cho mesh.
+
+---
+
+## 3. Chuẩn bị mesh con rắn
+
+### 3.1. Tạo thân rắn từ Cube
+
+Bài học sử dụng Cube mặc định làm thân rắn.
+
+Các bước:
+
+1. Giữ lại Cube mặc định.
+2. Chuyển sang Front View bằng phím `Numpad 1`.
+3. Scale Cube theo trục X:
+
+```text
+S → X
+```
+
+4. Kéo dài Cube thành một khối dài khoảng **4 mét**.
+
+Hình dạng ban đầu:
+
+```text
+┌───────────────────────────────┐
+│                               │
+└───────────────────────────────┘
+```
+
+---
+
+## 4. Vì sao mesh cần nhiều topology?
+
+Nếu Cube chỉ có các đỉnh ở hai đầu, mesh sẽ không thể uốn cong mượt.
+
+```text
+Mesh quá ít topology:
+
+●──────────────────────────────●
+
+Không có các điểm trung gian để tạo đường cong.
+```
+
+Khi bone xoay, Blender cần nhiều đỉnh nằm dọc theo mesh để phân bố biến dạng.
+
+### 4.1. Thêm Loop Cut
+
+1. Chọn Cube.
+2. Nhấn `Tab` để vào Edit Mode.
+3. Nhấn:
+
+```text
+Ctrl + R
+```
+
+4. Cuộn con lăn chuột để tăng số lượng đường cắt.
+5. Tạo khoảng **10 Loop Cut**.
+6. Nhấn chuột trái hai lần để xác nhận và giữ các đường cắt ở vị trí giữa.
+
+Kết quả:
+
+```text
+┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
+│   │   │   │   │   │   │   │   │   │   │   │
+└───┴───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘
+```
+
+Số lượng không nhất thiết phải chính xác tuyệt đối. Có thể sử dụng 9, 10 hoặc 11 đường cắt mà không ảnh hưởng quá nhiều đến bài thực hành.
+
+---
+
+## 5. Làm mượt mesh bằng Subdivision Surface
+
+Sau khi tạo Loop Cut, thêm modifier để tăng topology và làm bề mặt mượt hơn.
+
+### Các bước thực hiện
+
+1. Chuyển về Object Mode.
+2. Mở tab **Modifiers**, có biểu tượng cờ lê.
+3. Chọn:
+
+```text
+Add Modifier → Subdivision Surface
+```
+
+Subdivision Surface sẽ:
+
+* Chia nhỏ mỗi mặt thành nhiều mặt nhỏ hơn.
+* Làm mesh tròn và mềm mại hơn.
+* Tạo thêm topology để mesh biến dạng mượt hơn khi bone chuyển động.
+
+```text
+Mesh ban đầu
+      ↓
+Subdivision Surface
+      ↓
+Nhiều mặt hơn
+      ↓
+Biến dạng mượt hơn
+```
+
+Khi vào Edit Mode, bạn vẫn nhìn thấy topology gốc. Bề mặt mượt bên ngoài là kết quả do modifier tạo ra.
+
+---
+
+## 6. Thêm Armature
+
+### Các bước thực hiện
+
+1. Chuyển về Object Mode.
+2. Chuyển sang Front View bằng `Numpad 1`.
+3. Nhấn:
+
+```text
+Shift + A
+```
+
+4. Chọn:
+
+```text
+Armature
+```
+
+Blender sẽ thêm một bone mặc định tại vị trí 3D Cursor.
+
+> Trong bản ghi âm, tổ hợp `Shift + A` đôi khi bị nhận nhầm thành “Shift 8”. Phím đúng để mở menu Add trong Blender là `Shift + A`.
+
+---
+
+## 7. Hiển thị bone phía trước mesh
+
+Bone mới có thể bị mesh che khuất.
+
+Để luôn nhìn thấy bone:
+
+1. Chọn Armature.
+2. Mở **Object Data Properties**, biểu tượng hình người màu xanh.
+3. Mở mục **Viewport Display**.
+4. Bật tùy chọn:
+
+```text
+In Front
+```
+
+Khi bật **In Front**, các bone luôn được hiển thị phía trước mesh, kể cả khi chúng thực tế nằm bên trong mô hình.
+
+---
+
+## 8. Ba chế độ làm việc với Armature
+
+Armature có ba chế độ quan trọng.
+
+| Chế độ          | Công dụng                                   |
+| --------------- | ------------------------------------------- |
+| **Object Mode** | Di chuyển, xoay hoặc scale toàn bộ Armature |
+| **Edit Mode**   | Tạo và chỉnh sửa cấu trúc bộ xương          |
+| **Pose Mode**   | Tạo dáng và animate các bone                |
+
+### Sơ đồ quy trình
+
+```text
+Object Mode
+    │
+    ├── Edit Mode
+    │      └── Xây dựng và chỉnh sửa bộ xương
+    │
+    └── Pose Mode
+           └── Tạo dáng và animation
+```
+
+### Quy tắc quan trọng
+
+* Xây dựng bộ xương trong **Edit Mode**.
+* Tạo dáng và animate trong **Pose Mode**.
+* Không sử dụng Object Mode để xoay riêng từng bone.
+
+---
+
+## 9. Đặt bone đầu tiên
+
+1. Chọn Armature.
+2. Chuyển sang Edit Mode.
+3. Chọn phần Body của bone.
+4. Nhấn `G` và di chuyển bone về gần đầu con rắn.
+5. Chọn Head hoặc Tail để chỉnh chiều dài bone.
+
+Bone đầu tiên không nhất thiết phải nằm sát mép ngoài cùng. Nó chỉ cần bao phủ vùng đầu tiên của mesh mà nó sẽ điều khiển.
+
+Ví dụ:
+
+```text
+Mesh:
+┌──────────────────────────────────────┐
+│                                      │
+└──────────────────────────────────────┘
+
+Bone đầu tiên:
+    ●────────────●
+```
+
+---
+
+## 10. Tạo chuỗi bone bằng Extrude
+
+Để tạo bone tiếp theo:
+
+1. Chọn Tail của bone hiện tại.
+2. Nhấn:
+
+```text
+E
+```
+
+3. Khóa theo trục X:
+
+```text
+X
+```
+
+4. Kéo bone mới sang bên phải.
+5. Nhấn chuột trái để xác nhận.
+
+Tiếp tục lặp lại thao tác đến khoảng giữa thân rắn.
+
+```text
+Bone 1       Bone 2       Bone 3
+●────────●────────────●────────────●
+```
+
+Khi Extrude từ Tail, Blender tự động:
+
+* Tạo bone mới.
+* Nối bone mới với bone trước.
+* Thiết lập quan hệ cha–con giữa hai bone.
+
+---
+
+## 11. Điều chỉnh độ dài các bone
+
+Các bone không nhất thiết phải có chiều dài chính xác bằng nhau. Tuy nhiên, chuỗi bone tương đối đồng đều sẽ giúp animation dễ kiểm soát hơn.
+
+Để điều chỉnh:
+
+1. Chọn joint giữa hai bone.
+2. Nhấn:
+
+```text
+G → X
+```
+
+3. Di chuyển joint dọc theo trục X.
+
+Có thể sử dụng các đường lưới trong viewport để căn chỉnh.
+
+```text
+Không đều:
+
+●────●────────●───●
+
+Tương đối đều:
+
+●─────●─────●─────●
+```
+
+---
+
+## 12. Nhân đôi chuỗi bone
+
+Sau khi tạo được nửa đầu của chuỗi:
+
+1. Đảm bảo đang ở Edit Mode.
+2. Chọn toàn bộ các bone đã tạo.
+3. Nhấn:
+
+```text
+Shift + D
+```
+
+4. Khóa theo trục X:
+
+```text
+X
+```
+
+5. Di chuyển bản sao sang nửa còn lại của mesh.
+
+Lúc này Armature chứa hai chuỗi bone riêng biệt:
+
+```text
+Chuỗi 1                         Chuỗi 2
+●──●──●──●                  ●──●──●──●
+```
+
+Hai chuỗi nằm trong cùng một Armature nhưng chưa được kết nối với nhau.
+
+---
+
+## 13. Quan hệ cha–con giữa các bone
+
+Trong một chuỗi bone:
+
+* Bone đứng trước thường là **Parent**.
+* Bone tiếp theo là **Child**.
+* Khi Parent xoay, Child sẽ chuyển động theo.
+* Child vẫn có thể xoay độc lập so với Parent.
+
+Ví dụ:
+
+```text
+Bone cha
+   │
+   └── Bone con
+          │
+          └── Bone cháu
+```
+
+Khi xoay bone cha:
+
+```text
+Trước:
+●────●────●────●
+
+Sau:
+      ●
+     /
+    ●
+   /
+  ●────●
+```
+
+Tất cả bone con phía sau đều chịu ảnh hưởng.
+
+---
+
+## 14. Kiểm tra trong Pose Mode
+
+Để kiểm tra hệ thống phân cấp:
+
+1. Chuyển sang Pose Mode.
+2. Chọn một bone.
+3. Bone được chọn sẽ hiển thị màu xanh.
+4. Nhấn:
+
+```text
+R
+```
+
+5. Xoay bone.
+
+Nếu các bone được parenting đúng, những bone con phía sau sẽ chuyển động theo.
+
+Ví dụ giống cấu trúc cánh tay:
+
+```text
+Vai → Cánh tay → Cẳng tay → Bàn tay
+```
+
+* Xoay vai: toàn bộ phần còn lại chuyển động.
+* Xoay khuỷu tay: chỉ cẳng tay và bàn tay chuyển động.
+* Xoay bàn tay: chỉ bàn tay chuyển động.
+
+---
+
+## 15. Kết nối hai chuỗi bone
+
+Hai chuỗi bone được Duplicate vẫn đang tách rời nhau. Vì vậy, xoay chuỗi đầu tiên sẽ không tác động đến chuỗi thứ hai.
+
+Để kết nối:
+
+1. Quay lại Edit Mode.
+2. Chọn bone muốn trở thành **Child** trước.
+3. Giữ `Shift` và chọn bone muốn trở thành **Parent** sau cùng.
+4. Bone được chọn cuối cùng sẽ có màu vàng, cho biết đây là Active Bone.
+5. Nhấn:
+
+```text
+Ctrl + P
+```
+
+6. Chọn:
+
+```text
+Connected
+```
+
+### Thứ tự chọn
+
+```text
+Chọn Child trước
+       ↓
+Chọn Parent sau
+       ↓
+Ctrl + P
+       ↓
+Connected
+```
+
+Sau khi chọn **Connected**, Blender sẽ di chuyển đầu của bone con đến Tail của bone cha để hai bone nối liền nhau.
+
+```text
+Trước:
+
+●────●        ●────●
+
+Sau:
+
+●────●────────●────●
+```
+
+---
+
+## 16. Connected và Keep Offset
+
+Khi nhấn `Ctrl + P`, Blender cung cấp hai lựa chọn chính.
+
+### 16.1. Connected
+
+* Bone con được nối trực tiếp với Tail của bone cha.
+* Head của bone con và Tail của bone cha nằm cùng một vị trí.
+* Phù hợp với các chuỗi xương liên tục như:
+
+  * Cột sống
+  * Đuôi
+  * Rắn
+  * Tay
+  * Chân
+
+```text
+Parent       Child
+●────────────●────────────●
+             ↑
+       Joint dùng chung
+```
+
+### 16.2. Keep Offset
+
+* Bone con vẫn là con của bone cha.
+* Bone con không bị di chuyển đến vị trí bone cha.
+* Giữa hai bone có thể tồn tại một khoảng cách.
+* Blender hiển thị quan hệ này bằng một đường nét đứt.
+
+```text
+Parent                 Child
+●────────●  . . . . .  ●────────●
+             Offset
+```
+
+Dù không chạm nhau, khi Parent chuyển động, Child vẫn chịu ảnh hưởng.
+
+### So sánh
+
+| Thuộc tính                                | Connected   | Keep Offset    |
+| ----------------------------------------- | ----------- | -------------- |
+| Có quan hệ cha–con                        | Có          | Có             |
+| Hai bone chạm nhau                        | Có          | Không bắt buộc |
+| Bone con bị di chuyển khi parenting       | Có          | Không          |
+| Có đường nét đứt thể hiện quan hệ         | Không       | Có             |
+| Phù hợp với chuỗi xương liên tục          | Rất phù hợp | Ít phù hợp     |
+| Phù hợp với controller hoặc bone tách rời | Ít phù hợp  | Phù hợp        |
+
+---
+
+## 17. Tạo bone có Offset để thử nghiệm
+
+Để quan sát Keep Offset:
+
+1. Vào Edit Mode.
+2. Chọn một bone bất kỳ.
+3. Nhấn:
+
+```text
+Shift + D
+```
+
+4. Di chuyển bone sao chép đến một vị trí khác.
+
+Bone mới vẫn có thể duy trì quan hệ với bone cũ. Blender hiển thị một đường nét đứt màu đen giữa chúng.
+
+Khi chuyển sang Pose Mode và xoay bone cha, bone nằm cách xa vẫn chuyển động theo.
+
+Sau khi thử nghiệm:
+
+1. Quay lại Edit Mode.
+2. Chọn bone thử nghiệm.
+3. Nhấn `X` hoặc `Delete`.
+4. Chọn **Delete Bones**.
+
+---
+
+## 18. Cấu trúc hoàn chỉnh của rig con rắn
+
+Sau bài học, hệ thống sẽ có dạng:
+
+```text
+Armature
+│
+└── Bone 1
+    └── Bone 2
+        └── Bone 3
+            └── Bone 4
+                └── Bone 5
+                    └── Bone 6
+                        └── Bone 7
+                            └── Bone 8
+```
+
+Mỗi bone là con của bone đứng trước, tạo thành một chuỗi liên tục chạy dọc theo thân rắn.
+
+```text
+Đầu rắn                                      Đuôi rắn
+   ●────●────●────●────●────●────●────●────●
+```
+
+Khi một bone ở gần đầu chuỗi xoay, các bone phía sau sẽ chuyển động theo.
+
+---
+
+## 19. Quy trình thực hành hoàn chỉnh
+
+```text
+Cube mặc định
+      ↓
+Scale dài theo trục X
+      ↓
+Thêm khoảng 10 Loop Cut
+      ↓
+Thêm Subdivision Surface
+      ↓
+Thêm Armature
+      ↓
+Bật In Front
+      ↓
+Vào Edit Mode
+      ↓
+Đặt bone đầu tiên
+      ↓
+Extrude thành chuỗi bone
+      ↓
+Duplicate chuỗi sang nửa còn lại
+      ↓
+Ctrl + P → Connected
+      ↓
+Kiểm tra trong Pose Mode
+      ↓
+Lưu file
+```
+
+---
+
+## 20. Phím tắt và công cụ quan trọng
+
+| Phím tắt/Công cụ        | Chức năng                                  |
+| ----------------------- | ------------------------------------------ |
+| `Numpad 1`              | Chuyển sang Front View                     |
+| `Shift + A`             | Mở menu Add                                |
+| `Tab`                   | Chuyển giữa Object Mode và Edit Mode       |
+| `Ctrl + Tab`            | Mở menu chuyển sang Pose Mode              |
+| `Ctrl + R`              | Thêm Loop Cut cho mesh                     |
+| `E`                     | Extrude bone mới                           |
+| `Shift + D`             | Duplicate bone                             |
+| `Ctrl + P`              | Tạo quan hệ Parent giữa các bone           |
+| `G`                     | Di chuyển bone hoặc joint                  |
+| `R`                     | Xoay bone                                  |
+| `S`                     | Scale                                      |
+| `X`                     | Khóa thao tác theo trục X hoặc mở menu xóa |
+| `A`                     | Chọn toàn bộ                               |
+| `Alt + A`               | Bỏ chọn toàn bộ trong một số keymap        |
+| `Delete`                | Xóa bone                                   |
+| **In Front**            | Luôn hiển thị bone phía trước mesh         |
+| **Subdivision Surface** | Làm mượt và tăng topology cho mesh         |
+
+---
+
+## 21. Lưu ý quan trọng
+
+### 21.1. Mesh phải có đủ topology
+
+Nếu mesh chỉ có ít vertex, bone không thể tạo ra đường cong mượt.
+
+```text
+Ít vertex  → biến dạng cứng
+Nhiều vertex → biến dạng mượt
+```
+
+### 21.2. Phải đúng chế độ làm việc
+
+* Chỉnh hình dạng và cấu trúc bone trong **Edit Mode**.
+* Thử chuyển động và animate trong **Pose Mode**.
+* Di chuyển toàn bộ hệ thống trong **Object Mode**.
+
+### 21.3. Thứ tự chọn khi Parent
+
+Khi dùng `Ctrl + P`:
+
+1. Chọn bone con trước.
+2. Chọn bone cha sau.
+3. Bone cha phải là Active Bone, thường được hiển thị màu vàng.
+
+### 21.4. Duplicate không đồng nghĩa với Connected
+
+Các bone được Duplicate có thể nằm trong cùng Armature nhưng vẫn thuộc hai chuỗi hierarchy khác nhau. Cần parenting chúng bằng `Ctrl + P`.
+
+### 21.5. Không cần các bone dài tuyệt đối bằng nhau
+
+Sự chênh lệch nhỏ không gây ảnh hưởng đáng kể. Tuy nhiên, bone tương đối đồng đều sẽ giúp chuyển động của con rắn tự nhiên hơn.
+
+### 21.6. Lưu file sau bài học
+
+Rig sẽ được sử dụng trong bài tiếp theo để animate con rắn. Vì vậy, cần lưu file trước khi kết thúc.
+
+---
+
+## 22. Lỗi thường gặp
+
+### Lỗi 1: Không nhìn thấy bone
+
+**Nguyên nhân:** Bone nằm bên trong mesh.
+
+**Cách khắc phục:**
+
+```text
+Armature Data Properties
+→ Viewport Display
+→ In Front
+```
+
+### Lỗi 2: Mesh không uốn cong
+
+**Nguyên nhân:** Mesh có quá ít vertex hoặc chưa có Loop Cut.
+
+**Cách khắc phục:**
+
+* Thêm Loop Cut.
+* Thêm Subdivision Surface.
+* Đảm bảo có đủ topology dọc theo chiều uốn.
+
+### Lỗi 3: Xoay bone nhưng các bone phía sau không đi theo
+
+**Nguyên nhân:** Các chuỗi bone chưa được parenting.
+
+**Cách khắc phục:**
+
+```text
+Edit Mode
+→ Chọn Child
+→ Chọn Parent
+→ Ctrl + P
+→ Connected
+```
+
+### Lỗi 4: Hai bone có quan hệ nhưng không nối liền nhau
+
+**Nguyên nhân:** Đã chọn **Keep Offset** thay vì **Connected**.
+
+**Cách khắc phục:**
+
+* Xóa quan hệ cũ nếu cần.
+* Parent lại và chọn **Connected**.
+
+### Lỗi 5: Thay đổi cấu trúc rig khi chỉ muốn tạo dáng
+
+**Nguyên nhân:** Đang thao tác trong Edit Mode.
+
+**Cách khắc phục:** Chuyển sang Pose Mode trước khi xoay bone để tạo dáng.
+
+---
+
+## 23. Checklist thực hành
+
+### Chuẩn bị mesh
+
+* [ ] Đã kéo dài Cube theo trục X.
+* [ ] Đã tạo khoảng 10 Loop Cut.
+* [ ] Đã thêm Subdivision Surface.
+* [ ] Mesh có đủ topology để uốn cong.
+
+### Tạo Armature
+
+* [ ] Đã thêm một Armature.
+* [ ] Đã bật tùy chọn In Front.
+* [ ] Đã đặt bone đầu tiên bên trong thân rắn.
+* [ ] Đã Extrude thành chuỗi bone đến giữa thân.
+
+### Hoàn thiện hierarchy
+
+* [ ] Đã Duplicate chuỗi bone sang nửa còn lại.
+* [ ] Đã kết nối hai chuỗi bằng `Ctrl + P`.
+* [ ] Đã chọn tùy chọn Connected.
+* [ ] Đã kiểm tra chuyển động trong Pose Mode.
+* [ ] Đã hiểu sự khác nhau giữa Connected và Keep Offset.
+* [ ] Đã xóa bone thử nghiệm không cần thiết.
+* [ ] Đã lưu file để sử dụng trong bài sau.
+
+---
+
+## 24. Tóm tắt bài học
+
+Bone là thành phần cơ bản của hệ thống rigging, còn Armature là object chứa toàn bộ các bone. Trước khi rig một mesh, cần đảm bảo mesh có đủ topology để biến dạng mượt. Trong bài học này, Cube được kéo dài để tạo thân rắn, sau đó được bổ sung Loop Cut và Subdivision Surface.
+
+Bộ xương được xây dựng trong Edit Mode bằng cách Extrude các bone thành một chuỗi. Các bone có quan hệ cha–con, vì vậy khi bone cha xoay trong Pose Mode, các bone con phía sau sẽ chuyển động theo.
+
+Hai kiểu parenting cần ghi nhớ là:
+
+* **Connected**: bone con nối trực tiếp với bone cha.
+* **Keep Offset**: bone con có quan hệ với bone cha nhưng vẫn giữ khoảng cách.
+
+Sau khi hoàn thiện chuỗi bone và kiểm tra hierarchy, mô hình rắn đã sẵn sàng cho bước gắn Armature vào mesh và tạo animation trong bài tiếp theo.

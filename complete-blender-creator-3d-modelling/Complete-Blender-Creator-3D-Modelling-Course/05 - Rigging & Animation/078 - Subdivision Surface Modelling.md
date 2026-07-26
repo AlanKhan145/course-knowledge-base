@@ -1,430 +1,991 @@
 # 078 — Subdivision Surface Modelling
-In this lecture, we're going to make a television using subdivision surface modeling, and this will
 
-work as the head for a character we're going to make so we can animate a walk cycle.
+| Thuộc tính             | Nội dung                                                              |
+| ---------------------- | --------------------------------------------------------------------- |
+| **Module**             | Module 05 — Rigging & Animation                                       |
+| **Bài học**            | Subdivision Surface Modelling                                         |
+| **Thời lượng**         | 10:48                                                                 |
+| **Sản phẩm thực hành** | Phần thân TV bo tròn                                                  |
+| **Mục đích sử dụng**   | Làm phần đầu cho nhân vật hoạt hình                                   |
+| **Kỹ thuật chính**     | Subdivision Surface, Support Loop, Mirror, Auto Mirror, Box Modelling |
 
-So I'm in a new start up file and to create our TV, I'll use the default cube, so I'll select that.
+---
 
-And to give it some roundness, I'll add the subdivision surface modifier.
+## 1. Giới thiệu bài học
 
-So I'll come across to the modifier properties here at modifier and subdivision surface just there.
+Trong bài này, chúng ta sẽ dựng phần thân của một chiếc TV bằng kỹ thuật **Subdivision Surface Modelling**.
 
-So when I add it, it's one level of subdivisions.
+Chiếc TV sau đó sẽ được sử dụng làm phần đầu cho một nhân vật. Nhân vật này sẽ tiếp tục được hoàn thiện và dùng để tạo một **walk cycle** — chu kỳ hoạt ảnh đi bộ.
 
-So if I move in a bit and I'll go to edit mode so you can see the original shape with one level, each
+Quá trình dựng hình bắt đầu từ **Cube mặc định**, sau đó sử dụng:
 
-face is divided into four.
+* Modifier **Subdivision Surface** để làm mượt hình khối.
+* Các **support loop** để kiểm soát độ bo tròn.
+* Modifier **Mirror** để chỉ cần dựng một nửa mô hình.
+* Công cụ **Auto Mirror** để tự động chia đôi mesh.
+* Extrude và Edge Slide để tạo phần màn hình TV.
 
-So one, two, three, four on this side and with that subdivision it smooths it out.
+---
 
-Now just quickly undo those steps and show you that because this is used so often as a modifier, there's
+## 2. Mục tiêu bài học
 
-a really handy shortcut.
+Sau khi hoàn thành bài học, anh có thể:
 
-If I press control one, you can see it adds the modifier there with one level of subdivision.
+* Hiểu nguyên lý cơ bản của modifier **Subdivision Surface**.
+* Thêm nhanh Subdivision Surface bằng phím tắt.
+* Kiểm soát độ sắc và độ cong bằng các **support loop**.
+* Hiểu ảnh hưởng của khoảng cách giữa các edge loop.
+* Sử dụng **Auto Mirror** để tạo modifier Mirror.
+* Hiểu tầm quan trọng của thứ tự modifier trong **modifier stack**.
+* Chỉnh hình khối bằng X-Ray, Scale, Grab và Edge Slide.
+* Tạo khu vực lõm vào cho màn hình TV.
+* Hoàn thiện phần thân TV bo tròn để tiếp tục ở bài sau.
 
-If I press control two, it's two levels and control three is three levels.
+---
 
-So it's dividing each face into four, three times and you can see it ends up being quite close to a
+# 3. Nguyên lý của Subdivision Surface
 
-sphere because it's all been smoothed out.
+## 3.1. Subdivision Surface là gì?
 
-It's worth pointing out that the render level is usually set a little bit higher than the viewport levels,
+**Subdivision Surface** là một modifier có tác dụng:
 
-so that when you render, it's even smoother.
+1. Chia mỗi mặt của mesh thành nhiều mặt nhỏ hơn.
+2. Nội suy lại vị trí các điểm.
+3. Làm bề mặt trở nên cong và mượt hơn.
 
-And when you're in the viewport you've got fast navigation.
+Với một mặt tứ giác, mỗi lần subdivision sẽ chia mặt đó thành bốn mặt nhỏ hơn.
 
-So what I'm going to do is put the render levels up to three.
+```text
+Một mặt ban đầu
+┌───────────┐
+│           │
+│           │
+└───────────┘
 
-So it's the same as my viewport.
+Sau một cấp subdivision
+┌─────┬─────┐
+│     │     │
+├─────┼─────┤
+│     │     │
+└─────┴─────┘
+```
 
-And if you've got a slow machine, then do put this down to two.
+Khi áp dụng lên Cube, các cạnh và góc vuông sẽ được nội suy thành một hình dạng tròn hơn.
 
-If you find that it's lagging at all, most computers should be able to handle three levels without
+---
 
-a problem.
+## 3.2. Thêm Subdivision Surface bằng menu
 
-So we should be okay with three.
+Có thể thêm modifier theo đường dẫn:
 
-Okay.
+```text
+Modifier Properties
+        ↓
+Add Modifier
+        ↓
+Subdivision Surface
+```
 
-So pause the video here and add a subdivision service modifier with 2 to 3 levels of subdivisions.
+Sau khi thêm, modifier mặc định thường có một cấp subdivision trong viewport.
 
-Okay.
+---
 
-So we'll go back into edit mode.
+## 3.3. Phím tắt thêm nhanh Subdivision Surface
 
-Now you can follow along with me if you like, but I'm just going to show you some aspects of modeling
+Subdivision Surface được sử dụng rất thường xuyên, vì vậy Blender cung cấp các phím tắt:
 
-with subdivision surfaces.
+| Phím tắt   | Kết quả                                       |
+| ---------- | --------------------------------------------- |
+| `Ctrl + 1` | Thêm Subdivision Surface với Viewport Level 1 |
+| `Ctrl + 2` | Thêm Subdivision Surface với Viewport Level 2 |
+| `Ctrl + 3` | Thêm Subdivision Surface với Viewport Level 3 |
 
-First of all, if I press control R to do a loop, cut around the middle and double click instantly,
+Ví dụ:
 
-you can see my shape change.
+```text
+Cube
+  │
+  ├── Ctrl + 1 → Subdivision Level 1
+  ├── Ctrl + 2 → Subdivision Level 2
+  └── Ctrl + 3 → Subdivision Level 3
+```
 
-If I come around to the front, you can see that it's a lot flatter along the top and then it curves
+Cấp subdivision càng cao:
 
-around a bit more evenly around here.
+* Bề mặt càng mượt.
+* Số lượng polygon càng lớn.
+* Blender càng cần nhiều tài nguyên để xử lý.
 
-And if I view from the side, it's still fairly circular.
+---
 
-So what happens when I add in the loop cut?
+## 3.4. Viewport Levels và Render Levels
 
-I'm obviously adding in more faces and therefore more subdivisions.
+Modifier Subdivision Surface có hai thông số quan trọng:
 
-And if I come round to the top, let's say, and press G, so edge slide and move that across.
+| Thông số            | Chức năng                                     |
+| ------------------- | --------------------------------------------- |
+| **Levels Viewport** | Số cấp subdivision hiển thị khi đang làm việc |
+| **Render Levels**   | Số cấp subdivision sử dụng khi render         |
 
-You can see that the curve becomes even sharper and it's more rounded at the back where it loses that
+Thông thường, Render Levels có thể cao hơn Viewport Levels để:
 
-extra edge loop.
+* Giữ viewport nhẹ và dễ thao tác.
+* Vẫn tạo được kết quả render mượt.
 
-So when we're adding geometry with loop cuts and extrusions, it will affect the curvy ness of the shape
+Trong bài học:
 
-and the sharpness of the edges.
+* Viewport được đặt khoảng **2–3 levels**.
+* Render Levels được đặt thành **3**.
+* Máy cấu hình yếu có thể giảm xuống **2**.
 
-If I press g g and bring it right to the edge like this, you can see that it becomes a lot sharper.
+> Không nên tăng subdivision quá cao khi chưa cần thiết, vì số polygon sẽ tăng rất nhanh.
 
-If I press control R and do another loop cut around here and then bring that right to the edge as well
+---
 
-and I'll go back into object mode.
+# 4. Support Loop và cách kiểm soát độ cong
 
-We get quite a sharp line across here as those loop cuts get closer together.
+## 4.1. Vấn đề khi chỉ dùng Subdivision Surface
 
-So back into edit mode, often these are called supporting loops because they support the structure
+Nếu chỉ thêm Subdivision Surface vào Cube, hình khối sẽ trở nên quá tròn và gần giống một quả cầu.
 
-of the edges.
+Để tạo một chiếc TV, chúng ta cần:
 
-So this is something to bear in mind as you're modeling with a subdivision surface modifier on your
+* Một số khu vực bo tròn mềm mại.
+* Một số cạnh vẫn tương đối vuông và rõ ràng.
 
-object.
+Giải pháp là thêm các **support loop**.
 
-So I'll undo those steps and go back to my original cue and let's start modeling our TV.
+---
 
-First of all, I'll add a mirror modifier, so I'll press on my keyboard and go to edit and use the
+## 4.2. Support loop là gì?
 
-auto mirror add on.
+Support loop là một edge loop được đặt gần cạnh chính để giúp giữ hình dạng của cạnh đó sau khi subdivision.
 
-Remember that's in edit preferences, add ons, type in auto and you should see the auto mirror just
+```text
+Không có support loop:
 
-there.
+Cạnh gốc
+    ↓
+╭──────────╮
+│          │
+╰──────────╯
+Bo tròn mạnh
 
-Make sure that's ticked and close that down.
 
-Now I want it to be in the x axis.
+Có support loop gần cạnh:
 
-So along the x axis here and I want the positive orientation so that I'm going to be working on this
+Support loop
+      ↓
+┌─╮
+│ ╰────────╮
+│          │
+╰──────────╯
+Cạnh sắc hơn
+```
 
-side, which is the positive X, just to make sure that you've got your object origin in the center
+Nguyên tắc quan trọng:
 
-when doing this.
+> Support loop càng gần cạnh chính thì cạnh sau subdivision càng sắc.
 
-And then I'll press the auto mirror button and you can see it's deleted.
+---
 
-Half of my shape added the mirror modifier and it's got clipping on so the middle is stuck together.
+## 4.3. Thêm support loop
 
-What you'll also notice is that our shape has changed.
+Sử dụng:
 
-So we have added a loop, cut down the middle, and therefore that has slightly sharpened up the curve
+```text
+Ctrl + R
+```
 
-across here.
+Sau đó:
 
-One other thing that's worth noting is that I have my subdivision surface modifier first and then the
+1. Di chuyển chuột đến vùng cần tạo loop.
+2. Nhấn chuột trái để xác nhận.
+3. Di chuyển loop đến vị trí mong muốn.
+4. Nhấn chuột trái lần nữa để đặt vị trí.
 
-mirror second, and the order of these commonly called the stack is important and does make a difference.
+Nhấn chuột phải sau lần xác nhận đầu tiên sẽ đặt loop chính giữa.
 
-And actually it's generally considered bad practice to have the mirror modifier not at the top of your
+---
 
-stack.
+## 4.4. Edge Slide
 
-I'm going to leave it where it is for now because I want to highlight this point later and we can easily
+Để di chuyển một edge loop trên bề mặt mesh, sử dụng:
 
-move these around just by clicking and dragging them and putting them into position.
+```text
+G, G
+```
 
-But like I say, I'll leave that as it is for the moment.
+Edge Slide cho phép cạnh trượt dọc theo topology hiện tại mà không tự do rời khỏi bề mặt mesh.
 
-So pause the video and catch it with me adding a mirror modifier along the x axis using the auto mirror
+```text
+Edge loop ở giữa
+       │
+       ▼
+───────┼────────
 
-add on.
+G, G sang gần cạnh
+                │
+                ▼
+───────────────┼
+```
 
-Okay.
+Khi edge loop được đưa gần cạnh ngoài, cạnh đó trở nên sắc hơn sau subdivision.
 
-So let's try and make the shape of the television, first of all.
+---
 
-I'll come around to the side here and it's a bit round at the moment.
+# 5. Bắt đầu dựng thân TV
 
-So if I press control are to do a loop cut there and left click once and drag it up to the top to maybe
+## 5.1. Khởi tạo mô hình
 
-somewhere around here.
+Bắt đầu từ file Blender mới và sử dụng Cube mặc định.
 
-I'll do the same around the bottom, somewhere around there, not quite as far because we're going to
+Quy trình ban đầu:
 
-have a place for some dials at the bottom there.
+```text
+Cube mặc định
+      ↓
+Thêm Subdivision Surface
+      ↓
+Đặt Viewport Level 2 hoặc 3
+      ↓
+Đặt Render Level khoảng 3
+```
 
-So it's looking a little bit more square.
+Ở thời điểm này, Cube sẽ có dạng tròn gần giống một khối cầu.
 
-But if I go from the top, we can see that we need another loop cut across here to sharpen this area
+---
 
-up here.
+# 6. Thêm Mirror bằng Auto Mirror
 
-So control R and then loop cut there and drag that to the front.
+## 6.1. Tại sao sử dụng Mirror?
 
-And we've got a little bit more of a TV shape there.
+Chiếc TV có hình dạng đối xứng qua trục X.
 
-It's possibly a little bit rounded at the back so we can press control R and maybe bring that back.
+Thay vì chỉnh cả hai bên, chúng ta chỉ cần:
 
-Not quite so far.
+* Dựng một nửa mô hình.
+* Để Mirror tự động tạo nửa còn lại.
 
-Maybe somewhere around here we've got a very sort of square TV.
+```text
+Nửa được dựng          Nửa được Mirror
+       ←──── Trục X ────→
+┌────────────┬────────────┐
+│    Gốc     │   Bản sao  │
+└────────────┴────────────┘
+```
 
-I quite like this sort of rounded shape here, but I think we need a little bit sharper with another
+---
 
-loop cut somewhere around here.
+## 6.2. Bật Auto Mirror Add-on
 
-Okay.
+Mở phần thiết lập add-on:
 
-So pause the video here and add a bit of sharpness with these loop cuts in the same way I've done here.
+```text
+Edit
+  ↓
+Preferences
+  ↓
+Add-ons
+  ↓
+Tìm kiếm: Auto Mirror
+  ↓
+Bật Auto Mirror
+```
 
-Don't panic if it's a little bit different from mine, we can adapt the shape as we're going along.
+Sau khi bật, đóng cửa sổ Preferences.
 
-Okay.
+---
 
-So we've got our curvy cube here and I think it needs to narrow a bit as it goes towards the back.
+## 6.3. Cấu hình Auto Mirror
 
-So I'm going to go to x ray mode so I can select the whole of the back like this.
+Trong bài học, Auto Mirror được thiết lập:
 
-And let's scale that down a bit.
+* Trục đối xứng: **X Axis**.
+* Hướng giữ lại: **Positive X**.
+* Object Origin phải nằm ở giữa mô hình.
+* Bật **Clipping** để các vertex ở đường giữa không bị tách ra.
 
-Now do remember, it doesn't scale in the X in the same way because it's the medium point of the object
+Khi nhấn **Auto Mirror**, Blender sẽ:
 
-selected, not the other side as well.
+1. Tạo đường cắt giữa mô hình.
+2. Xóa một nửa mesh.
+3. Thêm modifier Mirror.
+4. Bật Clipping ở đường giữa.
 
-So I can press scale in the X to scale that a bit further.
+---
 
-I can even press G to grab in the X to bring it in like this as well.
+# 7. Thứ tự modifier trong Modifier Stack
 
-Now obviously it's bending a bit in the middle here so I can select these edges here and G then X to
+Sau khi thêm Auto Mirror, mô hình có hai modifier:
 
-bring those in like this.
+* Subdivision Surface.
+* Mirror.
 
-And we've got a bit of a curve going in and I think I'll scale these in the Z as well to bring that
+Thứ tự của chúng trong danh sách được gọi là **modifier stack**.
 
-down to somewhere around here, perhaps a little bit more adjustment just there.
+```text
+Modifier Stack
 
-And that's about right.
+[ Modifier 1 ]
+      ↓
+[ Modifier 2 ]
+      ↓
+[ Kết quả cuối ]
+```
 
-It might be a little bit longer.
+Blender xử lý modifier từ trên xuống dưới. Vì vậy, thay đổi thứ tự modifier có thể tạo ra kết quả khác nhau.
 
-TV So I press G to grab in the Y this time and move it in a bit.
+Thông thường, cấu trúc hợp lý là:
 
-I'll turn off x ray mode so we can see the final result and that looks a fairly good shape at the moment.
+```text
+Mirror
+   ↓
+Subdivision Surface
+```
 
-So pause the video here if you need to catch up.
+Mirror thường nên nằm phía trên để:
 
-Okay.
+1. Tạo ra toàn bộ hình học đối xứng.
+2. Sau đó Subdivision Surface mới làm mượt toàn bộ kết quả.
 
-Now I'd like to have a little bit more roundness here so I can either select this edge loop here and
+Trong bài, giảng viên tạm thời để thứ tự chưa tối ưu nhằm giải thích thêm về modifier stack ở phần sau.
 
-press g g to edge slide to create that.
+Có thể thay đổi thứ tự bằng cách kéo modifier lên hoặc xuống.
 
-But I don't have to do it that way.
+---
 
-I can actually just select the top edge like this.
+# 8. Tạo hình dáng cơ bản của TV
 
-I'll make sure I get the last one there as well and press g g to edge slide just those.
+## 8.1. Làm phẳng phần trên và dưới
 
-And you can see that rounds out a little bit more.
+Khối ban đầu quá tròn. Để tạo hình TV, thêm các loop cut nằm gần phần trên và dưới.
 
-I could then select these ones here and g g and again it rounds out a little bit further.
+```text
+        Support loop trên
+              ↓
+      ╭────────────╮
+     ╱              ╲
+    │                │
+     ╲              ╱
+      ╰────────────╯
+              ↑
+        Support loop dưới
+```
 
-So there is the option to do that.
+Thực hiện:
 
-But I'll just do that for the moment, because what we can also do is select the very edge just here.
+1. Nhấn `Ctrl + R`.
+2. Tạo một loop gần phía trên.
+3. Tạo một loop gần phía dưới.
+4. Đặt loop phía dưới không quá sát cạnh vì cần dành không gian cho bảng điều khiển TV.
 
-And again, I'll come to front view and just model that curve in like this.
+Kết quả là hình dạng trở nên vuông hơn nhưng vẫn có các góc bo tròn.
 
-And the same with this one here.
+---
 
-G to grab and create a curve like this, I think they're a little bit wider at the bottom.
+## 8.2. Điều chỉnh độ cong theo chiều sâu
 
-Ready for that sort of control panel down here looks about right.
+Nhìn từ Top View hoặc Side View, thêm support loop ở:
 
-Okay.
+* Gần mặt trước.
+* Gần mặt sau.
 
-So take a moment to add a little bit more curvature to this side edges there, pause the video and have
+Mục đích:
 
-a go at that.
+* Làm mặt trước rõ ràng hơn.
+* Hạn chế phần sau bị tròn quá mức.
+* Tạo dáng TV hộp cổ điển.
 
-Okay.
+Không cần đặt tất cả các loop quá sát cạnh. Khoảng cách support loop quyết định độ mềm của vùng chuyển tiếp.
 
-Let's work on the screen at the front.
+---
 
-So I'll press three to go to face mode and select that face.
+## 8.3. Hình dạng dự kiến
 
-And I can press E to extrude in the Y axis to pull that in for a screen.
+```text
+Nhìn từ phía trước
 
-Okay.
+╭──────────────────╮
+│                  │
+│                  │
+│                  │
+╰──────────────────╯
 
-So that's worked reasonably well, but it's very, very rounded.
 
-So look at the shape and have a quick think about how I could make this a little bit more square.
+Nhìn từ bên cạnh
 
-Pause the video, if you like.
+     Mặt trước
+         ↓
+╭─────────────╮
+│              ╲
+│               │
+╰──────────────╯
+               ↑
+            Mặt sau
+```
 
-Okay.
+Mặt trước tương đối phẳng, trong khi thân TV thu nhỏ dần về phía sau.
 
-So if I press control out and do a loop cut around here, I can move it in to make it a little bit more
+---
 
-square or have it a little bit more curved like this.
+# 9. Thu nhỏ phần phía sau TV
 
-So somewhere around there looks good.
+## 9.1. Bật X-Ray
 
-And again, I can press control R and create a sharpness there and controller and a bit of sharpness
+Để chọn được cả vertex ở phía trước và phía sau mesh, bật chế độ X-Ray.
 
-down here.
+Có thể dùng:
 
-So we've got this area for a TV screen, but I feel like it's a little bit too curved around here.
+```text
+Alt + Z
+```
 
-So coming in to the screen itself, have a quick think about how we can sharpen up these lines coming
+Hoặc bật nút X-Ray trên thanh điều khiển viewport.
 
-across here and down here and across here.
+---
 
-Pause the video, if you like.
+## 9.2. Chọn phần mặt sau
 
-Well, if I press control r I can do a loop cut around the middle here and I can move it closer if I
+Ở Side View:
 
-want it sharper or just leave it in the middle by right clicking, which will cancel any movement and
+1. Dùng Box Select để chọn toàn bộ vertex phía sau.
+2. Scale phần này nhỏ lại.
+3. Di chuyển nhẹ để tạo dáng thuôn.
 
-that's sharpened it up nicely.
+Các thao tác có thể sử dụng:
 
-We've got a really sort of rounded looking TV, so pause the video and sharpen up that screen area.
+| Thao tác | Công dụng                      |
+| -------- | ------------------------------ |
+| `S`      | Thu nhỏ toàn bộ vùng được chọn |
+| `S`, `X` | Scale theo trục X              |
+| `S`, `Z` | Scale theo trục Z              |
+| `G`, `X` | Di chuyển theo trục X          |
+| `G`, `Y` | Di chuyển theo trục Y          |
+| `G`, `Z` | Di chuyển theo trục Z          |
 
-The last time I might want to sharpen up the bottom here is this very sort of curved around here.
+> Trục di chuyển phụ thuộc vào hướng và cách mô hình được đặt trong scene.
 
-That's more a preference thing, but I can press control R if I want to and double f click if I want
+---
 
-to sharpen that up at all.
+## 9.3. Lưu ý khi dùng Mirror
 
-Let's see what it looks like with and without.
+Khi chỉ chỉnh một nửa mô hình, tâm scale của phần được chọn không bao gồm nửa được Mirror.
 
-So that's without.
+Vì vậy, đôi khi Scale không tạo ra kết quả giống như khi chỉnh một mesh hoàn chỉnh.
 
-With control z and control shift z to redo.
+Có thể kết hợp:
 
-And actually, I think maybe I prefer the curves, so I'll leave it out.
+* Scale theo từng trục.
+* Di chuyển bằng Grab.
+* Chỉnh riêng các edge hoặc vertex.
 
-Okay.
+---
 
-Now, before doing the television screen, you might want to make any adaptions to the shape.
+## 9.4. Điều chỉnh vùng giữa
 
-Maybe you want the screen to be a little bit bigger, probably easiest in front of you and then x ray
+Sau khi thu nhỏ phần sau, thân TV có thể bị cong hoặc thắt bất thường ở giữa.
 
-mode.
+Để sửa:
 
-Perhaps I'll come round to the side so I can see it a little bit more easily and I can select these
+1. Chọn các edge ở khu vực giữa.
+2. Di chuyển chúng vào trong hoặc ra ngoài.
+3. Scale theo trục Z nếu phần thân quá cao.
+4. Quan sát kết quả ở Object Mode.
 
-edge loops coming through here.
+Quy trình chỉnh sửa nên lặp lại:
 
-A little bit.
+```text
+Chọn vertex hoặc edge
+        ↓
+Di chuyển hoặc Scale
+        ↓
+Chuyển sang Object Mode
+        ↓
+Quan sát bề mặt Subdivision
+        ↓
+Quay lại Edit Mode để sửa tiếp
+```
 
-Tricky to see.
+---
 
-Hopefully you can make that out, but I can select all those going around there and I can G then X to
+# 10. Tinh chỉnh đường cong hai bên
 
-move my screen out a bit wider.
+Thay vì luôn chọn cả edge loop, có thể chọn riêng từng đoạn edge.
 
-But do be aware it is making it slightly less round.
+Ví dụ:
 
-So maybe out to here and I might want to change that top loop coming from here across to here.
+* Chọn cạnh trên ở bên hông.
+* Dùng `G, G` để Edge Slide.
+* Chọn cạnh kế tiếp.
+* Tiếp tục Edge Slide để điều chỉnh độ cong.
 
-And remember you can hold down control to take the shortest route and jpg to edge slide that across
+Cách này giúp tạo một đường cong tùy chỉnh thay vì một hình dạng hoàn toàn đồng đều.
 
-if I want a little bit more roundness to the top.
+```text
+Đường thẳng ban đầu
 
-I won't do that though, because I think that's about right.
+│
+│
+│
+│
 
-And you might want a little bit more of a screen at the top as well.
 
-So the G, then Z and move that up and you've got a little bit more of a screen.
+Sau khi chỉnh từng edge
 
-It's looking a little bit untidy at the back here.
+╮
+│
+│
+╰
+```
 
-So do watch out for those sort of things and I can select these lines here and edge slide them down
+Phần đáy TV có thể được làm rộng hơn một chút để dành không gian cho:
 
-and just this vertex here and go to edge, slide that across.
+* Nút điều khiển.
+* Núm vặn.
+* Loa hoặc bảng điều khiển.
 
-Let's get to object mode and see if that's worked.
+---
 
-That seems to have done an okay job.
+# 11. Tạo khu vực màn hình TV
 
-Okay.
+## 11.1. Chọn mặt trước
 
-So I think that's about the right shape for my TV.
+Chuyển sang Face Select:
 
-Again, you can have a different shape if you like.
+```text
+3
+```
 
-We'll work on the screen in the next lecture, but make sure you're fairly happy with the shape of your
+Sau đó chọn mặt lớn ở phía trước TV.
 
-TV now and make sure you've saved your work.
+---
 
-Ready for next time.
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 05 — Rigging & Animation |
-| **Bài học** | Subdivision Surface Modelling |
-| **Thời lượng** | 10:48 |
-| **Chủ đề chính** | Dựng TV bằng Subdivision Surface |
+## 11.2. Extrude mặt vào trong
 
-## 1. Mục tiêu bài học
+Sử dụng:
 
-- Ôn lại nguyên lý hoạt động của Subdivision Surface modifier.
-- Biết cách dùng Edge Loop và Crease để kiểm soát độ bo tròn của mặt phẳng khi Subdivide.
-- Áp dụng kỹ thuật box modelling kết hợp Subdivision Surface để dựng một chiếc TV có góc bo mềm mại.
-- Hiểu cách bật Wireframe/hiển thị Cage để kiểm tra mesh gốc trong khi xem preview Subdivision.
+```text
+E
+```
 
-## 2. Nội dung chính
+Extrude mặt trước vào trong theo chiều sâu để tạo vùng lõm của màn hình.
 
-Subdivision Surface (thường gọi tắt là Subdiv hoặc SubD) là modifier chia nhỏ các mặt (face) của mesh thành nhiều mặt nhỏ hơn và làm mượt bề mặt theo thuật toán Catmull-Clark, biến một mesh low-poly góc cạnh thành một hình khối bo tròn mềm mại. Đây là kỹ thuật modelling rất phổ biến để tạo các vật thể có bề mặt cong tự nhiên (như TV, đồ nội thất, nhân vật) mà không cần điêu khắc chi tiết từng vertex.
+```text
+Mặt trước ban đầu
 
-Điểm mấu chốt khi làm việc với Subdivision Surface là kiểm soát được phần nào của mesh sẽ được bo tròn và phần nào giữ nguyên góc cạnh sắc. Có hai kỹ thuật chính: thêm Edge Loop hỗ trợ (support loop) đặt gần cạnh cần giữ sắc để "ép" bề mặt subdivide bo cong sát vào cạnh đó hơn, hoặc dùng Edge Crease (Shift+E) để chỉ định một cạnh cụ thể giữ độ sắc theo tỉ lệ (từ 0 = mượt hoàn toàn đến 1 = sắc hoàn toàn như mesh gốc).
+┌──────────────────┐
+│                  │
+│                  │
+└──────────────────┘
 
-Khi dựng một chiếc TV, quy trình thường bắt đầu từ một khối hộp cơ bản (cube), sau đó bevel các cạnh, thêm loop cut ở các vị trí cần giữ hình dạng (viền màn hình, chân đế), rồi áp Subdivision Surface modifier để làm mượt toàn bộ. Cần bật chế độ hiển thị "On Cage" hoặc Wireframe overlay để nhìn thấy đồng thời mesh gốc (control cage) và kết quả sau khi subdivide, giúp điều chỉnh chính xác hơn.
 
-## 3. Quy trình thực hành gợi ý
+Sau khi Extrude vào trong
 
-1. Bắt đầu từ một Cube, chỉnh tỉ lệ thô để có hình dạng gần giống thân TV.
-2. Thêm Loop Cut (Ctrl+R) ở các vị trí cần giữ chi tiết (viền màn hình, góc chân đế).
-3. Áp modifier Subdivision Surface, quan sát bề mặt bị bo tròn quá mức ở những nơi không mong muốn.
-4. Thêm support loop hoặc dùng Edge Crease (Shift+E) tại các cạnh cần giữ sắc.
-5. Bật chế độ hiển thị Wireframe overlay hoặc Edit Mode Display > On Cage để kiểm tra đồng thời mesh gốc và kết quả subdivide.
-6. Tăng Viewport/Render Levels của modifier khi cần độ mượt cao hơn cho khung nhìn cuối.
+┌──────────────────┐
+│  ┌────────────┐  │
+│  │  Màn hình  │  │
+│  └────────────┘  │
+└──────────────────┘
+```
 
-## 4. Phím tắt & công cụ liên quan
+Sau khi extrude, khu vực màn hình vẫn bị bo tròn khá nhiều vì Subdivision Surface.
 
-| Phím tắt | Chức năng |
-|---|---|
-| `Ctrl+R` | Loop Cut and Slide |
-| `Ctrl+B` | Bevel |
-| `Shift+E` | Edge Crease (giữ độ sắc cạnh khi Subdivide) |
-| `Ctrl+2` / `Ctrl+3` | Thêm nhanh Subdivision Surface modifier (Viewport level 2/3) |
-| `Ctrl+1` | Thêm Subdivision Surface modifier với Viewport level 1 |
-| `Z` | Mở pie menu chuyển kiểu hiển thị (Wireframe, Solid...) |
+---
 
-## 5. Lưu ý & lỗi thường gặp
+# 12. Làm rõ viền màn hình bằng support loop
 
-- Áp Subdivision Surface trực tiếp mà không thêm support loop khiến toàn bộ mesh bị bo tròn quá mức, mất chi tiết hình khối gốc.
-- Lạm dụng Edge Crease thay vì support loop có thể tạo ra bề mặt gợn sóng không tự nhiên ở vùng chuyển tiếp.
-- Quên tăng Render Levels khiến kết quả render cuối cùng không đủ mượt dù viewport trông đã ổn.
-- Để mesh có n-gon (mặt nhiều hơn 4 cạnh) ở vùng quan trọng, dễ gây lỗi shading hoặc biến dạng bất thường sau khi subdivide.
+## 12.1. Thêm loop quanh màn hình
 
-## 6. Checklist thực hành
+Sử dụng `Ctrl + R` để thêm support loop gần các cạnh của vùng màn hình.
 
-- [ ] Đã dựng khối hộp cơ bản làm thân TV.
-- [ ] Đã áp modifier Subdivision Surface và quan sát hiệu ứng bo tròn.
-- [ ] Đã thêm support loop hoặc Edge Crease để giữ hình dạng mong muốn.
-- [ ] Đã bật hiển thị On Cage/Wireframe để kiểm tra mesh gốc.
-- [ ] Đã hoàn thiện hình dáng thân TV bo tròn mềm mại.
+Các loop cần được thêm quanh:
 
-## 7. Tóm tắt
+* Mép trái và phải.
+* Mép trên.
+* Mép dưới.
+* Khu vực lõm phía trong màn hình.
 
-Subdivision Surface giúp biến mesh low-poly thành bề mặt bo tròn mượt mà, nhưng cần kiểm soát bằng support loop hoặc Edge Crease để giữ đúng hình dạng mong muốn. Kỹ thuật này được áp dụng trực tiếp để dựng thân chiếc TV trong dự án của module.
+Mục tiêu là tạo một viền màn hình tương đối rõ nhưng vẫn giữ phong cách bo tròn.
+
+---
+
+## 12.2. Khoảng cách quyết định độ sắc
+
+```text
+Support loop xa cạnh
+
+│       │
+│       │
+╰───────╯
+Bo tròn nhiều
+
+
+Support loop gần cạnh
+
+│ │
+│ │
+└─╯
+Sắc hơn
+```
+
+Không nhất thiết phải đặt support loop sát hoàn toàn vào cạnh. Với TV phong cách hoạt hình, nên giữ một mức bo tròn vừa phải.
+
+---
+
+## 12.3. Đặt loop chính giữa
+
+Khi tạo loop bằng `Ctrl + R`:
+
+1. Nhấn chuột trái để tạo loop.
+2. Nhấn chuột phải để hủy việc trượt.
+3. Loop sẽ được đặt chính giữa.
+
+Cách này được sử dụng để tạo thêm độ rõ cho vùng màn hình mà không làm cạnh quá sắc.
+
+---
+
+# 13. Điều chỉnh kích thước màn hình
+
+Sau khi tạo phần lõm, có thể điều chỉnh kích thước màn hình.
+
+## 13.1. Mở rộng màn hình theo chiều ngang
+
+1. Chuyển sang Front View.
+2. Bật X-Ray.
+3. Chọn các edge hoặc vertex tạo thành mép bên của màn hình.
+4. Di chuyển chúng theo trục ngang.
+
+Ví dụ:
+
+```text
+G, X
+```
+
+Do mô hình sử dụng Mirror, chỉ cần chỉnh một bên, bên còn lại sẽ tự động cập nhật.
+
+---
+
+## 13.2. Tăng chiều cao màn hình
+
+Chọn edge ở phần trên của màn hình và di chuyển lên:
+
+```text
+G, Z
+```
+
+Cần quan sát phần topology phía sau vì việc di chuyển edge ở mặt trước có thể làm thay đổi đường cong ở mặt bên.
+
+---
+
+## 13.3. Giữ bề mặt sạch
+
+Sau khi điều chỉnh màn hình, cần kiểm tra:
+
+* Các edge phía sau có bị lệch không.
+* Đường cong bên hông có bị lõm không.
+* Các vertex có bị dồn quá gần nhau không.
+* Bề mặt có xuất hiện nếp gấp bất thường không.
+
+Có thể sử dụng `G, G` để Edge Slide các edge bị lệch về vị trí hợp lý.
+
+---
+
+# 14. Quy trình thực hành hoàn chỉnh
+
+```text
+Cube mặc định
+      ↓
+Thêm Subdivision Surface
+      ↓
+Đặt Viewport và Render Levels
+      ↓
+Bật Auto Mirror
+      ↓
+Mirror theo trục X
+      ↓
+Thêm support loop trên, dưới, trước và sau
+      ↓
+Bật X-Ray
+      ↓
+Thu nhỏ phần sau của TV
+      ↓
+Tinh chỉnh đường cong hai bên
+      ↓
+Chọn mặt trước
+      ↓
+Extrude vào trong để tạo màn hình
+      ↓
+Thêm support loop quanh màn hình
+      ↓
+Điều chỉnh kích thước màn hình
+      ↓
+Kiểm tra topology và bề mặt
+      ↓
+Lưu file
+```
+
+---
+
+# 15. Phím tắt và công cụ sử dụng
+
+| Phím tắt           | Chức năng                            |
+| ------------------ | ------------------------------------ |
+| `Ctrl + 1`         | Thêm Subdivision Surface Level 1     |
+| `Ctrl + 2`         | Thêm Subdivision Surface Level 2     |
+| `Ctrl + 3`         | Thêm Subdivision Surface Level 3     |
+| `Tab`              | Chuyển giữa Object Mode và Edit Mode |
+| `Ctrl + R`         | Thêm Loop Cut                        |
+| `G, G`             | Edge Slide                           |
+| `E`                | Extrude                              |
+| `S`                | Scale                                |
+| `S`, `X`           | Scale theo trục X                    |
+| `S`, `Z`           | Scale theo trục Z                    |
+| `G`, `X`           | Di chuyển theo trục X                |
+| `G`, `Y`           | Di chuyển theo trục Y                |
+| `G`, `Z`           | Di chuyển theo trục Z                |
+| `Alt + Z`          | Bật hoặc tắt X-Ray                   |
+| `1`                | Vertex Select trong Edit Mode        |
+| `2`                | Edge Select trong Edit Mode          |
+| `3`                | Face Select trong Edit Mode          |
+| `Ctrl + Z`         | Undo                                 |
+| `Ctrl + Shift + Z` | Redo                                 |
+| `Ctrl + S`         | Lưu file                             |
+
+> Các phím số `1`, `2`, `3` dùng để chọn Vertex, Edge và Face là hàng số phía trên bàn phím, không phải Numpad.
+
+---
+
+# 16. Những nguyên tắc quan trọng
+
+## 16.1. Topology điều khiển hình dạng Subdivision
+
+Subdivision Surface không tự quyết định mô hình phải trông như thế nào. Hình dạng cuối phụ thuộc vào:
+
+* Vị trí vertex.
+* Khoảng cách giữa các edge loop.
+* Cấu trúc topology.
+* Thứ tự modifier.
+
+---
+
+## 16.2. Edge càng gần nhau, cạnh càng sắc
+
+```text
+Khoảng cách lớn
+Edge ───────── Support
+→ Chuyển tiếp mềm
+
+
+Khoảng cách nhỏ
+Edge ─ Support
+→ Chuyển tiếp sắc
+```
+
+Đây là nguyên tắc cốt lõi của Subdivision Surface Modelling.
+
+---
+
+## 16.3. Không cần mọi chi tiết phải giống tuyệt đối
+
+Hình dạng TV có thể khác một chút so với mẫu.
+
+Điều quan trọng là:
+
+* Silhouette hợp lý.
+* Hai bên đối xứng.
+* Mặt trước đủ rộng cho màn hình.
+* Phần sau thuôn nhẹ.
+* Các góc được bo tròn tự nhiên.
+* Không có vùng bị bóp méo hoặc gợn sóng.
+
+---
+
+# 17. Lỗi thường gặp
+
+## 17.1. Mô hình tròn như quả cầu
+
+**Nguyên nhân:** Chỉ thêm Subdivision Surface mà không có support loop.
+
+**Cách khắc phục:**
+
+* Thêm loop gần phần trên và dưới.
+* Thêm loop gần mặt trước và mặt sau.
+* Điều chỉnh khoảng cách giữa các loop.
+
+---
+
+## 17.2. Cạnh TV quá sắc
+
+**Nguyên nhân:** Support loop được đặt quá gần cạnh ngoài.
+
+**Cách khắc phục:**
+
+* Dùng `G, G` kéo support loop ra xa cạnh.
+* Giữ một khoảng cách nhỏ để tạo vùng bo tròn.
+
+---
+
+## 17.3. Cạnh TV quá mềm
+
+**Nguyên nhân:** Support loop nằm quá xa cạnh cần giữ.
+
+**Cách khắc phục:**
+
+* Dùng Edge Slide đưa support loop đến gần cạnh hơn.
+* Thêm một support loop mới nếu cần.
+
+---
+
+## 17.4. Đường giữa bị tách
+
+**Nguyên nhân:**
+
+* Mirror chưa bật Clipping.
+* Vertex giữa chưa nằm đúng trên trục Mirror.
+
+**Cách khắc phục:**
+
+* Bật **Clipping** trong Mirror Modifier.
+* Đưa vertex giữa về đúng trục X bằng giá trị tọa độ phù hợp.
+
+---
+
+## 17.5. Hai bên TV không đối xứng
+
+**Nguyên nhân:**
+
+* Chưa sử dụng Mirror.
+* Object Origin không nằm ở giữa.
+* Chỉnh sửa nhầm cả hai bên mesh.
+
+**Cách khắc phục:**
+
+* Kiểm tra Origin.
+* Sử dụng Auto Mirror.
+* Chỉ chỉnh phần mesh phía Positive X.
+
+---
+
+## 17.6. Màn hình quá tròn
+
+**Nguyên nhân:** Sau khi extrude chưa thêm support loop quanh vùng màn hình.
+
+**Cách khắc phục:**
+
+* Thêm loop ở mép trên, dưới và hai bên.
+* Thêm loop ở phần lõm bên trong.
+* Điều chỉnh khoảng cách loop để giữ độ bo vừa phải.
+
+---
+
+## 17.7. Bề mặt bị lõm hoặc gợn sóng
+
+**Nguyên nhân:**
+
+* Các edge loop phân bố không đều.
+* Vertex bị kéo lệch.
+* Một số edge bị dồn quá sát.
+* Topology phía sau bị biến dạng khi mở rộng màn hình.
+
+**Cách khắc phục:**
+
+* Quan sát mô hình ở nhiều góc.
+* Dùng Edge Slide thay vì di chuyển tự do khi phù hợp.
+* Điều chỉnh từng vertex hoặc edge nhỏ.
+* Chuyển qua lại giữa Edit Mode và Object Mode để kiểm tra.
+
+---
+
+## 17.8. Blender bị lag
+
+**Nguyên nhân:** Viewport Subdivision Level quá cao.
+
+**Cách khắc phục:**
+
+* Giảm Viewport Level xuống 2.
+* Giữ Render Level ở 3 nếu máy vẫn render được.
+* Không Apply modifier khi chưa thực sự cần.
+
+---
+
+# 18. Bài tập thực hành
+
+Dựng một thân TV với các yêu cầu:
+
+* Bắt đầu từ Cube.
+* Sử dụng Subdivision Surface Level 2 hoặc 3.
+* Sử dụng Mirror theo trục X.
+* Phần thân có góc bo tròn.
+* Mặt trước tương đối phẳng.
+* Phần thân thu nhỏ nhẹ về phía sau.
+* Có vùng lõm dành cho màn hình.
+* Màn hình có viền rõ nhưng không quá sắc.
+* Phía dưới màn hình có đủ không gian cho bảng điều khiển.
+* Mesh không xuất hiện nếp gấp hoặc biến dạng lớn.
+
+---
+
+# 19. Checklist hoàn thành
+
+## Modifier
+
+* [ ] Đã thêm Subdivision Surface.
+* [ ] Viewport Level được đặt ở mức 2 hoặc 3.
+* [ ] Render Level được đặt phù hợp.
+* [ ] Đã thêm Mirror theo trục X.
+* [ ] Mirror đã bật Clipping.
+* [ ] Đã kiểm tra thứ tự trong modifier stack.
+
+## Hình dáng TV
+
+* [ ] Phần trên và dưới tương đối phẳng.
+* [ ] Các góc vẫn có độ bo tròn.
+* [ ] Phần sau thu nhỏ nhẹ.
+* [ ] Hai bên TV đối xứng.
+* [ ] Phần đáy đủ rộng cho bảng điều khiển.
+
+## Màn hình
+
+* [ ] Đã chọn mặt trước và Extrude vào trong.
+* [ ] Đã thêm support loop quanh màn hình.
+* [ ] Viền màn hình đủ rõ.
+* [ ] Màn hình có kích thước phù hợp.
+* [ ] Topology phía sau không bị biến dạng.
+
+## Hoàn thiện
+
+* [ ] Đã kiểm tra mô hình ở Front, Side và Top View.
+* [ ] Không có vùng bề mặt bị lõm bất thường.
+* [ ] Đã lưu file để tiếp tục ở bài sau.
+
+---
+
+# 20. Tóm tắt bài học
+
+Trong bài học này, chúng ta đã sử dụng **Subdivision Surface Modelling** để dựng phần thân TV bo tròn từ một Cube cơ bản.
+
+Những kiến thức quan trọng nhất gồm:
+
+1. Subdivision Surface chia nhỏ và làm mượt mesh.
+2. `Ctrl + 1`, `Ctrl + 2`, `Ctrl + 3` giúp thêm nhanh modifier.
+3. Support loop giúp kiểm soát độ cong và độ sắc của cạnh.
+4. Support loop càng gần cạnh thì cạnh càng sắc.
+5. Mirror giúp dựng mô hình đối xứng nhanh hơn.
+6. Thứ tự modifier trong modifier stack ảnh hưởng đến kết quả.
+7. X-Ray giúp chọn toàn bộ vertex xuyên qua mô hình.
+8. Extrude mặt trước vào trong để tạo khu vực màn hình.
+9. Cần thường xuyên kiểm tra bề mặt ở Object Mode.
+10. Hình dáng TV nên được hoàn thiện tương đối trước khi chuyển sang dựng chi tiết màn hình ở bài tiếp theo.
+
+```text
+Subdivision Surface
+        +
+Support Loops
+        +
+Mirror Modelling
+        +
+Chỉnh sửa Silhouette
+        =
+Thân TV bo tròn, đối xứng và dễ tiếp tục phát triển
+```

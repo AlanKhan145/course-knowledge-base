@@ -1,345 +1,637 @@
 # 065 — Texturing the Body
-In this lecture, we'll be using a different unwrapping technique to texture the body of the plane.
 
-Okay, so here's where we got up to last time.
-
-We've unwrapped the wings, but we still need to work on the body on both sides.
-
-So if I go back into edit mode, I've still got the underneath of the tail wing selected, so I'll press
-
-alt a to deselect all first and then press L over my plane.
-
-Now, occasionally, even though I've got seams selected here, it hasn't worked.
-
-So I'm just going to press alt a and l again.
-
-That's a slight bug.
-
-It's just not registering.
-
-The seams is selected, so you just deselect all and select again making sure that seams is selected
-
-and that should work fine.
-
-So we can see the side of my plane body there and I'm in island selection mode so I can select it all
-
-and don't follow along with me.
-
-But I'm just showing you what you could do.
-
-I'll zoom in a bit, rotate 90 degrees scale in the x, so it's about the size of the plane.
-
-I'll have to scale it in the Y as well.
-
-So it squashes down a little bit, rotate it and try and move it into position to note that if I rotate
-
-it slightly and then scale in the x again, it is going to distort slightly when you scale.
-
-So it's always best to bring it back to where it was level, then scale in the X to bring it in if you
-
-need to then do the rotation once again.
-
-So it's not quite fitting my graphic.
-
-Let's see what we've got on our plane.
-
-It's not looking too bad, but we've got all this area up here that's in the sky.
-
-As you can see there, we've got a funny image of the pilot's head there, so I would now have to go
-
-in.
-
-So perhaps go to vertex selection mode, select these, perhaps put proportional added on and start
-
-moving them around.
-
-So select a few and kind of scope them into position.
-
-As you can see me doing here.
-
-The problem is let's have a look at the back graphic there.
-
-It's all distorted and stretched and it will take me a while to try and sort that out and make it level
-
-again.
-
-And you can see I'm finding it fairly difficult.
-
-I just go to object mode so you can see that I'm back into edit mode.
-
-So anywhere where there's text or a detailed graphic which you want to preserve, it's quite tough to
-
-try and position these so it doesn't distort, as you can see, quite severely distorted there.
-
-I could continue and try and move these into a position where there's less distortion and maybe something
-
-like this.
-
-If you were trying to do it nice and quick and your models were only going to be seen from a distance
-
-from around here, then that might be acceptable.
-
-However, there's a better way to unwrap the sides like this.
-
-I'll go back into edit mode and just double check that.
-
-I've just got that side selected.
-
-So alt a and l, so I've definitely only got that side selected there.
-
-If I go into side view now and press you to unwrap to go to my unwrap menu.
-
-There's an option here project from view.
-
-So when I select that you can see my UVs here and they look exactly the same as the layout in side view.
-
-I can zoom in so you can see that a bit clearer.
-
-Now that means that these faces at the front here.
-
-So if I go to face mode, select those faces there and I've actually got an extra one selected, but
-
-I'll keep that selective for now because that's helpful.
-
-You can see the one that's on the side is nice and clear as a rectangle, but the ones that are in line,
-
-when I go to side view, you can see they're in line.
-
-They have been squashed flat in my UVs.
-
-Now that's absolutely okay because we're not really going to see this front area here because it's hidden
-
-by the propeller, but that's just worth bearing in mind.
-
-So I press alt a and just select the side view again.
-
-Now I can come in to my UV image editor scale this up, I'll just turn proportional edit off so it doesn't
-
-confuse at all and scale it up.
-
-So it's about the size of the plane.
-
-Let's bring it down slightly.
-
-Probably going to have to scale in the Y, attach as well, rotate it round until it's roughly matching
-
-up with my image texture.
-
-So let's get to object mode and see what we've got.
-
-Now my graphics are lining up reasonably well and it's looking quite good.
-
-So pause the video here.
-
-Select the left hand side of the body of the plane, go to side, view you to go to the unwrap menu
-
-and project from view.
-
-Then move that big island that you've created over the texture of the plane.
-
-Pause the video and have a go at that.
-
-So there's a slight problem with the top here where we can see the sky.
-
-So it could go in in vertex mode and perhaps select this end vertex here and g to pull that down.
-
-If I move this one down by pressing G, you can see that it distorts my circle there.
-
-So that's a little bit more tricky.
-
-If I bring the one below it up, I can kind of mitigate some of that distortion, but it is still getting
-
-slightly distorted.
-
-So we can have a slightly squashed circle there, which isn't too bad.
-
-Or if I undid those steps, we could show a little bit of sky on our texture, which again in this case
-
-isn't actually too bad.
-
-I think it's slightly better with a slightly distorted circle, but that's entirely up to you for what
-
-you'd prefer from your texture.
-
-There may be some other places such as the bottom here, where we're seeing a bit of grass.
-
-So let's just have a quick look at that and that we can easily tidy up.
-
-We can select these two here, maybe these ones as well, just so there's not too much stretch, bring
-
-those up slightly and then these up slightly as well and these up slightly and that's looking a lot
-
-better already.
-
-Now our graphic is going off the side slightly.
-
-It's quite tricky to sort that out.
-
-I could possibly move these across, but you can see as soon as I start trying to change it, we get
-
-a bit of wobble in our texture there and I'd have to select these ones, maybe move those across a bit
-
-to line it up, but it starts getting quite awkward and difficult, so generally speaking it's not looking
-
-too bad.
-
-Let's have a look at some of the front elements and our sort of exhaust areas here are looking quite
-
-good and that's looking quite reasonable I would say.
-
-So the project from View Method is fairly successful.
-
-So I want you to pause the video here and catch up with me making any minor edits you think you need
-
-to make to your texture.
-
-So it lines up nicely and looks good on our model.
-
-So what about the other side?
-
-I press alt a to deselect all and then l to select just this side come to left for you.
-
-So control three and we've got left for you there you to unwrap and project from view now I can select
-
-all or I can go to island mode and select all.
-
-Now of course this is facing the wrong way, so I'm going to have to flip it so I can scale x minus
-
-one to flip it round, and now I can scale it up and move it in to position and I'll speed this footage
-
-up slightly.
-
-Let's just take a quick look.
-
-It's not looking too bad even on the top.
-
-It's not looking awful.
-
-It's a little bit confused up here, but from a distance I think it's looking quite nice.
-
-We could, of course go in and try and edit some of these areas.
-
-Maybe if I go to vertex mode, just bring this one down slightly.
-
-So it's a little bit less obscure at the top there.
-
-And this one down slightly as well.
-
-Somewhere around there seems to work reasonably well.
-
-And we successfully unwrapped our plane.
-
-So pause the video here and catch up with me doing exactly the same on the other side and make any minor
-
-adjustments that you think you need to to make the texture work with the model.
-
-Okay.
-
-Just as a quick challenge to you, I want you to see if you can add materials for the propeller and
-
-the cockpit.
-
-I added a new material for the middle part of the propeller and a separate material for the propeller
-
-blades.
-
-So pause the video and have a go at that.
-
-Okay.
-
-So I'll start with the propeller blades.
-
-So like one of those new material, zoom in on my principle based F and I chose a color close to black
-
-for those.
-
-Of course, when I change one, they all update.
-
-Let's select the main body now new material once again.
-
-And I'll change this to a sort of silvery color somewhere around here, and I'll scroll down a bit with
-
-the principal MDF and turn the metallic all the way up.
-
-So it's this sort of metallic color and you might want a slightly lighter or slightly darker metal.
-
-That's entirely up to you.
-
-For the cockpit, if I select that, choose a new material.
-
-I chose a base color, which is a very sort of light gray, maybe a little bit of blue as it's reflected
-
-from the sky.
-
-And I turn the roughness right down.
-
-So it's got a sort of reflective quality like this.
-
-Lastly, it's all very flat shaded at the moment.
-
-So let's select everything right click and shade smooth and just so we can see the final result easier.
-
-If I turn my gizmos off and my overlays off, we can see it without any distractions and it looks really
-
-nice.
-
-So hopefully you got an okay with that.
-
-As always, make sure you've saved your work.
-
-Ready for next time.
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Texturing the Body |
-| **Thời lượng** | 8:53 |
-| **Chủ đề chính** | Tạo texture cho thân máy bay |
+| Thuộc tính             | Nội dung                                  |
+| ---------------------- | ----------------------------------------- |
+| **Module**             | Module 04 — UV Mapping                    |
+| **Bài học**            | Texturing the Body                        |
+| **Thời lượng**         | 8:53                                      |
+| **Chủ đề chính**       | UV Mapping và áp texture cho thân máy bay |
+| **Kỹ thuật trọng tâm** | `Project from View`                       |
+
+---
 
 ## 1. Mục tiêu bài học
-- Hoàn thiện texturing cho phần thân (fuselage) máy bay, tiếp nối kỹ thuật đã dùng cho cánh.
-- Xử lý các chi tiết đặc trưng của thân: số hiệu, logo, cửa sổ buồng lái, đường ghép panel.
-- Biết cách dùng nhiều Material Slot hoặc một texture atlas duy nhất cho toàn bộ thân.
-- Đối chiếu và đồng bộ phong cách vật liệu giữa thân và cánh để mô hình nhất quán.
 
-## 2. Nội dung chính
-Texturing phần thân máy bay áp dụng quy trình tương tự bài trước (Image Texture → Base Color, Roughness, Normal Map qua Principled BSDF), nhưng thân thường có nhiều chi tiết đồ họa cần chú ý hơn: số hiệu máy bay, logo hãng, viền cửa sổ buồng lái, đường phân chia panel kim loại.
+Sau bài học này, người học có thể:
 
-Hai cách tổ chức texture phổ biến:
-- **Một texture atlas duy nhất:** toàn bộ UV của thân (và có thể cả cánh, đuôi) được pack chung vào một ảnh texture lớn, tiện cho việc tạo một Material duy nhất áp dụng toàn mô hình, giảm số lượng Draw Call khi render.
-- **Nhiều Material Slot:** gán các Material khác nhau cho từng nhóm face (ví dụ thân sơn màu chính, viền kim loại, kính buồng lái trong suốt) — thuận tiện khi cần thuộc tính vật liệu khác biệt rõ rệt (ví dụ kính cần Transmission/độ trong suốt mà sơn thân không cần).
+* Hoàn thiện texture cho hai bên thân máy bay.
+* Hiểu hạn chế của phương pháp `Unwrap` thông thường đối với các hình ảnh có logo, hình tròn hoặc đồ họa chi tiết.
+* Sử dụng kỹ thuật **Project from View** để chiếu UV theo góc nhìn trực diện.
+* Lật UV bằng giá trị scale âm để áp texture cho mặt đối diện.
+* Chỉnh sửa các UV vertex nhằm giảm phần bầu trời, cỏ hoặc vùng ảnh không mong muốn.
+* Tạo vật liệu riêng cho:
 
-Với chi tiết kính buồng lái, nên tạo Material riêng có Transmission cao (kính trong Principled BSDF) hoặc dùng Alpha Blend nếu chỉ cần độ trong suốt đơn giản, thay vì cố vẽ kính bằng texture phẳng.
+  * Cánh quạt.
+  * Trục giữa của cánh quạt.
+  * Buồng lái.
+* Sử dụng `Shade Smooth` để làm bề mặt mô hình mượt hơn.
 
-Về mặt màu sắc và độ tương phản, nên đối chiếu trực tiếp Material của thân với Material của cánh (đã làm ở bài trước) trong cùng một khung nhìn Rendered để đảm bảo tông màu, độ bóng đồng nhất, tránh cảm giác hai bộ phận thuộc hai vật liệu hoàn toàn khác nhau.
+---
 
-## 3. Quy trình thực hành gợi ý
-1. Tạo Material mới cho thân (hoặc dùng lại Material atlas chung nếu đã pack UV thân + cánh cùng texture).
-2. Thêm Image Texture chứa texture sơn/số hiệu của thân, nối vào Base Color.
-3. Với các chi tiết đặc thù (kính buồng lái), tạo Material Slot riêng với thiết lập Transmission/Alpha phù hợp.
-4. Gán Material Slot cho đúng nhóm face tương ứng ở Edit Mode (chọn face → Assign trong Material Properties).
-5. Thêm Roughness/Normal Map nếu có để tăng chi tiết bề mặt kim loại/sơn.
-6. Chuyển sang Rendered Shading, đối chiếu màu sắc và độ bóng giữa thân và cánh, chỉnh lại nếu lệch tông.
-7. Xoay mô hình toàn diện để kiểm tra không còn vùng UV bị lệch hoặc texture bị thiếu (hiển thị màu hồng/tím báo lỗi).
+## 2. Vấn đề khi unwrap thân máy bay theo cách thông thường
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Shift+A` (Shader Editor) | Thêm node (Image Texture, Mix Shader...) |
-| `Ctrl+L → Materials` | Copy Material từ object này sang object khác đang chọn |
-| Material Properties → `Assign` | Gán Material Slot cho các face đã chọn ở Edit Mode |
-| `Z` | Chuyển nhanh giữa các chế độ Shading để kiểm tra |
+Ở bài trước, phần cánh máy bay đã được unwrap thành công. Tuy nhiên, thân máy bay có hình dạng cong và chứa nhiều chi tiết đồ họa nên khó căn chỉnh hơn.
 
-## 5. Lưu ý & lỗi thường gặp
-- Không gán đúng face vào Material Slot khiến một phần thân hiển thị sai vật liệu (ví dụ kính buồng lái vẫn mang texture sơn).
-- Kính buồng lái dùng texture phẳng thay vì Transmission/Alpha thật khiến thiếu chiều sâu và độ trong suốt tự nhiên khi render.
-- Màu sắc/độ bóng giữa thân và cánh chênh lệch rõ do thiết lập Roughness/Metallic không đồng bộ.
-- Quá nhiều Material Slot rời rạc mà không cần thiết làm tăng độ phức tạp quản lý mà không cải thiện chất lượng hình ảnh tương ứng.
+Nếu sử dụng UV island được tạo bằng phương pháp unwrap thông thường, chúng ta phải:
 
-## 6. Checklist thực hành
-- [ ] Đã áp texture Base Color cho toàn bộ thân máy bay.
-- [ ] Đã tạo Material riêng phù hợp cho kính buồng lái (Transmission/Alpha).
-- [ ] Đã gán đúng Material Slot cho từng nhóm chi tiết.
-- [ ] Đã đối chiếu và đồng bộ tông màu/độ bóng giữa thân và cánh.
+1. Xoay UV island.
+2. Scale UV theo trục X và Y.
+3. Di chuyển UV lên đúng vị trí của máy bay trong ảnh texture.
+4. Chỉnh từng UV vertex để loại bỏ phần bầu trời hoặc nền ảnh.
 
-## 7. Tóm tắt
-Bài học hoàn tất phần texturing cho mô hình máy bay bằng cách xử lý thân với các chi tiết đặc thù như số hiệu, panel và kính buồng lái, đảm bảo tính nhất quán vật liệu với cánh đã texturing trước đó, khép lại giai đoạn UV/texturing để chuyển sang thiết lập animation.
+Quá trình này dễ làm cho texture bị:
+
+* Kéo giãn.
+* Cong vênh.
+* Méo logo hoặc hình tròn.
+* Lệch các đường đồ họa trên thân máy bay.
+
+Ví dụ, khi kéo các UV vertex ở phía trên thân xuống để loại bỏ phần bầu trời, hình tròn trên texture có thể trở thành hình oval hoặc bị méo nghiêm trọng.
+
+> Phương pháp này vẫn có thể chấp nhận được nếu mô hình chỉ được quan sát từ khoảng cách xa. Tuy nhiên, với các chi tiết cần giữ đúng hình dạng, nên sử dụng `Project from View`.
+
+---
+
+## 3. Kỹ thuật Project from View
+
+### 3.1. Nguyên lý
+
+`Project from View` tạo UV dựa trực tiếp trên góc nhìn hiện tại trong 3D Viewport.
+
+Khi nhìn thẳng vào bên hông máy bay, UV được tạo ra sẽ có hình dạng gần như giống hoàn toàn với silhouette của thân máy bay.
+
+```text
+Nhìn trực diện bên hông máy bay
+                ↓
+Chọn các mặt của một bên thân
+                ↓
+U → Project from View
+                ↓
+UV có hình dạng giống góc nhìn hiện tại
+                ↓
+Căn UV lên máy bay trong ảnh texture
+```
+
+Kỹ thuật này đặc biệt hữu ích khi:
+
+* Texture là ảnh chụp hoặc ảnh tham chiếu nhìn từ bên hông.
+* Cần giữ nguyên hình dạng logo và đồ họa.
+* Object có một mặt chính cần hiển thị chính xác.
+* Không muốn UV bị cong hoặc biến dạng theo hình học 3D.
+
+---
+
+## 4. Chọn một bên thân máy bay
+
+Chuyển sang **Edit Mode**, sau đó bỏ chọn toàn bộ:
+
+```text
+Alt + A
+```
+
+Đưa con trỏ chuột lên một bên thân máy bay và nhấn:
+
+```text
+L
+```
+
+Phím `L` chọn phần hình học liên kết nằm dưới con trỏ chuột.
+
+Nếu Blender không chọn đúng theo đường seam:
+
+1. Kiểm tra tùy chọn **Seams** đang được sử dụng khi chọn linked geometry.
+2. Nhấn `Alt + A` để bỏ chọn.
+3. Đưa chuột lên thân máy bay.
+4. Nhấn `L` lại một lần nữa.
+
+Đôi khi Blender không cập nhật lựa chọn seam ngay lập tức. Việc bỏ chọn rồi chọn lại thường sẽ khắc phục được vấn đề.
+
+---
+
+## 5. Project from View cho bên phải thân máy bay
+
+### Bước 1: Chuyển sang góc nhìn bên hông
+
+Chọn góc nhìn phù hợp sao cho có thể nhìn trực diện vào một bên thân máy bay.
+
+Ví dụ:
+
+```text
+Numpad 3 → Right View
+```
+
+### Bước 2: Tạo UV
+
+Khi phần thân đã được chọn, nhấn:
+
+```text
+U
+```
+
+Sau đó chọn:
+
+```text
+Project from View
+```
+
+UV mới sẽ xuất hiện trong UV Editor với hình dạng tương ứng với thân máy bay khi nhìn từ bên hông.
+
+### Bước 3: Căn UV lên ảnh texture
+
+Trong UV Editor:
+
+* Nhấn `A` để chọn toàn bộ UV của phần thân.
+* Dùng `S` để phóng to hoặc thu nhỏ.
+* Dùng `G` để di chuyển.
+* Dùng `R` để xoay.
+* Dùng `S`, sau đó `X` hoặc `Y` để scale theo từng trục.
+
+Ví dụ:
+
+```text
+S        → Scale toàn bộ
+S, X     → Scale theo chiều ngang
+S, Y     → Scale theo chiều dọc
+R        → Xoay UV
+G        → Di chuyển UV
+```
+
+Căn UV sao cho:
+
+* Mũi máy bay trùng với mũi trong ảnh.
+* Đuôi máy bay trùng với đuôi trong ảnh.
+* Logo và hình tròn nằm đúng vị trí.
+* Các cửa hoặc chi tiết đồ họa không bị lệch.
+
+---
+
+## 6. Lưu ý về các mặt vuông góc với góc nhìn
+
+Khi sử dụng `Project from View`, những mặt nhìn trực diện sẽ tạo ra UV rõ ràng và có diện tích phù hợp.
+
+Ngược lại, các mặt nằm gần vuông góc với góc nhìn có thể bị ép thành một đường rất mỏng.
+
+```text
+Mặt hướng về camera       → UV có diện tích rõ ràng
+Mặt vuông góc với camera  → UV bị ép mỏng hoặc gần như phẳng
+```
+
+Ví dụ, phần mặt trước của thân máy bay có thể bị ép rất nhỏ khi project từ góc nhìn bên hông.
+
+Trong bài này, vấn đề đó không quá nghiêm trọng vì phần đầu máy bay phần lớn được cánh quạt che khuất.
+
+---
+
+## 7. Chỉnh sửa UV để loại bỏ nền ảnh
+
+Sau khi căn UV, một số khu vực trên mô hình có thể hiển thị:
+
+* Bầu trời ở phía trên thân.
+* Cỏ ở phía dưới.
+* Các vùng nền nằm ngoài hình máy bay trong ảnh texture.
+
+Để sửa:
+
+1. Chuyển sang **Vertex Select** trong UV Editor.
+2. Chọn một hoặc nhiều UV vertex.
+3. Nhấn `G` để di chuyển chúng vào trong vùng texture của máy bay.
+
+### Ví dụ chỉnh phần trên
+
+Nếu phần trên thân xuất hiện bầu trời:
+
+* Chọn UV vertex nằm ở mép trên.
+* Kéo vertex xuống dưới.
+
+Tuy nhiên, cần quan sát các chi tiết gần đó. Kéo một vertex xuống có thể khiến logo hoặc hình tròn bị méo.
+
+Có thể giảm biến dạng bằng cách:
+
+* Di chuyển thêm vertex bên dưới.
+* Phân phối thay đổi qua nhiều vertex.
+* Chấp nhận một lượng nhỏ nền ảnh nếu việc chỉnh sửa gây méo quá nhiều.
+
+### Ví dụ chỉnh phần dưới
+
+Nếu phần dưới thân xuất hiện cỏ:
+
+1. Chọn các UV vertex phía dưới.
+2. Di chuyển chúng lên trên một chút.
+3. Chỉnh nhiều vertex liên tiếp để tránh làm texture bị kéo giãn đột ngột.
+
+> Không nhất thiết phải loại bỏ hoàn toàn mọi phần nền. Điều quan trọng là cân bằng giữa việc che nền và giữ cho đồ họa trên máy bay không bị biến dạng.
+
+---
+
+## 8. Project from View cho mặt còn lại
+
+Sau khi hoàn thành một bên thân, tiếp tục với bên còn lại.
+
+### Bước 1: Chọn bên thân thứ hai
+
+Trong Edit Mode:
+
+```text
+Alt + A
+```
+
+Đưa con trỏ lên mặt thân còn lại và nhấn:
+
+```text
+L
+```
+
+### Bước 2: Chuyển sang Left View
+
+```text
+Ctrl + Numpad 3
+```
+
+Lệnh này chuyển sang góc nhìn bên trái.
+
+### Bước 3: Project UV
+
+```text
+U → Project from View
+```
+
+### Bước 4: Lật UV
+
+UV của mặt đối diện thường bị quay ngược so với hình ảnh texture. Để lật theo chiều ngang:
+
+```text
+S → X → -1
+```
+
+Quy trình thao tác:
+
+```text
+S
+X
+-1
+Enter
+```
+
+UV sẽ được phản chiếu theo trục X.
+
+Sau đó tiếp tục:
+
+* Scale UV.
+* Xoay nếu cần.
+* Di chuyển đến đúng vị trí.
+* Chỉnh các vertex ở mép trên và mép dưới.
+
+---
+
+## 9. Quy trình tổng thể
+
+```text
+Hoàn thành UV cánh máy bay
+             ↓
+Chọn một bên thân bằng L
+             ↓
+Chuyển sang góc nhìn bên hông
+             ↓
+U → Project from View
+             ↓
+Scale, xoay và di chuyển UV
+             ↓
+Chỉnh UV vertex để giảm nền ảnh
+             ↓
+Chọn bên thân còn lại
+             ↓
+Ctrl + Numpad 3 → Left View
+             ↓
+U → Project from View
+             ↓
+S → X → -1 để lật UV
+             ↓
+Căn chỉnh và kiểm tra hai bên
+             ↓
+Tạo vật liệu cánh quạt và buồng lái
+             ↓
+Shade Smooth
+```
+
+---
+
+## 10. Tạo vật liệu cho cánh quạt
+
+Sau khi hoàn thành texture thân máy bay, bài học tiếp tục với một thử thách nhỏ: tạo vật liệu cho cánh quạt và buồng lái.
+
+### 10.1. Vật liệu cho cánh quạt
+
+Chọn một cánh quạt và tạo material mới.
+
+Trong **Principled BSDF**:
+
+* Đặt `Base Color` gần màu đen.
+* Có thể điều chỉnh `Roughness` tùy mức độ bóng mong muốn.
+
+Do các cánh quạt là những bản sao liên kết, khi chỉnh material của một cánh, những cánh còn lại cũng được cập nhật.
+
+| Thuộc tính     | Thiết lập gợi ý      |
+| -------------- | -------------------- |
+| **Base Color** | Đen hoặc xám rất đậm |
+| **Metallic**   | Thấp hoặc bằng `0`   |
+| **Roughness**  | Trung bình           |
+
+---
+
+### 10.2. Vật liệu cho trục giữa cánh quạt
+
+Chọn phần trung tâm của cánh quạt và tạo material mới.
+
+Thiết lập gợi ý:
+
+| Thuộc tính     | Thiết lập                             |
+| -------------- | ------------------------------------- |
+| **Base Color** | Xám bạc                               |
+| **Metallic**   | `1.0`                                 |
+| **Roughness**  | Điều chỉnh theo mức độ bóng mong muốn |
+
+Tăng `Metallic` lên tối đa giúp phần trục có cảm giác làm bằng kim loại.
+
+Có thể sử dụng:
+
+* Xám sáng để tạo kim loại sạch.
+* Xám tối để tạo cảm giác kim loại nặng hoặc cũ hơn.
+
+---
+
+## 11. Tạo vật liệu cho buồng lái
+
+Chọn object buồng lái và tạo material mới.
+
+Trong bài học, buồng lái không sử dụng kính trong suốt hoàn toàn. Thay vào đó, nó được tạo cảm giác giống kính phản chiếu bằng màu sắc và độ bóng.
+
+Thiết lập:
+
+| Thuộc tính     | Thiết lập gợi ý            |
+| -------------- | -------------------------- |
+| **Base Color** | Xám rất sáng pha xanh nhạt |
+| **Metallic**   | `0` hoặc thấp              |
+| **Roughness**  | Thấp                       |
+
+Giảm `Roughness` làm bề mặt phản chiếu ánh sáng mạnh hơn, tạo cảm giác giống kính hoặc vật liệu bóng.
+
+Màu xanh nhạt có thể mô phỏng ánh sáng bầu trời phản chiếu trên kính buồng lái.
+
+> Bài học này không sử dụng `Transmission` hoặc thiết lập kính trong suốt. Hiệu ứng kính được tạo chủ yếu bằng màu sáng và Roughness thấp.
+
+---
+
+## 12. Làm mượt mô hình với Shade Smooth
+
+Ở trạng thái mặc định, bề mặt thân và các bộ phận của máy bay có thể trông khá góc cạnh do đang sử dụng flat shading.
+
+Để làm mượt:
+
+1. Chuyển sang **Object Mode**.
+2. Chọn toàn bộ các object của máy bay.
+3. Nhấp chuột phải.
+4. Chọn:
+
+```text
+Shade Smooth
+```
+
+Kết quả:
+
+* Thân máy bay trông tròn và mượt hơn.
+* Buồng lái phản chiếu ánh sáng tự nhiên hơn.
+* Cánh quạt và các bề mặt cong bớt góc cạnh.
+
+---
+
+## 13. Kiểm tra kết quả cuối cùng
+
+Để quan sát mô hình rõ hơn, có thể tạm thời tắt các thành phần hỗ trợ trong viewport:
+
+* Tắt **Gizmos**.
+* Tắt **Overlays**.
+
+Khi đó, các đường lưới, đường viền lựa chọn và biểu tượng điều khiển sẽ được ẩn đi, giúp tập trung vào kết quả texture cuối cùng.
+
+Kiểm tra mô hình từ nhiều góc:
+
+* Bên trái.
+* Bên phải.
+* Phía trên.
+* Phía dưới.
+* Góc nhìn phía trước.
+* Góc nhìn phối cảnh.
+
+Đặc biệt quan sát:
+
+* Logo có bị méo không.
+* Hình tròn có bị kéo thành hình oval không.
+* Có xuất hiện bầu trời hoặc cỏ trên thân không.
+* Hai bên thân có cùng chiều và đúng vị trí không.
+* Texture ở phần mũi và đuôi có bị kéo giãn quá mức không.
+
+---
+
+## 14. Phím tắt và công cụ quan trọng
+
+| Phím tắt / Công cụ           | Chức năng                                |
+| ---------------------------- | ---------------------------------------- |
+| `Tab`                        | Chuyển giữa Object Mode và Edit Mode     |
+| `Alt + A`                    | Bỏ chọn toàn bộ trong Edit Mode          |
+| `L`                          | Chọn phần hình học liên kết dưới con trỏ |
+| `U`                          | Mở menu UV Mapping                       |
+| `U → Project from View`      | Tạo UV theo góc nhìn hiện tại            |
+| `Numpad 3`                   | Right View                               |
+| `Ctrl + Numpad 3`            | Left View                                |
+| `A`                          | Chọn toàn bộ UV                          |
+| `G`                          | Di chuyển UV                             |
+| `R`                          | Xoay UV                                  |
+| `S`                          | Scale UV                                 |
+| `S → X`                      | Scale UV theo trục X                     |
+| `S → Y`                      | Scale UV theo trục Y                     |
+| `S → X → -1`                 | Lật UV theo chiều ngang                  |
+| `O`                          | Bật hoặc tắt Proportional Editing        |
+| `Right Click → Shade Smooth` | Làm mượt bề mặt object                   |
+
+---
+
+## 15. Lưu ý khi scale và xoay UV
+
+Nếu UV đang bị xoay nghiêng rồi mới scale theo trục X, kết quả có thể làm UV bị biến dạng theo hướng không mong muốn.
+
+Quy trình an toàn hơn:
+
+1. Xoay UV về trạng thái tương đối thẳng.
+2. Scale theo trục X hoặc Y.
+3. Xoay UV trở lại góc phù hợp.
+4. Di chuyển UV vào đúng vị trí.
+
+```text
+Không nên:
+Xoay nghiêng → Scale X nhiều lần
+
+Nên:
+Đưa UV về thẳng → Scale X/Y → Xoay lại
+```
+
+Điều này giúp giữ tỷ lệ của texture ổn định hơn.
+
+---
+
+## 16. Lỗi thường gặp
+
+### 16.1. Phím L chọn sai khu vực
+
+**Nguyên nhân:**
+
+* Chưa bỏ chọn các face cũ.
+* Tùy chọn chọn theo seam chưa được cập nhật.
+* Con trỏ không nằm đúng trên phần thân.
+
+**Cách xử lý:**
+
+```text
+Alt + A → đưa chuột lên thân → L
+```
+
+---
+
+### 16.2. UV mặt còn lại bị ngược
+
+**Nguyên nhân:** Hai bên thân có hướng nhìn đối xứng nhau.
+
+**Cách xử lý:**
+
+```text
+S → X → -1
+```
+
+---
+
+### 16.3. Logo hoặc hình tròn bị méo
+
+**Nguyên nhân:** Một UV vertex bị di chuyển quá xa trong khi các vertex xung quanh vẫn giữ nguyên.
+
+**Cách xử lý:**
+
+* Di chuyển nhiều vertex cùng nhau.
+* Phân bố sự điều chỉnh qua nhiều hàng vertex.
+* Chấp nhận một phần nhỏ nền ảnh nếu việc chỉnh sửa gây biến dạng nghiêm trọng.
+
+---
+
+### 16.4. Phần dưới thân xuất hiện cỏ
+
+**Nguyên nhân:** UV island nằm quá thấp trên ảnh texture.
+
+**Cách xử lý:**
+
+* Chọn các UV vertex phía dưới.
+* Di chuyển chúng lên một chút.
+* Điều chỉnh từng nhóm vertex để hạn chế kéo giãn.
+
+---
+
+### 16.5. Mặt trước bị ép thành đường mỏng
+
+**Nguyên nhân:** Mặt trước gần vuông góc với góc nhìn khi sử dụng `Project from View`.
+
+**Cách xử lý:**
+
+* Có thể giữ nguyên nếu phần này bị cánh quạt che khuất.
+* Nếu cần nhìn rõ mặt trước, phải project riêng từ Front View.
+
+---
+
+### 16.6. Mô hình trông góc cạnh
+
+**Nguyên nhân:** Object vẫn đang sử dụng flat shading.
+
+**Cách xử lý:**
+
+```text
+Chọn object → Right Click → Shade Smooth
+```
+
+---
+
+## 17. Bài tập thực hành
+
+### Bài tập 1: Texture bên đầu tiên
+
+* [ ] Chọn đúng một bên thân máy bay.
+* [ ] Chuyển sang góc nhìn bên hông.
+* [ ] Sử dụng `Project from View`.
+* [ ] Scale và căn UV lên hình máy bay.
+* [ ] Chỉnh vùng bầu trời và cỏ.
+
+### Bài tập 2: Texture bên còn lại
+
+* [ ] Chọn mặt thân đối diện.
+* [ ] Chuyển sang `Left View`.
+* [ ] Sử dụng `Project from View`.
+* [ ] Lật UV bằng `S → X → -1`.
+* [ ] Căn chỉnh logo và các chi tiết đồ họa.
+
+### Bài tập 3: Tạo vật liệu
+
+* [ ] Tạo vật liệu màu tối cho cánh quạt.
+* [ ] Tạo vật liệu kim loại cho trục giữa.
+* [ ] Tạo vật liệu sáng, bóng cho buồng lái.
+* [ ] Áp dụng `Shade Smooth` cho toàn bộ máy bay.
+
+---
+
+## 18. Checklist hoàn thành
+
+### UV Mapping
+
+* [ ] Hai bên thân máy bay đã được unwrap.
+* [ ] Đã sử dụng `Project from View`.
+* [ ] UV bên đối diện đã được lật đúng chiều.
+* [ ] Logo và hình tròn không bị biến dạng nghiêm trọng.
+* [ ] Phần bầu trời và cỏ đã được giảm thiểu.
+* [ ] Texture ở mũi và đuôi máy bay hiển thị hợp lý.
+
+### Material
+
+* [ ] Cánh quạt có material màu đen hoặc xám đậm.
+* [ ] Trục giữa cánh quạt có material kim loại.
+* [ ] Buồng lái có màu xám xanh nhạt.
+* [ ] Roughness của buồng lái đã được giảm để tăng phản chiếu.
+
+### Hoàn thiện
+
+* [ ] Toàn bộ máy bay đã được `Shade Smooth`.
+* [ ] Đã kiểm tra mô hình từ cả hai bên.
+* [ ] Đã tắt Gizmos và Overlays để xem kết quả.
+* [ ] Đã lưu file Blender.
+
+---
+
+## 19. Tóm tắt
+
+Bài học giới thiệu kỹ thuật **Project from View**, một phương pháp UV Mapping phù hợp với các object cần khớp chính xác với ảnh tham chiếu từ một góc nhìn cụ thể.
+
+Thay vì cố biến dạng UV island được unwrap theo cách thông thường, người học nhìn trực diện vào từng bên thân máy bay rồi sử dụng:
+
+```text
+U → Project from View
+```
+
+Đối với mặt còn lại, UV cần được lật theo chiều ngang bằng:
+
+```text
+S → X → -1
+```
+
+Sau khi hoàn thành UV, các vertex được điều chỉnh nhẹ để hạn chế phần bầu trời và cỏ xuất hiện trên thân mà không làm logo bị méo quá nhiều.
+
+Cuối cùng, mô hình được hoàn thiện bằng:
+
+* Vật liệu tối cho cánh quạt.
+* Vật liệu kim loại cho trục cánh quạt.
+* Vật liệu sáng và bóng cho buồng lái.
+* `Shade Smooth` cho toàn bộ máy bay.
+
+Kết quả là mô hình máy bay có texture hai bên tương đối chính xác, đồ họa ít biến dạng và bề mặt mượt hơn, sẵn sàng cho các bước tiếp theo của dự án.

@@ -1,667 +1,981 @@
-# 094 — Details Lvl 1
-In this lecture now we've completed the base shape.
-
-We're going to be working on the first level of detail.
-
-So here's where we got up to last time, and we're going to start adding some detail to our character.
-
-And this bit is kind of hard to teach.
-
-I'll guide you as much as I can, but it does come with a fair bit of practice, so don't be despondent.
-
-If yours doesn't look exactly like mine, hopefully we'll still come up with something that you're proud
-
-of.
-
-Remember, it's helpful to have some reference images on a separate screen.
-
-If you can do that, you can always squeeze these windows over to the side and maybe take Blender out
-
-a full screen so you can have another window next to it.
-
-I'll bring that back slightly, though.
-
-I'll still be using roughly the same brushes we've looked at already and showing you the places we can
-
-use those.
-
-And you can follow along with me for the majority of this video.
-
-But it may be that you're feeling fairly comfortable with what you've seen so far, and you might want
-
-to change the shape a little bit, make the character your own.
-
-That's absolutely fine to kind of go off script, and I would certainly encourage you to do that.
-
-First of all, what you will want to do is add a bit of detail to the mesh.
-
-Once again, at the moment we've got roughly 125,000 faces.
-
-That's fairly low for a sculpt.
-
-It's very common to have sculpts going into the 3 to 4 million, depending on the power of the computer.
-
-And you can even go with some techniques right up to 60 million or so.
-
-But we don't have to do that for what we're doing here.
-
-What I'll do is I'll press it shifter to bring up the voxel size and I'll bring it down to 0.01 this
-
-time.
-
-So somewhere around here and controller to do that, Ramesh, your computer might pause for a moment
-
-there whilst it's working it out, but you should find that it flows fairly nicely after that, especially
-
-with only half a million faces.
-
-So now we can test that voxel size a little bit, maybe smooth some areas out to see how that's looking
-
-and that looks fairly fine and we should get on okay with that.
-
-Now, a brush that I really like for adding detail would be the crease brush.
-
-So for example, we can come into the nostrils here and start creasing those and we suddenly got that
-
-shape of the mouth emerging.
-
-The smaller we make it, the finer the crease.
-
-So up near the nostril around here, it makes sense to have a finer crease.
-
-And around this nostril area here.
-
-Just to define that, maybe a little bit of smoothing out there just to even it out.
-
-And that looks about right again, have a reference that always helps and I'll smooth some of this area
-
-out next to the crease.
-
-So this is with a fairly small brush.
-
-I can also use the crease brush if I make it a bit bigger somewhere around here and define areas like
-
-this, maybe the chin around here and the jawbone coming down like this.
-
-And then again I can smooth out those areas and we've got a bit of definition there.
-
-Maybe a little bit more smoothing at the top here.
-
-So pause the video here and have a go with the crease brush on those areas that I've shown you here.
-
-Remember to use the smooth every now and again to smooth around the area, not directly onto the crease
-
-you've made, but either side of it.
-
-Pause the video and have a go at that.
-
-Also remember you've got the reverse crease and again, I'll make my brush a little bit bigger and I
-
-can bring out a cheekbone like this.
-
-And that's why I like the crease brush for adding detail like this.
-
-Also around about the jaw, I can define that a bit more, so I'll make it a little bit smaller this
-
-time and just dig into this area here to give it a bit more definition.
-
-Remember to smooth out where needed and then underneath here and under the chin right round to the front
-
-here, I'll use my smooth brush a little bit more in these areas and then do that once again, looking
-
-a little bit strange at the moment with this funny, whatever this bit is.
-
-And I think we can come to the grab brush and start pulling the neck out a little bit more into position.
-
-So probably right down to about here bit is smoothing out this topic can come in a little bit.
-
-And again, smooth that out, still out a little bit further, I think.
-
-So we got a sort of Adam's apple coming there something like this and again where needed smooth out
-
-might need to do another enmesh so controller to sort of redefine the shape when you make big changes
-
-and let's zoom back a little bit.
-
-Let's see how we're getting on, wanting to be a bit thinner.
-
-So maybe coming up to their.
-
-And after I've used the crease brush on the jawline, I can bring it back a little bit to kind of accentuate
-
-it a little bit more.
-
-Again, smooth out where I need to.
-
-So we're getting something like this.
-
-Might just bring this in a little bit and smooth out those ears.
-
-They're a little bit lumpy at the moment, although I might have smoothed that a bit too much.
-
-So I'll undo that and we can come back to the ears in a second.
-
-So hopefully you're getting the idea about how I'm using the crease brush there.
-
-So pause the video here and work on the jaw area further using the crease brush and smoothing out where
-
-necessary.
-
-And if you need to use the grab brush to reposition areas as you see fit.
-
-Pause the video and have a go at that.
-
-Now as I smooth areas out such as this, where we can see the topology, we'll need to go in with the
-
-crease brush and refine them a bit more.
-
-A big area though, that I need to work on is the nostrils.
-
-The draw is probably the easiest one for this and I'll make my brush a bit smaller somewhere around
-
-here and just hold down control to make some simple nostrils and then release and draw again to go a
-
-bit further and again and again.
-
-So release and draw again afterwards and then smooth those areas out.
-
-You do see the middle of the nostrils like this.
-
-That's fairly normal.
-
-But again, getting the grab brush editing areas, this comes out a little bit more like this and then
-
-we can bring this up a little bit.
-
-Maybe the nose comes down and it's a little bit wider at the front here.
-
-It's not looking too bad.
-
-Perhaps a little bit more of a hook.
-
-So I'll bring these up a little bit and maybe the nostril up around here and then smooth out a touch
-
-kind of getting there.
-
-I feel like I want to edit the nose a little bit more and give it more shape in here and there, maybe
-
-out a little bit here and in at the top here like this, a bit more bulk at the front.
-
-And we're kind of getting that sticks out a little bit too much these nostrils.
-
-I'm using a smooth brush a little bit as well and then bring them up so they get more flared somewhere
-
-around here.
-
-Do experiment with these things.
-
-When you're pulling the mesh around, you can always press undo.
-
-That's the great thing about digital art.
-
-And I'll just bring this up a little bit higher and this down a bit there.
-
-And that's not looking too bad as a nose.
-
-I'll come in a tiny bit there and out a tiny bit here.
-
-Again, have a look at your references for more details.
-
-Okay.
-
-So pause the video here and have a go at creating the nostrils and refining the nose.
-
-Okay.
-
-Then we can work on the mouth again.
-
-I'll go to the crease brush.
-
-Zoom in a touch.
-
-Make my brush nice and small.
-
-And then up here and down here and then a little bit extra around the end here.
-
-So there's a little sort of dimple type thing there.
-
-Hopefully you can see that I'm sort of circling the mouth a little bit.
-
-So there's a dimple there and holding that control for the other parts here, especially at the front
-
-here, less so for the end here.
-
-So we can smooth some of that out if you crease and then smooth and then crease and then smooth, it
-
-kind of refines the mesh slightly.
-
-So I'll do that again at the bottom.
-
-So holding down control to pinch outwards and then if I press shift it, smooths it out, but it's still
-
-got a bit of pinch in it, so it works quite well.
-
-And then I'll bring that back out to here and then smooth out just underneath it like this.
-
-That's not too bad.
-
-I make my brush a little bit bigger around here and just come in the underneath there.
-
-That's working fairly well, maybe a little bit of crease on the chin like this as well.
-
-And then again, smooth out and repeat and can you see I'm using the crease and then smoothing out,
-
-but the crease kind of stays there because it pinches that topology.
-
-So we've got quite a funny looking baby's bottom, as we call it in the UK.
-
-Smooth out a little bit more there and that's looking quite interesting.
-
-We probably want to do a little bit more smoothing around here, but that smoothing tends to flatten
-
-out the mesh a bit.
-
-So I'll do that and I'll draw a bit first.
-
-So I use the draw brush, flesh it out a little bit more first and then do a bit of smoothing along
-
-here.
-
-So something like this.
-
-Now, word of warning.
-
-If I do a rematch now, control.
-
-Ah, you'll lose a little bit of detail in the crease and you'll have to go back right at the very end
-
-to get these very defined creases like this.
-
-That's okay.
-
-We'll still want to be re meshing every now and again, so we'll come back to that later.
-
-Still a bit more bulk at the front here and then smooth out.
-
-That's not looking too bad, but I'll get my grab brush and I want to bring this lower lip.
-
-It should come down in a line like this to the top.
-
-It sticks out a little bit further than the lower lip somewhere around here.
-
-And we can have a bit of a frown like this, or we can have a smile if we wanted to.
-
-He could be smiling about his evil, dastardly plan.
-
-Or he could be right down here looking particularly grumpy.
-
-I think may be a little bit more sinister up here like this.
-
-Just squeeze that in a touch and smooth around these areas.
-
-And this bit here is a bit of smoothing out.
-
-Looked a little bit lumpy there.
-
-Let's see how we're getting on.
-
-Not too bad.
-
-Maybe a touch of smoothing there.
-
-And that's looking quite interesting.
-
-So pause the video and catch up with me working on the lips and a bit on the chin.
-
-Might just tidy up the chin a little bit.
-
-Maybe I want this coming in and this coming out a little bit like this.
-
-Perhaps a little bit squared off might be kind of fun.
-
-And I might use the crease brush but fairly big like this and hold down control along the jawline,
-
-maybe even at the front here.
-
-So it's really sort of square like this and then dig in underneath.
-
-How's that look?
-
-That's quite interesting.
-
-Can smooth out a little bit to make it look a bit more organic and just smooth out a bit at the end
-
-there, I think.
-
-Just a little bit of crease under there and then smooth out.
-
-Something like this looks quite interesting.
-
-And maybe coming in a little bit more in this area.
-
-Again, I'll make my brush a bit bigger, a sort of bigger creases, and I use the smooth brush in conjunction
-
-with that.
-
-There we go.
-
-That's the sort of mouth area that I'm looking for.
-
-And you can experiment at this point, maybe bring the chin down and out or up and in.
-
-I think maybe down about here actually looks quite interesting.
-
-Perhaps come up a little bit this way just to test these things out, see what it looks like.
-
-I mean, that looks fairly interesting and just a little bit more shape in here.
-
-That looks quite fun.
-
-Okay.
-
-So pause the video here and try and experiment with the chin a little bit more, pulling it up and down.
-
-Don't panic if it doesn't look too much like mine.
-
-Just have fun with the process.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So we've lost a little bit of detail around the eyes.
-
-Again, back to the crease brush.
-
-Zoom in a touch and I'll just crease this area out here.
-
-Maybe have a bit more creases around here as well.
-
-It does tend to come down a little bit like this, so a bit more flesh up here and down and out.
-
-But you sometimes do get the creases there as well.
-
-Let's just zoom out and see what that looks like.
-
-That's not too bad a little bit in here as well, which again comes down and you've got a tear duct
-
-area in here that's about right now to tidy up the eyelids.
-
-We want to brush round about this sort of size and hold down control and then we can bring those out
-
-like this again, coming down to about here.
-
-So you've got that tear duct and then up and then around the bottom here again, smooth out if necessary.
-
-You might even want to dig in with the crease brush in these areas to kind of lower them if you need
-
-to.
-
-And you can always use the draw brush in reverse if you want to dig in like that.
-
-Let's zoom out and see how we're getting on.
-
-It's not too bad.
-
-It's often the case that you'll need to use the grab brush about this sort of size to edit these eyelids
-
-a bit more.
-
-How are we looking?
-
-That's working.
-
-Okay, so pause the video here and work on those eyelids.
-
-Now let's work on the brow line.
-
-So I'll bring this front down here and add just a touch of bulk.
-
-Not so sure in this area.
-
-Certainly at the front here, I think you need a bit more.
-
-There we go.
-
-That looks quite interesting.
-
-Again, the crease brush is great for defining areas.
-
-So I'll come in here and do a little bit of a crease around here.
-
-And in here and maybe even across here.
-
-Let's see what that looks like.
-
-Might be too much.
-
-We can try it out.
-
-I don't do that by smoothing it out and then maybe come up to the top a little bit more here.
-
-See what that looks like again, smoothing out every now and again.
-
-See if that works.
-
-Create some lines up here and then lines across the forehead like this.
-
-How's that?
-
-That's not too bad.
-
-It's a bit symmetrical at the moment, but you can sort these things out at the end of the sculpt and
-
-take off the symmetry, if you like.
-
-I'm smoothing out the areas in between for the moment just because they look a little bit blocky.
-
-But I think we're kind of getting somewhere here.
-
-Again, back to the grab brush and I'll resize that and just work on these eyes a little bit around
-
-here.
-
-Move that very end therein and then the top of the nose.
-
-I think that needs to come in just a touch bit thinner.
-
-Let's have a look what that looks like getting there, a bit of smoothing.
-
-So have a think about these cheekbones a little bit just there.
-
-That's kind of working.
-
-Okay.
-
-Now I think the brow line is still a bit too high and needs to come down a bit more.
-
-So I grabbed down from here and put these down.
-
-You have to be a little bit careful.
-
-You might want to grab from the top a bit more so you don't get any of the eyelid in and bring that
-
-down a little bit more.
-
-See what that's like.
-
-That's better.
-
-I think we can go down further, so I'll make my brush a bit bigger.
-
-Cut from the top here.
-
-Bring that right down to here.
-
-Make sure I haven't lost the shape at the top there.
-
-That does slope backwards a fair bit.
-
-This does how we look in it's not too bad, not too bad.
-
-Maybe a little bit lower even.
-
-Again, there's a fair bit of experimentation here.
-
-Make it a bit wider as well.
-
-And often I'm just using the same brushes, the crease, the grab brush.
-
-And the draw brush.
-
-Let's go back to the draw and just to put a little bit of bulk in there and then smooth out how we looking
-
-now that's quite fun.
-
-So pause the video here and catch up with me working on the brow.
-
-Now, the last bit I like to do for the eyes again with the crease brush about this sort of size here
-
-and then just up like this and down like this.
-
-So it sinks that eyelid back a little bit, just a bit more.
-
-So I'm going in a bit of a triangle at the top there like this.
-
-And then I do the same for the bottom like this and just have a look and see that that adds a nice bit
-
-of detail and shape to the eyes.
-
-I'll do a little bit more down the bottom here at the top there.
-
-Just quick lines like this and that's working fairly well.
-
-Might have to refine a little bit in here, so just smooth out of touch, see what it's looking like.
-
-And you may have to control the re mesh because we have kind of reshaped it a little bit.
-
-So I'll have to go in a touch and just smarten these up, maybe even smooth out a little bit.
-
-Just be careful doing that because you will lose a bit of your crease, but it actually kind of helps
-
-this slightly.
-
-So I'm just making that area for the eye and then smoothing it out and we've got a bit more shape in
-
-our eye like this.
-
-I'll just tidy that edge up a little bit here.
-
-Maybe add a little bit more of a crease just in there.
-
-And they're not looking too bad.
-
-I could work on this for a lot longer.
-
-Of course, but that might get a bit boring as a tutorial if you do need to fill this area out a little
-
-bit more.
-
-You might just want to go to the clay strips.
-
-So that's quite a good brush for filling areas out.
-
-As you can see here.
-
-And then I can smooth this area out if I need to.
-
-And just a tiny bit more with the crease coming up in there and then do that again.
-
-Let's see what that looks like.
-
-They do still need a bit of work and this is only the first level of detail.
-
-We'll go in later and sharpen a few things up with the crease brush and I'll show you a few more brushes
-
-in later episodes about how you can refine this shape slightly.
-
-So catch up with me completing the eyes again.
-
-Don't panic too much if it's not looking exactly like mine again.
-
-Use your references, but do try and have a bit of fun with this and experiment.
-
-And remember, this is the second level of detail so we can tidy things up a little bit as we go.
-
-So don't panic if it doesn't quite look right.
-
-Once you've done that, make sure you saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 06 — Sculpting a Cartoon Head |
-| **Bài học** | Details Lvl 1 |
-| **Thời lượng** | 16:41 |
-| **Chủ đề chính** | Thêm lớp chi tiết đầu tiên |
+# 094 — Details Level 1
+
+## Thêm lớp chi tiết cấp độ 1
+
+| Thuộc tính       | Nội dung                                                           |
+| ---------------- | ------------------------------------------------------------------ |
+| **Module**       | Module 06 — Sculpting a Cartoon Head                               |
+| **Bài học**      | Details Level 1                                                    |
+| **Thời lượng**   | 16:41                                                              |
+| **Phần mềm**     | Blender 4.3 trở lên                                                |
+| **Chủ đề chính** | Tăng mật độ mesh và tạo các khối chi tiết trung bình cho khuôn mặt |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Chuyển từ giai đoạn khối lớn (base shape) sang lớp chi tiết trung bình: mũi, miệng, má, cằm, nếp nhăn chính.
-- Tăng mật độ mesh (subdivide Multiresolution hoặc bật Dyntopo) để đủ độ phân giải cho chi tiết.
-- Luyện tập phối hợp nhiều brush trong cùng một vùng để đạt hình khối tự nhiên hơn.
+Sau khi hoàn thiện hình khối cơ bản của đầu nhân vật, bài học này chuyển sang **lớp chi tiết đầu tiên**.
 
-## 2. Nội dung chính
+Các mục tiêu chính gồm:
 
-Sau khi silhouette và các đặc điểm chính (mắt, tai) đã được định vị, bước "Details Level 1" tập trung vào các khối trung gian — chưa phải chi tiết bề mặt siêu nhỏ (như lỗ chân lông, nếp da mịn) mà là các khối hình chức năng: mũi, miệng, gò má, cằm, đường viền hàm rõ nét hơn.
+* Tăng mật độ lưới bằng **Voxel Remesh** để có đủ hình học cho việc điêu khắc.
+* Làm rõ các bộ phận quan trọng:
 
-Ở giai đoạn này cần tăng độ phân giải mesh trước khi thêm chi tiết:
+  * Lỗ mũi và cánh mũi.
+  * Môi trên, môi dưới và khóe miệng.
+  * Cằm và đường viền hàm.
+  * Gò má.
+  * Mí mắt và hốc mắt.
+  * Cung mày và các nếp lớn trên trán.
+* Luyện cách phối hợp các brush:
 
-- Với **Multiresolution**: vào panel Modifier, nhấn Subdivide thêm 1-2 cấp nữa.
-- Với **Dyntopo**: bật trong header Sculpt Mode, thiết lập Detail Size phù hợp (thường 8-12px cho chi tiết trung bình), Dyntopo sẽ tự động tạo thêm tam giác dưới đầu brush khi cần.
+  * **Crease**
+  * **Grab**
+  * **Draw**
+  * **Clay Strips**
+  * **Smooth**
+* Học cách liên tục quan sát, thử nghiệm và điều chỉnh hình khối.
+* Sử dụng ảnh tham chiếu để kiểm soát tỷ lệ và cấu trúc khuôn mặt.
 
-Các brush thường dùng ở bước này:
+> Đây mới chỉ là lớp chi tiết trung bình. Những đường nét sắc, nếp da nhỏ và chi tiết bề mặt sẽ được hoàn thiện ở các cấp độ sau.
 
-- **Draw**: đắp hoặc khoét khối cơ bản (mũi, miệng) theo cường độ vừa phải.
-- **Clay Strips**: tạo các mảng khối phẳng có cạnh (gò má, quai hàm).
-- **Crease**: nhấn sâu các đường phân khối (rãnh mũi-miệng, khóe miệng).
-- **Inflate**: làm phồng nhẹ các vùng như má, môi để trông đầy đặn hơn.
-- **Flatten/Contrast**: làm phẳng các mảng bề mặt lớn để tạo cạnh rõ ràng hơn giữa các khối, phù hợp phong cách cartoon "khối hóa" (chunky).
-- **Smooth**: cân bằng liên tục sau mỗi thao tác lớn.
+---
 
-Mũi cartoon thường được đơn giản hóa: một khối tròn/nêm nhô nhẹ, hai lỗ mũi gợi ý bằng Crease chứ không cần chi tiết giải phẫu đầy đủ. Miệng có thể chỉ là một đường Crease cong nhẹ kèm khối môi trên/dưới đắp bằng Clay Strips.
+## 2. Tư duy quan trọng khi sculpt
 
-## 3. Quy trình thực hành gợi ý
+Giai đoạn này tương đối khó hướng dẫn theo một công thức cố định, bởi kết quả phụ thuộc nhiều vào:
 
-1. Tăng độ phân giải mesh (Subdivide Multiresolution hoặc bật Dyntopo với Detail Size phù hợp).
-2. Dùng Draw/Clay Strips đắp khối mũi ở vị trí trung tâm khuôn mặt, dưới hai mắt.
-3. Dùng Crease tạo rãnh mũi-miệng và đường viền môi.
-4. Đắp khối môi trên/dưới bằng Clay Strips, giữ tỷ lệ cách điệu (có thể phóng đại).
-5. Tạo gò má, quai hàm bằng Clay Strips/Flatten để có cạnh khối rõ.
-6. Smooth toàn bộ sau mỗi cụm chi tiết để tránh bề mặt gồ ghề rời rạc.
-7. So sánh liên tục với ảnh tham chiếu đã chuẩn bị ở bài 093.
+* Khả năng quan sát.
+* Cảm nhận hình khối.
+* Kích thước brush.
+* Góc nhìn.
+* Mức độ cách điệu của nhân vật.
+* Thời gian luyện tập.
 
-## 4. Phím tắt & công cụ liên quan
+Nhân vật của anh không nhất thiết phải giống hoàn toàn với mẫu trong video. Mục tiêu quan trọng hơn là:
 
-| Phím tắt / Brush | Chức năng |
-|---|---|
-| Brush **Draw** | Đắp/khoét khối cơ bản theo cường độ |
-| Brush **Clay Strips** | Tạo mảng khối phẳng có cạnh |
-| Brush **Crease** | Nhấn sâu đường phân khối (rãnh mũi-miệng, khóe miệng) |
-| Brush **Flatten/Contrast** | Làm phẳng mảng bề mặt, tạo cạnh khối rõ |
-| Brush **Inflate/Deflate** | Phồng/hóp khối (`Ctrl` đảo chiều) |
-| `Shift` (giữ) | Smooth tạm thời |
-| Dyntopo — `Ctrl+D` hoặc nút trong header | Bật/tắt Dynamic Topology |
-| `X` | Symmetry |
+1. Hiểu chức năng của từng brush.
+2. Biết vùng nào cần đắp thêm và vùng nào cần khoét bớt.
+3. Duy trì được hình khối tổng thể.
+4. Tạo ra một thiết kế có cá tính riêng.
 
-## 5. Lưu ý & lỗi thường gặp
+Có thể thay đổi hình dáng mũi, miệng, cằm hoặc biểu cảm để nhân vật mang phong cách riêng.
 
-- Thêm chi tiết khi mật độ mesh chưa đủ khiến brush tạo ra các cạnh gãy/lởm chởm.
-- Dùng Dyntopo với Detail Size quá nhỏ làm mesh phình to số lượng tam giác, gây chậm máy.
-- Chi tiết hóa một vùng quá kỹ trong khi các vùng khác còn thô, làm mất cân bằng tổng thể.
-- Quên so sánh với silhouette ban đầu, khiến hình dạng tổng thể bị "trôi" qua nhiều lớp chi tiết.
+---
 
-## 6. Checklist thực hành
+## 3. Ảnh tham chiếu
 
-- [ ] Đã tăng độ phân giải mesh trước khi thêm chi tiết (Multiresolution hoặc Dyntopo).
-- [ ] Đã đắp khối mũi và miệng cách điệu.
-- [ ] Đã tạo gò má, quai hàm bằng Clay Strips/Flatten.
-- [ ] Đã dùng Crease cho các đường phân khối chính.
-- [ ] Đã Smooth cân bằng và so sánh với silhouette tổng thể.
+Trong suốt quá trình sculpt, nên để ảnh tham chiếu trên một màn hình riêng hoặc đặt cạnh cửa sổ Blender.
 
-## 7. Tóm tắt
+Một số cách bố trí:
 
-Bài học hướng dẫn thêm lớp chi tiết đầu tiên cho đầu nhân vật — mũi, miệng, gò má, cằm — bằng cách tăng độ phân giải mesh và phối hợp các brush Draw, Clay Strips, Crease, Flatten, luôn giữ nguyên tắc cân bằng tổng thể trước khi đi sâu hơn.
+* Dùng màn hình thứ hai.
+* Thu nhỏ cửa sổ Blender và mở ảnh tham chiếu bên cạnh.
+* Dùng cửa sổ Image Editor trong Blender.
+* Sử dụng phần mềm như PureRef để gom nhiều ảnh tham chiếu.
+
+Ảnh tham chiếu đặc biệt hữu ích khi kiểm tra:
+
+* Độ nhô của mũi.
+* Hình dạng lỗ mũi.
+* Vị trí gò má.
+* Cấu trúc mí mắt.
+* Độ dày của môi.
+* Góc nghiêng của trán.
+* Đường chuyển tiếp từ cằm xuống cổ.
+
+---
+
+## 4. Tăng mật độ mesh bằng Voxel Remesh
+
+Ở cuối giai đoạn tạo khối cơ bản, mesh có khoảng:
+
+* **125.000 faces**
+
+Mật độ này vẫn còn khá thấp đối với sculpting chi tiết.
+
+Các mô hình sculpt chuyên nghiệp có thể đạt:
+
+* Khoảng 3–4 triệu polygon.
+* Hàng chục triệu polygon đối với những mô hình rất chi tiết.
+
+Tuy nhiên, nhân vật trong bài không cần mật độ quá cao.
+
+### Thiết lập Voxel Size
+
+1. Trong Sculpt Mode, nhấn:
+
+```text
+Shift + R
+```
+
+2. Di chuyển chuột để điều chỉnh kích thước voxel.
+3. Đặt giá trị gần:
+
+```text
+Voxel Size ≈ 0.01
+```
+
+4. Thực hiện remesh bằng:
+
+```text
+Ctrl + R
+```
+
+Sau khi remesh, mô hình có thể tăng lên khoảng:
+
+```text
+500.000 faces
+```
+
+Máy tính có thể tạm dừng trong vài giây khi Blender tính toán lại topology.
+
+### Ý nghĩa của Voxel Size
+
+| Voxel Size  | Kết quả                                  |
+| ----------- | ---------------------------------------- |
+| Giá trị lớn | Ít polygon, bề mặt thô, xử lý nhanh      |
+| Giá trị nhỏ | Nhiều polygon, giữ được chi tiết tốt hơn |
+| Quá nhỏ     | Mesh rất nặng, dễ làm chậm máy           |
+
+> Chỉ giảm Voxel Size khi mô hình thực sự cần thêm độ phân giải.
+
+---
+
+## 5. Quy trình tổng thể
+
+```mermaid
+flowchart TD
+    A[Hoàn thiện Base Shape] --> B[Đặt Voxel Size khoảng 0.01]
+    B --> C[Ctrl + R để Voxel Remesh]
+    C --> D[Crease tạo rãnh và phân tách khối]
+    D --> E[Grab điều chỉnh tỷ lệ và silhouette]
+    E --> F[Draw hoặc Clay Strips bổ sung thể tích]
+    F --> G[Shift để Smooth vùng xung quanh]
+    G --> H[Quan sát từ nhiều góc]
+    H --> I{Hình khối đã ổn chưa?}
+    I -- Chưa --> D
+    I -- Đã ổn --> J[Lưu file và chuyển sang cấp chi tiết tiếp theo]
+```
+
+Nguyên tắc lặp lại xuyên suốt bài học:
+
+```text
+Crease → Smooth → Grab → Quan sát → Điều chỉnh
+```
+
+---
+
+# 6. Các brush được sử dụng
+
+## 6.1. Crease Brush
+
+Crease là brush quan trọng nhất trong bài học này.
+
+Nó được sử dụng để:
+
+* Tạo rãnh lỗ mũi.
+* Tách môi khỏi vùng da xung quanh.
+* Làm rõ đường viền hàm.
+* Tạo rãnh dưới cằm.
+* Định hình mí mắt.
+* Tạo nếp quanh cung mày.
+* Nhấn các đường lớn trên trán.
+
+### Kích thước brush
+
+* Brush nhỏ tạo đường crease mảnh và sắc.
+* Brush lớn tạo vùng lõm rộng và chuyển tiếp mềm hơn.
+
+### Đảo chiều Crease
+
+Giữ:
+
+```text
+Ctrl
+```
+
+để đảo chiều tác động của brush.
+
+Tùy thiết lập brush, thao tác đảo chiều có thể:
+
+* Đẩy phần giữa đường stroke ra ngoài.
+* Tạo hiệu ứng pinch.
+* Làm nổi khối gò má, môi hoặc mí mắt.
+
+---
+
+## 6.2. Smooth
+
+Giữ:
+
+```text
+Shift
+```
+
+để tạm thời sử dụng Smooth Brush.
+
+Smooth được dùng để:
+
+* Giảm bề mặt gồ ghề.
+* Làm mềm hai bên đường crease.
+* Kết nối các khối với nhau tự nhiên hơn.
+* Xử lý các vùng bị lumpy sau khi kéo bằng Grab.
+
+### Nguyên tắc sử dụng
+
+Không nên Smooth trực tiếp quá nhiều lên đường crease vừa tạo.
+
+Thay vào đó:
+
+```text
+Smooth hai bên đường crease
+```
+
+Điều này giúp đường rãnh vẫn rõ nhưng vùng chuyển tiếp trở nên mềm mại hơn.
+
+> Smooth quá mạnh có thể làm mất cấu trúc, làm phẳng môi, mí mắt hoặc đường viền hàm.
+
+---
+
+## 6.3. Grab Brush
+
+Grab được sử dụng để thay đổi hình dáng lớn mà không cần tạo thêm thể tích.
+
+Các ứng dụng trong bài:
+
+* Kéo cổ ra đúng vị trí.
+* Làm cổ mỏng hơn.
+* Chỉnh yết hầu.
+* Thay đổi độ móc của mũi.
+* Mở rộng hoặc thu hẹp cánh mũi.
+* Điều chỉnh môi trên và môi dưới.
+* Tạo biểu cảm cười, cau có hoặc nham hiểm.
+* Kéo cằm dài hơn, ngắn hơn hoặc vuông hơn.
+* Hạ thấp cung mày.
+* Điều chỉnh hình dạng mí mắt.
+
+Grab Brush phù hợp với:
+
+```text
+Thay đổi tỷ lệ và silhouette
+```
+
+Nó không thích hợp để tạo các nếp nhỏ hoặc chi tiết sắc.
+
+---
+
+## 6.4. Draw Brush
+
+Draw Brush được dùng để:
+
+* Đắp thêm thể tích.
+* Làm môi đầy hơn.
+* Bổ sung khối quanh cung mày.
+* Tăng thể tích phần trước của mũi.
+* Bù lại vùng bị phẳng sau khi Smooth.
+
+Giữ:
+
+```text
+Ctrl
+```
+
+để đảo chiều và khoét bề mặt vào trong.
+
+---
+
+## 6.5. Clay Strips
+
+Clay Strips phù hợp để lấp đầy các vùng thiếu thể tích.
+
+Trong bài, brush này được dùng để:
+
+* Bổ sung khối quanh mắt.
+* Lấp vùng lõm không mong muốn.
+* Tạo các mảng khối lớn trước khi Smooth.
+* Kết nối cung mày, gò má và hốc mắt.
+
+Sau khi dùng Clay Strips, thường cần Smooth nhẹ để hòa các nét brush vào bề mặt.
+
+---
+
+# 7. Tạo chi tiết cho từng vùng
+
+## 7.1. Lỗ mũi và cánh mũi
+
+Bắt đầu bằng Crease Brush với kích thước nhỏ.
+
+### Các bước
+
+1. Vẽ crease quanh phần dưới của cánh mũi.
+2. Dùng brush nhỏ hơn khi tiến gần phần trên của lỗ mũi.
+3. Smooth nhẹ vùng bên cạnh.
+4. Dùng Draw Brush ở chế độ đảo chiều để khoét lỗ mũi.
+5. Thả chuột và thực hiện nhiều stroke ngắn thay vì giữ một stroke quá lâu.
+6. Dùng Grab để chỉnh:
+
+   * Độ rộng đầu mũi.
+   * Độ xòe của cánh mũi.
+   * Độ móc của sống mũi.
+   * Vị trí lỗ mũi.
+7. Smooth nhẹ để giảm bề mặt gồ ghề.
+
+### Lưu ý giải phẫu
+
+Khi nhìn trực diện hoặc từ dưới lên, có thể thấy phần vách ngăn nằm giữa hai lỗ mũi. Đây là hiện tượng bình thường.
+
+Không nên khoét hai lỗ mũi như hai lỗ tròn độc lập hoàn toàn. Chúng cần kết nối tự nhiên với:
+
+* Cánh mũi.
+* Đầu mũi.
+* Vách ngăn.
+* Phần má bên cạnh.
+
+---
+
+## 7.2. Định hình mũi
+
+Sau khi tạo lỗ mũi, dùng Grab Brush để hoàn thiện khối mũi.
+
+Có thể thử nghiệm:
+
+* Làm mũi móc xuống.
+* Làm đầu mũi to hơn.
+* Thu hẹp phần sống mũi.
+* Mở rộng phần trước.
+* Nâng cánh mũi để tạo cảm giác dữ tợn.
+* Kéo đầu mũi xuống để nhân vật có vẻ già hoặc nham hiểm hơn.
+
+### Kiểm tra từ nhiều góc
+
+Luôn kiểm tra mũi từ:
+
+* Chính diện.
+* Góc nghiêng.
+* Góc ba phần tư.
+* Góc nhìn từ dưới lên.
+
+Một chiếc mũi có thể trông tốt ở chính diện nhưng quá dài hoặc quá phẳng khi nhìn nghiêng.
+
+---
+
+## 7.3. Đường viền hàm
+
+Dùng Crease Brush với kích thước lớn hơn để định nghĩa:
+
+* Đường từ gò má xuống hàm.
+* Góc hàm.
+* Đường dưới cằm.
+* Vùng chuyển tiếp từ hàm xuống cổ.
+
+### Quy trình
+
+1. Vẽ một đường crease dọc theo đường viền hàm.
+2. Smooth nhẹ hai bên.
+3. Dùng Grab để kéo phần hàm ra sau hoặc vào trong.
+4. Kiểm tra silhouette.
+5. Lặp lại Crease nếu đường hàm bị mềm sau khi Smooth.
+
+Có thể giữ `Ctrl` với Crease để làm phần xương hàm nổi rõ hơn.
+
+---
+
+## 7.4. Cổ và yết hầu
+
+Sau khi tạo đường hàm, vùng cổ có thể chưa khớp với đầu.
+
+Dùng Grab Brush để:
+
+* Kéo cổ ra phía sau.
+* Làm cổ mỏng hơn.
+* Điều chỉnh độ cong ở phần trước cổ.
+* Gợi ý khối yết hầu.
+* Tạo chuyển tiếp tự nhiên từ cằm xuống cổ.
+
+Sau những thay đổi lớn, có thể cần:
+
+```text
+Ctrl + R
+```
+
+để remesh lại topology.
+
+> Remesh sau khi thay đổi hình khối lớn giúp mật độ polygon phân bố đều hơn.
+
+---
+
+## 7.5. Miệng và khóe miệng
+
+Dùng Crease Brush với kích thước nhỏ để xác định đường phân chia giữa hai môi.
+
+### Các bước
+
+1. Vẽ đường giữa môi.
+2. Làm rõ phần giữa miệng.
+3. Tạo một vùng lõm nhỏ tại hai khóe miệng.
+4. Dùng `Ctrl` với Crease để đẩy phần môi ra ngoài.
+5. Smooth nhẹ hai bên đường môi.
+6. Lặp lại:
+
+```text
+Crease → Smooth → Crease → Smooth
+```
+
+Quy trình này giúp hình dạng môi rõ hơn mà không tạo đường rãnh quá cứng.
+
+### Khóe miệng
+
+Khóe miệng thường có một vùng lõm nhỏ, không nên chỉ kết thúc bằng một đường thẳng sắc.
+
+Có thể tạo:
+
+* Khóe miệng hướng lên để nhân vật cười nham hiểm.
+* Khóe miệng hướng xuống để nhân vật cau có.
+* Một bên cao, một bên thấp khi bỏ symmetry ở giai đoạn cuối.
+
+---
+
+## 7.6. Tạo thể tích cho môi
+
+Sau khi Crease, môi có thể bị quá phẳng.
+
+Dùng Draw Brush để:
+
+* Đắp thêm môi trên.
+* Đắp môi dưới.
+* Làm đầy vùng quanh miệng.
+* Khôi phục thể tích bị mất do Smooth.
+
+Sau đó Smooth nhẹ theo chiều dài của môi.
+
+### Quan hệ giữa môi trên và môi dưới
+
+Khi nhìn nghiêng:
+
+* Môi trên thường nhô ra một chút.
+* Môi dưới nằm lùi nhẹ hơn.
+* Vùng dưới môi dưới lõm vào trước khi chuyển sang cằm.
+
+Tuy nhiên, vì đây là nhân vật cartoon, anh có thể phóng đại các tỷ lệ này.
+
+---
+
+## 7.7. Biểu cảm miệng
+
+Dùng Grab Brush để chỉnh khóe miệng.
+
+### Một số lựa chọn
+
+| Biểu cảm     | Cách điều chỉnh                            |
+| ------------ | ------------------------------------------ |
+| Vui vẻ       | Kéo hai khóe miệng lên                     |
+| Cau có       | Kéo khóe miệng xuống                       |
+| Nham hiểm    | Kéo khóe miệng lên nhẹ và ép phần giữa môi |
+| Khinh thường | Kéo một bên miệng cao hơn bên còn lại      |
+| Căng thẳng   | Ép môi mỏng và kéo ngang                   |
+
+Trong video, biểu cảm được điều chỉnh theo hướng hơi nham hiểm, phù hợp với thiết kế nhân vật phản diện.
+
+---
+
+## 7.8. Cằm
+
+Cằm ảnh hưởng rất mạnh đến cá tính của nhân vật.
+
+Dùng Grab Brush để thử nghiệm:
+
+* Kéo cằm xuống.
+* Đẩy cằm ra trước.
+* Thu cằm vào trong.
+* Làm cằm rộng hơn.
+* Tạo cằm vuông.
+* Làm cằm nhọn.
+* Tạo rãnh giữa cằm.
+
+Dùng Crease Brush kích thước lớn để:
+
+* Làm rõ cạnh dưới của cằm.
+* Tách cằm khỏi vùng cổ.
+* Tạo rãnh hoặc nếp trên cằm.
+
+Sau đó Smooth để cằm trông hữu cơ hơn.
+
+### Kiểm tra silhouette
+
+Cằm cần được quan sát đặc biệt từ góc nghiêng:
+
+```text
+Trán → Mũi → Môi → Cằm
+```
+
+Bốn vùng này tạo nên đường nét nhận diện chính của khuôn mặt.
+
+---
+
+## 7.9. Mí mắt
+
+Chi tiết quanh mắt có thể bị mất sau khi remesh hoặc Smooth.
+
+Dùng Crease Brush để phục hồi:
+
+* Đường mí trên.
+* Đường mí dưới.
+* Khóe mắt trong.
+* Vùng tuyến lệ.
+* Rãnh giữa mí mắt và cung mày.
+
+### Quy trình tạo mí
+
+1. Dùng Crease Brush nhỏ.
+2. Giữ `Ctrl` để làm phần mí nổi ra.
+3. Đi theo đường cong của nhãn cầu.
+4. Tạo vùng tuyến lệ ở khóe mắt trong.
+5. Dùng Grab để chỉnh lại độ mở của mắt.
+6. Smooth nhẹ nếu bề mặt quá gồ ghề.
+
+Mí mắt cần ôm theo hình cầu của mắt, không nên nằm như một mặt phẳng trên khuôn mặt.
+
+---
+
+## 7.10. Tạo hốc mắt
+
+Để mắt có chiều sâu hơn, dùng Crease Brush tạo các đường ngắn quanh mắt.
+
+Có thể hình dung vùng hốc mắt như một hình tam giác hoặc khung bao quanh nhãn cầu:
+
+```text
+      Cung mày
+       /    \
+Khóe mắt    Đuôi mắt
+       \    /
+        Mí dưới
+```
+
+Thực hiện các stroke ngắn:
+
+* Phía trên mí mắt.
+* Ở đuôi mắt.
+* Phía dưới mắt.
+* Sát vùng sống mũi.
+
+Điều này làm mí mắt lùi vào trong và nhãn cầu có cảm giác được đặt trong hốc mắt.
+
+---
+
+## 7.11. Cung mày
+
+Cung mày là vùng rất quan trọng để tạo biểu cảm.
+
+Dùng Grab Brush để:
+
+* Hạ cung mày xuống.
+* Làm cung mày rộng hơn.
+* Kéo phần giữa xuống gần mũi.
+* Tạo độ dốc về phía sau của trán.
+
+Dùng Draw hoặc Clay Strips để bổ sung thể tích nếu cung mày bị phẳng.
+
+Dùng Crease để làm rõ:
+
+* Rãnh giữa sống mũi và cung mày.
+* Đường phía dưới cung mày.
+* Nếp phía trên trán.
+
+### Biểu cảm phản diện
+
+Để tạo vẻ dữ hoặc nham hiểm:
+
+* Hạ thấp phần trong của cung mày.
+* Đẩy cung mày ra trước.
+* Làm phần xương phía trên mắt lớn hơn.
+* Thu hẹp khoảng cách giữa cung mày và mí trên.
+
+---
+
+## 7.12. Nếp trán
+
+Dùng Crease Brush tạo một số đường lớn:
+
+* Nếp dọc giữa hai chân mày.
+* Nếp chéo từ cung mày.
+* Nếp ngang trên trán.
+
+Ở cấp độ này, chỉ nên tạo các nếp lớn để định hướng hình khối.
+
+Không nên đi quá sâu vào:
+
+* Nếp da nhỏ.
+* Lỗ chân lông.
+* Vết nhăn li ti.
+* Chi tiết bề mặt rất sắc.
+
+Các chi tiết này sẽ được thực hiện ở cấp độ sau.
+
+---
+
+## 7.13. Gò má
+
+Có thể dùng Crease đảo chiều hoặc Draw Brush để làm nổi gò má.
+
+### Cách thực hiện
+
+1. Dùng Crease Brush kích thước tương đối lớn.
+2. Giữ `Ctrl` để đẩy phần giữa stroke ra ngoài.
+3. Đi theo đường từ dưới mắt về phía tai.
+4. Smooth nhẹ phía trên và phía dưới.
+5. Dùng Grab nếu cần thay đổi vị trí gò má.
+
+Gò má cao và rõ thường giúp nhân vật:
+
+* Trông già hơn.
+* Có vẻ gầy hơn.
+* Mang cảm giác sắc sảo hoặc nguy hiểm hơn.
+
+---
+
+## 8. Khi nào cần Remesh lại?
+
+Trong quá trình sculpt, topology có thể bị kéo giãn khi:
+
+* Kéo cổ quá xa.
+* Làm mũi dài hơn.
+* Thay đổi cằm đáng kể.
+* Hạ cung mày.
+* Kéo môi hoặc hàm.
+* Thay đổi silhouette lớn.
+
+Khi đó có thể nhấn:
+
+```text
+Ctrl + R
+```
+
+để Voxel Remesh lại.
+
+### Nhược điểm của remesh
+
+Remesh có thể làm mất một phần:
+
+* Đường crease nhỏ.
+* Chi tiết sắc ở môi.
+* Nếp mí mắt.
+* Khóe miệng.
+* Các đường nhăn nhỏ.
+
+Do đó, quy trình phù hợp là:
+
+```text
+Thay đổi hình khối lớn
+        ↓
+Voxel Remesh
+        ↓
+Khôi phục các đường Crease
+        ↓
+Tiếp tục tinh chỉnh
+```
+
+Không nên dành quá nhiều thời gian làm sắc các nếp nhỏ trước khi chắc chắn rằng không cần remesh thêm.
+
+---
+
+## 9. Phím tắt và thao tác quan trọng
+
+| Phím tắt / Công cụ    | Chức năng                                 |
+| --------------------- | ----------------------------------------- |
+| `Shift + R`           | Điều chỉnh Voxel Size                     |
+| `Ctrl + R`            | Voxel Remesh                              |
+| Giữ `Shift`           | Tạm thời sử dụng Smooth Brush             |
+| Giữ `Ctrl` khi sculpt | Đảo chiều tác động của brush              |
+| `Ctrl + Z`            | Hoàn tác                                  |
+| **Crease**            | Tạo rãnh, pinch và làm rõ đường phân chia |
+| **Grab**              | Kéo và thay đổi hình dáng lớn             |
+| **Draw**              | Đắp hoặc khoét thể tích                   |
+| **Clay Strips**       | Bổ sung các mảng khối                     |
+| **Smooth**            | Làm mềm và kết nối bề mặt                 |
+| **X Symmetry**        | Sculpt đối xứng theo trục X               |
+
+> Phím tắt có thể thay đổi tùy keymap hoặc phiên bản Blender, nhưng trong bài giảng `Shift + R` và `Ctrl + R` được dùng cho Voxel Remesh.
+
+---
+
+## 10. Những lỗi thường gặp
+
+### 10.1. Smooth quá nhiều
+
+**Hiện tượng:**
+
+* Môi bị biến mất.
+* Mí mắt bị phẳng.
+* Mũi mất cấu trúc.
+* Đường hàm không còn rõ.
+
+**Khắc phục:**
+
+* Chỉ Smooth nhẹ hai bên vùng chi tiết.
+* Dùng Draw để bổ sung lại thể tích.
+* Crease lại những đường quan trọng.
+
+---
+
+### 10.2. Tạo crease quá sâu
+
+**Hiện tượng:**
+
+* Khuôn mặt giống bị cắt bằng dao.
+* Nếp nhăn quá sắc.
+* Các bộ phận không kết nối tự nhiên.
+
+**Khắc phục:**
+
+* Giảm Strength.
+* Tăng kích thước brush.
+* Smooth hai bên đường crease.
+* Sử dụng nhiều stroke nhẹ thay vì một stroke mạnh.
+
+---
+
+### 10.3. Chỉ sculpt ở góc chính diện
+
+**Hiện tượng:**
+
+* Mũi quá dài khi nhìn nghiêng.
+* Cằm bị nhô quá xa.
+* Cổ không nối tự nhiên với đầu.
+* Mí mắt không ôm nhãn cầu.
+
+**Khắc phục:**
+
+Thường xuyên xoay mô hình qua:
+
+```text
+Chính diện → Ba phần tư → Góc nghiêng → Từ dưới lên
+```
+
+---
+
+### 10.4. Làm chi tiết nhỏ quá sớm
+
+**Hiện tượng:**
+
+* Mất thời gian sửa các đường nhỏ sau khi remesh.
+* Mô hình có nhiều nếp nhưng hình khối tổng thể vẫn chưa đúng.
+
+**Khắc phục:**
+
+Ưu tiên theo thứ tự:
+
+```text
+Silhouette
+→ Khối lớn
+→ Khối trung bình
+→ Đường phân chia chính
+→ Chi tiết nhỏ
+```
+
+---
+
+### 10.5. Voxel Size quá nhỏ
+
+**Hiện tượng:**
+
+* Blender phản hồi chậm.
+* Brush bị lag.
+* File nặng.
+* Remesh mất nhiều thời gian.
+
+**Khắc phục:**
+
+* Chỉ dùng độ phân giải vừa đủ.
+* Ẩn các đối tượng không cần thiết.
+* Không giảm Voxel Size quá sớm.
+* Lưu file trước khi remesh mật độ cao.
+
+---
+
+### 10.6. Mô hình quá đối xứng
+
+Sculpt đối xứng rất hữu ích ở giai đoạn đầu, nhưng khuôn mặt hoàn toàn đối xứng có thể trông thiếu tự nhiên.
+
+Ở giai đoạn cuối có thể tắt X Symmetry và thêm bất đối xứng nhẹ:
+
+* Một bên cung mày cao hơn.
+* Một khóe miệng nhếch hơn.
+* Một mí mắt mở rộng hơn.
+* Các nếp trán khác nhau.
+* Mũi hơi lệch nhẹ.
+
+Tuy nhiên, chưa cần thực hiện điều này khi hình khối cơ bản vẫn đang được hoàn thiện.
+
+---
+
+## 11. Quy trình thực hành chi tiết
+
+### Giai đoạn A — Chuẩn bị mesh
+
+1. Kiểm tra hình khối cơ bản.
+2. Đặt Voxel Size khoảng `0.01`.
+3. Nhấn `Ctrl + R` để remesh.
+4. Thử Smooth nhẹ để kiểm tra mật độ mesh.
+5. Lưu file trước khi tiếp tục.
+
+### Giai đoạn B — Mũi
+
+1. Dùng Crease tạo rãnh quanh cánh mũi.
+2. Dùng Draw đảo chiều để khoét lỗ mũi.
+3. Dùng Grab chỉnh đầu mũi và cánh mũi.
+4. Smooth nhẹ.
+5. Quan sát từ chính diện và góc nghiêng.
+
+### Giai đoạn C — Hàm và cổ
+
+1. Crease dọc đường viền hàm.
+2. Smooth hai bên.
+3. Grab chỉnh góc hàm.
+4. Kéo cổ về đúng vị trí.
+5. Gợi ý yết hầu.
+6. Remesh nếu topology bị kéo giãn.
+
+### Giai đoạn D — Miệng và cằm
+
+1. Crease đường giữa môi.
+2. Tạo khóe miệng.
+3. Đắp thêm thể tích môi bằng Draw.
+4. Dùng Grab tạo biểu cảm.
+5. Điều chỉnh hình dạng cằm.
+6. Crease dưới cằm và Smooth vùng chuyển tiếp.
+
+### Giai đoạn E — Mắt và cung mày
+
+1. Crease lại mí trên và mí dưới.
+2. Tạo vùng tuyến lệ.
+3. Dùng Grab chỉnh độ mở mắt.
+4. Hạ cung mày.
+5. Bổ sung thể tích bằng Draw hoặc Clay Strips.
+6. Tạo nếp lớn quanh mắt và trên trán.
+7. Smooth nhẹ để các khối kết nối tự nhiên.
+
+---
+
+## 12. Bài tập thực hành
+
+Tạm dừng video tại từng giai đoạn và thực hiện lần lượt:
+
+### Bài tập 1 — Crease Brush
+
+* Tạo rãnh lỗ mũi.
+* Định nghĩa đường hàm.
+* Tạo rãnh dưới cằm.
+* Smooth hai bên đường crease.
+
+### Bài tập 2 — Mũi
+
+* Khoét hai lỗ mũi.
+* Điều chỉnh đầu mũi.
+* Làm cánh mũi xòe hơn hoặc hẹp hơn.
+* Thử tạo một chiếc mũi móc.
+
+### Bài tập 3 — Miệng
+
+* Tạo đường giữa môi.
+* Tạo khóe miệng.
+* Đắp thể tích môi.
+* Thử ba biểu cảm:
+
+  * Cau có.
+  * Cười.
+  * Cười nham hiểm.
+
+### Bài tập 4 — Cằm
+
+Thử ba biến thể:
+
+1. Cằm dài và nhọn.
+2. Cằm rộng, vuông.
+3. Cằm ngắn và lùi vào trong.
+
+Quan sát xem mỗi biến thể làm thay đổi tính cách nhân vật như thế nào.
+
+### Bài tập 5 — Mắt và cung mày
+
+* Tạo mí mắt ôm quanh nhãn cầu.
+* Hạ cung mày để tăng vẻ dữ tợn.
+* Tạo rãnh hốc mắt.
+* Bổ sung khối bằng Clay Strips nếu vùng mắt bị lõm.
+
+---
+
+## 13. Checklist hoàn thành
+
+### Mesh
+
+* [ ] Đã giảm Voxel Size xuống khoảng `0.01`.
+* [ ] Đã thực hiện Voxel Remesh.
+* [ ] Mesh đủ mịn để tạo các chi tiết trung bình.
+* [ ] Blender vẫn hoạt động ổn định, không bị lag quá mức.
+
+### Mũi
+
+* [ ] Đã tạo hai lỗ mũi.
+* [ ] Cánh mũi có hình khối rõ.
+* [ ] Đầu mũi có thể tích.
+* [ ] Mũi trông hợp lý ở cả góc chính diện và góc nghiêng.
+
+### Miệng và cằm
+
+* [ ] Đã xác định đường phân chia môi.
+* [ ] Đã tạo khóe miệng.
+* [ ] Môi không bị quá phẳng.
+* [ ] Biểu cảm phù hợp với nhân vật.
+* [ ] Cằm có hình dạng rõ ràng.
+* [ ] Vùng cằm chuyển tiếp tự nhiên xuống cổ.
+
+### Mắt và cung mày
+
+* [ ] Mí mắt ôm theo hình cầu của mắt.
+* [ ] Có vùng tuyến lệ ở khóe mắt trong.
+* [ ] Hốc mắt có chiều sâu.
+* [ ] Cung mày tạo được biểu cảm.
+* [ ] Các nếp lớn quanh mắt và trán đã được gợi ý.
+
+### Tổng thể
+
+* [ ] Đã kiểm tra mô hình từ nhiều góc.
+* [ ] Không Smooth quá mức.
+* [ ] Không tập trung quá sớm vào chi tiết rất nhỏ.
+* [ ] Đã sử dụng ảnh tham chiếu.
+* [ ] Đã lưu file trước khi kết thúc.
+
+---
+
+## 14. Tóm tắt bài học
+
+Bài học **Details Level 1** chuyển mô hình từ hình khối cơ bản sang cấp độ chi tiết trung bình.
+
+Quy trình chính là:
+
+```text
+Tăng mật độ mesh
+→ Định nghĩa mũi
+→ Tạo môi và biểu cảm
+→ Làm rõ cằm và đường hàm
+→ Chỉnh mí mắt và hốc mắt
+→ Hạ cung mày
+→ Smooth và kiểm tra tổng thể
+```
+
+Các brush được sử dụng nhiều nhất gồm:
+
+* **Crease** để tạo rãnh và phân tách hình khối.
+* **Grab** để thay đổi tỷ lệ và silhouette.
+* **Draw** để thêm hoặc bớt thể tích.
+* **Clay Strips** để bổ sung các vùng thiếu khối.
+* **Smooth** để làm mềm và kết nối bề mặt.
+
+Điều quan trọng nhất ở giai đoạn này không phải là tạo ra một khuôn mặt hoàn hảo ngay lập tức, mà là liên tục:
+
+```text
+Quan sát → Thử nghiệm → Hoàn tác → Điều chỉnh → So sánh tham chiếu
+```
+
+Sau khi hoàn thành, hãy lưu file để chuẩn bị cho bước tinh chỉnh và nâng cấp mức độ chi tiết tiếp theo.

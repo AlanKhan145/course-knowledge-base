@@ -1,346 +1,820 @@
 # 066 — Preparing for Animation
-Okay.
 
-So here's where we got up to last time.
-
-And before doing anything, I just want to bring back my gizmos so you can see my Cartesian coordinates
-
-at the top there and bring back my overlays so you can see what I've selected and my grid floor and
-
-so on.
-
-Now, before preparing the plane for animation, I just want to select the cockpit.
-
-I'll just press shift, right click to move the 3D cursor so we can see that easily.
-
-And I don't feel it's dark enough, so I'm just going to change the color so it's darker and I think
-
-that looks a lot better.
-
-Also, one other thing that I wanted to point out is that if I select Propeller and just zoom in on
-
-that, if I go to edit mode now and let's say try and select a face, we can't really see it.
-
-Of course we could go to x ray mode like we were before and then I can see those faces.
-
-That's fine, but at this point it's nice to have x ray mode off because we're in material preview mode
-
-so we can see our texture is a bit easier.
-
-Well in the modifier.
-
-So under the spanner and my solidifying modifier here, we've currently got an offset to the center.
-
-So if I bring that to the back like this, so minus one, we can then see our faces or I could bring
-
-it to the front and we can see the faces on the back.
-
-But if you have the offset in the middle, so it's coming out of both sides, you can use this button
-
-called on cage.
-
-If I press that, it kind of shows you the results of the modifier as if you had applied it.
-
-So I can select a face here.
-
-It does select all those faces because that one face with the modifier makes up all those other faces.
-
-So I can select areas in here if I need to.
-
-And if I select this top face and let's have a quick look at our Spitfire texture once again, the propellers
-
-actually have this yellowy color on the tip.
-
-So it is a challenge to you.
-
-I want you to add a yellow color to the tip of the propeller.
-
-Now, you could do this by unwrapping it and trying to map it to the plane, but the much easier way
-
-is with material slots.
-
-So pause the video and have a go at that.
-
-So hopefully remember that slots are at the top here and with my object selected in edit mode and with
-
-that face selected I can go to the slots, add a new slot, assign that face to it.
-
-It immediately turns white because there's no texture in slot two yet.
-
-So let's add a texture.
-
-I'll call this yellow and change the color to a yellow color.
-
-Let's see what that looks like.
-
-It's not too bad, but it's not quite matching the yellow here.
-
-If I click on the base color and choose the pipette or the eyedropper as it's known, I can then pick
-
-a color from my reference image and you can see that that's now matching much more closely.
-
-Let's go back to object mode and see how that looks and I think that looks great.
-
-So hopefully going okay with that.
-
-Now let's think about preparing our plane for animation.
-
-Now, currently it's lots of separate objects.
-
-As you can see there.
-
-So when animating, I would need to select all the objects and move them around.
-
-It's actually a lot simpler to attach these objects or parent, as we call it, to one single object
-
-called An Empty.
-
-I'll show you what that means.
-
-I'll go to Side View with three and just move to the middle shift eight to add and there's empty in
-
-the middle there.
-
-So I'll choose plane axis.
-
-It doesn't matter what you choose because they all serve the same function.
-
-They just look a bit different in case you needed them to look different so you can identify them.
-
-So I use a plane axis.
-
-I'll move that into the middle here and let's go to front view and make sure it's right in the center
-
-of my plane.
-
-So just there looks good.
-
-Incidentally, that's actually right in the middle of the grid, so I may as well press in on my toolbars,
-
-go to item and click and drag over all my location and press zero to make sure that's right in the center
-
-like that.
-
-I'll press enter, get rid of that panel.
-
-It helps if it's in the center of your plane just for the sake of rotation, especially when it comes
-
-to front view and you want to rotate or bank the plane.
-
-So pause the video here and add an empty and make sure it's roughly in the middle of your plane.
-
-Okay.
-
-So now I want to parent.
-
-So attach these objects to my empty.
-
-Before I do that, it would be a good idea to start labeling things.
-
-So I'm just going to bring down the outline.
-
-Start with the empty and I'll call that plane controller and I'll just go through labeling each object.
-
-And for the sake of speed, I'll speed the footage up and I'll put the whole plane into a collection.
-
-So m to move to new collection.
-
-New collection and plane that will make a difference when we start bringing other objects into our animation.
-
-Now with them all selected, I need my empty to be the active object.
-
-Currently it's the main part of my propeller just at the front there, so I need to shift select my
-
-plane controller.
-
-So that's now the active object and then I can go up to the object menu.
-
-So at the front of my panel at the top object and under parent, I can choose object.
-
-So now if I select my controller on its own and press g to grab it moves all the objects together.
-
-I'll right click to cancel that.
-
-Also, if I go to the side here and press r then y I can also bank my plane like this as well.
-
-Now the interesting thing about using a parent system like this is that I can still move the children.
-
-So the things that are attached to the parent object, I can still move them independently.
-
-So I could still move the propeller over here, for example.
-
-And when I go back to the plane controller, I can still move that around.
-
-I'll undo those steps.
-
-So pause the video here and parent your objects to the empty.
-
-The useful thing about parenting like this is I can change the position of any of these objects, but
-
-they'll still be affected by our main controller.
-
-And in fact, I'm noticing that my propeller is in the middle of this sort of main propeller object
-
-at the front, whereas it should be at the back here.
-
-So I'll just go to side view, zoom in and G to grab in the Y and move those backwards to there.
-
-And also this spitfire has a black at the front.
-
-So I'm going to change that to a dark metallic color somewhere around here.
-
-I think that looks a bit better now.
-
-The fact that I can move these objects independently means I can also rotate these around the Y, but
-
-there's still move with the main controller.
-
-But once again, these are separate objects.
-
-So it's a little bit tricky.
-
-I have to keep selecting them separately and then deselect the plane and rotate them if I want to animate
-
-them or change any of the animation.
-
-So we could have a controller for the front of the plane as well.
-
-And that's the great thing about this parenting system.
-
-I compare it these to a plane controller and then parent the parent controller to the main plane controller.
-
-So to position my controller in the right place, let's select this object here and have a quick look.
-
-That's right in the center, but it's not quite right in the center of the grid.
-
-In the Z axis, you can see the Y is slightly above the middle of my propeller.
-
-However, these are nicely positioned in relation to the main body of my propeller.
-
-So they'll rotate nicely around that.
-
-So if I select that main body there and shift s to move my cursor to select it so it's in the middle
-
-there, I can now press shift data add and add a new empty.
-
-Let's choose a different one this time and maybe we'll choose circle and I'll scale it down slightly.
-
-So our propeller controller is in the right position.
-
-Now, a quick challenge to you then is to set up the propeller so it's parented to the propeller controller,
-
-pause the video and have a go at that.
-
-So I select all these objects and select the propeller controller at last.
-
-So that new empty that I've created there and we can go to the object menu and parent or we can press
-
-control P for the shortcut and there's object there.
-
-So now when I select the controller and press r, then y I can rotate my propeller around like this.
-
-I'll undo that movement and I just rename this propeller controller and I'll move that into the plane
-
-collection.
-
-So pause the video here and catch it with me selecting your propeller objects and parenting them to
-
-the propeller controller.
-
-Now it's worth noting that the plane controller has a dropdown arrow and it has the cockpit and the
-
-plane body in it, and the propeller controller has a dropdown arrow and it's got all the propeller
-
-components within it.
-
-Now, if I move my plane controller, notice that it's only moving the plane and the cockpit now.
-
-So you can see this parent relationship here.
-
-We've got the plane body and I haven't renamed my cockpit, so let's just rename that quickly.
-
-So when I added the propeller objects to the propeller controller, it undid the parent to the plane
-
-controller, and now they're only attached to the propeller controller.
-
-But I want these to move when my main plane controller moves so I can select this one, the propeller
-
-controller shift, select the plane controller and control P and parent both those.
-
-So now we have a situation where I can move the plane controller and it moves everything, but I can
-
-use my propeller controller so ah then y to control the propellers.
-
-A good analogy for this is that you have a mother with a baby inside her.
-
-So when the mother moves, the baby moves, but the baby can still move independently of the mum.
-
-So if I rotate this in the Y and then move this up, it's like the baby's moved around inside the mum,
-
-but it still goes wherever the mother goes, so I'll undo those too.
-
-It obviously gets very odd when you think about a baby inside a baby inside a baby.
-
-But that is possible with parenting using this method.
-
-So pause the video and catch it with me making sure that your propeller controller is parented to your
-
-main plane controller.
-
-And once you've done that, make sure you've saved your work.
-
-Ready for next time.
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | Preparing for Animation |
-| **Thời lượng** | 9:16 |
-| **Chủ đề chính** | Chuẩn bị controller cho animation |
+| Thuộc tính       | Nội dung                                                |
+| ---------------- | ------------------------------------------------------- |
+| **Module**       | Module 04 — UV Mapping                                  |
+| **Bài học**      | Preparing for Animation                                 |
+| **Thời lượng**   | 9:16                                                    |
+| **Chủ đề chính** | Chuẩn bị controller và hệ thống parenting cho animation |
+
+---
 
 ## 1. Mục tiêu bài học
-- Hiểu vì sao cần thiết lập "controller" (thường là Empty) trước khi keyframe animation trực tiếp trên mesh.
-- Biết cách đặt Origin đúng vị trí cho từng bộ phận chuyển động (ví dụ propeller cần Origin tại tâm quay).
-- Sử dụng Parenting để liên kết các object con (propeller, bánh đáp...) với controller hoặc với thân máy bay.
-- Tổ chức Outliner/Collection hợp lý để quản lý rig đơn giản của máy bay.
 
-## 2. Nội dung chính
-Trước khi tạo keyframe, việc chuẩn bị đúng cấu trúc object là bước quan trọng để animation sau này dễ kiểm soát và chỉnh sửa. Với một dự án như máy bay bay lượn, thường cần:
+Sau bài học này, người học có thể:
 
-- **Một Empty gốc làm controller chính** cho toàn bộ máy bay: thay vì keyframe trực tiếp lên mesh máy bay, ta parent mesh vào một Empty, rồi animate Empty đó. Cách này giúp tách biệt animation logic khỏi dữ liệu mesh, dễ chỉnh sửa transform tổng thể mà không ảnh hưởng đến pivot gốc của mesh.
-- **Origin chính xác cho từng bộ phận:** propeller cần Origin đặt đúng tâm trục quay (dùng `Object → Set Origin → Origin to 3D Cursor` sau khi đặt 3D Cursor vào tâm propeller) để khi keyframe rotation, nó quay quanh đúng trục thay vì lệch tâm.
-- **Parenting (`Ctrl+P`):** propeller được parent vào thân máy bay (hoặc vào một Empty riêng làm trục quay), bánh đáp/các chi tiết chuyển động khác cũng parent tương ứng, đảm bảo khi Empty controller chính di chuyển, toàn bộ cấu trúc con di chuyển theo.
+* Bật lại **Gizmos** và **Viewport Overlays** để dễ quan sát tọa độ, lưới và các object đang được chọn.
+* Điều chỉnh màu vật liệu của cockpit và phần đầu cánh quạt.
+* Hiểu chức năng **On Cage** trong modifier.
+* Gán nhiều vật liệu cho các mặt khác nhau của cùng một object bằng **Material Slots**.
+* Tạo **Empty** làm controller cho toàn bộ máy bay.
+* Thiết lập hệ thống **Parent – Child** để điều khiển nhiều object cùng lúc.
+* Tạo controller riêng cho cánh quạt để cánh quạt có thể quay độc lập.
+* Xây dựng cấu trúc parenting nhiều tầng.
+* Đặt tên object và tổ chức chúng trong Collection để chuẩn bị cho animation.
 
-Việc đặt tên rõ ràng cho các object controller (ví dụ "CTRL_Plane", "CTRL_Propeller") và tổ chức chúng trong Outliner giúp việc keyframe ở bài tiếp theo mạch lạc hơn, đặc biệt khi cần chọn đúng object để thao tác trong Graph Editor hoặc Timeline.
+---
 
-## 3. Quy trình thực hành gợi ý
-1. Đặt 3D Cursor vào vị trí mong muốn (ví dụ tâm propeller) bằng Snap (`Shift+S`).
-2. Chọn object propeller, dùng `Object → Set Origin → Origin to 3D Cursor` để đưa Origin về đúng tâm quay.
-3. Thêm một Empty (`Shift+A → Empty → Plain Axes`) tại vị trí phù hợp làm controller chính cho toàn bộ máy bay.
-4. Chọn toàn bộ mesh máy bay, Shift+chọn Empty cuối cùng, `Ctrl+P → Object (Keep Transform)` để parent vào Empty.
-5. Với propeller, parent riêng vào thân (hoặc một Empty phụ) để nó có thể quay độc lập quanh trục của chính nó.
-6. Kiểm tra bằng cách xoay/di chuyển thử Empty controller, xác nhận toàn bộ máy bay di chuyển theo đúng như một khối thống nhất, còn propeller vẫn quay đúng tâm khi test riêng.
-7. Đặt tên và tổ chức lại Outliner cho các controller vừa tạo.
+## 2. Chuẩn bị giao diện làm việc
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Shift+S` | Snap menu (đưa 3D Cursor tới điểm mong muốn) |
-| `Object → Set Origin → Origin to 3D Cursor` | Đặt lại Origin của object |
-| `Shift+A → Empty` | Thêm Empty làm controller |
-| `Ctrl+P` | Parent object đã chọn vào object cuối cùng (active) |
-| `Alt+P` | Clear Parent (gỡ liên kết cha-con) |
+Trước khi tiếp tục, bật lại hai thành phần hỗ trợ quan sát trong viewport:
 
-## 5. Lưu ý & lỗi thường gặp
-- Quên đặt lại Origin cho propeller trước khi parent/keyframe khiến nó quay lệch tâm thay vì quay tại chỗ.
-- Parent theo thứ tự chọn sai (object cần làm "con" phải được chọn trước, object "cha"/Empty chọn sau cùng làm active) khiến quan hệ cha-con bị đảo ngược.
-- Dùng `Ctrl+P → Object` thay vì `Object (Keep Transform)` có thể làm object bị nhảy vị trí đột ngột nếu Origin của cha không trùng gốc tọa độ.
-- Không tổ chức tên rõ ràng cho các Empty controller gây nhầm lẫn khi có nhiều Empty trong scene ở bước animate.
+* **Gizmos**: hiển thị hệ tọa độ và các công cụ Move, Rotate, Scale.
+* **Viewport Overlays**: hiển thị lưới, đường viền object được chọn, origin và các thông tin phụ trợ.
 
-## 6. Checklist thực hành
-- [ ] Đã đặt Origin đúng tâm quay cho propeller.
-- [ ] Đã tạo Empty controller chính và parent toàn bộ máy bay vào đó.
-- [ ] Đã parent propeller riêng để có thể quay độc lập.
-- [ ] Đã kiểm tra thử chuyển động của controller trước khi keyframe thật.
+Các tùy chọn này nằm ở góc trên bên phải của 3D Viewport.
 
-## 7. Tóm tắt
-Bài học thiết lập cấu trúc controller (Empty, Origin, Parenting) làm nền tảng kỹ thuật cho animation, đảm bảo các bộ phận của máy bay (đặc biệt là propeller) chuyển động đúng như mong đợi trước khi bắt đầu keyframe thực tế ở bài tiếp theo.
+Việc bật Gizmos và Overlays giúp dễ dàng:
+
+* Nhận biết object đang được chọn.
+* Xác định hướng của các trục `X`, `Y`, `Z`.
+* Đặt controller chính xác vào tâm máy bay.
+* Kiểm tra quan hệ giữa các bộ phận.
+
+---
+
+## 3. Điều chỉnh vật liệu cockpit
+
+Cockpit ban đầu chưa đủ tối so với hình ảnh tham chiếu.
+
+Quy trình thực hiện:
+
+1. Chọn object cockpit.
+2. Mở **Material Properties**.
+3. Chọn vật liệu đang sử dụng.
+4. Giảm độ sáng của **Base Color**.
+5. Quan sát kết quả trong **Material Preview**.
+
+Màu cockpit tối hơn giúp phần kính buồng lái nổi bật và gần với thiết kế của máy bay Spitfire hơn.
+
+---
+
+## 4. Sử dụng On Cage trong Solidify Modifier
+
+Cánh quạt đang sử dụng **Solidify Modifier** để tạo độ dày từ một mặt phẳng ban đầu.
+
+### 4.1. Vấn đề khi chỉnh sửa
+
+Khi chuyển sang Edit Mode, phần hình học thực của object chỉ gồm các mặt ban đầu. Những mặt được tạo bởi Solidify Modifier chưa phải là hình học thật.
+
+Vì vậy, người dùng có thể gặp khó khăn khi:
+
+* Chọn mặt.
+* Nhìn thấy mặt gốc.
+* Phân biệt mặt trước và mặt sau.
+* Chỉnh sửa object trong Material Preview.
+
+Có thể bật **X-Ray Mode** để nhìn xuyên object, nhưng điều này làm vật liệu khó quan sát hơn.
+
+---
+
+### 4.2. Tham số Offset
+
+Trong Solidify Modifier, tham số **Offset** quyết định độ dày được tạo về phía nào so với bề mặt gốc.
+
+| Giá trị Offset | Kết quả                                     |
+| -------------: | ------------------------------------------- |
+|           `-1` | Độ dày được tạo hoàn toàn về một phía       |
+|            `0` | Độ dày trải đều sang hai phía               |
+|            `1` | Độ dày được tạo hoàn toàn về phía ngược lại |
+
+Thay đổi Offset có thể giúp nhìn thấy mặt gốc dễ hơn, nhưng không phải lúc nào cũng phù hợp với hình dạng mong muốn.
+
+---
+
+### 4.3. On Cage
+
+Nút **On Cage** cho phép hiển thị lưới chỉnh sửa gần giống với kết quả sau khi modifier được áp dụng.
+
+Khi bật On Cage:
+
+* Các vertex, edge và face có vẻ nằm trên bề mặt sau modifier.
+* Có thể chọn và chỉnh sửa các mặt dễ dàng hơn.
+* Vẫn giữ modifier ở trạng thái chưa Apply.
+* Một mặt gốc có thể đại diện cho nhiều mặt được modifier tạo ra.
+
+> **Lưu ý:** Những mặt do modifier tạo ra chưa phải là hình học độc lập. Khi chọn một mặt gốc, toàn bộ phần hình học được sinh ra từ mặt đó có thể cùng bị ảnh hưởng.
+
+---
+
+## 5. Tạo đầu cánh quạt màu vàng bằng Material Slots
+
+Trong hình tham chiếu, phần đầu mỗi cánh quạt có màu vàng. Cách đơn giản nhất để tạo chi tiết này là sử dụng **Material Slots**.
+
+Không cần UV unwrap lại toàn bộ cánh quạt.
+
+---
+
+### 5.1. Quy trình gán vật liệu
+
+1. Chọn object cánh quạt.
+2. Chuyển sang **Edit Mode** bằng `Tab`.
+3. Chuyển sang chế độ chọn mặt.
+4. Chọn mặt ở đầu cánh quạt.
+5. Mở **Material Properties**.
+6. Nhấn dấu `+` để thêm Material Slot mới.
+7. Nhấn **New** để tạo vật liệu mới.
+8. Đặt tên vật liệu là `Yellow`.
+9. Nhấn **Assign** để gán vật liệu cho mặt đang chọn.
+10. Thay đổi Base Color thành màu vàng.
+
+Nếu Material Slot chưa có vật liệu, phần mặt được gán có thể tạm thời hiển thị màu trắng.
+
+---
+
+### 5.2. Lấy màu từ ảnh tham chiếu
+
+Để màu vàng khớp với hình ảnh Spitfire:
+
+1. Nhấn vào ô **Base Color**.
+2. Chọn công cụ **Eyedropper**.
+3. Di chuyển chuột đến vùng màu vàng trong ảnh tham chiếu.
+4. Nhấn để lấy mẫu màu.
+
+Phương pháp này giúp màu vật liệu gần giống hình tham chiếu hơn so với chọn màu thủ công.
+
+---
+
+## 6. Vì sao cần controller trước khi animate?
+
+Máy bay hiện tại được cấu tạo từ nhiều object riêng biệt:
+
+* Thân máy bay.
+* Cockpit.
+* Trục cánh quạt.
+* Các cánh quạt.
+* Những chi tiết phụ khác.
+
+Nếu animate trực tiếp, mỗi lần di chuyển máy bay phải chọn tất cả các object. Điều này dễ dẫn đến:
+
+* Bỏ sót object.
+* Một bộ phận không di chuyển theo.
+* Khó chỉnh sửa keyframe.
+* Khó xoay máy bay quanh một tâm thống nhất.
+
+Giải pháp là tạo một **Empty** làm controller chính.
+
+---
+
+## 7. Empty là gì?
+
+**Empty** là một object không có hình học và không xuất hiện trong hình render.
+
+Empty thường được sử dụng để:
+
+* Điều khiển nhiều object.
+* Làm điểm cha trong hệ thống parenting.
+* Làm tâm xoay.
+* Tổ chức hệ thống rig đơn giản.
+* Tạo target cho constraint.
+* Điều khiển camera hoặc ánh sáng.
+
+Các dạng hiển thị phổ biến của Empty gồm:
+
+* Plain Axes.
+* Arrows.
+* Single Arrow.
+* Circle.
+* Cube.
+* Sphere.
+* Cone.
+* Image.
+
+Hình dạng Empty chỉ ảnh hưởng đến cách hiển thị trong viewport, không thay đổi chức năng của nó.
+
+---
+
+## 8. Tạo controller chính cho máy bay
+
+### 8.1. Thêm Empty
+
+1. Chuyển sang góc nhìn bên bằng `Numpad 3`.
+2. Nhấn:
+
+```text
+Shift + A → Empty → Plain Axes
+```
+
+3. Di chuyển Empty vào giữa máy bay.
+4. Chuyển sang góc nhìn trước để kiểm tra vị trí trên các trục còn lại.
+
+Controller nên được đặt gần tâm máy bay để việc xoay và nghiêng máy bay trông tự nhiên.
+
+---
+
+### 8.2. Đưa Empty về tâm thế giới
+
+Nếu máy bay đã được đặt cân đối quanh tâm thế giới, có thể đặt Empty tại tọa độ:
+
+```text
+Location X = 0
+Location Y = 0
+Location Z = 0
+```
+
+Thao tác:
+
+1. Nhấn `N` để mở Sidebar.
+2. Chọn tab **Item**.
+3. Trong phần Location, đặt cả ba giá trị thành `0`.
+
+Đặt controller tại vị trí hợp lý đặc biệt quan trọng khi cần:
+
+* Xoay máy bay.
+* Nghiêng cánh.
+* Thực hiện động tác bank.
+* Chuyển hướng máy bay trong không gian.
+
+---
+
+### 8.3. Đặt tên controller
+
+Đổi tên Empty thành:
+
+```text
+Plane Controller
+```
+
+Hoặc sử dụng quy ước tên rõ ràng hơn:
+
+```text
+CTRL_Plane
+```
+
+Tiền tố `CTRL_` giúp nhận biết nhanh đây là object dùng để điều khiển animation.
+
+---
+
+## 9. Tổ chức máy bay trong Collection
+
+Trước khi tạo parenting, nên đặt toàn bộ object máy bay vào một Collection riêng.
+
+Quy trình:
+
+1. Chọn tất cả object thuộc máy bay.
+2. Nhấn `M`.
+3. Chọn **New Collection**.
+4. Đặt tên Collection là:
+
+```text
+Plane
+```
+
+Collection giúp:
+
+* Giữ Outliner gọn gàng.
+* Ẩn hoặc hiện toàn bộ máy bay.
+* Tách máy bay khỏi các object khác trong scene.
+* Quản lý scene dễ hơn khi thêm môi trường, camera và ánh sáng.
+
+---
+
+## 10. Parenting toàn bộ máy bay vào controller chính
+
+### 10.1. Khái niệm Parent – Child
+
+Trong hệ thống parenting:
+
+* **Parent** là object cha.
+* **Child** là object con.
+* Khi parent di chuyển, xoay hoặc scale, child sẽ đi theo.
+* Child vẫn có thể được chỉnh sửa độc lập.
+
+Trong bài học:
+
+* Empty `Plane Controller` là parent.
+* Thân máy bay, cockpit và các chi tiết là child.
+
+---
+
+### 10.2. Thứ tự chọn object
+
+Thứ tự chọn rất quan trọng:
+
+1. Chọn tất cả object muốn làm child.
+2. Giữ `Shift`.
+3. Chọn controller sau cùng.
+
+Object được chọn cuối cùng sẽ trở thành **Active Object** và được dùng làm parent.
+
+Active Object thường có đường viền màu sáng hơn các object còn lại.
+
+---
+
+### 10.3. Tạo parenting
+
+Nhấn:
+
+```text
+Ctrl + P → Object
+```
+
+Hoặc sử dụng menu:
+
+```text
+Object → Parent → Object
+```
+
+Sau khi parenting, chọn riêng `Plane Controller` và thử:
+
+```text
+G
+```
+
+Toàn bộ máy bay phải di chuyển cùng controller.
+
+Có thể thử xoay máy bay:
+
+```text
+R → Y
+```
+
+Tùy theo hướng model, trục xoay thực tế có thể khác.
+
+---
+
+## 11. Child vẫn có thể di chuyển độc lập
+
+Parenting không hợp nhất các object thành một mesh.
+
+Sau khi parent:
+
+* Controller chính có thể điều khiển toàn bộ máy bay.
+* Từng bộ phận vẫn có thể được chọn riêng.
+* Có thể chỉnh vị trí cockpit hoặc cánh quạt.
+* Có thể sửa vật liệu và hình học riêng.
+* Có thể tạo animation riêng cho từng bộ phận.
+
+Ví dụ, có thể di chuyển cánh quạt về phía sau để đặt đúng vị trí mà không làm thay đổi vị trí của toàn bộ máy bay.
+
+Khi controller chính di chuyển, cánh quạt vẫn đi theo vì nó là child.
+
+---
+
+## 12. Điều chỉnh vị trí và vật liệu phần đầu máy bay
+
+Sau khi kiểm tra model, cánh quạt được phát hiện đang nằm quá sâu vào phần trục phía trước.
+
+Cách chỉnh:
+
+1. Chọn các object thuộc cánh quạt.
+2. Chuyển sang góc nhìn bên.
+3. Nhấn `G`.
+4. Khóa theo trục phù hợp, ví dụ:
+
+```text
+G → Y
+```
+
+5. Di chuyển cánh quạt về đúng vị trí.
+
+Phần chóp phía trước của máy bay cũng được đổi sang màu tối, có cảm giác kim loại hơn để gần với hình tham chiếu.
+
+---
+
+## 13. Tạo controller riêng cho cánh quạt
+
+Nếu các cánh quạt vẫn là nhiều object riêng biệt, việc quay chúng cùng lúc sẽ bất tiện.
+
+Giải pháp là tạo một Empty thứ hai:
+
+```text
+Propeller Controller
+```
+
+Controller này sẽ chịu trách nhiệm điều khiển riêng cụm cánh quạt.
+
+---
+
+### 13.1. Đặt 3D Cursor vào tâm cánh quạt
+
+Chọn phần trục chính nằm giữa cánh quạt, sau đó nhấn:
+
+```text
+Shift + S → Cursor to Selected
+```
+
+3D Cursor sẽ được đặt vào tâm của object đang chọn.
+
+Vị trí này sẽ trở thành tâm của Empty mới và cũng là tâm quay của cánh quạt.
+
+---
+
+### 13.2. Thêm Empty cho cánh quạt
+
+Nhấn:
+
+```text
+Shift + A → Empty → Circle
+```
+
+Có thể chọn loại Empty khác, nhưng sử dụng Circle giúp dễ phân biệt với controller chính.
+
+Sau đó:
+
+* Scale Empty nhỏ lại nếu cần.
+* Kiểm tra Empty nằm đúng tâm trục cánh quạt.
+* Đổi tên thành:
+
+```text
+Propeller Controller
+```
+
+Hoặc:
+
+```text
+CTRL_Propeller
+```
+
+---
+
+## 14. Parent các bộ phận cánh quạt vào Propeller Controller
+
+Thực hiện theo thứ tự:
+
+1. Chọn tất cả các cánh quạt.
+2. Chọn phần trục hoặc các chi tiết cần quay cùng cánh quạt.
+3. Giữ `Shift`.
+4. Chọn `Propeller Controller` sau cùng.
+5. Nhấn:
+
+```text
+Ctrl + P → Object
+```
+
+Bây giờ, chọn riêng `Propeller Controller` và thử xoay:
+
+```text
+R → Y
+```
+
+Toàn bộ cụm cánh quạt phải quay quanh cùng một tâm.
+
+> Trục quay có thể là `X`, `Y` hoặc `Z`, tùy theo hướng máy bay được dựng trong scene.
+
+---
+
+## 15. Parenting nhiều tầng
+
+Sau khi các bộ phận cánh quạt được parent vào `Propeller Controller`, chúng không còn trực tiếp là child của `Plane Controller`.
+
+Một object thông thường chỉ có một parent trực tiếp.
+
+Do đó, cần tiếp tục parent `Propeller Controller` vào `Plane Controller`.
+
+Quy trình:
+
+1. Chọn `Propeller Controller`.
+2. Giữ `Shift`.
+3. Chọn `Plane Controller` sau cùng.
+4. Nhấn:
+
+```text
+Ctrl + P → Object
+```
+
+Kết quả:
+
+* `Plane Controller` điều khiển toàn bộ máy bay.
+* `Propeller Controller` đi theo máy bay.
+* Các cánh quạt đi theo `Propeller Controller`.
+* Cánh quạt vẫn có thể quay độc lập.
+
+---
+
+## 16. Sơ đồ cấu trúc parenting
+
+```text
+Plane Controller
+│
+├── Plane Body
+├── Cockpit
+├── Các chi tiết thân máy bay
+│
+└── Propeller Controller
+    │
+    ├── Propeller Blade 01
+    ├── Propeller Blade 02
+    ├── Propeller Blade 03
+    └── Propeller Hub
+```
+
+Quan hệ chuyển động:
+
+```text
+Di chuyển Plane Controller
+        │
+        ▼
+Toàn bộ máy bay di chuyển
+        │
+        ├── Thân máy bay di chuyển
+        ├── Cockpit di chuyển
+        └── Propeller Controller di chuyển
+                    │
+                    ▼
+          Cánh quạt di chuyển theo
+```
+
+Khi xoay riêng `Propeller Controller`:
+
+```text
+Propeller Controller quay
+        │
+        ▼
+Các cánh quạt quay quanh trục
+        │
+        └── Thân máy bay không bị xoay theo
+```
+
+---
+
+## 17. Nguyên lý của hệ thống parenting nhiều tầng
+
+Có thể hình dung cấu trúc này như sau:
+
+* Controller chính đại diện cho toàn bộ máy bay.
+* Controller cánh quạt nằm bên trong hệ thống máy bay.
+* Khi máy bay di chuyển, controller cánh quạt cũng di chuyển.
+* Khi controller cánh quạt quay, chỉ các object con của nó quay.
+
+Đây là một dạng **hierarchy** hoặc hệ thống phân cấp.
+
+Cấu trúc này có thể mở rộng thêm:
+
+```text
+Plane Controller
+├── Propeller Controller
+├── Left Flap Controller
+├── Right Flap Controller
+├── Landing Gear Controller
+└── Rudder Controller
+```
+
+Mỗi controller phụ có thể điều khiển một nhóm chuyển động riêng.
+
+---
+
+## 18. Kiểm tra hệ thống controller
+
+Sau khi hoàn thành parenting, cần thực hiện hai bài kiểm tra.
+
+### Kiểm tra controller chính
+
+1. Chọn `Plane Controller`.
+2. Nhấn `G` và di chuyển.
+3. Nhấn `R` và xoay.
+
+Kết quả mong muốn:
+
+* Tất cả bộ phận máy bay di chuyển cùng nhau.
+* Cánh quạt không bị bỏ lại.
+* Không có object nào di chuyển sai hướng.
+
+---
+
+### Kiểm tra controller cánh quạt
+
+1. Chọn `Propeller Controller`.
+2. Xoay theo trục cánh quạt.
+
+Kết quả mong muốn:
+
+* Tất cả cánh quạt quay cùng nhau.
+* Cánh quạt quay đúng tâm.
+* Thân máy bay không quay theo.
+* Controller cánh quạt vẫn di chuyển khi controller chính di chuyển.
+
+---
+
+## 19. Phím tắt và công cụ quan trọng
+
+| Phím tắt hoặc công cụ | Chức năng                                          |
+| --------------------- | -------------------------------------------------- |
+| `Tab`                 | Chuyển giữa Object Mode và Edit Mode               |
+| `Numpad 3`            | Chuyển sang góc nhìn bên                           |
+| `Shift + A`           | Thêm object mới                                    |
+| `Shift + A → Empty`   | Thêm Empty làm controller                          |
+| `Shift + S`           | Mở Snap Menu                                       |
+| `Cursor to Selected`  | Đưa 3D Cursor đến object hoặc thành phần đang chọn |
+| `G`                   | Di chuyển object                                   |
+| `R`                   | Xoay object                                        |
+| `S`                   | Scale object                                       |
+| `R → Y`               | Xoay quanh trục Y                                  |
+| `G → Y`               | Di chuyển theo trục Y                              |
+| `N`                   | Mở hoặc đóng Sidebar                               |
+| `M`                   | Di chuyển object vào Collection                    |
+| `Ctrl + P`            | Tạo quan hệ parent                                 |
+| `Alt + P`             | Gỡ parent                                          |
+| `Shift + Click`       | Chọn thêm object                                   |
+| `Eyedropper`          | Lấy mẫu màu từ hình ảnh hoặc giao diện             |
+| **On Cage**           | Hiển thị lưới chỉnh sửa theo kết quả modifier      |
+
+---
+
+## 20. Lỗi thường gặp
+
+### 20.1. Chọn sai thứ tự khi parent
+
+**Hiện tượng:** Mesh trở thành parent của controller hoặc cấu trúc Outliner bị ngược.
+
+**Nguyên nhân:** Controller không được chọn cuối cùng.
+
+**Cách khắc phục:**
+
+1. Nhấn `Alt + P` để gỡ parent nếu cần.
+2. Chọn child trước.
+3. Chọn controller sau cùng.
+4. Nhấn `Ctrl + P → Object`.
+
+---
+
+### 20.2. Cánh quạt không đi theo máy bay
+
+**Hiện tượng:** Di chuyển `Plane Controller` nhưng cánh quạt đứng yên.
+
+**Nguyên nhân:** Sau khi parent cánh quạt vào `Propeller Controller`, controller phụ chưa được parent vào controller chính.
+
+**Cách khắc phục:**
+
+```text
+Propeller Controller
+        ↓ Parent vào
+Plane Controller
+```
+
+---
+
+### 20.3. Cánh quạt quay lệch tâm
+
+**Nguyên nhân:**
+
+* Propeller Controller không nằm đúng tâm trục.
+* 3D Cursor được đặt sai vị trí.
+* Empty được thêm trước khi đặt Cursor vào tâm.
+
+**Cách khắc phục:**
+
+1. Chọn phần trục giữa của cánh quạt.
+2. Dùng `Shift + S → Cursor to Selected`.
+3. Đưa Propeller Controller về vị trí 3D Cursor hoặc tạo lại Empty.
+
+---
+
+### 20.4. Chỉ một cánh quạt quay
+
+**Nguyên nhân:** Không chọn đủ các bộ phận trước khi parent.
+
+**Cách khắc phục:** Kiểm tra danh sách child nằm dưới `Propeller Controller` trong Outliner.
+
+---
+
+### 20.5. Không nhìn thấy mặt khi Edit Mode
+
+**Nguyên nhân:** Solidify Modifier tạo độ dày bao quanh mặt gốc.
+
+**Cách khắc phục:**
+
+* Bật **On Cage**.
+* Thay đổi Offset tạm thời.
+* Hoặc bật X-Ray khi cần chọn xuyên object.
+
+---
+
+### 20.6. Không gán được màu vàng cho đầu cánh quạt
+
+**Nguyên nhân:**
+
+* Chưa chuyển sang Edit Mode.
+* Chưa chọn mặt.
+* Chưa nhấn Assign.
+* Material Slot mới chưa có vật liệu.
+
+**Cách khắc phục:**
+
+```text
+Chọn mặt
+→ Thêm Material Slot
+→ Tạo vật liệu
+→ Nhấn Assign
+```
+
+---
+
+### 20.7. Khó chọn controller trong Outliner
+
+**Nguyên nhân:** Object chưa được đổi tên rõ ràng.
+
+Nên dùng quy ước:
+
+```text
+CTRL_Plane
+CTRL_Propeller
+MESH_PlaneBody
+MESH_Cockpit
+MESH_Propeller_01
+```
+
+---
+
+## 21. Quy trình thực hành hoàn chỉnh
+
+### Giai đoạn 1 — Hoàn thiện vật liệu
+
+1. Bật lại Gizmos và Overlays.
+2. Làm tối vật liệu cockpit.
+3. Kiểm tra Solidify Modifier của cánh quạt.
+4. Bật On Cage nếu cần.
+5. Chọn phần đầu cánh quạt.
+6. Tạo Material Slot mới.
+7. Gán vật liệu màu vàng.
+8. Dùng Eyedropper lấy màu từ ảnh tham chiếu.
+
+### Giai đoạn 2 — Tạo controller chính
+
+1. Thêm Empty dạng Plain Axes.
+2. Đặt Empty vào giữa máy bay.
+3. Đặt tên `Plane Controller`.
+4. Đổi tên các object còn lại.
+5. Di chuyển toàn bộ máy bay vào Collection `Plane`.
+6. Parent các object máy bay vào controller chính.
+7. Kiểm tra bằng Move và Rotate.
+
+### Giai đoạn 3 — Tạo controller cánh quạt
+
+1. Chọn phần trục chính của cánh quạt.
+2. Đưa 3D Cursor đến object đang chọn.
+3. Thêm Empty dạng Circle.
+4. Đặt tên `Propeller Controller`.
+5. Parent tất cả bộ phận cánh quạt vào controller này.
+6. Kiểm tra chuyển động quay.
+
+### Giai đoạn 4 — Tạo hierarchy hoàn chỉnh
+
+1. Chọn `Propeller Controller`.
+2. Chọn `Plane Controller` sau cùng.
+3. Parent controller cánh quạt vào controller chính.
+4. Kiểm tra chuyển động toàn bộ máy bay.
+5. Kiểm tra chuyển động riêng của cánh quạt.
+6. Lưu file Blender.
+
+---
+
+## 22. Checklist thực hành
+
+### Vật liệu
+
+* [ ] Gizmos đã được bật.
+* [ ] Viewport Overlays đã được bật.
+* [ ] Cockpit đã được làm tối.
+* [ ] Đầu cánh quạt đã được gán vật liệu vàng.
+* [ ] Màu vàng đã được lấy gần đúng từ ảnh tham chiếu.
+* [ ] Biết cách sử dụng On Cage.
+
+### Tổ chức scene
+
+* [ ] Các object đã được đổi tên rõ ràng.
+* [ ] Toàn bộ máy bay nằm trong Collection `Plane`.
+* [ ] Controller chính nằm gần tâm máy bay.
+* [ ] Controller cánh quạt nằm đúng tâm quay.
+
+### Parenting
+
+* [ ] Thân máy bay được parent vào Plane Controller.
+* [ ] Cockpit được parent vào Plane Controller.
+* [ ] Các cánh quạt được parent vào Propeller Controller.
+* [ ] Propeller Controller được parent vào Plane Controller.
+* [ ] Di chuyển Plane Controller làm toàn bộ máy bay di chuyển.
+* [ ] Xoay Propeller Controller chỉ làm cánh quạt quay.
+* [ ] File đã được lưu trước bài học tiếp theo.
+
+---
+
+## 23. Tóm tắt
+
+Bài học tập trung vào việc chuẩn bị cấu trúc máy bay trước khi tạo keyframe animation.
+
+Các kỹ thuật quan trọng gồm:
+
+* Sử dụng **Material Slots** để gán màu vàng riêng cho đầu cánh quạt.
+* Sử dụng **On Cage** để chỉnh sửa object đang có modifier dễ dàng hơn.
+* Tạo **Plane Controller** bằng Empty để điều khiển toàn bộ máy bay.
+* Tạo **Propeller Controller** để điều khiển cánh quạt độc lập.
+* Xây dựng parenting nhiều tầng:
+
+```text
+Plane Controller
+└── Propeller Controller
+    └── Propeller Objects
+```
+
+Cấu trúc này cho phép toàn bộ máy bay di chuyển như một khối thống nhất, trong khi cánh quạt vẫn có thể quay độc lập. Đây là nền tảng quan trọng để tạo animation máy bay trong các bài học tiếp theo.

@@ -1,336 +1,663 @@
-# 095 — Refining the Sculpt
-In this lecture will be polishing and refining our character, making the final touches to the sculpt.
-
-So here's where we got up to last time.
-
-And before we get on to refining the shape, I just want to smarten a few things up the chest and neck
-
-area around here.
-
-It's a little bit wide this way.
-
-I think it's okay this way.
-
-It's fairly thin, but I want him to be quite a thin character.
-
-So I'll bring this in slightly.
-
-And what is useful is to bring this area back because there's a muscle at the back here, but there's
-
-not much of a muscle at the front here.
-
-So I'll dent this in slightly, and if you squeeze it in a bit, that kind of mimics a neck.
-
-I'm not going to spend too much detail on the neck.
-
-Let's bring that in a little bit.
-
-But I will smooth it out a fair bit.
-
-So hold down, shift, smooth it out, get rid of any of this lumpiness around the place before I do
-
-my final Ramesh, do a little bit of smartening up here, smooth out and just make sure it's the right
-
-size.
-
-That's great.
-
-Also, I'll do a bit of smoothing at the top here to take out any of that lumpiness.
-
-That's good.
-
-And now we're ready for a final Ramesh so we can go in and sharpen and refine areas.
-
-Now, you may want to stick where you are for the polygon count.
-
-It's absolutely fine at about half a million faces, but if your computer can handle it going a little
-
-bit further to .008, somewhere around here should work well.
-
-So control R and I'm about three quarters of a million now and that should give me just that a little
-
-bit more for a bit of refinement.
-
-So pause the video here and catch up with me.
-
-Just making any final adjustments to the shape, perhaps around the neck and shoulders and doing any
-
-smoothing of any lumpy areas.
-
-And once you've done that, you might want to do a Ramesh if you feel your computer can handle it.
-
-So pause the video and have a go at that.
-
-Now I'm just noticing there are a few more sort of lumpy bits at the top here, so I'll just press shift
-
-and smooth those out of touch.
-
-That's better.
-
-Just a final check around the back there, and that looks good.
-
-So as we've said before, we can really smarten areas up with the crease brush.
-
-So coming in to the lips, for example.
-
-And incidentally, if I hold down a middle click that centers my viewport on that area so I can zoom
-
-in and out onto that space.
-
-Quite a handy shortcut that one.
-
-I realized my brush and we'll dig in with a bit of pinch as well.
-
-Make my brush fairly small.
-
-We don't want to pinch together too much area, but around there looks good.
-
-And let's see how that's looking.
-
-That's working.
-
-Well, I'll make my brush a touch bigger and smooth out the lips a little.
-
-You may want to use the draw to just inflate them very slightly and then smooth them out again just
-
-so it holds that shape a bit.
-
-And then back to the crease brush.
-
-Make absolutely sure we got a nice crease in here and the reverse crease coming up here and down and
-
-at the bottom here as well.
-
-So I'm using that crease brush and then smoothing out afterwards as well.
-
-So it's a little bit tidier there, maybe a little bit more smoothly needed.
-
-And I'll just follow it up here a little bit.
-
-And then smooth it out.
-
-If you need to do any final adjustments, you can still use the grab brush and just move these areas
-
-around if you have to.
-
-I feel like just a tiny bit of adjustment needed there.
-
-And that looks about right to me.
-
-So pause the video here and make the refinements to the lips, particularly where the lips touch together,
-
-make sure there's a nice crease there and it's not too jagged from all the re meshing we've done.
-
-Pause the video and have a go at that.
-
-You might need to do a little bit of adjustment around the nose as well.
-
-So once again, with the crease brush and again fairly small, we can come into the nose here and just
-
-bring it around making sure that's nice and sharp into there and remember to smooth the round away from
-
-the crease brush to even out those areas.
-
-And if you have to, you can smooth along the crease and then use the crease brush again to kind of
-
-refine that area if needed.
-
-And then zoom back.
-
-See what you've got.
-
-Just smooth out that area there and then work on this area around here coming down.
-
-It might distort slightly.
-
-So you might have to go in and use the grab brush just to tidy up a little bit.
-
-And let's zoom out and see what we got.
-
-Might be a tiny bit too sharp around the top here, so I can just smooth that out.
-
-And that's not looking too bad.
-
-It's a little bit wobbly there, so I'll just make some minor adjustments and we've got a nice, clean,
-
-smooth nostril, perhaps a little bit to clean so you can always go in and smooth out if those lines
-
-are a bit too sharp.
-
-Tiny bit of adjustment here, and it should be only tiny adjustments now that you're making to the shape.
-
-Squeeze this in a little bit around there.
-
-And that's working nicely.
-
-I just come under the nostrils slightly and needs a bit of smoothing in here, so just a little bit
-
-of smoothing out there.
-
-And at the end of the nose, that's fine and that works nicely.
-
-Okay, so pause the video here and catch it with me.
-
-Just making those refinements to the nose.
-
-So lastly then a little bit of work needed on the eyes.
-
-So I'll use the crease brush and just make sure that eyelid is nice and sharp and across here as well.
-
-And again, if you need to smooth out and then do it again, and that will make that line even sharper.
-
-So at the top there, smooth out and then come across with that line once again.
-
-And that works quite well.
-
-And then I'll crease in here.
-
-It's not looking too bad.
-
-It's a little bit sticking out in this area, so I'll just get the grab brush and pull that in slightly.
-
-So bring this area out and this area.
-
-Let's just move back and make sure that's all good.
-
-Make sure we kept our shape and might want a little bit more of a meaner look like this, perhaps squinting
-
-a little bit more and maybe even more of a frown.
-
-So it's got to sort of.
-
-Nasty sort of scowl about him.
-
-It's kind of working.
-
-It might be a bit too much now, but we can experiment with these things and have a bit of fun.
-
-We'll change the eyes around it a little bit, just there.
-
-So there's a bit more of a tear duct.
-
-And that's working reasonably well.
-
-Okay, so pause the video here and catch up with me making those refinements to the I.
-
-Lastly, we got the air.
-
-So once again, the crisp brush and I have been doing a fair bit of smoothing around these areas.
-
-So we've lost a fair bit of shape in here.
-
-So I can come round here with that sort of question mark.
-
-So up and around and down.
-
-And you might want to use the draw brush on the outside to give it a bit of volume there.
-
-Dig in if we need to.
-
-And there's just a little bit of a lump there, nothing too special for the ears.
-
-They can be extremely complicated and quite tough for beginners.
-
-These are the grab brush.
-
-Just to move that bit in a tiny bit quite thick is maybe a little bit back from here and smooth that
-
-area out and that looks fine.
-
-Like I said, I don't want to overcomplicate things for the ears too much, although I might give a
-
-bit more point.
-
-So it looks a little bit otherworldly and perhaps we can give him some other features later that make
-
-him look more evil.
-
-Goblin Devil type, perhaps.
-
-Lastly, on the ears, back to the crease brush.
-
-I just want to get into these areas here, increase them in nicely.
-
-So there's once again a little bit of refinement around there and around the top as well.
-
-And remember to smooth out either side of those areas.
-
-And that's not looking too bad.
-
-So take a moment to work on the ear and refine that shape, and hopefully you're pleased with the outcome
-
-that you've created so far.
-
-Again, don't panic if it doesn't look like mine.
-
-It does take a bit of practice, but hopefully you're enjoying the process.
-
-Also, make sure you've saved your work.
-
-Ready for next time.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 06 — Sculpting a Cartoon Head |
-| **Bài học** | Refining the Sculpt |
-| **Thời lượng** | 7:59 |
-| **Chủ đề chính** | Làm sắc nét và tinh chỉnh |
+# 095 — Tinh chỉnh bản điêu khắc
+
+## Refining the Sculpt
+
+| Thuộc tính       | Nội dung                                             |
+| ---------------- | ---------------------------------------------------- |
+| **Module**       | Module 06 — Sculpting a Cartoon Head                 |
+| **Bài học**      | Refining the Sculpt                                  |
+| **Thời lượng**   | 7 phút 59 giây                                       |
+| **Chủ đề chính** | Làm sạch bề mặt và tinh chỉnh các chi tiết khuôn mặt |
+| **Phần mềm**     | Blender — Sculpt Mode                                |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Rà soát lại toàn bộ mesh để làm sạch các lỗi khối nhỏ, cạnh gãy, bất đối xứng ngoài ý muốn.
-- Làm sắc nét lại các cạnh khối quan trọng bị mờ đi sau nhiều lượt Smooth.
-- Luyện tập dùng brush Polish/Scrape để có bề mặt sạch, chuẩn bị cho bước thêm chi tiết đặc trưng (sừng, bất đối xứng) ở các bài sau.
+Trong bài học này, chúng ta sẽ hoàn thiện bản sculpt bằng cách:
 
-## 2. Nội dung chính
+* Điều chỉnh lại vùng cổ, ngực và vai.
+* Làm mượt những khu vực còn gồ ghề.
+* Thực hiện lần **Voxel Remesh cuối cùng** để tăng mật độ lưới.
+* Làm sắc nét lại môi, mũi, mí mắt và tai.
+* Sử dụng các brush như **Crease**, **Draw**, **Grab** và **Smooth** để thực hiện những chỉnh sửa nhỏ.
+* Kiểm tra nhân vật ở nhiều góc nhìn trước khi chuyển sang bài tiếp theo.
 
-Sau giai đoạn thêm chi tiết ở bài trước, mesh thường tích lũy một số vấn đề: bề mặt hơi gồ ghề do dùng nhiều brush liên tiếp, các cạnh khối bị mờ do Smooth quá tay, hoặc vài điểm bất đối xứng nhỏ. Bài "Refining the Sculpt" là bước dọn dẹp và tinh chỉnh trước khi bước sang các chi tiết đặc trưng của nhân vật.
+> Ở giai đoạn này, chỉ nên thực hiện những thay đổi nhỏ. Khối chính và hình dáng tổng thể của nhân vật gần như đã hoàn thiện.
 
-Các kỹ thuật/brush hữu ích cho việc tinh chỉnh:
+---
 
-- **Scrape/Fill**: brush Scrape "cạo" bớt phần lồi để làm phẳng theo một mặt phẳng tham chiếu (Plane), trong khi Fill lấp đầy phần lõm — cả hai giúp tạo bề mặt sạch, có kiểm soát hơn Flatten thông thường.
-- **Polish**: làm mượt bề mặt nhưng vẫn giữ được các cạnh khối sắc nét hơn so với Smooth thông thường, phù hợp giai đoạn hoàn thiện.
-- **Crease** ở strength thấp: làm lại sắc nét các đường phân khối đã bị mờ.
-- **Symmetrize** (menu Sculpt > Symmetrize): sao chép một nửa mesh sang nửa còn lại để sửa nhanh các lỗi bất đối xứng ngoài ý muốn, trước khi chủ động phá đối xứng ở bài "Adding Character".
+## 2. Tổng quan quy trình
 
-Ngoài ra, nên kiểm tra lại **Multiresolution levels** — có thể tạm chuyển về cấp thấp hơn để xem tổng thể khối có còn ổn không khi bỏ qua chi tiết bề mặt, đây là cách hiệu quả để phát hiện lỗi khối lớn bị che khuất bởi các chi tiết nhỏ.
+```text
+Kiểm tra cổ và vai
+        ↓
+Làm mượt bề mặt
+        ↓
+Voxel Remesh lần cuối
+        ↓
+Tinh chỉnh môi
+        ↓
+Tinh chỉnh mũi
+        ↓
+Tinh chỉnh mắt
+        ↓
+Tinh chỉnh tai
+        ↓
+Kiểm tra toàn bộ và lưu file
+```
 
-## 3. Quy trình thực hành gợi ý
+---
 
-1. Chuyển tạm Multiresolution về cấp thấp để kiểm tra khối tổng thể còn sạch không.
-2. Dùng Scrape/Fill để làm phẳng lại các mảng bề mặt bị gồ ghề.
-3. Dùng Polish để làm mượt có kiểm soát mà không mất cạnh khối.
-4. Dùng Crease nhẹ để làm lại sắc nét các đường phân khối quan trọng.
-5. Nếu phát hiện lệch đối xứng ngoài ý muốn, dùng menu Sculpt > Symmetrize để đồng bộ lại hai bên.
-6. Xoay quanh mesh ở nhiều góc, dưới ánh sáng Matcap rõ khối, để rà soát lần cuối.
+# 3. Điều chỉnh vùng cổ và vai
 
-## 4. Phím tắt & công cụ liên quan
+Trước khi tinh chỉnh khuôn mặt, cần kiểm tra lại vùng cổ, ngực và vai.
 
-| Phím tắt / Brush / Menu | Chức năng |
-|---|---|
-| Brush **Scrape** | Cạo phẳng phần lồi theo mặt phẳng tham chiếu |
-| Brush **Fill** | Lấp đầy phần lõm |
-| Brush **Polish** | Làm mượt có kiểm soát, giữ cạnh khối |
-| Brush **Crease** | Làm sắc nét lại đường phân khối |
-| Sculpt > **Symmetrize** | Sao chép một nửa mesh sang nửa còn lại |
-| `Shift` (giữ) | Smooth tạm thời |
-| Panel Modifier > Multiresolution | Chuyển đổi cấp độ subdivision để kiểm tra khối |
+Trong bản sculpt hiện tại, vùng cổ có thể hơi rộng khi nhìn từ phía trước. Vì nhân vật được thiết kế với vóc dáng khá gầy, có thể thu hẹp khu vực này một chút.
 
-## 5. Lưu ý & lỗi thường gặp
+## Cách điều chỉnh
 
-- Symmetrize sẽ ghi đè hoàn toàn một nửa mesh — cần chọn đúng hướng (từ trái sang phải hay ngược lại) để không mất phần đã sculpt đúng.
-- Lạm dụng Polish/Smooth quá nhiều làm mất hết cá tính khối đã dày công tạo ra.
-- Bỏ qua bước kiểm tra ở cấp Multiresolution thấp khiến không phát hiện được lỗi khối lớn bị chi tiết nhỏ che khuất.
+* Thu nhỏ chiều rộng của cổ.
+* Đẩy nhẹ phần phía trước cổ vào trong.
+* Giữ lại một chút thể tích ở phía sau cổ để mô phỏng cơ cổ.
+* Không cần tạo quá nhiều chi tiết giải phẫu ở khu vực này.
+* Giữ `Shift` và vuốt lên bề mặt để loại bỏ các vùng gồ ghề.
 
-## 6. Checklist thực hành
+### Hình dung cấu trúc cổ
 
-- [ ] Đã kiểm tra khối tổng thể ở cấp Multiresolution thấp.
-- [ ] Đã dùng Scrape/Fill làm sạch các mảng bề mặt gồ ghề.
-- [ ] Đã Polish làm mượt có kiểm soát mà không mất cạnh khối chính.
-- [ ] Đã kiểm tra và sửa các điểm bất đối xứng ngoài ý muốn (Symmetrize nếu cần).
+```text
+Nhìn từ bên cạnh
 
-## 7. Tóm tắt
+          Đầu
+           │
+      _____│
+     /     │  ← Phía sau cổ có nhiều thể tích hơn
+    /      │
+   |       │
+   |      /   ← Phía trước cổ lõm nhẹ vào trong
+    \____/
+       │
+      Vai
+```
 
-Bài học hướng dẫn rà soát và tinh chỉnh lại toàn bộ mesh sau giai đoạn thêm chi tiết, sử dụng các brush Scrape, Fill, Polish và công cụ Symmetrize để có một bề mặt sạch, cân đối, sẵn sàng cho các bước thêm đặc điểm riêng của nhân vật.
+Mục tiêu không phải tạo cổ chân thực tuyệt đối mà là tạo cảm giác phần đầu được kết nối hợp lý với thân người.
+
+---
+
+## 4. Làm mượt trước lần Remesh cuối
+
+Trước khi tăng độ phân giải lưới, hãy xoay quanh mô hình và kiểm tra:
+
+* Đỉnh đầu.
+* Phía sau đầu.
+* Cổ.
+* Vai.
+* Hai bên khuôn mặt.
+* Những khu vực đã sử dụng nhiều brush.
+
+Giữ `Shift` để kích hoạt Smooth tạm thời và làm sạch các vùng bị:
+
+* Gồ ghề.
+* Có cục nhỏ.
+* Xuất hiện đường lượn không mong muốn.
+* Bị méo sau nhiều lần kéo và đẩy mesh.
+
+> Nên làm sạch bề mặt trước khi Remesh. Nếu Remesh khi bề mặt còn nhiều lỗi, các lỗi đó sẽ được tái tạo trên lưới mới.
+
+---
+
+# 5. Voxel Remesh lần cuối
+
+Sau khi hình dáng tổng thể đã ổn định, có thể thực hiện lần Remesh cuối để có thêm mật độ polygon phục vụ việc tinh chỉnh.
+
+## Thiết lập được sử dụng trong bài
+
+* Mật độ hiện tại: khoảng **500.000 mặt**.
+* Voxel Size đề xuất: khoảng **0.008**.
+* Sau Remesh: khoảng **750.000 mặt**, tùy thuộc vào kích thước mô hình.
+
+Nhấn:
+
+```text
+Ctrl + R
+```
+
+để thực hiện Voxel Remesh trong Sculpt Mode.
+
+## Có bắt buộc phải tăng mật độ không?
+
+Không.
+
+Nếu máy tính hoạt động chậm hoặc đã có khoảng nửa triệu mặt, bạn có thể giữ nguyên mật độ hiện tại. Mục tiêu của việc tăng mật độ chỉ là có thêm độ phân giải để:
+
+* Làm sắc nét đường môi.
+* Tạo rãnh mũi rõ hơn.
+* Làm mí mắt sạch hơn.
+* Tạo chi tiết bên trong tai.
+
+> Không nên tăng mật độ quá cao nếu máy tính không đủ mạnh. Mật độ lớn có thể khiến thao tác sculpt bị giật hoặc phản hồi chậm.
+
+---
+
+# 6. Tinh chỉnh môi
+
+Môi là một trong những khu vực cần được làm sạch kỹ nhất sau nhiều lần Remesh.
+
+## Brush sử dụng
+
+* **Crease**
+* **Draw**
+* **Grab**
+* **Smooth**
+
+## 6.1. Làm rõ đường tiếp xúc giữa hai môi
+
+Chọn brush **Crease**, sau đó:
+
+1. Giảm kích thước brush.
+2. Vuốt dọc theo đường nơi môi trên và môi dưới tiếp xúc.
+3. Tạo một rãnh rõ ràng nhưng không quá sâu.
+4. Làm mượt nhẹ hai bên đường rãnh.
+5. Dùng Crease thêm lần nữa nếu đường môi bị mờ.
+
+```text
+        Môi trên
+      __________
+     /          \
+────/────────────\────  ← Đường Crease giữa hai môi
+    \            /
+     \__________/
+        Môi dưới
+```
+
+## 6.2. Bổ sung thể tích cho môi
+
+Nếu môi quá phẳng:
+
+* Dùng **Draw** để đẩy môi ra ngoài một chút.
+* Làm mượt nhẹ sau đó.
+* Quay lại **Crease** để khôi phục đường phân cách giữa hai môi.
+
+## 6.3. Chỉnh hình dáng bằng Grab
+
+Nếu khóe môi hoặc đường môi bị lệch:
+
+* Dùng **Grab** với kích thước nhỏ.
+* Chỉ di chuyển từng vùng một khoảng rất ngắn.
+* Thường xuyên thu nhỏ góc nhìn để kiểm tra hình dáng tổng thể.
+
+> Không nên chỉ nhìn môi ở khoảng cách quá gần. Một đường môi có thể trông đẹp khi phóng lớn nhưng lại không phù hợp với toàn bộ khuôn mặt.
+
+---
+
+# 7. Tinh chỉnh mũi
+
+Sau môi, tiếp tục sử dụng **Crease Brush** để làm rõ cấu trúc của mũi.
+
+## Các khu vực cần chú ý
+
+* Rãnh giữa cánh mũi và khuôn mặt.
+* Viền ngoài của lỗ mũi.
+* Phần dưới đầu mũi.
+* Vùng chuyển tiếp giữa mũi và má.
+
+## Quy trình
+
+1. Chọn Crease với kích thước nhỏ.
+2. Đi theo đường cong của cánh mũi.
+3. Tạo đường viền lỗ mũi rõ hơn.
+4. Làm mượt khu vực nằm bên ngoài đường Crease.
+5. Nếu cần, làm mượt cả đường rãnh rồi vẽ lại bằng Crease.
+6. Dùng Grab để sửa những chỗ bị méo.
+7. Kiểm tra lại mũi ở khoảng cách xa hơn.
+
+### Cấu trúc đơn giản của cánh mũi
+
+```text
+Nhìn từ phía trước
+
+       ______
+     /        \
+    /          \
+   |   (    )   |
+    \   \__/   /
+     \________/
+
+       ↑    ↑
+   Cánh mũi và lỗ mũi
+```
+
+## Lưu ý
+
+* Đường rãnh không nên quá sắc hoặc quá sâu.
+* Nếu đường mũi trông giống như bị “cắt” vào bề mặt, hãy Smooth nhẹ.
+* Những chỉnh sửa lúc này chỉ nên rất nhỏ.
+* Nếu một vùng bị lượn sóng, dùng Grab hoặc Smooth để sửa trước khi tiếp tục.
+
+---
+
+# 8. Tinh chỉnh mắt và mí mắt
+
+Mí mắt cần đủ sắc nét để thể hiện rõ hình dạng mắt nhưng vẫn phải bám tự nhiên quanh nhãn cầu.
+
+## 8.1. Làm rõ đường mí mắt
+
+Sử dụng **Crease Brush** để:
+
+* Làm rõ mí trên.
+* Làm rõ mí dưới.
+* Tạo đường chuyển tiếp sạch quanh nhãn cầu.
+* Nhấn mạnh khóe mắt nếu cần.
+
+Một kỹ thuật hiệu quả là:
+
+```text
+Smooth nhẹ → Crease lại → Kiểm tra từ xa
+```
+
+Việc làm mượt trước rồi vẽ lại giúp đường mí mắt sạch và sắc hơn.
+
+## 8.2. Điều chỉnh biểu cảm
+
+Dùng **Grab Brush** để thay đổi nhẹ hình dáng quanh mắt:
+
+* Kéo phần mí trên xuống để tạo cảm giác nheo mắt.
+* Đẩy vùng lông mày xuống để tạo vẻ cau có.
+* Nâng hoặc hạ khóe mắt.
+* Tạo biểu cảm dữ dằn hoặc khó chịu cho nhân vật.
+
+```text
+Biểu cảm trung tính          Biểu cảm cau có
+
+   _________                   \_______/
+  /         \                   \     /
+ |    ○ ○    |                 |  ○ ○  |
+  \_________/                   \_____/
+```
+
+Có thể thử nghiệm biểu cảm mạnh hơn, sau đó giảm bớt nếu kết quả trông quá cường điệu.
+
+## 8.3. Tạo khóe mắt
+
+Có thể điều chỉnh nhẹ phần khóe mắt gần mũi để:
+
+* Tạo hình dạng tuyến lệ.
+* Làm mắt kết nối tự nhiên hơn với sống mũi.
+* Giảm cảm giác nhãn cầu chỉ được đặt vào một hốc trống.
+
+> Sau mỗi lần chỉnh sửa, hãy kiểm tra xem mí mắt vẫn bao quanh nhãn cầu hợp lý hay không.
+
+---
+
+# 9. Tinh chỉnh tai
+
+Tai là một cấu trúc phức tạp. Trong bài học này, mục tiêu không phải tạo một tai giải phẫu hoàn chỉnh mà chỉ cần hình dáng đủ thuyết phục.
+
+## 9.1. Tạo đường cong chính bên trong tai
+
+Dùng **Crease Brush** để tạo một đường cong giống dấu hỏi:
+
+```text
+      ______
+    /        \
+   /   ___    \
+  |   /   \    |
+  |   \    |   |
+   \   \__/   /
+    \________/
+
+Đường bên trong tai có dạng gần giống “?”
+```
+
+Hướng vuốt cơ bản:
+
+```text
+Đi lên → vòng quanh → đi xuống
+```
+
+## 9.2. Bổ sung thể tích
+
+Nếu vành tai quá mỏng hoặc phẳng:
+
+* Dùng **Draw Brush** ở phần bên ngoài tai.
+* Tăng thể tích rất nhẹ.
+* Smooth để nối phần vừa thêm với bề mặt xung quanh.
+
+## 9.3. Điều chỉnh hình dáng bằng Grab
+
+Dùng Grab để:
+
+* Làm tai mỏng hơn.
+* Kéo tai lùi về phía sau.
+* Thu nhỏ vùng tai quá dày.
+* Tạo đầu tai nhọn hơn.
+
+Trong bài học, tai được làm nhọn nhẹ để nhân vật có vẻ:
+
+* Kỳ dị.
+* Siêu nhiên.
+* Giống goblin hoặc ác quỷ.
+* Phù hợp hơn với phong cách nhân vật phản diện.
+
+## 9.4. Làm sắc các rãnh trong tai
+
+Quay lại **Crease Brush** để:
+
+* Làm rõ vùng lõm trung tâm.
+* Nhấn mạnh vành tai.
+* Tạo rãnh ở phía trên và phía dưới.
+* Smooth nhẹ hai bên đường Crease.
+
+> Với người mới, không nên thêm quá nhiều rãnh nhỏ trong tai. Quá nhiều chi tiết có thể khiến tai trông rối và khó đọc.
+
+---
+
+# 10. Các brush và thao tác chính
+
+| Brush / thao tác | Công dụng trong bài                                |
+| ---------------- | -------------------------------------------------- |
+| **Smooth**       | Làm sạch các vùng gồ ghề và làm mềm đường brush    |
+| Giữ `Shift`      | Tạm thời kích hoạt Smooth                          |
+| **Crease**       | Tạo rãnh sắc ở môi, mũi, mí mắt và tai             |
+| **Draw**         | Bổ sung thể tích cho môi và vành tai               |
+| **Grab**         | Điều chỉnh vị trí và hình dáng của các vùng nhỏ    |
+| `Ctrl + R`       | Thực hiện Voxel Remesh                             |
+| Chuột giữa       | Xoay góc nhìn và tập trung kiểm tra từng khu vực   |
+| Thu nhỏ brush    | Tạo chi tiết và đường rãnh chính xác hơn           |
+| Phóng to/thu nhỏ | Kiểm tra cả chi tiết cục bộ lẫn hình dáng tổng thể |
+
+---
+
+# 11. Nguyên tắc tinh chỉnh
+
+## 11.1. Smooth rồi Crease lại
+
+Khi một đường rãnh bị gãy hoặc lượn sóng:
+
+```text
+Đường rãnh xấu
+      ↓
+Smooth nhẹ
+      ↓
+Vẽ lại bằng Crease
+      ↓
+Smooth hai bên
+```
+
+Kỹ thuật này đặc biệt hữu ích đối với:
+
+* Đường môi.
+* Cánh mũi.
+* Mí mắt.
+* Rãnh trong tai.
+
+---
+
+## 11.2. Làm việc từ lớn đến nhỏ
+
+Ngay cả ở giai đoạn hoàn thiện, thứ tự thao tác vẫn nên là:
+
+```text
+Hình dáng tổng thể
+        ↓
+Khối trung bình
+        ↓
+Đường rãnh chính
+        ↓
+Chi tiết nhỏ
+```
+
+Không nên cố làm sắc một đường nhỏ khi hình dáng xung quanh nó vẫn chưa đúng.
+
+---
+
+## 11.3. Thường xuyên kiểm tra từ xa
+
+Sau một vài nét brush:
+
+1. Thu nhỏ góc nhìn.
+2. Xoay mô hình.
+3. Kiểm tra từ phía trước.
+4. Kiểm tra góc ba phần tư.
+5. Kiểm tra từ bên cạnh.
+
+Điều này giúp phát hiện:
+
+* Môi bị lệch.
+* Mũi quá nhọn.
+* Mí mắt không ôm nhãn cầu.
+* Tai quá dày.
+* Biểu cảm bị cường điệu quá mức.
+
+---
+
+## 11.4. Chỉ thực hiện những điều chỉnh nhỏ
+
+Ở giai đoạn này, không nên thay đổi lớn cấu trúc nhân vật.
+
+Các chỉnh sửa phù hợp gồm:
+
+* Kéo một vùng vào trong một chút.
+* Làm một rãnh sâu hơn nhẹ.
+* Làm mượt một cục nhỏ.
+* Thay đổi khóe mắt hoặc khóe môi.
+* Thu nhỏ độ dày của tai.
+
+Nếu cần thay đổi toàn bộ tỷ lệ đầu hoặc khuôn mặt, nên thực hiện trước khi tăng mật độ lưới.
+
+---
+
+# 12. Lỗi thường gặp
+
+## 12.1. Crease quá sâu
+
+### Hiện tượng
+
+* Đường môi trông như bị cắt.
+* Cánh mũi có rãnh quá đen.
+* Mí mắt tách rời khỏi khuôn mặt.
+* Tai có quá nhiều đường sắc.
+
+### Cách sửa
+
+* Smooth nhẹ trên đường rãnh.
+* Giảm Strength của Crease.
+* Tăng kích thước brush một chút.
+* Vẽ lại bằng một nét đều hơn.
+
+---
+
+## 12.2. Smooth quá nhiều
+
+### Hiện tượng
+
+* Môi mất thể tích.
+* Mí mắt biến mất.
+* Mũi trở nên tròn và thiếu cấu trúc.
+* Tai mất các rãnh chính.
+
+### Cách sửa
+
+* Dùng Draw để khôi phục thể tích.
+* Dùng Crease để tạo lại đường phân khối.
+* Smooth chỉ ở hai bên đường nét, không quét mạnh toàn bộ khu vực.
+
+---
+
+## 12.3. Tập trung quá lâu vào một vùng
+
+Khi phóng quá gần, người học có thể liên tục chỉnh sửa một chi tiết mà không nhận ra nó đã không còn phù hợp với toàn bộ khuôn mặt.
+
+### Cách phòng tránh
+
+```text
+Chỉnh vài nét → Thu nhỏ → Xoay mô hình → Đánh giá lại
+```
+
+---
+
+## 12.4. Tăng mật độ lưới quá cao
+
+### Hiện tượng
+
+* Blender phản hồi chậm.
+* Brush bị giật.
+* Khó thực hiện các thay đổi lớn.
+* File nặng hơn đáng kể.
+
+### Cách xử lý
+
+* Giữ mật độ hiện tại nếu đã đủ chi tiết.
+* Chỉ Remesh xuống khoảng `0.008` khi máy tính có thể xử lý.
+* Không tiếp tục giảm Voxel Size chỉ để có thêm polygon.
+
+---
+
+## 12.5. Tai quá phức tạp
+
+Tai thật có cấu trúc rất phức tạp, nhưng việc cố tái hiện toàn bộ ngay từ đầu thường khiến kết quả trở nên rối.
+
+Chỉ cần giữ ba thành phần chính:
+
+```text
+Vành tai ngoài
+      +
+Rãnh cong bên trong
+      +
+Một vùng lõm trung tâm
+```
+
+---
+
+# 13. Quy trình thực hành đề xuất
+
+## Bước 1 — Kiểm tra cổ và vai
+
+* Thu nhỏ cổ nếu cần.
+* Đẩy nhẹ phần trước cổ vào trong.
+* Smooth vùng cổ, vai và đỉnh đầu.
+
+## Bước 2 — Remesh lần cuối
+
+* Chỉ thực hiện nếu máy tính đáp ứng được.
+* Có thể đặt Voxel Size khoảng `0.008`.
+* Nhấn `Ctrl + R`.
+
+## Bước 3 — Tinh chỉnh môi
+
+* Crease đường tiếp xúc giữa hai môi.
+* Draw nhẹ nếu môi thiếu thể tích.
+* Smooth hai bên đường rãnh.
+* Grab để chỉnh khóe môi.
+
+## Bước 4 — Tinh chỉnh mũi
+
+* Crease quanh cánh mũi và lỗ mũi.
+* Smooth các đường quá sắc.
+* Grab để sửa vùng bị méo.
+
+## Bước 5 — Tinh chỉnh mắt
+
+* Crease mí trên và mí dưới.
+* Smooth rồi vẽ lại nếu đường mí bị gãy.
+* Grab để tạo biểu cảm cau có.
+* Điều chỉnh khóe mắt.
+
+## Bước 6 — Tinh chỉnh tai
+
+* Tạo đường cong dạng dấu hỏi.
+* Draw thêm thể tích ở vành tai.
+* Grab để làm tai mỏng hoặc nhọn hơn.
+* Crease các rãnh chính.
+
+## Bước 7 — Kiểm tra lần cuối
+
+* Xoay mô hình 360°.
+* Kiểm tra trước, bên và góc ba phần tư.
+* Smooth những vùng còn gồ ghề.
+* Đảm bảo các đường Crease không quá sâu.
+* Lưu file.
+
+---
+
+# 14. Checklist thực hành
+
+## Hình dáng tổng thể
+
+* [ ] Cổ không quá rộng so với đầu.
+* [ ] Phần trước cổ đã được đẩy vào nhẹ.
+* [ ] Vai và đỉnh đầu không còn các vùng gồ ghề lớn.
+* [ ] Hình dáng nhân vật vẫn cân đối khi nhìn từ nhiều góc.
+
+## Remesh
+
+* [ ] Đã làm sạch bề mặt trước khi Remesh.
+* [ ] Chỉ tăng mật độ nếu máy tính xử lý được.
+* [ ] Sau Remesh, mesh vẫn giữ đúng hình dáng tổng thể.
+
+## Môi
+
+* [ ] Hai môi có đường phân cách rõ.
+* [ ] Đường môi không bị răng cưa.
+* [ ] Môi vẫn có đủ thể tích.
+* [ ] Khóe môi phù hợp với biểu cảm nhân vật.
+
+## Mũi
+
+* [ ] Cánh mũi có đường chuyển tiếp rõ.
+* [ ] Lỗ mũi sạch và không quá sắc.
+* [ ] Đầu mũi không bị méo.
+* [ ] Hai bên mũi nối tự nhiên với má.
+
+## Mắt
+
+* [ ] Mí mắt ôm quanh nhãn cầu.
+* [ ] Đường mí không bị gãy.
+* [ ] Khóe mắt có hình dáng hợp lý.
+* [ ] Biểu cảm cau có phù hợp với nhân vật.
+
+## Tai
+
+* [ ] Vành tai có đủ thể tích.
+* [ ] Có đường cong chính bên trong tai.
+* [ ] Các rãnh không quá phức tạp.
+* [ ] Tai không quá dày.
+* [ ] Đầu tai đã được làm nhọn nhẹ nếu phù hợp với thiết kế.
+
+## Hoàn thiện
+
+* [ ] Đã kiểm tra mô hình từ mọi góc.
+* [ ] Không còn vùng gồ ghề dễ nhận thấy.
+* [ ] Các chi tiết không bị sắc quá mức.
+* [ ] Đã lưu file trước khi kết thúc bài.
+
+---
+
+# 15. Ghi nhớ
+
+> Sculpting cần nhiều thời gian luyện tập. Mô hình của bạn không cần phải giống hoàn toàn với mô hình của giảng viên.
+
+Điều quan trọng là:
+
+* Hiểu cách quan sát hình dáng.
+* Biết lúc nào nên dùng Smooth.
+* Biết cách làm sắc đường nét bằng Crease.
+* Biết sửa hình bằng Grab.
+* Không chỉnh sửa quá mức.
+* Thường xuyên kiểm tra mô hình ở khoảng cách xa.
+
+---
+
+# 16. Tóm tắt bài học
+
+Trong bài **Refining the Sculpt**, chúng ta hoàn thiện bản sculpt đầu nhân vật bằng cách điều chỉnh cổ và vai, làm sạch bề mặt, thực hiện một lần Voxel Remesh cuối, sau đó tinh chỉnh lần lượt môi, mũi, mắt và tai.
+
+Các công cụ chính được sử dụng gồm:
+
+* **Smooth** để loại bỏ bề mặt gồ ghề.
+* **Crease** để làm rõ các đường rãnh.
+* **Draw** để bổ sung thể tích.
+* **Grab** để sửa hình dáng.
+* **Voxel Remesh** để tăng mật độ lưới phục vụ việc hoàn thiện.
+
+Kết thúc bài học, nhân vật đã có bề mặt sạch hơn, các đường nét khuôn mặt rõ ràng hơn và biểu cảm phản diện được thể hiện tốt hơn, sẵn sàng cho các bước phát triển nhân vật tiếp theo.

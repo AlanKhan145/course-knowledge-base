@@ -1,281 +1,1122 @@
-# 086 — Animated Textures
-In this lecture will be adding an animated video file to our television screen.
-
-We'll also be texturing the rest of the TV and the character.
-
-Okay.
-
-So here's how we got up to last time, and I'm still in the animation workspace to add some textures.
-
-I'll go across to the shading workspace and let's move into our character.
-
-Now, first of all, it would be fun to animate the screen, so I'll select that and I'll create a new
-
-material and I'll rename this screen sometimes just a good idea to change the color, to make sure it's
-
-all working.
-
-And that seems fine now for my texture.
-
-I've chosen this one from Louis Quintero.
-
-To find this I went to Pexels.com and you can see the web address up there.
-
-Pixels has videos which are free to download and free to use, and I typed in Glitch and there's lots
-
-of interesting videos that you could choose from.
-
-You could type in anything.
-
-I was going to choose an animals face, but the glitch seemed to work quite well.
-
-This one here, and I would really recommend that you find something different and make this your own.
-
-What I would also recommend is that it has a lot of movement in it.
-
-Remember, we're only taking one second of this footage.
-
-So ideally there's a good lot of movement in one second.
-
-Pixels has videos which are free to download and free to use.
-
-So once I've downloaded that, I can bring up that folder with that video in and click and drag to bring
-
-that into my shader.
-
-Editor Alternatively, you can press shift eight add texture and then image texture.
-
-And when you open it up, it should give you the options of moving down here.
-
-Make sure you change from image sequence to movie and let's look that up.
-
-I'll just get rid of this other image texture there.
-
-So pause the video here and catch up with me creating a new material for your television screen and
-
-bringing in and hooking up your movie texture.
-
-Now at the moment we can't see anything, so we have to check our unwrap for this object.
-
-So I'll go to UV editing and there's our image and we can see that the unwrap is just here.
-
-Let's select all and press you to unwrap and then unwrap.
-
-It's one big flat surface so we don't need to mark any seams.
-
-And the first problem we see is that we've only got half our screen.
-
-So I'll need to apply the mirror so we can unwrap the whole of it.
-
-So I'll go to the modifiers, the mirrors at the top here on the dropdown.
-
-I can't choose apply because it's in edit mode, so I'll have to go back to object mode on the dropdown,
-
-apply back into edit mode, select all and I'll have to re unwrap because they're still on top of each
-
-other here.
-
-So you to unwrap and then unwrap and there's my screen I'll just move this into the middle.
-
-So select all with A and G, then x move that into the middle like this.
-
-And let's see what that looks like by going into material preview mode.
-
-Make sure that's working and zoom in on that.
-
-And let's go back to the shading workspace so we can work on the texture.
-
-So pause the video and catch up with me applying the mirror for the screen and re unwrapping it and
-
-placing the UVs.
-
-So they're in the middle of your video.
-
-It would be helpful to have the timeline as well so we can scrub across it and check that it's working.
-
-So I'll pull up a new window here and change that to the timeline.
-
-Now I can scrub across my timeline and see how we're getting on.
-
-Now we're not seeing any updating of the screen.
-
-I'll just move in a little bit closer and I'll turn off the overlays so the bones don't get in the way.
-
-I'll just move down so we can see the bottom of the image texture.
-
-You can see that there's certain options, the start frame being one and the amount of frames being
-
-100.
-
-This doesn't matter too much, but if your animation is longer, you can increase the amount of frames.
-
-But we've only got 24 frames in our actual animation, so it shouldn't make too much difference.
-
-They're the start frame of one should be fine.
-
-There's a button here called Auto Refresh.
-
-If we click on that, it will actually start to refresh and we'll see the results of the video within
-
-our viewport and it seems to be working well.
-
-Okay, so as a challenge to you, I want you to look at your character and think of ways that you could
-
-maybe texture it to make it look interesting.
-
-You could texture it with image textures or just give it some plain colors.
-
-That's entirely up to you.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So I'll do that myself just to show you some of the things you might come up against.
-
-I don't need the timeline anymore, so I'll bring that back down.
-
-Let's select on the TV.
-
-Create a new material.
-
-Call this TV shell and I'll give this some sort of purply color.
-
-I think somewhere around there.
-
-And the dials, you might want to turn your overlays back on at this point so you can see what you've
-
-selected and give this a new material for the styles.
-
-And this can be maybe a black material like this and I'll choose the other one shift select this one
-
-and control l two link materials so they both look the same.
-
-How about my character?
-
-Let's click on my character and let's add a new material and let's give them a color, maybe blue.
-
-And this time I'll turn the roughness up and they look quite interesting there.
-
-I think a little less saturated.
-
-So in from the circle and that looks nice.
-
-What about if I want to texture some faces with different texture slots, maybe texture half my object
-
-with a different color.
-
-But if I go into edit mode, the first thing you'll notice to select those half faces.
-
-I can't do that because it's got a mirror modifier and notice when I go into edit mode it goes back
-
-to its original position.
-
-So Edit Mode turns off the influence of the armature.
-
-So if I want to texture the other half with a different color, I would need to apply the mirror, which
-
-is absolutely fine.
-
-Or you may find that you could just go in and maybe texture a few faces.
-
-So I'll go to face mode and select these faces here.
-
-For example, maybe give him some interesting lines around the wrist and the elbow, maybe the same
-
-for the knee somewhere around here.
-
-And again, give them a new slot so new material slots and assign them to that.
-
-And you can see they've got the default white texture until I add a new one in here.
-
-And in fact white looks quite interesting, so I'll leave it at white.
-
-So we've got this interesting character.
-
-Let's go back into object mode and turn the overlays off.
-
-And I think he looks quite fun.
-
-You could of course add a procedural texture into here.
-
-So shift to add texture and let's go for the Musgrave and I could plug that in and then we get some
-
-sort of procedural texture like this.
-
-I'm not sure I like that as much, so I'll take that off and give our character some plain colors like
-
-this.
-
-So hopefully you got an okay with that.
-
-Now of course, you might want to render out your project using either steel frames or the ffmpeg.
-
-Do you remember to position your camera first and to save your work before you do that?
-
-And also, it'd be great to see some of those animations on the community, so do share them so we can
-
-see how you're getting on.
-
-
-
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 05 — Rigging & Animation |
-| **Bài học** | Animated Textures |
-| **Thời lượng** | 6:13 |
-| **Chủ đề chính** | Đưa video lên màn hình TV |
+# 086 — Animated Textures: Texture động trong Blender
+
+| Thuộc tính       | Nội dung                                                  |
+| ---------------- | --------------------------------------------------------- |
+| **Module**       | Module 05 — Rigging & Animation                           |
+| **Bài học**      | Animated Textures                                         |
+| **Thời lượng**   | 6:13                                                      |
+| **Chủ đề chính** | Đưa video lên màn hình TV và hoàn thiện vật liệu nhân vật |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Hiểu cách Blender xử lý video/image sequence như một texture động (animated texture).
-- Biết cách thêm Image Texture node dạng Movie/Sequence trong Shader Editor.
-- Áp video texture lên mặt màn hình của TV đã dựng ở các bài trước.
-- Đồng bộ thời lượng video texture với frame range của scene.
+Sau bài học này, bạn có thể:
 
-## 2. Nội dung chính
+* Sử dụng một file video làm texture động trong Blender.
+* Tạo vật liệu riêng cho màn hình TV.
+* Thiết lập node **Image Texture** với nguồn là **Movie**.
+* UV unwrap màn hình để video hiển thị đúng.
+* Khắc phục vấn đề UV khi object còn **Mirror Modifier**.
+* Bật **Auto Refresh** để video cập nhật theo Timeline.
+* Tạo và liên kết vật liệu cho các bộ phận khác nhau.
+* Gán nhiều vật liệu lên các vùng mặt khác nhau của cùng một object.
+* Hoàn thiện màu sắc cho TV và nhân vật trước khi render.
 
-Animated Texture là kỹ thuật gán một video (hoặc chuỗi ảnh tuần tự - image sequence) làm texture cho một vật liệu, khiến bề mặt đó phát video khi animation chạy — thường dùng cho các chi tiết như màn hình TV, màn hình máy tính, biển quảng cáo động trong scene. Về bản chất, Blender coi video như một chuỗi frame ảnh và đọc đúng frame tương ứng với frame hiện tại của Timeline khi render hoặc playback trong Shader/Material preview.
+---
 
-Để thiết lập, trong Shader Editor của vật liệu gán cho mặt màn hình TV, thêm một node Image Texture, sau đó Open một file video (định dạng phổ biến như .mp4, hoặc chuỗi ảnh .png/.jpg đánh số thứ tự). Sau khi load, cần vào phần Image Properties (thường xuất hiện dưới node hoặc trong sidebar N của Shader Editor) để thiết lập Source là "Movie" (hoặc tự động nhận diện với video), khai báo Frame Start (frame bắt đầu phát trong Timeline), số lượng Frames (tổng số frame của video), và tùy chọn Auto Refresh để đảm bảo video cập nhật đúng khi tua qua lại Timeline.
+## 2. Tổng quan về Animated Texture
 
-Nối output Color của node Image Texture vào input Base Color (hoặc Emission Color nếu muốn màn hình phát sáng như TV thật) của node Principled BSDF. Dùng Emission thường cho kết quả thuyết phục hơn cho màn hình TV vì mô phỏng ánh sáng tự phát ra từ màn hình thay vì chỉ phản chiếu ánh sáng môi trường như Base Color thông thường. Cũng cần lưu ý đồng bộ độ dài video với frame range tổng thể của scene animation — nếu video ngắn hơn animation, có thể cần lặp lại (loop) bằng cách bật tùy chọn Cyclic trong Image Sequence settings.
+**Animated Texture** là kỹ thuật sử dụng video hoặc chuỗi hình ảnh làm texture cho một bề mặt.
 
-## 3. Quy trình thực hành gợi ý
+Blender đọc video như một tập hợp các frame liên tiếp:
 
-1. Chọn object màn hình TV, vào Shading workspace hoặc Shader Editor.
-2. Thêm node Image Texture (Shift+A > Texture > Image Texture) vào node tree của vật liệu màn hình.
-3. Open file video/image sequence, kiểm tra Source được nhận diện là Movie hoặc Image Sequence.
-4. Thiết lập Frame Start và Frame Count khớp với thời lượng video thực tế.
-5. Nối Color output vào Emission Color của Principled BSDF (thay vì Base Color) để màn hình phát sáng.
-6. Play animation trong Viewport (chế độ Material Preview hoặc Rendered) để kiểm tra video phát đúng theo Timeline.
-7. Nếu cần lặp video liên tục, bật Cyclic trong phần Image Sequence settings.
+```text
+Timeline của scene
+        │
+        ▼
+Frame hiện tại
+        │
+        ▼
+Frame tương ứng trong video
+        │
+        ▼
+Hiển thị trên bề mặt object
+```
 
-## 4. Phím tắt & công cụ liên quan
+Kỹ thuật này thường được sử dụng cho:
 
-| Thao tác | Chức năng |
-|---|---|
-| `Shift+A` (trong Shader Editor) | Thêm node mới, ví dụ Image Texture |
-| Image Texture node > Open | Load file video hoặc chuỗi ảnh |
-| Source: Movie / Sequence (Image Properties) | Xác định loại animated texture |
-| Frame Start / Frames / Offset | Đồng bộ video với Timeline scene |
-| Cyclic (checkbox) | Lặp video liên tục khi animation dài hơn video |
-| Kết nối vào Emission Color (Principled BSDF) | Làm màn hình tự phát sáng thay vì chỉ phản chiếu |
+* Màn hình TV.
+* Màn hình máy tính.
+* Điện thoại.
+* Biển quảng cáo điện tử.
+* Bảng điều khiển.
+* Hiệu ứng glitch.
+* Màn hình camera giám sát.
+* Các bề mặt phát hình ảnh động.
 
-## 5. Lưu ý & lỗi thường gặp
+Trong bài học, một video hiệu ứng **glitch** được sử dụng làm nội dung hiển thị trên màn hình TV.
 
-- Nối video texture vào Base Color thay vì Emission khiến màn hình trông tối, thiếu cảm giác "đang phát sáng" như TV thật.
-- Không thiết lập đúng Frame Start khiến video không đồng bộ với Timeline (bắt đầu sai thời điểm).
-- Quên bật Auto Refresh hoặc chưa Pack video vào file .blend khiến video không phát khi mở lại project trên máy khác.
-- Độ phân giải video quá cao gây giật lag khi preview trong Viewport, nên cân nhắc proxy hoặc giảm preview quality khi làm việc.
+---
 
-## 6. Checklist thực hành
+## 3. Chuẩn bị video texture
 
-- [ ] Đã thêm node Image Texture với video/image sequence cho màn hình TV.
-- [ ] Đã thiết lập Frame Start/Frame Count khớp với Timeline.
-- [ ] Đã nối video vào Emission Color để màn hình phát sáng.
-- [ ] Đã kiểm tra video phát đúng khi play animation trong Viewport.
+Có thể tải video miễn phí từ các thư viện video như Pexels.
 
-## 7. Tóm tắt
+Khi lựa chọn video, nên ưu tiên video:
 
-Animated Texture cho phép gán video như một texture động lên vật liệu, thường dùng qua node Image Texture nối vào Emission để tạo hiệu ứng màn hình phát sáng. Đây là chi tiết hoàn thiện cuối cùng cho scene TV trong module, kết hợp cả modelling và shading động.
+* Có nhiều chuyển động.
+* Thay đổi rõ rệt trong thời gian ngắn.
+* Có tỉ lệ khung hình phù hợp với màn hình.
+* Không có chi tiết quá nhỏ.
+* Có độ phân giải vừa phải để tránh làm Viewport bị giật.
+
+Animation của bài chỉ kéo dài khoảng một giây, vì vậy video nên có đủ chuyển động đáng chú ý trong khoảng thời gian này.
+
+> Nên lựa chọn một video khác với video mẫu để tạo ra sản phẩm mang phong cách riêng.
+
+---
+
+## 4. Tạo vật liệu cho màn hình TV
+
+### Bước 1: Chọn màn hình
+
+Chuyển sang workspace:
+
+```text
+Shading
+```
+
+Sau đó chọn object đóng vai trò là màn hình TV.
+
+### Bước 2: Tạo vật liệu mới
+
+Trong **Material Properties** hoặc **Shader Editor**:
+
+1. Nhấn **New**.
+2. Đổi tên vật liệu thành:
+
+```text
+Screen
+```
+
+Có thể tạm thời đổi màu **Base Color** để kiểm tra xem vật liệu đã được gán đúng object hay chưa.
+
+---
+
+## 5. Thêm video vào Shader Editor
+
+Có hai cách để đưa video vào Shader Editor.
+
+### Cách 1: Kéo thả trực tiếp
+
+1. Mở thư mục chứa video.
+2. Kéo file video vào cửa sổ **Shader Editor**.
+3. Blender sẽ tạo một node **Image Texture**.
+
+### Cách 2: Thêm node thủ công
+
+Trong Shader Editor, sử dụng:
+
+```text
+Shift + A
+→ Texture
+→ Image Texture
+```
+
+Sau đó:
+
+1. Nhấn **Open**.
+2. Chọn file video.
+3. Kiểm tra nguồn texture được đặt thành **Movie**.
+
+---
+
+## 6. Sơ đồ node cơ bản
+
+Có thể nối video trực tiếp vào màu bề mặt:
+
+```text
+┌─────────────────────┐
+│ Image Texture       │
+│ Source: Movie       │
+│                     │
+│ Color ──────────────┼──────────┐
+└─────────────────────┘          │
+                                 ▼
+                       ┌──────────────────┐
+                       │ Principled BSDF  │
+                       │ Base Color       │
+                       └────────┬─────────┘
+                                │
+                                ▼
+                       ┌──────────────────┐
+                       │ Material Output  │
+                       │ Surface          │
+                       └──────────────────┘
+```
+
+Kết nối:
+
+```text
+Image Texture: Color
+        ↓
+Principled BSDF: Base Color
+        ↓
+Material Output: Surface
+```
+
+---
+
+## 7. Tạo cảm giác màn hình phát sáng
+
+Nếu chỉ nối video vào **Base Color**, màn hình vẫn chịu ảnh hưởng của ánh sáng trong scene. Trong một số trường hợp, màn hình có thể trông tối và không giống một thiết bị đang phát sáng.
+
+Có thể sử dụng thêm phần **Emission** của Principled BSDF:
+
+```text
+Image Texture: Color
+        ├──→ Base Color
+        └──→ Emission Color
+```
+
+Sau đó điều chỉnh:
+
+```text
+Emission Strength
+```
+
+Ví dụ:
+
+```text
+Emission Strength: 1.0–3.0
+```
+
+Giá trị phù hợp phụ thuộc vào:
+
+* Công cụ render.
+* Ánh sáng trong scene.
+* Độ sáng của video.
+* Hiệu ứng mong muốn.
+
+### Sơ đồ vật liệu màn hình nâng cao
+
+```text
+                 ┌─────────────────────┐
+                 │ Image Texture       │
+                 │ Source: Movie       │
+                 └─────────┬───────────┘
+                           │ Color
+                  ┌────────┴────────┐
+                  ▼                 ▼
+          ┌──────────────┐  ┌────────────────┐
+          │ Base Color   │  │ Emission Color │
+          └──────┬───────┘  └───────┬────────┘
+                 │                  │
+                 └────────┬─────────┘
+                          ▼
+                 ┌──────────────────┐
+                 │ Principled BSDF  │
+                 └────────┬─────────┘
+                          ▼
+                 ┌──────────────────┐
+                 │ Material Output  │
+                 └──────────────────┘
+```
+
+---
+
+## 8. Kiểm tra UV của màn hình
+
+Sau khi kết nối video, màn hình có thể vẫn chưa hiển thị đúng. Nguyên nhân thường là UV chưa được unwrap phù hợp.
+
+Chuyển sang workspace:
+
+```text
+UV Editing
+```
+
+Sau đó:
+
+1. Chọn object màn hình.
+2. Nhấn `Tab` để vào **Edit Mode**.
+3. Nhấn `A` để chọn toàn bộ.
+4. Nhấn:
+
+```text
+U
+→ Unwrap
+```
+
+Vì màn hình là một bề mặt tương đối phẳng, thường không cần tạo nhiều đường seam phức tạp.
+
+---
+
+## 9. Vấn đề khi màn hình còn Mirror Modifier
+
+Nếu màn hình được tạo bằng **Mirror Modifier**, UV có thể chỉ đại diện cho một nửa màn hình.
+
+Biểu hiện thường gặp:
+
+* Chỉ một nửa video xuất hiện.
+* Hai nửa màn hình hiển thị cùng một phần của video.
+* Hai phần UV chồng lên nhau.
+* Hình ảnh bị đối xứng hoặc lặp lại.
+
+### Nguyên nhân
+
+Mirror Modifier tạo ra phần hình học còn lại sau bước UV Mapping. Hai phía có thể sử dụng cùng tọa độ UV.
+
+```text
+Mesh gốc: một nửa màn hình
+            │
+            ▼
+Mirror Modifier
+            │
+            ▼
+Hai nửa màn hình dùng UV trùng nhau
+```
+
+### Cách xử lý
+
+Cần áp dụng Mirror Modifier trước khi unwrap toàn bộ màn hình.
+
+#### Quy trình
+
+1. Chuyển sang **Object Mode**.
+2. Mở tab **Modifiers**.
+3. Tìm **Mirror Modifier**.
+4. Mở menu của modifier.
+5. Chọn:
+
+```text
+Apply
+```
+
+6. Quay lại **Edit Mode**.
+7. Nhấn `A` để chọn toàn bộ.
+8. Unwrap lại:
+
+```text
+U
+→ Unwrap
+```
+
+Sau khi áp dụng modifier, màn hình trở thành một mesh hoàn chỉnh và có thể được unwrap như một bề mặt đầy đủ.
+
+> Không thể sử dụng lệnh **Apply Modifier** khi đang ở Edit Mode.
+
+---
+
+## 10. Căn chỉnh UV theo video
+
+Sau khi unwrap, UV có thể chưa nằm đúng vị trí trong khung video.
+
+Trong UV Editor:
+
+```text
+A
+```
+
+để chọn toàn bộ UV.
+
+Sử dụng:
+
+| Phím tắt | Chức năng                   |
+| -------- | --------------------------- |
+| `G`      | Di chuyển UV                |
+| `G`, `X` | Di chuyển theo chiều ngang  |
+| `G`, `Y` | Di chuyển theo chiều dọc    |
+| `S`      | Thay đổi kích thước UV      |
+| `S`, `X` | Co giãn UV theo chiều ngang |
+| `S`, `Y` | Co giãn UV theo chiều dọc   |
+| `R`      | Xoay UV                     |
+
+Mục tiêu là đặt UV màn hình vào vùng phù hợp của video:
+
+```text
+┌────────────────────────────┐
+│                            │
+│      ┌──────────────┐      │
+│      │  UV màn hình │      │
+│      │              │      │
+│      └──────────────┘      │
+│                            │
+└────────────────────────────┘
+           Video
+```
+
+Nếu video và màn hình có tỉ lệ khác nhau, có thể cần:
+
+* Thu nhỏ UV để giữ toàn bộ nội dung.
+* Phóng lớn UV để lấp đầy màn hình.
+* Cắt bớt phần trên và dưới.
+* Cắt bớt hai cạnh trái và phải.
+
+---
+
+## 11. Kiểm tra bằng Material Preview
+
+Sau khi unwrap:
+
+1. Chuyển Viewport sang **Material Preview**.
+2. Quan sát màn hình TV.
+3. Kiểm tra:
+
+   * Video có đúng chiều không?
+   * Có bị méo không?
+   * Có bị lặp giữa hai nửa không?
+   * Nội dung quan trọng có nằm trong màn hình không?
+
+Nếu chưa đúng, quay lại UV Editor để tiếp tục điều chỉnh UV.
+
+---
+
+## 12. Thêm Timeline vào Shading Workspace
+
+Để kiểm tra texture động, nên mở thêm một cửa sổ **Timeline**.
+
+Cách thực hiện:
+
+1. Chia một vùng giao diện thành cửa sổ mới.
+2. Mở menu **Editor Type**.
+3. Chọn:
+
+```text
+Timeline
+```
+
+Sau đó kéo playhead qua các frame để kiểm tra video có cập nhật hay không.
+
+---
+
+## 13. Bật Auto Refresh
+
+Ban đầu, video có thể hiển thị một hình nhưng không thay đổi khi tua Timeline.
+
+Trong node **Image Texture**, tìm tùy chọn:
+
+```text
+Auto Refresh
+```
+
+Bật tùy chọn này để Blender cập nhật video theo frame hiện tại.
+
+```text
+Timeline thay đổi
+       │
+       ▼
+Auto Refresh
+       │
+       ▼
+Image Texture cập nhật
+       │
+       ▼
+Màn hình TV thay đổi
+```
+
+Nếu không bật **Auto Refresh**, video có thể chỉ hiển thị một frame cố định trong Viewport.
+
+---
+
+## 14. Các thông số của Movie Texture
+
+Trong node Image Texture, video thường có các thiết lập sau:
+
+| Thuộc tính       | Chức năng                            |
+| ---------------- | ------------------------------------ |
+| **Frames**       | Số frame video được sử dụng          |
+| **Start Frame**  | Frame của scene bắt đầu phát video   |
+| **Offset**       | Dịch vị trí bắt đầu trong video      |
+| **Cyclic**       | Lặp lại video khi chạy hết           |
+| **Auto Refresh** | Cập nhật video khi Timeline thay đổi |
+
+### Ví dụ
+
+Giả sử:
+
+* Animation bắt đầu ở frame `1`.
+* Animation kết thúc ở frame `24`.
+* Video bắt đầu phát từ frame `1`.
+
+Thiết lập có thể là:
+
+```text
+Start Frame: 1
+Frames: 24 hoặc lớn hơn
+Auto Refresh: Bật
+```
+
+Nếu animation dài hơn video và muốn video lặp lại:
+
+```text
+Cyclic: Bật
+```
+
+---
+
+## 15. Đồng bộ video với animation
+
+### Trường hợp 1: Video dài hơn animation
+
+Ví dụ:
+
+```text
+Video: 100 frame
+Animation: 24 frame
+```
+
+Blender chỉ sử dụng phần đầu của video tương ứng với 24 frame animation.
+
+```text
+Video:     [1────────────────────────────100]
+Scene:     [1──────24]
+Phần dùng: [1──────24]
+```
+
+### Trường hợp 2: Video ngắn hơn animation
+
+Ví dụ:
+
+```text
+Video: 24 frame
+Animation: 100 frame
+```
+
+Có thể bật **Cyclic** để video lặp lại:
+
+```text
+[1──24][1──24][1──24][1──24]...
+```
+
+### Trường hợp 3: Muốn video bắt đầu muộn
+
+Ví dụ video chỉ bắt đầu phát từ frame `20`:
+
+```text
+Start Frame: 20
+```
+
+```text
+Scene:  1────────────20────────────100
+Video:                1─────────────81
+```
+
+---
+
+## 16. Hoàn thiện vật liệu cho vỏ TV
+
+Sau khi màn hình hoạt động, tiếp tục tạo vật liệu cho phần vỏ TV.
+
+### Quy trình
+
+1. Chọn object vỏ TV.
+2. Tạo vật liệu mới.
+3. Đặt tên:
+
+```text
+TV Shell
+```
+
+4. Chọn màu phù hợp, chẳng hạn:
+
+   * Tím.
+   * Xanh dương.
+   * Đỏ.
+   * Cam.
+   * Màu pastel.
+
+Có thể điều chỉnh:
+
+| Thuộc tính             | Ảnh hưởng              |
+| ---------------------- | ---------------------- |
+| **Base Color**         | Màu chính              |
+| **Roughness**          | Độ nhám                |
+| **Metallic**           | Tính kim loại          |
+| **Specular/IOR Level** | Cường độ phản xạ       |
+| **Coat**               | Lớp phủ bóng bên ngoài |
+
+Đối với vỏ TV bằng nhựa, thường nên:
+
+```text
+Metallic: 0
+Roughness: trung bình
+```
+
+---
+
+## 17. Tạo vật liệu cho nút điều khiển
+
+Chọn một nút điều khiển và tạo vật liệu mới, ví dụ:
+
+```text
+TV Dials
+```
+
+Có thể sử dụng màu:
+
+```text
+Đen hoặc xám đậm
+```
+
+Thay vì tạo lại vật liệu cho từng nút, có thể liên kết vật liệu giữa các object.
+
+### Liên kết vật liệu
+
+1. Chọn object cần nhận vật liệu.
+2. Giữ `Shift` và chọn object đang có vật liệu làm object cuối cùng.
+3. Nhấn:
+
+```text
+Ctrl + L
+→ Link Materials
+```
+
+Object được chọn cuối cùng là object chủ động, vật liệu của nó sẽ được liên kết sang các object còn lại.
+
+```text
+Nút A chưa có vật liệu ──┐
+                         ├── Ctrl + L → Link Materials
+Nút B có vật liệu ───────┘
+              │
+              ▼
+Cả hai dùng cùng vật liệu
+```
+
+---
+
+## 18. Tạo vật liệu cho cơ thể nhân vật
+
+Chọn object cơ thể và tạo một vật liệu mới.
+
+Ví dụ:
+
+```text
+Character Body
+```
+
+Có thể chọn màu xanh dương và tăng **Roughness** để bề mặt có cảm giác mềm, ít bóng.
+
+```text
+Base Color: xanh dương
+Roughness: cao
+Metallic: 0
+```
+
+Nếu màu quá mạnh, giảm độ bão hòa bằng cách kéo điểm chọn màu vào gần tâm của vòng tròn màu.
+
+---
+
+## 19. Gán nhiều vật liệu cho một object
+
+Một object có thể sử dụng nhiều **Material Slot**.
+
+Ví dụ:
+
+* Cơ thể dùng màu xanh.
+* Cổ tay dùng màu trắng.
+* Khuỷu tay dùng màu trắng.
+* Đầu gối dùng màu trắng.
+
+### Quy trình
+
+1. Chọn object cơ thể.
+2. Nhấn `Tab` vào **Edit Mode**.
+3. Chuyển sang chế độ chọn mặt:
+
+```text
+3
+```
+
+4. Chọn các face cần dùng màu khác.
+5. Trong Material Properties, nhấn dấu `+` để tạo **Material Slot** mới.
+6. Chọn hoặc tạo vật liệu mới.
+7. Nhấn:
+
+```text
+Assign
+```
+
+### Sơ đồ
+
+```text
+Object cơ thể
+│
+├── Material Slot 1: Body Blue
+│   └── Phần lớn các mặt
+│
+└── Material Slot 2: White Details
+    └── Cổ tay, khuỷu tay, đầu gối
+```
+
+---
+
+## 20. Lưu ý khi object còn Mirror Modifier
+
+Khi object còn Mirror Modifier:
+
+* Chỉ có thể trực tiếp chọn các face của nửa mesh gốc.
+* Phần đối xứng được tạo ra bởi modifier.
+* Vật liệu được gán cho nửa gốc thường được phản chiếu sang nửa còn lại.
+* Không thể chỉnh hai bên hoàn toàn độc lập nếu chưa áp dụng modifier.
+
+Nếu muốn tô vật liệu khác nhau cho hai bên cơ thể, cần cân nhắc:
+
+```text
+Apply Mirror Modifier
+```
+
+Tuy nhiên, chỉ nên áp dụng Mirror khi không còn cần chỉnh sửa đối xứng.
+
+---
+
+## 21. Vì sao mesh trở về vị trí gốc trong Edit Mode?
+
+Nhân vật đang được điều khiển bởi Armature Modifier.
+
+Trong **Object Mode** hoặc **Pose Mode**, bạn thấy mesh đã được biến dạng theo tư thế của xương.
+
+Khi chuyển sang **Edit Mode**, Blender thường hiển thị hình dạng cơ sở của mesh để chỉnh sửa topology.
+
+```text
+Edit Mode
+└── Hình dạng cơ sở của mesh
+
+Object/Pose Mode
+└── Hình dạng sau khi Armature Modifier biến dạng
+```
+
+Đây không phải lỗi. Nó giúp tránh việc chỉnh sửa topology trên một mesh đang bị biến dạng tạm thời bởi armature.
+
+---
+
+## 22. Thử nghiệm Procedural Texture
+
+Ngoài màu đơn sắc, có thể thêm texture thủ tục.
+
+Trong Shader Editor:
+
+```text
+Shift + A
+→ Texture
+→ Noise Texture
+```
+
+Hoặc trong một số phiên bản Blender cũ:
+
+```text
+Shift + A
+→ Texture
+→ Musgrave Texture
+```
+
+Sau đó nối texture vào **Base Color** hoặc thông qua một node **Color Ramp**.
+
+### Sơ đồ
+
+```text
+Noise/Musgrave Texture
+          │
+          ▼
+      Color Ramp
+          │
+          ▼
+Principled BSDF: Base Color
+```
+
+Procedural Texture có thể tạo:
+
+* Hoa văn nhiễu.
+* Bề mặt đá.
+* Da sinh vật.
+* Vết bẩn.
+* Màu loang.
+* Họa tiết ngẫu nhiên.
+
+Tuy nhiên, nếu texture làm nhân vật trở nên quá rối, màu đơn giản có thể phù hợp hơn với phong cách hoạt hình.
+
+---
+
+## 23. Quy trình hoàn chỉnh của bài học
+
+```text
+Chọn màn hình TV
+        │
+        ▼
+Tạo vật liệu Screen
+        │
+        ▼
+Thêm Image Texture
+        │
+        ▼
+Mở file video
+        │
+        ▼
+Đặt Source thành Movie
+        │
+        ▼
+Kết nối vào Principled BSDF
+        │
+        ▼
+Kiểm tra UV
+        │
+        ▼
+Apply Mirror Modifier nếu cần
+        │
+        ▼
+Unwrap lại toàn bộ màn hình
+        │
+        ▼
+Căn chỉnh UV trong video
+        │
+        ▼
+Bật Auto Refresh
+        │
+        ▼
+Tua Timeline để kiểm tra
+        │
+        ▼
+Tạo vật liệu cho vỏ TV
+        │
+        ▼
+Liên kết vật liệu cho các nút
+        │
+        ▼
+Tạo vật liệu cho nhân vật
+        │
+        ▼
+Gán vật liệu phụ cho một số face
+        │
+        ▼
+Đặt camera và render
+```
+
+---
+
+## 24. Phím tắt và công cụ quan trọng
+
+| Phím/Công cụ         | Chức năng                               |
+| -------------------- | --------------------------------------- |
+| `Shift + A`          | Thêm node hoặc object mới               |
+| `Tab`                | Chuyển giữa Object Mode và Edit Mode    |
+| `A`                  | Chọn toàn bộ                            |
+| `U`                  | Mở menu UV Mapping                      |
+| `G`                  | Di chuyển                               |
+| `S`                  | Thay đổi kích thước                     |
+| `R`                  | Xoay                                    |
+| `3` trong Edit Mode  | Chuyển sang Face Select                 |
+| `Ctrl + L`           | Liên kết dữ liệu giữa các object        |
+| **Link Materials**   | Dùng chung vật liệu                     |
+| **Apply Modifier**   | Chuyển kết quả modifier thành mesh thật |
+| **Auto Refresh**     | Cập nhật video theo Timeline            |
+| **Material Preview** | Xem vật liệu trong Viewport             |
+| **Rendered View**    | Xem gần với kết quả render cuối         |
+
+---
+
+## 25. Lỗi thường gặp và cách xử lý
+
+### 25.1. Video không xuất hiện
+
+**Nguyên nhân có thể:**
+
+* Chưa nối Image Texture vào shader.
+* Chưa gán vật liệu cho object.
+* UV chưa được unwrap.
+* UV nằm ngoài vùng hình ảnh.
+* Đang xem ở chế độ Solid.
+
+**Cách xử lý:**
+
+* Kiểm tra kết nối node.
+* Chuyển sang Material Preview hoặc Rendered View.
+* Unwrap lại màn hình.
+* Căn chỉnh UV.
+
+---
+
+### 25.2. Video chỉ hiển thị một nửa
+
+**Nguyên nhân:**
+
+Mirror Modifier chưa được áp dụng và hai nửa đang dùng chung UV.
+
+**Cách xử lý:**
+
+```text
+Object Mode
+→ Apply Mirror Modifier
+→ Edit Mode
+→ A
+→ U
+→ Unwrap
+```
+
+---
+
+### 25.3. Video không chuyển động
+
+**Nguyên nhân:**
+
+Chưa bật **Auto Refresh**.
+
+**Cách xử lý:**
+
+```text
+Image Texture
+→ Auto Refresh: Bật
+```
+
+---
+
+### 25.4. Video bắt đầu sai thời điểm
+
+**Nguyên nhân:**
+
+Giá trị **Start Frame** chưa đúng.
+
+**Cách xử lý:**
+
+Đặt Start Frame trùng với frame muốn video bắt đầu phát.
+
+---
+
+### 25.5. Video ngừng phát giữa animation
+
+**Nguyên nhân:**
+
+* Giá trị **Frames** quá thấp.
+* Video ngắn hơn scene.
+* Chưa bật **Cyclic**.
+
+**Cách xử lý:**
+
+* Tăng số Frames.
+* Bật Cyclic nếu muốn video lặp lại.
+* Sử dụng video dài hơn.
+
+---
+
+### 25.6. Màn hình quá tối
+
+**Nguyên nhân:**
+
+Video chỉ được nối vào Base Color và phụ thuộc hoàn toàn vào ánh sáng scene.
+
+**Cách xử lý:**
+
+* Nối video vào Emission Color.
+* Tăng Emission Strength.
+* Kiểm tra Color Management và ánh sáng.
+
+---
+
+### 25.7. Video bị méo
+
+**Nguyên nhân:**
+
+Tỉ lệ UV không tương ứng với tỉ lệ màn hình hoặc video.
+
+**Cách xử lý:**
+
+Dùng:
+
+```text
+S, X
+S, Y
+```
+
+để điều chỉnh tỉ lệ UV.
+
+---
+
+### 25.8. Mất video khi chuyển project sang máy khác
+
+File video là tài nguyên ngoài file `.blend`. Nếu đường dẫn thay đổi, Blender có thể không tìm thấy video.
+
+Nên:
+
+* Đặt video trong thư mục project.
+* Sử dụng đường dẫn tương đối.
+* Giữ nguyên cấu trúc thư mục khi sao chép project.
+* Kiểm tra lại đường dẫn trước khi render.
+
+Ví dụ cấu trúc project:
+
+```text
+TV_Character_Project/
+├── tv_character.blend
+├── textures/
+│   ├── screen_glitch.mp4
+│   └── other_textures/
+└── renders/
+```
+
+---
+
+## 26. Gợi ý tổ chức vật liệu
+
+Nên đặt tên rõ ràng cho vật liệu:
+
+```text
+MAT_Screen
+MAT_TV_Shell
+MAT_TV_Dials
+MAT_Character_Body
+MAT_Character_Details
+```
+
+Cách đặt tên này giúp dễ quản lý khi scene có nhiều object và vật liệu.
+
+Ví dụ:
+
+| Object            | Vật liệu                |
+| ----------------- | ----------------------- |
+| Màn hình          | `MAT_Screen`            |
+| Vỏ TV             | `MAT_TV_Shell`          |
+| Nút TV            | `MAT_TV_Dials`          |
+| Cơ thể            | `MAT_Character_Body`    |
+| Cổ tay, khuỷu tay | `MAT_Character_Details` |
+
+---
+
+## 27. Thử thách thực hành
+
+Hãy tự thiết kế phong cách cho nhân vật bằng một hoặc nhiều phương pháp sau:
+
+* Dùng màu đơn sắc.
+* Dùng nhiều Material Slot.
+* Thêm họa tiết ở cổ tay và đầu gối.
+* Dùng Noise Texture.
+* Dùng hình ảnh làm texture.
+* Tạo màn hình TV phát video khác.
+* Thêm hiệu ứng phát sáng.
+* Điều chỉnh màu sắc theo phong cách retro.
+* Tạo nhân vật mang phong cách robot hoặc hoạt hình.
+
+Một số ý tưởng video cho màn hình:
+
+* Hiệu ứng glitch.
+* Mắt nhân vật.
+* Khuôn mặt hoạt hình.
+* Sóng âm thanh.
+* Nhiễu TV.
+* Hoạt ảnh hình học.
+* Video vũ trụ.
+* Camera giám sát giả lập.
+
+---
+
+## 28. Chuẩn bị trước khi render
+
+Trước khi render animation, cần kiểm tra:
+
+* Camera đã được đặt đúng vị trí.
+* Màn hình TV hiển thị đúng.
+* Video chuyển động theo Timeline.
+* Không còn texture bị mất.
+* Frame Start và End đã chính xác.
+* Output Resolution đã được thiết lập.
+* Thư mục Output đã được chọn.
+* File Blender đã được lưu.
+* Render Engine đã được chọn.
+* Định dạng đầu ra đã được thiết lập.
+
+Có thể render dưới dạng:
+
+### Chuỗi ảnh tĩnh
+
+Ví dụ:
+
+```text
+PNG
+```
+
+Ưu điểm:
+
+* An toàn hơn khi render bị gián đoạn.
+* Có thể render tiếp từ frame bị thiếu.
+* Chất lượng cao.
+* Dễ chỉnh sửa hậu kỳ.
+
+### Video trực tiếp
+
+Ví dụ:
+
+```text
+FFmpeg Video
+```
+
+Ưu điểm:
+
+* Có ngay file video hoàn chỉnh.
+* Không cần ghép chuỗi ảnh sau khi render.
+
+Tuy nhiên, nếu quá trình render bị lỗi giữa chừng, việc khôi phục thường khó hơn so với chuỗi ảnh.
+
+---
+
+## 29. Checklist thực hành
+
+### Video texture
+
+* [ ] Đã tải hoặc chuẩn bị một video phù hợp.
+* [ ] Đã tạo vật liệu riêng cho màn hình.
+* [ ] Đã thêm node Image Texture.
+* [ ] Đã mở video trong Image Texture.
+* [ ] Source đã được đặt thành Movie.
+* [ ] Đã nối Color vào Principled BSDF.
+* [ ] Đã bật Auto Refresh.
+* [ ] Đã kiểm tra Start Frame và Frames.
+* [ ] Đã bật Cyclic nếu cần lặp video.
+
+### UV Mapping
+
+* [ ] Màn hình đã được unwrap.
+* [ ] Mirror Modifier đã được áp dụng nếu cần.
+* [ ] Hai nửa UV không còn chồng lên nhau.
+* [ ] UV đã được căn giữa trong video.
+* [ ] Video không bị méo hoặc ngược chiều.
+
+### Vật liệu
+
+* [ ] Đã tạo vật liệu cho vỏ TV.
+* [ ] Đã tạo vật liệu cho nút điều khiển.
+* [ ] Đã liên kết vật liệu giữa các nút.
+* [ ] Đã tạo vật liệu cho cơ thể nhân vật.
+* [ ] Đã gán vật liệu phụ cho các vùng cần thiết.
+* [ ] Màu sắc giữa các bộ phận hài hòa.
+
+### Render
+
+* [ ] Camera đã được đặt đúng vị trí.
+* [ ] Frame Range đã chính xác.
+* [ ] Đường dẫn Output đã được chọn.
+* [ ] File `.blend` đã được lưu.
+* [ ] Video texture vẫn được Blender tìm thấy.
+* [ ] Đã render thử một vài frame.
+
+---
+
+## 30. Tóm tắt bài học
+
+Trong bài học này, chúng ta đã sử dụng một file video làm texture động cho màn hình TV.
+
+Quy trình quan trọng nhất gồm:
+
+1. Tạo vật liệu cho màn hình.
+2. Thêm node Image Texture.
+3. Mở video và sử dụng nguồn Movie.
+4. Áp dụng Mirror Modifier nếu UV chỉ có một nửa.
+5. Unwrap lại toàn bộ màn hình.
+6. Căn chỉnh UV theo khung video.
+7. Bật Auto Refresh.
+8. Kiểm tra video bằng Timeline.
+9. Hoàn thiện vật liệu cho TV và nhân vật.
+10. Chuẩn bị camera và các thiết lập render.
+
+Điểm cần ghi nhớ:
+
+> Video texture chỉ hoạt động đúng khi vật liệu, UV Mapping, thông số frame và Auto Refresh đều được thiết lập phù hợp.
+
+Animated Texture giúp các mô hình trở nên sinh động hơn, đặc biệt phù hợp với màn hình, bảng điện tử và các bề mặt cần hiển thị nội dung chuyển động.

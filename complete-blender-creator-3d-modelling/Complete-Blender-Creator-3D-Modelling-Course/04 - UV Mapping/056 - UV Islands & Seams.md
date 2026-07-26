@@ -1,378 +1,828 @@
 # 056 — UV Islands & Seams
-In this lecture, we'll be breaking down what our seams and what are UV islands, and we'll begin making
 
-a wooden barrel.
-
-First of all, let's understand what seams are.
-
-Let's think about a T-shirt.
-
-It starts off as one single piece of cloth, much like our 2D textures.
-
-The shapes are then cut out and stitched together to make a 3D t shirt.
-
-And if you look at t shirts, they have seams where they are joined together.
-
-This is exactly the same in a 3D program.
-
-We have to mark seams on our 3D objects in order to show Glenda how we want our 2D textures to be positioned
-
-on those 3D objects.
-
-So with that in mind, here's where we got up to last time, and I'm still in the movie editing workspace
-
-and my object is still in edit mode.
-
-So I'm going to go back to object mode with TAB.
-
-And just to quickly show you, if I zoom in to my object slightly and press s to scale in the Z, the
-
-textures will stretch with the objects like this.
-
-And if I make my object much taller and go back into edit mode and choose this face here, it's exactly
-
-the same size as it was previously and square.
-
-So changing the scale of the object will not affect your UVs, it will just stretch them.
-
-And that's something that's important to understand and you'll get used to as you go along.
-
-If you want to tall a building, then you will need to come into the movie editor, select your faces
-
-and scale Y to make them fit the new scale.
-
-But I'll undo that.
-
-I'll go back into object mode to its original size.
-
-There are in fact other ways of changing the UV maps so that they match the scale.
-
-But we'll talk more about these things later on.
-
-So let's talk a little bit more about how we can set up UV maps for different objects.
-
-If I add a cylinder, so shift A to add mesh and then cylinder, I'm going to come down to the dialog
-
-box at the bottom here and change the vertex count to 16 so there's less vertices and therefore less
-
-UVs to have to move and adjust and press enter.
-
-And I'll minimize this dialog box and just move this off to the side so we can see it.
-
-I'll scale it down as well.
-
-We can have a wooden barrel next to our building.
-
-I'll just move that into position now.
-
-I'll just go into front view and notice that my building is in the negative way.
-
-So I'll select all and r, z one, a t so that it's all in the positive y.
-
-Now, when I go to front view, I can position these on the floor.
-
-That's in case you wanted to make a little scene in here.
-
-Okay, so back into our barrel shape here, I'll just scale shift Z.
-
-So it's a little bit thinner, something like this.
-
-Okay.
-
-So take a moment to catch up with me, add in a cylinder and change the vertices to 16 and you can place
-
-them on the grid floor if you like, next to one another.
-
-Pause the video and have a go at that.
-
-Okay.
-
-So with my barrel selected, let's come across to the object data properties, look at the, um, maps
-
-and we can see there's a U.V. map there.
-
-So if I go into edit mode, we can see our UV map.
-
-Currently it's against my very stretched image.
-
-So the UV map is actually very stretched.
-
-I'm just going to come across my top panel here.
-
-Incidentally, I use the middle mouse button to do that and close the texture down and then zoom in
-
-and we can see our very nice UV map of a cylinder.
-
-I'll bring the panel back to the far left and we've got our vertices edges and faces.
-
-Now, what I didn't mention before is that we've also got islands.
-
-If I click that, I can click on what are known as the islands.
-
-An island is a group of faces on your object that are joined together, but they're separate from the
-
-other faces or the other islands, as you can see there.
-
-So this object has three islands.
-
-I'll undo that scaling.
-
-Now the outside edges of the island are known as seams.
-
-So if I had a new material for this cylinder and I'll just make my shader editor bigger so you can see
-
-it nice and easily and zoom into my cylinder slightly now with the node wrangler installed.
-
-Remember that's edit preferences, add ons, type in node and make sure your node wrangler is ticked.
-
-I can click on the principal SDF and press control t to bring up these three nodes.
-
-So that's an image texture, a mapping node and a text coordinates.
-
-So you can see at the moment my cylinder has gone all black.
-
-That's because we haven't got an image texture in here.
-
-I'm going to click on the image texture and again with the node wrangler I can press shift sx to switch
-
-this texture to a different texture.
-
-This is the same as deleting it and then adding a new one in.
-
-But shift sx is a little bit faster.
-
-So I'll choose a musgrove texture because we can easily see the shapes on our object.
-
-So currently the default is using the UV mapping method and you should be able to see the seams around
-
-the top here.
-
-So that's one island there.
-
-Let's click on that and press G to grab to move it around.
-
-Hope that's the bottom one.
-
-I'll click the top one here.
-
-So grab and move that around and you can clearly see those seams around the top.
-
-So that's where the textures hit each other and make a sharp line the same if I select all the middle.
-
-So this is the faces going all the way around the object g to grab.
-
-And again we can see the seam at the top, but we can also hopefully you can see a seam coming down
-
-the side here.
-
-So if I press G to grab, you can see a sharp line where the seam joins.
-
-So this has been unwrapped much like a label around a tin of food.
-
-So I'll undo that movement.
-
-So pause the video here, add in the material for your cylinder and bring in your three nodes by clicking
-
-on the principal SDF and press control.
-
-T Switch the image texture to a musgrove texture and just move the UV islands to see the effect that
-
-has.
-
-Make sure you undo any movement before you carry on though.
-
-Pause the video and have a go at that.
-
-Now, just to remind you that these textures here are procedural.
-
-And when we use something like the generated texture coordinates, if I plug that in, you can see that
-
-we can't see any seams on our objects.
-
-So these corners here and this line down here don't seem to make any difference.
-
-So the generator can be very useful with procedural textures so that you don't get any seams.
-
-However, using UV texture coordinates is more common because you can transfer that between different
-
-programs.
-
-So go from blender to a game engines such as unity or unreal, and you can use any texture that you
-
-find.
-
-In our case, we're going to use some wood for our barrel now in order to see these themes.
-
-If I zoom out just a touch, select all my UVs and come up to UV.
-
-And if I go to the seam section and click on seams from Island, you can suddenly see these orange ready
-
-lines going around the edges of my islands.
-
-So we can clearly see that seam down the middle of this big island here.
-
-And I'll just go around the object to show you that this is the only seam.
-
-So we've got this big kind of label around the middle there and the top and bottom, and you can see
-
-those seams marked out.
-
-So pause the video here, select all your UVs and under the UV menu.
-
-Use the tool seams from island to show your seams, pause the video and have a go at that.
-
-Now what I want to show you is how you can create your own UV map and not just use the generated map
-
-that's created here.
-
-Because when we start creating more complex objects, we won't have a map to rely on and we'll have
-
-to create our own.
-
-So if I delete this map in the object data properties under the maps and use the minus button that clears
-
-my UVs and because Blender doesn't know where to put the image, it's made it all black.
-
-Now to create my own UVs, I can press you to unwrap and unwrap and you can see those jobs being created
-
-there, but they look slightly different.
-
-And we've got an error message at the bottom here, which is object has non-uniform scale.
-
-So Blender has taken into account the scale of this object and created the UVs accordingly.
-
-If I go back into object mode now with TAB press control A to apply the scale, then back into edit
-
-mode with everything selected press you and unwrap.
-
-You can see that it's come out slightly differently now.
-
-It's still not quite the same as the UVs we had before, but that's because we had re scaled this object
-
-with a different height to width.
-
-So the UVs represent that correctly.
-
-So pause the video, catch up with me and delete the UV map that's currently on the object and create
-
-a new one.
-
-Do you remember to apply your scale?
-
-Pause the video and have a go at that.
-
-Okay.
-
-So hopefully your understanding seems a little bit more.
-
-What I want you to do next is add the monkey object, make sure you go back into object mode for that,
-
-then go into edit mode and have a look at the UV islands.
-
-Then with all the you've selected, go into the menu and Mark seems from islands.
-
-Delete the current map.
-
-And recreate it by pressing you to unwrap and then choosing unwrap.
-
-Pause the video and have a go with that.
-
-Okay.
-
-So I'll need to go into object mode.
-
-Zoom out just a touch shift data, add mesh and then monkey.
-
-I'll just move that across to the side slightly and I'll scale it down so we can zoom in and have it
-
-next to our barrel just here.
-
-I'll go into edit mode and you can see the UVs mapped out here.
-
-So if I select all, I can come up to the UAV menu and choose scenes from islands and there you can
-
-see those orange lines marking out the islands and you can see a rather unusual UV map of how it's split
-
-it up and flattened it out.
-
-I can come across to my UV map now and delete that.
-
-Make sure all the faces are selected on my monkey.
-
-Press you to unwrap and then unwrap and we can see a very similar unwrap here.
-
-But interestingly, once again, it's not exactly the same as the original UV map for that monkey,
-
-but it does have the same islands.
-
-So with islands selected, you can see those different islands for the ears here, the eyes and the
-
-rest of the face.
-
-So hopefully you got an okay with that and you're beginning to understand UV mapping.
-
-Don't panic if it's not all making sense yet.
-
-The more we create UVs and play with the UVs, the more you'll begin to understand them.
-
-So do make sure you've saved your work.
-
-Ready for next time.
-| Thuộc tính | Nội dung |
-|---|---|
-| **Module** | Module 04 — UV Mapping |
-| **Bài học** | UV Islands & Seams |
-| **Thời lượng** | 10:06 |
-| **Chủ đề chính** | UV Island và Seam |
+| Thuộc tính        | Nội dung                                |
+| ----------------- | --------------------------------------- |
+| **Module**        | Module 04 — UV Mapping                  |
+| **Bài học**       | UV Islands & Seams                      |
+| **Thời lượng**    | 10:06                                   |
+| **Chủ đề chính**  | UV Island, Seam và quy trình Unwrap     |
+| **Bài thực hành** | Hình trụ làm thùng gỗ và mô hình Monkey |
+
+---
 
 ## 1. Mục tiêu bài học
-- Hiểu khái niệm seam và vai trò của nó trong việc "cắt" mesh trước khi unwrap.
-- Hiểu khái niệm UV island — nhóm các face liền kề không bị seam chia cắt.
-- Biết cách đánh dấu và xóa seam bằng Ctrl+E.
-- Biết cách chọn cạnh (edge loop, edge ring) hợp lý để đặt seam sao cho UV ít méo và dễ texturing.
 
-## 2. Nội dung chính
-**Seam** là các cạnh (edge) được đánh dấu để báo cho Blender biết "hãy cắt mesh tại đây" khi thực hiện Unwrap, giống như việc cắt một hộp giấy dọc theo các cạnh để trải phẳng nó ra. Seam được đánh dấu qua menu Edge (`Ctrl+E → Mark Seam`) sau khi chọn các cạnh mong muốn ở Edit Mode, và hiển thị màu đỏ trên mesh.
+Sau bài học này, người học có thể:
 
-**UV island** là một nhóm các face liền kề nhau, không bị ngăn cách bởi seam, được unwrap thành một mảnh liền trong UV space. Một mesh phức tạp thường được chia thành nhiều island: mỗi island cần đủ lớn để chứa chi tiết texture, nhưng cũng cần được sắp xếp (pack) gọn gàng để tận dụng không gian UV 0–1.
+* Hiểu **Seam** là gì và vì sao cần seam khi trải UV.
+* Hiểu **UV Island** và cách các mặt của mô hình được chia thành nhiều mảnh trên UV Editor.
+* Quan sát tác động của việc di chuyển UV island lên texture của vật thể.
+* Hiển thị seam dựa trên UV island bằng lệnh **Seams from Islands**.
+* Xóa UV Map hiện tại và tự tạo UV Map mới bằng **Unwrap**.
+* Hiểu vì sao cần **Apply Scale** trước khi unwrap.
+* Phân biệt cách hoạt động của tọa độ **UV** và **Generated** với procedural texture.
 
-Nguyên tắc chọn seam:
-- Đặt seam ở những vị trí ít bị nhìn thấy hoặc đường nét tự nhiên của mô hình (ví dụ theo cạnh dưới, đường viền, khe nối).
-- Seam nên chia mesh thành các island có hình dạng gần phẳng để giảm méo (distortion) khi unwrap.
-- Tránh tạo quá nhiều seam nhỏ lẻ — sẽ sinh ra nhiều island rời rạc, khó quản lý và dễ lộ đường nối texture.
+---
 
-Sau khi đánh seam, bật **Live Unwrap** (trong menu UV) giúp xem UV cập nhật theo thời gian thực khi seam hoặc mesh thay đổi, rất hữu ích khi tinh chỉnh.
+## 2. Seam là gì?
 
-## 3. Quy trình thực hành gợi ý
-1. Chọn một mesh có hình dạng phức tạp hơn khối cơ bản (ví dụ mesh dạng hộp có bo góc).
-2. Chuyển sang Edge Select Mode (`2`), chọn các cạnh dự định làm seam theo nguyên tắc "ít lộ, dễ trải phẳng".
-3. Đánh seam bằng `Ctrl+E → Mark Seam`.
-4. Chọn toàn bộ mesh (`A`), nhấn `U → Unwrap` để xem island được tạo ra.
-5. Bật Live Unwrap, thử thêm/bớt seam và quan sát UV island thay đổi trực tiếp trong UV Editor.
-6. Dùng checker texture để kiểm tra độ méo của từng island; điều chỉnh seam nếu island bị kéo dãn nhiều.
-7. Nếu cần bỏ seam, chọn lại các cạnh đó và dùng `Ctrl+E → Clear Seam`.
+### 2.1. Ví dụ chiếc áo thun
 
-## 4. Phím tắt & công cụ liên quan
-| Phím tắt | Chức năng |
-|---|---|
-| `Ctrl+E` | Mở Edge menu (Mark Seam, Clear Seam...) |
-| `2` | Chuyển sang Edge Select Mode |
-| `Alt+Click` (trên cạnh) | Chọn edge loop nhanh |
-| `Ctrl+Alt+Click` | Chọn edge ring |
-| `U` | Mở menu Unwrap sau khi đã đánh seam |
-| `A` / `Alt+A` | Chọn tất cả / bỏ chọn tất cả |
+Một chiếc áo thun được tạo từ những mảnh vải phẳng:
 
-## 5. Lưu ý & lỗi thường gặp
-- Quên chọn toàn bộ mesh trước khi Unwrap khiến chỉ một phần mesh được unwrap lại.
-- Đặt seam giữa các mặt lớn liền mạch khiến texture bị chia cắt không cần thiết, lộ đường nối rõ ràng.
-- Không kiểm tra Live Unwrap/checker texture nên không phát hiện được island bị méo cho đến khi texture thật đã áp.
-- Đặt seam quá ít khiến mesh dạng cong (như hình trụ) bị kéo dãn nghiêm trọng khi trải phẳng.
+1. Vải được cắt thành nhiều mảnh.
+2. Các mảnh được ghép và may lại.
+3. Những đường nối giữa các mảnh được gọi là **đường may — seam**.
 
-## 6. Checklist thực hành
-- [ ] Đã hiểu và phân biệt được khái niệm seam và UV island.
-- [ ] Đã thực hành đánh dấu và xóa seam bằng Ctrl+E.
-- [ ] Đã bật Live Unwrap và quan sát UV thay đổi theo seam.
-- [ ] Đã kiểm tra độ méo UV bằng checker texture và điều chỉnh lại seam nếu cần.
+Trong Blender, quá trình UV Mapping hoạt động theo nguyên tắc tương tự:
 
-## 7. Tóm tắt
-Seam và UV island là hai khái niệm cốt lõi của UV mapping: seam xác định nơi mesh bị "cắt", còn island là kết quả của quá trình cắt đó. Đặt seam hợp lý giúp UV ít méo, dễ texturing và ẩn đường nối một cách tự nhiên — kỹ năng này sẽ được áp dụng ngay ở bài tiếp theo với mô hình thùng gỗ.
+* Mô hình 3D giống như chiếc áo đã được may hoàn chỉnh.
+* Texture là một hình ảnh 2D phẳng.
+* Blender cần biết nên “cắt” mô hình ở đâu để có thể trải nó thành mặt phẳng.
+* Những cạnh được dùng làm vị trí cắt được gọi là **seam**.
+
+```text
+Mô hình 3D
+    │
+    │ Cắt theo Seam
+    ▼
+Các mảnh bề mặt rời nhau
+    │
+    │ Trải phẳng — Unwrap
+    ▼
+Các UV Island trong UV Editor
+```
+
+Seam giúp Blender xác định cách đặt hình ảnh 2D lên bề mặt của mô hình 3D.
+
+---
+
+## 3. UV Island là gì?
+
+**UV Island** là một nhóm các mặt được nối liền với nhau trong không gian UV.
+
+Các mặt trong cùng một island:
+
+* Nằm liền nhau trên UV Editor.
+* Không bị chia cắt bởi seam.
+* Có thể được di chuyển, xoay hoặc thay đổi kích thước như một nhóm.
+
+Các island khác nhau được tách rời và có thể nằm ở những vị trí khác nhau trong UV space.
+
+### Ví dụ với hình trụ
+
+UV Map mặc định của một hình trụ thường được chia thành ba island:
+
+1. Mặt tròn phía trên.
+2. Mặt tròn phía dưới.
+3. Dải mặt bên bao quanh hình trụ.
+
+```text
+Hình trụ 3D                  UV Map 2D
+
+       ______                ┌───────────┐
+     /        \              │ Mặt trên  │
+    │          │             └───────────┘
+    │ Thân trụ │     →       ┌──────────────────┐
+    │          │             │ Dải mặt bên      │
+     \________/              └──────────────────┘
+                              ┌───────────┐
+                              │ Mặt dưới  │
+                              └───────────┘
+```
+
+Dải mặt bên được trải phẳng giống như việc tháo nhãn giấy khỏi một hộp thực phẩm.
+
+---
+
+## 4. Scale của Object ảnh hưởng đến UV như thế nào?
+
+Trong bài học, giảng viên thay đổi chiều cao của vật thể bằng cách scale trên trục Z:
+
+```text
+S → Z
+```
+
+Khi scale vật thể trong **Object Mode**:
+
+* Hình dạng mô hình thay đổi.
+* UV Map không tự động thay đổi theo.
+* Texture bị kéo giãn trên vật thể.
+
+Ví dụ:
+
+```text
+Vật thể ban đầu          Scale cao hơn
+
+┌──────────┐             ┌──────────┐
+│ Texture  │             │ Texture  │
+│ bình     │     →       │ bị kéo   │
+│ thường   │             │ giãn     │
+└──────────┘             │          │
+                         └──────────┘
+```
+
+Trong UV Editor, các face vẫn giữ kích thước UV cũ. Vì vậy, texture phải kéo dài để bao phủ hình dạng mới.
+
+### Cách xử lý
+
+Có thể:
+
+* Chỉnh lại kích thước UV island trong UV Editor.
+* Hoặc áp dụng scale rồi unwrap lại.
+
+Để áp dụng scale:
+
+```text
+Object Mode → Ctrl + A → Scale
+```
+
+Sau đó:
+
+```text
+Edit Mode → A → U → Unwrap
+```
+
+---
+
+## 5. Tạo hình trụ làm thùng gỗ
+
+### Bước 1: Thêm hình trụ
+
+Trong Object Mode:
+
+```text
+Shift + A → Mesh → Cylinder
+```
+
+Trong bảng tùy chọn tạo hình trụ, đặt:
+
+```text
+Vertices: 16
+```
+
+Giảm số đỉnh xuống 16 giúp:
+
+* Mô hình có phong cách low-poly.
+* Giảm số lượng face.
+* UV Map đơn giản và dễ quan sát hơn.
+
+### Bước 2: Điều chỉnh hình dạng
+
+Để làm hình trụ mỏng hơn theo chiều ngang nhưng giữ nguyên chiều cao:
+
+```text
+S → Shift + Z
+```
+
+Thao tác này scale vật thể trên trục X và Y nhưng không scale trên trục Z.
+
+### Bước 3: Đặt hình trụ cạnh tòa nhà
+
+Có thể di chuyển và scale hình trụ để tạo hình dạng cơ bản của một chiếc thùng gỗ nằm cạnh tòa nhà.
+
+---
+
+## 6. Quan sát UV Map của hình trụ
+
+Chọn hình trụ và mở:
+
+```text
+Object Data Properties → UV Maps
+```
+
+Hình trụ mặc định đã có một UV Map được Blender tạo sẵn.
+
+Chuyển vào Edit Mode:
+
+```text
+Tab
+```
+
+UV Editor sẽ hiển thị các UV island tương ứng với những mặt của hình trụ.
+
+### Chế độ chọn Island
+
+Trong UV Editor, chọn chế độ **Island Select**.
+
+Khi đó, người dùng có thể nhấp vào một island để chọn toàn bộ nhóm mặt UV đó.
+
+Ví dụ:
+
+```text
+Chọn mặt trên → G → Di chuyển
+Chọn mặt dưới → G → Di chuyển
+Chọn dải thân → G → Di chuyển
+```
+
+Khi di chuyển một island, texture trên phần tương ứng của mô hình cũng thay đổi.
+
+> Sau khi thử nghiệm, nên hoàn tác các thay đổi để UV trở về vị trí ban đầu.
+
+```text
+Ctrl + Z
+```
+
+---
+
+## 7. Tạo material để quan sát seam
+
+Để nhìn seam rõ hơn, bài học sử dụng một procedural texture.
+
+### Bước 1: Tạo material
+
+Chọn hình trụ và thêm material mới.
+
+### Bước 2: Mở Shader Editor
+
+Chọn node:
+
+```text
+Principled BSDF
+```
+
+Sau đó nhấn:
+
+```text
+Ctrl + T
+```
+
+Nếu Node Wrangler được bật, Blender sẽ tự động tạo ba node:
+
+```text
+Texture Coordinate
+        │
+        ▼
+     Mapping
+        │
+        ▼
+  Image Texture
+        │
+        ▼
+ Principled BSDF
+```
+
+### Bước 3: Bật Node Wrangler
+
+Nếu phím `Ctrl + T` không hoạt động:
+
+```text
+Edit → Preferences → Add-ons
+```
+
+Tìm:
+
+```text
+Node Wrangler
+```
+
+Sau đó bật add-on này.
+
+### Bước 4: Thay Image Texture bằng procedural texture
+
+Chọn node Image Texture và sử dụng chức năng đổi loại node của Node Wrangler:
+
+```text
+Shift + S
+```
+
+Sau đó chọn một procedural texture có họa tiết dễ quan sát, chẳng hạn **Musgrave Texture** trong phiên bản Blender được sử dụng trong khóa học.
+
+Mục đích là tạo các mảng sáng tối rõ ràng để quan sát đường nối giữa các UV island.
+
+---
+
+## 8. Quan sát seam bằng cách di chuyển UV Island
+
+Mặc định, procedural texture đang sử dụng đầu ra:
+
+```text
+Texture Coordinate → UV
+```
+
+Khi di chuyển các UV island:
+
+* Họa tiết trên mỗi phần của vật thể thay đổi.
+* Có thể nhìn thấy các đường nối sắc nét tại nơi các island gặp nhau.
+* Những đường nối đó chính là vị trí seam.
+
+### Seam trên hình trụ
+
+Hình trụ thường có:
+
+* Một seam bao quanh mặt trên.
+* Một seam bao quanh mặt dưới.
+* Một seam chạy dọc theo thân hình trụ.
+
+```text
+        Seam quanh mặt trên
+              ↓
+         ┌─────────┐
+        /           \
+       │             │
+       │             │ ← Seam dọc thân
+       │             │
+        \___________/
+              ↑
+        Seam quanh mặt dưới
+```
+
+Dải mặt bên được cắt tại seam dọc thân rồi trải thành một hình chữ nhật trong UV Editor.
+
+---
+
+## 9. UV và Generated Coordinates
+
+Procedural texture có thể sử dụng nhiều loại tọa độ khác nhau.
+
+### 9.1. UV Coordinates
+
+Khi nối đầu ra **UV** vào Mapping:
+
+```text
+Texture Coordinate: UV
+        │
+        ▼
+      Mapping
+        │
+        ▼
+Procedural Texture
+```
+
+Đặc điểm:
+
+* Texture phụ thuộc vào UV Map.
+* Di chuyển UV island sẽ làm texture thay đổi.
+* Có thể xuất UV Map và texture sang phần mềm khác.
+* Phù hợp với game engine như Unity và Unreal Engine.
+* Có thể sử dụng với các texture hình ảnh bên ngoài.
+
+### 9.2. Generated Coordinates
+
+Khi sử dụng đầu ra **Generated**:
+
+```text
+Texture Coordinate: Generated
+        │
+        ▼
+      Mapping
+        │
+        ▼
+Procedural Texture
+```
+
+Đặc điểm:
+
+* Texture được tạo dựa trên không gian của vật thể.
+* Các seam trong UV Map thường không còn thể hiện rõ.
+* Hữu ích khi sử dụng procedural texture trực tiếp trong Blender.
+* Không phụ thuộc nhiều vào cách UV được chia thành island.
+
+### So sánh
+
+| Tiêu chí                              | UV Coordinates | Generated Coordinates    |
+| ------------------------------------- | -------------- | ------------------------ |
+| Phụ thuộc UV Map                      | Có             | Không hoặc rất ít        |
+| Di chuyển UV island ảnh hưởng texture | Có             | Không                    |
+| Có thể lộ seam                        | Có             | Thường khó thấy          |
+| Dùng image texture                    | Phù hợp        | Hạn chế hơn              |
+| Chuyển sang Unity/Unreal              | Phổ biến       | Không thuận tiện bằng UV |
+| Dùng procedural texture trong Blender | Có             | Rất phù hợp              |
+
+Mặc dù Generated Coordinates có thể giúp tránh seam, UV Coordinates vẫn phổ biến hơn vì tính tương thích và khả năng kiểm soát texture.
+
+---
+
+## 10. Hiển thị Seam từ UV Island
+
+Để hiển thị seam đang bao quanh các UV island:
+
+1. Vào Edit Mode.
+2. Chọn toàn bộ UV:
+
+```text
+A
+```
+
+3. Trong UV Editor, mở menu:
+
+```text
+UV → Seams from Islands
+```
+
+Blender sẽ đánh dấu các cạnh bao quanh UV island thành seam.
+
+Trên mô hình 3D, seam được hiển thị bằng các đường màu đỏ hoặc đỏ cam.
+
+Đối với hình trụ, có thể quan sát:
+
+* Đường seam quanh mặt trên.
+* Đường seam quanh mặt dưới.
+* Một đường seam chạy dọc thân hình trụ.
+
+> **Seams from Islands** tạo seam dựa trên ranh giới hiện tại của các UV island.
+
+---
+
+## 11. Xóa và tạo lại UV Map
+
+Blender tự tạo UV Map cho các primitive như Cube, Cylinder hoặc Monkey. Tuy nhiên, với mô hình phức tạp do người dùng tự dựng, cần biết cách tạo UV Map thủ công.
+
+### Bước 1: Xóa UV Map hiện tại
+
+Mở:
+
+```text
+Object Data Properties → UV Maps
+```
+
+Chọn UV Map và nhấn nút:
+
+```text
+−
+```
+
+Sau khi xóa:
+
+* UV Editor không còn dữ liệu UV.
+* Texture sử dụng tọa độ UV có thể làm vật thể chuyển sang màu đen.
+* Blender chưa biết cách đặt texture lên các face.
+
+### Bước 2: Tạo UV Map mới
+
+Trong Edit Mode:
+
+```text
+A → U → Unwrap
+```
+
+Blender sẽ tạo một UV Map mới dựa trên:
+
+* Các seam hiện có.
+* Hình dạng của mesh.
+* Tỷ lệ của vật thể.
+
+---
+
+## 12. Lỗi Non-Uniform Scale
+
+Khi unwrap hình trụ đã được scale nhưng chưa áp dụng scale, Blender có thể hiển thị cảnh báo:
+
+```text
+Object has non-uniform scale
+```
+
+### Non-uniform scale là gì?
+
+Non-uniform scale xảy ra khi các trục có tỷ lệ khác nhau.
+
+Ví dụ:
+
+| Trục | Scale |
+| ---- | ----: |
+| X    |   0.7 |
+| Y    |   0.7 |
+| Z    |   1.4 |
+
+Vật thể đã bị scale không đồng đều giữa chiều ngang và chiều cao.
+
+### Vì sao đây là vấn đề?
+
+Nếu chưa apply scale:
+
+* Blender phải tính toán unwrap dựa trên transform chưa được chuẩn hóa.
+* Tỷ lệ UV có thể không phản ánh chính xác tỷ lệ thật của các mặt.
+* Texture có thể bị kéo giãn hoặc phân bố không đúng.
+
+### Cách sửa
+
+Chuyển sang Object Mode:
+
+```text
+Tab
+```
+
+Áp dụng scale:
+
+```text
+Ctrl + A → Scale
+```
+
+Quay lại Edit Mode:
+
+```text
+Tab
+```
+
+Chọn toàn bộ mesh và unwrap lại:
+
+```text
+A → U → Unwrap
+```
+
+### Quy trình chuẩn
+
+```text
+Tạo hoặc chỉnh mô hình
+        │
+        ▼
+Kiểm tra kích thước
+        │
+        ▼
+Ctrl + A → Apply Scale
+        │
+        ▼
+Đánh dấu hoặc kiểm tra Seam
+        │
+        ▼
+A → U → Unwrap
+        │
+        ▼
+Kiểm tra UV Islands
+```
+
+---
+
+## 13. Vì sao UV Map mới khác UV Map mặc định?
+
+Sau khi xóa UV Map mặc định và dùng `U → Unwrap`, UV Map mới có thể không hoàn toàn giống UV Map ban đầu.
+
+Nguyên nhân:
+
+* UV Map mặc định được tạo khi primitive vừa được thêm vào.
+* Sau đó vật thể đã được scale hoặc chỉnh sửa.
+* Unwrap mới sử dụng hình dạng và tỷ lệ hiện tại của mô hình.
+* Thuật toán unwrap có thể bố trí và xoay island theo cách khác.
+
+Điều quan trọng không phải là UV Map phải giống hệt bản mặc định, mà là:
+
+* Các face được trải đúng tỷ lệ.
+* Texture không bị méo quá mức.
+* Các island được chia hợp lý.
+* Seam nằm ở vị trí có thể kiểm soát được.
+
+---
+
+## 14. Thực hành với Monkey
+
+Sau hình trụ, bài học sử dụng mô hình Monkey để quan sát UV Map của một vật thể phức tạp hơn.
+
+### Bước 1: Thêm Monkey
+
+Quay lại Object Mode:
+
+```text
+Tab
+```
+
+Thêm mô hình:
+
+```text
+Shift + A → Mesh → Monkey
+```
+
+Di chuyển và scale mô hình để đặt cạnh hình trụ.
+
+### Bước 2: Quan sát UV Map mặc định
+
+Chuyển vào Edit Mode:
+
+```text
+Tab
+```
+
+Blender hiển thị UV Map mặc định của Monkey.
+
+UV Map của Monkey phức tạp hơn hình trụ và gồm nhiều island, chẳng hạn:
+
+* Hai tai.
+* Các vùng quanh mắt.
+* Phần mặt.
+* Phần đầu phía sau.
+* Các vùng nối quanh cổ.
+
+### Bước 3: Hiển thị seam
+
+Chọn toàn bộ UV:
+
+```text
+A
+```
+
+Sau đó:
+
+```text
+UV → Seams from Islands
+```
+
+Các đường seam sẽ xuất hiện trên mô hình 3D, cho thấy Blender đã cắt phần đầu khỉ như thế nào để trải phẳng.
+
+### Bước 4: Xóa UV Map
+
+Trong Object Data Properties:
+
+```text
+UV Maps → −
+```
+
+### Bước 5: Unwrap lại
+
+Đảm bảo toàn bộ face được chọn:
+
+```text
+A
+```
+
+Sau đó:
+
+```text
+U → Unwrap
+```
+
+UV Map mới nhìn tương tự UV Map mặc định nhưng có thể:
+
+* Khác vị trí.
+* Khác góc xoay.
+* Khác tỷ lệ.
+* Khác cách sắp xếp island.
+
+Tuy nhiên, các nhóm island chính vẫn tương đối giống nhau vì Blender sử dụng cùng cấu trúc seam.
+
+---
+
+## 15. Quy trình thực hành đầy đủ
+
+### Phần A — Hình trụ
+
+1. Chuyển sang Object Mode.
+2. Thêm Cylinder.
+3. Đặt số vertices bằng 16.
+4. Scale để tạo hình thùng gỗ.
+5. Mở UV Editor.
+6. Chuyển sang Edit Mode.
+7. Quan sát ba UV island.
+8. Tạo material mới.
+9. Bật Node Wrangler.
+10. Dùng `Ctrl + T` để thêm các node texture.
+11. Thay Image Texture bằng procedural texture.
+12. Sử dụng tọa độ UV.
+13. Di chuyển từng island và quan sát seam.
+14. Hoàn tác các thay đổi.
+15. Chọn toàn bộ UV.
+16. Chọn `UV → Seams from Islands`.
+17. Quan sát seam trên mô hình.
+18. Xóa UV Map.
+19. Apply Scale.
+20. Unwrap lại mô hình.
+
+### Phần B — Monkey
+
+1. Thêm Monkey.
+2. Chuyển vào Edit Mode.
+3. Quan sát UV Map mặc định.
+4. Chọn toàn bộ UV.
+5. Dùng `Seams from Islands`.
+6. Quan sát các đường seam trên đầu khỉ.
+7. Xóa UV Map hiện tại.
+8. Chọn toàn bộ face.
+9. Dùng `U → Unwrap`.
+10. So sánh UV Map mới với UV Map mặc định.
+
+---
+
+## 16. Phím tắt và công cụ quan trọng
+
+| Phím hoặc thao tác        | Chức năng                                             |
+| ------------------------- | ----------------------------------------------------- |
+| `Tab`                     | Chuyển giữa Object Mode và Edit Mode                  |
+| `Shift + A`               | Mở menu Add                                           |
+| `S`                       | Scale vật thể hoặc UV                                 |
+| `S → Z`                   | Scale theo trục Z                                     |
+| `S → Shift + Z`           | Scale theo X và Y, giữ nguyên Z                       |
+| `G`                       | Di chuyển vật thể hoặc UV island                      |
+| `A`                       | Chọn toàn bộ                                          |
+| `U`                       | Mở menu UV Mapping                                    |
+| `U → Unwrap`              | Trải các mặt thành UV island                          |
+| `Ctrl + A`                | Mở menu Apply Transform                               |
+| `Ctrl + A → Scale`        | Áp dụng tỷ lệ của vật thể                             |
+| `Ctrl + T`                | Thêm Texture Coordinate và Mapping bằng Node Wrangler |
+| `Shift + S`               | Đổi loại node thông qua Node Wrangler                 |
+| `Ctrl + Z`                | Hoàn tác thao tác                                     |
+| `UV → Seams from Islands` | Tạo seam từ ranh giới UV island                       |
+| Nút `−` trong UV Maps     | Xóa UV Map hiện tại                                   |
+
+---
+
+## 17. Lỗi thường gặp
+
+### 17.1. Texture bị kéo giãn sau khi scale
+
+**Nguyên nhân:** Scale vật thể trong Object Mode không tự động thay đổi UV Map.
+
+**Cách xử lý:**
+
+* Chỉnh lại UV island.
+* Hoặc Apply Scale rồi unwrap lại.
+
+---
+
+### 17.2. Xuất hiện cảnh báo Non-Uniform Scale
+
+**Nguyên nhân:** Vật thể có scale khác nhau trên các trục.
+
+**Cách xử lý:**
+
+```text
+Object Mode → Ctrl + A → Scale
+```
+
+Sau đó unwrap lại.
+
+---
+
+### 17.3. Vật thể chuyển sang màu đen
+
+**Nguyên nhân:** UV Map đã bị xóa trong khi material vẫn sử dụng tọa độ UV.
+
+**Cách xử lý:**
+
+```text
+Edit Mode → A → U → Unwrap
+```
+
+---
+
+### 17.4. Không thấy các node khi nhấn Ctrl + T
+
+**Nguyên nhân:** Node Wrangler chưa được bật hoặc chưa chọn node Principled BSDF.
+
+**Cách xử lý:**
+
+```text
+Edit → Preferences → Add-ons → Node Wrangler
+```
+
+Sau đó chọn Principled BSDF và nhấn lại `Ctrl + T`.
+
+---
+
+### 17.5. Di chuyển UV nhưng texture không thay đổi
+
+**Nguyên nhân:** Procedural texture đang dùng tọa độ Generated thay vì UV.
+
+**Cách xử lý:** Nối đầu ra `UV` của Texture Coordinate vào Mapping.
+
+---
+
+### 17.6. Unwrap không tạo đủ UV
+
+**Nguyên nhân:** Không chọn toàn bộ face trước khi unwrap.
+
+**Cách xử lý:**
+
+```text
+Edit Mode → A → U → Unwrap
+```
+
+---
+
+## 18. Checklist thực hành
+
+* [ ] Đã hiểu seam là vị trí Blender cắt mô hình để trải UV.
+* [ ] Đã hiểu UV island là một nhóm mặt liền nhau trong UV space.
+* [ ] Đã thêm hình trụ với 16 vertices.
+* [ ] Đã quan sát ba island cơ bản của hình trụ.
+* [ ] Đã tạo procedural material để quan sát texture.
+* [ ] Đã thử di chuyển UV island và nhìn thấy đường nối texture.
+* [ ] Đã so sánh UV Coordinates với Generated Coordinates.
+* [ ] Đã sử dụng `UV → Seams from Islands`.
+* [ ] Đã xóa UV Map mặc định.
+* [ ] Đã Apply Scale trước khi unwrap.
+* [ ] Đã tạo UV Map mới bằng `U → Unwrap`.
+* [ ] Đã thực hành tương tự với mô hình Monkey.
+* [ ] Đã lưu file Blender trước khi kết thúc bài học.
+
+---
+
+## 19. Tóm tắt bài học
+
+**Seam** và **UV Island** là hai khái niệm nền tảng của UV Mapping:
+
+* Seam xác định vị trí bề mặt mô hình sẽ được cắt.
+* Sau khi cắt và unwrap, các nhóm mặt trở thành UV island.
+* Mỗi island có thể được di chuyển, xoay và scale độc lập trong UV Editor.
+* Khi sử dụng UV Coordinates, vị trí của island quyết định cách texture xuất hiện trên mô hình.
+* Generated Coordinates có thể giúp procedural texture ít lộ seam hơn, nhưng UV vẫn linh hoạt và phổ biến hơn khi làm game hoặc chuyển dữ liệu giữa nhiều phần mềm.
+* Trước khi unwrap, nên sử dụng `Ctrl + A → Scale` để tránh lỗi non-uniform scale và đảm bảo UV có tỷ lệ chính xác.
+
+```text
+Seam hợp lý
+    +
+Apply Scale
+    +
+Unwrap đúng
+    =
+UV ít méo và dễ làm texture
+```
+
+Bài học này là bước chuẩn bị cho quá trình hoàn thiện mô hình **thùng gỗ**, nơi UV Map sẽ được sử dụng để đặt texture gỗ lên bề mặt vật thể.
