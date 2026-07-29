@@ -96,6 +96,12 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Complete Blender Creator: 3D Modelling](./complete-blender-creator-3d-modelling/) | Blender 4.3/4.4, Box Modelling, Modifiers, Materials & Shader Nodes, UV Mapping, Rigging & Animation, Sculpting | English | ✅ |
 | [Blender 3D for Beginners: Complete Modeling & Texturing Guide](./blender-3d-for-beginners-complete-modeling-and-texturing-guide/) | Blender Fundamentals, Organic & Hard-Surface Modeling, Modifiers, Digital Sculpting, Material Creation, Final Character Project | English | ✅ |
 
+### Engineering, Embedded Systems & IoT
+
+| Course | Topics | Language | Status |
+|--------|--------|----------|--------|
+| [3707ICT - Automation and IoT](./3707ict-automation-and-iot/) | Industry 4.0, IoT Architecture, GPIO/Interrupts, Sensors & Actuators, Control Systems, MQTT, Cloud Dashboards, Edge Computing & TinyML, IoT Security, Smart-Tariff Group Project | English | ✅ |
+
 ### Writing
 
 | Course | Topics | Language | Status |
@@ -113,4 +119,5 @@ Each course folder contains:
 - `Ai-engineer/Khóa-1/Resources/llm_engineering/` is excluded (external repo)
 - `fundamentals.../backend-course-code/` is excluded (external repo)
 - `frontend-developer-roadmap/` and `backend-developer-roadmap/` exist locally but are git-ignored (large generated/local-only folders)
+- `3707ict-automation-and-iot/` exists locally but is git-ignored (never to be uploaded)
 - `enterprise-integration-engineer-roadmap/` has its full module scaffold in place; lecture notes are still being written
