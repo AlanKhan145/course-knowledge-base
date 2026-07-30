@@ -1,6 +1,6 @@
 # Learn How to Animate and Render a Fish in Blender! (Beginner Friendly)
 
-Mega-tutorial dạng "unedited/raw" của kênh **Polyfjord**, trình bày trọn vẹn quy trình animate và render một con cá bơi trong Blender — từ việc tìm model, dựng đường bơi bằng Curve, animate, tối ưu model, dùng Shape Keys, texturing & lighting, camera movement, cho đến R&D motion blur và render cuối cùng. Đây là video tiếp nối của video ngắn trước đó *"The secret to easy fish animation in Blender!"*, lần này đi sâu vào từng bước không cắt bớt, kể cả những chỗ tác giả thử-sai.
+Mega-tutorial dạng "unedited/raw" của kênh **Polyfjord**, trình bày trọn vẹn quy trình animate và render một con cá bơi trong Blender — từ việc tìm model, dựng đường bơi bằng Curve, animate, tối ưu model, dùng Shape Keys, texturing & lighting, camera movement, cho đến R&D motion blur và render cuối cùng. Đây là video tiếp nối của video ngắn trước đó *"The secret to easy fish animation in Blender!"* (xem ghi chú chi tiết — dựa trên transcript thật — tại [../the-secret-to-easy-fish-animation-in-blender/](../../the-secret-to-easy-fish-animation-in-blender/)), lần này đi sâu vào từng bước không cắt bớt, kể cả những chỗ tác giả thử-sai.
 
 - **Kênh:** Polyfjord (~799K người đăng ký)
 - **Ngày công chiếu:** 28/2/2026
