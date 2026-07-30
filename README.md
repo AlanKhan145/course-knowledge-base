@@ -95,6 +95,7 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 |--------|--------|----------|--------|
 | [Complete Blender Creator: 3D Modelling](./complete-blender-creator-3d-modelling/) | Blender 4.3/4.4, Box Modelling, Modifiers, Materials & Shader Nodes, UV Mapping, Rigging & Animation, Sculpting | English | ✅ |
 | [Blender 3D for Beginners: Complete Modeling & Texturing Guide](./blender-3d-for-beginners-complete-modeling-and-texturing-guide/) | Blender Fundamentals, Organic & Hard-Surface Modeling, Modifiers, Digital Sculpting, Material Creation, Final Character Project | English | ✅ |
+| [Learn How to Animate and Render a Fish in Blender!](./animate-and-render-a-fish-in-blender/) | Curve Path Animation, Follow Path Constraint, Shape Keys & Drivers, Procedural Texturing, Underwater Lighting, Camera Tracking, Motion Blur | English | ✅ |
 
 ### Engineering, Embedded Systems & IoT
 
@@ -121,3 +122,4 @@ Each course folder contains:
 - `frontend-developer-roadmap/` and `backend-developer-roadmap/` exist locally but are git-ignored (large generated/local-only folders)
 - `3707ict-automation-and-iot/` exists locally but is git-ignored (never to be uploaded)
 - `enterprise-integration-engineer-roadmap/` has its full module scaffold in place; lecture notes are still being written
+- `animate-and-render-a-fish-in-blender/` is notes from a single YouTube tutorial (Polyfjord), not a Udemy course — "lessons" map to video chapters/timestamps instead of separate lectures
