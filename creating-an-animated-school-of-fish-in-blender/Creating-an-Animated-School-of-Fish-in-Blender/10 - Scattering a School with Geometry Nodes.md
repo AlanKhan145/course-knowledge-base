@@ -1,77 +1,501 @@
-# 10 — Rải cả đàn cá bằng Geometry Nodes
+# 09 — Nhân bản và tạo biến thể cho nhiều con cá
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Video** | (không rõ tên/kênh — chỉ có transcript) |
-| **Đoạn** | Geometry Nodes |
-| **Thời điểm** | 21:47–25:15 |
-| **Chủ đề chính** | Volume Cube, Distribute Points in Volume, Instance on Points, Collection Info, Random Value cho biến thiên kích thước |
+| Thuộc tính       | Nội dung                                                                                      |
+| ---------------- | --------------------------------------------------------------------------------------------- |
+| **Video**        | Không rõ tên/kênh — chỉ có transcript                                                         |
+| **Phân đoạn**    | Chuẩn bị đàn cá                                                                               |
+| **Thời điểm**    | `20:18–21:47`                                                                                 |
+| **Chủ đề chính** | Nhân bản bằng `Shift + D`, tùy chỉnh `Amplitude` và `Phase Multiplier`, gom cá vào Collection |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Dựng một Geometry Nodes setup trên object "Fish Source" (chương 02) để rải nhiều bản sao cá ngẫu nhiên trong một thể tích.
-- Dùng **Collection Info** với "Separate Children" để lấy từng con cá riêng lẻ trong "Fish Collection" làm nguồn instance.
-- Thêm biến thiên kích thước ngẫu nhiên bằng **Random Value + Math (Multiply)**.
+Sau chương này, bạn có thể:
 
-## 2. Nội dung chính
+* Nhân bản một con cá đã hoàn thiện, bao gồm:
 
-**Chuyển sang Geometry Nodes.** Chọn object **"Fish Source"** (Plane ẩn đã tạo ở chương 02), chuyển sang tab **Geometry Nodes editor**, tạo một node tree mới ("New").
+  * Mesh cá.
+  * Armature.
+  * Rig.
+  * Animation bơi.
+* Tạo nhiều kiểu bơi khác nhau bằng cách điều chỉnh các tham số trong **F-Curve Modifier**.
+* Tránh hiện tượng toàn bộ đàn cá chuyển động đồng bộ và máy móc.
+* Gom các con cá vào một **Collection** để sử dụng làm nguồn instance trong Geometry Nodes.
+* Làm gọn viewport bằng cách ẩn các Armature không cần quan sát.
 
-**Volume Cube làm vùng thể tích.** Vì không cần "nhìn thấy" object này (chỉ dùng làm dữ liệu hình học nguồn), bước đầu tiên chỉ để **xem trực quan vùng không gian sẽ rải cá**: thêm node **Volume > Volume Cube** (một Primitive tạo khối hộp dạng thể tích), nối tạm vào **Group Output > Geometry** để thấy đường viền khối hộp hiển thị trong viewport. Tác giả chỉnh khối hộp này **dài hơn một chút**, di chuyển đến đúng vị trí mong muốn (dọc theo lòng suối), và **mở rộng nhẹ theo trục Z** — lưu ý: node này **không thực sự tạo ra một khối thể tích render được**, chỉ dùng làm **vùng không gian tham chiếu** để bước phân bố điểm tiếp theo sử dụng.
+---
 
-**Phân bố điểm trong thể tích.** Thêm node **Point > Distribute Points in Volume**, nối đầu ra của Volume Cube vào đầu vào Volume của node này. Khác với việc phân bố điểm trên bề mặt phẳng (Distribute Points on Faces), node này phân bố điểm **rải rác trong toàn bộ thể tích 3D** của khối hộp — lý do được chọn thay vì một mặt phẳng đơn thuần là để cá không chỉ nằm trên một lớp phẳng mà có độ sâu tự nhiên trong không gian dòng nước. Thông số **Density** kiểm soát số lượng điểm sinh ra; thông số **Seed** thay đổi để có **một mẫu phân bố cụ thể khác** (giữ nguyên density nhưng đổi vị trí ngẫu nhiên của từng điểm).
+## 2. Tư duy tổng quát
 
-**Instance từng con cá lên các điểm.** Thêm node **Instances > Instance on Points**, nối chuỗi điểm đã phân bố vào đầu vào Points. Để lấy dữ liệu "Fish Collection" (chương 09) làm nguồn instance, kéo trực tiếp Collection đó từ Outliner vào Geometry Nodes editor — Blender tự động tạo một node **Collection Info** tương ứng. Trong panel của Collection Info, bật hai tùy chọn quan trọng:
-- **"Separate Children"** — để mỗi con cá (mesh) bên trong Collection được coi là một **instance riêng biệt độc lập** (thay vì toàn bộ Collection bị gộp lại thành một khối "instance chung" duy nhất).
-- **"Reset Children"** — để **reset transform gốc** của từng con cá về vị trí/xoay/scale mặc định trước khi instance, tránh việc vị trí gốc ban đầu của mỗi bản sao (từ lúc `Shift + D` ở chương 09) làm lệch kết quả rải.
+Quy trình của chương này gồm ba bước chính:
 
-Nối đầu ra **Instances** của Collection Info vào đầu vào **Instance** của node Instance on Points, rồi nối kết quả cuối vào Group Output.
+```mermaid
+flowchart LR
+    A[Cá gốc đã rig và animate] --> B[Nhân bản bằng Shift + D]
+    B --> C[Tạo biến thể chuyển động]
+    C --> D[Gom vào Fish Collection]
+    D --> E[Dùng làm nguồn cho Geometry Nodes]
+```
 
-**Loại Armature khỏi Collection.** Kết quả ban đầu cho thấy các instance **quá to** và **vẫn hiển thị cả Armature** (khung xương) đi kèm mỗi con cá — vì Armature vẫn đang nằm chung trong "Fish Collection". Khắc phục: chọn tất cả các Armature, đưa chúng **ra khỏi** "Fish Collection" (dùng lệnh Remove from Collection hoặc M sang một Collection khác) — chỉ giữ lại đúng các mesh cá trong Collection dùng cho Instance on Points. Sau khi loại bỏ, kết nối lại, kết quả chỉ còn thuần các mesh cá được instance, không còn khung xương lẫn vào.
+Mục tiêu không chỉ là tạo thêm nhiều con cá, mà còn phải tạo ra **sự khác biệt trong chuyển động** giữa chúng.
 
-**Điều chỉnh mật độ và kích thước.** Số lượng cá vẫn còn khá nhiều — giảm **Density** của Distribute Points in Volume xuống còn khoảng **0.5**. Thêm một node **Scale Instances** để đặt một tỉ lệ nhỏ hơn cho toàn bộ đàn.
+Nếu tất cả các bản sao giữ nguyên cùng một animation, đàn cá sẽ:
 
-**Biến thiên kích thước ngẫu nhiên.** Để mỗi con cá có kích thước khác nhau (không đồng đều tăm tắp): thêm node **Utility > Random Value** (kiểu Float), thêm node **Math** đặt chế độ **Multiply**, nối Random Value vào một đầu vào của Math, và nối kết quả Math vào đầu vào **Scale** của node Scale Instances. Đặt **Min khoảng 0.3** và **Max khoảng 1.2** cho Random Value (tác giả tự nhận xét khoảng này với ví dụ cụ thể này có thể hơi rộng, tạo một số cá "hơi mũm mĩm" — có thể tinh chỉnh lại tùy nhu cầu). Kết quả: nhìn từ trên xuống, đàn cá giờ có **nhiều kích thước khác nhau**, và nhờ các thiết lập biến thể tốc độ bơi từ chương 09, **không phải tất cả đều bơi cùng nhau đồng bộ**.
+* Lắc thân cùng lúc.
+* Vẫy đuôi cùng tốc độ.
+* Có biên độ chuyển động giống nhau.
+* Trông giống các bản sao cơ học hơn là một đàn cá tự nhiên.
 
-**Ghi chú thêm về mở rộng biến thể.** Nếu muốn thêm đa dạng hơn nữa, có thể: tạo thêm nhiều phiên bản gốc của cá (với các kiểu bơi khác nhau) trong "Fish Collection", hoặc chỉ đơn giản đổi **Seed** của Distribute Points nhiều lần để thử các mẫu phân bố khác nhau. Nếu muốn đàn đông hơn, tăng lại **Density**. Tác giả chủ động **không thêm biến thiên về góc xoay (Rotation)** cho các instance — toàn bộ cá được hướng theo cùng một chiều, vì mục đích của cảnh là mô phỏng đàn cá "đứng yên tương đối" trong dòng nước, chỉ bơi đủ để giữ vị trí ngược dòng chảy, chứ không phải bơi tự do nhiều hướng khác nhau — nên không cần "chơi xung quanh với vòng quay" như tác giả có đề cập là một khả năng mở rộng nếu muốn.
+---
 
-## 3. Quy trình thực hành gợi ý
+## 3. Nhân bản cá hoàn chỉnh
 
-1. Chọn "Fish Source", mở Geometry Nodes editor, tạo node tree mới.
-2. Thêm Volume Cube, tạm nối vào Group Output để căn chỉnh kích thước/vị trí vùng rải cá.
-3. Thêm Distribute Points in Volume, nối Volume Cube vào, chỉnh Density và Seed.
-4. Thêm Instance on Points; kéo "Fish Collection" từ Outliner vào node editor để tạo Collection Info; bật "Separate Children" và "Reset Children".
-5. Nối Collection Info > Instances vào Instance on Points > Instance; nối kết quả vào Group Output.
-6. Loại các Armature ra khỏi "Fish Collection" nếu chúng vẫn hiển thị trong kết quả instance.
-7. Giảm Density (~0.5), thêm Scale Instances với tỉ lệ nhỏ hơn cho toàn đàn.
-8. Thêm Random Value (Float) + Math (Multiply), nối vào Scale của Scale Instances; đặt Min/Max cho biến thiên kích thước hợp lý (ví dụ 0.3–1.2, tinh chỉnh theo nhu cầu).
-9. Thử đổi Seed của Distribute Points nhiều lần để tìm mẫu phân bố ưng ý; tăng/giảm Density theo mật độ đàn mong muốn.
+Con cá ở chương trước đã bao gồm:
 
-## 4. Phím tắt & công cụ liên quan
+```text
+Fish
+├── Fish Mesh
+└── Fish Armature
+    ├── Body Bone
+    └── Tail Bone
+```
 
-| Thao tác | Vị trí |
-|---|---|
-| Mở Geometry Nodes editor | Đổi Editor Type hoặc tab "Geometry Nodes" |
-| Thêm node mới | `Shift + A` |
-| Kéo Collection vào node editor để tạo Collection Info | Kéo-thả trực tiếp từ Outliner |
-| Đưa object ra khỏi Collection | Chuột phải > Collection > Remove from Collection (hoặc `M`) |
+Khi nhân bản, cần chọn **cả mesh và Armature**.
 
-## 5. Lưu ý & lỗi thường gặp
+### Thao tác
 
-- Quên bật "Separate Children" trên Collection Info khiến toàn bộ Collection bị coi là một instance khối duy nhất thay vì rải từng con cá riêng biệt.
-- Quên bật "Reset Children" có thể khiến vị trí instance bị lệch theo transform gốc còn sót lại của từng bản sao đã nhân bản thủ công ở chương 09.
-- Nếu quên loại Armature khỏi "Fish Collection", kết quả instance sẽ hiển thị lẫn cả khung xương — dễ nhầm là lỗi node trong khi thực chất là vấn đề nội dung Collection.
-- Volume Cube chỉ là công cụ tham chiếu trực quan cho vùng rải, không phải hình học render thật — không cần lo lắng nếu kết quả cuối không thấy "khối hộp" nào xuất hiện trong render.
-- Khoảng Random Value cho Scale quá rộng (như ví dụ Min 0.3/Max 1.2 mà tác giả tự nhận là hơi quá) có thể tạo ra một số cá to/nhỏ bất thường — nên tinh chỉnh lại khoảng giá trị theo mức độ biến thiên mong muốn cho từng dự án cụ thể.
+1. Chuyển sang **Object Mode**.
+2. Chọn mesh cá.
+3. Giữ `Shift` và chọn thêm Armature.
+4. Nhấn:
 
-## 6. Checklist thực hành
+```text
+Shift + D
+```
 
-- [ ] Đã dựng được Geometry Nodes trên "Fish Source" với Volume Cube + Distribute Points in Volume.
-- [ ] Đã dùng Collection Info (Separate Children + Reset Children) để lấy từng con cá từ "Fish Collection" làm instance.
-- [ ] Đã loại Armature khỏi Collection để chỉ hiển thị mesh cá.
-- [ ] Đã điều chỉnh Density và thêm biến thiên kích thước ngẫu nhiên bằng Random Value + Math.
-- [ ] Đã xác nhận đàn cá có kích thước và nhịp bơi đa dạng, không đồng bộ máy móc.
+5. Di chuyển bản sao sang vị trí khác.
+6. Thực hiện thêm một lần nữa để có tổng cộng ba con cá.
 
-## 7. Tóm tắt
+### Kết quả dự kiến
 
-Bộ node Distribute Points in Volume + Instance on Points + Collection Info (với Separate Children/Reset Children) là công thức tiêu chuẩn để biến một vài con cá đã animate thủ công thành cả một đàn rải ngẫu nhiên trong không gian ba chiều — kết hợp biến thiên kích thước qua Random Value, kết quả là một đàn cá đa dạng cả về hình dáng lẫn nhịp bơi mà không cần animate hay dựng thủ công từng cá thể.
+```text
+Fish 01 — tốc độ gốc
+Fish 02 — tốc độ nhanh
+Fish 03 — tốc độ chậm
+```
+
+> Kích thước của từng con cá chưa quan trọng ở bước này. Geometry Nodes ở chương sau sẽ tự động randomize scale khi phân bố đàn cá.
+
+---
+
+## 4. Vì sao không nên giữ nguyên animation?
+
+Các bản sao được tạo bằng `Shift + D` sẽ kế thừa animation từ con cá gốc.
+
+Điều này giúp tiết kiệm thời gian, nhưng cũng tạo ra một vấn đề:
+
+> Nếu tất cả các con cá sử dụng cùng thông số F-Curve Modifier, chúng có thể bơi cùng tốc độ và cùng biên độ.
+
+Ngay cả khi đã thiết lập một chút **Phase Offset**, chuyển động tổng thể vẫn có thể trông quá đều khi số lượng cá tăng lên.
+
+Để tạo cảm giác tự nhiên hơn, cần thay đổi ít nhất hai tham số:
+
+| Tham số              | Vai trò                               |
+| -------------------- | ------------------------------------- |
+| **Amplitude**        | Điều khiển độ mạnh hoặc biên độ lắc   |
+| **Phase Multiplier** | Điều khiển tốc độ lặp của chuyển động |
+
+### Nguyên tắc
+
+```text
+Amplitude lớn hơn
+→ Thân và đuôi lắc mạnh hơn
+
+Phase Multiplier lớn hơn
+→ Chu kỳ lặp nhanh hơn
+→ Cá bơi nhanh hơn
+
+Phase Multiplier nhỏ hơn
+→ Chu kỳ lặp chậm hơn
+→ Cá bơi thong thả hơn
+```
+
+---
+
+## 5. Tạo biến thể cho con cá thứ hai
+
+Con cá thứ hai được chỉnh theo hướng **nhanh và năng động hơn**.
+
+### Thiết lập gợi ý
+
+* Tăng nhẹ `Amplitude`.
+* Tăng `Phase Multiplier` lên khoảng `2`.
+* Áp dụng thay đổi cho cả:
+
+  * Xương thân — `Body`.
+  * Xương đuôi — `Tail`.
+
+Khi `Phase Multiplier` tăng lên khoảng `2`, chuyển động tuần hoàn sẽ nhanh hơn đáng kể, khiến cá có cảm giác bơi nhanh gấp đôi bản gốc.
+
+### Đồng bộ thân và đuôi
+
+```mermaid
+flowchart TD
+    A[Chỉnh Phase Multiplier của Body] --> B{Đã chỉnh Tail chưa?}
+    B -- Chưa --> C[Thân nhanh nhưng đuôi lệch nhịp]
+    B -- Rồi --> D[Thân và đuôi chuyển động đồng bộ]
+```
+
+Nếu chỉ chỉnh xương `Body` mà quên xương `Tail`:
+
+* Thân cá sẽ lắc nhanh.
+* Đuôi vẫn giữ tốc độ cũ.
+* Chuyển động bị lệch nhịp.
+* Cá có thể trông như bị giật hoặc biến dạng không tự nhiên.
+
+Sau khi tăng tốc độ, nếu chuyển động trở nên quá mạnh, có thể giảm `Amplitude` xuống khoảng:
+
+```text
+0.15
+```
+
+Điều này giúp giữ tốc độ nhanh nhưng hạn chế việc thân cá lắc quá mức.
+
+---
+
+## 6. Tạo biến thể cho con cá thứ ba
+
+Con cá thứ ba được chỉnh theo hướng **chậm và nhẹ nhàng hơn**.
+
+### Thiết lập tham khảo
+
+| Tham số              | Giá trị tham khảo |
+| -------------------- | ----------------: |
+| **Phase Multiplier** |    Khoảng `0.085` |
+| **Amplitude**        |     Khoảng `0.15` |
+
+Cần áp dụng `Phase Multiplier` mới cho cả xương `Body` và `Tail`.
+
+### Hiệu ứng đạt được
+
+* Chu kỳ lắc diễn ra chậm hơn.
+* Chuyển động thân nhẹ hơn.
+* Đuôi vẫy thong thả.
+* Con cá có cảm giác bình tĩnh hoặc đang trôi theo dòng nước.
+
+---
+
+## 7. So sánh ba biến thể
+
+| Cá          | Phase Multiplier |     Amplitude | Đặc điểm chuyển động |
+| ----------- | ---------------: | ------------: | -------------------- |
+| **Fish 01** |      Giá trị gốc |   Giá trị gốc | Kiểu bơi cơ bản      |
+| **Fish 02** |       Khoảng `2` | Khoảng `0.15` | Bơi nhanh, linh hoạt |
+| **Fish 03** |   Khoảng `0.085` | Khoảng `0.15` | Bơi chậm, thong thả  |
+
+> Các giá trị trên chỉ mang tính tham khảo. Giá trị phù hợp còn phụ thuộc vào kích thước cá, độ dài xương, tỷ lệ scene và phong cách chuyển động mong muốn.
+
+---
+
+## 8. Chế độ thao tác cần lưu ý
+
+Trong quá trình chỉnh sửa, bạn có thể phải chuyển đổi giữa các chế độ:
+
+| Chế độ           | Mục đích                                                |
+| ---------------- | ------------------------------------------------------- |
+| **Object Mode**  | Chọn hoặc thay đổi Armature, nhân bản và quản lý object |
+| **Pose Mode**    | Chọn từng Pose Bone và kiểm tra chuyển động             |
+| **Graph Editor** | Chỉnh F-Curve và các Modifier của kênh animation        |
+
+Quy trình tham khảo:
+
+```text
+Object Mode
+    ↓
+Chọn Armature
+    ↓
+Pose Mode
+    ↓
+Chọn Body hoặc Tail
+    ↓
+Graph Editor
+    ↓
+Chỉnh F-Curve Modifier
+```
+
+Nếu không chọn được đúng Armature hoặc không thấy kênh animation cần chỉnh, hãy quay lại **Object Mode**, chọn lại Armature rồi tiếp tục.
+
+---
+
+## 9. Gom các con cá vào Collection
+
+Sau khi đã có ba kiểu bơi khác nhau, cần gom toàn bộ chúng vào một Collection chung.
+
+### Các object cần chọn
+
+```text
+Fish 01
+├── Mesh
+└── Armature
+
+Fish 02
+├── Mesh
+└── Armature
+
+Fish 03
+├── Mesh
+└── Armature
+```
+
+### Thao tác
+
+1. Chuyển sang **Object Mode**.
+2. Chọn tất cả mesh cá và Armature tương ứng.
+3. Nhấn:
+
+```text
+M
+```
+
+4. Chọn:
+
+```text
+New Collection
+```
+
+5. Đặt tên:
+
+```text
+Fish Collection
+```
+
+6. Xác nhận tạo Collection.
+
+### Cấu trúc sau khi sắp xếp
+
+```text
+Scene Collection
+└── Fish Collection
+    ├── Fish 01 Mesh
+    ├── Fish 01 Armature
+    ├── Fish 02 Mesh
+    ├── Fish 02 Armature
+    ├── Fish 03 Mesh
+    └── Fish 03 Armature
+```
+
+Collection này sẽ được sử dụng làm nguồn dữ liệu cho hệ thống Geometry Nodes ở chương tiếp theo.
+
+---
+
+## 10. Ẩn Armature trong viewport
+
+Sau khi animation đã hoạt động đúng, không nhất thiết phải tiếp tục nhìn thấy khung xương.
+
+Trong **Outliner**, nhấn biểu tượng con mắt bên cạnh các Armature để tắt hiển thị của chúng.
+
+### Lợi ích
+
+* Viewport gọn hơn.
+* Dễ quan sát đàn cá.
+* Không bị các đường xương che mesh.
+* Thuận tiện khi thiết lập Geometry Nodes.
+
+> Ẩn Armature chỉ làm chúng không xuất hiện trong viewport, không xóa rig hoặc animation của cá.
+
+---
+
+## 11. Quy trình thực hành hoàn chỉnh
+
+```mermaid
+flowchart TD
+    A[Chọn mesh và Armature cá gốc] --> B[Shift + D hai lần]
+    B --> C[Giữ Fish 01 với animation gốc]
+    C --> D[Chỉnh Fish 02 bơi nhanh]
+    D --> E[Chỉnh Body và Tail]
+    E --> F[Chỉnh Fish 03 bơi chậm]
+    F --> G[Chỉnh Body và Tail]
+    G --> H[Kiểm tra ba cá không đồng bộ]
+    H --> I[Chọn toàn bộ mesh và Armature]
+    I --> J[M → New Collection]
+    J --> K[Đặt tên Fish Collection]
+    K --> L[Ẩn Armature trong Outliner]
+```
+
+### Các bước rút gọn
+
+1. Chọn mesh và Armature của cá gốc.
+2. Nhấn `Shift + D` hai lần để tạo ba con cá.
+3. Giữ con thứ nhất với tốc độ gốc.
+4. Chỉnh con thứ hai:
+
+   * Tăng `Phase Multiplier`.
+   * Điều chỉnh `Amplitude`.
+   * Chỉnh cả `Body` và `Tail`.
+5. Chỉnh con thứ ba:
+
+   * Giảm `Phase Multiplier`.
+   * Điều chỉnh `Amplitude`.
+   * Chỉnh cả `Body` và `Tail`.
+6. Phát animation để kiểm tra sự khác biệt.
+7. Chọn tất cả mesh và Armature.
+8. Nhấn `M → New Collection`.
+9. Đặt tên Collection là `Fish Collection`.
+10. Ẩn các Armature trong Outliner.
+
+---
+
+## 12. Phím tắt và công cụ liên quan
+
+| Thao tác                        | Phím tắt/Công cụ     |
+| ------------------------------- | -------------------- |
+| Nhân bản object                 | `Shift + D`          |
+| Chọn thêm object                | `Shift + Click`      |
+| Di chuyển object vào Collection | `M`                  |
+| Tạo Collection mới              | `M → New Collection` |
+| Chuyển sang Object Mode         | `Tab` hoặc menu Mode |
+| Chuyển sang Pose Mode           | Menu Mode            |
+| Ẩn/hiện object trong Outliner   | Biểu tượng con mắt   |
+| Xem và chỉnh F-Curve            | Graph Editor         |
+
+---
+
+## 13. Lỗi thường gặp
+
+### 13.1. Chỉ nhân bản mesh
+
+**Hiện tượng:**
+
+* Cá mới không có rig riêng.
+* Animation không hoạt động đúng.
+* Mesh có thể vẫn phụ thuộc vào Armature cũ.
+
+**Cách khắc phục:**
+
+* Chọn cả mesh và Armature trước khi nhấn `Shift + D`.
+
+---
+
+### 13.2. Chỉ chỉnh tốc độ của xương thân
+
+**Hiện tượng:**
+
+* Thân cá lắc nhanh.
+* Đuôi vẫn chuyển động ở tốc độ cũ.
+* Chuyển động bị lệch nhịp.
+
+**Cách khắc phục:**
+
+* Chỉnh `Phase Multiplier` cho cả `Body` và `Tail`.
+
+---
+
+### 13.3. Amplitude quá lớn
+
+**Hiện tượng:**
+
+* Cá uốn quá mạnh.
+* Mesh bị méo.
+* Chuyển động trông giống rung giật hơn là bơi.
+
+**Cách khắc phục:**
+
+* Giảm `Amplitude`.
+* Kiểm tra lại Weight Paint nếu vùng biến dạng bất thường.
+* Phát animation ở tốc độ thực để đánh giá.
+
+---
+
+### 13.4. Các con cá vẫn bơi quá giống nhau
+
+**Nguyên nhân:**
+
+* Chỉ thay đổi `Phase Offset`.
+* Các bản sao vẫn có cùng `Amplitude`.
+* Các bản sao vẫn có cùng `Phase Multiplier`.
+
+**Cách khắc phục:**
+
+Kết hợp nhiều loại biến thể:
+
+```text
+Phase Offset
++ Phase Multiplier
++ Amplitude
+= Chuyển động đa dạng hơn
+```
+
+---
+
+### 13.5. Quên đưa Armature vào Collection
+
+Nếu Collection chỉ chứa mesh:
+
+* Việc quản lý rig trở nên khó khăn hơn.
+* Có thể mất liên kết tổ chức giữa mesh và Armature.
+* Khó chỉnh sửa animation sau này.
+
+Ở bước chuẩn bị, nên gom cả mesh và Armature vào Collection. Trong chương Geometry Nodes tiếp theo, có thể tách hoặc loại Armature khỏi nguồn instance để tránh nhân bản cả khung xương.
+
+---
+
+## 14. Nguyên tắc tạo đàn cá tự nhiên
+
+Để đàn cá thuyết phục hơn, không nên chỉ randomize vị trí và kích thước. Sự khác biệt cần xuất hiện cả trong chuyển động.
+
+```text
+Đàn cá tự nhiên
+├── Vị trí khác nhau
+├── Hướng bơi khác nhau
+├── Kích thước khác nhau
+├── Thời điểm vẫy khác nhau
+├── Tốc độ vẫy khác nhau
+└── Biên độ vẫy khác nhau
+```
+
+Trong chương này, ba yếu tố chuyển động chính là:
+
+1. **Phase Offset** — thay đổi thời điểm bắt đầu chu kỳ.
+2. **Phase Multiplier** — thay đổi tốc độ chu kỳ.
+3. **Amplitude** — thay đổi độ mạnh của chuyển động.
+
+---
+
+## 15. Checklist thực hành
+
+### Nhân bản
+
+* [ ] Đã chọn cả mesh và Armature của cá gốc.
+* [ ] Đã nhân bản ít nhất hai lần bằng `Shift + D`.
+* [ ] Hiện có tối thiểu ba con cá.
+
+### Tạo biến thể
+
+* [ ] Fish 01 giữ animation gốc.
+* [ ] Fish 02 có tốc độ bơi nhanh hơn.
+* [ ] Fish 03 có tốc độ bơi chậm hơn.
+* [ ] Đã chỉnh cả xương `Body` và `Tail`.
+* [ ] Đã kiểm tra animation để bảo đảm thân và đuôi không lệch nhịp.
+* [ ] Các con cá không còn chuyển động hoàn toàn giống nhau.
+
+### Quản lý Collection
+
+* [ ] Đã chọn toàn bộ mesh và Armature.
+* [ ] Đã tạo Collection mới.
+* [ ] Collection được đặt tên `Fish Collection`.
+* [ ] Đã ẩn các Armature trong Outliner để làm gọn viewport.
+
+---
+
+## 16. Tóm tắt
+
+Trong chương này, con cá hoàn chỉnh được nhân bản thành nhiều phiên bản bằng `Shift + D`. Thay vì giữ nguyên animation cho tất cả các bản sao, mỗi con cá được điều chỉnh riêng các tham số `Amplitude` và `Phase Multiplier` để tạo ra những kiểu bơi khác nhau:
+
+* Một con giữ tốc độ gốc.
+* Một con bơi nhanh hơn.
+* Một con bơi chậm và thong thả hơn.
+
+Điểm quan trọng nhất là phải chỉnh đồng bộ cả xương thân và xương đuôi để tránh hiện tượng lệch nhịp.
+
+Cuối cùng, toàn bộ mesh và Armature được gom vào `Fish Collection`. Đây là bước chuẩn bị dữ liệu quan trọng trước khi sử dụng Geometry Nodes để phân bố, nhân bản và randomize một đàn cá với số lượng lớn ở chương tiếp theo.

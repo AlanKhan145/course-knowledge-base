@@ -1,60 +1,427 @@
 # 08 — Sửa lỗi Weight Paint bị chảy tràn giữa thân và đuôi
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Video** | (không rõ tên/kênh — chỉ có transcript) |
-| **Đoạn** | Rigging cleanup |
-| **Thời điểm** | 19:18–20:18 |
-| **Chủ đề chính** | Weight Paint mode, Vertex Group Select/Assign/Remove |
+| Thuộc tính       | Nội dung                                            |
+| ---------------- | --------------------------------------------------- |
+| **Video**        | Không rõ tên/kênh — chỉ có transcript               |
+| **Phân đoạn**    | Rigging Cleanup                                     |
+| **Thời điểm**    | 19:18–20:18                                         |
+| **Chủ đề chính** | Weight Paint, Vertex Groups, Select, Assign, Remove |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Nhận diện hiện tượng weight bleed (nhóm đỉnh "body" ảnh hưởng nhầm lên vùng đuôi) qua chế độ Weight Paint.
-- Dùng tổ hợp **Select > Assign/Remove** trên Vertex Group trong Edit Mode để sửa dứt điểm vùng ảnh hưởng sai.
+Sau chương này, bạn có thể:
 
-## 2. Nội dung chính
+* Nhận diện hiện tượng **weight bleed** — trọng số của xương thân ảnh hưởng nhầm sang vùng đuôi.
+* Kiểm tra chính xác những đỉnh đang thuộc một **Vertex Group** bằng nút **Select**.
+* Gán vùng đuôi vào đúng nhóm xương bằng **Assign**.
+* Xóa ảnh hưởng sai của nhóm thân bằng **Remove**.
+* Kiểm tra lại biến dạng trong **Pose Mode** để bảo đảm phần nối thân–đuôi hoạt động chính xác.
 
-Sau khi thiết lập xong chu kỳ bơi tự động (chương 07), vấn đề mesh nhỏ đã ghi nhận từ chương 06 hiện rõ hơn: thoát Pose Mode, chọn mesh cá, chuyển sang **Weight Paint mode**, chọn Vertex Group **"body"** — kết quả tô màu cho thấy nhóm **body đang ảnh hưởng (có trọng số khác 0) lên cả một phần vùng đuôi**, điều này gây ra biến dạng không mong muốn tại vùng chuyển tiếp thân-đuôi khi Armature chuyển động (đây chính là hệ quả tự nhiên của phương pháp Envelope Weights đã chọn ở chương 06 — vùng ảnh hưởng hình cầu bao quanh xương body vô tình chồng lấn sang khu vực đuôi).
+---
 
-**Chẩn đoán bằng Edit Mode.** Thoát Weight Paint, bỏ chọn tất cả, vào **Edit Mode**. Với Vertex Group "body" đang active, dùng nút **"Select"** trong panel Vertex Groups (Object Data Properties > Vertex Groups) — thao tác này chọn tất cả các đỉnh hiện đang có trọng số khác 0 trong nhóm đó, và xác nhận trực quan rằng nó **đang bao gồm cả vùng đuôi**. Kiểm tra chéo bằng cách chọn Vertex Group **"tail"** và nhấn Select — kết quả bất ngờ là **không có đỉnh nào được chọn cả** ("không hiển thị bất cứ điều gì"), cho thấy nhóm tail **chưa từng có đỉnh nào thực sự được gán** (dữ liệu Envelope Weights vốn không tạo Vertex Group tường minh theo cách giống Automatic Weights, hoặc nhóm tail bị rỗng vì lý do khác) — đây là gốc rễ thực sự của vấn đề: phần đuôi mesh hoàn toàn phụ thuộc vào ảnh hưởng "tràn" từ nhóm body thay vì có trọng số riêng của chính nó.
+## 2. Vấn đề cần xử lý
 
-**Sửa lỗi.** Quy trình khắc phục gồm hai bước ngược nhau trên cùng một vùng đỉnh (các đỉnh ở khu vực đuôi đang bị nhóm body ảnh hưởng sai):
+Sau khi tạo chu kỳ bơi tự động ở chương 07, lỗi biến dạng nhỏ từng xuất hiện từ chương 06 trở nên rõ ràng hơn.
 
-1. Chọn đúng các đỉnh vùng đuôi đang bị ảnh hưởng sai đó, với Vertex Group **"tail"** đang active, nhấn **"Assign"** — gán các đỉnh này thuộc về nhóm tail với trọng số đầy đủ.
-2. Vẫn giữ nguyên các đỉnh đó đang được chọn, chuyển Vertex Group active sang **"body"**, nhấn **"Remove"** — xóa các đỉnh này ra khỏi nhóm body, chấm dứt hoàn toàn ảnh hưởng sai của xương thân lên vùng đuôi.
+Khi chọn mesh cá, chuyển sang **Weight Paint Mode** và kiểm tra Vertex Group `body`, có thể thấy màu trọng số của nhóm này lan sang một phần vùng đuôi.
 
-Sau khi thực hiện, quay lại **Object Mode** và kiểm tra: nhóm "body" không còn ảnh hưởng đến vùng đuôi nữa — vấn đề mesh quan sát được ở các chương trước đã được khắc phục triệt để. Đến đây, chú ý là bản thân con cá cơ bản (một mesh, một Armature, một chu kỳ bơi hoàn chỉnh) đã **hoàn thiện** và sẵn sàng để nhân bản thành cả một đàn ở chương tiếp theo.
+Điều đó có nghĩa là:
 
-## 3. Quy trình thực hành gợi ý
+> Một số đỉnh ở đuôi đang chịu ảnh hưởng của xương thân, dù chúng đáng lẽ phải được điều khiển bởi xương đuôi.
 
-1. Chọn mesh cá, vào Weight Paint mode, chọn Vertex Group "body", quan sát và xác nhận vùng ảnh hưởng có tràn sang đuôi hay không.
-2. Vào Edit Mode, bỏ chọn tất cả; với "body" active, nhấn Select để xem chính xác vùng đỉnh bị ảnh hưởng; kiểm tra chéo Vertex Group "tail" tương tự.
-3. Với các đỉnh vùng đuôi bị ảnh hưởng sai đang được chọn: chuyển Vertex Group active sang "tail", nhấn Assign.
-4. Vẫn giữ nguyên lựa chọn đó, chuyển Vertex Group active sang "body", nhấn Remove.
-5. Quay lại Object Mode, kiểm tra lại bằng Weight Paint hoặc Pose Mode để xác nhận vấn đề đã được sửa.
+Khi xương thân và xương đuôi chuyển động lệch pha, vùng bị gán sai trọng số sẽ:
 
-## 4. Phím tắt & công cụ liên quan
+* Bị kéo theo thân cá.
+* Không uốn đúng theo xương đuôi.
+* Xuất hiện hiện tượng méo, gãy hoặc co kéo bất thường tại vùng nối thân–đuôi.
 
-| Thao tác | Vị trí |
-|---|---|
-| Chuyển sang Weight Paint mode | Dropdown Mode > Weight Paint |
-| Chọn đỉnh theo Vertex Group | Object Data Properties > Vertex Groups > nút "Select" (Edit Mode) |
-| Gán đỉnh đã chọn vào Vertex Group active | Object Data Properties > Vertex Groups > nút "Assign" (Edit Mode) |
-| Xóa đỉnh đã chọn khỏi Vertex Group active | Object Data Properties > Vertex Groups > nút "Remove" (Edit Mode) |
+### Nguyên nhân
 
-## 5. Lưu ý & lỗi thường gặp
+Ở chương 06, mesh được gắn với Armature bằng **Envelope Weights**. Phương pháp này sử dụng vùng ảnh hưởng bao quanh mỗi xương để tính trọng số ban đầu.
 
-- Đây là đánh đổi điển hình của Envelope Weights: nhanh để thiết lập ban đầu (chương 06), nhưng gần như luôn cần một bước dọn Vertex Group thủ công như thế này ở các vùng chuyển tiếp giữa nhiều xương liền kề.
-- Khi dùng nút "Remove", chỉ nên thao tác trên đúng tập đỉnh đã xác định là bị ảnh hưởng sai — Remove nhầm trên toàn bộ mesh có thể xóa mất trọng số hợp lệ ở các vùng khác của nhóm body.
-- Sau khi Assign/Remove thủ công, nên luôn kiểm tra lại bằng Pose Mode thực tế (không chỉ nhìn Weight Paint tĩnh) để đảm bảo chuyển động biến dạng đã đúng như mong đợi trong toàn bộ chu kỳ bơi, không chỉ ở một tư thế cụ thể.
+Tại vị trí hai xương nằm gần nhau, vùng ảnh hưởng của xương `body` có thể chồng lên khu vực đuôi:
 
-## 6. Checklist thực hành
+```text
+Xương thân              Xương đuôi
+   BODY  ──────────────── TAIL
+      \___________/
+       Vùng ảnh hưởng
+        bị chồng lấn
+```
 
-- [ ] Đã xác định được vùng đỉnh bị nhóm "body" ảnh hưởng sai sang khu vực đuôi.
-- [ ] Đã Assign các đỉnh đó vào nhóm "tail".
-- [ ] Đã Remove các đỉnh đó khỏi nhóm "body".
-- [ ] Đã xác nhận lại bằng Pose Mode rằng chuyển động bơi không còn biến dạng bất thường ở vùng chuyển tiếp thân-đuôi.
+Đây là nguyên nhân phổ biến dẫn đến hiện tượng **weight bleed** ở những vùng chuyển tiếp giữa các xương liền kề.
 
-## 7. Tóm tắt
+---
 
-Weight bleed giữa các nhóm đỉnh liền kề là hệ quả thường gặp của Envelope Weights, nhưng dễ chẩn đoán (qua Weight Paint) và dễ sửa dứt điểm bằng thao tác Select → Assign → Remove trên đúng Vertex Group — hoàn tất bước rig cho một con cá cơ bản, sẵn sàng để nhân bản thành cả đàn ở các chương tiếp theo.
+## 3. Chẩn đoán bằng Weight Paint
+
+### Bước 1: Kiểm tra nhóm `body`
+
+1. Chọn mesh cá.
+2. Chuyển sang **Weight Paint Mode**.
+3. Chọn Vertex Group `body`.
+4. Quan sát vùng đuôi.
+
+Trong Weight Paint:
+
+| Màu sắc      | Ý nghĩa                    |
+| ------------ | -------------------------- |
+| Xanh dương   | Trọng số bằng hoặc gần `0` |
+| Xanh lá/vàng | Trọng số trung bình        |
+| Đỏ           | Trọng số gần `1.0`         |
+
+Nếu vùng đuôi xuất hiện màu xanh lá, vàng hoặc đỏ khi nhóm `body` đang được chọn, nhóm thân đang ảnh hưởng nhầm sang đuôi.
+
+---
+
+## 4. Kiểm tra Vertex Group trong Edit Mode
+
+Weight Paint giúp nhìn thấy vùng ảnh hưởng, nhưng để sửa chính xác, cần chuyển sang **Edit Mode**.
+
+### Kiểm tra nhóm `body`
+
+1. Thoát Weight Paint.
+2. Chuyển mesh sang **Edit Mode**.
+3. Nhấn `Alt + A` để bỏ chọn toàn bộ đỉnh.
+4. Mở:
+
+```text
+Object Data Properties
+└── Vertex Groups
+    └── body
+```
+
+5. Chọn nhóm `body`.
+6. Nhấn **Select**.
+
+Blender sẽ chọn tất cả các đỉnh đang có trọng số lớn hơn `0` trong nhóm `body`.
+
+Nếu phần đuôi cũng được chọn, điều đó xác nhận rằng nhóm `body` đang chứa các đỉnh không phù hợp.
+
+### Kiểm tra nhóm `tail`
+
+Tiếp tục:
+
+1. Bỏ chọn toàn bộ đỉnh.
+2. Chọn Vertex Group `tail`.
+3. Nhấn **Select**.
+
+Trong trường hợp của video, không có đỉnh nào được chọn. Điều này cho thấy nhóm `tail` đang rỗng hoặc phần đuôi chưa được gán đúng vào nhóm này.
+
+> Phần đuôi hiện đang phụ thuộc vào trọng số bị chảy tràn từ nhóm `body`, thay vì được điều khiển bởi Vertex Group `tail`.
+
+---
+
+## 5. Quy trình sửa lỗi
+
+Việc sửa lỗi gồm hai thao tác đối nghịch trên cùng một tập đỉnh:
+
+1. **Assign** các đỉnh đuôi vào nhóm `tail`.
+2. **Remove** chính các đỉnh đó khỏi nhóm `body`.
+
+### Sơ đồ xử lý
+
+```mermaid
+flowchart LR
+    A[Chọn các đỉnh vùng đuôi] --> B[Chọn Vertex Group tail]
+    B --> C[Nhấn Assign]
+    C --> D[Giữ nguyên vùng đỉnh đang chọn]
+    D --> E[Chọn Vertex Group body]
+    E --> F[Nhấn Remove]
+    F --> G[Kiểm tra lại bằng Pose Mode]
+```
+
+---
+
+## 6. Bước 1 — Gán đỉnh vào nhóm `tail`
+
+Trong **Edit Mode**:
+
+1. Chọn chính xác các đỉnh thuộc vùng đuôi.
+2. Chọn Vertex Group `tail`.
+3. Đặt **Weight** thành `1.000` nếu muốn xương đuôi kiểm soát hoàn toàn vùng này.
+4. Nhấn **Assign**.
+
+Thao tác này gán các đỉnh đang chọn vào nhóm `tail`.
+
+```text
+Các đỉnh vùng đuôi
+        │
+        ▼
+Vertex Group: tail
+Weight: 1.000
+        │
+        ▼
+      Assign
+```
+
+Sau bước này, xương đuôi đã có dữ liệu trọng số để điều khiển phần đuôi mesh.
+
+---
+
+## 7. Bước 2 — Xóa đỉnh khỏi nhóm `body`
+
+Không bỏ chọn các đỉnh vừa thao tác.
+
+1. Giữ nguyên các đỉnh vùng đuôi đang được chọn.
+2. Chuyển Vertex Group active sang `body`.
+3. Nhấn **Remove**.
+
+Thao tác này xóa hoàn toàn các đỉnh được chọn khỏi nhóm `body`.
+
+```text
+Các đỉnh vùng đuôi
+        │
+        ▼
+Vertex Group: body
+        │
+        ▼
+      Remove
+        │
+        ▼
+Không còn chịu ảnh hưởng của xương thân
+```
+
+Kết quả mong muốn:
+
+| Khu vực mesh     | Vertex Group chính                                     |
+| ---------------- | ------------------------------------------------------ |
+| Thân cá          | `body`                                                 |
+| Đuôi cá          | `tail`                                                 |
+| Vùng chuyển tiếp | Có thể chia trọng số mềm giữa `body` và `tail` nếu cần |
+
+---
+
+## 8. Quy trình thực hành hoàn chỉnh
+
+### Bước 1 — Chẩn đoán
+
+* Chọn mesh cá.
+* Vào **Weight Paint Mode**.
+* Chọn nhóm `body`.
+* Kiểm tra xem màu trọng số có lan sang đuôi hay không.
+
+### Bước 2 — Xác định vùng bị ảnh hưởng
+
+* Chuyển sang **Edit Mode**.
+* Bỏ chọn toàn bộ đỉnh.
+* Chọn nhóm `body`.
+* Nhấn **Select**.
+* Xác định các đỉnh vùng đuôi đang nằm nhầm trong nhóm thân.
+
+### Bước 3 — Gán vào nhóm đuôi
+
+* Chọn các đỉnh cần thuộc phần đuôi.
+* Chuyển Vertex Group active sang `tail`.
+* Đặt Weight phù hợp.
+* Nhấn **Assign**.
+
+### Bước 4 — Xóa khỏi nhóm thân
+
+* Giữ nguyên vùng đỉnh đang chọn.
+* Chuyển Vertex Group active sang `body`.
+* Nhấn **Remove**.
+
+### Bước 5 — Kiểm tra kết quả
+
+* Quay lại **Object Mode**.
+* Chọn Armature và chuyển sang **Pose Mode**.
+* Xoay hoặc phát animation của xương thân và xương đuôi.
+* Kiểm tra vùng nối giữa hai phần.
+
+---
+
+## 9. Phím tắt và công cụ liên quan
+
+| Thao tác                   | Phím tắt/Vị trí                        |
+| -------------------------- | -------------------------------------- |
+| Chuyển sang Weight Paint   | Mode Dropdown → **Weight Paint**       |
+| Chuyển sang Edit Mode      | `Tab`                                  |
+| Bỏ chọn toàn bộ đỉnh       | `Alt + A`                              |
+| Chọn Vertex Group          | Object Data Properties → Vertex Groups |
+| Chọn đỉnh thuộc nhóm       | Nút **Select**                         |
+| Gán đỉnh vào nhóm          | Nút **Assign**                         |
+| Xóa đỉnh khỏi nhóm         | Nút **Remove**                         |
+| Chọn nhanh vùng đỉnh       | `B`, `C` hoặc `L`                      |
+| Kiểm tra chuyển động xương | Armature → **Pose Mode**               |
+| Phát animation             | `Spacebar`                             |
+
+---
+
+## 10. Phân biệt Assign và Remove
+
+| Lệnh         | Chức năng                                                             |
+| ------------ | --------------------------------------------------------------------- |
+| **Assign**   | Thêm các đỉnh đang chọn vào Vertex Group active với trọng số hiện tại |
+| **Remove**   | Xóa các đỉnh đang chọn khỏi Vertex Group active                       |
+| **Select**   | Chọn tất cả đỉnh đang thuộc Vertex Group active                       |
+| **Deselect** | Bỏ chọn các đỉnh đang thuộc Vertex Group active                       |
+
+Cần chú ý rằng **Remove không đặt trọng số về 0**, mà xóa hoàn toàn quan hệ giữa đỉnh và Vertex Group đó.
+
+---
+
+## 11. Lưu ý quan trọng
+
+### Chỉ Remove đúng vùng bị lỗi
+
+Không nên chọn toàn bộ mesh rồi nhấn **Remove** trên nhóm `body`.
+
+Thao tác này có thể xóa cả những trọng số hợp lệ ở phần thân, khiến xương thân không còn điều khiển mesh.
+
+Quy trình an toàn:
+
+```text
+Xác định vùng lỗi
+      ↓
+Chỉ chọn đỉnh vùng đuôi
+      ↓
+Assign vào tail
+      ↓
+Remove khỏi body
+```
+
+### Không chỉ kiểm tra ở tư thế nghỉ
+
+Một bộ trọng số có thể trông bình thường khi Armature ở Rest Position nhưng bị lỗi khi animation chạy.
+
+Vì vậy cần kiểm tra:
+
+* Khi thân cong sang trái.
+* Khi thân cong sang phải.
+* Khi đuôi đạt biên độ lớn nhất.
+* Khi thân và đuôi chuyển động ngược pha.
+* Tại điểm nối giữa hai xương.
+
+### Có thể cần trọng số chuyển tiếp mềm
+
+Không phải lúc nào cũng nên tách `body = 0` và `tail = 1` ngay tại đường nối.
+
+Nếu phần chuyển tiếp bị gãy cứng, có thể sử dụng vùng pha trộn:
+
+```text
+Thân                          Đuôi
+body: 1.0 → 0.75 → 0.5 → 0.25 → 0.0
+tail: 0.0 → 0.25 → 0.5 → 0.75 → 1.0
+```
+
+Cách phân bố này giúp thân và đuôi uốn liên tục hơn.
+
+Tuy nhiên, trong ví dụ của video, tác giả sử dụng giải pháp đơn giản:
+
+* Gán vùng đuôi vào `tail`.
+* Xóa vùng đó khỏi `body`.
+
+---
+
+## 12. Lỗi thường gặp
+
+### Lỗi 1 — Nhấn Assign nhưng không có đỉnh nào được chọn
+
+**Nguyên nhân:** đang ở Edit Mode nhưng chưa chọn vùng mesh.
+
+**Cách sửa:** chọn các đỉnh cần gán trước khi nhấn **Assign**.
+
+---
+
+### Lỗi 2 — Assign nhầm toàn bộ mesh vào `tail`
+
+**Biểu hiện:** khi xương đuôi di chuyển, cả thân cá bị kéo theo.
+
+**Cách sửa:**
+
+1. Chọn nhóm `tail`.
+2. Nhấn **Select** để kiểm tra.
+3. Chọn các đỉnh thân bị gán nhầm.
+4. Nhấn **Remove**.
+
+---
+
+### Lỗi 3 — Đuôi không chuyển động sau khi sửa
+
+**Nguyên nhân có thể:**
+
+* Các đỉnh chưa được Assign vào nhóm `tail`.
+* Tên Vertex Group không trùng với tên xương.
+* Bone `tail` đã tắt tùy chọn **Deform**.
+* Armature Modifier đang trỏ sai Armature.
+
+---
+
+### Lỗi 4 — Vùng nối thân–đuôi bị gãy
+
+**Nguyên nhân:** trọng số chuyển từ `body = 1` sang `tail = 1` quá đột ngột.
+
+**Cách sửa:**
+
+* Dùng công cụ **Blur** trong Weight Paint.
+* Dùng **Smooth** cho Vertex Weights.
+* Tạo một vùng chuyển tiếp có trọng số chia sẻ giữa hai nhóm.
+
+---
+
+### Lỗi 5 — Không thấy nút Select/Assign/Remove
+
+Các nút này chỉ hoạt động đúng khi:
+
+* Mesh đang ở **Edit Mode**.
+* Một Vertex Group đã được chọn.
+* Chế độ chọn Vertex, Edge hoặc Face đang được bật.
+
+---
+
+## 13. Checklist thực hành
+
+* [ ] Đã kiểm tra nhóm `body` trong Weight Paint Mode.
+* [ ] Đã xác định vùng trọng số bị chảy tràn sang đuôi.
+* [ ] Đã kiểm tra các đỉnh thuộc nhóm `body` bằng nút **Select**.
+* [ ] Đã kiểm tra Vertex Group `tail`.
+* [ ] Đã chọn đúng các đỉnh thuộc vùng đuôi.
+* [ ] Đã **Assign** các đỉnh đó vào nhóm `tail`.
+* [ ] Đã **Remove** các đỉnh đó khỏi nhóm `body`.
+* [ ] Đã kiểm tra lại bằng Weight Paint.
+* [ ] Đã chạy toàn bộ chu kỳ bơi trong Pose Mode.
+* [ ] Vùng nối thân–đuôi không còn bị méo hoặc kéo sai.
+
+---
+
+## 14. Kết quả sau chương
+
+Sau khi hoàn thành bước cleanup:
+
+* Xương `body` chỉ điều khiển phần thân.
+* Xương `tail` điều khiển đúng phần đuôi.
+* Chuyển động lệch pha giữa thân và đuôi không còn gây méo mesh.
+* Chu kỳ bơi tự động hoạt động ổn định.
+* Mesh cá và Armature cơ bản đã hoàn thiện.
+
+Mô hình lúc này đã sẵn sàng để được:
+
+* Nhân bản thành nhiều cá.
+* Phân bố bằng Geometry Nodes.
+* Tạo độ lệch thời gian giữa các cá.
+* Xây dựng thành một đàn cá chuyển động tự nhiên.
+
+---
+
+## 15. Tóm tắt
+
+Hiện tượng **weight bleed** xảy ra khi Vertex Group của một xương ảnh hưởng nhầm sang vùng mesh thuộc xương khác. Trong trường hợp này, nhóm `body` đã lan sang vùng đuôi, trong khi nhóm `tail` chưa chứa đúng các đỉnh cần thiết.
+
+Cách sửa cốt lõi là:
+
+```text
+Chọn vùng đuôi
+      ↓
+Assign vào nhóm tail
+      ↓
+Giữ nguyên vùng chọn
+      ↓
+Remove khỏi nhóm body
+      ↓
+Kiểm tra lại bằng Pose Mode
+```
+
+Đây là một bước cleanup nhỏ nhưng rất quan trọng, giúp vùng nối thân–đuôi biến dạng đúng và hoàn tất bộ rig cơ bản trước khi nhân bản cá thành cả đàn.

@@ -1,78 +1,930 @@
 # 11 — Dựng mặt nước động
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Video** | (không rõ tên/kênh — chỉ có transcript) |
-| **Đoạn** | Water shading |
-| **Thời điểm** | 25:15–29:48 |
-| **Chủ đề chính** | Glass BSDF, World Environment Texture, Noise Texture 4D, driver nhanh `#frame/...` |
+| Thuộc tính       | Nội dung                                                                                   |
+| ---------------- | ------------------------------------------------------------------------------------------ |
+| **Video**        | Không rõ tên/kênh — nội dung được tổng hợp từ transcript                                   |
+| **Đoạn**         | Water Shading                                                                              |
+| **Thời điểm**    | 25:15–29:48                                                                                |
+| **Chủ đề chính** | Glass BSDF, World Environment Texture, Noise Texture 4D, Bump và driver nhanh `#frame/...` |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Dựng mặt phẳng nước, đặt đúng độ sâu để đàn cá "chìm" bên dưới bề mặt.
-- Xây dựng vật liệu nước bằng **Glass BSDF** với Roughness thấp và IOR phù hợp.
-- Tạo gợn sóng động trên bề mặt bằng **Noise Texture (chế độ 4D)** và animate bằng cú pháp driver nhanh `#biểu_thức` ngay trong trường số của node Mapping.
+Sau chương này, bạn có thể:
 
-## 2. Nội dung chính
+* Dựng một mặt phẳng nước và đặt đúng độ cao để đàn cá nằm bên dưới bề mặt.
+* Tạo vật liệu nước trong suốt bằng **Glass BSDF**.
+* Thiết lập độ nhám và chỉ số khúc xạ phù hợp với nước.
+* Tạo gợn sóng bằng **Noise Texture** kết hợp với **Bump**.
+* Animate chuyển động của gợn sóng bằng driver nhanh dạng:
 
-**Mặt phẳng nước.** Thêm một **Plane** khá lớn để làm bề mặt nước. Về độ sâu: tác giả đào lòng suối sâu thêm một chút (quay lại chỉnh object "Ground") rồi **nâng mặt phẳng nước lên** sao cho đàn cá nằm **bên dưới** bề mặt nước, đúng logic thị giác của một cảnh dưới nước nhìn từ trên xuống. Nhìn cảnh từ trên xuống để kiểm tra bố cục tổng thể. Vì đây là một mặt phẳng đơn giản, UV unwrap chỉ cần vào Edit Mode và nhấn `U > Unwrap` — không cần kỹ thuật phức tạp.
+```python
+#frame/4000
+```
 
-**Environment texture cho World.** Trước khi vào material nước, tác giả thiết lập nhanh **World**: Shader Editor, chuyển tab sang **World**, bật **Use Nodes**, thêm node **Environment Texture** nối vào **Background**. Lý do làm bước này: có một environment texture (dù chỉ dùng ảnh mặc định/placeholder) giúp **dễ quan sát phản chiếu (reflections)** trên các bề mặt bóng như nước hơn nhiều so với chỉ dùng World màu phẳng đơn sắc — vì Glass/Glossy shader cần một môi trường có chi tiết để phản chiếu thì mới nhìn thấy rõ hiệu ứng phản xạ khi xem preview. Tác giả cũng thêm ánh sáng cơ bản cho cảnh ở bước này (không đi sâu chi tiết).
+* Hiểu vai trò của môi trường phản chiếu đối với vật liệu kính và nước.
+* Nhận biết sự khác biệt cơ bản khi dựng nước trong **Cycles** và **Eevee**.
 
-**Material nước.** Chọn object mặt phẳng nước, tạo **Material mới**, đặt tên **"Water"** (lưu ý: tác giả phát hiện object này vô tình bị thêm nhầm vào "Fish Collection" — cần kéo nó ra khỏi Collection đó vì sẽ gây vấn đề cho Geometry Nodes ở chương 10). Trong Shader Editor: xóa node **Principled BSDF** mặc định, thêm **Shader > Glass BSDF**, nối vào **Surface** của Material Output. Thiết lập thông số:
-- **Roughness**: rất thấp nhưng **không hoàn toàn bằng 0** — khoảng **0.001** — giữ mặt nước gần như mịn như kính nhưng vẫn có chút tán xạ vi mô.
-- **IOR (Index of Refraction)**: khoảng **1.33** — chỉ số khúc xạ điển hình của nước (lưu ý: giá trị này có thể khác nếu nước bị đóng băng hoặc có độ mặn khác).
+---
 
-Ở giai đoạn này, mặt nước đã có hiệu ứng khúc xạ/phản chiếu cơ bản nhưng **hoàn toàn phẳng như kính**, chưa có gợn sóng.
+## 2. Tổng quan quy trình
 
-**Tạo gợn sóng bằng Noise Texture.** Thêm node **Texture > Noise Texture**. Nếu add-on **Node Wrangler** đã bật, có thể chọn Noise Texture rồi nhấn `Ctrl + T` — thao tác này **tự động thêm sẵn node Texture Coordinate và Mapping**, tiết kiệm thời gian nối tay. Thêm node **Converter > Math**, đặt chế độ **Multiply**, lấy đầu ra **Fac** của Noise Texture nối vào một đầu vào của Math, đặt hệ số nhân ban đầu khoảng **0.2** — đây là **tỉ lệ cường độ** của gợn sóng/độ dịch chuyển do nhiễu tạo ra. Kết quả của phép nhân này sau đó được dùng làm dữ liệu **dịch chuyển bề mặt (Displacement/Bump-style)** đưa vào Normal của Glass BSDF (thông qua một node Bump ngầm định để chuyển giá trị cao độ nhiễu thành vector pháp tuyến gợn sóng).
+```mermaid
+flowchart LR
+    A[Dựng Plane mặt nước] --> B[Đặt cá dưới mặt nước]
+    B --> C[Thiết lập World Environment]
+    C --> D[Tạo Material Water]
+    D --> E[Glass BSDF]
+    E --> F[Noise Texture tạo gợn]
+    F --> G[Bump chuyển nhiễu thành Normal]
+    G --> H[Driver làm texture chuyển động]
+    H --> I[Kiểm tra animation]
+```
 
-Noise Texture được đặt ở **chế độ 4D** (Blender hỗ trợ Noise Texture 1D/2D/3D/4D — chiều thứ 4, thường gọi là **W**, cho phép biến thiên hoa văn theo "thời gian" độc lập với việc dịch chuyển không gian XYZ thông thường) với **Scale khoảng 80**, giữ **Detail ở mức mặc định**. Sau khi xem thử, cường độ gợn sóng ban đầu (hệ số Multiply 0.2) hơi mạnh — giảm xuống còn khoảng **0.1**, rồi tinh chỉnh lại lên khoảng **0.125** cho vừa mắt (giá trị phù hợp phụ thuộc vào tỉ lệ thực tế của model/cảnh cụ thể, cần thử nghiệm).
+Công thức tổng quát của vật liệu:
 
-**Animate gợn sóng bằng driver nhanh.** Thay vì keyframe thủ công, tác giả dùng một mẹo nhanh: click vào trường **Location X** của node **Mapping**, gõ trực tiếp cú pháp bắt đầu bằng dấu **`#`** (thăng/hash) theo sau là một **biểu thức Python** — cụ thể là **`#frame/4000`** — trường số ngay lập tức chuyển sang **màu tím**, dấu hiệu cho biết trường đó giờ được điều khiển bởi một **driver nhanh (quick driver)** thay vì giá trị tĩnh. Biểu thức này lấy **số khung hình hiện tại (frame)** chia cho **4000**, tạo ra một giá trị **tăng dần rất chậm** theo thời gian — dùng làm độ dịch chuyển ngang của texture nhiễu, khiến hoa văn gợn sóng trôi chậm rãi theo animation thay vì đứng yên.
+```text
+Glass BSDF
+    +
+Noise Texture
+    +
+Bump
+    +
+Driver theo frame
+    =
+Mặt nước trong suốt có gợn sóng động
+```
 
-Thực hiện tương tự cho trường **Location Z** của cùng node Mapping, nhưng với biểu thức **`#frame/3000`** (chia cho một số nhỏ hơn, nên biến thiên **nhanh hơn một chút** so với trục X) — mục đích dùng trục thứ hai (kết hợp với bản chất 4D của Noise Texture) để hoa văn **tiến hóa/thay đổi hình dạng theo thời gian**, chứ không chỉ đơn thuần "trượt" đều theo một hướng cố định trên bề mặt — tạo cảm giác nước chuyển động tự nhiên hơn nhiều so với chỉ dịch chuyển texture theo một trục duy nhất.
+---
 
-Tác giả lưu ý hiệu ứng này khó thấy rõ trong một video tĩnh/khung hình đơn lẻ, nên đính kèm một đoạn animation preview riêng để minh họa rõ hiệu ứng gợn sóng động hoạt động như thế nào theo thời gian.
+## 3. Dựng mặt phẳng nước
 
-**Ghi chú về Eevee.** Tác giả có đề cập hiệu ứng này cũng có thể thực hiện trong **Eevee**, nhưng sẽ gặp một số **thách thức về phản chiếu (reflection) trên mặt nước** — các hiệu ứng phản xạ/khúc xạ phức tạp này **dễ đạt được hơn ở Cycles**, không đơn giản để làm trong Eevee.
+### 3.1. Thêm mặt nước
 
-## 3. Quy trình thực hành gợi ý
+Thêm một **Plane** có kích thước đủ lớn để phủ toàn bộ khu vực lòng suối.
 
-1. Thêm Plane lớn làm mặt nước; chỉnh độ sâu lòng suối và độ cao mặt nước sao cho đàn cá nằm bên dưới bề mặt.
-2. Edit Mode, `U > Unwrap` cho mặt phẳng nước.
-3. Shader Editor > tab World, bật Use Nodes, thêm Environment Texture nối Background; thêm ánh sáng cơ bản cho cảnh.
-4. Chọn mặt phẳng nước, tạo Material "Water" (đảm bảo không nằm trong "Fish Collection"), thay Principled BSDF bằng Glass BSDF, đặt Roughness ~0.001, IOR ~1.33.
-5. Thêm Noise Texture (chế độ 4D, Scale ~80); nếu có Node Wrangler, chọn node và `Ctrl + T` để tự thêm Texture Coordinate + Mapping.
-6. Thêm Math (Multiply), nối Fac của Noise vào, đặt hệ số ~0.1–0.125; dùng kết quả làm Displacement/Bump cho Normal của Glass BSDF.
-7. Trên node Mapping, gõ `#frame/4000` vào Location X và `#frame/3000` vào Location Z để driver tự động animate gợn sóng theo thời gian.
-8. Play animation để xem hiệu ứng gợn sóng động; điều chỉnh lại các hệ số chia (4000/3000) và Multiply nếu tốc độ/cường độ chưa như ý.
+```text
+Shift + A
+└── Mesh
+    └── Plane
+```
 
-## 4. Phím tắt & công cụ liên quan
+Scale mặt phẳng cho đến khi nó bao phủ toàn bộ vùng cần có nước.
 
-| Thao tác | Vị trí |
-|---|---|
-| Unwrap đơn giản | `U > Unwrap` (Edit Mode) |
-| Tự động thêm Texture Coordinate + Mapping (Node Wrangler) | Chọn node Texture, `Ctrl + T` |
-| Nhập driver nhanh vào một trường số | Click vào trường, gõ `#biểu_thức` (ví dụ `#frame/4000`) |
-| Chuyển tab Shader Editor sang World | Dropdown ở đầu Shader Editor: Object/World |
+### 3.2. Điều chỉnh độ cao
 
-## 5. Lưu ý & lỗi thường gặp
+Mặt phẳng nước phải nằm:
 
-- IOR không đúng (ví dụ vẫn để mặc định của Glass BSDF thay vì ~1.33) khiến độ khúc xạ trông sai lệch so với nước thật.
-- Roughness = 0 tuyệt đối đôi khi gây nhiễu số học (fireflies) trong Cycles ở một số trường hợp; giữ một giá trị rất nhỏ nhưng khác 0 (như 0.001) thường an toàn hơn.
-- Quên đặt Noise Texture ở chế độ 4D (giữ mặc định 3D) vẫn hoạt động nhưng sẽ khó tạo hiệu ứng "tiến hóa hoa văn" độc lập với việc trượt không gian — 4D tận dụng đúng ý đồ dùng driver trên cả X và Z để vừa trượt vừa biến đổi hình dạng.
-- Driver nhanh dạng `#biểu_thức` là một driver Python đơn giản — cần cẩn trọng vì biểu thức nhập sai cú pháp sẽ báo lỗi ngay tại trường đó; giá trị chia (4000, 3000...) cần thử nghiệm vì phụ thuộc vào tổng độ dài animation và cảm giác tốc độ mong muốn.
-- Hiệu ứng phản chiếu/khúc xạ phức tạp của nước dễ thực hiện hơn ở Cycles; nếu bắt buộc dùng Eevee (ví dụ vì lý do hiệu năng, khác với hai video Polyfjord trong repo vốn ưu tiên Eevee), cần chấp nhận đánh đổi chất lượng phản chiếu hoặc đầu tư thêm cấu hình Screen Space Reflections.
+* Phía trên đàn cá.
+* Phía trên phần đáy thấp nhất của lòng suối.
+* Không quá cao đến mức làm toàn bộ cảnh bị ngập ngoài ý muốn.
 
-## 6. Checklist thực hành
+Có thể quay lại object **Ground** để đào lòng suối sâu hơn, sau đó nâng hoặc hạ mặt phẳng nước sao cho đàn cá nằm hoàn toàn bên dưới.
 
-- [ ] Đã dựng mặt phẳng nước ở đúng độ cao để đàn cá nằm bên dưới bề mặt.
-- [ ] Đã xây dựng material "Water" bằng Glass BSDF với Roughness và IOR phù hợp.
-- [ ] Đã thêm Noise Texture 4D tạo gợn sóng, tinh chỉnh cường độ qua node Math (Multiply).
-- [ ] Đã animate gợn sóng bằng driver nhanh `#frame/...` trên node Mapping (cả Location X và Z).
-- [ ] Đã xác nhận hiệu ứng gợn sóng động hoạt động đúng khi phát animation.
+```text
+Camera nhìn từ trên xuống
+        ↓
+──────────────────  Mặt nước
+       🐟   🐟       Đàn cá
+__________________  Đáy suối
+```
 
-## 7. Tóm tắt
+Nên chuyển sang góc nhìn từ trên xuống để kiểm tra nhanh:
 
-Mặt nước động được dựng từ một công thức gọn: Glass BSDF cho độ khúc xạ/phản chiếu vật lý cơ bản, Noise Texture 4D cho hoa văn gợn sóng, và driver nhanh `#frame/...` trên node Mapping để animate hoa văn theo thời gian mà không cần keyframe thủ công — hoàn thiện cảnh suối có cả đàn cá bơi bên dưới một bề mặt nước sống động.
+* Vị trí đàn cá.
+* Phạm vi mặt nước.
+* Khoảng cách giữa cá và bề mặt.
+* Bố cục tổng thể của cảnh.
+
+### 3.3. UV Unwrap
+
+Vì mặt nước chỉ là một Plane đơn giản, UV unwrap không cần kỹ thuật phức tạp.
+
+1. Chọn mặt nước.
+2. Nhấn `Tab` để vào **Edit Mode**.
+3. Chọn toàn bộ vertex bằng `A`.
+4. Nhấn:
+
+```text
+U → Unwrap
+```
+
+---
+
+## 4. Thiết lập môi trường phản chiếu
+
+Một vật liệu nước hoặc kính sẽ khó quan sát nếu môi trường xung quanh chỉ có một màu phẳng. Vì vậy, nên thiết lập **Environment Texture** trước khi tinh chỉnh vật liệu.
+
+### 4.1. Chuyển Shader Editor sang World
+
+Trong Shader Editor, chuyển chế độ từ:
+
+```text
+Object → World
+```
+
+Bật:
+
+```text
+Use Nodes
+```
+
+Sau đó thêm:
+
+```text
+Shift + A
+└── Texture
+    └── Environment Texture
+```
+
+Nối node như sau:
+
+```mermaid
+flowchart LR
+    A[Environment Texture<br/>Color] --> B[Background<br/>Color]
+    B --> C[World Output<br/>Surface]
+```
+
+### 4.2. Tác dụng của Environment Texture
+
+Environment Texture cung cấp các chi tiết sáng tối để bề mặt nước phản chiếu.
+
+Nếu World chỉ có một màu phẳng:
+
+* Phản chiếu rất khó nhìn thấy.
+* Mặt nước có thể trông thiếu chiều sâu.
+* Việc đánh giá Roughness và IOR trở nên khó khăn.
+
+Khi có Environment Texture:
+
+* Highlight trên mặt nước rõ hơn.
+* Hiệu ứng phản chiếu dễ quan sát hơn.
+* Việc điều chỉnh shader trực quan hơn.
+
+> Environment Texture trong bước này chủ yếu phục vụ việc quan sát và đánh giá phản chiếu. Có thể thay bằng HDRI phù hợp khi hoàn thiện cảnh.
+
+---
+
+## 5. Tạo vật liệu nước
+
+### 5.1. Kiểm tra Collection
+
+Trước khi tạo material, hãy đảm bảo mặt nước **không nằm trong `Fish Collection`**.
+
+Nếu mặt nước bị đưa nhầm vào collection chứa các mẫu cá, Geometry Nodes có thể coi mặt nước là một object cần phân bố cùng đàn cá.
+
+Cấu trúc Collection nên tương tự:
+
+```text
+Scene Collection
+├── Ground
+├── Water
+├── Fish Source
+└── Fish Collection
+    ├── Fish_01
+    ├── Fish_02
+    └── Fish_03
+```
+
+### 5.2. Tạo material mới
+
+Chọn mặt phẳng nước và tạo một material mới:
+
+```text
+Material Name: Water
+```
+
+Trong Shader Editor:
+
+1. Xóa node **Principled BSDF** mặc định.
+2. Thêm:
+
+```text
+Shift + A
+└── Shader
+    └── Glass BSDF
+```
+
+3. Nối Glass BSDF vào Material Output.
+
+```mermaid
+flowchart LR
+    A[Glass BSDF] -->|BSDF| B[Material Output<br/>Surface]
+```
+
+### 5.3. Thông số Glass BSDF
+
+| Thông số      |       Giá trị gợi ý | Ý nghĩa                                                 |
+| ------------- | ------------------: | ------------------------------------------------------- |
+| **Color**     | Trắng hoặc hơi xanh | Màu cơ bản của nước                                     |
+| **Roughness** |             `0.001` | Giữ bề mặt gần như nhẵn nhưng không hoàn toàn tuyệt đối |
+| **IOR**       |              `1.33` | Chỉ số khúc xạ gần đúng của nước                        |
+
+#### Roughness
+
+Roughness rất thấp giúp mặt nước:
+
+* Phản chiếu rõ.
+* Giữ cảm giác trong và bóng.
+* Không bị mờ như kính nhám.
+
+Không nhất thiết phải đặt chính xác bằng `0`. Một giá trị rất nhỏ như:
+
+```text
+0.001
+```
+
+thường dễ kiểm soát hơn trong quá trình render.
+
+#### IOR
+
+**IOR — Index of Refraction** mô tả mức độ ánh sáng bị bẻ cong khi truyền qua vật liệu.
+
+Một số giá trị tham khảo:
+
+| Vật liệu          | IOR gần đúng |
+| ----------------- | -----------: |
+| Không khí         |       `1.00` |
+| Nước              |       `1.33` |
+| Băng              |       `1.31` |
+| Kính thông thường |  `1.45–1.52` |
+| Kim cương         |       `2.42` |
+
+Với mặt nước suối thông thường, có thể dùng:
+
+```text
+IOR = 1.33
+```
+
+Ở thời điểm này, mặt nước đã có phản chiếu và khúc xạ cơ bản nhưng vẫn phẳng như một tấm kính.
+
+---
+
+## 6. Tạo gợn sóng bằng Noise Texture
+
+### 6.1. Thêm Noise Texture
+
+Thêm node:
+
+```text
+Shift + A
+└── Texture
+    └── Noise Texture
+```
+
+Nếu đã bật add-on **Node Wrangler**:
+
+1. Chọn node Noise Texture.
+2. Nhấn:
+
+```text
+Ctrl + T
+```
+
+Blender sẽ tự động thêm:
+
+* **Texture Coordinate**
+* **Mapping**
+
+Sơ đồ ban đầu:
+
+```mermaid
+flowchart LR
+    A[Texture Coordinate<br/>Generated] --> B[Mapping<br/>Vector]
+    B --> C[Noise Texture<br/>Vector]
+```
+
+### 6.2. Đặt Noise Texture ở chế độ 4D
+
+Trong Noise Texture, chuyển Dimensions thành:
+
+```text
+4D
+```
+
+Thông số gợi ý:
+
+| Thông số       |                Giá trị gợi ý |
+| -------------- | ---------------------------: |
+| **Dimensions** |                         `4D` |
+| **Scale**      |                  Khoảng `80` |
+| **Detail**     | Mặc định hoặc tinh chỉnh nhẹ |
+| **Roughness**  |                     Mặc định |
+| **Distortion** |            `0` hoặc rất thấp |
+
+Scale cao tạo ra nhiều gợn nhỏ, phù hợp với bề mặt suối nhìn từ trên xuống.
+
+```text
+Scale thấp  → Gợn lớn, rộng
+Scale cao   → Gợn nhỏ, dày
+```
+
+---
+
+## 7. Chuyển Noise thành độ gồ ghề
+
+Đầu ra `Fac` của Noise Texture chỉ là dữ liệu trắng đen. Để dùng nó làm thay đổi pháp tuyến bề mặt, cần đưa dữ liệu qua node **Bump**.
+
+### 7.1. Thêm Math Multiply
+
+Thêm node:
+
+```text
+Shift + A
+└── Converter
+    └── Math
+```
+
+Đặt Operation thành:
+
+```text
+Multiply
+```
+
+Nối:
+
+```text
+Noise Texture: Fac
+        ↓
+Math: Multiply
+```
+
+Giá trị nhân ban đầu có thể thử:
+
+```text
+0.2
+```
+
+Nếu gợn quá mạnh, giảm xuống:
+
+```text
+0.1
+```
+
+Sau đó tinh chỉnh quanh:
+
+```text
+0.125
+```
+
+### 7.2. Thêm node Bump
+
+Thêm:
+
+```text
+Shift + A
+└── Vector
+    └── Bump
+```
+
+Nối hệ thống:
+
+```mermaid
+flowchart LR
+    A[Texture Coordinate] --> B[Mapping]
+    B --> C[Noise Texture 4D]
+    C -->|Fac| D[Math Multiply]
+    D -->|Value| E[Bump<br/>Height]
+    E -->|Normal| F[Glass BSDF<br/>Normal]
+    F --> G[Material Output]
+```
+
+Sơ đồ dạng văn bản:
+
+```text
+Texture Coordinate
+        │
+        ▼
+     Mapping
+        │
+        ▼
+ Noise Texture 4D
+        │ Fac
+        ▼
+ Math: Multiply
+        │
+        ▼
+      Bump
+        │ Normal
+        ▼
+   Glass BSDF
+        │
+        ▼
+ Material Output
+```
+
+> Không nên nối trực tiếp giá trị `Fac` vào cổng `Normal` của Glass BSDF. Cổng Normal yêu cầu dữ liệu vector pháp tuyến, vì vậy cần node Bump để chuyển dữ liệu độ cao thành vector thích hợp.
+
+### 7.3. Điều chỉnh cường độ
+
+Có hai vị trí chính để kiểm soát độ mạnh của gợn:
+
+1. Giá trị trong **Math Multiply**.
+2. Thông số **Strength** hoặc **Distance** của node Bump.
+
+Ví dụ:
+
+| Hiện tượng                       | Cách điều chỉnh                  |
+| -------------------------------- | -------------------------------- |
+| Gợn quá mạnh, mặt nước méo nhiều | Giảm Multiply hoặc Bump Strength |
+| Gợn gần như không nhìn thấy      | Tăng Multiply hoặc Bump Strength |
+| Gợn quá nhỏ và dày               | Giảm Noise Scale                 |
+| Gợn quá lớn                      | Tăng Noise Scale                 |
+| Bề mặt trông sắc, gắt            | Giảm Bump Distance               |
+
+---
+
+## 8. Animate gợn sóng bằng driver nhanh
+
+### 8.1. Driver nhanh là gì?
+
+Blender cho phép tạo driver trực tiếp trong một trường số bằng cách nhập biểu thức bắt đầu bằng dấu:
+
+```text
+#
+```
+
+Ví dụ:
+
+```python
+#frame/4000
+```
+
+Sau khi nhập, trường số chuyển sang **màu tím**, cho biết giá trị đang được điều khiển bởi driver.
+
+Biến `frame` là số frame hiện tại của timeline.
+
+Ví dụ:
+
+| Frame | `frame / 4000` |
+| ----: | -------------: |
+|     0 |        `0.000` |
+|   100 |        `0.025` |
+|   500 |        `0.125` |
+|  1000 |        `0.250` |
+
+Giá trị tăng rất chậm, phù hợp để làm texture nước trôi nhẹ nhàng.
+
+### 8.2. Animate Location X
+
+Trên node **Mapping**, click vào trường **Location X** và nhập:
+
+```python
+#frame/4000
+```
+
+Texture sẽ dịch chuyển chậm theo trục X.
+
+### 8.3. Animate thêm một trục
+
+Trong trường **Location Z**, nhập:
+
+```python
+#frame/3000
+```
+
+Do mẫu số `3000` nhỏ hơn `4000`, chuyển động trên trục này sẽ nhanh hơn một chút.
+
+```text
+frame / 4000 → Chậm hơn
+frame / 3000 → Nhanh hơn
+```
+
+Việc kết hợp hai trục giúp chuyển động không chỉ trượt theo một hướng duy nhất.
+
+```mermaid
+flowchart TD
+    A[Frame tăng dần] --> B["Location X = frame / 4000"]
+    A --> C["Location Z = frame / 3000"]
+    B --> D[Texture dịch chuyển theo X]
+    C --> E[Texture dịch chuyển theo Z]
+    D --> F[Gợn sóng chuyển động chéo]
+    E --> F
+```
+
+> **Lưu ý kỹ thuật:** Animate `Location X/Z` của Mapping làm texture trượt trong không gian. Nếu muốn Noise Texture 4D thực sự “tiến hóa” và thay đổi hình dạng theo chiều thứ tư, hãy animate trực tiếp cổng **W** của Noise Texture.
+
+Ví dụ nhập vào trường `W`:
+
+```python
+#frame/300
+```
+
+So sánh:
+
+| Cách animate           | Hiệu ứng                                   |
+| ---------------------- | ------------------------------------------ |
+| Mapping Location X/Y/Z | Texture trượt trên bề mặt                  |
+| Noise Texture `W`      | Hình dạng nhiễu tự biến đổi theo thời gian |
+| Kết hợp cả hai         | Gợn vừa trôi vừa biến đổi tự nhiên         |
+
+Một thiết lập tự nhiên hơn có thể là:
+
+```text
+Mapping Location X: #frame/4000
+Mapping Location Y: #frame/5000
+Noise Texture W:    #frame/300
+```
+
+Tốc độ cụ thể cần được điều chỉnh theo:
+
+* Tổng số frame của animation.
+* Kích thước cảnh.
+* Góc camera.
+* Cảm giác dòng nước mong muốn.
+
+---
+
+## 9. Kiểm tra chuyển động
+
+Nhấn `Spacebar` hoặc nút Play trên Timeline để phát animation.
+
+Khi quan sát, cần kiểm tra:
+
+* Gợn có chuyển động quá nhanh không?
+* Gợn có quá mạnh khiến mặt nước giống gel không?
+* Hoa văn có bị trượt đều như một tấm texture không?
+* Chuyển động có đủ chậm để phù hợp với dòng suối không?
+* Phản chiếu có bị rung hoặc tạo nhiều nhiễu không?
+
+### Điều chỉnh tốc độ driver
+
+```text
+Mẫu số lớn hơn → Chuyển động chậm hơn
+Mẫu số nhỏ hơn → Chuyển động nhanh hơn
+```
+
+Ví dụ:
+
+| Biểu thức     | Tốc độ tương đối |
+| ------------- | ---------------- |
+| `#frame/1000` | Khá nhanh        |
+| `#frame/3000` | Chậm             |
+| `#frame/4000` | Chậm hơn         |
+| `#frame/8000` | Rất chậm         |
+
+---
+
+## 10. Quy trình thực hành hoàn chỉnh
+
+### Bước 1 — Dựng mặt nước
+
+1. Thêm một Plane lớn.
+2. Scale để phủ toàn bộ lòng suối.
+3. Điều chỉnh Ground nếu lòng suối chưa đủ sâu.
+4. Đặt mặt nước phía trên đàn cá.
+5. Kiểm tra cảnh từ góc nhìn trên xuống.
+
+### Bước 2 — UV Unwrap
+
+1. Chọn mặt nước.
+2. Vào Edit Mode.
+3. Nhấn `A`.
+4. Chọn `U → Unwrap`.
+
+### Bước 3 — Thiết lập World
+
+1. Chuyển Shader Editor sang World.
+2. Bật Use Nodes.
+3. Thêm Environment Texture.
+4. Nối Environment Texture vào Background.
+5. Thêm ánh sáng cơ bản nếu cần.
+
+### Bước 4 — Tạo vật liệu Water
+
+1. Chọn mặt nước.
+2. Đưa mặt nước ra khỏi `Fish Collection` nếu đang nằm nhầm trong đó.
+3. Tạo material tên `Water`.
+4. Xóa Principled BSDF.
+5. Thêm Glass BSDF.
+6. Đặt Roughness khoảng `0.001`.
+7. Đặt IOR khoảng `1.33`.
+
+### Bước 5 — Tạo gợn sóng
+
+1. Thêm Noise Texture.
+2. Chuyển sang chế độ `4D`.
+3. Đặt Scale khoảng `80`.
+4. Thêm Texture Coordinate và Mapping.
+5. Thêm Math Multiply.
+6. Đặt hệ số khoảng `0.1–0.125`.
+7. Thêm Bump.
+8. Nối Bump vào Normal của Glass BSDF.
+
+### Bước 6 — Animate
+
+1. Nhập vào Mapping Location X:
+
+```python
+#frame/4000
+```
+
+2. Nhập vào một trục Mapping khác:
+
+```python
+#frame/3000
+```
+
+3. Có thể animate thêm Noise Texture `W`:
+
+```python
+#frame/300
+```
+
+4. Phát Timeline và tinh chỉnh tốc độ.
+
+---
+
+## 11. Phím tắt và công cụ liên quan
+
+| Thao tác                                              | Phím tắt hoặc vị trí                       |
+| ----------------------------------------------------- | ------------------------------------------ |
+| Thêm Plane                                            | `Shift + A → Mesh → Plane`                 |
+| Vào/thoát Edit Mode                                   | `Tab`                                      |
+| Chọn toàn bộ                                          | `A`                                        |
+| UV Unwrap                                             | `U → Unwrap`                               |
+| Tìm node nhanh                                        | `Shift + A`, sau đó nhập tên node          |
+| Thêm Texture Coordinate và Mapping bằng Node Wrangler | Chọn texture node rồi nhấn `Ctrl + T`      |
+| Nhập driver nhanh                                     | Gõ `#biểu_thức` vào trường số              |
+| Phát hoặc dừng Timeline                               | `Spacebar`                                 |
+| Chuyển Shader Editor sang World                       | Dropdown `Object/World` trên thanh tiêu đề |
+
+---
+
+## 12. Lỗi thường gặp
+
+### 12.1. Mặt nước bị phân bố cùng đàn cá
+
+**Nguyên nhân:** Object Water đang nằm trong `Fish Collection`.
+
+**Cách sửa:** Kéo Water ra ngoài collection chứa các mẫu cá.
+
+```text
+Sai:
+Fish Collection
+├── Fish_01
+├── Fish_02
+└── Water
+
+Đúng:
+Scene Collection
+├── Water
+└── Fish Collection
+    ├── Fish_01
+    └── Fish_02
+```
+
+---
+
+### 12.2. Nước trông giống kính
+
+**Nguyên nhân có thể:**
+
+* IOR vẫn đang dùng giá trị mặc định.
+* Không có môi trường phù hợp để phản chiếu.
+* Gợn sóng quá yếu.
+* Màu nước hoàn toàn trắng và cảnh thiếu thể tích.
+
+**Cách sửa:**
+
+* Đặt IOR gần `1.33`.
+* Thêm Environment Texture hoặc HDRI.
+* Tăng Bump nhẹ.
+* Thêm màu xanh rất nhạt nếu phù hợp với phong cách cảnh.
+
+---
+
+### 12.3. Gợn sóng quá mạnh
+
+**Nguyên nhân:**
+
+* Math Multiply quá cao.
+* Bump Strength hoặc Distance quá lớn.
+
+**Cách sửa:**
+
+```text
+Multiply: 0.2 → 0.125 → 0.1
+```
+
+Đồng thời giảm Strength hoặc Distance trong node Bump.
+
+---
+
+### 12.4. Gợn sóng đứng yên
+
+Kiểm tra:
+
+* Driver đã được nhập đúng cú pháp chưa?
+* Trường số đã chuyển sang màu tím chưa?
+* Timeline có đang phát không?
+* Giá trị chia có quá lớn khiến chuyển động gần như không nhìn thấy không?
+
+Ví dụ, tạm thời thử:
+
+```python
+#frame/500
+```
+
+Nếu chuyển động xuất hiện, hãy tăng dần mẫu số để giảm tốc.
+
+---
+
+### 12.5. Driver báo lỗi
+
+Biểu thức phải bắt đầu bằng dấu `#`.
+
+```python
+#frame/4000
+```
+
+Không nên nhập:
+
+```python
+frame/4000
+```
+
+Nếu biểu thức bị lỗi:
+
+1. Click phải vào trường số.
+2. Chọn **Delete Driver**.
+3. Nhập lại biểu thức đúng.
+
+---
+
+### 12.6. Noise 4D không thay đổi hình dạng
+
+Chỉ animate Mapping Location không làm thay đổi giá trị chiều thứ tư của Noise Texture.
+
+Để hoa văn tự biến đổi, animate cổng:
+
+```text
+Noise Texture → W
+```
+
+Ví dụ:
+
+```python
+#frame/300
+```
+
+---
+
+### 12.7. Roughness bằng 0 gây nhiễu
+
+Roughness bằng `0` không phải lúc nào cũng gây lỗi, nhưng trong một số cảnh Cycles có thể xuất hiện:
+
+* Điểm sáng bất thường.
+* Fireflies.
+* Phản chiếu quá sắc.
+* Nhiễu khó xử lý.
+
+Có thể dùng một giá trị rất nhỏ:
+
+```text
+0.001–0.01
+```
+
+---
+
+## 13. Cycles và Eevee
+
+### Cycles
+
+Ưu điểm:
+
+* Phản chiếu và khúc xạ vật lý chính xác hơn.
+* Glass BSDF hoạt động tự nhiên hơn.
+* Dễ tạo mặt nước trong suốt có chiều sâu.
+
+Nhược điểm:
+
+* Render chậm hơn.
+* Dễ xuất hiện noise hoặc fireflies.
+* Cần tăng sample hoặc sử dụng denoise.
+
+### Eevee
+
+Ưu điểm:
+
+* Preview và render nhanh.
+* Phù hợp với animation thời gian thực.
+* Dễ kiểm tra chuyển động.
+
+Nhược điểm:
+
+* Phản chiếu và khúc xạ cần thiết lập thêm.
+* Kết quả phụ thuộc vào phiên bản Blender.
+* Vật thể nằm dưới nước có thể không hiển thị đúng nếu chưa bật refraction.
+
+Trong các phiên bản Blender cũ, có thể cần:
+
+* Bật **Screen Space Reflections**.
+* Bật **Refraction**.
+* Bật **Screen Space Refraction** trong Material Settings.
+* Điều chỉnh Blend Mode và Shadow Mode.
+
+Trong các phiên bản Blender mới sử dụng **Eevee Next**, tên và vị trí một số tùy chọn có thể thay đổi, nhưng nguyên tắc vẫn là phải cấu hình thêm hệ thống phản chiếu và khúc xạ thời gian thực.
+
+---
+
+## 14. Thiết lập node đề xuất
+
+```mermaid
+flowchart LR
+    TC[Texture Coordinate<br/>Generated] --> MP[Mapping]
+
+    MP --> NT[Noise Texture<br/>4D<br/>Scale: 80]
+
+    NT -->|Fac| M[Math Multiply<br/>0.10–0.125]
+
+    M -->|Value| BP[Bump<br/>Height]
+
+    BP -->|Normal| GL[Glass BSDF<br/>Roughness: 0.001<br/>IOR: 1.33]
+
+    GL --> MO[Material Output<br/>Surface]
+
+    DX["Location X<br/>#frame/4000"] -. điều khiển .-> MP
+    DY["Location Y/Z<br/>#frame/3000"] -. điều khiển .-> MP
+    DW["W<br/>#frame/300"] -. tùy chọn .-> NT
+```
+
+### Thông số khởi đầu tham khảo
+
+```text
+Glass BSDF
+├── Roughness: 0.001
+└── IOR: 1.33
+
+Noise Texture
+├── Dimensions: 4D
+├── Scale: 80
+├── Detail: mặc định
+└── W: #frame/300
+
+Math Multiply
+└── Value: 0.10–0.125
+
+Mapping
+├── Location X: #frame/4000
+└── Location Y hoặc Z: #frame/3000
+```
+
+Các giá trị này chỉ là điểm khởi đầu. Cần điều chỉnh theo kích thước thực tế của cảnh.
+
+---
+
+## 15. Checklist thực hành
+
+* [ ] Đã tạo Plane phủ toàn bộ lòng suối.
+* [ ] Đã đặt đàn cá nằm bên dưới mặt nước.
+* [ ] Đã UV unwrap mặt nước.
+* [ ] Đã thêm Environment Texture hoặc nguồn phản chiếu phù hợp.
+* [ ] Đã đưa Water ra khỏi `Fish Collection`.
+* [ ] Đã tạo material `Water`.
+* [ ] Đã thay Principled BSDF bằng Glass BSDF.
+* [ ] Đã đặt Roughness khoảng `0.001`.
+* [ ] Đã đặt IOR khoảng `1.33`.
+* [ ] Đã thêm Noise Texture ở chế độ `4D`.
+* [ ] Đã đặt Scale khoảng `80`.
+* [ ] Đã dùng Bump để chuyển Noise thành Normal.
+* [ ] Đã giảm cường độ gợn về khoảng `0.1–0.125`.
+* [ ] Đã thêm driver vào Mapping Location.
+* [ ] Đã cân nhắc animate cổng `W` của Noise Texture.
+* [ ] Đã phát Timeline và kiểm tra chuyển động.
+* [ ] Đã kiểm tra phản chiếu và khúc xạ trong render engine đang sử dụng.
+
+---
+
+## 16. Tóm tắt
+
+Mặt nước động được xây dựng từ bốn thành phần chính:
+
+```text
+Glass BSDF
+    → Tạo độ trong suốt, phản chiếu và khúc xạ
+
+Noise Texture 4D
+    → Tạo hoa văn gợn sóng
+
+Bump
+    → Chuyển hoa văn trắng đen thành thay đổi pháp tuyến
+
+Driver #frame/...
+    → Làm gợn sóng chuyển động tự động theo thời gian
+```
+
+Công thức node hoàn chỉnh:
+
+```text
+Texture Coordinate
+→ Mapping có driver
+→ Noise Texture 4D
+→ Math Multiply
+→ Bump
+→ Glass BSDF
+→ Material Output
+```
+
+Với thiết lập này, mặt nước không còn phẳng như kính mà có gợn sóng nhẹ, chuyển động liên tục và phản chiếu môi trường xung quanh. Khi kết hợp với đàn cá bên dưới, lòng suối và ánh sáng phù hợp, cảnh sẽ có cảm giác sống động và có chiều sâu hơn đáng kể.

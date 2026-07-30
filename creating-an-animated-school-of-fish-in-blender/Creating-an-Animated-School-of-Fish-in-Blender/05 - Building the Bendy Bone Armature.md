@@ -1,73 +1,545 @@
 # 05 — Dựng Armature bằng Bendy Bone
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Video** | (không rõ tên/kênh — chỉ có transcript) |
-| **Đoạn** | Rigging Part 1 |
-| **Thời điểm** | 11:45–15:48 |
-| **Chủ đề chính** | Bone display B-Bone, B-Bone Segments, Parent Connected, hiển thị Armature xuyên mesh |
+| Thuộc tính       | Nội dung                                                                    |
+| ---------------- | --------------------------------------------------------------------------- |
+| **Video**        | Chưa xác định tên video/kênh — nội dung được tổng hợp từ transcript         |
+| **Phần**         | Rigging Part 1                                                              |
+| **Thời điểm**    | 11:45–15:48                                                                 |
+| **Chủ đề chính** | Armature hai xương, Bendy Bone, B-Bone Segments, Parent Connected, In Front |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Dựng một Armature tối giản gồm hai xương (thân + đuôi) cho cá.
-- Chuyển kiểu hiển thị bone sang **B-Bone** và tăng **Segments** để tạo hiệu ứng uốn cong mượt liên tục dọc một xương duy nhất.
-- Parent xương đuôi vào xương thân với tùy chọn **Connected**, và thiết lập hiển thị Armature xuyên qua mesh để dễ căn chỉnh.
+Sau chương này, chúng ta sẽ:
 
-## 2. Nội dung chính
+* Tạo một **Armature tối giản gồm hai xương** để điều khiển thân và đuôi cá.
+* Chuyển kiểu hiển thị xương sang **B-Bone**.
+* Tăng số lượng **B-Bone Segments** để thân cá có thể uốn cong mượt.
+* Kết nối xương đuôi với xương thân bằng quan hệ **Parent + Connected**.
+* Bật chế độ **In Front** để Armature luôn hiển thị xuyên qua mesh.
+* Căn chỉnh hệ xương nằm đúng bên trong thân cá, chuẩn bị cho bước skinning.
 
-**Tạo Armature ban đầu.** Đặt vị trí gần con cá, thêm **Armature** (mặc định chỉ có một xương duy nhất), di chuyển nó lên đúng vị trí thân cá. Xương mặc định hiển thị dạng **Octahedral** (bát diện) — kiểu hiển thị rõ ràng, trực quan, tốt cho việc chỉnh sửa, nhưng tác giả nói rõ **đây không phải kiểu hiển thị cuối cùng** sẽ dùng.
+---
 
-**Thêm xương đuôi.** Vào Edit Mode của Armature với xương đã chọn, chọn đầu **tail** (đầu mút) của xương, nhấn `E` (extrude) rồi `G`+`Z` để kéo dài thêm một đoạn — tạo ra xương thứ hai nối tiếp ở cuối, đóng vai trò xương đuôi. Kết quả: Armature có **hai xương nối tiếp nhau** — một cho thân, một cho đuôi.
+## 2. Cấu trúc Armature
 
-**Chuyển sang Bendy Bone (B-Bone).** Thoát Edit Mode, vào **Armature Data Properties** (không phải Bone Properties), mục **Viewport Display**, đổi kiểu hiển thị xương từ **Octahedral** sang **B-Bone**. Quay lại Edit Mode, đặt tên hai xương: **"tail"** và **"body"**. Trong mục **Bendy Bones** (Bone Properties, khi đang chọn từng xương), điều chỉnh thông số **Display Size** để phóng to hình dạng hiển thị của B-Bone — giúp dễ phân biệt trực quan đâu là đuôi, đâu là thân khi nhìn vào Armature.
+Armature trong bài chỉ gồm hai xương nối tiếp:
 
-**Định vị và co giãn Armature khớp với cá.** Không cần thoát Edit Mode để làm việc này: xoay Armature (`R`, trục X 90°, sau đó `R`, trục Z 90°) để khớp hướng với thân cá, scale phóng to, và định vị Armature **nằm bên trong** mesh cá thực sự (không chỉ đặt cạnh nó). Do lưới cá có thể che khuất Armature khi nhìn từ một số góc, tác giả bật tùy chọn **"In Front"** trong **Object Data Properties của Armature > Viewport Display** — giúp Armature **luôn hiển thị xuyên qua mesh**, bất kể góc nhìn, rất hữu ích khi cần căn chỉnh chính xác vị trí xương bên trong thân cá. Sau khi đặt đúng vị trí tổng thể, có thể cần scale giảm độ dày (bán kính) của xương trong Edit Mode để nó vừa khít với kích thước thân cá thực tế hơn.
+```text
+body
+  │
+  └── tail
+```
 
-**B-Bone Segments cho xương thân.** Trong Edit Mode, chọn xương **body**, vào mục **Bendy Bones**, tăng thông số **Segments** (mặc định là 1, nghĩa là xương chỉ uốn cứng như bình thường) lên một giá trị cao — tác giả thử tăng lên **10** trước, quan sát thấy nhiều đoạn chia hơn, sau đó tăng tiếp lên **25**. Thông số Segments quyết định xương B-Bone được **chia nhỏ thành bao nhiêu đoạn nội suy mượt** khi uốn cong — càng nhiều Segments, đường cong uốn của xương càng mượt và liên tục (gần giống một đường cong Bezier thực thụ) thay vì gấp khúc. Số lượng phù hợp phụ thuộc vào độ dài/kích thước con cá cụ thể.
+Trong đó:
 
-**Parent xương đuôi vào xương thân.** Vẫn trong Edit Mode, chọn xương **tail**, vào **Bone Properties > Relations**, đặt trường **Parent = body**, và đảm bảo tick chọn **Connected** — tùy chọn này khóa đầu gốc (head) của xương con vào đúng đầu cuối (tail) của xương cha, đảm bảo hai xương luôn nối liền mạch khi biến dạng (không thể tách rời hay để lộ khoảng hở). Sau khi thiết lập, nhấn `Ctrl + A` để áp dụng các thay đổi về scale/vị trí đã thực hiện trên Armature.
+| Xương  | Vai trò                                              |
+| ------ | ---------------------------------------------------- |
+| `body` | Điều khiển phần thân chính và tạo đường cong uốn mềm |
+| `tail` | Điều khiển phần đuôi và hướng chuyển động cuối thân  |
 
-**Kiểm tra nhanh trong Edit Mode.** Tác giả thử di chuyển xương đuôi trong Edit Mode để xem hiệu ứng uốn cong bắt đầu hoạt động trực quan — nếu thấy có độ xoay dư thừa không mong muốn xuất hiện, dùng `Alt + R` để xóa Rotation dư đó. Cuối cùng, định vị lại toàn bộ Armature (thoát Edit Mode, di chuyển Object) về đúng vị trí mong muốn so với cá, sẵn sàng cho bước Parent mesh vào Armature (chương 06).
+Quan hệ giữa hai xương:
 
-## 3. Quy trình thực hành gợi ý
+```text
+body.tail ───── Connected ───── tail.head
+```
 
-1. Thêm Armature gần cá, di chuyển lên đúng vị trí thân.
-2. Edit Mode: chọn tail của xương, `E` rồi `G`+`Z` để thêm xương đuôi nối tiếp.
-3. Armature Data Properties > Viewport Display, đổi kiểu hiển thị xương từ Octahedral sang B-Bone.
-4. Edit Mode: đặt tên hai xương là "body" và "tail"; chỉnh Display Size trong mục Bendy Bones để dễ phân biệt.
-5. Xoay Armature (X 90°, Z 90°), scale và định vị nó vào bên trong mesh cá; bật "In Front" trong Viewport Display để thấy Armature xuyên mesh.
-6. Chọn xương body, tăng B-Bone Segments (ví dụ 10 rồi 25) để có đường uốn mượt.
-7. Chọn xương tail, Bone Properties > Relations > Parent = body, tick Connected; `Ctrl + A` để apply transform.
-8. Thử di chuyển xương tail trong Edit Mode để kiểm tra hiệu ứng uốn cong; dùng `Alt + R` nếu có rotation dư thừa không mong muốn.
+Điểm đầu của xương `tail` được khóa vào điểm cuối của xương `body`, giúp hai xương luôn nối liền với nhau.
 
-## 4. Phím tắt & công cụ liên quan
+---
 
-| Thao tác | Phím tắt/Vị trí |
-|---|---|
-| Thêm Armature | `Shift + A > Armature` |
-| Extrude thêm xương (Edit Mode) | `E` |
-| Đổi kiểu hiển thị xương (Octahedral/B-Bone) | Armature Data Properties > Viewport Display > Display As |
-| Hiển thị Armature xuyên mesh | Armature Data Properties > Viewport Display > In Front |
-| Tăng số đoạn uốn của B-Bone | Bone Properties > Bendy Bones > Segments |
-| Đặt Parent cho bone (Connected) | Bone Properties > Relations > Parent + tick Connected |
-| Xóa Rotation dư thừa | `Alt + R` |
-| Apply transform | `Ctrl + A` |
+## 3. Nguyên lý của Bendy Bone
 
-## 5. Lưu ý & lỗi thường gặp
+Xương thông thường hoạt động gần giống một đoạn thẳng cứng. Khi xoay, toàn bộ xương thay đổi theo một khối duy nhất.
 
-- Quên đổi kiểu hiển thị sang B-Bone khiến việc chỉnh Segments không có tác dụng hiển thị trực quan (Segments chỉ ảnh hưởng rõ ràng khi Display As = B-Bone), dễ gây nhầm lẫn "sao thông số này không có tác dụng gì".
-- Không tick Connected khi Parent xương đuôi vào xương thân có thể khiến hai xương tách rời/hở ra khi Armature bị biến dạng mạnh trong Pose Mode.
-- Segments quá thấp (gần 1) làm đường uốn của B-Bone trông gấp khúc, mất đi lợi ích chính của kỹ thuật Bendy Bone; quá cao có thể ảnh hưởng nhẹ hiệu năng nhưng thường không đáng kể với một Armature đơn giản hai xương.
-- Nếu quên bật "In Front", việc căn chỉnh chính xác vị trí Armature bên trong mesh cá sẽ khó khăn hơn nhiều vì bị mesh che khuất.
+**Bendy Bone**, thường gọi là **B-Bone**, cho phép một xương được chia thành nhiều đoạn nội suy nhỏ. Nhờ đó, xương có thể tạo thành một đường cong liên tục.
 
-## 6. Checklist thực hành
+```text
+Xương thường:
 
-- [ ] Đã tạo Armature với hai xương nối tiếp: "body" và "tail".
-- [ ] Đã chuyển kiểu hiển thị xương sang B-Bone và tăng Segments cho xương body.
-- [ ] Đã định vị Armature khớp bên trong mesh cá, bật "In Front" để dễ căn chỉnh.
-- [ ] Đã Parent xương tail vào xương body với tùy chọn Connected.
-- [ ] Đã kiểm tra hiệu ứng uốn cong hoạt động đúng khi thử di chuyển xương tail trong Edit Mode.
+[──────────────]
 
-## 7. Tóm tắt
+B-Bone với nhiều Segments:
 
-Bendy Bone với Segments cao là kỹ thuật cốt lõi cho phép một Armature chỉ hai xương đơn giản (thân + đuôi) tạo ra đường uốn mượt liên tục dọc thân cá — thay vì cần một chuỗi nhiều xương cứng nối tiếp như rig truyền thống — đặt nền tảng cho bước gắn mesh vào Armature ở chương tiếp theo.
+[──╮
+   ╰──╮
+      ╰──]
+```
+
+Thông số quan trọng nhất là **Segments**:
+
+| Segments | Kết quả                                             |
+| -------: | --------------------------------------------------- |
+|      `1` | Xương gần như hoạt động như xương cứng thông thường |
+|   `5–10` | Đã bắt đầu xuất hiện đường cong tương đối mượt      |
+|  `20–25` | Đường cong mượt hơn, phù hợp với thân cá dài        |
+|  Quá cao | Mượt hơn nhưng có thể tăng nhẹ chi phí tính toán    |
+
+> Số Segments phù hợp phụ thuộc vào chiều dài xương, mật độ mesh và mức độ uốn mong muốn.
+
+---
+
+## 4. Quy trình thực hiện
+
+### Bước 1 — Thêm Armature
+
+Đặt 3D Cursor gần vị trí con cá, sau đó thêm Armature:
+
+```text
+Shift + A
+└── Armature
+    └── Single Bone
+```
+
+Armature mặc định chỉ gồm một xương và thường được hiển thị dưới dạng **Octahedral**.
+
+Di chuyển Armature đến gần phần thân cá để thuận tiện cho việc căn chỉnh.
+
+---
+
+### Bước 2 — Tạo xương đuôi
+
+Chọn Armature và chuyển sang **Edit Mode**.
+
+1. Chọn đầu `tail` của xương hiện tại.
+2. Nhấn `E` để Extrude.
+3. Di chuyển đoạn xương mới theo chiều dài của thân cá.
+
+Ví dụ:
+
+```text
+Xương ban đầu:
+
+[ body ]
+
+Sau khi Extrude:
+
+[ body ][ tail ]
+```
+
+Kết quả là một chuỗi gồm hai xương nối tiếp nhau.
+
+---
+
+### Bước 3 — Đặt tên xương
+
+Trong Edit Mode, chọn từng xương và đặt tên:
+
+* Xương phía trước: `body`
+* Xương phía sau: `tail`
+
+Việc đặt tên rõ ràng giúp thao tác dễ hơn khi:
+
+* Gán Parent.
+* Tạo constraint.
+* Weight Paint.
+* Điều khiển animation.
+* Kiểm tra Vertex Group.
+
+---
+
+### Bước 4 — Chuyển kiểu hiển thị sang B-Bone
+
+Chọn Armature, mở:
+
+```text
+Armature Data Properties
+└── Viewport Display
+    └── Display As
+        └── B-Bone
+```
+
+Armature sẽ được hiển thị dưới dạng các khối chữ nhật bo cong thay vì hình bát diện.
+
+> **Display As = B-Bone** chủ yếu thay đổi cách hiển thị trong viewport. Khả năng uốn thực tế phụ thuộc vào thiết lập Bendy Bones và cách điều khiển trong Pose Mode.
+
+Có thể điều chỉnh kích thước hiển thị của từng B-Bone để dễ phân biệt xương thân và xương đuôi.
+
+---
+
+### Bước 5 — Xoay Armature theo hướng của cá
+
+Tùy hướng ban đầu của model, có thể cần xoay Armature để trùng với trục dọc của thân cá.
+
+Ví dụ trong transcript:
+
+```text
+R → X → 90
+R → Z → 90
+```
+
+Sau đó:
+
+* Scale Armature theo chiều dài cá.
+* Di chuyển Armature vào giữa thân.
+* Điều chỉnh điểm nối giữa `body` và `tail` gần vị trí cuống đuôi.
+* Giữ toàn bộ hệ xương nằm bên trong mesh.
+
+Sơ đồ vị trí tương đối:
+
+```text
+Đầu cá                  Đuôi cá
+   ┌─────────────────────────┐
+   │       [ body ][ tail ]  │
+   └─────────────────────────┘
+```
+
+---
+
+### Bước 6 — Bật In Front
+
+Khi Armature nằm bên trong mesh, xương có thể bị bề mặt cá che khuất.
+
+Bật tùy chọn:
+
+```text
+Armature Data Properties
+└── Viewport Display
+    └── In Front
+```
+
+Sau khi bật, Armature sẽ luôn xuất hiện phía trước mesh trong viewport.
+
+Điều này giúp:
+
+* Căn chỉnh vị trí xương chính xác hơn.
+* Quan sát xương từ nhiều góc nhìn.
+* Dễ thao tác trong Edit Mode và Pose Mode.
+* Tránh phải liên tục chuyển sang Wireframe hoặc X-Ray.
+
+---
+
+### Bước 7 — Thiết lập B-Bone Segments
+
+Chọn xương `body`, mở:
+
+```text
+Bone Properties
+└── Bendy Bones
+    └── Segments
+```
+
+Tăng giá trị từ mặc định `1` lên:
+
+1. Thử `10` để quan sát các đoạn chia.
+2. Tăng lên khoảng `20–25` nếu cần đường cong mượt hơn.
+
+Ví dụ:
+
+```text
+Segments = 1
+
+[────────────]
+
+Segments = 10
+
+[─][─][─][─][─][─][─][─][─][─]
+
+Khi biến dạng:
+
+[─╮
+  ╰─╮
+    ╰─╮
+      ╰─]
+```
+
+Đối với rig cá đơn giản, giá trị khoảng `10–25` thường đủ để tạo chuyển động mềm.
+
+---
+
+### Bước 8 — Parent xương đuôi vào xương thân
+
+Chọn xương `tail`, mở:
+
+```text
+Bone Properties
+└── Relations
+    ├── Parent: body
+    └── Connected: Enabled
+```
+
+Thiết lập này tạo quan hệ:
+
+```text
+body
+  └── tail
+```
+
+Khi bật **Connected**:
+
+* `tail.head` luôn nằm tại `body.tail`.
+* Xương đuôi không thể bị kéo tách khỏi xương thân.
+* Chuỗi xương luôn giữ kết nối liền mạch.
+* Hạn chế xuất hiện khoảng hở khi pose.
+
+### Cách Parent nhanh bằng phím tắt
+
+Trong Edit Mode:
+
+1. Chọn xương `tail`.
+2. `Shift` chọn thêm xương `body`.
+3. Nhấn `Ctrl + P`.
+4. Chọn **Connected**.
+
+Xương được chọn cuối cùng sẽ trở thành xương cha.
+
+---
+
+### Bước 9 — Apply Transform cho Armature
+
+Nếu Armature đã được xoay hoặc scale trong **Object Mode**, nên Apply Transform trước khi Parent mesh.
+
+Thực hiện trong Object Mode:
+
+```text
+Ctrl + A
+├── Rotation
+└── Scale
+```
+
+Hoặc chọn:
+
+```text
+Ctrl + A
+└── All Transforms
+```
+
+Mục tiêu là đưa các giá trị transform về trạng thái sạch:
+
+```text
+Rotation: 0°, 0°, 0°
+Scale:    1, 1, 1
+```
+
+> Không Apply Transform trong Edit Mode. `Ctrl + A` để Apply Rotation và Scale cần được thực hiện khi Armature đang ở Object Mode.
+
+---
+
+### Bước 10 — Kiểm tra cấu trúc rig
+
+Trong Edit Mode, kiểm tra:
+
+* Hai xương có nằm đúng giữa thân cá không.
+* Điểm nối `body.tail` và `tail.head` có đúng vị trí cuống đuôi không.
+* Xương `tail` có Parent là `body` không.
+* Tùy chọn **Connected** đã được bật chưa.
+* Xương có bị xoắn hoặc lệch trục bất thường không.
+
+Sau đó chuyển sang **Pose Mode** để kiểm tra biến dạng thực tế.
+
+> Edit Mode dùng để chỉnh cấu trúc và vị trí nghỉ của xương. Pose Mode mới là chế độ phù hợp để thử xoay, uốn và kiểm tra chuyển động của rig.
+
+Nếu xương đang có Rotation trong Pose Mode và cần đưa về trạng thái ban đầu:
+
+```text
+Alt + R
+```
+
+Có thể dùng thêm:
+
+| Thao tác     | Phím tắt  |
+| ------------ | --------- |
+| Xóa Location | `Alt + G` |
+| Xóa Rotation | `Alt + R` |
+| Xóa Scale    | `Alt + S` |
+
+---
+
+## 5. Sơ đồ toàn bộ quy trình
+
+```mermaid
+flowchart TD
+    A[Thêm Armature] --> B[Extrude xương thứ hai]
+    B --> C[Đặt tên body và tail]
+    C --> D[Display As: B-Bone]
+    D --> E[Xoay và scale theo thân cá]
+    E --> F[Bật In Front]
+    F --> G[Tăng Segments cho body]
+    G --> H[Parent tail vào body]
+    H --> I[Bật Connected]
+    I --> J[Apply Rotation và Scale]
+    J --> K[Kiểm tra trong Pose Mode]
+    K --> L[Sẵn sàng Parent mesh]
+```
+
+---
+
+## 6. Phím tắt và công cụ liên quan
+
+| Thao tác                          | Phím tắt hoặc vị trí                                     |
+| --------------------------------- | -------------------------------------------------------- |
+| Thêm Armature                     | `Shift + A > Armature`                                   |
+| Chuyển sang Edit Mode             | `Tab`                                                    |
+| Extrude xương                     | `E`                                                      |
+| Di chuyển                         | `G`                                                      |
+| Xoay                              | `R`                                                      |
+| Scale                             | `S`                                                      |
+| Parent bone                       | `Ctrl + P`                                               |
+| Xóa Rotation trong Pose Mode      | `Alt + R`                                                |
+| Xóa Location trong Pose Mode      | `Alt + G`                                                |
+| Apply Transform trong Object Mode | `Ctrl + A`                                               |
+| Đổi kiểu hiển thị thành B-Bone    | Armature Data Properties > Viewport Display > Display As |
+| Hiển thị xuyên mesh               | Armature Data Properties > Viewport Display > In Front   |
+| Tăng số đoạn B-Bone               | Bone Properties > Bendy Bones > Segments                 |
+| Chọn Parent cho bone              | Bone Properties > Relations > Parent                     |
+| Khóa nối xương con với xương cha  | Bone Properties > Relations > Connected                  |
+
+---
+
+## 7. Lỗi thường gặp
+
+### 7.1. Không nhìn thấy Armature bên trong cá
+
+**Nguyên nhân:** Armature bị mesh che khuất.
+
+**Khắc phục:**
+
+```text
+Armature Data Properties
+└── Viewport Display
+    └── In Front
+```
+
+---
+
+### 7.2. B-Bone vẫn trông giống xương cứng
+
+**Nguyên nhân có thể:**
+
+* `Segments` vẫn đang bằng `1`.
+* Chưa chuyển Display As sang B-Bone nên khó quan sát.
+* Chưa thiết lập cách điều khiển độ cong.
+* Đang thử trong Edit Mode thay vì Pose Mode.
+
+**Khắc phục:**
+
+* Tăng Segments lên `10–25`.
+* Chuyển sang Pose Mode để kiểm tra.
+* Quan sát kết quả sau khi mesh đã được Parent với Armature.
+
+---
+
+### 7.3. Xương đuôi bị tách khỏi thân
+
+**Nguyên nhân:** Xương `tail` đã Parent nhưng chưa bật **Connected**.
+
+**Khắc phục:**
+
+```text
+Bone Properties
+└── Relations
+    ├── Parent: body
+    └── Connected: Enabled
+```
+
+---
+
+### 7.4. Armature bị lệch hoặc scale bất thường
+
+**Nguyên nhân:** Armature đã được xoay và scale trong Object Mode nhưng chưa Apply Transform.
+
+**Khắc phục:**
+
+1. Chuyển sang Object Mode.
+2. Chọn Armature.
+3. Nhấn `Ctrl + A`.
+4. Apply Rotation và Scale.
+
+---
+
+### 7.5. Đường cong bị gấp khúc
+
+**Nguyên nhân:**
+
+* Segments quá thấp.
+* Mesh cá có quá ít edge loop dọc thân.
+* Weight của xương phân bố không đều.
+
+**Khắc phục:**
+
+* Tăng B-Bone Segments.
+* Kiểm tra mật độ topology của thân cá.
+* Điều chỉnh Weight Paint sau khi Parent mesh.
+
+> B-Bone có nhiều Segments nhưng mesh không đủ vertex vẫn không thể tạo đường cong mượt.
+
+---
+
+### 7.6. Xóa Rotation nhưng hình dạng xương không trở lại như cũ
+
+Cần phân biệt:
+
+* **Edit Mode:** thay đổi Rest Pose của Armature.
+* **Pose Mode:** thay đổi tư thế animation.
+
+`Alt + R` trong Pose Mode chỉ xóa Rotation của tư thế hiện tại. Nó không hoàn tác những thay đổi đã thực hiện với cấu trúc xương trong Edit Mode.
+
+---
+
+## 8. Checklist thực hành
+
+### Cấu trúc Armature
+
+* [ ] Đã tạo Armature gồm hai xương.
+* [ ] Xương thân được đặt tên là `body`.
+* [ ] Xương đuôi được đặt tên là `tail`.
+* [ ] `tail` đã được Parent vào `body`.
+* [ ] Tùy chọn **Connected** đã được bật.
+
+### Bendy Bone
+
+* [ ] Armature đang hiển thị dưới dạng B-Bone.
+* [ ] Xương `body` có nhiều hơn một Segment.
+* [ ] Số Segments đủ để tạo đường cong mượt.
+* [ ] Vị trí nối giữa thân và đuôi nằm gần cuống đuôi cá.
+
+### Căn chỉnh
+
+* [ ] Armature nằm bên trong mesh cá.
+* [ ] Armature chạy dọc theo trục giữa của thân.
+* [ ] Đã bật **In Front**.
+* [ ] Rotation và Scale của Armature đã được Apply.
+* [ ] Đã kiểm tra rig trong Pose Mode.
+
+---
+
+## 9. Ghi nhớ quan trọng
+
+> **B-Bone Segments không làm mesh tự động mượt nếu topology của cá quá thưa.**
+
+Chất lượng biến dạng cuối cùng phụ thuộc vào ba yếu tố:
+
+```text
+B-Bone Segments
+        +
+Mật độ topology của mesh
+        +
+Weight Paint phù hợp
+        =
+Chuyển động thân cá mượt
+```
+
+Armature hai xương giúp rig đơn giản, nhưng hiệu quả chỉ đạt được khi mesh có đủ vertex để đi theo đường cong của B-Bone.
+
+---
+
+## 10. Tóm tắt
+
+Trong chương này, một Armature tối giản gồm hai xương `body` và `tail` được dựng bên trong thân cá. Xương `body` sử dụng nhiều **B-Bone Segments** để tạo đường cong mềm, trong khi xương `tail` được nối với `body` bằng quan hệ **Parent Connected**.
+
+Tùy chọn **In Front** giúp quan sát Armature xuyên qua mesh, còn việc Apply Rotation và Scale giúp hệ xương có transform sạch trước khi skinning.
+
+```text
+Armature hai xương
+        ↓
+B-Bone nhiều Segments
+        ↓
+Đường cong thân mềm
+        ↓
+Parent mesh và Weight Paint
+        ↓
+Animation cá bơi
+```
+
+Đây là nền tảng cho chương tiếp theo: **gắn mesh cá vào Armature và kiểm soát vùng ảnh hưởng của từng xương**.

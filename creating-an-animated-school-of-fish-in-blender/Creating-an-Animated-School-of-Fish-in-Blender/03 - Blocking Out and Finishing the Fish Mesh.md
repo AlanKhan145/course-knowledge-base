@@ -1,77 +1,824 @@
 # 03 — Block-out và hoàn thiện mesh cá
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Video** | (không rõ tên/kênh — chỉ có transcript) |
-| **Đoạn** | Modeling cá |
-| **Thời điểm** | 02:25–08:17 |
-| **Chủ đề chính** | Ảnh tham chiếu, block-out từ Cube, Mirror modifier, dọn mesh, kiểm tra Normals |
+| Thuộc tính       | Nội dung                                                                                              |
+| ---------------- | ----------------------------------------------------------------------------------------------------- |
+| **Video**        | Không rõ tên/kênh — nội dung được tổng hợp từ transcript                                              |
+| **Phân đoạn**    | Modeling cá                                                                                           |
+| **Thời điểm**    | `02:25–08:17`                                                                                         |
+| **Chủ đề chính** | Ảnh tham chiếu, block-out từ Cube, Mirror Modifier, dọn mesh, Subdivision Surface và kiểm tra Normals |
+
+---
 
 ## 1. Mục tiêu bài học
 
-- Dựng nhanh một hình dạng cá cơ bản bằng kỹ thuật block-out dựa trên ảnh tham chiếu, không cần chi tiết cao (không vây, không miệng).
-- Dùng **Mirror modifier** để chỉ cần model một nửa thân cá.
-- Dọn mesh (merge, bevel, proportional editing để làm đầy thân), Shade Smooth, Subdivision Surface, và kiểm tra hướng Normals trước khi sang bước UV/material.
+Sau phần này, chúng ta có thể:
 
-## 2. Nội dung chính
+* Dựng nhanh hình dạng cơ bản của một con cá dựa trên ảnh tham chiếu.
+* Tạo mesh đơn giản, đủ tốt để rig và biến dạng ở các chương sau.
+* Chỉ model một nửa thân cá bằng **Mirror Modifier**.
+* Làm thân cá có độ dày bằng **Proportional Editing**.
+* Làm mượt bề mặt bằng **Shade Smooth** và **Subdivision Surface**.
+* Kiểm tra và sửa hướng **Normals** trước khi chuyển sang UV và vật liệu.
 
-**Chuẩn bị ảnh tham chiếu.** Tác giả đặt con trỏ 3D, chuyển sang **Orthographic side view (`Numpad 5` chuyển Perspective/Orthographic — kết hợp với một góc nhìn trục như Front/Side)**, rồi **kéo-thả trực tiếp một file ảnh cá vào viewport** — Blender tự động tạo một **Empty dạng Image** hiển thị ảnh đó trong không gian 3D, dùng làm tham chiếu để model theo đúng tỉ lệ và hình dáng.
+> [!NOTE]
+> Mục tiêu của bước này không phải tạo một model cá hoàn chỉnh, có đầy đủ miệng, vảy và vây. Mesh chỉ cần đủ sạch, đủ khối và biến dạng tốt khi rig.
 
-**Block-out bằng Cube.** Thêm một **Cube**, di chuyển ra phía trước ảnh tham chiếu một chút, xoay/chỉnh để bắt đầu tạo hình. Kỹ thuật: **Subdivide** một cạnh của Cube, sau đó **xóa các đỉnh phía sau** để chỉ còn lại mặt trước của Cube (hiệu quả tương đương việc chỉ giữ một "lát cắt" mỏng), chuyển sang chế độ xem **Wireframe** để dễ căn chỉnh xuyên qua ảnh tham chiếu. Đặt khối gần đúng vị trí thân cá trên ảnh, thu nhỏ để khớp hình dạng gần đúng của thân cá — tác giả nhấn mạnh chỉ **scale trên trục X và Z, không scale trên Y** (trục dọc theo bề dày cơ thể) — vì mesh sẽ được **Mirror qua trục Y** ở bước sau, nên nửa mesh cần được model phẳng dọc theo mặt phẳng đối xứng.
+---
 
-**Nguyên tắc tối giản.** Tác giả chủ động giữ mesh tối giản: không thêm nhiều đỉnh hơn mức cần thiết, không model miệng, không đầu tư nhiều vào vây — lý do được nêu rõ là các chi tiết này **tốn nhiều thời gian không tương xứng với một video hướng dẫn**. Mục tiêu của bước block-out không phải "modeling đẹp" mà là tạo ra một **lưới đủ để biến dạng (deform) tốt** khi rig ở các chương sau — vẫn cần một vài đỉnh gần vị trí mắt để giữ hình dạng đầu hợp lý.
+## 2. Tổng quan quy trình
 
-**Thao tác tinh chỉnh.** Tác giả lưu ý mẹo giữ `Shift` khi di chuyển/scale (`G`/`S` + giữ `Shift`) để **giảm độ nhạy của chuột**, cho phép điều chỉnh vị trí đỉnh chi tiết và chính xác hơn nhiều so với thao tác thông thường. Đuôi cá được model ở cuối, gộp (merge) khoảng ba đỉnh giữa lại thành một, sau đó chọn các đỉnh liên quan và dùng **`Ctrl + B` (Bevel cạnh)** để bo tròn góc — tạo hình dạng cá thô đầu tiên. Sau đó scale nhẹ trên Y để làm thân mỏng hơn, có thể bevel thêm ở vài chỗ (lưu ý bevel quá tay có thể làm hỏng hình học), thuôn nhọn phần đầu và đuôi. Các mặt phía sau (mặt phẳng đối xứng) được **xóa hẳn** vì Mirror modifier sẽ tự lấp đầy — nếu phát hiện các mặt bị chọn nhầm/lỗi hình học do bevel quá tay, cần dọn lại thủ công trước khi tiếp tục.
+```mermaid
+flowchart LR
+    A[Đưa ảnh tham chiếu vào Blender]
+    --> B[Block-out nửa thân cá từ Cube]
+    --> C[Tinh chỉnh đầu, thân và đuôi]
+    --> D[Dọn hình học tại mặt phẳng đối xứng]
+    --> E[Thêm Mirror Modifier]
+    --> F[Làm đầy thân bằng Proportional Editing]
+    --> G[Shade Smooth và Subdivision Surface]
+    --> H[Kiểm tra Face Orientation]
+    --> I[Mesh sẵn sàng cho UV và Material]
+```
 
-**Mirror modifier và ghép nửa mesh.** Thêm **Mirror modifier**, chọn phản chiếu qua trục **Y**, bật **Clipping** — tùy chọn này giữ các đỉnh nằm trên mặt phẳng đối xứng luôn dính chặt vào mặt phẳng đó khi di chuyển, tránh tạo khe hở giữa hai nửa. Vào Edit Mode, chọn tất cả đỉnh, `G` + `Y` để kiểm tra và ghép khớp hai nửa — vì các đỉnh biên chưa hoàn toàn thẳng hàng trên trục Y, cần chọn riêng vòng đỉnh biên đó, scale Y về 0 (`S`, `Y`, `0`) để làm phẳng đúng vào mặt phẳng đối xứng, sau đó chọn lại toàn bộ mesh, `G`+`Y` để khớp hai nửa lại với nhau hoàn chỉnh (nhờ Clipping, việc này an toàn không tạo khoảng hở).
+---
 
-**Làm đầy thân bằng Proportional Editing.** Ở giai đoạn này thân cá còn khá dẹt. Tác giả chọn một cụm đỉnh dọc sống lưng/bụng (không chọn đến tận đầu mút), bật **Proportional Editing (`O`)**, `G`+`Y` kéo nhẹ để "phồng" thân cá dày hơn một cách mượt mà, tạo cảm giác thân cá có khối 3D thay vì phẳng lì.
+## 3. Chuẩn bị ảnh tham chiếu
 
-**Hoàn thiện bề mặt.** Áp dụng **Shade Smooth**, thêm **Subdivision Surface modifier (`Ctrl + 2`)**. Sau bước này xuất hiện một lỗi mesh nhỏ (nghi do các đỉnh nằm quá gần nhau) — tác giả tạm tắt Subdivision Surface và Clipping của Mirror để kéo tách các đỉnh có vấn đề ra, đảm bảo phần đuôi có **độ dày nhẹ** (không được mỏng bằng 0, dù không cần dày nhiều) để tránh lỗi hình học khi subdivide.
+### 3.1. Chuyển sang góc nhìn trực giao
 
-**Kiểm tra Normals.** Trước khi sang bước UV/material, bật overlay để xem **hướng mặt (Face Orientation)** — tất cả các mặt hiển thị màu xanh dương là đúng hướng (Normals hướng ra ngoài); nếu thấy màu đỏ nghĩa là Normals bị lật (hướng sai) và cần **Recalculate Normals** hoặc **Flip Normals** thủ công tại vùng đó. Tác giả cũng minh họa: nếu nhìn từ **bên dưới mặt "Fish Source"** (Plane phụ ở chương 02) sẽ thấy toàn bộ mặt đó màu đỏ — điều này **không quan trọng** vì object đó chỉ dùng làm dữ liệu ẩn cho Geometry Nodes, không bao giờ hiển thị trực tiếp trong render, nên hướng Normals của nó không cần sửa.
+Đầu tiên, chuyển viewport sang một góc nhìn theo trục:
 
-## 3. Quy trình thực hành gợi ý
+* `Numpad 1`: Front View.
+* `Numpad 3`: Side View.
+* `Numpad 7`: Top View.
+* `Numpad 5`: chuyển đổi giữa **Perspective** và **Orthographic**.
 
-1. Đặt 3D cursor, chuyển Orthographic, kéo-thả ảnh tham chiếu cá vào viewport.
-2. Thêm Cube, subdivide và xóa một nửa để làm mặt block-out, chuyển Wireframe, căn chỉnh theo ảnh tham chiếu (chỉ scale X/Z, không scale Y).
-3. Model thô hình dạng thân/đuôi cá bằng move/scale/merge/bevel (`Ctrl + B`), giữ `Shift` khi cần độ chính xác cao.
-4. Xóa các mặt phía mặt phẳng đối xứng, thêm Mirror modifier (trục Y, bật Clipping).
-5. Vào Edit Mode, chỉnh vòng đỉnh biên về đúng mặt phẳng đối xứng (Scale Y = 0), ghép hai nửa lại (`G`, `Y`).
-6. Bật Proportional Editing (`O`), chọn cụm đỉnh thân, kéo nhẹ để làm thân cá đầy hơn.
-7. Shade Smooth, thêm Subdivision Surface (`Ctrl + 2`), sửa lỗi mesh nếu có (đảm bảo đuôi có độ dày nhẹ, không bằng 0).
-8. Bật overlay Face Orientation, kiểm tra và sửa các mặt bị lật Normals (bỏ qua object "Fish Source" vì không hiển thị trong render).
+Đối với model cá nhìn ngang, **Side Orthographic View** thường là góc nhìn thuận tiện nhất.
 
-## 4. Phím tắt & công cụ liên quan
+### 3.2. Đưa ảnh cá vào viewport
 
-| Thao tác | Phím tắt |
-|---|---|
-| Chuyển góc nhìn Orthographic theo trục | `Numpad 1/3/7` (kèm `Numpad 5` để bật/tắt Perspective) |
-| Chuyển chế độ xem Wireframe | `Shift + Z` (hoặc menu Viewport Shading) |
-| Merge đỉnh đã chọn | `M` |
-| Bevel cạnh/góc | `Ctrl + B` |
-| Giảm độ nhạy chuột khi transform | Giữ `Shift` trong lúc `G`/`R`/`S` |
-| Bật/tắt Proportional Editing | `O` |
-| Áp Shade Smooth | Chuột phải trong Object Mode > Shade Smooth |
-| Thêm Subdivision Surface modifier | `Ctrl + 2` |
-| Bật overlay Face Orientation | Viewport Overlays > Face Orientation |
-| Recalculate Normals hướng ra ngoài | `Shift + N` (Edit Mode) |
+Có thể kéo trực tiếp file ảnh cá từ máy tính vào viewport.
 
-## 5. Lưu ý & lỗi thường gặp
+Blender sẽ tự động tạo một:
 
-- Scale nhầm trên trục Y trong lúc block-out sẽ phá vỡ tính đối xứng cần thiết cho Mirror modifier ở bước sau.
-- Bevel quá tay (`Ctrl + B` với giá trị lớn hoặc trên hình học phức tạp) có thể sinh ra mặt lỗi/hình học rác — luôn kiểm tra lại bằng mắt sau khi bevel.
-- Quên bật Clipping trên Mirror modifier khi ghép hai nửa mesh dễ tạo khe hở nhỏ không khớp hoàn hảo tại đường giữa.
-- Đỉnh nằm quá gần nhau (đặc biệt ở đuôi mỏng) là nguyên nhân phổ biến gây lỗi hiển thị khi bật Subdivision Surface — cần đảm bảo có độ dày tối thiểu tại các vùng mỏng.
-- Đừng cố sửa hướng Normals của object "Fish Source" — nó không hiển thị trong render nên hướng mặt đỏ/xanh không ảnh hưởng đến kết quả cuối.
+```text
+Empty
+└── Image
+```
 
-## 6. Checklist thực hành
+Ảnh này chỉ đóng vai trò tham chiếu, không phải một phần của mesh và không xuất hiện trong render thông thường.
 
-- [ ] Đã đưa được ảnh tham chiếu cá vào scene và dùng nó để block-out hình dạng.
-- [ ] Đã model được nửa thân cá cơ bản (không vây, không miệng) và gắn Mirror modifier hoàn chỉnh.
-- [ ] Đã làm đầy thân bằng Proportional Editing và áp Shade Smooth + Subdivision Surface.
-- [ ] Đã kiểm tra Face Orientation trên object cá và xác nhận không còn mặt bị lật Normals.
+### 3.3. Điều chỉnh ảnh tham chiếu
 
-## 7. Tóm tắt
+Đặt ảnh ở vị trí dễ quan sát, sau đó:
 
-Block-out cá ưu tiên tốc độ và tính đủ dùng cho việc rig hơn là chi tiết thẩm mỹ — kết hợp ảnh tham chiếu, Mirror modifier và Proportional Editing để nhanh chóng có một mesh cá cơ bản, sạch về mặt hình học (đã kiểm tra Normals) và sẵn sàng cho bước UV/material tiếp theo.
+* Di chuyển ảnh về đúng tâm scene.
+* Scale ảnh đến kích thước phù hợp.
+* Đặt ảnh phía sau vùng sẽ model.
+* Có thể giảm độ trong suốt để nhìn mesh rõ hơn.
+
+---
+
+## 4. Block-out thân cá từ Cube
+
+### 4.1. Thêm khối cơ bản
+
+Thêm một Cube:
+
+```text
+Shift + A
+→ Mesh
+→ Cube
+```
+
+Di chuyển Cube ra phía trước ảnh tham chiếu một khoảng nhỏ để tránh hiện tượng hai bề mặt chồng lên nhau.
+
+### 4.2. Tạo mặt phẳng block-out
+
+Trong **Edit Mode**:
+
+1. Subdivide Cube nếu cần thêm điểm điều khiển.
+2. Xóa phần hình học không cần thiết.
+3. Chỉ giữ lại phần mesh dùng để dựng một nửa thân cá.
+4. Chuyển sang chế độ Wireframe hoặc X-Ray để nhìn xuyên qua mesh và ảnh tham chiếu.
+
+Mục tiêu là tạo một lưới đơn giản bám theo hình dạng thân cá trong ảnh.
+
+### 4.3. Chỉ điều chỉnh theo chiều dài và chiều cao
+
+Trong giai đoạn block-out nhìn ngang, chủ yếu scale theo:
+
+* Trục chiều dài của cá.
+* Trục chiều cao của cá.
+
+Không nên tạo độ dày thân quá sớm.
+
+```text
+Ảnh nhìn ngang
+
+        Chiều cao
+            ↑
+      ┌───────────┐
+Đầu ← │ Thân cá   │ → Đuôi
+      └───────────┘
+            ↔
+        Chiều dài
+```
+
+Độ dày sẽ được tạo sau bằng Mirror Modifier và Proportional Editing.
+
+> [!WARNING]
+> Scale nhầm theo trục bề dày trong lúc block-out có thể khiến các đỉnh ở đường giữa không còn nằm trên mặt phẳng đối xứng, làm Mirror Modifier khó ghép kín hai nửa.
+
+---
+
+## 5. Nguyên tắc tạo mesh tối giản
+
+Tác giả chủ động không model quá nhiều chi tiết như:
+
+* Miệng.
+* Mang cá.
+* Vây ngực.
+* Vây lưng chi tiết.
+* Vảy.
+* Các rãnh nhỏ trên đầu.
+
+Thay vào đó, mesh chỉ cần thể hiện được:
+
+* Khối đầu.
+* Khối thân.
+* Phần bụng.
+* Cuống đuôi.
+* Đuôi đơn giản.
+
+### Vì sao nên giữ mesh đơn giản?
+
+Mesh ít đỉnh sẽ:
+
+* Dễ chỉnh sửa hơn.
+* Dễ rig hơn.
+* Biến dạng mượt hơn.
+* Ít xuất hiện lỗi topology.
+* Chạy nhẹ hơn trong viewport.
+* Dễ kiểm soát khi dùng Subdivision Surface.
+
+Tuy nhiên, vẫn nên có một số edge loop hoặc vertex gần vùng mắt và đầu để giữ form đầu ổn định khi Subdivision hoặc rig.
+
+---
+
+## 6. Tinh chỉnh hình dạng thân và đuôi
+
+### 6.1. Di chuyển đỉnh theo ảnh
+
+Chọn từng đỉnh hoặc nhóm đỉnh rồi dùng:
+
+* `G`: di chuyển.
+* `S`: scale.
+* `R`: xoay.
+
+Trong lúc transform, giữ `Shift` để giảm độ nhạy của chuột và điều chỉnh chính xác hơn.
+
+```text
+G / R / S
++ giữ Shift
+→ di chuyển chậm và chính xác
+```
+
+Kỹ thuật này đặc biệt hữu ích khi:
+
+* Căn đường cong phần đầu.
+* Chỉnh sống lưng.
+* Thuôn bụng.
+* Chỉnh cuống đuôi.
+* Đặt các đỉnh theo biên ảnh tham chiếu.
+
+### 6.2. Thuôn đầu và đuôi
+
+Phần đầu nên được thuôn nhẹ thay vì tạo thành một khối vuông.
+
+Phần nối giữa thân và đuôi cũng cần nhỏ dần:
+
+```text
+Đầu           Thân             Cuống đuôi      Đuôi
+ ___        __________             __          /\
+/   \______/          \___________/  \________/  \
+```
+
+Không nên làm cuống đuôi mỏng bằng `0`, vì điều này có thể gây lỗi khi bật Subdivision Surface.
+
+### 6.3. Gộp đỉnh
+
+Ở phần giữa của đuôi, có thể chọn một số đỉnh và dùng:
+
+```text
+M
+→ Merge
+```
+
+Ví dụ, gộp khoảng ba đỉnh giữa thành một điểm để tạo cấu trúc đuôi đơn giản.
+
+Tùy tình huống, có thể chọn:
+
+* At Center.
+* At Last.
+* At First.
+* By Distance.
+
+### 6.4. Bevel góc
+
+Chọn cạnh hoặc nhóm cạnh cần bo tròn rồi nhấn:
+
+```text
+Ctrl + B
+```
+
+Bevel giúp loại bỏ các góc quá nhọn và tạo đường cong mềm hơn cho:
+
+* Phần đầu.
+* Góc bụng.
+* Cuống đuôi.
+* Viền đuôi.
+
+> [!CAUTION]
+> Không nên bevel quá mạnh hoặc thêm quá nhiều segment trong giai đoạn block-out. Bevel quá tay có thể tạo mặt nhỏ, đỉnh sát nhau hoặc topology khó kiểm soát.
+
+---
+
+## 7. Dọn mặt phẳng đối xứng
+
+Trước khi thêm Mirror Modifier, cần đảm bảo rằng chỉ còn một nửa mesh.
+
+Các mặt nằm trên hoặc đi xuyên qua mặt phẳng đối xứng cần được xóa để Mirror Modifier có thể tạo nửa còn lại.
+
+Cấu trúc mong muốn:
+
+```text
+Trước Mirror
+
+Mặt phẳng đối xứng
+        │
+        │████████  ← Chỉ giữ một nửa mesh
+        │████████
+        │████████
+```
+
+Không nên giữ một lớp mặt nằm chính giữa hai nửa, vì có thể tạo ra:
+
+* Mặt bên trong mesh.
+* Geometry chồng lên nhau.
+* Đường nối không kín.
+* Lỗi shading.
+* Lỗi khi Subdivision.
+
+---
+
+## 8. Thêm Mirror Modifier
+
+### 8.1. Thiết lập Modifier
+
+Trong **Modifier Properties**:
+
+1. Chọn **Add Modifier**.
+2. Thêm **Mirror**.
+3. Chọn trục đối xứng phù hợp, trong bài là trục `Y`.
+4. Bật **Clipping**.
+5. Có thể bật thêm **Merge** nếu chưa được bật.
+
+Thiết lập cơ bản:
+
+```text
+Mirror Modifier
+├── Axis: Y
+├── Merge: On
+└── Clipping: On
+```
+
+### 8.2. Vai trò của Clipping
+
+**Clipping** ngăn các đỉnh tại đường giữa đi xuyên qua mặt phẳng đối xứng.
+
+Khi một đỉnh đã chạm mặt phẳng giữa, nó sẽ bị giữ lại tại đó.
+
+```text
+Không bật Clipping          Bật Clipping
+
+    \    /                      \  /
+     \  /                        \/
+      \/                         │
+      /\                         │
+     /  \                        /\
+```
+
+Clipping giúp hạn chế:
+
+* Khe hở giữa hai nửa.
+* Các đỉnh vượt qua tâm.
+* Đường giữa bị lệch.
+* Mesh không kín.
+
+---
+
+## 9. Căn các đỉnh vào đường giữa
+
+Nếu hai nửa chưa ghép khít, nguyên nhân thường là các đỉnh biên chưa nằm chính xác trên mặt phẳng đối xứng.
+
+### Cách xử lý
+
+1. Vào **Edit Mode**.
+2. Chọn toàn bộ vòng đỉnh tại đường giữa.
+3. Scale các đỉnh về `0` trên trục đối xứng:
+
+```text
+S
+→ Y
+→ 0
+```
+
+Lệnh này làm tất cả các đỉnh được chọn nằm trên cùng một mặt phẳng theo trục `Y`.
+
+4. Di chuyển vòng đỉnh về đúng vị trí tâm nếu cần:
+
+```text
+G
+→ Y
+```
+
+Khi **Clipping** được bật, các đỉnh sẽ dính vào mặt phẳng giữa và không đi xuyên sang nửa còn lại.
+
+> [!TIP]
+> Nếu đường giữa không trùng với Origin của object, Mirror Modifier có thể phản chiếu sai vị trí. Hãy kiểm tra Origin và transform của object trước khi tiếp tục.
+
+---
+
+## 10. Làm thân cá có độ dày
+
+Sau khi Mirror, thân cá có thể vẫn rất mỏng hoặc gần như phẳng.
+
+Để tạo khối 3D tự nhiên hơn, sử dụng **Proportional Editing**.
+
+### 10.1. Chọn vùng cần làm phồng
+
+Trong Edit Mode:
+
+1. Chọn một hoặc một vài đỉnh ở giữa thân.
+2. Không chọn các đỉnh ngoài cùng ở đầu và đuôi.
+3. Bật Proportional Editing bằng `O`.
+4. Di chuyển các đỉnh theo trục bề dày:
+
+```text
+G
+→ Y
+```
+
+5. Cuộn con lăn chuột để thay đổi bán kính ảnh hưởng.
+
+### 10.2. Nguyên lý biến dạng
+
+Proportional Editing làm các đỉnh xung quanh di chuyển theo với mức ảnh hưởng giảm dần:
+
+```text
+Ảnh hưởng mạnh
+      ↓
+  · · ● · ·
+ ·       ·
+·         ·
+```
+
+Kết quả là thân cá được làm đầy một cách mềm mại, thay vì chỉ kéo một đỉnh tạo ra góc nhọn.
+
+### 10.3. Hình dạng mong muốn
+
+Nhìn từ phía trên, thân cá nên có dạng gần giống:
+
+```text
+Đầu                         Đuôi
+  ________________
+ /                \____
+|                      \__
+ \_____________________/
+```
+
+Phần giữa thân dày nhất, sau đó mỏng dần về phía đầu và cuống đuôi.
+
+---
+
+## 11. Hoàn thiện bề mặt
+
+### 11.1. Shade Smooth
+
+Chuyển sang **Object Mode**, nhấp chuột phải lên object và chọn:
+
+```text
+Shade Smooth
+```
+
+Shade Smooth làm ánh sáng được nội suy giữa các mặt, giúp bề mặt trông mềm hơn.
+
+Lưu ý rằng Shade Smooth:
+
+* Không thêm polygon.
+* Không thay đổi hình học.
+* Chỉ thay đổi cách hiển thị ánh sáng trên bề mặt.
+
+### 11.2. Thêm Subdivision Surface
+
+Sử dụng phím tắt:
+
+```text
+Ctrl + 2
+```
+
+Lệnh này thường thêm **Subdivision Surface Modifier** với Viewport Level bằng `2`.
+
+Modifier stack gợi ý:
+
+```text
+1. Mirror
+2. Subdivision Surface
+```
+
+Mirror nên được đặt trước Subdivision để Blender:
+
+1. Tạo nửa đối xứng.
+2. Ghép đường giữa.
+3. Sau đó mới làm mượt toàn bộ mesh.
+
+---
+
+## 12. Sửa lỗi mesh khi bật Subdivision
+
+Sau khi bật Subdivision Surface, có thể xuất hiện:
+
+* Vết lõm bất thường.
+* Phần đuôi bị xoắn.
+* Mặt bị kéo nhọn.
+* Shading xuất hiện nếp gãy.
+* Geometry bị co lại quá mạnh.
+
+### Nguyên nhân thường gặp
+
+* Hai hoặc nhiều đỉnh nằm quá gần nhau.
+* Có đỉnh bị trùng.
+* Cuống đuôi mỏng bằng `0`.
+* Có mặt hoặc cạnh bên trong mesh.
+* Bevel tạo ra topology quá nhỏ.
+* Đường giữa chưa ghép chính xác.
+* Thứ tự Modifier chưa phù hợp.
+
+### Cách kiểm tra
+
+1. Tạm tắt Subdivision Surface.
+2. Kiểm tra mesh gốc.
+3. Tạm tắt Clipping nếu cần chỉnh các đỉnh sát đường giữa.
+4. Kéo tách các đỉnh bị chồng.
+5. Đảm bảo phần đuôi có độ dày nhỏ nhưng lớn hơn `0`.
+6. Bật lại Mirror và Subdivision để kiểm tra.
+
+Có thể dùng thêm:
+
+```text
+M
+→ By Distance
+```
+
+để gộp các đỉnh bị trùng, nhưng cần kiểm tra kỹ khoảng cách Merge để tránh gộp nhầm các vùng cần giữ riêng.
+
+---
+
+## 13. Kiểm tra Normals
+
+### 13.1. Face Orientation
+
+Mở:
+
+```text
+Viewport Overlays
+→ Face Orientation
+```
+
+Blender sẽ hiển thị hướng mặt bằng màu sắc:
+
+| Màu            | Ý nghĩa                              |
+| -------------- | ------------------------------------ |
+| **Xanh dương** | Mặt trước, Normal hướng ra ngoài     |
+| **Đỏ**         | Mặt sau, Normal đang hướng vào trong |
+
+Đối với object cá, phần bề mặt bên ngoài cần hiển thị màu xanh.
+
+### 13.2. Recalculate Normals
+
+Nếu một số mặt bị đỏ:
+
+1. Chọn object cá.
+2. Vào Edit Mode.
+3. Chọn tất cả bằng `A`.
+4. Nhấn:
+
+```text
+Shift + N
+```
+
+Lệnh này tính toán lại Normals theo hướng ra ngoài.
+
+### 13.3. Flip Normals thủ công
+
+Nếu chỉ có một vùng nhỏ bị sai:
+
+```text
+Alt + N
+→ Flip
+```
+
+Có thể lật riêng Normals của các mặt được chọn mà không ảnh hưởng đến toàn bộ mesh.
+
+---
+
+## 14. Trường hợp của object “Fish Source”
+
+Khi nhìn từ phía dưới object **Fish Source**, toàn bộ mặt plane có thể hiển thị màu đỏ.
+
+Điều này không nhất thiết là lỗi cần sửa.
+
+```text
+Fish Source
+└── Object nguồn cho Geometry Nodes
+    ├── Có thể bị ẩn trong render
+    ├── Không xuất hiện trực tiếp
+    └── Chỉ dùng để cung cấp geometry hoặc instance
+```
+
+Nếu object này:
+
+* Không được render trực tiếp.
+* Không dùng vật liệu phụ thuộc hướng mặt.
+* Chỉ đóng vai trò dữ liệu cho Geometry Nodes.
+
+thì hướng Normals của nó có thể không ảnh hưởng đến kết quả cuối cùng.
+
+> [!NOTE]
+> Normals của Fish Source vẫn có thể quan trọng nếu Geometry Nodes sử dụng Normal để định hướng instance. Chỉ nên bỏ qua khi chắc chắn node setup không phụ thuộc vào hướng mặt.
+
+---
+
+## 15. Quy trình thực hành từng bước
+
+### Bước 1 — Chuẩn bị tham chiếu
+
+* Đặt 3D Cursor.
+* Chuyển sang Orthographic Side View.
+* Kéo ảnh cá vào viewport.
+* Căn chỉnh kích thước và vị trí ảnh.
+
+### Bước 2 — Tạo block-out
+
+* Thêm Cube.
+* Subdivide nếu cần.
+* Xóa hình học không cần thiết.
+* Chỉ giữ một nửa thân cá.
+* Chuyển sang Wireframe hoặc X-Ray.
+* Căn mesh theo ảnh tham chiếu.
+
+### Bước 3 — Tạo hình thân và đuôi
+
+* Chỉnh đầu, lưng và bụng bằng `G` và `S`.
+* Giữ `Shift` để transform chính xác.
+* Gộp các đỉnh cần thiết bằng `M`.
+* Bevel các góc lớn bằng `Ctrl + B`.
+* Thuôn đầu và cuống đuôi.
+
+### Bước 4 — Chuẩn bị đối xứng
+
+* Xóa các mặt tại mặt phẳng giữa.
+* Kiểm tra Origin của object.
+* Thêm Mirror Modifier.
+* Chọn trục `Y`.
+* Bật Merge và Clipping.
+
+### Bước 5 — Ghép kín đường giữa
+
+* Chọn vòng đỉnh giữa.
+* Dùng `S`, `Y`, `0`.
+* Dùng `G`, `Y` để đưa đỉnh về mặt phẳng tâm.
+* Kiểm tra không còn khe hở giữa hai nửa.
+
+### Bước 6 — Làm đầy thân
+
+* Chọn đỉnh ở vùng giữa thân.
+* Bật Proportional Editing bằng `O`.
+* Dùng `G`, `Y` để tạo độ dày.
+* Điều chỉnh bán kính ảnh hưởng bằng con lăn chuột.
+
+### Bước 7 — Làm mượt
+
+* Chọn Shade Smooth.
+* Thêm Subdivision Surface bằng `Ctrl + 2`.
+* Đảm bảo thứ tự Mirror nằm trước Subdivision.
+
+### Bước 8 — Dọn lỗi
+
+* Kiểm tra phần đuôi và đường giữa.
+* Tách các đỉnh nằm quá gần nhau.
+* Gộp vertex trùng nếu có.
+* Đảm bảo các vùng mỏng vẫn có độ dày tối thiểu.
+
+### Bước 9 — Kiểm tra Normals
+
+* Bật Face Orientation.
+* Kiểm tra toàn bộ mặt ngoài của cá có màu xanh.
+* Dùng `Shift + N` nếu Normals bị lật.
+* Chỉ bỏ qua Fish Source khi chắc chắn nó không ảnh hưởng đến Geometry Nodes.
+
+---
+
+## 16. Phím tắt và công cụ liên quan
+
+| Thao tác                         | Phím tắt/Cách thực hiện                      |
+| -------------------------------- | -------------------------------------------- |
+| Front View                       | `Numpad 1`                                   |
+| Side View                        | `Numpad 3`                                   |
+| Top View                         | `Numpad 7`                                   |
+| Perspective/Orthographic         | `Numpad 5`                                   |
+| Mở Viewport Shading Pie          | `Z`                                          |
+| Bật/tắt X-Ray                    | `Alt + Z`                                    |
+| Di chuyển                        | `G`                                          |
+| Xoay                             | `R`                                          |
+| Scale                            | `S`                                          |
+| Transform chính xác              | Giữ `Shift` trong khi dùng `G`, `R` hoặc `S` |
+| Merge vertex                     | `M`                                          |
+| Bevel cạnh                       | `Ctrl + B`                                   |
+| Bật/tắt Proportional Editing     | `O`                                          |
+| Scale phẳng theo trục Y          | `S` → `Y` → `0`                              |
+| Thêm Subdivision Surface Level 2 | `Ctrl + 2`                                   |
+| Chọn tất cả trong Edit Mode      | `A`                                          |
+| Recalculate Normals ra ngoài     | `Shift + N`                                  |
+| Mở menu Normals                  | `Alt + N`                                    |
+| Face Orientation                 | Viewport Overlays → Face Orientation         |
+| Shade Smooth                     | Chuột phải trong Object Mode → Shade Smooth  |
+
+> [!TIP]
+> Phím tắt Viewport Shading có thể khác tùy phiên bản Blender hoặc keymap. Có thể nhấn `Z` để mở Shading Pie và chọn **Wireframe**.
+
+---
+
+## 17. Lỗi thường gặp
+
+### 17.1. Hai nửa cá không ghép kín
+
+**Nguyên nhân:**
+
+* Clipping chưa được bật.
+* Các đỉnh giữa chưa nằm trên mặt phẳng đối xứng.
+* Origin của object bị lệch.
+* Chọn sai trục Mirror.
+
+**Cách khắc phục:**
+
+```text
+Chọn vòng đỉnh giữa
+→ S, Y, 0
+→ G, Y
+→ Bật Merge và Clipping
+```
+
+---
+
+### 17.2. Xuất hiện mặt bên trong thân cá
+
+**Nguyên nhân:**
+
+Các mặt tại mặt phẳng đối xứng chưa được xóa trước khi thêm Mirror.
+
+**Cách khắc phục:**
+
+* Tắt tạm Mirror.
+* Xóa các mặt nằm ở đường giữa.
+* Bật lại Mirror.
+* Kiểm tra Face Orientation.
+
+---
+
+### 17.3. Đuôi bị lỗi khi Subdivision
+
+**Nguyên nhân:**
+
+* Đuôi mỏng bằng `0`.
+* Các vertex nằm quá sát nhau.
+* Có vertex trùng.
+* Bevel tạo nhiều mặt nhỏ.
+
+**Cách khắc phục:**
+
+* Tạo độ dày nhẹ cho đuôi.
+* Dịch các vertex ra xa nhau.
+* Dùng Merge by Distance cẩn thận.
+* Đơn giản hóa topology.
+
+---
+
+### 17.4. Bề mặt bị lõm hoặc gãy
+
+**Nguyên nhân:**
+
+* Edge flow chưa đều.
+* Khoảng cách giữa các edge loop chênh lệch quá lớn.
+* Có mặt tam giác hoặc n-gon ở vùng cong mạnh.
+* Subdivision Surface đang khuếch đại lỗi của mesh gốc.
+
+**Cách khắc phục:**
+
+* Tạm tắt Subdivision.
+* Chỉnh lại mesh low-poly.
+* Giữ khoảng cách vertex tương đối đều.
+* Hạn chế topology phức tạp ở đầu và đuôi.
+
+---
+
+### 17.5. Toàn bộ cá hiển thị màu đỏ
+
+**Nguyên nhân:**
+
+Normals đang hướng vào trong.
+
+**Cách khắc phục:**
+
+```text
+Edit Mode
+→ A
+→ Shift + N
+```
+
+---
+
+## 18. Checklist thực hành
+
+### Ảnh tham chiếu
+
+* [ ] Đã đưa được ảnh cá vào scene.
+* [ ] Đã chuyển sang góc nhìn Orthographic.
+* [ ] Đã căn ảnh đúng tỉ lệ và vị trí.
+
+### Block-out
+
+* [ ] Đã tạo được hình dạng đầu, thân và đuôi cơ bản.
+* [ ] Mesh không có quá nhiều vertex không cần thiết.
+* [ ] Đã giữ một nửa mesh để dùng Mirror.
+
+### Mirror Modifier
+
+* [ ] Đã chọn đúng trục đối xứng.
+* [ ] Đã bật Merge.
+* [ ] Đã bật Clipping.
+* [ ] Đường giữa không còn khe hở.
+* [ ] Không có mặt thừa bên trong thân cá.
+
+### Tạo khối
+
+* [ ] Thân cá đã có độ dày.
+* [ ] Phần giữa thân dày hơn đầu và cuống đuôi.
+* [ ] Đuôi có độ dày tối thiểu, không bị phẳng bằng `0`.
+
+### Hoàn thiện
+
+* [ ] Đã áp dụng Shade Smooth.
+* [ ] Đã thêm Subdivision Surface.
+* [ ] Không còn lỗi lõm, xoắn hoặc geometry chồng nhau.
+* [ ] Các mặt ngoài của cá hiển thị màu xanh trong Face Orientation.
+
+---
+
+## 19. Kết quả sau bài học
+
+Sau bước này, scene sẽ có một model cá:
+
+* Có hình dạng tổng thể phù hợp với ảnh tham chiếu.
+* Được tạo từ topology tương đối đơn giản.
+* Đối xứng nhờ Mirror Modifier.
+* Có độ dày và thể tích cơ bản.
+* Có bề mặt mượt nhờ Subdivision Surface.
+* Không có Normals bị lật ở phần hiển thị.
+* Sẵn sàng cho bước UV Mapping, Material và Rigging.
+
+---
+
+## 20. Tóm tắt
+
+Kỹ thuật chính của chương là kết hợp:
+
+```text
+Ảnh tham chiếu
++ Block-out tối giản
++ Mirror Modifier
++ Proportional Editing
++ Subdivision Surface
++ Kiểm tra Normals
+```
+
+Thay vì dành nhiều thời gian model các chi tiết nhỏ, tác giả ưu tiên tạo một mesh cá đơn giản nhưng có hình khối rõ ràng và topology đủ sạch để biến dạng tốt.
+
+Đây là một cách tiếp cận phù hợp với các project cần:
+
+* Dựng model nhanh.
+* Tạo nhiều cá trong một cảnh.
+* Rig bằng Armature hoặc Bendy Bones.
+* Phân bố cá bằng Geometry Nodes.
+* Giữ hiệu năng viewport ổn định.
