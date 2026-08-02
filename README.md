@@ -105,6 +105,18 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 |--------|--------|----------|--------|
 | [3707ICT - Automation and IoT](./3707ict-automation-and-iot/) | Industry 4.0, IoT Architecture, GPIO/Interrupts, Sensors & Actuators, Control Systems, MQTT, Cloud Dashboards, Edge Computing & TinyML, IoT Security, Smart-Tariff Group Project | English | ✅ |
 
+### Health, Fitness & Nutrition
+
+| Course | Topics | Language | Status |
+|--------|--------|----------|--------|
+| [Nutrition Masterclass: Build Your Perfect Diet & Meal Plan](./nutrition-masterclass-build-your-perfect-diet-meal-plan/) | Calories & Energy Balance, Macronutrients, Meal Timing, Supplements, TDEE & Macro Setup, Cutting/Bulking, Dieting Myths, Diet Trends (Keto/IF/Paleo/Vegan), Micronutrients | Vietnamese | 🚧 (001–013 xong, 014–094 mới ở dạng khung) |
+
+### Languages & Test Prep
+
+| Course | Topics | Language | Status |
+|--------|--------|----------|--------|
+| [TOEIC Speaking & Writing](./toeic-speaking-and-writing/) | Read a Text Aloud, Describe a Picture, Respond to Questions, Express an Opinion, Write a Sentence Based on a Picture, Respond to a Written Request, Opinion Essay | Vietnamese | 🚧 (48 bài mới ở dạng khung) |
+
 ### Writing
 
 | Course | Topics | Language | Status |
@@ -126,4 +138,6 @@ Each course folder contains:
 - `enterprise-integration-engineer-roadmap/` has its full module scaffold in place; lecture notes are still being written
 - `animate-and-render-a-fish-in-blender/` is notes from a single YouTube tutorial (Polyfjord), not a Udemy course — "lessons" map to video chapters/timestamps instead of separate lectures
 - `the-secret-to-easy-fish-animation-in-blender/` is notes from the earlier, shorter Polyfjord video referenced inside the mega-tutorial above; notes here are grounded in an actual (machine-translated) transcript rather than chapter titles alone
+- `toeic-speaking-and-writing/` is sourced from a Google Drive folder rather than Udemy; lesson files use a continuous `001–048` numbering while the original Drive labels (`Video 01–26`, `Unit 01–25`) are preserved in each file's metadata table. The Drive folder has no Unit 07–09, and the PDFs stay in Drive (not committed here)
+- `nutrition-masterclass-build-your-perfect-diet-meal-plan/` is the only non-technical/health course in the repo; lessons 001–013 have full notes, lessons 014–094 are intentionally scaffolds (title + metadata + section outline) to be filled in while watching the videos
 - `creating-an-animated-school-of-fish-in-blender/` is notes from a third, unrelated fish-animation tutorial (video title/channel not specified in the source material) using Bendy Bone armatures + Geometry Nodes instead of the Curve modifier approach in the other two folders
