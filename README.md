@@ -75,6 +75,10 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Blockchain Developer Roadmap](./blockchain-roadmap/) | Smart Contracts, Solidity, Web3, DeFi | Vietnamese | ✅ |
 | [QA Engineer Roadmap](./qa-roadmap/) | Manual & Automated Testing, Test Strategy, CI Integration | Vietnamese | ✅ |
 | [Game Developer Roadmap](./game-developer-roadmap/) | Game Math, Physics, Engines, Graphics, Game AI, Rendering, Portfolio Game | Vietnamese | ✅ |
+| [Complete C# Unity 2D Game Development - Updated To Unity 6](./complete-csharp-unity-2d-game-development-unity-6/) | Unity 6, C#, 2D Physics, Tilemap, Cinemachine, UI, Four 2D Games | Vietnamese | ✅ |
+| [Complete C# Unity 3D Game Development in Unity 6](./complete-csharp-unity-3d-game-development-unity-6/) | Unity 6, C#, 3D Physics, Timeline, Terrain, ProBuilder, NavMesh, Five 3D Games | Vietnamese | ✅ |
+| [Make Visual Novels in Ren'Py: 2D Game Development Quickstart](./make-visual-novels-in-renpy-2d-game-development-quickstart/) | Ren'Py, Python Basics, Visual Novels, Reputation System, Interactive Map | Vietnamese | ✅ |
+| [Godot 4: Build & Launch Full 2D Roguelike Game](./godot-4-build-launch-full-2d-roguelike-game/) | Godot 4, GDScript, 2D Roguelike, Ability System, Enemy AI, UI, Audio/VFX | Vietnamese | ✅ |
 
 ### Product, Management & Design
 
@@ -84,6 +88,7 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Engineering Manager Roadmap](./engineering-manager-roadmap/) | Technical Leadership, People Management, Delivery, Metrics, Culture, Incident Management | Vietnamese | ✅ |
 | [DevRel Roadmap](./devrel-roadmap/) | Developer Relations, Advocacy, Community, Technical Content, Onboarding, DevRel Metrics | Vietnamese | ✅ |
 | [UX Design Roadmap](./ux-design-roadmap/) | Human Decision Making, Behavior Design, Product Discovery, Prototyping, UX Testing | Vietnamese | ✅ |
+| [Indie Game Design: Build Your Game's Core System](./indie-game-design-build-your-games-core-system/) | Core Gameplay, Engagement Gameplay, Rewards, Difficulty, Game System Design | Vietnamese | ✅ |
 | [The Complete Vibe coding for UX/UI Designers](./vibe-coding-for-ux-ui-designers/) | Prompting, Figma AI, Design Systems, Lovable, Cursor, Windsurf, v0, AI Ethics | English | ✅ |
 | [Build a Design System - Full Course](./build-a-design-system-full-course/) | Figma Variables & Modes, Design Tokens, Multi-Brand Theming, Dark Mode, Type Scale, Component Library, Publishing | English | ✅ |
 | [Design System & Figma Variable Set Up - Full Tutorial](./design-system-figma-variable-setup-full-tutorial/) | Figma Variables, Design Tokens, Brand/Alias/Mapped Collections, Multi-Brand, Dark Mode, Responsive Type Scale | English | ✅ |
@@ -95,6 +100,7 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 |--------|--------|----------|--------|
 | [Complete Blender Creator: 3D Modelling](./complete-blender-creator-3d-modelling/) | Blender 4.3/4.4, Box Modelling, Modifiers, Materials & Shader Nodes, UV Mapping, Rigging & Animation, Sculpting | English | ✅ |
 | [Blender 3D for Beginners: Complete Modeling & Texturing Guide](./blender-3d-for-beginners-complete-modeling-and-texturing-guide/) | Blender Fundamentals, Organic & Hard-Surface Modeling, Modifiers, Digital Sculpting, Material Creation, Final Character Project | English | ✅ |
+| [Pixel Art Master Course - Beginner to Professional/Freelance](./pixel-art-master-course-beginner-to-professional-freelance/) | Pixel Art, Aseprite, Tilesets, Characters, Animation, VFX, Portfolio, Freelancing | Vietnamese | ✅ |
 | [Learn How to Animate and Render a Fish in Blender!](./animate-and-render-a-fish-in-blender/) | Curve Path Animation, Follow Path Constraint, Shape Keys & Drivers, Procedural Texturing, Underwater Lighting, Camera Tracking, Motion Blur | English | ✅ |
 | [The Secret to Easy Fish Animation in Blender!](./the-secret-to-easy-fish-animation-in-blender/) | Curve Modifier, Burst-and-Coast Swimming, Graph Editor Keyframing, Volume Scatter, Decimate & Mesh Cleanup | English | ✅ |
 | [Creating an Animated School of Fish in Blender](./creating-an-animated-school-of-fish-in-blender/) | Bendy Bone Armature, F-Curve Modifiers, Envelope Weights, Geometry Nodes Instancing, Animated Water Shader | English | ✅ |
