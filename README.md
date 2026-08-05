@@ -77,7 +77,11 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [Game Developer Roadmap](./game-developer-roadmap/) | Game Math, Physics, Engines, Graphics, Game AI, Rendering, Portfolio Game | Vietnamese | ✅ |
 | [Complete C# Unity 2D Game Development - Updated To Unity 6](./complete-csharp-unity-2d-game-development-unity-6/) | Unity 6, C#, 2D Physics, Tilemap, Cinemachine, UI, Four 2D Games | Vietnamese | ✅ |
 | [Complete C# Unity 3D Game Development in Unity 6](./complete-csharp-unity-3d-game-development-unity-6/) | Unity 6, C#, 3D Physics, Timeline, Terrain, ProBuilder, NavMesh, Five 3D Games | Vietnamese | ✅ |
+| [Master Visual Novel Game Creation in Unity: For Beginners](./master-visual-novel-game-creation-in-unity-for-beginners/) | Unity, C#, Visual Novel Engine, Dialogue System, ScriptableObject, JSON Save/Load, WebGL | Vietnamese | ✅ |
 | [Make Visual Novels in Ren'Py: 2D Game Development Quickstart](./make-visual-novels-in-renpy-2d-game-development-quickstart/) | Ren'Py, Python Basics, Visual Novels, Reputation System, Interactive Map | Vietnamese | ✅ |
+| [Mastering Ren'Py: Create Visual Novels Like a Pro](./mastering-renpy-create-visual-novels-like-a-pro/) | Ren'Py, Visual Novels, Screen Language, Relationship System, Branching Story, Python Minigame, Multiple Endings | Vietnamese | ✅ |
+| [Python Basics for Ren'Py Developers](./python-basics-for-renpy-developers/) | Python, Ren'Py, Variables, Data Structures, Conditionals, Loops, Functions, Classes | Vietnamese | ✅ |
+| [Ren'Py Minigames 101](./renpy-minigames-101/) | Ren'Py, Python, Creator-Defined Displayable, Rhythm Game, PyGame Input, Beat Maps, Scoring | Vietnamese | ✅ |
 | [Godot 4: Build & Launch Full 2D Roguelike Game](./godot-4-build-launch-full-2d-roguelike-game/) | Godot 4, GDScript, 2D Roguelike, Ability System, Enemy AI, UI, Audio/VFX | Vietnamese | ✅ |
 
 ### Product, Management & Design
