@@ -1,0 +1,31 @@
+Source notes and provenance
+
+Deck: Week 5 - Automation Systems and Control Concepts
+Audience: 3707ICT Automation and IoT students
+Primary source: D:/Sao luu/Udemy/3707ict-automation-and-iot/Week 05 - Automation Systems and Control Concepts/Week 05 - Automation Systems and Control Concepts.md
+Code source: D:/Sao luu/Udemy/3707ict-automation-and-iot/3707-code/3707-code/Week 05 - Automation Systems and Control Concepts
+Template source: D:/Sao luu/Udemy/3707ict-automation-and-iot/Week 04 - Sensors and Actuators/Wk04-Workshop.pptx
+Source date: accessed 2026-08-06. User-provided local course materials.
+
+Content facts used
+- Automation workflow: sense -> decide -> act -> observe.
+- Open-loop control does not measure the result; Task 1 uses a fixed 2 second LED cycle on GPIO 13.
+- Task 2 reads a potentiometer on GPIO 34, compares against ADC threshold 2048, drives an LED on GPIO 13, and waits 500 ms.
+- Task 3 reads an LDR on GPIO 34, treats Wokwi readings above 1500 as dark, and turns the LED on GPIO 13 on in dark conditions.
+- Task 4 uses hysteresis: LED ON at readings >= 2000, LED OFF at readings <= 1200, and holds the previous state between thresholds.
+- Captured examples from the Markdown: Task 2 reading 1397 -> OFF; Task 3 reading 680 -> BRIGHT / LIGHT OFF; Task 4 reading 200 -> BRIGHT / LED OFF.
+- PID is presented conceptually as proportional, integral, and derivative response to error; no tuning claims are made.
+- The Markdown classifies Task 2 as sensor-driven threshold control, and Tasks 3-4 as closed-loop only when the sensor measures the controlled environment.
+
+Assets
+- Template visuals, logo, layout, typography, and page chrome are inherited from Wk04-Workshop.pptx.
+- Task evidence images are user-provided Wokwi screenshots at each task folder's output.png. They show code, simulated circuit, and Serial Monitor results.
+- No new generated bitmap was required; the supplied template and Wokwi screenshots provide relevant visuals.
+
+Slide traceability
+- Slides 1-12: Week 5 lecture concepts distilled from the Markdown sections 1-13.
+- Slides 13-21: Four Wokwi experiments and observed outputs from the Markdown sections 14-18 and task files.
+- Slide 22: Technical classification and lab results summary from Markdown sections 19-21.
+- Slide 23: PID basics and control strategy progression from Markdown sections 12-13.
+- Slide 24: Troubleshooting from Markdown section 22.
+- Slide 25: Extensions and takeaways from Markdown sections 23 and 27.

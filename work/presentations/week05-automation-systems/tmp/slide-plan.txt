@@ -1,0 +1,42 @@
+Week 5 presentation plan
+
+Mode: template-following. Duplicate every source slide from Wk04-Workshop.pptx and edit inherited elements in place.
+
+Design preservation
+- Canvas: 960 x 540, inherited from the source deck.
+- Typeface: preserve the source Arial / Courier New usage and inherited sizes.
+- Palette: preserve source red #EC251D title, blue #003DA5 headers and callouts, green #1A8A3E success states, orange #F59E00 warnings, grey process blocks, and source logo/footer chrome.
+- Do not add a separate theme or full-slide bitmap.
+
+Narrative
+1. Cover: Week 5 title.
+2. Why automation: learning outcomes and sense-decide-act loop.
+3. Roadmap: lecture and lab sequence.
+4. System model: physical process -> sensor -> controller -> actuator -> feedback.
+5. Control anatomy: setpoint, process variable, error, controller, actuator, feedback.
+6. Industrial context: field devices, PLC, microcontroller, HMI, SCADA, enterprise layers.
+7. Digital and analogue signals: GPIO versus ADC 0-4095.
+8. Control-cycle workflow: sample, decide, update, diagnose, repeat.
+9. Open loop: fixed-time LED experiment and Wokwi evidence.
+10. Closed loop: measured output, feedback, and automatic correction.
+11. Error and feedback: negative feedback and e(t) = r(t) - y(t).
+12. Lab roadmap: four Week 5 tasks.
+13. Task 1 setup/result: fixed-time LED, GPIO 13, 2 second cycle.
+14. Task 1 code: short sketch and expected Serial Monitor pattern.
+15. Task 2 controller: potentiometer, threshold 2048, code logic.
+16. Task 2 result: captured ADC 1397 -> OFF and threshold table.
+17. Task 3 sensor: LDR, inverse Wokwi light relationship, circuit evidence.
+18. Task 3 result: threshold 1500, captured 680 -> bright / light off.
+19. Hysteresis concept: why two thresholds stop chatter.
+20. Task 4 code: thresholds 2000 / 1200 and preserved state.
+21. Task 4 result: captured 200 -> bright / LED off and test method.
+22. Classification summary: open loop, threshold input, closed loop, hysteresis.
+23. PID bridge: P, I, D roles and progression beyond ON/OFF.
+24. Troubleshooting: wiring, ADC, thresholds, serial output, flicker.
+25. Extensions and takeaways: proportional brightness, millis(), calibration, review.
+
+Editing rules
+- Keep inherited positions, fills, borders, images, and footer/logo unless an image slot is explicitly replaced with a user-provided Wokwi screenshot.
+- Use short, presentation-ready copy. Code snippets are edited text in inherited code frames, not rasterized screenshots.
+- Table content is rewritten in inherited native tables so it remains editable.
+- Use the actual captured Wokwi readings from the Markdown; do not invent measurements.
