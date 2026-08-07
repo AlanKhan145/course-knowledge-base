@@ -103,7 +103,6 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | Course | Topics | Language | Status |
 |--------|--------|----------|--------|
 | [Complete Blender Creator: 3D Modelling](./complete-blender-creator-3d-modelling/) | Blender 4.3/4.4, Box Modelling, Modifiers, Materials & Shader Nodes, UV Mapping, Rigging & Animation, Sculpting | English | ✅ |
-| [Blender 3D for Beginners: Complete Modeling & Texturing Guide](./blender-3d-for-beginners-complete-modeling-and-texturing-guide/) | Blender Fundamentals, Organic & Hard-Surface Modeling, Modifiers, Digital Sculpting, Material Creation, Final Character Project | English | ✅ |
 | [Pixel Art Master Course - Beginner to Professional/Freelance](./pixel-art-master-course-beginner-to-professional-freelance/) | Pixel Art, Aseprite, Tilesets, Characters, Animation, VFX, Portfolio, Freelancing | Vietnamese | ✅ |
 | [Learn How to Animate and Render a Fish in Blender!](./animate-and-render-a-fish-in-blender/) | Curve Path Animation, Follow Path Constraint, Shape Keys & Drivers, Procedural Texturing, Underwater Lighting, Camera Tracking, Motion Blur | English | ✅ |
 | [The Secret to Easy Fish Animation in Blender!](./the-secret-to-easy-fish-animation-in-blender/) | Curve Modifier, Burst-and-Coast Swimming, Graph Editor Keyframing, Volume Scatter, Decimate & Mesh Cleanup | English | ✅ |
