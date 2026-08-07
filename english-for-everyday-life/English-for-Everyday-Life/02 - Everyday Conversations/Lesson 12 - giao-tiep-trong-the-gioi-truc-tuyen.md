@@ -49,8 +49,8 @@ Sau bài này, người học có thể:
 
 **A:** Hi, can I ask you something?  
 **B:** Sure. What do you need?  
-**A:** Nói về Internet, website, email và hoạt động trực tuyến.  
-**B:** No problem. Let me help you with that.  
+**A:** I need some help with this situation.  
+**B:** No problem. Tell me what happened.  
 **A:** Great, thank you.  
 **B:** You're welcome.
 

@@ -49,8 +49,8 @@ Sau bài này, người học có thể:
 
 **A:** Hi, can I ask you something?  
 **B:** Sure. What do you need?  
-**A:** Tìm chuyến bay, lựa chọn lịch trình và đặt vé.  
-**B:** No problem. Let me help you with that.  
+**A:** I need some help with this situation.  
+**B:** No problem. Tell me what happened.  
 **A:** Great, thank you.  
 **B:** You're welcome.
 
