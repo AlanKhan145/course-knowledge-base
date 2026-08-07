@@ -19,8 +19,6 @@ Bạn gặp một người quen, bạn học hoặc người mới gặp. Bạn 
 
 ![Hai người đang trò chuyện](../../asset/lesson-01-friendly-conversation.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
-
 ---
 
 ## 2. Mục tiêu bài học
@@ -63,7 +61,6 @@ flowchart LR
 
 ![hello — lời chào](../../asset/lesson-01-hello.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -81,7 +78,6 @@ flowchart LR
 
 ![morning — buổi sáng](../../asset/lesson-01-morning.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -97,7 +93,7 @@ flowchart LR
 
 ![evening — buổi tối](../../asset/lesson-01-evening.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -114,7 +110,7 @@ flowchart LR
 
 ![in ages — một thời gian rất dài](../../asset/lesson-01-in-ages.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -129,7 +125,7 @@ flowchart LR
 
 ![well — cảm thấy khỏe và vui](../../asset/lesson-01-well.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -145,7 +141,7 @@ flowchart LR
 
 ![bye — tạm biệt](../../asset/lesson-01-bye.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -160,7 +156,7 @@ flowchart LR
 
 ![library — thư viện](../../asset/lesson-01-library.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -177,7 +173,7 @@ flowchart LR
 
 ![a long time — thời gian dài](../../asset/lesson-01-a-long-time.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -192,7 +188,7 @@ flowchart LR
 
 ![thanks — cảm ơn](../../asset/lesson-01-thanks.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -208,7 +204,7 @@ flowchart LR
 
 ![today — hôm nay](../../asset/lesson-01-today.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -223,7 +219,7 @@ flowchart LR
 
 ![later — lát nữa](../../asset/lesson-01-later.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -238,7 +234,7 @@ flowchart LR
 
 ![parents — bố mẹ và gia đình](../../asset/lesson-01-parents.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -254,7 +250,7 @@ flowchart LR
 
 ![sister — chị/em gái](../../asset/lesson-01-sister.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -269,7 +265,7 @@ flowchart LR
 
 ![class — lớp học](../../asset/lesson-01-class.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Ví dụ:**
 
@@ -304,7 +300,7 @@ flowchart LR
 
 ![Mẫu câu giới thiệu bản thân](../../asset/lesson-01-structure-self-introduction.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 ### **Hello, my name's + tên.**
 
@@ -319,7 +315,7 @@ flowchart LR
 
 ![Mẫu câu hỏi thăm sức khỏe](../../asset/lesson-01-structure-how-are-you.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 ### **How are you?**
 
@@ -344,7 +340,7 @@ flowchart LR
 
 ![Mẫu câu hỏi thăm người thân](../../asset/lesson-01-structure-family-check-in.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 ### **How are your + danh từ số nhiều?**
 
@@ -362,7 +358,7 @@ flowchart LR
 
 ![Mẫu câu gặp lại sau một thời gian dài](../../asset/lesson-01-structure-long-time-no-see.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 ### **I haven't seen you in ages.**
 
@@ -384,7 +380,7 @@ hoặc
 
 ![Mẫu câu hỏi nơi ai đó đang đi](../../asset/lesson-01-structure-where-going.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 ### **Where are you going?**
 
@@ -401,7 +397,7 @@ Câu đầy đủ là:
 
 ![Mẫu câu kết thúc cuộc trò chuyện](../../asset/lesson-01-structure-closing-conversation.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 - **I must go to class now.** — Bây giờ tôi phải đi học rồi.
 - **Bye!** — Tạm biệt!
@@ -446,7 +442,7 @@ Không nên đọc thành `tanks`.
 
 ![Hội thoại 1 — Gặp lại bạn cũ](../../asset/lesson-01-dialogue-old-friends.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Nam:** Hi, Linh! I haven't seen you in ages.  
 **Linh:** Hi, Nam! It's really nice to see you.  
@@ -458,25 +454,13 @@ Không nên đọc thành `tanks`.
 **Linh:** Me too. Bye! See you later.  
 **Nam:** See you!
 
-### Dịch nghĩa
-
-**Nam:** Chào Linh! Lâu lắm rồi mình không gặp bạn.  
-**Linh:** Chào Nam! Thật vui khi gặp lại bạn.  
-**Nam:** Hôm nay bạn thế nào?  
-**Linh:** Khá ổn, cảm ơn. Còn bạn?  
-**Nam:** Mình rất khỏe, cảm ơn. Bố mẹ bạn thế nào?  
-**Linh:** Bố mẹ mình khỏe. Cảm ơn bạn đã hỏi thăm.  
-**Nam:** Tuyệt! Bây giờ mình phải đi học rồi.  
-**Linh:** Mình cũng vậy. Tạm biệt! Hẹn gặp lại sau.  
-**Nam:** Hẹn gặp lại!
-
 ---
 
 ## Hội thoại 2 — Trên đường đến thư viện
 
 ![Hội thoại 2 — Trên đường đến thư viện](../../asset/lesson-01-dialogue-library.png)
 
-*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 
 **Mai:** Hey, Alex! How are you?  
 **Alex:** Not too bad, thanks. And you?  
@@ -711,6 +695,3 @@ Viết lại đoạn hội thoại của chính bạn trong **6–8 lượt**.
 
 ---
 
-## Nguồn ảnh minh họa
-
-Các ảnh minh họa trong bài được tạo bằng AI bằng phương pháp lưới ảnh vuông, sau đó cắt thành từng tệp riêng và lưu trong thư mục `asset`.
