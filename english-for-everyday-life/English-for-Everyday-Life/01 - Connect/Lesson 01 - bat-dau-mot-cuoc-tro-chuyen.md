@@ -17,9 +17,9 @@ Bạn gặp một người quen, bạn học hoặc người mới gặp. Bạn 
 - nói rằng đã lâu không gặp;
 - kết thúc cuộc trò chuyện lịch sự.
 
-![Hai người đang trò chuyện](https://commons.wikimedia.org/wiki/Special:FilePath/Two_young_people_demonstrating_a_lively_conversation.jpg?width=900)
+![Hai người đang trò chuyện](../../asset/lesson-01-friendly-conversation.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Two young people demonstrating a lively conversation](https://commons.wikimedia.org/wiki/File:Two_young_people_demonstrating_a_lively_conversation.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 ---
 
@@ -61,9 +61,9 @@ flowchart LR
 **Nghĩa:** xin chào, chào bạn  
 **Từ loại:** thán từ
 
-![hello — lời chào](https://commons.wikimedia.org/wiki/Special:FilePath/Waving_hello_%289468829996%29.jpg?width=720)
+![hello — lời chào](../../asset/lesson-01-hello.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Waving hello](https://commons.wikimedia.org/wiki/File:Waving_hello_%289468829996%29.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -79,9 +79,9 @@ flowchart LR
 **Nghĩa:** buổi sáng  
 **Cụm quan trọng:** **Good morning!** — Chào buổi sáng!
 
-![morning — buổi sáng](https://commons.wikimedia.org/wiki/Special:FilePath/Sunrise_in_the_early_morning.png?width=720)
+![morning — buổi sáng](../../asset/lesson-01-morning.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Sunrise in the early morning](https://commons.wikimedia.org/wiki/File:Sunrise_in_the_early_morning.png).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -95,9 +95,9 @@ flowchart LR
 **Nghĩa:** buổi tối, khoảng thời gian chiều tối  
 **Cụm quan trọng:** **Good evening!** — Chào buổi tối!
 
-![evening — buổi tối](https://commons.wikimedia.org/wiki/Special:FilePath/Sunset_in_the_evening.jpg?width=720)
+![evening — buổi tối](../../asset/lesson-01-evening.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Sunset in the evening](https://commons.wikimedia.org/wiki/File:Sunset_in_the_evening.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -112,9 +112,9 @@ flowchart LR
 **Nghĩa:** đã rất lâu rồi  
 **Cách dùng:** thường xuất hiện trong câu phủ định với thì hiện tại hoàn thành.
 
-![in ages — một thời gian rất dài](https://commons.wikimedia.org/wiki/Special:FilePath/Calendar_clock.jpg?width=600)
+![in ages — một thời gian rất dài](../../asset/lesson-01-in-ages.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Calendar clock](https://commons.wikimedia.org/wiki/File:Calendar_clock.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -127,9 +127,9 @@ flowchart LR
 **Nghĩa trong bài:** khỏe, ổn  
 **Cụm thường gặp:** **very well** — rất khỏe / rất ổn
 
-![well — cảm thấy khỏe và vui](https://commons.wikimedia.org/wiki/Special:FilePath/Smile_Portrait_One.jpg?width=600)
+![well — cảm thấy khỏe và vui](../../asset/lesson-01-well.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Smile Portrait One](https://commons.wikimedia.org/wiki/File:Smile_Portrait_One.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -143,9 +143,9 @@ flowchart LR
 **Nghĩa:** tạm biệt  
 **Sắc thái:** thông dụng, thân mật
 
-![bye — tạm biệt](https://commons.wikimedia.org/wiki/Special:FilePath/Waving_goodbye_VPL_1384_%2833335605241%29.jpg?width=720)
+![bye — tạm biệt](../../asset/lesson-01-bye.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Waving goodbye](https://commons.wikimedia.org/wiki/File:Waving_goodbye_VPL_1384_%2833335605241%29.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -158,9 +158,9 @@ flowchart LR
 **Nghĩa:** thư viện  
 **Từ loại:** danh từ
 
-![library — thư viện](https://commons.wikimedia.org/wiki/Special:FilePath/Bookshelves_at_the_library.jpg?width=720)
+![library — thư viện](../../asset/lesson-01-library.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Bookshelves at the library](https://commons.wikimedia.org/wiki/File:Bookshelves_at_the_library.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -175,9 +175,9 @@ flowchart LR
 **Nghĩa:** một khoảng thời gian dài, lâu  
 **Cụm quan trọng:** **for a long time** — trong một thời gian dài
 
-![a long time — thời gian dài](https://commons.wikimedia.org/wiki/Special:FilePath/Clock_calendar.jpg?width=600)
+![a long time — thời gian dài](../../asset/lesson-01-a-long-time.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Clock calendar](https://commons.wikimedia.org/wiki/File:Clock_calendar.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -190,9 +190,9 @@ flowchart LR
 **Nghĩa:** cảm ơn  
 **Sắc thái:** tự nhiên, thân mật hơn **thank you**
 
-![thanks — cảm ơn](https://commons.wikimedia.org/wiki/Special:FilePath/Waving_hello_and_thanks_%2853656631108%29.jpg?width=720)
+![thanks — cảm ơn](../../asset/lesson-01-thanks.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Waving hello and thanks](https://commons.wikimedia.org/wiki/File:Waving_hello_and_thanks_%2853656631108%29.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -206,9 +206,9 @@ flowchart LR
 **Nghĩa:** hôm nay  
 **Từ loại:** trạng từ / danh từ
 
-![today — hôm nay](https://commons.wikimedia.org/wiki/Special:FilePath/Kalenderseite.jpg?width=600)
+![today — hôm nay](../../asset/lesson-01-today.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Kalenderseite](https://commons.wikimedia.org/wiki/File:Kalenderseite.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -221,9 +221,9 @@ flowchart LR
 **Nghĩa:** sau, lát nữa  
 **Cụm quan trọng:** **See you later.** — Hẹn gặp lại sau.
 
-![later — lát nữa](https://commons.wikimedia.org/wiki/Special:FilePath/Clock_Face.png?width=600)
+![later — lát nữa](../../asset/lesson-01-later.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Clock Face](https://commons.wikimedia.org/wiki/File:Clock_Face.png).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -236,9 +236,9 @@ flowchart LR
 **Nghĩa:** bố mẹ, cha mẹ  
 **Dạng số ít:** **parent** — cha hoặc mẹ
 
-![parents — bố mẹ và gia đình](https://commons.wikimedia.org/wiki/Special:FilePath/Parents%2C_enfants%2C_famille.png?width=720)
+![parents — bố mẹ và gia đình](../../asset/lesson-01-parents.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Parents, enfants, famille](https://commons.wikimedia.org/wiki/File:Parents%2C_enfants%2C_famille.png).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -252,9 +252,9 @@ flowchart LR
 **Nghĩa:** chị gái hoặc em gái  
 **Từ loại:** danh từ
 
-![sister — chị/em gái](https://commons.wikimedia.org/wiki/Special:FilePath/Smiling_sisters.jpg?width=600)
+![sister — chị/em gái](../../asset/lesson-01-sister.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Smiling sisters](https://commons.wikimedia.org/wiki/File:Smiling_sisters.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -267,9 +267,9 @@ flowchart LR
 
 **Nghĩa trong bài:** lớp học, buổi học
 
-![class — lớp học](https://commons.wikimedia.org/wiki/Special:FilePath/Students_in_classroom.jpg?width=720)
+![class — lớp học](../../asset/lesson-01-class.png)
 
-*Nguồn ảnh: [Wikimedia Commons — Students in classroom](https://commons.wikimedia.org/wiki/File:Students_in_classroom.jpg).*
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Ví dụ:**
 
@@ -302,6 +302,10 @@ flowchart LR
 
 ## 6.1. Giới thiệu bản thân
 
+![Mẫu câu giới thiệu bản thân](../../asset/lesson-01-structure-self-introduction.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 ### **Hello, my name's + tên.**
 
 - **Hello, my name's Hugo.**  
@@ -312,6 +316,10 @@ flowchart LR
 ---
 
 ## 6.2. Hỏi thăm sức khỏe
+
+![Mẫu câu hỏi thăm sức khỏe](../../asset/lesson-01-structure-how-are-you.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 ### **How are you?**
 
@@ -334,6 +342,10 @@ flowchart LR
 
 ## 6.3. Hỏi thăm người thân
 
+![Mẫu câu hỏi thăm người thân](../../asset/lesson-01-structure-family-check-in.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 ### **How are your + danh từ số nhiều?**
 
 - **How are your parents?** — Bố mẹ bạn thế nào?
@@ -347,6 +359,10 @@ flowchart LR
 ---
 
 ## 6.4. Gặp lại sau một thời gian dài
+
+![Mẫu câu gặp lại sau một thời gian dài](../../asset/lesson-01-structure-long-time-no-see.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 ### **I haven't seen you in ages.**
 
@@ -366,6 +382,10 @@ hoặc
 
 ## 6.5. Hỏi nơi ai đó đang đi
 
+![Mẫu câu hỏi nơi ai đó đang đi](../../asset/lesson-01-structure-where-going.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
+
 ### **Where are you going?**
 
 - **Where are you going?** — Bạn đang đi đâu?
@@ -378,6 +398,10 @@ Câu đầy đủ là:
 ---
 
 ## 6.6. Kết thúc cuộc trò chuyện
+
+![Mẫu câu kết thúc cuộc trò chuyện](../../asset/lesson-01-structure-closing-conversation.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 - **I must go to class now.** — Bây giờ tôi phải đi học rồi.
 - **Bye!** — Tạm biệt!
@@ -418,11 +442,11 @@ Không nên đọc thành `tanks`.
 
 # 9. Hội thoại thực tế — Real-Life Conversation
 
-![Minh họa hội thoại](https://commons.wikimedia.org/wiki/Special:FilePath/Conversation_-_RWiC.png?width=700)
-
-*Nguồn ảnh: [Wikimedia Commons — Conversation - RWiC](https://commons.wikimedia.org/wiki/File:Conversation_-_RWiC.png).*
-
 ## Hội thoại 1 — Gặp lại bạn cũ
+
+![Hội thoại 1 — Gặp lại bạn cũ](../../asset/lesson-01-dialogue-old-friends.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Nam:** Hi, Linh! I haven't seen you in ages.  
 **Linh:** Hi, Nam! It's really nice to see you.  
@@ -449,6 +473,10 @@ Không nên đọc thành `tanks`.
 ---
 
 ## Hội thoại 2 — Trên đường đến thư viện
+
+![Hội thoại 2 — Trên đường đến thư viện](../../asset/lesson-01-dialogue-library.png)
+
+*Ảnh minh họa: tạo bằng AI và lưu trong thư mục `asset`.*
 
 **Mai:** Hey, Alex! How are you?  
 **Alex:** Not too bad, thanks. And you?  
@@ -685,4 +713,4 @@ Viết lại đoạn hội thoại của chính bạn trong **6–8 lượt**.
 
 ## Nguồn ảnh minh họa
 
-Các ảnh trong bài được liên kết trực tiếp từ **Wikimedia Commons**. Giấy phép cụ thể của từng ảnh nằm trên trang nguồn được đặt ngay dưới ảnh. Khi xuất bản công khai hoặc dùng cho tài liệu thương mại, hãy kiểm tra và giữ phần ghi công theo đúng giấy phép của từng tệp.
+Các ảnh minh họa trong bài được tạo bằng AI bằng phương pháp lưới ảnh vuông, sau đó cắt thành từng tệp riêng và lưu trong thư mục `asset`.
