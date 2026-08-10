@@ -19,11 +19,14 @@ Nguon noi dung dau vao: **AI and Data Scientist Roadmap**.
 
 ## Cau truc
 
+Bai hoc da duoc giu trong cac subfolder nho theo noi dung; cac file bai hoc cu nam thang trong module da duoc xoa de tranh duplicate.
+
 - Course root: `AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official`
-- Tong hoc phan: 5
-- Tong module: 12
-- Tong bai `.md`: 267
-- Moi module co `README.md`
+- Tong hoc phan hien co: 4
+- Tong module hien co: 8
+- Tong bai `.md`: 203
+- Moi module co README.md va cac subfolder nho theo tung noi dung
+- Tong subfolder noi dung: 39
 - `COURSE_INDEX.md` la muc luc toan khoa
 - `COVERAGE_REPORT.md` dung de doi chieu voi roadmap source
 
