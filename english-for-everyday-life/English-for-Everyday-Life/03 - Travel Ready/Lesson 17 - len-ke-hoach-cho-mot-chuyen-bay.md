@@ -255,6 +255,8 @@ Hoặc:
 
 **Nghĩa:** dịch vụ
 
+
+![Airline service](../../asset/lesson-17-service.png)
 **Ví dụ:**
 
 * **The airline provides good service.**
@@ -285,6 +287,8 @@ Hoặc:
 
 **Nghĩa:** trước, từ trước
 
+
+![Book in advance](../../asset/lesson-17-in-advance.png)
 **Ví dụ:**
 
 * **Can I book the ticket in advance?**
@@ -315,6 +319,8 @@ Hoặc:
 
 **Nghĩa:** giảm giá
 
+
+![Ticket discount](../../asset/lesson-17-discount.png)
 **Ví dụ:**
 
 * **Are there any discount tickets?**
@@ -345,6 +351,8 @@ Hoặc:
 
 **Nghĩa:** đến lấy, nhận
 
+
+![Pick up a ticket](../../asset/lesson-17-pick-up.png)
 **Ví dụ:**
 
 * **I'll pick up my ticket at the airport.**
@@ -380,6 +388,8 @@ Hoặc:
 
 **Nghĩa:** thanh toán
 
+
+![Pay for ticket](../../asset/lesson-17-pay.png)
 **Ví dụ:**
 
 * **How would you like to pay?**
@@ -394,6 +404,8 @@ Hoặc:
 
 **Nghĩa:** tiền mặt
 
+
+![Pay in cash](../../asset/lesson-17-cash.png)
 **Ví dụ:**
 
 * **I'll pay in cash.**
@@ -408,6 +420,8 @@ Hoặc:
 
 **Nghĩa trong bài:** séc thanh toán
 
+
+![Check the booking](../../asset/lesson-17-check.png)
 **Ví dụ:**
 
 * **Will you pay by check or in cash?**
@@ -427,6 +441,8 @@ Hoặc:
 
 **Nghĩa:** chuyến bay
 
+
+![Flight](../../asset/lesson-17-flight.png)
 **Ví dụ:**
 
 * **What time is your flight?**
@@ -457,6 +473,8 @@ Hoặc:
 
 **Nghĩa:** số hiệu chuyến bay
 
+
+![Flight number](../../asset/lesson-17-flight-number.png)
 **Ví dụ:**
 
 * **What's your flight number?**
@@ -519,6 +537,8 @@ Hoặc:
 
 **Nghĩa:** kín chỗ, hết chỗ
 
+
+![Fully booked flight](../../asset/lesson-17-booked-up.png)
 **Ví dụ:**
 
 * **The flight is fully booked.**
@@ -803,7 +823,7 @@ Có thể trả lời:
 * **I'll pay by card.**
 * **Can I pay by credit card?**
 
-Trong transcript:
+Trong bài:
 
 **Will you pay by check or in cash?**
 
@@ -2092,7 +2112,7 @@ Sau đó viết hoặc nói một đoạn hội thoại **8–10 lượt** cho m
 
 * **booked up / fully booked** = hết chỗ.
 
-* **reconfirm** có trong transcript và hoàn toàn đúng, nhưng trong giao tiếp hiện đại có thể ưu tiên:
+* **reconfirm** có trong bài và hoàn toàn đúng, nhưng trong giao tiếp hiện đại có thể ưu tiên:
 
   **I'd like to confirm my booking.**
 

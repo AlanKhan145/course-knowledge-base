@@ -713,7 +713,7 @@ Cảm ơn sự giúp đỡ
 Phản hồi lời khen
 ```
 
-> Transcript có câu **“you're the best man in our company”**. Trong bài học tổng quát, dùng **“you're one of the best people in our company”** tự nhiên hơn và không phụ thuộc giới tính.
+> Cách nói câu **“you're the best man in our company”**. Trong bài học tổng quát, dùng **“you're one of the best people in our company”** tự nhiên hơn và không phụ thuộc giới tính.
 
 ---
 

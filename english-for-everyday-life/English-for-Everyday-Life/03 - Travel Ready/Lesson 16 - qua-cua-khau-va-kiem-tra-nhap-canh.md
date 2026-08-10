@@ -456,6 +456,8 @@ Nên nói:
 
 **Nghĩa:** thành viên
 
+
+![Tour group member](../../asset/lesson-16-member.png)
 **Ví dụ:**
 
 * **I'm a member of this tour group.**
@@ -483,6 +485,8 @@ Nên nói:
 
 **Nghĩa:** đây ạ / của bạn đây
 
+
+![Here you are](../../asset/lesson-16-here-you-are.png)
 Dùng khi đưa thứ gì đó cho người khác.
 
 **Ví dụ:**
@@ -1199,6 +1203,8 @@ Xác nhận nhập cảnh
 
 ## Hội thoại 5 — Không nghe rõ câu hỏi
 
+
+![Dialogue asking an officer to repeat](../../asset/lesson-16-dialogue-repeat-question.png)
 **Officer:** Where will you be staying?
 **Linh:** Sorry, could you repeat that, please?
 **Officer:** Where will you be staying during your visit?

@@ -657,7 +657,7 @@ Ví dụ:
 
 ### **Neither A nor B + động từ**
 
-Transcript:
+Câu mẫu:
 
 **Neither Italian nor Korean is easy to me.**
 
@@ -1323,7 +1323,7 @@ Sau đó viết một đoạn hội thoại của riêng bạn gồm **8 lượt
   * **interested in** cần có giới từ **in**.
   * Dạy rõ sự khác nhau giữa **interested** và **interesting**.
   * **I prefer A to B** là cấu trúc chuẩn, không dùng `than`.
-  * **He's a swimming lover** trong transcript có thể hiểu nhưng không tự nhiên; nên ưu tiên **He loves swimming** hoặc **He's a big fan of swimming**.
+  * **He's a swimming lover** trong bài có thể hiểu nhưng không tự nhiên; nên ưu tiên **He loves swimming** hoặc **He's a big fan of swimming**.
   * **Neither Italian nor Korean is easy to me** nên sửa thành **Neither Italian nor Korean is easy for me**.
   * **I really enjoyed listening to jazz** trong đoạn hội thoại mang thì quá khứ; nếu đang nói về sở thích hiện tại, nên dùng **I really enjoy listening to jazz**.
   * **We have the same interest** có thể dùng nếu nói về đúng một sở thích; trong giao tiếp chung, **We have the same interests** hoặc **We have similar interests** tự nhiên hơn.

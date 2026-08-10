@@ -148,6 +148,8 @@ flowchart LR
 
 **Nghĩa:** số hiệu chuyến bay
 
+
+![Flight number](../../asset/lesson-13-flight-number.png)
 **Ví dụ:**
 
 * **What's your flight number?**
@@ -220,6 +222,8 @@ Nên nói:
 
 **Nghĩa:** hành lý
 
+
+![Baggage](../../asset/lesson-13-baggage.png)
 **Ví dụ:**
 
 * **How many pieces of baggage do you have?**
@@ -300,6 +304,8 @@ Nên nói:
 
 **Nghĩa:** quầy làm thủ tục
 
+
+![Check-in counter](../../asset/lesson-13-check-in-counter.png)
 **Ví dụ:**
 
 * **Where is the check-in counter?**
@@ -378,6 +384,8 @@ Nên nói:
 
 **Nghĩa:** sự khởi hành
 
+
+![Departure board](../../asset/lesson-13-departure.png)
 **Ví dụ:**
 
 * **What's the departure time?**
@@ -392,6 +400,8 @@ Nên nói:
 
 **Nghĩa:** lên máy bay
 
+
+![Board the plane](../../asset/lesson-13-board.png)
 **Ví dụ:**
 
 * **Passengers are now boarding the plane.**
@@ -454,6 +464,8 @@ Nên nói:
 
 **Nghĩa:** cân; có trọng lượng
 
+
+![Weigh baggage](../../asset/lesson-13-weigh.png)
 **Ví dụ:**
 
 * **We need to weigh your suitcase.**
@@ -468,6 +480,8 @@ Nên nói:
 
 **Nghĩa:** điểm đến
 
+
+![Destination](../../asset/lesson-13-destination.png)
 **Ví dụ:**
 
 * **What's your final destination?**
@@ -1095,6 +1109,8 @@ Kiểm tra gate
 
 ## Hội thoại 5 — Xác nhận chuyến bay
 
+
+![Dialogue confirming a flight](../../asset/lesson-13-dialogue-confirm-flight.png)
 **Passenger:** Excuse me. Is this the counter for flight SC204 to Thailand?
 **Staff:** Yes, it is.
 **Passenger:** Great. I'd like to check in, please.

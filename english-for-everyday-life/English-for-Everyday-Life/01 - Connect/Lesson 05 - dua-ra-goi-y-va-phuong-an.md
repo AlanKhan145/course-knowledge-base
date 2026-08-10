@@ -593,7 +593,7 @@ Trong giao tiếp:
 
 ![Mẫu câu had better](../../asset/lesson-05-structure-had-better.png)
 
-Transcript:
+Câu mẫu:
 
 **Maybe you'd better go to visit Vietnam first.**
 
@@ -621,7 +621,7 @@ Ví dụ:
 
 ![Mẫu câu too much](../../asset/lesson-05-structure-too-much.png)
 
-Transcript:
+Câu mẫu:
 
 ### **It's wrong to eat too much sweet food.**
 
@@ -1320,7 +1320,7 @@ Sau đó tự viết một hội thoại **8 lượt nói**.
 * **had better** không đi với `to`.
 * **had better** mạnh hơn **should**, vì vậy không nên dùng cho mọi lời khuyên.
 * **I suggest going ...** hoặc **I suggest that we go ...** tự nhiên hơn `I suggest to go`.
-* Transcript có **Maybe you'd better go to visit Vietnam first**; tự nhiên hơn là **Maybe you'd better visit Vietnam first**.
+* Cách nói **Maybe you'd better go to visit Vietnam first** có thể hiểu, nhưng tự nhiên hơn là **Maybe you'd better visit Vietnam first**.
 * **It's wrong to eat too much sweet food** đúng về cơ bản nhưng hơi cứng. Với người học A1–A2, **You shouldn't eat too many sweets** hoặc **You shouldn't eat too much sugar** dễ sử dụng hơn.
 * Cần giúp người học phân biệt:
 

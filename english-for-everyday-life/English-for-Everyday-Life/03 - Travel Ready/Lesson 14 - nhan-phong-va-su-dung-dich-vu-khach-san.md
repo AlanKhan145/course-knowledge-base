@@ -526,6 +526,8 @@ thay vì:
 
 **Nghĩa:** đêm
 
+
+![Hotel night](../../asset/lesson-14-night.png)
 **Ví dụ:**
 
 * **We're staying for three nights.**
@@ -606,6 +608,8 @@ thay vì:
 
 **Nghĩa:** dọn sạch, làm sạch
 
+
+![Clean hotel room](../../asset/lesson-14-clean.png)
 **Ví dụ:**
 
 * **Could you clean the room, please?**
@@ -892,7 +896,7 @@ Trả lời:
 
 — Bạn muốn ở bao lâu?
 
-Một câu trong transcript:
+Một câu trong bài:
 
 ### **How long do you intend to stay?**
 
@@ -2440,7 +2444,7 @@ thay cho các cấu trúc dịch trực tiếp từ tiếng Việt.
   * **stay for three nights**
   * **stay for a week**
 
-* **How long do you intend to stay?** xuất hiện trong transcript và hoàn toàn đúng, nhưng hơi trang trọng.
+* **How long do you intend to stay?** xuất hiện trong bài và hoàn toàn đúng, nhưng hơi trang trọng.
 
 Với A1–A2 nên ưu tiên:
 

@@ -498,7 +498,7 @@ Các cách tương tự:
 * **I'll be there at seven o'clock.**
   Tôi sẽ có mặt lúc 7 giờ.
 
-> Transcript sử dụng **I shall be there at seven o'clock**. Câu này đúng, nhưng trong tiếng Anh giao tiếp hiện đại, **I'll be there at seven** phổ biến hơn.
+> Câu **I shall be there at seven o'clock** đúng. Câu này đúng, nhưng trong tiếng Anh giao tiếp hiện đại, **I'll be there at seven** phổ biến hơn.
 
 ---
 
@@ -770,7 +770,7 @@ Nếu muốn nói **tôi bận**, người học nên dùng:
 
 ## Lỗi 6: Dùng **shall** quá nhiều trong hội thoại hiện đại
 
-Trong transcript:
+Trong bài:
 
 **I shall be there at seven o'clock.**
 

@@ -604,7 +604,7 @@ Cách đơn giản hơn:
 
 ![Mẫu câu buses run to](../../asset/lesson-06-structure-bus-run.png)
 
-Transcript:
+Câu mẫu:
 
 ### **Do these buses run to the center of the town?**
 
@@ -621,7 +621,7 @@ Trong hội thoại hiện đại, có thể nói đơn giản hơn:
 
 ![Mẫu câu shorter way](../../asset/lesson-06-structure-short-way.png)
 
-Transcript:
+Câu mẫu:
 
 **Is there a short way?**
 
@@ -711,7 +711,7 @@ Hỏi lại:
 
 — Tôi nên đi xe buýt nào?
 
-Transcript dùng:
+Câu mẫu trong bài:
 
 **Which bus shall I take?**
 
@@ -1521,11 +1521,11 @@ Sau đó tự viết một hội thoại **8 lượt nói** cho một trong các
   * `turn to right`
 * **How far ...?** hỏi khoảng cách.
 * **How long ...?** hỏi thời gian.
-* Transcript dùng **Is there a short way?**; trong hội thoại tự nhiên nên ưu tiên:
+* Cách nói **Is there a short way?** có thể hiểu, nhưng trong hội thoại tự nhiên nên ưu tiên:
 
   * **Is there a shorter way?**
   * **Is there a shortcut?**
-* Transcript có **Can I go there by foot?**; cách chuẩn là:
+* Cách nói **Can I go there by foot?** chưa tự nhiên; cách chuẩn là:
 
   * **Can I go there on foot?**
   * **Can I walk there?**
