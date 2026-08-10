@@ -12,14 +12,15 @@ Apply IAM, least privilege and role based access to users, services and automati
 
 - Topics
 
+## Noi dung nho
+
+- [01-IAM-RoleBasedAccess](01-IAM-RoleBasedAccess/)
+
 ## Danh sach bai hoc
 
-- [001 - IAM](001 - IAM.md)
-- [002 - Least Privilege](002 - Least Privilege.md)
-- [003 - Role Based Access](003 - Role Based Access.md)
+### [01-IAM-RoleBasedAccess](01-IAM-RoleBasedAccess/)
 
-## Cach hoc module nay
+- [IAM](01-IAM-RoleBasedAccess/001 - IAM.md)
+- [Least Privilege](01-IAM-RoleBasedAccess/002 - Least Privilege.md)
+- [Role Based Access](01-IAM-RoleBasedAccess/003 - Role Based Access.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

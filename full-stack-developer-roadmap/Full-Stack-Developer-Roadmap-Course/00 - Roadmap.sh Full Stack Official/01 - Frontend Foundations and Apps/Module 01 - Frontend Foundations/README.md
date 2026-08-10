@@ -13,15 +13,16 @@ Build static web pages with correct structure, styling, and basic responsive lay
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-HTML-CheckpointStaticWebpages](01-HTML-CheckpointStaticWebpages/)
+
 ## Danh sach bai hoc
 
-- [001 - HTML](001 - HTML.md)
-- [002 - CSS](002 - CSS.md)
-- [003 - JavaScript](003 - JavaScript.md)
-- [004 - Checkpoint - Static Webpages](004 - Checkpoint - Static Webpages.md)
+### [01-HTML-CheckpointStaticWebpages](01-HTML-CheckpointStaticWebpages/)
 
-## Cach hoc module nay
+- [HTML](01-HTML-CheckpointStaticWebpages/001 - HTML.md)
+- [CSS](01-HTML-CheckpointStaticWebpages/002 - CSS.md)
+- [JavaScript](01-HTML-CheckpointStaticWebpages/003 - JavaScript.md)
+- [Checkpoint - Static Webpages](01-HTML-CheckpointStaticWebpages/004 - Checkpoint - Static Webpages.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

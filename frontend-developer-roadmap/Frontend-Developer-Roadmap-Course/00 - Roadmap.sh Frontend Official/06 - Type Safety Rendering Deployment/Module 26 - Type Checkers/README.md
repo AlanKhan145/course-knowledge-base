@@ -5,13 +5,14 @@
 
 Module nay gom 2 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-TypeScript-TypeScriptRoadmap](01-TypeScript-TypeScriptRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - TypeScript](001 - TypeScript.md)
-- [002 - TypeScript Roadmap](002 - TypeScript Roadmap.md)
+### [01-TypeScript-TypeScriptRoadmap](01-TypeScript-TypeScriptRoadmap/)
 
-## Cach hoc module nay
+- [TypeScript](01-TypeScript-TypeScriptRoadmap/001 - TypeScript.md)
+- [TypeScript Roadmap](01-TypeScript-TypeScriptRoadmap/002 - TypeScript Roadmap.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

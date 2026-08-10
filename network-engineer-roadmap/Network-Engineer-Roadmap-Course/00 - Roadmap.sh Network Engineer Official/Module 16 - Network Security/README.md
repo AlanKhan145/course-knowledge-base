@@ -3,14 +3,6 @@
 ## Mục tiêu module
 Nắm nền tảng network security: firewall, VPN, attacks, IDS/IPS và Zero Trust.
 
-## Bài học
-- [001 - Network Security Overview](001 - Network Security Overview.md)
-- [002 - Firewalls](002 - Firewalls.md)
-- [003 - VPNs](003 - VPNs.md)
-- [004 - Network Attacks](004 - Network Attacks.md)
-- [005 - IDS / IPS](005 - IDS - IPS.md)
-- [006 - Zero Trust Architecture](006 - Zero Trust Architecture.md)
-
 ## Thực hành trọng tâm
 Tạo baseline security cho mạng nhỏ: firewall rules, VPN, IDS/IPS, Zero Trust và response cho DoS/DDoS.
 
@@ -24,3 +16,23 @@ Tạo baseline security cho mạng nhỏ: firewall rules, VPN, IDS/IPS, Zero Tru
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-NetworkSecurityOverview-VPNs](01-NetworkSecurityOverview-VPNs/)
+- [02-NetworkAttacks-ZeroTrustArchitecture](02-NetworkAttacks-ZeroTrustArchitecture/)
+
+## Danh sach bai hoc
+
+### [01-NetworkSecurityOverview-VPNs](01-NetworkSecurityOverview-VPNs/)
+
+- [Network Security Overview](01-NetworkSecurityOverview-VPNs/001 - Network Security Overview.md)
+- [Firewalls](01-NetworkSecurityOverview-VPNs/002 - Firewalls.md)
+- [VPNs](01-NetworkSecurityOverview-VPNs/003 - VPNs.md)
+
+### [02-NetworkAttacks-ZeroTrustArchitecture](02-NetworkAttacks-ZeroTrustArchitecture/)
+
+- [Network Attacks](02-NetworkAttacks-ZeroTrustArchitecture/004 - Network Attacks.md)
+- [IDS - IPS](02-NetworkAttacks-ZeroTrustArchitecture/005 - IDS - IPS.md)
+- [Zero Trust Architecture](02-NetworkAttacks-ZeroTrustArchitecture/006 - Zero Trust Architecture.md)
+

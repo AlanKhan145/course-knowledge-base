@@ -10,19 +10,34 @@ Prepare iOS builds for TestFlight and App Store release.
 
 Project: Build a TestFlight-ready release for the final app.
 
+## Noi dung nho
+
+- [01-AppleDeveloperProgram-ProvisioningProfile](01-AppleDeveloperProgram-ProvisioningProfile/)
+- [02-ArchiveBuild-Versioning](02-ArchiveBuild-Versioning/)
+- [03-ReleaseNotes-ReleaseChecklist](03-ReleaseNotes-ReleaseChecklist/)
+
 ## Danh sach bai hoc
 
-- [001 - Apple Developer Program](001 - Apple Developer Program.md)
-- [002 - Bundle Identifier](002 - Bundle Identifier.md)
-- [003 - Signing and Capabilities](003 - Signing and Capabilities.md)
-- [004 - Certificate](004 - Certificate.md)
-- [005 - Provisioning Profile](005 - Provisioning Profile.md)
-- [006 - Archive Build](006 - Archive Build.md)
-- [007 - TestFlight](007 - TestFlight.md)
-- [008 - App Store Connect](008 - App Store Connect.md)
-- [009 - App Store Review](009 - App Store Review.md)
-- [010 - Versioning](010 - Versioning.md)
-- [011 - Release Notes](011 - Release Notes.md)
-- [012 - Build Number](012 - Build Number.md)
-- [013 - Privacy Manifest](013 - Privacy Manifest.md)
-- [014 - Release Checklist](014 - Release Checklist.md)
+### [01-AppleDeveloperProgram-ProvisioningProfile](01-AppleDeveloperProgram-ProvisioningProfile/)
+
+- [Apple Developer Program](01-AppleDeveloperProgram-ProvisioningProfile/001 - Apple Developer Program.md)
+- [Bundle Identifier](01-AppleDeveloperProgram-ProvisioningProfile/002 - Bundle Identifier.md)
+- [Signing and Capabilities](01-AppleDeveloperProgram-ProvisioningProfile/003 - Signing and Capabilities.md)
+- [Certificate](01-AppleDeveloperProgram-ProvisioningProfile/004 - Certificate.md)
+- [Provisioning Profile](01-AppleDeveloperProgram-ProvisioningProfile/005 - Provisioning Profile.md)
+
+### [02-ArchiveBuild-Versioning](02-ArchiveBuild-Versioning/)
+
+- [Archive Build](02-ArchiveBuild-Versioning/006 - Archive Build.md)
+- [TestFlight](02-ArchiveBuild-Versioning/007 - TestFlight.md)
+- [App Store Connect](02-ArchiveBuild-Versioning/008 - App Store Connect.md)
+- [App Store Review](02-ArchiveBuild-Versioning/009 - App Store Review.md)
+- [Versioning](02-ArchiveBuild-Versioning/010 - Versioning.md)
+
+### [03-ReleaseNotes-ReleaseChecklist](03-ReleaseNotes-ReleaseChecklist/)
+
+- [Release Notes](03-ReleaseNotes-ReleaseChecklist/011 - Release Notes.md)
+- [Build Number](03-ReleaseNotes-ReleaseChecklist/012 - Build Number.md)
+- [Privacy Manifest](03-ReleaseNotes-ReleaseChecklist/013 - Privacy Manifest.md)
+- [Release Checklist](03-ReleaseNotes-ReleaseChecklist/014 - Release Checklist.md)
+

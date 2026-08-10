@@ -1,17 +1,28 @@
 # Module 08 - TIBCO Process Design
 
-**Phase:** Phase 3 - TIBCO BW6 In Depth
+## Noi dung nho
 
-This module has 9 lessons.
+- [01-StartActivity-Mapper](01-StartActivity-Mapper/)
+- [02-Subprocess-Rethrow](02-Subprocess-Rethrow/)
+- [03-Exercise](03-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - Start Activity](001 - Start Activity.md)
-- [002 - Activities](002 - Activities.md)
-- [003 - Transitions](003 - Transitions.md)
-- [004 - Mapper](004 - Mapper.md)
-- [005 - Subprocess](005 - Subprocess.md)
-- [006 - Validation](006 - Validation.md)
-- [007 - Error Handler](007 - Error Handler.md)
-- [008 - Rethrow](008 - Rethrow.md)
-- [009 - Exercise](009 - Exercise.md)
+### [01-StartActivity-Mapper](01-StartActivity-Mapper/)
+
+- [Start Activity](01-StartActivity-Mapper/001 - Start Activity.md)
+- [Activities](01-StartActivity-Mapper/002 - Activities.md)
+- [Transitions](01-StartActivity-Mapper/003 - Transitions.md)
+- [Mapper](01-StartActivity-Mapper/004 - Mapper.md)
+
+### [02-Subprocess-Rethrow](02-Subprocess-Rethrow/)
+
+- [Subprocess](02-Subprocess-Rethrow/005 - Subprocess.md)
+- [Validation](02-Subprocess-Rethrow/006 - Validation.md)
+- [Error Handler](02-Subprocess-Rethrow/007 - Error Handler.md)
+- [Rethrow](02-Subprocess-Rethrow/008 - Rethrow.md)
+
+### [03-Exercise](03-Exercise/)
+
+- [Exercise](03-Exercise/009 - Exercise.md)
+

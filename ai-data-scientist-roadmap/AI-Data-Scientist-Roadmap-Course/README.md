@@ -42,3 +42,4 @@ A Markdown-based course generated from the **AI and Data Scientist Roadmap**.
 If you are new to AI/Data Science, follow the parts in order: Math → Statistics → Econometrics, then Coding → EDA, then ML → DL, then MLOps, and finally the Portfolio part.
 
 For each lesson, produce one small, checkable artifact — a notebook, a SQL query, a chart, a model metric, an API endpoint, a Dockerfile, or a portfolio README — so progress stays verifiable, not just theoretical.
+

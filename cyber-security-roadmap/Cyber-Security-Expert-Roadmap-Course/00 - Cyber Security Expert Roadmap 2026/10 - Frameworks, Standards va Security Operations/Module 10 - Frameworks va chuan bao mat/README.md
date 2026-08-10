@@ -1,24 +1,21 @@
-# Module 10 - Frameworks và chuẩn bảo mật
+# Module 10 - Frameworks va chuan bao mat
 
-**Học phần:** 10 - Frameworks, Standards và Security Operations
-**Số bài/project:** 6
+## Noi dung nho
 
-## Ghi chú roadmap
+- [01-MITREATTCK-CISControls](01-MITREATTCK-CISControls/)
+- [02-SIEM-SOAR](02-SIEM-SOAR/)
 
-- Roadmap liệt kê ATT&CK, Diamond Model, Kill Chain, ISO, NIST, RMF, CIS, CSF, SIEM và SOAR
+## Danh sach bai hoc
 
-## Danh sách bài
+### [01-MITREATTCK-CISControls](01-MITREATTCK-CISControls/)
 
-- [Bài 1 - MITRE ATT&CK](001 - MITRE ATT&CK.md)
-- [Bài 2 - Diamond Model](002 - Diamond Model.md)
-- [Bài 3 - NIST và RMF](003 - NIST va RMF.md)
-- [Bài 4 - CIS Controls](004 - CIS Controls.md)
-- [Bài 5 - SIEM](005 - SIEM.md)
-- [Bài 6 - SOAR](006 - SOAR.md)
+- [MITRE ATT&CK](01-MITREATTCK-CISControls/001 - MITRE ATT&CK.md)
+- [Diamond Model](01-MITREATTCK-CISControls/002 - Diamond Model.md)
+- [NIST va RMF](01-MITREATTCK-CISControls/003 - NIST va RMF.md)
+- [CIS Controls](01-MITREATTCK-CISControls/004 - CIS Controls.md)
 
-## Checklist module
+### [02-SIEM-SOAR](02-SIEM-SOAR/)
 
-- [ ] Đọc hoặc xem toàn bộ bài trong module.
-- [ ] Thực hành ít nhất một lab/checklist/script/report nhỏ.
-- [ ] Ghi lại lỗi gặp phải và cách xử lý.
-- [ ] Cập nhật portfolio hoặc nhật ký học tập.
+- [SIEM](02-SIEM-SOAR/005 - SIEM.md)
+- [SOAR](02-SIEM-SOAR/006 - SOAR.md)
+

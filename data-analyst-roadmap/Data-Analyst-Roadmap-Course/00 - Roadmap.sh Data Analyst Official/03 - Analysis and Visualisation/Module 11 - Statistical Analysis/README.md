@@ -12,14 +12,15 @@ Analyze relationships between variables, test hypotheses and reason from data in
 
 - Statistical Analysis
 
+## Noi dung nho
+
+- [01-HypothesisTesting-Regression](01-HypothesisTesting-Regression/)
+
 ## Danh sach bai hoc
 
-- [001 - Hypothesis Testing](001 - Hypothesis Testing.md)
-- [002 - Correlation Analysis](002 - Correlation Analysis.md)
-- [003 - Regression](003 - Regression.md)
+### [01-HypothesisTesting-Regression](01-HypothesisTesting-Regression/)
 
-## Cach hoc module nay
+- [Hypothesis Testing](01-HypothesisTesting-Regression/001 - Hypothesis Testing.md)
+- [Correlation Analysis](01-HypothesisTesting-Regression/002 - Correlation Analysis.md)
+- [Regression](01-HypothesisTesting-Regression/003 - Regression.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.

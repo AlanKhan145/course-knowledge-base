@@ -5,14 +5,15 @@
 
 Module nay gom 3 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-HTMLTemplates-ShadowDOM](01-HTMLTemplates-ShadowDOM/)
+
 ## Danh sach bai hoc
 
-- [001 - HTML Templates](001 - HTML Templates.md)
-- [002 - Custom Elements](002 - Custom Elements.md)
-- [003 - Shadow DOM](003 - Shadow DOM.md)
+### [01-HTMLTemplates-ShadowDOM](01-HTMLTemplates-ShadowDOM/)
 
-## Cach hoc module nay
+- [HTML Templates](01-HTMLTemplates-ShadowDOM/001 - HTML Templates.md)
+- [Custom Elements](01-HTMLTemplates-ShadowDOM/002 - Custom Elements.md)
+- [Shadow DOM](01-HTMLTemplates-ShadowDOM/003 - Shadow DOM.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

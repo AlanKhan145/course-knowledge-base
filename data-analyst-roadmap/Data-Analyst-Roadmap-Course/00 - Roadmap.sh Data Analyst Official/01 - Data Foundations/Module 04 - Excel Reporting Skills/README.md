@@ -12,13 +12,14 @@ Build readable Excel reports with charts and pivot tables.
 
 - Excel Reporting
 
+## Noi dung nho
+
+- [01-Charting-PivotTables](01-Charting-PivotTables/)
+
 ## Danh sach bai hoc
 
-- [001 - Charting](001 - Charting.md)
-- [002 - Pivot Tables](002 - Pivot Tables.md)
+### [01-Charting-PivotTables](01-Charting-PivotTables/)
 
-## Cach hoc module nay
+- [Charting](01-Charting-PivotTables/001 - Charting.md)
+- [Pivot Tables](01-Charting-PivotTables/002 - Pivot Tables.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.

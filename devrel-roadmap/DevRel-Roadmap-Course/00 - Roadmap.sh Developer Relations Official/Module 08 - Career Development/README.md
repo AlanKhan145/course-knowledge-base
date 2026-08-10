@@ -3,12 +3,6 @@
 ## Mục tiêu module
 Biết phát triển sự nghiệp DevRel qua thought leadership, personal brand, networking và học liên tục.
 
-## Bài học
-- [001 - Thought Leadership](001 - Thought Leadership.md)
-- [002 - Building a Personal Brand](002 - Building a Personal Brand.md)
-- [003 - Networking Strategies](003 - Networking Strategies.md)
-- [004 - Continuous Learning](004 - Continuous Learning.md)
-
 ## Thực hành trọng tâm
 Chọn niche DevRel cá nhân, viết bio, talk proposal và kế hoạch xuất bản 30 ngày.
 
@@ -22,3 +16,17 @@ Chọn niche DevRel cá nhân, viết bio, talk proposal và kế hoạch xuất
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với developer journey thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc DevRel
+
+## Noi dung nho
+
+- [01-ThoughtLeadership-ContinuousLearning](01-ThoughtLeadership-ContinuousLearning/)
+
+## Danh sach bai hoc
+
+### [01-ThoughtLeadership-ContinuousLearning](01-ThoughtLeadership-ContinuousLearning/)
+
+- [Thought Leadership](01-ThoughtLeadership-ContinuousLearning/001 - Thought Leadership.md)
+- [Building a Personal Brand](01-ThoughtLeadership-ContinuousLearning/002 - Building a Personal Brand.md)
+- [Networking Strategies](01-ThoughtLeadership-ContinuousLearning/003 - Networking Strategies.md)
+- [Continuous Learning](01-ThoughtLeadership-ContinuousLearning/004 - Continuous Learning.md)
+

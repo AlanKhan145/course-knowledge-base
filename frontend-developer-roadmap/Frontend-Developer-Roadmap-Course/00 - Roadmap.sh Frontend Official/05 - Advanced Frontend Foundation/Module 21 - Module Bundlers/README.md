@@ -5,17 +5,22 @@
 
 Module nay gom 6 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-Vite-Esbuild](01-Vite-Esbuild/)
+- [02-Rollup-Parcel](02-Rollup-Parcel/)
+
 ## Danh sach bai hoc
 
-- [001 - Vite](001 - Vite.md)
-- [002 - SWC](002 - SWC.md)
-- [003 - esbuild](003 - esbuild.md)
-- [004 - Rollup](004 - Rollup.md)
-- [005 - Rolldown](005 - Rolldown.md)
-- [006 - Parcel](006 - Parcel.md)
+### [01-Vite-Esbuild](01-Vite-Esbuild/)
 
-## Cach hoc module nay
+- [Vite](01-Vite-Esbuild/001 - Vite.md)
+- [SWC](01-Vite-Esbuild/002 - SWC.md)
+- [esbuild](01-Vite-Esbuild/003 - esbuild.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-Rollup-Parcel](02-Rollup-Parcel/)
+
+- [Rollup](02-Rollup-Parcel/004 - Rollup.md)
+- [Rolldown](02-Rollup-Parcel/005 - Rolldown.md)
+- [Parcel](02-Rollup-Parcel/006 - Parcel.md)
+

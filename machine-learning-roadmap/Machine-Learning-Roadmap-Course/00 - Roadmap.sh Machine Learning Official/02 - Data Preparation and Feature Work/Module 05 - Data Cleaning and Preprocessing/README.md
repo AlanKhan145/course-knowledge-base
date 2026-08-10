@@ -10,29 +10,52 @@ Clean raw data, prevent leakage and prepare features for reliable model training
 
 Mini project: Clean a messy tabular dataset and build a scikit-learn preprocessing pipeline.
 
+## Noi dung nho
+
+- [01-MissingValues-DataTypeConversion](01-MissingValues-DataTypeConversion/)
+- [02-DataLeakageChecks-FeatureSelection](02-DataLeakageChecks-FeatureSelection/)
+- [03-FeatureScaling-ScikitLearnPipeline](03-FeatureScaling-ScikitLearnPipeline/)
+- [04-ColumnTransformer-DataSplit](04-ColumnTransformer-DataSplit/)
+- [05-StratifiedSplit-HoldoutStrategy](05-StratifiedSplit-HoldoutStrategy/)
+
 ## Danh sach bai hoc
 
-- [001 - Missing Values](001 - Missing Values.md)
-- [002 - Duplicate Data](002 - Duplicate Data.md)
-- [003 - Outliers](003 - Outliers.md)
-- [004 - Normalize Column Names](004 - Normalize Column Names.md)
-- [005 - Data Type Conversion](005 - Data Type Conversion.md)
-- [006 - Data Leakage Checks](006 - Data Leakage Checks.md)
-- [007 - Data Validation](007 - Data Validation.md)
-- [008 - Exploratory Checks](008 - Exploratory Checks.md)
-- [009 - Feature Engineering](009 - Feature Engineering.md)
-- [010 - Feature Selection](010 - Feature Selection.md)
-- [011 - Feature Scaling](011 - Feature Scaling.md)
-- [012 - Normalization](012 - Normalization.md)
-- [013 - Categorical Encoding](013 - Categorical Encoding.md)
-- [014 - Dimensionality Reduction](014 - Dimensionality Reduction.md)
-- [015 - Scikit-learn Pipeline](015 - Scikit-learn Pipeline.md)
-- [016 - ColumnTransformer](016 - ColumnTransformer.md)
-- [017 - Train Set](017 - Train Set.md)
-- [018 - Validation Set](018 - Validation Set.md)
-- [019 - Test Set](019 - Test Set.md)
-- [020 - Data Split](020 - Data Split.md)
-- [021 - Stratified Split](021 - Stratified Split.md)
-- [022 - Time Based Split](022 - Time Based Split.md)
-- [023 - Leakage Prevention](023 - Leakage Prevention.md)
-- [024 - Holdout Strategy](024 - Holdout Strategy.md)
+### [01-MissingValues-DataTypeConversion](01-MissingValues-DataTypeConversion/)
+
+- [Missing Values](01-MissingValues-DataTypeConversion/001 - Missing Values.md)
+- [Duplicate Data](01-MissingValues-DataTypeConversion/002 - Duplicate Data.md)
+- [Outliers](01-MissingValues-DataTypeConversion/003 - Outliers.md)
+- [Normalize Column Names](01-MissingValues-DataTypeConversion/004 - Normalize Column Names.md)
+- [Data Type Conversion](01-MissingValues-DataTypeConversion/005 - Data Type Conversion.md)
+
+### [02-DataLeakageChecks-FeatureSelection](02-DataLeakageChecks-FeatureSelection/)
+
+- [Data Leakage Checks](02-DataLeakageChecks-FeatureSelection/006 - Data Leakage Checks.md)
+- [Data Validation](02-DataLeakageChecks-FeatureSelection/007 - Data Validation.md)
+- [Exploratory Checks](02-DataLeakageChecks-FeatureSelection/008 - Exploratory Checks.md)
+- [Feature Engineering](02-DataLeakageChecks-FeatureSelection/009 - Feature Engineering.md)
+- [Feature Selection](02-DataLeakageChecks-FeatureSelection/010 - Feature Selection.md)
+
+### [03-FeatureScaling-ScikitLearnPipeline](03-FeatureScaling-ScikitLearnPipeline/)
+
+- [Feature Scaling](03-FeatureScaling-ScikitLearnPipeline/011 - Feature Scaling.md)
+- [Normalization](03-FeatureScaling-ScikitLearnPipeline/012 - Normalization.md)
+- [Categorical Encoding](03-FeatureScaling-ScikitLearnPipeline/013 - Categorical Encoding.md)
+- [Dimensionality Reduction](03-FeatureScaling-ScikitLearnPipeline/014 - Dimensionality Reduction.md)
+- [Scikit-learn Pipeline](03-FeatureScaling-ScikitLearnPipeline/015 - Scikit-learn Pipeline.md)
+
+### [04-ColumnTransformer-DataSplit](04-ColumnTransformer-DataSplit/)
+
+- [ColumnTransformer](04-ColumnTransformer-DataSplit/016 - ColumnTransformer.md)
+- [Train Set](04-ColumnTransformer-DataSplit/017 - Train Set.md)
+- [Validation Set](04-ColumnTransformer-DataSplit/018 - Validation Set.md)
+- [Test Set](04-ColumnTransformer-DataSplit/019 - Test Set.md)
+- [Data Split](04-ColumnTransformer-DataSplit/020 - Data Split.md)
+
+### [05-StratifiedSplit-HoldoutStrategy](05-StratifiedSplit-HoldoutStrategy/)
+
+- [Stratified Split](05-StratifiedSplit-HoldoutStrategy/021 - Stratified Split.md)
+- [Time Based Split](05-StratifiedSplit-HoldoutStrategy/022 - Time Based Split.md)
+- [Leakage Prevention](05-StratifiedSplit-HoldoutStrategy/023 - Leakage Prevention.md)
+- [Holdout Strategy](05-StratifiedSplit-HoldoutStrategy/024 - Holdout Strategy.md)
+

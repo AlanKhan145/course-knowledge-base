@@ -10,48 +10,83 @@ Build a full-stack blockchain portfolio and show readiness for junior blockchain
 
 Capstone: Full-stack dApp with contract, tests, frontend, wallet connection, deploy and security notes.
 
+## Noi dung nho
+
+- [01-TokenLaunchpadMini-IPFSMetadata](01-TokenLaunchpadMini-IPFSMetadata/)
+- [02-ReactFrontend-ExplorerVerification](02-ReactFrontend-ExplorerVerification/)
+- [03-UnderstandBlocksTransactions-UseOpenZeppelinERC](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/)
+- [04-ConnectFrontendWith-CompleteFullStack](04-ConnectFrontendWith-CompleteFullStack/)
+- [05-JavaScriptTypeScriptSolidity-MetaMask](05-JavaScriptTypeScriptSolidity-MetaMask/)
+- [06-OpenZeppelinContracts-EthereumSepolia](06-OpenZeppelinContracts-EthereumSepolia/)
+- [07-PolygonOrArbitrum-DevOpsRoadmap](07-PolygonOrArbitrum-DevOpsRoadmap/)
+- [08-SecurityRoadmap](08-SecurityRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - Token Launchpad Mini](001 - Token Launchpad Mini.md)
-- [002 - NFT Minting dApp](002 - NFT Minting dApp.md)
-- [003 - DeFi Staking Mini](003 - DeFi Staking Mini.md)
-- [004 - ERC-20 Token Contract](004 - ERC-20 Token Contract.md)
-- [005 - ERC-721 NFT Contract](005 - ERC-721 NFT Contract.md)
-- [006 - IPFS Metadata](006 - IPFS Metadata.md)
-- [007 - React Frontend](007 - React Frontend.md)
-- [008 - Connect Wallet](008 - Connect Wallet.md)
-- [009 - Mint Transfer Stake Withdraw](009 - Mint Transfer Stake Withdraw.md)
-- [010 - Deployment Script](010 - Deployment Script.md)
-- [011 - Unit Tests](011 - Unit Tests.md)
-- [012 - Explorer Verification](012 - Explorer Verification.md)
-- [013 - Understand Blocks Transactions Nodes Consensus](013 - Understand Blocks Transactions Nodes Consensus.md)
-- [014 - Use Wallet Faucet Testnet](014 - Use Wallet Faucet Testnet.md)
-- [015 - Write Basic Solidity Contract](015 - Write Basic Solidity Contract.md)
-- [016 - Test with Hardhat or Foundry](016 - Test with Hardhat or Foundry.md)
-- [017 - Deploy Contract to Testnet](017 - Deploy Contract to Testnet.md)
-- [018 - Use OpenZeppelin ERC-20 ERC-721](018 - Use OpenZeppelin ERC-20 ERC-721.md)
-- [019 - Connect Frontend with ethers.js or web3.js](019 - Connect Frontend with ethers.js or web3.js.md)
-- [020 - Understand Oracles and Chainlink](020 - Understand Oracles and Chainlink.md)
-- [021 - Know Common Security Bugs](021 - Know Common Security Bugs.md)
-- [022 - Run Static Analysis or Fuzz Testing](022 - Run Static Analysis or Fuzz Testing.md)
-- [023 - Understand L2 Optimistic and ZK Rollups](023 - Understand L2 Optimistic and ZK Rollups.md)
-- [024 - Complete Full-stack dApp](024 - Complete Full-stack dApp.md)
-- [025 - JavaScript TypeScript Solidity](025 - JavaScript TypeScript Solidity.md)
-- [026 - Hardhat First](026 - Hardhat First.md)
-- [027 - Foundry Second](027 - Foundry Second.md)
-- [028 - React](028 - React.md)
-- [029 - ethers.js](029 - ethers.js.md)
-- [030 - MetaMask](030 - MetaMask.md)
-- [031 - OpenZeppelin Contracts](031 - OpenZeppelin Contracts.md)
-- [032 - Alchemy or Infura](032 - Alchemy or Infura.md)
-- [033 - IPFS](033 - IPFS.md)
-- [034 - Slither](034 - Slither.md)
-- [035 - Foundry Fuzz Test](035 - Foundry Fuzz Test.md)
-- [036 - Ethereum Sepolia](036 - Ethereum Sepolia.md)
-- [037 - Polygon or Arbitrum Testnet](037 - Polygon or Arbitrum Testnet.md)
-- [038 - Backend Roadmap](038 - Backend Roadmap.md)
-- [039 - JavaScript Roadmap](039 - JavaScript Roadmap.md)
-- [040 - Python Roadmap](040 - Python Roadmap.md)
-- [041 - Rust Roadmap](041 - Rust Roadmap.md)
-- [042 - DevOps Roadmap](042 - DevOps Roadmap.md)
-- [043 - Security Roadmap](043 - Security Roadmap.md)
+### [01-TokenLaunchpadMini-IPFSMetadata](01-TokenLaunchpadMini-IPFSMetadata/)
+
+- [Token Launchpad Mini](01-TokenLaunchpadMini-IPFSMetadata/001 - Token Launchpad Mini.md)
+- [NFT Minting dApp](01-TokenLaunchpadMini-IPFSMetadata/002 - NFT Minting dApp.md)
+- [DeFi Staking Mini](01-TokenLaunchpadMini-IPFSMetadata/003 - DeFi Staking Mini.md)
+- [ERC-20 Token Contract](01-TokenLaunchpadMini-IPFSMetadata/004 - ERC-20 Token Contract.md)
+- [ERC-721 NFT Contract](01-TokenLaunchpadMini-IPFSMetadata/005 - ERC-721 NFT Contract.md)
+- [IPFS Metadata](01-TokenLaunchpadMini-IPFSMetadata/006 - IPFS Metadata.md)
+
+### [02-ReactFrontend-ExplorerVerification](02-ReactFrontend-ExplorerVerification/)
+
+- [React Frontend](02-ReactFrontend-ExplorerVerification/007 - React Frontend.md)
+- [Connect Wallet](02-ReactFrontend-ExplorerVerification/008 - Connect Wallet.md)
+- [Mint Transfer Stake Withdraw](02-ReactFrontend-ExplorerVerification/009 - Mint Transfer Stake Withdraw.md)
+- [Deployment Script](02-ReactFrontend-ExplorerVerification/010 - Deployment Script.md)
+- [Unit Tests](02-ReactFrontend-ExplorerVerification/011 - Unit Tests.md)
+- [Explorer Verification](02-ReactFrontend-ExplorerVerification/012 - Explorer Verification.md)
+
+### [03-UnderstandBlocksTransactions-UseOpenZeppelinERC](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/)
+
+- [Understand Blocks Transactions Nodes Consensus](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/013 - Understand Blocks Transactions Nodes Consensus.md)
+- [Use Wallet Faucet Testnet](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/014 - Use Wallet Faucet Testnet.md)
+- [Write Basic Solidity Contract](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/015 - Write Basic Solidity Contract.md)
+- [Test with Hardhat or Foundry](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/016 - Test with Hardhat or Foundry.md)
+- [Deploy Contract to Testnet](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/017 - Deploy Contract to Testnet.md)
+- [Use OpenZeppelin ERC-20 ERC-721](03-UnderstandBlocksTransactions-UseOpenZeppelinERC/018 - Use OpenZeppelin ERC-20 ERC-721.md)
+
+### [04-ConnectFrontendWith-CompleteFullStack](04-ConnectFrontendWith-CompleteFullStack/)
+
+- [Connect Frontend with ethers.js or web3.js](04-ConnectFrontendWith-CompleteFullStack/019 - Connect Frontend with ethers.js or web3.js.md)
+- [Understand Oracles and Chainlink](04-ConnectFrontendWith-CompleteFullStack/020 - Understand Oracles and Chainlink.md)
+- [Know Common Security Bugs](04-ConnectFrontendWith-CompleteFullStack/021 - Know Common Security Bugs.md)
+- [Run Static Analysis or Fuzz Testing](04-ConnectFrontendWith-CompleteFullStack/022 - Run Static Analysis or Fuzz Testing.md)
+- [Understand L2 Optimistic and ZK Rollups](04-ConnectFrontendWith-CompleteFullStack/023 - Understand L2 Optimistic and ZK Rollups.md)
+- [Complete Full-stack dApp](04-ConnectFrontendWith-CompleteFullStack/024 - Complete Full-stack dApp.md)
+
+### [05-JavaScriptTypeScriptSolidity-MetaMask](05-JavaScriptTypeScriptSolidity-MetaMask/)
+
+- [JavaScript TypeScript Solidity](05-JavaScriptTypeScriptSolidity-MetaMask/025 - JavaScript TypeScript Solidity.md)
+- [Hardhat First](05-JavaScriptTypeScriptSolidity-MetaMask/026 - Hardhat First.md)
+- [Foundry Second](05-JavaScriptTypeScriptSolidity-MetaMask/027 - Foundry Second.md)
+- [React](05-JavaScriptTypeScriptSolidity-MetaMask/028 - React.md)
+- [ethers.js](05-JavaScriptTypeScriptSolidity-MetaMask/029 - ethers.js.md)
+- [MetaMask](05-JavaScriptTypeScriptSolidity-MetaMask/030 - MetaMask.md)
+
+### [06-OpenZeppelinContracts-EthereumSepolia](06-OpenZeppelinContracts-EthereumSepolia/)
+
+- [OpenZeppelin Contracts](06-OpenZeppelinContracts-EthereumSepolia/031 - OpenZeppelin Contracts.md)
+- [Alchemy or Infura](06-OpenZeppelinContracts-EthereumSepolia/032 - Alchemy or Infura.md)
+- [IPFS](06-OpenZeppelinContracts-EthereumSepolia/033 - IPFS.md)
+- [Slither](06-OpenZeppelinContracts-EthereumSepolia/034 - Slither.md)
+- [Foundry Fuzz Test](06-OpenZeppelinContracts-EthereumSepolia/035 - Foundry Fuzz Test.md)
+- [Ethereum Sepolia](06-OpenZeppelinContracts-EthereumSepolia/036 - Ethereum Sepolia.md)
+
+### [07-PolygonOrArbitrum-DevOpsRoadmap](07-PolygonOrArbitrum-DevOpsRoadmap/)
+
+- [Polygon or Arbitrum Testnet](07-PolygonOrArbitrum-DevOpsRoadmap/037 - Polygon or Arbitrum Testnet.md)
+- [Backend Roadmap](07-PolygonOrArbitrum-DevOpsRoadmap/038 - Backend Roadmap.md)
+- [JavaScript Roadmap](07-PolygonOrArbitrum-DevOpsRoadmap/039 - JavaScript Roadmap.md)
+- [Python Roadmap](07-PolygonOrArbitrum-DevOpsRoadmap/040 - Python Roadmap.md)
+- [Rust Roadmap](07-PolygonOrArbitrum-DevOpsRoadmap/041 - Rust Roadmap.md)
+- [DevOps Roadmap](07-PolygonOrArbitrum-DevOpsRoadmap/042 - DevOps Roadmap.md)
+
+### [08-SecurityRoadmap](08-SecurityRoadmap/)
+
+- [Security Roadmap](08-SecurityRoadmap/043 - Security Roadmap.md)
+

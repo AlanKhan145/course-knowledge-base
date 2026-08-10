@@ -10,20 +10,35 @@ Maintain app growth, production quality and long-term iOS learning.
 
 Mini project: Prepare an App Store listing draft and continuous learning plan.
 
+## Noi dung nho
+
+- [01-AppStoreOptimization-Screenshot](01-AppStoreOptimization-Screenshot/)
+- [02-AppPreviewVideo-WWDC](02-AppPreviewVideo-WWDC/)
+- [03-LatestSwift-ProductionMaintenance](03-LatestSwift-ProductionMaintenance/)
+
 ## Danh sach bai hoc
 
-- [001 - App Store Optimization](001 - App Store Optimization.md)
-- [002 - App Name](002 - App Name.md)
-- [003 - Subtitle](003 - Subtitle.md)
-- [004 - Keywords](004 - Keywords.md)
-- [005 - Screenshot](005 - Screenshot.md)
-- [006 - App Preview Video](006 - App Preview Video.md)
-- [007 - Rating and Review](007 - Rating and Review.md)
-- [008 - Crash Monitoring](008 - Crash Monitoring.md)
-- [009 - Analytics](009 - Analytics.md)
-- [010 - WWDC](010 - WWDC.md)
-- [011 - Latest Swift](011 - Latest Swift.md)
-- [012 - Latest iOS SDK](012 - Latest iOS SDK.md)
-- [013 - Follow Apple Changes](013 - Follow Apple Changes.md)
-- [014 - Release Metrics](014 - Release Metrics.md)
-- [015 - Production Maintenance](015 - Production Maintenance.md)
+### [01-AppStoreOptimization-Screenshot](01-AppStoreOptimization-Screenshot/)
+
+- [App Store Optimization](01-AppStoreOptimization-Screenshot/001 - App Store Optimization.md)
+- [App Name](01-AppStoreOptimization-Screenshot/002 - App Name.md)
+- [Subtitle](01-AppStoreOptimization-Screenshot/003 - Subtitle.md)
+- [Keywords](01-AppStoreOptimization-Screenshot/004 - Keywords.md)
+- [Screenshot](01-AppStoreOptimization-Screenshot/005 - Screenshot.md)
+
+### [02-AppPreviewVideo-WWDC](02-AppPreviewVideo-WWDC/)
+
+- [App Preview Video](02-AppPreviewVideo-WWDC/006 - App Preview Video.md)
+- [Rating and Review](02-AppPreviewVideo-WWDC/007 - Rating and Review.md)
+- [Crash Monitoring](02-AppPreviewVideo-WWDC/008 - Crash Monitoring.md)
+- [Analytics](02-AppPreviewVideo-WWDC/009 - Analytics.md)
+- [WWDC](02-AppPreviewVideo-WWDC/010 - WWDC.md)
+
+### [03-LatestSwift-ProductionMaintenance](03-LatestSwift-ProductionMaintenance/)
+
+- [Latest Swift](03-LatestSwift-ProductionMaintenance/011 - Latest Swift.md)
+- [Latest iOS SDK](03-LatestSwift-ProductionMaintenance/012 - Latest iOS SDK.md)
+- [Follow Apple Changes](03-LatestSwift-ProductionMaintenance/013 - Follow Apple Changes.md)
+- [Release Metrics](03-LatestSwift-ProductionMaintenance/014 - Release Metrics.md)
+- [Production Maintenance](03-LatestSwift-ProductionMaintenance/015 - Production Maintenance.md)
+

@@ -3,12 +3,6 @@
 ## Mục tiêu module
 Biết tạo nội dung DevRel đa kênh: blog, video, livestream, social và collaboration.
 
-## Bài học
-- [001 - Blogging](001 - Blogging.md)
-- [002 - Video Production](002 - Video Production.md)
-- [003 - Live Streaming](003 - Live Streaming.md)
-- [004 - Social Media](004 - Social Media.md)
-
 ## Thực hành trọng tâm
 Lập content calendar 4 tuần, viết một blog/tutorial và repurpose thành social post hoặc video script.
 
@@ -22,3 +16,17 @@ Lập content calendar 4 tuần, viết một blog/tutorial và repurpose thành
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với developer journey thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc DevRel
+
+## Noi dung nho
+
+- [01-Blogging-SocialMedia](01-Blogging-SocialMedia/)
+
+## Danh sach bai hoc
+
+### [01-Blogging-SocialMedia](01-Blogging-SocialMedia/)
+
+- [Blogging](01-Blogging-SocialMedia/001 - Blogging.md)
+- [Video Production](01-Blogging-SocialMedia/002 - Video Production.md)
+- [Live Streaming](01-Blogging-SocialMedia/003 - Live Streaming.md)
+- [Social Media](01-Blogging-SocialMedia/004 - Social Media.md)
+

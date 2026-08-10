@@ -3,11 +3,6 @@
 ## Mục tiêu module
 Biết đo DevRel bằng metric, tooling, reporting, dashboard và recommendation thực tế.
 
-## Bài học
-- [001 - Key Metrics](001 - Key Metrics.md)
-- [002 - Tools](002 - Tools.md)
-- [003 - Reporting](003 - Reporting.md)
-
 ## Thực hành trọng tâm
 Xây metrics tree cho DevRel: community, content, docs, activation và developer satisfaction.
 
@@ -21,3 +16,16 @@ Xây metrics tree cho DevRel: community, content, docs, activation và developer
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với developer journey thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc DevRel
+
+## Noi dung nho
+
+- [01-KeyMetrics-Reporting](01-KeyMetrics-Reporting/)
+
+## Danh sach bai hoc
+
+### [01-KeyMetrics-Reporting](01-KeyMetrics-Reporting/)
+
+- [Key Metrics](01-KeyMetrics-Reporting/001 - Key Metrics.md)
+- [Tools](01-KeyMetrics-Reporting/002 - Tools.md)
+- [Reporting](01-KeyMetrics-Reporting/003 - Reporting.md)
+

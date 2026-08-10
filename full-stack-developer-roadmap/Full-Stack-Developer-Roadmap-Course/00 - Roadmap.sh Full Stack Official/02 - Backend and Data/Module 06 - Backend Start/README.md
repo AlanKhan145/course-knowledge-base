@@ -13,13 +13,14 @@ Learn backend programming basics and build command-line apps
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-NodeJs-CheckpointCLIApps](01-NodeJs-CheckpointCLIApps/)
+
 ## Danh sach bai hoc
 
-- [001 - Node.js](001 - Node.js.md)
-- [002 - Checkpoint - CLI Apps](002 - Checkpoint - CLI Apps.md)
+### [01-NodeJs-CheckpointCLIApps](01-NodeJs-CheckpointCLIApps/)
 
-## Cach hoc module nay
+- [Node.js](01-NodeJs-CheckpointCLIApps/001 - Node.js.md)
+- [Checkpoint - CLI Apps](01-NodeJs-CheckpointCLIApps/002 - Checkpoint - CLI Apps.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

@@ -10,27 +10,50 @@ Understand PostgreSQL internals enough to reason about vacuum, memory, storage, 
 
 Lab: Create an internals notebook explaining a query from client connection to storage access.
 
+## Noi dung nho
+
+- [01-ProcessesAndMemory-BackgroundProcesses](01-ProcessesAndMemory-BackgroundProcesses/)
+- [02-VacuumProcessing-SystemCatalog](02-VacuumProcessing-SystemCatalog/)
+- [03-TOASTStorage-Snapshots](03-TOASTStorage-Snapshots/)
+- [04-TupleVisibility-Bloat](04-TupleVisibility-Bloat/)
+- [05-Freeze-WraparoundRisk](05-Freeze-WraparoundRisk/)
+
 ## Danh sach bai hoc
 
-- [001 - Processes and Memory Architecture](001 - Processes and Memory Architecture.md)
-- [002 - Postmaster Process](002 - Postmaster Process.md)
-- [003 - Backend Process](003 - Backend Process.md)
-- [004 - Shared Memory](004 - Shared Memory.md)
-- [005 - Background Processes](005 - Background Processes.md)
-- [006 - Vacuum Processing](006 - Vacuum Processing.md)
-- [007 - Buffer Management](007 - Buffer Management.md)
-- [008 - Lock Management](008 - Lock Management.md)
-- [009 - Physical Storage and File Layout](009 - Physical Storage and File Layout.md)
-- [010 - System Catalog](010 - System Catalog.md)
-- [011 - TOAST Storage](011 - TOAST Storage.md)
-- [012 - Visibility Map](012 - Visibility Map.md)
-- [013 - Free Space Map](013 - Free Space Map.md)
-- [014 - Transaction IDs](014 - Transaction IDs.md)
-- [015 - Snapshots](015 - Snapshots.md)
-- [016 - Tuple Visibility](016 - Tuple Visibility.md)
-- [017 - WAL Records](017 - WAL Records.md)
-- [018 - Commit Log](018 - Commit Log.md)
-- [019 - Autovacuum Internals](019 - Autovacuum Internals.md)
-- [020 - Bloat](020 - Bloat.md)
-- [021 - Freeze](021 - Freeze.md)
-- [022 - Wraparound Risk](022 - Wraparound Risk.md)
+### [01-ProcessesAndMemory-BackgroundProcesses](01-ProcessesAndMemory-BackgroundProcesses/)
+
+- [Processes and Memory Architecture](01-ProcessesAndMemory-BackgroundProcesses/001 - Processes and Memory Architecture.md)
+- [Postmaster Process](01-ProcessesAndMemory-BackgroundProcesses/002 - Postmaster Process.md)
+- [Backend Process](01-ProcessesAndMemory-BackgroundProcesses/003 - Backend Process.md)
+- [Shared Memory](01-ProcessesAndMemory-BackgroundProcesses/004 - Shared Memory.md)
+- [Background Processes](01-ProcessesAndMemory-BackgroundProcesses/005 - Background Processes.md)
+
+### [02-VacuumProcessing-SystemCatalog](02-VacuumProcessing-SystemCatalog/)
+
+- [Vacuum Processing](02-VacuumProcessing-SystemCatalog/006 - Vacuum Processing.md)
+- [Buffer Management](02-VacuumProcessing-SystemCatalog/007 - Buffer Management.md)
+- [Lock Management](02-VacuumProcessing-SystemCatalog/008 - Lock Management.md)
+- [Physical Storage and File Layout](02-VacuumProcessing-SystemCatalog/009 - Physical Storage and File Layout.md)
+- [System Catalog](02-VacuumProcessing-SystemCatalog/010 - System Catalog.md)
+
+### [03-TOASTStorage-Snapshots](03-TOASTStorage-Snapshots/)
+
+- [TOAST Storage](03-TOASTStorage-Snapshots/011 - TOAST Storage.md)
+- [Visibility Map](03-TOASTStorage-Snapshots/012 - Visibility Map.md)
+- [Free Space Map](03-TOASTStorage-Snapshots/013 - Free Space Map.md)
+- [Transaction IDs](03-TOASTStorage-Snapshots/014 - Transaction IDs.md)
+- [Snapshots](03-TOASTStorage-Snapshots/015 - Snapshots.md)
+
+### [04-TupleVisibility-Bloat](04-TupleVisibility-Bloat/)
+
+- [Tuple Visibility](04-TupleVisibility-Bloat/016 - Tuple Visibility.md)
+- [WAL Records](04-TupleVisibility-Bloat/017 - WAL Records.md)
+- [Commit Log](04-TupleVisibility-Bloat/018 - Commit Log.md)
+- [Autovacuum Internals](04-TupleVisibility-Bloat/019 - Autovacuum Internals.md)
+- [Bloat](04-TupleVisibility-Bloat/020 - Bloat.md)
+
+### [05-Freeze-WraparoundRisk](05-Freeze-WraparoundRisk/)
+
+- [Freeze](05-Freeze-WraparoundRisk/021 - Freeze.md)
+- [Wraparound Risk](05-Freeze-WraparoundRisk/022 - Wraparound Risk.md)
+

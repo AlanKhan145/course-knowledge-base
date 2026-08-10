@@ -1,21 +1,12 @@
 # Course Index
 
-PDF source: `C:\Users\Khanh PC\Downloads\android.pdf`
-Normalized source: `C:\Users\Khanh PC\.codex\attachments\6d68a33a-50ab-46df-919c-6fa95aafa3d3\pasted-text.txt`
-Source URL: https://roadmap.sh/android
-PDF URL: https://roadmap.sh/pdfs/roadmaps/android.pdf
-Android Basics URL: https://developer.android.com/courses/pathways/android-basics-compose-unit-1-pathway-1
-Compose URL: https://developer.android.com/courses/pathways/jetpack-compose-for-android-developers-1
-Architecture URL: https://developer.android.com/topic/architecture
-Play Console URL: https://developer.android.com/distribute/console
+Course root: `00 - Roadmap.sh Android Developer Official`
 
 ## 01 - Language and Android Fundamentals
 
-### Module 01 - Pick a Language
+### [Module 01 - Pick a Language](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language`
-
-#### [01-LanguageChoice - Language Choice](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/01-LanguageChoice/)
+#### [01-LanguageChoice](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/01-LanguageChoice/)
 
 - [Kotlin](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/01-LanguageChoice/001 - Kotlin.md)
 - [Java](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/01-LanguageChoice/002 - Java.md)
@@ -23,25 +14,23 @@ Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fu
 - [Modern Android Stack](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/01-LanguageChoice/004 - Modern Android Stack.md)
 - [Kotlin First Learning Strategy](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/01-LanguageChoice/005 - Kotlin First Learning Strategy.md)
 
-#### [02-KotlinCore - Kotlin Core](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/02-KotlinCore/)
+#### [02-KotlinCore](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/02-KotlinCore/)
 
 - [Null Safety](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/02-KotlinCore/006 - Null Safety.md)
 - [Data Classes](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/02-KotlinCore/007 - Data Classes.md)
 - [Extension Functions](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/02-KotlinCore/008 - Extension Functions.md)
 - [Sealed Classes](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/02-KotlinCore/009 - Sealed Classes.md)
 
-#### [03-CollectionsStyle - Collections and Style](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/03-CollectionsStyle/)
+#### [03-CollectionsStyle](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/03-CollectionsStyle/)
 
 - [Collections](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/03-CollectionsStyle/010 - Collections.md)
 - [Lambdas](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/03-CollectionsStyle/011 - Lambdas.md)
 - [Scope Functions](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/03-CollectionsStyle/012 - Scope Functions.md)
 - [Kotlin Coding Style](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 01 - Pick a Language/03-CollectionsStyle/013 - Kotlin Coding Style.md)
 
-### Module 02 - Android Fundamentals
+### [Module 02 - Android Fundamentals](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals`
-
-#### [01-AndroidTooling - Android Tooling](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/01-AndroidTooling/)
+#### [01-AndroidTooling](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/01-AndroidTooling/)
 
 - [Android Studio](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/01-AndroidTooling/001 - Android Studio.md)
 - [SDK Manager](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/01-AndroidTooling/002 - SDK Manager.md)
@@ -50,7 +39,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fu
 - [Logcat](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/01-AndroidTooling/005 - Logcat.md)
 - [Project Wizard](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/01-AndroidTooling/006 - Project Wizard.md)
 
-#### [02-KotlinOOP - Kotlin OOP](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/02-KotlinOOP/)
+#### [02-KotlinOOP](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/02-KotlinOOP/)
 
 - [Variables and Types](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/02-KotlinOOP/007 - Variables and Types.md)
 - [Functions](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/02-KotlinOOP/008 - Functions.md)
@@ -61,7 +50,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fu
 - [Generics](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/02-KotlinOOP/013 - Generics.md)
 - [Error Handling](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/02-KotlinOOP/014 - Error Handling.md)
 
-#### [03-DataStructures - Data Structures](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/03-DataStructures/)
+#### [03-DataStructures](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/03-DataStructures/)
 
 - [List](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/03-DataStructures/015 - List.md)
 - [Map](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/03-DataStructures/016 - Map.md)
@@ -72,7 +61,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fu
 - [Searching Basics](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/03-DataStructures/021 - Searching Basics.md)
 - [Big O for Mobile Apps](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/03-DataStructures/022 - Big O for Mobile Apps.md)
 
-#### [04-GradleBuild - Gradle Build](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/04-GradleBuild/)
+#### [04-GradleBuild](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/04-GradleBuild/)
 
 - [Gradle Build System](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/04-GradleBuild/023 - Gradle Build System.md)
 - [Settings Gradle](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/04-GradleBuild/024 - Settings Gradle.md)
@@ -83,7 +72,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fu
 - [Product Flavors](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/04-GradleBuild/029 - Product Flavors.md)
 - [Version Catalog](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/04-GradleBuild/030 - Version Catalog.md)
 
-#### [05-FirstApp - First App](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/05-FirstApp/)
+#### [05-FirstApp](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/05-FirstApp/)
 
 - [Create a Basic Hello World App](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/05-FirstApp/031 - Create a Basic Hello World App.md)
 - [Android Project Structure](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/05-FirstApp/032 - Android Project Structure.md)
@@ -91,7 +80,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fu
 - [Resources Folder](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/05-FirstApp/034 - Resources Folder.md)
 - [Run and Debug App](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/05-FirstApp/035 - Run and Debug App.md)
 
-#### [06-VersionControl - Version Control](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/06-VersionControl/)
+#### [06-VersionControl](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/06-VersionControl/)
 
 - [Git](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/06-VersionControl/036 - Git.md)
 - [GitHub](00 - Roadmap.sh Android Developer Official/01 - Language and Android Fundamentals/Module 02 - Android Fundamentals/06-VersionControl/037 - GitHub.md)
@@ -100,11 +89,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/01 - Language and Android Fu
 
 ## 02 - App Components and User Interface
 
-### Module 03 - App Components
+### [Module 03 - App Components](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components`
-
-#### [01-ActivityLifecycle - Activity Lifecycle](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/01-ActivityLifecycle/)
+#### [01-ActivityLifecycle](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/01-ActivityLifecycle/)
 
 - [Activity](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/01-ActivityLifecycle/001 - Activity.md)
 - [Activity Lifecycle](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/01-ActivityLifecycle/002 - Activity Lifecycle.md)
@@ -118,7 +105,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [Configuration Changes](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/01-ActivityLifecycle/010 - Configuration Changes.md)
 - [Tasks and Backstack](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/01-ActivityLifecycle/011 - Tasks and Backstack.md)
 
-#### [02-Intents - Intents](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/02-Intents/)
+#### [02-Intents](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/02-Intents/)
 
 - [Intent](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/02-Intents/012 - Intent.md)
 - [Explicit Intents](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/02-Intents/013 - Explicit Intents.md)
@@ -129,13 +116,13 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [Open Browser Intent](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/02-Intents/018 - Open Browser Intent.md)
 - [Camera Intent](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/02-Intents/019 - Camera Intent.md)
 
-#### [03-Services - Services](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/03-Services/)
+#### [03-Services](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/03-Services/)
 
 - [Services](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/03-Services/020 - Services.md)
 - [Foreground Service](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/03-Services/021 - Foreground Service.md)
 - [Bound Service](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/03-Services/022 - Bound Service.md)
 
-#### [04-ProvidersReceivers - Providers and Receivers](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/04-ProvidersReceivers/)
+#### [04-ProvidersReceivers](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/04-ProvidersReceivers/)
 
 - [Content Provider](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/04-ProvidersReceivers/023 - Content Provider.md)
 - [Broadcast Receiver](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/04-ProvidersReceivers/024 - Broadcast Receiver.md)
@@ -143,11 +130,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [App Manifest Registration](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/04-ProvidersReceivers/026 - App Manifest Registration.md)
 - [Component Permissions](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 03 - App Components/04-ProvidersReceivers/027 - Component Permissions.md)
 
-### Module 04 - Interface and Navigation
+### [Module 04 - Interface and Navigation](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation`
-
-#### [01-ViewLayouts - View Layouts](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/01-ViewLayouts/)
+#### [01-ViewLayouts](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/01-ViewLayouts/)
 
 - [FrameLayout](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/01-ViewLayouts/001 - FrameLayout.md)
 - [LinearLayout](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/01-ViewLayouts/002 - LinearLayout.md)
@@ -158,7 +143,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [Adapter Pattern](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/01-ViewLayouts/007 - Adapter Pattern.md)
 - [Layout Inflation](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/01-ViewLayouts/008 - Layout Inflation.md)
 
-#### [02-ClassicWidgets - Classic Widgets](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/02-ClassicWidgets/)
+#### [02-ClassicWidgets](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/02-ClassicWidgets/)
 
 - [TextView](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/02-ClassicWidgets/009 - TextView.md)
 - [EditText](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/02-ClassicWidgets/010 - EditText.md)
@@ -167,7 +152,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [Toast](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/02-ClassicWidgets/013 - Toast.md)
 - [Dialogs](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/02-ClassicWidgets/014 - Dialogs.md)
 
-#### [03-FragmentsLists - Fragments and Lists](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/03-FragmentsLists/)
+#### [03-FragmentsLists](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/03-FragmentsLists/)
 
 - [Fragments](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/03-FragmentsLists/015 - Fragments.md)
 - [Bottom Sheet](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/03-FragmentsLists/016 - Bottom Sheet.md)
@@ -176,7 +161,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [Tabs](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/03-FragmentsLists/019 - Tabs.md)
 - [Animations](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/03-FragmentsLists/020 - Animations.md)
 
-#### [04-ComposeBasics - Compose Basics](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/04-ComposeBasics/)
+#### [04-ComposeBasics](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/04-ComposeBasics/)
 
 - [Jetpack Compose](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/04-ComposeBasics/021 - Jetpack Compose.md)
 - [Composable Functions](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/04-ComposeBasics/022 - Composable Functions.md)
@@ -184,7 +169,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [Modifier](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/04-ComposeBasics/024 - Modifier.md)
 - [Material Design](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/04-ComposeBasics/025 - Material Design.md)
 
-#### [05-ComposeStateUI - Compose State and UI](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/05-ComposeStateUI/)
+#### [05-ComposeStateUI](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/05-ComposeStateUI/)
 
 - [Compose State](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/05-ComposeStateUI/026 - Compose State.md)
 - [State Hoisting](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/05-ComposeStateUI/027 - State Hoisting.md)
@@ -196,7 +181,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 - [Compose Animation](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/05-ComposeStateUI/033 - Compose Animation.md)
 - [Compose Theming](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/05-ComposeStateUI/034 - Compose Theming.md)
 
-#### [06-Navigation - Navigation](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/06-Navigation/)
+#### [06-Navigation](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/06-Navigation/)
 
 - [Navigation Components](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/06-Navigation/035 - Navigation Components.md)
 - [Navigation Graph](00 - Roadmap.sh Android Developer Official/02 - App Components and User Interface/Module 04 - Interface and Navigation/06-Navigation/036 - Navigation Graph.md)
@@ -209,11 +194,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/02 - App Components and User
 
 ## 03 - Architecture, State and Data
 
-### Module 05 - Design and Architecture
+### [Module 05 - Design and Architecture](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture`
-
-#### [01-AppArchitecture - App Architecture](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/01-AppArchitecture/)
+#### [01-AppArchitecture](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/01-AppArchitecture/)
 
 - [MVC](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/01-AppArchitecture/001 - MVC.md)
 - [MVP](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/01-AppArchitecture/002 - MVP.md)
@@ -221,14 +204,14 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 - [MVI](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/01-AppArchitecture/004 - MVI.md)
 - [Unidirectional Data Flow](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/01-AppArchitecture/005 - Unidirectional Data Flow.md)
 
-#### [02-CleanLayers - Clean Layers](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/02-CleanLayers/)
+#### [02-CleanLayers](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/02-CleanLayers/)
 
 - [UI Layer](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/02-CleanLayers/006 - UI Layer.md)
 - [Domain Layer](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/02-CleanLayers/007 - Domain Layer.md)
 - [Data Layer](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/02-CleanLayers/008 - Data Layer.md)
 - [Clean Architecture Boundaries](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/02-CleanLayers/009 - Clean Architecture Boundaries.md)
 
-#### [03-StateHolders - State Holders](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/03-StateHolders/)
+#### [03-StateHolders](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/03-StateHolders/)
 
 - [ViewModel](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/03-StateHolders/010 - ViewModel.md)
 - [SavedStateHandle](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/03-StateHolders/011 - SavedStateHandle.md)
@@ -239,7 +222,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 - [UI State](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/03-StateHolders/016 - UI State.md)
 - [Events and Effects](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/03-StateHolders/017 - Events and Effects.md)
 
-#### [04-Patterns - Patterns](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/04-Patterns/)
+#### [04-Patterns](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/04-Patterns/)
 
 - [Repository Pattern](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/04-Patterns/018 - Repository Pattern.md)
 - [UseCase Pattern](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/04-Patterns/019 - UseCase Pattern.md)
@@ -249,7 +232,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 - [Mapper Pattern](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/04-Patterns/023 - Mapper Pattern.md)
 - [Result Wrapper](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/04-Patterns/024 - Result Wrapper.md)
 
-#### [05-DependencyInjection - Dependency Injection](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/05-DependencyInjection/)
+#### [05-DependencyInjection](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/05-DependencyInjection/)
 
 - [Dependency Injection](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/05-DependencyInjection/025 - Dependency Injection.md)
 - [Dagger](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/05-DependencyInjection/026 - Dagger.md)
@@ -260,7 +243,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 - [Module Binding](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/05-DependencyInjection/031 - Module Binding.md)
 - [Scope Management](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/05-DependencyInjection/032 - Scope Management.md)
 
-#### [06-ReactiveState - Reactive State](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/06-ReactiveState/)
+#### [06-ReactiveState](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/06-ReactiveState/)
 
 - [Flow](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/06-ReactiveState/033 - Flow.md)
 - [RxJava](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/06-ReactiveState/034 - RxJava.md)
@@ -270,11 +253,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 - [State Reducer](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/06-ReactiveState/038 - State Reducer.md)
 - [Single Source of Truth](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 05 - Design and Architecture/06-ReactiveState/039 - Single Source of Truth.md)
 
-### Module 06 - Storage
+### [Module 06 - Storage](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage`
-
-#### [01-KeyValueFiles - Key Value and Files](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/01-KeyValueFiles/)
+#### [01-KeyValueFiles](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/01-KeyValueFiles/)
 
 - [Shared Preferences](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/01-KeyValueFiles/001 - Shared Preferences.md)
 - [DataStore](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/01-KeyValueFiles/002 - DataStore.md)
@@ -285,7 +266,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 - [External Storage](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/01-KeyValueFiles/007 - External Storage.md)
 - [Serialization](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/01-KeyValueFiles/008 - Serialization.md)
 
-#### [02-RoomBasics - Room Basics](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/02-RoomBasics/)
+#### [02-RoomBasics](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/02-RoomBasics/)
 
 - [Room Database](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/02-RoomBasics/009 - Room Database.md)
 - [Entity](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/02-RoomBasics/010 - Entity.md)
@@ -298,7 +279,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 - [Prepopulate Database](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/02-RoomBasics/017 - Prepopulate Database.md)
 - [Room with Flow](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/02-RoomBasics/018 - Room with Flow.md)
 
-#### [03-OfflineData - Offline Data](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/03-OfflineData/)
+#### [03-OfflineData](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/03-OfflineData/)
 
 - [Offline First](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/03-OfflineData/019 - Offline First.md)
 - [Cache Policy](00 - Roadmap.sh Android Developer Official/03 - Architecture, State and Data/Module 06 - Storage/03-OfflineData/020 - Cache Policy.md)
@@ -309,11 +290,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/03 - Architecture, State and
 
 ## 04 - Network, Async and Services
 
-### Module 07 - Network
+### [Module 07 - Network](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network`
-
-#### [01-HTTPBasics - HTTP Basics](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/01-HTTPBasics/)
+#### [01-HTTPBasics](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/01-HTTPBasics/)
 
 - [HTTP Methods](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/01-HTTPBasics/001 - HTTP Methods.md)
 - [Status Codes](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/01-HTTPBasics/002 - Status Codes.md)
@@ -323,7 +302,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [DTO](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/01-HTTPBasics/006 - DTO.md)
 - [Network Security Config](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/01-HTTPBasics/007 - Network Security Config.md)
 
-#### [02-Retrofit - Retrofit](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/02-Retrofit/)
+#### [02-Retrofit](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/02-Retrofit/)
 
 - [Retrofit](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/02-Retrofit/008 - Retrofit.md)
 - [Retrofit Interface](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/02-Retrofit/009 - Retrofit Interface.md)
@@ -334,7 +313,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Error Body](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/02-Retrofit/014 - Error Body.md)
 - [Pagination](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/02-Retrofit/015 - Pagination.md)
 
-#### [03-OkHttp - OkHttp](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/03-OkHttp/)
+#### [03-OkHttp](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/03-OkHttp/)
 
 - [OkHttp](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/03-OkHttp/016 - OkHttp.md)
 - [Interceptor](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/03-OkHttp/017 - Interceptor.md)
@@ -342,13 +321,13 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Timeouts](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/03-OkHttp/019 - Timeouts.md)
 - [Caching](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/03-OkHttp/020 - Caching.md)
 
-#### [04-GraphQL - GraphQL](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/04-GraphQL/)
+#### [04-GraphQL](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/04-GraphQL/)
 
 - [Apollo Android](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/04-GraphQL/021 - Apollo Android.md)
 - [GraphQL Query](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/04-GraphQL/022 - GraphQL Query.md)
 - [GraphQL Mutation](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/04-GraphQL/023 - GraphQL Mutation.md)
 
-#### [05-NetworkUX - Network UX](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/05-NetworkUX/)
+#### [05-NetworkUX](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/05-NetworkUX/)
 
 - [Loading State](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/05-NetworkUX/024 - Loading State.md)
 - [Success State](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/05-NetworkUX/025 - Success State.md)
@@ -357,11 +336,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Pull to Refresh](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/05-NetworkUX/028 - Pull to Refresh.md)
 - [Offline Message](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 07 - Network/05-NetworkUX/029 - Offline Message.md)
 
-### Module 08 - Asynchronism
+### [Module 08 - Asynchronism](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism`
-
-#### [01-ThreadingBasics - Threading Basics](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/01-ThreadingBasics/)
+#### [01-ThreadingBasics](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/01-ThreadingBasics/)
 
 - [Main Thread](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/01-ThreadingBasics/001 - Main Thread.md)
 - [Background Thread](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/01-ThreadingBasics/002 - Background Thread.md)
@@ -371,7 +348,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Handler](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/01-ThreadingBasics/006 - Handler.md)
 - [Dispatcher](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/01-ThreadingBasics/007 - Dispatcher.md)
 
-#### [02-Coroutines - Coroutines](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/02-Coroutines/)
+#### [02-Coroutines](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/02-Coroutines/)
 
 - [Coroutines](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/02-Coroutines/008 - Coroutines.md)
 - [Coroutine Scope](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/02-Coroutines/009 - Coroutine Scope.md)
@@ -381,7 +358,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Cancellation](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/02-Coroutines/013 - Cancellation.md)
 - [Exception Handling in Coroutines](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/02-Coroutines/014 - Exception Handling in Coroutines.md)
 
-#### [03-FlowRx - Flow and Rx](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/03-FlowRx/)
+#### [03-FlowRx](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/03-FlowRx/)
 
 - [Flow](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/03-FlowRx/015 - Flow.md)
 - [Cold Flow](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/03-FlowRx/016 - Cold Flow.md)
@@ -392,7 +369,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Single](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/03-FlowRx/021 - Single.md)
 - [Scheduler](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/03-FlowRx/022 - Scheduler.md)
 
-#### [04-WorkManager - WorkManager](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/04-WorkManager/)
+#### [04-WorkManager](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/04-WorkManager/)
 
 - [WorkManager](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/04-WorkManager/023 - WorkManager.md)
 - [OneTimeWorkRequest](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/04-WorkManager/024 - OneTimeWorkRequest.md)
@@ -401,11 +378,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Retry and Backoff](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/04-WorkManager/027 - Retry and Backoff.md)
 - [Background Sync](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 08 - Asynchronism/04-WorkManager/028 - Background Sync.md)
 
-### Module 09 - Common Services
+### [Module 09 - Common Services](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services`
-
-#### [01-FirebaseCore - Firebase Core](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/01-FirebaseCore/)
+#### [01-FirebaseCore](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/01-FirebaseCore/)
 
 - [Firebase](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/01-FirebaseCore/001 - Firebase.md)
 - [Firebase Authentication](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/01-FirebaseCore/002 - Firebase Authentication.md)
@@ -416,20 +391,20 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 - [Firebase Analytics](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/01-FirebaseCore/007 - Firebase Analytics.md)
 - [Firebase App Distribution](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/01-FirebaseCore/008 - Firebase App Distribution.md)
 
-#### [02-PlayServicesMaps - Play Services and Maps](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/02-PlayServicesMaps/)
+#### [02-PlayServicesMaps](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/02-PlayServicesMaps/)
 
 - [Google Play Services](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/02-PlayServicesMaps/009 - Google Play Services.md)
 - [Google Maps](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/02-PlayServicesMaps/010 - Google Maps.md)
 - [Maps Marker](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/02-PlayServicesMaps/011 - Maps Marker.md)
 - [Location Permission](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/02-PlayServicesMaps/012 - Location Permission.md)
 
-#### [03-AppGrowth - App Growth](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/03-AppGrowth/)
+#### [03-AppGrowth](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/03-AppGrowth/)
 
 - [AdMob](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/03-AppGrowth/013 - AdMob.md)
 - [In App Updates](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/03-AppGrowth/014 - In App Updates.md)
 - [In App Review](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/03-AppGrowth/015 - In App Review.md)
 
-#### [04-IntegrationOps - Integration Ops](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/04-IntegrationOps/)
+#### [04-IntegrationOps](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/04-IntegrationOps/)
 
 - [google-services Plugin](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/04-IntegrationOps/016 - google-services Plugin.md)
 - [API Key Management](00 - Roadmap.sh Android Developer Official/04 - Network, Async and Services/Module 09 - Common Services/04-IntegrationOps/017 - API Key Management.md)
@@ -440,11 +415,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/04 - Network, Async and Serv
 
 ## 05 - Quality, Release and Portfolio
 
-### Module 10 - Linting, Debugging and Benchmark
+### [Module 10 - Linting, Debugging and Benchmark](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark`
-
-#### [01-StaticQuality - Static Quality](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/01-StaticQuality/)
+#### [01-StaticQuality](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/01-StaticQuality/)
 
 - [Android Lint](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/01-StaticQuality/001 - Android Lint.md)
 - [Ktlint](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/01-StaticQuality/002 - Ktlint.md)
@@ -453,7 +426,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Static Analysis Baseline](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/01-StaticQuality/005 - Static Analysis Baseline.md)
 - [Gradle Quality Task](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/01-StaticQuality/006 - Gradle Quality Task.md)
 
-#### [02-DebuggingTools - Debugging Tools](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/02-DebuggingTools/)
+#### [02-DebuggingTools](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/02-DebuggingTools/)
 
 - [Debugging](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/02-DebuggingTools/007 - Debugging.md)
 - [Breakpoints](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/02-DebuggingTools/008 - Breakpoints.md)
@@ -464,7 +437,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Network Debugging](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/02-DebuggingTools/013 - Network Debugging.md)
 - [Crash Investigation](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/02-DebuggingTools/014 - Crash Investigation.md)
 
-#### [03-BenchmarkProfile - Benchmark and Profile](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/03-BenchmarkProfile/)
+#### [03-BenchmarkProfile](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/03-BenchmarkProfile/)
 
 - [Jetpack Benchmark](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/03-BenchmarkProfile/015 - Jetpack Benchmark.md)
 - [Macrobenchmark](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/03-BenchmarkProfile/016 - Macrobenchmark.md)
@@ -474,11 +447,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Compose Recomposition](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/03-BenchmarkProfile/020 - Compose Recomposition.md)
 - [Android Profiler](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 10 - Linting, Debugging and Benchmark/03-BenchmarkProfile/021 - Android Profiler.md)
 
-### Module 11 - Testing
+### [Module 11 - Testing](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing`
-
-#### [01-UnitTests - Unit Tests](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/01-UnitTests/)
+#### [01-UnitTests](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/01-UnitTests/)
 
 - [JUnit](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/01-UnitTests/001 - JUnit.md)
 - [Test Naming](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/01-UnitTests/002 - Test Naming.md)
@@ -491,7 +462,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Mock API](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/01-UnitTests/009 - Mock API.md)
 - [Mock Database](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/01-UnitTests/010 - Mock Database.md)
 
-#### [02-UITests - UI Tests](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/02-UITests/)
+#### [02-UITests](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/02-UITests/)
 
 - [Espresso](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/02-UITests/011 - Espresso.md)
 - [Compose UI Test](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/02-UITests/012 - Compose UI Test.md)
@@ -503,7 +474,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Navigation Test](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/02-UITests/018 - Navigation Test.md)
 - [Delete Flow Test](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/02-UITests/019 - Delete Flow Test.md)
 
-#### [03-TestStrategyCI - Test Strategy and CI](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/03-TestStrategyCI/)
+#### [03-TestStrategyCI](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/03-TestStrategyCI/)
 
 - [Test Pyramid](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/03-TestStrategyCI/020 - Test Pyramid.md)
 - [Critical User Flow](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/03-TestStrategyCI/021 - Critical User Flow.md)
@@ -512,11 +483,9 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [CI Test Run](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/03-TestStrategyCI/024 - CI Test Run.md)
 - [Coverage Report](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 11 - Testing/03-TestStrategyCI/025 - Coverage Report.md)
 
-### Module 12 - Distribution and Final Project
+### [Module 12 - Distribution and Final Project](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/)
 
-Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project`
-
-#### [01-BuildSigning - Build and Signing](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/01-BuildSigning/)
+#### [01-BuildSigning](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/01-BuildSigning/)
 
 - [Debug Build](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/01-BuildSigning/001 - Debug Build.md)
 - [Release Build](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/01-BuildSigning/002 - Release Build.md)
@@ -529,7 +498,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [ProGuard and R8](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/01-BuildSigning/009 - ProGuard and R8.md)
 - [Release Notes](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/01-BuildSigning/010 - Release Notes.md)
 
-#### [02-PlayRelease - Play Release](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/02-PlayRelease/)
+#### [02-PlayRelease](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/02-PlayRelease/)
 
 - [Firebase Distribution](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/02-PlayRelease/011 - Firebase Distribution.md)
 - [Internal Testing](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/02-PlayRelease/012 - Internal Testing.md)
@@ -541,7 +510,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Staged Rollout](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/02-PlayRelease/018 - Staged Rollout.md)
 - [Production Release](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/02-PlayRelease/019 - Production Release.md)
 
-#### [03-CapstoneFeatures - Capstone Features](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/03-CapstoneFeatures/)
+#### [03-CapstoneFeatures](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/03-CapstoneFeatures/)
 
 - [Authentication](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/03-CapstoneFeatures/020 - Authentication.md)
 - [Local Database](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/03-CapstoneFeatures/021 - Local Database.md)
@@ -554,7 +523,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Release Build](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/03-CapstoneFeatures/028 - Release Build.md)
 - [Internal Testing Channel](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/03-CapstoneFeatures/029 - Internal Testing Channel.md)
 
-#### [04-LearningPlan - Learning Plan](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/04-LearningPlan/)
+#### [04-LearningPlan](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/04-LearningPlan/)
 
 - [Week 1-2 Kotlin OOP DSA Android Studio Gradle Git](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/04-LearningPlan/030 - Week 1-2 Kotlin OOP DSA Android Studio Gradle Git.md)
 - [Week 3-4 Activity Intent Lifecycle App Components](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/04-LearningPlan/031 - Week 3-4 Activity Intent Lifecycle App Components.md)
@@ -565,7 +534,7 @@ Folder: `00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Po
 - [Week 15 Testing Debugging Linting Performance](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/04-LearningPlan/036 - Week 15 Testing Debugging Linting Performance.md)
 - [Week 16 Signed APK AAB Firebase Distribution Google Play](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/04-LearningPlan/037 - Week 16 Signed APK AAB Firebase Distribution Google Play.md)
 
-#### [05-PortfolioApps - Portfolio Apps](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/05-PortfolioApps/)
+#### [05-PortfolioApps](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/05-PortfolioApps/)
 
 - [Hello Android App](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/05-PortfolioApps/038 - Hello Android App.md)
 - [Profile Portfolio App](00 - Roadmap.sh Android Developer Official/05 - Quality, Release and Portfolio/Module 12 - Distribution and Final Project/05-PortfolioApps/039 - Profile Portfolio App.md)

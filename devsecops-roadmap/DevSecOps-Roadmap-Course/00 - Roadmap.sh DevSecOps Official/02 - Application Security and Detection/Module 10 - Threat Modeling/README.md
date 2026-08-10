@@ -12,15 +12,16 @@ Map threats, risks and attack surfaces before they become production incidents.
 
 - Topics
 
+## Noi dung nho
+
+- [01-STRIDE-AttackSurfaceMapping](01-STRIDE-AttackSurfaceMapping/)
+
 ## Danh sach bai hoc
 
-- [001 - STRIDE](001 - STRIDE.md)
-- [002 - PASTA](002 - PASTA.md)
-- [003 - Threat Modeling Workflows](003 - Threat Modeling Workflows.md)
-- [004 - Attack Surface Mapping](004 - Attack Surface Mapping.md)
+### [01-STRIDE-AttackSurfaceMapping](01-STRIDE-AttackSurfaceMapping/)
 
-## Cach hoc module nay
+- [STRIDE](01-STRIDE-AttackSurfaceMapping/001 - STRIDE.md)
+- [PASTA](01-STRIDE-AttackSurfaceMapping/002 - PASTA.md)
+- [Threat Modeling Workflows](01-STRIDE-AttackSurfaceMapping/003 - Threat Modeling Workflows.md)
+- [Attack Surface Mapping](01-STRIDE-AttackSurfaceMapping/004 - Attack Surface Mapping.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

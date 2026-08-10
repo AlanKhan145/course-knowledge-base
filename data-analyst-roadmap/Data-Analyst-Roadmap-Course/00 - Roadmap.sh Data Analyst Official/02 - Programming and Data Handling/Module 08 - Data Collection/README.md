@@ -12,15 +12,16 @@ Collect data from databases, files, APIs and web pages with clear assumptions an
 
 - Data Collection
 
+## Noi dung nho
+
+- [01-Databases-WebScraping](01-Databases-WebScraping/)
+
 ## Danh sach bai hoc
 
-- [001 - Databases](001 - Databases.md)
-- [002 - CSV Files](002 - CSV Files.md)
-- [003 - APIs](003 - APIs.md)
-- [004 - Web Scraping](004 - Web Scraping.md)
+### [01-Databases-WebScraping](01-Databases-WebScraping/)
 
-## Cach hoc module nay
+- [Databases](01-Databases-WebScraping/001 - Databases.md)
+- [CSV Files](01-Databases-WebScraping/002 - CSV Files.md)
+- [APIs](01-Databases-WebScraping/003 - APIs.md)
+- [Web Scraping](01-Databases-WebScraping/004 - Web Scraping.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.

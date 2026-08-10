@@ -3,12 +3,6 @@
 ## Mục tiêu module
 Biết đọc business context, chọn metric/KPI và xác định đúng stakeholder của dashboard/report.
 
-## Bài học
-- [001 - Metrics and KPIs](001 - Metrics and KPIs.md)
-- [002 - Types of BI Operations](002 - Types of BI Operations.md)
-- [003 - Stakeholder Identification](003 - Stakeholder Identification.md)
-- [004 - Key Business Functions](004 - Key Business Functions.md)
-
 ## Thực hành trọng tâm
 Tạo KPI tree cho một phòng ban: Sales, Marketing, Finance, Operations hoặc HR.
 
@@ -22,3 +16,17 @@ Tạo KPI tree cho một phòng ban: Sales, Marketing, Finance, Operations hoặ
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một business question thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc BI Analyst
+
+## Noi dung nho
+
+- [01-MetricsAndKPIs-KeyBusinessFunctions](01-MetricsAndKPIs-KeyBusinessFunctions/)
+
+## Danh sach bai hoc
+
+### [01-MetricsAndKPIs-KeyBusinessFunctions](01-MetricsAndKPIs-KeyBusinessFunctions/)
+
+- [Metrics and KPIs](01-MetricsAndKPIs-KeyBusinessFunctions/001 - Metrics and KPIs.md)
+- [Types of BI Operations](01-MetricsAndKPIs-KeyBusinessFunctions/002 - Types of BI Operations.md)
+- [Stakeholder Identification](01-MetricsAndKPIs-KeyBusinessFunctions/003 - Stakeholder Identification.md)
+- [Key Business Functions](01-MetricsAndKPIs-KeyBusinessFunctions/004 - Key Business Functions.md)
+

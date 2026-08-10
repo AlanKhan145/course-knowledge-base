@@ -12,24 +12,33 @@ Design systems with layered controls, zero trust, secure APIs and supply chain p
 
 - Topics
 
+## Noi dung nho
+
+- [01-DefenseInDepth-LargeScaleIdentity](01-DefenseInDepth-LargeScaleIdentity/)
+- [02-IDS-SupplyChainSecurity](02-IDS-SupplyChainSecurity/)
+- [03-SBOMs-DependencyRiskManagement](03-SBOMs-DependencyRiskManagement/)
+
 ## Danh sach bai hoc
 
-- [001 - Defense in Depth Concepts](001 - Defense in Depth Concepts.md)
-- [002 - Zero Trust Concepts](002 - Zero Trust Concepts.md)
-- [003 - Secure API Design](003 - Secure API Design.md)
-- [004 - Multi Region Security Planning](004 - Multi Region Security Planning.md)
-- [005 - Large Scale Identity Strategy](005 - Large Scale Identity Strategy.md)
-- [006 - IDS](006 - IDS.md)
-- [007 - IPS](007 - IPS.md)
-- [008 - DDoS Mitigation Strategy](008 - DDoS Mitigation Strategy.md)
-- [009 - Secure Network Zoning](009 - Secure Network Zoning.md)
-- [010 - Supply Chain Security](010 - Supply Chain Security.md)
-- [011 - SBOMs](011 - SBOMs.md)
-- [012 - Build Pipeline Hardening](012 - Build Pipeline Hardening.md)
-- [013 - Dependency Risk Management](013 - Dependency Risk Management.md)
+### [01-DefenseInDepth-LargeScaleIdentity](01-DefenseInDepth-LargeScaleIdentity/)
 
-## Cach hoc module nay
+- [Defense in Depth Concepts](01-DefenseInDepth-LargeScaleIdentity/001 - Defense in Depth Concepts.md)
+- [Zero Trust Concepts](01-DefenseInDepth-LargeScaleIdentity/002 - Zero Trust Concepts.md)
+- [Secure API Design](01-DefenseInDepth-LargeScaleIdentity/003 - Secure API Design.md)
+- [Multi Region Security Planning](01-DefenseInDepth-LargeScaleIdentity/004 - Multi Region Security Planning.md)
+- [Large Scale Identity Strategy](01-DefenseInDepth-LargeScaleIdentity/005 - Large Scale Identity Strategy.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.
+### [02-IDS-SupplyChainSecurity](02-IDS-SupplyChainSecurity/)
+
+- [IDS](02-IDS-SupplyChainSecurity/006 - IDS.md)
+- [IPS](02-IDS-SupplyChainSecurity/007 - IPS.md)
+- [DDoS Mitigation Strategy](02-IDS-SupplyChainSecurity/008 - DDoS Mitigation Strategy.md)
+- [Secure Network Zoning](02-IDS-SupplyChainSecurity/009 - Secure Network Zoning.md)
+- [Supply Chain Security](02-IDS-SupplyChainSecurity/010 - Supply Chain Security.md)
+
+### [03-SBOMs-DependencyRiskManagement](03-SBOMs-DependencyRiskManagement/)
+
+- [SBOMs](03-SBOMs-DependencyRiskManagement/011 - SBOMs.md)
+- [Build Pipeline Hardening](03-SBOMs-DependencyRiskManagement/012 - Build Pipeline Hardening.md)
+- [Dependency Risk Management](03-SBOMs-DependencyRiskManagement/013 - Dependency Risk Management.md)
+

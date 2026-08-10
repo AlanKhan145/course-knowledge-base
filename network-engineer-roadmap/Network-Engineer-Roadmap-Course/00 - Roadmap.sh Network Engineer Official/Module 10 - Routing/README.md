@@ -3,11 +3,6 @@
 ## Mục tiêu module
 Hiểu static/dynamic routing, gateway và các routing protocol chính.
 
-## Bài học
-- [001 - Routing cơ bản](001 - Routing co ban.md)
-- [002 - Routing Protocols](002 - Routing Protocols.md)
-- [003 - Static vs Dynamic Routing](003 - Static vs Dynamic Routing.md)
-
 ## Thực hành trọng tâm
 Tạo ví dụ routing table, default gateway và phân biệt static/dynamic route trong một topology nhỏ.
 
@@ -21,3 +16,16 @@ Tạo ví dụ routing table, default gateway và phân biệt static/dynamic ro
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-RoutingCoBan-StaticVsDynamic](01-RoutingCoBan-StaticVsDynamic/)
+
+## Danh sach bai hoc
+
+### [01-RoutingCoBan-StaticVsDynamic](01-RoutingCoBan-StaticVsDynamic/)
+
+- [Routing co ban](01-RoutingCoBan-StaticVsDynamic/001 - Routing co ban.md)
+- [Routing Protocols](01-RoutingCoBan-StaticVsDynamic/002 - Routing Protocols.md)
+- [Static vs Dynamic Routing](01-RoutingCoBan-StaticVsDynamic/003 - Static vs Dynamic Routing.md)
+

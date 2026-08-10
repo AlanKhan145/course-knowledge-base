@@ -12,15 +12,15 @@ Final project: Production Android App with auth, local database, network, offlin
 
 ## Noi dung nho
 
-- [01-BuildSigning - Build and Signing](01-BuildSigning/)
-- [02-PlayRelease - Play Release](02-PlayRelease/)
-- [03-CapstoneFeatures - Capstone Features](03-CapstoneFeatures/)
-- [04-LearningPlan - Learning Plan](04-LearningPlan/)
-- [05-PortfolioApps - Portfolio Apps](05-PortfolioApps/)
+- [01-BuildSigning](01-BuildSigning/)
+- [02-PlayRelease](02-PlayRelease/)
+- [03-CapstoneFeatures](03-CapstoneFeatures/)
+- [04-LearningPlan](04-LearningPlan/)
+- [05-PortfolioApps](05-PortfolioApps/)
 
 ## Danh sach bai hoc
 
-### [01-BuildSigning - Build and Signing](01-BuildSigning/)
+### [01-BuildSigning](01-BuildSigning/)
 
 - [Debug Build](01-BuildSigning/001 - Debug Build.md)
 - [Release Build](01-BuildSigning/002 - Release Build.md)
@@ -33,7 +33,7 @@ Final project: Production Android App with auth, local database, network, offlin
 - [ProGuard and R8](01-BuildSigning/009 - ProGuard and R8.md)
 - [Release Notes](01-BuildSigning/010 - Release Notes.md)
 
-### [02-PlayRelease - Play Release](02-PlayRelease/)
+### [02-PlayRelease](02-PlayRelease/)
 
 - [Firebase Distribution](02-PlayRelease/011 - Firebase Distribution.md)
 - [Internal Testing](02-PlayRelease/012 - Internal Testing.md)
@@ -45,7 +45,7 @@ Final project: Production Android App with auth, local database, network, offlin
 - [Staged Rollout](02-PlayRelease/018 - Staged Rollout.md)
 - [Production Release](02-PlayRelease/019 - Production Release.md)
 
-### [03-CapstoneFeatures - Capstone Features](03-CapstoneFeatures/)
+### [03-CapstoneFeatures](03-CapstoneFeatures/)
 
 - [Authentication](03-CapstoneFeatures/020 - Authentication.md)
 - [Local Database](03-CapstoneFeatures/021 - Local Database.md)
@@ -58,7 +58,7 @@ Final project: Production Android App with auth, local database, network, offlin
 - [Release Build](03-CapstoneFeatures/028 - Release Build.md)
 - [Internal Testing Channel](03-CapstoneFeatures/029 - Internal Testing Channel.md)
 
-### [04-LearningPlan - Learning Plan](04-LearningPlan/)
+### [04-LearningPlan](04-LearningPlan/)
 
 - [Week 1-2 Kotlin OOP DSA Android Studio Gradle Git](04-LearningPlan/030 - Week 1-2 Kotlin OOP DSA Android Studio Gradle Git.md)
 - [Week 3-4 Activity Intent Lifecycle App Components](04-LearningPlan/031 - Week 3-4 Activity Intent Lifecycle App Components.md)
@@ -69,7 +69,7 @@ Final project: Production Android App with auth, local database, network, offlin
 - [Week 15 Testing Debugging Linting Performance](04-LearningPlan/036 - Week 15 Testing Debugging Linting Performance.md)
 - [Week 16 Signed APK AAB Firebase Distribution Google Play](04-LearningPlan/037 - Week 16 Signed APK AAB Firebase Distribution Google Play.md)
 
-### [05-PortfolioApps - Portfolio Apps](05-PortfolioApps/)
+### [05-PortfolioApps](05-PortfolioApps/)
 
 - [Hello Android App](05-PortfolioApps/038 - Hello Android App.md)
 - [Profile Portfolio App](05-PortfolioApps/039 - Profile Portfolio App.md)
@@ -78,3 +78,4 @@ Final project: Production Android App with auth, local database, network, offlin
 - [News App](05-PortfolioApps/042 - News App.md)
 - [Firebase Chat App](05-PortfolioApps/043 - Firebase Chat App.md)
 - [Final Production App](05-PortfolioApps/044 - Final Production App.md)
+

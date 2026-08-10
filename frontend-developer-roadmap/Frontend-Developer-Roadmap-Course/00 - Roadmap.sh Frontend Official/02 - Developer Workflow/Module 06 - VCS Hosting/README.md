@@ -5,13 +5,14 @@
 
 Module nay gom 2 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-GitHub-GitLab](01-GitHub-GitLab/)
+
 ## Danh sach bai hoc
 
-- [001 - GitHub](001 - GitHub.md)
-- [002 - GitLab](002 - GitLab.md)
+### [01-GitHub-GitLab](01-GitHub-GitLab/)
 
-## Cach hoc module nay
+- [GitHub](01-GitHub-GitLab/001 - GitHub.md)
+- [GitLab](01-GitHub-GitLab/002 - GitLab.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

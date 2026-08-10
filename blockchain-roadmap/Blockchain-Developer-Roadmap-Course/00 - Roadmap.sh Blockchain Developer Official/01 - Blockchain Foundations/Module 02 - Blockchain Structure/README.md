@@ -10,29 +10,52 @@ Understand the internal structure of blocks, transactions, hashes, Merkle trees,
 
 Mini project: Simulate a tiny blockchain in JavaScript or Python.
 
+## Noi dung nho
+
+- [01-BlockHeader-TransactionRoot](01-BlockHeader-TransactionRoot/)
+- [02-BlockHeight-Receiver](02-BlockHeight-Receiver/)
+- [03-Amount-TransactionReceipt](03-Amount-TransactionReceipt/)
+- [04-EventLogs-MerkleProof](04-EventLogs-MerkleProof/)
+- [05-Ledger-UTXOModel](05-Ledger-UTXOModel/)
+
 ## Danh sach bai hoc
 
-- [001 - Block Header](001 - Block Header.md)
-- [002 - Previous Hash](002 - Previous Hash.md)
-- [003 - Timestamp](003 - Timestamp.md)
-- [004 - Nonce](004 - Nonce.md)
-- [005 - Transaction Root](005 - Transaction Root.md)
-- [006 - Block Height](006 - Block Height.md)
-- [007 - Genesis Block](007 - Genesis Block.md)
-- [008 - Block Validation](008 - Block Validation.md)
-- [009 - Sender](009 - Sender.md)
-- [010 - Receiver](010 - Receiver.md)
-- [011 - Amount](011 - Amount.md)
-- [012 - Gas Fee](012 - Gas Fee.md)
-- [013 - Signature](013 - Signature.md)
-- [014 - Transaction Hash](014 - Transaction Hash.md)
-- [015 - Transaction Receipt](015 - Transaction Receipt.md)
-- [016 - Event Logs](016 - Event Logs.md)
-- [017 - Hash](017 - Hash.md)
-- [018 - Merkle Tree](018 - Merkle Tree.md)
-- [019 - Merkle Root](019 - Merkle Root.md)
-- [020 - Merkle Proof](020 - Merkle Proof.md)
-- [021 - Ledger](021 - Ledger.md)
-- [022 - State](022 - State.md)
-- [023 - Account Model](023 - Account Model.md)
-- [024 - UTXO Model](024 - UTXO Model.md)
+### [01-BlockHeader-TransactionRoot](01-BlockHeader-TransactionRoot/)
+
+- [Block Header](01-BlockHeader-TransactionRoot/001 - Block Header.md)
+- [Previous Hash](01-BlockHeader-TransactionRoot/002 - Previous Hash.md)
+- [Timestamp](01-BlockHeader-TransactionRoot/003 - Timestamp.md)
+- [Nonce](01-BlockHeader-TransactionRoot/004 - Nonce.md)
+- [Transaction Root](01-BlockHeader-TransactionRoot/005 - Transaction Root.md)
+
+### [02-BlockHeight-Receiver](02-BlockHeight-Receiver/)
+
+- [Block Height](02-BlockHeight-Receiver/006 - Block Height.md)
+- [Genesis Block](02-BlockHeight-Receiver/007 - Genesis Block.md)
+- [Block Validation](02-BlockHeight-Receiver/008 - Block Validation.md)
+- [Sender](02-BlockHeight-Receiver/009 - Sender.md)
+- [Receiver](02-BlockHeight-Receiver/010 - Receiver.md)
+
+### [03-Amount-TransactionReceipt](03-Amount-TransactionReceipt/)
+
+- [Amount](03-Amount-TransactionReceipt/011 - Amount.md)
+- [Gas Fee](03-Amount-TransactionReceipt/012 - Gas Fee.md)
+- [Signature](03-Amount-TransactionReceipt/013 - Signature.md)
+- [Transaction Hash](03-Amount-TransactionReceipt/014 - Transaction Hash.md)
+- [Transaction Receipt](03-Amount-TransactionReceipt/015 - Transaction Receipt.md)
+
+### [04-EventLogs-MerkleProof](04-EventLogs-MerkleProof/)
+
+- [Event Logs](04-EventLogs-MerkleProof/016 - Event Logs.md)
+- [Hash](04-EventLogs-MerkleProof/017 - Hash.md)
+- [Merkle Tree](04-EventLogs-MerkleProof/018 - Merkle Tree.md)
+- [Merkle Root](04-EventLogs-MerkleProof/019 - Merkle Root.md)
+- [Merkle Proof](04-EventLogs-MerkleProof/020 - Merkle Proof.md)
+
+### [05-Ledger-UTXOModel](05-Ledger-UTXOModel/)
+
+- [Ledger](05-Ledger-UTXOModel/021 - Ledger.md)
+- [State](05-Ledger-UTXOModel/022 - State.md)
+- [Account Model](05-Ledger-UTXOModel/023 - Account Model.md)
+- [UTXO Model](05-Ledger-UTXOModel/024 - UTXO Model.md)
+

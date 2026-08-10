@@ -5,17 +5,22 @@
 
 Module nay gom 6 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-HowLLMsWork-Applications](01-HowLLMsWork-Applications/)
+- [02-CodeReviews-DocsGeneration](02-CodeReviews-DocsGeneration/)
+
 ## Danh sach bai hoc
 
-- [001 - How LLMs work](001 - How LLMs work.md)
-- [002 - AI vs Traditional Coding](002 - AI vs Traditional Coding.md)
-- [003 - Applications](003 - Applications.md)
-- [004 - Code Reviews](004 - Code Reviews.md)
-- [005 - Refactoring](005 - Refactoring.md)
-- [006 - Docs Generation](006 - Docs Generation.md)
+### [01-HowLLMsWork-Applications](01-HowLLMsWork-Applications/)
 
-## Cach hoc module nay
+- [How LLMs work](01-HowLLMsWork-Applications/001 - How LLMs work.md)
+- [AI vs Traditional Coding](01-HowLLMsWork-Applications/002 - AI vs Traditional Coding.md)
+- [Applications](01-HowLLMsWork-Applications/003 - Applications.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-CodeReviews-DocsGeneration](02-CodeReviews-DocsGeneration/)
+
+- [Code Reviews](02-CodeReviews-DocsGeneration/004 - Code Reviews.md)
+- [Refactoring](02-CodeReviews-DocsGeneration/005 - Refactoring.md)
+- [Docs Generation](02-CodeReviews-DocsGeneration/006 - Docs Generation.md)
+

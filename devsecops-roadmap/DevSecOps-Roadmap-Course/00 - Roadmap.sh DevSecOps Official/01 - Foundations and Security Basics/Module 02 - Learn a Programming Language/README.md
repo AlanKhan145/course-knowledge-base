@@ -12,16 +12,21 @@ Pick one automation language and write small security scripts for APIs, files, s
 
 - Topics
 
+## Noi dung nho
+
+- [01-Ruby-Rust](01-Ruby-Rust/)
+- [02-Go-JavaScriptNodeJs](02-Go-JavaScriptNodeJs/)
+
 ## Danh sach bai hoc
 
-- [001 - Ruby](001 - Ruby.md)
-- [002 - Python](002 - Python.md)
-- [003 - Rust](003 - Rust.md)
-- [004 - Go](004 - Go.md)
-- [005 - JavaScript / Node.js](005 - JavaScript - Node.js.md)
+### [01-Ruby-Rust](01-Ruby-Rust/)
 
-## Cach hoc module nay
+- [Ruby](01-Ruby-Rust/001 - Ruby.md)
+- [Python](01-Ruby-Rust/002 - Python.md)
+- [Rust](01-Ruby-Rust/003 - Rust.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.
+### [02-Go-JavaScriptNodeJs](02-Go-JavaScriptNodeJs/)
+
+- [Go](02-Go-JavaScriptNodeJs/004 - Go.md)
+- [JavaScript - Node.js](02-Go-JavaScriptNodeJs/005 - JavaScript - Node.js.md)
+

@@ -10,29 +10,52 @@ Test web accessibility with screen reader concepts, keyboard navigation and auto
 
 Mini project: Run an accessibility audit on one form and write a remediation checklist.
 
+## Noi dung nho
+
+- [01-AccessibilityTesting-AltText](01-AccessibilityTesting-AltText/)
+- [02-ARIA-WCAGOverview](02-ARIA-WCAGOverview/)
+- [03-WAVE-AccessibilityTree](03-WAVE-AccessibilityTree/)
+- [04-ManualAccessibilityCheck-ImageAltText](04-ManualAccessibilityCheck-ImageAltText/)
+- [05-SufficientContrast-SemanticHTML](05-SufficientContrast-SemanticHTML/)
+
 ## Danh sach bai hoc
 
-- [001 - Accessibility Testing](001 - Accessibility Testing.md)
-- [002 - Screen Reader](002 - Screen Reader.md)
-- [003 - Keyboard Navigation](003 - Keyboard Navigation.md)
-- [004 - Color Contrast](004 - Color Contrast.md)
-- [005 - Alt Text](005 - Alt Text.md)
-- [006 - ARIA](006 - ARIA.md)
-- [007 - Accessible Name](007 - Accessible Name.md)
-- [008 - Focus State](008 - Focus State.md)
-- [009 - Form Error Accessibility](009 - Form Error Accessibility.md)
-- [010 - WCAG Overview](010 - WCAG Overview.md)
-- [011 - WAVE](011 - WAVE.md)
-- [012 - AXE](012 - AXE.md)
-- [013 - Chrome DevTools Accessibility](013 - Chrome DevTools Accessibility.md)
-- [014 - Lighthouse Accessibility](014 - Lighthouse Accessibility.md)
-- [015 - Accessibility Tree](015 - Accessibility Tree.md)
-- [016 - Manual Accessibility Check](016 - Manual Accessibility Check.md)
-- [017 - Tab Navigation](017 - Tab Navigation.md)
-- [018 - Visible Focus](018 - Visible Focus.md)
-- [019 - Button Accessible Name](019 - Button Accessible Name.md)
-- [020 - Image Alt Text](020 - Image Alt Text.md)
-- [021 - Sufficient Contrast](021 - Sufficient Contrast.md)
-- [022 - Screen Reader Form Error](022 - Screen Reader Form Error.md)
-- [023 - Skip Link](023 - Skip Link.md)
-- [024 - Semantic HTML](024 - Semantic HTML.md)
+### [01-AccessibilityTesting-AltText](01-AccessibilityTesting-AltText/)
+
+- [Accessibility Testing](01-AccessibilityTesting-AltText/001 - Accessibility Testing.md)
+- [Screen Reader](01-AccessibilityTesting-AltText/002 - Screen Reader.md)
+- [Keyboard Navigation](01-AccessibilityTesting-AltText/003 - Keyboard Navigation.md)
+- [Color Contrast](01-AccessibilityTesting-AltText/004 - Color Contrast.md)
+- [Alt Text](01-AccessibilityTesting-AltText/005 - Alt Text.md)
+
+### [02-ARIA-WCAGOverview](02-ARIA-WCAGOverview/)
+
+- [ARIA](02-ARIA-WCAGOverview/006 - ARIA.md)
+- [Accessible Name](02-ARIA-WCAGOverview/007 - Accessible Name.md)
+- [Focus State](02-ARIA-WCAGOverview/008 - Focus State.md)
+- [Form Error Accessibility](02-ARIA-WCAGOverview/009 - Form Error Accessibility.md)
+- [WCAG Overview](02-ARIA-WCAGOverview/010 - WCAG Overview.md)
+
+### [03-WAVE-AccessibilityTree](03-WAVE-AccessibilityTree/)
+
+- [WAVE](03-WAVE-AccessibilityTree/011 - WAVE.md)
+- [AXE](03-WAVE-AccessibilityTree/012 - AXE.md)
+- [Chrome DevTools Accessibility](03-WAVE-AccessibilityTree/013 - Chrome DevTools Accessibility.md)
+- [Lighthouse Accessibility](03-WAVE-AccessibilityTree/014 - Lighthouse Accessibility.md)
+- [Accessibility Tree](03-WAVE-AccessibilityTree/015 - Accessibility Tree.md)
+
+### [04-ManualAccessibilityCheck-ImageAltText](04-ManualAccessibilityCheck-ImageAltText/)
+
+- [Manual Accessibility Check](04-ManualAccessibilityCheck-ImageAltText/016 - Manual Accessibility Check.md)
+- [Tab Navigation](04-ManualAccessibilityCheck-ImageAltText/017 - Tab Navigation.md)
+- [Visible Focus](04-ManualAccessibilityCheck-ImageAltText/018 - Visible Focus.md)
+- [Button Accessible Name](04-ManualAccessibilityCheck-ImageAltText/019 - Button Accessible Name.md)
+- [Image Alt Text](04-ManualAccessibilityCheck-ImageAltText/020 - Image Alt Text.md)
+
+### [05-SufficientContrast-SemanticHTML](05-SufficientContrast-SemanticHTML/)
+
+- [Sufficient Contrast](05-SufficientContrast-SemanticHTML/021 - Sufficient Contrast.md)
+- [Screen Reader Form Error](05-SufficientContrast-SemanticHTML/022 - Screen Reader Form Error.md)
+- [Skip Link](05-SufficientContrast-SemanticHTML/023 - Skip Link.md)
+- [Semantic HTML](05-SufficientContrast-SemanticHTML/024 - Semantic HTML.md)
+

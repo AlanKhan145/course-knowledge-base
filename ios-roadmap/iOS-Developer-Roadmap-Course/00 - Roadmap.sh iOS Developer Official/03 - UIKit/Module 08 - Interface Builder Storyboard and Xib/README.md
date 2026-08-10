@@ -10,17 +10,32 @@ Build UIKit interfaces visually and connect them safely to code.
 
 Mini project: Login screen with Storyboard and Auto Layout.
 
+## Noi dung nho
+
+- [01-InterfaceBuilder-IBOutlet](01-InterfaceBuilder-IBOutlet/)
+- [02-IBAction-StackView](02-IBAction-StackView/)
+- [03-SizeClasses-StoryboardMergeConflicts](03-SizeClasses-StoryboardMergeConflicts/)
+
 ## Danh sach bai hoc
 
-- [001 - Interface Builder](001 - Interface Builder.md)
-- [002 - Storyboard](002 - Storyboard.md)
-- [003 - Xib](003 - Xib.md)
-- [004 - IBOutlet](004 - IBOutlet.md)
-- [005 - IBAction](005 - IBAction.md)
-- [006 - Auto Layout](006 - Auto Layout.md)
-- [007 - Constraints](007 - Constraints.md)
-- [008 - StackView](008 - StackView.md)
-- [009 - Size Classes](009 - Size Classes.md)
-- [010 - Adaptive Layout](010 - Adaptive Layout.md)
-- [011 - Layout Debugging](011 - Layout Debugging.md)
-- [012 - Storyboard Merge Conflicts](012 - Storyboard Merge Conflicts.md)
+### [01-InterfaceBuilder-IBOutlet](01-InterfaceBuilder-IBOutlet/)
+
+- [Interface Builder](01-InterfaceBuilder-IBOutlet/001 - Interface Builder.md)
+- [Storyboard](01-InterfaceBuilder-IBOutlet/002 - Storyboard.md)
+- [Xib](01-InterfaceBuilder-IBOutlet/003 - Xib.md)
+- [IBOutlet](01-InterfaceBuilder-IBOutlet/004 - IBOutlet.md)
+
+### [02-IBAction-StackView](02-IBAction-StackView/)
+
+- [IBAction](02-IBAction-StackView/005 - IBAction.md)
+- [Auto Layout](02-IBAction-StackView/006 - Auto Layout.md)
+- [Constraints](02-IBAction-StackView/007 - Constraints.md)
+- [StackView](02-IBAction-StackView/008 - StackView.md)
+
+### [03-SizeClasses-StoryboardMergeConflicts](03-SizeClasses-StoryboardMergeConflicts/)
+
+- [Size Classes](03-SizeClasses-StoryboardMergeConflicts/009 - Size Classes.md)
+- [Adaptive Layout](03-SizeClasses-StoryboardMergeConflicts/010 - Adaptive Layout.md)
+- [Layout Debugging](03-SizeClasses-StoryboardMergeConflicts/011 - Layout Debugging.md)
+- [Storyboard Merge Conflicts](03-SizeClasses-StoryboardMergeConflicts/012 - Storyboard Merge Conflicts.md)
+

@@ -10,34 +10,61 @@ Know when to automate browser tests and how to choose tools without over-automat
 
 Mini project: Decide what to automate for a login and checkout flow using a test pyramid.
 
+## Noi dung nho
+
+- [01-AutomationTesting-E2ETest](01-AutomationTesting-E2ETest/)
+- [02-IntegrationTest-PageObjectModel](02-IntegrationTest-PageObjectModel/)
+- [03-TestDataSetup-BugMagnet](03-TestDataSetup-BugMagnet/)
+- [04-RecordAndPlayback-WebdriverIo](04-RecordAndPlayback-WebdriverIo/)
+- [05-Playwright-Jasmine](05-Playwright-Jasmine/)
+- [06-Nightwatch-FrameworkSelection](06-Nightwatch-FrameworkSelection/)
+
 ## Danh sach bai hoc
 
-- [001 - Automation Testing](001 - Automation Testing.md)
-- [002 - When to Automate](002 - When to Automate.md)
-- [003 - When Not to Automate](003 - When Not to Automate.md)
-- [004 - Test Pyramid](004 - Test Pyramid.md)
-- [005 - E2E Test](005 - E2E Test.md)
-- [006 - Integration Test](006 - Integration Test.md)
-- [007 - Unit Test](007 - Unit Test.md)
-- [008 - Flaky Test](008 - Flaky Test.md)
-- [009 - Stable Locator](009 - Stable Locator.md)
-- [010 - Page Object Model](010 - Page Object Model.md)
-- [011 - Test Data Setup](011 - Test Data Setup.md)
-- [012 - Test Isolation](012 - Test Isolation.md)
-- [013 - Selenium IDE](013 - Selenium IDE.md)
-- [014 - Ghost Inspector](014 - Ghost Inspector.md)
-- [015 - Bug Magnet](015 - Bug Magnet.md)
-- [016 - Record and Playback](016 - Record and Playback.md)
-- [017 - Test Data Generator](017 - Test Data Generator.md)
-- [018 - Browser Extension Testing](018 - Browser Extension Testing.md)
-- [019 - Selenium](019 - Selenium.md)
-- [020 - Webdriver.io](020 - Webdriver.io.md)
-- [021 - Playwright](021 - Playwright.md)
-- [022 - Cypress](022 - Cypress.md)
-- [023 - Puppeteer](023 - Puppeteer.md)
-- [024 - Jest](024 - Jest.md)
-- [025 - Jasmine](025 - Jasmine.md)
-- [026 - Nightwatch](026 - Nightwatch.md)
-- [027 - Robot Framework](027 - Robot Framework.md)
-- [028 - QA Wolf](028 - QA Wolf.md)
-- [029 - Framework Selection](029 - Framework Selection.md)
+### [01-AutomationTesting-E2ETest](01-AutomationTesting-E2ETest/)
+
+- [Automation Testing](01-AutomationTesting-E2ETest/001 - Automation Testing.md)
+- [When to Automate](01-AutomationTesting-E2ETest/002 - When to Automate.md)
+- [When Not to Automate](01-AutomationTesting-E2ETest/003 - When Not to Automate.md)
+- [Test Pyramid](01-AutomationTesting-E2ETest/004 - Test Pyramid.md)
+- [E2E Test](01-AutomationTesting-E2ETest/005 - E2E Test.md)
+
+### [02-IntegrationTest-PageObjectModel](02-IntegrationTest-PageObjectModel/)
+
+- [Integration Test](02-IntegrationTest-PageObjectModel/006 - Integration Test.md)
+- [Unit Test](02-IntegrationTest-PageObjectModel/007 - Unit Test.md)
+- [Flaky Test](02-IntegrationTest-PageObjectModel/008 - Flaky Test.md)
+- [Stable Locator](02-IntegrationTest-PageObjectModel/009 - Stable Locator.md)
+- [Page Object Model](02-IntegrationTest-PageObjectModel/010 - Page Object Model.md)
+
+### [03-TestDataSetup-BugMagnet](03-TestDataSetup-BugMagnet/)
+
+- [Test Data Setup](03-TestDataSetup-BugMagnet/011 - Test Data Setup.md)
+- [Test Isolation](03-TestDataSetup-BugMagnet/012 - Test Isolation.md)
+- [Selenium IDE](03-TestDataSetup-BugMagnet/013 - Selenium IDE.md)
+- [Ghost Inspector](03-TestDataSetup-BugMagnet/014 - Ghost Inspector.md)
+- [Bug Magnet](03-TestDataSetup-BugMagnet/015 - Bug Magnet.md)
+
+### [04-RecordAndPlayback-WebdriverIo](04-RecordAndPlayback-WebdriverIo/)
+
+- [Record and Playback](04-RecordAndPlayback-WebdriverIo/016 - Record and Playback.md)
+- [Test Data Generator](04-RecordAndPlayback-WebdriverIo/017 - Test Data Generator.md)
+- [Browser Extension Testing](04-RecordAndPlayback-WebdriverIo/018 - Browser Extension Testing.md)
+- [Selenium](04-RecordAndPlayback-WebdriverIo/019 - Selenium.md)
+- [Webdriver.io](04-RecordAndPlayback-WebdriverIo/020 - Webdriver.io.md)
+
+### [05-Playwright-Jasmine](05-Playwright-Jasmine/)
+
+- [Playwright](05-Playwright-Jasmine/021 - Playwright.md)
+- [Cypress](05-Playwright-Jasmine/022 - Cypress.md)
+- [Puppeteer](05-Playwright-Jasmine/023 - Puppeteer.md)
+- [Jest](05-Playwright-Jasmine/024 - Jest.md)
+- [Jasmine](05-Playwright-Jasmine/025 - Jasmine.md)
+
+### [06-Nightwatch-FrameworkSelection](06-Nightwatch-FrameworkSelection/)
+
+- [Nightwatch](06-Nightwatch-FrameworkSelection/026 - Nightwatch.md)
+- [Robot Framework](06-Nightwatch-FrameworkSelection/027 - Robot Framework.md)
+- [QA Wolf](06-Nightwatch-FrameworkSelection/028 - QA Wolf.md)
+- [Framework Selection](06-Nightwatch-FrameworkSelection/029 - Framework Selection.md)
+

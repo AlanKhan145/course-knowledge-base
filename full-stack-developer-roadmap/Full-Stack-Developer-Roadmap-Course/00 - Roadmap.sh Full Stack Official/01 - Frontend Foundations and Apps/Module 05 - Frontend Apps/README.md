@@ -13,14 +13,15 @@ Build component-based frontend applications. The roadmap notes these can be skip
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-React-CheckpointFrontendApps](01-React-CheckpointFrontendApps/)
+
 ## Danh sach bai hoc
 
-- [001 - React](001 - React.md)
-- [002 - Tailwind CSS](002 - Tailwind CSS.md)
-- [003 - Checkpoint - Frontend Apps](003 - Checkpoint - Frontend Apps.md)
+### [01-React-CheckpointFrontendApps](01-React-CheckpointFrontendApps/)
 
-## Cach hoc module nay
+- [React](01-React-CheckpointFrontendApps/001 - React.md)
+- [Tailwind CSS](01-React-CheckpointFrontendApps/002 - Tailwind CSS.md)
+- [Checkpoint - Frontend Apps](01-React-CheckpointFrontendApps/003 - Checkpoint - Frontend Apps.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

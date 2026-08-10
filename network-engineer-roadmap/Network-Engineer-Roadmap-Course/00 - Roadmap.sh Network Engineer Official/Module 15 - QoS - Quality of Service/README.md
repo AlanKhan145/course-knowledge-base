@@ -3,10 +3,6 @@
 ## Mục tiêu module
 Biết khi nào dùng QoS để ưu tiên traffic quan trọng và giảm nghẽn mạng.
 
-## Bài học
-- [001 - QoS cơ bản](001 - QoS co ban.md)
-- [002 - Khi nào dùng QoS?](002 - Khi nao dung QoS.md)
-
 ## Thực hành trọng tâm
 Xác định traffic cần ưu tiên trong văn phòng có voice/video call và backup dữ liệu.
 
@@ -20,3 +16,15 @@ Xác định traffic cần ưu tiên trong văn phòng có voice/video call và 
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-QoSCoBan-KhiNaoDung](01-QoSCoBan-KhiNaoDung/)
+
+## Danh sach bai hoc
+
+### [01-QoSCoBan-KhiNaoDung](01-QoSCoBan-KhiNaoDung/)
+
+- [QoS co ban](01-QoSCoBan-KhiNaoDung/001 - QoS co ban.md)
+- [Khi nao dung QoS](01-QoSCoBan-KhiNaoDung/002 - Khi nao dung QoS.md)
+

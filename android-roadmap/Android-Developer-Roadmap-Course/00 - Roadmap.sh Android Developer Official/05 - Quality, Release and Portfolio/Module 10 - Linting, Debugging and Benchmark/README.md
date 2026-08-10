@@ -12,13 +12,13 @@ Mini project: Refactor Existing App with ktlint, detekt, Timber, Chucker, LeakCa
 
 ## Noi dung nho
 
-- [01-StaticQuality - Static Quality](01-StaticQuality/)
-- [02-DebuggingTools - Debugging Tools](02-DebuggingTools/)
-- [03-BenchmarkProfile - Benchmark and Profile](03-BenchmarkProfile/)
+- [01-StaticQuality](01-StaticQuality/)
+- [02-DebuggingTools](02-DebuggingTools/)
+- [03-BenchmarkProfile](03-BenchmarkProfile/)
 
 ## Danh sach bai hoc
 
-### [01-StaticQuality - Static Quality](01-StaticQuality/)
+### [01-StaticQuality](01-StaticQuality/)
 
 - [Android Lint](01-StaticQuality/001 - Android Lint.md)
 - [Ktlint](01-StaticQuality/002 - Ktlint.md)
@@ -27,7 +27,7 @@ Mini project: Refactor Existing App with ktlint, detekt, Timber, Chucker, LeakCa
 - [Static Analysis Baseline](01-StaticQuality/005 - Static Analysis Baseline.md)
 - [Gradle Quality Task](01-StaticQuality/006 - Gradle Quality Task.md)
 
-### [02-DebuggingTools - Debugging Tools](02-DebuggingTools/)
+### [02-DebuggingTools](02-DebuggingTools/)
 
 - [Debugging](02-DebuggingTools/007 - Debugging.md)
 - [Breakpoints](02-DebuggingTools/008 - Breakpoints.md)
@@ -38,7 +38,7 @@ Mini project: Refactor Existing App with ktlint, detekt, Timber, Chucker, LeakCa
 - [Network Debugging](02-DebuggingTools/013 - Network Debugging.md)
 - [Crash Investigation](02-DebuggingTools/014 - Crash Investigation.md)
 
-### [03-BenchmarkProfile - Benchmark and Profile](03-BenchmarkProfile/)
+### [03-BenchmarkProfile](03-BenchmarkProfile/)
 
 - [Jetpack Benchmark](03-BenchmarkProfile/015 - Jetpack Benchmark.md)
 - [Macrobenchmark](03-BenchmarkProfile/016 - Macrobenchmark.md)
@@ -47,3 +47,4 @@ Mini project: Refactor Existing App with ktlint, detekt, Timber, Chucker, LeakCa
 - [RecyclerView Performance](03-BenchmarkProfile/019 - RecyclerView Performance.md)
 - [Compose Recomposition](03-BenchmarkProfile/020 - Compose Recomposition.md)
 - [Android Profiler](03-BenchmarkProfile/021 - Android Profiler.md)
+

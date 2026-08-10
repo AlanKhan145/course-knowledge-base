@@ -3,10 +3,6 @@
 ## Mục tiêu module
 Hiểu TCP/IP model và so sánh được với OSI trong triển khai thực tế.
 
-## Bài học
-- [001 - TCP/IP Model](001 - TCP - IP Model.md)
-- [002 - So sánh OSI và TCP/IP](002 - So sanh OSI va TCP - IP.md)
-
 ## Thực hành trọng tâm
 So sánh OSI và TCP/IP bằng ví dụ khi trình duyệt gọi HTTPS API.
 
@@ -20,3 +16,15 @@ So sánh OSI và TCP/IP bằng ví dụ khi trình duyệt gọi HTTPS API.
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-TCPIPModel-SoSanhOSI](01-TCPIPModel-SoSanhOSI/)
+
+## Danh sach bai hoc
+
+### [01-TCPIPModel-SoSanhOSI](01-TCPIPModel-SoSanhOSI/)
+
+- [TCP - IP Model](01-TCPIPModel-SoSanhOSI/001 - TCP - IP Model.md)
+- [So sanh OSI va TCP - IP](01-TCPIPModel-SoSanhOSI/002 - So sanh OSI va TCP - IP.md)
+

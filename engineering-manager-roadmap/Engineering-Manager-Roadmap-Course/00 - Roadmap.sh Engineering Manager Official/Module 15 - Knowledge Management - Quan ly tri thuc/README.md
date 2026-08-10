@@ -3,10 +3,6 @@
 ## Mục tiêu module
 Biết quản lý tri thức engineering bằng documentation, knowledge transfer và lessons learned.
 
-## Nội dung
-- [001 - Documentation](001 - Documentation.md)
-- [002 - Knowledge Transfer](002 - Knowledge Transfer.md)
-
 ## Thực hành trọng tâm
 Thiết kế knowledge management workflow: tài liệu nào phải có, owner là ai, review cadence thế nào.
 
@@ -20,3 +16,15 @@ Thiết kế knowledge management workflow: tài liệu nào phải có, owner l
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một team, hệ thống hoặc dự án thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong vai trò Engineering Manager
+
+## Noi dung nho
+
+- [01-Documentation-KnowledgeTransfer](01-Documentation-KnowledgeTransfer/)
+
+## Danh sach bai hoc
+
+### [01-Documentation-KnowledgeTransfer](01-Documentation-KnowledgeTransfer/)
+
+- [Documentation](01-Documentation-KnowledgeTransfer/001 - Documentation.md)
+- [Knowledge Transfer](01-Documentation-KnowledgeTransfer/002 - Knowledge Transfer.md)
+

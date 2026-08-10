@@ -10,17 +10,32 @@ Make iOS apps usable with VoiceOver, Dynamic Type and accessibility testing.
 
 Mini project: Optimize the Todo App for VoiceOver and Dynamic Type.
 
+## Noi dung nho
+
+- [01-WhatIsAccessibility-AccessibilityHint](01-WhatIsAccessibility-AccessibilityHint/)
+- [02-DynamicType-TapTargetSize](02-DynamicType-TapTargetSize/)
+- [03-TestAccessibility-AccessibleEmptyState](03-TestAccessibility-AccessibleEmptyState/)
+
 ## Danh sach bai hoc
 
-- [001 - What is Accessibility?](001 - What is Accessibility.md)
-- [002 - VoiceOver](002 - VoiceOver.md)
-- [003 - Accessibility Label](003 - Accessibility Label.md)
-- [004 - Accessibility Hint](004 - Accessibility Hint.md)
-- [005 - Dynamic Type](005 - Dynamic Type.md)
-- [006 - Accessibility Inspector](006 - Accessibility Inspector.md)
-- [007 - Contrast](007 - Contrast.md)
-- [008 - Tap Target Size](008 - Tap Target Size.md)
-- [009 - Test Accessibility](009 - Test Accessibility.md)
-- [010 - Accessibility Traits](010 - Accessibility Traits.md)
-- [011 - Reduce Motion](011 - Reduce Motion.md)
-- [012 - Accessible Empty State](012 - Accessible Empty State.md)
+### [01-WhatIsAccessibility-AccessibilityHint](01-WhatIsAccessibility-AccessibilityHint/)
+
+- [What is Accessibility](01-WhatIsAccessibility-AccessibilityHint/001 - What is Accessibility.md)
+- [VoiceOver](01-WhatIsAccessibility-AccessibilityHint/002 - VoiceOver.md)
+- [Accessibility Label](01-WhatIsAccessibility-AccessibilityHint/003 - Accessibility Label.md)
+- [Accessibility Hint](01-WhatIsAccessibility-AccessibilityHint/004 - Accessibility Hint.md)
+
+### [02-DynamicType-TapTargetSize](02-DynamicType-TapTargetSize/)
+
+- [Dynamic Type](02-DynamicType-TapTargetSize/005 - Dynamic Type.md)
+- [Accessibility Inspector](02-DynamicType-TapTargetSize/006 - Accessibility Inspector.md)
+- [Contrast](02-DynamicType-TapTargetSize/007 - Contrast.md)
+- [Tap Target Size](02-DynamicType-TapTargetSize/008 - Tap Target Size.md)
+
+### [03-TestAccessibility-AccessibleEmptyState](03-TestAccessibility-AccessibleEmptyState/)
+
+- [Test Accessibility](03-TestAccessibility-AccessibleEmptyState/009 - Test Accessibility.md)
+- [Accessibility Traits](03-TestAccessibility-AccessibleEmptyState/010 - Accessibility Traits.md)
+- [Reduce Motion](03-TestAccessibility-AccessibleEmptyState/011 - Reduce Motion.md)
+- [Accessible Empty State](03-TestAccessibility-AccessibleEmptyState/012 - Accessible Empty State.md)
+

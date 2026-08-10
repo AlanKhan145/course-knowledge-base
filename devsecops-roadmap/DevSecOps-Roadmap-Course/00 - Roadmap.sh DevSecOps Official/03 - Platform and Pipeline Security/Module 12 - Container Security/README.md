@@ -12,14 +12,15 @@ Secure images, Dockerfiles, Kubernetes workloads, secrets, RBAC and runtime beha
 
 - Topics
 
+## Noi dung nho
+
+- [01-Docker-ImageScanning](01-Docker-ImageScanning/)
+
 ## Danh sach bai hoc
 
-- [001 - Docker](001 - Docker.md)
-- [002 - Kubernetes](002 - Kubernetes.md)
-- [003 - Image Scanning](003 - Image Scanning.md)
+### [01-Docker-ImageScanning](01-Docker-ImageScanning/)
 
-## Cach hoc module nay
+- [Docker](01-Docker-ImageScanning/001 - Docker.md)
+- [Kubernetes](01-Docker-ImageScanning/002 - Kubernetes.md)
+- [Image Scanning](01-Docker-ImageScanning/003 - Image Scanning.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

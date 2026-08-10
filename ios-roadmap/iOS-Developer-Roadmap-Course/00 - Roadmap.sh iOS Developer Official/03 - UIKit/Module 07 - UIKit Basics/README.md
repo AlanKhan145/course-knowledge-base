@@ -10,21 +10,40 @@ Understand UIKit's view/controller model and build classic iOS screens.
 
 Mini project: Simple contacts app using UIKit, UITableView and a detail screen.
 
+## Noi dung nho
+
+- [01-WhatIsUIKit-ViewDidLoad](01-WhatIsUIKit-ViewDidLoad/)
+- [02-ViewWillAppear-UIButton](02-ViewWillAppear-UIButton/)
+- [03-UIImageView-UserInteractions](03-UIImageView-UserInteractions/)
+- [04-GestureRecognizer](04-GestureRecognizer/)
+
 ## Danh sach bai hoc
 
-- [001 - What is UIKit?](001 - What is UIKit.md)
-- [002 - View](002 - View.md)
-- [003 - UIViewController](003 - UIViewController.md)
-- [004 - ViewController Lifecycle](004 - ViewController Lifecycle.md)
-- [005 - viewDidLoad](005 - viewDidLoad.md)
-- [006 - viewWillAppear](006 - viewWillAppear.md)
-- [007 - viewDidAppear](007 - viewDidAppear.md)
-- [008 - viewWillDisappear](008 - viewWillDisappear.md)
-- [009 - UILabel](009 - UILabel.md)
-- [010 - UIButton](010 - UIButton.md)
-- [011 - UIImageView](011 - UIImageView.md)
-- [012 - UITextField](012 - UITextField.md)
-- [013 - UITableView](013 - UITableView.md)
-- [014 - UICollectionView](014 - UICollectionView.md)
-- [015 - User Interactions](015 - User Interactions.md)
-- [016 - Gesture Recognizer](016 - Gesture Recognizer.md)
+### [01-WhatIsUIKit-ViewDidLoad](01-WhatIsUIKit-ViewDidLoad/)
+
+- [What is UIKit](01-WhatIsUIKit-ViewDidLoad/001 - What is UIKit.md)
+- [View](01-WhatIsUIKit-ViewDidLoad/002 - View.md)
+- [UIViewController](01-WhatIsUIKit-ViewDidLoad/003 - UIViewController.md)
+- [ViewController Lifecycle](01-WhatIsUIKit-ViewDidLoad/004 - ViewController Lifecycle.md)
+- [viewDidLoad](01-WhatIsUIKit-ViewDidLoad/005 - viewDidLoad.md)
+
+### [02-ViewWillAppear-UIButton](02-ViewWillAppear-UIButton/)
+
+- [viewWillAppear](02-ViewWillAppear-UIButton/006 - viewWillAppear.md)
+- [viewDidAppear](02-ViewWillAppear-UIButton/007 - viewDidAppear.md)
+- [viewWillDisappear](02-ViewWillAppear-UIButton/008 - viewWillDisappear.md)
+- [UILabel](02-ViewWillAppear-UIButton/009 - UILabel.md)
+- [UIButton](02-ViewWillAppear-UIButton/010 - UIButton.md)
+
+### [03-UIImageView-UserInteractions](03-UIImageView-UserInteractions/)
+
+- [UIImageView](03-UIImageView-UserInteractions/011 - UIImageView.md)
+- [UITextField](03-UIImageView-UserInteractions/012 - UITextField.md)
+- [UITableView](03-UIImageView-UserInteractions/013 - UITableView.md)
+- [UICollectionView](03-UIImageView-UserInteractions/014 - UICollectionView.md)
+- [User Interactions](03-UIImageView-UserInteractions/015 - User Interactions.md)
+
+### [04-GestureRecognizer](04-GestureRecognizer/)
+
+- [Gesture Recognizer](04-GestureRecognizer/016 - Gesture Recognizer.md)
+

@@ -13,19 +13,24 @@ Monitor, automate, and manage infrastructure/deployment workflows
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-Monit-Terraform](01-Monit-Terraform/)
+- [02-CheckpointMonitoring-CheckpointInfrastructure](02-CheckpointMonitoring-CheckpointInfrastructure/)
+
 ## Danh sach bai hoc
 
-- [001 - Monit](001 - Monit.md)
-- [002 - GitHub Actions](002 - GitHub Actions.md)
-- [003 - Ansible](003 - Ansible.md)
-- [004 - Terraform](004 - Terraform.md)
-- [005 - Checkpoint - Monitoring](005 - Checkpoint - Monitoring.md)
-- [006 - Checkpoint - CI / CD](006 - Checkpoint - CI - CD.md)
-- [007 - Checkpoint - Automation](007 - Checkpoint - Automation.md)
-- [008 - Checkpoint - Infrastructure](008 - Checkpoint - Infrastructure.md)
+### [01-Monit-Terraform](01-Monit-Terraform/)
 
-## Cach hoc module nay
+- [Monit](01-Monit-Terraform/001 - Monit.md)
+- [GitHub Actions](01-Monit-Terraform/002 - GitHub Actions.md)
+- [Ansible](01-Monit-Terraform/003 - Ansible.md)
+- [Terraform](01-Monit-Terraform/004 - Terraform.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.
+### [02-CheckpointMonitoring-CheckpointInfrastructure](02-CheckpointMonitoring-CheckpointInfrastructure/)
+
+- [Checkpoint - Monitoring](02-CheckpointMonitoring-CheckpointInfrastructure/005 - Checkpoint - Monitoring.md)
+- [Checkpoint - CI - CD](02-CheckpointMonitoring-CheckpointInfrastructure/006 - Checkpoint - CI - CD.md)
+- [Checkpoint - Automation](02-CheckpointMonitoring-CheckpointInfrastructure/007 - Checkpoint - Automation.md)
+- [Checkpoint - Infrastructure](02-CheckpointMonitoring-CheckpointInfrastructure/008 - Checkpoint - Infrastructure.md)
+

@@ -10,29 +10,52 @@ Design analytical storage using warehouses, lakes, lakehouses and modern data ar
 
 Mini project: Raw CSV -> Data Lake -> Clean Parquet -> Data Warehouse analytical model.
 
+## Noi dung nho
+
+- [01-DataWarehouse-Snowflake](01-DataWarehouse-Snowflake/)
+- [02-AmazonRedshift-ObjectStorage](02-AmazonRedshift-ObjectStorage/)
+- [03-RawZone-ORC](03-RawZone-ORC/)
+- [04-PartitioningInData-Onehouse](04-PartitioningInData-Onehouse/)
+- [05-DataMesh-MetadataFirstArchitecture](05-DataMesh-MetadataFirstArchitecture/)
+
 ## Danh sach bai hoc
 
-- [001 - Data Warehouse](001 - Data Warehouse.md)
-- [002 - Warehouse Architecture](002 - Warehouse Architecture.md)
-- [003 - Fact and Dimension Tables](003 - Fact and Dimension Tables.md)
-- [004 - Google BigQuery](004 - Google BigQuery.md)
-- [005 - Snowflake](005 - Snowflake.md)
-- [006 - Amazon Redshift](006 - Amazon Redshift.md)
-- [007 - Metrics Layer](007 - Metrics Layer.md)
-- [008 - Semantic Model](008 - Semantic Model.md)
-- [009 - Data Lake](009 - Data Lake.md)
-- [010 - Object Storage](010 - Object Storage.md)
-- [011 - Raw Zone](011 - Raw Zone.md)
-- [012 - Clean Zone](012 - Clean Zone.md)
-- [013 - Curated Zone](013 - Curated Zone.md)
-- [014 - Parquet](014 - Parquet.md)
-- [015 - ORC](015 - ORC.md)
-- [016 - Partitioning in Data Lake](016 - Partitioning in Data Lake.md)
-- [017 - Schema Evolution](017 - Schema Evolution.md)
-- [018 - Lakehouse Architecture](018 - Lakehouse Architecture.md)
-- [019 - Databricks Delta Lake](019 - Databricks Delta Lake.md)
-- [020 - Onehouse](020 - Onehouse.md)
-- [021 - Data Mesh](021 - Data Mesh.md)
-- [022 - Data Fabric](022 - Data Fabric.md)
-- [023 - Data Hub](023 - Data Hub.md)
-- [024 - Metadata-first Architecture](024 - Metadata-first Architecture.md)
+### [01-DataWarehouse-Snowflake](01-DataWarehouse-Snowflake/)
+
+- [Data Warehouse](01-DataWarehouse-Snowflake/001 - Data Warehouse.md)
+- [Warehouse Architecture](01-DataWarehouse-Snowflake/002 - Warehouse Architecture.md)
+- [Fact and Dimension Tables](01-DataWarehouse-Snowflake/003 - Fact and Dimension Tables.md)
+- [Google BigQuery](01-DataWarehouse-Snowflake/004 - Google BigQuery.md)
+- [Snowflake](01-DataWarehouse-Snowflake/005 - Snowflake.md)
+
+### [02-AmazonRedshift-ObjectStorage](02-AmazonRedshift-ObjectStorage/)
+
+- [Amazon Redshift](02-AmazonRedshift-ObjectStorage/006 - Amazon Redshift.md)
+- [Metrics Layer](02-AmazonRedshift-ObjectStorage/007 - Metrics Layer.md)
+- [Semantic Model](02-AmazonRedshift-ObjectStorage/008 - Semantic Model.md)
+- [Data Lake](02-AmazonRedshift-ObjectStorage/009 - Data Lake.md)
+- [Object Storage](02-AmazonRedshift-ObjectStorage/010 - Object Storage.md)
+
+### [03-RawZone-ORC](03-RawZone-ORC/)
+
+- [Raw Zone](03-RawZone-ORC/011 - Raw Zone.md)
+- [Clean Zone](03-RawZone-ORC/012 - Clean Zone.md)
+- [Curated Zone](03-RawZone-ORC/013 - Curated Zone.md)
+- [Parquet](03-RawZone-ORC/014 - Parquet.md)
+- [ORC](03-RawZone-ORC/015 - ORC.md)
+
+### [04-PartitioningInData-Onehouse](04-PartitioningInData-Onehouse/)
+
+- [Partitioning in Data Lake](04-PartitioningInData-Onehouse/016 - Partitioning in Data Lake.md)
+- [Schema Evolution](04-PartitioningInData-Onehouse/017 - Schema Evolution.md)
+- [Lakehouse Architecture](04-PartitioningInData-Onehouse/018 - Lakehouse Architecture.md)
+- [Databricks Delta Lake](04-PartitioningInData-Onehouse/019 - Databricks Delta Lake.md)
+- [Onehouse](04-PartitioningInData-Onehouse/020 - Onehouse.md)
+
+### [05-DataMesh-MetadataFirstArchitecture](05-DataMesh-MetadataFirstArchitecture/)
+
+- [Data Mesh](05-DataMesh-MetadataFirstArchitecture/021 - Data Mesh.md)
+- [Data Fabric](05-DataMesh-MetadataFirstArchitecture/022 - Data Fabric.md)
+- [Data Hub](05-DataMesh-MetadataFirstArchitecture/023 - Data Hub.md)
+- [Metadata-first Architecture](05-DataMesh-MetadataFirstArchitecture/024 - Metadata-first Architecture.md)
+

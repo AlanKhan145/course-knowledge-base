@@ -12,17 +12,22 @@ Understand the core workflow from data collection to cleanup, exploration, analy
 
 - Key Concepts
 
+## Noi dung nho
+
+- [01-Collection-Exploration](01-Collection-Exploration/)
+- [02-Visualisation-MachineLearning](02-Visualisation-MachineLearning/)
+
 ## Danh sach bai hoc
 
-- [001 - Collection](001 - Collection.md)
-- [002 - Cleanup](002 - Cleanup.md)
-- [003 - Exploration](003 - Exploration.md)
-- [004 - Visualisation](004 - Visualisation.md)
-- [005 - Statistical Analysis](005 - Statistical Analysis.md)
-- [006 - Machine Learning](006 - Machine Learning.md)
+### [01-Collection-Exploration](01-Collection-Exploration/)
 
-## Cach hoc module nay
+- [Collection](01-Collection-Exploration/001 - Collection.md)
+- [Cleanup](01-Collection-Exploration/002 - Cleanup.md)
+- [Exploration](01-Collection-Exploration/003 - Exploration.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-Visualisation-MachineLearning](02-Visualisation-MachineLearning/)
+
+- [Visualisation](02-Visualisation-MachineLearning/004 - Visualisation.md)
+- [Statistical Analysis](02-Visualisation-MachineLearning/005 - Statistical Analysis.md)
+- [Machine Learning](02-Visualisation-MachineLearning/006 - Machine Learning.md)
+

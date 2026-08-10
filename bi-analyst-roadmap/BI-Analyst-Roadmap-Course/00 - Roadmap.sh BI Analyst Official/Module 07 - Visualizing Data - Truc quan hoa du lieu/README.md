@@ -3,12 +3,6 @@
 ## Mục tiêu module
 Biết chọn biểu đồ, thiết kế dashboard dễ đọc và tránh trực quan hóa gây hiểu nhầm.
 
-## Bài học
-- [001 - Visualization Fundamentals](001 - Visualization Fundamentals.md)
-- [002 - Popular Plots](002 - Popular Plots.md)
-- [003 - Visualizing Data](003 - Visualizing Data.md)
-- [004 - Visualization Best Practices](004 - Visualization Best Practices.md)
-
 ## Thực hành trọng tâm
 Thiết kế lại một dashboard hoặc chart kém rõ ràng thành phiên bản dễ đọc hơn.
 
@@ -22,3 +16,17 @@ Thiết kế lại một dashboard hoặc chart kém rõ ràng thành phiên b�
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một business question thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc BI Analyst
+
+## Noi dung nho
+
+- [01-VisualizationFundamentals-VisualizationBestPract](01-VisualizationFundamentals-VisualizationBestPract/)
+
+## Danh sach bai hoc
+
+### [01-VisualizationFundamentals-VisualizationBestPract](01-VisualizationFundamentals-VisualizationBestPract/)
+
+- [Visualization Fundamentals](01-VisualizationFundamentals-VisualizationBestPract/001 - Visualization Fundamentals.md)
+- [Popular Plots](01-VisualizationFundamentals-VisualizationBestPract/002 - Popular Plots.md)
+- [Visualizing Data](01-VisualizationFundamentals-VisualizationBestPract/003 - Visualizing Data.md)
+- [Visualization Best Practices](01-VisualizationFundamentals-VisualizationBestPract/004 - Visualization Best Practices.md)
+

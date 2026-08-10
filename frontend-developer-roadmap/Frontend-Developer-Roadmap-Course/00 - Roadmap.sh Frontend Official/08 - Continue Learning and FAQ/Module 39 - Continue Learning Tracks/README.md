@@ -5,19 +5,24 @@
 
 Module nay gom 8 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-NodeJs-DesignSystem](01-NodeJs-DesignSystem/)
+- [02-NodeJsRoadmap-DesignSystemRoadmap](02-NodeJsRoadmap-DesignSystemRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - Node.js](001 - Node.js.md)
-- [002 - Fullstack](002 - Fullstack.md)
-- [003 - Backend](003 - Backend.md)
-- [004 - Design System](004 - Design System.md)
-- [005 - Node.js Roadmap](005 - Node.js Roadmap.md)
-- [006 - Full Stack Roadmap](006 - Full Stack Roadmap.md)
-- [007 - Backend Roadmap](007 - Backend Roadmap.md)
-- [008 - Design System Roadmap](008 - Design System Roadmap.md)
+### [01-NodeJs-DesignSystem](01-NodeJs-DesignSystem/)
 
-## Cach hoc module nay
+- [Node.js](01-NodeJs-DesignSystem/001 - Node.js.md)
+- [Fullstack](01-NodeJs-DesignSystem/002 - Fullstack.md)
+- [Backend](01-NodeJs-DesignSystem/003 - Backend.md)
+- [Design System](01-NodeJs-DesignSystem/004 - Design System.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-NodeJsRoadmap-DesignSystemRoadmap](02-NodeJsRoadmap-DesignSystemRoadmap/)
+
+- [Node.js Roadmap](02-NodeJsRoadmap-DesignSystemRoadmap/005 - Node.js Roadmap.md)
+- [Full Stack Roadmap](02-NodeJsRoadmap-DesignSystemRoadmap/006 - Full Stack Roadmap.md)
+- [Backend Roadmap](02-NodeJsRoadmap-DesignSystemRoadmap/007 - Backend Roadmap.md)
+- [Design System Roadmap](02-NodeJsRoadmap-DesignSystemRoadmap/008 - Design System Roadmap.md)
+

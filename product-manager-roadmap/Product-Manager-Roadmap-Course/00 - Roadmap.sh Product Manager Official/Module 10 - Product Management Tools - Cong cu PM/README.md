@@ -3,12 +3,6 @@
 ## Mục tiêu module
 Biết chọn và dùng tool PM đúng mục đích thay vì biến tool thành quy trình.
 
-## Bài học
-- [001 - Roadmapping Tools](001 - Roadmapping Tools.md)
-- [002 - Project Management Tools](002 - Project Management Tools.md)
-- [003 - Analytics Tools](003 - Analytics Tools.md)
-- [004 - Communication Tools](004 - Communication Tools.md)
-
 ## Thực hành trọng tâm
 Thiết kế workflow quản lý roadmap, backlog, analytics và communication bằng bộ tool bạn chọn.
 
@@ -22,3 +16,17 @@ Thiết kế workflow quản lý roadmap, backlog, analytics và communication b
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một sản phẩm thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc PM
+
+## Noi dung nho
+
+- [01-RoadmappingTools-CommunicationTools](01-RoadmappingTools-CommunicationTools/)
+
+## Danh sach bai hoc
+
+### [01-RoadmappingTools-CommunicationTools](01-RoadmappingTools-CommunicationTools/)
+
+- [Roadmapping Tools](01-RoadmappingTools-CommunicationTools/001 - Roadmapping Tools.md)
+- [Project Management Tools](01-RoadmappingTools-CommunicationTools/002 - Project Management Tools.md)
+- [Analytics Tools](01-RoadmappingTools-CommunicationTools/003 - Analytics Tools.md)
+- [Communication Tools](01-RoadmappingTools-CommunicationTools/004 - Communication Tools.md)
+

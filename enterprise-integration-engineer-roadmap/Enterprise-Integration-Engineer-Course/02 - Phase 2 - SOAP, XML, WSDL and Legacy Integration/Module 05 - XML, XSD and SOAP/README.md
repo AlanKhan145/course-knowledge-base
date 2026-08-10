@@ -1,17 +1,28 @@
 # Module 05 - XML, XSD and SOAP
 
-**Phase:** Phase 2 - SOAP, XML, WSDL and Legacy Integration
+## Noi dung nho
 
-This module has 9 lessons.
+- [01-XMLFundamentals-SOAPHeader](01-XMLFundamentals-SOAPHeader/)
+- [02-SOAPBody-XSLTAndXPath](02-SOAPBody-XSLTAndXPath/)
+- [03-Exercise](03-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - XML Fundamentals](001 - XML Fundamentals.md)
-- [002 - XSD Schema Validation](002 - XSD Schema Validation.md)
-- [003 - SOAP Envelope](003 - SOAP Envelope.md)
-- [004 - SOAP Header](004 - SOAP Header.md)
-- [005 - SOAP Body](005 - SOAP Body.md)
-- [006 - SOAP Fault](006 - SOAP Fault.md)
-- [007 - WSDL](007 - WSDL.md)
-- [008 - XSLT and XPath](008 - XSLT and XPath.md)
-- [009 - Exercise](009 - Exercise.md)
+### [01-XMLFundamentals-SOAPHeader](01-XMLFundamentals-SOAPHeader/)
+
+- [XML Fundamentals](01-XMLFundamentals-SOAPHeader/001 - XML Fundamentals.md)
+- [XSD Schema Validation](01-XMLFundamentals-SOAPHeader/002 - XSD Schema Validation.md)
+- [SOAP Envelope](01-XMLFundamentals-SOAPHeader/003 - SOAP Envelope.md)
+- [SOAP Header](01-XMLFundamentals-SOAPHeader/004 - SOAP Header.md)
+
+### [02-SOAPBody-XSLTAndXPath](02-SOAPBody-XSLTAndXPath/)
+
+- [SOAP Body](02-SOAPBody-XSLTAndXPath/005 - SOAP Body.md)
+- [SOAP Fault](02-SOAPBody-XSLTAndXPath/006 - SOAP Fault.md)
+- [WSDL](02-SOAPBody-XSLTAndXPath/007 - WSDL.md)
+- [XSLT and XPath](02-SOAPBody-XSLTAndXPath/008 - XSLT and XPath.md)
+
+### [03-Exercise](03-Exercise/)
+
+- [Exercise](03-Exercise/009 - Exercise.md)
+

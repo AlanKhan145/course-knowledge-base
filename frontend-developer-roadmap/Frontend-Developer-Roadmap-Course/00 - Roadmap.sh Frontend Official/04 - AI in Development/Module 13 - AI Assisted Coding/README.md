@@ -5,15 +5,16 @@
 
 Module nay gom 4 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-ClaudeCode-Antigravity](01-ClaudeCode-Antigravity/)
+
 ## Danh sach bai hoc
 
-- [001 - Claude Code](001 - Claude Code.md)
-- [002 - Cursor](002 - Cursor.md)
-- [003 - Copilot](003 - Copilot.md)
-- [004 - Antigravity](004 - Antigravity.md)
+### [01-ClaudeCode-Antigravity](01-ClaudeCode-Antigravity/)
 
-## Cach hoc module nay
+- [Claude Code](01-ClaudeCode-Antigravity/001 - Claude Code.md)
+- [Cursor](01-ClaudeCode-Antigravity/002 - Cursor.md)
+- [Copilot](01-ClaudeCode-Antigravity/003 - Copilot.md)
+- [Antigravity](01-ClaudeCode-Antigravity/004 - Antigravity.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

@@ -13,17 +13,22 @@ Clean messy datasets by handling missing values, duplicates, outliers and transf
 - Data Cleanup
 - Using Libraries for Cleanup
 
+## Noi dung nho
+
+- [01-HandlingMissingData-FindingOutliers](01-HandlingMissingData-FindingOutliers/)
+- [02-DataTransformation-Dplyr](02-DataTransformation-Dplyr/)
+
 ## Danh sach bai hoc
 
-- [001 - Handling Missing Data](001 - Handling Missing Data.md)
-- [002 - Removing Duplicates](002 - Removing Duplicates.md)
-- [003 - Finding Outliers](003 - Finding Outliers.md)
-- [004 - Data Transformation](004 - Data Transformation.md)
-- [005 - Pandas](005 - Pandas.md)
-- [006 - Dplyr](006 - Dplyr.md)
+### [01-HandlingMissingData-FindingOutliers](01-HandlingMissingData-FindingOutliers/)
 
-## Cach hoc module nay
+- [Handling Missing Data](01-HandlingMissingData-FindingOutliers/001 - Handling Missing Data.md)
+- [Removing Duplicates](01-HandlingMissingData-FindingOutliers/002 - Removing Duplicates.md)
+- [Finding Outliers](01-HandlingMissingData-FindingOutliers/003 - Finding Outliers.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-DataTransformation-Dplyr](02-DataTransformation-Dplyr/)
+
+- [Data Transformation](02-DataTransformation-Dplyr/004 - Data Transformation.md)
+- [Pandas](02-DataTransformation-Dplyr/005 - Pandas.md)
+- [Dplyr](02-DataTransformation-Dplyr/006 - Dplyr.md)
+

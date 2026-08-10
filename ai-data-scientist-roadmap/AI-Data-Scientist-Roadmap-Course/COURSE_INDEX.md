@@ -1,21 +1,12 @@
 # Course Index
 
-This index is generated from the actual folders currently present in the course tree.
-Summary: 4 sections, 39 topic subfolders, 203 organized lessons.
-
-Note: Lesson files are organized in topic subfolders; old flat duplicate lesson files at module level have been removed.
-
-Course root: 00 - Roadmap.sh AI Data Scientist Official
+Course root: `00 - Roadmap.sh AI Data Scientist Official`
 
 ## 01 - Math, Statistics and Econometrics
 
-### Module 01 - Mathematics for AI and Data Science
+### [Module 01 - Mathematics for AI and Data Science](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\01 - Math, Statistics and Econometrics\Module 01 - Mathematics for AI and Data Science
-
-Module README: [Module 01 - Mathematics for AI and Data Science](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/README.md)
-
-#### [Linear Algebra Foundations](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/01-Algebra/README.md)
+#### [01-Algebra](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/01-Algebra/)
 
 - [Linear Algebra](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/01-Algebra/001 - Linear Algebra.md)
 - [Vector](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/01-Algebra/002 - Vector.md)
@@ -25,7 +16,7 @@ Module README: [Module 01 - Mathematics for AI and Data Science](00 - Roadmap.sh
 - [Eigenvalues and Eigenvectors](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/01-Algebra/006 - Eigenvalues and Eigenvectors.md)
 - [Norm, Distance and Similarity](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/01-Algebra/007 - Norm, Distance and Similarity.md)
 
-#### [Calculus Foundations](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/02-Calc/README.md)
+#### [02-Calc](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/02-Calc/)
 
 - [Calculus](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/02-Calc/008 - Calculus.md)
 - [Function](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/02-Calc/009 - Function.md)
@@ -37,19 +28,15 @@ Module README: [Module 01 - Mathematics for AI and Data Science](00 - Roadmap.sh
 - [Mathematical Analysis](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/02-Calc/015 - Mathematical Analysis.md)
 - [Differential Calculus](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/02-Calc/016 - Differential Calculus.md)
 
-#### [Optimization for Machine Learning](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/03-Optim/README.md)
+#### [03-Optim](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/03-Optim/)
 
 - [Mathematics for Machine Learning](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/03-Optim/017 - Mathematics for Machine Learning.md)
 - [Loss Function](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/03-Optim/018 - Loss Function.md)
 - [Gradient Descent](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 01 - Mathematics for AI and Data Science/03-Optim/019 - Gradient Descent.md)
 
-### Module 02 - Statistics
+### [Module 02 - Statistics](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\01 - Math, Statistics and Econometrics\Module 02 - Statistics
-
-Module README: [Module 02 - Statistics](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/README.md)
-
-#### [Descriptive Statistics](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/01-DescStats/README.md)
+#### [01-DescStats](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/01-DescStats/)
 
 - [Descriptive Statistics](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/01-DescStats/001 - Descriptive Statistics.md)
 - [Mean](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/01-DescStats/002 - Mean.md)
@@ -61,7 +48,7 @@ Module README: [Module 02 - Statistics](00 - Roadmap.sh AI Data Scientist Offici
 - [Skewness](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/01-DescStats/008 - Skewness.md)
 - [Outlier](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/01-DescStats/009 - Outlier.md)
 
-#### [Probability and Distributions](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/02-ProbDist/README.md)
+#### [02-ProbDist](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/02-ProbDist/)
 
 - [Probability](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/02-ProbDist/010 - Probability.md)
 - [Random Variable](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/02-ProbDist/011 - Random Variable.md)
@@ -70,14 +57,14 @@ Module README: [Module 02 - Statistics](00 - Roadmap.sh AI Data Scientist Offici
 - [Binomial Distribution](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/02-ProbDist/014 - Binomial Distribution.md)
 - [Normal Distribution](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/02-ProbDist/015 - Normal Distribution.md)
 
-#### [Sampling and Central Limit Theorem](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/03-Sampling/README.md)
+#### [03-Sampling](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/03-Sampling/)
 
 - [Sampling](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/03-Sampling/016 - Sampling.md)
 - [Sampling Bias](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/03-Sampling/017 - Sampling Bias.md)
 - [Sample Size](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/03-Sampling/018 - Sample Size.md)
 - [Central Limit Theorem](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/03-Sampling/019 - Central Limit Theorem.md)
 
-#### [Hypothesis Testing](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/04-Testing/README.md)
+#### [04-Testing](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/04-Testing/)
 
 - [Hypothesis Testing](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/04-Testing/020 - Hypothesis Testing.md)
 - [Null Hypothesis](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/04-Testing/021 - Null Hypothesis.md)
@@ -89,7 +76,7 @@ Module README: [Module 02 - Statistics](00 - Roadmap.sh AI Data Scientist Offici
 - [z-test](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/04-Testing/027 - z-test.md)
 - [Chi-square Test](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/04-Testing/028 - Chi-square Test.md)
 
-#### [Experimentation and A-B Testing](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/05-ABTest/README.md)
+#### [05-ABTest](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/05-ABTest/)
 
 - [A - B Testing](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/05-ABTest/029 - A - B Testing.md)
 - [Minimum Detectable Effect](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/05-ABTest/030 - Minimum Detectable Effect.md)
@@ -97,13 +84,9 @@ Module README: [Module 02 - Statistics](00 - Roadmap.sh AI Data Scientist Offici
 - [Ratio Metrics](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/05-ABTest/032 - Ratio Metrics.md)
 - [Test Sensitivity](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 02 - Statistics/05-ABTest/033 - Test Sensitivity.md)
 
-### Module 03 - Econometrics and Time Series
+### [Module 03 - Econometrics and Time Series](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\01 - Math, Statistics and Econometrics\Module 03 - Econometrics and Time Series
-
-Module README: [Module 03 - Econometrics and Time Series](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/README.md)
-
-#### [Regression Foundations](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/01-Regress/README.md)
+#### [01-Regress](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/01-Regress/)
 
 - [Econometrics Fundamentals](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/01-Regress/001 - Econometrics Fundamentals.md)
 - [Regression](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/01-Regress/002 - Regression.md)
@@ -112,39 +95,35 @@ Module README: [Module 03 - Econometrics and Time Series](00 - Roadmap.sh AI Dat
 - [Residual](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/01-Regress/005 - Residual.md)
 - [R-squared](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/01-Regress/006 - R-squared.md)
 
-#### [Regression Diagnostics and Distributions](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/02-DiagDist/README.md)
+#### [02-DiagDist](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/02-DiagDist/)
 
 - [Multicollinearity](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/02-DiagDist/007 - Multicollinearity.md)
 - [Heteroskedasticity](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/02-DiagDist/008 - Heteroskedasticity.md)
 - [Fitting Distributions](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/02-DiagDist/009 - Fitting Distributions.md)
 
-#### [Time Series Components](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/03-TSParts/README.md)
+#### [03-TSParts](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/03-TSParts/)
 
 - [Time Series Basics](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/03-TSParts/010 - Time Series Basics.md)
 - [Trend](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/03-TSParts/011 - Trend.md)
 - [Seasonality](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/03-TSParts/012 - Seasonality.md)
 - [Noise](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/03-TSParts/013 - Noise.md)
 
-#### [Stationarity and Autocorrelation](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/04-Station/README.md)
+#### [04-Station](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/04-Station/)
 
 - [Stationarity](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/04-Station/014 - Stationarity.md)
 - [Autocorrelation](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/04-Station/015 - Autocorrelation.md)
 - [ACF - PACF](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/04-Station/016 - ACF - PACF.md)
 
-#### [Forecasting Models and Pipeline](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/05-Forecast/README.md)
+#### [05-Forecast](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/05-Forecast/)
 
 - [ARIMA Model](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/05-Forecast/017 - ARIMA Model.md)
 - [Forecasting Pipeline](00 - Roadmap.sh AI Data Scientist Official/01 - Math, Statistics and Econometrics/Module 03 - Econometrics and Time Series/05-Forecast/018 - Forecasting Pipeline.md)
 
 ## 02 - Coding and EDA
 
-### Module 04 - Coding for Data Science
+### [Module 04 - Coding for Data Science](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\02 - Coding and EDA\Module 04 - Coding for Data Science
-
-Module README: [Module 04 - Coding for Data Science](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/README.md)
-
-#### [Python Fundamentals](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/01-Python/README.md)
+#### [01-Python](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/01-Python/)
 
 - [Python Foundation](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/01-Python/001 - Python Foundation.md)
 - [Variables](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/01-Python/002 - Variables.md)
@@ -155,7 +134,7 @@ Module README: [Module 04 - Coding for Data Science](00 - Roadmap.sh AI Data Sci
 - [File Handling](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/01-Python/007 - File Handling.md)
 - [Error Handling](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/01-Python/008 - Error Handling.md)
 
-#### [Data Science Libraries and Notebooks](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/02-Libs/README.md)
+#### [02-Libs](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/02-Libs/)
 
 - [NumPy](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/02-Libs/009 - NumPy.md)
 - [Pandas](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/02-Libs/010 - Pandas.md)
@@ -163,7 +142,7 @@ Module README: [Module 04 - Coding for Data Science](00 - Roadmap.sh AI Data Sci
 - [Seaborn](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/02-Libs/012 - Seaborn.md)
 - [Jupyter Notebook](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/02-Libs/013 - Jupyter Notebook.md)
 
-#### [Data Structures and Algorithms](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/03-DSA/README.md)
+#### [03-DSA](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/03-DSA/)
 
 - [Data Structures and Algorithms](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/03-DSA/014 - Data Structures and Algorithms.md)
 - [Array](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/03-DSA/015 - Array.md)
@@ -173,7 +152,7 @@ Module README: [Module 04 - Coding for Data Science](00 - Roadmap.sh AI Data Sci
 - [Searching](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/03-DSA/019 - Searching.md)
 - [Big O Notation](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/03-DSA/020 - Big O Notation.md)
 
-#### [SQL Querying](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/04-SQL/README.md)
+#### [04-SQL](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/04-SQL/)
 
 - [SQL](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/04-SQL/021 - SQL.md)
 - [SELECT](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/04-SQL/022 - SELECT.md)
@@ -184,19 +163,15 @@ Module README: [Module 04 - Coding for Data Science](00 - Roadmap.sh AI Data Sci
 - [Window Function](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/04-SQL/027 - Window Function.md)
 - [CTE](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/04-SQL/028 - CTE.md)
 
-#### [Workflow and Reproducibility](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/05-Workflow/README.md)
+#### [05-Workflow](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/05-Workflow/)
 
 - [Git - GitHub](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/05-Workflow/029 - Git - GitHub.md)
 - [Notebook Workflow](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/05-Workflow/030 - Notebook Workflow.md)
 - [Reproducible Environment](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 04 - Coding for Data Science/05-Workflow/031 - Reproducible Environment.md)
 
-### Module 05 - Exploratory Data Analysis
+### [Module 05 - Exploratory Data Analysis](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\02 - Coding and EDA\Module 05 - Exploratory Data Analysis
-
-Module README: [Module 05 - Exploratory Data Analysis](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/README.md)
-
-#### [Data Understanding and Business Context](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/01-Understand/README.md)
+#### [01-Understand](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/01-Understand/)
 
 - [Data Understanding](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/01-Understand/001 - Data Understanding.md)
 - [Dataset Schema](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/01-Understand/002 - Dataset Schema.md)
@@ -205,7 +180,7 @@ Module README: [Module 05 - Exploratory Data Analysis](00 - Roadmap.sh AI Data S
 - [Feature Type](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/01-Understand/005 - Feature Type.md)
 - [Business Question](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/01-Understand/006 - Business Question.md)
 
-#### [Data Cleaning and Preparation](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/02-CleanPrep/README.md)
+#### [02-CleanPrep](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/02-CleanPrep/)
 
 - [Data Cleaning](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/02-CleanPrep/007 - Data Cleaning.md)
 - [Missing Value Handling](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/02-CleanPrep/008 - Missing Value Handling.md)
@@ -214,7 +189,7 @@ Module README: [Module 05 - Exploratory Data Analysis](00 - Roadmap.sh AI Data S
 - [Data Type Conversion](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/02-CleanPrep/011 - Data Type Conversion.md)
 - [Encoding Categorical Variables](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/02-CleanPrep/012 - Encoding Categorical Variables.md)
 
-#### [Visualization Patterns](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/03-Viz/README.md)
+#### [03-Viz](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/03-Viz/)
 
 - [Histogram](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/03-Viz/013 - Histogram.md)
 - [Boxplot](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/03-Viz/014 - Boxplot.md)
@@ -223,7 +198,7 @@ Module README: [Module 05 - Exploratory Data Analysis](00 - Roadmap.sh AI Data S
 - [Heatmap](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/03-Viz/017 - Heatmap.md)
 - [Pairplot](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/03-Viz/018 - Pairplot.md)
 
-#### [Insight and Recommendation Writing](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/04-Insights/README.md)
+#### [04-Insights](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/04-Insights/)
 
 - [Insight Writing](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/04-Insights/019 - Insight Writing.md)
 - [Observation - Explanation - Impact - Recommendation](00 - Roadmap.sh AI Data Scientist Official/02 - Coding and EDA/Module 05 - Exploratory Data Analysis/04-Insights/020 - Observation - Explanation - Impact - Recommendation.md)
@@ -231,13 +206,9 @@ Module README: [Module 05 - Exploratory Data Analysis](00 - Roadmap.sh AI Data S
 
 ## 03 - Machine Learning and Deep Learning
 
-### Module 06 - Machine Learning
+### [Module 06 - Machine Learning](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\03 - Machine Learning and Deep Learning\Module 06 - Machine Learning
-
-Module README: [Module 06 - Machine Learning](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/README.md)
-
-#### [Supervised Learning Models](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/01-Supervised/README.md)
+#### [01-Supervised](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/01-Supervised/)
 
 - [Supervised Learning](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/01-Supervised/001 - Supervised Learning.md)
 - [Linear Regression](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/01-Supervised/002 - Linear Regression.md)
@@ -247,7 +218,7 @@ Module README: [Module 06 - Machine Learning](00 - Roadmap.sh AI Data Scientist 
 - [Gradient Boosting](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/01-Supervised/006 - Gradient Boosting.md)
 - [XGBoost - LightGBM](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/01-Supervised/007 - XGBoost - LightGBM.md)
 
-#### [Unsupervised Learning and Dimensionality Reduction](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/02-Unsuper/README.md)
+#### [02-Unsuper](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/02-Unsuper/)
 
 - [Unsupervised Learning](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/02-Unsuper/008 - Unsupervised Learning.md)
 - [K-Means](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/02-Unsuper/009 - K-Means.md)
@@ -255,7 +226,7 @@ Module README: [Module 06 - Machine Learning](00 - Roadmap.sh AI Data Scientist 
 - [PCA](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/02-Unsuper/011 - PCA.md)
 - [Dimensionality Reduction](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/02-Unsuper/012 - Dimensionality Reduction.md)
 
-#### [Classification Evaluation Metrics](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/03-ClassEval/README.md)
+#### [03-ClassEval](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/03-ClassEval/)
 
 - [Model Evaluation](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/03-ClassEval/013 - Model Evaluation.md)
 - [Accuracy](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/03-ClassEval/014 - Accuracy.md)
@@ -265,7 +236,7 @@ Module README: [Module 06 - Machine Learning](00 - Roadmap.sh AI Data Scientist 
 - [ROC-AUC](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/03-ClassEval/018 - ROC-AUC.md)
 - [Confusion Matrix](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/03-ClassEval/019 - Confusion Matrix.md)
 
-#### [Regression Evaluation and Validation](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/04-RegEval/README.md)
+#### [04-RegEval](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/04-RegEval/)
 
 - [MAE](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/04-RegEval/020 - MAE.md)
 - [MSE](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/04-RegEval/021 - MSE.md)
@@ -273,7 +244,7 @@ Module README: [Module 06 - Machine Learning](00 - Roadmap.sh AI Data Scientist 
 - [R-squared Metric](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/04-RegEval/023 - R-squared Metric.md)
 - [Cross-validation](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/04-RegEval/024 - Cross-validation.md)
 
-#### [Feature Engineering](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/README.md)
+#### [05-Features](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/)
 
 - [Feature Engineering](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/025 - Feature Engineering.md)
 - [Scaling](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/026 - Scaling.md)
@@ -283,18 +254,14 @@ Module README: [Module 06 - Machine Learning](00 - Roadmap.sh AI Data Scientist 
 - [Date - Time Features](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/030 - Date - Time Features.md)
 - [Text Features](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/031 - Text Features.md)
 
-#### [Feature and Model Selection](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/README.md)
+#### [06-Select](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/)
 
 - [Feature Selection](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/032 - Feature Selection.md)
 - [Model Selection](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/033 - Model Selection.md)
 
-### Module 07 - Deep Learning
+### [Module 07 - Deep Learning](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\03 - Machine Learning and Deep Learning\Module 07 - Deep Learning
-
-Module README: [Module 07 - Deep Learning](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/README.md)
-
-#### [Neural Network Foundations](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/01-NN/README.md)
+#### [01-NN](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/01-NN/)
 
 - [Neural Network Basics](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/01-NN/001 - Neural Network Basics.md)
 - [Neuron](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/01-NN/002 - Neuron.md)
@@ -302,13 +269,13 @@ Module README: [Module 07 - Deep Learning](00 - Roadmap.sh AI Data Scientist Off
 - [Activation Function](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/01-NN/004 - Activation Function.md)
 - [Loss Function](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/01-NN/005 - Loss Function.md)
 
-#### [Training and Optimization](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/02-Train/README.md)
+#### [02-Train](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/02-Train/)
 
 - [Backpropagation](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/02-Train/006 - Backpropagation.md)
 - [SGD](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/02-Train/007 - SGD.md)
 - [Adam](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/02-Train/008 - Adam.md)
 
-#### [Core Architectures](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/03-Arch/README.md)
+#### [03-Arch](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/03-Arch/)
 
 - [Fully Connected Network](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/03-Arch/009 - Fully Connected Network.md)
 - [CNN](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/03-Arch/010 - CNN.md)
@@ -316,20 +283,20 @@ Module README: [Module 07 - Deep Learning](00 - Roadmap.sh AI Data Scientist Off
 - [LSTM](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/03-Arch/012 - LSTM.md)
 - [Transformer](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/03-Arch/013 - Transformer.md)
 
-#### [Attention and Transformers](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/04-Attn/README.md)
+#### [04-Attn](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/04-Attn/)
 
 - [Attention](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/04-Attn/014 - Attention.md)
 - [Self-attention](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/04-Attn/015 - Self-attention.md)
 - [Positional Encoding](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/04-Attn/016 - Positional Encoding.md)
 - [Encoder - Decoder](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/04-Attn/017 - Encoder - Decoder.md)
 
-#### [Computer Vision Applications](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/05-Vision/README.md)
+#### [05-Vision](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/05-Vision/)
 
 - [Image Classification](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/05-Vision/018 - Image Classification.md)
 - [Object Detection Basics](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/05-Vision/019 - Object Detection Basics.md)
 - [Feature Extraction](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/05-Vision/020 - Feature Extraction.md)
 
-#### [Sequence and Transfer Learning Applications](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/06-SeqTL/README.md)
+#### [06-SeqTL](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/06-SeqTL/)
 
 - [Text Sequence](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/06-SeqTL/021 - Text Sequence.md)
 - [Time Series](00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 07 - Deep Learning/06-SeqTL/022 - Time Series.md)
@@ -338,13 +305,9 @@ Module README: [Module 07 - Deep Learning](00 - Roadmap.sh AI Data Scientist Off
 
 ## 04 - MLOps and Deployment
 
-### Module 08 - MLOps
+### [Module 08 - MLOps](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/)
 
-Folder: 00 - Roadmap.sh AI Data Scientist Official\04 - MLOps and Deployment\Module 08 - MLOps
-
-Module README: [Module 08 - MLOps](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/README.md)
-
-#### [Model Serving APIs](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/01-Serving/README.md)
+#### [01-Serving](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/01-Serving/)
 
 - [Serving Model](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/01-Serving/001 - Serving Model.md)
 - [Pickle - joblib](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/01-Serving/002 - Pickle - joblib.md)
@@ -353,7 +316,7 @@ Module README: [Module 08 - MLOps](00 - Roadmap.sh AI Data Scientist Official/04
 - [Batch Prediction](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/01-Serving/005 - Batch Prediction.md)
 - [Real-time Prediction](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/01-Serving/006 - Real-time Prediction.md)
 
-#### [Docker Packaging](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/02-Docker/README.md)
+#### [02-Docker](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/02-Docker/)
 
 - [Docker](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/02-Docker/007 - Docker.md)
 - [Dockerfile](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/02-Docker/008 - Dockerfile.md)
@@ -362,14 +325,14 @@ Module README: [Module 08 - MLOps](00 - Roadmap.sh AI Data Scientist Official/04
 - [Environment Variable](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/02-Docker/011 - Environment Variable.md)
 - [Build and Run Service](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/02-Docker/012 - Build and Run Service.md)
 
-#### [CI-CD and Deployment Automation](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/03-CICD/README.md)
+#### [03-CICD](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/03-CICD/)
 
 - [CI - CD for ML](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/03-CICD/013 - CI - CD for ML.md)
 - [GitHub Actions](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/03-CICD/014 - GitHub Actions.md)
 - [Test Pipeline](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/03-CICD/015 - Test Pipeline.md)
 - [Auto Deploy](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/03-CICD/016 - Auto Deploy.md)
 
-#### [Monitoring and Drift](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/04-Monitor/README.md)
+#### [04-Monitor](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/04-Monitor/)
 
 - [Model Artifact](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/04-Monitor/017 - Model Artifact.md)
 - [Model Monitoring](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/04-Monitor/018 - Model Monitoring.md)
@@ -378,7 +341,7 @@ Module README: [Module 08 - MLOps](00 - Roadmap.sh AI Data Scientist Official/04
 - [Data Drift](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/04-Monitor/021 - Data Drift.md)
 - [Model Performance Decay](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/04-Monitor/022 - Model Performance Decay.md)
 
-#### [Experiment and Model Versioning](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/05-Version/README.md)
+#### [05-Version](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/05-Version/)
 
 - [Experiment Tracking](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/05-Version/023 - Experiment Tracking.md)
 - [Model Versioning](00 - Roadmap.sh AI Data Scientist Official/04 - MLOps and Deployment/Module 08 - MLOps/05-Version/024 - Model Versioning.md)

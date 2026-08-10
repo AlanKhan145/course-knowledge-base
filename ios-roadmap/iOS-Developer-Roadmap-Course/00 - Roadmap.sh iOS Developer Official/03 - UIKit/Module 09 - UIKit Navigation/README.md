@@ -10,16 +10,31 @@ Navigate between multiple UIKit screens and pass data correctly.
 
 Mini project: Product list app with product detail navigation.
 
+## Noi dung nho
+
+- [01-UINavigationController-PresentModal](01-UINavigationController-PresentModal/)
+- [02-Dismiss-NavigationPatternIn](02-Dismiss-NavigationPatternIn/)
+- [03-CoordinatorBasics-DeepLinkBasics](03-CoordinatorBasics-DeepLinkBasics/)
+
 ## Danh sach bai hoc
 
-- [001 - UINavigationController](001 - UINavigationController.md)
-- [002 - Segue](002 - Segue.md)
-- [003 - Push](003 - Push.md)
-- [004 - Present Modal](004 - Present Modal.md)
-- [005 - Dismiss](005 - Dismiss.md)
-- [006 - Passing Data](006 - Passing Data.md)
-- [007 - TabBarController](007 - TabBarController.md)
-- [008 - Navigation Pattern in Real Apps](008 - Navigation Pattern in Real Apps.md)
-- [009 - Coordinator Basics](009 - Coordinator Basics.md)
-- [010 - Back Navigation](010 - Back Navigation.md)
-- [011 - Deep Link Basics](011 - Deep Link Basics.md)
+### [01-UINavigationController-PresentModal](01-UINavigationController-PresentModal/)
+
+- [UINavigationController](01-UINavigationController-PresentModal/001 - UINavigationController.md)
+- [Segue](01-UINavigationController-PresentModal/002 - Segue.md)
+- [Push](01-UINavigationController-PresentModal/003 - Push.md)
+- [Present Modal](01-UINavigationController-PresentModal/004 - Present Modal.md)
+
+### [02-Dismiss-NavigationPatternIn](02-Dismiss-NavigationPatternIn/)
+
+- [Dismiss](02-Dismiss-NavigationPatternIn/005 - Dismiss.md)
+- [Passing Data](02-Dismiss-NavigationPatternIn/006 - Passing Data.md)
+- [TabBarController](02-Dismiss-NavigationPatternIn/007 - TabBarController.md)
+- [Navigation Pattern in Real Apps](02-Dismiss-NavigationPatternIn/008 - Navigation Pattern in Real Apps.md)
+
+### [03-CoordinatorBasics-DeepLinkBasics](03-CoordinatorBasics-DeepLinkBasics/)
+
+- [Coordinator Basics](03-CoordinatorBasics-DeepLinkBasics/009 - Coordinator Basics.md)
+- [Back Navigation](03-CoordinatorBasics-DeepLinkBasics/010 - Back Navigation.md)
+- [Deep Link Basics](03-CoordinatorBasics-DeepLinkBasics/011 - Deep Link Basics.md)
+

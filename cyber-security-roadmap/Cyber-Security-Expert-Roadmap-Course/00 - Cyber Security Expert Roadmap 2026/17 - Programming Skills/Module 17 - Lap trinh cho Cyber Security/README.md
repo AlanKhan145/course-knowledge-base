@@ -1,24 +1,21 @@
-# Module 17 - Lập trình cho Cyber Security
+# Module 17 - Lap trinh cho Cyber Security
 
-**Học phần:** 17 - Programming Skills
-**Số bài/project:** 6
+## Noi dung nho
 
-## Ghi chú roadmap
+- [01-PythonForSecurity-JavaScriptSecurity](01-PythonForSecurity-JavaScriptSecurity/)
+- [02-CBasicsFor-GoForSecurity](02-CBasicsFor-GoForSecurity/)
 
-- Roadmap gợi ý các ngôn ngữ Python, Go, JavaScript, C++, Bash và PowerShell
+## Danh sach bai hoc
 
-## Danh sách bài
+### [01-PythonForSecurity-JavaScriptSecurity](01-PythonForSecurity-JavaScriptSecurity/)
 
-- [Bài 1 - Python for Security](001 - Python for Security.md)
-- [Bài 2 - Bash](002 - Bash.md)
-- [Bài 3 - PowerShell](003 - PowerShell.md)
-- [Bài 4 - JavaScript Security](004 - JavaScript Security.md)
-- [Bài 5 - C++ Basics for Security](005 - C++ Basics for Security.md)
-- [Bài 6 - Go for Security Tools](006 - Go for Security Tools.md)
+- [Python for Security](01-PythonForSecurity-JavaScriptSecurity/001 - Python for Security.md)
+- [Bash](01-PythonForSecurity-JavaScriptSecurity/002 - Bash.md)
+- [PowerShell](01-PythonForSecurity-JavaScriptSecurity/003 - PowerShell.md)
+- [JavaScript Security](01-PythonForSecurity-JavaScriptSecurity/004 - JavaScript Security.md)
 
-## Checklist module
+### [02-CBasicsFor-GoForSecurity](02-CBasicsFor-GoForSecurity/)
 
-- [ ] Đọc hoặc xem toàn bộ bài trong module.
-- [ ] Thực hành ít nhất một lab/checklist/script/report nhỏ.
-- [ ] Ghi lại lỗi gặp phải và cách xử lý.
-- [ ] Cập nhật portfolio hoặc nhật ký học tập.
+- [C++ Basics for Security](02-CBasicsFor-GoForSecurity/005 - C++ Basics for Security.md)
+- [Go for Security Tools](02-CBasicsFor-GoForSecurity/006 - Go for Security Tools.md)
+

@@ -30,3 +30,4 @@ Bai hoc da duoc giu trong cac subfolder nho theo noi dung; cac file bai hoc cu n
 ## Cach hoc
 
 Neu ban moi hoc AI Engineer, di theo thu tu hoc phan: foundations, model platforms/prompting, embeddings/RAG, agents/multimodal/tools, production/portfolio. Voi moi bai, tao mot artifact nho co the kiem tra lai: prompt, API route, RAG eval, agent trace, multimodal demo, logging dashboard hoac portfolio note.
+

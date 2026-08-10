@@ -5,13 +5,14 @@
 
 Module nay gom 2 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-DesignSystems-DesignSystemRoadmap](01-DesignSystems-DesignSystemRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - Design Systems](001 - Design Systems.md)
-- [002 - Design System Roadmap](002 - Design System Roadmap.md)
+### [01-DesignSystems-DesignSystemRoadmap](01-DesignSystems-DesignSystemRoadmap/)
 
-## Cach hoc module nay
+- [Design Systems](01-DesignSystems-DesignSystemRoadmap/001 - Design Systems.md)
+- [Design System Roadmap](01-DesignSystems-DesignSystemRoadmap/002 - Design System Roadmap.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

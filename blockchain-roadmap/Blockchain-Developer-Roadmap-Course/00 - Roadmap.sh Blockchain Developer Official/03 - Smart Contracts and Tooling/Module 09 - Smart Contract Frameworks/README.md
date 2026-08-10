@@ -10,29 +10,52 @@ Use Hardhat, Foundry and legacy frameworks to compile, test, deploy, verify and 
 
 Mini project: Create a Hardhat or Foundry project, deploy locally and deploy to testnet.
 
+## Noi dung nho
+
+- [01-Hardhat-WriteUnitTest](01-Hardhat-WriteUnitTest/)
+- [02-DeploymentScript-HardhatTasks](02-DeploymentScript-HardhatTasks/)
+- [03-Foundry-SolidityNativeTesting](03-Foundry-SolidityNativeTesting/)
+- [04-FoundryFuzzTest-Brownie](04-FoundryFuzzTest-Brownie/)
+- [05-Ganache-ReadLegacyCodebase](05-Ganache-ReadLegacyCodebase/)
+
 ## Danh sach bai hoc
 
-- [001 - Hardhat](001 - Hardhat.md)
-- [002 - Hardhat Init](002 - Hardhat Init.md)
-- [003 - Compile Contract](003 - Compile Contract.md)
-- [004 - Hardhat Network](004 - Hardhat Network.md)
-- [005 - Write Unit Test](005 - Write Unit Test.md)
-- [006 - Deployment Script](006 - Deployment Script.md)
-- [007 - Code Coverage](007 - Code Coverage.md)
-- [008 - Contract Verification](008 - Contract Verification.md)
-- [009 - Debugging Stack Trace](009 - Debugging Stack Trace.md)
-- [010 - Hardhat Tasks](010 - Hardhat Tasks.md)
-- [011 - Foundry](011 - Foundry.md)
-- [012 - Forge](012 - Forge.md)
-- [013 - Cast](013 - Cast.md)
-- [014 - Anvil](014 - Anvil.md)
-- [015 - Solidity-native Testing](015 - Solidity-native Testing.md)
-- [016 - Foundry Fuzz Test](016 - Foundry Fuzz Test.md)
-- [017 - Foundry Script](017 - Foundry Script.md)
-- [018 - Gas Snapshot](018 - Gas Snapshot.md)
-- [019 - Truffle](019 - Truffle.md)
-- [020 - Brownie](020 - Brownie.md)
-- [021 - Ganache](021 - Ganache.md)
-- [022 - Migration Scripts](022 - Migration Scripts.md)
-- [023 - Python Web3](023 - Python Web3.md)
-- [024 - Read Legacy Codebase](024 - Read Legacy Codebase.md)
+### [01-Hardhat-WriteUnitTest](01-Hardhat-WriteUnitTest/)
+
+- [Hardhat](01-Hardhat-WriteUnitTest/001 - Hardhat.md)
+- [Hardhat Init](01-Hardhat-WriteUnitTest/002 - Hardhat Init.md)
+- [Compile Contract](01-Hardhat-WriteUnitTest/003 - Compile Contract.md)
+- [Hardhat Network](01-Hardhat-WriteUnitTest/004 - Hardhat Network.md)
+- [Write Unit Test](01-Hardhat-WriteUnitTest/005 - Write Unit Test.md)
+
+### [02-DeploymentScript-HardhatTasks](02-DeploymentScript-HardhatTasks/)
+
+- [Deployment Script](02-DeploymentScript-HardhatTasks/006 - Deployment Script.md)
+- [Code Coverage](02-DeploymentScript-HardhatTasks/007 - Code Coverage.md)
+- [Contract Verification](02-DeploymentScript-HardhatTasks/008 - Contract Verification.md)
+- [Debugging Stack Trace](02-DeploymentScript-HardhatTasks/009 - Debugging Stack Trace.md)
+- [Hardhat Tasks](02-DeploymentScript-HardhatTasks/010 - Hardhat Tasks.md)
+
+### [03-Foundry-SolidityNativeTesting](03-Foundry-SolidityNativeTesting/)
+
+- [Foundry](03-Foundry-SolidityNativeTesting/011 - Foundry.md)
+- [Forge](03-Foundry-SolidityNativeTesting/012 - Forge.md)
+- [Cast](03-Foundry-SolidityNativeTesting/013 - Cast.md)
+- [Anvil](03-Foundry-SolidityNativeTesting/014 - Anvil.md)
+- [Solidity-native Testing](03-Foundry-SolidityNativeTesting/015 - Solidity-native Testing.md)
+
+### [04-FoundryFuzzTest-Brownie](04-FoundryFuzzTest-Brownie/)
+
+- [Foundry Fuzz Test](04-FoundryFuzzTest-Brownie/016 - Foundry Fuzz Test.md)
+- [Foundry Script](04-FoundryFuzzTest-Brownie/017 - Foundry Script.md)
+- [Gas Snapshot](04-FoundryFuzzTest-Brownie/018 - Gas Snapshot.md)
+- [Truffle](04-FoundryFuzzTest-Brownie/019 - Truffle.md)
+- [Brownie](04-FoundryFuzzTest-Brownie/020 - Brownie.md)
+
+### [05-Ganache-ReadLegacyCodebase](05-Ganache-ReadLegacyCodebase/)
+
+- [Ganache](05-Ganache-ReadLegacyCodebase/021 - Ganache.md)
+- [Migration Scripts](05-Ganache-ReadLegacyCodebase/022 - Migration Scripts.md)
+- [Python Web3](05-Ganache-ReadLegacyCodebase/023 - Python Web3.md)
+- [Read Legacy Codebase](05-Ganache-ReadLegacyCodebase/024 - Read Legacy Codebase.md)
+

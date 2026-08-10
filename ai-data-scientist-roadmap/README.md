@@ -33,3 +33,4 @@ Bai hoc da duoc giu trong cac subfolder nho theo noi dung; cac file bai hoc cu n
 ## Cach hoc
 
 Neu ban moi hoc AI/Data Scientist, di theo thu tu hoc phan: math-statistics-econometrics, coding-EDA, ML-DL, MLOps, portfolio. Voi moi bai, tao mot artifact nho co the kiem tra lai: notebook, SQL query, chart, model metric, API endpoint, Dockerfile hoac portfolio README.
+

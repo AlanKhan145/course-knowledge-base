@@ -3,10 +3,6 @@
 ## Mục tiêu module
 Nắm IPv4, IPv6, public/private address, IP, MAC và ARP.
 
-## Bài học
-- [001 - Địa chỉ IP](001 - ia chi IP.md)
-- [002 - IPv4 và IPv6](002 - IPv4 va IPv6.md)
-
 ## Thực hành trọng tâm
 Tạo bảng IP public/private, IPv4/IPv6 và mô phỏng ARP request trong LAN.
 
@@ -20,3 +16,15 @@ Tạo bảng IP public/private, IPv4/IPv6 và mô phỏng ARP request trong LAN.
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-IaChiIP-IPv4VaIPv6](01-IaChiIP-IPv4VaIPv6/)
+
+## Danh sach bai hoc
+
+### [01-IaChiIP-IPv4VaIPv6](01-IaChiIP-IPv4VaIPv6/)
+
+- [ia chi IP](01-IaChiIP-IPv4VaIPv6/001 - ia chi IP.md)
+- [IPv4 va IPv6](01-IaChiIP-IPv4VaIPv6/002 - IPv4 va IPv6.md)
+

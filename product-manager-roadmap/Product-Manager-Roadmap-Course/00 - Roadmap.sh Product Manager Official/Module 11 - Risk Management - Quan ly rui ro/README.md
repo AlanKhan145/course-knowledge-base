@@ -3,20 +3,6 @@
 ## Mục tiêu module
 Biết nhận diện, đánh giá, giảm thiểu và theo dõi rủi ro sản phẩm.
 
-## Bài học
-- [001 - Identifying Risks](001 - Identifying Risks.md)
-- [002 - Risk Identification Techniques](002 - Risk Identification Techniques.md)
-- [003 - Risk Register](003 - Risk Register.md)
-- [004 - Risk Assessment](004 - Risk Assessment.md)
-- [005 - Qualitative Risk Assessment](005 - Qualitative Risk Assessment.md)
-- [006 - Quantitative Risk Assessment](006 - Quantitative Risk Assessment.md)
-- [007 - Risk Mitigation](007 - Risk Mitigation.md)
-- [008 - Mitigation Strategies](008 - Mitigation Strategies.md)
-- [009 - Contingency Planning](009 - Contingency Planning.md)
-- [010 - Monitoring and Controlling Risks](010 - Monitoring and Controlling Risks.md)
-- [011 - Risk Monitoring Tools](011 - Risk Monitoring Tools.md)
-- [012 - Risk Audits](012 - Risk Audits.md)
-
 ## Thực hành trọng tâm
 Tạo risk register cho một launch sắp tới, gán owner, mitigation và trigger theo dõi.
 
@@ -30,3 +16,33 @@ Tạo risk register cho một launch sắp tới, gán owner, mitigation và tri
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một sản phẩm thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc PM
+
+## Noi dung nho
+
+- [01-IdentifyingRisks-RiskAssessment](01-IdentifyingRisks-RiskAssessment/)
+- [02-QualitativeRiskAssessment-MitigationStrategies](02-QualitativeRiskAssessment-MitigationStrategies/)
+- [03-ContingencyPlanning-RiskAudits](03-ContingencyPlanning-RiskAudits/)
+
+## Danh sach bai hoc
+
+### [01-IdentifyingRisks-RiskAssessment](01-IdentifyingRisks-RiskAssessment/)
+
+- [Identifying Risks](01-IdentifyingRisks-RiskAssessment/001 - Identifying Risks.md)
+- [Risk Identification Techniques](01-IdentifyingRisks-RiskAssessment/002 - Risk Identification Techniques.md)
+- [Risk Register](01-IdentifyingRisks-RiskAssessment/003 - Risk Register.md)
+- [Risk Assessment](01-IdentifyingRisks-RiskAssessment/004 - Risk Assessment.md)
+
+### [02-QualitativeRiskAssessment-MitigationStrategies](02-QualitativeRiskAssessment-MitigationStrategies/)
+
+- [Qualitative Risk Assessment](02-QualitativeRiskAssessment-MitigationStrategies/005 - Qualitative Risk Assessment.md)
+- [Quantitative Risk Assessment](02-QualitativeRiskAssessment-MitigationStrategies/006 - Quantitative Risk Assessment.md)
+- [Risk Mitigation](02-QualitativeRiskAssessment-MitigationStrategies/007 - Risk Mitigation.md)
+- [Mitigation Strategies](02-QualitativeRiskAssessment-MitigationStrategies/008 - Mitigation Strategies.md)
+
+### [03-ContingencyPlanning-RiskAudits](03-ContingencyPlanning-RiskAudits/)
+
+- [Contingency Planning](03-ContingencyPlanning-RiskAudits/009 - Contingency Planning.md)
+- [Monitoring and Controlling Risks](03-ContingencyPlanning-RiskAudits/010 - Monitoring and Controlling Risks.md)
+- [Risk Monitoring Tools](03-ContingencyPlanning-RiskAudits/011 - Risk Monitoring Tools.md)
+- [Risk Audits](03-ContingencyPlanning-RiskAudits/012 - Risk Audits.md)
+

@@ -12,14 +12,15 @@ Detect and reduce cloud misconfiguration, identity, encryption and logging risks
 
 - Topics
 
+## Noi dung nho
+
+- [01-CSPM-KeyManagementService](01-CSPM-KeyManagementService/)
+
 ## Danh sach bai hoc
 
-- [001 - CSPM](001 - CSPM.md)
-- [002 - IAM](002 - IAM.md)
-- [003 - Key Management Service](003 - Key Management Service.md)
+### [01-CSPM-KeyManagementService](01-CSPM-KeyManagementService/)
 
-## Cach hoc module nay
+- [CSPM](01-CSPM-KeyManagementService/001 - CSPM.md)
+- [IAM](01-CSPM-KeyManagementService/002 - IAM.md)
+- [Key Management Service](01-CSPM-KeyManagementService/003 - Key Management Service.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

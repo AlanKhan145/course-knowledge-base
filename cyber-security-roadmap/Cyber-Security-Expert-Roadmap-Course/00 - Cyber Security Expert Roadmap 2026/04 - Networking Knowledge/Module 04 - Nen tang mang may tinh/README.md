@@ -1,28 +1,29 @@
-# Module 04 - Nền tảng mạng máy tính
+# Module 04 - Nen tang mang may tinh
 
-**Học phần:** 04 - Networking Knowledge
-**Số bài/project:** 10
+## Noi dung nho
 
-## Ghi chú roadmap
+- [01-OSIModel-SubnettingCoBan](01-OSIModel-SubnettingCoBan/)
+- [02-CommonProtocols-NetworkTopologies](02-CommonProtocols-NetworkTopologies/)
+- [03-VLANDMZNAT-NetworkTroubleshootingTools](03-VLANDMZNAT-NetworkTroubleshootingTools/)
 
-- Roadmap nhấn mạnh OSI Model, common protocols, common ports, public/private IP, IP terminology, VLAN, DMZ, ARP, DHCP, DNS, NAT, router, switch, VPN, LAN/WAN/WLAN, topologies và các công cụ troubleshooting
+## Danh sach bai hoc
 
-## Danh sách bài
+### [01-OSIModel-SubnettingCoBan](01-OSIModel-SubnettingCoBan/)
 
-- [Bài 1 - OSI Model](001 - OSI Model.md)
-- [Bài 2 - TCP/IP Model](002 - TCP - IP Model.md)
-- [Bài 3 - IP Terminology](003 - IP Terminology.md)
-- [Bài 4 - Subnetting cơ bản](004 - Subnetting co ban.md)
-- [Bài 5 - Common Protocols](005 - Common Protocols.md)
-- [Bài 6 - Common Ports](006 - Common Ports.md)
-- [Bài 7 - Network Devices](007 - Network Devices.md)
-- [Bài 8 - Network Topologies](008 - Network Topologies.md)
-- [Bài 9 - VLAN, DMZ, NAT, VPN](009 - VLAN, DMZ, NAT, VPN.md)
-- [Bài 10 - Network Troubleshooting Tools](010 - Network Troubleshooting Tools.md)
+- [OSI Model](01-OSIModel-SubnettingCoBan/001 - OSI Model.md)
+- [TCP - IP Model](01-OSIModel-SubnettingCoBan/002 - TCP - IP Model.md)
+- [IP Terminology](01-OSIModel-SubnettingCoBan/003 - IP Terminology.md)
+- [Subnetting co ban](01-OSIModel-SubnettingCoBan/004 - Subnetting co ban.md)
 
-## Checklist module
+### [02-CommonProtocols-NetworkTopologies](02-CommonProtocols-NetworkTopologies/)
 
-- [ ] Đọc hoặc xem toàn bộ bài trong module.
-- [ ] Thực hành ít nhất một lab/checklist/script/report nhỏ.
-- [ ] Ghi lại lỗi gặp phải và cách xử lý.
-- [ ] Cập nhật portfolio hoặc nhật ký học tập.
+- [Common Protocols](02-CommonProtocols-NetworkTopologies/005 - Common Protocols.md)
+- [Common Ports](02-CommonProtocols-NetworkTopologies/006 - Common Ports.md)
+- [Network Devices](02-CommonProtocols-NetworkTopologies/007 - Network Devices.md)
+- [Network Topologies](02-CommonProtocols-NetworkTopologies/008 - Network Topologies.md)
+
+### [03-VLANDMZNAT-NetworkTroubleshootingTools](03-VLANDMZNAT-NetworkTroubleshootingTools/)
+
+- [VLAN, DMZ, NAT, VPN](03-VLANDMZNAT-NetworkTroubleshootingTools/009 - VLAN, DMZ, NAT, VPN.md)
+- [Network Troubleshooting Tools](03-VLANDMZNAT-NetworkTroubleshootingTools/010 - Network Troubleshooting Tools.md)
+

@@ -3,24 +3,6 @@
 ## Mục tiêu module
 Biết định nghĩa vấn đề, nghiên cứu thị trường, hiểu người dùng và định vị sản phẩm.
 
-## Bài học
-- [001 - Problem Framing](001 - Problem Framing.md)
-- [002 - Product Identification](002 - Product Identification.md)
-- [003 - Market Analysis](003 - Market Analysis.md)
-- [004 - User Research](004 - User Research.md)
-- [005 - Positioning](005 - Positioning.md)
-- [006 - Identifying Market Needs](006 - Identifying Market Needs.md)
-- [007 - Competitive Analysis](007 - Competitive Analysis.md)
-- [008 - Emerging Market Trends](008 - Emerging Market Trends.md)
-- [009 - User Personas](009 - User Personas.md)
-- [010 - User Interviews](010 - User Interviews.md)
-- [011 - Surveys and Questionnaires](011 - Surveys and Questionnaires.md)
-- [012 - Ethnographic Research](012 - Ethnographic Research.md)
-- [013 - USP — Unique Selling Point](013 - USP - Unique Selling Point.md)
-- [014 - Defining & Communicating USP](014 - Defining and Communicating USP.md)
-- [015 - Market Segmentation](015 - Market Segmentation.md)
-- [016 - Case Studies](016 - Case Studies.md)
-
 ## Thực hành trọng tâm
 Viết problem statement, lập 5 câu hỏi interview và tổng hợp insight thành một research memo.
 
@@ -34,3 +16,41 @@ Viết problem statement, lập 5 câu hỏi interview và tổng hợp insight 
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một sản phẩm thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc PM
+
+## Noi dung nho
+
+- [01-ProblemFraming-Positioning](01-ProblemFraming-Positioning/)
+- [02-IdentifyingMarketNeeds-UserInterviews](02-IdentifyingMarketNeeds-UserInterviews/)
+- [03-SurveysAndQuestionnaires-MarketSegmentation](03-SurveysAndQuestionnaires-MarketSegmentation/)
+- [04-CaseStudies](04-CaseStudies/)
+
+## Danh sach bai hoc
+
+### [01-ProblemFraming-Positioning](01-ProblemFraming-Positioning/)
+
+- [Problem Framing](01-ProblemFraming-Positioning/001 - Problem Framing.md)
+- [Product Identification](01-ProblemFraming-Positioning/002 - Product Identification.md)
+- [Market Analysis](01-ProblemFraming-Positioning/003 - Market Analysis.md)
+- [User Research](01-ProblemFraming-Positioning/004 - User Research.md)
+- [Positioning](01-ProblemFraming-Positioning/005 - Positioning.md)
+
+### [02-IdentifyingMarketNeeds-UserInterviews](02-IdentifyingMarketNeeds-UserInterviews/)
+
+- [Identifying Market Needs](02-IdentifyingMarketNeeds-UserInterviews/006 - Identifying Market Needs.md)
+- [Competitive Analysis](02-IdentifyingMarketNeeds-UserInterviews/007 - Competitive Analysis.md)
+- [Emerging Market Trends](02-IdentifyingMarketNeeds-UserInterviews/008 - Emerging Market Trends.md)
+- [User Personas](02-IdentifyingMarketNeeds-UserInterviews/009 - User Personas.md)
+- [User Interviews](02-IdentifyingMarketNeeds-UserInterviews/010 - User Interviews.md)
+
+### [03-SurveysAndQuestionnaires-MarketSegmentation](03-SurveysAndQuestionnaires-MarketSegmentation/)
+
+- [Surveys and Questionnaires](03-SurveysAndQuestionnaires-MarketSegmentation/011 - Surveys and Questionnaires.md)
+- [Ethnographic Research](03-SurveysAndQuestionnaires-MarketSegmentation/012 - Ethnographic Research.md)
+- [USP - Unique Selling Point](03-SurveysAndQuestionnaires-MarketSegmentation/013 - USP - Unique Selling Point.md)
+- [Defining and Communicating USP](03-SurveysAndQuestionnaires-MarketSegmentation/014 - Defining and Communicating USP.md)
+- [Market Segmentation](03-SurveysAndQuestionnaires-MarketSegmentation/015 - Market Segmentation.md)
+
+### [04-CaseStudies](04-CaseStudies/)
+
+- [Case Studies](04-CaseStudies/016 - Case Studies.md)
+

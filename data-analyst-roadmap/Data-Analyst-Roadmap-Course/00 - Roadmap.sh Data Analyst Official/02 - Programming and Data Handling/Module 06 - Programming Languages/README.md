@@ -12,13 +12,14 @@ Choose Python or R and use it for repeatable data analysis workflows.
 
 - Languages
 
+## Noi dung nho
+
+- [01-Python-R](01-Python-R/)
+
 ## Danh sach bai hoc
 
-- [001 - Python](001 - Python.md)
-- [002 - R](002 - R.md)
+### [01-Python-R](01-Python-R/)
 
-## Cach hoc module nay
+- [Python](01-Python-R/001 - Python.md)
+- [R](01-Python-R/002 - R.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.

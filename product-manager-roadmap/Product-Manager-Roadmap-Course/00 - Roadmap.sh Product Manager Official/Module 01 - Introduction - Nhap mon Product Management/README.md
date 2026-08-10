@@ -3,13 +3,6 @@
 ## Mục tiêu module
 Nắm vai trò PM, phạm vi trách nhiệm và điểm khác nhau giữa product với project.
 
-## Bài học
-- [001 - Product Management là gì?](001 - Product Management la gi.md)
-- [002 - Product vs Project Management](002 - Product vs Project Management.md)
-- [003 - Roles and Responsibilities](003 - Roles and Responsibilities.md)
-- [004 - Key Skills](004 - Key Skills.md)
-- [005 - Product Development Lifecycle](005 - Product Development Lifecycle.md)
-
 ## Thực hành trọng tâm
 Chọn một sản phẩm quen thuộc và viết ngắn: user là ai, business goal là gì, PM cần ra quyết định nào.
 
@@ -23,3 +16,22 @@ Chọn một sản phẩm quen thuộc và viết ngắn: user là ai, business 
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một sản phẩm thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc PM
+
+## Noi dung nho
+
+- [01-ProductManagementLa-RolesAndResponsibilities](01-ProductManagementLa-RolesAndResponsibilities/)
+- [02-KeySkills-ProductDevelopmentLifecycle](02-KeySkills-ProductDevelopmentLifecycle/)
+
+## Danh sach bai hoc
+
+### [01-ProductManagementLa-RolesAndResponsibilities](01-ProductManagementLa-RolesAndResponsibilities/)
+
+- [Product Management la gi](01-ProductManagementLa-RolesAndResponsibilities/001 - Product Management la gi.md)
+- [Product vs Project Management](01-ProductManagementLa-RolesAndResponsibilities/002 - Product vs Project Management.md)
+- [Roles and Responsibilities](01-ProductManagementLa-RolesAndResponsibilities/003 - Roles and Responsibilities.md)
+
+### [02-KeySkills-ProductDevelopmentLifecycle](02-KeySkills-ProductDevelopmentLifecycle/)
+
+- [Key Skills](02-KeySkills-ProductDevelopmentLifecycle/004 - Key Skills.md)
+- [Product Development Lifecycle](02-KeySkills-ProductDevelopmentLifecycle/005 - Product Development Lifecycle.md)
+

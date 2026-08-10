@@ -3,10 +3,6 @@
 ## Mục tiêu module
 Biết quan sát mạng bằng traffic monitoring, troubleshooting, performance và công cụ như Wireshark/Nmap/SNMP.
 
-## Bài học
-- [001 - Observability trong mạng](001 - Observability trong mang.md)
-- [002 - Network Observability Tools](002 - Network Observability Tools.md)
-
 ## Thực hành trọng tâm
 Tạo checklist troubleshooting bằng Wireshark, Nmap, NetFlow/sFlow và SNMP cho một sự cố chậm mạng.
 
@@ -20,3 +16,15 @@ Tạo checklist troubleshooting bằng Wireshark, Nmap, NetFlow/sFlow và SNMP c
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-ObservabilityTrongMang-NetworkObservabilityTools](01-ObservabilityTrongMang-NetworkObservabilityTools/)
+
+## Danh sach bai hoc
+
+### [01-ObservabilityTrongMang-NetworkObservabilityTools](01-ObservabilityTrongMang-NetworkObservabilityTools/)
+
+- [Observability trong mang](01-ObservabilityTrongMang-NetworkObservabilityTools/001 - Observability trong mang.md)
+- [Network Observability Tools](01-ObservabilityTrongMang-NetworkObservabilityTools/002 - Network Observability Tools.md)
+

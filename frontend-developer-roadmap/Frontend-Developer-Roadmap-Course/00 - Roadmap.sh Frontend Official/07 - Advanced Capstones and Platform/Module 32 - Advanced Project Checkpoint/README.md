@@ -5,13 +5,14 @@
 
 Module nay gom 2 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-AdvancedProjectIdeas-24hrStoryFeature](01-AdvancedProjectIdeas-24hrStoryFeature/)
+
 ## Danh sach bai hoc
 
-- [001 - Advanced Project Ideas](001 - Advanced Project Ideas.md)
-- [002 - 24hr Story Feature](002 - 24hr Story Feature.md)
+### [01-AdvancedProjectIdeas-24hrStoryFeature](01-AdvancedProjectIdeas-24hrStoryFeature/)
 
-## Cach hoc module nay
+- [Advanced Project Ideas](01-AdvancedProjectIdeas-24hrStoryFeature/001 - Advanced Project Ideas.md)
+- [24hr Story Feature](01-AdvancedProjectIdeas-24hrStoryFeature/002 - 24hr Story Feature.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

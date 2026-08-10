@@ -13,19 +13,24 @@ Deploy a full-stack app to cloud infrastructure
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-LinuxBasics-VPC](01-LinuxBasics-VPC/)
+- [02-Route53-CheckpointDeployment](02-Route53-CheckpointDeployment/)
+
 ## Danh sach bai hoc
 
-- [001 - Linux Basics](001 - Linux Basics.md)
-- [002 - Basic AWS Services](002 - Basic AWS Services.md)
-- [003 - EC2](003 - EC2.md)
-- [004 - VPC](004 - VPC.md)
-- [005 - Route53](005 - Route53.md)
-- [006 - SES](006 - SES.md)
-- [007 - S3](007 - S3.md)
-- [008 - Checkpoint - Deployment](008 - Checkpoint - Deployment.md)
+### [01-LinuxBasics-VPC](01-LinuxBasics-VPC/)
 
-## Cach hoc module nay
+- [Linux Basics](01-LinuxBasics-VPC/001 - Linux Basics.md)
+- [Basic AWS Services](01-LinuxBasics-VPC/002 - Basic AWS Services.md)
+- [EC2](01-LinuxBasics-VPC/003 - EC2.md)
+- [VPC](01-LinuxBasics-VPC/004 - VPC.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.
+### [02-Route53-CheckpointDeployment](02-Route53-CheckpointDeployment/)
+
+- [Route53](02-Route53-CheckpointDeployment/005 - Route53.md)
+- [SES](02-Route53-CheckpointDeployment/006 - SES.md)
+- [S3](02-Route53-CheckpointDeployment/007 - S3.md)
+- [Checkpoint - Deployment](02-Route53-CheckpointDeployment/008 - Checkpoint - Deployment.md)
+

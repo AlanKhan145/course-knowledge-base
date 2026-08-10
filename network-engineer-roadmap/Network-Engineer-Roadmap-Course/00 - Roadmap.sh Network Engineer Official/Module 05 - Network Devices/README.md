@@ -3,10 +3,6 @@
 ## Mục tiêu module
 Biết chức năng của router, switch, hub, modem và access point trong topology mạng.
 
-## Bài học
-- [001 - Thiết bị mạng](001 - Thiet bi mang.md)
-- [002 - Vai trò từng thiết bị](002 - Vai tro tung thiet bi.md)
-
 ## Thực hành trọng tâm
 Vẽ topology có router, switch, modem, access point và giải thích đường đi của packet.
 
@@ -20,3 +16,15 @@ Vẽ topology có router, switch, modem, access point và giải thích đườn
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-ThietBiMang-VaiTroTung](01-ThietBiMang-VaiTroTung/)
+
+## Danh sach bai hoc
+
+### [01-ThietBiMang-VaiTroTung](01-ThietBiMang-VaiTroTung/)
+
+- [Thiet bi mang](01-ThietBiMang-VaiTroTung/001 - Thiet bi mang.md)
+- [Vai tro tung thiet bi](01-ThietBiMang-VaiTroTung/002 - Vai tro tung thiet bi.md)
+

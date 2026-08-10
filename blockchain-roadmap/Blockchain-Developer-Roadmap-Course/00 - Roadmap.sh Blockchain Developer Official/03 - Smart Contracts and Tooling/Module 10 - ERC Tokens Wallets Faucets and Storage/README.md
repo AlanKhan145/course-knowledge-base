@@ -10,33 +10,60 @@ Build token contracts, connect wallets, use faucets and store decentralized meta
 
 Mini project: Create an ERC-20 token or ERC-721 NFT using OpenZeppelin.
 
+## Noi dung nho
+
+- [01-ERC20-Allowance](01-ERC20-Allowance/)
+- [02-Approve-ERC721](02-Approve-ERC721/)
+- [03-NFT-OpenZeppelinContracts](03-NFT-OpenZeppelinContracts/)
+- [04-MetaMask-Faucet](04-MetaMask-Faucet/)
+- [05-TestnetToken-NFTMetadataStorage](05-TestnetToken-NFTMetadataStorage/)
+- [06-ContentAddressing-MetadataJSON](06-ContentAddressing-MetadataJSON/)
+
 ## Danh sach bai hoc
 
-- [001 - ERC-20](001 - ERC-20.md)
-- [002 - Fungible Token](002 - Fungible Token.md)
-- [003 - balanceOf](003 - balanceOf.md)
-- [004 - transfer](004 - transfer.md)
-- [005 - allowance](005 - allowance.md)
-- [006 - approve](006 - approve.md)
-- [007 - transferFrom](007 - transferFrom.md)
-- [008 - Mint](008 - Mint.md)
-- [009 - Burn](009 - Burn.md)
-- [010 - ERC-721](010 - ERC-721.md)
-- [011 - NFT](011 - NFT.md)
-- [012 - Metadata](012 - Metadata.md)
-- [013 - tokenURI](013 - tokenURI.md)
-- [014 - ERC-1155 Overview](014 - ERC-1155 Overview.md)
-- [015 - OpenZeppelin Contracts](015 - OpenZeppelin Contracts.md)
-- [016 - MetaMask](016 - MetaMask.md)
-- [017 - WalletConnect](017 - WalletConnect.md)
-- [018 - Account Switching](018 - Account Switching.md)
-- [019 - Network Switching](019 - Network Switching.md)
-- [020 - Faucet](020 - Faucet.md)
-- [021 - Testnet Token](021 - Testnet Token.md)
-- [022 - Explorer Verification](022 - Explorer Verification.md)
-- [023 - IPFS](023 - IPFS.md)
-- [024 - Arweave](024 - Arweave.md)
-- [025 - NFT Metadata Storage](025 - NFT Metadata Storage.md)
-- [026 - Content Addressing](026 - Content Addressing.md)
-- [027 - Pinning Service](027 - Pinning Service.md)
-- [028 - Metadata JSON](028 - Metadata JSON.md)
+### [01-ERC20-Allowance](01-ERC20-Allowance/)
+
+- [ERC-20](01-ERC20-Allowance/001 - ERC-20.md)
+- [Fungible Token](01-ERC20-Allowance/002 - Fungible Token.md)
+- [balanceOf](01-ERC20-Allowance/003 - balanceOf.md)
+- [transfer](01-ERC20-Allowance/004 - transfer.md)
+- [allowance](01-ERC20-Allowance/005 - allowance.md)
+
+### [02-Approve-ERC721](02-Approve-ERC721/)
+
+- [approve](02-Approve-ERC721/006 - approve.md)
+- [transferFrom](02-Approve-ERC721/007 - transferFrom.md)
+- [Mint](02-Approve-ERC721/008 - Mint.md)
+- [Burn](02-Approve-ERC721/009 - Burn.md)
+- [ERC-721](02-Approve-ERC721/010 - ERC-721.md)
+
+### [03-NFT-OpenZeppelinContracts](03-NFT-OpenZeppelinContracts/)
+
+- [NFT](03-NFT-OpenZeppelinContracts/011 - NFT.md)
+- [Metadata](03-NFT-OpenZeppelinContracts/012 - Metadata.md)
+- [tokenURI](03-NFT-OpenZeppelinContracts/013 - tokenURI.md)
+- [ERC-1155 Overview](03-NFT-OpenZeppelinContracts/014 - ERC-1155 Overview.md)
+- [OpenZeppelin Contracts](03-NFT-OpenZeppelinContracts/015 - OpenZeppelin Contracts.md)
+
+### [04-MetaMask-Faucet](04-MetaMask-Faucet/)
+
+- [MetaMask](04-MetaMask-Faucet/016 - MetaMask.md)
+- [WalletConnect](04-MetaMask-Faucet/017 - WalletConnect.md)
+- [Account Switching](04-MetaMask-Faucet/018 - Account Switching.md)
+- [Network Switching](04-MetaMask-Faucet/019 - Network Switching.md)
+- [Faucet](04-MetaMask-Faucet/020 - Faucet.md)
+
+### [05-TestnetToken-NFTMetadataStorage](05-TestnetToken-NFTMetadataStorage/)
+
+- [Testnet Token](05-TestnetToken-NFTMetadataStorage/021 - Testnet Token.md)
+- [Explorer Verification](05-TestnetToken-NFTMetadataStorage/022 - Explorer Verification.md)
+- [IPFS](05-TestnetToken-NFTMetadataStorage/023 - IPFS.md)
+- [Arweave](05-TestnetToken-NFTMetadataStorage/024 - Arweave.md)
+- [NFT Metadata Storage](05-TestnetToken-NFTMetadataStorage/025 - NFT Metadata Storage.md)
+
+### [06-ContentAddressing-MetadataJSON](06-ContentAddressing-MetadataJSON/)
+
+- [Content Addressing](06-ContentAddressing-MetadataJSON/026 - Content Addressing.md)
+- [Pinning Service](06-ContentAddressing-MetadataJSON/027 - Pinning Service.md)
+- [Metadata JSON](06-ContentAddressing-MetadataJSON/028 - Metadata JSON.md)
+

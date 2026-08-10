@@ -12,16 +12,21 @@ Explain what data analytics is and distinguish descriptive, diagnostic, predicti
 
 - Analytics Fundamentals
 
+## Noi dung nho
+
+- [01-WhatIsData-DiagnosticAnalytics](01-WhatIsData-DiagnosticAnalytics/)
+- [02-PredictiveAnalytics-PrescriptiveAnalytics](02-PredictiveAnalytics-PrescriptiveAnalytics/)
+
 ## Danh sach bai hoc
 
-- [001 - What is Data Analytics](001 - What is Data Analytics.md)
-- [002 - Descriptive Analytics](002 - Descriptive Analytics.md)
-- [003 - Diagnostic Analytics](003 - Diagnostic Analytics.md)
-- [004 - Predictive Analytics](004 - Predictive Analytics.md)
-- [005 - Prescriptive Analytics](005 - Prescriptive Analytics.md)
+### [01-WhatIsData-DiagnosticAnalytics](01-WhatIsData-DiagnosticAnalytics/)
 
-## Cach hoc module nay
+- [What is Data Analytics](01-WhatIsData-DiagnosticAnalytics/001 - What is Data Analytics.md)
+- [Descriptive Analytics](01-WhatIsData-DiagnosticAnalytics/002 - Descriptive Analytics.md)
+- [Diagnostic Analytics](01-WhatIsData-DiagnosticAnalytics/003 - Diagnostic Analytics.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-PredictiveAnalytics-PrescriptiveAnalytics](02-PredictiveAnalytics-PrescriptiveAnalytics/)
+
+- [Predictive Analytics](02-PredictiveAnalytics-PrescriptiveAnalytics/004 - Predictive Analytics.md)
+- [Prescriptive Analytics](02-PredictiveAnalytics-PrescriptiveAnalytics/005 - Prescriptive Analytics.md)
+

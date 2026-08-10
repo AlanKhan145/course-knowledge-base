@@ -12,15 +12,16 @@ Choose adjacent tracks that strengthen the data analyst path.
 
 - Related Roadmaps
 
+## Noi dung nho
+
+- [01-AIAndData-PromptEngineeringRoadmap](01-AIAndData-PromptEngineeringRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - AI and Data Scientist Roadmap](001 - AI and Data Scientist Roadmap.md)
-- [002 - SQL Roadmap](002 - SQL Roadmap.md)
-- [003 - Python Roadmap](003 - Python Roadmap.md)
-- [004 - Prompt Engineering Roadmap](004 - Prompt Engineering Roadmap.md)
+### [01-AIAndData-PromptEngineeringRoadmap](01-AIAndData-PromptEngineeringRoadmap/)
 
-## Cach hoc module nay
+- [AI and Data Scientist Roadmap](01-AIAndData-PromptEngineeringRoadmap/001 - AI and Data Scientist Roadmap.md)
+- [SQL Roadmap](01-AIAndData-PromptEngineeringRoadmap/002 - SQL Roadmap.md)
+- [Python Roadmap](01-AIAndData-PromptEngineeringRoadmap/003 - Python Roadmap.md)
+- [Prompt Engineering Roadmap](01-AIAndData-PromptEngineeringRoadmap/004 - Prompt Engineering Roadmap.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.

@@ -15,22 +15,31 @@ Summarize data with descriptive statistics, distributions, dispersion and centra
 - Dispersion
 - Distribution Space
 
+## Noi dung nho
+
+- [01-GeneratingStatistics-Variance](01-GeneratingStatistics-Variance/)
+- [02-StandardDeviation-Mode](02-StandardDeviation-Mode/)
+- [03-Average-Kurtosis](03-Average-Kurtosis/)
+
 ## Danh sach bai hoc
 
-- [001 - Generating Statistics](001 - Generating Statistics.md)
-- [002 - Visualizing Distributions](002 - Visualizing Distributions.md)
-- [003 - Range](003 - Range.md)
-- [004 - Variance](004 - Variance.md)
-- [005 - Standard Deviation](005 - Standard Deviation.md)
-- [006 - Mean](006 - Mean.md)
-- [007 - Median](007 - Median.md)
-- [008 - Mode](008 - Mode.md)
-- [009 - Average](009 - Average.md)
-- [010 - Skewness](010 - Skewness.md)
-- [011 - Kurtosis](011 - Kurtosis.md)
+### [01-GeneratingStatistics-Variance](01-GeneratingStatistics-Variance/)
 
-## Cach hoc module nay
+- [Generating Statistics](01-GeneratingStatistics-Variance/001 - Generating Statistics.md)
+- [Visualizing Distributions](01-GeneratingStatistics-Variance/002 - Visualizing Distributions.md)
+- [Range](01-GeneratingStatistics-Variance/003 - Range.md)
+- [Variance](01-GeneratingStatistics-Variance/004 - Variance.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-StandardDeviation-Mode](02-StandardDeviation-Mode/)
+
+- [Standard Deviation](02-StandardDeviation-Mode/005 - Standard Deviation.md)
+- [Mean](02-StandardDeviation-Mode/006 - Mean.md)
+- [Median](02-StandardDeviation-Mode/007 - Median.md)
+- [Mode](02-StandardDeviation-Mode/008 - Mode.md)
+
+### [03-Average-Kurtosis](03-Average-Kurtosis/)
+
+- [Average](03-Average-Kurtosis/009 - Average.md)
+- [Skewness](03-Average-Kurtosis/010 - Skewness.md)
+- [Kurtosis](03-Average-Kurtosis/011 - Kurtosis.md)
+

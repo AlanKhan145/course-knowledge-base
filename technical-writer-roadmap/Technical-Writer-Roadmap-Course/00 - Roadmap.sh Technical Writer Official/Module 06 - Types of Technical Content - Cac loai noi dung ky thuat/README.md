@@ -13,22 +13,37 @@ Module này giúp bạn học nhóm kiến thức **Types of Technical Content �
 - 6.3 - API Reference
 - 6.4 - Help Content
 
-## Danh sách bài
-
-- [6.1.1 - General Product Prose](001 - General Product Prose.md)
-- [6.1.2 - How-to Guides](002 - How-to Guides.md)
-- [6.2.1 - User Goals](003 - User Goals.md)
-- [6.2.2 - Developer Journey](004 - Developer Journey.md)
-- [6.2.3 - Docs Structure](005 - Docs Structure.md)
-- [6.3.1 - Docs Generation Tools](006 - Docs Generation Tools.md)
-- [6.3.2 - API Definitions](007 - API Definitions.md)
-- [6.4.1 - Troubleshooting](008 - Troubleshooting.md)
-- [6.4.2 - Developer Support](009 - Developer Support.md)
-- [6.4.3 - Platform Support](010 - Platform Support.md)
-
 ## Checklist module
 
 - [ ] Đọc toàn bộ bài trong module.
 - [ ] Tạo ít nhất một artifact viết/tài liệu nhỏ.
 - [ ] Review lại bằng checklist clarity, accuracy, structure và audience fit.
 - [ ] Lưu bản tốt nhất vào portfolio hoặc repo docs cá nhân.
+
+## Noi dung nho
+
+- [01-GeneralProductProse-DeveloperJourney](01-GeneralProductProse-DeveloperJourney/)
+- [02-DocsStructure-Troubleshooting](02-DocsStructure-Troubleshooting/)
+- [03-DeveloperSupport-PlatformSupport](03-DeveloperSupport-PlatformSupport/)
+
+## Danh sach bai hoc
+
+### [01-GeneralProductProse-DeveloperJourney](01-GeneralProductProse-DeveloperJourney/)
+
+- [General Product Prose](01-GeneralProductProse-DeveloperJourney/001 - General Product Prose.md)
+- [How-to Guides](01-GeneralProductProse-DeveloperJourney/002 - How-to Guides.md)
+- [User Goals](01-GeneralProductProse-DeveloperJourney/003 - User Goals.md)
+- [Developer Journey](01-GeneralProductProse-DeveloperJourney/004 - Developer Journey.md)
+
+### [02-DocsStructure-Troubleshooting](02-DocsStructure-Troubleshooting/)
+
+- [Docs Structure](02-DocsStructure-Troubleshooting/005 - Docs Structure.md)
+- [Docs Generation Tools](02-DocsStructure-Troubleshooting/006 - Docs Generation Tools.md)
+- [API Definitions](02-DocsStructure-Troubleshooting/007 - API Definitions.md)
+- [Troubleshooting](02-DocsStructure-Troubleshooting/008 - Troubleshooting.md)
+
+### [03-DeveloperSupport-PlatformSupport](03-DeveloperSupport-PlatformSupport/)
+
+- [Developer Support](03-DeveloperSupport-PlatformSupport/009 - Developer Support.md)
+- [Platform Support](03-DeveloperSupport-PlatformSupport/010 - Platform Support.md)
+

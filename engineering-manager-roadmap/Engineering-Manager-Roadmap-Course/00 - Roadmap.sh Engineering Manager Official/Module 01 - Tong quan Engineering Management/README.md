@@ -3,10 +3,6 @@
 ## Mục tiêu module
 Hiểu vai trò EM, phạm vi trách nhiệm và ba trục People, Product, Process.
 
-## Nội dung
-- [001 - Engineering Manager là gì?](001 - Engineering Manager la gi.md)
-- [002 - Ba trục trọng tâm của EM](002 - Ba truc trong tam cua EM.md)
-
 ## Thực hành trọng tâm
 Viết một trang mô tả vai trò EM trong team hiện tại hoặc team giả định: trách nhiệm, ranh giới với Tech Lead/Product Manager và quyết định quan trọng nhất.
 
@@ -20,3 +16,15 @@ Viết một trang mô tả vai trò EM trong team hiện tại hoặc team gi�
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một team, hệ thống hoặc dự án thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong vai trò Engineering Manager
+
+## Noi dung nho
+
+- [01-EngineeringManagerLa-BaTrucTrong](01-EngineeringManagerLa-BaTrucTrong/)
+
+## Danh sach bai hoc
+
+### [01-EngineeringManagerLa-BaTrucTrong](01-EngineeringManagerLa-BaTrucTrong/)
+
+- [Engineering Manager la gi](01-EngineeringManagerLa-BaTrucTrong/001 - Engineering Manager la gi.md)
+- [Ba truc trong tam cua EM](01-EngineeringManagerLa-BaTrucTrong/002 - Ba truc trong tam cua EM.md)
+

@@ -1,16 +1,23 @@
 # Module 16 - Observability
 
-**Phase:** Phase 6 - Production Engineering
+## Noi dung nho
 
-This module has 8 lessons.
+- [01-Logs-CorrelationID](01-Logs-CorrelationID/)
+- [02-Alert-Exercise](02-Alert-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - Logs](001 - Logs.md)
-- [002 - Metrics](002 - Metrics.md)
-- [003 - Tracing](003 - Tracing.md)
-- [004 - Correlation ID](004 - Correlation ID.md)
-- [005 - Alert](005 - Alert.md)
-- [006 - Dashboard](006 - Dashboard.md)
-- [007 - Audit](007 - Audit.md)
-- [008 - Exercise](008 - Exercise.md)
+### [01-Logs-CorrelationID](01-Logs-CorrelationID/)
+
+- [Logs](01-Logs-CorrelationID/001 - Logs.md)
+- [Metrics](01-Logs-CorrelationID/002 - Metrics.md)
+- [Tracing](01-Logs-CorrelationID/003 - Tracing.md)
+- [Correlation ID](01-Logs-CorrelationID/004 - Correlation ID.md)
+
+### [02-Alert-Exercise](02-Alert-Exercise/)
+
+- [Alert](02-Alert-Exercise/005 - Alert.md)
+- [Dashboard](02-Alert-Exercise/006 - Dashboard.md)
+- [Audit](02-Alert-Exercise/007 - Audit.md)
+- [Exercise](02-Alert-Exercise/008 - Exercise.md)
+

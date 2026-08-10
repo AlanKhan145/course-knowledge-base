@@ -1,162 +1,179 @@
-# BI Analyst Roadmap - Course Index
+# Course Index
 
-Khóa học được dựng từ BI Analyst Roadmap và dữ liệu đã chuẩn hóa.
+Course root: `00 - Roadmap.sh BI Analyst Official`
 
-## Tài liệu chính
+## Modules
 
-- [Syllabus](SYLLABUS.md)
-- [Learning Path](LEARNING_PATH.md)
-- [Capstone Projects](CAPSTONE_PROJECTS.md)
-- [Coverage Report](COVERAGE_REPORT.md)
-- [Normalized Source](NORMALIZED_SOURCE.md)
+### [Module 01 - Introduction - Gioi thieu BI Analyst](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/)
 
-## Roadmap Modules
+#### [01-WhatIsBI-WhyBIMatters](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/01-WhatIsBI-WhyBIMatters/)
 
-### Module 01 - Introduction - Giới thiệu BI Analyst
+- [What is BI](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/01-WhatIsBI-WhyBIMatters/001 - What is BI.md)
+- [Skills](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/01-WhatIsBI-WhyBIMatters/002 - Skills.md)
+- [Why BI Matters](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/01-WhatIsBI-WhyBIMatters/003 - Why BI Matters.md)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/README.md)
-- [001 - What is BI?](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/001 - What is BI.md)
-- [002 - Skills](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/002 - Skills.md)
-- [003 - Why BI Matters?](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/003 - Why BI Matters.md)
-- [004 - Responsibilities](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/004 - Responsibilities.md)
-- [005 - BI Analyst vs Other Roles](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/005 - BI Analyst vs Other Roles.md)
+#### [02-Responsibilities-BIAnalystVs](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/02-Responsibilities-BIAnalystVs/)
 
-### Module 02 - Business Fundamentals - Nền tảng kinh doanh
+- [Responsibilities](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/02-Responsibilities-BIAnalystVs/004 - Responsibilities.md)
+- [BI Analyst vs Other Roles](00 - Roadmap.sh BI Analyst Official/Module 01 - Introduction - Gioi thieu BI Analyst/02-Responsibilities-BIAnalystVs/005 - BI Analyst vs Other Roles.md)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/README.md)
-- [001 - Metrics and KPIs](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/001 - Metrics and KPIs.md)
-- [002 - Types of BI Operations](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/002 - Types of BI Operations.md)
-- [003 - Stakeholder Identification](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/003 - Stakeholder Identification.md)
-- [004 - Key Business Functions](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/004 - Key Business Functions.md)
+### [Module 02 - Business Fundamentals - Nen tang kinh doanh](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/)
 
-### Module 03 - Types of Data Analysis - Các kiểu phân tích dữ liệu
+#### [01-MetricsAndKPIs-KeyBusinessFunctions](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/01-MetricsAndKPIs-KeyBusinessFunctions/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/README.md)
-- [001 - Descriptive Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/001 - Descriptive Analysis.md)
-- [002 - Diagnostic Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/002 - Diagnostic Analysis.md)
-- [003 - Predictive Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/003 - Predictive Analysis.md)
-- [004 - Prescriptive Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/004 - Prescriptive Analysis.md)
+- [Metrics and KPIs](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/01-MetricsAndKPIs-KeyBusinessFunctions/001 - Metrics and KPIs.md)
+- [Types of BI Operations](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/01-MetricsAndKPIs-KeyBusinessFunctions/002 - Types of BI Operations.md)
+- [Stakeholder Identification](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/01-MetricsAndKPIs-KeyBusinessFunctions/003 - Stakeholder Identification.md)
+- [Key Business Functions](00 - Roadmap.sh BI Analyst Official/Module 02 - Business Fundamentals - Nen tang kinh doanh/01-MetricsAndKPIs-KeyBusinessFunctions/004 - Key Business Functions.md)
 
-### Module 04 - Statistics Basics - Thống kê cơ bản
+### [Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/README.md)
-- [001 - Variables and Data Types](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/001 - Variables and Data Types.md)
-- [002 - Descriptive Statistics](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/002 - Descriptive Statistics.md)
-- [003 - Correlation Analysis](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/003 - Correlation Analysis.md)
-- [004 - Inferential Statistics](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/004 - Inferential Statistics.md)
-- [005 - Hypothesis Testing](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/005 - Hypothesis Testing.md)
-- [006 - Regression Analysis](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/006 - Regression Analysis.md)
+#### [01-DescriptiveAnalysis-PrescriptiveAnalysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/01-DescriptiveAnalysis-PrescriptiveAnalysis/)
 
-### Module 05 - What is Data? - Hiểu về dữ liệu
+- [Descriptive Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/01-DescriptiveAnalysis-PrescriptiveAnalysis/001 - Descriptive Analysis.md)
+- [Diagnostic Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/01-DescriptiveAnalysis-PrescriptiveAnalysis/002 - Diagnostic Analysis.md)
+- [Predictive Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/01-DescriptiveAnalysis-PrescriptiveAnalysis/003 - Predictive Analysis.md)
+- [Prescriptive Analysis](00 - Roadmap.sh BI Analyst Official/Module 03 - Types of Data Analysis - Cac kieu phan tich du lieu/01-DescriptiveAnalysis-PrescriptiveAnalysis/004 - Prescriptive Analysis.md)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/README.md)
-- [001 - Analog vs Digital Data](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/001 - Analog vs Digital Data.md)
-- [002 - Types of Data](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/002 - Types of Data.md)
-- [003 - Data Sources](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/003 - Data Sources.md)
-- [004 - Data Formats](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/004 - Data Formats.md)
+### [Module 04 - Statistics Basics - Thong ke co ban](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/)
 
-### Module 06 - BI Core Skills - Kỹ năng cốt lõi của BI
+#### [01-VariablesAndData-CorrelationAnalysis](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/01-VariablesAndData-CorrelationAnalysis/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/README.md)
-- [001 - SQL Fundamentals](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/001 - SQL Fundamentals.md)
-- [002 - Popular Databases](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/002 - Popular Databases.md)
-- [003 - Exploratory Data Analysis - EDA](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/003 - Exploratory Data Analysis - EDA.md)
-- [004 - Data Transformation Techniques](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/004 - Data Transformation Techniques.md)
-- [005 - Tools for Data Cleaning](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/005 - Tools for Data Cleaning.md)
+- [Variables and Data Types](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/01-VariablesAndData-CorrelationAnalysis/001 - Variables and Data Types.md)
+- [Descriptive Statistics](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/01-VariablesAndData-CorrelationAnalysis/002 - Descriptive Statistics.md)
+- [Correlation Analysis](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/01-VariablesAndData-CorrelationAnalysis/003 - Correlation Analysis.md)
 
-### Module 07 - Visualizing Data - Trực quan hóa dữ liệu
+#### [02-InferentialStatistics-RegressionAnalysis](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/02-InferentialStatistics-RegressionAnalysis/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/README.md)
-- [001 - Visualization Fundamentals](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/001 - Visualization Fundamentals.md)
-- [002 - Popular Plots](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/002 - Popular Plots.md)
-- [003 - Visualizing Data](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/003 - Visualizing Data.md)
-- [004 - Visualization Best Practices](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/004 - Visualization Best Practices.md)
+- [Inferential Statistics](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/02-InferentialStatistics-RegressionAnalysis/004 - Inferential Statistics.md)
+- [Hypothesis Testing](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/02-InferentialStatistics-RegressionAnalysis/005 - Hypothesis Testing.md)
+- [Regression Analysis](00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/02-InferentialStatistics-RegressionAnalysis/006 - Regression Analysis.md)
 
-### Module 08 - BI Tools - Công cụ BI
+### [Module 05 - What is Data - Hieu ve du lieu](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/README.md)
-- [001 - Excel](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/001 - Excel.md)
-- [002 - BI Platforms](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/002 - BI Platforms.md)
-- [003 - Programming Languages](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/003 - Programming Languages.md)
+#### [01-AnalogVsDigital-DataFormats](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/01-AnalogVsDigital-DataFormats/)
 
-### Module 09 - Cloud Computing - Điện toán đám mây cho BI
+- [Analog vs Digital Data](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/01-AnalogVsDigital-DataFormats/001 - Analog vs Digital Data.md)
+- [Types of Data](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/01-AnalogVsDigital-DataFormats/002 - Types of Data.md)
+- [Data Sources](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/01-AnalogVsDigital-DataFormats/003 - Data Sources.md)
+- [Data Formats](00 - Roadmap.sh BI Analyst Official/Module 05 - What is Data - Hieu ve du lieu/01-AnalogVsDigital-DataFormats/004 - Data Formats.md)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/README.md)
-- [001 - Cloud Computing Basics](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/001 - Cloud Computing Basics.md)
-- [002 - Cloud Data Warehouses](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/002 - Cloud Data Warehouses.md)
-- [003 - Providers](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/003 - Providers.md)
+### [Module 06 - BI Core Skills - Ky nang cot loi cua BI](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/)
 
-### Module 10 - Business Applications - Ứng dụng BI trong kinh doanh
+#### [01-SQLFundamentals-ExploratoryDataAnalysis](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/01-SQLFundamentals-ExploratoryDataAnalysis/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/README.md)
-- [001 - Finance](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/001 - Finance.md)
-- [002 - Retail & E-commerce](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/002 - Retail and E-commerce.md)
-- [003 - Healthcare](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/003 - Healthcare.md)
-- [004 - Manufacturing](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/004 - Manufacturing.md)
+- [SQL Fundamentals](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/01-SQLFundamentals-ExploratoryDataAnalysis/001 - SQL Fundamentals.md)
+- [Popular Databases](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/01-SQLFundamentals-ExploratoryDataAnalysis/002 - Popular Databases.md)
+- [Exploratory Data Analysis - EDA](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/01-SQLFundamentals-ExploratoryDataAnalysis/003 - Exploratory Data Analysis - EDA.md)
 
-### Module 11 - BI Techniques - Kỹ thuật BI nâng cao
+#### [02-DataTransformationTechniques-ToolsForData](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/02-DataTransformationTechniques-ToolsForData/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/README.md)
-- [001 - Time Series Analysis](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/001 - Time Series Analysis.md)
-- [002 - A/B Testing](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/002 - A - B Testing.md)
-- [003 - Cohort Analysis](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/003 - Cohort Analysis.md)
-- [004 - Forecasting](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/004 - Forecasting.md)
-- [005 - Basic Machine Learning](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/005 - Basic Machine Learning.md)
+- [Data Transformation Techniques](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/02-DataTransformationTechniques-ToolsForData/004 - Data Transformation Techniques.md)
+- [Tools for Data Cleaning](00 - Roadmap.sh BI Analyst Official/Module 06 - BI Core Skills - Ky nang cot loi cua BI/02-DataTransformationTechniques-ToolsForData/005 - Tools for Data Cleaning.md)
 
-### Module 12 - Professional Excellence - Kỹ năng chuyên nghiệp
+### [Module 07 - Visualizing Data - Truc quan hoa du lieu](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 12 - Professional Excellence - Ky nang chuyen nghiep/README.md)
-- [001 - Communication & Storytelling](00 - Roadmap.sh BI Analyst Official/Module 12 - Professional Excellence - Ky nang chuyen nghiep/001 - Communication and Storytelling.md)
-- [002 - Soft Skills](00 - Roadmap.sh BI Analyst Official/Module 12 - Professional Excellence - Ky nang chuyen nghiep/002 - Soft Skills.md)
+#### [01-VisualizationFundamentals-VisualizationBestPract](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/01-VisualizationFundamentals-VisualizationBestPract/)
 
-### Module 13 - Data Governance & Ethics - Quản trị và đạo đức dữ liệu
+- [Visualization Fundamentals](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/01-VisualizationFundamentals-VisualizationBestPract/001 - Visualization Fundamentals.md)
+- [Popular Plots](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/01-VisualizationFundamentals-VisualizationBestPract/002 - Popular Plots.md)
+- [Visualizing Data](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/01-VisualizationFundamentals-VisualizationBestPract/003 - Visualizing Data.md)
+- [Visualization Best Practices](00 - Roadmap.sh BI Analyst Official/Module 07 - Visualizing Data - Truc quan hoa du lieu/01-VisualizationFundamentals-VisualizationBestPract/004 - Visualization Best Practices.md)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/README.md)
-- [001 - Data Quality](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/001 - Data Quality.md)
-- [002 - Ethical Data Use](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/002 - Ethical Data Use.md)
-- [003 - Data Regulations](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/003 - Data Regulations.md)
-- [004 - Algorithmic Bias](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/004 - Algorithmic Bias.md)
+### [Module 08 - BI Tools - Cong cu BI](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/)
 
-### Module 14 - Data Architectures - Kiến trúc dữ liệu
+#### [01-Excel-ProgrammingLanguages](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/01-Excel-ProgrammingLanguages/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/README.md)
-- [001 - Data Warehouse](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/001 - Data Warehouse.md)
-- [002 - Data Lake](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/002 - Data Lake.md)
-- [003 - Data Mart](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/003 - Data Mart.md)
-- [004 - Cloud BI Ecosystem](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/004 - Cloud BI Ecosystem.md)
-- [005 - Data Modeling for BI](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/005 - Data Modeling for BI.md)
+- [Excel](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/01-Excel-ProgrammingLanguages/001 - Excel.md)
+- [BI Platforms](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/01-Excel-ProgrammingLanguages/002 - BI Platforms.md)
+- [Programming Languages](00 - Roadmap.sh BI Analyst Official/Module 08 - BI Tools - Cong cu BI/01-Excel-ProgrammingLanguages/003 - Programming Languages.md)
 
-### Module 15 - ETL Tools - Công cụ ETL
+### [Module 09 - Cloud Computing - ien toan am may cho BI](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/README.md)
-- [001 - ETL Basics](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/001 - ETL Basics.md)
-- [002 - ETL Tools](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/002 - ETL Tools.md)
-- [003 - Data Pipeline Design](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/003 - Data Pipeline Design.md)
+#### [01-CloudComputingBasics-Providers](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/01-CloudComputingBasics-Providers/)
 
-### Module 16 - Building Your Portfolio - Xây dựng portfolio
+- [Cloud Computing Basics](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/01-CloudComputingBasics-Providers/001 - Cloud Computing Basics.md)
+- [Cloud Data Warehouses](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/01-CloudComputingBasics-Providers/002 - Cloud Data Warehouses.md)
+- [Providers](00 - Roadmap.sh BI Analyst Official/Module 09 - Cloud Computing - ien toan am may cho BI/01-CloudComputingBasics-Providers/003 - Providers.md)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/README.md)
-- [001 - End-to-end Analytics Project](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/001 - End-to-end Analytics Project.md)
-- [002 - Dashboard Design](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/002 - Dashboard Design.md)
-- [003 - Portfolio Presentation](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/003 - Portfolio Presentation.md)
+### [Module 10 - Business Applications - Ung dung BI trong kinh doanh](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/)
 
-### Module 17 - Career Development - Phát triển nghề nghiệp
+#### [01-Finance-Manufacturing](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/01-Finance-Manufacturing/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/README.md)
-- [001 - Professional Development](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/001 - Professional Development.md)
-- [002 - Certifications](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/002 - Certifications.md)
-- [003 - Job Preparation](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/003 - Job Preparation.md)
+- [Finance](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/01-Finance-Manufacturing/001 - Finance.md)
+- [Retail and E-commerce](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/01-Finance-Manufacturing/002 - Retail and E-commerce.md)
+- [Healthcare](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/01-Finance-Manufacturing/003 - Healthcare.md)
+- [Manufacturing](00 - Roadmap.sh BI Analyst Official/Module 10 - Business Applications - Ung dung BI trong kinh doanh/01-Finance-Manufacturing/004 - Manufacturing.md)
 
-### Module 18 - Related Roadmaps - Roadmap liên quan
+### [Module 11 - BI Techniques - Ky thuat BI nang cao](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/)
 
-- [Module README](00 - Roadmap.sh BI Analyst Official/Module 18 - Related Roadmaps - Roadmap lien quan/README.md)
-- [001 - Related Roadmaps](00 - Roadmap.sh BI Analyst Official/Module 18 - Related Roadmaps - Roadmap lien quan/001 - Related Roadmaps.md)
+#### [01-TimeSeriesAnalysis-CohortAnalysis](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/01-TimeSeriesAnalysis-CohortAnalysis/)
 
-## Portfolio Projects
+- [Time Series Analysis](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/01-TimeSeriesAnalysis-CohortAnalysis/001 - Time Series Analysis.md)
+- [A - B Testing](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/01-TimeSeriesAnalysis-CohortAnalysis/002 - A - B Testing.md)
+- [Cohort Analysis](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/01-TimeSeriesAnalysis-CohortAnalysis/003 - Cohort Analysis.md)
 
-- [Portfolio folder](99 - Portfolio Projects/README.md)
-- [Project 01 - Sales Dashboard](99 - Portfolio Projects/Project 01 - Sales Dashboard.md)
-- [Project 02 - Marketing Campaign Analysis](99 - Portfolio Projects/Project 02 - Marketing Campaign Analysis.md)
-- [Project 03 - Customer Cohort Analysis](99 - Portfolio Projects/Project 03 - Customer Cohort Analysis.md)
-- [Project 04 - Inventory Optimization Dashboard](99 - Portfolio Projects/Project 04 - Inventory Optimization Dashboard.md)
-- [Project 05 - Finance Risk Dashboard](99 - Portfolio Projects/Project 05 - Finance Risk Dashboard.md)
+#### [02-Forecasting-BasicMachineLearning](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/02-Forecasting-BasicMachineLearning/)
+
+- [Forecasting](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/02-Forecasting-BasicMachineLearning/004 - Forecasting.md)
+- [Basic Machine Learning](00 - Roadmap.sh BI Analyst Official/Module 11 - BI Techniques - Ky thuat BI nang cao/02-Forecasting-BasicMachineLearning/005 - Basic Machine Learning.md)
+
+### [Module 12 - Professional Excellence - Ky nang chuyen nghiep](00 - Roadmap.sh BI Analyst Official/Module 12 - Professional Excellence - Ky nang chuyen nghiep/)
+
+#### [01-CommunicationAndStorytelling-SoftSkills](00 - Roadmap.sh BI Analyst Official/Module 12 - Professional Excellence - Ky nang chuyen nghiep/01-CommunicationAndStorytelling-SoftSkills/)
+
+- [Communication and Storytelling](00 - Roadmap.sh BI Analyst Official/Module 12 - Professional Excellence - Ky nang chuyen nghiep/01-CommunicationAndStorytelling-SoftSkills/001 - Communication and Storytelling.md)
+- [Soft Skills](00 - Roadmap.sh BI Analyst Official/Module 12 - Professional Excellence - Ky nang chuyen nghiep/01-CommunicationAndStorytelling-SoftSkills/002 - Soft Skills.md)
+
+### [Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/)
+
+#### [01-DataQuality-AlgorithmicBias](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/01-DataQuality-AlgorithmicBias/)
+
+- [Data Quality](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/01-DataQuality-AlgorithmicBias/001 - Data Quality.md)
+- [Ethical Data Use](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/01-DataQuality-AlgorithmicBias/002 - Ethical Data Use.md)
+- [Data Regulations](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/01-DataQuality-AlgorithmicBias/003 - Data Regulations.md)
+- [Algorithmic Bias](00 - Roadmap.sh BI Analyst Official/Module 13 - Data Governance and Ethics - Quan tri va ao uc du lieu/01-DataQuality-AlgorithmicBias/004 - Algorithmic Bias.md)
+
+### [Module 14 - Data Architectures - Kien truc du lieu](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/)
+
+#### [01-DataWarehouse-DataMart](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/01-DataWarehouse-DataMart/)
+
+- [Data Warehouse](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/01-DataWarehouse-DataMart/001 - Data Warehouse.md)
+- [Data Lake](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/01-DataWarehouse-DataMart/002 - Data Lake.md)
+- [Data Mart](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/01-DataWarehouse-DataMart/003 - Data Mart.md)
+
+#### [02-CloudBIEcosystem-DataModelingFor](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/02-CloudBIEcosystem-DataModelingFor/)
+
+- [Cloud BI Ecosystem](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/02-CloudBIEcosystem-DataModelingFor/004 - Cloud BI Ecosystem.md)
+- [Data Modeling for BI](00 - Roadmap.sh BI Analyst Official/Module 14 - Data Architectures - Kien truc du lieu/02-CloudBIEcosystem-DataModelingFor/005 - Data Modeling for BI.md)
+
+### [Module 15 - ETL Tools - Cong cu ETL](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/)
+
+#### [01-ETLBasics-DataPipelineDesign](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/01-ETLBasics-DataPipelineDesign/)
+
+- [ETL Basics](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/01-ETLBasics-DataPipelineDesign/001 - ETL Basics.md)
+- [ETL Tools](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/01-ETLBasics-DataPipelineDesign/002 - ETL Tools.md)
+- [Data Pipeline Design](00 - Roadmap.sh BI Analyst Official/Module 15 - ETL Tools - Cong cu ETL/01-ETLBasics-DataPipelineDesign/003 - Data Pipeline Design.md)
+
+### [Module 16 - Building Your Portfolio - Xay dung portfolio](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/)
+
+#### [01-EndToEnd-PortfolioPresentation](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/01-EndToEnd-PortfolioPresentation/)
+
+- [End-to-end Analytics Project](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/01-EndToEnd-PortfolioPresentation/001 - End-to-end Analytics Project.md)
+- [Dashboard Design](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/01-EndToEnd-PortfolioPresentation/002 - Dashboard Design.md)
+- [Portfolio Presentation](00 - Roadmap.sh BI Analyst Official/Module 16 - Building Your Portfolio - Xay dung portfolio/01-EndToEnd-PortfolioPresentation/003 - Portfolio Presentation.md)
+
+### [Module 17 - Career Development - Phat trien nghe nghiep](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/)
+
+#### [01-ProfessionalDevelopment-JobPreparation](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/01-ProfessionalDevelopment-JobPreparation/)
+
+- [Professional Development](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/01-ProfessionalDevelopment-JobPreparation/001 - Professional Development.md)
+- [Certifications](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/01-ProfessionalDevelopment-JobPreparation/002 - Certifications.md)
+- [Job Preparation](00 - Roadmap.sh BI Analyst Official/Module 17 - Career Development - Phat trien nghe nghiep/01-ProfessionalDevelopment-JobPreparation/003 - Job Preparation.md)
+
+### [Module 18 - Related Roadmaps - Roadmap lien quan](00 - Roadmap.sh BI Analyst Official/Module 18 - Related Roadmaps - Roadmap lien quan/)
+
+#### [01-RelatedRoadmaps](00 - Roadmap.sh BI Analyst Official/Module 18 - Related Roadmaps - Roadmap lien quan/01-RelatedRoadmaps/)
+
+- [Related Roadmaps](00 - Roadmap.sh BI Analyst Official/Module 18 - Related Roadmaps - Roadmap lien quan/01-RelatedRoadmaps/001 - Related Roadmaps.md)
+

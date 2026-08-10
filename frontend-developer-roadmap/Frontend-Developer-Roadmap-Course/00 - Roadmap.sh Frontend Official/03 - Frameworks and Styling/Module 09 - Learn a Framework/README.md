@@ -5,19 +5,24 @@
 
 Module nay gom 8 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-React-Svelte](01-React-Svelte/)
+- [02-SolidJS-AngularRoadmap](02-SolidJS-AngularRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - React](001 - React.md)
-- [002 - Vue.js](002 - Vue.js.md)
-- [003 - Angular](003 - Angular.md)
-- [004 - Svelte](004 - Svelte.md)
-- [005 - Solid JS](005 - Solid JS.md)
-- [006 - React Roadmap](006 - React Roadmap.md)
-- [007 - Vue Roadmap](007 - Vue Roadmap.md)
-- [008 - Angular Roadmap](008 - Angular Roadmap.md)
+### [01-React-Svelte](01-React-Svelte/)
 
-## Cach hoc module nay
+- [React](01-React-Svelte/001 - React.md)
+- [Vue.js](01-React-Svelte/002 - Vue.js.md)
+- [Angular](01-React-Svelte/003 - Angular.md)
+- [Svelte](01-React-Svelte/004 - Svelte.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-SolidJS-AngularRoadmap](02-SolidJS-AngularRoadmap/)
+
+- [Solid JS](02-SolidJS-AngularRoadmap/005 - Solid JS.md)
+- [React Roadmap](02-SolidJS-AngularRoadmap/006 - React Roadmap.md)
+- [Vue Roadmap](02-SolidJS-AngularRoadmap/007 - Vue Roadmap.md)
+- [Angular Roadmap](02-SolidJS-AngularRoadmap/008 - Angular Roadmap.md)
+

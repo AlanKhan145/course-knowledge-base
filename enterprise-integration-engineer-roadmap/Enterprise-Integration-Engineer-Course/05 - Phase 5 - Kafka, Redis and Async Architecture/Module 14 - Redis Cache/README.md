@@ -1,18 +1,29 @@
 # Module 14 - Redis Cache
 
-**Phase:** Phase 5 - Kafka, Redis and Async Architecture
+## Noi dung nho
 
-This module has 10 lessons.
+- [01-KeyValue-CacheAside](01-KeyValue-CacheAside/)
+- [02-SessionCache-CacheInvalidation](02-SessionCache-CacheInvalidation/)
+- [03-UseCases-Exercise](03-UseCases-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - Key-Value](001 - Key-Value.md)
-- [002 - TTL](002 - TTL.md)
-- [003 - String, Hash, List, Set](003 - String, Hash, List, Set.md)
-- [004 - Cache Aside](004 - Cache Aside.md)
-- [005 - Session Cache](005 - Session Cache.md)
-- [006 - Distributed Lock](006 - Distributed Lock.md)
-- [007 - Rate Limit Counter](007 - Rate Limit Counter.md)
-- [008 - Cache Invalidation](008 - Cache Invalidation.md)
-- [009 - Use Cases](009 - Use Cases.md)
-- [010 - Exercise](010 - Exercise.md)
+### [01-KeyValue-CacheAside](01-KeyValue-CacheAside/)
+
+- [Key-Value](01-KeyValue-CacheAside/001 - Key-Value.md)
+- [TTL](01-KeyValue-CacheAside/002 - TTL.md)
+- [String, Hash, List, Set](01-KeyValue-CacheAside/003 - String, Hash, List, Set.md)
+- [Cache Aside](01-KeyValue-CacheAside/004 - Cache Aside.md)
+
+### [02-SessionCache-CacheInvalidation](02-SessionCache-CacheInvalidation/)
+
+- [Session Cache](02-SessionCache-CacheInvalidation/005 - Session Cache.md)
+- [Distributed Lock](02-SessionCache-CacheInvalidation/006 - Distributed Lock.md)
+- [Rate Limit Counter](02-SessionCache-CacheInvalidation/007 - Rate Limit Counter.md)
+- [Cache Invalidation](02-SessionCache-CacheInvalidation/008 - Cache Invalidation.md)
+
+### [03-UseCases-Exercise](03-UseCases-Exercise/)
+
+- [Use Cases](03-UseCases-Exercise/009 - Use Cases.md)
+- [Exercise](03-UseCases-Exercise/010 - Exercise.md)
+

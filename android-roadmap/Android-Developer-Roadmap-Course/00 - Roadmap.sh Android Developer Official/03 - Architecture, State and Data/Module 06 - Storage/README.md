@@ -12,13 +12,13 @@ Mini project: Offline Notes App with Room notes, DataStore theme setting, search
 
 ## Noi dung nho
 
-- [01-KeyValueFiles - Key Value and Files](01-KeyValueFiles/)
-- [02-RoomBasics - Room Basics](02-RoomBasics/)
-- [03-OfflineData - Offline Data](03-OfflineData/)
+- [01-KeyValueFiles](01-KeyValueFiles/)
+- [02-RoomBasics](02-RoomBasics/)
+- [03-OfflineData](03-OfflineData/)
 
 ## Danh sach bai hoc
 
-### [01-KeyValueFiles - Key Value and Files](01-KeyValueFiles/)
+### [01-KeyValueFiles](01-KeyValueFiles/)
 
 - [Shared Preferences](01-KeyValueFiles/001 - Shared Preferences.md)
 - [DataStore](01-KeyValueFiles/002 - DataStore.md)
@@ -29,7 +29,7 @@ Mini project: Offline Notes App with Room notes, DataStore theme setting, search
 - [External Storage](01-KeyValueFiles/007 - External Storage.md)
 - [Serialization](01-KeyValueFiles/008 - Serialization.md)
 
-### [02-RoomBasics - Room Basics](02-RoomBasics/)
+### [02-RoomBasics](02-RoomBasics/)
 
 - [Room Database](02-RoomBasics/009 - Room Database.md)
 - [Entity](02-RoomBasics/010 - Entity.md)
@@ -42,7 +42,7 @@ Mini project: Offline Notes App with Room notes, DataStore theme setting, search
 - [Prepopulate Database](02-RoomBasics/017 - Prepopulate Database.md)
 - [Room with Flow](02-RoomBasics/018 - Room with Flow.md)
 
-### [03-OfflineData - Offline Data](03-OfflineData/)
+### [03-OfflineData](03-OfflineData/)
 
 - [Offline First](03-OfflineData/019 - Offline First.md)
 - [Cache Policy](03-OfflineData/020 - Cache Policy.md)
@@ -50,3 +50,4 @@ Mini project: Offline Notes App with Room notes, DataStore theme setting, search
 - [Conflict Resolution](03-OfflineData/022 - Conflict Resolution.md)
 - [Search Local Data](03-OfflineData/023 - Search Local Data.md)
 - [Sort Local Data](03-OfflineData/024 - Sort Local Data.md)
+

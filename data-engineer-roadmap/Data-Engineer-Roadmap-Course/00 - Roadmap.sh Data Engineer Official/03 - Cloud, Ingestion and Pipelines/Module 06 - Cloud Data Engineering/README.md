@@ -10,27 +10,50 @@ Map data engineering workloads onto AWS, Azure and Google Cloud managed services
 
 Mini project: Design one cloud data platform using object storage, managed database, ETL service and warehouse.
 
+## Noi dung nho
+
+- [01-Compute-IAM](01-Compute-IAM/)
+- [02-Serverless-AmazonS3](02-Serverless-AmazonS3/)
+- [03-AmazonRDS-AzureBlobStorage](03-AmazonRDS-AzureBlobStorage/)
+- [04-AzureSQLDatabase-CloudSQL](04-AzureSQLDatabase-CloudSQL/)
+- [05-Dataflow-BigQuery](05-Dataflow-BigQuery/)
+
 ## Danh sach bai hoc
 
-- [001 - Compute](001 - Compute.md)
-- [002 - Storage](002 - Storage.md)
-- [003 - Database Services](003 - Database Services.md)
-- [004 - Networking](004 - Networking.md)
-- [005 - IAM](005 - IAM.md)
-- [006 - Serverless](006 - Serverless.md)
-- [007 - Managed Services](007 - Managed Services.md)
-- [008 - Cost Awareness](008 - Cost Awareness.md)
-- [009 - Amazon EC2](009 - Amazon EC2.md)
-- [010 - Amazon S3](010 - Amazon S3.md)
-- [011 - Amazon RDS](011 - Amazon RDS.md)
-- [012 - AWS Glue](012 - AWS Glue.md)
-- [013 - Amazon Redshift](013 - Amazon Redshift.md)
-- [014 - Azure Virtual Machines](014 - Azure Virtual Machines.md)
-- [015 - Azure Blob Storage](015 - Azure Blob Storage.md)
-- [016 - Azure SQL Database](016 - Azure SQL Database.md)
-- [017 - Azure Data Factory](017 - Azure Data Factory.md)
-- [018 - Compute Engine](018 - Compute Engine.md)
-- [019 - Google Cloud Storage](019 - Google Cloud Storage.md)
-- [020 - Cloud SQL](020 - Cloud SQL.md)
-- [021 - Dataflow](021 - Dataflow.md)
-- [022 - BigQuery](022 - BigQuery.md)
+### [01-Compute-IAM](01-Compute-IAM/)
+
+- [Compute](01-Compute-IAM/001 - Compute.md)
+- [Storage](01-Compute-IAM/002 - Storage.md)
+- [Database Services](01-Compute-IAM/003 - Database Services.md)
+- [Networking](01-Compute-IAM/004 - Networking.md)
+- [IAM](01-Compute-IAM/005 - IAM.md)
+
+### [02-Serverless-AmazonS3](02-Serverless-AmazonS3/)
+
+- [Serverless](02-Serverless-AmazonS3/006 - Serverless.md)
+- [Managed Services](02-Serverless-AmazonS3/007 - Managed Services.md)
+- [Cost Awareness](02-Serverless-AmazonS3/008 - Cost Awareness.md)
+- [Amazon EC2](02-Serverless-AmazonS3/009 - Amazon EC2.md)
+- [Amazon S3](02-Serverless-AmazonS3/010 - Amazon S3.md)
+
+### [03-AmazonRDS-AzureBlobStorage](03-AmazonRDS-AzureBlobStorage/)
+
+- [Amazon RDS](03-AmazonRDS-AzureBlobStorage/011 - Amazon RDS.md)
+- [AWS Glue](03-AmazonRDS-AzureBlobStorage/012 - AWS Glue.md)
+- [Amazon Redshift](03-AmazonRDS-AzureBlobStorage/013 - Amazon Redshift.md)
+- [Azure Virtual Machines](03-AmazonRDS-AzureBlobStorage/014 - Azure Virtual Machines.md)
+- [Azure Blob Storage](03-AmazonRDS-AzureBlobStorage/015 - Azure Blob Storage.md)
+
+### [04-AzureSQLDatabase-CloudSQL](04-AzureSQLDatabase-CloudSQL/)
+
+- [Azure SQL Database](04-AzureSQLDatabase-CloudSQL/016 - Azure SQL Database.md)
+- [Azure Data Factory](04-AzureSQLDatabase-CloudSQL/017 - Azure Data Factory.md)
+- [Compute Engine](04-AzureSQLDatabase-CloudSQL/018 - Compute Engine.md)
+- [Google Cloud Storage](04-AzureSQLDatabase-CloudSQL/019 - Google Cloud Storage.md)
+- [Cloud SQL](04-AzureSQLDatabase-CloudSQL/020 - Cloud SQL.md)
+
+### [05-Dataflow-BigQuery](05-Dataflow-BigQuery/)
+
+- [Dataflow](05-Dataflow-BigQuery/021 - Dataflow.md)
+- [BigQuery](05-Dataflow-BigQuery/022 - BigQuery.md)
+

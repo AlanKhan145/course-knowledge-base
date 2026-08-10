@@ -12,16 +12,21 @@ Use hashing, password storage, PKI and certificate lifecycle concepts correctly.
 
 - Topics
 
+## Noi dung nho
+
+- [01-SHA256-CryptographicHashing](01-SHA256-CryptographicHashing/)
+- [02-PKIDesignAnd-CertificateLifecycle](02-PKIDesignAnd-CertificateLifecycle/)
+
 ## Danh sach bai hoc
 
-- [001 - SHA-256](001 - SHA-256.md)
-- [002 - bcrypt](002 - bcrypt.md)
-- [003 - Cryptographic Hashing](003 - Cryptographic Hashing.md)
-- [004 - PKI Design and Failover](004 - PKI Design and Failover.md)
-- [005 - Certificate Lifecycle](005 - Certificate Lifecycle.md)
+### [01-SHA256-CryptographicHashing](01-SHA256-CryptographicHashing/)
 
-## Cach hoc module nay
+- [SHA-256](01-SHA256-CryptographicHashing/001 - SHA-256.md)
+- [bcrypt](01-SHA256-CryptographicHashing/002 - bcrypt.md)
+- [Cryptographic Hashing](01-SHA256-CryptographicHashing/003 - Cryptographic Hashing.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.
+### [02-PKIDesignAnd-CertificateLifecycle](02-PKIDesignAnd-CertificateLifecycle/)
+
+- [PKI Design and Failover](02-PKIDesignAnd-CertificateLifecycle/004 - PKI Design and Failover.md)
+- [Certificate Lifecycle](02-PKIDesignAnd-CertificateLifecycle/005 - Certificate Lifecycle.md)
+

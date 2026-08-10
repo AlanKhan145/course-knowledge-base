@@ -3,12 +3,6 @@
 ## Mục tiêu module
 Hiểu VLAN, STP, link aggregation và MAC address table trong switching.
 
-## Bài học
-- [001 - Switching cơ bản](001 - Switching co ban.md)
-- [002 - VLAN](002 - VLAN.md)
-- [003 - STP](003 - STP.md)
-- [004 - MAC Address Table](004 - MAC Address Table.md)
-
 ## Thực hành trọng tâm
 Thiết kế VLAN cho phòng ban, thêm STP/link aggregation ở mức mô tả và chỉ rõ lợi ích.
 
@@ -22,3 +16,17 @@ Thiết kế VLAN cho phòng ban, thêm STP/link aggregation ở mức mô tả 
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-SwitchingCoBan-MACAddressTable](01-SwitchingCoBan-MACAddressTable/)
+
+## Danh sach bai hoc
+
+### [01-SwitchingCoBan-MACAddressTable](01-SwitchingCoBan-MACAddressTable/)
+
+- [Switching co ban](01-SwitchingCoBan-MACAddressTable/001 - Switching co ban.md)
+- [VLAN](01-SwitchingCoBan-MACAddressTable/002 - VLAN.md)
+- [STP](01-SwitchingCoBan-MACAddressTable/003 - STP.md)
+- [MAC Address Table](01-SwitchingCoBan-MACAddressTable/004 - MAC Address Table.md)
+

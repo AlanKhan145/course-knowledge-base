@@ -22,28 +22,48 @@ Project 5: Prompt Injection Test Bench with attack prompts, guardrails and regre
 - [Robust Prompt and Use Case Design](04-Robust/README.md) (Bai 011-013)
 - [Safety Best Practices](05-Best/README.md) (Bai 014-014)
 
-## Danh sach bai hoc
-
-
-Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
-
-- [001 - Understanding AI Safety Issues](01-Risks/001 - Understanding AI Safety Issues.md)
-- [002 - Prompt Injection Attacks](01-Risks/002 - Prompt Injection Attacks.md)
-- [003 - Bias and Fairness](01-Risks/003 - Bias and Fairness.md)
-- [004 - Security and Privacy Concerns](01-Risks/004 - Security and Privacy Concerns.md)
-- [005 - Hallucination](01-Risks/005 - Hallucination.md)
-- [006 - Toxic Output](02-AgentSec/006 - Toxic Output.md)
-- [007 - Over-permission Agents](02-AgentSec/007 - Over-permission Agents.md)
-- [008 - Conducting Adversarial Testing](02-AgentSec/008 - Conducting Adversarial Testing.md)
-- [009 - OpenAI Moderation API](03-Moderate/009 - OpenAI Moderation API.md)
-- [010 - Adding End-user IDs in Prompts](03-Moderate/010 - Adding End-user IDs in Prompts.md)
-- [011 - Robust Prompt Engineering](04-Robust/011 - Robust Prompt Engineering.md)
-- [012 - Know your Customers / Use Cases](04-Robust/012 - Know your Customers - Use Cases.md)
-- [013 - Constraining Outputs and Inputs](04-Robust/013 - Constraining Outputs and Inputs.md)
-- [014 - Safety Best Practices](05-Best/014 - Safety Best Practices.md)
-
 ## Cach hoc module nay
 
 - Hoc theo thu tu neu ban moi bat dau.
 - Voi moi bai, ghi lai 3 y quan trong va 1 demo AI app that.
 - Tao artifact nho: prompt, API route, notebook, RAG eval, agent trace, multimodal demo, dashboard hoac portfolio note.
+
+## Noi dung nho
+
+- [01-Risks](01-Risks/)
+- [02-AgentSec](02-AgentSec/)
+- [03-Moderate](03-Moderate/)
+- [04-Robust](04-Robust/)
+- [05-Best](05-Best/)
+
+## Danh sach bai hoc
+
+### [01-Risks](01-Risks/)
+
+- [Understanding AI Safety Issues](01-Risks/001 - Understanding AI Safety Issues.md)
+- [Prompt Injection Attacks](01-Risks/002 - Prompt Injection Attacks.md)
+- [Bias and Fairness](01-Risks/003 - Bias and Fairness.md)
+- [Security and Privacy Concerns](01-Risks/004 - Security and Privacy Concerns.md)
+- [Hallucination](01-Risks/005 - Hallucination.md)
+
+### [02-AgentSec](02-AgentSec/)
+
+- [Toxic Output](02-AgentSec/006 - Toxic Output.md)
+- [Over-permission Agents](02-AgentSec/007 - Over-permission Agents.md)
+- [Conducting Adversarial Testing](02-AgentSec/008 - Conducting Adversarial Testing.md)
+
+### [03-Moderate](03-Moderate/)
+
+- [OpenAI Moderation API](03-Moderate/009 - OpenAI Moderation API.md)
+- [Adding End-user IDs in Prompts](03-Moderate/010 - Adding End-user IDs in Prompts.md)
+
+### [04-Robust](04-Robust/)
+
+- [Robust Prompt Engineering](04-Robust/011 - Robust Prompt Engineering.md)
+- [Know your Customers - Use Cases](04-Robust/012 - Know your Customers - Use Cases.md)
+- [Constraining Outputs and Inputs](04-Robust/013 - Constraining Outputs and Inputs.md)
+
+### [05-Best](05-Best/)
+
+- [Safety Best Practices](05-Best/014 - Safety Best Practices.md)
+

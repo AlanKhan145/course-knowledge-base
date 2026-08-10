@@ -5,21 +5,30 @@
 
 Module nay gom 10 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-Angular-SvelteKit](01-Angular-SvelteKit/)
+- [02-Svelte-TanstackStart](02-Svelte-TanstackStart/)
+- [03-Astro-ReactRouter](03-Astro-ReactRouter/)
+
 ## Danh sach bai hoc
 
-- [001 - Angular](001 - Angular.md)
-- [002 - Vue.js](002 - Vue.js.md)
-- [003 - Nuxt.js](003 - Nuxt.js.md)
-- [004 - SvelteKit](004 - SvelteKit.md)
-- [005 - Svelte](005 - Svelte.md)
-- [006 - React](006 - React.md)
-- [007 - Next.js](007 - Next.js.md)
-- [008 - Tanstack Start](008 - Tanstack Start.md)
-- [009 - Astro](009 - Astro.md)
-- [010 - react-router](010 - react-router.md)
+### [01-Angular-SvelteKit](01-Angular-SvelteKit/)
 
-## Cach hoc module nay
+- [Angular](01-Angular-SvelteKit/001 - Angular.md)
+- [Vue.js](01-Angular-SvelteKit/002 - Vue.js.md)
+- [Nuxt.js](01-Angular-SvelteKit/003 - Nuxt.js.md)
+- [SvelteKit](01-Angular-SvelteKit/004 - SvelteKit.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-Svelte-TanstackStart](02-Svelte-TanstackStart/)
+
+- [Svelte](02-Svelte-TanstackStart/005 - Svelte.md)
+- [React](02-Svelte-TanstackStart/006 - React.md)
+- [Next.js](02-Svelte-TanstackStart/007 - Next.js.md)
+- [Tanstack Start](02-Svelte-TanstackStart/008 - Tanstack Start.md)
+
+### [03-Astro-ReactRouter](03-Astro-ReactRouter/)
+
+- [Astro](03-Astro-ReactRouter/009 - Astro.md)
+- [react-router](03-Astro-ReactRouter/010 - react-router.md)
+

@@ -14,20 +14,29 @@ Understand ML categories, common algorithms and evaluation ideas at a data analy
 - Model Evaluation
 - Popular ML Algorithms
 
+## Noi dung nho
+
+- [01-ReinforcementLearning-SupervisedLearning](01-ReinforcementLearning-SupervisedLearning/)
+- [02-DecisionTrees-KNN](02-DecisionTrees-KNN/)
+- [03-KMeansClustering-ModelEvaluationTechniques](03-KMeansClustering-ModelEvaluationTechniques/)
+
 ## Danh sach bai hoc
 
-- [001 - Reinforcement Learning](001 - Reinforcement Learning.md)
-- [002 - Unsupervised Learning](002 - Unsupervised Learning.md)
-- [003 - Supervised Learning](003 - Supervised Learning.md)
-- [004 - Decision Trees](004 - Decision Trees.md)
-- [005 - Naive Bayes](005 - Naive Bayes.md)
-- [006 - KNN](006 - KNN.md)
-- [007 - K-Means Clustering](007 - K-Means Clustering.md)
-- [008 - Logistic Regression](008 - Logistic Regression.md)
-- [009 - Model Evaluation Techniques](009 - Model Evaluation Techniques.md)
+### [01-ReinforcementLearning-SupervisedLearning](01-ReinforcementLearning-SupervisedLearning/)
 
-## Cach hoc module nay
+- [Reinforcement Learning](01-ReinforcementLearning-SupervisedLearning/001 - Reinforcement Learning.md)
+- [Unsupervised Learning](01-ReinforcementLearning-SupervisedLearning/002 - Unsupervised Learning.md)
+- [Supervised Learning](01-ReinforcementLearning-SupervisedLearning/003 - Supervised Learning.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-DecisionTrees-KNN](02-DecisionTrees-KNN/)
+
+- [Decision Trees](02-DecisionTrees-KNN/004 - Decision Trees.md)
+- [Naive Bayes](02-DecisionTrees-KNN/005 - Naive Bayes.md)
+- [KNN](02-DecisionTrees-KNN/006 - KNN.md)
+
+### [03-KMeansClustering-ModelEvaluationTechniques](03-KMeansClustering-ModelEvaluationTechniques/)
+
+- [K-Means Clustering](03-KMeansClustering-ModelEvaluationTechniques/007 - K-Means Clustering.md)
+- [Logistic Regression](03-KMeansClustering-ModelEvaluationTechniques/008 - Logistic Regression.md)
+- [Model Evaluation Techniques](03-KMeansClustering-ModelEvaluationTechniques/009 - Model Evaluation Techniques.md)
+

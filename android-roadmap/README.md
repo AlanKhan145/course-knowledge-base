@@ -19,3 +19,4 @@ Thu muc nay chua khoa hoc sinh tu roadmap.sh/android va PDF da upload.
 - PDF: `C:\Users\Khanh PC\Downloads\android.pdf`
 - Pasted text: `C:\Users\Khanh PC\.codex\attachments\6d68a33a-50ab-46df-919c-6fa95aafa3d3\pasted-text.txt`
 - URL: https://roadmap.sh/android
+

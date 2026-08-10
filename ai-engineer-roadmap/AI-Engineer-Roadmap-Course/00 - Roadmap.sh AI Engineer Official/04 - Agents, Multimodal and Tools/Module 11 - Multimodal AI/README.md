@@ -21,30 +21,54 @@ Project 10: Multimodal Study Assistant for images, PDFs and audio with summaries
 - [Multimodal Frameworks](05-Frameworks/README.md) (Bai 013-015)
 - [Implementing Multimodal AI](06-Build/README.md) (Bai 016-016)
 
-## Danh sach bai hoc
-
-
-Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
-
-- [001 - Multimodal AI](01-Basics/001 - Multimodal AI.md)
-- [002 - Multimodal AI Use Cases](01-Basics/002 - Multimodal AI Use Cases.md)
-- [003 - Multimodal AI Tasks](01-Basics/003 - Multimodal AI Tasks.md)
-- [004 - Image Understanding](02-ImageVideo/004 - Image Understanding.md)
-- [005 - Image Generation](02-ImageVideo/005 - Image Generation.md)
-- [006 - Video Understanding](02-ImageVideo/006 - Video Understanding.md)
-- [007 - Audio Processing](03-Audio/007 - Audio Processing.md)
-- [008 - Text-to-Speech](03-Audio/008 - Text-to-Speech.md)
-- [009 - Speech-to-Text](03-Audio/009 - Speech-to-Text.md)
-- [010 - OpenAI Vision API](04-APIs/010 - OpenAI Vision API.md)
-- [011 - DALL-E API](04-APIs/011 - DALL-E API.md)
-- [012 - Whisper API](04-APIs/012 - Whisper API.md)
-- [013 - Hugging Face Models](05-Frameworks/013 - Hugging Face Models.md)
-- [014 - LangChain for Multimodal Apps](05-Frameworks/014 - LangChain for Multimodal Apps.md)
-- [015 - LlamaIndex for Multimodal Apps](05-Frameworks/015 - LlamaIndex for Multimodal Apps.md)
-- [016 - Implementing Multimodal AI](06-Build/016 - Implementing Multimodal AI.md)
-
 ## Cach hoc module nay
 
 - Hoc theo thu tu neu ban moi bat dau.
 - Voi moi bai, ghi lai 3 y quan trong va 1 demo AI app that.
 - Tao artifact nho: prompt, API route, notebook, RAG eval, agent trace, multimodal demo, dashboard hoac portfolio note.
+
+## Noi dung nho
+
+- [01-Basics](01-Basics/)
+- [02-ImageVideo](02-ImageVideo/)
+- [03-Audio](03-Audio/)
+- [04-APIs](04-APIs/)
+- [05-Frameworks](05-Frameworks/)
+- [06-Build](06-Build/)
+
+## Danh sach bai hoc
+
+### [01-Basics](01-Basics/)
+
+- [Multimodal AI](01-Basics/001 - Multimodal AI.md)
+- [Multimodal AI Use Cases](01-Basics/002 - Multimodal AI Use Cases.md)
+- [Multimodal AI Tasks](01-Basics/003 - Multimodal AI Tasks.md)
+
+### [02-ImageVideo](02-ImageVideo/)
+
+- [Image Understanding](02-ImageVideo/004 - Image Understanding.md)
+- [Image Generation](02-ImageVideo/005 - Image Generation.md)
+- [Video Understanding](02-ImageVideo/006 - Video Understanding.md)
+
+### [03-Audio](03-Audio/)
+
+- [Audio Processing](03-Audio/007 - Audio Processing.md)
+- [Text-to-Speech](03-Audio/008 - Text-to-Speech.md)
+- [Speech-to-Text](03-Audio/009 - Speech-to-Text.md)
+
+### [04-APIs](04-APIs/)
+
+- [OpenAI Vision API](04-APIs/010 - OpenAI Vision API.md)
+- [DALL-E API](04-APIs/011 - DALL-E API.md)
+- [Whisper API](04-APIs/012 - Whisper API.md)
+
+### [05-Frameworks](05-Frameworks/)
+
+- [Hugging Face Models](05-Frameworks/013 - Hugging Face Models.md)
+- [LangChain for Multimodal Apps](05-Frameworks/014 - LangChain for Multimodal Apps.md)
+- [LlamaIndex for Multimodal Apps](05-Frameworks/015 - LlamaIndex for Multimodal Apps.md)
+
+### [06-Build](06-Build/)
+
+- [Implementing Multimodal AI](06-Build/016 - Implementing Multimodal AI.md)
+

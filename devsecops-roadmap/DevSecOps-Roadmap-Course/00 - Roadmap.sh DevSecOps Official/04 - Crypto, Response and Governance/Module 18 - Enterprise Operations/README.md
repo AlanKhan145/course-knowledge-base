@@ -12,15 +12,16 @@ Operate security detection and response at enterprise scale with clear ownership
 
 - Topics
 
+## Noi dung nho
+
+- [01-EDRStrategy-ResponseStrategy](01-EDRStrategy-ResponseStrategy/)
+
 ## Danh sach bai hoc
 
-- [001 - EDR Strategy](001 - EDR Strategy.md)
-- [002 - SOAR Automation](002 - SOAR Automation.md)
-- [003 - Endpoint Detection](003 - Endpoint Detection.md)
-- [004 - Response Strategy](004 - Response Strategy.md)
+### [01-EDRStrategy-ResponseStrategy](01-EDRStrategy-ResponseStrategy/)
 
-## Cach hoc module nay
+- [EDR Strategy](01-EDRStrategy-ResponseStrategy/001 - EDR Strategy.md)
+- [SOAR Automation](01-EDRStrategy-ResponseStrategy/002 - SOAR Automation.md)
+- [Endpoint Detection](01-EDRStrategy-ResponseStrategy/003 - Endpoint Detection.md)
+- [Response Strategy](01-EDRStrategy-ResponseStrategy/004 - Response Strategy.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

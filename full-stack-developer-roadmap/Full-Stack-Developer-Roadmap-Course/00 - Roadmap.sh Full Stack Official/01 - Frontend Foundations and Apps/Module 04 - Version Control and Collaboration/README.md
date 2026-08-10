@@ -13,14 +13,15 @@ Use branches, commits, pull requests, and collaborative workflow
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-Git-CheckpointCollaborativeWork](01-Git-CheckpointCollaborativeWork/)
+
 ## Danh sach bai hoc
 
-- [001 - Git](001 - Git.md)
-- [002 - GitHub](002 - GitHub.md)
-- [003 - Checkpoint - Collaborative Work](003 - Checkpoint - Collaborative Work.md)
+### [01-Git-CheckpointCollaborativeWork](01-Git-CheckpointCollaborativeWork/)
 
-## Cach hoc module nay
+- [Git](01-Git-CheckpointCollaborativeWork/001 - Git.md)
+- [GitHub](01-Git-CheckpointCollaborativeWork/002 - GitHub.md)
+- [Checkpoint - Collaborative Work](01-Git-CheckpointCollaborativeWork/003 - Checkpoint - Collaborative Work.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

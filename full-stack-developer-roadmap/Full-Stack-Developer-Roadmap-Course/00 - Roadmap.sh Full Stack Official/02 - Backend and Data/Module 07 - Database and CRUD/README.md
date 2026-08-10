@@ -13,13 +13,14 @@ Build database-backed CRUD applications
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-PostgreSQL-CheckpointSimpleCRUD](01-PostgreSQL-CheckpointSimpleCRUD/)
+
 ## Danh sach bai hoc
 
-- [001 - PostgreSQL](001 - PostgreSQL.md)
-- [002 - Checkpoint - Simple CRUD Apps](002 - Checkpoint - Simple CRUD Apps.md)
+### [01-PostgreSQL-CheckpointSimpleCRUD](01-PostgreSQL-CheckpointSimpleCRUD/)
 
-## Cach hoc module nay
+- [PostgreSQL](01-PostgreSQL-CheckpointSimpleCRUD/001 - PostgreSQL.md)
+- [Checkpoint - Simple CRUD Apps](01-PostgreSQL-CheckpointSimpleCRUD/002 - Checkpoint - Simple CRUD Apps.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

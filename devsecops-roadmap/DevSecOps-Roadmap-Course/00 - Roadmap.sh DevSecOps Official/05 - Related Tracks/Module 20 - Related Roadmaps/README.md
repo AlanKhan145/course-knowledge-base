@@ -12,13 +12,14 @@ Choose adjacent learning paths that strengthen DevSecOps without losing focus.
 
 - Related Roadmaps
 
+## Noi dung nho
+
+- [01-Cybersecurity-DevOps](01-Cybersecurity-DevOps/)
+
 ## Danh sach bai hoc
 
-- [001 - Cybersecurity](001 - Cybersecurity.md)
-- [002 - DevOps](002 - DevOps.md)
+### [01-Cybersecurity-DevOps](01-Cybersecurity-DevOps/)
 
-## Cach hoc module nay
+- [Cybersecurity](01-Cybersecurity-DevOps/001 - Cybersecurity.md)
+- [DevOps](01-Cybersecurity-DevOps/002 - DevOps.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

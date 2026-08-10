@@ -13,14 +13,15 @@ Add browser-side behavior and understand basic package usage
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-JavaScriptDOMEvents-CheckpointInteractivity](01-JavaScriptDOMEvents-CheckpointInteractivity/)
+
 ## Danh sach bai hoc
 
-- [001 - JavaScript DOM/events](001 - JavaScript DOM-events.md)
-- [002 - npm](002 - npm.md)
-- [003 - Checkpoint - Interactivity](003 - Checkpoint - Interactivity.md)
+### [01-JavaScriptDOMEvents-CheckpointInteractivity](01-JavaScriptDOMEvents-CheckpointInteractivity/)
 
-## Cach hoc module nay
+- [JavaScript DOM-events](01-JavaScriptDOMEvents-CheckpointInteractivity/001 - JavaScript DOM-events.md)
+- [npm](01-JavaScriptDOMEvents-CheckpointInteractivity/002 - npm.md)
+- [Checkpoint - Interactivity](01-JavaScriptDOMEvents-CheckpointInteractivity/003 - Checkpoint - Interactivity.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

@@ -10,31 +10,58 @@ Measure model performance with task-appropriate metrics, validation techniques a
 
 Mini project: Compare three models and choose the winner using metrics, cross-validation and error analysis.
 
+## Noi dung nho
+
+- [01-WhatIsModel-BiasVarianceTradeoff](01-WhatIsModel-BiasVarianceTradeoff/)
+- [02-BaselineModel-Recall](02-BaselineModel-Recall/)
+- [03-F1Score-ThresholdTuning](03-F1Score-ThresholdTuning/)
+- [04-Calibration-RSquared](04-Calibration-RSquared/)
+- [05-MAPE-TimeSeriesValidation](05-MAPE-TimeSeriesValidation/)
+- [06-ErrorAnalysis](06-ErrorAnalysis/)
+
 ## Danh sach bai hoc
 
-- [001 - What is Model Evaluation?](001 - What is Model Evaluation.md)
-- [002 - Generalization](002 - Generalization.md)
-- [003 - Overfitting](003 - Overfitting.md)
-- [004 - Underfitting](004 - Underfitting.md)
-- [005 - Bias-Variance Tradeoff](005 - Bias-Variance Tradeoff.md)
-- [006 - Baseline Model](006 - Baseline Model.md)
-- [007 - Metric Selection](007 - Metric Selection.md)
-- [008 - Accuracy](008 - Accuracy.md)
-- [009 - Precision](009 - Precision.md)
-- [010 - Recall](010 - Recall.md)
-- [011 - F1-Score](011 - F1-Score.md)
-- [012 - ROC-AUC](012 - ROC-AUC.md)
-- [013 - Log Loss](013 - Log Loss.md)
-- [014 - Confusion Matrix](014 - Confusion Matrix.md)
-- [015 - Threshold Tuning](015 - Threshold Tuning.md)
-- [016 - Calibration](016 - Calibration.md)
-- [017 - MAE](017 - MAE.md)
-- [018 - MSE](018 - MSE.md)
-- [019 - RMSE](019 - RMSE.md)
-- [020 - R-squared](020 - R-squared.md)
-- [021 - MAPE](021 - MAPE.md)
-- [022 - K-Fold Cross Validation](022 - K-Fold Cross Validation.md)
-- [023 - LOOCV - Leave-One-Out Cross Validation](023 - LOOCV - Leave-One-Out Cross Validation.md)
-- [024 - Stratified Cross Validation](024 - Stratified Cross Validation.md)
-- [025 - Time Series Validation](025 - Time Series Validation.md)
-- [026 - Error Analysis](026 - Error Analysis.md)
+### [01-WhatIsModel-BiasVarianceTradeoff](01-WhatIsModel-BiasVarianceTradeoff/)
+
+- [What is Model Evaluation](01-WhatIsModel-BiasVarianceTradeoff/001 - What is Model Evaluation.md)
+- [Generalization](01-WhatIsModel-BiasVarianceTradeoff/002 - Generalization.md)
+- [Overfitting](01-WhatIsModel-BiasVarianceTradeoff/003 - Overfitting.md)
+- [Underfitting](01-WhatIsModel-BiasVarianceTradeoff/004 - Underfitting.md)
+- [Bias-Variance Tradeoff](01-WhatIsModel-BiasVarianceTradeoff/005 - Bias-Variance Tradeoff.md)
+
+### [02-BaselineModel-Recall](02-BaselineModel-Recall/)
+
+- [Baseline Model](02-BaselineModel-Recall/006 - Baseline Model.md)
+- [Metric Selection](02-BaselineModel-Recall/007 - Metric Selection.md)
+- [Accuracy](02-BaselineModel-Recall/008 - Accuracy.md)
+- [Precision](02-BaselineModel-Recall/009 - Precision.md)
+- [Recall](02-BaselineModel-Recall/010 - Recall.md)
+
+### [03-F1Score-ThresholdTuning](03-F1Score-ThresholdTuning/)
+
+- [F1-Score](03-F1Score-ThresholdTuning/011 - F1-Score.md)
+- [ROC-AUC](03-F1Score-ThresholdTuning/012 - ROC-AUC.md)
+- [Log Loss](03-F1Score-ThresholdTuning/013 - Log Loss.md)
+- [Confusion Matrix](03-F1Score-ThresholdTuning/014 - Confusion Matrix.md)
+- [Threshold Tuning](03-F1Score-ThresholdTuning/015 - Threshold Tuning.md)
+
+### [04-Calibration-RSquared](04-Calibration-RSquared/)
+
+- [Calibration](04-Calibration-RSquared/016 - Calibration.md)
+- [MAE](04-Calibration-RSquared/017 - MAE.md)
+- [MSE](04-Calibration-RSquared/018 - MSE.md)
+- [RMSE](04-Calibration-RSquared/019 - RMSE.md)
+- [R-squared](04-Calibration-RSquared/020 - R-squared.md)
+
+### [05-MAPE-TimeSeriesValidation](05-MAPE-TimeSeriesValidation/)
+
+- [MAPE](05-MAPE-TimeSeriesValidation/021 - MAPE.md)
+- [K-Fold Cross Validation](05-MAPE-TimeSeriesValidation/022 - K-Fold Cross Validation.md)
+- [LOOCV - Leave-One-Out Cross Validation](05-MAPE-TimeSeriesValidation/023 - LOOCV - Leave-One-Out Cross Validation.md)
+- [Stratified Cross Validation](05-MAPE-TimeSeriesValidation/024 - Stratified Cross Validation.md)
+- [Time Series Validation](05-MAPE-TimeSeriesValidation/025 - Time Series Validation.md)
+
+### [06-ErrorAnalysis](06-ErrorAnalysis/)
+
+- [Error Analysis](06-ErrorAnalysis/026 - Error Analysis.md)
+

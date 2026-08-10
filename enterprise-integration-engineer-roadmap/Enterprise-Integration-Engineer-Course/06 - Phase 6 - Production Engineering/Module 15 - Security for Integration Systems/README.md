@@ -1,18 +1,29 @@
 # Module 15 - Security for Integration Systems
 
-**Phase:** Phase 6 - Production Engineering
+## Noi dung nho
 
-This module has 10 lessons.
+- [01-TLSAndHTTPS-SecretsManagement](01-TLSAndHTTPS-SecretsManagement/)
+- [02-PIIMasking-InputValidation](02-PIIMasking-InputValidation/)
+- [03-OWASPAPISecurity-Exercise](03-OWASPAPISecurity-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - TLS and HTTPS](001 - TLS and HTTPS.md)
-- [002 - JWT and OAuth2](002 - JWT and OAuth2.md)
-- [003 - mTLS](003 - mTLS.md)
-- [004 - Secrets Management](004 - Secrets Management.md)
-- [005 - PII Masking](005 - PII Masking.md)
-- [006 - Audit Log](006 - Audit Log.md)
-- [007 - Least Privilege](007 - Least Privilege.md)
-- [008 - Input Validation](008 - Input Validation.md)
-- [009 - OWASP API Security](009 - OWASP API Security.md)
-- [010 - Exercise](010 - Exercise.md)
+### [01-TLSAndHTTPS-SecretsManagement](01-TLSAndHTTPS-SecretsManagement/)
+
+- [TLS and HTTPS](01-TLSAndHTTPS-SecretsManagement/001 - TLS and HTTPS.md)
+- [JWT and OAuth2](01-TLSAndHTTPS-SecretsManagement/002 - JWT and OAuth2.md)
+- [mTLS](01-TLSAndHTTPS-SecretsManagement/003 - mTLS.md)
+- [Secrets Management](01-TLSAndHTTPS-SecretsManagement/004 - Secrets Management.md)
+
+### [02-PIIMasking-InputValidation](02-PIIMasking-InputValidation/)
+
+- [PII Masking](02-PIIMasking-InputValidation/005 - PII Masking.md)
+- [Audit Log](02-PIIMasking-InputValidation/006 - Audit Log.md)
+- [Least Privilege](02-PIIMasking-InputValidation/007 - Least Privilege.md)
+- [Input Validation](02-PIIMasking-InputValidation/008 - Input Validation.md)
+
+### [03-OWASPAPISecurity-Exercise](03-OWASPAPISecurity-Exercise/)
+
+- [OWASP API Security](03-OWASPAPISecurity-Exercise/009 - OWASP API Security.md)
+- [Exercise](03-OWASPAPISecurity-Exercise/010 - Exercise.md)
+

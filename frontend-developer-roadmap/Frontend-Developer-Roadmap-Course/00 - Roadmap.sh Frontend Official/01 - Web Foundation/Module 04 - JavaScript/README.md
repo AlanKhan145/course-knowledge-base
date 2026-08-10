@@ -5,13 +5,14 @@
 
 Module nay gom 2 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-JavaScript-JavaScriptRoadmap](01-JavaScript-JavaScriptRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - JavaScript](001 - JavaScript.md)
-- [002 - JavaScript Roadmap](002 - JavaScript Roadmap.md)
+### [01-JavaScript-JavaScriptRoadmap](01-JavaScript-JavaScriptRoadmap/)
 
-## Cach hoc module nay
+- [JavaScript](01-JavaScript-JavaScriptRoadmap/001 - JavaScript.md)
+- [JavaScript Roadmap](01-JavaScript-JavaScriptRoadmap/002 - JavaScript Roadmap.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

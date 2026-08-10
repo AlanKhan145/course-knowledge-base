@@ -3,13 +3,6 @@
 ## Mục tiêu module
 Hiểu data warehouse, lake, mart, cloud BI ecosystem và data modeling cho BI.
 
-## Bài học
-- [001 - Data Warehouse](001 - Data Warehouse.md)
-- [002 - Data Lake](002 - Data Lake.md)
-- [003 - Data Mart](003 - Data Mart.md)
-- [004 - Cloud BI Ecosystem](004 - Cloud BI Ecosystem.md)
-- [005 - Data Modeling for BI](005 - Data Modeling for BI.md)
-
 ## Thực hành trọng tâm
 Thiết kế star schema đơn giản cho dashboard bán hàng, marketing hoặc finance.
 
@@ -23,3 +16,22 @@ Thiết kế star schema đơn giản cho dashboard bán hàng, marketing hoặc
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một business question thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc BI Analyst
+
+## Noi dung nho
+
+- [01-DataWarehouse-DataMart](01-DataWarehouse-DataMart/)
+- [02-CloudBIEcosystem-DataModelingFor](02-CloudBIEcosystem-DataModelingFor/)
+
+## Danh sach bai hoc
+
+### [01-DataWarehouse-DataMart](01-DataWarehouse-DataMart/)
+
+- [Data Warehouse](01-DataWarehouse-DataMart/001 - Data Warehouse.md)
+- [Data Lake](01-DataWarehouse-DataMart/002 - Data Lake.md)
+- [Data Mart](01-DataWarehouse-DataMart/003 - Data Mart.md)
+
+### [02-CloudBIEcosystem-DataModelingFor](02-CloudBIEcosystem-DataModelingFor/)
+
+- [Cloud BI Ecosystem](02-CloudBIEcosystem-DataModelingFor/004 - Cloud BI Ecosystem.md)
+- [Data Modeling for BI](02-CloudBIEcosystem-DataModelingFor/005 - Data Modeling for BI.md)
+

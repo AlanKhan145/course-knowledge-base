@@ -13,16 +13,21 @@ Choose practical BI tools and plotting libraries for dashboards, reports and exp
 - Libraries
 - Tools
 
+## Noi dung nho
+
+- [01-Tableau-Matplotlib](01-Tableau-Matplotlib/)
+- [02-Seaborn-Ggplot2](02-Seaborn-Ggplot2/)
+
 ## Danh sach bai hoc
 
-- [001 - Tableau](001 - Tableau.md)
-- [002 - Power BI](002 - Power BI.md)
-- [003 - Matplotlib](003 - Matplotlib.md)
-- [004 - Seaborn](004 - Seaborn.md)
-- [005 - ggplot2](005 - ggplot2.md)
+### [01-Tableau-Matplotlib](01-Tableau-Matplotlib/)
 
-## Cach hoc module nay
+- [Tableau](01-Tableau-Matplotlib/001 - Tableau.md)
+- [Power BI](01-Tableau-Matplotlib/002 - Power BI.md)
+- [Matplotlib](01-Tableau-Matplotlib/003 - Matplotlib.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-Seaborn-Ggplot2](02-Seaborn-Ggplot2/)
+
+- [Seaborn](02-Seaborn-Ggplot2/004 - Seaborn.md)
+- [ggplot2](02-Seaborn-Ggplot2/005 - ggplot2.md)
+

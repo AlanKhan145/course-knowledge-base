@@ -3,11 +3,6 @@
 ## Mục tiêu module
 Biết ETL basics, công cụ ETL và cách thiết kế pipeline dữ liệu đáng tin cậy.
 
-## Bài học
-- [001 - ETL Basics](001 - ETL Basics.md)
-- [002 - ETL Tools](002 - ETL Tools.md)
-- [003 - Data Pipeline Design](003 - Data Pipeline Design.md)
-
 ## Thực hành trọng tâm
 Thiết kế pipeline ETL: source, transform, schedule, quality check và failure handling.
 
@@ -21,3 +16,16 @@ Thiết kế pipeline ETL: source, transform, schedule, quality check và failur
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một business question thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc BI Analyst
+
+## Noi dung nho
+
+- [01-ETLBasics-DataPipelineDesign](01-ETLBasics-DataPipelineDesign/)
+
+## Danh sach bai hoc
+
+### [01-ETLBasics-DataPipelineDesign](01-ETLBasics-DataPipelineDesign/)
+
+- [ETL Basics](01-ETLBasics-DataPipelineDesign/001 - ETL Basics.md)
+- [ETL Tools](01-ETLBasics-DataPipelineDesign/002 - ETL Tools.md)
+- [Data Pipeline Design](01-ETLBasics-DataPipelineDesign/003 - Data Pipeline Design.md)
+

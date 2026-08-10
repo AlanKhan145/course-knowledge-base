@@ -14,18 +14,23 @@ Recognize when datasets need big data storage, distributed processing and parall
 - Data Processing Frameworks
 - Data Processing Techniques
 
+## Noi dung nho
+
+- [01-BigDataConcepts-Spark](01-BigDataConcepts-Spark/)
+- [02-ParallelProcessing-MapReduce](02-ParallelProcessing-MapReduce/)
+
 ## Danh sach bai hoc
 
-- [001 - Big Data Concepts](001 - Big Data Concepts.md)
-- [002 - Data Storage Solutions](002 - Data Storage Solutions.md)
-- [003 - Hadoop](003 - Hadoop.md)
-- [004 - Spark](004 - Spark.md)
-- [005 - Parallel Processing](005 - Parallel Processing.md)
-- [006 - MPI](006 - MPI.md)
-- [007 - MapReduce](007 - MapReduce.md)
+### [01-BigDataConcepts-Spark](01-BigDataConcepts-Spark/)
 
-## Cach hoc module nay
+- [Big Data Concepts](01-BigDataConcepts-Spark/001 - Big Data Concepts.md)
+- [Data Storage Solutions](01-BigDataConcepts-Spark/002 - Data Storage Solutions.md)
+- [Hadoop](01-BigDataConcepts-Spark/003 - Hadoop.md)
+- [Spark](01-BigDataConcepts-Spark/004 - Spark.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-ParallelProcessing-MapReduce](02-ParallelProcessing-MapReduce/)
+
+- [Parallel Processing](02-ParallelProcessing-MapReduce/005 - Parallel Processing.md)
+- [MPI](02-ParallelProcessing-MapReduce/006 - MPI.md)
+- [MapReduce](02-ParallelProcessing-MapReduce/007 - MapReduce.md)
+

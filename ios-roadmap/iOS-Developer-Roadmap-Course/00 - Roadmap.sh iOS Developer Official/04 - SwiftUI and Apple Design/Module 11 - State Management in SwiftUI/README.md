@@ -10,17 +10,32 @@ Manage SwiftUI state and data flow while separating views from view models.
 
 Mini project: Todo App with add, edit and delete task flows.
 
+## Noi dung nho
+
+- [01-State-ObservedObject](01-State-ObservedObject/)
+- [02-EnvironmentObject-SeparateViewAnd](02-EnvironmentObject-SeparateViewAnd/)
+- [03-CommonStateBugs-TodoAppState](03-CommonStateBugs-TodoAppState/)
+
 ## Danh sach bai hoc
 
-- [001 - @State](001 - @State.md)
-- [002 - @Binding](002 - @Binding.md)
-- [003 - @StateObject](003 - @StateObject.md)
-- [004 - @ObservedObject](004 - @ObservedObject.md)
-- [005 - @EnvironmentObject](005 - @EnvironmentObject.md)
-- [006 - @Environment](006 - @Environment.md)
-- [007 - Data Flow in SwiftUI](007 - Data Flow in SwiftUI.md)
-- [008 - Separate View and ViewModel](008 - Separate View and ViewModel.md)
-- [009 - Common State Bugs](009 - Common State Bugs.md)
-- [010 - ObservableObject](010 - ObservableObject.md)
-- [011 - Published Properties](011 - Published Properties.md)
-- [012 - Todo App State](012 - Todo App State.md)
+### [01-State-ObservedObject](01-State-ObservedObject/)
+
+- [@State](01-State-ObservedObject/001 - @State.md)
+- [@Binding](01-State-ObservedObject/002 - @Binding.md)
+- [@StateObject](01-State-ObservedObject/003 - @StateObject.md)
+- [@ObservedObject](01-State-ObservedObject/004 - @ObservedObject.md)
+
+### [02-EnvironmentObject-SeparateViewAnd](02-EnvironmentObject-SeparateViewAnd/)
+
+- [@EnvironmentObject](02-EnvironmentObject-SeparateViewAnd/005 - @EnvironmentObject.md)
+- [@Environment](02-EnvironmentObject-SeparateViewAnd/006 - @Environment.md)
+- [Data Flow in SwiftUI](02-EnvironmentObject-SeparateViewAnd/007 - Data Flow in SwiftUI.md)
+- [Separate View and ViewModel](02-EnvironmentObject-SeparateViewAnd/008 - Separate View and ViewModel.md)
+
+### [03-CommonStateBugs-TodoAppState](03-CommonStateBugs-TodoAppState/)
+
+- [Common State Bugs](03-CommonStateBugs-TodoAppState/009 - Common State Bugs.md)
+- [ObservableObject](03-CommonStateBugs-TodoAppState/010 - ObservableObject.md)
+- [Published Properties](03-CommonStateBugs-TodoAppState/011 - Published Properties.md)
+- [Todo App State](03-CommonStateBugs-TodoAppState/012 - Todo App State.md)
+

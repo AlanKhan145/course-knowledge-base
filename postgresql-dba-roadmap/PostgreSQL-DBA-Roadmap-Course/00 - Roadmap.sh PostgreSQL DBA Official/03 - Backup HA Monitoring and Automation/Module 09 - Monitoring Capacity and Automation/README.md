@@ -10,31 +10,58 @@ Monitor PostgreSQL health, plan capacity and automate repeatable DBA operations.
 
 Lab: Build a monitoring checklist with key PostgreSQL metrics, capacity signals and alert thresholds.
 
+## Noi dung nho
+
+- [01-Prometheus-CheckPgbackrest](01-Prometheus-CheckPgbackrest/)
+- [02-PgStatActivity-Provisioning](02-PgStatActivity-Provisioning/)
+- [03-CapacityPlanning-IOPSPlanning](03-CapacityPlanning-IOPSPlanning/)
+- [04-ConnectionCapacity-CronJobs](04-ConnectionCapacity-CronJobs/)
+- [05-RunbooksAsCode-Chef](05-RunbooksAsCode-Chef/)
+- [06-IdempotentDBATasks](06-IdempotentDBATasks/)
+
 ## Danh sach bai hoc
 
-- [001 - Prometheus](001 - Prometheus.md)
-- [002 - Zabbix](002 - Zabbix.md)
-- [003 - check_pgactivity](003 - check_pgactivity.md)
-- [004 - temBoard](004 - temBoard.md)
-- [005 - check_pgbackrest](005 - check_pgbackrest.md)
-- [006 - pg_stat_activity Monitoring](006 - pg_stat_activity Monitoring.md)
-- [007 - pg_stat_statements Monitoring](007 - pg_stat_statements Monitoring.md)
-- [008 - Alert Routing](008 - Alert Routing.md)
-- [009 - Resource Usage](009 - Resource Usage.md)
-- [010 - Provisioning](010 - Provisioning.md)
-- [011 - Capacity Planning](011 - Capacity Planning.md)
-- [012 - CPU Capacity](012 - CPU Capacity.md)
-- [013 - Memory Capacity](013 - Memory Capacity.md)
-- [014 - Disk Capacity](014 - Disk Capacity.md)
-- [015 - IOPS Planning](015 - IOPS Planning.md)
-- [016 - Connection Capacity](016 - Connection Capacity.md)
-- [017 - Growth Forecasting](017 - Growth Forecasting.md)
-- [018 - Shell Scripts](018 - Shell Scripts.md)
-- [019 - Any Programming Language](019 - Any Programming Language.md)
-- [020 - Cron Jobs](020 - Cron Jobs.md)
-- [021 - Runbooks as Code](021 - Runbooks as Code.md)
-- [022 - Ansible](022 - Ansible.md)
-- [023 - Salt](023 - Salt.md)
-- [024 - Puppet](024 - Puppet.md)
-- [025 - Chef](025 - Chef.md)
-- [026 - Idempotent DBA Tasks](026 - Idempotent DBA Tasks.md)
+### [01-Prometheus-CheckPgbackrest](01-Prometheus-CheckPgbackrest/)
+
+- [Prometheus](01-Prometheus-CheckPgbackrest/001 - Prometheus.md)
+- [Zabbix](01-Prometheus-CheckPgbackrest/002 - Zabbix.md)
+- [check_pgactivity](01-Prometheus-CheckPgbackrest/003 - check_pgactivity.md)
+- [temBoard](01-Prometheus-CheckPgbackrest/004 - temBoard.md)
+- [check_pgbackrest](01-Prometheus-CheckPgbackrest/005 - check_pgbackrest.md)
+
+### [02-PgStatActivity-Provisioning](02-PgStatActivity-Provisioning/)
+
+- [pg_stat_activity Monitoring](02-PgStatActivity-Provisioning/006 - pg_stat_activity Monitoring.md)
+- [pg_stat_statements Monitoring](02-PgStatActivity-Provisioning/007 - pg_stat_statements Monitoring.md)
+- [Alert Routing](02-PgStatActivity-Provisioning/008 - Alert Routing.md)
+- [Resource Usage](02-PgStatActivity-Provisioning/009 - Resource Usage.md)
+- [Provisioning](02-PgStatActivity-Provisioning/010 - Provisioning.md)
+
+### [03-CapacityPlanning-IOPSPlanning](03-CapacityPlanning-IOPSPlanning/)
+
+- [Capacity Planning](03-CapacityPlanning-IOPSPlanning/011 - Capacity Planning.md)
+- [CPU Capacity](03-CapacityPlanning-IOPSPlanning/012 - CPU Capacity.md)
+- [Memory Capacity](03-CapacityPlanning-IOPSPlanning/013 - Memory Capacity.md)
+- [Disk Capacity](03-CapacityPlanning-IOPSPlanning/014 - Disk Capacity.md)
+- [IOPS Planning](03-CapacityPlanning-IOPSPlanning/015 - IOPS Planning.md)
+
+### [04-ConnectionCapacity-CronJobs](04-ConnectionCapacity-CronJobs/)
+
+- [Connection Capacity](04-ConnectionCapacity-CronJobs/016 - Connection Capacity.md)
+- [Growth Forecasting](04-ConnectionCapacity-CronJobs/017 - Growth Forecasting.md)
+- [Shell Scripts](04-ConnectionCapacity-CronJobs/018 - Shell Scripts.md)
+- [Any Programming Language](04-ConnectionCapacity-CronJobs/019 - Any Programming Language.md)
+- [Cron Jobs](04-ConnectionCapacity-CronJobs/020 - Cron Jobs.md)
+
+### [05-RunbooksAsCode-Chef](05-RunbooksAsCode-Chef/)
+
+- [Runbooks as Code](05-RunbooksAsCode-Chef/021 - Runbooks as Code.md)
+- [Ansible](05-RunbooksAsCode-Chef/022 - Ansible.md)
+- [Salt](05-RunbooksAsCode-Chef/023 - Salt.md)
+- [Puppet](05-RunbooksAsCode-Chef/024 - Puppet.md)
+- [Chef](05-RunbooksAsCode-Chef/025 - Chef.md)
+
+### [06-IdempotentDBATasks](06-IdempotentDBATasks/)
+
+- [Idempotent DBA Tasks](06-IdempotentDBATasks/026 - Idempotent DBA Tasks.md)
+

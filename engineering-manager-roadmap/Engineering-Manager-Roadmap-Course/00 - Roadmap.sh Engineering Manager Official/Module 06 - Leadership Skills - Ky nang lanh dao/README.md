@@ -3,13 +3,6 @@
 ## Mục tiêu module
 Biết lãnh đạo qua delegation, conflict resolution, feedback, motivation, trust và influence.
 
-## Nội dung
-- [001 - Delegation](001 - Delegation.md)
-- [002 - Conflict Resolution](002 - Conflict Resolution.md)
-- [003 - Feedback Delivery](003 - Feedback Delivery.md)
-- [004 - Team Motivation](004 - Team Motivation.md)
-- [005 - Trust / Influence Building](005 - Trust - Influence Building.md)
-
 ## Thực hành trọng tâm
 Chuẩn bị một cuộc trao đổi khó: delegation, conflict, feedback hoặc trust building.
 
@@ -23,3 +16,22 @@ Chuẩn bị một cuộc trao đổi khó: delegation, conflict, feedback hoặ
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một team, hệ thống hoặc dự án thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong vai trò Engineering Manager
+
+## Noi dung nho
+
+- [01-Delegation-FeedbackDelivery](01-Delegation-FeedbackDelivery/)
+- [02-TeamMotivation-TrustInfluenceBuilding](02-TeamMotivation-TrustInfluenceBuilding/)
+
+## Danh sach bai hoc
+
+### [01-Delegation-FeedbackDelivery](01-Delegation-FeedbackDelivery/)
+
+- [Delegation](01-Delegation-FeedbackDelivery/001 - Delegation.md)
+- [Conflict Resolution](01-Delegation-FeedbackDelivery/002 - Conflict Resolution.md)
+- [Feedback Delivery](01-Delegation-FeedbackDelivery/003 - Feedback Delivery.md)
+
+### [02-TeamMotivation-TrustInfluenceBuilding](02-TeamMotivation-TrustInfluenceBuilding/)
+
+- [Team Motivation](02-TeamMotivation-TrustInfluenceBuilding/004 - Team Motivation.md)
+- [Trust - Influence Building](02-TeamMotivation-TrustInfluenceBuilding/005 - Trust - Influence Building.md)
+

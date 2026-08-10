@@ -10,21 +10,40 @@ Use OOP, protocol-oriented programming, functional tools and memory management i
 
 Mini project: Model User, Task and Project with protocols, extensions and safe references.
 
+## Noi dung nho
+
+- [01-OOPInSwift-ProtocolOrientedProgramming](01-OOPInSwift-ProtocolOrientedProgramming/)
+- [02-FunctionalProgramming-ClosureCapturing](02-FunctionalProgramming-ClosureCapturing/)
+- [03-MemoryManagement-UnownedReference](03-MemoryManagement-UnownedReference/)
+- [04-RetainCycle](04-RetainCycle/)
+
 ## Danh sach bai hoc
 
-- [001 - OOP in Swift](001 - OOP in Swift.md)
-- [002 - Encapsulation](002 - Encapsulation.md)
-- [003 - Inheritance](003 - Inheritance.md)
-- [004 - Polymorphism](004 - Polymorphism.md)
-- [005 - Protocol-oriented Programming](005 - Protocol-oriented Programming.md)
-- [006 - Functional Programming](006 - Functional Programming.md)
-- [007 - map](007 - map.md)
-- [008 - filter](008 - filter.md)
-- [009 - reduce](009 - reduce.md)
-- [010 - Closure Capturing](010 - Closure Capturing.md)
-- [011 - Memory Management](011 - Memory Management.md)
-- [012 - ARC](012 - ARC.md)
-- [013 - Strong Reference](013 - Strong Reference.md)
-- [014 - Weak Reference](014 - Weak Reference.md)
-- [015 - Unowned Reference](015 - Unowned Reference.md)
-- [016 - Retain Cycle](016 - Retain Cycle.md)
+### [01-OOPInSwift-ProtocolOrientedProgramming](01-OOPInSwift-ProtocolOrientedProgramming/)
+
+- [OOP in Swift](01-OOPInSwift-ProtocolOrientedProgramming/001 - OOP in Swift.md)
+- [Encapsulation](01-OOPInSwift-ProtocolOrientedProgramming/002 - Encapsulation.md)
+- [Inheritance](01-OOPInSwift-ProtocolOrientedProgramming/003 - Inheritance.md)
+- [Polymorphism](01-OOPInSwift-ProtocolOrientedProgramming/004 - Polymorphism.md)
+- [Protocol-oriented Programming](01-OOPInSwift-ProtocolOrientedProgramming/005 - Protocol-oriented Programming.md)
+
+### [02-FunctionalProgramming-ClosureCapturing](02-FunctionalProgramming-ClosureCapturing/)
+
+- [Functional Programming](02-FunctionalProgramming-ClosureCapturing/006 - Functional Programming.md)
+- [map](02-FunctionalProgramming-ClosureCapturing/007 - map.md)
+- [filter](02-FunctionalProgramming-ClosureCapturing/008 - filter.md)
+- [reduce](02-FunctionalProgramming-ClosureCapturing/009 - reduce.md)
+- [Closure Capturing](02-FunctionalProgramming-ClosureCapturing/010 - Closure Capturing.md)
+
+### [03-MemoryManagement-UnownedReference](03-MemoryManagement-UnownedReference/)
+
+- [Memory Management](03-MemoryManagement-UnownedReference/011 - Memory Management.md)
+- [ARC](03-MemoryManagement-UnownedReference/012 - ARC.md)
+- [Strong Reference](03-MemoryManagement-UnownedReference/013 - Strong Reference.md)
+- [Weak Reference](03-MemoryManagement-UnownedReference/014 - Weak Reference.md)
+- [Unowned Reference](03-MemoryManagement-UnownedReference/015 - Unowned Reference.md)
+
+### [04-RetainCycle](04-RetainCycle/)
+
+- [Retain Cycle](04-RetainCycle/016 - Retain Cycle.md)
+

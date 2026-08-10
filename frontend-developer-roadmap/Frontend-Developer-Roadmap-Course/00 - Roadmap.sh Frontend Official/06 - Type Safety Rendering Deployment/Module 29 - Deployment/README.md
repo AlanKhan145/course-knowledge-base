@@ -5,17 +5,22 @@
 
 Module nay gom 6 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-GitHubPages-Netlify](01-GitHubPages-Netlify/)
+- [02-Cloudflare-Render](02-Cloudflare-Render/)
+
 ## Danh sach bai hoc
 
-- [001 - GitHub Pages](001 - GitHub Pages.md)
-- [002 - Vercel](002 - Vercel.md)
-- [003 - Netlify](003 - Netlify.md)
-- [004 - Cloudflare](004 - Cloudflare.md)
-- [005 - Railway](005 - Railway.md)
-- [006 - Render](006 - Render.md)
+### [01-GitHubPages-Netlify](01-GitHubPages-Netlify/)
 
-## Cach hoc module nay
+- [GitHub Pages](01-GitHubPages-Netlify/001 - GitHub Pages.md)
+- [Vercel](01-GitHubPages-Netlify/002 - Vercel.md)
+- [Netlify](01-GitHubPages-Netlify/003 - Netlify.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-Cloudflare-Render](02-Cloudflare-Render/)
+
+- [Cloudflare](02-Cloudflare-Render/004 - Cloudflare.md)
+- [Railway](02-Cloudflare-Render/005 - Railway.md)
+- [Render](02-Cloudflare-Render/006 - Render.md)
+

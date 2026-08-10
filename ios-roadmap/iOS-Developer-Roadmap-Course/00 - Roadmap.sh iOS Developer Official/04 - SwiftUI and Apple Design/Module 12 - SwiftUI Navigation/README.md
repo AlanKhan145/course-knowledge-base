@@ -10,17 +10,32 @@ Build multi-screen SwiftUI apps with navigation, modal presentation and data pas
 
 Mini project: Recipe App with list, detail and favorite flows.
 
+## Noi dung nho
+
+- [01-NavigationStack-Sheet](01-NavigationStack-Sheet/)
+- [02-FullScreenCover-TabView](02-FullScreenCover-TabView/)
+- [03-PassingDataBetween-ProgrammaticNavigation](03-PassingDataBetween-ProgrammaticNavigation/)
+
 ## Danh sach bai hoc
 
-- [001 - NavigationStack](001 - NavigationStack.md)
-- [002 - NavigationLink](002 - NavigationLink.md)
-- [003 - NavigationPath](003 - NavigationPath.md)
-- [004 - Sheet](004 - Sheet.md)
-- [005 - FullScreenCover](005 - FullScreenCover.md)
-- [006 - Alert](006 - Alert.md)
-- [007 - ConfirmationDialog](007 - ConfirmationDialog.md)
-- [008 - TabView](008 - TabView.md)
-- [009 - Passing Data Between Screens](009 - Passing Data Between Screens.md)
-- [010 - Present and Dismiss Views](010 - Present and Dismiss Views.md)
-- [011 - Route Model](011 - Route Model.md)
-- [012 - Programmatic Navigation](012 - Programmatic Navigation.md)
+### [01-NavigationStack-Sheet](01-NavigationStack-Sheet/)
+
+- [NavigationStack](01-NavigationStack-Sheet/001 - NavigationStack.md)
+- [NavigationLink](01-NavigationStack-Sheet/002 - NavigationLink.md)
+- [NavigationPath](01-NavigationStack-Sheet/003 - NavigationPath.md)
+- [Sheet](01-NavigationStack-Sheet/004 - Sheet.md)
+
+### [02-FullScreenCover-TabView](02-FullScreenCover-TabView/)
+
+- [FullScreenCover](02-FullScreenCover-TabView/005 - FullScreenCover.md)
+- [Alert](02-FullScreenCover-TabView/006 - Alert.md)
+- [ConfirmationDialog](02-FullScreenCover-TabView/007 - ConfirmationDialog.md)
+- [TabView](02-FullScreenCover-TabView/008 - TabView.md)
+
+### [03-PassingDataBetween-ProgrammaticNavigation](03-PassingDataBetween-ProgrammaticNavigation/)
+
+- [Passing Data Between Screens](03-PassingDataBetween-ProgrammaticNavigation/009 - Passing Data Between Screens.md)
+- [Present and Dismiss Views](03-PassingDataBetween-ProgrammaticNavigation/010 - Present and Dismiss Views.md)
+- [Route Model](03-PassingDataBetween-ProgrammaticNavigation/011 - Route Model.md)
+- [Programmatic Navigation](03-PassingDataBetween-ProgrammaticNavigation/012 - Programmatic Navigation.md)
+

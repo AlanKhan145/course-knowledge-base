@@ -3,29 +3,6 @@
 ## Mục tiêu module
 Biết biến research thành chiến lược, goal, value proposition và lợi thế cạnh tranh.
 
-## Bài học
-- [001 - Vision & Mission Statement](001 - Vision and Mission Statement.md)
-- [002 - Proposition](002 - Proposition.md)
-- [003 - Capabilities](003 - Capabilities.md)
-- [004 - Solved Constraints](004 - Solved Constraints.md)
-- [005 - Future Constraints](005 - Future Constraints.md)
-- [006 - Reference Materials](006 - Reference Materials.md)
-- [007 - Narrative](007 - Narrative.md)
-- [008 - Defining Goals](008 - Defining Goals.md)
-- [009 - Goal Types](009 - Goal Types.md)
-- [010 - Value Proposition](010 - Value Proposition.md)
-- [011 - Value Proposition Canvas](011 - Value Proposition Canvas.md)
-- [012 - Value vs Features](012 - Value vs Features.md)
-- [013 - Finding Balance](013 - Finding Balance.md)
-- [014 - Feature Creep](014 - Feature Creep.md)
-- [015 - Strategic Thinking](015 - Strategic Thinking.md)
-- [016 - Competitive Strategy](016 - Competitive Strategy.md)
-- [017 - Five Forces Analysis](017 - Five Forces Analysis.md)
-- [018 - Competitive Advantage](018 - Competitive Advantage.md)
-- [019 - Strategic Partners](019 - Strategic Partners.md)
-- [020 - Identify Partners](020 - Identify Partners.md)
-- [021 - Managing Partnerships](021 - Managing Partnerships.md)
-
 ## Thực hành trọng tâm
 Viết product narrative một trang: vision, target segment, value proposition, strategic trade-off.
 
@@ -39,3 +16,50 @@ Viết product narrative một trang: vision, target segment, value proposition,
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một sản phẩm thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc PM
+
+## Noi dung nho
+
+- [01-VisionAndMission-FutureConstraints](01-VisionAndMission-FutureConstraints/)
+- [02-ReferenceMaterials-ValueProposition](02-ReferenceMaterials-ValueProposition/)
+- [03-ValuePropositionCanvas-StrategicThinking](03-ValuePropositionCanvas-StrategicThinking/)
+- [04-CompetitiveStrategy-IdentifyPartners](04-CompetitiveStrategy-IdentifyPartners/)
+- [05-ManagingPartnerships](05-ManagingPartnerships/)
+
+## Danh sach bai hoc
+
+### [01-VisionAndMission-FutureConstraints](01-VisionAndMission-FutureConstraints/)
+
+- [Vision and Mission Statement](01-VisionAndMission-FutureConstraints/001 - Vision and Mission Statement.md)
+- [Proposition](01-VisionAndMission-FutureConstraints/002 - Proposition.md)
+- [Capabilities](01-VisionAndMission-FutureConstraints/003 - Capabilities.md)
+- [Solved Constraints](01-VisionAndMission-FutureConstraints/004 - Solved Constraints.md)
+- [Future Constraints](01-VisionAndMission-FutureConstraints/005 - Future Constraints.md)
+
+### [02-ReferenceMaterials-ValueProposition](02-ReferenceMaterials-ValueProposition/)
+
+- [Reference Materials](02-ReferenceMaterials-ValueProposition/006 - Reference Materials.md)
+- [Narrative](02-ReferenceMaterials-ValueProposition/007 - Narrative.md)
+- [Defining Goals](02-ReferenceMaterials-ValueProposition/008 - Defining Goals.md)
+- [Goal Types](02-ReferenceMaterials-ValueProposition/009 - Goal Types.md)
+- [Value Proposition](02-ReferenceMaterials-ValueProposition/010 - Value Proposition.md)
+
+### [03-ValuePropositionCanvas-StrategicThinking](03-ValuePropositionCanvas-StrategicThinking/)
+
+- [Value Proposition Canvas](03-ValuePropositionCanvas-StrategicThinking/011 - Value Proposition Canvas.md)
+- [Value vs Features](03-ValuePropositionCanvas-StrategicThinking/012 - Value vs Features.md)
+- [Finding Balance](03-ValuePropositionCanvas-StrategicThinking/013 - Finding Balance.md)
+- [Feature Creep](03-ValuePropositionCanvas-StrategicThinking/014 - Feature Creep.md)
+- [Strategic Thinking](03-ValuePropositionCanvas-StrategicThinking/015 - Strategic Thinking.md)
+
+### [04-CompetitiveStrategy-IdentifyPartners](04-CompetitiveStrategy-IdentifyPartners/)
+
+- [Competitive Strategy](04-CompetitiveStrategy-IdentifyPartners/016 - Competitive Strategy.md)
+- [Five Forces Analysis](04-CompetitiveStrategy-IdentifyPartners/017 - Five Forces Analysis.md)
+- [Competitive Advantage](04-CompetitiveStrategy-IdentifyPartners/018 - Competitive Advantage.md)
+- [Strategic Partners](04-CompetitiveStrategy-IdentifyPartners/019 - Strategic Partners.md)
+- [Identify Partners](04-CompetitiveStrategy-IdentifyPartners/020 - Identify Partners.md)
+
+### [05-ManagingPartnerships](05-ManagingPartnerships/)
+
+- [Managing Partnerships](05-ManagingPartnerships/021 - Managing Partnerships.md)
+

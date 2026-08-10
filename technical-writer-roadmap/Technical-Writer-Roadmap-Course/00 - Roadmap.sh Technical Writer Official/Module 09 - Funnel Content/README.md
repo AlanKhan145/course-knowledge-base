@@ -6,15 +6,22 @@
 
 Module này giúp bạn học nhóm kiến thức **Funnel Content** và chuyển thành mẫu tài liệu, checklist hoặc workflow có thể dùng trong portfolio Technical Writer.
 
-## Danh sách bài
-
-- [9.1 - Top-funnel Content](001 - Top-funnel Content.md)
-- [9.2 - Mid-funnel Content](002 - Mid-funnel Content.md)
-- [9.3 - Bottom-funnel Content](003 - Bottom-funnel Content.md)
-
 ## Checklist module
 
 - [ ] Đọc toàn bộ bài trong module.
 - [ ] Tạo ít nhất một artifact viết/tài liệu nhỏ.
 - [ ] Review lại bằng checklist clarity, accuracy, structure và audience fit.
 - [ ] Lưu bản tốt nhất vào portfolio hoặc repo docs cá nhân.
+
+## Noi dung nho
+
+- [01-TopFunnelContent-BottomFunnelContent](01-TopFunnelContent-BottomFunnelContent/)
+
+## Danh sach bai hoc
+
+### [01-TopFunnelContent-BottomFunnelContent](01-TopFunnelContent-BottomFunnelContent/)
+
+- [Top-funnel Content](01-TopFunnelContent-BottomFunnelContent/001 - Top-funnel Content.md)
+- [Mid-funnel Content](01-TopFunnelContent-BottomFunnelContent/002 - Mid-funnel Content.md)
+- [Bottom-funnel Content](01-TopFunnelContent-BottomFunnelContent/003 - Bottom-funnel Content.md)
+

@@ -12,14 +12,15 @@ Prevent common application flaws through safe query patterns, output handling an
 
 - Topics
 
+## Noi dung nho
+
+- [01-SQLInjectionPrevention-InputValidationPatterns](01-SQLInjectionPrevention-InputValidationPatterns/)
+
 ## Danh sach bai hoc
 
-- [001 - SQL Injection Prevention](001 - SQL Injection Prevention.md)
-- [002 - XSS Prevention](002 - XSS Prevention.md)
-- [003 - Input Validation Patterns](003 - Input Validation Patterns.md)
+### [01-SQLInjectionPrevention-InputValidationPatterns](01-SQLInjectionPrevention-InputValidationPatterns/)
 
-## Cach hoc module nay
+- [SQL Injection Prevention](01-SQLInjectionPrevention-InputValidationPatterns/001 - SQL Injection Prevention.md)
+- [XSS Prevention](01-SQLInjectionPrevention-InputValidationPatterns/002 - XSS Prevention.md)
+- [Input Validation Patterns](01-SQLInjectionPrevention-InputValidationPatterns/003 - Input Validation Patterns.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

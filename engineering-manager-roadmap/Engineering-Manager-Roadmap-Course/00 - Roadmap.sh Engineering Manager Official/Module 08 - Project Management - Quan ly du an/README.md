@@ -3,18 +3,6 @@
 ## Mục tiêu module
 Biết quản lý resource, sprint, release, risk, dependency, milestone, scope và timeline.
 
-## Nội dung
-- [001 - Resource Allocation](001 - Resource Allocation.md)
-- [002 - Sprint Planning](002 - Sprint Planning.md)
-- [003 - Release Management](003 - Release Management.md)
-- [004 - Risk Management](004 - Risk Management.md)
-- [005 - Dependency Management](005 - Dependency Management.md)
-- [006 - Agile Methodologies](006 - Agile Methodologies.md)
-- [007 - Project Tracking](007 - Project Tracking.md)
-- [008 - Milestone Management](008 - Milestone Management.md)
-- [009 - Scope Management](009 - Scope Management.md)
-- [010 - Timeline Estimation](010 - Timeline Estimation.md)
-
 ## Thực hành trọng tâm
 Lập kế hoạch delivery cho một dự án 6-8 tuần: resource, sprint, milestone, risk, dependency và scope.
 
@@ -28,3 +16,31 @@ Lập kế hoạch delivery cho một dự án 6-8 tuần: resource, sprint, mil
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một team, hệ thống hoặc dự án thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong vai trò Engineering Manager
+
+## Noi dung nho
+
+- [01-ResourceAllocation-RiskManagement](01-ResourceAllocation-RiskManagement/)
+- [02-DependencyManagement-MilestoneManagement](02-DependencyManagement-MilestoneManagement/)
+- [03-ScopeManagement-TimelineEstimation](03-ScopeManagement-TimelineEstimation/)
+
+## Danh sach bai hoc
+
+### [01-ResourceAllocation-RiskManagement](01-ResourceAllocation-RiskManagement/)
+
+- [Resource Allocation](01-ResourceAllocation-RiskManagement/001 - Resource Allocation.md)
+- [Sprint Planning](01-ResourceAllocation-RiskManagement/002 - Sprint Planning.md)
+- [Release Management](01-ResourceAllocation-RiskManagement/003 - Release Management.md)
+- [Risk Management](01-ResourceAllocation-RiskManagement/004 - Risk Management.md)
+
+### [02-DependencyManagement-MilestoneManagement](02-DependencyManagement-MilestoneManagement/)
+
+- [Dependency Management](02-DependencyManagement-MilestoneManagement/005 - Dependency Management.md)
+- [Agile Methodologies](02-DependencyManagement-MilestoneManagement/006 - Agile Methodologies.md)
+- [Project Tracking](02-DependencyManagement-MilestoneManagement/007 - Project Tracking.md)
+- [Milestone Management](02-DependencyManagement-MilestoneManagement/008 - Milestone Management.md)
+
+### [03-ScopeManagement-TimelineEstimation](03-ScopeManagement-TimelineEstimation/)
+
+- [Scope Management](03-ScopeManagement-TimelineEstimation/009 - Scope Management.md)
+- [Timeline Estimation](03-ScopeManagement-TimelineEstimation/010 - Timeline Estimation.md)
+

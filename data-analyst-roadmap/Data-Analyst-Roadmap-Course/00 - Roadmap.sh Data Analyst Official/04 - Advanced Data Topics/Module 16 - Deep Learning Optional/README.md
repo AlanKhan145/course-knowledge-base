@@ -15,18 +15,23 @@ Get a high-level map of deep learning concepts, frameworks and practice areas wi
 - Neural Networks
 - Practice Training Models
 
+## Noi dung nho
+
+- [01-LearnTheBasics-TensorFlow](01-LearnTheBasics-TensorFlow/)
+- [02-PyTorch-NaturalLanguageProcessing](02-PyTorch-NaturalLanguageProcessing/)
+
 ## Danh sach bai hoc
 
-- [001 - Learn the Basics](001 - Learn the Basics.md)
-- [002 - CNNs](002 - CNNs.md)
-- [003 - RNN](003 - RNN.md)
-- [004 - TensorFlow](004 - TensorFlow.md)
-- [005 - PyTorch](005 - PyTorch.md)
-- [006 - Image Recognition](006 - Image Recognition.md)
-- [007 - Natural Language Processing](007 - Natural Language Processing.md)
+### [01-LearnTheBasics-TensorFlow](01-LearnTheBasics-TensorFlow/)
 
-## Cach hoc module nay
+- [Learn the Basics](01-LearnTheBasics-TensorFlow/001 - Learn the Basics.md)
+- [CNNs](01-LearnTheBasics-TensorFlow/002 - CNNs.md)
+- [RNN](01-LearnTheBasics-TensorFlow/003 - RNN.md)
+- [TensorFlow](01-LearnTheBasics-TensorFlow/004 - TensorFlow.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-PyTorch-NaturalLanguageProcessing](02-PyTorch-NaturalLanguageProcessing/)
+
+- [PyTorch](02-PyTorch-NaturalLanguageProcessing/005 - PyTorch.md)
+- [Image Recognition](02-PyTorch-NaturalLanguageProcessing/006 - Image Recognition.md)
+- [Natural Language Processing](02-PyTorch-NaturalLanguageProcessing/007 - Natural Language Processing.md)
+

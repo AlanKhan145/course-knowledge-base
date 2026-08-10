@@ -3,9 +3,6 @@
 ## Mục tiêu module
 Hiểu Internet hoạt động ở mức tổng quan: packet, DNS, IP, TCP/UDP và HTTP/HTTPS.
 
-## Bài học
-- [001 - How does the Internet Work?](001 - How does the Internet Work.md)
-
 ## Thực hành trọng tâm
 Vẽ luồng truy cập một website từ laptop tới server, gồm DNS lookup, TCP/TLS handshake và HTTP request.
 
@@ -19,3 +16,14 @@ Vẽ luồng truy cập một website từ laptop tới server, gồm DNS lookup
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-HowDoesThe](01-HowDoesThe/)
+
+## Danh sach bai hoc
+
+### [01-HowDoesThe](01-HowDoesThe/)
+
+- [How does the Internet Work](01-HowDoesThe/001 - How does the Internet Work.md)
+

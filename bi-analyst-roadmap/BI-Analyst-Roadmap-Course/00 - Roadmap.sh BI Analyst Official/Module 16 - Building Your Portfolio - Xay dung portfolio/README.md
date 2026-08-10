@@ -3,11 +3,6 @@
 ## Mục tiêu module
 Biết xây portfolio BI Analyst bằng project end-to-end, dashboard và case study.
 
-## Bài học
-- [001 - End-to-end Analytics Project](001 - End-to-end Analytics Project.md)
-- [002 - Dashboard Design](002 - Dashboard Design.md)
-- [003 - Portfolio Presentation](003 - Portfolio Presentation.md)
-
 ## Thực hành trọng tâm
 Hoàn thành một case study portfolio gồm problem, data, analysis, dashboard và business impact.
 
@@ -21,3 +16,16 @@ Hoàn thành một case study portfolio gồm problem, data, analysis, dashboard
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một business question thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc BI Analyst
+
+## Noi dung nho
+
+- [01-EndToEnd-PortfolioPresentation](01-EndToEnd-PortfolioPresentation/)
+
+## Danh sach bai hoc
+
+### [01-EndToEnd-PortfolioPresentation](01-EndToEnd-PortfolioPresentation/)
+
+- [End-to-end Analytics Project](01-EndToEnd-PortfolioPresentation/001 - End-to-end Analytics Project.md)
+- [Dashboard Design](01-EndToEnd-PortfolioPresentation/002 - Dashboard Design.md)
+- [Portfolio Presentation](01-EndToEnd-PortfolioPresentation/003 - Portfolio Presentation.md)
+

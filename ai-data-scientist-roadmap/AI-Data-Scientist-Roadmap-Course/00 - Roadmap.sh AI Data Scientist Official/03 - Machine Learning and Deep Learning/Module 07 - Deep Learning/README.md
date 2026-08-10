@@ -21,38 +21,62 @@ Mini project: Image Classification comparing a small CNN and transfer learning w
 - [Computer Vision Applications](05-Vision/README.md) (Lessons 018-020)
 - [Sequence and Transfer Learning Applications](06-SeqTL/README.md) (Lessons 021-024)
 
-## Lessons
-
-
-Note: Lesson files are organized in topic subfolders for easier study.
-
-- [001 - Neural Network Basics](01-NN/001 - Neural Network Basics.md) - how layers of connected units learn to approximate functions
-- [002 - Neuron](01-NN/002 - Neuron.md) - the basic computing unit that combines weighted inputs and an activation
-- [003 - Layer](01-NN/003 - Layer.md) - a group of neurons that transforms inputs into outputs together
-- [004 - Activation Function](01-NN/004 - Activation Function.md) - a nonlinearity that lets networks model complex relationships
-- [005 - Loss Function](01-NN/005 - Loss Function.md) - measuring how wrong a network's predictions are during training
-- [006 - Backpropagation](02-Train/006 - Backpropagation.md) - computing gradients by propagating error backward through the network
-- [007 - SGD](02-Train/007 - SGD.md) - Stochastic Gradient Descent, updating weights using small batches of data
-- [008 - Adam](02-Train/008 - Adam.md) - an adaptive optimizer combining momentum and per-parameter learning rates
-- [009 - Fully Connected Network](03-Arch/009 - Fully Connected Network.md) - a network where every neuron connects to every neuron in the next layer
-- [010 - CNN](03-Arch/010 - CNN.md) - Convolutional Neural Network, using filters to detect spatial patterns in images
-- [011 - RNN](03-Arch/011 - RNN.md) - Recurrent Neural Network, processing sequences by carrying a hidden state forward
-- [012 - LSTM](03-Arch/012 - LSTM.md) - a gated RNN variant designed to retain information over longer sequences
-- [013 - Transformer](03-Arch/013 - Transformer.md) - an architecture built on attention instead of recurrence or convolution
-- [014 - Attention](04-Attn/014 - Attention.md) - letting a model weigh which parts of the input matter most for each output
-- [015 - Self-attention](04-Attn/015 - Self-attention.md) - attention applied within a single sequence to relate its own tokens
-- [016 - Positional Encoding](04-Attn/016 - Positional Encoding.md) - injecting order information into an architecture with no built-in sequence notion
-- [017 - Encoder / Decoder](04-Attn/017 - Encoder - Decoder.md) - separating input understanding from output generation in sequence models
-- [018 - Image Classification](05-Vision/018 - Image Classification.md) - assigning a label to an entire image
-- [019 - Object Detection Basics](05-Vision/019 - Object Detection Basics.md) - locating and classifying multiple objects within an image
-- [020 - Feature Extraction](05-Vision/020 - Feature Extraction.md) - using a pretrained network's internal representations for a new task
-- [021 - Text Sequence](06-SeqTL/021 - Text Sequence.md) - representing and modeling ordered tokens of text
-- [022 - Time Series](06-SeqTL/022 - Time Series.md) - applying deep learning to sequential, time-ordered data
-- [023 - Sentiment Analysis](06-SeqTL/023 - Sentiment Analysis.md) - classifying the emotional tone of a piece of text
-- [024 - Transfer Learning](06-SeqTL/024 - Transfer Learning.md) - reusing a pretrained model's weights for a new, related task (mini project)
-
 ## How to Study This Module
 
 - Go through the lessons in order if you're just starting out.
 - For each lesson, write down 3 key takeaways and 1 real data/ML example.
 - Build a small artifact: a notebook, SQL query, chart, model metric, API endpoint, Dockerfile, or portfolio note.
+
+## Noi dung nho
+
+- [01-NN](01-NN/)
+- [02-Train](02-Train/)
+- [03-Arch](03-Arch/)
+- [04-Attn](04-Attn/)
+- [05-Vision](05-Vision/)
+- [06-SeqTL](06-SeqTL/)
+
+## Danh sach bai hoc
+
+### [01-NN](01-NN/)
+
+- [Neural Network Basics](01-NN/001 - Neural Network Basics.md)
+- [Neuron](01-NN/002 - Neuron.md)
+- [Layer](01-NN/003 - Layer.md)
+- [Activation Function](01-NN/004 - Activation Function.md)
+- [Loss Function](01-NN/005 - Loss Function.md)
+
+### [02-Train](02-Train/)
+
+- [Backpropagation](02-Train/006 - Backpropagation.md)
+- [SGD](02-Train/007 - SGD.md)
+- [Adam](02-Train/008 - Adam.md)
+
+### [03-Arch](03-Arch/)
+
+- [Fully Connected Network](03-Arch/009 - Fully Connected Network.md)
+- [CNN](03-Arch/010 - CNN.md)
+- [RNN](03-Arch/011 - RNN.md)
+- [LSTM](03-Arch/012 - LSTM.md)
+- [Transformer](03-Arch/013 - Transformer.md)
+
+### [04-Attn](04-Attn/)
+
+- [Attention](04-Attn/014 - Attention.md)
+- [Self-attention](04-Attn/015 - Self-attention.md)
+- [Positional Encoding](04-Attn/016 - Positional Encoding.md)
+- [Encoder - Decoder](04-Attn/017 - Encoder - Decoder.md)
+
+### [05-Vision](05-Vision/)
+
+- [Image Classification](05-Vision/018 - Image Classification.md)
+- [Object Detection Basics](05-Vision/019 - Object Detection Basics.md)
+- [Feature Extraction](05-Vision/020 - Feature Extraction.md)
+
+### [06-SeqTL](06-SeqTL/)
+
+- [Text Sequence](06-SeqTL/021 - Text Sequence.md)
+- [Time Series](06-SeqTL/022 - Time Series.md)
+- [Sentiment Analysis](06-SeqTL/023 - Sentiment Analysis.md)
+- [Transfer Learning](06-SeqTL/024 - Transfer Learning.md)
+

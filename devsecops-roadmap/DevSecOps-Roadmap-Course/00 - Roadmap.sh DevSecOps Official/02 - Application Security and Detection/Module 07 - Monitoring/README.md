@@ -12,14 +12,15 @@ Turn logs, SIEM signals and alerts into actionable detection and triage workflow
 
 - Topics
 
+## Noi dung nho
+
+- [01-LogAnalysis-AlertTypes](01-LogAnalysis-AlertTypes/)
+
 ## Danh sach bai hoc
 
-- [001 - Log Analysis](001 - Log Analysis.md)
-- [002 - SIEM](002 - SIEM.md)
-- [003 - Alert Types](003 - Alert Types.md)
+### [01-LogAnalysis-AlertTypes](01-LogAnalysis-AlertTypes/)
 
-## Cach hoc module nay
+- [Log Analysis](01-LogAnalysis-AlertTypes/001 - Log Analysis.md)
+- [SIEM](01-LogAnalysis-AlertTypes/002 - SIEM.md)
+- [Alert Types](01-LogAnalysis-AlertTypes/003 - Alert Types.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

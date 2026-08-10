@@ -3,12 +3,6 @@
 ## Mục tiêu module
 Biết nói, viết, kể chuyện và xử lý Q&A cho audience developer.
 
-## Bài học
-- [001 - Public Speaking](001 - Public Speaking.md)
-- [002 - Engaging Audience](002 - Engaging Audience.md)
-- [003 - Handling Q&A](003 - Handling QandA.md)
-- [004 - Writing Skills](004 - Writing Skills.md)
-
 ## Thực hành trọng tâm
 Chuẩn bị một lightning talk 5-7 phút, gồm hook, 3 ý chính, demo flow và Q&A khó.
 
@@ -22,3 +16,17 @@ Chuẩn bị một lightning talk 5-7 phút, gồm hook, 3 ý chính, demo flow 
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với developer journey thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc DevRel
+
+## Noi dung nho
+
+- [01-PublicSpeaking-WritingSkills](01-PublicSpeaking-WritingSkills/)
+
+## Danh sach bai hoc
+
+### [01-PublicSpeaking-WritingSkills](01-PublicSpeaking-WritingSkills/)
+
+- [Public Speaking](01-PublicSpeaking-WritingSkills/001 - Public Speaking.md)
+- [Engaging Audience](01-PublicSpeaking-WritingSkills/002 - Engaging Audience.md)
+- [Handling QandA](01-PublicSpeaking-WritingSkills/003 - Handling QandA.md)
+- [Writing Skills](01-PublicSpeaking-WritingSkills/004 - Writing Skills.md)
+

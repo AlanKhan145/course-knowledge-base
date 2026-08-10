@@ -10,40 +10,67 @@ Test REST APIs with Postman/Newman and understand Java/BDD API automation altern
 
 Mini project: Create Postman collection and Newman report for product, login, cart and order APIs.
 
+## Noi dung nho
+
+- [01-RESTAPI-Headers](01-RESTAPI-Headers/)
+- [02-Authentication-200OK](02-Authentication-200OK/)
+- [03-201Created-500ServerError](03-201Created-500ServerError/)
+- [04-ErrorResponseContract-TestScript](04-ErrorResponseContract-TestScript/)
+- [05-CollectionRunner-RESTAssured](05-CollectionRunner-RESTAssured/)
+- [06-KarateFramework-ContractTestingOverview](06-KarateFramework-ContractTestingOverview/)
+
 ## Danh sach bai hoc
 
-- [001 - REST API](001 - REST API.md)
-- [002 - HTTP Methods](002 - HTTP Methods.md)
-- [003 - Status Code](003 - Status Code.md)
-- [004 - Request Body](004 - Request Body.md)
-- [005 - Response Body](005 - Response Body.md)
-- [006 - Headers](006 - Headers.md)
-- [007 - Authentication](007 - Authentication.md)
-- [008 - Authorization](008 - Authorization.md)
-- [009 - Schema Validation](009 - Schema Validation.md)
-- [010 - API Test Case](010 - API Test Case.md)
-- [011 - API Negative Test](011 - API Negative Test.md)
-- [012 - 200 OK](012 - 200 OK.md)
-- [013 - 201 Created](013 - 201 Created.md)
-- [014 - 400 Bad Request](014 - 400 Bad Request.md)
-- [015 - 401 Unauthorized](015 - 401 Unauthorized.md)
-- [016 - 403 Forbidden](016 - 403 Forbidden.md)
-- [017 - 404 Not Found](017 - 404 Not Found.md)
-- [018 - 500 Server Error](018 - 500 Server Error.md)
-- [019 - Error Response Contract](019 - Error Response Contract.md)
-- [020 - Postman](020 - Postman.md)
-- [021 - Collection](021 - Collection.md)
-- [022 - Environment Variables](022 - Environment Variables.md)
-- [023 - Pre-request Script](023 - Pre-request Script.md)
-- [024 - Test Script](024 - Test Script.md)
-- [025 - Collection Runner](025 - Collection Runner.md)
-- [026 - Newman](026 - Newman.md)
-- [027 - Newman CLI](027 - Newman CLI.md)
-- [028 - Newman HTML Report](028 - Newman HTML Report.md)
-- [029 - API Test in CI](029 - API Test in CI.md)
-- [030 - REST Assured](030 - REST Assured.md)
-- [031 - Karate Framework](031 - Karate Framework.md)
-- [032 - SoapUI](032 - SoapUI.md)
-- [033 - SOAP API Testing](033 - SOAP API Testing.md)
-- [034 - Mock Service](034 - Mock Service.md)
-- [035 - Contract Testing Overview](035 - Contract Testing Overview.md)
+### [01-RESTAPI-Headers](01-RESTAPI-Headers/)
+
+- [REST API](01-RESTAPI-Headers/001 - REST API.md)
+- [HTTP Methods](01-RESTAPI-Headers/002 - HTTP Methods.md)
+- [Status Code](01-RESTAPI-Headers/003 - Status Code.md)
+- [Request Body](01-RESTAPI-Headers/004 - Request Body.md)
+- [Response Body](01-RESTAPI-Headers/005 - Response Body.md)
+- [Headers](01-RESTAPI-Headers/006 - Headers.md)
+
+### [02-Authentication-200OK](02-Authentication-200OK/)
+
+- [Authentication](02-Authentication-200OK/007 - Authentication.md)
+- [Authorization](02-Authentication-200OK/008 - Authorization.md)
+- [Schema Validation](02-Authentication-200OK/009 - Schema Validation.md)
+- [API Test Case](02-Authentication-200OK/010 - API Test Case.md)
+- [API Negative Test](02-Authentication-200OK/011 - API Negative Test.md)
+- [200 OK](02-Authentication-200OK/012 - 200 OK.md)
+
+### [03-201Created-500ServerError](03-201Created-500ServerError/)
+
+- [201 Created](03-201Created-500ServerError/013 - 201 Created.md)
+- [400 Bad Request](03-201Created-500ServerError/014 - 400 Bad Request.md)
+- [401 Unauthorized](03-201Created-500ServerError/015 - 401 Unauthorized.md)
+- [403 Forbidden](03-201Created-500ServerError/016 - 403 Forbidden.md)
+- [404 Not Found](03-201Created-500ServerError/017 - 404 Not Found.md)
+- [500 Server Error](03-201Created-500ServerError/018 - 500 Server Error.md)
+
+### [04-ErrorResponseContract-TestScript](04-ErrorResponseContract-TestScript/)
+
+- [Error Response Contract](04-ErrorResponseContract-TestScript/019 - Error Response Contract.md)
+- [Postman](04-ErrorResponseContract-TestScript/020 - Postman.md)
+- [Collection](04-ErrorResponseContract-TestScript/021 - Collection.md)
+- [Environment Variables](04-ErrorResponseContract-TestScript/022 - Environment Variables.md)
+- [Pre-request Script](04-ErrorResponseContract-TestScript/023 - Pre-request Script.md)
+- [Test Script](04-ErrorResponseContract-TestScript/024 - Test Script.md)
+
+### [05-CollectionRunner-RESTAssured](05-CollectionRunner-RESTAssured/)
+
+- [Collection Runner](05-CollectionRunner-RESTAssured/025 - Collection Runner.md)
+- [Newman](05-CollectionRunner-RESTAssured/026 - Newman.md)
+- [Newman CLI](05-CollectionRunner-RESTAssured/027 - Newman CLI.md)
+- [Newman HTML Report](05-CollectionRunner-RESTAssured/028 - Newman HTML Report.md)
+- [API Test in CI](05-CollectionRunner-RESTAssured/029 - API Test in CI.md)
+- [REST Assured](05-CollectionRunner-RESTAssured/030 - REST Assured.md)
+
+### [06-KarateFramework-ContractTestingOverview](06-KarateFramework-ContractTestingOverview/)
+
+- [Karate Framework](06-KarateFramework-ContractTestingOverview/031 - Karate Framework.md)
+- [SoapUI](06-KarateFramework-ContractTestingOverview/032 - SoapUI.md)
+- [SOAP API Testing](06-KarateFramework-ContractTestingOverview/033 - SOAP API Testing.md)
+- [Mock Service](06-KarateFramework-ContractTestingOverview/034 - Mock Service.md)
+- [Contract Testing Overview](06-KarateFramework-ContractTestingOverview/035 - Contract Testing Overview.md)
+

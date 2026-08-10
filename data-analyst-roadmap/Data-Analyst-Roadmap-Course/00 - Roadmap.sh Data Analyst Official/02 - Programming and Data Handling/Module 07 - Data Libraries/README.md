@@ -13,15 +13,16 @@ Use data manipulation and visualisation libraries to load, clean, transform and 
 - Data Manipulation Libraries
 - Data Visualisation Libraries
 
+## Noi dung nho
+
+- [01-Pandas-Ggplot2](01-Pandas-Ggplot2/)
+
 ## Danh sach bai hoc
 
-- [001 - Pandas](001 - Pandas.md)
-- [002 - Dplyr](002 - Dplyr.md)
-- [003 - Matplotlib](003 - Matplotlib.md)
-- [004 - ggplot2](004 - ggplot2.md)
+### [01-Pandas-Ggplot2](01-Pandas-Ggplot2/)
 
-## Cach hoc module nay
+- [Pandas](01-Pandas-Ggplot2/001 - Pandas.md)
+- [Dplyr](01-Pandas-Ggplot2/002 - Dplyr.md)
+- [Matplotlib](01-Pandas-Ggplot2/003 - Matplotlib.md)
+- [ggplot2](01-Pandas-Ggplot2/004 - ggplot2.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.

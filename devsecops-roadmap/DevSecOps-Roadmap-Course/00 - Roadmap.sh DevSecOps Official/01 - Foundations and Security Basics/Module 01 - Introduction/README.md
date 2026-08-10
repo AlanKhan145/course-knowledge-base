@@ -12,12 +12,13 @@ Explain how DevSecOps extends DevOps by embedding security into every delivery a
 
 - Topics
 
+## Noi dung nho
+
+- [01-DevSecOpsVsDevOps](01-DevSecOpsVsDevOps/)
+
 ## Danh sach bai hoc
 
-- [001 - DevSecOps vs DevOps](001 - DevSecOps vs DevOps.md)
+### [01-DevSecOpsVsDevOps](01-DevSecOpsVsDevOps/)
 
-## Cach hoc module nay
+- [DevSecOps vs DevOps](01-DevSecOpsVsDevOps/001 - DevSecOps vs DevOps.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

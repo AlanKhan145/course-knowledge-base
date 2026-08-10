@@ -10,33 +10,60 @@ Build decentralized applications that connect frontend, wallet, RPC node and sma
 
 Mini project: Token Dashboard with wallet connect, ERC-20 balance and transfer flow.
 
+## Noi dung nho
+
+- [01-DAppArchitecture-NodeRPC](01-DAppArchitecture-NodeRPC/)
+- [02-Blockchain-TransactionConfirmationUI](02-Blockchain-TransactionConfirmationUI/)
+- [03-JavaScript-Angular](03-JavaScript-Angular/)
+- [04-EthersJs-ViemOverview](04-EthersJs-ViemOverview/)
+- [05-Alchemy-RPCRateLimits](05-Alchemy-RPCRateLimits/)
+- [06-RPCErrorHandling-HostedNodeTradeoffs](06-RPCErrorHandling-HostedNodeTradeoffs/)
+
 ## Danh sach bai hoc
 
-- [001 - dApp Architecture](001 - dApp Architecture.md)
-- [002 - Frontend](002 - Frontend.md)
-- [003 - Wallet Provider](003 - Wallet Provider.md)
-- [004 - Smart Contract](004 - Smart Contract.md)
-- [005 - Node RPC](005 - Node RPC.md)
-- [006 - Blockchain](006 - Blockchain.md)
-- [007 - Read Contract](007 - Read Contract.md)
-- [008 - Write Contract](008 - Write Contract.md)
-- [009 - Transaction Hash](009 - Transaction Hash.md)
-- [010 - Transaction Confirmation UI](010 - Transaction Confirmation UI.md)
-- [011 - JavaScript](011 - JavaScript.md)
-- [012 - TypeScript](012 - TypeScript.md)
-- [013 - React](013 - React.md)
-- [014 - Vue](014 - Vue.md)
-- [015 - Angular](015 - Angular.md)
-- [016 - ethers.js](016 - ethers.js.md)
-- [017 - web3.js](017 - web3.js.md)
-- [018 - Moralis](018 - Moralis.md)
-- [019 - wagmi Overview](019 - wagmi Overview.md)
-- [020 - viem Overview](020 - viem Overview.md)
-- [021 - Alchemy](021 - Alchemy.md)
-- [022 - Infura](022 - Infura.md)
-- [023 - Moralis RPC](023 - Moralis RPC.md)
-- [024 - QuickNode](024 - QuickNode.md)
-- [025 - RPC Rate Limits](025 - RPC Rate Limits.md)
-- [026 - RPC Error Handling](026 - RPC Error Handling.md)
-- [027 - Client Node](027 - Client Node.md)
-- [028 - Hosted Node Tradeoffs](028 - Hosted Node Tradeoffs.md)
+### [01-DAppArchitecture-NodeRPC](01-DAppArchitecture-NodeRPC/)
+
+- [dApp Architecture](01-DAppArchitecture-NodeRPC/001 - dApp Architecture.md)
+- [Frontend](01-DAppArchitecture-NodeRPC/002 - Frontend.md)
+- [Wallet Provider](01-DAppArchitecture-NodeRPC/003 - Wallet Provider.md)
+- [Smart Contract](01-DAppArchitecture-NodeRPC/004 - Smart Contract.md)
+- [Node RPC](01-DAppArchitecture-NodeRPC/005 - Node RPC.md)
+
+### [02-Blockchain-TransactionConfirmationUI](02-Blockchain-TransactionConfirmationUI/)
+
+- [Blockchain](02-Blockchain-TransactionConfirmationUI/006 - Blockchain.md)
+- [Read Contract](02-Blockchain-TransactionConfirmationUI/007 - Read Contract.md)
+- [Write Contract](02-Blockchain-TransactionConfirmationUI/008 - Write Contract.md)
+- [Transaction Hash](02-Blockchain-TransactionConfirmationUI/009 - Transaction Hash.md)
+- [Transaction Confirmation UI](02-Blockchain-TransactionConfirmationUI/010 - Transaction Confirmation UI.md)
+
+### [03-JavaScript-Angular](03-JavaScript-Angular/)
+
+- [JavaScript](03-JavaScript-Angular/011 - JavaScript.md)
+- [TypeScript](03-JavaScript-Angular/012 - TypeScript.md)
+- [React](03-JavaScript-Angular/013 - React.md)
+- [Vue](03-JavaScript-Angular/014 - Vue.md)
+- [Angular](03-JavaScript-Angular/015 - Angular.md)
+
+### [04-EthersJs-ViemOverview](04-EthersJs-ViemOverview/)
+
+- [ethers.js](04-EthersJs-ViemOverview/016 - ethers.js.md)
+- [web3.js](04-EthersJs-ViemOverview/017 - web3.js.md)
+- [Moralis](04-EthersJs-ViemOverview/018 - Moralis.md)
+- [wagmi Overview](04-EthersJs-ViemOverview/019 - wagmi Overview.md)
+- [viem Overview](04-EthersJs-ViemOverview/020 - viem Overview.md)
+
+### [05-Alchemy-RPCRateLimits](05-Alchemy-RPCRateLimits/)
+
+- [Alchemy](05-Alchemy-RPCRateLimits/021 - Alchemy.md)
+- [Infura](05-Alchemy-RPCRateLimits/022 - Infura.md)
+- [Moralis RPC](05-Alchemy-RPCRateLimits/023 - Moralis RPC.md)
+- [QuickNode](05-Alchemy-RPCRateLimits/024 - QuickNode.md)
+- [RPC Rate Limits](05-Alchemy-RPCRateLimits/025 - RPC Rate Limits.md)
+
+### [06-RPCErrorHandling-HostedNodeTradeoffs](06-RPCErrorHandling-HostedNodeTradeoffs/)
+
+- [RPC Error Handling](06-RPCErrorHandling-HostedNodeTradeoffs/026 - RPC Error Handling.md)
+- [Client Node](06-RPCErrorHandling-HostedNodeTradeoffs/027 - Client Node.md)
+- [Hosted Node Tradeoffs](06-RPCErrorHandling-HostedNodeTradeoffs/028 - Hosted Node Tradeoffs.md)
+

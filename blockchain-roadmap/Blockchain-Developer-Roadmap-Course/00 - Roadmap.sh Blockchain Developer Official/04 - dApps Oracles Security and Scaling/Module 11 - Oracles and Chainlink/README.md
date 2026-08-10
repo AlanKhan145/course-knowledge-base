@@ -10,22 +10,41 @@ Use oracles to connect deterministic smart contracts with off-chain data and sys
 
 Mini project: Write a smart contract that reads an ETH/USD price feed.
 
+## Noi dung nho
+
+- [01-OracleProblem-DecentralizedOracle](01-OracleProblem-DecentralizedOracle/)
+- [02-OracleNode-PriceFeed](02-OracleNode-PriceFeed/)
+- [03-AggregatorV3Interface-HybridSmartContract](03-AggregatorV3Interface-HybridSmartContract/)
+- [04-AutomationOverview-VRFOverview](04-AutomationOverview-VRFOverview/)
+
 ## Danh sach bai hoc
 
-- [001 - Oracle Problem](001 - Oracle Problem.md)
-- [002 - Off-chain Data](002 - Off-chain Data.md)
-- [003 - Deterministic Smart Contracts](003 - Deterministic Smart Contracts.md)
-- [004 - Centralized Oracle](004 - Centralized Oracle.md)
-- [005 - Decentralized Oracle](005 - Decentralized Oracle.md)
-- [006 - Oracle Node](006 - Oracle Node.md)
-- [007 - Data Feed](007 - Data Feed.md)
-- [008 - Oracle Network](008 - Oracle Network.md)
-- [009 - Chainlink](009 - Chainlink.md)
-- [010 - Price Feed](010 - Price Feed.md)
-- [011 - AggregatorV3Interface](011 - AggregatorV3Interface.md)
-- [012 - Stale Price Check](012 - Stale Price Check.md)
-- [013 - Decimals](013 - Decimals.md)
-- [014 - Oracle Update Frequency](014 - Oracle Update Frequency.md)
-- [015 - Hybrid Smart Contract](015 - Hybrid Smart Contract.md)
-- [016 - Automation Overview](016 - Automation Overview.md)
-- [017 - VRF Overview](017 - VRF Overview.md)
+### [01-OracleProblem-DecentralizedOracle](01-OracleProblem-DecentralizedOracle/)
+
+- [Oracle Problem](01-OracleProblem-DecentralizedOracle/001 - Oracle Problem.md)
+- [Off-chain Data](01-OracleProblem-DecentralizedOracle/002 - Off-chain Data.md)
+- [Deterministic Smart Contracts](01-OracleProblem-DecentralizedOracle/003 - Deterministic Smart Contracts.md)
+- [Centralized Oracle](01-OracleProblem-DecentralizedOracle/004 - Centralized Oracle.md)
+- [Decentralized Oracle](01-OracleProblem-DecentralizedOracle/005 - Decentralized Oracle.md)
+
+### [02-OracleNode-PriceFeed](02-OracleNode-PriceFeed/)
+
+- [Oracle Node](02-OracleNode-PriceFeed/006 - Oracle Node.md)
+- [Data Feed](02-OracleNode-PriceFeed/007 - Data Feed.md)
+- [Oracle Network](02-OracleNode-PriceFeed/008 - Oracle Network.md)
+- [Chainlink](02-OracleNode-PriceFeed/009 - Chainlink.md)
+- [Price Feed](02-OracleNode-PriceFeed/010 - Price Feed.md)
+
+### [03-AggregatorV3Interface-HybridSmartContract](03-AggregatorV3Interface-HybridSmartContract/)
+
+- [AggregatorV3Interface](03-AggregatorV3Interface-HybridSmartContract/011 - AggregatorV3Interface.md)
+- [Stale Price Check](03-AggregatorV3Interface-HybridSmartContract/012 - Stale Price Check.md)
+- [Decimals](03-AggregatorV3Interface-HybridSmartContract/013 - Decimals.md)
+- [Oracle Update Frequency](03-AggregatorV3Interface-HybridSmartContract/014 - Oracle Update Frequency.md)
+- [Hybrid Smart Contract](03-AggregatorV3Interface-HybridSmartContract/015 - Hybrid Smart Contract.md)
+
+### [04-AutomationOverview-VRFOverview](04-AutomationOverview-VRFOverview/)
+
+- [Automation Overview](04-AutomationOverview-VRFOverview/016 - Automation Overview.md)
+- [VRF Overview](04-AutomationOverview-VRFOverview/017 - VRF Overview.md)
+

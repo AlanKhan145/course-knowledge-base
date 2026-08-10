@@ -12,15 +12,16 @@ Prepare, identify, contain, recover and learn from security incidents.
 
 - Topics
 
+## Noi dung nho
+
+- [01-IRLifecycle-RootCauseAnalysis](01-IRLifecycle-RootCauseAnalysis/)
+
 ## Danh sach bai hoc
 
-- [001 - IR Lifecycle](001 - IR Lifecycle.md)
-- [002 - Forensics](002 - Forensics.md)
-- [003 - Containment](003 - Containment.md)
-- [004 - Root Cause Analysis](004 - Root Cause Analysis.md)
+### [01-IRLifecycle-RootCauseAnalysis](01-IRLifecycle-RootCauseAnalysis/)
 
-## Cach hoc module nay
+- [IR Lifecycle](01-IRLifecycle-RootCauseAnalysis/001 - IR Lifecycle.md)
+- [Forensics](01-IRLifecycle-RootCauseAnalysis/002 - Forensics.md)
+- [Containment](01-IRLifecycle-RootCauseAnalysis/003 - Containment.md)
+- [Root Cause Analysis](01-IRLifecycle-RootCauseAnalysis/004 - Root Cause Analysis.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

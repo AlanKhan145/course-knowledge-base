@@ -12,14 +12,14 @@ Mini project: Multi-screen Profile App with explicit/implicit intents and lifecy
 
 ## Noi dung nho
 
-- [01-ActivityLifecycle - Activity Lifecycle](01-ActivityLifecycle/)
-- [02-Intents - Intents](02-Intents/)
-- [03-Services - Services](03-Services/)
-- [04-ProvidersReceivers - Providers and Receivers](04-ProvidersReceivers/)
+- [01-ActivityLifecycle](01-ActivityLifecycle/)
+- [02-Intents](02-Intents/)
+- [03-Services](03-Services/)
+- [04-ProvidersReceivers](04-ProvidersReceivers/)
 
 ## Danh sach bai hoc
 
-### [01-ActivityLifecycle - Activity Lifecycle](01-ActivityLifecycle/)
+### [01-ActivityLifecycle](01-ActivityLifecycle/)
 
 - [Activity](01-ActivityLifecycle/001 - Activity.md)
 - [Activity Lifecycle](01-ActivityLifecycle/002 - Activity Lifecycle.md)
@@ -33,7 +33,7 @@ Mini project: Multi-screen Profile App with explicit/implicit intents and lifecy
 - [Configuration Changes](01-ActivityLifecycle/010 - Configuration Changes.md)
 - [Tasks and Backstack](01-ActivityLifecycle/011 - Tasks and Backstack.md)
 
-### [02-Intents - Intents](02-Intents/)
+### [02-Intents](02-Intents/)
 
 - [Intent](02-Intents/012 - Intent.md)
 - [Explicit Intents](02-Intents/013 - Explicit Intents.md)
@@ -44,16 +44,17 @@ Mini project: Multi-screen Profile App with explicit/implicit intents and lifecy
 - [Open Browser Intent](02-Intents/018 - Open Browser Intent.md)
 - [Camera Intent](02-Intents/019 - Camera Intent.md)
 
-### [03-Services - Services](03-Services/)
+### [03-Services](03-Services/)
 
 - [Services](03-Services/020 - Services.md)
 - [Foreground Service](03-Services/021 - Foreground Service.md)
 - [Bound Service](03-Services/022 - Bound Service.md)
 
-### [04-ProvidersReceivers - Providers and Receivers](04-ProvidersReceivers/)
+### [04-ProvidersReceivers](04-ProvidersReceivers/)
 
 - [Content Provider](04-ProvidersReceivers/023 - Content Provider.md)
 - [Broadcast Receiver](04-ProvidersReceivers/024 - Broadcast Receiver.md)
 - [System Broadcasts](04-ProvidersReceivers/025 - System Broadcasts.md)
 - [App Manifest Registration](04-ProvidersReceivers/026 - App Manifest Registration.md)
 - [Component Permissions](04-ProvidersReceivers/027 - Component Permissions.md)
+

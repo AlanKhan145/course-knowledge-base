@@ -5,16 +5,21 @@
 
 Module nay gom 5 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-Astro-Vuepress](01-Astro-Vuepress/)
+- [02-Eleventy-NuxtJs](02-Eleventy-NuxtJs/)
+
 ## Danh sach bai hoc
 
-- [001 - Astro](001 - Astro.md)
-- [002 - Next.js](002 - Next.js.md)
-- [003 - Vuepress](003 - Vuepress.md)
-- [004 - Eleventy](004 - Eleventy.md)
-- [005 - Nuxt.js](005 - Nuxt.js.md)
+### [01-Astro-Vuepress](01-Astro-Vuepress/)
 
-## Cach hoc module nay
+- [Astro](01-Astro-Vuepress/001 - Astro.md)
+- [Next.js](01-Astro-Vuepress/002 - Next.js.md)
+- [Vuepress](01-Astro-Vuepress/003 - Vuepress.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-Eleventy-NuxtJs](02-Eleventy-NuxtJs/)
+
+- [Eleventy](02-Eleventy-NuxtJs/004 - Eleventy.md)
+- [Nuxt.js](02-Eleventy-NuxtJs/005 - Nuxt.js.md)
+

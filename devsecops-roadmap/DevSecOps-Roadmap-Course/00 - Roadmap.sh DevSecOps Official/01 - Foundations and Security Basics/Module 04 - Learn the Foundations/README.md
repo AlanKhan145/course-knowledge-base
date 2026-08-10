@@ -12,18 +12,23 @@ Understand core security principles: CIA, authentication, authorization, OWASP r
 
 - Topics
 
+## Noi dung nho
+
+- [01-CIATriad-OWASPTop10](01-CIATriad-OWASPTop10/)
+- [02-Encryption-AsymmetricEncryption](02-Encryption-AsymmetricEncryption/)
+
 ## Danh sach bai hoc
 
-- [001 - CIA Triad](001 - CIA Triad.md)
-- [002 - Authentication](002 - Authentication.md)
-- [003 - Authorization](003 - Authorization.md)
-- [004 - OWASP Top 10](004 - OWASP Top 10.md)
-- [005 - Encryption](005 - Encryption.md)
-- [006 - Symmetric Encryption](006 - Symmetric Encryption.md)
-- [007 - Asymmetric Encryption](007 - Asymmetric Encryption.md)
+### [01-CIATriad-OWASPTop10](01-CIATriad-OWASPTop10/)
 
-## Cach hoc module nay
+- [CIA Triad](01-CIATriad-OWASPTop10/001 - CIA Triad.md)
+- [Authentication](01-CIATriad-OWASPTop10/002 - Authentication.md)
+- [Authorization](01-CIATriad-OWASPTop10/003 - Authorization.md)
+- [OWASP Top 10](01-CIATriad-OWASPTop10/004 - OWASP Top 10.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.
+### [02-Encryption-AsymmetricEncryption](02-Encryption-AsymmetricEncryption/)
+
+- [Encryption](02-Encryption-AsymmetricEncryption/005 - Encryption.md)
+- [Symmetric Encryption](02-Encryption-AsymmetricEncryption/006 - Symmetric Encryption.md)
+- [Asymmetric Encryption](02-Encryption-AsymmetricEncryption/007 - Asymmetric Encryption.md)
+

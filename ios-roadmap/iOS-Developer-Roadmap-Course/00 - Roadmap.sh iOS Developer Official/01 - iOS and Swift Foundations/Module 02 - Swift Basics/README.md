@@ -10,24 +10,43 @@ Learn enough Swift syntax and type system to build real iOS screens and small ap
 
 Mini project: Swift console task manager with add, list, complete and delete operations.
 
+## Noi dung nho
+
+- [01-WhyLearnSwift-String](01-WhyLearnSwift-String/)
+- [02-Number-Set](02-Number-Set/)
+- [03-Function-Protocol](03-Function-Protocol/)
+- [04-Extension-BasicGenerics](04-Extension-BasicGenerics/)
+
 ## Danh sach bai hoc
 
-- [001 - Why Learn Swift?](001 - Why Learn Swift.md)
-- [002 - Variables](002 - Variables.md)
-- [003 - Constants](003 - Constants.md)
-- [004 - Data Types](004 - Data Types.md)
-- [005 - String](005 - String.md)
-- [006 - Number](006 - Number.md)
-- [007 - Bool](007 - Bool.md)
-- [008 - Array](008 - Array.md)
-- [009 - Dictionary](009 - Dictionary.md)
-- [010 - Set](010 - Set.md)
-- [011 - Function](011 - Function.md)
-- [012 - Optional](012 - Optional.md)
-- [013 - Struct vs Class](013 - Struct vs Class.md)
-- [014 - Enum](014 - Enum.md)
-- [015 - Protocol](015 - Protocol.md)
-- [016 - Extension](016 - Extension.md)
-- [017 - Error Handling](017 - Error Handling.md)
-- [018 - Closure](018 - Closure.md)
-- [019 - Basic Generics](019 - Basic Generics.md)
+### [01-WhyLearnSwift-String](01-WhyLearnSwift-String/)
+
+- [Why Learn Swift](01-WhyLearnSwift-String/001 - Why Learn Swift.md)
+- [Variables](01-WhyLearnSwift-String/002 - Variables.md)
+- [Constants](01-WhyLearnSwift-String/003 - Constants.md)
+- [Data Types](01-WhyLearnSwift-String/004 - Data Types.md)
+- [String](01-WhyLearnSwift-String/005 - String.md)
+
+### [02-Number-Set](02-Number-Set/)
+
+- [Number](02-Number-Set/006 - Number.md)
+- [Bool](02-Number-Set/007 - Bool.md)
+- [Array](02-Number-Set/008 - Array.md)
+- [Dictionary](02-Number-Set/009 - Dictionary.md)
+- [Set](02-Number-Set/010 - Set.md)
+
+### [03-Function-Protocol](03-Function-Protocol/)
+
+- [Function](03-Function-Protocol/011 - Function.md)
+- [Optional](03-Function-Protocol/012 - Optional.md)
+- [Struct vs Class](03-Function-Protocol/013 - Struct vs Class.md)
+- [Enum](03-Function-Protocol/014 - Enum.md)
+- [Protocol](03-Function-Protocol/015 - Protocol.md)
+
+### [04-Extension-BasicGenerics](04-Extension-BasicGenerics/)
+
+- [Extension](04-Extension-BasicGenerics/016 - Extension.md)
+- [Error Handling](04-Extension-BasicGenerics/017 - Error Handling.md)
+- [Closure](04-Extension-BasicGenerics/018 - Closure.md)
+- [Basic Generics](04-Extension-BasicGenerics/019 - Basic Generics.md)
+

@@ -3,15 +3,6 @@
 ## Mục tiêu module
 Biết kết nối engineering work với strategy, product goals, ROI, market và financial constraints.
 
-## Nội dung
-- [001 - Strategic Thinking](001 - Strategic Thinking.md)
-- [002 - Product Strategy Alignment](002 - Product Strategy Alignment.md)
-- [003 - Business Case Development](003 - Business Case Development.md)
-- [004 - ROI Analysis](004 - ROI Analysis.md)
-- [005 - Market Awareness](005 - Market Awareness.md)
-- [006 - Competitive Analysis](006 - Competitive Analysis.md)
-- [007 - Financial Management](007 - Financial Management.md)
-
 ## Thực hành trọng tâm
 Viết business case ngắn cho một technical initiative: chi phí, lợi ích, ROI và rủi ro.
 
@@ -25,3 +16,24 @@ Viết business case ngắn cho một technical initiative: chi phí, lợi ích
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một team, hệ thống hoặc dự án thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong vai trò Engineering Manager
+
+## Noi dung nho
+
+- [01-StrategicThinking-ROIAnalysis](01-StrategicThinking-ROIAnalysis/)
+- [02-MarketAwareness-FinancialManagement](02-MarketAwareness-FinancialManagement/)
+
+## Danh sach bai hoc
+
+### [01-StrategicThinking-ROIAnalysis](01-StrategicThinking-ROIAnalysis/)
+
+- [Strategic Thinking](01-StrategicThinking-ROIAnalysis/001 - Strategic Thinking.md)
+- [Product Strategy Alignment](01-StrategicThinking-ROIAnalysis/002 - Product Strategy Alignment.md)
+- [Business Case Development](01-StrategicThinking-ROIAnalysis/003 - Business Case Development.md)
+- [ROI Analysis](01-StrategicThinking-ROIAnalysis/004 - ROI Analysis.md)
+
+### [02-MarketAwareness-FinancialManagement](02-MarketAwareness-FinancialManagement/)
+
+- [Market Awareness](02-MarketAwareness-FinancialManagement/005 - Market Awareness.md)
+- [Competitive Analysis](02-MarketAwareness-FinancialManagement/006 - Competitive Analysis.md)
+- [Financial Management](02-MarketAwareness-FinancialManagement/007 - Financial Management.md)
+

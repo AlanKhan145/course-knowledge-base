@@ -12,18 +12,23 @@ Trace and protect traffic across firewall, segmentation, DNS, HTTP and TLS bound
 
 - Topics
 
+## Noi dung nho
+
+- [01-Firewalls-NetworkSegmentation](01-Firewalls-NetworkSegmentation/)
+- [02-DNS-TLS](02-DNS-TLS/)
+
 ## Danh sach bai hoc
 
-- [001 - Firewalls](001 - Firewalls.md)
-- [002 - VLANs](002 - VLANs.md)
-- [003 - ACLs](003 - ACLs.md)
-- [004 - Network Segmentation](004 - Network Segmentation.md)
-- [005 - DNS](005 - DNS.md)
-- [006 - HTTP](006 - HTTP.md)
-- [007 - TLS](007 - TLS.md)
+### [01-Firewalls-NetworkSegmentation](01-Firewalls-NetworkSegmentation/)
 
-## Cach hoc module nay
+- [Firewalls](01-Firewalls-NetworkSegmentation/001 - Firewalls.md)
+- [VLANs](01-Firewalls-NetworkSegmentation/002 - VLANs.md)
+- [ACLs](01-Firewalls-NetworkSegmentation/003 - ACLs.md)
+- [Network Segmentation](01-Firewalls-NetworkSegmentation/004 - Network Segmentation.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.
+### [02-DNS-TLS](02-DNS-TLS/)
+
+- [DNS](02-DNS-TLS/005 - DNS.md)
+- [HTTP](02-DNS-TLS/006 - HTTP.md)
+- [TLS](02-DNS-TLS/007 - TLS.md)
+

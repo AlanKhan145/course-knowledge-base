@@ -10,18 +10,33 @@ Persist local data with UserDefaults, Keychain, files, SQLite and Core Data.
 
 Project: Notes App using Core Data and a small settings store.
 
+## Noi dung nho
+
+- [01-UserDefaults-CoreData](01-UserDefaults-CoreData/)
+- [02-Model-BasicMigration](02-Model-BasicMigration/)
+- [03-ChoosingStorageTechnology-PersistenceErrorHandli](03-ChoosingStorageTechnology-PersistenceErrorHandli/)
+
 ## Danh sach bai hoc
 
-- [001 - UserDefaults](001 - UserDefaults.md)
-- [002 - File System](002 - File System.md)
-- [003 - Keychain](003 - Keychain.md)
-- [004 - SQLite](004 - SQLite.md)
-- [005 - Core Data](005 - Core Data.md)
-- [006 - Model](006 - Model.md)
-- [007 - Entity](007 - Entity.md)
-- [008 - Fetch Request](008 - Fetch Request.md)
-- [009 - CRUD with Core Data](009 - CRUD with Core Data.md)
-- [010 - Basic Migration](010 - Basic Migration.md)
-- [011 - Choosing Storage Technology](011 - Choosing Storage Technology.md)
-- [012 - API Response Cache](012 - API Response Cache.md)
-- [013 - Persistence Error Handling](013 - Persistence Error Handling.md)
+### [01-UserDefaults-CoreData](01-UserDefaults-CoreData/)
+
+- [UserDefaults](01-UserDefaults-CoreData/001 - UserDefaults.md)
+- [File System](01-UserDefaults-CoreData/002 - File System.md)
+- [Keychain](01-UserDefaults-CoreData/003 - Keychain.md)
+- [SQLite](01-UserDefaults-CoreData/004 - SQLite.md)
+- [Core Data](01-UserDefaults-CoreData/005 - Core Data.md)
+
+### [02-Model-BasicMigration](02-Model-BasicMigration/)
+
+- [Model](02-Model-BasicMigration/006 - Model.md)
+- [Entity](02-Model-BasicMigration/007 - Entity.md)
+- [Fetch Request](02-Model-BasicMigration/008 - Fetch Request.md)
+- [CRUD with Core Data](02-Model-BasicMigration/009 - CRUD with Core Data.md)
+- [Basic Migration](02-Model-BasicMigration/010 - Basic Migration.md)
+
+### [03-ChoosingStorageTechnology-PersistenceErrorHandli](03-ChoosingStorageTechnology-PersistenceErrorHandli/)
+
+- [Choosing Storage Technology](03-ChoosingStorageTechnology-PersistenceErrorHandli/011 - Choosing Storage Technology.md)
+- [API Response Cache](03-ChoosingStorageTechnology-PersistenceErrorHandli/012 - API Response Cache.md)
+- [Persistence Error Handling](03-ChoosingStorageTechnology-PersistenceErrorHandli/013 - Persistence Error Handling.md)
+

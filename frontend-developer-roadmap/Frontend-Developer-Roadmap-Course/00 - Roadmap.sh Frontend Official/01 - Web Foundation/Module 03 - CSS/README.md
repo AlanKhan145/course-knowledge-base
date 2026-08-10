@@ -5,13 +5,14 @@
 
 Module nay gom 2 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-CSS-CSSRoadmap](01-CSS-CSSRoadmap/)
+
 ## Danh sach bai hoc
 
-- [001 - CSS](001 - CSS.md)
-- [002 - CSS Roadmap](002 - CSS Roadmap.md)
+### [01-CSS-CSSRoadmap](01-CSS-CSSRoadmap/)
 
-## Cach hoc module nay
+- [CSS](01-CSS-CSSRoadmap/001 - CSS.md)
+- [CSS Roadmap](01-CSS-CSSRoadmap/002 - CSS Roadmap.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

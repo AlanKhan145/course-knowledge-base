@@ -10,16 +10,31 @@ Keep Swift code consistent, readable and reviewable with linting and formatting 
 
 Mini project: Configure SwiftLint and a review checklist for an existing project.
 
+## Noi dung nho
+
+- [01-SwiftLint-NamingConvention](01-SwiftLint-NamingConvention/)
+- [02-CodeStyle-ReviewChecklist](02-CodeStyle-ReviewChecklist/)
+- [03-LintInCI-TechnicalDebtNotes](03-LintInCI-TechnicalDebtNotes/)
+
 ## Danh sach bai hoc
 
-- [001 - SwiftLint](001 - SwiftLint.md)
-- [002 - SwiftFormat](002 - SwiftFormat.md)
-- [003 - Tailor](003 - Tailor.md)
-- [004 - Naming Convention](004 - Naming Convention.md)
-- [005 - Code Style](005 - Code Style.md)
-- [006 - Clean Code in Swift](006 - Clean Code in Swift.md)
-- [007 - Refactor](007 - Refactor.md)
-- [008 - Review Checklist](008 - Review Checklist.md)
-- [009 - Lint in CI](009 - Lint in CI.md)
-- [010 - Formatting Rule Decisions](010 - Formatting Rule Decisions.md)
-- [011 - Technical Debt Notes](011 - Technical Debt Notes.md)
+### [01-SwiftLint-NamingConvention](01-SwiftLint-NamingConvention/)
+
+- [SwiftLint](01-SwiftLint-NamingConvention/001 - SwiftLint.md)
+- [SwiftFormat](01-SwiftLint-NamingConvention/002 - SwiftFormat.md)
+- [Tailor](01-SwiftLint-NamingConvention/003 - Tailor.md)
+- [Naming Convention](01-SwiftLint-NamingConvention/004 - Naming Convention.md)
+
+### [02-CodeStyle-ReviewChecklist](02-CodeStyle-ReviewChecklist/)
+
+- [Code Style](02-CodeStyle-ReviewChecklist/005 - Code Style.md)
+- [Clean Code in Swift](02-CodeStyle-ReviewChecklist/006 - Clean Code in Swift.md)
+- [Refactor](02-CodeStyle-ReviewChecklist/007 - Refactor.md)
+- [Review Checklist](02-CodeStyle-ReviewChecklist/008 - Review Checklist.md)
+
+### [03-LintInCI-TechnicalDebtNotes](03-LintInCI-TechnicalDebtNotes/)
+
+- [Lint in CI](03-LintInCI-TechnicalDebtNotes/009 - Lint in CI.md)
+- [Formatting Rule Decisions](03-LintInCI-TechnicalDebtNotes/010 - Formatting Rule Decisions.md)
+- [Technical Debt Notes](03-LintInCI-TechnicalDebtNotes/011 - Technical Debt Notes.md)
+

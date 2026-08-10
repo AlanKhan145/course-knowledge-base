@@ -1,17 +1,28 @@
 # Module 12 - API Security
 
-**Phase:** Phase 4 - API Gateway Kong and WSO2
+## Noi dung nho
 
-This module has 9 lessons.
+- [01-APIKey-MTLS](01-APIKey-MTLS/)
+- [02-IPWhitelist-HeaderSanitization](02-IPWhitelist-HeaderSanitization/)
+- [03-Exercise](03-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - API Key](001 - API Key.md)
-- [002 - JWT](002 - JWT.md)
-- [003 - OAuth2](003 - OAuth2.md)
-- [004 - mTLS](004 - mTLS.md)
-- [005 - IP Whitelist](005 - IP Whitelist.md)
-- [006 - Rate Limit](006 - Rate Limit.md)
-- [007 - Request Size Limit](007 - Request Size Limit.md)
-- [008 - Header Sanitization](008 - Header Sanitization.md)
-- [009 - Exercise](009 - Exercise.md)
+### [01-APIKey-MTLS](01-APIKey-MTLS/)
+
+- [API Key](01-APIKey-MTLS/001 - API Key.md)
+- [JWT](01-APIKey-MTLS/002 - JWT.md)
+- [OAuth2](01-APIKey-MTLS/003 - OAuth2.md)
+- [mTLS](01-APIKey-MTLS/004 - mTLS.md)
+
+### [02-IPWhitelist-HeaderSanitization](02-IPWhitelist-HeaderSanitization/)
+
+- [IP Whitelist](02-IPWhitelist-HeaderSanitization/005 - IP Whitelist.md)
+- [Rate Limit](02-IPWhitelist-HeaderSanitization/006 - Rate Limit.md)
+- [Request Size Limit](02-IPWhitelist-HeaderSanitization/007 - Request Size Limit.md)
+- [Header Sanitization](02-IPWhitelist-HeaderSanitization/008 - Header Sanitization.md)
+
+### [03-Exercise](03-Exercise/)
+
+- [Exercise](03-Exercise/009 - Exercise.md)
+

@@ -5,14 +5,15 @@
 
 Module nay gom 3 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-Biome-ESLint](01-Biome-ESLint/)
+
 ## Danh sach bai hoc
 
-- [001 - Biome](001 - Biome.md)
-- [002 - Prettier](002 - Prettier.md)
-- [003 - ESLint](003 - ESLint.md)
+### [01-Biome-ESLint](01-Biome-ESLint/)
 
-## Cach hoc module nay
+- [Biome](01-Biome-ESLint/001 - Biome.md)
+- [Prettier](01-Biome-ESLint/002 - Prettier.md)
+- [ESLint](01-Biome-ESLint/003 - ESLint.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.

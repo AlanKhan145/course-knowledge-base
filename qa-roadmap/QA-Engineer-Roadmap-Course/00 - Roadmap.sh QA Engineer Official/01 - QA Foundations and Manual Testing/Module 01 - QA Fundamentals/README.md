@@ -10,30 +10,53 @@ Understand Quality Assurance, QA mindset and the difference between QA, QC and T
 
 Mini project: Write a one-page QA role note and edge-case checklist for a signup form.
 
+## Noi dung nho
+
+- [01-QualityAssurance-QAInAgile](01-QualityAssurance-QAInAgile/)
+- [02-TesterVsQA-RiskBasedQuality](02-TesterVsQA-RiskBasedQuality/)
+- [03-SystematicSkepticism-NegativeTestingMindset](03-SystematicSkepticism-NegativeTestingMindset/)
+- [04-AmbiguityDetection-GrayBoxTesting](04-AmbiguityDetection-GrayBoxTesting/)
+- [05-BlackBoxTesting-RiskBasedTesting](05-BlackBoxTesting-RiskBasedTesting/)
+
 ## Danh sach bai hoc
 
-- [001 - Quality Assurance](001 - Quality Assurance.md)
-- [002 - QA vs QC](002 - QA vs QC.md)
-- [003 - QA vs Testing](003 - QA vs Testing.md)
-- [004 - Quality Goals](004 - Quality Goals.md)
-- [005 - QA in Agile Team](005 - QA in Agile Team.md)
-- [006 - Tester vs QA Engineer](006 - Tester vs QA Engineer.md)
-- [007 - Prevention over Detection](007 - Prevention over Detection.md)
-- [008 - Product Quality Attributes](008 - Product Quality Attributes.md)
-- [009 - Modern QA Engineer Role](009 - Modern QA Engineer Role.md)
-- [010 - Risk-based Quality](010 - Risk-based Quality.md)
-- [011 - Systematic Skepticism](011 - Systematic Skepticism.md)
-- [012 - User Perspective](012 - User Perspective.md)
-- [013 - Risk Thinking](013 - Risk Thinking.md)
-- [014 - Edge Case Thinking](014 - Edge Case Thinking.md)
-- [015 - Negative Testing Mindset](015 - Negative Testing Mindset.md)
-- [016 - Ambiguity Detection](016 - Ambiguity Detection.md)
-- [017 - Questioning Requirements](017 - Questioning Requirements.md)
-- [018 - Defect Prevention Mindset](018 - Defect Prevention Mindset.md)
-- [019 - White Box Testing](019 - White Box Testing.md)
-- [020 - Gray Box Testing](020 - Gray Box Testing.md)
-- [021 - Black Box Testing](021 - Black Box Testing.md)
-- [022 - Static Testing](022 - Static Testing.md)
-- [023 - Dynamic Testing](023 - Dynamic Testing.md)
-- [024 - Manual vs Automated Testing](024 - Manual vs Automated Testing.md)
-- [025 - Risk-based Testing](025 - Risk-based Testing.md)
+### [01-QualityAssurance-QAInAgile](01-QualityAssurance-QAInAgile/)
+
+- [Quality Assurance](01-QualityAssurance-QAInAgile/001 - Quality Assurance.md)
+- [QA vs QC](01-QualityAssurance-QAInAgile/002 - QA vs QC.md)
+- [QA vs Testing](01-QualityAssurance-QAInAgile/003 - QA vs Testing.md)
+- [Quality Goals](01-QualityAssurance-QAInAgile/004 - Quality Goals.md)
+- [QA in Agile Team](01-QualityAssurance-QAInAgile/005 - QA in Agile Team.md)
+
+### [02-TesterVsQA-RiskBasedQuality](02-TesterVsQA-RiskBasedQuality/)
+
+- [Tester vs QA Engineer](02-TesterVsQA-RiskBasedQuality/006 - Tester vs QA Engineer.md)
+- [Prevention over Detection](02-TesterVsQA-RiskBasedQuality/007 - Prevention over Detection.md)
+- [Product Quality Attributes](02-TesterVsQA-RiskBasedQuality/008 - Product Quality Attributes.md)
+- [Modern QA Engineer Role](02-TesterVsQA-RiskBasedQuality/009 - Modern QA Engineer Role.md)
+- [Risk-based Quality](02-TesterVsQA-RiskBasedQuality/010 - Risk-based Quality.md)
+
+### [03-SystematicSkepticism-NegativeTestingMindset](03-SystematicSkepticism-NegativeTestingMindset/)
+
+- [Systematic Skepticism](03-SystematicSkepticism-NegativeTestingMindset/011 - Systematic Skepticism.md)
+- [User Perspective](03-SystematicSkepticism-NegativeTestingMindset/012 - User Perspective.md)
+- [Risk Thinking](03-SystematicSkepticism-NegativeTestingMindset/013 - Risk Thinking.md)
+- [Edge Case Thinking](03-SystematicSkepticism-NegativeTestingMindset/014 - Edge Case Thinking.md)
+- [Negative Testing Mindset](03-SystematicSkepticism-NegativeTestingMindset/015 - Negative Testing Mindset.md)
+
+### [04-AmbiguityDetection-GrayBoxTesting](04-AmbiguityDetection-GrayBoxTesting/)
+
+- [Ambiguity Detection](04-AmbiguityDetection-GrayBoxTesting/016 - Ambiguity Detection.md)
+- [Questioning Requirements](04-AmbiguityDetection-GrayBoxTesting/017 - Questioning Requirements.md)
+- [Defect Prevention Mindset](04-AmbiguityDetection-GrayBoxTesting/018 - Defect Prevention Mindset.md)
+- [White Box Testing](04-AmbiguityDetection-GrayBoxTesting/019 - White Box Testing.md)
+- [Gray Box Testing](04-AmbiguityDetection-GrayBoxTesting/020 - Gray Box Testing.md)
+
+### [05-BlackBoxTesting-RiskBasedTesting](05-BlackBoxTesting-RiskBasedTesting/)
+
+- [Black Box Testing](05-BlackBoxTesting-RiskBasedTesting/021 - Black Box Testing.md)
+- [Static Testing](05-BlackBoxTesting-RiskBasedTesting/022 - Static Testing.md)
+- [Dynamic Testing](05-BlackBoxTesting-RiskBasedTesting/023 - Dynamic Testing.md)
+- [Manual vs Automated Testing](05-BlackBoxTesting-RiskBasedTesting/024 - Manual vs Automated Testing.md)
+- [Risk-based Testing](05-BlackBoxTesting-RiskBasedTesting/025 - Risk-based Testing.md)
+

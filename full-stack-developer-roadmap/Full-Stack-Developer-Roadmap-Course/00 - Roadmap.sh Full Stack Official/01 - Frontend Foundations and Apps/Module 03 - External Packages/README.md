@@ -13,14 +13,15 @@ Install and integrate external libraries safely
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-NpmPackages-CheckpointExternalPackages](01-NpmPackages-CheckpointExternalPackages/)
+
 ## Danh sach bai hoc
 
-- [001 - npm packages](001 - npm packages.md)
-- [002 - dependency management](002 - dependency management.md)
-- [003 - Checkpoint - External Packages](003 - Checkpoint - External Packages.md)
+### [01-NpmPackages-CheckpointExternalPackages](01-NpmPackages-CheckpointExternalPackages/)
 
-## Cach hoc module nay
+- [npm packages](01-NpmPackages-CheckpointExternalPackages/001 - npm packages.md)
+- [dependency management](01-NpmPackages-CheckpointExternalPackages/002 - dependency management.md)
+- [Checkpoint - External Packages](01-NpmPackages-CheckpointExternalPackages/003 - Checkpoint - External Packages.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

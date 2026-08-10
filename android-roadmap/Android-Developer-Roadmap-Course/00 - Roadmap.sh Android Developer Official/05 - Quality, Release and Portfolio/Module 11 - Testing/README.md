@@ -12,13 +12,13 @@ Mini project: Tested Todo App with unit tests for add/edit/delete and Espresso u
 
 ## Noi dung nho
 
-- [01-UnitTests - Unit Tests](01-UnitTests/)
-- [02-UITests - UI Tests](02-UITests/)
-- [03-TestStrategyCI - Test Strategy and CI](03-TestStrategyCI/)
+- [01-UnitTests](01-UnitTests/)
+- [02-UITests](02-UITests/)
+- [03-TestStrategyCI](03-TestStrategyCI/)
 
 ## Danh sach bai hoc
 
-### [01-UnitTests - Unit Tests](01-UnitTests/)
+### [01-UnitTests](01-UnitTests/)
 
 - [JUnit](01-UnitTests/001 - JUnit.md)
 - [Test Naming](01-UnitTests/002 - Test Naming.md)
@@ -31,7 +31,7 @@ Mini project: Tested Todo App with unit tests for add/edit/delete and Espresso u
 - [Mock API](01-UnitTests/009 - Mock API.md)
 - [Mock Database](01-UnitTests/010 - Mock Database.md)
 
-### [02-UITests - UI Tests](02-UITests/)
+### [02-UITests](02-UITests/)
 
 - [Espresso](02-UITests/011 - Espresso.md)
 - [Compose UI Test](02-UITests/012 - Compose UI Test.md)
@@ -43,7 +43,7 @@ Mini project: Tested Todo App with unit tests for add/edit/delete and Espresso u
 - [Navigation Test](02-UITests/018 - Navigation Test.md)
 - [Delete Flow Test](02-UITests/019 - Delete Flow Test.md)
 
-### [03-TestStrategyCI - Test Strategy and CI](03-TestStrategyCI/)
+### [03-TestStrategyCI](03-TestStrategyCI/)
 
 - [Test Pyramid](03-TestStrategyCI/020 - Test Pyramid.md)
 - [Critical User Flow](03-TestStrategyCI/021 - Critical User Flow.md)
@@ -51,3 +51,4 @@ Mini project: Tested Todo App with unit tests for add/edit/delete and Espresso u
 - [Flaky Test](03-TestStrategyCI/023 - Flaky Test.md)
 - [CI Test Run](03-TestStrategyCI/024 - CI Test Run.md)
 - [Coverage Report](03-TestStrategyCI/025 - Coverage Report.md)
+

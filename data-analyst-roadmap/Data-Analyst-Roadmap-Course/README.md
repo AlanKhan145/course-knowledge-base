@@ -1,17 +1,6 @@
 # Data Analyst Roadmap Course
 
-Khoa hoc Markdown duoc tao tu:
-
-- PDF: `C:\Users\Khanh PC\Downloads\data-analyst.pdf`
-- Source URL: https://roadmap.sh/data-analyst
-- Normalized roadmap data: embedded in `tools/generate_data_analyst_course.py`
-
-Nguon noi dung dau vao: **Data Analyst Roadmap**.
-
-## Metadata
-
-- Goal: Step by step guide to becoming a Data Analyst in 2026
-- Related roadmaps: AI and Data Scientist Roadmap, SQL Roadmap, Python Roadmap, Prompt Engineering Roadmap
+Khoa hoc Markdown duoc chia nho theo tung noi dung de de hoc va de on tap.
 
 ## Cau truc
 
@@ -19,10 +8,12 @@ Nguon noi dung dau vao: **Data Analyst Roadmap**.
 - Tong hoc phan: 5
 - Tong module: 18
 - Tong bai `.md`: 101
-- Moi module co `README.md`
+- Tong thu muc noi dung nho: 32
+- Moi module co `README.md`, moi thu muc nho co `README.md`
+- Cac file bai cu nam truc tiep trong module da duoc chuyen vao subfolder de tranh duplicate
 - `COURSE_INDEX.md` la muc luc toan khoa
 - `COVERAGE_REPORT.md` dung de doi chieu voi roadmap source
 
 ## Cach hoc
 
-Neu ban moi hoc data analyst, di theo thu tu hoc phan: data foundations, programming/data handling, analysis/visualisation, advanced topics, portfolio. Voi moi bai, tao mot artifact nho co the kiem tra lai: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+Hoc theo thu tu module. Trong moi module, hoc tung subfolder nho theo chu de; sau moi cum nen tao mot artifact nho co the kiem tra lai: snippet, checklist, diagram, config, mini project hoac README ngan.

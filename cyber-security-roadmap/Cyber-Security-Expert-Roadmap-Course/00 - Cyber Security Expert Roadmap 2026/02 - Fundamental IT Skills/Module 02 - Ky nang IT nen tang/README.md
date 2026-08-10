@@ -1,19 +1,20 @@
-# Module 02 - Kỹ năng IT nền tảng
+# Module 02 - Ky nang IT nen tang
 
-**Học phần:** 02 - Fundamental IT Skills
-**Số bài/project:** 5
+## Noi dung nho
 
-## Danh sách bài
+- [01-ComputerHardwareComponents-PopularSuites](01-ComputerHardwareComponents-PopularSuites/)
+- [02-BasicsOfComputer](02-BasicsOfComputer/)
 
-- [Bài 1 - Computer Hardware Components](001 - Computer Hardware Components.md)
-- [Bài 2 - Connection Types and Their Function](002 - Connection Types and Their Function.md)
-- [Bài 3 - OS-Independent Troubleshooting](003 - OS-Independent Troubleshooting.md)
-- [Bài 4 - Popular Suites](004 - Popular Suites.md)
-- [Bài 5 - Basics of Computer Networking](005 - Basics of Computer Networking.md)
+## Danh sach bai hoc
 
-## Checklist module
+### [01-ComputerHardwareComponents-PopularSuites](01-ComputerHardwareComponents-PopularSuites/)
 
-- [ ] Đọc hoặc xem toàn bộ bài trong module.
-- [ ] Thực hành ít nhất một lab/checklist/script/report nhỏ.
-- [ ] Ghi lại lỗi gặp phải và cách xử lý.
-- [ ] Cập nhật portfolio hoặc nhật ký học tập.
+- [Computer Hardware Components](01-ComputerHardwareComponents-PopularSuites/001 - Computer Hardware Components.md)
+- [Connection Types and Their Function](01-ComputerHardwareComponents-PopularSuites/002 - Connection Types and Their Function.md)
+- [OS-Independent Troubleshooting](01-ComputerHardwareComponents-PopularSuites/003 - OS-Independent Troubleshooting.md)
+- [Popular Suites](01-ComputerHardwareComponents-PopularSuites/004 - Popular Suites.md)
+
+### [02-BasicsOfComputer](02-BasicsOfComputer/)
+
+- [Basics of Computer Networking](02-BasicsOfComputer/005 - Basics of Computer Networking.md)
+

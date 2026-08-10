@@ -12,12 +12,13 @@ Query relational data confidently with SELECT, filters, joins, aggregation and s
 
 - Foundation
 
+## Noi dung nho
+
+- [01-LearnSQL](01-LearnSQL/)
+
 ## Danh sach bai hoc
 
-- [001 - Learn SQL](001 - Learn SQL.md)
+### [01-LearnSQL](01-LearnSQL/)
 
-## Cach hoc module nay
+- [Learn SQL](01-LearnSQL/001 - Learn SQL.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.

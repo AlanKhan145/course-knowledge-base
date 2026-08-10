@@ -3,21 +3,6 @@
 ## Mục tiêu module
 Biết tiếp cận các chủ đề PM nâng cao: scaling, platform, growth, AI và leadership.
 
-## Bài học
-- [001 - Scaling Products](001 - Scaling Products.md)
-- [002 - Growth Strategies](002 - Growth Strategies.md)
-- [003 - Internationalization](003 - Internationalization.md)
-- [004 - Platform Thinking](004 - Platform Thinking.md)
-- [005 - Advanced Analysis](005 - Advanced Analysis.md)
-- [006 - Portfolio Management](006 - Portfolio Management.md)
-- [007 - Predictive Analytics](007 - Predictive Analytics.md)
-- [008 - ML in Product Management](008 - ML in Product Management.md)
-- [009 - AI in Product Management](009 - AI in Product Management.md)
-- [010 - Leadership and Influence](010 - Leadership and Influence.md)
-- [011 - Building and Leading Teams](011 - Building and Leading Teams.md)
-- [012 - Influencing without Authority](012 - Influencing without Authority.md)
-- [013 - Emotional Intelligence](013 - Emotional Intelligence.md)
-
 ## Thực hành trọng tâm
 Viết memo về cách scale một sản phẩm: market, operations, platform, data/AI và team.
 
@@ -31,3 +16,34 @@ Viết memo về cách scale một sản phẩm: market, operations, platform, d
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một sản phẩm thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc PM
+
+## Noi dung nho
+
+- [01-ScalingProducts-AdvancedAnalysis](01-ScalingProducts-AdvancedAnalysis/)
+- [02-PortfolioManagement-LeadershipAndInfluence](02-PortfolioManagement-LeadershipAndInfluence/)
+- [03-BuildingAndLeading-EmotionalIntelligence](03-BuildingAndLeading-EmotionalIntelligence/)
+
+## Danh sach bai hoc
+
+### [01-ScalingProducts-AdvancedAnalysis](01-ScalingProducts-AdvancedAnalysis/)
+
+- [Scaling Products](01-ScalingProducts-AdvancedAnalysis/001 - Scaling Products.md)
+- [Growth Strategies](01-ScalingProducts-AdvancedAnalysis/002 - Growth Strategies.md)
+- [Internationalization](01-ScalingProducts-AdvancedAnalysis/003 - Internationalization.md)
+- [Platform Thinking](01-ScalingProducts-AdvancedAnalysis/004 - Platform Thinking.md)
+- [Advanced Analysis](01-ScalingProducts-AdvancedAnalysis/005 - Advanced Analysis.md)
+
+### [02-PortfolioManagement-LeadershipAndInfluence](02-PortfolioManagement-LeadershipAndInfluence/)
+
+- [Portfolio Management](02-PortfolioManagement-LeadershipAndInfluence/006 - Portfolio Management.md)
+- [Predictive Analytics](02-PortfolioManagement-LeadershipAndInfluence/007 - Predictive Analytics.md)
+- [ML in Product Management](02-PortfolioManagement-LeadershipAndInfluence/008 - ML in Product Management.md)
+- [AI in Product Management](02-PortfolioManagement-LeadershipAndInfluence/009 - AI in Product Management.md)
+- [Leadership and Influence](02-PortfolioManagement-LeadershipAndInfluence/010 - Leadership and Influence.md)
+
+### [03-BuildingAndLeading-EmotionalIntelligence](03-BuildingAndLeading-EmotionalIntelligence/)
+
+- [Building and Leading Teams](03-BuildingAndLeading-EmotionalIntelligence/011 - Building and Leading Teams.md)
+- [Influencing without Authority](03-BuildingAndLeading-EmotionalIntelligence/012 - Influencing without Authority.md)
+- [Emotional Intelligence](03-BuildingAndLeading-EmotionalIntelligence/013 - Emotional Intelligence.md)
+

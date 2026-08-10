@@ -12,16 +12,21 @@ Map controls to compliance frameworks and explain risk in business terms.
 
 - Topics
 
+## Noi dung nho
+
+- [01-AuditAndCompliance-SOC2](01-AuditAndCompliance-SOC2/)
+- [02-ISO27001-NIST](02-ISO27001-NIST/)
+
 ## Danh sach bai hoc
 
-- [001 - Audit & Compliance Mapping](001 - Audit & Compliance Mapping.md)
-- [002 - Risk Quantification](002 - Risk Quantification.md)
-- [003 - SOC 2](003 - SOC 2.md)
-- [004 - ISO 27001](004 - ISO 27001.md)
-- [005 - NIST](005 - NIST.md)
+### [01-AuditAndCompliance-SOC2](01-AuditAndCompliance-SOC2/)
 
-## Cach hoc module nay
+- [Audit & Compliance Mapping](01-AuditAndCompliance-SOC2/001 - Audit & Compliance Mapping.md)
+- [Risk Quantification](01-AuditAndCompliance-SOC2/002 - Risk Quantification.md)
+- [SOC 2](01-AuditAndCompliance-SOC2/003 - SOC 2.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.
+### [02-ISO27001-NIST](02-ISO27001-NIST/)
+
+- [ISO 27001](02-ISO27001-NIST/004 - ISO 27001.md)
+- [NIST](02-ISO27001-NIST/005 - NIST.md)
+

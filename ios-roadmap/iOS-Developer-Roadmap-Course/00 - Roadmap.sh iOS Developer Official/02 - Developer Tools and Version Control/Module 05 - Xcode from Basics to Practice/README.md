@@ -10,24 +10,43 @@ Use Xcode to create, run, debug, configure and archive iOS projects.
 
 Mini project: Create a Hello iOS app and run it on Simulator.
 
+## Noi dung nho
+
+- [01-InstallXcode-Editors](01-InstallXcode-Editors/)
+- [02-Toolbar-Breakpoints](02-Toolbar-Breakpoints/)
+- [03-DebugNavigator-BuildSettings](03-DebugNavigator-BuildSettings/)
+- [04-Assets-HelloIOSApp](04-Assets-HelloIOSApp/)
+
 ## Danh sach bai hoc
 
-- [001 - Install Xcode](001 - Install Xcode.md)
-- [002 - Create New Project](002 - Create New Project.md)
-- [003 - iOS Project Structure](003 - iOS Project Structure.md)
-- [004 - Navigators](004 - Navigators.md)
-- [005 - Editors](005 - Editors.md)
-- [006 - Toolbar](006 - Toolbar.md)
-- [007 - Project Settings](007 - Project Settings.md)
-- [008 - Simulator](008 - Simulator.md)
-- [009 - Debugger](009 - Debugger.md)
-- [010 - Breakpoints](010 - Breakpoints.md)
-- [011 - Debug Navigator](011 - Debug Navigator.md)
-- [012 - Step Over](012 - Step Over.md)
-- [013 - Step Into](013 - Step Into.md)
-- [014 - Continue](014 - Continue.md)
-- [015 - Build Settings](015 - Build Settings.md)
-- [016 - Assets](016 - Assets.md)
-- [017 - Fonts](017 - Fonts.md)
-- [018 - App Icons](018 - App Icons.md)
-- [019 - Hello iOS App](019 - Hello iOS App.md)
+### [01-InstallXcode-Editors](01-InstallXcode-Editors/)
+
+- [Install Xcode](01-InstallXcode-Editors/001 - Install Xcode.md)
+- [Create New Project](01-InstallXcode-Editors/002 - Create New Project.md)
+- [iOS Project Structure](01-InstallXcode-Editors/003 - iOS Project Structure.md)
+- [Navigators](01-InstallXcode-Editors/004 - Navigators.md)
+- [Editors](01-InstallXcode-Editors/005 - Editors.md)
+
+### [02-Toolbar-Breakpoints](02-Toolbar-Breakpoints/)
+
+- [Toolbar](02-Toolbar-Breakpoints/006 - Toolbar.md)
+- [Project Settings](02-Toolbar-Breakpoints/007 - Project Settings.md)
+- [Simulator](02-Toolbar-Breakpoints/008 - Simulator.md)
+- [Debugger](02-Toolbar-Breakpoints/009 - Debugger.md)
+- [Breakpoints](02-Toolbar-Breakpoints/010 - Breakpoints.md)
+
+### [03-DebugNavigator-BuildSettings](03-DebugNavigator-BuildSettings/)
+
+- [Debug Navigator](03-DebugNavigator-BuildSettings/011 - Debug Navigator.md)
+- [Step Over](03-DebugNavigator-BuildSettings/012 - Step Over.md)
+- [Step Into](03-DebugNavigator-BuildSettings/013 - Step Into.md)
+- [Continue](03-DebugNavigator-BuildSettings/014 - Continue.md)
+- [Build Settings](03-DebugNavigator-BuildSettings/015 - Build Settings.md)
+
+### [04-Assets-HelloIOSApp](04-Assets-HelloIOSApp/)
+
+- [Assets](04-Assets-HelloIOSApp/016 - Assets.md)
+- [Fonts](04-Assets-HelloIOSApp/017 - Fonts.md)
+- [App Icons](04-Assets-HelloIOSApp/018 - App Icons.md)
+- [Hello iOS App](04-Assets-HelloIOSApp/019 - Hello iOS App.md)
+

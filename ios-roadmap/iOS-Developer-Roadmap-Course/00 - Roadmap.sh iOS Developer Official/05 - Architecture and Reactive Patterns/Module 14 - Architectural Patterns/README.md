@@ -10,19 +10,34 @@ Organize iOS apps with clear architecture, dependency boundaries and scalable fo
 
 Project: Refactor Todo App from logic-in-view to MVVM with services and repositories.
 
+## Noi dung nho
+
+- [01-MVC-VIPER](01-MVC-VIPER/)
+- [02-TCA-SeparateViewViewModel](02-TCA-SeparateViewViewModel/)
+- [03-ServiceLayer-CoordinatorPattern](03-ServiceLayer-CoordinatorPattern/)
+
 ## Danh sach bai hoc
 
-- [001 - MVC](001 - MVC.md)
-- [002 - MVP](002 - MVP.md)
-- [003 - MVVM](003 - MVVM.md)
-- [004 - MVVM-C](004 - MVVM-C.md)
-- [005 - VIPER](005 - VIPER.md)
-- [006 - TCA](006 - TCA.md)
-- [007 - When to Use Which Architecture](007 - When to Use Which Architecture.md)
-- [008 - Folder Structure for iOS Apps](008 - Folder Structure for iOS Apps.md)
-- [009 - Basic Dependency Injection](009 - Basic Dependency Injection.md)
-- [010 - Separate View ViewModel Service Repository](010 - Separate View ViewModel Service Repository.md)
-- [011 - Service Layer](011 - Service Layer.md)
-- [012 - Repository Layer](012 - Repository Layer.md)
-- [013 - UseCase Layer](013 - UseCase Layer.md)
-- [014 - Coordinator Pattern](014 - Coordinator Pattern.md)
+### [01-MVC-VIPER](01-MVC-VIPER/)
+
+- [MVC](01-MVC-VIPER/001 - MVC.md)
+- [MVP](01-MVC-VIPER/002 - MVP.md)
+- [MVVM](01-MVC-VIPER/003 - MVVM.md)
+- [MVVM-C](01-MVC-VIPER/004 - MVVM-C.md)
+- [VIPER](01-MVC-VIPER/005 - VIPER.md)
+
+### [02-TCA-SeparateViewViewModel](02-TCA-SeparateViewViewModel/)
+
+- [TCA](02-TCA-SeparateViewViewModel/006 - TCA.md)
+- [When to Use Which Architecture](02-TCA-SeparateViewViewModel/007 - When to Use Which Architecture.md)
+- [Folder Structure for iOS Apps](02-TCA-SeparateViewViewModel/008 - Folder Structure for iOS Apps.md)
+- [Basic Dependency Injection](02-TCA-SeparateViewViewModel/009 - Basic Dependency Injection.md)
+- [Separate View ViewModel Service Repository](02-TCA-SeparateViewViewModel/010 - Separate View ViewModel Service Repository.md)
+
+### [03-ServiceLayer-CoordinatorPattern](03-ServiceLayer-CoordinatorPattern/)
+
+- [Service Layer](03-ServiceLayer-CoordinatorPattern/011 - Service Layer.md)
+- [Repository Layer](03-ServiceLayer-CoordinatorPattern/012 - Repository Layer.md)
+- [UseCase Layer](03-ServiceLayer-CoordinatorPattern/013 - UseCase Layer.md)
+- [Coordinator Pattern](03-ServiceLayer-CoordinatorPattern/014 - Coordinator Pattern.md)
+

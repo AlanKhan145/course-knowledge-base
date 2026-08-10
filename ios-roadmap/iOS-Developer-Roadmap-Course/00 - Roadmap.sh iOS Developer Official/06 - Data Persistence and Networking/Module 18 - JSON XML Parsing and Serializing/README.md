@@ -10,16 +10,31 @@ Parse server data into Swift models and serialize app data safely.
 
 Mini project: Parse a movie list JSON response into Swift models.
 
+## Noi dung nho
+
+- [01-WhatIsJSON-Encodable](01-WhatIsJSON-Encodable/)
+- [02-ParsingNestedJSON-XMLOverview](02-ParsingNestedJSON-XMLOverview/)
+- [03-SerializeObjectTo-APIDTOModels](03-SerializeObjectTo-APIDTOModels/)
+
 ## Danh sach bai hoc
 
-- [001 - What is JSON?](001 - What is JSON.md)
-- [002 - Codable](002 - Codable.md)
-- [003 - Decodable](003 - Decodable.md)
-- [004 - Encodable](004 - Encodable.md)
-- [005 - Parsing Nested JSON](005 - Parsing Nested JSON.md)
-- [006 - Date Decoding](006 - Date Decoding.md)
-- [007 - JSON Parsing Errors](007 - JSON Parsing Errors.md)
-- [008 - XML Overview](008 - XML Overview.md)
-- [009 - Serialize Object to JSON](009 - Serialize Object to JSON.md)
-- [010 - Custom Coding Keys](010 - Custom Coding Keys.md)
-- [011 - API DTO Models](011 - API DTO Models.md)
+### [01-WhatIsJSON-Encodable](01-WhatIsJSON-Encodable/)
+
+- [What is JSON](01-WhatIsJSON-Encodable/001 - What is JSON.md)
+- [Codable](01-WhatIsJSON-Encodable/002 - Codable.md)
+- [Decodable](01-WhatIsJSON-Encodable/003 - Decodable.md)
+- [Encodable](01-WhatIsJSON-Encodable/004 - Encodable.md)
+
+### [02-ParsingNestedJSON-XMLOverview](02-ParsingNestedJSON-XMLOverview/)
+
+- [Parsing Nested JSON](02-ParsingNestedJSON-XMLOverview/005 - Parsing Nested JSON.md)
+- [Date Decoding](02-ParsingNestedJSON-XMLOverview/006 - Date Decoding.md)
+- [JSON Parsing Errors](02-ParsingNestedJSON-XMLOverview/007 - JSON Parsing Errors.md)
+- [XML Overview](02-ParsingNestedJSON-XMLOverview/008 - XML Overview.md)
+
+### [03-SerializeObjectTo-APIDTOModels](03-SerializeObjectTo-APIDTOModels/)
+
+- [Serialize Object to JSON](03-SerializeObjectTo-APIDTOModels/009 - Serialize Object to JSON.md)
+- [Custom Coding Keys](03-SerializeObjectTo-APIDTOModels/010 - Custom Coding Keys.md)
+- [API DTO Models](03-SerializeObjectTo-APIDTOModels/011 - API DTO Models.md)
+

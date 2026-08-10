@@ -1,17 +1,28 @@
 # Module 07 - TIBCO BW6 Foundation
 
-**Phase:** Phase 3 - TIBCO BW6 In Depth
+## Noi dung nho
 
-This module has 9 lessons.
+- [01-BusinessWorksApplication-Process](01-BusinessWorksApplication-Process/)
+- [02-Activity-Profile](02-Activity-Profile/)
+- [03-Exercise](03-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - BusinessWorks Application](001 - BusinessWorks Application.md)
-- [002 - Application Module](002 - Application Module.md)
-- [003 - Shared Module](003 - Shared Module.md)
-- [004 - Process](004 - Process.md)
-- [005 - Activity](005 - Activity.md)
-- [006 - Palette](006 - Palette.md)
-- [007 - Shared Resource](007 - Shared Resource.md)
-- [008 - Profile](008 - Profile.md)
-- [009 - Exercise](009 - Exercise.md)
+### [01-BusinessWorksApplication-Process](01-BusinessWorksApplication-Process/)
+
+- [BusinessWorks Application](01-BusinessWorksApplication-Process/001 - BusinessWorks Application.md)
+- [Application Module](01-BusinessWorksApplication-Process/002 - Application Module.md)
+- [Shared Module](01-BusinessWorksApplication-Process/003 - Shared Module.md)
+- [Process](01-BusinessWorksApplication-Process/004 - Process.md)
+
+### [02-Activity-Profile](02-Activity-Profile/)
+
+- [Activity](02-Activity-Profile/005 - Activity.md)
+- [Palette](02-Activity-Profile/006 - Palette.md)
+- [Shared Resource](02-Activity-Profile/007 - Shared Resource.md)
+- [Profile](02-Activity-Profile/008 - Profile.md)
+
+### [03-Exercise](03-Exercise/)
+
+- [Exercise](03-Exercise/009 - Exercise.md)
+

@@ -3,13 +3,6 @@
 ## Mục tiêu module
 Hiểu văn hóa công ty, cấu trúc tổ chức, chính trị nội bộ và collaboration liên phòng ban.
 
-## Nội dung
-- [001 - Company Culture](001 - Company Culture.md)
-- [002 - Change Management](002 - Change Management.md)
-- [003 - Organization Structure](003 - Organization Structure.md)
-- [004 - Politics Navigation](004 - Politics Navigation.md)
-- [005 - Cross-department Collaboration](005 - Cross-department Collaboration.md)
-
 ## Thực hành trọng tâm
 Vẽ organization map, xác định decision rights, influence path và friction chính trong tổ chức.
 
@@ -23,3 +16,22 @@ Vẽ organization map, xác định decision rights, influence path và friction
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với một team, hệ thống hoặc dự án thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong vai trò Engineering Manager
+
+## Noi dung nho
+
+- [01-CompanyCulture-OrganizationStructure](01-CompanyCulture-OrganizationStructure/)
+- [02-PoliticsNavigation-CrossDepartmentCollaboration](02-PoliticsNavigation-CrossDepartmentCollaboration/)
+
+## Danh sach bai hoc
+
+### [01-CompanyCulture-OrganizationStructure](01-CompanyCulture-OrganizationStructure/)
+
+- [Company Culture](01-CompanyCulture-OrganizationStructure/001 - Company Culture.md)
+- [Change Management](01-CompanyCulture-OrganizationStructure/002 - Change Management.md)
+- [Organization Structure](01-CompanyCulture-OrganizationStructure/003 - Organization Structure.md)
+
+### [02-PoliticsNavigation-CrossDepartmentCollaboration](02-PoliticsNavigation-CrossDepartmentCollaboration/)
+
+- [Politics Navigation](02-PoliticsNavigation-CrossDepartmentCollaboration/004 - Politics Navigation.md)
+- [Cross-department Collaboration](02-PoliticsNavigation-CrossDepartmentCollaboration/005 - Cross-department Collaboration.md)
+

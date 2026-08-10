@@ -3,9 +3,6 @@
 ## Mục tiêu module
 Hiểu vai trò của các protocol phổ biến như HTTP/HTTPS, TLS, SSH, DHCP, SMTP/IMAP và NTP.
 
-## Bài học
-- [001 - Giao thức mạng cốt lõi](001 - Giao thuc mang cot loi.md)
-
 ## Thực hành trọng tâm
 Lập bảng protocol: mục đích, port thường gặp, dùng TCP/UDP hay cả hai, rủi ro bảo mật chính.
 
@@ -19,3 +16,14 @@ Lập bảng protocol: mục đích, port thường gặp, dùng TCP/UDP hay c�
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với topology hoặc packet flow thật
 - [ ] Ghi lại 3 điều sẽ áp dụng khi thiết kế hoặc troubleshooting mạng
+
+## Noi dung nho
+
+- [01-GiaoThucMang](01-GiaoThucMang/)
+
+## Danh sach bai hoc
+
+### [01-GiaoThucMang](01-GiaoThucMang/)
+
+- [Giao thuc mang cot loi](01-GiaoThucMang/001 - Giao thuc mang cot loi.md)
+

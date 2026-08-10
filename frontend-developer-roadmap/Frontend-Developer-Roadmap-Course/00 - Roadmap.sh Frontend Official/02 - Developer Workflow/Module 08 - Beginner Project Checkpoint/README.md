@@ -5,32 +5,49 @@
 
 Module nay gom 21 bai tu roadmap. Hoc theo thu tu neu ban moi bat dau; neu da co kinh nghiem, co the dung danh sach nay lam checklist on tap va bo sung project.
 
+## Noi dung nho
+
+- [01-BeginnerProjectIdeas-ChangelogComponent](01-BeginnerProjectIdeas-ChangelogComponent/)
+- [02-TestimonialCards-TooltipUI](02-TestimonialCards-TooltipUI/)
+- [03-Tabs-AgeCalculator](03-Tabs-AgeCalculator/)
+- [04-FlashCards-PhotoShowcase](04-FlashCards-PhotoShowcase/)
+- [05-PricingCards](05-PricingCards/)
+
 ## Danh sach bai hoc
 
-- [001 - Beginner Project Ideas](001 - Beginner Project Ideas.md)
-- [002 - Single-Page CV](002 - Single-Page CV.md)
-- [003 - Basic HTML Website](003 - Basic HTML Website.md)
-- [004 - Personal Portfolio](004 - Personal Portfolio.md)
-- [005 - Changelog Component](005 - Changelog Component.md)
-- [006 - Testimonial Cards](006 - Testimonial Cards.md)
-- [007 - Datepicker UI](007 - Datepicker UI.md)
-- [008 - Accessible Form UI](008 - Accessible Form UI.md)
-- [009 - Image Grid Layout](009 - Image Grid Layout.md)
-- [010 - Tooltip UI](010 - Tooltip UI.md)
-- [011 - Tabs](011 - Tabs.md)
-- [012 - Cookie Consent](012 - Cookie Consent.md)
-- [013 - Restricted Textarea](013 - Restricted Textarea.md)
-- [014 - Accordion](014 - Accordion.md)
-- [015 - Age Calculator](015 - Age Calculator.md)
-- [016 - Flash Cards](016 - Flash Cards.md)
-- [017 - Pricing Comparison Table](017 - Pricing Comparison Table.md)
-- [018 - Blog Post Page](018 - Blog Post Page.md)
-- [019 - Contact Form](019 - Contact Form.md)
-- [020 - Photo Showcase](020 - Photo Showcase.md)
-- [021 - Pricing Cards](021 - Pricing Cards.md)
+### [01-BeginnerProjectIdeas-ChangelogComponent](01-BeginnerProjectIdeas-ChangelogComponent/)
 
-## Cach hoc module nay
+- [Beginner Project Ideas](01-BeginnerProjectIdeas-ChangelogComponent/001 - Beginner Project Ideas.md)
+- [Single-Page CV](01-BeginnerProjectIdeas-ChangelogComponent/002 - Single-Page CV.md)
+- [Basic HTML Website](01-BeginnerProjectIdeas-ChangelogComponent/003 - Basic HTML Website.md)
+- [Personal Portfolio](01-BeginnerProjectIdeas-ChangelogComponent/004 - Personal Portfolio.md)
+- [Changelog Component](01-BeginnerProjectIdeas-ChangelogComponent/005 - Changelog Component.md)
 
-- Doc nhanh toan bo danh sach bai de thay buc tranh chung.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du thuc te.
-- Neu module co project, hoan thanh it nhat 1 project truoc khi sang phase tiep theo.
+### [02-TestimonialCards-TooltipUI](02-TestimonialCards-TooltipUI/)
+
+- [Testimonial Cards](02-TestimonialCards-TooltipUI/006 - Testimonial Cards.md)
+- [Datepicker UI](02-TestimonialCards-TooltipUI/007 - Datepicker UI.md)
+- [Accessible Form UI](02-TestimonialCards-TooltipUI/008 - Accessible Form UI.md)
+- [Image Grid Layout](02-TestimonialCards-TooltipUI/009 - Image Grid Layout.md)
+- [Tooltip UI](02-TestimonialCards-TooltipUI/010 - Tooltip UI.md)
+
+### [03-Tabs-AgeCalculator](03-Tabs-AgeCalculator/)
+
+- [Tabs](03-Tabs-AgeCalculator/011 - Tabs.md)
+- [Cookie Consent](03-Tabs-AgeCalculator/012 - Cookie Consent.md)
+- [Restricted Textarea](03-Tabs-AgeCalculator/013 - Restricted Textarea.md)
+- [Accordion](03-Tabs-AgeCalculator/014 - Accordion.md)
+- [Age Calculator](03-Tabs-AgeCalculator/015 - Age Calculator.md)
+
+### [04-FlashCards-PhotoShowcase](04-FlashCards-PhotoShowcase/)
+
+- [Flash Cards](04-FlashCards-PhotoShowcase/016 - Flash Cards.md)
+- [Pricing Comparison Table](04-FlashCards-PhotoShowcase/017 - Pricing Comparison Table.md)
+- [Blog Post Page](04-FlashCards-PhotoShowcase/018 - Blog Post Page.md)
+- [Contact Form](04-FlashCards-PhotoShowcase/019 - Contact Form.md)
+- [Photo Showcase](04-FlashCards-PhotoShowcase/020 - Photo Showcase.md)
+
+### [05-PricingCards](05-PricingCards/)
+
+- [Pricing Cards](05-PricingCards/021 - Pricing Cards.md)
+

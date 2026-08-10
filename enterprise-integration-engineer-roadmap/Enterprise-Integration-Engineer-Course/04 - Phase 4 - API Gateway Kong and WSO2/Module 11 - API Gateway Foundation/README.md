@@ -1,17 +1,28 @@
 # Module 11 - API Gateway Foundation
 
-**Phase:** Phase 4 - API Gateway Kong and WSO2
+## Noi dung nho
 
-This module has 9 lessons.
+- [01-Service-Plugin](01-Service-Plugin/)
+- [02-Upstream-DeveloperPortal](02-Upstream-DeveloperPortal/)
+- [03-Exercise](03-Exercise/)
 
-## Lessons
+## Danh sach bai hoc
 
-- [001 - Service](001 - Service.md)
-- [002 - Route](002 - Route.md)
-- [003 - Consumer](003 - Consumer.md)
-- [004 - Plugin](004 - Plugin.md)
-- [005 - Upstream](005 - Upstream.md)
-- [006 - Load Balancing](006 - Load Balancing.md)
-- [007 - API Lifecycle](007 - API Lifecycle.md)
-- [008 - Developer Portal](008 - Developer Portal.md)
-- [009 - Exercise](009 - Exercise.md)
+### [01-Service-Plugin](01-Service-Plugin/)
+
+- [Service](01-Service-Plugin/001 - Service.md)
+- [Route](01-Service-Plugin/002 - Route.md)
+- [Consumer](01-Service-Plugin/003 - Consumer.md)
+- [Plugin](01-Service-Plugin/004 - Plugin.md)
+
+### [02-Upstream-DeveloperPortal](02-Upstream-DeveloperPortal/)
+
+- [Upstream](02-Upstream-DeveloperPortal/005 - Upstream.md)
+- [Load Balancing](02-Upstream-DeveloperPortal/006 - Load Balancing.md)
+- [API Lifecycle](02-Upstream-DeveloperPortal/007 - API Lifecycle.md)
+- [Developer Portal](02-Upstream-DeveloperPortal/008 - Developer Portal.md)
+
+### [03-Exercise](03-Exercise/)
+
+- [Exercise](03-Exercise/009 - Exercise.md)
+

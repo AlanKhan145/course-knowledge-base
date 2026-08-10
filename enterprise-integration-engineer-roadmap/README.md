@@ -17,3 +17,4 @@ An English-language course built for a banking / enterprise integration engineer
 Go phase by phase in order — later phases (TIBCO, API Gateway, Kafka/Redis, production reliability) assume you're comfortable with the HTTP/REST, Java, SQL, and SOAP/XML fundamentals from Phases 1–2. If you already have backend experience, skim Phases 1–2 as a refresher and spend most of your time on Phases 3–6 (TIBCO BW6, API Gateway, Kafka/Redis, production engineering) plus the capstone in Phase 7.
 
 The core skill this course builds is **not** interview trivia — it's the ability to design an integration system that is correct, stable, secure, traceable when something breaks, resilient under load, and never corrupts transactional data.
+

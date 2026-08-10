@@ -3,11 +3,6 @@
 ## Mục tiêu module
 Biết thiết kế onboarding giúp developer đạt time-to-first-success nhanh hơn.
 
-## Bài học
-- [001 - Documentation](001 - Documentation.md)
-- [002 - Sample Projects](002 - Sample Projects.md)
-- [003 - Support](003 - Support.md)
-
 ## Thực hành trọng tâm
 Audit onboarding của một API/SDK: quickstart, docs, sample app, FAQ và support channel.
 
@@ -21,3 +16,16 @@ Audit onboarding của một API/SDK: quickstart, docs, sample app, FAQ và supp
 - [ ] Tạo ít nhất một artifact thực hành
 - [ ] Liên hệ nội dung với developer journey thật
 - [ ] Ghi lại 3 điều sẽ áp dụng trong công việc DevRel
+
+## Noi dung nho
+
+- [01-Documentation-Support](01-Documentation-Support/)
+
+## Danh sach bai hoc
+
+### [01-Documentation-Support](01-Documentation-Support/)
+
+- [Documentation](01-Documentation-Support/001 - Documentation.md)
+- [Sample Projects](01-Documentation-Support/002 - Sample Projects.md)
+- [Support](01-Documentation-Support/003 - Support.md)
+

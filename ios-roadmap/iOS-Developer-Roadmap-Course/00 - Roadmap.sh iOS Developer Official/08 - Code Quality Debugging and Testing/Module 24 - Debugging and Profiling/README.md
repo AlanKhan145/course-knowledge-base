@@ -10,18 +10,33 @@ Find and fix bugs, memory leaks, crashes and performance problems in iOS apps.
 
 Mini project: Find and fix a memory leak caused by closure retaining self.
 
+## Noi dung nho
+
+- [01-XcodeDebugger-DebugUI](01-XcodeDebugger-DebugUI/)
+- [02-Instruments-BasicCrashLog](02-Instruments-BasicCrashLog/)
+- [03-Symbolication-MemoryLeakClosure](03-Symbolication-MemoryLeakClosure/)
+
 ## Danh sach bai hoc
 
-- [001 - Xcode Debugger](001 - Xcode Debugger.md)
-- [002 - Advanced Breakpoints](002 - Advanced Breakpoints.md)
-- [003 - LLDB Basics](003 - LLDB Basics.md)
-- [004 - Debug Memory](004 - Debug Memory.md)
-- [005 - Debug UI](005 - Debug UI.md)
-- [006 - Instruments](006 - Instruments.md)
-- [007 - Time Profiler](007 - Time Profiler.md)
-- [008 - Memory Graph](008 - Memory Graph.md)
-- [009 - Network Debugging](009 - Network Debugging.md)
-- [010 - Basic Crash Log](010 - Basic Crash Log.md)
-- [011 - Symbolication](011 - Symbolication.md)
-- [012 - Performance Investigation](012 - Performance Investigation.md)
-- [013 - Memory Leak Closure](013 - Memory Leak Closure.md)
+### [01-XcodeDebugger-DebugUI](01-XcodeDebugger-DebugUI/)
+
+- [Xcode Debugger](01-XcodeDebugger-DebugUI/001 - Xcode Debugger.md)
+- [Advanced Breakpoints](01-XcodeDebugger-DebugUI/002 - Advanced Breakpoints.md)
+- [LLDB Basics](01-XcodeDebugger-DebugUI/003 - LLDB Basics.md)
+- [Debug Memory](01-XcodeDebugger-DebugUI/004 - Debug Memory.md)
+- [Debug UI](01-XcodeDebugger-DebugUI/005 - Debug UI.md)
+
+### [02-Instruments-BasicCrashLog](02-Instruments-BasicCrashLog/)
+
+- [Instruments](02-Instruments-BasicCrashLog/006 - Instruments.md)
+- [Time Profiler](02-Instruments-BasicCrashLog/007 - Time Profiler.md)
+- [Memory Graph](02-Instruments-BasicCrashLog/008 - Memory Graph.md)
+- [Network Debugging](02-Instruments-BasicCrashLog/009 - Network Debugging.md)
+- [Basic Crash Log](02-Instruments-BasicCrashLog/010 - Basic Crash Log.md)
+
+### [03-Symbolication-MemoryLeakClosure](03-Symbolication-MemoryLeakClosure/)
+
+- [Symbolication](03-Symbolication-MemoryLeakClosure/011 - Symbolication.md)
+- [Performance Investigation](03-Symbolication-MemoryLeakClosure/012 - Performance Investigation.md)
+- [Memory Leak Closure](03-Symbolication-MemoryLeakClosure/013 - Memory Leak Closure.md)
+

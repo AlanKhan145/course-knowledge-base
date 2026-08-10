@@ -13,15 +13,16 @@ Build a usable full-stack app with API, authentication, database, and cache
 - Checkpoints
 - Topics
 
+## Noi dung nho
+
+- [01-RESTfulAPIs-CheckpointCompleteApp](01-RESTfulAPIs-CheckpointCompleteApp/)
+
 ## Danh sach bai hoc
 
-- [001 - RESTful APIs](001 - RESTful APIs.md)
-- [002 - JWT Auth](002 - JWT Auth.md)
-- [003 - Redis](003 - Redis.md)
-- [004 - Checkpoint - Complete App](004 - Checkpoint - Complete App.md)
+### [01-RESTfulAPIs-CheckpointCompleteApp](01-RESTfulAPIs-CheckpointCompleteApp/)
 
-## Cach hoc module nay
+- [RESTful APIs](01-RESTfulAPIs-CheckpointCompleteApp/001 - RESTful APIs.md)
+- [JWT Auth](01-RESTfulAPIs-CheckpointCompleteApp/002 - JWT Auth.md)
+- [Redis](01-RESTfulAPIs-CheckpointCompleteApp/003 - Redis.md)
+- [Checkpoint - Complete App](01-RESTfulAPIs-CheckpointCompleteApp/004 - Checkpoint - Complete App.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du full-stack that.
-- Neu co checkpoint, hoan thanh artifact thuc hanh truoc khi sang module tiep theo.

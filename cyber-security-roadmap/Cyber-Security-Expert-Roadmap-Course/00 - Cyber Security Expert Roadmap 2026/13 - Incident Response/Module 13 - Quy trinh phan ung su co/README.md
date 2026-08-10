@@ -1,24 +1,21 @@
-# Module 13 - Quy trình phản ứng sự cố
+# Module 13 - Quy trinh phan ung su co
 
-**Học phần:** 13 - Incident Response
-**Số bài/project:** 6
+## Noi dung nho
 
-## Ghi chú roadmap
+- [01-Preparation-Eradication](01-Preparation-Eradication/)
+- [02-Recovery-LessonsLearned](02-Recovery-LessonsLearned/)
 
-- Roadmap nêu quy trình Incident Response gồm Preparation, Identification, Containment, Eradication, Recovery và Lessons Learned
+## Danh sach bai hoc
 
-## Danh sách bài
+### [01-Preparation-Eradication](01-Preparation-Eradication/)
 
-- [Bài 1 - Preparation](001 - Preparation.md)
-- [Bài 2 - Identification](002 - Identification.md)
-- [Bài 3 - Containment](003 - Containment.md)
-- [Bài 4 - Eradication](004 - Eradication.md)
-- [Bài 5 - Recovery](005 - Recovery.md)
-- [Bài 6 - Lessons Learned](006 - Lessons Learned.md)
+- [Preparation](01-Preparation-Eradication/001 - Preparation.md)
+- [Identification](01-Preparation-Eradication/002 - Identification.md)
+- [Containment](01-Preparation-Eradication/003 - Containment.md)
+- [Eradication](01-Preparation-Eradication/004 - Eradication.md)
 
-## Checklist module
+### [02-Recovery-LessonsLearned](02-Recovery-LessonsLearned/)
 
-- [ ] Đọc hoặc xem toàn bộ bài trong module.
-- [ ] Thực hành ít nhất một lab/checklist/script/report nhỏ.
-- [ ] Ghi lại lỗi gặp phải và cách xử lý.
-- [ ] Cập nhật portfolio hoặc nhật ký học tập.
+- [Recovery](02-Recovery-LessonsLearned/005 - Recovery.md)
+- [Lessons Learned](02-Recovery-LessonsLearned/006 - Lessons Learned.md)
+

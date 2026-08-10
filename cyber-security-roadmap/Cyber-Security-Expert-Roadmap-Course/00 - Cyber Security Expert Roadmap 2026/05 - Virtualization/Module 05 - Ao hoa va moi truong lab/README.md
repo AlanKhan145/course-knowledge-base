@@ -1,17 +1,14 @@
-# Module 05 - Ảo hóa và môi trường lab
+# Module 05 - Ao hoa va moi truong lab
 
-**Học phần:** 05 - Virtualization
-**Số bài/project:** 3
+## Noi dung nho
 
-## Danh sách bài
+- [01-BasicsOfVirtualization-DungLabCyber](01-BasicsOfVirtualization-DungLabCyber/)
 
-- [Bài 1 - Basics of Virtualization](001 - Basics of Virtualization.md)
-- [Bài 2 - Common Virtualization Technologies](002 - Common Virtualization Technologies.md)
-- [Bài 3 - Dựng lab Cyber Security](003 - Dung lab Cyber Security.md)
+## Danh sach bai hoc
 
-## Checklist module
+### [01-BasicsOfVirtualization-DungLabCyber](01-BasicsOfVirtualization-DungLabCyber/)
 
-- [ ] Đọc hoặc xem toàn bộ bài trong module.
-- [ ] Thực hành ít nhất một lab/checklist/script/report nhỏ.
-- [ ] Ghi lại lỗi gặp phải và cách xử lý.
-- [ ] Cập nhật portfolio hoặc nhật ký học tập.
+- [Basics of Virtualization](01-BasicsOfVirtualization-DungLabCyber/001 - Basics of Virtualization.md)
+- [Common Virtualization Technologies](01-BasicsOfVirtualization-DungLabCyber/002 - Common Virtualization Technologies.md)
+- [Dung lab Cyber Security](01-BasicsOfVirtualization-DungLabCyber/003 - Dung lab Cyber Security.md)
+

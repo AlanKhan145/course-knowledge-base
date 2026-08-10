@@ -12,14 +12,15 @@ Use shell scripting to automate security checks, log processing, pipeline tasks 
 
 - Topics
 
+## Noi dung nho
+
+- [01-Bash-VimNanoEmacs](01-Bash-VimNanoEmacs/)
+
 ## Danh sach bai hoc
 
-- [001 - Bash](001 - Bash.md)
-- [002 - PowerShell](002 - PowerShell.md)
-- [003 - Vim / Nano / Emacs](003 - Vim - Nano - Emacs.md)
+### [01-Bash-VimNanoEmacs](01-Bash-VimNanoEmacs/)
 
-## Cach hoc module nay
+- [Bash](01-Bash-VimNanoEmacs/001 - Bash.md)
+- [PowerShell](01-Bash-VimNanoEmacs/002 - PowerShell.md)
+- [Vim - Nano - Emacs](01-Bash-VimNanoEmacs/003 - Vim - Nano - Emacs.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 artifact DevSecOps that.
-- Artifact co the la checklist, script, config, scan result, detection rule, dashboard hoac runbook.

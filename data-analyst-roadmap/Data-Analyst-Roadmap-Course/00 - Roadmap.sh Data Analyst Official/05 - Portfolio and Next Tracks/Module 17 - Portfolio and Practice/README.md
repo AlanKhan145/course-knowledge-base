@@ -13,17 +13,22 @@ Turn skills into visible portfolio projects, Kaggle practice and a sustainable l
 - Portfolio Projects
 - Practice
 
+## Noi dung nho
+
+- [01-PredictingSalesTrends-BuildPortfolioProjects](01-PredictingSalesTrends-BuildPortfolioProjects/)
+- [02-ParticipateInKaggle-StayUpdatedAnd](02-ParticipateInKaggle-StayUpdatedAnd/)
+
 ## Danh sach bai hoc
 
-- [001 - Predicting Sales Trends](001 - Predicting Sales Trends.md)
-- [002 - Customer Segmentation](002 - Customer Segmentation.md)
-- [003 - Build portfolio projects](003 - Build portfolio projects.md)
-- [004 - Participate in Kaggle competitions](004 - Participate in Kaggle competitions.md)
-- [005 - Take online courses / certifications](005 - Take online courses - certifications.md)
-- [006 - Stay updated and network](006 - Stay updated and network.md)
+### [01-PredictingSalesTrends-BuildPortfolioProjects](01-PredictingSalesTrends-BuildPortfolioProjects/)
 
-## Cach hoc module nay
+- [Predicting Sales Trends](01-PredictingSalesTrends-BuildPortfolioProjects/001 - Predicting Sales Trends.md)
+- [Customer Segmentation](01-PredictingSalesTrends-BuildPortfolioProjects/002 - Customer Segmentation.md)
+- [Build portfolio projects](01-PredictingSalesTrends-BuildPortfolioProjects/003 - Build portfolio projects.md)
 
-- Hoc theo thu tu neu ban moi bat dau.
-- Voi moi bai, ghi lai 3 y quan trong va 1 vi du data that.
-- Tao artifact nho: spreadsheet, SQL query, notebook, chart, dashboard, hoac portfolio note.
+### [02-ParticipateInKaggle-StayUpdatedAnd](02-ParticipateInKaggle-StayUpdatedAnd/)
+
+- [Participate in Kaggle competitions](02-ParticipateInKaggle-StayUpdatedAnd/004 - Participate in Kaggle competitions.md)
+- [Take online courses - certifications](02-ParticipateInKaggle-StayUpdatedAnd/005 - Take online courses - certifications.md)
+- [Stay updated and network](02-ParticipateInKaggle-StayUpdatedAnd/006 - Stay updated and network.md)
+
