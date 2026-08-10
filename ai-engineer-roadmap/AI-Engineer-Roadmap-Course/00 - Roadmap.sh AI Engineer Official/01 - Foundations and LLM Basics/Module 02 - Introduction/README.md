@@ -14,26 +14,31 @@ Project 1: AI Chatbot with system prompt, chat history and a simple backend.
 
 ## Nhom noi dung
 
-- Core Building Blocks
-- Product Context
-- Role and Terms
+- [AI Engineer Role and AI Scope](01-Role/README.md) (Bai 001-003)
+- [LLM Core Concepts](02-LLMCore/README.md) (Bai 004-007)
+- [Embeddings, Vector Databases and RAG](03-Knowledge/README.md) (Bai 008-010)
+- [Prompting and Agent Patterns](04-AppPatterns/README.md) (Bai 011-012)
+- [Product Impact and Responsibilities](05-Product/README.md) (Bai 013-014)
 
 ## Danh sach bai hoc
 
-- [001 - What is an AI Engineer?](001 - What is an AI Engineer.md)
-- [002 - AI Engineer vs ML Engineer](002 - AI Engineer vs ML Engineer.md)
-- [003 - AI vs AGI](003 - AI vs AGI.md)
-- [004 - LLMs](004 - LLMs.md)
-- [005 - Inference](005 - Inference.md)
-- [006 - Training](006 - Training.md)
-- [007 - Common Terminology](007 - Common Terminology.md)
-- [008 - Embeddings](008 - Embeddings.md)
-- [009 - Vector Databases](009 - Vector Databases.md)
-- [010 - RAG](010 - RAG.md)
-- [011 - Prompt Engineering](011 - Prompt Engineering.md)
-- [012 - AI Agents](012 - AI Agents.md)
-- [013 - Impact on Product Development](013 - Impact on Product Development.md)
-- [014 - Roles and Responsibilities](014 - Roles and Responsibilities.md)
+
+Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
+
+- [001 - What is an AI Engineer?](01-Role/001 - What is an AI Engineer.md)
+- [002 - AI Engineer vs ML Engineer](01-Role/002 - AI Engineer vs ML Engineer.md)
+- [003 - AI vs AGI](01-Role/003 - AI vs AGI.md)
+- [004 - LLMs](02-LLMCore/004 - LLMs.md)
+- [005 - Inference](02-LLMCore/005 - Inference.md)
+- [006 - Training](02-LLMCore/006 - Training.md)
+- [007 - Common Terminology](02-LLMCore/007 - Common Terminology.md)
+- [008 - Embeddings](03-Knowledge/008 - Embeddings.md)
+- [009 - Vector Databases](03-Knowledge/009 - Vector Databases.md)
+- [010 - RAG](03-Knowledge/010 - RAG.md)
+- [011 - Prompt Engineering](04-AppPatterns/011 - Prompt Engineering.md)
+- [012 - AI Agents](04-AppPatterns/012 - AI Agents.md)
+- [013 - Impact on Product Development](05-Product/013 - Impact on Product Development.md)
+- [014 - Roles and Responsibilities](05-Product/014 - Roles and Responsibilities.md)
 
 ## Cach hoc module nay
 

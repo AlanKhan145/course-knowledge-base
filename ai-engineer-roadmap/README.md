@@ -16,11 +16,14 @@ Nguon noi dung dau vao: **AI Engineer Roadmap**.
 
 ## Cau truc
 
+Bai hoc da duoc giu trong cac subfolder nho theo noi dung; cac file bai hoc cu nam thang trong module da duoc xoa de tranh duplicate.
+
 - Course root: `AI-Engineer-Roadmap-Course/00 - Roadmap.sh AI Engineer Official`
 - Tong hoc phan: 5
 - Tong module: 15
 - Tong bai `.md`: 201
-- Moi module co `README.md`
+- Moi module co `README.md` va cac subfolder nho theo tung noi dung
+- Tong subfolder noi dung: 70
 - `COURSE_INDEX.md` la muc luc toan khoa
 - `COVERAGE_REPORT.md` dung de doi chieu voi roadmap source
 

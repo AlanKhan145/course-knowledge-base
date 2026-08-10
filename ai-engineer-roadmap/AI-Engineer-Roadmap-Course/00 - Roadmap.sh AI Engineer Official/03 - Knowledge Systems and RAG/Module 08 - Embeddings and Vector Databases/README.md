@@ -14,38 +14,43 @@ Project 7: Semantic Search Engine for markdown/PDF files using chunking, embeddi
 
 ## Nhom noi dung
 
-- Embedding Models
-- Embeddings
-- Vector Databases
-- Vector Search Workflow
+- [Embedding Concepts and Use Cases](01-EmbBasics/README.md) (Bai 001-006)
+- [OpenAI Embeddings](02-OpenAIEmb/README.md) (Bai 007-009)
+- [Open Source Embeddings](03-OpenEmb/README.md) (Bai 010-012)
+- [Vector Database Basics](04-VectorDB/README.md) (Bai 013-014)
+- [Vector Database Tools](05-DBTools/README.md) (Bai 015-022)
+- [Vector Search Workflow](06-Search/README.md) (Bai 023-025)
 
 ## Danh sach bai hoc
 
-- [001 - What are Embeddings?](001 - What are Embeddings.md)
-- [002 - Use Cases for Embeddings](002 - Use Cases for Embeddings.md)
-- [003 - Semantic Search](003 - Semantic Search.md)
-- [004 - Recommendation Systems](004 - Recommendation Systems.md)
-- [005 - Anomaly Detection](005 - Anomaly Detection.md)
-- [006 - Data Classification](006 - Data Classification.md)
-- [007 - OpenAI Embeddings API](007 - OpenAI Embeddings API.md)
-- [008 - OpenAI Embedding Models](008 - OpenAI Embedding Models.md)
-- [009 - Pricing Considerations](009 - Pricing Considerations.md)
-- [010 - Open-source Embeddings](010 - Open-source Embeddings.md)
-- [011 - Sentence Transformers](011 - Sentence Transformers.md)
-- [012 - Models on Hugging Face](012 - Models on Hugging Face.md)
-- [013 - Vector Databases](013 - Vector Databases.md)
-- [014 - Purpose and Functionality](014 - Purpose and Functionality.md)
-- [015 - Chroma](015 - Chroma.md)
-- [016 - Pinecone](016 - Pinecone.md)
-- [017 - Weaviate](017 - Weaviate.md)
-- [018 - FAISS](018 - FAISS.md)
-- [019 - LanceDB](019 - LanceDB.md)
-- [020 - Qdrant](020 - Qdrant.md)
-- [021 - Supabase](021 - Supabase.md)
-- [022 - MongoDB Atlas](022 - MongoDB Atlas.md)
-- [023 - Indexing Embeddings](023 - Indexing Embeddings.md)
-- [024 - Performing Similarity Search](024 - Performing Similarity Search.md)
-- [025 - Implementing Vector Search](025 - Implementing Vector Search.md)
+
+Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
+
+- [001 - What are Embeddings?](01-EmbBasics/001 - What are Embeddings.md)
+- [002 - Use Cases for Embeddings](01-EmbBasics/002 - Use Cases for Embeddings.md)
+- [003 - Semantic Search](01-EmbBasics/003 - Semantic Search.md)
+- [004 - Recommendation Systems](01-EmbBasics/004 - Recommendation Systems.md)
+- [005 - Anomaly Detection](01-EmbBasics/005 - Anomaly Detection.md)
+- [006 - Data Classification](01-EmbBasics/006 - Data Classification.md)
+- [007 - OpenAI Embeddings API](02-OpenAIEmb/007 - OpenAI Embeddings API.md)
+- [008 - OpenAI Embedding Models](02-OpenAIEmb/008 - OpenAI Embedding Models.md)
+- [009 - Pricing Considerations](02-OpenAIEmb/009 - Pricing Considerations.md)
+- [010 - Open-source Embeddings](03-OpenEmb/010 - Open-source Embeddings.md)
+- [011 - Sentence Transformers](03-OpenEmb/011 - Sentence Transformers.md)
+- [012 - Models on Hugging Face](03-OpenEmb/012 - Models on Hugging Face.md)
+- [013 - Vector Databases](04-VectorDB/013 - Vector Databases.md)
+- [014 - Purpose and Functionality](04-VectorDB/014 - Purpose and Functionality.md)
+- [015 - Chroma](05-DBTools/015 - Chroma.md)
+- [016 - Pinecone](05-DBTools/016 - Pinecone.md)
+- [017 - Weaviate](05-DBTools/017 - Weaviate.md)
+- [018 - FAISS](05-DBTools/018 - FAISS.md)
+- [019 - LanceDB](05-DBTools/019 - LanceDB.md)
+- [020 - Qdrant](05-DBTools/020 - Qdrant.md)
+- [021 - Supabase](05-DBTools/021 - Supabase.md)
+- [022 - MongoDB Atlas](05-DBTools/022 - MongoDB Atlas.md)
+- [023 - Indexing Embeddings](06-Search/023 - Indexing Embeddings.md)
+- [024 - Performing Similarity Search](06-Search/024 - Performing Similarity Search.md)
+- [025 - Implementing Vector Search](06-Search/025 - Implementing Vector Search.md)
 
 ## Cach hoc module nay
 

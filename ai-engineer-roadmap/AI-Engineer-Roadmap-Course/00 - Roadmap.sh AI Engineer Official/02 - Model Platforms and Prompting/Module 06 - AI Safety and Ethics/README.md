@@ -16,25 +16,31 @@ Project 5: Prompt Injection Test Bench with attack prompts, guardrails and regre
 
 ## Nhom noi dung
 
-- Safety Risks
-- Testing and Guardrails
+- [Core AI Safety Risks](01-Risks/README.md) (Bai 001-005)
+- [Agent Security and Adversarial Testing](02-AgentSec/README.md) (Bai 006-008)
+- [Moderation and User IDs](03-Moderate/README.md) (Bai 009-010)
+- [Robust Prompt and Use Case Design](04-Robust/README.md) (Bai 011-013)
+- [Safety Best Practices](05-Best/README.md) (Bai 014-014)
 
 ## Danh sach bai hoc
 
-- [001 - Understanding AI Safety Issues](001 - Understanding AI Safety Issues.md)
-- [002 - Prompt Injection Attacks](002 - Prompt Injection Attacks.md)
-- [003 - Bias and Fairness](003 - Bias and Fairness.md)
-- [004 - Security and Privacy Concerns](004 - Security and Privacy Concerns.md)
-- [005 - Hallucination](005 - Hallucination.md)
-- [006 - Toxic Output](006 - Toxic Output.md)
-- [007 - Over-permission Agents](007 - Over-permission Agents.md)
-- [008 - Conducting Adversarial Testing](008 - Conducting Adversarial Testing.md)
-- [009 - OpenAI Moderation API](009 - OpenAI Moderation API.md)
-- [010 - Adding End-user IDs in Prompts](010 - Adding End-user IDs in Prompts.md)
-- [011 - Robust Prompt Engineering](011 - Robust Prompt Engineering.md)
-- [012 - Know your Customers / Use Cases](012 - Know your Customers - Use Cases.md)
-- [013 - Constraining Outputs and Inputs](013 - Constraining Outputs and Inputs.md)
-- [014 - Safety Best Practices](014 - Safety Best Practices.md)
+
+Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
+
+- [001 - Understanding AI Safety Issues](01-Risks/001 - Understanding AI Safety Issues.md)
+- [002 - Prompt Injection Attacks](01-Risks/002 - Prompt Injection Attacks.md)
+- [003 - Bias and Fairness](01-Risks/003 - Bias and Fairness.md)
+- [004 - Security and Privacy Concerns](01-Risks/004 - Security and Privacy Concerns.md)
+- [005 - Hallucination](01-Risks/005 - Hallucination.md)
+- [006 - Toxic Output](02-AgentSec/006 - Toxic Output.md)
+- [007 - Over-permission Agents](02-AgentSec/007 - Over-permission Agents.md)
+- [008 - Conducting Adversarial Testing](02-AgentSec/008 - Conducting Adversarial Testing.md)
+- [009 - OpenAI Moderation API](03-Moderate/009 - OpenAI Moderation API.md)
+- [010 - Adding End-user IDs in Prompts](03-Moderate/010 - Adding End-user IDs in Prompts.md)
+- [011 - Robust Prompt Engineering](04-Robust/011 - Robust Prompt Engineering.md)
+- [012 - Know your Customers / Use Cases](04-Robust/012 - Know your Customers - Use Cases.md)
+- [013 - Constraining Outputs and Inputs](04-Robust/013 - Constraining Outputs and Inputs.md)
+- [014 - Safety Best Practices](05-Best/014 - Safety Best Practices.md)
 
 ## Cach hoc module nay
 

@@ -14,18 +14,23 @@ Production Demo with logging, token tracking, cost tracking and a public portfol
 
 ## Nhom noi dung
 
-- Production Concerns
+- [Deployment, Logging and Cost Visibility](01-DeployObs/README.md) (Bai 001-004)
+- [Rate Limits, Retries and Timeouts](02-Reliable/README.md) (Bai 005-006)
+- [Evaluation and Safety Regression Tests](03-Evals/README.md) (Bai 007-008)
 
 ## Danh sach bai hoc
 
-- [001 - Deploy Production App](001 - Deploy Production App.md)
-- [002 - Logging](002 - Logging.md)
-- [003 - Token Tracking](003 - Token Tracking.md)
-- [004 - Cost Tracking](004 - Cost Tracking.md)
-- [005 - Rate Limits](005 - Rate Limits.md)
-- [006 - Retries and Timeouts](006 - Retries and Timeouts.md)
-- [007 - Evaluation Harness](007 - Evaluation Harness.md)
-- [008 - Safety Regression Tests](008 - Safety Regression Tests.md)
+
+Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
+
+- [001 - Deploy Production App](01-DeployObs/001 - Deploy Production App.md)
+- [002 - Logging](01-DeployObs/002 - Logging.md)
+- [003 - Token Tracking](01-DeployObs/003 - Token Tracking.md)
+- [004 - Cost Tracking](01-DeployObs/004 - Cost Tracking.md)
+- [005 - Rate Limits](02-Reliable/005 - Rate Limits.md)
+- [006 - Retries and Timeouts](02-Reliable/006 - Retries and Timeouts.md)
+- [007 - Evaluation Harness](03-Evals/007 - Evaluation Harness.md)
+- [008 - Safety Regression Tests](03-Evals/008 - Safety Regression Tests.md)
 
 ## Cach hoc module nay
 

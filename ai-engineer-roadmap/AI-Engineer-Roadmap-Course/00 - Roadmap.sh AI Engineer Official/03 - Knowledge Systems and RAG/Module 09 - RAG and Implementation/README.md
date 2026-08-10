@@ -14,26 +14,32 @@ Project 8: PDF Q&A RAG App with page/chunk citations.
 
 ## Nhom noi dung
 
-- Implementation Options
-- RAG Concepts
+- [RAG Use Cases and Tradeoffs](01-RAGCases/README.md) (Bai 001-002)
+- [RAG Pipeline Components](02-RAGPipe/README.md) (Bai 003-008)
+- [Implementation Approaches](03-ImplWays/README.md) (Bai 009-010)
+- [RAG Frameworks and APIs](04-Frameworks/README.md) (Bai 011-014)
+- [RAG Alternatives](05-Alt/README.md) (Bai 015-015)
 
 ## Danh sach bai hoc
 
-- [001 - RAG Use Cases](001 - RAG Use Cases.md)
-- [002 - RAG vs Fine-tuning](002 - RAG vs Fine-tuning.md)
-- [003 - Chunking](003 - Chunking.md)
-- [004 - Embedding](004 - Embedding.md)
-- [005 - Vector Database](005 - Vector Database.md)
-- [006 - Retrieval Process](006 - Retrieval Process.md)
-- [007 - Generation](007 - Generation.md)
-- [008 - Implementing RAG](008 - Implementing RAG.md)
-- [009 - Ways of Implementing RAG](009 - Ways of Implementing RAG.md)
-- [010 - Using SDKs Directly](010 - Using SDKs Directly.md)
-- [011 - LangChain](011 - LangChain.md)
-- [012 - LlamaIndex](012 - LlamaIndex.md)
-- [013 - OpenAI Assistant API](013 - OpenAI Assistant API.md)
-- [014 - Replicate](014 - Replicate.md)
-- [015 - RAG Alternative](015 - RAG Alternative.md)
+
+Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
+
+- [001 - RAG Use Cases](01-RAGCases/001 - RAG Use Cases.md)
+- [002 - RAG vs Fine-tuning](01-RAGCases/002 - RAG vs Fine-tuning.md)
+- [003 - Chunking](02-RAGPipe/003 - Chunking.md)
+- [004 - Embedding](02-RAGPipe/004 - Embedding.md)
+- [005 - Vector Database](02-RAGPipe/005 - Vector Database.md)
+- [006 - Retrieval Process](02-RAGPipe/006 - Retrieval Process.md)
+- [007 - Generation](02-RAGPipe/007 - Generation.md)
+- [008 - Implementing RAG](02-RAGPipe/008 - Implementing RAG.md)
+- [009 - Ways of Implementing RAG](03-ImplWays/009 - Ways of Implementing RAG.md)
+- [010 - Using SDKs Directly](03-ImplWays/010 - Using SDKs Directly.md)
+- [011 - LangChain](04-Frameworks/011 - LangChain.md)
+- [012 - LlamaIndex](04-Frameworks/012 - LlamaIndex.md)
+- [013 - OpenAI Assistant API](04-Frameworks/013 - OpenAI Assistant API.md)
+- [014 - Replicate](04-Frameworks/014 - Replicate.md)
+- [015 - RAG Alternative](05-Alt/015 - RAG Alternative.md)
 
 ## Cach hoc module nay
 

@@ -19,16 +19,16 @@ Project 4: Prompt Lab with saved prompt templates, versioning and output compari
 
 ## Lessons
 
-- [001 - Writing Prompts](001 - Writing Prompts.md)
-- [002 - Prompt Engineering Roadmap](002 - Prompt Engineering Roadmap.md)
-- [003 - Role Prompting](003 - Role Prompting.md)
-- [004 - Few-shot Prompting](004 - Few-shot Prompting.md)
-- [005 - Chain-of-thought Style Prompting](005 - Chain-of-thought Style Prompting.md)
-- [006 - Structured Output](006 - Structured Output.md)
-- [007 - Constraining Outputs and Inputs](007 - Constraining Outputs and Inputs.md)
-- [008 - Output Schema](008 - Output Schema.md)
-- [009 - Prompt Versioning](009 - Prompt Versioning.md)
-- [010 - Robust Prompt Engineering](010 - Robust Prompt Engineering.md)
+- [001 - Writing Prompts](01-Basics/001 - Writing Prompts.md)
+- [002 - Prompt Engineering Roadmap](01-Basics/002 - Prompt Engineering Roadmap.md)
+- [003 - Role Prompting](02-Patterns/003 - Role Prompting.md)
+- [004 - Few-shot Prompting](02-Patterns/004 - Few-shot Prompting.md)
+- [005 - Chain-of-thought Style Prompting](02-Patterns/005 - Chain-of-thought Style Prompting.md)
+- [006 - Structured Output](03-Structured/006 - Structured Output.md)
+- [007 - Constraining Outputs and Inputs](03-Structured/007 - Constraining Outputs and Inputs.md)
+- [008 - Output Schema](03-Structured/008 - Output Schema.md)
+- [009 - Prompt Versioning](04-Robust/009 - Prompt Versioning.md)
+- [010 - Robust Prompt Engineering](04-Robust/010 - Robust Prompt Engineering.md)
 
 ## How to study this module
 

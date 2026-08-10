@@ -14,20 +14,25 @@ Setup a minimal FastAPI or Node.js API with Git, REST endpoint, database connect
 
 ## Nhom noi dung
 
-- Background Options
-- Required Foundations
+- [Web App Foundations](01-Web/README.md) (Bai 001-003)
+- [Programming and Git](02-CodeGit/README.md) (Bai 004-005)
+- [API, Database and Backend Frameworks](03-APIDB/README.md) (Bai 006-008)
+- [Docker Basics](04-Docker/README.md) (Bai 009-009)
 
 ## Danh sach bai hoc
 
-- [001 - Frontend Basics](001 - Frontend Basics.md)
-- [002 - Backend Basics](002 - Backend Basics.md)
-- [003 - Full-stack Basics](003 - Full-stack Basics.md)
-- [004 - Python or JavaScript](004 - Python or JavaScript.md)
-- [005 - Git](005 - Git.md)
-- [006 - HTTP / REST API](006 - HTTP - REST API.md)
-- [007 - Database Basics](007 - Database Basics.md)
-- [008 - FastAPI / Flask / Express](008 - FastAPI - Flask - Express.md)
-- [009 - Docker Basics](009 - Docker Basics.md)
+
+Bai hoc duoc sap xep trong cac subfolder nho theo noi dung.
+
+- [001 - Frontend Basics](01-Web/001 - Frontend Basics.md)
+- [002 - Backend Basics](01-Web/002 - Backend Basics.md)
+- [003 - Full-stack Basics](01-Web/003 - Full-stack Basics.md)
+- [004 - Python or JavaScript](02-CodeGit/004 - Python or JavaScript.md)
+- [005 - Git](02-CodeGit/005 - Git.md)
+- [006 - HTTP / REST API](03-APIDB/006 - HTTP - REST API.md)
+- [007 - Database Basics](03-APIDB/007 - Database Basics.md)
+- [008 - FastAPI / Flask / Express](03-APIDB/008 - FastAPI - Flask - Express.md)
+- [009 - Docker Basics](04-Docker/009 - Docker Basics.md)
 
 ## Cach hoc module nay
 
