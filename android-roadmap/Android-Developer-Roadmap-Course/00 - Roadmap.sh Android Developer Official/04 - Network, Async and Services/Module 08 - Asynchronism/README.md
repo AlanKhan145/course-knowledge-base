@@ -10,33 +10,51 @@ Run background work safely with threads, coroutines, Flow, Rx and WorkManager.
 
 Mini project: Background Sync App with WorkManager retry, local-first writes and sync status.
 
+## Noi dung nho
+
+- [01-ThreadingBasics - Threading Basics](01-ThreadingBasics/)
+- [02-Coroutines - Coroutines](02-Coroutines/)
+- [03-FlowRx - Flow and Rx](03-FlowRx/)
+- [04-WorkManager - WorkManager](04-WorkManager/)
+
 ## Danh sach bai hoc
 
-- [001 - Main Thread](001 - Main Thread.md)
-- [002 - Background Thread](002 - Background Thread.md)
-- [003 - ANR](003 - ANR.md)
-- [004 - Thread](004 - Thread.md)
-- [005 - Executor](005 - Executor.md)
-- [006 - Handler](006 - Handler.md)
-- [007 - Dispatcher](007 - Dispatcher.md)
-- [008 - Coroutines](008 - Coroutines.md)
-- [009 - Coroutine Scope](009 - Coroutine Scope.md)
-- [010 - Suspend Function](010 - Suspend Function.md)
-- [011 - Dispatchers](011 - Dispatchers.md)
-- [012 - Structured Concurrency](012 - Structured Concurrency.md)
-- [013 - Cancellation](013 - Cancellation.md)
-- [014 - Exception Handling in Coroutines](014 - Exception Handling in Coroutines.md)
-- [015 - Flow](015 - Flow.md)
-- [016 - Cold Flow](016 - Cold Flow.md)
-- [017 - Hot Flow](017 - Hot Flow.md)
-- [018 - RxJava](018 - RxJava.md)
-- [019 - RxKotlin](019 - RxKotlin.md)
-- [020 - Observable](020 - Observable.md)
-- [021 - Single](021 - Single.md)
-- [022 - Scheduler](022 - Scheduler.md)
-- [023 - WorkManager](023 - WorkManager.md)
-- [024 - OneTimeWorkRequest](024 - OneTimeWorkRequest.md)
-- [025 - PeriodicWorkRequest](025 - PeriodicWorkRequest.md)
-- [026 - Constraints](026 - Constraints.md)
-- [027 - Retry and Backoff](027 - Retry and Backoff.md)
-- [028 - Background Sync](028 - Background Sync.md)
+### [01-ThreadingBasics - Threading Basics](01-ThreadingBasics/)
+
+- [Main Thread](01-ThreadingBasics/001 - Main Thread.md)
+- [Background Thread](01-ThreadingBasics/002 - Background Thread.md)
+- [ANR](01-ThreadingBasics/003 - ANR.md)
+- [Thread](01-ThreadingBasics/004 - Thread.md)
+- [Executor](01-ThreadingBasics/005 - Executor.md)
+- [Handler](01-ThreadingBasics/006 - Handler.md)
+- [Dispatcher](01-ThreadingBasics/007 - Dispatcher.md)
+
+### [02-Coroutines - Coroutines](02-Coroutines/)
+
+- [Coroutines](02-Coroutines/008 - Coroutines.md)
+- [Coroutine Scope](02-Coroutines/009 - Coroutine Scope.md)
+- [Suspend Function](02-Coroutines/010 - Suspend Function.md)
+- [Dispatchers](02-Coroutines/011 - Dispatchers.md)
+- [Structured Concurrency](02-Coroutines/012 - Structured Concurrency.md)
+- [Cancellation](02-Coroutines/013 - Cancellation.md)
+- [Exception Handling in Coroutines](02-Coroutines/014 - Exception Handling in Coroutines.md)
+
+### [03-FlowRx - Flow and Rx](03-FlowRx/)
+
+- [Flow](03-FlowRx/015 - Flow.md)
+- [Cold Flow](03-FlowRx/016 - Cold Flow.md)
+- [Hot Flow](03-FlowRx/017 - Hot Flow.md)
+- [RxJava](03-FlowRx/018 - RxJava.md)
+- [RxKotlin](03-FlowRx/019 - RxKotlin.md)
+- [Observable](03-FlowRx/020 - Observable.md)
+- [Single](03-FlowRx/021 - Single.md)
+- [Scheduler](03-FlowRx/022 - Scheduler.md)
+
+### [04-WorkManager - WorkManager](04-WorkManager/)
+
+- [WorkManager](04-WorkManager/023 - WorkManager.md)
+- [OneTimeWorkRequest](04-WorkManager/024 - OneTimeWorkRequest.md)
+- [PeriodicWorkRequest](04-WorkManager/025 - PeriodicWorkRequest.md)
+- [Constraints](04-WorkManager/026 - Constraints.md)
+- [Retry and Backoff](04-WorkManager/027 - Retry and Backoff.md)
+- [Background Sync](04-WorkManager/028 - Background Sync.md)

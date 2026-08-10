@@ -21,13 +21,15 @@ Nguon noi dung dau vao: **Android Developer Roadmap 2026**.
 - Tong hoc phan: 5
 - Tong module: 12
 - Tong bai `.md`: 352
-- Moi module co `README.md`
+- Tong thu muc noi dung nho: 52
+- Moi module co `README.md`, moi thu muc nho co `README.md`
+- Cac file bai cu nam truc tiep trong module da duoc chuyen vao subfolder de tranh duplicate
 - `COURSE_INDEX.md` la muc luc toan khoa
 - `COVERAGE_REPORT.md` dung de doi chieu voi roadmap source
 
 ## Cach hoc
 
-Di theo thu tu: Kotlin va fundamentals -> app components/UI -> architecture/storage -> network/async/services -> quality/release. Voi moi bai, tao mot artifact nho co the kiem tra lai: Kotlin snippet, Compose screen, navigation flow, Room DAO, Retrofit client, WorkManager job, Firebase setup, test, release checklist hoac README section.
+Di theo thu tu: Kotlin va fundamentals -> app components/UI -> architecture/storage -> network/async/services -> quality/release. Trong moi module, hoc tung subfolder nho theo chu de de de theo doi va on tap. Voi moi bai, tao mot artifact nho co the kiem tra lai: Kotlin snippet, Compose screen, navigation flow, Room DAO, Retrofit client, WorkManager job, Firebase setup, test, release checklist hoac README section.
 
 ## Module chinh
 

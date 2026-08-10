@@ -10,26 +10,40 @@ Use static analysis, logging, debugging tools, leak detection and performance be
 
 Mini project: Refactor Existing App with ktlint, detekt, Timber, Chucker, LeakCanary and benchmark notes.
 
+## Noi dung nho
+
+- [01-StaticQuality - Static Quality](01-StaticQuality/)
+- [02-DebuggingTools - Debugging Tools](02-DebuggingTools/)
+- [03-BenchmarkProfile - Benchmark and Profile](03-BenchmarkProfile/)
+
 ## Danh sach bai hoc
 
-- [001 - Android Lint](001 - Android Lint.md)
-- [002 - Ktlint](002 - Ktlint.md)
-- [003 - Detekt](003 - Detekt.md)
-- [004 - Code Style](004 - Code Style.md)
-- [005 - Static Analysis Baseline](005 - Static Analysis Baseline.md)
-- [006 - Gradle Quality Task](006 - Gradle Quality Task.md)
-- [007 - Debugging](007 - Debugging.md)
-- [008 - Breakpoints](008 - Breakpoints.md)
-- [009 - Timber](009 - Timber.md)
-- [010 - Chucker](010 - Chucker.md)
-- [011 - LeakCanary](011 - LeakCanary.md)
-- [012 - Memory Leak](012 - Memory Leak.md)
-- [013 - Network Debugging](013 - Network Debugging.md)
-- [014 - Crash Investigation](014 - Crash Investigation.md)
-- [015 - Jetpack Benchmark](015 - Jetpack Benchmark.md)
-- [016 - Macrobenchmark](016 - Macrobenchmark.md)
-- [017 - Startup Time](017 - Startup Time.md)
-- [018 - Jank](018 - Jank.md)
-- [019 - RecyclerView Performance](019 - RecyclerView Performance.md)
-- [020 - Compose Recomposition](020 - Compose Recomposition.md)
-- [021 - Android Profiler](021 - Android Profiler.md)
+### [01-StaticQuality - Static Quality](01-StaticQuality/)
+
+- [Android Lint](01-StaticQuality/001 - Android Lint.md)
+- [Ktlint](01-StaticQuality/002 - Ktlint.md)
+- [Detekt](01-StaticQuality/003 - Detekt.md)
+- [Code Style](01-StaticQuality/004 - Code Style.md)
+- [Static Analysis Baseline](01-StaticQuality/005 - Static Analysis Baseline.md)
+- [Gradle Quality Task](01-StaticQuality/006 - Gradle Quality Task.md)
+
+### [02-DebuggingTools - Debugging Tools](02-DebuggingTools/)
+
+- [Debugging](02-DebuggingTools/007 - Debugging.md)
+- [Breakpoints](02-DebuggingTools/008 - Breakpoints.md)
+- [Timber](02-DebuggingTools/009 - Timber.md)
+- [Chucker](02-DebuggingTools/010 - Chucker.md)
+- [LeakCanary](02-DebuggingTools/011 - LeakCanary.md)
+- [Memory Leak](02-DebuggingTools/012 - Memory Leak.md)
+- [Network Debugging](02-DebuggingTools/013 - Network Debugging.md)
+- [Crash Investigation](02-DebuggingTools/014 - Crash Investigation.md)
+
+### [03-BenchmarkProfile - Benchmark and Profile](03-BenchmarkProfile/)
+
+- [Jetpack Benchmark](03-BenchmarkProfile/015 - Jetpack Benchmark.md)
+- [Macrobenchmark](03-BenchmarkProfile/016 - Macrobenchmark.md)
+- [Startup Time](03-BenchmarkProfile/017 - Startup Time.md)
+- [Jank](03-BenchmarkProfile/018 - Jank.md)
+- [RecyclerView Performance](03-BenchmarkProfile/019 - RecyclerView Performance.md)
+- [Compose Recomposition](03-BenchmarkProfile/020 - Compose Recomposition.md)
+- [Android Profiler](03-BenchmarkProfile/021 - Android Profiler.md)

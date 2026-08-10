@@ -12,6 +12,7 @@ Thu muc nay chua khoa hoc sinh tu roadmap.sh/android va PDF da upload.
 - Phases: 5
 - Modules: 12
 - Lessons: 352
+- Content subfolders: 52
 
 ## Source
 

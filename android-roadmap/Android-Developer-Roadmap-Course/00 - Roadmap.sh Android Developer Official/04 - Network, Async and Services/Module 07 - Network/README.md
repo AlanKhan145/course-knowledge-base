@@ -10,34 +10,56 @@ Call REST and GraphQL APIs, configure HTTP clients and handle loading, errors an
 
 Mini project: News App with Retrofit, OkHttp, Room cache, pull to refresh and offline error handling.
 
+## Noi dung nho
+
+- [01-HTTPBasics - HTTP Basics](01-HTTPBasics/)
+- [02-Retrofit - Retrofit](02-Retrofit/)
+- [03-OkHttp - OkHttp](03-OkHttp/)
+- [04-GraphQL - GraphQL](04-GraphQL/)
+- [05-NetworkUX - Network UX](05-NetworkUX/)
+
 ## Danh sach bai hoc
 
-- [001 - HTTP Methods](001 - HTTP Methods.md)
-- [002 - Status Codes](002 - Status Codes.md)
-- [003 - Headers](003 - Headers.md)
-- [004 - Authentication Token](004 - Authentication Token.md)
-- [005 - JSON Parsing](005 - JSON Parsing.md)
-- [006 - DTO](006 - DTO.md)
-- [007 - Network Security Config](007 - Network Security Config.md)
-- [008 - Retrofit](008 - Retrofit.md)
-- [009 - Retrofit Interface](009 - Retrofit Interface.md)
-- [010 - Path and Query Parameters](010 - Path and Query Parameters.md)
-- [011 - Request Body](011 - Request Body.md)
-- [012 - Response Wrapper](012 - Response Wrapper.md)
-- [013 - Converter Factory](013 - Converter Factory.md)
-- [014 - Error Body](014 - Error Body.md)
-- [015 - Pagination](015 - Pagination.md)
-- [016 - OkHttp](016 - OkHttp.md)
-- [017 - Interceptor](017 - Interceptor.md)
-- [018 - Logging Interceptor](018 - Logging Interceptor.md)
-- [019 - Timeouts](019 - Timeouts.md)
-- [020 - Caching](020 - Caching.md)
-- [021 - Apollo Android](021 - Apollo Android.md)
-- [022 - GraphQL Query](022 - GraphQL Query.md)
-- [023 - GraphQL Mutation](023 - GraphQL Mutation.md)
-- [024 - Loading State](024 - Loading State.md)
-- [025 - Success State](025 - Success State.md)
-- [026 - Error State](026 - Error State.md)
-- [027 - Retry UI](027 - Retry UI.md)
-- [028 - Pull to Refresh](028 - Pull to Refresh.md)
-- [029 - Offline Message](029 - Offline Message.md)
+### [01-HTTPBasics - HTTP Basics](01-HTTPBasics/)
+
+- [HTTP Methods](01-HTTPBasics/001 - HTTP Methods.md)
+- [Status Codes](01-HTTPBasics/002 - Status Codes.md)
+- [Headers](01-HTTPBasics/003 - Headers.md)
+- [Authentication Token](01-HTTPBasics/004 - Authentication Token.md)
+- [JSON Parsing](01-HTTPBasics/005 - JSON Parsing.md)
+- [DTO](01-HTTPBasics/006 - DTO.md)
+- [Network Security Config](01-HTTPBasics/007 - Network Security Config.md)
+
+### [02-Retrofit - Retrofit](02-Retrofit/)
+
+- [Retrofit](02-Retrofit/008 - Retrofit.md)
+- [Retrofit Interface](02-Retrofit/009 - Retrofit Interface.md)
+- [Path and Query Parameters](02-Retrofit/010 - Path and Query Parameters.md)
+- [Request Body](02-Retrofit/011 - Request Body.md)
+- [Response Wrapper](02-Retrofit/012 - Response Wrapper.md)
+- [Converter Factory](02-Retrofit/013 - Converter Factory.md)
+- [Error Body](02-Retrofit/014 - Error Body.md)
+- [Pagination](02-Retrofit/015 - Pagination.md)
+
+### [03-OkHttp - OkHttp](03-OkHttp/)
+
+- [OkHttp](03-OkHttp/016 - OkHttp.md)
+- [Interceptor](03-OkHttp/017 - Interceptor.md)
+- [Logging Interceptor](03-OkHttp/018 - Logging Interceptor.md)
+- [Timeouts](03-OkHttp/019 - Timeouts.md)
+- [Caching](03-OkHttp/020 - Caching.md)
+
+### [04-GraphQL - GraphQL](04-GraphQL/)
+
+- [Apollo Android](04-GraphQL/021 - Apollo Android.md)
+- [GraphQL Query](04-GraphQL/022 - GraphQL Query.md)
+- [GraphQL Mutation](04-GraphQL/023 - GraphQL Mutation.md)
+
+### [05-NetworkUX - Network UX](05-NetworkUX/)
+
+- [Loading State](05-NetworkUX/024 - Loading State.md)
+- [Success State](05-NetworkUX/025 - Success State.md)
+- [Error State](05-NetworkUX/026 - Error State.md)
+- [Retry UI](05-NetworkUX/027 - Retry UI.md)
+- [Pull to Refresh](05-NetworkUX/028 - Pull to Refresh.md)
+- [Offline Message](05-NetworkUX/029 - Offline Message.md)

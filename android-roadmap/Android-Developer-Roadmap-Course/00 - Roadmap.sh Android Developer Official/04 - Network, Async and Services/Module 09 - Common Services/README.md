@@ -10,26 +10,44 @@ Integrate Firebase, Google services, maps, notifications, remote config, ads and
 
 Mini project: Firebase Chat App with auth, Firestore, push notification, Crashlytics and Remote Config.
 
+## Noi dung nho
+
+- [01-FirebaseCore - Firebase Core](01-FirebaseCore/)
+- [02-PlayServicesMaps - Play Services and Maps](02-PlayServicesMaps/)
+- [03-AppGrowth - App Growth](03-AppGrowth/)
+- [04-IntegrationOps - Integration Ops](04-IntegrationOps/)
+
 ## Danh sach bai hoc
 
-- [001 - Firebase](001 - Firebase.md)
-- [002 - Firebase Authentication](002 - Firebase Authentication.md)
-- [003 - Firestore](003 - Firestore.md)
-- [004 - Cloud Messaging](004 - Cloud Messaging.md)
-- [005 - Crashlytics](005 - Crashlytics.md)
-- [006 - Remote Config](006 - Remote Config.md)
-- [007 - Firebase Analytics](007 - Firebase Analytics.md)
-- [008 - Firebase App Distribution](008 - Firebase App Distribution.md)
-- [009 - Google Play Services](009 - Google Play Services.md)
-- [010 - Google Maps](010 - Google Maps.md)
-- [011 - Maps Marker](011 - Maps Marker.md)
-- [012 - Location Permission](012 - Location Permission.md)
-- [013 - AdMob](013 - AdMob.md)
-- [014 - In App Updates](014 - In App Updates.md)
-- [015 - In App Review](015 - In App Review.md)
-- [016 - google-services Plugin](016 - google-services Plugin.md)
-- [017 - API Key Management](017 - API Key Management.md)
-- [018 - Push Notification Flow](018 - Push Notification Flow.md)
-- [019 - Feature Flag](019 - Feature Flag.md)
-- [020 - Crash Report Workflow](020 - Crash Report Workflow.md)
-- [021 - Privacy Considerations](021 - Privacy Considerations.md)
+### [01-FirebaseCore - Firebase Core](01-FirebaseCore/)
+
+- [Firebase](01-FirebaseCore/001 - Firebase.md)
+- [Firebase Authentication](01-FirebaseCore/002 - Firebase Authentication.md)
+- [Firestore](01-FirebaseCore/003 - Firestore.md)
+- [Cloud Messaging](01-FirebaseCore/004 - Cloud Messaging.md)
+- [Crashlytics](01-FirebaseCore/005 - Crashlytics.md)
+- [Remote Config](01-FirebaseCore/006 - Remote Config.md)
+- [Firebase Analytics](01-FirebaseCore/007 - Firebase Analytics.md)
+- [Firebase App Distribution](01-FirebaseCore/008 - Firebase App Distribution.md)
+
+### [02-PlayServicesMaps - Play Services and Maps](02-PlayServicesMaps/)
+
+- [Google Play Services](02-PlayServicesMaps/009 - Google Play Services.md)
+- [Google Maps](02-PlayServicesMaps/010 - Google Maps.md)
+- [Maps Marker](02-PlayServicesMaps/011 - Maps Marker.md)
+- [Location Permission](02-PlayServicesMaps/012 - Location Permission.md)
+
+### [03-AppGrowth - App Growth](03-AppGrowth/)
+
+- [AdMob](03-AppGrowth/013 - AdMob.md)
+- [In App Updates](03-AppGrowth/014 - In App Updates.md)
+- [In App Review](03-AppGrowth/015 - In App Review.md)
+
+### [04-IntegrationOps - Integration Ops](04-IntegrationOps/)
+
+- [google-services Plugin](04-IntegrationOps/016 - google-services Plugin.md)
+- [API Key Management](04-IntegrationOps/017 - API Key Management.md)
+- [Push Notification Flow](04-IntegrationOps/018 - Push Notification Flow.md)
+- [Feature Flag](04-IntegrationOps/019 - Feature Flag.md)
+- [Crash Report Workflow](04-IntegrationOps/020 - Crash Report Workflow.md)
+- [Privacy Considerations](04-IntegrationOps/021 - Privacy Considerations.md)
