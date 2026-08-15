@@ -1,4 +1,5 @@
 # 244 — 3D Environments Pt. 6
+# 244 — 3D Environments Pt. 6
 
 | Thuộc tính | Nội dung |
 |---|---|
@@ -8,36 +9,56 @@
 | **Thời lượng** | 1:33:07 |
 | **Ngôn ngữ** | English |
 
+## Phạm vi ôn tập
+
+Phần này kết thúc environment pipeline bằng test rendering, render settings và quick compositing. Nội dung được tổng hợp từ [Section 35 — Rendering and Compositing](../35%20-%203D%20Environments-%20Rendering%20and%20Compositing/README.md).
+
 ## Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **3D Environments Pt. 6** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+- Dùng test render để phát hiện lỗi camera, material, lighting và scene settings.
+- Chọn render settings phù hợp với mục đích kiểm tra và output cuối.
+- Đánh giá background, contrast, shadow và color sau khi scene đã được render.
+- Dùng compositing ở mức vừa đủ để hoàn thiện hình ảnh mà không che lấp vấn đề của scene gốc.
+- Lưu một quy trình output có thể lặp lại cho các shot khác.
 
 ## Nội dung trọng tâm
 
-- environment art, asset assembly và scene organization
+### 1. Test rendering
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+Test render là bước kiểm tra, không chỉ là bản final thu nhỏ. Hãy kiểm tra framing, clipping, noise, shadow, texture scale, vật liệu phản xạ và các vùng quá tối hoặc quá sáng trước khi tăng chất lượng output.
+
+### 2. Render settings và scene settings
+
+Resolution, render engine, quality và các setting của scene ảnh hưởng trực tiếp đến thời gian và hình ảnh cuối. Nên giữ một bản setting dùng để preview và một bản setting dùng để xuất final, đồng thời ghi lại các thay đổi quan trọng.
+
+### 3. Quick compositing
+
+Compositing xử lý hình ảnh sau render: cân bằng color/value, điều chỉnh contrast, trộn background hoặc dùng render pass khi cần. Compositor nên hỗ trợ composition và mood đã chọn, không dùng để che lỗi topology, lighting hoặc material chưa giải quyết ở scene.
+
+## Quy trình rút gọn
+
+1. Lưu bản scene trước khi đổi render settings.
+2. Render preview ở resolution và quality thấp hơn để kiểm tra lỗi lớn.
+3. Chỉnh camera, light, material hoặc scene settings theo kết quả test.
+4. Tăng chất lượng, kiểm tra lại memory/time và render một frame xác nhận.
+5. Đưa render vào compositor, điều chỉnh color/value ở mức vừa phải.
+6. Xuất final, lưu setting và ghi lại tên file, resolution cùng engine đã dùng.
 
 ## Thực hành đề xuất
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+Với main scene ở Pt. 5, tạo một test render nhanh và lập danh sách lỗi theo thứ tự ưu tiên. Sửa các lỗi ở scene trước, sau đó dùng quick compositing để cân bằng contrast và background. Xuất một bản preview và một bản final, giữ cả file Blender lẫn kết quả.
 
 ## Checklist
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+- [ ] Đã thực hiện test render trước khi render final.
+- [ ] Đã kiểm tra camera, clipping, texture, shadow và noise.
+- [ ] Đã ghi lại render engine, resolution và quality settings.
+- [ ] Đã sửa lỗi scene trước khi dùng compositor.
+- [ ] Đã thực hiện quick compositing có chủ đích.
+- [ ] Đã lưu scene, setting và output cuối.
 
 ## Ghi chú về nguồn
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+> Đây là bài recap được biên soạn từ nội dung và transcript trong Section 35 của thư mục khóa học. Phần này khép lại environment pipeline ở mức output: test render, điều chỉnh scene và quick compositing.

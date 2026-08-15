@@ -1,4 +1,5 @@
 # 250 — Character Creation Pt. 6
+# 250 — Character Creation Pt. 6
 
 | Thuộc tính | Nội dung |
 |---|---|
@@ -8,36 +9,56 @@
 | **Thời lượng** | 1:12:06 |
 | **Ngôn ngữ** | English |
 
+## Phạm vi ôn tập
+
+Phần này khép lại character pipeline bằng lighting, rigging và posing, với trọng tâm là đưa nhân vật đã texture vào một shot có thể trình bày. Nội dung được tổng hợp từ [Section 23 — Modeling a Simple Stylized Character](../23%20-%20Character%20Creation-%20Modeling%20a%20Simple%20Stylized%20Character/README.md) và các bài lighting, rigging, posing trong [Section 25 — Final Project](../25%20-%20Character%20Creation-%20Final%20Project/README.md).
+
 ## Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **Character Creation Pt. 6** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+- Thiết lập lighting để đọc được silhouette, material và khuôn mặt.
+- Dùng Rigify hoặc rig đã chuẩn bị để điều khiển nhân vật.
+- Kiểm tra deformation trước khi tạo pose cuối.
+- Tạo pose có trọng tâm, line of action và trọng lượng rõ ràng.
+- Xuất render và lưu scene ở trạng thái có thể chỉnh sửa.
 
 ## Nội dung trọng tâm
 
-- quy trình thực hành được giới thiệu trong bài học
+### 1. Lighting cho character
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+Lighting cần làm rõ form, mắt, chất liệu quần áo và hướng nhìn. Hãy kiểm tra cả solid/material preview lẫn rendered view; đừng dùng độ sáng để che lỗi silhouette hoặc texture.
+
+### 2. Rigging và kiểm tra deformation
+
+Rigify là add-on đi kèm Blender có thể tạo human meta-rig và generate rig nâng cao. Trước khi pose, kiểm tra parenting, mirror object, modifier và các vùng như vai, khuỷu, hông, đầu gối. Một số chi tiết dạng plane có thể cần thickness hoặc normal/shading phù hợp trước khi rig.
+
+### 3. Posing và final presentation
+
+Pose nên phục vụ tính cách, hành động hoặc câu chuyện của character. Sau khi chốt pose, điều chỉnh camera, light, ground và background để render có hierarchy rõ ràng; giữ pose version để có thể quay lại.
+
+## Quy trình rút gọn
+
+1. Dọn scene, đặt tên collection và kiểm tra texture/material.
+2. Thiết lập light và camera để đọc rõ character.
+3. Enable Rigify nếu cần, tạo rig và bind các bộ phận.
+4. Test các pose nhỏ, kiểm tra deformation và sửa weight/relationship.
+5. Chọn pose cuối, thêm ground/background và điều chỉnh composition.
+6. Render, lưu version của rig/pose và ghi lại các setting quan trọng.
 
 ## Thực hành đề xuất
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+Tạo hai pose khác nhau cho cùng một character: một pose cân bằng để kiểm tra deformation và một pose có tính cách rõ hơn. Dùng cùng camera, thử hai lighting setup, chọn phương án đọc tốt nhất rồi xuất render với tên file có version.
 
 ## Checklist
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+- [ ] Đã kiểm tra material, texture và silhouette trước lighting.
+- [ ] Đã tạo hoặc kiểm tra rig bằng Rigify.
+- [ ] Đã test deformation ở các khớp chính.
+- [ ] Đã tạo ít nhất hai pose và lưu version.
+- [ ] Đã chốt camera, lighting và background.
+- [ ] Đã xuất render cuối cùng cùng file Blender có thể chỉnh sửa.
 
 ## Ghi chú về nguồn
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+> Đây là bài recap được biên soạn từ nội dung và transcript trong Sections 23 và 25 của thư mục khóa học. Phần này kết nối character đã texture với rig, pose và final presentation.

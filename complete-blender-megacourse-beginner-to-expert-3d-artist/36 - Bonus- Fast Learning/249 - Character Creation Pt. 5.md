@@ -1,4 +1,5 @@
 # 249 — Character Creation Pt. 5
+# 249 — Character Creation Pt. 5
 
 | Thuộc tính | Nội dung |
 |---|---|
@@ -8,36 +9,56 @@
 | **Thời lượng** | 1:09:59 |
 | **Ngôn ngữ** | English |
 
+## Phạm vi ôn tập
+
+Phần này tiếp tục final character project với detailing, zipper, UV và texture cho body, jacket, hoody, belt, eyes, shorts và shoes. Nội dung được tổng hợp từ [Section 25 — Final Project](../25%20-%20Character%20Creation-%20Final%20Project/README.md).
+
 ## Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **Character Creation Pt. 5** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+- Thêm detail theo thứ tự ưu tiên mà không phá form và topology đã ổn định.
+- Dựng zipper và các chi tiết nhỏ bằng workflow có thể chỉnh sửa.
+- Chuẩn bị UV cho toàn character trước khi texture.
+- Chia texture task theo từng nhóm vật liệu và bộ phận.
+- Kiểm tra consistency giữa body, jacket, hoody, belt, eyes, shorts và shoes.
 
 ## Nội dung trọng tâm
 
-- quy trình thực hành được giới thiệu trong bài học
+### 1. Detailing sau retopology
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+Shoe, zipper và các chi tiết còn lại nên được xử lý trên mesh đã kiểm soát topology. Giữ backup của bản sạch trước khi thêm detail để có thể quay lại khi modifier hoặc shading gây lỗi.
+
+### 2. UV trước texture
+
+UV unwrap là cầu nối giữa character 3D và texture image. Cần kiểm tra seam, distortion, texel density tương đối và vùng quan trọng như mặt, mắt, logo hoặc đường may trước khi bắt đầu paint.
+
+### 3. Texture theo nhóm vật liệu
+
+Body, jacket, hoody, belt, eyes, shorts và shoes có yêu cầu bề mặt khác nhau. Chia công việc theo nhóm giúp kiểm soát color, roughness và detail; sau mỗi nhóm cần kiểm tra lại toàn character dưới cùng lighting.
+
+## Quy trình rút gọn
+
+1. Lưu bản retopology sạch và duplicate làm working copy.
+2. Thêm detail cho shoes, zipper và các vùng còn thiếu.
+3. Hoàn thiện UV unwrap, kiểm tra distortion và bố trí các island.
+4. Texture body trước, sau đó chuyển sang jacket, hoody, belt, eyes, shorts và shoes.
+5. Kiểm tra material/texture ở cận cảnh và camera chính.
+6. Lưu texture image, file Blender và phiên bản backup sau từng nhóm.
 
 ## Thực hành đề xuất
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+Dùng character đã retopology. Hoàn thiện UV, tạo một texture cho body và một nhóm texture cho trang phục. Thêm zipper hoặc đường detail nhỏ, sau đó texture riêng mắt và giày. So sánh render trước/sau texture ở cùng camera để kiểm tra sự nhất quán.
 
 ## Checklist
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+- [ ] Đã giữ backup trước khi detailing.
+- [ ] Đã hoàn thiện zipper hoặc một chi tiết phụ tương tự.
+- [ ] Đã unwrap UV toàn character và kiểm tra distortion.
+- [ ] Đã texture body và các nhóm trang phục chính.
+- [ ] Đã kiểm tra mắt, belt, shorts và shoes ở cận cảnh.
+- [ ] Đã lưu image textures cùng file Blender.
 
 ## Ghi chú về nguồn
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+> Đây là bài recap được biên soạn từ nội dung và transcript trong Section 25 của thư mục khóa học. Các nhóm texture được giữ theo thứ tự của final project để dễ theo dõi và kiểm tra.

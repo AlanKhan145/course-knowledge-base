@@ -1,4 +1,5 @@
 # 246 — Character Creation Pt. 2
+# 246 — Character Creation Pt. 2
 
 | Thuộc tính | Nội dung |
 |---|---|
@@ -8,36 +9,56 @@
 | **Thời lượng** | 48:42 |
 | **Ngôn ngữ** | English |
 
+## Phạm vi ôn tập
+
+Phần này tóm tắt modeling một stylized character từ face, body, clothes, shoes đến material, eye/eyelid, rigging, posing, lighting, particles và compositing. Nội dung được tổng hợp từ [Section 23 — Modeling a Simple Stylized Character](../23%20-%20Character%20Creation-%20Modeling%20a%20Simple%20Stylized%20Character/README.md).
+
 ## Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **Character Creation Pt. 2** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+- Dựng một stylized character bằng topology đơn giản và modifier không phá hủy.
+- Chia quy trình thành face, body, clothes và shoes thay vì chỉnh toàn bộ cùng lúc.
+- Tạo material, vertex paint mắt và khuôn mặt theo phong cách nhất quán.
+- Dùng Rigify để tạo rig humanoid, sau đó pose và chuẩn bị render.
+- Nhận biết các bước lighting, particles và compositing ở cuối pipeline.
 
 ## Nội dung trọng tâm
 
-- quy trình thực hành được giới thiệu trong bài học
+### 1. Modeling theo nhóm hình
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+Face, body, clothes và shoes nên được xử lý như các mốc riêng để dễ kiểm soát tỷ lệ. Subdivision Surface có thể giữ ở dạng modifier trong lúc modeling để có bề mặt mềm nhưng vẫn chỉnh trên base mesh nhẹ.
+
+### 2. Màu và chi tiết khuôn mặt
+
+Material tạo màu và phản ứng ánh sáng tổng thể; vertex painting giúp thêm màu cục bộ cho mắt hoặc mặt theo workflow của section. Cần kiểm tra mirror object, seam và các object phụ trước khi chuyển sang rig.
+
+### 3. Rigify, pose và output
+
+Rigify cung cấp human meta-rig và khả năng generate advanced rig cho humanoid. Sau khi bind object, kiểm tra vùng biến dạng, tạo pose có chủ đích, rồi dùng lighting, particles và compositing để hoàn thiện hình ảnh.
+
+## Quy trình rút gọn
+
+1. Dựng face với base mesh nhẹ và modifier phù hợp.
+2. Mở rộng body, clothes và shoes, kiểm tra tỷ lệ ở nhiều góc.
+3. Tạo material, eye/eyelid và vertex paint các vùng cần nhấn.
+4. Sửa mirror object hoặc relationship của các phần trước khi rig.
+5. Bật Rigify, tạo rig humanoid, bind character và kiểm tra pose.
+6. Thiết lập lighting, thêm particles/compositing nếu cần rồi render.
 
 ## Thực hành đề xuất
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+Tạo một stylized character đơn giản có đầu, thân, quần áo và giày. Giữ subdivision chưa apply trong giai đoạn modeling, tạo một material cho trang phục và vertex paint mắt. Dùng Rigify tạo một pose bất đối xứng, đặt light key/fill và xuất một render có compositing nhẹ.
 
 ## Checklist
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+- [ ] Đã dựng face, body, clothes và shoes thành các mốc riêng.
+- [ ] Đã giữ base mesh có thể chỉnh sửa trong lúc dùng Subdivision Surface.
+- [ ] Đã hoàn thiện material và màu mắt/khuôn mặt.
+- [ ] Đã kiểm tra mirror object và relationship trước khi rig.
+- [ ] Đã tạo rig bằng Rigify và thử ít nhất một pose.
+- [ ] Đã lưu render có lighting và compositing.
 
 ## Ghi chú về nguồn
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+> Đây là bài recap được biên soạn từ nội dung và transcript trong Section 23 của thư mục khóa học. Các bước được sắp xếp thành một pipeline stylized character hoàn chỉnh từ modeling đến output.
