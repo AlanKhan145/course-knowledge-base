@@ -43,3 +43,49 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+Welcome back! In this lesson, it's going to be short, a bit short. I'm going to
+
+talk a bit about my preference in using the viewport display while working with
+
+Blender. So the first thing I do, if you noticed, I had a small, small canvas here
+
+and it showed the timeline. I basically, you know, don't use it at all and even in
+
+this course will not be doing that much animation. So what I do is just join the
+
+two areas. Another thing about the area is that when I hit ctrl space, I get to
+
+expand the area that the mouse is hovering over. So if the mouse is
+
+hovering over the outline and I hit ctrl space, the outline gets expanded and so
+
+on. I'll be using that a little bit more often so that you know what I just did
+
+there. You'll also have a small keycast at the bottom so any click I make, you
+
+will see what I just did there. Another thing I prefer is that I go
+
+to edit preferences and I believe that by default under system, it's Coda so
+
+and only the CPU is activated. So I go to optics and I activate the graphics
+
+card with the CPU. The third thing here is that under the memory and limits and
+
+systems as well, I believe the undo steps is 32 by default or 64. I increased that
+
+a bit to 80 just in case I wanted to go back in history a little bit further. In
+
+terms of the render engine that we'll be using, it's going to be cycles. Now if you
+
+switch to cycles and don't see the same settings, that's simply because
+
+you might have a different version. I'm currently using 3.0 which is the Cycle X
+
+version. If you don't see it, you can simply go back and download Blender 3.
+
+We'll be using the GPU to compute and we will go into details about these
+
+settings as well as for the resolution settings.
+
+

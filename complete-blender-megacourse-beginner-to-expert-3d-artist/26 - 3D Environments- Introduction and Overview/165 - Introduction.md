@@ -42,3 +42,18 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+
+Welcome to the next part of Blender Mega Course!
+
+Congratulations on making it this far!
+
+In this part of the course, you will master the creation of 3D environments in Blender.
+
+You will go from applying all of the design principles while sculpting,
+
+modeling and texturing, creating the perfect scene
+
+with camera positioning and the correct lighting.
+
+Now let's begin!

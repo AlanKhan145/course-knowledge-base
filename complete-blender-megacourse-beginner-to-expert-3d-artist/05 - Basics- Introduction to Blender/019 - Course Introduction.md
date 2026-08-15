@@ -41,3 +41,33 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+Hello and welcome to the Blender Basics course. My name is Emily and I'm going to be your
+
+instructor for the course. A little bit about myself, I am a 3D artist from California. I
+
+received my master's in game development with a concentration in environment modeling from the
+
+Academy of Art University in San Francisco. However, my Blender journey actually began
+
+many years before that. I began learning 3D art using Blender in 2014 and have been hooked ever
+
+since. My focus has primarily been on creating environments and assets for games, but I have
+
+dabbled in just about every area of CG art from animation to ZBrush, and I have yet to find a
+
+program as versatile, powerful, and affordable as Blender. In this course, we're going to start
+
+from the ground up and cover what you need to know as an absolute beginner in order to get
+
+going making your own models that can be used in games, animations, 3D printing, and much more.
+
+We'll be covering a lot in this course, including getting started in Blender,
+
+mesh modeling, sculpting, materials and textures, basic animation, and rendering.
+
+I'm thrilled to have the opportunity to share my passion with you, and I will show you everything
+
+you need to know to get started. And although it may seem daunting at times, stick with it,
+
+and I promise you'll be making incredible models in no time.

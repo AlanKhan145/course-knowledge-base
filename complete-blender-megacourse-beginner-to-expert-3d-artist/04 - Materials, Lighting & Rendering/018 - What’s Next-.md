@@ -42,3 +42,37 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+Congratulations on completing the first part of Blender's Mega Course.
+
+You've built a strong foundation in Blender by learning navigation, modeling, materials,
+
+lighting, rendering, and composing your own 3D scene.
+
+Now it's time to take those skills even further.
+
+In the next sections, you will continue learning from different Blender's instructors.
+
+While some of the lessons were recorded in an older Blender version,
+
+all of the core fundamentals, workflows, and techniques
+
+are still highly relevant and valuable today.
+
+You'll first deepen your understanding of Blender's tools and workflows
+
+with Blender Basic Course.
+
+And then you'll move on to character creation, where you'll learn
+
+sculpting, texturing, and character design.
+
+Finally, you'll move on to 3D environments,
+
+creating detailed scenes and immersive worlds for your portfolio.
+
+You've mastered the basics, now it's time to build bigger projects,
+
+learn new workflows, and continue growing as a 3D artist.
+
+

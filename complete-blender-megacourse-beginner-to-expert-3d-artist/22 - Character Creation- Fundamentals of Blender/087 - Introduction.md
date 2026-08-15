@@ -41,3 +41,18 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+
+Welcome to the next part of Blender Mega Course.
+
+Congratulations on making it this far.
+
+I'm sure that by now you've learned and mastered all of the 3D basics of the program.
+
+In the next part of the course, you'll learn everything you need to know about character
+
+creation in Blender.
+
+You'll learn anatomy of your first character by sculpting head and body,
+
+learning all of the tricks to create amazing projects. Let's begin!

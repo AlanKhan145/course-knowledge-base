@@ -41,3 +41,37 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+hello guys this is the end of the course so first of all congratulations if you
+
+made it up to this point and this has been really fun for me to make this
+
+character and to explain it all the process all the things I know and I
+
+really really hope that you learn something and I tried my best to teach
+
+everything I know in every area of making a character so I tried to explain
+
+how to make the high poly how to make the low poly all the technical stuff and
+
+all the artistic stuff and yeah all those things so yeah forgive me if I was
+
+unable to explain things more clearly I believe me I just tried my best to just
+
+explain everything as simple as I can so I made some changes over here I added
+
+these shoelaces that we removed earlier with the curve then I made the brick
+
+texture that we made white because I thought this is more interesting more
+
+appealing and then with the texture mask I just painted on the wall this logo
+
+that we had used it on the body over here as well so I just used it to paint
+
+it on here and get this interesting looking windows I made four or five
+
+windows for showcasing our work you can do the same too and yeah that's the end
+
+result right now and I hope you enjoyed the course and goodbye
+
+

@@ -43,3 +43,30 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+
+Now is the time for you to create your own stylized 3D scene.
+
+For this class project, you will build a simple fantasy inspired cabin in Blender,
+
+using the techniques that you learned throughout the course.
+
+You can follow along our lessons or create your own variation of it,
+
+using your preferred shapes, colors and materials.
+
+Start by modeling the main structure of your scene, keeping everything organized.
+
+But don't forget to add details.
+
+These stylized details will bring personality to your scene.
+
+Then, add the materials and adjust the lighting accordingly to the mood of the scene.
+
+Finally, set up your camera and do a final render.
+
+This project is all about practicing the full beginner workflow,
+
+so don't worry about perfection.
+
+Try and focus on learning, experimenting and having fun with the process.

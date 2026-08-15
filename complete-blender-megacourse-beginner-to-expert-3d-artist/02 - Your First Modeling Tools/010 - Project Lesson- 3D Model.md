@@ -41,3 +41,20 @@ Sau bài học này, người học có thể:
 ## Ghi chú về nguồn
 
 > File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+
+
+Well now is the perfect time for you to create your own 3D object.
+
+You can follow along our last lesson of our lantern or you can create anything that you
+
+like for our external scene.
+
+It could be something like a picket fence or maybe a well.
+
+Anything that you like.
+
+Try to focus only on modeling for now.
+
+Observe how the light reflects on the surface of our model.
+
+Observe the topology of it and how you can use modifiers to change your object. And have fun!
