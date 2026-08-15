@@ -49,6 +49,19 @@ Sau khi hoàn thành, học viên có thể:
 
 Xem [CURRICULUM.md](CURRICULUM.md) để đọc danh sách đầy đủ 36 section và 247 lecture.
 
+## Cấu trúc tài liệu
+
+Khóa học được tổ chức theo cùng cấu trúc với các khóa học khác trong workspace:
+
+- 36 thư mục section, đánh số từ `01` đến `36`.
+- Mỗi section có một `README.md` với mục tiêu, thống kê, danh sách bài học và checklist.
+- Mỗi mục curriculum có một file Markdown riêng, đánh số liên tục từ `001` đến `251`.
+- 247 file là video lecture; 4 file được đánh dấu `Role Play / interactive` theo metadata Udemy.
+
+Ví dụ: [Section 01 README](01%20-%20Getting%20Started%20with%20Blender/README.md).
+
+Các file bài học hiện là khung ghi chú có metadata, mục tiêu, chủ đề gợi ý, bài thực hành và checklist. Vì dữ liệu đầu vào chỉ bao gồm tên bài và thời lượng, phần ghi chú chi tiết cần được bổ sung từ transcript hoặc nội dung video gốc khi có.
+
 ## Lưu ý về dữ liệu
 
 Sections 01–10 được đối chiếu trực tiếp với trang Udemy hiện tại. Một số mục Role Play / interactive trên Udemy không phải video thông thường.
