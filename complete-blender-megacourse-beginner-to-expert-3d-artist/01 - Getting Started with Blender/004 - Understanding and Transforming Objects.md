@@ -1,323 +1,1771 @@
 # 004 — Understanding and Transforming Objects
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Section** | Section 01 — Getting Started with Blender |
-| **Bài học** | Understanding and Transforming Objects |
-| **Loại nội dung** | Video lecture |
-| **Thời lượng** | 11:29 |
-| **Ngôn ngữ** | English |
+## Hiểu và biến đổi Object trong Blender
 
-## Mục tiêu bài học
+| Thuộc tính        | Nội dung                                                                    |
+| ----------------- | --------------------------------------------------------------------------- |
+| **Section**       | Section 01 — Getting Started with Blender                                   |
+| **Bài học**       | Understanding and Transforming Objects                                      |
+| **Loại nội dung** | Video lecture                                                               |
+| **Thời lượng**    | 11:29                                                                       |
+| **Ngôn ngữ**      | English                                                                     |
+| **Chủ đề chính**  | Object, Transform, Origin, Pivot Point, Duplicate, Instance, Snap, Viewport |
 
-Sau bài học này, người học có thể:
+---
 
-- Xác định vai trò của **Understanding and Transforming Objects** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+## 1. Tổng quan bài học
 
-## Nội dung trọng tâm
+Bài học giới thiệu cách Blender quản lý **Object** và cách thực hiện các phép biến đổi cơ bản:
 
-- modeling, mesh editing và kiểm soát hình học
-- làm quen Blender, workspace và workflow cơ bản
+* **Move** — di chuyển.
+* **Rotate** — xoay.
+* **Scale** — thay đổi kích thước.
+* Làm việc với **Object Origin**.
+* Thay đổi **Transform Pivot Point**.
+* Theo dõi Transform trong **N Panel**.
+* **Apply Transform** bằng `Ctrl + A`.
+* Phân biệt **Object** và **Mesh Data**.
+* Phân biệt:
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+  * Duplicate thông thường — `Shift + D`.
+  * Linked Duplicate / Instance — `Alt + D`.
+* Sử dụng **Snapping**.
+* Điều chỉnh **Grid**, **Overlay**, **Wireframe**, **X-Ray**.
+* Làm quen các chế độ hiển thị của Viewport.
 
-## Thực hành đề xuất
+---
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+# 2. Object trong Blender là gì?
 
-## Checklist
+Trong ví dụ của bài học, toàn bộ bông hoa được Blender xem là một **Object**.
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+Một Object có thể chứa nhiều loại dữ liệu khác nhau, chẳng hạn:
 
-## Ghi chú về nguồn
+* Mesh
+* Curve
+* Camera
+* Light
+* Armature
+* Text
+* Empty
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+Đối với bài học này, Object đang chứa **Mesh Data**.
 
+```text
+Object: Flower
+│
+├── Transform
+│   ├── Location
+│   ├── Rotation
+│   └── Scale
+│
+├── Origin
+│
+└── Mesh Data
+    └── flower.002
+```
 
-Welcome, in this lesson we are going to be understanding and transforming our objects.
+Điểm quan trọng:
 
-So here we have our flower.
+> **Object và Mesh Data không phải là cùng một thứ.**
 
-This flower is considered one object in Blender.
+Một Object có thể được xem như một "container" chứa Transform và tham chiếu đến dữ liệu hình học.
 
-So let's select it.
+---
 
-If you don't have your toolbox showing here on the left side, you can press D.
+# 3. Chọn Object
 
-And right here, the first select box, if you long press your left click, you have a few
+Blender cung cấp nhiều phương thức lựa chọn Object.
 
-options of how you can select your objects.
+Các kiểu được nhắc đến trong bài:
 
-So for example, if we select lasso, we can select a lot of objects at once.
+* **Tweak**
+* **Select Box**
+* **Select Circle**
+* **Select Lasso**
 
-I like to use tweak because you can click anywhere on your object that it will select.
+### Tweak
 
-If you have circle, that won't happen.
+Cho phép click trực tiếp lên Object để chọn.
 
-It will only select if you pass your mouse through the origin of your object.
+Đây là kiểu lựa chọn thuận tiện nhất cho thao tác thông thường.
 
-As we mentioned before, all objects have an orange point.
+### Lasso Select
 
-In this case, it's right here.
+Cho phép vẽ vùng tự do để chọn nhiều Object.
 
-So what does this imply when we are transforming our objects in Blender?
+### Circle Select
 
-Let's go here, let me choose.
+Sử dụng vùng hình tròn để lựa chọn các thành phần/Object mà con trỏ đi qua.
 
-This is our cursor, as we said before.
+> **Lưu ý:** transcript của bài có nhắc phím `D` để hiển thị toolbox. Đây có thể là lỗi phiên âm hoặc shortcut riêng của phiên bản/course. Trong quá trình thực hành nên kiểm tra shortcut trực tiếp trong phiên bản Blender đang sử dụng.
 
-Now we have move, rotate and scale.
+---
 
-So let's start with move.
+# 4. Object Origin
 
-You can click here, or you can press G on your keyboard.
+Mỗi Object có một **Origin**.
 
-You can see that you can move your object.
+Trong Viewport, Origin thường được biểu diễn bằng một chấm nhỏ.
 
-Usually you don't want to move it like this, so you can go in your gizmo that it shows right here.
+```text
+        Mesh
+    ┌───────────┐
+    │           │
+    │     ●     │
+    │   Origin  │
+    │           │
+    └───────────┘
+```
 
-You can press on this little arrow, it will be locked on your axis.
+Origin đóng vai trò cực kỳ quan trọng đối với:
 
-But you can also just press G. And after you press G, don't press anything.
+* Rotation.
+* Scale.
+* Modifier.
+* Parent.
+* Animation.
+* Instancing.
+* Transformation.
 
-You can press Z to lock on Z, or X and Y.
+Ví dụ, khi xoay Object:
 
-This is the option that we tend to use most.
+```text
+Object
+   │
+   ▼
+●───────────►
+Origin
 
-So this is how you can move your object.
+      ↓ Rotate
 
-So let's go to rotate.
+        ╱ Object
+       ╱
+      ●
+   Origin
+```
 
-You can press right here, or you can press R on your keyboard.
+Object mặc định sẽ xoay quanh Origin của chính nó.
 
-As I said, when we press R, it's freely rotated based on your viewport.
+---
 
-But if we do like this, we can rotate on Z, we can rotate on Y, and on X.
+# 5. Ba Transform cơ bản
 
-And as we did on move, if we press R, we can rotate it in Z, X and Y.
+Transform của Object gồm:
 
-So, let's go to scale, and it's the same thing.
+$$
+Transform = Location + Rotation + Scale
+$$
 
-You can scale Z, X, and Y.
+Ba thao tác quan trọng nhất:
 
-Okay, so let's leave it like this.
+| Transform       | Shortcut | Chức năng           |
+| --------------- | -------: | ------------------- |
+| **Move / Grab** |      `G` | Di chuyển Object    |
+| **Rotate**      |      `R` | Xoay Object         |
+| **Scale**       |      `S` | Thay đổi kích thước |
 
-And also you have a transform where you have all of them in one, if you want, like this.
+---
 
-But we don't use it that much.
+# 6. Move — Di chuyển Object
 
-Okay, so now you can see that I transformed a lot this object.
+Có thể chọn Move Tool trên Toolbar hoặc sử dụng:
 
-Let's move it also.
+```text
+G
+```
 
-You can see what you did with this object by going here on the left sidebar.
+Sau khi nhấn `G`, Object có thể được di chuyển tự do.
 
-And if it's not showing, you can press N on your keyboard to open it up, or click this
+## Khóa theo trục
 
-little arrow here.
+```text
+G → X
+G → Y
+G → Z
+```
 
-But it's easier to press N.
+Ví dụ:
 
-And let's go to item.
+```text
+G → X
+```
 
-As you can see here, you will have transform, where it shows everything that we did on our object.
+chỉ cho phép Object di chuyển trên trục X.
 
-So you can see here that we moved three meters from our Y, we rotated 700 degrees here, and
+### Sơ đồ
 
-we scaled pretty messy, right?
+```text
+                    Z
+                    ↑
+                    │
+                    │
+                    ●──────→ X
+                   /
+                  /
+                 Y
+```
 
-So you need to keep track of what you do in your object.
+| Shortcut | Chuyển động |
+| -------- | ----------- |
+| `G X`    | Theo trục X |
+| `G Y`    | Theo trục Y |
+| `G Z`    | Theo trục Z |
 
-So if you want to go back the way that it was 1, 1, 1 scale, you just click and drag
+Đây là cách làm được sử dụng rất thường xuyên trong Blender.
 
-to the bottom and press 1.
+---
 
-So you have 1 scale on X, Y, and Z.
+# 7. Rotate — Xoay Object
 
-You can do this for all of them.
+Shortcut:
 
-So rotation, and everything goes back to the way that it was.
+```text
+R
+```
 
-Let's say that just in case you want to scale this object on Z, and you want it to stay
+Nếu chỉ nhấn `R`, Object được xoay dựa trên góc nhìn hiện tại của Viewport.
 
-like this for some reason, you can see here that our scale is 1 in X, Y, and in Z, we have 1.8.
+Có thể khóa Rotation theo một trục:
 
-So if you want it to keep this way, you can press Ctrl A, and here you can apply the transforms
+```text
+R → X
+R → Y
+R → Z
+```
 
-you did in this object.
+Ví dụ:
 
-So you have here apply location, rotation, scale, or odd.
+```text
+R Z
+```
 
-Let's go with scale.
+→ xoay Object quanh trục Z.
 
-You can see that now our value for Z is 1, and this is 1.
+| Shortcut | Chức năng    |
+| -------- | ------------ |
+| `R`      | Xoay tự do   |
+| `R X`    | Xoay quanh X |
+| `R Y`    | Xoay quanh Y |
+| `R Z`    | Xoay quanh Z |
 
-So this might not seem too important right now, but when you start working with modifier,
+---
 
-this will be crucial for you to not get any errors.
+# 8. Scale — Thay đổi kích thước
 
-But let's go back to the way that it is.
+Shortcut:
 
-One other thing about transforming your object is what I said about the world origin.
+```text
+S
+```
 
-So here we have our world origin and our object origin here.
+Scale đồng đều:
 
-So you can see as we rotate, it follows this origin as we rotate Z.
+```text
+S
+```
 
-If we go here to transform pivot point, you have various options of how you can transform this object.
+Scale theo từng trục:
 
-So here we have 3D cursor.
+```text
+S X
+S Y
+S Z
+```
 
-Let's select it.
+Ví dụ:
 
-If I move, everything stays the same, but let's say we have our object right here and
+```text
+S Z
+```
 
-I try to rotate it.
+Object chỉ thay đổi kích thước theo chiều Z.
 
-You can see that our pivot is still on our world origin.
+```text
+Before
 
-So keep this in mind when you are rotating.
+     ┌─────┐
+     │     │
+     └─────┘
 
-You also have individual origins.
 
-If you're selecting more than one object, a medium point or an active element.
+S Z
 
-So let's duplicate our object.
 
-Before we start duplicating our object, I want to show you the difference between object
+After
 
-and object data.
+     ┌─────┐
+     │     │
+     │     │
+     │     │
+     └─────┘
+```
 
-So here we have one object and right here on our properties tab, we can see this object
+---
 
-right here and it's named flower.
+# 9. Transform Gizmo
 
-You can see here also in the outliner named the flower, but if we go down here to data,
+Ngoài shortcut, Blender cung cấp Gizmo để thao tác trực tiếp.
 
-you can see that we have another name, it's flower.002.
+Có các Gizmo riêng:
 
-This is the name of your mesh data.
+* Move.
+* Rotate.
+* Scale.
 
-So you can have a lot of objects, different objects with the same mesh data, and that
+Và một Gizmo tổng hợp:
 
-is called instances.
+**Transform**
 
-So let's rename this by clicking and saying flower1.
+```text
+Transform Gizmo
+      │
+      ├── Move
+      ├── Rotate
+      └── Scale
+```
 
-This is flower1.
+Transform Gizmo cho phép thực hiện cả ba thao tác trong cùng một công cụ.
 
-Let's duplicate this object.
+Tuy nhiên khi làm việc nhanh, shortcut:
 
-You can click shift D. I'm going to hold middle mouse and drag it towards what axis I want to move.
+```text
+G
+R
+S
+```
 
-This is another way that you can move, lock your object.
+thường tiện hơn.
 
-If I want, for example, in the X, hold a little bit your middle mouse and direct your mouse
+---
 
-the direction you want to go.
+# 10. Xem Transform trong N Panel
 
-It's a pretty nice way to do this.
+Transform của Object có thể được kiểm tra chính xác trong Sidebar.
 
-Okay, so I'm duplicating it.
+Shortcut:
 
-You can see right here that my mesh duplicated.
+```text
+N
+```
 
-We have flower1.001.
+Sau đó mở:
 
-That is the way that Blender differentiates different names when you copy them.
+```text
+Item
+└── Transform
+```
 
-And if I click my origin flower, you can see.
+Ta sẽ thấy:
 
-So these are two separate objects with two separate meshes.
+```text
+Transform
+├── Location
+│   ├── X
+│   ├── Y
+│   └── Z
+│
+├── Rotation
+│   ├── X
+│   ├── Y
+│   └── Z
+│
+└── Scale
+    ├── X
+    ├── Y
+    └── Z
+```
 
-Let's go to our outliner.
+Ví dụ:
 
-Here we have flower.
+| Transform |  X |   Y |   Z |
+| --------- | -: | --: | --: |
+| Location  |  0 | 3 m |   0 |
+| Rotation  | 0° |  0° | 70° |
+| Scale     |  1 |   1 | 1.8 |
 
-Here we have flower.001.
+N Panel cực kỳ hữu ích khi cần kiểm soát Object bằng các con số chính xác.
 
-We will get more into this in the next lesson, but let me show you what happens if I move,
+---
 
-if I go to edit mode, to edit this mesh and move this, just this object is being changed.
+# 11. Giá trị Transform mặc định
 
-So now let's copy this object as an instance.
+Một Object chưa được Transform thường có:
 
-Like I said, different objects, one mesh.
+### Location
 
-To do this, instead of Shift D, like this, we click Alt D. Let me move it right here.
+$$
+X=0,\quad Y=0,\quad Z=0
+$$
 
-Now you can see we have another flower, a flower.002, but we have the same mesh here.
+### Rotation
 
-On data, we have our same mesh.
+$$
+X=0^\circ,\quad Y=0^\circ,\quad Z=0^\circ
+$$
 
-If I want to make this mesh unique, I can go here and click to make a single user copy.
+### Scale
 
-You can see that I have another one, but let's go back, Ctrl Z.
+$$
+X=1,\quad Y=1,\quad Z=1
+$$
 
-We have flower.001.
+Có thể ghi nhớ:
 
-So if I go here to my origin flower and I go to edit mode and I start to move things
+```text
+Default Transform
+│
+├── Location = 0, 0, 0
+├── Rotation = 0, 0, 0
+└── Scale    = 1, 1, 1
+```
 
-around, you can see that this is linked to this one.
+---
 
-So this is pretty useful.
+# 12. Apply Transform
 
-It's used in all game engines.
+Giả sử Object được Scale theo Z:
 
-You do this to reserve power, to increase performance.
+```text
+Scale
+X = 1
+Y = 1
+Z = 1.8
+```
 
-And it's really important for you to notice that early on, not because you need to use
+Hình dạng Object lúc này đã thay đổi.
 
-instances for now, but just so you can differentiate between an object and a mesh data.
+Nếu muốn giữ nguyên hình dạng nhưng đưa Scale trở về:
 
-Now before we get into our last lesson, there's one last thing I wanted to show you.
+```text
+1, 1, 1
+```
 
-If we go here, right below our top bar, we have a snap that we can snap basically any
+sử dụng:
 
-way that we want on our grid, on our vertex, on our edges, on faces, whatever you need at the moment.
+```text
+Ctrl + A
+```
 
-But let's start in a modular grid.
+Sau đó chọn loại Transform muốn Apply.
 
-If we move here at the top right corner and click right here on overlays, you can see
+Ví dụ:
 
-that we have guides, a grid, a floor, and our axis.
+```text
+Ctrl + A
+└── Scale
+```
 
-So if we select Z, you can see that our axis is showing Y.
+Kết quả:
 
-You also have your floor and you also have your scale.
+```text
+Trước Apply
 
-So if I have this snap activated, I select and I go G and move, you can see that it's
+Object Shape: cao hơn
+Scale: 1, 1, 1.8
 
-locked in this grid, one by one.
 
-Even if I go freely, it snaps.
+       Ctrl + A
+           ↓
+         Scale
 
-So let's go here and let's reduce, for example, let's use 1.5.
 
-You can see that your grid also reduces.
+Sau Apply
 
-Let's take a look at the different views that you can have on your viewport.
+Object Shape: vẫn cao như cũ
+Scale: 1, 1, 1
+```
 
-If we go on overlay to geometry, you can activate your wireframe.
+Đây là điểm rất quan trọng.
 
-I like to leave this on.
+---
 
-Then we have our X-ray view.
+# 13. Apply Scale không làm Object trở lại hình dạng ban đầu
 
-We have our wireframe, our solid that it doesn't show any material.
+Cần phân biệt:
 
-Then we have material preview and our render.
+### Reset Scale
 
-Next lesson, we're going to get into objects and how you can edit them.
+```text
+Scale 1.8 → 1
+```
 
-We will see how materials work really briefly inside an object and see how we can start modeling.
+có thể làm hình dạng Object thay đổi trở lại.
+
+### Apply Scale
+
+```text
+Ctrl + A → Scale
+```
+
+sẽ:
+
+* Giữ nguyên hình dạng hiện tại.
+* Đặt Scale hiện tại thành giá trị cơ sở mới.
+* Scale hiển thị trở lại:
+
+```text
+1, 1, 1
+```
+
+Có thể hình dung:
+
+```text
+Object gốc
+   ↓
+Scale Z = 1.8
+   ↓
+Object cao hơn
+   ↓
+Ctrl + A → Scale
+   ↓
+Object vẫn cao
+nhưng
+Scale = 1,1,1
+```
+
+---
+
+# 14. Vì sao Apply Scale quan trọng?
+
+Ở các bài học đầu, Scale chưa Applied có thể chưa gây ra vấn đề rõ ràng.
+
+Nhưng khi bắt đầu sử dụng:
+
+* Modifier.
+* Bevel.
+* Array.
+* Boolean.
+* Solidify.
+* Physics.
+* Rigging.
+* Procedural workflows.
+
+Scale không đồng đều có thể dẫn đến kết quả không mong muốn.
+
+Workflow tốt thường là:
+
+```text
+Model Object
+     ↓
+Scale Object
+     ↓
+Kiểm tra Transform
+     ↓
+Ctrl + A
+     ↓
+Apply Scale
+     ↓
+Tiếp tục Modifier / Modeling
+```
+
+---
+
+# 15. World Origin và Object Origin
+
+Cần phân biệt hai khái niệm.
+
+## World Origin
+
+Là điểm:
+
+$$
+(0,0,0)
+$$
+
+của toàn bộ Scene.
+
+```text
+World
+                Z
+                ↑
+                │
+                │
+                ●────────→ X
+             (0,0,0)
+               /
+              Y
+```
+
+## Object Origin
+
+Là điểm Origin riêng của từng Object.
+
+Ví dụ:
+
+```text
+World Origin
+●
+
+
+                 Flower
+               ┌───────┐
+               │   ●   │
+               └───────┘
+                   ↑
+             Object Origin
+```
+
+Hai Origin này hoàn toàn có thể nằm ở những vị trí khác nhau.
+
+---
+
+# 16. Transform Pivot Point
+
+Blender cho phép thay đổi điểm dùng làm tâm của phép Transform.
+
+Một số lựa chọn được nhắc tới:
+
+* Median Point.
+* Individual Origins.
+* 3D Cursor.
+* Active Element.
+
+Có thể hình dung:
+
+```text
+Transform Pivot Point
+│
+├── Median Point
+├── Individual Origins
+├── 3D Cursor
+└── Active Element
+```
+
+---
+
+# 17. Pivot bằng 3D Cursor
+
+Nếu chọn:
+
+```text
+Pivot Point → 3D Cursor
+```
+
+thì Rotation và Scale có thể sử dụng vị trí của **3D Cursor** làm tâm.
+
+Ví dụ:
+
+```text
+3D Cursor
+    ●
+     \
+      \
+       \ Object
+        □
+```
+
+Khi Rotate:
+
+```text
+           □
+          /
+         /
+        ●
+   3D Cursor
+```
+
+Object quay xung quanh 3D Cursor thay vì Origin của chính Object.
+
+Điều này rất hữu ích khi:
+
+* Xoay cửa quanh bản lề.
+* Xoay hành tinh quanh tâm.
+* Xếp vật thể theo vòng tròn.
+* Modeling các chi tiết đối xứng.
+
+---
+
+# 18. Individual Origins
+
+Khi chọn nhiều Object:
+
+```text
+Pivot → Individual Origins
+```
+
+mỗi Object được Transform quanh Origin của chính nó.
+
+Ví dụ:
+
+```text
+□       □       □
+●       ●       ●
+```
+
+Khi Rotate:
+
+```text
+↻       ↻       ↻
+□       □       □
+```
+
+Thay vì cả nhóm cùng xoay quanh một tâm chung.
+
+---
+
+# 19. Object và Object Data
+
+Đây là một trong những khái niệm quan trọng nhất của bài.
+
+Một Object bao gồm:
+
+```text
+Object
+│
+├── Name
+├── Transform
+├── Origin
+├── Parent
+└── Object Data
+```
+
+Ví dụ:
+
+```text
+Object Name
+Flower
+    │
+    └── Mesh Data
+        flower.002
+```
+
+Tên Object và tên Mesh Data có thể khác nhau.
+
+---
+
+# 20. Outliner và Object Data Properties
+
+Trong **Outliner**, ta có thể thấy Object:
+
+```text
+Flower
+```
+
+Trong **Object Data Properties**, có thể thấy Mesh Data:
+
+```text
+flower.002
+```
+
+Do đó:
+
+```text
+Flower           ← Object
+    │
+    └── flower.002 ← Mesh Data
+```
+
+Không nên nhầm hai thành phần này.
+
+---
+
+# 21. Duplicate bằng Shift + D
+
+Shortcut:
+
+```text
+Shift + D
+```
+
+tạo một bản sao độc lập.
+
+Ví dụ:
+
+```text
+Object A
+Mesh A
+```
+
+Sau:
+
+```text
+Shift + D
+```
+
+ta có:
+
+```text
+Object A        Object B
+   │               │
+Mesh A          Mesh B
+```
+
+Hai Object:
+
+* Có Transform riêng.
+* Có Mesh Data riêng.
+
+Nếu chỉnh Mesh A trong Edit Mode:
+
+```text
+Object A → thay đổi
+Object B → không thay đổi
+```
+
+---
+
+# 22. Blender tự động đánh số tên
+
+Khi Object hoặc Mesh có tên trùng, Blender thêm hậu tố:
+
+```text
+Flower
+Flower.001
+Flower.002
+Flower.003
+```
+
+Tương tự với Mesh Data:
+
+```text
+flower
+flower.001
+flower.002
+```
+
+Đây là cơ chế Blender tự động đảm bảo tên dữ liệu không bị trùng hoàn toàn.
+
+---
+
+# 23. Linked Duplicate / Instance bằng Alt + D
+
+Shortcut:
+
+```text
+Alt + D
+```
+
+khác với `Shift + D`.
+
+`Alt + D` tạo Object mới nhưng dùng chung Mesh Data.
+
+```text
+           Mesh A
+          /      \
+         /        \
+Object A          Object B
+```
+
+Hay:
+
+```text
+Object A ──┐
+           ├── Mesh Data A
+Object B ──┘
+```
+
+Hai Object là riêng biệt nhưng cùng tham chiếu đến một Mesh.
+
+---
+
+# 24. Shift + D và Alt + D
+
+Đây là phần nên nhớ nhất trong bài.
+
+| Thuộc tính                    | `Shift + D` | `Alt + D`                   |
+| ----------------------------- | ----------- | --------------------------- |
+| Object mới                    | ✅           | ✅                           |
+| Transform riêng               | ✅           | ✅                           |
+| Mesh Data riêng               | ✅           | ❌                           |
+| Chỉnh Mesh ảnh hưởng bản khác | ❌           | ✅                           |
+| Kiểu                          | Duplicate   | Linked Duplicate / Instance |
+| Tiết kiệm dữ liệu             | Thấp hơn    | Cao hơn                     |
+
+### Shift + D
+
+```text
+Object A ─── Mesh A
+
+Shift + D
+
+Object A ─── Mesh A
+
+Object B ─── Mesh B
+```
+
+### Alt + D
+
+```text
+Object A ──┐
+           │
+           ├── Mesh A
+           │
+Object B ──┘
+```
+
+---
+
+# 25. Ví dụ với Flower
+
+Ban đầu:
+
+```text
+Flower
+  │
+  └── Mesh Flower
+```
+
+Dùng:
+
+```text
+Shift + D
+```
+
+ta có:
+
+```text
+Flower ───────── Mesh A
+
+Flower.001 ───── Mesh B
+```
+
+Hai Mesh độc lập.
+
+Dùng:
+
+```text
+Alt + D
+```
+
+ta có:
+
+```text
+Flower ────────┐
+               │
+Flower.002 ────┼── Mesh A
+               │
+```
+
+Cả hai dùng cùng Mesh Data.
+
+---
+
+# 26. Chỉnh Instance trong Edit Mode
+
+Nếu hai Object dùng chung Mesh Data:
+
+```text
+Object A ──┐
+           ├── Mesh
+Object B ──┘
+```
+
+và ta vào **Edit Mode** rồi sửa Mesh thông qua Object A:
+
+```text
+Edit Mesh
+    ↓
+Object A thay đổi
+Object B cũng thay đổi
+```
+
+Nguyên nhân là cả hai Object đang đọc cùng một dữ liệu hình học.
+
+---
+
+# 27. Make Single User
+
+Nếu muốn biến một Instance thành Mesh độc lập, có thể tạo:
+
+**Single User Copy**
+
+Ví dụ:
+
+```text
+Before
+
+Object A ──┐
+           ├── Mesh A
+Object B ──┘
+```
+
+Sau khi tạo Single User:
+
+```text
+Object A ───── Mesh A
+
+Object B ───── Mesh B
+```
+
+Object B lúc này có Mesh riêng và có thể chỉnh độc lập.
+
+---
+
+# 28. Tại sao Instance quan trọng?
+
+Instances được sử dụng rất nhiều trong:
+
+* Game development.
+* Environment design.
+* Architecture.
+* Procedural modeling.
+* Geometry Nodes.
+* Large scenes.
+
+Ví dụ một khu rừng:
+
+```text
+Tree Object 1 ──┐
+Tree Object 2 ──┤
+Tree Object 3 ──┼── Tree Mesh
+Tree Object 4 ──┤
+Tree Object 5 ──┘
+```
+
+Thay vì:
+
+```text
+Tree 1 → Mesh riêng
+Tree 2 → Mesh riêng
+Tree 3 → Mesh riêng
+Tree 4 → Mesh riêng
+Tree 5 → Mesh riêng
+```
+
+Instance có thể giúp:
+
+* Giảm dữ liệu trùng lặp.
+* Quản lý scene dễ hơn.
+* Đồng bộ thay đổi hình học.
+* Phù hợp với workflow game và environment.
+
+---
+
+# 29. Snapping
+
+Blender có hệ thống **Snap** để Transform chính xác hơn.
+
+Có thể Snap vào:
+
+* Grid / Increment.
+* Vertex.
+* Edge.
+* Face.
+* Các loại phần tử khác tùy workflow.
+
+Sơ đồ khái niệm:
+
+```text
+Snapping
+│
+├── Increment / Grid
+├── Vertex
+├── Edge
+└── Face
+```
+
+---
+
+# 30. Snap vào Grid
+
+Khi bật Snap và sử dụng Increment/Grid:
+
+```text
+Grid
+
++---+---+---+---+
+|   |   |   |   |
++---+---+---+---+
+|   | ●────►●   |
++---+---+---+---+
+|   |   |   |   |
++---+---+---+---+
+```
+
+Object di chuyển theo các bước của Grid thay vì tự do.
+
+Workflow:
+
+```text
+Enable Snap
+     ↓
+G
+     ↓
+Move Object
+     ↓
+Object bám vào Grid
+```
+
+Đây là kỹ thuật đặc biệt hữu ích cho **modular modeling**.
+
+---
+
+# 31. Modular Grid
+
+Modular Modeling thường yêu cầu kích thước và vị trí có quy luật.
+
+Ví dụ:
+
+```text
+1 m × 1 m
+2 m × 2 m
+4 m × 4 m
+```
+
+Các phần:
+
+```text
+[Wall][Wall][Door][Wall]
+```
+
+có thể ghép chính xác nhờ Snap.
+
+Ứng dụng:
+
+* Modular buildings.
+* Game environments.
+* Dungeon kits.
+* Sci-fi corridors.
+* City blocks.
+
+---
+
+# 32. Viewport Overlays
+
+Trong Viewport có menu:
+
+**Overlays**
+
+Cho phép hiển thị hoặc ẩn các thông tin hỗ trợ.
+
+Các tùy chọn được nhắc tới trong bài:
+
+* Guides.
+* Grid.
+* Floor.
+* Axis.
+* Geometry.
+* Wireframe.
+
+Có thể hình dung:
+
+```text
+Viewport Overlay
+│
+├── Guides
+│   ├── Grid
+│   ├── Floor
+│   └── Axis
+│
+└── Geometry
+    └── Wireframe
+```
+
+---
+
+# 33. Grid và Axis
+
+Viewport thường hiển thị các trục:
+
+```text
+X
+Y
+Z
+```
+
+và Floor/Grid hỗ trợ xác định:
+
+* Vị trí.
+* Hướng.
+* Khoảng cách.
+* Tỉ lệ.
+
+```text
+               Z
+               ↑
+               │
+       ────────┼───────
+              /│
+             / │
+            Y  └──────→ X
+```
+
+---
+
+# 34. Wireframe Overlay
+
+Có thể bật Wireframe trên Object ngay cả khi đang ở Solid View.
+
+Ví dụ:
+
+```text
+Solid
+
+┌───────────┐
+│           │
+│           │
+└───────────┘
+```
+
+Bật Wireframe Overlay:
+
+```text
+┌────┬──────┐
+│ ╲  │  ╱   │
+├────┼──────┤
+│ ╱  │  ╲   │
+└────┴──────┘
+```
+
+Điều này giúp nhìn cấu trúc Mesh rõ hơn.
+
+---
+
+# 35. X-Ray
+
+**X-Ray** cho phép nhìn xuyên qua Mesh.
+
+Rất hữu ích khi cần chọn các Vertex ở cả phía trước và phía sau Object.
+
+```text
+Normal
+
+Camera → ██████
+         chỉ thấy mặt trước
+```
+
+```text
+X-Ray
+
+Camera → ░░░░░░
+         có thể nhìn xuyên qua
+```
+
+---
+
+# 36. Các chế độ hiển thị Viewport
+
+Bài học giới thiệu các chế độ Viewport phổ biến.
+
+```text
+Viewport Shading
+│
+├── Wireframe
+├── Solid
+├── Material Preview
+└── Rendered
+```
+
+---
+
+## 36.1 Wireframe
+
+Chỉ hiển thị cạnh của Mesh.
+
+```text
+┌───────┐
+│╲     ╱│
+│ ╲   ╱ │
+│  ╲ ╱  │
+└───────┘
+```
+
+Phù hợp với:
+
+* Kiểm tra topology.
+* Chọn geometry.
+* Quan sát cấu trúc bên trong.
+
+---
+
+## 36.2 Solid
+
+Hiển thị Object dạng khối cơ bản.
+
+Không tập trung vào Material cuối cùng.
+
+Đây thường là chế độ phù hợp nhất để Modeling.
+
+---
+
+## 36.3 Material Preview
+
+Hiển thị Material và Texture gần với kết quả cuối hơn.
+
+Phù hợp với:
+
+* Material.
+* Texture.
+* Look development.
+
+---
+
+## 36.4 Rendered
+
+Hiển thị Scene gần với Render cuối cùng nhất.
+
+Có thể tính đến:
+
+* Light.
+* Material.
+* Shadow.
+* Render Engine.
+
+---
+
+# 37. Workflow tổng thể của bài học
+
+```text
+                Object
+                   │
+                   ▼
+            Select Object
+                   │
+                   ▼
+          Transform Object
+          ┌────────┼────────┐
+          │        │        │
+          G        R        S
+        Move    Rotate    Scale
+          └────────┼────────┘
+                   │
+                   ▼
+             Check N Panel
+                   │
+                   ▼
+          Location / Rotation
+               / Scale
+                   │
+          ┌────────┴─────────┐
+          │                  │
+          ▼                  ▼
+   Apply Transform      Pivot Point
+      Ctrl + A              │
+                            ▼
+                    Origin / Cursor
+                   │
+                   ▼
+            Duplicate Object
+          ┌────────┴────────┐
+          │                 │
+      Shift + D          Alt + D
+          │                 │
+   Independent Mesh     Shared Mesh
+          │                 │
+          └────────┬────────┘
+                   ▼
+              Snap / Grid
+                   │
+                   ▼
+           Viewport Display
+```
+
+---
+
+# 38. Object Workflow cần ghi nhớ
+
+Một workflow cơ bản và an toàn:
+
+```text
+1. Select Object
+       ↓
+2. G / R / S
+       ↓
+3. Kiểm tra Transform bằng N
+       ↓
+4. Apply Transform nếu cần
+       ↓
+5. Kiểm tra Origin/Pivot
+       ↓
+6. Duplicate hoặc Instance
+       ↓
+7. Snap để căn chính xác
+       ↓
+8. Kiểm tra bằng các Viewport Mode
+```
+
+---
+
+# 39. Các shortcut quan trọng
+
+| Shortcut    | Chức năng                   |
+| ----------- | --------------------------- |
+| `G`         | Move / Grab                 |
+| `G X`       | Move theo X                 |
+| `G Y`       | Move theo Y                 |
+| `G Z`       | Move theo Z                 |
+| `R`         | Rotate                      |
+| `R X`       | Rotate quanh X              |
+| `R Y`       | Rotate quanh Y              |
+| `R Z`       | Rotate quanh Z              |
+| `S`         | Scale                       |
+| `S X`       | Scale theo X                |
+| `S Y`       | Scale theo Y                |
+| `S Z`       | Scale theo Z                |
+| `N`         | Mở/đóng Sidebar             |
+| `Ctrl + A`  | Apply Transform             |
+| `Shift + D` | Duplicate                   |
+| `Alt + D`   | Linked Duplicate / Instance |
+| `Ctrl + Z`  | Undo                        |
+
+---
+
+# 40. Những khái niệm quan trọng nhất
+
+## Object ≠ Mesh
+
+```text
+Object
+   │
+   └── Mesh Data
+```
+
+Object là thực thể trong Scene.
+
+Mesh Data là dữ liệu hình học.
+
+---
+
+## Origin ≠ World Origin
+
+```text
+World Origin = tâm tọa độ Scene
+Object Origin = tâm Transform của Object
+```
+
+---
+
+## Shift + D ≠ Alt + D
+
+```text
+Shift + D
+Object mới + Mesh mới
+```
+
+```text
+Alt + D
+Object mới + dùng chung Mesh
+```
+
+---
+
+## Scale hình học ≠ Applied Scale
+
+```text
+Scale Z = 2
+```
+
+không giống:
+
+```text
+Object giữ kích thước tương đương
+Scale Z = 1
+sau Ctrl + A → Scale
+```
+
+---
+
+# 41. Những lỗi người mới thường gặp
+
+### 1. Không biết Object đang có Scale khác 1
+
+Ví dụ:
+
+```text
+Scale
+X = 0.3
+Y = 2.5
+Z = 1.7
+```
+
+Sau đó thêm Modifier và nhận được kết quả bất thường.
+
+**Cách xử lý:**
+
+```text
+Ctrl + A → Scale
+```
+
+---
+
+### 2. Nhầm Object với Mesh Data
+
+Thấy hai Object có tên khác nhau nên cho rằng chúng chắc chắn có Mesh riêng.
+
+Điều này không đúng nếu chúng được tạo bằng:
+
+```text
+Alt + D
+```
+
+---
+
+### 3. Chỉnh một Instance và thấy Object khác cũng thay đổi
+
+Nguyên nhân:
+
+```text
+Object A ──┐
+           ├── Same Mesh
+Object B ──┘
+```
+
+Đây là hành vi đúng của Linked Duplicate.
+
+---
+
+### 4. Object xoay quanh vị trí "lạ"
+
+Cần kiểm tra:
+
+* Object Origin.
+* Transform Pivot Point.
+* 3D Cursor.
+
+---
+
+### 5. Move không tự do
+
+Có thể:
+
+* Snap đang bật.
+* Axis constraint đang được sử dụng.
+* Increment/Grid Snap đang hoạt động.
+
+---
+
+# 42. Bài thực hành
+
+## Bài 1 — Transform cơ bản
+
+1. Tạo Cube.
+2. Di chuyển:
+
+```text
+G X
+```
+
+3. Xoay:
+
+```text
+R Z
+```
+
+4. Scale:
+
+```text
+S Z
+```
+
+5. Mở:
+
+```text
+N → Item → Transform
+```
+
+6. Quan sát Location, Rotation và Scale.
+
+---
+
+## Bài 2 — Apply Scale
+
+Scale Object:
+
+```text
+S Z
+```
+
+khoảng 2 lần.
+
+Quan sát:
+
+```text
+Scale Z ≈ 2
+```
+
+Sau đó:
+
+```text
+Ctrl + A → Scale
+```
+
+Kiểm tra lại:
+
+```text
+Scale
+X = 1
+Y = 1
+Z = 1
+```
+
+nhưng Object vẫn giữ hình dạng đã kéo dài.
+
+---
+
+## Bài 3 — Duplicate
+
+Tạo hai bản sao bằng:
+
+```text
+Shift + D
+```
+
+Sau đó vào Edit Mode và sửa một bản.
+
+Quan sát:
+
+> Object còn lại không bị thay đổi.
+
+---
+
+## Bài 4 — Instance
+
+Tạo bản sao bằng:
+
+```text
+Alt + D
+```
+
+Sau đó chỉnh Mesh của một Object trong Edit Mode.
+
+Quan sát:
+
+> Tất cả Object dùng chung Mesh Data sẽ thay đổi.
+
+---
+
+## Bài 5 — Pivot Point
+
+1. Di chuyển 3D Cursor khỏi Object.
+2. Đổi Pivot sang:
+
+```text
+3D Cursor
+```
+
+3. Chọn Object.
+4. Nhấn:
+
+```text
+R
+```
+
+Quan sát Object quay quanh 3D Cursor.
+
+---
+
+## Bài 6 — Snap
+
+1. Bật Snap.
+2. Chọn Increment/Grid.
+3. Nhấn:
+
+```text
+G
+```
+
+4. Di chuyển Object.
+
+Quan sát Object bám vào các bước của Grid.
+
+---
+
+# 43. Thử thách mở rộng
+
+Tạo một hàng gồm **5 bông hoa** hoặc 5 Cube.
+
+Yêu cầu:
+
+* Object đầu tiên là Object gốc.
+* 2 Object tạo bằng `Shift + D`.
+* 2 Object tạo bằng `Alt + D`.
+* Đặt chúng thẳng hàng bằng Snap.
+* Thay đổi Scale của một Object.
+* Apply Scale.
+* Chỉnh Mesh của một Linked Duplicate để quan sát các Instance còn lại.
+
+Sơ đồ:
+
+```text
+Flower 1      Flower 2      Flower 3      Flower 4      Flower 5
+ Original     Shift+D       Shift+D        Alt+D          Alt+D
+    │             │             │             │              │
+ Mesh A        Mesh B        Mesh C          └──── Mesh A ────┘
+```
+
+Sau bài tập này, sự khác biệt giữa **Object**, **Mesh** và **Instance** sẽ rõ ràng hơn rất nhiều.
+
+---
+
+# 44. Checklist bài học
+
+* [ ] Hiểu Object là gì trong Blender.
+* [ ] Hiểu Object Origin.
+* [ ] Phân biệt Object Origin và World Origin.
+* [ ] Sử dụng được `G` để Move.
+* [ ] Sử dụng được `R` để Rotate.
+* [ ] Sử dụng được `S` để Scale.
+* [ ] Khóa Transform theo `X`, `Y`, `Z`.
+* [ ] Kiểm tra Transform trong `N Panel`.
+* [ ] Hiểu Scale mặc định là `1, 1, 1`.
+* [ ] Biết sử dụng `Ctrl + A` để Apply Transform.
+* [ ] Hiểu ý nghĩa của Apply Scale.
+* [ ] Biết thay đổi Transform Pivot Point.
+* [ ] Hiểu tác dụng của 3D Cursor với Pivot.
+* [ ] Phân biệt Object và Mesh Data.
+* [ ] Biết Duplicate bằng `Shift + D`.
+* [ ] Biết Linked Duplicate bằng `Alt + D`.
+* [ ] Hiểu khái niệm Instance.
+* [ ] Biết tạo Single User khi cần Mesh độc lập.
+* [ ] Sử dụng được Snap.
+* [ ] Hiểu Grid trong modular modeling.
+* [ ] Biết bật Wireframe Overlay.
+* [ ] Biết sử dụng X-Ray.
+* [ ] Phân biệt Wireframe, Solid, Material Preview và Rendered.
+* [ ] Đã lưu file thực hành riêng.
+
+---
+
+# 45. Tóm tắt nhanh
+
+> **`G` = Move, `R` = Rotate, `S` = Scale.**
+
+> Thêm `X`, `Y` hoặc `Z` sau shortcut để giới hạn Transform theo từng trục.
+
+> **Object** và **Mesh Data** là hai lớp dữ liệu khác nhau.
+
+> `Shift + D` tạo **Object + Mesh độc lập**, còn `Alt + D` tạo **Object mới nhưng dùng chung Mesh Data**.
+
+> `Ctrl + A → Scale` giữ nguyên hình dạng hiện tại nhưng đưa Scale về `1, 1, 1`, một bước quan trọng trước nhiều workflow với Modifier.
+
+> **Origin/Pivot** quyết định tâm của Rotation và Scale.
+
+> **Snapping + Grid** giúp xây dựng asset chính xác, đặc biệt hữu ích trong modular modeling và game environment.
+
+---
+
+## 46. Vị trí bài học trong lộ trình
+
+```text
+Section 01 — Getting Started with Blender
+│
+├── Làm quen giao diện
+├── Workspace & Viewport Navigation
+│
+├── 004 — Understanding and Transforming Objects
+│      ├── Object
+│      ├── Transform
+│      ├── Origin
+│      ├── Pivot
+│      ├── Object Data
+│      ├── Duplicate / Instance
+│      └── Snapping
+│
+▼
+Object / Mesh Editing
+│
+▼
+Modeling
+│
+▼
+Modifiers
+│
+▼
+Materials
+│
+▼
+Lighting & Rendering
+```
+
+Bài **Understanding and Transforming Objects** là nền tảng trực tiếp cho các bài Modeling tiếp theo, vì trước khi chỉnh sửa Mesh, người học cần hiểu rõ **Object đang nằm ở đâu, được xoay/scale như thế nào, Origin ở đâu và dữ liệu Mesh có đang được chia sẻ với Object khác hay không**.

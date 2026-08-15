@@ -1,403 +1,2082 @@
 # 003 — Understanding Workspaces and Viewport Navigation
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Section** | Section 01 — Getting Started with Blender |
-| **Bài học** | Understanding Workspaces and Viewport Navigation |
-| **Loại nội dung** | Video lecture |
-| **Thời lượng** | 13:22 |
-| **Ngôn ngữ** | English |
+## Hiểu Workspace và điều hướng 3D Viewport trong Blender
 
-## Mục tiêu bài học
+| Thuộc tính        | Nội dung                                                |
+| ----------------- | ------------------------------------------------------- |
+| **Section**       | Section 01 — Getting Started with Blender               |
+| **Bài học**       | Understanding Workspaces and Viewport Navigation        |
+| **Loại nội dung** | Video lecture                                           |
+| **Thời lượng**    | 13:22                                                   |
+| **Ngôn ngữ**      | English                                                 |
+| **Chủ đề chính**  | Blender Workspace, Editor Area, 3D Viewport, Navigation |
+| **Mức độ**        | Beginner                                                |
+
+---
+
+## 1. Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **Understanding Workspaces and Viewport Navigation** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+* Hiểu khái niệm **Workspace** trong Blender.
+* Nhận biết các **Editor Area** chính trong workspace `Layout`.
+* Phân biệt:
+
+  * **3D Viewport**
+  * **Outliner**
+  * **Properties Editor**
+  * **Timeline**
+* Biết cách thay đổi kích thước, đóng và sắp xếp các Editor Area.
+* Hiểu chức năng của các workspace:
+
+  * Layout
+  * Modeling
+  * Sculpting
+  * UV Editing
+  * Texture Paint
+  * Shading
+  * Animation
+  * Rendering
+  * Compositing
+  * Geometry Nodes
+  * Scripting
+* Hiểu hệ tọa độ `X / Y / Z` của Blender.
+* Hiểu sự khác nhau giữa:
 
-## Nội dung trọng tâm
+  * **World Origin**
+  * **3D Cursor**
+  * **Object Origin**
+* Điều hướng 3D Viewport bằng chuột và Numpad.
+* Chuyển đổi giữa **Perspective** và **Orthographic View**.
+* Điều chỉnh **Focal Length**, **Clip Start**, **Clip End**.
+* Tìm lại object khi bị mất phương hướng trong viewport.
+
+---
+
+# 2. Blender Workspace là gì?
+
+**Workspace** có thể hiểu là một bố cục giao diện được Blender chuẩn bị cho một nhóm công việc cụ thể.
+
+Ví dụ:
 
-- làm quen Blender, workspace và workflow cơ bản
+```text
+Modeling
+   ↓
+UV Editing
+   ↓
+Texture Paint / Shading
+   ↓
+Animation
+   ↓
+Rendering
+   ↓
+Compositing
+```
+
+Mỗi Workspace thường chứa nhiều **Editor Area** được sắp xếp khác nhau để phù hợp với công việc đang thực hiện.
+
+---
+
+# 3. Preferences — thiết lập giao diện Blender
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+Có thể mở phần thiết lập bằng:
 
-## Thực hành đề xuất
+```text
+Edit
+└── Preferences
+```
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+Trong Preferences có thể tùy chỉnh nhiều thành phần của Blender.
 
-## Checklist
+Ví dụ trong bài học, giảng viên tăng:
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+```text
+Resolution Scale → 1.1
+```
 
-## Ghi chú về nguồn
+để chữ và thành phần giao diện lớn hơn, dễ quan sát hơn trong video.
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+---
 
+## 3.1 Add-ons
+
+Blender hỗ trợ hệ thống **Add-on** để bổ sung chức năng.
+
+Ví dụ:
+
+* Import/Export
+* Rigging
+* UV
+* Modeling tools
+* Workflow utilities
+* Screencast Keys
+
+Trong bài giảng, **Screencast Keys** được bật để hiển thị những phím và thao tác chuột mà giảng viên đang sử dụng.
+
+```text
+User Input
+   │
+   ├── Mouse Click
+   ├── Keyboard Shortcut
+   └── Modifier Key
+          ↓
+   Screencast Keys
+          ↓
+Hiển thị thao tác trên màn hình
+```
 
-Welcome. In this lesson, we are going to learn more about Blender workspaces
+> Screencast Keys chủ yếu hữu ích khi quay tutorial hoặc trình diễn thao tác.
 
-and how to navigate your 3D viewport.
+---
 
-So before we get started, I will go to Edit and Preferences.
+# 4. Workspace Layout
 
-I want to increase the resolution scale of my screen so you can see better.
+Workspace mặc định được giới thiệu trong bài là:
 
-So I can go here to Resolution Scale.
+**Layout**
 
-And you can see that all of my text are increasing in size.
+Layout thường được chia thành bốn khu vực chính:
 
-So I will leave it at 1.1.
+```text
+┌──────────────────────────────────────┬───────────────┐
+│                                      │               │
+│                                      │   Outliner    │
+│                                      │               │
+│            3D Viewport               ├───────────────┤
+│                                      │               │
+│                                      │  Properties   │
+│                                      │               │
+├──────────────────────────────────────┴───────────────┤
+│                     Timeline                          │
+└──────────────────────────────────────────────────────┘
+```
 
-Here you can customize a lot of properties in Blender.
+---
 
-Since Blender is an open source, we have a lot of add-ons.
+# 5. 3D Viewport
 
-So you can add, for example, a different format exporter.
+**3D Viewport** là khu vực chính để tương tác với scene 3D.
 
-For example, this one, glTF.
+Tại đây bạn có thể:
 
-You have rigs, add-ons, UV, a lot of options.
+* Quan sát model.
+* Chọn object.
+* Di chuyển object.
+* Rotate.
+* Scale.
+* Edit Mesh.
+* Sculpt.
+* Đặt camera.
+* Điều chỉnh ánh sáng.
+* Xem vật liệu.
+* Quan sát animation.
 
-I'm going to add the Screencast Keys.
+Có thể xem đây là **không gian làm việc 3D chính của Blender**.
 
-As you can see, my mouse showed up here at the bottom left.
+---
 
-So everything that I click will be mirrored.
+# 6. Outliner
 
-So let me activate it.
+**Outliner** thường nằm ở góc trên bên phải.
 
-There we go.
+Nó hiển thị cấu trúc các object trong scene.
 
-Okay, so now let's get started looking at the different workspaces that we have on Blender.
+Ví dụ:
 
-This is the first one, Layout.
+```text
+Scene Collection
+│
+├── Camera
+├── Flower
+└── Light
+```
 
-So it is composed by four different editor areas you can see here.
+Nếu scene lớn hơn:
 
-This is the first one, it's the 3D Viewport.
+```text
+Scene Collection
+│
+├── Environment
+│   ├── Ground
+│   └── Rocks
+│
+├── Characters
+│   ├── Character_A
+│   └── Character_B
+│
+├── Camera
+└── Lights
+    ├── Key_Light
+    └── Fill_Light
+```
 
-On the top right side, you can see the Outliner.
+Outliner đặc biệt quan trọng khi scene có hàng chục hoặc hàng trăm object.
 
-The Outliner is basically your scene collection.
+---
 
-So you have a list of everything that you have on your main viewport.
+# 7. Properties Editor
 
-For example, we have a camera, we have our flower that we added last lesson,
+**Properties Editor** thường nằm ở phía dưới bên phải của workspace Layout.
 
-and we have a light you can see here.
+Có thể chia các thuộc tính thành hai nhóm lớn.
 
-At the bottom, you have the Properties.
+---
 
-And I like to divide the Properties in two sets.
+## 7.1 Scene / Global Properties
 
-The first one, you have Render Settings, the Output,
+Đây là những thiết lập liên quan đến scene hoặc quá trình render.
 
-some Scene Properties, and your World Properties, like the Environment.
+Ví dụ:
 
-And the second one that is not showing right now is going to be your Object Selected.
+* Render Properties
+* Output Properties
+* Scene Properties
+* World Properties
+* Environment
 
-So let's go here to our flower and select and click the right left mouse.
+```text
+Properties
+│
+├── Render
+├── Output
+├── Scene
+├── World
+└── ...
+```
 
-So you can see that right before the Collection tab, all of these properties got added.
+---
 
-So we have our Object Properties, our Modifiers that we're going to get into the next lesson,
+# 8. Object-dependent Properties
 
-Particles, Physics, everything related to your selected object.
+Một số tab Properties chỉ xuất hiện hoặc thay đổi tùy theo object đang được chọn.
 
-So if we go here at the camera and select, you will see that this property changed.
+Ví dụ khi chọn một Mesh:
 
-So keep in mind that this bottom part depends on what you have selected at the moment.
+```text
+Selected Object
+      ↓
+Object Properties
+      ↓
+Modifiers
+      ↓
+Particles / Physics
+      ↓
+Object Data
+      ↓
+Material
+```
 
-And let's go to our final editor area right here below.
+Nếu chọn Camera, một số thuộc tính sẽ đổi sang những thiết lập dành cho Camera.
 
-So right now, I'm going to show you how you can move around these editor areas.
+```text
+Select Flower
+     ↓
+Mesh-related properties
 
-When you go to this line here, you see that you have an area pointing both ways.
+Select Camera
+     ↓
+Camera-related properties
+```
 
-So you just click your left mouse and you can do this for each one of them.
+### Quy tắc quan trọng
 
-So let's do this with the Timeline.
+> **Properties Editor phụ thuộc vào Context — object hoặc thành phần đang được chọn.**
 
-So this area is the Timeline.
+Vì vậy nếu không tìm thấy một tab nào đó, hãy kiểm tra object hiện đang được chọn.
 
-Right now, we're going to hide it because we're not going to use it right now.
+---
 
-So just for you to see, go ahead and click Spacebar.
+# 9. Timeline
 
-And you can see that your Timeline starts to run, the starting frame and the end frame.
+Editor Area phía dưới của Layout mặc định thường là:
 
-So we can use this to do animations.
+**Timeline**
 
-Now I'll go ahead and click Shift and the left arrow to go back.
+Timeline được dùng chủ yếu cho animation.
 
-To go back and we are at number one frame.
+Ví dụ:
 
-So to close, you can personalize each and one of these workspaces.
+```text
+Frame 1 -------------------------------- Frame 250
+   ▲
+Current Frame
+```
 
-So you can go here, right at the bottom, the top editor area,
+Khi animation chạy:
 
-click and hold your left mouse and drag it down.
+```text
+1 → 2 → 3 → 4 → 5 → ... → End Frame
+```
 
-So you can see here that it shows Join Areas.
+### Shortcut được nhắc đến
 
-So what this is going to do is remove our last editor area that is the Timeline right now.
+| Thao tác               | Shortcut             |
+| ---------------------- | -------------------- |
+| Play / Pause Animation | `Spacebar`           |
+| Về frame đầu           | `Shift + Left Arrow` |
 
-So now we only have three.
+Ở giai đoạn đầu khóa học chưa sử dụng animation nên giảng viên tạm đóng Timeline để có nhiều không gian hơn cho 3D Viewport.
 
-So let's select our flower and let's take a look at the different workspaces that we have.
+---
 
-So right beside Layout, we have Modeling that you can see when I switch from one to another,
+# 10. Thay đổi kích thước Editor Area
 
-it already switched to the Edit mode.
+Đưa chuột tới đường biên giữa hai editor.
 
-But we are going to see how we can edit meshes in the next lesson.
+Con trỏ sẽ thay đổi để cho phép kéo.
 
-So let's go to Sculpting.
+```text
+Editor A │ Editor B
+         ↑
+      Boundary
+```
 
-You can see here all of your brushes that you have.
+Sau đó:
 
-Then we go to UV Editing that we're going to take a look later.
+```text
+Left Mouse
++
+Drag
+```
 
-But basically, you can unwrap your mesh into a flat 2D texture surface
+để thay đổi kích thước từng vùng.
 
-to paint like I have it here or edit different textures.
+---
 
-Then we have Texture Paint.
+# 11. Join Areas — đóng một Editor Area
 
-Like I said, you can paint your texture.
+Blender cho phép ghép hai Area lại với nhau bằng:
 
-You already see how this is working.
+**Join Areas**
 
-Then we have the Shading one.
+Ý tưởng:
 
-This is our material shader.
+```text
+Trước
 
-And these are our textures.
+┌─────────────────┐
+│   3D Viewport   │
+├─────────────────┤
+│    Timeline     │
+└─────────────────┘
 
-Then we have the animation with the timeline that we had on Layout.
+        ↓
+    Join Areas
 
-And then we got Rendering.
+Sau
 
-Here, it's not showing anything because we need to press F12.
+┌─────────────────┐
+│                 │
+│   3D Viewport   │
+│                 │
+└─────────────────┘
+```
 
-And you can see that another window opened here.
+Trong bài học, Timeline được đóng để mở rộng 3D Viewport.
 
-But you can also see right here.
+---
 
-Let's go ahead and close.
+# 12. Các Workspace chính của Blender
 
-In Composition, you can grab your rendered image
+Ở phía trên cửa sổ Blender có các tab Workspace.
 
-and add, for example, glare, bloom, vignette.
+---
 
-You can edit here.
+## 12.1 Layout
 
-And then we got Geometry Nodes, which is pretty exciting.
+Workspace tổng quát.
 
-It's a node-based procedural modeling function.
+Phù hợp để:
 
-And right here, this is pretty exciting.
+* Sắp xếp scene.
+* Chọn object.
+* Transform object.
+* Quan sát toàn bộ project.
 
-Geometry Nodes is a procedural modeling, node-based feature. So, yeah.
+---
 
-And then we got even Python scripting.
+## 12.2 Modeling
 
-So as you can see, we have some advanced workspaces
+Dùng chủ yếu để chỉnh sửa geometry.
 
-and some more simple workspaces.
+Khi làm việc với Mesh, bạn thường sử dụng:
 
-But we're going to start right now with our Layout.
+```text
+Object Mode
+   ↓
+Edit Mode
+   ↓
+Vertex / Edge / Face Editing
+```
 
-You can also add another workspace if you want. Let's go ahead.
+Nội dung Edit Mesh sẽ được học kỹ hơn ở bài sau.
 
-So here we have our Sequencer and the Timeline.
+---
 
-So this is pretty exciting.
+## 12.3 Sculpting
 
-And you can create your own.
+Dùng để điêu khắc model bằng các brush.
 
-So let's go back to our Layout workspace.
+```text
+Mesh
+ ↓
+Sculpt Brush
+ ↓
+Push / Pull / Smooth / Crease...
+ ↓
+Detailed Shape
+```
 
-So this is our 3D viewport.
+Phù hợp với:
 
-On the top right corner, you can see here that we have our gizmo.
+* Nhân vật.
+* Sinh vật.
+* Đá.
+* Địa hình.
+* Organic modeling.
 
-You have the X axis, the Y axis, and the Z axis.
+---
 
-So the X and the Y represents here your floor.
+# 13. UV Editing
 
-So as you can see here, we have positive X, negative, and positive Y, and negative.
+UV Editing được sử dụng để chuyển bề mặt 3D thành biểu diễn 2D.
 
-And your Z is the up axis.
+Ví dụ:
 
-In Unity, for example, you will have the Z, it will be the Y, for example.
+```text
+3D Mesh
+   ↓
+UV Unwrap
+   ↓
+2D UV Layout
+   ↓
+Texture
+   ↓
+Material trên Mesh
+```
 
-And your Y will be the down.
+Có thể hình dung giống như tháo một chiếc hộp giấy ra thành mặt phẳng.
 
-And your Y will be the Z.
+```text
+       ┌───┐
+       │   │
+   ┌───┼───┼───┐
+   │   │   │   │
+   └───┼───┼───┘
+       │   │
+       └───┘
+```
 
-So keep in mind that Blender is a right-handed software.
+Sau đó texture 2D được ánh xạ lại lên model 3D.
 
-So let me do Ctrl Z, just so we don't get confused.
+---
 
-I'm going to go to the Selection.
+# 14. Texture Paint
 
-Okay, so before we start moving our viewport camera around,
+Workspace này cho phép **vẽ trực tiếp texture lên model**.
 
-I wanted to show you that you can go here to Gizmo and click your desired viewport.
+Pipeline đơn giản:
 
-So here we have our front view, side view, and top view.
+```text
+3D Mesh
+   ↓
+UV
+   ↓
+Texture Paint
+   ↓
+Paint trực tiếp lên model
+   ↓
+Texture Image
+```
 
-And this you can control also with your numpad.
+Ví dụ:
 
-So you can see here, if we press numpad 3, 1, and 7, we can alternate.
+* Vẽ màu da.
+* Vẽ hoa văn.
+* Vẽ vết xước.
+* Vẽ mắt.
+* Vẽ pattern.
 
-And this rotates accordingly.
+---
 
-And even in under view, you can see we have negative Z.
+# 15. Shading
 
-So let's go back to our numpad 3.
+Workspace **Shading** được dùng để xây dựng Material.
 
-Now, before we learn how to orbit our view, I want to explain what is our 3D cursor.
+Thường sử dụng hệ thống:
 
-So you can see it right here on our 0, 0, 0.
+**Shader Nodes**
 
-What this means? 0x, 0z, and 0y.
+Ví dụ:
 
-We have our 3D cursor here.
+```text
+Image Texture
+      ↓
+Principled BSDF
+      ↓
+Material Output
+```
 
-Let me show you.
+Một material phức tạp hơn:
 
-So if you go here to Cursor, you can see that we can move it around.
+```text
+Noise Texture
+      ↓
+ColorRamp
+      ↓
+Principled BSDF
+      ↓
+Material Output
+```
 
-If I press Shift S right now, you can see that I have the option to move this cursor to grid,
+Workspace này sẽ trở nên rất quan trọng khi học:
 
-selection to add, but I will do this cursor toward origin.
+* Material
+* Texture
+* Roughness
+* Metallic
+* Normal
+* Procedural Texture
 
-And you can see that it moves exactly into the 0, 0, 0.
+---
 
-So this is the pivot point of our scene.
+# 16. Animation
 
-It will not always be your pivot point of your object, because if you move, let's go here,
+Workspace Animation được thiết kế để thực hiện animation.
 
-because if you move our object here, your object origin will be different than your world origin.
+Có thể bao gồm:
 
-So keep this in mind.
+```text
+3D Viewport
++
+Timeline
++
+Dope Sheet
++
+Graph Editor
+```
 
-You can see here by pressing N and going into item.
+Pipeline cơ bản:
 
-You can see here that the location of our object changed.
+```text
+Object / Bone
+      ↓
+Keyframe
+      ↓
+Timeline
+      ↓
+Interpolation
+      ↓
+Animation
+```
 
-If we go to 0, now it's exactly as the world.
+---
 
-But we will take a look at this next lesson.
+# 17. Rendering
 
-So let's go back to orbit.
+Workspace Rendering dùng để xem kết quả render.
 
-So we can orbit by pressing the middle mouse wheel and moving our mouse around.
+Shortcut quan trọng:
 
-You can see that as I did this, our viewport was changed from an orthographic to a perspective view.
+```text
+F12
+```
 
-So let's do this again.
+Thực hiện:
 
-This is controlled by pressing the 5 on your numpad.
+**Render Image**
 
-So you can switch from perspective to orthographic view by pressing 5.
+Pipeline:
 
-And if we press 1 or 3, it's automatically an orthographic view.
+```text
+Scene
+ ↓
+Camera
+ ↓
+Lights
+ ↓
+Materials
+ ↓
+Render Engine
+ ↓
+F12
+ ↓
+Rendered Image
+```
 
-So you can see if I press 1 and 5, it switches from an orthographic to a perspective.
+---
 
-You can also control this by going on your sidebar into view.
+# 18. Compositing
 
-You can control the focal length of your viewport camera.
+Sau khi render, Blender cho phép xử lý hình ảnh bằng hệ thống node.
 
-It's different than your outliner camera right here.
+Ví dụ:
 
-It's just your viewport.
+```text
+Rendered Image
+      ↓
+Compositor
+      ↓
+Glare
+      ↓
+Color Correction
+      ↓
+Vignette
+      ↓
+Final Image
+```
 
-Let's switch to perspective that we can see a little bit better.
+Compositing có thể được dùng để thêm:
 
-So if we orbit, we can control of focal length.
+* Glare
+* Bloom-like effects
+* Color adjustment
+* Vignette
+* Blur
+* Mask
+* Lens effects
 
-But it usually is best to leave it at 50 or 30.
+---
 
-Right below it, we have our clip start and clip end.
+# 19. Geometry Nodes
 
-So if I increase my clip, you can see that we have a clip cutting our object.
+**Geometry Nodes** là hệ thống procedural modeling dựa trên Node.
 
-And we also have a clip end.
+Thay vì chỉnh từng vertex thủ công:
 
-If I reduce, you can see that it starts clipping from behind to the front.
+```text
+Manual Modeling
+Vertex → Edge → Face → Repeat
+```
 
-So keep this in mind.
+có thể xây dựng:
 
-If sometimes you have an object too far away from your viewport camera, it can disappear.
+```text
+Input Geometry
+      ↓
+Geometry Nodes
+      ↓
+Procedural Operations
+      ↓
+Generated Geometry
+```
 
-So let's continue our navigation.
+Ví dụ:
 
-If you want to pan from side to side, you need to click shift and your middle mouse button.
+```text
+Points
+  ↓
+Distribute Points
+  ↓
+Instance on Points
+  ↓
+Hundreds of Objects
+```
 
-And you can pan up and down, left to right.
+Geometry Nodes đặc biệt mạnh cho:
 
-So we can combine both of these.
+* Procedural environment.
+* Vegetation.
+* Scattering.
+* Pattern.
+* Parametric modeling.
+* Motion graphics.
 
-You can orbit and you can pan.
+---
 
-Of course, you can also zoom.
+# 20. Scripting
 
-Zoom in and zoom out with your mouse wheel.
+Blender cũng cung cấp Workspace:
 
-If you get excited and just start spinning around and you get lost.
+**Scripting**
 
-Oh my God, where is my object?
+Blender sử dụng:
 
-You can press home on your keyboard and it will frame all of your objects.
+```text
+Python
+```
 
-Or if you have an object selected, you can press comma in the numpad and it selects your object.
+Ví dụ có thể dùng Python để:
 
-So for example, if I have my camera selected, we can press numpad.
+* Tạo object tự động.
+* Batch rename.
+* Import/export.
+* Tạo animation.
+* Xây add-on.
+* Tự động hóa workflow.
 
-And as you can see, we start to orbit around the selected object.
+Pipeline:
 
-So let's click on the other object, numpad.
+```text
+Python Script
+     ↓
+Blender Python API
+     ↓
+Objects / Materials / Scene / Animation
+```
 
-If you forgot any commands, you can also check our status bar.
+---
 
-You can see right here, really small, that we get some tips about how we can navigate.
+# 21. Workspace không phải cấu trúc cố định
 
-So we have left mouse select, rotate view.
+Workspace chỉ là một cách bố trí giao diện.
 
-And you can see right here, as I'm rotating, if I press right click of my mouse,
+Bạn có thể:
 
-it cancels and goes back to the way that it was before.
+* Thêm Workspace.
+* Xóa Workspace.
+* Thay đổi các Editor.
+* Resize Editor.
+* Join Area.
+* Split Area.
+* Tạo Workspace riêng.
 
-So we have our options here that we will take a look later in the next lesson.
+Do đó:
 
-But yeah, if I press shift, you can see here that it shows how I can append my view
+```text
+Workspace
+≠
+Feature cố định
 
-and how I can cancel.
+Workspace
+=
+Bố cục giao diện phục vụ workflow
+```
 
-I can set my 3D cursor by pressing my right click.
+---
 
-So yeah, right now you have an overview of how you can navigate your viewport
+# 22. Hệ tọa độ Blender
 
-and what are the different workspaces.
+Blender sử dụng ba trục:
 
-In the next lesson, let's get into our object.
+```text
+X
+Y
+Z
+```
 
-And we will talk a little bit more how we can modify, transform them, scale, rotate,
+Trong đó:
 
-and also how they interact with each other.
+* `X` → ngang.
+* `Y` → chiều sâu trên mặt phẳng ground.
+* `Z` → chiều cao.
 
+Có thể hình dung:
 
-Completed
+```text
+               +Z
+                ↑
+                │
+                │
+                ●──────→ +X
+               /
+              /
+            +Y
+```
+
+Mặt sàn thường nằm trên:
+
+$$
+XY
+$$
+
+và chiều cao nằm theo:
+
+$$
+Z
+$$
+
+---
+
+# 23. Gizmo trục tọa độ
+
+Ở góc trên bên phải 3D Viewport có **Navigation Gizmo**.
+
+Nó hiển thị:
+
+* X
+* Y
+* Z
+
+Bạn có thể click vào các trục để chuyển nhanh sang những hướng nhìn chuẩn.
+
+Ví dụ:
+
+```text
+Front
+Right
+Top
+Back
+Left
+Bottom
+```
+
+---
+
+# 24. Numpad View Shortcuts
+
+Ba shortcut rất quan trọng:
+
+| View           | Shortcut   |
+| -------------- | ---------- |
+| **Front View** | `Numpad 1` |
+| **Right View** | `Numpad 3` |
+| **Top View**   | `Numpad 7` |
+
+Có thể ghi nhớ:
+
+```text
+1 → Front
+3 → Side
+7 → Top
+```
+
+---
+
+# 25. Orthographic View
+
+Khi sử dụng:
+
+```text
+Numpad 1
+Numpad 3
+Numpad 7
+```
+
+Blender thường chuyển sang **Orthographic View**.
+
+Orthographic không có hiệu ứng thu nhỏ theo khoảng cách như Perspective.
+
+```text
+Orthographic
+
+┌────┐
+│    │
+└────┘
+
+Object xa hơn
+┌────┐
+│    │
+└────┘
+
+→ Kích thước biểu kiến gần như không đổi
+```
+
+Nó đặc biệt hữu ích khi:
+
+* Modeling.
+* Align object.
+* Kiểm tra silhouette.
+* Làm theo blueprint/reference.
+
+---
+
+# 26. Perspective View
+
+Perspective mô phỏng cách mắt hoặc camera quan sát thế giới.
+
+```text
+Near Object
+████████
+
+Far Object
+  ████
+```
+
+Object càng xa sẽ trông càng nhỏ.
+
+Đây thường là góc nhìn tự nhiên hơn khi quan sát scene.
+
+---
+
+# 27. Chuyển Perspective ↔ Orthographic
+
+Shortcut:
+
+```text
+Numpad 5
+```
+
+Workflow:
+
+```text
+Perspective
+     │
+ Numpad 5
+     ↓
+Orthographic
+     │
+ Numpad 5
+     ↓
+Perspective
+```
+
+---
+
+# 28. 3D Cursor
+
+Trong scene có một thành phần gọi là:
+
+**3D Cursor**
+
+Nó thường xuất hiện ban đầu tại:
+
+$$
+X = 0
+$$
+
+$$
+Y = 0
+$$
+
+$$
+Z = 0
+$$
+
+hay:
+
+$$
+(0,0,0)
+$$
+
+Đây cũng là **World Origin** của scene.
+
+---
+
+# 29. World Origin
+
+World Origin là điểm gốc của hệ tọa độ thế giới.
+
+```text
+               Z
+               ↑
+               │
+               │
+Y ─────────── (0,0,0) ─────────── X
+```
+
+World Origin luôn ở:
+
+$$
+(0,0,0)
+$$
+
+---
+
+# 30. 3D Cursor không phải World Origin
+
+Một điểm rất quan trọng:
+
+> 3D Cursor **có thể di chuyển**, còn World Origin thì không.
+
+Ví dụ:
+
+```text
+World Origin
+(0,0,0)
+   ●
+
+3D Cursor
+(2,3,1)
+       ⊕
+
+Object
+(5,2,0)
+             ■
+```
+
+---
+
+# 31. Shift + S — Snap Menu
+
+Shortcut:
+
+```text
+Shift + S
+```
+
+mở menu **Snap**.
+
+Một trong các thao tác được nhắc tới là:
+
+**Cursor to World Origin**
+
+Kết quả:
+
+```text
+3D Cursor
+    ↓
+(0,0,0)
+```
+
+---
+
+# 32. Object Origin
+
+Mỗi Object có **Object Origin riêng**.
+
+Ví dụ ban đầu:
+
+```text
+World Origin
+      ●
+      │
+Object Origin
+      ●
+```
+
+Nếu di chuyển object:
+
+```text
+World Origin
+●
+
+                 Object
+                   ■
+                   ●
+             Object Origin
+```
+
+Do đó:
+
+```text
+World Origin
+≠
+Object Origin
+≠
+3D Cursor
+```
+
+Đây là ba khái niệm khác nhau.
+
+---
+
+# 33. Sidebar — phím N
+
+Trong 3D Viewport:
+
+```text
+N
+```
+
+mở hoặc đóng Sidebar.
+
+Một trong những tab quan trọng là:
+
+**Item**
+
+Tại đây có thể xem Transform của object:
+
+```text
+Transform
+│
+├── Location
+│   ├── X
+│   ├── Y
+│   └── Z
+│
+├── Rotation
+│   ├── X
+│   ├── Y
+│   └── Z
+│
+└── Scale
+    ├── X
+    ├── Y
+    └── Z
+```
+
+Ví dụ:
+
+```text
+Location
+X = 0
+Y = 0
+Z = 0
+```
+
+nghĩa là Object Origin đang nằm tại World Origin.
+
+---
+
+# 34. Điều hướng 3D Viewport
+
+Đây là phần quan trọng nhất của bài học.
+
+Có ba thao tác cơ bản:
+
+```text
+Orbit
+Pan
+Zoom
+```
+
+---
+
+# 35. Orbit — xoay góc nhìn
+
+Giữ:
+
+```text
+Middle Mouse Button
+```
+
+và kéo chuột.
+
+```text
+MMB + Drag
+```
+
+Kết quả:
+
+```text
+        Camera View
+             ↘
+              ↓
+Object ← Orbit → Object
+              ↑
+             ↗
+```
+
+Bạn đang **xoay góc nhìn xung quanh scene**, không phải xoay object.
+
+---
+
+# 36. Pan — tịnh tiến góc nhìn
+
+Giữ:
+
+```text
+Shift + Middle Mouse Button
+```
+
+sau đó kéo.
+
+```text
+Shift + MMB + Drag
+```
+
+Có thể di chuyển góc nhìn:
+
+```text
+← Left
+
+→ Right
+
+↑ Up
+
+↓ Down
+```
+
+---
+
+# 37. Zoom
+
+Sử dụng:
+
+```text
+Mouse Wheel
+```
+
+### Scroll Up
+
+```text
+Zoom In
+```
+
+### Scroll Down
+
+```text
+Zoom Out
+```
+
+---
+
+# 38. Bộ ba Navigation quan trọng
+
+Nên ghi nhớ ngay:
+
+| Chức năng | Shortcut             |
+| --------- | -------------------- |
+| **Orbit** | `MMB + Drag`         |
+| **Pan**   | `Shift + MMB + Drag` |
+| **Zoom**  | `Mouse Wheel`        |
+
+Có thể nhớ bằng sơ đồ:
+
+```text
+             NAVIGATION
+                 │
+        ┌────────┼────────┐
+        │        │        │
+      Orbit     Pan      Zoom
+        │        │        │
+       MMB   Shift+MMB   Wheel
+```
+
+---
+
+# 39. Viewport Camera không phải Scene Camera
+
+Một điểm dễ nhầm:
+
+```text
+Viewport View
+≠
+Camera Object
+```
+
+### Viewport
+
+Là góc bạn đang sử dụng để làm việc trong Blender.
+
+### Camera Object
+
+Là camera thực sự nằm trong scene và được sử dụng cho render.
+
+```text
+Your Eyes
+   ↓
+Viewport
+
+Camera Object
+   ↓
+Final Render
+```
+
+Do đó thay đổi cách bạn orbit viewport không có nghĩa là bạn đã di chuyển Camera object.
+
+---
+
+# 40. Focal Length của Viewport
+
+Trong phần:
+
+```text
+N
+└── View
+```
+
+có thể thay đổi **Focal Length** của viewport.
+
+Ví dụ:
+
+```text
+30 mm
+50 mm
+80 mm
+```
+
+Focal Length ảnh hưởng đến cảm giác Perspective.
+
+### Focal Length thấp
+
+```text
+Wide perspective
+→ Cảm giác góc rộng
+→ Perspective mạnh hơn
+```
+
+### Focal Length cao
+
+```text
+Narrow perspective
+→ Góc nhìn phẳng hơn
+```
+
+Trong thao tác thông thường, không cần thay đổi liên tục thông số này.
+
+---
+
+# 41. Clip Start và Clip End
+
+Viewport có giới hạn khoảng cách hiển thị.
+
+Hai giá trị quan trọng:
+
+```text
+Clip Start
+Clip End
+```
+
+---
+
+## Clip Start
+
+Quy định vật thể gần viewport đến mức nào trước khi bị cắt.
+
+```text
+Viewer
+  👁
+  │
+  │ Clip Start
+  X──────────── Object
+```
+
+Nếu Clip Start quá lớn, object ở gần có thể bị cắt mất.
+
+---
+
+## Clip End
+
+Quy định khoảng cách tối đa mà viewport có thể hiển thị.
+
+```text
+Viewer
+  👁
+   │
+   ├──────────── Visible
+   │
+   ├──────────── Visible
+   │
+Clip End
+   X
+              Object too far
+                   ■
+             → không hiển thị
+```
+
+---
+
+# 42. Tại sao object đôi khi "biến mất"?
+
+Một nguyên nhân có thể là:
+
+```text
+Object
+   ↓
+nằm ngoài Clip Range
+   ↓
+Viewport không render object
+   ↓
+Có cảm giác object biến mất
+```
+
+Khi gặp vấn đề này, hãy kiểm tra:
+
+* Clip Start.
+* Clip End.
+* Vị trí object.
+* Khoảng cách viewport.
+
+---
+
+# 43. Bị lạc trong 3D Viewport
+
+Khi mới dùng Blender rất dễ gặp tình trạng:
+
+```text
+Orbit
+ ↓
+Zoom
+ ↓
+Orbit tiếp
+ ↓
+Zoom tiếp
+ ↓
+"Object của mình đâu rồi?"
+```
+
+Blender cung cấp một số shortcut để xử lý.
+
+---
+
+# 44. Home — Frame All
+
+Nhấn:
+
+```text
+Home
+```
+
+Blender sẽ điều chỉnh viewport để hiển thị toàn bộ các object trong scene.
+
+```text
+Lost View
+   ↓
+Home
+   ↓
+Frame All
+   ↓
+Toàn bộ scene xuất hiện lại
+```
+
+Đây là một shortcut rất hữu ích cho người mới.
+
+---
+
+# 45. Frame Selected
+
+Nếu chỉ muốn tập trung vào object đang được chọn:
+
+```text
+Numpad .
+```
+
+tức **Numpad Decimal / Period**.
+
+Ví dụ:
+
+```text
+Select Flower
+      ↓
+Numpad .
+      ↓
+Viewport Focus
+      ↓
+Flower
+```
+
+Sau đó khi Orbit, việc quan sát object sẽ thuận tiện hơn.
+
+> Đây là một trong những shortcut quan trọng nhất khi modeling.
+
+---
+
+# 46. Frame Selected + Orbit
+
+Một workflow rất thường dùng:
+
+```text
+Select Object
+      ↓
+Numpad .
+      ↓
+Frame Selected
+      ↓
+MMB
+      ↓
+Orbit quanh vùng object
+```
+
+Điều này hữu ích hơn rất nhiều so với việc cố gắng pan và zoom thủ công tới model.
+
+---
+
+# 47. Hủy thao tác View
+
+Trong một số thao tác điều hướng hoặc transform, có thể dùng:
+
+```text
+Right Mouse Button
+```
+
+để hủy thao tác đang thực hiện.
+
+Ngoài ra:
+
+```text
+Esc
+```
+
+cũng thường được sử dụng để cancel nhiều thao tác trong Blender.
+
+---
+
+# 48. Status Bar
+
+Thanh trạng thái của Blender có thể hiển thị gợi ý thao tác hiện tại.
+
+Ví dụ:
+
+```text
+LMB → Select
+MMB → Rotate View
+RMB → Cancel
+```
+
+Khi chưa nhớ shortcut, hãy quan sát khu vực này để hiểu những thao tác Blender đang cho phép.
+
+---
+
+# 49. Tổng hợp shortcut trong bài
+
+| Chức năng                  | Shortcut             |
+| -------------------------- | -------------------- |
+| Play / Pause Timeline      | `Spacebar`           |
+| Về frame đầu               | `Shift + ←`          |
+| Front View                 | `Numpad 1`           |
+| Right View                 | `Numpad 3`           |
+| Top View                   | `Numpad 7`           |
+| Perspective ↔ Orthographic | `Numpad 5`           |
+| Orbit                      | `MMB + Drag`         |
+| Pan                        | `Shift + MMB + Drag` |
+| Zoom                       | `Mouse Wheel`        |
+| Frame All                  | `Home`               |
+| Frame Selected             | `Numpad .`           |
+| Snap Menu                  | `Shift + S`          |
+| Mở / đóng Sidebar          | `N`                  |
+| Render Image               | `F12`                |
+| Undo                       | `Ctrl + Z`           |
+
+---
+
+# 50. Navigation Cheat Sheet
+
+```text
+                    3D VIEWPORT
+                         │
+         ┌───────────────┼────────────────┐
+         │               │                │
+       ORBIT            PAN             ZOOM
+         │               │                │
+        MMB          Shift + MMB       Wheel
+         │
+         ├─────────────────────────────────┐
+         │                                 │
+    STANDARD VIEW                     VIEW MODE
+         │                                 │
+  ┌──────┼──────┐                    Numpad 5
+  │      │      │                         │
+  1      3      7                 Perspective
+Front   Right   Top                       ↕
+                                   Orthographic
+```
+
+---
+
+# 51. Blender Workspace Workflow
+
+Toàn bộ bài học có thể được hình dung như sau:
+
+```text
+BLENDER
+│
+├── Preferences
+│   ├── Interface
+│   └── Add-ons
+│
+├── Workspace
+│   │
+│   ├── Layout
+│   │    ├── 3D Viewport
+│   │    ├── Outliner
+│   │    ├── Properties
+│   │    └── Timeline
+│   │
+│   ├── Modeling
+│   ├── Sculpting
+│   ├── UV Editing
+│   ├── Texture Paint
+│   ├── Shading
+│   ├── Animation
+│   ├── Rendering
+│   ├── Compositing
+│   ├── Geometry Nodes
+│   └── Scripting
+│
+└── 3D Viewport
+    │
+    ├── Coordinate System
+    │   ├── X
+    │   ├── Y
+    │   └── Z
+    │
+    ├── Navigation
+    │   ├── Orbit
+    │   ├── Pan
+    │   └── Zoom
+    │
+    ├── Projection
+    │   ├── Perspective
+    │   └── Orthographic
+    │
+    └── Focus
+        ├── Home → Frame All
+        └── Numpad . → Frame Selected
+```
+
+---
+
+# 52. Các khái niệm dễ nhầm
+
+## Workspace ≠ Editor
+
+**Workspace** là một bố cục gồm nhiều Editor.
+
+```text
+Workspace
+   ↓
+Multiple Editors
+```
+
+Ví dụ Layout chứa:
+
+```text
+Layout
+├── 3D Viewport
+├── Outliner
+├── Properties
+└── Timeline
+```
+
+---
+
+## Viewport ≠ Camera
+
+```text
+Viewport
+→ góc nhìn để làm việc
+
+Camera
+→ góc nhìn dùng để render
+```
+
+---
+
+## World Origin ≠ Object Origin
+
+```text
+World Origin
+→ (0,0,0) của toàn scene
+
+Object Origin
+→ điểm tham chiếu transform của từng object
+```
+
+---
+
+## 3D Cursor ≠ Object Origin
+
+3D Cursor có thể được đặt ở bất kỳ vị trí nào và được dùng trong nhiều thao tác như:
+
+* Đặt object mới.
+* Snap.
+* Làm pivot trong một số workflow.
+
+---
+
+## Orbit ≠ Rotate Object
+
+```text
+MMB
+→ Orbit Viewport
+
+R
+→ Rotate Object
+```
+
+Đây là khác biệt rất quan trọng.
+
+---
+
+# 53. Workflow điều hướng nên hình thành ngay từ đầu
+
+Thay vì liên tục zoom và pan một cách ngẫu nhiên, nên hình thành quy trình:
+
+```text
+1. Chọn Object
+      ↓
+2. Numpad .
+      ↓
+3. Frame Selected
+      ↓
+4. MMB → Orbit
+      ↓
+5. Shift + MMB → Pan nếu cần
+      ↓
+6. Wheel → Zoom
+      ↓
+7. Numpad 1 / 3 / 7 để kiểm tra hình dạng
+```
+
+Workflow này sẽ đặc biệt hữu ích khi học modeling.
+
+---
+
+# 54. Ví dụ thực tế
+
+Giả sử đang modeling một bông hoa.
+
+### Bước 1 — chọn object
+
+```text
+LMB → Flower
+```
+
+### Bước 2 — tập trung camera
+
+```text
+Numpad .
+```
+
+### Bước 3 — kiểm tra phía trước
+
+```text
+Numpad 1
+```
+
+### Bước 4 — kiểm tra bên phải
+
+```text
+Numpad 3
+```
+
+### Bước 5 — kiểm tra phía trên
+
+```text
+Numpad 7
+```
+
+### Bước 6 — quan sát tự do
+
+```text
+MMB + Drag
+```
+
+### Bước 7 — chỉnh vị trí quan sát
+
+```text
+Shift + MMB
+```
+
+### Bước 8 — phóng to
+
+```text
+Mouse Wheel
+```
+
+Đây gần như là chuỗi thao tác sẽ được sử dụng liên tục trong toàn bộ khóa học Blender.
+
+---
+
+# 55. Thực hành đề xuất
+
+## Bài 1 — Workspace Exploration
+
+Mở lần lượt:
+
+1. Layout
+2. Modeling
+3. Sculpting
+4. UV Editing
+5. Texture Paint
+6. Shading
+7. Animation
+8. Rendering
+9. Compositing
+10. Geometry Nodes
+11. Scripting
+
+Với mỗi Workspace, xác định:
+
+* 3D Viewport nằm ở đâu?
+* Có Editor nào mới?
+* Workspace đó phục vụ công việc gì?
+
+---
+
+## Bài 2 — Editor Area
+
+Trong Layout:
+
+1. Thay đổi kích thước Outliner.
+2. Thay đổi kích thước Properties.
+3. Phóng lớn 3D Viewport.
+4. Thử Join Timeline vào 3D Viewport.
+5. Quan sát cách Blender thay đổi bố cục.
+
+---
+
+## Bài 3 — View Navigation
+
+Chọn một object và luyện:
+
+```text
+MMB
+Shift + MMB
+Mouse Wheel
+```
+
+Cho đến khi có thể điều hướng mà không cần suy nghĩ về shortcut.
+
+---
+
+## Bài 4 — Standard Views
+
+Lần lượt sử dụng:
+
+```text
+Numpad 1
+Numpad 3
+Numpad 7
+```
+
+Sau mỗi View thử:
+
+```text
+Numpad 5
+```
+
+để quan sát sự khác biệt giữa Perspective và Orthographic.
+
+---
+
+## Bài 5 — Recover Lost View
+
+Cố tình:
+
+1. Zoom rất xa.
+2. Orbit nhiều vòng.
+3. Pan object ra khỏi màn hình.
+
+Sau đó dùng:
+
+```text
+Home
+```
+
+và:
+
+```text
+Numpad .
+```
+
+để tìm lại scene/object.
+
+---
+
+# 56. Thử thách mở rộng
+
+Tạo một scene gồm:
+
+```text
+Cube
+Sphere
+Cylinder
+Monkey
+```
+
+Sau đó:
+
+1. Đặt chúng ở bốn vị trí khác nhau.
+2. Chọn từng object.
+3. Dùng `Numpad .` để focus.
+4. Orbit quanh từng object.
+5. Chuyển Front / Right / Top View.
+6. Kiểm tra Location trong Sidebar `N`.
+7. Dùng `Home` để quay lại toàn bộ scene.
+
+Mục tiêu là có thể điều hướng scene hoàn toàn tự nhiên.
+
+---
+
+# 57. Những lỗi người mới thường gặp
+
+### 1. Không thấy object
+
+Thử:
+
+```text
+Home
+```
+
+hoặc:
+
+```text
+Select object → Numpad .
+```
+
+---
+
+### 2. Một phần model bị cắt mất
+
+Kiểm tra:
+
+```text
+N
+→ View
+→ Clip Start
+```
+
+---
+
+### 3. Object ở xa không hiển thị
+
+Kiểm tra:
+
+```text
+Clip End
+```
+
+---
+
+### 4. Không tìm thấy Properties mong muốn
+
+Kiểm tra object đang được chọn.
+
+```text
+Selected Object
+      ↓
+Context
+      ↓
+Available Properties
+```
+
+---
+
+### 5. Nhấn MMB nhưng tưởng object đang xoay
+
+`MMB` chỉ đang thay đổi **viewport orientation**.
+
+Object thực tế vẫn giữ nguyên Rotation.
+
+---
+
+### 6. Perspective làm model trông méo khi modeling
+
+Dùng:
+
+```text
+Numpad 1 / 3 / 7
+```
+
+để chuyển sang standard Orthographic View.
+
+---
+
+# 58. Thuật ngữ quan trọng
+
+| English               | Tiếng Việt / Ý nghĩa                        |
+| --------------------- | ------------------------------------------- |
+| **Workspace**         | Không gian/bố cục làm việc                  |
+| **Editor Area**       | Khu vực editor                              |
+| **3D Viewport**       | Khung nhìn không gian 3D                    |
+| **Outliner**          | Danh sách/cấu trúc object trong scene       |
+| **Properties Editor** | Khu vực thuộc tính                          |
+| **Timeline**          | Dòng thời gian                              |
+| **Scene**             | Cảnh 3D                                     |
+| **Object**            | Đối tượng                                   |
+| **World Origin**      | Gốc tọa độ thế giới                         |
+| **Object Origin**     | Điểm gốc của object                         |
+| **3D Cursor**         | Con trỏ 3D                                  |
+| **Orbit**             | Xoay góc nhìn                               |
+| **Pan**               | Tịnh tiến góc nhìn                          |
+| **Zoom**              | Phóng to / thu nhỏ                          |
+| **Perspective**       | Phối cảnh                                   |
+| **Orthographic**      | Hình chiếu trực giao                        |
+| **Focal Length**      | Tiêu cự                                     |
+| **Clip Start**        | Khoảng cắt gần                              |
+| **Clip End**          | Khoảng cắt xa                               |
+| **Frame Selected**    | Đưa object được chọn vào trung tâm viewport |
+| **Frame All**         | Hiển thị toàn bộ scene                      |
+| **Gizmo**             | Bộ điều khiển trực quan                     |
+| **Add-on**            | Tiện ích mở rộng                            |
+| **Geometry Nodes**    | Hệ thống procedural modeling bằng node      |
+| **Compositing**       | Hậu kỳ hình ảnh                             |
+| **Shading**           | Thiết lập vật liệu/shader                   |
+
+---
+
+# 59. Kiến thức cốt lõi cần nhớ
+
+Nếu chỉ ghi nhớ những kiến thức quan trọng nhất của bài này, hãy nhớ:
+
+```text
+Workspace
+    ↓
+Bố cục dành cho từng loại công việc
+
+Layout
+    ↓
+Viewport + Outliner + Properties + Timeline
+
+Viewport Navigation
+    ↓
+MMB         → Orbit
+Shift+MMB   → Pan
+Wheel       → Zoom
+
+Standard Views
+    ↓
+1 → Front
+3 → Right
+7 → Top
+5 → Perspective / Orthographic
+
+Lost?
+    ↓
+Home       → Frame All
+Numpad .   → Frame Selected
+
+Coordinate System
+    ↓
+X + Y → Ground Plane
+Z     → Up
+```
+
+---
+
+# 60. Checklist
+
+* [ ] Hiểu Workspace là gì.
+* [ ] Phân biệt Workspace và Editor Area.
+* [ ] Xác định được 3D Viewport.
+* [ ] Xác định được Outliner.
+* [ ] Xác định được Properties Editor.
+* [ ] Hiểu Properties thay đổi theo object đang chọn.
+* [ ] Biết Timeline dùng để làm gì.
+* [ ] Biết resize Editor Area.
+* [ ] Hiểu cách Join Area.
+* [ ] Biết mục đích của Modeling Workspace.
+* [ ] Biết mục đích của Sculpting Workspace.
+* [ ] Hiểu cơ bản UV Editing.
+* [ ] Hiểu cơ bản Texture Paint.
+* [ ] Hiểu cơ bản Shading.
+* [ ] Biết Animation Workspace.
+* [ ] Biết `F12` dùng để render.
+* [ ] Hiểu Compositing dùng để hậu kỳ.
+* [ ] Hiểu Geometry Nodes là procedural modeling.
+* [ ] Biết Blender hỗ trợ Python scripting.
+* [ ] Hiểu hệ tọa độ `X / Y / Z`.
+* [ ] Biết `Z` là trục hướng lên.
+* [ ] Phân biệt World Origin và Object Origin.
+* [ ] Hiểu vai trò của 3D Cursor.
+* [ ] Biết `Shift + S` mở Snap Menu.
+* [ ] Biết `N` mở Sidebar.
+* [ ] Biết `MMB` để Orbit.
+* [ ] Biết `Shift + MMB` để Pan.
+* [ ] Biết Mouse Wheel để Zoom.
+* [ ] Biết `Numpad 1 / 3 / 7`.
+* [ ] Biết `Numpad 5` chuyển Perspective/Orthographic.
+* [ ] Biết `Home` để Frame All.
+* [ ] Biết `Numpad .` để Frame Selected.
+* [ ] Hiểu Clip Start và Clip End.
+* [ ] Phân biệt Viewport View và Camera Object.
+* [ ] Có thể tự điều hướng một scene mà không bị mất object.
+
+---
+
+# 61. Kết luận
+
+Bài **Understanding Workspaces and Viewport Navigation** tạo nền móng cho gần như toàn bộ phần còn lại của khóa học.
+
+Trước khi học modeling, material hay animation, người học cần thành thạo ba kỹ năng cơ bản:
+
+```text
+Hiểu giao diện
+      +
+Hiểu hệ tọa độ
+      +
+Điều hướng Viewport
+      ↓
+Làm việc hiệu quả trong Blender
+```
+
+Đặc biệt, bộ shortcut:
+
+```text
+MMB
+Shift + MMB
+Mouse Wheel
+Numpad 1
+Numpad 3
+Numpad 7
+Numpad 5
+Numpad .
+Home
+```
+
+nên được luyện tới mức gần như trở thành **muscle memory**.
+
+Bài tiếp theo có thể chuyển từ việc **quan sát và điều hướng scene** sang trực tiếp thao tác với Object: **Move, Rotate, Scale, Object Mode, Edit Mode và cấu trúc Mesh**.
