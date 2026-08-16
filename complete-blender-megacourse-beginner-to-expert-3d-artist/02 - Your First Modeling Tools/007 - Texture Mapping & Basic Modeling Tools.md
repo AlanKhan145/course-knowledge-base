@@ -1,378 +1,2300 @@
 # 007 — Texture Mapping & Basic Modeling Tools
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Section** | Section 02 — Your First Modeling Tools |
-| **Bài học** | Texture Mapping & Basic Modeling Tools |
-| **Loại nội dung** | Video lecture |
-| **Thời lượng** | 22:36 |
-| **Ngôn ngữ** | English |
+| Thuộc tính        | Nội dung                                                                                                                      |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Section**       | Section 02 — Your First Modeling Tools                                                                                        |
+| **Bài học**       | Texture Mapping & Basic Modeling Tools                                                                                        |
+| **Loại nội dung** | Video lecture                                                                                                                 |
+| **Thời lượng**    | 22:36                                                                                                                         |
+| **Ngôn ngữ gốc**  | English                                                                                                                       |
+| **Chủ đề chính**  | UV Mapping, Procedural Mapping, Box Projection, Correct Face Attributes, Loop Cut, Subdivide, Topology, Snap, Duplicate, Join |
 
-## Mục tiêu bài học
+---
+
+## 1. Tổng quan bài học
+
+Trong bài trước, chúng ta đã học cách **UV unwrap một khối Cube** để đưa texture lên bề mặt.
+
+Bài này mở rộng sang hai vấn đề quan trọng:
+
+1. Hiểu điều gì xảy ra với texture khi tiếp tục chỉnh sửa hình học sau khi đã UV unwrap.
+2. Làm quen với **procedural texture mapping** để texture có thể tự thích nghi tốt hơn khi mesh thay đổi.
+3. Học thêm các công cụ modeling cơ bản thông qua việc dựng một **cobblestone pathway — đường lát đá**.
+4. Chuẩn bị cho việc dựng **lantern — đèn lồng** và học Modifier ở bài tiếp theo.
+
+Luồng kiến thức chính:
+
+```text
+UV Mapping
+    ↓
+Chỉnh sửa Mesh
+    ↓
+Texture bị kéo giãn / thiếu UV
+    ↓
+Procedural Mapping
+    ↓
+Generated Coordinates + Box Projection
+    ↓
+Modeling cơ bản
+    ↓
+Loop Cut → Subdivide → Topology
+    ↓
+Duplicate → Snap → Join
+    ↓
+Chuẩn bị sử dụng Modifier
+```
+
+---
+
+# 2. Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **Texture Mapping & Basic Modeling Tools** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+* Hiểu vì sao texture có thể bị **stretching** khi mesh đã UV unwrap bị thay đổi.
+* Phân biệt được **UV Mapping** và **Procedural Mapping**.
+* Hiểu vai trò của các node:
 
-## Nội dung trọng tâm
+  * `Texture Coordinate`
+  * `Mapping`
+  * `Image Texture`
+* Sử dụng **Generated Coordinates** thay cho UV trong một số trường hợp.
+* Hiểu cách hoạt động của **Box Projection / Triplanar Projection**.
+* Sử dụng **Correct Face Attributes** để Blender tự điều chỉnh UV khi chỉnh sửa mesh.
+* Hiểu các chế độ mở rộng texture:
 
-- UV, materials, shading và texture workflow
-- modeling, mesh editing và kiểm soát hình học
+  * Repeat
+  * Extend
+  * Clip
+* Sử dụng các công cụ modeling:
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+  * Move
+  * Extrude
+  * Loop Cut
+  * Subdivide
+  * Dissolve
+  * Duplicate
+  * Snap
+  * Join
+* Hiểu khái niệm cơ bản về **quad topology**.
+* Biết cách dùng reference để phân tích hình dạng trước khi modeling.
 
-## Thực hành đề xuất
+---
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+# 3. Vấn đề khi chỉnh sửa mesh sau khi UV Mapping
 
-## Checklist
+Giả sử Cube đã được UV unwrap.
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+Khi chuyển sang **Edit Mode**:
 
-## Ghi chú về nguồn
+```text
+Tab → Edit Mode
+```
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+chúng ta có thể chỉnh sửa trực tiếp:
 
-Welcome. In the last lesson, we learned how to map our cube using UVs. In this lesson,
+* Vertex
+* Edge
+* Face
 
-I'm going to show you how you can do a procedural texture mapping and what is the difference
+Ví dụ, để di chuyển một mặt:
 
-between them. We are also going to be modeling two objects, a pathway and a lantern. So this is
+```text
+G
+```
 
-the cube that we mapped last lesson. Let's start editing it and see what happens to the texture.
+Khóa chuyển động theo trục Z:
 
-So let's select it. Press tab to enter edit mode here on top. And I already have faces selected
+```text
+G → Z
+```
 
-here. To move, you can move your face exactly as you move your object. Just pressing G on your
+---
 
-keyboard and moving your mouse. So same thing. If you want to lock on Z, you can press Z. Here
+## 3.1. Vì sao texture bị kéo giãn?
 
-you can see that I have my snap activated here. That's why it's moving this way.
+Khi một Face được di chuyển nhưng UV tương ứng trong **UV Editor** không thay đổi, hình học và UV không còn có cùng tỷ lệ.
 
-So you can see that when we UV unwrap, this happens when you move your face. It's because
+Ví dụ:
 
-your texture is stretching. So if I click here and I go to my UV workspace, let's just change
+```text
+Mesh ban đầu
 
-this real quick. You can see that my UV doesn't change here. That's why it is stretching, depending
+┌───────────┐
+│ Texture   │
+│ bình thường
+└───────────┘
 
-what I do with my textures. Because it is connected to all of these edges, all of these bounds
+        ↓ Move Face
 
-are these bounds here. So you can see what happens to your texture. So let's go back to the
+┌───────────┐
+│           │
+│ Texture   │
+│ bị kéo    │
+│ giãn      │
+└───────────┘
+```
 
-way that it was before. Now, I want you to see what happens when we extrude this face. So having
+UV vẫn giữ nguyên:
 
-your face selected, just press E on your keyboard and go up. You can also see here that we lost
+```text
+UV Editor
+┌─────────┐
+│         │
+│   UV    │
+│         │
+└─────────┘
+```
 
-the textures here on both sides because it's not on our UV. It's not mapped yet. So this is some of
+nhưng mesh đã dài hơn.
 
-the problems that you face when you are modeling and texturing at the same time. At first, we're
+Kết quả:
 
-not going to worry about this. Usually, you model and then texture. But I wanted to show you a way
+> Texture phải trải trên một diện tích lớn hơn nên xuất hiện hiện tượng **texture stretching**.
 
-that we can do this at the same time. Usually, when we are modeling, we do not worry about this
+---
 
-and just texture later. But I wanted to show you this early on to see a way that you can model and
+# 4. Extrude sau khi UV unwrap
 
-also see your texture without having all these problems. And it's really interesting to know
+Chọn một Face rồi sử dụng:
 
-early on. So let's go back to the way that it was again. And let's focus our attention here to the
+```text
+E
+```
 
-bottom editor area. Here, you can see that we have a node on our texture that is called vector.
+để **Extrude**.
 
-If we drag it and just let go of your click and type UV map, this is the node that is default
+Ví dụ:
 
-by the shader. You don't need to do this to use your first UV map. It's already automatically.
+```text
+Cube
 
-But this means that we can use another type of texturing. So we can type mapping and on vector,
+┌───────┐
+│       │
+│       │
+└───────┘
 
-we can go to texture coordinate. And I'm going to select this first one that is generated.
+    ↓ E
 
-Now, this type of mapping is procedural. It doesn't depend on our UV map. So you can see here
+    ┌───────┐
+    │       │
+┌───┴───────┴───┐
+│               │
+└───────────────┘
+```
 
-that we only have the top. To change that, we can go here on our texture image where we have linear
+Các mặt bên mới được Blender tạo ra.
 
-and flat. Here, you can see image is projected flat using the x and the y coordinates of the
+Tuy nhiên, các mặt mới này **chưa được bố trí đúng trong UV Map hiện tại**.
 
-texture vector. So let's change this to make it projectable into all of the directions. So x, y,
+Vì vậy có thể xuất hiện:
 
-and z. So we can go here and select box. So you can imagine this as a triplanar projection.
+* texture bị kéo;
+* texture sai tỷ lệ;
+* texture không xuất hiện đúng;
+* các mặt mới chưa được unwrap phù hợp.
 
-Triplanar is a term that we use in Unity and game softwares. So you can see it right here.
+Đây là một trong những lý do workflow phổ biến thường là:
 
-It's projected on all of our axes from plus z to minus z, x minus x, and so forth. So you can see
+```text
+Modeling
+   ↓
+Hoàn thiện hình học
+   ↓
+UV Unwrap
+   ↓
+Texture
+```
 
-that it's mapped on all directions because it's based on a texture space that is a bounding box.
+thay vì:
 
-You can imagine like a box and it's being mapped on all directions. So what does this mean when we
+```text
+UV trước
+↓
+Tiếp tục thay đổi mesh lớn
+↓
+UV liên tục bị hỏng
+```
 
-are modeling? Let's go to edit mode and just move our faces on z. You can see that the texture is
+---
 
-being repeated even if I extrude. If I go here, if I move this way, because it's considering
+# 5. UV Mapping và Procedural Mapping
 
-the texture space of our object. Even if I move freely, you can see that the texture stays put.
+Đây là một trong những nội dung quan trọng nhất của bài.
 
-So if you are working with a white level box, for example, for a game or you're doing level art,
+## UV Mapping
 
-this is pretty useful. You don't have to worry about losing your grid.
+Texture dựa vào tọa độ UV do chúng ta tạo.
 
-So one last thing before we move to our modeling. Let's get this back to the way that it was before,
+```text
+Mesh
+ ↓
+UV Unwrap
+ ↓
+UV Coordinates
+ ↓
+Image Texture
+ ↓
+Material
+```
 
-removing our mapping and flat. There's a way that we can avoid these distortions. It's on this top
+Ưu điểm:
 
-bar here, you can see options. We have our options here on transform that it says correct face
+* kiểm soát texture rất chính xác;
+* thích hợp cho character;
+* thích hợp cho asset có texture riêng;
+* phù hợp texture painting.
 
-attributes. If we activate this and then move our faces, we can automatically move our faces
+Nhược điểm:
 
-we can automatically correct our UV map. You can see right here at the bottom it starts,
+* mesh thay đổi có thể yêu cầu chỉnh lại UV;
+* dễ xuất hiện stretching.
 
-our UV map starts to expand depending what we do. So we can see here that this image is being
+---
 
-repeated here and here. Right here on image, you can see that this is saying repeat. Let's change
+## Procedural Mapping
 
-this. If you go to extend or if you go to clip, it's not being repeated. So usually use this first
+Thay vì sử dụng UV Map, Blender có thể tính tọa độ texture từ chính không gian của object.
 
-one. Now let's go back to our box shape and this is going to be our base shader for now.
+```text
+Mesh
+ ↓
+Generated Coordinates
+ ↓
+Mapping
+ ↓
+Image Texture
+ ↓
+Shader
+```
 
-So let's go back. Let's go to our modeling workspace. The first thing that we're going to do
+Texture không nhất thiết phụ thuộc vào UV unwrap.
 
-is model a cobblestone path object. So the first thing that I usually do is grab references.
+Điều này đặc biệt hữu ích khi:
 
-I have here a cobblestone that I grabbed. So I'm going to click and drag to my viewport.
+* blockout level;
+* dựng môi trường;
+* thử material nhanh;
+* dùng texture gạch;
+* đá;
+* bê tông;
+* đường;
+* terrain.
 
-This doesn't work if you are in edit mode. So let's press tab and then click and drag. Okay,
+---
 
-we can drag things as images. I'm just grabbing it here for a reference view, then I'm going to
+# 6. Texture Coordinate Node
 
-delete it. But you can see here on our outliner that we have an image here. It's just an image.
+Trong Shader Editor, thêm:
 
-So the first thing that I do after grabbing my reference is analyzing the overall shape. So here
+```text
+Shift + A
+```
 
-is simple shapes. We just have boxes here that are aligned. Some of them aren't. So you can see that
+sau đó tìm:
 
-it's pretty simple. Then we can, after we do the simple shapes, then we can start adding details
+```text
+Texture Coordinate
+```
 
-and then the texture. So you always start by the simple approach. So I'm going to delete this for
+Node có nhiều loại tọa độ, ví dụ:
 
-now. And let's talk a little bit about units. So here we can see that we have our boxes. Here we
+```text
+Generated
+Normal
+UV
+Object
+Camera
+Window
+Reflection
+```
 
-are already activated our measurement, the edge length. And we can see that we have two by two
+Trong bài, chúng ta sử dụng:
 
-meters size. So let's go to our front view, pressing one on our numpad.
+```text
+Generated
+```
 
-And let's grab our bottom vertices. To do that, you need to grab the front vertices and the back.
+---
 
-So if you do just a box selection like this, selecting vertices. So there's a couple ways you
+## Generated Coordinates
 
-can do that. You can go here on the top and activate toggle x-ray, or you can go in wireframe
+`Generated` tự tạo tọa độ dựa trên **bounding box của object**.
 
-or you can go in wireframe mode. I prefer to go here because we can still see our texture.
+Có thể hình dung object nằm trong một hộp tọa độ:
 
-So let's go ahead and press G. Right now you can see that we have our snap activated
+```text
+        +Z
+         ↑
+         │
+     ┌─────────┐
+    /         /│
+   /         / │
+  └─────────┘  │ → +X
+  │         │  │
+  │         │ /
+  │         │/
+  └─────────┘
+      ↙
+     +Y
+```
 
-and it's following the grid. So let's move it until I reach zero and select.
+Texture sẽ dựa vào không gian này thay vì UV Map.
 
-Now if I press A, I can see that we have one meter high here on our edge length. So let's
+---
 
-reduce that. I'll select the top one. Okay, so now we have 20 centimeters high, still a little
+# 7. Mapping Node
 
-bit high. So let's make it 10. Now there's a couple ways that you can approach doing these
+Tiếp theo thêm:
 
-cobblestones. I'm going to do my preferred one. So this is basically our area delimitated by two
+```text
+Mapping
+```
 
-by two that I want to make all of my little stones. So what I'm going to do right now is
+Kết nối:
 
-go to edit mode and create a loop. So let's go to our solid tab so you can see it better.
+```text
+Texture Coordinate
+       │
+       │ Generated
+       ▼
+    Mapping
+       │
+       │ Vector
+       ▼
+ Image Texture
+       │
+       ▼
+Principled BSDF
+```
 
-To do a loop, we can do ctrl R and you can see here that another set of vertex and edges are
+Node `Mapping` cho phép điều chỉnh:
 
-created just at the middle of my face. You can see that another loop of vertices and its edges
+* Location
+* Rotation
+* Scale
 
-are created here on face. So if I click and drag, I can choose the location. If I press S,
+của texture.
 
-it stays right at the middle. So you can see here that we have one meter and one meter. So we can do
+Ví dụ muốn texture nhỏ hơn và lặp nhiều hơn:
 
-this for both sides. So here we divided our cube into four different faces on top and on bottom
+```text
+Scale:
 
-and two on side. So this is called subdivision. So if you go here and select just this edge and
+X = 4
+Y = 4
+Z = 4
+```
 
-you press right mouse and go to subdivide, you will subdivide this edge into edges. You can
+---
 
-see that we got a vertex here in the middle. So that goes for edges and faces. So let's go back.
+# 8. Flat Projection
 
-Okay. In the next lesson, we're going to use modifiers to do this, but let's skip to manual
+Image Texture mặc định có thể sử dụng:
 
-modeling for now. There's another concept that I want to talk with you is the quad modeling. So
+```text
+Projection = Flat
+```
 
-every time that you're modeling, you always try to leave faces with four different edges. So
+Flat Mapping chủ yếu chiếu texture theo mặt phẳng tọa độ.
 
-like we have here, this is called. So if you want to know more about this right now,
+Có thể hình dung giống như dùng máy chiếu:
 
-you can search for topology. So this is the term that we call it. Is the right
+```text
+Texture
+██████████████
+      ↓
+      ↓
+      ↓
+┌──────────────┐
+│    Object    │
+└──────────────┘
+```
 
-perfect topology is when you have all quads in all of your modeling. Of course, this is pretty
+Điều này có thể hoạt động tốt ở một hướng nhưng không đẹp trên các mặt quay sang hướng khác.
 
-easy to do this right now. But when you work with pretty complex models, you'll see how hard it is
+---
 
-to keep a perfect topology. But we will work on that on our next lessons when we build a little
+# 9. Box Projection
 
-cabin. So right now let's select all of our mesh A and click the right muzzle. So let's do some
+Trong Image Texture:
 
-quick subdivision. Let's press A, right click of the mouse and click subdivide. If we go here
+```text
+Projection
+```
 
-at the bottom left, you can see an arrow saying subdivide. Click here and then it will open this
+đổi từ:
 
-little window. You can see here number of cuts. So you can increase this and decrease. I'm going
+```text
+Flat
+```
 
-to add just one more. Yeah, I think this is good. And you have a couple of options here. You can do
+sang:
 
-a fractal. So it creates a little bit of noise, but let's keep it straight for now. Now you can
+```text
+Box
+```
 
-click outside. You can see that we got these extra loops here on the side. So let's remove them.
+Texture lúc này được chiếu từ nhiều hướng.
 
-Let's click two to select our edges. Click alt and shift to select our loops, edge loops here and here.
+Có thể hình dung:
 
-Now to delete, you can press X and this little window will pop up. So you can choose what you
+```text
+               ↓
+             Texture
+               ↓
 
-want to delete. Vertices, edges. Let's just click vertices just so you can see what happens. So when
+Texture → ┌──────────┐ ← Texture
+          │  Object  │
+Texture → │          │ ← Texture
+          └──────────┘
+               ↑
+             Texture
+```
 
-you delete vertices, you lose all of it, your edges and your faces. If we delete edges, you can
+Texture được chiếu theo các trục:
 
-see that these edges that I selected were deleted, our faces, but we were left with these edges here.
+```text
++X
+-X
++Y
+-Y
++Z
+-Z
+```
 
-We have the option of faces, but that won't happen anything because we don't have a face
+---
 
-selected. Only edges and faces, the same thing. And we have only faces that won't happen anything.
+# 10. Box Mapping và Triplanar Projection
 
-So we have these options here of dissolve vertices and dissolve edges. If we go to
+Khái niệm này thường được gọi là:
 
-dissolve edges, you can see that we delete the edges that we had selected and everything else
+> **Triplanar Projection**
 
-is perfect. There's a shortcut for that, so let's go back.
+Đặc biệt phổ biến trong:
 
-You can press ctrl X and it will do that automatically.
+* game development;
+* terrain shader;
+* Unity;
+* Unreal Engine;
+* procedural materials.
 
-So that's how you can delete your vertices without messing your overall model. Okay, so now let's go
+Ý tưởng cơ bản:
 
-to viewport overlays and activate our wireframe. So here we can see what we just created. So right
+```text
+X Projection
+     +
+Y Projection
+     +
+Z Projection
+     ↓
+Blend
+     ↓
+Final Texture
+```
 
-So right now I want to use this as a base to create our other stones. So what I'm going to do
+Điều này giúp texture xuất hiện hợp lý trên nhiều hướng của bề mặt mà không cần UV unwrap thủ công.
 
-is duplicate this, not as an instance, using just shift and D. If I use shift and D and press
+---
 
-ask, it's going to be duplicated at the same position as I have my original one. But you can
+# 11. Ưu điểm của Procedural / Box Mapping khi modeling
 
-see here that we have both of them. So I'll rename this by double clicking and saying this is just my
+Nếu sử dụng:
 
-grid. And for this one, I will say stones. Let's select our grid. Let's first hide our stones and
+```text
+Generated
+   ↓
+Mapping
+   ↓
+Image Texture — Box
+```
 
-select our grid. So I'll press tab. So what I want to do here is select all the faces that have the
+sau đó Extrude hoặc di chuyển geometry:
 
-same normal. So I can do that by pressing shift and G and this window of select similar will pop
+```text
+E
+G
+S
+```
 
-up. So you can select by similar, by material, by area and by normal. So if I click here, all of the
+texture vẫn có xu hướng giữ tỷ lệ tốt hơn.
 
-faces that have the same normal will be selected. So you can see right here. So what I can do right
+Ví dụ:
 
-now is press X and it will open this window and we can select vertices. If you select vertices,
+```text
+Ban đầu
 
-it will automatically delete this edge and its face because it doesn't support if it doesn't
+████████
+████████
 
-have a vertex. So as you can see, our normals are flipped because we have here the face orientation
 
-activated. So let's select all of them, alt N and flip. So now we have our grid.
+Extrude mesh
 
-Let's unhide our stones. And now what I want to do is just scale this stone to organic size. So
+████████
+████████
+████████
+████████
+```
 
-let's create a few variations of this stone. As we can see here on references, we have some long
+thay vì:
 
-ones, some shorter ones and different placement, but also following a grid. So I don't want to
+```text
+████████
+█      █
+█      █
+████████
+```
 
-scale my object itself. I want to scale just the mesh. So let's go into edit mode, select all.
+đây là lý do kỹ thuật này rất hữu ích cho:
 
-I'll deactivate my edge length for now because we already have our base with our grid. Now I want to
+* whitebox;
+* graybox;
+* level design;
+* prototype;
+* environment modeling.
 
-scale the stones, not scaling Z. If we press S and scale it down, we're going to lose the Z property
+---
 
-and we are scaling in the middle point. We are losing also this part right here. So let's go back
+# 12. Correct Face Attributes
 
-and let's choose here on transform pivot, as we saw before, 3D cursor. So let's scale without
+Blender còn cung cấp một cách khác để hạn chế UV bị méo khi chỉnh sửa mesh.
 
-changing anything else. You can see here that now we scaled on three directions right here at the
+Trên thanh:
 
-bottom, but now our pivot point is right at the zero, zero, zero. So we have more of a uniform scale
+```text
+Options
+```
 
-without losing our height. But I want to scale just on X and one Z. So what I can do is press S
+bật:
 
-and press Y and without clicking on anything else, we can go here, resize tab and copy the same scale
+```text
+Transform
+└── Correct Face Attributes
+```
 
-to X and press enter. So here we have an uniform scale, but keeping Z1.
+Sau khi bật, nếu di chuyển Face:
 
-Now there's one thing that got updated in Blender 5.1 is the snap by face center.
+```text
+G
+```
 
-So if you go here or press shift tab to activate snap, you can go here to face center.
+Blender sẽ cố gắng điều chỉnh UV tương ứng.
 
-So one thing that got added in Blender 5.1 is the snap to face center. So let's select our object,
+---
 
-activate snap and select face center. If you move, you can see that now we can snap to the face
+## Không bật Correct Face Attributes
 
-of our grid, but I want it to be snapped by the center of what I just created. So I can go here
+```text
+Move Mesh
+   ↓
+UV giữ nguyên
+   ↓
+Texture Stretching
+```
 
-and snap base, I can select center. So now I can snap to all of these faces. Now what I'm going to be doing
+## Bật Correct Face Attributes
 
-is create various objects of the stones with different sizings using our grid. So what I'm
+```text
+Move Mesh
+   ↓
+UV tự điều chỉnh
+   ↓
+Texture giữ tỷ lệ tốt hơn
+```
 
-going to do is also activate edge center and face center. So if I go here and click shift, I can add
+Trong UV Editor có thể quan sát UV thay đổi đồng thời với geometry.
 
-multiple of snaps. So I just want these two. So this is my first stone. Let's create it a little
+---
 
-bit smaller. I'll click shift D and add another right here, shift D. I'll add this to the center
+# 13. Texture Extension
 
-of my edge and I'll leave it a little bit bigger.
+Trong **Image Texture Node** có tùy chọn:
 
-I'm also going to add a vertex because I want to reach this middle point here.
+```text
+Extension
+```
 
-So now we have a lot of different stones and you can see here that as you scale and move your object,
+Ba chế độ quan trọng:
 
-the proportion of our quads, of our polygons or faces changes. So keep in mind, ideally you want
+| Chế độ     | Tác dụng                                |
+| ---------- | --------------------------------------- |
+| **Repeat** | Texture tự lặp khi tọa độ vượt giới hạn |
+| **Extend** | Kéo dài pixel ở cạnh texture            |
+| **Clip**   | Không hiển thị texture ngoài vùng 0–1   |
 
-to keep the same length. For example, this one we have 0.04 by 0.09. Ideally you want to always have
+---
 
-like a square, but for what we are doing, you don't need to worry about this right now. So now what I
+## Repeat
 
-want to do is join everything that we did into one stone. So we can do this. I think the easier
+```text
+┌───┬───┬───┐
+│IMG│IMG│IMG│
+├───┼───┼───┤
+│IMG│IMG│IMG│
+└───┴───┴───┘
+```
 
-way is to do by the outliner. So let's select the bottom one and pressing shift, let's go all the
+Rất hữu ích với:
 
-way up to the one. You can see now that we have a lot of objects selected. This one is our selected
+* brick;
+* stone;
+* ground;
+* tiles;
+* wood.
 
-object and the one that is a little bit lighter is our active object. So if we join all of these meshes,
+---
 
-all of these objects into one, it will join into a stone 0.023, but I don't want that. I want to
+## Extend
 
-join with this original stone here. So I can click count, control and select stones. Now if you want
+```text
+Texture
+┌──────────┐
+│   IMG    │████████
+└──────────┘████████
+```
 
-to join a lot of objects into the active one, you can press control G and that will automatically
+Pixel ở cạnh được kéo dài.
 
-join into one object. So you can see here. Let's check our sidebar and you can see that our orange
+---
 
-point changed because the stone was right here. So let's apply. So my origin point is at 0.0.0. So
+## Clip
 
-let's go control A and select location. Now our orange point in 0.0.0. Okay. So right now this
+```text
+      Texture
+     ┌───────┐
+     │  IMG  │
+     └───────┘
 
-looks pretty boring, but in the next lesson, I'm going to show you how we can transform this by
+Ngoài vùng → trong suốt / không có texture
+```
 
-just using modifiers. Modifiers is a way that we can model our object in an indestructible way.
+---
 
-So let's move on to our lantern.
+# 14. Workflow texture được giới thiệu
 
+Có ba cách tiếp cận đáng nhớ.
 
+### Workflow 1 — UV truyền thống
+
+```text
+Model
+ ↓
+UV Unwrap
+ ↓
+Image Texture
+ ↓
+Material
+```
+
+### Workflow 2 — Procedural / Generated
+
+```text
+Model
+ ↓
+Generated Coordinates
+ ↓
+Mapping
+ ↓
+Box Projection
+ ↓
+Texture
+```
+
+### Workflow 3 — UV + Correct Face Attributes
+
+```text
+UV Unwrap
+ ↓
+Bật Correct Face Attributes
+ ↓
+Chỉnh sửa Mesh
+ ↓
+Blender điều chỉnh UV
+```
+
+---
+
+# 15. Bắt đầu modeling Cobblestone Path
+
+Sau phần texture mapping, bài học chuyển sang modeling một **đường lát đá**.
+
+Workflow được sử dụng:
+
+```text
+Reference
+   ↓
+Phân tích hình dạng
+   ↓
+Primitive đơn giản
+   ↓
+Subdivision
+   ↓
+Tạo Grid
+   ↓
+Tạo Stone
+   ↓
+Duplicate Variations
+   ↓
+Snap
+   ↓
+Join
+   ↓
+Modifier ở bài tiếp theo
+```
+
+---
+
+# 16. Sử dụng Reference Image
+
+Giảng viên kéo một ảnh cobblestone trực tiếp vào Viewport.
+
+Lưu ý:
+
+> Không thể kéo reference image vào viewport khi đang ở Edit Mode.
+
+Vì vậy:
+
+```text
+Tab
+```
+
+để quay về:
+
+```text
+Object Mode
+```
+
+sau đó kéo ảnh vào viewport.
+
+Trong Outliner ảnh sẽ xuất hiện dưới dạng một object hình ảnh tham chiếu.
+
+---
+
+# 17. Phân tích hình dạng trước khi modeling
+
+Trước khi dựng chi tiết, cần quan sát **overall shape**.
+
+Reference cobblestone có thể được phân tích thành:
+
+```text
+Cobblestone Path
+
+┌────┬──────┬────┐
+│    │      │    │
+├──────┬────┴────┤
+│      │         │
+├───┬──────┬─────┤
+│   │      │     │
+└───┴──────┴─────┘
+```
+
+Về bản chất:
+
+> Đây chỉ là một tập hợp nhiều khối hộp có kích thước và vị trí hơi khác nhau.
+
+Nguyên tắc:
+
+```text
+Simple Shape
+    ↓
+Medium Detail
+    ↓
+Small Detail
+    ↓
+Texture
+```
+
+Không nên bắt đầu modeling từ chi tiết nhỏ.
+
+---
+
+# 18. Làm việc với đơn vị đo
+
+Khối cơ sở được đặt khoảng:
+
+```text
+2 m × 2 m
+```
+
+và chiều cao ban đầu khoảng:
+
+```text
+1 m
+```
+
+Sau đó giảm xuống:
+
+```text
+20 cm
+```
+
+và cuối cùng khoảng:
+
+```text
+10 cm
+```
+
+để phù hợp với đường lát đá.
+
+---
+
+# 19. Chọn xuyên mesh bằng X-Ray
+
+Khi nhìn từ Front View:
+
+```text
+Numpad 1
+```
+
+nếu Box Select bình thường, chỉ các vertex phía trước có thể được chọn.
+
+Để chọn cả vertex phía trước và phía sau:
+
+```text
+Toggle X-Ray
+```
+
+hoặc:
+
+```text
+Wireframe Mode
+```
+
+Giảng viên ưu tiên X-Ray vì vẫn có thể quan sát texture/material.
+
+---
+
+# 20. Loop Cut
+
+Một công cụ modeling rất quan trọng:
+
+```text
+Ctrl + R
+```
+
+Tên:
+
+> **Loop Cut**
+
+Ví dụ một Cube:
+
+```text
+Trước
+
+┌─────────────┐
+│             │
+│             │
+└─────────────┘
+```
+
+Sau `Ctrl + R`:
+
+```text
+┌──────┬──────┐
+│      │      │
+│      │      │
+└──────┴──────┘
+```
+
+Loop Cut tạo một vòng:
+
+* vertices;
+* edges;
+
+chạy xuyên qua topology.
+
+---
+
+# 21. Subdivision
+
+Loop Cut thực chất là một dạng subdivision có kiểm soát.
+
+Có thể chọn Edge hoặc toàn bộ mesh rồi:
+
+```text
+Right Click
+→ Subdivide
+```
+
+Sau đó điều chỉnh:
+
+```text
+Number of Cuts
+```
+
+Ví dụ:
+
+```text
+Number of Cuts = 1
+```
+
+```text
+┌────────────┐
+│            │
+├────────────┤
+│            │
+└────────────┘
+```
+
+Nếu:
+
+```text
+Number of Cuts = 3
+```
+
+```text
+┌────────────┐
+├────────────┤
+├────────────┤
+├────────────┤
+└────────────┘
+```
+
+---
+
+# 22. Fractal trong Subdivide
+
+Subdivide còn có thuộc tính:
+
+```text
+Fractal
+```
+
+Fractal tạo nhiễu vào các điểm mới.
+
+Ví dụ:
+
+```text
+Fractal = 0
+
+──────────────
+──────────────
+──────────────
+```
+
+so với:
+
+```text
+Fractal > 0
+
+───╱─────╲────
+────╲──╱──────
+```
+
+Trong bài, giảng viên giữ:
+
+```text
+Fractal = 0
+```
+
+để topology còn thẳng và dễ kiểm soát.
+
+---
+
+# 23. Quad Modeling
+
+Một khái niệm quan trọng được giới thiệu là:
+
+> **Quad**
+
+Quad là một Face có:
+
+```text
+4 vertices
+4 edges
+```
+
+Ví dụ:
+
+```text
+A──────B
+│      │
+│      │
+D──────C
+```
+
+Đây là một Quad.
+
+---
+
+## Topology
+
+Cách tổ chức:
+
+* vertex;
+* edge;
+* face;
+
+trên mesh được gọi là:
+
+> **Topology**
+
+Topology tốt giúp:
+
+* dễ edit;
+* dễ subdivide;
+* dễ deform;
+* modifier hoạt động ổn định hơn;
+* shading sạch hơn.
+
+---
+
+# 24. Quad Topology
+
+Trong nhiều trường hợp, mục tiêu là duy trì topology chủ yếu bằng Quad:
+
+```text
+┌───┬───┬───┐
+│   │   │   │
+├───┼───┼───┤
+│   │   │   │
+├───┼───┼───┤
+│   │   │   │
+└───┴───┴───┘
+```
+
+Tuy nhiên:
+
+> Không phải lúc nào cũng cần topology hoàn hảo ngay từ đầu.
+
+Đối với asset đơn giản như cobblestone trong bài, mục tiêu chính vẫn là hiểu workflow modeling.
+
+---
+
+# 25. Delete và Dissolve
+
+Khi nhấn:
+
+```text
+X
+```
+
+Blender cung cấp nhiều tùy chọn:
+
+```text
+Vertices
+Edges
+Faces
+Only Edges & Faces
+Only Faces
+Dissolve Vertices
+Dissolve Edges
+...
+```
+
+Đây là điểm rất quan trọng.
+
+---
+
+## Delete Vertex
+
+```text
+X → Vertices
+```
+
+Nếu vertex bị xóa thì các:
+
+* edges;
+* faces;
+
+phụ thuộc vào vertex đó cũng biến mất.
+
+---
+
+## Delete Edge
+
+Có thể làm mất các Face sử dụng Edge đó.
+
+---
+
+## Dissolve Edge
+
+```text
+X
+→ Dissolve Edges
+```
+
+khác với Delete.
+
+Dissolve cố gắng loại bỏ Edge mà **không phá hủy bề mặt chung**.
+
+Ví dụ:
+
+```text
+Trước
+
+┌─────┬─────┐
+│     │     │
+└─────┴─────┘
+```
+
+Dissolve Edge giữa:
+
+```text
+┌───────────┐
+│           │
+└───────────┘
+```
+
+---
+
+## Shortcut Dissolve
+
+Có thể dùng:
+
+```text
+Ctrl + X
+```
+
+để dissolve nhanh.
+
+---
+
+# 26. Wireframe Overlay
+
+Để quan sát topology trong Solid Mode:
+
+```text
+Viewport Overlays
+→ Wireframe
+```
+
+Kết quả:
+
+```text
+Solid Mesh
++
+Wireframe
+```
+
+giúp quan sát rõ:
+
+* edge loops;
+* subdivision;
+* topology.
+
+---
+
+# 27. Tạo bản sao Object
+
+Để tạo bản sao:
+
+```text
+Shift + D
+```
+
+Đây là **Duplicate**, không phải Linked Instance.
+
+Sau khi nhấn:
+
+```text
+Shift + D
+```
+
+có thể:
+
+* di chuyển chuột để đặt bản sao;
+* hoặc nhấn chuột phải / Esc để giữ bản sao tại cùng vị trí.
+
+---
+
+# 28. Grid và Stones
+
+Mesh ban đầu được duplicate thành hai object.
+
+Ví dụ:
+
+```text
+Original Mesh
+     │
+     ├── Grid
+     │
+     └── Stones
+```
+
+`Grid` được sử dụng như khuôn bố trí.
+
+`Stones` được dùng để tạo các viên đá.
+
+Đây là một workflow thông minh:
+
+```text
+Grid = hệ thống định vị
+Stone = geometry thực tế
+```
+
+---
+
+# 29. Select Similar
+
+Một công cụ hữu ích:
+
+```text
+Shift + G
+```
+
+mở:
+
+```text
+Select Similar
+```
+
+Có thể chọn dựa trên các thuộc tính tương tự như:
+
+* Normal
+* Area
+* Material
+* Face Angle
+* ...
+
+Trong bài, giảng viên chọn:
+
+```text
+Normal
+```
+
+để chọn tất cả Face cùng hướng.
+
+---
+
+# 30. Face Normals
+
+Normal xác định hướng của một Face.
+
+```text
+      Normal
+        ↑
+        │
+────────────── Face
+```
+
+Nếu Normal bị đảo:
+
+```text
+Normal
+  ↓
+──────────────
+```
+
+có thể gây:
+
+* backface issues;
+* shading sai;
+* export sang game engine sai.
+
+---
+
+## Face Orientation
+
+Blender có Overlay:
+
+```text
+Face Orientation
+```
+
+thường giúp phát hiện Face bị đảo.
+
+---
+
+## Flip Normal
+
+Chọn các Face:
+
+```text
+A
+```
+
+sau đó:
+
+```text
+Alt + N
+```
+
+và chọn:
+
+```text
+Flip
+```
+
+để đảo normal.
+
+---
+
+# 31. Scale Mesh thay vì Scale Object
+
+Một điểm workflow quan trọng:
+
+Giảng viên muốn thay đổi kích thước các viên đá nhưng không muốn thay đổi transform của toàn Object.
+
+Vì vậy:
+
+```text
+Tab → Edit Mode
+A
+S
+```
+
+thay vì:
+
+```text
+Object Mode
+S
+```
+
+Khác biệt:
+
+```text
+Object Mode Scale
+Object Transform = thay đổi
+```
+
+so với:
+
+```text
+Edit Mode Scale
+Mesh thay đổi
+Object Scale vẫn có thể = 1
+```
+
+Điều này rất hữu ích khi chuẩn bị cho:
+
+* modifiers;
+* physics;
+* export;
+* procedural workflow.
+
+---
+
+# 32. Transform Pivot Point
+
+Mặc định Scale sử dụng:
+
+```text
+Median Point
+```
+
+Nhưng bài sử dụng:
+
+```text
+3D Cursor
+```
+
+làm Pivot Point.
+
+Ví dụ:
+
+```text
+Stone
+┌─────────┐
+│         │
+└─────────┘
+● 3D Cursor
+```
+
+Scale xảy ra tương đối với vị trí:
+
+```text
+3D Cursor
+```
+
+thay vì tâm của selection.
+
+---
+
+# 33. Scale theo nhiều trục nhưng giữ nguyên chiều cao
+
+Giả sử muốn thu nhỏ viên đá theo:
+
+```text
+X
+Y
+```
+
+nhưng không thay đổi:
+
+```text
+Z
+```
+
+Ý tưởng:
+
+```text
+X → Scale
+Y → Scale
+Z → 1
+```
+
+Điều này giúp:
+
+```text
+Top View
+████████      █████
+████████  →   █████
+
+Side View
+████████      █████
+             chiều cao giữ nguyên
+```
+
+---
+
+# 34. Snap
+
+Snap bật bằng:
+
+```text
+Shift + Tab
+```
+
+hoặc biểu tượng nam châm.
+
+Snap giúp object/geometry bám chính xác vào:
+
+* Vertex
+* Edge
+* Face
+* Increment
+* Grid
+* Volume
+* ...
+
+---
+
+# 35. Face Center Snap
+
+Một tính năng được nhắc trong bài là:
+
+```text
+Face Center
+```
+
+Object có thể snap vào tâm Face của Grid.
+
+Ví dụ:
+
+```text
+Grid
+
+┌─────┬─────┐
+│  ●  │  ●  │
+├─────┼─────┤
+│  ●  │  ●  │
+└─────┴─────┘
+```
+
+Các chấm `●` là Face Center.
+
+Stone có thể được đặt chính xác tại những điểm này.
+
+---
+
+# 36. Snap Base — Center
+
+Không chỉ chọn đối tượng đích để Snap, Blender còn cho phép xác định **điểm nào của object đang di chuyển sẽ được dùng làm điểm Snap**.
+
+Trong bài sử dụng:
+
+```text
+Snap Base
+→ Center
+```
+
+Có thể hình dung:
+
+```text
+Stone
+┌─────────┐
+│    ●    │ ← Center
+└─────────┘
+```
+
+Center của Stone sẽ bám vào Face Center của Grid.
+
+---
+
+# 37. Kết hợp nhiều Snap Mode
+
+Giữ:
+
+```text
+Shift
+```
+
+khi chọn Snap Elements để bật nhiều loại cùng lúc.
+
+Ví dụ bài sử dụng:
+
+```text
+Face Center
++
+Edge Center
+```
+
+Do đó các viên đá có thể snap vào:
+
+```text
+┌────●────┐
+│         │
+●    ●    ●
+│         │
+└────●────┘
+```
+
+bao gồm:
+
+* tâm mặt;
+* tâm cạnh.
+
+---
+
+# 38. Tạo Variation cho các viên đá
+
+Sử dụng liên tục:
+
+```text
+Shift + D
+```
+
+sau đó:
+
+```text
+G
+S
+```
+
+để tạo các viên đá có:
+
+* kích thước khác nhau;
+* chiều dài khác nhau;
+* vị trí khác nhau.
+
+Ví dụ:
+
+```text
+┌──────┐ ┌────────┐ ┌────┐
+│      │ │        │ │    │
+└──────┘ └────────┘ └────┘
+
+   ┌──────────┐
+   │          │
+   └──────────┘
+```
+
+Mục tiêu là tránh cảm giác quá đều và nhân tạo.
+
+---
+
+# 39. Tỷ lệ Quad khi Scale
+
+Khi kéo dài mesh, các Quad có thể trở nên méo.
+
+Ví dụ tốt:
+
+```text
+┌──────┐
+│      │
+└──────┘
+```
+
+so với:
+
+```text
+┌───────────────────┐
+│                   │
+└───────────────────┘
+```
+
+Trong topology lý tưởng, người modeling thường cố giữ polygon có tỷ lệ tương đối đều.
+
+Tuy nhiên, đối với bài thực hành đơn giản này:
+
+> Chưa cần quá lo lắng về topology hoàn hảo.
+
+---
+
+# 40. Join nhiều Object
+
+Sau khi tạo nhiều viên đá, chúng ta cần gom chúng thành một Object.
+
+Trước:
+
+```text
+Stone_01
+Stone_02
+Stone_03
+Stone_04
+Stone_05
+...
+```
+
+Sau Join:
+
+```text
+Stones
+ ├── Mesh 01
+ ├── Mesh 02
+ ├── Mesh 03
+ ├── Mesh 04
+ └── Mesh 05
+```
+
+Tất cả thuộc cùng một Object.
+
+---
+
+## Active Object
+
+Khi chọn nhiều Object:
+
+* màu cam nhạt: object được chọn;
+* object active có trạng thái nổi bật hơn.
+
+Object được Join vào:
+
+> **Active Object**
+
+Vì vậy cần đảm bảo object muốn giữ tên / thuộc tính chính là **Active Object** trước khi Join.
+
+Shortcut tiêu chuẩn để Join object mesh trong Blender là:
+
+```text
+Ctrl + J
+```
+
+---
+
+# 41. Object Origin
+
+Sau khi Join, cần chú ý tới:
+
+```text
+Object Origin
+```
+
+hiển thị bằng chấm màu cam.
+
+Origin ảnh hưởng đến:
+
+* Rotation;
+* Scale;
+* Modifier;
+* Animation;
+* Parenting.
+
+Có thể hình dung:
+
+```text
+          Object
+┌──────────────────┐
+│                  │
+│         ●        │
+│       Origin     │
+└──────────────────┘
+```
+
+---
+
+# 42. Apply Transform
+
+Shortcut:
+
+```text
+Ctrl + A
+```
+
+mở menu:
+
+```text
+Apply
+
+Location
+Rotation
+Scale
+All Transforms
+...
+```
+
+Apply Transform giúp "đóng băng" transform hiện tại thành trạng thái cơ sở mới của Object.
+
+Ví dụ:
+
+```text
+Scale trước Apply
+
+X = 2
+Y = 2
+Z = 2
+```
+
+Sau:
+
+```text
+Ctrl + A
+→ Scale
+```
+
+Object vẫn có kích thước như cũ nhưng:
+
+```text
+X = 1
+Y = 1
+Z = 1
+```
+
+Điều này đặc biệt quan trọng trước khi sử dụng nhiều Modifier.
+
+---
+
+# 43. Modeling workflow của Cobblestone
+
+Toàn bộ workflow có thể tóm tắt:
+
+```text
+Reference Image
+      ↓
+Phân tích Shape
+      ↓
+Cube 2 m × 2 m
+      ↓
+Giảm Height
+      ↓
+Loop Cut / Subdivide
+      ↓
+Tạo Grid
+      ↓
+Duplicate Mesh
+      ↓
+Tạo Stones
+      ↓
+Scale Variations
+      ↓
+Face Center / Edge Center Snap
+      ↓
+Duplicate Stones
+      ↓
+Join Objects
+      ↓
+Apply Transform
+      ↓
+Modifier ở bài tiếp theo
+```
+
+---
+
+# 44. Nguyên tắc Modeling quan trọng trong bài
+
+## 44.1. Bắt đầu từ hình dạng đơn giản
+
+Không nên:
+
+```text
+Chi tiết nhỏ
+→ chi tiết nhỏ
+→ sửa hình tổng thể
+```
+
+Nên:
+
+```text
+Overall Shape
+     ↓
+Large Shapes
+     ↓
+Medium Shapes
+     ↓
+Small Details
+     ↓
+Texture
+```
+
+---
+
+## 44.2. Tách Modeling và Texturing khi cần
+
+Workflow phổ biến:
+
+```text
+Model
+ ↓
+Topology
+ ↓
+UV
+ ↓
+Texture
+```
+
+Không nhất thiết phải hoàn thiện texture trong lúc mesh vẫn còn thay đổi mạnh.
+
+---
+
+## 44.3. Procedural Mapping rất hữu ích khi Blockout
+
+Đặc biệt cho:
+
+```text
+Level Design
+Environment
+Architecture
+Terrain
+Grayboxing
+Whiteboxing
+Prototype
+```
+
+---
+
+# 45. UV Mapping vs Procedural Mapping
+
+| Tiêu chí                    | UV Mapping        | Procedural / Generated Mapping |
+| --------------------------- | ----------------- | ------------------------------ |
+| Cần UV unwrap               | Có                | Không nhất thiết               |
+| Kiểm soát texture chính xác | Rất cao           | Trung bình                     |
+| Mesh thay đổi               | Có thể làm UV méo | Thích nghi tốt hơn             |
+| Character                   | Rất phù hợp       | Ít phù hợp hơn                 |
+| Environment                 | Phù hợp           | Rất phù hợp                    |
+| Blockout                    | Không tối ưu      | Rất tốt                        |
+| Texture painting            | Rất tốt           | Không phải mục đích chính      |
+| Tile texture                | Tốt               | Rất tốt                        |
+| Game level prototype        | Khá               | Rất tốt                        |
+
+---
+
+# 46. Delete vs Dissolve
+
+| Thao tác        | Kết quả                          |
+| --------------- | -------------------------------- |
+| Delete Vertex   | Xóa vertex và geometry phụ thuộc |
+| Delete Edge     | Xóa edge, có thể phá Face        |
+| Delete Face     | Xóa Face                         |
+| Dissolve Vertex | Xóa vertex nhưng cố giữ bề mặt   |
+| Dissolve Edge   | Xóa edge nhưng cố giữ Face       |
+| `Ctrl + X`      | Dissolve nhanh                   |
+
+---
+
+# 47. Các phím tắt cần nhớ
+
+| Phím          | Chức năng               |
+| ------------- | ----------------------- |
+| `Tab`         | Object Mode ↔ Edit Mode |
+| `G`           | Move                    |
+| `G → Z`       | Move theo Z             |
+| `S`           | Scale                   |
+| `E`           | Extrude                 |
+| `A`           | Select All              |
+| `X`           | Delete Menu             |
+| `Ctrl + X`    | Dissolve                |
+| `Ctrl + R`    | Loop Cut                |
+| `Shift + D`   | Duplicate               |
+| `Shift + G`   | Select Similar          |
+| `Alt + N`     | Normal Menu             |
+| `Shift + Tab` | Toggle Snap             |
+| `Numpad 1`    | Front View              |
+| `Ctrl + A`    | Apply Transform         |
+| `Ctrl + J`    | Join Objects            |
+
+---
+
+# 48. Các thuật ngữ quan trọng
+
+| English                 | Tiếng Việt / Ý nghĩa                            |
+| ----------------------- | ----------------------------------------------- |
+| UV Mapping              | Ánh xạ texture bằng tọa độ UV                   |
+| Procedural Mapping      | Ánh xạ texture theo phương pháp thủ tục         |
+| Generated Coordinates   | Tọa độ tự sinh                                  |
+| Mapping                 | Điều khiển vị trí/xoay/scale của tọa độ texture |
+| Box Projection          | Chiếu texture dạng hộp                          |
+| Triplanar Projection    | Chiếu texture theo ba trục                      |
+| Texture Stretching      | Texture bị kéo giãn                             |
+| Correct Face Attributes | Tự điều chỉnh thuộc tính Face khi transform     |
+| Loop Cut                | Tạo vòng cắt                                    |
+| Subdivide               | Chia nhỏ geometry                               |
+| Quad                    | Polygon bốn cạnh                                |
+| Topology                | Cấu trúc vertex–edge–face                       |
+| Dissolve                | Xóa geometry nhưng cố giữ bề mặt                |
+| Normal                  | Vector chỉ hướng bề mặt                         |
+| Snap                    | Bắt dính                                        |
+| Pivot Point             | Tâm biến đổi                                    |
+| Object Origin           | Gốc của Object                                  |
+| Active Object           | Object chủ động trong selection                 |
+| Join                    | Gộp nhiều Object                                |
+| Reference Image         | Ảnh tham chiếu                                  |
+
+---
+
+# 49. Sơ đồ tổng hợp bài học
+
+```text
+                    TEXTURE MAPPING
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+          UV Mapping              Procedural Mapping
+             │                           │
+      UV Coordinates               Generated
+             │                           │
+      Mesh thay đổi                    Mapping
+             │                           │
+      Stretching                 Image Texture
+             │                           │
+Correct Face Attributes           Box Projection
+                                         │
+                                  Triplanar-like
+                                         │
+                                 Level / Environment
+
+
+                    BASIC MODELING
+                           │
+                     Reference
+                           │
+                    Analyze Shape
+                           │
+                         Cube
+                           │
+                  Loop Cut/Subdivide
+                           │
+                     Quad Topology
+                           │
+                 Duplicate Grid/Stone
+                           │
+                 Scale Variations
+                           │
+                 Snap to Centers
+                           │
+                      Join Meshes
+                           │
+                   Apply Transform
+                           │
+                      Modifiers
+                    (bài tiếp theo)
+```
+
+---
+
+# 50. Những lỗi thường gặp
+
+### Lỗi 1 — Texture bị stretch
+
+**Nguyên nhân:**
+
+* mesh được thay đổi;
+* UV không thay đổi tương ứng.
+
+**Khắc phục:**
+
+* unwrap lại;
+* bật Correct Face Attributes;
+* hoặc dùng Generated / Box Mapping.
+
+---
+
+### Lỗi 2 — Extrude nhưng mặt mới không có texture đúng
+
+Nguyên nhân:
+
+```text
+New Geometry
+→ chưa được UV unwrap đúng
+```
+
+Khắc phục:
+
+```text
+UV Unwrap lại
+```
+
+hoặc sử dụng procedural mapping trong giai đoạn blockout.
+
+---
+
+### Lỗi 3 — Chỉ chọn Vertex phía trước
+
+Nguyên nhân:
+
+```text
+X-Ray = Off
+```
+
+Khắc phục:
+
+```text
+Toggle X-Ray
+```
+
+hoặc Wireframe Mode.
+
+---
+
+### Lỗi 4 — Delete Edge làm mất Face
+
+Thay vì:
+
+```text
+X → Edge
+```
+
+có thể dùng:
+
+```text
+Dissolve Edge
+```
+
+hoặc:
+
+```text
+Ctrl + X
+```
+
+---
+
+### Lỗi 5 — Face Normal bị đảo
+
+Bật:
+
+```text
+Face Orientation
+```
+
+sau đó:
+
+```text
+A
+Alt + N
+Flip
+```
+
+---
+
+### Lỗi 6 — Scale làm mất chiều cao viên đá
+
+Không nên Scale đồng thời cả X/Y/Z nếu muốn giữ Z.
+
+Nên chỉ scale:
+
+```text
+X
+Y
+```
+
+và giữ:
+
+```text
+Z = 1
+```
+
+---
+
+### Lỗi 7 — Snap sai vị trí
+
+Kiểm tra:
+
+```text
+Snap Element
+Snap Base
+Transform Pivot
+```
+
+Đối với bài:
+
+```text
+Face Center
+Edge Center
+Center
+```
+
+là những thiết lập quan trọng.
+
+---
+
+# 51. Thực hành đề xuất
+
+## Bài tập 1 — Quan sát UV Stretching
+
+1. Tạo Cube.
+2. UV unwrap.
+3. Gắn một texture dạng grid.
+4. Chọn Face trên cùng.
+5. Nhấn:
+
+```text
+G → Z
+```
+
+6. Quan sát UV Editor.
+7. Ghi nhận texture bị kéo giãn.
+
+---
+
+## Bài tập 2 — Correct Face Attributes
+
+Lặp lại bài tập trên nhưng bật:
+
+```text
+Options
+→ Correct Face Attributes
+```
+
+So sánh:
+
+```text
+OFF             ON
+
+UV cố định      UV thay đổi
+    ↓               ↓
+Stretching      Ít stretching hơn
+```
+
+---
+
+## Bài tập 3 — Box Mapping
+
+Tạo:
+
+```text
+Texture Coordinate
+       ↓
+Generated
+       ↓
+Mapping
+       ↓
+Image Texture
+Projection = Box
+```
+
+Sau đó:
+
+```text
+Extrude
+Move
+Scale
+```
+
+mesh và quan sát texture.
+
+---
+
+## Bài tập 4 — Cobblestone Grid
+
+Tạo:
+
+```text
+2 m × 2 m
+```
+
+grid sau đó:
+
+* subdivide;
+* duplicate stone;
+* thay đổi kích thước;
+* snap vào face center;
+* tạo ít nhất 12 viên đá.
+
+---
+
+# 52. Thử thách mở rộng
+
+Tự tạo một đoạn đường:
+
+```text
+3 m × 6 m
+```
+
+gồm khoảng:
+
+```text
+20–30 viên đá
+```
+
+với:
+
+* ít nhất 4 kích thước khác nhau;
+* khoảng cách không hoàn toàn đều;
+* texture đá dạng tile;
+* Box Mapping;
+* không có texture stretching rõ rệt.
+
+Sau đó thử tạo hai phiên bản:
+
+```text
+Version A
+UV Mapping
+
+Version B
+Generated + Box Mapping
+```
+
+và so sánh workflow.
+
+---
+
+# 53. Checklist bài học
+
+* [ ] Hiểu nguyên nhân texture stretching.
+* [ ] Biết sự khác nhau giữa UV Mapping và Generated Mapping.
+* [ ] Biết sử dụng Texture Coordinate Node.
+* [ ] Biết vai trò của Mapping Node.
+* [ ] Biết sử dụng Box Projection.
+* [ ] Hiểu khái niệm Triplanar Projection.
+* [ ] Biết sử dụng Correct Face Attributes.
+* [ ] Phân biệt Repeat, Extend và Clip.
+* [ ] Sử dụng được Loop Cut.
+* [ ] Sử dụng được Subdivide.
+* [ ] Hiểu Quad và Topology.
+* [ ] Phân biệt Delete và Dissolve.
+* [ ] Biết kiểm tra Face Normal.
+* [ ] Biết Duplicate bằng `Shift + D`.
+* [ ] Biết sử dụng Face Center / Edge Center Snap.
+* [ ] Biết tạo variation cho các viên đá.
+* [ ] Biết Join nhiều mesh thành một Object.
+* [ ] Hiểu vai trò của Object Origin.
+* [ ] Biết Apply Transform.
+* [ ] Đã tạo thử một cobblestone pathway.
+* [ ] Đã lưu file Blender thực hành.
+
+---
+
+# 54. Tóm tắt
+
+Bài học kết nối hai chủ đề nền tảng của Blender: **texture mapping** và **basic modeling**.
+
+Về texture, điểm quan trọng nhất là hiểu rằng:
+
+```text
+UV Mapping
+= texture phụ thuộc vào UV do người dùng tạo
+
+Generated / Procedural Mapping
+= texture có thể dựa trực tiếp vào không gian của object
+```
+
+Khi mesh thay đổi sau UV unwrap, texture có thể bị stretching. Có thể giải quyết bằng:
+
+```text
+Correct Face Attributes
+```
+
+hoặc trong một số workflow environment/blockout:
+
+```text
+Generated
+→ Mapping
+→ Box Projection
+```
+
+Về modeling, bài học xây dựng nền tảng qua quy trình:
+
+```text
+Reference
+→ Simple Shape
+→ Loop Cut
+→ Subdivide
+→ Quad Topology
+→ Duplicate
+→ Snap
+→ Join
+→ Apply Transform
+```
+
+Các kiến thức này chuẩn bị trực tiếp cho bài tiếp theo, nơi **Modifiers** được sử dụng để biến hình dạng cobblestone đơn giản thành một asset có hình dáng tự nhiên và chi tiết hơn.
+
+> **Nguyên tắc quan trọng cần nhớ:** bắt đầu modeling bằng hình dạng đơn giản, giữ topology dễ kiểm soát, chỉ thêm chi tiết khi cấu trúc tổng thể đã đúng, và lựa chọn phương pháp texture phù hợp với giai đoạn của asset.

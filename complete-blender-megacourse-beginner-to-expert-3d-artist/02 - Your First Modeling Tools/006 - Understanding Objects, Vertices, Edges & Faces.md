@@ -1,385 +1,1528 @@
 # 006 — Understanding Objects, Vertices, Edges & Faces
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Section** | Section 02 — Your First Modeling Tools |
-| **Bài học** | Understanding Objects, Vertices, Edges & Faces |
-| **Loại nội dung** | Video lecture |
-| **Thời lượng** | 13:51 |
-| **Ngôn ngữ** | English |
+## Hiểu về Object, Vertex, Edge và Face trong Blender
 
-## Mục tiêu bài học
+| Thuộc tính        | Nội dung                                                        |
+| ----------------- | --------------------------------------------------------------- |
+| **Section**       | Section 02 — Your First Modeling Tools                          |
+| **Bài học**       | Understanding Objects, Vertices, Edges & Faces                  |
+| **Loại nội dung** | Video lecture                                                   |
+| **Thời lượng**    | 13:51                                                           |
+| **Ngôn ngữ**      | English                                                         |
+| **Chủ đề chính**  | Object, Mesh, Vertex, Edge, Face, Normal, Shading, Material, UV |
+
+---
+
+## 1. Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **Understanding Objects, Vertices, Edges & Faces** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+* Hiểu **Object** và **Mesh** trong Blender là gì.
+* Phân biệt ba thành phần cơ bản cấu tạo nên Mesh:
 
-## Nội dung trọng tâm
+  * **Vertex** — đỉnh.
+  * **Edge** — cạnh.
+  * **Face** — mặt.
+* Chuyển đổi giữa **Object Mode** và **Edit Mode**.
+* Sử dụng các chế độ chọn:
 
-- modeling, mesh editing và kiểm soát hình học
+  * Vertex Select.
+  * Edge Select.
+  * Face Select.
+* Hiểu khái niệm **Edge Loop**.
+* Hiểu **Face Normal**, mặt trước và mặt sau của polygon.
+* Kiểm tra hướng mặt bằng **Face Orientation**.
+* Hiển thị thông tin hình học như:
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+  * Edge Length.
+  * Edge Angle.
+  * Face Area.
+  * Face Angle.
+* Phân biệt:
 
-## Thực hành đề xuất
+  * Shade Flat.
+  * Shade Smooth.
+  * Shade Auto Smooth.
+* Làm quen với **Bevel Modifier**.
+* Tạo Material đơn giản.
+* Gắn Image Texture vào shader.
+* Hiểu khái niệm cơ bản về **UV Mapping** và **Cube Projection**.
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+---
 
-## Checklist
+# 2. Object và Mesh
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+Trong Blender, thứ chúng ta nhìn thấy trong Scene thường được quản lý dưới dạng **Object**.
 
-## Ghi chú về nguồn
+Ví dụ:
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+* Cube
+* Sphere
+* Camera
+* Light
+* Curve
+* Text
 
+Tuy nhiên, một **Mesh Object** còn chứa dữ liệu hình học bên trong.
 
+```text
+Object
+│
+├── Transform
+│   ├── Location
+│   ├── Rotation
+│   └── Scale
+│
+└── Mesh Data
+    ├── Vertices
+    ├── Edges
+    └── Faces
+```
 
-Welcome. In this lesson, we're going to learn about what constitutes an object.
+Có thể hiểu đơn giản:
 
-We're going to learn about vertexes, edges, and faces.
+> **Object là "vỏ quản lý", còn Mesh là hình học nằm bên trong Object.**
 
-This is where we stopped at last lesson.
+---
 
-As much as I adore these flowers, let's remove by clicking and deleting.
+# 3. Quản lý Object bằng Collection
 
-Just so we don't delete the last one, let's move it to another collection.
+Ở phần đầu bài học, giảng viên chuyển object hình hoa sang một Collection riêng.
 
-So let's go here in our top right side, we have our outliner.
+## Tạo Collection
 
-So we can see we have a scene collection and a collection inside it.
+Trong **Outliner**:
 
-If we go here and click with the right button on our mouse,
+1. Nhấp chuột phải.
+2. Tạo **New Collection**.
+3. Đổi tên thành:
 
-a new collection will have a separate collection.
+```text
+Flower
+```
 
-Let's double click and we can rename it.
+Có thể đổi tên bằng:
 
-Or we can click F2 on our keyboard.
+```text
+F2
+```
 
-So let's name it flower.
+---
 
-Now we can select our flower on our outliner or on a viewport.
+## Chuyển Object sang Collection
 
-Let's do it on viewport.
+Chọn Object rồi nhấn:
 
-We can click M on our keyboard to move.
+```text
+M
+```
 
-Let's go here to flower and our object will be in this collection.
+Sau đó chọn Collection đích.
 
-Now we can control what happens with it.
+Ví dụ:
 
-We can de-habilitate the whole collection or hide in our viewport.
+```text
+Flower Object
+      │
+      └── M
+           │
+           ▼
+     Flower Collection
+```
 
-Let's disable in our entire collection.
+Ngoài ra có thể kéo Object trực tiếp trong **Outliner** sang Collection khác.
 
-Now our object is hidden.
+---
 
-So let's start with a simple cube as all tutorials do.
+## Tác dụng của Collection
 
-You can press Shift A or you can go here right below our top bar,
+Collection giúp:
 
-go to add, mesh and select our cube.
+* Nhóm Object.
+* Ẩn nhiều Object cùng lúc.
+* Bật/tắt hiển thị.
+* Quản lý Scene lớn dễ hơn.
 
-Now we have a cube.
+Ví dụ:
 
-So this is our object.
+```text
+Scene Collection
+│
+├── Collection
+│   ├── Cube
+│   ├── Camera
+│   └── Light
+│
+└── Flower
+    └── Flower Object
+```
 
-Let's move it to the correct folder.
+---
 
-You can also go here on the outliner, press your left button on your mouse,
+# 4. Thêm Cube
 
-move it to this collection.
+Có hai cách phổ biến để thêm Cube.
 
-Let's hide our light and our camera for now.
+### Cách 1 — Shortcut
 
-Now, before we start moving this box around and editing it,
+```text
+Shift + A
+→ Mesh
+→ Cube
+```
 
-I want to add another area on my workspace.
+### Cách 2 — Menu
 
-Let's move this to modeling.
+```text
+Add
+→ Mesh
+→ Cube
+```
 
-You can see that when we move to modeling,
+Cube này được sử dụng để minh họa cấu trúc Mesh.
 
-our mode already switches from object mode to edit mode.
+---
 
-To switch between edit mode and object mode,
+# 5. Object Mode và Edit Mode
 
-you simply just press tab on your keyboard.
+Đây là hai chế độ cực kỳ quan trọng khi modeling.
 
-Tab, really simple.
+## Object Mode
 
-I want to add another area in this workspace.
+Dùng để thao tác với **toàn bộ Object**.
 
-I'm going to add it on this side.
+Ví dụ:
 
-So I'll click and drag to add another area.
+* Di chuyển.
+* Xoay.
+* Scale.
+* Duplicate.
+* Xóa Object.
+* Gắn Modifier.
 
-I'll go here on the top left side of every area.
+---
 
-You can switch to any area that you want.
+## Edit Mode
 
-So here we have 3D viewport, image editor, shader.
+Dùng để chỉnh sửa **hình học bên trong Mesh**.
 
-I'll change this one to spreadsheet.
+Ví dụ:
 
-I will also open the sidebar here and let's select our cube.
+* Vertex.
+* Edge.
+* Face.
 
-Why did I do this?
+---
 
-Here on our spreadsheet, it shows all of the positions of our vertex,
+## Chuyển đổi giữa hai Mode
 
-our edges and our faces.
+```text
+Tab
+```
 
-So let's start with vertex.
+Sơ đồ:
 
-Just like our object has an origin point that right now is 0, 0, 0,
+```text
+           Tab
+Object Mode ─────────► Edit Mode
+     ▲                    │
+     └────────────────────┘
+              Tab
+```
 
-as we can see this, if we go to edit mode, pressing tab,
+### Quy tắc cần nhớ
 
-you can see that now we have control over all of the vertex of our cube.
+> **Object Mode = chỉnh Object.**
+> **Edit Mode = chỉnh Mesh.**
 
-So let's select our object and go to edit mode by pressing tab.
+---
 
-We can see here on our transform that nothing is selected.
+# 6. Cấu trúc của Mesh
 
-So let's select this vertex here.
+Một Mesh được hình thành từ ba thành phần cơ bản:
 
-Now we can see that this vertex on X is 1, on Y is minus 1, and 1 on Z.
+```text
+Vertex
+  │
+  ▼
+ Edge
+  │
+  ▼
+ Face
+  │
+  ▼
+ Mesh
+```
 
-And if we look at the views, this is correct.
+---
 
-So we have the position.
+# 7. Vertex — Đỉnh
 
-Each vertex of our mesh has an origin on our world.
+**Vertex** là một điểm trong không gian 3D.
 
-So each point of our cube has an exact location on our object.
+Mỗi Vertex có tọa độ:
 
-We can see here that we have 0 to 7, all of the positions of our vertexes.
+$$
+V = (x,y,z)
+$$
 
-If we go to edges, you can see that right now we are selecting vertex.
+Ví dụ một Vertex trong bài:
 
-If we press 2 on our keyboard, we switch to select our edges.
+```text
+X = 1
+Y = -1
+Z = 1
+```
 
-As you can see, we have 12 of them.
+hay:
 
-And if we press 3, we can select our faces.
+$$
+V=(1,-1,1)
+$$
 
-You can see that we have here 6 faces, all sharp faces.
+---
 
-When you are in edit mode, sometimes you want to select all of your object.
+## Cube có bao nhiêu Vertex?
 
-So you can press A on your keyboard.
+Một Cube mặc định có:
 
-It selects everything.
+```text
+8 Vertices
+```
 
-We can select A and press 1 to select our vertex, 2 to select our edges,
+Có thể đánh số:
 
-and 3 to select all of our faces.
+```text
+Vertex 0
+Vertex 1
+Vertex 2
+...
+Vertex 7
+```
 
-There is another type of selection that we can do by pressing Alt.
+---
 
-It selects our edge loops.
+## Spreadsheet
 
-So we can see this constitutes a loop.
+Giảng viên mở **Spreadsheet Editor** để xem dữ liệu Mesh.
 
-So as you can see, you need 2 vertex to form an edge.
+Spreadsheet có thể hiển thị:
 
-And you need 4 edges, or 3, to form a face.
+* Vertex index.
+* Position.
+* Edge.
+* Face.
+* Các thuộc tính hình học khác.
 
-Let's switch to orthographic view.
+Ví dụ:
 
-All of your faces have a front face and a back face.
+| Vertex |   X |   Y |   Z |
+| -----: | --: | --: | --: |
+|      0 |  -1 |  -1 |  -1 |
+|      1 |  -1 |  -1 |   1 |
+|    ... | ... | ... | ... |
+|      7 |   1 |   1 |   1 |
 
-The front face is the direction that your normal is facing.
+> Đây là một cách trực quan để hiểu rằng Mesh thực chất là tập hợp dữ liệu hình học.
 
-So let me show you the concept of normal.
+---
 
-So let's go to mesh edit mode.
+# 8. Edge — Cạnh
 
-And we can go right here. It says normal.
+**Edge** là đoạn thẳng nối hai Vertex.
 
-We have our vertex normal, custom normal, and our face.
+```text
+Vertex A ●────────● Vertex B
+             Edge
+```
 
-Let's select our face, just so we can see, and I will increase its size.
+Hay:
 
-So you can see here that we have these just visual lines indicating our normal,
+$$
+Edge = Vertex_A + Vertex_B
+$$
 
-the direction that our normal face is headed.
+Một Cube mặc định có:
 
-This is our front face.
+```text
+12 Edges
+```
 
-If we go here in overlays and select face orientation, you can see that nothing happened.
+---
 
-But let's select all of our faces with A and press Alt N.
+# 9. Face — Mặt
 
-You can see that now I got a normal step open.
+**Face** là bề mặt được tạo bởi nhiều Edge.
 
-And let's flip our faces.
+Ví dụ Triangle:
 
-Here, we can see that this is a back face because it's represented in red,
+```text
+      ●
+     / \
+    /   \
+   ●─────●
+```
 
-as we did here on our orientation.
+Có:
 
-This means that if we zoom in on perspective mode inside our cube,
+```text
+3 Vertex
+3 Edge
+1 Face
+```
 
-you can see that the normal is facing inward.
+---
 
-So this is good to know early on so you don't get confused by all of the mesh editing
+Ví dụ Quad:
 
-that we're going to do later.
+```text
+●────────●
+│        │
+│  Face  │
+│        │
+●────────●
+```
 
-So let's select all of them, Alt N, and flip again, and disable our normals.
+Có:
 
-Another thing that I want to show you on mesh edit mode is our edge length,
+```text
+4 Vertex
+4 Edge
+1 Face
+```
 
-edge angle, face area, face angle.
+Cube mặc định có:
 
-When you are working with exact measurements, meters, or foot,
+```text
+6 Faces
+```
 
-you want to know the size of the edge of your object.
+---
 
-So if you select this, mine is on meter right now, it shows really small,
+# 10. Quan hệ Vertex → Edge → Face
 
-if you can see here, the length of each edge that we have here.
+```mermaid
+flowchart LR
+    A[Vertex<br/>Điểm] --> B[2 Vertex]
+    B --> C[Edge<br/>Cạnh]
+    C --> D[3 hoặc nhiều Edge]
+    D --> E[Face<br/>Mặt]
+    E --> F[Nhiều Face]
+    F --> G[Mesh]
+```
 
-So this is very useful when you're editing.
+Có thể ghi nhớ:
 
-Keep in mind, if you go to object mode, it disappears.
+```text
+2 Vertex
+   ↓
+1 Edge
 
-As you can see, this cube has flat faces, so the edges are pretty sharp.
+3+ Edge
+   ↓
+1 Face
 
-So let's add another object.
+Nhiều Face
+   ↓
+Mesh
+```
 
-Let's add a UV sphere. I will move it.
+---
 
-As you can see, this also has sharp faces, but this is not ideal.
+# 11. Chế độ chọn Vertex, Edge và Face
 
-So what you can do is click on the right button mouse and select Shade Smooth.
+Trong **Edit Mode**, Blender có ba chế độ chọn chính.
 
-You can see that now it looks like a ball.
+| Phím | Chế độ        | Ý nghĩa     |
+| ---- | ------------- | ----------- |
+| `1`  | Vertex Select | Chọn Vertex |
+| `2`  | Edge Select   | Chọn Edge   |
+| `3`  | Face Select   | Chọn Face   |
 
-You can do the same thing on this cube.
+> Các phím này thường là hàng số phía trên bàn phím, không phải Numpad.
 
-It's not going to look correct, but you can see how the light bounces in the cube,
+---
 
-and now you have a smooth edge, at least a fake smooth edge.
+## Vertex Select
 
-Let's go back to Shade Flat, and I'm just going to show you an example of a modifier.
+```text
+1
+```
 
-If we go here on the modifier tab and add modifier and search for bevel,
+Cho phép chọn từng Vertex.
 
-you can see that automatically the modifier grabs all of our edges here and offset them,
+---
 
-and we can control it right here, the size and the amount of bevel.
+## Edge Select
 
-As you can see, this is still Shade Flat, but I want a mix of both of them.
+```text
+2
+```
 
-I want it to be flat in this area, but I also want it smooth depending on the angle, like this ball.
+Cho phép chọn từng Edge.
 
-So we can click and use Shade Auto Smooth.
+---
 
-You can see that right now we have an angle to control our smoothness.
+## Face Select
 
-As we go, you can see that right around 50,
+```text
+3
+```
 
-I have an automatically smooth that is kind of smooth on size,
+Cho phép chọn từng Face.
 
-but it still keeps this flatness, as you can see.
+---
 
-If we start changing these settings, we get a better result.
+# 12. Select All
 
-So let's remove this ball and let's just disable in real time in our viewport both of these.
+Trong Edit Mode:
 
-Let's remove this one and Shade Flat.
+```text
+A
+```
 
-Okay, let's go back to our cube.
+dùng để chọn toàn bộ geometry.
 
-So one last thing I want to do before our next lesson,
+Ví dụ:
 
-when we start actually editing our object,
+```text
+A
+→ toàn bộ Vertex / Edge / Face được chọn
+```
 
-I want to add a texture to it because we haven't talked too much about textures.
+Tùy Selection Mode đang sử dụng.
 
-So right here, I'm going to change from Solid View to Material Preview.
+---
 
-You can see now that it's white. Right here on Properties,
+# 13. Edge Loop
 
-let's go down to Material and you can see that we don't have any material here.
+Một khái niệm quan trọng trong modeling là **Edge Loop**.
 
-So let's click New. You can click here to name it.
+Ví dụ:
 
-Let's name it Cube M.
+```text
+┌───────┬───────┐
+│       │       │
+├═══════╪═══════┤ ← Edge Loop
+│       │       │
+├───────┼───────┤
+│       │       │
+└───────┴───────┘
+```
 
-Okay, now you can see here that we have a preview. It's white.
+Edge Loop là một chuỗi các Edge chạy liên tục quanh topology của Mesh.
 
-And here we have a few of the properties, but this is kind of hard to use right here.
+Edge Loop đặc biệt quan trọng khi:
 
-If we go to Base Color, we can actually click here and add an input,
+* Modeling nhân vật.
+* Subdivision.
+* Tạo khớp.
+* Bevel.
+* Điều khiển topology.
 
-but it's a little bit hard. It's fine to use this for small tweaks,
+---
 
-like I want to change color.
+# 14. Normal là gì?
 
-So let's move to our Shading workspace right here at the top.
+Mỗi Face có một vector chỉ hướng gọi là **Normal**.
 
-Here you can see that we have our Material Output Surface.
+Normal xác định:
 
-We already have a physically based shader here, plugged in.
+> **Mặt nào của polygon được xem là mặt trước.**
 
-And we can click Base Color and drag to add an image texture.
+Ví dụ:
 
-Right now, we don't have nothing in it.
+```text
+             Normal
+               ↑
+               │
+        ┌────────────┐
+        │    Face    │
+        └────────────┘
+```
 
-If you want, you can go Open Image and search on your browser,
+---
 
-but I also have our file selected here and I can go to Blender Cores.
+## Face có hai phía
 
-Let's look for my textures and this is going to be linked below.
+```text
+        Normal ↑
 
-And I'm going to click and drag to my editor here.
+       FRONT FACE
+════════════════════
+       BACK FACE
+```
 
-And go and click and I can delete this one. Nice.
+Normal hướng ra khỏi **Front Face**.
 
-As you can see, this is not correct right now because of the UV of this cube.
+---
 
-So let's go to the UV workspace.
+# 15. Hiển thị Normal
 
-If we go here to UV workspace, we see our kind of flattened layout of our cube.
+Trong Edit Mode có thể bật hiển thị Normal để quan sát hướng của Face.
 
-So if we go here to UV maps, you can see that this is one UV map.
+Blender có thể hiển thị:
 
-We can add multiple if you want.
+* Vertex Normal.
+* Split Normal.
+* Face Normal.
 
-But for now, I want each of these faces that is represented here.
+Sau khi bật Face Normal, các đường nhỏ xuất hiện vuông góc với Face.
 
-If we click Faces, you can see that it matches the one in our UV layout.
+Ví dụ:
 
-But I want this one to be the size of this texture here.
+```text
+      ↑
+      │ Normal
+┌──────────────┐
+│     Face     │
+└──────────────┘
+```
 
-So what we can do is select with A and press U.
+---
 
-And we can add cube projections.
+# 16. Face Orientation
 
-So now each face is all over to the borders here mapped.
+Một công cụ cực kỳ hữu ích để phát hiện Normal bị ngược:
 
-So let's go back to Shading node.
+```text
+Viewport Overlays
+→ Face Orientation
+```
 
-And this is a simple way that you can map out a simple object.
+Thông thường:
 
-Next lesson, when we start to model it,
+| Màu      | Ý nghĩa    |
+| -------- | ---------- |
+| **Blue** | Front Face |
+| **Red**  | Back Face  |
 
-we will also see what happens with our textures
+Nếu mặt ngoài Object hiện màu đỏ, Normal có thể đang bị đảo.
 
-when we start to change these faces.
+---
 
-And I'll also show you another way that you can map into your model procedurally.
+# 17. Flip Normal
+
+Chọn Face rồi sử dụng:
+
+```text
+Alt + N
+```
+
+Menu Normal xuất hiện.
+
+Có thể chọn:
+
+```text
+Flip
+```
+
+Ví dụ:
+
+```text
+Normal đúng:
+
+      ↑
+ ┌─────────┐
+ │  Cube   │
+ └─────────┘
+
+
+Normal bị đảo:
+
+      ↓
+ ┌─────────┐
+ │  Cube   │
+ └─────────┘
+```
+
+---
+
+## Tại sao Normal quan trọng?
+
+Normal ảnh hưởng tới:
+
+* Shading.
+* Lighting.
+* Texture.
+* Rendering.
+* Game Engine.
+* Backface Culling.
+* Export model.
+
+Một model nhìn bình thường trong Blender nhưng lỗi khi đưa sang Unity/Unreal đôi khi là do **Normal bị đảo**.
+
+---
+
+# 18. Edge Length, Edge Angle và Face Area
+
+Blender có thể hiển thị các thông tin trực tiếp trên Mesh.
+
+Các thông tin gồm:
+
+```text
+Edge Length
+Edge Angle
+Face Area
+Face Angle
+```
+
+---
+
+## Edge Length
+
+Hiển thị chiều dài của Edge.
+
+Ví dụ:
+
+```text
+●────────────●
+     2 m
+```
+
+Rất hữu ích khi modeling yêu cầu kích thước chính xác.
+
+Ví dụ:
+
+* Kiến trúc.
+* Nội thất.
+* Product modeling.
+* Game environment theo tỷ lệ thực.
+
+---
+
+## Face Area
+
+Hiển thị diện tích Face.
+
+Ví dụ:
+
+$$
+A = 2m \times 2m = 4m^2
+$$
+
+---
+
+## Lưu ý
+
+Các thông số dạng này thường được hiển thị khi ở:
+
+```text
+Edit Mode
+```
+
+Khi trở về:
+
+```text
+Object Mode
+```
+
+chúng có thể không còn xuất hiện.
+
+---
+
+# 19. Shade Flat
+
+Cube mặc định sử dụng shading dạng phẳng.
+
+```text
+Shade Flat
+```
+
+Mỗi polygon được hiển thị như một mặt phẳng riêng.
+
+Phù hợp với:
+
+* Cube.
+* Low-poly object.
+* Các bề mặt cần cạnh sắc.
+
+Ví dụ:
+
+```text
+Cube
+
+┌────────────┐
+│            │
+│   FLAT     │
+│            │
+└────────────┘
+```
+
+---
+
+# 20. Shade Smooth
+
+Với Object cong như UV Sphere, nếu để Shade Flat có thể thấy rõ từng polygon.
+
+Ví dụ:
+
+```text
+Shade Flat Sphere
+
+   /\/\
+ /\/  \/\
+|        |
+ \/\/\/\/
+```
+
+Nhấp chuột phải:
+
+```text
+Shade Smooth
+```
+
+Blender nội suy Normal giữa các Face để tạo cảm giác bề mặt mượt hơn.
+
+```text
+Shade Smooth
+
+    ______
+  /        \
+ /          \
+|            |
+ \          /
+  \________/
+```
+
+---
+
+## Quan trọng
+
+**Shade Smooth không làm tăng số polygon.**
+
+Nó chỉ thay đổi cách ánh sáng được nội suy.
+
+```text
+Geometry
+   │
+   ├── không đổi
+   │
+   ▼
+Normal interpolation
+   │
+   ▼
+Bề mặt trông mượt hơn
+```
+
+---
+
+# 21. Shade Flat vs Shade Smooth
+
+| Shade Flat            | Shade Smooth              |
+| --------------------- | ------------------------- |
+| Nhìn rõ từng polygon  | Bề mặt trông mượt         |
+| Normal theo từng Face | Normal được nội suy       |
+| Phù hợp Low-poly      | Phù hợp bề mặt cong       |
+| Không giả smooth      | Tạo smooth về mặt shading |
+
+---
+
+# 22. Bevel Modifier
+
+Giảng viên giới thiệu nhanh **Bevel Modifier**.
+
+Đường dẫn:
+
+```text
+Modifier Properties
+→ Add Modifier
+→ Bevel
+```
+
+Bevel làm các cạnh sắc trở nên bo tròn.
+
+---
+
+## Trước Bevel
+
+```text
+┌────────────┐
+│            │
+│            │
+└────────────┘
+```
+
+Cạnh hoàn toàn sắc.
+
+---
+
+## Sau Bevel
+
+```text
+ ╭──────────╮
+ │          │
+ │          │
+ ╰──────────╯
+```
+
+---
+
+## Các thông số quan trọng
+
+Bevel cho phép điều chỉnh:
+
+* **Amount / Width** — độ rộng bevel.
+* **Segments** — số segment.
+* Các điều kiện xác định Edge được bevel.
+
+Số segment càng lớn:
+
+```text
+Segments thấp
+     ↓
+bo cạnh còn góc
+
+Segments cao
+     ↓
+bo cạnh mượt hơn
+```
+
+---
+
+# 23. Shade Auto Smooth
+
+Đôi khi chúng ta muốn:
+
+* Các mặt lớn vẫn phẳng.
+* Các cạnh cong được smooth.
+
+Đó là lúc sử dụng:
+
+```text
+Shade Auto Smooth
+```
+
+Blender dựa vào **góc giữa các Face** để xác định vùng nào smooth.
+
+Ví dụ:
+
+```text
+Face A
+─────────────
+            \
+             \ Face B
+```
+
+Nếu góc nhỏ hơn ngưỡng:
+
+```text
+Smooth
+```
+
+Nếu góc lớn hơn ngưỡng:
+
+```text
+Sharp
+```
+
+---
+
+## So sánh
+
+```text
+Shade Flat
+    ↓
+Tất cả polygon trông phẳng
+
+Shade Smooth
+    ↓
+Tất cả shading được làm mượt
+
+Auto Smooth
+    ↓
+Smooth tùy theo góc
+```
+
+---
+
+# 24. Material Preview
+
+Sau phần geometry, bài học giới thiệu nhanh về Material.
+
+Giảng viên chuyển Viewport từ:
+
+```text
+Solid View
+```
+
+sang:
+
+```text
+Material Preview
+```
+
+Material Preview cho phép quan sát:
+
+* Material.
+* Texture.
+* Base Color.
+* Shading.
+
+---
+
+# 25. Tạo Material mới
+
+Đi tới:
+
+```text
+Material Properties
+→ New
+```
+
+Đổi tên:
+
+```text
+Cube M
+```
+
+Material mặc định sử dụng shader vật lý của Blender.
+
+Trong Shading Workspace có cấu trúc cơ bản:
+
+```text
+Principled BSDF
+       │
+       ▼
+Material Output
+```
+
+---
+
+# 26. Principled BSDF
+
+**Principled BSDF** là shader vật lý tổng hợp được sử dụng phổ biến trong Blender.
+
+Một số thuộc tính quan trọng:
+
+```text
+Base Color
+Roughness
+Metallic
+IOR
+Alpha
+Normal
+```
+
+Trong bài này chủ yếu làm việc với:
+
+```text
+Base Color
+```
+
+---
+
+# 27. Image Texture
+
+Thay vì chỉ sử dụng một màu, có thể kết nối ảnh vào Base Color.
+
+Node cơ bản:
+
+```text
+Image Texture
+      │
+      │ Color
+      ▼
+Principled BSDF
+      │
+      ▼
+Material Output
+```
+
+---
+
+## Sơ đồ Shader
+
+```mermaid
+flowchart LR
+    A[Image Texture] -->|Color| B[Principled BSDF]
+    B -->|BSDF| C[Material Output]
+```
+
+---
+
+# 28. Tại sao Texture bị sai trên Cube?
+
+Khi thêm ảnh vào Cube, texture có thể:
+
+* Bị kéo dãn.
+* Sai hướng.
+* Không phủ đúng từng Face.
+
+Nguyên nhân là:
+
+> **UV Mapping chưa phù hợp với Texture.**
+
+---
+
+# 29. UV Mapping là gì?
+
+UV Mapping là quá trình ánh xạ bề mặt Mesh 3D sang mặt phẳng 2D.
+
+Ví dụ Cube 3D:
+
+```text
+      ┌─────┐
+     /     /|
+    ┌─────┐ |
+    │     │ |
+    │     │/
+    └─────┘
+```
+
+được "trải" thành UV 2D:
+
+```text
+        ┌─────┐
+        │     │
+┌─────┬─┼─────┼─────┐
+│     │ │     │     │
+└─────┴─┼─────┼─────┘
+        │     │
+        └─────┘
+```
+
+---
+
+## UV có nghĩa gì?
+
+Trong Texture Mapping:
+
+```text
+X → U
+Y → V
+```
+
+Do `X`, `Y`, `Z` đã được dùng cho không gian 3D nên không gian texture dùng:
+
+```text
+U
+V
+```
+
+---
+
+# 30. UV Map của Cube
+
+Cube mặc định đã có UV Map.
+
+Có thể quan sát trong:
+
+```text
+UV Editing Workspace
+```
+
+Bên trái:
+
+```text
+UV Editor
+```
+
+Bên phải:
+
+```text
+3D Viewport
+```
+
+Khi chọn Face trên Mesh, vùng UV tương ứng có thể được quan sát trong UV Editor.
+
+---
+
+# 31. Cube Projection
+
+Trong bài, giảng viên chọn toàn bộ Mesh:
+
+```text
+A
+```
+
+sau đó:
+
+```text
+U
+```
+
+và chọn:
+
+```text
+Cube Projection
+```
+
+Workflow:
+
+```text
+Edit Mode
+   ↓
+A
+   ↓
+U
+   ↓
+Cube Projection
+```
+
+Cube Projection phù hợp với Object dạng hộp.
+
+---
+
+# 32. Quy trình từ Mesh đến Texture
+
+```mermaid
+flowchart TD
+    A[Tạo Mesh] --> B[Vertex / Edge / Face]
+    B --> C[Chỉnh sửa topology]
+    C --> D[UV Mapping]
+    D --> E[Image Texture]
+    E --> F[Principled BSDF]
+    F --> G[Material]
+    G --> H[Rendered Object]
+```
+
+Đây là một pipeline cơ bản mà các bài tiếp theo sẽ mở rộng.
+
+---
+
+# 33. Tổng hợp kiến thức Mesh
+
+```mermaid
+flowchart TD
+    A[Mesh Object] --> B[Vertices]
+    A --> C[Edges]
+    A --> D[Faces]
+
+    B --> E[Tọa độ X Y Z]
+    C --> F[Kết nối 2 Vertex]
+    D --> G[Được bao bởi nhiều Edge]
+
+    D --> H[Face Normal]
+    H --> I[Front Face]
+    H --> J[Back Face]
+
+    A --> K[Shading]
+    K --> L[Shade Flat]
+    K --> M[Shade Smooth]
+    K --> N[Auto Smooth]
+
+    A --> O[UV Mapping]
+    O --> P[Image Texture]
+    P --> Q[Material]
+```
+
+---
+
+# 34. Các phím tắt quan trọng
+
+| Phím        | Chức năng                 |
+| ----------- | ------------------------- |
+| `Shift + A` | Add Object                |
+| `Tab`       | Object Mode ↔ Edit Mode   |
+| `M`         | Move Object to Collection |
+| `F2`        | Rename                    |
+| `A`         | Select All                |
+| `1`         | Vertex Select             |
+| `2`         | Edge Select               |
+| `3`         | Face Select               |
+| `Alt + N`   | Normal menu               |
+| `U`         | UV Mapping menu           |
+
+---
+
+# 35. Các thuật ngữ quan trọng
+
+| English             | Tiếng Việt         | Ý nghĩa                             |
+| ------------------- | ------------------ | ----------------------------------- |
+| **Object**          | Đối tượng          | Thành phần được quản lý trong Scene |
+| **Mesh**            | Lưới hình học      | Dữ liệu hình học của Object         |
+| **Vertex**          | Đỉnh               | Một điểm trong không gian           |
+| **Edge**            | Cạnh               | Đường nối hai Vertex                |
+| **Face**            | Mặt                | Polygon tạo bởi nhiều Edge          |
+| **Edge Loop**       | Vòng cạnh          | Chuỗi Edge liên tục                 |
+| **Normal**          | Pháp tuyến         | Vector biểu thị hướng của bề mặt    |
+| **Front Face**      | Mặt trước          | Phía Normal hướng ra                |
+| **Back Face**       | Mặt sau            | Phía ngược Normal                   |
+| **Shade Flat**      | Tô bóng phẳng      | Giữ shading theo từng polygon       |
+| **Shade Smooth**    | Tô bóng mượt       | Nội suy Normal                      |
+| **Bevel**           | Bo cạnh            | Tạo thêm geometry quanh Edge        |
+| **Material**        | Vật liệu           | Quy định cách bề mặt hiển thị       |
+| **Texture**         | Kết cấu/ảnh bề mặt | Dữ liệu ảnh dùng cho Material       |
+| **UV Map**          | Bản đồ UV          | Ánh xạ Mesh 3D sang 2D              |
+| **Cube Projection** | Chiếu UV dạng khối | UV projection cho vật thể dạng hộp  |
+
+---
+
+# 36. Những điểm dễ nhầm
+
+## Object không phải Vertex
+
+Khi đang ở:
+
+```text
+Object Mode
+```
+
+bạn đang chọn:
+
+```text
+Cube Object
+```
+
+Khi vào:
+
+```text
+Edit Mode
+```
+
+bạn mới có thể chọn:
+
+```text
+Vertex
+Edge
+Face
+```
+
+---
+
+## Shade Smooth không làm Mesh mịn hơn về hình học
+
+Sai:
+
+```text
+Shade Smooth
+→ thêm polygon
+```
+
+Đúng:
+
+```text
+Shade Smooth
+→ thay đổi cách Normal được nội suy
+→ geometry không thay đổi
+```
+
+---
+
+## Bevel thì có thay đổi geometry
+
+```text
+Bevel Modifier
+        ↓
+tạo thêm Edge / Face
+        ↓
+geometry thực sự thay đổi
+```
+
+Đây là điểm khác biệt quan trọng:
+
+```text
+Shade Smooth
+→ Shading
+
+Bevel
+→ Geometry
+```
+
+---
+
+## Face đỏ không nhất thiết là Material đỏ
+
+Nếu đang bật:
+
+```text
+Face Orientation
+```
+
+mà Face hiển thị đỏ thì thường có nghĩa:
+
+```text
+Back Face
+```
+
+không phải màu Material.
+
+---
+
+# 37. Workflow thực hành bài học
+
+```mermaid
+flowchart TD
+    A[Mở Blender] --> B[Tạo Cube]
+    B --> C[Tab → Edit Mode]
+    C --> D[1 → Vertex Select]
+    D --> E[2 → Edge Select]
+    E --> F[3 → Face Select]
+    F --> G[Quan sát Vertex / Edge / Face]
+    G --> H[Bật Face Normal]
+    H --> I[Bật Face Orientation]
+    I --> J[Alt + N → thử Flip]
+    J --> K[Khôi phục Normal đúng]
+    K --> L[Thêm UV Sphere]
+    L --> M[So sánh Flat / Smooth]
+    M --> N[Thử Bevel Modifier]
+    N --> O[Tạo Material]
+    O --> P[Thêm Image Texture]
+    P --> Q[UV Editing]
+    Q --> R[U → Cube Projection]
+```
+
+---
+
+# 38. Thực hành đề xuất
+
+## Bài 1 — Khám phá cấu trúc Cube
+
+1. Tạo Cube.
+2. Chuyển sang Edit Mode.
+3. Chọn từng Vertex.
+4. Quan sát tọa độ X/Y/Z.
+5. Chuyển sang Edge Select.
+6. Đếm số Edge.
+7. Chuyển sang Face Select.
+8. Đếm số Face.
+
+Kết quả cần nhớ:
+
+```text
+Cube
+├── 8 Vertices
+├── 12 Edges
+└── 6 Faces
+```
+
+---
+
+## Bài 2 — Normal
+
+1. Chọn Cube.
+2. Vào Edit Mode.
+3. Bật Face Orientation.
+4. Chọn toàn bộ bằng `A`.
+5. Nhấn `Alt + N`.
+6. Chọn **Flip**.
+7. Quan sát Cube chuyển sang Back Face.
+8. Flip lại để sửa.
+
+---
+
+## Bài 3 — Shading
+
+Tạo:
+
+```text
+Cube
++
+UV Sphere
+```
+
+Thử lần lượt:
+
+```text
+Shade Flat
+Shade Smooth
+Shade Auto Smooth
+```
+
+Quan sát sự khác biệt.
+
+---
+
+## Bài 4 — Bevel
+
+Thêm Bevel Modifier cho Cube.
+
+Thử thay đổi:
+
+```text
+Amount
+Segments
+```
+
+Quan sát:
+
+```text
+Cạnh sắc
+→ cạnh bo nhẹ
+→ cạnh bo tròn
+```
+
+---
+
+## Bài 5 — Texture và UV
+
+1. Tạo Material.
+2. Mở Shading Workspace.
+3. Thêm Image Texture.
+4. Kết nối vào Base Color.
+5. Sang UV Editing.
+6. Chọn toàn bộ bằng `A`.
+7. Nhấn `U`.
+8. Chọn **Cube Projection**.
+9. Quan sát Texture thay đổi trên Object.
+
+---
+
+# 39. Checklist
+
+* [ ] Hiểu Object là gì.
+* [ ] Hiểu Mesh là gì.
+* [ ] Phân biệt Vertex, Edge và Face.
+* [ ] Biết `Tab` để chuyển Object Mode/Edit Mode.
+* [ ] Biết `1`, `2`, `3` để đổi Selection Mode.
+* [ ] Biết `A` để Select All.
+* [ ] Hiểu Edge Loop.
+* [ ] Hiểu Face Normal.
+* [ ] Biết kiểm tra Face Orientation.
+* [ ] Biết sử dụng `Alt + N`.
+* [ ] Hiểu Edge Length và Face Area.
+* [ ] Phân biệt Shade Flat và Shade Smooth.
+* [ ] Hiểu Shade Smooth không tăng polygon.
+* [ ] Biết chức năng cơ bản của Bevel Modifier.
+* [ ] Biết tạo Material.
+* [ ] Biết kết nối Image Texture với Principled BSDF.
+* [ ] Hiểu UV Mapping là gì.
+* [ ] Biết sử dụng `U → Cube Projection`.
+* [ ] Đã lưu file thực hành riêng.
+
+---
+
+# 40. Tóm tắt bài học
+
+Cốt lõi của bài có thể ghi nhớ bằng sơ đồ:
+
+```text
+                      OBJECT
+                         │
+                         ▼
+                       MESH
+                         │
+          ┌──────────────┼──────────────┐
+          ▼              ▼              ▼
+       VERTEX           EDGE           FACE
+        Điểm           Cạnh            Mặt
+          │              │              │
+          │        2 Vertex/Edge        │
+          │              │              ▼
+          └──────────────┴──────► FACE NORMAL
+                                      │
+                              ┌───────┴───────┐
+                              ▼               ▼
+                         Front Face       Back Face
+```
+
+Sau khi có Mesh:
+
+```text
+Mesh
+ ↓
+Modeling
+ ↓
+Shading
+ ↓
+Material
+ ↓
+UV Mapping
+ ↓
+Texture
+ ↓
+Rendered Object
+```
+
+> **Kiến thức quan trọng nhất của bài:** mọi Mesh trong Blender cuối cùng đều được cấu thành từ **Vertex → Edge → Face**. Hiểu được ba thành phần này, cùng với **Normal**, **Shading** và **UV**, là nền tảng cho gần như toàn bộ quá trình modeling ở các bài tiếp theo.

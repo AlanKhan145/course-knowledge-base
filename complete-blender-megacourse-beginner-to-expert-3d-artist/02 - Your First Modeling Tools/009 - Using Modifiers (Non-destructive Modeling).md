@@ -1,630 +1,3104 @@
 # 009 — Using Modifiers (Non-destructive Modeling)
 
-| Thuộc tính | Nội dung |
-|---|---|
-| **Section** | Section 02 — Your First Modeling Tools |
-| **Bài học** | Using Modifiers (Non-destructive Modeling) |
-| **Loại nội dung** | Video lecture |
-| **Thời lượng** | 29:40 |
-| **Ngôn ngữ** | English |
+| Thuộc tính        | Nội dung                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Section**       | Section 02 — Your First Modeling Tools                                                                             |
+| **Bài học**       | Using Modifiers (Non-destructive Modeling)                                                                         |
+| **Loại nội dung** | Video lecture                                                                                                      |
+| **Thời lượng**    | 29:40                                                                                                              |
+| **Ngôn ngữ gốc**  | English                                                                                                            |
+| **Chủ đề chính**  | Modifier Stack, Subdivision Surface, Bevel, Displace, Array, Vertex Group, Support Loops, Non-destructive Modeling |
 
-## Mục tiêu bài học
+---
+
+## 1. Tổng quan bài học
+
+Bài học này giới thiệu một trong những tư duy quan trọng nhất khi modeling trong Blender:
+
+> **Non-destructive Modeling — Modeling không phá hủy hình học gốc.**
+
+Thay vì trực tiếp thêm hàng loạt vertex, edge và face vào mesh, ta có thể sử dụng **Modifiers** để Blender tính toán hình dạng kết quả trong thời gian thực.
+
+Ví dụ:
+
+```text
+Base Mesh đơn giản
+       ↓
+Bevel
+       ↓
+Subdivision Surface
+       ↓
+Displace
+       ↓
+Array
+       ↓
+Kết quả phức tạp
+```
+
+Điểm quan trọng là:
+
+```text
+Tắt Modifiers
+      ↓
+Base Mesh ban đầu vẫn còn nguyên
+```
+
+Trong bài, kiến thức được áp dụng lên hai asset đã tạo trước đó:
+
+* **Cobblestone Pathway** — đường lát đá.
+* **Lantern** — đèn lồng.
+
+---
+
+# 2. Mục tiêu bài học
 
 Sau bài học này, người học có thể:
 
-- Xác định vai trò của **Using Modifiers (Non-destructive Modeling)** trong pipeline của section.
-- Nhận biết các thao tác, công cụ và quyết định workflow cần ghi chú khi xem bài.
-- Áp dụng lại nội dung bài học vào một asset hoặc scene Blender riêng.
+* Hiểu khái niệm **non-destructive modeling**.
+* Hiểu Modifier là gì và vì sao Modifier hữu ích.
+* Hiểu cách hoạt động của **Modifier Stack**.
+* Biết rằng **thứ tự Modifier ảnh hưởng trực tiếp đến kết quả**.
+* Sử dụng:
+
+  * Subdivision Surface;
+  * Bevel;
+  * Displace;
+  * Array.
+* Phân biệt `Simple` và chế độ làm mượt của Subdivision Surface.
+* Sử dụng **support loops / constraint loops** để kiểm soát Subdivision.
+* Dùng **Vertex Group** để giới hạn vùng tác động của Bevel.
+* Hiểu mối quan hệ giữa:
+
+  * topology;
+  * Bevel;
+  * Subdivision Surface.
+* Sử dụng procedural texture làm nguồn cho Displace.
+* Tạo variation cho đá mà không sửa trực tiếp base mesh.
+* Biết khi nào nên và chưa nên **Apply Modifier**.
+* Tạo bản backup trước các thao tác destructive.
+* Copy Modifier giữa các object.
+* Hiểu cách Parent / Clear Parent khi cần Join object.
+* Sử dụng Array để nhân bản geometry theo cách procedural.
+
+---
+
+# 3. Destructive và Non-destructive Modeling
+
+## 3.1. Destructive Modeling
+
+Nếu trực tiếp:
+
+```text
+Subdivide
+Extrude
+Delete
+Bevel geometry
+Apply Modifier
+```
 
-## Nội dung trọng tâm
+thì mesh thật sẽ bị thay đổi.
 
-- modeling, mesh editing và kiểm soát hình học
+Ví dụ:
 
-- Theo dõi bài giảng và ghi lại tên công cụ, phím tắt, modifier hoặc node được sử dụng.
-- Lưu một phiên bản thực hành riêng để có thể so sánh trước và sau khi hoàn thành bài.
+```text
+Cube
+ ↓
+Subdivide thủ công
+ ↓
+100 vertices
+ ↓
+Tiếp tục chỉnh sửa trên 100 vertices
+```
 
-## Thực hành đề xuất
+Nếu muốn quay lại Cube đơn giản ban đầu thì rất khó, trừ khi:
 
-1. Xem bài học một lượt để nắm quy trình tổng thể.
-2. Thực hiện lại từng thao tác trong một file Blender riêng.
-3. Thử thay đổi ít nhất một tham số hoặc chi tiết để kiểm tra mức độ hiểu bài.
-4. Lưu kết quả và ghi chú lỗi, shortcut hoặc thiết lập cần nhớ.
+```text
+Ctrl + Z
+```
 
-## Checklist
+vẫn còn trong Undo History.
 
-- [ ] Đã xem hết bài học.
-- [ ] Đã thực hành lại nội dung chính trong Blender.
-- [ ] Đã lưu file thực hành hoặc kết quả render.
-- [ ] Đã ghi chú các công cụ và tham số quan trọng.
-- [ ] Đã hoàn thành thử thách mở rộng nhỏ của riêng mình.
+---
 
-## Ghi chú về nguồn
+## 3.2. Non-destructive Modeling
 
-> File này được tạo từ metadata curriculum do người dùng cung cấp (tên bài, section và thời lượng). Nội dung chi tiết cần được bổ sung hoặc hiệu chỉnh khi có transcript, video hoặc ghi chú gốc của bài học.
+Với Modifier:
 
+```text
+Base Mesh
+   │
+   ├── Bevel
+   ├── Subdivision
+   ├── Displace
+   └── Array
+```
 
-Welcome. In this lesson, we're going to start applying modifiers to our models
+Base Mesh vẫn đơn giản.
 
-and learn about non-destructible modeling. So here, let's hide our lantern and move this too
+Có thể:
 
-and hide our grid. So let's focus on our pathway, our stones. So this is where we left off. We did
+* bật/tắt Modifier;
+* đổi thông số;
+* đổi thứ tự;
+* xóa Modifier;
+* quay lại hình dạng gốc.
 
-all of these subdivisions manually, but there's a way that you can do this without modifying your
+Sơ đồ:
 
-origin model. So let's remove these loops by pressing X and limited dissolve. This will delete
+```text
+                BASE MESH
+                    │
+                    ▼
+                Modifier 1
+                    │
+                    ▼
+                Modifier 2
+                    │
+                    ▼
+                Modifier 3
+                    │
+                    ▼
+              Final Result
+```
 
-every edge and vertex that is not necessary for the overall shape. So here we are left with just
+Nhưng:
 
-squares. So now we can use a modifier to add those loops. So we can go here to add modifier,
+```text
+Base Mesh ≠ Final Result
+```
 
-you can search subdivision surface. So this type of subdivision also rounds your object,
+cho đến khi Modifier được **Apply**.
 
-but if you do simple and disable optimal display, you can see that the line starts to form just
+---
 
-like you're subdividing. And the cool thing about modifiers is that if you disable them,
+# 4. Bắt đầu lại từ Cobblestone Pathway
 
-or if you go to edit mode and disable this, you can see that your mesh stays the same. So this is
+Ở bài trước, các viên đá đã được subdivide thủ công.
 
-pretty useful when you want to use displacement to create different shapes, but without hinder
+Trong bài này, giảng viên loại bỏ những edge không cần thiết để đưa mesh trở lại dạng đơn giản.
 
-your original model. So now let's increase the amount of subdivisions. And you can see here that
+Sử dụng:
 
-we almost have the same result that we did before. What we can do this and what is fun about
+```text
+X
+→ Limited Dissolve
+```
 
-subdivision is that I can enter and add a loop and this will alter the way that we subdivide. So
+**Limited Dissolve** cố gắng loại bỏ:
 
-this will have one face and this will have two faces. So instead of having a lot of loops, I can
+* vertex dư thừa;
+* edge không cần thiết;
 
-just add a few that are necessary and I don't need to worry about the rest. Here we can add one here,
+mà vẫn giữ hình dạng tổng thể.
 
-one here. Okay, so now let's go back to this type where it creates a smooth surface.
+Kết quả:
 
-You can see that it's kind of nice. If you are doing a stylized, you already can
+```text
+Trước
 
-use like this and use auto smooth and you already have little stones. But I want to add displacement
+┌─┬─┬─┬─┐
+├─┼─┼─┼─┤
+├─┼─┼─┼─┤
+└─┴─┴─┴─┘
 
-and also bevel. So let's learn about bevel. I'll disable subdivision and let's add the bevel.
+       ↓ Limited Dissolve
 
-The order of modifiers import a lot. So the first one is going to be applied first and
+┌───────┐
+│       │
+│       │
+└───────┘
+```
 
-then the second and so forth. So we want to move bevel to the top. Okay, now you can see the amount
+Ta quay trở lại một mesh đơn giản hơn để Modifier xử lý phần subdivision.
 
-of bevel. We can reduce, it's a slider, you can reduce the amount that you want. Let's zero one
+---
 
-for example and you have one segment. So now you can see that every edge that we have are being
+# 5. Subdivision Surface Modifier
 
-beveled and you can control the amount of segments here. You also have a limit. Right now I have a
+Thêm Modifier:
 
-limit that every angle above this will get beveled or you can limit by weight or vertex group. So you
+```text
+Add Modifier
+→ Subdivision Surface
+```
 
-can select a few vertex here. For example, I want just this part to have a bevel. I can assign
+Subdivision Surface bổ sung geometry dựa trên mesh gốc.
 
-and use this as a limit. So here group. So only this vertex will have a limit. We will use this
+Có thể hình dung:
 
-on our lantern. Let's go back. Right now I want every edge to have a bevel. You can also
+```text
+Low-poly Base Mesh
+        ↓
+Subdivision Surface
+        ↓
+Dense / Smooth Mesh
+```
 
-combine these two. For example, if I want to use this and a subdivision, you can see what changes.
+---
 
-So let me hide this one and apply. So what is happening here is that these two edges are
+# 6. Simple Subdivision
 
-creating kind of a constraint to the subdivision. So when you apply the subdivision, it takes
+Trong Subdivision Surface có chế độ:
 
-these bevels in considered. So what does this mean? So let's disable this and add ourselves a
+```text
+Simple
+```
 
-constraint. If I go here and add edge loop here and disable, you can see that this starts
+Simple thêm topology nhưng **không làm bo tròn hình dạng như Catmull-Clark**.
 
-to be sharp. You start to limit your subdivision.
+Ví dụ:
 
-Let me change to a medium point. So you can see how this limits your subdivision. So we're going
+```text
+Base
 
-to use these properties more on the lantern. You can also increase the amount of subdivision.
+┌─────────────┐
+│             │
+│             │
+└─────────────┘
 
-If you go too far here, it starts getting a little bit crazy. So you can set a limit to the viewport
+Simple Subdivision
 
-and increase for the render if you want. So when you render it, it will consider this amount of
+┌──────┬──────┐
+│      │      │
+├──────┼──────┤
+│      │      │
+└──────┴──────┘
+```
 
-segments. And you can also activate your optimal display. So you are not seeing the subdivisions,
+Hình dáng ngoài gần như không đổi nhưng số polygon tăng.
 
-but they are here. So I like to leave them on.
+Điều này rất hữu ích trước:
 
-So now let's add one more modifier to this place. So this is a deform. Let's hide. You can see that
+```text
+Displace
+```
 
-it's right below bevel and subdivision. Then we have this place. And we need a texture. So let's
+vì Displace cần đủ vertex để tạo biến dạng chi tiết.
 
-add a texture. So this can be a little bit confusing, but if you go down, you can see
+---
 
-that we have texture properties here. And now we can see our texture on our display. So let's rename
+# 7. Điểm mạnh của Modifier
 
-this. I'll use noise for this. So this is kind of crazy. Don't panic. Let's go to our image and
+Nếu tắt Subdivision:
 
-choose distorted noise. So you can see here that we have a black and white textures, and we can
+```text
+Modifier OFF
+```
 
-control the amount of randomness of this texture. So let's go to modifiers again. And here you can
+hoặc quan sát Base Mesh trong Edit Mode, geometry ban đầu vẫn đơn giản.
 
-see that we have our strength into one. This is too much. So let's reduce it to 0.1 or 0.02.
+```text
+Viewport Result
 
-I think this is too much.0.01. So what you can see here is that our modifier is using this
+┌─┬─┬─┬─┐
+├─┼─┼─┼─┤
+└─┴─┴─┴─┘
 
-texture, this black and white texture, to apply a displace in our vertex related to our direction,
+Base Mesh
 
-that here is our normal. So we can use mid-level, but the two controls that you need to adjust is
+┌───────┐
+│       │
+└───────┘
+```
 
-strength. And you can go here and adjust the amount. So you can see as I'm doing this,
+Đây chính là bản chất của:
 
-vertex are getting offset here. So if I go like this,
+> **Non-destructive workflow.**
 
-and you can also adjust the size, which is pretty cool to see.
+---
 
-So here you see that how you can add variations to your model without destructing it. So that is
+# 8. Levels Viewport và Render
 
-the concept of non-destructible. If I go here and disable all of my
+Subdivision Surface thường cho phép đặt mức subdivision riêng cho:
 
-RBEC with your original model, it's just simple squares.
+* Viewport;
+* Render.
 
-So just play around with your different textures, bevel, and subdivision. You'll see how you can
+Ví dụ:
 
-control this without modifying your object. So what I like to do is also create a backup.
+```text
+Viewport = 1
+Render   = 2
+```
 
-Let's click Shift D and move to a new collection. I'll leave this inside cobblestone
+Khi modeling:
 
-and hide. Now let's go back to our lantern that is a little bit more complex,
+```text
+ít subdivision
+→ nhẹ máy
+```
 
-and let's apply the bevel and the subdivision. So I'll hide this one.
+Khi render:
 
-Okay, so now you can see here what we can apply with what we learned on the other modifiers.
+```text
+nhiều subdivision hơn
+→ bề mặt mượt hơn
+```
 
-So let's add a bevel. Here you can see that it is applied here on all of my corners, even here
+Đây là cách cân bằng:
 
-in my top part that we separated last lesson. So here I only want to apply bevel in a few places.
+```text
+Performance
+    ↕
+Visual Quality
+```
 
-I could do that manually, but I want to use bevel. So let's use our limit. Here we can see that it's
+---
 
-limited by an angle, but if we click down, we can use weight painting or vertex group. So I'm going
+# 9. Optimal Display
 
-to use vertex group. If you go here, down here to data mesh, you can see that we have a tab
+Tùy chọn:
 
-called vertex groups. Let's add one and name it bevel. Okay, so now let's go into edit mode
+```text
+Optimal Display
+```
 
-and you can see here that this show up assign, remove, select and deselect, and you have your
+giúp giảm lượng đường topology hiển thị trong viewport.
 
-weight. So what this means, if you click select, nothing happens because I don't have any vertex
+Modifier vẫn tạo subdivision nhưng viewport đỡ rối hơn.
 
-on my group. But you can see here that everything is represented by a bevel, so this could be kind
+Có thể hiểu:
 
-of confusing. So let's select here. Okay, so now we can see that we don't have any bevels,
+```text
+Subdivision thực tế vẫn tồn tại
+        ↓
+Optimal Display
+        ↓
+Ẩn bớt wire subdivision
+```
 
-any vertex group assigned actually. Where I want to add bevel is any sharp edges that we have here
+---
 
-because this is not realistic. You don't see this in real objects. So let's add one here and here,
+# 10. Support Loop / Constraint Loop
 
-assign. Let's go back here and adjust the amount.
+Một kỹ thuật rất quan trọng khi sử dụng Subdivision Surface là:
 
-So now this is interesting. As you can see, let's go to vertex. This vertex and this vertex
+> **Support Loop** hoặc **Constraint Loop**.
 
-are in the group. So my modifier is understanding that we need to do a bevel right here, but we
+Subdivision có xu hướng làm mềm hình dạng.
 
-don't want a bevel right here. So this is one of the cases where we use an edge loop to constrain
+Ví dụ:
 
-this. And this will be useful when we use our subdivision tool. So let's go ahead and add
+```text
+Cube
+   ↓
+Subdivision
+   ↓
+Rounded Cube
+```
 
-our subdivision tool. So let's add one here, and you can see that it automatically is
+Nếu muốn cạnh sắc hơn, thêm Edge Loop gần cạnh đó:
 
-assigned to my vertex group. So you can see that now all of these are assigned to my vertex group.
+```text
+Cạnh
+│
+│ ← Support Loop
+│
+```
 
-So now what we can do is select all of these vertices, and let's deselect just this one.
+Khoảng cách càng nhỏ:
 
-So you can do that by pressing C, and you automatically have the circle selection.
+```text
+Support Loop gần cạnh
+       ↓
+Cạnh càng sắc
+```
 
-And with your middle button scroll mouse, you can press it and deselect this one.
+Khoảng cách càng lớn:
 
-So now right-click to deselect, and you can go here. Let me press comma to center,
+```text
+Support Loop xa
+       ↓
+Transition mềm hơn
+```
 
-and do the same thing. See? This is one of the things that you can do to select.
+---
 
-Okay, now let's remove these ones from my vertex group. You can see that now the bevel is perfect.
+# 11. Topology điều khiển Subdivision
 
-Let's increase the amount of segments, so now we don't have a sharp edge anymore.
+Một điểm quan trọng trong bài:
 
-So let's add a few more.
+> Không cần thêm hàng loạt Loop Cut thủ công.
 
-You can see that here, and also on all of these edges.
+Thay vào đó có thể giữ Base Mesh đơn giản và chỉ thêm loop ở những nơi cần kiểm soát hình dạng.
 
-Here on this, I think I'm going to delete this one,
+```text
+Không tối ưu
 
-and assign this. Now here's a tricky part. Let's add one.
+|||||||||||||||||
+rất nhiều loops
+```
 
-Sometimes you can go here and disable, just so you can see what's happening.
+so với:
 
-Here we also need a constraint, so let's apply. And I think I'm going to apply two.
+```text
+Tối ưu hơn
 
-Let me just remove this one first. Let's apply, and also this. Let's apply two,
+|      |     |
+support loops cần thiết
+```
 
-and scale it, because this is going to
+Workflow:
 
-constrain also the subdivision that we're going to add.
+```text
+Low-poly Mesh
+     ↓
+Support Loops cần thiết
+     ↓
+Subdivision Surface
+     ↓
+Smooth Result
+```
 
-And now we need to go back here,
+---
 
-and do the same thing here.
+# 12. Bevel Modifier
 
-So every sharp edge that you see
+Modifier tiếp theo:
 
-is a good candidate for a bevel.
+```text
+Add Modifier
+→ Bevel
+```
 
-Even here.
+Bevel bo các cạnh của object.
 
-We will need another constraint here.
+Trước:
 
-Let's add a bevel here, so that will give the same impression.
+```text
+┌────────
+│
+│
+```
 
-So let's add a bevel here, so that will give the same impression.
+Sau:
 
-Another constraint here.
+```text
+╭────────
+│
+│
+```
 
-Let's add a bevel here, so that will give the same impression, that we have a smooth.
+Bevel giúp vật thể:
 
-Let me apply Shade Smooth real quick. Shade Auto Smooth.
+* bắt ánh sáng tốt hơn;
+* bớt cảm giác CG;
+* có cạnh giống vật thể thực;
+* phù hợp với hard surface modeling.
 
-So you see here that we can have this nice gradient here.
+---
 
-It will give me the same result. It's better than just a flat.
+# 13. Amount / Width
 
-Can you compare both sides? Just a flat cut here, and it's way easier than just go back to flat.
+Thông số quan trọng:
 
-So let's apply a bevel to all of this.
+```text
+Amount
+```
 
-Okay, so now let's analyze this. I'm going to remove a wireframe,
+hoặc Width tùy giao diện Blender.
 
-and now we have flat shading. I'm going to add an Auto Smooth,
+Nó kiểm soát độ rộng vùng bevel.
 
-and increase. Okay, so right now, right here on the edges, even with Auto Smooth, it's not
+Ví dụ:
 
-looking good. I think I need to add a bevel here, maybe.
+```text
+Amount nhỏ
+→ cạnh hơi bo
 
-So I can increase one more. Yeah, that looks better.
+Amount lớn
+→ cạnh tròn mạnh
+```
 
-Now we have a smooth here, here, and all the way down.
+Trong bài, giá trị nhỏ được sử dụng cho cobblestone và lantern để giữ form.
 
-Okay, so I don't think we need to add a subdivision.
+---
 
-Because with bevels, we already achieved that smooth surface.
+# 14. Bevel Segments
 
-So I think we only need to use on this top part.
+Thông số:
 
-So I'll need to separate this object. So I'll select, and pin.
+```text
+Segments
+```
 
-Okay, now we have a different object. We didn't use bevel on it, but let's see if we need to.
+kiểm soát số phân đoạn trên cạnh bevel.
 
-So let's add a bevel here, and I'm going to add a bevel on this top part.
+### 1 Segment
 
-Set a subdivide surface, and you can see, let's activate wireframe.
+```text
+\_
+```
 
-You can also just do this, but I like to use wireframe and solid.
+cạnh còn khá đơn giản.
 
-So now, let me shade flat, so you can see better. So now you have a smoother surface.
+### Nhiều Segments
 
-We can shade all smooth. But as you can see,
+```text
+)
+```
 
-I lost a lot of this curve, so add another contention here.
+chuyển tiếp tròn hơn.
 
-This looks better.
+Nhưng:
 
-Let's see what happened here. We have two separate objects for now.
+```text
+Segments ↑
+    ↓
+Polygon Count ↑
+```
 
-We can join them, but I don't think it's necessary.
+Vì vậy không nên tăng quá mức cần thiết.
 
-So if you see here, because this top part is covering this one.
+---
 
-Yeah, I don't think I'll join.
+# 15. Giới hạn Bevel
 
-Okay, so now this is the part where I create another backup,
+Không phải lúc nào cũng muốn bevel mọi Edge.
 
-especially if I were to join these two objects here.
+Bevel Modifier có thể giới hạn vùng tác động bằng nhiều phương pháp, ví dụ:
 
-If I were to join them, I would need to apply the subdivision.
+```text
+Angle
+Weight
+Vertex Group
+```
 
-So let me show you how you apply. You click here at the bottom and apply.
+---
 
-So now, if you go to edit mode, you have access to all of the vertex.
+# 16. Limit Method — Angle
 
-So this is what I say about non-destructible.
+Với:
 
-So what I did here, I basically destruct my original geometry,
+```text
+Limit Method = Angle
+```
 
-and I can't go back. I mean, I can, but it would be pretty hard.
+Blender chỉ bevel những cạnh có góc phù hợp với ngưỡng thiết lập.
 
-So let's hit control Z until I have my subdivision again.
+Ví dụ:
 
-And let's create a copy of all of this.
+```text
+Flat surface
 
-Oh, I think I'm going to add a bevel to this too.
+──────────────
 
-Maybe with the glass, we'll get a nice effect.
+Không cần bevel
+```
 
-Pretty small bevel. Not that small.
+trong khi:
 
-Not that big. Not that big. Perfect.
+```text
+90° Edge
 
-Okay, let me see what happens.
+───────┐
+       │
+       │
 
-If you select your object here, you can also press comma,
+→ candidate for bevel
+```
 
-like we press comma to zoom in.
+---
 
-If you press comma here, it finds your object in the outliner.
+# 17. Vertex Group
 
-So here you can see we duplicated, so this is outside its parent.
+Trong Lantern, giảng viên không muốn mọi cạnh đều được bevel.
 
-I'm going to rename this. Lantern top.
+Giải pháp:
 
-And I'm going to drag on lantern again.
+```text
+Object Data Properties
+→ Vertex Groups
+```
 
-I can't do that.
+tạo:
 
-And I'm going to drag on top of lantern again, clicking shift to parent.
+```text
+Bevel
+```
 
-Okay, now everything is connected.
+---
 
-And I'm going to select all of this, duplicate, and move to my lantern backup.
+## Workflow
 
-I need to move this one too.
+### Bước 1
 
-Okay.
+Tạo Vertex Group:
 
-And this one too.
+```text
+Vertex Groups
+→ +
+→ Name: Bevel
+```
 
-Okay, now everyone is here, even our huge model that we did back there.
+### Bước 2
 
-Let's add a subdivision surface to this part.
+Vào:
 
-This looks cute too.
+```text
+Edit Mode
+```
 
-Now that we have our top part here, I missed some subdivision here on my lower part.
+### Bước 3
 
-And I have my backup if something backfires.
+Chọn vertex cần bevel.
 
-So what we're going to do is select both of them, leave this one active, I believe.
+### Bước 4
 
-And I'm going to select this one.
+Nhấn:
 
-Leave this one active, I believe.
+```text
+Assign
+```
 
-Click control L and copy modifiers, yeah.
+### Bước 5
 
-But now this one got disabled.
+Trong Bevel Modifier:
 
-It's okay, we can adjust.
+```text
+Limit Method
+→ Vertex Group
+→ Bevel
+```
 
-Okay, so now you can see that I have my subdivision applied to this one.
+Kết quả:
 
-And since we have our vertex, the same settings on both, I can join them again.
+```text
+Mesh
+│
+├── Vertex thuộc Group → Bevel
+│
+└── Vertex không thuộc Group → giữ nguyên
+```
 
-So selecting both of them, control G.
+---
 
-This looks better.
+# 18. Vertex Group Weight
 
-So now we don't have any bevels applied here, but we have the subdivision.
+Vertex Group có giá trị:
 
-I think we need to adjust this again a little bit.
+```text
+Weight
+```
 
-And we have our lantern and we have this nice effect here of the subdivision
+thường nằm trong khoảng:
 
-that we need to add more polygons to.
+```text
+0.0 → 1.0
+```
 
-So let's add two.
+Có thể hiểu:
 
-This is kind of cute, it wasn't in the plans, but I think this fits the style.
+```text
+0.0 = không ảnh hưởng
+1.0 = ảnh hưởng đầy đủ
+```
 
-I can add a loop here and a loop here.
+Vertex Group không chỉ được dùng cho Bevel mà còn xuất hiện rất nhiều trong:
 
-Let's see how it looks. I like this.
+* modifiers;
+* deformation;
+* particle systems;
+* rigging;
+* weight painting.
 
-Yeah, one would be too...
+---
 
-So let's do it correctly.
+# 19. Circle Select
 
-So I decided I'm going to use a subdivision in my lantern.
+Khi cần chọn nhiều vertex, bài sử dụng:
 
-But this is the nice thing about non-destructible.
+```text
+C
+```
 
-You can create a copy, you don't need to apply what you did.
+để kích hoạt:
 
-It can always go back to your original model to change anything.
+> **Circle Select**
 
-So let's add some constraint loops here.
+Thay đổi kích thước vùng chọn bằng con lăn chuột.
 
-I think I'm going to use now 0.75, 0.70.
+Circle Select hữu ích khi:
 
-Let's see, 65. Minus 0.65.
+* chọn vùng lớn;
+* thêm/bớt vertex nhanh;
+* chỉnh Vertex Group.
 
-So here we have a different factor.
+Thoát Circle Select bằng:
 
-So I have to eyeball it a little bit, no problem.
+```text
+Right Click
+```
 
-I think I showed you this.
+hoặc:
 
-You can press 1 and then Ctrl 1 to do front Y and back Y, back view.
+```text
+Esc
+```
 
-Here we can use 0.65.
+---
 
-This will create extra loops here, but no problem.
+# 20. Bevel kết hợp với Subdivision
 
-Now let's try to match the other side.
+Đây là một trong những phần quan trọng nhất.
 
-I'm not gonna be too strict about this.
+Modifier Stack có thể là:
 
-You can always go back and move a little bit.
+```text
+Bevel
+   ↓
+Subdivision Surface
+```
 
-With non-destructible modeling.
+Bevel tạo thêm geometry gần cạnh.
 
-I'm going crazy.
+Subdivision Surface sau đó xử lý geometry này.
 
-Hey, now let's activate again.
+Do đó Bevel có thể hoạt động giống như một dạng:
 
-I lost some of the properties, the cuteness.
+> **Support geometry**
 
-I'll change it again.
+cho Subdivision.
 
-I'll increase it a little bit more.
+---
 
-It's okay.
+# 21. Modifier Stack
 
-It's okay moving while you have some surface on, but sometimes it can get a little slow.
+Blender xử lý Modifier:
 
-Okay, now this is better.
+```text
+Từ trên xuống dưới
+```
 
-I'll use this example.
+Ví dụ:
 
-I need to use orthographic view.
+```text
+1. Bevel
+2. Subdivision
+3. Displace
+```
 
-But not this one, not this one, this one.
+có nghĩa:
 
-Right now is what I call here artistic view. Oh, I forgot.
+```text
+Base Mesh
+   ↓
+Bevel
+   ↓
+Subdivision
+   ↓
+Displace
+   ↓
+Final Mesh
+```
 
-So freaking cute.
+Nếu đổi thành:
 
-Oh, I love it.
+```text
+1. Displace
+2. Bevel
+3. Subdivision
+```
 
-Now you can see if I disable subdivision, the lighting hits different here.
+kết quả có thể hoàn toàn khác.
 
-It's because I have only one bevel.
+---
 
-If I disable, yeah, I can just disable that right here.
+# 22. Thứ tự Modifier rất quan trọng
 
-So no bevels, subsurface.
+Ví dụ:
 
-Also looks cute.
+```text
+Subdivision
+→ Displace
+```
 
-You can see that now we have a more smooth.
+Subdivision tạo nhiều vertex trước.
 
-It goes like really smooth here.
+Sau đó Displace có nhiều vertex để tác động.
 
-We don't have a crease.
+Trong khi:
 
-It's just also cute.
+```text
+Displace
+→ Subdivision
+```
 
-Doesn't look bad at all.
+Displace chỉ tác động lên mesh thô trước, rồi kết quả mới được subdivide.
 
-But if you want a little bit more definition on the edges, you can use bevel.
+Hai workflow không tương đương.
 
-It will serve as a constraint to the subdivision.
+Có thể nhớ bằng công thức:
 
-Okay, this is awesome.
+```text
+Modifier Stack ≈ chuỗi phép toán
 
-Okay, so one more modifier before we go on to texturing.
+A → B ≠ B → A
+```
 
-Let's add an array.
+---
 
-So here you can see that it duplicates as an instance on the line.
+# 23. Displace Modifier
 
-And I can increase the amount of duplications that I can have,
+Đối với cobblestone, giảng viên thêm:
 
-even though it's only the original object.
+```text
+Add Modifier
+→ Displace
+```
 
-So this is pretty useful.
+Displace di chuyển vertex dựa trên một giá trị.
 
-And we're going to use this a bunch of times.
+Sơ đồ:
 
-I'm going to move this up because this order of modifiers matter.
+```text
+Vertex
+   ↓
+Texture Value
+   ↓
+Displace Strength
+   ↓
+Vertex Position mới
+```
 
-So let me put this above displace.
+---
 
-So now you can see that my displace changed.
+# 24. Displace cần đủ geometry
 
-It's considering all of my objects.
+Nếu mesh chỉ có:
 
-Before it was just considering this one and then duplicating.
+```text
+4 vertices
+```
 
-So you can see that we have the same displace here than here.
+thì Displace gần như không có đủ điểm để tạo bề mặt chi tiết.
 
-So if I do this, you see that it changed.
+Do đó workflow thường là:
 
-So it also adds a little bit more variation to our displacement.
+```text
+Base Mesh
+   ↓
+Subdivision Surface
+   ↓
+Nhiều vertices
+   ↓
+Displace
+```
 
-I'll move this up one more.
+---
 
-I think I'll add this to the top.
+# 25. Texture dùng cho Displace
 
-So now I'm going to disable these other ones just so because of performance issues.
+Displace Modifier có thể sử dụng Texture làm nguồn.
 
-Let's add five.
+Trong bài, giảng viên tạo một texture dạng noise.
 
-And I'll also randomize.
+Ví dụ:
 
-This is a cute feature that we have.
+```text
+Texture
+→ Distorted Noise
+```
 
-I don't know if it was implemented in 5.1. I'm not sure.
+Texture có giá trị sáng/tối.
 
-But we can offset a little bit, which is pretty cool.
+Có thể hiểu đơn giản:
 
-You can also rotate.
+```text
+Black
+ ↓
+ít / hướng displacement thấp
 
-For us, it's not going to serve right now.
+Gray
+ ↓
+trung gian
 
-But yeah, I'm going to randomize.
+White
+ ↓
+displacement mạnh hơn
+```
 
-I think just on this direction, you can randomize on all exits.
+---
 
-Maybe a little bit here.
+# 26. Noise tạo độ ngẫu nhiên
 
-Okay.
+Noise texture giúp phá sự hoàn hảo của các viên đá.
 
-This is one of the reasons that we do backups.
+Trước:
 
-Because right now, if I apply array on this one, it's not going to grab my glass.
+```text
+┌────────┐
+│        │
+│        │
+└────────┘
+```
 
-So I could apply an array to our glass.
+Sau Displace:
 
-But the only thing that I'm using here is the solidify and a bevel.
+```text
+╭──────╮
+│      ╲
+│       │
+╰───────╯
+```
 
-And I already have a copy of that on my lantern backup collection.
+Mỗi vertex bị offset một chút khác nhau.
 
-So what I'm going to do is apply and merge.
+Kết quả phù hợp với:
 
-So I'm going to apply my solidify.
+* stone;
+* rock;
+* terrain;
+* organic irregularities;
+* stylized environment.
 
-And then I'm going to apply bevel.
+---
 
-Even though I didn't want to do that.
+# 27. Strength
 
-And I'll join with my top.
+Thông số quan trọng nhất của Displace:
 
-First, since this is a parent, I'll need to press Alt P.
+```text
+Strength
+```
 
-To assign a parent, you click Ctrl P.
+Trong transcript, Strength ban đầu:
 
-You can see set parent too.
+```text
+1.0
+```
 
-And to clear parent, you click Alt P.
+quá mạnh.
 
-So I'm going to clear parent and keep transformation.
+Giảng viên giảm dần:
 
-And now I can go here and join.
+```text
+0.1
+→ 0.02
+→ khoảng 0.01
+```
 
-Okay, so now we have our subdivision applied to the glass too, which is okay.
+Mục tiêu:
 
-We are doing a render.
+> Chỉ tạo irregularity nhẹ thay vì phá hủy silhouette.
 
-But you can see that we have a lot of vertex.
+---
 
-So maybe I'll leave it like this.
+# 28. Midlevel
 
-I think we just need one.
+Thông số:
 
-So render, we can use as much as we want.
+```text
+Midlevel
+```
 
-But I think one, it already looks great from like here.
+xác định mức texture được coi là vị trí trung tính.
 
-So you can see without bevel, with bevel, without subsurface, with subsurface.
+Có thể hình dung:
 
-So now we can go here and let's apply our array first or not.
+```text
+Texture value < Midlevel
+        ↓
+dịch vào
 
-Same thing, I'm going to disable this performance.
+Texture value = Midlevel
+        ↓
+không đổi
 
-Okay, so now we have our pathway and our lantern.
+Texture value > Midlevel
+        ↓
+dịch ra
+```
 
-So this is our models.
+---
 
-Next lesson, we will start adding the materials and assembling a scene.
+# 29. Direction — Normal
 
+Trong bài, Displace sử dụng hướng:
 
+```text
+Normal
+```
+
+Tức là vertex di chuyển theo Surface Normal.
+
+```text
+           ↑ Normal
+           │
+────────── ● ─────────
+         Vertex
+```
+
+Nếu displacement dương:
+
+```text
+vertex → hướng Normal
+```
+
+---
+
+# 30. Procedural Stone Stack
+
+Cobblestone được xây dựng theo stack kiểu:
+
+```text
+Base Stone
+    ↓
+Bevel
+    ↓
+Subdivision Surface
+    ↓
+Displace
+    ↓
+Stylized Stone
+```
+
+Tắt toàn bộ modifier:
+
+```text
+Stylized Stone
+      ↓ OFF
+Simple Square
+```
+
+Đây là ví dụ rõ ràng nhất của non-destructive modeling.
+
+---
+
+# 31. Vì sao nên tạo Backup?
+
+Dù Modifier là non-destructive, workflow có lúc bắt buộc phải:
+
+```text
+Apply
+Join
+Separate
+Merge
+```
+
+Các thao tác đó có thể phá khả năng quay lại.
+
+Do đó giảng viên tạo backup:
+
+```text
+Shift + D
+```
+
+và đưa bản sao vào Collection riêng.
+
+Ví dụ:
+
+```text
+Cobblestone
+├── Working
+└── Backup
+```
+
+hoặc:
+
+```text
+Lantern
+├── Current
+└── Lantern_Backup
+```
+
+---
+
+# 32. Quy tắc Backup đơn giản
+
+Trước các thao tác:
+
+```text
+Apply Modifier
+Join Objects
+Delete geometry lớn
+Boolean phức tạp
+Retopology lớn
+```
+
+nên:
+
+```text
+Shift + D
+        ↓
+Move to Backup Collection
+        ↓
+Hide Collection
+```
+
+---
+
+# 33. Áp dụng Modifier lên Lantern
+
+Sau Cobblestone, bài quay lại asset **Lantern**.
+
+Mục tiêu:
+
+* dùng Bevel có chọn lọc;
+* cải thiện shading;
+* dùng Subdivision cho những phần cần bo mềm;
+* giữ các vùng hard surface có độ sắc phù hợp.
+
+---
+
+# 34. Không bevel toàn bộ Lantern
+
+Khi thêm Bevel Modifier mặc định:
+
+```text
+Bevel
+→ toàn bộ các cạnh phù hợp
+```
+
+nhưng Lantern có những vùng không nên bevel giống nhau.
+
+Do đó sử dụng:
+
+```text
+Vertex Group
+```
+
+để kiểm soát chính xác.
+
+Workflow:
+
+```text
+Lantern
+   ↓
+Identify Sharp Edges
+   ↓
+Vertex Group
+   ↓
+Bevel Modifier
+   ↓
+Selective Bevel
+```
+
+---
+
+# 35. Cạnh sắc là ứng viên cho Bevel
+
+Trong thế giới thực, cạnh hiếm khi sắc vô hạn.
+
+Ví dụ:
+
+```text
+CG edge
+
+┌────────
+│
+```
+
+so với cạnh vật thể thực:
+
+```text
+╭────────
+│
+```
+
+Vì vậy bài học sử dụng Bevel tại những cạnh cần bắt highlight.
+
+---
+
+# 36. Bevel cải thiện Lighting
+
+Không bevel:
+
+```text
+Light
+  ↓
+────────┐
+        │
+
+highlight rất nhỏ
+```
+
+Bevel:
+
+```text
+Light
+  ↓
+──────╮
+      │
+
+highlight chạy trên vùng cong
+```
+
+Điều này làm vật thể:
+
+* dễ đọc hình;
+* có volume tốt hơn;
+* trông bớt nhân tạo.
+
+---
+
+# 37. Shade Smooth / Auto Smooth
+
+Sau Bevel, bài kiểm tra shading bằng các chế độ làm mượt.
+
+Ý tưởng:
+
+```text
+Geometry
+   +
+Bevel
+   +
+Smooth Shading
+   ↓
+Gradient đẹp hơn
+```
+
+Nếu chỉ dùng mặt phẳng cứng:
+
+```text
+Flat transition
+```
+
+ánh sáng có thể thay đổi đột ngột.
+
+Bevel tạo vùng chuyển tiếp để lighting mượt hơn.
+
+---
+
+# 38. Không phải đâu cũng cần Subdivision
+
+Một quyết định quan trọng trong bài:
+
+> Sau khi thêm Bevel, nhiều phần của Lantern đã đủ mượt nên không cần Subdivision Surface.
+
+Đây là tư duy tối ưu.
+
+Không nên:
+
+```text
+mọi object
+→ Subdivision
+```
+
+mà nên hỏi:
+
+```text
+Bevel đã đủ chưa?
+Geometry có cần thực sự mượt hơn không?
+Subdivision có thay đổi silhouette cần thiết không?
+```
+
+---
+
+# 39. Subdivision cho phần Top
+
+Phần trên của Lantern cần bề mặt mềm hơn.
+
+Do đó giảng viên tách phần này và dùng:
+
+```text
+Subdivision Surface
+```
+
+Kết quả:
+
+```text
+Angular Top
+     ↓
+Subdivision
+     ↓
+Rounded Stylized Top
+```
+
+---
+
+# 40. Separate Object
+
+Để tách geometry đang chọn thành object mới:
+
+```text
+P
+```
+
+sau đó chọn kiểu Separate phù hợp.
+
+Ví dụ:
+
+```text
+Lantern
+├── Body
+└── Top
+```
+
+Việc tách giúp:
+
+* Modifier Stack khác nhau;
+* dễ kiểm soát;
+* không buộc toàn bộ asset dùng chung thiết lập.
+
+---
+
+# 41. Support Loops giữ hình dạng
+
+Subdivision làm mềm Top quá nhiều.
+
+Giải pháp:
+
+```text
+Ctrl + R
+```
+
+thêm Support Loop.
+
+Ví dụ:
+
+```text
+Không Support Loop
+
+      ╭──────╮
+    ╭─╯      ╰─╮
+```
+
+Có Support Loop:
+
+```text
+       ┌─────╮
+     ╭─╯     │
+```
+
+Tức là form giữ định nghĩa tốt hơn.
+
+---
+
+# 42. Apply Modifier là gì?
+
+Khi Modifier còn tồn tại trong Stack:
+
+```text
+Base Mesh
++
+Modifier
+```
+
+Edit Mode vẫn chủ yếu làm việc trên Base Mesh.
+
+Khi:
+
+```text
+Apply
+```
+
+Blender biến kết quả Modifier thành geometry thật.
+
+Trước:
+
+```text
+Base Mesh = 8 vertices
+Modifier = Subdivision
+```
+
+Sau Apply:
+
+```text
+Mesh thật = hàng chục / hàng trăm vertices
+Modifier biến mất
+```
+
+---
+
+# 43. Apply làm mất tính Non-destructive
+
+Đây là điểm quan trọng nhất của bài.
+
+```text
+Subdivision Modifier
+      ↓
+Apply
+      ↓
+Subdivision geometry trở thành mesh thật
+```
+
+Khi đó không còn slider:
+
+```text
+Levels = 1 / 2 / 3
+```
+
+để dễ dàng quay về mesh cũ.
+
+Do đó:
+
+> **Chỉ Apply Modifier khi có lý do cụ thể.**
+
+---
+
+# 44. Khi nào cần Apply?
+
+Một số tình huống có thể cần Apply:
+
+* cần Join với geometry khác theo một cách cụ thể;
+* cần edit geometry do Modifier tạo;
+* cần export pipeline yêu cầu;
+* Modifier tiếp theo cần geometry thật;
+* chuẩn bị final mesh.
+
+Nhưng trước Apply nên:
+
+```text
+Backup
+```
+
+---
+
+# 45. Copy Modifiers
+
+Khi hai object cần cùng Modifier Stack:
+
+1. Chọn object đích.
+2. Chọn object nguồn cuối cùng để nó trở thành **Active Object**.
+3. Nhấn:
+
+```text
+Ctrl + L
+```
+
+4. Chọn:
+
+```text
+Copy Modifiers
+```
+
+Có thể hình dung:
+
+```text
+Object A
+Bevel
+Subdivision
+
+       ↓ Copy Modifiers
+
+Object B
+Bevel
+Subdivision
+```
+
+Điều này tiết kiệm thời gian và giữ thông số đồng nhất.
+
+---
+
+# 46. Join Objects
+
+Để Join nhiều Mesh Object:
+
+```text
+Ctrl + J
+```
+
+Object cuối cùng được chọn thường là:
+
+> **Active Object**
+
+và đóng vai trò object chính sau Join.
+
+Trước:
+
+```text
+Lantern_Top
+Lantern_Body
+```
+
+Sau:
+
+```text
+Lantern
+```
+
+Tuy nhiên không phải lúc nào Join cũng cần thiết.
+
+Nếu các phần:
+
+* cần Modifier khác nhau;
+* có material khác;
+* cần chỉnh riêng;
+
+thì giữ chúng tách biệt có thể tốt hơn.
+
+---
+
+# 47. Parent và Child
+
+Lantern có thể có hierarchy:
+
+```text
+Lantern
+│
+├── Glass
+├── Top
+├── Body
+└── Frame
+```
+
+Để tạo Parent:
+
+```text
+Ctrl + P
+```
+
+Parent giúp object con đi theo object cha.
+
+```text
+Parent Move
+    ↓
+Children Move
+```
+
+---
+
+# 48. Clear Parent
+
+Nếu muốn bỏ quan hệ Parent:
+
+```text
+Alt + P
+```
+
+Có thể chọn:
+
+```text
+Clear Parent
+Keep Transformation
+```
+
+`Keep Transformation` rất hữu ích vì object vẫn giữ nguyên vị trí hiện tại trong scene.
+
+Workflow trong bài:
+
+```text
+Child Object
+    ↓
+Alt + P
+    ↓
+Clear Parent
++ Keep Transform
+    ↓
+Join / chỉnh sửa
+```
+
+---
+
+# 49. Bevel cho Glass
+
+Giảng viên cũng thêm một Bevel nhỏ lên phần Glass.
+
+Mục đích:
+
+```text
+Perfectly Sharp Glass
+        ↓
+Small Bevel
+        ↓
+Better Highlights
+```
+
+Ngay cả kính cũng thường có cạnh rất nhỏ thay vì góc toán học hoàn toàn sắc.
+
+---
+
+# 50. Solidify
+
+Phần Glass sử dụng:
+
+```text
+Solidify
+```
+
+Modifier này tạo độ dày cho surface.
+
+Ví dụ:
+
+```text
+Plane
+
+────────────
+```
+
+sau Solidify:
+
+```text
+────────────
+│          │
+────────────
+```
+
+Đây là Modifier hữu ích cho:
+
+* glass;
+* cloth;
+* panels;
+* walls;
+* thin shells.
+
+Trong bài, Solidify được Apply trước khi Join ở một số giai đoạn vì giảng viên đã có bản backup.
+
+---
+
+# 51. Array Modifier
+
+Modifier cuối được giới thiệu:
+
+```text
+Add Modifier
+→ Array
+```
+
+Array tạo nhiều bản sao procedural của một object.
+
+```text
+Original
+
+■
+
+Array Count = 5
+
+■ ■ ■ ■ ■
+```
+
+Nhưng về mặt base mesh:
+
+```text
+chỉ có 1 object gốc
+```
+
+---
+
+# 52. Vì sao Array mạnh?
+
+Nếu Duplicate thủ công:
+
+```text
+Shift + D × 20
+```
+
+sẽ tạo nhiều object/geometry riêng biệt.
+
+Array:
+
+```text
+1 Base Object
++
+Array Modifier
+=
+20 copies
+```
+
+Nếu chỉnh Base Object:
+
+```text
+mọi phần tử Array thay đổi theo
+```
+
+Đây là non-destructive repetition.
+
+---
+
+# 53. Array Count
+
+Thông số:
+
+```text
+Count
+```
+
+kiểm soát số lượng bản sao.
+
+Ví dụ:
+
+```text
+Count = 2
+
+■ ■
+```
+
+```text
+Count = 5
+
+■ ■ ■ ■ ■
+```
+
+---
+
+# 54. Array Offset
+
+Array có thể điều khiển khoảng cách giữa các phần tử bằng Offset.
+
+Ý tưởng:
+
+```text
+Relative Offset
+
+■   ■   ■   ■
+```
+
+Khoảng cách có thể điều chỉnh theo:
+
+```text
+X
+Y
+Z
+```
+
+tùy mục đích.
+
+---
+
+# 55. Array + Displace
+
+Một bài học quan trọng khác về Modifier Order.
+
+Ví dụ:
+
+```text
+Displace
+   ↓
+Array
+```
+
+Base stone được Displace trước.
+
+Sau đó Array sao chép kết quả.
+
+Kết quả:
+
+```text
+Stone A = same deformation
+Stone B = same deformation
+Stone C = same deformation
+```
+
+---
+
+Nếu đổi thành:
+
+```text
+Array
+   ↓
+Displace
+```
+
+Blender tạo cả dãy trước rồi mới tính Displace.
+
+Do đó texture/displacement có thể tác động khác nhau trên toàn bộ tập hợp.
+
+Đây là ví dụ rất rõ cho:
+
+> **Modifier order changes the result.**
+
+---
+
+# 56. Modifier Stack như một chương trình
+
+Có thể nghĩ Modifier Stack giống pipeline xử lý:
+
+```text
+Input Mesh
+
+    ↓ Function 1
+
+Bevel
+
+    ↓ Function 2
+
+Subdivision
+
+    ↓ Function 3
+
+Array
+
+    ↓ Function 4
+
+Displace
+
+    ↓
+
+Output Mesh
+```
+
+Do đó:
+
+```text
+Bevel → Subdivision
+```
+
+không đồng nghĩa với:
+
+```text
+Subdivision → Bevel
+```
+
+Tư duy này rất quan trọng khi workflow ngày càng phức tạp.
+
+---
+
+# 57. Randomization trong Array
+
+Transcript cũng đề cập khả năng tạo một số offset/random variation khi bố trí các phần tử.
+
+Ý tưởng:
+
+```text
+Perfect Array
+
+■ ■ ■ ■ ■
+```
+
+so với:
+
+```text
+Variation
+
+■  ■   ■ ■    ■
+```
+
+Trong môi trường stylized, việc phá sự đều đặn giúp scene trông tự nhiên hơn.
+
+Đặc biệt hữu ích với:
+
+* stones;
+* fences;
+* vegetation;
+* props;
+* repeated architecture.
+
+---
+
+# 58. Performance khi dùng Modifier
+
+Subdivision Surface có thể tạo rất nhiều geometry.
+
+Ví dụ:
+
+```text
+Base
+100 vertices
+
+Subdivision Level 1
+~4× faces
+
+Level 2
+~16× faces
+
+Level 3
+~64× faces
+```
+
+Với nhiều object, viewport có thể chậm.
+
+Giải pháp:
+
+```text
+Disable modifier in viewport
+```
+
+hoặc giảm:
+
+```text
+Viewport Levels
+```
+
+trong lúc modeling.
+
+Sau đó:
+
+```text
+Render Levels ↑
+```
+
+khi render.
+
+---
+
+# 59. Wireframe để kiểm tra Modifier
+
+Khi sử dụng Subdivision, có thể bật:
+
+```text
+Viewport Overlays
+→ Wireframe
+```
+
+để xem cấu trúc mesh.
+
+Giảng viên thường dùng kết hợp:
+
+```text
+Solid
++
+Wireframe
+```
+
+để vừa thấy surface vừa hiểu topology.
+
+---
+
+# 60. Frame Selected
+
+Khi cần tập trung viewport vào object đang chọn, Blender có lệnh:
+
+```text
+Frame Selected
+```
+
+thường dùng:
+
+```text
+Numpad .
+```
+
+Điều này rất hữu ích khi asset gồm nhiều object.
+
+---
+
+# 61. Front và Back View
+
+Góc nhìn chuẩn:
+
+```text
+Numpad 1
+```
+
+→ Front View.
+
+Góc đối diện:
+
+```text
+Ctrl + Numpad 1
+```
+
+→ Back View.
+
+Orthographic view rất hữu ích khi căn:
+
+* support loops;
+* symmetry;
+* proportions;
+* vị trí geometry.
+
+---
+
+# 62. Eyeballing trong Modeling
+
+Trong bài, giảng viên đôi khi điều chỉnh các loop bằng mắt:
+
+```text
+0.75
+0.70
+0.65
+...
+```
+
+Mục tiêu không phải luôn tạo geometry chính xác tuyệt đối.
+
+Với stylized modeling:
+
+> **Visual result có thể quan trọng hơn con số toán học hoàn hảo.**
+
+Quan trọng là hai bên:
+
+* tương đối cân bằng;
+* silhouette đẹp;
+* lighting hợp lý.
+
+---
+
+# 63. Subdivision thay đổi phong cách
+
+Một điểm thú vị trong Lantern:
+
+Khi bật Subdivision:
+
+```text
+hard angular shape
+      ↓
+soft rounded form
+```
+
+Lantern chuyển sang phong cách:
+
+* cute;
+* stylized;
+* mềm hơn;
+* ít mechanical hơn.
+
+Điều này cho thấy Modifier không chỉ là công cụ kỹ thuật mà còn ảnh hưởng trực tiếp đến:
+
+> **Art direction.**
+
+---
+
+# 64. Bevel vs Subdivision
+
+Hai Modifier đều có thể làm object trông mềm hơn nhưng mục đích khác nhau.
+
+| Bevel                        | Subdivision Surface                 |
+| ---------------------------- | ----------------------------------- |
+| Bo cạnh                      | Làm mượt toàn surface               |
+| Giữ form chính tốt           | Có thể thay đổi silhouette          |
+| Kiểm soát cạnh               | Tăng mật độ mesh                    |
+| Thường dùng hard surface     | Dùng cho cả hard surface và organic |
+| Có thể chỉ tác động vài cạnh | Thường xử lý toàn mesh              |
+
+---
+
+# 65. Khi chỉ cần Bevel
+
+Ví dụ:
+
+```text
+Lantern Frame
+```
+
+nếu form chính đã đúng và chỉ cần:
+
+```text
+edge highlights
+```
+
+thì:
+
+```text
+Bevel
+```
+
+có thể đủ.
+
+Không nhất thiết thêm:
+
+```text
+Subdivision Surface
+```
+
+---
+
+# 66. Khi cần Subdivision
+
+Nếu object cần:
+
+```text
+smooth continuous curvature
+```
+
+như phần Top:
+
+```text
+Subdivision Surface
+```
+
+hợp lý hơn.
+
+Sơ đồ quyết định:
+
+```text
+Cần chỉ bo cạnh?
+      │
+     Yes
+      ↓
+    Bevel
+
+Cần làm mềm cả form?
+      │
+     Yes
+      ↓
+Subdivision Surface
+```
+
+---
+
+# 67. Bevel làm Support cho Subdivision
+
+Kết hợp:
+
+```text
+Bevel
+   ↓
+Subdivision
+```
+
+có thể tạo cạnh có definition tốt hơn.
+
+Nếu không có constraint:
+
+```text
+────────┐
+        │
+     Subdivision
+        ↓
+      ╭────
+```
+
+Có Bevel/support:
+
+```text
+──────╮
+      │
+      ↓
+Subdivision giữ cạnh rõ hơn
+```
+
+---
+
+# 68. Workflow Cobblestone hoàn chỉnh
+
+```text
+Simple Stone Mesh
+        ↓
+Limited Dissolve
+        ↓
+Subdivision Surface
+     (Simple)
+        ↓
+Bevel
+        ↓
+Subdivision / Smooth
+        ↓
+Noise Texture
+        ↓
+Displace
+        ↓
+Array
+        ↓
+Stylized Cobblestone Path
+```
+
+Tùy Modifier Stack cụ thể, thứ tự được điều chỉnh để đạt kết quả mong muốn.
+
+---
+
+# 69. Workflow Lantern hoàn chỉnh
+
+```text
+Lantern Base Mesh
+        ↓
+Identify Sharp Edges
+        ↓
+Create Bevel Vertex Group
+        ↓
+Bevel Modifier
+        ↓
+Add Support Loops
+        ↓
+Shade Smooth / Auto Smooth
+        ↓
+Separate Top
+        ↓
+Subdivision Surface
+        ↓
+Constraint Loops
+        ↓
+Small Bevel on Glass
+        ↓
+Solidify Glass
+        ↓
+Backup
+        ↓
+Join / Apply khi cần
+        ↓
+Stylized Lantern
+```
+
+---
+
+# 70. Sơ đồ Modifier Stack
+
+```text
+                       BASE MESH
+                           │
+                           ▼
+                       BEVEL
+                    bo các cạnh
+                           │
+                           ▼
+                 SUBDIVISION SURFACE
+                   thêm / làm mượt
+                           │
+                           ▼
+                       ARRAY
+                    nhân bản mesh
+                           │
+                           ▼
+                      DISPLACE
+                   tạo biến dạng
+                           │
+                           ▼
+                    FINAL RESULT
+```
+
+Thay đổi thứ tự:
+
+```text
+Array ↔ Displace
+```
+
+có thể làm kết quả thay đổi rõ rệt.
+
+---
+
+# 71. Sơ đồ Non-destructive Modeling
+
+```text
+                      Base Geometry
+                           │
+             ┌─────────────┴─────────────┐
+             │                           │
+        Edit Base Mesh              Modifier Stack
+             │                           │
+      Ít vertices                 Bevel
+             │                      ↓
+      Dễ chỉnh sửa               Subdivision
+                                    ↓
+                                 Displace
+                                    ↓
+                                  Array
+                                    ↓
+                               Final Mesh
+                                    │
+                     ┌──────────────┴──────────────┐
+                     │                             │
+               Không Apply                     Apply
+                     │                             │
+            Non-destructive              Geometry trở thành thật
+                     │                             │
+            Có thể quay lại              Khó quay lại hơn
+```
+
+---
+
+# 72. Các Modifier trong bài
+
+| Modifier                | Vai trò                             |
+| ----------------------- | ----------------------------------- |
+| **Subdivision Surface** | Tăng subdivision và làm mượt bề mặt |
+| **Bevel**               | Bo cạnh                             |
+| **Displace**            | Di chuyển vertex bằng texture/value |
+| **Array**               | Nhân bản object procedural          |
+| **Solidify**            | Tạo độ dày cho surface              |
+
+---
+
+# 73. Các công cụ khác được sử dụng
+
+| Công cụ           | Chức năng                              |
+| ----------------- | -------------------------------------- |
+| Limited Dissolve  | Xóa topology dư nhưng giữ form         |
+| Vertex Group      | Giới hạn vùng ảnh hưởng của Modifier   |
+| Loop Cut          | Tạo support/constraint loop            |
+| Shade Smooth      | Làm mượt shading                       |
+| Wireframe Overlay | Kiểm tra topology                      |
+| Parent            | Tạo hierarchy object                   |
+| Backup Collection | Giữ bản gốc trước thao tác destructive |
+
+---
+
+# 74. Phím tắt quan trọng
+
+| Phím              | Chức năng                          |
+| ----------------- | ---------------------------------- |
+| `X`               | Delete menu                        |
+| `Ctrl + R`        | Loop Cut                           |
+| `C`               | Circle Select                      |
+| `Shift + D`       | Duplicate                          |
+| `P`               | Separate                           |
+| `Ctrl + J`        | Join Objects                       |
+| `Ctrl + L`        | Link/Copy data, gồm Copy Modifiers |
+| `Ctrl + P`        | Set Parent                         |
+| `Alt + P`         | Clear Parent                       |
+| `Ctrl + Z`        | Undo                               |
+| `Numpad 1`        | Front View                         |
+| `Ctrl + Numpad 1` | Back View                          |
+| `Numpad .`        | Frame Selected                     |
+
+> **Lưu ý:** transcript tự động có một số đoạn nhận nhầm phím như `Ctrl + G` cho Join. Trong Blender, shortcut chuẩn để **Join Objects** là `Ctrl + J`.
+
+---
+
+# 75. Limited Dissolve vs Subdivision
+
+Hai khái niệm đối lập thú vị:
+
+```text
+Limited Dissolve
+      ↓
+Giảm topology
+
+Subdivision
+      ↓
+Tăng topology
+```
+
+Workflow thông minh:
+
+```text
+Giữ Base Mesh tối giản
+       ↓
+Modifier tạo complexity khi cần
+```
+
+thay vì lưu complexity trực tiếp vào mesh từ đầu.
+
+---
+
+# 76. Support Loops và Polygon Count
+
+Không nên thêm support loop khắp nơi.
+
+Ví dụ:
+
+```text
+Bad
+
+|||||||||||||||||||||
+```
+
+Good:
+
+```text
+|       |        |
+↑       ↑        ↑
+chỉ nơi cần giữ cạnh
+```
+
+Bởi vì mỗi loop:
+
+* tăng polygon;
+* làm mesh khó chỉnh;
+* có thể ảnh hưởng Subdivision ở vùng khác.
+
+---
+
+# 77. Apply càng muộn càng tốt
+
+Một nguyên tắc rất hữu ích:
+
+```text
+Add Modifier
+   ↓
+Adjust
+   ↓
+Test
+   ↓
+Iterate
+   ↓
+Backup
+   ↓
+Apply only when necessary
+```
+
+Không nên:
+
+```text
+Add Modifier
+   ↓
+Apply ngay
+```
+
+vì như vậy mất phần lớn lợi ích của workflow non-destructive.
+
+---
+
+# 78. Tư duy Experimentation
+
+Modifier cho phép thử nhiều phiên bản rất nhanh.
+
+Ví dụ Lantern:
+
+```text
+Version A
+Bevel only
+
+Version B
+Subdivision only
+
+Version C
+Bevel + Subdivision
+```
+
+Sau đó so sánh:
+
+* silhouette;
+* shading;
+* style;
+* performance.
+
+Vì chưa Apply:
+
+```text
+không thích → tắt/xóa Modifier
+```
+
+thay vì phải sửa lại toàn mesh.
+
+---
+
+# 79. Modifier và Art Direction
+
+Trong bài, Subdivision làm Lantern trở nên "cute" hơn dự kiến.
+
+Điều này minh họa rằng Modifier có thể được dùng để khám phá thiết kế.
+
+```text
+Technical Tool
+     ↓
+Visual Change
+     ↓
+Unexpected Style
+     ↓
+Artistic Decision
+```
+
+Non-destructive modeling vì thế giúp:
+
+> **thử nghiệm mà không sợ phá model gốc.**
+
+---
+
+# 80. Performance Workflow
+
+Khi scene bắt đầu nặng:
+
+```text
+Disable expensive modifiers
+```
+
+đặc biệt:
+
+```text
+Subdivision Surface
+```
+
+Hoặc giảm:
+
+```text
+Viewport Levels
+```
+
+Trong render:
+
+```text
+Render Levels
+```
+
+có thể cao hơn.
+
+Workflow:
+
+```text
+Modeling
+→ Low Viewport Quality
+
+Render
+→ Higher Quality
+```
+
+---
+
+# 81. Những lỗi thường gặp
+
+## Lỗi 1 — Apply Modifier quá sớm
+
+Hậu quả:
+
+```text
+Modifier controls biến mất
++
+Topology tăng mạnh
++
+Khó quay lại
+```
+
+Giải pháp:
+
+```text
+Backup trước
++
+Apply càng muộn càng tốt
+```
+
+---
+
+## Lỗi 2 — Modifier sai thứ tự
+
+Ví dụ:
+
+```text
+Array → Displace
+```
+
+và:
+
+```text
+Displace → Array
+```
+
+không cho cùng kết quả.
+
+Giải pháp:
+
+> Thử kéo Modifier lên/xuống Stack và quan sát thay đổi.
+
+---
+
+## Lỗi 3 — Displace quá mạnh
+
+Ví dụ:
+
+```text
+Strength = 1
+```
+
+trên viên đá nhỏ có thể phá hoàn toàn hình dạng.
+
+Nên bắt đầu thấp:
+
+```text
+0.01
+0.02
+...
+```
+
+rồi tăng dần.
+
+---
+
+## Lỗi 4 — Displace trên mesh quá ít vertex
+
+```text
+Low-poly Mesh
++
+Displace
+=
+Biến dạng thô
+```
+
+Giải pháp:
+
+```text
+Subdivision
+→ Displace
+```
+
+---
+
+## Lỗi 5 — Subdivision làm mất cạnh
+
+Nguyên nhân:
+
+```text
+Không có support loops
+```
+
+Giải pháp:
+
+```text
+Ctrl + R
+→ Support Loop
+```
+
+hoặc kết hợp Bevel.
+
+---
+
+## Lỗi 6 — Bevel toàn bộ object
+
+Một số vùng không cần bevel.
+
+Giải pháp:
+
+```text
+Angle
+Vertex Group
+Weight
+```
+
+để giới hạn.
+
+---
+
+## Lỗi 7 — Tăng Subdivision quá cao
+
+Hậu quả:
+
+* viewport chậm;
+* memory tăng;
+* file nặng;
+* render chậm.
+
+Giải pháp:
+
+```text
+Viewport Level thấp
+Render Level vừa đủ
+```
+
+---
+
+## Lỗi 8 — Không tạo Backup
+
+Nếu phải:
+
+```text
+Apply
+Join
+Delete
+```
+
+sau đó phát hiện lỗi thì rất khó quay lại.
+
+Giải pháp:
+
+```text
+Shift + D
+→ Backup Collection
+→ Hide
+```
+
+---
+
+# 82. Thực hành 1 — Non-destructive Stone
+
+Tạo một Cube hoặc viên đá đơn giản.
+
+Thêm:
+
+```text
+Bevel
+Subdivision Surface
+Displace
+```
+
+Mục tiêu:
+
+```text
+Modifiers ON
+→ viên đá stylized
+
+Modifiers OFF
+→ Cube/Stone đơn giản
+```
+
+---
+
+# 83. Thực hành 2 — Modifier Order
+
+Tạo hai phiên bản.
+
+### Version A
+
+```text
+Subdivision
+↓
+Displace
+```
+
+### Version B
+
+```text
+Displace
+↓
+Subdivision
+```
+
+So sánh:
+
+* silhouette;
+* noise;
+* độ mượt;
+* topology.
+
+---
+
+# 84. Thực hành 3 — Bevel Vertex Group
+
+Tạo Cube.
+
+Chỉ chọn một số cạnh/vertex và gán vào:
+
+```text
+Vertex Group: Bevel
+```
+
+Sau đó:
+
+```text
+Bevel Modifier
+→ Limit = Vertex Group
+```
+
+Mục tiêu:
+
+> Chỉ những vùng được chỉ định mới bị bevel.
+
+---
+
+# 85. Thực hành 4 — Support Loop
+
+Tạo Cube.
+
+Thêm:
+
+```text
+Subdivision Surface
+```
+
+Quan sát Cube bị bo tròn.
+
+Sau đó:
+
+```text
+Ctrl + R
+```
+
+tạo các support loops gần cạnh.
+
+So sánh:
+
+```text
+Loop xa
+→ mềm
+
+Loop gần
+→ sắc
+```
+
+---
+
+# 86. Thực hành 5 — Array
+
+Tạo một viên đá.
+
+Thêm:
+
+```text
+Array
+```
+
+Đặt:
+
+```text
+Count = 5
+```
+
+sau đó thử:
+
+* Relative Offset;
+* khoảng cách;
+* thay đổi Base Stone.
+
+Quan sát tất cả các bản sao cập nhật.
+
+---
+
+# 87. Thử thách mở rộng
+
+Tạo một hàng gồm khoảng:
+
+```text
+8–12 viên đá
+```
+
+bằng một Base Mesh duy nhất.
+
+Yêu cầu sử dụng:
+
+* Bevel;
+* Subdivision;
+* Displace;
+* Array.
+
+Không Apply Modifier cho đến cuối bài.
+
+Sau đó tạo:
+
+```text
+Version A
+Clean / Uniform
+
+Version B
+Stylized / Irregular
+```
+
+chỉ bằng cách thay đổi Modifier.
+
+---
+
+# 88. Bài tập với Lantern
+
+Tạo ba phiên bản:
+
+### A — Hard Surface
+
+```text
+Bevel only
+```
+
+### B — Soft Stylized
+
+```text
+Subdivision only
+```
+
+### C — Hybrid
+
+```text
+Bevel
++
+Subdivision
++
+Support Loops
+```
+
+So sánh:
+
+| Phiên bản | Đặc điểm               |
+| --------- | ---------------------- |
+| A         | Sắc, mechanical        |
+| B         | Mềm, stylized          |
+| C         | Cạnh rõ nhưng vẫn mượt |
+
+---
+
+# 89. Checklist bài học
+
+* [ ] Hiểu non-destructive modeling là gì.
+* [ ] Hiểu Modifier không nhất thiết thay đổi Base Mesh.
+* [ ] Biết Modifier Stack chạy từ trên xuống.
+* [ ] Biết thứ tự Modifier ảnh hưởng kết quả.
+* [ ] Biết sử dụng Limited Dissolve.
+* [ ] Biết thêm Subdivision Surface.
+* [ ] Phân biệt Simple Subdivision và Smooth Subdivision.
+* [ ] Hiểu Viewport Levels và Render Levels.
+* [ ] Biết sử dụng Optimal Display.
+* [ ] Hiểu Support Loop.
+* [ ] Biết sử dụng Bevel Modifier.
+* [ ] Hiểu Amount và Segments.
+* [ ] Biết giới hạn Bevel bằng Vertex Group.
+* [ ] Biết tạo và Assign Vertex Group.
+* [ ] Biết Circle Select bằng `C`.
+* [ ] Hiểu Bevel có thể hỗ trợ Subdivision.
+* [ ] Biết sử dụng Displace.
+* [ ] Hiểu vai trò của Noise Texture.
+* [ ] Biết điều chỉnh Displace Strength.
+* [ ] Hiểu Direction = Normal.
+* [ ] Biết tạo Backup Collection.
+* [ ] Hiểu Apply Modifier làm mất tính non-destructive.
+* [ ] Biết Separate object.
+* [ ] Biết Copy Modifiers.
+* [ ] Biết Join Objects.
+* [ ] Hiểu Parent và Clear Parent.
+* [ ] Biết sử dụng Solidify.
+* [ ] Biết sử dụng Array.
+* [ ] Đã thử thay đổi Modifier Order.
+* [ ] Đã thực hành lại Cobblestone Pathway.
+* [ ] Đã áp dụng Modifier lên Lantern.
+
+---
+
+# 90. Sơ đồ tổng hợp toàn bài
+
+```text
+                         LESSON 009
+                             │
+                  NON-DESTRUCTIVE MODELING
+                             │
+          ┌──────────────────┴──────────────────┐
+          │                                     │
+     COBBLESTONE                            LANTERN
+          │                                     │
+ Limited Dissolve                         Vertex Group
+          │                                     │
+ Subdivision Surface                        Bevel
+          │                                     │
+       Bevel                            Support Loops
+          │                                     │
+   Noise Texture                       Auto/Smooth Shading
+          │                                     │
+      Displace                         Separate Top
+          │                                     │
+       Array                           Subdivision
+          │                                     │
+          └──────────────────┬──────────────────┘
+                             │
+                      Modifier Stack
+                             │
+                   Order Changes Result
+                             │
+                          Backup
+                             │
+                  Apply only when needed
+                             │
+                        Final Models
+                             │
+                             ▼
+                  MATERIALS + SCENE
+                    (bài tiếp theo)
+```
+
+---
+
+# 91. Những nguyên tắc quan trọng nhất
+
+### Nguyên tắc 1
+
+> **Giữ Base Mesh càng đơn giản càng tốt.**
+
+```text
+Simple Base
++
+Modifiers
+=
+Complex Result
+```
+
+---
+
+### Nguyên tắc 2
+
+> **Modifier order matters.**
+
+```text
+A → B ≠ B → A
+```
+
+---
+
+### Nguyên tắc 3
+
+> **Không Apply Modifier nếu chưa cần thiết.**
+
+Apply đồng nghĩa với việc:
+
+```text
+Procedural Result
+→ Real Geometry
+```
+
+---
+
+### Nguyên tắc 4
+
+> **Tạo Backup trước khi thực hiện thao tác destructive.**
+
+```text
+Shift + D
+→ Backup
+→ Hide
+```
+
+---
+
+### Nguyên tắc 5
+
+> **Subdivision không thay thế topology tốt.**
+
+Support loops và base topology vẫn quyết định:
+
+* silhouette;
+* độ sắc cạnh;
+* cách surface chuyển tiếp.
+
+---
+
+### Nguyên tắc 6
+
+> **Bevel không chỉ để làm đẹp hình học mà còn để cải thiện cách ánh sáng đọc hình dạng.**
+
+---
+
+# 92. Tóm tắt
+
+Bài **Using Modifiers (Non-destructive Modeling)** giới thiệu một bước tiến quan trọng trong workflow Blender.
+
+Thay vì:
+
+```text
+Model
+→ thêm geometry
+→ sửa geometry
+→ thêm geometry
+→ mesh ngày càng phức tạp
+```
+
+ta có thể xây dựng:
+
+```text
+Simple Base Mesh
+      ↓
+Modifier Stack
+      ↓
+Complex Final Result
+```
+
+Các Modifier chính trong bài:
+
+```text
+Subdivision Surface
+→ thêm geometry / làm mượt
+
+Bevel
+→ bo cạnh
+
+Displace
+→ tạo biến dạng bằng texture
+
+Array
+→ nhân bản procedural
+
+Solidify
+→ tạo độ dày
+```
+
+Cobblestone minh họa workflow:
+
+```text
+Simple Stone
+→ Bevel
+→ Subdivision
+→ Noise Displace
+→ Array
+```
+
+Lantern minh họa workflow phức tạp hơn:
+
+```text
+Base Lantern
+→ Vertex Groups
+→ Selective Bevel
+→ Support Loops
+→ Subdivision
+→ Smooth Shading
+```
+
+Điểm cốt lõi cần nhớ:
+
+```text
+Base Mesh
+   +
+Modifier Stack
+   =
+Editable Procedural Model
+```
+
+và:
+
+> **Một workflow tốt không chỉ tạo ra model đẹp, mà còn cho phép quay lại, thử nghiệm và sửa đổi model một cách dễ dàng.**
+
+Bài học kết thúc với hai asset chính:
+
+```text
+Cobblestone Pathway
++
+Lantern
+```
+
+đã sẵn sàng để chuyển sang giai đoạn tiếp theo:
+
+```text
+Materials
+   ↓
+Scene Assembly
+   ↓
+Lighting / Rendering
+```
