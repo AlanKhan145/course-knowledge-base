@@ -1,7 +1,7 @@
 # Module 02 — Xây nền phát âm và chữ Hán
 
 > **Phần:** PHẦN 1 — NỀN TẢNG TIẾNG TRUNG
-> **Số bài:** 8
+> **Số bài:** 7
 > **Trạng thái:** 🚧 Khung template — chờ biên soạn nội dung.
 
 ---
@@ -22,7 +22,6 @@
 | 05 | Ghép âm Pinyin trong giao tiếp | [bai-05.md](./bai-05.md) | 🚧 |
 | 06 | Cấu tạo cơ bản của chữ Hán | [bai-06.md](./bai-06.md) | 🚧 |
 | 07 | Nhận diện và ghi nhớ chữ Hán | [bai-07.md](./bai-07.md) | 🚧 |
-| 08 | Thực hành nền tảng | [bai-08.md](./bai-08.md) | 🚧 |
 
 ## Trọng tâm ngữ pháp của module
 
@@ -43,8 +42,6 @@
 - [ ] Bài 05 — Ghép âm Pinyin trong giao tiếp
 - [ ] Bài 06 — Cấu tạo cơ bản của chữ Hán
 - [ ] Bài 07 — Nhận diện và ghi nhớ chữ Hán
-- [ ] Bài 08 — Thực hành nền tảng
-
 ---
 
 🏠 [Mục lục khóa học](../README.md)
