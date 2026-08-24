@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linear Algebra — Interactive Practice</title>
+<style>
+:root {
+  --bg:#f4f5fb; --card:#ffffff; --text:#1f2333; --muted:#6a7185; --line:#e5e7f0;
+  --primary:#6d5dfc; --primary2:#4f46e5; --good:#16794b; --bad:#b42318; --warn:#9a6700;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+.hero{background:linear-gradient(135deg,#25243c,#5e50e6);color:white;padding:48px 20px}
+.hero-inner{max-width:1120px;margin:auto}
+.hero h1{font-size:clamp(30px,5vw,50px);margin:0 0 10px;line-height:1.1}
+.hero p{max-width:850px;color:#e9e7ff;font-size:17px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.badge{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:7px 12px;font-size:14px}
+.shell{max-width:1120px;margin:26px auto;padding:0 20px 80px}
+.toolbar{position:sticky;top:10px;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;grid-template-columns:1fr auto;gap:14px;box-shadow:0 10px 30px rgba(38,41,66,.08)}
+.progress-wrap{display:flex;align-items:center;gap:12px}
+.progress{height:12px;background:#eceefa;border-radius:999px;overflow:hidden;flex:1}
+.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--primary),#2c84d8);transition:width .25s}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+button{font:inherit;border:0;border-radius:11px;padding:9px 13px;cursor:pointer}
+.primary{background:var(--primary);color:white} .secondary{background:#eef0f8;color:#34384b} .danger{background:#fff0ee;color:#a62a1d}
+.intro,.quiz-section{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;margin-top:22px;box-shadow:0 8px 24px rgba(38,41,66,.04)}
+.intro h2,.quiz-section h2{margin-top:0}
+.viz-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.viz{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.svg-wrap svg{display:block;width:100%;height:auto}
+.viz figcaption{padding:10px 14px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.question-card{border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;background:#fff}
+.q-head{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.q-number{font-weight:800;color:var(--primary2)} .q-section{font-size:12px;color:var(--muted);background:#f1f2f8;padding:4px 8px;border-radius:999px}
+.question-card h3{font-size:17px;margin:10px 0 14px}
+.option{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);padding:11px 12px;border-radius:12px;margin:8px 0;cursor:pointer}
+.option:hover{border-color:#bbb5ff;background:#fafaff}
+.option input{margin-top:4px}
+.letter{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:7px;background:#f0efff;color:var(--primary2);font-weight:800;font-size:12px}
+.short-input{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;font:inherit;outline:none}
+.short-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(109,93,252,.12)}
+.order-list{display:grid;gap:8px}
+.order-item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fafbff}
+.drag{cursor:grab;color:#8c92a6;font-weight:900;letter-spacing:-2px}
+.order-buttons{display:flex;gap:5px}
+.order-buttons button{padding:5px 9px;background:#eceef8;color:#383d52}
+.feedback{display:none;margin-top:12px;padding:10px 12px;border-radius:10px;font-size:14px}
+.correct{border-color:#a9dfc2;background:#f6fff9} .wrong{border-color:#ffc6bf;background:#fff8f6}
+.correct .feedback{display:block;background:#e9f8ef;color:var(--good)} .wrong .feedback{display:block;background:#fff0ed;color:var(--bad)}
+.result-box{display:none;margin-top:22px;background:#1f2333;color:white;border-radius:20px;padding:24px}
+.result-box.show{display:block}
+.score-big{font-size:38px;font-weight:900}
+.mini-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
+.mini-stat{background:rgba(255,255,255,.08);padding:10px;border-radius:12px;text-align:center}
+.note{color:var(--muted);font-size:14px}
+kbd{background:#eef0f8;border:1px solid #d8dbe8;border-bottom-width:2px;border-radius:5px;padding:1px 6px}
+@media(max-width:760px){
+  .toolbar{grid-template-columns:1fr}
+  .viz-grid{grid-template-columns:1fr}
+  .mini-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Linear Algebra — Interactive Practice</h1>
+    <p>Bộ luyện tập bám theo bài học: vector, matrix, tensor, dot product, norm, matrix multiplication, linear regression, MSE, gradient descent, transformations, rank, determinant, eigenvectors, PCA, SVD, embeddings và neural networks.</p>
+    <div class="badges">
+      <span class="badge">45 câu</span>
+      <span class="badge">5 dạng bài</span>
+      <span class="badge">Tự chấm điểm</span>
+      <span class="badge">Lưu tiến độ trên trình duyệt</span>
+      <span class="badge">SVG minh họa tích hợp</span>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+  <div class="toolbar">
+    <div class="progress-wrap">
+      <strong id="progressText">0/45 đã trả lời</strong>
+      <div class="progress"><div id="progressBar"></div></div>
+    </div>
+    <div class="actions">
+      <button class="primary" id="gradeBtn">Chấm điểm</button>
+      <button class="secondary" id="revealBtn">Hiện đáp án</button>
+      <button class="danger" id="resetBtn">Làm lại</button>
+    </div>
+  </div>
+
+  <section class="intro">
+    <h2>Ôn trực quan trước khi làm</h2>
+    <p class="note">Các hình dưới đây được dựng trực tiếp trong file bằng SVG nên vẫn hiển thị mà không cần tải ảnh từ Internet.</p>
+    <div class="viz-grid">
+      <figure class="viz"><div class="svg-wrap">
+<svg viewBox="0 0 560 260" role="img" aria-label="Vector on coordinate plane">
+  <defs><marker id="arrow1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#6d5dfc"/></marker></defs>
+  <rect width="560" height="260" rx="18" fill="#f8f9ff"/>
+  <line x1="70" y1="210" x2="510" y2="210" stroke="#7d8597" stroke-width="2"/>
+  <line x1="70" y1="210" x2="70" y2="35" stroke="#7d8597" stroke-width="2"/>
+  <line x1="70" y1="210" x2="330" y2="95" stroke="#6d5dfc" stroke-width="5" marker-end="url(#arrow1)"/>
+  <circle cx="330" cy="95" r="6" fill="#6d5dfc"/>
+  <text x="345" y="90" font-size="18" fill="#23263a">v = (3, 2)</text>
+  <text x="500" y="235" font-size="16" fill="#555b70">x</text>
+  <text x="48" y="45" font-size="16" fill="#555b70">y</text>
+  <text x="85" y="238" font-size="14" fill="#7d8597">Vector = direction + magnitude + coordinates</text>
+</svg>
+</div><figcaption>Vector và trực giác hình học</figcaption></figure><figure class="viz"><div class="svg-wrap">
+<svg viewBox="0 0 720 260" role="img" aria-label="Matrix multiplication shape rule">
+  <rect width="720" height="260" rx="18" fill="#f8f9ff"/>
+  <rect x="60" y="75" width="150" height="110" rx="14" fill="#e7e5ff" stroke="#6d5dfc" stroke-width="2"/>
+  <rect x="285" y="55" width="150" height="150" rx="14" fill="#e8f4ff" stroke="#2c84d8" stroke-width="2"/>
+  <rect x="510" y="75" width="150" height="110" rx="14" fill="#ebf8ef" stroke="#2b9a58" stroke-width="2"/>
+  <text x="95" y="125" font-size="26" fill="#23263a">A</text><text x="86" y="155" font-size="18" fill="#555b70">m × n</text>
+  <text x="342" y="120" font-size="26" fill="#23263a">B</text><text x="319" y="152" font-size="18" fill="#555b70">n × p</text>
+  <text x="560" y="125" font-size="26" fill="#23263a">C</text><text x="543" y="155" font-size="18" fill="#555b70">m × p</text>
+  <text x="235" y="138" font-size="30" fill="#555b70">@</text>
+  <text x="460" y="138" font-size="30" fill="#555b70">=</text>
+  <text x="212" y="235" font-size="17" fill="#6d5dfc">Inner dimensions n must match; n disappears in the result.</text>
+</svg>
+</div><figcaption>Quy tắc shape khi nhân ma trận</figcaption></figure><figure class="viz"><div class="svg-wrap">
+<svg viewBox="0 0 720 300" role="img" aria-label="Linear transformation stretching x-axis">
+  <rect width="720" height="300" rx="18" fill="#f8f9ff"/>
+  <text x="70" y="38" font-size="18" fill="#23263a">Before</text>
+  <text x="440" y="38" font-size="18" fill="#23263a">After A = [[2,0],[0,1]]</text>
+  <g stroke="#aab0c0" stroke-width="1">
+    <line x1="55" y1="240" x2="300" y2="240"/><line x1="80" y1="265" x2="80" y2="55"/>
+    <line x1="400" y1="240" x2="675" y2="240"/><line x1="430" y1="265" x2="430" y2="55"/>
+  </g>
+  <polygon points="130,190 180,120 230,190 180,230" fill="#dcd9ff" stroke="#6d5dfc" stroke-width="3"/>
+  <polygon points="510,190 610,120 670,190 610,230" fill="#daf1e1" stroke="#2b9a58" stroke-width="3"/>
+  <path d="M315 155 C345 155,365 155,390 155" stroke="#555b70" stroke-width="3" fill="none"/>
+  <polygon points="390,155 378,149 378,161" fill="#555b70"/>
+  <text x="250" y="282" font-size="15" fill="#7d8597">Stretch x by 2; y unchanged.</text>
+</svg>
+</div><figcaption>Linear transformation</figcaption></figure><figure class="viz"><div class="svg-wrap">
+<svg viewBox="0 0 720 300" role="img" aria-label="PCA principal direction">
+  <rect width="720" height="300" rx="18" fill="#f8f9ff"/>
+  <line x1="70" y1="245" x2="660" y2="245" stroke="#aab0c0" stroke-width="2"/>
+  <line x1="70" y1="245" x2="70" y2="45" stroke="#aab0c0" stroke-width="2"/>
+  <g fill="#2c84d8" opacity="0.85">
+    <circle cx="140" cy="215" r="7"/><circle cx="190" cy="198" r="7"/><circle cx="245" cy="175" r="7"/>
+    <circle cx="300" cy="160" r="7"/><circle cx="350" cy="135" r="7"/><circle cx="410" cy="120" r="7"/>
+    <circle cx="470" cy="95" r="7"/><circle cx="530" cy="82" r="7"/><circle cx="585" cy="62" r="7"/>
+    <circle cx="260" cy="196" r="7"/><circle cx="380" cy="155" r="7"/>
+  </g>
+  <line x1="115" y1="225" x2="610" y2="55" stroke="#6d5dfc" stroke-width="5" stroke-dasharray="10 8"/>
+  <text x="390" y="55" font-size="18" fill="#6d5dfc">principal component</text>
+  <text x="150" y="278" font-size="16" fill="#555b70">PCA keeps important variance directions, then projects data.</text>
+</svg>
+</div><figcaption>PCA và principal direction</figcaption></figure><figure class="viz"><div class="svg-wrap">
+<svg viewBox="0 0 720 300" role="img" aria-label="Gradient descent loss curve">
+  <rect width="720" height="300" rx="18" fill="#f8f9ff"/>
+  <line x1="70" y1="245" x2="660" y2="245" stroke="#aab0c0" stroke-width="2"/>
+  <line x1="70" y1="245" x2="70" y2="45" stroke="#aab0c0" stroke-width="2"/>
+  <path d="M120 80 C180 95,225 145,280 175 C340 208,390 222,470 228 C540 232,590 232,635 232" fill="none" stroke="#6d5dfc" stroke-width="5"/>
+  <g fill="#2c84d8">
+    <circle cx="120" cy="80" r="7"/><circle cx="225" cy="145" r="7"/><circle cx="340" cy="208" r="7"/><circle cx="470" cy="228" r="7"/>
+  </g>
+  <text x="20" y="55" font-size="16" fill="#555b70">Loss</text>
+  <text x="570" y="273" font-size="16" fill="#555b70">Epoch</text>
+  <text x="130" y="110" font-size="16" fill="#23263a">updates reduce MSE</text>
+</svg>
+</div><figcaption>Gradient descent và loss</figcaption></figure><figure class="viz"><div class="svg-wrap">
+<svg viewBox="0 0 760 300" role="img" aria-label="Embedding search with cosine similarity">
+  <rect width="760" height="300" rx="18" fill="#f8f9ff"/>
+  <rect x="45" y="105" width="130" height="70" rx="12" fill="#e7e5ff"/><text x="76" y="147" font-size="18">Text query</text>
+  <rect x="230" y="95" width="150" height="90" rx="12" fill="#e8f4ff"/><text x="260" y="133" font-size="17">Embedding</text><text x="272" y="158" font-size="17">model</text>
+  <rect x="435" y="65" width="135" height="65" rx="12" fill="#ebf8ef"/><text x="462" y="104" font-size="17">Query vector</text>
+  <rect x="435" y="175" width="135" height="65" rx="12" fill="#fff2db"/><text x="452" y="214" font-size="17">Doc vectors</text>
+  <rect x="615" y="105" width="115" height="70" rx="12" fill="#fce7ef"/><text x="632" y="133" font-size="16">Cosine</text><text x="626" y="157" font-size="16">similarity</text>
+  <g stroke="#555b70" stroke-width="3" fill="none">
+    <path d="M175 140 H230"/><path d="M380 125 H435"/><path d="M380 160 C405 170,410 200,435 207"/>
+    <path d="M570 98 C595 105,595 125,615 133"/><path d="M570 205 C600 200,598 165,615 155"/>
+  </g>
+</svg>
+</div><figcaption>Embedding search</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="quiz-section" data-section="Trắc nghiệm"><h2>Trắc nghiệm</h2><article class="question-card" id="mc1" data-type="mcq"><div class="q-head"><span class="q-number">Câu 1</span><span class="q-section">Trắc nghiệm</span></div><h3>Trong AI/Data Science, một hàng (row) của dataset thường được biểu diễn tốt nhất bằng đối tượng nào?</h3><label class="option"><input type="radio" name="mc1" value="0"><span class="letter">A</span><span>Scalar</span></label><label class="option"><input type="radio" name="mc1" value="1"><span class="letter">B</span><span>Vector</span></label><label class="option"><input type="radio" name="mc1" value="2"><span class="letter">C</span><span>Matrix</span></label><label class="option"><input type="radio" name="mc1" value="3"><span class="letter">D</span><span>Tensor bậc 4</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc2" data-type="mcq"><div class="q-head"><span class="q-number">Câu 2</span><span class="q-section">Trắc nghiệm</span></div><h3>Một dataset có m mẫu và n đặc trưng thường có shape nào?</h3><label class="option"><input type="radio" name="mc2" value="0"><span class="letter">A</span><span>n × m</span></label><label class="option"><input type="radio" name="mc2" value="1"><span class="letter">B</span><span>m × n</span></label><label class="option"><input type="radio" name="mc2" value="2"><span class="letter">C</span><span>m × m</span></label><label class="option"><input type="radio" name="mc2" value="3"><span class="letter">D</span><span>n × n</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc3" data-type="mcq"><div class="q-head"><span class="q-number">Câu 3</span><span class="q-section">Trắc nghiệm</span></div><h3>Ảnh RGB kích thước 224 × 224 thường được biểu diễn dưới dạng tensor có shape nào?</h3><label class="option"><input type="radio" name="mc3" value="0"><span class="letter">A</span><span>224 × 224</span></label><label class="option"><input type="radio" name="mc3" value="1"><span class="letter">B</span><span>3 × 224</span></label><label class="option"><input type="radio" name="mc3" value="2"><span class="letter">C</span><span>224 × 224 × 3</span></label><label class="option"><input type="radio" name="mc3" value="3"><span class="letter">D</span><span>1 × 224 × 3</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc4" data-type="mcq"><div class="q-head"><span class="q-number">Câu 4</span><span class="q-section">Trắc nghiệm</span></div><h3>Giá trị uᵀv của u = [2, 3] và v = [4, 1] bằng bao nhiêu?</h3><label class="option"><input type="radio" name="mc4" value="0"><span class="letter">A</span><span>8</span></label><label class="option"><input type="radio" name="mc4" value="1"><span class="letter">B</span><span>10</span></label><label class="option"><input type="radio" name="mc4" value="2"><span class="letter">C</span><span>11</span></label><label class="option"><input type="radio" name="mc4" value="3"><span class="letter">D</span><span>14</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc5" data-type="mcq"><div class="q-head"><span class="q-number">Câu 5</span><span class="q-section">Trắc nghiệm</span></div><h3>Nếu dot product của hai vector bằng 0, cách diễn giải hình học phù hợp nhất là gì?</h3><label class="option"><input type="radio" name="mc5" value="0"><span class="letter">A</span><span>Cùng hướng</span></label><label class="option"><input type="radio" name="mc5" value="1"><span class="letter">B</span><span>Vuông góc</span></label><label class="option"><input type="radio" name="mc5" value="2"><span class="letter">C</span><span>Ngược hướng</span></label><label class="option"><input type="radio" name="mc5" value="3"><span class="letter">D</span><span>Hai vector bằng nhau</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc6" data-type="mcq"><div class="q-head"><span class="q-number">Câu 6</span><span class="q-section">Trắc nghiệm</span></div><h3>Chuẩn L2 của vector [3, 4] bằng bao nhiêu?</h3><label class="option"><input type="radio" name="mc6" value="0"><span class="letter">A</span><span>5</span></label><label class="option"><input type="radio" name="mc6" value="1"><span class="letter">B</span><span>7</span></label><label class="option"><input type="radio" name="mc6" value="2"><span class="letter">C</span><span>12</span></label><label class="option"><input type="radio" name="mc6" value="3"><span class="letter">D</span><span>25</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc7" data-type="mcq"><div class="q-head"><span class="q-number">Câu 7</span><span class="q-section">Trắc nghiệm</span></div><h3>Với A có shape (m × n) và B có shape (n × p), shape của A @ B là gì?</h3><label class="option"><input type="radio" name="mc7" value="0"><span class="letter">A</span><span>n × n</span></label><label class="option"><input type="radio" name="mc7" value="1"><span class="letter">B</span><span>m × n</span></label><label class="option"><input type="radio" name="mc7" value="2"><span class="letter">C</span><span>m × p</span></label><label class="option"><input type="radio" name="mc7" value="3"><span class="letter">D</span><span>p × m</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc8" data-type="mcq"><div class="q-head"><span class="q-number">Câu 8</span><span class="q-section">Trắc nghiệm</span></div><h3>Trong mô hình hồi quy tuyến tính dạng vector hóa, công thức dự đoán cho nhiều mẫu là gì?</h3><label class="option"><input type="radio" name="mc8" value="0"><span class="letter">A</span><span>ŷ = X + w + b</span></label><label class="option"><input type="radio" name="mc8" value="1"><span class="letter">B</span><span>ŷ = Xw + b</span></label><label class="option"><input type="radio" name="mc8" value="2"><span class="letter">C</span><span>ŷ = wX − b</span></label><label class="option"><input type="radio" name="mc8" value="3"><span class="letter">D</span><span>ŷ = XᵀX</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc9" data-type="mcq"><div class="q-head"><span class="q-number">Câu 9</span><span class="q-section">Trắc nghiệm</span></div><h3>MSE đo điều gì trong bài toán regression?</h3><label class="option"><input type="radio" name="mc9" value="0"><span class="letter">A</span><span>Số đặc trưng</span></label><label class="option"><input type="radio" name="mc9" value="1"><span class="letter">B</span><span>Sai số bình phương trung bình giữa dự đoán và giá trị thật</span></label><label class="option"><input type="radio" name="mc9" value="2"><span class="letter">C</span><span>Góc giữa hai vector</span></label><label class="option"><input type="radio" name="mc9" value="3"><span class="letter">D</span><span>Rank của ma trận</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc10" data-type="mcq"><div class="q-head"><span class="q-number">Câu 10</span><span class="q-section">Trắc nghiệm</span></div><h3>Phép cập nhật gradient descent nào đúng?</h3><label class="option"><input type="radio" name="mc10" value="0"><span class="letter">A</span><span>w_new = w_old + α∇L</span></label><label class="option"><input type="radio" name="mc10" value="1"><span class="letter">B</span><span>w_new = αw_old</span></label><label class="option"><input type="radio" name="mc10" value="2"><span class="letter">C</span><span>w_new = w_old − α∇L</span></label><label class="option"><input type="radio" name="mc10" value="3"><span class="letter">D</span><span>w_new = ∇L − w_old</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc11" data-type="mcq"><div class="q-head"><span class="q-number">Câu 11</span><span class="q-section">Trắc nghiệm</span></div><h3>Determinant bằng 0 cho biết điều gì quan trọng?</h3><label class="option"><input type="radio" name="mc11" value="0"><span class="letter">A</span><span>Ma trận chắc chắn trực giao</span></label><label class="option"><input type="radio" name="mc11" value="1"><span class="letter">B</span><span>Không gian bị collapse và ma trận vuông không khả nghịch</span></label><label class="option"><input type="radio" name="mc11" value="2"><span class="letter">C</span><span>Rank luôn tối đa</span></label><label class="option"><input type="radio" name="mc11" value="3"><span class="letter">D</span><span>Mọi eigenvalue đều bằng 1</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc12" data-type="mcq"><div class="q-head"><span class="q-number">Câu 12</span><span class="q-section">Trắc nghiệm</span></div><h3>Eigenvector v của A thỏa mãn điều kiện nào?</h3><label class="option"><input type="radio" name="mc12" value="0"><span class="letter">A</span><span>Av = 0 với mọi v</span></label><label class="option"><input type="radio" name="mc12" value="1"><span class="letter">B</span><span>Av = λv</span></label><label class="option"><input type="radio" name="mc12" value="2"><span class="letter">C</span><span>Aᵀv = vᵀA</span></label><label class="option"><input type="radio" name="mc12" value="3"><span class="letter">D</span><span>A + v = λ</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc13" data-type="mcq"><div class="q-head"><span class="q-number">Câu 13</span><span class="q-section">Trắc nghiệm</span></div><h3>Mục tiêu trực giác chính của PCA là gì?</h3><label class="option"><input type="radio" name="mc13" value="0"><span class="letter">A</span><span>Tăng số chiều</span></label><label class="option"><input type="radio" name="mc13" value="1"><span class="letter">B</span><span>Tìm các hướng giữ nhiều phương sai và chiếu dữ liệu xuống ít chiều hơn</span></label><label class="option"><input type="radio" name="mc13" value="2"><span class="letter">C</span><span>Đảo ma trận</span></label><label class="option"><input type="radio" name="mc13" value="3"><span class="letter">D</span><span>Thay mọi feature bằng 0</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc14" data-type="mcq"><div class="q-head"><span class="q-number">Câu 14</span><span class="q-section">Trắc nghiệm</span></div><h3>SVD phân rã ma trận A theo dạng nào?</h3><label class="option"><input type="radio" name="mc14" value="0"><span class="letter">A</span><span>A = LU</span></label><label class="option"><input type="radio" name="mc14" value="1"><span class="letter">B</span><span>A = QR</span></label><label class="option"><input type="radio" name="mc14" value="2"><span class="letter">C</span><span>A = UΣVᵀ</span></label><label class="option"><input type="radio" name="mc14" value="3"><span class="letter">D</span><span>A = Xw+b</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="mc15" data-type="mcq"><div class="q-head"><span class="q-number">Câu 15</span><span class="q-section">Trắc nghiệm</span></div><h3>Một dense neural network layer trước activation được mô tả bằng biểu thức nào?</h3><label class="option"><input type="radio" name="mc15" value="0"><span class="letter">A</span><span>z = Wx + b</span></label><label class="option"><input type="radio" name="mc15" value="1"><span class="letter">B</span><span>z = x/W</span></label><label class="option"><input type="radio" name="mc15" value="2"><span class="letter">C</span><span>z = det(W)</span></label><label class="option"><input type="radio" name="mc15" value="3"><span class="letter">D</span><span>z = ||x||</span></label><div class="feedback" aria-live="polite"></div></article></section><section class="quiz-section" data-section="Đúng / Sai"><h2>Đúng / Sai</h2><article class="question-card" id="tf1" data-type="tf"><div class="q-head"><span class="q-number">Câu 16</span><span class="q-section">Đúng / Sai</span></div><h3>Scalar là một số đơn lẻ như learning rate hoặc loss.</h3><label class="option"><input type="radio" name="tf1" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf1" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf2" data-type="tf"><div class="q-head"><span class="q-number">Câu 17</span><span class="q-section">Đúng / Sai</span></div><h3>Matrix multiplication và element-wise multiplication luôn giống nhau.</h3><label class="option"><input type="radio" name="tf2" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf2" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf3" data-type="tf"><div class="q-head"><span class="q-number">Câu 18</span><span class="q-section">Đúng / Sai</span></div><h3>Khi nhân hai ma trận, các inner dimensions phải bằng nhau.</h3><label class="option"><input type="radio" name="tf3" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf3" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf4" data-type="tf"><div class="q-head"><span class="q-number">Câu 19</span><span class="q-section">Đúng / Sai</span></div><h3>Nhân vector với scalar âm có thể đảo hướng vector.</h3><label class="option"><input type="radio" name="tf4" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf4" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf5" data-type="tf"><div class="q-head"><span class="q-number">Câu 20</span><span class="q-section">Đúng / Sai</span></div><h3>Rank thấp thường gợi ý có thông tin dư thừa giữa các cột.</h3><label class="option"><input type="radio" name="tf5" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf5" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf6" data-type="tf"><div class="q-head"><span class="q-number">Câu 21</span><span class="q-section">Đúng / Sai</span></div><h3>Ma trận có determinant khác 0 thì không thể có inverse.</h3><label class="option"><input type="radio" name="tf6" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf6" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf7" data-type="tf"><div class="q-head"><span class="q-number">Câu 22</span><span class="q-section">Đúng / Sai</span></div><h3>Eigenvector luôn giữ nguyên độ dài sau phép biến đổi.</h3><label class="option"><input type="radio" name="tf7" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf7" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf8" data-type="tf"><div class="q-head"><span class="q-number">Câu 23</span><span class="q-section">Đúng / Sai</span></div><h3>Cosine similarity gần 1 cho biết hai embedding có hướng rất giống nhau.</h3><label class="option"><input type="radio" name="tf8" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf8" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf9" data-type="tf"><div class="q-head"><span class="q-number">Câu 24</span><span class="q-section">Đúng / Sai</span></div><h3>PCA trong bài được mô tả như một kỹ thuật tăng chiều dữ liệu.</h3><label class="option"><input type="radio" name="tf9" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf9" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="tf10" data-type="tf"><div class="q-head"><span class="q-number">Câu 25</span><span class="q-section">Đúng / Sai</span></div><h3>Trong gradient descent mini-project, loss curve được dùng để quan sát quá trình tối ưu.</h3><label class="option"><input type="radio" name="tf10" value="true"><span class="letter">Đ</span><span>Đúng</span></label><label class="option"><input type="radio" name="tf10" value="false"><span class="letter">S</span><span>Sai</span></label><div class="feedback" aria-live="polite"></div></article></section><section class="quiz-section" data-section="Trả lời ngắn"><h2>Trả lời ngắn</h2><article class="question-card" id="sa1" data-type="short"><div class="q-head"><span class="q-number">Câu 26</span><span class="q-section">Trả lời ngắn</span></div><h3>Cho u = [2, 1] và v = [1, 3]. Tính u + v. Nhập theo dạng 3,4.</h3><input class="short-input" type="text" id="input-sa1" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sa2" data-type="short"><div class="q-head"><span class="q-number">Câu 27</span><span class="q-section">Trả lời ngắn</span></div><h3>Cho v = [2, 1]. Tính 3v. Nhập theo dạng 6,3.</h3><input class="short-input" type="text" id="input-sa2" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sa3" data-type="short"><div class="q-head"><span class="q-number">Câu 28</span><span class="q-section">Trả lời ngắn</span></div><h3>Tính A x với A = [[1,2],[3,4]] và x = [5,6]. Nhập theo dạng 17,39.</h3><input class="short-input" type="text" id="input-sa3" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sa4" data-type="short"><div class="q-head"><span class="q-number">Câu 29</span><span class="q-section">Trả lời ngắn</span></div><h3>Nếu X có shape 120 × 8 và w có 8 phần tử, vector dự đoán Xw có bao nhiêu phần tử?</h3><input class="short-input" type="text" id="input-sa4" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sa5" data-type="short"><div class="q-head"><span class="q-number">Câu 30</span><span class="q-section">Trả lời ngắn</span></div><h3>Tính determinant của ma trận [[2,1],[3,4]].</h3><input class="short-input" type="text" id="input-sa5" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sa6" data-type="short"><div class="q-head"><span class="q-number">Câu 31</span><span class="q-section">Trả lời ngắn</span></div><h3>Trong ví dụ dự đoán điểm thi của bài, Xw bằng [28, 41, 54] và b = 10. ŷ bằng gì? Nhập dạng 38,51,64.</h3><input class="short-input" type="text" id="input-sa6" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sa7" data-type="short"><div class="q-head"><span class="q-number">Câu 32</span><span class="q-section">Trả lời ngắn</span></div><h3>Điền thuật ngữ: Tập các vector có thể tạo ra từ mọi tổ hợp tuyến tính của v₁, v₂, ... được gọi là ______.</h3><input class="short-input" type="text" id="input-sa7" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sa8" data-type="short"><div class="q-head"><span class="q-number">Câu 33</span><span class="q-section">Trả lời ngắn</span></div><h3>Điền thuật ngữ: Một tập vector vừa linearly independent vừa sinh toàn bộ không gian được gọi là ______.</h3><input class="short-input" type="text" id="input-sa8" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article></section><section class="quiz-section" data-section="Sắp xếp"><h2>Sắp xếp</h2><article class="question-card" id="ord1" data-type="order"><div class="q-head"><span class="q-number">Câu 34</span><span class="q-section">Sắp xếp</span></div><h3>Sắp xếp pipeline gradient descent cơ bản theo đúng thứ tự.</h3><div class="order-list" data-qid="ord1"><div class="order-item" draggable="true" data-key="2"><span class="drag">⋮⋮</span><span class="order-text">Tính MSE</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="3"><span class="drag">⋮⋮</span><span class="order-text">Tính gradient</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="4"><span class="drag">⋮⋮</span><span class="order-text">Cập nhật w và b</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="5"><span class="drag">⋮⋮</span><span class="order-text">Lặp qua nhiều epoch</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="0"><span class="drag">⋮⋮</span><span class="order-text">Khởi tạo w và b</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="1"><span class="drag">⋮⋮</span><span class="order-text">Dự đoán ŷ = Xw + b</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div></div><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="ord2" data-type="order"><div class="q-head"><span class="q-number">Câu 35</span><span class="q-section">Sắp xếp</span></div><h3>Sắp xếp pipeline PCA trực giác.</h3><div class="order-list" data-qid="ord2"><div class="order-item" draggable="true" data-key="2"><span class="drag">⋮⋮</span><span class="order-text">Tính covariance hoặc SVD</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="3"><span class="drag">⋮⋮</span><span class="order-text">Tìm principal directions</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="4"><span class="drag">⋮⋮</span><span class="order-text">Chiếu xuống không gian ít chiều hơn</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="5"><span class="drag">⋮⋮</span><span class="order-text">Thu representation nén</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="0"><span class="drag">⋮⋮</span><span class="order-text">Dữ liệu thô X</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="1"><span class="drag">⋮⋮</span><span class="order-text">Center dữ liệu</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div></div><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="ord3" data-type="order"><div class="q-head"><span class="q-number">Câu 36</span><span class="q-section">Sắp xếp</span></div><h3>Sắp xếp ý nghĩa biến đổi SVD theo trực giác.</h3><div class="order-list" data-qid="ord3"><div class="order-item" draggable="true" data-key="2"><span class="drag">⋮⋮</span><span class="order-text">Σ: stretch / compress</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="3"><span class="drag">⋮⋮</span><span class="order-text">U: rotate / reflect</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="4"><span class="drag">⋮⋮</span><span class="order-text">Output space</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="0"><span class="drag">⋮⋮</span><span class="order-text">Input space</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="1"><span class="drag">⋮⋮</span><span class="order-text">Vᵀ: rotate / reflect</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div></div><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="ord4" data-type="order"><div class="q-head"><span class="q-number">Câu 37</span><span class="q-section">Sắp xếp</span></div><h3>Sắp xếp luồng embedding search.</h3><div class="order-list" data-qid="ord4"><div class="order-item" draggable="true" data-key="2"><span class="drag">⋮⋮</span><span class="order-text">Tạo document embeddings</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="3"><span class="drag">⋮⋮</span><span class="order-text">Tính cosine similarity</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="4"><span class="drag">⋮⋮</span><span class="order-text">Chọn top-k kết quả</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="0"><span class="drag">⋮⋮</span><span class="order-text">Text query</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="1"><span class="drag">⋮⋮</span><span class="order-text">Tạo query embedding</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div></div><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="ord5" data-type="order"><div class="q-head"><span class="q-number">Câu 38</span><span class="q-section">Sắp xếp</span></div><h3>Sắp xếp một dense neural network layer đơn.</h3><div class="order-list" data-qid="ord5"><div class="order-item" draggable="true" data-key="2"><span class="drag">⋮⋮</span><span class="order-text">Activation a = σ(z)</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="3"><span class="drag">⋮⋮</span><span class="order-text">Output vector a</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="0"><span class="drag">⋮⋮</span><span class="order-text">Input vector x</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div><div class="order-item" draggable="true" data-key="1"><span class="drag">⋮⋮</span><span class="order-text">Linear transform z = Wx + b</span><span class="order-buttons"><button type="button" class="up" aria-label="Di chuyển lên">↑</button><button type="button" class="down" aria-label="Di chuyển xuống">↓</button></span></div></div><div class="feedback" aria-live="polite"></div></article></section><section class="quiz-section" data-section="Tình huống thực tế"><h2>Tình huống thực tế</h2><article class="question-card" id="sc1" data-type="mcq"><div class="q-head"><span class="q-number">Câu 39</span><span class="q-section">Tình huống thực tế</span></div><h3>Bạn có 10.000 khách hàng, mỗi khách hàng có 20 đặc trưng. Cách biểu diễn X phù hợp nhất là gì?</h3><label class="option"><input type="radio" name="sc1" value="0"><span class="letter">A</span><span>Vector 20 phần tử</span></label><label class="option"><input type="radio" name="sc1" value="1"><span class="letter">B</span><span>Matrix 10.000 × 20</span></label><label class="option"><input type="radio" name="sc1" value="2"><span class="letter">C</span><span>Tensor 20 × 20 × 20</span></label><label class="option"><input type="radio" name="sc1" value="3"><span class="letter">D</span><span>Scalar 200.000</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sc2" data-type="mcq"><div class="q-head"><span class="q-number">Câu 40</span><span class="q-section">Tình huống thực tế</span></div><h3>Bạn muốn đo độ giống nhau giữa embedding câu truy vấn và embedding tài liệu. Phép đo nào phù hợp nhất theo bài?</h3><label class="option"><input type="radio" name="sc2" value="0"><span class="letter">A</span><span>Determinant</span></label><label class="option"><input type="radio" name="sc2" value="1"><span class="letter">B</span><span>Cosine similarity</span></label><label class="option"><input type="radio" name="sc2" value="2"><span class="letter">C</span><span>Matrix inverse</span></label><label class="option"><input type="radio" name="sc2" value="3"><span class="letter">D</span><span>Rank</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sc3" data-type="mcq"><div class="q-head"><span class="q-number">Câu 41</span><span class="q-section">Tình huống thực tế</span></div><h3>Dataset có 200 features, nhiều feature tương quan mạnh và bạn muốn nén còn vài hướng quan trọng. Công cụ nào phù hợp nhất?</h3><label class="option"><input type="radio" name="sc3" value="0"><span class="letter">A</span><span>PCA</span></label><label class="option"><input type="radio" name="sc3" value="1"><span class="letter">B</span><span>Scalar multiplication</span></label><label class="option"><input type="radio" name="sc3" value="2"><span class="letter">C</span><span>Determinant đơn lẻ</span></label><label class="option"><input type="radio" name="sc3" value="3"><span class="letter">D</span><span>Identity matrix</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sc4" data-type="mcq"><div class="q-head"><span class="q-number">Câu 42</span><span class="q-section">Tình huống thực tế</span></div><h3>Một phép biến đổi 2D làm mọi điểm rộng gấp đôi theo trục x nhưng giữ nguyên y. Ma trận nào phù hợp?</h3><label class="option"><input type="radio" name="sc4" value="0"><span class="letter">A</span><span>[[2,0],[0,1]]</span></label><label class="option"><input type="radio" name="sc4" value="1"><span class="letter">B</span><span>[[1,0],[0,-1]]</span></label><label class="option"><input type="radio" name="sc4" value="2"><span class="letter">C</span><span>[[1,1],[0,1]]</span></label><label class="option"><input type="radio" name="sc4" value="3"><span class="letter">D</span><span>[[0,-1],[1,0]]</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sc5" data-type="mcq"><div class="q-head"><span class="q-number">Câu 43</span><span class="q-section">Tình huống thực tế</span></div><h3>Trong training, loss tăng dần sau mỗi epoch dù công thức gradient đúng. Điều nào nên kiểm tra đầu tiên trong tinh thần bài học?</h3><label class="option"><input type="radio" name="sc5" value="0"><span class="letter">A</span><span>Learning rate α có thể quá lớn</span></label><label class="option"><input type="radio" name="sc5" value="1"><span class="letter">B</span><span>Tăng determinant</span></label><label class="option"><input type="radio" name="sc5" value="2"><span class="letter">C</span><span>Đổi vector thành scalar</span></label><label class="option"><input type="radio" name="sc5" value="3"><span class="letter">D</span><span>Luôn tính inverse của X</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sc6" data-type="mcq"><div class="q-head"><span class="q-number">Câu 44</span><span class="q-section">Tình huống thực tế</span></div><h3>Bạn có ma trận feature với nhiều cột gần như là bản sao tuyến tính của nhau. Khái niệm nào cảnh báo redundancy trực tiếp nhất?</h3><label class="option"><input type="radio" name="sc6" value="0"><span class="letter">A</span><span>Rank thấp</span></label><label class="option"><input type="radio" name="sc6" value="1"><span class="letter">B</span><span>Norm lớn</span></label><label class="option"><input type="radio" name="sc6" value="2"><span class="letter">C</span><span>Bias dương</span></label><label class="option"><input type="radio" name="sc6" value="3"><span class="letter">D</span><span>Batch size</span></label><div class="feedback" aria-live="polite"></div></article><article class="question-card" id="sc7" data-type="short"><div class="q-head"><span class="q-number">Câu 45</span><span class="q-section">Tình huống thực tế</span></div><h3>Bạn cần giải thích trong 1 cụm từ vì sao neural network dùng linear algebra. Điền phần còn thiếu: mỗi layer thực hiện ______ rồi mới qua activation.</h3><input class="short-input" type="text" id="input-sc7" placeholder="Nhập câu trả lời..." autocomplete="off"><div class="feedback" aria-live="polite"></div></article></section>
+
+  <section id="resultBox" class="result-box">
+    <div class="score-big" id="scoreBig">0/45</div>
+    <div id="scoreMessage"></div>
+    <div class="mini-grid" id="sectionStats"></div>
+  </section>
+</main>
+
+<script>
+const BANK = {"mc1": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Một hàng dữ liệu thường là một vector đặc trưng xᵢ.", "answer": 1, "display": "B. Vector"}, "mc2": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Theo quy ước trong bài: rows = samples, columns = features, nên X ∈ R^(m×n).", "answer": 1, "display": "B. m × n"}, "mc3": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Ảnh RGB có chiều cao H, chiều rộng W và 3 kênh màu.", "answer": 2, "display": "C. 224 × 224 × 3"}, "mc4": {"type": "mcq", "section": "Trắc nghiệm", "exp": "uᵀv = 2×4 + 3×1 = 11.", "answer": 2, "display": "C. 11"}, "mc5": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Dot product bằng 0 tương ứng với cos(θ)=0, tức hai vector vuông góc.", "answer": 1, "display": "B. Vuông góc"}, "mc6": {"type": "mcq", "section": "Trắc nghiệm", "exp": "||x||₂ = √(3²+4²)=5.", "answer": 0, "display": "A. 5"}, "mc7": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Hai chiều trong n phải khớp; kết quả giữ hai chiều ngoài: m × p.", "answer": 2, "display": "C. m × p"}, "mc8": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Bài dùng công thức ŷ = Xw + b.", "answer": 1, "display": "B. ŷ = Xw + b"}, "mc9": {"type": "mcq", "section": "Trắc nghiệm", "exp": "MSE = (1/m) Σ(ŷᵢ−yᵢ)².", "answer": 1, "display": "B. Sai số bình phương trung bình giữa dự đoán và giá trị thật"}, "mc10": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Gradient descent đi ngược hướng gradient để giảm loss.", "answer": 2, "display": "C. w_new = w_old − α∇L"}, "mc11": {"type": "mcq", "section": "Trắc nghiệm", "exp": "det(A)=0 nghĩa là phép biến đổi làm mất ít nhất một chiều; ma trận vuông không invertible.", "answer": 1, "display": "B. Không gian bị collapse và ma trận vuông không khả nghịch"}, "mc12": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Eigenvector giữ nguyên phương sau biến đổi: Av = λv.", "answer": 1, "display": "B. Av = λv"}, "mc13": {"type": "mcq", "section": "Trắc nghiệm", "exp": "PCA tìm principal directions giữ nhiều biến thiên hữu ích.", "answer": 1, "display": "B. Tìm các hướng giữ nhiều phương sai và chiếu dữ liệu xuống ít chiều hơn"}, "mc14": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Trong bài: A = UΣVᵀ.", "answer": 2, "display": "C. A = UΣVᵀ"}, "mc15": {"type": "mcq", "section": "Trắc nghiệm", "exp": "Dense layer là một linear transformation cộng bias: z = Wx + b.", "answer": 0, "display": "A. z = Wx + b"}, "tf1": {"type": "tf", "section": "Đúng / Sai", "exp": "Đúng. Bài dùng learning_rate, loss, accuracy làm ví dụ scalar.", "answer": true, "display": "Đúng"}, "tf2": {"type": "tf", "section": "Đúng / Sai", "exp": "Sai. Bài nhấn mạnh A*B và A@B không phải cùng một phép toán.", "answer": false, "display": "Sai"}, "tf3": {"type": "tf", "section": "Đúng / Sai", "exp": "Đúng: (m×n) @ (n×p) hợp lệ.", "answer": true, "display": "Đúng"}, "tf4": {"type": "tf", "section": "Đúng / Sai", "exp": "Đúng. Ví dụ −v có hướng ngược v.", "answer": true, "display": "Đúng"}, "tf5": {"type": "tf", "section": "Đúng / Sai", "exp": "Đúng. Bài liên hệ low rank với redundancy và compression.", "answer": true, "display": "Đúng"}, "tf6": {"type": "tf", "section": "Đúng / Sai", "exp": "Sai. Với ma trận vuông, det(A) ≠ 0 là điều kiện để khả nghịch.", "answer": false, "display": "Sai"}, "tf7": {"type": "tf", "section": "Đúng / Sai", "exp": "Sai. Hướng được giữ (hoặc đảo nếu λ<0), độ dài có thể thay đổi theo |λ|.", "answer": false, "display": "Sai"}, "tf8": {"type": "tf", "section": "Đúng / Sai", "exp": "Đúng theo phần Embeddings as Vectors.", "answer": true, "display": "Đúng"}, "tf9": {"type": "tf", "section": "Đúng / Sai", "exp": "Sai. PCA dùng để giảm chiều bằng cách chiếu lên các hướng quan trọng.", "answer": false, "display": "Sai"}, "tf10": {"type": "tf", "section": "Đúng / Sai", "exp": "Đúng. Cấu trúc notebook yêu cầu plot loss curve.", "answer": true, "display": "Đúng"}, "sa1": {"type": "short", "section": "Trả lời ngắn", "exp": "Cộng theo từng phần tử: [2+1, 1+3] = [3,4].", "accepted": ["3,4", "[3,4]", "3 4", "(3,4)", "[3, 4]", "(3, 4)"], "display": "[3, 4]"}, "sa2": {"type": "short", "section": "Trả lời ngắn", "exp": "Nhân từng phần tử với 3.", "accepted": ["6,3", "[6,3]", "6 3", "(6,3)", "[6, 3]", "(6, 3)"], "display": "[6, 3]"}, "sa3": {"type": "short", "section": "Trả lời ngắn", "exp": "Hàng 1: 1×5+2×6=17; hàng 2: 3×5+4×6=39.", "accepted": ["17,39", "[17,39]", "17 39", "(17,39)", "[17, 39]", "(17, 39)"], "display": "[17, 39]"}, "sa4": {"type": "short", "section": "Trả lời ngắn", "exp": "(120×8) @ (8×1) → (120×1).", "accepted": ["120", "120 phần tử", "120 phan tu"], "display": "120"}, "sa5": {"type": "short", "section": "Trả lời ngắn", "exp": "det = 2×4 − 1×3 = 5.", "accepted": ["5", "5.0"], "display": "5"}, "sa6": {"type": "short", "section": "Trả lời ngắn", "exp": "Cộng bias 10 cho mỗi dự đoán.", "accepted": ["38,51,64", "[38,51,64]", "38 51 64", "[38, 51, 64]"], "display": "[38, 51, 64]"}, "sa7": {"type": "short", "section": "Trả lời ngắn", "exp": "Span là tập tất cả linear combinations.", "accepted": ["span", "không gian sinh", "khong gian sinh"], "display": "span"}, "sa8": {"type": "short", "section": "Trả lời ngắn", "exp": "Đó là định nghĩa basis trong bài.", "accepted": ["basis", "cơ sở", "co so"], "display": "basis"}, "ord1": {"type": "order", "section": "Sắp xếp", "exp": "Đây là flow của mini-project gradient descent trong bài.", "answer": [0, 1, 2, 3, 4, 5], "display": "Khởi tạo w và b → Dự đoán ŷ = Xw + b → Tính MSE → Tính gradient → Cập nhật w và b → Lặp qua nhiều epoch"}, "ord2": {"type": "order", "section": "Sắp xếp", "exp": "Bài mô tả đúng pipeline này ở phần PCA.", "answer": [0, 1, 2, 3, 4, 5], "display": "Dữ liệu thô X → Center dữ liệu → Tính covariance hoặc SVD → Tìm principal directions → Chiếu xuống không gian ít chiều hơn → Thu representation nén"}, "ord3": {"type": "order", "section": "Sắp xếp", "exp": "Đây là trực giác decomposition của A = UΣVᵀ.", "answer": [0, 1, 2, 3, 4], "display": "Input space → Vᵀ: rotate / reflect → Σ: stretch / compress → U: rotate / reflect → Output space"}, "ord4": {"type": "order", "section": "Sắp xếp", "exp": "Bài biểu diễn embedding retrieval bằng query vector, document vectors, cosine similarity và top-k.", "answer": [0, 1, 2, 3, 4], "display": "Text query → Tạo query embedding → Tạo document embeddings → Tính cosine similarity → Chọn top-k kết quả"}, "ord5": {"type": "order", "section": "Sắp xếp", "exp": "Đúng theo sơ đồ one-layer neural network trong bài.", "answer": [0, 1, 2, 3], "display": "Input vector x → Linear transform z = Wx + b → Activation a = σ(z) → Output vector a"}, "sc1": {"type": "mcq", "section": "Tình huống thực tế", "exp": "Mỗi hàng là khách hàng, mỗi cột là một feature.", "answer": 1, "display": "B. Matrix 10.000 × 20"}, "sc2": {"type": "mcq", "section": "Tình huống thực tế", "exp": "Bài dùng cosine similarity cho embedding comparison.", "answer": 1, "display": "B. Cosine similarity"}, "sc3": {"type": "mcq", "section": "Tình huống thực tế", "exp": "PCA giảm chiều bằng cách giữ các principal directions chứa nhiều variance.", "answer": 0, "display": "A. PCA"}, "sc4": {"type": "mcq", "section": "Tình huống thực tế", "exp": "Đây là scaling với sₓ=2, sᵧ=1.", "answer": 0, "display": "A. [[2,0],[0,1]]"}, "sc5": {"type": "mcq", "section": "Tình huống thực tế", "exp": "Gradient descent phụ thuộc learning rate; bước quá lớn có thể làm optimization diverge.", "answer": 0, "display": "A. Learning rate α có thể quá lớn"}, "sc6": {"type": "mcq", "section": "Tình huống thực tế", "exp": "Low rank gắn với ít independent directions và feature redundancy.", "answer": 0, "display": "A. Rank thấp"}, "sc7": {"type": "short", "section": "Tình huống thực tế", "exp": "Trong bài: z = Wx + b rồi activation.", "accepted": ["matrix multiplication", "phép nhân ma trận", "phep nhan ma tran", "linear transformation", "biến đổi tuyến tính", "bien doi tuyen tinh"], "display": "matrix multiplication / linear transformation"}};
+const TOTAL = 45;
+const STORAGE_KEY = "linear-algebra-practice-v1";
+
+function normText(s) {
+  return (s || "").toLowerCase().trim()
+    .replace(/\s+/g, " ")
+    .replace(/[\[\]\(\)]/g, "")
+    .replace(/\s*,\s*/g, ",");
+}
+
+function answered(qid, data) {
+  const card = document.getElementById(qid);
+  if (data.type === "mcq" || data.type === "tf") {
+    return !!card.querySelector('input[type="radio"]:checked');
+  }
+  if (data.type === "short") {
+    return !!card.querySelector(".short-input").value.trim();
+  }
+  if (data.type === "order") {
+    return card.dataset.touched === "1";
+  }
+  return false;
+}
+
+function currentOrder(card) {
+  return [...card.querySelectorAll(".order-item")].map(x => Number(x.dataset.key));
+}
+
+function checkQuestion(qid, data, reveal=false) {
+  const card = document.getElementById(qid);
+  let ok = false, hasAnswer = answered(qid, data);
+
+  if (data.type === "mcq") {
+    const el = card.querySelector('input[type="radio"]:checked');
+    ok = !!el && Number(el.value) === Number(data.answer);
+  } else if (data.type === "tf") {
+    const el = card.querySelector('input[type="radio"]:checked');
+    ok = !!el && ((el.value === "true") === Boolean(data.answer));
+  } else if (data.type === "short") {
+    const val = normText(card.querySelector(".short-input").value);
+    ok = data.accepted.map(normText).includes(val);
+  } else if (data.type === "order") {
+    ok = JSON.stringify(currentOrder(card)) === JSON.stringify(data.answer);
+  }
+
+  card.classList.remove("correct","wrong");
+  const fb = card.querySelector(".feedback");
+
+  if (reveal) {
+    card.classList.add(ok && hasAnswer ? "correct" : "wrong");
+    fb.innerHTML = `<strong>Đáp án:</strong> ${data.display}<br>${data.exp}`;
+  } else if (hasAnswer) {
+    card.classList.add(ok ? "correct" : "wrong");
+    fb.innerHTML = ok ? `✓ Chính xác. ${data.exp}` : `✗ Chưa đúng. <strong>Đáp án:</strong> ${data.display}<br>${data.exp}`;
+  } else {
+    fb.style.display = "none";
+  }
+  return {ok, hasAnswer};
+}
+
+function gradeAll(reveal=false) {
+  let score=0, answeredCount=0;
+  const stats={};
+  for (const [qid,data] of Object.entries(BANK)) {
+    const r=checkQuestion(qid,data,reveal);
+    if (r.ok && r.hasAnswer) score++;
+    if (r.hasAnswer) answeredCount++;
+    if (!stats[data.section]) stats[data.section]={score:0,total:0};
+    stats[data.section].total++;
+    if (r.ok && r.hasAnswer) stats[data.section].score++;
+  }
+  document.getElementById("scoreBig").textContent=`${score}/${TOTAL}`;
+  const pct=Math.round(score/TOTAL*100);
+  let msg = pct>=90 ? "Xuất sắc — có thể chuyển sang bài coding/mini-project." :
+            pct>=75 ? "Khá tốt — xem lại các câu sai để củng cố phần yếu." :
+            pct>=60 ? "Đã có nền tảng — nên ôn lại shape rules, transformations và optimization." :
+                      "Nên học lại theo chuỗi vector → matrix → multiplication → model → loss → gradient.";
+  document.getElementById("scoreMessage").textContent=`${pct}% — ${msg}`;
+  document.getElementById("sectionStats").innerHTML=Object.entries(stats).map(([k,v]) =>
+    `<div class="mini-stat"><strong>${v.score}/${v.total}</strong><br><small>${k}</small></div>`
+  ).join("");
+  document.getElementById("resultBox").classList.add("show");
+  window.scrollTo({top:document.getElementById("resultBox").offsetTop-20,behavior:"smooth"});
+}
+
+function updateProgress() {
+  let count=0;
+  for (const [qid,data] of Object.entries(BANK)) if (answered(qid,data)) count++;
+  document.getElementById("progressText").textContent=`${count}/${TOTAL} đã trả lời`;
+  document.getElementById("progressBar").style.width=`${count/TOTAL*100}%`;
+}
+
+function saveState() {
+  const state={};
+  for (const [qid,data] of Object.entries(BANK)) {
+    const card=document.getElementById(qid);
+    if (data.type==="mcq" || data.type==="tf") {
+      const el=card.querySelector('input[type="radio"]:checked');
+      state[qid]=el ? el.value : null;
+    } else if (data.type==="short") {
+      state[qid]=card.querySelector(".short-input").value;
+    } else {
+      state[qid]={order:currentOrder(card),touched:card.dataset.touched==="1"};
+    }
+  }
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+  updateProgress();
+}
+
+function restoreState() {
+  try {
+    const state=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
+    for (const [qid,val] of Object.entries(state)) {
+      if (!(qid in BANK)) continue;
+      const data=BANK[qid], card=document.getElementById(qid);
+      if ((data.type==="mcq" || data.type==="tf") && val!==null) {
+        const el=card.querySelector(`input[value="${CSS.escape(String(val))}"]`);
+        if(el) el.checked=true;
+      } else if (data.type==="short" && typeof val==="string") {
+        card.querySelector(".short-input").value=val;
+      } else if (data.type==="order" && val && Array.isArray(val.order)) {
+        const list=card.querySelector(".order-list");
+        const map=new Map([...list.children].map(x=>[Number(x.dataset.key),x]));
+        val.order.forEach(k=>{if(map.has(k))list.appendChild(map.get(k));});
+        if(val.touched) card.dataset.touched="1";
+      }
+    }
+  } catch(e) {}
+  updateProgress();
+}
+
+document.addEventListener("change", e => {
+  if (e.target.matches('input[type="radio"]')) saveState();
+});
+document.addEventListener("input", e => {
+  if (e.target.matches(".short-input")) saveState();
+});
+
+let dragged=null;
+document.querySelectorAll(".order-item").forEach(item=>{
+  item.addEventListener("dragstart",()=>{dragged=item; item.style.opacity=".5";});
+  item.addEventListener("dragend",()=>{item.style.opacity="1"; dragged=null; saveState();});
+  item.addEventListener("dragover",e=>e.preventDefault());
+  item.addEventListener("drop",e=>{
+    e.preventDefault();
+    if(!dragged || dragged===item) return;
+    const list=item.parentElement;
+    const rect=item.getBoundingClientRect();
+    const after=e.clientY>rect.top+rect.height/2;
+    list.insertBefore(dragged, after ? item.nextSibling : item);
+    item.closest(".question-card").dataset.touched="1";
+    saveState();
+  });
+});
+
+document.addEventListener("click", e=>{
+  if(e.target.matches(".up,.down")) {
+    const item=e.target.closest(".order-item"), list=item.parentElement;
+    if(e.target.matches(".up") && item.previousElementSibling) list.insertBefore(item,item.previousElementSibling);
+    if(e.target.matches(".down") && item.nextElementSibling) list.insertBefore(item.nextElementSibling,item);
+    item.closest(".question-card").dataset.touched="1";
+    saveState();
+  }
+});
+
+document.getElementById("gradeBtn").addEventListener("click",()=>gradeAll(false));
+document.getElementById("revealBtn").addEventListener("click",()=>gradeAll(true));
+document.getElementById("resetBtn").addEventListener("click",()=>{
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+});
+
+restoreState();
+</script>
+</body>
+</html>
+
+

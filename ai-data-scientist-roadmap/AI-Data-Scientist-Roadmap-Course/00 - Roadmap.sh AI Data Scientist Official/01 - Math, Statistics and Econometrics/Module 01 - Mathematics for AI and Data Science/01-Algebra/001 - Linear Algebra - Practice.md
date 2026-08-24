@@ -1,1693 +1,531 @@
-# 001 — Linear Algebra for AI and Data Science
-
-**Course:** 01 — Math, Statistics and Econometrics
-**Module:** Module 01 — Mathematics for AI and Data Science
-**Content Group:** Linear Algebra
-**Roadmap Source:** Mathematics for AI and Data Science / Linear Algebra
-**Lesson Type:** Mathematics
-**Order in Module:** 001
-**Suggested Duration:** 24 minutes
-
----
-
-## 1. Lesson Summary
-
-**Linear Algebra** is the mathematical language of **vectors, matrices, linear transformations, spaces, projections, eigenvectors, optimization, embeddings, PCA, neural networks, and gradients**.
-
-In AI and Data Science, linear algebra is not just abstract math. It is the way we represent:
-
-* A row in a dataset as a **vector**
-* A full dataset as a **matrix**
-* An image as a **tensor**
-* Model parameters as **weights**
-* Text/image/audio representations as **embeddings**
-* Neural network layers as **matrix transformations**
-* Dimensionality reduction as **projection**
-* Training as **optimization over vector spaces**
-
-MIT’s Linear Algebra course emphasizes matrix theory, systems of equations, vector spaces, determinants, eigenvalues, and applications in other disciplines. NumPy, PyTorch, TensorFlow, and scikit-learn all expose linear algebra operations directly because they are core computational building blocks in scientific computing and machine learning.
-
----
-
-## 2. Learning Objectives
-
-After this lesson, you should be able to:
-
-1. Explain **Linear Algebra** in your own words.
-2. Represent data as **vectors, matrices, and tensors**.
-3. Understand why matrix multiplication is the core operation behind many ML models.
-4. Connect vectors and matrices to:
-
-    - datasets
-    - embeddings
-    - linear regression
-    - neural networks
-    - PCA
-    - gradient descent
-5. Build a small practical artifact:
-
-    - a notebook
-    - a chart
-    - a Python check
-    - a mini ML experiment
-    - a loss curve
-    - a matrix transformation visualization
-
----
-
-## 3. Big Picture: Where Linear Algebra Fits in AI
-
-> Render note: Mermaid diagrams should be rendered by GitHub, VS Code Markdown Preview Mermaid Support, Obsidian, or compatible Markdown viewers.
-
-```mermaid
-flowchart TD
-    LA["Linear Algebra for AI"]
-
-    LA --> DR["Data Representation"]
-    DR --> V["Vector"]
-    DR --> M["Matrix"]
-    DR --> T["Tensor"]
-    DR --> E["Embedding"]
-
-    LA --> GEO["Geometry"]
-    GEO --> LEN["Length"]
-    GEO --> ANG["Angle"]
-    GEO --> DIST["Distance"]
-    GEO --> PROJ["Projection"]
-    GEO --> ROT["Rotation"]
-
-    LA --> MLM["ML Models"]
-    MLM --> LR["Linear Regression"]
-    MLM --> LOGR["Logistic Regression"]
-    MLM --> PCA["PCA"]
-    MLM --> NN["Neural Networks"]
-    MLM --> REC["Recommender Systems"]
-
-    LA --> OPT["Optimization"]
-    OPT --> GRAD["Gradient"]
-    OPT --> JAC["Jacobian"]
-    OPT --> HES["Hessian"]
-    OPT --> GD["Gradient Descent"]
-
-    LA --> DL["Deep Learning"]
-    DL --> MM["Matrix Multiplication"]
-    DL --> WM["Weight Matrices"]
-    DL --> ACT["Activations"]
-    DL --> BP["Backpropagation"]
-
-    LA --> ART["Deployment Artifacts"]
-    ART --> NB["Notebook"]
-    ART --> MET["Metric"]
-    ART --> CH["Chart"]
-    ART --> API["API"]
-    ART --> MOD["Model"]
-    ART --> PORT["Portfolio Demo"]
-```
-
----
-
-## 4. Core Definition
-
-Linear algebra studies **linear relationships** between quantities.
-
-A relationship is linear when it preserves:
-
-### Addition
-
-$$
-T(u + v) = T(u) + T(v)
-$$
-
-### Scalar multiplication
-
-$$
-T(cu) = cT(u)
-$$
-
-Combined:
-
-$$
-T(au + bv) = aT(u) + bT(v)
-$$
-
-A **linear transformation** can stretch, rotate, shear, reflect, or project vectors, but it does not bend space.
-
-MIT describes linear transformations as what happens when a matrix multiplies an input vector to produce an output vector.
-
----
-
-## 5. Concept Tree
-
-```text
-Linear Algebra
-│
-├── 1. Scalars
-│   └── Single numbers: 2, -5, 3.14
-│
-├── 2. Vectors
-│   ├── Ordered list of numbers
-│   ├── Point in space
-│   ├── Direction + magnitude
-│   └── Example: [height, weight, age]
-│
-├── 3. Matrices
-│   ├── Table of numbers
-│   ├── Dataset representation
-│   ├── Linear transformation
-│   └── Example: X with shape (samples × features)
-│
-├── 4. Tensors
-│   ├── Higher-dimensional arrays
-│   ├── Images, videos, batches
-│   └── Example: image = height × width × channels
-│
-├── 5. Vector Spaces
-│   ├── Span
-│   ├── Basis
-│   ├── Dimension
-│   └── Subspace
-│
-├── 6. Matrix Operations
-│   ├── Addition
-│   ├── Multiplication
-│   ├── Transpose
-│   ├── Inverse
-│   └── Decomposition
-│
-├── 7. Geometry
-│   ├── Dot product
-│   ├── Norm
-│   ├── Angle
-│   ├── Projection
-│   └── Orthogonality
-│
-└── 8. ML Applications
-    ├── Linear regression
-    ├── PCA
-    ├── Neural networks
-    ├── Embeddings
-    └── Gradient descent
-```
-
----
-
-## 6. Main Objects in Linear Algebra
-
-| Object      |                          Mathematical Form | AI / Data Science Meaning               |
-| ----------- | -----------------------------------------: | --------------------------------------- |
-| Scalar      |                       $a \in \mathbb{R}$ | One value, for example learning rate    |
-| Vector      |                     $x \in \mathbb{R}^n$ | One data point or embedding             |
-| Matrix      |          $X \in \mathbb{R}^{m \times n}$ | Dataset with rows and features          |
-| Tensor      | $T \in \mathbb{R}^{a \times b \times c}$ | Image, video, model batch               |
-| Linear map  |                                 $y = Ax$ | Transformation of input data            |
-| Dot product |                               $x^\top y$ | Similarity, projection, attention score |
-| Norm        |                                    $\lVert x \rVert$ | Length, magnitude, distance             |
-| Eigenvector |                         $Av = \lambda v$ | Direction preserved by transformation   |
-| SVD         |                     $A = U\Sigma V^\top$ | Compression, PCA, latent structure      |
-
----
-
-## 7. Scalars, Vectors, Matrices, and Tensors
-
-### 7.1 Scalar
-
-A scalar is a single number.
-
-$$
-a = 3.5
-$$
-
-Examples in ML:
-
-```text
-learning_rate = 0.01
-loss = 0.573
-accuracy = 0.91
-regularization_lambda = 0.001
-```
-
----
-
-### 7.2 Vector
-
-A vector is an ordered list of numbers.
-
-$$
-x =
-\begin{bmatrix}
-x_1 \\
-x_2 \\
-x_3
-\end{bmatrix}
-$$
-
-Example:
-
-$$
-x =
-\begin{bmatrix}
-170 \\
-65 \\
-22
-\end{bmatrix}
-$$
-
-This could represent:
-
-```text
-height = 170 cm
-weight = 65 kg
-age = 22
-```
-
-In machine learning, one row of a dataset is often a vector:
-
-$$
-x_i = [x_{i1}, x_{i2}, x_{i3}, ..., x_{in}]
-$$
-
----
-
-### 7.3 Matrix
-
-A matrix is a rectangular table of numbers.
-
-$$
-X =
-\begin{bmatrix}
-x_{11} & x_{12} & x_{13} \\
-x_{21} & x_{22} & x_{23} \\
-x_{31} & x_{32} & x_{33}
-\end{bmatrix}
-$$
-
-In Data Science:
-
-$$
-X \in \mathbb{R}^{m \times n}
-$$
-
-Where:
-
-```text
-m = number of samples
-n = number of features
-```
-
-Example:
-
-$$
-X =
-\begin{bmatrix}
-170 & 65 & 22 \\
-160 & 50 & 21 \\
-180 & 80 & 25
-\end{bmatrix}
-$$
-
-```text
-Rows    = people
-Columns = height, weight, age
-```
-
----
-
-### 7.4 Tensor
-
-A tensor is a higher-dimensional array.
-
-Example: RGB image
-
-$$
-Image \in \mathbb{R}^{H \times W \times C}
-$$
-
-```text
-H = height
-W = width
-C = channels, usually 3 for RGB
-```
-
-Example:
-
-```text
-Image shape = 224 × 224 × 3
-Batch shape = 32 × 224 × 224 × 3
-```
-
-Deep learning frameworks use tensors heavily. TensorFlow’s matrix multiplication documentation describes inputs as tensors with matrix dimensions and optional outer batch dimensions.
-
----
-
-## 8. Coordinate Plane Intuition
-
-A 2D vector:
-
-$$
-v =
-\begin{bmatrix}
-3 \\
-2
-\end{bmatrix}
-$$
-
-means:
-
-```text
-move 3 units along x-axis
-move 2 units along y-axis
-```
-
-### Coordinate Diagram
-
-```text
-y
-↑
-5 |
-4 |
-3 |
-2 |             ● v = (3, 2)
-1 |          ↗
-0 +----+----+----+----+----→ x
-     0    1    2    3    4
-```
-
-The vector has:
-
-* direction
-* magnitude
-* coordinates
-* geometric meaning
-
----
-
-## 9. Vector Addition
-
-Given:
-
-$$
-u =
-\begin{bmatrix}
-2 \\
-1
-\end{bmatrix},
-\quad
-v =
-\begin{bmatrix}
-1 \\
-3
-\end{bmatrix}
-$$
-
-Then:
-
-$$
-u + v = \begin{bmatrix} 2 + 1 \\ 1 + 3 \end{bmatrix} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}
-$$
-
-### Geometric Diagram
-
-```text
-y
-↑
-4 |                  ● u + v = (3,4)
-3 |               ↗
-2 |            ↗
-1 |       ● u = (2,1)
-0 +----+----+----+----+----→ x
-     0    1    2    3    4
-
-u moves first.
-v moves from the head of u.
-u + v lands at the final point.
-```
-
----
-
-## 10. Scalar Multiplication
-
-Given:
-
-$$
-v =
-\begin{bmatrix}
-2 \\
-1
-\end{bmatrix}
-$$
-
-Then:
-
-$$
-3v = 3 \begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 6 \\ 3 \end{bmatrix}
-$$
-
-Scalar multiplication changes vector length.
-
-```text
-v   = short arrow
-3v  = same direction, 3 times longer
--v  = opposite direction
-```
-
----
-
-## 11. Dot Product
-
-The dot product of two vectors is:
-
-$$
-u \cdot v = u^\top v = \sum_{i=1}^{n} u_i v_i
-$$
-
-Example:
-
-$$
-u =
-\begin{bmatrix}
-2 \\
-3
-\end{bmatrix},
-\quad
-v =
-\begin{bmatrix}
-4 \\
-1
-\end{bmatrix}
-$$
-
-$$
-u^\top v = 2 \times 4 + 3 \times 1 = 11
-$$
-
-### Geometric Meaning
-
-$$
-u^\top v = \lVert u \rVert\lVert v \rVert\cos(\theta)
-$$
-
-So dot product measures:
-
-```text
-large positive  → same direction
-zero            → perpendicular
-large negative  → opposite direction
-```
-
-### ML Meaning
-
-Dot product appears in:
-
-* linear regression
-* logistic regression
-* neural network layers
-* attention mechanisms
-* embedding similarity
-* recommender systems
-
-Example:
-
-$$
-score = w^\top x + b
-$$
-
----
-
-## 12. Norm: Vector Length
-
-The L2 norm is:
-
-$$
-\lVert x \rVert_2 = \sqrt{x_1^2 + x_2^2 + ... + x_n^2}
-$$
-
-Example:
-
-$$
-x =
-\begin{bmatrix}
-3 \\
-4
-\end{bmatrix}
-$$
-
-$$
-\lVert x \rVert_2 = \sqrt{3^2 + 4^2} = 5
-$$
-
-NumPy provides `numpy.linalg.norm` for vector and matrix norms.
-
----
-
-## 13. Matrix Multiplication
-
-Given:
-
-$$
-A =
-\begin{bmatrix}
-1 & 2 \\
-3 & 4
-\end{bmatrix},
-\quad
-x =
-\begin{bmatrix}
-5 \\
-6
-\end{bmatrix}
-$$
-
-Then:
-
-$$
-Ax = \begin{bmatrix} 1 \times 5 + 2 \times 6 \\ 3 \times 5 + 4 \times 6 \end{bmatrix} = \begin{bmatrix} 17 \\ 39 \end{bmatrix}
-$$
-
-### Shape Rule
-
-$$
-A_{m \times n} B_{n \times p} = C_{m \times p}
-$$
-
-```text
-A shape: m × n
-B shape: n × p
-
-Inner dimensions must match.
-
-(m × n) @ (n × p) = (m × p)
-```
-
-### Shape Diagram
-
-```text
-        B
-     n × p
-   ┌────────┐
-   │        │
-   │        │
-   └────────┘
-
-A  m × n       Result: m × p
-┌────────┐     ┌────────┐
-│        │  @  │        │
-│        │  =  │        │
-└────────┘     └────────┘
-
-The shared dimension n disappears.
-```
-
-PyTorch’s `torch.matmul` supports matrix multiplication and batched matrix multiplication when tensors have more than two dimensions.
-
----
-
-## 14. Matrix as Dataset
-
-A dataset can be represented as:
-
-$$
-X =
-\begin{bmatrix}
-x_1^\top \\
-x_2^\top \\
-x_3^\top \\
-\vdots \\
-x_m^\top
-\end{bmatrix}
-$$
-
-Where:
-
-```text
-Each row    = one sample
-Each column = one feature
-```
-
-Example:
-
-```text
-Student dataset
-```
-
-$$
-X =
-\begin{bmatrix}
-8.0 & 2.0 & 1.0 \\
-6.5 & 3.0 & 0.0 \\
-9.0 & 1.0 & 1.0
-\end{bmatrix}
-$$
-
-```text
-Column 1 = study hours
-Column 2 = sleep debt
-Column 3 = completed practice test
-```
-
----
-
-## 15. Linear Regression as Linear Algebra
-
-Linear regression predicts:
-
-$$
-\hat{y} = Xw + b
-$$
-
-Where:
-
-```text
-X = dataset matrix
-w = weight vector
-b = bias
-ŷ = prediction vector
-```
-
-For one sample:
-
-$$
-\hat{y}_i = w^\top x_i + b
-$$
-
-For many samples:
-
-$$
-\hat{y} = Xw + b
-$$
-
-### Diagram
-
+# 001 — Linear Algebra: Bộ bài luyện tập
+> **Nguồn:** Bài `001 — Linear Algebra for AI and Data Science` do người học cung cấp.
+> **Mục tiêu:** Ôn từ biểu diễn dữ liệu bằng vector/matrix/tensor đến matrix multiplication, linear regression, gradient descent, transformations, rank, determinant, eigenvectors, PCA, SVD, embeddings và neural networks.
+
+## Cách sử dụng
+- Làm toàn bộ câu hỏi trước khi mở phần đáp án.
+- Với câu tính toán, nên viết phép tính tay rồi mới kiểm tra.
+- Với câu sắp xếp, ghi lại thứ tự bằng số `1 → 2 → ...`.
+- Với tình huống thực tế, ưu tiên giải thích *vì sao* chọn đáp án.
+
+## Sơ đồ ôn nhanh
 ```mermaid
 flowchart LR
-    A["Dataset X"] --> B["Matrix multiplication Xw"]
-    C["Weights w"] --> B
-    D["Bias b"] --> E["Add bias"]
-    B --> E
-    E --> F["Predictions y_hat"]
-    F --> G["Loss: MSE"]
-    G --> H["Gradient Descent"]
-    H --> C
+    A["Data"] --> B["Vector / Matrix / Tensor"]
+    B --> C["Matrix operations"]
+    C --> D["Models: Xw+b / Wx+b"]
+    D --> E["Loss"]
+    E --> F["Gradient"]
+    F --> G["Update parameters"]
+    B --> H["Geometry: dot / norm / projection"]
+    B --> I["PCA / SVD / Embeddings"]
 ```
 
 ---
 
-## 16. Mean Squared Error
+## Trắc nghiệm
 
-For regression:
+### Câu 1
 
-$$
-MSE = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}_i - y_i)^2
-$$
+Trong AI/Data Science, một hàng (row) của dataset thường được biểu diễn tốt nhất bằng đối tượng nào?
+- A. Scalar
+- B. Vector
+- C. Matrix
+- D. Tensor bậc 4
 
-Vectorized form:
+### Câu 2
 
-$$
-MSE = \frac{1}{m}\lVert \hat{y} - y \rVert_2^2
-$$
+Một dataset có m mẫu và n đặc trưng thường có shape nào?
+- A. n × m
+- B. m × n
+- C. m × m
+- D. n × n
 
-Since:
+### Câu 3
 
-$$
-\hat{y} = Xw + b
-$$
+Ảnh RGB kích thước 224 × 224 thường được biểu diễn dưới dạng tensor có shape nào?
+- A. 224 × 224
+- B. 3 × 224
+- C. 224 × 224 × 3
+- D. 1 × 224 × 3
 
-Then:
+### Câu 4
 
-$$
-MSE = \frac{1}{m}\lVert Xw + b - y \rVert_2^2
-$$
+Giá trị uᵀv của u = [2, 3] và v = [4, 1] bằng bao nhiêu?
+- A. 8
+- B. 10
+- C. 11
+- D. 14
 
-This is why linear algebra is directly connected to model training.
+### Câu 5
 
----
+Nếu dot product của hai vector bằng 0, cách diễn giải hình học phù hợp nhất là gì?
+- A. Cùng hướng
+- B. Vuông góc
+- C. Ngược hướng
+- D. Hai vector bằng nhau
 
-## 17. Gradient Descent from Linear Algebra View
+### Câu 6
 
-Gradient descent updates parameters:
+Chuẩn L2 của vector [3, 4] bằng bao nhiêu?
+- A. 5
+- B. 7
+- C. 12
+- D. 25
 
-$$
-w_{new} = w_{old} - \alpha \nabla_w L
-$$
+### Câu 7
 
-Where:
+Với A có shape (m × n) và B có shape (n × p), shape của A @ B là gì?
+- A. n × n
+- B. m × n
+- C. m × p
+- D. p × m
 
-```text
-w       = parameter vector
-α       = learning rate
-L       = loss function
-∇w L    = gradient of loss with respect to w
-```
+### Câu 8
 
-### Gradient Descent Diagram
+Trong mô hình hồi quy tuyến tính dạng vector hóa, công thức dự đoán cho nhiều mẫu là gì?
+- A. ŷ = X + w + b
+- B. ŷ = Xw + b
+- C. ŷ = wX − b
+- D. ŷ = XᵀX
 
-```text
-Loss
-↑
-|               ● start
-|            ↙
-|         ●
-|      ↙
-|   ●
-| ↙
-|● minimum
-+----------------------------→ parameter w
-```
+### Câu 9
 
-In the mini project, you can implement:
+MSE đo điều gì trong bài toán regression?
+- A. Số đặc trưng
+- B. Sai số bình phương trung bình giữa dự đoán và giá trị thật
+- C. Góc giữa hai vector
+- D. Rank của ma trận
 
-```text
-1. Generate small dataset X, y
-2. Initialize weights w
-3. Predict y_hat = Xw
-4. Compute MSE
-5. Compute gradient
-6. Update w
-7. Plot loss curve
-```
+### Câu 10
 
----
+Phép cập nhật gradient descent nào đúng?
+- A. w_new = w_old + α∇L
+- B. w_new = αw_old
+- C. w_new = w_old − α∇L
+- D. w_new = ∇L − w_old
 
-## 18. Linear Transformation
+### Câu 11
 
-A matrix can transform vectors.
+Determinant bằng 0 cho biết điều gì quan trọng?
+- A. Ma trận chắc chắn trực giao
+- B. Không gian bị collapse và ma trận vuông không khả nghịch
+- C. Rank luôn tối đa
+- D. Mọi eigenvalue đều bằng 1
 
-$$
-y = Ax
-$$
+### Câu 12
 
-Example:
+Eigenvector v của A thỏa mãn điều kiện nào?
+- A. Av = 0 với mọi v
+- B. Av = λv
+- C. Aᵀv = vᵀA
+- D. A + v = λ
 
-$$
-A =
-\begin{bmatrix}
-2 & 0 \\
-0 & 1
-\end{bmatrix}
-$$
+### Câu 13
 
-This stretches space by 2 along the x-axis.
+Mục tiêu trực giác chính của PCA là gì?
+- A. Tăng số chiều
+- B. Tìm các hướng giữ nhiều phương sai và chiếu dữ liệu xuống ít chiều hơn
+- C. Đảo ma trận
+- D. Thay mọi feature bằng 0
 
-### Before Transformation
+### Câu 14
 
-```text
-y
-↑
-3 |      ●
-2 |   ●     ●
-1 |      ●
-0 +----------------→ x
-```
+SVD phân rã ma trận A theo dạng nào?
+- A. A = LU
+- B. A = QR
+- C. A = UΣVᵀ
+- D. A = Xw+b
 
-### After Transformation
+### Câu 15
 
-```text
-y
-↑
-3 |            ●
-2 |      ●           ●
-1 |            ●
-0 +------------------------→ x
-```
-
-The points become wider horizontally.
-
----
-
-## 19. Common 2D Transformation Matrices
-
-### Scaling
-
-$$
-A =
-\begin{bmatrix}
-s_x & 0 \\
-0 & s_y
-\end{bmatrix}
-$$
-
-### Rotation
-
-$$
-R(\theta) =
-\begin{bmatrix}
-\cos\theta & -\sin\theta \
-\sin\theta & \cos\theta
-\end{bmatrix}
-$$
-
-### Reflection over x-axis
-
-$$
-A =
-\begin{bmatrix}
-1 & 0 \\
-0 & -1
-\end{bmatrix}
-$$
-
-### Shear
-
-$$
-A =
-\begin{bmatrix}
-1 & k \\
-0 & 1
-\end{bmatrix}
-$$
-
-### Projection onto x-axis
-
-$$
-P =
-\begin{bmatrix}
-1 & 0 \\
-0 & 0
-\end{bmatrix}
-$$
+Một dense neural network layer trước activation được mô tả bằng biểu thức nào?
+- A. z = Wx + b
+- B. z = x/W
+- C. z = det(W)
+- D. z = ||x||
 
 ---
 
-## 20. Transformation Diagram
+## Đúng / Sai
 
-```mermaid
-flowchart LR
-    A["Input vector x"] --> B["Matrix A"]
-    B --> C["Output vector y = Ax"]
+### Câu 16
 
-    D["Geometric meaning"] --> E["Stretch"]
-    D --> F["Rotate"]
-    D --> G["Reflect"]
-    D --> H["Project"]
-    D --> I["Shear"]
+Scalar là một số đơn lẻ như learning rate hoặc loss.
+- [ ] Đúng
+- [ ] Sai
 
-    B --> D
-```
+### Câu 17
 
----
+Matrix multiplication và element-wise multiplication luôn giống nhau.
+- [ ] Đúng
+- [ ] Sai
 
-## 21. Span
+### Câu 18
 
-The **span** of vectors is the set of all linear combinations.
+Khi nhân hai ma trận, các inner dimensions phải bằng nhau.
+- [ ] Đúng
+- [ ] Sai
 
-Given:
+### Câu 19
 
-$$
-v_1, v_2
-$$
+Nhân vector với scalar âm có thể đảo hướng vector.
+- [ ] Đúng
+- [ ] Sai
 
-Their span is:
+### Câu 20
 
-$$
-\text{span}(v_1, v_2) = \{a v_1 + b v_2 \mid a,b \in \mathbb{R}\}
-$$
+Rank thấp thường gợi ý có thông tin dư thừa giữa các cột.
+- [ ] Đúng
+- [ ] Sai
 
-### Case 1: Two independent vectors in 2D
+### Câu 21
 
-```text
-v1 and v2 point in different directions.
-Their span covers the whole 2D plane.
-```
+Ma trận có determinant khác 0 thì không thể có inverse.
+- [ ] Đúng
+- [ ] Sai
 
-$$
-\text{span}(v_1, v_2) = \mathbb{R}^2
-$$
+### Câu 22
 
-### Case 2: Two dependent vectors
+Eigenvector luôn giữ nguyên độ dài sau phép biến đổi.
+- [ ] Đúng
+- [ ] Sai
 
-```text
-v2 is just a stretched version of v1.
-Their span is only one line.
-```
+### Câu 23
 
-$$
-\text{span}(v_1, v_2) = \text{a line}
-$$
+Cosine similarity gần 1 cho biết hai embedding có hướng rất giống nhau.
+- [ ] Đúng
+- [ ] Sai
 
----
+### Câu 24
 
-## 22. Basis and Dimension
+PCA trong bài được mô tả như một kỹ thuật tăng chiều dữ liệu.
+- [ ] Đúng
+- [ ] Sai
 
-A **basis** is a set of vectors that:
+### Câu 25
 
-1. spans the space
-2. is linearly independent
-
-For $\mathbb{R}^2$, the standard basis is:
-
-$$
-e_1 =
-\begin{bmatrix}
-1 \\
-0
-\end{bmatrix},
-\quad
-e_2 =
-\begin{bmatrix}
-0 \\
-1
-\end{bmatrix}
-$$
-
-Any vector in $\mathbb{R}^2$ can be written as:
-
-$$
-v = a e_1 + b e_2
-$$
-
-Example:
-
-$$
-\begin{bmatrix} 3 \\ 2 \end{bmatrix} = 3 \begin{bmatrix} 1 \\ 0 \end{bmatrix} + 2 \begin{bmatrix} 0 \\ 1 \end{bmatrix}
-$$
+Trong gradient descent mini-project, loss curve được dùng để quan sát quá trình tối ưu.
+- [ ] Đúng
+- [ ] Sai
 
 ---
 
-## 23. Rank
+## Trả lời ngắn
 
-The **rank** of a matrix is the number of independent directions represented by its columns.
+### Câu 26
 
-```text
-High rank  → many independent directions
-Low rank   → redundant information
-Rank 1     → all columns lie on one direction
-```
+Cho u = [2, 1] và v = [1, 3]. Tính u + v. Nhập theo dạng 3,4.
 
-In ML, rank is related to:
+**Trả lời:** `____________________________`
 
-* feature redundancy
-* dimensionality
-* compression
-* PCA
-* matrix factorization
-* recommender systems
+### Câu 27
 
----
+Cho v = [2, 1]. Tính 3v. Nhập theo dạng 6,3.
 
-## 24. Determinant
+**Trả lời:** `____________________________`
 
-For a 2×2 matrix:
+### Câu 28
 
-$$
-A =
-\begin{bmatrix}
-a & b \\
-c & d
-\end{bmatrix}
-$$
+Tính A x với A = [[1,2],[3,4]] và x = [5,6]. Nhập theo dạng 17,39.
 
-The determinant is:
+**Trả lời:** `____________________________`
 
-$$
-\det(A) = ad - bc
-$$
+### Câu 29
 
-### Geometric Meaning
+Nếu X có shape 120 × 8 và w có 8 phần tử, vector dự đoán Xw có bao nhiêu phần tử?
 
-The determinant tells how much a matrix scales area.
+**Trả lời:** `____________________________`
 
-```text
-det(A) = 2    → area doubles
-det(A) = 1    → area preserved
-det(A) = 0    → space collapses
-det(A) < 0    → orientation flips
-```
+### Câu 30
 
-A square matrix is invertible if its determinant is nonzero.
+Tính determinant của ma trận [[2,1],[3,4]].
+
+**Trả lời:** `____________________________`
+
+### Câu 31
+
+Trong ví dụ dự đoán điểm thi của bài, Xw bằng [28, 41, 54] và b = 10. ŷ bằng gì? Nhập dạng 38,51,64.
+
+**Trả lời:** `____________________________`
+
+### Câu 32
+
+Điền thuật ngữ: Tập các vector có thể tạo ra từ mọi tổ hợp tuyến tính của v₁, v₂, ... được gọi là ______.
+
+**Trả lời:** `____________________________`
+
+### Câu 33
+
+Điền thuật ngữ: Một tập vector vừa linearly independent vừa sinh toàn bộ không gian được gọi là ______.
+
+**Trả lời:** `____________________________`
 
 ---
 
-## 25. Inverse Matrix
+## Sắp xếp
 
-The inverse of a matrix $A$ is:
+### Câu 34
 
-$$
-A^{-1}
-$$
+Sắp xếp pipeline gradient descent cơ bản theo đúng thứ tự.
+- [ ] Khởi tạo w và b
+- [ ] Dự đoán ŷ = Xw + b
+- [ ] Tính MSE
+- [ ] Tính gradient
+- [ ] Cập nhật w và b
+- [ ] Lặp qua nhiều epoch
 
-Such that:
+### Câu 35
 
-$$
-A^{-1}A = I
-$$
+Sắp xếp pipeline PCA trực giác.
+- [ ] Dữ liệu thô X
+- [ ] Center dữ liệu
+- [ ] Tính covariance hoặc SVD
+- [ ] Tìm principal directions
+- [ ] Chiếu xuống không gian ít chiều hơn
+- [ ] Thu representation nén
 
-Where $I$ is the identity matrix.
+### Câu 36
 
-If:
+Sắp xếp ý nghĩa biến đổi SVD theo trực giác.
+- [ ] Input space
+- [ ] Vᵀ: rotate / reflect
+- [ ] Σ: stretch / compress
+- [ ] U: rotate / reflect
+- [ ] Output space
 
-$$
-Ax = b
-$$
+### Câu 37
 
-Then:
+Sắp xếp luồng embedding search.
+- [ ] Text query
+- [ ] Tạo query embedding
+- [ ] Tạo document embeddings
+- [ ] Tính cosine similarity
+- [ ] Chọn top-k kết quả
 
-$$
-x = A^{-1}b
-$$
+### Câu 38
 
-But in real ML/scientific computing, we usually avoid explicitly computing $A^{-1}$ for large systems. Numerical solvers are often preferred.
-
----
-
-## 26. Eigenvalues and Eigenvectors
-
-An eigenvector is a vector whose direction does not change after transformation.
-
-$$
-Av = \lambda v
-$$
-
-Where:
-
-```text
-A = matrix
-v = eigenvector
-λ = eigenvalue
-```
-
-MIT explains that if $Ax$ points in the same direction as $x$, then (x) is an eigenvector of $A$.
-
-### Diagram
-
-```text
-Normal vector transformation:
-
-v  ───────▶
-Av    ↗
-     direction changed
-
-
-Eigenvector transformation:
-
-v  ───────▶
-Av ─────────────────▶
-same direction, only length changes
-```
-
-### Interpretation
-
-```text
-λ > 1      → vector stretches
-0 < λ < 1  → vector shrinks
-λ < 0      → vector flips direction
-λ = 0      → vector collapses to zero
-```
+Sắp xếp một dense neural network layer đơn.
+- [ ] Input vector x
+- [ ] Linear transform z = Wx + b
+- [ ] Activation a = σ(z)
+- [ ] Output vector a
 
 ---
 
-## 27. Eigenvectors in Data Science
+## Tình huống thực tế
 
-Eigenvectors and eigenvalues appear in:
+### Câu 39
 
-* PCA
-* covariance matrices
-* graph algorithms
-* spectral clustering
-* PageRank-like methods
-* stability analysis
-* dimensionality reduction
+Bạn có 10.000 khách hàng, mỗi khách hàng có 20 đặc trưng. Cách biểu diễn X phù hợp nhất là gì?
+- A. Vector 20 phần tử
+- B. Matrix 10.000 × 20
+- C. Tensor 20 × 20 × 20
+- D. Scalar 200.000
 
----
+### Câu 40
 
-## 28. PCA: Principal Component Analysis
+Bạn muốn đo độ giống nhau giữa embedding câu truy vấn và embedding tài liệu. Phép đo nào phù hợp nhất theo bài?
+- A. Determinant
+- B. Cosine similarity
+- C. Matrix inverse
+- D. Rank
 
-PCA finds new directions that capture the most variance in the data.
+### Câu 41
 
-scikit-learn describes PCA as linear dimensionality reduction using SVD to project data to a lower-dimensional space.
+Dataset có 200 features, nhiều feature tương quan mạnh và bạn muốn nén còn vài hướng quan trọng. Công cụ nào phù hợp nhất?
+- A. PCA
+- B. Scalar multiplication
+- C. Determinant đơn lẻ
+- D. Identity matrix
 
-### PCA Intuition
+### Câu 42
 
-```text
-Original data has many features.
-Some features are redundant.
-PCA finds fewer directions that keep most useful variation.
-```
+Một phép biến đổi 2D làm mọi điểm rộng gấp đôi theo trục x nhưng giữ nguyên y. Ma trận nào phù hợp?
+- A. [[2,0],[0,1]]
+- B. [[1,0],[0,-1]]
+- C. [[1,1],[0,1]]
+- D. [[0,-1],[1,0]]
 
-### PCA Diagram
+### Câu 43
 
-```text
-Original 2D data:
+Trong training, loss tăng dần sau mỗi epoch dù công thức gradient đúng. Điều nào nên kiểm tra đầu tiên trong tinh thần bài học?
+- A. Learning rate α có thể quá lớn
+- B. Tăng determinant
+- C. Đổi vector thành scalar
+- D. Luôn tính inverse của X
 
-y
-↑
-|        ●
-|      ●   ●
-|    ●   ●
-|  ●   ●
-|●
-+----------------→ x
+### Câu 44
 
-Main direction of variance:
+Bạn có ma trận feature với nhiều cột gần như là bản sao tuyến tính của nhau. Khái niệm nào cảnh báo redundancy trực tiếp nhất?
+- A. Rank thấp
+- B. Norm lớn
+- C. Bias dương
+- D. Batch size
 
-y
-↑
-|        ●
-|      ●   ●
-|    ●   ●
-|  ●   ●
-|●
-+----------------→ x
- \________________
-   principal component
-```
+### Câu 45
 
-### PCA Pipeline
+Bạn cần giải thích trong 1 cụm từ vì sao neural network dùng linear algebra. Điền phần còn thiếu: mỗi layer thực hiện ______ rồi mới qua activation.
 
-```mermaid
-flowchart LR
-    A["Raw dataset X"] --> B["Center data"]
-    B --> C["Compute covariance or SVD"]
-    C --> D["Find principal directions"]
-    D --> E["Project to lower dimension"]
-    E --> F["Compressed representation"]
-```
+**Trả lời:** `____________________________`
 
 ---
 
-## 29. SVD: Singular Value Decomposition
+# Đáp án và giải thích
 
-SVD decomposes a matrix into:
+## Trắc nghiệm
 
-$$
-A = U\Sigma V^\top
-$$
+**Câu 1: B**  
+Một hàng dữ liệu thường là một vector đặc trưng xᵢ.
 
-Where:
+**Câu 2: B**  
+Theo quy ước trong bài: rows = samples, columns = features, nên X ∈ R^(m×n).
 
-```text
-U      = left singular vectors
-Σ      = singular values
-Vᵀ     = right singular vectors
-```
+**Câu 3: C**  
+Ảnh RGB có chiều cao H, chiều rộng W và 3 kênh màu.
 
-NumPy documents 2D SVD as $A = U S V^H$, where singular values are stored in `s`.
+**Câu 4: C**  
+uᵀv = 2×4 + 3×1 = 11.
 
-### SVD Meaning
+**Câu 5: B**  
+Dot product bằng 0 tương ứng với cos(θ)=0, tức hai vector vuông góc.
 
-```text
-A matrix transformation can be decomposed into:
+**Câu 6: A**  
+||x||₂ = √(3²+4²)=5.
 
-1. rotate/reflection
-2. stretch/compress
-3. rotate/reflection again
-```
+**Câu 7: C**  
+Hai chiều trong n phải khớp; kết quả giữ hai chiều ngoài: m × p.
 
-### SVD Diagram
+**Câu 8: B**  
+Bài dùng công thức ŷ = Xw + b.
 
-```text
-Input space
-   │
-   ▼
-Vᵀ: rotate
-   │
-   ▼
-Σ: stretch/compress
-   │
-   ▼
-U: rotate
-   │
-   ▼
-Output space
-```
+**Câu 9: B**  
+MSE = (1/m) Σ(ŷᵢ−yᵢ)².
 
-### ML Use Cases
+**Câu 10: C**  
+Gradient descent đi ngược hướng gradient để giảm loss.
 
-* PCA
-* image compression
-* noise reduction
-* recommender systems
-* latent semantic analysis
-* low-rank approximation
+**Câu 11: B**  
+det(A)=0 nghĩa là phép biến đổi làm mất ít nhất một chiều; ma trận vuông không invertible.
 
-scikit-learn’s `TruncatedSVD` performs linear dimensionality reduction with truncated SVD and can work efficiently on sparse matrices such as term-count or TF-IDF matrices.
+**Câu 12: B**  
+Eigenvector giữ nguyên phương sau biến đổi: Av = λv.
 
----
+**Câu 13: B**  
+PCA tìm principal directions giữ nhiều biến thiên hữu ích.
 
-## 30. Embeddings as Vectors
+**Câu 14: C**  
+Trong bài: A = UΣVᵀ.
 
-An embedding is a vector representation of an object.
+**Câu 15: A**  
+Dense layer là một linear transformation cộng bias: z = Wx + b.
 
-Examples:
+## Đúng / Sai
 
-```text
-word     → vector
-sentence → vector
-image    → vector
-user     → vector
-product  → vector
-```
+**Câu 16: Đúng**  
+Đúng. Bài dùng learning_rate, loss, accuracy làm ví dụ scalar.
 
-Example:
+**Câu 17: Sai**  
+Sai. Bài nhấn mạnh A*B và A@B không phải cùng một phép toán.
 
-$$
-embedding("cat") =
-\begin{bmatrix}
-0.12 \\
--0.44 \\
-0.91 \\
-... \\
-0.07
-\end{bmatrix}
-$$
+**Câu 18: Đúng**  
+Đúng: (m×n) @ (n×p) hợp lệ.
 
-### Similarity
+**Câu 19: Đúng**  
+Đúng. Ví dụ −v có hướng ngược v.
 
-Two embeddings can be compared using cosine similarity:
+**Câu 20: Đúng**  
+Đúng. Bài liên hệ low rank với redundancy và compression.
 
-$$
-cosine(x,y) = \frac{x^\top y}{|x||y|}
-$$
+**Câu 21: Sai**  
+Sai. Với ma trận vuông, det(A) ≠ 0 là điều kiện để khả nghịch.
 
-```text
-cosine close to 1  → very similar
-cosine close to 0  → unrelated
-cosine close to -1 → opposite direction
-```
+**Câu 22: Sai**  
+Sai. Hướng được giữ (hoặc đảo nếu λ<0), độ dài có thể thay đổi theo |λ|.
 
-### Embedding Search Diagram
+**Câu 23: Đúng**  
+Đúng theo phần Embeddings as Vectors.
 
-```mermaid
-flowchart LR
-    A["Text query"] --> B["Embedding model"]
-    B --> C["Query vector"]
-    D["Document chunks"] --> E["Embedding model"]
-    E --> F["Document vectors"]
-    C --> G["Cosine similarity"]
-    F --> G
-    G --> H["Top-k retrieval"]
-```
+**Câu 24: Sai**  
+Sai. PCA dùng để giảm chiều bằng cách chiếu lên các hướng quan trọng.
 
----
+**Câu 25: Đúng**  
+Đúng. Cấu trúc notebook yêu cầu plot loss curve.
 
-## 31. Neural Networks as Linear Algebra
+## Trả lời ngắn
 
-A dense neural network layer is:
+**Câu 26: [3, 4]**  
+Cộng theo từng phần tử: [2+1, 1+3] = [3,4].
 
-$$
-z = Wx + b
-$$
+**Câu 27: [6, 3]**  
+Nhân từng phần tử với 3.
 
-Then an activation function is applied:
+**Câu 28: [17, 39]**  
+Hàng 1: 1×5+2×6=17; hàng 2: 3×5+4×6=39.
 
-$$
-a = \sigma(z)
-$$
+**Câu 29: 120**  
+(120×8) @ (8×1) → (120×1).
 
-### One Layer
+**Câu 30: 5**  
+det = 2×4 − 1×3 = 5.
 
-```text
-input vector x
-     │
-     ▼
-linear transform: z = Wx + b
-     │
-     ▼
-activation: a = ReLU(z)
-     │
-     ▼
-output vector a
-```
+**Câu 31: [38, 51, 64]**  
+Cộng bias 10 cho mỗi dự đoán.
 
-### Multi-layer Neural Network
+**Câu 32: span**  
+Span là tập tất cả linear combinations.
 
-$$
-h_1 = \sigma(W_1x + b_1)
-$$
+**Câu 33: basis**  
+Đó là định nghĩa basis trong bài.
 
-$$
-h_2 = \sigma(W_2h_1 + b_2)
-$$
+## Sắp xếp
 
-$$
-\hat{y} = W_3h_2 + b_3
-$$
+**Câu 34: Khởi tạo w và b → Dự đoán ŷ = Xw + b → Tính MSE → Tính gradient → Cập nhật w và b → Lặp qua nhiều epoch**  
+Đây là flow của mini-project gradient descent trong bài.
 
-### Diagram
+**Câu 35: Dữ liệu thô X → Center dữ liệu → Tính covariance hoặc SVD → Tìm principal directions → Chiếu xuống không gian ít chiều hơn → Thu representation nén**  
+Bài mô tả đúng pipeline này ở phần PCA.
 
-```mermaid
-flowchart LR
-    X["Input vector x"] --> L1["Layer 1: W1x + b1"]
-    L1 --> A1["Activation"]
-    A1 --> L2["Layer 2: W2h1 + b2"]
-    L2 --> A2["Activation"]
-    A2 --> L3["Output layer"]
-    L3 --> Y["Prediction y_hat"]
-```
+**Câu 36: Input space → Vᵀ: rotate / reflect → Σ: stretch / compress → U: rotate / reflect → Output space**  
+Đây là trực giác decomposition của A = UΣVᵀ.
+
+**Câu 37: Text query → Tạo query embedding → Tạo document embeddings → Tính cosine similarity → Chọn top-k kết quả**  
+Bài biểu diễn embedding retrieval bằng query vector, document vectors, cosine similarity và top-k.
+
+**Câu 38: Input vector x → Linear transform z = Wx + b → Activation a = σ(z) → Output vector a**  
+Đúng theo sơ đồ one-layer neural network trong bài.
+
+## Tình huống thực tế
+
+**Câu 39: B**  
+Mỗi hàng là khách hàng, mỗi cột là một feature.
+
+**Câu 40: B**  
+Bài dùng cosine similarity cho embedding comparison.
+
+**Câu 41: A**  
+PCA giảm chiều bằng cách giữ các principal directions chứa nhiều variance.
+
+**Câu 42: A**  
+Đây là scaling với sₓ=2, sᵧ=1.
+
+**Câu 43: A**  
+Gradient descent phụ thuộc learning rate; bước quá lớn có thể làm optimization diverge.
+
+**Câu 44: A**  
+Low rank gắn với ít independent directions và feature redundancy.
+
+**Câu 45: matrix multiplication / linear transformation**  
+Trong bài: z = Wx + b rồi activation.
 
 ---
 
-## 32. Linear Algebra in the ML Workflow
+## Bảng tự đánh giá
+| Mức | Tiêu chí gợi ý |
+|---|---|
+| 90–100% | Nắm chắc khái niệm và áp dụng tốt vào AI/Data Science |
+| 75–89% | Hiểu phần lớn, nên xem lại các câu tính toán hoặc PCA/SVD/eigen |
+| 60–74% | Cần ôn lại shape rules, dot/norm, transformation và gradient descent |
+| <60% | Nên học lại theo chuỗi: vector → matrix → multiplication → model → loss → gradient |
 
-```mermaid
-flowchart TD
-    A["Raw Data"] --> B["Vectorization"]
-    B --> C["Matrix / Tensor Representation"]
-    C --> D["Model"]
-    D --> E["Matrix Operations"]
-    E --> F["Prediction"]
-    F --> G["Loss Function"]
-    G --> H["Gradient Computation"]
-    H --> I["Parameter Update"]
-    I --> D
-    F --> J["Metrics"]
-    J --> K["Experiment Tracking"]
-    K --> L["Deployment Artifact"]
-```
 
----
-
-## 33. Practical Numeric Example
-
-Suppose we want to predict exam score from study hours and sleep hours.
-
-### Dataset
-
-$$
-X =
-\begin{bmatrix}
-2 & 6 \\
-4 & 7 \\
-6 & 8
-\end{bmatrix}
-$$
-
-Weights:
-
-$$
-w =
-\begin{bmatrix}
-5 \\
-3
-\end{bmatrix}
-$$
-
-Bias:
-
-$$
-b = 10
-$$
-
-Prediction:
-
-$$
-\hat{y} = Xw + b
-$$
-
-Compute:
-
-$$
-Xw = \begin{bmatrix} 2 \times 5 + 6 \times 3 \\ 4 \times 5 + 7 \times 3 \\ 6 \times 5 + 8 \times 3 \end{bmatrix} = \begin{bmatrix} 28 \\ 41 \\ 54 \end{bmatrix}
-$$
-
-Add bias:
-
-$$
-\hat{y} =
-\begin{bmatrix}
-38 \\
-51 \\
-64
-\end{bmatrix}
-$$
-
----
-
-## 34. Python Check
-
-```python
-import numpy as np
-
-X = np.array([
-    [2, 6],
-    [4, 7],
-    [6, 8]
-])
-
-w = np.array([5, 3])
-b = 10
-
-y_hat = X @ w + b
-
-print(y_hat)
-# Expected: [38 51 64]
-```
-
----
-
-## 35. Mini Project: Gradient Descent from Scratch
-
-### Goal
-
-Build a mini notebook that trains a linear regression model using MSE loss and gradient descent.
-
-### Model
-
-$$
-\hat{y} = Xw + b
-$$
-
-### Loss
-
-$$
-L = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}_i - y_i)^2
-$$
-
-### Gradients
-
-$$
-\frac{\partial L}{\partial w} = \frac{2}{m}X^\top(\hat{y} - y)
-$$
-
-$$
-\frac{\partial L}{\partial b} = \frac{2}{m}\sum_{i=1}^{m}(\hat{y}_i - y_i)
-$$
-
-### Update
-
-$$
-w := w - \alpha \frac{\partial L}{\partial w}
-$$
-
-$$
-b := b - \alpha \frac{\partial L}{\partial b}
-$$
-
-### Training Flow
-
-```mermaid
-flowchart TD
-    A["Initialize w and b"] --> B["Predict y_hat = Xw + b"]
-    B --> C["Compute MSE loss"]
-    C --> D["Compute gradients"]
-    D --> E["Update w and b"]
-    E --> F{More epochs?}
-    F -- "Yes" --> B
-    F -- "No" --> G["Plot loss curve"]
-```
-
----
-
-## 36. Practice Notebook Structure
-
-```text
-linear_algebra_gradient_descent.ipynb
-│
-├── 1. Import libraries
-├── 2. Create small dataset
-├── 3. Visualize data
-├── 4. Initialize weights
-├── 5. Forward pass: y_hat = Xw + b
-├── 6. Compute MSE
-├── 7. Compute gradients
-├── 8. Update weights
-├── 9. Train over epochs
-├── 10. Plot loss curve
-└── 11. Write ML interpretation
-```
-
----
-
-## 37. Common Mistakes
-
-### Mistake 1: Memorizing definitions without geometry
-
-Bad:
-
-```text
-A vector is an element of a vector space.
-```
-
-Better:
-
-```text
-A vector can represent a data point, direction, or embedding.
-It has length, direction, and coordinates.
-```
-
----
-
-### Mistake 2: Confusing element-wise multiplication with matrix multiplication
-
-Element-wise:
-
-$$
-A * B
-$$
-
-Matrix multiplication:
-
-$$
-A @ B
-$$
-
-They are not the same.
-
----
-
-### Mistake 3: Ignoring shape rules
-
-Before multiplying matrices, always check:
-
-```text
-(m × n) @ (n × p) = (m × p)
-```
-
-If inner dimensions do not match, multiplication is invalid.
-
----
-
-### Mistake 4: Thinking inverse is always the best solution
-
-For large ML systems, directly computing the inverse can be unstable or inefficient. Prefer numerical solvers, decomposition methods, or gradient-based optimization.
-
----
-
-### Mistake 5: Learning only symbols, not artifacts
-
-For AI/Data Science, every math topic should become something practical:
-
-```text
-concept → numeric example → Python check → visual intuition → ML use case
-```
-
----
-
-## 38. Checklist for Completion
-
-You are done with this lesson if you can:
-
-* [ ] Explain Linear Algebra in 1–2 minutes.
-* [ ] Represent a dataset as a matrix.
-* [ ] Explain vector, matrix, tensor, dot product, norm, and transformation.
-* [ ] Compute a small matrix-vector product by hand.
-* [ ] Verify the result with Python.
-* [ ] Explain why neural networks use matrix multiplication.
-* [ ] Explain PCA as projection to important directions.
-* [ ] Build a mini notebook for gradient descent.
-* [ ] Plot a loss curve.
-* [ ] Write at least one caveat or limitation.
-
----
-
-## 39. One-Minute Explanation
-
-Linear algebra is the math of vectors, matrices, and transformations. In AI, data points are vectors, datasets are matrices, images are tensors, and neural networks are chains of matrix multiplications plus nonlinear activations. Concepts like dot product, norm, projection, eigenvectors, and SVD help us measure similarity, reduce dimensions, train models, compress data, and understand optimization. Without linear algebra, it is hard to understand regression, PCA, embeddings, backpropagation, or deep learning.
-
----
-
-## 40. Final Outcome
-
-By the end of this lesson, you should understand that **Linear Algebra is the mathematical foundation behind vectors, optimization, gradients, PCA, neural networks, and embeddings**.
-
-Your practical artifact should be:
-
-```text
-A small notebook implementing gradient descent from scratch
-with:
-- dataset matrix X
-- weight vector w
-- prediction y_hat = Xw + b
-- MSE loss
-- gradient update
-- loss curve over epochs
-```
-
----
-
-## 41. Portfolio Artifact Idea
-
-### Project Name
-
-**Gradient Descent from Scratch with Linear Algebra**
-
-### Deliverables
-
-```text
-1. Notebook
-2. Loss curve chart
-3. Explanation of Xw + b
-4. Hand-calculated example
-5. Python verification
-6. Short README
-```
-
-### README Structure
-
-```markdown
-# Gradient Descent from Scratch
-
-## Goal
-Implement linear regression using only NumPy and linear algebra.
-
-## Concepts
-- Vector
-- Matrix
-- Dot product
-- MSE
-- Gradient
-- Gradient descent
-
-## Result
-The model learns weights that reduce MSE over epochs.
-
-## Caveat
-This demo uses a small synthetic dataset, so it does not prove real-world generalization.
-```
-
----
-
-## 42. Key Takeaway
-
-Linear algebra is not only a math subject.
-It is the **data representation and computation language of modern AI**.
-
-```text
-Data → Vector
-Dataset → Matrix
-Image → Tensor
-Model → Matrix operations
-Training → Gradient updates
-PCA → Projection
-Embedding search → Dot product / cosine similarity
-Neural network → Repeated linear transformations
-```
-
----
-
-# Bài luyện tập
-
-## Mục tiêu
-
-
-## Đề bài
-
-
-## Yêu cầu hoàn thành
-
-- [ ] 
-- [ ] 
-- [ ] 
-
-## Kết quả / lời giải
-
-
-## Ghi chú
