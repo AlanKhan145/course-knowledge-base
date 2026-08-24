@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 1 — Cursor AI Interactive Quiz</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --card: #ffffff;
+    --text: #1d232a;
+    --muted: #667085;
+    --border: #d9dee7;
+    --accent: #111827;
+    --ok-bg: #edf9f0;
+    --bad-bg: #fff0f0;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif; background: var(--bg); color: var(--text); }
+  main { max-width: 980px; margin: 0 auto; padding: 32px 18px 80px; }
+  h1 { margin-bottom: 8px; }
+  h2 { margin-top: 42px; }
+  .lead { color: var(--muted); line-height: 1.6; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin: 14px 0; }
+  .question { font-weight: 700; margin-bottom: 12px; line-height: 1.5; }
+  label.option { display: block; padding: 8px 0; cursor: pointer; }
+  input[type=text] { width: 100%; padding: 11px 12px; border: 1px solid var(--border); border-radius: 9px; font-size: 15px; }
+  input[type=text]:focus { outline: 2px solid #b8c2d3; border-color: transparent; }
+  .toolbar { position: sticky; bottom: 0; background: rgba(246,247,249,.95); backdrop-filter: blur(8px); padding: 12px 0; display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid var(--border); margin-top: 30px; }
+  button { border: 1px solid var(--border); background: white; padding: 10px 16px; border-radius: 9px; cursor: pointer; font-weight: 700; }
+  button.primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .result { display: none; margin: 18px 0; padding: 20px; border: 1px solid var(--border); background: white; border-radius: 14px; }
+  .score { font-size: 32px; font-weight: 800; }
+  .breakdown { display: grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 10px; margin-top: 14px; }
+  .pill { border: 1px solid var(--border); border-radius: 10px; padding: 10px; }
+  .feedback { margin-top: 10px; padding: 10px 12px; border-radius: 8px; display: none; line-height: 1.5; }
+  .correct { background: var(--ok-bg); }
+  .incorrect { background: var(--bad-bg); }
+  .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .meta label { font-weight: 700; }
+  .meta input { margin-top: 6px; }
+  @media (max-width: 640px) { .meta { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Day 1 — Cursor AI Interactive Quiz</h1>
+  <p class="lead">32 câu • 100 điểm • Trắc nghiệm, Đúng/Sai, Điền đáp án và Tình huống. Câu trả lời được lưu tạm trên trình duyệt này.</p>
+
+  <div class="card meta">
+    <label>Họ và tên
+      <input id="studentName" type="text" placeholder="Nhập họ và tên">
+    </label>
+    <label>Lớp / Nhóm
+      <input id="studentGroup" type="text" placeholder="Ví dụ: AI Coding 01">
+    </label>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div id="result" class="result"></div>
+
+  <div class="toolbar">
+    <button class="primary" onclick="gradeQuiz()">Chấm điểm</button>
+    <button onclick="saveAnswers()">Lưu câu trả lời</button>
+    <button onclick="resetQuiz()">Làm lại</button>
+  </div>
+</main>
+
+<script>
+const questions = [
+  {id:1, section:"A", pts:3, type:"mcq", q:"Mục đích chính của bài học Day 1 là gì?", options:[
+    "Học toàn bộ cú pháp JavaScript.",
+    "Trải nghiệm nhanh khả năng của AI coding agent bằng cách tạo một sản phẩm thực tế.",
+    "Học thiết kế cơ sở dữ liệu.",
+    "Cài đặt Docker và Kubernetes."
+  ], answer:1, explain:"Bài mở đầu ưu tiên trải nghiệm build ngay để học viên hiểu giá trị của AI coding agent."},
+
+  {id:2, section:"A", pts:3, type:"mcq", q:"Cursor được giới thiệu trong bài như thế nào?", options:[
+    "Một phần mềm chỉ dùng để thiết kế 3D.",
+    "Một game engine.",
+    "Một code editor tích hợp AI coding agent.",
+    "Một trình duyệt web."
+  ], answer:2, explain:"Cursor là code editor có AI Agent hỗ trợ làm việc với code."},
+
+  {id:3, section:"A", pts:3, type:"mcq", q:"Trong bài học, Open Project về bản chất là:", options:[
+    "Mở một video.","Chọn một thư mục làm workspace/project.","Kết nối database.","Mở file .exe."
+  ], answer:1, explain:"Project được mở từ một folder chứa source code và tài nguyên."},
+
+  {id:4, section:"A", pts:3, type:"mcq", q:"Khu vực bên trái của Cursor thường dùng để:", options:[
+    "Xem file và thư mục.","Điều khiển game.","Chọn model 3D.","Tạo tài khoản."
+  ], answer:0, explain:"Left Pane thường là file explorer."},
+
+  {id:5, section:"A", pts:3, type:"mcq", q:"Khu vực giữa của editor chủ yếu dùng để:", options:[
+    "Hiển thị và chỉnh sửa code.","Chọn hệ điều hành.","Thanh toán subscription.","Chọn ảnh đại diện."
+  ], answer:0, explain:"Middle Pane là vùng code editor."},
+
+  {id:6, section:"A", pts:3, type:"mcq", q:"Khu vực Agent/chat dùng để:", options:[
+    "Chỉ xem thông báo hệ thống.","Gửi yêu cầu bằng ngôn ngữ tự nhiên cho AI.","Lưu ảnh.","Tạo tài khoản Windows."
+  ], answer:1, explain:"Đây là nơi người dùng giao nhiệm vụ cho Agent."},
+
+  {id:7, section:"A", pts:3, type:"mcq", q:"File được nhắc đến như một file Agent bắt đầu tạo trong demo là:", options:[
+    "game.exe","index.html","database.sql","README.pdf"
+  ], answer:1, explain:"Trong nội dung bài, Agent bắt đầu viết index.html."},
+
+  {id:8, section:"A", pts:3, type:"mcq", q:"Vì sao hai học viên có thể nhận kết quả khác nhau?", options:[
+    "AI luôn tạo cùng một kết quả.",
+    "Kết quả có thể phụ thuộc model, setting, prompt, quyền truy cập và cách Agent diễn giải yêu cầu.",
+    "Chỉ phụ thuộc màu giao diện.",
+    "Chỉ phụ thuộc tên project."
+  ], answer:1, explain:"AI output không hoàn toàn xác định; context và cấu hình có thể làm kết quả khác nhau."},
+
+  {id:9, section:"A", pts:3, type:"mcq", q:"Sau khi Agent tạo code, hành động tốt nhất là:", options:[
+    "Không cần xem code.","Xóa project.","Mở file, chạy/preview, kiểm tra và tiếp tục sửa nếu cần.","Đổi tên máy tính."
+  ], answer:2, explain:"Agent tạo code không đồng nghĩa code đã đúng; cần chạy và review."},
+
+  {id:10, section:"A", pts:3, type:"mcq", q:"Ví dụ nào thể hiện iterative prompting?", options:[
+    "Chỉ gửi một prompt.",
+    "Sau phiên bản đầu, yêu cầu thêm health bar, score counter hoặc game-over screen.",
+    "Chỉ đổi tên folder.",
+    "Đóng Cursor ngay."
+  ], answer:1, explain:"Iterative prompting là cải tiến qua nhiều vòng yêu cầu."},
+
+  {id:11, section:"A", pts:3, type:"mcq", q:"Một prompt tốt cho Agent nên:", options:[
+    "Chỉ có một từ như game.","Mơ hồ để AI tự đoán.","Nêu rõ sản phẩm, tính năng, hành vi hoặc tiêu chí mong muốn.","Không cần mô tả đầu ra."
+  ], answer:2, explain:"Prompt càng có mục tiêu và ràng buộc rõ thì càng dễ kiểm tra."},
+
+  {id:12, section:"A", pts:3, type:"mcq", q:"Khi Agent yêu cầu quyền thực hiện một hành động, học viên nên:", options:[
+    "Luôn chấp nhận mà không đọc.","Đọc hành động, hiểu phạm vi thay đổi rồi mới quyết định.","Tắt máy.","Xóa tài khoản."
+  ], answer:1, explain:"Cần hiểu Agent sắp làm gì trước khi cho phép các hành động nhạy cảm."},
+
+  {id:13, section:"B", pts:2, type:"tf", q:"Cursor chỉ có thể trả lời câu hỏi và không thể sửa file trong project.", answer:false, explain:"Sai. Agent có thể làm việc trực tiếp với file/code."},
+  {id:14, section:"B", pts:2, type:"tf", q:"Project folder là nơi chứa các file của sản phẩm đang xây dựng.", answer:true, explain:"Đúng."},
+  {id:15, section:"B", pts:2, type:"tf", q:"Học viên bắt buộc phải nhận được giao diện và code giống hệt instructor.", answer:false, explain:"Sai. Kết quả AI có thể khác nhau."},
+  {id:16, section:"B", pts:2, type:"tf", q:"Natural language prompt có thể được dùng để yêu cầu Agent tạo code.", answer:true, explain:"Đúng."},
+  {id:17, section:"B", pts:2, type:"tf", q:"Nếu phiên bản đầu chưa tốt, có thể tiếp tục viết prompt để cải tiến.", answer:true, explain:"Đúng. Đây là iterative prompting."},
+  {id:18, section:"B", pts:2, type:"tf", q:"Một AI coding workflow tốt không cần bước kiểm tra kết quả.", answer:false, explain:"Sai. Review và test là bước bắt buộc."},
+  {id:19, section:"B", pts:2, type:"tf", q:"Trong bài, Instant là tên project folder được dùng trong demo.", answer:true, explain:"Đúng."},
+  {id:20, section:"B", pts:2, type:"tf", q:"AI coding agent luôn tạo ra output hoàn toàn xác định và giống nhau ở mọi lần chạy.", answer:false, explain:"Sai."},
+
+  {id:21, section:"C", pts:3, type:"text", q:"Tên thư mục project được dùng trong demo là gì?", answers:["instant"], explain:"Đáp án: Instant."},
+  {id:22, section:"C", pts:3, type:"text", q:"File HTML được Agent bắt đầu tạo trong demo có tên là gì?", answers:["index.html","index html"], explain:"Đáp án: index.html."},
+  {id:23, section:"C", pts:3, type:"text", q:"Phím nào được dùng để bắn trong prompt mẫu?", answers:["space","space bar","phim space","phim cach","phím space","phím cách"], explain:"Đáp án: Space / Space bar."},
+  {id:24, section:"C", pts:3, type:"text", q:"Nhóm phím nào được dùng để di chuyển trong prompt mẫu?", answers:["arrow keys","arrow key","phim mui ten","phím mũi tên","mui ten","mũi tên"], explain:"Đáp án: Arrow keys / phím mũi tên."},
+  {id:25, section:"C", pts:3, type:"text", q:"Điền từ: AI coding agent có thể tạo và ______ file trong project.", answers:["sua","sửa","edit","modify","chinh sua","chỉnh sửa"], explain:"Đáp án chấp nhận: sửa / edit / modify."},
+  {id:26, section:"C", pts:3, type:"text", q:"Một yêu cầu viết bằng ngôn ngữ tự nhiên gửi cho Agent được gọi là gì?", answers:["prompt"], explain:"Đáp án: prompt."},
+  {id:27, section:"C", pts:3, type:"text", q:"Sau khi Agent tạo phiên bản đầu, học viên nên chạy hoặc ______ sản phẩm để kiểm tra.", answers:["preview","xem truoc","xem trước","chay thu","chạy thử"], explain:"Đáp án: preview / xem trước / chạy thử."},
+  {id:28, section:"C", pts:3, type:"text", q:"Quá trình liên tục yêu cầu Agent cải tiến sản phẩm qua nhiều prompt được gọi là ______ prompting.", answers:["iterative"], explain:"Đáp án: iterative."},
+
+  {id:29, section:"D", pts:6, type:"mcq", q:"Bạn gửi prompt “Build a game.” nhưng Agent tạo game không có FPS, arena và opponent. Cách xử lý tốt nhất?", options:[
+    "Kết luận Cursor không hoạt động.",
+    "Viết prompt mới cụ thể hơn về thể loại, arena, opponent, controls và điều kiện thắng/thua.",
+    "Xóa toàn bộ máy tính.",
+    "Chỉ đổi tên project."
+  ], answer:1, explain:"Hãy bổ sung các yêu cầu có thể kiểm tra được."},
+
+  {id:30, section:"D", pts:6, type:"mcq", q:"Agent báo hoàn thành nhưng bạn không thấy game chạy. Bạn nên làm gì trước?", options:[
+    "Mở các file Agent vừa tạo, xác định entry point và thử chạy/preview project.",
+    "Tin rằng game chắc chắn đúng.",
+    "Bỏ qua lỗi.",
+    "Chuyển project khác ngay."
+  ], answer:0, explain:"Kiểm tra file và cách chạy trước khi kết luận."},
+
+  {id:31, section:"D", pts:6, type:"mcq", q:"Agent muốn chạy một lệnh hoặc sửa cấu hình mà bạn chưa hiểu. Cách làm phù hợp nhất?", options:[
+    "Chấp nhận ngay mọi quyền.",
+    "Đọc lệnh/thay đổi, hỏi Agent giải thích tác dụng và phạm vi ảnh hưởng trước khi chấp nhận.",
+    "Xóa Cursor.",
+    "Tắt mạng vĩnh viễn."
+  ], answer:1, explain:"Luôn hiểu phạm vi thay đổi trước khi cấp quyền."},
+
+  {id:32, section:"D", pts:6, type:"mcq", q:"Phiên bản đầu đã chạy nhưng gameplay đơn giản. Prompt cải tiến nào tốt nhất?", options:[
+    "better",
+    "fix",
+    "Make the arena more futuristic, add a player health bar, enemy health bar, score counter, start screen, and game-over state. Keep the existing arrow-key movement and Space-to-shoot controls.",
+    "hello"
+  ], answer:2, explain:"Prompt C có tính năng, ràng buộc và yêu cầu giữ hành vi cũ."}
+];
+
+function normalize(s) {
+  return (s || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w.\s-]/g, "")
+    .replace(/\s+/g, " ");
+}
+
+function renderQuiz() {
+  const root = document.getElementById("quiz");
+  const sections = {A:"Phần A — Trắc nghiệm", B:"Phần B — Đúng/Sai", C:"Phần C — Điền đáp án", D:"Phần D — Tình huống"};
+  let current = "";
+  questions.forEach(q => {
+    if (q.section !== current) {
+      current = q.section;
+      const h = document.createElement("h2");
+      h.textContent = sections[current];
+      root.appendChild(h);
+    }
+    const card = document.createElement("section");
+    card.className = "card";
+    card.id = `card-${q.id}`;
+    card.innerHTML = `<div class="question">Câu ${q.id} — ${q.q} <span style="font-weight:500;color:#667085">(${q.pts} điểm)</span></div>`;
+
+    if (q.type === "mcq") {
+      q.options.forEach((opt, idx) => {
+        const label = document.createElement("label");
+        label.className = "option";
+        label.innerHTML = `<input type="radio" name="q${q.id}" value="${idx}"> ${String.fromCharCode(65+idx)}. ${opt}`;
+        card.appendChild(label);
+      });
+    } else if (q.type === "tf") {
+      [["true","Đúng"],["false","Sai"]].forEach(([val,txt]) => {
+        const label = document.createElement("label");
+        label.className = "option";
+        label.innerHTML = `<input type="radio" name="q${q.id}" value="${val}"> ${txt}`;
+        card.appendChild(label);
+      });
+    } else if (q.type === "text") {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.name = `q${q.id}`;
+      input.placeholder = "Nhập câu trả lời...";
+      card.appendChild(input);
+    }
+
+    const fb = document.createElement("div");
+    fb.id = `fb-${q.id}`;
+    fb.className = "feedback";
+    card.appendChild(fb);
+    root.appendChild(card);
+  });
+  loadAnswers();
+}
+
+function getAnswer(q) {
+  if (q.type === "text") {
+    return document.querySelector(`input[name="q${q.id}"]`)?.value || "";
+  }
+  return document.querySelector(`input[name="q${q.id}"]:checked`)?.value ?? null;
+}
+
+function isCorrect(q, value) {
+  if (q.type === "mcq") return value !== null && Number(value) === q.answer;
+  if (q.type === "tf") return value !== null && (value === "true") === q.answer;
+  if (q.type === "text") {
+    const n = normalize(value);
+    return q.answers.some(a => normalize(a) === n);
+  }
+  return false;
+}
+
+function gradeQuiz() {
+  let total = 0;
+  const bySection = {A:0,B:0,C:0,D:0};
+  const maxBySection = {A:36,B:16,C:24,D:24};
+  let answered = 0;
+
+  questions.forEach(q => {
+    const value = getAnswer(q);
+    if (value !== null && String(value).trim() !== "") answered++;
+    const ok = isCorrect(q, value);
+    const fb = document.getElementById(`fb-${q.id}`);
+    fb.style.display = "block";
+    fb.className = `feedback ${ok ? "correct" : "incorrect"}`;
+    if (ok) {
+      total += q.pts;
+      bySection[q.section] += q.pts;
+      fb.textContent = `✓ Đúng — +${q.pts} điểm. ${q.explain}`;
+    } else {
+      fb.textContent = `✗ Chưa đúng — +0 điểm. ${q.explain}`;
+    }
+  });
+
+  let rating = "Nên học lại lesson và làm lại bài";
+  if (total >= 90) rating = "Rất tốt — hiểu rõ workflow cơ bản của AI Coding Agent";
+  else if (total >= 80) rating = "Tốt — đủ kiến thức để tiếp tục bài tiếp theo";
+  else if (total >= 65) rating = "Đạt — nên ôn lại prompting và quy trình kiểm tra";
+  else if (total >= 50) rating = "Cần luyện thêm";
+
+  const name = document.getElementById("studentName").value.trim();
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.innerHTML = `
+    <div class="score">${total}/100</div>
+    <p><strong>${name ? name + " — " : ""}${rating}</strong></p>
+    <p>Đã trả lời ${answered}/${questions.length} câu.</p>
+    <div class="breakdown">
+      <div class="pill"><strong>Phần A</strong><br>${bySection.A}/${maxBySection.A}</div>
+      <div class="pill"><strong>Phần B</strong><br>${bySection.B}/${maxBySection.B}</div>
+      <div class="pill"><strong>Phần C</strong><br>${bySection.C}/${maxBySection.C}</div>
+      <div class="pill"><strong>Phần D</strong><br>${bySection.D}/${maxBySection.D}</div>
+    </div>
+  `;
+  saveAnswers();
+  result.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+function saveAnswers() {
+  const data = {
+    studentName: document.getElementById("studentName").value,
+    studentGroup: document.getElementById("studentGroup").value,
+    answers: {}
+  };
+  questions.forEach(q => data.answers[q.id] = getAnswer(q));
+  localStorage.setItem("cursorDay1Quiz", JSON.stringify(data));
+}
+
+function loadAnswers() {
+  const raw = localStorage.getItem("cursorDay1Quiz");
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    document.getElementById("studentName").value = data.studentName || "";
+    document.getElementById("studentGroup").value = data.studentGroup || "";
+    questions.forEach(q => {
+      const val = data.answers?.[q.id];
+      if (val === undefined || val === null) return;
+      if (q.type === "text") {
+        const el = document.querySelector(`input[name="q${q.id}"]`);
+        if (el) el.value = val;
+      } else {
+        const el = document.querySelector(`input[name="q${q.id}"][value="${CSS.escape(String(val))}"]`);
+        if (el) el.checked = true;
+      }
+    });
+  } catch(e) {}
+}
+
+function resetQuiz() {
+  if (!confirm("Xóa toàn bộ câu trả lời và làm lại từ đầu?")) return;
+  localStorage.removeItem("cursorDay1Quiz");
+  document.querySelectorAll("input").forEach(i => {
+    if (i.type === "radio") i.checked = false;
+    else i.value = "";
+  });
+  document.querySelectorAll(".feedback").forEach(f => f.style.display = "none");
+  document.getElementById("result").style.display = "none";
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
