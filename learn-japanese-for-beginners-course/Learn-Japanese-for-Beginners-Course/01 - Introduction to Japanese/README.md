@@ -1,12 +1,16 @@
-# Section 01 - Introduction to Japanese
+# 01 - Introduction to Japanese
 
+- Nguồn section Udemy: Introduction to Japanese
 - Video lessons: 5
 - Review quizzes: 0
 - Curriculum items: 5
+- Thời lượng video trong module: 32 phút
 
-## Purpose
+## Learning Goal
 
-Học phần này xây dựng nền tảng cho chủ đề **Introduction to Japanese** bằng các bài giảng ngắn và các mục ôn tập xen kẽ.
+Nắm mục tiêu khóa học, cách tiếp cận phát âm, ngữ pháp, chữ viết và những cụm từ Nhật đầu tiên.
+
+Module này được tách theo một chủ đề học tập rõ ràng để có thể hoàn thành trong một phiên ngắn. Các file bài học là ghi chú học tập biên soạn mới dựa trên tiêu đề curriculum công khai; không phải transcript của video.
 
 ## Lessons
 
@@ -18,7 +22,8 @@ Học phần này xây dựng nền tảng cho chủ đề **Introduction to Jap
 
 ## Study Checklist
 
-- [ ] Học theo đúng thứ tự.
-- [ ] Tự làm quiz trước khi xem lại ghi chú.
-- [ ] Thêm ví dụ cá nhân vào từng bài.
+- [ ] Học các bài video theo đúng thứ tự.
+- [ ] Tự làm Review Questions trước khi xem lại ghi chú.
+- [ ] Đọc hoặc nghe thành tiếng các ví dụ.
+- [ ] Ghi lại từ vựng và điểm cần ôn thêm.
 
