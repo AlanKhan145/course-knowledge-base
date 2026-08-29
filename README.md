@@ -107,12 +107,6 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | [The Secret to Easy Fish Animation in Blender!](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/the-secret-to-easy-fish-animation-in-blender/>) | Curve Modifier, Burst-and-Coast Swimming, Graph Editor Keyframing, Volume Scatter, Decimate & Mesh Cleanup | English | ✅ |
 | [Creating an Animated School of Fish in Blender](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/creating-an-animated-school-of-fish-in-blender/>) | Bendy Bone Armature, F-Curve Modifiers, Envelope Weights, Geometry Nodes Instancing, Animated Water Shader | English | ✅ |
 
-### Engineering, Embedded Systems & IoT
-
-| Course | Topics | Language | Status |
-|--------|--------|----------|--------|
-| [3707ICT - Automation and IoT](<./Khóa học/02 - Lập trình & Phát triển phần mềm/05 - IoT & Tự động hóa/3707ict-automation-and-iot/>) | Industry 4.0, IoT Architecture, GPIO/Interrupts, Sensors & Actuators, Control Systems, MQTT, Cloud Dashboards, Edge Computing & TinyML, IoT Security, Smart-Tariff Group Project | English | ✅ |
-
 ### Health, Fitness & Nutrition
 
 | Course | Topics | Language | Status |
@@ -136,7 +130,6 @@ Each course folder contains:
 - `Khóa học/01 - AI & Dữ liệu/01 - AI Engineering & LLM/Ai-engineer/Khóa-1/Resources/llm_engineering/` is excluded (external repo)
 - `Khóa học/03 - Hạ tầng, Mạng & An ninh/01 - Mạng & Giao tiếp hệ thống/fundamentals-of-backend-communications-and-protocols/Resources/backendcourse-sourcecode/backendcourse/backend-course-code/` is excluded (external repo)
 - `Khóa học/02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/frontend-developer-roadmap/` and `Khóa học/02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/backend-developer-roadmap/` exist locally but are git-ignored (large generated/local-only folders)
-- `Khóa học/02 - Lập trình & Phát triển phần mềm/05 - IoT & Tự động hóa/3707ict-automation-and-iot/` exists locally but is git-ignored (never to be uploaded)
 - `Khóa học/02 - Lập trình & Phát triển phần mềm/03 - Kiến trúc & Tích hợp/enterprise-integration-engineer-roadmap/` has its full module scaffold in place; lecture notes are still being written
 - `Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/animate-and-render-a-fish-in-blender/` is notes from a single YouTube tutorial (Polyfjord), not a Udemy course — "lessons" map to video chapters/timestamps instead of separate lectures
 - `Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/the-secret-to-easy-fish-animation-in-blender/` is notes from the earlier, shorter Polyfjord video referenced inside the mega-tutorial above; notes here are grounded in an actual (machine-translated) transcript rather than chapter titles alone

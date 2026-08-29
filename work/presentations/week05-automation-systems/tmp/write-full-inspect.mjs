@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import { FileBlob, PresentationFile } from "@oai/artifact-tool";
 
-const sourcePptx = "D:/Sao lưu/Udemy/Khóa học/02 - Lập trình & Phát triển phần mềm/05 - IoT & Tự động hóa/3707ict-automation-and-iot/Week 04 - Sensors and Actuators/Wk04-Workshop.pptx";
+const sourcePptx = "D:/Sao lưu/Udemy/work/3707ict-automation-and-iot/Week 04 - Sensors and Actuators/Wk04-Workshop.pptx";
 const outputPath = "D:/Sao lưu/Udemy/work/presentations/week05-automation-systems/template-inspect/template-inspect.ndjson";
 
 const presentation = await PresentationFile.importPptx(await FileBlob.load(sourcePptx));

@@ -17,7 +17,6 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `02 - Mobile`
   - `03 - Kiến trúc & Tích hợp`
   - `04 - Kiểm thử phần mềm`
-  - `05 - IoT & Tự động hóa`
 - `03 - Hạ tầng, Mạng & An ninh`
   - `01 - Mạng & Giao tiếp hệ thống`
   - `02 - An ninh mạng & DevSecOps`
@@ -99,10 +98,6 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Kiểm thử phần mềm
 
 - [QA Engineer Roadmap](<./02 - Lập trình & Phát triển phần mềm/04 - Kiểm thử phần mềm/qa-roadmap/>)
-
-#### IoT & Tự động hóa
-
-- [3707ICT - Automation and IoT](<./02 - Lập trình & Phát triển phần mềm/05 - IoT & Tự động hóa/3707ict-automation-and-iot/>)
 
 ### 03 - Hạ tầng, Mạng & An ninh
 
