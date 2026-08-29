@@ -4,12 +4,12 @@ import { FileBlob, PresentationFile } from "@oai/artifact-tool";
 
 const workspace = "D:/Sao lưu/Udemy/work/presentations/week05-automation-systems";
 const starterPptx = `${workspace}/tmp/template-starter.pptx`;
-const finalPptx = "D:/Sao lưu/Udemy/3707ict-automation-and-iot/Week 05 - Automation Systems and Control Concepts/Wk05-Workshop.pptx";
+const finalPptx = "D:/Sao lưu/Udemy/Khóa học/02 - Lập trình & Phát triển phần mềm/05 - IoT & Tự động hóa/3707ict-automation-and-iot/Week 05 - Automation Systems and Control Concepts/Wk05-Workshop.pptx";
 const previewDir = `${workspace}/tmp/final-preview`;
 const layoutDir = `${workspace}/tmp/final-layout`;
 const montagePath = `${workspace}/tmp/final-montage.webp`;
 
-const taskRoot = "D:/Sao lưu/Udemy/3707ict-automation-and-iot/3707-code/3707-code/Week 05 - Automation Systems and Control Concepts";
+const taskRoot = "D:/Sao lưu/Udemy/Khóa học/02 - Lập trình & Phát triển phần mềm/05 - IoT & Tự động hóa/3707ict-automation-and-iot/3707-code/3707-code/Week 05 - Automation Systems and Control Concepts";
 const taskImage = (name) => `${taskRoot}/${name}/output.png`;
 
 async function readBytes(filePath) {
