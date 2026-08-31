@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#b4232f" />
+<title>Bài 001 — The Hiragana Vowels</title>
+<style>
+  :root{
+    --bg:#f7f3eb;--paper:#fffdf8;--ink:#232323;--muted:#6b6b6b;--accent:#b4232f;
+    --accent-dark:#861923;--line:#ded8cf;--good:#176b3a;--bad:#a12626;--warn:#8a5b12;
+    --soft:#f3ebe5;--shadow:0 10px 30px rgba(53,44,36,.08);--radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Noto Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+  button,input{font:inherit}
+  button{cursor:pointer}
+  a{color:var(--accent-dark)}
+  .wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+  .hero{background:linear-gradient(135deg,#fffaf2,#f2e6dc);border-bottom:1px solid var(--line);padding:34px 0 26px}
+  .hero-grid{display:grid;grid-template-columns:1.7fr .9fr;gap:22px;align-items:end}
+  .eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800}
+  h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.05;margin:.25rem 0 .6rem}
+  .jp-title{font-family:"Noto Sans JP",sans-serif;font-size:clamp(1.65rem,4vw,3.2rem);letter-spacing:.16em;margin:.4rem 0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+  .badge{border:1px solid #d8c8bc;background:#fff8ef;border-radius:999px;padding:6px 10px;font-size:.84rem}
+  .hero-card{background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .progress-shell{height:12px;background:#e8dfd7;border-radius:99px;overflow:hidden}
+  .progress-bar{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+  .progress-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:8px}
+  .tiny{font-size:.85rem;color:var(--muted)}
+  nav.lesson-nav{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.94);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;gap:8px;overflow:auto;padding:10px 0}
+  .nav-inner a{white-space:nowrap;text-decoration:none;color:#333;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:white;font-size:.85rem}
+  main{padding:26px 0 70px}
+  section{scroll-margin-top:75px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,30px);box-shadow:var(--shadow);margin-bottom:20px}
+  h2{margin-top:0;font-size:clamp(1.35rem,3vw,2rem)}
+  h3{margin:1.4rem 0 .55rem}
+  .lead{font-size:1.05rem;color:#404040}
+  .goal-grid,.kana-grid,.vocab-grid,.quiz-grid{display:grid;gap:14px}
+  .goal-grid{grid-template-columns:repeat(2,1fr)}
+  .goal{background:#fff;border-left:4px solid var(--accent);padding:13px 15px;border-radius:12px}
+  .kana-grid{grid-template-columns:repeat(5,1fr)}
+  .kana-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center;position:relative}
+  .kana-char{font-family:"Noto Sans JP",sans-serif;font-size:3.6rem;line-height:1.05}
+  .kana-card strong{display:block;font-size:1.05rem;margin-top:8px}
+  .stroke{font-size:.82rem;color:var(--muted)}
+  .speaker{border:0;border-radius:999px;background:#f1e5dc;padding:7px 10px;margin-top:8px}
+  .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;min-width:620px;background:#fff}
+  th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{background:#f6efe9}
+  ruby{font-family:"Noto Sans JP",sans-serif;font-size:1.12em}
+  rt{font-size:.57em}
+  code.kana{font-family:"Noto Sans JP",sans-serif;background:#f3ece5;padding:.1em .28em;border-radius:6px;font-size:1.08em}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .compare-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+  .bigpair{display:flex;justify-content:center;gap:32px;font-size:4rem;font-family:"Noto Sans JP",sans-serif;margin:8px 0}
+  .media-card{display:grid;grid-template-columns:1.05fr .95fr;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+  .media-card img{width:100%;height:100%;min-height:220px;object-fit:cover;background:#eee}
+  .media-content{padding:18px}
+  .credit{font-size:.72rem;color:var(--muted)}
+  .word-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+  .word-pill{background:#f4eee8;border:1px solid var(--line);border-radius:999px;padding:7px 11px}
+  .callout{border:1px dashed #c7b6a8;background:#fcf6ef;padding:14px;border-radius:14px}
+  .controls{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+  .btn{border:1px solid #bfb5ac;background:#fff;color:#222;border-radius:12px;padding:9px 13px;font-weight:650}
+  .btn:hover{border-color:#8e8178}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.danger{background:#fff5f5;border-color:#e4bcbc;color:#8f1d1d}
+  .btn.good{background:#eef8f1;border-color:#b8ddc5;color:#176b3a}
+  .subtle{color:var(--muted)}
+  .flashcard{perspective:1000px;max-width:520px;margin:16px auto}
+  .flash-inner{position:relative;min-height:250px;transition:transform .55s;transform-style:preserve-3d}
+  .flashcard.flipped .flash-inner{transform:rotateY(180deg)}
+  .flash-face{position:absolute;inset:0;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;backface-visibility:hidden}
+  .flash-back{transform:rotateY(180deg)}
+  .flash-main{font-size:5rem;font-family:"Noto Sans JP",sans-serif}
+  .flash-sub{font-size:1.2rem}
+  .practice-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .exercise{border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px}
+  .exercise h3{margin-top:0}
+  .options{display:grid;gap:8px;margin:10px 0}
+  .option{width:100%;text-align:left;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}
+  .option.selected{outline:2px solid var(--accent);border-color:transparent}
+  .option.correct{background:#edf8f0;border-color:#a7d4b5}
+  .option.wrong{background:#fff0f0;border-color:#e2b6b6}
+  .feedback{min-height:24px;font-size:.92rem;margin-top:7px}
+  .feedback.good{color:var(--good);font-weight:700}
+  .feedback.bad{color:var(--bad);font-weight:700}
+  label{font-weight:650;display:block;margin:8px 0 5px}
+  input[type="text"]{width:100%;border:1px solid #cfc6be;border-radius:10px;padding:10px 12px;background:#fff}
+  .matching{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .match-col{display:grid;gap:8px}
+  .match-item{border:1px solid var(--line);background:#fff;padding:10px;border-radius:11px;text-align:center}
+  .match-item.active{outline:2px solid var(--accent)}
+  .match-item.done{background:#edf8f0;border-color:#a7d4b5}
+  .token-bank,.answer-zone{display:flex;flex-wrap:wrap;gap:8px;min-height:48px;border:1px dashed #c9bcb2;border-radius:12px;padding:9px}
+  .token{border:1px solid #c7bbb2;background:#fff;border-radius:10px;padding:8px 11px}
+  .canvas-shell{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+  .canvas-wrap{position:relative;aspect-ratio:1/1;max-width:650px;width:100%;border:1px solid #c9bdb4;border-radius:18px;overflow:hidden;background-color:#fff;
+    background-image:linear-gradient(to right,transparent 49.8%,#e1d8d0 50%,transparent 50.2%),linear-gradient(to bottom,transparent 49.8%,#e1d8d0 50%,transparent 50.2%),linear-gradient(45deg,transparent 49.8%,#f0e9e3 50%,transparent 50.2%),linear-gradient(-45deg,transparent 49.8%,#f0e9e3 50%,transparent 50.2%);
+  }
+  #writingCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+  #sampleChar{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans JP",sans-serif;font-size:min(52vw,20rem);color:rgba(180,35,47,.12);pointer-events:none;line-height:1}
+  .writing-panel{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px}
+  .writing-char{font-family:"Noto Sans JP",sans-serif;font-size:4.8rem;text-align:center}
+  .rating{display:grid;gap:8px;margin:12px 0}
+  .rating label{font-weight:500;display:flex;gap:8px;align-items:center}
+  .quiz-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .quiz-question{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:12px 0}
+  .quiz-question legend{font-weight:800;padding:0 5px}
+  fieldset{border:0;margin:0;padding:0}
+  .result-card{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}
+  .result-card.show{display:block}
+  .score-big{font-size:3rem;font-weight:900;color:var(--accent)}
+  .score-bars{display:grid;gap:9px}
+  .score-row{display:grid;grid-template-columns:120px 1fr 70px;gap:10px;align-items:center}
+  .mini-bar{height:10px;background:#ece6e0;border-radius:99px;overflow:hidden}
+  .mini-fill{height:100%;background:#333}
+  .review-list{display:flex;flex-wrap:wrap;gap:8px}
+  .review-chip{border:1px solid #d7c6ba;background:#fff7ef;border-radius:999px;padding:7px 11px}
+  .checklist{display:grid;gap:10px}
+  .checkline{display:flex;gap:9px;align-items:flex-start}
+  footer{padding:0 0 70px}
+  .footer-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .romaji.hidden-romaji{filter:blur(6px);user-select:none}
+  .notice{padding:10px 12px;border-radius:10px;background:#f8f1e8;border:1px solid #e3d8cd;font-size:.9rem}
+  @media (max-width:900px){
+    .hero-grid,.canvas-shell,.media-card{grid-template-columns:1fr}
+    .kana-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width:720px){
+    .goal-grid,.practice-grid,.compare{grid-template-columns:1fr}
+    .kana-grid{grid-template-columns:repeat(2,1fr)}
+    section{padding:18px}
+    .hero{padding-top:25px}
+    .score-row{grid-template-columns:90px 1fr 56px}
+  }
+  @media (max-width:430px){
+    .kana-grid{grid-template-columns:1fr}
+    .bigpair{font-size:3.2rem}
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Bài 001 · Video lesson · 12:06</div>
+      <h1>The Hiragana Vowels</h1>
+      <div class="jp-title" lang="ja">あ・い・う・え・お</div>
+      <p class="lead">Năm nguyên âm nền tảng của Hiragana: nhìn mặt chữ → đọc âm → viết đúng nét → ghép thành từ.</p>
+      <div class="meta">
+        <span class="badge">Beginner</span><span class="badge">Hiragana</span><span class="badge">Pronunciation</span>
+        <span class="badge">Writing</span><span class="badge">Vocabulary</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="progress-row"><strong>Tiến độ bài học</strong><span id="progressText">0%</span></div>
+      <div class="progress-shell" aria-label="Tiến độ bài học"><div class="progress-bar" id="progressBar"></div></div>
+      <p class="tiny" id="progressDetail">Hoàn thành các hoạt động để tăng tiến độ.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="lesson-nav" aria-label="Điều hướng bài học">
+  <div class="wrap nav-inner">
+    <a href="#goals">Mục tiêu</a><a href="#vowels">5 nguyên âm</a><a href="#shapes">Nét viết</a>
+    <a href="#words">Từ ngắn</a><a href="#flashcards">Flashcard</a><a href="#practice">Luyện tập</a>
+    <a href="#writing">Luyện viết</a><a href="#quiz">Quiz cuối bài</a><a href="#review">Ôn lại</a>
+  </div>
+</nav>
+
+<main class="wrap">
+<section id="goals">
+  <h2>1. Mục tiêu bài học</h2>
+  <div class="goal-grid">
+    <div class="goal">✓ Nhận diện <strong>あ・い・う・え・お</strong>.</div>
+    <div class="goal">✓ Đọc 5 nguyên âm mà không cần nhìn Romaji.</div>
+    <div class="goal">✓ Nhớ số nét và trình tự cơ bản của từng ký tự.</div>
+    <div class="goal">✓ Phân biệt ký tự dễ nhầm, đặc biệt <strong>あ</strong> và <strong>お</strong>.</div>
+    <div class="goal">✓ Đọc được các từ ngắn chỉ dùng những nguyên âm đã học.</div>
+    <div class="goal">✓ Tự luyện viết trực tiếp bằng chuột, cảm ứng hoặc stylus.</div>
+  </div>
+</section>
+
+<section id="vowels">
+  <h2>2. Hiragana và năm nguyên âm</h2>
+  <p>Hiragana là một trong hai hệ thống chữ <em>kana</em> của tiếng Nhật. Mỗi ký tự kana biểu thị một đơn vị âm cơ bản. Năm nguyên âm là nền tảng để hình thành các hàng âm tiếp theo.</p>
+  <div class="controls">
+    <button class="btn" id="toggleRomaji">Ẩn Romaji</button>
+    <button class="btn" onclick="speakJapanese('あ い う え お')">🔊 Nghe chuỗi nguyên âm</button>
+  </div>
+  <div class="kana-grid" id="kanaGrid"></div>
+  <div class="callout" style="margin-top:16px">
+    <strong>Luyện nhận diện:</strong> đọc chậm <code class="kana">あ → い → う → え → お</code>, sau đó đảo chiều <code class="kana">お → え → う → い → あ</code>. Mục tiêu là thấy chữ và bật ra âm ngay, không dịch qua Romaji.
+  </div>
+</section>
+
+<section id="shapes">
+  <h2>3. Hình dạng, số nét và các cặp dễ nhầm</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Chữ</th><th>Số nét</th><th>Gợi ý hình dạng / thứ tự</th></tr></thead>
+      <tbody>
+        <tr><td class="kana-char">あ</td><td>3</td><td>Nét ngang phía trên → nét đi xuống, cong nhẹ qua thân → nét cong lớn tạo phần bao quanh bên dưới.</td></tr>
+        <tr><td class="kana-char">い</td><td>2</td><td>Nét trái ngắn hơn → nét phải dài hơn và cong nhẹ. Không viết như hai đường thẳng song song.</td></tr>
+        <tr><td class="kana-char">う</td><td>2</td><td>Nét ngắn phía trên → nét cong dài hơn ở dưới. Nét đầu không nên quá lớn.</td></tr>
+        <tr><td class="kana-char">え</td><td>2</td><td>Nét ngắn phía trên → nét dài hơn tạo đường cong và phần kéo nhẹ ở cuối.</td></tr>
+        <tr><td class="kana-char">お</td><td>3</td><td>Hai nét đầu tạo thân → nét nhỏ tách rời ở phía trên bên phải.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="compare" style="margin-top:16px">
+    <div class="compare-card">
+      <h3>Phân biệt あ và お</h3>
+      <div class="bigpair"><span>あ</span><span>お</span></div>
+      <p><strong>Mẹo nhanh:</strong> có một nét nhỏ tách rời ở phía trên bên phải → <strong>お</strong>. Không có → <strong>あ</strong>.</p>
+      <button class="btn" onclick="speakJapanese('あ お あ お あ お')">🔊 Nghe あ / お</button>
+    </div>
+    <div class="compare-card">
+      <h3>Phân biệt う và え</h3>
+      <div class="bigpair"><span>う</span><span>え</span></div>
+      <p><strong>う</strong> có nét nhỏ ở trên và phần cong chính ở dưới. <strong>え</strong> mở hơn, với nét sau dài và kéo ra rõ hơn.</p>
+      <button class="btn" onclick="speakJapanese('う え う え')">🔊 Nghe う / え</button>
+    </div>
+  </div>
+</section>
+
+<section id="words">
+  <h2>4. Ghép thành từ ngắn</h2>
+  <p>Đọc từng ký tự theo đúng thứ tự rồi nối âm tự nhiên. Không bỏ qua nguyên âm ở giữa, đặc biệt với <code class="kana">いいえ</code>.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Hiragana</th><th class="romaji">Romaji</th><th>Nghĩa</th><th>Nghe</th></tr></thead>
+      <tbody id="wordRows"></tbody>
+    </table>
+  </div>
+  <div class="media-card" style="margin-top:18px">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Exterior_of_a_traditional_japanese_house_in_Kyoto.jpg?width=1000" alt="Một ngôi nhà truyền thống ở Kyoto minh họa cho từ いえ — nhà" loading="lazy" />
+    <div class="media-content">
+      <div class="eyebrow">Từ trực quan</div>
+      <h3 style="font-size:2rem;margin:.2rem 0"><ruby>いえ<rt>ie</rt></ruby> — nhà</h3>
+      <p>Nhìn ảnh và đọc ngay <strong>いえ</strong>. Hãy cố nhận diện hai ký tự <strong>い + え</strong> trước khi nhìn Romaji.</p>
+      <button class="btn" onclick="speakJapanese('いえ')">🔊 Phát âm いえ</button>
+      <p class="credit">Ảnh minh họa: Wikimedia Commons, “Exterior of a traditional japanese house in Kyoto”.</p>
+    </div>
+  </div>
+  <div class="media-card" style="margin-top:14px">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Crayola_Blue_color_sample.jpg?width=900" alt="Mảng màu xanh minh họa cho từ あお — màu xanh" loading="lazy" />
+    <div class="media-content">
+      <div class="eyebrow">Liên tưởng màu sắc</div>
+      <h3 style="font-size:2rem;margin:.2rem 0"><ruby>あお<rt>ao</rt></ruby> — màu xanh</h3>
+      <p>Ghép <strong>あ + お</strong> để được <strong>あお</strong>. Từ <strong>あおい</strong> gồm <strong>あ + お + い</strong> và mang nghĩa “xanh / màu xanh”.</p>
+      <button class="btn" onclick="speakJapanese('あお。あおい。')">🔊 Phát âm あお / あおい</button>
+      <p class="credit">Ảnh màu: Wikimedia Commons, “Crayola Blue color sample”.</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:16px"><strong>Cụm luyện đọc:</strong> <span lang="ja" style="font-size:1.4rem">あおい いえ</span> <span class="romaji">(aoi ie)</span> — “ngôi nhà màu xanh”. Bài này chỉ dùng cụm để luyện đọc, chưa cần phân tích sâu ngữ pháp.</div>
+</section>
+
+<section id="flashcards">
+  <h2>5. Flashcard từ vựng</h2>
+  <p>Lật thẻ để kiểm tra trí nhớ. Từ đánh dấu <strong>Chưa nhớ</strong> sẽ được đưa vào danh sách cần ôn và lưu trên trình duyệt.</p>
+  <div class="flashcard" id="flashcard" tabindex="0" aria-label="Flashcard từ vựng">
+    <div class="flash-inner">
+      <div class="flash-face flash-front"><div class="flash-main" id="flashFront">あい</div><div class="subtle">Nhấn “Lật thẻ” để xem nghĩa</div></div>
+      <div class="flash-face flash-back"><div class="flash-main" id="flashBackKana">あい</div><div class="flash-sub romaji" id="flashBackRomaji">ai</div><strong id="flashBackMeaning">tình yêu</strong></div>
+    </div>
+  </div>
+  <div class="controls" style="justify-content:center">
+    <button class="btn" id="flashPrev">← Trước</button><button class="btn primary" id="flashFlip">Lật thẻ</button><button class="btn" id="flashNext">Sau →</button>
+  </div>
+  <div class="controls" style="justify-content:center">
+    <button class="btn good" id="flashKnow">✓ Biết</button><button class="btn danger" id="flashReview">☆ Chưa nhớ</button><button class="btn" id="flashSpeak">🔊 Nghe</button>
+  </div>
+</section>
+
+<section id="practice">
+  <h2>6. Luyện tập tương tác</h2>
+  <p class="subtle">Các câu dưới đây đi theo chu trình nhận diện → gợi nhớ → ghép từ → ứng dụng.</p>
+  <div class="practice-grid">
+    <div class="exercise" data-activity="mc1">
+      <h3>6.1. Trắc nghiệm nhận diện</h3>
+      <p>Ký tự nào biểu thị âm <strong>o</strong>?</p>
+      <div class="options" id="mc1Options"></div>
+      <button class="btn primary" onclick="checkMC('mc1','お','mc1Feedback')">Kiểm tra</button>
+      <div class="feedback" id="mc1Feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="exercise" data-activity="short1">
+      <h3>6.2. Trả lời ngắn</h3>
+      <label for="shortStroke">Ký tự <span lang="ja">い</span> có bao nhiêu nét?</label>
+      <input id="shortStroke" type="text" inputmode="numeric" autocomplete="off" />
+      <button class="btn primary" onclick="checkShort('shortStroke',['2','hai'],'short1Feedback','い gồm 2 nét cong.','short1')">Kiểm tra</button>
+      <div class="feedback" id="short1Feedback" aria-live="polite"></div>
+    </div>
+
+    <div class="exercise" data-activity="h2r">
+      <h3>6.3. Hiragana → Romaji</h3>
+      <label for="h2rInput">Đọc <span lang="ja" style="font-size:1.6rem">うえ</span> bằng Romaji:</label>
+      <input id="h2rInput" type="text" autocomplete="off" />
+      <button class="btn primary" onclick="checkShort('h2rInput',['ue'],'h2rFeedback','う = u, え = e → ue.','h2r')">Kiểm tra</button>
+      <div class="feedback" id="h2rFeedback" aria-live="polite"></div>
+    </div>
+
+    <div class="exercise" data-activity="r2h">
+      <h3>6.4. Romaji → Hiragana</h3>
+      <label for="r2hInput">Viết <strong>ie</strong> bằng Hiragana:</label>
+      <input id="r2hInput" type="text" autocomplete="off" lang="ja" />
+      <button class="btn primary" onclick="checkShort('r2hInput',['いえ'],'r2hFeedback','ie = い + え → いえ.','r2h')">Kiểm tra</button>
+      <div class="feedback" id="r2hFeedback" aria-live="polite"></div>
+    </div>
+
+    <div class="exercise" data-activity="matching">
+      <h3>6.5. Ghép từ</h3>
+      <p>Click một mục bên trái rồi click nghĩa tương ứng bên phải.</p>
+      <div class="matching"><div class="match-col" id="matchLeft"></div><div class="match-col" id="matchRight"></div></div>
+      <div class="feedback" id="matchingFeedback" aria-live="polite"></div>
+      <div class="controls"><button class="btn" onclick="resetMatching()">Làm lại</button></div>
+    </div>
+
+    <div class="exercise" data-activity="build">
+      <h3>6.6. Ghép Hiragana</h3>
+      <p>Ghép thành từ <strong>“aoi”</strong>:</p>
+      <div class="token-bank" id="buildBank"></div>
+      <label>Đáp án của bạn</label>
+      <div class="answer-zone" id="buildAnswer" aria-live="polite"></div>
+      <div class="controls"><button class="btn primary" onclick="checkBuild()">Kiểm tra</button><button class="btn" onclick="resetBuild()">Xóa</button></div>
+      <div class="feedback" id="buildFeedback"></div>
+    </div>
+
+    <div class="exercise" data-activity="order">
+      <h3>6.7. Sắp xếp chuỗi đọc</h3>
+      <p>Sắp xếp theo thứ tự nguyên âm chuẩn <strong>a → i → u → e → o</strong>.</p>
+      <div class="token-bank" id="orderBank"></div>
+      <label>Thứ tự đã chọn</label>
+      <div class="answer-zone" id="orderAnswer"></div>
+      <div class="controls"><button class="btn primary" onclick="checkOrder()">Kiểm tra</button><button class="btn" onclick="resetOrder()">Làm lại</button></div>
+      <div class="feedback" id="orderFeedback"></div>
+    </div>
+
+    <div class="exercise" data-activity="listen">
+      <h3>6.8. Nghe và chọn</h3>
+      <p>Nhấn nghe, sau đó chọn từ bạn nghe thấy. <span class="tiny">(Giọng tổng hợp của trình duyệt.)</span></p>
+      <button class="btn" onclick="speakJapanese('いいえ')">🔊 Nghe</button>
+      <div class="options" id="listenOptions"></div>
+      <button class="btn primary" onclick="checkMC('listen','いいえ','listenFeedback')">Kiểm tra</button>
+      <div class="feedback" id="listenFeedback"></div>
+    </div>
+
+    <div class="exercise" data-activity="jp2vi">
+      <h3>6.9. Hiragana → tiếng Việt</h3>
+      <label for="jp2viInput">Dịch cụm <span lang="ja" style="font-size:1.45rem">あおい いえ</span>:</label>
+      <input id="jp2viInput" type="text" autocomplete="off" placeholder="Nhập nghĩa tiếng Việt" />
+      <button class="btn primary" onclick="checkKeywordTranslation()">Kiểm tra</button>
+      <div class="feedback" id="jp2viFeedback" aria-live="polite"></div>
+    </div>
+
+    <div class="exercise" data-activity="vi2jp">
+      <h3>6.10. Tiếng Việt → Hiragana</h3>
+      <label for="vi2jpInput">Viết từ <strong>“nhà”</strong> bằng Hiragana:</label>
+      <input id="vi2jpInput" type="text" autocomplete="off" lang="ja" />
+      <button class="btn primary" onclick="checkShort('vi2jpInput',['いえ'],'vi2jpFeedback','Nhà = いえ (ie).','vi2jp')">Kiểm tra</button>
+      <div class="feedback" id="vi2jpFeedback" aria-live="polite"></div>
+    </div>
+
+    <div class="exercise" data-activity="imgword">
+      <h3>6.11. Nhìn ảnh chọn từ</h3>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Exterior_of_a_traditional_japanese_house_in_Kyoto.jpg?width=700"
+           alt="Ngôi nhà ở Kyoto dùng cho câu hỏi chọn từ いえ" loading="lazy"
+           style="width:100%;height:190px;object-fit:cover;border-radius:12px;border:1px solid var(--line)" />
+      <p>Ảnh trên phù hợp với từ nào?</p>
+      <div class="options" id="imgwordOptions"></div>
+      <button class="btn primary" onclick="checkMC('imgword','いえ','imgwordFeedback')">Kiểm tra</button>
+      <div class="feedback" id="imgwordFeedback"></div>
+    </div>
+  </div>
+
+  <div class="exercise" style="margin-top:14px" id="retryBox">
+    <h3>6.12. Luyện lại lỗi</h3>
+    <p id="retryText">Khi bạn trả lời sai, câu đó sẽ được lưu để hỏi lại bằng một dạng khác.</p>
+    <div id="retryArea"></div>
+  </div>
+</section>
+
+<section id="writing">
+  <h2>7. Luyện viết trực tiếp</h2>
+  <p>Dùng chuột, cảm ứng hoặc stylus. Chữ mẫu mờ giúp bạn tô theo; sau đó hãy ẩn mẫu và tự viết lại.</p>
+  <div class="canvas-shell">
+    <div class="canvas-wrap" role="img" aria-label="Khung luyện viết Hiragana có đường trục và đường chéo">
+      <div id="sampleChar">あ</div>
+      <canvas id="writingCanvas" aria-label="Canvas luyện viết Hiragana"></canvas>
+    </div>
+    <div class="writing-panel">
+      <div class="eyebrow">Chữ đang luyện</div>
+      <div class="writing-char" id="writingChar">あ</div>
+      <div style="text-align:center"><span id="writingRomaji">a</span> · <span id="writingStrokes">3 nét</span></div>
+      <div class="controls">
+        <button class="btn" id="prevChar">← Chữ trước</button><button class="btn" id="nextChar">Chữ tiếp →</button>
+      </div>
+      <div class="controls">
+        <button class="btn" id="undoCanvas">Hoàn tác</button><button class="btn" id="clearCanvas">Xóa</button>
+        <button class="btn" id="toggleSample">Ẩn mẫu</button>
+      </div>
+      <div class="rating">
+        <strong>Tự đánh giá lần viết này</strong>
+        <label><input type="radio" name="writingRating" value="need" /> ○ Cần luyện thêm</label>
+        <label><input type="radio" name="writingRating" value="ok" /> ○ Tạm ổn</label>
+        <label><input type="radio" name="writingRating" value="good" /> ○ Viết tốt</label>
+      </div>
+      <button class="btn primary" id="saveWriting">Lưu đánh giá</button>
+      <div class="feedback" id="writingFeedback"></div>
+      <p class="tiny">Trang không dùng AI nhận dạng chữ viết; hãy đối chiếu hình dạng, số nét và tự đánh giá.</p>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="quiz-head">
+    <div><h2 style="margin-bottom:.2rem">8. Bài kiểm tra cuối bài</h2><div class="subtle">12 câu · từ ngân hàng câu hỏi cân bằng theo nội dung lesson.</div></div>
+    <button class="btn" id="newQuiz">Tạo bộ câu mới</button>
+  </div>
+  <form id="quizForm"></form>
+  <div class="controls"><button type="button" class="btn primary" id="submitQuiz">Chấm điểm</button></div>
+  <div class="result-card" id="resultCard" aria-live="polite">
+    <div class="score-big" id="scoreBig">0%</div>
+    <h3 id="scoreLabel">Kết quả</h3>
+    <p id="scoreLine"></p>
+    <div class="score-bars" id="scoreBars"></div>
+    <h3>Nội dung cần ôn</h3>
+    <div class="review-list" id="weakPoints"></div>
+    <h3>Giải thích câu sai</h3>
+    <div id="wrongExplanations"></div>
+  </div>
+</section>
+
+<section id="review">
+  <h2>9. Ghi nhớ sau bài học</h2>
+  <div class="kana-grid" id="reviewKana"></div>
+  <h3>Từ cần nhớ</h3>
+  <div class="word-list" id="reviewWordsCore"></div>
+  <h3>Danh sách “Chưa nhớ” của bạn</h3>
+  <div class="review-list" id="personalReviewWords"></div>
+  <h3>Checklist hoàn thành</h3>
+  <div class="checklist" id="checklist"></div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="footer-card">
+    <strong>Điều khiển bài học</strong>
+    <div class="controls">
+      <button class="btn" id="resetActivities">Làm lại bài tập</button>
+      <button class="btn danger" id="clearAll">Xóa toàn bộ tiến độ</button>
+    </div>
+    <p class="tiny">Dữ liệu được lưu cục bộ bằng <code>localStorage</code> trên trình duyệt này.</p>
+  </div>
+</footer>
+
+<script>
+const LESSON_KEY = "jpLesson001HiraganaVowels_v1";
+const kana = [
+  {char:"あ",romaji:"a",strokes:3,hint:'gần âm "a" trong "ba"'},
+  {char:"い",romaji:"i",strokes:2,hint:'gần âm "i" trong "đi"'},
+  {char:"う",romaji:"u",strokes:2,hint:'u ngắn, môi không tròn mạnh'},
+  {char:"え",romaji:"e",strokes:2,hint:'gần âm "ê", phát âm ngắn'},
+  {char:"お",romaji:"o",strokes:3,hint:'gần âm "ô", phát âm ngắn'}
+];
+const words = [
+  {kana:"あい",romaji:"ai",vi:"tình yêu"},
+  {kana:"あう",romaji:"au",vi:"gặp"},
+  {kana:"あお",romaji:"ao",vi:"màu xanh"},
+  {kana:"いえ",romaji:"ie",vi:"nhà"},
+  {kana:"うえ",romaji:"ue",vi:"phía trên"},
+  {kana:"あおい",romaji:"aoi",vi:"xanh, màu xanh"},
+  {kana:"いいえ",romaji:"iie",vi:"không"}
+];
+const activityIds = ["mc1","short1","h2r","r2h","matching","build","order","listen","jp2vi","vi2jp","imgword","writing","quiz"];
+const checklistItems = [
+  "Tôi nhận diện được あ・い・う・え・お.",
+  "Tôi đọc được năm nguyên âm mà không cần nhìn Romaji.",
+  "Tôi nhớ số nét của từng ký tự.",
+  "Tôi phân biệt được あ và お.",
+  "Tôi đọc được あい, あう, あお, いえ, うえ.",
+  "Tôi đọc được あおい và いいえ.",
+  "Tôi đã luyện viết mỗi nguyên âm ít nhất một lượt trên web.",
+  "Tôi đã tự kiểm tra bằng thứ tự ký tự ngẫu nhiên."
+];
+
+let state = loadState();
+function defaultState(){
+  return {completed:{},reviewWords:[],wrongTags:[],writing:{},quizScore:null,checklist:{},romajiVisible:true};
+}
+function loadState(){
+  try{return {...defaultState(),...JSON.parse(localStorage.getItem(LESSON_KEY)||"{}")};}
+  catch(e){return defaultState();}
+}
+function saveState(){localStorage.setItem(LESSON_KEY,JSON.stringify(state));updateProgress();}
+function markComplete(id){state.completed[id]=true;saveState();}
+function updateProgress(){
+  const done = activityIds.filter(id=>state.completed[id]).length;
+  const checked = Object.values(state.checklist||{}).filter(Boolean).length;
+  const pct = Math.round(((done + Math.min(checked,4)/4) / (activityIds.length+1))*100);
+  document.getElementById("progressBar").style.width=pct+"%";
+  document.getElementById("progressText").textContent=pct+"%";
+  document.getElementById("progressDetail").textContent=`${done}/${activityIds.length} hoạt động chính · ${checked}/${checklistItems.length} mục checklist`;
+}
+function normalize(s){return (s||"").trim().toLowerCase().replace(/[。．.]+$/,"").replace(/\s+/g," ");}
+
+function speakJapanese(text){
+  if(!("speechSynthesis" in window)){alert("Trình duyệt này không hỗ trợ SpeechSynthesis.");return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang="ja-JP";u.rate=.78;u.pitch=1;
+  speechSynthesis.speak(u);
+}
+
+function renderKana(){
+  document.getElementById("kanaGrid").innerHTML=kana.map(k=>`
+    <article class="kana-card">
+      <div class="kana-char" lang="ja">${k.char}</div>
+      <strong class="romaji">${k.romaji}</strong>
+      <div class="stroke">${k.strokes} nét · ${k.hint}</div>
+      <button class="speaker" aria-label="Phát âm ${k.char}" onclick="speakJapanese('${k.char}')">🔊 nghe</button>
+    </article>`).join("");
+  document.getElementById("reviewKana").innerHTML=kana.map(k=>`
+    <div class="kana-card"><div class="kana-char">${k.char}</div><strong class="romaji">${k.romaji}</strong><div class="stroke">${k.strokes} nét</div></div>`).join("");
+}
+function renderWords(){
+  document.getElementById("wordRows").innerHTML=words.map(w=>`
+    <tr><td style="font-size:1.35rem" lang="ja">${w.kana}</td><td class="romaji">${w.romaji}</td><td>${w.vi}</td>
+    <td><button class="speaker" onclick="speakJapanese('${w.kana}')">🔊</button> <button class="speaker" onclick="toggleReviewWord('${w.kana}')">☆</button></td></tr>`).join("");
+  document.getElementById("reviewWordsCore").innerHTML=words.map(w=>`<span class="word-pill"><b lang="ja">${w.kana}</b> <span class="romaji">${w.romaji}</span> · ${w.vi}</span>`).join("");
+}
+function setRomajiVisibility(){
+  document.querySelectorAll(".romaji").forEach(el=>el.classList.toggle("hidden-romaji",!state.romajiVisible));
+  document.getElementById("toggleRomaji").textContent=state.romajiVisible?"Ẩn Romaji":"Hiện Romaji";
+}
+document.getElementById("toggleRomaji").addEventListener("click",()=>{state.romajiVisible=!state.romajiVisible;saveState();setRomajiVisibility();});
+
+function toggleReviewWord(k){
+  const idx=state.reviewWords.indexOf(k);
+  if(idx>=0) state.reviewWords.splice(idx,1); else state.reviewWords.push(k);
+  saveState();renderPersonalReview();
+}
+function addReviewWord(k){
+  if(k&&!state.reviewWords.includes(k)) state.reviewWords.push(k);
+  saveState();renderPersonalReview();
+}
+function renderPersonalReview(){
+  const box=document.getElementById("personalReviewWords");
+  if(!state.reviewWords.length){box.innerHTML='<span class="subtle">Chưa có từ nào được đánh dấu.</span>';return;}
+  box.innerHTML=state.reviewWords.map(k=>{
+    const w=words.find(x=>x.kana===k);
+    return `<button class="review-chip" onclick="toggleReviewWord('${k}')" title="Nhấn để bỏ khỏi danh sách">${k}${w?` · ${w.vi}`:""} ×</button>`;
+  }).join("");
+}
+
+/* Flashcards */
+let flashIndex=0;
+function renderFlash(){
+  const w=words[flashIndex];
+  document.getElementById("flashFront").textContent=w.kana;
+  document.getElementById("flashBackKana").textContent=w.kana;
+  document.getElementById("flashBackRomaji").textContent=w.romaji;
+  document.getElementById("flashBackMeaning").textContent=w.vi;
+  document.getElementById("flashcard").classList.remove("flipped");
+  setRomajiVisibility();
+}
+document.getElementById("flashFlip").onclick=()=>document.getElementById("flashcard").classList.toggle("flipped");
+document.getElementById("flashcard").onclick=()=>document.getElementById("flashcard").classList.toggle("flipped");
+document.getElementById("flashPrev").onclick=()=>{flashIndex=(flashIndex-1+words.length)%words.length;renderFlash();};
+document.getElementById("flashNext").onclick=()=>{flashIndex=(flashIndex+1)%words.length;renderFlash();};
+document.getElementById("flashSpeak").onclick=()=>speakJapanese(words[flashIndex].kana);
+document.getElementById("flashKnow").onclick=()=>{const k=words[flashIndex].kana;state.reviewWords=state.reviewWords.filter(x=>x!==k);saveState();renderPersonalReview();document.getElementById("flashNext").click();};
+document.getElementById("flashReview").onclick=()=>{addReviewWord(words[flashIndex].kana);document.getElementById("flashNext").click();};
+
+/* Multiple choice */
+const mcSets={
+  mc1:["あ","う","お","え"],
+  listen:["あお","いえ","いいえ","うえ"],
+  imgword:["いえ","あお","うえ","あい"]
+};
+const selectedMC={};
+function renderMC(id){
+  const target=id==="mc1"?"mc1Options":id==="listen"?"listenOptions":"imgwordOptions";
+  document.getElementById(target).innerHTML=shuffle([...mcSets[id]]).map(v=>`<button type="button" class="option" data-value="${v}" onclick="selectMC('${id}',this)">${v}</button>`).join("");
+}
+function selectMC(id,el){
+  const parent=el.parentElement;parent.querySelectorAll(".option").forEach(b=>b.classList.remove("selected"));
+  el.classList.add("selected");selectedMC[id]=el.dataset.value;
+}
+function checkMC(id,answer,feedbackId){
+  const fb=document.getElementById(feedbackId);
+  const target=id==="mc1"?"mc1Options":id==="listen"?"listenOptions":"imgwordOptions";
+  document.querySelectorAll("#"+target+" .option").forEach(b=>{
+    b.classList.remove("correct","wrong");
+    if(b.dataset.value===answer)b.classList.add("correct");
+    if(selectedMC[id]&&b.dataset.value===selectedMC[id]&&selectedMC[id]!==answer)b.classList.add("wrong");
+  });
+  if(selectedMC[id]===answer){
+    fb.className="feedback good";
+    fb.textContent=id==="mc1"?"✓ Chính xác! お = o và có 3 nét.":id==="listen"?"✓ Chính xác! Bạn nghe thấy いいえ (iie) = không.":"✓ Chính xác! いえ (ie) = nhà.";
+    markComplete(id);
+  } else {
+    fb.className="feedback bad";fb.textContent=`✗ Chưa đúng. Đáp án là ${answer}. Câu này sẽ xuất hiện lại ở phần luyện lỗi.`;
+    addWrongTag(id==="mc1"?"vowel-o":id==="listen"?"word-iie":"imgword");
+    if(id==="listen") addReviewWord("いいえ");
+    if(id==="imgword") addReviewWord("いえ");
+  }
+}
+function checkShort(inputId,answers,feedbackId,explanation,activity){
+  const val=normalize(document.getElementById(inputId).value);
+  const ok=answers.map(normalize).includes(val);
+  const fb=document.getElementById(feedbackId);
+  fb.className="feedback "+(ok?"good":"bad");
+  fb.textContent=(ok?"✓ Chính xác! ":"✗ Chưa đúng. ")+explanation;
+  if(ok)markComplete(activity); else addWrongTag(activity);
+}
+
+
+function checkKeywordTranslation(){
+  const val=normalize(document.getElementById("jp2viInput").value);
+  const fb=document.getElementById("jp2viFeedback");
+  const ok=val.includes("nhà") && val.includes("xanh");
+  if(ok){fb.className="feedback good";fb.textContent="✓ Hợp lý! あおい = xanh, いえ = nhà → “ngôi nhà màu xanh”.";markComplete("jp2vi");}
+  else{fb.className="feedback bad";fb.textContent='✗ Chưa đủ ý. Đáp án tham khảo: “ngôi nhà màu xanh”. Cần có cả ý “nhà” và “xanh”.';addWrongTag("jp2vi");addReviewWord("あおい");addReviewWord("いえ");}
+}
+
+/* Matching */
+const matchPairs=[
+  {l:"あい",r:"tình yêu"},{l:"いえ",r:"nhà"},{l:"うえ",r:"phía trên"},{l:"いいえ",r:"không"}
+];
+let matchSelection=null,matchDone=new Set();
+function resetMatching(){
+  matchSelection=null;matchDone=new Set();
+  const left=shuffle([...matchPairs]),right=shuffle([...matchPairs]);
+  document.getElementById("matchLeft").innerHTML=left.map(p=>`<button class="match-item" data-k="${p.l}" onclick="pickLeft(this)">${p.l}</button>`).join("");
+  document.getElementById("matchRight").innerHTML=right.map(p=>`<button class="match-item" data-k="${p.l}" onclick="pickRight(this)">${p.r}</button>`).join("");
+  document.getElementById("matchingFeedback").textContent="";
+}
+function pickLeft(el){
+  if(el.classList.contains("done"))return;
+  document.querySelectorAll("#matchLeft .match-item").forEach(x=>x.classList.remove("active"));
+  el.classList.add("active");matchSelection=el.dataset.k;
+}
+function pickRight(el){
+  if(!matchSelection||el.classList.contains("done"))return;
+  const left=document.querySelector(`#matchLeft .match-item[data-k="${CSS.escape(matchSelection)}"]`);
+  if(el.dataset.k===matchSelection){
+    el.classList.add("done");left.classList.add("done");left.classList.remove("active");matchDone.add(matchSelection);matchSelection=null;
+    const fb=document.getElementById("matchingFeedback");fb.className="feedback good";fb.textContent=`✓ Ghép đúng ${matchDone.size}/${matchPairs.length}.`;
+    if(matchDone.size===matchPairs.length){fb.textContent="✓ Hoàn thành toàn bộ ghép từ.";markComplete("matching");}
+  }else{
+    const fb=document.getElementById("matchingFeedback");fb.className="feedback bad";fb.textContent="✗ Chưa khớp. Hãy thử lại.";
+    addWrongTag("matching");matchSelection=null;document.querySelectorAll("#matchLeft .match-item").forEach(x=>x.classList.remove("active"));
+  }
+}
+
+/* Build word */
+let buildSelected=[];
+function resetBuild(){
+  buildSelected=[];
+  const bank=shuffle(["あ","お","い","え"]);
+  document.getElementById("buildBank").innerHTML=bank.map((x,i)=>`<button class="token" data-i="${i}" data-v="${x}" onclick="addBuild(this)">${x}</button>`).join("");
+  renderBuildAnswer();document.getElementById("buildFeedback").textContent="";
+}
+function addBuild(btn){if(btn.disabled)return;buildSelected.push({v:btn.dataset.v,i:btn.dataset.i});btn.disabled=true;renderBuildAnswer();}
+function renderBuildAnswer(){document.getElementById("buildAnswer").innerHTML=buildSelected.map((x,idx)=>`<button class="token" onclick="removeBuild(${idx})">${x.v}</button>`).join("");}
+function removeBuild(idx){const item=buildSelected[idx];buildSelected.splice(idx,1);const btn=document.querySelector(`#buildBank .token[data-i="${item.i}"]`);if(btn)btn.disabled=false;renderBuildAnswer();}
+function checkBuild(){
+  const val=buildSelected.map(x=>x.v).join(""),fb=document.getElementById("buildFeedback");
+  if(val==="あおい"){fb.className="feedback good";fb.textContent="✓ Chính xác! あ + お + い = あおい (aoi).";markComplete("build");}
+  else{fb.className="feedback bad";fb.textContent="✗ Chưa đúng. Hãy nhớ thứ tự âm a-o-i.";addWrongTag("word-aoi");addReviewWord("あおい");}
+}
+
+/* Order */
+let orderSelected=[];
+function resetOrder(){
+  orderSelected=[];document.getElementById("orderBank").innerHTML=shuffle(["あ","い","う","え","お"]).map((x,i)=>`<button class="token" data-i="${i}" data-v="${x}" onclick="addOrder(this)">${x}</button>`).join("");
+  renderOrderAnswer();document.getElementById("orderFeedback").textContent="";
+}
+function addOrder(btn){if(btn.disabled)return;orderSelected.push({v:btn.dataset.v,i:btn.dataset.i});btn.disabled=true;renderOrderAnswer();}
+function renderOrderAnswer(){document.getElementById("orderAnswer").innerHTML=orderSelected.map((x,idx)=>`<button class="token" onclick="removeOrder(${idx})">${x.v}</button>`).join("");}
+function removeOrder(idx){const item=orderSelected[idx];orderSelected.splice(idx,1);const btn=document.querySelector(`#orderBank .token[data-i="${item.i}"]`);if(btn)btn.disabled=false;renderOrderAnswer();}
+function checkOrder(){
+  const val=orderSelected.map(x=>x.v).join(""),fb=document.getElementById("orderFeedback");
+  if(val==="あいうえお"){fb.className="feedback good";fb.textContent="✓ Đúng thứ tự: あ → い → う → え → お.";markComplete("order");}
+  else{fb.className="feedback bad";fb.textContent="✗ Chưa đúng. Chuỗi chuẩn là a-i-u-e-o.";addWrongTag("vowel-order");}
+}
+function addWrongTag(tag){
+  if(!state.wrongTags.includes(tag))state.wrongTags.push(tag);
+  saveState();renderRetry();
+}
+function renderRetry(){
+  const area=document.getElementById("retryArea");
+  if(!state.wrongTags.length){area.innerHTML='<span class="subtle">Chưa có lỗi cần luyện lại.</span>';return;}
+  const tag=state.wrongTags[0];
+  let q={prompt:"Ký tự nào đọc là o?",answer:"お",options:["あ","い","え","お"],explain:"お = o; nét nhỏ tách rời phía trên bên phải giúp phân biệt với あ."};
+  if(tag==="short1")q={prompt:"Chọn số nét đúng của い.",answer:"2",options:["1","2","3","4"],explain:"い có 2 nét."};
+  if(tag==="h2r")q={prompt:"Từ nào có Romaji là ue?",answer:"うえ",options:["いえ","うえ","あう","あお"],explain:"う = u, え = e → うえ = ue."};
+  if(tag==="r2h")q={prompt:'Từ nào viết Hiragana cho "ie"?',answer:"いえ",options:["うえ","いえ","あい","いいえ"],explain:"い + え = いえ."};
+  if(tag==="word-aoi")q={prompt:'Từ nào có nghĩa "xanh, màu xanh"?',answer:"あおい",options:["あお","あおい","あい","いえ"],explain:"あおい = aoi = xanh."};
+  if(tag==="word-iie"||tag==="listen")q={prompt:'Từ nào có nghĩa "không"?',answer:"いいえ",options:["あい","うえ","いいえ","いえ"],explain:"いいえ = iie = không."};
+  if(tag==="vowel-order"||tag==="order")q={prompt:"Chọn chuỗi đúng theo thứ tự 5 nguyên âm.",answer:"あいうえお",options:["あいうえお","おえういあ","あういえお","いうえおあ"],explain:"Thứ tự nền tảng là a-i-u-e-o → あいうえお."};
+  if(tag==="matching"||tag==="imgword"||tag==="vi2jp")q={prompt:'Ghép đúng nghĩa của いえ.',answer:"nhà",options:["phía trên","nhà","tình yêu","không"],explain:"いえ = ie = nhà."};
+  if(tag==="jp2vi")q={prompt:'Trong cụm あおい いえ, từ nào mang nghĩa “xanh”?',answer:"あおい",options:["あおい","いえ","あい","うえ"],explain:"あおい = xanh; いえ = nhà."};
+  area.innerHTML=`<p><strong>${q.prompt}</strong></p><div class="options">${shuffle([...q.options]).map(o=>`<button class="option" data-v="${o}" onclick="retryAnswer(this,'${escapeJs(q.answer)}','${escapeJs(q.explain)}','${escapeJs(tag)}')">${o}</button>`).join("")}</div><div class="feedback" id="retryFeedback"></div>`;
+}
+function escapeJs(s){return String(s).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
+function retryAnswer(btn,ans,explain,tag){
+  const fb=document.getElementById("retryFeedback");
+  btn.parentElement.querySelectorAll(".option").forEach(b=>b.classList.remove("selected","correct","wrong"));
+  if(btn.dataset.v===ans){
+    btn.classList.add("correct");fb.className="feedback good";fb.textContent="✓ Đã sửa đúng. "+explain;
+    state.wrongTags=state.wrongTags.filter(x=>x!==tag);saveState();setTimeout(renderRetry,650);
+  }else{btn.classList.add("wrong");fb.className="feedback bad";fb.textContent="✗ Chưa đúng. "+explain;}
+}
+
+/* Canvas handwriting */
+let writeIndex=0,strokes=[],currentStroke=null,sampleVisible=true;
+const canvas=document.getElementById("writingCanvas"),ctx=canvas.getContext("2d");
+function fitCanvas(){
+  const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;
+  canvas.width=Math.round(rect.width*ratio);canvas.height=Math.round(rect.height*ratio);
+  ctx.setTransform(ratio,0,0,ratio,0,0);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(4,rect.width/75);ctx.strokeStyle="#28221d";
+  redrawCanvas();
+}
+function pointFromEvent(e){const r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+function drawStroke(stroke){
+  if(stroke.length<2)return;
+  ctx.beginPath();ctx.moveTo(stroke[0].x,stroke[0].y);
+  for(let i=1;i<stroke.length;i++)ctx.lineTo(stroke[i].x,stroke[i].y);
+  ctx.stroke();
+}
+function redrawCanvas(){ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);strokes.forEach(drawStroke);}
+canvas.addEventListener("pointerdown",e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);currentStroke=[pointFromEvent(e)];strokes.push(currentStroke);});
+canvas.addEventListener("pointermove",e=>{if(!currentStroke)return;e.preventDefault();currentStroke.push(pointFromEvent(e));redrawCanvas();});
+function endStroke(){currentStroke=null;}
+canvas.addEventListener("pointerup",endStroke);canvas.addEventListener("pointercancel",endStroke);canvas.addEventListener("pointerleave",e=>{if(e.buttons===0)endStroke();});
+function clearWriting(){strokes=[];currentStroke=null;redrawCanvas();}
+document.getElementById("clearCanvas").onclick=clearWriting;
+document.getElementById("undoCanvas").onclick=()=>{strokes.pop();redrawCanvas();};
+document.getElementById("toggleSample").onclick=()=>{sampleVisible=!sampleVisible;document.getElementById("sampleChar").style.display=sampleVisible?"flex":"none";document.getElementById("toggleSample").textContent=sampleVisible?"Ẩn mẫu":"Xem mẫu";};
+function renderWriting(){
+  const k=kana[writeIndex];document.getElementById("writingChar").textContent=k.char;document.getElementById("sampleChar").textContent=k.char;
+  document.getElementById("writingRomaji").textContent=k.romaji;document.getElementById("writingStrokes").textContent=k.strokes+" nét";
+  clearWriting();
+  document.querySelectorAll('input[name="writingRating"]').forEach(r=>r.checked=state.writing[k.char]?.rating===r.value);
+}
+document.getElementById("prevChar").onclick=()=>{writeIndex=(writeIndex-1+kana.length)%kana.length;renderWriting();};
+document.getElementById("nextChar").onclick=()=>{writeIndex=(writeIndex+1)%kana.length;renderWriting();};
+document.getElementById("saveWriting").onclick=()=>{
+  const rating=document.querySelector('input[name="writingRating"]:checked')?.value;
+  const fb=document.getElementById("writingFeedback");
+  if(!rating){fb.className="feedback bad";fb.textContent="Hãy chọn mức tự đánh giá trước khi lưu.";return;}
+  const k=kana[writeIndex];state.writing[k.char]={rating,at:new Date().toISOString()};
+  if(Object.keys(state.writing).length>=5)state.completed.writing=true;
+  saveState();fb.className="feedback good";fb.textContent=`✓ Đã lưu đánh giá cho ${k.char}.`;
+};
+window.addEventListener("resize",fitCanvas);
+
+/* Quiz */
+const quizBank=[
+  {id:"q1",cat:"Từ vựng",type:"mc",q:"「いえ」 nghĩa là gì?",options:["nhà","phía trên","tình yêu","không"],answer:"nhà",ex:"いえ (ie) = nhà.",tag:"いえ"},
+  {id:"q2",cat:"Từ vựng",type:"mc",q:"Từ nào có nghĩa “phía trên”?",options:["あい","うえ","あお","いいえ"],answer:"うえ",ex:"うえ (ue) = phía trên.",tag:"うえ"},
+  {id:"q3",cat:"Từ vựng",type:"mc",q:"「あい」 nghĩa là gì?",options:["gặp","tình yêu","nhà","màu xanh"],answer:"tình yêu",ex:"あい (ai) = tình yêu.",tag:"あい"},
+  {id:"q4",cat:"Từ vựng",type:"mc",q:"Từ nào có nghĩa “không”?",options:["いいえ","いえ","あう","あお"],answer:"いいえ",ex:"いいえ (iie) = không.",tag:"いいえ"},
+  {id:"q5",cat:"Từ vựng",type:"mc",q:"「あお」 nghĩa là gì?",options:["màu xanh","gặp","nhà","phía trên"],answer:"màu xanh",ex:"あお (ao) = màu xanh.",tag:"あお"},
+  {id:"q6",cat:"Từ vựng",type:"mc",q:"「あう」 nghĩa là gì?",options:["gặp","không","tình yêu","xanh"],answer:"gặp",ex:"あう (au) = gặp.",tag:"あう"},
+  {id:"q7",cat:"Nhận diện",type:"mc",q:"Ký tự nào biểu thị âm a?",options:["あ","い","う","お"],answer:"あ",ex:"あ = a.",tag:"あ"},
+  {id:"q8",cat:"Nhận diện",type:"mc",q:"Ký tự nào biểu thị âm e?",options:["お","え","う","い"],answer:"え",ex:"え = e.",tag:"え"},
+  {id:"q9",cat:"Nhận diện",type:"mc",q:"Ký tự nào có nét nhỏ tách rời ở phía trên bên phải?",options:["あ","お","う","い"],answer:"お",ex:"Nét nhỏ tách rời phía trên bên phải là dấu hiệu quan trọng của お.",tag:"お"},
+  {id:"q10",cat:"Nét viết",type:"mc",q:"あ có bao nhiêu nét?",options:["1","2","3","4"],answer:"3",ex:"あ gồm 3 nét.",tag:"あ"},
+  {id:"q11",cat:"Nét viết",type:"mc",q:"う có bao nhiêu nét?",options:["1","2","3","4"],answer:"2",ex:"う gồm 2 nét.",tag:"う"},
+  {id:"q12",cat:"Nét viết",type:"mc",q:"お có bao nhiêu nét?",options:["1","2","3","4"],answer:"3",ex:"お gồm 3 nét.",tag:"お"},
+  {id:"q13",cat:"Đọc",type:"text",q:"Viết Romaji của 「あおい」.",answers:["aoi"],ex:"あ + お + い → aoi.",tag:"あおい"},
+  {id:"q14",cat:"Đọc",type:"text",q:"Viết Romaji của 「いいえ」.",answers:["iie"],ex:"い + い + え → iie.",tag:"いいえ"},
+  {id:"q15",cat:"Kana",type:"text",q:'Viết “ue” bằng Hiragana.',answers:["うえ"],ex:"u = う, e = え → うえ.",tag:"うえ"},
+  {id:"q16",cat:"Kana",type:"text",q:'Viết “ai” bằng Hiragana.',answers:["あい"],ex:"a = あ, i = い → あい.",tag:"あい"},
+  {id:"q17",cat:"Kana",type:"text",q:'Viết “ao” bằng Hiragana.',answers:["あお"],ex:"a = あ, o = お → あお.",tag:"あお"},
+  {id:"q18",cat:"Nhận diện",type:"mc",q:"Chuỗi nào đúng thứ tự năm nguyên âm Hiragana?",options:["あいうえお","おえういあ","あういえお","いうえおあ"],answer:"あいうえお",ex:"Thứ tự chuẩn là a-i-u-e-o → あいうえお.",tag:"vowel-order"},
+  {id:"q19",cat:"Đọc",type:"mc",q:"「あおい」 được tách đúng theo thứ tự nào?",options:["あ + お + い","あ + い + お","お + あ + い","い + お + あ"],answer:"あ + お + い",ex:"あおい gồm あ → お → い.",tag:"あおい"},
+  {id:"q20",cat:"Đọc",type:"mc",q:"「いいえ」 bắt đầu bằng điều gì?",options:["hai ký tự い liên tiếp","một ký tự い","hai ký tự え","một ký tự お"],answer:"hai ký tự い liên tiếp",ex:"いいえ = い + い + え.",tag:"いいえ"},
+  {id:"q21",cat:"Phát âm",type:"mc",q:"Khi luyện năm nguyên âm ở bài này, cách đọc phù hợp là:",options:["âm ngắn, rõ và tương đối đều","kéo dài mọi nguyên âm","nhấn thật mạnh âm đầu","đọc theo thói quen tiếng Anh"],answer:"âm ngắn, rõ và tương đối đều",ex:"Bài học nhấn mạnh nguyên âm ngắn, rõ, không kéo dài và không nhấn lệch.",tag:"pronunciation"},
+  {id:"q22",cat:"Học tập",type:"mc",q:"Mục tiêu đối với Romaji trong bài là gì?",options:["dùng hỗ trợ ban đầu rồi giảm dần","luôn phải nhìn Romaji trước","chỉ học Romaji, bỏ Hiragana","dùng Romaji để đoán số nét"],answer:"dùng hỗ trợ ban đầu rồi giảm dần",ex:"Romaji chỉ là công cụ hỗ trợ giai đoạn đầu; mục tiêu là nhìn Hiragana và nhận ra âm ngay.",tag:"romaji"}
+];
+let currentQuiz=[];
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+function makeQuiz(){
+  const buckets={};
+  quizBank.forEach(q=>(buckets[q.cat]??=[]).push(q));
+  const targetCats=["Từ vựng","Nhận diện","Nét viết","Đọc","Kana","Phát âm","Học tập"];
+  let chosen=[];
+  const quotas={"Từ vựng":3,"Nhận diện":2,"Nét viết":2,"Đọc":2,"Kana":1,"Phát âm":1,"Học tập":1};
+  targetCats.forEach(cat=>chosen.push(...shuffle([...buckets[cat]]).slice(0,quotas[cat])));
+  currentQuiz=shuffle(chosen);
+  renderQuiz();
+  document.getElementById("resultCard").classList.remove("show");
+}
+function renderQuiz(){
+  const form=document.getElementById("quizForm");
+  form.innerHTML=currentQuiz.map((q,i)=>{
+    if(q.type==="mc"){
+      const opts=shuffle([...q.options]);
+      return `<fieldset class="quiz-question"><legend>Câu ${i+1}/12 · ${q.cat}</legend><p><strong>${q.q}</strong></p>
+        <div class="options">${opts.map(o=>`<label class="option"><input type="radio" name="${q.id}" value="${encodeURIComponent(o)}"> ${o}</label>`).join("")}</div>
+        <div class="feedback" id="fb_${q.id}"></div></fieldset>`;
+    }
+    return `<div class="quiz-question"><div class="tiny">Câu ${i+1}/12 · ${q.cat}</div><label for="${q.id}">${q.q}</label>
+      <input type="text" id="${q.id}" autocomplete="off"><div class="feedback" id="fb_${q.id}"></div></div>`;
+  }).join("");
+}
+function gradeQuiz(){
+  let correct=0;const catStats={},wrong=[];
+  currentQuiz.forEach(q=>{
+    catStats[q.cat]??={c:0,t:0};catStats[q.cat].t++;
+    let ok=false;
+    if(q.type==="mc"){
+      const chosen=document.querySelector(`input[name="${q.id}"]:checked`);
+      ok=chosen&&decodeURIComponent(chosen.value)===q.answer;
+    }else{
+      const val=normalize(document.getElementById(q.id).value);
+      ok=q.answers.map(normalize).includes(val);
+    }
+    const fb=document.getElementById("fb_"+q.id);
+    if(ok){correct++;catStats[q.cat].c++;fb.className="feedback good";fb.textContent="✓ Chính xác. "+q.ex;}
+    else{fb.className="feedback bad";fb.textContent="✗ Chưa đúng. "+q.ex;wrong.push(q);if(words.some(w=>w.kana===q.tag))addReviewWord(q.tag);}
+  });
+  const pct=Math.round(correct/currentQuiz.length*100);
+  state.quizScore={correct,total:currentQuiz.length,pct,at:new Date().toISOString()};
+  state.completed.quiz=true;saveState();
+  showResults(correct,pct,catStats,wrong);
+  document.getElementById("resultCard").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function showResults(correct,pct,catStats,wrong){
+  const label=pct>=90?"Xuất sắc":pct>=80?"Tốt":pct>=70?"Khá":pct>=60?"Cần ôn thêm":"Nên học lại bài";
+  document.getElementById("scoreBig").textContent=pct+"%";
+  document.getElementById("scoreLabel").textContent=label;
+  document.getElementById("scoreLine").textContent=`${correct} / ${currentQuiz.length} câu đúng.`;
+  document.getElementById("scoreBars").innerHTML=Object.entries(catStats).map(([cat,s])=>{
+    const p=Math.round(s.c/s.t*100);return `<div class="score-row"><span>${cat}</span><div class="mini-bar"><div class="mini-fill" style="width:${p}%"></div></div><strong>${s.c}/${s.t}</strong></div>`;
+  }).join("");
+  const weak=[...new Set(wrong.map(q=>q.tag))];
+  document.getElementById("weakPoints").innerHTML=weak.length?weak.map(x=>`<span class="review-chip">${x}</span>`).join(""):'<span class="subtle">Không có điểm yếu nổi bật trong bộ câu này.</span>';
+  document.getElementById("wrongExplanations").innerHTML=wrong.length?wrong.map(q=>`<div class="notice" style="margin:7px 0"><strong>${q.q}</strong><br>${q.ex}</div>`).join(""):'<div class="notice">Bạn không có câu sai.</div>';
+  document.getElementById("resultCard").classList.add("show");
+}
+document.getElementById("submitQuiz").onclick=gradeQuiz;
+document.getElementById("newQuiz").onclick=makeQuiz;
+
+/* Checklist */
+function renderChecklist(){
+  document.getElementById("checklist").innerHTML=checklistItems.map((txt,i)=>`<label class="checkline"><input type="checkbox" data-i="${i}" ${state.checklist[i]?"checked":""}> <span>${txt}</span></label>`).join("");
+  document.querySelectorAll("#checklist input").forEach(cb=>cb.addEventListener("change",e=>{state.checklist[e.target.dataset.i]=e.target.checked;saveState();}));
+}
+
+/* Resets */
+document.getElementById("resetActivities").onclick=()=>{
+  state.completed={};state.wrongTags=[];state.quizScore=null;saveState();
+  selectedMC.mc1=null;selectedMC.listen=null;
+  renderMC("mc1");renderMC("listen");renderMC("imgword");resetMatching();resetBuild();resetOrder();renderRetry();makeQuiz();
+  document.querySelectorAll(".feedback").forEach(x=>x.textContent="");
+  alert("Đã làm mới trạng thái bài tập. Danh sách từ cần ôn và checklist vẫn được giữ.");
+};
+document.getElementById("clearAll").onclick=()=>{
+  if(!confirm("Bạn có chắc muốn xóa toàn bộ kết quả của bài này?"))return;
+  localStorage.removeItem(LESSON_KEY);state=defaultState();saveState();
+  renderPersonalReview();renderChecklist();renderMC("mc1");renderMC("listen");renderMC("imgword");resetMatching();resetBuild();resetOrder();renderRetry();makeQuiz();renderWriting();
+  alert("Đã xóa toàn bộ tiến độ của bài học.");
+};
+
+function init(){
+  renderKana();renderWords();renderFlash();setRomajiVisibility();renderMC("mc1");renderMC("listen");renderMC("imgword");
+  resetMatching();resetBuild();resetOrder();renderRetry();renderPersonalReview();renderChecklist();renderWriting();makeQuiz();updateProgress();
+  requestAnimationFrame(fitCanvas);
+}
+init();
+</script>
+</body>
+</html>
