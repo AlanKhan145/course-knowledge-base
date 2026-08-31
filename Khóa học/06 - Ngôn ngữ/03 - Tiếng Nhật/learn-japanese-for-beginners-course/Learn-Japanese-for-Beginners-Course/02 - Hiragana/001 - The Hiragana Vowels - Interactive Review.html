@@ -134,9 +134,11 @@
   .canvas-wrap{position:relative;aspect-ratio:1/1;max-width:650px;width:100%;border:1px solid #c9bdb4;border-radius:18px;overflow:hidden;background-color:#fff;
     background-image:linear-gradient(to right,transparent 49.8%,#e1d8d0 50%,transparent 50.2%),linear-gradient(to bottom,transparent 49.8%,#e1d8d0 50%,transparent 50.2%),linear-gradient(45deg,transparent 49.8%,#f0e9e3 50%,transparent 50.2%),linear-gradient(-45deg,transparent 49.8%,#f0e9e3 50%,transparent 50.2%);
   }
-  #writingCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+  #writingCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none}
   #sampleChar{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans JP",sans-serif;font-size:min(52vw,20rem);color:rgba(180,35,47,.14);pointer-events:none;line-height:1;transition:opacity .2s}
   .writing-mode{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.writing-mode .btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .smoothing-control{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0;padding:9px 11px;border:1px solid var(--line);border-radius:11px;background:#fffaf5;color:#5a5049;font-size:.84rem}
+  .smoothing-control input{width:120px;accent-color:var(--accent);cursor:pointer}.smoothing-control strong{color:var(--accent-dark)}.smoothing-control [data-smoothing-value]{min-width:58px;color:var(--accent-dark);font-weight:750}.smoothing-note{margin:-5px 0 10px;line-height:1.45}
   .writing-picker{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:12px 0}.writing-picker .btn{min-width:45px;padding:7px 10px;font-family:"Noto Sans JP",sans-serif;font-size:1.1rem}.writing-picker .btn.active{background:#f1e5dc;border-color:var(--accent);color:var(--accent-dark);box-shadow:inset 0 -2px 0 var(--accent)}
   .writing-check{border:1px solid #dfcbbb;background:#fff8f1;border-radius:12px;padding:12px;margin-top:12px}
   .writing-check strong{display:block;margin-bottom:3px}.writing-check ul{margin:7px 0 0;padding-left:20px}
@@ -175,7 +177,7 @@
   .sheet-grid{display:grid;grid-template-columns:repeat(12,minmax(28px,1fr));min-width:0}
   .sheet-cell{min-height:106px;border-right:1px solid #56514d;position:relative;display:flex;align-items:center;justify-content:center;background-image:linear-gradient(to right,transparent 49%,rgba(120,113,106,.35) 49.5%,rgba(120,113,106,.35) 50.5%,transparent 51%),linear-gradient(to bottom,transparent 49%,rgba(120,113,106,.35) 49.5%,rgba(120,113,106,.35) 50.5%,transparent 51%),linear-gradient(45deg,transparent 49.4%,rgba(120,113,106,.2) 49.8%,rgba(120,113,106,.2) 50.2%,transparent 50.6%),linear-gradient(-45deg,transparent 49.4%,rgba(120,113,106,.2) 49.8%,rgba(120,113,106,.2) 50.2%,transparent 50.6%)}
   .sheet-cell:last-child{border-right:0}.sheet-char{font-family:"Noto Sans JP",sans-serif;font-size:3.6rem;color:rgba(80,75,70,.18);pointer-events:none;z-index:1}.sheet-cell:first-child .sheet-char{color:#27231f}.sheet-cell:nth-child(2) .sheet-char{color:rgba(180,35,47,.52)}
-  .sheet-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;z-index:2;cursor:crosshair}
+  .sheet-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;z-index:2;cursor:crosshair}
   .sheet-note{margin:14px 0 0;color:#6b6b6b;font-size:.82rem}
   @media (max-width:900px){
     .hero-grid,.canvas-shell,.media-card,.flash-layout{grid-template-columns:1fr}
@@ -383,6 +385,8 @@
         <button class="btn active" id="writingTrace">✍ Tô theo mẫu</button>
         <button class="btn" id="writingSelf">🙈 Tự viết, ẩn mẫu</button>
       </div>
+      <label class="smoothing-control" for="strokeSmoothing"><strong>Ổn định nét</strong><input id="strokeSmoothing" data-smoothing type="range" min="1" max="9" value="4" aria-label="Điều chỉnh độ ổn định của nét viết"><span data-smoothing-value>Cân bằng</span></label>
+      <p class="tiny subtle smoothing-note">Nét được lọc rung nhỏ và làm mềm góc; kéo về “Mượt” nếu dùng chuột bị run.</p>
       <div class="controls">
         <button class="btn" id="prevChar">← Chữ trước</button><button class="btn" id="nextChar">Chữ tiếp →</button>
       </div>
@@ -405,7 +409,7 @@
 </section>
 
 <section id="sheet">
-  <div class="sheet-actions"><div><h2 style="margin-bottom:.2rem">8. Sheet luyện viết Hiragana</h2><p class="subtle" style="margin:0">Viết trực tiếp lên từng ô bằng chuột, cảm ứng hoặc stylus. Có thể ẩn mẫu và in lại sheet sau khi luyện.</p></div><div class="controls" style="margin:0"><span class="badge" id="sheetProgress">0 ô đã viết</span><button class="btn" id="toggleSheetSample">Ẩn mẫu</button><button class="btn" id="clearSheet">Xóa nét</button><button class="btn primary" id="printSheet">🖨 In sheet</button></div></div>
+  <div class="sheet-actions"><div><h2 style="margin-bottom:.2rem">8. Sheet luyện viết Hiragana</h2><p class="subtle" style="margin:0">Viết trực tiếp lên từng ô bằng chuột, cảm ứng hoặc stylus. Có thể ẩn mẫu và in lại sheet sau khi luyện.</p></div><div class="controls" style="margin:0"><span class="badge" id="sheetProgress">0 ô đã viết</span><label class="smoothing-control" for="sheetSmoothing" style="margin:0"><strong>Ổn định nét</strong><input id="sheetSmoothing" data-smoothing type="range" min="1" max="9" value="4" aria-label="Điều chỉnh độ ổn định của nét viết trong sheet"><span data-smoothing-value>Cân bằng</span></label><button class="btn" id="toggleSheetSample">Ẩn mẫu</button><button class="btn" id="clearSheet">Xóa nét</button><button class="btn primary" id="printSheet">🖨 In sheet</button></div></div>
   <div class="writing-sheet" id="writingSheet">
     <div class="sheet-title">Hiragana Writing Practice Sheet 01 — Vowels & Words</div>
     <div class="sheet-subtitle">あ い う え お · あい · あう · あお · いえ · うえ · あおい · いいえ</div>
@@ -770,25 +774,47 @@ function retryAnswer(btn,ans,explain,tag){
 }
 
 /* Canvas handwriting */
-let writeIndex=0,strokes=[],currentStroke=null,sampleVisible=true;
+let writeIndex=0,strokes=[],currentStroke=null,sampleVisible=true,strokeStabilizer=.42;
 const canvas=document.getElementById("writingCanvas"),ctx=canvas.getContext("2d");
 function fitCanvas(){
   const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;
   canvas.width=Math.round(rect.width*ratio);canvas.height=Math.round(rect.height*ratio);
-  ctx.setTransform(ratio,0,0,ratio,0,0);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(4,rect.width/75);ctx.strokeStyle="#28221d";
+  ctx.setTransform(ratio,0,0,ratio,0,0);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(4,rect.width/72);ctx.strokeStyle="#28221d";
   redrawCanvas();
 }
 function pointFromEvent(e){const r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+function eventPoints(e){return typeof e.getCoalescedEvents==="function"?e.getCoalescedEvents():[e];}
+function pushSmoothedPoint(stroke,point,force=false){
+  const previous=stroke[stroke.length-1];
+  if(!previous){stroke.push(point);return;}
+  const distance=Math.hypot(point.x-previous.x,point.y-previous.y);
+  if(!force&&distance<1.2)return;
+  if(force){if(distance>.45)stroke.push(point);return;}
+  const next={x:previous.x+(point.x-previous.x)*strokeStabilizer,y:previous.y+(point.y-previous.y)*strokeStabilizer};
+  if(Math.hypot(next.x-previous.x,next.y-previous.y)>.35)stroke.push(next);
+}
+function drawSmoothPath(context,stroke){
+  if(!stroke.length)return;
+  context.beginPath();
+  if(stroke.length===1){context.fillStyle=context.strokeStyle;context.arc(stroke[0].x,stroke[0].y,context.lineWidth/2,0,Math.PI*2);context.fill();return;}
+  context.moveTo(stroke[0].x,stroke[0].y);
+  if(stroke.length===2){context.lineTo(stroke[1].x,stroke[1].y);}
+  else{
+    for(let i=1;i<stroke.length-1;i++){
+      const middle={x:(stroke[i].x+stroke[i+1].x)/2,y:(stroke[i].y+stroke[i+1].y)/2};
+      context.quadraticCurveTo(stroke[i].x,stroke[i].y,middle.x,middle.y);
+    }
+    const last=stroke[stroke.length-1],before=stroke[stroke.length-2];context.quadraticCurveTo(before.x,before.y,last.x,last.y);
+  }
+  context.stroke();
+}
 function drawStroke(stroke){
-  if(stroke.length<2)return;
-  ctx.beginPath();ctx.moveTo(stroke[0].x,stroke[0].y);
-  for(let i=1;i<stroke.length;i++)ctx.lineTo(stroke[i].x,stroke[i].y);
-  ctx.stroke();
+  drawSmoothPath(ctx,stroke);
 }
 function redrawCanvas(){ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);strokes.forEach(drawStroke);}
 canvas.addEventListener("pointerdown",e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);currentStroke=[pointFromEvent(e)];strokes.push(currentStroke);});
-canvas.addEventListener("pointermove",e=>{if(!currentStroke)return;e.preventDefault();currentStroke.push(pointFromEvent(e));redrawCanvas();});
-function endStroke(){currentStroke=null;}
+canvas.addEventListener("pointermove",e=>{if(!currentStroke)return;e.preventDefault();eventPoints(e).forEach(point=>pushSmoothedPoint(currentStroke,pointFromEvent(point)));redrawCanvas();});
+function endStroke(e){if(!currentStroke)return;if(e?.type==="pointerup")pushSmoothedPoint(currentStroke,pointFromEvent(e),true);currentStroke=null;redrawCanvas();}
 canvas.addEventListener("pointerup",endStroke);canvas.addEventListener("pointercancel",endStroke);canvas.addEventListener("pointerleave",e=>{if(e.buttons===0)endStroke();});
 function clearWriting(){strokes=[];currentStroke=null;redrawCanvas();}
 document.getElementById("clearCanvas").onclick=clearWriting;
@@ -827,6 +853,15 @@ function updateWritingModeUI(){
   const hint=document.getElementById("writingModeHint");if(hint)hint.textContent=writingMode==="self"?"Mẫu đã ẩn. Tự viết từ trí nhớ, sau đó nhấn “Kiểm tra nét”.":"Tô theo chữ mờ trước; khi sẵn sàng, chuyển sang “Tự viết, ẩn mẫu”.";
 }
 function setWritingMode(mode){writingMode=mode;sampleVisible=mode==="trace";clearWriting();updateWritingModeUI();}
+function setStrokeSmoothing(level){
+  const value=Math.min(9,Math.max(1,Number(level)||4));
+  strokeStabilizer=.18+((value-1)/8)*.62;
+  document.querySelectorAll("[data-smoothing]").forEach(input=>{input.value=value;});
+  const label=value<=3?"Mượt":value<=6?"Cân bằng":"Nhanh";
+  document.querySelectorAll("[data-smoothing-value]").forEach(target=>{target.textContent=label;});
+}
+document.querySelectorAll("[data-smoothing]").forEach(input=>input.addEventListener("input",()=>setStrokeSmoothing(input.value)));
+setStrokeSmoothing(4);
 function strokeLength(stroke){let total=0;for(let i=1;i<stroke.length;i++)total+=Math.hypot(stroke[i].x-stroke[i-1].x,stroke[i].y-stroke[i-1].y);return total;}
 function checkWriting(){
   const k=kana[writeIndex],usable=strokes.filter(stroke=>stroke.length>=2),rect=canvas.getBoundingClientRect(),minLength=Math.max(18,rect.width*.08),longEnough=usable.filter(stroke=>strokeLength(stroke)>=minLength).length,countOk=usable.length===k.strokes,lengthOk=longEnough===k.strokes,ok=countOk&&lengthOk;
@@ -865,8 +900,8 @@ document.getElementById("saveWriting").onclick=()=>{
 function sheetPoint(e,canvas){const rect=canvas.getBoundingClientRect();return {x:e.clientX-rect.left,y:e.clientY-rect.top};}
 function sheetStrokeLength(stroke){let total=0;for(let i=1;i<stroke.length;i++)total+=Math.hypot(stroke[i].x-stroke[i-1].x,stroke[i].y-stroke[i-1].y);return total;}
 function redrawSheetCanvas(canvas){
-  const ctx=canvas.getContext("2d"),strokes=sheetStrokes[canvas.dataset.sheetId]||[];ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(2.5,canvas.clientWidth/24);ctx.strokeStyle="#28221d";
-  strokes.forEach(stroke=>{if(stroke.length<2)return;ctx.beginPath();ctx.moveTo(stroke[0].x,stroke[0].y);for(let i=1;i<stroke.length;i++)ctx.lineTo(stroke[i].x,stroke[i].y);ctx.stroke();});
+  const ctx=canvas.getContext("2d"),strokes=sheetStrokes[canvas.dataset.sheetId]||[];ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(3,canvas.clientWidth/22);ctx.strokeStyle="#28221d";
+  strokes.forEach(stroke=>drawSmoothPath(ctx,stroke));
 }
 function fitSheetCanvas(canvas){
   const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,ctx=canvas.getContext("2d");canvas.width=Math.max(1,Math.round(rect.width*ratio));canvas.height=Math.max(1,Math.round(rect.height*ratio));ctx.setTransform(ratio,0,0,ratio,0,0);redrawSheetCanvas(canvas);
@@ -874,8 +909,8 @@ function fitSheetCanvas(canvas){
 function setupSheetCanvas(canvas){
   const id=canvas.dataset.sheetId;sheetStrokes[id]=[];let current=null;canvas._sheetFit=()=>fitSheetCanvas(canvas);
   canvas.addEventListener("pointerdown",e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);current=[sheetPoint(e,canvas)];sheetStrokes[id].push(current);updateSheetProgress();});
-  canvas.addEventListener("pointermove",e=>{if(!current)return;e.preventDefault();current.push(sheetPoint(e,canvas));redrawSheetCanvas(canvas);});
-  const end=()=>{current=null;updateSheetProgress();};canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);canvas.addEventListener("pointerleave",e=>{if(e.buttons===0)end();});
+  canvas.addEventListener("pointermove",e=>{if(!current)return;e.preventDefault();eventPoints(e).forEach(point=>pushSmoothedPoint(current,sheetPoint(point,canvas)));redrawSheetCanvas(canvas);});
+  const end=e=>{if(!current)return;if(e?.type==="pointerup")pushSmoothedPoint(current,sheetPoint(e,canvas),true);current=null;redrawSheetCanvas(canvas);updateSheetProgress();};canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);canvas.addEventListener("pointerleave",e=>{if(e.buttons===0)end(e);});
   fitSheetCanvas(canvas);
 }
 function fitSheetCanvases(){document.querySelectorAll(".sheet-canvas").forEach(canvas=>canvas._sheetFit?.());}
