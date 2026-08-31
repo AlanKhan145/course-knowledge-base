@@ -137,6 +137,7 @@
   #writingCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
   #sampleChar{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans JP",sans-serif;font-size:min(52vw,20rem);color:rgba(180,35,47,.14);pointer-events:none;line-height:1;transition:opacity .2s}
   .writing-mode{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.writing-mode .btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .writing-picker{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:12px 0}.writing-picker .btn{min-width:45px;padding:7px 10px;font-family:"Noto Sans JP",sans-serif;font-size:1.1rem}.writing-picker .btn.active{background:#f1e5dc;border-color:var(--accent);color:var(--accent-dark);box-shadow:inset 0 -2px 0 var(--accent)}
   .writing-check{border:1px solid #dfcbbb;background:#fff8f1;border-radius:12px;padding:12px;margin-top:12px}
   .writing-check strong{display:block;margin-bottom:3px}.writing-check ul{margin:7px 0 0;padding-left:20px}
   .writing-panel{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px}
@@ -170,10 +171,11 @@
   .sheet-row{display:grid;grid-template-columns:82px minmax(0,1fr);min-height:108px;border-top:2px solid #302d2b}
   .sheet-row:last-child{border-bottom:2px solid #302d2b}
   .sheet-label{display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:2px solid #302d2b;background:#faf7f3;font-family:"Noto Sans JP",sans-serif;font-size:2.35rem;line-height:1.1}
-  .sheet-label small{font-family:inherit;font-size:.72rem;color:#555;margin-top:5px}
+  .sheet-label span{white-space:nowrap}.sheet-label small{font-family:inherit;font-size:.68rem;color:#555;margin-top:5px;text-align:center;line-height:1.2}
   .sheet-grid{display:grid;grid-template-columns:repeat(12,minmax(28px,1fr));min-width:0}
   .sheet-cell{min-height:106px;border-right:1px solid #56514d;position:relative;display:flex;align-items:center;justify-content:center;background-image:linear-gradient(to right,transparent 49%,rgba(120,113,106,.35) 49.5%,rgba(120,113,106,.35) 50.5%,transparent 51%),linear-gradient(to bottom,transparent 49%,rgba(120,113,106,.35) 49.5%,rgba(120,113,106,.35) 50.5%,transparent 51%),linear-gradient(45deg,transparent 49.4%,rgba(120,113,106,.2) 49.8%,rgba(120,113,106,.2) 50.2%,transparent 50.6%),linear-gradient(-45deg,transparent 49.4%,rgba(120,113,106,.2) 49.8%,rgba(120,113,106,.2) 50.2%,transparent 50.6%)}
-  .sheet-cell:last-child{border-right:0}.sheet-char{font-family:"Noto Sans JP",sans-serif;font-size:3.6rem;color:rgba(80,75,70,.18)}.sheet-cell:first-child .sheet-char{color:#27231f}.sheet-cell:nth-child(2) .sheet-char{color:rgba(180,35,47,.52)}
+  .sheet-cell:last-child{border-right:0}.sheet-char{font-family:"Noto Sans JP",sans-serif;font-size:3.6rem;color:rgba(80,75,70,.18);pointer-events:none;z-index:1}.sheet-cell:first-child .sheet-char{color:#27231f}.sheet-cell:nth-child(2) .sheet-char{color:rgba(180,35,47,.52)}
+  .sheet-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;z-index:2;cursor:crosshair}
   .sheet-note{margin:14px 0 0;color:#6b6b6b;font-size:.82rem}
   @media (max-width:900px){
     .hero-grid,.canvas-shell,.media-card,.flash-layout{grid-template-columns:1fr}
@@ -186,7 +188,7 @@
     section{padding:18px}
     .hero{padding-top:25px}
     .score-row{grid-template-columns:90px 1fr 56px}
-    .writing-sheet{padding:12px;overflow-x:auto}.sheet-row{grid-template-columns:62px 720px}.sheet-title{font-size:1rem}.sheet-label{font-size:1.8rem}
+    .writing-sheet{padding:12px;overflow-x:auto}.sheet-row{grid-template-columns:72px 720px}.sheet-title{font-size:1rem}.sheet-label{font-size:1.8rem}
   }
   @media (max-width:430px){
     .kana-grid{grid-template-columns:1fr}
@@ -376,6 +378,7 @@
       <div class="eyebrow">Chữ đang luyện</div>
       <div class="writing-char" id="writingChar">あ</div>
       <div style="text-align:center"><span id="writingRomaji">a</span> · <span id="writingStrokes">3 nét</span></div>
+      <div class="writing-picker" id="writingCharPicker" role="group" aria-label="Chọn chữ Hiragana"></div>
       <div class="writing-mode" role="group" aria-label="Chế độ luyện viết">
         <button class="btn active" id="writingTrace">✍ Tô theo mẫu</button>
         <button class="btn" id="writingSelf">🙈 Tự viết, ẩn mẫu</button>
@@ -402,10 +405,10 @@
 </section>
 
 <section id="sheet">
-  <div class="sheet-actions"><div><h2 style="margin-bottom:.2rem">8. Sheet luyện viết Hiragana</h2><p class="subtle" style="margin:0">Tô hai ô đầu, sau đó viết lại ở các ô còn lại. Có thể in riêng trang này.</p></div><button class="btn primary" id="printSheet">🖨 In sheet</button></div>
+  <div class="sheet-actions"><div><h2 style="margin-bottom:.2rem">8. Sheet luyện viết Hiragana</h2><p class="subtle" style="margin:0">Viết trực tiếp lên từng ô bằng chuột, cảm ứng hoặc stylus. Có thể ẩn mẫu và in lại sheet sau khi luyện.</p></div><div class="controls" style="margin:0"><span class="badge" id="sheetProgress">0 ô đã viết</span><button class="btn" id="toggleSheetSample">Ẩn mẫu</button><button class="btn" id="clearSheet">Xóa nét</button><button class="btn primary" id="printSheet">🖨 In sheet</button></div></div>
   <div class="writing-sheet" id="writingSheet">
-    <div class="sheet-title">Hiragana Writing Practice Sheet 01 — あ (a) い (i) う (u) え (e) お (o)</div>
-    <div class="sheet-subtitle">Nhớ thứ tự nét · đọc âm thành tiếng · chuyển từ ô mẫu sang ô tự viết</div>
+    <div class="sheet-title">Hiragana Writing Practice Sheet 01 — Vowels & Words</div>
+    <div class="sheet-subtitle">あ い う え お · あい · あう · あお · いえ · うえ · あおい · いいえ</div>
     <div id="sheetRows"></div>
     <p class="sheet-note">Mẹo: viết chậm và giữ ký tự nằm trong khung vuông. Sau mỗi hàng, thử che hai ô mẫu rồi viết lại một lần từ trí nhớ.</p>
   </div>
@@ -811,6 +814,11 @@ window.addEventListener("resize",fitCanvas);
 
 /* Guided / free writing checks and printable sheet */
 let writingMode="trace";
+let sheetSamplesVisible=true,sheetStrokes={};
+const sheetEntries=[
+  ...kana.map(k=>({id:`kana-${k.char}`,label:k.char,meta:`${k.romaji} · ${k.strokes} nét`,samples:Array.from({length:12},(_,i)=>i<3?k.char:""),kind:"kana"})),
+  ...words.map(w=>({id:`word-${w.kana}`,label:w.kana,meta:`${w.romaji} · ${w.vi}`,samples:Array.from({length:12},(_,i)=>i<[...w.kana].length?[...w.kana][i]:""),kind:"word"}))
+];
 function updateWritingModeUI(){
   document.getElementById("writingTrace").classList.toggle("active",writingMode==="trace");
   document.getElementById("writingSelf").classList.toggle("active",writingMode==="self");
@@ -828,10 +836,15 @@ function checkWriting(){
   const allChecked=kana.every(item=>state.writing[item.char]?.check?.ok);if(allChecked)state.completed.writing=true;
   saveState();
 }
+function renderWritingPicker(){
+  const picker=document.getElementById("writingCharPicker");
+  picker.innerHTML=kana.map((k,i)=>`<button type="button" class="btn${i===writeIndex?" active":""}" data-writing-index="${i}" aria-label="Luyện chữ ${k.char}">${k.char}<span class="tiny" style="font-family:system-ui;font-size:.7rem;margin-left:3px;color:inherit">${k.romaji}</span></button>`).join("");
+  picker.querySelectorAll("[data-writing-index]").forEach(button=>button.addEventListener("click",()=>{writeIndex=Number(button.dataset.writingIndex);renderWriting();}));
+}
 function renderWriting(){
   const k=kana[writeIndex];document.getElementById("writingChar").textContent=k.char;document.getElementById("sampleChar").textContent=k.char;
   document.getElementById("writingRomaji").textContent=k.romaji;document.getElementById("writingStrokes").textContent=k.strokes+" nét";
-  clearWriting();updateWritingModeUI();
+  renderWritingPicker();clearWriting();updateWritingModeUI();
   document.querySelectorAll('input[name="writingRating"]').forEach(r=>r.checked=state.writing[k.char]?.rating===r.value);
   const savedCheck=state.writing[k.char]?.check;
   if(savedCheck?.ok)document.getElementById("writingCheckResult").innerHTML=`<strong>✓ Đã có lần kiểm tra đạt cho ${k.char}</strong><span>Đổi chế độ và luyện lại bất cứ lúc nào.</span>`;
@@ -842,15 +855,47 @@ document.getElementById("writingTrace").onclick=()=>setWritingMode("trace");
 document.getElementById("writingSelf").onclick=()=>setWritingMode("self");
 document.getElementById("toggleSample").onclick=()=>{sampleVisible=!sampleVisible;writingMode=sampleVisible?"trace":"self";updateWritingModeUI();};
 document.getElementById("checkWriting").onclick=checkWriting;
+document.getElementById("prevChar").onclick=()=>{writeIndex=(writeIndex-1+kana.length)%kana.length;renderWriting();};
+document.getElementById("nextChar").onclick=()=>{writeIndex=(writeIndex+1)%kana.length;renderWriting();};
 document.getElementById("saveWriting").onclick=()=>{
   const rating=document.querySelector('input[name="writingRating"]:checked')?.value,fb=document.getElementById("writingFeedback");
   if(!rating){fb.className="feedback bad";fb.textContent="Hãy chọn mức tự đánh giá trước khi lưu.";return;}
   const k=kana[writeIndex];state.writing[k.char]={...(state.writing[k.char]||{}),rating,at:new Date().toISOString()};saveState();fb.className="feedback good";fb.textContent=`✓ Đã lưu đánh giá cho ${k.char}.`;
 };
-function renderSheet(){
-  document.getElementById("sheetRows").innerHTML=kana.map(k=>`<div class="sheet-row"><div class="sheet-label"><span lang="ja">${k.char}</span><small>${k.romaji} · ${k.strokes} nét</small></div><div class="sheet-grid">${Array.from({length:12},(_,i)=>`<div class="sheet-cell">${i<3?`<span class="sheet-char" lang="ja">${k.char}</span>`:""}</div>`).join("")}</div></div>`).join("");
+function sheetPoint(e,canvas){const rect=canvas.getBoundingClientRect();return {x:e.clientX-rect.left,y:e.clientY-rect.top};}
+function sheetStrokeLength(stroke){let total=0;for(let i=1;i<stroke.length;i++)total+=Math.hypot(stroke[i].x-stroke[i-1].x,stroke[i].y-stroke[i-1].y);return total;}
+function redrawSheetCanvas(canvas){
+  const ctx=canvas.getContext("2d"),strokes=sheetStrokes[canvas.dataset.sheetId]||[];ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(2.5,canvas.clientWidth/24);ctx.strokeStyle="#28221d";
+  strokes.forEach(stroke=>{if(stroke.length<2)return;ctx.beginPath();ctx.moveTo(stroke[0].x,stroke[0].y);for(let i=1;i<stroke.length;i++)ctx.lineTo(stroke[i].x,stroke[i].y);ctx.stroke();});
 }
+function fitSheetCanvas(canvas){
+  const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,ctx=canvas.getContext("2d");canvas.width=Math.max(1,Math.round(rect.width*ratio));canvas.height=Math.max(1,Math.round(rect.height*ratio));ctx.setTransform(ratio,0,0,ratio,0,0);redrawSheetCanvas(canvas);
+}
+function setupSheetCanvas(canvas){
+  const id=canvas.dataset.sheetId;sheetStrokes[id]=[];let current=null;canvas._sheetFit=()=>fitSheetCanvas(canvas);
+  canvas.addEventListener("pointerdown",e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);current=[sheetPoint(e,canvas)];sheetStrokes[id].push(current);updateSheetProgress();});
+  canvas.addEventListener("pointermove",e=>{if(!current)return;e.preventDefault();current.push(sheetPoint(e,canvas));redrawSheetCanvas(canvas);});
+  const end=()=>{current=null;updateSheetProgress();};canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);canvas.addEventListener("pointerleave",e=>{if(e.buttons===0)end();});
+  fitSheetCanvas(canvas);
+}
+function fitSheetCanvases(){document.querySelectorAll(".sheet-canvas").forEach(canvas=>canvas._sheetFit?.());}
+function updateSheetProgress(){
+  const ids=Object.keys(sheetStrokes),filled=ids.filter(id=>sheetStrokes[id].some(stroke=>strokeLength(stroke)>8)).length;
+  const target=document.getElementById("sheetProgress");if(target)target.textContent=`${filled}/${ids.length||0} ô đã viết`;
+}
+function setSheetSamplesVisible(visible){
+  sheetSamplesVisible=visible;document.querySelectorAll(".sheet-char").forEach(char=>char.style.display=visible?"":"none");document.getElementById("toggleSheetSample").textContent=visible?"Ẩn mẫu":"Hiện mẫu";
+}
+function clearSheet(){Object.keys(sheetStrokes).forEach(id=>sheetStrokes[id]=[]);document.querySelectorAll(".sheet-canvas").forEach(redrawSheetCanvas);updateSheetProgress();}
+function renderSheet(){
+  const rows=document.getElementById("sheetRows");
+  rows.innerHTML=sheetEntries.map(entry=>`<div class="sheet-row" data-sheet-row="${entry.id}"><div class="sheet-label"><span lang="ja">${entry.label}</span><small>${entry.meta}</small></div><div class="sheet-grid">${entry.samples.map((char,i)=>`<div class="sheet-cell" data-sheet-cell="${entry.id}-${i}">${char?`<span class="sheet-char" lang="ja">${char}</span>`:""}<canvas class="sheet-canvas" data-sheet-id="${entry.id}-${i}" aria-label="Ô luyện viết ${char||entry.label}"></canvas></div>`).join("")}</div></div>`).join("");
+  rows.querySelectorAll(".sheet-canvas").forEach(setupSheetCanvas);setSheetSamplesVisible(sheetSamplesVisible);updateSheetProgress();
+}
+document.getElementById("toggleSheetSample").onclick=()=>setSheetSamplesVisible(!sheetSamplesVisible);
+document.getElementById("clearSheet").onclick=clearSheet;
 document.getElementById("printSheet").onclick=()=>{markComplete("sheet");window.print();};
+window.addEventListener("resize",fitSheetCanvases);
 
 /* Quiz */
 const quizBank=[
