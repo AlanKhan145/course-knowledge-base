@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#9f1d2c" />
+<title>Bài 004 — Review Questions · Advanced Interactive Assessment</title>
+<style>
+:root{
+  --bg:#f6f2eb;--paper:#fffdf9;--ink:#24211f;--muted:#716a65;--accent:#a72031;--accent2:#7f1724;
+  --line:#ded6ce;--soft:#f4e9e3;--good:#176b3a;--bad:#a12929;--warn:#8a5b12;--shadow:0 12px 34px rgba(55,43,34,.08);--radius:18px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Noto Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,calc(100% - 28px));margin:auto}
+.hero{background:linear-gradient(135deg,#fff9f1,#f2dfd7);border-bottom:1px solid var(--line);padding:34px 0 26px}.hero-grid{display:grid;grid-template-columns:1.55fr .85fr;gap:22px;align-items:end}.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:850}.hero h1{font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin:.28rem 0 .55rem}.jp-title{font-family:"Noto Sans JP",sans-serif;font-size:clamp(1.65rem,4vw,3rem);letter-spacing:.16em;margin:.35rem 0}.lead{font-size:1.04rem;color:#46403c}.meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.badge{border:1px solid #d9c8bd;background:#fff8ef;border-radius:999px;padding:6px 10px;font-size:.83rem}.hero-card{background:rgba(255,255,255,.76);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.progress-row{display:flex;justify-content:space-between;gap:10px;align-items:center}.progress-shell{height:12px;background:#e8dfd8;border-radius:99px;overflow:hidden;margin-top:8px}.progress-bar{height:100%;width:0;background:var(--accent);transition:.25s}.tiny{font-size:.83rem;color:var(--muted)}.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px;text-align:center}.stat strong{display:block;font-size:1.45rem;color:var(--accent2)}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.95);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}.nav-inner{display:flex;gap:8px;overflow:auto;padding:10px 0}.nav-inner a{white-space:nowrap;text-decoration:none;color:#39312d;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;font-size:.83rem}
+main{padding:25px 0 70px}section{scroll-margin-top:72px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,29px);box-shadow:var(--shadow);margin-bottom:20px}h2{margin-top:0;font-size:clamp(1.35rem,3vw,2rem)}h3{margin:.6rem 0}.callout{border:1px dashed #c8b4a6;background:#fcf5ed;padding:14px;border-radius:14px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px}.btn{border:1px solid #c4b7ad;background:#fff;color:#24211f;border-radius:11px;padding:9px 13px;font-weight:700}.btn:hover{border-color:#927e70}.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.btn.good{background:#eef8f1;color:var(--good);border-color:#afd8bc}.btn.danger{background:#fff2f2;color:var(--bad);border-color:#e2bcbc}.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}.kana{font-family:"Noto Sans JP",sans-serif}.big-kana{font-family:"Noto Sans JP",sans-serif;font-size:clamp(4rem,12vw,7.5rem);line-height:1.05;text-align:center;margin:8px 0}.medium-kana{font-family:"Noto Sans JP",sans-serif;font-size:2.15rem}.question{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.q-label{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;font-weight:850;color:var(--accent)}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}.option{border:1px solid var(--line);border-radius:11px;background:#fff;padding:11px;text-align:left;font-weight:700}.option:hover{border-color:#b89a89}.option.correct{background:#edf8f0;border-color:#a7d4b5;color:#175b35}.option.wrong{background:#fff0f0;border-color:#e2b6b6;color:#922626}.feedback{min-height:24px;margin-top:8px;font-size:.92rem}.feedback.good{color:var(--good);font-weight:750}.feedback.bad{color:var(--bad);font-weight:750}.input{width:100%;border:1px solid #cbc1b9;background:#fff;border-radius:10px;padding:10px 12px}.split{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:16px}.sidebox{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px}.streak{font-size:2rem;font-weight:900;color:var(--accent2)}
+.kana-board{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.kana-chip{border:1px solid var(--line);background:#fff;border-radius:14px;padding:15px;text-align:center}.kana-chip .medium-kana{display:block}.kana-chip small{color:var(--muted)}
+.memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.memory-card{border:1px solid var(--line);border-radius:15px;background:#fff;overflow:hidden}.memory-art{height:122px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#fff8ef,#f4e9e0)}.memory-art img{width:100%;height:100%;object-fit:contain;padding:8px}.memory-copy{padding:12px}.memory-copy .kana{font-size:1.6rem;font-weight:850}.romaji.hidden{filter:blur(6px);user-select:none}.hide{display:none!important}
+.match-board{display:grid;grid-template-columns:1fr 1fr;gap:12px}.match-col{display:grid;gap:8px}.match-item{border:1px solid var(--line);background:#fff;padding:10px 12px;border-radius:11px;text-align:center;font-weight:750}.match-item.active{outline:2px solid var(--accent)}.match-item.done{background:#edf8f0;border-color:#a7d4b5;color:var(--good);pointer-events:none}.match-item.wrong{background:#fff0f0;border-color:#e2b6b6;animation:shake .17s linear 2}@keyframes shake{25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.token-bank,.answer-zone{display:flex;flex-wrap:wrap;gap:8px;min-height:58px;padding:10px;border:1px dashed #c9bbb2;border-radius:12px;background:#fff}.token{border:1px solid #c8bbb2;background:#fff;border-radius:10px;padding:9px 12px;font-family:"Noto Sans JP",sans-serif;font-size:1.3rem}.answer-zone{background:#fffaf5}.answer-zone .token{background:#f4ebe5}.challenge{border-left:4px solid var(--accent);padding-left:14px}
+.canvas-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}.canvas-wrap{position:relative;aspect-ratio:1/1;max-width:620px;border:1px solid #c9bdb4;border-radius:18px;overflow:hidden;background:#fff;background-image:linear-gradient(to right,transparent 49.8%,#e0d7cf 50%,transparent 50.2%),linear-gradient(to bottom,transparent 49.8%,#e0d7cf 50%,transparent 50.2%),linear-gradient(45deg,transparent 49.8%,#f0e8e2 50%,transparent 50.2%),linear-gradient(-45deg,transparent 49.8%,#f0e8e2 50%,transparent 50.2%)}#writingCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.guide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans JP",sans-serif;font-size:min(50vw,18rem);color:rgba(167,32,49,.14);pointer-events:none}.picker{display:flex;gap:7px;flex-wrap:wrap}.picker .btn.active{background:var(--accent);border-color:var(--accent);color:#fff}.write-panel{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px}.write-panel .medium-kana{font-size:4.5rem;text-align:center}.range{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.range input{width:130px}
+.quiz-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}.quiz-q{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px;margin:11px 0}.quiz-q legend{font-weight:800;padding:0 5px}.result{display:none;border:1px solid var(--line);border-radius:15px;background:#fff;padding:16px;margin-top:14px}.result.show{display:block}.score-big{font-size:2.8rem;font-weight:900;color:var(--accent)}.bars{display:grid;gap:8px}.bar-row{display:grid;grid-template-columns:120px 1fr 58px;gap:8px;align-items:center}.mini-bar{height:10px;background:#ece5df;border-radius:99px;overflow:hidden}.mini-fill{height:100%;background:#333}.mistakes{display:flex;flex-wrap:wrap;gap:7px}.mistake{border:1px solid #dfc9bc;background:#fff6ee;border-radius:999px;padding:6px 10px;font-size:.84rem}.notes{display:grid;grid-template-columns:1fr 1fr;gap:12px}.notes textarea{width:100%;min-height:110px;border:1px solid #ccc0b8;border-radius:10px;padding:10px;resize:vertical}.checklist{display:grid;gap:9px}.checkline{display:flex;gap:9px;align-items:flex-start}.notice{padding:10px 12px;border-radius:10px;background:#f8f1e8;border:1px solid #e3d8cd;font-size:.9rem}.pill-row{display:flex;flex-wrap:wrap;gap:8px}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:.85rem}
+footer{padding:0 0 60px}.footer-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+@media(max-width:900px){.hero-grid,.split,.canvas-layout{grid-template-columns:1fr}.memory-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.grid2,.grid3,.notes,.match-board{grid-template-columns:1fr}.kana-board{grid-template-columns:repeat(2,1fr)}.memory-grid{grid-template-columns:repeat(2,1fr)}.options{grid-template-columns:1fr}.bar-row{grid-template-columns:90px 1fr 52px}}
+@media(max-width:430px){.memory-grid{grid-template-columns:1fr}.kana-board{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Bài 004 · Assessment · Hiragana</div>
+      <h1>Review Questions — K/G Challenge</h1>
+      <div class="jp-title" lang="ja">か・き・く・け・こ ／ が・ぎ・ぐ・げ・ご</div>
+      <p class="lead">Bài ôn tập nâng cao: nhớ mặt chữ thật nhanh, phân biệt dakuten, nghe–chép, nhớ 20 từ mới, ghép từ, điền chữ còn thiếu, luyện viết và làm đề tổng hợp.</p>
+      <div class="meta"><span class="badge">Khó hơn</span><span class="badge">10 Kana</span><span class="badge">20 từ vựng</span><span class="badge">9 dạng bài</span><span class="badge">40 câu cuối bài</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="progress-row"><strong>Tiến độ ôn tập</strong><span id="progressText">0%</span></div>
+      <div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div>
+      <p class="tiny" id="progressDetail">Hoàn thành từng nhóm bài để tăng tiến độ.</p>
+      <div class="stat-grid"><div class="stat"><strong>80+</strong><span class="tiny">lượt câu hỏi có thể tạo</span></div><div class="stat"><strong>40</strong><span class="tiny">câu đề tổng hợp</span></div></div>
+    </div>
+  </div>
+</header>
+<nav><div class="wrap nav-inner">
+<a href="#overview">Phạm vi</a><a href="#sprint">Nhận diện nhanh</a><a href="#dakuten">Dakuten</a><a href="#dictation">Nghe–chép</a><a href="#vocab">Từ mới</a><a href="#matching">Ghép cặp</a><a href="#build">Ghép từ</a><a href="#missing">Điền thiếu</a><a href="#writing">Luyện viết</a><a href="#final">Đề 40 câu</a><a href="#notes">Ghi lỗi</a>
+</div></nav>
+<main class="wrap">
+<section id="overview">
+<h2>1. Phạm vi và luật làm bài</h2>
+<div class="grid2">
+  <div class="card"><h3>Mặt chữ trọng tâm</h3><div class="kana-board" id="kanaBoard"></div></div>
+  <div class="card"><h3>Cách luyện đề khó</h3><ol><li>Ẩn Romaji khi có thể.</li><li>Trả lời trong 3–5 giây ở phần nhận diện.</li><li>Nghe trước, chỉ mở đáp án sau khi tự chép.</li><li>Với từ mới, luyện cả ba chiều: Kana → nghĩa, nghĩa → Kana, Kana → Romaji.</li><li>Ghi lại mọi chữ phải “nghĩ lâu” dù trả lời đúng.</li></ol></div>
+</div>
+<div class="controls"><button class="btn" id="toggleRomaji">Ẩn Romaji</button><button class="btn" onclick="speakJapanese('か き く け こ が ぎ ぐ げ ご')">🔊 Nghe toàn bộ K/G</button><button class="btn danger" id="resetAll">Xóa tiến độ bài 004</button></div>
+<div class="callout"><strong>Mục tiêu nâng cao:</strong> không chỉ trả lời đúng, mà còn cần <strong>nhận diện nhanh</strong>. Nếu một chữ mất hơn vài giây mới nhớ, hãy xem nó là “chưa chắc”.</div>
+</section>
+
+<section id="sprint">
+<h2>2. Kana Sprint — nhận diện mặt chữ tốc độ</h2>
+<p class="lead">20 lượt ngẫu nhiên. Chữ K và G trộn lẫn, đáp án nhiễu gần nhau. Cố gắng giữ chuỗi đúng liên tiếp.</p>
+<div class="split">
+  <div class="question" id="sprintBox"><div class="q-label">Lượt <span id="sprintRound">1</span>/20</div><div class="big-kana" id="sprintKana">か</div><div class="options" id="sprintOptions"></div><div class="feedback" id="sprintFeedback"></div></div>
+  <aside class="sidebox"><div class="q-label">Thành tích</div><div class="streak" id="sprintStreak">0 streak</div><p>Đúng: <strong id="sprintCorrect">0</strong>/20</p><p>Thời gian phản xạ gần nhất: <strong id="sprintTime">—</strong></p><div class="controls"><button class="btn primary" id="restartSprint">Làm lại 20 lượt</button></div><p class="tiny">Mẹo: đừng đọc theo thứ tự bảng chữ cái; nhìn trực tiếp hình dạng chữ.</p></aside>
+</div>
+</section>
+
+<section id="dakuten">
+<h2>3. Dakuten Lab — biến đổi và phân loại</h2>
+<div class="grid2">
+  <div class="question"><div class="q-label">A · Biến đổi K → G</div><div class="big-kana" id="dakBase">か</div><p>Viết Kana có dakuten tương ứng.</p><input class="input kana" id="dakInput" autocomplete="off" placeholder="Nhập Hiragana..."><div class="controls"><button class="btn primary" id="dakCheck">Kiểm tra</button><button class="btn" id="dakNext">Câu khác</button></div><div class="feedback" id="dakFeedback"></div></div>
+  <div class="question"><div class="q-label">B · Phân loại 10 chữ</div><p>Chọn <strong>tất cả chữ có dakuten</strong>. Mỗi lần bảng được xáo trộn.</p><div class="kana-board" id="dakClassify"></div><div class="controls"><button class="btn primary" id="gradeClassify">Chấm phần phân loại</button><button class="btn" id="shuffleClassify">Xáo trộn</button></div><div class="feedback" id="classifyFeedback"></div></div>
+</div>
+</section>
+
+<section id="dictation">
+<h2>4. Nghe – chép chính tả Kana và từ</h2>
+<p>Không có chữ gợi ý. Bấm nghe, sau đó nhập đúng Hiragana. Bộ câu gồm cả Kana đơn và từ đã học.</p>
+<div class="grid2">
+  <div class="question"><div class="q-label">Chính tả Kana · 10 lượt</div><div class="controls"><button class="btn primary" id="listenKana">🔊 Nghe Kana</button><span class="badge" id="dictKanaCount">0/10</span></div><input class="input kana" id="dictKanaInput" placeholder="Nhập Kana nghe được"><div class="controls"><button class="btn" id="checkKanaDict">Kiểm tra & câu tiếp</button></div><div class="feedback" id="dictKanaFeedback"></div></div>
+  <div class="question"><div class="q-label">Chính tả từ · 10 lượt</div><div class="controls"><button class="btn primary" id="listenWord">🔊 Nghe từ</button><span class="badge" id="dictWordCount">0/10</span></div><input class="input kana" id="dictWordInput" placeholder="Nhập từ Hiragana nghe được"><div class="controls"><button class="btn" id="checkWordDict">Kiểm tra & câu tiếp</button></div><div class="feedback" id="dictWordFeedback"></div></div>
+</div>
+</section>
+
+<section id="vocab">
+<h2>5. Memory Deck — nhớ 20 từ mới</h2>
+<p class="lead">Bộ từ của Bài 003 được chuyển thành thẻ nhớ và bài kiểm tra hai chiều.</p>
+<div class="memory-grid" id="memoryGrid"></div>
+<div class="controls"><button class="btn" id="shuffleMemory">↻ Xáo trộn thẻ</button><button class="btn" id="memoryQuizBtn">Tạo 12 câu từ vựng</button></div>
+<div id="memoryQuiz"></div>
+</section>
+
+<section id="matching">
+<h2>6. Ghép cặp nâng cao</h2>
+<div class="controls"><button class="btn primary" id="newMatchMeaning">Kana ↔ Nghĩa · 8 cặp</button><button class="btn" id="newMatchRomaji">Kana ↔ Romaji · 8 cặp</button><span class="badge" id="matchScore">0/8</span></div>
+<div class="match-board" id="matchBoard"></div>
+</section>
+
+<section id="build">
+<h2>7. Ghép Kana thành từ — token challenge</h2>
+<p>Nhìn nghĩa tiếng Việt và sắp các Kana bị xáo trộn thành từ đúng. Một số từ dài 3–4 Kana để tăng độ khó.</p>
+<div class="question"><div class="q-label">Thử thách <span id="buildRound">1</span>/12</div><h3 id="buildMeaning">kế hoạch</h3><div class="token-bank" id="tokenBank"></div><p class="tiny">Nhấn token để đưa vào vùng trả lời. Nhấn token trong vùng trả lời để trả lại.</p><div class="answer-zone" id="answerZone"></div><div class="controls"><button class="btn primary" id="checkBuild">Kiểm tra</button><button class="btn" id="clearBuild">Làm lại câu này</button><button class="btn" id="nextBuild">Bỏ qua / câu tiếp</button></div><div class="feedback" id="buildFeedback"></div></div>
+</section>
+
+<section id="missing">
+<h2>8. Điền Kana còn thiếu — đề dễ nhầm</h2>
+<p>Mỗi câu ẩn một Kana trong từ đã học. Bạn phải nhớ cả mặt chữ lẫn cấu tạo từ.</p>
+<div class="grid2" id="missingGrid"></div>
+<div class="controls"><button class="btn primary" id="gradeMissing">Chấm 12 câu</button><button class="btn" id="newMissing">Tạo bộ 12 câu mới</button></div>
+<div class="feedback" id="missingFeedback"></div>
+</section>
+
+<section id="writing">
+<h2>9. Luyện viết không nhìn mẫu</h2>
+<p>Chọn một Kana, ẩn mẫu và tự viết. Web đếm số lần đặt bút để so với số nét mục tiêu.</p>
+<div class="canvas-layout">
+  <div><div class="canvas-wrap"><div class="guide" id="writeGuide">か</div><canvas id="writingCanvas"></canvas></div><div class="controls"><button class="btn" id="showGuide">Hiện mẫu</button><button class="btn" id="hideGuide">Ẩn mẫu</button><button class="btn" id="clearCanvas">Xóa nét</button></div><div class="range"><strong>Ổn định nét</strong><input type="range" id="smoothRange" min="1" max="9" value="4"><span class="tiny" id="smoothLabel">Cân bằng</span></div></div>
+  <aside class="write-panel"><div class="q-label">Kana đang luyện</div><div class="medium-kana" id="writeKana">か</div><div style="text-align:center"><strong class="romaji" id="writeRomaji">ka</strong></div><div class="picker" id="writePicker"></div><div class="notice" style="margin-top:12px"><div id="strokeTarget">Mục tiêu: 3 nét</div><div id="strokeCount">Bạn đã vẽ: 0 nét</div></div><div class="controls"><button class="btn primary" id="checkStroke">Kiểm tra số nét</button><button class="btn" id="speakWrite">🔊 Nghe</button></div><div class="feedback" id="strokeFeedback"></div></aside>
+</div>
+</section>
+
+<section id="final">
+<div class="quiz-head"><div><h2>10. Đề tổng hợp 40 câu — Advanced Review</h2><p class="lead">Mỗi lần tạo đề sẽ xáo trộn và lấy câu từ nhiều nhóm: mặt chữ, dakuten, số nét, đọc từ, nghĩa từ, Romaji và điền chữ.</p></div><span class="badge" id="quizBadge">Chưa chấm</span></div>
+<div class="controls"><button class="btn" id="regenQuiz">↻ Tạo đề 40 câu mới</button><button class="btn primary" id="gradeQuiz">Chấm điểm</button></div>
+<div id="quizRoot"></div>
+<div class="result" id="quizResult"><div class="score-big" id="quizScore"></div><p id="quizMessage"></p><div class="bars" id="categoryBars"></div><h3>Câu cần ôn lại</h3><div class="mistakes" id="quizMistakes"></div></div>
+</section>
+
+<section id="notes">
+<h2>11. Ghi lỗi và tự đánh giá</h2>
+<div class="notes"><label><strong>Kana còn nhầm</strong><textarea id="noteKana" placeholder="Ví dụ: き / ぎ, く / ぐ..."></textarea></label><label><strong>Từ mới còn quên</strong><textarea id="noteVocab" placeholder="Ví dụ: かげ, くぎ, かいけい..."></textarea></label><label><strong>Lỗi nghe / chính tả</strong><textarea id="noteListen" placeholder="Ghi âm nào nghe nhầm..."></textarea></label><label><strong>Kế hoạch luyện lại</strong><textarea id="notePlan" placeholder="Ví dụ: Kana Sprint 20 lượt + nghe chép 10 từ..."></textarea></label></div>
+<h3 style="margin-top:18px">Checklist</h3><div class="checklist" id="checklist"></div>
+</section>
+</main>
+<footer class="wrap"><div class="footer-card"><strong>Bài 004 — Review Questions · Advanced Interactive Assessment</strong><p class="tiny">Phiên bản mở rộng để ôn Hiragana hàng K/G và toàn bộ từ vựng đã xuất hiện trong Bài 003.</p></div></footer>
+<script>
+const KEY='lesson004_k_review_advanced_v2';
+const kanaData=[
+ {kana:'か',r:'ka',strokes:3,voiced:false,pair:'が'},{kana:'き',r:'ki',strokes:4,voiced:false,pair:'ぎ'},{kana:'く',r:'ku',strokes:1,voiced:false,pair:'ぐ'},{kana:'け',r:'ke',strokes:3,voiced:false,pair:'げ'},{kana:'こ',r:'ko',strokes:2,voiced:false,pair:'ご'},
+ {kana:'が',r:'ga',strokes:5,voiced:true,pair:'か'},{kana:'ぎ',r:'gi',strokes:6,voiced:true,pair:'き'},{kana:'ぐ',r:'gu',strokes:3,voiced:true,pair:'く'},{kana:'げ',r:'ge',strokes:5,voiced:true,pair:'け'},{kana:'ご',r:'go',strokes:4,voiced:true,pair:'こ'}
+];
+const words=[
+ {kana:'か',romaji:'ka',vi:'muỗi',sym:'🦟'},{kana:'かく',romaji:'kaku',vi:'viết',sym:'✍️'},{kana:'あか',romaji:'aka',vi:'màu đỏ',sym:'🔴'},{kana:'かご',romaji:'kago',vi:'cái giỏ',sym:'🧺'},{kana:'くぎ',romaji:'kugi',vi:'cái đinh',sym:'🔩'},
+ {kana:'かい',romaji:'kai',vi:'vỏ sò / động vật có vỏ',sym:'🐚'},{kana:'かげ',romaji:'kage',vi:'bóng / bóng râm',sym:'🌳'},{kana:'きく',romaji:'kiku',vi:'nghe / hỏi',sym:'👂'},{kana:'かぎ',romaji:'kagi',vi:'chìa khóa',sym:'🔑'},{kana:'こい',romaji:'koi',vi:'tình yêu',sym:'♥️'},
+ {kana:'えき',romaji:'eki',vi:'nhà ga',sym:'🚉'},{kana:'えいが',romaji:'eiga',vi:'phim',sym:'🎬'},{kana:'くうき',romaji:'kuuki',vi:'không khí',sym:'💨'},{kana:'あかい',romaji:'akai',vi:'đỏ',sym:'🍎'},{kana:'きおく',romaji:'kioku',vi:'ký ức',sym:'🧠'},
+ {kana:'えいご',romaji:'eigo',vi:'tiếng Anh',sym:'🔤'},{kana:'きあい',romaji:'kiai',vi:'tinh thần / khí thế',sym:'💪'},{kana:'けいかく',romaji:'keikaku',vi:'kế hoạch',sym:'📋'},{kana:'かいけい',romaji:'kaikei',vi:'kế toán',sym:'🧾'},{kana:'おおきい',romaji:'ookii',vi:'lớn',sym:'↗️'}
+];
+const checklistItems=['Tôi nhận diện 10 Kana K/G mà không cần Romaji.','Tôi phân biệt được đủ 5 cặp K ↔ G có dakuten.','Tôi có thể trả lời Kana Sprint với phản xạ nhanh.','Tôi nghe và chép được Kana đơn.','Tôi nghe và chép được một số từ đã học.','Tôi nhớ nghĩa của phần lớn 20 từ vựng.','Tôi có thể đi từ nghĩa tiếng Việt → Kana.','Tôi có thể ghép các Kana rời thành từ đúng.','Tôi nhớ số nét của か・き・く・け・こ.','Tôi đã luyện viết không nhìn mẫu.','Tôi hoàn thành đề 40 câu.','Tôi đã ghi lại các lỗi để ôn lại.'];
+const activityIds=['sprint','dakuten','dictation','vocab','matching','build','missing','writing','quiz'];
+function baseState(){return {completed:{},romaji:true,notes:{},checks:{},bestSprint:0,lastQuiz:null}}
+function load(){try{return {...baseState(),...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return baseState()}}
+let state=load();
+function save(){localStorage.setItem(KEY,JSON.stringify(state));updateProgress()}
+function done(k){state.completed[k]=true;save()}
+function updateProgress(){const n=activityIds.filter(k=>state.completed[k]).length,p=Math.round(n/activityIds.length*100);document.getElementById('progressBar').style.width=p+'%';document.getElementById('progressText').textContent=p+'%';document.getElementById('progressDetail').textContent=`${n}/${activityIds.length} nhóm hoạt động đã hoàn thành.`}
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function sample(a,n){return shuffle(a).slice(0,n)}
+function norm(s){return String(s||'').trim().toLowerCase().normalize('NFKC').replace(/[\s・.。-]/g,'').replace(/ū/g,'u').replace(/ō/g,'o')}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function speakJapanese(text){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ Speech Synthesis.');speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ja-JP';u.rate=.8;speechSynthesis.speak(u)}
+function art(w){const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240"><rect width="400" height="240" rx="24" fill="#fbf1e8"/><circle cx="200" cy="102" r="72" fill="#a72031" opacity=".08"/><text x="200" y="135" text-anchor="middle" font-size="86" font-family="Segoe UI Emoji, Apple Color Emoji, sans-serif">${w.sym}</text><text x="200" y="205" text-anchor="middle" font-family="system-ui" font-size="20" font-weight="700" fill="#3b312c">${escapeHtml(w.vi)}</text></svg>`;return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(svg)}
+function applyRomaji(){document.querySelectorAll('.romaji').forEach(x=>x.classList.toggle('hidden',!state.romaji));document.getElementById('toggleRomaji').textContent=state.romaji?'Ẩn Romaji':'Hiện Romaji'}
+document.getElementById('toggleRomaji').onclick=()=>{state.romaji=!state.romaji;save();applyRomaji()};
+document.getElementById('resetAll').onclick=()=>{if(confirm('Xóa toàn bộ tiến độ và ghi chú của Bài 004?')){localStorage.removeItem(KEY);location.reload()}};
+function renderKanaBoard(){document.getElementById('kanaBoard').innerHTML=kanaData.map(k=>`<div class="kana-chip"><span class="medium-kana">${k.kana}</span><strong class="romaji">${k.r}</strong><small>${k.voiced?'có dakuten':'hàng K'}</small></div>`).join('');applyRomaji()}
+
+// Sprint
+let sprint={round:0,correct:0,streak:0,current:null,start:0,locked:false};
+function startSprint(){sprint={round:0,correct:0,streak:0,current:null,start:0,locked:false};document.getElementById('sprintCorrect').textContent='0';document.getElementById('sprintStreak').textContent='0 streak';nextSprint()}
+function nextSprint(){if(sprint.round>=20){document.getElementById('sprintFeedback').textContent=`Hoàn thành: ${sprint.correct}/20. ${sprint.correct>=17?'Phản xạ rất tốt.':'Nên làm lại để đạt ít nhất 17/20.'}`;document.getElementById('sprintFeedback').className='feedback '+(sprint.correct>=17?'good':'bad');if(sprint.correct>=15)done('sprint');state.bestSprint=Math.max(state.bestSprint||0,sprint.correct);save();return} sprint.round++;sprint.locked=false;sprint.current=sample(kanaData,1)[0];sprint.start=performance.now();document.getElementById('sprintRound').textContent=sprint.round;document.getElementById('sprintKana').textContent=sprint.current.kana;document.getElementById('sprintFeedback').textContent='';let opts=[sprint.current.r];const sameVowel=kanaData.filter(k=>k.r.slice(-1)===sprint.current.r.slice(-1)&&k.r!==sprint.current.r).map(k=>k.r);opts.push(...sample(sameVowel,Math.min(2,sameVowel.length)));while(opts.length<4){const r=sample(kanaData,1)[0].r;if(!opts.includes(r))opts.push(r)}opts=shuffle(opts);document.getElementById('sprintOptions').innerHTML=opts.map(o=>`<button class="option" data-sprint="${o}">${o}</button>`).join('');document.querySelectorAll('[data-sprint]').forEach(b=>b.onclick=()=>answerSprint(b))}
+function answerSprint(btn){if(sprint.locked)return;sprint.locked=true;const t=((performance.now()-sprint.start)/1000).toFixed(2),ok=btn.dataset.sprint===sprint.current.r;btn.classList.add(ok?'correct':'wrong');document.getElementById('sprintTime').textContent=t+' s';if(ok){sprint.correct++;sprint.streak++;}else{sprint.streak=0;document.querySelectorAll('[data-sprint]').forEach(b=>{if(b.dataset.sprint===sprint.current.r)b.classList.add('correct')})}document.getElementById('sprintCorrect').textContent=sprint.correct;document.getElementById('sprintStreak').textContent=sprint.streak+' streak';document.getElementById('sprintFeedback').textContent=ok?'✓ Đúng':`✗ ${sprint.current.kana} = ${sprint.current.r}`;document.getElementById('sprintFeedback').className='feedback '+(ok?'good':'bad');setTimeout(nextSprint,ok?430:800)}
+document.getElementById('restartSprint').onclick=startSprint;
+
+// Dakuten
+let dakCurrent=kanaData[0];
+function newDak(){dakCurrent=sample(kanaData.filter(k=>!k.voiced),1)[0];document.getElementById('dakBase').textContent=dakCurrent.kana;document.getElementById('dakInput').value='';document.getElementById('dakFeedback').textContent=''}
+document.getElementById('dakCheck').onclick=()=>{const ok=norm(document.getElementById('dakInput').value)===norm(dakCurrent.pair),fb=document.getElementById('dakFeedback');fb.textContent=ok?`✓ ${dakCurrent.kana} → ${dakCurrent.pair}`:`✗ Đáp án đúng: ${dakCurrent.pair}`;fb.className='feedback '+(ok?'good':'bad');if(ok)done('dakuten')};document.getElementById('dakNext').onclick=newDak;
+let classSelected=new Set();
+function renderClassify(){classSelected=new Set();document.getElementById('dakClassify').innerHTML=shuffle(kanaData).map(k=>`<button class="kana-chip" data-classkana="${k.kana}"><span class="medium-kana">${k.kana}</span></button>`).join('');document.querySelectorAll('[data-classkana]').forEach(b=>b.onclick=()=>{const k=b.dataset.classkana;if(classSelected.has(k)){classSelected.delete(k);b.style.outline=''}else{classSelected.add(k);b.style.outline='2px solid var(--accent)'}});document.getElementById('classifyFeedback').textContent=''}
+document.getElementById('gradeClassify').onclick=()=>{const voiced=new Set(kanaData.filter(k=>k.voiced).map(k=>k.kana));const ok=classSelected.size===voiced.size&&[...voiced].every(k=>classSelected.has(k));document.getElementById('classifyFeedback').textContent=ok?'✓ Đúng đủ 5 chữ có dakuten: が・ぎ・ぐ・げ・ご':'✗ Chưa đúng. Hãy kiểm tra đủ 5 chữ G và không chọn chữ K.';document.getElementById('classifyFeedback').className='feedback '+(ok?'good':'bad');if(ok)done('dakuten')};document.getElementById('shuffleClassify').onclick=renderClassify;
+
+// Dictation
+let dkSeq=[],dwSeq=[],dkI=0,dwI=0,dkGood=0,dwGood=0;
+function initDict(){dkSeq=sample(kanaData,10);dwSeq=sample(words.filter(w=>w.kana.length>=2),10);dkI=dwI=dkGood=dwGood=0;document.getElementById('dictKanaCount').textContent='0/10';document.getElementById('dictWordCount').textContent='0/10';document.getElementById('dictKanaInput').value='';document.getElementById('dictWordInput').value=''}
+document.getElementById('listenKana').onclick=()=>speakJapanese(dkSeq[Math.min(dkI,9)].kana);document.getElementById('listenWord').onclick=()=>speakJapanese(dwSeq[Math.min(dwI,9)].kana);
+document.getElementById('checkKanaDict').onclick=()=>{if(dkI>=10)return;const q=dkSeq[dkI],v=document.getElementById('dictKanaInput').value,ok=norm(v)===norm(q.kana),fb=document.getElementById('dictKanaFeedback');if(ok)dkGood++;fb.textContent=ok?'✓ Chính xác':`✗ Đáp án: ${q.kana} (${q.r})`;fb.className='feedback '+(ok?'good':'bad');dkI++;document.getElementById('dictKanaCount').textContent=`${dkI}/10 · đúng ${dkGood}`;document.getElementById('dictKanaInput').value='';if(dkI>=10&&dkGood>=7)done('dictation')};
+document.getElementById('checkWordDict').onclick=()=>{if(dwI>=10)return;const q=dwSeq[dwI],v=document.getElementById('dictWordInput').value,ok=norm(v)===norm(q.kana),fb=document.getElementById('dictWordFeedback');if(ok)dwGood++;fb.textContent=ok?'✓ Chính xác':`✗ Đáp án: ${q.kana} (${q.romaji}) — ${q.vi}`;fb.className='feedback '+(ok?'good':'bad');dwI++;document.getElementById('dictWordCount').textContent=`${dwI}/10 · đúng ${dwGood}`;document.getElementById('dictWordInput').value='';if(dwI>=10&&dwGood>=6)done('dictation')};
+
+// Vocab deck + quiz
+function renderMemory(order=words){document.getElementById('memoryGrid').innerHTML=order.map(w=>`<article class="memory-card"><div class="memory-art"><img src="${art(w)}" alt="Minh họa ${escapeHtml(w.vi)}"></div><div class="memory-copy"><div class="kana">${w.kana}</div><strong class="romaji">${w.romaji}</strong><div>${w.vi}</div><button class="btn" style="margin-top:8px" onclick="speakJapanese('${w.kana}')">🔊 Nghe</button></div></article>`).join('');applyRomaji()}
+document.getElementById('shuffleMemory').onclick=()=>renderMemory(shuffle(words));
+let memoryQuestions=[];
+function makeMemoryQuiz(){memoryQuestions=[];const selected=sample(words,12);selected.forEach((w,i)=>{const mode=i%3;let p,a,opts;if(mode===0){p=`${w.kana} nghĩa là gì?`;a=w.vi;opts=[a,...sample(words.filter(x=>x.vi!==a).map(x=>x.vi),3)]}else if(mode===1){p=`Từ nào có nghĩa “${w.vi}”?`;a=w.kana;opts=[a,...sample(words.filter(x=>x.kana!==a).map(x=>x.kana),3)]}else{p=`${w.kana} đọc Romaji là gì?`;a=w.romaji;opts=[a,...sample(words.filter(x=>x.romaji!==a).map(x=>x.romaji),3)]}memoryQuestions.push({p,a,o:shuffle(opts)})});document.getElementById('memoryQuiz').innerHTML=`<div class="grid2">${memoryQuestions.map((q,i)=>`<div class="question" data-mq="${i}"><div class="q-label">Từ vựng ${i+1}/12</div><p><strong>${q.p}</strong></p><div class="options">${q.o.map(o=>`<button class="option" data-mqi="${i}" data-val="${escapeHtml(o)}">${escapeHtml(o)}</button>`).join('')}</div><div class="feedback"></div></div>`).join('')}</div><div class="controls"><button class="btn primary" id="gradeMemory">Chấm 12 câu</button></div>`;document.querySelectorAll('[data-mqi]').forEach(b=>b.onclick=()=>{const box=document.querySelector(`[data-mq="${b.dataset.mqi}"]`);box.querySelectorAll('.option').forEach(x=>x.classList.remove('correct','wrong'));box.dataset.answer=b.dataset.val;b.style.outline='2px solid var(--accent)'});document.getElementById('gradeMemory').onclick=gradeMemory}
+function gradeMemory(){let g=0;memoryQuestions.forEach((q,i)=>{const box=document.querySelector(`[data-mq="${i}"]`),v=box.dataset.answer||'',ok=norm(v)===norm(q.a);if(ok)g++;box.querySelectorAll('.option').forEach(b=>{b.style.outline='';if(norm(b.dataset.val)===norm(q.a))b.classList.add('correct');else if(norm(b.dataset.val)===norm(v)&&!ok)b.classList.add('wrong')});const fb=box.querySelector('.feedback');fb.textContent=ok?'✓ Đúng':`✗ Đáp án: ${q.a}`;fb.className='feedback '+(ok?'good':'bad')});if(g>=9)done('vocab');alert(`Từ vựng: ${g}/12`)}
+document.getElementById('memoryQuizBtn').onclick=makeMemoryQuiz;
+
+// Matching
+let matchPairs=[],matchSel={},matchDone=0;
+function makeMatch(mode='meaning'){const chosen=sample(words,8);matchPairs=chosen.map((w,i)=>({id:i,l:w.kana,r:mode==='meaning'?w.vi:w.romaji}));matchDone=0;matchSel={};document.getElementById('matchScore').textContent='0/8';const L=shuffle(matchPairs),R=shuffle(matchPairs);document.getElementById('matchBoard').innerHTML=`<div class="match-col">${L.map(x=>`<button class="match-item" data-mside="L" data-mid="${x.id}">${x.l}</button>`).join('')}</div><div class="match-col">${R.map(x=>`<button class="match-item" data-mside="R" data-mid="${x.id}">${escapeHtml(x.r)}</button>`).join('')}</div>`;document.querySelectorAll('[data-mside]').forEach(b=>b.onclick=()=>selectMatch(b))}
+function selectMatch(b){if(b.classList.contains('done'))return;const side=b.dataset.mside;document.querySelectorAll(`[data-mside="${side}"]`).forEach(x=>x.classList.remove('active'));b.classList.add('active');matchSel[side]=b;if(matchSel.L&&matchSel.R){if(matchSel.L.dataset.mid===matchSel.R.dataset.mid){matchSel.L.classList.remove('active');matchSel.R.classList.remove('active');matchSel.L.classList.add('done');matchSel.R.classList.add('done');matchDone++;document.getElementById('matchScore').textContent=`${matchDone}/8`;matchSel={};if(matchDone===8)done('matching')}else{const l=matchSel.L,r=matchSel.R;l.classList.add('wrong');r.classList.add('wrong');setTimeout(()=>{l.classList.remove('active','wrong');r.classList.remove('active','wrong')},400);matchSel={}}}}
+document.getElementById('newMatchMeaning').onclick=()=>makeMatch('meaning');document.getElementById('newMatchRomaji').onclick=()=>makeMatch('romaji');
+
+// Build word
+let buildSeq=[],buildI=0,buildAnswer=[];
+function initBuild(){buildSeq=sample(words.filter(w=>w.kana.length>=2),12);buildI=0;renderBuild()}
+function renderBuild(){if(buildI>=buildSeq.length){document.getElementById('buildFeedback').textContent='Hoàn thành 12 thử thách ghép từ.';done('build');return}const w=buildSeq[buildI];buildAnswer=[];document.getElementById('buildRound').textContent=buildI+1;document.getElementById('buildMeaning').textContent=w.vi;const toks=shuffle([...w.kana].map((ch,i)=>({ch,id:i})));document.getElementById('tokenBank').innerHTML=toks.map(t=>`<button class="token" data-token-id="${t.id}" data-ch="${t.ch}">${t.ch}</button>`).join('');document.getElementById('answerZone').innerHTML='';document.getElementById('buildFeedback').textContent='';bindTokens()}
+function bindTokens(){document.querySelectorAll('#tokenBank .token').forEach(b=>b.onclick=()=>{buildAnswer.push({id:b.dataset.tokenId,ch:b.dataset.ch});b.remove();renderAnswerZone()})}
+function renderAnswerZone(){const z=document.getElementById('answerZone');z.innerHTML=buildAnswer.map((t,i)=>`<button class="token" data-ans-i="${i}">${t.ch}</button>`).join('');z.querySelectorAll('[data-ans-i]').forEach(b=>b.onclick=()=>{const i=+b.dataset.ansI,t=buildAnswer.splice(i,1)[0];const nb=document.createElement('button');nb.className='token';nb.dataset.tokenId=t.id;nb.dataset.ch=t.ch;nb.textContent=t.ch;document.getElementById('tokenBank').appendChild(nb);bindTokens();renderAnswerZone()})}
+document.getElementById('checkBuild').onclick=()=>{const w=buildSeq[buildI],ans=buildAnswer.map(x=>x.ch).join(''),ok=ans===w.kana,fb=document.getElementById('buildFeedback');fb.textContent=ok?`✓ ${w.kana} = ${w.vi}`:`✗ Chưa đúng. Bạn đang có “${ans||'—'}”.`;fb.className='feedback '+(ok?'good':'bad');if(ok){setTimeout(()=>{buildI++;renderBuild()},650)}};document.getElementById('clearBuild').onclick=renderBuild;document.getElementById('nextBuild').onclick=()=>{buildI++;renderBuild()};
+
+// Missing kana
+let missingQs=[];
+function makeMissing(){missingQs=sample(words.filter(w=>w.kana.length>=2),12).map(w=>{const chars=[...w.kana],idx=Math.floor(Math.random()*chars.length),a=chars[idx],masked=chars.map((c,i)=>i===idx?'＿':c).join('');return{w,idx,a,masked}});document.getElementById('missingGrid').innerHTML=missingQs.map((q,i)=>`<div class="question" data-missing="${i}"><div class="q-label">Câu ${i+1}</div><div class="medium-kana">${q.masked}</div><p>${q.w.vi} · <span class="romaji">${q.w.romaji}</span></p><input class="input kana" placeholder="Kana còn thiếu" maxlength="2"><div class="feedback"></div></div>`).join('');document.getElementById('missingFeedback').textContent='';applyRomaji()}
+document.getElementById('gradeMissing').onclick=()=>{let g=0;missingQs.forEach((q,i)=>{const box=document.querySelector(`[data-missing="${i}"]`),v=box.querySelector('input').value,ok=norm(v)===norm(q.a);if(ok)g++;const fb=box.querySelector('.feedback');fb.textContent=ok?'✓ Đúng':`✗ Đáp án: ${q.a} → ${q.w.kana}`;fb.className='feedback '+(ok?'good':'bad')});const f=document.getElementById('missingFeedback');f.textContent=`Kết quả: ${g}/12`;f.className='feedback '+(g>=9?'good':'bad');if(g>=9)done('missing')};document.getElementById('newMissing').onclick=makeMissing;
+
+// Writing canvas
+const canvas=document.getElementById('writingCanvas'),ctx=canvas.getContext('2d');let currentWrite=kanaData[0],strokes=[],cur=null,stabilizer=.42;
+function pnt(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+function addPoint(stroke,p,force=false){const prev=stroke[stroke.length-1];if(!prev){stroke.push(p);return}const d=Math.hypot(p.x-prev.x,p.y-prev.y);if(!force&&d<1)return;if(force){if(d>.3)stroke.push(p);return}stroke.push({x:prev.x+(p.x-prev.x)*stabilizer,y:prev.y+(p.y-prev.y)*stabilizer})}
+function drawStroke(st){if(!st.length)return;ctx.beginPath();ctx.moveTo(st[0].x,st[0].y);if(st.length===1){ctx.lineTo(st[0].x+.1,st[0].y+.1)}else if(st.length===2){ctx.lineTo(st[1].x,st[1].y)}else{for(let i=1;i<st.length-1;i++){const m={x:(st[i].x+st[i+1].x)/2,y:(st[i].y+st[i+1].y)/2};ctx.quadraticCurveTo(st[i].x,st[i].y,m.x,m.y)}ctx.lineTo(st.at(-1).x,st.at(-1).y)}ctx.stroke()}
+function redraw(){ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);strokes.forEach(drawStroke)}
+function resize(){const r=canvas.getBoundingClientRect(),d=window.devicePixelRatio||1;canvas.width=Math.max(1,Math.round(r.width*d));canvas.height=Math.max(1,Math.round(r.height*d));ctx.setTransform(d,0,0,d,0,0);ctx.lineWidth=Math.max(4,r.width/70);ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#2e2925';redraw()}
+canvas.onpointerdown=e=>{e.preventDefault();canvas.setPointerCapture?.(e.pointerId);cur=[pnt(e)];strokes.push(cur);updateStrokeCount()};canvas.onpointermove=e=>{if(!cur)return;e.preventDefault();addPoint(cur,pnt(e));redraw()};const endWrite=e=>{if(!cur)return;addPoint(cur,pnt(e),true);cur=null;redraw()};canvas.onpointerup=endWrite;canvas.onpointercancel=endWrite;window.addEventListener('resize',resize);
+function clearWrite(){strokes=[];cur=null;redraw();updateStrokeCount();document.getElementById('strokeFeedback').textContent=''}
+function updateStrokeCount(){document.getElementById('strokeCount').textContent=`Bạn đã vẽ: ${strokes.length} nét`}
+function setWrite(k){currentWrite=k;document.getElementById('writeGuide').textContent=k.kana;document.getElementById('writeKana').textContent=k.kana;document.getElementById('writeRomaji').textContent=k.r;document.getElementById('strokeTarget').textContent=`Mục tiêu: ${k.strokes} nét`;document.querySelectorAll('[data-write]').forEach(b=>b.classList.toggle('active',b.dataset.write===k.kana));clearWrite();applyRomaji()}
+function renderWritePicker(){document.getElementById('writePicker').innerHTML=kanaData.map(k=>`<button class="btn" data-write="${k.kana}">${k.kana}</button>`).join('');document.querySelectorAll('[data-write]').forEach(b=>b.onclick=()=>setWrite(kanaData.find(k=>k.kana===b.dataset.write)));setWrite(currentWrite)}
+document.getElementById('showGuide').onclick=()=>document.getElementById('writeGuide').style.opacity='1';document.getElementById('hideGuide').onclick=()=>document.getElementById('writeGuide').style.opacity='0';document.getElementById('clearCanvas').onclick=clearWrite;document.getElementById('speakWrite').onclick=()=>speakJapanese(currentWrite.kana);document.getElementById('smoothRange').oninput=e=>{const v=+e.target.value;stabilizer=.18+((v-1)/8)*.62;document.getElementById('smoothLabel').textContent=v<=3?'Mượt':v<=6?'Cân bằng':'Nhanh'};document.getElementById('checkStroke').onclick=()=>{const ok=strokes.length===currentWrite.strokes,fb=document.getElementById('strokeFeedback');fb.textContent=ok?'✓ Số nét khớp. Tiếp tục tự kiểm tra hình dạng và thứ tự nét.':`✗ ${currentWrite.kana} mục tiêu ${currentWrite.strokes} nét, bạn đã vẽ ${strokes.length}.`;fb.className='feedback '+(ok?'good':'bad');if(ok)done('writing')};
+
+// Final quiz pool
+function makePool(){const pool=[];kanaData.forEach(k=>{pool.push({cat:'Mặt chữ',p:`${k.kana} đọc là gì?`,a:k.r,o:shuffle([k.r,...sample(kanaData.filter(x=>x.r!==k.r).map(x=>x.r),3)])});pool.push({cat:'Nhận diện',p:`Chọn Kana đọc là “${k.r}”.`,a:k.kana,o:shuffle([k.kana,...sample(kanaData.filter(x=>x.kana!==k.kana).map(x=>x.kana),3)])});pool.push({cat:'Số nét',p:`${k.kana} có bao nhiêu nét?`,a:String(k.strokes),o:shuffle([...new Set([String(k.strokes),'1','2','3','4','5','6'])]).slice(0,4)});if(!k.voiced)pool.push({cat:'Dakuten',p:`Dạng có dakuten của ${k.kana} là gì?`,a:k.pair,o:shuffle([k.pair,...sample(kanaData.filter(x=>x.voiced&&x.kana!==k.pair).map(x=>x.kana),3)])})});words.forEach(w=>{pool.push({cat:'Từ → nghĩa',p:`${w.kana} nghĩa là gì?`,a:w.vi,o:shuffle([w.vi,...sample(words.filter(x=>x.vi!==w.vi).map(x=>x.vi),3)])});pool.push({cat:'Nghĩa → từ',p:`Từ nào nghĩa là “${w.vi}”?`,a:w.kana,o:shuffle([w.kana,...sample(words.filter(x=>x.kana!==w.kana).map(x=>x.kana),3)])});pool.push({cat:'Romaji',p:`${w.kana} đọc Romaji là gì?`,a:w.romaji,o:shuffle([w.romaji,...sample(words.filter(x=>x.romaji!==w.romaji).map(x=>x.romaji),3)])});if(w.kana.length>=2){const ch=[...w.kana],idx=Math.floor(Math.random()*ch.length),a=ch[idx],masked=ch.map((c,i)=>i===idx?'＿':c).join('');pool.push({cat:'Điền thiếu',p:`Điền Kana còn thiếu: ${masked} (${w.vi})`,a,o:shuffle([a,...sample(kanaData.map(x=>x.kana).filter(x=>x!==a),3)])})}});pool.push({cat:'Khái niệm',p:'Dakuten biến hàng K thành nhóm âm nào?',a:'G',o:['G','S','T','N']},{cat:'Viết',p:'Khi viết tay き, lưu ý nào đúng?',a:'nhấc bút trước nét cuối',o:['nhấc bút trước nét cuối','viết 1 nét liên tục','chỉ có 2 nét','thêm dakuten khi kết thúc']},{cat:'Viết',p:'Chữ nào trong hàng K cơ bản chỉ có 1 nét?',a:'く',o:['か','き','く','こ']});return pool}
+let finalQuiz=[];
+function makeFinal(){const pool=makePool(),byCat={};pool.forEach(q=>(byCat[q.cat]??=[]).push(q));Object.keys(byCat).forEach(c=>byCat[c]=shuffle(byCat[c]));const cats=Object.keys(byCat),pick=[];while(pick.length<40){let added=false;for(const c of shuffle(cats)){if(pick.length>=40)break;if(byCat[c].length){pick.push(byCat[c].pop());added=true}}if(!added)break}finalQuiz=shuffle(pick);document.getElementById('quizRoot').innerHTML=finalQuiz.map((q,i)=>`<fieldset class="quiz-q" data-fq="${i}"><legend>Câu ${i+1}. ${q.p}</legend><div class="options">${q.o.map(o=>`<label class="option"><input type="radio" name="fq${i}" value="${escapeHtml(o)}"> ${escapeHtml(o)}</label>`).join('')}</div><div class="feedback"></div></fieldset>`).join('');document.getElementById('quizResult').classList.remove('show');document.getElementById('quizBadge').textContent='Chưa chấm'}
+document.getElementById('gradeQuiz').onclick=()=>{let g=0,mist=[],stats={};finalQuiz.forEach((q,i)=>{stats[q.cat]??={g:0,n:0};stats[q.cat].n++;const box=document.querySelector(`[data-fq="${i}"]`),ch=box.querySelector('input:checked'),v=ch?.value||'',ok=norm(v)===norm(q.a);if(ok){g++;stats[q.cat].g++}else mist.push({i:i+1,q});const fb=box.querySelector('.feedback');fb.textContent=ok?'✓ Đúng':`✗ Đáp án: ${q.a}`;fb.className='feedback '+(ok?'good':'bad')});const pct=Math.round(g/finalQuiz.length*100);state.lastQuiz={g,total:finalQuiz.length,pct,date:new Date().toISOString()};save();if(pct>=70)done('quiz');document.getElementById('quizResult').classList.add('show');document.getElementById('quizScore').textContent=`${g}/40 · ${pct}%`;document.getElementById('quizBadge').textContent=pct+'%';document.getElementById('quizMessage').textContent=pct>=90?'Rất chắc. Hãy tập trung vào tốc độ phản xạ và lỗi nhỏ còn lại.':pct>=75?'Đã nắm khá tốt. Ôn lại nhóm dưới 80%.':'Đề còn khó. Ưu tiên Kana Sprint, từ vựng và điền chữ trước khi làm lại.';document.getElementById('categoryBars').innerHTML=Object.entries(stats).map(([cat,s])=>{const p=Math.round(s.g/s.n*100);return `<div class="bar-row"><span>${cat}</span><div class="mini-bar"><div class="mini-fill" style="width:${p}%"></div></div><strong>${p}%</strong></div>`}).join('');document.getElementById('quizMistakes').innerHTML=mist.length?mist.map(m=>`<span class="mistake">Câu ${m.i}: ${escapeHtml(m.q.a)}</span>`).join(''):'<span class="mistake">Không có câu sai</span>'};
+document.getElementById('regenQuiz').onclick=makeFinal;
+
+// Notes / checklist
+function renderChecklist(){document.getElementById('checklist').innerHTML=checklistItems.map((t,i)=>`<label class="checkline"><input type="checkbox" data-check="${i}" ${state.checks[i]?'checked':''}><span>${t}</span></label>`).join('');document.querySelectorAll('[data-check]').forEach(c=>c.onchange=()=>{state.checks[c.dataset.check]=c.checked;save()})}
+['noteKana','noteVocab','noteListen','notePlan'].forEach(id=>{const el=document.getElementById(id);el.value=state.notes[id]||'';el.oninput=()=>{state.notes[id]=el.value;save()}});
+
+renderKanaBoard();startSprint();newDak();renderClassify();initDict();renderMemory(words);makeMemoryQuiz();makeMatch('meaning');initBuild();makeMissing();renderWritePicker();requestAnimationFrame(resize);makeFinal();renderChecklist();updateProgress();applyRomaji();
+</script>
+</body>
+</html>
