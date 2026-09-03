@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#a72031" />
+<title>Bài 007 — Hàng T trong Hiragana · Interactive Lesson</title>
+<style>
+:root{
+  --bg:#f6f2eb;--paper:#fffdf9;--ink:#24211f;--muted:#716a65;--accent:#a72031;--accent2:#7f1724;
+  --line:#ded6ce;--soft:#f4e9e3;--good:#176b3a;--bad:#a12929;--warn:#8a5b12;
+  --shadow:0 12px 34px rgba(55,43,34,.08);--radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Noto Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.62}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
+a{color:var(--accent2)}
+.wrap{width:min(1160px,calc(100% - 28px));margin:auto}
+.hero{background:linear-gradient(135deg,#fff9f1,#f2dfd7);border-bottom:1px solid var(--line);padding:34px 0 26px}
+.hero-grid{display:grid;grid-template-columns:1.55fr .85fr;gap:22px;align-items:end}
+.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:850}
+.hero h1{font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin:.28rem 0 .55rem}
+.jp-title{font-family:"Noto Sans JP",sans-serif;font-size:clamp(1.65rem,4vw,3rem);letter-spacing:.16em;margin:.35rem 0}
+.lead{font-size:1.04rem;color:#46403c}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.badge{border:1px solid #d9c8bd;background:#fff8ef;border-radius:999px;padding:6px 10px;font-size:.83rem}
+.hero-card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.progress-row{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.progress-shell{height:12px;background:#e8dfd8;border-radius:99px;overflow:hidden;margin-top:8px}
+.progress-bar{height:100%;width:0;background:var(--accent);transition:.25s}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px;text-align:center}
+.stat strong{display:block;font-size:1.45rem;color:var(--accent2)}
+.tiny{font-size:.83rem;color:var(--muted)}
+nav.lesson-nav{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.95);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;gap:8px;overflow:auto;padding:10px 0}
+.nav-inner a{white-space:nowrap;text-decoration:none;color:#39312d;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;font-size:.83rem}
+main{padding:25px 0 70px}
+section{scroll-margin-top:72px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,29px);box-shadow:var(--shadow);margin-bottom:20px}
+h2{margin-top:0;font-size:clamp(1.35rem,3vw,2rem)}
+h3{margin:.8rem 0}
+.callout{border:1px dashed #c8b4a6;background:#fcf5ed;padding:14px;border-radius:14px}
+.warn{border-left:4px solid var(--warn);background:#fff8e9;padding:12px 14px;border-radius:10px}
+.goodbox{border-left:4px solid var(--good);background:#f2fbf5;padding:12px 14px;border-radius:10px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.goal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.goal{border-left:4px solid var(--accent);background:#fff;border-radius:12px;padding:13px 15px}
+.card{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px}
+.btn{border:1px solid #c4b7ad;background:#fff;color:#24211f;border-radius:11px;padding:9px 13px;font-weight:700}
+.btn:hover{border-color:#927e70}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.good{background:#eef8f1;color:var(--good);border-color:#afd8bc}
+.btn.danger{background:#fff2f2;color:var(--bad);border-color:#e2bcbc}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.kana{font-family:"Noto Sans JP",sans-serif}
+.kana-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.kana-card{border:1px solid var(--line);border-radius:16px;background:#fff;padding:15px;text-align:center}
+.kana-char{font-family:"Noto Sans JP",sans-serif;font-size:4rem;line-height:1.05}
+.kana-card strong{display:block;font-size:1.08rem}
+.kana-card small{color:var(--muted)}
+.speaker{margin-top:8px;border:0;border-radius:999px;background:#f1e5dc;padding:7px 10px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:620px;background:#fff}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#f6efe9}
+.bigpair{display:flex;align-items:center;justify-content:center;gap:24px;font-size:clamp(4rem,12vw,7rem);font-family:"Noto Sans JP",sans-serif;margin:10px 0}
+.arrow{font-family:system-ui;font-size:2rem;color:var(--muted)}
+.pronounce{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pronounce .card{text-align:center}
+.big-romaji{font-size:2.2rem;font-weight:900;color:var(--accent2)}
+.stroke-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stroke-card{border:1px solid var(--line);border-radius:15px;background:#fff;padding:14px}
+.stroke-card .kana{font-size:3.6rem;text-align:center;display:block}
+.stroke-card ol{padding-left:20px;margin-bottom:0;font-size:.92rem}
+.sokuon-demo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rhythm{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin:14px 0}
+.beat{width:62px;height:62px;border-radius:14px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-weight:850;background:#fff}
+.beat.pause{background:#fff1e9;border-style:dashed;color:var(--accent)}
+.beat.playing{outline:3px solid rgba(167,32,49,.2);transform:translateY(-2px)}
+.flash-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(240px,.8fr);gap:16px}
+.flashcard{min-height:330px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#fffdf8,#f7eee7);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;cursor:pointer}
+.flash-main{font-family:"Noto Sans JP",sans-serif;font-size:clamp(5rem,12vw,8rem);line-height:1}
+.flash-sub{font-size:1.25rem;margin-top:10px}
+.flash-back{display:none}
+.flashcard.flipped .flash-front{display:none}
+.flashcard.flipped .flash-back{display:block}
+.flash-list{display:grid;gap:7px;max-height:330px;overflow:auto}
+.flash-item{display:flex;justify-content:space-between;gap:10px;width:100%;border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 11px;text-align:left}
+.flash-item.active{border-color:var(--accent);background:#fff1eb}
+.practice-tabs{display:flex;gap:8px;overflow:auto;margin-bottom:13px}
+.practice-tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;font-weight:750;white-space:nowrap}
+.practice-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.practice-panel{display:none}
+.practice-panel.active{display:block}
+.question{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px;margin:10px 0}
+.q-label{font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;font-weight:850;color:var(--accent)}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
+.option{border:1px solid var(--line);border-radius:11px;background:#fff;padding:11px;text-align:left;font-weight:700}
+.option.correct{background:#edf8f0;border-color:#a7d4b5;color:#175b35}
+.option.wrong{background:#fff0f0;border-color:#e2b6b6;color:#922626}
+.feedback{min-height:24px;margin-top:8px;font-size:.92rem}
+.feedback.good{color:var(--good);font-weight:750}
+.feedback.bad{color:var(--bad);font-weight:750}
+.input{width:100%;border:1px solid #cbc1b9;background:#fff;border-radius:10px;padding:10px 12px}
+.quick-box{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}
+.quick-kana{font-family:"Noto Sans JP",sans-serif;font-size:clamp(6rem,18vw,11rem);line-height:1;text-align:center}
+.answer-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.scoreline{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted)}
+.match-board{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.match-col{display:grid;gap:8px}
+.match-item{border:1px solid var(--line);background:#fff;padding:10px 12px;border-radius:11px;text-align:center;font-weight:750}
+.match-item.active{outline:2px solid var(--accent)}
+.match-item.done{background:#edf8f0;border-color:#a7d4b5;color:var(--good);pointer-events:none}
+.match-item.wrong{background:#fff0f0;border-color:#e2b6b6}
+.canvas-layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px}
+.canvas-wrap{position:relative;aspect-ratio:1/1;max-width:620px;border:1px solid #c9bdb4;border-radius:18px;overflow:hidden;background:#fff;
+background-image:linear-gradient(to right,transparent 49.8%,#e0d7cf 50%,transparent 50.2%),linear-gradient(to bottom,transparent 49.8%,#e0d7cf 50%,transparent 50.2%),linear-gradient(45deg,transparent 49.8%,#f0e8e2 50%,transparent 50.2%),linear-gradient(-45deg,transparent 49.8%,#f0e8e2 50%,transparent 50.2%)}
+#writingCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
+.guide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans JP",sans-serif;font-size:min(50vw,18rem);color:rgba(167,32,49,.14);pointer-events:none}
+.write-panel{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px}
+.write-preview{font-family:"Noto Sans JP",sans-serif;font-size:5rem;text-align:center}
+.picker{display:flex;gap:7px;flex-wrap:wrap}
+.picker .btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.quiz-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.quiz-q{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px;margin:11px 0}
+.quiz-q legend{font-weight:800;padding:0 5px}
+.result{display:none;border:1px solid var(--line);border-radius:15px;background:#fff;padding:16px;margin-top:14px}
+.result.show{display:block}
+.score-big{font-size:2.8rem;font-weight:900;color:var(--accent)}
+.checklist{display:grid;gap:9px}
+.checkline{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);border-radius:11px;padding:10px;background:#fff}
+footer{padding:0 0 60px}.footer-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+@media(max-width:950px){.hero-grid,.flash-layout,.canvas-layout,.quick-box{grid-template-columns:1fr}.stroke-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.goal-grid,.grid2,.grid3,.pronounce,.sokuon-demo,.match-board{grid-template-columns:1fr}.kana-grid{grid-template-columns:repeat(2,1fr)}.stroke-grid{grid-template-columns:repeat(2,1fr)}.options{grid-template-columns:1fr}.answer-buttons{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.kana-grid,.stroke-grid{grid-template-columns:1fr}.beat{width:54px;height:54px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Bài 007 · Lesson · Hiragana</div>
+      <h1>Hàng T trong Hiragana</h1>
+      <div class="jp-title" lang="ja">た・ち・つ・て・と</div>
+      <p class="lead">Học <strong>ta – chi – tsu – te – to</strong>, dạng có <strong>dakuten</strong> và cách dùng <strong>っ nhỏ (sokuon)</strong> để tạo khoảng ngắt/phụ âm kép.</p>
+      <div class="meta">
+        <span class="badge">11:40</span><span class="badge">5 kana chính</span><span class="badge">5 dạng dakuten</span>
+        <span class="badge">Sokuon っ</span><span class="badge">Luyện viết canvas</span><span class="badge">Quiz tương tác</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="progress-row"><strong>Tiến độ bài học</strong><span id="progressText">0%</span></div>
+      <div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="stat-grid">
+        <div class="stat"><strong id="doneCount">0</strong><span class="tiny">mục hoàn thành</span></div>
+        <div class="stat"><strong id="quizBest">0%</strong><span class="tiny">điểm quiz tốt nhất</span></div>
+      </div>
+      <div class="controls"><button class="btn danger" id="resetProgress">Xóa tiến độ</button></div>
+    </div>
+  </div>
+</header>
+
+<nav class="lesson-nav">
+  <div class="wrap nav-inner">
+    <a href="#overview">Tổng quan</a><a href="#kana">Hàng T</a><a href="#writing">Cách viết</a>
+    <a href="#sokuon">っ nhỏ</a><a href="#dakuten">Dakuten</a><a href="#vocab">Từ vựng</a>
+    <a href="#quick">Phản xạ</a><a href="#practice">Bài tập</a><a href="#canvas">Luyện viết</a>
+    <a href="#quiz">Quiz</a><a href="#checklist">Checklist</a>
+  </div>
+</nav>
+
+<main class="wrap">
+<section id="overview" data-track="overview">
+  <h2>1. Tóm tắt & mục tiêu</h2>
+  <p>Hàng T gồm <span class="kana">た・ち・つ・て・と</span>. Hai âm cần ghi nhớ riêng là <strong>ち = chi</strong> và <strong>つ = tsu</strong>, không đọc thành <em>ti</em> và <em>tu</em>.</p>
+  <div class="goal-grid">
+    <div class="goal">Nhận diện và đọc đúng 5 ký tự hàng T.</div>
+    <div class="goal">Viết đúng hướng và thứ tự nét cơ bản.</div>
+    <div class="goal">Phân biệt <span class="kana">つ</span> với <span class="kana">っ</span> nhỏ.</div>
+    <div class="goal">Hiểu <strong>sokuon</strong> tạo khoảng ngắt/phụ âm kép.</div>
+    <div class="goal">Nhận diện <span class="kana">だ・ぢ・づ・で・ど</span>.</div>
+    <div class="goal">Đọc được từ ngắn chứa hàng T theo từng mora.</div>
+  </div>
+  <div class="warn" style="margin-top:14px"><strong>Điểm cần nhớ:</strong> không học hàng này thành <code>ta – ti – tu – te – to</code>.</div>
+</section>
+
+<section id="kana" data-track="kana">
+  <h2>2. Năm ký tự của hàng T</h2>
+  <div class="kana-grid">
+    <article class="kana-card"><div class="kana-char">た</div><strong>ta</strong><small>âm a</small><button class="speaker" data-speak="た">🔊 Nghe</button></article>
+    <article class="kana-card"><div class="kana-char">ち</div><strong>chi</strong><small>không phải ti</small><button class="speaker" data-speak="ち">🔊 Nghe</button></article>
+    <article class="kana-card"><div class="kana-char">つ</div><strong>tsu</strong><small>không phải tu</small><button class="speaker" data-speak="つ">🔊 Nghe</button></article>
+    <article class="kana-card"><div class="kana-char">て</div><strong>te</strong><small>e ngắn</small><button class="speaker" data-speak="て">🔊 Nghe</button></article>
+    <article class="kana-card"><div class="kana-char">と</div><strong>to</strong><small>o ngắn</small><button class="speaker" data-speak="と">🔊 Nghe</button></article>
+  </div>
+
+  <div class="pronounce" style="margin-top:16px">
+    <div class="card">
+      <div class="q-label">Âm đặc biệt</div>
+      <div class="bigpair"><span>ち</span><span class="arrow">→</span><span class="big-romaji">chi</span></div>
+      <p>Không đọc là <del>ti</del>. Hãy nghe rồi lặp lại thành một âm liền.</p>
+      <button class="btn primary" data-speak="ち">Nghe ち</button>
+    </div>
+    <div class="card">
+      <div class="q-label">Âm đặc biệt</div>
+      <div class="bigpair"><span>つ</span><span class="arrow">→</span><span class="big-romaji">tsu</span></div>
+      <p>Có thể luyện chậm <code>t + su → tsu</code>, sau đó ghép thành một âm.</p>
+      <button class="btn primary" data-speak="つ">Nghe つ</button>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:16px">
+    <table><thead><tr><th>Nguyên âm</th><th>Hiragana</th><th>Romaji</th><th>Gần đúng</th></tr></thead>
+    <tbody>
+      <tr><td>a</td><td class="kana">た</td><td>ta</td><td>ta</td></tr>
+      <tr><td>i</td><td class="kana">ち</td><td>chi</td><td>chi</td></tr>
+      <tr><td>u</td><td class="kana">つ</td><td>tsu</td><td>tsư</td></tr>
+      <tr><td>e</td><td class="kana">て</td><td>te</td><td>tê ngắn</td></tr>
+      <tr><td>o</td><td class="kana">と</td><td>to</td><td>tô ngắn</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section id="writing" data-track="writing">
+  <h2>3. Cách viết năm ký tự</h2>
+  <p>Viết đúng thứ tự nét giúp chữ cân đối và tạo nền tảng cho tốc độ viết về sau.</p>
+  <div class="stroke-grid">
+    <article class="stroke-card"><span class="kana">た</span><strong>ta · 4 bước</strong><ol><li>Nét ngang ngắn.</li><li>Nét chéo cắt nét đầu.</li><li>Nét ngắn bên phải.</li><li>Nét cong phía dưới.</li></ol></article>
+    <article class="stroke-card"><span class="kana">ち</span><strong>chi · 2 nét chính</strong><ol><li>Nét ngang.</li><li>Nét chéo cắt rồi nối liên tục vào đường cong lớn.</li></ol></article>
+    <article class="stroke-card"><span class="kana">つ</span><strong>tsu · 1 nét cong</strong><ol><li>Viết liên tục, mềm và dứt khoát.</li><li>Không chia thành nhiều nét nhỏ.</li></ol></article>
+    <article class="stroke-card"><span class="kana">て</span><strong>te · 1 nét liên tục</strong><ol><li>Bắt đầu ngang.</li><li>Chuyển thành đường cong lớn.</li></ol></article>
+    <article class="stroke-card"><span class="kana">と</span><strong>to · 2 nét</strong><ol><li>Một nét ngắn.</li><li>Một nét cong lớn tạo thân chữ.</li></ol></article>
+  </div>
+  <div class="callout" style="margin-top:14px"><strong>Mẹo cho た:</strong> phần đầu có thể liên tưởng đến chữ <em>t</em> cách điệu. Khi viết, chừa đủ khoảng trống bên phải để các nét sau không bị ép sát.</div>
+</section>
+
+<section id="sokuon" data-track="sokuon">
+  <h2>4. <span class="kana">っ</span> nhỏ — sokuon</h2>
+  <div class="sokuon-demo">
+    <div class="card">
+      <div class="q-label">So sánh kích thước</div>
+      <div class="bigpair"><span>つ</span><span class="arrow">vs</span><span style="font-size:.65em">っ</span></div>
+      <p><span class="kana">っ</span> không phải một âm <em>tsu</em> độc lập. Nó tạo một khoảng ngắt rất ngắn trước phụ âm tiếp theo.</p>
+    </div>
+    <div class="card">
+      <div class="q-label">So sánh nhịp</div>
+      <p><span class="kana" style="font-size:2rem">きて</span> → <strong>ki-te</strong></p>
+      <p><span class="kana" style="font-size:2rem">きって</span> → <strong>ki-t-te</strong></p>
+      <button class="btn" data-speak="きて">🔊 きて</button>
+      <button class="btn primary" data-speak="きって">🔊 きって</button>
+    </div>
+  </div>
+
+  <h3>Luyện nhịp sokuon</h3>
+  <div class="card">
+    <div class="rhythm" id="rhythmNormal">
+      <div class="beat">ki</div><div class="beat">te</div>
+    </div>
+    <div class="rhythm" id="rhythmSokuon">
+      <div class="beat">ki</div><div class="beat pause">ngắt</div><div class="beat">te</div>
+    </div>
+    <div class="controls">
+      <button class="btn" id="playKite">Chạy nhịp きて</button>
+      <button class="btn primary" id="playKitte">Chạy nhịp きって</button>
+      <button class="btn" data-speak="きっぷ">🔊 きっぷ (kippu · vé)</button>
+    </div>
+  </div>
+  <div class="goodbox" style="margin-top:14px"><strong>Quy tắc:</strong> trong romaji, <span class="kana">っ</span> thường được thể hiện bằng cách nhân đôi phụ âm sau nó, ví dụ <span class="kana">きって</span> → <code>kitte</code>, <span class="kana">きっぷ</span> → <code>kippu</code>.</div>
+</section>
+
+<section id="dakuten" data-track="dakuten">
+  <h2>5. Hàng T khi thêm dakuten</h2>
+  <div class="table-wrap">
+    <table><thead><tr><th>Gốc</th><th>Âm gốc</th><th>+ ゛</th><th>Cách đọc</th><th>Nghe</th></tr></thead>
+    <tbody>
+      <tr><td class="kana">た</td><td>ta</td><td class="kana">だ</td><td>da</td><td><button class="speaker" data-speak="だ">🔊</button></td></tr>
+      <tr><td class="kana">ち</td><td>chi</td><td class="kana">ぢ</td><td>ji</td><td><button class="speaker" data-speak="ぢ">🔊</button></td></tr>
+      <tr><td class="kana">つ</td><td>tsu</td><td class="kana">づ</td><td>zu</td><td><button class="speaker" data-speak="づ">🔊</button></td></tr>
+      <tr><td class="kana">て</td><td>te</td><td class="kana">で</td><td>de</td><td><button class="speaker" data-speak="で">🔊</button></td></tr>
+      <tr><td class="kana">と</td><td>to</td><td class="kana">ど</td><td>do</td><td><button class="speaker" data-speak="ど">🔊</button></td></tr>
+    </tbody></table>
+  </div>
+  <div class="warn" style="margin-top:14px">
+    <strong>Chính tả quan trọng:</strong> <span class="kana">ぢ</span> và <span class="kana">づ</span> tồn tại nhưng ít gặp hơn <span class="kana">じ</span> và <span class="kana">ず</span>. Không tự ý thay thế giữa các cặp chỉ vì âm gần giống nhau.
+  </div>
+  <div class="card" style="margin-top:14px">
+    <div class="q-label">Ví dụ trong bài</div>
+    <div style="font-size:2.1rem" class="kana">はなぢ ・ 鼻血</div>
+    <strong>hanaji — chảy máu mũi</strong>
+  </div>
+</section>
+
+<section id="vocab" data-track="vocab">
+  <h2>6. Từ vựng luyện đọc</h2>
+  <p>Nhấn vào thẻ để lật. Hãy thử đọc Hiragana trước khi xem romaji.</p>
+  <div class="flash-layout">
+    <div class="flashcard" id="flashcard" title="Nhấn để lật thẻ">
+      <div class="flash-front"><div class="tiny">ĐỌC TỪ NÀY</div><div class="flash-main" id="flashKana">て</div><p class="tiny">Nhấn để xem đáp án</p></div>
+      <div class="flash-back"><div class="flash-main" id="flashKanaBack" style="font-size:4.6rem">て</div><div class="flash-sub"><strong id="flashRomaji">te</strong> · <span id="flashMeaning">tay</span></div><p id="flashMora" class="tiny">te</p><button class="btn" id="flashSpeak">🔊 Nghe</button></div>
+    </div>
+    <div class="card">
+      <div class="controls"><button class="btn" id="prevFlash">← Trước</button><button class="btn primary" id="nextFlash">Sau →</button><button class="btn" id="shuffleFlash">Trộn</button></div>
+      <div class="flash-list" id="flashList"></div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:14px"><strong>Nguyên âm dài:</strong> trong <span class="kana">とおい</span> (<code>to-o-i</code>), không nuốt mất một mora.</div>
+</section>
+
+<section id="quick" data-track="quick">
+  <h2>7. Luyện phản xạ nhận diện</h2>
+  <div class="quick-box">
+    <div class="card">
+      <div class="q-label">Kana ngẫu nhiên</div>
+      <div class="quick-kana" id="quickKana">た</div>
+      <div class="scoreline"><span>Đúng: <strong id="quickCorrect">0</strong></span><span>Sai: <strong id="quickWrong">0</strong></span><span>Chuỗi: <strong id="quickStreak">0</strong></span></div>
+    </div>
+    <div class="card">
+      <p>Chọn cách đọc càng nhanh càng tốt. Bài này trộn cả hàng T cơ bản và dạng dakuten.</p>
+      <div class="answer-buttons" id="quickAnswers"></div>
+      <div class="feedback" id="quickFeedback"></div>
+      <button class="btn" id="nextQuick">Câu khác</button>
+    </div>
+  </div>
+</section>
+
+<section id="practice" data-track="practice">
+  <h2>8. Bài tập tương tác</h2>
+  <div class="practice-tabs">
+    <button class="practice-tab active" data-tab="p1">Phát âm</button>
+    <button class="practice-tab" data-tab="p2">Dakuten</button>
+    <button class="practice-tab" data-tab="p3">Sokuon</button>
+    <button class="practice-tab" data-tab="p4">Điền từ</button>
+    <button class="practice-tab" data-tab="p5">Ghép cặp</button>
+  </div>
+
+  <div class="practice-panel active" id="p1">
+    <div class="question" data-single="chi">
+      <div class="q-label">Câu 1</div><p><span class="kana" style="font-size:2rem">ち</span> đọc là gì?</p>
+      <div class="options"><button class="option" data-value="ti">ti</button><button class="option" data-value="chi">chi</button><button class="option" data-value="shi">shi</button><button class="option" data-value="ji">ji</button></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question" data-single="tsu">
+      <div class="q-label">Câu 2</div><p><span class="kana" style="font-size:2rem">つ</span> đọc là gì?</p>
+      <div class="options"><button class="option" data-value="tu">tu</button><button class="option" data-value="su">su</button><button class="option" data-value="tsu">tsu</button><button class="option" data-value="chu">chu</button></div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <div class="practice-panel" id="p2">
+    <div class="question">
+      <div class="q-label">Dakuten</div><p>Nhập dạng có dakuten tương ứng:</p>
+      <div class="grid2">
+        <label>た → <input class="input dak-input" data-answer="だ" placeholder="?" /></label>
+        <label>ち → <input class="input dak-input" data-answer="ぢ" placeholder="?" /></label>
+        <label>つ → <input class="input dak-input" data-answer="づ" placeholder="?" /></label>
+        <label>て → <input class="input dak-input" data-answer="で" placeholder="?" /></label>
+        <label>と → <input class="input dak-input" data-answer="ど" placeholder="?" /></label>
+      </div>
+      <div class="controls"><button class="btn primary" id="checkDakuten">Kiểm tra</button></div><div class="feedback" id="dakFeedback"></div>
+    </div>
+  </div>
+
+  <div class="practice-panel" id="p3">
+    <div class="question" data-single="kitte">
+      <div class="q-label">Sokuon</div><p><span class="kana" style="font-size:2rem">きって</span> được viết romaji thế nào?</p>
+      <div class="options"><button class="option" data-value="kitsute">kitsute</button><button class="option" data-value="kite">kite</button><button class="option" data-value="kitte">kitte</button><button class="option" data-value="kitsu">kitsu</button></div>
+      <div class="feedback"></div>
+    </div>
+    <div class="question" data-single="pause">
+      <div class="q-label">Chức năng</div><p><span class="kana">っ</span> nhỏ chủ yếu làm gì?</p>
+      <div class="options"><button class="option" data-value="vowel">Kéo dài nguyên âm</button><button class="option" data-value="pause">Tạo khoảng ngắt trước phụ âm sau</button><button class="option" data-value="tsu">Luôn đọc thành tsu</button><button class="option" data-value="dakuten">Tạo dakuten</button></div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <div class="practice-panel" id="p4">
+    <div class="question">
+      <div class="q-label">Điền cách đọc</div>
+      <div class="grid2">
+        <label><span class="kana">たつ</span> = <input class="input vocab-input" data-answer="tatsu" /></label>
+        <label><span class="kana">とおい</span> = <input class="input vocab-input" data-answer="tooi" /></label>
+        <label><span class="kana">つづく</span> = <input class="input vocab-input" data-answer="tsuzuku" /></label>
+        <label><span class="kana">だいがく</span> = <input class="input vocab-input" data-answer="daigaku" /></label>
+      </div>
+      <div class="controls"><button class="btn primary" id="checkVocab">Kiểm tra</button></div><div class="feedback" id="vocabFeedback"></div>
+    </div>
+  </div>
+
+  <div class="practice-panel" id="p5">
+    <p>Ghép Hiragana với romaji tương ứng.</p>
+    <div class="match-board">
+      <div class="match-col" id="matchKana"></div><div class="match-col" id="matchRomaji"></div>
+    </div>
+    <div class="feedback" id="matchFeedback"></div>
+    <div class="controls"><button class="btn" id="resetMatch">Làm lại</button></div>
+  </div>
+</section>
+
+<section id="canvas" data-track="canvas">
+  <h2>9. Luyện viết trực tiếp</h2>
+  <div class="canvas-layout">
+    <div class="canvas-wrap">
+      <div class="guide" id="guide">た</div>
+      <canvas id="writingCanvas"></canvas>
+    </div>
+    <aside class="write-panel">
+      <div class="q-label">Chọn ký tự</div>
+      <div class="write-preview" id="writePreview">た</div>
+      <div class="picker" id="writePicker"></div>
+      <div class="controls"><button class="btn" id="toggleGuide">Ẩn/hiện mẫu</button><button class="btn danger" id="clearCanvas">Xóa nét</button></div>
+      <label>Độ dày nét <input id="brushSize" type="range" min="2" max="18" value="7" /></label>
+      <p class="tiny">Luyện mỗi ký tự ít nhất 5 lần. Với <span class="kana">つ</span> và <span class="kana">っ</span>, chú ý khác biệt kích thước.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="quiz" data-track="quiz">
+  <div class="quiz-head"><div><h2>10. Bài tự kiểm tra cuối bài</h2><p>12 câu tổng hợp. Kết quả tốt nhất được lưu trên trình duyệt.</p></div><button class="btn primary" id="gradeQuiz">Chấm điểm</button></div>
+  <form id="quizForm">
+    <fieldset class="quiz-q"><legend>1. Hàng T gồm?</legend><label><input type="radio" name="q1" value="a"> た ち つ て と</label><br><label><input type="radio" name="q1" value="b"> さ し す せ そ</label></fieldset>
+    <fieldset class="quiz-q"><legend>2. ち đọc là?</legend><label><input type="radio" name="q2" value="chi"> chi</label><br><label><input type="radio" name="q2" value="ti"> ti</label></fieldset>
+    <fieldset class="quiz-q"><legend>3. つ đọc là?</legend><label><input type="radio" name="q3" value="tsu"> tsu</label><br><label><input type="radio" name="q3" value="tu"> tu</label></fieldset>
+    <fieldset class="quiz-q"><legend>4. っ nhỏ gọi là?</legend><label><input type="radio" name="q4" value="sokuon"> sokuon</label><br><label><input type="radio" name="q4" value="dakuten"> dakuten</label></fieldset>
+    <fieldset class="quiz-q"><legend>5. っ thường biểu thị?</legend><label><input type="radio" name="q5" value="pause"> khoảng ngắt/phụ âm kép</label><br><label><input type="radio" name="q5" value="long"> nguyên âm dài</label></fieldset>
+    <fieldset class="quiz-q"><legend>6. きって là?</legend><label><input type="radio" name="q6" value="kitte"> kitte</label><br><label><input type="radio" name="q6" value="kitsute"> kitsute</label></fieldset>
+    <fieldset class="quiz-q"><legend>7. た + dakuten = ?</legend><label><input type="radio" name="q7" value="だ"> だ</label><br><label><input type="radio" name="q7" value="ざ"> ざ</label></fieldset>
+    <fieldset class="quiz-q"><legend>8. て + dakuten = ?</legend><label><input type="radio" name="q8" value="で"> で</label><br><label><input type="radio" name="q8" value="ぜ"> ぜ</label></fieldset>
+    <fieldset class="quiz-q"><legend>9. ぢ thường đọc gần với?</legend><label><input type="radio" name="q9" value="ji"> ji</label><br><label><input type="radio" name="q9" value="di"> di</label></fieldset>
+    <fieldset class="quiz-q"><legend>10. Từ “vé” trong ví dụ là?</legend><label><input type="radio" name="q10" value="きっぷ"> きっぷ</label><br><label><input type="radio" name="q10" value="きて"> きて</label></fieldset>
+    <fieldset class="quiz-q"><legend>11. たつ đọc là?</legend><label><input type="radio" name="q11" value="tatsu"> tatsu</label><br><label><input type="radio" name="q11" value="tatu"> tatu</label></fieldset>
+    <fieldset class="quiz-q"><legend>12. だいがく nghĩa là?</legend><label><input type="radio" name="q12" value="university"> đại học</label><br><label><input type="radio" name="q12" value="far"> xa</label></fieldset>
+  </form>
+  <div class="result" id="quizResult"><div class="score-big" id="quizScore">0/12</div><p id="quizComment"></p></div>
+</section>
+
+<section id="checklist" data-track="checklist">
+  <h2>11. Checklist hoàn thành</h2>
+  <div class="checklist" id="checklistBox">
+    <label class="checkline"><input type="checkbox" data-check="1"> Đọc đúng <span class="kana">た</span> là <strong>ta</strong>.</label>
+    <label class="checkline"><input type="checkbox" data-check="2"> Đọc đúng <span class="kana">ち</span> là <strong>chi</strong>.</label>
+    <label class="checkline"><input type="checkbox" data-check="3"> Đọc đúng <span class="kana">つ</span> là <strong>tsu</strong>.</label>
+    <label class="checkline"><input type="checkbox" data-check="4"> Đọc đúng <span class="kana">て</span> là <strong>te</strong> và <span class="kana">と</span> là <strong>to</strong>.</label>
+    <label class="checkline"><input type="checkbox" data-check="5"> Viết được năm ký tự theo thứ tự nét ổn định.</label>
+    <label class="checkline"><input type="checkbox" data-check="6"> Phân biệt được <span class="kana">つ</span> và <span class="kana">っ</span>.</label>
+    <label class="checkline"><input type="checkbox" data-check="7"> Giải thích được chức năng của sokuon.</label>
+    <label class="checkline"><input type="checkbox" data-check="8"> Nhận diện được <span class="kana">だ・ぢ・づ・で・ど</span>.</label>
+    <label class="checkline"><input type="checkbox" data-check="9"> Đọc được hàng T khi ký tự xuất hiện theo thứ tự ngẫu nhiên.</label>
+    <label class="checkline"><input type="checkbox" data-check="10"> Đọc thành tiếng được các từ luyện tập trong bài.</label>
+  </div>
+</section>
+
+<section data-track="summary">
+  <h2>12. Tổng kết</h2>
+  <div class="card" style="text-align:center">
+    <div class="kana" style="font-size:clamp(2.5rem,8vw,5rem)">た ち つ て と</div>
+    <strong>ta · chi · tsu · te · to</strong>
+    <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+    <div class="kana" style="font-size:clamp(2.2rem,7vw,4.4rem)">だ ぢ づ で ど</div>
+    <strong>da · ji · zu · de · do</strong>
+  </div>
+  <p>Muốn tạo phản xạ đọc, hãy kết hợp ba hoạt động: <strong>nhìn mặt chữ → đọc thành tiếng → viết bằng tay</strong>, đồng thời luyện các ký tự theo thứ tự ngẫu nhiên thay vì chỉ đọc theo bảng.</p>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="footer-card"><strong>Bài 007 — Hàng T trong Hiragana</strong><br><span class="tiny">Interactive lesson · dữ liệu tiến độ chỉ lưu trong trình duyệt hiện tại.</span></div>
+</footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const KEY='hiragana_lesson_007_t_v1';
+const state=JSON.parse(localStorage.getItem(KEY)||'{}');
+state.tracks=state.tracks||{};
+state.checks=state.checks||{};
+state.best=state.best||0;
+const save=()=>{localStorage.setItem(KEY,JSON.stringify(state));updateProgress();};
+
+function speak(text){
+  if(!('speechSynthesis' in window)){alert('Trình duyệt này không hỗ trợ phát âm.');return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); u.lang='ja-JP'; u.rate=.78; u.pitch=1;
+  speechSynthesis.speak(u);
+}
+$$('[data-speak]').forEach(b=>b.addEventListener('click',()=>speak(b.dataset.speak)));
+
+const trackEls=$$('[data-track]');
+function updateProgress(){
+  const trackDone=Object.values(state.tracks).filter(Boolean).length;
+  const checksDone=Object.values(state.checks).filter(Boolean).length;
+  const total=trackEls.length+10;
+  const done=trackDone+checksDone;
+  const pct=Math.round(done/total*100);
+  $('#progressBar').style.width=pct+'%'; $('#progressText').textContent=pct+'%';
+  $('#doneCount').textContent=done; $('#quizBest').textContent=(state.best||0)+'%';
+}
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting && e.intersectionRatio>.35){state.tracks[e.target.dataset.track]=true;save();}})
+},{threshold:[.35]});
+trackEls.forEach(el=>observer.observe(el));
+
+$$('[data-check]').forEach(cb=>{
+  cb.checked=!!state.checks[cb.dataset.check];
+  cb.addEventListener('change',()=>{state.checks[cb.dataset.check]=cb.checked;save();});
+});
+$('#resetProgress').addEventListener('click',()=>{
+  if(confirm('Xóa toàn bộ tiến độ Bài 007 trên trình duyệt này?')){localStorage.removeItem(KEY);location.reload();}
+});
+updateProgress();
+
+// Sokuon rhythm
+function playRhythm(id, delays){
+  const beats=$$('#'+id+' .beat'); beats.forEach(x=>x.classList.remove('playing'));
+  let t=0;
+  beats.forEach((b,i)=>{setTimeout(()=>{beats.forEach(x=>x.classList.remove('playing'));b.classList.add('playing');},t);t+=delays[i]||500;});
+  setTimeout(()=>beats.forEach(x=>x.classList.remove('playing')),t+200);
+}
+$('#playKite').onclick=()=>playRhythm('rhythmNormal',[550,550]);
+$('#playKitte').onclick=()=>playRhythm('rhythmSokuon',[420,260,520]);
+
+// Flashcards
+const vocab=[
+  {k:'て',r:'te',m:'tay',mora:'te'},
+  {k:'たつ',r:'tatsu',m:'đứng',mora:'ta-tsu'},
+  {k:'とおい',r:'tooi',m:'xa',mora:'to-o-i'},
+  {k:'つづく',r:'tsuzuku',m:'tiếp tục',mora:'tsu-zu-ku'},
+  {k:'だいがく',r:'daigaku',m:'đại học',mora:'da-i-ga-ku'},
+  {k:'きって',r:'kitte',m:'ví dụ sokuon',mora:'ki-t-te'},
+  {k:'きっぷ',r:'kippu',m:'vé',mora:'ki-p-pu'},
+  {k:'はなぢ',r:'hanaji',m:'chảy máu mũi',mora:'ha-na-ji'}
+];
+let flashOrder=vocab.map((_,i)=>i), fi=0;
+function renderFlash(){
+  const v=vocab[flashOrder[fi]];
+  $('#flashKana').textContent=v.k;$('#flashKanaBack').textContent=v.k;$('#flashRomaji').textContent=v.r;$('#flashMeaning').textContent=v.m;$('#flashMora').textContent='Mora: '+v.mora;
+  $('#flashcard').classList.remove('flipped');
+  $('#flashList').innerHTML=flashOrder.map((idx,pos)=>`<button class="flash-item ${pos===fi?'active':''}" data-pos="${pos}"><span class="kana">${vocab[idx].k}</span><span>${vocab[idx].m}</span></button>`).join('');
+  $$('#flashList .flash-item').forEach(b=>b.onclick=()=>{fi=+b.dataset.pos;renderFlash();});
+}
+$('#flashcard').onclick=e=>{if(e.target.tagName!=='BUTTON')$('#flashcard').classList.toggle('flipped');};
+$('#flashSpeak').onclick=e=>{e.stopPropagation();speak(vocab[flashOrder[fi]].k);};
+$('#prevFlash').onclick=()=>{fi=(fi-1+flashOrder.length)%flashOrder.length;renderFlash();};
+$('#nextFlash').onclick=()=>{fi=(fi+1)%flashOrder.length;renderFlash();};
+$('#shuffleFlash').onclick=()=>{flashOrder.sort(()=>Math.random()-.5);fi=0;renderFlash();};
+renderFlash();
+
+// Quick recognition
+const quickPool=[
+  ['た','ta'],['ち','chi'],['つ','tsu'],['て','te'],['と','to'],
+  ['だ','da'],['ぢ','ji'],['づ','zu'],['で','de'],['ど','do']
+];
+let currentQuick=null,qc=0,qw=0,qs=0,locked=false;
+function newQuick(){
+  locked=false; currentQuick=quickPool[Math.floor(Math.random()*quickPool.length)];
+  $('#quickKana').textContent=currentQuick[0]; $('#quickFeedback').textContent='';
+  const wrongs=quickPool.map(x=>x[1]).filter(x=>x!==currentQuick[1]).sort(()=>Math.random()-.5).slice(0,5);
+  const ans=[currentQuick[1],...wrongs].sort(()=>Math.random()-.5);
+  $('#quickAnswers').innerHTML=ans.map(a=>`<button class="btn" data-a="${a}">${a}</button>`).join('');
+  $$('#quickAnswers button').forEach(b=>b.onclick=()=>answerQuick(b));
+}
+function answerQuick(btn){
+  if(locked)return;locked=true;
+  if(btn.dataset.a===currentQuick[1]){qc++;qs++;btn.classList.add('good');$('#quickFeedback').className='feedback good';$('#quickFeedback').textContent='Đúng!';}
+  else{qw++;qs=0;btn.classList.add('danger');$('#quickFeedback').className='feedback bad';$('#quickFeedback').textContent='Sai. Đáp án: '+currentQuick[1];}
+  $('#quickCorrect').textContent=qc;$('#quickWrong').textContent=qw;$('#quickStreak').textContent=qs;
+}
+$('#nextQuick').onclick=newQuick; newQuick();
+
+// Tabs
+$$('.practice-tab').forEach(b=>b.onclick=()=>{
+  $$('.practice-tab').forEach(x=>x.classList.remove('active')); $$('.practice-panel').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); $('#'+b.dataset.tab).classList.add('active');
+});
+
+// Single choice practice
+$$('.question[data-single]').forEach(q=>{
+  const correct=q.dataset.single;
+  $$('.option',q).forEach(b=>b.onclick=()=>{
+    $$('.option',q).forEach(x=>x.classList.remove('correct','wrong'));
+    const fb=$('.feedback',q);
+    if(b.dataset.value===correct){b.classList.add('correct');fb.className='feedback good';fb.textContent='Chính xác.';}
+    else{b.classList.add('wrong');fb.className='feedback bad';fb.textContent='Chưa đúng, thử lại.';}
+  });
+});
+function checkInputs(selector,fbSel){
+  let ok=0,all=$$(selector);
+  all.forEach(i=>{const good=i.value.trim().toLowerCase()===i.dataset.answer.toLowerCase();i.style.borderColor=good?'#78b98e':'#d18484';if(good)ok++;});
+  const fb=$(fbSel);fb.className='feedback '+(ok===all.length?'good':'bad');fb.textContent=`Đúng ${ok}/${all.length}.`;
+}
+$('#checkDakuten').onclick=()=>checkInputs('.dak-input','#dakFeedback');
+$('#checkVocab').onclick=()=>checkInputs('.vocab-input','#vocabFeedback');
+
+// Matching
+const matchPairs=[['た','ta'],['ち','chi'],['つ','tsu'],['て','te'],['と','to'],['だ','da'],['で','de'],['ど','do']];
+let leftSel=null,rightSel=null,matched=0;
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function renderMatch(){
+  matched=0;leftSel=rightSel=null;$('#matchFeedback').textContent='';
+  $('#matchKana').innerHTML=shuffle(matchPairs).map(([k,r])=>`<button class="match-item kana" data-key="${r}">${k}</button>`).join('');
+  $('#matchRomaji').innerHTML=shuffle(matchPairs).map(([k,r])=>`<button class="match-item" data-key="${r}">${r}</button>`).join('');
+  $$('#matchKana .match-item').forEach(b=>b.onclick=()=>selectMatch(b,'left'));
+  $$('#matchRomaji .match-item').forEach(b=>b.onclick=()=>selectMatch(b,'right'));
+}
+function selectMatch(b,side){
+  if(b.classList.contains('done'))return;
+  if(side==='left'){if(leftSel)leftSel.classList.remove('active');leftSel=b;}else{if(rightSel)rightSel.classList.remove('active');rightSel=b;}
+  b.classList.add('active');
+  if(leftSel&&rightSel){
+    if(leftSel.dataset.key===rightSel.dataset.key){
+      leftSel.classList.add('done');rightSel.classList.add('done');leftSel.classList.remove('active');rightSel.classList.remove('active');matched++;
+      $('#matchFeedback').className='feedback good';$('#matchFeedback').textContent=`Đã ghép ${matched}/${matchPairs.length}.`;
+      leftSel=rightSel=null;
+    }else{
+      const l=leftSel,r=rightSel; l.classList.add('wrong');r.classList.add('wrong');
+      setTimeout(()=>{l.classList.remove('wrong','active');r.classList.remove('wrong','active');},450);
+      leftSel=rightSel=null;$('#matchFeedback').className='feedback bad';$('#matchFeedback').textContent='Chưa khớp.';
+    }
+  }
+}
+$('#resetMatch').onclick=renderMatch;renderMatch();
+
+// Canvas
+const canvas=$('#writingCanvas'),ctx=canvas.getContext('2d'),guide=$('#guide');
+let drawing=false,last=null;
+function resizeCanvas(){
+  const r=canvas.getBoundingClientRect(), d=window.devicePixelRatio||1;
+  const img=canvas.width&&canvas.height?canvas.toDataURL():null;
+  canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.height*d);ctx.scale(d,d);
+  ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#2a2522';
+}
+function pos(e){const r=canvas.getBoundingClientRect(),p=e.touches?e.touches[0]:e;return{x:p.clientX-r.left,y:p.clientY-r.top};}
+function start(e){e.preventDefault();drawing=true;last=pos(e);}
+function move(e){if(!drawing)return;e.preventDefault();const p=pos(e);ctx.lineWidth=+$('#brushSize').value;ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;}
+function end(){drawing=false;last=null;}
+['mousedown','touchstart'].forEach(ev=>canvas.addEventListener(ev,start,{passive:false}));
+['mousemove','touchmove'].forEach(ev=>canvas.addEventListener(ev,move,{passive:false}));
+['mouseup','mouseleave','touchend','touchcancel'].forEach(ev=>canvas.addEventListener(ev,end));
+window.addEventListener('resize',()=>{resizeCanvas();});
+resizeCanvas();
+const writeChars=['た','ち','つ','て','と','っ','だ','ぢ','づ','で','ど'];
+$('#writePicker').innerHTML=writeChars.map((k,i)=>`<button class="btn ${i===0?'active':''}" data-k="${k}">${k}</button>`).join('');
+$$('#writePicker .btn').forEach(b=>b.onclick=()=>{$$('#writePicker .btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');guide.textContent=b.dataset.k;$('#writePreview').textContent=b.dataset.k;});
+$('#toggleGuide').onclick=()=>guide.style.display=guide.style.display==='none'?'flex':'none';
+$('#clearCanvas').onclick=()=>ctx.clearRect(0,0,canvas.width,canvas.height);
+
+// Quiz
+const answers={q1:'a',q2:'chi',q3:'tsu',q4:'sokuon',q5:'pause',q6:'kitte',q7:'だ',q8:'で',q9:'ji',q10:'きっぷ',q11:'tatsu',q12:'university'};
+$('#gradeQuiz').onclick=()=>{
+  let score=0;
+  Object.entries(answers).forEach(([q,a])=>{const el=$(`input[name="${q}"]:checked`);if(el&&el.value===a)score++;});
+  const pct=Math.round(score/12*100);$('#quizScore').textContent=`${score}/12 · ${pct}%`;
+  $('#quizComment').textContent=pct>=90?'Rất tốt — hàng T đã khá chắc.':pct>=70?'Khá tốt — xem lại các câu sai rồi làm lại.':'Nên ôn lại ち/つ, sokuon và dakuten trước khi làm lại.';
+  $('#quizResult').classList.add('show');
+  if(pct>state.best){state.best=pct;save();}
+  $('#quizResult').scrollIntoView({behavior:'smooth',block:'center'});
+};
+</script>
+</body>
+</html>
