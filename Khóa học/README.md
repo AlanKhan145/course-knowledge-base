@@ -36,7 +36,6 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `02 - Tiếng Trung`
   - `03 - Tiếng Nhật`
   - `04 - Tiếng Pháp`
-  - `04 - Tiếng Pháp`
   - `05 - Tiếng Đức`
 - `07 - Kinh doanh & Quản lý`
   - `01 - Product & Engineering Management`
@@ -178,6 +177,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 - [Tự học 2.000 từ vựng tiếng Anh](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-2000-tu-vung-tieng-anh/>)
 - [Từ vựng tiếng Anh cơ bản](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-vung-tieng-anh-co-ban/>)
+- [The English Master Course: English Grammar, English Speaking](<./06 - Ngôn ngữ/01 - Tiếng Anh/the-english-master-course-english-grammar-speaking/>)
 
 #### Tiếng Trung
 
@@ -186,15 +186,11 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 #### Tiếng Nhật
 
-#### Tiếng Pháp
-
-- [Complete French Course](<./06 - Ngôn ngữ/04 - Tiếng Pháp/complete-french-course/>)
-
 - [Learn Japanese for Beginners](<./06 - Ngôn ngữ/03 - Tiếng Nhật/learn-japanese-for-beginners-course/>)
+
 #### Tiếng Pháp
 
 - [Complete French Course](<./06 - Ngôn ngữ/04 - Tiếng Pháp/complete-french-course/>)
-
 
 #### Tiếng Đức
 
