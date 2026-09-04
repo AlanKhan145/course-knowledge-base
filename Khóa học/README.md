@@ -36,6 +36,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `02 - Tiếng Trung`
   - `03 - Tiếng Nhật`
   - `04 - Tiếng Pháp`
+  - `04 - Tiếng Pháp`
 - `07 - Kinh doanh & Quản lý`
   - `01 - Product & Engineering Management`
   - `02 - Developer Relations & Technical Writing`
@@ -183,6 +184,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Mandarin Mastery Path](<./06 - Ngôn ngữ/02 - Tiếng Trung/mandarin-mastery-path/>)
 
 #### Tiếng Nhật
+
+#### Tiếng Pháp
+
+- [Complete French Course](<./06 - Ngôn ngữ/04 - Tiếng Pháp/complete-french-course/>)
 
 - [Learn Japanese for Beginners](<./06 - Ngôn ngữ/03 - Tiếng Nhật/learn-japanese-for-beginners-course/>)
 #### Tiếng Pháp
