@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 73 khóa học được tổ chức theo ba lớp:
+Kho này chứa 72 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -175,7 +175,6 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 - [Tự học 2.000 từ vựng tiếng Anh](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-2000-tu-vung-tieng-anh/>)
 - [Từ vựng tiếng Anh cơ bản](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-vung-tieng-anh-co-ban/>)
-- [IELTS Band 7+ Complete Prep Course](<./06 - Ngôn ngữ/01 - Tiếng Anh/ielts-band-7-complete-prep-course/>)
 
 #### Tiếng Trung
 
