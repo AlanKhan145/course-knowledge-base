@@ -1,5 +1,7 @@
 # Tài nguyên trực tuyến cho bài 008
 
+Các liên kết được lưu dưới dạng Markdown để có thể đọc, tìm kiếm và mở trực tiếp từ repository.
+
 ## 1. Grammarly
 
 - Trang chính: https://www.grammarly.com/
@@ -24,7 +26,7 @@
 
 - Đường dẫn hiện hành: https://www.uefap.org/vocabulary-selecting-awl/
 - Dùng để tham khảo Academic Word List trong bối cảnh English for Academic Purposes.
-- Đường dẫn cũ `http://www.uefap.com/vocab/select/awl.htm` đã thay đổi cấu trúc; shortcut trong thư mục trỏ tới trang hiện hành.
+- Đường dẫn cũ `http://www.uefap.com/vocab/select/awl.htm` đã thay đổi cấu trúc; file Markdown trong thư mục trỏ tới trang hiện hành.
 
 ## 5. English Vocabulary Exercises - AWL
 
@@ -34,4 +36,15 @@
 ## 6. Hình tham khảo sách Grammar & Lexical
 
 - https://img-c.udemycdn.com/redactor/raw/article_lecture/2022-12-11_12-35-54-304f517411855578a0c48ce2b9209d40.jpg
-- Gói lưu shortcut thay vì sao chép ảnh từ máy chủ bên ngoài.
+- Gói lưu liên kết Markdown thay vì sao chép ảnh từ máy chủ bên ngoài.
+
+## Danh sách file Markdown
+
+- [Grammarly](01_Grammarly.md)
+- [Khan Academy Grammar — Course Overview](02_Khan_Academy_Grammar_Overview.md)
+- [Khan Academy Grammar — YouTube Playlist](03_Khan_Academy_Grammar_YouTube.md)
+- [Academic Word List — Victoria University of Wellington](04_WGTN_Academic_Word_List.md)
+- [Academic Word List — Sublist Families](05_WGTN_AWL_Sublist_Families.md)
+- [UEfAP Academic Word List](06_UEfAP_AWL_Current.md)
+- [English Vocabulary Exercises — Academic Word List](07_EnglishVocabularyExercises_AWL.md)
+- [Hình tham khảo sách Grammar & Lexical](08_Books_Reference_Image.md)
