@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 72 khóa học được tổ chức theo ba lớp:
+Kho này chứa 73 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -37,6 +37,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `03 - Tiếng Nhật`
   - `04 - Tiếng Pháp`
   - `04 - Tiếng Pháp`
+  - `05 - Tiếng Đức`
 - `07 - Kinh doanh & Quản lý`
   - `01 - Product & Engineering Management`
   - `02 - Developer Relations & Technical Writing`
@@ -194,6 +195,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 - [Complete French Course](<./06 - Ngôn ngữ/04 - Tiếng Pháp/complete-french-course/>)
 
+
+#### Tiếng Đức
+
+- [Tiếng Đức giao tiếp từ A1 đến B1](<./06 - Ngôn ngữ/05 - Tiếng Đức/complete-german-course-speaking/>)
 
 ### 07 - Kinh doanh & Quản lý
 
