@@ -1,6 +1,6 @@
 # Objects: A Closer Look - English Grammar
 
-**Module:** 002. How English Works - A Quick Review
+**Module:** 001. How English Works - A Quick Review
 **Bài:** 5/8
 **Trạng thái:** Chưa học
 
@@ -8,7 +8,7 @@
 
 ## 1. Tóm tắt
 
-Mẫu `Subject + Verb + Object` là một trong những cấu trúc cơ bản nhất của câu tiếng Anh, nhưng không phải câu nào cũng có đúng một object. Có câu không cần object, có câu chứa hai object, và cũng có câu có một thành phần đứng sau verb nhưng thành phần đó không phải object. 
+Mẫu `Subject + Verb + Object` là một trong những cấu trúc cơ bản nhất của câu tiếng Anh, nhưng không phải câu nào cũng có đúng một object. Có câu không cần object, có câu chứa hai object, và cũng có câu có một thành phần đứng sau verb nhưng thành phần đó không phải object.
 
 Sự khác biệt này phụ thuộc rất nhiều vào cách verb hoạt động trong câu. Ba nhóm cần phân biệt là:
 
@@ -19,7 +19,7 @@ Sự khác biệt này phụ thuộc rất nhiều vào cách verb hoạt độn
 Trong đó, `transitive verb` còn có thể được chia thành:
 
 * `monotransitive`;
-* `ditransitive`. 
+* `ditransitive`.
 
 Nắm được các cấu trúc này giúp người học không còn mặc định rằng mọi noun đứng sau verb đều là object.
 
@@ -97,7 +97,7 @@ Ditransitive:
 Subject + Verb + Indirect Object + Direct Object
 ```
 
-Hai mẫu này là nền tảng để hiểu vì sao có câu chỉ có một object nhưng cũng có câu có tới hai object. 
+Hai mẫu này là nền tảng để hiểu vì sao có câu chỉ có một object nhưng cũng có câu có tới hai object.
 
 ### 4.1. Monotransitive: câu có một object
 
@@ -166,7 +166,7 @@ Trong câu này:
 * `Dan` là indirect object;
 * `the cake` là direct object.
 
-Câu có hai object vì hành động `gave` liên quan đến cả vật được trao và người nhận vật đó. Đây chính là cấu trúc ditransitive được minh họa bằng `Jeff gave Dan the cake`. 
+Câu có hai object vì hành động `gave` liên quan đến cả vật được trao và người nhận vật đó. Đây chính là cấu trúc ditransitive được minh họa bằng `Jeff gave Dan the cake`.
 
 ---
 
@@ -250,7 +250,7 @@ Dan
 
 `The cake` là thứ được trao, còn `Dan` là người nhận nó.
 
-Direct object là noun hoặc pronoun nhận hành động; indirect object là noun hoặc pronoun bị ảnh hưởng bởi hành động và thường là người nhận direct object. Indirect object thường giúp trả lời các câu hỏi như `to whom?`, `for whom?` hoặc `for what?`. 
+Direct object là noun hoặc pronoun nhận hành động; indirect object là noun hoặc pronoun bị ảnh hưởng bởi hành động và thường là người nhận direct object. Indirect object thường giúp trả lời các câu hỏi như `to whom?`, `for whom?` hoặc `for what?`.
 
 ---
 
@@ -345,7 +345,7 @@ Các cụm bổ sung này có thể cho biết:
 * hành động xảy ra khi nào;
 * hoặc cung cấp thêm thông tin về hoàn cảnh.
 
-Chúng không tự động trở thành object của verb. 
+Chúng không tự động trở thành object của verb.
 
 ### 7.1. She cried
 
@@ -537,7 +537,7 @@ Cấu trúc:
 Subject + Linking Verb + Subject Complement
 ```
 
-`Subject complement` có thể là noun hoặc adjective. 
+`Subject complement` có thể là noun hoặc adjective.
 
 Xét:
 

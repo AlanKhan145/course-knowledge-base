@@ -1,6 +1,6 @@
 # The Parts of an English Sentence - English Grammar
 
-**Module:** 002. How English Works - A Quick Review
+**Module:** 001. How English Works - A Quick Review
 **Bài:** 2/8
 **Trạng thái:** Chưa học
 
@@ -17,7 +17,7 @@ Subject + Predicate
 * `Subject` — chủ ngữ: cho biết câu đang nói về ai hoặc điều gì.
 * `Predicate` — vị ngữ: cho biết điều gì xảy ra với chủ ngữ hoặc chủ ngữ đang làm gì.
 
-Hai phần này tạo nên bộ khung cơ bản để phân tích và xây dựng câu tiếng Anh. 
+Hai phần này tạo nên bộ khung cơ bản để phân tích và xây dựng câu tiếng Anh.
 
 Ví dụ:
 
@@ -110,7 +110,7 @@ Ví dụ:
 
 > The dog runs down the street.
 
-`The dog` là subject vì đây là đối tượng mà cả câu đang nói tới. 
+`The dog` là subject vì đây là đối tượng mà cả câu đang nói tới.
 
 Một số ví dụ khác:
 
@@ -168,7 +168,7 @@ Predicate là:
 
 > runs down the street
 
-Phần này cho biết con chó đang làm gì. 
+Phần này cho biết con chó đang làm gì.
 
 Trong mô hình phân tích đơn giản được sử dụng ở bài này, predicate có thể được hình dung như:
 
@@ -341,7 +341,7 @@ Subject  | Predicate
 * Predicate: `is in the sky`
 * Verb: `is`
 
-Ba ví dụ này được sử dụng để luyện việc nhận diện ranh giới giữa subject và predicate. 
+Ba ví dụ này được sử dụng để luyện việc nhận diện ranh giới giữa subject và predicate.
 
 ---
 
@@ -401,7 +401,7 @@ The bear | slept in the cave
 Subject  | Predicate
 ```
 
-Đây cũng là ba câu được dùng để củng cố việc nhận diện hai phần chính của câu. 
+Đây cũng là ba câu được dùng để củng cố việc nhận diện hai phần chính của câu.
 
 ---
 
@@ -484,7 +484,7 @@ The sun | is hot
 Subject | Predicate
 ```
 
-Các phép sắp xếp này minh họa trực tiếp việc đưa subject về trước predicate trong cấu trúc câu cơ bản. 
+Các phép sắp xếp này minh họa trực tiếp việc đưa subject về trước predicate trong cấu trúc câu cơ bản.
 
 ---
 
@@ -547,7 +547,7 @@ và nối nó với hành động trước bằng:
 
 > and
 
-Chuỗi mở rộng này xuất hiện trực tiếp trong phần minh họa về việc thêm thông tin vào cấu trúc cơ bản. 
+Chuỗi mở rộng này xuất hiện trực tiếp trong phần minh họa về việc thêm thông tin vào cấu trúc cơ bản.
 
 Điểm cần ghi nhớ không phải là học thuộc câu cuối cùng, mà là nhìn thấy quá trình:
 
@@ -623,7 +623,7 @@ Những nhóm từ trọng tâm gồm:
 * `Prepositions`;
 * `Conjunctions`.
 
-Đây là các `parts of speech` được sử dụng để tạo và mở rộng câu tiếng Anh. 
+Đây là các `parts of speech` được sử dụng để tạo và mở rộng câu tiếng Anh.
 
 Có thể hình dung mối quan hệ:
 

@@ -1,6 +1,6 @@
 # Tổng quan nền tảng: Cách tiếng Anh vận hành
 
-**Module:** 002. How English Works - A Quick Review
+**Module:** 001. How English Works - A Quick Review
 **Bài:** 1/8
 **Trạng thái:** Chưa học
 

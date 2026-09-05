@@ -1,6 +1,6 @@
 # Nouns - English Grammar
 
-**Module:** 002. How English Works - A Quick Review
+**Module:** 001. How English Works - A Quick Review
 **Bài:** 3/8
 **Trạng thái:** Chưa học
 
@@ -25,7 +25,7 @@ Trong câu này có hai nouns:
 * `dog`;
 * `street`.
 
-`Dog` là đối tượng mà câu đang nói tới, còn `street` xuất hiện trong phần thông tin phía sau. Đây là hai từ có chức năng khác nhau trong câu nhưng đều thuộc nhóm noun. 
+`Dog` là đối tượng mà câu đang nói tới, còn `street` xuất hiện trong phần thông tin phía sau. Đây là hai từ có chức năng khác nhau trong câu nhưng đều thuộc nhóm noun.
 
 Bài học tập trung vào ba cách quan sát noun:
 
@@ -80,7 +80,7 @@ Ví dụ:
 | Animal  | `dog`, `bird`, `cat`           |
 | Feeling | `love`, `hate`, `anger`        |
 
-Những ví dụ này cho thấy noun không chỉ là đồ vật có thể nhìn thấy hoặc cầm được. Một cảm xúc như `anger` cũng có thể được gọi tên bằng noun. 
+Những ví dụ này cho thấy noun không chỉ là đồ vật có thể nhìn thấy hoặc cầm được. Một cảm xúc như `anger` cũng có thể được gọi tên bằng noun.
 
 ---
 
@@ -374,7 +374,7 @@ Một ví dụ khác:
 | `they`      | pronoun     | plural   |
 | `happiness` | common noun | singular |
 
-Các ví dụ này cho thấy một từ có thể được mô tả bằng nhiều thuộc tính chứ không chỉ một nhãn duy nhất. 
+Các ví dụ này cho thấy một từ có thể được mô tả bằng nhiều thuộc tính chứ không chỉ một nhãn duy nhất.
 
 ---
 
@@ -484,7 +484,7 @@ Phân tích:
 | `anger`   | common noun | singular |
 | `sadness` | common noun | singular |
 
-Hai từ `anger` và `sadness` cho thấy noun không nhất thiết phải chỉ một vật hữu hình. Chúng gọi tên cảm xúc, vì vậy vẫn hoạt động như nouns trong câu. 
+Hai từ `anger` và `sadness` cho thấy noun không nhất thiết phải chỉ một vật hữu hình. Chúng gọi tên cảm xúc, vì vậy vẫn hoạt động như nouns trong câu.
 
 ---
 

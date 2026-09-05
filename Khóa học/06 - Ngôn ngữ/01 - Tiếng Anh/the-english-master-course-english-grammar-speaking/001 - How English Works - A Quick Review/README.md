@@ -1,4 +1,4 @@
-# 002. How English Works - A Quick Review
+# 001. How English Works - A Quick Review
 
 - **Số bài:** 8
 - **Nguồn:** curriculum công khai của khóa học; xem [COURSE_INDEX.md](<../COURSE_INDEX.md>)

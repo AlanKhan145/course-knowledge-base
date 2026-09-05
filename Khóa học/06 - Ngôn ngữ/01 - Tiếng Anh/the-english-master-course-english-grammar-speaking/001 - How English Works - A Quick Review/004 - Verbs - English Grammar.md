@@ -1,6 +1,6 @@
 # Verbs - English Grammar
 
-**Module:** 002. How English Works - A Quick Review
+**Module:** 001. How English Works - A Quick Review
 **Bài:** 4/8
 **Trạng thái:** Chưa học
 

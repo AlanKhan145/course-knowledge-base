@@ -1,6 +1,6 @@
 # Prepositions - English Grammar
 
-**Module:** 002. How English Works - A Quick Review
+**Module:** 001. How English Works - A Quick Review
 **Bài:** 7/8
 **Trạng thái:** Chưa học
 
@@ -20,7 +20,7 @@ Ví dụ:
 
 > The dog runs on the street.
 
-Hai câu có cùng subject `the dog`, cùng verb `runs` và cùng noun `the street`, nhưng `down` và `on` tạo ra hai mối quan hệ khác nhau với `street`. 
+Hai câu có cùng subject `the dog`, cùng verb `runs` và cùng noun `the street`, nhưng `down` và `on` tạo ra hai mối quan hệ khác nhau với `street`.
 
 Bài học cũng giới thiệu `prepositional phrase` — cụm gồm preposition và thành phần đi sau nó — cùng ba nhóm preposition cơ bản:
 
@@ -72,7 +72,7 @@ Location  → địa điểm
 Movement  → hướng / sự di chuyển
 ```
 
-Đây là ba chức năng chính được dùng để giới thiệu preposition trong phạm vi bài học. 
+Đây là ba chức năng chính được dùng để giới thiệu preposition trong phạm vi bài học.
 
 ---
 
@@ -181,7 +181,7 @@ down + the street
 on   + the street
 ```
 
-`The street` là thành phần mà preposition liên kết tới. Cả `down the street` và `on the street` mới là prepositional phrase hoàn chỉnh. 
+`The street` là thành phần mà preposition liên kết tới. Cả `down the street` và `on the street` mới là prepositional phrase hoàn chỉnh.
 
 Điểm cần chú ý là **object of the preposition** không nhất thiết là direct object của verb. Đây là hai vai trò ngữ pháp khác nhau.
 
@@ -203,7 +203,7 @@ Các ví dụ cơ bản là:
 
 > She jumped on the table.
 
-> He walks to work. 
+> He walks to work.
 
 ### 6.1. Time prepositions
 
@@ -326,7 +326,7 @@ Có rất nhiều preposition trong tiếng Anh. Bài này chỉ giới thiệu 
 | `during` | `down`   | `under`   |
 | `by`     | `along`  | `between` |
 
-Các nhóm ví dụ này minh họa rằng preposition không chỉ giới hạn ở `in`, `on` và `to`. 
+Các nhóm ví dụ này minh họa rằng preposition không chỉ giới hạn ở `in`, `on` và `to`.
 
 Một preposition cũng không phải lúc nào chỉ có duy nhất một chức năng. Chẳng hạn, `on` có thể xuất hiện trong ngữ cảnh thời gian hoặc địa điểm:
 
@@ -433,7 +433,7 @@ the box
    └── towards the wall
 ```
 
-Ba ví dụ lần lượt minh họa preposition về thời gian, địa điểm và sự di chuyển. 
+Ba ví dụ lần lượt minh họa preposition về thời gian, địa điểm và sự di chuyển.
 
 ---
 
@@ -797,7 +797,7 @@ Movement
 
 `To` cho biết đích đến của hành động `driving`.
 
-Ba đáp án này lần lượt minh họa `on` dùng cho time, `on` dùng cho place và `to` dùng cho movement. 
+Ba đáp án này lần lượt minh họa `on` dùng cho time, `on` dùng cho place và `to` dùng cho movement.
 
 ---
 

@@ -1,6 +1,6 @@
 # Adjectives, Adverbs, Determiners, and More - English Grammar
 
-**Module:** 002. How English Works - A Quick Review
+**Module:** 001. How English Works - A Quick Review
 **Bài:** 6/8
 **Trạng thái:** Chưa học
 
@@ -18,7 +18,7 @@ với:
 
 > The big dog runs down the street quickly.
 
-Câu thứ hai cung cấp nhiều thông tin hơn: con chó nào, con chó có đặc điểm gì, nó chạy ở đâu và chạy như thế nào. Những chi tiết này được bổ sung bởi các nhóm từ như `adjective`, `adverb` và `determiner`. 
+Câu thứ hai cung cấp nhiều thông tin hơn: con chó nào, con chó có đặc điểm gì, nó chạy ở đâu và chạy như thế nào. Những chi tiết này được bổ sung bởi các nhóm từ như `adjective`, `adverb` và `determiner`.
 
 Trong bài này, trọng tâm là:
 
@@ -104,7 +104,7 @@ Adjective và adverb đều bổ sung chi tiết, nhưng chúng không bổ ngh�
 | `Adjective` | Mô tả noun       |
 | `Adverb`    | Mô tả verb       |
 
-Đây là khác biệt quan trọng nhất cần nắm trong phạm vi bài này. 
+Đây là khác biệt quan trọng nhất cần nắm trong phạm vi bài này.
 
 ### 4.1. Adjectives: mô tả noun
 
@@ -217,7 +217,7 @@ Có nhiều loại determiner khác nhau. Trong bài này, bốn loại được
 1. article;
 2. demonstrative;
 3. quantifier;
-4. distributive. 
+4. distributive.
 
 ### 5.1. Articles: `a`, `an`, `the`
 
@@ -229,7 +229,7 @@ an
 the
 ```
 
-Article giúp thể hiện mức độ cụ thể của noun. 
+Article giúp thể hiện mức độ cụ thể của noun.
 
 So sánh:
 
@@ -303,7 +303,7 @@ Ví dụ:
 * `this` xác định quả bóng này;
 * `that` xác định quả bóng kia.
 
-Demonstrative giúp người nghe biết chính xác người nói đang chỉ tới đối tượng nào. 
+Demonstrative giúp người nghe biết chính xác người nói đang chỉ tới đối tượng nào.
 
 Có thể hình dung:
 
@@ -335,7 +335,7 @@ Các ví dụ trong bài gồm:
 * `some`;
 * `many`;
 * `a lot of`;
-* `few`. 
+* `few`.
 
 Ví dụ:
 
@@ -395,7 +395,7 @@ student 3
 
 Có thể hình dung `each` như cách nhìn các thành viên **từng người một**.
 
-Các ví dụ `each` và `every` được dùng để nói về đối tượng thuộc một nhóm. 
+Các ví dụ `each` và `every` được dùng để nói về đối tượng thuộc một nhóm.
 
 ---
 
@@ -511,7 +511,7 @@ Trong câu này:
 
 `Every` nói đến các thành viên của nhóm `animals`, còn `a` đứng trước noun phrase `living thing`.
 
-Các câu mẫu này minh họa đồng thời adjective, adverb, article, demonstrative, quantifier và distributive. 
+Các câu mẫu này minh họa đồng thời adjective, adverb, article, demonstrative, quantifier và distributive.
 
 ---
 
@@ -824,7 +824,7 @@ Hãy xác định:
 * `the` → article;
 * `fun` → adjective.
 
-`Fun` mô tả `experience`. 
+`Fun` mô tả `experience`.
 
 ---
 
@@ -844,7 +844,7 @@ long → legs
 quickly → walk
 ```
 
-Đây cũng là cách phân loại được dùng trong bài tập mẫu. 
+Đây cũng là cách phân loại được dùng trong bài tập mẫu.
 
 ---
 
@@ -853,7 +853,7 @@ quickly → walk
 > Many people celebrate Christmas every year.
 
 * `many` → quantifier;
-* `every` → distributive. 
+* `every` → distributive.
 
 ---
 
