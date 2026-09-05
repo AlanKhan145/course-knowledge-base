@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#1c5f8a" />
+<title>Bài 005 — The Katakana S Column</title>
+<style>
+  :root{
+    --bg:#f1f5f7;--paper:#fffefc;--ink:#1e2328;--muted:#647079;--accent:#1c5f8a;
+    --accent-dark:#123f5c;--line:#d7e0e4;--good:#176b3a;--bad:#a12626;--warn:#8a5b12;
+    --soft:#eaf1f4;--shadow:0 10px 30px rgba(20,40,55,.08);--radius:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Noto Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+  button,input{font:inherit}
+  button{cursor:pointer}
+  a{color:var(--accent-dark)}
+  .wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+  .hero{background:linear-gradient(135deg,#f4fafc,#e3edf2);border-bottom:1px solid var(--line);padding:34px 0 26px}
+  .hero-grid{display:grid;grid-template-columns:1.7fr .9fr;gap:22px;align-items:end}
+  .eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800}
+  h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.05;margin:.25rem 0 .6rem}
+  .jp-title{font-family:"Noto Sans JP",sans-serif;font-size:clamp(1.65rem,4vw,3.2rem);letter-spacing:.16em;margin:.4rem 0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+  .badge{border:1px solid #c3d3da;background:#fbfeff;border-radius:999px;padding:6px 10px;font-size:.84rem}
+  .hero-card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .progress-shell{height:12px;background:#dde8ec;border-radius:99px;overflow:hidden}
+  .progress-bar{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+  .progress-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:8px}
+  .tiny{font-size:.85rem;color:var(--muted)}
+  nav.lesson-nav{position:sticky;top:0;z-index:10;background:rgba(255,254,252,.94);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;gap:8px;overflow:auto;padding:10px 0}
+  .nav-inner a{white-space:nowrap;text-decoration:none;color:#2a333a;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:white;font-size:.85rem}
+  main{padding:26px 0 70px}
+  section{scroll-margin-top:75px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,30px);box-shadow:var(--shadow);margin-bottom:20px}
+  h2{margin-top:0;font-size:clamp(1.35rem,3vw,2rem)}
+  h3{margin:1.4rem 0 .55rem}
+  .lead{font-size:1.05rem;color:#3a444b}
+  .goal-grid,.kana-grid{display:grid;gap:14px}
+  .goal-grid{grid-template-columns:repeat(2,1fr)}
+  .goal{background:#fff;border-left:4px solid var(--accent);padding:13px 15px;border-radius:12px}
+  .kana-grid{grid-template-columns:repeat(5,1fr)}
+  .kana-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center;position:relative}
+  .kana-char{font-family:"Noto Sans JP",sans-serif;font-size:3.6rem;line-height:1.05}
+  .kana-card strong{display:block;font-size:1.05rem;margin-top:8px}
+  .stroke{font-size:.82rem;color:var(--muted)}
+  .speaker{border:0;border-radius:999px;background:#e4eef2;padding:7px 10px;margin-top:8px}
+  .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
+  table{width:100%;border-collapse:collapse;min-width:560px;background:#fff}
+  th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{background:#eef4f6}
+  code.kana{font-family:"Noto Sans JP",sans-serif;background:#eaf1f4;padding:.1em .28em;border-radius:6px;font-size:1.08em}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .compare-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff}
+  .bigpair{display:flex;justify-content:center;gap:32px;font-size:3.4rem;font-family:"Noto Sans JP",sans-serif;margin:8px 0}
+  .callout{border:1px dashed #a9c2cd;background:#f2f8fa;padding:14px;border-radius:14px}
+  .controls{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+  .btn{border:1px solid #b7c4cb;background:#fff;color:#1e2328;border-radius:12px;padding:9px 13px;font-weight:650}
+  .btn:hover{border-color:#8a9aa3}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.danger{background:#fff5f5;border-color:#e4bcbc;color:#8f1d1d}
+  .btn.good{background:#eef8f1;border-color:#b8ddc5;color:#176b3a}
+  .subtle{color:var(--muted)}
+  .word-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+  .word-pill{background:#eaf1f4;border:1px solid var(--line);border-radius:999px;padding:7px 11px}
+  .flash-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(230px,.75fr);gap:18px;align-items:start}
+  .flashcard{perspective:1000px;max-width:none;margin:0;cursor:pointer}
+  .flash-inner{position:relative;min-height:330px;transition:transform .55s;transform-style:preserve-3d}
+  .flashcard.flipped .flash-inner{transform:rotateY(180deg)}
+  .flash-face{position:absolute;inset:0;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px;backface-visibility:hidden;overflow:hidden}
+  .flash-front{background:radial-gradient(circle at 50% 15%,#f6fbfd,#fff 58%)}
+  .flash-back{transform:rotateY(180deg);background:linear-gradient(145deg,#fffefc,#eef5f7)}
+  .flash-main{font-size:clamp(4rem,10vw,6.5rem);font-family:"Noto Sans JP",sans-serif;line-height:1}
+  .flash-sub{font-size:1.2rem}
+  .flash-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800}
+  .flash-list-panel{border:1px solid var(--line);border-radius:18px;background:#fff;padding:14px;position:sticky;top:70px}
+  .flash-list-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:10px}
+  .flash-list{display:grid;gap:7px;max-height:300px;overflow:auto}
+  .flash-list-item{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid var(--line);background:#f7fbfc;border-radius:12px;padding:9px 10px;color:var(--ink)}
+  .flash-list-item:hover,.flash-list-item.active{border-color:var(--accent);background:#eaf4f8}
+  .flash-list-kana{font-family:"Noto Sans JP",sans-serif;font-size:1.45rem;min-width:48px;text-align:center}
+  .flash-list-copy{display:grid;line-height:1.3;flex:1}.flash-list-copy small{color:var(--muted)}
+  .flash-index{color:var(--muted);font-size:.8rem;margin-top:8px;text-align:center}
+  .practice-tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;margin:0 -2px}
+  .practice-tab{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:9px 13px;background:#fff;color:#2a333a;font-weight:700}
+  .practice-tab:hover,.practice-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .practice-panel{display:none;border:1px solid var(--line);border-radius:18px;background:#fff;padding:18px}
+  .practice-panel.active{display:block;animation:panelIn .2s ease}
+  @keyframes panelIn{from{opacity:.35;transform:translateY(4px)}to{opacity:1;transform:none}}
+  .practice-panel-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px}
+  .practice-panel-head h3{margin:0}.practice-panel-head p{margin:.3rem 0 0;color:var(--muted)}
+  .practice-question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .practice-question{border:1px solid var(--line);border-radius:14px;padding:15px;background:#fdfeff}
+  .practice-question.done{border-color:#9dccaa;background:#f7fff8}.practice-question.missed{border-color:#e1b1b1;background:#fffafa}
+  .question-number{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:800}
+  .practice-question p{margin:.35rem 0 .7rem}
+  .option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
+  .practice-input{width:100%;border:1px solid #c2cdd3;border-radius:10px;padding:10px 12px;background:#fff;font-size:1rem}
+  .question-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .answer-hint{font-size:.82rem;color:var(--muted)}
+  .practice-summary{margin-top:15px;padding:12px 14px;border-radius:12px;background:#eef4f6;border:1px solid #d3e0e5}
+  .option{width:100%;text-align:left;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}
+  .option.selected{outline:2px solid var(--accent);border-color:transparent}
+  .feedback{min-height:24px;font-size:.92rem;margin-top:7px}
+  .feedback.good{color:var(--good);font-weight:700}
+  .feedback.bad{color:var(--bad);font-weight:700}
+  label{font-weight:650;display:block;margin:8px 0 5px}
+  input[type="text"]{width:100%;border:1px solid #c2cdd3;border-radius:10px;padding:10px 12px;background:#fff}
+  .canvas-shell{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+  .canvas-wrap{position:relative;aspect-ratio:1/1;max-width:650px;width:100%;border:1px solid #c0ced4;border-radius:18px;overflow:hidden;background-color:#fff;
+    background-image:linear-gradient(to right,transparent 49.8%,#dbe6ea 50%,transparent 50.2%),linear-gradient(to bottom,transparent 49.8%,#dbe6ea 50%,transparent 50.2%),linear-gradient(45deg,transparent 49.8%,#e8f0f3 50%,transparent 50.2%),linear-gradient(-45deg,transparent 49.8%,#e8f0f3 50%,transparent 50.2%);
+  }
+  #writingCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none}
+  #sampleChar{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans JP",sans-serif;font-size:min(52vw,20rem);color:rgba(28,95,138,.14);pointer-events:none;line-height:1;transition:opacity .2s}
+  .writing-mode{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.writing-mode .btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .smoothing-control{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0;padding:9px 11px;border:1px solid var(--line);border-radius:11px;background:#f7fbfc;color:#485058;font-size:.84rem}
+  .smoothing-control input{width:120px;accent-color:var(--accent);cursor:pointer}.smoothing-control strong{color:var(--accent-dark)}.smoothing-control [data-smoothing-value]{min-width:58px;color:var(--accent-dark);font-weight:750}.smoothing-note{margin:-5px 0 10px;line-height:1.45}
+  .writing-picker{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin:12px 0}.writing-picker .btn{min-width:45px;padding:7px 10px;font-family:"Noto Sans JP",sans-serif;font-size:1.1rem}.writing-picker .btn.active{background:#e4eef2;border-color:var(--accent);color:var(--accent-dark);box-shadow:inset 0 -2px 0 var(--accent)}
+  .writing-check{border:1px solid #c7dbe2;background:#f2f9fb;border-radius:12px;padding:12px;margin-top:12px}
+  .writing-check strong{display:block;margin-bottom:3px}.writing-check ul{margin:7px 0 0;padding-left:20px}
+  .writing-panel{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px}
+  .writing-char{font-family:"Noto Sans JP",sans-serif;font-size:4.8rem;text-align:center}
+  .rating{display:grid;gap:8px;margin:12px 0}
+  .rating label{font-weight:500;display:flex;gap:8px;align-items:center}
+  .quiz-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .quiz-question{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:12px 0}
+  .quiz-question legend{font-weight:800;padding:0 5px}
+  fieldset{border:0;margin:0;padding:0}
+  .options{display:grid;gap:8px;margin:10px 0}
+  .result-card{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}
+  .result-card.show{display:block}
+  .score-big{font-size:3rem;font-weight:900;color:var(--accent)}
+  .score-bars{display:grid;gap:9px}
+  .score-row{display:grid;grid-template-columns:120px 1fr 70px;gap:10px;align-items:center}
+  .mini-bar{height:10px;background:#e2ecef;border-radius:99px;overflow:hidden}
+  .mini-fill{height:100%;background:#333}
+  .review-list{display:flex;flex-wrap:wrap;gap:8px}
+  .review-chip{border:1px solid #c3d3da;background:#f5fafb;border-radius:999px;padding:7px 11px}
+  .checklist{display:grid;gap:10px}
+  .checkline{display:flex;gap:9px;align-items:flex-start}
+  footer{padding:0 0 70px}
+  .footer-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+  .romaji.hidden-romaji{filter:blur(6px);user-select:none}
+  .notice{padding:10px 12px;border-radius:10px;background:#eef4f6;border:1px solid #d3e0e5;font-size:.9rem}
+  .sheet-actions{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
+  .writing-sheet{background:#fff;border:1px solid #c9d5da;border-radius:12px;padding:24px;box-shadow:var(--shadow);color:#1e2328}
+  .sheet-title{text-align:center;font-weight:800;font-size:1.25rem;letter-spacing:.02em;margin-bottom:4px}
+  .sheet-subtitle{text-align:center;color:#5a666d;font-size:.85rem;margin-bottom:18px}
+  .sheet-row{display:grid;grid-template-columns:82px minmax(0,1fr);min-height:108px;border-top:2px solid #263238}
+  .sheet-row:last-child{border-bottom:2px solid #263238}
+  .sheet-label{display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:2px solid #263238;background:#f4f8f9;font-family:"Noto Sans JP",sans-serif;font-size:2.35rem;line-height:1.1}
+  .sheet-label span{white-space:nowrap}.sheet-label small{font-family:inherit;font-size:.68rem;color:#556065;margin-top:5px;text-align:center;line-height:1.2}
+  .sheet-grid{display:grid;grid-template-columns:repeat(12,minmax(28px,1fr));min-width:0}
+  .sheet-cell{min-height:106px;border-right:1px solid #4a565c;position:relative;display:flex;align-items:center;justify-content:center;background-image:linear-gradient(to right,transparent 49%,rgba(74,86,92,.35) 49.5%,rgba(74,86,92,.35) 50.5%,transparent 51%),linear-gradient(to bottom,transparent 49%,rgba(74,86,92,.35) 49.5%,rgba(74,86,92,.35) 50.5%,transparent 51%),linear-gradient(45deg,transparent 49.4%,rgba(74,86,92,.2) 49.8%,rgba(74,86,92,.2) 50.2%,transparent 50.6%),linear-gradient(-45deg,transparent 49.4%,rgba(74,86,92,.2) 49.8%,rgba(74,86,92,.2) 50.2%,transparent 50.6%)}
+  .sheet-cell:last-child{border-right:0}.sheet-char{font-family:"Noto Sans JP",sans-serif;font-size:3.6rem;color:rgba(60,72,78,.18);pointer-events:none;z-index:1}.sheet-cell:first-child .sheet-char{color:#1c2226}.sheet-cell:nth-child(2) .sheet-char{color:rgba(28,95,138,.52)}
+  .sheet-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none;z-index:2;cursor:crosshair}
+  .sheet-note{margin:14px 0 0;color:#5a666d;font-size:.82rem}
+  @media (max-width:900px){
+    .hero-grid,.canvas-shell,.flash-layout{grid-template-columns:1fr}
+    .kana-grid{grid-template-columns:repeat(3,1fr)}
+    .flash-list-panel{position:static}.flash-list{grid-template-columns:repeat(2,minmax(0,1fr));max-height:none}
+  }
+  @media (max-width:720px){
+    .goal-grid,.compare,.practice-question-grid{grid-template-columns:1fr}
+    .kana-grid{grid-template-columns:repeat(2,1fr)}
+    section{padding:18px}
+    .hero{padding-top:25px}
+    .score-row{grid-template-columns:90px 1fr 56px}
+    .writing-sheet{padding:12px;overflow-x:auto}.sheet-row{grid-template-columns:72px 720px}.sheet-title{font-size:1rem}.sheet-label{font-size:1.8rem}
+  }
+  @media (max-width:430px){.kana-grid{grid-template-columns:1fr}.bigpair{font-size:3.2rem}}
+  @media print{
+    body{background:#fff}.hero,nav,main>section:not(#sheet),footer{display:none!important}
+    main{padding:0}.writing-sheet{border:0;box-shadow:none;padding:0}.sheet-actions,.sheet-note{display:none}.sheet-title{font-size:18pt}.sheet-row{min-height:132px}.sheet-cell{min-height:130px}
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Bài 005 · Katakana · Video lesson · 11:20</div>
+      <h1>The Katakana S Column</h1>
+      <div class="jp-title" lang="ja">サ・シ・ス・セ・ソ</div>
+      <p class="lead"><strong>シ đọc là shi</strong> (không phải si) — ngoại lệ quan trọng nhất hàng S. Dakuten biến hàng S thành hàng Z; シェ/ジェ mở rộng thêm âm cho từ mượn.</p>
+      <div class="meta"><span class="badge">Beginner</span><span class="badge">Katakana</span><span class="badge">Dakuten → Z</span><span class="badge">シェ/ジェ</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="progress-row"><strong>Tiến độ bài học</strong><span id="progressText">0%</span></div>
+      <div class="progress-shell" aria-label="Tiến độ bài học"><div class="progress-bar" id="progressBar"></div></div>
+      <p class="tiny" id="progressDetail">Hoàn thành các hoạt động để tăng tiến độ.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="lesson-nav" aria-label="Điều hướng bài học">
+  <div class="wrap nav-inner">
+    <a href="#goals">Mục tiêu</a><a href="#srow">Hàng S</a><a href="#shapes">Nét viết</a>
+    <a href="#dakuten">Dakuten→Z</a><a href="#discriminate">シ/ソ</a><a href="#extended">シェ/ジェ</a>
+    <a href="#words">Từ vựng</a><a href="#flashcards">Flashcard</a><a href="#practice">Luyện tập</a>
+    <a href="#writing">Luyện viết</a><a href="#sheet">Sheet viết</a><a href="#quiz">Quiz cuối bài</a><a href="#review">Ôn lại</a>
+  </div>
+</nav>
+
+<main class="wrap">
+<section id="goals">
+  <h2>1. Mục tiêu bài học</h2>
+  <div class="goal-grid">
+    <div class="goal">✓ Đọc đúng <strong>サ・シ・ス・セ・ソ</strong>, đặc biệt <strong>シ = shi</strong> (không phải si).</div>
+    <div class="goal">✓ Viết đúng cấu trúc nét, phân biệt シ và ソ theo hướng nét.</div>
+    <div class="goal">✓ Chuyển hàng S → hàng Z bằng dakuten: <strong>ザ・ジ・ズ・ゼ・ゾ</strong>.</div>
+    <div class="goal">✓ Đọc tổ hợp mở rộng <strong>シェ (she)</strong> và <strong>ジェ (je)</strong>.</div>
+    <div class="goal">✓ Đọc từ thực tế: スキー, ガス, アジア, スズキ, シェア.</div>
+    <div class="goal">✓ Không nhầm Katakana với Hiragana cùng âm (すき≠スキー).</div>
+  </div>
+</section>
+
+<section id="srow">
+  <h2>2. Năm ký tự hàng S</h2>
+  <div class="controls">
+    <button class="btn" id="toggleRomaji">Ẩn Romaji</button>
+    <button class="btn" onclick="speakJapanese('サ シ ス セ ソ')">🔊 Nghe cả hàng S</button>
+  </div>
+  <div class="kana-grid" id="kanaGrid"></div>
+  <div class="callout" style="margin-top:14px"><strong>Ngoại lệ quan trọng:</strong> hàng S đọc <code class="kana">sa - shi - su - se - so</code>, KHÔNG phải <code>sa - si - su - se - so</code>.</div>
+</section>
+
+<section id="shapes">
+  <h2>3. Hình dạng và số nét</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Chữ</th><th>Số nét</th><th>Gợi ý hình dạng</th></tr></thead>
+      <tbody>
+        <tr><td class="kana-char">サ</td><td>3</td><td>Nét ngang trên + nét dọc ngắn bên trái + nét dài cong nhẹ bên phải.</td></tr>
+        <tr><td class="kana-char">シ</td><td>3</td><td>Hai nét ngắn xiên xếp trên-dưới + một nét dài cong lên bên phải.</td></tr>
+        <tr><td class="kana-char">ス</td><td>2</td><td>Nét chính đổi hướng xuống + nét ngắn bổ sung ở giữa. Giữ hình mở, không ép sát.</td></tr>
+        <tr><td class="kana-char">セ</td><td>2</td><td>Nét ngang dài đổi hướng + nét dọc chuyển hướng ở dưới. Góc cạnh rõ.</td></tr>
+        <tr><td class="kana-char">ソ</td><td>2</td><td>Nét ngắn xiên xuống + nét cong dài hơn đi xuống. Tránh nhầm với ン.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="dakuten">
+  <h2>4. Dakuten: hàng S → hàng Z</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Hàng S</th><th>+ dakuten</th><th>Hàng Z</th><th class="romaji">Romaji</th></tr></thead>
+      <tbody id="dakutenRows"></tbody>
+    </table>
+  </div>
+  <div class="callout" style="margin-top:12px"><strong>Lưu ý:</strong> ジ đọc là <strong>ji</strong> (không phải zi). So sánh: サ→ザ(za), シ→ジ(ji), ス→ズ(zu), セ→ゼ(ze), ソ→ゾ(zo).
+  <button class="btn" style="margin-left:8px" onclick="speakJapanese('サ ザ、シ ジ、ス ズ、セ ゼ、ソ ゾ')">🔊 Nghe theo cặp</button></div>
+</section>
+
+<section id="discriminate">
+  <h2>5. Phân biệt シ và ソ</h2>
+  <p>Cả hai đều có nét ngắn + nét dài nên rất dễ nhầm. Điểm khác biệt nằm ở <strong>hướng sắp xếp của nét</strong>.</p>
+  <div class="compare">
+    <div class="compare-card"><h3>シ — shi</h3><div class="bigpair" style="justify-content:flex-start"><span>シ</span></div><p>Hai nét ngắn xếp theo chiều <strong>trên xuống dưới</strong>, nét dài cong lên.</p></div>
+    <div class="compare-card"><h3>ソ — so</h3><div class="bigpair" style="justify-content:flex-start"><span>ソ</span></div><p>Nét xuất phát từ vùng trên rồi đi <strong>xuống</strong>, nét dài cong xuống.</p></div>
+  </div>
+  <div class="controls"><button class="btn" onclick="speakJapanese('シ ソ シ ソ')">🔊 Nghe シ/ソ</button></div>
+  <div class="callout" style="margin-top:12px">Luyện cả <strong>thứ tự nét</strong> và <strong>hướng chuyển động bút</strong> — không chỉ ghi nhớ hình ảnh tĩnh.</div>
+</section>
+
+<section id="extended">
+  <h2>6. Tổ hợp mở rộng シェ và ジェ</h2>
+  <p>Kết hợp シ/ジ với <strong>ェ</strong> (phiên bản nhỏ của エ) để tạo âm mới cho từ mượn.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Tổ hợp</th><th class="romaji">Romaji</th><th>Cấu tạo</th></tr></thead>
+      <tbody>
+        <tr><td class="kana-char" style="font-size:1.6rem">シェ</td><td class="romaji">she</td><td>シ + ェ (nhỏ)</td></tr>
+        <tr><td class="kana-char" style="font-size:1.6rem">ジェ</td><td class="romaji">je</td><td>ジ + ェ (nhỏ)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><strong>Lưu ý:</strong> <code class="kana">シェ</code> ≠ <code class="kana">シエ</code> — ェ phải viết nhỏ hơn エ.
+  <button class="btn" style="margin-left:8px" onclick="speakJapanese('シェア')">🔊 シェア (share)</button></div>
+</section>
+
+<section id="words">
+  <h2>7. Từ vựng luyện đọc</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Katakana</th><th class="romaji">Romaji</th><th>Nghĩa</th><th>Nghe</th></tr></thead>
+      <tbody id="wordRows"></tbody>
+    </table>
+  </div>
+  <div class="callout" style="margin-top:14px"><strong>すき (thích) ≠ スキー (ski):</strong> cùng âm gần giống nhưng khác hệ chữ và khác nghĩa hoàn toàn. Luôn nhận diện hệ chữ trước khi đọc.</div>
+</section>
+
+<section id="flashcards">
+  <h2>8. Flashcard từ vựng</h2>
+  <div class="flash-layout">
+    <div>
+      <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Flashcard từ vựng, nhấn để lật thẻ">
+        <div class="flash-inner">
+          <div class="flash-face flash-front">
+            <div class="flash-kicker" id="flashFrontKicker">Katakana · thẻ 1/5</div>
+            <div class="flash-main" id="flashFront" lang="ja">スキー</div>
+            <div class="subtle">Tự đọc trước, sau đó nhấn "Lật thẻ"</div>
+          </div>
+          <div class="flash-face flash-back">
+            <div class="flash-kicker">Đáp án</div>
+            <div class="flash-main" id="flashBackKana" lang="ja">スキー</div>
+            <div class="flash-sub romaji" id="flashBackRomaji">sukī</div>
+            <strong id="flashBackMeaning">môn trượt tuyết (ski)</strong>
+          </div>
+        </div>
+      </div>
+      <div class="flash-index" id="flashIndexLabel">Thẻ 1 / 5</div>
+      <div class="controls" style="justify-content:center">
+        <button class="btn" id="flashPrev">← Trước</button><button class="btn primary" id="flashFlip">Lật thẻ</button><button class="btn" id="flashNext">Sau →</button>
+      </div>
+      <div class="controls" style="justify-content:center">
+        <button class="btn good" id="flashKnow">✓ Đã nhớ</button><button class="btn danger" id="flashReview">☆ Chưa nhớ</button><button class="btn" id="flashSpeak">🔊 Nghe</button>
+      </div>
+    </div>
+    <aside class="flash-list-panel" aria-label="Danh sách flashcard">
+      <div class="flash-list-head"><strong>Danh sách thẻ</strong><span class="tiny" id="flashListCount">0/5</span></div>
+      <div class="flash-list" id="flashList"></div>
+    </aside>
+  </div>
+</section>
+
+<section id="practice">
+  <h2>9. Luyện tập tương tác</h2>
+  <p class="subtle">Mỗi tab luyện một mục tiêu khác nhau. Kết quả từng dạng được lưu riêng.</p>
+  <div class="practice-tabs" id="practiceTabs" role="tablist" aria-label="Các dạng luyện tập"></div>
+  <div id="practicePanels"></div>
+  <div class="practice-panel" data-practice-panel="retry" id="retryBox">
+    <div class="practice-panel-head"><div><h3>🔁 Luyện lại lỗi</h3><p>Các câu trả lời sai sẽ được gom lại để hỏi lại bằng một dạng khác.</p></div></div>
+    <div id="retryArea"></div>
+  </div>
+</section>
+
+<section id="writing">
+  <h2>10. Luyện viết trực tiếp</h2>
+  <p>Dùng chuột, cảm ứng hoặc stylus. Tô theo mẫu trước, sau đó <strong>tự viết khi đã ẩn mẫu</strong>. Chú ý riêng hướng nét của シ và ソ.</p>
+  <div class="canvas-shell">
+    <div class="canvas-wrap" role="img" aria-label="Khung luyện viết Katakana có đường trục và đường chéo">
+      <div id="sampleChar">サ</div>
+      <canvas id="writingCanvas" aria-label="Canvas luyện viết Katakana"></canvas>
+    </div>
+    <div class="writing-panel">
+      <div class="eyebrow">Chữ đang luyện</div>
+      <div class="writing-char" id="writingChar">サ</div>
+      <div style="text-align:center"><span id="writingRomaji">sa</span> · <span id="writingStrokes">3 nét</span></div>
+      <div class="writing-picker" id="writingCharPicker" role="group" aria-label="Chọn chữ Katakana"></div>
+      <div class="writing-mode" role="group" aria-label="Chế độ luyện viết">
+        <button class="btn active" id="writingTrace">✍ Tô theo mẫu</button>
+        <button class="btn" id="writingSelf">🙈 Tự viết, ẩn mẫu</button>
+      </div>
+      <label class="smoothing-control" for="strokeSmoothing"><strong>Ổn định nét</strong><input id="strokeSmoothing" data-smoothing type="range" min="1" max="9" value="4" aria-label="Điều chỉnh độ ổn định của nét viết"><span data-smoothing-value>Cân bằng</span></label>
+      <p class="tiny subtle smoothing-note">Nét được lọc rung nhỏ và làm mềm góc; kéo về "Mượt" nếu dùng chuột bị run.</p>
+      <div class="controls">
+        <button class="btn" id="prevChar">← Chữ trước</button><button class="btn" id="nextChar">Chữ tiếp →</button>
+      </div>
+      <div class="controls">
+        <button class="btn" id="undoCanvas">Hoàn tác</button><button class="btn" id="clearCanvas">Xóa</button>
+        <button class="btn" id="toggleSample">Ẩn mẫu</button><button class="btn primary" id="checkWriting">✓ Kiểm tra nét</button>
+      </div>
+      <div class="writing-check" id="writingCheckResult"><strong>Gợi ý</strong><span id="writingModeHint">Tô nhẹ theo chữ mờ, sau đó thử lại ở chế độ tự viết.</span></div>
+      <div class="rating">
+        <strong>Tự đánh giá lần viết này</strong>
+        <label><input type="radio" name="writingRating" value="need" /> ○ Cần luyện thêm</label>
+        <label><input type="radio" name="writingRating" value="ok" /> ○ Tạm ổn</label>
+        <label><input type="radio" name="writingRating" value="good" /> ○ Viết tốt</label>
+      </div>
+      <button class="btn primary" id="saveWriting">Lưu đánh giá</button>
+      <div class="feedback" id="writingFeedback"></div>
+      <p class="tiny">Trang không dùng AI nhận dạng chữ viết; hãy đối chiếu hình dạng, số nét và tự đánh giá.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sheet">
+  <div class="sheet-actions"><div><h2 style="margin-bottom:.2rem">11. Sheet luyện viết Katakana</h2><p class="subtle" style="margin:0">Viết trực tiếp lên từng ô. Có thể ẩn mẫu và in lại sheet sau khi luyện.</p></div><div class="controls" style="margin:0"><span class="badge" id="sheetProgress">0 ô đã viết</span><label class="smoothing-control" for="sheetSmoothing" style="margin:0"><strong>Ổn định nét</strong><input id="sheetSmoothing" data-smoothing type="range" min="1" max="9" value="4" aria-label="Điều chỉnh độ ổn định của nét viết trong sheet"><span data-smoothing-value>Cân bằng</span></label><button class="btn" id="toggleSheetSample">Ẩn mẫu</button><button class="btn" id="clearSheet">Xóa nét</button><button class="btn primary" id="printSheet">🖨 In sheet</button></div></div>
+  <div class="writing-sheet" id="writingSheet">
+    <div class="sheet-title">Katakana Writing Practice Sheet 05 — S Column &amp; Dakuten</div>
+    <div class="sheet-subtitle">サ シ ス セ ソ · ザ ジ ズ ゼ ゾ · シ ソ (phân biệt)</div>
+    <div id="sheetRows"></div>
+    <p class="sheet-note">Mẹo: viết シ và ソ liền kề, quan sát kỹ hướng nét mỗi lần.</p>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="quiz-head">
+    <div><h2 style="margin-bottom:.2rem">12. Bài kiểm tra cuối bài</h2><div class="subtle">16 câu · từ ngân hàng câu hỏi cân bằng theo nội dung lesson.</div></div>
+    <button class="btn" id="newQuiz">Tạo bộ câu mới</button>
+  </div>
+  <form id="quizForm"></form>
+  <div class="controls"><button type="button" class="btn primary" id="submitQuiz">Chấm điểm</button></div>
+  <div class="result-card" id="resultCard" aria-live="polite">
+    <div class="score-big" id="scoreBig">0%</div>
+    <h3 id="scoreLabel">Kết quả</h3>
+    <p id="scoreLine"></p>
+    <div class="score-bars" id="scoreBars"></div>
+    <h3>Nội dung cần ôn</h3>
+    <div class="review-list" id="weakPoints"></div>
+    <h3>Giải thích câu sai</h3>
+    <div id="wrongExplanations"></div>
+  </div>
+</section>
+
+<section id="review">
+  <h2>13. Ghi nhớ sau bài học</h2>
+  <div class="kana-grid" id="reviewKana"></div>
+  <h3>Từ cần nhớ</h3>
+  <div class="word-list" id="reviewWordsCore"></div>
+  <h3>Checklist hoàn thành</h3>
+  <div class="checklist" id="checklist"></div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="footer-card">
+    <strong>Điều khiển bài học</strong>
+    <div class="controls">
+      <button class="btn" id="resetActivities">Làm lại bài tập</button>
+      <button class="btn danger" id="clearAll">Xóa toàn bộ tiến độ</button>
+    </div>
+    <p class="tiny">Dữ liệu được lưu cục bộ bằng <code>localStorage</code> trên trình duyệt này.</p>
+  </div>
+</footer>
+
+<script>
+const LESSON_KEY = "jpKatakanaLesson005S_v1";
+const kana = [
+  {char:"サ",romaji:"sa",strokes:3,hint:"ngang trên + dọc ngắn trái + nét dài cong phải"},
+  {char:"シ",romaji:"shi",strokes:3,hint:"2 nét ngắn xếp trên-dưới + nét dài cong lên (đọc shi, không phải si)"},
+  {char:"ス",romaji:"su",strokes:2,hint:"nét chính đổi hướng xuống + nét ngắn giữa"},
+  {char:"セ",romaji:"se",strokes:2,hint:"ngang dài đổi hướng + dọc chuyển hướng dưới"},
+  {char:"ソ",romaji:"so",strokes:2,hint:"nét ngắn xiên xuống + nét cong dài xuống"}
+];
+const dakutenPairs = [
+  {base:"サ",der:"ザ",baseR:"sa",derR:"za"},
+  {base:"シ",der:"ジ",baseR:"shi",derR:"ji"},
+  {base:"ス",der:"ズ",baseR:"su",derR:"zu"},
+  {base:"セ",der:"ゼ",baseR:"se",derR:"ze"},
+  {base:"ソ",der:"ゾ",baseR:"so",derR:"zo"}
+];
+const words = [
+  {kana:"スキー",romaji:"sukī",vi:"môn trượt tuyết (ski)",example:"スキー = ski",symbol:"⛷",color:"#d8e8f5"},
+  {kana:"ガス",romaji:"gasu",vi:"khí ga (gas)",example:"ガス = gas",symbol:"🔥",color:"#f6dfb5"},
+  {kana:"アジア",romaji:"ajia",vi:"châu Á (Asia)",example:"アジア = châu Á",symbol:"🌏",color:"#cfe8d0"},
+  {kana:"スズキ",romaji:"Suzuki",vi:"Suzuki (tên riêng/thương hiệu)",example:"スズキ = Suzuki",symbol:"S",color:"#e0d0f0"},
+  {kana:"シェア",romaji:"shea",vi:"chia sẻ (share)",example:"シェア = share",symbol:"🔗",color:"#f6c9d6"}
+];
+const activityIds = ["flashcards","practice-recognition","practice-reverse","practice-dakuten","practice-discriminate","practice-vocab","practice-listening","writing","sheet","quiz"];
+const checklistItems = [
+  "Tôi đọc được サ・シ・ス・セ・ソ mà không cần romaji.",
+  "Tôi đọc đúng シ là shi (không phải si).",
+  "Tôi viết được năm ký tự theo đúng cấu trúc cơ bản.",
+  "Tôi đọc được ザ・ジ・ズ・ゼ・ゾ.",
+  "Tôi phân biệt được シ và ソ theo hướng nét.",
+  "Tôi đọc được シェ và ジェ.",
+  "Tôi đọc được ít nhất ba từ Katakana chứa hàng S/Z của bài.",
+  "Tôi không nhầm Katakana với Hiragana cùng âm."
+];
+let state = loadState();
+function defaultState(){return {completed:{},reviewWords:[],wrongTags:[],writing:{},flashSeen:[],practiceScores:{},quizScore:null,checklist:{},romajiVisible:true};}
+function loadState(){
+  try{const saved=JSON.parse(localStorage.getItem(LESSON_KEY)||"{}");
+    return {...defaultState(),...saved,flashSeen:Array.isArray(saved.flashSeen)?saved.flashSeen:[],practiceScores:saved.practiceScores||{}};
+  }catch(e){return defaultState();}
+}
+function saveState(){localStorage.setItem(LESSON_KEY,JSON.stringify(state));updateProgress();}
+function markComplete(id){state.completed[id]=true;saveState();}
+function updateProgress(){
+  const done = activityIds.filter(id=>state.completed[id]).length;
+  const checked = Object.values(state.checklist||{}).filter(Boolean).length;
+  const pct = Math.round(((done + checked/checklistItems.length) / (activityIds.length+1))*100);
+  document.getElementById("progressBar").style.width=pct+"%";
+  document.getElementById("progressText").textContent=pct+"%";
+  document.getElementById("progressDetail").textContent=`${done}/${activityIds.length} hoạt động chính · ${checked}/${checklistItems.length} mục checklist`;
+}
+function normalize(s){return (s||"").trim().toLowerCase().replace(/[。．.]+$/,"").replace(/\s+/g," ");}
+function speakJapanese(text){
+  if(!("speechSynthesis" in window)){alert("Trình duyệt này không hỗ trợ SpeechSynthesis.");return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang="ja-JP";u.rate=.78;u.pitch=1;
+  speechSynthesis.speak(u);
+}
+function renderKana(){
+  document.getElementById("kanaGrid").innerHTML=kana.map(k=>`
+    <article class="kana-card"><div class="kana-char" lang="ja">${k.char}</div><strong class="romaji">${k.romaji}</strong>
+    <div class="stroke">${k.strokes} nét · ${k.hint}</div><button class="speaker" aria-label="Phát âm ${k.char}" onclick="speakJapanese('${k.char}')">🔊 nghe</button></article>`).join("");
+  document.getElementById("reviewKana").innerHTML=kana.map(k=>`<div class="kana-card"><div class="kana-char">${k.char}</div><strong class="romaji">${k.romaji}</strong><div class="stroke">${k.strokes} nét</div></div>`).join("");
+}
+function renderDakuten(){
+  document.getElementById("dakutenRows").innerHTML=dakutenPairs.map(p=>`<tr><td class="kana-char" style="font-size:1.8rem">${p.base}</td><td style="font-size:1.4rem">゛</td><td class="kana-char" style="font-size:1.8rem">${p.der}</td><td class="romaji">${p.derR}</td></tr>`).join("");
+}
+function renderWords(){
+  document.getElementById("wordRows").innerHTML=words.map(w=>`
+    <tr><td style="font-size:1.35rem" lang="ja">${w.kana}</td><td class="romaji">${w.romaji}</td><td>${w.vi}</td>
+    <td><button class="speaker" onclick="speakJapanese('${w.kana}')">🔊</button> <button class="speaker" onclick="toggleReviewWord('${w.kana}')">☆</button></td></tr>`).join("");
+  document.getElementById("reviewWordsCore").innerHTML=words.map(w=>`<span class="word-pill"><b lang="ja">${w.kana}</b> <span class="romaji">${w.romaji}</span> · ${w.vi}</span>`).join("");
+}
+function setRomajiVisibility(){
+  document.querySelectorAll(".romaji").forEach(el=>el.classList.toggle("hidden-romaji",!state.romajiVisible));
+  document.getElementById("toggleRomaji").textContent=state.romajiVisible?"Ẩn Romaji":"Hiện Romaji";
+}
+document.getElementById("toggleRomaji").addEventListener("click",()=>{state.romajiVisible=!state.romajiVisible;saveState();setRomajiVisibility();});
+function toggleReviewWord(k){const idx=state.reviewWords.indexOf(k);if(idx>=0) state.reviewWords.splice(idx,1); else state.reviewWords.push(k);saveState();}
+function addReviewWord(k){if(k&&!state.reviewWords.includes(k)) state.reviewWords.push(k);saveState();}
+let flashIndex=0;
+function makeIllustration(w){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" role="img" aria-label="Minh họa ${w.vi}">
+    <rect width="520" height="330" rx="28" fill="${w.color}"/>
+    <circle cx="260" cy="142" r="91" fill="#fff" fill-opacity=".72"/>
+    <text x="260" y="165" text-anchor="middle" font-size="72" font-family="Arial,sans-serif">${w.symbol}</text>
+    <text x="260" y="270" text-anchor="middle" font-size="28" font-family="Arial,sans-serif" font-weight="700" fill="#1e2328">${w.kana}</text>
+    <text x="260" y="302" text-anchor="middle" font-size="13" font-family="Arial,sans-serif" fill="#4a565c">${w.vi}</text>
+  </svg>`;
+  return "data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg);
+}
+function renderFlashList(){
+  const list=document.getElementById("flashList");
+  list.innerHTML=words.map((w,i)=>{const seen=state.flashSeen.includes(w.kana);
+    return `<button type="button" class="flash-list-item${i===flashIndex?" active":""}" data-flash-index="${i}">
+      <span class="flash-list-kana" lang="ja">${w.kana}</span><span class="flash-list-copy"><b>${w.vi}</b><small>${w.romaji} · ${seen?"✓ đã xem":"chưa xem"}</small></span></button>`;}).join("");
+  list.querySelectorAll("[data-flash-index]").forEach(btn=>btn.addEventListener("click",()=>{flashIndex=Number(btn.dataset.flashIndex);renderFlash();}));
+  document.getElementById("flashListCount").textContent=`${state.flashSeen.length}/${words.length} đã xem`;
+}
+function renderFlash(){
+  const w=words[flashIndex];
+  document.getElementById("flashFront").textContent=w.kana;
+  document.getElementById("flashBackKana").textContent=w.kana;
+  document.getElementById("flashBackRomaji").textContent=w.romaji;
+  document.getElementById("flashBackMeaning").textContent=w.vi;
+  document.getElementById("flashFrontKicker").textContent=`Katakana · thẻ ${flashIndex+1}/${words.length}`;
+  document.getElementById("flashIndexLabel").textContent=`Thẻ ${flashIndex+1} / ${words.length} · ${w.romaji}`;
+  document.getElementById("flashcard").classList.remove("flipped");
+  if(!state.flashSeen.includes(w.kana)) state.flashSeen.push(w.kana);
+  if(state.flashSeen.length===words.length) state.completed.flashcards=true;
+  saveState();renderFlashList();setRomajiVisibility();
+}
+document.getElementById("flashFlip").onclick=()=>document.getElementById("flashcard").classList.toggle("flipped");
+document.getElementById("flashcard").onclick=()=>document.getElementById("flashcard").classList.toggle("flipped");
+document.getElementById("flashcard").onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();document.getElementById("flashcard").classList.toggle("flipped");}};
+document.getElementById("flashPrev").onclick=()=>{flashIndex=(flashIndex-1+words.length)%words.length;renderFlash();};
+document.getElementById("flashNext").onclick=()=>{flashIndex=(flashIndex+1)%words.length;renderFlash();};
+document.getElementById("flashSpeak").onclick=()=>speakJapanese(words[flashIndex].kana);
+document.getElementById("flashKnow").onclick=()=>{const k=words[flashIndex].kana;state.reviewWords=state.reviewWords.filter(x=>x!==k);saveState();flashIndex=(flashIndex+1)%words.length;renderFlash();};
+document.getElementById("flashReview").onclick=()=>{addReviewWord(words[flashIndex].kana);flashIndex=(flashIndex+1)%words.length;renderFlash();};
+
+const practiceSets=[
+  {key:"recognition",tab:"Nhận diện",title:"Nhận diện hàng S",desc:"Nhìn chữ và bật ra âm ngay.",questions:[
+    {id:"rec-sa",type:"mc",prompt:"Ký tự nào đọc là sa?",options:["サ","シ","ス","ソ"],answer:"サ",explain:"サ = sa.",tag:"rec-sa"},
+    {id:"rec-shi",type:"mc",prompt:"Ký tự nào đọc là shi?",options:["シ","ソ","セ","ス"],answer:"シ",explain:"シ = shi (không phải si).",tag:"rec-shi"},
+    {id:"rec-su",type:"mc",prompt:"Ký tự nào đọc là su?",options:["ス","サ","セ","ソ"],answer:"ス",explain:"ス = su.",tag:"rec-su"},
+    {id:"rec-se",type:"mc",prompt:"Ký tự nào đọc là se?",options:["セ","シ","ソ","ス"],answer:"セ",explain:"セ = se.",tag:"rec-se"},
+    {id:"rec-so",type:"mc",prompt:"Ký tự nào đọc là so?",options:["ソ","シ","サ","セ"],answer:"ソ",explain:"ソ = so.",tag:"rec-so"}
+  ]},
+  {key:"reverse",tab:"Đảo chiều",title:"Romaji → Katakana",desc:"Chọn mặt chữ từ âm đã cho.",questions:[
+    {id:"rev-sa",type:"mc",prompt:'Chữ nào đọc là "sa"?',options:["サ","シ","ス","ソ"],answer:"サ",explain:"sa = サ.",tag:"rec-sa"},
+    {id:"rev-shi",type:"mc",prompt:'Chữ nào đọc là "shi"?',options:["シ","ソ","セ","ス"],answer:"シ",explain:"shi = シ.",tag:"rec-shi"},
+    {id:"rev-su",type:"mc",prompt:'Chữ nào đọc là "su"?',options:["ス","サ","セ","ソ"],answer:"ス",explain:"su = ス.",tag:"rec-su"},
+    {id:"rev-se",type:"mc",prompt:'Chữ nào đọc là "se"?',options:["セ","シ","ソ","ス"],answer:"セ",explain:"se = セ.",tag:"rec-se"},
+    {id:"rev-so",type:"mc",prompt:'Chữ nào đọc là "so"?',options:["ソ","シ","サ","セ"],answer:"ソ",explain:"so = ソ.",tag:"rec-so"}
+  ]},
+  {key:"dakuten",tab:"Dakuten→Z",title:"Chuyển S sang Z",desc:"Luyện phản xạ thêm dakuten và đọc âm mới.",questions:[
+    {id:"dk1",type:"text",prompt:"サ + dakuten (゛) → ?",answers:["ザ"],placeholder:"Nhập Katakana",explain:"サ + ゛→ ザ (za).",tag:"dakuten"},
+    {id:"dk2",type:"mc",prompt:"ジ đọc là gì?",options:["ji","zi","shi","gi"],answer:"ji",explain:"ジ = ji (không phải zi).",tag:"dakuten"},
+    {id:"dk3",type:"mc",prompt:"ズ được tạo từ ký tự nào?",options:["ス","セ","ソ","サ"],answer:"ス",explain:"ズ = ス + dakuten.",tag:"dakuten"},
+    {id:"dk4",type:"text",prompt:"ゼ đọc là gì?",answers:["ze"],placeholder:"Nhập romaji",explain:"ゼ = ze (セ + dakuten).",tag:"dakuten"},
+    {id:"dk5",type:"mc",prompt:"ゾ đọc là gì?",options:["zo","so","go","do"],answer:"zo",explain:"ゾ = zo (ソ + dakuten).",tag:"dakuten"}
+  ]},
+  {key:"discriminate",tab:"シ/ソ Lab",title:"Phân biệt シ và ソ",desc:"Cặp dễ nhầm nhất của hàng S.",questions:[
+    {id:"ds1",type:"mc",prompt:"Ký tự nào có 2 nét ngắn xếp trên-dưới, nét dài cong LÊN?",options:["シ","ソ"],answer:"シ",explain:"シ: nét dài cong lên.",tag:"discriminate"},
+    {id:"ds2",type:"mc",prompt:"Ký tự nào có nét dài cong XUỐNG?",options:["ソ","シ"],answer:"ソ",explain:"ソ: nét dài cong xuống.",tag:"discriminate"},
+    {id:"ds3",type:"mc",prompt:"シ đọc là gì?",options:["shi","so","su","se"],answer:"shi",explain:"シ = shi.",tag:"discriminate"},
+    {id:"ds4",type:"mc",prompt:"ソ đọc là gì?",options:["so","shi","su","se"],answer:"so",explain:"ソ = so.",tag:"discriminate"}
+  ]},
+  {key:"vocab",tab:"Từ vựng",title:"Từ vựng và nghĩa",desc:"Gắn từ với nghĩa; mỗi từ chỉ hỏi một lần.",questions:[
+    {id:"v-sukii",type:"mc",prompt:"「スキー」nghĩa là gì?",options:["môn trượt tuyết","khí ga","châu Á","chia sẻ"],answer:"môn trượt tuyết",explain:"スキー = ski.",tag:"v-sukii",visual:"スキー"},
+    {id:"v-gasu",type:"mc",prompt:"Từ nào nghĩa là 'khí ga'?",options:["ガス","アジア","スズキ","シェア"],answer:"ガス",explain:"ガス = gas.",tag:"v-gasu"},
+    {id:"v-ajia",type:"mc",prompt:"「アジア」nghĩa là gì?",options:["châu Á","khí ga","trượt tuyết","chia sẻ"],answer:"châu Á",explain:"アジア = Asia.",tag:"v-ajia"},
+    {id:"v-shea",type:"mc",prompt:"「シェア」nghĩa là gì?",options:["chia sẻ","châu Á","khí ga","Suzuki"],answer:"chia sẻ",explain:"シェア = share.",tag:"v-shea"}
+  ]},
+  {key:"listening",tab:"Nghe & chọn",title:"Nghe và chọn",desc:"Nhấn loa, nghe rồi chọn đúng từ đã nghe.",questions:[
+    {id:"listen-sukii",type:"listen",prompt:"Bạn nghe thấy từ nào?",speak:"スキー",options:["スキー","ガス","アジア","シェア"],answer:"スキー",explain:"スキー = sukī.",tag:"listen-sukii",word:"スキー"},
+    {id:"listen-suzuki",type:"listen",prompt:"Bạn nghe thấy từ nào?",speak:"スズキ",options:["スズキ","スキー","アジア","ガス"],answer:"スズキ",explain:"スズキ = Suzuki.",tag:"listen-suzuki",word:"スズキ"},
+    {id:"listen-shea",type:"listen",prompt:"Bạn nghe thấy từ nào?",speak:"シェア",options:["シェア","スキー","ガス","アジア"],answer:"シェア",explain:"シェア = shea.",tag:"listen-shea",word:"シェア"}
+  ]}
+];
+function escapeHtml(value){return String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");}
+function renderPracticeQuestion(q,index){
+  const visual=q.visual?`<img class="question-image" src="${makeIllustration(words.find(w=>w.kana===q.visual))}" alt="Minh họa cho ${escapeHtml(q.visual)}" style="display:block;width:100%;max-width:260px;height:130px;object-fit:contain;border:1px solid var(--line);border-radius:12px;background:#f5fafb;margin:8px 0" />`:"";
+  const listen=q.type==="listen"?`<button type="button" class="btn" data-speak="${escapeHtml(q.speak)}">🔊 Nghe lại</button>`:"";
+  const answerArea=q.type==="mc"||q.type==="listen"
+    ?`<div class="option-grid">${shuffle([...q.options]).map(option=>`<button type="button" class="option" data-value="${escapeHtml(option)}">${option}</button>`).join("")}</div>`
+    :`<input type="text" class="practice-input" data-practice-input autocomplete="off" placeholder="${escapeHtml(q.placeholder||"")}" ${(q.answers||[]).some(a=>/[ア-ン]/.test(a))?'lang="ja"':''} />`;
+  return `<article class="practice-question" data-question-id="${q.id}"><div class="question-number">Câu ${index+1}</div><p><strong>${q.prompt}</strong></p>${visual}${listen}${answerArea}<div class="question-actions"><button type="button" class="btn primary" data-practice-check>Kiểm tra</button><span class="answer-hint">${q.type==="text"?"Có thể nhấn Enter để kiểm tra.":"Chọn một đáp án."}</span></div><div class="feedback" data-practice-feedback aria-live="polite"></div></article>`;
+}
+function renderPracticeSets(){
+  document.getElementById("practiceTabs").innerHTML=practiceSets.map((set,i)=>`<button type="button" class="practice-tab${i===0?" active":""}" role="tab" aria-selected="${i===0}" data-practice-key="${set.key}">${set.tab}<span class="tiny" style="margin-left:4px;color:inherit">${set.questions.length}</span></button>`).join("")+`<button type="button" class="practice-tab" role="tab" aria-selected="false" data-practice-key="retry">🔁 Lỗi cần ôn</button>`;
+  document.getElementById("practicePanels").innerHTML=practiceSets.map(set=>`<div class="practice-panel${set.key===practiceSets[0].key?" active":""}" data-practice-panel="${set.key}" role="tabpanel"><div class="practice-panel-head"><div><h3>${set.title}</h3><p>${set.desc}</p></div><div class="controls" style="margin:0"><span class="badge">${set.questions.length} câu</span><button type="button" class="btn" data-practice-reset="${set.key}">Làm lại</button></div></div><div class="practice-question-grid" data-question-grid="${set.key}"></div><div class="practice-summary" data-practice-summary="${set.key}">Chưa có câu nào được chấm.</div></div>`).join("");
+  practiceSets.forEach(set=>renderPracticeSet(set.key));
+  document.querySelectorAll("[data-practice-key]").forEach(tab=>tab.addEventListener("click",()=>activatePractice(tab.dataset.practiceKey)));
+  document.querySelectorAll("[data-practice-reset]").forEach(button=>button.addEventListener("click",()=>resetPracticeSet(button.dataset.practiceReset)));
+  activatePractice(practiceSets[0].key);
+}
+function renderPracticeSet(key){
+  const set=practiceSets.find(x=>x.key===key),grid=document.querySelector(`[data-question-grid="${key}"]`);
+  if(!set||!grid)return;
+  grid.innerHTML=set.questions.map(renderPracticeQuestion).join("");
+  const panel=document.querySelector(`[data-practice-panel="${key}"]`);
+  panel.querySelectorAll(".option").forEach(option=>option.addEventListener("click",()=>{option.parentElement.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));option.classList.add("selected");option.closest(".practice-question").dataset.selected=option.dataset.value;}));
+  panel.querySelectorAll("[data-speak]").forEach(button=>button.addEventListener("click",()=>speakJapanese(button.dataset.speak)));
+  panel.querySelectorAll("[data-practice-check]").forEach(button=>button.addEventListener("click",()=>checkPracticeQuestion(key,button.closest(".practice-question"))));
+  panel.querySelectorAll("[data-practice-input]").forEach(input=>input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();checkPracticeQuestion(key,input.closest(".practice-question"));}}));
+  updatePracticeSummary(key);
+}
+function activatePractice(key){
+  document.querySelectorAll("[data-practice-panel]").forEach(panel=>panel.classList.toggle("active",panel.dataset.practicePanel===key));
+  document.querySelectorAll("[data-practice-key]").forEach(tab=>{const active=tab.dataset.practiceKey===key;tab.classList.toggle("active",active);tab.setAttribute("aria-selected",active);});
+}
+function checkPracticeQuestion(key,box){
+  const set=practiceSets.find(x=>x.key===key),q=set.questions.find(x=>x.id===box.dataset.questionId),fb=box.querySelector("[data-practice-feedback]");
+  const value=q.type==="mc"||q.type==="listen"?box.dataset.selected:(box.querySelector("[data-practice-input]")?.value||"");
+  const answers=q.answers||[q.answer],ok=answers.map(normalize).includes(normalize(value));
+  box.classList.toggle("done",ok);box.classList.toggle("missed",!ok);box.dataset.correct=ok?"true":"false";
+  fb.className="feedback "+(ok?"good":"bad");fb.textContent=(ok?"✓ Chính xác! ":"✗ Chưa đúng. ")+q.explain;
+  if(ok&&q.word&&q.type==="listen")state.flashSeen=[...new Set([...(state.flashSeen||[]),q.word])];
+  if(!ok){addWrongTag(q.tag);if(q.word)addReviewWord(q.word);}
+  updatePracticeSummary(key);
+}
+function updatePracticeSummary(key){
+  const set=practiceSets.find(x=>x.key===key),panel=document.querySelector(`[data-practice-panel="${key}"]`),boxes=[...panel.querySelectorAll(".practice-question")],correct=boxes.filter(x=>x.dataset.correct==="true").length,checked=boxes.filter(x=>x.dataset.correct).length;
+  const summary=panel.querySelector("[data-practice-summary]");
+  summary.innerHTML=checked===0&&state.completed[`practice-${key}`]?`<strong>✓ Đã hoàn thành dạng ${set.tab} trước đó.</strong> Bạn có thể làm lại để luyện thêm.`:correct===boxes.length?`<strong>✓ Hoàn thành dạng ${set.tab}.</strong> Bạn đúng ${correct}/${boxes.length} câu.`:`Đã chấm <strong>${checked}/${boxes.length}</strong> câu · đúng <strong>${correct}</strong>. Hãy làm hết ${boxes.length} câu để hoàn thành dạng này.`;
+  state.practiceScores[key]={correct,total:boxes.length};
+  if(correct===boxes.length)state.completed[`practice-${key}`]=true;
+  saveState();
+}
+function resetPracticeSet(key){delete state.completed[`practice-${key}`];delete state.practiceScores[key];saveState();renderPracticeSet(key);}
+function addWrongTag(tag){if(tag&&!state.wrongTags.includes(tag))state.wrongTags.push(tag);saveState();renderRetry();}
+const retryBank={
+  "rec-sa":{prompt:"Ký tự nào đọc là sa?",answer:"サ",options:["サ","シ","ス","ソ"],explain:"サ = sa."},
+  "rec-shi":{prompt:"Ký tự nào đọc là shi?",answer:"シ",options:["シ","ソ","セ","ス"],explain:"シ = shi."},
+  "rec-su":{prompt:"Ký tự nào đọc là su?",answer:"ス",options:["ス","サ","セ","ソ"],explain:"ス = su."},
+  "rec-se":{prompt:"Ký tự nào đọc là se?",answer:"セ",options:["セ","シ","ソ","ス"],explain:"セ = se."},
+  "rec-so":{prompt:"Ký tự nào đọc là so?",answer:"ソ",options:["ソ","シ","サ","セ"],explain:"ソ = so."},
+  "dakuten":{prompt:"サ + dakuten → ?",answer:"ザ",options:["ザ","ゲ","ジ","ゾ"],explain:"サ + ゛→ ザ."},
+  "discriminate":{prompt:"シ đọc là gì?",answer:"shi",options:["shi","so","su","se"],explain:"シ = shi."},
+  "v-sukii":{prompt:"スキー nghĩa là gì?",answer:"môn trượt tuyết",options:["môn trượt tuyết","khí ga","châu Á","chia sẻ"],explain:"スキー = ski."},
+  "v-gasu":{prompt:"Từ nào nghĩa khí ga?",answer:"ガス",options:["ガス","アジア","スズキ","シェア"],explain:"ガス = gas."},
+  "v-ajia":{prompt:"アジア nghĩa là gì?",answer:"châu Á",options:["châu Á","khí ga","trượt tuyết","chia sẻ"],explain:"アジア = Asia."},
+  "v-shea":{prompt:"シェア nghĩa là gì?",answer:"chia sẻ",options:["chia sẻ","châu Á","khí ga","Suzuki"],explain:"シェア = share."},
+  "listen-sukii":{prompt:"Từ nào có âm sukī?",answer:"スキー",options:["スキー","ガス","アジア","シェア"],explain:"スキー = sukī."},
+  "listen-suzuki":{prompt:"Từ nào có âm Suzuki?",answer:"スズキ",options:["スズキ","スキー","アジア","ガス"],explain:"スズキ = Suzuki."},
+  "listen-shea":{prompt:"Từ nào có âm shea?",answer:"シェア",options:["シェア","スキー","ガス","アジア"],explain:"シェア = shea."}
+};
+function renderRetry(){
+  const area=document.getElementById("retryArea");
+  if(!state.wrongTags.length){area.innerHTML='<span class="subtle">Chưa có lỗi cần luyện lại. Khi trả lời sai ở một tab, câu sẽ xuất hiện tại đây.</span>';return;}
+  const tag=state.wrongTags[0],q=retryBank[tag]||retryBank["rec-sa"];
+  area.innerHTML=`<p><strong>${q.prompt}</strong></p><div class="option-grid">${shuffle([...q.options]).map(o=>`<button type="button" class="option" data-v="${escapeHtml(o)}">${o}</button>`).join("")}</div><div class="question-actions"><button type="button" class="btn" id="retrySpeak">🔊 Nghe gợi ý</button></div><div class="feedback" id="retryFeedback"></div>`;
+  area.querySelectorAll(".option").forEach(btn=>btn.addEventListener("click",()=>retryAnswer(btn,q.answer,q.explain,tag)));
+  area.querySelector("#retrySpeak").addEventListener("click",()=>speakJapanese(/[ア-ン]/.test(q.answer)?q.answer:""));
+}
+function retryAnswer(btn,ans,explain,tag){
+  const fb=document.getElementById("retryFeedback");
+  btn.parentElement.querySelectorAll(".option").forEach(b=>b.classList.remove("selected","correct","wrong"));
+  if(btn.dataset.v===ans){btn.classList.add("correct");fb.className="feedback good";fb.textContent="✓ Đã sửa đúng. "+explain;state.wrongTags=state.wrongTags.filter(x=>x!==tag);saveState();setTimeout(renderRetry,650);}
+  else{btn.classList.add("wrong");fb.className="feedback bad";fb.textContent="✗ Chưa đúng. "+explain;}
+}
+let writeIndex=0,strokes=[],currentStroke=null,sampleVisible=true,strokeStabilizer=.42;
+const canvas=document.getElementById("writingCanvas"),ctx=canvas.getContext("2d");
+function fitCanvas(){
+  const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1;
+  canvas.width=Math.round(rect.width*ratio);canvas.height=Math.round(rect.height*ratio);
+  ctx.setTransform(ratio,0,0,ratio,0,0);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(4,rect.width/72);ctx.strokeStyle="#1e2328";
+  redrawCanvas();
+}
+function pointFromEvent(e){const r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+function eventPoints(e){return typeof e.getCoalescedEvents==="function"?e.getCoalescedEvents():[e];}
+function pushSmoothedPoint(stroke,point,force=false){
+  const previous=stroke[stroke.length-1];
+  if(!previous){stroke.push(point);return;}
+  const distance=Math.hypot(point.x-previous.x,point.y-previous.y);
+  if(!force&&distance<1.2)return;
+  if(force){if(distance>.45)stroke.push(point);return;}
+  const next={x:previous.x+(point.x-previous.x)*strokeStabilizer,y:previous.y+(point.y-previous.y)*strokeStabilizer};
+  if(Math.hypot(next.x-previous.x,next.y-previous.y)>.35)stroke.push(next);
+}
+function drawSmoothPath(context,stroke){
+  if(!stroke.length)return;
+  context.beginPath();
+  if(stroke.length===1){context.fillStyle=context.strokeStyle;context.arc(stroke[0].x,stroke[0].y,context.lineWidth/2,0,Math.PI*2);context.fill();return;}
+  context.moveTo(stroke[0].x,stroke[0].y);
+  if(stroke.length===2){context.lineTo(stroke[1].x,stroke[1].y);}
+  else{
+    for(let i=1;i<stroke.length-1;i++){
+      const middle={x:(stroke[i].x+stroke[i+1].x)/2,y:(stroke[i].y+stroke[i+1].y)/2};
+      context.quadraticCurveTo(stroke[i].x,stroke[i].y,middle.x,middle.y);
+    }
+    const last=stroke[stroke.length-1],before=stroke[stroke.length-2];context.quadraticCurveTo(before.x,before.y,last.x,last.y);
+  }
+  context.stroke();
+}
+function drawStroke(stroke){drawSmoothPath(ctx,stroke);}
+function redrawCanvas(){ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);strokes.forEach(drawStroke);}
+canvas.addEventListener("pointerdown",e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);currentStroke=[pointFromEvent(e)];strokes.push(currentStroke);});
+canvas.addEventListener("pointermove",e=>{if(!currentStroke)return;e.preventDefault();eventPoints(e).forEach(point=>pushSmoothedPoint(currentStroke,pointFromEvent(point)));redrawCanvas();});
+function endStroke(e){if(!currentStroke)return;if(e?.type==="pointerup")pushSmoothedPoint(currentStroke,pointFromEvent(e),true);currentStroke=null;redrawCanvas();}
+canvas.addEventListener("pointerup",endStroke);canvas.addEventListener("pointercancel",endStroke);canvas.addEventListener("pointerleave",e=>{if(e.buttons===0)endStroke();});
+function clearWriting(){strokes=[];currentStroke=null;redrawCanvas();}
+document.getElementById("clearCanvas").onclick=clearWriting;
+document.getElementById("undoCanvas").onclick=()=>{strokes.pop();redrawCanvas();};
+let writingMode="trace";
+function updateWritingModeUI(){
+  document.getElementById("writingTrace").classList.toggle("active",writingMode==="trace");
+  document.getElementById("writingSelf").classList.toggle("active",writingMode==="self");
+  document.getElementById("sampleChar").style.display=sampleVisible?"flex":"none";
+  document.getElementById("toggleSample").textContent=sampleVisible?"Ẩn mẫu":"Xem mẫu";
+  const hint=document.getElementById("writingModeHint");if(hint)hint.textContent=writingMode==="self"?"Mẫu đã ẩn. Tự viết từ trí nhớ, sau đó nhấn “Kiểm tra nét”.":"Tô theo chữ mờ trước; khi sẵn sàng, chuyển sang “Tự viết, ẩn mẫu”.";
+}
+function setWritingMode(mode){writingMode=mode;sampleVisible=mode==="trace";clearWriting();updateWritingModeUI();}
+function setStrokeSmoothing(level){
+  const value=Math.min(9,Math.max(1,Number(level)||4));
+  strokeStabilizer=.18+((value-1)/8)*.62;
+  document.querySelectorAll("[data-smoothing]").forEach(input=>{input.value=value;});
+  const label=value<=3?"Mượt":value<=6?"Cân bằng":"Nhanh";
+  document.querySelectorAll("[data-smoothing-value]").forEach(target=>{target.textContent=label;});
+}
+document.querySelectorAll("[data-smoothing]").forEach(input=>input.addEventListener("input",()=>setStrokeSmoothing(input.value)));
+setStrokeSmoothing(4);
+function strokeLength(stroke){let total=0;for(let i=1;i<stroke.length;i++)total+=Math.hypot(stroke[i].x-stroke[i-1].x,stroke[i].y-stroke[i-1].y);return total;}
+function checkWriting(){
+  const k=kana[writeIndex],usable=strokes.filter(stroke=>stroke.length>=2),rect=canvas.getBoundingClientRect(),minLength=Math.max(18,rect.width*.08),longEnough=usable.filter(stroke=>strokeLength(stroke)>=minLength).length,countOk=usable.length===k.strokes,lengthOk=longEnough===k.strokes,ok=countOk&&lengthOk;
+  const result=document.getElementById("writingCheckResult");
+  result.innerHTML=`<strong>${ok?"✓ Có thể chấp nhận":"△ Cần thử lại"}</strong><span>Số nét: ${usable.length}/${k.strokes} · Nét đủ dài: ${longEnough}/${k.strokes} · Chế độ: ${writingMode==="self"?"tự viết, ẩn mẫu":"tô theo mẫu"}</span><ul><li>${countOk?"Đúng số nét cần có.":`Hãy tách thành đúng ${k.strokes} nét riêng.`}</li><li>${lengthOk?"Các nét đã có đủ điểm để kiểm tra.":"Mỗi nét cần kéo đủ dài, không chỉ chấm một điểm."}</li><li>Đây là kiểm tra cơ bản theo số nét, không phải nhận dạng chữ viết bằng AI.</li></ul>`;
+  state.writing[k.char]={...(state.writing[k.char]||{}),check:{ok,strokes:usable.length,longEnough,mode:writingMode,at:new Date().toISOString()}};
+  const allChecked=kana.every(item=>state.writing[item.char]?.check?.ok);if(allChecked)state.completed.writing=true;
+  saveState();
+}
+function renderWritingPicker(){
+  const picker=document.getElementById("writingCharPicker");
+  picker.innerHTML=kana.map((k,i)=>`<button type="button" class="btn${i===writeIndex?" active":""}" data-writing-index="${i}" aria-label="Luyện chữ ${k.char}">${k.char}<span class="tiny" style="font-family:system-ui;font-size:.7rem;margin-left:3px;color:inherit">${k.romaji}</span></button>`).join("");
+  picker.querySelectorAll("[data-writing-index]").forEach(button=>button.addEventListener("click",()=>{writeIndex=Number(button.dataset.writingIndex);renderWriting();}));
+}
+function renderWriting(){
+  const k=kana[writeIndex];document.getElementById("writingChar").textContent=k.char;document.getElementById("sampleChar").textContent=k.char;
+  document.getElementById("writingRomaji").textContent=k.romaji;document.getElementById("writingStrokes").textContent=k.strokes+" nét";
+  renderWritingPicker();clearWriting();updateWritingModeUI();
+  document.querySelectorAll('input[name="writingRating"]').forEach(r=>r.checked=state.writing[k.char]?.rating===r.value);
+  const savedCheck=state.writing[k.char]?.check;
+  if(savedCheck?.ok)document.getElementById("writingCheckResult").innerHTML=`<strong>✓ Đã có lần kiểm tra đạt cho ${k.char}</strong><span>Đổi chế độ và luyện lại bất cứ lúc nào.</span>`;
+  else document.getElementById("writingCheckResult").innerHTML='<strong>Gợi ý</strong><span id="writingModeHint"></span>';
+  updateWritingModeUI();
+}
+document.getElementById("writingTrace").onclick=()=>setWritingMode("trace");
+document.getElementById("writingSelf").onclick=()=>setWritingMode("self");
+document.getElementById("toggleSample").onclick=()=>{sampleVisible=!sampleVisible;writingMode=sampleVisible?"trace":"self";updateWritingModeUI();};
+document.getElementById("checkWriting").onclick=checkWriting;
+document.getElementById("prevChar").onclick=()=>{writeIndex=(writeIndex-1+kana.length)%kana.length;renderWriting();};
+document.getElementById("nextChar").onclick=()=>{writeIndex=(writeIndex+1)%kana.length;renderWriting();};
+document.getElementById("saveWriting").onclick=()=>{
+  const rating=document.querySelector('input[name="writingRating"]:checked')?.value,fb=document.getElementById("writingFeedback");
+  if(!rating){fb.className="feedback bad";fb.textContent="Hãy chọn mức tự đánh giá trước khi lưu.";return;}
+  const k=kana[writeIndex];state.writing[k.char]={...(state.writing[k.char]||{}),rating,at:new Date().toISOString()};saveState();fb.className="feedback good";fb.textContent=`✓ Đã lưu đánh giá cho ${k.char}.`;
+};
+window.addEventListener("resize",fitCanvas);
+let sheetSamplesVisible=true,sheetStrokes={};
+const sheetEntries=[
+  ...kana.map(k=>({id:`kana-${k.char}`,label:k.char,meta:`${k.romaji} · ${k.strokes} nét`,samples:Array.from({length:12},(_,i)=>i<3?k.char:""),kind:"kana"})),
+  ...dakutenPairs.map(p=>({id:`dak-${p.der}`,label:p.der,meta:`${p.derR} · dakuten`,samples:Array.from({length:12},(_,i)=>i<2?p.der:""),kind:"dakuten"}))
+];
+function sheetPoint(e,canvas){const rect=canvas.getBoundingClientRect();return {x:e.clientX-rect.left,y:e.clientY-rect.top};}
+function redrawSheetCanvas(canvas){
+  const ctx=canvas.getContext("2d"),strokes=sheetStrokes[canvas.dataset.sheetId]||[];ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);ctx.lineCap="round";ctx.lineJoin="round";ctx.lineWidth=Math.max(3,canvas.clientWidth/22);ctx.strokeStyle="#1e2328";
+  strokes.forEach(stroke=>drawSmoothPath(ctx,stroke));
+}
+function fitSheetCanvas(canvas){
+  const rect=canvas.getBoundingClientRect(),ratio=window.devicePixelRatio||1,ctx=canvas.getContext("2d");canvas.width=Math.max(1,Math.round(rect.width*ratio));canvas.height=Math.max(1,Math.round(rect.height*ratio));ctx.setTransform(ratio,0,0,ratio,0,0);redrawSheetCanvas(canvas);
+}
+function setupSheetCanvas(canvas){
+  const id=canvas.dataset.sheetId;sheetStrokes[id]=[];let current=null;canvas._sheetFit=()=>fitSheetCanvas(canvas);
+  canvas.addEventListener("pointerdown",e=>{e.preventDefault();canvas.setPointerCapture(e.pointerId);current=[sheetPoint(e,canvas)];sheetStrokes[id].push(current);updateSheetProgress();});
+  canvas.addEventListener("pointermove",e=>{if(!current)return;e.preventDefault();eventPoints(e).forEach(point=>pushSmoothedPoint(current,sheetPoint(point,canvas)));redrawSheetCanvas(canvas);});
+  const end=e=>{if(!current)return;if(e?.type==="pointerup")pushSmoothedPoint(current,sheetPoint(e,canvas),true);current=null;redrawSheetCanvas(canvas);updateSheetProgress();};canvas.addEventListener("pointerup",end);canvas.addEventListener("pointercancel",end);canvas.addEventListener("pointerleave",e=>{if(e.buttons===0)end(e);});
+  fitSheetCanvas(canvas);
+}
+function fitSheetCanvases(){document.querySelectorAll(".sheet-canvas").forEach(canvas=>canvas._sheetFit?.());}
+function updateSheetProgress(){
+  const ids=Object.keys(sheetStrokes),filled=ids.filter(id=>sheetStrokes[id].some(stroke=>strokeLength(stroke)>8)).length;
+  const target=document.getElementById("sheetProgress");if(target)target.textContent=`${filled}/${ids.length||0} ô đã viết`;
+}
+function setSheetSamplesVisible(visible){sheetSamplesVisible=visible;document.querySelectorAll(".sheet-char").forEach(char=>char.style.display=visible?"":"none");document.getElementById("toggleSheetSample").textContent=visible?"Ẩn mẫu":"Hiện mẫu";}
+function clearSheet(){Object.keys(sheetStrokes).forEach(id=>sheetStrokes[id]=[]);document.querySelectorAll(".sheet-canvas").forEach(redrawSheetCanvas);updateSheetProgress();}
+function renderSheet(){
+  const rows=document.getElementById("sheetRows");
+  rows.innerHTML=sheetEntries.map(entry=>`<div class="sheet-row" data-sheet-row="${entry.id}"><div class="sheet-label"><span lang="ja">${entry.label}</span><small>${entry.meta}</small></div><div class="sheet-grid">${entry.samples.map((char,i)=>`<div class="sheet-cell" data-sheet-cell="${entry.id}-${i}">${char?`<span class="sheet-char" lang="ja">${char}</span>`:""}<canvas class="sheet-canvas" data-sheet-id="${entry.id}-${i}" aria-label="Ô luyện viết ${char||entry.label}"></canvas></div>`).join("")}</div></div>`).join("");
+  rows.querySelectorAll(".sheet-canvas").forEach(setupSheetCanvas);setSheetSamplesVisible(sheetSamplesVisible);updateSheetProgress();
+}
+document.getElementById("toggleSheetSample").onclick=()=>setSheetSamplesVisible(!sheetSamplesVisible);
+document.getElementById("clearSheet").onclick=clearSheet;
+document.getElementById("printSheet").onclick=()=>{markComplete("sheet");window.print();};
+window.addEventListener("resize",fitSheetCanvases);
+const quizBank=[
+  {id:"q1",cat:"Nhận diện",type:"mc",q:"Ký tự nào đọc là sa?",options:["サ","シ","ス","ソ"],answer:"サ",ex:"サ = sa.",tag:"サ"},
+  {id:"q2",cat:"Nhận diện",type:"mc",q:"シ đọc là gì?",options:["shi","si","chi","shu"],answer:"shi",ex:"シ = shi, không phải si.",tag:"シ"},
+  {id:"q3",cat:"Nhận diện",type:"text",q:"Viết Romaji của「ソ」.",answers:["so"],ex:"ソ = so.",tag:"ソ"},
+  {id:"q4",cat:"Dakuten",type:"text",q:"サ + dakuten (゛) → ?",answers:["ザ"],ex:"サ + ゛→ ザ.",tag:"ザ"},
+  {id:"q5",cat:"Dakuten",type:"mc",q:"ジ đọc là gì?",options:["ji","zi","shi","gi"],answer:"ji",ex:"ジ = ji.",tag:"ジ"},
+  {id:"q6",cat:"Dakuten",type:"mc",q:"ズ được tạo từ ký tự nào?",options:["ス","セ","ソ","サ"],answer:"ス",ex:"ズ = ス + dakuten.",tag:"ズ"},
+  {id:"q7",cat:"シ/ソ",type:"mc",q:"Ký tự nào có nét dài cong lên?",options:["シ","ソ"],answer:"シ",ex:"シ: nét dài cong lên.",tag:"discriminate"},
+  {id:"q8",cat:"シ/ソ",type:"mc",q:"Ký tự nào có nét dài cong xuống?",options:["ソ","シ"],answer:"ソ",ex:"ソ: nét dài cong xuống.",tag:"discriminate"},
+  {id:"q9",cat:"Mở rộng",type:"mc",q:"シェ đọc gần đúng là gì?",options:["she","shie","se","je"],answer:"she",ex:"シェ = she.",tag:"extended"},
+  {id:"q10",cat:"Mở rộng",type:"mc",q:"Vì sao シェ ≠ シエ?",options:["ェ nhỏ tạo âm ghép; エ thường tạo 2 âm riêng","chúng giống hệt nhau","シエ không tồn tại","không có lý do"],answer:"ェ nhỏ tạo âm ghép; エ thường tạo 2 âm riêng",ex:"Kích thước quyết định cách đọc.",tag:"extended"},
+  {id:"q11",cat:"Trường âm",type:"mc",q:"スキ và スキー khác nhau như thế nào?",options:["スキー có trường âm kéo dài âm i","đọc giống hệt nhau","スキ dài hơn"],answer:"スキー có trường âm kéo dài âm i",ex:"ー kéo dài nguyên âm trước nó.",tag:"chouon"},
+  {id:"q12",cat:"Katakana vs Hiragana",type:"mc",q:"すき và スキー khác nhau như thế nào?",options:["khác hệ chữ và khác nghĩa hoàn toàn","chỉ khác cách viết, nghĩa giống nhau","luôn là cùng một từ","không có sự khác biệt"],answer:"khác hệ chữ và khác nghĩa hoàn toàn",ex:"すき = thích (Hiragana); スキー = ski (Katakana).",tag:"compare"},
+  {id:"q13",cat:"Từ vựng",type:"mc",q:"スキー nghĩa là gì?",options:["môn trượt tuyết","khí ga","châu Á","chia sẻ"],answer:"môn trượt tuyết",ex:"スキー = ski.",tag:"スキー"},
+  {id:"q14",cat:"Từ vựng",type:"mc",q:"アジア nghĩa là gì?",options:["châu Á","khí ga","Suzuki","chia sẻ"],answer:"châu Á",ex:"アジア = Asia.",tag:"アジア"},
+  {id:"q15",cat:"Từ vựng",type:"text",q:"Viết Romaji của「シェア」.",answers:["shea"],ex:"シェア = shea.",tag:"シェア"},
+  {id:"q16",cat:"Quy trình đọc",type:"mc",q:"Khi gặp từ Katakana mới, nên làm gì trước khi đoán nghĩa?",options:["đọc âm trước","đoán nghĩa ngay từ hình dạng","đọc theo tiếng Anh gốc","bỏ qua"],answer:"đọc âm trước",ex:"Đọc âm → ghép mora → mới suy đoán nghĩa/từ gốc.",tag:"reading-process"}
+];
+let currentQuiz=[];
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+function makeQuiz(){
+  const buckets={};quizBank.forEach(q=>(buckets[q.cat]??=[]).push(q));
+  const quotas={"Nhận diện":2,"Dakuten":2,"シ/ソ":2,"Mở rộng":2,"Trường âm":1,"Katakana vs Hiragana":1,"Từ vựng":3,"Quy trình đọc":1};
+  let chosen=[];Object.entries(quotas).forEach(([cat,n])=>chosen.push(...shuffle([...(buckets[cat]||[])]).slice(0,n)));
+  currentQuiz=shuffle(chosen);renderQuiz();document.getElementById("resultCard").classList.remove("show");
+}
+function renderQuiz(){
+  const form=document.getElementById("quizForm");
+  form.innerHTML=currentQuiz.map((q,i)=>{
+    if(q.type==="mc"){const opts=shuffle([...q.options]);
+      return `<fieldset class="quiz-question"><legend>Câu ${i+1}/${currentQuiz.length} · ${q.cat}</legend><p><strong>${q.q}</strong></p>
+        <div class="options">${opts.map(o=>`<label class="option"><input type="radio" name="${q.id}" value="${encodeURIComponent(o)}"> ${o}</label>`).join("")}</div>
+        <div class="feedback" id="fb_${q.id}"></div></fieldset>`;}
+    return `<div class="quiz-question"><div class="tiny">Câu ${i+1}/${currentQuiz.length} · ${q.cat}</div><label for="${q.id}">${q.q}</label>
+      <input type="text" id="${q.id}" autocomplete="off"><div class="feedback" id="fb_${q.id}"></div></div>`;
+  }).join("");
+}
+function gradeQuiz(){
+  let correct=0;const catStats={},wrong=[];
+  currentQuiz.forEach(q=>{
+    catStats[q.cat]??={c:0,t:0};catStats[q.cat].t++;
+    let ok=false;
+    if(q.type==="mc"){const chosen=document.querySelector(`input[name="${q.id}"]:checked`);ok=chosen&&decodeURIComponent(chosen.value)===q.answer;}
+    else{const val=normalize(document.getElementById(q.id).value);ok=q.answers.map(normalize).includes(val);}
+    const fb=document.getElementById("fb_"+q.id);
+    if(ok){correct++;catStats[q.cat].c++;fb.className="feedback good";fb.textContent="✓ Chính xác. "+q.ex;}
+    else{fb.className="feedback bad";fb.textContent="✗ Chưa đúng. "+q.ex;wrong.push(q);}
+  });
+  const pct=Math.round(correct/currentQuiz.length*100);
+  state.quizScore={correct,total:currentQuiz.length,pct,at:new Date().toISOString()};
+  state.completed.quiz=true;saveState();
+  showResults(correct,pct,catStats,wrong);
+  document.getElementById("resultCard").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function showResults(correct,pct,catStats,wrong){
+  const label=pct>=90?"Xuất sắc":pct>=80?"Tốt":pct>=70?"Khá":pct>=60?"Cần ôn thêm":"Nên học lại bài";
+  document.getElementById("scoreBig").textContent=pct+"%";
+  document.getElementById("scoreLabel").textContent=label;
+  document.getElementById("scoreLine").textContent=`${correct} / ${currentQuiz.length} câu đúng.`;
+  document.getElementById("scoreBars").innerHTML=Object.entries(catStats).map(([cat,s])=>{const p=Math.round(s.c/s.t*100);return `<div class="score-row"><span>${cat}</span><div class="mini-bar"><div class="mini-fill" style="width:${p}%"></div></div><strong>${s.c}/${s.t}</strong></div>`;}).join("");
+  const weak=[...new Set(wrong.map(q=>q.tag))];
+  document.getElementById("weakPoints").innerHTML=weak.length?weak.map(x=>`<span class="review-chip">${x}</span>`).join(""):'<span class="subtle">Không có điểm yếu nổi bật trong bộ câu này.</span>';
+  document.getElementById("wrongExplanations").innerHTML=wrong.length?wrong.map(q=>`<div class="notice" style="margin:7px 0"><strong>${q.q}</strong><br>${q.ex}</div>`).join(""):'<div class="notice">Bạn không có câu sai.</div>';
+  document.getElementById("resultCard").classList.add("show");
+}
+document.getElementById("submitQuiz").onclick=gradeQuiz;
+document.getElementById("newQuiz").onclick=makeQuiz;
+function renderChecklist(){
+  document.getElementById("checklist").innerHTML=checklistItems.map((txt,i)=>`<label class="checkline"><input type="checkbox" data-i="${i}" ${state.checklist[i]?"checked":""}> <span>${txt}</span></label>`).join("");
+  document.querySelectorAll("#checklist input").forEach(cb=>cb.addEventListener("change",e=>{state.checklist[e.target.dataset.i]=e.target.checked;saveState();}));
+}
+document.getElementById("resetActivities").onclick=()=>{
+  state.completed={};state.wrongTags=[];state.quizScore=null;state.flashSeen=[];state.practiceScores={};state.writing={};saveState();
+  renderFlash();renderPracticeSets();renderRetry();renderWriting();renderSheet();makeQuiz();
+  alert("Đã làm mới trạng thái bài tập.");
+};
+document.getElementById("clearAll").onclick=()=>{
+  if(!confirm("Bạn có chắc muốn xóa toàn bộ kết quả của bài này?"))return;
+  localStorage.removeItem(LESSON_KEY);state=defaultState();saveState();
+  renderKana();renderDakuten();renderWords();renderFlash();renderPracticeSets();renderRetry();renderChecklist();renderWriting();renderSheet();makeQuiz();
+  alert("Đã xóa toàn bộ tiến độ của bài học.");
+};
+function init(){
+  renderKana();renderDakuten();renderWords();renderFlash();setRomajiVisibility();renderPracticeSets();renderRetry();renderChecklist();renderWriting();renderSheet();makeQuiz();updateProgress();
+  requestAnimationFrame(fitCanvas);
+}
+init();
+</script>
+</body>
+</html>

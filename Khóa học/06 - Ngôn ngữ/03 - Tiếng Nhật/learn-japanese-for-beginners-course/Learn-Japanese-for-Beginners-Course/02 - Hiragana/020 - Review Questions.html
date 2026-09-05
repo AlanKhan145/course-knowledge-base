@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#b4232f" />
+<title>Bài 020 — Review Questions (わ・を・ん)</title>
+<style>
+  :root{
+    --bg:#f7f3eb;--paper:#fffdf8;--ink:#232323;--muted:#6b6b6b;--accent:#b4232f;
+    --accent-dark:#861923;--line:#ded8cf;--good:#176b3a;--bad:#a12626;--warn:#8a5b12;
+    --soft:#f3ebe5;--shadow:0 10px 30px rgba(53,44,36,.08);--radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Noto Sans",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
+  button,input{font:inherit}
+  button{cursor:pointer}
+  a{color:var(--accent-dark)}
+  .wrap{width:min(1120px,calc(100% - 28px));margin:auto}
+  .hero{background:linear-gradient(135deg,#fffaf2,#f2e6dc);border-bottom:1px solid var(--line);padding:34px 0 26px}
+  .hero-grid{display:grid;grid-template-columns:1.7fr .9fr;gap:22px;align-items:end}
+  .eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800}
+  h1{font-size:clamp(2rem,5vw,4.2rem);line-height:1.05;margin:.25rem 0 .6rem}
+  .jp-title{font-family:"Noto Sans JP",sans-serif;font-size:clamp(1.65rem,4vw,3.2rem);letter-spacing:.16em;margin:.4rem 0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+  .badge{border:1px solid #d8c8bc;background:#fff8ef;border-radius:999px;padding:6px 10px;font-size:.84rem}
+  .hero-card{background:rgba(255,255,255,.74);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .progress-shell{height:12px;background:#e8dfd7;border-radius:99px;overflow:hidden}
+  .progress-bar{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+  .progress-row{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:8px}
+  .tiny{font-size:.85rem;color:var(--muted)}
+  nav.lesson-nav{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.94);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;gap:8px;overflow:auto;padding:10px 0}
+  .nav-inner a{white-space:nowrap;text-decoration:none;color:#333;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:white;font-size:.85rem}
+  main{padding:26px 0 70px}
+  section{scroll-margin-top:75px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,30px);box-shadow:var(--shadow);margin-bottom:20px}
+  h2{margin-top:0;font-size:clamp(1.35rem,3vw,2rem)}
+  h3{margin:1.4rem 0 .55rem}
+  .lead{font-size:1.05rem;color:#404040}
+  .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .qcard{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fffdfb}
+  .qcard.done{border-color:#9dccaa;background:#f7fff8}.qcard.missed{border-color:#e1b1b1;background:#fffafa}
+  .qnum{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:800}
+  .option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
+  .option{width:100%;text-align:left;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff}
+  .option.selected{outline:2px solid var(--accent);border-color:transparent}
+  .practice-input{width:100%;border:1px solid #cfc6be;border-radius:10px;padding:10px 12px;background:#fff;font-size:1rem}
+  .feedback{min-height:24px;font-size:.92rem;margin-top:7px}
+  .feedback.good{color:var(--good);font-weight:700}
+  .feedback.bad{color:var(--bad);font-weight:700}
+  .controls{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0;align-items:center}
+  .btn{border:1px solid #bfb5ac;background:#fff;color:#222;border-radius:12px;padding:9px 13px;font-weight:650}
+  .btn:hover{border-color:#8e8178}
+  .btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn.danger{background:#fff5f5;border-color:#e4bcbc;color:#8f1d1d}
+  .subtle{color:var(--muted)}
+  code.kana{font-family:"Noto Sans JP",sans-serif;background:#f3ece5;padding:.1em .28em;border-radius:6px;font-size:1.08em}
+  .sentence-box{background:#fffaf3;border:1px solid #e7d8c8;border-radius:12px;padding:14px 16px;margin:10px 0}
+  .sentence-jp{font-size:1.3rem;font-family:"Noto Sans JP",sans-serif}
+  .matching{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:640px}
+  .match-col{display:grid;gap:8px}
+  .match-item{border:1px solid var(--line);background:#fff;padding:10px;border-radius:11px;text-align:center;font-family:"Noto Sans JP",sans-serif;font-size:1.1rem}
+  .match-item.active{outline:2px solid var(--accent)}
+  .match-item.done{background:#edf8f0;border-color:#a7d4b5;color:var(--good)}
+  .match-item.wrong-flash{background:#fff0f0;border-color:#e2b6b6}
+  .quiz-question{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff;margin:12px 0}
+  .quiz-question legend{font-weight:800;padding:0 5px}
+  fieldset{border:0;margin:0;padding:0}
+  .options{display:grid;gap:8px;margin:10px 0}
+  .quiz-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .result-card{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}
+  .result-card.show{display:block}
+  .score-big{font-size:3rem;font-weight:900;color:var(--accent)}
+  .score-bars{display:grid;gap:9px}
+  .score-row{display:grid;grid-template-columns:120px 1fr 70px;gap:10px;align-items:center}
+  .mini-bar{height:10px;background:#ece6e0;border-radius:99px;overflow:hidden}
+  .mini-fill{height:100%;background:#333}
+  .review-list{display:flex;flex-wrap:wrap;gap:8px}
+  .review-chip{border:1px solid #d7c6ba;background:#fff7ef;border-radius:999px;padding:7px 11px}
+  .checklist{display:grid;gap:10px}
+  .checkline{display:flex;gap:9px;align-items:flex-start}
+  .notice{padding:10px 12px;border-radius:10px;background:#f8f1e8;border:1px solid #e3d8cd;font-size:.9rem}
+  textarea{width:100%;border:1px solid #cfc6be;border-radius:10px;padding:10px 12px;background:#fff;font:inherit;min-height:70px}
+  footer{padding:0 0 70px}
+  .footer-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+  @media (max-width:720px){.grid2,.option-grid,.matching{grid-template-columns:1fr}section{padding:18px}.hero{padding-top:25px}.score-row{grid-template-columns:90px 1fr 56px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Bài 020 · Review · わ・を・ん</div>
+      <h1>Review Questions</h1>
+      <div class="jp-title" lang="ja">わ・を・ん</div>
+      <p class="lead">Ôn tập tổng hợp bài 019: nhận diện わ/を/ん, chức năng ngữ pháp của を, đặc điểm phát âm của ん, và phân tích cấu trúc câu Danh từ + を + Động từ.</p>
+      <div class="meta"><span class="badge">Review</span><span class="badge">Hiragana</span><span class="badge">Ngữ pháp を</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="progress-row"><strong>Tiến độ ôn tập</strong><span id="progressText">0%</span></div>
+      <div class="progress-shell" aria-label="Tiến độ ôn tập"><div class="progress-bar" id="progressBar"></div></div>
+      <p class="tiny" id="progressDetail">Hoàn thành các phần để tăng tiến độ.</p>
+    </div>
+  </div>
+</header>
+
+<nav class="lesson-nav" aria-label="Điều hướng bài ôn tập">
+  <div class="wrap nav-inner">
+    <a href="#overview">Phạm vi</a><a href="#recognition">A. Nhận diện</a><a href="#concept">B. Kiểm tra hiểu biết</a>
+    <a href="#reading">C. Đọc từ</a><a href="#sentence">D. Phân tích câu</a>
+    <a href="#matching">Ghép cặp</a><a href="#final">Đề tổng hợp</a><a href="#notes">Ví dụ mới & checklist</a>
+  </div>
+</nav>
+
+<main class="wrap">
+<section id="overview">
+  <h2>1. Phạm vi và mục tiêu ôn tập</h2>
+  <p>Bài ôn tập này tập trung vào nội dung bài 019 (わ, を, ん — ba ký tự hoàn thiện bảng Hiragana cơ bản). Sau khi hoàn thành, bạn cần: nhận diện và đọc đúng cả ba ký tự; phân biệt chức năng của chúng; giải thích cách dùng を trong câu; và nhận biết đặc điểm phát âm thích nghi của ん.</p>
+  <div class="controls"><button class="btn" onclick="speakJapanese('わ を ん')">🔊 Nghe lại わ を ん</button></div>
+</section>
+
+<section id="recognition">
+  <h2>2. Phần A — Nhận diện</h2>
+  <div class="grid2" id="recognitionGrid"></div>
+  <div class="controls"><button class="btn primary" id="gradeRecognition">Chấm 5 câu</button><button class="btn" id="resetRecognition">Làm lại</button></div>
+  <div class="feedback" id="recognitionFeedback"></div>
+</section>
+
+<section id="concept">
+  <h2>3. Phần B — Kiểm tra hiểu biết</h2>
+  <div class="grid2" id="conceptGrid"></div>
+  <div class="controls"><button class="btn primary" id="gradeConcept">Chấm 5 câu</button><button class="btn" id="resetConcept">Làm lại</button></div>
+  <div class="feedback" id="conceptFeedback"></div>
+</section>
+
+<section id="reading">
+  <h2>4. Phần C — Đọc hiragana (không nhìn romaji)</h2>
+  <div class="grid2" id="readingGrid"></div>
+  <div class="controls"><button class="btn primary" id="gradeReading">Chấm 5 câu</button><button class="btn" id="resetReading">Làm lại</button></div>
+  <div class="feedback" id="readingFeedback"></div>
+</section>
+
+<section id="sentence">
+  <h2>5. Phần D — Phân tích câu</h2>
+  <div class="sentence-box">
+    <div class="sentence-jp">みずをのみます。</div>
+    <div class="romaji tiny">Mizu o nomimasu.</div>
+  </div>
+  <div class="grid2" id="sentenceGrid1"></div>
+  <div class="sentence-box" style="margin-top:14px">
+    <div class="sentence-jp">りんごをたべます。</div>
+    <div class="romaji tiny">Ringo o tabemasu.</div>
+  </div>
+  <div class="grid2" id="sentenceGrid2"></div>
+  <div class="controls"><button class="btn primary" id="gradeSentence">Chấm 8 câu</button><button class="btn" id="resetSentence">Làm lại</button></div>
+  <div class="feedback" id="sentenceFeedback"></div>
+</section>
+
+<section id="matching">
+  <h2>6. Ghép cặp Kana ↔ Romaji/Vai trò</h2>
+  <div class="controls"><button class="btn" id="newMatch">Tạo bộ ghép mới</button><span class="badge" id="matchScore">0/3</span></div>
+  <div class="matching" id="matchBoard"></div>
+</section>
+
+<section id="final">
+  <div class="quiz-head">
+    <div><h2 style="margin-bottom:.2rem">7. Đề tổng hợp — 14 câu</h2><p class="lead" style="margin:0">Phối hợp toàn bộ dạng bài ở trên theo tỉ lệ cân bằng.</p></div>
+    <button class="btn" id="newQuiz">Tạo đề mới</button>
+  </div>
+  <form id="quizForm"></form>
+  <div class="controls"><button type="button" class="btn primary" id="submitQuiz">Chấm điểm</button></div>
+  <div class="result-card" id="resultCard" aria-live="polite">
+    <div class="score-big" id="scoreBig">0%</div>
+    <h3 id="scoreLabel">Kết quả</h3>
+    <p id="scoreLine"></p>
+    <div class="score-bars" id="scoreBars"></div>
+    <h3>Nội dung cần ôn</h3>
+    <div class="review-list" id="weakPoints"></div>
+    <h3>Giải thích câu sai</h3>
+    <div id="wrongExplanations"></div>
+  </div>
+</section>
+
+<section id="notes">
+  <h2>8. Tạo ví dụ mới & checklist</h2>
+  <label for="notesArea">Tự tạo hai ví dụ mới (không trùng ví dụ trong bài); ít nhất một ví dụ dùng cấu trúc Danh từ + を + Động từ:</label>
+  <textarea id="notesArea" placeholder="Ví dụ 1:&#10;Ví dụ 2 (dùng Danh từ + を + Động từ):"></textarea>
+  <div class="controls"><button class="btn primary" id="saveNotes">Lưu ghi chú</button><span class="feedback good" id="notesSaved"></span></div>
+  <h3>Checklist ôn tập</h3>
+  <div class="checklist" id="checklist"></div>
+  <div class="controls" style="margin-top:16px"><button class="btn" id="resetActivities">Làm lại toàn bộ bài tập</button><button class="btn danger" id="clearAll">Xóa toàn bộ tiến độ</button></div>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="footer-card">
+    <p class="tiny">Dữ liệu được lưu cục bộ bằng <code>localStorage</code> trên trình duyệt này. Bài ôn tập tương ứng với <a href="019 - The Hiragana W Column Plus N.html">019 - The Hiragana W Column Plus N</a>. Đây là bài ôn tập cuối cùng của Module 02 — Hiragana.</p>
+  </div>
+</footer>
+
+<script>
+const LESSON_KEY="jpLesson020ReviewWN_v1";
+const kana=[{k:"わ",r:"wa"},{k:"を",r:"o"},{k:"ん",r:"n"}];
+const checklistItems=[
+  "Tôi nhận diện được cả わ, を, ん mà không cần romaji.",
+  "Tôi giải thích được chức năng của を.",
+  "Tôi biết ん là một âm mũi đặc biệt.",
+  "Tôi viết đúng số nét của cả ba ký tự (わ=2, を=3, ん=1).",
+  "Tôi đọc được các từ chứa ba ký tự này.",
+  "Tôi có thể tự tạo một câu đơn giản sử dụng を.",
+  "Tôi đã tạo được hai ví dụ mới.",
+  "Tôi đã hoàn thành đề tổng hợp 14 câu."
+];
+let state=loadState();
+function defaultState(){return {completed:{},wrongTags:[],checklist:{},notes:"",quizScore:null};}
+function loadState(){try{return {...defaultState(),...JSON.parse(localStorage.getItem(LESSON_KEY)||"{}")};}catch(e){return defaultState();}}
+function saveState(){localStorage.setItem(LESSON_KEY,JSON.stringify(state));updateProgress();}
+const sectionIds=["recognition","concept","reading","sentence","matching","quiz","notes"];
+function updateProgress(){
+  const done=sectionIds.filter(id=>state.completed[id]).length;
+  const checked=Object.values(state.checklist||{}).filter(Boolean).length;
+  const pct=Math.round(((done+checked/checklistItems.length)/(sectionIds.length+1))*100);
+  document.getElementById("progressBar").style.width=pct+"%";
+  document.getElementById("progressText").textContent=pct+"%";
+  document.getElementById("progressDetail").textContent=`${done}/${sectionIds.length} phần · ${checked}/${checklistItems.length} checklist`;
+}
+function normalize(s){return (s||"").trim().toLowerCase().replace(/[。．.]+$/,"").replace(/\s+/g," ");}
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+function escapeHtml(v){return String(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function speakJapanese(text){
+  if(!("speechSynthesis" in window)){alert("Trình duyệt này không hỗ trợ SpeechSynthesis.");return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang="ja-JP";u.rate=.78;u.pitch=1;
+  speechSynthesis.speak(u);
+}
+function addWrongTag(tag){if(tag&&!state.wrongTags.includes(tag))state.wrongTags.push(tag);saveState();}
+function renderMcGrid(containerId,items){
+  document.getElementById(containerId).innerHTML=items.map((q,i)=>`
+    <div class="qcard" data-qid="${q.id}"><div class="qnum">Câu ${i+1}</div><p><strong>${q.prompt}</strong></p>
+    <div class="option-grid">${shuffle([...q.options]).map(o=>`<button type="button" class="option" data-v="${escapeHtml(o)}">${o}</button>`).join("")}</div>
+    <div class="feedback" data-fb></div></div>`).join("");
+  document.querySelectorAll(`#${containerId} .option`).forEach(btn=>btn.addEventListener("click",()=>{
+    btn.parentElement.querySelectorAll(".option").forEach(b=>b.classList.remove("selected"));
+    btn.classList.add("selected");btn.closest(".qcard").dataset.selected=btn.dataset.v;
+  }));
+}
+function gradeMcGrid(containerId,items,fbId,sectionKey){
+  let correct=0;
+  items.forEach(q=>{
+    const card=document.querySelector(`#${containerId} [data-qid="${q.id}"]`),val=card?.dataset.selected;
+    const ok=val===q.answer;if(ok)correct++;
+    if(card){card.classList.toggle("done",ok);card.classList.toggle("missed",!ok);
+      const fb=card.querySelector("[data-fb]");fb.className="feedback "+(ok?"good":"bad");fb.textContent=(ok?"✓ Đúng. ":"✗ Sai. ")+q.explain;}
+    if(!ok)addWrongTag(q.tag||q.id);
+  });
+  const fb=document.getElementById(fbId);fb.className="feedback "+(correct===items.length?"good":"bad");
+  fb.textContent=`Kết quả: ${correct}/${items.length} câu đúng.`;
+  if(correct===items.length){state.completed[sectionKey]=true;saveState();}
+}
+
+const recognitionItems=[
+  {id:"rg1",prompt:"わ đọc là gì?",options:["wa","o","n","ha"],answer:"wa",explain:"わ = wa.",tag:"わ"},
+  {id:"rg2",prompt:"を đọc là gì (khi làm trợ từ)?",options:["o","wo","wa","e"],answer:"o",explain:"を = o.",tag:"を"},
+  {id:"rg3",prompt:"ん biểu diễn âm gì?",options:["âm mũi n","wa","o","ru"],answer:"âm mũi n",explain:"ん = âm mũi độc lập.",tag:"ん"},
+  {id:"rg4",prompt:"Ký tự nào chủ yếu dùng làm trợ từ đánh dấu tân ngữ?",options:["を","わ","ん","は"],answer:"を",explain:"を chủ yếu là trợ từ đánh dấu tân ngữ.",tag:"を-function"},
+  {id:"rg5",prompt:"Ký tự nào là kana thông thường biểu diễn âm wa trong từ?",options:["わ","は","を","ん"],answer:"わ",explain:"わ là kana cố định mang âm wa.",tag:"わ-role"}
+];
+function initRecognition(){renderMcGrid("recognitionGrid",recognitionItems);}
+document.getElementById("gradeRecognition").onclick=()=>gradeMcGrid("recognitionGrid",recognitionItems,"recognitionFeedback","recognition");
+document.getElementById("resetRecognition").onclick=initRecognition;
+
+const conceptItems=[
+  {id:"cp1",prompt:"Sự khác nhau chính giữa わ và を là gì?",options:["わ là kana thường dùng trong từ; を chủ yếu là trợ từ","cả hai đều là trợ từ","cả hai đều chỉ dùng trong từ vựng","không có khác biệt"],answer:"わ là kana thường dùng trong từ; を chủ yếu là trợ từ",explain:"わ xuất hiện trong từ vựng; を gần như chỉ đóng vai trò ngữ pháp.",tag:"wa-vs-wo"},
+  {id:"cp2",prompt:"Vì sao を đôi khi ghi 'wo' trong romaji nhưng đọc là 'o'?",options:["để phân biệt chính tả với お, dù phát âm hiện đại là o","vì を luôn đọc wo","vì đó là lỗi romaji","không có lý do"],answer:"để phân biệt chính tả với お, dù phát âm hiện đại là o",explain:"Ghi 'wo' giữ dấu vết lịch sử/chính tả; khi nói thực tế đọc là o.",tag:"wo-spelling"},
+  {id:"cp3",prompt:"Trong cấu trúc Danh từ + を + Động từ, を làm gì?",options:["đánh dấu danh từ đứng trước là tân ngữ của động từ","biến danh từ thành động từ","đánh dấu chủ ngữ","không có vai trò"],answer:"đánh dấu danh từ đứng trước là tân ngữ của động từ",explain:"を đánh dấu tân ngữ trực tiếp chịu tác động của hành động.",tag:"wo-function"},
+  {id:"cp4",prompt:"Vì sao ん không hoàn toàn giống mô hình phụ âm+nguyên âm?",options:["vì nó là âm mũi độc lập không cần nguyên âm đi kèm","vì nó luôn cần 2 nguyên âm","vì nó không phải hiragana","vì nó chỉ dùng trong Katakana"],answer:"vì nó là âm mũi độc lập không cần nguyên âm đi kèm",explain:"ん tự nó là một âm hoàn chỉnh, khác と/か/さ...",tag:"n-model"},
+  {id:"cp5",prompt:"Cách phát âm ん có thể thay đổi như thế nào?",options:["thích nghi vị trí phát âm theo âm đứng sau (vd: gần m trước b/p/m)","luôn đọc y hệt trong mọi trường hợp","biến thành nguyên âm","biến mất khi nói nhanh"],answer:"thích nghi vị trí phát âm theo âm đứng sau (vd: gần m trước b/p/m)",explain:"ん trước âm môi (b/p/m) nghe gần m; trước k/g lùi về sau khoang miệng.",tag:"n-adaptation"}
+];
+function initConcept(){renderMcGrid("conceptGrid",conceptItems);}
+document.getElementById("gradeConcept").onclick=()=>gradeMcGrid("conceptGrid",conceptItems,"conceptFeedback","concept");
+document.getElementById("resetConcept").onclick=initConcept;
+
+const readingWords=[{k:"わたし",r:"watashi",vi:"tôi"},{k:"かわ",r:"kawa",vi:"sông"},{k:"えん",r:"en",vi:"yên/vòng tròn"},{k:"おんがく",r:"ongaku",vi:"âm nhạc"},{k:"しんぶん",r:"shinbun",vi:"báo"}];
+function initReading(){
+  const items=readingWords.map((w,i)=>({id:"rw"+i,prompt:`「${w.k}」nghĩa là gì?`,options:shuffle([w.vi,...readingWords.filter(x=>x.vi!==w.vi).map(x=>x.vi)]),answer:w.vi,explain:`${w.k} (${w.r}) = ${w.vi}.`,tag:w.k}));
+  renderMcGrid("readingGrid",items);
+  initReading._items=items;
+}
+document.getElementById("gradeReading").onclick=()=>gradeMcGrid("readingGrid",initReading._items,"readingFeedback","reading");
+document.getElementById("resetReading").onclick=initReading;
+
+function renderSentenceGrids(){
+  document.getElementById("sentenceGrid1").innerHTML=`
+    <div class="qcard" data-qid="s1"><div class="qnum">Câu 1</div><p><strong>を nằm sau từ nào?</strong></p><div class="option-grid">${shuffle(["みず","のみます","わたし","えん"]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>
+    <div class="qcard" data-qid="s2"><div class="qnum">Câu 2</div><p><strong>Từ đứng trước を đóng vai trò gì?</strong></p><div class="option-grid">${shuffle(["tân ngữ","chủ ngữ","động từ","trợ từ"]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>
+    <div class="qcard" data-qid="s3"><div class="qnum">Câu 3</div><p><strong>Động từ trong câu みずをのみます là gì?</strong></p><div class="option-grid">${shuffle(["のみます","みず","を","わたし"]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>
+    <div class="qcard" data-qid="s4"><div class="qnum">Câu 4</div><p><strong>を trong câu này được phát âm là gì?</strong></p><div class="option-grid">${shuffle(["o","wo","wa","e"]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>`;
+  document.getElementById("sentenceGrid2").innerHTML=`
+    <div class="qcard" data-qid="s5"><div class="qnum">Câu 5 · りんごをたべます</div><p><strong>Tân ngữ là gì?</strong></p><div class="option-grid">${shuffle(["りんご","たべます","を","わたし"]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>
+    <div class="qcard" data-qid="s6"><div class="qnum">Câu 6</div><p><strong>Trợ từ là gì?</strong></p><div class="option-grid">${shuffle(["を","りんご","たべます","は"]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>
+    <div class="qcard" data-qid="s7"><div class="qnum">Câu 7</div><p><strong>Động từ là gì?</strong></p><div class="option-grid">${shuffle(["たべます","りんご","を","のみます"]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>
+    <div class="qcard" data-qid="s8"><div class="qnum">Câu 8</div><p><strong>Nghĩa của cả câu りんごをたべます là gì?</strong></p><div class="option-grid">${shuffle(["Tôi ăn táo.","Tôi uống nước.","Tôi hiểu.","Đây là táo."]).map(o=>`<button type="button" class="option" data-v="${o}">${o}</button>`).join("")}</div><div class="feedback" data-fb></div></div>`;
+  [...document.querySelectorAll("#sentenceGrid1 .option, #sentenceGrid2 .option")].forEach(btn=>btn.addEventListener("click",()=>{
+    btn.parentElement.querySelectorAll(".option").forEach(b=>b.classList.remove("selected"));
+    btn.classList.add("selected");btn.closest(".qcard").dataset.selected=btn.dataset.v;
+  }));
+}
+function gradeSentence(){
+  const answers={s1:"みず",s2:"tân ngữ",s3:"のみます",s4:"o",s5:"りんご",s6:"を",s7:"たべます",s8:"Tôi ăn táo."};
+  const explain={s1:"を đứng sau みず (nước).",s2:"みず là tân ngữ của động từ.",s3:"のみます = uống.",s4:"を luôn đọc o khi làm trợ từ.",s5:"りんご (táo) là tân ngữ.",s6:"を là trợ từ đánh dấu tân ngữ.",s7:"たべます = ăn.",s8:"りんごをたべます = Tôi ăn táo."};
+  let correct=0;
+  Object.keys(answers).forEach(id=>{
+    const card=document.querySelector(`[data-qid="${id}"]`),val=card.dataset.selected,ok=val===answers[id];
+    if(ok)correct++;card.classList.toggle("done",ok);card.classList.toggle("missed",!ok);
+    const fb=card.querySelector("[data-fb]");fb.className="feedback "+(ok?"good":"bad");fb.textContent=(ok?"✓ Đúng. ":"✗ Sai. ")+explain[id];
+    if(!ok)addWrongTag(id);
+  });
+  const fb=document.getElementById("sentenceFeedback");fb.className="feedback "+(correct===8?"good":"bad");fb.textContent=`Kết quả: ${correct}/8 câu đúng.`;
+  if(correct===8){state.completed.sentence=true;saveState();}
+}
+document.getElementById("gradeSentence").onclick=gradeSentence;
+document.getElementById("resetSentence").onclick=renderSentenceGrids;
+
+let matchState={pairs:[],selectedLeft:null,solved:0};
+function buildMatch(){
+  const pool=[...kana];
+  matchState={pairs:pool,selectedLeft:null,solved:0};
+  const left=shuffle(pool.map(p=>p.k)),right=shuffle(pool.map(p=>p.r));
+  document.getElementById("matchBoard").innerHTML=`
+    <div class="match-col" id="matchLeft">${left.map(k=>`<button type="button" class="match-item" data-k="${k}">${k}</button>`).join("")}</div>
+    <div class="match-col" id="matchRight">${right.map(r=>`<button type="button" class="match-item" data-r="${r}">${r}</button>`).join("")}</div>`;
+  document.getElementById("matchScore").textContent=`0/${pool.length}`;
+  document.querySelectorAll("#matchLeft .match-item").forEach(btn=>btn.addEventListener("click",()=>{
+    if(btn.classList.contains("done"))return;
+    document.querySelectorAll("#matchLeft .match-item").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");matchState.selectedLeft=btn;
+  }));
+  document.querySelectorAll("#matchRight .match-item").forEach(btn=>btn.addEventListener("click",()=>{
+    if(btn.classList.contains("done")||!matchState.selectedLeft)return;
+    const k=matchState.selectedLeft.dataset.k,r=btn.dataset.r,pair=matchState.pairs.find(p=>p.k===k);
+    if(pair&&pair.r===r){
+      matchState.selectedLeft.classList.add("done");btn.classList.add("done");
+      matchState.selectedLeft.classList.remove("active");matchState.selectedLeft=null;matchState.solved++;
+      document.getElementById("matchScore").textContent=`${matchState.solved}/${matchState.pairs.length}`;
+      if(matchState.solved===matchState.pairs.length){state.completed.matching=true;saveState();}
+    }else{btn.classList.add("wrong-flash");setTimeout(()=>btn.classList.remove("wrong-flash"),450);}
+  }));
+}
+document.getElementById("newMatch").onclick=buildMatch;
+
+const quizBank=[
+  {cat:"Nhận diện",type:"mc",q:"わ đọc là gì?",options:["wa","o","n","ha"],answer:"wa",ex:"わ = wa.",tag:"わ"},
+  {cat:"Nhận diện",type:"mc",q:"を đọc là gì?",options:["o","wo","wa","e"],answer:"o",ex:"を = o.",tag:"を"},
+  {cat:"Nhận diện",type:"text",q:"Viết Romaji của「ん」.",answers:["n"],ex:"ん = n.",tag:"ん"},
+  {cat:"Chức năng を",type:"mc",q:"を dùng để làm gì?",options:["đánh dấu tân ngữ trực tiếp","đánh dấu chủ ngữ","biến danh từ thành tính từ","không có chức năng"],answer:"đánh dấu tân ngữ trực tiếp",ex:"を là trợ từ đánh dấu tân ngữ.",tag:"wo-function"},
+  {cat:"Chức năng を",type:"mc",q:"Cấu trúc chuẩn với を là gì?",options:["Danh từ + を + Động từ","Động từ + を + Danh từ","を một mình","Tính từ + を"],answer:"Danh từ + を + Động từ",ex:"を luôn đứng giữa tân ngữ và động từ.",tag:"wo-function"},
+  {cat:"Âm ん",type:"mc",q:"ん có thể mở đầu một từ tiếng Nhật thông thường không?",options:["Không","Có, thường xuyên","Chỉ trong câu hỏi","Không xác định"],answer:"Không",ex:"ん luôn ở giữa hoặc cuối từ.",tag:"n-position"},
+  {cat:"Âm ん",type:"mc",q:"Cách phát âm ん có đặc điểm gì?",options:["thích nghi theo âm đứng sau","luôn cố định một cách đọc","biến thành nguyên âm","không được phát âm"],answer:"thích nghi theo âm đứng sau",ex:"ん trước b/p/m nghe gần m; trước k/g lùi về sau.",tag:"n-adaptation"},
+  {cat:"わ vs を vs は",type:"mc",q:"Ký tự nào LUÔN đại diện cho âm wa cố định trong từ vựng?",options:["わ","は","を","ん"],answer:"わ",ex:"わ là kana cố định; は chỉ đọc wa khi làm particle.",tag:"wa-fixed"},
+  {cat:"Phân tích câu",type:"mc",q:"みずをのみます — tân ngữ là gì?",options:["みず","のみます","を","わたし"],answer:"みず",ex:"みず (nước) là tân ngữ.",tag:"sentence-1"},
+  {cat:"Phân tích câu",type:"mc",q:"りんごをたべます — động từ là gì?",options:["たべます","りんご","を","のみます"],answer:"たべます",ex:"たべます = ăn.",tag:"sentence-2"},
+  {cat:"Phân tích câu",type:"mc",q:"りんごをたべます nghĩa là gì?",options:["Tôi ăn táo.","Tôi uống nước.","Tôi hiểu.","Đây là táo."],answer:"Tôi ăn táo.",ex:"りんごをたべます = Tôi ăn táo.",tag:"sentence-2"},
+  {cat:"Từ vựng",type:"mc",q:"かわ nghĩa là gì?",options:["sông","tôi","âm nhạc","báo"],answer:"sông",ex:"かわ = sông.",tag:"かわ"},
+  {cat:"Từ vựng",type:"mc",q:"しんぶん nghĩa là gì?",options:["báo","âm nhạc","sông","tôi"],answer:"báo",ex:"しんぶん = báo.",tag:"しんぶん"},
+  {cat:"Cấu trúc nét",type:"mc",q:"を được viết bằng mấy nét?",options:["3 nét","2 nét","1 nét","4 nét"],answer:"3 nét",ex:"を là ký tự phức tạp nhất trong ba, 3 nét.",tag:"stroke-wo"}
+];
+let currentQuiz=[];
+function makeQuiz(){
+  const buckets={};quizBank.forEach(q=>(buckets[q.cat]??=[]).push(q));
+  const quotas={"Nhận diện":3,"Chức năng を":2,"Âm ん":2,"わ vs を vs は":1,"Phân tích câu":3,"Từ vựng":2,"Cấu trúc nét":1};
+  let chosen=[];Object.entries(quotas).forEach(([cat,n])=>chosen.push(...shuffle([...(buckets[cat]||[])]).slice(0,n)));
+  currentQuiz=shuffle(chosen);renderQuiz();document.getElementById("resultCard").classList.remove("show");
+}
+function renderQuiz(){
+  document.getElementById("quizForm").innerHTML=currentQuiz.map((q,i)=>{
+    if(q.type==="mc"){
+      return `<fieldset class="quiz-question"><legend>Câu ${i+1}/${currentQuiz.length} · ${q.cat}</legend><p><strong>${q.q}</strong></p>
+        <div class="options">${shuffle([...q.options]).map(o=>`<label class="option"><input type="radio" name="fq${i}" value="${encodeURIComponent(o)}"> ${o}</label>`).join("")}</div>
+        <div class="feedback" id="ffb_${i}"></div></fieldset>`;
+    }
+    return `<div class="quiz-question"><div class="tiny">Câu ${i+1}/${currentQuiz.length} · ${q.cat}</div><label for="fq${i}">${q.q}</label>
+      <input type="text" id="fq${i}" autocomplete="off" lang="ja"><div class="feedback" id="ffb_${i}"></div></div>`;
+  }).join("");
+}
+function gradeQuiz(){
+  let correct=0;const catStats={},wrong=[];
+  currentQuiz.forEach((q,i)=>{
+    catStats[q.cat]??={c:0,t:0};catStats[q.cat].t++;
+    let ok=false;
+    if(q.type==="mc"){const chosen=document.querySelector(`input[name="fq${i}"]:checked`);ok=chosen&&decodeURIComponent(chosen.value)===q.answer;}
+    else{const val=normalize(document.getElementById("fq"+i).value);ok=q.answers.map(normalize).includes(val);}
+    const fb=document.getElementById("ffb_"+i);
+    if(ok){correct++;catStats[q.cat].c++;fb.className="feedback good";fb.textContent="✓ Chính xác. "+q.ex;}
+    else{fb.className="feedback bad";fb.textContent="✗ Chưa đúng. "+q.ex;wrong.push(q);}
+  });
+  const pct=Math.round(correct/currentQuiz.length*100);
+  state.quizScore={correct,total:currentQuiz.length,pct};state.completed.quiz=true;saveState();
+  showResults(correct,pct,catStats,wrong);
+  document.getElementById("resultCard").scrollIntoView({behavior:"smooth",block:"center"});
+}
+function showResults(correct,pct,catStats,wrong){
+  const label=pct>=90?"Xuất sắc":pct>=80?"Tốt":pct>=70?"Khá":pct>=60?"Cần ôn thêm":"Nên ôn lại bài 019";
+  document.getElementById("scoreBig").textContent=pct+"%";
+  document.getElementById("scoreLabel").textContent=label;
+  document.getElementById("scoreLine").textContent=`${correct} / ${currentQuiz.length} câu đúng.`;
+  document.getElementById("scoreBars").innerHTML=Object.entries(catStats).map(([cat,s])=>{const p=Math.round(s.c/s.t*100);return `<div class="score-row"><span>${cat}</span><div class="mini-bar"><div class="mini-fill" style="width:${p}%"></div></div><strong>${s.c}/${s.t}</strong></div>`;}).join("");
+  const weak=[...new Set(wrong.map(q=>q.tag))];
+  document.getElementById("weakPoints").innerHTML=weak.length?weak.map(x=>`<span class="review-chip">${x}</span>`).join(""):'<span class="subtle">Không có điểm yếu nổi bật.</span>';
+  document.getElementById("wrongExplanations").innerHTML=wrong.length?wrong.map(q=>`<div class="notice" style="margin:7px 0"><strong>${q.q}</strong><br>${q.ex}</div>`).join(""):'<div class="notice">Bạn không có câu sai.</div>';
+  document.getElementById("resultCard").classList.add("show");
+}
+document.getElementById("submitQuiz").onclick=gradeQuiz;
+document.getElementById("newQuiz").onclick=makeQuiz;
+
+document.getElementById("notesArea").value=state.notes||"";
+document.getElementById("saveNotes").onclick=()=>{
+  state.notes=document.getElementById("notesArea").value;state.completed.notes=!!state.notes.trim();saveState();
+  const el=document.getElementById("notesSaved");el.textContent="✓ Đã lưu.";setTimeout(()=>el.textContent="",1500);
+};
+function renderChecklist(){
+  document.getElementById("checklist").innerHTML=checklistItems.map((txt,i)=>`<label class="checkline"><input type="checkbox" data-i="${i}" ${state.checklist[i]?"checked":""}> <span>${txt}</span></label>`).join("");
+  document.querySelectorAll("#checklist input").forEach(cb=>cb.addEventListener("change",e=>{state.checklist[e.target.dataset.i]=e.target.checked;saveState();}));
+}
+document.getElementById("resetActivities").onclick=()=>{
+  state.completed={};state.wrongTags=[];state.quizScore=null;saveState();
+  initRecognition();initConcept();initReading();renderSentenceGrids();buildMatch();makeQuiz();
+  alert("Đã làm mới bài tập. Ghi chú và checklist vẫn được giữ.");
+};
+document.getElementById("clearAll").onclick=()=>{
+  if(!confirm("Bạn có chắc muốn xóa toàn bộ kết quả của bài ôn tập này?"))return;
+  localStorage.removeItem(LESSON_KEY);state=defaultState();saveState();
+  document.getElementById("notesArea").value="";
+  initRecognition();initConcept();initReading();renderSentenceGrids();buildMatch();renderChecklist();makeQuiz();
+  alert("Đã xóa toàn bộ tiến độ.");
+};
+function init(){
+  initRecognition();initConcept();initReading();renderSentenceGrids();buildMatch();renderChecklist();makeQuiz();updateProgress();
+}
+init();
+</script>
+</body>
+</html>
