@@ -44,6 +44,7 @@ Mỗi nhóm kiểm tra một kỹ năng khác nhau. Không có nhóm nào chép 
 | Đảo chiều | Chọn Kana từ romaji | 5 | Kiểm tra nhớ mặt chữ, không dựa vào thứ tự bảng |
 | `ぬ / ね` | Trắc nghiệm theo đặc điểm và từ | 6 | Nhìn hình, hoàn chỉnh từ, sửa lỗi |
 | Từ vựng | Thẻ từ và câu hỏi biến đổi | 7 | Đọc, hiểu nghĩa và nhận diện ký tự |
+| Nhìn ảnh | Ảnh → chọn từ Hiragana | 7 | Liên kết hình ảnh với đúng từ, mỗi từ một lượt |
 | Sokuon | Trắc nghiệm về `っ` | 4 | Giữ đúng nhịp `なっとう` |
 | Ngữ pháp | Chọn đáp án theo ngữ cảnh | 6 | Phân biệt vai trò cơ bản của `な` và `の` |
 | Sửa lỗi | Tìm và sửa nhận định sai | 8 | Củng cố bằng lỗi thực tế |
