@@ -84,7 +84,8 @@
   .flash-main{font-size:clamp(5rem,12vw,8rem);font-family:"Noto Sans JP",sans-serif;line-height:1}
   .flash-sub{font-size:1.2rem}
   .flash-kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800}
-  .flash-image{width:min(230px,72%);height:150px;object-fit:contain;border-radius:16px;background:#fff;border:1px solid #eaded4;margin-bottom:12px}
+  .flash-image{width:min(260px,76%);height:165px;object-fit:cover;border-radius:16px;background:#fff;border:1px solid #eaded4;margin-bottom:12px}
+  .flash-image.contain{object-fit:contain;padding:8px}
   .flash-example{margin:.75rem 0 0;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.75);font-size:.9rem;text-align:center}
   .flash-list-panel{border:1px solid var(--line);border-radius:18px;background:#fff;padding:14px;position:sticky;top:70px}
   .flash-list-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:10px}
@@ -109,7 +110,18 @@
   .practice-question p{margin:.35rem 0 .7rem}.practice-question .options{margin:0}
   .option-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
   .practice-input{width:100%;border:1px solid #cfc6be;border-radius:10px;padding:10px 12px;background:#fff;font-size:1rem}
-  .question-image{display:block;width:100%;max-width:260px;height:130px;object-fit:contain;border:1px solid var(--line);border-radius:12px;background:#faf5ef;margin:8px 0}
+  .question-image{display:block;width:100%;max-width:320px;height:180px;object-fit:cover;border:1px solid var(--line);border-radius:12px;background:#faf5ef;margin:8px 0}
+  .question-image.contain{object-fit:contain;padding:8px}
+  .vocab-thumb{width:118px;height:82px;object-fit:cover;border:1px solid var(--line);border-radius:11px;background:#faf5ef;display:block}
+  .vocab-thumb.contain{object-fit:contain;padding:6px}
+  .vocab-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+  .vocab-visual-card{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column;min-width:0}
+  .vocab-visual-card img{width:100%;height:180px;object-fit:cover;background:#faf5ef}
+  .vocab-visual-card img.contain{object-fit:contain;padding:12px}
+  .vocab-visual-body{padding:13px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .vocab-visual-kana{font-family:"Noto Sans JP",sans-serif;font-size:1.75rem;font-weight:800}
+  .vocab-source{font-size:.76rem;color:var(--muted);margin-top:auto}
+  .vocab-source a{font-weight:700}
   .question-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
   .answer-hint{font-size:.82rem;color:var(--muted)}
   .practice-summary{margin-top:15px;padding:12px 14px;border-radius:12px;background:#f8f1e8;border:1px solid #e4d7ca}
@@ -179,12 +191,14 @@
   .sheet-note{margin:14px 0 0;color:#6b6b6b;font-size:.82rem}
   @media (max-width:900px){
     .hero-grid,.canvas-shell,.media-card,.flash-layout{grid-template-columns:1fr}
+    .vocab-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
     .kana-grid{grid-template-columns:repeat(3,1fr)}
     .flash-list-panel{position:static}.flash-list{grid-template-columns:repeat(2,minmax(0,1fr));max-height:none}
     .compare3{grid-template-columns:1fr}
   }
   @media (max-width:720px){
     .goal-grid,.practice-grid,.compare,.practice-question-grid{grid-template-columns:1fr}
+    .vocab-gallery{grid-template-columns:1fr}
     .kana-grid{grid-template-columns:repeat(2,1fr)}
     section{padding:18px}
     .hero{padding-top:25px}
@@ -357,20 +371,13 @@
   <p>Đọc theo mora trước khi nhìn Romaji, ví dụ <code class="kana">はなび</code> = ha-na-bi.</p>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Hiragana</th><th class="romaji">Romaji</th><th>Nghĩa</th><th>Nghe</th></tr></thead>
+      <thead><tr><th>Hiragana</th><th class="romaji">Romaji</th><th>Nghĩa</th><th>Ảnh minh họa</th><th>Nghe</th></tr></thead>
       <tbody id="wordRows"></tbody>
     </table>
   </div>
-  <div class="media-card" style="margin-top:18px">
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cherry%20blossoms%20Kyoto%20(cropped).jpg?width=1000" alt="Hoa anh đào minh họa cho từ はな — hoa" loading="lazy" />
-    <div class="media-content">
-      <div class="eyebrow">Từ trực quan</div>
-      <h3 style="font-size:2rem;margin:.2rem 0"><ruby>はな<rt>hana</rt></ruby> — hoa</h3>
-      <p>Nhận diện <strong>は + な</strong> trước khi đọc Romaji. Từ này cũng là gốc của <strong>はなび</strong> (pháo hoa) khi thêm dakuten vào <strong>ひ</strong>.</p>
-      <button class="btn" onclick="speakJapanese('はな')">🔊 Phát âm はな</button>
-      <p class="credit">Ảnh minh họa: Wikimedia Commons, "Cherry blossoms Kyoto".</p>
-    </div>
-  </div>
+  <h3 style="margin-top:18px">Bộ ảnh minh họa 7 từ mới</h3>
+  <p class="subtle">Mỗi từ có một ảnh thật/ảnh minh họa riêng. Nhấn <strong>Nguồn ảnh</strong> để mở trang Wikimedia Commons tương ứng. Với <code class="kana">はし</code>, ảnh đang minh họa nghĩa <strong>đũa</strong>; từ này cũng có thể mang nghĩa <strong>cầu</strong> tùy ngữ cảnh.</p>
+  <div class="vocab-gallery" id="vocabGallery"></div>
   <div class="callout" style="margin-top:16px"><strong>Cụm luyện đọc:</strong> <span lang="ja" style="font-size:1.4rem">ひびき</span> <span class="romaji">(hibiki)</span> — "âm vang". Đọc theo mora <code class="kana">hi-bi-ki</code>, chú ý mora thứ hai đã đổi từ ひ sang び.</div>
 </section>
 
@@ -539,15 +546,15 @@ const handakutenPairs = [
   {base:"ほ",der:"ぽ",baseR:"ho",derR:"po"}
 ];
 const words = [
-  {kana:"はな",romaji:"hana",vi:"hoa",example:"はな = hoa",symbol:"✿",color:"#f6c9d6"},
-  {kana:"ひざ",romaji:"hiza",vi:"đầu gối",example:"ひざ = đầu gối",symbol:"●",color:"#d8e8ff"},
-  {kana:"はし",romaji:"hashi",vi:"đũa / cầu (tùy ngữ cảnh)",example:"はし = đũa hoặc cầu",symbol:"॥",color:"#f6dfb5"},
-  {kana:"ふしぎ",romaji:"fushigi",vi:"kỳ lạ, bí ẩn",example:"ふしぎ = kỳ lạ",symbol:"?",color:"#d9c9f0"},
-  {kana:"はなび",romaji:"hanabi",vi:"pháo hoa",example:"はなび = pháo hoa (花火)",symbol:"✦",color:"#ffd9a0"},
-  {kana:"ひも",romaji:"himo",vi:"dây",example:"ひも = dây",symbol:"〰",color:"#d9f0d0"},
-  {kana:"ひびき",romaji:"hibiki",vi:"âm vang, sự cộng hưởng",example:"ひびき = âm vang",symbol:"♪",color:"#c8e6cb"}
+  {kana:"はな",romaji:"hana",vi:"hoa",example:"はな = hoa",symbol:"✿",color:"#f6c9d6",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Lavender%20Flower%20Closeup.jpg?width=900",imageAlt:"Một bông hoa oải hương chụp cận cảnh",imageFit:"cover",source:"https://commons.wikimedia.org/wiki/File:Lavender_Flower_Closeup.jpg",credit:"Tyler C. · CC0 / Wikimedia Commons"},
+  {kana:"ひざ",romaji:"hiza",vi:"đầu gối",example:"ひざ = đầu gối",symbol:"●",color:"#d8e8ff",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Human%20Knee%20Anatomy.jpg?width=900",imageAlt:"Hình minh họa giải phẫu đầu gối người",imageFit:"contain",source:"https://commons.wikimedia.org/wiki/File:Human_Knee_Anatomy.jpg",credit:"Kari Stammen · Public domain / Wikimedia Commons"},
+  {kana:"はし",romaji:"hashi",vi:"đũa / cầu (tùy ngữ cảnh)",example:"はし = đũa; cũng có thể là cầu tùy ngữ cảnh",symbol:"॥",color:"#f6dfb5",image:"https://commons.wikimedia.org/wiki/Special:FilePath/East-asian-chopsticks.jpg?width=900",imageAlt:"Các đôi đũa Đông Á",imageFit:"cover",source:"https://commons.wikimedia.org/wiki/File:East-asian-chopsticks.jpg",credit:"WolfgangMichel · CC0 / Wikimedia Commons"},
+  {kana:"ふしぎ",romaji:"fushigi",vi:"kỳ lạ, bí ẩn",example:"ふしぎ = kỳ lạ, bí ẩn",symbol:"?",color:"#d9c9f0",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Questionmark.svg?width=700",imageAlt:"Dấu hỏi tượng trưng cho điều bí ẩn hoặc khó hiểu",imageFit:"contain",source:"https://commons.wikimedia.org/wiki/File:Questionmark.svg",credit:"Public domain / Wikimedia Commons"},
+  {kana:"はなび",romaji:"hanabi",vi:"pháo hoa",example:"はなび = pháo hoa (花火)",symbol:"✦",color:"#ffd9a0",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Fireworks%20at%20night%20in%20town.jpg?width=900",imageAlt:"Pháo hoa nổ trên bầu trời ban đêm",imageFit:"cover",source:"https://commons.wikimedia.org/wiki/File:Fireworks_at_night_in_town.jpg",credit:"Public domain / Wikimedia Commons"},
+  {kana:"ひも",romaji:"himo",vi:"dây",example:"ひも = dây",symbol:"〰",color:"#d9f0d0",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Rope.jpg?width=700",imageAlt:"Các cuộn dây thừng",imageFit:"cover",source:"https://commons.wikimedia.org/wiki/File:Rope.jpg",credit:"William B. Folsom, NMFS/NOAA · Public domain"},
+  {kana:"ひびき",romaji:"hibiki",vi:"âm vang, sự cộng hưởng",example:"ひびき = âm vang, sự cộng hưởng",symbol:"♪",color:"#c8e6cb",image:"https://commons.wikimedia.org/wiki/Special:FilePath/Sound%20wavefronts%20illustration.PNG?width=900",imageAlt:"Minh họa các mặt sóng âm và sự phản xạ",imageFit:"contain",source:"https://commons.wikimedia.org/wiki/File:Sound_wavefronts_illustration.PNG",credit:"Robert W. Wood · Public domain / Wikimedia Commons"}
 ];
-const activityIds = ["flashcards","practice-recognition","practice-reverse","practice-conversion","practice-particles","practice-vocab","practice-listening","writing","sheet","quiz"];
+const activityIds = ["flashcards","practice-recognition","practice-reverse","practice-conversion","practice-particles","practice-vocab","practice-image","practice-listening","writing","sheet","quiz"];
 const checklistItems = [
   "Tôi nhận diện được は・ひ・ふ・へ・ほ.",
   "Tôi đọc đúng ha–hi–fu–he–ho.",
@@ -559,6 +566,7 @@ const checklistItems = [
   "Tôi biết は đọc là wa khi làm topic particle.",
   "Tôi biết へ đọc là e khi làm directional particle.",
   "Tôi đọc được 7 từ vựng của bài, kể cả từ có dakuten.",
+  "Tôi nhìn ảnh và chọn đúng Hiragana cho cả 7 từ mới.",
   "Tôi đã luyện viết mỗi ký tự hàng H ít nhất một lượt.",
   "Tôi đã hoàn thành một lượt sheet luyện viết."
 ];
@@ -611,8 +619,23 @@ function renderTables(){
 }
 function renderWords(){
   document.getElementById("wordRows").innerHTML=words.map(w=>`
-    <tr><td style="font-size:1.35rem" lang="ja">${w.kana}</td><td class="romaji">${w.romaji}</td><td>${w.vi}</td>
-    <td><button class="speaker" onclick="speakJapanese('${w.kana}')">🔊</button> <button class="speaker" onclick="toggleReviewWord('${w.kana}')">☆</button></td></tr>`).join("");
+    <tr>
+      <td style="font-size:1.35rem" lang="ja">${w.kana}</td>
+      <td class="romaji">${w.romaji}</td>
+      <td>${w.vi}</td>
+      <td><img class="vocab-thumb ${w.imageFit==="contain"?"contain":""}" src="${w.image}" alt="${escapeHtml(w.imageAlt)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=makeIllustration(words.find(x=>x.kana==='${w.kana}'))" /></td>
+      <td><button class="speaker" onclick="speakJapanese('${w.kana}')">🔊</button> <button class="speaker" onclick="toggleReviewWord('${w.kana}')">☆</button></td>
+    </tr>`).join("");
+  document.getElementById("vocabGallery").innerHTML=words.map(w=>`
+    <article class="vocab-visual-card">
+      <img class="${w.imageFit==="contain"?"contain":""}" src="${w.image}" alt="${escapeHtml(w.imageAlt)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=makeIllustration(words.find(x=>x.kana==='${w.kana}'))" />
+      <div class="vocab-visual-body">
+        <div class="vocab-visual-kana" lang="ja">${w.kana}</div>
+        <div><span class="romaji"><strong>${w.romaji}</strong> · </span>${w.vi}</div>
+        <button class="btn" type="button" onclick="speakJapanese('${w.kana}')">🔊 Nghe ${w.kana}</button>
+        <div class="vocab-source">${w.credit}<br><a href="${w.source}" target="_blank" rel="noopener noreferrer">Nguồn ảnh ↗</a></div>
+      </div>
+    </article>`).join("");
   document.getElementById("reviewWordsCore").innerHTML=words.map(w=>`<span class="word-pill"><b lang="ja">${w.kana}</b> <span class="romaji">${w.romaji}</span> · ${w.vi}</span>`).join("");
 }
 function setRomajiVisibility(){
@@ -670,8 +693,11 @@ function renderFlash(){
   document.getElementById("flashBackKana").textContent=w.kana;
   document.getElementById("flashBackRomaji").textContent=w.romaji;
   document.getElementById("flashBackMeaning").textContent=w.vi;
-  document.getElementById("flashBackImage").src=makeIllustration(w);
-  document.getElementById("flashBackImage").alt=`Minh họa: ${w.vi}`;
+  const flashImg=document.getElementById("flashBackImage");
+  flashImg.onerror=()=>{flashImg.onerror=null;flashImg.src=makeIllustration(w);};
+  flashImg.src=w.image||makeIllustration(w);
+  flashImg.classList.toggle("contain",w.imageFit==="contain");
+  flashImg.alt=w.imageAlt||`Minh họa: ${w.vi}`;
   document.getElementById("flashBackExample").textContent=w.example;
   document.getElementById("flashFrontKicker").textContent=`Hiragana · thẻ ${flashIndex+1}/${words.length}`;
   document.getElementById("flashIndexLabel").textContent=`Thẻ ${flashIndex+1} / ${words.length} · ${w.romaji}`;
@@ -722,12 +748,22 @@ const practiceSets=[
     {id:"part-4",type:"mc",prompt:"Particle nào dùng để đánh dấu chủ đề của câu?",options:["は (wa)","へ (e)","を","が"],answer:"は (wa)",explain:"は là topic particle, đọc wa khi giữ vai trò này.",tag:"part-topic"}
   ]},
   {key:"vocab",tab:"Từ vựng",title:"Từ vựng và nghĩa",desc:"Gắn từ với nghĩa; mỗi từ chỉ hỏi một lần.",questions:[
-    {id:"vocab-hana",type:"mc",prompt:"「はな」nghĩa là gì?",options:["hoa","đầu gối","dây","kỳ lạ"],answer:"hoa",explain:"はな (hana) = hoa.",tag:"vocab-hana",visual:"はな"},
+    {id:"vocab-hana",type:"mc",prompt:"「はな」nghĩa là gì?",options:["hoa","đầu gối","dây","kỳ lạ"],answer:"hoa",explain:"はな (hana) = hoa.",tag:"vocab-hana"},
     {id:"vocab-hiza",type:"mc",prompt:"Từ nào có nghĩa 'đầu gối'?",options:["ひざ","はし","ひも","ひびき"],answer:"ひざ",explain:"ひざ (hiza) = đầu gối.",tag:"vocab-hiza"},
+    {id:"vocab-hashi",type:"mc",prompt:"Trong bài này, từ nào được minh họa với nghĩa 'đũa'?",options:["はし","ひざ","ひも","はな"],answer:"はし",explain:"はし (hashi) có thể nghĩa là đũa; cũng có thể nghĩa là cầu tùy ngữ cảnh.",tag:"vocab-hashi"},
     {id:"vocab-fushigi",type:"mc",prompt:"「ふしぎ」nghĩa là gì?",options:["kỳ lạ, bí ẩn","pháo hoa","dây","đũa"],answer:"kỳ lạ, bí ẩn",explain:"ふしぎ (fushigi) = kỳ lạ, bí ẩn.",tag:"vocab-fushigi"},
-    {id:"vocab-hanabi",type:"mc",prompt:"Từ nào có nghĩa 'pháo hoa'?",options:["はなび","はな","ひも","はし"],answer:"はなび",explain:"はなび (hanabi) = pháo hoa.",tag:"vocab-hanabi",visual:"はなび"},
+    {id:"vocab-hanabi",type:"mc",prompt:"Từ nào có nghĩa 'pháo hoa'?",options:["はなび","はな","ひも","はし"],answer:"はなび",explain:"はなび (hanabi) = pháo hoa.",tag:"vocab-hanabi"},
     {id:"vocab-himo",type:"mc",prompt:"「ひも」nghĩa là gì?",options:["dây","âm vang","đầu gối","hoa"],answer:"dây",explain:"ひも (himo) = dây.",tag:"vocab-himo"},
     {id:"vocab-hibiki",type:"mc",prompt:"Từ nào có nghĩa 'âm vang, sự cộng hưởng'?",options:["ひびき","はし","ふしぎ","ひざ"],answer:"ひびき",explain:"ひびき (hibiki) = âm vang.",tag:"vocab-hibiki"}
+  ]},
+  {key:"image",tab:"Nhìn ảnh → Hiragana",title:"Nhìn ảnh và chọn từ Hiragana",desc:"Quan sát hình, nhớ nghĩa rồi chọn đúng mặt chữ Hiragana. Dạng này bao phủ đủ cả 7 từ mới của bài.",questions:[
+    {id:"img-hana",type:"mc",prompt:"Hình này tương ứng với từ Hiragana nào?",visual:"はな",word:"はな",options:["はな","はなび","ひざ","ひも"],answer:"はな",explain:"Ảnh hoa → はな (hana).",tag:"vocab-hana"},
+    {id:"img-hiza",type:"mc",prompt:"Hình này tương ứng với từ Hiragana nào?",visual:"ひざ",word:"ひざ",options:["ひざ","はし","ひも","ひびき"],answer:"ひざ",explain:"Ảnh đầu gối → ひざ (hiza).",tag:"vocab-hiza"},
+    {id:"img-hashi",type:"mc",prompt:"Hình này đang minh họa nghĩa 'đũa'. Chọn Hiragana đúng.",visual:"はし",word:"はし",options:["はし","はな","ひざ","ひも"],answer:"はし",explain:"Đũa → はし (hashi). Lưu ý はし cũng có thể nghĩa là cầu tùy ngữ cảnh.",tag:"vocab-hashi"},
+    {id:"img-fushigi",type:"mc",prompt:"Hình tượng trưng cho điều kỳ lạ/bí ẩn tương ứng với từ nào?",visual:"ふしぎ",word:"ふしぎ",options:["ふしぎ","ひびき","はなび","ひざ"],answer:"ふしぎ",explain:"Kỳ lạ, bí ẩn → ふしぎ (fushigi).",tag:"vocab-fushigi"},
+    {id:"img-hanabi",type:"mc",prompt:"Hình này tương ứng với từ Hiragana nào?",visual:"はなび",word:"はなび",options:["はなび","はな","ひびき","はし"],answer:"はなび",explain:"Pháo hoa → はなび (hanabi).",tag:"vocab-hanabi"},
+    {id:"img-himo",type:"mc",prompt:"Hình này tương ứng với từ Hiragana nào?",visual:"ひも",word:"ひも",options:["ひも","ひざ","はし","はな"],answer:"ひも",explain:"Dây → ひも (himo).",tag:"vocab-himo"},
+    {id:"img-hibiki",type:"mc",prompt:"Hình sóng âm này gợi từ Hiragana nào?",visual:"ひびき",word:"ひびき",options:["ひびき","ふしぎ","ひも","はなび"],answer:"ひびき",explain:"Âm vang/sự cộng hưởng → ひびき (hibiki).",tag:"vocab-hibiki"}
   ]},
   {key:"listening",tab:"Nghe & chọn",title:"Nghe và chọn",desc:"Nhấn loa, nghe rồi chọn đúng từ đã nghe.",questions:[
     {id:"listen-hana",type:"listen",prompt:"Bạn nghe thấy từ nào?",speak:"はな",options:["はな","はし","ひざ","ひも"],answer:"はな",explain:"はな (hana) = hoa.",tag:"listen-hana",word:"はな"},
@@ -738,7 +774,8 @@ const practiceSets=[
 ];
 function escapeHtml(value){return String(value).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");}
 function renderPracticeQuestion(q,index){
-  const visual=q.visual?`<img class="question-image" src="${makeIllustration(words.find(w=>w.kana===q.visual))}" alt="Minh họa cho ${escapeHtml(q.visual)}" />`:"";
+  const vw=q.visual?words.find(w=>w.kana===q.visual):null;
+  const visual=vw?`<img class="question-image ${vw.imageFit==="contain"?"contain":""}" src="${vw.image}" alt="${escapeHtml(vw.imageAlt)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=makeIllustration(words.find(w=>w.kana==='${vw.kana}'))" />`:"";
   const listen=q.type==="listen"?`<button type="button" class="btn" data-speak="${escapeHtml(q.speak)}">🔊 Nghe lại</button>`:"";
   const answerArea=q.type==="mc"||q.type==="listen"
     ?`<div class="option-grid">${shuffle([...q.options]).map(option=>`<button type="button" class="option" data-value="${escapeHtml(option)}">${option}</button>`).join("")}</div>`
@@ -810,6 +847,7 @@ const retryBank={
   "part-nonparticle":{prompt:"はな — は ở đây đọc là gì?",answer:"ha",options:["ha","wa"],explain:"は trong từ はな không phải particle, vẫn đọc ha."},
   "vocab-hana":{prompt:"はな nghĩa là gì?",answer:"hoa",options:["hoa","dây","đầu gối","kỳ lạ"],explain:"はな = hoa."},
   "vocab-hiza":{prompt:"Từ nào nghĩa đầu gối?",answer:"ひざ",options:["ひざ","はし","ひも","ふしぎ"],explain:"ひざ = đầu gối."},
+  "vocab-hashi":{prompt:"Từ nào trong bài có nghĩa đũa?",answer:"はし",options:["はし","ひざ","ひも","はな"],explain:"はし = đũa trong ngữ cảnh minh họa của bài; cũng có thể nghĩa là cầu."},
   "vocab-fushigi":{prompt:"ふしぎ nghĩa là gì?",answer:"kỳ lạ, bí ẩn",options:["kỳ lạ, bí ẩn","pháo hoa","dây","hoa"],explain:"ふしぎ = kỳ lạ."},
   "vocab-hanabi":{prompt:"Từ nào nghĩa pháo hoa?",answer:"はなび",options:["はなび","はな","ひも","はし"],explain:"はなび = pháo hoa."},
   "vocab-himo":{prompt:"ひも nghĩa là gì?",answer:"dây",options:["dây","âm vang","hoa","đầu gối"],explain:"ひも = dây."},

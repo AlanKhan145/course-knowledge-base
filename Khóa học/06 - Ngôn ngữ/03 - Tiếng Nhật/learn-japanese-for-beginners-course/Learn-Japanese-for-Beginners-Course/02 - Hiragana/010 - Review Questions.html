@@ -58,7 +58,7 @@ main{padding:25px 0 70px}section{scroll-margin-top:72px;background:var(--paper);
 </main>
 <footer><div class="wrap">Bài 010 · Review Questions · Hàng N trong Hiragana</div></footer>
 <script>
-const $=id=>document.getElementById(id), $$=(sel,root=document)=>[...root.querySelectorAll(sel)];
+const $=(sel,root=document)=>root===document?document.getElementById(sel):root.querySelector(sel), $$=(sel,root=document)=>[...root.querySelectorAll(sel)];
 const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b};
 const norm=s=>(s??'').toString().trim().toLowerCase().replace(/\s+/g,' ');
 const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
