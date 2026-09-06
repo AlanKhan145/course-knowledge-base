@@ -1,0 +1,132 @@
+# Tài liệu tham khảo của chương gốc
+
+> Danh mục dưới đây được trích từ phần References của PDF. Một số lỗi nối dòng/ligature do text extraction đã được làm sạch ở mức tối thiểu.
+
+- Aleev, Y. G. (1977). ‘‘Nekton.’’ Junk Publishers, The Hague.
+- Anderson, E. J., McGillis, W. R., and Grosenbaugh, M. A. (2000). The boundary layer of swimming fish. J. Exp. Biol. 204, 81–102.
+- Anderson, J. (1996). Vorticity control for efficient propulsion. Ph.D. thesis, MIT/WHOI 96–02.
+- Anderson, J. M., and Chhabra, N. (2002). Maneuvering and stability performance of a robotic tuna. Integr. Comp. Biol. 42, 118–126.
+- Anderson, J. M., Streitlein, K., Barrett, D., and Triantafyllou, G. S. (1998). Oscillating foils of high propulsive efficiency. J. Fluid Mech. 360, 41–72.
+- Arnold, G. P., Webb, P. W., and Holford, B. H. (1991). The role of the pectoral fins in station-holding of Atlantic salmon parr (Salmo salar L.). J. Exp. Biol. 156, 625–629.
+- Arreola, V., and Westneat, M. W. (1997). Mechanics of propulsion by multiple fins: Kinematics of aquatic locomotion in the burrfish (Chilomycterus schoepfi). Phil. Trans. Roy. Soc. Lond. B 263, 1689–1696.
+- Barrett, D., Triantafyllou, M. S., Yue, D. K. P., Grosenbaugh, M. A., and Wolfgang, M. J. (1999). Drag reduction in fish‐like locomotion. J. Fluid Mech. 392, 183–212.
+- Batchelor, G. K. (1973). ‘‘An Introduction to Fluid Mechanics.’’ Cambridge Univ. Press, Cambridge, UK.
+- Blake, R. W. (1983). ‘‘Fish Locomotion.’’ Cambridge Univ. Press, Cambridge, UK.
+- Bone, Q. (1978). Locomotor muscle. In ‘‘Fish Physiology. Vol. VII. Locomotion’’ (Hoar, W. S., and Randall, D. J., Eds.), pp. 361–424. Academic Press, New York.
+- Breder, C. M. (1926). The locomotion of fishes. Zoologica N. Y. 4, 159–256.
+- Carling, J. C., Williams, T. L., and Bowtell, G. (1998). Self‐propelled anguilliform swimming: Simultaneous solution of the two‐dimensional Navier‐Stokes equations and Newton’s laws of motion. J. Exp. Biol. 201, 3143–3166.
+- Castro‐Santos, T. (2004). Quantifying the combined effects of attempt rate and swimming capacity on passage through velocity barriers. Can. J. Fish. Aq. Sci. 61, 1602–1615.
+- Castro‐Santos, T. (2005). Optimal swim speeds for traversing velocity barriers: An analysis of volitional high‐speed swimming behavior of migratory fishes. J. Exp. Biol. 208, 421–432.
+- Childress, S. (1981). ‘‘Mechanics of Flying and Swimming.’’ Cambridge Univ. Press, Cambridge, UK.
+- Cortez, R., Fauci, L., Cowen, N., and Dillon, R. (2004). Simulation of swimming organisms: Coupling internal mechanics with external fluid dynamics. Comp. Sci. Eng. 6, 38–45.
+- Daniel, T. L. (1984). Unsteady aspects of aquatic locomotion. Amer. Zool. 24, 121–134.
+- Daniel, T. L., and Webb, P. W. (1987). Physics, design and locomotor performance. In ‘‘Comparative Physiology: Life in Water and on Land’’ (Dejours, P., Bolis, L., Taylor, C. R., and Weibel, E. R., Eds.), pp. 343–369. Liviana Press, Springer Verlag, New York.
+- Denny, M. W. (1993). ‘‘Air and Water. The Biology and Physics of Life’s Media.’’ Princeton Univ. Press, Princeton, NJ.
+- Dewar, H., and Graham, J. B. (1994). Studies of tropical tuna swimming performance in a large water tunnel. III. Kinematics. J. Exp. Biol. 192, 45–59.
+- Donley, J., and Dickson, K. A. (2000). Swimming kinematics of juvenile Kawakawa tuna (Euthynnus affinis) and chub mackerel (Scomber japonicus). J. Exp. Biol. 203, 3103–3116.
+- Donley, J., and Shadwick, R. (2003). Steady swimming muscle dynamics in the leopard shark Triakis semifasciata. J. Exp. Biol. 206, 1117–1126.
+- Drucker, E. G., and Lauder, G. V. (2000). A hydrodynamic analysis of fish swimming speed: Wake structure and locomotor force in slow and fast labriform swimmers. J. Exp. Biol. 203, 2379–2393.
+- Drucker, E. G., and Lauder, G. V. (2001a). Locomotor function of the dorsal fin in teleost fishes: Experimental analysis of wake forces in sunfish. J. Exp. Biol. 204, 2943–2958.
+- Drucker, E. G., and Lauder, G. V. (2001b). Wake dynamics and fluid forces of turning maneuvers in sunfish. J. Exp. Biol. 204, 431–442.
+- Ekeberg, Ö. (1993). A combined neuronal and mechanical model of fish swimming. Biol. Cybernet. 69, 363–374.
+- Ekeberg, Ö., and Grillner, S. (1999). Simulations of neuromuscular control in lamprey swimming. Phil. Trans. Roy. Soc. Lond. B 354, 895–902.
+- Faber, T. E. (1995). ‘‘Fluid Dynamics for Physicists.’’ Cambridge Univ. Press, Cambridge, UK.
+- Fauci, L. J., and Peskin, C. S. (1988). A computational model of aquatic animal locomotion. J. Comp. Phys. 77, 85–108.
+- Ferry, L. A., and Lauder, G. V. (1996). Heterocercal tail function in leopard sharks: A three-dimensional kinematic analysis of two models. J. Exp. Biol. 199, 2253–2268.
+- Fish, F., and Lauder, G. V. (2005). Passive and active flow control by swimming fishes and mammals. Ann. Rev. Fluid Mech. 38, 193–224.
+- Geerlink, P. J., and Videler, J. (1974). Joints and muscles of the dorsal fin of Tilapia nilotica L. (Fam. Cichlidae). Neth. J. Zool. 24, 279–290.
+- Gerstner, C. L., and Webb, P. W. (1998). The station‐holding performance of the plaice Pleuronectes platessa on artificial substratum ripples. Can. J. Zool. 76, 260–268.
+- Gillis, G. B. (1996). Undulatory locomotion in elongate aquatic vertebrates: Anguilliform swimming since Sir. James Gray. Amer. Zool. 36, 656–665.
+- Gillis, G. B. (1998). Environmental effects on undulatory locomotion in the American eel Anguilla rostrata: Kinematics in water and on land. J. Exp. Biol. 201, 949–961.
+- Gopalkrishnan, R., Triantafyllou, M. S., Triantafyllou, G. S., and Barrett, D. (1994). Active vorticity control in a shear flow using a flapping foil. J. Fluid Mech. 274, 1–21.
+- Gosline, W. A. (1971). ‘‘Functional Morphology and Classification of Teleostean Fishes.’’ Univ. of Hawaii Press, Honolulu, HI.
+- Graham, J. B., and Dickson, K. A. (2004). Tuna comparative physiology. J. Exp. Biol. 207, 4015–4024.
+- Gray, J. (1933). Studies in animal locomotion. I. The movement of fish with special reference to the eel. J. Exp. Biol. 10, 88–104.
+- Gray, J. (1936). Studies in animal locomotion. VI. The propulsive powers of the dolphin. J. Exp. Biol. 13, 170–199.
+- Grillner, S. (2003). The motor infrastructure: From ion channels to neuronal networks. Nat. Rev. Neurosci. 4, 573–586.
+- Haro, A., Castro‐Santos, T., Noreika, J., and Odeh, M. (2004). Swimming performance of upstream migrant fishes in open‐channel flow: A new approach to predicting passage through velocity barriers. Can. J. Fish. Aq. Sci. 61, 1590–1601.
+- He, P., and Wardle, C. S. (1986). Tilting behavior of the Atlantic mackerel, Scomber scombrus, at low swimming speeds. J. Fish. Biol. 29, 223–232.
+- Hertel, H. (1966). ‘‘Structure, Form and Movement.’’ Reinhold, New York, NY.
+- Hess, F., and Videler, J. J. (1984). Fast continuous swimming of saithe (Pollachius virens): A dynamic analysis of bending moments and muscle power. J. Exp. Biol. 109, 229–251.
+- Horton, J. M., Drucker, E., and Summers, A. (2003). Swiftly swimming fish show evidence of stiff spines. Integ. Comp. Biol. 43, 905.
+- Hove, J. R., O’Bryan, L. M., Gordon, M. S., Webb, P. W., and Weihs, D. (2001). Boxfishes (Teleostei: Ostraciidae) as a model system for fishes swimming with many fins: Kinematics. J. Exp. Biol. 204, 1459–1471.
+- Hover, F. S., Haugsdal, O., and Triantafyllou, M. S. (2004). Effect of angle of attack profiles in flapping foil propulsion. J. Fluids Struct. 19, 37–47.
+- Hover, F. S., Techet, A. H., and Triantafyllou, M. S. (1998). Forces on oscillating uniform and tapered cylinders in crossflow. J. Fluid Mech. 363, 97–114.
+- Jayne, B. C., and Lauder, G. V. (1995). Speed effects on midline kinematics during steady undulatory swimming of largemouth bass, Micropterus salmoides. J. Exp. Biol. 198, 585–602.
+- Jayne, B. C., Lozada, A., and Lauder, G. V. (1996). Function of the dorsal fin in bluegill sunfish: Motor patterns during four locomotor behaviors. J. Morphol. 228, 307–326.
+- Lauder, G. V. (1982). Structure and function of the caudal skeleton in the pumpkinseed sunfish, Lepomis gibbosus. J. Zool. (Lond.) 197, 483–495.
+- Lauder, G. V. (1989). Caudal fin locomotion in ray‐finned fishes: Historical and functional analyses. Amer. Zool. 29, 85–102.
+- Lauder, G. V. (2000). Function of the caudal fin during locomotion in fishes: Kinematics, flow visualization, and evolutionary patterns. Amer. Zool. 40, 101–122.
+- Lauder, G. V. (2005). Locomotion. In ‘‘The Physiology of Fishes’’ (Evans, D. H., and Claiborne, J. B., Eds.). pp. 3–46. 3rd edn, CRC Press, Boca Raton, FL.
+- Lauder, G. V., and Drucker, E. (2002). Forces, fishes, and fluids: Hydrodynamic mechanisms of aquatic locomotion. News Physiolog. Sci. 17, 235–240.
+- Lauder, G. V., and Drucker, E. G. (2004). Morphology and experimental hydrodynamics of fish fin control surfaces. IEEE J. Oceanic Eng. 29, 556–571.
+- Lauder, G. V., Drucker, E. G., Nauen, J., and Wilga, C. D. (2003). Experimental hydrodynamics and evolution: Caudal fin locomotion in fishes. In ‘‘Vertebrate Biomechanics and Evolution’’ (Bels, V., Gasc, J.‐P., and Casinos, A., Eds.), pp. 117–135. Bios Scientific Publishers, Oxford.
+- Lauder, G. V., Nauen, J., and Drucker, E. G. (2002). Experimental hydrodynamics and evolution: Function of median fins in ray‐finned fishes. Integr. Comp. Biol. 42, 1009–1017.
+- Lauder, G. V., and Tytell, E. D. (2004). Three Gray classics on the biomechanics of animal movement. J. Exp. Biol. 207, 1597–1599.
+- Liao, J. (2004). Neuromuscular control of trout swimming in a vortex street: Implications for energy economy during the Karman gait. J. Exp. Biol. 207, 3495–3506.
+- Liao, J., and Lauder, G. V. (2000). Function of the heterocercal tail in white sturgeon: Flow visualization during steady swimming and vertical maneuvering. J. Exp. Biol. 203, 3585–3594.
+- Liao, J., Beal, D. N., Lauder, G. V., and Triantafyllou, M. S. (2003a). Fish exploiting vortices decrease muscle activity. Science 302, 1566–1569.
+- Liao, J., Beal, D. N., Lauder, G. V., and Triantafyllou, M. S. (2003b). The Kármán gait: Novel body kinematics of rainbow trout swimming in a vortex street. J. Exp. Biol. 206, 1059–1073.
+- Lighthill, J. (1960). Note on the swimming of slender fish. J. Fluid Mech. 9, 305–317.
+- Lighthill, J. (1969). Hydromechanics of aquatic animal propulsion: A survey. Ann. Rev. Fluid Mech. 1, 413–446.
+- Lighthill, J. (1970). Aquatic animal propulsion of high hydromechanical efficiency. J. Fluid Mech. 44, 265–301.
+- Lighthill, J. (1971). Large‐amplitude elongated body theory of fish locomotion. Proc. Roy. Soc. Lond. B 179, 125–138.
+- Lindsey, C. C. (1978). Form, function, and locomotory habits in fish. In ‘‘Fish Physiology. Vol. VII. Locomotion’’ (Hoar, W. S., and Randall, D. J., Eds.), pp. 1–100. Academic Press, New York.
+- Liu, H. (2002). Computational biological fluid dynamics: Digitizing and visualizing animal swimming and flying. Integr. Comp. Biol. 42, 1050–1059.
+- Liu, H., Wassersug, R. J., and Kawachi, K. (1996). A computational fluid dynamics study of tadpole swimming. J. Exp. Biol. 199, 1245–1260.
+- Magnuson, J. J. (1978). Locomotion by scombrid fishes: Hydromechanics, morphology, and behavior. In ‘‘Fish Physiology. Vol. VII. Locomotion’’ (Hoar, W. S., and Randall, D. J., Eds.), pp. 239–313. Academic Press, New York.
+- McCutchen, C. W. (1977). Froude propulsive efficiency of a small fish, measured by wake visualization. In ‘‘Scale Effects in Animal Locomotion’’ (Pedley, T. J., Ed.), pp. 339–363. Academic Press, London.
+- McLaughlin, R. L., and Noakes, D. L. G. (1998). Going against the flow: An examination of the propulsive movements made by young brook trout in streams. Can. J. Fish. Aq. Sci. V55, 853–860.
+- Mittal, R. (2004). Computational modeling in biohydrodynamics: Trends, challenges, and recent advances. IEEE J. Oceanic Eng. 29, 595–604.
+- Müller, U. K., Smit, J., Stamhuis, E. J., and Videler, J. J. (2001). How the body contributes to the wake in undulatory fish swimming: Flow fields of a swimming eel (Anguilla anguilla). J. Exp. Biol. 204, 2751–2762.
+- Müller, U. K., Stamhuis, E., and Videler, J. (2002). Riding the waves: The role of the body wave in undulatory fish swimming. Integr. Comp. Biol. 42, 981–987.
+- Müller, U. K., Van den Heuvel, B., Stamhuis, E. J., and Videler, J. J. (1997). Fish foot prints: Morphology and energetics of the wake behind a continuously swimming mullet (Chelon labrosus Risso). J. Exp. Biol. 200, 2893–2906.
+- Murray, M., and Howle, L. E. (2003). Spring stiffness influence of an oscillating propulsor. J. Fluids Struct. 17, 915–926.
+- Nauen, J. C., and Lauder, G. V. (2001). Locomotion in scombrid fishes: Visualization of flow around the caudal peduncle and finlets of the Chub mackerel Scomber japonicus. J. Exp. Biol. 204, 2251–2263.
+- Nauen, J. C., and Lauder, G. V. (2002a). Hydrodynamics of caudal fin locomotion by chub mackerel, Scomber japonicus (Scombridae). J. Exp. Biol. 205, 1709–1724.
+- Nauen, J. C., and Lauder, G. V. (2002b). Quantification of the wake of rainbow trout (Oncorhynchus mykiss) using three‐dimensional stereoscopic digital particle image velocimetry. J. Exp. Biol. 205, 3271–3279.
+- Noca, F., Shiels, D., and Jeon, D. (1999). A comparison of methods for evaluating time-dependent fluid dynamic forces on bodies, using only velocity fields and their derivatives. J. Fluids Struct. 13, 551–578.
+- Pedley, T. J. (1977). ‘‘Scale Effects in Animal Locomotion.’’ Academic Press, London.
+- Raffel, M., Willert, C., and Kompenhans, J. (1998). ‘‘Particle Image Velocimetry: A Practical Guide.’’ Springer‐Verlag, Heidelberg.
+- Read, D. A., Hover, F. S., and Triantafyllou, M. S. (2003). Forces on oscillating foils for propulsion and maneuvering. J. Fluids Struct. 17, 163–183.
+- Rohr, J., and Fish, F. (2004). Strouhal numbers and optimization of swimming by odontocete cetaceans. J. Exp. Biol. 207, 1633–1642.
+- Rosen, M., Spedding, G. R., and Hedenstrom, A. (2004). The relationship between wingbeat kinematics and vortex wake of a thrush nightingale. J. Exp. Biol. 207, 4255–4268.
+- Rosen, M. W. (1959). Water flow about a swimming fish. Naval Ordnance Test Station. Technical Paper. 2298, 1–96.
+- Sakakibara, J., Nakagawa, M., and Yoshida, M. (2004). Stereo‐PIV study of flow around a maneuvering fish. Exp. Fluid 36, 282–293.
+- Schultz, W. W., and Webb, P. W. (2002). Power requirements for swimming: Do new methods resolve old questions? Integr. Comp. Biol. 42, 1018–1025.
+- Standen, E. M., and Lauder, G. V. (2005). Dorsal and anal fin function in bluegill sunfish (Lepomis macrochirus): Three‐dimensional kinematics during propulsion and maneuvering. J. Exp. Biol. 205, 2753–2763.
+- Sutterlin, A. M., and Waddy, S. (1975). Possible role of the posterior lateral line in obstacle entrainment by Brook trout (Salvelinus fontinalis). J. Fish. Res. Bd. Can. 32, 2441–2446.
+- Svendsen, J. C., Koed, A., and Lucas, M. C. (2005). The angle of attack of the body of common bream while swimming at different speeds in a flume tank. J. Fish. Biol. 66, 572–577.
+- Taylor, G. I. (1952). Analysis of the swimming of long and narrow animals. Proc. Roy. Soc. Lond. A 214, 158–183.
+- Taylor, G. K., Nudds, R. L., and Thomas, A. (2003). Flying and swimming animals cruise at a Strouhal number tuned for high power efficiency. Nature 425, 707–711.
+- Triantafyllou, M. S., and Triantafyllou, G. S. (1995). An efficient swimming machine. Sci. Am. 272, 64–70.
+- Triantafyllou, G. S., Triantafyllou, M. S., and Grosenbaugh, M. A. (1993). Optimal thrust development in oscillating foils with application to fish propulsion. J. Fluids Struct. 7, 205–224.
+- Triantafyllou, M. S., Techet, A. H., and Hover, F. S. (2004). Review of experimental work in biomimetic foils. IEEE J. Oceanic Eng. 29, 585–594.
+- Tytell, E. D. (2004a). The hydrodynamics of eel swimming II. Effect of swimming speed. J. Exp. Biol. 207, 3265–3279.
+- Tytell, E. D. (2004b). Kinematics and hydrodynamics of linear acceleration in eels, Anguilla rostrata. Proc. Roy. Soc. Lond. B 271, 2535–2540.
+- Tytell, E. D., and Lauder, G. V. (2004). The hydrodynamics of eel swimming. I. Wake structure. J. Exp. Biol. 207, 1825–1841.
+- Veerman, H. P., and Den Boer, R. (2000). PIV measurements in presence of a large out of plane component. In ‘‘Particle Image Velocimetry. Progress toward Industrial Application’’ (Stanislas, M., Kompenhans, J., and Westerweel, J., Eds.), pp. 217–225. Kluwer Academic, Dordrecht.
+- Videler, J. J. (1993). ‘‘Fish Swimming.’’ Chapman and Hall, New York.
+- Videler, J. J., and Hess, F. (1984). Fast continuous swimming of two pelagic predators, saithe (Pollachius virens) and mackerel (Scomber scombrus): A kinematic analysis. J. Exp. Biol. 109, 209–228.
+- Webb, P. W. (1975). Hydrodynamics and energetics of fish propulsion. Bull. Fish. Res. Bd. Can. 190, 1–159.
+- Webb, P. W. (1978). Hydrodynamics: Nonscombroid fish. In ‘‘Fish Physiology. Vol. VII. Locomotion’’ (Hoar, W. S., and Randall, D. J., Eds.), pp. 189–237. Academic Press, New York.
+- Webb, P. W. (1991). Composition and mechanics of routine swimming of rainbow trout, Oncorhynchus mykiss. Can. J. Fish. Aquat. Sci. 48, 583–590.
+- Webb, P. W. (1993a). Is tilting behavior at low speed swimming unique to negatively buoyant fish? Observations on steelhead trout, Oncorhynchus mykiss, and bluegill, Lepomis macrochirus. J. Fish. Biol. 43, 687–694.
+- Webb, P. W. (1993b). Swimming. In ‘‘The Physiology of Fishes’’ (Evans, D. H., Ed.), pp. 47–73. CRC Press, Boca Raton, FL.
+- Webb, P. W. (1998). Entrainment by river chub Nocomis micropogon and smallmouth bass Micropterus dolomieu on cylinders. J. Exp. Biol. 201, 2403–2412.
+- Webb, P. W., and Blake, R. W. (1985). Swimming. In ‘‘Functional Vertebrate Morphology’’ (Hildebrand, M., Bramble, D. M., Liem, K. F., and Wake, D. B., Eds.), pp. 110–128. Harvard Univ. Press, Cambridge, MA.
+- Webb, P. W., and Keyes, R. S. (1981). Division of labor between median fins in swimming dolphin (Pisces: Coryphaenidae). Copeia 1981, 901–904.
+- Webb, P. W., and Weihs, D. (1983). ‘‘Fish Biomechanics.’’ Praeger Publishers, New York.
+- Weihs, D. (1972). A hydrodynamic analysis of fish turning manoeuvres. Proc. Roy. Soc. Lond. B 182B, 59–72.
+- Westerweel, J., and Oord, J.v. (2000). Stereoscopic PIV measurements in a turbulent boundary layer. In ‘‘Particle Image Velocimetry. Progress toward Industrial Application’’ (Stanislas, M., Kompenhans, J., and Westerweel, J., Eds.), pp. 459–478. Kluwer Academic, Dordrecht.
+- Wilga, C. D., and Lauder, G. V. (1999). Locomotion in sturgeon: Function of the pectoral fins. J. Exp. Biol. 202, 2413–2432.
+- Wilga, C. D., and Lauder, G. V. (2000). Three‐dimensional kinematics and wake structure of the pectoral fins during locomotion in leopard sharks Triakis semifasciata. J. Exp. Biol. 203, 2261–2278.
+- Wilga, C. D., and Lauder, G. V. (2002). Function of the heterocercal tail in sharks: Quantitative wake dynamics during steady horizontal swimming and vertical maneuvering. J. Exp. Biol. 205, 2365–2374.
+- Wilga, C. D., and Lauder, G. V. (2004). Hydrodynamic function of the shark’s tail. Nature 430, 850.
+- Willert, C. (1997). Stereoscopic digital particle image velocimetry for application in wind tunnel flows. Meas. Sci. Technol. 8, 1465–1479.
+- Willert, C. E., and Gharib, M. (1991). Digital particle image velocimetry. Exp. Fluid 10, 181–193.
+- Williams, T. L., Bowtell, G., Carling, J. C., Sigvardt, K. A., and Curtin, N. A. (1995). Interactions between muscle activation, body curvature and the water in the swimming lamprey. In ‘‘Biological Fluid Dynamics’’ (Ellington, C. P., and Pedley, T. J., Eds.), pp. 49–59. Company of Biologists, Cambridge.
+- Winterbottom, R. (1974). A descriptive synonymy of the striated muscles of the Teleostei. Proc. Acad. Nat. Sci. Phila. 125, 225–317.
+- Wolfgang, M. J., Anderson, J. M., Grosenbaugh, M., Yue, D., and Triantafyllou, M. (1999). Near‐body flow dynamics in swimming fish. J. Exp. Biol. 202, 2303–2327.
+- Wu, Y. T. (1971). Hydromechanics of swimming propulsion. Part I. Swimming of a two-dimensional flexible plate at variable forward speeds in an inviscid fluid. J. Fluid Mech. 46, 337–355.
+- Zhu, Q., Wolfgang, M. J., Yue, D. K. P., and Triantafyllou, G. S. (2002). Three‐dimensional flow structures and vorticity control in fish‐like swimming. J. Fluid Mech. 468, 1–28.
