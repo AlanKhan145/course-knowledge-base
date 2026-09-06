@@ -518,7 +518,7 @@
       <button class="btn" id="resetActivities">Làm lại bài tập</button>
       <button class="btn danger" id="clearAll">Xóa toàn bộ tiến độ</button>
     </div>
-    <p class="tiny">Dữ liệu được lưu cục bộ bằng <code>localStorage</code> trên trình duyệt này.</p>
+    <p class="tiny">Dữ liệu được ưu tiên lưu cục bộ bằng <code>localStorage</code>; nếu trình duyệt chặn bộ nhớ của file HTML, bài vẫn chấm điểm bình thường nhưng tiến độ có thể không được giữ sau khi đóng trang.</p>
   </div>
 </footer>
 
@@ -571,18 +571,32 @@ const checklistItems = [
   "Tôi đã hoàn thành một lượt sheet luyện viết."
 ];
 
+let volatileState = "";
+function readStoredState(){
+  try{return window.localStorage.getItem(LESSON_KEY)||volatileState||"{}";}
+  catch(e){return volatileState||"{}";}
+}
+function writeStoredState(value){
+  try{window.localStorage.setItem(LESSON_KEY,value);}
+  catch(e){volatileState=value;}
+}
+function removeStoredState(){
+  try{window.localStorage.removeItem(LESSON_KEY);}
+  catch(e){/* localStorage may be disabled for file:// pages */}
+  volatileState="";
+}
 let state = loadState();
 function defaultState(){
   return {completed:{},reviewWords:[],wrongTags:[],writing:{},flashSeen:[],practiceScores:{},quizScore:null,checklist:{},romajiVisible:true};
 }
 function loadState(){
   try{
-    const saved=JSON.parse(localStorage.getItem(LESSON_KEY)||"{}");
+    const saved=JSON.parse(readStoredState());
     return {...defaultState(),...saved,flashSeen:Array.isArray(saved.flashSeen)?saved.flashSeen:[],practiceScores:saved.practiceScores||{}};
   }
   catch(e){return defaultState();}
 }
-function saveState(){localStorage.setItem(LESSON_KEY,JSON.stringify(state));updateProgress();}
+function saveState(){writeStoredState(JSON.stringify(state));updateProgress();}
 function markComplete(id){state.completed[id]=true;saveState();}
 function updateProgress(){
   const done = activityIds.filter(id=>state.completed[id]).length;
@@ -1060,15 +1074,18 @@ function renderQuiz(){
   }).join("");
 }
 function gradeQuiz(){
+  if(!currentQuiz.length){makeQuiz();if(!currentQuiz.length)return;}
   let correct=0;const catStats={},wrong=[];
   currentQuiz.forEach(q=>{
     catStats[q.cat]??={c:0,t:0};catStats[q.cat].t++;
     let ok=false;
     if(q.type==="mc"){
       const chosen=document.querySelector(`input[name="${q.id}"]:checked`);
-      ok=chosen&&decodeURIComponent(chosen.value)===q.answer;
+      let answer=chosen?.value||"";
+      try{answer=decodeURIComponent(answer);}catch(e){}
+      ok=answer===q.answer;
     }else{
-      const val=normalize(document.getElementById(q.id).value);
+      const val=normalize(document.getElementById(q.id)?.value);
       ok=q.answers.map(normalize).includes(val);
     }
     const fb=document.getElementById("fb_"+q.id);
@@ -1077,9 +1094,10 @@ function gradeQuiz(){
   });
   const pct=Math.round(correct/currentQuiz.length*100);
   state.quizScore={correct,total:currentQuiz.length,pct,at:new Date().toISOString()};
-  state.completed.quiz=true;saveState();
+  state.completed.quiz=true;
   showResults(correct,pct,catStats,wrong);
-  document.getElementById("resultCard").scrollIntoView({behavior:"smooth",block:"center"});
+  saveState();
+  document.getElementById("resultCard").scrollIntoView?.({behavior:"smooth",block:"center"});
 }
 function showResults(correct,pct,catStats,wrong){
   const label=pct>=90?"Xuất sắc":pct>=80?"Tốt":pct>=70?"Khá":pct>=60?"Cần ôn thêm":"Nên học lại bài";
@@ -1111,7 +1129,7 @@ document.getElementById("resetActivities").onclick=()=>{
 };
 document.getElementById("clearAll").onclick=()=>{
   if(!confirm("Bạn có chắc muốn xóa toàn bộ kết quả của bài này?"))return;
-  localStorage.removeItem(LESSON_KEY);state=defaultState();saveState();
+  removeStoredState();state=defaultState();saveState();
   renderKana();renderTables();renderWords();renderFlash();renderPracticeSets();renderRetry();renderPersonalReview();renderChecklist();renderWriting();renderSheet();makeQuiz();
   alert("Đã xóa toàn bộ tiến độ của bài học.");
 };
