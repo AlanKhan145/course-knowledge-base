@@ -2,7 +2,7 @@
 
 Đây là bộ khung ghi chú cục bộ cho khóa học Udemy **The English Master Course: English Grammar, English Speaking**.
 
-- **Cấu trúc cục bộ:** 146 module / 717 bài học được lập chỉ mục
+- **Cấu trúc phân cấp:** 6 nhóm lớn / 23 nhóm chủ đề / 146 section / 717 bài học được lập chỉ mục
 - **Cấu trúc nguồn hiện tại:** 154 section / 726 bài giảng
 - **Nguồn tên bài:** [trang khóa học công khai trên Udemy](https://www.udemy.com/course/learn-english-grammar-online/)
 - **Bản đối chiếu curriculum chi tiết:** [studyvn.academy](https://studyvn.academy/learn-english-grammar-online/) (nguồn bên thứ ba, dùng để đọc danh sách công khai)
@@ -17,7 +17,7 @@ Kho cục bộ chỉ giữ các module có bài học cụ thể. Các phần h�
 
 ## Điều hướng
 
-- [COURSE_INDEX.md](<./COURSE_INDEX.md>) — danh sách đầy đủ 146 module và tất cả bài học
+- [COURSE_INDEX.md](<COURSE_INDEX.md>) — chỉ mục phân cấp của toàn bộ nhóm, section và bài học
 - [LESSON_TEMPLATE.md](<./LESSON_TEMPLATE.md>) — mẫu để bổ sung ghi chú sau khi học hợp pháp
 
-Mỗi module có một subfolder riêng và một README điều hướng. Bên trong module, mỗi bài học được tách thành một file Markdown để ghi mục tiêu, quy tắc, ví dụ và bài tập tự tạo.
+Cấu trúc hiện gồm các nhóm lớn như **How English Works**, **English Grammar**, **English Writing**, **English Speaking**, **Pronunciation and Accent** và **IELTS Upgrade and Practice**. Các nhóm lớn được chia tiếp thành nhóm chủ đề; ví dụ **English Grammar** có **Verb Tenses**, **Helping and Modal Verbs**, **Nouns and Pronouns**, **Adjectives and Adverbs**, **Prepositions**, **Clauses**, **Conjunctions** và **Conditionals**, còn **English Speaking** được chia thành các chủ đề giao tiếp cụ thể.
