@@ -20,6 +20,9 @@ Trong đó:
 
 Mục tiêu là tránh factor “over-engineered”: quá dài, quá nhiều hyperparameter, khó diễn giải và dễ overfit.
 
+![Ba cổng regularization](../assets/figures/04-three-regularization-gates.png)
+*Hình minh họa: candidate expression lần lượt được kiểm tra complexity, originality và hypothesis alignment trước khi trở thành valid candidate.*
+
 ## 3. Originality bằng AST similarity
 
 Với hai factor \(f_i, f_j\), AlphaAgent parse chúng thành AST và tìm **largest common subtree**. Paper định nghĩa similarity dựa trên kích thước common subtree lớn nhất có cấu trúc isomorphic.
@@ -50,6 +53,9 @@ C(h,d,f)=\alpha c_1(h,d)+(1-\alpha)c_2(d,f)
 Paper đặt \(\alpha=0.5\).
 
 Ví dụ paper đưa ra: description tuyên bố factor phản ánh liquidity dynamics, nhưng expression không có volume, bid-ask spread hay market depth → \(c_2\) thấp.
+
+![Vòng kiểm tra hypothesis alignment](../assets/figures/04-hypothesis-alignment-loop.png)
+*Hình minh họa: hypothesis được chuyển thành description và expression, sau đó consistency score tạo feedback để chỉnh vòng tiếp theo.*
 
 ## 5. ER term
 

@@ -22,8 +22,14 @@ AlphaAgent kết hợp:
 
 Mục tiêu không phải chỉ “sinh nhiều formula”, mà xây một quá trình discovery có constraint để giảm rủi ro alpha decay.
 
+![AlphaAgent như scientific discovery workflow](../assets/figures/09-scientific-discovery-workflow.png)
+*Hình minh họa: observation được chuyển thành hypothesis, expression, backtest và evidence; revision tạo vòng nghiên cứu tiếp theo.*
+
 ![Vòng lặp continuous exploration của AlphaAgent](../assets/figures/continuous-exploration-loop.png)
 *Hình minh họa: từ market insight đến hypothesis, symbolic factor, evaluation và feedback trong một vòng khám phá liên tục.*
+
+![Cân bằng exploration và exploitation](../assets/figures/09-exploration-exploitation-balance.png)
+*Hình minh họa: exploration tìm cấu trúc mới, exploitation tận dụng factor triển vọng; adaptive search cần cân bằng cả hai.*
 
 ## 3. Sơ đồ ghi nhớ
 

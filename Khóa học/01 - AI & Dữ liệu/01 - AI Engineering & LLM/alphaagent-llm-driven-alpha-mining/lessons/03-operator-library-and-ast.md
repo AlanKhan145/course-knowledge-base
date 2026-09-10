@@ -24,6 +24,9 @@ AlphaAgent định nghĩa thư viện operator \(\mathcal{O}\) chứa các phép
 
 Thư viện này là lớp trung gian giữa **market insight cấp cao** và **factor implementation cấp thấp**.
 
+![Từ operator library đến executable factor](../assets/figures/03-operator-library-flow.png)
+*Hình minh họa: raw feature kết hợp với operator library để tạo AST expression tree và factor có thể thực thi.*
+
 ## 4. Parsing hypothesis thành factor
 
 Paper mô tả hàm:
@@ -43,6 +46,9 @@ Trong AST:
 - leaf node: raw feature như `$high`, `$low`, `$volume`;
 - internal node: operator như `TS_MIN(.)`, `SMA(.)`;
 - edge: luồng dữ liệu giữa operation.
+
+![Cấu trúc cây AST của factor](../assets/figures/03-ast-tree-anatomy.png)
+*Hình minh họa: binary operator, unary operator và feature leaf tạo nên cấu trúc của một factor expression.*
 
 ## 5. AST không chỉ để chạy factor
 

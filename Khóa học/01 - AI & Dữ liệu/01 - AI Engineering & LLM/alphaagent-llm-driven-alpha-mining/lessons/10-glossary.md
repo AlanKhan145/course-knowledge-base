@@ -24,8 +24,14 @@
 | Dev success rate | Tỉ lệ factor thực thi thành công không lỗi code/numerical. |
 | Token efficiency | Hiệu quả sinh candidate theo lượng token sử dụng. |
 
+![Pipeline của các thuật ngữ AlphaAgent](../assets/figures/10-glossary-pipeline.png)
+*Hình minh họa: OHLCV tạo return/feature, factor expression tạo score/portfolio, metric theo dõi kết quả và agent feedback điều hướng vòng sau.*
+
 ![Bản đồ khái niệm AlphaAgent](../assets/figures/alphaagent-concept-map.png)
 *Hình minh họa: bốn lớp khái niệm nối với nhau trong pipeline AlphaAgent, từ dữ liệu và return đến agent và feedback.*
+
+![Bản đồ metric và thuật ngữ](../assets/figures/10-metric-glossary-map.png)
+*Hình minh họa: factor candidate được nhìn từ bốn nhóm thuật ngữ: data, expression, evaluation và agent process.*
 
 
 ## Lý thuyết nền cần biết

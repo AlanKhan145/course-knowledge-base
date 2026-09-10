@@ -30,6 +30,9 @@ Một factor chống alpha decay tốt không chỉ cần return cao mà còn c�
 | CSI 500 | Validation | 2020-01 → 2020-12 | 243 |
 | CSI 500 | Test | 2021-01 → 2025-01 | 968 |
 
+![Split dữ liệu theo thứ tự thời gian](../assets/figures/06-time-based-split.png)
+*Hình minh họa: train, validation và test phải đi theo chiều thời gian; không shuffle và không nhìn trước dữ liệu tương lai.*
+
 Raw feature để xây factor chỉ gồm **OHLCV**: open, high, low, close, volume.
 
 - CSI 500: dữ liệu từ Baostock.
@@ -56,6 +59,9 @@ Transaction cost:
 
 - CSI 500: buy 0.0005, sell 0.0015.
 - S&P 500: chỉ sell fee 0.0005.
+
+![Pipeline từ signal đến risk metrics](../assets/figures/06-backtest-pipeline.png)
+*Hình minh họa: market data tạo factor signal, signal được rank và weight thành portfolio returns rồi đánh giá bằng risk metrics.*
 
 ## 6. Baselines
 

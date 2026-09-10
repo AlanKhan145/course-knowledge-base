@@ -12,6 +12,9 @@ Paper nhận xét:
 - AlphaAgent có average IC cao hơn RD-Agent và AlphaForge trong các vòng được minh họa;
 - variance của AlphaAgent tăng theo round, được tác giả diễn giải như dấu hiệu exploration rộng/diverse hơn nhờ originality penalty.
 
+![Funnel hiệu suất alpha mining](../assets/figures/08-efficiency-funnel.png)
+*Hình minh họa: từ token budget, hệ thống lọc generated candidates thành valid expressions, successful backtests và accepted alphas.*
+
 ## 2. Ablation study
 
 ![Figure 6 - Ablation](../assets/figures/figure-06-ablation.png)
@@ -49,6 +52,9 @@ Paper cũng báo cáo Student’s t-test khi so AlphaAgent với RD-Agent trên 
 - GPT-3.5-turbo: 0.0311;
 - Qwen-Plus: 0.0109;
 - DeepSeek-R1: 0.0382.
+
+![Base LLM và framework cùng đóng góp](../assets/figures/08-framework-vs-base-llm.png)
+*Hình minh họa: chất lượng base LLM và framework design là hai nguồn tác động khác nhau cùng hướng tới robust alpha discovery.*
 
 ## 4. Hai tầng tác động
 

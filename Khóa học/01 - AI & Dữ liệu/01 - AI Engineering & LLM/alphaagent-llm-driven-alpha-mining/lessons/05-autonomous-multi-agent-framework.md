@@ -49,6 +49,9 @@ Eval Agent đánh giá theo nhiều chiều:
 
 Ngoài backtest, agent còn duy trì evaluation history để phát hiện pattern thành công/thất bại và gửi lại insight cho Idea Agent.
 
+![Ba vai trò agent trong AlphaAgent](../assets/figures/05-agent-roles.png)
+*Hình minh họa: Idea Agent tạo hypothesis, Factor Agent tạo expression và Eval Agent kiểm tra metrics.*
+
 ## 5. Closed loop
 
 Điểm quan trọng của AlphaAgent là **không kết thúc sau một lần generation**. Nó tạo vòng lặp:
@@ -62,6 +65,9 @@ Ngoài backtest, agent còn duy trì evaluation history để phát hiện patte
 7. refine hypothesis và factor ở vòng tiếp theo.
 
 Đây là cơ chế giúp framework liên tục exploration thay vì chỉ khai thác pattern lịch sử cố định.
+
+![Agent, environment, action và feedback](../assets/figures/05-agent-contracts.png)
+*Hình minh họa: agent nhận observation, gọi tool hoặc phát action, cập nhật state memory và dùng feedback cho vòng tiếp theo.*
 
 ## 6. Bài tập tự luyện
 

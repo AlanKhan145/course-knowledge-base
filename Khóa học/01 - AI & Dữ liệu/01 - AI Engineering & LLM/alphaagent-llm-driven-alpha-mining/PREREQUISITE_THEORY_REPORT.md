@@ -186,5 +186,25 @@ Các asset trong thư mục `assets` đã được đối chiếu với nội du
 | `figures/regularized-objective-balance.png` | `02-problem-formulation.md` | Minh họa cân bằng predictive performance với complexity, originality và alignment |
 | `figures/continuous-exploration-loop.png` | `09-summary-and-review.md` | Minh họa vòng lặp market insight → hypothesis → factor → evaluation → feedback |
 | `figures/alphaagent-concept-map.png` | `10-glossary.md` | Minh họa bản đồ bốn lớp khái niệm trong AlphaAgent |
+| `figures/01-price-to-factor-pipeline.png` | `01-alpha-mining-and-alpha-decay.md` | Minh họa pipeline price/volume → returns → features → factor score → portfolio test |
+| `figures/01-overfitting-vs-crowding.png` | `01-alpha-mining-and-alpha-decay.md` | So sánh hai nguyên nhân chính của alpha decay |
+| `figures/02-objective-decomposition.png` | `02-problem-formulation.md` | Phân rã predictive score và regularization penalty trong objective |
+| `figures/02-hypothesis-to-factor.png` | `02-problem-formulation.md` | Minh họa hypothesis → expression → factor → out-of-sample test |
+| `figures/03-operator-library-flow.png` | `03-operator-library-and-ast.md` | Minh họa raw features → operator library → AST → executable factor |
+| `figures/03-ast-tree-anatomy.png` | `03-operator-library-and-ast.md` | Minh họa binary operator, unary operator và feature leaf |
+| `figures/04-three-regularization-gates.png` | `04-regularization-mechanisms.md` | Minh họa ba cổng complexity, originality và hypothesis alignment |
+| `figures/04-hypothesis-alignment-loop.png` | `04-regularization-mechanisms.md` | Minh họa vòng hypothesis → description → expression → consistency score |
+| `figures/05-agent-roles.png` | `05-autonomous-multi-agent-framework.md` | Minh họa vai trò Idea Agent, Factor Agent và Eval Agent |
+| `figures/05-agent-contracts.png` | `05-autonomous-multi-agent-framework.md` | Minh họa observation, action, tool call, state memory và feedback |
+| `figures/06-time-based-split.png` | `06-experiment-design.md` | Minh họa train/validation/test theo thứ tự thời gian và chống leakage |
+| `figures/06-backtest-pipeline.png` | `06-experiment-design.md` | Minh họa market data → signal → portfolio returns → risk metrics |
+| `figures/07-metrics-interpretation.png` | `07-results-and-alpha-decay.md` | Minh họa quan hệ giữa predictive signal, performance và risk |
+| `figures/07-alpha-decay-timeline.png` | `07-results-and-alpha-decay.md` | Minh họa signal strength suy giảm từ train đến live |
+| `figures/08-efficiency-funnel.png` | `08-efficiency-ablation-base-llm.md` | Minh họa token budget và funnel từ candidate đến accepted alpha |
+| `figures/08-framework-vs-base-llm.png` | `08-efficiency-ablation-base-llm.md` | So sánh tác động của base LLM quality và framework design |
+| `figures/09-scientific-discovery-workflow.png` | `09-summary-and-review.md` | Minh họa observation → hypothesis → evidence → revision |
+| `figures/09-exploration-exploitation-balance.png` | `09-summary-and-review.md` | Minh họa cân bằng exploration, exploitation và adaptive search |
+| `figures/10-glossary-pipeline.png` | `10-glossary.md` | Minh họa pipeline của các thuật ngữ từ OHLCV đến agent feedback |
+| `figures/10-metric-glossary-map.png` | `10-glossary.md` | Phân nhóm thuật ngữ theo data, expression, evaluation và agent process |
 
-Tổng cộng 13 asset được sử dụng với 14 image reference; `figure-02-ast-similarity.png` được dùng ở cả Bài 03 và Bài 04 vì phục vụ hai góc nhìn liên quan. Bốn asset cuối được tạo bằng built-in `image_gen`, sau đó kiểm tra trực quan và sao chép vào `assets/figures`.
+Tổng cộng 33 asset được sử dụng với 34 image reference; `figure-02-ast-similarity.png` được dùng ở cả Bài 03 và Bài 04 vì phục vụ hai góc nhìn liên quan. Hai mươi asset bổ sung được tạo bằng built-in `image_gen`, sau đó kiểm tra trực quan và sao chép vào `assets/figures`.

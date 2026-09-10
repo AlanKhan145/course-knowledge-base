@@ -10,6 +10,9 @@ Trong đầu tư định lượng, **alpha factor** là một đặc trưng ho�
 
 Điểm quan trọng của paper là: một factor có backtest tốt chưa đủ. Nó còn phải duy trì được sức dự báo khi thị trường thay đổi.
 
+![Pipeline từ dữ liệu đến factor](../assets/figures/01-price-to-factor-pipeline.png)
+*Hình minh họa: giá và volume được biến đổi thành return, feature, factor score rồi đưa vào kiểm thử danh mục.*
+
 ## 3. Alpha decay
 
 **Alpha decay** là sự suy giảm sức dự báo hoặc khả năng tạo excess return của factor theo thời gian.
@@ -23,6 +26,9 @@ Khi quá trình tìm factor tối ưu quá mạnh trên dữ liệu lịch sử,
 ### 3.2 Factor crowding
 
 Nếu quá nhiều nhà đầu tư cùng khai thác những tín hiệu giống nhau, lợi thế có thể bị “crowd”. Khi chiến lược phổ biến, hành vi giao dịch tập thể có thể làm giảm predictability của factor và thậm chí tạo ra reversal trong giai đoạn stress.
+
+![So sánh overfitting và factor crowding](../assets/figures/01-overfitting-vs-crowding.png)
+*Hình minh họa: overfitting khai thác nhiễu lịch sử, còn crowding xuất hiện khi nhiều participant dùng tín hiệu tương tự; cả hai đều có thể dẫn tới alpha decay.*
 
 ![Sơ đồ từ dữ liệu thị trường đến alpha decay](../assets/figures/alpha-mining-and-alpha-decay-overview.png)
 *Hình minh họa: market data tạo ra các candidate alpha; overfitting và crowding có thể làm alpha suy giảm.*

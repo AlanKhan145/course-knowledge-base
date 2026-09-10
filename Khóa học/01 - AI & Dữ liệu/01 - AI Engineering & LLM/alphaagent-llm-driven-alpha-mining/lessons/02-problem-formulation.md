@@ -35,6 +35,9 @@ Trong đó:
 - \(\mathcal{R}\): regularization.
 - \(\lambda\): hệ số cân bằng performance và regularization.
 
+![Phân rã objective tối ưu hóa](../assets/figures/02-objective-decomposition.png)
+*Hình minh họa: dữ liệu, target và candidate factor tạo predictive score; regularization penalty được dùng để chọn selected factor phù hợp hơn.*
+
 ## 4. Đưa market hypothesis vào objective
 
 AlphaAgent không chỉ cho LLM “tìm công thức tốt”, mà dùng **market hypothesis** \(h\in\mathcal{H}\) để điều hướng factor construction.
@@ -50,6 +53,9 @@ Regularization \(\mathcal{R}_g(f,h)\) bao gồm ba thành phần mà paper quan 
 1. độ phức tạp của expression;
 2. alignment với hypothesis;
 3. novelty so với factor đã tồn tại.
+
+![Từ market hypothesis đến factor](../assets/figures/02-hypothesis-to-factor.png)
+*Hình minh họa: market hypothesis định hướng expression design, sau đó candidate phải vượt qua kiểm thử ngoài mẫu và feedback.*
 
 ## 5. Ý nghĩa thiết kế
 

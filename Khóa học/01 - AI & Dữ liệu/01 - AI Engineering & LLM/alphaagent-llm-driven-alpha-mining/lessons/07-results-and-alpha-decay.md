@@ -17,6 +17,9 @@ Các kết quả AlphaAgent được paper báo cáo:
 
 Trong Table 2, AlphaAgent dẫn đầu các metric chính trong hai market theo thiết lập so sánh của paper.
 
+![Quan hệ giữa predictive signal, performance và risk](../assets/figures/07-metrics-interpretation.png)
+*Hình minh họa: IC/Rank IC đo tín hiệu dự báo, AR/IR đo performance, còn ICIR/MDD giúp đánh giá độ ổn định và rủi ro.*
+
 ## 3. Cumulative excess return
 
 ![Figure 3 - Cumulative excess returns](../assets/figures/figure-03-cumulative-excess-return.png)
@@ -42,6 +45,9 @@ Paper báo cáo:
 - AlphaAgent giữ IC quanh 0.02 và RankIC quanh 0.025 tương đối ổn định.
 
 Thông điệp chính: AlphaAgent không chỉ tìm factor “tốt ở một snapshot”, mà paper muốn chứng minh factor có **persistence** tốt hơn khi thị trường thay đổi.
+
+![Timeline của signal strength và alpha decay](../assets/figures/07-alpha-decay-timeline.png)
+*Hình minh họa: sức mạnh tín hiệu có thể giảm dần từ train qua validation, test và live; đó là lý do cần theo dõi persistence.*
 
 ## 5. Cách đọc kết quả một cách đúng
 
