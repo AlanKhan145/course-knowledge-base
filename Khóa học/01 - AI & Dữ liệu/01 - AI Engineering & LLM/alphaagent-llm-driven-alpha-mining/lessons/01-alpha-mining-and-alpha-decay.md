@@ -24,6 +24,9 @@ Khi quá trình tìm factor tối ưu quá mạnh trên dữ liệu lịch sử,
 
 Nếu quá nhiều nhà đầu tư cùng khai thác những tín hiệu giống nhau, lợi thế có thể bị “crowd”. Khi chiến lược phổ biến, hành vi giao dịch tập thể có thể làm giảm predictability của factor và thậm chí tạo ra reversal trong giai đoạn stress.
 
+![Sơ đồ từ dữ liệu thị trường đến alpha decay](../assets/figures/alpha-mining-and-alpha-decay-overview.png)
+*Hình minh họa: market data tạo ra các candidate alpha; overfitting và crowding có thể làm alpha suy giảm.*
+
 ## 4. Vì sao GP/RL và LLM thuần túy chưa đủ?
 
 Paper mô tả hai nhóm hạn chế:

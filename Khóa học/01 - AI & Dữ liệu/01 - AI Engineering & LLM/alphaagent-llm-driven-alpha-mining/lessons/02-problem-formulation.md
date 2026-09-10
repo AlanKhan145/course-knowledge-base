@@ -61,6 +61,9 @@ Thay vì chỉ hỏi “factor nào cho metric lịch sử cao nhất?”, Alpha
 
 Do objective không lồi, paper mô tả việc tối ưu xen kẽ giữa predictive objective và regularization để tìm một nghiệm cục bộ cân bằng giữa hiệu năng và constraint.
 
+![Cân bằng regularized objective](../assets/figures/regularized-objective-balance.png)
+*Hình minh họa: objective của AlphaAgent cân bằng predictive performance với complexity, originality và alignment để chọn factor.*
+
 ## 6. Bài tập tự luyện
 
 1. Viết lại objective nếu muốn tăng penalty cho complexity.

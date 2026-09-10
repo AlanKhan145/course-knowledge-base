@@ -24,6 +24,9 @@
 | Dev success rate | Tỉ lệ factor thực thi thành công không lỗi code/numerical. |
 | Token efficiency | Hiệu quả sinh candidate theo lượng token sử dụng. |
 
+![Bản đồ khái niệm AlphaAgent](../assets/figures/alphaagent-concept-map.png)
+*Hình minh họa: bốn lớp khái niệm nối với nhau trong pipeline AlphaAgent, từ dữ liệu và return đến agent và feedback.*
+
 
 ## Lý thuyết nền cần biết
 

@@ -22,6 +22,9 @@ AlphaAgent kết hợp:
 
 Mục tiêu không phải chỉ “sinh nhiều formula”, mà xây một quá trình discovery có constraint để giảm rủi ro alpha decay.
 
+![Vòng lặp continuous exploration của AlphaAgent](../assets/figures/continuous-exploration-loop.png)
+*Hình minh họa: từ market insight đến hypothesis, symbolic factor, evaluation và feedback trong một vòng khám phá liên tục.*
+
 ## 3. Sơ đồ ghi nhớ
 
 ```text

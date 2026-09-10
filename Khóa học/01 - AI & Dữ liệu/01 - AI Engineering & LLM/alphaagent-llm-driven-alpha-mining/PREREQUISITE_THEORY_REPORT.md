@@ -182,5 +182,9 @@ Các asset trong thư mục `assets` đã được đối chiếu với nội du
 | `figures/figure-05-ic-evolution.png` | `08-efficiency-ablation-base-llm.md` | Minh họa IC qua các evolution round |
 | `figures/figure-06-ablation.png` | `08-efficiency-ablation-base-llm.md` | Minh họa ablation study |
 | `figures/figure-07-base-llm-radar.png` | `08-efficiency-ablation-base-llm.md` | Minh họa so sánh base LLM |
+| `figures/alpha-mining-and-alpha-decay-overview.png` | `01-alpha-mining-and-alpha-decay.md` | Minh họa pipeline từ market data đến candidate alpha và alpha decay |
+| `figures/regularized-objective-balance.png` | `02-problem-formulation.md` | Minh họa cân bằng predictive performance với complexity, originality và alignment |
+| `figures/continuous-exploration-loop.png` | `09-summary-and-review.md` | Minh họa vòng lặp market insight → hypothesis → factor → evaluation → feedback |
+| `figures/alphaagent-concept-map.png` | `10-glossary.md` | Minh họa bản đồ bốn lớp khái niệm trong AlphaAgent |
 
-Tổng cộng 9 asset được sử dụng với 10 image reference; `figure-02-ast-similarity.png` được dùng ở cả Bài 03 và Bài 04 vì phục vụ hai góc nhìn liên quan.
+Tổng cộng 13 asset được sử dụng với 14 image reference; `figure-02-ast-similarity.png` được dùng ở cả Bài 03 và Bài 04 vì phục vụ hai góc nhìn liên quan. Bốn asset cuối được tạo bằng built-in `image_gen`, sau đó kiểm tra trực quan và sao chép vào `assets/figures`.
