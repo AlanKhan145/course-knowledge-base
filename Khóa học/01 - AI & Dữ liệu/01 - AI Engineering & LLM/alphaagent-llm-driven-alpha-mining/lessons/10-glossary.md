@@ -1,5 +1,31 @@
 # Glossary - AlphaAgent
 
+| Thuật ngữ | Ý nghĩa trong khóa học |
+|---|---|
+| Alpha / Alpha factor | Tín hiệu/biểu thức định lượng dùng để dự báo future return. |
+| Alpha mining | Quá trình tìm kiếm alpha factor. |
+| Alpha decay | Sự suy giảm predictive power hoặc excess return theo thời gian. |
+| Factor crowding | Nhiều participant khai thác tín hiệu tương tự làm lợi thế giảm. |
+| P-hacking | Khai phá quá mức đến khi tìm pattern có vẻ tốt nhưng dễ là spurious. |
+| Market hypothesis | Giả thuyết về market inefficiency dùng để hướng factor generation. |
+| Operator library | Tập primitive operation chuẩn hóa để lắp factor. |
+| AST | Abstract Syntax Tree - biểu diễn cấu trúc factor expression dạng cây. |
+| Alpha zoo | Tập alpha đã tồn tại dùng làm đối chiếu novelty. |
+| Originality | Mức factor mới khác factor cũ. |
+| Hypothesis alignment | Mức factor triển khai đúng market hypothesis. |
+| Symbolic length | Độ dài/độ phức tạp cấu trúc biểu thức. |
+| IC | Correlation giữa predicted score và actual return. |
+| RankIC | IC dựa trên thứ hạng. |
+| ICIR | Độ ổn định IC theo mean/std. |
+| AR | Annualized excess return. |
+| IR | Risk-adjusted excess return ratio. |
+| MDD | Maximum drawdown. |
+| Hit ratio | Tỉ lệ candidate đạt ngưỡng return đặc biệt trong ablation. |
+| Dev success rate | Tỉ lệ factor thực thi thành công không lỗi code/numerical. |
+| Token efficiency | Hiệu quả sinh candidate theo lượng token sử dụng. |
+
+# Glossary - AlphaAgent
+
 ## Lý thuyết nền cần biết
 
 > Glossary sẽ dễ dùng hơn nếu các thuật ngữ được gắn vào bốn lớp: dữ liệu và return, expression và search, đánh giá tài chính, agent và feedback.
@@ -52,30 +78,6 @@ Bảng thuật ngữ phía dưới là bản tra nhanh sau khi đã học các l
 - `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/bi-analyst-roadmap/BI-Analyst-Roadmap-Course/00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/01-VariablesAndData-CorrelationAnalysis/003 - Correlation Analysis.md`
 - `01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/AI-Engineer-Roadmap-Course/00 - Roadmap.sh AI Engineer Official/04 - Agents, Multimodal and Tools/Module 10 - AI Agents/01-Basics/001 - AI Agents.md`
 - `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/Chuong 03 - Lap Trinh Di Truyen/03-lap-trinh-di-truyen.md`
-
-| Thuật ngữ | Ý nghĩa trong khóa học |
-|---|---|
-| Alpha / Alpha factor | Tín hiệu/biểu thức định lượng dùng để dự báo future return. |
-| Alpha mining | Quá trình tìm kiếm alpha factor. |
-| Alpha decay | Sự suy giảm predictive power hoặc excess return theo thời gian. |
-| Factor crowding | Nhiều participant khai thác tín hiệu tương tự làm lợi thế giảm. |
-| P-hacking | Khai phá quá mức đến khi tìm pattern có vẻ tốt nhưng dễ là spurious. |
-| Market hypothesis | Giả thuyết về market inefficiency dùng để hướng factor generation. |
-| Operator library | Tập primitive operation chuẩn hóa để lắp factor. |
-| AST | Abstract Syntax Tree - biểu diễn cấu trúc factor expression dạng cây. |
-| Alpha zoo | Tập alpha đã tồn tại dùng làm đối chiếu novelty. |
-| Originality | Mức factor mới khác factor cũ. |
-| Hypothesis alignment | Mức factor triển khai đúng market hypothesis. |
-| Symbolic length | Độ dài/độ phức tạp cấu trúc biểu thức. |
-| IC | Correlation giữa predicted score và actual return. |
-| RankIC | IC dựa trên thứ hạng. |
-| ICIR | Độ ổn định IC theo mean/std. |
-| AR | Annualized excess return. |
-| IR | Risk-adjusted excess return ratio. |
-| MDD | Maximum drawdown. |
-| Hit ratio | Tỉ lệ candidate đạt ngưỡng return đặc biệt trong ablation. |
-| Dev success rate | Tỉ lệ factor thực thi thành công không lỗi code/numerical. |
-| Token efficiency | Hiệu quả sinh candidate theo lượng token sử dụng. |
 
 ## Nội dung các file tham khảo để tiện sao chép
 
@@ -5972,4 +5974,3 @@ Bạn đã học cách xây dựng cá thể GP bằng **tập hàm** và **tậ
 
 Ở chương tiếp theo, ta sẽ học **Lập Trình Tiến Hóa - Evolutionary Programming**, một hướng tiếp cận khác trong tính toán tiến hóa, nhấn mạnh vào đột biến và hành vi của cá thể hơn là cấu trúc gen.
 ````
-

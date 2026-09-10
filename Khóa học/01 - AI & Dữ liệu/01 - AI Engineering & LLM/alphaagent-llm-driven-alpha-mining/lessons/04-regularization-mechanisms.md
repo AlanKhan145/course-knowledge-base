@@ -1,75 +1,5 @@
 # Bài 04 - Ba cơ chế Regularization của AlphaAgent
 
-## Lý thuyết nền cần biết
-
-> Phần này giải thích vì sao một factor có điểm dự báo cao vẫn có thể bị loại và cách đọc ba penalty của AlphaAgent như các ràng buộc bổ sung cho objective.
-
-### 1. Regularization là đánh đổi có chủ đích
-
-Một mô hình quá linh hoạt có thể khớp cả tín hiệu và nhiễu. Regularization đưa thêm chi phí cho những nghiệm khó generalize, thường viết dưới dạng:
-
-\[
-J(f)=\text{performance}(f)-\lambda\,\text{penalty}(f)
-\]
-
-`lambda` lớn làm hệ thống thận trọng hơn; `lambda` nhỏ cho phép ưu tiên hiệu năng lịch sử hơn. Không có giá trị nào tốt cho mọi dữ liệu. Penalty cần đủ mạnh để ngăn hành vi xấu nhưng không được loại bỏ mọi expression có khả năng mang thông tin.
-
-Trong AlphaAgent, “phức tạp” không chỉ là số ký tự. Nó có thể là số node trong cây, độ sâu, số window/threshold tự do, số raw feature, mức giống factor cũ và mức lệch khỏi hypothesis. Đây là regularization ở cả cấu trúc lẫn ý nghĩa.
-
-### 2. Complexity và bias-variance
-
-Factor đơn giản có thể bỏ sót quan hệ thật, tức **underfitting**. Factor quá phức tạp có thể học nhiễu, tức **overfitting**. Ta có thể hình dung:
-
-```text
-Expression quá đơn giản → bias cao, bỏ sót pattern
-Expression vừa đủ       → giữ signal, dễ diễn giải
-Expression quá phức tạp → variance cao, dễ fit nhiễu
-```
-
-Vì vậy complexity control không có mục tiêu làm mọi factor ngắn nhất. Mục tiêu là tìm mức độ phức tạp đủ để diễn đạt hypothesis nhưng không tạo ra quá nhiều bậc tự do cho việc “điều chỉnh đến khi đẹp backtest”. Đây cũng là lý do GP thường cần giới hạn độ sâu, kích thước cây hoặc parsimony pressure.
-
-### 3. Structural similarity và common subtree
-
-Hai expression có thể viết khác chuỗi nhưng vẫn dùng cùng cấu trúc. Ví dụ một factor dùng `rank(SMA(volume, 20))` và factor khác chỉ đổi tên tham số hoặc thêm một phép biến đổi vô hại. So sánh chuỗi sẽ bỏ sót quan hệ này; so sánh AST cho phép tìm **largest common subtree**.
-
-Với alpha zoo `Z`, similarity của factor mới có thể được khái quát là:
-
-\[
-S(f)=\max_{\phi\in Z}s(f,\phi)
-\]
-
-Nếu `S(f)` cao, factor mới gần ít nhất một factor đã có. Novelty thấp không chứng minh factor vô dụng, nhưng nó cảnh báo nguy cơ lặp lại crowded trade hoặc chỉ đổi vỏ của một pattern quen thuộc.
-
-### 4. Alignment là kiểm tra hai cầu nối ngữ nghĩa
-
-Một hypothesis không tự động trở thành factor đúng. Có hai câu hỏi riêng:
-
-1. `hypothesis → description`: phần mô tả có diễn giải đúng market idea không?
-2. `description → expression`: expression có dùng operator/feature để thực sự triển khai mô tả không?
-
-Ví dụ description nói về liquidity nhưng expression chỉ dùng giá đóng cửa, không có volume, spread hay depth. Expression có thể chạy và có IC dương, nhưng vẫn lệch hypothesis. Alignment giúp phân biệt **tín hiệu có vẻ hiệu quả** với **tín hiệu triển khai đúng cơ chế đã tuyên bố**.
-
-### 5. Đọc penalty như một bài toán đa mục tiêu
-
-Ba mục tiêu của AlphaAgent có thể xung đột:
-
-- tăng predictive effectiveness;
-- tăng originality và khác biệt với alpha zoo;
-- giảm complexity, số feature và độ lệch ngữ nghĩa.
-
-Không có candidate nào luôn thắng trên mọi chiều. Regularization biến các tiêu chí đó thành một quy tắc xếp hạng hoặc lọc để agent tìm vùng thỏa hiệp. Vì vậy khi đánh giá factor, cần ghi nhận cả hiệu năng, cấu trúc, rationale và độ ổn định, thay vì chỉ sắp xếp theo IC.
-
-## Liên hệ với bài học này
-
-Bài học sẽ lần lượt hiện thực hóa complexity control, AST similarity và hypothesis-factor alignment. `SL(f)` và `PC(f)` đo chi phí cấu trúc; `S(f)` đo độ gần alpha zoo; `C(h,d,f)` kiểm tra hai liên kết ngữ nghĩa. Ba cơ chế không thay thế backtest. Chúng làm thay đổi candidate trước hoặc trong quá trình đánh giá để backtest không trở thành chiếc máy chọn ra những công thức phức tạp và trùng lặp nhất.
-
-## Nguồn kiến thức liên quan trong kho khóa học
-
-- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/machine-learning-roadmap/Machine-Learning-Roadmap-Course/00 - Roadmap.sh Machine Learning Official/04 - Evaluation, Workflow and Deep Learning/Module 13 - Deep Learning Foundations/02-LossFunctions-Regularization/010 - Regularization.md`
-- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/Chuong 03 - Lap Trinh Di Truyen/03-lap-trinh-di-truyen.md`
-- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/025 - Feature Engineering.md`
-- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/033 - Model Selection.md`
-
 ## 1. Mục tiêu
 
 Nắm được complexity control, originality enforcement và hypothesis-factor alignment.
@@ -158,6 +88,78 @@ Hãy chỉ ra constraint chính nên loại từng candidate.
 - Section 3.2.2, trang 4-5.
 - Equations (4)-(8).
 - Figure 2.
+
+# Bài 04 - Ba cơ chế Regularization của AlphaAgent
+
+## Lý thuyết nền cần biết
+
+> Phần này giải thích vì sao một factor có điểm dự báo cao vẫn có thể bị loại và cách đọc ba penalty của AlphaAgent như các ràng buộc bổ sung cho objective.
+
+### 1. Regularization là đánh đổi có chủ đích
+
+Một mô hình quá linh hoạt có thể khớp cả tín hiệu và nhiễu. Regularization đưa thêm chi phí cho những nghiệm khó generalize, thường viết dưới dạng:
+
+\[
+J(f)=\text{performance}(f)-\lambda\,\text{penalty}(f)
+\]
+
+`lambda` lớn làm hệ thống thận trọng hơn; `lambda` nhỏ cho phép ưu tiên hiệu năng lịch sử hơn. Không có giá trị nào tốt cho mọi dữ liệu. Penalty cần đủ mạnh để ngăn hành vi xấu nhưng không được loại bỏ mọi expression có khả năng mang thông tin.
+
+Trong AlphaAgent, “phức tạp” không chỉ là số ký tự. Nó có thể là số node trong cây, độ sâu, số window/threshold tự do, số raw feature, mức giống factor cũ và mức lệch khỏi hypothesis. Đây là regularization ở cả cấu trúc lẫn ý nghĩa.
+
+### 2. Complexity và bias-variance
+
+Factor đơn giản có thể bỏ sót quan hệ thật, tức **underfitting**. Factor quá phức tạp có thể học nhiễu, tức **overfitting**. Ta có thể hình dung:
+
+```text
+Expression quá đơn giản → bias cao, bỏ sót pattern
+Expression vừa đủ       → giữ signal, dễ diễn giải
+Expression quá phức tạp → variance cao, dễ fit nhiễu
+```
+
+Vì vậy complexity control không có mục tiêu làm mọi factor ngắn nhất. Mục tiêu là tìm mức độ phức tạp đủ để diễn đạt hypothesis nhưng không tạo ra quá nhiều bậc tự do cho việc “điều chỉnh đến khi đẹp backtest”. Đây cũng là lý do GP thường cần giới hạn độ sâu, kích thước cây hoặc parsimony pressure.
+
+### 3. Structural similarity và common subtree
+
+Hai expression có thể viết khác chuỗi nhưng vẫn dùng cùng cấu trúc. Ví dụ một factor dùng `rank(SMA(volume, 20))` và factor khác chỉ đổi tên tham số hoặc thêm một phép biến đổi vô hại. So sánh chuỗi sẽ bỏ sót quan hệ này; so sánh AST cho phép tìm **largest common subtree**.
+
+Với alpha zoo `Z`, similarity của factor mới có thể được khái quát là:
+
+\[
+S(f)=\max_{\phi\in Z}s(f,\phi)
+\]
+
+Nếu `S(f)` cao, factor mới gần ít nhất một factor đã có. Novelty thấp không chứng minh factor vô dụng, nhưng nó cảnh báo nguy cơ lặp lại crowded trade hoặc chỉ đổi vỏ của một pattern quen thuộc.
+
+### 4. Alignment là kiểm tra hai cầu nối ngữ nghĩa
+
+Một hypothesis không tự động trở thành factor đúng. Có hai câu hỏi riêng:
+
+1. `hypothesis → description`: phần mô tả có diễn giải đúng market idea không?
+2. `description → expression`: expression có dùng operator/feature để thực sự triển khai mô tả không?
+
+Ví dụ description nói về liquidity nhưng expression chỉ dùng giá đóng cửa, không có volume, spread hay depth. Expression có thể chạy và có IC dương, nhưng vẫn lệch hypothesis. Alignment giúp phân biệt **tín hiệu có vẻ hiệu quả** với **tín hiệu triển khai đúng cơ chế đã tuyên bố**.
+
+### 5. Đọc penalty như một bài toán đa mục tiêu
+
+Ba mục tiêu của AlphaAgent có thể xung đột:
+
+- tăng predictive effectiveness;
+- tăng originality và khác biệt với alpha zoo;
+- giảm complexity, số feature và độ lệch ngữ nghĩa.
+
+Không có candidate nào luôn thắng trên mọi chiều. Regularization biến các tiêu chí đó thành một quy tắc xếp hạng hoặc lọc để agent tìm vùng thỏa hiệp. Vì vậy khi đánh giá factor, cần ghi nhận cả hiệu năng, cấu trúc, rationale và độ ổn định, thay vì chỉ sắp xếp theo IC.
+
+## Liên hệ với bài học này
+
+Bài học sẽ lần lượt hiện thực hóa complexity control, AST similarity và hypothesis-factor alignment. `SL(f)` và `PC(f)` đo chi phí cấu trúc; `S(f)` đo độ gần alpha zoo; `C(h,d,f)` kiểm tra hai liên kết ngữ nghĩa. Ba cơ chế không thay thế backtest. Chúng làm thay đổi candidate trước hoặc trong quá trình đánh giá để backtest không trở thành chiếc máy chọn ra những công thức phức tạp và trùng lặp nhất.
+
+## Nguồn kiến thức liên quan trong kho khóa học
+
+- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/machine-learning-roadmap/Machine-Learning-Roadmap-Course/00 - Roadmap.sh Machine Learning Official/04 - Evaluation, Workflow and Deep Learning/Module 13 - Deep Learning Foundations/02-LossFunctions-Regularization/010 - Regularization.md`
+- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/Chuong 03 - Lap Trinh Di Truyen/03-lap-trinh-di-truyen.md`
+- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/05-Features/025 - Feature Engineering.md`
+- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/033 - Model Selection.md`
 
 ## Nội dung các file tham khảo để tiện sao chép
 
@@ -6001,4 +6003,3 @@ Will it work reliably in production?
 
 Turn this lesson into a practical artifact such as a notebook, experiment table, evaluation dashboard, trained pipeline, model card, FastAPI service, Docker deployment, or portfolio case study.
 ````
-

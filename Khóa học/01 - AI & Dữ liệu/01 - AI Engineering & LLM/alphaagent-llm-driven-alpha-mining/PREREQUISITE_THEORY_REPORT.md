@@ -10,7 +10,7 @@ Nguồn được ưu tiên theo thứ tự:
 2. Nội dung các lesson khác của AlphaAgent để giữ mạch khái niệm.
 3. Kiến thức chuyên môn chuẩn ở mức tối thiểu khi kho không có giải thích đủ gần use case.
 
-Phần thêm được viết lại theo hướng giảng trực tiếp, không sao chép nguyên văn lesson nguồn. Mỗi lesson có lý thuyết, liên hệ với bài hiện tại và danh sách source path ở ngay đầu file; nội dung AlphaAgent gốc được giữ nguyên phía sau phần mới.
+Phần thêm được viết lại theo hướng giảng trực tiếp, không sao chép nguyên văn lesson nguồn. Mỗi lesson hiện có thứ tự: nội dung AlphaAgent gốc ngay sau title, lý thuyết nền, liên hệ với bài hiện tại, source path và các source block nguyên văn để copy.
 
 ## Kết quả inventory
 
@@ -161,7 +161,7 @@ Tổng cộng có 53 source block. Do nhiều lesson cùng cần một dependenc
 - Heading không bị nhảy cấp; code fence cân bằng ở cả 10 file.
 - Delimiter display math `\[`/`\]` cân bằng.
 - UTF-8 hợp lệ, không phát hiện marker tạm thời hoặc section rỗng.
-- Git diff cho thấy tổng cộng 68.126 dòng được thêm vào 10 lesson sau khi nhúng source; tổng số dòng xóa là 0. Vì vậy nội dung lesson AlphaAgent gốc được bảo toàn, đồng thời phần theory và source copy được bổ sung ở các section mới.
+- Git diff cho thấy tổng cộng 68.126 dòng được thêm vào 10 lesson sau khi nhúng source; tổng số dòng xóa là 0. Vì vậy nội dung lesson AlphaAgent gốc được bảo toàn và hiện nằm ngay sau title, đồng thời phần theory và source copy được bổ sung ở các section mới.
 
 ## Vị trí các file đã cập nhật
 

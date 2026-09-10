@@ -1,84 +1,5 @@
 # Bài 09 - Hàm ý, tổng kết và ôn tập
 
-## Lý thuyết nền cần biết
-
-> Đây là bài tổng hợp. Phần nền đặt AlphaAgent vào bức tranh rộng hơn của search, tối ưu đa mục tiêu, agentic workflow và phương pháp nghiên cứu thực nghiệm.
-
-### 1. Search space và metaheuristic
-
-Alpha mining là một bài toán search: từ một tập primitive gồm feature, operator và parameter, hệ thống tạo ra rất nhiều expression rồi tìm candidate có ích. Không gian này lớn, rời rạc và không có cách thử hết trong thời gian hữu hạn.
-
-Các metaheuristic như Genetic Programming dùng quần thể candidate, fitness, chọn lọc, lai ghép và đột biến để tìm vùng triển vọng. GP biểu diễn candidate bằng cây nên rất gần với symbolic factor. AlphaAgent dùng LLM để đưa thêm market knowledge và hypothesis vào quá trình sinh, nhưng vẫn gặp trade-off quen thuộc của search:
-
-- exploration để tìm cấu trúc mới;
-- exploitation để tận dụng vùng có kết quả tốt;
-- constraint để không đi vào expression vô nghĩa, quá dài hoặc trùng lặp.
-
-### 2. Tối ưu đa mục tiêu
-
-Không thể đánh giá factor chỉ bằng một chiều. Một candidate có thể có IC cao nhưng complexity lớn; candidate khác mới lạ nhưng chưa đủ evidence; candidate thứ ba dễ chạy nhưng không khớp hypothesis. Đây là bài toán đa mục tiêu:
-
-```text
-Predictive effectiveness
-          ↘
-Novelty →  chọn candidate cân bằng  ← Complexity
-          ↗
-Alignment, stability, executability
-```
-
-Một objective có trọng số biến các mục tiêu thành score tổng hợp; một hệ thống lọc có thể loại candidate vi phạm constraint trước khi xếp hạng. Dù dùng cách nào, các trọng số và threshold đều là một phần của protocol cần ghi lại.
-
-### 3. Continuous exploration và adaptation
-
-Thị trường thay đổi, participant học lẫn nhau và những pattern được khai thác rộng có thể mất lợi thế. Vì vậy “tìm một factor tốt rồi dừng” khác với **continuous exploration**. Hệ thống cần theo dõi decay, lưu cả thành công lẫn thất bại, tạo hypothesis mới và kiểm tra lại trên dữ liệu mới.
-
-Continuous không có nghĩa là liên tục khai thác test set. Mỗi vòng vẫn phải có data governance, split theo thời gian, log protocol và một đánh giá ngoài mẫu đủ độc lập. Nếu không, exploration chỉ trở thành một dạng p-hacking lặp đi lặp lại.
-
-### 4. AlphaAgent như một scientific workflow
-
-Market hypothesis có thể xem như giả thuyết; factor là cách operationalize giả thuyết; backtest là phép đo; feedback là kết quả dùng để sửa hypothesis. Một workflow đáng tin cần:
-
-1. nêu rõ observation và economic rationale;
-2. xác định expression và constraint trước khi xem kết quả;
-3. tách train/validation/test theo thời gian;
-4. ghi cả negative result và failure mode;
-5. so sánh với baseline trong cùng protocol;
-6. kiểm tra stability, risk và chi phí giao dịch;
-7. diễn giải kết luận theo phạm vi của dữ liệu.
-
-Điều này nối research methodology với agent system: tự động hóa không làm mất nhu cầu thiết kế thí nghiệm.
-
-### 5. Nhìn AlphaAgent như một agent có hợp đồng
-
-LLM cung cấp khả năng diễn giải và sinh đề xuất; symbolic layer cung cấp grammar; evaluator cung cấp bằng chứng; memory lưu lịch sử; orchestrator điều khiển vòng lặp. Mỗi thành phần cần hợp đồng rõ về input, output, failure và stop condition.
-
-```text
-Knowledge / observation
-        ↓
-Hypothesis có cấu trúc
-        ↓
-Symbolic factor hợp lệ
-        ↓
-Backtest + risk + stability
-        ↓
-Feedback có thể hành động
-        ↺ vòng khám phá tiếp theo
-```
-
-Nếu bỏ một lớp, hệ thống dễ suy giảm: LLM không constraint dễ sinh expression không ổn định; evaluator không có temporal split dễ đánh giá lạc quan; feedback không có failure mode dễ lặp lỗi; framework không có originality dễ làm crowding tăng.
-
-## Liên hệ với bài học này
-
-Bài 09 gom các ý rời rạc thành một luận điểm: AlphaAgent không phải chỉ là “LLM sinh công thức”, mà là một workflow search có tri thức, symbolic constraints, đánh giá ngoài mẫu và feedback liên tục. Các câu hỏi ôn tập phía dưới được thiết kế để kiểm tra từng dependency trong chuỗi đó, từ alpha và AST đến agent loop, ablation và base LLM.
-
-## Nguồn kiến thức liên quan trong kho khóa học
-
-- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/Chuong 03 - Lap Trinh Di Truyen/03-lap-trinh-di-truyen.md`
-- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/Chuong 05 - Chien Luoc Tien Hoa/05-chien-luoc-tien-hoa.md`
-- `01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/AI-Engineer-Roadmap-Course/00 - Roadmap.sh AI Engineer Official/04 - Agents, Multimodal and Tools/Module 10 - AI Agents/01-Basics/001 - AI Agents.md`
-- `01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/AI-Engineer-Roadmap-Course/00 - Roadmap.sh AI Engineer Official/05 - Production and Portfolio/Module 13 - Production AI and LLMOps/03-Evals/007 - Evaluation Harness.md`
-- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/033 - Model Selection.md`
-
 ## 1. Hàm ý mà paper nhấn mạnh
 
 Paper cho rằng alpha mining hiện đại cần **continuous exploration** thay vì chỉ fit pattern lịch sử hoặc tái sử dụng theory/factor đã quá phổ biến.
@@ -165,6 +86,87 @@ Feedback / reflection
 
 - Section 4.6 - Implications, trang 9.
 - Section 5 - Conclusion, trang 9.
+
+# Bài 09 - Hàm ý, tổng kết và ôn tập
+
+## Lý thuyết nền cần biết
+
+> Đây là bài tổng hợp. Phần nền đặt AlphaAgent vào bức tranh rộng hơn của search, tối ưu đa mục tiêu, agentic workflow và phương pháp nghiên cứu thực nghiệm.
+
+### 1. Search space và metaheuristic
+
+Alpha mining là một bài toán search: từ một tập primitive gồm feature, operator và parameter, hệ thống tạo ra rất nhiều expression rồi tìm candidate có ích. Không gian này lớn, rời rạc và không có cách thử hết trong thời gian hữu hạn.
+
+Các metaheuristic như Genetic Programming dùng quần thể candidate, fitness, chọn lọc, lai ghép và đột biến để tìm vùng triển vọng. GP biểu diễn candidate bằng cây nên rất gần với symbolic factor. AlphaAgent dùng LLM để đưa thêm market knowledge và hypothesis vào quá trình sinh, nhưng vẫn gặp trade-off quen thuộc của search:
+
+- exploration để tìm cấu trúc mới;
+- exploitation để tận dụng vùng có kết quả tốt;
+- constraint để không đi vào expression vô nghĩa, quá dài hoặc trùng lặp.
+
+### 2. Tối ưu đa mục tiêu
+
+Không thể đánh giá factor chỉ bằng một chiều. Một candidate có thể có IC cao nhưng complexity lớn; candidate khác mới lạ nhưng chưa đủ evidence; candidate thứ ba dễ chạy nhưng không khớp hypothesis. Đây là bài toán đa mục tiêu:
+
+```text
+Predictive effectiveness
+          ↘
+Novelty →  chọn candidate cân bằng  ← Complexity
+          ↗
+Alignment, stability, executability
+```
+
+Một objective có trọng số biến các mục tiêu thành score tổng hợp; một hệ thống lọc có thể loại candidate vi phạm constraint trước khi xếp hạng. Dù dùng cách nào, các trọng số và threshold đều là một phần của protocol cần ghi lại.
+
+### 3. Continuous exploration và adaptation
+
+Thị trường thay đổi, participant học lẫn nhau và những pattern được khai thác rộng có thể mất lợi thế. Vì vậy “tìm một factor tốt rồi dừng” khác với **continuous exploration**. Hệ thống cần theo dõi decay, lưu cả thành công lẫn thất bại, tạo hypothesis mới và kiểm tra lại trên dữ liệu mới.
+
+Continuous không có nghĩa là liên tục khai thác test set. Mỗi vòng vẫn phải có data governance, split theo thời gian, log protocol và một đánh giá ngoài mẫu đủ độc lập. Nếu không, exploration chỉ trở thành một dạng p-hacking lặp đi lặp lại.
+
+### 4. AlphaAgent như một scientific workflow
+
+Market hypothesis có thể xem như giả thuyết; factor là cách operationalize giả thuyết; backtest là phép đo; feedback là kết quả dùng để sửa hypothesis. Một workflow đáng tin cần:
+
+1. nêu rõ observation và economic rationale;
+2. xác định expression và constraint trước khi xem kết quả;
+3. tách train/validation/test theo thời gian;
+4. ghi cả negative result và failure mode;
+5. so sánh với baseline trong cùng protocol;
+6. kiểm tra stability, risk và chi phí giao dịch;
+7. diễn giải kết luận theo phạm vi của dữ liệu.
+
+Điều này nối research methodology với agent system: tự động hóa không làm mất nhu cầu thiết kế thí nghiệm.
+
+### 5. Nhìn AlphaAgent như một agent có hợp đồng
+
+LLM cung cấp khả năng diễn giải và sinh đề xuất; symbolic layer cung cấp grammar; evaluator cung cấp bằng chứng; memory lưu lịch sử; orchestrator điều khiển vòng lặp. Mỗi thành phần cần hợp đồng rõ về input, output, failure và stop condition.
+
+```text
+Knowledge / observation
+        ↓
+Hypothesis có cấu trúc
+        ↓
+Symbolic factor hợp lệ
+        ↓
+Backtest + risk + stability
+        ↓
+Feedback có thể hành động
+        ↺ vòng khám phá tiếp theo
+```
+
+Nếu bỏ một lớp, hệ thống dễ suy giảm: LLM không constraint dễ sinh expression không ổn định; evaluator không có temporal split dễ đánh giá lạc quan; feedback không có failure mode dễ lặp lỗi; framework không có originality dễ làm crowding tăng.
+
+## Liên hệ với bài học này
+
+Bài 09 gom các ý rời rạc thành một luận điểm: AlphaAgent không phải chỉ là “LLM sinh công thức”, mà là một workflow search có tri thức, symbolic constraints, đánh giá ngoài mẫu và feedback liên tục. Các câu hỏi ôn tập phía dưới được thiết kế để kiểm tra từng dependency trong chuỗi đó, từ alpha và AST đến agent loop, ablation và base LLM.
+
+## Nguồn kiến thức liên quan trong kho khóa học
+
+- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/Chuong 03 - Lap Trinh Di Truyen/03-lap-trinh-di-truyen.md`
+- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/Chuong 05 - Chien Luoc Tien Hoa/05-chien-luoc-tien-hoa.md`
+- `01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/AI-Engineer-Roadmap-Course/00 - Roadmap.sh AI Engineer Official/04 - Agents, Multimodal and Tools/Module 10 - AI Agents/01-Basics/001 - AI Agents.md`
+- `01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/AI-Engineer-Roadmap-Course/00 - Roadmap.sh AI Engineer Official/05 - Production and Portfolio/Module 13 - Production AI and LLMOps/03-Evals/007 - Evaluation Harness.md`
+- `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/033 - Model Selection.md`
 
 ## Nội dung các file tham khảo để tiện sao chép
 
@@ -9292,4 +9294,3 @@ Will it work reliably in production?
 
 Turn this lesson into a practical artifact such as a notebook, experiment table, evaluation dashboard, trained pipeline, model card, FastAPI service, Docker deployment, or portfolio case study.
 ````
-

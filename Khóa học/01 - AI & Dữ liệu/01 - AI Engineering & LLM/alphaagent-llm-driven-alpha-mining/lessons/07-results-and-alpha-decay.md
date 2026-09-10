@@ -1,5 +1,66 @@
 # Bài 07 - Kết quả tổng thể và Alpha Decay Analysis
 
+## 1. Mục tiêu
+
+Đọc và diễn giải kết quả chính trên CSI 500 và S&P 500.
+
+## 2. Overall performance
+
+![Table 2 - Performance comparison](../assets/tables/table-02-performance-comparison.png)
+
+Các kết quả AlphaAgent được paper báo cáo:
+
+| Market | IC | ICIR | AR | IR | MDD |
+|---|---:|---:|---:|---:|---:|
+| CSI 500 | 0.0212 | 0.1938 | 11.00% | 1.488 | -9.36% |
+| S&P 500 | 0.0056 | 0.0552 | 8.74% | 1.0545 | -9.10% |
+
+Trong Table 2, AlphaAgent dẫn đầu các metric chính trong hai market theo thiết lập so sánh của paper.
+
+## 3. Cumulative excess return
+
+![Figure 3 - Cumulative excess returns](../assets/figures/figure-03-cumulative-excess-return.png)
+
+**Figure 3 (paper, trang 7)** so sánh cumulative excess return trên CSI 500 và S&P 500. Paper nhận xét:
+
+- time-series models có dấu hiệu decay rõ hơn, đặc biệt trên S&P 500;
+- LightGBM + Alpha158 dao động quanh zero trên S&P 500;
+- DeepSeek-R1 suy giảm sau 2023 trong thiết lập được báo cáo;
+- AlphaAgent duy trì đường cumulative excess return bền hơn trên cả hai thị trường.
+
+Paper mô tả khoảng **45% cumulative excess return trên CSI 500** và **trên 37% trên S&P 500** trong testing period.
+
+## 4. Yearly alpha decay
+
+![Figure 4 - Yearly IC and RankIC](../assets/figures/figure-04-yearly-ic-rankic.png)
+
+Figure 4 so sánh GP, RSI, Alpha158 và 15 alpha do AlphaAgent khai phá trên CSI 500 theo năm.
+
+Paper báo cáo:
+
+- GP, RSI, Alpha158 giảm mạnh về IC/RankIC theo thời gian;
+- AlphaAgent giữ IC quanh 0.02 và RankIC quanh 0.025 tương đối ổn định.
+
+Thông điệp chính: AlphaAgent không chỉ tìm factor “tốt ở một snapshot”, mà paper muốn chứng minh factor có **persistence** tốt hơn khi thị trường thay đổi.
+
+## 5. Cách đọc kết quả một cách đúng
+
+Kết quả trong paper là kết quả của **một protocol cụ thể**: dataset, fee, LightGBM pipeline, baseline, prompt/evolution round và alpha zoo đều ảnh hưởng đến con số cuối cùng. Do đó nên diễn giải kết quả như bằng chứng thực nghiệm trong setup của paper, không phải cam kết lợi nhuận ngoài thị trường.
+
+## 6. Bài tập tự luyện
+
+1. Nếu AR cao nhưng IC giảm liên tục theo năm, ta có thể nói factor chống decay tốt không?
+2. MDD thấp bổ sung thông tin gì mà AR không thể hiện?
+3. Tại sao S&P 500 được paper mô tả là môi trường khó hơn cho alpha persistence?
+
+## 7. Nguồn trong paper
+
+- Section 4.2 - Overall Performance, trang 6-7.
+- Table 2 và Figure 3, trang 7.
+- Section 4.3 và Figure 4, trang 7-8.
+
+# Bài 07 - Kết quả tổng thể và Alpha Decay Analysis
+
 ## Lý thuyết nền cần biết
 
 > Bài này không chỉ hỏi đường cong nào cao hơn. Phần nền giúp phân biệt lợi nhuận tích lũy, sức dự báo, rủi ro và độ bền theo thời gian.
@@ -60,65 +121,6 @@ Bài này dùng Table 2 để đọc hiệu năng tổng thể, Figure 3 để �
 - `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/bi-analyst-roadmap/BI-Analyst-Roadmap-Course/00 - Roadmap.sh BI Analyst Official/Module 04 - Statistics Basics - Thong ke co ban/01-VariablesAndData-CorrelationAnalysis/003 - Correlation Analysis.md`
 - `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/AI-Data-Scientist-Roadmap-Course/00 - Roadmap.sh AI Data Scientist Official/03 - Machine Learning and Deep Learning/Module 06 - Machine Learning/06-Select/033 - Model Selection.md`
 - `01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/machine-learning-roadmap/Machine-Learning-Roadmap-Course/00 - Roadmap.sh Machine Learning Official/04 - Evaluation, Workflow and Deep Learning/Module 11 - Model Evaluation/01-WhatIsModel-BiasVarianceTradeoff/002 - Generalization.md`
-
-## 1. Mục tiêu
-
-Đọc và diễn giải kết quả chính trên CSI 500 và S&P 500.
-
-## 2. Overall performance
-
-![Table 2 - Performance comparison](../assets/tables/table-02-performance-comparison.png)
-
-Các kết quả AlphaAgent được paper báo cáo:
-
-| Market | IC | ICIR | AR | IR | MDD |
-|---|---:|---:|---:|---:|---:|
-| CSI 500 | 0.0212 | 0.1938 | 11.00% | 1.488 | -9.36% |
-| S&P 500 | 0.0056 | 0.0552 | 8.74% | 1.0545 | -9.10% |
-
-Trong Table 2, AlphaAgent dẫn đầu các metric chính trong hai market theo thiết lập so sánh của paper.
-
-## 3. Cumulative excess return
-
-![Figure 3 - Cumulative excess returns](../assets/figures/figure-03-cumulative-excess-return.png)
-
-**Figure 3 (paper, trang 7)** so sánh cumulative excess return trên CSI 500 và S&P 500. Paper nhận xét:
-
-- time-series models có dấu hiệu decay rõ hơn, đặc biệt trên S&P 500;
-- LightGBM + Alpha158 dao động quanh zero trên S&P 500;
-- DeepSeek-R1 suy giảm sau 2023 trong thiết lập được báo cáo;
-- AlphaAgent duy trì đường cumulative excess return bền hơn trên cả hai thị trường.
-
-Paper mô tả khoảng **45% cumulative excess return trên CSI 500** và **trên 37% trên S&P 500** trong testing period.
-
-## 4. Yearly alpha decay
-
-![Figure 4 - Yearly IC and RankIC](../assets/figures/figure-04-yearly-ic-rankic.png)
-
-Figure 4 so sánh GP, RSI, Alpha158 và 15 alpha do AlphaAgent khai phá trên CSI 500 theo năm.
-
-Paper báo cáo:
-
-- GP, RSI, Alpha158 giảm mạnh về IC/RankIC theo thời gian;
-- AlphaAgent giữ IC quanh 0.02 và RankIC quanh 0.025 tương đối ổn định.
-
-Thông điệp chính: AlphaAgent không chỉ tìm factor “tốt ở một snapshot”, mà paper muốn chứng minh factor có **persistence** tốt hơn khi thị trường thay đổi.
-
-## 5. Cách đọc kết quả một cách đúng
-
-Kết quả trong paper là kết quả của **một protocol cụ thể**: dataset, fee, LightGBM pipeline, baseline, prompt/evolution round và alpha zoo đều ảnh hưởng đến con số cuối cùng. Do đó nên diễn giải kết quả như bằng chứng thực nghiệm trong setup của paper, không phải cam kết lợi nhuận ngoài thị trường.
-
-## 6. Bài tập tự luyện
-
-1. Nếu AR cao nhưng IC giảm liên tục theo năm, ta có thể nói factor chống decay tốt không?
-2. MDD thấp bổ sung thông tin gì mà AR không thể hiện?
-3. Tại sao S&P 500 được paper mô tả là môi trường khó hơn cho alpha persistence?
-
-## 7. Nguồn trong paper
-
-- Section 4.2 - Overall Performance, trang 6-7.
-- Table 2 và Figure 3, trang 7.
-- Section 4.3 và Figure 4, trang 7-8.
 
 ## Nội dung các file tham khảo để tiện sao chép
 
@@ -4675,4 +4677,3 @@ Calculate the metric or validation method on a model result and explain the deci
 
 Khi dua vao production, hay hoi: du lieu moi co giong train data khong, metric co phu hop business cost khong, model co drift khong, prediction co giai thich duoc khong va pipeline co tai lap duoc tu raw data den model artifact khong.
 ````
-
