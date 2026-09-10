@@ -1,1919 +1,1553 @@
 # Learn it! - Present Continuous Tense
 
-- **Module:** 008. Present Continuous Tense
-- **Bài:** 1/4
-- **Trạng thái:** Chưa học
+**Module:** 008. Present Continuous Tense
+**Bài:** 1/4
+**Trạng thái:** Chưa học
 
-## Mục tiêu học tập
+---
 
--
+## 1. Tóm tắt bài học
 
-## Từ khóa / quy tắc chính
+`Present Continuous Tense` — thì hiện tại tiếp diễn — được dùng khi muốn diễn tả một hành động đang diễn ra, một tình huống tạm thời quanh thời điểm hiện tại, một kế hoạch tương lai đã được sắp xếp, hoặc một hành động lặp đi lặp lại mà người nói muốn nhấn mạnh.
 
--
+Dấu hiệu dễ nhớ nhất của các thì có từ **continuous** là động từ chính thường xuất hiện ở dạng `V-ing`.
 
-## Ví dụ tự tạo
+Cấu trúc trung tâm của thì hiện tại tiếp diễn là:
 
-1.
+> **Subject + am/is/are + V-ing**
 
-## Bài tập tự luyện
+Ví dụ:
 
-1.
+* `I am studying English.`
+* `She is eating lunch.`
+* `They are playing soccer.`
 
-## Ghi chú sau khi học
+Tuy nhiên, để sử dụng đúng thì này, không chỉ cần biết cách thêm `-ing`. Người học còn phải biết cách chọn `am`, `is`, `are`, tạo câu phủ định và câu hỏi, sử dụng `Wh-questions`, áp dụng đúng quy tắc chính tả của `V-ing`, nhận diện các time markers và tránh dùng sai với các `stative verbs`.
 
-- Ngày học:
-- Câu hỏi cần làm rõ:
+---
 
-> Đây là khung ghi chú mới, không phải transcript hay bản sao nội dung bài giảng.
-All right.
+## 2. Mục tiêu học tập
 
-Welcome to another lesson.
+Sau bài học này, người học có thể:
 
-In this lesson, we will cover everything you need to know about the present continuous tense.
+* Giải thích được cấu trúc cơ bản của `Present Continuous`.
+* Chọn đúng `am`, `is` hoặc `are` theo chủ ngữ.
+* Sử dụng thì hiện tại tiếp diễn để mô tả hành động đang xảy ra.
+* Dùng thì hiện tại tiếp diễn cho các tình huống tạm thời quanh hiện tại.
+* Dùng thì hiện tại tiếp diễn cho kế hoạch hoặc arrangement trong tương lai.
+* Nhận diện cách dùng `always` với hiện tại tiếp diễn để nhấn mạnh hành vi lặp lại.
+* Tạo câu khẳng định, phủ định, câu hỏi và câu hỏi phủ định.
+* Đặt và trả lời `Wh-questions`.
+* Viết đúng dạng `V-ing` theo các quy tắc chính tả phổ biến.
+* Nhận diện các time markers thường đi cùng thì hiện tại tiếp diễn.
+* Phân biệt `action verbs` với các `stative verbs` thường không dùng ở dạng continuous.
+* Nhận biết một số động từ có thể dùng hoặc không dùng ở dạng continuous tùy theo nghĩa.
 
-Let's get started.
+---
 
-Now, the first thing we'll do is go over the different uses of the present continuous tense.
+## 3. Nhận diện thì hiện tại tiếp diễn
 
-But before we get started, I just want to point out one thing.
+Trong tên `Present Continuous`, từ `present` cho biết thì có liên quan đến hiện tại, còn `continuous` gợi ý một hành động hoặc tình huống đang có tính tiếp diễn.
 
-You might be getting confused with all of the different verb tenses we are covering in this course,
+Một cách ghi nhớ đơn giản là:
 
-but if you ever see this word here continuous, that just means our verb is going to have I ING added
+> **Continuous → nghĩ đến `-ing`.**
 
-to the end.
+Tuy nhiên, chỉ có `V-ing` vẫn chưa tạo thành thì hiện tại tiếp diễn. Trước động từ chính còn phải có một dạng của động từ `to be` ở hiện tại:
 
-All right, so this continuous word just think of ING.
+| Chủ ngữ             | `to be` |
+| ------------------- | ------- |
+| `I`                 | `am`    |
+| `he`, `she`, `it`   | `is`    |
+| `you`, `we`, `they` | `are`   |
 
-All right.
+Vì vậy:
 
-Hopefully that makes it a little easier to remember.
+```text
+Present Continuous
+= am / is / are
++ main verb + ing
+```
 
-Now let's get started with each use of the present continuous tense.
+Ví dụ:
 
-Now the first most general use is we use the present continuous tense when we're talking about actions
+> `I am studying English.`
 
-that are happening.
+Trong câu này:
 
-All right.
+* `I` là chủ ngữ;
+* `am` là dạng phù hợp của `to be`;
+* `study` là động từ chính;
+* `studying` là dạng `V-ing`.
 
-We're talking about something that is happening and it can be happening at this very moment, as in
+Toàn bộ cụm:
 
-right now.
+> `am studying`
 
-Let's look at our examples so I can tell you what I mean.
+mới là phần động từ của thì hiện tại tiếp diễn.
 
-The first one is I am studying English.
+Trong giao tiếp, `I am` thường được rút gọn thành:
 
-It's fairly simple sentence.
+> `I'm`
 
-Let me point out what is the present continuous tense.
+Vì vậy hai câu sau có cùng ý nghĩa:
 
-It's this part.
+> `I am studying English.`
+> `I'm studying English.`
 
-Here I am studying.
+Câu thứ hai thường tự nhiên hơn trong hội thoại.
 
-And later we'll explain all of the different forms.
+---
 
-But just quickly in this tense, we're using a form of the verb to be in the simple present tense.
+## 4. Các cách sử dụng chính của Present Continuous
 
-So am is are right.
+### 4.1. Hành động đang diễn ra
 
-And then our main verb has ING added to the end and that's it.
+Cách dùng cơ bản nhất của `Present Continuous` là mô tả một hành động đang diễn ra ở thời điểm nói.
 
-If we're using the simple present tense, we have to make sure our subject agrees with it.
+Ví dụ:
 
-And we learn this going over these simple present tense.
+> `I am studying English.`
 
-And the lesson about subject verb agreement and first, second and third person.
+Câu này cho biết việc học tiếng Anh đang là hoạt động hiện tại của người nói.
 
-So if this is still a little confusing to you, make sure you go back and review those lessons.
+Nếu người nói đang ngồi trong thư viện và được hỏi:
 
-But moving on with this, I am studying English.
+> `What are you doing?`
 
-What does this mean?
+họ có thể trả lời:
 
-It just means this is the action that's currently happening.
+> `I'm studying English.`
 
-And in this example we don't specify a time.
+Một ví dụ khác:
 
-So it could mean any amount of time.
+> `She is eating lunch.`
 
-We're explaining that this is happening right now.
+Cấu trúc là:
 
-Like I'm in the library and I'm telling you what are you doing in the library.
+```text
+She + is + eating
+```
 
-I'm studying English right now.
+`She` là ngôi thứ ba số ít nên phải đi với `is`.
 
-Or what are you doing this semester?
+Nếu chính người đang ăn trả lời về mình, câu sẽ trở thành:
 
-I'm studying English.
+> `I'm eating lunch.`
 
-Here I have I am studying English just to show you which form of to be we're using.
+Như vậy, động từ `to be` phải thay đổi theo chủ ngữ, trong khi động từ chính vẫn ở dạng `V-ing`.
 
-Maybe when you heard me say the example, you heard that I put these two words together as a contraction.
+---
 
-I'm.
+### 4.2. Hành động hoặc tình huống tạm thời quanh hiện tại
 
-I'm studying English.
+Một hành động không nhất thiết phải đang xảy ra đúng từng giây tại thời điểm nói mới có thể dùng `Present Continuous`.
 
-It's a little bit more natural.
+Thì này còn được dùng cho những tình huống đang diễn ra trong một khoảng thời gian tạm thời quanh hiện tại.
 
-In the second example we have, she is eating lunch.
+Ví dụ:
 
-Okay.
+> `She is working on a new project this week.`
 
-She is eating lunch.
+Không có nghĩa là cô ấy đang làm dự án liên tục 24 giờ mỗi ngày. Ý chính là trong khoảng thời gian **tuần này**, dự án mới là một hoạt động đang diễn ra.
 
-So someone comes up to her and says, what are you doing?
+Cấu trúc:
 
-She's going to say, I'm eating lunch, so she is eating lunch.
+```text
+She + is + working
+```
 
-We can see that she is eating lunch.
+Time marker:
 
-And again we have is eating.
+> `this week`
 
-Okay.
+giúp xác định khoảng thời gian tạm thời.
 
-So a form of to be and our verb or main verb has ING.
+Một ví dụ khác:
 
-This is the present continuous tense agrees with the subject.
+> `They are staying at a hotel while their house is being renovated.`
 
-She.
+Việc ở khách sạn không phải tình trạng lâu dài. Đây là giải pháp tạm thời trong thời gian ngôi nhà được sửa chữa.
 
-It's third person singular.
+Có thể hình dung:
 
-All right.
+```text
+Hiện tại
+│
+├── Nhà đang được sửa chữa
+│
+└── Họ đang ở khách sạn tạm thời
+```
 
-And you can say she is eating lunch.
+Điểm quan trọng là `Present Continuous` phù hợp khi tình trạng được xem là **đang diễn ra và có tính tạm thời**, không nhất thiết chỉ giới hạn ở khoảnh khắc nói.
 
-Or we can make a contraction out of this and say, she's right.
+---
 
-She's eating lunch.
+### 4.3. Kế hoạch và arrangement trong tương lai
 
-But this is basically the present continuous tense.
+`Present Continuous` còn có thể diễn tả một kế hoạch tương lai đã được sắp xếp tương đối cụ thể.
 
-Now let's take that meaning and get a little more specific.
+Ví dụ:
 
-For example, we can use it to talk about temporary actions.
+> `We are meeting them at 6 p.m. tomorrow.`
 
-And it's similar to what we just covered.
+Ở đây hành động `meeting` chưa diễn ra, nhưng thời gian đã được xác định:
 
-But this time we're adding some time to it.
+> `at 6 p.m. tomorrow`
 
-All right.
+Điều này cho thấy đây là một arrangement tương lai.
 
-So we're adding time to explain that it's temporary or it's happening around a current moment.
+Cấu trúc:
 
-We'll look at our examples to make this clear.
+```text
+We + are + meeting
+```
 
-The first one says she is working on a new project this week.
+Một ví dụ khác:
 
-So again is working is our present continuous agrees with she because she is third person singular.
+> `I am flying to New York next Friday.`
 
-All right.
+Cụm:
 
-And what does this mean?
+> `next Friday`
 
-She is working on a new project this week.
+cho biết hành động thuộc tương lai.
 
-What we're saying is during this week, this is the action that's happening.
+Tuy nhiên, người nói vẫn dùng:
 
-It's ongoing during this week.
+> `am flying`
 
-That is what we're trying to say.
+vì chuyến đi được xem như một kế hoạch đã được sắp xếp.
 
-Our second example is they are staying at a hotel while their house is being renovated.
+Các câu kiểu này thường xuất hiện khi đã có:
 
-R is in the simple present tense and it agrees with they.
+* cuộc hẹn;
+* lịch trình;
+* vé;
+* sự sắp xếp với người khác;
+* thời điểm tương đối rõ.
 
-And here we have stay with ING and together our stay makes our present continuous tense.
+Ví dụ:
 
-But again what is this sentence trying to say?
+> `They are leaving for the airport tomorrow.`
 
-They are staying at a hotel while their hotel is being renovated.
+> `We are going to the beach this weekend.`
 
-So what is the temporary action?
+> `I am meeting my friends tonight.`
 
-Their home or their house is being renovated and renovated just means they're making it nicer or they're
+Trong các trường hợp này, ngữ cảnh thời gian giúp người nghe hiểu rằng `Present Continuous` đang diễn tả tương lai chứ không phải hành động đang xảy ra ngay lúc nói.
 
-fixing something.
+---
 
-And while they're doing that, they can't be in the house.
+### 4.4. Hành động lặp lại với `always`
 
-So they're staying at a hotel.
+`Present Continuous` cũng có thể kết hợp với `always` để nói về một hành vi xảy ra lặp đi lặp lại.
 
-All right.
+Ví dụ:
 
-And a use that's a little different from the two we just covered is we can use the present continuous
+> `He is always losing his keys.`
 
-tense to talk about future plans.
+Câu này không đơn thuần chỉ nói rằng anh ấy đôi khi mất chìa khóa. Việc dùng:
 
-Okay.
+> `is always losing`
 
-So any type of plan that is confirmed in the future, or any type of arrangement, right.
+nhấn mạnh rằng hành vi này xảy ra thường xuyên đến mức trở thành một đặc điểm dễ nhận thấy của người đó.
 
-Or schedule, we can use this present continuous tense.
+Một ví dụ khác:
 
-The first example, we are meeting them at 6 p.m. tomorrow.
+> `She is always arriving late to meetings.`
 
-First we have our meeting.
+Cấu trúc thường là:
 
-This is the present continuous tense form, with r being a form of the verb to be, and it matches with
+```text
+Subject + am/is/are + always + V-ing
+```
 
-our subject.
+Ví dụ:
 
-We and then ING is added to our verb meet.
+```text
+He + is + always + losing
+She + is + always + arriving
+```
 
-Then we have this part at the end at 6:00 pm tomorrow to let us know that this is a plan in the future.
+Trong cách dùng này, `always` thường mang sắc thái mạnh hơn so với một mô tả tần suất trung tính. Tùy ngữ cảnh, nó có thể thể hiện:
 
-All right.
+* sự khó chịu;
+* phàn nàn;
+* bất ngờ;
+* nhấn mạnh một thói quen lặp lại.
 
-So here we are using the present continuous tense to describe or to state a future plan.
+So sánh:
 
-The second example very similar.
+> `He always loses his keys.`
 
-I am flying to New York next Friday.
+Câu này mô tả thói quen hoặc sự việc thường xảy ra.
 
-So what is the action that's going to be happening.
+> `He is always losing his keys.`
 
-Right.
+Câu này nhấn mạnh mạnh hơn vào tính lặp đi lặp lại của hành vi, đôi khi kèm thái độ của người nói.
 
-What is the action that will happen during that time in the future?
+---
 
-Am flying.
+## 5. Cách thành lập câu Present Continuous
 
-Right.
+### 5.1. Câu khẳng định
 
-This person is going to be flying.
+Cấu trúc:
 
-Okay.
+```text
+Subject + am/is/are + V-ing
+```
 
-So we have here am is the form of to be that agrees with I.
+Ví dụ:
 
-And then our verb with ING.
+> `I am reading a book.`
 
-And then when is it happening?
+Phân tích:
 
-Next Friday.
+```text
+I        am        reading        a book
+Subject  to be     V-ing
+```
 
-Okay.
+`I` phải đi với `am`.
 
-But again we're using present continuous tense to describe a future plan.
+Động từ chính:
 
-And another way we can use the present continuous tense is to talk about repeated actions.
+```text
+read → reading
+```
 
-And when we say an action is repeated we can say it always happens.
+Một ví dụ khác:
 
-All right.
+> `They are playing soccer.`
 
-This word always This means that without fail, 100%, it's going to happen.
+Phân tích:
 
-So we can use the present continuous tense for this.
+* `They` → chủ ngữ;
+* `are` → dạng `to be` phù hợp;
+* `play` → động từ chính;
+* `playing` → dạng `V-ing`.
 
-Let's look at our example to understand.
+Câu:
 
-The first example says he is always losing his keys.
+> `They are playing soccer.`
 
-All right.
+cho biết chơi bóng là hành động đang diễn ra trong ngữ cảnh được nói tới.
 
-So here we have this word always.
+Các contraction phổ biến gồm:
 
-Okay.
+| Dạng đầy đủ | Dạng rút gọn |
+| ----------- | ------------ |
+| `I am`      | `I'm`        |
+| `he is`     | `he's`       |
+| `she is`    | `she's`      |
+| `it is`     | `it's`       |
+| `you are`   | `you're`     |
+| `we are`    | `we're`      |
+| `they are`  | `they're`    |
 
-To tell us that it's happening 100% of the times.
+Ví dụ:
 
-It's not rare.
+> `She's eating lunch.`
 
-Every week this man loses his keys.
+> `They're playing soccer.`
 
-So we can say he is always losing his keys.
+---
 
-Where is.
+### 5.2. Câu phủ định
 
-And losing are the present continuous tense.
+Để tạo câu phủ định, đặt `not` sau `am`, `is` hoặc `are`.
 
-And we add this word always in between.
+Cấu trúc:
 
-He is always losing his keys.
+```text
+Subject + am/is/are + not + V-ing
+```
 
-Or our second example.
+Ví dụ:
 
-She is always arriving late to meetings.
+> `I am not going to the gym.`
 
-She is always arriving late to meetings.
+Phần phủ định là:
 
-And again, our present continuous tense is is arriving.
+```text
+am + not
+```
 
-Okay.
+Toàn bộ cụm động từ:
 
-And then we added always to signify this is a repeated action, something that is happening 100% or
+```text
+am not going
+```
 
-almost 100% of the time.
+Một ví dụ khác:
 
-Okay, so not so difficult so far.
+> `She is not working today.`
 
-Now let's move on to the different ways we can form the present continuous tense in different sentences
+Có thể rút gọn thành:
 
-or questions.
+> `She isn't working today.`
 
-And as always, let's start with the positive sentences which are just your basic statements right.
+Với `is not` và `are not`, hai dạng contraction phổ biến là:
 
-So here it says to use the verb to be in the present form.
+```text
+is not  → isn't
+are not → aren't
+```
 
-And that means the simple present form followed by the base form.
+Ví dụ:
 
-And if you're not sure what that means, it just means the form of the verb in the dictionary.
+> `He isn't studying.`
 
-Okay.
+> `They aren't waiting for us.`
 
-And then it says the base form of our main verb.
+Riêng `am not` không có contraction chuẩn tương đương với `isn't` hoặc `aren't`.
 
-So reading, playing, swimming those are the main verb in these types of sentences.
+Ta không nói:
 
-And we make sure we add ING.
+```text
+amn’t
+```
 
-Okay.
+trong tiếng Anh chuẩn thông dụng.
 
-So all of that can be simplified just to this structure.
+Tuy nhiên, có thể rút gọn `I am`:
 
-Here we have the subject plus an hour or is depending on the subject right.
+> `I'm not going to the gym.`
 
-And then our main verb with ING.
+Cấu trúc lúc này là:
 
-And if we look at our example we can see exactly that.
+```text
+I'm + not + going
+```
 
-It says I am reading a book, I is the subject, am is our form of to be because we have I as the subject
+---
 
-right has to agree.
+### 5.3. Câu hỏi Yes/No
 
-Then we have our verb which is read plus ING.
+Để biến câu khẳng định thành câu hỏi, ta đảo `am/is/are` lên trước chủ ngữ.
 
-So it becomes reading.
+Câu khẳng định:
 
-I am reading a book.
+> `You are coming to the party.`
 
-This is what action is going on right now.
+Câu hỏi:
 
-They are playing soccer.
+> `Are you coming to the party?`
 
-So again we have the subject.
+Quá trình này gọi là **inversion** — đảo vị trí giữa `to be` và chủ ngữ.
 
-They are is from the verb to be.
+Cấu trúc:
 
-In the simple present tense, our main verb is play with ING added to it.
+```text
+Am/Is/Are + subject + V-ing?
+```
 
-So they are playing soccer.
+Ví dụ:
 
-This is what's happening.
+> `Is she studying right now?`
 
-They are playing soccer.
+Phân tích:
 
-All right.
+```text
+Is + she + studying + right now?
+```
 
-And that's it for positive sentences.
+Không cần thêm `do` hoặc `does`.
 
-are very straightforward.
+Sai:
 
-So now let's go on to negative sentences with negative sentences as we've seen in other cases.
+```text
+Does she is studying?
+```
 
-What we're doing is adding this word not.
+Đúng:
 
-All right.
+```text
+Is she studying?
+```
 
-So we're going to add this word not in the present continuous tense.
+Bởi vì `am/is/are` đã đảm nhiệm chức năng trợ động từ trong cấu trúc này.
 
-The word not comes after our form of to be.
+---
 
-So it's am not is not or are not.
+### 5.4. Câu hỏi phủ định
 
-Okay.
+Câu hỏi phủ định kết hợp hai đặc điểm:
 
-But then everything else is the same as we just saw in the positive sentence structure.
+* đảo `am/is/are` lên trước chủ ngữ;
+* sử dụng `not`.
 
-And something I want to point out is sometimes right.
+Không dùng contraction:
 
-Sometimes we can make contractions.
+```text
+Am/Is/Are + subject + not + V-ing?
+```
 
-And again contractions are when we put words together.
+Ví dụ:
 
-But we should point out here that am not is never contracted.
+> `Am I not working today?`
 
-There's no appropriate contraction for am not.
+> `Is he not coming to the party?`
 
-However, is not or are not do have contractions and we'll see these throughout this lesson.
+> `Are they not studying tonight?`
 
-Isn't and aren't.
+Với `is not` và `are not`, có thể dùng contraction:
 
-All right.
+```text
+Isn't + subject + V-ing?
+Aren't + subject + V-ing?
+```
 
-So you'll see those later on.
+Ví dụ:
 
-But as I said before, the rest is the same.
+> `Isn't he coming to the party?`
 
-Let's look at the simple structure.
+> `Aren't they studying tonight?`
 
-If you're making a negative sentence, you start with the subject.
+Lưu ý sự thay đổi vị trí của `not`.
 
-Then your form of to be based on the subject followed by not.
+Không contraction:
 
-Okay, that's the new part we add not.
+```text
+Are they not studying?
+```
 
-And then our main verb with ING.
+Có contraction:
 
-And if we look at our first example it says I am not going to the gym.
-
-Okay.
-
-I am not going to the gym.
-
-So let's break this down.
-
-We have I am not going.
-
-Okay.
-
-So I is the subject am not going.
-
-Okay.
-
-This is the negative form of our present continuous tense.
-
-As we said here am not am not cannot be contracted but I am can be.
-
-So you could say I am not going to the gym or I am okay, I am or I am, I'm.
-
-I'm is the contraction.
-
-I'm not going to the gym.
-
-All right.
-
-But what we're focusing on here is the negative structure.
-
-I am not going.
-
-Okay.
-
-And then the second example.
-
-She isn't working today.
-
-She isn't working today.
-
-In this example you'll notice we used the contraction of is not.
-
-Okay.
-
-So you can use it this way.
-
-Or you can just say is not she is not working today.
-
-She isn't working today.
-
-It's up to you to make this contraction you have is and we're pushing not together with is.
-
-You take out that O and you put this apostrophe and that's your contraction.
-
-But the rest is the same.
-
-We have our main verb with ING.
-
-We have our subject she which matches with is.
-
-And this is for negative sentences when you're saying it doesn't happen.
-
-And then for questions in the present continuous tense.
-
-We are going to switch.
-
-We're going to switch the places.
-
-Or a fancier word would be invert.
-
-They mean the same thing to switch or to invert the subject.
-
-And our verb form of to be.
-
-We call this inversion.
-
-So inversion invert switch they're all meaning the same thing.
-
-It means that we have switched the place of our subject and our verb to be.
-
-And this is how you make a question.
-
-So let's look at our examples.
-
-The first one says are you coming to the party?
-
-All this means in the present continuous tense is this action going to happen?
-
-You're questioning it.
-
-Are you coming to the party?
-
-And we can see the structure we put our form of to be first, then our subject.
-
-Right.
-
-We switched or we inverted.
-
-This is inversion.
-
-And then we have our verb to come with ING.
-
-This is the present continuous tense in the question form.
-
-Our second example says is she studying right now?
-
-Is she studying right now?
-
-Again we have our form of to be that has been placed first because it's question and then our subject.
-
-Switch them.
-
-We inverted them.
-
-This is inversion.
-
-All right.
-
-And then our main verb study with ING for the present continuous tense question form.
-
-And it says is she studying right now.
-
-So in this situation we're asking or we're confirming is this action going on at this moment.
-
-Is she studying right now?
-
-Okay.
-
-So let's move on to negative questions.
-
-How do we form negative questions.
-
-We know that because we're using negative, we're going to use this word not.
-
-All right.
-
-But remember is not and are not can make a contraction isn't and aren't but for am not we don't have
-
-the ability to make a contraction.
-
-So what you'll see here is first, if you don't want to use contractions to make a negative question,
-
-you use the form of to be the subject, then not and then our verb with ING.
-
-But if you wanted to use a contraction, we can only do that for is or are.
-
-And to do that, you'll notice that we take that word not.
-
-It comes normally after the subject and now it's joined with our verb is or are at the beginning of
-
-our question.
-
-All right.
-
-So this is negative questions.
-
-Let's look at these three examples.
-
-The first one says am I not working today okay.
-
-So this is a negative question.
-
-We're questioning is this not happening?
-
-Is this activity of working and not happening today.
-
-And again there is no contraction.
-
-It's just am I not working today.
-
-The next example we have a contraction.
-
-Okay.
-
-Instead of saying is he not coming to the party.
-
-We used a contraction and we say, isn't he coming to the party?
-
-And our last example, this also has a contraction.
-
-Aren't they studying tonight?
-
-Okay.
-
-Aren't they studying tonight?
-
-And if we didn't want to use the contraction, how would we form it?
-
-We would say, are they not studying tonight?
-
-We use this first structure where not comes after the subject.
-
-All right.
-
-Now let's look a little bit more into these negative questions.
-
-And which types of situations will you find yourself using them.
-
-And here we have three main situations to express surprise.
-
-Ask for confirmation to confirm something or to even make a polite request.
-
-And here we have our situations and examples a little bit more clear.
-
-So let's look at these.
-
-So the first one was expressing surprise okay.
-
-So expressing surprise we have.
-
-Isn't she working today right.
-
-Isn't she working today.
-
-So here we have the contraction isn't so it is a negative question.
-
-But they're asking isn't she working today.
-
-All right.
-
-Asking for confirmation.
-
-So aren't they coming to the meeting?
-
-This is just a simple check.
-
-Are they coming or are they not coming?
-
-The next one making a polite request.
-
-Okay, this is a little bit more clear.
-
-They're saying, aren't you bringing the documents?
-
-Okay.
-
-Aren't you bringing the documents like, hey, we're going, but I don't see you carrying the documents.
-
-I'm just saying, aren't you going to bring those?
-
-Okay, that's a polite way to say grab them and bring them with you.
-
-And the last one we haven't really quite covered.
-
-But it's nice to add here expressing disapproval.
-
-Okay, so it says for the example, isn't he paying attention?
-
-Right.
-
-So this person is angry.
-
-Okay.
-
-This person is not happy that the other person that they're talking about is not paying attention.
-
-Disapproving of what's going on.
-
-All right.
-
-So these are just different ways we can use negative questions.
-
-Here we have two questions okay.
-
-And they're negative questions I should point out.
-
-Isn't she coming to the meeting.
-
-Okay.
-
-So we're asking is she or is she not.
-
-Isn't she coming to the meeting.
-
-And a very acceptable answer is the short answer where you could say yes she is or no, she isn't.
-
-If you wanted to extend your answer, you wanted to give a lengthier response.
-
-You want to challenge yourself to make a longer response.
-
-Then all you have to do is take part of their question.
-
-So let me show you.
-
-If they asked, isn't she coming to the meeting?
-
-Then you could say yes.
-
-She is coming to the meeting.
-
-You just use part of the question and then for no.
-
-Same thing.
-
-No, she isn't coming to the meeting.
-
-And for our other example, we have.
-
+```text
 Aren't they studying?
+```
 
-And again here you say yes they are or no they aren't.
+---
 
-We're matching with the question.
+### 5.5. Ý nghĩa của câu hỏi phủ định
 
-So aren't they studying?
+Negative questions không chỉ hỏi thông tin. Chúng còn có thể thể hiện thái độ hoặc giả định của người nói.
 
-Yes they are.
+**Diễn tả sự ngạc nhiên:**
 
-No they aren't.
+> `Isn't she working today?`
 
-The question said they and are.
+Người hỏi có thể đã nghĩ rằng cô ấy đáng lẽ phải đang làm việc.
 
-So our response is they and are.
+**Yêu cầu xác nhận:**
 
-For our first example, the same.
+> `Aren't they coming to the meeting?`
 
-Isn't she coming?
+Người nói muốn kiểm tra lại thông tin mình đang tin là đúng.
 
-Or we could say is she not coming?
+**Nhắc nhở hoặc yêu cầu gián tiếp:**
 
-But we have is and she.
+> `Aren't you bringing the documents?`
 
-So our response she is the only time you're going to really change it is if they are talking directly
+Ngữ cảnh có thể khiến câu này mang nghĩa gần với:
 
-to someone.
+> Bạn không mang tài liệu theo à?
 
-So if they're talking directly to someone, they're going to say, aren't you studying?
+Đây có thể là một cách nhắc người nghe về việc cần mang tài liệu.
 
-Okay.
+**Thể hiện sự không hài lòng:**
 
-Aren't you studying?
+> `Isn't he paying attention?`
 
-And you're going to switch it to.
+Người nói có thể cho rằng người được nhắc tới đáng lẽ phải tập trung nhưng hiện tại lại không làm như vậy.
 
-Yes, I am or no I'm not.
+Vì vậy, khi dùng negative questions, cần chú ý không chỉ cấu trúc ngữ pháp mà cả sắc thái của câu.
 
-Okay, so we have to switch you and I and R and M, right?
+---
 
-But that's really the only case.
+## 6. Wh-questions với Present Continuous
 
-Most of the time you can match the question and the sentence.
+### 6.1. Cấu trúc cơ bản
 
-And here we have a variation of our regular questions.
+Khi cần hỏi thông tin cụ thể thay vì chỉ nhận câu trả lời `yes/no`, ta sử dụng các `Wh-words`.
 
-These are called w-h questions.
+Các từ thường gặp gồm:
 
-And what that means is we're using a word like what.
+* `what`;
+* `where`;
+* `when`;
+* `why`;
+* `which`;
+* `who`;
+* `how`.
 
-Why where who.
+Cấu trúc phổ biến:
 
-All right.
+```text
+Wh-word + am/is/are + subject + V-ing?
+```
 
-And there's a list of them.
+Ví dụ:
 
-Let's see how we make these types of questions.
+> `What are you doing?`
 
-The meaning of these questions is very similar to our regular questions in the present continuous tense.
+> `Why are they laughing?`
 
-We're just asking about actions that are happening whether right now or in the near future.
+> `Where are they traveling next week?`
 
-All right.
+Mỗi từ để hỏi xác định loại thông tin cần trả lời.
 
-So let's look at the structure.
+| Từ hỏi  | Thông tin cần biết     | Ví dụ                         |
+| ------- | ---------------------- | ----------------------------- |
+| `what`  | hành động / sự việc    | `What are you doing?`         |
+| `where` | địa điểm               | `Where is she going?`         |
+| `when`  | thời gian              | `When are they arriving?`     |
+| `why`   | lý do                  | `Why is he crying?`           |
+| `which` | lựa chọn cụ thể        | `Which book are you reading?` |
+| `who`   | người                  | `Who is calling you?`         |
+| `how`   | cách thức / trạng thái | `How is she feeling?`         |
 
-What you're going to do is start with your Wh word.
+Ví dụ:
 
-Then your form of to be am is or are followed by the subject.
+> `What are you doing?`
+> `I am watching a movie.`
 
-And then your verb with ING.
+> `Where is she going?`
+> `She is going to the store.`
 
-All right.
+> `When are they arriving?`
+> `They are arriving at 6 p.m.`
 
-So here we have three examples.
+> `Why is he crying?`
+> `He's sad about the news.`
 
-What are you doing?
+> `Which book are you reading?`
+> `I am reading The Great Gatsby.`
 
-Why are they laughing?
+> `Who is calling you?`
+> `My mom is calling me.`
 
-Where are they traveling next week?
+> `How is she feeling?`
+> `She is feeling tired.`
 
-And each one of these wh words gives the question a slightly different meaning.
+---
 
-So let's look at all of the different wh questions we might be able to make.
+### 6.2. Trường hợp đặc biệt với `which` và `who`
 
-So here we have a list of them.
+Không phải mọi `Wh-question` đều có cấu trúc hoàn toàn giống nhau.
 
-All right so first we have what are you doing.
+Với `which`, một danh từ có thể đứng ngay sau từ hỏi:
 
-And the answer here is I am watching a movie.
+> `Which book are you reading?`
 
-Okay.
+Ở đây:
 
-So we're asking what is the action that's happening.
+```text
+Which book
+```
 
-Next we have where is she going?
+tạo thành một cụm hỏi, sau đó mới đến:
 
-She is going to the store.
+```text
+are + you + reading
+```
 
-Where is asking what location is this action ending at?
+Cấu trúc:
 
-Where is she going?
+```text
+Which + noun + am/is/are + subject + V-ing?
+```
 
-Next we have.
+Ví dụ:
 
-When are they arriving?
+> `Which movie are they watching?`
 
-They're arriving at 6 p.m..
+> `Which project is she working on?`
 
-When?
+Với `who`, cấu trúc thay đổi khi `who` chính là chủ ngữ của hành động.
 
-Means?
+Ví dụ:
 
-Tell me the time.
+> `Who is helping you?`
 
-I'm curious.
+Ở đây `who` thay thế trực tiếp cho người thực hiện hành động.
 
-This action.
+Ta không cần thêm một chủ ngữ khác giữa `is` và `helping`.
 
-At what time is it happening?
+Tương tự:
 
-Next we have.
+> `Who is making that noise?`
 
-Why is he crying?
+Câu trả lời có thể là:
 
-He's sad about the news.
+> `The kids are making the noise.`
 
-So here.
+---
 
-Why is asking for what reason?
+### 6.3. Các cấu trúc với `how`
 
-Next we have.
+`How` thường được học cùng nhóm `Wh-questions` và có thể kết hợp với nhiều từ khác để tạo ra những câu hỏi khác nhau.
 
-Which book are you reading?
+**`How much`** hỏi số lượng của danh từ không đếm được:
 
-I am reading The Great Gatsby here, which means there's a number of different books.
+> `How much money are you spending?`
 
-So out of these, which book is it?
+`Money` là danh từ không đếm được theo đơn vị trực tiếp, nên dùng `much`.
 
-Select or tell me which book you have picked.
+**`How many`** hỏi số lượng của danh từ đếm được:
 
-Then we have.
+> `How many people are coming to the party?`
 
-Who is calling you?
+Có thể trả lời:
 
-My mom is calling me.
+> `Five people are coming.`
 
-And here.
+**`How often`** hỏi tần suất:
 
-Who just means what person?
+> `How often is he calling you?`
 
-Which person is doing it?
+Ví dụ câu trả lời:
 
-And last we have how I know how starts with an H.
+> `He's calling me every day.`
 
-Not a W.H., but a lot of the times how is always included with the Wh words.
+**`How long`** hỏi thời lượng:
 
-And here it says how is she feeling?
+> `How long are they staying there?`
 
-She is feeling tired.
+Ví dụ:
 
-How?
+> `They are staying for one week.`
 
-Tell me about this feeling.
+**`How far`** hỏi khoảng cách:
 
-What is it like?
+> `How far are they walking?`
 
-So these are all the Wh words and you can see how they're used.
+Ví dụ:
 
-And as I pointed out in other lessons with wh questions, While most of them follow the structure we
+> `They are walking about one kilometre.`
 
-discussed which and who are a little different.
+Như vậy, phần đứng sau `how` quyết định loại thông tin mà người hỏi cần biết.
 
-All right, so here you'll see which book are you reading.
+---
 
-So here book is our object.
+## 7. Trả lời câu hỏi ngắn
 
-It's coming between this wh word and our form of to be.
+Với Yes/No questions, ta có thể trả lời ngắn mà không cần lặp lại toàn bộ câu.
 
-And then the subject comes after that.
+Ví dụ:
 
-Whereas who okay.
+> `Is she coming to the meeting?`
 
-Who is the subject.
+Có thể trả lời:
 
-So who is the subject.
+> `Yes, she is.`
 
-Let's look at this.
+hoặc:
 
-Here we have who write this word, who takes the place of the subject.
+> `No, she isn't.`
 
-So instead of putting normally write am is or are first followed by the subject, if we're using who,
+Nếu muốn trả lời đầy đủ:
 
-it's going to come first because it is a wh word.
+> `Yes, she is coming to the meeting.`
 
-So who is helping you?
+> `No, she isn't coming to the meeting.`
 
-My friend is helping me.
+Tương tự:
 
-Who is making that noise?
+> `Are they studying?`
 
-The kids are making it or the kids are making the noise, okay.
+Câu trả lời:
 
-And with the word how we can add a lot of different modifiers to it to give it a different meaning,
+> `Yes, they are.`
 
-right?
+> `No, they aren't.`
 
-So here you'll see all kinds of examples.
+Thông thường, pronoun và dạng `to be` trong câu trả lời phải phù hợp với chủ ngữ của câu hỏi.
 
-How much, how many, how often, how long, how far, and for much and many.
+Ví dụ:
 
-The difference is, depending on our noun, is it uncountable or countable?
+```text
+Is she ...?
+→ Yes, she is.
+→ No, she isn't.
+```
 
-Right?
+```text
+Are they ...?
+→ Yes, they are.
+→ No, they aren't.
+```
 
-That means can we count them as individual objects, or do we just consider it a one thing, an idea?
+Trường hợp câu hỏi dùng `you`, người trả lời phải đổi góc nhìn.
 
-Right.
+Câu hỏi:
 
-So money you can't have one money, two money, three money.
+> `Are you studying?`
 
-It's just money.
+Người được hỏi không trả lời:
 
-So you say how much money?
+```text
+Yes, you are.
+```
 
-But for here people, right?
+mà phải nói:
 
-People we can count one person, two persons.
+> `Yes, I am.`
 
-Three people.
+hoặc:
 
-Right?
+> `No, I'm not.`
 
-So how many people okay, are coming to the party?
+Do đó:
 
-This can be considered countable, right?
+```text
+you → I
+are → am
+```
 
-Because we can count how many people?
+khi người nghe trả lời về chính mình.
 
-Three people.
+---
 
-Four people.
+## 8. Quy tắc viết động từ ở dạng `V-ing`
 
-Five people.
+### 8.1. Phần lớn động từ: thêm `-ing`
 
-Okay.
+Đối với phần lớn động từ, chỉ cần thêm `-ing`.
 
-If it's just one and you have to change it to a person.
+```text
+play → playing
+jump → jumping
+work → working
+read → reading
+```
 
-One person.
+Ví dụ:
 
-All right.
+> `They are playing soccer.`
 
-But we can count.
+> `She is reading a book.`
 
-So therefore we say how many.
+---
 
-And then here.
+### 8.2. Động từ kết thúc bằng `e`: bỏ `e`
 
-How often, how long?
+Với nhiều động từ kết thúc bằng `e` câm, bỏ `e` rồi thêm `-ing`.
 
-How far?
+```text
+write → writing
+make → making
+drive → driving
+```
 
-Just frequency.
+Không viết:
 
-Okay.
+```text
+writeing
+makeing
+driveing
+```
 
-So how many times?
+Ví dụ:
 
-Right.
+> `She is writing an email.`
 
-How often is he calling you?
+> `He is driving to work.`
 
-He calls me every week.
+---
 
-Once a week.
+### 8.3. Quy tắc CVC và nhân đôi phụ âm cuối
 
-Twice a week.
+`CVC` là viết tắt của:
 
-How long?
+```text
+Consonant + Vowel + Consonant
+Phụ âm    + Nguyên âm + Phụ âm
+```
 
-Okay, so the duration.
+Các nguyên âm tiếng Anh cơ bản là:
 
-How long are they staying there?
+```text
+a, e, i, o, u
+```
 
-Staying for?
+Những chữ cái còn lại thường được xem là phụ âm trong quy tắc chính tả này.
 
-Right from this time till one weeks.
+Với động từ một âm tiết có dạng phù hợp `CVC`, thường nhân đôi phụ âm cuối trước khi thêm `-ing`.
 
-Up.
+Ví dụ:
 
-Okay, so the duration and how far?
+```text
+run → running
+sit → sitting
+swim → swimming
+```
 
-Right the distance.
+Phân tích `run`:
 
-How far are they walking?
+```text
+r = consonant
+u = vowel
+n = consonant
+```
 
-They're walking from here.
+Nên:
 
-And they'll stop in one kilometre or one mile.
+```text
+run
+→ runn
+→ running
+```
 
-Okay.
+Tương tự:
 
-That's how far.
+```text
+sit → sitting
+swim → swimming
+```
 
-Now as for spelling rules with continuous tenses present continuous past continuous future continuous.
+Với động từ nhiều âm tiết, việc nhân đôi phụ âm cuối phụ thuộc vào trọng âm.
 
-Since they all use the verb plus ING, they will all follow these ING rules.
+Khi:
 
-All right, so let's go through these and see what we can learn.
+* âm tiết cuối được nhấn;
+* phần cuối phù hợp với pattern cần nhân đôi;
 
-First, the most basic example or general example.
+thì phụ âm cuối thường được nhân đôi.
 
-Most verbs.
+Ví dụ:
 
-Most verbs all we have to do is add ING.
+```text
+begin → beginning
+admit → admitting
+prefer → preferring
+```
 
-Okay, that's for most verbs.
+Trong `begin`, trọng âm rơi vào âm tiết cuối:
 
-So you'll see for example play we just add ING jump just add ING jumping work just add ING working.
+```text
+be-GIN
+```
 
-All right.
+nên:
 
-Very simple.
+```text
+begin → beginning
+```
 
-But there are some unique cases.
+Trong `admit`:
 
-Let's see those.
+```text
+ad-MIT
+```
 
-The first one, if our verb ends with an e and we want to add ING, we have to drop the e.
+nên:
 
-Okay.
+```text
+admit → admitting
+```
 
-So we say we have to drop the e.
+Trong `prefer`:
 
-The e means to remove it.
+```text
+pre-FER
+```
 
-We don't use it.
+nên:
 
-We don't write it.
+```text
+prefer → preferring
+```
 
-So our examples here we have the verb to write.
+Nếu điều kiện về trọng âm không được đáp ứng, không tự động nhân đôi phụ âm cuối.
 
-If we want to add ING we remove that e and just add ING.
+---
 
-So here we have writing.
+### 8.4. Động từ kết thúc bằng `-ie`
 
-All right for the verb to make.
+Khi động từ kết thúc bằng `-ie`, đổi `ie` thành `y` rồi thêm `-ing`.
 
-It also ends in e we have to drop it and then we just spell it like this make ING.
+```text
+lie → lying
+die → dying
+tie → tying
+```
 
-All right.
+Quy trình:
 
-We're not writing the E that was originally there.
+```text
+ie → y → + ing
+```
 
-And the same for drive.
+Ví dụ:
 
-We're removing that E, we're dropping it and it becomes driving.
+```text
+lie
+→ ly
+→ lying
+```
 
-Another rule that you'll see is this consonant vowel consonant rule.
+Nếu động từ đã kết thúc bằng `y`, không cần đổi `y`.
 
-And you might see it as c, v, c.
+Chỉ thêm `-ing` theo quy tắc thông thường.
 
-That means consonant vowel consonant.
+Ví dụ:
 
-This is a pattern, right?
+```text
+study → studying
+play → playing
+```
 
-If our verb at the end has this pattern consonant, vowel, consonant.
+---
 
-And maybe you're wondering what is the consonant?
+### 8.5. Khác biệt Anh-Anh và Anh-Mỹ với chữ `l`
 
-What is the vowel?
+Một điểm khác biệt chính tả thường gặp giữa British English và American English xuất hiện ở một số động từ kết thúc bằng `l`.
 
-The easiest way is to tell you what is a vowel.
+British English thường nhân đôi `l` trước hậu tố bắt đầu bằng nguyên âm như `-ing` trong các từ kiểu:
 
-A vowel can be a, e, I, o, or u a, e, I, o, u.
+```text
+travel → travelling
+cancel → cancelling
+```
 
-Any other letter is a consonant.
+Trong American English, cách viết thường là:
 
-All right.
+```text
+travel → traveling
+cancel → canceling
+```
 
-So that's the simple way.
+Do đó có thể gặp cả:
 
-So with this rule we're looking for this pattern in our verb.
+```text
+travelling
+traveling
+```
 
-The last letters.
+Tùy theo chuẩn tiếng Anh đang sử dụng.
 
-Do they have consonant vowel consonant pattern okay.
+Điều quan trọng là giữ cách viết nhất quán trong cùng một bài viết.
 
-And this is important.
+---
 
-Is it only one syllable.
+## 9. Time markers thường gặp
 
-And I've explained this in other lessons.
+### 9.1. Hành động xảy ra ngay lúc nói
 
-But if you're just joining in this lesson, a syllable is just a sound when you say the verb.
+Các time markers phổ biến gồm:
 
-How many sounds are you making?
+* `now`;
+* `right now`;
+* `at the moment`.
 
-And you can figure this out by clapping as you say the verb.
+Ví dụ:
 
-We'll do these examples to show you, for example, the verb run.
+> `I am studying now.`
 
-When you say run, clap your hands.
+> `She is working on her project right now.`
 
-How many times are you able to clap them for each sound you're making?
+> `They are having a meeting at the moment.`
 
-Run!
+Các cụm này làm rõ rằng hành động đang xảy ra tại hoặc rất gần khoảnh khắc nói.
 
-Okay, by saying run, just one sound comes out of my mouth and I'm clapping.
+So sánh:
 
-Once during that time it's one syllable or sit okay to sit just one sound, one clap, one syllable.
+> `I am studying.`
 
-Next swim.
+Câu này có thể cần ngữ cảnh để xác định khoảng thời gian.
 
-Okay.
+Trong khi:
 
-Swim again.
+> `I am studying right now.`
 
-One syllable.
+cho biết rõ hành động đang xảy ra ngay tại thời điểm nói.
 
-So if it's one syllable and it follows this pattern.
+Time marker thường đứng cuối câu:
 
-Consonant.
+> `They are preparing dinner right now.`
 
-Vowel consonant.
+Nhưng có thể đưa lên đầu câu để nhấn mạnh thời gian:
 
-This is what we have to do.
+> `Right now, they are preparing dinner.`
 
-We have to double right.
+Khi đưa một cụm trạng ngữ thời gian lên đầu câu, dấu phẩy thường được dùng để tách nó khỏi mệnh đề chính.
 
-We have to double the final consonant and then add ING.
+---
 
-So what does that mean?
+### 9.2. Hành động tạm thời quanh hiện tại
 
-Let's look here.
+Các cụm thường gặp:
 
-Run we just showed is one syllable.
+* `this week`;
+* `these days`;
+* `currently`.
 
-Does it have consonant vowel consonant r is a consonant, u is a vowel, n is a consonant.
+Ví dụ:
 
-So yes.
+> `I am taking an online course this week.`
 
-So we're going to double that consonant.
+> `He is working from home these days.`
 
-So here the last consonant in run is n.
+> `She is currently reading a new book.`
 
-So before adding ING we have to make another n.
+`This week` xác định một khoảng thời gian cụ thể bao quanh hiện tại.
 
-All right.
+`These days` có phạm vi linh hoạt hơn. Tùy ngữ cảnh, nó có thể chỉ:
 
-So we doubled it.
+* vài ngày gần đây;
+* vài tuần;
+* vài tháng.
 
-Now there's two of them for sit again S is a consonant I is a vowel, T is a consonant.
+`Currently` thường đứng giữa `to be` và động từ chính:
 
-So when we write with ING, we write t twice.
+```text
+She + is + currently + reading
+```
 
-We double the consonant that final consonant.
+Ví dụ:
 
-And for swim, let's check write.
+> `She is currently reading a new book.`
 
-The last three letters would be.
+Cũng có thể đưa `currently` lên đầu câu:
 
-Here W is a consonant, I is a vowel, m is a consonant okay, CVC consonant vowel consonant, and it's
+> `Currently, she is learning Spanish.`
 
-one syllable.
+Cách này nhấn mạnh mạnh hơn vào khoảng thời gian hiện tại.
 
-So we're adding another m and then ING.
+---
 
-But all right, there's an exception.
+### 9.3. Kế hoạch trong tương lai
 
-So take a look here.
+Các time markers thường gặp gồm:
 
-If our verb is more than one syllable and we have that CVC pattern.
+* `tonight`;
+* `tomorrow`;
+* `this weekend`;
+* `next Friday`;
+* một thời điểm cụ thể như `at 6 p.m. tomorrow`.
 
-And the last syllable.
+Ví dụ:
 
-Okay.
+> `I am meeting my friends tonight.`
 
-So the last final syllable is stressed.
+> `They are leaving for the airport tomorrow.`
 
-That means we say it a little bit stronger, right.
+> `We are going to the beach this weekend.`
 
-We add a little more emphasis to it.
+> `I am flying to New York next Friday.`
 
-If all of these things are true okay then yes, we will still double the final consonant.
+Thông thường, time marker đứng cuối câu là lựa chọn tự nhiên và trung tính:
 
-All right, so let me show you.
+> `They are flying to London tomorrow.`
 
-Hold on.
+Khi muốn nhấn mạnh thời gian, có thể đặt nó ở đầu câu:
 
-So here we have the verb begin.
+> `Tomorrow, they are flying to London.`
 
-First I want you to try to figure out how many syllables.
+> `This weekend, we are visiting our grandparents.`
 
-So let's do it together.
+Điểm quan trọng là chính cụm chỉ thời gian tương lai giúp người nghe nhận ra rằng dạng `am/is/are + V-ing` đang nói về một arrangement sắp tới.
 
-Let's say it and clap.
+---
 
-Begin right when I say it.
+## 10. Những động từ thường không dùng ở dạng Continuous
 
-It's.
+### 10.1. Stative verbs
 
-I'm making two sounds.
+Không phải mọi động từ đều tự nhiên khi dùng ở dạng `V-ing`.
 
-Begin.
+Một nhóm quan trọng là `stative verbs` — các động từ mô tả:
 
-I'm clapping twice.
+* trạng thái;
+* nhận thức;
+* sở hữu;
+* cảm xúc;
+* giác quan;
 
-But when we say that word, the second syllable or the last syllable is a little bit stronger than the
+thay vì một hành động đang được thực hiện.
 
-first.
+Một số ví dụ:
 
-Okay.
+```text
+know
+believe
+own
+want
+love
+hate
+need
+```
 
-It's begin.
+Ví dụ không tự nhiên trong cách dùng thông thường:
 
-I am stressing it.
+```text
+I am knowing the answer.
+```
 
-All right, that's what this means.
+Nên dùng:
 
-And if that's the case, and we have consonant vowel, consonant consonant, vowel consonant, then
+> `I know the answer.`
 
-we'd still double that that last consonant before adding ING.
+Tương tự:
 
-Okay.
+```text
+She is owning a car.
+```
 
-So here we have admit and prefer.
+nên là:
 
-Right.
+> `She owns a car.`
 
-Maybe try to pause the video and try it by yourself.
+Bởi vì việc sở hữu một chiếc xe được xem là một trạng thái, không phải một hành động đang diễn tiến.
 
-If not, we'll do it together now.
+Các động từ liên quan đến perception cũng thường có cách dùng stative:
 
-All right.
+```text
+see
+hear
+smell
+taste
+```
 
-So let's see how many syllables in admit.
+Tuy nhiên, một động từ có phải stative hay không còn phụ thuộc vào **nghĩa cụ thể trong câu**.
 
-Admit.
+---
 
-Admit two syllables.
+### 10.2. Cùng một động từ nhưng khác nghĩa
 
-And again with this verb, the second or last syllable is a little stronger.
+Một số động từ có thể không dùng ở dạng continuous khi biểu thị trạng thái, nhưng lại dùng được khi chúng mang nghĩa hành động.
 
-It's admit that add part.
+Đây là lý do không nên học đơn giản rằng:
 
-Very subtle.
+> “Động từ X tuyệt đối không bao giờ được thêm `-ing`.”
 
-Admit.
+Cần xem động từ đó đang mang nghĩa gì.
 
-Admit.
+Ba ví dụ điển hình là:
 
-Right.
+```text
+have
+think
+see
+```
 
-That's the stronger part.
+---
 
-And it's consonant.
+### 10.3. `have`, `think` và `see`
 
-Vowel consonant.
+**`have` với nghĩa sở hữu**
 
-So when we add ING, we have an extra t.
+> `I have a car.`
 
-All right.
+Ở đây `have` thể hiện sự sở hữu.
 
-And the same for prefer.
+Không nói:
 
-Okay.
+```text
+I am having a car.
+```
 
-You can figure it out by yourself.
+**`have` với nghĩa thực hiện một hoạt động**
 
-But it is two syllables.
+> `I am having lunch.`
 
-The second part is stronger more emphasis.
+Trong câu này, `having lunch` gần nghĩa với việc đang ăn trưa. Đây là một hoạt động đang diễn ra, nên continuous phù hợp.
 
-It is stressed.
+---
 
-We have consonant vowel consonant.
+**`think` với nghĩa có ý kiến**
 
-Okay.
+> `I think it's a good idea.`
 
-And that means we're adding the extra letter or extra final consonant before ING.
+Ở đây `think` mang nghĩa:
 
-But.
+> tôi cho rằng / tôi có ý kiến rằng...
 
-All right.
+Đây là một trạng thái nhận thức.
 
-So you can see this.
+Thông thường không nói:
 
-But down here right.
-
-It has to check all of these rules.
-
-Right.
-
-It has to be more than one syllable.
-
-It has to have the CVC pattern, and the last syllable has to be stressed.
-
-If not all of those are true, we don't double the last letter for example.
-
-Here insist.
-
-Okay.
-
-So here's another rule.
-
-It's a little easier to follow, so don't worry.
-
-This is if if your verb ends in I okay.
-
-So if your verb ends in I, what you have to do is change the ie to a y and then you can add ING.
-
-All right that's it.
-
-So here we go.
-
-It just says for example ly dye or tie.
-
-All of these verbs end in I.
-
-So when adding ING, you spell it like this with a y that iy becomes a y.
-
-That's it.
-
-If the verb already ends in y, then we don't do anything.
-
-We just add the ING like we saw before.
-
-All right.
-
-And throughout my lessons, I always try to point out whenever there is a major difference between American
-
-and British English.
-
-And here is where you'll find one.
-
-When we have this doubling the consonant rule.
-
-Right.
-
-This doubling of the last consonant, a major difference between British and American English is this
-
-with British English.
-
-With British English, that final l.
-
-Okay.
-
-So if your final consonant is L, normally it's just doubled, right?
-
-There's no rules.
-
-You have to check it's just doubled.
-
-And then you add the ING.
-
-But as we saw American English, those rules we looked at before with American English, It follows
-
-those rules.
-
-Exactly.
-
-It doesn't matter if it's an L or not.
-
-It follows those rules.
-
-Exactly.
-
-So in American English, if that last syllable isn't stressed, okay, then we don't double the consonant.
-
-Okay.
-
-It's as simple as that.
-
-So let me show you what I mean with some examples.
-
-Okay.
-
-So here we have the British English version and the American version okay.
-
-With British English if you have words like travel okay or cancel.
-
-Let's look at these okay.
-
-So travel and cancel.
-
-How many syllables travel two.
-
-Cancel two.
-
-All right.
-
-Does it have the consonant vowel consonant pattern?
-
-Yes.
-
-Consonant vowel consonant consonant vowel consonant okay.
-
-And the last check.
-
-Do we stress the last syllable?
-
-Let's see.
-
-Travel?
-
-Not really.
-
-Both are said equally.
-
-How about cancel?
-
-Cancel?
-
-Nope.
-
-Both are equal in American English.
-
-Then we don't double that L because we don't have all three checks.
-
-But in British English, it doesn't matter.
-
-That last L is going to be doubled.
-
-All right.
-
-Whereas in American English, because that final syllable is not stressed, we're just writing the l
-
-once.
-
-All right.
-
-So this is one major difference you'll come across.
-
-Now let's just go over some common time markers that you'll see in sentences or questions with the present
-
-continuous tense.
-
-All right.
-
-And there are time markers you'll see represent these three situations.
-
-Things happening right now happening around now and future plans.
-
-So for time markers that represent things happening right now and when I say things Actions.
-
-Right?
-
-Actions happening right now.
-
-We have words such as now, right now or at the moment.
-
-So when you see these, we know we're talking at this exact moment, right?
-
-So I am studying if I just said I am studying.
-
-It's not very clear.
-
-Are they talking about at this moment.
-
-Does that mean during this semester they're studying.
-
-But if we add now, we know it's happening at this moment.
-
-That's what they're talking about.
-
-Or she is working on her project right now.
-
-Right now that means just this minute right this second it's happening.
-
-Or they are having a meeting at the moment.
-
-So at the moment, which means now they are having a meeting, right.
-
-And again, you can see all of these examples are using the present continuous tense.
-
-And something that's always important to think about is where can we place each of these time markers
-
-in this situation?
-
-I would say normally in a natural sentence, you might just find them at the end of the sentence, but
-
-they are able to be placed in the beginning, right?
-
-So it is possible to place it at the beginning.
-
-Now I am leaving right now.
-
-They are preparing dinner.
-
-So what's the difference?
-
-If you place the time marker at the beginning like this, you're adding more focus or more emphasis
-
-on the time marker, right?
-
-So I really want to emphasize now okay, maybe I'm angry now.
-
-I am leaving.
-
-Right.
-
-Right now they are preparing dinner.
-
-Okay.
-
-So you're focusing on the time when you place it at the beginning, whereas if it comes at the end,
-
-it's just a more natural flow.
-
-And the next category of time markers are time markers that represent actions happening around now.
-
-All right, so maybe we're not talking exactly this moment, but around this current time.
-
-Okay.
-
-We're mostly talking about a temporary period, right.
-
-So let's look at our three examples we have.
-
-I am taking an online course this week.
-
-He is working from home these days.
-
-She is currently reading a new book.
-
-All right.
-
-So these first two this week and these days this gives us the time period, right.
-
-When is this action happening?
-
-It's happening this week.
-
-Is it happening next week?
-
-Maybe.
-
-But we're not talking about that.
-
-We're talking about this week.
-
-Right.
-
-Or he is working from home these days.
-
-These days means around this current time.
-
-Okay.
-
-And it's depending on the person these days could mean these past few months.
-
-These past few weeks.
-
-Okay.
-
-But it's more of a current time.
-
-And this last one she is currently reading a new book here, currently tells us that this is happening
-
-in this current time period and for these first two types of time markers that we saw these days and
-
-this week, these can be at the end of the sentence like we saw, this is a natural flow.
-
-But if we do want to place it at the beginning of the sentence, that is okay.
-
-Make sure you have this comma right.
-
-So these days today, this week, this Monday.
-
-Right.
-
-Things like that can be placed at the beginning of the sentence.
-
-But again when you're doing that you're putting more focus, more emphasis on the time frame.
-
-Whereas if it's at the end of the sentence it's more natural.
-
-It's more neutral.
-
-All right.
-
-We're focusing on the action just as much.
-
-Currently it's a little different.
-
-You'll see that it's placed here.
-
-It comes after our form of to be but before our main verb with ING.
-
-It's just right here in the middle.
-
-And could you place currently at the very beginning of the sentence and say currently she is learning
-
-Spanish.
-
-Yeah.
-
-You could.
-
-Right.
-
-That is possible.
-
-But you're really putting focus on that marker, that time marker currently that way.
-
-Whereas this is the more natural neutral way.
-
-And in our next situation we're using time markers to mark future plans.
-
-All right.
-
-And here you'll see we have words like tonight tomorrow this weekend.
-
-These are all marking some type of future plan.
-
-Here tonight tomorrow and this weekend right.
-
-We're talking about a time point a time point in the future.
-
-All right.
-
-And this is a little different than before when we said something like this week.
-
-Right.
-
-Or these days.
-
-Because this week or these days is an extended time period.
-
-It's a little larger.
-
-whereas tonight and tomorrow are very specific time points.
-
-And even this weekend, even though it's two days right, is still more specific than, say, this week
-
-or these days, those are more large time frames.
-
-So our examples I am meeting my friends tonight.
-
-They are leaving for the airport tomorrow.
-
-We are going to the beach this weekend.
-
-These are all plans, okay?
-
-Their future arrangements or plans?
-
-Where can we place these?
-
-As you saw at the end of the sentence is perfectly fine.
-
-When in doubt, that's probably your best choice.
-
-It's natural.
-
-It's neutral.
-
-If you wanted to emphasize the time marker, you could place it at the beginning of the sentence.
-
-Just make sure you add this comma tomorrow.
-
-They are flying to London.
-
-This weekend we are visiting our grandparents now.
-
-One special point that I want to quickly is that with continuous verb tenses.
-
-There are certain verbs that we call non-continuous verbs, and that means we don't really use them
-
-with these continuous tenses.
-
-There are some exceptions.
-
-Sometimes we can, and we'll try to point that out in a little bit here.
-
-But normally these non-continuous verbs do not go well in the continuous tense.
-
-And these are verbs that normally describe types of states, emotions, or senses, as opposed to verbs
-
-that describe actions.
-
-So let's take a look.
-
-We have here something called stative verbs.
-
-Stative verbs is just a fancy way to say verbs that express a state or a condition.
-
-All right.
-
-So to know, to believe, to own something, to want something.
-
-These are states, right?
-
-These are conditions.
-
-These are non-continuous verbs.
-
-Normally, sometimes it's not the case.
-
-Or here we have verbs of perception.
-
-Verbs of perception are verbs of the senses.
-
-To see, to hear, to smell, to taste.
-
-These are verbs of perception.
-
-And then last verbs of emotion or feeling.
-
-To love.
-
-To hate.
-
-To need something.
-
-These are feelings.
-
-Emotions.
-
-Normally these are non-continuous verbs.
-
-And we don't use them in the continuous tense, whether it be present continuous, past continuous,
-
-or future continuous.
-
-And you can see what I mean here, right?
-
-It would be incorrect to say I am knowing the answer.
-
-Right?
-
-If you're in class and you raise your hand and you say, teacher, I am knowing the answer.
-
-That doesn't sound right.
-
-It's incorrect.
-
-You want to say, I know the answer.
-
-We don't use this in the present continuous tense.
-
-Okay?
-
-Or another example.
-
-Here she is owning a car.
-
-That is not correct.
-
-All right.
-
-These are one of these non-continuous verbs.
-
-So it's better to say she owns a car.
-
-All right, so this is what it means when I say we cannot use these non-continuous verbs with the continuous
-
-tense.
-
-But as I said, there are, as always, some exceptions.
-
-All right, so these aren't all of the exceptions, but I want to point out a few.
-
-So for example, the verb to have to think and to see we're going to see both ways.
-
-Right.
-
-A way that we can say them as a non-continuous verb and as a continuous verb.
-
-The verb to have is used to represent a state, for example a possession.
-
-I have a car, right?
-
-I am representing this state of possession.
-
-I have a car in this type of situation.
-
-We consider it a non-continuous verb, right?
-
-We can't say I am having a car.
-
-That doesn't make sense.
-
-But when we use have to mean a type of action, an action that you're completing or taking place, then
-
-it is okay.
-
-For example, I am having lunch, right?
-
-Sometimes you might get the question, what are you doing right now?
-
-And you'll respond, I am having lunch.
-
-We're here.
-
-Having lunch means you are eating lunch.
-
-It's not so much a possession like talking about.
-
-I am having lunch, I own lunch.
-
-That's not how we're using it.
-
-We're using it to mean the action of eating lunch.
-
-And in this situation, you can see we're using the present continuous tense.
-
-It is okay.
-
-Another example here to think okay.
-
-The verb to think when think is used again as a state, right.
-
-Then we consider it a non-continuous verb.
-
-We cannot use present continuous because we're expressing an opinion.
-
-So our example I think it's a good idea.
-
-This is how you would state this.
-
-You wouldn't say.
-
+```text
 I am thinking it's a good idea.
+```
 
-That sounds incorrect, but right.
+**`think` với nghĩa đang suy nghĩ**
 
-If you're using think to describe the mental process or the action, the action of completing a mental
+> `I am thinking about the problem.`
 
-process, okay, then we're not using it in its noncontiguous form.
+Ở đây người nói đang thực hiện một quá trình suy nghĩ ở thời điểm hiện tại, nên `am thinking` là tự nhiên.
 
-We're using it in a different manner.
+---
 
-So then it is okay to use it as the present continuous.
+**`see` với nghĩa hiểu**
 
-So I am thinking about the problem again.
+> `I see what you mean.`
 
-What are you doing right now?
+Ở đây `see` có nghĩa:
 
-I am thinking about the problem and the last verb we'll take a look at is to see.
+> tôi hiểu ý bạn.
 
-To see when the verb see is used again as a state, we treat it as a non-continuous verb, and this
+Vì đây là trạng thái nhận thức nên dạng simple thường được dùng.
 
-means we're talking about understanding something.
+**`see` với nghĩa gặp ai đó**
 
-So if I say, oh, I see what you mean, I am in a state of understanding.
+> `I am seeing the doctor tomorrow.`
 
-I see what you mean.
+Ở đây `seeing the doctor` mang nghĩa:
 
-Okay, I couldn't say, oh, I am seeing what you mean.
+> gặp bác sĩ / có lịch hẹn với bác sĩ.
 
-It sounds a little weird.
+Đây là một arrangement tương lai nên `Present Continuous` hoàn toàn phù hợp.
 
-All right.
+Do đó, khi gặp một stative verb, cần kiểm tra **nghĩa thực tế của động từ trong câu**, không chỉ nhìn vào bản thân từ đó.
 
-But if we're using C.
+---
 
-Okay to mean to meet someone like tomorrow.
+## 11. Từ khóa và quy tắc chính cần nhớ
 
-I am seeing my friend.
+Công thức trung tâm:
 
-Then it's okay.
+```text
+Subject + am/is/are + V-ing
+```
 
-Our example here is I am seeing the doctor tomorrow.
+Phủ định:
 
-I am seeing the doctor tomorrow.
+```text
+Subject + am/is/are + not + V-ing
+```
 
-Here I am seeing the doctor.
+Câu hỏi:
 
-Means you're going to meet them, right?
+```text
+Am/Is/Are + subject + V-ing?
+```
 
-You have an appointment tomorrow.
+Wh-question:
 
-I am seeing the doctor tomorrow.
+```text
+Wh-word + am/is/are + subject + V-ing?
+```
 
-We're not actually saying.
+Các cách dùng quan trọng:
 
-Oh, tomorrow I am going to see have the ability to see my doctor.
+1. Hành động đang diễn ra.
+2. Tình huống tạm thời quanh hiện tại.
+3. Arrangement hoặc kế hoạch tương lai đã được sắp xếp.
+4. Hành vi lặp lại được nhấn mạnh, thường với `always`.
 
-It more means I'm going to meet this person.
+Các time markers thường gặp:
 
-And in this case, using it in the continuous tense is okay.
+```text
+now
+right now
+at the moment
+currently
+this week
+these days
+tonight
+tomorrow
+this weekend
+next Friday
+```
 
-And again, these things are tricky.
+Các quy tắc `-ing` quan trọng:
 
-The more you read, the more you see examples, the more you'll realize which verbs are okay and which
+```text
+play → playing
+write → writing
+run → running
+begin → beginning
+lie → lying
+```
 
-verbs are not okay in the continuous tense.
+Và cần nhớ:
 
-But it's good to point these things out.
+> Không phải mọi động từ đều tự nhiên ở dạng continuous. Với các `stative verbs`, phải xem động từ đang biểu thị trạng thái hay hành động.
 
-All right, I will see you in the next lesson.
+---
 
+## 12. Ví dụ tổng hợp
 
+### 12.1. Hành động hiện tại
+
+> `I'm studying English right now.`
+
+Người nói đang học tiếng Anh ngay lúc nói.
+
+> `She is eating lunch at the moment.`
+
+Cô ấy đang ăn trưa.
+
+---
+
+### 12.2. Tình huống tạm thời
+
+> `He is working from home this week.`
+
+Làm việc tại nhà là tình trạng hiện tại mang tính tạm thời.
+
+> `They are staying at a hotel while their house is being renovated.`
+
+Việc ở khách sạn chỉ kéo dài trong thời gian căn nhà được sửa chữa.
+
+---
+
+### 12.3. Kế hoạch tương lai
+
+> `We are meeting them at 6 p.m. tomorrow.`
+
+Cuộc gặp đã được sắp xếp cho ngày mai.
+
+> `I am flying to New York next Friday.`
+
+Chuyến bay thuộc một kế hoạch tương lai tương đối cụ thể.
+
+---
+
+### 12.4. Hành vi lặp lại
+
+> `He is always losing his keys.`
+
+Người nói nhấn mạnh việc anh ấy liên tục làm mất chìa khóa.
+
+> `She is always arriving late to meetings.`
+
+Việc đến họp muộn xảy ra nhiều lần và được người nói đặc biệt chú ý.
+
+---
+
+## 13. Bài tập tự luyện
+
+### 13.1. Chia động từ
+
+Điền dạng đúng của động từ trong ngoặc.
+
+1. I ________ English right now. `(study)`
+2. She ________ lunch at the moment. `(eat)`
+3. They ________ at a hotel this week. `(stay)`
+4. We ________ our friends tomorrow evening. `(meet)`
+5. He ________ his keys. `(always / lose)`
+6. She ________ today. `(not / work)`
+7. They ________ soccer right now. `(play)`
+8. I ________ to New York next Friday. `(fly)`
+
+---
+
+### 13.2. Chuyển đổi câu
+
+Chuyển các câu sau sang dạng được yêu cầu.
+
+1. `She is reading a book.`
+   → Viết thành câu phủ định.
+
+2. `They are studying tonight.`
+   → Viết thành câu hỏi Yes/No.
+
+3. `He is coming to the party.`
+   → Viết thành câu hỏi phủ định dùng contraction.
+
+4. `You are watching a movie.`
+   → Đặt câu hỏi với `What`.
+
+5. `She is going to the store.`
+   → Đặt câu hỏi với `Where`.
+
+---
+
+## 14. Thực hành viết `V-ing`
+
+Viết dạng `V-ing` của các động từ sau:
+
+1. `play`
+2. `write`
+3. `make`
+4. `drive`
+5. `run`
+6. `sit`
+7. `swim`
+8. `begin`
+9. `admit`
+10. `prefer`
+11. `lie`
+12. `die`
+13. `tie`
+14. `study`
+15. `travel`
+
+Khi làm bài, không chỉ viết đáp án. Hãy tự xác định mỗi từ đang theo quy tắc nào:
+
+```text
++ ing trực tiếp
+bỏ e
+nhân đôi phụ âm cuối
+ie → y
+khác biệt British/American English
+```
+
+---
+
+## 15. Câu hỏi tự kiểm tra
+
+1. Vì sao `I am studying English` có thể nói về việc đang học ngay lúc này nhưng cũng có thể nói về một hoạt động đang diễn ra trong một khoảng thời gian hiện tại rộng hơn?
+
+2. Điểm khác nhau về sắc thái giữa hai câu sau là gì?
+
+   > `He always loses his keys.`
+   > `He is always losing his keys.`
+
+3. Vì sao câu:
+
+   ```text
+   I am knowing the answer.
+   ```
+
+   không tự nhiên, trong khi:
+
+   ```text
+   I am thinking about the problem.
+   ```
+
+   lại đúng?
+
+4. Tại sao `Present Continuous` có thể xuất hiện trong câu có time marker tương lai như:
+
+   > `I am flying to New York next Friday.`
+
+5. Hãy giải thích vì sao hai cách dùng của `have` dưới đây khác nhau:
+
+   > `I have a car.`
+   > `I am having lunch.`
+
+---
+
+## 16. Ghi chú sau khi học
+
+* **Ngày học:**
+* **Câu hỏi cần làm rõ:**
+* **Quy tắc dễ nhầm:**
+* **Ví dụ muốn luyện thêm:**
+
+---
+
+## 17. Tổng kết
+
+`Present Continuous` được xây dựng từ hai thành phần bắt buộc:
+
+```text
+am / is / are + V-ing
+```
+
+Trong đó `am`, `is` hoặc `are` phải phù hợp với chủ ngữ.
+
+Thì này không chỉ dùng cho hành động đang xảy ra đúng lúc nói. Nó còn có thể diễn tả một tình huống tạm thời quanh hiện tại, một arrangement trong tương lai hoặc một hành vi lặp lại được nhấn mạnh.
+
+Khi thay đổi loại câu, phần `V-ing` vẫn được giữ nguyên. Điều thay đổi chủ yếu là vị trí của `am/is/are` và sự xuất hiện của `not`:
+
+```text
+She is studying.
+She is not studying.
+Is she studying?
+Isn't she studying?
+What is she studying?
+```
+
+Để sử dụng thì này chính xác, cần đồng thời nắm ba nhóm kiến thức: **cấu trúc câu**, **quy tắc viết `V-ing`** và **ngữ nghĩa của động từ**. Đặc biệt, các `stative verbs` như `know`, `own`, `want` thường không dùng ở dạng continuous khi chúng mô tả trạng thái, nhưng một số động từ như `have`, `think` và `see` có thể chuyển sang dạng continuous khi ý nghĩa của chúng thay đổi thành một hành động hoặc arrangement.
+
+Điểm cần ghi nhớ nhất là:
+
+> **Không chọn Present Continuous chỉ vì nhìn thấy một hành động ở hiện tại. Hãy xác định hành động đang diễn ra, đang mang tính tạm thời, đã được sắp xếp cho tương lai hay đang được nhấn mạnh như một hành vi lặp lại; sau đó mới áp dụng cấu trúc `am/is/are + V-ing`.**
