@@ -1,0 +1,22 @@
+# Danh sách file trong gói
+
+- `01-co-so-ecomorphology/01-ba-truc-hieu-suat-va-mo-hinh-webb.md`
+- `01-co-so-ecomorphology/02-bcf-va-mpf.md`
+- `02-thiet-ke-nghien-cuu/03-stereo-video-va-dinh-nghia-hanh-vi.md`
+- `02-thiet-ke-nghien-cuu/04-bien-hinh-thai-va-hieu-chinh-kich-thuoc.md`
+- `02-thiet-ke-nghien-cuu/05-pgls-anova-va-pca.md`
+- `03-ket-qua-thuc-nghiem/06-kich-thuoc-co-the-va-hanh-vi.md`
+- `03-ket-qua-thuc-nghiem/07-tuong-quan-va-trade-off-hanh-vi.md`
+- `03-ket-qua-thuc-nghiem/08-hinh-dang-co-the-va-hanh-vi.md`
+- `03-ket-qua-thuc-nghiem/09-bcf-mpf-va-ho-so-hanh-vi.md`
+- `04-thao-luan-va-ung-dung/10-maximum-performance-va-routine-behaviour.md`
+- `04-thao-luan-va-ung-dung/11-ket-luan-va-nguyen-tac-mo-hinh-hoa.md`
+- `05-on-tap/12-tong-on-va-dap-an.md`
+- `MANIFEST.md`
+- `README.md`
+- `SOURCE-MAP.md`
+- `assets/images/figure-01-swimming-paradigm.png`
+- `assets/images/figure-02-body-size-and-behaviour.png`
+- `assets/images/figure-03-behavioural-relationships.png`
+- `assets/images/figure-04-body-shape-pca.png`
+- `assets/images/table-02-species-list.png`
