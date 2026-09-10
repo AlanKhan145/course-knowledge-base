@@ -87,7 +87,6 @@ Feedback / reflection
 - Section 4.6 - Implications, trang 9.
 - Section 5 - Conclusion, trang 9.
 
-# Bài 09 - Hàm ý, tổng kết và ôn tập
 
 ## Lý thuyết nền cần biết
 

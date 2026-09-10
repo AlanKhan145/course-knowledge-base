@@ -57,7 +57,6 @@ Trên CSI 500 và S&P 500 trong giai đoạn kiểm thử 2021-2024, paper báo 
 - Abstract và Section 1 - Introduction, trang 1-2.
 - Section 2 - Related Work, trang 2-3.
 
-# Bài 01 - Alpha Mining và bài toán Alpha Decay
 
 ## Lý thuyết nền cần biết
 

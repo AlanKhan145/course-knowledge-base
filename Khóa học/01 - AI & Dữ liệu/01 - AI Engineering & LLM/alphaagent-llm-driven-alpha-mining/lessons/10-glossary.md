@@ -24,7 +24,6 @@
 | Dev success rate | Tỉ lệ factor thực thi thành công không lỗi code/numerical. |
 | Token efficiency | Hiệu quả sinh candidate theo lượng token sử dụng. |
 
-# Glossary - AlphaAgent
 
 ## Lý thuyết nền cần biết
 

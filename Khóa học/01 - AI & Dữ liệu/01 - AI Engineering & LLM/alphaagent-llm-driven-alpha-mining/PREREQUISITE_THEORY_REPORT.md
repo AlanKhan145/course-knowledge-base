@@ -166,3 +166,21 @@ Tổng cộng có 53 source block. Do nhiều lesson cùng cần một dependenc
 ## Vị trí các file đã cập nhật
 
 Tất cả 10 file trong thư mục `lessons` đã được cập nhật. Báo cáo này nằm tại thư mục gốc khóa học để người học có thể truy xuất dependency map và source inventory trước khi học.
+
+## Phân bổ hình ảnh theo lesson
+
+Các asset trong thư mục `assets` đã được đối chiếu với nội dung và gắn vào các lesson phù hợp:
+
+| Asset | Lesson sử dụng | Mục đích |
+|---|---|---|
+| `figures/figure-01-alphaagent-workflow.png` | `05-autonomous-multi-agent-framework.md` | Minh họa vòng lặp Idea Agent → Factor Agent → Eval Agent → feedback |
+| `figures/figure-02-ast-similarity.png` | `03-operator-library-and-ast.md`, `04-regularization-mechanisms.md` | Minh họa AST và structural similarity/originality |
+| `tables/table-01-dataset-splits.png` | `06-experiment-design.md` | Minh họa train/validation/test split |
+| `tables/table-02-performance-comparison.png` | `07-results-and-alpha-decay.md` | Minh họa bảng so sánh performance |
+| `figures/figure-03-cumulative-excess-return.png` | `07-results-and-alpha-decay.md` | Minh họa cumulative excess return |
+| `figures/figure-04-yearly-ic-rankic.png` | `07-results-and-alpha-decay.md` | Minh họa IC/RankIC và alpha decay theo năm |
+| `figures/figure-05-ic-evolution.png` | `08-efficiency-ablation-base-llm.md` | Minh họa IC qua các evolution round |
+| `figures/figure-06-ablation.png` | `08-efficiency-ablation-base-llm.md` | Minh họa ablation study |
+| `figures/figure-07-base-llm-radar.png` | `08-efficiency-ablation-base-llm.md` | Minh họa so sánh base LLM |
+
+Tổng cộng 9 asset được sử dụng với 10 image reference; `figure-02-ast-similarity.png` được dùng ở cả Bài 03 và Bài 04 vì phục vụ hai góc nhìn liên quan.

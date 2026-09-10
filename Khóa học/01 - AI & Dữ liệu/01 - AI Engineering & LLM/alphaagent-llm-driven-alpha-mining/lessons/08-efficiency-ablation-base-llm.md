@@ -70,7 +70,6 @@ Kết quả gợi ra hai tầng độc lập trong setup của paper:
 - Section 4.5, Figure 6, trang 8.
 - Figure 7 và phần so sánh base LLM, trang 9.
 
-# Bài 08 - Mining Efficiency, Ablation và ảnh hưởng của Base LLM
 
 ## Lý thuyết nền cần biết
 

@@ -72,7 +72,6 @@ Hãy tưởng tượng hypothesis: “volume giảm trong khi intraday range co 
 - Section 3.2.1 - Factor Parsing with Abstract Syntax Trees, trang 3-4.
 - Figure 2, trang 5.
 
-# Bài 03 - Operator Library, AST và Factor Parsing
 
 ## Lý thuyết nền cần biết
 

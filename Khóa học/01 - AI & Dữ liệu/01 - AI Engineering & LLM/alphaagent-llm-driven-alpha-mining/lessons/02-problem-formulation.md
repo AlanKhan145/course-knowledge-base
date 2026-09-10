@@ -72,7 +72,6 @@ Do objective không lồi, paper mô tả việc tối ưu xen kẽ giữa predi
 - Section 3.1 - Problem Formulation, trang 3.
 - Equations (1) và (2).
 
-# Bài 02 - Problem Formulation và Regularized Objective
 
 ## Lý thuyết nền cần biết
 

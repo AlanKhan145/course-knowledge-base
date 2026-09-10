@@ -89,7 +89,6 @@ Hãy chỉ ra constraint chính nên loại từng candidate.
 - Equations (4)-(8).
 - Figure 2.
 
-# Bài 04 - Ba cơ chế Regularization của AlphaAgent
 
 ## Lý thuyết nền cần biết
 

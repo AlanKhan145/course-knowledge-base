@@ -59,7 +59,6 @@ Kết quả trong paper là kết quả của **một protocol cụ thể**: dat
 - Table 2 và Figure 3, trang 7.
 - Section 4.3 và Figure 4, trang 7-8.
 
-# Bài 07 - Kết quả tổng thể và Alpha Decay Analysis
 
 ## Lý thuyết nền cần biết
 

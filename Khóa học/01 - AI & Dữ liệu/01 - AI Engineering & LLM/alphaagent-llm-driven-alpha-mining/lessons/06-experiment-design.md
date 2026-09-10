@@ -82,7 +82,6 @@ Paper so AlphaAgent với:
 - Section 4.1 - Experiment Settings, trang 6.
 - Table 1, trang 6.
 
-# Bài 06 - Thiết kế thực nghiệm và Backtest
 
 ## Lý thuyết nền cần biết
 

@@ -74,7 +74,6 @@ Ngoài backtest, agent còn duy trì evaluation history để phát hiện patte
 - Section 3.3 - Autonomous Multi-Agent Framework, trang 5-6.
 - Figure 1, trang 4.
 
-# Bài 05 - Autonomous Multi-Agent Framework
 
 ## Lý thuyết nền cần biết
 
