@@ -1,0 +1,51 @@
+# Manifest
+
+- Modules: 7
+- Lessons: 19
+- Figures extracted: 17
+- Source PDF: 1
+
+## Files
+
+- `ASSET_MAP.md`
+- `COURSE_INDEX.md`
+- `GLOSSARY.md`
+- `README.md`
+- `modules/06-bon-mode-co-ban/06-01-expansion-bending-cupping-undulation.md`
+- `modules/06-bon-mode-co-ban/06-02-residual-modes-va-gioi-han-mo-hinh.md`
+- `modules/04-retreating/04-01-chu-ky-retreating.md`
+- `modules/04-retreating/04-02-dorsal-leading-ray-khi-retreating.md`
+- `modules/04-retreating/04-03-ventral-leading-ray-khi-retreating.md`
+- `modules/04-retreating/04-04-expansion-va-undulation-khi-retreating.md`
+- `modules/07-ung-dung-vao-rig-animation/07-01-kien-truc-rig-goi-y-tu-paper.md`
+- `modules/07-ung-dung-vao-rig-animation/07-02-cong-thuc-animation-retreating-va-hovering.md`
+- `modules/05-hovering/05-01-chu-ky-hovering.md`
+- `modules/05-hovering/05-02-leading-rays-khi-hovering.md`
+- `modules/05-hovering/05-03-expansion-undulation-va-dien-tich-vay.md`
+- `modules/01-co-so-va-cau-truc/01-01-vai-tro-vay-nguc-trong-chuyen-dong.md`
+- `modules/01-co-so-va-cau-truc/01-02-cau-truc-tia-vay-va-cac-diem-danh-dau.md`
+- `modules/02-thuc-nghiem-va-tai-tao-3d/02-01-he-thong-chup-hai-goc-nhin.md`
+- `modules/02-thuc-nghiem-va-tai-tao-3d/02-02-lay-mau-theo-shannon.md`
+- `modules/02-thuc-nghiem-va-tai-tao-3d/02-03-he-toa-do-va-bien-doi-3d.md`
+- `modules/02-thuc-nghiem-va-tai-tao-3d/02-04-quy-trinh-xu-ly-anh.md`
+- `modules/03-tham-so-va-svd/03-01-tham-so-goc-cua-tia-vay.md`
+- `modules/03-tham-so-va-svd/03-02-svd-va-bon-mode-chinh.md`
+- `assets/FIGURES_CONTACT_SHEET.jpg`
+- `assets/figures/figure_01_experimental_system.png`
+- `assets/figures/figure_02_marked_pectoral_fin.png`
+- `assets/figures/figure_03_coordinate_transformation.png`
+- `assets/figures/figure_04_fin_ray_root_motion.png`
+- `assets/figures/figure_05_digital_image_processing_flow.png`
+- `assets/figures/figure_06_retreating_cycle.png`
+- `assets/figures/figure_07_dorsal_leading_ray_retreating.png`
+- `assets/figures/figure_08_ventral_leading_ray_retreating.png`
+- `assets/figures/figure_09_marked_fin_ray_angles_retreating.png`
+- `assets/figures/figure_10_hovering_cycle.png`
+- `assets/figures/figure_11_dorsal_leading_ray_hovering.png`
+- `assets/figures/figure_12_ventral_leading_ray_hovering.png`
+- `assets/figures/figure_13_marked_fin_ray_angles_hovering.png`
+- `assets/figures/figure_14_surface_area_hovering_retreating.png`
+- `assets/figures/figure_15_svd_singular_values.png`
+- `assets/figures/figure_16_four_principal_modes.png`
+- `assets/figures/figure_17_mode_5_residual.png`
+- `source/wang_et_al_2013_koi_pectoral_fin_3d_kinematics.pdf`

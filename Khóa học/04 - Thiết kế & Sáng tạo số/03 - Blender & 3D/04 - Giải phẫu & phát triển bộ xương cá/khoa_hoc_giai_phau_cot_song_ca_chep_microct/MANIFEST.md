@@ -1,0 +1,27 @@
+# MANIFEST
+
+- `01_nen_tang/01_boi_canh_va_cau_hoi_nghien_cuu.md`
+- `01_nen_tang/02_tu_vung_giai_phau_dot_song.md`
+- `02_phuong_phap/03_xquang_microct_va_tai_tao_3d.md`
+- `02_phuong_phap/04_sem_edx_va_mo_hoc.md`
+- `03_hinh_thai_vung_dot_song/05_ba_vung_cot_song.md`
+- `03_hinh_thai_vung_dot_song/06_so_sanh_hinh_thai_ba_vung.md`
+- `04_phuc_hop_duoi/07_urostyle_complex.md`
+- `05_vi_cau_truc_xuong/08_trabeculae_va_khoang_rong.md`
+- `05_vi_cau_truc_xuong/09_collagen_va_co_hoc.md`
+- `06_thanh_phan_nguyen_to/10_doc_ket_qua_edx.md`
+- `07_tong_hop_co_sinh_hoc/11_co_sinh_hoc_cot_song_khi_boi.md`
+- `07_tong_hop_co_sinh_hoc/12_gioi_han_va_ket_luan.md`
+- `07_tong_hop_co_sinh_hoc/13_on_tap_tong_hop.md`
+- `ASSET_MAP.md`
+- `COURSE_INDEX.md`
+- `GLOSSARY.md`
+- `README.md`
+- `assets/figures/figure_01_typical_vertebra.png`
+- `assets/figures/figure_02_vertebral_regions_xray_microct.png`
+- `assets/figures/figure_03_microct_abdominal_transitional_caudal.png`
+- `assets/figures/figure_04_caudal_skeleton_complex.png`
+- `assets/figures/figure_05_sem_histology_collagen.png`
+- `assets/figures/figure_06_sem_edx.png`
+- `assets/tables/table_01_edx_elemental_microanalysis.png`
+- `source/210555.pdf`
