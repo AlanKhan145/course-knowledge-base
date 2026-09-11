@@ -22,7 +22,7 @@ Alpha Decay
 Agent Loop và Feedback
 ```
 
-Các thuật ngữ cốt lõi trải từ alpha factor, alpha decay và market hypothesis đến AST, originality, IC, IR, MDD và các metric mining efficiency. 
+Các thuật ngữ cốt lõi trải từ alpha factor, alpha decay và market hypothesis đến AST, originality, IC, IR, MDD và các metric mining efficiency.
 
 Khi gặp một thuật ngữ, nên tự hỏi bốn câu:
 
@@ -53,7 +53,7 @@ Khi gặp một thuật ngữ, nên tự hỏi bốn câu:
 | **Portfolio**     | Tập hợp position được xây dựng từ prediction hoặc ranking để đánh giá economic performance.           |
 | **Data leakage**  | Hiện tượng thông tin chưa tồn tại tại prediction time bị đưa vào feature hoặc training process.       |
 
-Feature phải tồn tại tại thời điểm prediction, trong khi target nằm ở tương lai. Nếu future return lọt vào feature, kết quả đánh giá có thể bị leakage. 
+Feature phải tồn tại tại thời điểm prediction, trong khi target nằm ở tương lai. Nếu future return lọt vào feature, kết quả đánh giá có thể bị leakage.
 
 ## 3. Alpha và Alpha Mining
 
@@ -85,7 +85,7 @@ Factor crowding
 Alpha decay
 ```
 
-Các khái niệm alpha mining, alpha decay, factor crowding và p-hacking tạo thành nhóm thuật ngữ trung tâm để hiểu bài toán mà AlphaAgent hướng tới giải quyết. 
+Các khái niệm alpha mining, alpha decay, factor crowding và p-hacking tạo thành nhóm thuật ngữ trung tâm để hiểu bài toán mà AlphaAgent hướng tới giải quyết.
 
 ## 4. Search Space
 
@@ -100,11 +100,11 @@ Các khái niệm alpha mining, alpha decay, factor crowding và p-hacking tạo
 
 Một alpha-mining system phải cân bằng:
 
-$$
-Exploration
+\[
+\text{Exploration}
 \longleftrightarrow
-Exploitation
-$$
+\text{Exploitation}
+\]
 
 Exploration quá ít có thể khiến search tập trung vào những pattern cũ. Exploration không kiểm soát lại có thể làm số lượng spurious candidate tăng.
 
@@ -123,7 +123,7 @@ Exploration quá ít có thể khiến search tập trung vào những pattern c
 | **Subtree**           | Một nhánh của AST gồm một node cùng toàn bộ descendants của nó.                                              |
 | **Symbolic length**   | Đại lượng phản ánh độ dài hoặc độ phức tạp cấu trúc của factor expression.                                   |
 
-Operator Library chuẩn hóa vocabulary dùng để xây factor, còn AST lưu dependency giữa các phép tính. 
+Operator Library chuẩn hóa vocabulary dùng để xây factor, còn AST lưu dependency giữa các phép tính.
 
 Ví dụ:
 
@@ -178,7 +178,7 @@ Alignment
 → Factor có thực sự triển khai hypothesis không?
 ```
 
-`Originality` là thuộc tính của candidate, trong khi `alpha zoo` là tập reference để so sánh candidate với các alpha đã có. 
+`Originality` là thuộc tính của candidate, trong khi `alpha zoo` là tập reference để so sánh candidate với các alpha đã có.
 
 ## 7. Predictive Metrics
 
@@ -204,7 +204,7 @@ Future return
 IC / RankIC
 ```
 
-Các metric IC, RankIC và ICIR được dùng để mô tả predictive signal và độ ổn định của nó. 
+Các metric IC, RankIC và ICIR được dùng để mô tả predictive signal và độ ổn định của nó.
 
 ## 8. Portfolio và Risk Metrics
 
@@ -218,7 +218,7 @@ Các metric IC, RankIC và ICIR được dùng để mô tả predictive signal 
 | **Turnover**               | Mức độ thay đổi position của portfolio qua thời gian.           |
 | **Risk control**           | Nhóm đánh giá và cơ chế kiểm soát rủi ro của strategy.          |
 
-AR, IR và MDD thuộc tầng **portfolio evaluation**, trong khi IC và RankIC thuộc tầng predictive evaluation. 
+AR, IR và MDD thuộc tầng **portfolio evaluation**, trong khi IC và RankIC thuộc tầng predictive evaluation.
 
 Sự khác biệt quan trọng:
 
@@ -270,7 +270,7 @@ Portfolio rule không phù hợp
 Execution kém
 ```
 
-Sự phân biệt giữa IC và return là một trong những điểm quan trọng khi đọc kết quả AlphaAgent. 
+Sự phân biệt giữa IC và return là một trong những điểm quan trọng khi đọc kết quả AlphaAgent.
 
 ## 10. Mining Efficiency Metrics
 
@@ -299,7 +299,7 @@ Token efficiency
 → Quá trình sinh candidate tốn token tới mức nào?
 ```
 
-Các định nghĩa cốt lõi của ba metric này được dùng để tách search quality, executability và resource efficiency. 
+Các định nghĩa cốt lõi của ba metric này được dùng để tách search quality, executability và resource efficiency.
 
 ## 11. Agent và Feedback
 
@@ -321,7 +321,7 @@ Reward
 → tín hiệu số trong RL
 ```
 
-Một agent có thể sử dụng feedback mà không đồng nghĩa với việc policy đang được huấn luyện bằng Reinforcement Learning. 
+Một agent có thể sử dụng feedback mà không đồng nghĩa với việc policy đang được huấn luyện bằng Reinforcement Learning.
 
 ## 12. Ba cặp thuật ngữ dễ nhầm
 
@@ -377,7 +377,7 @@ Expression không đúng hypothesis
 reward = 0.73
 ```
 
-Hai khái niệm có thể cùng xuất hiện trong agentic systems nhưng không nên coi là đồng nghĩa. 
+Hai khái niệm có thể cùng xuất hiện trong agentic systems nhưng không nên coi là đồng nghĩa.
 
 ## 13. Bản đồ thuật ngữ AlphaAgent
 
@@ -506,4 +506,4 @@ Agent Loop
 Candidate tiếp theo
 ```
 
-Glossary vì vậy không nên được học như một danh sách từ riêng biệt. Mỗi thuật ngữ đại diện cho **một vị trí hoặc một chức năng trong pipeline AlphaAgent**: dữ liệu tạo feature, factor tạo score, evaluator đo predictive và portfolio outcome, còn feedback đưa kết quả trở lại vòng khai phá tiếp theo. 
+Glossary vì vậy không nên được học như một danh sách từ riêng biệt. Mỗi thuật ngữ đại diện cho **một vị trí hoặc một chức năng trong pipeline AlphaAgent**: dữ liệu tạo feature, factor tạo score, evaluator đo predictive và portfolio outcome, còn feedback đưa kết quả trở lại vòng khai phá tiếp theo.

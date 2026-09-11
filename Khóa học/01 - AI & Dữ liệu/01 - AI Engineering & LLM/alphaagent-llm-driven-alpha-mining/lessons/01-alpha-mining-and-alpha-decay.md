@@ -2,11 +2,11 @@
 
 ## 1. Tóm tắt
 
-Trong đầu tư định lượng, một **alpha factor** là một đặc trưng hoặc biểu thức định lượng được xây dựng để tạo ra tín hiệu dự báo lợi suất tương lai của tài sản. **Alpha mining** mở rộng bài toán này thành quá trình tìm kiếm các factor có giá trị trong một không gian biểu thức rất lớn. 
+Trong đầu tư định lượng, một **alpha factor** là một đặc trưng hoặc biểu thức định lượng được xây dựng để tạo ra tín hiệu dự báo lợi suất tương lai của tài sản. **Alpha mining** mở rộng bài toán này thành quá trình tìm kiếm các factor có giá trị trong một không gian biểu thức rất lớn.
 
-Khó khăn thực sự không nằm ở việc tìm được một biểu thức có backtest đẹp. Một factor chỉ có giá trị khi sức dự báo của nó còn duy trì được trên dữ liệu mới và trong những điều kiện thị trường khác với giai đoạn dùng để khám phá factor. Khi khả năng dự báo hoặc khả năng tạo excess return suy giảm theo thời gian, ta gặp hiện tượng **alpha decay**. 
+Khó khăn thực sự không nằm ở việc tìm được một biểu thức có backtest đẹp. Một factor chỉ có giá trị khi sức dự báo của nó còn duy trì được trên dữ liệu mới và trong những điều kiện thị trường khác với giai đoạn dùng để khám phá factor. Khi khả năng dự báo hoặc khả năng tạo excess return suy giảm theo thời gian, ta gặp hiện tượng **alpha decay**.
 
-Alpha decay đặc biệt quan trọng vì nó có thể xuất phát từ hai cơ chế rất khác nhau: factor có thể vốn chỉ là một pattern ngẫu nhiên do **overfitting/p-hacking**, hoặc factor có thể từng thực sự hữu ích nhưng dần mất lợi thế vì quá nhiều nhà đầu tư cùng khai thác nó, tạo ra **factor crowding**. AlphaAgent được xây dựng xoay quanh chính vấn đề này: tìm alpha mới nhưng đồng thời kiểm soát độ phức tạp, tính hợp lý tài chính và mức độ giống với những alpha đã tồn tại. 
+Alpha decay đặc biệt quan trọng vì nó có thể xuất phát từ hai cơ chế rất khác nhau: factor có thể vốn chỉ là một pattern ngẫu nhiên do **overfitting/p-hacking**, hoặc factor có thể từng thực sự hữu ích nhưng dần mất lợi thế vì quá nhiều nhà đầu tư cùng khai thác nó, tạo ra **factor crowding**. AlphaAgent được xây dựng xoay quanh chính vấn đề này: tìm alpha mới nhưng đồng thời kiểm soát độ phức tạp, tính hợp lý tài chính và mức độ giống với những alpha đã tồn tại.
 
 ## 2. Mục tiêu học tập
 
@@ -29,41 +29,41 @@ Sau bài học, người học có thể:
 
 Giá của một tài sản tại một thời điểm chỉ cho biết tài sản đang được giao dịch ở mức nào. Trong alpha mining, mục tiêu thường không phải là đoán trực tiếp mức giá tiếp theo mà là tìm tín hiệu có quan hệ với **lợi suất tương lai**.
 
-Với giá đóng cửa \(P_t\), lợi suất đơn giản giữa hai thời điểm liên tiếp có thể viết:
+Với giá đóng cửa $P_t$, lợi suất đơn giản giữa hai thời điểm liên tiếp có thể viết:
 
-$$
+\[
 r_t = \frac{P_t-P_{t-1}}{P_{t-1}}
-$$
+\]
 
 Trong đó:
 
-* \(P_t\): giá tại thời điểm \(t\);
-* \(P_{t-1}\): giá tại thời điểm trước;
-* \(r_t\): lợi suất của kỳ.
+* $P_t$: giá tại thời điểm $t$;
+* $P_{t-1}$: giá tại thời điểm trước;
+* $r_t$: lợi suất của kỳ.
 
 Một cách biểu diễn khác là **log return**:
 
-$$
+\[
 \ell_t = \ln\left(\frac{P_t}{P_{t-1}}\right)
-$$
+\]
 
-Trong tập dữ liệu gồm nhiều cổ phiếu, tại cùng một ngày ta có thể quan sát một **cross-section** gồm nhiều tài sản. Mỗi tài sản có các feature riêng như giá mở cửa, giá cao nhất, giá thấp nhất, giá đóng cửa, volume hoặc những đại lượng được biến đổi từ chúng. Factor sử dụng các feature này để tạo một score nhằm dự báo thứ tự hoặc mức độ lợi suất trong tương lai. 
+Trong tập dữ liệu gồm nhiều cổ phiếu, tại cùng một ngày ta có thể quan sát một **cross-section** gồm nhiều tài sản. Mỗi tài sản có các feature riêng như giá mở cửa, giá cao nhất, giá thấp nhất, giá đóng cửa, volume hoặc những đại lượng được biến đổi từ chúng. Factor sử dụng các feature này để tạo một score nhằm dự báo thứ tự hoặc mức độ lợi suất trong tương lai.
 
 ### 3.2. Factor score và quyết định đầu tư
 
 Có thể mô hình hóa một factor bằng hàm:
 
-$$
+\[
 s_{i,t}=f(X_{i,t})
-$$
+\]
 
 Trong đó:
 
-* \(X_{i,t}\) là tập feature của tài sản \(i\) tại thời điểm \(t\);
-* \(f\) là biểu thức factor;
-* \(s_{i,t}\) là score mà factor gán cho tài sản.
+* $X_{i,t}$ là tập feature của tài sản $i$ tại thời điểm $t$;
+* $f$ là biểu thức factor;
+* $s_{i,t}$ là score mà factor gán cho tài sản.
 
-Score không phải lợi nhuận. Nó là **tín hiệu định lượng**. Ví dụ, một hệ thống có thể dùng score để xếp hạng cổ phiếu, sau đó phân bổ tỷ trọng cao hơn cho nhóm có score tốt và quan sát xem nhóm đó có thực sự tạo lợi suất tương lai cao hơn hay không. 
+Score không phải lợi nhuận. Nó là **tín hiệu định lượng**. Ví dụ, một hệ thống có thể dùng score để xếp hạng cổ phiếu, sau đó phân bổ tỷ trọng cao hơn cho nhóm có score tốt và quan sát xem nhóm đó có thực sự tạo lợi suất tương lai cao hơn hay không.
 
 Mạch xử lý cơ bản có thể hình dung như sau:
 
@@ -85,7 +85,7 @@ Backtest
 Đánh giá trên giai đoạn tương lai
 ```
 
-Điểm cần phân biệt là **alpha không đồng nghĩa với toàn bộ lợi nhuận của danh mục**. Trong bài toán factor mining, điều cần tìm là phần tín hiệu có khả năng dự báo hoặc tạo excess return đáng tin cậy, chứ không phải một score cao do beta thị trường, lỗi dữ liệu hoặc một quan hệ tình cờ. 
+Điểm cần phân biệt là **alpha không đồng nghĩa với toàn bộ lợi nhuận của danh mục**. Trong bài toán factor mining, điều cần tìm là phần tín hiệu có khả năng dự báo hoặc tạo excess return đáng tin cậy, chứ không phải một score cao do beta thị trường, lỗi dữ liệu hoặc một quan hệ tình cờ.
 
 ## 4. Alpha mining không chỉ là tối đa hóa backtest
 
@@ -105,13 +105,13 @@ Một biểu thức factor có thể được hình thành từ rất nhiều th
 
 Chỉ cần thay một cửa sổ từ 5 ngày thành 10 ngày, thay phép trung bình bằng cực tiểu, hoặc ghép thêm một operator khác, ta đã tạo ra một candidate mới. Vì vậy số lượng factor có thể thử tăng rất nhanh.
 
-Ở mức khái quát, mục tiêu là tìm một factor \(f\) sao cho thông tin tại thời điểm hiện tại có thể tạo tín hiệu liên quan tới return tương lai:
+Ở mức khái quát, mục tiêu là tìm một factor $f$ sao cho thông tin tại thời điểm hiện tại có thể tạo tín hiệu liên quan tới return tương lai:
 
-$$
+\[
 f(X_t) \rightarrow r_{t+1}
-$$
+\]
 
-Alpha mining vì thế là một bài toán **search + evaluation**: sinh candidate, đo predictive effectiveness, loại candidate yếu và tiếp tục khám phá những biểu thức tốt hơn. Cách hình thành bài toán này được sử dụng trực tiếp trong AlphaAgent. 
+Alpha mining vì thế là một bài toán **search + evaluation**: sinh candidate, đo predictive effectiveness, loại candidate yếu và tiếp tục khám phá những biểu thức tốt hơn. Cách hình thành bài toán này được sử dụng trực tiếp trong AlphaAgent.
 
 ### 4.2. Predictive performance và generalization
 
@@ -139,14 +139,14 @@ và:
 dự báo được dữ liệu chưa nhìn thấy
 ```
 
-Rủi ro trở nên đặc biệt lớn trong alpha mining vì hệ thống thường thử rất nhiều biểu thức, tham số và cửa sổ thời gian. Việc liên tục tìm kiếm rồi chỉ giữ lại kết quả đẹp nhất có thể tạo ra **data snooping** hoặc **p-hacking**. 
+Rủi ro trở nên đặc biệt lớn trong alpha mining vì hệ thống thường thử rất nhiều biểu thức, tham số và cửa sổ thời gian. Việc liên tục tìm kiếm rồi chỉ giữ lại kết quả đẹp nhất có thể tạo ra **data snooping** hoặc **p-hacking**.
 
 ## 5. Alpha decay
 
 ![Tổng quan alpha mining và alpha decay](../assets/figures/alpha-mining-and-alpha-decay-overview.png)
 *Hình minh họa: market data tạo ra các candidate alpha; overfitting và crowding có thể làm alpha suy giảm.*
 
-**Alpha decay** là sự suy giảm khả năng dự báo hoặc khả năng tạo excess return của factor theo thời gian. Một factor có thể rất thuyết phục ở giai đoạn phát hiện nhưng trở nên yếu dần sau đó. 
+**Alpha decay** là sự suy giảm khả năng dự báo hoặc khả năng tạo excess return của factor theo thời gian. Một factor có thể rất thuyết phục ở giai đoạn phát hiện nhưng trở nên yếu dần sau đó.
 
 Điều này có thể xảy ra ngay cả khi biểu thức toán học của factor không thay đổi. Thứ thay đổi có thể là dữ liệu, chế độ thị trường, hành vi của người tham gia thị trường hoặc đơn giản là việc ta đã đánh giá quá cao một pattern lịch sử.
 
@@ -165,7 +165,7 @@ IC / RankIC / excess return suy yếu
 Factor mất giá trị thực tiễn
 ```
 
-Trong AlphaAgent, hai nguyên nhân được đặt ở trung tâm của bài toán là **overfitting do excessive data mining** và **factor crowding**. 
+Trong AlphaAgent, hai nguyên nhân được đặt ở trung tâm của bài toán là **overfitting do excessive data mining** và **factor crowding**.
 
 ## 6. Hai cơ chế chính gây alpha decay
 
@@ -210,7 +210,7 @@ Out-of-sample yếu
 Live market decay nhanh
 ```
 
-Các phương pháp GP và RL có thể gặp chính vấn đề này nếu reward hoặc fitness chủ yếu khuyến khích tối đa hóa historical performance mà không kiểm soát đầy đủ độ phức tạp và financial rationale. 
+Các phương pháp GP và RL có thể gặp chính vấn đề này nếu reward hoặc fitness chủ yếu khuyến khích tối đa hóa historical performance mà không kiểm soát đầy đủ độ phức tạp và financial rationale.
 
 ### 6.2. Factor crowding
 
@@ -242,7 +242,7 @@ Nhiều danh mục cùng giảm vị thế
 Reversal / drawdown mạnh
 ```
 
-AlphaAgent xem đây là một trong hai nguồn alpha decay quan trọng. Một ví dụ được nêu là sự suy yếu của size factor trên thị trường A-share Trung Quốc vào đầu năm 2024 trong bối cảnh rủi ro concentrated positioning. 
+AlphaAgent xem đây là một trong hai nguồn alpha decay quan trọng. Một ví dụ được nêu là sự suy yếu của size factor trên thị trường A-share Trung Quốc vào đầu năm 2024 trong bối cảnh rủi ro concentrated positioning.
 
 Hai cơ chế này cần được phân biệt rõ:
 
@@ -272,7 +272,7 @@ Có financial rationale
 Có predictive evidence
 ```
 
-Candidate mới vẫn phải triển khai được một giả thuyết hợp lý và vượt qua đánh giá trên dữ liệu. Novelty tự thân không phải alpha. 
+Candidate mới vẫn phải triển khai được một giả thuyết hợp lý và vượt qua đánh giá trên dữ liệu. Novelty tự thân không phải alpha.
 
 ## 8. Vì sao GP và RL thuần túy có thể chưa đủ?
 
@@ -287,7 +287,7 @@ Một candidate phức tạp có thể được thưởng nếu nó đạt backt
 * financial intuition yếu;
 * predictive power chủ yếu đến từ việc khớp lịch sử.
 
-Các phương pháp GP và RL được khảo sát trong AlphaAgent có xu hướng gặp rủi ro này khi quá nhấn mạnh historical performance, dẫn đến factor quá phức tạp, overfit hoặc thiếu economic rationale. 
+Các phương pháp GP và RL được khảo sát trong AlphaAgent có xu hướng gặp rủi ro này khi quá nhấn mạnh historical performance, dẫn đến factor quá phức tạp, overfit hoặc thiếu economic rationale.
 
 Như vậy, search mạnh hơn chưa chắc giải quyết alpha decay. Nếu objective không định nghĩa đúng thế nào là một factor tốt, công cụ tối ưu càng mạnh càng có thể tìm được cách khai thác những điểm yếu của metric.
 
@@ -305,7 +305,7 @@ Một LLM không được ràng buộc có xu hướng quay lại các khái ni�
 * RSI;
 * các pattern phổ biến trong tài liệu tài chính.
 
-Nếu nhiều candidate chỉ là những biến thể nhỏ của các factor đã rất phổ biến, hệ thống vẫn có thể làm nghiêm trọng thêm factor homogenization và crowding. 
+Nếu nhiều candidate chỉ là những biến thể nhỏ của các factor đã rất phổ biến, hệ thống vẫn có thể làm nghiêm trọng thêm factor homogenization và crowding.
 
 Ngoài ra, output do LLM sinh ra có tính stochastic. Khi sinh trực tiếp code hoặc biểu thức phức tạp, còn có thể xuất hiện các vấn đề như:
 
@@ -324,26 +324,26 @@ AlphaAgent không xem predictive performance là tiêu chí duy nhất. Quá tr�
 2. **Hypothesis alignment:** kiểm tra biểu thức có thực sự triển khai đúng market hypothesis hay không.
 3. **Complexity control:** hạn chế cấu trúc quá dài, quá nhiều tham số hoặc quá nhiều feature.
 
-Ba cơ chế này được thiết kế để đồng thời duy trì **novelty**, **financial rationale** và **parsimony**. 
+Ba cơ chế này được thiết kế để đồng thời duy trì **novelty**, **financial rationale** và **parsimony**.
 
 Có thể hình dung logic tổng quát như sau:
 
 ```mermaid
 flowchart LR
-    A[Market insight] --> B[Market hypothesis]
-    B --> C[Generate factor candidates]
-    C --> D[Originality check]
-    C --> E[Hypothesis alignment]
-    C --> F[Complexity control]
-    D --> G[Candidate evaluation]
+    A["Market insight"] --> B["Market hypothesis"]
+    B --> C["Generate factor candidates"]
+    C --> D["Originality check"]
+    C --> E["Hypothesis alignment"]
+    C --> F["Complexity control"]
+    D --> G["Candidate evaluation"]
     E --> G
     F --> G
-    G --> H[Backtest]
-    H --> I[Performance feedback]
+    G --> H["Backtest"]
+    H --> I["Performance feedback"]
     I --> B
 ```
 
-Quy trình này tạo một vòng lặp thay vì một lần sinh factor duy nhất. Hypothesis dẫn tới candidate; candidate được kiểm tra về cấu trúc và ý nghĩa; factor đủ điều kiện mới được backtest; kết quả đánh giá sau đó quay trở lại hỗ trợ vòng khám phá tiếp theo. AlphaAgent triển khai workflow này bằng các agent chuyên biệt cho việc đề xuất giả thuyết, xây dựng factor và đánh giá factor. 
+Quy trình này tạo một vòng lặp thay vì một lần sinh factor duy nhất. Hypothesis dẫn tới candidate; candidate được kiểm tra về cấu trúc và ý nghĩa; factor đủ điều kiện mới được backtest; kết quả đánh giá sau đó quay trở lại hỗ trợ vòng khám phá tiếp theo. AlphaAgent triển khai workflow này bằng các agent chuyên biệt cho việc đề xuất giả thuyết, xây dựng factor và đánh giá factor.
 
 ## 11. Regularization thay đổi định nghĩa của một “factor tốt”
 
@@ -415,14 +415,14 @@ Câu hỏi đúng hơn là:
 
 ## 13. Minh họa bằng kết quả của AlphaAgent
 
-AlphaAgent được đánh giá trên CSI 500 và S&P 500 trong giai đoạn 2021–2024. Các thí nghiệm sử dụng dữ liệu OHLCV và đánh giá nhiều khía cạnh của predictive performance cũng như portfolio performance. 
+AlphaAgent được đánh giá trên CSI 500 và S&P 500 trong giai đoạn 2021–2024. Các thí nghiệm sử dụng dữ liệu OHLCV và đánh giá nhiều khía cạnh của predictive performance cũng như portfolio performance.
 
 Trong kết quả tổng thể được báo cáo:
 
 * CSI 500 đạt annual excess return trung bình khoảng **11,00%** với `IR = 1.488`;
 * S&P 500 đạt annual excess return khoảng **8,74%** với `IR = 1.0545`;
 * hit ratio của quá trình khai phá factor được báo cáo cải thiện **81%**;
-* lượng token sử dụng giảm khoảng **30%** so với các phương pháp được so sánh trong thiết lập tương ứng. 
+* lượng token sử dụng giảm khoảng **30%** so với các phương pháp được so sánh trong thiết lập tương ứng.
 
 Ý nghĩa quan trọng của các kết quả này đối với bài học không chỉ là con số return. Mục tiêu của AlphaAgent là chứng minh rằng alpha mining nên được đánh giá cả về **performance persistence**: một factor hữu ích cần giữ được predictive effectiveness qua thời gian thay vì chỉ đạt đỉnh trên một giai đoạn backtest.
 
@@ -443,9 +443,9 @@ Trong kết quả tổng thể được báo cáo:
 
 ## 15. Một ví dụ tư duy hoàn chỉnh
 
-Giả sử hệ thống phát hiện factor \(F\) có backtest rất cao.
+Giả sử hệ thống phát hiện factor $F$ có backtest rất cao.
 
-Không nên kết luận ngay rằng \(F\) là alpha tốt. Hãy đi theo chuỗi kiểm tra:
+Không nên kết luận ngay rằng $F$ là alpha tốt. Hãy đi theo chuỗi kiểm tra:
 
 ```text
 F có historical performance tốt

@@ -24,13 +24,13 @@ Backtest + analysis + reflection
       Vòng tiếp theo
 ```
 
-Mục tiêu của kiến trúc này là biến alpha mining thành một quá trình khám phá có khả năng **đánh giá kết quả, nhận diện failure mode và sử dụng kinh nghiệm của vòng trước để định hướng vòng sau**, thay vì sinh các factor độc lập không có trạng thái. 
+Mục tiêu của kiến trúc này là biến alpha mining thành một quá trình khám phá có khả năng **đánh giá kết quả, nhận diện failure mode và sử dụng kinh nghiệm của vòng trước để định hướng vòng sau**, thay vì sinh các factor độc lập không có trạng thái.
 
 Ba agent có trách nhiệm khác nhau:
 
 * **Idea Agent** xây dựng market hypothesis;
 * **Factor Agent** chuyển hypothesis thành symbolic factor;
-* **Eval Agent** kiểm tra predictive capability, return, risk, executability và numerical stability. 
+* **Eval Agent** kiểm tra predictive capability, return, risk, executability và numerical stability.
 
 Điểm quan trọng nhất không nằm ở việc có “ba LLM”, mà ở **sự phân vai, state được truyền giữa các bước và feedback quay lại quá trình generation**.
 
@@ -114,7 +114,7 @@ Alignment result
 Failure analysis
 ```
 
-Một agent vì vậy không chỉ “trả lời”. Nó **quan sát kết quả của hành động trước rồi quyết định bước tiếp theo**. 
+Một agent vì vậy không chỉ “trả lời”. Nó **quan sát kết quả của hành động trước rồi quyết định bước tiếp theo**.
 
 ---
 
@@ -248,7 +248,7 @@ Eval Agent
 Factor có thực sự hiệu quả không?
 ```
 
-Việc phân vai giúp mỗi bước có objective và validation criteria rõ hơn. 
+Việc phân vai giúp mỗi bước có objective và validation criteria rõ hơn.
 
 ---
 
@@ -349,7 +349,7 @@ Specification
 Factor phải triển khai nó như thế nào?
 ```
 
-Cấu trúc này giúp feedback có thể chỉ đúng phần hypothesis cần sửa thay vì chỉ báo “factor không tốt”. 
+Cấu trúc này giúp feedback có thể chỉ đúng phần hypothesis cần sửa thay vì chỉ báo “factor không tốt”.
 
 ---
 
@@ -406,7 +406,7 @@ Hypothesis alignment
 Originality checking
 ```
 
-Factor Agent vì vậy đóng vai trò cầu nối giữa **natural-language hypothesis** và **executable symbolic representation**. 
+Factor Agent vì vậy đóng vai trò cầu nối giữa **natural-language hypothesis** và **executable symbolic representation**.
 
 ---
 
@@ -455,7 +455,7 @@ Do đó Factor Agent có thể sinh nhiều implementation cho cùng một hypot
 
 Một đặc điểm quan trọng của Factor Agent là không chỉ lưu factor thành công.
 
-Nó còn duy trì knowledge về những factor đã thất bại và nguyên nhân thất bại. 
+Nó còn duy trì knowledge về những factor đã thất bại và nguyên nhân thất bại.
 
 Ví dụ:
 
@@ -594,7 +594,7 @@ Những structure nào thường quá phức tạp?
 Những market ideas nào đã được thử quá nhiều?
 ```
 
-Eval Agent có thể biến history đó thành insight rồi gửi ngược về Idea Agent. 
+Eval Agent có thể biến history đó thành insight rồi gửi ngược về Idea Agent.
 
 Điều này tốt hơn nhiều so với chỉ lưu:
 
@@ -657,7 +657,7 @@ Cần sửa implementation,
 không nên kết luận hypothesis sai.
 ```
 
-Evaluation và reflection vì thế có vai trò khác nhau: một bên **đo**, một bên **diễn giải để tạo actionable feedback**. 
+Evaluation và reflection vì thế có vai trò khác nhau: một bên **đo**, một bên **diễn giải để tạo actionable feedback**.
 
 ---
 
@@ -665,9 +665,9 @@ Evaluation và reflection vì thế có vai trò khác nhau: một bên **đo**,
 
 Trong Reinforcement Learning, `reward` thường là một scalar signal:
 
-$$
+\[
 r_t\in\mathbb{R}
-$$
+\]
 
 Ví dụ:
 
@@ -700,7 +700,7 @@ Sự khác nhau có thể tóm tắt:
 | Feedback        | Thông tin được dùng để refine hypothesis hoặc factor |
 | Reward trong RL | Scalar signal có thể dùng để cập nhật policy         |
 
-AlphaAgent có thể sử dụng feedback trong prompt hoặc knowledge base mà không cần giả định hệ thống đang học một RL policy bằng policy gradient. 
+AlphaAgent có thể sử dụng feedback trong prompt hoặc knowledge base mà không cần giả định hệ thống đang học một RL policy bằng policy gradient.
 
 Do đó:
 
@@ -768,7 +768,7 @@ flowchart TD
     N --> D
 ```
 
-Hệ thống nhờ đó có khả năng tiếp tục exploration thay vì luôn khai thác một historical pattern cố định. 
+Hệ thống nhờ đó có khả năng tiếp tục exploration thay vì luôn khai thác một historical pattern cố định.
 
 ---
 
@@ -823,7 +823,7 @@ Nhiều agent
 → tự động thông minh hơn
 ```
 
-Phân vai giúp prompt và output contract rõ ràng hơn, nhưng đồng thời đòi hỏi một lớp điều phối để chuyển state chính xác giữa các vai trò. 
+Phân vai giúp prompt và output contract rõ ràng hơn, nhưng đồng thời đòi hỏi một lớp điều phối để chuyển state chính xác giữa các vai trò.
 
 ---
 
@@ -859,7 +859,7 @@ Có thể hình dung:
                      State
 ```
 
-Orchestrator cũng cần giới hạn số vòng, lưu log và xử lý lỗi. 
+Orchestrator cũng cần giới hạn số vòng, lưu log và xử lý lỗi.
 
 Không có lớp này, multi-agent dễ biến thành một chuỗi prompt nối tiếp thiếu kiểm soát.
 
@@ -905,7 +905,7 @@ LLM call
 LLM call
 ```
 
-chứ chưa phải một agent loop được thiết kế rõ ràng. 
+chứ chưa phải một agent loop được thiết kế rõ ràng.
 
 ---
 
@@ -1133,7 +1133,7 @@ Không đủ. Candidate còn phải đáp ứng complexity, originality và hypo
 
 **Sai lầm 3: Eval Agent chỉ chạy backtest return.**
 
-Không đúng. Evaluation còn bao gồm predictive capability, risk, executability và numerical stability. 
+Không đúng. Evaluation còn bao gồm predictive capability, risk, executability và numerical stability.
 
 **Sai lầm 4: Chỉ nên lưu successful factors.**
 
@@ -1245,9 +1245,9 @@ Knowledge / Evaluation History
 Vòng tiếp theo
 ```
 
-Idea Agent tạo hypothesis từ human knowledge, market insight và kết quả của các vòng trước. Một hypothesis tốt gồm **Observation, Knowledge, Justification và Specification**. 
+Idea Agent tạo hypothesis từ human knowledge, market insight và kết quả của các vòng trước. Một hypothesis tốt gồm **Observation, Knowledge, Justification và Specification**.
 
-Factor Agent operationalize hypothesis thành nhiều candidate expression, đồng thời áp dụng complexity, alignment và originality constraints. Successful factor lẫn failure mode đều có thể trở thành knowledge cho những vòng sau. 
+Factor Agent operationalize hypothesis thành nhiều candidate expression, đồng thời áp dụng complexity, alignment và originality constraints. Successful factor lẫn failure mode đều có thể trở thành knowledge cho những vòng sau.
 
 Eval Agent kiểm tra candidate theo nhiều chiều:
 
@@ -1263,7 +1263,7 @@ Executability
 Numerical stability
 ```
 
-Evaluation history sau đó giúp nhận diện pattern thành công và thất bại để tạo feedback cho vòng tiếp theo. 
+Evaluation history sau đó giúp nhận diện pattern thành công và thất bại để tạo feedback cho vòng tiếp theo.
 
 Closed loop hoàn chỉnh là:
 

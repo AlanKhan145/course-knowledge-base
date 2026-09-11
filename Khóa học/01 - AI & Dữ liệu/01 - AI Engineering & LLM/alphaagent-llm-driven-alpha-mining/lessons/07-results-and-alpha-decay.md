@@ -20,7 +20,7 @@ Persistence và risk
 IC theo năm / RankIC theo năm / MDD
 ```
 
-Trên hai thị trường CSI 500 và S&P 500, AlphaAgent đạt kết quả tổng thể mạnh trong protocol thực nghiệm được sử dụng. Quan trọng hơn, phân tích theo thời gian cho thấy các alpha do hệ thống khai phá duy trì `IC` và `RankIC` ổn định hơn so với những nhóm factor được dùng làm đối chứng. 
+Trên hai thị trường CSI 500 và S&P 500, AlphaAgent đạt kết quả tổng thể mạnh trong protocol thực nghiệm được sử dụng. Quan trọng hơn, phân tích theo thời gian cho thấy các alpha do hệ thống khai phá duy trì `IC` và `RankIC` ổn định hơn so với những nhóm factor được dùng làm đối chứng.
 
 Mục tiêu của việc phân tích này không phải chứng minh rằng một factor sẽ luôn sinh lời trong tương lai, mà là kiểm tra liệu factor có biểu hiện **performance persistence** tốt hơn trong một thiết lập backtest kéo dài nhiều năm hay không.
 
@@ -46,7 +46,7 @@ Một factor hoặc strategy có thể được đánh giá qua ba câu hỏi kh
 
 **Economic payoff** hỏi liệu tín hiệu đó, sau khi đi qua model, ranking, portfolio construction và transaction cost, có thực sự tạo excess return hay không. `AR`, `IR` và cumulative excess return phục vụ lớp đánh giá này.
 
-**Persistence** hỏi liệu hiệu quả còn duy trì theo thời gian hay không. Đây mới là lớp trực tiếp liên quan đến alpha decay. 
+**Persistence** hỏi liệu hiệu quả còn duy trì theo thời gian hay không. Đây mới là lớp trực tiếp liên quan đến alpha decay.
 
 Ba câu hỏi có liên quan nhưng không đồng nhất:
 
@@ -102,7 +102,7 @@ IR   = 1.0545
 MDD  = -9.10%
 ```
 
-Trong thiết lập so sánh được sử dụng, AlphaAgent dẫn đầu các metric chính trên cả hai thị trường. 
+Trong thiết lập so sánh được sử dụng, AlphaAgent dẫn đầu các metric chính trên cả hai thị trường.
 
 Tuy nhiên, ý nghĩa quan trọng không nằm ở việc một con số riêng lẻ cao hơn. Điều cần quan sát là các metric predictive, portfolio và risk có cùng tạo ra một câu chuyện nhất quán hay không.
 
@@ -189,18 +189,18 @@ Trong trường hợp này, `AR` không thể hiện sự khác biệt rõ, còn
 
 `Maximum Drawdown (MDD)` phản ánh mức giảm lớn nhất từ một peak trước đó xuống trough sau đó.
 
-Nếu \(V_t\) là giá trị portfolio và:
+Nếu $V_t$ là giá trị portfolio và:
 
-$$
-Peak_t=\max_{u\leq t}V_u
-$$
+\[
+\mathrm{Peak}_t=\max_{u\leq t}V_u
+\]
 
-thì drawdown tại \(t\) có thể biểu diễn:
+thì drawdown tại $t$ có thể biểu diễn:
 
-$$
+\[
 DD_t=
-\frac{V_t-Peak_t}{Peak_t}
-$$
+\frac{V_t-\mathrm{Peak}_t}{\mathrm{Peak}_t}
+\]
 
 MDD là mức drawdown sâu nhất trong toàn chuỗi.
 
@@ -220,11 +220,11 @@ Portfolio
 
 Từ 130 xuống 95:
 
-$$
+\[
 DD=
 \frac{95-130}{130}
 \approx -26.92\%
-$$
+\]
 
 Dù portfolio cuối cùng có thể phục hồi và kết thúc năm với AR dương, nhà đầu tư vẫn từng phải chịu mức suy giảm rất lớn.
 
@@ -244,28 +244,28 @@ Một kết quả hoàn chỉnh cần cả hai.
 
 Giả sử:
 
-$$
+\[
 r_t^{strategy}
-$$
+\]
 
 là return của strategy và:
 
-$$
+\[
 r_t^{benchmark}
-$$
+\]
 
 là return của benchmark.
 
-Excess return của kỳ \(t\) là:
+Excess return của kỳ $t$ là:
 
-$$
+\[
 e_t=
 r_t^{strategy}
 -
 r_t^{benchmark}
-$$
+\]
 
-Đường **cumulative excess return** biểu diễn cách lợi thế tương đối đó tích lũy theo thời gian. 
+Đường **cumulative excess return** biểu diễn cách lợi thế tương đối đó tích lũy theo thời gian.
 
 Nếu đơn giản minh họa bằng phép cộng:
 
@@ -316,7 +316,7 @@ Cần quan sát thêm:
 * có phục hồi được sau drawdown không;
 * dấu hiệu suy yếu bắt đầu ở năm nào;
 * nhiều baseline có cùng suy giảm trong một regime hay không;
-* strategy có tiếp tục tạo excess return sau những thay đổi thị trường hay không. 
+* strategy có tiếp tục tạo excess return sau những thay đổi thị trường hay không.
 
 Đối với nghiên cứu alpha decay, một đường:
 
@@ -344,7 +344,7 @@ Các time-series model có dấu hiệu decay rõ hơn, đặc biệt trên S&P 
 
 `DeepSeek-R1` suy giảm sau năm 2023 trong thiết lập được báo cáo.
 
-Trong khi đó, AlphaAgent duy trì đường cumulative excess return bền hơn trên cả hai thị trường. 
+Trong khi đó, AlphaAgent duy trì đường cumulative excess return bền hơn trên cả hai thị trường.
 
 Mức cumulative excess return được ghi nhận vào khoảng:
 
@@ -356,7 +356,7 @@ S&P 500
 > 37%
 ```
 
-trong testing period. 
+trong testing period.
 
 Điểm cần chú ý không chỉ là phần trăm cuối kỳ. Đường cong được dùng như bằng chứng để xem lợi thế có tiếp tục tích lũy qua thời gian hay chỉ xuất hiện ở một đoạn ngắn.
 
@@ -364,27 +364,27 @@ trong testing period.
 
 Kết quả tổng thể cho thấy:
 
-$$
+\[
 IC_{CSI500}=0.0212
-$$
+\]
 
 trong khi:
 
-$$
+\[
 IC_{S\&P500}=0.0056
-$$
+\]
 
 và:
 
-$$
+\[
 ICIR_{CSI500}=0.1938
-$$
+\]
 
 so với:
 
-$$
+\[
 ICIR_{S\&P500}=0.0552
-$$
+\]
 
 
 
@@ -392,15 +392,15 @@ $$
 
 Tuy vậy, AlphaAgent vẫn đạt:
 
-$$
+\[
 AR=8.74\%
-$$
+\]
 
 và:
 
-$$
+\[
 IR=1.0545
-$$
+\]
 
 trên S&P 500.
 
@@ -415,9 +415,9 @@ Một bảng aggregate có thể che giấu decay.
 
 Giả sử mean IC bốn năm là:
 
-$$
+\[
 0.02
-$$
+\]
 
 Điều đó có thể đến từ chuỗi:
 
@@ -468,23 +468,23 @@ Phân tích theo năm so sánh:
 * Alpha158;
 * 15 alpha do AlphaAgent khai phá;
 
-trên CSI 500. 
+trên CSI 500.
 
 Kết quả cho thấy GP, RSI và Alpha158 suy giảm rõ rệt về IC và RankIC theo thời gian.
 
 Trong khi đó, các alpha của AlphaAgent giữ mức xấp xỉ:
 
-$$
+\[
 IC\approx0.02
-$$
+\]
 
 và:
 
-$$
+\[
 RankIC\approx0.025
-$$
+\]
 
-tương đối ổn định. 
+tương đối ổn định.
 
 Đây là bằng chứng trực tiếp hơn cho luận điểm chống alpha decay so với việc chỉ quan sát cumulative return.
 
@@ -710,31 +710,31 @@ Nếu IC ổn định nhưng return yếu, cần kiểm tra thêm cách signal �
 
 Trên CSI 500, AlphaAgent đạt:
 
-$$
+\[
 IC=0.0212
-$$
+\]
 
-$$
+\[
 ICIR=0.1938
-$$
+\]
 
-$$
+\[
 AR=11.00\%
-$$
+\]
 
-$$
+\[
 IR=1.488
-$$
+\]
 
-$$
+\[
 MDD=-9.36\%
-$$
+\]
 
 
 
-Ngoài performance tổng thể, cumulative excess return trong testing period được ghi nhận khoảng 45%. 
+Ngoài performance tổng thể, cumulative excess return trong testing period được ghi nhận khoảng 45%.
 
-Yearly analysis còn cho thấy các alpha được khai phá giữ IC quanh `0.02` và RankIC quanh `0.025` tương đối ổn định, trong khi GP, RSI và Alpha158 suy giảm rõ hơn. 
+Yearly analysis còn cho thấy các alpha được khai phá giữ IC quanh `0.02` và RankIC quanh `0.025` tương đối ổn định, trong khi GP, RSI và Alpha158 suy giảm rõ hơn.
 
 Ba lớp bằng chứng vì vậy tạo thành:
 
@@ -750,31 +750,31 @@ Yearly predictive persistence
 
 Trên S&P 500:
 
-$$
+\[
 IC=0.0056
-$$
+\]
 
-$$
+\[
 ICIR=0.0552
-$$
+\]
 
-$$
+\[
 AR=8.74\%
-$$
+\]
 
-$$
+\[
 IR=1.0545
-$$
+\]
 
-$$
+\[
 MDD=-9.10\%
-$$
+\]
 
 
 
-Cumulative excess return trong testing period được ghi nhận trên 37%. 
+Cumulative excess return trong testing period được ghi nhận trên 37%.
 
-Đường cumulative excess return còn được dùng để đối chiếu với những baseline có dấu hiệu suy yếu rõ hơn trên thị trường này, bao gồm time-series models, `LightGBM + Alpha158` và `DeepSeek-R1` trong các giai đoạn được quan sát. 
+Đường cumulative excess return còn được dùng để đối chiếu với những baseline có dấu hiệu suy yếu rõ hơn trên thị trường này, bao gồm time-series models, `LightGBM + Alpha158` và `DeepSeek-R1` trong các giai đoạn được quan sát.
 
 Kết quả cần được hiểu trong giới hạn của cùng protocol chứ không phải chứng minh AlphaAgent sẽ đạt đúng mức return đó trong mọi thị trường hoặc giai đoạn khác.
 
@@ -836,7 +836,7 @@ Hoặc:
 
 > AlphaAgent đảm bảo tạo lợi nhuận.
 
-Backtest không chứng minh causal mechanism ngoài thị trường và không loại bỏ mọi rủi ro khi deployment. 
+Backtest không chứng minh causal mechanism ngoài thị trường và không loại bỏ mọi rủi ro khi deployment.
 
 Một kết luận khoa học hợp lý phải gắn với:
 
@@ -1049,21 +1049,21 @@ Kết quả tổng thể của AlphaAgent trên hai thị trường được ghi
 
 
 
-Figure 3 cho thấy AlphaAgent duy trì cumulative excess return tốt hơn trong testing period, với mức khoảng 45% trên CSI 500 và trên 37% trên S&P 500, trong khi một số baseline thể hiện dấu hiệu suy yếu rõ hơn. 
+Figure 3 cho thấy AlphaAgent duy trì cumulative excess return tốt hơn trong testing period, với mức khoảng 45% trên CSI 500 và trên 37% trên S&P 500, trong khi một số baseline thể hiện dấu hiệu suy yếu rõ hơn.
 
 Figure 4 đi sâu hơn vào vấn đề trung tâm của bài: **alpha decay**. GP, RSI và Alpha158 có IC và RankIC suy giảm đáng kể theo thời gian, trong khi các alpha được AlphaAgent khai phá giữ:
 
-$$
+\[
 IC\approx0.02
-$$
+\]
 
 và:
 
-$$
+\[
 RankIC\approx0.025
-$$
+\]
 
-tương đối ổn định. 
+tương đối ổn định.
 
 Do đó, logic đánh giá không phải:
 

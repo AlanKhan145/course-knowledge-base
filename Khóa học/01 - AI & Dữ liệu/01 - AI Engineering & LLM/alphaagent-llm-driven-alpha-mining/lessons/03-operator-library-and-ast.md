@@ -4,7 +4,7 @@
 
 Khi một LLM được yêu cầu biến market hypothesis thành alpha factor, cách đơn giản nhất có vẻ là để mô hình sinh trực tiếp Python hoặc một đoạn chương trình hoàn chỉnh. Tuy nhiên, cách này tạo ra một vấn đề lớn: factor không chỉ cần **chạy được**, mà còn phải sử dụng đúng dữ liệu, đúng phép toán, đúng tham số và quan trọng hơn là phải giữ được ý nghĩa của hypothesis ban đầu.
 
-AlphaAgent giải quyết vấn đề bằng cách không coi code tự do là representation chính của factor. Thay vào đó, hệ thống sử dụng một **Operator Library** chứa các phép toán toán học và tài chính đã được chuẩn hóa, rồi lắp chúng thành **Abstract Syntax Tree (AST)**. Operator Library đóng vai trò như vocabulary được phép sử dụng, còn AST giữ lại cấu trúc tính toán của factor. 
+AlphaAgent giải quyết vấn đề bằng cách không coi code tự do là representation chính của factor. Thay vào đó, hệ thống sử dụng một **Operator Library** chứa các phép toán toán học và tài chính đã được chuẩn hóa, rồi lắp chúng thành **Abstract Syntax Tree (AST)**. Operator Library đóng vai trò như vocabulary được phép sử dụng, còn AST giữ lại cấu trúc tính toán của factor.
 
 Thiết kế này tạo ra một chuỗi chuyển đổi có kiểm soát:
 
@@ -31,12 +31,12 @@ AST không chỉ giúp factor có thể thực thi. Chính cấu trúc cây còn
 Sau bài học, người học có thể:
 
 * giải thích được vì sao sinh factor bằng code tự do gây khó khăn cho một hệ thống LLM;
-* mô tả được vai trò của Operator Library \(\mathcal O\);
+* mô tả được vai trò của Operator Library $\mathcal O$;
 * phân biệt được raw feature, operator và parameter trong một factor expression;
 * giải thích được khái niệm arity của operator;
 * đọc và phân tích được một factor dưới dạng AST;
 * nhận diện được leaf node, internal node và edge trong AST;
-* diễn giải được phép ánh xạ \(\mathcal G:(\mathcal H,X)\rightarrow\mathcal F\);
+* diễn giải được phép ánh xạ $\mathcal G:(\mathcal H,X)\rightarrow\mathcal F$;
 * mô tả được ba bước chuyển từ market hypothesis sang factor;
 * giải thích được vì sao AST là một intermediate representation hữu ích;
 * phân biệt được structural validity với semantic validity;
@@ -65,7 +65,7 @@ Nó phải:
 * có numerical behavior hợp lệ;
 * giữ được semantic meaning của market hypothesis.
 
-Khi implementation càng dài, số điểm có thể sai càng tăng. Một chương trình có thể đúng cú pháp nhưng dùng sai column. Nó có thể chạy thành công nhưng implementation không còn phản ánh hypothesis. Hoặc cùng một logic có thể được viết theo nhiều cách khác nhau, khiến việc so sánh complexity và originality trở nên khó khăn. 
+Khi implementation càng dài, số điểm có thể sai càng tăng. Một chương trình có thể đúng cú pháp nhưng dùng sai column. Nó có thể chạy thành công nhưng implementation không còn phản ánh hypothesis. Hoặc cùng một logic có thể được viết theo nhiều cách khác nhau, khiến việc so sánh complexity và originality trở nên khó khăn.
 
 Do đó:
 
@@ -136,9 +136,9 @@ Khi representation giữ được cấu trúc này, hệ thống có thể phân
 
 AlphaAgent sử dụng một thư viện operator:
 
-$$
+\[
 \mathcal O
-$$
+\]
 
 chứa các phép toán toán học hoặc tài chính đã được chuẩn hóa. Những nhóm operator được sử dụng có thể bao gồm:
 
@@ -146,7 +146,7 @@ chứa các phép toán toán học hoặc tài chính đã được chuẩn hó
 * rolling maximum;
 * moving average;
 * conditional check;
-* các time-series operation khác. 
+* các time-series operation khác.
 
 Ý nghĩa của việc chuẩn hóa operator không chỉ là tạo một danh sách function.
 
@@ -185,7 +185,7 @@ LLM
 tự viết toàn bộ implementation
 ```
 
-Operator Library trở thành lớp trung gian nối **market insight cấp cao** với **factor implementation cấp thấp**. 
+Operator Library trở thành lớp trung gian nối **market insight cấp cao** với **factor implementation cấp thấp**.
 
 ## 6. Arity và cấu trúc hợp lệ của operator
 
@@ -274,7 +274,7 @@ SUB
 
 AST cho biết **phép toán nào phụ thuộc vào phép toán nào**, thay vì chỉ cho biết expression được viết thành chuỗi ký tự ra sao.
 
-Với factor trong AlphaAgent, raw feature như `$high` hoặc `$low` nằm ở phần lá của cấu trúc, operator như `TS_MIN(.)` và `SMA(.)` tạo các nút tính toán, còn các cạnh biểu diễn data flow giữa các operation. 
+Với factor trong AlphaAgent, raw feature như `$high` hoặc `$low` nằm ở phần lá của cấu trúc, operator như `TS_MIN(.)` và `SMA(.)` tạo các nút tính toán, còn các cạnh biểu diễn data flow giữa các operation.
 
 ## 8. Leaf node, internal node và edge
 
@@ -326,20 +326,20 @@ execution flow
 
 Quá trình factor parsing có thể biểu diễn bằng:
 
-$$
+\[
 \mathcal G:(\mathcal H,X)\rightarrow\mathcal F
-$$
+\]
 
 Trong đó:
 
-* \(\mathcal H\): không gian market hypothesis;
-* \(X\): raw features có sẵn;
-* \(\mathcal F\): không gian factor được tạo từ symbolic operators;
-* \(\mathcal G\): quá trình chuyển hypothesis và dữ liệu thành factor có cấu trúc. 
+* $\mathcal H$: không gian market hypothesis;
+* $X$: raw features có sẵn;
+* $\mathcal F$: không gian factor được tạo từ symbolic operators;
+* $\mathcal G$: quá trình chuyển hypothesis và dữ liệu thành factor có cấu trúc.
 
 Điểm đáng chú ý là factor không được tạo chỉ từ hypothesis.
 
-Hệ thống còn phải biết \(X\), vì một ý tưởng chỉ có thể trở thành factor thực thi nếu nó được bind với các feature thực sự tồn tại.
+Hệ thống còn phải biết $X$, vì một ý tưởng chỉ có thể trở thành factor thực thi nếu nó được bind với các feature thực sự tồn tại.
 
 Ví dụ:
 
@@ -376,7 +376,7 @@ rolling minimum
 volume contraction
 ```
 
-Hệ thống trước hết cần hiểu mỗi cụm tương ứng với loại operation nào trong \(\mathcal O\).
+Hệ thống trước hết cần hiểu mỗi cụm tương ứng với loại operation nào trong $\mathcal O$.
 
 Ví dụ:
 
@@ -401,7 +401,7 @@ Sau khi operator được chọn, hệ thống phải xác định parameter, ch
 * threshold;
 * các tham số số học khác được hypothesis quy định hoặc được xác định theo thiết kế.
 
-Các operator sau đó được ghép thành AST thể hiện dependency và execution flow. 
+Các operator sau đó được ghép thành AST thể hiện dependency và execution flow.
 
 Toàn bộ quá trình có thể hình dung:
 
@@ -540,17 +540,17 @@ với nhiều lớp operator lồng nhau tạo một cây dài và sâu hơn.
 
 AlphaAgent sử dụng cấu trúc factor để kiểm soát những candidate quá phức tạp. Các đại lượng liên quan bao gồm:
 
-$$
+\[
 SL(f)
-$$
+\]
 
 đại diện cho symbolic length, và:
 
-$$
+\[
 PC(f)
-$$
+\]
 
-đếm số free parameter như window length. 
+đếm số free parameter như window length.
 
 Trực giác là:
 
@@ -606,17 +606,17 @@ So sánh AST nhận ra chúng có cùng computational structure.
 
 Gọi tập các alpha đã tồn tại là:
 
-$$
+\[
 Z=\{\phi_1,\phi_2,\ldots,\phi_N\}
-$$
+\]
 
 Mỗi factor được chuyển thành AST:
 
-$$
+\[
 T(f)
-$$
+\]
 
-Để so sánh hai factor \(f_i\) và \(f_j\), ta tìm những subtree có cấu trúc giống nhau và quan tâm đến **largest common subtree**.
+Để so sánh hai factor $f_i$ và $f_j$, ta tìm những subtree có cấu trúc giống nhau và quan tâm đến **largest common subtree**.
 
 Có thể hình dung:
 
@@ -654,17 +654,17 @@ $high
 
 Nếu common subtree càng lớn, hai factor càng có nhiều cấu trúc tính toán chung.
 
-AlphaAgent sử dụng phép so sánh subtree để định lượng mức độ tương tự giữa candidate và các alpha có sẵn. 
+AlphaAgent sử dụng phép so sánh subtree để định lượng mức độ tương tự giữa candidate và các alpha có sẵn.
 
 ## 16. Originality score
 
-Với hai factor \(f_i\) và \(f_j\), similarity được xây dựng dựa trên subtree lớn nhất có cấu trúc đẳng cấu.
+Với hai factor $f_i$ và $f_j$, similarity được xây dựng dựa trên subtree lớn nhất có cấu trúc đẳng cấu.
 
-Sau đó candidate \(f\) được so với toàn bộ alpha zoo:
+Sau đó candidate $f$ được so với toàn bộ alpha zoo:
 
-$$
+\[
 S(f)=\max_{\phi\in Z}s(f,\phi)
-$$
+\]
 
 Ý nghĩa của phép `max` rất quan trọng.
 
@@ -672,9 +672,9 @@ Factor mới có thể khác 99 alpha nhưng gần như sao chép alpha thứ 10
 
 Lấy:
 
-$$
+\[
 \max
-$$
+\]
 
 trả lời câu hỏi:
 
@@ -682,7 +682,7 @@ trả lời câu hỏi:
 
 Nếu similarity lớn nhất vẫn cao, candidate có nguy cơ thiếu originality.
 
-Biểu diễn AST cho phép thực hiện chính phép kiểm tra này vì structural similarity được giữ lại trong cây. 
+Biểu diễn AST cho phép thực hiện chính phép kiểm tra này vì structural similarity được giữ lại trong cây.
 
 ## 17. Mối quan hệ giữa Operator Library, AST và regularization
 
@@ -833,7 +833,7 @@ Expression tham chiếu:
 $bid_ask_spread
 ```
 
-trong khi \(X\) chỉ có OHLCV.
+trong khi $X$ chỉ có OHLCV.
 
 Kết quả:
 
@@ -913,7 +913,7 @@ Hãy giải thích:
 
 1. vì sao string comparison có thể không phát hiện tốt trường hợp này;
 2. vì sao AST comparison phù hợp hơn;
-3. \(S(f)\) sẽ phản ánh hiện tượng đó như thế nào.
+3. $S(f)$ sẽ phản ánh hiện tượng đó như thế nào.
 
 ## 21. Câu hỏi tự kiểm tra
 
@@ -922,7 +922,7 @@ Hãy giải thích:
 3. Arity của operator có ý nghĩa gì?
 4. AST khác với chuỗi expression thông thường ở điểm nào?
 5. Leaf node và internal node đảm nhiệm hai vai trò khác nhau như thế nào?
-6. Trong \(\mathcal G:(\mathcal H,X)\rightarrow\mathcal F\), tại sao cả hypothesis và raw features đều cần thiết?
+6. Trong $\mathcal G:(\mathcal H,X)\rightarrow\mathcal F$, tại sao cả hypothesis và raw features đều cần thiết?
 7. Ba bước chính để chuyển hypothesis thành AST là gì?
 8. Vì sao structural validity không đảm bảo semantic validity?
 9. Tại sao AST thuận lợi cho việc đo symbolic length và parameter count?
@@ -950,9 +950,9 @@ Regularization
 Execution
 ```
 
-Operator Library \(\mathcal O\) chuẩn hóa các primitive mà factor được phép sử dụng. Nhờ đó, hệ thống có thể kiểm soát operator, argument và parameter thay vì phụ thuộc hoàn toàn vào code tự do.
+Operator Library $\mathcal O$ chuẩn hóa các primitive mà factor được phép sử dụng. Nhờ đó, hệ thống có thể kiểm soát operator, argument và parameter thay vì phụ thuộc hoàn toàn vào code tự do.
 
-AST \(T(f)\) giữ lại cấu trúc tính toán của factor:
+AST $T(f)$ giữ lại cấu trúc tính toán của factor:
 
 ```text
 Leaf
@@ -967,11 +967,11 @@ Edge
 
 Quá trình:
 
-$$
+\[
 \mathcal G:(\mathcal H,X)\rightarrow\mathcal F
-$$
+\]
 
-biến market hypothesis thành factor bằng cách nhận diện key phrase, ánh xạ chúng sang operator, gán parameter và lắp các thành phần thành cây biểu thức. 
+biến market hypothesis thành factor bằng cách nhận diện key phrase, ánh xạ chúng sang operator, gán parameter và lắp các thành phần thành cây biểu thức.
 
 Giá trị của AST không dừng ở execution. Từ cùng một representation, hệ thống có thể:
 

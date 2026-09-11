@@ -4,7 +4,7 @@
 
 Một alpha factor chỉ thực sự có giá trị khi khả năng dự báo của nó còn tồn tại ngoài giai đoạn dùng để xây dựng và lựa chọn factor. Vì vậy, việc đánh giá AlphaAgent không dừng ở câu hỏi “backtest có lợi nhuận cao hay không”, mà phải kiểm tra đồng thời **predictive effectiveness**, **độ ổn định theo thời gian**, **rủi ro của portfolio** và **khả năng duy trì hiệu quả sau transaction cost**.
 
-Thiết kế thực nghiệm sử dụng hai thị trường là **S&P 500** và **CSI 500**, chia dữ liệu theo trình tự thời gian thành `train`, `validation` và `test`. Raw feature dùng để xây factor chỉ gồm **OHLCV**: `open`, `high`, `low`, `close`, `volume`. Các alpha mới được kết hợp với bốn base alpha rồi đưa vào `LightGBM` để dự báo next-day return. Portfolio sau đó được xây dựng từ ranking của predicted return và đánh giá sau khi tính transaction fee. 
+Thiết kế thực nghiệm sử dụng hai thị trường là **S&P 500** và **CSI 500**, chia dữ liệu theo trình tự thời gian thành `train`, `validation` và `test`. Raw feature dùng để xây factor chỉ gồm **OHLCV**: `open`, `high`, `low`, `close`, `volume`. Các alpha mới được kết hợp với bốn base alpha rồi đưa vào `LightGBM` để dự báo next-day return. Portfolio sau đó được xây dựng từ ranking của predicted return và đánh giá sau khi tính transaction fee.
 
 Mạch đánh giá tổng quát là:
 
@@ -62,7 +62,7 @@ Close
 Volume
 ```
 
-hay viết gọn là **OHLCV**. 
+hay viết gọn là **OHLCV**.
 
 Mỗi trường mang một phần thông tin khác nhau:
 
@@ -76,36 +76,36 @@ Từ các raw feature này, factor có thể xây dựng những đại lượng
 
 Ví dụ, biên độ trong ngày có thể bắt nguồn từ:
 
-$$
-High_t-Low_t
-$$
+\[
+\mathrm{High}_t-\mathrm{Low}_t
+\]
 
 trong khi một đại lượng tương đối có thể chuẩn hóa nó theo mức giá để so sánh giữa các cổ phiếu có price scale khác nhau.
 
 ### 3.2. Lợi suất và future return
 
-Với giá đóng cửa \(P_t\), simple return có thể viết:
+Với giá đóng cửa $P_t$, simple return có thể viết:
 
-$$
+\[
 r_t=
 \frac{P_t-P_{t-1}}
 {P_{t-1}}
-$$
+\]
 
 Log return tương ứng là:
 
-$$
+\[
 \ell_t=
 \ln\left(\frac{P_t}{P_{t-1}}\right)
-$$
+\]
 
 Trong bài toán dự báo một bước, target có thể là:
 
-$$
+\[
 r_{t+1}
-$$
+\]
 
-Điều đó có nghĩa factor được tính từ thông tin hợp lệ tại hoặc trước thời điểm \(t\), còn kết quả cần dự báo thuộc kỳ kế tiếp.
+Điều đó có nghĩa factor được tính từ thông tin hợp lệ tại hoặc trước thời điểm $t$, còn kết quả cần dự báo thuộc kỳ kế tiếp.
 
 Mối quan hệ đúng là:
 
@@ -157,11 +157,11 @@ Portfolio dựa trên ranking cần biết cổ phiếu nào có predicted retur
 
 Một representation khái niệm có thể là:
 
-| Date  | Asset | Factor score tại \(t\) | Future return |
+| Date  | Asset | Factor score tại $t$ | Future return |
 | ----- | ----- | ---------------------: | ------------: |
-| \(t\) | A     |                   0.80 |         0.012 |
-| \(t\) | B     |                  -0.30 |        -0.004 |
-| \(t\) | C     |                   0.22 |         0.003 |
+| $t$ | A     |                   0.80 |         0.012 |
+| $t$ | B     |                  -0.30 |        -0.004 |
+| $t$ | C     |                   0.22 |         0.003 |
 
 Đây là lý do cần phân biệt những operation theo thời gian như `rolling`, `shift` với những operation theo cross-section như `rank` hoặc cross-sectional normalization.
 
@@ -196,29 +196,26 @@ Future return bằng 0
 
 ## 6. Information Coefficient - IC
 
-**Information Coefficient (IC)** đo correlation giữa factor score và actual future return theo ngày. 
+**Information Coefficient (IC)** đo correlation giữa factor score và actual future return theo ngày.
 
-Nếu \(x\) là factor score và \(y\) là future return, Pearson correlation có dạng:
+Nếu $x$ là factor score và $y$ là future return, Pearson correlation có dạng:
 
-$$
+\[
 \rho_{x,y}
 =
 \frac{\operatorname{Cov}(x,y)}
 {\sigma_x\sigma_y}
-$$
+\]
 
 Trong alpha evaluation, ta có thể tính:
 
-$$
+\[
 IC_t
 =
-Corr(
-Score_{i,t},
-r_{i,t+1}
-)
-$$
+\operatorname{Corr}(\mathrm{Score}_{i,t}, r_{i,t+1})
+\]
 
-trên cross-section các cổ phiếu \(i\) tại ngày \(t\).
+trên cross-section các cổ phiếu $i$ tại ngày $t$.
 
 Có thể hiểu:
 
@@ -237,7 +234,7 @@ IC không đo trực tiếp tiền kiếm được từ portfolio. Nó đo khả
 
 ## 7. RankIC
 
-`RankIC` thực hiện correlation sau khi các giá trị được chuyển thành thứ hạng. 
+`RankIC` thực hiện correlation sau khi các giá trị được chuyển thành thứ hạng.
 
 Thay vì hỏi:
 
@@ -263,20 +260,20 @@ Nếu thứ tự của hai cột rank tương đồng mạnh, RankIC sẽ cao.
 
 Sau khi tính IC mỗi ngày, ta có chuỗi:
 
-$$
+\[
 IC_1,IC_2,\ldots,IC_T
-$$
+\]
 
-`ICIR` phản ánh mức độ ổn định của IC bằng cách so sánh mean IC với độ biến động của IC. 
+`ICIR` phản ánh mức độ ổn định của IC bằng cách so sánh mean IC với độ biến động của IC.
 
 Một biểu diễn trực giác là:
 
-$$
+\[
 ICIR
 =
 \frac{\operatorname{mean}(IC_t)}
 {\operatorname{std}(IC_t)}
-$$
+\]
 
 Xét hai factor:
 
@@ -327,13 +324,13 @@ Có thể phân biệt:
 | Portfolio  | IR     | Excess return có tốt so với mức biến động của nó không? |
 | Portfolio  | MDD    | Portfolio từng sụt sâu nhất bao nhiêu?                  |
 
-Các metric này được sử dụng cùng nhau thay vì xem return là tiêu chí duy nhất. 
+Các metric này được sử dụng cùng nhau thay vì xem return là tiêu chí duy nhất.
 
 ## 10. Annualized Return - AR
 
 `Annualized Return (AR)` quy đổi hiệu quả của strategy sang tốc độ lợi suất theo năm.
 
-Trong thiết lập này, AR được dùng để biểu diễn **annualized excess return**. 
+Trong thiết lập này, AR được dùng để biểu diễn **annualized excess return**.
 
 Một chiến lược tạo lợi nhuận cao trong một giai đoạn ngắn chưa chắc duy trì được tốc độ đó qua nhiều năm. Annualization giúp đặt kết quả lên cùng thang đo, nhưng AR vẫn phải được đọc cùng risk metric.
 
@@ -353,16 +350,16 @@ Không thể kết luận A tốt hơn chỉ từ AR.
 
 ## 11. Information Ratio - IR
 
-`Information Ratio (IR)` đánh giá excess return theo mức rủi ro của excess return so với benchmark. 
+`Information Ratio (IR)` đánh giá excess return theo mức rủi ro của excess return so với benchmark.
 
 Trực giác:
 
-$$
+\[
 IR
 \approx
 \frac{\text{Excess Return}}
 {\text{Variability of Excess Return}}
-$$
+\]
 
 IR cao hơn cho thấy strategy tạo excess return ổn định hơn so với độ biến động của phần excess return đó.
 
@@ -380,28 +377,28 @@ Tên hai metric gần nhau nhưng đối tượng chúng đo khác nhau.
 
 ## 12. Maximum Drawdown - MDD
 
-Giả sử \(V_t\) là giá trị portfolio và:
+Giả sử $V_t$ là giá trị portfolio và:
 
-$$
-Peak_t
+\[
+\mathrm{Peak}_t
 =
 \max_{u\le t}V_u
-$$
+\]
 
-Drawdown tại \(t\) có thể biểu diễn:
+Drawdown tại $t$ có thể biểu diễn:
 
-$$
+\[
 DD_t
 =
-\frac{V_t-Peak_t}
-{Peak_t}
-$$
+\frac{V_t-\mathrm{Peak}_t}
+{\mathrm{Peak}_t}
+\]
 
 Maximum drawdown là mức sụt giảm sâu nhất từ một peak xuống trough:
 
-$$
+\[
 MDD=\min_t DD_t
-$$
+\]
 
 Với quy ước biểu diễn drawdown bằng số âm, MDD là giá trị âm thấp nhất của chuỗi drawdown.
 
@@ -420,11 +417,11 @@ Portfolio value
 
 Drawdown từ 120 xuống 90 là:
 
-$$
+\[
 \frac{90-120}{120}
 =
 -25\%
-$$
+\]
 
 Một strategy có AR cao nhưng MDD rất sâu có thể chịu mức rủi ro triển khai lớn.
 
@@ -550,7 +547,7 @@ qua regime khác?
 nhiều năm sau?
 ```
 
-Test period từ 2021 đến đầu 2025 tạo điều kiện kiểm tra performance persistence trên một khoảng thời gian dài thay vì chỉ một snapshot. 
+Test period từ 2021 đến đầu 2025 tạo điều kiện kiểm tra performance persistence trên một khoảng thời gian dài thay vì chỉ một snapshot.
 
 Một factor có kết quả:
 
@@ -593,21 +590,21 @@ Nếu câu trả lời là không, feature đó không nên xuất hiện trong 
 
 ## 18. Cross-sectional Z-score normalization
 
-Feature và return được áp dụng **cross-sectional Z-score normalization** trước khi sử dụng trong pipeline. 
+Feature và return được áp dụng **cross-sectional Z-score normalization** trước khi sử dụng trong pipeline.
 
-Với một feature \(x_i\) của các cổ phiếu tại cùng ngày:
+Với một feature $x_i$ của các cổ phiếu tại cùng ngày:
 
-$$
+\[
 z_i
 =
 \frac{x_i-\mu_t}
 {\sigma_t}
-$$
+\]
 
 Trong đó:
 
-* \(\mu_t\): mean của feature trên cross-section tại ngày \(t\);
-* \(\sigma_t\): standard deviation trong cross-section tại ngày \(t\).
+* $\mu_t$: mean của feature trên cross-section tại ngày $t$;
+* $\sigma_t$: standard deviation trong cross-section tại ngày $t$.
 
 Ví dụ:
 
@@ -631,7 +628,7 @@ Pipeline sử dụng bốn base alpha bên cạnh các alpha mới:
 1. intraday return;
 2. daily return;
 3. 20-day relative volume;
-4. normalized daily range. 
+4. normalized daily range.
 
 Chúng cung cấp một nhóm feature cơ sở để model downstream không chỉ dựa vào candidate mới.
 
@@ -649,7 +646,7 @@ New alpha ────┘
 
 ## 20. Vai trò của LightGBM
 
-Các base alpha và alpha mới được đưa vào `LightGBM`, với maximum depth bằng `4`, để dự báo next-day return. 
+Các base alpha và alpha mới được đưa vào `LightGBM`, với maximum depth bằng `4`, để dự báo next-day return.
 
 `LightGBM` thuộc nhóm gradient-boosted decision trees.
 
@@ -698,7 +695,7 @@ Ba tầng ảnh hưởng lẫn nhau nhưng phải được phân tích riêng.
 
 ## 21. Foundational LLM và baseline configuration
 
-Thiết lập chính sử dụng `GPT-3.5-turbo` làm foundational LLM của AlphaAgent, trong khi `RD-Agent` sử dụng `GPT-4-turbo` theo thiết lập của baseline. 
+Thiết lập chính sử dụng `GPT-3.5-turbo` làm foundational LLM của AlphaAgent, trong khi `RD-Agent` sử dụng `GPT-4-turbo` theo thiết lập của baseline.
 
 Thông tin này quan trọng khi đọc kết quả vì performance của một agentic system không chỉ phụ thuộc vào workflow mà còn có thể bị ảnh hưởng bởi foundational model.
 
@@ -729,7 +726,7 @@ Portfolio sử dụng quy tắc `top-k dropout`:
 
 * chọn 50 cổ phiếu top-ranked theo predicted return;
 * loại 5 cổ phiếu lowest-ranked theo rule của thiết lập;
-* áp dụng transaction fee khi giao dịch. 
+* áp dụng transaction fee khi giao dịch.
 
 Mạch xử lý có thể viết:
 
@@ -760,15 +757,15 @@ Backtest bao gồm transaction fee:
 
 Ví dụ, với CSI 500, buy fee:
 
-$$
+\[
 0.0005=0.05\%
-$$
+\]
 
 và sell fee:
 
-$$
+\[
 0.0015=0.15\%
-$$
+\]
 
 Một strategy đổi vị thế thường xuyên có thể mất đáng kể lợi nhuận do chi phí giao dịch.
 
@@ -795,13 +792,13 @@ Transaction cost đặc biệt quan trọng khi strategy có turnover cao.
 
 Có thể hình dung:
 
-$$
-NetReturn
+\[
+\mathrm{NetReturn}
 =
-GrossReturn
+\mathrm{GrossReturn}
 -
-TradingCost
-$$
+\mathrm{TradingCost}
+\]
 
 và trading cost tăng theo mức độ portfolio phải mua bán.
 
@@ -831,7 +828,7 @@ AlphaAgent được so sánh với nhiều phương pháp:
 * `AlphaForge`;
 * `RD-Agent`;
 * `OpenAI-o1`;
-* `DeepSeek-R1`. 
+* `DeepSeek-R1`.
 
 Baseline trả lời câu hỏi:
 
@@ -1109,7 +1106,7 @@ Strategy từng suy giảm sâu thế nào?
 MDD
 ```
 
-Dữ liệu phải được chia theo thời gian để giữ đúng quan hệ giữa quá khứ và tương lai. Với S&P 500 và CSI 500, giai đoạn 2015–2019 được dùng cho train, năm 2020 cho validation và giai đoạn từ 2021 đến đầu 2025 cho test. 
+Dữ liệu phải được chia theo thời gian để giữ đúng quan hệ giữa quá khứ và tương lai. Với S&P 500 và CSI 500, giai đoạn 2015–2019 được dùng cho train, năm 2020 cho validation và giai đoạn từ 2021 đến đầu 2025 cho test.
 
 Pipeline không dừng ở alpha expression:
 
@@ -1133,9 +1130,9 @@ Transaction cost
 Portfolio performance
 ```
 
-`LightGBM` sử dụng maximum depth `4`, còn bốn base alpha gồm intraday return, daily return, 20-day relative volume và normalized daily range. 
+`LightGBM` sử dụng maximum depth `4`, còn bốn base alpha gồm intraday return, daily return, 20-day relative volume và normalized daily range.
 
-Backtest cuối cùng còn phải tính chi phí giao dịch: CSI 500 có buy fee `0.0005` và sell fee `0.0015`, trong khi S&P 500 áp dụng sell fee `0.0005`. 
+Backtest cuối cùng còn phải tính chi phí giao dịch: CSI 500 có buy fee `0.0005` và sell fee `0.0015`, trong khi S&P 500 áp dụng sell fee `0.0005`.
 
 Do đó, một experiment đáng tin không nên được đọc như bảng xếp hạng lợi nhuận đơn thuần. Cần truy ngược toàn bộ chuỗi:
 

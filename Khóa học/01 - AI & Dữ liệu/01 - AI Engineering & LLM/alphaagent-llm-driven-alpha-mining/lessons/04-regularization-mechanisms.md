@@ -29,7 +29,7 @@ Expression không đúng hypothesis
 
 Regularization tổng quát được biểu diễn dưới dạng:
 
-$$
+\[
 \mathcal{R}_g(f,h)
 =
 \alpha_1 SL(f)
@@ -37,9 +37,9 @@ $$
 \alpha_2 PC(f)
 +
 \alpha_3 ER(f,h)
-$$
+\]
 
-Trong đó `symbolic length`, số free parameter, structural similarity, semantic alignment và số raw feature được kết hợp để hướng quá trình tìm kiếm tới những factor vừa có predictive effectiveness, vừa parsimonious, original và có financial rationale rõ ràng. 
+Trong đó `symbolic length`, số free parameter, structural similarity, semantic alignment và số raw feature được kết hợp để hướng quá trình tìm kiếm tới những factor vừa có predictive effectiveness, vừa parsimonious, original và có financial rationale rõ ràng.
 
 ## 2. Mục tiêu học tập
 
@@ -47,14 +47,14 @@ Sau bài học, người học có thể:
 
 * giải thích được vai trò của regularization trong alpha mining;
 * phân biệt được predictive performance với chất lượng tổng thể của một factor;
-* diễn giải được \(SL(f)\), \(PC(f)\) và \(ER(f,h)\);
+* diễn giải được $SL(f)$, $PC(f)$ và $ER(f,h)$;
 * giải thích được vì sao complexity control không đồng nghĩa với việc luôn chọn expression ngắn nhất;
 * mô tả được cách AST hỗ trợ đo structural similarity;
 * giải thích được khái niệm `largest common subtree`;
-* đọc được originality score \(S(f)\);
+* đọc được originality score $S(f)$;
 * giải thích được vì sao candidate cần được so với một `alpha zoo`;
 * phân biệt được hai tầng semantic alignment: hypothesis–description và description–expression;
-* diễn giải được consistency score \(C(h,d,f)\);
+* diễn giải được consistency score $C(h,d,f)$;
 * phân tích được vai trò của số raw feature trong regularization;
 * đánh giá được một candidate factor theo đồng thời complexity, originality, alignment và predictive effectiveness.
 
@@ -88,7 +88,7 @@ Expression thực tế không đo cơ chế đó
 
 Factor vẫn có thể chạy và thậm chí có backtest tốt, nhưng financial rationale mà ta dùng để giải thích nó không còn tương ứng với implementation.
 
-Do đó, AlphaAgent không định nghĩa factor tốt bằng một chiều duy nhất. Ba cơ chế regularization được dùng để kiểm soát cả **cấu trúc**, **tính mới** và **ý nghĩa**. 
+Do đó, AlphaAgent không định nghĩa factor tốt bằng một chiều duy nhất. Ba cơ chế regularization được dùng để kiểm soát cả **cấu trúc**, **tính mới** và **ý nghĩa**.
 
 ## 4. Regularization như một bài toán đánh đổi
 
@@ -97,13 +97,13 @@ Do đó, AlphaAgent không định nghĩa factor tốt bằng một chiều duy 
 
 Một dạng objective quen thuộc là:
 
-$$
+\[
 J(f)
 =
 \text{performance}(f)
 -
 \lambda\,\text{penalty}(f)
-$$
+\]
 
 Phần đầu thưởng candidate dự báo tốt. Phần sau làm giảm ưu tiên đối với candidate mang những đặc điểm không mong muốn.
 
@@ -144,7 +144,7 @@ nhưng không phức tạp hơn mức cần thiết.
 
 AlphaAgent mô hình hóa phần regularization bằng:
 
-$$
+\[
 \mathcal{R}_g(f,h)
 =
 \alpha_1 SL(f)
@@ -152,13 +152,13 @@ $$
 \alpha_2 PC(f)
 +
 \alpha_3 ER(f,h)
-$$
+\]
 
 Trong đó:
 
-* \(SL(f)\): `symbolic length`, phản ánh độ dài cấu trúc biểu thức;
-* \(PC(f)\): số free parameter của factor, chẳng hạn các window length;
-* \(ER(f,h)\): thành phần liên quan đến originality, alignment và feature usage. 
+* $SL(f)$: `symbolic length`, phản ánh độ dài cấu trúc biểu thức;
+* $PC(f)$: số free parameter của factor, chẳng hạn các window length;
+* $ER(f,h)$: thành phần liên quan đến originality, alignment và feature usage.
 
 Xét hai expression:
 
@@ -320,17 +320,17 @@ Nếu so sánh AST, hệ thống nhận ra một subtree lớn giống hệt nha
 
 Gọi hai factor là:
 
-$$
+\[
 f_i,\quad f_j
-$$
+\]
 
 và AST tương ứng:
 
-$$
+\[
 T(f_i),\quad T(f_j)
-$$
+\]
 
-AlphaAgent tìm các subtree có cấu trúc isomorphic giữa hai cây và quan tâm tới subtree chung lớn nhất. 
+AlphaAgent tìm các subtree có cấu trúc isomorphic giữa hai cây và quan tâm tới subtree chung lớn nhất.
 
 Trực giác có thể minh họa như sau.
 
@@ -417,21 +417,21 @@ thay vì khoảng trắng, dấu ngoặc hoặc cách format.
 
 Gọi tập các factor tham chiếu là:
 
-$$
+\[
 \mathcal Z
 =
 \{\phi_1,\phi_2,\ldots,\phi_N\}
-$$
+\]
 
-AlphaAgent so factor mới \(f\) với từng \(\phi\in\mathcal Z\).
+AlphaAgent so factor mới $f$ với từng $\phi\in\mathcal Z$.
 
 Originality-related similarity được viết:
 
-$$
+\[
 S(f)
 =
 \max_{\phi\in\mathcal Z}s(f,\phi)
-$$
+\]
 
 
 
@@ -443,29 +443,29 @@ Giả sử similarity của candidate với năm factor là:
 
 | Alpha      | Similarity |
 | ---------- | ---------: |
-| \(\phi_1\) |       0.10 |
-| \(\phi_2\) |       0.16 |
-| \(\phi_3\) |       0.82 |
-| \(\phi_4\) |       0.05 |
-| \(\phi_5\) |       0.12 |
+| $\phi_1$ |       0.10 |
+| $\phi_2$ |       0.16 |
+| $\phi_3$ |       0.82 |
+| $\phi_4$ |       0.05 |
+| $\phi_5$ |       0.12 |
 
-Candidate phần lớn khác alpha zoo, nhưng rất giống \(\phi_3\).
+Candidate phần lớn khác alpha zoo, nhưng rất giống $\phi_3$.
 
 Nếu lấy average:
 
-$$
+\[
 \frac{0.10+0.16+0.82+0.05+0.12}{5}
 =
 0.25
-$$
+\]
 
 mức trung bình có thể khiến factor trông khá khác biệt.
 
 Nhưng:
 
-$$
+\[
 S(f)=0.82
-$$
+\]
 
 cho thấy candidate thực tế có một đối thủ gần như rất giống.
 
@@ -499,7 +499,7 @@ Mục tiêu sâu hơn là tránh việc LLM liên tục quay lại những marke
 
 ![Figure 2 - AST originality](../assets/figures/figure-02-ast-similarity.png)
 
-Hình minh họa biểu diễn candidate factor \(f\) và các factor trong alpha zoo bằng cả expression lẫn AST. Các cây được so sánh để xác định common subtree lớn nhất; kích thước của phần cấu trúc chung được sử dụng để đánh giá mức độ tương tự. 
+Hình minh họa biểu diễn candidate factor $f$ và các factor trong alpha zoo bằng cả expression lẫn AST. Các cây được so sánh để xác định common subtree lớn nhất; kích thước của phần cấu trúc chung được sử dụng để đánh giá mức độ tương tự.
 
 Điểm quan trọng cần quan sát là originality không được đo bằng việc hai factor có cùng tên hay cùng chuỗi expression hay không. Thứ được so sánh là **cấu trúc tính toán thực tế**.
 
@@ -537,20 +537,20 @@ Description
 Expression
 ```
 
-Hai quan hệ này được đánh giá riêng biệt. 
+Hai quan hệ này được đánh giá riêng biệt.
 
 ## 14. Hypothesis ↔ Description
 
 Gọi:
 
-* \(h\): market hypothesis;
-* \(d\): factor description.
+* $h$: market hypothesis;
+* $d$: factor description.
 
 Thành phần:
 
-$$
+\[
 c_1(h,d)
-$$
+\]
 
 đánh giá description có thực sự là một implementation hợp lý của hypothesis hay không.
 
@@ -579,7 +579,7 @@ Một description không phù hợp lại có thể nói:
 
 Dù cả hai đều là khái niệm tài chính hợp lệ, description thứ hai đã chuyển sang một mechanism khác.
 
-Do đó \(c_1\) kiểm tra:
+Do đó $c_1$ kiểm tra:
 
 ```text
 Description có còn trung thành
@@ -590,9 +590,9 @@ với market idea hay không?
 
 Bước tiếp theo là:
 
-$$
+\[
 c_2(d,f)
-$$
+\]
 
 Factor description có thể viết rất thuyết phục nhưng expression thực tế lại không triển khai nội dung đó.
 
@@ -606,7 +606,7 @@ bid-ask spread
 market depth
 ```
 
-Nếu expression hoàn toàn không chứa thành phần liên quan đến liquidity, \(c_2\) sẽ thấp theo cơ chế đánh giá được mô tả. 
+Nếu expression hoàn toàn không chứa thành phần liên quan đến liquidity, $c_2$ sẽ thấp theo cơ chế đánh giá được mô tả.
 
 Ta có thể xem đây là một dạng semantic unit test:
 
@@ -688,63 +688,63 @@ Nếu chỉ kiểm tra một trong hai tầng, hệ thống có thể bỏ sót 
 
 AlphaAgent kết hợp hai thành phần alignment:
 
-$$
+\[
 C(h,d,f)
 =
 \alpha c_1(h,d)
 +
 (1-\alpha)c_2(d,f)
-$$
+\]
 
 với:
 
-$$
+\[
 \alpha=0.5
-$$
+\]
 
 
 
-Khi \(\alpha=0.5\):
+Khi $\alpha=0.5$:
 
-$$
+\[
 C(h,d,f)
 =
 0.5c_1(h,d)
 +
 0.5c_2(d,f)
-$$
+\]
 
 Hai cầu nối được đặt trọng số bằng nhau.
 
 Ví dụ:
 
-$$
+\[
 c_1=0.9,\qquad c_2=0.3
-$$
+\]
 
 thì:
 
-$$
+\[
 C
 =
 0.5(0.9)+0.5(0.3)
 =
 0.6
-$$
+\]
 
 Description hiểu khá đúng hypothesis, nhưng implementation yếu khiến consistency tổng thể giảm.
 
 Nếu:
 
-$$
+\[
 c_1=0.9,\qquad c_2=0.9
-$$
+\]
 
 thì:
 
-$$
+\[
 C=0.9
-$$
+\]
 
 cả semantic intent và mathematical implementation đều nhất quán hơn.
 
@@ -752,7 +752,7 @@ cả semantic intent và mathematical implementation đều nhất quán hơn.
 
 Một thành phần tiếp theo được biểu diễn:
 
-$$
+\[
 ER(f,h)
 =
 \beta_1S(f)
@@ -760,21 +760,21 @@ ER(f,h)
 \beta_2C(h,d,f)
 +
 \beta_3\log(1+|F_f|)
-$$
+\]
 
 Trong đó:
 
-* \(S(f)\): mức similarity của candidate với alpha zoo;
-* \(C(h,d,f)\): consistency giữa hypothesis, description và expression;
-* \(F_f\): tập raw feature mà factor sử dụng;
-* \(|F_f|\): số raw feature;
-* \(\beta_1,\beta_2,\beta_3\): các weighting coefficient. 
+* $S(f)$: mức similarity của candidate với alpha zoo;
+* $C(h,d,f)$: consistency giữa hypothesis, description và expression;
+* $F_f$: tập raw feature mà factor sử dụng;
+* $|F_f|$: số raw feature;
+* $\beta_1,\beta_2,\beta_3$: các weighting coefficient.
 
 Term:
 
-$$
+\[
 \log(1+|F_f|)
-$$
+\]
 
 đưa chi phí vào việc sử dụng quá nhiều raw feature.
 
@@ -794,9 +794,9 @@ Dùng logarithm giúp penalty tăng theo số feature nhưng không tăng tuyế
 
 ## 19. Lưu ý khi đọc quy ước của ER
 
-Phần formulation trình bày \(ER(f,h)\) như:
+Phần formulation trình bày $ER(f,h)$ như:
 
-$$
+\[
 ER(f,h)
 =
 \beta_1S(f)
@@ -804,9 +804,9 @@ ER(f,h)
 \beta_2C(h,d,f)
 +
 \beta_3\log(1+|F_f|)
-$$
+\]
 
-đồng thời diễn giải rằng **ER thấp hơn tương ứng chất lượng factor tốt hơn**, với các thành phần nhằm kiểm soát similarity, alignment và excessive feature usage. 
+đồng thời diễn giải rằng **ER thấp hơn tương ứng chất lượng factor tốt hơn**, với các thành phần nhằm kiểm soát similarity, alignment và excessive feature usage.
 
 Khi học formulation này, nên giữ đúng quy ước ký hiệu và cách diễn giải đã được định nghĩa cho hệ thống, thay vì tự đổi dấu hoặc tái định nghĩa các coefficient khi chưa có thêm đặc tả.
 
@@ -959,25 +959,25 @@ Complexity control
 
 Các thành phần liên quan có thể bao gồm:
 
-$$
+\[
 SL(f)
-$$
+\]
 
-$$
+\[
 PC(f)
-$$
+\]
 
 và feature-count term:
 
-$$
+\[
 \log(1+|F_f|)
-$$
+\]
 
 Candidate cần được đơn giản hóa mà vẫn giữ logic cốt lõi của hypothesis.
 
 ## 23. Một ví dụ đánh giá hoàn chỉnh
 
-Giả sử factor \(f_A\) có:
+Giả sử factor $f_A$ có:
 
 ```text
 IC tốt
@@ -989,7 +989,7 @@ Description đúng hypothesis
 Expression đúng description
 ```
 
-Factor \(f_B\) có:
+Factor $f_B$ có:
 
 ```text
 IC nhỉnh hơn fA một chút
@@ -1009,7 +1009,7 @@ fB > fA
 
 Nhưng xét toàn bộ:
 
-| Tiêu chí                 | \(f_A\) | \(f_B\)          |
+| Tiêu chí                 | $f_A$ | $f_B$          |
 | ------------------------ | ------- | ---------------- |
 | Predictive effectiveness | Tốt     | Tốt hơn một chút |
 | Symbolic complexity      | Thấp    | Cao              |
@@ -1019,7 +1019,7 @@ Nhưng xét toàn bộ:
 | Hypothesis alignment     | Tốt     | Một phần         |
 | Interpretability         | Tốt     | Thấp hơn         |
 
-\(f_A\) có thể là candidate hấp dẫn hơn vì performance thấp hơn một chút nhưng cấu trúc và rationale mạnh hơn nhiều.
+$f_A$ có thể là candidate hấp dẫn hơn vì performance thấp hơn một chút nhưng cấu trúc và rationale mạnh hơn nhiều.
 
 Đây chính là điều regularization cố gắng đưa vào decision process.
 
@@ -1100,15 +1100,15 @@ Hãy thực hiện các nhiệm vụ sau:
 ## 26. Câu hỏi tự kiểm tra
 
 1. Vì sao một factor có predictive metric tốt vẫn có thể bị regularization loại bỏ?
-2. \(SL(f)\) và \(PC(f)\) đo hai khía cạnh complexity khác nhau như thế nào?
+2. $SL(f)$ và $PC(f)$ đo hai khía cạnh complexity khác nhau như thế nào?
 3. Complexity control liên hệ với overfitting ra sao?
 4. Tại sao string comparison không đủ để đánh giá originality của symbolic factor?
 5. Largest common subtree phản ánh điều gì?
-6. Vì sao \(S(f)\) sử dụng maximum similarity với alpha zoo?
+6. Vì sao $S(f)$ sử dụng maximum similarity với alpha zoo?
 7. Originality thấp liên quan đến factor crowding như thế nào?
-8. \(c_1(h,d)\) và \(c_2(d,f)\) kiểm tra hai cầu nối semantic nào?
+8. $c_1(h,d)$ và $c_2(d,f)$ kiểm tra hai cầu nối semantic nào?
 9. Vì sao description đúng nhưng expression sai vẫn là một factor không đạt alignment?
-10. \(|F_f|\) biểu diễn gì?
+10. $|F_f|$ biểu diễn gì?
 11. Tại sao sử dụng quá nhiều raw feature có thể làm candidate kém parsimonious?
 12. Ba regularization mechanism có thể thay thế predictive evaluation hay không?
 13. Một factor cực kỳ original nhưng không có financial rationale nên được đánh giá thế nào?
@@ -1121,19 +1121,19 @@ AlphaAgent xem regularization là một phần của quá trình định nghĩa 
 
 Cơ chế thứ nhất là **complexity control**:
 
-$$
+\[
 SL(f),\quad PC(f)
-$$
+\]
 
-và các thành phần liên quan đến feature usage giúp ngăn factor trở thành một cấu trúc over-engineered với quá nhiều degree of freedom. 
+và các thành phần liên quan đến feature usage giúp ngăn factor trở thành một cấu trúc over-engineered với quá nhiều degree of freedom.
 
 Cơ chế thứ hai là **originality enforcement**. Factor được biểu diễn bằng AST rồi so với alpha zoo bằng structural similarity. Candidate có common subtree lớn với factor cũ sẽ có similarity cao:
 
-$$
+\[
 S(f)
 =
 \max_{\phi\in\mathcal Z}s(f,\phi)
-$$
+\]
 
 
 
@@ -1146,19 +1146,19 @@ Description ↔ Expression
 
 và kết hợp thành:
 
-$$
+\[
 C(h,d,f)
 =
 \alpha c_1(h,d)
 +
 (1-\alpha)c_2(d,f)
-$$
+\]
 
-với \(\alpha=0.5\). 
+với $\alpha=0.5$.
 
-Cuối cùng, các yếu tố về similarity, alignment và raw feature usage được đưa vào \(ER(f,h)\):
+Cuối cùng, các yếu tố về similarity, alignment và raw feature usage được đưa vào $ER(f,h)$:
 
-$$
+\[
 ER(f,h)
 =
 \beta_1S(f)
@@ -1166,7 +1166,7 @@ ER(f,h)
 \beta_2C(h,d,f)
 +
 \beta_3\log(1+|F_f|)
-$$
+\]
 
 
 

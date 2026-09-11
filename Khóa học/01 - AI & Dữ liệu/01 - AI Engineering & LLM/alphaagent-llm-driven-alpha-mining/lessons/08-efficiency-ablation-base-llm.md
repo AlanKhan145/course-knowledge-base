@@ -28,9 +28,9 @@ Figure 7
 → kiểm tra ảnh hưởng của GPT-3.5-turbo, Qwen-Plus và DeepSeek-R1
 ```
 
-Trong thí nghiệm ablation, AlphaAgent đạt `hit ratio = 0.29`, so với `0.16` khi bỏ factor modeling constraints; mức chênh lệch này được diễn giải là cải thiện khoảng **81%**. Khi symbolic assembly bị loại bỏ, `dev success rate` giảm từ `0.83` xuống `0.75`, còn `token efficiency` giảm từ `1.00` xuống `0.81`. 
+Trong thí nghiệm ablation, AlphaAgent đạt `hit ratio = 0.29`, so với `0.16` khi bỏ factor modeling constraints; mức chênh lệch này được diễn giải là cải thiện khoảng **81%**. Khi symbolic assembly bị loại bỏ, `dev success rate` giảm từ `0.83` xuống `0.75`, còn `token efficiency` giảm từ `1.00` xuống `0.81`.
 
-Kết quả so sánh base LLM cho thấy chất lượng model nền vẫn ảnh hưởng tới kết quả cuối. Tuy nhiên, đó là một tầng ảnh hưởng khác với thiết kế framework: regularization, symbolic representation và feedback loop vẫn quyết định cách năng lực của LLM được biến thành một quy trình alpha mining có kiểm soát. 
+Kết quả so sánh base LLM cho thấy chất lượng model nền vẫn ảnh hưởng tới kết quả cuối. Tuy nhiên, đó là một tầng ảnh hưởng khác với thiết kế framework: regularization, symbolic representation và feedback loop vẫn quyết định cách năng lực của LLM được biến thành một quy trình alpha mining có kiểm soát.
 
 ## 2. Mục tiêu học tập
 
@@ -102,7 +102,7 @@ Một hệ thống alpha mining vì thế có thể thất bại ngay cả khi �
 
 ![Figure 5 - IC evolution](../assets/figures/figure-05-ic-evolution.png)
 
-Figure 5 theo dõi sự thay đổi của `IC` trong năm vòng evolution trên CSI 500. Kết quả được dùng để so sánh AlphaAgent với RD-Agent và AlphaForge. 
+Figure 5 theo dõi sự thay đổi của `IC` trong năm vòng evolution trên CSI 500. Kết quả được dùng để so sánh AlphaAgent với RD-Agent và AlphaForge.
 
 Ở đây cần phân biệt hai đại lượng:
 
@@ -158,22 +158,22 @@ B có dispersion lớn hơn.
 
 Mean được tính:
 
-$$
+\[
 \bar{x}
 =
 \frac{1}{n}
 \sum_{i=1}^{n}x_i
-$$
+\]
 
 Variance có thể biểu diễn:
 
-$$
-Var(X)
+\[
+\operatorname{Var}(X)
 =
 \frac{1}{n}
 \sum_{i=1}^{n}
 (x_i-\bar{x})^2
-$$
+\]
 
 Variance nhỏ nghĩa candidate tập trung quanh mean.
 
@@ -193,7 +193,7 @@ hoặc
 → quá trình sinh không ổn định
 ```
 
-Do đó, variance chỉ có ý nghĩa khi được đọc cùng `mean IC`, hit ratio, failure rate và xu hướng qua nhiều round. 
+Do đó, variance chỉ có ý nghĩa khi được đọc cùng `mean IC`, hit ratio, failure rate và xu hướng qua nhiều round.
 
 ## 6. Exploration và Exploitation
 
@@ -237,15 +237,15 @@ Khả năng tìm vùng alpha mới tăng
 
 Một hệ thống tốt không tối đa hóa một phía mà phải cân bằng:
 
-$$
-Exploration
+\[
+\text{Exploration}
 \longleftrightarrow
-Exploitation
-$$
+\text{Exploitation}
+\]
 
 ## 7. Vì sao variance tăng chưa chắc là điều xấu?
 
-Figure 5 cho thấy RD-Agent có variance nhỏ hơn và candidate đồng nhất hơn, trong khi AlphaAgent có average IC cao hơn trong các round được minh họa; variance của AlphaAgent tăng theo round và được liên hệ với exploration rộng hơn dưới tác động của originality constraint. 
+Figure 5 cho thấy RD-Agent có variance nhỏ hơn và candidate đồng nhất hơn, trong khi AlphaAgent có average IC cao hơn trong các round được minh họa; variance của AlphaAgent tăng theo round và được liên hệ với exploration rộng hơn dưới tác động của originality constraint.
 
 Điều này không nên được đọc thành:
 
@@ -341,7 +341,7 @@ AlphaAgent
 Hit ratio = 0.16
 ```
 
-Nếu hai cấu hình chỉ khác ở nhóm constraint đó, sự suy giảm cung cấp bằng chứng rằng constraint đang đóng góp vào kết quả trong protocol thử nghiệm. 
+Nếu hai cấu hình chỉ khác ở nhóm constraint đó, sự suy giảm cung cấp bằng chứng rằng constraint đang đóng góp vào kết quả trong protocol thử nghiệm.
 
 Ablation vì vậy mạnh hơn việc chỉ nói:
 
@@ -360,9 +360,9 @@ System - component = B
 
 và:
 
-$$
+\[
 A>B
-$$
+\]
 
 Có thể kết luận hợp lý:
 
@@ -428,12 +428,12 @@ Không nên gộp chúng thành một khái niệm chung như “accuracy”, b�
 
 Có thể biểu diễn:
 
-$$
-HitRatio
+\[
+\mathrm{HitRatio}
 =
 \frac{N_{\text{successful alpha}}}
 {N_{\text{generated candidate}}}
-$$
+\]
 
 Ví dụ:
 
@@ -444,13 +444,13 @@ Ví dụ:
 
 thì:
 
-$$
-HitRatio
+\[
+\mathrm{HitRatio}
 =
 \frac{29}{100}
 =
 0.29
-$$
+\]
 
 Hit ratio không trả lời:
 
@@ -466,43 +466,43 @@ Nó trả lời:
 
 AlphaAgent đầy đủ đạt:
 
-$$
-HitRatio_{full}=0.29
-$$
+\[
+\mathrm{HitRatio}_{\mathrm{full}}=0.29
+\]
 
 Trong khi cấu hình bỏ factor modeling constraints đạt:
 
-$$
-HitRatio_{w/o\ constraints}=0.16
-$$
+\[
+\mathrm{HitRatio}_{\mathrm{w/o\ constraints}}=0.16
+\]
 
 
 
 Absolute improvement là:
 
-$$
+\[
 0.29-0.16=0.13
-$$
+\]
 
 Relative improvement so với baseline `0.16` là:
 
-$$
+\[
 \frac{0.29-0.16}{0.16}
 =
 0.8125
-$$
+\]
 
 hay:
 
-$$
+\[
 81.25\%
-$$
+\]
 
 được làm tròn thành khoảng:
 
-$$
+\[
 81\%
-$$
+\]
 
 Đây là lý do mức tăng từ `0.16` lên `0.29` được mô tả là **81% improvement**.
 
@@ -554,16 +554,16 @@ Regularization vì thế không chỉ là công cụ giảm alpha decay ở đ�
 
 Một factor chưa có giá trị sử dụng nếu expression không thể thực thi.
 
-`Dev success rate` đo tỷ lệ candidate chạy thành công mà không gặp lỗi code hoặc numerical. 
+`Dev success rate` đo tỷ lệ candidate chạy thành công mà không gặp lỗi code hoặc numerical.
 
 Có thể biểu diễn:
 
-$$
-DevSuccessRate
+\[
+\mathrm{DevSuccessRate}
 =
 \frac{N_{\text{executable candidate}}}
 {N_{\text{candidate}}}
-$$
+\]
 
 Các lỗi có thể khiến candidate thất bại bao gồm:
 
@@ -597,23 +597,23 @@ AST có thể validate
 
 Kết quả ablation cho thấy:
 
-$$
-DevSuccessRate_{AlphaAgent}=0.83
-$$
+\[
+\mathrm{DevSuccessRate}_{\mathrm{AlphaAgent}}=0.83
+\]
 
 so với:
 
-$$
-DevSuccessRate_{w/o\ symbolic}=0.75
-$$
+\[
+\mathrm{DevSuccessRate}_{\mathrm{w/o\ symbolic}}=0.75
+\]
 
-khi symbolic assembly bị loại bỏ. 
+khi symbolic assembly bị loại bỏ.
 
 Absolute difference:
 
-$$
+\[
 0.83-0.75=0.08
-$$
+\]
 
 tức tăng 8 điểm phần trăm trong protocol này.
 
@@ -633,7 +633,7 @@ LLM-based alpha mining còn có một loại chi phí khác: **token usage**.
 
 Nếu hai framework tạo cùng số candidate có chất lượng tương đương nhưng một framework cần nhiều token hơn đáng kể, quá trình đó kém hiệu quả hơn về mặt tài nguyên.
 
-Token efficiency trong thiết lập này được xây dựng từ nghịch đảo của average token usage trên mỗi candidate và được normalize để giá trị lớn hơn biểu diễn hiệu quả tốt hơn. 
+Token efficiency trong thiết lập này được xây dựng từ nghịch đảo của average token usage trên mỗi candidate và được normalize để giá trị lớn hơn biểu diễn hiệu quả tốt hơn.
 
 Do đó:
 
@@ -658,15 +658,15 @@ Metric chỉ đo hiệu quả tài nguyên theo định nghĩa thực nghiệm.
 
 Kết quả:
 
-$$
-TokenEfficiency_{AlphaAgent}=1.00
-$$
+\[
+\mathrm{TokenEfficiency}_{\mathrm{AlphaAgent}}=1.00
+\]
 
 so với:
 
-$$
-TokenEfficiency_{w/o\ symbolic}=0.81
-$$
+\[
+\mathrm{TokenEfficiency}_{\mathrm{w/o\ symbolic}}=0.81
+\]
 
 
 
@@ -837,17 +837,17 @@ Framework và model giải quyết những lớp vấn đề khác nhau.
 
 Trong ba base LLM được thử trên S&P 500, `DeepSeek-R1` đạt kết quả tốt nhất theo radar comparison được trình bày, với:
 
-$$
+\[
 ICIR=0.0615
-$$
+\]
 
-$$
+\[
 AR=9.19\%
-$$
+\]
 
-$$
+\[
 MDD=-6.50\%
-$$
+\]
 
 
 
@@ -892,15 +892,15 @@ Self-correction
 
 Một cách biểu diễn khái niệm:
 
-$$
-Quality
+\[
+\mathrm{Quality}
 =
-FrameworkEffect
+\mathrm{FrameworkEffect}
 +
-ModelEffect
+\mathrm{ModelEffect}
 +
-Interaction
-$$
+\mathrm{Interaction}
+\]
 
 Đây không phải một decomposition số học được đo trực tiếp trong experiment, mà là cách tư duy để tránh nhầm hai loại ảnh hưởng.
 
@@ -908,7 +908,7 @@ Một framework tốt có thể nâng hiệu quả sử dụng model.
 
 Một model mạnh có thể nâng chất lượng output trong cùng framework.
 
-Hai điều này có thể cùng đúng. 
+Hai điều này có thể cùng đúng.
 
 ## 25. Không nên so model và framework bằng một câu hỏi duy nhất
 
@@ -963,7 +963,7 @@ giúp kiểm tra base LLM khi framework giữ nguyên.
 
 Ở mức trực giác:
 
-$$
+\[
 t
 \approx
 \frac{
@@ -971,7 +971,7 @@ t
 }{
 \text{độ không chắc chắn của chênh lệch}
 }
-$$
+\]
 
 Nếu hai nhóm có mean rất khác nhưng dữ liệu cực kỳ nhiễu, bằng chứng chưa chắc mạnh.
 
@@ -979,10 +979,10 @@ Ngược lại, một chênh lệch nhỏ nhưng rất nhất quán qua nhiều 
 
 Null hypothesis thường được đặt theo hướng:
 
-$$
+\[
 H_0:
 \mu_A-\mu_B=0
-$$
+\]
 
 tức chưa có bằng chứng về khác biệt mean trong quantity đang xét.
 
@@ -1010,19 +1010,19 @@ p = 0.03
 
 Nếu dùng threshold:
 
-$$
+\[
 \alpha=0.05
-$$
+\]
 
 và:
 
-$$
+\[
 p<0.05
-$$
+\]
 
-thì kết quả thường được xem là có đủ bằng chứng để bác bỏ \(H_0\) theo criterion đã đặt.
+thì kết quả thường được xem là có đủ bằng chứng để bác bỏ $H_0$ theo criterion đã đặt.
 
-Nhưng `p-value` không cho biết effect lớn đến đâu và không thay thế việc xem effect size hoặc stability. 
+Nhưng `p-value` không cho biết effect lớn đến đâu và không thay thế việc xem effect size hoặc stability.
 
 ## 28. Kết quả t-test giữa AlphaAgent và RD-Agent
 
@@ -1036,9 +1036,9 @@ Các `p-value` được ghi nhận khi so sánh IC giữa AlphaAgent và RD-Agen
 
 Tất cả đều:
 
-$$
+\[
 p<0.05
-$$
+\]
 
 
 
@@ -1455,40 +1455,40 @@ nhanh, ổn định và tiết kiệm
 đến mức nào?
 ```
 
-Figure 5 cho thấy quá trình evolution của candidate trên CSI 500. AlphaAgent có average IC cao hơn RD-Agent và AlphaForge trong các vòng được minh họa, đồng thời variance tăng qua các round; đặc điểm này được diễn giải trong mối liên hệ với exploration rộng hơn chứ không đơn giản là instability. 
+Figure 5 cho thấy quá trình evolution của candidate trên CSI 500. AlphaAgent có average IC cao hơn RD-Agent và AlphaForge trong các vòng được minh họa, đồng thời variance tăng qua các round; đặc điểm này được diễn giải trong mối liên hệ với exploration rộng hơn chứ không đơn giản là instability.
 
 Figure 6 sử dụng ablation để tách đóng góp của các component. Với factor modeling constraints:
 
-$$
-HitRatio:
+\[
+\mathrm{HitRatio}:
 0.16
 \rightarrow
 0.29
-$$
+\]
 
 tương ứng mức cải thiện tương đối khoảng:
 
-$$
+\[
 81\%
-$$
+\]
 
 Khi symbolic assembly được giữ lại:
 
-$$
+\[
 DevSuccess:
 0.75
 \rightarrow
 0.83
-$$
+\]
 
 và:
 
-$$
-TokenEfficiency:
+\[
+\mathrm{TokenEfficiency}:
 0.81
 \rightarrow
 1.00
-$$
+\]
 
 
 
@@ -1502,35 +1502,35 @@ DeepSeek-R1
 
 DeepSeek-R1 đạt kết quả nổi bật trên S&P 500 với:
 
-$$
+\[
 ICIR=0.0615
-$$
+\]
 
-$$
+\[
 AR=9.19\%
-$$
+\]
 
-$$
+\[
 MDD=-6.50\%
-$$
+\]
 
 
 
 Các Student's t-test khi so sánh IC giữa AlphaAgent và RD-Agent cho:
 
-$$
+\[
 p_{GPT-3.5}=0.0311
-$$
+\]
 
-$$
+\[
 p_{Qwen}=0.0109
-$$
+\]
 
-$$
+\[
 p_{DeepSeek}=0.0382
-$$
+\]
 
-đều nhỏ hơn `0.05` trong thiết lập được sử dụng. 
+đều nhỏ hơn `0.05` trong thiết lập được sử dụng.
 
 Toàn bộ bài học có thể cô đọng thành hai tầng:
 

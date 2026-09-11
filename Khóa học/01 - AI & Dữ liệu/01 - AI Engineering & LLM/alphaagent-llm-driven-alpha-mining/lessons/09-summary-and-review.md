@@ -2,7 +2,7 @@
 
 ## 1. Tóm tắt
 
-Alpha mining không phải bài toán “tìm một công thức tốt rồi dừng lại”. Thị trường liên tục thay đổi, participant thích nghi với nhau và những statistical pattern được khai thác rộng rãi có thể dần mất lợi thế. Vì vậy, một hệ thống alpha mining bền vững cần hướng tới **continuous exploration**: tiếp tục tìm kiếm, đánh giá và cập nhật các nguồn alpha mới thay vì chỉ khai thác những factor family đã quen thuộc. 
+Alpha mining không phải bài toán “tìm một công thức tốt rồi dừng lại”. Thị trường liên tục thay đổi, participant thích nghi với nhau và những statistical pattern được khai thác rộng rãi có thể dần mất lợi thế. Vì vậy, một hệ thống alpha mining bền vững cần hướng tới **continuous exploration**: tiếp tục tìm kiếm, đánh giá và cập nhật các nguồn alpha mới thay vì chỉ khai thác những factor family đã quen thuộc.
 
 AlphaAgent tổ chức quá trình đó thành một workflow có nhiều lớp:
 
@@ -33,7 +33,7 @@ Market knowledge / observation
        Vòng tiếp theo
 ```
 
-Các thành phần cốt lõi gồm LLM-driven agents, originality enforcement, complexity control, hypothesis alignment, Operator Library, AST, backtest và feedback loop. Mục tiêu không phải sinh thật nhiều formula, mà xây dựng một **constrained discovery process** nhằm giảm nguy cơ overfitting, factor crowding và alpha decay. 
+Các thành phần cốt lõi gồm LLM-driven agents, originality enforcement, complexity control, hypothesis alignment, Operator Library, AST, backtest và feedback loop. Mục tiêu không phải sinh thật nhiều formula, mà xây dựng một **constrained discovery process** nhằm giảm nguy cơ overfitting, factor crowding và alpha decay.
 
 Bài học cuối này kết nối toàn bộ kiến thức thành một bức tranh thống nhất: từ alpha factor, alpha decay, search space, symbolic factor, agent workflow, regularization, backtest, ablation cho tới continuous exploration.
 
@@ -63,18 +63,18 @@ Một **alpha factor** là một quantitative feature hoặc expression tạo t�
 
 Ở mức khái niệm:
 
-$$
+\[
 f(X_t)\rightarrow r_{t+1}
-$$
+\]
 
 Trong đó:
 
-* \(X_t\) là dữ liệu có thể quan sát tại thời điểm \(t\);
-* \(f\) là factor;
-* \(f(X_t)\) là factor score;
-* \(r_{t+1}\) là future return cần dự báo.
+* $X_t$ là dữ liệu có thể quan sát tại thời điểm $t$;
+* $f$ là factor;
+* $f(X_t)$ là factor score;
+* $r_{t+1}$ là future return cần dự báo.
 
-Alpha mining là quá trình tìm một factor \(f\) hữu ích trong không gian rất lớn các candidate expression.
+Alpha mining là quá trình tìm một factor $f$ hữu ích trong không gian rất lớn các candidate expression.
 
 ```text
 Raw features
@@ -90,7 +90,7 @@ Predictive evaluation
 Portfolio evaluation
 ```
 
-Vấn đề nằm ở chỗ search space này rất lớn, rời rạc và không thể thử hết trong thời gian hữu hạn. 
+Vấn đề nằm ở chỗ search space này rất lớn, rời rạc và không thể thử hết trong thời gian hữu hạn.
 
 Do đó, alpha mining thực chất là một **search problem có constraint**.
 
@@ -176,7 +176,7 @@ Candidate mới
 
 AlphaAgent không sử dụng chính quy trình GP này làm toàn bộ cơ chế sinh factor, nhưng hai bài toán có điểm chung quan trọng: đều phải tìm một cấu trúc tốt trong một **large structured search space**.
 
-Sự khác biệt đáng chú ý là AlphaAgent đưa thêm market knowledge và hypothesis vào generation thay vì tìm kiếm chỉ dựa trên biến đổi cấu trúc và historical fitness. 
+Sự khác biệt đáng chú ý là AlphaAgent đưa thêm market knowledge và hypothesis vào generation thay vì tìm kiếm chỉ dựa trên biến đổi cấu trúc và historical fitness.
 
 ## 6. Exploration và Exploitation
 
@@ -233,13 +233,13 @@ P-hacking / search noise
 
 Bởi vậy AlphaAgent cần:
 
-$$
+\[
 \text{Exploration}
 +
 \text{Constraints}
 +
 \text{Evaluation}
-$$
+\]
 
 thay vì chỉ “tạo càng nhiều factor càng tốt”.
 
@@ -281,13 +281,13 @@ Originality → Candidate cân bằng ← Complexity
        Alignment + Stability + Executability
 ```
 
-Các weight, threshold và filtering rule dùng để cân bằng những mục tiêu này đều là một phần của experimental protocol và cần được kiểm soát nhất quán. 
+Các weight, threshold và filtering rule dùng để cân bằng những mục tiêu này đều là một phần của experimental protocol và cần được kiểm soát nhất quán.
 
 ## 8. Regularized Objective
 
 Một cách biểu diễn tổng quát là:
 
-$$
+\[
 f^*
 =
 \arg\max_{f\in\mathcal F}
@@ -296,15 +296,15 @@ f^*
 -
 \lambda\mathcal R_g(f,h)
 \right]
-$$
+\]
 
 Trong đó:
 
-* \(\mathcal F\): factor search space;
-* \(\mathcal L\): predictive effectiveness;
-* \(h\): market hypothesis;
-* \(\mathcal R_g\): regularization;
-* \(\lambda\): mức đánh đổi giữa predictive performance và regularization.
+* $\mathcal F$: factor search space;
+* $\mathcal L$: predictive effectiveness;
+* $h$: market hypothesis;
+* $\mathcal R_g$: regularization;
+* $\lambda$: mức đánh đổi giữa predictive performance và regularization.
 
 Regularization giúp thay đổi câu hỏi từ:
 
@@ -326,7 +326,7 @@ không quá phức tạp
 có khả năng tồn tại ngoài mẫu?
 ```
 
-Ba cơ chế regularization cốt lõi là **originality**, **hypothesis alignment** và **complexity control**. 
+Ba cơ chế regularization cốt lõi là **originality**, **hypothesis alignment** và **complexity control**.
 
 ## 9. Complexity Control
 
@@ -403,7 +403,7 @@ Similarity cao?
 Originality penalty
 ```
 
-Alpha zoo vì vậy đóng vai trò là tập factor tham chiếu để đo novelty và similarity. 
+Alpha zoo vì vậy đóng vai trò là tập factor tham chiếu để đo novelty và similarity.
 
 ## 11. Operator Library và AST
 
@@ -475,7 +475,7 @@ Cấu trúc này có thể được dùng cho:
 * structural similarity;
 * originality checking.
 
-Operator Library vì thế là cầu nối giữa **natural-language hypothesis** và **executable symbolic factor**. 
+Operator Library vì thế là cầu nối giữa **natural-language hypothesis** và **executable symbolic factor**.
 
 ## 12. Hypothesis-Factor Alignment
 
@@ -573,7 +573,7 @@ Symbolic expression
 
 Một điểm quan trọng là Factor Agent không chỉ học từ successful candidate.
 
-Khi candidate thất bại, failure mode được ghi lại trong knowledge base để giúp tránh lặp lại cùng lỗi ở những vòng sau. 
+Khi candidate thất bại, failure mode được ghi lại trong knowledge base để giúp tránh lặp lại cùng lỗi ở những vòng sau.
 
 Ví dụ:
 
@@ -750,7 +750,7 @@ Do đó continuous exploration vẫn cần:
 * validation phù hợp;
 * out-of-sample evaluation đủ độc lập.
 
-Nếu không, một framework chống p-hacking lại có thể tự biến exploration thành p-hacking lặp lại. 
+Nếu không, một framework chống p-hacking lại có thể tự biến exploration thành p-hacking lặp lại.
 
 ## 19. AlphaAgent như một Scientific Workflow
 
@@ -777,7 +777,7 @@ Một workflow đáng tin cần:
 4. lưu cả negative result và failure mode;
 5. so sánh với baseline trong cùng protocol;
 6. kiểm tra stability, risk và transaction cost;
-7. giới hạn kết luận trong phạm vi dữ liệu đã kiểm tra. 
+7. giới hạn kết luận trong phạm vi dữ liệu đã kiểm tra.
 
 Tự động hóa scientific discovery không làm mất nhu cầu thiết kế thí nghiệm. Ngược lại, automation càng mạnh thì experimental discipline càng quan trọng.
 
@@ -871,26 +871,26 @@ Ablation study loại một component rồi đo sự thay đổi của hệ th�
 
 Một kết quả quan trọng là:
 
-$$
-HitRatio_{full}=0.29
-$$
+\[
+\mathrm{HitRatio}_{\mathrm{full}}=0.29
+\]
 
 so với:
 
-$$
-HitRatio_{without\ constraints}=0.16
-$$
+\[
+\mathrm{HitRatio}_{\mathrm{without\ constraints}}=0.16
+\]
 
 
 
 Relative improvement của full system là:
 
-$$
+\[
 \frac{0.29-0.16}{0.16}
 =
 0.8125
 \approx81\%
-$$
+\]
 
 Kết quả này hỗ trợ vai trò của factor modeling constraints trong protocol thử nghiệm.
 
@@ -944,7 +944,7 @@ System quality
 
 Base LLM và framework không phải hai lựa chọn thay thế nhau.
 
-Trong comparison được tổng hợp, base LLM ảnh hưởng tới chất lượng factor, nhưng AlphaAgent vẫn thể hiện improvement so với RD-Agent trên các model variant được kiểm tra. 
+Trong comparison được tổng hợp, base LLM ảnh hưởng tới chất lượng factor, nhưng AlphaAgent vẫn thể hiện improvement so với RD-Agent trên các model variant được kiểm tra.
 
 ## 24. Luận điểm trung tâm của toàn bộ AlphaAgent
 
@@ -1002,7 +1002,7 @@ Knowledge
 → Continuous exploration
 ```
 
-Đây là cách một raw language model được biến thành một **constrained scientific discovery workflow**. 
+Đây là cách một raw language model được biến thành một **constrained scientific discovery workflow**.
 
 ## 25. Các khái niệm cần phân biệt
 
@@ -1208,7 +1208,7 @@ Hãy xác định:
 
 5. LLM không constraint có thể liên tục quay lại những factor quen thuộc như momentum, value, size hoặc RSI, làm candidate homogenization và crowding tăng.
 
-6. Ba regularization mechanism là **originality enforcement**, **hypothesis alignment** và **complexity control**. 
+6. Ba regularization mechanism là **originality enforcement**, **hypothesis alignment** và **complexity control**.
 
 7. Operator Library chuẩn hóa primitive operation và tạo cầu nối từ hypothesis sang executable symbolic factor.
 
@@ -1224,9 +1224,9 @@ Hãy xác định:
 
 13. Ba nhóm lớn là **predictive capability, return performance và risk control**.
 
-14. Hit ratio của AlphaAgent đầy đủ là `0.29`, so với `0.16` khi bỏ factor modeling constraints. 
+14. Hit ratio của AlphaAgent đầy đủ là `0.29`, so với `0.16` khi bỏ factor modeling constraints.
 
-15. **Không.** Base LLM mạnh hơn có thể nâng reasoning và factor quality, nhưng framework vẫn cần để kiểm soát search, regularization, symbolic representation, evaluation và feedback. Các comparison với nhiều base LLM cho thấy hai tầng tác động này có thể đồng thời tồn tại. 
+15. **Không.** Base LLM mạnh hơn có thể nâng reasoning và factor quality, nhưng framework vẫn cần để kiểm soát search, regularization, symbolic representation, evaluation và feedback. Các comparison với nhiều base LLM cho thấy hai tầng tác động này có thể đồng thời tồn tại.
 
 ## 31. Sơ đồ ghi nhớ cuối khóa
 
@@ -1317,7 +1317,7 @@ Feedback
 Memory
 ```
 
-Continuous exploration không có nghĩa liên tục tối ưu trên cùng test set. Mỗi vòng vẫn phải bảo vệ tính độc lập của evaluation để tránh biến quá trình exploration thành p-hacking. 
+Continuous exploration không có nghĩa liên tục tối ưu trên cùng test set. Mỗi vòng vẫn phải bảo vệ tính độc lập của evaluation để tránh biến quá trình exploration thành p-hacking.
 
 AlphaAgent tổ chức quá trình discovery thành chuỗi:
 
@@ -1345,7 +1345,7 @@ Knowledge Base
 Continuous Exploration
 ```
 
-Các constraint về **originality, hypothesis alignment và complexity** giúp kiểm soát loại candidate được tạo ra; symbolic representation giúp factor dễ validation và comparison hơn; evaluator cung cấp empirical evidence; feedback và memory biến failure thành thông tin cho những vòng sau. 
+Các constraint về **originality, hypothesis alignment và complexity** giúp kiểm soát loại candidate được tạo ra; symbolic representation giúp factor dễ validation và comparison hơn; evaluator cung cấp empirical evidence; feedback và memory biến failure thành thông tin cho những vòng sau.
 
 Ở góc nhìn rộng hơn, AlphaAgent có thể được hiểu như một scientific workflow:
 
@@ -1365,7 +1365,7 @@ Revision
 New hypothesis
 ```
 
-Một workflow đáng tin phải lưu cả success lẫn failure, sử dụng temporal split hợp lý, so sánh với baseline, kiểm tra stability, risk và transaction cost, đồng thời giới hạn kết luận trong phạm vi dữ liệu đã đánh giá. 
+Một workflow đáng tin phải lưu cả success lẫn failure, sử dụng temporal split hợp lý, so sánh với baseline, kiểm tra stability, risk và transaction cost, đồng thời giới hạn kết luận trong phạm vi dữ liệu đã đánh giá.
 
 Điểm cần ghi nhớ cuối cùng là:
 
