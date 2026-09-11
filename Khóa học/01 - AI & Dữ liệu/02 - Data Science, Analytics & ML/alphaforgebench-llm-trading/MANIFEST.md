@@ -1,0 +1,41 @@
+# Manifest gói khóa học
+
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| `COURSE_MAP.md` | 1610 | `cc3ec2bbcd383bf0ac63fc931e635587392b9e57dba03a46eebacae9c77d028a` |
+| `README.md` | 3374 | `d28a067a80ed4d6247f0031d1cd05c444d643385e4b443a62a344ff85f8f8521` |
+| `assets/figures/figure-01-alphaforgebench-framework.png` | 228192 | `388efe3585ac05bdda26d7df0c9b61f88eeed4d09880718137caf5c61719197e` |
+| `assets/figures/figure-02-radar-temperature-comparison.png` | 400502 | `1edb5462f0054a6e2a8457c7c1d7aabe0666058a581592ab64a2e48b867bbbad` |
+| `assets/figures/figure-03-sharpe-by-level.png` | 62100 | `c586f322a3d369d7c8fd0b455a89b66fbd601c6431f18236622080b3833b3028` |
+| `assets/figures/figure-04-sharpe-by-asset.png` | 73936 | `4aeaf8ec73480bd68666ab22e4a85c35bded809e9390e39f1e11a45fe9327d1d` |
+| `assets/figures/figure-05-aligned-return-curves.png` | 1630915 | `9349ba655243b08e30f670a33af047b7ccf25ddb96db3b0c7bb71f2cca2cbbb1` |
+| `assets/raw-extracted/page003_img001.png` | 17542 | `3fc78c02c184def507ed7c8c08b7097957a1a98d30c05b8a89f413cc35a0a5de` |
+| `assets/raw-extracted/page003_img002.png` | 4513 | `3356e97876a16d32f0220a215ffa212b07609769d3669e877646ebc6b447650b` |
+| `assets/raw-extracted/page006_img001.png` | 208691 | `f4505f45392b03e24fdbacbae791463a638a5d39fc28b5731eab293f1d0104a2` |
+| `assets/raw-extracted/page006_img002.png` | 216170 | `1d03c7c8e2601a3236da01b3e2aa14f80ebd2c839a815b4c634612b42637078f` |
+| `assets/raw-extracted/page008_img001.png` | 59057 | `b5576014219867cc883d3e3c622cb6562c3d66a3d07633e7071a46f54d4fd8b8` |
+| `assets/raw-extracted/page008_img002.png` | 59919 | `6a3dff086ce8640bdf316bc81759fad11823f1b36a8f20bf2bf3000cf234a0ee` |
+| `assets/raw-extracted/page008_img003.png` | 70136 | `5bb1c6968d5b205615f4045ca9ee86b50bc67c7e85665b758c534887265104f8` |
+| `assets/raw-extracted/page008_img004.png` | 70126 | `efb92b7316e5342e2dbaaf0fcc7c9189bc149e410a4cb3c997c689f7f0adda0e` |
+| `assets/raw-extracted/page008_img005.png` | 973027 | `6fa134ca89f3f8f232243983b958ba850d1022b9e713d6a02c909c2fae3735d7` |
+| `assets/raw-extracted/page008_img006.png` | 942404 | `8d9ef0ccd3eef4a523a043dffdaa35603310bc65f77541df3686da77eb9d2547` |
+| `assets/tables/table-01-real-world-results.png` | 300036 | `f505cea3bb33b06ccdc89786a0c6f07ccc776292bbb0ac3c296d97dee7309fba` |
+| `assets/tables/table-02-llm-augmented-results.png` | 585555 | `32c438fd6a9b2a473697794e0db6cb0f8e2b7ebf93bfb650b7360d30b923daa3` |
+| `exercises/01-cau-hoi-on-tap.md` | 1734 | `cd9ac5678174940ca97a9fdef663139474aefaae7dd7f891f731a95a019ad88d` |
+| `exercises/02-bai-tap-phan-tich.md` | 1432 | `3036638a9b2da62ccc019110547890e6ed4aa7d103cd135b813ee12cc1a0cbd1` |
+| `exercises/03-mini-project-thiet-ke-benchmark.md` | 1614 | `1c0863c75d299148a9c4911b793022d9fb42611b2895c4c5f43f8ceb5644d404` |
+| `lessons/00-gioi-thieu-va-ban-do-bai-bao.md` | 2956 | `a8ba7236ad97dca70d7703d2910e8925696b8050781f6bdd04c590a4e9888796` |
+| `lessons/01-van-de-bat-on-dinh-cua-llm-trading-agent.md` | 3296 | `95ad62e65f8a45db1e8a6169f02da8063707e56b08ecc6949b44e68717cddf33` |
+| `lessons/02-boi-canh-benchmark-tai-chinh.md` | 2195 | `e163347abcba87927111615ee853b2af2bd1902c337f4ad99d662b761c37b1ec` |
+| `lessons/03-kien-truc-alphaforgebench.md` | 1961 | `df0dc959031a5fc33f3accc4493670ca8d4c20f595c70cb4a106c863ec2e7adc` |
+| `lessons/04-xay-dung-dataset-hai-giai-doan.md` | 2583 | `3653a0a8be32c3f4cd39c5977143a679d8d22009c8b6911e5208d5d463815296` |
+| `lessons/05-pipeline-sinh-code-va-backtest.md` | 2609 | `27e63128ae0f0dad7f70724b7b3dc9e5a503e9d7de0cf99a52597a6324e75225` |
+| `lessons/06-thiet-ke-thi-nghiem-va-he-metric.md` | 2511 | `cfbddfb9ff42b1129ac20abf1c1de97312bc4e1b655e6a99a8394603fffc7231` |
+| `lessons/07-ket-qua-stage-1-real-world.md` | 2829 | `2fbefe4655b1592fdda69d5f8c109ec59a12844da34eb2e09f449cb136c7e749` |
+| `lessons/08-ket-qua-stage-2-structured.md` | 4179 | `5902bf300686bb54391c99ae0182110f5a7025e4263976a6b5fc16b7f6a2cc90` |
+| `lessons/09-thao-luan-gioi-han-va-ket-luan.md` | 2868 | `2e1ddf60545832296394d7ecb90607091091759198059c90d6017364ee6b4c37` |
+| `source/AlphaForge.pdf` | 5201462 | `2ef58f8a1143821ad85957cc31eee7e0d62c56f3b1b2ecac4a4e849b8fab4939` |
+| `source/EXTRACTION_NOTES.md` | 1242 | `6b57e2aa6c5b94d7d577a05086784f1dfc96d086e1a7858533d7a4b59c032420` |
+| `source/full_text.txt` | 103202 | `c0480d0ddecf79243d45e1aea124faeb2b20ac0b27b0af89686916d81f315483` |
+| `source/pdf_info.json` | 5098 | `19f2a2ee389c20c50c44d76c4e9f78049c71542ad1ae15d495d7411cf5d1d81e` |
+| `source/references-extracted.txt` | 9681 | `d08855f3e6f1854e358bf3809c66ac489656661adfebddca6b0e0511fcb41bf3` |

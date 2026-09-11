@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 73 khóa học được tổ chức theo ba lớp:
+Kho này chứa 74 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -60,6 +60,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Data Science, Analytics & ML
 
 - [AI & Data Scientist Roadmap](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/ai-data-scientist-roadmap/>)
+- [AlphaForgeBench - Thiết kế chiến lược giao dịch end-to-end bằng LLM](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/alphaforgebench-llm-trading/>)
 - [BI Analyst Roadmap](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/bi-analyst-roadmap/>)
 - [Data Analyst Roadmap](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/data-analyst-roadmap/>)
 - [Data Engineer Roadmap](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/data-engineer-roadmap/>)

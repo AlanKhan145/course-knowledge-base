@@ -1,0 +1,828 @@
+ AlphaForgeBench: Benchmarking End-to-End Trading Strategy
+            Design with Large Language Models
+                 Wentao Zhang∗                                            Mingxuan Zhao∗                                            Jincheng Gao∗
+      Nanyang Technological University                        The Hong Kong University of Science                      The Hong Kong University of Science
+           Singapore, Singapore                                  and Technology (Guangzhou)                                and Technology (Guangzhou)
+         zhangwent963@gmail.com                                       Guangzhou, China                                          Guangzhou, China
+                                                              mzhao085@connect.hkust-gz.edu.cn                            jinchenggao@hkust-gz.edu.cn
+
+                    Jieshun You                                                Huaiyu Jia                                              Yilei Zhao
+      Hong Kong Polytechnic University                       The Hong Kong University of Science                         Nanyang Technological University
+             Hong Kong, China                                   and Technology (Guangzhou)                                    Singapore, Singapore
+        24041917g@connect.polyu.hk                                   Guangzhou, China                                        YILEI002@e.ntu.edu.sg
+                                                              hjia351@connect.hkust-gz.edu.cn
+
+                                                      Bo An                                                  Shuo Sun†
+                                   Nanyang Technological University                        The Hong Kong University of Science
+                                        Singapore, Singapore                                  and Technology (Guangzhou)
+                                          boan@ntu.edu.sg                                          Guangzhou, China
+                                                                                                shuosun@hkust-gz.edu.cn
+
+Abstract                                                                                        reasoning. Rather than requiring models to emit discrete trading
+The rapid advancement of Large Language Models (LLMs) has cat-                                  actions, A!"#$F%&’(B()*# tasks LLMs with generating exe-
+alyzed the proliferation of diverse! nancial benchmarks, progres-                               cutable alpha factors and composing factor-based trading strategies
+sively evolving from static knowledge evaluation to increasingly                                grounded in! nancial domain knowledge. This paradigm shift de-
+sophisticated interactive trading simulations. Nevertheless, exist-                             couples reasoning from execution mechanics, enabling fully deter-
+ing frameworks that assess real-time trading performance largely                                ministic and reproducible evaluation while maintaining close align-
+overlook a fundamental failure mode: the severe behavioral in-                                  ment with real-world quantitative research work"ows. Extensive
+stability exhibited by LLMs in sequential decision-making under                                 experiments across multiple state-of-the-art LLMs demonstrate that
+!nancial uncertainty. Through extensive empirical investigation,                                A!"#$F%&’(B()*# e$ectively eliminates execution-induced in-
+we demonstrate that when deployed as direct trading agents, LLMs                                stability, yields highly reproducible outcomes, and provides a rigor-
+manifest extreme run-to-run variance, produce inconsistent action                               ous and discriminative benchmark for assessing LLMs’ capacity for
+sequences even under strictly deterministic decoding con!gura-                                  !nancial reasoning, strategy formulation, and alpha discovery. Web-
+tions, and exhibit irrational action" ipping across temporally adja-                            page at https://!nbrain-lab-hkustgz.github.io/AlphaForgeBench.
+cent decision steps. We systematically attribute these pathological
+behaviors to the models’ fundamentally stateless autoregressive ar-                             CCS Concepts
+chitectures, which lack persistent memory of prior actions, and their                           • Computing methodologies → Arti!cial intelligence.
+pronounced sensitivity to continuous-to-discrete action mappings
+inherent in portfolio allocation tasks. These de!ciencies collectively                          Keywords
+undermine the validity and trustworthiness of numerous existing                                 Large Language Models, Alpha Factor Discovery, Quantitative Fi-
+online and o#ine! nancial trading benchmarks, rendering their                                   nance, Factor-Based Trading Strategies, Benchmarking
+evaluations unreliable, non-reproducible, and uninformative for
+                                                                                                ACM Reference Format:
+meaningful model comparison. To address these limitations, we in-
+                                                                                                Wentao Zhang, Mingxuan Zhao, Jincheng Gao, Jieshun You, Huaiyu Jia, Yilei
+troduce A!"#$F%&’(B()*#, a principled evaluation framework                                      Zhao, Bo An, and Shuo Sun. 2026. AlphaForgeBench: Benchmarking End-to-
+that reconceptualizes the role of LLMs from stochastic execution                                End Trading Strategy Design with Large Language Models. In Proceedings of
+agents to quantitative researchers capable of systematic!nancial                                the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining
+∗ These authors contributed equally to this work.                                               V.2 (KDD ’26), August 09–13, 2026, Jeju Island, Republic of Korea. ACM, New
+† Corresponding author.                                                                         York, NY, USA, 80 pages. https://doi.org/10.1145/3770855.3817500
+
+                                                                                                1    Introduction
+This work is licensed under a Creative Commons Attribution 4.0 International License.           The rapid advancement of large language models (LLMs) has spurred
+KDD’26, Jeju, Korea                                                                             the development of numerous benchmarks to assess model capabil-
+© 2026 Copyright held by the owner/author(s).
+ACM ISBN 979-8-4007-2259-2/2026/08                                                              ities across diverse domains. In the! nancial domain, early bench-
+https://doi.org/10.1145/3770855.3817500                                                         marks focused on evaluating general! nancial knowledge through
+
+
+
+
+                                                                                        10268
+KDD’26, August 9 to 13, 2026, Jeju, Korea                                                                                        Wentao Zhang et al.
+
+
+question-answering (QA) tasks, including numerical reasoning over            within a sequential decision-making framework subject to costs,
+!nancial reports (e.g., FinQA [6], TAT-QA [28]), conversational!-            positions, and time constraints. Because the model is agnostic to
+nance QA (e.g., ConvFinQA [7]), and comprehensive multi-task                 transaction fees, slippage, and penalties for excessive or insu%cient
+evaluation frameworks (e.g., BloombergGPT [18], FinGPT [11],                 trading, it is highly prone to collapsing into extreme patterns of
+PIXIU [21], FinBen [19]). However, these benchmarks primarily                either over-trading or complete inactivity.
+measure encyclopedic knowledge and static reasoning over historical              To address these limitations, we propose a new evaluation par-
+snapshots, which fail to capture an LLM’s ability to make sequential         adigm that shifts from black-box trading to white-box logic gen-
+trading decisions under non-stationary market conditions. As the             eration. We introduce A!"#$F%&’(B()*#, a comprehensive
+!eld evolved, researchers shifted toward evaluating LLMs’ real-time          benchmark designed to assess LLMs on their ability to generate
+trading capabilities, with benchmarks such as Alpha Arena [2] es-            executable alpha factors and trading strategy code, e$ectively po-
+tablishing live trading evaluation paradigms that assess LLM agents’         sitioning the LLM as a quantitative researcher rather than a sto-
+adaptability and alpha-seeking capabilities directly within dynamic,         chastic execution agent. This paradigm shift o$ers three critical
+executing! nancial markets. While these trading benchmarks have              advantages that directly mitigate the aforementioned instability.
+expanded the scope of! nancial LLMs evaluation, they have largely            First, it fundamentally solves the continuous-to-discrete sensitivity
+overlooked a critical issue: LLMs exhibit extreme instability in their       problem by decoupling reasoning from execution. By compelling
+performance on! nancial trading tasks.                                       the LLM to formalize its decision boundaries into explicit algorith-
+   Speci!cally, when LLMs or LLM-based agents directly emit trad-            mic rules, the stochastic nature of the model is con!ned to the
+ing decisions (e.g., !"#/$%&’/()&& signals), their outputs demon-            generation phase, rendering the subsequent execution strictly de-
+strate severe instability across multiple dimensions. (1) Run-to-            terministic and immune to the random action" ipping observed in
+run variance in performance metrics. Under identical settings,               direct-trading tasks. Second, it resolves the state management issue.
+the same LLM produces dramatically di$erent trading trajectories             Unlike stateless models that struggle to maintain continuity, the
+across multiple runs on the same! nancial data (e.g., OHLCV time             generated code inherently preserves internal states and logic across
+series with technical indicators), resulting in substantial variance         the entire time series to ensure consistent decision-making. Third,
+in returns, drawdowns, and other performance metrics. (2) Incon-             this setup mirrors the real-world work"ow of quantitative!nance
+sistent action sequences even under deterministic decoding.                  where researchers synthesize strategies and engines execute them.
+Even with temperature=0 (deterministic decoding), LLMs gener-                This alignment enables transparent logic veri!cation and provides
+ate completely di$erent trading action sequences across runs on              a rigorous metric to assess whether the model has truly learned
+identical market data, exhibiting no consistency in decision-making          !nancial reasoning or is merely over!tting to market noise. Our
+patterns. (3) Rapid action" ipping persists despite hard con-                contributions are summarized as follows:
+straints. LLMs exhibit a tendency to rapidly" ip trading actions             • We systematically analyze the critical" aws in existing!nancial
+(e.g., buying immediately after selling, or selling immediately after           trading benchmarks. We demonstrate that the inherent instability
+buying) when performing trading tasks. Even when explicit be-                   of LLMs in direct-trading tasks renders traditional performance
+havioral guardrails are incorporated into prompts (e.g., minimum                metrics unreliable, preventing an accurate assessment of true
+holding periods, cooldown windows, or historical action sequences),             !nancial reasoning capabilities.
+these prompt-based constraints cannot fully eliminate such rapid             • We introduce A!"#$F%&’(B()*#, a novel benchmark that
+"ipping behavior. Detailed analyses are provided in Appx. C.                    repositions LLMs from stochastic agents to quantitative researchers.
+   Fundamentally, this phenomenon can be primarily attributed                   By evaluating the generation of executable alpha factors and strat-
+to the following three aspects. First, LLMs are inherently stateless,           egy code, our framework provides a deterministic and robust
+instantaneous decision-making models. In trading tasks, each ac-                metric for measuring! nancial logic synthesis.
+tion output is an independent re-evaluation based on a "current              • We conduct extensive experiments across state-of-the-art LLMs
+input snapshot." The model possesses no natural memory of its                   to validate the e$ectiveness of our approach. The results con!rm
+recent buy or sell executions, nor does it view position holding                that A!"#$F%&’(B()*# o$ers a signi!cantly more stable and
+as a long-term state requiring consistency. Consequently, even                  discriminatory assessment of! nancial capabilities compared to
+slight variations in market features in the subsequent step can lead            direct-trading baselines.
+the model to generate divergent or even diametrically opposite
+actions. Second, LLMs are highly sensitive to the mapping of con-            2 Related Work
+tinuous market signals to discrete actions. While inputs such as
+prices and technical indicators vary continuously, the outputs are           2.1 Financial Knowledge Benchmark
+discrete actions. This continuous-to-discrete mapping ampli!es the           Recent advancements in! nancial question answering have driven
+impact of minor" uctuations, causing the model to abruptly shift             the development of diverse benchmarks ranging from speci!c rea-
+its stance upon slight indicator reversals or semantic shifts. Cru-          soning tasks to holistic system evaluations. Early e$orts focused
+cially, it lacks the mechanisms of inertia, tolerance intervals, and         on numerical and hybrid reasoning, with TAT-QA [28] address-
+strategic waiting typically inherent in professional trading. Third,         ing multi-step reasoning over tabular-textual data, FinQA [6] tar-
+LLMs fundamentally perform classi!cation rather than strategy                geting numerical reasoning on! nancial reports, and ConvFinQA
+optimization. Directly prompting an LLM to output an action es-              [7] extending this to conversational contexts. As LLMs evolved,
+sentially tasks it with assigning a "most reasonable action" label to        researchers introduced comprehensive frameworks to evaluate
+the current market state, rather than maximizing long-term returns           broader capabilities: BloombergGPT [18] validated the e%cacy of
+
+
+
+
+                                                                     10269
+AlphaForgeBench: Benchmarking End-to-End Trading Strategy Design with Large Language Models                                              KDD’26, August 9 to 13, 2026, Jeju, Korea
+
+
+          Data Sources (Input)                              Dataset Construction (Processing)                                         Evaluation Pipline (Output)
+
+                                                          Deduplication & Filtering                                                                      System
+                 Brokerage           Stage 1                                                                                                           Instruction
+                 Reports                                                                                                                           Str
+                                                                                                                                                      ate         er i
+                                                                                                                                                                      es
+                                                                              3,176                                                                       gy   Qu
+                                                                                                                                                   Fac               r y
+                                        PDF                                   Total                                    633                             t or
+                                                                                                                                                               Lib
+                                                                                                                                                                  ra
+                                                                                                                    Real-World
+                  Quant               Crawlers            LLM                 633              Query                 Queries
+                                                                             Subset        Standardization
+                  Platforms                            Extraction                             (GPT-5.2)
+                                                                                                                                       Claude           DeepSeek            Gemini 3
+                                                    Multimodel   JSON      Single-Assest       English Queries                        Sonnet 4.5                             Flash
+                                                                                                                                                          V3.2
+                                                                             Trading
+
+                  AI4Finance                                                                                     AlphaForgeBench       Gemini 3                             Grok 4.1
+                  Literatures                                                                                     903 Total Queries      Pro             GPT-5.2             Fast
+                                                                                                                                                               k = 5 runs per model
+                                      Stage 2
+                                                                        Easy Medium Hard
+                                                                                                                                      Uniﬁed Backtest Engine                   35,190
+                  Open-Source                             L1:Logic                                                                                                          Implementations
+                                                         Translation                                                                                7 Assest
+                  Repositories         Pattern                                                                         270                        (Crypto/Equity) 2021-2026
+                                                          L2:Logic                                                  Structured
+                                       Analysis          Completion                               Query
+                                                                                                                     Queries
+                                                                                                Generation
+                                                          L3:Goal
+                  Tranditional        From Stage1                                                (GPT-5.2)                                  Rader Chart                    Return Curve
+                                                          Oriented
+                  Finance              Real-World                                               9 Categories
+                                        Samples
+                  Publications                                                                         *
+                                                                                                   30 Queries                          SR, ARR, MDD, CR, SOR, VOL
+
+
+                                                    Figure 1: The framework of A!"#$F%&’(B()*#.
+
+domain-speci!c pretraining, FinGPT [11] democratized internet-                                 and LiveTradeBench [24] collectively establish a live trading bench-
+scale! nancial data for open-source training, PIXIU [21] established                           mark paradigm, rigorously evaluating the real-time adaptability and
+a multi-task instruction tuning benchmark, and FinBen [19] of-                                 alpha-seeking capabilities of LLM agents directly within dynamic,
+fered a holistic evaluation across seven dimensions of!nancial                                 executing! nancial markets.
+intelligence. addressing the complexity of long-form generation,                                  However, these live evaluation paradigms introduce a funda-
+FinTextQA [4] utilized RAG-based metrics for extensive textbook-                               mental reproducibility crisis: evaluation results are bound to the
+level queries. Furthermore, recent works have tailored benchmarks                              speci!c execution time window and cannot be independently repli-
+to speci!c linguistic and user needs, with CFinBench[14] and Fin-                              cated, a problem further compounded by the inherent stochastic-
+Eva [3] constructing! ne-grained evaluation systems for Chinese                                ity of LLMs, which produce drastically di$erent trading actions
+!nancial knowledge, while UCFE [23] pioneered a user-centric                                   across runs even under deterministic decoding (Section C), ren-
+framework to align model performance with dynamic human pref-                                  dering single-run live evaluations statistically unreliable. While
+erences across diverse roles. However, these existing frameworks                               existing benchmarks have advanced the evaluation of autonomous
+remain largely con!ned to passive knowledge retrieval and phe-                                 trading agents, they overlook the necessity of a holistic alpha min-
+nomenon explication, failing to bridge the critical gap between                                ing pipeline that integrates strategy formulation, executable code
+theoretical! nancial understanding and actionable, strategy-driven                             generation, and rigorous backtesting, and largely neglect quan-
+trading execution in practice.                                                                 tifying the inherent stochasticity and instability of LLM-driven
+                                                                                               !nancial decision-making.
+2.2    Financial Trading Benchmark
+The evolution of! nancial LLMs has transitioned from passive anal-
+ysis to autonomous decision-making agents, necessitating rigor-                                3       AlphaForgeBench
+ous benchmarks for trading and forecasting. In terms of agentic                                In this section we present A!"#$F%&’(B()*#, a benchmark
+architecture, FINCON [25] introduces a hierarchical multi-agent                                that evaluates LLMs as quantitative researchers who synthesize
+system with conceptual verbal reinforcement for risk-aware strate-                             executable trading strategies rather than emit point-wise trading
+gies, while AlphaFin [5] establishes a retrieval-augmented pipeline                            actions. The overall framework is illustrated in Figure 1 and is
+to evaluate end-to-end fundamental reasoning and alpha genera-                                 organized along three axes. First, we describe the dataset construc-
+tion. [12, 20] analyze the performance of the large model in terms                             tion process (Section 3.1), which proceeds in two stages: Stage 1
+of price prediction and returns. To standardize decision-making                                collects natural-language queries together with their ground-truth
+assessments, INVESTORBENCH [10] provides a multi-asset simu-                                   alpha factors and trading strategies from diverse real-world sources;
+lation environment, revealing that agents struggle to outperform                               Stage 2 draws on the patterns and complexity pro!les observed
+buy-and-hold baselines. Critically, addressing the "time-travel" bias                          in these real-world samples to systematically generate augmented
+in historical backtesting, recent works have pivoted toward live-                              queries across a 3 ↑ 3 level–grade di%culty taxonomy via LLMs,
+market evaluation: DeepFund [9] demonstrates that even SOTA                                    combining authenticity with controlled diagnostic granularity. Sec-
+models incur losses in real-time fund management. FutureX [15, 26]                             ond, we detail the evaluation pipeline (Section 3.2), in which each
+pioneers a live, anti-contamination forecasting framework to evalu-                            query is fed to the evaluated LLM to produce executable factor and
+ate the real-time predictive intelligence of LLM agents on unfolding                           strategy code, and the generated code is then executed within a stan-
+global events. To eliminate look-ahead bias and bridge the gap be-                             dardized backtest engine across multiple assets and market regimes
+tween simulation and reality, Alpha Arena [2], RockAlpha [16],                                 to yield quantitative performance pro!les. Third, we introduce the
+
+
+
+
+                                                                                       10270
+KDD’26, August 9 to 13, 2026, Jeju, Korea                                                                                            Wentao Zhang et al.
+
+
+evaluation methodology (Section 3.3), comprising! nancial perfor-               coverage and facilitating strati!ed analyses of model failure modes
+mance metrics and statistical protocols that assess both the absolute           under varying cognitive demands.
+quality and the cross-run stability of LLM-generated strategies.
+                                                                                3.2    Evaluation Pipeline
+3.1     Dataset Construction                                                    Given the curated query set described above (633 real-world queries
+                                                                                from Stage 1 and 270 di%culty-specialized queries from Stage 2),
+The construction of A!"#$F%&’(B()*# follows a two-stage
+                                                                                A!"#$F%&’(B()*# evaluates each model via a standardized
+pipeline that combines the ecological validity of real-world strate-
+                                                                                generate-and-backtest pipeline (Figure 1), comprising prompt in-
+gies with the diagnostic precision of synthetically structured queries.
+                                                                                stantiation, code synthesis, and backtest-based assessment.
+    Stage 1: Real-world Strategy Collection. We curate a diverse
+                                                                                    Step 1: Prompt construction. Each benchmark query is assem-
+corpus of alpha factors and factor-based trading strategies from! ve
+                                                                                bled into a standardized prompt comprising three semantically dis-
+complementary source categories: brokerage research reports, quan-
+                                                                                tinct components (see the Evaluation Pipeline panel of Figure 1): (i) a
+titative investment platforms (WorldQuant [17], JoinQuant [8]), AI-
+                                                                                system instruction that de!nes the code-generation task, speci!es
+in-!nance literature, open-source repositories (Qlib [22], OpenFE [27]),
+                                                                                the available data schema (open-high-low-close-volume (OHLCV)
+and traditional! nance publications. We build an automated extrac-
+                                                                                columns augmented with precomputed technical-indicator factors),
+tion agent, powered by gemini-3-!ash-preview, that ingests each
+                                                                                and prescribes the expected output interface; (ii) the strategy query,
+collected document and produces structured records comprising
+                                                                                i.e., the natural-language description of the target trading strategy
+factor names, mathematical de!nitions, trading logic, and!nancial
+                                                                                drawn from either Stage 1 or Stage 2; and (iii) a factor-library refer-
+rationale. After deduplication and quality! ltering, Stage 1 yields
+                                                                                ence that enumerates all supported indicator names together with
+3,176 factor-strategy entries spanning three strategy types: single-
+                                                                                their formal mathematical de!nitions, providing the model with
+asset trading (633), portfolio management (2,172), and multi-asset
+                                                                                a complete and unambiguous speci!cation of the default feature
+trading (371). In this work, we restrict evaluation to the 633 single-
+                                                                                space. Notably, the model is not restricted to this prede!ned indica-
+asset subset to isolate the LLM’s signal-generation capability from
+                                                                                tor set: if a strategy requires novel factors, the model may generate
+confounding portfolio-construction e$ects, thereby serving as an
+                                                                                the corresponding factor-computation code, which our backtest
+ecologically valid baseline for gauging benchmark di%culty. This
+                                                                                engine dynamically registers and incorporates into the evaluation,
+restriction is a deliberate design choice rather than a limitation
+                                                                                thereby granting models the" exibility to extend the feature space
+of scope: the single-asset setting provides a cleaner, more con-
+                                                                                on the" y. The prompt template is held strictly identical across
+trolled evaluation environment that targets core signal-generation
+                                                                                all evaluated models, ensuring that any observed performance dif-
+and rule-construction capabilities without the additional complex-
+                                                                                ferences can be attributed solely to model capabilities rather than
+ity introduced by asset allocation, cross-asset dependencies, and
+                                                                                prompt-engineering artifacts.
+portfolio-level risk constraints. The portfolio management (2,172)
+                                                                                    Step 2: Code generation. The assembled prompt is dispatched
+and multi-asset trading (371) subsets are reserved for systematic
+                                                                                to each evaluated LLM through its o%cial API. The model must
+evaluation in future work, along with the corresponding backtest-
+                                                                                return a self-contained Python function (generate_signal) that
+ing infrastructure already developed. Full extraction prompts and
+                                                                                consumes a dataframe of OHLCV columns and precomputed indi-
+dataset statistics are provided in Section D.
+                                                                                cator factors and produces a trading-signal series dictating position
+    Stage 2: LLM-augmented Structured Query Generation.
+                                                                                actions (e.g., invest versus hold cash). We enforce strict confor-
+While Stage 1 o$ers ecologically valid test cases, its query dis-
+                                                                                mance to the backtest engine’s interface contract (function signa-
+tribution is non-uniform across di%culty and is not tailored for
+                                                                                ture, permitted column references, and output format), enabling
+controlled diagnosis of speci!c cognitive demands. Stage 2 therefore
+                                                                                fully automated execution without manual intervention.
+constructs 270 additional benchmark queries under a 3 ↑ 3 level–
+                                                                                    Step 3: Backtest-based assessment. Each generated implemen-
+grade taxonomy, grounded in the strategy patterns and complexity
+                                                                                tation is executed within a uni!ed, deterministic backtest engine
+pro!les observed in the real-world collection. The three levels iso-
+                                                                                on historical daily price data spanning seven assets across two mar-
+late distinct strategy-generation skills: Level 1 (Logic Translation)
+                                                                                ket regimes: cryptocurrency and US equity. The engine computes
+provides fully speci!ed if–then rules to test faithful code transla-
+                                                                                a suite of standard! nancial metrics covering return generation,
+tion; Level 2 (Logic Completion) supplies strategic skeletons with
+                                                                                risk exposure, and risk-adjusted e%ciency, producing fully repro-
+critical parameters omitted, requiring domain-grounded inference;
+                                                                                ducible quantitative pro!les that support systematic comparison
+and Level 3 (Goal-Oriented Generation) speci!es only high-level
+                                                                                across models, query sources, and the nine Stage 2 di%culty cells.
+investment objectives, demanding end-to-end strategy design from
+                                                                                This deterministic design ensures that any observed cross-run vari-
+!rst principles. Orthogonally, three grades (Easy, Medium, Hard)
+                                                                                ance originates exclusively from the inherent stochasticity of LLM
+modulate complexity via the number of conditions, the degree of
+                                                                                generation rather than evaluation-side randomness.
+underspeci!cation, and the depth of state-dependent control" ow,
+yielding nine! ne-grained di%culty cells (Appx. D).
+    In summary, the A!"#$F%&’(B()*# query set comprises two                     3.3    Evaluation Methodology
+complementary components: 633 real-world queries from Stage 1                   We evaluate LLM-generated strategies along three complementary
+that ensure ecological validity, and 270 di%culty-specialized queries           dimensions. First, each backtest run yields a suite of standard!-
+from Stage 2 that enable controlled,! ne-grained diagnostic eval-               nancial metrics spanning return generation, risk exposure, and
+uation across the full 3 ↑ 3 level–grade grid, providing balanced               risk-adjusted e%ciency; to account for the stochasticity of LLM
+
+
+
+
+                                                                        10271
+AlphaForgeBench: Benchmarking End-to-End Trading Strategy Design with Large Language Models                                      KDD’26, August 9 to 13, 2026, Jeju, Korea
+
+
+generation, all metrics are reported as mean ± standard deviation                   cost of 10↓3 , thereby isolating intrinsic signal quality from con-
+over multiple independent runs, capturing both expected perfor-                     founding portfolio-construction e$ects. The long-only constraint
+mance and generation stability. Second, results are organized into                  is adopted for cross-market consistency, as short-selling is subject
+strati!ed tables along three axes: (i) overall model ranking aggre-                 to asymmetric restrictions and costs across equity and cryptocur-
+gated across all queries and assets, (ii) per-asset decomposition                   rency markets. Slippage and liquidity constraints are intentionally
+over the 7 backtest assets to quantify cross-market generalization                  excluded: these factors are highly dependent on market microstruc-
+from cryptocurrency to US equity, and (iii) per-level decomposition                 ture (e.g., order-book depth and execution mechanisms) and vary
+(Stage 2 only) by the three di%culty levels of the 3 ↑ 3 taxonomy                   substantially across assets and trading frequencies; introducing
+to reveal how capabilities degrade under increasing cognitive de-                   a uni!ed slippage model would add evaluation-side uncertainty
+mands. Third, tabular results are complemented by radar charts that                 without improving the fairness of cross-model comparisons. Full
+render each model’s multi-metric pro!le for intuitive risk-return                   parameter justi!cations are provided in Appx. E.
+comparison, grouped bar charts and box plots that expose cross-                        Evaluation metrics. We assess each strategy using six standard
+asset robustness and inter-model dispersion, and cumulative return                  !nancial metrics: Annual Rate of Return (ARR), Sharpe Ratio (SR),
+curves that surface temporal dynamics such as divergence during                     Maximum Drawdown (MDD), Calmar Ratio (CR), Sortino Ratio
+market stress and convergence in calm regimes.                                      (SoR), and Volatility (VOL). These jointly capture return generation
+                                                                                    (ARR), risk exposure (MDD, VOL), and risk-adjusted e%ciency (SR,
+4     Experiments                                                                   CR, SoR), providing a multi-dimensional pro!le of strategy quality.
+We validate A!"#$F%&’(B()*# along two complementary evalu-                          Formal de!nitions are given in Appx. E.
+ation tracks that mirror the two-stage dataset construction. Track 1
+(real-world queries) evaluates all 633 single-asset queries from                    4.2       Results on Real-world Queries
+Stage 1 to establish ecological validity, baseline di%culty calibration,
+and a consistency check against the structured track. Track 2 (struc-               Table 1: Results on real-world queries (mean ± std, 633
+tured queries) evaluates the 270 queries from Stage 2 organized by                  queries), strati!ed by overall (green) and asset (gray). Best
+the 3 ↑ 3 level–grade taxonomy, enabling! ne-grained diagnosis                      per block in bold; ↔/↗: higher/lower is better.
+of model strengths, weaknesses, and speci!c failure modes across                    Model                    SR↔        ARR↔        MDD↗         CR↔        SoR↔        VOL↗
+di%culty dimensions. This dual-track design also serves as an em-                   claude-sonnet-4.5
+                                                                                                                               Overall
+                                                                                                          0.378±0.268 0.138±0.122 0.138±0.122 1.456±1.106 0.636±0.488 0.187±0.165
+pirical bias-mitigation mechanism: concordance between model                        deepseek-v3.2         0.329±0.272 0.116±0.122 0.114±0.120 1.575±1.227 0.548±0.494 0.155±0.163
+                                                                                    gemini-3-!ash-preview 0.388±0.268 0.142±0.122 0.138±0.119 1.504±1.131 0.648±0.488 0.189±0.161
+rankings on Stage 1 (real-world) and Stage 2 (LLM-augmented)                        gemini-3-pro-preview 0.449±0.262 0.171±0.123 0.174±0.119 1.411±1.165 0.767±0.493 0.237±0.162
+                                                                                    gpt-5.2               0.342±0.279 0.123±0.119 0.122±0.118 1.534±1.386 0.575±0.503 0.166±0.161
+queries validates that the structured generation process preserves                  grok-4.1-fast         0.366±0.276 0.135±0.122 0.142±0.124 1.396±1.038 0.618±0.500 0.192±0.168
+
+genuine capability di$erences rather than introducing systematic                    claude-sonnet-4.5
+                                                                                                                     BTCUSDT (Cryptocurrency)
+                                                                                                          0.279±0.234 0.110±0.099 0.189±0.154 0.732±0.792 0.490±0.398 0.213±0.175
+                                                                                                          0.239±0.231 0.094±0.097 0.155±0.155 0.861±0.967 0.421±0.393 0.175±0.175
+distributional bias favoring particular models.                                     deepseek-v3.2
+                                                                                    gemini-3-!ash-preview 0.294±0.225 0.115±0.096 0.193±0.152 0.800±0.865 0.511±0.380 0.218±0.171
+                                                                                    gemini-3-pro-preview 0.338±0.223 0.131±0.097 0.241±0.149 0.628±0.552 0.592±0.376 0.272±0.167
+                                                                                                          0.255±0.230 0.098±0.097 0.170±0.152 0.719±0.713 0.446±0.394 0.192±0.172
+4.1    Experimental Settings                                                        gpt-5.2
+                                                                                    grok-4.1-fast         0.273±0.231 0.104±0.096 0.196±0.160 0.701±0.782 0.481±0.389 0.220±0.179
+
+Evaluated models. We benchmark six frontier LLMs spanning! ve                       claude-sonnet-4.5
+                                                                                                                     ETHUSDT (Cryptocurrency)
+                                                                                                          0.260±0.232 0.119±0.149 0.205±0.208 0.778±0.626 0.398±0.359 0.242±0.244
+                                                                                                          0.220±0.233 0.103±0.147 0.169±0.205 0.851±0.669 0.336±0.361 0.200±0.241
+providers: claude-sonnet-4.5, deepseek-v3.2, gemini-3-!ash-preview,                 deepseek-v3.2
+                                                                                    gemini-3-!ash-preview 0.260±0.236 0.121±0.151 0.206±0.203 0.737±0.606 0.400±0.363 0.242±0.239
+                                                                                    gemini-3-pro-preview 0.306±0.224 0.137±0.152 0.263±0.198 0.633±0.558 0.475±0.344 0.307±0.232
+gemini-3-pro-preview, gpt-5.2, and grok-4.1-fast. All models are queried            gpt-5.2               0.219±0.218 0.084±0.106 0.180±0.198 0.675±0.641 0.336±0.333 0.211±0.232
+                                                                                                          0.255±0.233 0.112±0.145 0.218±0.209 0.645±0.564 0.392±0.358 0.254±0.244
+through their o%cial APIs under identical prompt templates with                     grok-4.1-fast
+                                                                                                                          AAPL (US Equity)
+no model-speci!c tuning.                                                            claude-sonnet-4.5     0.757±0.533 0.151±0.118 0.079±0.059 2.282±1.784 1.068±0.771 0.123±0.089
+                                                                                    deepseek-v3.2         0.704±0.546 0.138±0.118 0.069±0.060 2.529±2.036 0.994±0.782 0.108±0.089
+   Generation protocol. Every experiment runs 𝐿=5 independent                       gemini-3-!ash-preview 0.756±0.522 0.151±0.116 0.081±0.058 2.252±1.910 1.067±0.756 0.126±0.087
+                                                                                    gemini-3-pro-preview 0.805±0.500 0.162±0.113 0.094±0.059 1.954±1.431 1.138±0.738 0.143±0.087
+generations per query to quantify run-to-run variability. Stage 1                   gpt-5.2               0.668±0.547 0.132±0.120 0.071±0.061 2.273±1.880 0.944±0.794 0.110±0.092
+                                                                                    grok-4.1-fast         0.686±0.545 0.138±0.119 0.077±0.062 2.095±1.709 0.973±0.786 0.119±0.092
+uses 𝑀=0.7 (633 𝑁𝑂𝑃𝑄𝑅𝑃𝑆 ↑ 6 𝑇𝑈𝑉𝑃𝑊𝑆 ↑ 5 𝑄𝑂𝑋𝑆 = 18,990 𝑆𝑌𝑇𝑍𝑊𝑃𝑆);
+                                                                                                                         GOOGL (US Equity)
+Stage 2 is evaluated at both 𝑀=0.7 and 𝑀=0 (greedy) for a tempera-                  claude-sonnet-4.5
+                                                                                    deepseek-v3.2
+                                                                                                          0.657±0.539 0.190±0.203 0.121±0.121 2.374±2.209 1.177±1.024 0.184±0.174
+                                                                                                          0.541±0.532 0.151±0.191 0.099±0.116 2.204±1.988 0.959±1.008 0.150±0.169
+ture ablation (270 𝑁𝑂𝑃𝑄𝑅𝑃𝑆 ↑ 6 𝑇𝑈𝑉𝑃𝑊𝑆 ↑ 2 𝑎𝑃𝑇𝑍𝑃𝑄𝑌𝑎𝑂𝑄𝑃𝑆 ↑ 5 𝑄𝑂𝑋𝑆 =                   gemini-3-!ash-preview 0.656±0.539 0.188±0.205 0.124±0.123 2.335±2.279 1.170±1.023 0.190±0.176
+                                                                                    gemini-3-pro-preview 0.752±0.525 0.225±0.209 0.150±0.129 2.341±2.210 1.390±1.011 0.229±0.183
+16,200 𝑆𝑌𝑇𝑍𝑊𝑃𝑆). The grand total is 35,190 generated strategy im-                   gpt-5.2
+                                                                                    grok-4.1-fast
+                                                                                                          0.602±0.556 0.179±0.206 0.109±0.121 2.502±2.422 1.089±1.056 0.167±0.175
+                                                                                                          0.617±0.542 0.175±0.203 0.121±0.128 2.331±2.231 1.113±1.028 0.183±0.184
+plementations. All metrics are reported as mean ± std.                                                                    MSFT (US Equity)
+   Backtest con!guration. Each generated strategy is executed                       claude-sonnet-4.5
+                                                                                    deepseek-v3.2
+                                                                                                          0.142±0.248 0.020±0.036 0.091±0.068 0.319±0.703 0.231±0.285 0.121±0.088
+                                                                                                          0.133±0.242 0.020±0.034 0.079±0.067 0.352±0.776 0.214±0.280 0.105±0.088
+within the uni!ed backtest engine across 7 assets spanning two                      gemini-3-!ash-preview 0.147±0.250 0.021±0.036 0.091±0.066 0.289±0.662 0.235±0.288 0.121±0.086
+                                                                                    gemini-3-pro-preview 0.176±0.253 0.024±0.037 0.102±0.067 0.316±0.620 0.268±0.290 0.137±0.086
+distinct market regimes: 2 cryptocurrencies (BTCUSDT, ETHUSDT;                      gpt-5.2
+                                                                                    grok-4.1-fast
+                                                                                                          0.125±0.245 0.018±0.034 0.081±0.070 0.293±0.608 0.204±0.284 0.108±0.091
+                                                                                                          0.138±0.232 0.019±0.034 0.086±0.069 0.306±0.665 0.217±0.273 0.115±0.090
+sourced from Binance) and 5 US equities (AAPL, GOOGL, MSFT,                                                               NVDA (US Equity)
+                                                                                                          0.289±0.324 0.090±0.135 0.133±0.153 1.071±1.506 0.558±0.635 0.207±0.233
+NVDA, TSLA; sourced from Yahoo Finance). The evaluation win-                        claude-sonnet-4.5
+                                                                                    deepseek-v3.2         0.242±0.315 0.074±0.128 0.110±0.149 1.090±1.522 0.469±0.618 0.171±0.227
+                                                                                    gemini-3-!ash-preview 0.304±0.320 0.096±0.136 0.134±0.152 1.189±1.555 0.586±0.633 0.209±0.231
+dow spans 5 years (2021-01-01 to 2026-01-01), deliberately selected                 gemini-3-pro-preview 0.372±0.318 0.112±0.138 0.184±0.162 0.939±1.314 0.739±0.650 0.284±0.244
+                                                                                                          0.272±0.315 0.086±0.132 0.122±0.151 1.094±1.355 0.532±0.634 0.190±0.229
+to cover heterogeneous market conditions including bull rallies,                    gpt-5.2
+                                                                                    grok-4.1-fast         0.293±0.327 0.088±0.130 0.139±0.155 0.952±1.262 0.563±0.634 0.214±0.235
+bear corrections, AI-driven recoveries, and prolonged consolida-                                                           TSLA (US Equity)
+                                                                                    claude-sonnet-4.5     0.274±0.420 0.289±0.381 0.140±0.174 2.611±2.772 0.545±0.713 0.216±0.264
+tion phases, ensuring that no single strategy style is systematically               deepseek-v3.2         0.240±0.393 0.239±0.359 0.115±0.164 2.629±2.745 0.466±0.680 0.179±0.251
+                                                                                    gemini-3-!ash-preview 0.300±0.425 0.304±0.383 0.138±0.168 2.781±2.794 0.572±0.713 0.215±0.256
+favored. We adopt a controlled execution protocol with daily data                   gemini-3-pro-preview 0.396±0.444 0.409±0.400 0.186±0.175 2.756±2.738 0.770±0.738 0.290±0.264
+                                                                                    gpt-5.2               0.275±0.431 0.272±0.379 0.120±0.163 2.972±3.080 0.517±0.710 0.189±0.251
+frequency, a 300-day lookback window, long-only single-asset se-                    grok-4.1-fast         0.303±0.422 0.315±0.383 0.153±0.173 2.659±2.676 0.597±0.713 0.237±0.262
+mantics (binary invest/cash signal), and a! xed one-way transaction
+
+
+
+
+                                                                            10272
+KDD’26, August 9 to 13, 2026, Jeju, Korea                                                                                        Wentao Zhang et al.
+
+
+4.2.1 Overall model comparison. As shown in the Overall block                metrics. (4) Cross-asset robustness: model rankings and a shared
+of Table 1, three salient observations emerge. (1) A clear perfor-           asset di%culty gradient are consistent across all 7 assets spanning
+mance hierarchy exists on return-oriented metrics. Models                    cryptocurrency and US equity markets, indicating that the observed
+separate into three tiers: gemini-3-pro-preview leads decisively, fol-       capability hierarchy is environment-agnostic. Taken together, these
+lowed by a middle tier (gemini-3-!ash-preview, claude-sonnet-4.5),           !ndings validate the strategy code-generation paradigm as a sta-
+with the remaining models trailing. The 5.5% ARR spread between              ble, reproducible, and discriminative framework for benchmarking
+the best and worst models translates to a 47% relative improvement,          LLM capabilities in quantitative! nance. They also demonstrate
+which is economically meaningful over the 5-year evaluation hori-            that real-world queries alone can reveal meaningful capability dif-
+zon. (2) Return and risk rankings are inversely correlated,                  ferences among frontier models, thereby providing a solid empirical
+suggesting that LLMs encode distinct implicit risk preferences in            foundation and directly motivating the more! ne-grained, di%culty-
+their generated code. Notably, gemini-3-pro-preview consistently             strati!ed diagnostic evaluation in Stage 2.
+favors aggressive, high-conviction signal logic (highest SR and ARR,
+but also highest MDD and VOL), whereas deepseek-v3.2 converges               4.3    Results on LLM-augmented Queries
+on conservative, risk-controlled strategies (lowest MDD and VOL,
+yet highest CR). This return-risk inversion underscores the ne-
+cessity of multi-metric evaluation: a single metric cannot capture
+the full spectrum of model behavior. (3) Observed performance
+gaps are statistically reliable. The intra-query standard devia-
+tion across 5 runs is typically an order of magnitude smaller than
+the inter-query standard deviation, con!rming that ranking di$er-
+ences re"ect genuine capability gaps rather than generation noise.
+Detailed distributional and visual analyses are provided in Appx. F.
+4.2.2 Per-asset analysis. Disaggregating by asset in Table 1 yields
+three further observations. (1) A consistent di#culty gradient
+                                                                                         (a) T=0.0                          (b) T=0.7
+emerges across assets. Trend-rich US large-caps (AAPL, GOOGL)
+are the easiest targets for all models, cryptocurrencies (BTCUSDT,           Figure 2: Multi-metric radar pro!les on LLM-augmented
+ETHUSDT) occupy an intermediate tier with higher volatility and              queries (!ve metrics, 𝑀=0 vs. 𝑀=0.7). Near-identical polygons
+deeper drawdowns, and MSFT proves the hardest asset, likely due to           con!rm temperature-invariant model behavior.
+its narrower trading ranges during the evaluation period. (2) High-
+                                                                             4.3.1 Overall model comparison. The Overall block of Table 2 re-
+volatility assets amplify inter-model dispersion. TSLA ex-
+                                                                             veals four key observations that extend and sharpen the Stage 1
+hibits both the highest absolute returns and the widest cross-model
+                                                                             !ndings. (1) The three-tier hierarchy is preserved and ampli-
+variance, indicating that extreme and highly non-stationary price
+                                                                             !ed. The same model ranking observed in Stage 1 recurs: gemini-3-
+dynamics e$ectively magnify di$erences in the signal logic gener-
+                                                                             pro-preview leads (SR = 0.628 at 𝑏 =0), a middle tier follows (gemini-
+ated by each LLM. (3) Model rankings are robust across asset
+                                                                             3-!ash-preview, claude-sonnet-4.5), and the remaining models trail.
+classes. The relative ordering identi!ed in the aggregate analysis
+                                                                             Notably, the 7.8% ARR gap between the best and worst models
+is preserved across all seven assets: return-oriented leaders and
+                                                                             exceeds the 5.5% gap in Stage 1, con!rming that the controlled
+risk-oriented leaders maintain their respective positions regardless
+                                                                             di%culty design of Stage 2 e$ectively ampli!es latent capability dif-
+of whether the market is cryptocurrency or US equity. This cross-
+                                                                             ferences among models. (2) The return-risk inversion persists.
+asset stability strongly suggests that the implicit risk preferences
+                                                                             Consistent with Stage 1, return and risk rankings remain inversely
+encoded by each LLM are intrinsic to its own generation behavior
+                                                                             correlated: the top return-generating model (gemini-3-pro-preview)
+rather than artifacts of any particular market environment.
+                                                                             incurs the highest drawdown and volatility, whereas the most con-
+4.2.3 Findings and conclusions. Synthesizing the above analyses,             servative model (gpt-5.2, MDD = 0.119) trails on return metrics.
+the Stage 1 evaluation yields four principal!ndings. (1) High code-          claude-sonnet-4.5 achieves the best Calmar Ratio (CR = 1.650 at 𝑏 =0),
+generation reliability: all six frontier LLMs produce executable             exhibiting the most favorable return-to-drawdown trade-o$, further
+strategy code with >96% backtest pass rates, establishing a solid            reinforcing the necessity of multi-metric evaluation. (3) Evalua-
+foundation for the code-generation evaluation paradigm. (2) Sta-             tion is temperature-invariant. The 𝑏 =0 and 𝑏 =0.7 columns yield
+ble and reproducible evaluation: the intra-query (run-to-run)                near-identical values across all models and metrics (max SR dif-
+variance is an order of magnitude smaller than the inter-query vari-         ference < 0.008). This invariance is a distinctive advantage of the
+ance, con!rming that the code-generation paradigm con!nes LLM                code-generation paradigm: because downstream execution is de-
+stochasticity to a single generation step while guaranteeing deter-          terministic, decoding temperature a$ects only surface-level code
+ministic execution thereafter, in stark contrast to direct-trading           variation without altering the resulting trading logic, a property
+benchmarks where run-to-run variance routinely exceeds inter-                absent in direct-trading benchmarks where temperature directly
+model variance. (3) Implicit risk preferences: as revealed by the            perturbs each decision. (4) Radar charts reveal distinct and sta-
+return-risk inversion in the overall comparison, di$erent LLMs               ble risk pro!les. As shown in Figure 2, gemini-3-pro-preview spans
+encode distinct and stable risk personalities in their generated code,       the largest polygon, dominating on the return and Sortino axes
+and these characteristic pro!les persist across all runs, assets, and        while receding on MDD, visually encoding its aggressive strategy
+
+
+
+
+                                                                     10273
+AlphaForgeBench: Benchmarking End-to-End Trading Strategy Design with Large Language Models                                           KDD’26, August 9 to 13, 2026, Jeju, Korea
+
+
+Table 2: Results on LLM-augmented queries (mean ± std, 5 runs) at 𝑏 =0 and 𝑏 =0.7, strati!ed by overall (green), level (blue), and
+asser (gray). Best per block in bold; ↔/↗: higher/lower is better.
+   Model                            SR↔                     ARR↔                    MDD↗                    CR↔                      SOR↔                    VOL↗
+                              T=0         T=0.7       T=0          T=0.7      T=0          T=0.7      T=0         T=0.7        T=0          T=0.7      T=0          T=0.7
+                                                                                   Overall
+   claude-sonnet-4.5     0.513±0.270 0.508±0.266 0.164±0.114 0.162±0.113 0.150±0.111 0.147±0.110 1.650±0.864 1.634±0.620 0.806±0.478 0.795±0.471 0.205±0.153 0.202±0.152
+   deepseek-v3.2         0.430±0.280 0.424±0.289 0.132±0.110 0.130±0.112 0.127±0.108 0.123±0.109 1.586±0.800 1.570±0.761 0.672±0.477 0.660±0.489 0.173±0.149 0.168±0.150
+   gpt-5.2               0.415±0.307 0.417±0.308 0.130±0.122 0.130±0.121 0.119±0.116 0.117±0.114 1.599±0.794 1.660±0.821 0.645±0.525 0.643±0.522 0.163±0.160 0.160±0.157
+   gemini-3-!ash-preview 0.523±0.289 0.530±0.264 0.162±0.122 0.165±0.113 0.148±0.117 0.151±0.111 1.618±0.904 1.658±1.384 0.807±0.506 0.820±0.468 0.204±0.162 0.206±0.153
+   gemini-3-pro-preview 0.628±0.255 0.627±0.242 0.208±0.112 0.209±0.107 0.191±0.109 0.188±0.104 1.586±0.665 1.639±0.651 1.004±0.465 0.999±0.439 0.262±0.150 0.259±0.143
+   grok-4.1-fast         0.421±0.269 0.429±0.267 0.134±0.108 0.135±0.107 0.125±0.102 0.127±0.102 1.629±0.741 1.692±0.819 0.658±0.461 0.668±0.457 0.171±0.140 0.173±0.140
+                                                                             Level 1 (Logic Translation)
+   claude-sonnet-4.5       0.549±0.306 0.551±0.305 0.176±0.131 0.177±0.131 0.157±0.119 0.158±0.119 1.676±0.746 1.690±0.719 0.852±0.544 0.856±0.543 0.219±0.167 0.219±0.166
+   deepseek-v3.2           0.561±0.296 0.559±0.296 0.180±0.128 0.181±0.128 0.163±0.117 0.162±0.117 1.664±0.706 1.675±0.711 0.873±0.529 0.870±0.530 0.226±0.164 0.224±0.163
+   gpt-5.2                 0.544±0.313 0.545±0.315 0.175±0.132 0.175±0.133 0.156±0.121 0.156±0.121 1.637±0.769 1.642±0.773 0.846±0.552 0.849±0.554 0.217±0.169 0.217±0.169
+   gemini-3-!ash-preview   0.543±0.316 0.543±0.313 0.176±0.133 0.175±0.132 0.157±0.122 0.156±0.121 1.644±0.774 1.672±0.763 0.847±0.556 0.845±0.552 0.218±0.170 0.217±0.169
+   gemini-3-pro-preview    0.545±0.314 0.543±0.314 0.176±0.132 0.175±0.133 0.157±0.121 0.156±0.121 1.647±0.771 1.651±0.772 0.850±0.554 0.846±0.554 0.218±0.169 0.217±0.169
+   grok-4.1-fast           0.532±0.302 0.532±0.304 0.172±0.130 0.172±0.130 0.155±0.119 0.156±0.119 1.675±0.714 1.674±0.734 0.827±0.537 0.829±0.539 0.215±0.166 0.216±0.166
+                                                                            Level 2 (Parameter Inference)
+   claude-sonnet-4.5       0.482±0.249 0.482±0.249 0.151±0.104 0.149±0.102 0.136±0.109 0.136±0.106 1.819±1.217 1.659±0.673 0.746±0.442 0.739±0.433 0.185±0.148 0.185±0.145
+   deepseek-v3.2           0.401±0.251 0.406±0.273 0.117±0.095 0.119±0.100 0.110±0.103 0.112±0.108 1.564±0.805 1.568±0.832 0.612±0.417 0.625±0.454 0.149±0.139 0.152±0.146
+   gpt-5.2                 0.366±0.262 0.384±0.266 0.104±0.097 0.109±0.095 0.095±0.096 0.095±0.093 1.553±0.894 1.798±0.963 0.546±0.431 0.564±0.432 0.129±0.130 0.130±0.127
+   gemini-3-!ash-preview   0.493±0.271 0.515±0.243 0.144±0.112 0.151±0.100 0.130±0.111 0.138±0.105 1.698±1.239 1.792±2.233 0.736±0.462 0.778±0.420 0.177±0.152 0.188±0.142
+   gemini-3-pro-preview    0.604±0.224 0.632±0.197 0.196±0.096 0.209±0.089 0.171±0.095 0.184±0.091 1.684±0.761 1.740±0.753 0.942±0.394 0.991±0.357 0.234±0.129 0.252±0.123
+   grok-4.1-fast           0.401±0.240 0.422±0.239 0.127±0.090 0.133±0.089 0.117±0.088 0.122±0.089 1.639±0.803 1.820±1.084 0.622±0.402 0.653±0.395 0.158±0.119 0.165±0.120
+                                                                          Level 3 (Goal-Oriented Generation)
+   claude-sonnet-4.5       0.507±0.247 0.492±0.234 0.165±0.104 0.160±0.102 0.156±0.102 0.148±0.104 1.452±0.353 1.553±0.414 0.820±0.434 0.792±0.420 0.212±0.140 0.202±0.142
+   deepseek-v3.2           0.329±0.240 0.304±0.235 0.099±0.086 0.090±0.084 0.107±0.094 0.095±0.087 1.530±0.876 1.458±0.723 0.531±0.407 0.483±0.391 0.142±0.126 0.126±0.118
+   gpt-5.2                 0.336±0.303 0.322±0.297 0.112±0.120 0.106±0.118 0.105±0.120 0.099±0.114 1.608±0.702 1.542±0.682 0.542±0.524 0.516±0.510 0.143±0.163 0.135±0.156
+   gemini-3-!ash-preview   0.532±0.276 0.531±0.226 0.167±0.119 0.169±0.102 0.159±0.116 0.158±0.105 1.511±0.541 1.509±0.347 0.838±0.487 0.837±0.416 0.216±0.159 0.214±0.144
+   gemini-3-pro-preview    0.734±0.167 0.705±0.157 0.252±0.087 0.244±0.081 0.245±0.086 0.225±0.082 1.429±0.341 1.526±0.293 1.221±0.335 1.159±0.309 0.334±0.118 0.309±0.114
+   grok-4.1-fast           0.331±0.219 0.332±0.211 0.102±0.085 0.100±0.082 0.105±0.088 0.102±0.086 1.573±0.701 1.578±0.510 0.526±0.375 0.521±0.362 0.140±0.119 0.137±0.117
+                                                                            BTCUSDT (Cryptocurrency)
+   claude-sonnet-4.5       0.353±0.186 0.354±0.186 0.134±0.085 0.133±0.085 0.203±0.128 0.199±0.128 0.817±0.655 0.833±0.676 0.601±0.330 0.601±0.327 0.233±0.149 0.230±0.149
+   deepseek-v3.2           0.307±0.202 0.297±0.205 0.114±0.087 0.110±0.088 0.173±0.130 0.169±0.131 0.821±0.687 0.854±0.758 0.526±0.348 0.513±0.348 0.198±0.150 0.194±0.152
+   gpt-5.2                 0.301±0.212 0.302±0.211 0.111±0.094 0.111±0.093 0.158±0.139 0.159±0.137 0.958±0.781 0.954±0.789 0.497±0.373 0.499±0.370 0.184±0.161 0.185±0.159
+   gemini-3-!ash-preview   0.373±0.205 0.371±0.176 0.137±0.094 0.138±0.085 0.203±0.139 0.205±0.130 0.876±0.723 0.855±0.683 0.621±0.357 0.624±0.315 0.235±0.160 0.238±0.150
+   gemini-3-pro-preview    0.420±0.162 0.425±0.143 0.164±0.078 0.167±0.071 0.254±0.125 0.251±0.118 0.797±0.643 0.837±0.623 0.739±0.313 0.736±0.258 0.294±0.142 0.291±0.134
+   grok-4.1-fast           0.299±0.194 0.313±0.187 0.111±0.086 0.114±0.084 0.174±0.124 0.177±0.124 0.797±0.715 0.869±0.710 0.508±0.334 0.524±0.325 0.199±0.142 0.203±0.142
+                                                                            ETHUSDT (Cryptocurrency)
+   claude-sonnet-4.5       0.297±0.225 0.290±0.226 0.151±0.150 0.147±0.150 0.245±0.184 0.243±0.183 0.592±0.376 0.563±0.346 0.465±0.348 0.455±0.349 0.285±0.220 0.282±0.220
+   deepseek-v3.2           0.252±0.218 0.244±0.217 0.123±0.138 0.118±0.137 0.216±0.182 0.211±0.184 0.545±0.370 0.560±0.440 0.396±0.336 0.382±0.335 0.249±0.216 0.243±0.218
+   gpt-5.2                 0.233±0.241 0.229±0.236 0.121±0.153 0.118±0.152 0.197±0.193 0.194±0.191 0.564±0.405 0.562±0.365 0.369±0.370 0.361±0.363 0.228±0.230 0.224±0.227
+   gemini-3-!ash-preview   0.276±0.260 0.292±0.230 0.141±0.162 0.145±0.152 0.246±0.195 0.249±0.184 0.507±0.416 0.544±0.354 0.444±0.385 0.460±0.352 0.284±0.235 0.288±0.222
+   gemini-3-pro-preview    0.358±0.224 0.355±0.215 0.181±0.156 0.179±0.149 0.311±0.174 0.305±0.166 0.543±0.360 0.559±0.330 0.569±0.341 0.564±0.326 0.360±0.211 0.354±0.202
+   grok-4.1-fast           0.245±0.213 0.248±0.211 0.121±0.135 0.122±0.135 0.214±0.174 0.218±0.172 0.529±0.363 0.515±0.340 0.387±0.327 0.393±0.322 0.247±0.207 0.251±0.205
+                                                                                 AAPL (US Equity)
+   claude-sonnet-4.5       0.941±0.493 0.924±0.488 0.180±0.119 0.175±0.117 0.073±0.048 0.071±0.047 2.799±1.303 2.779±1.330 1.262±0.726 1.240±0.721 0.116±0.074 0.113±0.072
+   deepseek-v3.2           0.803±0.515 0.784±0.526 0.145±0.116 0.142±0.119 0.059±0.047 0.058±0.048 2.774±1.499 2.722±1.400 1.074±0.732 1.047±0.750 0.095±0.072 0.093±0.074
+   gpt-5.2                 0.745±0.549 0.751±0.548 0.139±0.125 0.139±0.125 0.058±0.052 0.058±0.052 2.621±1.493 2.745±1.577 0.977±0.780 0.982±0.778 0.092±0.079 0.091±0.079
+   gemini-3-!ash-preview   0.946±0.505 0.953±0.472 0.173±0.125 0.177±0.117 0.073±0.051 0.075±0.048 2.861±2.392 2.672±1.327 1.237±0.740 1.257±0.698 0.116±0.078 0.118±0.073
+   gemini-3-pro-preview    1.067±0.480 1.075±0.446 0.214±0.123 0.215±0.115 0.093±0.049 0.091±0.046 2.539±1.472 2.661±1.312 1.456±0.729 1.462±0.679 0.146±0.073 0.144±0.070
+   grok-4.1-fast           0.744±0.494 0.751±0.485 0.139±0.114 0.139±0.112 0.059±0.046 0.059±0.046 2.613±1.453 2.615±1.386 0.986±0.711 0.993±0.697 0.094±0.071 0.094±0.070
+                                                                                GOOGL (US Equity)
+   claude-sonnet-4.5       0.792±0.445 0.789±0.434 0.201±0.146 0.195±0.140 0.103±0.089 0.103±0.089 2.575±1.566 2.578±1.596 1.316±0.823 1.308±0.799 0.168±0.132 0.168±0.132
+   deepseek-v3.2           0.628±0.455 0.627±0.470 0.146±0.138 0.146±0.142 0.087±0.088 0.084±0.088 2.261±1.689 2.350±1.720 1.044±0.815 1.036±0.837 0.139±0.131 0.136±0.132
+   gpt-5.2                 0.635±0.502 0.639±0.502 0.160±0.154 0.161±0.154 0.080±0.089 0.077±0.086 2.636±1.946 2.648±1.621 1.055±0.897 1.051±0.890 0.131±0.134 0.127±0.131
+   gemini-3-!ash-preview   0.802±0.492 0.808±0.442 0.195±0.157 0.199±0.146 0.104±0.097 0.105±0.089 2.435±1.751 2.487±1.605 1.325±0.902 1.336±0.822 0.170±0.143 0.170±0.132
+   gemini-3-pro-preview    0.960±0.446 0.968±0.423 0.252±0.153 0.256±0.143 0.131±0.097 0.130±0.090 2.633±1.765 2.700±1.552 1.627±0.834 1.644±0.789 0.212±0.140 0.211±0.131
+   grok-4.1-fast           0.639±0.446 0.644±0.440 0.157±0.138 0.157±0.137 0.082±0.082 0.084±0.084 2.646±1.915 2.830±2.808 1.065±0.798 1.079±0.785 0.133±0.123 0.137±0.125
+                                                                                 MSFT (US Equity)
+   claude-sonnet-4.5       0.438±0.312 0.433±0.308 0.084±0.062 0.083±0.061 0.078±0.047 0.077±0.046 1.145±1.180 1.097±0.971 0.657±0.450 0.644±0.443 0.113±0.067 0.111±0.065
+   deepseek-v3.2           0.362±0.314 0.360±0.321 0.066±0.062 0.065±0.064 0.062±0.046 0.061±0.047 1.035±0.975 1.037±0.951 0.529±0.455 0.525±0.469 0.091±0.066 0.088±0.068
+   gpt-5.2                 0.376±0.326 0.376±0.333 0.070±0.064 0.070±0.066 0.063±0.050 0.062±0.050 1.130±0.937 1.154±1.010 0.546±0.469 0.544±0.480 0.092±0.071 0.091±0.072
+   gemini-3-!ash-preview   0.474±0.339 0.475±0.306 0.089±0.067 0.090±0.062 0.079±0.050 0.080±0.046 1.147±0.918 1.323±2.709 0.692±0.498 0.696±0.439 0.115±0.070 0.117±0.064
+   gemini-3-pro-preview    0.576±0.318 0.567±0.289 0.113±0.064 0.111±0.059 0.097±0.047 0.097±0.044 1.197±0.763 1.201±0.787 0.858±0.461 0.844±0.423 0.140±0.065 0.141±0.061
+   grok-4.1-fast           0.352±0.307 0.357±0.310 0.066±0.061 0.066±0.061 0.062±0.045 0.063±0.045 1.067±0.897 1.035±0.861 0.515±0.442 0.517±0.444 0.090±0.065 0.091±0.064
+                                                                                NVDA (US Equity)
+   claude-sonnet-4.5       0.223±0.210 0.220±0.208 0.005±0.050 0.005±0.054 0.188±0.179 0.183±0.178 0.449±0.817 0.462±0.896 0.480±0.417 0.463±0.412 0.273±0.261 0.266±0.260
+   deepseek-v3.2           0.192±0.209 0.191±0.208 0.002±0.053 0.005±0.054 0.155±0.167 0.149±0.166 0.460±0.942 0.502±0.885 0.395±0.394 0.390±0.397 0.225±0.243 0.216±0.242
+   gpt-5.2                 0.165±0.203 0.164±0.205 0.001±0.052 0.002±0.050 0.150±0.180 0.147±0.177 0.497±1.078 0.544±1.542 0.378±0.421 0.370±0.421 0.218±0.262 0.213±0.258
+   gemini-3-!ash-preview   0.234±0.242 0.231±0.210 0.009±0.076 0.006±0.060 0.182±0.189 0.184±0.179 0.435±1.013 0.437±0.826 0.482±0.466 0.476±0.417 0.265±0.276 0.268±0.260
+   gemini-3-pro-preview    0.302±0.221 0.299±0.206 0.011±0.073 0.013±0.065 0.247±0.183 0.242±0.172 0.493±1.063 0.535±1.285 0.653±0.506 0.635±0.411 0.359±0.266 0.352±0.251
+   grok-4.1-fast           0.183±0.196 0.188±0.193 0.006±0.055 0.005±0.052 0.153±0.156 0.153±0.156 0.465±1.004 0.508±0.896 0.391±0.374 0.396±0.373 0.222±0.228 0.222±0.228
+                                                                                 TSLA (US Equity)
+   claude-sonnet-4.5       0.547±0.385 0.545±0.386 0.395±0.341 0.397±0.343 0.158±0.143 0.155±0.142 3.076±1.846 3.259±2.031 0.860±0.658 0.858±0.661 0.249±0.220 0.245±0.219
+   deepseek-v3.2           0.470±0.377 0.464±0.394 0.329±0.324 0.323±0.328 0.134±0.136 0.130±0.136 3.057±2.042 2.989±2.109 0.741±0.635 0.726±0.649 0.210±0.210 0.205±0.210
+   gpt-5.2                 0.451±0.412 0.460±0.413 0.309±0.346 0.308±0.338 0.124±0.144 0.121±0.141 2.894±1.629 2.991±1.740 0.691±0.685 0.692±0.676 0.196±0.223 0.193±0.218
+   gemini-3-!ash-preview   0.554±0.451 0.580±0.398 0.391±0.372 0.399±0.339 0.152±0.153 0.157±0.144 2.921±1.918 3.065±1.772 0.851±0.735 0.891±0.668 0.241±0.235 0.247±0.221
+   gemini-3-pro-preview    0.712±0.383 0.699±0.366 0.523±0.346 0.522±0.331 0.204±0.143 0.202±0.139 2.983±1.688 3.015±1.463 1.127±0.650 1.106±0.620 0.324±0.219 0.320±0.212
+   grok-4.1-fast           0.485±0.369 0.500±0.372 0.337±0.313 0.344±0.314 0.133±0.129 0.132±0.129 3.244±2.087 3.418±2.322 0.756±0.608 0.772±0.613 0.210±0.199 0.211±0.200
+
+preference. gpt-5.2 and grok-4.1-fast form compact, risk-averse poly-                        (1) Logic translation (Level 1) is a near-saturated capability:
+gons that extend furthest on the MDD axis, while claude-sonnet-4.5                           all models achieve tightly clustered SR values (range = 0.029), in-
+achieves the most balanced shape across all! ve axes. The near-                              dicating that faithful code translation from fully speci!ed rules
+identical polygon geometry between the 𝑀=0 and 𝑀=0.7 panels pro-                             presents minimal challenge for frontier LLMs; notably, deepseek-
+vides strong visual con!rmation that these model risk personalities                          v3.2 leads at this level despite ranking among the weakest overall,
+are intrinsic and temperature-invariant.                                                     suggesting that code-translation competence is a distinct skill from
+                                                                                             strategic reasoning ability. (2) Parameter inference (Level 2)
+4.3.2 Per-level analysis. The Level blocks of Table 2 and the grouped                        exposes domain-knowledge gaps: the inter-model SR spread
+bar charts in Figure 3 reveal a monotonically widening inter-model                           widens to 8↑ the Level 1 range once models must supply missing
+spread across the three di%culty levels, validating the 3 ↑ 3 taxon-
+omy as an e$ective diagnostic tool. Three principal! ndings emerge.
+
+
+
+
+                                                                                    10274
+KDD’26, August 9 to 13, 2026, Jeju, Korea                                                                                        Wentao Zhang et al.
+
+
+                                                                               patterns emerge. The top return-generating model excels partic-
+                                                                               ularly on high-volatility assets (TSLA, NVDA, cryptocurrencies),
+                                                                               suggesting robust handling of challenging market conditions; con-
+                                                                               versely, claude-sonnet-4.5 exhibits the most uniform performance
+                                                                               across assets, indicating balanced, asset-agnostic strategy genera-
+                                                                               tion. (4) Rankings and di#culty gradients are temperature-
+                                                                               invariant. The bar patterns visualized in Figure 4 remain virtually
+              (a) T=0.0                       (b) T=0.7
+                                                                               identical between the 𝑀=0 and 𝑀=0.7 panels, con!rming that both
+Figure 3: Sharpe Ratio by di#culty level on LLM-augmented                      model specialization pro!les and the asset-di%culty hierarchy are
+queries (𝑀=0 vs. 𝑀=0.7). Inter-model spread widens monotoni-                   intrinsic properties fundamentally una$ected by decoding temper-
+cally from Level 1 to Level 3.                                                 ature. Detailed per-asset tables and additional visual analyses are
+thresholds, lookback windows, and indicator parameters, indicat-               provided in Appx. G.
+ing that grounding underspeci!ed strategy skeletons in reasonable              4.3.4 Aligned return curve analysis. Figure 5 overlays the cumu-
+!nancial parameters e$ectively separates models with strong do-                lative return trajectories of all six models across the full query
+main knowledge from those that lack it; stochastic sampling (𝑀=0.7)            spectrum, with shaded bands denoting the 25th–75th percentile
+marginally bene!ts the top model at this level, suggesting that                range over 5 independent runs. Four observations emerge. (1) Inter-
+sampling diversity can occasionally discover better parameter con-             model separation is persistent and substantial. The vertical gap
+!gurations. (3) Goal-oriented generation (Level 3) produces                    between the highest and lowest trajectories far exceeds any indi-
+the most discriminative separation: the spread reaches 14↑ the                 vidual model’s con!dence band throughout the entire query range,
+Level 1 range, with a striking crossover where models that excel at            providing direct visual evidence that performance di$erences re"ect
+constrained translation (e.g., deepseek-v3.2) decline monotonically            genuine capability gaps rather than generation noise. (2) Run-to-
+from L1 to L3, whereas gemini-3-pro-preview actually improves,                 run stability is consistently high. The narrow shaded bands
+indicating superior open-ended strategy design capabilities. The               con!rm that independently generated strategies produce tightly
+primary cognitive leap occurs between Level 1 and Level 2 (a 16%               clustered outcomes even at 𝑀=0.7; notably, claude-sonnet-4.5 ex-
+SR decline in model-averaged performance), while the L2-to-L3                  hibits the narrowest bands (most consistent generation), while
+transition introduces additional inter-model variance rather than a            grok-4.1-fast displays the widest, corroborating its high-variance
+sharp further mean decline. This crossover demonstrates that the               pro!le observed in the boxplot analysis. (3) Temperature invari-
+three levels probe fundamentally di$erent cognitive capabilities,              ance is visually con!rmed. The 𝑀=0 and 𝑀=0.7 panels yield vir-
+and no single model dominates across all levels.                               tually identical curve shapes and separation patterns, reinforcing
+                                                                               that the code-generation paradigm con!nes LLM stochasticity to a
+                                                                               single generation step while ensuring deterministic downstream ex-
+                                                                               ecution. (4) Di#culty modulates inter-model divergence. The
+                                                                               separation widens progressively for harder queries and narrows
+                                                                               for easier ones, consistent with the per-level! nding that Level 3
+                                                                               tasks maximally amplify capability di$erences across models.
+              (a) T=0.0                       (b) T=0.7
+Figure 4: Sharpe Ratio by asset on LLM-augmented queries
+(𝑀=0 vs. 𝑀=0.7). A shared di#culty gradient emerges, with
+AAPL/GOOGL easiest and crypto/NVDA hardest.
+
+4.3.3 Per-asset analysis. The asset blocks of Table 2 and Figure 4
+yield four observations that mirror and extend the Stage 1 per-asset
+!ndings. (1) A systematic di#culty gradient persists across
+assets. Trend-rich large-caps (AAPL, GOOGL) remain the easiest
+targets for all models, MSFT and NVDA constitute the hardest                              (a) T=0.0                         (b) T=0.7
+equity environments primarily due to narrower trading ranges
+and rapid regime shifts respectively, and cryptocurrencies (BT-                Figure 5: Aligned cumulative return curves on LLM-
+CUSDT, ETHUSDT) rank as the most challenging overall, re"ecting                augmented queries (𝑀=0 vs. 𝑀=0.7). Shaded bands denote the
+higher volatility and fundamentally di$erent 24/7 market dynam-                25th–75th percentile range over 5 runs.
+ics. TSLA again occupies a unique position: it yields the highest
+absolute returns yet the widest cross-model variance, amplifying               4.3.5 Per-model stability profiles. Appx. G provides detailed per-
+the advantage of aggressive signal logic. (2) The Stage 2 di#culty             model analyses of multi-run stability, di%culty-level performance
+design sharpens inter-model dispersion within each asset.                      curves, and best-case strategy returns. Three archetypal behav-
+Compared to Stage 1, the controlled query design produces wider                ioral pro!les emerge from these results. (1) Aggressive-creative
+SR spreads on every asset, con!rming that the structured queries               pro!le (gemini-3-pro-preview): uniquely, this model’s SR increases
+e$ectively magnify latent capability di$erences that real-world                from Level 1 to Level 3, indicating that open-ended creative free-
+queries alone partially obscure. (3) Distinct model specialization             dom ampli!es its strengths; however, this comes at the cost of the
+
+
+
+
+                                                                       10275
+AlphaForgeBench: Benchmarking End-to-End Trading Strategy Design with Large Language Models                            KDD’26, August 9 to 13, 2026, Jeju, Korea
+
+
+widest con!dence bands among top-tier models and the highest                        design ability. This also explains why agent style! nancial trading is
+drawdown/volatility. (2) Balanced-stable pro!le (claude-sonnet-                     a weak benchmark here, since Appendix C shows that such systems
+4.5, gemini-3-!ash-preview): these models exhibit the narrowest                     can remain unstable even under identical con!gurations.
+run-to-run con!dence bands and the mildest Level 1-to-Level 3                          The results further show that! nancial strategy generation is
+degradation, with claude-sonnet-4.5 achieving the best Calmar Ratio                 not a single capability. The widening spread across di%culty levels
+(CR = 1.650) and gemini-3-!ash-preview serving as a cost-e$ective                   and the ranking reversals between Level 1 and Level 3 indicate
+alternative with a nearly" at di%culty pro!le. (3) Conservative-                    that logic translation, logic completion, and open ended synthe-
+rigid pro!le (gpt-5.2, deepseek-v3.2, grok-4.1-fast): these models                  sis rely on distinct strengths. The recurring risk pro!les across
+favor low-risk signal logic (lowest MDD and VOL) but su$er the                      stages and assets likewise suggest that frontier LLMs encode stable
+steepest performance degradation from structured to open-ended                      preferences in how they trade o$ return, drawdown, and volatility.
+tasks; deepseek-v3.2 exempli!es this pattern most starkly, leading at               A!"#$F%&’(B()*# is therefore useful not only as a leaderboard
+Level 1 yet dropping to the bottom tier at Level 3, while grok-4.1-fast             but also as a diagnostic benchmark that separates conservative from
+additionally exhibits the highest run-to-run variance, making it the                aggressive models, structured translators from creative synthesiz-
+least predictable model in the benchmark. These archetypal pro!les                  ers, and robust models from those that degrade as task ambiguity
+suggest that the return-risk trade-o$ observed in aggregate metrics                 increases. This also motivates the current focus on single asset
+stems from fundamentally di$erent strategy-generation strategies                    evaluation, which isolates signal generation and strategy logic con-
+encoded by each LLM, and that no single model simultaneously op-                    struction without the added variability of asset allocation, cross
+timizes for return, stability, and robustness across di%culty levels.               asset dependencies, and risk control.
+                                                                                       The benchmark should be interpreted within a controlled scope.
+4.3.6 Findings and conclusions. Synthesizing the above analyses,                    The current evaluation targets single asset long only strategy de-
+the Stage 2 evaluation yields! ve principal!ndings. (1) Temper-                     sign under a standardized backtesting environment with a! xed
+ature invariance: the 𝑀=0 and 𝑀=0.7 results are near-identical                      transaction cost of 10↓3 and without explicit slippage or liquidity
+across models, metrics, and di%culty levels, with a maximum SR                      modeling. These choices improve comparability and reproducibil-
+di$erence below 0.008. (2) Systematic di#culty progression: the                     ity, but they also mean that the reported results are better read
+inter-model SR spread widens from Level 1 (0.029) to Level 2 (8↑) and               as controlled measures of strategy design quality than as direct
+Level 3 (14↑), con!rming that the 3 ↑ 3 taxonomy separates models                   estimates of deployable trading performance. The same logic ap-
+along a controlled cognitive-demand axis. (3) Cross-level ranking                   plies to Stage 2, whose queries are generated through controlled
+reversals: Level 1 code translation and Level 3 open-ended strategy                 augmentation of Stage 1 to provide diagnostic structure rather than
+design rely on distinct capabilities, as shown by the strong crossover              broad ecological coverage. Because Stage 2 remains anchored to
+in model rankings that would be obscured by aggregate metrics                       real world sources and the prede!ned 3 ↑ 3 taxonomy, and model
+and single-score summaries. (4) Reproducible risk pro!les: the                      rankings remain broadly aligned between Stage 1 and Stage 2, the
+aggressive-creative, balanced-stable, and conservative-rigid pat-                   structured track appears to preserve genuine capability di$erences
+terns persist across stages, assets, and temperatures, indicating                   without strong model speci!c bias. Under this interpretation, A!+
+stable model-speci!c strategy behavior under both structured and                    "#$F%&’(B()*# provides a stable and interpretable foundation
+open-ended query settings. (5) Cross-asset robustness: model                        for evaluating! nancial strategy design with LLMs.
+rankings and a shared asset-di%culty gradient are preserved across
+all 7 assets spanning cryptocurrency and US equity markets, with                    6   Conclusion
+Stage 2 further sharpening inter-model dispersion within each asset.
+                                                                                    We presented A!"#$F%&’(B()*#, a benchmark that reframes
+Together, these! ndings validate the 3 ↑ 3 taxonomy as an e$ec-
+                                                                                    LLM evaluation in quantitative! nance from black box action emis-
+tive diagnostic tool while complementing the ecological validity
+                                                                                    sion to white box strategy code generation. Across 903 queries, six
+of Stage 1, and reinforce the code-generation paradigm as a stable,
+                                                                                    frontier LLMs, seven assets, and 35,190 total implementations, the
+reproducible, and discriminative benchmark for LLM capability
+                                                                                    results show that this code generation paradigm is temperature
+evaluation in! nance across both real-world and structured queries.
+                                                                                    invariant, highly reproducible, and more discriminative than di-
+                                                                                    rect trading baselines. The benchmark further reveals widening
+5    Discussion                                                                     capability gaps across di%culty levels, ranking reversals that sepa-
+The results suggest that strategy code generation changes both the                  rate distinct cognitive skills, and stable model speci!c risk pro!les,
+evaluation interface and the capability under study. Here, end to                   establishing A!"#$F%&’(B()*# as a rigorous framework for
+end denotes the full pipeline from natural language to complete                     evaluating! nancial strategy design with LLMs.
+rule based strategy generation and deterministic backtesting, rather
+than agent style systems that directly emit BUY, HOLD, or SELL ac-                  7   Acknowledgments
+tions. The two settings therefore probe di$erent abilities. Agent                   Shuo Sun is supported by Guangdong Provincial Key Lab of Inte-
+based trading emphasizes step wise action selection, whereas A!+                    grated Communication, Sensing and Computation for Ubiquitous
+"#$F%&’(B()*# focuses on whether a model can synthesize                             Internet of Things (No.2023B1212010007). Bo An is supported by
+factors, rules, and decision logic into a coherent strategy. The near               the National Research Foundation Singapore and DSO National
+invariance between 𝑀=0 and 𝑀=0.7 and the low run to run vari-                       Laboratories under the AI Singapore Programme (AISG Award No:
+ance across both stages indicate that, once execution randomness                    AISG2-GC-2023-009-1B).
+is removed, performance di$erences more cleanly re"ect strategy
+
+
+
+
+                                                                            10276
+KDD’26, August 9 to 13, 2026, Jeju, Korea                                                                                                                          Wentao Zhang et al.
+
+
+References                                                                                            Computational Linguistics: Human Language Technologies (Volume 1: Long Papers).
+ [1] 2025. AI trading in real markets. https://nof1.ai/. Accessed: 2026-01-14.                        876–891.
+ [2] Alpaha Arena. 2026. AI trading in real markets. https://nof1.ai/ Accessed:                  [15] Prophet Arena. 2025. Prophet Arena: Live LLM Trading Competition Platform.
+     2026-01-23.                                                                                      https://www.prophetarena.co/ Accessed: 2026-01-23.
+ [3] Ant Group and Shanghai University of Finance and Economics. 2025. Fin-Eva                   [16] RockFlow AI. 2025. RockAlpha: LLM-Powered Quantitative Trading Platform.
+     Version 1.0: A Chinese Financial Evaluation Benchmark for Large Language Models.                 https://rockalpha.rock"ow.ai/ Accessed: 2026-01-23.
+     https://github.com/alipay/!nancial_evaluation_dataset Accessed: 2026-01-23.                 [17] WorldQuant. 2026. WorldQuant: Quantitative Research Platform. https://www.
+ [4] Jian Chen, Peilin Zhou, Yining Hua, Loh Xin, Kehui Chen, Ziyuan Li, Bing Zhu,                    worldquant.com/. Accessed: 2026-02-09.
+     and Junwei Liang. 2024. Fintextqa: A dataset for long-form! nancial question                [18] Shijie Wu, Ozan Irsoy, Steven Lu, Vadim Dabravolski, Mark Dredze, Sebas-
+     answering. In Proceedings of the 62nd Annual Meeting of the Association for                      tian Gehrmann, Prabhanjan Kambadur, David Rosenberg, and Gideon Mann.
+     Computational Linguistics (Volume 1: Long Papers). 6025–6047.                                    2023. Bloomberggpt: A large language model for! nance. arXiv preprint
+ [5] Yanxu Chen, Zijun Yao, Yantao Liu, Jin Ye, Jianing Yu, Lei Hou, and Juanzi Li.                   arXiv:2303.17564 (2023).
+     2025. Stockbench: Can llm agents trade stocks pro!tably in real-world markets?              [19] Qianqian Xie, Weiguang Han, Zhengyu Chen, Ruoyu Xiang, Xiao Zhang, Yueru
+     arXiv preprint arXiv:2510.02209 (2025).                                                          He, Mengxi Xiao, Dong Li, Yongfu Dai, Duanyu Feng, et al. 2024. Finben: A
+ [6] Zhiyu Chen, Wenhu Chen, Charese Smiley, Sameena Shah, Iana Borova, Dylan                         holistic! nancial benchmark for large language models. Advances in Neural
+     Langdon, Reema Moussa, Matt Beane, Ting-Hao Huang, Bryan R Routledge, et al.                     Information Processing Systems 37 (2024), 95716–95743.
+     2021. Finqa: A dataset of numerical reasoning over! nancial data. In Proceedings            [20] Qianqian Xie, Weiguang Han, Yanzhao Lai, Min Peng, and Jimin Huang. 2023.
+     of the 2021 Conference on Empirical Methods in Natural Language Processing.                      The wall street neophyte: A zero-shot analysis of chatgpt over multimodal stock
+     3697–3711.                                                                                       movement prediction challenges. arXiv preprint arXiv:2304.05351 (2023).
+ [7] Zhiyu Chen, Shiyang Li, Charese Smiley, Zhiqiang Ma, Sameena Shah, and                      [21] Qianqian Xie, Weiguang Han, Xiao Zhang, Yanzhao Lai, Min Peng, Alejandro
+     William Yang Wang. 2022. Conv!nqa: Exploring the chain of numerical reasoning                    Lopez-Lira, and Jimin Huang. 2023. Pixiu: A comprehensive benchmark, instruc-
+     in conversational! nance question answering. arXiv preprint arXiv:2210.03849                     tion dataset and large language model for! nance. Advances in Neural Information
+     (2022).                                                                                          Processing Systems 36 (2023), 33469–33484.
+ [8] JoinQuant. 2026. JoinQuant: Quantitative Research Platform. https://www.                    [22] Xiao Yang, Weiqing Liu, Dong Zhou, Jiang Bian, and Tie-Yan Liu. 2020. Qlib: An
+     joinquant.com/. Accessed: 2026-02-09.                                                            ai-oriented quantitative investment platform. arXiv preprint arXiv:2009.11189
+ [9] Changlun Li, Yao Shi, Chen Wang, Qiqi Duan, Runke Ruan, Weijie Huang, Haonan                     (2020).
+     Long, Lijun Huang, Nan Tang, and Yuyu Luo. 2025. Time Travel is Cheating:                   [23] Yuzhe Yang, Yifei Zhang, Yan Hu, Yilin Guo, Ruoli Gan, Yueru He, Mingcong
+     Going Live with DeepFund for Real-Time Fund Investment Benchmarking. arXiv                       Lei, Xiao Zhang, Haining Wang, Qianqian Xie, et al. 2025. Ucfe: A user-centric
+     preprint arXiv:2505.11065 (2025).                                                                !nancial expertise benchmark for large language models. In Findings of the
+                                                                                                      Association for Computational Linguistics: NAACL 2025. 5429–5448.
+[10] Haohang Li, Yupeng Cao, Yangyang Yu, Shashidhar Reddy Javaji, Zhiyang Deng,
+                                                                                                 [24] Haofei Yu, Fenghai Li, and Jiaxuan You. 2025. LiveTradeBench: Seeking Real-
+     Yueru He, Yuechen Jiang, Zining Zhu, Kp Subbalakshmi, Jimin Huang, et al.
+                                                                                                      World Alpha with Large Language Models. arXiv preprint arXiv:2511.03628 (2025).
+     2025. Investorbench: A benchmark for! nancial decision-making tasks with
+                                                                                                 [25] Yangyang Yu, Zhiyuan Yao, Haohang Li, Zhiyang Deng, Yuechen Jiang, Yupeng
+     llm-based agent. In Proceedings of the 63rd Annual Meeting of the Association for
+                                                                                                      Cao, Zhi Chen, Jordan Suchow, Zhenyu Cui, Rong Liu, et al. 2024. Fincon: A
+     Computational Linguistics (Volume 1: Long Papers). 2509–2525.
+                                                                                                      synthesized llm multi-agent system with conceptual verbal reinforcement for
+[11] Xiao-Yang Liu, Guoxuan Wang, Hongyang Yang, and Daochen Zha. 2023. Fingpt:
+                                                                                                      enhanced! nancial decision making. Advances in Neural Information Processing
+     Democratizing internet-scale data for! nancial large language models. arXiv
+                                                                                                      Systems 37 (2024), 137010–137045.
+     preprint arXiv:2307.10485 (2023).
+                                                                                                 [26] Zhiyuan Zeng, Jiashuo Liu, Siyuan Chen, Tianci He, Yali Liao, Yixiao Tian, Jinpeng
+[12] Alejandro Lopez-Lira and Yuehua Tang. 2023. Can chatgpt forecast stock price
+                                                                                                      Wang, Zaiyuan Wang, Yang Yang, Lingyue Yin, et al. 2025. Futurex: An advanced
+     movements? return predictability and large language models. arXiv preprint
+                                                                                                      live benchmark for llm agents in future prediction. arXiv preprint arXiv:2508.11987
+     arXiv:2304.07619 (2023).
+                                                                                                      (2025).
+[13] Macedo Maia, Siegfried Handschuh, André Freitas, Brian Davis, Ross McDermott,
+                                                                                                 [27] Tianping Zhang, Zheyu Aqa Zhang, Zhiyuan Fan, Haoyan Luo, Fengyuan Liu,
+     Manel Zarrouk, and Alexandra Balahur. 2018. Www’18 open challenge:!nancial
+                                                                                                      Qian Liu, Wei Cao, and Li Jian. 2023. Openfe: Automated feature generation
+     opinion mining and question answering. In Companion proceedings of the the web
+                                                                                                      with expert-level performance. In International Conference on Machine Learning.
+     conference 2018. 1941–1942.
+                                                                                                      PMLR, 41880–41901.
+[14] Ying Nie, Binwei Yan, Tianyu Guo, Hao Liu, Haoyu Wang, Wei He, Binfan Zheng,
+                                                                                                 [28] Fengbin Zhu, Wenqiang Lei, Youcheng Huang, Chao Wang, Shuo Zhang,
+     Weihao Wang, Qiang Li, Weijian Sun, et al. 2025. C!nbench: A comprehensive
+                                                                                                      Jiancheng Lv, Fuli Feng, and Tat-Seng Chua. 2021. TAT-QA: A question an-
+     chinese! nancial benchmark for large language models. In Proceedings of the
+                                                                                                      swering benchmark on a hybrid of tabular and textual content in! nance. arXiv
+     2025 Conference of the Nations of the Americas Chapter of the Association for
+                                                                                                      preprint arXiv:2105.07624 (2021).
+
+
+
+
+                                                                                         10277
+
