@@ -120,6 +120,9 @@ Một agent vì vậy không chỉ “trả lời”. Nó **quan sát kết qu�
 
 ## 4. State, Action và Observation
 
+![Agent, environment, action và feedback](../assets/figures/05-agent-contracts.png)
+*Hình minh họa: agent nhận observation, gọi tool hoặc phát action, cập nhật state memory và dùng feedback cho vòng tiếp theo.*
+
 Ba khái niệm này tạo nền tảng cho closed loop.
 
 ### 4.1. State
@@ -208,6 +211,12 @@ State_t+1
 ---
 
 ## 5. Kiến trúc ba Agent
+
+![Ba vai trò agent trong AlphaAgent](../assets/figures/05-agent-roles.png)
+*Hình minh họa: Idea Agent tạo hypothesis, Factor Agent tạo expression và Eval Agent kiểm tra metrics.*
+
+![Figure 1 - AlphaAgent workflow](../assets/figures/figure-01-alphaagent-workflow.png)
+*Ảnh gốc của paper: external knowledge → Idea Agent → Factor Agent → Eval Agent → feedback và vòng tiếp theo.*
 
 Ba agent được phân chia theo ba tầng reasoning khác nhau:
 

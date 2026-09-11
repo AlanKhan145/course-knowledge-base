@@ -22,6 +22,9 @@ Sau bài học, người học có thể:
 
 ## 3. Kiến thức nền: từ dữ liệu thị trường đến alpha
 
+![Pipeline từ dữ liệu đến factor](../assets/figures/01-price-to-factor-pipeline.png)
+*Hình minh họa: giá và volume được biến đổi thành return, feature, factor score rồi đưa vào kiểm thử danh mục.*
+
 ### 3.1. Từ giá đến lợi suất
 
 Giá của một tài sản tại một thời điểm chỉ cho biết tài sản đang được giao dịch ở mức nào. Trong alpha mining, mục tiêu thường không phải là đoán trực tiếp mức giá tiếp theo mà là tìm tín hiệu có quan hệ với **lợi suất tương lai**.
@@ -140,6 +143,9 @@ Rủi ro trở nên đặc biệt lớn trong alpha mining vì hệ thống thư
 
 ## 5. Alpha decay
 
+![Tổng quan alpha mining và alpha decay](../assets/figures/alpha-mining-and-alpha-decay-overview.png)
+*Hình minh họa: market data tạo ra các candidate alpha; overfitting và crowding có thể làm alpha suy giảm.*
+
 **Alpha decay** là sự suy giảm khả năng dự báo hoặc khả năng tạo excess return của factor theo thời gian. Một factor có thể rất thuyết phục ở giai đoạn phát hiện nhưng trở nên yếu dần sau đó. 
 
 Điều này có thể xảy ra ngay cả khi biểu thức toán học của factor không thay đổi. Thứ thay đổi có thể là dữ liệu, chế độ thị trường, hành vi của người tham gia thị trường hoặc đơn giản là việc ta đã đánh giá quá cao một pattern lịch sử.
@@ -162,6 +168,9 @@ Factor mất giá trị thực tiễn
 Trong AlphaAgent, hai nguyên nhân được đặt ở trung tâm của bài toán là **overfitting do excessive data mining** và **factor crowding**. 
 
 ## 6. Hai cơ chế chính gây alpha decay
+
+![So sánh overfitting và factor crowding](../assets/figures/01-overfitting-vs-crowding.png)
+*Hình minh họa: overfitting khai thác nhiễu lịch sử, còn crowding xuất hiện khi nhiều participant dùng tín hiệu tương tự; cả hai đều có thể dẫn tới alpha decay.*
 
 ### 6.1. Overfitting và p-hacking
 

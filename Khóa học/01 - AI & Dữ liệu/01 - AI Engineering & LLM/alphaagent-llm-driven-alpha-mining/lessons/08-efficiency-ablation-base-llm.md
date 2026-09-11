@@ -52,6 +52,9 @@ Sau bài học, người học có thể:
 
 ## 3. Mining Efficiency là gì?
 
+![Funnel hiệu suất alpha mining](../assets/figures/08-efficiency-funnel.png)
+*Hình minh họa: từ token budget, hệ thống lọc generated candidates thành valid expressions, successful backtests và accepted alphas.*
+
 Trong alpha mining, mục tiêu không phải gọi LLM một lần và hy vọng nhận được factor tốt.
 
 Quá trình thường mang tính lặp:
@@ -859,6 +862,9 @@ Ba metric này cần được đọc riêng.
 Việc DeepSeek-R1 mạnh hơn trong các metric được hiển thị cho thấy base LLM vẫn là một yếu tố ảnh hưởng tới chất lượng của framework.
 
 ## 24. Hai tầng tác động
+
+![Base LLM và framework cùng đóng góp](../assets/figures/08-framework-vs-base-llm.png)
+*Hình minh họa: chất lượng base LLM và framework design là hai nguồn tác động khác nhau cùng hướng tới robust alpha discovery.*
 
 Kết quả có thể được phân tách thành:
 

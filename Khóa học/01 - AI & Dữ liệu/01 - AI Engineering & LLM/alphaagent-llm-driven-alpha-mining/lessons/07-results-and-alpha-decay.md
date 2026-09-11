@@ -68,6 +68,9 @@ Do đó, khi đọc kết quả AlphaAgent, cần tránh chọn một metric duy
 
 ## 4. Kết quả tổng thể trên CSI 500 và S&P 500
 
+![Table 2 - Performance comparison](../assets/tables/table-02-performance-comparison.png)
+*Ảnh gốc của paper: bảng so sánh IC, ICIR, AR, IR và MDD giữa các phương pháp.*
+
 Các metric chính của AlphaAgent được ghi nhận như sau:
 
 | Market  |     IC |   ICIR |     AR |     IR |    MDD |
@@ -104,6 +107,9 @@ Trong thiết lập so sánh được sử dụng, AlphaAgent dẫn đầu các 
 Tuy nhiên, ý nghĩa quan trọng không nằm ở việc một con số riêng lẻ cao hơn. Điều cần quan sát là các metric predictive, portfolio và risk có cùng tạo ra một câu chuyện nhất quán hay không.
 
 ## 5. Đọc IC và ICIR cùng nhau
+
+![Quan hệ giữa predictive signal, performance và risk](../assets/figures/07-metrics-interpretation.png)
+*Hình minh họa: IC/Rank IC đo tín hiệu dự báo, AR/IR đo performance, còn ICIR/MDD giúp đánh giá độ ổn định và rủi ro.*
 
 `IC` phản ánh mức tương quan giữa factor score và future return.
 
@@ -401,6 +407,9 @@ trên S&P 500.
 Điểm đáng chú ý của kết quả vì thế không phải là hai thị trường giống nhau, mà là framework vẫn duy trì positive excess performance trong môi trường mà predictive signal được ghi nhận yếu hơn.
 
 ## 12. Alpha decay phải được quan sát theo thời gian
+
+![Timeline của signal strength và alpha decay](../assets/figures/07-alpha-decay-timeline.png)
+*Hình minh họa: sức mạnh tín hiệu có thể giảm dần từ train qua validation, test và live; đó là lý do cần theo dõi persistence.*
 
 Một bảng aggregate có thể che giấu decay.
 

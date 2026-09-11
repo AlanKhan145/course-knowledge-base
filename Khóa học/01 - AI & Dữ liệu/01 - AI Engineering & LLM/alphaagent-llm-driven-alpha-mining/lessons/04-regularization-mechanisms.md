@@ -92,6 +92,9 @@ Do đó, AlphaAgent không định nghĩa factor tốt bằng một chiều duy 
 
 ## 4. Regularization như một bài toán đánh đổi
 
+![Ba cổng regularization](../assets/figures/04-three-regularization-gates.png)
+*Hình minh họa: candidate expression lần lượt được kiểm tra complexity, originality và hypothesis alignment trước khi trở thành valid candidate.*
+
 Một dạng objective quen thuộc là:
 
 $$
@@ -679,6 +682,9 @@ Description ↔ Expression
 Nếu chỉ kiểm tra một trong hai tầng, hệ thống có thể bỏ sót một loại semantic failure.
 
 ## 17. Consistency Score
+
+![Vòng kiểm tra hypothesis alignment](../assets/figures/04-hypothesis-alignment-loop.png)
+*Hình minh họa: hypothesis được chuyển thành description và expression, sau đó consistency score tạo feedback để chỉnh vòng tiếp theo.*
 
 AlphaAgent kết hợp hai thành phần alignment:
 

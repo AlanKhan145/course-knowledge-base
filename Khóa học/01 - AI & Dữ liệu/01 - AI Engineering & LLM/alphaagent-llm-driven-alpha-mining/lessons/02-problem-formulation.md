@@ -124,6 +124,9 @@ Một nguyên tắc đặc biệt quan trọng là **future return không đư�
 
 ## 4. Từ “tìm factor tốt” đến một bài toán tối ưu
 
+![Phân rã objective tối ưu hóa](../assets/figures/02-objective-decomposition.png)
+*Hình minh họa: dữ liệu, target và candidate factor tạo predictive score; regularization penalty được dùng để chọn selected factor phù hợp hơn.*
+
 Ta cần một cách toán học để định nghĩa thế nào là một factor đáng chọn.
 
 Gọi:
@@ -275,6 +278,9 @@ Objective
 Hai khái niệm liên quan chặt chẽ nhưng không đồng nhất. 
 
 ## 6. Vai trò của regularization
+
+![Cân bằng regularized objective](../assets/figures/regularized-objective-balance.png)
+*Hình minh họa: objective của AlphaAgent cân bằng predictive performance với complexity, originality và alignment để chọn factor.*
 
 Regularization đưa **chi phí cho những nghiệm không mong muốn** vào quá trình tìm kiếm.
 
@@ -433,6 +439,9 @@ Kiểm tra predictive effectiveness
 Nhờ đó, hệ thống cố gắng biến **market insight** thành **quantitative expression**, thay vì chỉ khai phá biểu thức bằng thử-sai thống kê. 
 
 ## 9. Regularized objective của AlphaAgent
+
+![Từ market hypothesis đến factor](../assets/figures/02-hypothesis-to-factor.png)
+*Hình minh họa: market hypothesis định hướng expression design, sau đó candidate phải vượt qua kiểm thử ngoài mẫu và feedback.*
 
 ### 9.1. Đưa hypothesis trực tiếp vào objective
 

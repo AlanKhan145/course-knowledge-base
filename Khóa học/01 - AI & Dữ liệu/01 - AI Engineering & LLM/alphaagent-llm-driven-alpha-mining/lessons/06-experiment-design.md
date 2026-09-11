@@ -463,6 +463,9 @@ tạo return và risk như thế nào?
 
 ## 14. Train, validation và test
 
+![Table 1 - Dataset splits](../assets/tables/table-01-dataset-splits.png)
+*Ảnh gốc của paper: các giai đoạn train, validation và test trên CSI 500 và S&P 500.*
+
 Dữ liệu được chia theo thời gian thành ba phần:
 
 | Asset   | Split      | Period            | Trading days |
@@ -491,6 +494,9 @@ Mạch thời gian là:
 `Test` đóng vai trò như một giai đoạn tương lai chưa được dùng trong quá trình phát triển.
 
 ## 15. Vì sao không random split?
+
+![Split dữ liệu theo thứ tự thời gian](../assets/figures/06-time-based-split.png)
+*Hình minh họa: train, validation và test phải đi theo chiều thời gian; không shuffle và không nhìn trước dữ liệu tương lai.*
 
 Với dữ liệu thông thường, random split có thể hợp lý.
 
@@ -713,6 +719,9 @@ Backtesting protocol
 thay vì mặc định mọi khác biệt đều đến từ một thành phần duy nhất.
 
 ## 22. Từ prediction đến portfolio
+
+![Pipeline từ signal đến risk metrics](../assets/figures/06-backtest-pipeline.png)
+*Hình minh họa: market data tạo factor signal, signal được rank và weight thành portfolio returns rồi đánh giá bằng risk metrics.*
 
 Sau khi `LightGBM` dự báo next-day return, cổ phiếu được xếp hạng.
 

@@ -131,6 +131,9 @@ Khi representation giữ được cấu trúc này, hệ thống có thể phân
 
 ## 5. Operator Library: vocabulary của factor
 
+![Từ operator library đến executable factor](../assets/figures/03-operator-library-flow.png)
+*Hình minh họa: raw feature kết hợp với operator library để tạo AST expression tree và factor có thể thực thi.*
+
 AlphaAgent sử dụng một thư viện operator:
 
 $$
@@ -274,6 +277,9 @@ AST cho biết **phép toán nào phụ thuộc vào phép toán nào**, thay v�
 Với factor trong AlphaAgent, raw feature như `$high` hoặc `$low` nằm ở phần lá của cấu trúc, operator như `TS_MIN(.)` và `SMA(.)` tạo các nút tính toán, còn các cạnh biểu diễn data flow giữa các operation. 
 
 ## 8. Leaf node, internal node và edge
+
+![Cấu trúc cây AST của factor](../assets/figures/03-ast-tree-anatomy.png)
+*Hình minh họa: binary operator, unary operator và feature leaf tạo nên cấu trúc của một factor expression.*
 
 Có thể đọc một AST theo ba loại thành phần chính.
 
@@ -565,6 +571,9 @@ Factor khó giải thích và kiểm soát hơn
 Complexity không tự động làm factor sai. Nhưng một expression quá phức tạp tạo thêm không gian để hệ thống khớp vào những đặc điểm riêng của historical data và làm giảm interpretability.
 
 ## 14. AST giúp đo originality
+
+![Figure 2 - AST similarity](../assets/figures/figure-02-ast-similarity.png)
+*Ảnh gốc của paper: so sánh cấu trúc AST của factor mới với các factor trong alpha zoo để đánh giá originality.*
 
 Một lợi thế đặc biệt quan trọng của AST là cho phép so sánh **cấu trúc** thay vì chỉ so sánh text.
 

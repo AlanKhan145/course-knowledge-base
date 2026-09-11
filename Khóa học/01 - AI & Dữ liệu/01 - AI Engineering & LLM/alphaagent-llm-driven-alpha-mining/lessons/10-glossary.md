@@ -33,6 +33,9 @@ Khi gặp một thuật ngữ, nên tự hỏi bốn câu:
 
 ## 2. Dữ liệu, Return và Prediction
 
+![Pipeline của các thuật ngữ AlphaAgent](../assets/figures/10-glossary-pipeline.png)
+*Hình minh họa: OHLCV tạo return/feature, factor expression tạo score/portfolio, metric theo dõi kết quả và agent feedback điều hướng vòng sau.*
+
 | Thuật ngữ         | Ý nghĩa                                                                                               |
 | ----------------- | ----------------------------------------------------------------------------------------------------- |
 | **OHLCV**         | Nhóm raw market data gồm `open`, `high`, `low`, `close`, `volume`.                                    |
@@ -271,6 +274,9 @@ Sự phân biệt giữa IC và return là một trong những điểm quan tr�
 
 ## 10. Mining Efficiency Metrics
 
+![Bản đồ metric và thuật ngữ](../assets/figures/10-metric-glossary-map.png)
+*Hình minh họa: factor candidate được nhìn từ bốn nhóm thuật ngữ: data, expression, evaluation và agent process.*
+
 | Thuật ngữ             | Ý nghĩa                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------ |
 | **Mining efficiency** | Mức hiệu quả của quá trình tìm candidate xét theo chất lượng, khả năng thực thi và tài nguyên sử dụng. |
@@ -374,6 +380,9 @@ reward = 0.73
 Hai khái niệm có thể cùng xuất hiện trong agentic systems nhưng không nên coi là đồng nghĩa. 
 
 ## 13. Bản đồ thuật ngữ AlphaAgent
+
+![Bản đồ khái niệm AlphaAgent](../assets/figures/alphaagent-concept-map.png)
+*Hình minh họa: bốn lớp khái niệm nối với nhau trong pipeline AlphaAgent, từ dữ liệu và return đến agent và feedback.*
 
 ```mermaid
 flowchart TD

@@ -180,6 +180,9 @@ Sự khác biệt đáng chú ý là AlphaAgent đưa thêm market knowledge và
 
 ## 6. Exploration và Exploitation
 
+![Cân bằng exploration và exploitation](../assets/figures/09-exploration-exploitation-balance.png)
+*Hình minh họa: exploration tìm cấu trúc mới, exploitation tận dụng factor triển vọng; adaptive search cần cân bằng cả hai.*
+
 Mọi search process đều phải cân bằng hai xu hướng.
 
 **Exploitation** tận dụng những vùng search space đã biết có hiệu quả:
@@ -668,6 +671,9 @@ Feedback có cấu trúc giúp system xác định **phần nào cần thay đ�
 
 ## 17. Continuous Exploration
 
+![Vòng lặp continuous exploration của AlphaAgent](../assets/figures/continuous-exploration-loop.png)
+*Hình minh họa: từ market insight đến hypothesis, symbolic factor, evaluation và feedback trong một vòng khám phá liên tục.*
+
 Thị trường không đứng yên.
 
 Participant quan sát lẫn nhau, competition tăng và những pattern được khai thác rộng có thể mất lợi thế.
@@ -747,6 +753,9 @@ Do đó continuous exploration vẫn cần:
 Nếu không, một framework chống p-hacking lại có thể tự biến exploration thành p-hacking lặp lại. 
 
 ## 19. AlphaAgent như một Scientific Workflow
+
+![AlphaAgent như scientific discovery workflow](../assets/figures/09-scientific-discovery-workflow.png)
+*Hình minh họa: observation được chuyển thành hypothesis, expression, backtest và evidence; revision tạo vòng nghiên cứu tiếp theo.*
 
 Có thể diễn giải toàn bộ quá trình như một scientific workflow.
 
