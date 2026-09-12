@@ -1,0 +1,119 @@
+{
+  "description": "Vai trò dinh dưỡng nổi bật của một nguyên liệu. Đây là nhãn định tính, không phải kết quả tính toán: một thực phẩm có thể chứa nhiều macro và không có ngưỡng phần trăm trong phiên bản này để xác định macro trội. Vì vậy macro_class chỉ dùng để nhóm nguyên liệu khi hiển thị/gợi ý, không dùng để tính macro của món. Nguyên liệu đa macro nên được ghi chú trong data_quality.warnings.",
+  "reference_note": "Hệ số năng lượng tham chiếu: đạm 4 kcal/g, carbohydrate 4 kcal/g, chất béo 9 kcal/g, cồn 7 kcal/g.",
+  "schema_version": "1.1.0",
+  "group": "macro_class",
+  "shard": {
+    "index": 1,
+    "count": 2,
+    "total_records": 13
+  },
+  "values": [
+    {
+      "code": "protein",
+      "name_i18n": {
+        "vi": "Chất đạm",
+        "en": "Protein"
+      },
+      "definition": "Nguyên liệu mà đạm là vai trò nổi bật, ví dụ thịt, cá, trứng, đậu phụ.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Protein+food",
+      "image_alt": "Chất đạm"
+    },
+    {
+      "code": "lipid",
+      "name_i18n": {
+        "vi": "Chất béo",
+        "en": "Lipid"
+      },
+      "definition": "Nguyên liệu mà chất béo là vai trò nổi bật, ví dụ dầu, bơ, phô mai.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Lipid+food",
+      "image_alt": "Chất béo"
+    },
+    {
+      "code": "carbohydrate",
+      "name_i18n": {
+        "vi": "Tinh bột, đường",
+        "en": "Carbohydrate"
+      },
+      "definition": "Nguyên liệu mà carbohydrate là vai trò nổi bật, ví dụ gạo, mì, bột, đường.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Carbohydrate+food",
+      "image_alt": "Tinh bột, đường"
+    },
+    {
+      "code": "fiber_veg",
+      "name_i18n": {
+        "vi": "Rau, chất xơ",
+        "en": "Fiber Veg"
+      },
+      "definition": "Rau củ ăn chủ yếu vì chất xơ và vi chất.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Fiber+Veg+food",
+      "image_alt": "Rau, chất xơ"
+    },
+    {
+      "code": "fruit",
+      "name_i18n": {
+        "vi": "Trái cây",
+        "en": "Fruit"
+      },
+      "definition": "Trái cây và phần ăn được của trái cây, gồm cả vỏ và nước cốt dùng làm gia vị.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Fruit+food",
+      "image_alt": "Trái cây"
+    },
+    {
+      "code": "aromatic",
+      "name_i18n": {
+        "vi": "Gia vị tạo mùi",
+        "en": "Aromatic"
+      },
+      "definition": "Nguyên liệu dùng lượng nhỏ để tạo hương, đóng góp năng lượng không đáng kể.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Aromatic+food",
+      "image_alt": "Gia vị tạo mùi"
+    },
+    {
+      "code": "mixed",
+      "name_i18n": {
+        "vi": "Hỗn hợp",
+        "en": "Mixed"
+      },
+      "definition": "Nguyên liệu phối trộn hoặc chế biến sẵn không quy về một vai trò duy nhất, ví dụ nước sốt đóng gói, nước dùng, rượu nấu.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Mixed+food",
+      "image_alt": "Hỗn hợp"
+    },
+    {
+      "code": "carb",
+      "name_i18n": {
+        "vi": "Carbohydrate (mã cũ)",
+        "en": "Carb"
+      },
+      "deprecated": true,
+      "canonical_code": "carbohydrate",
+      "definition": "Nhóm dinh dưỡng vĩ mô/nhóm thực phẩm ở mức phân loại: carbohydrate (mã cũ). Không phải số liệu dinh dưỡng định lượng.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Carb+food",
+      "image_alt": "Carbohydrate (mã cũ)"
+    },
+    {
+      "code": "fat",
+      "name_i18n": {
+        "vi": "Chất béo (mã cũ)",
+        "en": "Fat"
+      },
+      "deprecated": true,
+      "canonical_code": "lipid",
+      "definition": "Nhóm dinh dưỡng vĩ mô/nhóm thực phẩm ở mức phân loại: chất béo (mã cũ). Không phải số liệu dinh dưỡng định lượng.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Fat+food",
+      "image_alt": "Chất béo (mã cũ)"
+    },
+    {
+      "code": "herb",
+      "name_i18n": {
+        "vi": "Rau thơm/thảo mộc",
+        "en": "Herb"
+      },
+      "deprecated": true,
+      "canonical_code": "aromatic",
+      "definition": "Nhóm dinh dưỡng vĩ mô/nhóm thực phẩm ở mức phân loại: rau thơm/thảo mộc. Không phải số liệu dinh dưỡng định lượng.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Herb+food",
+      "image_alt": "Rau thơm/thảo mộc"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "description": "Mức độ rà soát dữ liệu của bản ghi.",
+  "schema_version": "1.1.0",
+  "group": "review_status",
+  "shard": {
+    "index": 1,
+    "count": 1,
+    "total_records": 7
+  },
+  "values": [
+    {
+      "code": "unreviewed",
+      "name_i18n": {
+        "vi": "Chưa rà soát"
+      }
+    },
+    {
+      "code": "normalized",
+      "name_i18n": {
+        "vi": "Đã chuẩn hoá"
+      },
+      "definition": "Đã tách trường và chuẩn hoá định dạng nhưng chưa xác minh nội dung."
+    },
+    {
+      "code": "normalized_with_inference",
+      "name_i18n": {
+        "vi": "Đã chuẩn hoá có suy luận"
+      },
+      "definition": "Đã chuẩn hoá và có một số trường suy ra; các trường đó phải liệt kê trong inferred_fields."
+    },
+    {
+      "code": "verified",
+      "name_i18n": {
+        "vi": "Đã xác minh"
+      }
+    },
+    {
+      "code": "rejected",
+      "name_i18n": {
+        "vi": "Bị loại"
+      }
+    },
+    {
+      "code": "needs_human_review",
+      "name_i18n": {
+        "vi": "Needs Human Review",
+        "en": "Needs Human Review"
+      },
+      "definition": "Giá trị đang xuất hiện trong dữ liệu hiện tại: needs_human_review."
+    },
+    {
+      "code": "normalized_from_source",
+      "name_i18n": {
+        "vi": "Normalized From Source",
+        "en": "Normalized From Source"
+      },
+      "definition": "Giá trị đang xuất hiện trong dữ liệu hiện tại: normalized_from_source."
+    }
+  ]
+}

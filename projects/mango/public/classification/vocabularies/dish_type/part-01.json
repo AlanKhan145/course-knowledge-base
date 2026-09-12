@@ -1,0 +1,124 @@
+{
+  "description": "Loại món xét theo vai trò trên mâm. File mới nên dùng main thay cho main_course.",
+  "schema_version": "1.1.0",
+  "group": "dish_type",
+  "shard": {
+    "index": 1,
+    "count": 1,
+    "total_records": 10
+  },
+  "values": [
+    {
+      "code": "main",
+      "name_i18n": {
+        "vi": "Món chính",
+        "en": "Main"
+      },
+      "definition": "Món trung tâm của bữa ăn.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Main+food",
+      "image_alt": "Món chính",
+      "image_url": "assets/dish-types/main.jpg"
+    },
+    {
+      "code": "main_course",
+      "name_i18n": {
+        "vi": "Món chính (mã cũ)",
+        "en": "Main Course"
+      },
+      "definition": "Mã tương thích dữ liệu cũ; đồng nghĩa với main.",
+      "deprecated": true,
+      "canonical_code": "main",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Main+Course+food",
+      "image_alt": "Món chính (mã cũ)",
+      "image_url": "assets/dish-types/main-course.jpg"
+    },
+    {
+      "code": "side_standalone",
+      "name_i18n": {
+        "vi": "Món phụ độc lập",
+        "en": "Side Standalone"
+      },
+      "definition": "Món ăn kèm có công thức riêng, ví dụ salad hoặc món rau.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Side+Standalone+food",
+      "image_alt": "Món phụ độc lập",
+      "image_url": "assets/dish-types/side-standalone.jpg"
+    },
+    {
+      "code": "dessert",
+      "name_i18n": {
+        "vi": "Món tráng miệng",
+        "en": "Dessert"
+      },
+      "definition": "Món ngọt kết thúc bữa ăn.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Dessert+food",
+      "image_alt": "Món tráng miệng",
+      "image_url": "assets/dish-types/dessert.jpg"
+    },
+    {
+      "code": "beverage",
+      "name_i18n": {
+        "vi": "Đồ uống",
+        "en": "Beverage"
+      },
+      "definition": "Thức uống.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Beverage+food",
+      "image_alt": "Đồ uống",
+      "image_url": "assets/dish-types/beverage.jpg"
+    },
+    {
+      "code": "breakfast_main",
+      "name_i18n": {
+        "vi": "Món chính bữa sáng",
+        "en": "Breakfast Main"
+      },
+      "definition": "Vai trò món ăn trên thực đơn: món chính bữa sáng.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Breakfast+Main+food",
+      "image_alt": "Món chính bữa sáng",
+      "image_url": "assets/dish-types/breakfast-main.jpg"
+    },
+    {
+      "code": "dip",
+      "name_i18n": {
+        "vi": "Sốt chấm",
+        "en": "Dip"
+      },
+      "definition": "Vai trò món ăn trên thực đơn: sốt chấm.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Dip+food",
+      "image_alt": "Sốt chấm",
+      "image_url": "assets/dish-types/dip.jpg"
+    },
+    {
+      "code": "salad",
+      "name_i18n": {
+        "vi": "Salad",
+        "en": "Salad"
+      },
+      "definition": "Vai trò món ăn trên thực đơn: salad.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Salad+food",
+      "image_alt": "Salad",
+      "image_url": "assets/dish-types/salad.jpg"
+    },
+    {
+      "code": "snack",
+      "name_i18n": {
+        "vi": "Món ăn vặt",
+        "en": "Snack"
+      },
+      "definition": "Vai trò món ăn trên thực đơn: món ăn vặt.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Snack+food",
+      "image_alt": "Món ăn vặt",
+      "image_url": "assets/dish-types/snack.jpg"
+    },
+    {
+      "code": "soup",
+      "name_i18n": {
+        "vi": "Canh, súp",
+        "en": "Soup"
+      },
+      "definition": "Vai trò món ăn trên thực đơn: canh, súp.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Soup+food",
+      "image_alt": "Canh, súp",
+      "image_url": "assets/dish-types/soup.jpg"
+    }
+  ]
+}

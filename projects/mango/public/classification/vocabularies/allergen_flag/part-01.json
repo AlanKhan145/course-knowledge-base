@@ -1,0 +1,164 @@
+{
+  "description": "Nhóm gây dị ứng. Đây là dữ liệu an toàn; khi không xác minh được nguồn ẩn hoặc nhãn sản phẩm phải ghi cảnh báo.",
+  "schema_version": "1.1.0",
+  "group": "allergen_flag",
+  "shard": {
+    "index": 1,
+    "count": 2,
+    "total_records": 18
+  },
+  "values": [
+    {
+      "code": "dairy",
+      "name_i18n": {
+        "vi": "Sữa và chế phẩm từ sữa",
+        "en": "Dairy"
+      },
+      "hidden_sources": [
+        "bơ",
+        "phô mai",
+        "kem",
+        "sữa bột",
+        "whey"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: sữa và chế phẩm từ sữa. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Dairy+food",
+      "image_alt": "Sữa và chế phẩm từ sữa"
+    },
+    {
+      "code": "egg",
+      "name_i18n": {
+        "vi": "Trứng",
+        "en": "Egg"
+      },
+      "hidden_sources": [
+        "mì trứng",
+        "mayonnaise",
+        "bột áo có trứng"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: trứng. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Egg+food",
+      "image_alt": "Trứng"
+    },
+    {
+      "code": "gluten",
+      "name_i18n": {
+        "vi": "Gluten",
+        "en": "Gluten"
+      },
+      "hidden_sources": [
+        "nước tương thường",
+        "malt",
+        "bia",
+        "bột mì"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: gluten. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Gluten+food",
+      "image_alt": "Gluten"
+    },
+    {
+      "code": "wheat",
+      "name_i18n": {
+        "vi": "Lúa mì",
+        "en": "Wheat"
+      },
+      "definition": "Dị ứng lúa mì là một dị ứng thực phẩm riêng, không đồng nhất hoàn toàn với gluten.",
+      "hidden_sources": [
+        "bột mì",
+        "breadcrumbs",
+        "mì lúa mì",
+        "sốt có bột mì"
+      ],
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Wheat+food",
+      "image_alt": "Lúa mì"
+    },
+    {
+      "code": "fish",
+      "name_i18n": {
+        "vi": "Cá",
+        "en": "Fish"
+      },
+      "hidden_sources": [
+        "nước mắm",
+        "Worcestershire",
+        "nước dùng cá"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: cá. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Fish+food",
+      "image_alt": "Cá"
+    },
+    {
+      "code": "shellfish",
+      "name_i18n": {
+        "vi": "Giáp xác",
+        "en": "Shellfish"
+      },
+      "hidden_sources": [
+        "nước dùng hải sản",
+        "mắm tôm",
+        "sốt XO"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: giáp xác. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Shellfish+food",
+      "image_alt": "Giáp xác"
+    },
+    {
+      "code": "mollusc",
+      "name_i18n": {
+        "vi": "Nhuyễn thể",
+        "en": "Mollusc"
+      },
+      "hidden_sources": [
+        "dầu hào",
+        "nước dùng hải sản"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: nhuyễn thể. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Mollusc+food",
+      "image_alt": "Nhuyễn thể"
+    },
+    {
+      "code": "tree_nuts",
+      "name_i18n": {
+        "vi": "Hạt cây",
+        "en": "Tree Nuts"
+      },
+      "hidden_sources": [
+        "pesto",
+        "sốt hạt",
+        "bột hạnh nhân"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: hạt cây. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Tree+Nuts+food",
+      "image_alt": "Hạt cây"
+    },
+    {
+      "code": "peanut",
+      "name_i18n": {
+        "vi": "Đậu phộng",
+        "en": "Peanut"
+      },
+      "hidden_sources": [
+        "sốt sa tế",
+        "dầu đậu phộng"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: đậu phộng. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Peanut+food",
+      "image_alt": "Đậu phộng"
+    },
+    {
+      "code": "soy",
+      "name_i18n": {
+        "vi": "Đậu nành",
+        "en": "Soy"
+      },
+      "hidden_sources": [
+        "nước tương",
+        "tương đen",
+        "đậu phụ"
+      ],
+      "definition": "Cờ cảnh báo dị nguyên hoặc nhóm chất liên quan: đậu nành. Cần kiểm tra nhãn sản phẩm thực tế.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Soy+food",
+      "image_alt": "Đậu nành"
+    }
+  ]
+}

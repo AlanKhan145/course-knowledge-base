@@ -1,0 +1,4445 @@
+{
+  "schema_version": "1.1.0",
+  "catalog": {
+    "code": "ingredients",
+    "catalog_type": "collection",
+    "name_i18n": {
+      "en": "Normalized ingredient catalog",
+      "vi": "Danh mục nguyên liệu chuẩn hóa"
+    },
+    "description": "Danh mục nguyên liệu được tổng hợp từ toàn bộ recipe catalog hiện tại của Mango, gồm nguyên liệu cấp món và thành phần lồng trong sốt, món ăn kèm, nước chấm và trang trí.",
+    "source_directory": "recipes",
+    "source_files": [
+      "recipes/asian-hot-pot/part-01.json",
+      "recipes/asian-hot-pot/part-02.json",
+      "recipes/asian-hot-pot/part-03.json",
+      "recipes/asian-hot-pot/part-04.json",
+      "recipes/asian-hot-pot/part-05.json",
+      "recipes/asian-noodle-recipes/part-01.json",
+      "recipes/asian-noodle-recipes/part-02.json",
+      "recipes/asian-noodle-recipes/part-03.json",
+      "recipes/asian-noodle-recipes/part-04.json",
+      "recipes/asian-noodle-recipes/part-05.json",
+      "recipes/asian-noodle-recipes/part-06.json",
+      "recipes/asian-noodle-recipes/part-07.json",
+      "recipes/asian-noodle-recipes/part-08.json",
+      "recipes/asian-noodle-recipes/part-09.json",
+      "recipes/asian-noodle-recipes/part-10.json",
+      "recipes/asian-noodle-recipes/part-11.json",
+      "recipes/asian-noodle-recipes/part-12.json",
+      "recipes/asian-noodle-recipes/part-13.json",
+      "recipes/australian/part-01.json",
+      "recipes/australian/part-02.json",
+      "recipes/breakfast-fine-cooking/part-01.json",
+      "recipes/breakfast-fine-cooking/part-02.json",
+      "recipes/breakfast-fine-cooking/part-03.json",
+      "recipes/breakfast-fine-cooking/part-04.json",
+      "recipes/breakfast-fine-cooking/part-05.json",
+      "recipes/breakfast-fine-cooking/part-06.json",
+      "recipes/breakfast-fine-cooking/part-07.json",
+      "recipes/breakfast-fine-cooking/part-08.json",
+      "recipes/breakfast-fine-cooking/part-09.json",
+      "recipes/chinese/part-01.json",
+      "recipes/chinese/part-02.json",
+      "recipes/chinese/part-03.json",
+      "recipes/chinese/part-04.json",
+      "recipes/chinese/part-05.json",
+      "recipes/chinese/part-06.json",
+      "recipes/chinese/part-07.json",
+      "recipes/cia-grilling/part-01.json",
+      "recipes/cia-grilling/part-02.json",
+      "recipes/cia-grilling/part-03.json",
+      "recipes/cia-grilling/part-04.json",
+      "recipes/cia-grilling/part-05.json",
+      "recipes/cia-grilling/part-06.json",
+      "recipes/cia-grilling/part-07.json",
+      "recipes/cia-grilling/part-08.json",
+      "recipes/cia-grilling/part-09.json",
+      "recipes/cia-grilling/part-10.json",
+      "recipes/cia-grilling/part-11.json",
+      "recipes/cia-grilling/part-12.json",
+      "recipes/classic-desserts/part-01.json",
+      "recipes/classic-desserts/part-02.json",
+      "recipes/classic-desserts/part-03.json",
+      "recipes/classic-desserts/part-04.json",
+      "recipes/classic-desserts/part-05.json",
+      "recipes/classic-desserts/part-06.json",
+      "recipes/classic-desserts/part-07.json",
+      "recipes/classic-desserts/part-08.json",
+      "recipes/classic-desserts/part-09.json",
+      "recipes/classic-desserts/part-10.json",
+      "recipes/classic-desserts/part-11.json",
+      "recipes/classic-desserts/part-12.json",
+      "recipes/classic-desserts/part-13.json",
+      "recipes/classic-desserts/part-14.json",
+      "recipes/classic-desserts/part-15.json",
+      "recipes/classic-desserts/part-16.json",
+      "recipes/classic-desserts/part-17.json",
+      "recipes/classic-desserts/part-18.json",
+      "recipes/classic-desserts/part-19.json",
+      "recipes/easy-cook/part-01.json",
+      "recipes/easy-cook/part-02.json",
+      "recipes/easy-cook/part-03.json",
+      "recipes/easy-cook/part-04.json",
+      "recipes/easy-cook/part-05.json",
+      "recipes/easy-cook/part-06.json",
+      "recipes/easy-cook/part-07.json",
+      "recipes/eggs-cheese/part-01.json",
+      "recipes/eggs-cheese/part-02.json",
+      "recipes/eggs-cheese/part-03.json",
+      "recipes/eggs-cheese/part-04.json",
+      "recipes/eggs-cheese/part-05.json",
+      "recipes/eggs-cheese/part-06.json",
+      "recipes/eggs-cheese/part-07.json",
+      "recipes/eggs-cheese/part-08.json",
+      "recipes/eggs-cheese/part-09.json",
+      "recipes/eggs-cheese/part-10.json",
+      "recipes/eggs-cheese/part-11.json",
+      "recipes/eggs-cheese/part-12.json",
+      "recipes/eggs-cheese/part-13.json",
+      "recipes/eggs-cheese/part-14.json",
+      "recipes/eggs-cheese/part-15.json",
+      "recipes/eggs-cheese/part-16.json",
+      "recipes/eggs-cheese/part-17.json",
+      "recipes/eggs-cheese/part-18.json",
+      "recipes/eggs-cheese/part-19.json",
+      "recipes/eggs-cheese/part-20.json",
+      "recipes/fried-chicken-cookbook/part-01.json",
+      "recipes/fried-chicken-cookbook/part-02.json",
+      "recipes/fried-chicken-cookbook/part-03.json",
+      "recipes/fried-chicken-cookbook/part-04.json",
+      "recipes/fried-chicken-cookbook/part-05.json",
+      "recipes/fried-chicken-cookbook/part-06.json",
+      "recipes/fried-chicken-cookbook/part-07.json",
+      "recipes/fried-chicken-cookbook/part-08.json",
+      "recipes/fried-chicken-cookbook/part-09.json",
+      "recipes/fried-chicken-cookbook/part-10.json",
+      "recipes/hawaiian-bbq/part-01.json",
+      "recipes/hawaiian-bbq/part-02.json",
+      "recipes/hawaiian-bbq/part-03.json",
+      "recipes/hawaiian-bbq/part-04.json",
+      "recipes/hawaiian-bbq/part-05.json",
+      "recipes/healthy-easy-stir-fry/part-01.json",
+      "recipes/healthy-easy-stir-fry/part-02.json",
+      "recipes/italian/part-01.json",
+      "recipes/italian/part-02.json",
+      "recipes/italian/part-03.json",
+      "recipes/italian/part-04.json",
+      "recipes/italian/part-05.json",
+      "recipes/italian/part-06.json",
+      "recipes/italian/part-07.json",
+      "recipes/italian/part-08.json",
+      "recipes/italian/part-09.json",
+      "recipes/italian/part-10.json",
+      "recipes/italian/part-11.json",
+      "recipes/italian/part-12.json",
+      "recipes/korean/part-01.json",
+      "recipes/korean/part-02.json",
+      "recipes/korean/part-03.json",
+      "recipes/korean/part-04.json",
+      "recipes/korean/part-05.json",
+      "recipes/korean/part-06.json",
+      "recipes/korean/part-07.json",
+      "recipes/korean/part-08.json",
+      "recipes/korean/part-09.json",
+      "recipes/korean/part-10.json",
+      "recipes/korean/part-11.json",
+      "recipes/korean/part-12.json",
+      "recipes/korean/part-13.json",
+      "recipes/korean/part-14.json",
+      "recipes/korean/part-15.json",
+      "recipes/mediterranean/part-01.json",
+      "recipes/mediterranean/part-02.json",
+      "recipes/mediterranean/part-03.json",
+      "recipes/mediterranean/part-04.json",
+      "recipes/mediterranean/part-05.json",
+      "recipes/mediterranean/part-06.json",
+      "recipes/mediterranean/part-07.json",
+      "recipes/mediterranean/part-08.json",
+      "recipes/mediterranean/part-09.json",
+      "recipes/mediterranean/part-10.json",
+      "recipes/mediterranean/part-11.json",
+      "recipes/mediterranean/part-12.json",
+      "recipes/mediterranean/part-13.json",
+      "recipes/mediterranean/part-14.json",
+      "recipes/one-pot/part-01.json",
+      "recipes/one-pot/part-02.json",
+      "recipes/one-pot/part-03.json",
+      "recipes/one-pot/part-04.json",
+      "recipes/one-pot/part-05.json",
+      "recipes/one-pot/part-06.json",
+      "recipes/poultry-meat-game/part-01.json",
+      "recipes/poultry-meat-game/part-02.json",
+      "recipes/poultry-meat-game/part-03.json",
+      "recipes/poultry-meat-game/part-04.json",
+      "recipes/poultry-meat-game/part-05.json",
+      "recipes/poultry-meat-game/part-06.json",
+      "recipes/poultry-meat-game/part-07.json",
+      "recipes/poultry-meat-game/part-08.json",
+      "recipes/poultry-meat-game/part-09.json",
+      "recipes/poultry-meat-game/part-10.json",
+      "recipes/poultry-meat-game/part-11.json",
+      "recipes/poultry-meat-game/part-12.json",
+      "recipes/poultry-meat-game/part-13.json",
+      "recipes/poultry-meat-game/part-14.json",
+      "recipes/poultry-meat-game/part-15.json",
+      "recipes/poultry-meat-game/part-16.json",
+      "recipes/poultry-meat-game/part-17.json",
+      "recipes/rice-cooker/part-01.json",
+      "recipes/rice-cooker/part-02.json",
+      "recipes/rice-cooker/part-03.json",
+      "recipes/rice-cooker/part-04.json",
+      "recipes/rice-cooker/part-05.json",
+      "recipes/rice-cooker/part-06.json",
+      "recipes/rice-cooker/part-07.json",
+      "recipes/rice-cooker/part-08.json",
+      "recipes/rice-cooker/part-09.json",
+      "recipes/rice-cooker/part-10.json",
+      "recipes/rice-cooker/part-11.json",
+      "recipes/rice-cooker/part-12.json",
+      "recipes/rice-cooker/part-13.json",
+      "recipes/rice-cooker/part-14.json",
+      "recipes/rice-cooker/part-15.json",
+      "recipes/rice-cooker/part-16.json",
+      "recipes/rice-cooker/part-17.json",
+      "recipes/rice-cooker/part-18.json",
+      "recipes/rice-cooker/part-19.json",
+      "recipes/rice-cooker/part-20.json",
+      "recipes/rice-cooker/part-21.json",
+      "recipes/rice-cooker/part-22.json",
+      "recipes/rice-cooker/part-23.json",
+      "recipes/rice-cooker/part-24.json",
+      "recipes/rice-cooker/part-25.json",
+      "recipes/rice-cooker/part-26.json",
+      "recipes/salad-for-dinner/part-01.json",
+      "recipes/salad-for-dinner/part-02.json",
+      "recipes/salad-for-dinner/part-03.json",
+      "recipes/salad-for-dinner/part-04.json",
+      "recipes/salad-for-dinner/part-05.json",
+      "recipes/salad-for-dinner/part-06.json",
+      "recipes/salad-for-dinner/part-07.json",
+      "recipes/salad-for-dinner/part-08.json",
+      "recipes/soup-cookbook/part-01.json",
+      "recipes/soup-cookbook/part-02.json",
+      "recipes/soup-cookbook/part-03.json",
+      "recipes/soup-cookbook/part-04.json",
+      "recipes/soup-cookbook/part-05.json",
+      "recipes/soup-cookbook/part-06.json",
+      "recipes/soup-cookbook/part-07.json",
+      "recipes/soup-cookbook/part-08.json",
+      "recipes/soup-cookbook/part-09.json",
+      "recipes/soup-cookbook/part-10.json",
+      "recipes/soup-cookbook/part-11.json",
+      "recipes/soups-stews/part-01.json",
+      "recipes/soups-stews/part-02.json",
+      "recipes/soups-stews/part-03.json",
+      "recipes/soups-stews/part-04.json",
+      "recipes/wok-cookbook/part-01.json",
+      "recipes/wok-cookbook/part-02.json",
+      "recipes/wok-cookbook/part-03.json",
+      "recipes/wok-cookbook/part-04.json",
+      "recipes/wok-cookbook/part-05.json"
+    ],
+    "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=cooking%20ingredients%20food%20assortment%20food%20ingredient"
+  },
+  "stats": {
+    "source_catalog_count": 22,
+    "source_recipe_count": 2179,
+    "top_level_ingredient_occurrence_count": 22286,
+    "nested_component_ingredient_occurrence_count": 16,
+    "source_ingredient_occurrence_count": 22302,
+    "normalized_ingredient_count": 11393
+  },
+  "normalization": {
+    "key": "canonical_name",
+    "strategy": "conservative",
+    "rules": [
+      "Tổng hợp từ tất cả recipe JSON hiện tại, giữ raw_text và liên kết source_file ở occurrence.",
+      "Không bịa direct image URL; nguyên liệu chưa có asset trực tiếp dùng image_search_url tới Wikimedia Commons MediaSearch.",
+      "Giữ các mã phân loại và dị nguyên đã có trong recipe; không tự tạo enum mới."
+    ]
+  },
+  "source_catalogs": [
+    {
+      "catalog_code": "asian-noodle-recipes",
+      "catalog_type": "collection",
+      "name": "Công thức mì châu Á",
+      "recipe_count": 125,
+      "ingredient_occurrence_count": 1914
+    },
+    {
+      "catalog_code": "soups-stews",
+      "catalog_type": "collection",
+      "name": "Bộ sưu tập súp và món hầm",
+      "recipe_count": 38,
+      "ingredient_occurrence_count": 435
+    },
+    {
+      "catalog_code": "fried-chicken-cookbook",
+      "catalog_type": "collection",
+      "name": "Bộ công thức gà chiên và món liên quan",
+      "recipe_count": 98,
+      "ingredient_occurrence_count": 1018
+    },
+    {
+      "catalog_code": "rice-cooker",
+      "catalog_type": "collection",
+      "name": "Công thức nồi cơm điện",
+      "recipe_count": 251,
+      "ingredient_occurrence_count": 2117
+    },
+    {
+      "catalog_code": "mediterranean",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Địa Trung Hải",
+      "recipe_count": 135,
+      "ingredient_occurrence_count": 1634
+    },
+    {
+      "catalog_code": "asian-hot-pot",
+      "catalog_type": "collection",
+      "name": "Công thức lẩu châu Á",
+      "recipe_count": 41,
+      "ingredient_occurrence_count": 478
+    },
+    {
+      "catalog_code": "classic-desserts",
+      "catalog_type": "collection",
+      "name": "Món tráng miệng cổ điển",
+      "recipe_count": 182,
+      "ingredient_occurrence_count": 1211
+    },
+    {
+      "catalog_code": "wok-cookbook",
+      "catalog_type": "collection",
+      "name": "Công thức nấu bằng chảo wok",
+      "recipe_count": 48,
+      "ingredient_occurrence_count": 604
+    },
+    {
+      "catalog_code": "italian",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Ý",
+      "recipe_count": 116,
+      "ingredient_occurrence_count": 1087
+    },
+    {
+      "catalog_code": "hawaiian-bbq",
+      "catalog_type": "collection",
+      "name": "BBQ Hawaii",
+      "recipe_count": 43,
+      "ingredient_occurrence_count": 429
+    },
+    {
+      "catalog_code": "soup-cookbook",
+      "catalog_type": "collection",
+      "name": "The Soup Cookbook – 101 công thức súp",
+      "recipe_count": 101,
+      "ingredient_occurrence_count": 1133
+    },
+    {
+      "catalog_code": "healthy-easy-stir-fry",
+      "catalog_type": "collection",
+      "name": "Món xào nhanh lành mạnh",
+      "recipe_count": 19,
+      "ingredient_occurrence_count": 311
+    },
+    {
+      "catalog_code": "easy-cook",
+      "catalog_type": "collection",
+      "name": "Món dễ nấu",
+      "recipe_count": 62,
+      "ingredient_occurrence_count": 515
+    },
+    {
+      "catalog_code": "poultry-meat-game",
+      "catalog_type": "collection",
+      "name": "Nghệ thuật chế biến gia cầm, thịt và thịt săn",
+      "recipe_count": 166,
+      "ingredient_occurrence_count": 2011
+    },
+    {
+      "catalog_code": "australian",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Úc",
+      "recipe_count": 19,
+      "ingredient_occurrence_count": 128
+    },
+    {
+      "catalog_code": "cia-grilling",
+      "catalog_type": "collection",
+      "name": "CIA Grilling – Công thức nướng",
+      "recipe_count": 117,
+      "ingredient_occurrence_count": 1752
+    },
+    {
+      "catalog_code": "korean",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Hàn Quốc",
+      "recipe_count": 142,
+      "ingredient_occurrence_count": 1278
+    },
+    {
+      "catalog_code": "chinese",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Trung Hoa",
+      "recipe_count": 69,
+      "ingredient_occurrence_count": 778
+    },
+    {
+      "catalog_code": "eggs-cheese",
+      "catalog_type": "collection",
+      "name": "Trứng & Phô mai",
+      "recipe_count": 193,
+      "ingredient_occurrence_count": 1367
+    },
+    {
+      "catalog_code": "salad-for-dinner",
+      "catalog_type": "collection",
+      "name": "Salad cho bữa chính",
+      "recipe_count": 74,
+      "ingredient_occurrence_count": 714
+    },
+    {
+      "catalog_code": "one-pot",
+      "catalog_type": "collection",
+      "name": "Món một nồi",
+      "recipe_count": 52,
+      "ingredient_occurrence_count": 574
+    },
+    {
+      "catalog_code": "breakfast-fine-cooking",
+      "catalog_type": "collection",
+      "name": "Công thức bữa sáng Fine Cooking",
+      "recipe_count": 88,
+      "ingredient_occurrence_count": 814
+    }
+  ],
+  "ingredients": [
+    {
+      "id": "ingredient-01851",
+      "canonical_name": "1 C hot water (or use liquid from the pressure pan)",
+      "name": "C cay nước (hoặc use liquid khỏi pressure pan)",
+      "name_i18n": {
+        "en": "1 C hot water (or use liquid from the pressure pan)",
+        "vi": "C cay nước (hoặc use liquid khỏi pressure pan)"
+      },
+      "description": "C cay nước (hoặc use liquid khỏi pressure pan) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C cay nước (hoặc use liquid khỏi pressure pan)",
+        "cay nước (hoặc use liquid khỏi pressure pan)"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/a5f975d6f9fa6f1c.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=C%20cay%20n%C6%B0%E1%BB%9Bc%20%28ho%E1%BA%B7c%20use%20liquid%20kh%E1%BB%8Fi%20pressure%20pan%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C cay nước (hoặc use liquid khỏi pressure pan)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-047",
+          "title": "Bữa tối bò xào 35 phút ngày thứ Ba",
+          "local_name": "Bữa tối bò xào 35 phút ngày thứ Ba",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-047-ing-11",
+          "recipe_id": "wok-cookbook-047",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-05.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-047",
+          "component_name": "Bữa tối bò xào 35 phút ngày thứ Ba",
+          "raw_text": "1 C hot water (or use liquid from the pressure pan)",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01852",
+      "canonical_name": "1 c Low-Sodium Canned Stewed-Tomatoes",
+      "name": "c ít natri đóng hộp Stewed-cà chua",
+      "name_i18n": {
+        "en": "1 c Low-Sodium Canned Stewed-Tomatoes",
+        "vi": "c ít natri đóng hộp Stewed-cà chua"
+      },
+      "description": "c ít natri đóng hộp Stewed-cà chua là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "c ít natri đóng hộp Stewed-cà chua",
+        "Ít natri đóng hộp Stewed-cà chua"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/1c2bae7d6f446102.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%20%C3%ADt%20natri%20%C4%91%C3%B3ng%20h%E1%BB%99p%20Stewed-c%C3%A0%20chua%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu c ít natri đóng hộp Stewed-cà chua",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-004",
+          "title": "Súp đậu và mì Ý",
+          "local_name": "Súp đậu và mì Ý",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-004-ing-02",
+          "recipe_id": "soup-cookbook-004",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-004",
+          "component_name": "Súp đậu và mì Ý",
+          "raw_text": "1 c Low-Sodium Canned Stewed-Tomatoes",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01853",
+      "canonical_name": "1 c Milk",
+      "name": "c sữa",
+      "name_i18n": {
+        "en": "1 c Milk",
+        "vi": "c sữa"
+      },
+      "description": "c sữa là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "c sữa",
+        "Sữa"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/cf5dbf0ec57dff5d.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu c sữa",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-055",
+          "title": "Súp măng tây",
+          "local_name": "Súp măng tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-055-ing-04",
+          "recipe_id": "soup-cookbook-055",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-06.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-055",
+          "component_name": "Súp măng tây",
+          "raw_text": "1 c Milk",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01854",
+      "canonical_name": "1 c Onions; Finely Chopped",
+      "name": "c hành tây; nhuyễn băm nhỏ",
+      "name_i18n": {
+        "en": "1 c Onions; Finely Chopped",
+        "vi": "c hành tây; nhuyễn băm nhỏ"
+      },
+      "description": "c hành tây; nhuyễn băm nhỏ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "c hành tây; nhuyễn băm nhỏ",
+        "Hành tây"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/00ada52aa920a0c2.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%20h%C3%A0nh%20t%C3%A2y%3B%20nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu c hành tây; nhuyễn băm nhỏ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-012",
+          "title": "Súp đậu trắng kiểu Đức",
+          "local_name": "Súp đậu trắng kiểu Đức",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-02.json"
+        },
+        {
+          "recipe_id": "soup-cookbook-035",
+          "title": "Súp đậu trắng kiểu Đức",
+          "local_name": "Súp đậu trắng kiểu Đức",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-012-ing-05",
+          "recipe_id": "soup-cookbook-012",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-02.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-012",
+          "component_name": "Súp đậu trắng kiểu Đức",
+          "raw_text": "1 c Onions; Finely Chopped",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        },
+        {
+          "source_ingredient_id": "soup-cookbook-035-ing-05",
+          "recipe_id": "soup-cookbook-035",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-04.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-035",
+          "component_name": "Súp đậu trắng kiểu Đức",
+          "raw_text": "1 c Onions; Finely Chopped",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01855",
+      "canonical_name": "1 C peach juice",
+      "name": "C peach nước cốt",
+      "name_i18n": {
+        "en": "1 C peach juice",
+        "vi": "C peach nước cốt"
+      },
+      "description": "C peach nước cốt là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C peach nước cốt",
+        "peach nước ép",
+        "peach nước cốt"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [
+        "role_acidifier"
+      ],
+      "image_url": "assets/ingredients/3b88329d8ec75ba2.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=C%20peach%20n%C6%B0%E1%BB%9Bc%20c%E1%BB%91t%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C peach nước cốt",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-042",
+          "title": "Tôm cay kiểu Á",
+          "local_name": "Tôm cay kiểu Á",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-042-ing-08",
+          "recipe_id": "wok-cookbook-042",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-05.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-042",
+          "component_name": "Tôm cay kiểu Á",
+          "raw_text": "1 C peach juice",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01856",
+      "canonical_name": "1 C peanuts or 1 C cashews",
+      "name": "C peanuts hoặc 1 C cashews",
+      "name_i18n": {
+        "en": "1 C peanuts or 1 C cashews",
+        "vi": "C peanuts hoặc 1 C cashews"
+      },
+      "description": "C peanuts hoặc 1 C cashews là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C peanuts hoặc 1 C cashews"
+      ],
+      "macro_class": "lipid",
+      "macro_classes_observed": [
+        "lipid"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "fats_oils",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "peanut",
+        "tree_nut",
+        "tree_nuts"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/5238235c0d790bc7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C peanuts hoặc 1 C cashews",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-036",
+          "title": "Ức gà dừa và hạt điều",
+          "local_name": "Ức gà dừa và hạt điều",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-036-ing-08",
+          "recipe_id": "wok-cookbook-036",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-04.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-036",
+          "component_name": "Ức gà dừa và hạt điều",
+          "raw_text": "1 C peanuts or 1 C cashews",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01857",
+      "canonical_name": "1 C shredded mozzarella cheese",
+      "name": "C bào sợi mozzarella phô mai",
+      "name_i18n": {
+        "en": "1 C shredded mozzarella cheese",
+        "vi": "C bào sợi mozzarella phô mai"
+      },
+      "description": "C bào sợi mozzarella phô mai là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C bào sợi mozzarella phô mai",
+        "bào sợi mozzarella phô mai"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d48e5035b53f229c.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=C%20b%C3%A0o%20s%E1%BB%A3i%20mozzarella%20ph%C3%B4%20mai%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C bào sợi mozzarella phô mai",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-005",
+          "title": "Mì penne đút lò với cá ngừ",
+          "local_name": "Mì penne đút lò với cá ngừ",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-005-ing-12",
+          "recipe_id": "wok-cookbook-005",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-01.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-005",
+          "component_name": "Mì penne đút lò với cá ngừ",
+          "raw_text": "1 C shredded mozzarella cheese",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01858",
+      "canonical_name": "1 c Small or medium egg noodles",
+      "name": "c Small hoặc cỡ vừa trứng mì",
+      "name_i18n": {
+        "en": "1 c Small or medium egg noodles",
+        "vi": "c Small hoặc cỡ vừa trứng mì"
+      },
+      "description": "c Small hoặc cỡ vừa trứng mì là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "c Small hoặc cỡ vừa trứng mì",
+        "Nhỏ hoặc vừa mì trứng",
+        "hoặc cỡ vừa trứng mì"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "gluten",
+        "egg"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/10fa13ab3571bcd0.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu c Small hoặc cỡ vừa trứng mì",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-051",
+          "title": "Súp rau củ gà tây",
+          "local_name": "Súp rau củ gà tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-051-ing-08",
+          "recipe_id": "soup-cookbook-051",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-06.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-051",
+          "component_name": "Súp rau củ gà tây",
+          "raw_text": "1 c Small or medium egg noodles",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01859",
+      "canonical_name": "1 C snap peas",
+      "name": "C snap peas",
+      "name_i18n": {
+        "en": "1 C snap peas",
+        "vi": "C snap peas"
+      },
+      "description": "C snap peas là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C snap peas",
+        "snap đậu Hà Lan",
+        "snap peas"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/fb54bb9414c193bb.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C snap peas",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-039",
+          "title": "Món xào “Ký ức của King Wok”",
+          "local_name": "Món xào “Ký ức của King Wok”",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-039-ing-11",
+          "recipe_id": "wok-cookbook-039",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-04.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-039",
+          "component_name": "Món xào “Ký ức của King Wok”",
+          "raw_text": "1 C snap peas",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01860",
+      "canonical_name": "1 c Thawed Frozen Spinach,-Chopped",
+      "name": "c Thawed đông lạnh rau bina, -băm nhỏ",
+      "name_i18n": {
+        "en": "1 c Thawed Frozen Spinach,-Chopped",
+        "vi": "c Thawed đông lạnh rau bina, -băm nhỏ"
+      },
+      "description": "c Thawed đông lạnh rau bina, -băm nhỏ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "c Thawed đông lạnh rau bina, -băm nhỏ",
+        "Rã đông đông lạnh rau bina",
+        "Thawed đông lạnh rau bina"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/63092ae92740d2e3.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu c Thawed đông lạnh rau bina, -băm nhỏ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-004",
+          "title": "Súp đậu và mì Ý",
+          "local_name": "Súp đậu và mì Ý",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-004-ing-05",
+          "recipe_id": "soup-cookbook-004",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-004",
+          "component_name": "Súp đậu và mì Ý",
+          "raw_text": "1 c Thawed Frozen Spinach,-Chopped",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01861",
+      "canonical_name": "1 C vegetable broth",
+      "name": "C rau củ nước dùng",
+      "name_i18n": {
+        "en": "1 C vegetable broth",
+        "vi": "C rau củ nước dùng"
+      },
+      "description": "C rau củ nước dùng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C rau củ nước dùng"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/fdeff9c1663479c7.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=C%20rau%20c%E1%BB%A7%20n%C6%B0%E1%BB%9Bc%20d%C3%B9ng%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C rau củ nước dùng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-005",
+          "title": "Mì penne đút lò với cá ngừ",
+          "local_name": "Mì penne đút lò với cá ngừ",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-005-ing-10",
+          "recipe_id": "wok-cookbook-005",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-01.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-005",
+          "component_name": "Mì penne đút lò với cá ngừ",
+          "raw_text": "1 C vegetable broth",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01862",
+      "canonical_name": "1 C very thinly sliced fresh basil leaves",
+      "name": "C very mỏng thái lát tươi húng quế lá",
+      "name_i18n": {
+        "en": "1 C very thinly sliced fresh basil leaves",
+        "vi": "C very mỏng thái lát tươi húng quế lá"
+      },
+      "description": "C very mỏng thái lát tươi húng quế lá là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C very mỏng thái lát tươi húng quế lá"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/8f7d4d0084db614c.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C very mỏng thái lát tươi húng quế lá",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-011",
+          "title": "Gà xào cay với húng quế và hành tím",
+          "local_name": "Gà xào cay với húng quế và hành tím",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-011-ing-12",
+          "recipe_id": "wok-cookbook-011",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-02.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-011",
+          "component_name": "Gà xào cay với húng quế và hành tím",
+          "raw_text": "1 C very thinly sliced fresh basil leaves",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01863",
+      "canonical_name": "1 c White beans, dried",
+      "name": "c trắng beans, khô",
+      "name_i18n": {
+        "en": "1 c White beans, dried",
+        "vi": "c trắng beans, khô"
+      },
+      "description": "c trắng beans, khô là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "c trắng beans, khô",
+        "Đậu trắng",
+        "trắng beans"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/7f03cbeb4882d83b.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%20tr%E1%BA%AFng%20beans%2C%20kh%C3%B4%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu c trắng beans, khô",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-001",
+          "title": "Súp đậu trắng và giăm bông Annie Mae Jones",
+          "local_name": "Súp đậu trắng và giăm bông Annie Mae Jones",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-001-ing-01",
+          "recipe_id": "soup-cookbook-001",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-001",
+          "component_name": "Súp đậu trắng và giăm bông Annie Mae Jones",
+          "raw_text": "1 c White beans, dried",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01864",
+      "canonical_name": "1 c White Wine – dry",
+      "name": "c trắng rượu – khô",
+      "name_i18n": {
+        "en": "1 c White Wine – dry",
+        "vi": "c trắng rượu – khô"
+      },
+      "description": "c trắng rượu – khô là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "c trắng rượu – khô",
+        "Rượu vang trắng – khô",
+        "trắng rượu – khô"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/3ed89b2a0aba85af.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu c trắng rượu – khô",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-054",
+          "title": "Súp kem atisô",
+          "local_name": "Súp kem atisô",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-054-ing-13",
+          "recipe_id": "soup-cookbook-054",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-06.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-054",
+          "component_name": "Súp kem atisô",
+          "raw_text": "1 c White Wine – dry",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01865",
+      "canonical_name": "1 C zucchini, cubed",
+      "name": "C zucchini, cubed",
+      "name_i18n": {
+        "en": "1 C zucchini, cubed",
+        "vi": "C zucchini, cubed"
+      },
+      "description": "C zucchini, cubed là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "C zucchini, cubed",
+        "zucchini, cubed"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/3a8f2ca3637e57b2.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=C%20zucchini%2C%20cubed%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu C zucchini, cubed",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "wok-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "wok-cookbook-039",
+          "title": "Món xào “Ký ức của King Wok”",
+          "local_name": "Món xào “Ký ức của King Wok”",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "wok-cookbook-039-ing-04",
+          "recipe_id": "wok-cookbook-039",
+          "catalog_code": "wok-cookbook",
+          "source_file": "recipes/wok-cookbook/part-04.json",
+          "component_type": "recipe",
+          "component_id": "wok-cookbook-039",
+          "component_name": "Món xào “Ký ức của King Wok”",
+          "raw_text": "1 C zucchini, cubed",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01866",
+      "canonical_name": "1 cái Chanh xanh zest bào sợi",
+      "name": "cái Chanh xanh zest bào sợi",
+      "name_i18n": {
+        "en": "1 cái Chanh xanh zest bào sợi",
+        "vi": "cái Chanh xanh zest bào sợi"
+      },
+      "description": "cái Chanh xanh zest bào sợi là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cái Chanh xanh zest bào sợi",
+        "Lime zest bào",
+        "Chanh xanh zest bào sợi"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "fish"
+      ],
+      "flavor_tags": [
+        "acidic"
+      ],
+      "culinary_roles": [
+        "acid"
+      ],
+      "image_url": "assets/ingredients/37364f0491905e6f.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cái Chanh xanh zest bào sợi",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "mediterranean"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "med-diet-086",
+          "title": "Kem dừa",
+          "local_name": "Kem dừa",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "med-diet-086-ing-11",
+          "recipe_id": "med-diet-086",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-09.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-086",
+          "component_name": "Kem dừa",
+          "raw_text": "1 cái Chanh xanh zest bào sợi",
+          "display_amount": "0.9–1.1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01867",
+      "canonical_name": "1 cái Freshly bào sợi chanh vàng zest",
+      "name": "cái mới bào sợi chanh vàng zest",
+      "name_i18n": {
+        "en": "1 cái Freshly bào sợi chanh vàng zest",
+        "vi": "cái mới bào sợi chanh vàng zest"
+      },
+      "description": "cái mới bào sợi chanh vàng zest là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cái mới bào sợi chanh vàng zest",
+        "mới bào lemon zest",
+        "mới bào sợi chanh vàng zest"
+      ],
+      "macro_class": "fruit",
+      "macro_classes_observed": [
+        "fruit"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "fish"
+      ],
+      "flavor_tags": [
+        "acidic"
+      ],
+      "culinary_roles": [
+        "role_acidifier",
+        "acid"
+      ],
+      "image_url": "assets/ingredients/7bd0d26c85d6c467.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A1i%20m%E1%BB%9Bi%20b%C3%A0o%20s%E1%BB%A3i%20chanh%20v%C3%A0ng%20zest%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cái mới bào sợi chanh vàng zest",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "mediterranean"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "med-diet-085",
+          "title": "Việt quất với kem chanh",
+          "local_name": "Việt quất với kem chanh",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "med-diet-085-ing-04",
+          "recipe_id": "med-diet-085",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-09.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-085",
+          "component_name": "Việt quất với kem chanh",
+          "raw_text": "1 cái Freshly bào sợi chanh vàng zest",
+          "display_amount": "0.9–1.1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01868",
+      "canonical_name": "1 cái Gala táo peeled",
+      "name": "cái Gala táo gọt vỏ",
+      "name_i18n": {
+        "en": "1 cái Gala táo peeled",
+        "vi": "cái Gala táo gọt vỏ"
+      },
+      "description": "cái Gala táo gọt vỏ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cái Gala táo gọt vỏ",
+        "Gala táo gọt vỏ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "fish"
+      ],
+      "flavor_tags": [
+        "sweet"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/19aa47651585b894.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A1i%20Gala%20t%C3%A1o%20g%E1%BB%8Dt%20v%E1%BB%8F%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cái Gala táo gọt vỏ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "mediterranean"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "med-diet-026",
+          "title": "Ô liu và cà chua nướng thảo mộc",
+          "local_name": "Ô liu và cà chua nướng thảo mộc",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "med-diet-026-ing-18",
+          "recipe_id": "med-diet-026",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-03.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-026",
+          "component_name": "Ô liu và cà chua nướng thảo mộc",
+          "raw_text": "1 cái Gala táo peeled",
+          "display_amount": "0.9–1.1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01869",
+      "canonical_name": "1 cái Juiced chanh xanh",
+      "name": "cái Juiced chanh xanh",
+      "name_i18n": {
+        "en": "1 cái Juiced chanh xanh",
+        "vi": "cái Juiced chanh xanh"
+      },
+      "description": "cái Juiced chanh xanh là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cái Juiced chanh xanh",
+        "Juiced lime",
+        "Juiced chanh xanh"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "fish"
+      ],
+      "flavor_tags": [
+        "acidic"
+      ],
+      "culinary_roles": [
+        "acid"
+      ],
+      "image_url": "assets/ingredients/42841fe49e92b237.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A1i%20Juiced%20chanh%20xanh%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cái Juiced chanh xanh",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "mediterranean"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "med-diet-046",
+          "title": "Cá mahi-mahi tỏi chanh",
+          "local_name": "Cá mahi-mahi tỏi chanh",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json"
+        },
+        {
+          "recipe_id": "med-diet-047",
+          "title": "Cá hồi ớt chanh xanh",
+          "local_name": "Cá hồi ớt chanh xanh",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "med-diet-046-ing-14",
+          "recipe_id": "med-diet-046",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-046",
+          "component_name": "Cá mahi-mahi tỏi chanh",
+          "raw_text": "1 cái Juiced chanh xanh",
+          "display_amount": "0.9–1.1 cái"
+        },
+        {
+          "source_ingredient_id": "med-diet-047-ing-06",
+          "recipe_id": "med-diet-047",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-047",
+          "component_name": "Cá hồi ớt chanh xanh",
+          "raw_text": "1 cái Juiced chanh xanh",
+          "display_amount": "0.9–1.1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01870",
+      "canonical_name": "1 cái Nước cốt chanh vàng",
+      "name": "cái Nước cốt chanh vàng",
+      "name_i18n": {
+        "en": "1 cái Nước cốt chanh vàng",
+        "vi": "cái Nước cốt chanh vàng"
+      },
+      "description": "cái Nước cốt chanh vàng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cái Nước cốt chanh vàng",
+        "nước cốt chanh"
+      ],
+      "macro_class": "fruit",
+      "macro_classes_observed": [
+        "fruit"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "fish"
+      ],
+      "flavor_tags": [
+        "acidic"
+      ],
+      "culinary_roles": [
+        "role_acidifier",
+        "acid"
+      ],
+      "image_url": "assets/ingredients/f60572acebd25daa.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A1i%20N%C6%B0%E1%BB%9Bc%20c%E1%BB%91t%20chanh%20v%C3%A0ng%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cái Nước cốt chanh vàng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 4,
+      "recipe_count": 4,
+      "catalog_codes": [
+        "mediterranean"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "med-diet-026",
+          "title": "Ô liu và cà chua nướng thảo mộc",
+          "local_name": "Ô liu và cà chua nướng thảo mộc",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-03.json"
+        },
+        {
+          "recipe_id": "med-diet-046",
+          "title": "Cá mahi-mahi tỏi chanh",
+          "local_name": "Cá mahi-mahi tỏi chanh",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json"
+        },
+        {
+          "recipe_id": "med-diet-047",
+          "title": "Cá hồi ớt chanh xanh",
+          "local_name": "Cá hồi ớt chanh xanh",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json"
+        },
+        {
+          "recipe_id": "med-diet-048",
+          "title": "Bò xào hạt điều kiểu Thái",
+          "local_name": "Bò xào hạt điều kiểu Thái",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "med-diet-026-ing-32",
+          "recipe_id": "med-diet-026",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-03.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-026",
+          "component_name": "Ô liu và cà chua nướng thảo mộc",
+          "raw_text": "1 cái Nước cốt chanh vàng",
+          "display_amount": "0.9–1.1 cái"
+        },
+        {
+          "source_ingredient_id": "med-diet-046-ing-53",
+          "recipe_id": "med-diet-046",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-046",
+          "component_name": "Cá mahi-mahi tỏi chanh",
+          "raw_text": "1 cái Nước cốt chanh vàng",
+          "display_amount": "0.9–1.1 cái"
+        },
+        {
+          "source_ingredient_id": "med-diet-047-ing-45",
+          "recipe_id": "med-diet-047",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-047",
+          "component_name": "Cá hồi ớt chanh xanh",
+          "raw_text": "1 cái Nước cốt chanh vàng",
+          "display_amount": "0.9–1.1 cái"
+        },
+        {
+          "source_ingredient_id": "med-diet-048-ing-32",
+          "recipe_id": "med-diet-048",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-05.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-048",
+          "component_name": "Bò xào hạt điều kiểu Thái",
+          "raw_text": "1 cái Nước cốt chanh vàng",
+          "display_amount": "0.9–1.1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01871",
+      "canonical_name": "1 cái Nước cốt chanh vàng 0.25 cup",
+      "name": "cái Nước cốt chanh vàng 0.25 cốc",
+      "name_i18n": {
+        "en": "1 cái Nước cốt chanh vàng 0.25 cup",
+        "vi": "cái Nước cốt chanh vàng 0.25 cốc"
+      },
+      "description": "cái Nước cốt chanh vàng 0.25 cốc là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cái Nước cốt chanh vàng 0.25 cốc"
+      ],
+      "macro_class": "fruit",
+      "macro_classes_observed": [
+        "fruit"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "fish"
+      ],
+      "flavor_tags": [
+        "acidic"
+      ],
+      "culinary_roles": [
+        "role_acidifier",
+        "acid"
+      ],
+      "image_url": "assets/ingredients/f60572acebd25daa.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A1i%20N%C6%B0%E1%BB%9Bc%20c%E1%BB%91t%20chanh%20v%C3%A0ng%200.25%20c%E1%BB%91c%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cái Nước cốt chanh vàng 0.25 cốc",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "mediterranean"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "med-diet-026",
+          "title": "Ô liu và cà chua nướng thảo mộc",
+          "local_name": "Ô liu và cà chua nướng thảo mộc",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "med-diet-026-ing-40",
+          "recipe_id": "med-diet-026",
+          "catalog_code": "mediterranean",
+          "source_file": "recipes/mediterranean/part-03.json",
+          "component_type": "recipe",
+          "component_id": "med-diet-026",
+          "component_name": "Ô liu và cà chua nướng thảo mộc",
+          "raw_text": "1 cái Nước cốt chanh vàng ¼ cup",
+          "display_amount": "0.9–1.1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01872",
+      "canonical_name": "1 can (10.5-ounce) Campbell’s Condensed Beef Soup",
+      "name": "Campbell’s Condensed thịt bò Soup",
+      "name_i18n": {
+        "en": "1 can (10.5-ounce) Campbell’s Condensed Beef Soup",
+        "vi": "Campbell’s Condensed thịt bò Soup"
+      },
+      "description": "Campbell’s Condensed thịt bò Soup là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "Campbell’s Condensed thịt bò Soup",
+        "Súp bò cô đặc Campbell’s"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/925d35cb4ce178ea.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu Campbell’s Condensed thịt bò Soup",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soups-stews-031",
+          "title": "Bò hầm phong cách biên giới phía Nam",
+          "local_name": "Bò hầm phong cách biên giới phía Nam",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soups-stews-031-ing-05",
+          "recipe_id": "soups-stews-031",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-031",
+          "component_name": "Bò hầm phong cách biên giới phía Nam",
+          "raw_text": "1 can (10 ½-ounce) Campbell’s Condensed Beef Soup",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01873",
+      "canonical_name": "1 can (10.75 oz) cream of chicken soup",
+      "name": "kem của gà soup",
+      "name_i18n": {
+        "en": "1 can (10.75 oz) cream of chicken soup",
+        "vi": "kem của gà soup"
+      },
+      "description": "kem của gà soup là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "kem của gà soup",
+        "súp kem gà đóng hộp"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/3461ee322a4b31c3.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu kem của gà soup",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-025",
+          "title": "Súp gà với bánh bột nhồi",
+          "local_name": "Súp gà với bánh bột nhồi",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-025-ing-02",
+          "recipe_id": "soup-cookbook-025",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-03.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-025",
+          "component_name": "Súp gà với bánh bột nhồi",
+          "raw_text": "1 can (10 3/4 oz) cream of chicken soup",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01874",
+      "canonical_name": "1 can (10.75 oz) golden mushroom soup",
+      "name": "golden nấm soup",
+      "name_i18n": {
+        "en": "1 can (10.75 oz) golden mushroom soup",
+        "vi": "golden nấm soup"
+      },
+      "description": "golden nấm soup là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "golden nấm soup",
+        "súp nấm vàng đóng hộp"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e3cefb966130ad39.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu golden nấm soup",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-025",
+          "title": "Súp gà với bánh bột nhồi",
+          "local_name": "Súp gà với bánh bột nhồi",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-025-ing-03",
+          "recipe_id": "soup-cookbook-025",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-03.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-025",
+          "component_name": "Súp gà với bánh bột nhồi",
+          "raw_text": "1 can (10 3/4 oz) golden mushroom soup",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01875",
+      "canonical_name": "1 can (10.75-ounce) Campbell’s Condensed Tomato Soup",
+      "name": "Campbell’s Condensed cà chua Soup",
+      "name_i18n": {
+        "en": "1 can (10.75-ounce) Campbell’s Condensed Tomato Soup",
+        "vi": "Campbell’s Condensed cà chua Soup"
+      },
+      "description": "Campbell’s Condensed cà chua Soup là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "Campbell’s Condensed cà chua Soup",
+        "Súp cà chua cô đặc Campbell’s"
+      ],
+      "macro_class": "fruit",
+      "macro_classes_observed": [
+        "fruit"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/33148efa35a102fa.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu Campbell’s Condensed cà chua Soup",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soups-stews-031",
+          "title": "Bò hầm phong cách biên giới phía Nam",
+          "local_name": "Bò hầm phong cách biên giới phía Nam",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soups-stews-031-ing-04",
+          "recipe_id": "soups-stews-031",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-031",
+          "component_name": "Bò hầm phong cách biên giới phía Nam",
+          "raw_text": "1 can (10 ¾-ounce) Campbell’s Condensed Tomato Soup",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01876",
+      "canonical_name": "1 can (12 ounces) evaporated milk",
+      "name": "evaporated sữa",
+      "name_i18n": {
+        "en": "1 can (12 ounces) evaporated milk",
+        "vi": "evaporated sữa"
+      },
+      "description": "evaporated sữa là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "evaporated sữa",
+        "Sữa cô đặc không đường"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/f4dcb55ae4346668.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=evaporated%20s%E1%BB%AFa%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu evaporated sữa",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soups-stews-016",
+          "title": "Súp bông cải xanh và phô mai nấu chậm",
+          "local_name": "Súp bông cải xanh và phô mai nấu chậm",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soups-stews-016-ing-04",
+          "recipe_id": "soups-stews-016",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-02.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-016",
+          "component_name": "Súp bông cải xanh và phô mai nấu chậm",
+          "raw_text": "1 can (12 ounces) evaporated milk",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01877",
+      "canonical_name": "1 can baby corn, drained and rinsed",
+      "name": "baby ngô, để ráo và rửa sạch",
+      "name_i18n": {
+        "en": "1 can baby corn, drained and rinsed",
+        "vi": "baby ngô, để ráo và rửa sạch"
+      },
+      "description": "baby ngô, để ráo và rửa sạch là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "baby ngô, để ráo và rửa sạch",
+        "ngô bao tử, để ráo và rửa sạch"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/f718363dc40a9070.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu baby ngô, để ráo và rửa sạch",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "healthy-easy-stir-fry"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "healthy-stir-fry-011",
+          "title": "Bò xào rau củ đơn giản",
+          "local_name": "Bò xào rau củ đơn giản",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "healthy-stir-fry-011-ing-07",
+          "recipe_id": "healthy-stir-fry-011",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json",
+          "component_type": "recipe",
+          "component_id": "healthy-stir-fry-011",
+          "component_name": "Bò xào rau củ đơn giản",
+          "raw_text": "1 can baby corn, drained and rinsed",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01878",
+      "canonical_name": "1 can chicken broth (14 ounces)",
+      "name": "nước dùng gà (14 oz)",
+      "name_i18n": {
+        "en": "1 can chicken broth (14 ounces)",
+        "vi": "nước dùng gà (14 oz)"
+      },
+      "description": "nước dùng gà (14 oz) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nước dùng gà (14 oz)"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/5f0284ecd830048f.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=n%C6%B0%E1%BB%9Bc%20d%C3%B9ng%20g%C3%A0%20%2814%20oz%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nước dùng gà (14 oz)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-043",
+          "title": "Súp phô mai kiểu Denny's",
+          "local_name": "Súp phô mai kiểu Denny's",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-043-ing-06",
+          "recipe_id": "soup-cookbook-043",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-05.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-043",
+          "component_name": "Súp phô mai kiểu Denny's",
+          "raw_text": "1 can chicken broth (14 ounces)",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01879",
+      "canonical_name": "1 can coconut milk (available from most Asian food shops)",
+      "name": "nước cốt dừa (có bán khỏi most Asian food shops)",
+      "name_i18n": {
+        "en": "1 can coconut milk (available from most Asian food shops)",
+        "vi": "nước cốt dừa (có bán khỏi most Asian food shops)"
+      },
+      "description": "nước cốt dừa (có bán khỏi most Asian food shops) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nước cốt dừa (có bán khỏi most Asian food shops)",
+        "Nước cốt dừa"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/9521b0a81a6f2e30.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=n%C6%B0%E1%BB%9Bc%20c%E1%BB%91t%20d%E1%BB%ABa%20%28c%C3%B3%20b%C3%A1n%20kh%E1%BB%8Fi%20most%20Asian%20food%20shops%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nước cốt dừa (có bán khỏi most Asian food shops)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "asian-noodle-recipes"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-noodle-113",
+          "title": "Laksa Lemak",
+          "local_name": "Laksa Lemak",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-12.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-noodle-113-ing-15",
+          "recipe_id": "asian-noodle-113",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-12.json",
+          "component_type": "recipe",
+          "component_id": "asian-noodle-113",
+          "component_name": "Laksa Lemak",
+          "raw_text": "1 can coconut milk (available from most Asian food shops)",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01880",
+      "canonical_name": "1 can coconut milk, light",
+      "name": "nước cốt dừa, loại nhẹ",
+      "name_i18n": {
+        "en": "1 can coconut milk, light",
+        "vi": "nước cốt dừa, loại nhẹ"
+      },
+      "description": "nước cốt dừa, loại nhẹ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nước cốt dừa, loại nhẹ",
+        "Nước cốt dừa"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/b30462d4f106e0fe.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=n%C6%B0%E1%BB%9Bc%20c%E1%BB%91t%20d%E1%BB%ABa%2C%20lo%E1%BA%A1i%20nh%E1%BA%B9%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nước cốt dừa, loại nhẹ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "asian-hot-pot"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-hot-pot-030",
+          "title": "Lẩu heo gừng",
+          "local_name": "Lẩu heo gừng",
+          "catalog_code": "asian-hot-pot",
+          "source_file": "recipes/asian-hot-pot/part-03.json"
+        },
+        {
+          "recipe_id": "asian-hot-pot-034",
+          "title": "Lẩu cà ri dừa",
+          "local_name": "Lẩu cà ri dừa",
+          "catalog_code": "asian-hot-pot",
+          "source_file": "recipes/asian-hot-pot/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-hot-pot-030-ing-08",
+          "recipe_id": "asian-hot-pot-030",
+          "catalog_code": "asian-hot-pot",
+          "source_file": "recipes/asian-hot-pot/part-03.json",
+          "component_type": "recipe",
+          "component_id": "asian-hot-pot-030",
+          "component_name": "Lẩu heo gừng",
+          "raw_text": "1 can coconut milk, light",
+          "display_amount": "1 lon"
+        },
+        {
+          "source_ingredient_id": "asian-hot-pot-034-ing-13",
+          "recipe_id": "asian-hot-pot-034",
+          "catalog_code": "asian-hot-pot",
+          "source_file": "recipes/asian-hot-pot/part-04.json",
+          "component_type": "recipe",
+          "component_id": "asian-hot-pot-034",
+          "component_name": "Lẩu cà ri dừa",
+          "raw_text": "1 can coconut milk, light",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01881",
+      "canonical_name": "1 can coconut soda",
+      "name": "dừa soda",
+      "name_i18n": {
+        "en": "1 can coconut soda",
+        "vi": "dừa soda"
+      },
+      "description": "dừa soda là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "dừa soda",
+        "Nước soda dừa"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/eec80bc4206d54b6.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu dừa soda",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "asian-noodle-recipes"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-noodle-125",
+          "title": "Mì sa tế bò Wagyu",
+          "local_name": "Mì sa tế bò Wagyu",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-13.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-noodle-125-ing-06",
+          "recipe_id": "asian-noodle-125",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-13.json",
+          "component_type": "recipe",
+          "component_id": "asian-noodle-125",
+          "component_name": "Mì sa tế bò Wagyu",
+          "raw_text": "1 can coconut soda",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01882",
+      "canonical_name": "1 can corn, drained",
+      "name": "ngô, để ráo",
+      "name_i18n": {
+        "en": "1 can corn, drained",
+        "vi": "ngô, để ráo"
+      },
+      "description": "ngô, để ráo là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "ngô, để ráo",
+        "Ngô"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/7cacb75c4cc31d62.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu ngô, để ráo",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soups-stews-036",
+          "title": "Bò hầm rau củ",
+          "local_name": "Bò hầm rau củ",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soups-stews-036-ing-09",
+          "recipe_id": "soups-stews-036",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-036",
+          "component_name": "Bò hầm rau củ",
+          "raw_text": "1 can corn, drained",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01883",
+      "canonical_name": "1 can cream of mushroom soup",
+      "name": "kem của nấm soup",
+      "name_i18n": {
+        "en": "1 can cream of mushroom soup",
+        "vi": "kem của nấm soup"
+      },
+      "description": "kem của nấm soup là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "kem của nấm soup"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d1ee0034e53112be.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=kem%20c%E1%BB%A7a%20n%E1%BA%A5m%20soup%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu kem của nấm soup",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "fried-chicken-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "fried-chicken-089",
+          "title": "Gà chiên kiểu đồng quê với xốt thịt",
+          "local_name": "Gà chiên kiểu đồng quê với xốt thịt",
+          "catalog_code": "fried-chicken-cookbook",
+          "source_file": "recipes/fried-chicken-cookbook/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "fried-chicken-089-ing-07",
+          "recipe_id": "fried-chicken-089",
+          "catalog_code": "fried-chicken-cookbook",
+          "source_file": "recipes/fried-chicken-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "fried-chicken-089",
+          "component_name": "Gà chiên kiểu đồng quê với xốt thịt",
+          "raw_text": "1 can cream of mushroom soup",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01884",
+      "canonical_name": "1 can green bean, drained",
+      "name": "xanh bean, để ráo",
+      "name_i18n": {
+        "en": "1 can green bean, drained",
+        "vi": "xanh bean, để ráo"
+      },
+      "description": "xanh bean, để ráo là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "xanh bean, để ráo",
+        "Đậu cô ve",
+        "xanh bean"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/a1f1db7b9aa9a776.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=xanh%20bean%2C%20%C4%91%E1%BB%83%20r%C3%A1o%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu xanh bean, để ráo",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soups-stews-036",
+          "title": "Bò hầm rau củ",
+          "local_name": "Bò hầm rau củ",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soups-stews-036-ing-10",
+          "recipe_id": "soups-stews-036",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-04.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-036",
+          "component_name": "Bò hầm rau củ",
+          "raw_text": "1 can green bean, drained",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01885",
+      "canonical_name": "1 can of beef broth",
+      "name": "nước dùng bò",
+      "name_i18n": {
+        "en": "1 can of beef broth",
+        "vi": "nước dùng bò"
+      },
+      "description": "nước dùng bò là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nước dùng bò"
+      ],
+      "macro_class": "other",
+      "macro_classes_observed": [
+        "other"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/8e0a7261b46292f3.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nước dùng bò",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "korean"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "korean-140",
+          "title": "Lẩu bò rau củ",
+          "local_name": "Lẩu bò rau củ",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "korean-140-ing-11",
+          "recipe_id": "korean-140",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-14.json",
+          "component_type": "recipe",
+          "component_id": "korean-140",
+          "component_name": "Lẩu bò rau củ",
+          "raw_text": "1 can of beef broth",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01886",
+      "canonical_name": "1 can or 5 oz. Evaporated milk",
+      "name": "hoặc 5 oz. Evaporated sữa",
+      "name_i18n": {
+        "en": "1 can or 5 oz. Evaporated milk",
+        "vi": "hoặc 5 oz. Evaporated sữa"
+      },
+      "description": "hoặc 5 oz. Evaporated sữa là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "hoặc 5 oz. Evaporated sữa"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/f4dcb55ae4346668.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=ho%E1%BA%B7c%205%20oz.%20Evaporated%20s%E1%BB%AFa%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu hoặc 5 oz. Evaporated sữa",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "chinese"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "chinese-055",
+          "title": "Cơm bát bảo",
+          "local_name": "Cơm bát bảo",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "chinese-055-ing-03",
+          "recipe_id": "chinese-055",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-06.json",
+          "component_type": "recipe",
+          "component_id": "chinese-055",
+          "component_name": "Cơm bát bảo",
+          "raw_text": "1 can or 5 oz. Evaporated milk",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01887",
+      "canonical_name": "1 can thick coconut milk",
+      "name": "dày nước cốt dừa",
+      "name_i18n": {
+        "en": "1 can thick coconut milk",
+        "vi": "dày nước cốt dừa"
+      },
+      "description": "dày nước cốt dừa là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "dày nước cốt dừa"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/409e12f1dd80312f.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu dày nước cốt dừa",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "asian-noodle-recipes"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-noodle-047",
+          "title": "Lasagna kiểu Malaysia",
+          "local_name": "Lasagna kiểu Malaysia",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-noodle-047-ing-35",
+          "recipe_id": "asian-noodle-047",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-05.json",
+          "component_type": "recipe",
+          "component_id": "asian-noodle-047",
+          "component_name": "Lasagna kiểu Malaysia",
+          "raw_text": "1 can thick coconut milk",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01888",
+      "canonical_name": "1 can tomatoes, diced",
+      "name": "cà chua",
+      "name_i18n": {
+        "en": "1 can tomatoes, diced",
+        "vi": "cà chua"
+      },
+      "description": "cà chua là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà chua"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/404db29d6ba61318.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà chua",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "can"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "asian-hot-pot"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-hot-pot-034",
+          "title": "Lẩu cà ri dừa",
+          "local_name": "Lẩu cà ri dừa",
+          "catalog_code": "asian-hot-pot",
+          "source_file": "recipes/asian-hot-pot/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-hot-pot-034-ing-14",
+          "recipe_id": "asian-hot-pot-034",
+          "catalog_code": "asian-hot-pot",
+          "source_file": "recipes/asian-hot-pot/part-04.json",
+          "component_type": "recipe",
+          "component_id": "asian-hot-pot-034",
+          "component_name": "Lẩu cà ri dừa",
+          "raw_text": "1 can tomatoes, diced",
+          "display_amount": "1 lon"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01889",
+      "canonical_name": "1 can unsweetened pineapple tidbits",
+      "name": "unsweetened pineapple tidbits",
+      "name_i18n": {
+        "en": "1 can unsweetened pineapple tidbits",
+        "vi": "unsweetened pineapple tidbits"
+      },
+      "description": "unsweetened pineapple tidbits là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "unsweetened pineapple tidbits"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "sweet"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/035fcc3449aec422.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=unsweetened%20pineapple%20tidbits%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu unsweetened pineapple tidbits",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "chinese"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "chinese-035",
+          "title": "Thịt heo chua ngọt với dứa",
+          "local_name": "Thịt heo chua ngọt với dứa",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "chinese-035-ing-01",
+          "recipe_id": "chinese-035",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-04.json",
+          "component_type": "recipe",
+          "component_id": "chinese-035",
+          "component_name": "Thịt heo chua ngọt với dứa",
+          "raw_text": "1 can unsweetened pineapple tidbits",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01890",
+      "canonical_name": "1 canned chipotle chile in adobo sauce (like La Morena brand), plus 1 tsp. to 1 Tbs. adobo sauce",
+      "name": "đóng hộp chipotle chile trong adobo sốt (like La Morena brand), thêm 1 tsp. để 1 Tbs. adobo sốt",
+      "name_i18n": {
+        "en": "1 canned chipotle chile in adobo sauce (like La Morena brand), plus 1 tsp. to 1 Tbs. adobo sauce",
+        "vi": "đóng hộp chipotle chile trong adobo sốt (like La Morena brand), thêm 1 tsp. để 1 Tbs. adobo sốt"
+      },
+      "description": "đóng hộp chipotle chile trong adobo sốt (like La Morena brand), thêm 1 tsp. để 1 Tbs. adobo sốt là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "đóng hộp chipotle chile trong adobo sốt (like La Morena brand), thêm 1 tsp. để 1 Tbs. adobo sốt"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/c94079bed691ccd0.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=%C4%91%C3%B3ng%20h%E1%BB%99p%20chipotle%20chile%20trong%20adobo%20s%E1%BB%91t%20%28like%20La%20Morena%20brand%29%2C%20th%C3%AAm%201%20tsp.%20%C4%91%E1%BB%83%201%20Tbs.%20adobo%20s%E1%BB%91t%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu đóng hộp chipotle chile trong adobo sốt (like La Morena brand), thêm 1 tsp. để 1 Tbs. adobo sốt",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "breakfast-fine-cooking"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "breakfast-009",
+          "title": "Bloody Mary cay kiểu Tây Nam",
+          "local_name": "Bloody Mary cay kiểu Tây Nam",
+          "catalog_code": "breakfast-fine-cooking",
+          "source_file": "recipes/breakfast-fine-cooking/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "breakfast-009-ing-04",
+          "recipe_id": "breakfast-009",
+          "catalog_code": "breakfast-fine-cooking",
+          "source_file": "recipes/breakfast-fine-cooking/part-01.json",
+          "component_type": "recipe",
+          "component_id": "breakfast-009",
+          "component_name": "Bloody Mary cay kiểu Tây Nam",
+          "raw_text": "1 canned chipotle chile in adobo sauce (like La Morena brand), plus 1 tsp. to 1 Tbs. adobo sauce",
+          "display_amount": "1 muỗng cà phê (chuẩn hóa: 5 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01891",
+      "canonical_name": "1 carrot",
+      "name": "cà rốt",
+      "name_i18n": {
+        "en": "1 carrot",
+        "vi": "cà rốt"
+      },
+      "description": "cà rốt là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "primary_nutrient_highlights": [
+          "fiber",
+          "micronutrients"
+        ],
+        "classification_level": "food_group_only",
+        "description_vi": "Rau, củ, nấm và nhóm thực vật thường đóng góp chất xơ/vi chất.",
+        "quantitative_nutrition_available": false,
+        "note": "Không suy ra kcal, protein, carbohydrate, fat, vitamin hoặc khoáng chất định lượng nếu nguồn công thức không cung cấp dữ liệu chuẩn cho nguyên liệu."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d8bfad4b74d55431.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other",
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 18,
+      "recipe_count": 18,
+      "catalog_codes": [
+        "chinese",
+        "easy-cook",
+        "korean",
+        "one-pot"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "chinese-005",
+          "title": "Mì lạnh sốt mè",
+          "local_name": "Mì lạnh sốt mè",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-01.json"
+        },
+        {
+          "recipe_id": "chinese-007",
+          "title": "Chả giò kiểu Trung Hoa",
+          "local_name": "Chả giò kiểu Trung Hoa",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-01.json"
+        },
+        {
+          "recipe_id": "chinese-011",
+          "title": "Gà chua ngọt",
+          "local_name": "Gà chua ngọt",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-02.json"
+        },
+        {
+          "recipe_id": "chinese-037",
+          "title": "Thăn heo xào rau củ",
+          "local_name": "Thăn heo xào rau củ",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-04.json"
+        },
+        {
+          "recipe_id": "chinese-044",
+          "title": "Bún gạo xào Singapore",
+          "local_name": "Bún gạo xào Singapore",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-05.json"
+        },
+        {
+          "recipe_id": "chinese-046",
+          "title": "Mì Lo Mein ba món",
+          "local_name": "Mì Lo Mein ba món",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-05.json"
+        },
+        {
+          "recipe_id": "chinese-052",
+          "title": "Canh bắp sườn heo",
+          "local_name": "Canh bắp sườn heo",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-06.json"
+        },
+        {
+          "recipe_id": "easy-cook-027",
+          "title": "Đậu lăng om ớt và quýt",
+          "local_name": "Đậu lăng om ớt và quýt",
+          "catalog_code": "easy-cook",
+          "source_file": "recipes/easy-cook/part-03.json"
+        },
+        {
+          "recipe_id": "korean-004",
+          "title": "Cơm chiên tôm dứa",
+          "local_name": "Cơm chiên tôm dứa",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-01.json"
+        },
+        {
+          "recipe_id": "korean-005",
+          "title": "Cơm chiên cà ri rau củ và xúc xích",
+          "local_name": "Cơm chiên cà ri rau củ và xúc xích",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-01.json"
+        },
+        {
+          "recipe_id": "korean-010",
+          "title": "Cơm gà",
+          "local_name": "Cơm gà",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-01.json"
+        },
+        {
+          "recipe_id": "korean-011",
+          "title": "Cơm bò",
+          "local_name": "Cơm bò",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-02.json"
+        },
+        {
+          "recipe_id": "korean-052",
+          "title": "Salad cải thảo sốt kim chi",
+          "local_name": "Salad cải thảo sốt kim chi",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-06.json"
+        },
+        {
+          "recipe_id": "korean-062",
+          "title": "Thịt heo bulgogi",
+          "local_name": "Thịt heo bulgogi",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-07.json"
+        },
+        {
+          "recipe_id": "korean-063",
+          "title": "Miến trộn bò japchae",
+          "local_name": "Miến trộn bò japchae",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-07.json"
+        },
+        {
+          "recipe_id": "korean-076",
+          "title": "Canh tương đậu rau củ",
+          "local_name": "Canh tương đậu rau củ",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-08.json"
+        },
+        {
+          "recipe_id": "one-pot-037",
+          "title": "Cơm chiên Nhật thuần chay",
+          "local_name": "Cơm chiên Nhật thuần chay",
+          "catalog_code": "one-pot",
+          "source_file": "recipes/one-pot/part-04.json"
+        },
+        {
+          "recipe_id": "one-pot-038",
+          "title": "Cơm rau củ nướng kiểu San Choy Bau",
+          "local_name": "Cơm rau củ nướng kiểu San Choy Bau",
+          "catalog_code": "one-pot",
+          "source_file": "recipes/one-pot/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "chinese-005-ing-07",
+          "recipe_id": "chinese-005",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-01.json",
+          "component_type": "recipe",
+          "component_id": "chinese-005",
+          "component_name": "Mì lạnh sốt mè",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "chinese-007-ing-06",
+          "recipe_id": "chinese-007",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-01.json",
+          "component_type": "recipe",
+          "component_id": "chinese-007",
+          "component_name": "Chả giò kiểu Trung Hoa",
+          "raw_text": "1 Carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "chinese-011-ing-07",
+          "recipe_id": "chinese-011",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-02.json",
+          "component_type": "recipe",
+          "component_id": "chinese-011",
+          "component_name": "Gà chua ngọt",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "chinese-037-ing-03",
+          "recipe_id": "chinese-037",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-04.json",
+          "component_type": "recipe",
+          "component_id": "chinese-037",
+          "component_name": "Thăn heo xào rau củ",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "chinese-044-ing-09",
+          "recipe_id": "chinese-044",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-05.json",
+          "component_type": "recipe",
+          "component_id": "chinese-044",
+          "component_name": "Bún gạo xào Singapore",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "chinese-046-ing-16",
+          "recipe_id": "chinese-046",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-05.json",
+          "component_type": "recipe",
+          "component_id": "chinese-046",
+          "component_name": "Mì Lo Mein ba món",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "chinese-052-ing-03",
+          "recipe_id": "chinese-052",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-06.json",
+          "component_type": "recipe",
+          "component_id": "chinese-052",
+          "component_name": "Canh bắp sườn heo",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "easy-cook-027-ing-02",
+          "recipe_id": "easy-cook-027",
+          "catalog_code": "easy-cook",
+          "source_file": "recipes/easy-cook/part-03.json",
+          "component_type": "recipe",
+          "component_id": "easy-cook-027",
+          "component_name": "Đậu lăng om ớt và quýt",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-004-ing-04",
+          "recipe_id": "korean-004",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-01.json",
+          "component_type": "recipe",
+          "component_id": "korean-004",
+          "component_name": "Cơm chiên tôm dứa",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-005-ing-03",
+          "recipe_id": "korean-005",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-01.json",
+          "component_type": "recipe",
+          "component_id": "korean-005",
+          "component_name": "Cơm chiên cà ri rau củ và xúc xích",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-010-ing-06",
+          "recipe_id": "korean-010",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-01.json",
+          "component_type": "recipe",
+          "component_id": "korean-010",
+          "component_name": "Cơm gà",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-011-ing-08",
+          "recipe_id": "korean-011",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-02.json",
+          "component_type": "recipe",
+          "component_id": "korean-011",
+          "component_name": "Cơm bò",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-052-ing-05",
+          "recipe_id": "korean-052",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-06.json",
+          "component_type": "recipe",
+          "component_id": "korean-052",
+          "component_name": "Salad cải thảo sốt kim chi",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-062-ing-04",
+          "recipe_id": "korean-062",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-07.json",
+          "component_type": "recipe",
+          "component_id": "korean-062",
+          "component_name": "Thịt heo bulgogi",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-063-ing-08",
+          "recipe_id": "korean-063",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-07.json",
+          "component_type": "recipe",
+          "component_id": "korean-063",
+          "component_name": "Miến trộn bò japchae",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "korean-076-ing-03",
+          "recipe_id": "korean-076",
+          "catalog_code": "korean",
+          "source_file": "recipes/korean/part-08.json",
+          "component_type": "recipe",
+          "component_id": "korean-076",
+          "component_name": "Canh tương đậu rau củ",
+          "raw_text": "1 carrot",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "one-pot-037-ing-08",
+          "recipe_id": "one-pot-037",
+          "catalog_code": "one-pot",
+          "source_file": "recipes/one-pot/part-04.json",
+          "component_type": "recipe",
+          "component_id": "one-pot-037",
+          "component_name": "Cơm chiên Nhật thuần chay",
+          "raw_text": "1 carrot",
+          "display_amount": "1 g"
+        },
+        {
+          "source_ingredient_id": "one-pot-038-ing-03",
+          "recipe_id": "one-pot-038",
+          "catalog_code": "one-pot",
+          "source_file": "recipes/one-pot/part-04.json",
+          "component_type": "recipe",
+          "component_id": "one-pot-038",
+          "component_name": "Cơm rau củ nướng kiểu San Choy Bau",
+          "raw_text": "1 carrot",
+          "display_amount": "1 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01892",
+      "canonical_name": "1 Carrot julienned",
+      "name": "cà rốt julienned",
+      "name_i18n": {
+        "en": "1 Carrot julienned",
+        "vi": "cà rốt julienned"
+      },
+      "description": "cà rốt julienned là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt julienned",
+        "cà rốt thái sợi"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/c268b5c177faa630.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%20julienned%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt julienned",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "healthy-easy-stir-fry"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "healthy-stir-fry-019",
+          "title": "Tô mì tôm Bang Bang",
+          "local_name": "Tô mì tôm Bang Bang",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "healthy-stir-fry-019-ing-08",
+          "recipe_id": "healthy-stir-fry-019",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json",
+          "component_type": "recipe",
+          "component_id": "healthy-stir-fry-019",
+          "component_name": "Tô mì tôm Bang Bang",
+          "raw_text": "1 Carrot julienned",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01893",
+      "canonical_name": "1 carrot sliced",
+      "name": "cà rốt thái lát",
+      "name_i18n": {
+        "en": "1 carrot sliced",
+        "vi": "cà rốt thái lát"
+      },
+      "description": "cà rốt thái lát là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt thái lát"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d8bfad4b74d55431.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%20th%C3%A1i%20l%C3%A1t%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt thái lát",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "healthy-easy-stir-fry"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "healthy-stir-fry-017",
+          "title": "Tôm xào mật ong tỏi",
+          "local_name": "Tôm xào mật ong tỏi",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "healthy-stir-fry-017-ing-05",
+          "recipe_id": "healthy-stir-fry-017",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json",
+          "component_type": "recipe",
+          "component_id": "healthy-stir-fry-017",
+          "component_name": "Tôm xào mật ong tỏi",
+          "raw_text": "1 carrot sliced",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01894",
+      "canonical_name": "1 carrot, chopped",
+      "name": "cà rốt",
+      "name_i18n": {
+        "en": "1 carrot, chopped",
+        "vi": "cà rốt"
+      },
+      "description": "cà rốt là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d8bfad4b74d55431.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "healthy-easy-stir-fry",
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "healthy-stir-fry-004",
+          "title": "Mì yakisoba xào dễ làm",
+          "local_name": "Mì yakisoba xào dễ làm",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-01.json"
+        },
+        {
+          "recipe_id": "soups-stews-002",
+          "title": "Súp gà với bánh bột",
+          "local_name": "Súp gà với bánh bột",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "healthy-stir-fry-004-ing-03",
+          "recipe_id": "healthy-stir-fry-004",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-01.json",
+          "component_type": "recipe",
+          "component_id": "healthy-stir-fry-004",
+          "component_name": "Mì yakisoba xào dễ làm",
+          "raw_text": "1 carrot, chopped",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "soups-stews-002-ing-03",
+          "recipe_id": "soups-stews-002",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-01.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-002",
+          "component_name": "Súp gà với bánh bột",
+          "raw_text": "1 carrot, chopped",
+          "display_amount": "1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01895",
+      "canonical_name": "1 carrot, cut into chunks",
+      "name": "cà rốt",
+      "name_i18n": {
+        "en": "1 carrot, cut into chunks",
+        "vi": "cà rốt"
+      },
+      "description": "cà rốt là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/466a499063e365c0.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-244",
+          "title": "Nước dùng gà tây",
+          "local_name": "Nước dùng gà tây",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-25.json"
+        },
+        {
+          "recipe_id": "rice-cooker-246",
+          "title": "Nước dùng trắng",
+          "local_name": "Nước dùng trắng",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-25.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-244-ing-04",
+          "recipe_id": "rice-cooker-244",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-25.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-244",
+          "component_name": "Nước dùng gà tây",
+          "raw_text": "1 carrot, cut into chunks",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-246-ing-03",
+          "recipe_id": "rice-cooker-246",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-25.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-246",
+          "component_name": "Nước dùng trắng",
+          "raw_text": "1 carrot, cut into chunks",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01896",
+      "canonical_name": "1 carrot, cut into thin strips",
+      "name": "cà rốt",
+      "name_i18n": {
+        "en": "1 carrot, cut into thin strips",
+        "vi": "cà rốt"
+      },
+      "description": "cà rốt là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/1382a48439a75099.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-173",
+          "title": "mì ống rau củ với prosciutto và ô liu",
+          "local_name": "mì ống rau củ với prosciutto và ô liu",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-18.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-173-ing-10",
+          "recipe_id": "rice-cooker-173",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-18.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-173",
+          "component_name": "mì ống rau củ với prosciutto và ô liu",
+          "raw_text": "1 carrot, cut into thin strips",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01897",
+      "canonical_name": "1 carrot, julienned",
+      "name": "cà rốt, julienned",
+      "name_i18n": {
+        "en": "1 carrot, julienned",
+        "vi": "cà rốt, julienned"
+      },
+      "description": "cà rốt, julienned là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt, julienned",
+        "Cà rốt"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/c268b5c177faa630.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%2C%20julienned%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt, julienned",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "asian-noodle-recipes",
+        "healthy-easy-stir-fry"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-noodle-016",
+          "title": "Pad Wun Sen tôm",
+          "local_name": "Pad Wun Sen tôm",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-02.json"
+        },
+        {
+          "recipe_id": "healthy-stir-fry-005",
+          "title": "Mì chow mein xào gà",
+          "local_name": "Mì chow mein xào gà",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-noodle-016-ing-04",
+          "recipe_id": "asian-noodle-016",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-02.json",
+          "component_type": "recipe",
+          "component_id": "asian-noodle-016",
+          "component_name": "Pad Wun Sen tôm",
+          "raw_text": "1 carrot, julienned",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "healthy-stir-fry-005-ing-06",
+          "recipe_id": "healthy-stir-fry-005",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-01.json",
+          "component_type": "recipe",
+          "component_id": "healthy-stir-fry-005",
+          "component_name": "Mì chow mein xào gà",
+          "raw_text": "1 carrot, julienned",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01898",
+      "canonical_name": "1 carrot, peeled and grated",
+      "name": "cà rốt, gọt vỏ và bào",
+      "name_i18n": {
+        "en": "1 carrot, peeled and grated",
+        "vi": "cà rốt, gọt vỏ và bào"
+      },
+      "description": "cà rốt, gọt vỏ và bào là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt, gọt vỏ và bào",
+        "Cà rốt"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d8bfad4b74d55431.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%2C%20g%E1%BB%8Dt%20v%E1%BB%8F%20v%C3%A0%20b%C3%A0o%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt, gọt vỏ và bào",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "asian-noodle-recipes"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-noodle-047",
+          "title": "Lasagna kiểu Malaysia",
+          "local_name": "Lasagna kiểu Malaysia",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-noodle-047-ing-09",
+          "recipe_id": "asian-noodle-047",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-05.json",
+          "component_type": "recipe",
+          "component_id": "asian-noodle-047",
+          "component_name": "Lasagna kiểu Malaysia",
+          "raw_text": "1 carrot, peeled and grated",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01899",
+      "canonical_name": "1 carrot, peeled and thinly sliced",
+      "name": "cà rốt, gọt vỏ và mỏng thái lát",
+      "name_i18n": {
+        "en": "1 carrot, peeled and thinly sliced",
+        "vi": "cà rốt, gọt vỏ và mỏng thái lát"
+      },
+      "description": "cà rốt, gọt vỏ và mỏng thái lát là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt, gọt vỏ và mỏng thái lát"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d8bfad4b74d55431.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%2C%20g%E1%BB%8Dt%20v%E1%BB%8F%20v%C3%A0%20m%E1%BB%8Fng%20th%C3%A1i%20l%C3%A1t%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt, gọt vỏ và mỏng thái lát",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "healthy-easy-stir-fry"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "healthy-stir-fry-011",
+          "title": "Bò xào rau củ đơn giản",
+          "local_name": "Bò xào rau củ đơn giản",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "healthy-stir-fry-011-ing-06",
+          "recipe_id": "healthy-stir-fry-011",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json",
+          "component_type": "recipe",
+          "component_id": "healthy-stir-fry-011",
+          "component_name": "Bò xào rau củ đơn giản",
+          "raw_text": "1 carrot, peeled and thinly sliced",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-01900",
+      "canonical_name": "1 carrot, shredded",
+      "name": "cà rốt",
+      "name_i18n": {
+        "en": "1 carrot, shredded",
+        "vi": "cà rốt"
+      },
+      "description": "cà rốt là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cà rốt"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/37b1ef58bc30297e.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%C3%A0%20r%E1%BB%91t%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cà rốt",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "healthy-easy-stir-fry"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "healthy-stir-fry-018",
+          "title": "Tôm xào wonton kiểu Applebee’s",
+          "local_name": "Tôm xào wonton kiểu Applebee’s",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "healthy-stir-fry-018-ing-03",
+          "recipe_id": "healthy-stir-fry-018",
+          "catalog_code": "healthy-easy-stir-fry",
+          "source_file": "recipes/healthy-easy-stir-fry/part-02.json",
+          "component_type": "recipe",
+          "component_id": "healthy-stir-fry-018",
+          "component_name": "Tôm xào wonton kiểu Applebee’s",
+          "raw_text": "1 carrot, shredded",
+          "display_amount": "1"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    }
+  ],
+  "shard": {
+    "index": 38,
+    "count": 228.0,
+    "total_records": 11393
+  }
+}

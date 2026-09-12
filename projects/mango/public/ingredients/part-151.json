@@ -1,0 +1,4522 @@
+{
+  "schema_version": "1.1.0",
+  "catalog": {
+    "code": "ingredients",
+    "catalog_type": "collection",
+    "name_i18n": {
+      "en": "Normalized ingredient catalog",
+      "vi": "Danh mục nguyên liệu chuẩn hóa"
+    },
+    "description": "Danh mục nguyên liệu được tổng hợp từ toàn bộ recipe catalog hiện tại của Mango, gồm nguyên liệu cấp món và thành phần lồng trong sốt, món ăn kèm, nước chấm và trang trí.",
+    "source_directory": "recipes",
+    "source_files": [
+      "recipes/asian-hot-pot/part-01.json",
+      "recipes/asian-hot-pot/part-02.json",
+      "recipes/asian-hot-pot/part-03.json",
+      "recipes/asian-hot-pot/part-04.json",
+      "recipes/asian-hot-pot/part-05.json",
+      "recipes/asian-noodle-recipes/part-01.json",
+      "recipes/asian-noodle-recipes/part-02.json",
+      "recipes/asian-noodle-recipes/part-03.json",
+      "recipes/asian-noodle-recipes/part-04.json",
+      "recipes/asian-noodle-recipes/part-05.json",
+      "recipes/asian-noodle-recipes/part-06.json",
+      "recipes/asian-noodle-recipes/part-07.json",
+      "recipes/asian-noodle-recipes/part-08.json",
+      "recipes/asian-noodle-recipes/part-09.json",
+      "recipes/asian-noodle-recipes/part-10.json",
+      "recipes/asian-noodle-recipes/part-11.json",
+      "recipes/asian-noodle-recipes/part-12.json",
+      "recipes/asian-noodle-recipes/part-13.json",
+      "recipes/australian/part-01.json",
+      "recipes/australian/part-02.json",
+      "recipes/breakfast-fine-cooking/part-01.json",
+      "recipes/breakfast-fine-cooking/part-02.json",
+      "recipes/breakfast-fine-cooking/part-03.json",
+      "recipes/breakfast-fine-cooking/part-04.json",
+      "recipes/breakfast-fine-cooking/part-05.json",
+      "recipes/breakfast-fine-cooking/part-06.json",
+      "recipes/breakfast-fine-cooking/part-07.json",
+      "recipes/breakfast-fine-cooking/part-08.json",
+      "recipes/breakfast-fine-cooking/part-09.json",
+      "recipes/chinese/part-01.json",
+      "recipes/chinese/part-02.json",
+      "recipes/chinese/part-03.json",
+      "recipes/chinese/part-04.json",
+      "recipes/chinese/part-05.json",
+      "recipes/chinese/part-06.json",
+      "recipes/chinese/part-07.json",
+      "recipes/cia-grilling/part-01.json",
+      "recipes/cia-grilling/part-02.json",
+      "recipes/cia-grilling/part-03.json",
+      "recipes/cia-grilling/part-04.json",
+      "recipes/cia-grilling/part-05.json",
+      "recipes/cia-grilling/part-06.json",
+      "recipes/cia-grilling/part-07.json",
+      "recipes/cia-grilling/part-08.json",
+      "recipes/cia-grilling/part-09.json",
+      "recipes/cia-grilling/part-10.json",
+      "recipes/cia-grilling/part-11.json",
+      "recipes/cia-grilling/part-12.json",
+      "recipes/classic-desserts/part-01.json",
+      "recipes/classic-desserts/part-02.json",
+      "recipes/classic-desserts/part-03.json",
+      "recipes/classic-desserts/part-04.json",
+      "recipes/classic-desserts/part-05.json",
+      "recipes/classic-desserts/part-06.json",
+      "recipes/classic-desserts/part-07.json",
+      "recipes/classic-desserts/part-08.json",
+      "recipes/classic-desserts/part-09.json",
+      "recipes/classic-desserts/part-10.json",
+      "recipes/classic-desserts/part-11.json",
+      "recipes/classic-desserts/part-12.json",
+      "recipes/classic-desserts/part-13.json",
+      "recipes/classic-desserts/part-14.json",
+      "recipes/classic-desserts/part-15.json",
+      "recipes/classic-desserts/part-16.json",
+      "recipes/classic-desserts/part-17.json",
+      "recipes/classic-desserts/part-18.json",
+      "recipes/classic-desserts/part-19.json",
+      "recipes/easy-cook/part-01.json",
+      "recipes/easy-cook/part-02.json",
+      "recipes/easy-cook/part-03.json",
+      "recipes/easy-cook/part-04.json",
+      "recipes/easy-cook/part-05.json",
+      "recipes/easy-cook/part-06.json",
+      "recipes/easy-cook/part-07.json",
+      "recipes/eggs-cheese/part-01.json",
+      "recipes/eggs-cheese/part-02.json",
+      "recipes/eggs-cheese/part-03.json",
+      "recipes/eggs-cheese/part-04.json",
+      "recipes/eggs-cheese/part-05.json",
+      "recipes/eggs-cheese/part-06.json",
+      "recipes/eggs-cheese/part-07.json",
+      "recipes/eggs-cheese/part-08.json",
+      "recipes/eggs-cheese/part-09.json",
+      "recipes/eggs-cheese/part-10.json",
+      "recipes/eggs-cheese/part-11.json",
+      "recipes/eggs-cheese/part-12.json",
+      "recipes/eggs-cheese/part-13.json",
+      "recipes/eggs-cheese/part-14.json",
+      "recipes/eggs-cheese/part-15.json",
+      "recipes/eggs-cheese/part-16.json",
+      "recipes/eggs-cheese/part-17.json",
+      "recipes/eggs-cheese/part-18.json",
+      "recipes/eggs-cheese/part-19.json",
+      "recipes/eggs-cheese/part-20.json",
+      "recipes/fried-chicken-cookbook/part-01.json",
+      "recipes/fried-chicken-cookbook/part-02.json",
+      "recipes/fried-chicken-cookbook/part-03.json",
+      "recipes/fried-chicken-cookbook/part-04.json",
+      "recipes/fried-chicken-cookbook/part-05.json",
+      "recipes/fried-chicken-cookbook/part-06.json",
+      "recipes/fried-chicken-cookbook/part-07.json",
+      "recipes/fried-chicken-cookbook/part-08.json",
+      "recipes/fried-chicken-cookbook/part-09.json",
+      "recipes/fried-chicken-cookbook/part-10.json",
+      "recipes/hawaiian-bbq/part-01.json",
+      "recipes/hawaiian-bbq/part-02.json",
+      "recipes/hawaiian-bbq/part-03.json",
+      "recipes/hawaiian-bbq/part-04.json",
+      "recipes/hawaiian-bbq/part-05.json",
+      "recipes/healthy-easy-stir-fry/part-01.json",
+      "recipes/healthy-easy-stir-fry/part-02.json",
+      "recipes/italian/part-01.json",
+      "recipes/italian/part-02.json",
+      "recipes/italian/part-03.json",
+      "recipes/italian/part-04.json",
+      "recipes/italian/part-05.json",
+      "recipes/italian/part-06.json",
+      "recipes/italian/part-07.json",
+      "recipes/italian/part-08.json",
+      "recipes/italian/part-09.json",
+      "recipes/italian/part-10.json",
+      "recipes/italian/part-11.json",
+      "recipes/italian/part-12.json",
+      "recipes/korean/part-01.json",
+      "recipes/korean/part-02.json",
+      "recipes/korean/part-03.json",
+      "recipes/korean/part-04.json",
+      "recipes/korean/part-05.json",
+      "recipes/korean/part-06.json",
+      "recipes/korean/part-07.json",
+      "recipes/korean/part-08.json",
+      "recipes/korean/part-09.json",
+      "recipes/korean/part-10.json",
+      "recipes/korean/part-11.json",
+      "recipes/korean/part-12.json",
+      "recipes/korean/part-13.json",
+      "recipes/korean/part-14.json",
+      "recipes/korean/part-15.json",
+      "recipes/mediterranean/part-01.json",
+      "recipes/mediterranean/part-02.json",
+      "recipes/mediterranean/part-03.json",
+      "recipes/mediterranean/part-04.json",
+      "recipes/mediterranean/part-05.json",
+      "recipes/mediterranean/part-06.json",
+      "recipes/mediterranean/part-07.json",
+      "recipes/mediterranean/part-08.json",
+      "recipes/mediterranean/part-09.json",
+      "recipes/mediterranean/part-10.json",
+      "recipes/mediterranean/part-11.json",
+      "recipes/mediterranean/part-12.json",
+      "recipes/mediterranean/part-13.json",
+      "recipes/mediterranean/part-14.json",
+      "recipes/one-pot/part-01.json",
+      "recipes/one-pot/part-02.json",
+      "recipes/one-pot/part-03.json",
+      "recipes/one-pot/part-04.json",
+      "recipes/one-pot/part-05.json",
+      "recipes/one-pot/part-06.json",
+      "recipes/poultry-meat-game/part-01.json",
+      "recipes/poultry-meat-game/part-02.json",
+      "recipes/poultry-meat-game/part-03.json",
+      "recipes/poultry-meat-game/part-04.json",
+      "recipes/poultry-meat-game/part-05.json",
+      "recipes/poultry-meat-game/part-06.json",
+      "recipes/poultry-meat-game/part-07.json",
+      "recipes/poultry-meat-game/part-08.json",
+      "recipes/poultry-meat-game/part-09.json",
+      "recipes/poultry-meat-game/part-10.json",
+      "recipes/poultry-meat-game/part-11.json",
+      "recipes/poultry-meat-game/part-12.json",
+      "recipes/poultry-meat-game/part-13.json",
+      "recipes/poultry-meat-game/part-14.json",
+      "recipes/poultry-meat-game/part-15.json",
+      "recipes/poultry-meat-game/part-16.json",
+      "recipes/poultry-meat-game/part-17.json",
+      "recipes/rice-cooker/part-01.json",
+      "recipes/rice-cooker/part-02.json",
+      "recipes/rice-cooker/part-03.json",
+      "recipes/rice-cooker/part-04.json",
+      "recipes/rice-cooker/part-05.json",
+      "recipes/rice-cooker/part-06.json",
+      "recipes/rice-cooker/part-07.json",
+      "recipes/rice-cooker/part-08.json",
+      "recipes/rice-cooker/part-09.json",
+      "recipes/rice-cooker/part-10.json",
+      "recipes/rice-cooker/part-11.json",
+      "recipes/rice-cooker/part-12.json",
+      "recipes/rice-cooker/part-13.json",
+      "recipes/rice-cooker/part-14.json",
+      "recipes/rice-cooker/part-15.json",
+      "recipes/rice-cooker/part-16.json",
+      "recipes/rice-cooker/part-17.json",
+      "recipes/rice-cooker/part-18.json",
+      "recipes/rice-cooker/part-19.json",
+      "recipes/rice-cooker/part-20.json",
+      "recipes/rice-cooker/part-21.json",
+      "recipes/rice-cooker/part-22.json",
+      "recipes/rice-cooker/part-23.json",
+      "recipes/rice-cooker/part-24.json",
+      "recipes/rice-cooker/part-25.json",
+      "recipes/rice-cooker/part-26.json",
+      "recipes/salad-for-dinner/part-01.json",
+      "recipes/salad-for-dinner/part-02.json",
+      "recipes/salad-for-dinner/part-03.json",
+      "recipes/salad-for-dinner/part-04.json",
+      "recipes/salad-for-dinner/part-05.json",
+      "recipes/salad-for-dinner/part-06.json",
+      "recipes/salad-for-dinner/part-07.json",
+      "recipes/salad-for-dinner/part-08.json",
+      "recipes/soup-cookbook/part-01.json",
+      "recipes/soup-cookbook/part-02.json",
+      "recipes/soup-cookbook/part-03.json",
+      "recipes/soup-cookbook/part-04.json",
+      "recipes/soup-cookbook/part-05.json",
+      "recipes/soup-cookbook/part-06.json",
+      "recipes/soup-cookbook/part-07.json",
+      "recipes/soup-cookbook/part-08.json",
+      "recipes/soup-cookbook/part-09.json",
+      "recipes/soup-cookbook/part-10.json",
+      "recipes/soup-cookbook/part-11.json",
+      "recipes/soups-stews/part-01.json",
+      "recipes/soups-stews/part-02.json",
+      "recipes/soups-stews/part-03.json",
+      "recipes/soups-stews/part-04.json",
+      "recipes/wok-cookbook/part-01.json",
+      "recipes/wok-cookbook/part-02.json",
+      "recipes/wok-cookbook/part-03.json",
+      "recipes/wok-cookbook/part-04.json",
+      "recipes/wok-cookbook/part-05.json"
+    ],
+    "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=cooking%20ingredients%20food%20assortment%20food%20ingredient"
+  },
+  "stats": {
+    "source_catalog_count": 22,
+    "source_recipe_count": 2179,
+    "top_level_ingredient_occurrence_count": 22286,
+    "nested_component_ingredient_occurrence_count": 16,
+    "source_ingredient_occurrence_count": 22302,
+    "normalized_ingredient_count": 11393
+  },
+  "normalization": {
+    "key": "canonical_name",
+    "strategy": "conservative",
+    "rules": [
+      "Tổng hợp từ tất cả recipe JSON hiện tại, giữ raw_text và liên kết source_file ở occurrence.",
+      "Không bịa direct image URL; nguyên liệu chưa có asset trực tiếp dùng image_search_url tới Wikimedia Commons MediaSearch.",
+      "Giữ các mã phân loại và dị nguyên đã có trong recipe; không tự tạo enum mới."
+    ]
+  },
+  "source_catalogs": [
+    {
+      "catalog_code": "asian-noodle-recipes",
+      "catalog_type": "collection",
+      "name": "Công thức mì châu Á",
+      "recipe_count": 125,
+      "ingredient_occurrence_count": 1914
+    },
+    {
+      "catalog_code": "soups-stews",
+      "catalog_type": "collection",
+      "name": "Bộ sưu tập súp và món hầm",
+      "recipe_count": 38,
+      "ingredient_occurrence_count": 435
+    },
+    {
+      "catalog_code": "fried-chicken-cookbook",
+      "catalog_type": "collection",
+      "name": "Bộ công thức gà chiên và món liên quan",
+      "recipe_count": 98,
+      "ingredient_occurrence_count": 1018
+    },
+    {
+      "catalog_code": "rice-cooker",
+      "catalog_type": "collection",
+      "name": "Công thức nồi cơm điện",
+      "recipe_count": 251,
+      "ingredient_occurrence_count": 2117
+    },
+    {
+      "catalog_code": "mediterranean",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Địa Trung Hải",
+      "recipe_count": 135,
+      "ingredient_occurrence_count": 1634
+    },
+    {
+      "catalog_code": "asian-hot-pot",
+      "catalog_type": "collection",
+      "name": "Công thức lẩu châu Á",
+      "recipe_count": 41,
+      "ingredient_occurrence_count": 478
+    },
+    {
+      "catalog_code": "classic-desserts",
+      "catalog_type": "collection",
+      "name": "Món tráng miệng cổ điển",
+      "recipe_count": 182,
+      "ingredient_occurrence_count": 1211
+    },
+    {
+      "catalog_code": "wok-cookbook",
+      "catalog_type": "collection",
+      "name": "Công thức nấu bằng chảo wok",
+      "recipe_count": 48,
+      "ingredient_occurrence_count": 604
+    },
+    {
+      "catalog_code": "italian",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Ý",
+      "recipe_count": 116,
+      "ingredient_occurrence_count": 1087
+    },
+    {
+      "catalog_code": "hawaiian-bbq",
+      "catalog_type": "collection",
+      "name": "BBQ Hawaii",
+      "recipe_count": 43,
+      "ingredient_occurrence_count": 429
+    },
+    {
+      "catalog_code": "soup-cookbook",
+      "catalog_type": "collection",
+      "name": "The Soup Cookbook – 101 công thức súp",
+      "recipe_count": 101,
+      "ingredient_occurrence_count": 1133
+    },
+    {
+      "catalog_code": "healthy-easy-stir-fry",
+      "catalog_type": "collection",
+      "name": "Món xào nhanh lành mạnh",
+      "recipe_count": 19,
+      "ingredient_occurrence_count": 311
+    },
+    {
+      "catalog_code": "easy-cook",
+      "catalog_type": "collection",
+      "name": "Món dễ nấu",
+      "recipe_count": 62,
+      "ingredient_occurrence_count": 515
+    },
+    {
+      "catalog_code": "poultry-meat-game",
+      "catalog_type": "collection",
+      "name": "Nghệ thuật chế biến gia cầm, thịt và thịt săn",
+      "recipe_count": 166,
+      "ingredient_occurrence_count": 2011
+    },
+    {
+      "catalog_code": "australian",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Úc",
+      "recipe_count": 19,
+      "ingredient_occurrence_count": 128
+    },
+    {
+      "catalog_code": "cia-grilling",
+      "catalog_type": "collection",
+      "name": "CIA Grilling – Công thức nướng",
+      "recipe_count": 117,
+      "ingredient_occurrence_count": 1752
+    },
+    {
+      "catalog_code": "korean",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Hàn Quốc",
+      "recipe_count": 142,
+      "ingredient_occurrence_count": 1278
+    },
+    {
+      "catalog_code": "chinese",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Trung Hoa",
+      "recipe_count": 69,
+      "ingredient_occurrence_count": 778
+    },
+    {
+      "catalog_code": "eggs-cheese",
+      "catalog_type": "collection",
+      "name": "Trứng & Phô mai",
+      "recipe_count": 193,
+      "ingredient_occurrence_count": 1367
+    },
+    {
+      "catalog_code": "salad-for-dinner",
+      "catalog_type": "collection",
+      "name": "Salad cho bữa chính",
+      "recipe_count": 74,
+      "ingredient_occurrence_count": 714
+    },
+    {
+      "catalog_code": "one-pot",
+      "catalog_type": "collection",
+      "name": "Món một nồi",
+      "recipe_count": 52,
+      "ingredient_occurrence_count": 574
+    },
+    {
+      "catalog_code": "breakfast-fine-cooking",
+      "catalog_type": "collection",
+      "name": "Công thức bữa sáng Fine Cooking",
+      "recipe_count": 88,
+      "ingredient_occurrence_count": 814
+    }
+  ],
+  "ingredients": [
+    {
+      "id": "ingredient-07501",
+      "canonical_name": "fine sea salt, or more to taste",
+      "name": "fine sea muối, hoặc thêm tùy khẩu vị",
+      "name_i18n": {
+        "en": "fine sea salt, or more to taste",
+        "vi": "fine sea muối, hoặc thêm tùy khẩu vị"
+      },
+      "description": "fine sea muối, hoặc thêm tùy khẩu vị là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine sea muối, hoặc thêm tùy khẩu vị",
+        "fine muối biển, hoặc thêm tùy khẩu vị"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/98078ad7eef531d8.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=fine%20sea%20mu%E1%BB%91i%2C%20ho%E1%BA%B7c%20th%C3%AAm%20t%C3%B9y%20kh%E1%BA%A9u%20v%E1%BB%8B%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine sea muối, hoặc thêm tùy khẩu vị",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-061",
+          "title": "Zucchini và Mung Dal",
+          "local_name": "Zucchini và Mung Dal",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-061-ing-10",
+          "recipe_id": "rice-cooker-061",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-061",
+          "component_name": "Zucchini và Mung Dal",
+          "raw_text": "1 teaspoon fine sea salt, or more to taste",
+          "display_amount": "1 muỗng cà phê (chuẩn hóa: 5 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07502",
+      "canonical_name": "fine sea salt, plus extra for shaping",
+      "name": "fine sea muối, thêm thêm để shaping",
+      "name_i18n": {
+        "en": "fine sea salt, plus extra for shaping",
+        "vi": "fine sea muối, thêm thêm để shaping"
+      },
+      "description": "fine sea muối, thêm thêm để shaping là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine sea muối, thêm thêm để shaping",
+        "fine muối biển, thêm thêm để shaping"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/882367ae1fd5b735.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine sea muối, thêm thêm để shaping",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-031",
+          "title": "Paella Sauté với nghệ tây và Spanish cơm",
+          "local_name": "Paella Sauté với nghệ tây và Spanish cơm",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-031-ing-02",
+          "recipe_id": "rice-cooker-031",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-04.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-031",
+          "component_name": "Paella Sauté với nghệ tây và Spanish cơm",
+          "raw_text": "½ to ¾ teaspoon fine sea salt, plus extra for shaping",
+          "display_amount": "1/2–3/4 muỗng cà phê (chuẩn hóa: 2 1/2–3 3/4 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07503",
+      "canonical_name": "fine shrimp paste",
+      "name": "fine tôm paste",
+      "name_i18n": {
+        "en": "fine shrimp paste",
+        "vi": "fine tôm paste"
+      },
+      "description": "fine tôm paste là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine tôm paste",
+        "Mắm tôm mịn"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "shellfish",
+        "crustacean"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/6c9b8b365c65835c.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine tôm paste",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "asian-noodle-recipes"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-noodle-042",
+          "title": "Bún bò Huế",
+          "local_name": "Bún bò Huế",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-noodle-042-ing-07",
+          "recipe_id": "asian-noodle-042",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-05.json",
+          "component_type": "recipe",
+          "component_id": "asian-noodle-042",
+          "component_name": "Bún bò Huế",
+          "raw_text": "2 tbsp fine shrimp paste",
+          "display_amount": "2 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07504",
+      "canonical_name": "fine stone-ground cornmeal",
+      "name": "fine stone-xay cornmeal",
+      "name_i18n": {
+        "en": "fine stone-ground cornmeal",
+        "vi": "fine stone-xay cornmeal"
+      },
+      "description": "fine stone-xay cornmeal là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine stone-xay cornmeal",
+        "mịn stone-xay bột ngô"
+      ],
+      "macro_class": "carbohydrate",
+      "macro_classes_observed": [
+        "carbohydrate"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "starchy_carbohydrate",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/197d096b9bfc4c2e.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=fine%20stone-xay%20cornmeal%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine stone-xay cornmeal",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-079",
+          "title": "Bánh ngô áp chảo",
+          "local_name": "Bánh ngô áp chảo",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-08.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-079-ing-01",
+          "recipe_id": "cia-grilling-079",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-08.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-079",
+          "component_name": "Bánh ngô áp chảo",
+          "raw_text": "2 cups fine stone-ground cornmeal",
+          "display_amount": "2 cốc (chuẩn hóa: 480 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07505",
+      "canonical_name": "fine-chopped bittersweet chocolate",
+      "name": "fine-băm nhỏ bittersweet chocolate",
+      "name_i18n": {
+        "en": "fine-chopped bittersweet chocolate",
+        "vi": "fine-băm nhỏ bittersweet chocolate"
+      },
+      "description": "fine-băm nhỏ bittersweet chocolate là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine-băm nhỏ bittersweet chocolate",
+        "mịn-cắt nhỏ bittersweet sô-cô-la"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/3cd6e559ba3c43e0.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=fine-b%C4%83m%20nh%E1%BB%8F%20bittersweet%20chocolate%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine-băm nhỏ bittersweet chocolate",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-108",
+          "title": "Banana split nướng với kem tự làm",
+          "local_name": "Banana split nướng với kem tự làm",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-11.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-108-ing-13",
+          "recipe_id": "cia-grilling-108",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-11.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-108",
+          "component_name": "Banana split nướng với kem tự làm",
+          "raw_text": "2 cups fine-chopped bittersweet chocolate",
+          "display_amount": "2 cốc (chuẩn hóa: 480 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07506",
+      "canonical_name": "fine-chopped cilantro",
+      "name": "fine-băm nhỏ ngò rí",
+      "name_i18n": {
+        "en": "fine-chopped cilantro",
+        "vi": "fine-băm nhỏ ngò rí"
+      },
+      "description": "fine-băm nhỏ ngò rí là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine-băm nhỏ ngò rí",
+        "mịn-cắt nhỏ ngò rí"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/5f6fa69e658c686c.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=fine-b%C4%83m%20nh%E1%BB%8F%20ng%C3%B2%20r%C3%AD%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine-băm nhỏ ngò rí",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-087",
+          "title": "Burrito gà nướng với salsa tomatillo",
+          "local_name": "Burrito gà nướng với salsa tomatillo",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-087-ing-04",
+          "recipe_id": "cia-grilling-087",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-09.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-087",
+          "component_name": "Burrito gà nướng với salsa tomatillo",
+          "raw_text": "¼ cup fine-chopped cilantro",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07507",
+      "canonical_name": "fine-chopped mint",
+      "name": "fine-băm nhỏ bạc hà",
+      "name_i18n": {
+        "en": "fine-chopped mint",
+        "vi": "fine-băm nhỏ bạc hà"
+      },
+      "description": "fine-băm nhỏ bạc hà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine-băm nhỏ bạc hà",
+        "mịn-cắt nhỏ bạc hà"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/83b54154f4c69673.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine-băm nhỏ bạc hà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-105",
+          "title": "Brownie với salsa trái cây nướng",
+          "local_name": "Brownie với salsa trái cây nướng",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-11.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-105-ing-06",
+          "recipe_id": "cia-grilling-105",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-11.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-105",
+          "component_name": "Brownie với salsa trái cây nướng",
+          "raw_text": "1 tbsp fine-chopped mint",
+          "display_amount": "1 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07508",
+      "canonical_name": "fine-chopped toasted hazelnuts",
+      "name": "fine-băm nhỏ rang hazelnuts",
+      "name_i18n": {
+        "en": "fine-chopped toasted hazelnuts",
+        "vi": "fine-băm nhỏ rang hazelnuts"
+      },
+      "description": "fine-băm nhỏ rang hazelnuts là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine-băm nhỏ rang hazelnuts",
+        "mịn-cắt nhỏ rang/nướng sơ hạt phỉ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "tree_nut"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/53963d68d2ce9431.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine-băm nhỏ rang hazelnuts",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-068",
+          "title": "Salad radicchio nướng với jícama bào, cam và vinaigrette hạt phỉ",
+          "local_name": "Salad radicchio nướng với jícama bào, cam và vinaigrette hạt phỉ",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-068-ing-20",
+          "recipe_id": "cia-grilling-068",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-07.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-068",
+          "component_name": "Salad radicchio nướng với jícama bào, cam và vinaigrette hạt phỉ",
+          "raw_text": "2 tbsp fine-chopped toasted hazelnuts",
+          "display_amount": "2 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07509",
+      "canonical_name": "fine-grated ginger",
+      "name": "fine-bào gừng",
+      "name_i18n": {
+        "en": "fine-grated ginger",
+        "vi": "fine-bào gừng"
+      },
+      "description": "fine-bào gừng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine-bào gừng",
+        "mịn-bào nhỏ gừng"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/6cb5502fe11ad385.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=fine-b%C3%A0o%20g%E1%BB%ABng%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine-bào gừng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-067",
+          "title": "Rau endive Bỉ nướng",
+          "local_name": "Rau endive Bỉ nướng",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-067-ing-06",
+          "recipe_id": "cia-grilling-067",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-07.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-067",
+          "component_name": "Rau endive Bỉ nướng",
+          "raw_text": "2 tbsp fine-grated ginger",
+          "display_amount": "2 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07510",
+      "canonical_name": "fine-shredded green cabbage",
+      "name": "fine-bào sợi xanh bắp cải",
+      "name_i18n": {
+        "en": "fine-shredded green cabbage",
+        "vi": "fine-bào sợi xanh bắp cải"
+      },
+      "description": "fine-bào sợi xanh bắp cải là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "fine-bào sợi xanh bắp cải",
+        "mịn-bào sợi xanh bắp cải"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/1abf3068658c4e72.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu fine-bào sợi xanh bắp cải",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-035",
+          "title": "Taco cá kiểu Baja với salad bắp cải Tây Nam Hoa Kỳ",
+          "local_name": "Taco cá kiểu Baja với salad bắp cải Tây Nam Hoa Kỳ",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-035-ing-12",
+          "recipe_id": "cia-grilling-035",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-04.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-035",
+          "component_name": "Taco cá kiểu Baja với salad bắp cải Tây Nam Hoa Kỳ",
+          "raw_text": "2 cups fine-shredded green cabbage",
+          "display_amount": "2 cốc (chuẩn hóa: 480 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07511",
+      "canonical_name": "finely chopped beef suet (about 1⁄2 cup [125 ml.])",
+      "name": "nhuyễn băm nhỏ thịt bò suet (khoảng 1⁄2 cốc [125 ml.])",
+      "name_i18n": {
+        "en": "finely chopped beef suet (about 1⁄2 cup [125 ml.])",
+        "vi": "nhuyễn băm nhỏ thịt bò suet (khoảng 1⁄2 cốc [125 ml.])"
+      },
+      "description": "nhuyễn băm nhỏ thịt bò suet (khoảng 1⁄2 cốc [125 ml.]) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ thịt bò suet (khoảng 1⁄2 cốc [125 ml.])"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/80578299983727c2.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ thịt bò suet (khoảng 1⁄2 cốc [125 ml.])",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "classic-desserts"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "classic-desserts-091",
+          "title": "Pudding của bà",
+          "local_name": "Pudding của bà",
+          "catalog_code": "classic-desserts",
+          "source_file": "recipes/classic-desserts/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "classic-desserts-091-ing-03",
+          "recipe_id": "classic-desserts-091",
+          "catalog_code": "classic-desserts",
+          "source_file": "recipes/classic-desserts/part-10.json",
+          "component_type": "recipe",
+          "component_id": "classic-desserts-091",
+          "component_name": "Pudding của bà",
+          "raw_text": "finely chopped beef suet (about 1⁄2 cup [125 ml.])",
+          "display_amount": "2 oz (chuẩn hóa: 56.7 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07512",
+      "canonical_name": "finely chopped celery",
+      "name": "nhuyễn băm nhỏ cần tây",
+      "name_i18n": {
+        "en": "finely chopped celery",
+        "vi": "nhuyễn băm nhỏ cần tây"
+      },
+      "description": "nhuyễn băm nhỏ cần tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ cần tây",
+        "Băm nhỏ cần tây"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/641e83ce499913cb.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ cần tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-085",
+          "title": "Súp nghêu đặc kiểu New England",
+          "local_name": "Súp nghêu đặc kiểu New England",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-085-ing-07",
+          "recipe_id": "soup-cookbook-085",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-085",
+          "component_name": "Súp nghêu đặc kiểu New England",
+          "raw_text": "1/2 cup finely chopped celery",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07513",
+      "canonical_name": "finely chopped celery or seeded and finely chopped red bell pepper",
+      "name": "nhuyễn băm nhỏ cần tây hoặc bỏ hạt và nhuyễn băm nhỏ đỏ ớt chuông",
+      "name_i18n": {
+        "en": "finely chopped celery or seeded and finely chopped red bell pepper",
+        "vi": "nhuyễn băm nhỏ cần tây hoặc bỏ hạt và nhuyễn băm nhỏ đỏ ớt chuông"
+      },
+      "description": "nhuyễn băm nhỏ cần tây hoặc bỏ hạt và nhuyễn băm nhỏ đỏ ớt chuông là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ cần tây hoặc bỏ hạt và nhuyễn băm nhỏ đỏ ớt chuông",
+        "băm nhuyễn cần tây hoặc bỏ hạt và băm nhuyễn đỏ ớt chuông"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/09d5148705e867e8.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ cần tây hoặc bỏ hạt và nhuyễn băm nhỏ đỏ ớt chuông",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-231",
+          "title": "Salad đậu lăng và gạo lứt",
+          "local_name": "Salad đậu lăng và gạo lứt",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-24.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-231-ing-10",
+          "recipe_id": "rice-cooker-231",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-24.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-231",
+          "component_name": "Salad đậu lăng và gạo lứt",
+          "raw_text": "½ cup finely chopped celery or seeded and finely chopped red bell pepper",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07514",
+      "canonical_name": "finely chopped chives",
+      "name": "nhuyễn băm nhỏ hẹ",
+      "name_i18n": {
+        "en": "finely chopped chives",
+        "vi": "nhuyễn băm nhỏ hẹ"
+      },
+      "description": "nhuyễn băm nhỏ hẹ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ hẹ",
+        "Băm nhỏ hẹ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/502acea5f51ef4c1.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20h%E1%BA%B9%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ hẹ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-082",
+          "title": "Súp đặc ngô nướng và khoai tây",
+          "local_name": "Súp đặc ngô nướng và khoai tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-082-ing-11",
+          "recipe_id": "soup-cookbook-082",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-082",
+          "component_name": "Súp đặc ngô nướng và khoai tây",
+          "raw_text": "3 tablespoons finely chopped chives",
+          "display_amount": "3 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07515",
+      "canonical_name": "finely chopped coriander (cilantro) leaves",
+      "name": "nhuyễn băm nhỏ ngò rí (ngò rí) lá",
+      "name_i18n": {
+        "en": "finely chopped coriander (cilantro) leaves",
+        "vi": "nhuyễn băm nhỏ ngò rí (ngò rí) lá"
+      },
+      "description": "nhuyễn băm nhỏ ngò rí (ngò rí) lá là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ ngò rí (ngò rí) lá",
+        "Băm nhỏ rau mùi (rau mùi) lá"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d83a4d96c60e36a3.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ ngò rí (ngò rí) lá",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-110",
+          "title": "Gà cam và bạc hà",
+          "local_name": "Gà cam và bạc hà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-110-ing-09",
+          "recipe_id": "poultry-meat-game-110",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-110",
+          "component_name": "Gà cam và bạc hà",
+          "raw_text": "¼ cup finely chopped coriander (cilantro) leaves",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07516",
+      "canonical_name": "finely chopped coriander (cilantro) leaves, plus whole coriander leaves, extra, to garnish",
+      "name": "nhuyễn băm nhỏ ngò rí (ngò rí) lá, thêm nguyên ngò rí lá, thêm, để trang trí",
+      "name_i18n": {
+        "en": "finely chopped coriander (cilantro) leaves, plus whole coriander leaves, extra, to garnish",
+        "vi": "nhuyễn băm nhỏ ngò rí (ngò rí) lá, thêm nguyên ngò rí lá, thêm, để trang trí"
+      },
+      "description": "nhuyễn băm nhỏ ngò rí (ngò rí) lá, thêm nguyên ngò rí lá, thêm, để trang trí là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ ngò rí (ngò rí) lá, thêm nguyên ngò rí lá, thêm, để trang trí",
+        "băm nhỏ rau mùi (rau mùi) lá, thêm nguyên rau mùi lá, thêm, để trang trí",
+        "nhuyễn băm nhỏ ngò rí (ngò rí) lá"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/cc352cdecb17d443.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20ng%C3%B2%20r%C3%AD%20%28ng%C3%B2%20r%C3%AD%29%20l%C3%A1%2C%20th%C3%AAm%20nguy%C3%AAn%20ng%C3%B2%20r%C3%AD%20l%C3%A1%2C%20th%C3%AAm%2C%20%C4%91%E1%BB%83%20trang%20tr%C3%AD%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ ngò rí (ngò rí) lá, thêm nguyên ngò rí lá, thêm, để trang trí",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-103",
+          "title": "ớt con carne",
+          "local_name": "ớt con carne",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-103-ing-16",
+          "recipe_id": "poultry-meat-game-103",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-103",
+          "component_name": "ớt con carne",
+          "raw_text": "tablespoons finely chopped coriander (cilantro) leaves, plus whole coriander leaves, extra, to garnish",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07517",
+      "canonical_name": "finely chopped crystallized ginger",
+      "name": "nhuyễn băm nhỏ crystallized gừng",
+      "name_i18n": {
+        "en": "finely chopped crystallized ginger",
+        "vi": "nhuyễn băm nhỏ crystallized gừng"
+      },
+      "description": "nhuyễn băm nhỏ crystallized gừng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ crystallized gừng",
+        "băm thật nhỏ crystallized gừng"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/f1391832c25b7204.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20crystallized%20g%E1%BB%ABng%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ crystallized gừng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "breakfast-fine-cooking"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "breakfast-026",
+          "title": "Bánh táo gừng phủ vụn",
+          "local_name": "Bánh táo gừng phủ vụn",
+          "catalog_code": "breakfast-fine-cooking",
+          "source_file": "recipes/breakfast-fine-cooking/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "breakfast-026-ing-13",
+          "recipe_id": "breakfast-026",
+          "catalog_code": "breakfast-fine-cooking",
+          "source_file": "recipes/breakfast-fine-cooking/part-03.json",
+          "component_type": "recipe",
+          "component_id": "breakfast-026",
+          "component_name": "Bánh táo gừng phủ vụn",
+          "raw_text": "1/4 cup finely chopped crystallized ginger",
+          "display_amount": "1/4 cốc"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07518",
+      "canonical_name": "finely chopped dried apricots",
+      "name": "nhuyễn băm nhỏ khô apricots",
+      "name_i18n": {
+        "en": "finely chopped dried apricots",
+        "vi": "nhuyễn băm nhỏ khô apricots"
+      },
+      "description": "nhuyễn băm nhỏ khô apricots là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ khô apricots",
+        "băm nhỏ khô mơ"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "primary_nutrient_highlights": [
+          "depends_on_product_or_recipe"
+        ],
+        "classification_level": "food_group_only",
+        "description_vi": "Nguyên liệu chế biến hoặc hỗn hợp có nhiều nhóm dinh dưỡng, cần xem nhãn cụ thể.",
+        "quantitative_nutrition_available": false,
+        "note": "Không suy ra kcal, protein, carbohydrate, fat, vitamin hoặc khoáng chất định lượng nếu nguồn công thức không cung cấp dữ liệu chuẩn cho nguyên liệu."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "sweet"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/97648380db295d1c.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ khô apricots",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tsp"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-066",
+          "title": "Chim cút quay sốt chermoula",
+          "local_name": "Chim cút quay sốt chermoula",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-066-ing-06",
+          "recipe_id": "poultry-meat-game-066",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-066",
+          "component_name": "Chim cút quay sốt chermoula",
+          "raw_text": "teaspoons finely chopped dried apricots",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07519",
+      "canonical_name": "finely chopped flat-leaf (Italian) parsley",
+      "name": "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây",
+      "name_i18n": {
+        "en": "finely chopped flat-leaf (Italian) parsley",
+        "vi": "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây"
+      },
+      "description": "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây",
+        "băm nhỏ flat-leaf (Italian) mùi tây"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/9d0969a7b9cdb8c8.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ flat-leaf (Italian) mùi tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp",
+          "ml"
+        ],
+        "normalized": [
+          "tbsp",
+          "ml"
+        ]
+      },
+      "occurrence_count": 7,
+      "recipe_count": 7,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-052",
+          "title": "Bê schnitzel với salad bắp cải và táo",
+          "local_name": "Bê schnitzel với salad bắp cải và táo",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-106",
+          "title": "Bò muối với sốt mùi tây",
+          "local_name": "Bò muối với sốt mùi tây",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-110",
+          "title": "Gà cam và bạc hà",
+          "local_name": "Gà cam và bạc hà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-128",
+          "title": "Bê hầm atisô và đậu tằm",
+          "local_name": "Bê hầm atisô và đậu tằm",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-147",
+          "title": "Xiên gà kiểu Lebanon",
+          "local_name": "Xiên gà kiểu Lebanon",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-161",
+          "title": "Bít tết T-bone với bơ tỏi nướng",
+          "local_name": "Bít tết T-bone với bơ tỏi nướng",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-17.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-165",
+          "title": "Thăn heo nhồi sung và hồ đào",
+          "local_name": "Thăn heo nhồi sung và hồ đào",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-17.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-052-ing-05",
+          "recipe_id": "poultry-meat-game-052",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-052",
+          "component_name": "Bê schnitzel với salad bắp cải và táo",
+          "raw_text": "tablespoons finely chopped flat-leaf (Italian) parsley",
+          "display_amount": ""
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-106-ing-14",
+          "recipe_id": "poultry-meat-game-106",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-106",
+          "component_name": "Bò muối với sốt mùi tây",
+          "raw_text": "tablespoons finely chopped flat-leaf (Italian) parsley",
+          "display_amount": ""
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-110-ing-10",
+          "recipe_id": "poultry-meat-game-110",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-110",
+          "component_name": "Gà cam và bạc hà",
+          "raw_text": "¼ cup finely chopped flat-leaf (Italian) parsley",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-128-ing-13",
+          "recipe_id": "poultry-meat-game-128",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-128",
+          "component_name": "Bê hầm atisô và đậu tằm",
+          "raw_text": "½ cup finely chopped flat-leaf (Italian) parsley",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-147-ing-03",
+          "recipe_id": "poultry-meat-game-147",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-147",
+          "component_name": "Xiên gà kiểu Lebanon",
+          "raw_text": "1½ cups finely chopped flat-leaf (Italian) parsley",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-161-ing-08",
+          "recipe_id": "poultry-meat-game-161",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-17.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-161",
+          "component_name": "Bít tết T-bone với bơ tỏi nướng",
+          "raw_text": "tablespoons finely chopped flat-leaf (Italian) parsley",
+          "display_amount": ""
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-165-ing-06",
+          "recipe_id": "poultry-meat-game-165",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-17.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-165",
+          "component_name": "Thăn heo nhồi sung và hồ đào",
+          "raw_text": "tablespoons finely chopped flat-leaf (Italian) parsley",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07520",
+      "canonical_name": "finely chopped flat-leaf (Italian) parsley leaves",
+      "name": "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây lá",
+      "name_i18n": {
+        "en": "finely chopped flat-leaf (Italian) parsley leaves",
+        "vi": "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây lá"
+      },
+      "description": "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây lá là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ flat-leaf (Italian) mùi tây lá",
+        "băm nhỏ flat-leaf (Italian) mùi tây lá"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/a4bb9221590874b3.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20flat-leaf%20%28Italian%29%20m%C3%B9i%20t%C3%A2y%20l%C3%A1%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ flat-leaf (Italian) mùi tây lá",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-028",
+          "title": "Gà schnitzel",
+          "local_name": "Gà schnitzel",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-028-ing-04",
+          "recipe_id": "poultry-meat-game-028",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-03.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-028",
+          "component_name": "Gà schnitzel",
+          "raw_text": "tablespoons finely chopped flat-leaf (Italian) parsley leaves",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07521",
+      "canonical_name": "finely chopped fresh chives",
+      "name": "nhuyễn băm nhỏ tươi hẹ",
+      "name_i18n": {
+        "en": "finely chopped fresh chives",
+        "vi": "nhuyễn băm nhỏ tươi hẹ"
+      },
+      "description": "nhuyễn băm nhỏ tươi hẹ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ tươi hẹ",
+        "băm nhỏ tươi hẹ",
+        "Băm nhỏ hẹ tươi"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/502acea5f51ef4c1.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20t%C6%B0%C6%A1i%20h%E1%BA%B9%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ tươi hẹ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp",
+          "ml"
+        ],
+        "normalized": [
+          "tbsp",
+          "ml"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "salad-for-dinner",
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "salad-dinner-041",
+          "title": "Carpaccio cá ngừ với củ dền và cải xoong",
+          "local_name": "Carpaccio cá ngừ với củ dền và cải xoong",
+          "catalog_code": "salad-for-dinner",
+          "source_file": "recipes/salad-for-dinner/part-05.json"
+        },
+        {
+          "recipe_id": "soup-cookbook-087",
+          "title": "Súp bia và phô mai Cheddar",
+          "local_name": "Súp bia và phô mai Cheddar",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "salad-dinner-041-ing-09",
+          "recipe_id": "salad-dinner-041",
+          "catalog_code": "salad-for-dinner",
+          "source_file": "recipes/salad-for-dinner/part-05.json",
+          "component_type": "recipe",
+          "component_id": "salad-dinner-041",
+          "component_name": "Carpaccio cá ngừ với củ dền và cải xoong",
+          "raw_text": "2 tablespoons finely chopped fresh chives",
+          "display_amount": "2 muỗng canh"
+        },
+        {
+          "source_ingredient_id": "soup-cookbook-087-ing-11",
+          "recipe_id": "soup-cookbook-087",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-087",
+          "component_name": "Súp bia và phô mai Cheddar",
+          "raw_text": "1/4 cup finely chopped fresh chives",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07522",
+      "canonical_name": "finely chopped fresh ginger",
+      "name": "nhuyễn băm nhỏ tươi gừng",
+      "name_i18n": {
+        "en": "finely chopped fresh ginger",
+        "vi": "nhuyễn băm nhỏ tươi gừng"
+      },
+      "description": "nhuyễn băm nhỏ tươi gừng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ tươi gừng"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "primary_nutrient_highlights": [
+          "depends_on_product_or_recipe"
+        ],
+        "classification_level": "food_group_only",
+        "description_vi": "Nguyên liệu chế biến hoặc hỗn hợp có nhiều nhóm dinh dưỡng, cần xem nhãn cụ thể.",
+        "quantitative_nutrition_available": false,
+        "note": "Không suy ra kcal, protein, carbohydrate, fat, vitamin hoặc khoáng chất định lượng nếu nguồn công thức không cung cấp dữ liệu chuẩn cho nguyên liệu."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/92119e2c63e9366a.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ tươi gừng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "one-pot"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "one-pot-025",
+          "title": "Bò Rendang nấu chậm",
+          "local_name": "Bò Rendang nấu chậm",
+          "catalog_code": "one-pot",
+          "source_file": "recipes/one-pot/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "one-pot-025-ing-10",
+          "recipe_id": "one-pot-025",
+          "catalog_code": "one-pot",
+          "source_file": "recipes/one-pot/part-03.json",
+          "component_type": "recipe",
+          "component_id": "one-pot-025",
+          "component_name": "Bò Rendang nấu chậm",
+          "raw_text": "finely chopped fresh ginger",
+          "display_amount": "6–6 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07523",
+      "canonical_name": "Finely chopped fresh herbs (optional)",
+      "name": "nhuyễn băm nhỏ tươi herbs (tùy chọn)",
+      "name_i18n": {
+        "en": "Finely chopped fresh herbs (optional)",
+        "vi": "nhuyễn băm nhỏ tươi herbs (tùy chọn)"
+      },
+      "description": "nhuyễn băm nhỏ tươi herbs (tùy chọn) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ tươi herbs (tùy chọn)",
+        "Băm nhỏ rau thơm tươi (tùy chọn)"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/07e7cdaf03da5183.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20t%C6%B0%C6%A1i%20herbs%20%28t%C3%B9y%20ch%E1%BB%8Dn%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ tươi herbs (tùy chọn)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [],
+        "normalized": []
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-007",
+          "title": "Súp đậu với xương giăm bông và gà tây",
+          "local_name": "Súp đậu với xương giăm bông và gà tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json"
+        },
+        {
+          "recipe_id": "soup-cookbook-046",
+          "title": "Súp đậu với xương giăm bông và gà tây",
+          "local_name": "Súp đậu với xương giăm bông và gà tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-007-ing-14",
+          "recipe_id": "soup-cookbook-007",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-01.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-007",
+          "component_name": "Súp đậu với xương giăm bông và gà tây",
+          "raw_text": "Finely chopped fresh herbs (optional)",
+          "display_amount": "Băm nhỏ rau thơm tươi (tùy chọn)"
+        },
+        {
+          "source_ingredient_id": "soup-cookbook-046-ing-14",
+          "recipe_id": "soup-cookbook-046",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-05.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-046",
+          "component_name": "Súp đậu với xương giăm bông và gà tây",
+          "raw_text": "Finely chopped fresh herbs (optional)",
+          "display_amount": "Băm nhỏ rau thơm tươi (tùy chọn)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07524",
+      "canonical_name": "finely chopped fresh Italian parsley leaves",
+      "name": "nhuyễn băm nhỏ tươi Italian mùi tây lá",
+      "name_i18n": {
+        "en": "finely chopped fresh Italian parsley leaves",
+        "vi": "nhuyễn băm nhỏ tươi Italian mùi tây lá"
+      },
+      "description": "nhuyễn băm nhỏ tươi Italian mùi tây lá là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ tươi Italian mùi tây lá",
+        "băm nhuyễn tươi Italian mùi tây lá"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/949450ac3f89dabd.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20t%C6%B0%C6%A1i%20Italian%20m%C3%B9i%20t%C3%A2y%20l%C3%A1%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ tươi Italian mùi tây lá",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-086",
+          "title": "Couscous Israel với cam",
+          "local_name": "Couscous Israel với cam",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-086-ing-07",
+          "recipe_id": "rice-cooker-086",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-09.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-086",
+          "component_name": "Couscous Israel với cam",
+          "raw_text": "2 tablespoons finely chopped fresh Italian parsley leaves",
+          "display_amount": "2 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07525",
+      "canonical_name": "finely chopped fresh mint leaves or 1 teaspoon dried mint leaves, crumbled",
+      "name": "nhuyễn băm nhỏ tươi bạc hà lá hoặc 1 muỗng cà phê khô bạc hà lá, crumbled",
+      "name_i18n": {
+        "en": "finely chopped fresh mint leaves or 1 teaspoon dried mint leaves, crumbled",
+        "vi": "nhuyễn băm nhỏ tươi bạc hà lá hoặc 1 muỗng cà phê khô bạc hà lá, crumbled"
+      },
+      "description": "nhuyễn băm nhỏ tươi bạc hà lá hoặc 1 muỗng cà phê khô bạc hà lá, crumbled là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ tươi bạc hà lá hoặc 1 muỗng cà phê khô bạc hà lá, crumbled"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/b1731b1174822a51.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ tươi bạc hà lá hoặc 1 muỗng cà phê khô bạc hà lá, crumbled",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-183",
+          "title": "Dolmas Stuffed với Lamb, cơm, và hạnh nhân",
+          "local_name": "Dolmas Stuffed với Lamb, cơm, và hạnh nhân",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-19.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-183-ing-06",
+          "recipe_id": "rice-cooker-183",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-19.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-183",
+          "component_name": "Dolmas Stuffed với Lamb, cơm, và hạnh nhân",
+          "raw_text": "1 tablespoon finely chopped fresh mint leaves or 1 teaspoon dried mint leaves, crumbled",
+          "display_amount": "1 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07526",
+      "canonical_name": "finely chopped fresh pineapple or canned crushed pineapple in its own juice, drained",
+      "name": "nhuyễn băm nhỏ tươi pineapple hoặc đóng hộp giã nhỏ pineapple trong its own nước cốt, để ráo",
+      "name_i18n": {
+        "en": "finely chopped fresh pineapple or canned crushed pineapple in its own juice, drained",
+        "vi": "nhuyễn băm nhỏ tươi pineapple hoặc đóng hộp giã nhỏ pineapple trong its own nước cốt, để ráo"
+      },
+      "description": "nhuyễn băm nhỏ tươi pineapple hoặc đóng hộp giã nhỏ pineapple trong its own nước cốt, để ráo là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ tươi pineapple hoặc đóng hộp giã nhỏ pineapple trong its own nước cốt, để ráo",
+        "băm nhuyễn tươi dứa hoặc đóng hộp giã nhỏ dứa trong its own nước cốt, để ráo"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/c0a7d14d2da32153.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20t%C6%B0%C6%A1i%20pineapple%20ho%E1%BA%B7c%20%C4%91%C3%B3ng%20h%E1%BB%99p%20gi%C3%A3%20nh%E1%BB%8F%20pineapple%20trong%20its%20own%20n%C6%B0%E1%BB%9Bc%20c%E1%BB%91t%2C%20%C4%91%E1%BB%83%20r%C3%A1o%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ tươi pineapple hoặc đóng hộp giã nhỏ pineapple trong its own nước cốt, để ráo",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-020",
+          "title": "Cơm kem thì là",
+          "local_name": "Cơm kem thì là",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-020-ing-08",
+          "recipe_id": "rice-cooker-020",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-020",
+          "component_name": "Cơm kem thì là",
+          "raw_text": "½ cup finely chopped fresh pineapple or canned crushed pineapple in its own juice, drained",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07527",
+      "canonical_name": "finely chopped ginger",
+      "name": "nhuyễn băm nhỏ gừng",
+      "name_i18n": {
+        "en": "finely chopped ginger",
+        "vi": "nhuyễn băm nhỏ gừng"
+      },
+      "description": "nhuyễn băm nhỏ gừng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ gừng",
+        "Thật nhỏ",
+        "nhuyễn",
+        "băm nhỏ gừng"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/92119e2c63e9366a.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ gừng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp",
+          "other"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 4,
+      "recipe_count": 4,
+      "catalog_codes": [
+        "asian-noodle-recipes",
+        "chinese",
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "asian-noodle-022",
+          "title": "Cá hồi Đại Tây Dương áp chảo với soba trà xanh trong nước dùng gừng chanh",
+          "local_name": "Cá hồi Đại Tây Dương áp chảo với soba trà xanh trong nước dùng gừng chanh",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-03.json"
+        },
+        {
+          "recipe_id": "chinese-048",
+          "title": "Canh trứng rong biển",
+          "local_name": "Canh trứng rong biển",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-05.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-060",
+          "title": "Cánh gà drumette kiểu Á",
+          "local_name": "Cánh gà drumette kiểu Á",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-142",
+          "title": "Cơm gà Hải Nam với sốt gừng và hành lá",
+          "local_name": "Cơm gà Hải Nam với sốt gừng và hành lá",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "asian-noodle-022-ing-02",
+          "recipe_id": "asian-noodle-022",
+          "catalog_code": "asian-noodle-recipes",
+          "source_file": "recipes/asian-noodle-recipes/part-03.json",
+          "component_type": "recipe",
+          "component_id": "asian-noodle-022",
+          "component_name": "Cá hồi Đại Tây Dương áp chảo với soba trà xanh trong nước dùng gừng chanh",
+          "raw_text": "3 tbsp finely chopped ginger",
+          "display_amount": "3 muỗng canh"
+        },
+        {
+          "source_ingredient_id": "chinese-048-ing-03",
+          "recipe_id": "chinese-048",
+          "catalog_code": "chinese",
+          "source_file": "recipes/chinese/part-05.json",
+          "component_type": "recipe",
+          "component_id": "chinese-048",
+          "component_name": "Canh trứng rong biển",
+          "raw_text": "1 slice finely chopped ginger",
+          "display_amount": "1"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-060-ing-10",
+          "recipe_id": "poultry-meat-game-060",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-060",
+          "component_name": "Cánh gà drumette kiểu Á",
+          "raw_text": "tablespoon finely chopped ginger",
+          "display_amount": ""
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-142-ing-12",
+          "recipe_id": "poultry-meat-game-142",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-142",
+          "component_name": "Cơm gà Hải Nam với sốt gừng và hành lá",
+          "raw_text": "tablespoon finely chopped ginger",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07528",
+      "canonical_name": "finely chopped glacé (candied) ginger",
+      "name": "nhuyễn băm nhỏ glacé (candied) gừng",
+      "name_i18n": {
+        "en": "finely chopped glacé (candied) ginger",
+        "vi": "nhuyễn băm nhỏ glacé (candied) gừng"
+      },
+      "description": "nhuyễn băm nhỏ glacé (candied) gừng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ glacé (candied) gừng",
+        "băm nhỏ glacé (candied) gừng"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/48c0a42dabafd3bb.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20glac%C3%A9%20%28candied%29%20g%E1%BB%ABng%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ glacé (candied) gừng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-041",
+          "title": "Ức vịt với gạo hoang",
+          "local_name": "Ức vịt với gạo hoang",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-041-ing-14",
+          "recipe_id": "poultry-meat-game-041",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-05.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-041",
+          "component_name": "Ức vịt với gạo hoang",
+          "raw_text": "tablespoon finely chopped glacé (candied) ginger",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07529",
+      "canonical_name": "finely chopped jalapeño pepper (2 peppers)",
+      "name": "nhuyễn băm nhỏ jalapeño tiêu (2 peppers)",
+      "name_i18n": {
+        "en": "finely chopped jalapeño pepper (2 peppers)",
+        "vi": "nhuyễn băm nhỏ jalapeño tiêu (2 peppers)"
+      },
+      "description": "nhuyễn băm nhỏ jalapeño tiêu (2 peppers) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ jalapeño tiêu (2 peppers)"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/67681c155dcdbbb5.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20jalape%C3%B1o%20ti%C3%AAu%20%282%20peppers%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ jalapeño tiêu (2 peppers)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-093",
+          "title": "Súp đậu đen kiểu Caribe",
+          "local_name": "Súp đậu đen kiểu Caribe",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-093-ing-05",
+          "recipe_id": "soup-cookbook-093",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-093",
+          "component_name": "Súp đậu đen kiểu Caribe",
+          "raw_text": "3 tablespoons finely chopped jalapeño pepper (2 peppers)",
+          "display_amount": "3 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07530",
+      "canonical_name": "finely chopped lemon zest",
+      "name": "nhuyễn băm nhỏ lemon zest",
+      "name_i18n": {
+        "en": "finely chopped lemon zest",
+        "vi": "nhuyễn băm nhỏ lemon zest"
+      },
+      "description": "nhuyễn băm nhỏ lemon zest là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ lemon zest",
+        "băm nhỏ lemon zest"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/5193d093c63f4176.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20lemon%20zest%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ lemon zest",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "salad-for-dinner"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "salad-dinner-071",
+          "title": "Đậu cannellini và đậu fava với hành lá non",
+          "local_name": "Đậu cannellini và đậu fava với hành lá non",
+          "catalog_code": "salad-for-dinner",
+          "source_file": "recipes/salad-for-dinner/part-08.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "salad-dinner-071-ing-08",
+          "recipe_id": "salad-dinner-071",
+          "catalog_code": "salad-for-dinner",
+          "source_file": "recipes/salad-for-dinner/part-08.json",
+          "component_type": "recipe",
+          "component_id": "salad-dinner-071",
+          "component_name": "Đậu cannellini và đậu fava với hành lá non",
+          "raw_text": "1/2 teaspoon finely chopped lemon zest",
+          "display_amount": "1/2 muỗng cà phê (chuẩn hóa: 2 1/2 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07531",
+      "canonical_name": "finely chopped mint",
+      "name": "nhuyễn băm nhỏ bạc hà",
+      "name_i18n": {
+        "en": "finely chopped mint",
+        "vi": "nhuyễn băm nhỏ bạc hà"
+      },
+      "description": "nhuyễn băm nhỏ bạc hà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ bạc hà",
+        "băm nhỏ bạc hà"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/16d0d8edea271261.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ bạc hà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "cup",
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-110",
+          "title": "Gà cam và bạc hà",
+          "local_name": "Gà cam và bạc hà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-147",
+          "title": "Xiên gà kiểu Lebanon",
+          "local_name": "Xiên gà kiểu Lebanon",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-110-ing-08",
+          "recipe_id": "poultry-meat-game-110",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-110",
+          "component_name": "Gà cam và bạc hà",
+          "raw_text": "cup finely chopped mint",
+          "display_amount": ""
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-147-ing-04",
+          "recipe_id": "poultry-meat-game-147",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-147",
+          "component_name": "Xiên gà kiểu Lebanon",
+          "raw_text": "½ cup finely chopped mint",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07532",
+      "canonical_name": "finely chopped onion",
+      "name": "nhuyễn băm nhỏ hành tây",
+      "name_i18n": {
+        "en": "finely chopped onion",
+        "vi": "nhuyễn băm nhỏ hành tây"
+      },
+      "description": "nhuyễn băm nhỏ hành tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ hành tây",
+        "băm nhuyễn hành tây",
+        "Băm nhỏ hành tây"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed",
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "primary_nutrient_highlights": [
+          "fiber",
+          "micronutrients"
+        ],
+        "classification_level": "food_group_only",
+        "description_vi": "Rau, củ, nấm và nhóm thực vật thường đóng góp chất xơ/vi chất.",
+        "quantitative_nutrition_available": false,
+        "note": "Không suy ra kcal, protein, carbohydrate, fat, vitamin hoặc khoáng chất định lượng nếu nguồn công thức không cung cấp dữ liệu chuẩn cho nguyên liệu."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/6ac8c09b23dfda5c.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ hành tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 5,
+      "recipe_count": 5,
+      "catalog_codes": [
+        "rice-cooker",
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-037",
+          "title": "Rizau Parmesan",
+          "local_name": "Rizau Parmesan",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-04.json"
+        },
+        {
+          "recipe_id": "rice-cooker-047",
+          "title": "Arroz Negro",
+          "local_name": "Arroz Negro",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json"
+        },
+        {
+          "recipe_id": "rice-cooker-052",
+          "title": "Mexico cơm",
+          "local_name": "Mexico cơm",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-06.json"
+        },
+        {
+          "recipe_id": "rice-cooker-055",
+          "title": "Arroz Verde",
+          "local_name": "Arroz Verde",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-06.json"
+        },
+        {
+          "recipe_id": "soup-cookbook-082",
+          "title": "Súp đặc ngô nướng và khoai tây",
+          "local_name": "Súp đặc ngô nướng và khoai tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-037-ing-02",
+          "recipe_id": "rice-cooker-037",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-04.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-037",
+          "component_name": "Rizau Parmesan",
+          "raw_text": "¼ cup finely chopped onion",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-047-ing-02",
+          "recipe_id": "rice-cooker-047",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-047",
+          "component_name": "Arroz Negro",
+          "raw_text": "¼ cup finely chopped onion",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-052-ing-02",
+          "recipe_id": "rice-cooker-052",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-06.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-052",
+          "component_name": "Mexico cơm",
+          "raw_text": "⅓ cup finely chopped onion",
+          "display_amount": "1/3 cốc (chuẩn hóa: 80 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-055-ing-07",
+          "recipe_id": "rice-cooker-055",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-06.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-055",
+          "component_name": "Arroz Verde",
+          "raw_text": "½ cup finely chopped onion",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        },
+        {
+          "source_ingredient_id": "soup-cookbook-082-ing-06",
+          "recipe_id": "soup-cookbook-082",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-082",
+          "component_name": "Súp đặc ngô nướng và khoai tây",
+          "raw_text": "3/4 cup finely chopped onion",
+          "display_amount": "3/4 cốc (chuẩn hóa: 180 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07533",
+      "canonical_name": "finely chopped onion (about 5 or 6 large onions)",
+      "name": "nhuyễn băm nhỏ hành tây (khoảng 5 hoặc 6 large hành tây)",
+      "name_i18n": {
+        "en": "finely chopped onion (about 5 or 6 large onions)",
+        "vi": "nhuyễn băm nhỏ hành tây (khoảng 5 hoặc 6 large hành tây)"
+      },
+      "description": "nhuyễn băm nhỏ hành tây (khoảng 5 hoặc 6 large hành tây) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ hành tây (khoảng 5 hoặc 6 large hành tây)"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/eab9075a6b53e25f.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ hành tây (khoảng 5 hoặc 6 large hành tây)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-184",
+          "title": "Dolmas với Figs và Sun-khô cà chua",
+          "local_name": "Dolmas với Figs và Sun-khô cà chua",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-19.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-184-ing-02",
+          "recipe_id": "rice-cooker-184",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-19.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-184",
+          "component_name": "Dolmas với Figs và Sun-khô cà chua",
+          "raw_text": "5 cups finely chopped onion (about 5 or 6 large onions)",
+          "display_amount": "5 cốc (chuẩn hóa: 1200 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07534",
+      "canonical_name": "finely chopped onions",
+      "name": "nhuyễn băm nhỏ hành tây",
+      "name_i18n": {
+        "en": "finely chopped onions",
+        "vi": "nhuyễn băm nhỏ hành tây"
+      },
+      "description": "nhuyễn băm nhỏ hành tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ hành tây",
+        "băm nhỏ hành tây"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/00ada52aa920a0c2.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20h%C3%A0nh%20t%C3%A2y%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ hành tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-038",
+          "title": "Cá ngừ nướng với salsa verde",
+          "local_name": "Cá ngừ nướng với salsa verde",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-038-ing-08",
+          "recipe_id": "cia-grilling-038",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-04.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-038",
+          "component_name": "Cá ngừ nướng với salsa verde",
+          "raw_text": "½ cup finely chopped onions",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07535",
+      "canonical_name": "finely chopped orange zest Kosher salt",
+      "name": "nhuyễn băm nhỏ orange zest Kosher muối",
+      "name_i18n": {
+        "en": "finely chopped orange zest Kosher salt",
+        "vi": "nhuyễn băm nhỏ orange zest Kosher muối"
+      },
+      "description": "nhuyễn băm nhỏ orange zest Kosher muối là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ orange zest Kosher muối",
+        "băm nhỏ orange zest muối kosher"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/2a51eaed8cc02f4c.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ orange zest Kosher muối",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "salad-for-dinner"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "salad-dinner-017",
+          "title": "Salad frisée với sò điệp áp chảo và cam đỏ",
+          "local_name": "Salad frisée với sò điệp áp chảo và cam đỏ",
+          "catalog_code": "salad-for-dinner",
+          "source_file": "recipes/salad-for-dinner/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "salad-dinner-017-ing-03",
+          "recipe_id": "salad-dinner-017",
+          "catalog_code": "salad-for-dinner",
+          "source_file": "recipes/salad-for-dinner/part-02.json",
+          "component_type": "recipe",
+          "component_id": "salad-dinner-017",
+          "component_name": "Salad frisée với sò điệp áp chảo và cam đỏ",
+          "raw_text": "1 teaspoon finely chopped orange zest Kosher salt",
+          "display_amount": "1 muỗng cà phê (chuẩn hóa: 5 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07536",
+      "canonical_name": "finely chopped parsley",
+      "name": "nhuyễn băm nhỏ mùi tây",
+      "name_i18n": {
+        "en": "finely chopped parsley",
+        "vi": "nhuyễn băm nhỏ mùi tây"
+      },
+      "description": "nhuyễn băm nhỏ mùi tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ mùi tây",
+        "băm nhỏ mùi tây",
+        "Mùi tây băm nhỏ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed",
+        "fiber_veg",
+        "aromatic"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "primary_nutrient_highlights": [
+          "used_in_small_amounts",
+          "sodium_or_sugar_may_vary_by_product"
+        ],
+        "classification_level": "food_group_only",
+        "description_vi": "Gia vị, thảo mộc, chất tạo vị, sốt và nguyên liệu dùng với lượng nhỏ.",
+        "quantitative_nutrition_available": false,
+        "note": "Không suy ra kcal, protein, carbohydrate, fat, vitamin hoặc khoáng chất định lượng nếu nguồn công thức không cung cấp dữ liệu chuẩn cho nguyên liệu."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/62021ec709e63f1a.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ mùi tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml",
+          "tbsp"
+        ],
+        "normalized": [
+          "ml",
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 6,
+      "recipe_count": 6,
+      "catalog_codes": [
+        "cia-grilling",
+        "fried-chicken-cookbook",
+        "poultry-meat-game",
+        "soup-cookbook",
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-038",
+          "title": "Cá ngừ nướng với salsa verde",
+          "local_name": "Cá ngừ nướng với salsa verde",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-04.json"
+        },
+        {
+          "recipe_id": "fried-chicken-021",
+          "title": "Gà nướng giòn kiểu chiên",
+          "local_name": "Gà nướng giòn kiểu chiên",
+          "catalog_code": "fried-chicken-cookbook",
+          "source_file": "recipes/fried-chicken-cookbook/part-03.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-054",
+          "title": "Kofte bò và tiêu Jamaica",
+          "local_name": "Kofte bò và tiêu Jamaica",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-108",
+          "title": "Má bò om vang đỏ",
+          "local_name": "Má bò om vang đỏ",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        },
+        {
+          "recipe_id": "soup-cookbook-086",
+          "title": "Súp ớt chuông vàng với bánh mì nướng giòn nấm rừng",
+          "local_name": "Súp ớt chuông vàng với bánh mì nướng giòn nấm rừng",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json"
+        },
+        {
+          "recipe_id": "soups-stews-019",
+          "title": "Súp bò với bánh bột nấu chậm",
+          "local_name": "Súp bò với bánh bột nấu chậm",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-038-ing-13",
+          "recipe_id": "cia-grilling-038",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-04.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-038",
+          "component_name": "Cá ngừ nướng với salsa verde",
+          "raw_text": "2 teaspoons finely chopped parsley",
+          "display_amount": "2 muỗng cà phê (chuẩn hóa: 10 ml)"
+        },
+        {
+          "source_ingredient_id": "fried-chicken-021-ing-06",
+          "recipe_id": "fried-chicken-021",
+          "catalog_code": "fried-chicken-cookbook",
+          "source_file": "recipes/fried-chicken-cookbook/part-03.json",
+          "component_type": "recipe",
+          "component_id": "fried-chicken-021",
+          "component_name": "Gà nướng giòn kiểu chiên",
+          "raw_text": "2 tablespoons finely chopped parsley",
+          "display_amount": "2 muỗng canh"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-054-ing-09",
+          "recipe_id": "poultry-meat-game-054",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-054",
+          "component_name": "Kofte bò và tiêu Jamaica",
+          "raw_text": "½ tablespoons finely chopped parsley",
+          "display_amount": "1/2 muỗng canh"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-108-ing-14",
+          "recipe_id": "poultry-meat-game-108",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-108",
+          "component_name": "Má bò om vang đỏ",
+          "raw_text": "1½ tablespoons finely chopped parsley",
+          "display_amount": "1 muỗng canh"
+        },
+        {
+          "source_ingredient_id": "soup-cookbook-086-ing-19",
+          "recipe_id": "soup-cookbook-086",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-086",
+          "component_name": "Súp ớt chuông vàng với bánh mì nướng giòn nấm rừng",
+          "raw_text": "2 tablespoons finely chopped parsley",
+          "display_amount": "2 muỗng canh"
+        },
+        {
+          "source_ingredient_id": "soups-stews-019-ing-08",
+          "recipe_id": "soups-stews-019",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-02.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-019",
+          "component_name": "Súp bò với bánh bột nấu chậm",
+          "raw_text": "1 tablespoon finely chopped parsley",
+          "display_amount": "1 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07537",
+      "canonical_name": "finely chopped peeled baking potato",
+      "name": "nhuyễn băm nhỏ gọt vỏ baking khoai tây",
+      "name_i18n": {
+        "en": "finely chopped peeled baking potato",
+        "vi": "nhuyễn băm nhỏ gọt vỏ baking khoai tây"
+      },
+      "description": "nhuyễn băm nhỏ gọt vỏ baking khoai tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ gọt vỏ baking khoai tây",
+        "Băm nhỏ gọt vỏ khoai tây nướng"
+      ],
+      "macro_class": "carbohydrate",
+      "macro_classes_observed": [
+        "carbohydrate"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "starchy_carbohydrate",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/5e7035006ced43ea.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ gọt vỏ baking khoai tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-086",
+          "title": "Súp ớt chuông vàng với bánh mì nướng giòn nấm rừng",
+          "local_name": "Súp ớt chuông vàng với bánh mì nướng giòn nấm rừng",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-086-ing-05",
+          "recipe_id": "soup-cookbook-086",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-086",
+          "component_name": "Súp ớt chuông vàng với bánh mì nướng giòn nấm rừng",
+          "raw_text": "1 cup finely chopped peeled baking potato",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07538",
+      "canonical_name": "finely chopped purslane leaves (optional)",
+      "name": "nhuyễn băm nhỏ purslane lá (tùy chọn)",
+      "name_i18n": {
+        "en": "finely chopped purslane leaves (optional)",
+        "vi": "nhuyễn băm nhỏ purslane lá (tùy chọn)"
+      },
+      "description": "nhuyễn băm nhỏ purslane lá (tùy chọn) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ purslane lá (tùy chọn)",
+        "băm nhỏ purslane lá (tùy chọn)"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/6f5aaca8b6c6ab57.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20purslane%20l%C3%A1%20%28t%C3%B9y%20ch%E1%BB%8Dn%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ purslane lá (tùy chọn)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "eggs-cheese"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "eggs-cheese-037",
+          "title": "Trứng chần và trứng lòng đào với trứng, rau chua",
+          "local_name": "Trứng chần và trứng lòng đào với trứng, rau chua",
+          "catalog_code": "eggs-cheese",
+          "source_file": "recipes/eggs-cheese/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "eggs-cheese-037-ing-05",
+          "recipe_id": "eggs-cheese-037",
+          "catalog_code": "eggs-cheese",
+          "source_file": "recipes/eggs-cheese/part-04.json",
+          "component_type": "recipe",
+          "component_id": "eggs-cheese-037",
+          "component_name": "Trứng chần và trứng lòng đào với trứng, rau chua",
+          "raw_text": "1 cup finely chopped purslane leaves (optional)",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07539",
+      "canonical_name": "finely chopped red onion",
+      "name": "nhuyễn băm nhỏ đỏ hành tây",
+      "name_i18n": {
+        "en": "finely chopped red onion",
+        "vi": "nhuyễn băm nhỏ đỏ hành tây"
+      },
+      "description": "nhuyễn băm nhỏ đỏ hành tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ đỏ hành tây",
+        "băm nhuyễn đỏ hành tây"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/00ab6ca29a20d8e5.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ đỏ hành tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 3,
+      "recipe_count": 3,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-013",
+          "title": "Cơm basmati với bắp và đậu Hà Lan",
+          "local_name": "Cơm basmati với bắp và đậu Hà Lan",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json"
+        },
+        {
+          "recipe_id": "rice-cooker-017",
+          "title": "Cơm Hunza",
+          "local_name": "Cơm Hunza",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json"
+        },
+        {
+          "recipe_id": "rice-cooker-231",
+          "title": "Salad đậu lăng và gạo lứt",
+          "local_name": "Salad đậu lăng và gạo lứt",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-24.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-013-ing-06",
+          "recipe_id": "rice-cooker-013",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-013",
+          "component_name": "Cơm basmati với bắp và đậu Hà Lan",
+          "raw_text": "½ cup finely chopped red onion",
+          "display_amount": "1/2 cốc (chuẩn hóa: 120 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-017-ing-05",
+          "recipe_id": "rice-cooker-017",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-017",
+          "component_name": "Cơm Hunza",
+          "raw_text": "¼ cup finely chopped red onion",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-231-ing-11",
+          "recipe_id": "rice-cooker-231",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-24.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-231",
+          "component_name": "Salad đậu lăng và gạo lứt",
+          "raw_text": "⅓ cup finely chopped red onion",
+          "display_amount": "1/3 cốc (chuẩn hóa: 80 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07540",
+      "canonical_name": "finely chopped rosemary",
+      "name": "nhuyễn băm nhỏ hương thảo",
+      "name_i18n": {
+        "en": "finely chopped rosemary",
+        "vi": "nhuyễn băm nhỏ hương thảo"
+      },
+      "description": "nhuyễn băm nhỏ hương thảo là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ hương thảo",
+        "băm nhỏ hương thảo"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/cd8d31d50b64dbb1.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ hương thảo",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-078",
+          "title": "Cừu quay chậm với đậu trắng nghiền",
+          "local_name": "Cừu quay chậm với đậu trắng nghiền",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-102",
+          "title": "Ragù bê với pappardelle",
+          "local_name": "Ragù bê với pappardelle",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-078-ing-04",
+          "recipe_id": "poultry-meat-game-078",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-078",
+          "component_name": "Cừu quay chậm với đậu trắng nghiền",
+          "raw_text": "tablespoon finely chopped rosemary",
+          "display_amount": ""
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-102-ing-07",
+          "recipe_id": "poultry-meat-game-102",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-102",
+          "component_name": "Ragù bê với pappardelle",
+          "raw_text": "tablespoon finely chopped rosemary",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07541",
+      "canonical_name": "finely chopped shallots",
+      "name": "nhuyễn băm nhỏ hành tím",
+      "name_i18n": {
+        "en": "finely chopped shallots",
+        "vi": "nhuyễn băm nhỏ hành tím"
+      },
+      "description": "nhuyễn băm nhỏ hành tím là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ hành tím",
+        "băm nhuyễn hành tím"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/20fdb4b22d5cf044.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ hành tím",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp",
+          "ml"
+        ],
+        "normalized": [
+          "tbsp",
+          "ml"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-049",
+          "title": "Riz à l ’ Indienne",
+          "local_name": "Riz à l ’ Indienne",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json"
+        },
+        {
+          "recipe_id": "rice-cooker-070",
+          "title": "Prawn risotto với Seasonal rau củs",
+          "local_name": "Prawn risotto với Seasonal rau củs",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-049-ing-02",
+          "recipe_id": "rice-cooker-049",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-049",
+          "component_name": "Riz à l ’ Indienne",
+          "raw_text": "2 tablespoons finely chopped shallots",
+          "display_amount": "2 muỗng canh"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-070-ing-06",
+          "recipe_id": "rice-cooker-070",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-070",
+          "component_name": "Prawn risotto với Seasonal rau củs",
+          "raw_text": "¼ cup finely chopped shallots",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07542",
+      "canonical_name": "finely chopped shallots or onion",
+      "name": "nhuyễn băm nhỏ hành tím hoặc hành tây",
+      "name_i18n": {
+        "en": "finely chopped shallots or onion",
+        "vi": "nhuyễn băm nhỏ hành tím hoặc hành tây"
+      },
+      "description": "nhuyễn băm nhỏ hành tím hoặc hành tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ hành tím hoặc hành tây",
+        "băm nhuyễn hành tím hoặc hành tây"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/fa7d7ba44dd45a93.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20h%C3%A0nh%20t%C3%ADm%20ho%E1%BA%B7c%20h%C3%A0nh%20t%C3%A2y%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ hành tím hoặc hành tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-045",
+          "title": "Riz Persillé",
+          "local_name": "Riz Persillé",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-045-ing-02",
+          "recipe_id": "rice-cooker-045",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-045",
+          "component_name": "Riz Persillé",
+          "raw_text": "2 tablespoons finely chopped shallots or onion",
+          "display_amount": "2 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07543",
+      "canonical_name": "finely chopped thyme",
+      "name": "nhuyễn băm nhỏ cỏ xạ hương",
+      "name_i18n": {
+        "en": "finely chopped thyme",
+        "vi": "nhuyễn băm nhỏ cỏ xạ hương"
+      },
+      "description": "nhuyễn băm nhỏ cỏ xạ hương là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ cỏ xạ hương",
+        "băm nhỏ cỏ xạ hương"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [
+        "aromatic"
+      ],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/23162a17eb7be33b.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ cỏ xạ hương",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tsp"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-128",
+          "title": "Bê hầm atisô và đậu tằm",
+          "local_name": "Bê hầm atisô và đậu tằm",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-128-ing-15",
+          "recipe_id": "poultry-meat-game-128",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-128",
+          "component_name": "Bê hầm atisô và đậu tằm",
+          "raw_text": "teaspoon finely chopped thyme",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07544",
+      "canonical_name": "finely chopped toasted almonds",
+      "name": "nhuyễn băm nhỏ rang hạnh nhân",
+      "name_i18n": {
+        "en": "finely chopped toasted almonds",
+        "vi": "nhuyễn băm nhỏ rang hạnh nhân"
+      },
+      "description": "nhuyễn băm nhỏ rang hạnh nhân là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ rang hạnh nhân",
+        "Băm thật nhỏ rang hạnh nhân"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "tree_nuts"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/1319df582e4d0174.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ rang hạnh nhân",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "classic-desserts"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "classic-desserts-133",
+          "title": "Soufflé đông lạnh cầu vồng",
+          "local_name": "Soufflé đông lạnh cầu vồng",
+          "catalog_code": "classic-desserts",
+          "source_file": "recipes/classic-desserts/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "classic-desserts-133-ing-08",
+          "recipe_id": "classic-desserts-133",
+          "catalog_code": "classic-desserts",
+          "source_file": "recipes/classic-desserts/part-14.json",
+          "component_type": "recipe",
+          "component_id": "classic-desserts-133",
+          "component_name": "Soufflé đông lạnh cầu vồng",
+          "raw_text": "finely chopped toasted almonds",
+          "display_amount": "3–4 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07545",
+      "canonical_name": "finely chopped toasted hazelnuts",
+      "name": "nhuyễn băm nhỏ rang hazelnuts",
+      "name_i18n": {
+        "en": "finely chopped toasted hazelnuts",
+        "vi": "nhuyễn băm nhỏ rang hazelnuts"
+      },
+      "description": "nhuyễn băm nhỏ rang hazelnuts là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ rang hazelnuts",
+        "Băm thật nhỏ rang hạt phỉ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "tree_nuts"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/75f4c0dedd458aef.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ rang hazelnuts",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "classic-desserts"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "classic-desserts-133",
+          "title": "Soufflé đông lạnh cầu vồng",
+          "local_name": "Soufflé đông lạnh cầu vồng",
+          "catalog_code": "classic-desserts",
+          "source_file": "recipes/classic-desserts/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "classic-desserts-133-ing-07",
+          "recipe_id": "classic-desserts-133",
+          "catalog_code": "classic-desserts",
+          "source_file": "recipes/classic-desserts/part-14.json",
+          "component_type": "recipe",
+          "component_id": "classic-desserts-133",
+          "component_name": "Soufflé đông lạnh cầu vồng",
+          "raw_text": "finely chopped toasted hazelnuts",
+          "display_amount": "3–4 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07546",
+      "canonical_name": "finely chopped walnuts",
+      "name": "nhuyễn băm nhỏ walnuts",
+      "name_i18n": {
+        "en": "finely chopped walnuts",
+        "vi": "nhuyễn băm nhỏ walnuts"
+      },
+      "description": "nhuyễn băm nhỏ walnuts là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ walnuts",
+        "băm thật nhỏ óc chó"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "tree_nut",
+        "tree_nuts"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/1d9f3fe9b0be0c47.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20b%C4%83m%20nh%E1%BB%8F%20walnuts%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ walnuts",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "breakfast-fine-cooking"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "breakfast-026",
+          "title": "Bánh táo gừng phủ vụn",
+          "local_name": "Bánh táo gừng phủ vụn",
+          "catalog_code": "breakfast-fine-cooking",
+          "source_file": "recipes/breakfast-fine-cooking/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "breakfast-026-ing-06",
+          "recipe_id": "breakfast-026",
+          "catalog_code": "breakfast-fine-cooking",
+          "source_file": "recipes/breakfast-fine-cooking/part-03.json",
+          "component_type": "recipe",
+          "component_id": "breakfast-026",
+          "component_name": "Bánh táo gừng phủ vụn",
+          "raw_text": "1/2 cup finely chopped walnuts",
+          "display_amount": "1/2 cốc"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07547",
+      "canonical_name": "finely chopped water chestnuts",
+      "name": "nhuyễn băm nhỏ nước chestnuts",
+      "name_i18n": {
+        "en": "finely chopped water chestnuts",
+        "vi": "nhuyễn băm nhỏ nước chestnuts"
+      },
+      "description": "nhuyễn băm nhỏ nước chestnuts là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ nước chestnuts",
+        "băm nhỏ nước chestnuts"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/71a57667df6bd927.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ nước chestnuts",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-125",
+          "title": "Cà ri thịt viên heo",
+          "local_name": "Cà ri thịt viên heo",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-125-ing-03",
+          "recipe_id": "poultry-meat-game-125",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-125",
+          "component_name": "Cà ri thịt viên heo",
+          "raw_text": "tablespoons finely chopped water chestnuts",
+          "display_amount": ""
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07548",
+      "canonical_name": "finely chopped yellow onion",
+      "name": "nhuyễn băm nhỏ vàng hành tây",
+      "name_i18n": {
+        "en": "finely chopped yellow onion",
+        "vi": "nhuyễn băm nhỏ vàng hành tây"
+      },
+      "description": "nhuyễn băm nhỏ vàng hành tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ vàng hành tây",
+        "băm nhuyễn hành tây vàng"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/5e50d68d1738fdf0.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ vàng hành tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 3,
+      "recipe_count": 3,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-066",
+          "title": "Risotto Milanese",
+          "local_name": "Risotto Milanese",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json"
+        },
+        {
+          "recipe_id": "rice-cooker-067",
+          "title": "bơ nut bí risotto",
+          "local_name": "bơ nut bí risotto",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json"
+        },
+        {
+          "recipe_id": "rice-cooker-071",
+          "title": "Risotto xúc xích kiểu Ý",
+          "local_name": "Risotto xúc xích kiểu Ý",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-08.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-066-ing-05",
+          "recipe_id": "rice-cooker-066",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-066",
+          "component_name": "Risotto Milanese",
+          "raw_text": "¾ cup finely chopped yellow onion",
+          "display_amount": "3/4 cốc (chuẩn hóa: 180 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-067-ing-03",
+          "recipe_id": "rice-cooker-067",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-07.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-067",
+          "component_name": "bơ nut bí risotto",
+          "raw_text": "⅔ cup finely chopped yellow onion",
+          "display_amount": "2/3 cốc (chuẩn hóa: 160 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-071-ing-05",
+          "recipe_id": "rice-cooker-071",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-08.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-071",
+          "component_name": "Risotto xúc xích kiểu Ý",
+          "raw_text": "¼ cup finely chopped yellow onion",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07549",
+      "canonical_name": "finely chopped yellow onions",
+      "name": "nhuyễn băm nhỏ vàng hành tây",
+      "name_i18n": {
+        "en": "finely chopped yellow onions",
+        "vi": "nhuyễn băm nhỏ vàng hành tây"
+      },
+      "description": "nhuyễn băm nhỏ vàng hành tây là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn băm nhỏ vàng hành tây",
+        "băm nhỏ hành tây vàngs"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/417e708016f02ef6.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn băm nhỏ vàng hành tây",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "cia-grilling"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "cia-grilling-026",
+          "title": "Bữa hải sản nướng kiểu bờ biển",
+          "local_name": "Bữa hải sản nướng kiểu bờ biển",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "cia-grilling-026-ing-02",
+          "recipe_id": "cia-grilling-026",
+          "catalog_code": "cia-grilling",
+          "source_file": "recipes/cia-grilling/part-03.json",
+          "component_type": "recipe",
+          "component_id": "cia-grilling-026",
+          "component_name": "Bữa hải sản nướng kiểu bờ biển",
+          "raw_text": "2 cups finely chopped yellow onions",
+          "display_amount": "2 cốc (chuẩn hóa: 480 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-07550",
+      "canonical_name": "finely crushed buttery cracker",
+      "name": "nhuyễn giã nhỏ buttery cracker",
+      "name_i18n": {
+        "en": "finely crushed buttery cracker",
+        "vi": "nhuyễn giã nhỏ buttery cracker"
+      },
+      "description": "nhuyễn giã nhỏ buttery cracker là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "nhuyễn giã nhỏ buttery cracker"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/fa82080f8edf694f.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=nhuy%E1%BB%85n%20gi%C3%A3%20nh%E1%BB%8F%20buttery%20cracker%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu nhuyễn giã nhỏ buttery cracker",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "fried-chicken-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "fried-chicken-089",
+          "title": "Gà chiên kiểu đồng quê với xốt thịt",
+          "local_name": "Gà chiên kiểu đồng quê với xốt thịt",
+          "catalog_code": "fried-chicken-cookbook",
+          "source_file": "recipes/fried-chicken-cookbook/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "fried-chicken-089-ing-05",
+          "recipe_id": "fried-chicken-089",
+          "catalog_code": "fried-chicken-cookbook",
+          "source_file": "recipes/fried-chicken-cookbook/part-09.json",
+          "component_type": "recipe",
+          "component_id": "fried-chicken-089",
+          "component_name": "Gà chiên kiểu đồng quê với xốt thịt",
+          "raw_text": "1 cup finely crushed buttery cracker",
+          "display_amount": "1 cốc (chuẩn hóa: 240 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    }
+  ],
+  "shard": {
+    "index": 151,
+    "count": 228.0,
+    "total_records": 11393
+  }
+}

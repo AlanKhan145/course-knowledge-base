@@ -1,0 +1,39 @@
+{
+  "description": "Mức độ tin cậy của phần phân loại dinh dưỡng/chế độ ăn.",
+  "schema_version": "1.1.0",
+  "group": "classification_status",
+  "shard": {
+    "index": 1,
+    "count": 1,
+    "total_records": 4
+  },
+  "values": [
+    {
+      "code": "unreviewed",
+      "name_i18n": {
+        "vi": "Chưa rà soát"
+      }
+    },
+    {
+      "code": "estimated",
+      "name_i18n": {
+        "vi": "Ước lượng"
+      },
+      "definition": "Có suy luận nhưng thiếu dữ liệu để khẳng định."
+    },
+    {
+      "code": "source_verified_with_inference",
+      "name_i18n": {
+        "vi": "Nguồn xác minh, còn suy luận"
+      },
+      "definition": "Một phần được nguồn xác nhận trực tiếp nhưng vẫn còn trường phân loại phải suy luận; không tương đương verified."
+    },
+    {
+      "code": "verified",
+      "name_i18n": {
+        "vi": "Đã xác minh"
+      },
+      "definition": "Mọi thành phần liên quan đã được kiểm tra đủ để khẳng định."
+    }
+  ]
+}

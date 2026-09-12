@@ -1,0 +1,61 @@
+{
+  "description": "Cơ sở của con số calo.",
+  "reference_note": "Thứ tự ưu tiên nguồn dữ liệu: nhãn sản phẩm, cơ sở dữ liệu chính thức, dữ liệu đã được ứng dụng xác minh, rồi mới tới dữ liệu người dùng nhập. Calorie theo khẩu phần phải có cơ sở tính rõ; trạng thái sống/chín của nguyên liệu khi đối chiếu dữ liệu dinh dưỡng phải nhất quán.",
+  "schema_version": "1.1.0",
+  "group": "calorie_basis",
+  "shard": {
+    "index": 1,
+    "count": 1,
+    "total_records": 7
+  },
+  "values": [
+    {
+      "code": "source",
+      "name_i18n": {
+        "vi": "Theo nguồn công thức"
+      },
+      "definition": "Con số do công thức gốc công bố."
+    },
+    {
+      "code": "nutrition_label",
+      "name_i18n": {
+        "vi": "Theo nhãn dinh dưỡng"
+      }
+    },
+    {
+      "code": "calculated",
+      "name_i18n": {
+        "vi": "Tính từ nguyên liệu"
+      }
+    },
+    {
+      "code": "estimated",
+      "name_i18n": {
+        "vi": "Ước lượng"
+      }
+    },
+    {
+      "code": "unknown",
+      "name_i18n": {
+        "vi": "Không rõ"
+      },
+      "definition": "Nguồn không cung cấp và dữ liệu không đủ để tính."
+    },
+    {
+      "code": "not_available",
+      "name_i18n": {
+        "vi": "Not Available",
+        "en": "Not Available"
+      },
+      "definition": "Giá trị đang xuất hiện trong dữ liệu hiện tại: not_available."
+    },
+    {
+      "code": "unavailable",
+      "name_i18n": {
+        "vi": "Unavailable",
+        "en": "Unavailable"
+      },
+      "definition": "Giá trị đang xuất hiện trong dữ liệu hiện tại: unavailable."
+    }
+  ]
+}

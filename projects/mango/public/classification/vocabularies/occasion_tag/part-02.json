@@ -1,0 +1,105 @@
+{
+  "description": "Dịp hoặc bối cảnh ăn. Không đặt thời điểm bữa ăn vào occasion_tag trong dữ liệu mới; các mã kiểu breakfast/lunch/dinner được giữ chỉ để tương thích dữ liệu cũ.",
+  "schema_version": "1.1.0",
+  "group": "occasion_tag",
+  "shard": {
+    "index": 2,
+    "count": 4,
+    "total_records": 39
+  },
+  "values": [
+    {
+      "code": "anzac_day",
+      "name_i18n": {
+        "vi": "Ngày ANZAC",
+        "en": "Anzac Day"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: ngày anzac."
+    },
+    {
+      "code": "barbecue",
+      "name_i18n": {
+        "vi": "Tiệc nướng BBQ",
+        "en": "Barbecue"
+      },
+      "deprecated": true,
+      "canonical_code": "bbq",
+      "definition": "Ngữ cảnh/dịp sử dụng món: tiệc nướng bbq."
+    },
+    {
+      "code": "breakfast",
+      "name_i18n": {
+        "vi": "Bữa sáng",
+        "en": "Breakfast"
+      },
+      "deprecated": true,
+      "canonical_dimension": "meal_slot",
+      "canonical_code": "breakfast",
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa sáng."
+    },
+    {
+      "code": "camping",
+      "name_i18n": {
+        "vi": "Cắm trại",
+        "en": "Camping"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: cắm trại."
+    },
+    {
+      "code": "casual_meal",
+      "name_i18n": {
+        "vi": "Bữa ăn thường ngày",
+        "en": "Casual Meal"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa ăn thường ngày."
+    },
+    {
+      "code": "celebration",
+      "name_i18n": {
+        "vi": "Dịp ăn mừng",
+        "en": "Celebration"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: dịp ăn mừng."
+    },
+    {
+      "code": "christmas_bbq",
+      "name_i18n": {
+        "vi": "BBQ Giáng sinh",
+        "en": "Christmas Bbq"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: bbq giáng sinh."
+    },
+    {
+      "code": "dessert",
+      "name_i18n": {
+        "vi": "Dịp dùng món tráng miệng",
+        "en": "Dessert"
+      },
+      "deprecated": true,
+      "canonical_dimension": "meal_slot",
+      "canonical_code": "dessert",
+      "definition": "Ngữ cảnh/dịp sử dụng món: dịp dùng món tráng miệng."
+    },
+    {
+      "code": "dinner",
+      "name_i18n": {
+        "vi": "Bữa tối",
+        "en": "Dinner"
+      },
+      "deprecated": true,
+      "canonical_dimension": "meal_slot",
+      "canonical_code": "dinner",
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa tối."
+    },
+    {
+      "code": "family_meal",
+      "name_i18n": {
+        "vi": "Bữa ăn gia đình",
+        "en": "Family Meal"
+      },
+      "deprecated": true,
+      "canonical_code": "family_dinner",
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa ăn gia đình."
+    }
+  ]
+}

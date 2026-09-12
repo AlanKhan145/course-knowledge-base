@@ -1,0 +1,2175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mango.app/schemas/recipe-catalog.schema.json",
+  "title": "Mango Recipe Catalog",
+  "description": "Schema catalog công thức Mango, đồng bộ với 22 catalog dữ liệu hiện tại và vocabularies 1.1.0. Bổ sung coverage cho enum thực tế, image_search_url, quantity_is_estimate và metadata dinh dưỡng ở cấp nguyên liệu. Schema ưu tiên tương thích với dữ liệu catalog hiện tại; các quy tắc chất lượng như không trùng enum, đủ phase và không để null trong text array được kiểm tra ở lint/report thay vì làm schema từ chối toàn file.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "catalog",
+    "recipe_template",
+    "recipes"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Đường dẫn tương đối tới file schema này."
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "description": "Phiên bản schema của file catalog."
+    },
+    "catalog": {
+      "$ref": "#/$defs/catalog"
+    },
+    "recipe_template": {
+      "$ref": "#/$defs/recipe_template",
+      "description": "Bản ghi rỗng khai báo đầy đủ trường. Không phải món thật, không tính vào record_count."
+    },
+    "recipes": {
+      "type": "array",
+      "description": "Các món thật đã chuẩn hoá. Số phần tử phải bằng catalog.record_count; ràng buộc chéo này được kiểm tra bằng script.",
+      "items": {
+        "$ref": "#/$defs/recipe"
+      }
+    }
+  },
+  "$defs": {
+    "name_i18n": {
+      "type": "object",
+      "description": "Đối tượng đa ngữ. Bắt buộc có vi; cho phép bổ sung ngôn ngữ khác như en.",
+      "required": [
+        "vi"
+      ],
+      "properties": {
+        "vi": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "catalog_type": {
+      "enum": [
+        "cuisine",
+        "collection"
+      ],
+      "description": "cuisine = catalog gắn với một nền ẩm thực; collection = catalog theo chủ đề."
+    },
+    "cuisine_code": {
+      "enum": [
+        "australian",
+        "chinese",
+        "french",
+        "indian",
+        "italian",
+        "japanese",
+        "korean",
+        "mediterranean",
+        "southeast_asian",
+        "spanish",
+        "thai",
+        "vietnamese",
+        "valencian_inspired",
+        "american-southern",
+        "brazilian",
+        "chinese-australian-inspired",
+        "chinese-inspired",
+        "filipino",
+        "greek",
+        "indian-inspired",
+        "indonesian",
+        "italian-american",
+        "italian-inspired",
+        "japanese-inspired",
+        "lebanese",
+        "mexican",
+        "mexican-inspired",
+        "middle_eastern-inspired",
+        "moroccan",
+        "southeast_asian-inspired",
+        "sri_lankan",
+        "swedish",
+        "thai-inspired",
+        "turkish"
+      ]
+    },
+    "meal_slot": {
+      "enum": [
+        "breakfast",
+        "lunch",
+        "dinner",
+        "dessert",
+        "snack",
+        "appetizer"
+      ]
+    },
+    "dish_type": {
+      "enum": [
+        "main",
+        "main_course",
+        "side_standalone",
+        "dessert",
+        "beverage",
+        "breakfast_main",
+        "dip",
+        "salad",
+        "snack",
+        "soup"
+      ]
+    },
+    "dish_category_code": {
+      "enum": [
+        "soup",
+        "stew",
+        "stir_fry",
+        "fried",
+        "grilled",
+        "baked",
+        "salad",
+        "noodles",
+        "rice_bowl",
+        "dessert",
+        "barbecue",
+        "beef",
+        "bread",
+        "breaded_chicken",
+        "breakfast",
+        "burger",
+        "bush_food",
+        "chicken-dish",
+        "chips",
+        "chocolate",
+        "chocolate_coated",
+        "coconut",
+        "cookie",
+        "fried_fish",
+        "fried_roll",
+        "fruit_dessert",
+        "game_meat",
+        "gluten_free",
+        "grilled_fish",
+        "lamb",
+        "meringue",
+        "no_cook",
+        "noodle-dish",
+        "oat",
+        "one_pan_dish",
+        "party_snack",
+        "pub_food",
+        "pudding",
+        "rice_dish",
+        "roast",
+        "sausage",
+        "savory_pie",
+        "savory_snack",
+        "seafood",
+        "seafood_dish",
+        "slow-cooker",
+        "south_australian",
+        "sponge_cake",
+        "spread",
+        "steak",
+        "street_food",
+        "sunday_roast",
+        "sweet",
+        "takeaway",
+        "toast",
+        "appetizer",
+        "bake",
+        "bake-chill",
+        "bake-grill",
+        "beef_dish",
+        "beverage",
+        "boil",
+        "bread_dish",
+        "breakfast_main",
+        "deep-fry",
+        "dip",
+        "egg_dish",
+        "fermented_or_pickle",
+        "fish_dish",
+        "frozen_dessert",
+        "fry",
+        "grain_dish",
+        "grill",
+        "lamb_dish",
+        "legume_dish",
+        "main",
+        "main-course",
+        "main_course",
+        "microwave",
+        "microwave-assembly",
+        "no-bake-chill",
+        "noodle",
+        "one-pan",
+        "one-pot-pasta",
+        "pan-simmer",
+        "pancake",
+        "pork_dish",
+        "poultry_dish",
+        "rice",
+        "roast-grill",
+        "sandwich",
+        "side_standalone",
+        "slow-cooker-dessert",
+        "snack",
+        "snack_or_dessert",
+        "steam",
+        "stir-fry",
+        "stovetop-chill",
+        "stovetop-curry",
+        "tray-bake",
+        "wrap"
+      ]
+    },
+    "step_template": {
+      "enum": [
+        "full_3_phase",
+        "simple_2_step"
+      ]
+    },
+    "step_phase": {
+      "enum": [
+        "prep",
+        "cook",
+        "finish"
+      ]
+    },
+    "cooking_method": {
+      "enum": [
+        "soup",
+        "stew",
+        "boil",
+        "steam",
+        "stir_fry",
+        "fry",
+        "bake",
+        "raw",
+        "grill",
+        "baste",
+        "blend",
+        "coat",
+        "deep_fry",
+        "deglaze",
+        "melt",
+        "pan_sear",
+        "rest",
+        "roast",
+        "saute",
+        "simmer",
+        "slow_cooker",
+        "soaking",
+        "stovetop",
+        "toast",
+        "tossing",
+        "whip",
+        "bake_chill",
+        "bake_grill",
+        "freeze",
+        "microwave",
+        "microwave_assembly",
+        "mix",
+        "no_bake_chill",
+        "no_cook",
+        "one_pan",
+        "one_pot_pasta",
+        "pan_simmer",
+        "roast_grill",
+        "slow_cooker_dessert",
+        "stovetop_chill",
+        "stovetop_curry",
+        "tray_bake",
+        "assemble",
+        "browning",
+        "chill",
+        "marinate",
+        "reduce",
+        "roast_if_needed",
+        "sear"
+      ]
+    },
+    "spice_level": {
+      "enum": [
+        "no_spice",
+        "none",
+        "mild",
+        "medium",
+        "hot",
+        "super_hot",
+        "high"
+      ]
+    },
+    "macro_class": {
+      "enum": [
+        "protein",
+        "lipid",
+        "carbohydrate",
+        "fiber_veg",
+        "fruit",
+        "aromatic",
+        "mixed",
+        "carb",
+        "fat",
+        "herb",
+        "other",
+        "seasoning",
+        "vegetable"
+      ],
+      "description": "Vai trò dinh dưỡng nổi bật của nguyên liệu. Có thể null cho nước, muối hoặc thành phần không phân loại."
+    },
+    "allergen_flag": {
+      "enum": [
+        "dairy",
+        "egg",
+        "gluten",
+        "wheat",
+        "fish",
+        "shellfish",
+        "mollusc",
+        "tree_nuts",
+        "peanut",
+        "soy",
+        "sesame",
+        "mustard",
+        "celery",
+        "sulphites",
+        "lupin",
+        "crustacean",
+        "molluscs",
+        "tree_nut"
+      ]
+    },
+    "diet_flag": {
+      "enum": [
+        "vegetarian",
+        "vegan",
+        "pescatarian",
+        "gluten_free",
+        "dairy_free",
+        "egg_free",
+        "nut_free",
+        "low_carb",
+        "keto",
+        "paleo"
+      ],
+      "description": "Chỉ gắn sau khi kiểm tra toàn bộ nguyên liệu, sốt, gia vị, món ăn kèm và trang trí."
+    },
+    "composition_tag": {
+      "enum": [
+        "umami_forward",
+        "acid_balanced",
+        "comfort_fat_heavy",
+        "balanced_plate",
+        "presentation_heavy",
+        "complete-main-dish",
+        "high_protein",
+        "mixed-vegetables",
+        "one_pan",
+        "protein-and-noodles",
+        "rice_based",
+        "sauce-coated",
+        "seafood_forward",
+        "complete_main_dish",
+        "mixed_vegetables",
+        "protein_and_noodles",
+        "sauce_coated",
+        "sweet-dessert"
+      ]
+    },
+    "occasion_tag": {
+      "enum": [
+        "party",
+        "christmas",
+        "holiday",
+        "family_dinner",
+        "weeknight",
+        "meal_prep",
+        "picnic",
+        "bbq",
+        "lunar_new_year",
+        "birthday",
+        "anzac_day",
+        "barbecue",
+        "breakfast",
+        "camping",
+        "casual_meal",
+        "celebration",
+        "christmas_bbq",
+        "dessert",
+        "dinner",
+        "family_meal",
+        "fundraiser",
+        "gathering",
+        "kids_party",
+        "lunch",
+        "pub_meal",
+        "quick_meal",
+        "side_dish",
+        "snack",
+        "special_meal",
+        "summer_meal",
+        "sunday_roast",
+        "takeaway",
+        "tea_time",
+        "weekend",
+        "weeknight_dinner",
+        "winter_comfort_food",
+        "brunch",
+        "family_treat",
+        "weekday"
+      ],
+      "description": "Dịp/bối cảnh ăn. Schema chấp nhận cả nhãn legacy đang có trong dữ liệu Australian."
+    },
+    "flavor_tag": {
+      "enum": [
+        "salty",
+        "sweet",
+        "sour",
+        "bitter",
+        "umami",
+        "spicy",
+        "herbal",
+        "smoky",
+        "nutty",
+        "creamy",
+        "fresh",
+        "aromatic",
+        "fermented",
+        "citrus",
+        "acidic",
+        "briny",
+        "citrusy",
+        "earthy",
+        "floral",
+        "fruity",
+        "green",
+        "honeyed",
+        "mild",
+        "neutral",
+        "oniony",
+        "peppery",
+        "pungent",
+        "savory",
+        "savory_absorbing",
+        "warm",
+        "wheaty"
+      ]
+    },
+    "culinary_role": {
+      "enum": [
+        "role_fat_carrier",
+        "role_acidifier",
+        "role_garnish",
+        "role_aromatic_base",
+        "role_thickener",
+        "role_sweetener",
+        "role_umami_booster",
+        "role_heat_source",
+        "role_binder",
+        "role_leavening",
+        "role_marinade_base",
+        "role_finishing_salt",
+        "role_cooking_fat",
+        "role_seasoning",
+        "acidity",
+        "aroma",
+        "aromatic",
+        "base",
+        "color",
+        "cooking_fat",
+        "cooking_liquid",
+        "finishing_acid",
+        "flavor_base",
+        "flavor_carrier",
+        "freshness",
+        "garnish",
+        "glaze",
+        "heat",
+        "main_carbohydrate",
+        "main_protein",
+        "moisture",
+        "protein",
+        "sauce",
+        "sauce_carrier",
+        "sauce_dilution",
+        "seasoning",
+        "signature_aroma",
+        "sofrito",
+        "spice",
+        "starch",
+        "texture",
+        "topping",
+        "vegetable",
+        "visual_garnish",
+        "acid",
+        "dairy_component",
+        "role_umami_glutamate",
+        "sweetener"
+      ]
+    },
+    "sauce_style": {
+      "enum": [
+        "dipping",
+        "marinade",
+        "glaze",
+        "dressing",
+        "braising_liquid",
+        "emulsion",
+        "reduction",
+        "paste",
+        "table_condiment"
+      ]
+    },
+    "unit": {
+      "enum": [
+        "gram",
+        "kilogram",
+        "ml",
+        "litre",
+        "tsp",
+        "tbsp",
+        "cup",
+        "piece",
+        "clove",
+        "slice",
+        "pinch",
+        "bunch",
+        "can",
+        "packet",
+        "other",
+        "g",
+        "tablespoon",
+        "củ",
+        "quả",
+        "nhánh"
+      ]
+    },
+    "unit_normalized": {
+      "enum": [
+        "g",
+        "ml",
+        "pcs",
+        "piece",
+        "tbsp",
+        "kg"
+      ]
+    },
+    "source_type": {
+      "enum": [
+        "manual",
+        "cms_fork",
+        "social",
+        "ebook"
+      ]
+    },
+    "recipe_status": {
+      "enum": [
+        "draft",
+        "published",
+        "archived",
+        "normalized",
+        "review_pending"
+      ]
+    },
+    "review_status": {
+      "enum": [
+        "unreviewed",
+        "normalized",
+        "normalized_with_inference",
+        "verified",
+        "rejected",
+        "needs_human_review",
+        "normalized_from_source"
+      ]
+    },
+    "classification_status": {
+      "enum": [
+        "unreviewed",
+        "estimated",
+        "source_verified_with_inference",
+        "verified"
+      ]
+    },
+    "calorie_basis": {
+      "enum": [
+        "source",
+        "nutrition_label",
+        "calculated",
+        "estimated",
+        "unknown",
+        "not_available",
+        "unavailable"
+      ]
+    },
+    "temperature_unit": {
+      "enum": [
+        "C",
+        "F"
+      ]
+    },
+    "catalog": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "catalog_type",
+        "name_i18n",
+        "description",
+        "image_url",
+        "default_cuisines",
+        "source_directory",
+        "record_count"
+      ],
+      "properties": {
+        "code": {
+          "$ref": "#/$defs/catalog_code"
+        },
+        "catalog_type": {
+          "$ref": "#/$defs/catalog_type"
+        },
+        "name_i18n": {
+          "$ref": "#/$defs/name_i18n"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "description": "URL ảnh đại diện catalog. Không dùng absolute filesystem path hoặc URL giả."
+        },
+        "default_cuisines": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/cuisine_code"
+          }
+        },
+        "source_directory": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?![A-Za-z]:)(?!\\\\).+",
+          "description": "Đường dẫn tương đối tới thư mục nguồn; không được là absolute path."
+        },
+        "record_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "image_search_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "image_alt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "catalog_type": {
+                "const": "collection"
+              }
+            },
+            "required": [
+              "catalog_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "default_cuisines": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "catalog_type": {
+                "const": "cuisine"
+              }
+            },
+            "required": [
+              "catalog_type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "default_cuisines": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "source_attribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "author",
+        "publisher",
+        "year"
+      ],
+      "properties": {
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "author": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1800,
+          "maximum": 2100
+        }
+      }
+    },
+    "temperature": {
+      "description": "Nhiệt độ có thể là cấu trúc value/unit hoặc chuỗi hướng dẫn legacy khi bước cần nhiều mốc nhiệt.",
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "unit"
+          ],
+          "properties": {
+            "value": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "unit": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/temperature_unit"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "is_optional"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "is_optional": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ingredient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "raw_text",
+        "quantity",
+        "unit",
+        "sort_order"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "description": "Tên nguyên liệu. Dữ liệu mới nên không rỗng; schema vẫn đọc một số bản ghi legacy OCR có chuỗi rỗng và lint sẽ cảnh báo."
+        },
+        "canonical_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "raw_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "quantity_min": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "quantity_max": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "quantity_per_serving": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unit"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "unit_normalized": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/unit_normalized"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "display_amount": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_optional": {
+          "type": "boolean"
+        },
+        "sort_order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "macro_class": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/macro_class"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "allergen_flags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/allergen_flag"
+          }
+        },
+        "flavor_tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/flavor_tag"
+          }
+        },
+        "culinary_roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/culinary_role"
+          }
+        },
+        "prep_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cut_style": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "marinade_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "quantity_is_estimate": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Đánh dấu định lượng là ước lượng."
+        },
+        "name_i18n": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/name_i18n"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nutrition_group": {
+          "anyOf": [
+            {
+              "enum": [
+                "protein_foods",
+                "starchy_carbohydrate",
+                "non_starchy_vegetable",
+                "fruit_group",
+                "fats_oils",
+                "dairy_group",
+                "legume_group",
+                "condiment_seasoning",
+                "water_beverage_base",
+                "mixed_food"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "nutrition_profile": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": true,
+          "description": "Metadata phân loại dinh dưỡng ở mức nhóm; không bắt buộc trong recipe records."
+        },
+        "image_search_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "image_alt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "image_license_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "substep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "step_number",
+        "description"
+      ],
+      "properties": {
+        "step_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "duration_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "tip": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "phase",
+        "step_number",
+        "title",
+        "description"
+      ],
+      "properties": {
+        "phase": {
+          "$ref": "#/$defs/step_phase"
+        },
+        "step_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tip": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_seconds": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "temperature": {
+          "$ref": "#/$defs/temperature"
+        },
+        "ingredient_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "equipment_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "substeps": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/substep"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sauce": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "local_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parent_sauce_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "variant_label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sauce_style": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/sauce_style"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ingredient"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "yield_note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "flavor_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/flavor_tag"
+          }
+        },
+        "allergen_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/allergen_flag"
+          }
+        },
+        "image_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "side_dish": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "local_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dish_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/dish_type"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ingredient"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "allergen_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/allergen_flag"
+          }
+        },
+        "image_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "dipping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "local_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ingredient"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "flavor_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/flavor_tag"
+          }
+        },
+        "allergen_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/allergen_flag"
+          }
+        },
+        "image_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "decoration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instruction": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "placement": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ingredient"
+          }
+        },
+        "flavor_tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/flavor_tag"
+          }
+        },
+        "image_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "data_quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_status",
+        "confidence",
+        "inferred_fields",
+        "warnings"
+      ],
+      "properties": {
+        "review_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/review_status"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Độ tin cậy. File mới nên dùng số 0..1; low/medium/high được giữ để đọc dữ liệu legacy."
+        },
+        "inferred_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "classification_basis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "calorie_basis",
+        "diet_flags_basis",
+        "allergen_basis",
+        "nutrition_source",
+        "review_notes"
+      ],
+      "properties": {
+        "status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/classification_status"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "calorie_basis": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Ưu tiên các mã source/nutrition_label/calculated/estimated/unknown; chấp nhận mô tả legacy hiện có trong dữ liệu."
+        },
+        "diet_flags_basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "allergen_basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nutrition_source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "review_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "recipe_fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "external_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "slug": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/recipe_status"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "local_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "alternate_names": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/source_type"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "source_platform": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Tên nền tảng/nguồn. Cho phép website, book, local_markdown và tên nhà cung cấp cụ thể."
+        },
+        "source_attribution": {
+          "$ref": "#/$defs/source_attribution"
+        },
+        "source_file": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "description": "Đường dẫn hoặc định danh file nguồn; dữ liệu hiện tại có cả relative path và absolute legacy path."
+        },
+        "ai_confidence_score": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "catalog_codes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/catalog_code"
+          }
+        },
+        "cuisines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cuisine_code"
+          }
+        },
+        "meal_slots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/meal_slot"
+          }
+        },
+        "dish_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/dish_type"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "dish_category_codes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dish_category_code"
+          }
+        },
+        "cooking_method": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/cooking_method"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "secondary_cooking_methods": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cooking_method"
+          }
+        },
+        "step_template": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/step_template"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "spice_level": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/spice_level"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "occasion_tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/occasion_tag"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "diet_flags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/diet_flag"
+          }
+        },
+        "composition_tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/composition_tag"
+          }
+        },
+        "allergen_flags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/allergen_flag"
+          }
+        },
+        "search_aliases": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "search_keywords": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "servings": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "prep_time_minutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "cook_time_minutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "passive_time_minutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "total_time_minutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "time_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "calories_per_serving": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "calorie_source": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Ưu tiên các mã calorie_basis; chấp nhận mô tả nguồn/ước tính legacy đang tồn tại."
+        },
+        "calorie_is_estimate": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "image_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "image_alt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "video_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "equipment": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/equipment"
+              }
+            ]
+          }
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ingredient"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        },
+        "sauces": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/sauce"
+              }
+            ]
+          }
+        },
+        "side_dishes": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/side_dish"
+              }
+            ]
+          }
+        },
+        "dippings": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/dipping"
+              }
+            ]
+          }
+        },
+        "decorations": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "$ref": "#/$defs/decoration"
+              }
+            ]
+          }
+        },
+        "plating_notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "data_quality": {
+          "$ref": "#/$defs/data_quality"
+        },
+        "classification_basis": {
+          "$ref": "#/$defs/classification_basis"
+        },
+        "image_search_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "description": "Trang tìm ảnh minh hoạ khi chưa có direct image_url ổn định."
+        }
+      }
+    },
+    "recipe_template": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/recipe_fields"
+        },
+        {
+          "required": [
+            "schema_version",
+            "external_id",
+            "slug",
+            "status",
+            "title",
+            "local_name",
+            "alternate_names",
+            "description",
+            "source_type",
+            "source_url",
+            "source_platform",
+            "source_attribution",
+            "source_file",
+            "ai_confidence_score",
+            "catalog_codes",
+            "cuisines",
+            "meal_slots",
+            "dish_type",
+            "dish_category_codes",
+            "cooking_method",
+            "secondary_cooking_methods",
+            "step_template",
+            "spice_level",
+            "occasion_tags",
+            "tags",
+            "diet_flags",
+            "composition_tags",
+            "allergen_flags",
+            "search_aliases",
+            "search_keywords",
+            "servings",
+            "prep_time_minutes",
+            "cook_time_minutes",
+            "passive_time_minutes",
+            "total_time_minutes",
+            "time_notes",
+            "calories_per_serving",
+            "calorie_source",
+            "calorie_is_estimate",
+            "image_url",
+            "image_alt",
+            "video_url",
+            "equipment",
+            "ingredients",
+            "steps",
+            "sauces",
+            "side_dishes",
+            "dippings",
+            "decorations",
+            "plating_notes",
+            "notes",
+            "data_quality",
+            "classification_basis"
+          ]
+        }
+      ],
+      "description": "Bản ghi rỗng khai báo đầy đủ trường; null cho scalar chưa có dữ liệu và [] cho collections."
+    },
+    "recipe": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/recipe_fields"
+        },
+        {
+          "required": [
+            "schema_version",
+            "external_id",
+            "slug",
+            "status",
+            "title",
+            "source_type",
+            "source_file",
+            "catalog_codes",
+            "cuisines",
+            "meal_slots",
+            "dish_type",
+            "cooking_method",
+            "step_template",
+            "diet_flags",
+            "allergen_flags",
+            "servings",
+            "ingredients",
+            "steps",
+            "sauces",
+            "side_dishes",
+            "dippings",
+            "decorations",
+            "data_quality",
+            "classification_basis"
+          ],
+          "properties": {
+            "schema_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "external_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "status": {
+              "$ref": "#/$defs/recipe_status"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "source_type": {
+              "$ref": "#/$defs/source_type"
+            },
+            "source_file": {
+              "type": "string",
+              "minLength": 1
+            },
+            "catalog_codes": {},
+            "meal_slots": {},
+            "dish_type": {
+              "$ref": "#/$defs/dish_type"
+            },
+            "cooking_method": {
+              "$ref": "#/$defs/cooking_method"
+            },
+            "step_template": {
+              "$ref": "#/$defs/step_template"
+            },
+            "servings": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "ingredients": {},
+            "steps": {}
+          }
+        }
+      ]
+    },
+    "catalog_code": {
+      "enum": [
+        "asian-hot-pot",
+        "asian-noodle-recipes",
+        "australian",
+        "breakfast-fine-cooking",
+        "chinese",
+        "cia-grilling",
+        "classic-desserts",
+        "easy-cook",
+        "eggs-cheese",
+        "fried-chicken-cookbook",
+        "hawaiian-bbq",
+        "healthy-easy-stir-fry",
+        "italian",
+        "korean",
+        "mediterranean",
+        "one-pot",
+        "poultry-meat-game",
+        "rice-cooker",
+        "salad-for-dinner",
+        "soup-cookbook",
+        "soups-stews",
+        "wok-cookbook"
+      ],
+      "description": "Mã catalog canonical hiện có trong classification/vocabularies.json và thư mục recipes tương ứng."
+    }
+  }
+}

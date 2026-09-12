@@ -1,0 +1,101 @@
+{
+  "description": "Dịp hoặc bối cảnh ăn. Không đặt thời điểm bữa ăn vào occasion_tag trong dữ liệu mới; các mã kiểu breakfast/lunch/dinner được giữ chỉ để tương thích dữ liệu cũ.",
+  "schema_version": "1.1.0",
+  "group": "occasion_tag",
+  "shard": {
+    "index": 3,
+    "count": 4,
+    "total_records": 39
+  },
+  "values": [
+    {
+      "code": "fundraiser",
+      "name_i18n": {
+        "vi": "Sự kiện gây quỹ",
+        "en": "Fundraiser"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: sự kiện gây quỹ."
+    },
+    {
+      "code": "gathering",
+      "name_i18n": {
+        "vi": "Tụ họp",
+        "en": "Gathering"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: tụ họp."
+    },
+    {
+      "code": "kids_party",
+      "name_i18n": {
+        "vi": "Tiệc trẻ em",
+        "en": "Kids Party"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: tiệc trẻ em."
+    },
+    {
+      "code": "lunch",
+      "name_i18n": {
+        "vi": "Bữa trưa",
+        "en": "Lunch"
+      },
+      "deprecated": true,
+      "canonical_dimension": "meal_slot",
+      "canonical_code": "lunch",
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa trưa."
+    },
+    {
+      "code": "pub_meal",
+      "name_i18n": {
+        "vi": "Bữa ăn kiểu pub",
+        "en": "Pub Meal"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa ăn kiểu pub."
+    },
+    {
+      "code": "quick_meal",
+      "name_i18n": {
+        "vi": "Bữa ăn nhanh",
+        "en": "Quick Meal"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa ăn nhanh."
+    },
+    {
+      "code": "side_dish",
+      "name_i18n": {
+        "vi": "Dùng như món phụ",
+        "en": "Side Dish"
+      },
+      "deprecated": true,
+      "canonical_dimension": "dish_type",
+      "canonical_code": "side_standalone",
+      "definition": "Ngữ cảnh/dịp sử dụng món: dùng như món phụ."
+    },
+    {
+      "code": "snack",
+      "name_i18n": {
+        "vi": "Ăn vặt",
+        "en": "Snack"
+      },
+      "deprecated": true,
+      "canonical_dimension": "meal_slot",
+      "canonical_code": "snack",
+      "definition": "Ngữ cảnh/dịp sử dụng món: ăn vặt."
+    },
+    {
+      "code": "special_meal",
+      "name_i18n": {
+        "vi": "Bữa ăn đặc biệt",
+        "en": "Special Meal"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa ăn đặc biệt."
+    },
+    {
+      "code": "summer_meal",
+      "name_i18n": {
+        "vi": "Bữa ăn mùa hè",
+        "en": "Summer Meal"
+      },
+      "definition": "Ngữ cảnh/dịp sử dụng món: bữa ăn mùa hè."
+    }
+  ]
+}

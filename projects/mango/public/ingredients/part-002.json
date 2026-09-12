@@ -1,0 +1,4384 @@
+{
+  "schema_version": "1.1.0",
+  "catalog": {
+    "code": "ingredients",
+    "catalog_type": "collection",
+    "name_i18n": {
+      "en": "Normalized ingredient catalog",
+      "vi": "Danh mục nguyên liệu chuẩn hóa"
+    },
+    "description": "Danh mục nguyên liệu được tổng hợp từ toàn bộ recipe catalog hiện tại của Mango, gồm nguyên liệu cấp món và thành phần lồng trong sốt, món ăn kèm, nước chấm và trang trí.",
+    "source_directory": "recipes",
+    "source_files": [
+      "recipes/asian-hot-pot/part-01.json",
+      "recipes/asian-hot-pot/part-02.json",
+      "recipes/asian-hot-pot/part-03.json",
+      "recipes/asian-hot-pot/part-04.json",
+      "recipes/asian-hot-pot/part-05.json",
+      "recipes/asian-noodle-recipes/part-01.json",
+      "recipes/asian-noodle-recipes/part-02.json",
+      "recipes/asian-noodle-recipes/part-03.json",
+      "recipes/asian-noodle-recipes/part-04.json",
+      "recipes/asian-noodle-recipes/part-05.json",
+      "recipes/asian-noodle-recipes/part-06.json",
+      "recipes/asian-noodle-recipes/part-07.json",
+      "recipes/asian-noodle-recipes/part-08.json",
+      "recipes/asian-noodle-recipes/part-09.json",
+      "recipes/asian-noodle-recipes/part-10.json",
+      "recipes/asian-noodle-recipes/part-11.json",
+      "recipes/asian-noodle-recipes/part-12.json",
+      "recipes/asian-noodle-recipes/part-13.json",
+      "recipes/australian/part-01.json",
+      "recipes/australian/part-02.json",
+      "recipes/breakfast-fine-cooking/part-01.json",
+      "recipes/breakfast-fine-cooking/part-02.json",
+      "recipes/breakfast-fine-cooking/part-03.json",
+      "recipes/breakfast-fine-cooking/part-04.json",
+      "recipes/breakfast-fine-cooking/part-05.json",
+      "recipes/breakfast-fine-cooking/part-06.json",
+      "recipes/breakfast-fine-cooking/part-07.json",
+      "recipes/breakfast-fine-cooking/part-08.json",
+      "recipes/breakfast-fine-cooking/part-09.json",
+      "recipes/chinese/part-01.json",
+      "recipes/chinese/part-02.json",
+      "recipes/chinese/part-03.json",
+      "recipes/chinese/part-04.json",
+      "recipes/chinese/part-05.json",
+      "recipes/chinese/part-06.json",
+      "recipes/chinese/part-07.json",
+      "recipes/cia-grilling/part-01.json",
+      "recipes/cia-grilling/part-02.json",
+      "recipes/cia-grilling/part-03.json",
+      "recipes/cia-grilling/part-04.json",
+      "recipes/cia-grilling/part-05.json",
+      "recipes/cia-grilling/part-06.json",
+      "recipes/cia-grilling/part-07.json",
+      "recipes/cia-grilling/part-08.json",
+      "recipes/cia-grilling/part-09.json",
+      "recipes/cia-grilling/part-10.json",
+      "recipes/cia-grilling/part-11.json",
+      "recipes/cia-grilling/part-12.json",
+      "recipes/classic-desserts/part-01.json",
+      "recipes/classic-desserts/part-02.json",
+      "recipes/classic-desserts/part-03.json",
+      "recipes/classic-desserts/part-04.json",
+      "recipes/classic-desserts/part-05.json",
+      "recipes/classic-desserts/part-06.json",
+      "recipes/classic-desserts/part-07.json",
+      "recipes/classic-desserts/part-08.json",
+      "recipes/classic-desserts/part-09.json",
+      "recipes/classic-desserts/part-10.json",
+      "recipes/classic-desserts/part-11.json",
+      "recipes/classic-desserts/part-12.json",
+      "recipes/classic-desserts/part-13.json",
+      "recipes/classic-desserts/part-14.json",
+      "recipes/classic-desserts/part-15.json",
+      "recipes/classic-desserts/part-16.json",
+      "recipes/classic-desserts/part-17.json",
+      "recipes/classic-desserts/part-18.json",
+      "recipes/classic-desserts/part-19.json",
+      "recipes/easy-cook/part-01.json",
+      "recipes/easy-cook/part-02.json",
+      "recipes/easy-cook/part-03.json",
+      "recipes/easy-cook/part-04.json",
+      "recipes/easy-cook/part-05.json",
+      "recipes/easy-cook/part-06.json",
+      "recipes/easy-cook/part-07.json",
+      "recipes/eggs-cheese/part-01.json",
+      "recipes/eggs-cheese/part-02.json",
+      "recipes/eggs-cheese/part-03.json",
+      "recipes/eggs-cheese/part-04.json",
+      "recipes/eggs-cheese/part-05.json",
+      "recipes/eggs-cheese/part-06.json",
+      "recipes/eggs-cheese/part-07.json",
+      "recipes/eggs-cheese/part-08.json",
+      "recipes/eggs-cheese/part-09.json",
+      "recipes/eggs-cheese/part-10.json",
+      "recipes/eggs-cheese/part-11.json",
+      "recipes/eggs-cheese/part-12.json",
+      "recipes/eggs-cheese/part-13.json",
+      "recipes/eggs-cheese/part-14.json",
+      "recipes/eggs-cheese/part-15.json",
+      "recipes/eggs-cheese/part-16.json",
+      "recipes/eggs-cheese/part-17.json",
+      "recipes/eggs-cheese/part-18.json",
+      "recipes/eggs-cheese/part-19.json",
+      "recipes/eggs-cheese/part-20.json",
+      "recipes/fried-chicken-cookbook/part-01.json",
+      "recipes/fried-chicken-cookbook/part-02.json",
+      "recipes/fried-chicken-cookbook/part-03.json",
+      "recipes/fried-chicken-cookbook/part-04.json",
+      "recipes/fried-chicken-cookbook/part-05.json",
+      "recipes/fried-chicken-cookbook/part-06.json",
+      "recipes/fried-chicken-cookbook/part-07.json",
+      "recipes/fried-chicken-cookbook/part-08.json",
+      "recipes/fried-chicken-cookbook/part-09.json",
+      "recipes/fried-chicken-cookbook/part-10.json",
+      "recipes/hawaiian-bbq/part-01.json",
+      "recipes/hawaiian-bbq/part-02.json",
+      "recipes/hawaiian-bbq/part-03.json",
+      "recipes/hawaiian-bbq/part-04.json",
+      "recipes/hawaiian-bbq/part-05.json",
+      "recipes/healthy-easy-stir-fry/part-01.json",
+      "recipes/healthy-easy-stir-fry/part-02.json",
+      "recipes/italian/part-01.json",
+      "recipes/italian/part-02.json",
+      "recipes/italian/part-03.json",
+      "recipes/italian/part-04.json",
+      "recipes/italian/part-05.json",
+      "recipes/italian/part-06.json",
+      "recipes/italian/part-07.json",
+      "recipes/italian/part-08.json",
+      "recipes/italian/part-09.json",
+      "recipes/italian/part-10.json",
+      "recipes/italian/part-11.json",
+      "recipes/italian/part-12.json",
+      "recipes/korean/part-01.json",
+      "recipes/korean/part-02.json",
+      "recipes/korean/part-03.json",
+      "recipes/korean/part-04.json",
+      "recipes/korean/part-05.json",
+      "recipes/korean/part-06.json",
+      "recipes/korean/part-07.json",
+      "recipes/korean/part-08.json",
+      "recipes/korean/part-09.json",
+      "recipes/korean/part-10.json",
+      "recipes/korean/part-11.json",
+      "recipes/korean/part-12.json",
+      "recipes/korean/part-13.json",
+      "recipes/korean/part-14.json",
+      "recipes/korean/part-15.json",
+      "recipes/mediterranean/part-01.json",
+      "recipes/mediterranean/part-02.json",
+      "recipes/mediterranean/part-03.json",
+      "recipes/mediterranean/part-04.json",
+      "recipes/mediterranean/part-05.json",
+      "recipes/mediterranean/part-06.json",
+      "recipes/mediterranean/part-07.json",
+      "recipes/mediterranean/part-08.json",
+      "recipes/mediterranean/part-09.json",
+      "recipes/mediterranean/part-10.json",
+      "recipes/mediterranean/part-11.json",
+      "recipes/mediterranean/part-12.json",
+      "recipes/mediterranean/part-13.json",
+      "recipes/mediterranean/part-14.json",
+      "recipes/one-pot/part-01.json",
+      "recipes/one-pot/part-02.json",
+      "recipes/one-pot/part-03.json",
+      "recipes/one-pot/part-04.json",
+      "recipes/one-pot/part-05.json",
+      "recipes/one-pot/part-06.json",
+      "recipes/poultry-meat-game/part-01.json",
+      "recipes/poultry-meat-game/part-02.json",
+      "recipes/poultry-meat-game/part-03.json",
+      "recipes/poultry-meat-game/part-04.json",
+      "recipes/poultry-meat-game/part-05.json",
+      "recipes/poultry-meat-game/part-06.json",
+      "recipes/poultry-meat-game/part-07.json",
+      "recipes/poultry-meat-game/part-08.json",
+      "recipes/poultry-meat-game/part-09.json",
+      "recipes/poultry-meat-game/part-10.json",
+      "recipes/poultry-meat-game/part-11.json",
+      "recipes/poultry-meat-game/part-12.json",
+      "recipes/poultry-meat-game/part-13.json",
+      "recipes/poultry-meat-game/part-14.json",
+      "recipes/poultry-meat-game/part-15.json",
+      "recipes/poultry-meat-game/part-16.json",
+      "recipes/poultry-meat-game/part-17.json",
+      "recipes/rice-cooker/part-01.json",
+      "recipes/rice-cooker/part-02.json",
+      "recipes/rice-cooker/part-03.json",
+      "recipes/rice-cooker/part-04.json",
+      "recipes/rice-cooker/part-05.json",
+      "recipes/rice-cooker/part-06.json",
+      "recipes/rice-cooker/part-07.json",
+      "recipes/rice-cooker/part-08.json",
+      "recipes/rice-cooker/part-09.json",
+      "recipes/rice-cooker/part-10.json",
+      "recipes/rice-cooker/part-11.json",
+      "recipes/rice-cooker/part-12.json",
+      "recipes/rice-cooker/part-13.json",
+      "recipes/rice-cooker/part-14.json",
+      "recipes/rice-cooker/part-15.json",
+      "recipes/rice-cooker/part-16.json",
+      "recipes/rice-cooker/part-17.json",
+      "recipes/rice-cooker/part-18.json",
+      "recipes/rice-cooker/part-19.json",
+      "recipes/rice-cooker/part-20.json",
+      "recipes/rice-cooker/part-21.json",
+      "recipes/rice-cooker/part-22.json",
+      "recipes/rice-cooker/part-23.json",
+      "recipes/rice-cooker/part-24.json",
+      "recipes/rice-cooker/part-25.json",
+      "recipes/rice-cooker/part-26.json",
+      "recipes/salad-for-dinner/part-01.json",
+      "recipes/salad-for-dinner/part-02.json",
+      "recipes/salad-for-dinner/part-03.json",
+      "recipes/salad-for-dinner/part-04.json",
+      "recipes/salad-for-dinner/part-05.json",
+      "recipes/salad-for-dinner/part-06.json",
+      "recipes/salad-for-dinner/part-07.json",
+      "recipes/salad-for-dinner/part-08.json",
+      "recipes/soup-cookbook/part-01.json",
+      "recipes/soup-cookbook/part-02.json",
+      "recipes/soup-cookbook/part-03.json",
+      "recipes/soup-cookbook/part-04.json",
+      "recipes/soup-cookbook/part-05.json",
+      "recipes/soup-cookbook/part-06.json",
+      "recipes/soup-cookbook/part-07.json",
+      "recipes/soup-cookbook/part-08.json",
+      "recipes/soup-cookbook/part-09.json",
+      "recipes/soup-cookbook/part-10.json",
+      "recipes/soup-cookbook/part-11.json",
+      "recipes/soups-stews/part-01.json",
+      "recipes/soups-stews/part-02.json",
+      "recipes/soups-stews/part-03.json",
+      "recipes/soups-stews/part-04.json",
+      "recipes/wok-cookbook/part-01.json",
+      "recipes/wok-cookbook/part-02.json",
+      "recipes/wok-cookbook/part-03.json",
+      "recipes/wok-cookbook/part-04.json",
+      "recipes/wok-cookbook/part-05.json"
+    ],
+    "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=cooking%20ingredients%20food%20assortment%20food%20ingredient"
+  },
+  "stats": {
+    "source_catalog_count": 22,
+    "source_recipe_count": 2179,
+    "top_level_ingredient_occurrence_count": 22286,
+    "nested_component_ingredient_occurrence_count": 16,
+    "source_ingredient_occurrence_count": 22302,
+    "normalized_ingredient_count": 11393
+  },
+  "normalization": {
+    "key": "canonical_name",
+    "strategy": "conservative",
+    "rules": [
+      "Tổng hợp từ tất cả recipe JSON hiện tại, giữ raw_text và liên kết source_file ở occurrence.",
+      "Không bịa direct image URL; nguyên liệu chưa có asset trực tiếp dùng image_search_url tới Wikimedia Commons MediaSearch.",
+      "Giữ các mã phân loại và dị nguyên đã có trong recipe; không tự tạo enum mới."
+    ]
+  },
+  "source_catalogs": [
+    {
+      "catalog_code": "asian-noodle-recipes",
+      "catalog_type": "collection",
+      "name": "Công thức mì châu Á",
+      "recipe_count": 125,
+      "ingredient_occurrence_count": 1914
+    },
+    {
+      "catalog_code": "soups-stews",
+      "catalog_type": "collection",
+      "name": "Bộ sưu tập súp và món hầm",
+      "recipe_count": 38,
+      "ingredient_occurrence_count": 435
+    },
+    {
+      "catalog_code": "fried-chicken-cookbook",
+      "catalog_type": "collection",
+      "name": "Bộ công thức gà chiên và món liên quan",
+      "recipe_count": 98,
+      "ingredient_occurrence_count": 1018
+    },
+    {
+      "catalog_code": "rice-cooker",
+      "catalog_type": "collection",
+      "name": "Công thức nồi cơm điện",
+      "recipe_count": 251,
+      "ingredient_occurrence_count": 2117
+    },
+    {
+      "catalog_code": "mediterranean",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Địa Trung Hải",
+      "recipe_count": 135,
+      "ingredient_occurrence_count": 1634
+    },
+    {
+      "catalog_code": "asian-hot-pot",
+      "catalog_type": "collection",
+      "name": "Công thức lẩu châu Á",
+      "recipe_count": 41,
+      "ingredient_occurrence_count": 478
+    },
+    {
+      "catalog_code": "classic-desserts",
+      "catalog_type": "collection",
+      "name": "Món tráng miệng cổ điển",
+      "recipe_count": 182,
+      "ingredient_occurrence_count": 1211
+    },
+    {
+      "catalog_code": "wok-cookbook",
+      "catalog_type": "collection",
+      "name": "Công thức nấu bằng chảo wok",
+      "recipe_count": 48,
+      "ingredient_occurrence_count": 604
+    },
+    {
+      "catalog_code": "italian",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Ý",
+      "recipe_count": 116,
+      "ingredient_occurrence_count": 1087
+    },
+    {
+      "catalog_code": "hawaiian-bbq",
+      "catalog_type": "collection",
+      "name": "BBQ Hawaii",
+      "recipe_count": 43,
+      "ingredient_occurrence_count": 429
+    },
+    {
+      "catalog_code": "soup-cookbook",
+      "catalog_type": "collection",
+      "name": "The Soup Cookbook – 101 công thức súp",
+      "recipe_count": 101,
+      "ingredient_occurrence_count": 1133
+    },
+    {
+      "catalog_code": "healthy-easy-stir-fry",
+      "catalog_type": "collection",
+      "name": "Món xào nhanh lành mạnh",
+      "recipe_count": 19,
+      "ingredient_occurrence_count": 311
+    },
+    {
+      "catalog_code": "easy-cook",
+      "catalog_type": "collection",
+      "name": "Món dễ nấu",
+      "recipe_count": 62,
+      "ingredient_occurrence_count": 515
+    },
+    {
+      "catalog_code": "poultry-meat-game",
+      "catalog_type": "collection",
+      "name": "Nghệ thuật chế biến gia cầm, thịt và thịt săn",
+      "recipe_count": 166,
+      "ingredient_occurrence_count": 2011
+    },
+    {
+      "catalog_code": "australian",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Úc",
+      "recipe_count": 19,
+      "ingredient_occurrence_count": 128
+    },
+    {
+      "catalog_code": "cia-grilling",
+      "catalog_type": "collection",
+      "name": "CIA Grilling – Công thức nướng",
+      "recipe_count": 117,
+      "ingredient_occurrence_count": 1752
+    },
+    {
+      "catalog_code": "korean",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Hàn Quốc",
+      "recipe_count": 142,
+      "ingredient_occurrence_count": 1278
+    },
+    {
+      "catalog_code": "chinese",
+      "catalog_type": "collection",
+      "name": "Ẩm thực Trung Hoa",
+      "recipe_count": 69,
+      "ingredient_occurrence_count": 778
+    },
+    {
+      "catalog_code": "eggs-cheese",
+      "catalog_type": "collection",
+      "name": "Trứng & Phô mai",
+      "recipe_count": 193,
+      "ingredient_occurrence_count": 1367
+    },
+    {
+      "catalog_code": "salad-for-dinner",
+      "catalog_type": "collection",
+      "name": "Salad cho bữa chính",
+      "recipe_count": 74,
+      "ingredient_occurrence_count": 714
+    },
+    {
+      "catalog_code": "one-pot",
+      "catalog_type": "collection",
+      "name": "Món một nồi",
+      "recipe_count": 52,
+      "ingredient_occurrence_count": 574
+    },
+    {
+      "catalog_code": "breakfast-fine-cooking",
+      "catalog_type": "collection",
+      "name": "Công thức bữa sáng Fine Cooking",
+      "recipe_count": 88,
+      "ingredient_occurrence_count": 814
+    }
+  ],
+  "ingredients": [
+    {
+      "id": "ingredient-00051",
+      "canonical_name": ".25 kg (2 lb 12 oz) oxtail pieces (see tip)",
+      "name": ".25 kg (2 lb 12 oz) oxtail miếng",
+      "name_i18n": {
+        "en": ".25 kg (2 lb 12 oz) oxtail pieces (see tip)",
+        "vi": ".25 kg (2 lb 12 oz) oxtail miếng"
+      },
+      "description": ".25 kg (2 lb 12 oz) oxtail miếng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".25 kg (2 lb 12 oz) oxtail miếng",
+        "Oxtail miếng"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/ff46d21e36971041.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .25 kg (2 lb 12 oz) oxtail miếng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-126",
+          "title": "Đuôi bò hầm",
+          "local_name": "Đuôi bò hầm",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-126-ing-03",
+          "recipe_id": "poultry-meat-game-126",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-126",
+          "component_name": "Đuôi bò hầm",
+          "raw_text": ".25 kg (2 lb 12 oz) oxtail pieces (see tip)",
+          "display_amount": "25 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00052",
+      "canonical_name": ".25 litres (44 fl oz/5 cups) good-quality ready-made or home-made chicken stock tablespoons olive oil",
+      "name": ".25 litres (44 fl oz/5 cốc) chất lượng tốt làm sẵn hoặc tự nấu gà nước dùng dầu ô liu",
+      "name_i18n": {
+        "en": ".25 litres (44 fl oz/5 cups) good-quality ready-made or home-made chicken stock tablespoons olive oil",
+        "vi": ".25 litres (44 fl oz/5 cốc) chất lượng tốt làm sẵn hoặc tự nấu gà nước dùng dầu ô liu"
+      },
+      "description": ".25 litres (44 fl oz/5 cốc) chất lượng tốt làm sẵn hoặc tự nấu gà nước dùng dầu ô liu là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".25 litres (44 fl oz/5 cốc) chất lượng tốt làm sẵn hoặc tự nấu gà nước dùng dầu ô liu",
+        "Loại chất lượng tốt, mua sẵn hoặc tự nấu nước dùng gà dầu ô liu",
+        "chất lượng tốt làm sẵn hoặc tự nấu gà nước dùng dầu ô liu"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [
+        "role_cooking_fat"
+      ],
+      "image_url": "assets/ingredients/2b27612b92ff37c1.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .25 litres (44 fl oz/5 cốc) chất lượng tốt làm sẵn hoặc tự nấu gà nước dùng dầu ô liu",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-025",
+          "title": "Risotto gà, bạc hà và đậu Hà Lan",
+          "local_name": "Risotto gà, bạc hà và đậu Hà Lan",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-025-ing-01",
+          "recipe_id": "poultry-meat-game-025",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-03.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-025",
+          "component_name": "Risotto gà, bạc hà và đậu Hà Lan",
+          "raw_text": ".25 litres (44 fl oz/5 cups) good-quality ready-made or home-made chicken stock tablespoons olive oil",
+          "display_amount": "25 l (chuẩn hóa: 25000 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00053",
+      "canonical_name": ".4 kg (3 lb 2 oz) farmed rabbit, cut into 8 pieces",
+      "name": ".4 kg (3 lb 2 oz) farmed rabbit",
+      "name_i18n": {
+        "en": ".4 kg (3 lb 2 oz) farmed rabbit, cut into 8 pieces",
+        "vi": ".4 kg (3 lb 2 oz) farmed rabbit"
+      },
+      "description": ".4 kg (3 lb 2 oz) farmed rabbit là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".4 kg (3 lb 2 oz) farmed rabbit",
+        "Farmed thỏ",
+        "farmed rabbit"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e92b7f60427cc1cb.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .4 kg (3 lb 2 oz) farmed rabbit",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-096",
+          "title": "Thỏ om cider và táo",
+          "local_name": "Thỏ om cider và táo",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-096-ing-02",
+          "recipe_id": "poultry-meat-game-096",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-096",
+          "component_name": "Thỏ om cider và táo",
+          "raw_text": ".4 kg (3 lb 2 oz) farmed rabbit, cut into 8 pieces",
+          "display_amount": "4 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00054",
+      "canonical_name": ".4 kg (3 lb 2 oz) whole chicken, spatchcocked",
+      "name": ".4 kg (3 lb 2 oz) nguyên gà, spatchcocked",
+      "name_i18n": {
+        "en": ".4 kg (3 lb 2 oz) whole chicken, spatchcocked",
+        "vi": ".4 kg (3 lb 2 oz) nguyên gà, spatchcocked"
+      },
+      "description": ".4 kg (3 lb 2 oz) nguyên gà, spatchcocked là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".4 kg (3 lb 2 oz) nguyên gà, spatchcocked",
+        "Gà nguyên con, spatchcocked",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/ff5f8af57eb6eee3.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .4 kg (3 lb 2 oz) nguyên gà, spatchcocked",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-151",
+          "title": "Gà tandoori",
+          "local_name": "Gà tandoori",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-16.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-151-ing-11",
+          "recipe_id": "poultry-meat-game-151",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-16.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-151",
+          "component_name": "Gà tandoori",
+          "raw_text": ".4 kg (3 lb 2 oz) whole chicken, spatchcocked",
+          "display_amount": "4 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00055",
+      "canonical_name": ".5 kg (3 lb 5 oz) chicken drumsticks",
+      "name": ".5 kg (3 lb 5 oz) gà drumsticks",
+      "name_i18n": {
+        "en": ".5 kg (3 lb 5 oz) chicken drumsticks",
+        "vi": ".5 kg (3 lb 5 oz) gà drumsticks"
+      },
+      "description": ".5 kg (3 lb 5 oz) gà drumsticks là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".5 kg (3 lb 5 oz) gà drumsticks",
+        "Gà đùi dưới",
+        "gà drumsticks"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/8218fb41b9ea99de.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .5 kg (3 lb 5 oz) gà drumsticks",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-070",
+          "title": "Đùi gà quay gia vị với salad rau bina, cam và bạc hà",
+          "local_name": "Đùi gà quay gia vị với salad rau bina, cam và bạc hà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-070-ing-07",
+          "recipe_id": "poultry-meat-game-070",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-070",
+          "component_name": "Đùi gà quay gia vị với salad rau bina, cam và bạc hà",
+          "raw_text": ".5 kg (3 lb 5 oz) chicken drumsticks",
+          "display_amount": "5 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00056",
+      "canonical_name": ".5 kg (3 lb 5 oz) whole chicken",
+      "name": ".5 kg (3 lb 5 oz) nguyên gà",
+      "name_i18n": {
+        "en": ".5 kg (3 lb 5 oz) whole chicken",
+        "vi": ".5 kg (3 lb 5 oz) nguyên gà"
+      },
+      "description": ".5 kg (3 lb 5 oz) nguyên gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".5 kg (3 lb 5 oz) nguyên gà",
+        "Gà nguyên con",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/ac08b3b50ecedbee.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .5 kg (3 lb 5 oz) nguyên gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-138",
+          "title": "Súp gà ngô kem",
+          "local_name": "Súp gà ngô kem",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-138-ing-06",
+          "recipe_id": "poultry-meat-game-138",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-138",
+          "component_name": "Súp gà ngô kem",
+          "raw_text": ".5 kg (3 lb 5 oz) whole chicken",
+          "display_amount": "5 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00057",
+      "canonical_name": ".5 kg (3 lb 5 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+      "name": ".5 kg (3 lb 5 oz) nguyên gà",
+      "name_i18n": {
+        "en": ".5 kg (3 lb 5 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+        "vi": ".5 kg (3 lb 5 oz) nguyên gà"
+      },
+      "description": ".5 kg (3 lb 5 oz) nguyên gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".5 kg (3 lb 5 oz) nguyên gà",
+        "Gà nguyên con",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/23d724e6243d3461.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .5 kg (3 lb 5 oz) nguyên gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 3,
+      "recipe_count": 3,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-063",
+          "title": "Gà nướng với lê, pancetta, hương thảo và thì là tây",
+          "local_name": "Gà nướng với lê, pancetta, hương thảo và thì là tây",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-091",
+          "title": "Gà om xì dầu",
+          "local_name": "Gà om xì dầu",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-111",
+          "title": "Coq au vin",
+          "local_name": "Coq au vin",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-063-ing-08",
+          "recipe_id": "poultry-meat-game-063",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-063",
+          "component_name": "Gà nướng với lê, pancetta, hương thảo và thì là tây",
+          "raw_text": ".5 kg (3 lb 5 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+          "display_amount": "5 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-091-ing-03",
+          "recipe_id": "poultry-meat-game-091",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-091",
+          "component_name": "Gà om xì dầu",
+          "raw_text": ".5 kg (3 lb 5 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+          "display_amount": "5 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-111-ing-10",
+          "recipe_id": "poultry-meat-game-111",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-111",
+          "component_name": "Coq au vin",
+          "raw_text": ".5 kg (3 lb 5 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+          "display_amount": "5 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00058",
+      "canonical_name": ".6 kg (3 lb 8 oz) whole chicken",
+      "name": ".6 kg (3 lb 8 oz) nguyên gà",
+      "name_i18n": {
+        "en": ".6 kg (3 lb 8 oz) whole chicken",
+        "vi": ".6 kg (3 lb 8 oz) nguyên gà"
+      },
+      "description": ".6 kg (3 lb 8 oz) nguyên gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".6 kg (3 lb 8 oz) nguyên gà",
+        "Gà nguyên con",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/ac08b3b50ecedbee.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .6 kg (3 lb 8 oz) nguyên gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 3,
+      "recipe_count": 3,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-064",
+          "title": "Gà quay ớt bột ớt bột ớt bột paprika với couscous lý chua và hạnh nhân",
+          "local_name": "Gà quay ớt bột ớt bột ớt bột paprika với couscous lý chua và hạnh nhân",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-072",
+          "title": "Gà quay với thì là tây và muối ớt",
+          "local_name": "Gà quay với thì là tây và muối ớt",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-092",
+          "title": "Gà pizzaiola",
+          "local_name": "Gà pizzaiola",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-064-ing-05",
+          "recipe_id": "poultry-meat-game-064",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-064",
+          "component_name": "Gà quay ớt bột ớt bột ớt bột paprika với couscous lý chua và hạnh nhân",
+          "raw_text": ".6 kg (3 lb 8 oz) whole chicken",
+          "display_amount": "6 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-072-ing-08",
+          "recipe_id": "poultry-meat-game-072",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-072",
+          "component_name": "Gà quay với thì là tây và muối ớt",
+          "raw_text": ".6 kg (3 lb 8 oz) whole chicken",
+          "display_amount": "6 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-092-ing-01",
+          "recipe_id": "poultry-meat-game-092",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-092",
+          "component_name": "Gà pizzaiola",
+          "raw_text": ".6 kg (3 lb 8 oz) whole chicken",
+          "display_amount": "6 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00059",
+      "canonical_name": ".6 kg (3 lb 8 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+      "name": ".6 kg (3 lb 8 oz) nguyên gà",
+      "name_i18n": {
+        "en": ".6 kg (3 lb 8 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+        "vi": ".6 kg (3 lb 8 oz) nguyên gà"
+      },
+      "description": ".6 kg (3 lb 8 oz) nguyên gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".6 kg (3 lb 8 oz) nguyên gà",
+        "Gà nguyên con",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/23d724e6243d3461.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .6 kg (3 lb 8 oz) nguyên gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-059",
+          "title": "Gà quay kiểu Trung Đông",
+          "local_name": "Gà quay kiểu Trung Đông",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-059-ing-13",
+          "recipe_id": "poultry-meat-game-059",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-059",
+          "component_name": "Gà quay kiểu Trung Đông",
+          "raw_text": ".6 kg (3 lb 8 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+          "display_amount": "6 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00060",
+      "canonical_name": ".7 kg (3 lb 12 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+      "name": ".7 kg (3 lb 12 oz) nguyên gà",
+      "name_i18n": {
+        "en": ".7 kg (3 lb 12 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+        "vi": ".7 kg (3 lb 12 oz) nguyên gà"
+      },
+      "description": ".7 kg (3 lb 12 oz) nguyên gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".7 kg (3 lb 12 oz) nguyên gà",
+        "Gà nguyên con",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/23d724e6243d3461.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .7 kg (3 lb 12 oz) nguyên gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-113",
+          "title": "Tagine gà, mơ, bí đỏ và đậu gà",
+          "local_name": "Tagine gà, mơ, bí đỏ và đậu gà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-113-ing-02",
+          "recipe_id": "poultry-meat-game-113",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-113",
+          "component_name": "Tagine gà, mơ, bí đỏ và đậu gà",
+          "raw_text": ".7 kg (3 lb 12 oz) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+          "display_amount": "7 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00061",
+      "canonical_name": ".7 kg (3 lb 12 oz) whole chicken, jointed into 10 pieces Jointing a chicken",
+      "name": ".7 kg (3 lb 12 oz) nguyên gà, jointed thành 10 miếng Jointing a gà",
+      "name_i18n": {
+        "en": ".7 kg (3 lb 12 oz) whole chicken, jointed into 10 pieces Jointing a chicken",
+        "vi": ".7 kg (3 lb 12 oz) nguyên gà, jointed thành 10 miếng Jointing a gà"
+      },
+      "description": ".7 kg (3 lb 12 oz) nguyên gà, jointed thành 10 miếng Jointing a gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".7 kg (3 lb 12 oz) nguyên gà, jointed thành 10 miếng Jointing a gà",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/6a4ddc5b2d24a945.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .7 kg (3 lb 12 oz) nguyên gà, jointed thành 10 miếng Jointing a gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-036",
+          "title": "Paella gà",
+          "local_name": "Paella gà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-036-ing-04",
+          "recipe_id": "poultry-meat-game-036",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-04.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-036",
+          "component_name": "Paella gà",
+          "raw_text": ".7 kg (3 lb 12 oz) whole chicken, jointed into 10 pieces Jointing a chicken",
+          "display_amount": "7 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00062",
+      "canonical_name": ".8 kg (4 lb) pork loin (including the ‘tail’; see tip)",
+      "name": ".8 kg (4 lb) thịt heo loin",
+      "name_i18n": {
+        "en": ".8 kg (4 lb) pork loin (including the ‘tail’; see tip)",
+        "vi": ".8 kg (4 lb) thịt heo loin"
+      },
+      "description": ".8 kg (4 lb) thịt heo loin là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".8 kg (4 lb) thịt heo loin",
+        "Thăn heo (including ‘tail’; see tip)",
+        "thịt heo loin (including ‘tail’; see tip)"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/bf494d262e3ef205.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .8 kg (4 lb) thịt heo loin",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-082",
+          "title": "Thăn heo quay nhồi couscous, kê và mơ",
+          "local_name": "Thăn heo quay nhồi couscous, kê và mơ",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-09.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-082-ing-01",
+          "recipe_id": "poultry-meat-game-082",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-09.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-082",
+          "component_name": "Thăn heo quay nhồi couscous, kê và mơ",
+          "raw_text": ".8 kg (4 lb) pork loin (including the ‘tail’; see tip)",
+          "display_amount": "8 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00063",
+      "canonical_name": ".8 kg (4 lb) whole chicken",
+      "name": ".8 kg (4 lb) nguyên gà",
+      "name_i18n": {
+        "en": ".8 kg (4 lb) whole chicken",
+        "vi": ".8 kg (4 lb) nguyên gà"
+      },
+      "description": ".8 kg (4 lb) nguyên gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".8 kg (4 lb) nguyên gà",
+        "Gà nguyên con",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/ac08b3b50ecedbee.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .8 kg (4 lb) nguyên gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 4,
+      "recipe_count": 4,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-117",
+          "title": "Bánh gà và ngô sốt kem",
+          "local_name": "Bánh gà và ngô sốt kem",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-135",
+          "title": "Laksa gà",
+          "local_name": "Laksa gà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-142",
+          "title": "Cơm gà Hải Nam với sốt gừng và hành lá",
+          "local_name": "Cơm gà Hải Nam với sốt gừng và hành lá",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-143",
+          "title": "Súp gà rau củ với pistou mùi tây",
+          "local_name": "Súp gà rau củ với pistou mùi tây",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-117-ing-01",
+          "recipe_id": "poultry-meat-game-117",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-117",
+          "component_name": "Bánh gà và ngô sốt kem",
+          "raw_text": ".8 kg (4 lb) whole chicken",
+          "display_amount": "8 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-135-ing-01",
+          "recipe_id": "poultry-meat-game-135",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-135",
+          "component_name": "Laksa gà",
+          "raw_text": ".8 kg (4 lb) whole chicken",
+          "display_amount": "8 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-142-ing-06",
+          "recipe_id": "poultry-meat-game-142",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-142",
+          "component_name": "Cơm gà Hải Nam với sốt gừng và hành lá",
+          "raw_text": ".8 kg (4 lb) whole chicken",
+          "display_amount": "8 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-143-ing-13",
+          "recipe_id": "poultry-meat-game-143",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-15.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-143",
+          "component_name": "Súp gà rau củ với pistou mùi tây",
+          "raw_text": ".8 kg (4 lb) whole chicken",
+          "display_amount": "8 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00064",
+      "canonical_name": ".8 kg (4 lb) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+      "name": ".8 kg (4 lb) nguyên gà",
+      "name_i18n": {
+        "en": ".8 kg (4 lb) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+        "vi": ".8 kg (4 lb) nguyên gà"
+      },
+      "description": ".8 kg (4 lb) nguyên gà là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        ".8 kg (4 lb) nguyên gà",
+        "Gà nguyên con",
+        "nguyên gà"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/23d724e6243d3461.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu .8 kg (4 lb) nguyên gà",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-110",
+          "title": "Gà cam và bạc hà",
+          "local_name": "Gà cam và bạc hà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-116",
+          "title": "Cà ri gà kiểu Ấn Độ",
+          "local_name": "Cà ri gà kiểu Ấn Độ",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-110-ing-01",
+          "recipe_id": "poultry-meat-game-110",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-11.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-110",
+          "component_name": "Gà cam và bạc hà",
+          "raw_text": ".8 kg (4 lb) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+          "display_amount": "8 kg"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-116-ing-07",
+          "recipe_id": "poultry-meat-game-116",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-116",
+          "component_name": "Cà ri gà kiểu Ấn Độ",
+          "raw_text": ".8 kg (4 lb) whole chicken, cut into 8 pieces (See Jointing a chicken)",
+          "display_amount": "8 kg"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00065",
+      "canonical_name": "‘The bases can be made up to four days in advance and stored in an airtight container",
+      "name": "‘ bases can be made up để four days trong advance và stored trong an airtight container",
+      "name_i18n": {
+        "en": "‘The bases can be made up to four days in advance and stored in an airtight container",
+        "vi": "‘ bases can be made up để four days trong advance và stored trong an airtight container"
+      },
+      "description": "‘ bases can be made up để four days trong advance và stored trong an airtight container là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "‘ bases can be made up để four days trong advance và stored trong an airtight container"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "primary_nutrient_highlights": [
+          "depends_on_product_or_recipe"
+        ],
+        "classification_level": "food_group_only",
+        "description_vi": "Nguyên liệu chế biến hoặc hỗn hợp có nhiều nhóm dinh dưỡng, cần xem nhãn cụ thể.",
+        "quantitative_nutrition_available": false,
+        "note": "Không suy ra kcal, protein, carbohydrate, fat, vitamin hoặc khoáng chất định lượng nếu nguồn công thức không cung cấp dữ liệu chuẩn cho nguyên liệu."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/ddfd8a890a35cded.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=%E2%80%98%20bases%20can%20be%20made%20up%20%C4%91%E1%BB%83%20four%20days%20trong%20advance%20v%C3%A0%20stored%20trong%20an%20airtight%20container%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu ‘ bases can be made up để four days trong advance và stored trong an airtight container",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "other"
+        ],
+        "normalized": []
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "easy-cook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "easy-cook-054",
+          "title": "Bánh Mont Blanc",
+          "local_name": "Bánh Mont Blanc",
+          "catalog_code": "easy-cook",
+          "source_file": "recipes/easy-cook/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "easy-cook-054-ing-13",
+          "recipe_id": "easy-cook-054",
+          "catalog_code": "easy-cook",
+          "source_file": "recipes/easy-cook/part-06.json",
+          "component_type": "recipe",
+          "component_id": "easy-cook-054",
+          "component_name": "Bánh Mont Blanc",
+          "raw_text": "‘The bases can be made up to four days in advance and stored in an airtight container",
+          "display_amount": "5"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00066",
+      "canonical_name": "“0” type flour",
+      "name": "Bột mì loại 0",
+      "name_i18n": {
+        "en": "“0” type flour",
+        "vi": "Bột mì loại 0"
+      },
+      "description": "Bột mì loại 0 là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "Bột mì loại 0"
+      ],
+      "macro_class": "carbohydrate",
+      "macro_classes_observed": [
+        "carbohydrate"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "starchy_carbohydrate",
+        "primary_nutrient_highlights": [
+          "carbohydrate"
+        ],
+        "classification_level": "food_group_only",
+        "description_vi": "Ngũ cốc, bột, mì, gạo, khoai hoặc nguyên liệu giàu carbohydrate.",
+        "quantitative_nutrition_available": false,
+        "note": "Không suy ra kcal, protein, carbohydrate, fat, vitamin hoặc khoáng chất định lượng nếu nguồn công thức không cung cấp dữ liệu chuẩn cho nguyên liệu."
+      },
+      "allergen_flags": [
+        "gluten"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/9411a100635ade6e.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=B%E1%BB%99t%20m%C3%AC%20lo%E1%BA%A1i%200%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu Bột mì loại 0",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "italian"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "fresh-italian-028",
+          "title": "Mì trofie sốt pesto",
+          "local_name": "Mì trofie sốt pesto",
+          "catalog_code": "italian",
+          "source_file": "recipes/italian/part-03.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "fresh-italian-028-ing-01",
+          "recipe_id": "fresh-italian-028",
+          "catalog_code": "italian",
+          "source_file": "recipes/italian/part-03.json",
+          "component_type": "recipe",
+          "component_id": "fresh-italian-028",
+          "component_name": "Mì trofie sốt pesto",
+          "raw_text": "",
+          "display_amount": "300 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00067",
+      "canonical_name": "(0.25 oz/1.5 tablespoons) dried shrimp (see tip)",
+      "name": "(0.25 oz/1.5 muỗng canh) khô tôm",
+      "name_i18n": {
+        "en": "(0.25 oz/1.5 tablespoons) dried shrimp (see tip)",
+        "vi": "(0.25 oz/1.5 muỗng canh) khô tôm"
+      },
+      "description": "(0.25 oz/1.5 muỗng canh) khô tôm là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.25 oz/1.5 muỗng canh) khô tôm",
+        "Khô tôm"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "shellfish",
+        "crustacean"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/068dc36a673b80c0.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.25 oz/1.5 muỗng canh) khô tôm",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-135",
+          "title": "Laksa gà",
+          "local_name": "Laksa gà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-135-ing-17",
+          "recipe_id": "poultry-meat-game-135",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-135",
+          "component_name": "Laksa gà",
+          "raw_text": "0 g (¼ oz/1½ tablespoons) dried shrimp (see tip)",
+          "display_amount": "0 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00068",
+      "canonical_name": "(0.25 pound) honey-toasted wheat germ",
+      "name": "mật ong-rang wheat germ",
+      "name_i18n": {
+        "en": "(0.25 pound) honey-toasted wheat germ",
+        "vi": "mật ong-rang wheat germ"
+      },
+      "description": "mật ong-rang wheat germ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "mật ong-rang wheat germ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "gluten"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/4048de8ce7de862c.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu mật ong-rang wheat germ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-133",
+          "title": "Granola ba loại yến mạch với nam việt quất khô",
+          "local_name": "Granola ba loại yến mạch với nam việt quất khô",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-133-ing-10",
+          "recipe_id": "rice-cooker-133",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-133",
+          "component_name": "Granola ba loại yến mạch với nam việt quất khô",
+          "raw_text": "1 cup (¼ pound) honey-toasted wheat germ",
+          "display_amount": "1 lb (chuẩn hóa: 453.59 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00069",
+      "canonical_name": "(0.25 pound) oat bran",
+      "name": "oat bran",
+      "name_i18n": {
+        "en": "(0.25 pound) oat bran",
+        "vi": "oat bran"
+      },
+      "description": "oat bran là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "oat bran"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/370664d0e5fae03a.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu oat bran",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-132",
+          "title": "Granola cổ điển tự làm",
+          "local_name": "Granola cổ điển tự làm",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-132-ing-05",
+          "recipe_id": "rice-cooker-132",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-132",
+          "component_name": "Granola cổ điển tự làm",
+          "raw_text": "1 cup (¼ pound) oat bran",
+          "display_amount": "1 lb (chuẩn hóa: 453.59 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00070",
+      "canonical_name": "(0.25 pound) wheat bran",
+      "name": "wheat bran",
+      "name_i18n": {
+        "en": "(0.25 pound) wheat bran",
+        "vi": "wheat bran"
+      },
+      "description": "wheat bran là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "wheat bran"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "gluten"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/c39271f9de85c9c7.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=wheat%20bran%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu wheat bran",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-132",
+          "title": "Granola cổ điển tự làm",
+          "local_name": "Granola cổ điển tự làm",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-132-ing-03",
+          "recipe_id": "rice-cooker-132",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-132",
+          "component_name": "Granola cổ điển tự làm",
+          "raw_text": "1 cup (¼ pound) wheat bran",
+          "display_amount": "1 lb (chuẩn hóa: 453.59 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00071",
+      "canonical_name": "(0.25 pound) wheat germ",
+      "name": "wheat germ",
+      "name_i18n": {
+        "en": "(0.25 pound) wheat germ",
+        "vi": "wheat germ"
+      },
+      "description": "wheat germ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "wheat germ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "gluten"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/a8fc6b2bc40598e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu wheat germ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-132",
+          "title": "Granola cổ điển tự làm",
+          "local_name": "Granola cổ điển tự làm",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-132-ing-04",
+          "recipe_id": "rice-cooker-132",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-132",
+          "component_name": "Granola cổ điển tự làm",
+          "raw_text": "1 cup (¼ pound) wheat germ",
+          "display_amount": "1 lb (chuẩn hóa: 453.59 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00072",
+      "canonical_name": "(0.5 inch long) fresh ginger or 0.75 teaspoon ground",
+      "name": "tươi gừng hoặc 0.75 muỗng cà phê xay",
+      "name_i18n": {
+        "en": "(0.5 inch long) fresh ginger or 0.75 teaspoon ground",
+        "vi": "tươi gừng hoặc 0.75 muỗng cà phê xay"
+      },
+      "description": "tươi gừng hoặc 0.75 muỗng cà phê xay là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "tươi gừng hoặc 0.75 muỗng cà phê xay",
+        "Gừng tươi hoặc gừng bột"
+      ],
+      "macro_class": "aromatic",
+      "macro_classes_observed": [
+        "aromatic"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/8d602bb0ca69e244.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=t%C6%B0%C6%A1i%20g%E1%BB%ABng%20ho%E1%BA%B7c%200.75%20mu%E1%BB%97ng%20c%C3%A0%20ph%C3%AA%20xay%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu tươi gừng hoặc 0.75 muỗng cà phê xay",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soups-stews"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soups-stews-006",
+          "title": "Súp gà và rau bina",
+          "local_name": "Súp gà và rau bina",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-01.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soups-stews-006-ing-02",
+          "recipe_id": "soups-stews-006",
+          "catalog_code": "soups-stews",
+          "source_file": "recipes/soups-stews/part-01.json",
+          "component_type": "recipe",
+          "component_id": "soups-stews-006",
+          "component_name": "Súp gà và rau bina",
+          "raw_text": "1 piece (1/2 inch long) fresh ginger or 3/4 teaspoon ground",
+          "display_amount": "1 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00073",
+      "canonical_name": "(0.5 oz) butter",
+      "name": "bơ",
+      "name_i18n": {
+        "en": "(0.5 oz) butter",
+        "vi": "bơ"
+      },
+      "description": "bơ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "bơ"
+      ],
+      "macro_class": "lipid",
+      "macro_classes_observed": [
+        "lipid"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "fats_oils",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [
+        "role_cooking_fat"
+      ],
+      "image_url": "assets/ingredients/d99a16ebf6a70d2f.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu bơ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-094",
+          "title": "Gà non om nồi với ô liu và cỏ xạ hương",
+          "local_name": "Gà non om nồi với ô liu và cỏ xạ hương",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-094-ing-05",
+          "recipe_id": "poultry-meat-game-094",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-094",
+          "component_name": "Gà non om nồi với ô liu và cỏ xạ hương",
+          "raw_text": "15 g (½ oz) butter",
+          "display_amount": "15 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00074",
+      "canonical_name": "(0.5 oz/0.25 cup) crisp fried shallots (see tip)",
+      "name": "crisp fried hành tím",
+      "name_i18n": {
+        "en": "(0.5 oz/0.25 cup) crisp fried shallots (see tip)",
+        "vi": "crisp fried hành tím"
+      },
+      "description": "crisp fried hành tím là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "crisp fried hành tím",
+        "Giòn fried hành tím"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/8110c9328fd7dd72.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu crisp fried hành tím",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-039",
+          "title": "Gà san choy bau",
+          "local_name": "Gà san choy bau",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-04.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-040",
+          "title": "Cơm chiên gà kiểu Thái",
+          "local_name": "Cơm chiên gà kiểu Thái",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-04.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-039-ing-13",
+          "recipe_id": "poultry-meat-game-039",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-04.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-039",
+          "component_name": "Gà san choy bau",
+          "raw_text": "5 g (½ oz/¼ cup) crisp fried shallots (see tip)",
+          "display_amount": "5 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-040-ing-15",
+          "recipe_id": "poultry-meat-game-040",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-04.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-040",
+          "component_name": "Cơm chiên gà kiểu Thái",
+          "raw_text": "15 g (½ oz/¼ cup) crisp fried shallots (see tip)",
+          "display_amount": "15 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00075",
+      "canonical_name": "(0.5 pound) quick-cooking Irish oats",
+      "name": "quick-cooking Ireland oats",
+      "name_i18n": {
+        "en": "(0.5 pound) quick-cooking Irish oats",
+        "vi": "quick-cooking Ireland oats"
+      },
+      "description": "quick-cooking Ireland oats là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "quick-cooking Ireland oats",
+        "quick-cooking Ireland yến mạch"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/f755b4a105cc249d.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=quick-cooking%20Ireland%20oats%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu quick-cooking Ireland oats",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-133",
+          "title": "Granola ba loại yến mạch với nam việt quất khô",
+          "local_name": "Granola ba loại yến mạch với nam việt quất khô",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-133-ing-02",
+          "recipe_id": "rice-cooker-133",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-133",
+          "component_name": "Granola ba loại yến mạch với nam việt quất khô",
+          "raw_text": "3 cups (½ pound) quick-cooking Irish oats",
+          "display_amount": "3 lb (chuẩn hóa: 1360.78 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00076",
+      "canonical_name": "(0.5 pound) rolled (old-fashioned) oats (not quick-cooking)",
+      "name": "rolled (old-fashioned) oats (not quick-cooking)",
+      "name_i18n": {
+        "en": "(0.5 pound) rolled (old-fashioned) oats (not quick-cooking)",
+        "vi": "rolled (old-fashioned) oats (not quick-cooking)"
+      },
+      "description": "rolled (old-fashioned) oats (not quick-cooking) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "rolled (old-fashioned) oats (not quick-cooking)",
+        "rolled (old-fashioned) yến mạch (not quick-cooking)"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e23aa88df2a7f050.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=rolled%20%28old-fashioned%29%20oats%20%28not%20quick-cooking%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu rolled (old-fashioned) oats (not quick-cooking)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-133",
+          "title": "Granola ba loại yến mạch với nam việt quất khô",
+          "local_name": "Granola ba loại yến mạch với nam việt quất khô",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-133-ing-01",
+          "recipe_id": "rice-cooker-133",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-14.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-133",
+          "component_name": "Granola ba loại yến mạch với nam việt quất khô",
+          "raw_text": "3 cups (½ pound) rolled (old-fashioned) oats (not quick-cooking)",
+          "display_amount": "3 lb (chuẩn hóa: 1360.78 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00077",
+      "canonical_name": "(0.5 stick) unsalted butter",
+      "name": "(0.5 stick) không muối bơ",
+      "name_i18n": {
+        "en": "(0.5 stick) unsalted butter",
+        "vi": "(0.5 stick) không muối bơ"
+      },
+      "description": "(0.5 stick) không muối bơ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.5 stick) không muối bơ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e34a1d8da25095e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.5 stick) không muối bơ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 7,
+      "recipe_count": 7,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-044",
+          "title": "Cơm pilaf kiểu Pháp",
+          "local_name": "Cơm pilaf kiểu Pháp",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json"
+        },
+        {
+          "recipe_id": "rice-cooker-102",
+          "title": "# gạo hoang và bulgur với leeks và rang hạnh nhân",
+          "local_name": "# gạo hoang và bulgur với leeks và rang hạnh nhân",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json"
+        },
+        {
+          "recipe_id": "rice-cooker-107",
+          "title": "Polenta phô mai Gorgonzola",
+          "local_name": "Polenta phô mai Gorgonzola",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json"
+        },
+        {
+          "recipe_id": "rice-cooker-112",
+          "title": "Bột ngô nấu với bí đỏ",
+          "local_name": "Bột ngô nấu với bí đỏ",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-12.json"
+        },
+        {
+          "recipe_id": "rice-cooker-155",
+          "title": "Súp lơ với đậu Hà Lan nghiền",
+          "local_name": "Súp lơ với đậu Hà Lan nghiền",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-16.json"
+        },
+        {
+          "recipe_id": "rice-cooker-197",
+          "title": "Xốt táo tự làm",
+          "local_name": "Xốt táo tự làm",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-20.json"
+        },
+        {
+          "recipe_id": "rice-cooker-240",
+          "title": "Pancake mặn từ gạo hoang",
+          "local_name": "Pancake mặn từ gạo hoang",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-24.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-044-ing-01",
+          "recipe_id": "rice-cooker-044",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-05.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-044",
+          "component_name": "Cơm pilaf kiểu Pháp",
+          "raw_text": "¼ cup (½ stick) unsalted butter",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-102-ing-01",
+          "recipe_id": "rice-cooker-102",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-102",
+          "component_name": "# gạo hoang và bulgur với leeks và rang hạnh nhân",
+          "raw_text": "¼ cup (½ stick) unsalted butter",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-107-ing-01",
+          "recipe_id": "rice-cooker-107",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-107",
+          "component_name": "Polenta phô mai Gorgonzola",
+          "raw_text": "¼ cup (½ stick) unsalted butter",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-112-ing-07",
+          "recipe_id": "rice-cooker-112",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-12.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-112",
+          "component_name": "Bột ngô nấu với bí đỏ",
+          "raw_text": "¼ cup (½ stick) unsalted butter",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-155-ing-08",
+          "recipe_id": "rice-cooker-155",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-16.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-155",
+          "component_name": "Súp lơ với đậu Hà Lan nghiền",
+          "raw_text": "¼ cup (½ stick) unsalted butter",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-197-ing-05",
+          "recipe_id": "rice-cooker-197",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-20.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-197",
+          "component_name": "Xốt táo tự làm",
+          "raw_text": "¼ cup (½ stick) unsalted butter",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        },
+        {
+          "source_ingredient_id": "rice-cooker-240-ing-01",
+          "recipe_id": "rice-cooker-240",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-24.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-240",
+          "component_name": "Pancake mặn từ gạo hoang",
+          "raw_text": "¼ cup (½ stick) unsalted butter",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00078",
+      "canonical_name": "(0.5 stick) unsalted butter, cut into 8 pieces",
+      "name": "(0.5 stick) không muối bơ",
+      "name_i18n": {
+        "en": "(0.5 stick) unsalted butter, cut into 8 pieces",
+        "vi": "(0.5 stick) không muối bơ"
+      },
+      "description": "(0.5 stick) không muối bơ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.5 stick) không muối bơ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e34a1d8da25095e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.5 stick) không muối bơ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "piece"
+        ],
+        "normalized": [
+          "pcs"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-019",
+          "title": "Cơm với tươi xanhs",
+          "local_name": "Cơm với tươi xanhs",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-019-ing-03",
+          "recipe_id": "rice-cooker-019",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-02.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-019",
+          "component_name": "Cơm với tươi xanhs",
+          "raw_text": "¼ cup (½ stick) unsalted butter, cut into 8 pieces",
+          "display_amount": "1/4 cái"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00079",
+      "canonical_name": "(0.5 stick) unsalted butter, for serving",
+      "name": "(0.5 stick) không muối bơ, để Khẩu phần",
+      "name_i18n": {
+        "en": "(0.5 stick) unsalted butter, for serving",
+        "vi": "(0.5 stick) không muối bơ, để Khẩu phần"
+      },
+      "description": "(0.5 stick) không muối bơ, để Khẩu phần là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.5 stick) không muối bơ, để Khẩu phần"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e34a1d8da25095e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.5 stick) không muối bơ, để Khẩu phần",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-175",
+          "title": "Xúc xích và bắp cải chua hấp với Champagne",
+          "local_name": "Xúc xích và bắp cải chua hấp với Champagne",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-18.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-175-ing-05",
+          "recipe_id": "rice-cooker-175",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-18.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-175",
+          "component_name": "Xúc xích và bắp cải chua hấp với Champagne",
+          "raw_text": "¼ cup (½ stick) unsalted butter, for serving",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00080",
+      "canonical_name": "(0.5 stick) unsalted butter, melted",
+      "name": "(0.5 stick) không muối bơ, đun chảy",
+      "name_i18n": {
+        "en": "(0.5 stick) unsalted butter, melted",
+        "vi": "(0.5 stick) không muối bơ, đun chảy"
+      },
+      "description": "(0.5 stick) không muối bơ, đun chảy là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.5 stick) không muối bơ, đun chảy"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e34a1d8da25095e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.5 stick) không muối bơ, đun chảy",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-217",
+          "title": "Pudding hồng với xốt brandy",
+          "local_name": "Pudding hồng với xốt brandy",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-22.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-217-ing-03",
+          "recipe_id": "rice-cooker-217",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-22.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-217",
+          "component_name": "Pudding hồng với xốt brandy",
+          "raw_text": "¼ cup (½ stick) unsalted butter, melted",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00081",
+      "canonical_name": "(0.5 stick) unsalted butter, or more to taste",
+      "name": "(0.5 stick) không muối bơ, hoặc thêm tùy khẩu vị",
+      "name_i18n": {
+        "en": "(0.5 stick) unsalted butter, or more to taste",
+        "vi": "(0.5 stick) không muối bơ, hoặc thêm tùy khẩu vị"
+      },
+      "description": "(0.5 stick) không muối bơ, hoặc thêm tùy khẩu vị là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.5 stick) không muối bơ, hoặc thêm tùy khẩu vị"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e34a1d8da25095e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.5 stick) không muối bơ, hoặc thêm tùy khẩu vị",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-104",
+          "title": "Polenta kiểu Ý",
+          "local_name": "Polenta kiểu Ý",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-104-ing-05",
+          "recipe_id": "rice-cooker-104",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-104",
+          "component_name": "Polenta kiểu Ý",
+          "raw_text": "¼ cup (½ stick) unsalted butter, or more to taste",
+          "display_amount": "1/4 cốc (chuẩn hóa: 60 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00082",
+      "canonical_name": "(0.5-inch) sliced asparagus (about 1 pound)",
+      "name": "thái lát măng tây (khoảng 1 lb)",
+      "name_i18n": {
+        "en": "(0.5-inch) sliced asparagus (about 1 pound)",
+        "vi": "thái lát măng tây (khoảng 1 lb)"
+      },
+      "description": "thái lát măng tây (khoảng 1 lb) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "thái lát măng tây (khoảng 1 lb)"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/3fcb83d8d7ca5f9c.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=th%C3%A1i%20l%C3%A1t%20m%C4%83ng%20t%C3%A2y%20%28kho%E1%BA%A3ng%201%20lb%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu thái lát măng tây (khoảng 1 lb)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-071",
+          "title": "Súp kem măng tây",
+          "local_name": "Súp kem măng tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-08.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-071-ing-01",
+          "recipe_id": "soup-cookbook-071",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-08.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-071",
+          "component_name": "Súp kem măng tây",
+          "raw_text": "3 cups (1/2-inch) sliced asparagus (about 1 pound)",
+          "display_amount": "3 cốc (chuẩn hóa: 720 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00083",
+      "canonical_name": "(0.75 oz) butter",
+      "name": "bơ",
+      "name_i18n": {
+        "en": "(0.75 oz) butter",
+        "vi": "bơ"
+      },
+      "description": "bơ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "bơ"
+      ],
+      "macro_class": "lipid",
+      "macro_classes_observed": [
+        "lipid"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "fats_oils",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [
+        "role_cooking_fat"
+      ],
+      "image_url": "assets/ingredients/d99a16ebf6a70d2f.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu bơ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 7,
+      "recipe_count": 7,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-052",
+          "title": "Bê schnitzel với salad bắp cải và táo",
+          "local_name": "Bê schnitzel với salad bắp cải và táo",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-075",
+          "title": "Bò Wellington phần cá nhân",
+          "local_name": "Bò Wellington phần cá nhân",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-077",
+          "title": "Thịt nai quay với sốt Diane và bắp cải tím om",
+          "local_name": "Thịt nai quay với sốt Diane và bắp cải tím om",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-089",
+          "title": "Gà om nồi cổ điển",
+          "local_name": "Gà om nồi cổ điển",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-09.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-095",
+          "title": "Gà với 40 tép tỏi",
+          "local_name": "Gà với 40 tép tỏi",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-098",
+          "title": "Bò om bia Guinness",
+          "local_name": "Bò om bia Guinness",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-119",
+          "title": "Navarin cừu",
+          "local_name": "Navarin cừu",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-052-ing-08",
+          "recipe_id": "poultry-meat-game-052",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-052",
+          "component_name": "Bê schnitzel với salad bắp cải và táo",
+          "raw_text": "0 g (¾ oz) butter",
+          "display_amount": "0 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-075-ing-03",
+          "recipe_id": "poultry-meat-game-075",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-075",
+          "component_name": "Bò Wellington phần cá nhân",
+          "raw_text": "0 g (¾ oz) butter",
+          "display_amount": "0 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-077-ing-04",
+          "recipe_id": "poultry-meat-game-077",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-08.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-077",
+          "component_name": "Thịt nai quay với sốt Diane và bắp cải tím om",
+          "raw_text": "0 g (¾ oz) butter",
+          "display_amount": "0 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-089-ing-04",
+          "recipe_id": "poultry-meat-game-089",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-09.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-089",
+          "component_name": "Gà om nồi cổ điển",
+          "raw_text": "0 g (¾ oz) butter",
+          "display_amount": "0 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-095-ing-03",
+          "recipe_id": "poultry-meat-game-095",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-095",
+          "component_name": "Gà với 40 tép tỏi",
+          "raw_text": "20 g (¾ oz) butter",
+          "display_amount": "20 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-098-ing-02",
+          "recipe_id": "poultry-meat-game-098",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-10.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-098",
+          "component_name": "Bò om bia Guinness",
+          "raw_text": "0 g (¾ oz) butter",
+          "display_amount": "0 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-119-ing-02",
+          "recipe_id": "poultry-meat-game-119",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-119",
+          "component_name": "Navarin cừu",
+          "raw_text": "0 g (¾ oz) butter",
+          "display_amount": "0 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00084",
+      "canonical_name": "(0.75 oz) butter, chopped",
+      "name": "bơ",
+      "name_i18n": {
+        "en": "(0.75 oz) butter, chopped",
+        "vi": "bơ"
+      },
+      "description": "bơ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "bơ"
+      ],
+      "macro_class": "lipid",
+      "macro_classes_observed": [
+        "lipid"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "fats_oils",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [
+        "role_cooking_fat"
+      ],
+      "image_url": "assets/ingredients/d99a16ebf6a70d2f.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu bơ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 2,
+      "recipe_count": 2,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-016",
+          "title": "Sốt jus vang đỏ",
+          "local_name": "Sốt jus vang đỏ",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-02.json"
+        },
+        {
+          "recipe_id": "poultry-meat-game-067",
+          "title": "Gà non quay với súp lơ, đậu trắng nghiền và nho nướng",
+          "local_name": "Gà non quay với súp lơ, đậu trắng nghiền và nho nướng",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-016-ing-08",
+          "recipe_id": "poultry-meat-game-016",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-02.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-016",
+          "component_name": "Sốt jus vang đỏ",
+          "raw_text": "0 g (¾ oz) butter, chopped",
+          "display_amount": "0 g"
+        },
+        {
+          "source_ingredient_id": "poultry-meat-game-067-ing-05",
+          "recipe_id": "poultry-meat-game-067",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-067",
+          "component_name": "Gà non quay với súp lơ, đậu trắng nghiền và nho nướng",
+          "raw_text": "0 g (¾ oz) butter, chopped",
+          "display_amount": "0 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00085",
+      "canonical_name": "(0.75 oz) butter, plus 25 g (1 oz) chopped butter, extra",
+      "name": "bơ, thêm 25 g (1 oz) băm nhỏ bơ, thêm",
+      "name_i18n": {
+        "en": "(0.75 oz) butter, plus 25 g (1 oz) chopped butter, extra",
+        "vi": "bơ, thêm 25 g (1 oz) băm nhỏ bơ, thêm"
+      },
+      "description": "bơ, thêm 25 g (1 oz) băm nhỏ bơ, thêm là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "bơ, thêm 25 g (1 oz) băm nhỏ bơ, thêm",
+        "bơ"
+      ],
+      "macro_class": "lipid",
+      "macro_classes_observed": [
+        "lipid"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "fats_oils",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [
+        "role_cooking_fat"
+      ],
+      "image_url": "assets/ingredients/0cb7dea33ecd403a.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu bơ, thêm 25 g (1 oz) băm nhỏ bơ, thêm",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-051",
+          "title": "Cốt lết heo với quả bách xù và xô thơm",
+          "local_name": "Cốt lết heo với quả bách xù và xô thơm",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-051-ing-06",
+          "recipe_id": "poultry-meat-game-051",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-051",
+          "component_name": "Cốt lết heo với quả bách xù và xô thơm",
+          "raw_text": "0 g (¾ oz) butter, plus 25 g (1 oz) chopped butter, extra",
+          "display_amount": "0 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00086",
+      "canonical_name": "(0.75 oz/0.25 cup) crispy fried shallots",
+      "name": "crispy fried hành tím",
+      "name_i18n": {
+        "en": "(0.75 oz/0.25 cup) crispy fried shallots",
+        "vi": "crispy fried hành tím"
+      },
+      "description": "crispy fried hành tím là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "crispy fried hành tím"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e71297633d458b3a.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu crispy fried hành tím",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-135",
+          "title": "Laksa gà",
+          "local_name": "Laksa gà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-135-ing-13",
+          "recipe_id": "poultry-meat-game-135",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-14.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-135",
+          "component_name": "Laksa gà",
+          "raw_text": "0 g (¾ oz/¼ cup) crispy fried shallots",
+          "display_amount": "0 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00087",
+      "canonical_name": "(0.75 oz/0.5 cup) dried porcini mushrooms",
+      "name": "khô porcini nấm",
+      "name_i18n": {
+        "en": "(0.75 oz/0.5 cup) dried porcini mushrooms",
+        "vi": "khô porcini nấm"
+      },
+      "description": "khô porcini nấm là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "khô porcini nấm"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/d996981baa19f8d1.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu khô porcini nấm",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-111",
+          "title": "Coq au vin",
+          "local_name": "Coq au vin",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-111-ing-01",
+          "recipe_id": "poultry-meat-game-111",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-111",
+          "component_name": "Coq au vin",
+          "raw_text": "0 g (¾ oz/½ cup) dried porcini mushrooms",
+          "display_amount": "0 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00088",
+      "canonical_name": "(0.75 stick) unsalted butter",
+      "name": "(0.75 stick) không muối bơ",
+      "name_i18n": {
+        "en": "(0.75 stick) unsalted butter",
+        "vi": "(0.75 stick) không muối bơ"
+      },
+      "description": "(0.75 stick) không muối bơ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.75 stick) không muối bơ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e34a1d8da25095e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.75 stick) không muối bơ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-157",
+          "title": "Pommes Vapeur với Tarragon bơ",
+          "local_name": "Pommes Vapeur với Tarragon bơ",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-16.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-157-ing-02",
+          "recipe_id": "rice-cooker-157",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-16.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-157",
+          "component_name": "Pommes Vapeur với Tarragon bơ",
+          "raw_text": "6 tablespoons (¾ stick) unsalted butter",
+          "display_amount": "6 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00089",
+      "canonical_name": "(0.75 stick) unsalted butter, cut into pieces",
+      "name": "(0.75 stick) không muối bơ",
+      "name_i18n": {
+        "en": "(0.75 stick) unsalted butter, cut into pieces",
+        "vi": "(0.75 stick) không muối bơ"
+      },
+      "description": "(0.75 stick) không muối bơ là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "(0.75 stick) không muối bơ"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/e34a1d8da25095e7.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu (0.75 stick) không muối bơ",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "tbsp"
+        ],
+        "normalized": [
+          "tbsp"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-108",
+          "title": "Polenta nướng Villa Floriani với xúc xích",
+          "local_name": "Polenta nướng Villa Floriani với xúc xích",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-108-ing-07",
+          "recipe_id": "rice-cooker-108",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-11.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-108",
+          "component_name": "Polenta nướng Villa Floriani với xúc xích",
+          "raw_text": "6 tablespoons (¾ stick) unsalted butter, cut into pieces",
+          "display_amount": "6 muỗng canh"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00090",
+      "canonical_name": "(0.75-inch) cubed peeled butternut squash (about 1 medium)",
+      "name": "cubed gọt vỏ butternut squash (khoảng 1 cỡ vừa)",
+      "name_i18n": {
+        "en": "(0.75-inch) cubed peeled butternut squash (about 1 medium)",
+        "vi": "cubed gọt vỏ butternut squash (khoảng 1 cỡ vừa)"
+      },
+      "description": "cubed gọt vỏ butternut squash (khoảng 1 cỡ vừa) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cubed gọt vỏ butternut squash (khoảng 1 cỡ vừa)"
+      ],
+      "macro_class": "lipid",
+      "macro_classes_observed": [
+        "lipid"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "fats_oils",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "dairy"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/78a9117d5d3a9a1a.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cubed gọt vỏ butternut squash (khoảng 1 cỡ vừa)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-077",
+          "title": "Súp bí hồ lô và tỏi tây",
+          "local_name": "Súp bí hồ lô và tỏi tây",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-08.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-077-ing-04",
+          "recipe_id": "soup-cookbook-077",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-08.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-077",
+          "component_name": "Súp bí hồ lô và tỏi tây",
+          "raw_text": "4 cups (3/4-inch) cubed peeled butternut squash (about 1 medium)",
+          "display_amount": "4 cốc (chuẩn hóa: 960 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00091",
+      "canonical_name": "(0.75-inch) diced peeled parsnip (about 0.5 pound)",
+      "name": "cắt hạt lựu gọt vỏ parsnip (khoảng 0.5 lb)",
+      "name_i18n": {
+        "en": "(0.75-inch) diced peeled parsnip (about 0.5 pound)",
+        "vi": "cắt hạt lựu gọt vỏ parsnip (khoảng 0.5 lb)"
+      },
+      "description": "cắt hạt lựu gọt vỏ parsnip (khoảng 0.5 lb) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cắt hạt lựu gọt vỏ parsnip (khoảng 0.5 lb)"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/adc0ee00106ae598.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%E1%BA%AFt%20h%E1%BA%A1t%20l%E1%BB%B1u%20g%E1%BB%8Dt%20v%E1%BB%8F%20parsnip%20%28kho%E1%BA%A3ng%200.5%20lb%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cắt hạt lựu gọt vỏ parsnip (khoảng 0.5 lb)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-092",
+          "title": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "local_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-092-ing-08",
+          "recipe_id": "soup-cookbook-092",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-092",
+          "component_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "raw_text": "1 1/4 cups (3/4-inch) diced peeled parsnip (about 1/2 pound)",
+          "display_amount": "1 1/4 cốc (chuẩn hóa: 300 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00092",
+      "canonical_name": "(0.75-inch) diced peeled rutabaga (about 0.75 pound)",
+      "name": "cắt hạt lựu gọt vỏ rutabaga (khoảng 0.75 lb)",
+      "name_i18n": {
+        "en": "(0.75-inch) diced peeled rutabaga (about 0.75 pound)",
+        "vi": "cắt hạt lựu gọt vỏ rutabaga (khoảng 0.75 lb)"
+      },
+      "description": "cắt hạt lựu gọt vỏ rutabaga (khoảng 0.75 lb) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cắt hạt lựu gọt vỏ rutabaga (khoảng 0.75 lb)"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/4270c1c4e81a1698.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%E1%BA%AFt%20h%E1%BA%A1t%20l%E1%BB%B1u%20g%E1%BB%8Dt%20v%E1%BB%8F%20rutabaga%20%28kho%E1%BA%A3ng%200.75%20lb%29%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cắt hạt lựu gọt vỏ rutabaga (khoảng 0.75 lb)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-092",
+          "title": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "local_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-092-ing-06",
+          "recipe_id": "soup-cookbook-092",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-092",
+          "component_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "raw_text": "2 1/4 cups (3/4-inch) diced peeled rutabaga (about 3/4 pound)",
+          "display_amount": "2 1/4 cốc (chuẩn hóa: 540 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00093",
+      "canonical_name": "(0.75-inch) diced peeled turnip",
+      "name": "cắt hạt lựu gọt vỏ turnip",
+      "name_i18n": {
+        "en": "(0.75-inch) diced peeled turnip",
+        "vi": "cắt hạt lựu gọt vỏ turnip"
+      },
+      "description": "cắt hạt lựu gọt vỏ turnip là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cắt hạt lựu gọt vỏ turnip"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/a39b94fd5d7d5638.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=c%E1%BA%AFt%20h%E1%BA%A1t%20l%E1%BB%B1u%20g%E1%BB%8Dt%20v%E1%BB%8F%20turnip%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cắt hạt lựu gọt vỏ turnip",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-092",
+          "title": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "local_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-092-ing-07",
+          "recipe_id": "soup-cookbook-092",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-092",
+          "component_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "raw_text": "2 cups (3/4-inch) diced peeled turnip",
+          "display_amount": "2 cốc (chuẩn hóa: 480 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00094",
+      "canonical_name": "(0.75-inch) diced peeled Yukon gold potato (about 1 pound)",
+      "name": "cắt hạt lựu gọt vỏ Yukon gold khoai tây (khoảng 1 lb)",
+      "name_i18n": {
+        "en": "(0.75-inch) diced peeled Yukon gold potato (about 1 pound)",
+        "vi": "cắt hạt lựu gọt vỏ Yukon gold khoai tây (khoảng 1 lb)"
+      },
+      "description": "cắt hạt lựu gọt vỏ Yukon gold khoai tây (khoảng 1 lb) là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "cắt hạt lựu gọt vỏ Yukon gold khoai tây (khoảng 1 lb)"
+      ],
+      "macro_class": "carbohydrate",
+      "macro_classes_observed": [
+        "carbohydrate"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "starchy_carbohydrate",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/72f3575d63cd2f8c.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu cắt hạt lựu gọt vỏ Yukon gold khoai tây (khoảng 1 lb)",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "ml"
+        ],
+        "normalized": [
+          "ml"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "soup-cookbook"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "soup-cookbook-092",
+          "title": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "local_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "soup-cookbook-092-ing-05",
+          "recipe_id": "soup-cookbook-092",
+          "catalog_code": "soup-cookbook",
+          "source_file": "recipes/soup-cookbook/part-10.json",
+          "component_type": "recipe",
+          "component_id": "soup-cookbook-092",
+          "component_name": "Món hầm kem rau củ với bánh mì nướng phô mai Gruyère",
+          "raw_text": "2 1/2 cups (3/4-inch) diced peeled Yukon gold potato (about 1 pound)",
+          "display_amount": "2 1/2 cốc (chuẩn hóa: 600 ml)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00095",
+      "canonical_name": "(1 cup) pitted moist-pack prunes",
+      "name": "bỏ hạt mận khô đóng gói ẩm",
+      "name_i18n": {
+        "en": "(1 cup) pitted moist-pack prunes",
+        "vi": "bỏ hạt mận khô đóng gói ẩm"
+      },
+      "description": "bỏ hạt mận khô đóng gói ẩm là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "bỏ hạt mận khô đóng gói ẩm"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/a808c06967a66cfa.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=b%E1%BB%8F%20h%E1%BA%A1t%20m%E1%BA%ADn%20kh%C3%B4%20%C4%91%C3%B3ng%20g%C3%B3i%20%E1%BA%A9m%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu bỏ hạt mận khô đóng gói ẩm",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "rice-cooker"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "rice-cooker-212",
+          "title": "Kem trứng mận khô kiểu đồng quê Pháp",
+          "local_name": "Kem trứng mận khô kiểu đồng quê Pháp",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-22.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "rice-cooker-212-ing-01",
+          "recipe_id": "rice-cooker-212",
+          "catalog_code": "rice-cooker",
+          "source_file": "recipes/rice-cooker/part-22.json",
+          "component_type": "recipe",
+          "component_id": "rice-cooker-212",
+          "component_name": "Kem trứng mận khô kiểu đồng quê Pháp",
+          "raw_text": "8 ounces (1 cup) pitted moist-pack prunes",
+          "display_amount": "8 oz (chuẩn hóa: 226.8 g)"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00096",
+      "canonical_name": "(1 lb 1 oz/8 cups) breadcrumbs made from day-old bread",
+      "name": "vụn bánh mì làm từ để qua ngày bánh mì",
+      "name_i18n": {
+        "en": "(1 lb 1 oz/8 cups) breadcrumbs made from day-old bread",
+        "vi": "vụn bánh mì làm từ để qua ngày bánh mì"
+      },
+      "description": "vụn bánh mì làm từ để qua ngày bánh mì là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "vụn bánh mì làm từ để qua ngày bánh mì"
+      ],
+      "macro_class": "carbohydrate",
+      "macro_classes_observed": [
+        "carbohydrate"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "starchy_carbohydrate",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [
+        "gluten"
+      ],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/18e52d1a3f99a40d.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=v%E1%BB%A5n%20b%C3%A1nh%20m%C3%AC%20l%C3%A0m%20t%E1%BB%AB%20%C4%91%E1%BB%83%20qua%20ng%C3%A0y%20b%C3%A1nh%20m%C3%AC%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu vụn bánh mì làm từ để qua ngày bánh mì",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-062",
+          "title": "Gà tây quay với nhân truyền thống và sốt nam việt quất",
+          "local_name": "Gà tây quay với nhân truyền thống và sốt nam việt quất",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-062-ing-12",
+          "recipe_id": "poultry-meat-game-062",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-07.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-062",
+          "component_name": "Gà tây quay với nhân truyền thống và sốt nam việt quất",
+          "raw_text": "80 g (1 lb 1 oz/8 cups) breadcrumbs made from day-old bread",
+          "display_amount": "80 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00097",
+      "canonical_name": "(1 lb 10 oz) beef brisket, cut into 3 cm (1.25 inch) pieces",
+      "name": "thịt bò brisket",
+      "name_i18n": {
+        "en": "(1 lb 10 oz) beef brisket, cut into 3 cm (1.25 inch) pieces",
+        "vi": "thịt bò brisket"
+      },
+      "description": "thịt bò brisket là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "thịt bò brisket",
+        "Bò brisket"
+      ],
+      "macro_class": "protein",
+      "macro_classes_observed": [
+        "protein"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "protein_foods",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/0dd0bb5e43b2f737.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu thịt bò brisket",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-123",
+          "title": "Cà ri bò Massaman",
+          "local_name": "Cà ri bò Massaman",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-123-ing-03",
+          "recipe_id": "poultry-meat-game-123",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-13.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-123",
+          "component_name": "Cà ri bò Massaman",
+          "raw_text": "50 g (1 lb 10 oz) beef brisket, cut into 3 cm (1¼ inch) pieces",
+          "display_amount": "50 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00098",
+      "canonical_name": "(1 lb 10 oz) jap pumpkin (winter squash), peeled, seeded and cut into 5 cm (2 inch) pieces",
+      "name": "jap pumpkin (winter squash), gọt vỏ, bỏ hạt và cắt thành 5 cm (2 inch) miếng",
+      "name_i18n": {
+        "en": "(1 lb 10 oz) jap pumpkin (winter squash), peeled, seeded and cut into 5 cm (2 inch) pieces",
+        "vi": "jap pumpkin (winter squash), gọt vỏ, bỏ hạt và cắt thành 5 cm (2 inch) miếng"
+      },
+      "description": "jap pumpkin (winter squash), gọt vỏ, bỏ hạt và cắt thành 5 cm (2 inch) miếng là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "jap pumpkin (winter squash), gọt vỏ, bỏ hạt và cắt thành 5 cm (2 inch) miếng",
+        "jap pumpkin (winter squash)"
+      ],
+      "macro_class": "fiber_veg",
+      "macro_classes_observed": [
+        "fiber_veg"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "non_starchy_vegetable",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/647a798950c2a713.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu jap pumpkin (winter squash), gọt vỏ, bỏ hạt và cắt thành 5 cm (2 inch) miếng",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-113",
+          "title": "Tagine gà, mơ, bí đỏ và đậu gà",
+          "local_name": "Tagine gà, mơ, bí đỏ và đậu gà",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-113-ing-17",
+          "recipe_id": "poultry-meat-game-113",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-12.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-113",
+          "component_name": "Tagine gà, mơ, bí đỏ và đậu gà",
+          "raw_text": "50 g (1 lb 10 oz) jap pumpkin (winter squash), peeled, seeded and cut into 5 cm (2 inch) pieces",
+          "display_amount": "50 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00099",
+      "canonical_name": "(1 lb 10 oz) Jerusalem artichokes, scrubbed",
+      "name": "Jerusalem artichokes, scrubbed",
+      "name_i18n": {
+        "en": "(1 lb 10 oz) Jerusalem artichokes, scrubbed",
+        "vi": "Jerusalem artichokes, scrubbed"
+      },
+      "description": "Jerusalem artichokes, scrubbed là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "Jerusalem artichokes, scrubbed",
+        "Jerusalem artichokes"
+      ],
+      "macro_class": "mixed",
+      "macro_classes_observed": [
+        "mixed"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "mixed_food",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/6618e63bfad6d6f8.jpg",
+      "image_search_url": "https://commons.wikimedia.org/w/index.php?title=Special:MediaSearch&type=image&search=Jerusalem%20artichokes%2C%20scrubbed%20food%20ingredient",
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu Jerusalem artichokes, scrubbed",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-051",
+          "title": "Cốt lết heo với quả bách xù và xô thơm",
+          "local_name": "Cốt lết heo với quả bách xù và xô thơm",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-051-ing-04",
+          "recipe_id": "poultry-meat-game-051",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-06.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-051",
+          "component_name": "Cốt lết heo với quả bách xù và xô thơm",
+          "raw_text": "50 g (1 lb 10 oz) Jerusalem artichokes, scrubbed",
+          "display_amount": "50 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    },
+    {
+      "id": "ingredient-00100",
+      "canonical_name": "(1 lb 10 oz) new potatoes",
+      "name": "new potatoes",
+      "name_i18n": {
+        "en": "(1 lb 10 oz) new potatoes",
+        "vi": "new potatoes"
+      },
+      "description": "new potatoes là nguyên liệu được chuẩn hóa trong danh mục Mango; phân loại chỉ mô tả nhóm thực phẩm và không thay thế thông tin trên nhãn sản phẩm.",
+      "aliases": [
+        "new potatoes",
+        "New khoai tây"
+      ],
+      "macro_class": "carbohydrate",
+      "macro_classes_observed": [
+        "carbohydrate"
+      ],
+      "nutrition_profile": {
+        "nutrition_group": "starchy_carbohydrate",
+        "classification_level": "food_group_only",
+        "quantitative_nutrition_available": false,
+        "description_vi": "Phân loại nhóm thực phẩm; không suy ra dinh dưỡng định lượng nếu nguồn không cung cấp."
+      },
+      "allergen_flags": [],
+      "flavor_tags": [],
+      "culinary_roles": [],
+      "image_url": "assets/ingredients/0c7f8393ba59ecab.jpg",
+      "image_search_url": null,
+      "image_source": "Wikimedia Commons MediaSearch",
+      "image_alt": "Ảnh minh họa nguyên liệu new potatoes",
+      "image_license_note": "Cần chọn tệp cụ thể trong kết quả MediaSearch và kiểm tra giấy phép/ghi công trước khi dùng production.",
+      "observed_units": {
+        "raw": [
+          "gram"
+        ],
+        "normalized": [
+          "g"
+        ]
+      },
+      "occurrence_count": 1,
+      "recipe_count": 1,
+      "catalog_codes": [
+        "poultry-meat-game"
+      ],
+      "recipe_refs": [
+        {
+          "recipe_id": "poultry-meat-game-165",
+          "title": "Thăn heo nhồi sung và hồ đào",
+          "local_name": "Thăn heo nhồi sung và hồ đào",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-17.json"
+        }
+      ],
+      "occurrences": [
+        {
+          "source_ingredient_id": "poultry-meat-game-165-ing-12",
+          "recipe_id": "poultry-meat-game-165",
+          "catalog_code": "poultry-meat-game",
+          "source_file": "recipes/poultry-meat-game/part-17.json",
+          "component_type": "recipe",
+          "component_id": "poultry-meat-game-165",
+          "component_name": "Thăn heo nhồi sung và hồ đào",
+          "raw_text": "50 g (1 lb 10 oz) new potatoes",
+          "display_amount": "50 g"
+        }
+      ],
+      "data_quality": {
+        "normalization_status": "rebuilt_from_current_recipe_catalogs",
+        "warnings": []
+      }
+    }
+  ],
+  "shard": {
+    "index": 2,
+    "count": 228.0,
+    "total_records": 11393
+  }
+}

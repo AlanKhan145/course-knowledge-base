@@ -1,0 +1,28 @@
+{
+  "$schema": "./vocabularies.schema.json",
+  "schema_version": "1.1.0",
+  "description": "Từ điển giá trị hợp lệ cho toàn bộ catalog Mango, đã đồng bộ với 22 catalog hiện tại; bổ sung catalog registry, mô tả, liên kết tìm ảnh và phân loại dinh dưỡng ở mức nhóm thực phẩm. Các nhóm giá trị được chia thành các file con, tối đa 10 bản ghi mỗi file.",
+  "normalization_policy": {
+    "canonical_codes": "File mới phải ưu tiên mã không deprecated. Mã deprecated chỉ tồn tại để đọc dữ liệu cũ và phải được chuẩn hoá khi ghi lại.",
+    "legacy_coverage": "Mọi giá trị enum xuất hiện trong 22 catalog dữ liệu hiện tại đều phải có mặt trong values của nhóm tương ứng.",
+    "display_language": "name_i18n.vi là nhãn hiển thị bắt buộc ở giai đoạn này; có thể bổ sung ngôn ngữ khác về sau.",
+    "unknown_values": "Không tự sinh enum mới trong recipe. Nếu gặp giá trị chưa có trong vocabularies.json, đưa bản ghi về trạng thái cần rà soát và cập nhật vocabulary trước.",
+    "image_policy": "Ưu tiên URL ảnh trực tiếp đã xác minh từ catalog. Với nguyên liệu/taxonomy chưa có asset ổn định, lưu image_search_url tới Wikimedia Commons MediaSearch thay vì bịa URL file trực tiếp; cần chọn asset và kiểm tra giấy phép trước production.",
+    "nutrition_policy": "nutrition_group và macro_class là phân loại mức nhóm; không suy diễn thành số gram protein/carbohydrate/fat hay tuyên bố sức khoẻ nếu nguồn không cung cấp.",
+    "schema_compatibility": "Schema chấp nhận một số legacy quirks đang có trong catalog (array trùng, text array có null, phase chưa đủ, absolute source_file); các vấn đề này phải được báo bằng lint và sửa dần, không dùng enum để làm mất dữ liệu nguồn."
+  },
+  "notes": {
+    "serving_vs_portion": "Khẩu phần tham chiếu và lượng thực tế ăn là hai khái niệm khác nhau. Dữ liệu dinh dưỡng phải nêu rõ cơ sở khẩu phần.",
+    "no_health_labels": "Không dùng một cờ đúng/sai để kết luận món “lành mạnh”. Các tag thành phần chỉ mô tả cấu trúc món.",
+    "no_personal_goals": "Mục tiêu cá nhân như giảm cân, tăng cơ, TDEE hoặc nhịn ăn gián đoạn thuộc dữ liệu người dùng, không thuộc recipe catalog.",
+    "allergy_vs_preference": "Dị ứng thuộc an toàn và dùng allergen_flags; nguyên liệu người dùng không thích là sở thích riêng.",
+    "no_difficulty_field": "Không lưu difficulty nếu hệ thống chọn suy ra từ thời gian, số bước và số nguyên liệu.",
+    "no_search_blob": "Không lưu chuỗi tìm kiếm gộp sẵn; chỉ lưu các trường nguồn để dựng index lúc chạy.",
+    "legacy_migration": "Các code có deprecated=true phải được chấp nhận khi đọc dữ liệu cũ nhưng không nên sinh ra khi tạo hoặc cập nhật recipe mới."
+  },
+  "sharding": {
+    "directory": "vocabularies/",
+    "chunk_size": 10,
+    "group_file_pattern": "<group>/part-XX.json"
+  }
+}

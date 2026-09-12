@@ -1,0 +1,37 @@
+{
+  "description": "Khuôn các giai đoạn của phần hướng dẫn. Các phase trong steps phải tương thích với khuôn đã chọn.",
+  "schema_version": "1.1.0",
+  "group": "step_template",
+  "shard": {
+    "index": 1,
+    "count": 1,
+    "total_records": 2
+  },
+  "values": [
+    {
+      "code": "full_3_phase",
+      "name_i18n": {
+        "vi": "Ba giai đoạn đầy đủ",
+        "en": "Full 3 Phase"
+      },
+      "definition": "Gồm prep, cook và finish.",
+      "required_phases": [
+        "prep",
+        "cook",
+        "finish"
+      ]
+    },
+    {
+      "code": "simple_2_step",
+      "name_i18n": {
+        "vi": "Hai bước rút gọn",
+        "en": "Simple 2 Step"
+      },
+      "definition": "Gồm prep và cook.",
+      "required_phases": [
+        "prep",
+        "cook"
+      ]
+    }
+  ]
+}

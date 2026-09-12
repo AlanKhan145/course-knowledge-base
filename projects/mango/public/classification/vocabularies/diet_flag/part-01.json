@@ -1,0 +1,257 @@
+{
+  "description": "Nhãn chế độ ăn của món. Chỉ gắn sau khi kiểm tra toàn bộ nguyên liệu, sốt, gia vị, món ăn kèm và trang trí.",
+  "schema_version": "1.1.0",
+  "group": "diet_flag",
+  "shard": {
+    "index": 1,
+    "count": 1,
+    "total_records": 10
+  },
+  "values": [
+    {
+      "code": "vegetarian",
+      "name_i18n": {
+        "vi": "Chay có trứng sữa",
+        "en": "Vegetarian"
+      },
+      "definition": "Không có thịt, gia cầm và thủy sản; có thể dùng trứng hoặc sữa.",
+      "excluded_ingredients": [
+        "thịt",
+        "gia cầm",
+        "cá và hải sản",
+        "nước dùng thịt hoặc cá",
+        "nước mắm",
+        "mỡ động vật",
+        "gelatin"
+      ],
+      "verification_method": "Duyệt từng nguyên liệu kể cả nước dùng, mỡ nấu và sốt pha sẵn. Mỡ vịt, mỡ ngỗng, nước dùng gà và nước mắm đều làm mất nhãn này.",
+      "included_ingredients": [
+        "rau củ",
+        "ngũ cốc",
+        "các loại đậu",
+        "trứng",
+        "sữa và chế phẩm từ sữa"
+      ],
+      "required_data": "Danh sách nguyên liệu đầy đủ, gồm cả loại chất béo dùng để nấu và nguồn gốc nước dùng.",
+      "notes": "Không đồng nhất vegetarian với vegan hoặc pescatarian; khi nguồn không đủ rõ cần để classification_basis ở estimated/unreviewed.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Vegetarian+food",
+      "image_alt": "Chay có trứng sữa"
+    },
+    {
+      "code": "vegan",
+      "name_i18n": {
+        "vi": "Thuần chay",
+        "en": "Vegan"
+      },
+      "definition": "Không dùng bất kỳ sản phẩm nào có nguồn gốc động vật.",
+      "excluded_ingredients": [
+        "thịt",
+        "gia cầm",
+        "cá và hải sản",
+        "trứng",
+        "sữa và chế phẩm từ sữa",
+        "mật ong",
+        "gelatin",
+        "mỡ động vật"
+      ],
+      "verification_method": "Kiểm tra từng nguyên liệu theo danh sách loại trừ; đặc biệt lưu ý mật ong, gelatin, chất béo và phụ gia có nguồn gốc động vật.",
+      "included_ingredients": [
+        "rau củ",
+        "trái cây",
+        "ngũ cốc",
+        "các loại đậu",
+        "hạt",
+        "sữa thực vật"
+      ],
+      "required_data": "Danh sách nguyên liệu đầy đủ gồm chất tạo ngọt, chất tạo đông và loại chất béo.",
+      "notes": "Thuần chay không đồng nghĩa với không gluten hoặc “lành mạnh”. Seitan là gluten lúa mì nên món có seitan không thể là gluten_free.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Vegan+food",
+      "image_alt": "Thuần chay"
+    },
+    {
+      "code": "pescatarian",
+      "name_i18n": {
+        "vi": "Chay có hải sản",
+        "en": "Pescatarian"
+      },
+      "definition": "Không có thịt và gia cầm nhưng có thể có cá/hải sản.",
+      "excluded_ingredients": [
+        "thịt đỏ",
+        "gia cầm",
+        "nước dùng thịt",
+        "mỡ động vật trên cạn"
+      ],
+      "included_ingredients": [
+        "cá",
+        "hải sản",
+        "rau củ",
+        "ngũ cốc",
+        "trứng",
+        "sữa"
+      ],
+      "verification_method": "Duyệt nguyên liệu và nước dùng để loại trừ thịt và gia cầm.",
+      "required_data": "Danh sách nguyên liệu đầy đủ và nguồn gốc nước dùng.",
+      "notes": "Dùng thận trọng khi nguồn chỉ ghi “vegetarian” mà không mô tả thành phần.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Pescatarian+food",
+      "image_alt": "Chay có hải sản"
+    },
+    {
+      "code": "gluten_free",
+      "name_i18n": {
+        "vi": "Không gluten",
+        "en": "Gluten Free"
+      },
+      "definition": "Không chứa nguồn gluten; sản phẩm chế biến sẵn cần xác minh nhãn.",
+      "excluded_ingredients": [
+        "lúa mì",
+        "lúa mạch đen",
+        "lúa mạch",
+        "triticale",
+        "nước tương thường",
+        "malt, siro malt và giấm malt",
+        "bia",
+        "yến mạch thường"
+      ],
+      "threshold": "Dưới 20 ppm gluten cho nhãn gluten-free theo chuẩn tham chiếu FDA.",
+      "verification_method": "Năm bước: kiểm tra nguyên liệu chính; kiểm tra nguồn gluten ẩn trong nước tương, súp đóng gói, sốt pha sẵn và bột nêm; kiểm tra malt và yến mạch; kiểm tra nhiễm chéo; đối chiếu nhãn sản phẩm với ngưỡng áp dụng.",
+      "included_ingredients": [
+        "gạo",
+        "ngô và bột ngô",
+        "khoai",
+        "kiều mạch",
+        "quinoa",
+        "yến mạch có chứng nhận không gluten"
+      ],
+      "required_data": "Nhãn sản phẩm của mọi thành phần chế biến sẵn hoặc xác nhận quy trình chế biến.",
+      "notes": "Celiac, dị ứng lúa mì và nhạy cảm gluten không celiac là các tình trạng khác nhau. verified chỉ nên dùng khi thành phần chế biến sẵn đã được xác minh.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Gluten+Free+food",
+      "image_alt": "Không gluten"
+    },
+    {
+      "code": "dairy_free",
+      "name_i18n": {
+        "vi": "Không sữa",
+        "en": "Dairy Free"
+      },
+      "definition": "Không chứa sữa và chế phẩm từ sữa.",
+      "excluded_ingredients": [
+        "sữa",
+        "bơ",
+        "phô mai",
+        "kem",
+        "sữa chua",
+        "whey",
+        "sữa bột trong thực phẩm chế biến"
+      ],
+      "included_ingredients": [
+        "sữa thực vật",
+        "dầu thực vật"
+      ],
+      "verification_method": "Duyệt nguyên liệu và nhãn của mọi sản phẩm chế biến sẵn.",
+      "required_data": "Danh sách nguyên liệu và nhãn sản phẩm chế biến.",
+      "notes": "Không dung nạp lactose và dị ứng đạm sữa là hai tình trạng khác nhau; nhãn này chỉ mô tả sự có mặt của thành phần sữa.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Dairy+Free+food",
+      "image_alt": "Không sữa"
+    },
+    {
+      "code": "egg_free",
+      "name_i18n": {
+        "vi": "Không trứng",
+        "en": "Egg Free"
+      },
+      "definition": "Không chứa trứng và thành phần từ trứng.",
+      "excluded_ingredients": [
+        "trứng",
+        "mì trứng",
+        "mayonnaise",
+        "lòng trắng hoặc lòng đỏ dùng làm chất kết dính"
+      ],
+      "included_ingredients": [],
+      "verification_method": "Duyệt nguyên liệu, đặc biệt là mì, sốt và bột áo.",
+      "required_data": "Danh sách nguyên liệu và nhãn sản phẩm chế biến.",
+      "notes": null,
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Egg+Free+food",
+      "image_alt": "Không trứng"
+    },
+    {
+      "code": "nut_free",
+      "name_i18n": {
+        "vi": "Không hạt cây và đậu phộng",
+        "en": "Nut Free"
+      },
+      "definition": "Không chứa hạt cây và đậu phộng; mức verified cần xem cả cảnh báo nhiễm chéo.",
+      "excluded_ingredients": [
+        "đậu phộng",
+        "hạt điều",
+        "hạnh nhân",
+        "óc chó",
+        "pesto",
+        "dầu đậu phộng",
+        "sốt sa tế"
+      ],
+      "included_ingredients": [],
+      "verification_method": "Duyệt nguyên liệu và nhãn sốt pha sẵn. Nhiễm chéo trong sản xuất cần xác nhận riêng từ nhà sản xuất.",
+      "required_data": "Danh sách nguyên liệu và nhãn sản phẩm chế biến.",
+      "notes": "Không đặt verified nếu chỉ dựa vào danh sách nguyên liệu mà chưa có thông tin nhiễm chéo.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Nut+Free+food",
+      "image_alt": "Không hạt cây và đậu phộng"
+    },
+    {
+      "code": "low_carb",
+      "name_i18n": {
+        "vi": "Ít carbohydrate",
+        "en": "Low Carb"
+      },
+      "definition": "Chế độ ăn hạn chế carbohydrate. Không có một ngưỡng duy nhất được thống nhất; các mức tham chiếu thường được định nghĩa theo tổng lượng carbohydrate trong ngày.",
+      "required_data": "Lượng carbohydrate định lượng cho từng nguyên liệu và tổng theo khẩu phần. Dữ liệu này chưa có đầy đủ ở phiên bản hiện tại.",
+      "notes": "Không được suy ra nhãn này từ tên món.",
+      "included_ingredients": [],
+      "excluded_ingredients": [],
+      "verification_method": "Không thể xác minh chỉ từ tên món; cần lượng carbohydrate định lượng theo khẩu phần và ngữ cảnh mục tiêu ăn uống.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Low+Carb+food",
+      "image_alt": "Ít carbohydrate"
+    },
+    {
+      "code": "keto",
+      "name_i18n": {
+        "vi": "Keto",
+        "en": "Keto"
+      },
+      "definition": "Chế độ ăn rất ít carbohydrate và nhiều chất béo; đánh giá cần dựa trên phân bố năng lượng theo macro và tổng carbohydrate.",
+      "required_data": "Phân bố năng lượng theo macro cho khẩu phần.",
+      "notes": "Không được suy ra nhãn này từ tên món.",
+      "included_ingredients": [],
+      "excluded_ingredients": [],
+      "verification_method": "Không thể xác minh chỉ ở cấp tên món; cần dữ liệu macro theo khẩu phần và quy tắc keto được chọn.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Keto+food",
+      "image_alt": "Keto"
+    },
+    {
+      "code": "paleo",
+      "name_i18n": {
+        "vi": "Paleo",
+        "en": "Paleo"
+      },
+      "definition": "Chế độ ăn hạn chế nhiều thực phẩm của nông nghiệp/công nghiệp hiện đại; không có một bộ quy tắc Paleo duy nhất.",
+      "required_data": "Bộ quy tắc Paleo cụ thể được hệ thống chọn làm chuẩn.",
+      "notes": "Nhiều nguyên liệu thuộc vùng tranh cãi tùy biến thể Paleo; không suy ra nhãn này từ tên món.",
+      "included_ingredients": [
+        "thịt",
+        "cá",
+        "trứng",
+        "rau củ",
+        "trái cây",
+        "hạt"
+      ],
+      "excluded_ingredients": [
+        "ngũ cốc",
+        "các loại đậu",
+        "đường tinh luyện",
+        "thực phẩm chế biến sẵn"
+      ],
+      "verification_method": "Phải chọn một định nghĩa Paleo cụ thể làm chuẩn trước khi xác minh.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Paleo+food",
+      "image_alt": "Paleo"
+    }
+  ]
+}

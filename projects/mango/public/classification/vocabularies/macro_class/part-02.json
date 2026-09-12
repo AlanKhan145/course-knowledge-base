@@ -1,0 +1,45 @@
+{
+  "description": "Vai trò dinh dưỡng nổi bật của một nguyên liệu. Đây là nhãn định tính, không phải kết quả tính toán: một thực phẩm có thể chứa nhiều macro và không có ngưỡng phần trăm trong phiên bản này để xác định macro trội. Vì vậy macro_class chỉ dùng để nhóm nguyên liệu khi hiển thị/gợi ý, không dùng để tính macro của món. Nguyên liệu đa macro nên được ghi chú trong data_quality.warnings.",
+  "reference_note": "Hệ số năng lượng tham chiếu: đạm 4 kcal/g, carbohydrate 4 kcal/g, chất béo 9 kcal/g, cồn 7 kcal/g.",
+  "schema_version": "1.1.0",
+  "group": "macro_class",
+  "shard": {
+    "index": 2,
+    "count": 2,
+    "total_records": 13
+  },
+  "values": [
+    {
+      "code": "other",
+      "name_i18n": {
+        "vi": "Khác",
+        "en": "Other"
+      },
+      "definition": "Giá trị tương thích dữ liệu cũ; nên rà soát để quy về nhóm dinh dưỡng cụ thể hoặc để null nếu không mang vai trò macro.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Other+food",
+      "image_alt": "Khác"
+    },
+    {
+      "code": "seasoning",
+      "name_i18n": {
+        "vi": "Gia vị nêm",
+        "en": "Seasoning"
+      },
+      "definition": "Giá trị tương thích dữ liệu cũ; nên rà soát để quy về nhóm dinh dưỡng cụ thể hoặc để null nếu không mang vai trò macro.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Seasoning+food",
+      "image_alt": "Gia vị nêm"
+    },
+    {
+      "code": "vegetable",
+      "name_i18n": {
+        "vi": "Rau củ",
+        "en": "Vegetable"
+      },
+      "deprecated": true,
+      "canonical_code": "fiber_veg",
+      "definition": "Nhóm dinh dưỡng vĩ mô/nhóm thực phẩm ở mức phân loại: rau củ. Không phải số liệu dinh dưỡng định lượng.",
+      "image_search_url": "https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=Vegetable+food",
+      "image_alt": "Rau củ"
+    }
+  ]
+}

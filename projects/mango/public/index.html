@@ -1,0 +1,3268 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mango Kitchen Atlas — dashboard khám phá catalog công thức và dữ liệu nguyên liệu."
+    />
+    <title>Mango Kitchen Atlas · Data Dashboard</title>
+    <style>
+      :root {
+        --paper: #f4f7f5;
+        --paper-deep: #e7efeb;
+        --surface: rgba(255, 255, 255, 0.94);
+        --surface-strong: #ffffff;
+        --ink: #20322e;
+        --muted: #60716c;
+        --faint: #899892;
+        --line: #d7e2dc;
+        --line-strong: #b9cbc2;
+        --orange: #ed7950;
+        --orange-deep: #c85b36;
+        --sage: #7c9985;
+        --teal: #126f69;
+        --navy: #244550;
+        --yellow: #d4a441;
+        --shadow: 0 18px 50px rgba(32, 50, 46, 0.08);
+        --radius-lg: 26px;
+        --radius-md: 16px;
+        --radius-sm: 10px;
+        /* Segoe UI/Arial đều có bộ ký tự tiếng Việt ổn định trên Windows và trình duyệt phổ biến. */
+        --display: "Segoe UI", Arial, sans-serif;
+        --body: "Segoe UI", Arial, "Helvetica Neue", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 5% 4%, rgba(237, 121, 80, 0.12), transparent 23rem),
+          radial-gradient(circle at 94% 18%, rgba(124, 153, 133, 0.13), transparent 22rem),
+          var(--paper);
+        font-family: var(--body);
+        font-size: 15px;
+        line-height: 1.45;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body::before {
+        position: fixed;
+        z-index: -1;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.22;
+        content: "";
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
+        mix-blend-mode: multiply;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button,
+      select {
+        cursor: pointer;
+      }
+
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      tr:focus-visible {
+        outline: 3px solid rgba(30, 106, 102, 0.32);
+        outline-offset: 3px;
+      }
+
+      .page-shell {
+        width: min(1540px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 30px 0 52px;
+      }
+
+      .masthead {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 36px;
+        padding: 12px 8px 34px;
+      }
+
+      .eyebrow,
+      .section-kicker,
+      .filter-label,
+      .status-label {
+        color: var(--orange-deep);
+        font-size: 0.69rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .eyebrow::before {
+        width: 24px;
+        height: 2px;
+        content: "";
+        background: var(--orange);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        max-width: 800px;
+        margin-top: 11px;
+        font-family: var(--display);
+        font-size: clamp(3.1rem, 6vw, 6.55rem);
+        font-weight: 400;
+        letter-spacing: -0.075em;
+        line-height: 0.92;
+      }
+
+      h1 em {
+        color: var(--orange);
+        font-style: italic;
+      }
+
+      .masthead-copy {
+        max-width: 720px;
+      }
+
+      .masthead-copy > p {
+        max-width: 640px;
+        margin-top: 20px;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .masthead-note {
+        flex: 0 0 230px;
+        padding: 18px 18px 20px;
+        border: 1px solid var(--line);
+        border-radius: 18px 18px 6px 18px;
+        background: rgba(255, 252, 246, 0.5);
+        transform: rotate(2deg);
+      }
+
+      .masthead-note .status-line {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--teal);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+      }
+
+      .pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--sage);
+        box-shadow: 0 0 0 5px rgba(120, 142, 112, 0.15);
+      }
+
+      .masthead-note strong {
+        display: block;
+        margin-top: 14px;
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 1.23rem;
+        font-weight: 400;
+      }
+
+      .masthead-note small {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: 258px minmax(0, 1fr);
+        align-items: start;
+        gap: 24px;
+      }
+
+      .filter-panel {
+        position: sticky;
+        top: 18px;
+        padding: 21px 18px 18px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg) 10px var(--radius-lg) 10px;
+        background: rgba(255, 252, 246, 0.7);
+        box-shadow: 0 12px 30px rgba(61, 47, 31, 0.04);
+      }
+
+      .filter-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+
+      .filter-heading h2 {
+        font-family: var(--display);
+        font-size: 1.42rem;
+        font-weight: 400;
+        letter-spacing: -0.04em;
+      }
+
+      .text-button {
+        padding: 0;
+        border: 0;
+        color: var(--orange-deep);
+        background: transparent;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      .filter-group {
+        margin-top: 16px;
+      }
+
+      .filter-label {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--muted);
+        font-size: 0.61rem;
+        letter-spacing: 0.11em;
+      }
+
+      .search-box,
+      .select-wrap {
+        position: relative;
+      }
+
+      .search-box svg {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        width: 16px;
+        height: 16px;
+        color: var(--orange-deep);
+        transform: translateY(-50%);
+      }
+
+      .search-box input,
+      .select-wrap select {
+        width: 100%;
+        min-height: 41px;
+        padding: 9px 11px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        color: var(--ink);
+        outline: 0;
+        background: rgba(255, 255, 255, 0.54);
+        transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+      }
+
+      .search-box input {
+        padding-left: 37px;
+      }
+
+      .search-box input::placeholder {
+        color: var(--faint);
+      }
+
+      .search-box input:focus,
+      .select-wrap select:focus {
+        border-color: var(--teal);
+        background: var(--surface-strong);
+        box-shadow: 0 0 0 4px rgba(30, 106, 102, 0.08);
+      }
+
+      .select-wrap select {
+        appearance: none;
+        padding-right: 34px;
+      }
+
+      .select-wrap::after {
+        position: absolute;
+        top: 50%;
+        right: 13px;
+        width: 7px;
+        height: 7px;
+        border-right: 1.5px solid var(--muted);
+        border-bottom: 1.5px solid var(--muted);
+        pointer-events: none;
+        content: "";
+        transform: translateY(-70%) rotate(45deg);
+      }
+
+      .active-filter-note {
+        min-height: 35px;
+        margin-top: 19px;
+        padding-top: 14px;
+        border-top: 1px dashed var(--line-strong);
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .filter-tip {
+        margin-top: 18px;
+        padding: 13px 13px 14px;
+        border-radius: 12px 4px 12px 4px;
+        color: #5f604e;
+        background: rgba(216, 169, 74, 0.13);
+        font-size: 0.74rem;
+      }
+
+      .filter-tip strong {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 0.92rem;
+        font-weight: 400;
+      }
+
+      .dashboard-main {
+        min-width: 0;
+      }
+
+      .view-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .view-tab {
+        min-height: 38px;
+        padding: 8px 15px;
+        border: 1px solid var(--line);
+        border-radius: 999px 999px 999px 6px;
+        color: var(--muted);
+        background: rgba(255, 252, 246, 0.58);
+        font-size: 0.74rem;
+        font-weight: 800;
+        transition: color 150ms ease, background 150ms ease, border-color 150ms ease;
+      }
+
+      .view-tab:hover,
+      .view-tab.is-active {
+        border-color: rgba(30, 106, 102, 0.26);
+        color: #fffdf8;
+        background: var(--teal);
+      }
+
+      .view-panel[hidden] {
+        display: none !important;
+      }
+
+      .directory-card {
+        margin-top: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg) 10px var(--radius-lg) 10px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .directory-summary {
+        color: var(--muted);
+        font-size: 0.76rem;
+      }
+
+      .directory-search {
+        min-width: min(280px, 42vw);
+        min-height: 36px;
+        padding: 7px 11px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        color: var(--ink);
+        background: var(--paper);
+        font-size: 0.76rem;
+      }
+
+      .directory-scroll {
+        overflow-x: auto;
+      }
+
+      .directory-table {
+        min-width: 760px;
+      }
+
+      .directory-table th,
+      .directory-table td {
+        padding: 12px 15px;
+      }
+
+      .directory-table tbody tr {
+        cursor: default;
+      }
+
+      .directory-table tbody tr:hover {
+        background: rgba(30, 106, 102, 0.045);
+      }
+
+      .directory-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 220px;
+      }
+
+      .directory-thumb,
+      .directory-thumb-fallback {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 12px 4px 12px 4px;
+        color: rgba(255, 253, 248, 0.95);
+        background: linear-gradient(145deg, var(--sage), var(--teal));
+        font-family: var(--display);
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      .directory-thumb {
+        object-fit: cover;
+      }
+
+      .directory-thumb.is-failed {
+        display: none;
+      }
+
+      .directory-thumb.is-failed + .directory-thumb-fallback {
+        display: grid;
+      }
+
+      .directory-thumb-fallback {
+        display: grid;
+      }
+
+      .directory-name-copy strong,
+      .directory-name-copy span {
+        display: block;
+      }
+
+      .directory-name-copy strong {
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 0.98rem;
+        font-weight: 400;
+      }
+
+      .directory-name-copy span {
+        margin-top: 2px;
+        color: var(--faint);
+        font-size: 0.68rem;
+      }
+
+      .directory-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .directory-badge {
+        display: inline-flex;
+        padding: 4px 7px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.38);
+        font-size: 0.64rem;
+      }
+
+      .image-search-link {
+        color: var(--teal);
+        font-size: 0.7rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .directory-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 13px 20px 15px;
+        border-top: 1px solid var(--line);
+      }
+
+      .directory-pagination-info {
+        color: var(--muted);
+        font-size: 0.73rem;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .metric-card {
+        min-height: 135px;
+        padding: 17px 17px 15px;
+        border: 1px solid var(--line);
+        border-radius: 15px 15px 15px 4px;
+        background: var(--surface);
+        box-shadow: 0 9px 24px rgba(61, 47, 31, 0.035);
+      }
+
+      .metric-card:nth-child(2) {
+        background: rgba(120, 142, 112, 0.11);
+      }
+
+      .metric-card:nth-child(3) {
+        background: rgba(30, 106, 102, 0.08);
+      }
+
+      .metric-card:nth-child(4) {
+        background: rgba(225, 111, 69, 0.09);
+      }
+
+      .metric-label {
+        color: var(--muted);
+        font-size: 0.67rem;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+
+      .metric-value {
+        display: block;
+        margin-top: 13px;
+        font-family: var(--display);
+        font-size: clamp(2rem, 3.8vw, 3.2rem);
+        font-weight: 400;
+        letter-spacing: -0.07em;
+        line-height: 0.95;
+      }
+
+      .metric-foot {
+        display: block;
+        margin-top: 11px;
+        color: var(--faint);
+        font-size: 0.69rem;
+      }
+
+      .charts-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .chart-card,
+      .table-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg) 10px var(--radius-lg) 10px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .chart-card {
+        min-width: 0;
+        padding: 19px 19px 16px;
+      }
+
+      .chart-card.featured {
+        grid-column: span 3;
+      }
+
+      .chart-card.wide {
+        grid-column: span 2;
+      }
+
+      .chart-card:nth-child(2),
+      .chart-card:nth-child(3),
+      .chart-card:nth-child(4),
+      .chart-card:nth-child(5) {
+        grid-column: span 2;
+      }
+
+      .chart-card:nth-child(2) {
+        grid-column: span 3;
+      }
+
+      .card-heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        min-height: 54px;
+      }
+
+      .card-heading h2 {
+        margin-top: 3px;
+        font-family: var(--display);
+        font-size: 1.42rem;
+        font-weight: 400;
+        letter-spacing: -0.05em;
+        line-height: 1.05;
+      }
+
+      .card-heading p {
+        max-width: 230px;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .chart-count {
+        flex: 0 0 auto;
+        color: var(--faint);
+        font-size: 0.67rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .chart-stage {
+        min-height: 230px;
+        margin-top: 6px;
+      }
+
+      .chart-stage svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+      }
+
+      .chart-stage text {
+        font-family: var(--body);
+      }
+
+      .chart-empty {
+        display: grid;
+        min-height: 220px;
+        place-items: center;
+        color: var(--muted);
+        font-size: 0.82rem;
+        text-align: center;
+      }
+
+      .donut-layout {
+        display: grid;
+        grid-template-columns: minmax(130px, 0.95fr) minmax(105px, 1.05fr);
+        align-items: center;
+        gap: 6px;
+        min-height: 225px;
+      }
+
+      .legend {
+        display: grid;
+        gap: 9px;
+      }
+
+      .legend-item {
+        display: grid;
+        grid-template-columns: 9px minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.71rem;
+      }
+
+      .legend-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
+
+      .legend-label {
+        overflow: hidden;
+        color: var(--muted);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .legend-value {
+        color: var(--ink);
+        font-weight: 800;
+      }
+
+      .table-card {
+        margin-top: 14px;
+        overflow: hidden;
+      }
+
+      .table-heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px 20px 16px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .table-heading h2 {
+        margin-top: 3px;
+        font-family: var(--display);
+        font-size: 1.72rem;
+        font-weight: 400;
+        letter-spacing: -0.06em;
+      }
+
+      .table-heading p {
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.76rem;
+      }
+
+      .table-tools {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .table-tools label {
+        color: var(--muted);
+        font-size: 0.72rem;
+      }
+
+      .table-tools select {
+        min-height: 36px;
+        padding: 6px 30px 6px 10px;
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        color: var(--ink);
+        background: var(--paper);
+        font-size: 0.76rem;
+      }
+
+      .table-scroll {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        min-width: 780px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 14px 15px;
+        border-bottom: 1px solid rgba(222, 213, 200, 0.78);
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      th {
+        color: var(--faint);
+        font-size: 0.62rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      td {
+        color: var(--muted);
+        font-size: 0.76rem;
+      }
+
+      tbody tr {
+        cursor: pointer;
+        transition: background 150ms ease;
+      }
+
+      tbody tr:hover {
+        background: rgba(225, 111, 69, 0.06);
+      }
+
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .dish-cell {
+        min-width: 230px;
+      }
+
+      .dish-cell-inner {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 260px;
+      }
+
+      .dish-thumb,
+      .dish-thumb-fallback {
+        display: grid;
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 16px 5px 16px 5px;
+        color: rgba(255, 253, 248, 0.92);
+        background: linear-gradient(145deg, var(--orange), var(--teal));
+        box-shadow: 0 7px 16px rgba(61, 47, 31, 0.11);
+        font-family: var(--display);
+        font-size: 1.25rem;
+        font-style: italic;
+      }
+
+      .dish-thumb {
+        object-fit: cover;
+      }
+
+      .dish-thumb.is-failed {
+        display: none;
+      }
+
+      .dish-thumb-fallback {
+        display: none;
+      }
+
+      .dish-thumb-fallback:only-child,
+      .dish-thumb-fallback.is-visible {
+        display: grid;
+      }
+
+      .dish-thumb.is-failed + .dish-thumb-fallback {
+        display: grid;
+      }
+
+      .dish-copy {
+        min-width: 0;
+      }
+
+      .dish-title {
+        display: block;
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 1.02rem;
+        line-height: 1.08;
+      }
+
+      .dish-local {
+        display: block;
+        max-width: 270px;
+        margin-top: 4px;
+        overflow: hidden;
+        color: var(--faint);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .catalog-pill,
+      .class-pill,
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        max-width: 170px;
+        padding: 5px 8px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.42);
+        font-size: 0.66rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .catalog-pill {
+        border-color: rgba(30, 106, 102, 0.2);
+        color: var(--teal);
+        background: rgba(30, 106, 102, 0.07);
+      }
+
+      .class-pill {
+        border-color: rgba(225, 111, 69, 0.2);
+        color: var(--orange-deep);
+        background: rgba(225, 111, 69, 0.07);
+      }
+
+      .data-number {
+        color: var(--ink);
+        font-weight: 750;
+        white-space: nowrap;
+      }
+
+      .table-empty {
+        padding: 48px 20px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 13px 20px 15px;
+        border-top: 1px solid var(--line);
+      }
+
+      .pagination-info {
+        color: var(--muted);
+        font-size: 0.73rem;
+      }
+
+      .pagination-actions {
+        display: flex;
+        gap: 7px;
+      }
+
+      .page-button {
+        min-width: 34px;
+        min-height: 32px;
+        padding: 5px 9px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--ink);
+        background: var(--surface-strong);
+        font-size: 0.74rem;
+      }
+
+      .page-button:disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+      }
+
+      .footer-note {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 17px;
+        padding: 0 8px;
+        color: var(--faint);
+        font-size: 0.7rem;
+      }
+
+      .footer-note code {
+        color: var(--muted);
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .loading-screen {
+        position: fixed;
+        z-index: 20;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(246, 241, 232, 0.93);
+        transition: opacity 220ms ease, visibility 220ms ease;
+      }
+
+      .loading-screen.is-hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .loading-card {
+        width: min(370px, 100%);
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 22px 8px 22px 8px;
+        background: var(--surface-strong);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .loading-mark {
+        display: inline-grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border-radius: 50% 50% 50% 8px;
+        color: white;
+        background: var(--orange);
+        font-family: var(--display);
+        font-size: 1.45rem;
+        font-style: italic;
+        animation: breathe 1.5s ease-in-out infinite;
+      }
+
+      .loading-card h2 {
+        margin-top: 18px;
+        font-family: var(--display);
+        font-size: 1.55rem;
+        font-weight: 400;
+      }
+
+      .loading-card p {
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .error-card {
+        display: none;
+        margin-top: 14px;
+        padding: 16px 18px;
+        border: 1px solid rgba(185, 82, 50, 0.26);
+        border-radius: 12px;
+        color: var(--orange-deep);
+        background: rgba(225, 111, 69, 0.08);
+        font-size: 0.8rem;
+      }
+
+      .error-card.is-visible {
+        display: block;
+      }
+
+      .error-card strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .drawer-backdrop {
+        position: fixed;
+        z-index: 30;
+        inset: 0;
+        visibility: hidden;
+        background: rgba(29, 43, 38, 0.24);
+        opacity: 0;
+        transition: opacity 200ms ease, visibility 200ms ease;
+      }
+
+      .drawer-backdrop.is-open {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .detail-drawer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        width: min(570px, 100%);
+        height: 100%;
+        padding: 24px;
+        overflow-y: auto;
+        border-left: 1px solid var(--line);
+        background: var(--paper);
+        box-shadow: -20px 0 55px rgba(29, 43, 38, 0.13);
+        transform: translateX(100%);
+        transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .drawer-backdrop.is-open .detail-drawer {
+        transform: translateX(0);
+      }
+
+      .drawer-topline {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .close-button {
+        display: inline-grid;
+        width: 36px;
+        height: 36px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        color: var(--ink);
+        background: var(--surface-strong);
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      .detail-drawer h2 {
+        max-width: 440px;
+        margin-top: 13px;
+        font-family: var(--display);
+        font-size: clamp(2.25rem, 6vw, 4rem);
+        font-weight: 400;
+        letter-spacing: -0.075em;
+        line-height: 0.95;
+      }
+
+      .detail-local {
+        margin-top: 9px;
+        color: var(--muted);
+        font-family: var(--display);
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      .detail-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 17px;
+      }
+
+      .detail-chip {
+        padding: 5px 9px;
+        border-radius: 999px;
+        color: var(--teal);
+        background: rgba(30, 106, 102, 0.09);
+        font-size: 0.69rem;
+        font-weight: 750;
+      }
+
+      .detail-description {
+        margin-top: 23px;
+        color: var(--muted);
+        font-size: 0.89rem;
+      }
+
+      .detail-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
+        margin-top: 21px;
+      }
+
+      .detail-stat {
+        padding: 12px 10px;
+        border-top: 1px solid var(--line-strong);
+      }
+
+      .detail-stat strong {
+        display: block;
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 1.16rem;
+        font-weight: 400;
+      }
+
+      .detail-stat span {
+        display: block;
+        margin-top: 3px;
+        color: var(--faint);
+        font-size: 0.64rem;
+        text-transform: uppercase;
+      }
+
+      .detail-section {
+        margin-top: 26px;
+      }
+
+      .detail-section h3 {
+        color: var(--orange-deep);
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .ingredient-list,
+      .step-list {
+        margin: 11px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ingredient-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px 18px;
+      }
+
+      .ingredient-list li,
+      .step-list li {
+        color: var(--muted);
+        font-size: 0.79rem;
+      }
+
+      .ingredient-list li {
+        padding: 7px 0;
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .ingredient-list li strong {
+        color: var(--ink);
+        font-weight: 700;
+      }
+
+      .step-list {
+        counter-reset: recipe-step;
+      }
+
+      .step-list li {
+        position: relative;
+        padding: 0 0 15px 31px;
+        counter-increment: recipe-step;
+      }
+
+      .step-list li::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: grid;
+        width: 21px;
+        height: 21px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--orange-deep);
+        background: rgba(225, 111, 69, 0.13);
+        content: counter(recipe-step);
+        font-size: 0.65rem;
+        font-weight: 800;
+      }
+
+      .detail-source {
+        margin-top: 28px;
+        padding: 14px;
+        border-radius: 11px 4px 11px 4px;
+        color: var(--muted);
+        background: var(--paper-deep);
+        font-size: 0.72rem;
+      }
+
+      .detail-source a {
+        color: var(--teal);
+      }
+
+      .detail-back-button {
+        padding: 0;
+        border: 0;
+        color: var(--teal);
+        background: transparent;
+        font-size: 0.72rem;
+        font-weight: 800;
+      }
+
+      .detail-drawer {
+        width: min(1080px, 100%);
+        padding: 26px clamp(22px, 4vw, 54px) 48px;
+      }
+
+      .detail-page {
+        padding-top: 28px;
+      }
+
+      .detail-hero {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+        align-items: stretch;
+        gap: clamp(22px, 4vw, 52px);
+      }
+
+      .detail-hero-media {
+        position: relative;
+        min-height: 370px;
+        overflow: hidden;
+        border-radius: 30px 9px 30px 9px;
+        background: linear-gradient(145deg, #d8a94a, #b95232 45%, #1e6a66);
+        box-shadow: 0 20px 45px rgba(61, 47, 31, 0.15);
+      }
+
+      .detail-hero-image,
+      .detail-image-fallback {
+        width: 100%;
+        height: 100%;
+        min-height: 370px;
+        object-fit: cover;
+      }
+
+      .detail-hero-image {
+        display: block;
+        opacity: 0.94;
+      }
+
+      .detail-hero-image.is-failed {
+        display: none;
+      }
+
+      .detail-image-fallback {
+        display: grid;
+        place-items: center;
+        color: rgba(255, 253, 248, 0.96);
+        font-family: var(--display);
+        font-size: clamp(4rem, 8vw, 7rem);
+        font-style: italic;
+      }
+
+      .detail-hero-image:not(.is-failed) + .detail-image-fallback {
+        display: none;
+      }
+
+      .detail-media-label {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        max-width: calc(100% - 28px);
+        padding: 7px 10px;
+        border: 1px solid rgba(255, 253, 248, 0.3);
+        border-radius: 999px;
+        color: #fffdf8;
+        background: rgba(29, 43, 38, 0.58);
+        font-size: 0.65rem;
+        backdrop-filter: blur(10px);
+      }
+
+      .detail-hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+      }
+
+      .detail-eyebrow {
+        color: var(--orange-deep);
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .detail-hero-copy h2 {
+        max-width: 650px;
+        margin-top: 12px;
+        font-size: clamp(3rem, 7vw, 6.25rem);
+      }
+
+      .detail-lead {
+        max-width: 620px;
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 1rem;
+        line-height: 1.72;
+        white-space: pre-line;
+      }
+
+      .detail-taxonomy {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 20px;
+      }
+
+      .detail-chip {
+        border: 1px solid rgba(30, 106, 102, 0.14);
+      }
+
+      .detail-chip[title] {
+        cursor: help;
+      }
+
+      .detail-content-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+        gap: 18px;
+        margin-top: 30px;
+      }
+
+      .detail-main-column,
+      .detail-side-column {
+        display: grid;
+        align-content: start;
+        gap: 18px;
+        min-width: 0;
+      }
+
+      .detail-panel {
+        padding: 21px;
+        border: 1px solid var(--line);
+        border-radius: 20px 7px 20px 7px;
+        background: rgba(255, 252, 246, 0.62);
+      }
+
+      .detail-panel h3 {
+        color: var(--orange-deep);
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+      }
+
+      .detail-panel-intro {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 0.79rem;
+        line-height: 1.6;
+      }
+
+      .detail-stats {
+        margin-top: 0;
+      }
+
+      .detail-panel .detail-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px 14px;
+      }
+
+      .detail-stats .detail-stat {
+        padding: 0 0 13px;
+        border-top: 0;
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .detail-stats .detail-stat:nth-last-child(-n + 2) {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .ingredient-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 15px;
+      }
+
+      .ingredient-list li {
+        display: grid;
+        grid-template-columns: minmax(88px, 0.38fr) minmax(0, 1fr);
+        gap: 12px;
+        padding: 11px 0;
+      }
+
+      .ingredient-list li strong {
+        color: var(--orange-deep);
+        font-size: 0.76rem;
+      }
+
+      .ingredient-name {
+        color: var(--ink);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .ingredient-amount {
+        margin-right: 0.45rem;
+        white-space: nowrap;
+      }
+
+      .ingredient-meta {
+        display: block;
+        margin-top: 3px;
+        color: var(--faint);
+        font-size: 0.66rem;
+        line-height: 1.45;
+      }
+
+      .step-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 15px;
+      }
+
+      .step-list li {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 12px;
+        padding: 0 0 14px;
+        border-bottom: 1px dashed var(--line);
+      }
+
+      .step-list li:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .step-list li::before {
+        position: static;
+        width: 25px;
+        height: 25px;
+      }
+
+      .step-title {
+        color: var(--ink);
+        font-family: var(--display);
+        font-size: 1.1rem;
+        font-weight: 400;
+      }
+
+      .step-phase {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--orange-deep);
+        font-size: 0.61rem;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+
+      .step-description,
+      .step-tip {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.62;
+        white-space: pre-line;
+      }
+
+      .step-tip {
+        padding: 8px 10px;
+        border-left: 2px solid var(--yellow);
+        color: #6a6149;
+        background: rgba(216, 169, 74, 0.1);
+      }
+
+      .step-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 11px;
+        margin-top: 8px;
+        color: var(--faint);
+        font-size: 0.65rem;
+      }
+
+      .detail-definition {
+        margin-top: 9px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        line-height: 1.55;
+      }
+
+      .detail-tag-list,
+      .detail-equipment {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 12px;
+      }
+
+      .detail-tag,
+      .detail-equipment span {
+        padding: 5px 8px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        background: var(--surface-strong);
+        font-size: 0.67rem;
+      }
+
+      .detail-quality {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+        color: var(--muted);
+        font-size: 0.73rem;
+        line-height: 1.55;
+      }
+
+      .detail-quality strong {
+        color: var(--ink);
+      }
+
+      .detail-source {
+        margin-top: 0;
+        line-height: 1.65;
+        white-space: pre-line;
+      }
+
+      @keyframes breathe {
+        0%,
+        100% { transform: scale(1); }
+        50% { transform: scale(1.08); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      @media (max-width: 1180px) {
+        .workspace {
+          grid-template-columns: 230px minmax(0, 1fr);
+        }
+
+        .metrics-grid,
+        .charts-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .chart-card.featured {
+          grid-column: span 2;
+        }
+
+        .chart-card:nth-child(2),
+        .chart-card:nth-child(3),
+        .chart-card:nth-child(4),
+        .chart-card:nth-child(5) {
+          grid-column: auto;
+        }
+
+        .metric-card {
+          min-height: 122px;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .page-shell {
+          width: min(100% - 28px, 680px);
+          padding-top: 18px;
+        }
+
+        .masthead {
+          flex-direction: column;
+          gap: 20px;
+          padding: 10px 4px 25px;
+        }
+
+        .masthead-note {
+          align-self: flex-end;
+          width: min(230px, 80%);
+        }
+
+        .workspace {
+          display: block;
+        }
+
+        .filter-panel {
+          position: static;
+          margin-bottom: 14px;
+        }
+
+        .filter-heading {
+          margin-bottom: 12px;
+        }
+
+        .filter-fields {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0 12px;
+        }
+
+        .filter-group:first-child {
+          grid-column: 1 / -1;
+        }
+
+        .filter-tip {
+          display: none;
+        }
+
+        .chart-card.featured,
+        .chart-card.wide {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .page-shell {
+          width: calc(100% - 20px);
+        }
+
+        h1 {
+          font-size: clamp(3rem, 15vw, 5.2rem);
+        }
+
+        .metrics-grid,
+        .charts-grid,
+        .filter-fields {
+          grid-template-columns: 1fr;
+        }
+
+        .chart-card.featured,
+        .chart-card.wide {
+          grid-column: span 1;
+        }
+
+        .filter-group:first-child {
+          grid-column: auto;
+        }
+
+        .donut-layout {
+          grid-template-columns: 0.95fr 1.05fr;
+        }
+
+        .table-heading,
+        .footer-note,
+        .pagination {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .table-heading {
+          gap: 12px;
+        }
+
+        .table-tools {
+          width: 100%;
+        }
+
+        .table-tools select {
+          flex: 1;
+        }
+
+        .detail-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .detail-drawer {
+          padding: 20px 16px 34px;
+        }
+
+        .detail-hero,
+        .detail-content-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .detail-hero-media,
+        .detail-hero-image,
+        .detail-image-fallback {
+          min-height: 245px;
+          height: 245px;
+        }
+
+        .detail-hero-copy h2 {
+          font-size: clamp(2.8rem, 15vw, 4.7rem);
+        }
+      }
+
+      /* ------------------------------------------------------------------
+         Giao diện đọc nhanh
+         Giữ nguyên cấu trúc và logic dữ liệu, chỉ tinh chỉnh lớp hiển thị.
+         ------------------------------------------------------------------ */
+      .page-shell {
+        width: min(1500px, calc(100% - 48px));
+        padding-top: 24px;
+      }
+
+      .masthead {
+        align-items: flex-end;
+        padding: 16px 4px 30px;
+      }
+
+      h1 {
+        font-size: clamp(2.9rem, 6vw, 5.7rem);
+        font-weight: 750;
+        letter-spacing: -0.075em;
+        line-height: 0.94;
+      }
+
+      .masthead-copy > p {
+        max-width: 680px;
+        margin-top: 18px;
+        font-size: 1.02rem;
+        line-height: 1.7;
+      }
+
+      .masthead-note {
+        flex-basis: 260px;
+        padding: 20px 20px 21px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 12px 28px rgba(32, 50, 46, 0.07);
+        transform: none;
+      }
+
+      .masthead-note strong {
+        font-size: 1.12rem;
+        font-weight: 700;
+      }
+
+      .workspace {
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 22px;
+      }
+
+      .filter-panel {
+        top: 16px;
+        padding: 22px 19px 19px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 12px 30px rgba(32, 50, 46, 0.06);
+      }
+
+      .filter-heading {
+        margin-bottom: 18px;
+      }
+
+      .filter-heading h2 {
+        font-size: 1.28rem;
+        font-weight: 700;
+      }
+
+      .filter-group {
+        margin-top: 18px;
+      }
+
+      .filter-label {
+        margin-bottom: 8px;
+        font-size: 0.67rem;
+        letter-spacing: 0.09em;
+      }
+
+      .search-box input,
+      .select-wrap select {
+        min-height: 44px;
+        border-radius: 10px;
+        background: #f8fbf9;
+        font-size: 0.85rem;
+      }
+
+      .active-filter-note {
+        margin-top: 20px;
+        padding-top: 15px;
+        font-size: 0.78rem;
+        line-height: 1.55;
+      }
+
+      .filter-tip {
+        line-height: 1.5;
+      }
+
+      .view-tabs {
+        width: fit-content;
+        max-width: 100%;
+        margin-bottom: 16px;
+        padding: 5px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .view-tab {
+        min-height: 40px;
+        border-color: transparent;
+        border-radius: 10px;
+        background: transparent;
+        font-size: 0.8rem;
+      }
+
+      .view-tab:hover,
+      .view-tab.is-active {
+        border-color: transparent;
+        background: var(--teal);
+        box-shadow: 0 5px 12px rgba(18, 111, 105, 0.18);
+      }
+
+      .metrics-grid {
+        gap: 14px;
+      }
+
+      .metric-card {
+        min-height: 142px;
+        padding: 20px 19px 17px;
+        border-radius: 18px;
+        box-shadow: 0 9px 24px rgba(32, 50, 46, 0.045);
+      }
+
+      .metric-label {
+        font-size: 0.68rem;
+      }
+
+      .metric-value {
+        margin-top: 15px;
+        font-size: clamp(2.15rem, 3.8vw, 3.25rem);
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.06em;
+      }
+
+      .metric-foot {
+        margin-top: 12px;
+        font-size: 0.73rem;
+      }
+
+      .chart-card,
+      .table-card,
+      .directory-card {
+        border-radius: 20px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .chart-card {
+        padding: 21px 21px 17px;
+      }
+
+      .card-heading h2 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 1.15;
+      }
+
+      .card-heading p,
+      .directory-summary,
+      .table-heading p {
+        font-size: 0.79rem;
+        line-height: 1.5;
+      }
+
+      .chart-stage text {
+        font-size: 12px;
+      }
+
+      .table-heading {
+        align-items: center;
+        padding: 22px 24px 18px;
+        background: linear-gradient(180deg, rgba(247, 251, 249, 0.9), rgba(255, 255, 255, 0.72));
+      }
+
+      .table-heading h2 {
+        font-size: 1.5rem;
+        font-weight: 750;
+        letter-spacing: -0.045em;
+      }
+
+      .table-tools select,
+      .directory-search {
+        min-height: 40px;
+        border-radius: 10px;
+        background: var(--surface-strong);
+        font-size: 0.8rem;
+      }
+
+      .table-scroll,
+      .directory-scroll {
+        overflow: auto;
+        scrollbar-color: var(--line-strong) transparent;
+      }
+
+      table {
+        min-width: 920px;
+      }
+
+      th,
+      td {
+        padding: 15px 16px;
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        color: var(--muted);
+        background: #f7faf8;
+        font-size: 0.65rem;
+      }
+
+      td {
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      tbody tr:nth-child(even) td {
+        background: #fbfdfc;
+      }
+
+      tbody tr:hover td {
+        background: #f0f8f4;
+      }
+
+      th:first-child,
+      td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+      }
+
+      th:first-child {
+        z-index: 3;
+      }
+
+      td:first-child {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 8px 0 15px rgba(32, 50, 46, 0.035);
+      }
+
+      tbody tr:nth-child(even) td:first-child {
+        background: #fbfdfc;
+      }
+
+      tbody tr:hover td:first-child {
+        background: #f0f8f4;
+      }
+
+      .dish-cell-inner {
+        min-width: 300px;
+        gap: 14px;
+      }
+
+      .dish-thumb,
+      .dish-thumb-fallback {
+        width: 62px;
+        height: 62px;
+        flex-basis: 62px;
+        border-radius: 15px;
+      }
+
+      .dish-title {
+        font-family: var(--body);
+        font-size: 0.94rem;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      .dish-local {
+        margin-top: 5px;
+        font-size: 0.77rem;
+      }
+
+      .catalog-pill,
+      .class-pill,
+      .status-pill {
+        max-width: 190px;
+        padding: 6px 9px;
+        font-size: 0.7rem;
+      }
+
+      .data-number {
+        font-variant-numeric: tabular-nums;
+      }
+
+      .pagination,
+      .directory-pagination {
+        padding: 14px 24px 16px;
+        background: #fbfdfc;
+      }
+
+      .pagination-info,
+      .directory-pagination-info {
+        font-size: 0.78rem;
+      }
+
+      .page-button {
+        min-width: 38px;
+        min-height: 36px;
+        border-radius: 10px;
+        background: var(--surface-strong);
+        font-weight: 700;
+      }
+
+      .directory-table {
+        min-width: 820px;
+      }
+
+      .directory-name-copy strong {
+        font-family: var(--body);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .footer-note {
+        margin-top: 18px;
+        padding: 0 4px;
+        font-size: 0.75rem;
+      }
+
+      .footer-note code {
+        font-family: "Cascadia Code", Consolas, monospace;
+      }
+
+      .detail-drawer {
+        background: linear-gradient(180deg, #f8fbf9 0%, var(--paper) 260px);
+      }
+
+      .detail-hero-copy h2,
+      .detail-drawer h2 {
+        font-weight: 750;
+        letter-spacing: -0.07em;
+      }
+
+      .detail-panel {
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: 0 8px 24px rgba(32, 50, 46, 0.035);
+      }
+
+      @media (max-width: 1180px) {
+        .workspace {
+          grid-template-columns: 240px minmax(0, 1fr);
+        }
+      }
+
+      @media (max-width: 820px) {
+        .page-shell {
+          width: min(100% - 28px, 680px);
+          padding-top: 18px;
+        }
+
+        .masthead {
+          align-items: stretch;
+          padding: 10px 4px 25px;
+        }
+
+        .masthead-note {
+          align-self: flex-end;
+          width: min(260px, 88%);
+        }
+
+        .view-tabs {
+          width: 100%;
+          overflow-x: auto;
+        }
+
+        .view-tab {
+          flex: 1 0 auto;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .page-shell {
+          width: calc(100% - 20px);
+        }
+
+        h1 {
+          font-size: clamp(2.8rem, 15vw, 4.8rem);
+        }
+
+        .table-heading,
+        .pagination,
+        .directory-pagination {
+          padding-right: 17px;
+          padding-left: 17px;
+        }
+
+        .table-heading {
+          align-items: flex-start;
+        }
+
+        .table-tools {
+          width: 100%;
+        }
+
+        .table-tools select,
+        .directory-search {
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading-screen" id="loading-screen" aria-live="polite">
+      <div class="loading-card">
+        <span class="loading-mark">m</span>
+        <h2>Đang mở pantry dữ liệu</h2>
+        <p>Đọc các catalog công thức từ thư mục <code>recipes/</code>…</p>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <header class="masthead">
+        <div class="masthead-copy">
+          <span class="eyebrow">Mango / data observatory</span>
+          <h1>Kitchen <em>Atlas</em></h1>
+          <p>
+            Một góc nhìn sống động về thư viện công thức Mango — xem catalog nào đang
+            nhiều món nhất, món được phân loại ra sao, và lọc xuống đúng dữ liệu cần tìm.
+          </p>
+        </div>
+        <aside class="masthead-note" aria-label="Trạng thái dữ liệu">
+          <div class="status-line"><span class="pulse" id="status-pulse"></span><span id="data-status">ĐANG TẢI</span></div>
+          <strong id="status-detail">Đang đọc 22 catalog</strong>
+          <small id="status-subdetail">Nguồn: recipes/*.json</small>
+          <button class="text-button" id="refresh-data" type="button">Cập nhật ngay</button>
+        </aside>
+      </header>
+
+      <div class="workspace">
+        <aside class="filter-panel" aria-label="Bộ lọc dữ liệu">
+          <div class="filter-heading">
+            <h2>Explore data</h2>
+            <button class="text-button" id="clear-filters" type="button">Reset</button>
+          </div>
+
+          <div class="filter-fields">
+            <div class="filter-group">
+              <label class="filter-label" for="search-filter">Tìm theo tên món</label>
+              <div class="search-box">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.6"></circle><path d="m16 16 5 5"></path></svg>
+                <input id="search-filter" type="search" placeholder="Ví dụ: Meat Pie, kimchi…" autocomplete="off" />
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="catalog-filter">Catalog</label>
+              <div class="select-wrap"><select id="catalog-filter"><option value="all">Tất cả catalog</option></select></div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="dish-type-filter">Loại món</label>
+              <div class="select-wrap"><select id="dish-type-filter"><option value="all">Tất cả loại món</option></select></div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="category-filter">Nhóm phân loại</label>
+              <div class="select-wrap"><select id="category-filter"><option value="all">Tất cả nhóm</option></select></div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="meal-filter">Bữa ăn</label>
+              <div class="select-wrap"><select id="meal-filter"><option value="all">Tất cả bữa</option></select></div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="method-filter">Cách nấu</label>
+              <div class="select-wrap"><select id="method-filter"><option value="all">Tất cả cách nấu</option></select></div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="diet-filter">Chế độ ăn</label>
+              <div class="select-wrap"><select id="diet-filter"><option value="all">Tất cả chế độ</option></select></div>
+            </div>
+
+            <div class="filter-group">
+              <label class="filter-label" for="spice-filter">Độ cay</label>
+              <div class="select-wrap"><select id="spice-filter"><option value="all">Tất cả độ cay</option></select></div>
+            </div>
+          </div>
+
+          <div class="active-filter-note" id="active-filter-note">Đang hiển thị toàn bộ thư viện.</div>
+          <div class="filter-tip"><strong>Đọc nhanh</strong>Biểu đồ phía bên phải luôn cập nhật theo bộ lọc hiện tại.</div>
+        </aside>
+
+        <main class="dashboard-main">
+          <nav class="view-tabs" aria-label="Các màn dữ liệu">
+            <button class="view-tab is-active" type="button" data-view="overview">Tổng quan</button>
+            <button class="view-tab" type="button" data-view="recipes">Danh sách món</button>
+            <button class="view-tab" type="button" data-view="ingredients">Nguyên liệu</button>
+            <button class="view-tab" type="button" data-view="dish-types">Loại món ăn</button>
+          </nav>
+
+          <section class="view-panel" data-view-panel="overview">
+          <section class="metrics-grid" aria-label="Tổng quan dữ liệu">
+            <article class="metric-card"><span class="metric-label">Món ăn</span><strong class="metric-value" id="recipe-count">—</strong><small class="metric-foot" id="recipe-count-foot">toàn bộ catalog</small></article>
+            <article class="metric-card"><span class="metric-label">Bộ dữ liệu</span><strong class="metric-value" id="catalog-count">—</strong><small class="metric-foot">ẩm thực + bộ sưu tập</small></article>
+            <article class="metric-card"><span class="metric-label">Nguyên liệu</span><strong class="metric-value" id="ingredient-count">—</strong><small class="metric-foot" id="ingredient-foot">danh mục chuẩn hóa</small></article>
+            <article class="metric-card"><span class="metric-label">Thời gian trung bình</span><strong class="metric-value" id="avg-time">—</strong><small class="metric-foot">phút / món có dữ liệu</small></article>
+          </section>
+
+          <div class="error-card" id="error-card" role="alert">
+            <strong>Không thể đọc dữ liệu.</strong>
+            <span id="error-message"></span>
+          </div>
+
+          <section class="charts-grid" aria-label="Biểu đồ dữ liệu">
+            <article class="chart-card featured">
+              <div class="card-heading"><div><span class="section-kicker">Độ phủ</span><h2>Quy mô từng bộ dữ liệu</h2><p>Số công thức trong từng bộ dữ liệu.</p></div><span class="chart-count" id="catalog-chart-count">—</span></div>
+              <div class="chart-stage"><svg id="catalog-chart" viewBox="0 0 760 280" role="img" aria-label="Biểu đồ số công thức theo catalog"></svg></div>
+            </article>
+
+            <article class="chart-card">
+              <div class="card-heading"><div><span class="section-kicker">Phân loại</span><h2>Cơ cấu loại món</h2><p>Nhịp điệu giữa các loại món.</p></div><span class="chart-count" id="type-chart-count">—</span></div>
+              <div class="donut-layout"><div class="chart-stage"><svg id="type-chart" viewBox="0 0 260 260" role="img" aria-label="Biểu đồ tỷ lệ loại món"></svg></div><div class="legend" id="type-legend"></div></div>
+            </article>
+
+            <article class="chart-card">
+              <div class="card-heading"><div><span class="section-kicker">Kỹ thuật</span><h2>Cách nấu</h2><p>Các kỹ thuật xuất hiện nhiều nhất.</p></div><span class="chart-count" id="method-chart-count">—</span></div>
+              <div class="chart-stage"><svg id="method-chart" viewBox="0 0 520 280" role="img" aria-label="Biểu đồ cách nấu"></svg></div>
+            </article>
+
+            <article class="chart-card">
+              <div class="card-heading"><div><span class="section-kicker">Bữa ăn</span><h2>Khung bữa</h2><p>Món ăn được gắn với bữa nào.</p></div><span class="chart-count" id="meal-chart-count">—</span></div>
+              <div class="chart-stage"><svg id="meal-chart" viewBox="0 0 520 280" role="img" aria-label="Biểu đồ bữa ăn"></svg></div>
+            </article>
+
+            <article class="chart-card wide">
+              <div class="card-heading"><div><span class="section-kicker">Thời lượng</span><h2>Phân bố thời gian</h2><p>Phân bố theo tổng thời gian chuẩn bị và nấu.</p></div><span class="chart-count" id="time-chart-count">—</span></div>
+              <div class="chart-stage"><svg id="time-chart" viewBox="0 0 760 280" role="img" aria-label="Biểu đồ phân bố thời gian nấu"></svg></div>
+            </article>
+          </section>
+          </section>
+
+          <section class="table-card view-panel" data-view-panel="recipes" aria-labelledby="recipe-list-title" hidden>
+            <div class="table-heading">
+              <div><span class="section-kicker">Tra cứu món</span><h2 id="recipe-list-title">Danh sách món</h2><p id="table-summary">Đang tải dữ liệu…</p></div>
+              <div class="table-tools"><label for="sort-filter">Sắp xếp</label><select id="sort-filter"><option value="title-asc">Tên A → Z</option><option value="time-asc">Nhanh nhất</option><option value="time-desc">Lâu nhất</option><option value="calories-desc">Nhiều kcal nhất</option><option value="calories-asc">Ít kcal nhất</option></select></div>
+            </div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>Món ăn</th><th>Catalog</th><th>Phân loại</th><th>Bữa</th><th>Nguyên liệu</th><th>Thời gian</th><th>Năng lượng</th></tr></thead>
+                <tbody id="recipe-table-body"></tbody>
+              </table>
+            </div>
+            <div class="pagination"><span class="pagination-info" id="pagination-info">—</span><div class="pagination-actions"><button class="page-button" id="prev-page" type="button" aria-label="Trang trước">←</button><button class="page-button" id="next-page" type="button" aria-label="Trang sau">→</button></div></div>
+          </section>
+
+          <section class="directory-card view-panel" data-view-panel="ingredients" aria-labelledby="ingredient-directory-title" hidden>
+            <div class="table-heading">
+              <div><span class="section-kicker">Tra cứu nguyên liệu</span><h2 id="ingredient-directory-title">Danh sách nguyên liệu</h2><p class="directory-summary" id="ingredient-directory-summary">Đang tải dữ liệu…</p></div>
+              <div class="table-tools"><label for="ingredient-directory-search">Tìm kiếm</label><input class="directory-search" id="ingredient-directory-search" type="search" placeholder="Tên nguyên liệu…" autocomplete="off" /></div>
+            </div>
+            <div class="directory-scroll">
+              <table class="directory-table">
+                <thead><tr><th>Nguyên liệu</th><th>Số món</th><th>Nhóm thực phẩm</th><th>Dị nguyên</th><th>Ảnh minh họa</th></tr></thead>
+                <tbody id="ingredient-directory-body"></tbody>
+              </table>
+            </div>
+            <div class="directory-pagination"><span class="directory-pagination-info" id="ingredient-directory-pagination">—</span><div class="pagination-actions"><button class="page-button" id="ingredient-prev" type="button" aria-label="Trang nguyên liệu trước">←</button><button class="page-button" id="ingredient-next" type="button" aria-label="Trang nguyên liệu sau">→</button></div></div>
+          </section>
+
+          <section class="directory-card view-panel" data-view-panel="dish-types" aria-labelledby="dish-type-directory-title" hidden>
+            <div class="table-heading">
+              <div><span class="section-kicker">Tra cứu phân loại</span><h2 id="dish-type-directory-title">Danh sách loại món ăn</h2><p class="directory-summary" id="dish-type-directory-summary">Đang tải dữ liệu…</p></div>
+              <div class="table-tools"><label for="dish-type-directory-search">Tìm kiếm</label><input class="directory-search" id="dish-type-directory-search" type="search" placeholder="Tên loại món…" autocomplete="off" /></div>
+            </div>
+            <div class="directory-scroll">
+              <table class="directory-table">
+                <thead><tr><th>Loại / nhóm món</th><th>Phạm vi</th><th>Số món</th><th>Mô tả</th><th>Ảnh minh họa</th></tr></thead>
+                <tbody id="dish-type-directory-body"></tbody>
+              </table>
+            </div>
+            <div class="directory-pagination"><span class="directory-pagination-info" id="dish-type-directory-pagination">—</span><div class="pagination-actions"><button class="page-button" id="dish-type-prev" type="button" aria-label="Trang loại món trước">←</button><button class="page-button" id="dish-type-next" type="button" aria-label="Trang loại món sau">→</button></div></div>
+          </section>
+
+          <footer class="footer-note"><span>Nguồn dữ liệu: <code>mango/data/recipes/*.json</code> · <code>ingredients/index.json</code> · SVG charts</span><span>Chạy local: <code>mango\MO_DASHBOARD.cmd</code></span></footer>
+        </main>
+      </div>
+    </div>
+
+    <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true">
+      <aside class="detail-drawer" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+        <div class="drawer-topline"><button class="detail-back-button" id="back-to-library" type="button">← Về thư viện món</button><button class="close-button" id="close-drawer" type="button" aria-label="Đóng chi tiết">×</button></div>
+        <div id="detail-content"></div>
+      </aside>
+    </div>
+
+    <script>
+      (() => {
+        "use strict";
+
+        const CATALOG_DEFINITIONS = [
+          { directory: "asian-noodle-recipes", code: "asian-noodle-recipes", label: "Công thức mì châu Á", shardCount: 13 },
+          { directory: "classic-desserts", code: "classic-desserts", label: "Món tráng miệng cổ điển", shardCount: 19 },
+          { directory: "hawaiian-bbq", code: "hawaiian-bbq", label: "BBQ Hawaii", shardCount: 5 },
+          { directory: "asian-hot-pot", code: "asian-hot-pot", label: "Công thức lẩu châu Á", shardCount: 5 },
+          { directory: "rice-cooker", code: "rice-cooker", label: "Công thức nồi cơm điện", shardCount: 26 },
+          { directory: "fried-chicken-cookbook", code: "fried-chicken-cookbook", label: "Bộ công thức gà chiên và món liên quan", shardCount: 10 },
+          { directory: "salad-for-dinner", code: "salad-for-dinner", label: "Salad cho bữa chính", shardCount: 8 },
+          { directory: "healthy-easy-stir-fry", code: "healthy-easy-stir-fry", label: "Món xào nhanh lành mạnh", shardCount: 2 },
+          { directory: "poultry-meat-game", code: "poultry-meat-game", label: "Nghệ thuật chế biến gia cầm, thịt và thịt săn", shardCount: 17 },
+          { directory: "cia-grilling", code: "cia-grilling", label: "CIA Grilling – Công thức nướng", shardCount: 12 },
+          { directory: "wok-cookbook", code: "wok-cookbook", label: "Công thức nấu bằng chảo wok", shardCount: 5 },
+          { directory: "breakfast-fine-cooking", code: "breakfast-fine-cooking", label: "Công thức bữa sáng Fine Cooking", shardCount: 9 },
+          { directory: "soups-stews", code: "soups-stews", label: "Bộ sưu tập súp và món hầm", shardCount: 4 },
+          { directory: "eggs-cheese", code: "eggs-cheese", label: "Trứng & Phô mai", shardCount: 20 },
+          { directory: "soup-cookbook", code: "soup-cookbook", label: "The Soup Cookbook – 101 công thức súp", shardCount: 11 },
+          { directory: "australian", code: "australian", label: "Ẩm thực Úc", shardCount: 2 },
+          { directory: "chinese", code: "chinese", label: "Ẩm thực Trung Hoa", shardCount: 7 },
+          { directory: "easy-cook", code: "easy-cook", label: "Món dễ nấu", shardCount: 7 },
+          { directory: "italian", code: "italian", label: "Ẩm thực Ý", shardCount: 12 },
+          { directory: "korean", code: "korean", label: "Ẩm thực Hàn Quốc", shardCount: 15 },
+          { directory: "mediterranean", code: "mediterranean", label: "Ẩm thực Địa Trung Hải", shardCount: 14 },
+          { directory: "one-pot", code: "one-pot", label: "Món một nồi", shardCount: 6 },
+        ];
+        const SOURCES = CATALOG_DEFINITIONS.flatMap((catalog) => Array.from({ length: catalog.shardCount }, (_, index) => ({
+          file: `recipes/${catalog.directory}/part-${String(index + 1).padStart(2, "0")}.json`,
+          code: catalog.code,
+          label: catalog.label,
+        })));
+        const AUTO_REFRESH_INTERVAL_MS = 30000;
+        const MAX_CONCURRENT_FETCHES = 4;
+        const INGREDIENT_SOURCES = ["ingredients/index.json"];
+        const VOCABULARY_DEFINITIONS = [
+          { key: "meal_slot", shardCount: 1 },
+          { key: "dish_type", shardCount: 1 },
+          { key: "dish_category_code", shardCount: 11 },
+          { key: "step_template", shardCount: 1 },
+          { key: "step_phase", shardCount: 1 },
+          { key: "cooking_method", shardCount: 5 },
+          { key: "spice_level", shardCount: 1 },
+          { key: "cuisine", shardCount: 4 },
+          { key: "catalog_type", shardCount: 1 },
+          { key: "occasion_tag", shardCount: 4 },
+          { key: "macro_class", shardCount: 2 },
+          { key: "allergen_flag", shardCount: 2 },
+          { key: "diet_flag", shardCount: 1 },
+          { key: "composition_tag", shardCount: 2 },
+          { key: "flavor_tag", shardCount: 4 },
+          { key: "culinary_role", shardCount: 5 },
+          { key: "sauce_style", shardCount: 1 },
+          { key: "unit", shardCount: 2 },
+          { key: "unit_normalized", shardCount: 1 },
+          { key: "source_type", shardCount: 1 },
+          { key: "source_platform", shardCount: 1 },
+          { key: "recipe_status", shardCount: 1 },
+          { key: "review_status", shardCount: 1 },
+          { key: "classification_status", shardCount: 1 },
+          { key: "calorie_basis", shardCount: 1 },
+          { key: "temperature_unit", shardCount: 1 },
+          { key: "catalog_code", shardCount: 3 },
+          { key: "nutrition_group", shardCount: 1 },
+        ];
+        const VOCABULARY_SOURCES = VOCABULARY_DEFINITIONS.flatMap((group) => Array.from({ length: group.shardCount }, (_, index) => `classification/vocabularies/${group.key}/part-${String(index + 1).padStart(2, "0")}.json`));
+
+        const LABELS = {
+          dishType: { main: "Món chính", main_course: "Món chính", soup: "Súp", salad: "Salad", dessert: "Tráng miệng", beverage: "Đồ uống", breakfast_main: "Món sáng", dip: "Nước chấm", snack: "Ăn vặt", side_standalone: "Món phụ" },
+          meal: { breakfast: "Bữa sáng", lunch: "Bữa trưa", dinner: "Bữa tối", dessert: "Tráng miệng", snack: "Ăn vặt", appetizer: "Khai vị" },
+          method: { bake: "Nướng lò", boil: "Luộc", grill: "Nướng", roast: "Rang / quay", simmer: "Om / ninh", soup: "Nấu súp", stir_fry: "Xào", fry: "Chiên", steam: "Hấp", no_cook: "Không nấu", braise: "Kho", sauté: "Áp chảo" },
+          spice: { none: "Không cay", mild: "Cay nhẹ", medium: "Cay vừa", hot: "Cay", very_hot: "Rất cay" },
+        };
+
+        const COLORS = ["#e16f45", "#1e6a66", "#788e70", "#d8a94a", "#273f4a", "#b95232", "#9a7a63", "#9eaaa0"];
+        const VOCAB_GROUPS = {
+          dishType: "dish_type",
+          category: "dish_category_code",
+          meal: "meal_slot",
+          method: "cooking_method",
+          diet: "diet_flag",
+          spice: "spice_level",
+        };
+        const state = {
+          recipes: [],
+          catalogs: [],
+          ingredientCount: null,
+          ingredientOccurrenceCount: 0,
+          ingredientsByName: new Map(),
+          ingredientDirectory: [],
+          dishTypeDirectory: [],
+          vocabularies: {},
+          schemaVersion: "—",
+          filtered: [],
+          page: 1,
+          pageSize: 12,
+          directoryPageSize: 48,
+          directoryPages: { ingredients: 1, dishTypes: 1 },
+          directorySearch: { ingredients: "", dishTypes: "" },
+          activeView: "overview",
+          sort: "title-asc",
+          filters: { search: "", catalog: "all", dishType: "all", category: "all", meal: "all", method: "all", diet: "all", spice: "all" },
+        };
+        const recipePayloadCache = new Map();
+        let staticDataCache = null;
+        let staticDataPromise = null;
+
+        const $ = (id) => document.getElementById(id);
+        const number = new Intl.NumberFormat("vi-VN");
+
+        function escapeHtml(value) {
+          return String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+        }
+
+        function flatText(value) {
+          if (value == null) return "";
+          if (Array.isArray(value)) return value.map(flatText).join(" ");
+          if (typeof value === "object") return Object.values(value).map(flatText).join(" ");
+          return String(value);
+        }
+
+        function normalize(value) {
+          return flatText(value).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").trim();
+        }
+
+        function unique(values) {
+          return [...new Set(values.flatMap((value) => Array.isArray(value) ? value : [value]).filter(Boolean))];
+        }
+
+        function humanize(value) {
+          return String(value ?? "").replace(/[_-]+/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+        }
+
+        function vocabularyItem(group, value) {
+          const vocabularyGroup = VOCAB_GROUPS[group] || group;
+          const source = state.vocabularies[vocabularyGroup];
+          const items = Array.isArray(source) ? source : (source?.values || []);
+          const item = items.find((entry) => entry.code === value);
+          if (item?.deprecated && item.canonical_code) {
+            return items.find((entry) => entry.code === item.canonical_code) || item;
+          }
+          return item;
+        }
+
+        function labelFor(group, value) {
+          const item = vocabularyItem(group, value);
+          return item?.name_i18n?.vi || LABELS[group]?.[value] || humanize(value);
+        }
+
+        function definitionFor(group, value) {
+          return vocabularyItem(group, value)?.definition || "";
+        }
+
+        function readNumber(value) {
+          return typeof value === "number" && Number.isFinite(value) ? value : null;
+        }
+
+        function recipeSearchText(recipe) {
+          return normalize([
+            recipe.title,
+            recipe.local_name,
+            recipe.search_aliases,
+            recipe.search_keywords,
+          ]);
+        }
+
+        function createRecipe(recipe, source) {
+          return {
+            ...recipe,
+            id: recipe.external_id || `${source.code}-${recipe.slug}`,
+            catalogCode: source.code,
+            catalogLabel: source.label,
+            catalogType: source.catalogType,
+            categoryCodes: unique(recipe.dish_category_codes ?? []),
+            mealSlots: unique(recipe.meal_slots ?? []),
+            dietFlags: unique(recipe.diet_flags ?? []),
+            searchText: recipeSearchText(recipe),
+          };
+        }
+
+        function recipeIngredientItems(recipe) {
+          const items = [...(recipe.ingredients || [])];
+          ["sauces", "side_dishes", "dippings", "decorations"].forEach((field) => {
+            (recipe[field] || []).forEach((component) => { items.push(...(component.ingredients || [])); });
+          });
+          return items;
+        }
+
+        function buildIngredientDirectory(recipes, catalogRecords) {
+          const directory = new Map();
+          const catalogByKey = new Map(catalogRecords.map((ingredient) => [normalize(ingredient.canonical_name || ingredient.name), ingredient]));
+          recipes.forEach((recipe) => {
+            recipeIngredientItems(recipe).forEach((ingredient) => {
+              const key = normalize(ingredient.canonical_name || ingredient.name);
+              if (!key) return;
+              const catalog = catalogByKey.get(key);
+              if (!directory.has(key)) {
+                directory.set(key, {
+                  key,
+                  name: ingredient.name || ingredient.canonical_name || "Nguyên liệu chưa đặt tên",
+                  canonical_name: ingredient.canonical_name || ingredient.name || "",
+                  image_url: ingredient.image_url || catalog?.image_url || null,
+                  image_search_url: ingredient.image_search_url || catalog?.image_search_url || null,
+                  image_alt: ingredient.image_alt || catalog?.image_alt || `Ảnh minh họa nguyên liệu ${ingredient.name || ingredient.canonical_name || ""}`,
+                  macro_class: ingredient.macro_class || catalog?.macro_class || "",
+                  allergen_flags: unique([...(ingredient.allergen_flags || []), ...(catalog?.allergen_flags || [])]),
+                  recipeIds: new Set(),
+                  occurrence_count: 0,
+                });
+              }
+              const entry = directory.get(key);
+              entry.recipeIds.add(recipe.id);
+              entry.occurrence_count += 1;
+              if (!entry.image_url && ingredient.image_url) entry.image_url = ingredient.image_url;
+              if (!entry.image_search_url && ingredient.image_search_url) entry.image_search_url = ingredient.image_search_url;
+              entry.allergen_flags = unique([...entry.allergen_flags, ...(ingredient.allergen_flags || [])]);
+            });
+          });
+          return [...directory.values()]
+            .map((entry) => ({ ...entry, recipe_count: entry.recipeIds.size }))
+            .sort((a, b) => b.recipe_count - a.recipe_count || b.occurrence_count - a.occurrence_count || a.name.localeCompare(b.name, "vi"));
+        }
+
+        function buildDishTypeDirectory(recipes) {
+          const counts = new Map();
+          const add = (group, code) => {
+            if (!code) return;
+            const key = `${group}:${code}`;
+            counts.set(key, (counts.get(key) || 0) + 1);
+          };
+          recipes.forEach((recipe) => {
+            add("dish_type", recipe.dish_type);
+            (recipe.categoryCodes || []).forEach((code) => add("dish_category_code", code));
+          });
+          return [...counts.entries()].map(([key, count]) => {
+            const [group, code] = key.split(":");
+            const vocabulary = state.vocabularies[group]?.values?.find((item) => item.code === code) || {};
+            return {
+              group,
+              code,
+              count,
+              label: vocabulary.name_i18n?.vi || humanize(code),
+              definition: vocabulary.definition || "Nhóm phân loại được dùng trong recipe catalog.",
+              image_url: vocabulary.image_url || null,
+              image_search_url: vocabulary.image_search_url || null,
+              image_alt: vocabulary.image_alt || vocabulary.name_i18n?.vi || humanize(code),
+            };
+          }).sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, "vi"));
+        }
+
+        async function fetchJson(file) {
+          let lastError = null;
+          for (let attempt = 0; attempt < 3; attempt += 1) {
+            try {
+              const requestUrl = new URL(file, window.location.href);
+              requestUrl.searchParams.set("_mango_refresh", `${Date.now()}-${attempt}`);
+              const response = await fetch(requestUrl.href, { cache: "no-store" });
+              if (!response.ok) throw new Error(`${file} (${response.status})`);
+              try {
+                return await response.json();
+              } catch {
+                throw new Error(`${file} (JSON không hợp lệ)`);
+              }
+            } catch (error) {
+              lastError = error;
+              if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 250 * (attempt + 1)));
+            }
+          }
+          throw lastError || new Error(`${file} (không thể đọc dữ liệu)`);
+        }
+
+        async function mapWithConcurrency(items, concurrency, mapper) {
+          const results = new Array(items.length);
+          let nextIndex = 0;
+          async function worker() {
+            while (true) {
+              const index = nextIndex++;
+              if (index >= items.length) return;
+              results[index] = await mapper(items[index], index);
+            }
+          }
+          await Promise.all(Array.from({ length: Math.min(concurrency, items.length) }, () => worker()));
+          return results;
+        }
+
+        async function loadRecipePayloads({ isRefresh = false } = {}) {
+          const results = await mapWithConcurrency(SOURCES, MAX_CONCURRENT_FETCHES, async (source) => {
+            try {
+              const entry = { source, payload: await fetchJson(source.file) };
+              recipePayloadCache.set(source.file, entry);
+              return { ...entry, error: null };
+            } catch (error) {
+              const cached = recipePayloadCache.get(source.file);
+              if (isRefresh && cached) return { ...cached, error };
+              throw new Error(`${source.file}: ${error.message}`);
+            }
+          });
+          return {
+            payloads: results.map(({ source, payload }) => ({ source, payload })),
+            failures: results.filter(({ error }) => error),
+          };
+        }
+
+        async function loadStaticData() {
+          if (staticDataCache) return staticDataCache;
+          if (!staticDataPromise) {
+            staticDataPromise = Promise.all([
+              fetchJson("classification/vocabularies.json"),
+              mapWithConcurrency(VOCABULARY_SOURCES, MAX_CONCURRENT_FETCHES, async (file) => ({ file, payload: await fetchJson(file) })),
+              mapWithConcurrency(INGREDIENT_SOURCES, MAX_CONCURRENT_FETCHES, async (file) => ({ file, payload: await fetchJson(file) })),
+              fetchJson("schemas/recipe-catalog.schema.json"),
+            ]).then(([vocabularyIndex, vocabularyPayloads, ingredientPayloads, schema]) => {
+              staticDataCache = { vocabularyIndex, vocabularyPayloads, ingredientPayloads, schema };
+              return staticDataCache;
+            });
+          }
+          try {
+            return await staticDataPromise;
+          } catch (error) {
+            staticDataPromise = null;
+            throw error;
+          }
+        }
+
+        async function loadData({ isRefresh = false } = {}) {
+          const [{ payloads, failures }, { vocabularyIndex, vocabularyPayloads, ingredientPayloads, schema }] = await Promise.all([
+            loadRecipePayloads({ isRefresh }),
+            loadStaticData(),
+          ]);
+          const vocabularies = vocabularyPayloads.reduce((groups, { payload }) => {
+            const group = groups[payload.group] || { ...payload, values: [] };
+            group.values.push(...(payload.values || []));
+            groups[payload.group] = group;
+            return groups;
+          }, { ...vocabularyIndex });
+          state.vocabularies = vocabularies;
+          const ingredientRecords = ingredientPayloads.flatMap(({ payload }) => payload.ingredients || []);
+          state.ingredientsByName = new Map(ingredientRecords.map((ingredient) => [normalize(ingredient.canonical_name || ingredient.name), ingredient]));
+          state.schemaVersion = schema.properties?.schema_version?.const || payloads[0]?.payload?.schema_version || "—";
+          state.catalogs = [...new Map(payloads.map(({ source, payload }) => [source.code, { ...source, ...payload.catalog, label: payload.catalog?.name_i18n?.vi || source.label, catalogType: payload.catalog?.catalog_type || "collection" }])).values()];
+          state.recipes = payloads.flatMap(({ source, payload }) => payload.recipes.map((recipe) => createRecipe(recipe, { ...source, catalogType: payload.catalog?.catalog_type || "collection", label: payload.catalog?.name_i18n?.vi || source.label })));
+          state.ingredientDirectory = buildIngredientDirectory(state.recipes, ingredientRecords);
+          state.ingredientCount = state.ingredientDirectory.length || null;
+          state.ingredientOccurrenceCount = state.recipes.reduce((sum, recipe) => sum + recipeIngredientItems(recipe).length, 0);
+          state.dishTypeDirectory = buildDishTypeDirectory(state.recipes);
+          populateFilters();
+          render();
+          renderDirectoryViews();
+          hideLoading();
+          $("error-card").classList.remove("is-visible");
+          $("ingredient-count").textContent = state.ingredientCount == null ? "—" : number.format(state.ingredientCount);
+          $("ingredient-foot").textContent = `${number.format(state.ingredientOccurrenceCount)} lượt dùng · ${number.format(state.ingredientCount || 0)} tên chuẩn`;
+          const refreshedAt = new Intl.DateTimeFormat("vi-VN", { hour: "2-digit", minute: "2-digit", second: "2-digit" }).format(new Date());
+          const refreshNote = isRefresh ? ` · đồng bộ ${refreshedAt}` : " · tự đồng bộ mỗi 30 giây";
+          const failureNote = failures.length ? ` · ${failures.length} file giữ bản trước` : "";
+          setStatus("SẴN SÀNG", `${number.format(state.recipes.length)} món ăn`, `schema ${state.schemaVersion} · vocabulary ${vocabularies.schema_version || "1.1.0"}${refreshNote}${failureNote}`);
+        }
+
+        function hideLoading() {
+          $("loading-screen").classList.add("is-hidden");
+        }
+
+        function setStatus(label, detail, subdetail) {
+          $("data-status").textContent = label;
+          $("status-detail").textContent = detail;
+          $("status-subdetail").textContent = subdetail;
+          $("status-pulse").style.background = label === "SẴN SÀNG" ? "var(--sage)" : "var(--orange)";
+        }
+
+        function populateSelect(id, firstLabel, values, getLabel = humanize) {
+          const select = $(id);
+          const current = select.value;
+          select.innerHTML = `<option value="all">${escapeHtml(firstLabel)}</option>${values.map((value) => `<option value="${escapeHtml(value)}">${escapeHtml(getLabel(value))}</option>`).join("")}`;
+          select.value = values.includes(current) ? current : "all";
+        }
+
+        function populateFilters() {
+          populateSelect("catalog-filter", "Tất cả catalog", state.catalogs.map((catalog) => catalog.code), (code) => state.catalogs.find((catalog) => catalog.code === code)?.label ?? code);
+          populateSelect("dish-type-filter", "Tất cả loại món", unique(state.recipes.map((recipe) => recipe.dish_type)).sort(), (value) => labelFor("dishType", value));
+          populateSelect("category-filter", "Tất cả nhóm", unique(state.recipes.map((recipe) => recipe.categoryCodes)).sort(), (value) => labelFor("category", value));
+          populateSelect("meal-filter", "Tất cả bữa", unique(state.recipes.map((recipe) => recipe.mealSlots)).sort(), (value) => labelFor("meal", value));
+          populateSelect("method-filter", "Tất cả cách nấu", unique(state.recipes.map((recipe) => recipe.cooking_method)).sort(), (value) => labelFor("method", value));
+          populateSelect("diet-filter", "Tất cả chế độ", unique(state.recipes.map((recipe) => recipe.dietFlags)).sort(), (value) => labelFor("diet", value));
+          populateSelect("spice-filter", "Tất cả độ cay", unique(state.recipes.map((recipe) => recipe.spice_level)).sort(), (value) => labelFor("spice", value));
+        }
+
+        function matchesFilters(recipe) {
+          const { filters } = state;
+          if (filters.search && !recipe.searchText.includes(normalize(filters.search))) return false;
+          if (filters.catalog !== "all" && recipe.catalogCode !== filters.catalog) return false;
+          if (filters.dishType !== "all" && recipe.dish_type !== filters.dishType) return false;
+          if (filters.category !== "all" && !recipe.categoryCodes.includes(filters.category)) return false;
+          if (filters.meal !== "all" && !recipe.mealSlots.includes(filters.meal)) return false;
+          if (filters.method !== "all" && recipe.cooking_method !== filters.method) return false;
+          if (filters.diet !== "all" && !recipe.dietFlags.includes(filters.diet)) return false;
+          if (filters.spice !== "all" && recipe.spice_level !== filters.spice) return false;
+          return true;
+        }
+
+        function sortedRecipes(recipes) {
+          const list = [...recipes];
+          const byTitle = (a, b) => String(a.title).localeCompare(String(b.title), "vi");
+          if (state.sort === "title-asc") return list.sort(byTitle);
+          if (state.sort === "time-asc") return list.sort((a, b) => (readNumber(a.total_time_minutes) ?? Infinity) - (readNumber(b.total_time_minutes) ?? Infinity) || byTitle(a, b));
+          if (state.sort === "time-desc") return list.sort((a, b) => (readNumber(b.total_time_minutes) ?? -Infinity) - (readNumber(a.total_time_minutes) ?? -Infinity) || byTitle(a, b));
+          if (state.sort === "calories-desc") return list.sort((a, b) => (readNumber(b.calories_per_serving) ?? -Infinity) - (readNumber(a.calories_per_serving) ?? -Infinity) || byTitle(a, b));
+          return list.sort((a, b) => (readNumber(a.calories_per_serving) ?? Infinity) - (readNumber(b.calories_per_serving) ?? Infinity) || byTitle(a, b));
+        }
+
+        function directoryImageMarkup(item, className = "directory-thumb") {
+          const label = item.image_alt || item.name || item.label || "Ảnh minh họa";
+          const fallback = escapeHtml((item.name || item.label || "M").slice(0, 1).toUpperCase());
+          if (!item.image_url) return `<span class="${className}-fallback">${fallback}</span>`;
+          return `<img class="${className}" src="${escapeHtml(item.image_url)}" alt="${escapeHtml(label)}" loading="lazy" data-image-fallback="true" /><span class="${className}-fallback">${fallback}</span>`;
+        }
+
+        function imageSearchMarkup(item) {
+          if (item.image_url) return `<a class="image-search-link" href="${escapeHtml(item.image_url)}" target="_blank" rel="noreferrer">Mở ảnh ↗</a>`;
+          if (item.image_search_url) return `<a class="image-search-link" href="${escapeHtml(item.image_search_url)}" target="_blank" rel="noreferrer">Tìm ảnh ↗</a>`;
+          return `<span class="directory-summary">Chưa có</span>`;
+        }
+
+        function renderIngredientDirectory() {
+          const query = normalize(state.directorySearch.ingredients);
+          const rows = state.ingredientDirectory.filter((item) => !query || normalize([item.name, item.canonical_name, item.macro_class, item.allergen_flags]).includes(query));
+          const pageCount = Math.max(1, Math.ceil(rows.length / state.directoryPageSize));
+          state.directoryPages.ingredients = Math.min(state.directoryPages.ingredients, pageCount);
+          const page = state.directoryPages.ingredients;
+          const start = (page - 1) * state.directoryPageSize;
+          const pageRows = rows.slice(start, start + state.directoryPageSize);
+          $("ingredient-directory-body").innerHTML = pageRows.length ? pageRows.map((item) => {
+            const allergens = item.allergen_flags.length ? item.allergen_flags.map((flag) => labelFor("allergen_flag", flag)).join(" · ") : "Không ghi nhận";
+            const macro = item.macro_class ? labelFor("macro_class", item.macro_class) : "Chưa phân loại";
+            return `<tr>
+              <td><div class="directory-name">${directoryImageMarkup(item)}<span class="directory-name-copy"><strong>${escapeHtml(item.name)}</strong><span>${escapeHtml(item.canonical_name)}</span></span></div></td>
+              <td class="data-number">${number.format(item.recipe_count)}</td>
+              <td><span class="class-pill">${escapeHtml(macro)}</span></td>
+              <td>${escapeHtml(allergens)}</td>
+              <td>${imageSearchMarkup(item)}</td>
+            </tr>`;
+          }).join("") : `<tr><td class="table-empty" colspan="5">Không có nguyên liệu khớp với tìm kiếm.</td></tr>`;
+          $("ingredient-directory-summary").textContent = `${number.format(rows.length)} nguyên liệu · ${number.format(state.ingredientOccurrenceCount)} lượt dùng trong ${number.format(state.recipes.length)} món`;
+          const first = rows.length ? start + 1 : 0;
+          const last = Math.min(start + state.directoryPageSize, rows.length);
+          $("ingredient-directory-pagination").textContent = rows.length ? `${number.format(first)}–${number.format(last)} / ${number.format(rows.length)} · trang ${page}/${pageCount}` : "0 kết quả";
+          $("ingredient-prev").disabled = page <= 1;
+          $("ingredient-next").disabled = page >= pageCount;
+        }
+
+        function renderDishTypeDirectory() {
+          const query = normalize(state.directorySearch.dishTypes);
+          const rows = state.dishTypeDirectory.filter((item) => !query || normalize([item.label, item.code, item.definition]).includes(query));
+          const pageCount = Math.max(1, Math.ceil(rows.length / state.directoryPageSize));
+          state.directoryPages.dishTypes = Math.min(state.directoryPages.dishTypes, pageCount);
+          const page = state.directoryPages.dishTypes;
+          const start = (page - 1) * state.directoryPageSize;
+          const pageRows = rows.slice(start, start + state.directoryPageSize);
+          $("dish-type-directory-body").innerHTML = pageRows.length ? pageRows.map((item) => `<tr>
+            <td><div class="directory-name">${directoryImageMarkup({ ...item, name: item.label })}<span class="directory-name-copy"><strong>${escapeHtml(item.label)}</strong><span>${escapeHtml(item.code)}</span></span></div></td>
+            <td><span class="directory-badge">${item.group === "dish_type" ? "Loại món" : "Nhóm món"}</span></td>
+            <td class="data-number">${number.format(item.count)}</td>
+            <td>${escapeHtml(item.definition)}</td>
+            <td>${imageSearchMarkup(item)}</td>
+          </tr>`).join("") : `<tr><td class="table-empty" colspan="5">Không có loại món khớp với tìm kiếm.</td></tr>`;
+          const typeCount = rows.filter((item) => item.group === "dish_type").length;
+          const categoryCount = rows.filter((item) => item.group === "dish_category_code").length;
+          $("dish-type-directory-summary").textContent = `${number.format(rows.length)} mục · ${number.format(typeCount)} loại món · ${number.format(categoryCount)} nhóm món`;
+          const first = rows.length ? start + 1 : 0;
+          const last = Math.min(start + state.directoryPageSize, rows.length);
+          $("dish-type-directory-pagination").textContent = rows.length ? `${number.format(first)}–${number.format(last)} / ${number.format(rows.length)} · trang ${page}/${pageCount}` : "0 kết quả";
+          $("dish-type-prev").disabled = page <= 1;
+          $("dish-type-next").disabled = page >= pageCount;
+        }
+
+        function renderDirectoryViews() {
+          renderIngredientDirectory();
+          renderDishTypeDirectory();
+        }
+
+        function render() {
+          state.filtered = sortedRecipes(state.recipes.filter(matchesFilters));
+          const pageCount = Math.max(1, Math.ceil(state.filtered.length / state.pageSize));
+          state.page = Math.min(state.page, pageCount);
+          renderMetrics();
+          renderCharts();
+          renderTable();
+          renderFilterSummary();
+          renderDirectoryViews();
+        }
+
+        function renderMetrics() {
+          const times = state.filtered.map((recipe) => readNumber(recipe.total_time_minutes)).filter((value) => value != null);
+          const averageTime = times.length ? Math.round(times.reduce((sum, value) => sum + value, 0) / times.length) : null;
+          $("recipe-count").textContent = number.format(state.filtered.length);
+          $("recipe-count-foot").textContent = state.filtered.length === state.recipes.length ? "toàn bộ catalog" : `trên ${number.format(state.recipes.length)} món`;
+          $("catalog-count").textContent = number.format(unique(state.filtered.map((recipe) => recipe.catalogCode)).length);
+          if (state.ingredientCount != null) $("ingredient-count").textContent = number.format(state.ingredientCount);
+          $("avg-time").textContent = averageTime == null ? "—" : `${number.format(averageTime)}′`;
+        }
+
+        function countBy(recipes, getter) {
+          const counts = new Map();
+          recipes.forEach((recipe) => {
+            const values = getter(recipe);
+            (Array.isArray(values) ? values : [values]).filter(Boolean).forEach((value) => counts.set(value, (counts.get(value) || 0) + 1));
+          });
+          return [...counts.entries()].sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0])));
+        }
+
+        function setChartCount(id, count) {
+          $(id).textContent = `${number.format(count)} món`;
+        }
+
+        function svgText(text, x, y, options = {}) {
+          const { size = 12, color = "#68766e", weight = 500, anchor = "start" } = options;
+          return `<text x="${x}" y="${y}" fill="${color}" font-size="${size}" font-weight="${weight}" text-anchor="${anchor}">${escapeHtml(text)}</text>`;
+        }
+
+        function renderHorizontalBars(id, entries, config = {}) {
+          const svg = $(id);
+          if (!entries.length) { svg.innerHTML = `<foreignObject x="0" y="0" width="100%" height="250"><div xmlns="http://www.w3.org/1999/xhtml" class="chart-empty">Không có dữ liệu phù hợp.</div></foreignObject>`; return; }
+          const width = config.width || 520;
+          const height = config.height || 280;
+          const left = config.left || 136;
+          const right = config.right || 32;
+          const top = 16;
+          const rowHeight = Math.min(42, (height - top - 14) / entries.length);
+          const max = Math.max(...entries.map((entry) => entry[1]), 1);
+          const chartWidth = width - left - right;
+          const visible = entries.slice(0, config.limit || 8);
+          const barHeight = Math.max(12, rowHeight * 0.38);
+          let html = "";
+          visible.forEach(([key, value], index) => {
+            const y = top + index * rowHeight + rowHeight / 2;
+            const barWidth = (value / max) * chartWidth;
+            const label = config.label ? config.label(key) : humanize(key);
+            html += svgText(label, left - 12, y + 4, { size: 11, color: "#68766e", anchor: "end" });
+            html += `<line x1="${left}" x2="${left + chartWidth}" y1="${y}" y2="${y}" stroke="#e6ded2" stroke-width="1" />`;
+            html += `<rect x="${left}" y="${y - barHeight / 2}" width="${Math.max(3, barWidth)}" height="${barHeight}" rx="${barHeight / 2}" fill="${COLORS[index % COLORS.length]}" opacity=".88"><title>${escapeHtml(label)}: ${value}</title></rect>`;
+            html += svgText(number.format(value), left + chartWidth + 10, y + 4, { size: 11, color: "#1d2b26", weight: 800 });
+          });
+          svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+          svg.innerHTML = html;
+        }
+
+        function renderDonut(entries) {
+          const svg = $("type-chart");
+          const legend = $("type-legend");
+          if (!entries.length) { svg.innerHTML = `<foreignObject x="0" y="0" width="100%" height="250"><div xmlns="http://www.w3.org/1999/xhtml" class="chart-empty">Không có dữ liệu.</div></foreignObject>`; legend.innerHTML = ""; return; }
+          const total = entries.reduce((sum, [, value]) => sum + value, 0);
+          const radius = 78;
+          const circumference = 2 * Math.PI * radius;
+          let offset = 0;
+          let html = `<circle cx="130" cy="130" r="${radius}" fill="none" stroke="#e6ded2" stroke-width="27" />`;
+          entries.slice(0, 7).forEach(([key, value], index) => {
+            const length = circumference * (value / total);
+            html += `<circle cx="130" cy="130" r="${radius}" fill="none" stroke="${COLORS[index % COLORS.length]}" stroke-width="27" stroke-dasharray="${length} ${circumference - length}" stroke-dashoffset="${-offset}" transform="rotate(-90 130 130)"><title>${escapeHtml(key)}: ${value}</title></circle>`;
+            offset += length;
+          });
+          html += svgText(number.format(total), 130, 126, { size: 26, color: "#1d2b26", weight: 400, anchor: "middle" });
+          html += svgText("recipes", 130, 145, { size: 10, color: "#9da69d", weight: 800, anchor: "middle" });
+          svg.innerHTML = html;
+          legend.innerHTML = entries.slice(0, 7).map(([key, value], index) => `<div class="legend-item"><span class="legend-dot" style="background:${COLORS[index % COLORS.length]}"></span><span class="legend-label">${escapeHtml(key)}</span><span class="legend-value">${number.format(value)}</span></div>`).join("");
+        }
+
+        function renderTimeChart(recipes) {
+          const buckets = [["< 30′", 0], ["30–59′", 0], ["60–89′", 0], ["90′ +", 0]];
+          recipes.forEach((recipe) => {
+            const time = readNumber(recipe.total_time_minutes);
+            if (time == null) return;
+            if (time < 30) buckets[0][1] += 1;
+            else if (time < 60) buckets[1][1] += 1;
+            else if (time < 90) buckets[2][1] += 1;
+            else buckets[3][1] += 1;
+          });
+          renderVerticalBars("time-chart", buckets);
+        }
+
+        function renderVerticalBars(id, entries) {
+          const svg = $(id);
+          const width = 760;
+          const height = 280;
+          const left = 30;
+          const bottom = 34;
+          const top = 18;
+          const chartHeight = height - top - bottom;
+          const max = Math.max(...entries.map(([, value]) => value), 1);
+          const slot = (width - left - 28) / entries.length;
+          const barWidth = Math.min(92, slot * 0.52);
+          let html = "";
+          [0, 0.5, 1].forEach((fraction) => {
+            const y = top + chartHeight * (1 - fraction);
+            html += `<line x1="${left}" x2="${width - 18}" y1="${y}" y2="${y}" stroke="#e6ded2" stroke-width="1" />`;
+            html += svgText(number.format(Math.round(max * fraction)), left - 8, y + 4, { size: 10, color: "#9da69d", anchor: "end" });
+          });
+          entries.forEach(([label, value], index) => {
+            const barHeight = value ? (value / max) * chartHeight : 2;
+            const x = left + index * slot + (slot - barWidth) / 2;
+            const y = top + chartHeight - barHeight;
+            html += `<rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" rx="${Math.min(12, barWidth / 2)}" fill="${COLORS[index]}" opacity=".88"><title>${escapeHtml(label)}: ${value}</title></rect>`;
+            html += svgText(number.format(value), x + barWidth / 2, Math.max(13, y - 8), { size: 12, color: "#1d2b26", weight: 800, anchor: "middle" });
+            html += svgText(label, x + barWidth / 2, height - 9, { size: 11, color: "#68766e", anchor: "middle" });
+          });
+          svg.innerHTML = html;
+        }
+
+        function renderCharts() {
+          const catalogEntries = countBy(state.filtered, (recipe) => recipe.catalogCode).map(([code, value]) => [state.catalogs.find((catalog) => catalog.code === code)?.label ?? code, value]);
+          const typeEntries = countBy(state.filtered, (recipe) => labelFor("dishType", recipe.dish_type));
+          const methodEntries = countBy(state.filtered, (recipe) => recipe.cooking_method);
+          const mealEntries = countBy(state.filtered, (recipe) => recipe.mealSlots);
+          renderHorizontalBars("catalog-chart", catalogEntries, { width: 760, height: 280, left: 180, right: 38, label: (value) => value, limit: 8 });
+          renderDonut(typeEntries);
+          renderHorizontalBars("method-chart", methodEntries, { label: (value) => labelFor("method", value), limit: 7 });
+          renderHorizontalBars("meal-chart", mealEntries, { label: (value) => labelFor("meal", value), limit: 7 });
+          renderTimeChart(state.filtered);
+          setChartCount("catalog-chart-count", state.filtered.length);
+          setChartCount("type-chart-count", state.filtered.length);
+          setChartCount("method-chart-count", state.filtered.length);
+          setChartCount("meal-chart-count", state.filtered.length);
+          setChartCount("time-chart-count", state.filtered.length);
+        }
+
+        function imageMarkup(recipe, className = "dish-thumb") {
+          const fallback = escapeHtml((recipe.title || "M").slice(0, 1).toUpperCase());
+          if (!recipe.image_url) return `<span class="${className}-fallback">${fallback}</span>`;
+          return `<img class="${className}" src="${escapeHtml(recipe.image_url)}" alt="${escapeHtml(recipe.image_alt || recipe.title)}" loading="lazy" data-image-fallback="true" /><span class="${className}-fallback">${fallback}</span>`;
+        }
+
+        function renderTable() {
+          const start = (state.page - 1) * state.pageSize;
+          const pageRows = state.filtered.slice(start, start + state.pageSize);
+          const tbody = $("recipe-table-body");
+          if (!pageRows.length) {
+            tbody.innerHTML = `<tr><td class="table-empty" colspan="7">Không có món nào khớp với bộ lọc hiện tại.</td></tr>`;
+          } else {
+            tbody.innerHTML = pageRows.map((recipe) => {
+              const categories = recipe.categoryCodes.slice(0, 2).map((category) => labelFor("category", category)).join(" · ") || "Chưa phân loại";
+              const meals = recipe.mealSlots.slice(0, 2).map((meal) => labelFor("meal", meal)).join(" · ") || "—";
+              const ingredientCount = Array.isArray(recipe.ingredients) ? recipe.ingredients.length : 0;
+              const time = readNumber(recipe.total_time_minutes);
+              const calories = readNumber(recipe.calories_per_serving);
+              return `<tr tabindex="0" data-recipe-id="${escapeHtml(recipe.id)}">
+                <td class="dish-cell">
+                  <div class="dish-cell-inner">
+                    ${imageMarkup(recipe)}
+                    <span class="dish-copy">
+                      <span class="dish-title">${escapeHtml(recipe.title)}</span>
+                      <span class="dish-local">${escapeHtml(recipe.local_name || recipe.description || "")}</span>
+                    </span>
+                  </div>
+                </td>
+                <td><span class="catalog-pill">${escapeHtml(recipe.catalogLabel)}</span></td>
+                <td><span class="class-pill" title="${escapeHtml(categories)}">${escapeHtml(categories)}</span></td>
+                <td>${escapeHtml(meals)}</td>
+                <td class="data-number">${number.format(ingredientCount)}</td>
+                <td class="data-number">${time == null ? "—" : `${number.format(time)}′`}</td>
+                <td class="data-number">${calories == null ? "—" : `${number.format(calories)} kcal`}</td>
+              </tr>`;
+            }).join("");
+          }
+          const pageCount = Math.max(1, Math.ceil(state.filtered.length / state.pageSize));
+          const first = state.filtered.length ? start + 1 : 0;
+          const last = Math.min(start + state.pageSize, state.filtered.length);
+          $("table-summary").textContent = `${number.format(state.filtered.length)} món phù hợp · click một dòng để xem chi tiết`;
+          $("pagination-info").textContent = state.filtered.length ? `${number.format(first)}–${number.format(last)} / ${number.format(state.filtered.length)} · trang ${state.page}/${pageCount}` : "0 kết quả";
+          $("prev-page").disabled = state.page <= 1;
+          $("next-page").disabled = state.page >= pageCount;
+        }
+
+        function renderFilterSummary() {
+          const active = Object.entries(state.filters).filter(([key, value]) => key !== "search" ? value !== "all" : Boolean(value));
+          if (!active.length) { $("active-filter-note").textContent = "Đang hiển thị toàn bộ thư viện."; return; }
+          const names = active.map(([key, value]) => {
+            if (key === "search") return `“${value}”`;
+            if (key === "catalog") return state.catalogs.find((catalog) => catalog.code === value)?.label ?? value;
+            if (key === "dishType") return labelFor("dishType", value);
+            if (key === "category") return labelFor("category", value);
+            if (key === "meal") return labelFor("meal", value);
+            if (key === "method") return labelFor("method", value);
+            if (key === "diet") return labelFor("diet", value);
+            if (key === "spice") return labelFor("spice", value);
+            return humanize(value);
+          });
+          $("active-filter-note").textContent = `${names.join(" · ")} · ${number.format(state.filtered.length)} kết quả`;
+        }
+
+        function setFilter(key, value) {
+          state.filters[key] = value;
+          state.page = 1;
+          render();
+        }
+
+        function resetFilters() {
+          state.filters = { search: "", catalog: "all", dishType: "all", category: "all", meal: "all", method: "all", diet: "all", spice: "all" };
+          $("search-filter").value = "";
+          ["catalog-filter", "dish-type-filter", "category-filter", "meal-filter", "method-filter", "diet-filter", "spice-filter"].forEach((id) => { $(id).value = "all"; });
+          state.page = 1;
+          render();
+        }
+
+        function formatMinutes(value) {
+          const minutes = readNumber(value);
+          return minutes == null ? "—" : `${number.format(minutes)}′`;
+        }
+
+        function detailImageMarkup(recipe) {
+          const fallback = escapeHtml((recipe.title || "M").slice(0, 1).toUpperCase());
+          if (!recipe.image_url) return `<div class="detail-image-fallback is-visible">${fallback}</div>`;
+          return `<img class="detail-hero-image" src="${escapeHtml(recipe.image_url)}" alt="${escapeHtml(recipe.image_alt || recipe.title)}" data-image-fallback="true" /><div class="detail-image-fallback">${fallback}</div>`;
+        }
+
+        function taxonomyChip(group, value) {
+          if (!value) return "";
+          const definition = definitionFor(group, value);
+          return `<span class="detail-chip"${definition ? ` title="${escapeHtml(definition)}"` : ""}>${escapeHtml(labelFor(group, value))}</span>`;
+        }
+
+        function renderIngredient(ingredient) {
+          const name = ingredient.name || ingredient.canonical_name || "Nguyên liệu chưa đặt tên";
+          const canonical = ingredient.canonical_name || name;
+          const normalizedIngredient = state.ingredientsByName.get(normalize(canonical));
+          const quantity = ingredient.display_amount || [ingredient.amount, ingredient.unit_normalized].filter(Boolean).join(" ") || "—";
+          const metadata = unique([
+            ingredient.macro_class,
+            normalizedIngredient?.macro_class,
+            normalizedIngredient?.nutrition_profile?.nutrition_group,
+            normalizedIngredient?.recipe_count ? `${number.format(normalizedIngredient.recipe_count)} công thức` : "",
+          ]).join(" · ");
+          return `<li>
+            <strong class="ingredient-amount">${escapeHtml(quantity)}</strong>
+            <span>
+              <span class="ingredient-name">${escapeHtml(name)}</span>
+              <span class="ingredient-meta">${escapeHtml(metadata || "Đã chuẩn hoá trong ingredients catalog")}</span>
+            </span>
+          </li>`;
+        }
+
+        function renderStep(step, index) {
+          if (typeof step === "string") {
+            return `<li><div><span class="step-title">Bước ${index + 1}</span><p class="step-description">${escapeHtml(step)}</p></div></li>`;
+          }
+          const title = step.title || `Bước ${index + 1}`;
+          const phase = step.phase ? humanize(step.phase) : "Thực hiện";
+          const meta = unique([
+            readNumber(step.duration_seconds) != null ? `${Math.round(step.duration_seconds / 60)} phút` : "",
+            step.temperature ? `${step.temperature}°` : "",
+            step.equipment_refs?.length ? `Dụng cụ: ${flatText(step.equipment_refs)}` : "",
+          ]);
+          return `<li>
+            <div>
+              <span class="step-phase">${escapeHtml(phase)}</span>
+              <span class="step-title">${escapeHtml(title)}</span>
+              <p class="step-description">${escapeHtml(step.description || "Chưa có mô tả cho bước này.")}</p>
+              ${step.tip ? `<p class="step-tip"><strong>Mẹo:</strong> ${escapeHtml(step.tip)}</p>` : ""}
+              ${meta.length ? `<div class="step-meta">${meta.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>` : ""}
+            </div>
+          </li>`;
+        }
+
+        function openDetail(id) {
+          const recipe = state.recipes.find((item) => item.id === id);
+          if (!recipe) return;
+          const ingredients = recipe.ingredients ?? [];
+          const steps = recipe.steps ?? [];
+          const taxonomy = [
+            taxonomyChip("dishType", recipe.dish_type),
+            ...recipe.categoryCodes.map((category) => taxonomyChip("category", category)),
+            taxonomyChip("method", recipe.cooking_method),
+            ...recipe.mealSlots.map((meal) => taxonomyChip("meal", meal)),
+            ...recipe.dietFlags.map((diet) => taxonomyChip("diet", diet)),
+            taxonomyChip("spice", recipe.spice_level),
+          ].filter(Boolean);
+          const tags = unique([...(recipe.tags || []), ...(recipe.occasion_tags || []), ...(recipe.composition_tags || [])]);
+          const equipment = unique(recipe.equipment || []);
+          const quality = recipe.data_quality || {};
+          const sourceLink = recipe.source_url
+            ? `<a href="${escapeHtml(recipe.source_url)}" target="_blank" rel="noreferrer">Mở nguồn tham khảo ↗</a>`
+            : "Nguồn nội bộ Mango";
+
+          $("detail-content").innerHTML = `<div class="detail-page">
+            <section class="detail-hero">
+              <div class="detail-hero-media">
+                ${detailImageMarkup(recipe)}
+                <span class="detail-media-label">${escapeHtml(recipe.image_source || recipe.catalogLabel)}</span>
+              </div>
+              <div class="detail-hero-copy">
+                <span class="detail-eyebrow">${escapeHtml(recipe.catalogLabel)} · ${escapeHtml(recipe.source_type || "recipe")}</span>
+                <h2 id="detail-title">${escapeHtml(recipe.title)}</h2>
+                ${recipe.local_name ? `<p class="detail-local">${escapeHtml(recipe.local_name)}</p>` : ""}
+                <p class="detail-lead">${escapeHtml(recipe.description || "Chưa có mô tả.")}</p>
+                <div class="detail-taxonomy">${taxonomy.join("")}</div>
+              </div>
+            </section>
+
+            <div class="detail-content-grid">
+              <div class="detail-main-column">
+                <section class="detail-panel">
+                  <h3>Nguyên liệu · ${number.format(ingredients.length)}</h3>
+                  <p class="detail-panel-intro">Định lượng theo recipe catalog; nhãn nhóm được đối chiếu với ingredients catalog.</p>
+                  ${ingredients.length ? `<ul class="ingredient-list">${ingredients.map(renderIngredient).join("")}</ul>` : `<p class="detail-panel-intro">Món này chưa có danh sách nguyên liệu.</p>`}
+                </section>
+
+                <section class="detail-panel">
+                  <h3>Hướng dẫn nấu · ${number.format(steps.length)} bước</h3>
+                  ${steps.length ? `<ol class="step-list">${steps.map(renderStep).join("")}</ol>` : `<p class="detail-panel-intro">Món này chưa có hướng dẫn chế biến.</p>`}
+                </section>
+              </div>
+
+              <aside class="detail-side-column">
+                <section class="detail-panel">
+                  <h3>Thông tin món</h3>
+                  <div class="detail-stats">
+                    <div class="detail-stat"><strong>${formatMinutes(recipe.prep_time_minutes)}</strong><span>Chuẩn bị</span></div>
+                    <div class="detail-stat"><strong>${formatMinutes(recipe.cook_time_minutes)}</strong><span>Nấu</span></div>
+                    <div class="detail-stat"><strong>${formatMinutes(recipe.total_time_minutes)}</strong><span>Tổng thời gian</span></div>
+                    <div class="detail-stat"><strong>${recipe.servings == null ? "—" : number.format(recipe.servings)}</strong><span>Khẩu phần</span></div>
+                    <div class="detail-stat"><strong>${recipe.calories_per_serving == null ? "—" : number.format(recipe.calories_per_serving)}</strong><span>Kcal / khẩu phần</span></div>
+                    <div class="detail-stat"><strong>${escapeHtml(labelFor("method", recipe.cooking_method || "—"))}</strong><span>Cách nấu</span></div>
+                  </div>
+                </section>
+
+                <section class="detail-panel">
+                  <h3>Giải thích phân loại</h3>
+                  <p class="detail-panel-intro">Các nhãn bên dưới lấy từ classification/vocabularies.json. Di chuột vào chip để đọc định nghĩa.</p>
+                  ${taxonomy.length ? `<div class="detail-tag-list">${taxonomy.join("")}</div>` : ""}
+                  ${recipe.dish_type && definitionFor("dishType", recipe.dish_type) ? `<p class="detail-definition"><strong>${escapeHtml(labelFor("dishType", recipe.dish_type))}:</strong> ${escapeHtml(definitionFor("dishType", recipe.dish_type))}</p>` : ""}
+                </section>
+
+                ${equipment.length ? `<section class="detail-panel"><h3>Dụng cụ</h3><div class="detail-equipment">${equipment.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div></section>` : ""}
+
+                ${tags.length ? `<section class="detail-panel"><h3>Thẻ và ngữ cảnh</h3><div class="detail-tag-list">${tags.map((tag) => `<span class="detail-tag">${escapeHtml(tag)}</span>`).join("")}</div></section>` : ""}
+
+                <section class="detail-panel">
+                  <h3>Nguồn dữ liệu</h3>
+                  <div class="detail-quality">
+                    <span><strong>Schema:</strong> recipe-catalog ${escapeHtml(state.schemaVersion)}</span>
+                    <span><strong>Source file:</strong> ${escapeHtml(recipe.source_file || "—")}</span>
+                    ${recipe.source_attribution ? `<span><strong>Attribution:</strong> ${escapeHtml(recipe.source_attribution)}</span>` : ""}
+                    ${quality.completeness_score != null ? `<span><strong>Completeness:</strong> ${escapeHtml(quality.completeness_score)}</span>` : ""}
+                    ${recipe.classification_basis ? `<span><strong>Classification:</strong> ${escapeHtml(recipe.classification_basis)}</span>` : ""}
+                  </div>
+                  <div class="detail-source">${sourceLink}</div>
+                </section>
+              </aside>
+            </div>
+          </div>`;
+          $("drawer-backdrop").classList.add("is-open");
+          $("drawer-backdrop").setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          history.replaceState(null, "", `#dish=${encodeURIComponent(recipe.id)}`);
+          $("close-drawer").focus();
+        }
+
+        function closeDetail() {
+          $("drawer-backdrop").classList.remove("is-open");
+          $("drawer-backdrop").setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          if (location.hash.startsWith("#dish=")) history.replaceState(null, "", location.pathname + location.search);
+        }
+
+        function setActiveView(view) {
+          state.activeView = view;
+          document.querySelectorAll("[data-view-panel]").forEach((panel) => { panel.hidden = panel.dataset.viewPanel !== view; });
+          document.querySelectorAll("[data-view]").forEach((button) => { button.classList.toggle("is-active", button.dataset.view === view); });
+          const showRecipeFilters = view === "overview" || view === "recipes";
+          $("search-filter").closest(".filter-panel").hidden = !showRecipeFilters;
+          if (view === "ingredients") $("ingredient-directory-search").focus();
+          if (view === "dish-types") $("dish-type-directory-search").focus();
+        }
+
+        function bindEvents() {
+          document.querySelectorAll("[data-view]").forEach((button) => button.addEventListener("click", () => setActiveView(button.dataset.view)));
+          $("search-filter").addEventListener("input", (event) => setFilter("search", event.target.value));
+          [["catalog-filter", "catalog"], ["dish-type-filter", "dishType"], ["category-filter", "category"], ["meal-filter", "meal"], ["method-filter", "method"], ["diet-filter", "diet"], ["spice-filter", "spice"]].forEach(([id, key]) => $(id).addEventListener("change", (event) => setFilter(key, event.target.value)));
+          $("refresh-data").addEventListener("click", refreshData);
+          $("clear-filters").addEventListener("click", resetFilters);
+          $("sort-filter").addEventListener("change", (event) => { state.sort = event.target.value; state.page = 1; render(); });
+          $("prev-page").addEventListener("click", () => { if (state.page > 1) { state.page -= 1; renderTable(); } });
+          $("next-page").addEventListener("click", () => { if (state.page < Math.ceil(state.filtered.length / state.pageSize)) { state.page += 1; renderTable(); } });
+          $("ingredient-directory-search").addEventListener("input", (event) => { state.directorySearch.ingredients = event.target.value; state.directoryPages.ingredients = 1; renderIngredientDirectory(); });
+          $("dish-type-directory-search").addEventListener("input", (event) => { state.directorySearch.dishTypes = event.target.value; state.directoryPages.dishTypes = 1; renderDishTypeDirectory(); });
+          $("ingredient-prev").addEventListener("click", () => { if (state.directoryPages.ingredients > 1) { state.directoryPages.ingredients -= 1; renderIngredientDirectory(); } });
+          $("ingredient-next").addEventListener("click", () => { const count = Math.max(1, Math.ceil(state.ingredientDirectory.filter((item) => !normalize(state.directorySearch.ingredients) || normalize([item.name, item.canonical_name, item.macro_class, item.allergen_flags]).includes(normalize(state.directorySearch.ingredients))).length / state.directoryPageSize)); if (state.directoryPages.ingredients < count) { state.directoryPages.ingredients += 1; renderIngredientDirectory(); } });
+          $("dish-type-prev").addEventListener("click", () => { if (state.directoryPages.dishTypes > 1) { state.directoryPages.dishTypes -= 1; renderDishTypeDirectory(); } });
+          $("dish-type-next").addEventListener("click", () => { const query = normalize(state.directorySearch.dishTypes); const count = Math.max(1, Math.ceil(state.dishTypeDirectory.filter((item) => !query || normalize([item.label, item.code, item.definition]).includes(query)).length / state.directoryPageSize)); if (state.directoryPages.dishTypes < count) { state.directoryPages.dishTypes += 1; renderDishTypeDirectory(); } });
+          $("recipe-table-body").addEventListener("click", (event) => { const row = event.target.closest("[data-recipe-id]"); if (row) openDetail(row.dataset.recipeId); });
+          $("recipe-table-body").addEventListener("keydown", (event) => { const row = event.target.closest("[data-recipe-id]"); if (row && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); openDetail(row.dataset.recipeId); } });
+          document.addEventListener("error", (event) => {
+            const image = event.target.closest?.("[data-image-fallback]");
+            if (image) image.classList.add("is-failed");
+          }, true);
+          $("close-drawer").addEventListener("click", closeDetail);
+          $("back-to-library").addEventListener("click", closeDetail);
+          $("drawer-backdrop").addEventListener("click", (event) => { if (event.target === $("drawer-backdrop")) closeDetail(); });
+          window.addEventListener("hashchange", () => {
+            if (location.hash.startsWith("#dish=")) openDetail(decodeURIComponent(location.hash.slice(6)));
+            else closeDetail();
+          });
+          document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeDetail(); });
+        }
+
+        function showLoadError(error) {
+          hideLoading();
+          setStatus("LỖI TẢI", "Cần chạy qua local server", "fetch không chạy từ file://");
+          $("error-card").classList.add("is-visible");
+          $("error-message").textContent = `${error.message} — hãy chạy mango\\MO_DASHBOARD.cmd, sau đó mở http://127.0.0.1:8765/dashboard.html. Trang sẽ tự thử lại sau 5 giây.`;
+          $("table-summary").textContent = "Chưa có dữ liệu để hiển thị.";
+          if (location.protocol !== "file:") window.setTimeout(() => location.reload(), 5000);
+        }
+
+        let refreshInFlight = false;
+        async function refreshData() {
+          if (refreshInFlight) return;
+          refreshInFlight = true;
+          setStatus("ĐANG ĐỒNG BỘ", "Đang kiểm tra dữ liệu mới", "Tự động mỗi 30 giây");
+          try {
+            await loadData({ isRefresh: true });
+          } catch (error) {
+            setStatus("LỖI ĐỒNG BỘ", "Giữ dữ liệu hiện tại", `Sẽ thử lại sau 30 giây · ${error.message}`);
+            $("error-card").classList.add("is-visible");
+            $("error-message").textContent = `Không thể đồng bộ dữ liệu mới: ${error.message}. Kiểm tra file JSON rồi bấm Cập nhật ngay.`;
+          } finally {
+            refreshInFlight = false;
+          }
+        }
+
+        bindEvents();
+        setActiveView("overview");
+        loadData().then(() => {
+          if (location.hash.startsWith("#dish=")) openDetail(decodeURIComponent(location.hash.slice(6)));
+        }).catch(showLoadError);
+        window.setInterval(refreshData, AUTO_REFRESH_INTERVAL_MS);
+      })();
+    </script>
+  </body>
+</html>

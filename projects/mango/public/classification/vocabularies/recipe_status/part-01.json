@@ -1,0 +1,54 @@
+{
+  "description": "Trạng thái xuất bản của công thức. normalized là mã workflow cũ và không nên dùng thay cho trạng thái xuất bản ở dữ liệu mới.",
+  "schema_version": "1.1.0",
+  "group": "recipe_status",
+  "shard": {
+    "index": 1,
+    "count": 1,
+    "total_records": 5
+  },
+  "values": [
+    {
+      "code": "draft",
+      "name_i18n": {
+        "vi": "Bản nháp",
+        "en": "Draft"
+      },
+      "definition": "Giá trị chuẩn hoá “Bản nháp” trong nhóm recipe_status."
+    },
+    {
+      "code": "published",
+      "name_i18n": {
+        "vi": "Đã xuất bản",
+        "en": "Published"
+      },
+      "definition": "Giá trị chuẩn hoá “Đã xuất bản” trong nhóm recipe_status."
+    },
+    {
+      "code": "archived",
+      "name_i18n": {
+        "vi": "Đã lưu trữ",
+        "en": "Archived"
+      },
+      "definition": "Giá trị chuẩn hoá “Đã lưu trữ” trong nhóm recipe_status."
+    },
+    {
+      "code": "normalized",
+      "name_i18n": {
+        "vi": "Đã chuẩn hoá (mã cũ)",
+        "en": "Normalized"
+      },
+      "definition": "Trạng thái cũ trộn workflow chuẩn hoá với trạng thái xuất bản.",
+      "deprecated": true,
+      "canonical_code": "draft"
+    },
+    {
+      "code": "review_pending",
+      "name_i18n": {
+        "vi": "Review Pending",
+        "en": "Review Pending"
+      },
+      "definition": "Giá trị chuẩn hoá “Review Pending” trong nhóm recipe_status."
+    }
+  ]
+}
