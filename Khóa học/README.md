@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 80 khóa học được tổ chức theo ba lớp:
+Kho này chứa 83 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -178,10 +178,13 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 #### Tiếng Anh
 
+- [English Pronunciation Course](<./06 - Ngôn ngữ/01 - Tiếng Anh/english-pronunciation-course/>)
 - [IELTS Speaking Course](<./06 - Ngôn ngữ/01 - Tiếng Anh/ielts-speaking-course/>)
-- [Tự học 2.000 từ vựng tiếng Anh](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-2000-tu-vung-tieng-anh/>)
-- [Từ vựng tiếng Anh cơ bản](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-vung-tieng-anh-co-ban/>)
 - [The English Master Course: English Grammar, English Speaking](<./06 - Ngôn ngữ/01 - Tiếng Anh/the-english-master-course-english-grammar-speaking/>)
+- [Tự học 2.000 từ vựng tiếng Anh](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-2000-tu-vung-tieng-anh/>)
+- [Tự học phát âm tiếng Anh — Nền tảng cho kỹ năng nghe – nói](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-phat-am-tieng-anh-markdown/>)
+- [Tự học phát âm tiếng Anh — Nền tảng cho kỹ năng đọc](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-phat-am-tieng-anh-nen-tang-ky-nang-doc/>)
+- [Từ vựng tiếng Anh cơ bản](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-vung-tieng-anh-co-ban/>)
 
 #### Tiếng Trung
 
