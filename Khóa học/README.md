@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 75 khóa học được tổ chức theo ba lớp:
+Kho này chứa 76 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -44,6 +44,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `01 - Dinh dưỡng`
 - `09 - Viết & Sáng tác`
   - `01 - Viết tiểu thuyết`
+  - `02 - Viết học thuật & Nghiên cứu`
 
 ## Danh sách khóa học
 
@@ -221,6 +222,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Viết tiểu thuyết
 
 - [Creative Writing: How to Write a Novel](<./09 - Viết & Sáng tác/01 - Viết tiểu thuyết/creative-writing-how-to-write-a-novel/>)
+
+#### Viết học thuật & Nghiên cứu
+
+- [How to Write a Literature Review](<./09 - Viết & Sáng tác/02 - Viết học thuật & Nghiên cứu/how-to-write-a-literature-review/>)
 
 ## Ngoài kho khóa học
 
