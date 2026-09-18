@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 84 khóa học được tổ chức theo ba lớp:
+Kho này chứa 85 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -224,6 +224,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 #### Tập luyện & Thể hình
 
+- [Full-Body 3 Buổi/Tuần](<./08 - Sức khỏe & Đời sống/02 - Tập luyện & Thể hình/full-body-3-buoi/>)
 - [Tập luyện tăng cơ theo trình độ](<./08 - Sức khỏe & Đời sống/02 - Tập luyện & Thể hình/tap-luyen-theo-trinh-do/>)
 
 ### 09 - Viết & Sáng tác
