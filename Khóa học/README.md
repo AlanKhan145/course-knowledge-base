@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 85 khóa học được tổ chức theo ba lớp:
+Kho này chứa 90 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -37,6 +37,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `03 - Tiếng Nhật`
   - `04 - Tiếng Pháp`
   - `05 - Tiếng Đức`
+  - `06 - Nghiên cứu học ngôn ngữ`
 - `07 - Kinh doanh & Quản lý`
   - `01 - Product & Engineering Management`
   - `02 - Developer Relations & Technical Writing`
@@ -203,6 +204,14 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Tiếng Đức
 
 - [Tiếng Đức giao tiếp từ A1 đến B1](<./06 - Ngôn ngữ/05 - Tiếng Đức/complete-german-course-speaking/>)
+
+#### Nghiên cứu học ngôn ngữ
+
+- [Học ngoại ngữ theo bằng chứng nghiên cứu](<./06 - Ngôn ngữ/06 - Nghiên cứu học ngôn ngữ/language-learning-research/>)
+- [Học từ vựng L2 ngẫu nhiên hiệu quả đến đâu?](<./06 - Ngôn ngữ/06 - Nghiên cứu học ngôn ngữ/incidental-vocabulary-meta-analysis/>)
+- [Học ngoại ngữ qua Extensive Reading](<./06 - Ngôn ngữ/06 - Nghiên cứu học ngôn ngữ/extensive-reading/>)
+- [Học ngôn ngữ thứ hai qua video (Audiovisual Input)](<./06 - Ngôn ngữ/06 - Nghiên cứu học ngôn ngữ/audiovisual-input-l2/>)
+- [Captioning, hiểu video L2 và học từ vựng ngẫu nhiên](<./06 - Ngôn ngữ/06 - Nghiên cứu học ngôn ngữ/captioning-video-comprehension/>)
 
 ### 07 - Kinh doanh & Quản lý
 

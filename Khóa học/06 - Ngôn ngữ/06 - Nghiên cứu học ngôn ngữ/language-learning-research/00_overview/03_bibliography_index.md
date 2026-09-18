@@ -1,0 +1,22 @@
+# Bibliography
+
+- **Paper 01 — Extensive Reading Meta-analysis (2025)** — `01_english/01_extensive_reading_meta_2025.md`
+- **Paper 02 — Distributed Practice cho Verb–Noun Collocations** — `01_english/02_spaced_collocations.md`
+- **Paper 03 — Captioned Viewing & Incidental Vocabulary** — `01_english/03_captioned_viewing_meta.md`
+- **Paper 04 — High Variability Phonetic Training (HVPT) Meta-analysis** — `01_english/04_hvpt_meta_2025.md`
+- **Paper 05 — HVPT Meta-analysis (Companion Review, 2024)** — `01_english/05_hvpt_meta_2024_companion.md`
+- **Paper 06 — Explicit Phonetics Instruction in L2 French** — `02_french/01_explicit_phonetics_french.md`
+- **Paper 07 — French Grammatical Gender: Cues + Pronunciation** — `02_french/02_gender_form_focused_instruction.md`
+- **Paper 08 — Retrieval Practice cho French Vocabulary** — `02_french/03_retrieval_practice_french_words.md`
+- **Paper 09 — Kanji Learning Strategies & Language Background (2026)** — `03_japanese/01_kanji_learning_strategies_2026.md`
+- **Paper 10 — Anki-assisted Spaced Repetition cho Kanji (2026)** — `03_japanese/02_anki_spaced_kanji_2026.md`
+- **Paper 11 — Multimodal Training on L2 Japanese Pitch Accent** — `03_japanese/03_pitch_accent_multimodal_2024.md`
+- **Paper 12 — L2 Suprasegmental Training Meta-analysis** — `04_chinese/01_suprasegmental_training_meta.md`
+- **Paper 13 — Chinese Orthographic Learning via Self-teaching (2025)** — `04_chinese/02_chinese_orthographic_self_teaching_meta_2025.md`
+- **Paper 14 — Handwriting Practice & Stroke Order in CFL** — `04_chinese/03_handwriting_stroke_order_2017.md`
+- **Paper 15 — Typing vs Handwriting in Chinese Learning** — `04_chinese/04_typing_vs_handwriting_review_2021.md`
+- **Paper 16 — Task Repetition & L2 Oral Performance Meta-analysis (2025)** — `01_english/06_task_repetition_oral_meta_2025.md`
+- **Paper 17 — Oral Task Repetition Scoping Review (2026)** — `01_english/07_oral_task_repetition_scoping_review_2026.md`
+- **Paper 18 — Effects of Captioning on Video Comprehension and Incidental Vocabulary Learning (2014)** — `01_english/08_captioning_video_primary_2014.md`
+- **Paper 19 — How Effective Is L2 Incidental Vocabulary Learning? Meta-analysis (2023)** — `01_english/09_incidental_vocabulary_meta_2023.md`
+- **Paper 20 — Audiovisual Input on Second Language Learning: Meta-analysis (2026)** — `01_english/10_audiovisual_input_meta_2026.md`
