@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 83 khóa học được tổ chức theo ba lớp:
+Kho này chứa 84 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -42,6 +42,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `02 - Developer Relations & Technical Writing`
 - `08 - Sức khỏe & Đời sống`
   - `01 - Dinh dưỡng`
+  - `02 - Tập luyện & Thể hình`
 - `09 - Viết & Sáng tác`
   - `01 - Viết tiểu thuyết`
   - `02 - Viết học thuật & Nghiên cứu`
@@ -220,6 +221,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Dinh dưỡng
 
 - [Nutrition Masterclass: Build Your Perfect Diet & Meal Plan](<./08 - Sức khỏe & Đời sống/01 - Dinh dưỡng/nutrition-masterclass-build-your-perfect-diet-meal-plan/>)
+
+#### Tập luyện & Thể hình
+
+- [Tập luyện tăng cơ theo trình độ](<./08 - Sức khỏe & Đời sống/02 - Tập luyện & Thể hình/tap-luyen-theo-trinh-do/>)
 
 ### 09 - Viết & Sáng tác
 
