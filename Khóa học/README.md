@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 76 khóa học được tổ chức theo ba lớp:
+Kho này chứa 77 khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -226,6 +226,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Viết học thuật & Nghiên cứu
 
 - [How to Write a Literature Review](<./09 - Viết & Sáng tác/02 - Viết học thuật & Nghiên cứu/how-to-write-a-literature-review/>)
+- [Literature Review in 5 Steps](<./09 - Viết & Sáng tác/02 - Viết học thuật & Nghiên cứu/literature-review-in-5-steps/>)
 
 ## Ngoài kho khóa học
 
