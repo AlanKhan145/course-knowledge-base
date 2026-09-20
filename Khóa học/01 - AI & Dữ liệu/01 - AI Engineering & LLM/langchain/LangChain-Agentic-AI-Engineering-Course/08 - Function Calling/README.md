@@ -1,17 +1,36 @@
-# Section 08 - Function Calling
+# Function Calling - Course Notes
 
-- Lessons: 2
-- Listed duration: 9min
+## 1. Mục đích
 
-## Purpose
-Provides the theoretical foundation for function calling, explaining the JSON contract between LLMs and external tools.
+Thư mục này chứa các bài học và bài tập đã được biên soạn lại theo dạng tài liệu Markdown độc lập.
 
-## Lessons
-- [001 - Intro](001 - Intro.md) - 2 minutes
-- [002 - [Theory] Understanding Function Calling for LLMs](002 - [Theory] Understanding Function Calling for LLMs.md) - 7 minutes
+Nội dung được chia thành hai nhóm:
 
-## Study Checklist
-- [ ] Read or watch the lessons in order.
-- [ ] Capture key commands, code patterns, and implementation details while studying.
-- [ ] Rebuild important examples without copying line by line.
-- [ ] Add one short note about what confused you and how you resolved it.
+- `01-theory`: bài lý thuyết và kiến thức cốt lõi;
+- `02-exercises`: bài tập luyện tập, không kèm đáp án.
+
+## 2. Cấu trúc
+
+```text
+function-calling-course-v2/
+├── 01-theory/
+│   ├── 001-intro-function-calling.md
+│   └── 002-understanding-function-calling-for-llms.md
+├── 02-exercises/
+│   ├── 001-exercise-intro-function-calling.md
+│   └── 002-exercise-understanding-function-calling-for-llms.md
+└── README.md
+```
+
+## 3. Thứ tự học
+
+1. `001-intro-function-calling.md`
+2. `001-exercise-intro-function-calling.md`
+3. `002-understanding-function-calling-for-llms.md`
+4. `002-exercise-understanding-function-calling-for-llms.md`
+
+## 4. Quy ước
+
+Các bài lý thuyết tập trung vào việc giảng lại kiến thức theo mạch hoàn chỉnh, không giữ cấu trúc transcript.
+
+Các bài tập được tách riêng để người học có thể tự kiểm tra kiến thức mà không nhìn thấy lời giải ngay trong bài học.
