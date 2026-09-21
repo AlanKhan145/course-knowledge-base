@@ -72,6 +72,8 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Information Mapping & Data Visualization](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/information-mapping-data-visualization/>)
 - [Khóa Học Tính Toán Tiến Hóa](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/khoa-hoc-tinh-toan-tien-hoa/>)
 - [Machine Learning Roadmap](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/machine-learning-roadmap/>)
+- [R&D-Agent(Q): Tự động hóa R&D định lượng bằng hệ đa tác tử](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/RDAgentQ_Course_VI/>)
+- [StockMixer: MLP cho dự báo giá cổ phiếu (AAAI 2024)](<./01 - AI & Dữ liệu/02 - Data Science, Analytics & ML/StockMixer_AAAI2024_Course_VI/>)
 
 #### AI hỗ trợ phát triển phần mềm
 
