@@ -1,25 +1,28 @@
-# Section 09 - The GIST of RAG - Embeddings, Vector Databases and Retrieval
+# The GIST of RAG - Embeddings, Vector Databases and Retrieval
 
-- Lessons: 10
-- Listed duration: 1hr 39min
+Bộ tài liệu được tổ chức lại thành hai phần độc lập:
 
-## Purpose
-Introduces the full RAG pipeline: document loading, text splitting, embeddings, vector stores, and retrieval strategies.
+- `ly-thuyet/`: các bài giảng và bài review;
+- `bai-tap/`: bài luyện tập, lab ngắn và assessment.
 
-## Lessons
-- [001 - Introduction to Retrieval Augmentation Generation - RAG](001 - Introduction to Retrieval Augmentation Generation - RAG.md) - 7 minutes
-- [002 - Introduction to RAG Implementation](002 - Introduction to RAG Implementation.md) - 13 minutes
-- [003 - Medium Analyzer - Boilerplate Project Setup](003 - Medium Analyzer - Boilerplate Project Setup.md) - 12 minutes
-- [004 - Medium Analyzer - Class Review - TextLoader, TextSplitter, OpenAIEmbeddings, Pinecone](004 - Medium Analyzer - Class Review - TextLoader, TextSplitter, OpenAIEmbeddings, Pinecone.md) - 9 minutes
-- [005 - Medium Analyzer - Ingestion Implementation](005 - Medium Analyzer - Ingestion Implementation.md) - 15 minutes
-- [006 - RECAP](006 - RECAP.md) - 1 minute
-- [007 - Medium Analyzer - Naive Retrieval Implementation](007 - Medium Analyzer - Naive Retrieval Implementation.md) - 17 minutes
-- [008 - Medium Analyzer - 2 Step RAG](008 - Medium Analyzer - 2 Step RAG.md) - 16 minutes
-- [009 - LangChain RAG Documentation](009 - LangChain RAG Documentation.md) - 9 minutes
-- [010 - RAG Implementation with Vector Stores Quiz](010 - RAG Implementation with Vector Stores Quiz.md) - Quiz/Assessment
+## Thứ tự học
 
-## Study Checklist
-- [ ] Read or watch the lessons in order.
-- [ ] Capture key commands, code patterns, and implementation details while studying.
-- [ ] Rebuild important examples without copying line by line.
-- [ ] Add one short note about what confused you and how you resolved it.
+| Bài | Lý thuyết | Bài tập |
+| --- | --- | --- |
+| 001 | Giới thiệu RAG | Phân tích bài toán RAG |
+| 002 | Tổng quan triển khai RAG | Thiết kế pipeline |
+| 003 | Loader, Splitter, Embedding, Vector Store | Abstraction và semantic retrieval |
+| 004 | Class Review các thành phần | Chunking và metadata |
+| 005 | Ingestion Implementation | Lab ingestion |
+| 006 | Recap: Ingestion → Retrieval | Ôn tập retrieval |
+| 007 | Naive Retrieval | Lab function-based RAG |
+| 008 | 2-Step RAG bằng LCEL | Lab LCEL |
+| 009 | Đánh giá kiến trúc RAG | So sánh 2-step và agentic retrieval |
+| 010 | — | Assessment RAG với Vector Stores |
+
+## Cách học đề xuất
+
+1. Đọc file lý thuyết theo thứ tự.
+2. Hoàn thành bài tập cùng số trước khi sang bài tiếp theo.
+3. Ở các bài 005, 007 và 008, ưu tiên chạy pipeline và kiểm tra dữ liệu trung gian.
+4. Hoàn thành assessment 010 mà không xem lại ghi chú ở lượt đầu.
