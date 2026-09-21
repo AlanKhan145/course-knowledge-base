@@ -25,11 +25,6 @@ Section_05_Layer_1_ReAct_Loop/
 │   ├── 003 - Understanding the ReAct Agent Loop in LangChain.md
 │   └── 004 - Model Switch.md
 ├── 02_Bai_tap/
-│   ├── 001 - Writing Tools - Practice.md
-│   ├── 002 - Tool Binding and Defensive Prompting - Practice.md
-│   ├── 003 - Understanding the ReAct Agent Loop in LangChain - Practice.md
-│   ├── 004 - Model Switch - Practice.md
-│   └── 005 - Quiz - AI Agent Loop with LangChain Tool Calling - Practice.md
 └── 03_Danh_gia/
     └── 005 - Quiz - AI Agent Loop with LangChain Tool Calling.md
 ```

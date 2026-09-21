@@ -27,11 +27,7 @@ Section_06_Layer_2_Raw_Function_Calling_Standardized/
 │   ├── 002 - Building a ReAct Agent Loop with the Raw Ollama SDK.md
 │   └── 003 - Recap.md
 └── 02 - Bai tap/
-    ├── 001 - Manual JSON Schemas vs LangChain Tool Abstraction - Practice.md
-    ├── 002 - Building a ReAct Agent Loop with the Raw Ollama SDK - Practice.md
-    ├── 003 - Recap - Practice.md
     ├── 004 - Quiz - Raw Function Calling - AI Agent Without LangChain.md
-    └── 004 - Quiz - Raw Function Calling - AI Agent Without LangChain - Practice.md
 ```
 
 ## 3. Lý thuyết
