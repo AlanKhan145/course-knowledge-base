@@ -57,8 +57,8 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 - [AI Agent 365 Ngày](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/Ai-engineer/>)
 - [AI Engineer Roadmap](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/>)
-- [Function Calling for LLMs - Theory & Exercises](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/function-calling/>)
 - [LangChain - Agentic AI Engineering](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langchain/>)
+  - [08 - Function Calling](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langchain/LangChain-Agentic-AI-Engineering-Course/08 - Function Calling/>)
 - [RAG: Basic to Advanced](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/rag-basic-to-advanced/>)
 - [Ultimate RAG Bootcamp](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ultimate-rag-bootcamp/>)
 
