@@ -1,0 +1,1356 @@
+                      Graph-Based Algorithms for Diverse Similarity Search
+
+
+      Piyush Anand * 1 Piotr Indyk * 2 Ravishankar Krishnaswamy * 3 Sepideh Mahabadi * 3 Vikas C. Raykar * 1
+                                        Kirankumar Shiragur * 3 Haike Xu * 2
+
+
+                           Abstract                                 1. Introduction
+       Nearest neighbor search is a fundamental data                Nearest neighbor search is a classic data structure prob-
+       structure problem with many applications. Al-                lem with many applications in machine learning, com-
+       though the main objective of the data structure              puter vision, recommendation systems and other areas
+       is to quickly report data points that are closest            (Shakhnarovich et al., 2006). It is defined as follows: given
+       to a given query, it has long been noted (Car-               a set P of n points from some space X equipped with a
+       bonell & Goldstein, 1998) that without additional            distance function D(·, ·), build a data structure that, given
+       constraints the reported answers can be redun-               any query point q ∈ X, returns a point p ∈ P that mini-
+       dant and/or duplicative. This issue is typically             mizes D(q, p). In a more general version of the problem we
+       addressed in two stages: in the first stage, the             are given a parameter k, and the goal is to report k points
+       algorithm retrieves a (large) number r of points             in P that are closest to q. In a typical scenario, the metric
+       closest to the query, while in the second stage,             space (X, D) is the d-dimensional space, and D(p, q) is the
+       the r points are post-processed and a small sub-             Euclidean distance between points p and q.
+       set is selected to maximize the desired diversity
+       objective. Although popular, this method suffers             Since for high-dimensional point sets the known exact near-
+       from a fundamental efficiency bottleneck, as the             est neighbor search data structures are not efficient, several
+       set of points retrieved in the first stage often needs       approximate versions of this problem have been formu-
+       to be much larger than the final output. In this             lated. A popular theoretical formulation relaxes the require-
+       paper we present provably efficient algorithms for           ment that the query algorithm must return the exact closest
+       approximate nearest neighbor search with diver-              point p, and instead allows it to output any point p′ ∈ P
+       sity constraints that bypass this two stage process.         that is a c-approximate nearest neighbor of q in P , i.e.,
+       Our algorithms are based on popular graph-based              D(q, p′ ) ≤ cD(q, p). In empirical studies, the quality of the
+       methods, which allows us to “piggy-back” on the              set of points reported by an approximate data structure is
+       existing efficient implementations. These are the            measured by its recall, i.e., the average fraction of the true
+       first graph-based algorithms for nearest neighbor            k nearest neighbors returned by the data structure.
+       search with diversity constraints. For data sets             Although minimizing the distance of the reported points
+       with low intrinsic dimension, our data structures            to the query is often the main objective, it has long been
+       report a diverse set of k points approximately clos-         noted (Carbonell & Goldstein, 1998) that, without addi-
+       est to the query, in time that only depends on k             tional constraints, the reported answers are often redundant
+       and log ∆, where ∆ is the ratio of the diameter              and/or duplicative. This is particularly important in appli-
+       to the closest pair distance in the data set. This           cations such as recommendation systems or information
+       bound is qualitatively similar to the best known             retrieval1 , where many similar variants of the same product,
+       bounds for standard (non-diverse) graph-based al-            product seller, or document exist. For example, an update to
+       gorithms (Indyk & Xu, 2023). Our experiments                 the search results listing algorithm implemented by Google
+       show that the search time of our algorithms is               in 2019 ensures that “no more than two pages from the
+       substantially lower than that using the standard             same site” are listed (Liaison, 2019). Such constraints can
+       two-stage approach.                                          be formulated by assuming that each point is assigned a
+  *                     1
+                                                                    “color” (e.g., site id or product seller) and requiring the data
+   Equal contribution     Microsoft 2 MIT 3 Microsoft Re-
+                                                                        1
+search.  Correspondence to: Sepideh Mahabadi <sma-                        More recent applications include Retrieval Augmented Gener-
+habadi@microsoft.com>, Haike Xu <haikexu@mit.edu>.                  ation (RAG) systems. For example, (Chen & Choi, 2025) argues
+                                                                    that retrieved items need to be diverse with respect to perspective
+Proceedings of the 42 nd International Conference on Machine        to excel in RAG queries. Similarly (Rezaei & Dieng, 2025) argues
+Learning, Vancouver, Canada. PMLR 267, 2025. Copyright 2025         for diverse retrieval using Vendi scores.
+by the author(s).
+
+                                                                1
+                                      Graph-Based Algorithms for Diverse Similarity Search
+
+structure to output a set S of k points containing at most              dimension2 d, and that its aspect ratio (the ratio of the di-
+k ′ points of each color, whose distances to q are (approx-             ameter to the closest pair distance) is at most ∆. Under
+imately) optimal. A more general formulation allows an                  this assumption, we show that the query time of our data
+arbitrary diversity metric ρ (typically different from D),              structures is polynomial in k, log n and log ∆.
+and requires the data structure to report a set S of k points
+                                                                        Formally, our result is as follows. (Here we state the result
+such that for any distinct p, p′ ∈ S, ρ(p, p′ ) ≥ C, for some
+                                                                        in the simplest setting, where the diversity is induced by
+required diversity parameter C > 0.
+                                                                        point colors and k ′ = 1. (See Theorem A.5 for the general
+The aforementioned paper of (Carbonell & Goldstein, 1998)               result statement.)
+stimulated the development of the rich area of diversity-               Theorem 1.1. Consider the data structure constructed by
+based reranking, which became the dominant approach to                  Algorithm 1. Given a query q, let R be the radius of the
+this problem. The approach proceeds in two stages. In the               smallest ball around q (w.r.t. the metric D) which contains
+first stage, the data structure retrieves r points closest to the       k points of different colors. Then the search Algorithm 2
+query, where r can be much larger than the desired output               returns a set S of k points of different colors such that, for
+k. In the second stage, the r points are post-processed to              all p ∈ S,
+maximize the diversity objective of the reported k points.                                         
+                                                                                                      α+1
+                                                                                                                 
+                                                                                        D(q, p) ≤            + ϵ R.
+Though popular, the reranking approach to diversifying near-                                          α−1
+est neighbor search suffers from a fundamental efficiency
+                                                                        The search algorithms takes O k logα ∆ϵ steps, where each
+                                                                                                                  
+bottleneck, as the algorithm needs to retrieve a large enough                                        
+set to ensure that it contains the k diverse points. In many            step takes Õ k(8α)d log ∆ time. The data structure uses
+scenarios, the number r of points that need to be retrieved             space O(nk(8α)d log ∆).
+can be much larger than k (see e.g., Figure 1 and the discus-
+                                                                        We note that the approximation factor with respect to D, as
+sion in the experimental section). In the worst case, it might
+                                                                        well as the running time bounds, are essentially the same
+be necessary to set r = Ω(n) to ensure that the optimal set
+                                                                        as the bounds obtained in (Indyk & Xu, 2023) for the non-
+is found. This leads to the following algorithmic question:
+                                                                        diverse approximate nearest neighbor problem. The main
+     Is it possible to bypass the standard reranking                    difference is that the bound in (Indyk & Xu, 2023) does not
+     pipeline by directly reporting the k diverse points,               depend on k, as they consider only the case of k = 1.
+     in time that depends on k and not r?                               As mentioned earlier, Theorem 1.1 generalizes to arbitrary
+                                                                        k ′ and general diversity metric ρ, as discussed later.
+In this paper, we aim to solve this problem both in the-
+ory and in practice. Because of these dual goals, we focus              Experimental results. We adapt our theoretical algorithms
+on designing efficient graph-based algorithms for diverse               to devise fast heuristics based on them, and show the effi-
+similarity search. In graph-based algorithms, the data struc-           ciency of our algorithms on several realistic scenarios. In
+ture consists of a graph between the points in P , and the              one of them, we consider the task of showing ads to a user
+query procedure performs greedy search over this graph                  based on their search queries. Given a number k, say 100,
+to find points close to the query. Graph-based algorithms               of available slots, the goal is to choose ads from a large
+such as HNSW (Malkov & Yashunin, 2018), NGT (Iwasaki                    corpus, such that the sellers (i.e., colors) of those ads are all
+& Miyazaki, 2018), and DiskANN (Jayaram Subramanya                      different. A more relaxed constraint requires that the num-
+et al., 2019) have become popular tools in practice, often              ber of ads shown from a single seller be bounded by at most
+topping Approximate Nearest Neighbor benchmarks (Au-                    k ′ , say 10. To achieve 95% recall@100 on this real-world
+mueller et al., 2024). In addition, they are highly versatile,          scenario, the prevailing baseline approach of retrieving a
+as they do not put any restrictions on the distance function            much larger number of candidates using a regular ANN in-
+D. Although most of the work in this area is purely empiri-             dex and then choosing the best diversity-preserving k-sized
+cal, a recent paper (Indyk & Xu, 2023) gives approximation              subset of them has latency upwards of 8ms; our algorithm,
+and running time guarantees for some of those algorithms.               on the other hand achieves a similar recall at a latency of
+                                                                        around 1.5ms, resulting in an improvement upwards of 5X!
+1.1. Our Results                                                        A production-quality implementation of our algorithm is cur-
+                                                                        rently under development for serving large-scale workloads
+We give a positive answer to the aforementioned question,               at one of the major technology companies.
+by designing a variant of the DiskANN algorithm that re-
+                                                                        The key idea in our work - modifying graph construction
+ports approximate nearest neighbors of a given query satis-
+                                                                        to encourage diversity - is conceptually simple and broadly
+fying diversity constraints. Our theoretical analysis assumes
+the same setup as in (Indyk & Xu, 2023). Specifically, we                   2
+                                                                              Doubling dimension is a measure of the intrinsic dimensional-
+assume that the input point set P has bounded doubling                  ity of the pointset - see Preliminaries for the formal definition.
+
+                                                                    2
+                                        Graph-Based Algorithms for Diverse Similarity Search
+
+applicable. In principle, it can be integrated into any graph-              1.2. Related Work
+based ANN algorithm that uses greedy search, such as
+                                                                            Diverse nearest neighbor: Nearest Neighbor Search with
+HNSW, as it does not rely on DiskANN-specific internals.
+                                                                            diversity requirement has been previously studied in the
+We chose to apply our ideas within the DiskANN frame-
+                                                                            work of (Abbar et al., 2013a;b), where they presented a “di-
+work because it is, to our knowledge, the only real-world
+                                                                            versified version” of the Locality-Sensitive Hashing (LSH)
+graph-based ANN algorithm that comes with worst-case
+                                                                            approach due to (Indyk & Motwani, 1998). However, their
+theoretical guarantees. This allows us to ground our contri-
+                                                                            diversification approach does not carry over to the graph-
+butions in a rigorous yet practically relevant setting.
+                                                                            based methods. Moreover, they provide a bi-criteria approx-
+Generalizations. On the theoretical side, we extend our                     imation only for the dual formulation of the problem, and
+results in several directions listed below. These are shown                 do not consider the primal formulation. Finally, the distance
+and proved in Section A.                                                    functions D that they consider are limited to Hamming
+                                                                            distance or its variants like the Jaccard similarity (Abbar
+• Relaxing the diversity requirement. First, in some ap-
+                                                                            et al., 2013a). Although it is plausible that the result could
+  plications, the requirement that all reported results have
+                                                                            be extended to other distances that are supported by LSH
+  different colors is too strong. (For example, the aforemen-
+                                                                            functions, not all distance functions satisfy this constraint.
+  tioned application to search (Liaison, 2019) allows for two
+  points having the same color.) Therefore, we consider a                   Graph-Based algorithms for similarity search: This work
+  more general constraint, requiring that no color should                   focuses on algorithms that employ graph-based data struc-
+  appear more than k ′ times. We show how our results can                   tures for (approximate) nearest neighbor search. These ap-
+  be generalized to any 1 ≤ k ′ ≤ k.                                        proaches are applicable to general metric spaces, where, dur-
+                                                                            ing preprocessing, the metric is approximated by construct-
+• Generic metric ρ.3 Second, we generalize our results to                   ing a carefully designed graph. Given a query point, the
+  the case where diversity is defined according to a given                  algorithm performs a greedy traversal of the graph to locate
+  metric ρ (also defined over X but potentially different                   nearby points. Graph-based methods have received signifi-
+  from D). Here, given a required diversity parameter C,                    cant attention in both theoretical (Krauthgamer & Lee, 2004;
+  the goal is to report a set S of k closest points to the query            Beygelzimer et al., 2006) and practical contexts (Malkov &
+  such that minp1 ,p2 ∈S ρ(p1 , p2 ) ≥ C. We say that such                  Yashunin, 2018; Fu et al., 2019; Jayaram Subramanya et al.,
+  a set S is C-diverse. Note that the color version is the                  2019). Further improvements can be obtained by optimiz-
+  special case where ρ(p1 , p2 ) is defined to be 0 if p1 and               ing the graph traversal during greedy search by either ruling
+  p2 are of the same color, and 1 otherwise.                                out expensive distance calculations of candidates which
+                                                                            will not improve the priority queue (by cleverly using esti-
+• Unifying the two generalizations. In order to unify the                   mates (Chen et al., 2023), and probabilistically excluding
+  above two results, and incorporate the notion of k ′ into the             bad candidates using probabilistic partitioning methods (Lu
+  generic metric ρ, we allow for each point in the reported                 et al., 2024)). For broader surveys of this area, see (Clarkson
+  set S to be “similar” to at most k ′ > 1 other points in                  et al., 2006; Wang et al., 2021).
+  S. More formally, for any p ∈ S there should be at
+  most k ′ − 1 other points p′ ∈ S such that ρ(p, p′ ) < C.                 A related but different line of research studies nearest neigh-
+  We say that such a set S is (k ′ , C)-diverse4 . We show                  bor search with local attribute constraints (Wang et al.,
+  how our algorithms can be modified to this most general                   2023). In (Wang et al., 2023), the goal is to obtain results
+  formulation of the problem.                                               with similar metadata as the query metadata (say color=RED
+                                                                            or brand=NIKE as specified by the user query in a shopping
+• Primal vs Dual formulations. Finally, instead of asking                   scenario). In contrast, in our setting, there is no user spec-
+  for the closest k points to the query satisfying a diversity              ified constraint and the goal is to output relevant vectors
+  requirement parameterized by C, which we refer to as                      with sufficiently dissimilar metadata. This crucial differ-
+  the primal variant of the problem, one can ask the dual                   ence extends to both the problem formulation as well as the
+  question: Given a radius R, find a set of k points within                 indexing and search strategies.
+  radius R of the query, while maximizing the diversity. We
+  show algorithms for both the primal and dual variants of                  2. Preliminaries
+  the most general formulation of the problem.
+   3                                                                        Problem definition. Let (X, D) be the underlying metric
+      In fact our algorithms work for ρ being any pseudo-metric
+allowing ρ(p1 , p2 ) = 0 for two different points p1 , p2 ∈ P , but
+                                                                            space, with distance function D. Let P be our colored point
+for simplicity we refer to it as metric, throughout the paper.              set. For p ∈ P , we use col[p] to denote its color.
+    4
+      We note that the notion of (k′ , C)-diverse set is a new notion
+of diversity that strictly generalizes the widely used minimum-             Definition 2.1 (colorful). A set S is colorful if no two points
+pairwise-distance notion for diversity.                                     in S have the same color.
+
+                                                                        3
+                                       Graph-Based Algorithms for Diverse Similarity Search
+
+Definition 2.2 (k ′ -colorful). A set S is k ′ -colorful, if within       following intuition when pruning the graph: If u and v are
+the multi-set {col[p1 ], ..., col[pk ]}, no color appears more            “much closer” to each other than to another point p, then it
+than k ′ times.                                                           is not necessary to connect p to both u and v. This makes
+Note that for k ′ -colorful for k ′ = 1 is equivalent to the              it possible to track the progress of the search procedure
+colorful notion.                                                          as it identifies points closer to the query point and use the
+Definition 2.3. Given a subset S ⊂ P of size k, and a query               doubling dimension to bound the degree of the graph and
+q, for each i ≤ k, we use Si (q) to denote the distance of the            the total space. Our algorithm retains these insights, but
+ith closest point in S to q. When q is clear from the context,            also requires several new ones, as now we need to show
+we drop q and simply use Si .                                             that the search algorithms can progress while maintaining a
+                                                                          colorful solution. On a high-level, this is established using
+Definition 2.4 (Colorful NN). Given a colored point set P ,               the following two intuitions. First, if the colors of u and
+the goal of colorful NN is to preprocess P and create a data              v are the same, then again there is no need to connect p to
+structure such that given a query point q, one can quickly                both of them, and we can use the same pruning as before.
+return a colorful subset S ⊂ P of size k such that Sk is                  Second, if p is already connected to k points v1 , · · · , vk ,
+minimized.                                                                all of which are much closer to u compared to p, and that
+Note that, when k = 1, our Colorful NN degenerates to the                 they all have different colors, then again there is no need to
+standard nearest neighbor search problem.                                 connect p to u. This is roughly because no solution would
+Definition 2.5 (k ′ -Colorful NN). Given a colored point set              need more than k points of different colors in a relatively
+P , the goal of k ′ -colorful NN is to preprocess P and create            small neighborhood. The main challenge in converting these
+a data structure such that given a query point q, one can                 intuitions into a formal argument is in showing that such
+quickly return a k ′ -colorful subset S ⊂ P of size k such                a graph keeps enough edges for a greedy search algorithm
+that Sk is minimized.                                                     to converge to an approximately optimal solution for the
+                                                                          colorful NN problem.
+Balls, doubling dimension, and aspect ratio. We use
+BD (p, r) to denote a ball centered at p with radius r, i.e.,             3.1. The Preprocessing Algorithm
+BD (p, r) = {u ∈ X : D(u, p) < r}. We will drop the
+subscript D if the metric is clear from the context.                      The indexing algorithm is shown in Algorithm 1. In order to
+                                                                          decide on the vertices that p should be connected to, we sort
+We say a point set P has doubling dimension d if for any                  all vertices based on their distance from p in the list L and
+point p and radius r, the set B(p, 2r) ∩ P can be covered                 start connecting p to them. If we have already connected p
+by at most 2d balls of radius r.                                          to a close-by vertex u that has the same color as v, then we
+Lemma 2.6. Consider any point set P ⊂ X with doubling                     do not connect p to v anymore. The same holds if we have
+dimension d.                                                              already connected p to k near-by vertices all with different
+For any ball B(p, r) centered at some point p ∈ P with                    colors. We keep track of this using the array rep[u].
+radius r and a constant α, we can cover B(p, r) ∩ P using                 Lemma 3.1. The graph constructed by Algorithm 1 has
+at most m ≤ O(α   d                                                       degree limit O(k(8α)d log ∆).
+                Sm) balls with radius smaller than r/α, i.e.
+B(p, r) ∩ P ⊂ i=1 B(pi , r/α) for some p1 . . . pm ∈ X.
+                                                                          Proof. Let’s first bound the number of points not removed
+We define ∆ = D  Dmin to be the aspect ratio of the point
+                  max
+                                                                          by others, then according to Line 10 in Algorithm 1, the
+set P where Dmax (Dmin , resp.) represents the maximal                    degree bound will be that times k.
+(minimal, resp.) distance between any two points in the
+point set P .                                                             We use Ring(p, r1 , r2 ) to denote the points whose distance
+                                                                          from p is larger than r1 but smaller than r2 . For each i ∈
+                                                                          [log2 ∆], we consider the Ring(p, Dmax /2i , Dmax /2i−1 )
+3. Algorithm for Colorful NN                                              separately. According to Lemma 2.6, we can cover
+In this section, for the sake of simplicity of presentation,              Ring(p, Dmax /2i , Dmax /2i−1 ) ∩ P using at most m ≤
+we focus on the simplest setting where k ′ = 1, and ρ is                  O((8α)d ) small balls of radius D(p, u)/(4α) ≥ D  2i+2 α . Ac-
+                                                                                                                              max
+
+
+the binary metric. The binary setting corresponds to our                  cording to the pruning criteria in Line 9, within each small
+main application of seller diversity, and the case of k ′ = 1             ball, there will be at most one such point u remaining. This
+focuses on retrieving k closest points from the data set such             establishes the degree bound of O(k(8α)d log ∆).
+that all of them have different colors/sellers. The algorithm
+that handles the general setting is presented in Section A.               3.2. The Search Algorithm
+Intuition behind the algorithm. At a high level, the “slow                Algorithm 2 shows the search algorithm for the colorful
+pre-processing” algorithm of (Indyk & Xu, 2023) uses the                  nearest neighbor search problem. The algorithm is a greedy
+
+                                                                      4
+                                    Graph-Based Algorithms for Diverse Similarity Search
+
+Algorithm 1 Indexing algorithm for colorful NN                        Algorithm 2 Search algorithm for colorful NN
+ 1: Input: A set of n points P = {p1 , ..., pn }; k is the size        1: Input: A graph G = (V, E) with Nout (p) being the
+    of the output; α is the parameter used for pruning.                   out edges of p; query q; number of optimization steps
+ 2: Output: A directed graph G = (V, E) where V =                         T.
+    {1, ..., n} are associated with the point set P .                  2: Output: A set of k points ALG.
+ 3: for each point p ∈ P do                                            3: Initialize ALG = {p1 , ..., pk } to be any set of k points
+ 4:    Sort all points u ∈ P based on their distance from p               with different colors.
+       and put them in a list L in that order.                         4: for i = 1 to T do
+ 5:    while L is not empty do                                         5:    pk ← the furthest point in ALG from q.
+ 6:       u ← argmin D(u, p)                                           6:    U ← Nout (pk ) and sort U based on their distance
+                 u∈L
+                                                                             from q
+ 7:      Initialize rep[u] ← {u}
+                                                                       7:                   u ∈ U do
+                                                                             for each point S
+ 8:      for each point v ∈ L in order do
+                                                                       8:       if ALG \ pk u is colorful     then
+ 9:         if D(u, v) ≤ D(p, u)/(2α) then                                                            S
+                                                                       9:          ALG ← ALG \ pk u
+10:            if col[v] not shown in rep[u] and |rep[u]| <
+                                                                      10:          Break
+               k then
+                                                                      11:       end if
+11:               rep[u] ← rep[u] ∪ v
+                                                                      12:    end for
+12:            end if
+                                                                      13: end for
+13:            remove v from L
+                                                                      14: Return ALG
+14:         end if
+15:      end for
+16:      add edges from p to rep[u]                                   the distance upper bound above.
+17:      Remove u from L
+18:   end while                                                       Otherwise, we let u be the point where p∗ was removed
+19: end for                                                           when processing u on line 9 in Algorithm 1. Because p∗
+                                                                      was not connected from pk , either there exists a point in
+                                                                      rep[u] with the same color, or rep[u] has already got k points
+algorithm where at each step, the neighbors of the furthest           with different colors. In the first case, we can set p′ to be
+point from the query are additionally considered as candi-            the point in rep[u] with the same color. In the latter case, by
+dates and a greedy solution is constructed among the points           pigeon hole principle, there always exists a color in rep[u]
+in the current solution and these neighbors. Next, we ana-            not shown in ALG \ pk . Therefore, we can find a desired
+lyze the search algorithm and finally prove Theorem 1.1.              p′ ∈ rep[u] and it is connected to pk .
+Proposition 3.2. Let OPT = {p∗1 , ..., p∗k } be a colorful            We have proved that the p′ we found satisfies the colorful
+solution with minimized OPTk (see Definition 2.3), and                criteria. Now we will bound its distance upper bound.
+ALG = {p1 , ..., pk } be the current solution (both ordered
+by distance from q). If pk ∈  / OPT, S  there exists a point           D(p′ , q) ≤ D(p∗ , q) + D(p′ , p∗ )
+p∗ ∈ OPT \ ALG such that ALG \ pk p∗ is colorful.                       ≤ D(p∗ , q) + D(p′ , u) + D(p∗ , u)
+                                                                        ≤ D(p∗ , q) + D(pk , u)/(2α) + D(pk , u)/(2α)
+Proof. Observe that throughout the search algorithm, we                                                (Line 9 in Algorithm 1)
+maintain the property that ALG is colorful. Note that ALG \
+                                                                        ≤ D(p∗ , q) + D(pk , u)/α ≤ D(p∗ , q) + D(pk , p∗ )/α
+pk has k−1 different colors, and OPT has k different colors.
+                                                                          (Because u is ordered earlier than p∗ in Algorithm 1)
+Thus there should be a point p∗ ∈ OP T whose color is
+different from all points in ALG \ pk . Note that such p∗               ≤ D(p∗ , q) + D(pk , q)/α + D(p∗ , q)/α
+cannot belong to ALG and thus belongs to OPT \ ALG.                     ≤ D(pk , q)/α + OPTk (1 + 1/α)
+Lemma 3.3. There always exists a point p′ ∈ Nout     S (pk )
+(for pk as defined in Line 5) such that (i) ALG \ pk p′ is            Proof of Theorem 1.1. Regarding the running time, the to-
+colorful; and (ii) D(p′ , q) ≤ D(pk , q)/α + OPTk (1 + 1/α)           tal number of edges connected from any point in ALG
+                                                                      is bounded by |U | ≤ O(k(8α)d log ∆). In each step,
+Proof. According to Proposition 3.2, for any current so-              the algorithm first sorts all these edges connected from
+lution ALG with pk ∈   / OPT, there exists a point p∗ ∈               pk ∈ ALG and then checks whether each of them can be
+OPT \ ALG such that ALG \ pk ∪ p∗ is colorful. If there               added to the new ALG set. The total time spent per step is
+exists an edge from pk to p∗ , replacing pk with p∗ is a poten-       bounded by O(|U| log |U |). The overall time complexity is
+tial update. We set p′ = p∗ and D(p′ , q) ≤ OPTk satisfies            Õ k(8α)d log ∆ per step.
+
+                                                                  5
+                                        Graph-Based Algorithms for Diverse Similarity Search
+
+                                                                                     D(p0 ,q)                  D(p01 ,q)
+To analyze the approximation ratio, at time step t, we use             D(pT1 , q) ≤ αT1 + α−1α+1
+                                                                                                 OPT1 ≤         αT
+                                                                                                                         + Dmin
+                                                                                                                            4 . This
+ALGt = {pt1 , ..., ptk } to denote the current unordered so-           can happen only if T ≤ logα ∆
+                                                                                                   8.
+lution. We denote ALGtk = max D(pti , q). According to
+                                i∈[k]
+                                                                       In conclusion, O(k logα ∆ϵ ) steps suffice to achieve the de-
+Algorithm 2 and Lemma 3.3, if pi is updated at time step
+                                                                       sired approximation ratio in Theorem 1.1.
+t, we have D(pti , q) ≤ D(pt−1
+                           i   , q)/α + OPTk (1 + 1/α).
+By an induction argument, if a point pi is updated by t
+times at the end of time step T , we have D(pTi , q) ≤                 We remark that it is easy to verify that for k1 ≥ k2 , the
+D(p0i ,q)   α+1                                                        data structure built for the value k = k1 can be used to
+   αt     + α−1 OPTk .
+                                                                       search with respect to value k = k2 . Thus in applications,
+                                          D(p0i ,q)   α+1              it suffices to only have an upper bound on the value of k at
+We now prove that ALGT
+                     k ≤ max               αT /k
+                                                    + α−1 OPTk .
+                                    i                                  the data structure construction time.
+Let i ∈ [k] be the index achieving the maximal distance
+upper bound. For the sake of contradiction, if ALGTk >
+D(p0i ,q)
+                                                                       3.3. High-level Intuition about the Generalizations
+            α+1
+ αT /k
+          + α−1 OPTk , this means that pTi was updated for at
+most T /k − 1 times. By a counting argument, there exists              Given our results on colorful NN, it is relatively simple to
+another index j which was updated for at least T /k + 1                extend them to the k ′ -colorful NN version with the same
+times. However, at the time t when ptj was already updated             bounds. One key contribution is to demonstrate that, in the
+                             D(p0 ,q)α+1
+                                                                       graph degree bound, the overhead factor k can be reduced
+for T /k times, D(ptj , q) ≤ αTj/k + α−1 OPTk < ALGT   k ≤             to k/k ′ while preserving the approximation quality. This
+     t                                        t
+ALGk , so the algorithm wouldn’t have chosen pj to optimize            reduces both the query time bound and the overall space
+because it couldn’t have had the maximal distance at that              used by the algorithm. This improvement is tight, in the
+time, leading to a contradiction. Therefore, we prove that             following sense: When k ′ = 1, we recover the bound for
+                D(p0i ,q)   α+1
+ALGT k ≤ max αT /k + α−1 OPTk .                                        colorful NN problem, and when k ′ = k, we recover the
+              i
+                                                                       standard k-NN bound, where no additional factor is needed.
+Now we consider the following three cases depending on the
+value of the maximal D(p0i , q). This case analysis is similar         For our algorithm to work with a generic diversity metric ρ,
+to the proof in Theorem 3.4 from (Indyk & Xu, 2023).                   we use an intuition similar to that in colorful case. However,
+                                                                       instead of pruning an edge from the point p to the point
+Case 1: D(p0i , q) > 2Dmax .                                           u when p is already connected to representative vectors
+Let p∗k be the point having the maximal distance from q                v1 , . . . , vk of different colors, we now choose the represen-
+in an optimal solution OPT. We know that for any p0i ,                 tatives based on the diversity metric ρ. We find a diverse
+we have D(p∗k , q) ≥ D(p0i , q) − D(p0i , p∗k ) ≥ D(p0i , q) −         subset of points in the neighborhood of u (e.g., using the
+Dmax ≥ D(p0i , q)/2. Therefore, the approximation ratio                greedy Gonzales algorithm for the k-center problem) and
+                                                       ALGT            connect p only to those selected points v1 , . . . , vk . Again,
+after T optimization steps is upper bounded by D(p∗ ,q)
+                                                    k
+                                                        ≤
+                                                         k             the main challenge is to demonstrate that a greedy search al-
+  D(p0i ,q)      α+1      2    α+1
+D(p∗      T /k + α−1 ≤ αT /k + α−1 . A simple calculation              gorithm can converge to an approximately optimal solution,
+   k ,q)α
+                          α+1
+shows that we can get a ( α−1 + ϵ) approximate solution in             given the set of edges we retain. The difficulty lies in the
+            2                                                          fact that we can only maintain an approximately diverse sub-
+O(k logα ϵ ) steps.
+                                                                       set ALG, in contrast to the colorful version, where we only
+                                       α−1
+Case 2: D(p0i , q) ≤ 2Dmax and OPTk > 4(α+1) Dmin .                    needed ALG to contain k different colors. As the algorithm
+                                                                       proceeds with further iterations, the technical difficulty lies
+             D(p0i ,q)   α+1          α+1
+To satisfy    αT /k
+                       + α−1 OPTk ≤ ( α−1 +ϵ)OPTk , we need            in ensuring that the approximation factor does not grow
+D(p0i ,q)                                                              depending on the number of iterations.
+ αT /k
+          ≤ ϵOPTk . Applying the lower bound OPTk ≥
+ α−1                                   2(α+1)∆
+4(α+1) min , we can get that T ≥ k logα (α−1)ϵ suffices.
+         D
+                                                                       4. Experimental Evaluation
+                                       α−1
+Case 3: D(p0i , q) ≤ 2Dmax and OPTk ≤ 4(α+1) Dmin .
+                                                                       In this section we provide an empirical evaluation of our
+In this case, we must have k = 1, because otherwise                    methods5 . To this end, we first devise a heuristic adaptation
+D(p∗k , p∗1 ) ≤ 2D(p∗k , q) < Dmin , violating the definition of       based on our provable algorithms for the k ′ -colorful NN
+Dmin . Suppose k = 1 and the problem degenerates to the                problem as in Definition 2.5. As we note below, this problem
+standard nearest neighbor search problem. After T optimiza-            itself captures several real-world notions of diversity.
+tion steps, if pT1 is still not the exact nearest neighbor, we
+have D(pT1 , q) ≥ D(pT1 , p∗1 ) − OPT1 ≥ Dmin                          At a high level, the difference between our heuristics
+                                                2 . Applying
+the upper bound of D(pT1 , q) and OPT1 , we have Dmin     2   ≤          5
+                                                                           The code is available at https://github.com/
+                                                                       microsoft/DiskANN/tree/diversity
+
+                                                                   6
+                                      Graph-Based Algorithms for Diverse Similarity Search
+
+
+
+
+Figure 1: Seller distribution in a real-world dataset with 20
+million base vectors, where the top 7 sellers constitute more             Figure 2: Brand cumulative distribution for Amazon dataset,
+than 90% of the data.                                                     showing the coverage of the vectors by the brands in sorted
+and our theoretical algorithms is similar to the difference               order. The top 10% of brands cover 86% of the vectors.
+between the fast- and slow-preprocessing algorithms in
+DiskANN (Jayaram Subramanya et al., 2019; Indyk & Xu,                    comprises of 64-dimensional vector embeddings of differ-
+2023)). Indeed, we deploy the same construction as in                    ent products from a large advertisement corpus. Each prod-
+the fast-preprocessing variant of DiskANN, but modify the                uct/vector is additionally associated with a seller, which
+pruning procedure to insist that any node u has sufficiently             becomes its color in our setting. There are 20 million base
+many colorful out-neighbors before an edge (u, v) can get                vectors, around 2500 sellers, and 5000 query vectors. This
+pruned, in addition to the geometric condition for pruning               distribution is highly skewed, with an extremely small num-
+as in the original algorithm (Jayaram Subramanya et al.,                 ber (around 7) of sellers constituting more than 90% of
+2023). The number of colorful edges that are needed before               the data, hence naturally motivating the need for enforc-
+pruning can occur is given by a tunable parameter m in our               ing diversity in the search results. The fraction of products
+algorithm, and indeed this is the direct heuristic analog of             corresponding to the top 20 sellers is shown in Figure 1.
+step 10 in Algorithm 1. This is a very high-level description,           Amazon Automotive Dataset: Our second real-world
+and we refer the interested reader to Appendix B for the                 dataset is derived from the recently released Amazon
+complete pseudo-code of our heuristic algorithms.                        dataset (Simhadri et al., 2024). It comprises of 384-
+Second, we run experiments using our heuristics on sev-                  dimensional vector embeddings of product descriptions
+eral different datasets, both real-world as well as synthet-             listed on Amazon under the Automotive category. Each
+ically generated. We show how our heuristic consistently                 product/vector is additionally associated with a brand,
+delivers superior recall for a fixed latency budget, across              which becomes the color. There are around 2 million base
+datasets when compared to a natural baseline of using a                  vectors and around 85000 brands. The distribution, while
+vanilla DiskANN algorithm and enforcing diversity only via               skewed, is far more balanced than the above seller dataset,
+a final post-processing. We stress that both our real-world              with around 10% of the brands accounting for 80% of the
+datasets are motivated from important shopping scenarios:                vectors as summarized in Figure 2.
+the data points represent products and a color of a vector               “Skewed” Semi-synthetic Datasets: We also consider the pub-
+corresponds to either the seller or the brand of the product.             licly available real-world Arxiv dataset (Embeddings, 2024)
+It is then desirable to output results from a diverse set of sell-        which contains OpenAI embeddings of around 2 million
+ers/brands (Liaison, 2019). Intuitively, displaying diverse               paper abstracts into 1536 dimensional vectors and the clas-
+results would lead to increased competition between the                   sical SIFT dataset of 1M vectors in 128 dimensions. These
+sellers, and also simultaneously higher click probabilities,              datasets do not contain any color information, so we syn-
+thereby leading to an increase in revenue of the exchange.                thetically add this information into the data set. Specifically,
+                                                                          for the Arxiv dataset, we generate the color information as
+4.1. Experiment Setup                                                     follows: for each vector, with probability 0.9, we assign a
+                                                                          color selected from the set {1, 2, 3} uniformly at random,
+All experiments were run on a Linux Machine with AMD
+                                                                          and with 0.1 probability we assign a color selected uni-
+Ryzen Threadripper 3960X 24-Core Processor CPU’s @
+                                                                          formly at random from the set {4, . . . , 1000}. Therefore
+2.3GHz with 48 vCPUs and 250 GB RAM. All query
+                                                                          the number of distinct colors is at most 1000 in this data
+throughput and latency measurements are reported for runs
+                                                                          set. For the SIFT dataset, we sampled one dominant colors
+with 48 threads.
+                                                                          with probability 0.8 and had a uniform distribution over 999
+Datasets. We consider two real-world and three semi-                      other colors with probability 0.2.
+synthetic datasets for evaluation.
+                                                                         “Balanced” Semi-synthetic Dataset: Finally, we also consider
+Real-world Seller Dataset: Our first real-world seller dataset            another distribution which is globally uniform, but locally
+
+                                                                     7
+                                    Graph-Based Algorithms for Diverse Similarity Search
+
+skewed. Indeed, we use the same SIFT dataset for the vector           Standard DiskANN Build + Diverse Search: In this improve-
+data. For colors, we randomly partition the space into one            ment, we use our diversity-preserving search Algorithm 7
+thousand buckets, using a random hyperplane scheme. We                discussed in the Appendix B, but the index construction
+then assign a unique primary color for each bucket. Now,              remains the standard DiskANN algorithm.
+each vector within any specific bucket is assigned its primary
+                                                                      Diverse DiskANN Build + Diverse Search: For our complete
+color with a high probability of 0.8, and a uniformly random
+                                                                      algorithm, we additionally use our diversity-aware index
+non-primary color with the remaining probability. It is then
+                                                                      construction Algorithm 9 (Appendix B) which ensures
+easy to see that the distribution is roughly balanced across
+                                                                      sufficient edges are present to nodes of different colors in
+colors from a global perspective, but quite skewed in any
+                                                                      any neighborhood.
+small local neighborhood.
+                                                                      Parameter setup. For all of the above algorithms, we use
+Tasks. For all of the above datasets, we seek to retrieve
+                                                                      fairly standard parameters of list-size L = 200 and graph-
+k = 100 nearest neighbors. In one extreme scenario, we set
+                                                                      degree 64 when building the graphs. During search, we vary
+k ′ = 1, i.e., all hundred of the returned results need to be
+                                                                      the list-size L at search time to get varying quality search
+of distinct colors. This type of setting would be relevant in
+                                                                      results and plot the recall@1006 vs average query latency.
+a retrieval augmented generation setting where documents
+are typically chunked into several parts and each part is
+vectorized; when the user utters a query, we might want               4.2. Results
+to retrieve the most relevant set of documents (as opposed            Our results are shown in plots of Figures 3, 4, and addition-
+to the most relevant chunks, which might all be from the              ally in Figures 5, and 6 in Appendix C. As one can see, both
+same document) to a given query, before passing on these              of our algorithmic innovations play a crucial role in the over-
+contents to a large-language model which then answers the             all search quality on the real-world dataset. For example,
+user query. A natural way to enforce this document-level              to achieve 95% recall@100 in the real-world seller dataset,
+diversity during retrieval is to treat the document-id of any         the baseline approach has latencies upwards of 8ms, while
+vector as its color, and using our diverse search routine.            the improved search algorithm brings it down to ≈ 4.5ms.
+In another scenario which might have more appeal in shop-             Making both build and search diverse further brings it down
+ping or advertisement display, we seek to retrieve k = 100            to around ≈ 1.5ms, resulting in an improvement of 5X.
+nearest neighbors, while having k ′ = 10, i.e., no more than          The plot in Figure 4 reveals an interesting phenomenon: for
+ten of the k results may belong to any single color. This             high recalls (say 90%) on the semi-synthetic arXiv dataset,
+will promote the retrieval to display a diverse set of sellers/       the post-processing approach has a latency of around 90ms,
+brands in such scenarios, thereby hopefully increasing user           while the diverse search algorithm when run on the stan-
+satisfaction and engagement. This can also capture intent             dard graph has a latency of around 135ms. This is perhaps
+diversity in regular web-search (when we can use a simple             because the standard graph construction might not have
+classifier to represent the intent behind the data point as ad-       sufficiently many edges between nodes of different colors
+ditional meta-data, which becomes the color in our setting –          to ensure that the diverse search algorithm converges to a
+e.g., car or animal for different images of jaguar, ML or EE          good local optimum. On the other hand, running the diverse
+concept for transformer, etc.).                                       search on the graph constructed keeping diversity in mind
+Algorithms. Since our algorithms are enhancements of the              during index construction fares the best, with a latency of
+DiskANN algorithm, we use that as a natural baseline to               only around 25ms. A similar phenomenon occurs in the
+compare against.                                                      SIFT semi-synthetic dataset (shown in Appendix C) as well.
+
+Standard DiskANN Build + Post-Processing (Baseline): In               4.3. Build Diversity Parameter Ablation
+this baseline, we build a regular DiskANN graph without
+any diversity constraints. To answer a query, we first invoke         In our heuristic graph construction algorithm (see Algo-
+the regular DiskANN search algorithm to retrieve r ≫ k                rithms 8 and 9), the graph edges are added by considering
+candidates, again without any diversity constraints. Then             both the geometry of the vectors and the corresponding
+we iterate over the retrieved elements in sorted order of             colors. Loosely, the α-pruning rule of DiskANN dictates
+distances to the query, and greedily include the ones which               6
+                                                                            Recall@100 is the size of the intersection of the algorithm’s
+do not violate the k ′ diversity constraint, until we have k          100 returned results with the true 100 closest diverse candidates,
+total elements. The parameter r is tunable at search time,            averaged over all queries. The ground-truth set of top 100 diverse
+and higher r yields more candidates, meaning more diverse             NNs for any query can be computed by iterating over all the vectors
+candidates can be obtained using the post-processing step.            in sorted order of distances to the query, and greedily including
+                                                                      the ones which do not violate the k′ diversity constraint, until we
+However, higher r also consumes more search complexity.               have accumulated k total elements.
+
+
+
+                                                                  8
+                                    Graph-Based Algorithms for Diverse Similarity Search
+
+
+
+
+                   Figure 3: Recall vs Latency for real-world, Amazon, and ArXiv datasets with k ′ = 1.
+
+
+
+
+                  Figure 4: Recall vs Latency for real-world, Amazon, and ArXiv datasets with k ′ = 10.
+
+
+              m Parameter      Build Time (s)                        a distance threshold, the goal is to retrieve a maximally
+                   1                 50                              diverse set of results within that threshold. Our algorithm
+                   2                 53                              can further allow a more relaxed diversity requirement pa-
+                  10                 55                              rameterized using k ′ allowing a limited number of similar
+                                                                     items in the output. All our algorithms come with provable
+          Table 1: Build Times w.r.t m Parameter                     guarantees, and we further present heuristic adaptations that
+                                                                     integrate easily with existing DiskANN implementations.
+                                                                     We expect that similar strategies can be applied to other
+that an edge (u, v) is blocked by an existing edge (u, w) if         graph-based search methods, such as HNSW, to enhance
+d(w, v) ≤ d(u, v)/α. In the original DiskANN algorithm,              result diversity. Finally, we demonstrated the practical effec-
+any edge (u, v) which is blocked is not added. In our setting,       tiveness of our approach through experiments focusing on
+we additionally enforce that an edge needs to be blocked             the binary diversity case across several application domains.
+by edges of m different colors to not be added to the graph,
+where m is a tuneable parameter. We now perform an ab-
+lation capturing the role of m in the graph quality using
+the skewed SIFT dataset. Table 1 shows a table with build
+times for various indices by varying only the m parameter,
+and Figure 7 in Appendix C shows the search quality of
+these different indices.
+
+5. Conclusion
+In this work, we introduced methods to incorporate diver-
+sity into the DiskANN graph-based similarity search algo-
+rithm. We proposed algorithms that address both binary
+diversity measures (the colorful case), as well as the more
+general case where an arbitrary metric is used to measure
+the diversity. Our algorithm can handle both the primal ver-
+sion—where the goal is to find nearest neighbors that meet a
+diversity requirement—and the dual version—where, given
+
+                                                                 9
+                                   Graph-Based Algorithms for Diverse Similarity Search
+
+Acknowledgements                                                     Embeddings, A. O.          Openai embeddings
+                                                                      of arxiv abstracts, 2024.      URL https:
+Piotr Indyk was supported in part by the NSF TRIPODS                  //github.com/harsha-simhadri/
+program (award DMS-2022448). Haike Xu was supported                   big-ann-benchmarks/commit/
+by the Mathworks Fellowship. This work was conducted in               df1e53aa3cd9cd29c6a9daf24ce2e64271fa9ed1.
+part while Piotr Indyk and Sepideh Mahabadi were visitors
+at the Simons Institute for the Theory of Computing as part          Fu, C., Xiang, C., Wang, C., and Cai, D. Fast approximate
+of the Sublinear Algorithms program.                                   nearest neighbor search with the navigating spreading-
+                                                                       out graph. Proceedings of the VLDB Endowment, 12(5):
+Impact Statement                                                       461–474, 2019.
+
+This paper presents work whose goal is to advance the field          Gonzalez, T. F. Clustering to minimize the maximum in-
+of Machine Learning. There are many potential societal                 tercluster distance. Theoretical computer science, 38:
+consequences of our work, none which we feel must be                   293–306, 1985.
+specifically highlighted here.                                       Indyk, P. and Motwani, R. Approximate nearest neigh-
+                                                                       bors: towards removing the curse of dimensionality. In
+References                                                             Proceedings of the thirtieth annual ACM symposium on
+                                                                       Theory of computing, pp. 604–613, 1998.
+Abbar, S., Amer-Yahia, S., Indyk, P., and Mahabadi, S. Real-
+  time recommendation of diverse related articles. In Pro-           Indyk, P. and Xu, H. Worst-case performance of popular
+  ceedings of the 22nd international conference on World               approximate nearest neighbor search implementations:
+ Wide Web, pp. 1–12, 2013a.                                            Guarantees and limitations. In Advances in Neural Infor-
+                                                                       mation Processing Systems, volume 36, pp. 66239–66256,
+Abbar, S., Amer-Yahia, S., Indyk, P., Mahabadi, S., and                2023.
+ Varadarajan, K. R. Diverse near neighbor problem. In
+ Proceedings of the twenty-ninth annual symposium on                 Iwasaki, M. and Miyazaki, D. Optimization of indexing
+ Computational geometry, pp. 207–214, 2013b.                           based on k-nearest neighbor graph for proximity search in
+                                                                       high-dimensional data. arXiv preprint arXiv:1810.07355,
+Aumueller, M., Bernhardsson, E., and Faitfull, A. Ann                  2018.
+  benchmarks. https:https://ann-benchmarks.
+  com, 2024.                                                         Jayaram Subramanya, S., Devvrit, F., Simhadri, H. V., Kr-
+                                                                       ishnawamy, R., and Kadekodi, R. Diskann: Fast accurate
+Beygelzimer, A., Kakade, S., and Langford, J. Cover trees              billion-point nearest neighbor search on a single node.
+  for nearest neighbor. In Proceedings of the 23rd inter-              Advances in Neural Information Processing Systems, 32,
+  national conference on Machine learning, pp. 97–104,                 2019.
+  2006.
+                                                                     Jayaram Subramanya, S., Devvrit, F., Simhadri, H. V., Kr-
+Carbonell, J. and Goldstein, J. The use of mmr, diversity-             ishnawamy, R., and Kadekodi, R. Diskann. https:
+  based reranking for reordering documents and producing               //github.com/microsoft/DiskANN, 2023.
+  summaries. In Proceedings of the 21st annual interna-
+  tional ACM SIGIR conference on Research and develop-               Krauthgamer, R. and Lee, J. R. Navigating nets: sim-
+  ment in information retrieval, pp. 335–336, 1998.                    ple algorithms for proximity search. In Munro, J. I.
+                                                                       (ed.), Proceedings of the Fifteenth Annual ACM-SIAM
+Chen, H.-T. and Choi, E. Open-world evaluation for re-                 Symposium on Discrete Algorithms, SODA 2004, New
+  trieving diverse perspectives. In Proceedings of the 2025            Orleans, Louisiana, USA, January 11-14, 2004, pp.
+  Conference of the North American Chapter of the Associ-              798–807. SIAM, 2004. URL http://dl.acm.org/
+  ation for Computational Linguistics: Human Language                  citation.cfm?id=982792.982913.
+  Technologies (NAACL), Long Papers, 2025.
+                                                                     Liaison, S.      Google announces site diver-
+Chen, P., Chang, W.-C., Jiang, J.-Y., Yu, H.-F., Dhillon, I.,          sity change to search results, 2019. URL
+  and Hsieh, C.-J. Finger: Fast inference for graph-based              https://www.searchenginejournal.com/
+  approximate nearest neighbor search. In Proceedings of               google-site-diversity-change/311557/.
+  the ACM Web Conference 2023, pp. 3225–3235, 2023.
+                                                                     Lu, K., Xiao, C., and Ishikawa, Y. Probabilistic routing for
+Clarkson, K. L. et al. Nearest-neighbor searching and metric           graph-based approximate nearest neighbor search. In Pro-
+  space dimensions. Nearest-neighbor methods for learning              ceedings of the 41st International Conference on Machine
+  and vision: theory and practice, pp. 15–59, 2006.                    Learning, pp. 33177–33195, 2024.
+
+                                                                10
+                                  Graph-Based Algorithms for Diverse Similarity Search
+
+Malkov, Y. A. and Yashunin, D. A. Efficient and robust
+ approximate nearest neighbor search using hierarchical
+ navigable small world graphs. IEEE transactions on
+ pattern analysis and machine intelligence, 42(4):824–
+ 836, 2018.
+Rezaei, M. R. and Dieng, A. B. Vendi-rag: Adaptively
+  trading-off diversity and quality significantly improves
+  retrieval augmented generation with llms. arXiv preprint
+  arXiv:2502.11228, 2025.
+Shakhnarovich, G., Darrell, T., and Indyk, P. Nearest-
+  neighbor methods in learning and vision. MIT press,
+  2006.
+
+Simhadri, H. V., Aumüller, M., Ingber, A., Douze,
+  M., Williams, G., Manohar, M. D., Baranchuk, D.,
+  Liberty, E., Liu, F., Landrum, B., Karjikar, M.,
+  Dhulipala, L., Chen, M., Chen, Y., Ma, R., Zhang,
+  K., Cai, Y., Shi, J., Chen, Y., Zheng, W., Wan,
+  Z., Yin, J., and Huang, B. Big ann benchmarks.
+  https://github.com/harsha-simhadri/
+  big-ann-benchmarks/pull/311, 2024.
+Wang, M., Xu, X., Yue, Q., and Wang, Y. A comprehen-
+ sive survey and experimental comparison of graph-based
+ approximate nearest neighbor search. arXiv preprint
+ arXiv:2101.12631, 2021.
+Wang, M., Lv, L., Xu, X., Wang, Y., Yue, Q., and Ni, J.
+ An efficient and robust framework for approximate near-
+ est neighbor search with attribute constraint. Advances
+ in Neural Information Processing Systems, 36:15738–
+ 15751, 2023.
+
+
+
+
+                                                             11
+                                     Graph-Based Algorithms for Diverse Similarity Search
+
+A. Algorithms for the General Case
+In this section we describe our algorithms for the most general case where k ′ can take any value between 1 and k, and the
+diversity metric ρ is an arbitrary diversity metric. First we start with definitions, additional preliminaries, and our main
+theorem statements A.5 and A.6.
+
+A.1. Additional Preliminaries, Problem Formulation, and the Main Theorems
+As before, we let (X, D) be the underlying metric space, where D measures the distance between the points. In this section,
+we assume that we are given a second metric space (X, ρ) which measures the diversity between the points. As before P is
+a subset of n points in X. So for two points p1 , p2 ∈ P , ρ(p1 , p2 ) measures their pairwise diversity.
+Again, we use BD (p, r) (or just B(p, r) for simplicity of exposition) to denote a ball centered at p with radius r, i.e.,
+BD (p, r) = {u ∈ X : D(u, p) < r}. Similarly, we define the ball Bρ (p, r) = {u ∈ X : ρ(u, p) < r}.
+The following definitions recap the discussion in the introduction.
+Definition A.1 (C-diverse). Let S be a set of points in X. We say S is C-diverse if for any two points p1 , p2 ∈ S, we have
+ρ(p1 , p2 ) ≥ C.
+
+Note that the colorful setting, corresponds to the diversity metric ρ being uniform. That is, we can set ρ(pi , pj ) = 0 when
+col[pi ] = col[pj ], and set ρ(pi , pj ) = 1 otherwise. Then, we retrieve the colorful notion of diversity: a set S of size k is
+colorful iff it is 1-diverse. We further generalize this notion to allow the set to contain at most k ′ > 1 points that are similar
+to each other.
+Definition A.2 ((k ′ , C)-diverse). Let S be a set of points in X. We say S is (k ′ , C)-diverse if for any point p ∈ S, we have
+|Bρ (p, C) ∩ S| ≤ k ′ . Note that being (1, C)-diverse is equivalent to the notion of C-diverse.
+
+We consider two dual variants of the diverse nearest neighbor search problem, both of which use two approximation factors:
+c > 1 is the “dissimilarity” approximation factor with respect to D, and a > 1 is the “diversity” approximation factor with
+respect to ρ.
+Definition A.3 (Primal Diverse NN). Given a point set P , diversity value C, and the value k ′ ≤ k, the goal of Primal
+Diverse NN is to preprocess P and create a data structure such that given a query point q, one can quickly return the closest
+set S ⊂ P of size k that is (k ′ , C)-diverse. Here closeness of a set S is measured by Sk (See Definition 2.3).
+In the approximate variant, for any q ∈ X, if OPT is a (k ′ , C)-diverse set of k points which minimizes OPTk , then the data
+structure outputs ALG that is (k ′ , C/a)-diverse such that ALGk ≤ c · OPTk .
+Definition A.4 (Dual Diverse NN). Given a point set P , a radius R, and the value k ′ ≤ k, the goal of Dual Diverse NN is to
+preprocess P and create a data structure such that given a query point q, one can quickly return a set S ⊂ P of size k that lie
+within the radius R, while maximizing the diversity.
+Formally, for any q ∈ X, let BP (q, R) be the set of points in P within distance R from q, and let OPT be a (k ′ , C)-diverse
+set of k ∗ = min(k, |BP (q, R)|) points from BP (q, R) that maximizes C. Then the data structure outputs ALG of size k ∗
+that is (k ′ , C/a)-diverse such that ALGk∗ ≤ cR.
+
+As described in the introduction, the problem addressed in the prior work (Abbar et al., 2013b) is the dual diverse NN
+problem, where the only consider k ′ = 1.
+
+Results. Our main theoretical result is captured by the following theorems, which specifies the approximation and running
+time guarantees for our algorithms solving the primal and dual versions of the diverse nearest neighbor problem.
+Theorem A.5 (Primal Diverse ANN). Let OPT = {p∗1 , ..., p∗k } be a (k ′ , C)-diverse solution that minimizes OPTk . Given
+the
+ graphconstructed by Algorithm      3, the search Algorithm 4 finds a (k ′ , C/12)-diverse solution ALG with ALGk ≤
+  α+1                           ∆
+                                    steps, where each step takes O (k 3 /k ′ )(8α)d log ∆ time. The data structure uses
+                                                                                         
+  α−1 + ϵ OPTk in O k logα ϵ
+space O(n(k/k ′ )(8α)d log ∆).
+Theorem A.6 (Dual Diverse ANN). Given the graph
+                                                constructed
+                                                            by Algorithm 3, the search Algorithm 5 finds a (k ′ , C/24)-
+                                             α+1
+                                                  + ϵ · R in Õ (k 4 /k ′ )(8α)d log2 ∆ϵ time, if there exists a (k ′ , C)-
+                                                                                        
+diverse NN solution ALG satisfying ALGk ≤ α−1
+diverse solution OPT with OPTk ≤ R.
+
+                                                                12
+                                     Graph-Based Algorithms for Diverse Similarity Search
+
+A.2. Algorithm
+The preprocessing algorithm. The indexing algorithm, which is the same for both the primal and dual versions of the
+problem, is shown in Algorithm 3. Line 12 of the algorithm uses the greedy algorithm of (Gonzalez, 1985), defined below.
+
+Algorithm 3 Indexing algorithm for diverse NN
+ 1: Input: A set of n points P = {p1 , ..., pn }; k is the size of the output; k ′ is the parameter in the diversity definition; α is
+      the parameter used for pruning.
+ 2: Output: A directed graph G = (V, E) where V = {1, ..., n} are associated with the point set P .
+ 3: for each point p ∈ P do
+ 4:   Sort all points u ∈ P based on their distance from p and put them in a list L in that order
+ 5:   while L is not empty do
+ 6:      u ← argmin D(u, p)
+                  u∈L
+ 7:      Initialize bag[u] ← {u}
+ 8:      for each point v ∈ L in order do
+ 9:         if D(u, v) ≤ D(p, u)/(2α) then
+10:            bag[u] ← bag[u] ∪ v
+11:            remove v from L
+12:         end if
+13:      end for
+14:      rep[u] ← use the greedy algorithm of Gonzales to choose k/k ′ points in bag[u] to approximately maximize the
+         minimum pairwise diversity.
+15:      add edges from p to rep[u]
+16:      Remove u from L
+17:   end while
+18: end for
+
+Gonzales’ greedy algorithm. Given a set of n points and a parameter m, the algorithm picks m points as follows. The first
+point is chosen arbitrarily. Then, in each of the next m − 1 steps, the algorithm picks the point whose minimum distance w.r.t.
+ρ to the currently chosen points is maximized. It is known (Gonzalez, 1985) that this algorithm provides a 2-approximation
+for the problem of picking a subset of size m which maximizes the minimum pairwise diversity distance between the picked
+points. Moreover, the picked set has an anti-cover property which we will discuss in Proposition A.10.
+Primal Search Algorithm. Algorithm 4 shows the search algorithm for the primal version of diverse nearest neighbor. The
+algorithm is analyzed in Section A.3. The initialization step of line 3, can be done using the following algorithm.
+The initialization step. Given a set P of n points equipped with metric distance ρ, and parameters k ′ and k, and lower
+bound diversity C, the goal is to pick a subset S ⊆ P of size k which is (k ′ , C/4) diverse or otherwise output that no
+(k ′ , C)-diverse subset S exists. We use the following algorithm
+
+   • Initialize SOL = ∅
+
+   • While there exists a point p ∈ P such that the ball B = Bρ (p, C/4) has k ′ points in it, (i.e., |B ∩ P | > k ′ ),
+         – Add an arbitrary subset of B ∩ P of size k ′ to SOL.
+         – Remove all points in 2B = Bρ (p, C/2) from P .
+
+   • Add all remaining points in P to SOL.
+
+   • If |SOL| ≥ k, return an arbitrary subset of it of size k, otherwise return ‘no solution’.
+
+Lemma A.7 (Initialization). If P has a subset OPT of size k that is (k ′ , C)-diverse, our initialization algorithm finds a
+(k ′ , C/4)-diverse subset of size k.
+
+Proof. Note that it is straightforward to see why the set SOL that we get at the end is (k ′ , C/4)-diverse. This is because first
+of all, each time we pick k ′ points in a ball B and add them to SOL, we make sure that no additional point will ever be
+
+                                                                13
+                                    Graph-Based Algorithms for Diverse Similarity Search
+
+Algorithm 4 Search algorithm for primal diverse NN
+ 1: Input: A graph G = (V, E) with Nout (p) denoting the out edges of p; query q, number of optimization steps T ;
+    diversity lower bound C.
+ 2: Output: A set of k points ALG.
+ 3: Initialize ALG = {p1 , ..., pk } to be a set of k points that are (k ′ , C/12)-diverse using the initialization step proved in
+    Lemma A.7.
+ 4: for i = 1 to
+               ST do
+ 5:   U←         (Nout (p) ∪ p), and sort U based on their distance from q
+             p∈ALG
+ 6:   ALG ← the closest k − 1 points in ALG
+ 7:              S u ∈ U in order do
+      for each point
+ 8:      if ALG u is (k ′ , C/12)-diverse then
+ 9:          ALG ← ALG ∪ u
+10:      end if
+11:      if |ALG| = k then
+12:          Break
+13:      end if
+14:   end for
+15: end for
+16: Return ALG
+
+
+picked in 2B and thus within distance C/4 of the points we pick there will be at most k ′ points in the end. Second, at the
+end, every remaining ball of radius C/4 has less than or equal to k ′ points in it. Therefore, we can pick all such points in the
+solution and everything we picked will be (k ′ , C/4) diverse.
+Next we argue that we are in fact able to pick at least k points in total which completes the argument. We do it by following
+the procedure of our algorithm and comparing it with OPT. At each iteration of the while loop that we remove P ∩ 2B, we
+add exactly k ′ points from P ∩ 2B to our solution SOL. Now note that the optimal solution OPT cannot have more than k ′
+points in 2B because by triangle inequality any pair of points in 2B have distance at most C, and picking more than k ′
+points in this ball contradicts the fact that OPT is (k ′ , C) diverse. Thus we can have an one-to-one mapping from each point
+in OPT ∩ 2B to the k ′ points in P ∩ 2B added to SOL. At the end of the while iteration, we know any unmapped point in
+OPT still exists in P , so we just map it to itself. By doing this, we can have an one-to-one mapping from OPT to SOL,
+which means that |SOL| ≥ |OPT| = k.
+
+Dual Search Algorithm. Algorithm 5 shows the search algorithm for the dual version of the diverse nearest neighbor
+problem. We provide the analysis in Section A.4.
+
+A.3. Analysis of the Primal Diverse NN Algorithm
+In this section, we prove Theorem A.5 that gives the approximation and running time guarantees for Algorithm 3 and
+Algorithm 4.
+Lemma A.8. The graph constructed by Algorithm 3 has degree limit O((k/k ′ )(8α)d log ∆).
+
+Proof. Let’s first bound the number of points not removed by others, then according to Line 14-15 in Algorithm 3, the
+degree bound will be that times k/k ′ .
+We use Ring(p, r1 , r2 ) to denote the points whose distance from p is larger than r1 but smaller than r2 . For each
+i ∈ [log2 ∆], we consider the Ring(p, Dmax /2i , Dmax /2i−1 ) separately. According to Lemma 2.6, we can cover
+Ring(p, Dmax /2i , Dmax /2i−1 ) ∩ P using at most m ≤ O((8α)d ) small balls with radius D       2i+2 α . According to the
+                                                                                                  max
+
+
+pruning criteria in Line 9, within each small ball, there will be at most one point remaining. This establishes the degree
+bound of O((k/k ′ )(8α)d log ∆).
+Lemma A.9. Suppose OPT = {p∗1 , ..., p∗k } is a (k ′ , C)-diverse solution with minimized OPTk , and let ALG = {p1 , ..., pk }
+be the current solution (ordered by distance fromS q).           / OPT, there exists a point p∗ ∈ OPT \ ALG such that
+                                                           If pk ∈
+      ∗                         ′                      ∗      ′
+|Bρ (p , C/2) ∩ (ALG \ pk )| < k and ALG \ pk p is (k , C/4)-diverse.
+
+                                                               14
+                                          Graph-Based Algorithms for Diverse Similarity Search
+
+Proof. Recall that we use Bρ (p, r) to denote the ball in the (X, ρ) metric space. Because pk ∈
+                                                                                              / OPT, we have OPT =
+OPT \ ALG ̸= ∅. We repeatedly perform the following operation until OPT gets empty: select a point p from OPT, and let
+z = Bρ (p, C) ∩ OPT, and remove z from OPT. By doing this, we can get a list of points {p∗1 , ..., p∗m } and a partition of
+OPT \ ALG = z1 ∪ z2 ... ∪ zm . By definition, we have the following properties:
+
+   • {p∗1 , ..., p∗m } ∩ ALG = ∅
+   • zi ∩ zj = ∅ for i ̸= j
+     P
+   •    i |zi | = |OPT \ ALG| = |ALG \ OPT|
+
+
+Now let wi = Bρ (p∗i , C/2)P
+                           ∩ (ALG \ pk \ OPT). Because all the Bρ (p∗i , C/2) balls are disjoint, i |wi | ≤ |ALG \ pk \
+                                                                                                 P
+OPT| < |OPT \ ALG| = i |zi |, there must exist an i such that |wi | < |zi |. For that i, we have that |Bρ (p∗i , C/2) ∩
+(ALG \ pk )| is equal to
+
+              =|Bρ (p∗i , C/2) ∩ (ALG ∩ OPT)| + |Bρ (p∗i , C/2) ∩ (ALG \ pk \ OPT)|                                    (Because pk ∈
+                                                                                                                                   / OPT)
+              =|Bρ (p∗i , C/2) ∩ (ALG ∩ OPT)| + |wi |
+              <|Bρ (p∗i , C/2) ∩ (ALG ∩ OPT)| + |zi |
+              ≤|Bρ (p∗i , C/2) ∩ (ALG ∩ OPT)| + |Bρ (p∗i , C) ∩ (OPT \ ALG)|
+              ≤|Bρ (p∗i , C) ∩ (ALG ∩ OPT)| + |Bρ (p∗i , C) ∩ (OPT \ ALG)|
+              =|Bρ (p∗i , C) ∩ OPT|
+              ≤k ′
+
+Therefore, we get Bρ (p∗i , C/2) ∩ (ALG \ pk ) < k ′ . Now, for any point p ∈ Bρ (p∗i , C/4), |Bρ (p, C/4) ∩ (ALG \ pk )| ≤
+|Bρ (p∗i , C/2) ∩ (ALG \ pk )| < k ′ , so we know that ALG \ pk ∪ p∗i is (k ′ , C/4)-diverse.
+
+
+
+The following is the well-known anti-cover property of the greedy algorithm of Gonzales whose proof we include for the
+sake of completeness.
+Proposition A.10. In Line 14 of Algorithm 3, let rep[u] be the output of greedily choosing k/k ′ points in bag[u] maximizing
+minimum pairwise diversity. If a point p ∈ bag[u] \ rep[u], we have min ρ(p, v) ≤          min ρ(v1 , v2 ).
+                                                                              v∈rep[u]               v1 ,v2 ∈rep[u]
+
+
+Proof. For the sake of contradiction, suppose min ρ(p, v) >                  min          ρ(v1 , v2 ), and the pairwise diversity minimizer
+                                                       v∈rep[u]          v1 ,v2 ∈rep[u]
+is achieved by       min          ρ(v1 , v2 ) = ρ(x, y). Without loss of generality, we assume x is added to rep[u] before y. At the
+                 v1 ,v2 ∈rep[u]
+time step t when y was added to rept [u], min ρ(y, v) = ρ(x, y) and min ρ(p, v) ≥ min ρ(p, v) > ρ(x, y), so y
+                                                  v∈rept [u]                        v∈rept [u]              v∈rep[u]
+wouldn’t have been chosen by the greedy algorithm. Therefore, we have derived a contradiction.
+Lemma A.11. There always exists a point p′ connected from some point w ∈ ALG such that
+                 S ′
+  1. ALG \ pk     p is (k ′ , C/12)-diverse
+  2. D(p′ , q) ≤ D(pk , q)/α + OPTk (1 + 1/α)
+
+Proof. According to Lemma A.9, for any current solution ALG with pk ∈    / OPT, there exists a point p∗ ∈ OPT \ ALG such
+that ALG \ pk ∪ p is (k , C/4)-diverse. Let w ∈ ALG be the closest point to p∗ . If there exists an edge from w to p∗ ,
+                  ∗       ′
+
+replacing pk with p∗ is a potential update. We set p′ = p∗ and D(p′ , q) ≤ OPTk satisfies the distance upper bound above.
+Otherwise, we let u be the point where p∗ ∈ bag[u] but not selected into rep[u]. For any point p′ ∈ bag[u], D(p′ , u) <
+D(w, u)/(2α), so D(p′ , p∗ ) < D(w, u)/α < D(w, p∗ ). This means that all points in bag[u] are closer to p∗ than w, so
+they can’t belong to ALG. In the following, we consider two cases depending on whether min ρ(p∗ , v) ≥ C/3. In each
+                                                                                                          v∈rep[u]
+case, we will find a desired p′ ∈ rep[u] and it is connected to w.
+
+                                                                    15
+                                       Graph-Based Algorithms for Diverse Similarity Search
+
+  1.    min ρ(p∗ , v) < C/3: In this case, there exists another point p′ ∈ rep[u] with D(p∗ , p′ ) ≤ D(p∗ , u) + D(u, p′ ) ≤
+       v∈rep[u]
+                       ρ(p∗ , p′ ) < C/3. Because |Bρ (p∗ , C/2) (ALG \ pk )| < k ′ , we have |Bρ (p′ , C/6) (ALG \ pk )| ⊆
+                                                                 T                                              T
+       D(w, u)/α and
+       |Bρ (p∗ , C/2) (ALG \ pk )| < k ′ , so the addition of such p′ satisfies that ALG \ pk ∪ p′ is (k ′ , C/12)-diverse.
+                     T
+
+  2.    min ρ(p∗ , v) ≥ C/3: In this case, according to Proposition A.10, we have rep[u] = {z1 , ..., zk/k′ } ⊆
+       v∈rep[u]
+       B(u, D(u, w)/(2α)) all with diversity distance at least C/3 from each other. Therefore, for any pi ∈ ALG \ pk ,
+       there can’t exist two zj and zj ′ s.t. ρ(pi , zj ) < C/6 and ρ(pi , zj ′ ) < C/6. By a counting argument, we can find at
+       least one zi s.t. |Bρ (zi , C/6) ∩ (ALG \ pk )| < k ′ . Finally, we let p′ = zi where ALG \ pk ∪ p′ is (k ′ , C/12)-diverse.
+
+We have proved that the p′ we found satisfies the (k ′ , C/12)-diverse criteria. Now we will bound its distance upper bound.
+
+                     D(p′ , q) ≤ D(p∗ , q) + D(p′ , p∗ ) ≤ D(p∗ , q) + D(p′ , u) + D(p∗ , u)
+                               ≤ D(p∗ , q) + D(w, u)/(2α) + D(w, u)/(2α)                                 (Line 9 in Algorithm 3)
+                                       ∗
+                               ≤ D(p , q) + D(w, u)/α
+                               ≤ D(p∗ , q) + D(w, p∗ )/α                                   (Because u is ordered earlier than p∗ )
+                                       ∗                            ∗
+                               ≤ D(p , q) + D(w, q)/α + D(p , q)/α ≤ D(pk , q)/α + OPTk (1 + 1/α)
+
+
+
+
+Proof of Theorem A.5. Regarding the running time, the total number of edges connected from any point in ALG is bounded
+by |U | ≤ O((k 2 /k ′ )(8α)d log ∆). In each step, the algorithm first sorts all these edges and then checks whether each
+of them can be added to the new ALG set. The total time spent per step is O(k|U | + |U | log |U |). Usually, we assume
+k ≫ log |U |, and we can have the overall time complexity to be O (k 3 /k ′ )(8α)d log ∆ per step.
+To analyze the approximation ratio, at time step t, we use ALGt = {pt1 , ..., ptk } to denote the current unordered solution.
+We denote ALGtk = max D(pti , q). According to Algorithm 4 and Lemma A.11, if pi is updated at time step t, we have
+                       i∈[k]
+D(pti , q) ≤ D(pt−1
+                i   , q)/α + OPTk (1 + 1/α). By an induction argument, if a point pi is updated by t times at the end of
+                                       D(p0i ,q)   α+1
+time step T , we have D(pTi , q) ≤       αt      + α−1 OPTk .
+                                       D(p0i ,q)   α+1
+We now prove that ALGT
+                     k ≤ max            αT /k
+                                                 + α−1 OPTk . Let i ∈ [k] be the index achieving the maximal distance upper
+                                   i
+                                                       D(p0 ,q)
+                                                           α+1
+bound. For the sake of contradiction, if ALGT                                          T
+                                            k > αT /k + α−1 OPTk , this means that pi was updated for at most T /k − 1
+                                                     i
+
+
+times. By a counting argument, there exists another index j which was updated for at least T /k + 1 times. However, at the
+                                                                        D(p0 ,q)
+                                                                          α+1
+time t when ptj was already updated for T /k times, D(ptj , q) ≤ αTj/k + α−1   OPTk < ALGT              t
+                                                                                               k ≤ ALGk , so the algorithm
+                       t
+wouldn’t have chosen pj to optimize cause it couldn’t have had the maximal distance at that time, leading to a contradiction.
+                                               D(p0i ,q)   α+1
+Therefore, we prove that ALGT
+                            k ≤ max             αT /k
+                                                         + α−1 OPTk .
+                                           i
+
+Now we consider the following three cases depending on the value of the maximal D(p0i , q). The case analysis here is
+similar to the proof in Theorem 3.4 from (Indyk & Xu, 2023).
+Case 1: D(p0i , q) > 2Dmax . Let p∗k be the point having the maximal distance from q in an optimal solution OPT. We
+know that for any p0i , we have D(p∗k , q) ≥ D(p0i , q) − D(p0i , p∗k ) ≥ D(p0i , q) − Dmax ≥ D(p0i , q)/2. Therefore, the
+                                                                                   ALGT    D(p0 ,q)
+                                                                                              α+1    2      α+1
+approximation ratio after T optimization steps is upper bounded by D(p∗ ,q)
+                                                                        k
+                                                                            ≤ D(p∗ ,q)α
+                                                                                     i
+                                                                                       T /k + α−1 ≤ αT /k + α−1 . A
+                                                                                     k      k
+                                             α+1
+simple calculation shows that we can get a ( α−1 + ϵ) approximate solution in O(k logα 2ϵ ) steps.
+                                       α−1                        D(p0i ,q)   α+1           α+1
+Case 2: D(p0i , q) ≤ 2Dmax and OPTk > 4(α+1) Dmin . To satisfy     αT /k
+                                                                            + α−1 OPTk ≤ ( α−1  + ϵ)OPTk , we need
+D(p0i ,q)
+ αT /k
+                                                     α−1
+          ≤ ϵOPTk . Applying the lower bound OPTk ≥ 4(α+1) Dmin , we can get that T ≥ k logα 2(α+1)∆
+                                                                                              (α−1)ϵ suffices.
+                                                 α−1
+Case 3: D(p0i , q) ≤ 2Dmax and OPTk ≤ 4(α+1)           Dmin . In this case, we must have k = 1, because otherwise
+    ∗ ∗             ∗
+D(pk , p1 ) ≤ 2D(pk , q) < Dmin ,violating the definition of Dmin . Suppose k = 1 and the problem degenerates to the
+standard nearest neighbor search problem. After T optimization steps, if pT1 is still not the exact nearest neighbor, we have
+
+                                                                   16
+                                   Graph-Based Algorithms for Diverse Similarity Search
+
+D(pT1 , q) ≥ D(pT1 , p∗1 ) − OPT1 ≥ Dmin                                T
+                                     2 . Applying the upper bound of D(p1 , q) and OPT1 , we have
+                                                                                                  Dmin
+                                                                                                   2   ≤ D(pT1 , q) ≤
+D(p01 ,q)             D(p0 ,q)
+ αT
+            α+1
+          + α−1 OPT1 ≤ αT1 + Dmin                                   ∆
+                               4 . This can happen only if T ≤ logα 8 .
+
+
+A.4. Analysis for the Dual Diverse NN Algorithm
+In this section we analyze Algorithm 5.
+
+Algorithm 5 Search algorithm for dual diverse NN
+ 1: Input: A graph G = (V, E) with Nout (p) denoting the out edges of p; query q; distance bound R; distance approxima-
+      tion error ϵ.
+ 2: Output: A set of k points ALG.
+ 3: Use binary search to find a maximal C such that the initialization step proved in Lemma A.7 outputs a (k ′ , C)-diverse
+      set ALG = {p1 , ..., pk }
+ 4: C ← 4C
+                          α+1
+ 5: while max D(p, q) > ( α−1 + ϵ) · R do
+             p∈ALG
+ 6:     C ← C/2
+                               ∆
+ 7:                Sc · k logα ϵ do
+        for i = 1 to
+ 8:       U←          (Nout (p) ∪ p) and sort U based on their distance from q
+                  p∈ALG
+ 9:     ALG ← the closest k − 1 points in ALG
+10:               S u ∈ U in order do
+        for each point
+11:        if ALG u is (k ′ , C/12)-diverse then
+12:           ALG ← ALG ∪ u
+13:           Break
+14:        end if
+15:     end for
+16:   end for
+17: end while
+18: Return ALG
+
+
+
+
+Proof of Theorem A.6. After applying the binary search to the initialization algorithm in Lemma A.7, we get an initial
+(k ′ , C)-diverse solution and we know there doesn’t exist a (k ′ , 4C)-diverse solution. Therefore, we set C = 4C to be the
+upper bound on the maximal diversity we can achieve.
+Then our Algorithm 5 is basically adding a binary search to Algorithm 4. Invoking the analysis from Theorem A.5, if
+there exists a (k ′ , C)-diverse solution         ∗         ∗                                  ′
+                                         OPT ={p1 , ..., pk } with OPTk ≤ R, we can find a (k , C/12)-diverse solution
+ALG = {p1 , ..., pk } with ALGk ≤ α−1    α+1
+                                             + ϵ · R in O(k logα ∆ϵ ) steps where each step takes Õ((k 3 /k ′ )(8α)d log ∆)
+time. As a result, each time when the algorithm enters the while loop on Line 5 in Algorithm 5, we know that there doesn’t
+exist a (k ′ , C)-diverse solution with maximal distance smaller than R. When we exit the while loop, the current C value is
+at least 1/2 of the optimal C value, and the current ALG solution we get is at least (k ′ , C/24)-diverse.
+
+B. Algorithm Implementation
+To conduct our experiments, we provide the heuristic algorithm that we designed for the k ′ -colorful nearest neighbor
+problem, based on the provable algorithms provided in the main paper. The provable indexing algorithm (3) has a
+runtime which is quadratic in the size of the data set and is slow in practice. This situation mimics the original DiskANN
+algorithm (Jayaram Subramanya et al., 2019), where the “slow preprocessing” algorithm has provable guarantees (Indyk &
+Xu, 2023) but quadratic running time, and was replaced by a heuristic “fast preprocessing” algorithm used in the actual
+implementation (Jayaram Subramanya et al., 2023). Here, Algorithm 9 offers a fast method tailored for the k ′ -colorful case,
+using several heuristics to improve the runtime. In the following section, we present the pseudocode for the procedures:
+search, index build, and the pruning procedure required for the index build.
+
+                                                            17
+                                    Graph-Based Algorithms for Diverse Similarity Search
+
+Diverse Search. Our diverse search procedure, is a greedy graph-based local search method. In our search method, in
+each step, we maintain a list of best and diverse nodes, ensuring that at most k ′ points are selected in the list per color. In
+each iteration of our search algorithm, we choose the best unexplored node and examine its out neighbors. From the union
+of our current list and the out neighbors, we select the best diverse set of nodes while satisfying the k ′ -colorful diversity
+constraint—meaning no color can have more than k ′ points in the updated list. To identify the optimal diverse set from the
+union, we use a priority queue designed to accommodate the diversity constraint. Below, we present the pseudocode for this
+diverse priority queue.
+
+Algorithm 6 Insert (p, d, c) into DiversePriorityQueue (Q, L, k ′ )
+ 1: Input: Current queue Q, tuple (p, d, c) of (point, distance, color) for new insertion, maximum size L of the queue,
+    maximum size k ′ per color.
+ 2: Output: Updated queue Q after inserting (p, d, c) which maintains the best set of at most L points and at most k ′ points
+    of each color.
+ 3: Let count(c) ← number of elements in Q with the color c.
+ 4: Let maxDist(c) ← maximum distance of an element in Q with color c.
+ 5: if count(c) < k ′ or d < maxDist(c) then
+ 6:     Insert (p, d, c) into Q
+ 7:     if count(c) > k ′ then
+ 8:        Remove the element with the maximum distance in Q having color c.
+ 9:     end if
+10: end if
+11: if |Q| > L then
+12:     Remove the element with the maximum distance in Q.
+13: end if
+
+
+Building on the previous explanation of the diverse priority queue, we outline the description of our diverse search procedure
+as follows.
+
+Algorithm 7 DiverseSearch(G, s, q, k ′ , k, L)
+ 1: Input: A directed graph G, start node s, query q, max per color parameter k ′ , search list size L.
+ 2: Output: A set of k points such that there are at most k ′ points from any color.
+ 3: Initialize DiversePriorityQueue L ← {(s, D(s, q), col[s])} with color parameter k ′ and size parameter L.
+ 4: Initialize a set of expanded nodes V ← ∅
+ 5: while L \ V ̸= ∅ do
+ 6:    Let p∗ ← argmin D(p, q)
+                  p∈L\V
+ 7:   V ← V ∪ {p∗ }
+ 8:   Insert {(p, D(p, q), col[p]) : p ∈ Nout (p∗ )} to L
+ 9: end while
+10: Return [top k NNs from L; V]
+
+
+Diverse Prune. A key subroutine in our index-building algorithm is the prune procedure. Given a node p and a set of
+potential outgoing edges V, the standard prune procedure removes an edge to a vertex w if there exists a vertex u such that
+an edge p → u exists and the condition D(u, w) ≤ D(p,w)α    is satisfied. Intuitively, this means that to reach w, we would
+first reach u, thus making multiplicative progress and eliminating the need for the edge p → w, which contributes to the
+sparsity of the graph.
+However, to account for diversity, the outgoing edges from the node must also be diverse and enable access to multiple
+colors. To address this requirement, we modify the standard prune procedure to incorporate the diversity constraint. The
+details of our revised algorithm are provided next.
+
+Diverse Index. Our indexing algorithm follows the same approach as the DiskANN “fast preprocessing” heuristic
+implementation (Jayaram Subramanya et al., 2023), but we replace the search and prune procedures in their implementation
+
+                                                              18
+                                      Graph-Based Algorithms for Diverse Similarity Search
+
+Algorithm 8 DiversePrune(p, V, α, R, m)
+ 1: Input: A point p, set V, prune parameter α, degree parameter R, and diversity parameter m.
+ 2: Output: A subset V ′ ⊆ V of cardinality at most R to which edges are added.
+ 3: Sort all points u ∈ V based on their distances from p and add them to list L in that order.
+ 4: Initialize sets blockers[u] ← ∅ for each u ∈ V.
+ 5: while L is not empty do
+ 6:    u ← argmin D(u, p)
+              u∈L
+ 7:   V ′ ← V ′ ∪ {u} and L ← L \ {u}
+ 8:   if |V ′ | = R then
+ 9:      break
+10:   end if
+11:   for each point w ∈ L do
+12:      if D(u, w) ≤ D(p, w)/α then
+13:          blockers[w] ← blockers[w] ∪ {col(u)}
+14:          if |blockers[w]| = m or col(u) = col(w) then
+15:             L ← L \ {w}
+16:          end if
+17:      end if
+18:   end for
+19: end while
+20: Return V ′
+
+
+with our diverse search and diverse prune procedures. The details of our index-building procedure are provided below.
+
+Algorithm 9 DiverseIndex(P, α, L, R, m)
+ 1: Input: A set of n points P = {p1 , . . . , pn }, prune parameter α, search list size L, degree parameter R, and diversity parameter m.
+ 2: Output: A directed graph G over P with out-degree at most R.
+ 3: Let s denote the estimated medoid of P .
+ 4: Initialize G with start node s.
+ 5: for each pi ∈ P do
+ 6:    Let [L; V] ← DiverseSearch (G, s, pi , k′ = L/m, L, L)
+ 7:    Let V ′ = DiversePrune (pi , V, α, R, m).
+ 8:    Add node pi to G and set Nout (pi ) = V ′ (out-going edges from pi to V ′ ).
+ 9:    for p ∈ Nout (pi ) do
+10:       Update Nout (p) ← Nout (p) ∪ {pi }.
+11:       if |Nout (p)| > R then
+12:          Run DiversePrune(p, Nout (p), α, R, m) to update out-neighbors of p.
+13:       end if
+14:    end for
+15: end for
+
+
+
+C. Additional Plots
+In this section we include the plots that were removed from the main body due to the space constraint.
+
+C.1. Remaining Plots from Section 4.2
+Here we include the results plots for the two datasets SIFT-Skewed and SIFT-Balanced with k ′ = 1 and k ′ = 10 in Figures
+5 and 6.
+
+C.2. Plots from Parameter Ablation Section 4.3
+Here we include the plots for Recall versus Latency, for various diversity parameter m.
+
+D. DiskANN Overview
+In this section we give an overview of the DiskANN procedures. For the full description the reader is referred to the original
+paper (Jayaram Subramanya et al., 2019).
+
+                                                                   19
+                                    Graph-Based Algorithms for Diverse Similarity Search
+
+
+
+
+           Figure 5: Recall vs Latency for SIFT-Skewed (left) and SIFT-Balanced (right) datasets with k ′ = 1.
+
+
+
+
+           Figure 6: Recall vs Latency for SIFT-Skewed (left) and SIFT-Balanced (right) datasets with k ′ = 10.
+
+
+The DiskANN data structure utilizes a directed graph G with vertices V corresponding to a set of points P . Once the graph
+is constructed, the search procedure begins from a specific vertex s to answer a given query q. In the following, we provide
+a description of the search and insertion process.
+The search procedure (Algorithm 11), GreedySearch(s, q, L), takes the following parameters: the starting vertex s, the
+query point q, and the queue size L. It executes a best-first search using a queue of bounded length L, continuing until the
+L vertices v with the smallest values of D(v, q) seen so far are all scanned. Upon completion, it returns a list of vertices
+ordered by increasing distance from q, where the first vertex (or the first k vertices) are answers for the query. Note that the
+procedure will always run for at least L steps, as long as the graph is connected. The total running time of the procedure is
+bounded by the number of steps multiplied by the out-degree bound of the graph G.
+The construction of the graph G = (V, E) is carried out through repeated calls to a procedure named RobustP runing
+(Algorithm 10). Given a vertex v, a set of vertices U (to be defined later), and parameters α > 1 and R, the procedure
+RobustP runing(v, U, α, R) operates as follows. First, the set U is sorted in ascending order of distance to v. The algorithm
+then iterates through this sorted list. Upon processing a new vertex u, it removes all other vertices w from U for which
+D(u, w) · α < D(v, w). Finally, the vertex v is connected to all remaining vertices in U that have not been removed.
+The starting point of the DiskANN data structure construction algorithm is the following simple procedure: for each vertex
+v, execute RobustP runing(v, U, α, R) with U = V and R = n. In other words, robust pruning is performed on every
+vertex in the graph. We call this approach slow preprocessing (Algorithm 13), as a naive implementation incurs a time
+complexity of O(n3 ). Despite the high construction cost, (Indyk & Xu, 2023) demonstrate that this method reliably produces
+a graph whose degree grows only logarithmically with the graph’s aspect ratio (under the assumption of constant doubling
+dimension), while ensuring that the greedy search procedure executes in polylogarithmic time.
+Since the slow-preprocessing-algorithm is too slow in practice, the authors of (Jayaram Subramanya et al., 2019) propose a
+
+                                                              20
+                                  Graph-Based Algorithms for Diverse Similarity Search
+
+
+
+
+Figure 7: Recall vs Latency for SIFT-Skewed dataset with k ′ = 10 (left) and k ′ = 1 (right) by varying the diversity
+parameter m during index construction. Higher m implies more diversity.
+
+
+
+
+faster heuristic method to construct the graph G, which we call fast preprocessing method (Algorithm 12). Initially, the
+graph G is set to a random R-regular graph. Then, the construction of the graph G = (V, E) proceeds incrementally. The
+algorithm makes two passes over the point set in a random order. For each vertex v encountered, it computes a candidate
+set U = GreedySearch(s, xv , L) (starting from some vertex s), and applies the pruning procedure on U rather than the
+entire vertex set V , i.e., it executes RobustP runing(v, U, α, R). Once pruning is complete, the algorithm inserts edges
+(v, u) and (u, v) for all u ∈ U retained by the pruning step. If the degree of any vertex u ∈ U exceeds the threshold R,
+its outgoing neighbors are also pruned via RobustP runing(u, Nout (u), α, R). This heuristic method is implemented and
+empirically evaluated in (Jayaram Subramanya et al., 2019).
+
+
+
+
+Algorithm 10 RobustPruning(i, U, α, R)
+ 1: Input Vertex i, candidate neighbor set U , pruning parameter α, degree limit R(default R is n if not given)
+ 2: Result Update Nout (i), the set of out-neighbors of i
+ 3: U ← U ∪ Nout (i)
+ 4: Nout (i) ← ∅
+ 5: while U ̸= ∅ and |Nout (i)| < R do
+ 6:   v ← argminv∈U D(xv , xi )
+ 7:   Nout (i) ← Nout (i) ∪ v
+ 8:   U ←U \v
+ 9:   U ← {v ′ ∈ U : D(xv , xv′ ) · α > D(xi , xv′ )}
+10: end while
+
+
+                                                           21
+                                 Graph-Based Algorithms for Diverse Similarity Search
+
+Algorithm 11 GreedySearch(s, q, L)
+ 1: Input Graph G = (V, E), seed s, query point q, queue length limit L
+ 2: Output visited vertex list U
+ 3: A ← {s}
+ 4: U ← ∅
+ 5: while A \ U ̸= ∅ do
+ 6:   v ← argminv∈A\U D(xv , q)
+ 7:   A ← A ∪ Nout (v)
+ 8:   U ←U ∪v
+ 9:   if |A| > L then
+10:       A ← top L closest vertices to q in A
+11:   end if
+12: end while
+13: sort U in increasing distance from q
+14: return U
+
+
+
+Algorithm 12 DiskANN indexing algorithm (with fast preprocessing)
+ 1: Input Point set P = {x1 ...xn }, degree limit R, queue length L
+ 2: Output A proximity graph G = (V, E) where V = {1..n} are associated with point sets P .
+ 3: G ← randomly sample a R-regular graph on vertex set V = {1..n}
+ 4: s ← vertex for the point closest to the centroid of P
+ 5: for k = 1 to 2 do
+ 6:   σ ← a random permutation of [1...n]
+ 7:   for i = 1 to n do
+ 8:      U ← GreedySearch(s, xσ(i) , L)
+ 9:      RobustP runing(σ(i), U, α, R)
+10:      for vertex j in Nout (σ(i)) do
+11:         Nout (j) ← Nout (j) ∪ σ(i)
+12:         if |Nout (j)| > R then
+13:             RobustP runing(j, Nout (j), α, R)
+14:         end if
+15:      end for
+16:   end for
+17: end for
+
+
+Algorithm 13 DiskANN indexing algorithm (with slow preprocessing)
+ 1: Input Vertex set P = {x1 ...xn }, parameters: degree limit R
+ 2: Output A proximity graph G = (V, E) where V = {1..n} are associated with point sets P .
+ 3: s ← vertex for the point closest to the centroid of P
+ 4: for i = 1 to n do
+ 5:   Nout (i) ← RobustP runing(i, V, α, R)
+ 6: end for
+
+
+
+
+                                                         22
+

@@ -1,0 +1,26 @@
+# Glossary
+
+- **ANN / ANNS**: Approximate Nearest Neighbor / Search.
+- **Base vector**: vector nằm trong database/index.
+- **Query vector**: vector cần tìm nearest neighbors.
+- **Recall@k**: tỷ lệ true top-k xuất hiện trong approximate top-k.
+- **QPS**: Queries Per Second.
+- **Candidate pool**: tập ứng viên đang được giữ trong graph search.
+- **HNSW**: Hierarchical Navigable Small World graph.
+- **Prefetch**: nạp data vào cache trước lúc CPU thực sự cần.
+- **Cache line**: đơn vị dữ liệu CPU cache/memory subsystem trao đổi.
+- **ELP**: Environment-Level Parameter.
+- **QLP**: Query-Level Parameter.
+- **ILP**: Index-Level Parameter.
+- **PRS**: Partial Redundant Storage.
+- **δ**: redundancy ratio trong PRS.
+- **ω**: prefetch stride.
+- **ν**: prefetch depth.
+- **efs**: candidate pool/search effort parameter.
+- **m_c**: maximum graph degree ở construction.
+- **α_c**: pruning rate ở construction.
+- **m_s, α_s**: runtime/search counterparts dùng để filter labeled graph.
+- **SQ**: Scalar Quantization.
+- **SIMD**: Single Instruction, Multiple Data.
+- **Selective re-rank**: chỉ tính high-precision distance cho subset candidates.
+- **Pareto frontier**: tập cấu hình không bị cấu hình khác đồng thời vượt trội trên tất cả objectives.

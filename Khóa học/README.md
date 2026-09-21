@@ -1,6 +1,6 @@
 # Kho khóa học
 
-Kho này chứa 90 khóa học được tổ chức theo ba lớp:
+Kho khóa học được tổ chức theo ba lớp:
 
 `Lĩnh vực lớn → Chuyên ngành → Khóa học cụ thể`
 
@@ -12,6 +12,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `01 - AI Engineering & LLM`
   - `02 - Data Science, Analytics & ML`
   - `03 - AI hỗ trợ phát triển phần mềm`
+  - `04 - Information Retrieval & Vector Search`
 - `02 - Lập trình & Phát triển phần mềm`
   - `01 - Web & Backend`
   - `02 - Mobile`
@@ -56,6 +57,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 - [AI Agent 365 Ngày](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/Ai-engineer/>)
 - [AI Engineer Roadmap](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/>)
+- [Function Calling for LLMs - Theory & Exercises](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/function-calling/>)
 - [LangChain - Agentic AI Engineering](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langchain/>)
 - [RAG: Basic to Advanced](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/rag-basic-to-advanced/>)
 - [Ultimate RAG Bootcamp](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ultimate-rag-bootcamp/>)
@@ -79,6 +81,16 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Claude Code - The Practical Guide](<./01 - AI & Dữ liệu/03 - AI hỗ trợ phát triển phần mềm/claude-code-the-practical-guide/>)
 - [Khóa Học Vibe Coding](<./01 - AI & Dữ liệu/03 - AI hỗ trợ phát triển phần mềm/khoa-hoc-vibe-coding/>)
 - [Khóa Học Vibe Coding Cơ Bản](<./01 - AI & Dữ liệu/03 - AI hỗ trợ phát triển phần mềm/khoa-hoc-vibe-coding-co-ban/>)
+
+#### Information Retrieval & Vector Search
+
+- [Adaptive Semantic Retrieval cho Digital Library](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/adaptive-semantic-retrieval-digital-library/>)
+- [Graph-Based Algorithms for Diverse Similarity Search](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/graph-based-diverse-similarity-search/>)
+- [HybridSparse - Hybrid Retrieval ở quy mô lớn](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/hybridsparse-large-scale-hybrid-retrieval/>)
+- [M3-Embedding - Text Embeddings đa ngôn ngữ, đa chức năng và đa độ dài](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/m3-embedding/>)
+- [PipeANN - SSD-Optimized Approximate Nearest Neighbor Search (OSDI '25)](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/pipeann-osdi25/>)
+- [Semantic Web & Linked Data cho khám phá tài nguyên thư viện](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/semantic-web-linked-data-library-discovery/>)
+- [VSAG - Tối ưu Graph-based Approximate Nearest Neighbor Search](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/vsag-optimized-graph-ann-search/>)
 
 ### 02 - Lập trình & Phát triển phần mềm
 

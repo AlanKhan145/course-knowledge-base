@@ -1,0 +1,1170 @@
+        VSAG: An Optimized Search Framework for Graph-based
+                Approximate Nearest Neighbor Search
+      Xiaoyao Zhong, Haotian Li                          Jiabao Jin, Mingyu Yang                      Deming Chu, Xiangyu Wang
+        Ant Group, Shanghai, China                       Ant Group, Shanghai, China                       Ant Group, Shanghai, China
+      zhongxiaoyao.zxy@antgroup.com                      jinjiabao.jjb@antgroup.com                     chudeming.cdm@antgroup.com
+         tianlan.lht@antgroup.com                       yangming.ymy@antgroup.com                         wxy407827@antgroup.com
+
+            Zhitao Shen, Wei Jia                             George Gu, Yi Xie                                       Xuemin Lin
+         Ant Group, Shanghai, China                  Intel Corporation, Shanghai, China                   Shanghai Jiaotong University
+          zhitao.szt@antgroup.com                           george.gu@intel.com                                Shanghai, China
+           jw94525@antgroup.com                             ethan.xie@intel.com                             xuemin.lin@gmail.com
+
+                             Heng Tao Shen, Jingkuan Song                               Peng Cheng
+                               Tongji University, Shanghai, China                   Tongji University
+                                  shenhengtao@hotmail.com                     East China Normal University
+                                  jingkuan.song@gmail.com                           Shanghai, China
+                                                                                cspcheng@tongji.edu.cn
+
+ABSTRACT                                                                  doi:XX.XX/XXX.XX
+Approximate nearest neighbor search (ANNS) is a fundamental
+                                                                          PVLDB Artifact Availability:
+problem in vector databases and AI infrastructures. Recent graph-
+                                                                          The source code, data, and/or other artifacts have been made available at
+based ANNS algorithms have achieved high search accuracy with
+                                                                          https://github.com/antgroup/vsag.
+practical efficiency. Despite the advancements, these algorithms
+still face performance bottlenecks in production, due to the random
+                                                                          1    INTRODUCTION
+memory access patterns of graph-based search and the high compu-
+tational overheads of vector distance. In addition, the performance       At Ant Group [1], we have observed an increasing demand to man-
+of a graph-based ANNS algorithm is highly sensitive to parameters,        age large-scale high-dimensional vectors across different depart-
+while selecting the optimal parameters is cost-prohibitive, e.g., man-    ments. This demand is fueled by two factors. First, the advent of
+ual tuning requires repeatedly re-building the index. This paper          Retrieval-Augmented Generation (RAG) for large language mod-
+introduces VSAG, an open-source framework that aims to enhance            els (LLMs) [22, 36] requires vector search to address issues such
+the in production performance of graph-based ANNS algorithms.             as hallucinations and outdated information. Second, the explosive
+VSAG has been deployed at scale in the services of Ant Group, and         growth of unstructured data (e.g., documents, images, and videos),
+it incorporates three key optimizations: (i) efficient memory access:     requires efficient analysis and storage methods. Many systems trans-
+it reduces L3 cache misses with pre-fetching and cache-friendly           form these unstructured data into embedding vectors for efficient
+vector organization; (ii) automated parameter tuning: it automat-         retrieval, e.g., Alipay’s facial-recognition payment [2], Google’s
+ically selects performance-optimal parameters without requiring           image search [24], and YouTube’s video search [57].
+index rebuilding; (iii) efficient distance computation: it leverages         Approximate nearest neighbor search (ANNS) is the foundation
+modern hardware, scalar quantization, and smartly switches to             for these AI and LLM applications. Due to the curse of dimension-
+low-precision representation to dramatically reduce the distance          ality [27], exact nearest neighbor search becomes prohibitively
+computation costs. We evaluate VSAG on real-world datasets. The           expensive as dimensionality grows. ANNS, however, trades off a
+experimental results show that VSAG achieves the state-of-the-art         small degree of accuracy for a substantial boost in efficiency, estab-
+performance and provides up to 4× speedup over HNSWlib (an                lishing itself as the gold standard for large-scale vector retrieval.
+industry-standard library) while ensuring the same accuracy.                 Recently, graph-based ANNS algorithms (e.g., HNSW [40] and
+                                                                          VAMANA [29]) successfully balance high recall with practical
+                                                                          runtime performance. These methods typically construct a graph,
+PVLDB Reference Format:                                                   where each node is a vector and each edge connects nearby vector
+Xiaoyao Zhong, Haotian Li, Jiabao Jin, Mingyu Yang, Deming Chu,           pairs. During a query, an approximate 𝑘-nearest neighbor search
+Xiangyu Wang, Zhitao Shen, Wei Jia, George Gu, Yi Xie, Xuemin Lin, Heng
+Tao Shen, Jingkuan Song, Peng Cheng. VSAG: An Optimized Search            This work is licensed under the Creative Commons BY-NC-ND 4.0 International
+                                                                          License. Visit https://creativecommons.org/licenses/by-nc-nd/4.0/ to view a copy of
+Framework for Graph-based Approximate Nearest Neighbor Search.
+                                                                          this license. For any use beyond those covered by this license, obtain permission by
+PVLDB, 18(12): XXX-XXX, 2025.                                             emailing info@vldb.org. Copyright is held by the owner/author(s). Publication rights
+                                                                          licensed to the VLDB Endowment.
+                                                                          Proceedings of the VLDB Endowment, Vol. 18, No. 12 ISSN 2150-8097.
+                                                                          doi:XX.XX/XXX.XX
+Corresponding Author: Peng Cheng.
+     Table 1: Comparison to Existing Algorithms (GIST1M).                                     Table 2: Symbols and Descriptions.
+ Metric                      IVFPQFS [4]   HNSW [40]   VSAG (this work)    Symbol                  Description
+                                                                           𝐷                       the base dataset
+ Memory Footprint            3.8G          4.0G        4.5G
+                                                                           𝐺                       the graph index
+ Recall@10 (QPS=2000)        84.57%        59.46%      89.80%              𝐿                       the labels of edges
+ QPS       (Recall@10=90%)   1195          511.9       2167.3              𝜏𝑙 , 𝜏ℎ                 the distance function with low precision and high precision
+ Distance Computation Cost   0.71ms        1.62ms      0.1ms               𝑥, 𝑥𝑏 , 𝑥𝑞 , 𝑥𝑛         a normal, base, query, and neighbor vector
+ L3 Cache Miss Rate          13.98%        94.46%      39.23%              𝑁 𝑁𝑘 (𝑥 ), 𝐴𝑁 𝑁𝑘 (𝑥 )   the 𝑘 nearest and approximate 𝑘 nearest neighbors of 𝑥
+ Parameter Tuning Cost       >20h          >60h        2.92h               𝑒 𝑓𝑠 , 𝑒 𝑓𝑐             the candidate pool size in search and construction phase
+                                                                           𝛼 𝑠 , 𝛼𝑐                the pruning rate used in search and construction phase
+ Parameter Tuning            manual        manual      auto                𝑚𝑠 , 𝑚𝑐                 the maximum degree of graph used in search and construction phase
+                                                                           𝜔                       prefetch stride
+starts from a random node and greedily moves closer to the query           𝜈                       prefetch depth
+vector 𝑥𝑞 , thereby retrieving its 𝑘 nearest neighbors.                    𝛿                       redundancy ratio
+
+   Despite their success, existing graph-based ANNS solutions             challenges in memory access, parameter tuning, and distance com-
+still face considerable performance challenges. First, they incur         putation, thus providing higher QPS with the same recall rate.
+random memory-access overhead, since graph traversals with ar-              In summary, we make the following contributions:
+bitrary jumps often lead to frequent cache misses and elevated            1. We enhance the memory access of VSAG in §3. The L3 cache
+costs. Second, repeated distance computations across candidate vec-          miss rate of VSAG is much less than that of other graph-based
+tors can dominate total runtime, especially when vectors are high-           ANNS works.
+dimensional. Finally, performance is highly sensitive to parameter
+                                                                          2. We propose automatic parameter tuning for VSAG in §4. It
+settings (e.g., maximum node degree and candidate pool size), yet
+                                                                             automatically selects performance-optimal parameters that are
+adjusting these parameters generally requires rebuilding the index,
+                                                                             comparable to grid search without requiring index rebuilding.
+which can take hours or even days. We use a small example from
+our experiments to illustrate these issues:                               3. We accelerate VSAG in distance computation in §5. Compared
+   Modern production systems [34, 51] typically employ vector                with other graph-based ANNS works, VSAG requires much less
+quantization to reduce the distance computation cost. Therefore,             time for distance computation.
+we set our baseline as HNSW with SQ4 quantization [60]. We
+                                                                          4. We evaluate the algorithms on real datasets with sizes up to 100
+conduct 1,000 vector queries on the GIST1M. In what follows, we
+                                                                             million vectors in §6. The results show that VSAG can achieve
+report the performance limitations of graph-based ANNS algo-
+                                                                             the SOTA performance and outperform HNSWlib by up to 4×
+rithms, using the experimental evidence of the baseline: (i) high
+                                                                             in QPS under the same recall guarantee.
+memory access cost: each query needs over 2,959 random vector
+accesses (total 1.4 MB), causing a 67.42% L3 cache miss rate. The
+                                                                          2     OVERVIEW OF VSAG FRAMEWORK
+memory-access operations consume 63.02% of the search time. (ii)
+high parameter tuning cost: if we use the optimal parameters instead      This section provides an overview of our VSAG framework, which
+of the manually selected values, the QPS can increase from 1,530 to       includes memory access optimization, automatic parameter tuning,
+2,182, by 42.6%. However, brute-force tuning of parameters takes          and distance computation optimization. As shown in Figure 1, VSAG
+more than 60 hours, which is prohibitively expensive. (iii) high          integrates these optimizations into different phases of the search
+distance computation cost: distance computations still take 26.12%        process. First, the PRS manages the storage of vector data and graph
+of the search time despite using SQ4 quantization.                        indexes. It stores low-precision quantized codes of vectors alongside
+                                                                          high-precision original vectors to support distance computation
+Contributions. This paper presents VSAG, an open-source frame-
+                                                                          optimization. This redundant storage is also utilized to balance
+work for enhancing the in-production efficiency of graph-based
+                                                                          resource usage and reduce memory access costs. Second, during
+ANNS algorithms. The optimizations of VSAG are in three-fold. (i)
+                                                                          each hop of the search process when exploring a vector, we employ
+Efficient Memory Access: during graph-based search, it pre-fetches
+                                                                          Deterministic Access Greedy Search to accelerate memory access
+the neighbor vectors, and creates a continuous copy of the neighbor
+                                                                          by minimizing cache misses. Finally, the visited results are pushed
+vectors for some vertices. This cache-friendly design can reduce L3
+                                                                          into a heap. We apply Selective Re-rank to combine low- and high-
+cache misses. (ii) Automated Parameter Tuning: VSAG can automat-
+                                                                          precision distances, ensuring effective search performance. The
+ically tune parameters for environment (e.g., prefetch depth), index
+                                                                          search process then pops the nearest unfinished point from the
+(e.g., max degree of graph), and query (e.g., candidate size). Suppose
+                                                                          heap and proceeds to the next hop. Throughout the entire life-cycle
+there are 3 index parameters and 5 choices for each parameter. The
+                                                                          of the index, VSAG uses a smart auto-tuner to select parameters that
+tuned index parameters of VSAG offer similar performance to that
+                                                                          deliver the best search performance across varying environments
+of brute-force tuning, which needs to enumerate all 53 combina-
+                                                                          and retrieval requirements. We will now detail the three main
+tions of parameters leading to a total tuning time of 53 times of
+                                                                          optimizations used in VSAG. The symbols used in this paper are
+index construction time. On the contrast, the tuning cost of VSAG
+                                                                          listed in Table 2.
+is only 2-3 times of index construction time. (iii) Efficient Distance
+Computation: VSAG provides various approximate distance tech-
+                                                                          2.1     Memory Access Optimization
+niques, such as scalar quantization. All distance computation is
+well optimized with modern hardware, and a selective re-ranking           Deterministic Access. Distance computations for neighboring
+strategy is used to ensure retrieval accuracy.                            vectors often incur random memory access patterns in graph-based
+   Table 1 compares the performance of VSAG with existing works           algorithms, leading to significant cache misses. VSAG addresses
+on GIST1M. The results show that VSAG alleviates the performance          this by integrating software prefetching [6] (i.e., _mm_prefetch)
+                Original         Redundant                   Async Prefetch During Computing
+                 Vector          Neighbors
+                                                        Q Code (e.g., SQ-4)   ……        Q Code (e.g., SQ-4)
+                                                                                                                                                              Self-Tuned
+                                                                                                                             Precision Filter
+                                                            Computing                        Prefetching                                                      Parameters
+   Redundant                                                                                                   Result
+    Storage                                                                                                    Push                             Distance
+                                                       𝑥%    𝑥!   𝑥&    𝑥#    𝑥'   𝑥$   𝑥)    𝑥(   𝑥+   𝑥%*    Heap
+                                       Code                                                                             Distance
+      Flat                            Layout                            Only Prefetch Valid Neighbors                   Threshold
+    Storage
+                                  Quantized Code                                                                                                           p Environment-level
+                                                       𝑥%    𝑥!   𝑥&    𝑥#    𝑥'   𝑥$   𝑥)    𝑥(   𝑥+   𝑥%*
+                                                                                                                                                           p Query-level
+                𝛿 = 0.5      Q Code     Id     Norm
+                                                                                                                                                           p Index-level
+                             Metric Transform                                      Stride Prefetch                       Selective
+                           PRS                              Deterministic Access Greedy Search                           Re-rank
+
+                                                                   Pop Heap and Visit
+
+                                                      Figure 1: The Search Framework of VSAG.
+
+through a Deterministic Access strategy (see §3.2.1). VSAG strategi-                           2.2         Automatic Parameter Tuning
+cally inserts prefetch instructions during and before critical compu-                          VSAG addresses parameter selection complexity through a tri-
+tations, proactively loading target data into L3/higher-level caches.                          partite classification system with specialized optimization strate-
+This prefetch-pipeline overlap ensures data availability before sub-                           gies: environment-level, query-level, and index-level parameters.
+sequent computation phases begin, effectively mitigating cache                                 Environment-level parameters (e.g., prefetch stride 𝜔) exclusively
+miss penalties. Furthermore, the VSAG framework effectively miti-                              influence query-per-second (QPS) performance without recall rate
+gates suboptimal prefetch operations through batch processing and                              impacts, thus incurring the lowest tuning overhead. Query-level
+reordering of the access sequence.                                                             parameters (e.g., candidate set size 𝑒 𝑓𝑠 [41]) exhibit moderate tun-
+PRS. VSAG introduces a Partial Redundant Storage (PRS) design                                  ing costs by jointly affecting QPS and recall, requiring adjustment
+(see §3.3), which provides a flexible and high-performance storage                             based on query vector distributions. Index-level parameters (e.g.,
+foundation to optimize both distance computations and memory                                   maximum degree 𝑚𝑐 [41]) demand the highest tuning investment
+access while balancing storage and computational resource usage.                               due to their tripartite impact on QPS, recall, and index construction
+In production environments constrained by fixed hardware config-                               time – parameter validation necessitates multiple index rebuilds.
+urations, such as 4C16G (i.e., equipped with 4 CPU cores and 16GB
+of memory) and 2C8G (i.e., equipped with 2 CPU cores and 8GB                                   • Environment-level Parameters (see §4.2): VSAG employs a grid
+of memory), most algorithms frequently exhibit resource utiliza-                                 search to identify optimal configurations for peak QPS perfor-
+tion imbalances between computational and memory subsystems.                                     mance through systematic parameter space exploration.
+During computational processes, CPUs frequently encounter idle                                 • Query-level Parameters (see §4.3): VSAG implements multi-granular
+cycles caused by cache misses, which hinders their ability to achieve                            tuning strategies, including fine-grained adaptive optimization
+optimal utilization, and thereby limits the system’s QPS.                                        that dynamically adjusts parameters based on real-time query
+   To address this challenge, the PRS framework Redundantly Stor-                                difficulty assessments.
+ing Vectors (see §3.3.2) that embeds compressed neighbor vectors                               • Index-level Parameters (see §4.4): VSAG introduces a novel mask-
+at each graph node. This architectural design enables batched dis-                               based index compression technique that encodes multiple pa-
+tance computations while leveraging more efficient Hardware-based                                rameter configurations into an unified index structure. During
+Prefetch [11] (see §3.3.1) to maintain high cache hit rates. By incorpo-                         searches, edge-label filtering dynamically emulates various con-
+rating advanced quantization methods [21, 31], PRS achieves high                                 struction parameters, thereby reducing index-level parameters
+vector storage compression ratios, thereby maintaining acceptable                                to query-level equivalents while keeping a single physical index.
+storage overhead despite data redundancy.
+Balance of Resources. In particular, the system uses a parameter                               2.3         Distance Computation Optimization
+called the redundancy ratio 𝛿 to control the Balance of Computa-                               Distance computation is a main overhead in vector retrieval, and
+tional Efficiency and Memory Utilization (see §3.3.3). In compute-                             its cost increases significantly with the growth of vector dimen-
+bound scenarios with high-throughput demands, VSAG adaptively                                  sions. Quantization methods (see §5.2) can effectively accelerate
+increases the redundancy ratio to mitigate cache contention, thus                              distance computation. For example, under identical instruction set
+minimizing CPU idle cycles during memory access while preserv-                                 architectures, AVX512 [28] can process 4× as many INT8 data per
+ing storage efficiency. In contrast, in memory-constrained low-                                instruction compared to FLOAT32 values. However, naive quanti-
+throughput scenarios, the framework strategically reduces redun-                               zation approaches often result in significant accuracy degradation.
+dancy ratio to optimize the index-memory footprint. Under memory-                              VSAG uses Selective Re-rank (see §5.3) to improve efficiency with-
+constrained conditions, this optimization enables deployment on                                out sacrificing the search accuracy. Furthermore, specific distance
+reduced instance tiers, thereby curtailing compute wastage.                                    metrics (i.e., euclidean distance) can be strategically decomposed
+                          Sync                Async               Data
+                        Operation            Operation         Dependency                                       Visited        Compute            Prefetch
+                                                                                                                Unused          Partial             Full
+                                                                                                                                Valid              Valid
+                                                                        Baselines
+                                                                                                           𝑥"     𝑥!      𝑥"      𝑥!         𝑥"     𝑥%
+         Fetch   𝜏(𝑥! , 𝑥" )     Fetch         𝜏(𝑥# , 𝑥" )    𝜏(𝑥$ , 𝑥" )       Fetch
+          𝑥!                      𝑥#                                             𝑥$
+                                                                                                           𝑥!     𝑥#      𝑥$      𝑥%         𝑥$     𝑥&
+
+                                                                                                           𝑥#     𝑥$      𝑥%      𝑥&         𝑥%
+                 Prefetch       Prefetch
+                    𝑥#             𝑥$                                                                      𝑥$     𝑥%      𝑥&      𝑥'         𝑥&
+                                                                                                                             (b)                (c)
+                                                                                                           𝑥%     𝑥&      Remove             Improve
+         Fetch                                                        Ours
+                 𝜏(𝑥! , 𝑥" )   𝜏(𝑥# , 𝑥" )      𝜏(𝑥$ , 𝑥" )
+          𝑥!                                                    Saving 2 timeslots                                         Unused            Prefetch
+                                                                                                           𝑥&     𝑥'      Prefetch            Validity
+          𝑡!          𝑡#            𝑡$               𝑡%            𝑡&               𝑡'                       (a)             By                 By
+                                                                                                           Original       Pre-Visit       Stride Prefetch
+                                                                         Timeslots
+                                                                                                  Figure 3: Three Different Prefetching Strategies
+    Figure 2: Passive Memory Access and Software-based Prefetch.
+                                                                                         into the cache before the CPU requires it, thereby preventing dis-
+and precomputed, effectively reducing the number of required in-
+                                                                                         ruptions in the computational flow caused by random memory
+structions during actual search operations.
+                                                                                         address loads. More specifically, prior to computing the distance
+                                                                                         for the current neighbor, the vector for the next neighbor can be
+3     MEMORY ACCESS OPTIMIZATION
+                                                                                         prefetched. As detailed in Figure 2, the green flow represents the use
+Graph-based algorithms suffer from random memory access pat-                             of prefetching. From the perspective of the CPU, the majority of dis-
+terns that incur frequent cache misses. The fundamental strategy                         tance computations make use of data that has already been cached.
+for mitigating cache-related latency lies in effectively utilizing vec-                  Furthermore, because prefetching operates asynchronously, it does
+tor computation intervals to prefetch upcoming memory requests                           not obstruct ongoing computations. The synergy of asynchronous
+into cache. In VSAG, three primary optimization strategies emerge                        prefetching and immediate data access optimizes the utilization
+for maximizing cache utilization efficiency:                                             of CPU computational resources, thereby substantially enhancing
+ • Leveraging software prefetching to improve cache hit rates.                           search performance.
+ • Optimizing search patterns to enhance the effectiveness of soft-
+    ware prefetching.                                                                    3.2    Deterministic Access Greedy Search:
+ • Optimizing the memory layout of indexes to efficiently utilize                               Advanced Prefetch Validity
+    hardware prefetching.                                                                In §3.1, the software-based prefetch mechanism initiates the fetch-
+                                                                                         ing of next-neighbor vector upon completion of each neighbor com-
+3.1      Software-based Prefetch: Making Random                                          putation. However, this method results in redundant operations
+         Memory Accesses Logically Continuous                                            because previously visited neighbors that do not require distance
+As shown in Figure 2, when computing vector distances, the vector                        computations still generate prefetch time cost. Example 2 illustrates
+is loaded sequentially from a segment of memory. The CPU fetches                         the inherent limitations of previous prefetch schemes:
+data from memory in units of cache lines [50]. Consequently, mul-
+                                                                                            Example 2. In Figure 3(a), 𝑥 2 and 𝑥 3 have already been visited,
+tiple consecutive cache fetch operations are triggered for a single
+                                                                                         and the distances do not need to be recomputed. This renders the
+distance computation.
+                                                                                         previous prefetching of these vectors ineffective. Additionally, when
+   Example 1. Take standard 64-byte cache line architectures as                          computing 𝑥 4 , the prefetch may also fail due to the prefetching gap
+an example. The 960-dimensional vector of GIST1M stored as float32                       being too short.
+format necessitates 960 × 4/64 = 60 cache line memory transactions,
+                                                                                            In this section, we present two dedicated strategies to address
+demonstrating significant pressure on memory subsystems.
+                                                                                         the aforementioned prefetching challenges.
+   This passive caching mechanism creates operational inefficien-
+                                                                                         3.2.1 Deterministic Access. In contrast to prefetching during edge
+cies by extensively fetching data only upon cache misses, resulting
+                                                                                         access checks, VSAG exclusively prefetches only those edges that
+in synchronous execution bottlenecks. As illustrated in Figure 2, the
+                                                                                         have not been accessed. The mechanism begins by batch-processing
+orange timeline shows how the regular ANNS algorithm serializes
+                                                                                         all neighbor nodes to determine their access status. Following
+the computation and memory access phases: Each cache line fill
+                                                                                         this, unvisited neighbors are logically grouped, and prefetching
+(analogous to blocking I/O) stalls computation until completion. The
+                                                                                         is performed collectively. This strategic approach ensures that each
+accumulated latency from successive cache line transfers introduces
+                                                                                         prefetched memory address corresponds exclusively to computation-
+a significant constant factor in complexity analysis, particularly in
+                                                                                         essential data, thereby enhancing prefetching efficiency and mini-
+memory-bound scenarios with poor data locality.
+                                                                                         mizing redundant memory operations.
+Software-based Prefetch. Modern CPUs support software prefetch
+instructions, which can asynchronously load data into different                          3.2.2 Stride Prefetch. Batch processing ensures that each prefetch
+levels of the cache [6]. By leveraging the prefetch instruction to                       retrieves data intended for future use. However, prefetch effective-
+preload data, we can achieve a near-sequential memory access                             ness varies due to the asynchronous nature of prefetching and the
+pattern from the CPU level. This indicates that data is preloaded                        absence of a callback mechanism to confirm prefetch completion.
+ Algorithm 1: Deterministic Access Greedy Search                           distance functions 𝜏𝑙 and 𝜏ℎ are used to accelerate distance compu-
+   Input: graph 𝐺, labels 𝐿, base dataset 𝐷, initial nodes 𝐼 , query       tation while maintaining search accuracy, and they are employed
+           point 𝑥𝑞 , low- and high- precision distance functions 𝜏𝑙 and   in the selective re-ranking process (see §5). The complete algorithm
+           𝜏ℎ , search parameters 𝑘, 𝑒 𝑓𝑠 , 𝑚𝑠 , 𝛼𝑠 , 𝜔, 𝜈                 explanation is provided in Appendix A.
+   Output: 𝐴𝑁 𝑁𝑘 (𝑥𝑞 ) and their high-precision distances 𝑇
+ 1 candidate pool 𝐶 ← maximum-heap with size of 𝑒 𝑓𝑠
+                                                                           3.3    PRS: Flexible Storage Layout Boosting
+ 2 visited set 𝑉 ← ∅
+                                                                                  Search Performance
+ 3 insert (𝑥𝑖 , 𝜏𝑙 (𝑥𝑖 , 𝑥𝑞 ) ), ∀𝑥𝑖 ∈ 𝐼 into 𝐶
+ 4 while 𝐶 has un-expended nodes do
+                                                                           While incorporating well-designed prefetch patterns into search
+ 5      𝑥𝑖 ← closest un-expended nodes in 𝐶                                processes can theoretically improve performance, the inherent lim-
+ 6      𝑁 ← empty list                                                     itations of Software-based Prefetch prevent guaranteed mem-
+ 7      for 𝑗 ∈ 𝐺𝑖 do                                                      ory availability for all required vectors. This phenomenon can
+             // Only retrieve Id(i.e., 𝑥 𝑗 .𝑖𝑑 = 𝑗 )                       be attributed to multiple fundamental constraints: (a) Prefetch in-
+ 8           if 𝑗 ∉ 𝑉 and 𝐿 𝑗 ≤ 𝛼𝑠 and |𝑁 | < 𝑚𝑠 then                      structions remain advisory operations rather than mandatory com-
+ 9               𝑁 ← 𝑁 ∪ {𝑗}                                               mands. Even when optimal prefetch patterns are implemented,
+10               𝑉 ← 𝑉 ∪ {𝑗}                                               their actual execution cannot be assured. (b) Cache line contention
+11       for 𝑘 ∈ [0, 𝑚𝑖𝑛 (𝜔, |𝑁 | ) ) do                                   represents another critical challenge. In multi-process environ-
+12           prefetch 𝜈 cache lines start from 𝐷 𝑁𝑘                        ments, aggressive prefetch strategies may induce L3 cache pol-
+                                                                           lution through premature data loading. (c) The intrinsic cost dispar-
+13       for 𝑘 ∈ [0, |𝑁 | ) do
+14           if 𝑘 + 𝜔 < |𝑁 | then                                          ity between prefetch mechanisms further compounds these issues.
+15                prefetch 𝜈 cache lines start from 𝐷 𝑁𝑘+𝜔                 Software-based prefetching intrinsically carries higher operational
+                                                                           costs and demonstrates inferior efficiency compared to hardware-
+16           𝑥 𝑗 ← 𝐷 𝑁𝑘 // Memory Access
+                                                                           implemented alternatives.
+17           insert (𝑥 𝑗 , 𝜏𝑙 (𝑥 𝑗 , 𝑥𝑞 ) ) into 𝐶 and keep |𝐶 | ≤ 𝑒 𝑓𝑠
+
+18   𝐴𝑁 𝑁𝑘 (𝑥𝑞 ),𝑇 ← selective re-rank 𝐶 with 𝜏𝑙 and 𝜏ℎ                    3.3.1 Hardware-based Prefetch. Hardware-based prefetching re-
+19   return 𝐴𝑁 𝑁𝑘 (𝑥𝑞 ),𝑇                                                  lies on hardware mechanisms that adaptively learn from cache
+                                                                           miss events to predict memory access patterns. The system em-
+                                                                           ploys a training buffer that dynamically identifies recurring data
+                                                                           access sequences to automatically prefetch anticipated data into the
+Optimal performance occurs when the required data reside in the            cache hierarchy. Compared to software-controlled prefetching, this
+cache precisely when the computation flow demands it. Premature            hardware approach demonstrates better runtime efficiency while
+prefetching risks cache eviction, while delayed prefetching negates        functioning transparently at the architectural level. The training
+performance gains. This necessitates balancing prefetch timing             mechanism shows particular effectiveness for Sequential Memory
+with computation duration. To address this, stride prefetching dy-         Access patterns [9], where it can rapidly detect and exploit sequen-
+namically aligns hardware computation throughput with software             tial memory access characteristics. This optimization proves partic-
+prefetching rates, maximizing prefetch utility. The key parameter,         ularly beneficial for space-partitioned index structures like inverted
+the prefetch stride 𝜔 [49], determines how many computation steps          file-based index [32], where vectors belonging to the same partition
+occur before each prefetch. Adjusting 𝜔 is crucial, and in §4.2, we        maintain contiguous storage allocation. Conversely, graph-based
+propose an automated strategy to select its optimal value.                 indexing architectures exhibit irregular access patterns with poor
+                                                                           spatial locality, resulting in inefficient Random Memory Access [9].
+     Example 3. As detailed in Figure 3(b), the adjusted pattern demon-    The inherent randomness of access sequences prevents the training
+strates that during batch processing, the Deterministic Access strat-      buffer from establishing effective pattern recognition models.
+egy eliminates the need to access 𝑥 2 and 𝑥 3 . Consequently, the search
+logic progresses from 𝑥 1 directly to 𝑥 4 . This sequence modification     3.3.2 Redundantly Storing Vectors. VSAG integrates the benefits
+enables the prefetch mechanism to target 𝑥 4 while computing 𝑥 1 . Fig-    of space-partitioned indexes into graph-based indexing algorithms
+ure 3(c) further reveals the temporal characteristics of asynchronous      through redundant vector storage. By co-locating neighbor lists
+prefetching: The data loading process requires two vector computation      with their corresponding vectors within each node’s data structure,
+cycles to populate the cache line. When computation for 𝑥 1 initiates,     it achieves Sequential Memory Access. This design ensures that
+only the 𝑥 4 vector can be prefetched. After the computations of 𝑥 1 and   neighbor retrieval operations only require sequential access within
+𝑥 4 , the Stride Prefetch strategy ensures timely cache population of      contiguous memory regions, thereby fully leveraging hardware
+𝑥 6 data, which is immediately available for subsequent computation.       prefetching [11] capabilities.
+
+Deterministic Access Greedy Search. The cache-optimized search                Example 4. As illustrated in Figure 1, consider 10 vectors stored
+algorithm is formalized in Algorithm 1. The graph index 𝐺 con-             contiguously in memory. Even when accessing 𝑥 1 through 𝑥 5 where 𝑥 2
+stitutes an oriented graph that maintains base vectors along with          and 𝑥 3 are not immediately required, hardware prefetchers can still
+their neighbors. The labels 𝐿 of edges in 𝐺 are used for automatic         proactively load 𝑥 4 into cache. This behavior stems from the memory
+index-level parameters tuning (see §4). We use 𝐺𝑖 and 𝐿𝑖 to indi-          locality created by storing adjacent vectors (𝑥 1 to 𝑥 5 ) in consecutive
+cate the out-edges and labels of 𝑥𝑖 . The low- and high-precision          memory addresses. The consistent memory layout and predictable
+                  𝛿 = 0.5 with 4C16G             𝛿 = 1 with 4C16G
+             Memory Cold               Balance
+                                                                           trade-off: For a static index configuration, achieving higher QPS
+       (a)
+                                                                           inevitably reduces Recall performance.
+              CPU Hot
+                                                                           ILPs define an index’s core structure and performance. Tuning
+                                                                           the construction-related parameters (e.g., 𝑚𝑐 , 𝛼𝑐 ) requires rebuild-
+                                                                           ing indexes. It is a process far more costly than adjusting QLPs
+                  𝛿 = 0.5 with 4C16G             𝛿 = 0 with 2C8G           or EIPs. Crucially, ILPs impact both efficiency and effectiveness
+             Memory Hot                Balance                             simultaneously.
+       (b)                                                                 Hardness. The complexity of tuning these three parameter cate-
+              CPU Cold                                                     gories shows a progressive increase. ELPs focus solely on algo-
+                                                                           rithmic efficiency, resulting in a straightforward single-objective
+                                                                           optimization problem. In contrast, QLPs require balancing both effi-
+                 Figure 4: Adjust Redundant Ratio 𝛿                        ciency and effectiveness criteria, thereby forming a multi-objective
+                                                                           optimization challenge. The most demanding category, ILPs, ne-
+access patterns effectively compensate for software-based prefetching
+                                                                           cessitates substantial index construction time in addition to the
+inefficiencies through hardware optimizations.
+                                                                           aforementioned factors, leading to exponentially higher tuning
+                                                                           expenditures. In subsequent sections, we present customized opti-
+3.3.3 Balance of Computational Efficiency and Memory Utiliza-              mization strategies for each parameter category.
+tion. To address the computational-memory resource imbalance
+caused by fixed instance specifications (e.g., 4C16G, 2C8G) in indus-      4.2    Search-based Automatic ELPs Tuner
+trial applications, we propose PRS to take advantage of hardware
+                                                                           The proposed algorithm utilizes multiple ELPs that exhibit substan-
+prefetching to reduce CPU idle time. A dynamically tunable re-
+                                                                           tial variance in optimal configurations in different testing environ-
+dundancy ratio 𝛿 controls the proportion of redundantly stored
+                                                                           ments and methodologies, as demonstrated by our comprehensive
+neighbor vectors in graph indexes, balancing prefetch efficiency
+                                                                           experimental analysis (see §6). As elaborated in §3.2.2, the stride
+and CPU utilization. When 𝛿 = 1, full redundancy maximizes hard-
+                                                                           prefetch mechanism operates through two crucial parameters: the
+ware prefetch benefits, achieving peak CPU utilization at the cost of
+                                                                           prefetch stride 𝜔 and the prefetch depth 𝜈. The parameter 𝜔 governs
+higher memory consumption. In contrast, 𝛿 = 0 eliminates redun-
+                                                                           the prefetch timing based on the dynamic relationship between
+dancy to minimize memory usage but sacrifices prefetch efficiency.
+                                                                           the CPU computational speed and the prefetch latency within spe-
+This flexibility enables workload-aware resource optimization as
+                                                                           cific deployment environments. In particular, smaller 𝜔 values are
+shown in Example 5.
+                                                                           required to initiate earlier prefetching when faced with faster com-
+   Example 5. For high-throughput/high-recall scenarios (Fig. 4 (a)),      putation speeds or slower prefetch latencies. Meanwhile, the 𝜈
+increasing 𝛿 = 1 prioritizes CPU efficiency to meet demanding targets      parameter is primarily determined by the CPU’s native prefetch
+with fewer compute resources. In memory-constrained environments           patterns combined with vector dimensionality characteristics.
+with moderate throughput requirements (Fig. 4 (b)), reducing 𝛿 = 0            These environment-sensitive parameters exclusively influence
+alleviates memory pressure while allowing instance downsizing (e.g.,       algorithmic efficiency metrics (e.g., QPS) while maintaining consis-
+4C16G to 2C8G), which maintains service quality through controlled         tent effectiveness outcomes (e.g., Recall), thereby enabling indepen-
+compute scaling and reduces infrastructure costs.                          dent optimization distinct from core algorithmic logic. The VSAG
+                                                                           tuning framework implements an optimized three-step procedure:
+4 AUTOMATIC PARAMETER TUNING                                                1. Conduct an exhaustive grid search for all combinations of
+4.1 Parameter Classification                                                    environment-dependent parameter.
+                                                                            2. Evaluate performance metrics using sampled base vectors.
+We observe that specific parameters in the retrieval process exert a        3. Select parameter configurations that maximize retrieval speed
+significant influence [56] on the search performance (e.g., prefetch            while maintaining operational stability.
+depth 𝜈, construction ef 𝑒 𝑓𝑐 , search ef 𝑒 𝑓𝑠 , and candidate pool size
+𝑚𝑐 ). These parameters can be systematically categorized into three        4.3    Fine-Grained Automatic QLPs Tuner
+distinct types for discussion: Environment-Level Parameters (ELPs),        Observation. There are significant differences in the parameters
+Query-Level Parameters (QLPs), and Index-Level Parameters (ILPs).          required for different queries to achieve the target recall rate, with a
+ELPs primarily affect the efficiency (QPS) of the retrieval process        highly skewed distribution. Specifically, 99% of queries can achieve
+and are directly related to the retrieval environment (e.g., prefetch      the target recall rate with small query parameters, while 1% of
+stride 𝜔, prefetch depth 𝜈). Most of these parameters are associated       queries require much larger parameters. Experimental results show
+with the execution speed of system instructions rather than the            that assigning personalized optimal retrieval parameters to each
+operational flow of the algorithm. For instance, prefetch-related pa-      query can improve retrieval performance by 3–5 times.
+rameters mainly influence the timing of asynchronous operations.              To address the observation of QLPs, we propose a Decision
+QLPs inherently influence both retrieval efficiency (QPS) and ef-          Model for query difficulty classification, enabling personalized
+fectiveness (Recall) simultaneously. These parameters operate on           parameter tuning while maintaining computational efficiency. We
+prebuilt indexes and can be dynamically configured during the re-          introduce a learning-based adaptive parameter selection framework
+trieval phase (e.g., search parameter 𝑒 𝑓𝑠 , selective reranking strate-   through a GBDT classifier [10] with early termination capabilities,
+gies). In particular, efficiency and effectiveness exhibit an inherent     demonstrating superior performance in fixed-recall scenarios. The
+model architecture addresses two critical constraints: discrimina-            Algorithm 2: Prune-based Labeling
+tive power and computational efficiency. Our feature engineering                Input: base points 𝑥𝑖 , approximate nearest neighbors ANN𝑘 (𝑥𝑖 )
+process yields the following optimal feature set:                                        and related distances 𝑇𝑖 sorted by distance in ascending
+  • Cardinality of scanned points                                                        order, pruning rates 𝐴 sorted in ascending order, maximum
+  • Distribution of distances among current top-5 candidates                             degree 𝑚𝑐 , reverse insertion position 𝑟
+                                                                                Output: neighbors list 𝐺𝑖 and labels list 𝐿𝑖 of point 𝑥𝑖
+  • Temporal distance progression in recent top-5 results
+                                                                              1 initialize neighbors list 𝐺𝑖,𝑟 : ← ANN𝑘 (𝑥𝑖 )𝑟 :
+  • Relative distance differentials between top-K candidates and              2 initialize neighbors labels list 𝐿𝑖,𝑟 : with 0
+     optimal solution                                                         3 𝑐𝑜𝑢𝑛𝑡 ← 𝑟
+    The candidate size is initially set to a relatively large value (e.g.,    4 foreach 𝛼𝑐 ∈ 𝐴 and 𝑐𝑜𝑢𝑛𝑡 < 𝑚𝑐 do
+𝑒 𝑓𝑠 = 300). During the search process, after traversing certain hops         5      foreach 𝑗 ∈ 𝐺𝑖,𝑟 : and 𝑐𝑜𝑢𝑛𝑡 < 𝑚𝑐 do
+in the graph, we employ the decision tree along with the current              6           if 𝐿𝑖,𝑗 ≠ 0 then
+features to determine whether the candidate size should be reduced,           7                continue
+which effectively prevents overly simple queries from undergoing              8           𝑖𝑠_𝑝𝑟𝑢𝑛𝑒𝑑 ← False
+extensive and unnecessary search process.                                     9           foreach 𝑥𝑘 ∈ 𝐺𝑖,0:𝑗 do
+                                                                             10               if 0 < 𝐿𝑖,𝑘 ≤ 𝛼𝑐 and 𝛼𝑐 · 𝜏 (𝑥 𝑗 , 𝑥𝑘 ) ≤ 𝑇𝑖,𝑗 then
+4.4    Labeling-based Automatic ILPs Tuner                                   11                    𝑖𝑠_𝑝𝑟𝑢𝑛𝑒𝑑 ← True
+Impact of ILPs. The retrieval efficiency and effectiveness of graph-         12                    break
+based indexes are fundamentally determined by their structural               13           if not is_pruned then
+properties. Modifications to ILPs (e.g., maximum degree 𝑚𝑐 [30, 41],         14               𝐿𝑖,𝑗 ← 𝛼𝑐
+pruning rate 𝛼𝑐 [30]) induce concurrent alterations in both graph            15               𝑐𝑜𝑢𝑛𝑡 ← 𝑐𝑜𝑢𝑛𝑡 + 1
+topology and search dynamics [55], creating non-linear interactions
+between retrieval speed and accuracy. Rebuilding the index while             16   shrink |𝐺𝑖 | ≤ 𝑚𝑐 and |𝐿𝑖 | ≤ 𝑚𝑐 by removing 𝑥 𝑗 𝑠.𝑡 . 𝐿𝑖,𝑗 = 0
+tuning ILPs is computationally expensive(typically taking 2-3 hours          17   return 𝐺𝑖 , 𝐿𝑖
+per parameter configuration for million-scale datasets).
+4.4.1 Compression-Based Construction Framework. We empirically
+observe that indexes constructed with varying ILPs exhibit substan-
+tial edge overlap. As formalized in Theorem 4.1, when maintaining
+a fixed pruning rate 𝛼, a graph built with lower maximum degree              topological flexibility while enhancing storage efficiency through a
+𝑚𝑐 constitutes a strict subgraph of its higher-degree counterpart.           compressed index representation. Due to space limitations, please
+                                                                             refer to Appendix B for the detailed construction algorithm of VSAG.
+   Theorem 4.1. (Maximum Degree-Induced Subgraph Hierarchy)                  Then, we illustrate the labeling algorithm, which assigns label to
+Let 𝐺 𝑎 and 𝐺 𝑏 denote indexes constructed with maximum degrees              each edge.
+𝑚𝑐 = 𝑎 and 𝑚𝑐 = 𝑏 respectively, under identical initialization condi-        Prune-based Labeling Algorithm. The pruning strategy of VSAG
+tions and fixed 𝛼. Given equivalent greedy search outcomes ANN𝑘 (𝑥)          is shown in Algorithm 2. First, ANN𝑘 (𝑥𝑖 ) and their distances 𝑇𝑖
+for all points 𝑥 under both configurations, then 𝑎 < 𝑏 =⇒ 𝐺 𝑎 ⊂ 𝐺 𝑏          are sorted in ascending order of distance, and the pruning rates 𝐴
+where ∀(𝑥𝑖 , 𝑥 𝑗 ) ∈ 𝐸 (𝐺 𝑎 ), (𝑥𝑖 , 𝑥 𝑗 ) ∈ 𝐸 (𝐺 𝑏 ).                       are also sorted in ascending order. The reverse insertion position 𝑟
+                                                                             indicates whether this pruning process occurs during the insertion
+   Proof. Please refer to Appendix B.                                  □
+                                                                             of a reverse edge. We initialize the out-edges of 𝑥𝑖 by 𝐴𝑁 𝑁𝑘 (𝑥𝑖 )𝑟 :
+   The lifecycle of the index in VSAG is divided into three distinct         (Line 1). Each edge is then assigned a label of 0 (Line 2). Note that
+phases: building, tuning, and searching. In contrast, traditional            when 𝑟 > 0, it indicates that the current pruning occurs during the
+indexing frameworks typically consist of only two phases: building           reverse edge addition phase, and only the labels of edges within the
+and searching. They select edges to construct the index structure            interval [𝑟 : |𝐺𝑖 |] need to be updated. Otherwise, all labels should be
+using a set of fixed index-level parameters. The reason behind our           updated. We use 𝑐𝑜𝑢𝑛𝑡 to record the number of neighbors that have
+design is that we believe it is insufficient to rely solely on the raw       non-zero labels (Line 3). When count = 𝑟 , it means we have already
+data for selecting edges during the construction phase. These param-         collected all the neighbors we need. At this point, the algorithm
+eters may need to be dynamically adjusted based on varying user              should terminate (Lines 4-5).
+requirements and query complexities.                                            Next, each 𝛼𝑐 is examined in ascending order (Line 4). For each
+   VSAG employs an index compression strategy that constructs the            unlabeled neighbor 𝑥 𝑗 (Lines 5-7), neighbor 𝑥𝑘 with smaller distance
+index once using relaxed ILPs while labeling edges with specific             is used to make pruning decision (Lines 8-9). The pruning decision
+ILPs. Then, VSAG can dynamically select edges by leveraging la-              requires satisfying two conditions (Lines 10-12): (a) The neighbor
+bels, shifting the edge selection process from the index construction        𝑥𝑘 exists in the graph constructed with the 𝛼𝑐 (i.e., 0 < 𝐿𝑖,𝑘 ≤ 𝛼𝑐 ).
+phase to the tuning phase. It enables adaptive edge selection without        (b) The pruning condition is satisfied (i.e., 𝛼𝑐 · 𝜏 (𝑥 𝑗 , 𝑥𝑘 ) ≤ 𝜏 (𝑥𝑖 , 𝑥 𝑗 )).
+index reconstruction. Thus, it achieves equivalent search perfor-            Here, we accelerate the computation of 𝜏 (𝑥𝑖 , 𝑥 𝑗 ) by using the cached
+mance to maintaining multiple indexes with different parameter               result 𝑇𝑖,𝑗 . If no neighbor can prune 𝑥 𝑗 with 𝛼𝑐 , it is assigned the
+configurations, while incurring only the overhead of construct-              label 𝐿𝑖,𝑗 ← 𝛼𝑐 (Lines 13-15). Finally, the algorithm returns the
+ing a single index. The parameter labeling mechanism maintains               neighbor set 𝐺𝑖 and labels set 𝐿𝑖 of 𝑥𝑖 (Lines 16-17).
+                Filtered Neighbors                   In-Hop Base Points                   Please refer to Appendix D for details of tuning ILPs after VSAG is
+                                                                                       constructed with labels.
+                Runtime Chosen Neighbors              𝑚( = 3, 𝛼( = 1.2
+
+                              𝑇!,' = 0.3
+                                            𝑥!                                         5     DISTANCE COMPUTATION ACCELERATION
+                              𝐿!,' = 1.4
+                                                         𝑥" 𝐿𝑇!,& = 0.4
+                                                              !,& = 1.2
+                                                                                       Recent studies [20, 53, 54] illustrate that the exact distance com-
+          𝑇!,$ = 0.2
+                                                                                       putation takes the majority of the time cost of graph-based ANNS.
+          𝐿!,$ = 1.2
+                       𝑥$                                                              Approximate distance techniques, such as scalar quantization, can
+                                                                                       accelerate this process at the cost of reduced search accuracy. VSAG
+                                                                                       adopt a two-stage approach that first performs an approximate
+                         𝑥#                 𝑥&                      𝑥%                 distance search followed by exact distance re-ranking. §5.1 ana-
+                               𝑇!,# = 0.1         𝑇!,% = 0.5                           lyzes the distance computation scheme, with subsequent sections
+                               𝐿!,# = 1.0         𝐿!,% = 1.2
+                                                                                       detailing optimization strategies for VSAG component.
+ Figure 5: Runtime Adjust ILPs (𝑚𝑐 and 𝛼𝑐 ) by Tuning 𝑚𝑠 and 𝛼𝑠
+                                                                                       5.1    Distance Computation Cost Analysis
+   Building upon the parameter analysis of 𝑚𝑐 , we formally estab-
+lish the subgraph inclusion property for graphs constructed with                       VSAG employs low-precision vectors during graph traversal opera-
+varying pruning rates 𝛼𝑐 in Algorithm 2 through Theorem 4.2.                           tions while reserving precise distance computations exclusively for
+                                                                                       final result reranking. The dual-precision architecture effectively
+   Theorem 4.2. (Subgraph Inclusion Property with Varying Prun-                        minimizes distance computation operations (DCO) [53] overhead
+ing Rate 𝛼𝑐 ) Fix all ILPs except 𝛼𝑐 , and let 𝐺 𝑎 and 𝐺 𝑏 be indexes                  while preserving search accuracy through precision-aware hierar-
+constructed by Algorithm 3 in Appendix using pruning rates 𝛼𝑐 = 𝑎                      chical processing.
+and 𝛼𝑐 = 𝑏 respectively, where 𝑎 < 𝑏. Suppose that for every data                         If we only consider the cost incurred by distance computation,
+point 𝑥𝑖 , the finite-sized approximate nearest neighbor (ANN) sets                    the total distance computation cost can be expressed as follows:
+ANN𝑘 (𝑥𝑖 ) retrieved during construction remain identical under both
+                                                                                                   𝑐𝑜𝑠𝑡 = 𝑐𝑜𝑠𝑡𝑙𝑝 + 𝑐𝑜𝑠𝑡ℎ𝑝 = 𝑛𝑙𝑝 · 𝑡𝑙𝑝 + 𝑛ℎ𝑝 · 𝑡ℎ𝑝
+𝛼𝑐 values. Then 𝐺 𝑎 forms a subgraph of 𝐺 𝑏 , i.e., all edges in 𝐺 𝑎 satisfy
+(𝑥𝑖 , 𝑥 𝑗 ) ∈ 𝐸 (𝐺 𝑏 ).                                                                   Here, distance computation cost 𝑐𝑜𝑠𝑡 consists of two compo-
+                                                                                       nents: the computation cost for low-precision vectors 𝑐𝑜𝑠𝑡𝑙𝑝 and
+   Proof. Please refer to Appendix C.2.                                          □     the computation cost for high-precision vectors 𝑐𝑜𝑠𝑡ℎ𝑝 . Each com-
+                                                                                       ponent is determined by the number of distance computations (𝑛𝑙𝑝
+   This theorem reveals a monotonic relationship between pruning
+                                                                                       or 𝑛ℎ𝑝 ) and the cost of a single distance computation (𝑡𝑙𝑝 or 𝑡ℎ𝑝 ).
+rates and graph connectivity. When reducing 𝛼𝑐 , any edge pruned
+                                                                                          The optimization of 𝑛𝑙𝑝 is closely related to the specific algorithm
+under this stricter parameter setting would necessarily be elimi-
+                                                                                       workflow, while 𝑡ℎ𝑝 is primarily determined by the computational
+nated under larger 𝛼𝑐 values. Then, we can characterize each edge
+                                                                                       cost of FLOAT32 vector operations - both of which remain relatively
+by its preservation threshold 𝛼𝑒 : the minimal pruning rate required
+                                                                                       constant. Consequently, the VSAG framework focuses primarily on
+to retain the edge during construction. Consequently, all graph in-
+                                                                                       optimizing the parameters 𝑡𝑙𝑝 and 𝑛ℎ𝑝 .
+dexes constructed with pruning rates 𝛼𝑐 ≥ 𝛼𝑒 will contain this edge.
+                                                                                          VSAG optimizes the overall cost in three ways:
+This threshold-based perspective permits efficient compression of
+multiple parameterized graph structures into a unified index, where                    • The combination of quantization techniques, hardware instruc-
+edges are annotated with their respective 𝛼𝑒 values.                                      tion set SIMD, and memory-efficient storage (§5.2) achieves ex-
+                                                                                          ponential reduction in low-precision distance computation (𝑡𝑙𝑝 ).
+   Example 6. As shown in Figure 5, we illustrate the state of the                     • Enhanced quantization precision by parameter optimization
+labeled graph generated by Algorithm 2 and the runtime edge selection                     (Appendix G) mitigates candidate inflation from precision loss,
+process. Suppose that during the greedy search in the graph using                         achieving sublinear growth in required low-precision computa-
+Algorithm 1, we need to explore the in-hop base point 𝑥𝑖 (Line 5 of                       tions (𝑛ℎ𝑝 ).
+Algorithm 1). The node 𝑥𝑖 has 5 neighbors sorted by distance 𝑇𝑖,𝑗 in
+                                                                                       • Selective re-ranking with dynamic thresholding (§5.3) establishes
+ascending order (i.e., 𝑥 1, . . . , 𝑥 5 ). The distances are 𝑇𝑖,1, . . . ,𝑇𝑖,5 , and
+                                                                                          an accuracy-efficiency equilibrium, restricting high-precision
+the corresponding labels are 𝐿𝑖,1, . . . , 𝐿𝑖,5 .
+                                                                                          validation (𝑛ℎ𝑝 ) to a logarithmically scaled candidate subset.
+   Given a relaxed ILP with 𝑚𝑠 = 3 and 𝛼𝑠 = 1.2, we visit the neigh-
+bors of 𝑥𝑖 in ascending order of distance. We then filter out neighbors
+                                                                                       5.2    Minimizing Low-Precision Computation
+that do not satisfy the pruning condition (Line 8 of Algorithm 1):
+                                                                                              Overhead
+  • 𝑥 2 is filtered out because 𝐿𝑖,2 = 1.4 > 𝛼𝑠 .
+                                                                                       SIMD and Quantization Methods. Modern CPUs employ SIMD
+ • 𝑥 5 is filtered out because we have found 𝑚𝑠 = 3 valid neighbors.                   instruction sets (SSE/AVX/AVX512) to accelerate distance compu-
+   Thus, in this search hop, we will visit 𝑥 1 , 𝑥 3 , and 𝑥 4 . As proven             tations through vectorized operations. These instructions process
+in Theorem 4.2 and Theorem 4.1, the search process is equivalent to                    128-bit, 256-bit, or 512-bit data chunks in parallel, with vector com-
+searching in a graph constructed with 𝑚𝑐 = 3 and 𝛼𝑐 = 1.2. In other                    pression techniques enabling simultaneous processing of multiple
+words, we can dynamically adjust the ILPs (i.e., 𝑚𝑐 , 𝛼𝑐 ) by tuning                   vectors. For example, AVX512 can compute one distance for 16-
+the relaxed QLPs (i.e., 𝑚𝑠 , 𝛼𝑠 ). This approach saves significant costs               dimensional FLOAT32 vectors per instruction, but when compress-
+associated with rebuilding the graph.                                                  ing vectors to 128 bits, it achieves 4x acceleration by processing four
+                   Table 3: Dataset Statistics.                                         Table 4: Parameter Settings of Algorithms.
+      Dataset           Dim     #Base         #Query     Type               Algorithm                  Construction Parameter Settings
+                                                                            VSAG                       maximum_degree ∈ {8, 12, 16, 24, 32, 36, 48, 64 }
+      GIST1M            960     1,000,000     1,000      Image                                         pruning_rate ∈ { 1.0, 1.2, 1.4, 1.6, 1.8, 2.0}
+      SIFT1M            128     1,000,000     10,000     Image
+                                                                            hnswlib, hnsw(faiss)       maximum_degree ∈ {4, 8, 12, 16, 24, 36, 48, 64, 96}
+      TINY              384     5,000,000     1,000      Image                                         candidate_pool_size ∈ { 500 }
+      GLOVE-100         100     1,183,514     10,000     Text
+                                                                            nndescent                  pruning_prob ∈ { 0.0, 1.0}
+      WORD2VEC          300     1,000,000     1,000      Text                                          leaf_size ∈ {24, 36, 48}
+      OPENAI            1536    999,000       1,000      Text                                          n_neighbors ∈ {10, 20, 40, 60}
+      ANT-INTERNET      768     9,991,307     1,000      Text                                          pruning_degree_multiplier ∈ {0.5, 0.75, 1.0, 1.5, 2.0, 3.0}
+      MSMARCO           1024    113,519,750   1,000      Text               faiss-ivf, faiss-ivfpqfs   n_clusters ∈ {32, 64, 128, 256, 512, 1024, 2048, 4096, 8192}
+                                                                            scann                      n_leaves ∈ {100, 600, 1000, 1500, 2000 }
+                                                                                                       avq_threshold ∈ {0.15, 0.2, 0.55 }
+vector pairs concurrently. Product Quantization (PQ) [31] enables                                      dims_per_block ∈ {1, 2, 3, 4 }
+high compression ratios for batch processing through SIMD-loaded
+lookup tables. While PQ-Fast Scan [4] excels in partition-based
+searches through block-wise computation, its effectiveness dimin-         can automatically adapt re-ranking scope based on error-distance
+ishes in graph-based searches due to random vector storage pat-           correlation analysis.
+terns and inability to filter visited nodes, resulting in wasted SIMD
+bandwidth. In contrast, Scalar Quantization (SQ) [60] proves more         6 EXPERIMENTAL STUDY
+suitable for graph algorithms by directly compressing vector dimen-       6.1 Experimental Setting
+sions (e.g., FLOAT32→ INT8/INT4) without requiring lookup tables.
+As demonstrated in VSAG, SQ achieves the optimal balance between          Datasets. Table 3 presents the datasets used in our experiments, and
+compression ratio and precision preservation while fully utilizing        they are widely adopted in existing works [5] and benchmarks [19].
+SIMD acceleration capabilities, making it particularly effective for      For each dataset, we report the vector dimensions (Dim), the number
+memory-bound graph traversals.                                            of base vectors (#Base), the number of query vectors (#Query), and
+Distance Decomposition. VSAG optimizes Euclidean distance                 the dataset type (Type). All vectors are stored in float32 format.
+computations by decoupling static and dynamic components. The             Algorithms. We compare VSAG with three graph-based methods
+system precomputes and caches invariant vector norms during               (hnswlib, hnsw(faiss), nndescent) and three partition-based methods
+database indexing, then combines them with real-time dot product          (faiss-ivf, faiss-ivfpqfs, scann). All methods are widely adopted in
+computations during queries. This decomposition reduces opera-            industry, and Faiss is the most popular vector search library.
+tional complexity while preserving mathematical equivalence, as           • hnswlib [39]: the most popular graph-based index.
+shown by the reformulated Euclidean distance:                             • hnsw(faiss) [34]: the HNSW implementation in Faiss.
+               ∥𝑥𝑏 − 𝑥𝑞 ∥ 2 = ∥𝑥𝑏 ∥ 2 + ∥𝑥𝑞 ∥ 2 − 2𝑥𝑏 · 𝑥𝑞 ,              • nndescent [13]: a graph-based index that achieves efficient index
+   The computational optimization strategy can be summarized                construction by iteratively merging the neighbors of base vectors.
+as follows: Only the Inner Product term 𝑥𝑏 · 𝑥𝑞 requires real-time        • faiss-ivf [34]: the most popular partition-based method.
+computation during search operations, while the squared query             • faiss-ivfpqfs. [4]: an IVF implementation with PQ (Product Quan-
+norm ∥𝑥𝑞 ∥ 2 can be pre-computed offline before initiating the search       tization) [32] and FastScan [4] optimizations.
+process. By storing just one additional FLOAT32 value per database        • scann. [26]: The partition-based method developed by Google,
+vector 𝑥𝑏 (specifically the precomputed ||𝑥𝑏 || 2 ), we can effectively     which is highly optimized for Maximum Inner Product Search
+transform the computationally expensive Euclidean distance com-             (MIPS) through anisotropic vector quantization.
+putation into an equivalent inner product operation. This space-
+                                                                          Performance Metrics. We evaluate algorithms with Recall Rate
+time tradeoff reduces the subtraction CPU instruction in distance
+                                                                          and Queries Per Second (QPS) [30, 41]. The recall rate is defined as
+computation, which saves one CPU clock cycle.
+                                                                          the percentage of actual KNNs among the vectors retrieved by the
+                                                                                                           𝑘 𝑞      |ANN (𝑥 )∩NN (𝑥 ) |
+                                                                                                                   𝑘 𝑞
+5.3    Selective Re-rank                                                  algorithm, i.e., Recall@𝑘 =           𝑘         . If not specified,
+                                                                          the QPS is the queries per second when 𝑘 = 10. Each algorithm is
+Quantization methods can significantly enhance retrieval efficiency,
+                                                                          evaluated on a dedicated single core.
+but quantization errors may lead to substantial recall rate degra-
+dation. While re-ranking with full-precision vectors can mitigate         Parameters. Table 4 reports the parameter configurations of algo-
+this performance loss. However, applying exhaustive re-ranking to         rithms. Unless otherwise specified, we report the best performance
+all candidates is inefficient. The VSAG framework addresses this          of an algorithm among all combinations of parameter settings.
+challenge through selective re-ranking, effectively compensating          Environment. The experiments are conducted on a server with an
+for approximation errors in distance computation without com-             Intel(R) Xeon(R) Platinum 8163 CPU @ 2.50GHz and 512GB mem-
+promising system performance. A straightforward approach is to            ory, except that Section 6.2 is evaluated on an AWS r6i.16xlarge
+select only the candidates with small low-precision distances for         machine with hyperthreading disabled, and Section 6.3 is evalu-
+re-ranking. The optimal number of candidates requiring re-ranking         ated on a server with 4 AMD EPYC 7T83 64-Core Processors and
+varies significantly depending on query characteristics, quantiza-        2TB memory. We implement VSAG in C++, and compile it with g++
+tion error distribution, and search requirement 𝑘. To address this        10.2.1, -Ofast flag, and AVX-512 instructions enabled. For baselines,
+dynamic requirement, VSAG implements DDC [53] scheme that                 we use the implementations from the official Docker images.
+                                           vsag              hnswlib               faiss-ivf          nndescent                  scann             faiss-ivfpqfs          hnsw(faiss)
+                      104
+                                                                     103                                             104                                            104
+                      103
+                                                                     102
+                  QPS
+
+
+
+
+                                                                  QPS
+
+
+
+
+                                                                                                               QPS
+
+
+
+
+                                                                                                                                                              QPS
+                      102                                                                                            103
+                                                                                                                                                                    103
+                      101                                            101
+                               0.2    0.4 0.6 0.8           1.0            0.2      0.4 0.6 0.8          1.0                 0.4         0.6      0.8                       0.4       0.6 0.8
+                                        Recall@10                                      Recall@100                                       Recall@10                                 Recall@100
+                                (a) GIST1M Top-10                                (b) GIST1M Top-100                              (c) SIFT1M Top-10                        (d) SIFT1M Top-100
+
+                                                                     104                                             104
+                      104
+                                                                                                                                                                    103
+                      103                                            103
+                  QPS
+
+
+
+
+                                                                  QPS
+
+
+
+
+                                                                                                               QPS
+
+
+
+
+                                                                                                                                                              QPS
+                      102                                            102                                             103
+                                                                                                                                                                    102
+                                0.2 0.4 0.6 0.8 1.0                        0.2      0.4 0.6 0.8          1.0                     0.6            0.8                                      0.8
+                                     Recall@10                                         Recall@100                                       Recall@10                                 Recall@100
+                               (e) GLOVE-100 Top-10                         (f) GLOVE-100 Top-100                                (g) TINY Top-10                           (h) TINY Top-100
+                                                                     104
+                                                                                                                  104                                              103
+                        104
+                                                                                                                  103                                              102
+                  QPS
+
+
+
+
+                                                                  QPS
+
+
+
+
+                                                                                                               QPS
+
+
+
+
+                                                                                                                                                              QPS
+                        103                                          103                                          102                                              101
+                                0.6           0.8                                 0.4      0.6     0.8                     0.2         0.4     0.6      0.8                0.4        0.6    0.8
+                                        Recall@10                                       Recall@100                                      Recall@10                                 Recall@100
+                               (i) WORD2VEC Top-10                          (j) WORD2VEC Top-100                             (k) OPENAI Top-10                            (l) OPENAI Top-100
+                                                                                         Figure 6: Overall Performance.
+               vsag           hnswlib      nndescent              faiss-ivfpqfs          scann                       is an internal text dataset from Ant Group. We made our best effort
+        104                                                 104
+                                                                                                                     to construct the well-tuned indexes for the MSMARCO dataset
+                                                                                                                     using 256 threads. The performance of hnsw (faiss) is similar to
+        103                                                 103
+                                                                                                                     that of hnswlib, while the performance of faiss-ivf is significantly
+  QPS
+
+
+
+
+                                                      QPS
+
+
+
+
+                                                                                                                     worse than that of faiss-ivfpqfs. Additionally, nndescent failed to
+        102                                                 102                                                      complete index construction within two days on the MSMARCO
+                                                                                                                     dataset. As a result, we do not include these methods in the results.
+              0.64 0.72 0.80 0.88 0.96                        0.88 0.90 0.93 0.95 0.98                                   For faiss-ivfpqfs, we followed the META-FAISS guidebook to
+                       Recall@10                                        Recall@10
+                                                                                                                     tune its parameters. To strike a balance between construction time
+              (a) ANT-INTERNET (∼10M)                             (b) MSMARCO (∼100M)                                and performance, we use 1 million centroids and employed PQ
+   Figure 7: Performance Comparison on Large-Scale Datasets                                                          with 256 × 4 bits. For the other algorithms, we use the parameters
+                                                                                                                     highlighted in bold in Table 4.
+6.2       Overall Performance                                                                                            For VSAG, the construction process took 15.37 hours with a
+Figure 6 evaluates the recall (Recall@10 and Recall@100) vs. QPS                                                     memory footprint of 463GB on the MSMARCO dataset. As the
+performance of algorithms. We report the best performance of an                                                      results shown, at Recall@10=99% VSAG achieves a significant im-
+algorithm under all possible parameter settings. Across all datasets,                                                provement in QPS compared to hnswlib (increased from 180 to
+VSAG can achieve higher QPS with the same recall rate. In addition,                                                  467), which is a 2.59× performance boost. Similarly, on the ANT-
+VSAG can provide a higher QPS increase on high-dimensional vec-                                                      INTERNET dataset, at Recall@10=96% VSAG demonstrates a re-
+tor datasets, such as GIST1M and OPENAI. In particular, VSAG                                                         markable enhancement in QPS rising from 659 to 1421, which is
+outperforms hnswlib by 226% in QPS on GIST1M when fixing                                                             2.15× QPS of hnswlib.
+𝑅𝑒𝑐𝑎𝑙𝑙@10 = 90%, it also provides ∼400% higher QPS than hn-
+swlib on OPENAI when fixing 𝑅𝑒𝑐𝑎𝑙𝑙@10 = 80%. The reason is that
+                                                                                                                     6.4           Ablation Study
+VSAG adopts quantization methods, which can provide significant                                                      6.4.1 Cache Miss Analysis. Table 5 conduct ablation tests to in-
+QPS increase without sacrificing the search accuracy, and they are                                                   vestigate the effectiveness of VSAG’s strategies (see §3,§4 and§5).
+especially effective for high-dimensional data [21].                                                                 We use GIST1M and SIFT1M datasets, and set 𝑚𝑐 = 36, 𝛼𝑐 = 1.0
+                                                                                                                     for VSAG. The strategies are incremental, i.e., the strategy 𝑘 row
+6.3       Scalability Performance                                                                                    reports the performance of the baseline with strategies 1..𝑘.
+As shown in Figure 7, we present the performance comparison                                                             Strategy 1 uses quantization methods, and it improves QPS while
+of VSAG with four baselines is on two large-scale datasets: ANT-                                                     ensuring the same recall rates. Specifically, the QPS on GIST1M
+INTERNET(∼10M) and MSMARCO(∼100M). Here, ANT-INTERNET                                                                increases from 510 to 1272 (149% growth), and the QPS on SIFT1M
+                                                                       Table 5: Ablation Study of VSAG’s Strategies.
+                                                                Recall@10                         QPS                    L3 Cache Load           L3 Cache Miss Rate           L1 Cache Miss Rate
+Strategy
+                                                          GIST1M          SIFT1M          GIST1M       SIFT1M       GIST1M          SIFT1M       GIST1M        SIFT1M         GIST1M      SIFT1M
+Baseline                                                   90.7%           99.7%            510             1695     198M            112M         93.89%           77.88%      39.37%      17.55%
+Above + 1.Quantization                                     89.8%           98.4%           1272             2881     125M            79M          67.42%           52.09%      19.44%      11.56%
+Above + 2. Software-based Prefetch                         89.8%           98.4%           1490             3332     120M            53M          71.71%           53.86%      16.98%       9.58%
+Above + 3. Stride Prefetch                                 89.8%           98.4%           1517             3565     118M            50M          64.57%           19.26%      17.18%       9.66%
+Above + 4. ELPs Auto Tuner                                 89.8%           98.4%           2052             4946      43M            49M          45.88%           32.65%      16.44%      10.11%
+Above + 5. Deterministic Access                            89.8%           98.4%           2167             5027      65M            72M          39.23%           20.98%      15.43%       9.91%
+Above + 6. PRS (𝛿 = 0.5)                                   89.8%           98.4%           2255             4668      55M            63M          55.75%           50.74%      15.20%      10.17%
+Above + 7. PRS (𝛿 = 1)                                     89.8%           98.4%           2377             4640      46M            55M          71.62%           74.73%      14.69%       9.26%
+
+  Baseline                  2. Software-based Prefetch     4. ELPs Auto Tuner             6. PRS ( = 0.5)                              Auto Tuned Result       Random Picked Config A
+  1. Quantization           3. Stride Prefetch             5. Deterministic Access        7. PRS ( = 1)                                All Running Cases       Random Picked Config B
+        104
+
+                                                          104                                                            104
+                                                                                                                                                                   104
+                                                    QPS
+  QPS
+
+
+
+
+                                                                                                                   QPS
+
+
+
+
+                                                                                                                                                             QPS
+        103
+
+                                                          103
+              0.5     0.6     0.7 0.8      0.9                  0.7        0.8      0.9                                        0.3 0.4 0.5 0.6 0.7 0.8 0.9               0.3 0.4 0.5 0.6 0.7 0.8
+                            Recall@10                                      Recall@10                                                   Recall@10                                Recall@10
+                      (a) GIST1M                                      (b) GLOVE-100                                                (a) GIST1M                             (b) GLOVE-100
+                    Figure 8: Performance of VSAG’s Strategies.                                                                Figure 9: Performance of Auto-Tuned ILPs.
+
+increases from 1695 to 2881 (69% growth). This is because quantiza-                                            6.5.1 Tuning Cost. As shown in Table 6, we present the time con-
+tion can significantly reduce the cost of distance computation.                                                sumption of VSAG across different phases on the SIFT1M and
+   Strategies 2-5 optimize memory access. As a result, the L3 cache                                            GIST1M datasets, varying index-level parameters 𝑚𝑐 ∈ (8, 16, 24, 32)
+miss rate reduces from 93.89% to 39.23% on GIST1M, and from                                                    and 𝛼𝑐 ∈ (1.0, 1.2, 1.4, 1.6, 1.8, 2.0). Here, we report the total time
+77.88% to 20.98% on SIFT1M. Such a drop in cache miss rate leads to                                            for 1,000 queries at Recall@10 = 99%. During the offline phase,
+a 70% QPS increase on GIST1M , and a 74% QPS increase on SIFT1M.                                               the tuning of ILP (i.e., 68s) and ELP (i.e., 10s) takes the longest
+This is because L3 cache loads are the dominate cost in the search                                             time, as it involves adjusting a large number of parameters and
+time after using quantization methods.                                                                         performing actual searches to select the optimal parameters. How-
+   Strategies 6-7 use PRS to balance memory and CPU usage. When                                                ever, the total time spent on all tuning (i.e., 128s) processes is still
+𝛿 increase, VSAG would allocates more memory, and the L3 cache                                                 significantly lower than the time required for building index (i.e.,
+load of will decrease. For example, the L3 cache load decrease                                                 5998s). In contrast, hnswlib requires over 30 hours to repeatedly
+by 41% on GIST1M, and by 30% on SIFT1M. On GIST1M dataset,                                                     construct indexes with different ILP during its tuning process. In
+VSAG’s QPS increases from 2167 to 2337, as memory pressure is the                                              the online phase, the tuning of QLP introduces only 0.001s overhead
+performance bottleneck. However, on SIFT1M dataset, VSAG’s QPS                                                 because the decision tree only relies on a small number of features.
+on GIST1M decreases from 5027 to 4640, because CPU pressure                                                    This overhead is almost negligible compared to the search cost (i.e.,
+outweighs memory pressure on this dataset. We can decide whether                                               0.217s). Even when including the tuning overhead of QLP, VSAG’s
+to use PRS based on the workload of memory and CPU.                                                            overall search cost remains lower than that of hnswlib (i.e., 0.37s).
+6.4.2 Performance. Figure 8 illustrates the cumulative performance                                             6.5.2 Tuning Performance. Beyond tuning costs, we also demon-
+gaps under varying numbers of optimization strategies. For each                                                strate the performance of the ILPs auto tuned index. As shown in
+strategy, varying 𝑒 𝑓𝑠 from 10 to 100 yields specific Recall@10 and                                            Figure 9, we randomly selected two index-level parameter configu-
+QPS values. For example, the top-left point in the Baseline corre-                                             rations (A and B) as baselines and plotted the performance of all
+sponds to 𝑒 𝑓𝑠 = 10, while the bottom-right point corresponds to                                               parameter combinations in running cases. VSAG exhibits signifi-
+𝑒 𝑓𝑠 = 100. The strategies contributing most to QPS improvements                                               cant performance gains over these baselines. For example, on the
+are 1. Quantization and 4. ELPs Auto Tuner. The former drastically                                             GIST1M dataset at a fixed QPS of 2500, the worst-case Recall@10
+reduces distance computation overhead, while the latter signifi-                                               among all running cases is 62%, while the tuned index achieves
+cantly enhances the prefetch effectiveness in 3. Stride Prefetch.                                              Recall@10=88%, representing a 26% (absolute) improvement. At
+However, applying only 3. Stride Prefetch shows minimal differ-                                                a fixed Recall@10=70%, the worst-case QPS is 2000, while VSAG
+ence compared to 2. Software-based Prefetch, as prefetch efficiency                                            achieves 4000 QPS - an improvement of 100%. Similar trends hold
+heavily depends on environment-level parameters 𝜔 and 𝜈.                                                       for the GLOVE-100 dataset: maximum Recall@10 improvements
+                                                                                                               exceed 15% at fixed QPS of 500, and QPS improves from around
+6.5       Evaluation of ILPs Auto-Tuner                                                                        4000 to 7000 (over 75% gain) at a fixed recall rate of 60%.
+                                                  Table 6: Time Cost Breakdown in Each Phase.
+                                            Offline Construction and Tuning Phase                       Online Search Phase (1,000 queries)
+           Dataset    Algorithm
+                                    Build Index ILP Tuning ELP Tuning QLP Training                      QLP Tuning     Search with Query
+                      VSAG            5998.564s        68.185s         10.293s           50.768s          ∼0.001s                     0.217s
+           SIFT1M
+                      hnswlib                              30.79 hours (18×)                                 -                        0.370s
+                      VSAG           11085.626s       119.813s         25.397s          149.467s          ∼0.001s                     1.587s
+           GIST1M
+                      hnswlib                              61.64 hours (19×)                                 -                        4.807s
+
+
+6.6    Evaluation of QLPs Auto-Tuner                                                   Table 7: Comparison of Tuning Performance of QLPs
+Table 7 evaluates the QLPs tuning result on GIST1M and SIFT1M,                            Method         Metric
+                                                                                                                       GIST1M                  SIFT1M
+under a recall guarantee of 94% and 97%. The baseline method (i.e.,                                                  94%      97%        94%        97%
+FIX ) manually selects the smallest 𝑒 𝑓𝑠 that ensures the target recall.                                Recall@10   94.64%   97.49%     94.54%     97.61%
+                                                                                          FIX
+In contrast, VSAG employs a decision tree classification approach                                          QPS       1469     902        4027       2834
+to divide queries into two categories: (1) Simple queries, which                                        Recall@10   94.71%   97.58%     94.63%     97.66%
+                                                                                          VSAG (Ours)
+can converge to the target accuracy with a smaller 𝑒 𝑓𝑠 value and                                          QPS       1534     967        4050       2912
+incur lower computational cost. For these queries, an appropriate
+𝑒 𝑓𝑠 can help improve retrieval speed. (2) Complex queries, which                8    RELATED WORK
+require larger 𝑒 𝑓𝑠 values to achieve the desired accuracy. For these
+queries, an appropriate 𝑒 𝑓𝑠 can help improve retrieval precision.               The mainstream methods for vector retrieval can be divided into two
+For both types of queries, the QLPs Auto-Tuner can intelligently                 categories: space partitioning-based and graph-based. Graph-based
+selects the required 𝑒 𝑓𝑠 , leading to over a 5% increase in QPS when            algorithms [7, 15, 16, 29, 37, 38, 40, 42, 55] can ensure high recall
+recall thresholds equal 94% and 97%, respectively.                               with practical efficiency, e.g., HNSW [40], NSG [17], VAMANA [29],
+                                                                                 and 𝜏-MNG [43]. These methods build a proximity graph where
+                                                                                 each node is a base vector and edges connect pairs of nearby vectors.
+7     CASE STUDY                                                                 During a vector search, they greedily move towards the query
+In Ant Group, vector retrieval capabilities are provided through a               vector to identify its nearest neighbors. Our VSAG framework can
+distributed vector database system, which is designed to support                 adapt to graph-based algorithms mentioned above, to improve the
+real-time queries with highly availability and high scalability. For             performance in production.
+storage, the vector database system splits the billion-level dataset                Space partitioning-based methods (e.g., IVFADC [4, 8, 14, 52])
+into subsets managed by the LSM-Tree structure [25], and each                    group similar vectors into subspaces with K-means [4, 35] or Locality-
+subset is referred to as a segment. Our VSAG library focuses solely              Sensitive Hashing (LSH) [12, 18, 23, 44, 46, 59]. During the search
+on indexing and retrieval performance. Therefore, when VSAG is                   process, they traverse some vector subspaces to find the nearest
+integrated into a vector database, we separately construct a VSAG                neighbors. These methods can achieve high cache hit rates due to
+index for each segment. Then, for a coming query, it is executed                 the continuous organization of vectors, but they suffer from a low
+on indexes on Segments in parallel, and the vector database system               recall issue. In comparison, graph-based ANNS algorithms (e.g.,
+merges the results from segments as the final result.                            VSAG and HNSW) usually achieve a higher QPS under the same
+   For the deployment of the vector database system, we use query                recall. Note that the technique of VSAG cannot be applied to space
+nodes to manage the segments. Here, a query node refers to a server              partitioning-based algorithms.
+that responds to online requests. To minimize the impact of query
+node failures and avoid prolonged recovery times, the size and                   9    CONCLUSION
+number of segments maintained by a single distributed node are
+                                                                                 In this work, we present VSAG, an open-source framework for
+limited. As data volume grows, scalability is achieved by adding
+                                                                                 ANNS that can be applied to most of the graph-based indexes.
+more nodes horizontally. This approach is also widely adopted in
+                                                                                 VSAG employs software-based prefetch, deterministic access greedy
+vector databases such as Milvus [25] and Vald [48].
+                                                                                 search, and PRS to significantly reduce the cache miss rate. VSAG
+   For example, in an image search scenario involving approxi-
+                                                                                 has a three-level parameter tuning mechanism that automatically
+mately 10 billion images in Ant Group, each image is embedded
+                                                                                 adjusts different parameters based on their tuning complexity. VSAG
+into a 512-dimensional vector and stored in a distributed vector
+                                                                                 combines quantization and selective re-ranking to integrate low-
+database cluster. The cluster is configured such that each segment
+                                                                                 and high-precision distance computations. Experiments on real-
+contains approximately 10 million rows of data. Each query node
+                                                                                 world datasets demonstrate that VSAG outperforms baselines.
+can host up to 4 segments, and each query node is deployed on
+an machine instance with a 16-core CPU and 80GB memory. The
+entire cluster consists of approximately 400 such machine instances.             10    ACKNOWLEDGMENT
+By using the VSAG index, the average latency in this scenario is                 This work was supported by Ant Group. Heng Tao Shen and Peng
+reduced from 3.0ms to 1.1ms per segment, and the upper limit                     Cheng are partially supported by the Fundamental Research Funds
+of QPS throughput is increased by 2.65×, compared to using the                   for the Central Universities. Xuemin Lin is supported by NSFC
+open-source hnswlib algorithm.                                                   U2241211.
+REFERENCES                                                                               [27] Piotr Indyk and Rajeev Motwani. 1998. Approximate nearest neighbors: towards
+ [1] Alipay. 2025. Ant Group. https://www.antgroup.com.                                       removing the curse of dimensionality. In Proceedings of the thirtieth annual ACM
+ [2] Alipay. 2025. Face Recognition. https://open.alipay.com/api/detail?code=                 symposium on Theory of computing. 604–613.
+     I1080300001000043632.                                                               [28] Intel. 2025. AVX512. https://www.intel.com/content/www/us/en/products/docs/
+ [3] Amazon. 2025. Product Search. https://www.amazon.com/.                                   accelerator-engines/what-is-intel-avx-512.html.
+ [4] Fabien André, Anne-Marie Kermarrec, and Nicolas Le Scouarnec. 2015. Cache           [29] Suhas Jayaram Subramanya, Fnu Devvrit, Harsha Vardhan Simhadri, Ravishankar
+     locality is not enough: High-Performance Nearest Neighbor Search with Product            Krishnawamy, and Rohan Kadekodi. 2019. Diskann: Fast accurate billion-point
+     Quantization Fast Scan. Proceedings of the VLDB Endowment 9, 4 (2015).                   nearest neighbor search on a single node. Advances in Neural Information
+ [5] Martin Aumüller, Erik Bernhardsson, and Alexander Faithfull. 2020. ANN-                  Processing Systems 32 (2019).
+     Benchmarks: A benchmarking tool for approximate nearest neighbor algorithms.        [30] Suhas Jayaram Subramanya, Fnu Devvrit, Harsha Vardhan Simhadri, Ravishankar
+     Information Systems 87 (2020), 101374.                                                   Krishnawamy, and Rohan Kadekodi. 2019. Diskann: Fast accurate billion-point
+ [6] Grant Ayers, Heiner Litz, Christos Kozyrakis, and Parthasarathy Ranganathan.             nearest neighbor search on a single node. Advances in neural information pro-
+     2020. Classifying Memory Access Patterns for Prefetching. In Proceedings                 cessing Systems 32 (2019).
+     of the Twenty-Fifth International Conference on Architectural Support for Pro-      [31] Hervé Jégou, Matthijs Douze, and Cordelia Schmid. 2011. Product Quantization
+     gramming Languages and Operating Systems (Lausanne, Switzerland) (ASP-                   for Nearest Neighbor Search. IEEE Trans. Pattern Anal. Mach. Intell. 33, 1 (2011),
+     LOS ’20). Association for Computing Machinery, New York, NY, USA, 513–526.               117–128.
+     https://doi.org/10.1145/3373376.3378498                                             [32] Hervé Jégou, Matthijs Douze, and Cordelia Schmid. 2011. Product Quantization
+ [7] Ilias Azizi, Karima Echihabi, and Themis Palpanas. 2023. Elpis: Graph-based              for Nearest Neighbor Search. IEEE Trans. Pattern Anal. Mach. Intell. 33, 1 (2011),
+     similarity search for scalable data science. Proceedings of the VLDB Endowment           117–128.
+     16, 6 (2023), 1548–1559.                                                            [33] Kaixuan Ji, Guanlin Liu, Ning Dai, Qingping Yang, Renjie Zheng, Zheng Wu,
+ [8] Artem Babenko and Victor S. Lempitsky. 2015. The Inverted Multi-Index. IEEE              Chen Dun, Quanquan Gu, and Lin Yan. 2025. Enhancing Multi-Step Reason-
+     Trans. Pattern Anal. Mach. Intell. 37, 6 (2015), 1247–1260.                              ing Abilities of Language Models through Direct Q-Function Optimization.
+ [9] Peter Braun and Heiner Litz. 2019. Understanding memory access patterns                  arXiv:2410.09302 [cs.LG]
+     for prefetching. In International Workshop on AI-assisted Design for Architecture   [34] Jeff Johnson, Matthijs Douze, and Hervé Jégou. 2019. Billion-scale similarity
+     (AIDArc), held in conjunction with ISCA.                                                 search with GPUs. IEEE Transactions on Big Data 7, 3 (2019), 535–547.
+[10] Tianqi Chen and Carlos Guestrin. 2016. XGBoost: A Scalable Tree Boosting            [35] Jeff Johnson, Matthijs Douze, and Hervé Jégou. 2019. Billion-scale similarity
+     System. In Proceedings of the 22nd ACM SIGKDD International Conference on                search with GPUs. IEEE Transactions on Big Data 7, 3 (2019), 535–547.
+     Knowledge Discovery and Data Mining, San Francisco, CA, USA, August 13-17,          [36] Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir
+     2016, Balaji Krishnapuram, Mohak Shah, Alexander J. Smola, Charu C. Aggarwal,            Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rock-
+     Dou Shen, and Rajeev Rastogi (Eds.). ACM, 785–794.                                       täschel, et al. 2020. Retrieval-augmented generation for knowledge-intensive nlp
+[11] Tien-Fu Chen and Jean-Loup Baer. 1995. Effective hardware-based data prefetch-           tasks. Advances in Neural Information Processing Systems 33 (2020), 9459–9474.
+     ing for high-performance processors. IEEE transactions on computers 44, 5 (1995),   [37] Wen Li, Ying Zhang, Yifang Sun, Wei Wang, Mingjie Li, Wenjie Zhang, and
+     609–623.                                                                                 Xuemin Lin. 2020. Approximate Nearest Neighbor Search on High Dimensional
+[12] Mayur Datar, Nicole Immorlica, Piotr Indyk, and Vahab S Mirrokni. 2004. Locality-        Data - Experiments, Analyses, and Improvement. IEEE Trans. Knowl. Data Eng.
+     sensitive hashing scheme based on p-stable distributions. In Proceedings of the          32, 8 (2020), 1475–1488.
+     twentieth annual symposium on Computational geometry. 253–262.                      [38] Kejing Lu, Mineichi Kudo, Chuan Xiao, and Yoshiharu Ishikawa. 2021. HVS: Hi-
+[13] Wei Dong, Charikar Moses, and Kai Li. 2011. Efficient k-nearest neighbor graph           erarchical Graph Structure Based on Voronoi Diagrams for Solving Approximate
+     construction for generic similarity measures. In Proceedings of the 20th interna-        Nearest Neighbor Search. Proc. VLDB Endow. 15, 2 (2021), 246–258.
+     tional conference on World wide web. 577–586.                                       [39] Yu A Malkov and Dmitry A Yashunin. [n.d.]. hnswlib. https://github.com/nmslib/
+[14] Yihe Dong, Piotr Indyk, Ilya P Razenshteyn, and Tal Wagner. 2020. Learning               hnswlib.
+     Space Partitions for Nearest Neighbor Search. ICLR (2020).                          [40] Yury A. Malkov and Dmitry A. Yashunin. 2020. Efficient and Robust Approximate
+[15] Cong Fu, Changxu Wang, and Deng Cai. 2022. High Dimensional Similarity                   Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs. IEEE
+     Search With Satellite System Graph: Efficiency, Scalability, and Unindexed Query         Trans. Pattern Anal. Mach. Intell. 42, 4 (2020), 824–836.
+     Compatibility. IEEE Trans. Pattern Anal. Mach. Intell. 44, 8 (2022), 4139–4150.     [41] Yury A. Malkov and Dmitry A. Yashunin. 2020. Efficient and Robust Approximate
+[16] Cong Fu, Chao Xiang, Changxu Wang, and Deng Cai. 2019. Fast Approximate                  Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs. IEEE
+     Nearest Neighbor Search With The Navigating Spreading-out Graph. Proc. VLDB              Trans. Pattern Anal. Mach. Intell. 42, 4 (2020), 824–836.
+     Endow. 12, 5 (2019), 461–474.                                                       [42] Yun Peng, Byron Choi, Tsz Nam Chan, Jianye Yang, and Jianliang Xu. 2023.
+[17] Cong Fu, Chao Xiang, Changxu Wang, and Deng Cai. 2019. Fast approximate                  Efficient Approximate Nearest Neighbor Search in Multi-dimensional Databases.
+     nearest neighbor search with the navigating spreading-out graph. Proc. VLDB              Proc. ACM Manag. Data 1, 1 (2023), 54:1–54:27. https://doi.org/10.1145/3588908
+     Endow. 12, 5 (Jan. 2019), 461–474.                                                  [43] Yun Peng, Byron Choi, Tsz Nam Chan, Jianye Yang, and Jianliang Xu. 2023.
+[18] Junhao Gan, Jianlin Feng, Qiong Fang, and Wilfred Ng. 2012. Locality-sensitive           Efficient Approximate Nearest Neighbor Search in Multi-dimensional Databases.
+     hashing scheme based on dynamic collision counting. In Proceedings of the 2012           Proc. ACM Manag. Data 1, 1, Article 54 (May 2023), 27 pages.
+     ACM SIGMOD international conference on management of data. 541–552.                 [44] Maxim Raginsky and Svetlana Lazebnik. 2009. Locality-sensitive binary codes
+[19] Jianyang Gao, Yutong Gou, Yuexuan Xu, Yongyi Yang, Cheng Long, and Raymond               from shift-invariant kernels. Advances in neural information processing systems
+     Chi-Wing Wong. 2024. Practical and Asymptotically Optimal Quantization of                22 (2009).
+     High-Dimensional Vectors in Euclidean Space for Approximate Nearest Neighbor        [45] Zhenyi Shen, Hanqi Yan, Linhai Zhang, Zhanghao Hu, Yali Du, and Yulan He.
+     Search. arXiv preprint arXiv:2409.09913 (2024).                                          2025. CODI: Compressing Chain-of-Thought into Continuous Space via Self-
+[20] Jianyang Gao and Cheng Long. 2023. High-Dimensional Approximate Nearest                  Distillation. arXiv:2502.21074 [cs.CL]
+     Neighbor Search: with Reliable and Efficient Distance Comparison Operations.        [46] Yifang Sun, Wei Wang, Jianbin Qin, Ying Zhang, and Xuemin Lin. 2014. SRS:
+     Proc. ACM Manag. Data 1, 2 (2023), 137:1–137:27. https://doi.org/10.1145/3589282         Solving c-Approximate Nearest Neighbor Queries in High Dimensional Euclidean
+[21] Jianyang Gao and Cheng Long. 2024. RaBitQ: Quantizing High-Dimensional                   Space with a Tiny Index. Proc. VLDB Endow. 8, 1 (2014), 1–12.
+     Vectors with a Theoretical Error Bound for Approximate Nearest Neighbor             [47] Taobao. 2025. Product Search. https://www.taobao.com/.
+     Search. Proc. ACM Manag. Data 2, 3 (2024), 167.                                     [48] Vald. 2021. Vald. https://github.com/vdaas/vald.
+[22] Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yi Dai,       [49] Steven P Vanderwiel and David J Lilja. 2000. Data prefetch mechanisms. ACM
+     Jiawei Sun, Meng Wang, and Haofen Wang. 2024. Retrieval-Augmented Genera-                Computing Surveys (CSUR) 32, 2 (2000), 174–199.
+     tion for Large Language Models: A Survey. arXiv:2312.10997 [cs.CL]                  [50] Alexander V Veidenbaum, Weiyu Tang, Rajesh Gupta, Alexandru Nicolau, and
+[23] Aristides Gionis, Piotr Indyk, Rajeev Motwani, et al. 1999. Similarity search in         Xiaomei Ji. 1999. Adapting cache line size to application behavior. In Proceedings
+     high dimensions via hashing. In Vldb, Vol. 99. 518–529.                                  of the 13th international conference on Supercomputing. 145–154.
+[24] Google. 2025. Search Engine. https://www.google.com/.                               [51] Jianguo Wang, Xiaomeng Yi, Rentong Guo, Hai Jin, Peng Xu, Shengjun Li, Xi-
+[25] Rentong Guo, Xiaofan Luan, Long Xiang, Xiao Yan, Xiaomeng Yi, Jigao Luo,                 angyu Wang, Xiangzhou Guo, Chengming Li, Xiaohai Xu, et al. 2021. Milvus:
+     Qianya Cheng, Weizhi Xu, Jiarui Luo, Frank Liu, Zhenshan Cao, Yanliang Qiao,             A purpose-built vector data management system. In Proceedings of the 2021
+     Ting Wang, Bo Tang, and Charles Xie. 2022. Manu: a cloud native vector database          International Conference on Management of Data. 2614–2627.
+     management system. Proc. VLDB Endow. 15, 12 (Aug. 2022), 3548–3561.                 [52] Jingdong Wang, Ting Zhang, Nicu Sebe, Heng Tao Shen, et al. 2017. A survey on
+[26] Ruiqi Guo, Philip Sun, Erik Lindgren, Quan Geng, David Simcha, Felix Chern,              learning to hash. IEEE transactions on pattern analysis and machine intelligence
+     and Sanjiv Kumar. 2020. Accelerating large-scale inference with anisotropic              40, 4 (2017), 769–790.
+     vector quantization. In International Conference on Machine Learning. PMLR,         [53] Mingyu Yang, Wentao Li, Jiabao Jin, Xiaoyao Zhong, Xiangyu Wang, Zhitao Shen,
+     3887–3896.                                                                               Wei Jia, and Wei Wang. 2024. Effective and General Distance Computation for
+                                                                                              Approximate Nearest Neighbor Search. arXiv preprint arXiv:2404.16322 (2024).
+[54] Mingyu Yang, Wentao Li, and Wei Wang. 2024. Fast High-dimensional Approx-               Token Tuning. arXiv:2502.13389 [cs.AI]
+     imate Nearest Neighbor Search with Efficient Index Time and Space. arXiv           [59] Bolong Zheng, Xi Zhao, Lianggui Weng, Nguyen Quoc Viet Hung, Hang Liu,
+     preprint arXiv:2411.06158 (2024).                                                       and Christian S. Jensen. 2020. PM-LSH: A Fast and Accurate LSH Framework
+[55] Shuo Yang, Jiadong Xie, Yingfan Liu, Jeffrey Xu Yu, Xiyue Gao, Qianru Wang, Yan-        for High-Dimensional Approximate NN Search. Proc. VLDB Endow. 13, 5 (2020),
+     guo Peng, and Jiangtao Cui. 2025. Revisiting the Index Construction of Proximity        643–655.
+     Graph-Based Approximate Nearest Neighbor Search. arXiv:2410.01231 [cs.DB]          [60] Wengang Zhou, Yijuan Lu, Houqiang Li, and Qi Tian. 2012. Scalar quantization for
+[56] Tiannuo Yang, Wen Hu, Wangqi Peng, Yusen Li, Jianguo Li, Gang Wang, and                 large scale image search. In Proceedings of the 20th ACM Multimedia Conference,
+     Xiaoguang Liu. 2024. VDTuner: Automated Performance Tuning for Vector                   MM ’12, Nara, Japan, October 29 - November 02, 2012, Noboru Babaguchi, Kiyoharu
+     Data Management Systems. In 2024 IEEE 40th International Conference on Data             Aizawa, John R. Smith, Shin’ichi Satoh, Thomas Plagemann, Xian-Sheng Hua,
+     Engineering (ICDE). 4357–4369.                                                          and Rong Yan (Eds.). ACM, 169–178.
+[57] YouTube. 2025. Video Search. https://www.youtube.com/.                             [61] E. Zitzler and L. Thiele. 1999. Multiobjective evolutionary algorithms: a com-
+[58] Kongcheng Zhang, Qi Yao, Baisheng Lai, Jiaxing Huang, Wenkai Fang, Dacheng              parative case study and the strength Pareto approach. IEEE Transactions on
+     Tao, Mingli Song, and Shunyu Liu. 2025. Reasoning with Reinforced Functional            Evolutionary Computation 3, 4 (1999), 257–271.
+ Algorithm 3: VSAG Index Construction                                       𝑥𝑞 . Finally, the algorithm returns 𝐴𝑁 𝑁𝑘 (𝑥𝑞 ) with related distances
+  Input: dataset 𝐷, pruning rates 𝐴 sorted in ascending                     𝑇 (Line 19).
+           order, candidate size 𝑒 𝑓𝑐 , maximum degree 𝑚𝑐 ,
+  Output: directed graph 𝐺 with out-degree ≤ 𝑚𝑐                             B     VSAG INDEX CONSTRUCTION
+1 initialize 𝐺 to an empty graph                                                  ALGORITHM.
+2 initialize 𝐿, 𝑇 to empty lists                                            In VSAG, the insertion process for each new point 𝑥𝑖 (Lines 3–4) can
+3 for 0 ≤ 𝑖 < |𝐷 | do                                                       be divided into three steps. First, a search is conducted on the graph
+4     𝑥𝑖 ← 𝐷𝑖                                                               to obtain the approximate nearest neighbors ANN𝑘 (𝑥𝑖 ) and their
+        // search ANN                                                       corresponding distances 𝑇𝑖 (Line 5). Next, pruning is performed on
+ 5      ANN𝑘 (𝑥𝑖 ),𝑇𝑖 ←                                                     ANN𝑘 (𝑥𝑖 ), and the edges along with their labels are added to the
+         GreedySearch(𝐺, 𝐿, 𝐷, {𝑥 0 }, 𝑥𝑖 , 𝑒 𝑓𝑐 , 𝑚𝑐 , max(𝐴), 1)          graph index (Line 6). The first step, the search process, is similar to
+        // prune                                                            that of other graph-based index constructions. However, the second
+ 6      𝐺𝑖 , 𝐿𝑖 ← PrunebasedLabeling(𝑥𝑖 , ANN(𝑥𝑖 ),𝑇𝑖 , 𝐴, 𝑚𝑐 , 0)          step, the pruning process, differs from other indexes. Instead of
+ 7      foreach 𝑗 ∈ 𝐺𝑖 do                                                   performing actual pruning, VSAG assigns labels. Specifically, VSAG
+ 8           if 𝑇𝑖,𝑗 ≥ 𝑇 𝑗,−1 and |𝐺 𝑗 | ≥ 𝑚𝑐 then                          assigns a label 𝐿𝑖,𝑗 to each edge 𝐺𝑖,𝑗 in graph (see Algorithm 2).
+ 9               continue;                                                  Note that the label is used to indicate whether an edge exists under
+                                                                            a certain construction parameter. Given 𝛼𝑠 , if 𝐿𝑖,𝑗 ≤ 𝛼𝑠 , it indicates
+10          else                                                            that the edge 𝐺𝑖,𝑗 exists in the graph constructed using 𝛼𝑠 or larger
+                   // insertion maintaining ascending order
+11                 𝑟 ← minimum id s.t. 𝑇 𝑗,𝑟 > 𝑇𝑖,𝑗                         value as the pruning rate. During the search and pruning processes,
+                                                                            only edges satisfying 𝐿𝑖,𝑗 ≤ 𝛼𝑠 need to be considered to retrieve the
+12                 Insert 𝑥𝑖 right before 𝐺 𝑗,𝑟
+                                                                            graph corresponding to the given construction parameters, which
+13                 Insert 𝑇𝑖,𝑗 right before 𝑇 𝑗,𝑟
+                                                                            is proven in Theorem 4.2.
+                   // add reverse edges and prune
+                                                                                 Next, for each new neighbor, reverse edges are added, and prun-
+14                 𝐺 𝑗 , 𝐿𝑗 ←
+                                                                            ing is performed (Lines 7–14). If the distance 𝑇𝑖,𝑗 from the current
+                    PrunebasedLabeling(𝑥 𝑗 , 𝐺 𝑗,𝑟 ,𝑇 𝑗 , 𝐴, 𝑚𝑐 , 𝑟 )       neighbor 𝑥 𝑗 to 𝑥𝑖 is greater than the maximum distance among
+                                                                            𝑥 𝑗 ’s neighbors and 𝑥 𝑗 ’s neighbor list is already full (Line 8), no
+15   return 𝐺, 𝐿
+                                                                            reverse edge is added (Line 9). Otherwise, 𝑥𝑖 is inserted into 𝑥 𝑗 ’s
+                                                                            neighbor list at an appropriate position 𝑟 to maintain 𝐺 𝑗 and 𝑇 𝑗 in
+A      DETAIL EXPLANATION OF                                                ascending order (Lines 10–13). Subsequently, pruning and labeling
+                                                                            are reapplied to the neighbors of 𝑥 𝑗 located after position 𝑟 . Finally,
+       DETERMINISTIC ACCESS GREEDY SEARCH                                   the algorithm returns the edges 𝐺 and labels 𝐿 of the graph index.
+The initialization phase establishes candidate and visited sets (Lines
+1-3). The candidate set dynamically maintains the nearest points            C PROOF OF THEOREM
+discovered during traversal, while the visited set tracks explored          C.1 Proof of Theorem 4.1
+points. The algorithm iteratively extracts the nearest unvisited
+                                                                               Proof. The only difference in construction under varying max-
+point from the candidate set and processes its neighbors through
+                                                                            imum degrees lies in the termination timing of the loop. Note that
+four key phases (Lines 4-17).
+                                                                            during the edge connection process, existing edges are never deleted.
+   At each iteration, the nearest unvisited point 𝑥𝑖 is retrieved from
+                                                                            Specifically, when inserting 𝑥𝑖 , the neighbors edges are continu-
+the candidate set (Line 5). Batch processing then identifies valid
+                                                                            ously added to 𝐺𝑖 until |𝐺𝑖 | == 𝑎 or |𝐺𝑖 | == 𝑏. Since 𝑎 < 𝑏, the
+neighbors through three filtering criteria (Lines 6-10): 1) unvisited
+                                                                            condition |𝐺𝑖 | == 𝑎 will be satisfied first during edge addition.
+(𝑗 ∉ 𝑉 ), 2) label validity (𝐿 𝑗 ≤ 𝛼𝑠 ), and 3) degree constraint (|𝑁 | ≤
+                                                                            In the construction process with maximum degree 𝑏, the first 𝑎
+𝑚𝑠 ). The latter two conditions implement automatic index-level
+                                                                            edges added in the loop are identical to those in 𝐺𝑖𝑎 . The subse-
+parameters tuning as detailed in Section 4. It is important to note
+                                                                            quent 𝑏 − 𝑎 edges inserted do not remove the first 𝑎 edges. Thus,
+that we differentiate between the identifier 𝑗 and vector data 𝑥 𝑗 - a
+distinction that impacts cache performance as memory access may             𝐺𝑖𝑎 == 𝐺𝑖,0:𝑎
+                                                                                     𝑏 .                                                       □
+incur cache misses while identifier operations do not.
+   The prefetching mechanism operates through two parameters:
+                                                                            C.2     Proof of Theorem 4.2
+𝜔 controls the prefetch stride (Lines 11, 14), while 𝜈 specifies the           Proof. We prove this by mathematical induction. Consider the
+prefetch depth (Lines 12, 15). The batch distances computation of           insertion process of 𝐺𝑖𝑎 and 𝐺𝑖𝑏 , examining each point 𝑥 𝑗 ∈ 𝐴𝑁 𝑁𝑎 (𝑖)
+neighbors follows a three-stage pipeline (Lines 13-17): 1) stride           sorted by distance in ascending order.
+prefetch for subsequent points (Lines 14-15), 2) data access(Line 16),      Base Case: When inserting 𝑥 1 , since both 𝐺𝑖𝑎 and 𝐺𝑖𝑏 are initially
+and 3) distance calculation with candidate set maintenance (Line 17).       empty, no edges can trigger pruning, so 𝑥 1 is guaranteed to be
+When |𝐶 | ≥ 𝑒 𝑓𝑠 , we pop farthest-point in 𝐶 to keep |𝐶 | ≤ 𝑒 𝑓𝑠 (Line     inserted. Thus, 𝐺𝑖𝑎 = 𝐺𝑖𝑏 = {𝑥 1 }, and we have 𝐺𝑖𝑎 ⊆ 𝐺𝑖𝑏 .
+17). When all candidate points are processed, we apply selective re-        First Iteration: Inserting 𝑥 2 : We analyze the cases:
+ranking (see Section 5) to enhance the distances precision (Line 18).       • 1: Both sets remain unchanged. If 𝑏 · 𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ),
+𝑇 is the high precision distances between points in 𝐴𝑁 𝑁𝑘 (𝑥𝑞 ) and            𝑥 2 will not be added to 𝐺𝑖𝑏 . Since 𝑎 < 𝑏, it follows that 𝑎 ·
+          Table 8: Comparison of Tuning Cost of ILPs.                               solution subset where no configuration in the space is Pareto supe-
+                          FIX                   BF            VSAG (Ours)           rior [61] to any member of this subset. This set of non-dominated
+    Dataset
+                                                                                    solution forms the Pareto Optimal Frontier [61], representing opti-
+                    Mem       Time      Mem          Time     Mem     Time
+                                                                                    mal trade-offs between competing objectives.
+    GIST1M          3.83G     3.20H    89.87G        61.64H   4.07G   2.92H            Through systematic evaluation of ILP configurations, VSAG gen-
+    SIFT1M          0.73G     0.85H    15.48G        30.79H   0.97G   1.86H         erates performance profiles containing retrieval accuracy and la-
+    GLOVE-100       0.74G     1.22H    15.36G        41.94H   1.03G   2.13H
+                                                                                    tency measurements, enabling Pareto Frontier derivation. When
+    𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ), so 𝑥 2 will also not be added to 𝐺𝑖𝑎 . In    users specify target accuracy thresholds or latency constraints, the
+                                                                                    system performs optimal configuration selection by identifying
+    this case, 𝐺𝑖𝑎 = 𝐺𝑖𝑏 = {𝑥 1 }.                                                  the minimal Pareto-optimal solution that satisfies the specified
+• 2: Both sets change. If 𝑎 · 𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) > 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ), since 𝑎 < 𝑏,       requirements.
+  it follows that 𝑏 · 𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) > 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ). In this case, 𝐺𝑖𝑎 =            Example 7. Consider a user-defined constraint of 𝑅𝑒𝑐𝑎𝑙𝑙@10 >
+  𝐺𝑖𝑏 = {𝑥 1, 𝑥 2 }.                                                                90% with three Pareto Frontier candidates: (𝐴, 91%, 2000), (𝐵, 90%, 2100),
+• 3: Only 𝐺𝑖𝑏 changes. If 𝑎 · 𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ) and 𝑏 ·             (𝐶, 89%, 2200), where tuples denote (configuration, Recall@10, queries
+                                                                                    per second). Configuration B emerges as the optimal selection, satisfy-
+  𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) > 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ), then 𝐺𝑖𝑎 = {𝑥 1 } ⊂ {𝑥 1, 𝑥 2 } = 𝐺𝑖𝑏 .
+                                                                                    ing the recall threshold while maximizing query throughput through
+• 4: Only 𝐺𝑖𝑎 changes. If 𝑎 · 𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) > 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ) and 𝑏 ·             its superior QPS performance.
+  𝑑𝑖𝑠 (𝑥 2, 𝑥 1 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥 2 ), this situation cannot occur because
+  𝑎 < 𝑏. Thus, for the second insertion, we still have 𝐺𝑖𝑎 ⊆ 𝐺𝑖𝑏 .                  E    TUNING COST OF ILPS
+Inductive Step: Inserting 𝑥𝑛+1 : Assume that before the 𝑛-th in-                    We evaluate the tuning time and memory footprint when varying
+sertion, 𝐺𝑖𝑎 ⊆ 𝐺𝑖𝑏 . We analyze the cases:                                          index-level parameters 𝑚𝑐 ∈ (8, 16, 24, 32) and 𝛼𝑐 ∈ (1.0, 1.2, 1.4,
+• 1: Both sets remain unchanged. If ∃𝑥 𝑗 ∈ 𝐺𝑖𝑎 such that 𝑏 ·                        1.6, 1.8, 2.0). The compared method including FIX (fix parameter
+  𝑑𝑖𝑠 (𝑥𝑛+1, 𝑥 𝑗 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥𝑛+1 ), then 𝑎·𝑑𝑖𝑠 (𝑥𝑛+1, 𝑥 𝑗 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥𝑛+1 )   𝑚𝑐 = 32 and 𝛼𝑐 = 2.0, building with hnswlib) and BF (construct
+   must also hold, so 𝐺𝑖𝑎 remains unchanged. Since 𝐺𝑖𝑎 ⊆ 𝐺𝑖𝑏 , there                indexes of all combination of index-level parameters, building with
+                                                                                    hnswlib). Table 8 shows results (Mem for memory footprint in giga-
+   must exist 𝑥 𝑗 ∈ 𝐺𝑖𝑏 such that 𝑏 · 𝑑𝑖𝑠 (𝑥𝑛+1, 𝑥 𝑗 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥𝑛+1 ), so
+                                                                                    bytes; Time for building time in hours).
+  𝐺𝑖𝑏 also remains unchanged. Thus, 𝐺𝑖𝑎 ⊆ 𝐺𝑖𝑏 .                                        Among the four datasets, the method with minimal construction
+• 2: Both sets change. If ∀𝑥 𝑗 ∈ 𝐺𝑖𝑏 , 𝑏·𝑑𝑖𝑠 (𝑥𝑛+1, 𝑥 𝑗 ) > 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥𝑛+1 ),       time and memory usage is FIX, while BF requires the most. This
+  and ∀𝑥 𝑗 ∈ 𝐺𝑖𝑎 , 𝑎 · 𝑑𝑖𝑠 (𝑥𝑛+1, 𝑥 𝑗 ) > 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥𝑛+1 ), these conditions        is because baseline methods can only brute-force traverse each
+  are compatible and may occur. In this case, 𝐺𝑖𝑎 = 𝐺𝑖𝑎 ∪ {𝑥𝑛+1 } ⊆                 parameter configuration and build indexes separately. Additionally,
+                                                                                    it can dynamically select edges during search using edge labels
+  𝐺𝑖𝑏 ∪ {𝑥𝑛+1 } = 𝐺𝑖𝑏 .
+                                                                                    acquired during construction, enabling parameter adjustment at
+• 3: Only 𝐺𝑖𝑏 changes. If ∃𝑥 𝑗 ∈ 𝐺𝑖𝑎 𝑠.𝑡 . 𝑎·𝑑𝑖𝑠 (𝑥𝑛+1, 𝑥 𝑗 ) ≤ 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥𝑛+1 ),   search time without repeated index construction. This allows VSAG
+  and ∀𝑥 𝑗 ∈ 𝐺𝑖𝑏 , 𝑏 · 𝑑𝑖𝑠 (𝑥𝑛+1, 𝑥 𝑗 ) > 𝑑𝑖𝑠 (𝑥𝑖 , 𝑥𝑛+1 ), these conditions        to achieve a 19× tuning time saving compared to BF on GIST1M.
+  are compatible and may occur. In this case, 𝐺𝑖𝑎 ⊆ 𝐺𝑖𝑎 ∪ {𝑥𝑛+1 } =                 Moreover, the use of 𝑇 to cache distances during construction elimi-
+  𝐺𝑖𝑏 .                                                                             nates redundant computations, further accelerating VSAG’s tuning.
+                                                                                    In terms of memory usage, graphs built with different 𝑚𝑐 and 𝑎𝑐
+• 4: Only 𝐺𝑖𝑎 changes. This case does not exist because Lines 5-6                   share significant structural overlap. This enables VSAG to compress
+  of Algorithm 2 ensure that if a point is not be pruned in 𝐺𝑖𝑎 , it                these graphs via edge labels, resulting in over 19× memory foot-
+  will not be pruned again in 𝐺𝑖𝑏 . Therefore, if 𝑥𝑛+1 is added to 𝐺𝑖𝑎 ,            print reduction during tuning compared to BF. Compared to FIX,
+  its label is set as 𝐿𝑛+1 = 𝑎. During subsequent iterations of 𝛼, the              VSAG only introduces minimal additional memory costs for storing
+  condition in Lines 5-6 of Algorithm 2 ensures that this point is                  extra edges and label sets.
+  no longer considered.
+                                                                     □              F    APPLICATIONS
+                                                                                    Product Search and Recommendation Systems. Vector retrieval
+D      SELECTING OPTIMAL ILP                                                        has become a cornerstone in product search and recommendation
+       CONFIGURATIONS.                                                              engines for e-commerce. By converting signals such as user behav-
+Under specified optimization objectives for the accuracy and ef-                    ior, browsing history, and purchase data into vector representations,
+ficiency of retrieval, different configurations of parameter at the                 similarity-based retrieval can pinpoint products that match user
+index level represent candidate solutions in the design space. When                 preferences, thereby enabling personalization at scale. E-commerce
+environment-level and query-level parameters remain fixed, each                     platforms [3, 47] typically maintain millions of product and user
+configuration induces unique performance characteristics in terms                   vectors, which demand high-performance and low-latency retrieval
+of target metrics. The complete combinatorial space of index-level                  solutions. Leveraging VSAG’s memory access optimization and dis-
+parameters constitutes the solution domain for multi-objective op-                  tance computation optimization, these services can achieve the same
+timization. VSAG’s automated tuning mechanism aims to identify a                    target QPS with fewer computational resources. In a product search
+                           0.1%        SQ-4      99.9%                     Deep Research is quickly emerging as a next-generation standard
+               Value                                                    for LLM-based applications, functioning as a specific form of agentic
+            Distribution                                                search that relies on chain-of-thought reasoning [45] and multi-step
+                                                                        retrieval [33, 58]. In Retrieval-Augmented Generation (RAG) [22],
+              Range
+                                                                        this process repeatedly refines queries and explores multiple reason-
+              Float-32                                                  ing paths while adaptively gathering domain-specific information.
+                                                                        Such iterative lookups impose substantial demands on both system
+               Int-4          0    1    2     … 15                      throughput and latency, particularly with high-dimensional vectors
+                                                                        (e.g., 1,536 dimensions). VSAG delivers up to a 5× improvement in
+            Figure 10: Truncated scalar quantization.                   retrieval capacity, critical for maintaining real-time responsiveness
+                                                                        in the context-aware exploration that agentic search enables.
+scenario at Ant Group, which involves 512-dimensional embed-
+dings, VSAG not only lowered overall resource usage by a factor of
+                                                                        G    IMPROVING QUANTIZATION PRECISION
+4.6× but also cut service latency by 1.2×, surpassing contemporary      Scalar quantization (SQ) compresses floating-point vectors by map-
+partition-based methods.                                                ping 32-bit float values to lower-bit integer representations in each
+   In practice, production environments span various resource classes   dimension. In SQ-b (where b denotes bit-width), the dynamic range
+(e.g., 4C16G vs. 2C8G) and platforms (e.g., x86 vs. ARM). Realiz-       is uniformly partitioned into 2𝑏 intervals. For SQ4 (4-bit) on vector
+ing optimal performance across this heterogeneous infrastructure        𝑥, this creates 16 intervals over [min(𝑥), max(𝑥)]. Values of each
+required extensive parameter tuning, with limited transferability       dimension of 𝑥 within each interval are encoded as their corre-
+once resource classes changed. VSAG ’s automatic parameter tuning       sponding integer indices. However, practical implementations face
+feature relieves engineers from repeated manual fine-tuning, dras-      critical range estimation challenges: direct use of observed min/max
+tically reducing the overhead of deploying and maintaining vector       values proves suboptimal when data outliers existing.
+retrieval services. This translates into robust performance across         Example 8. Analysis of the GIST1M dataset reveals this limitation
+diverse platforms and ever-shifting requirements.                       – while 99% of dimensions exhibit values below 0.3, using the absolute
+Large Language Model. In large language model (LLM) applica-            maximum (1.0) would leave 70% of the quantization intervals (0.3-
+tions [36], high-dimensional text embeddings are essential for reduc-   1.0) underutilized. This interval under-utilization severely degrades
+ing hallucinations and delivering real-time interactive responses.      quantization precision.
+Modern embedding models, such as text-embedding-3-small,
+                                                                           To enhance robustness, we propose Truncated Scalar Quanti-
+produce 1,536-dimensional vectors, while text-embedding-3-large
+                                                                        zation using the 99th percentile statistics rather than absolute ex-
+outputs up to 3,072 dimensions—significantly more than the typical
+                                                                        tremes. This approach discards outlier-induced distortions while
+256-dimensional image embeddings. Effective retrieval over these
+                                                                        preserving quantization resolution over the primary data distribu-
+large embedding vectors demands both precise distance computa-
+                                                                        tion, achieving superior balance between compression efficiency
+tion and careful memory management. VSAG ’s dedicated distance
+                                                                        and numerical precision as shown in Figure 10.
+computation and memory access optimizations excel at handling
+these high-dimensional workloads.
+

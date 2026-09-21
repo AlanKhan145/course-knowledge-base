@@ -1,0 +1,23 @@
+# Manifest
+
+- `GLOSSARY.md`
+- `README.md`
+- `REFERENCES.md`
+- `assets/00_abstract_problem.png`
+- `assets/01_encoder_equations.png`
+- `assets/02_hybrid_optimization_equations.png`
+- `assets/03_hybridsparse_workflow.png`
+- `assets/04_online_retrieval_steps.png`
+- `assets/05_public_benchmark_table.png`
+- `assets/06_production_ablation_tables.png`
+- `assets/07_ab_test_table.png`
+- `exercises/01_bai_tap_on_tap.md`
+- `exercises/02_dap_an_goi_y.md`
+- `lessons/01_boi_canh_va_bai_toan.md`
+- `lessons/02_kien_truc_encoder_thong_nhat.md`
+- `lessons/03_co_training_va_hybrid_optimization.md`
+- `lessons/04_online_retrieval_va_unified_index.md`
+- `lessons/05_public_benchmark_evaluation.md`
+- `lessons/06_production_experiments_va_ab_test.md`
+- `lessons/07_tong_ket_thiet_ke.md`
+- `source/HybridSparse_SIGIR_2026.pdf`
