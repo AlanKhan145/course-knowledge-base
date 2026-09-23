@@ -1,0 +1,13 @@
+flowchart TD
+    A[Food / subject] --> B{What needs to read?}
+    B -->|Texture / shape| C[Sidelight]
+    B -->|Liquid / translucency / steam| D[Backlight]
+    C --> E{Shadows too deep?}
+    D --> E
+    E -->|Yes| F[White fill]
+    E -->|No| G{Need more edge / contrast?}
+    F --> G
+    G -->|Yes| H[Black card / negative fill]
+    G -->|No| I[Move camera / subject]
+    H --> I
+    I --> J[Lock sweet spot]
