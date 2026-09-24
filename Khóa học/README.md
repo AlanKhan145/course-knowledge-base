@@ -201,6 +201,12 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Tự học phát âm tiếng Anh — Nền tảng cho kỹ năng nghe – nói](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-phat-am-tieng-anh-markdown/>)
 - [Tự học phát âm tiếng Anh — Nền tảng cho kỹ năng đọc](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-hoc-phat-am-tieng-anh-nen-tang-ky-nang-doc/>)
 - [Từ vựng tiếng Anh cơ bản](<./06 - Ngôn ngữ/01 - Tiếng Anh/tu-vung-tieng-anh-co-ban/>)
+- [TOEIC Speaking & Writing — Sách gốc và đề mẫu](<./06 - Ngôn ngữ/01 - Tiếng Anh/toeic-speaking-writing-reference/>)
+- [Tomato TOEIC Speaking Flow](<./06 - Ngôn ngữ/01 - Tiếng Anh/tomato-toeic-speaking-md/>)
+- [Tomato TOEIC Writing Flow](<./06 - Ngôn ngữ/01 - Tiếng Anh/tomato-toeic-writing-flow-md/>)
+- [Collins TOEIC Speaking & Writing](<./06 - Ngôn ngữ/01 - Tiếng Anh/collins-toeic-speaking-writing-md/>)
+- [Super TOEIC Speaking](<./06 - Ngôn ngữ/01 - Tiếng Anh/super-toeic-speaking-md/>)
+- [Super TOEIC Writing](<./06 - Ngôn ngữ/01 - Tiếng Anh/super-toeic-writing-md/>)
 
 #### Tiếng Trung
 
