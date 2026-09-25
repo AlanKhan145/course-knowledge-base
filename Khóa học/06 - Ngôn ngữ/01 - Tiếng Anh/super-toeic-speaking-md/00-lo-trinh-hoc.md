@@ -4,6 +4,8 @@ Nguồn: PDF trang 9-11.
 
 Tài liệu gốc chia nội dung thành các phần nhỏ theo ngày để giảm tải khi tự học. Lộ trình được trình bày theo 4 tuần, 6 ngày/tuần.
 
+> Theo yêu cầu cập nhật gói học, file bài Unit 1 đã được xóa. Bảng dưới đây vẫn giữ số Unit theo tài liệu PDF gốc để không làm thay đổi tham chiếu nguồn.
+
 ## Lộ trình 4 tuần
 
 | Tuần | Day 1 | Day 2 | Day 3 | Day 4 | Day 5 | Day 6 |
