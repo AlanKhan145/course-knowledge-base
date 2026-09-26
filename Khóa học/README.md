@@ -48,6 +48,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - `09 - Viết & Sáng tác`
   - `01 - Viết tiểu thuyết`
   - `02 - Viết học thuật & Nghiên cứu`
+  - `03 - Book Review`
 
 ## Danh sách khóa học
 
@@ -268,6 +269,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [How to Write a Literature Review](<./09 - Viết & Sáng tác/02 - Viết học thuật & Nghiên cứu/how-to-write-a-literature-review/>)
 - [Literature Review in 5 Steps](<./09 - Viết & Sáng tác/02 - Viết học thuật & Nghiên cứu/literature-review-in-5-steps/>)
 - [Viết Abstract cho Research Paper](<./09 - Viết & Sáng tác/02 - Viết học thuật & Nghiên cứu/how-to-write-a-research-abstract/>)
+
+#### Book Review
+
+- [Bộ khóa học Book Review](<./09 - Viết & Sáng tác/03 - Book Review/>)
 
 ## Ngoài kho khóa học
 
