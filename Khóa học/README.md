@@ -49,6 +49,8 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `01 - Viết tiểu thuyết`
   - `02 - Viết học thuật & Nghiên cứu`
   - `03 - Book Review`
+- `10 - Tài chính & Đầu tư`
+  - `01 - Chứng khoán & Đầu tư`
 
 ## Danh sách khóa học
 
@@ -273,6 +275,12 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Book Review
 
 - [Bộ khóa học Book Review](<./09 - Viết & Sáng tác/03 - Book Review/>)
+
+### 10 - Tài chính & Đầu tư
+
+#### Chứng khoán & Đầu tư
+
+- [Stock Trading & Investing for Beginners 4-in-1 Course Bundle](<./10 - Tài chính & Đầu tư/01 - Chứng khoán & Đầu tư/stock-trading-investing-beginners-vietnamese/>)
 
 ## Ngoài kho khóa học
 
