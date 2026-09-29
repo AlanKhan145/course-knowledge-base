@@ -26,6 +26,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `01 - UX-UI & Design Systems`
   - `02 - Figma & Design-to-Code`
   - `03 - Blender & 3D`
+  - `04 - Lens Studio & AR`
 - `05 - Phát triển game`
   - `01 - Unity & C#`
   - `02 - Ren'Py & Visual Novels`
@@ -166,6 +167,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Complete Blender Megacourse](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/complete-blender-megacourse-beginner-to-expert-3d-artist/>)
 - [Creating an Animated School of Fish in Blender](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/creating-an-animated-school-of-fish-in-blender/>)
 - [The Secret to Easy Fish Animation in Blender](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/the-secret-to-easy-fish-animation-in-blender/>)
+
+#### Lens Studio & AR
+
+- [Tạo Lens “Potato Boss Style” với Lens Studio](<./04 - Thiết kế & Sáng tạo số/04 - Lens Studio & AR/potato-boss-lens-course/>)
 
 ### 05 - Phát triển game
 
