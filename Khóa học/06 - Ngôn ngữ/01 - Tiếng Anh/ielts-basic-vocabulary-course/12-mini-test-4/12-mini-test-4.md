@@ -1,9 +1,16 @@
 # Mini test 4
 
+- Mini test 4
+- Phạm vi: Module 10–11: Cuộc sống sinh viên + Thời gian rảnh
+
+---
+
+## Nội dung
+
 > **Phạm vi:** Module 10–11: Cuộc sống sinh viên + Thời gian rảnh
 > **Gợi ý thời gian:** 25–40 phút
 
-## Phần A — Multiple Choice
+### Phần A — Multiple Choice
 
 1. **team** có nghĩa gần nhất là gì?
    - A. thua
@@ -56,7 +63,7 @@
    - C. hoàn tiền
    - D. lịch trình
 
-## Phần B — Điền từ/cụm từ
+### Phần B — Điền từ/cụm từ
 
 11. Hoàn thành collocation: `a guided __________`  *(gợi ý: chuyến tham quan)*
 12. Hoàn thành collocation: `on __________`  *(gợi ý: đợt giảm giá)*
@@ -67,19 +74,19 @@
 17. Hoàn thành collocation: `go to a __________`  *(gợi ý: buổi hòa nhạc)*
 18. Hoàn thành collocation: `film __________`  *(gợi ý: đạo diễn)*
 
-## Phần C — Dịch chủ động
+### Phần C — Dịch chủ động
 
 19. Viết **từ/cụm từ tiếng Anh** cho: **kỳ nghỉ**.
 20. Viết **từ/cụm từ tiếng Anh** cho: **ôn tập**.
 21. Viết **từ/cụm từ tiếng Anh** cho: **thể thao**.
 22. Viết **từ/cụm từ tiếng Anh** cho: **nam diễn viên; diễn viên**.
 
-## Phần D — Speaking
+### Phần D — Speaking
 
 23. Nói 45–60 giây về **thể thao**. Dùng ít nhất 5 từ đã học và 2 collocation.
 24. Nói 45–60 giây về **âm nhạc và phim ảnh**. Dùng ít nhất 5 từ đã học và 2 collocation.
 
-## Đáp án
+### Đáp án
 
 <details>
 <summary>Mở đáp án sau khi làm xong</summary>
@@ -107,7 +114,7 @@
 - 21. sport
 - 22. actor
 
-### Tự chấm Speaking
+#### Tự chấm Speaking
 - 2 điểm: dùng đủ từ/collocation và câu rõ nghĩa.
 - 1 điểm: dùng được một phần nhưng còn lặp từ hoặc sai kết hợp từ.
 - 0 điểm: chủ yếu đọc từ rời rạc, chưa tạo được câu.

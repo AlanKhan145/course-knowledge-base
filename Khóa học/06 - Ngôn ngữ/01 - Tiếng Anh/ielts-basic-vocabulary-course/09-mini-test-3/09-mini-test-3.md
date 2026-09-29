@@ -1,9 +1,16 @@
 # Mini test 3
 
+- Mini test 3
+- Phạm vi: Module 07–08: Kiến trúc, nội thất + Sức khỏe
+
+---
+
+## Nội dung
+
 > **Phạm vi:** Module 07–08: Kiến trúc, nội thất + Sức khỏe
 > **Gợi ý thời gian:** 25–40 phút
 
-## Phần A — Multiple Choice
+### Phần A — Multiple Choice
 
 1. **hand** có nghĩa gần nhất là gì?
    - A. thoải mái
@@ -56,7 +63,7 @@
    - C. phòng ăn
    - D. đi ra ngoài
 
-## Phần B — Điền từ/cụm từ
+### Phần B — Điền từ/cụm từ
 
 11. Hoàn thành collocation: `a __________ home`  *(gợi ý: thoải mái)*
 12. Hoàn thành collocation: `a __________ space`  *(gợi ý: sáng sủa)*
@@ -67,19 +74,19 @@
 17. Hoàn thành collocation: `in my __________`  *(gợi ý: thời gian rảnh)*
 18. Hoàn thành collocation: `a small __________`  *(gợi ý: ban công)*
 
-## Phần C — Dịch chủ động
+### Phần C — Dịch chủ động
 
 19. Viết **từ/cụm từ tiếng Anh** cho: **ho**.
 20. Viết **từ/cụm từ tiếng Anh** cho: **bác sĩ**.
 21. Viết **từ/cụm từ tiếng Anh** cho: **nghe nhạc**.
 22. Viết **từ/cụm từ tiếng Anh** cho: **hoạt động ngoài trời**.
 
-## Phần D — Speaking
+### Phần D — Speaking
 
 23. Nói 45–60 giây về **cơ thể con người**. Dùng ít nhất 5 từ đã học và 2 collocation.
 24. Nói 45–60 giây về **sức khỏe con người**. Dùng ít nhất 5 từ đã học và 2 collocation.
 
-## Đáp án
+### Đáp án
 
 <details>
 <summary>Mở đáp án sau khi làm xong</summary>
@@ -107,7 +114,7 @@
 - 21. listen to music
 - 22. outdoor activity
 
-### Tự chấm Speaking
+#### Tự chấm Speaking
 - 2 điểm: dùng đủ từ/collocation và câu rõ nghĩa.
 - 1 điểm: dùng được một phần nhưng còn lặp từ hoặc sai kết hợp từ.
 - 0 điểm: chủ yếu đọc từ rời rạc, chưa tạo được câu.

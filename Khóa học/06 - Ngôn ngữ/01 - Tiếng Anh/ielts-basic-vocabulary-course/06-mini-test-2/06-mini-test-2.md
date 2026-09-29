@@ -1,9 +1,16 @@
 # Mini test 2
 
+- Mini test 2
+- Phạm vi: Module 04–05: Hoạt động hàng ngày + Gia đình
+
+---
+
+## Nội dung
+
 > **Phạm vi:** Module 04–05: Hoạt động hàng ngày + Gia đình
 > **Gợi ý thời gian:** 25–40 phút
 
-## Phần A — Multiple Choice
+### Phần A — Multiple Choice
 
 1. **make the bed** có nghĩa gần nhất là gì?
    - A. bữa sáng
@@ -56,7 +63,7 @@
    - C. hành lý
    - D. quét
 
-## Phần B — Điền từ/cụm từ
+### Phần B — Điền từ/cụm từ
 
 11. Hoàn thành collocation: `follow a __________`  *(gợi ý: công thức nấu ăn)*
 12. Hoàn thành collocation: `a popular __________`  *(gợi ý: điểm đến)*
@@ -67,19 +74,19 @@
 17. Hoàn thành collocation: `__________`  *(gợi ý: đổ rác)*
 18. Hoàn thành collocation: `__________ late`  *(gợi ý: kết thúc công việc)*
 
-## Phần C — Dịch chủ động
+### Phần C — Dịch chủ động
 
 19. Viết **từ/cụm từ tiếng Anh** cho: **đặt trước**.
 20. Viết **từ/cụm từ tiếng Anh** cho: **đi ngủ**.
 21. Viết **từ/cụm từ tiếng Anh** cho: **sân ga**.
 22. Viết **từ/cụm từ tiếng Anh** cho: **đồ ăn thừa**.
 
-## Phần D — Speaking
+### Phần D — Speaking
 
 23. Nói 45–60 giây về **làm việc nhà**. Dùng ít nhất 5 từ đã học và 2 collocation.
 24. Nói 45–60 giây về **chuyến đi**. Dùng ít nhất 5 từ đã học và 2 collocation.
 
-## Đáp án
+### Đáp án
 
 <details>
 <summary>Mở đáp án sau khi làm xong</summary>
@@ -107,7 +114,7 @@
 - 21. platform
 - 22. leftovers
 
-### Tự chấm Speaking
+#### Tự chấm Speaking
 - 2 điểm: dùng đủ từ/collocation và câu rõ nghĩa.
 - 1 điểm: dùng được một phần nhưng còn lặp từ hoặc sai kết hợp từ.
 - 0 điểm: chủ yếu đọc từ rời rạc, chưa tạo được câu.

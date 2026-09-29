@@ -1,10 +1,21 @@
-# 1.1 — Quốc gia và quốc tịch
+# Module 01 — Mở đầu
+
+Số bài: **3**.
+
+## Nội dung chương
+- 01. Quốc gia và quốc tịch
+- 02. Số đếm
+- 03. Các tính từ phổ biến
+
+---
+
+## 1.1 — Quốc gia và quốc tịch
 
 > **Mức độ:** A1–B1 nền tảng  
 > **Thời lượng gợi ý:** 45–60 phút  
 > **Trọng tâm:** Giới thiệu bản thân, nói về quê quán, nơi sinh, nơi đang sống, quốc tịch và ngôn ngữ.
 
-## 1. Mục tiêu học tập
+### 1. Mục tiêu học tập
 
 Sau bài học này, bạn có thể:
 
@@ -18,7 +29,7 @@ Sau bài học này, bạn có thể:
 
 ---
 
-## 2. Country, nationality và language khác nhau thế nào?
+### 2. Country, nationality và language khác nhau thế nào?
 
 Ba khái niệm này thường xuất hiện cùng nhau nhưng không có cùng ý nghĩa.
 
@@ -55,7 +66,7 @@ Tuy nhiên, không nên mặc định rằng **mỗi quốc gia chỉ có một 
 
 ---
 
-## 3. Từ vựng cốt lõi
+### 3. Từ vựng cốt lõi
 
 | Từ | Loại từ | Nghĩa | Cụm từ thường gặp |
 | --- | --- | --- | --- |
@@ -75,7 +86,7 @@ Tuy nhiên, không nên mặc định rằng **mỗi quốc gia chỉ có một 
 | **birthplace** | n. | nơi sinh | `place of birth` |
 | **international** | adj. | quốc tế | `international students` |
 
-### Phân biệt một số từ dễ nhầm
+#### Phân biệt một số từ dễ nhầm
 
 **country** là quốc gia:
 
@@ -108,7 +119,7 @@ tự nhiên hơn:
 
 ---
 
-## 4. Các cặp quốc gia và quốc tịch quan trọng
+### 4. Các cặp quốc gia và quốc tịch quan trọng
 
 Từ chỉ quốc tịch thường cũng được dùng làm tính từ để mô tả người, văn hóa, thức ăn hoặc sản phẩm của quốc gia đó. Ví dụ, `French` có thể xuất hiện trong `French food`, `French culture` hoặc `She is French`.
 
@@ -138,7 +149,7 @@ Từ chỉ quốc tịch thường cũng được dùng làm tính từ để m�
 | South Korea | South Korean |
 | India | Indian |
 
-### Một số mẫu đuôi thường gặp
+#### Một số mẫu đuôi thường gặp
 
 Không có một quy tắc duy nhất để tạo từ chỉ quốc tịch, nhưng có thể nhận ra một số nhóm phổ biến:
 
@@ -154,7 +165,7 @@ Các nhóm trên chỉ giúp ghi nhớ. Không nên tự suy đoán quốc tịc
 
 ---
 
-## 5. Hỏi một người đến từ đâu
+### 5. Hỏi một người đến từ đâu
 
 Câu hỏi phổ biến nhất là:
 
@@ -170,7 +181,7 @@ Hoặc cụ thể hơn:
 
 > **I'm from Hanoi, Vietnam.**
 
-### Cấu trúc
+#### Cấu trúc
 
 **Where + be + subject + from?**
 
@@ -186,7 +197,7 @@ Câu trả lời:
 > She's from France.  
 > They're from Japan.
 
-### Lỗi thường gặp
+#### Lỗi thường gặp
 
 Không nói:
 
@@ -207,11 +218,11 @@ Tương tự:
 
 ---
 
-## 6. Nơi sinh, quê quán và nơi đang sống
+### 6. Nơi sinh, quê quán và nơi đang sống
 
 Ba thông tin này có thể hoàn toàn khác nhau.
 
-### 6.1. Nơi sinh
+#### 6.1. Nơi sinh
 
 Dùng:
 
@@ -226,7 +237,7 @@ Ví dụ:
 > I was born in Hanoi.  
 > She was born in Japan.
 
-### 6.2. Nơi đang sống
+#### 6.2. Nơi đang sống
 
 Dùng:
 
@@ -240,7 +251,7 @@ Một người có thể sinh ở một nơi nhưng sống ở nơi khác:
 
 > I was born in Cambridge, but I live in Glasgow now.
 
-### 6.3. Quê quán
+#### 6.3. Quê quán
 
 `hometown` là thành phố, thị trấn hoặc nơi mà một người coi là quê nhà.
 
@@ -254,11 +265,11 @@ Trong hội thoại thông thường, `Where are you from?` thường được d
 
 ---
 
-## 7. Nói về quốc tịch
+### 7. Nói về quốc tịch
 
 Có hai cách cơ bản.
 
-### Cách 1: Dùng tính từ chỉ quốc tịch
+#### Cách 1: Dùng tính từ chỉ quốc tịch
 
 > I'm Vietnamese.  
 > She's Japanese.  
@@ -266,14 +277,14 @@ Có hai cách cơ bản.
 
 Đây là cách rất tự nhiên trong hội thoại.
 
-### Cách 2: Dùng `nationality`
+#### Cách 2: Dùng `nationality`
 
 > What's your nationality?  
 > My nationality is Vietnamese.
 
 Mẫu này thường xuất hiện trong biểu mẫu, thủ tục hoặc tình huống cần thông tin chính thức hơn.
 
-### Country không phải nationality
+#### Country không phải nationality
 
 | Country | Câu đúng |
 | --- | --- |
@@ -285,7 +296,7 @@ Mẫu này thường xuất hiện trong biểu mẫu, thủ tục hoặc tình 
 
 ---
 
-## 8. Nói về ngôn ngữ
+### 8. Nói về ngôn ngữ
 
 Dùng động từ `speak`:
 
@@ -315,7 +326,7 @@ Không nên nhầm quốc tịch với ngôn ngữ. Chẳng hạn, tên quốc g
 
 ---
 
-## 9. Hỏi thêm về một nơi
+### 9. Hỏi thêm về một nơi
 
 Sau khi biết một người đến từ đâu, có thể tiếp tục hội thoại bằng:
 
@@ -331,7 +342,7 @@ Ví dụ:
 > B: What's it like?  
 > A: It's wonderful. There's always something interesting to do, and the people are really friendly.
 
-### `What's it like?` không có nghĩa là `Do you like it?`
+#### `What's it like?` không có nghĩa là `Do you like it?`
 
 So sánh:
 
@@ -347,7 +358,7 @@ Hai câu hỏi này yêu cầu hai loại câu trả lời khác nhau.
 
 ---
 
-## 10. Phản hồi khi nghe người khác mô tả quê hương
+### 10. Phản hồi khi nghe người khác mô tả quê hương
 
 Một cách phản hồi tự nhiên là:
 
@@ -380,9 +391,9 @@ Ví dụ:
 
 ---
 
-## 11. Hội thoại mẫu
+### 11. Hội thoại mẫu
 
-### Hội thoại 1 — Nơi sinh và nơi đang sống
+#### Hội thoại 1 — Nơi sinh và nơi đang sống
 
 **Emir:** So, where are you from, Vanya?
 
@@ -410,7 +421,7 @@ và:
 
 Sau đó, Emir sử dụng `What's it like?` để mở rộng cuộc trò chuyện.
 
-### Hội thoại 2 — Country, nationality và language
+#### Hội thoại 2 — Country, nationality và language
 
 **A:** Where are you from?
 
@@ -428,7 +439,7 @@ Sau đó, Emir sử dụng `What's it like?` để mở rộng cuộc trò chuy�
 
 ---
 
-## 12. Những mẫu câu cần ghi nhớ
+### 12. Những mẫu câu cần ghi nhớ
 
 | Chức năng | Mẫu câu |
 | --- | --- |
@@ -445,7 +456,7 @@ Sau đó, Emir sử dụng `What's it like?` để mở rộng cuộc trò chuy�
 
 ---
 
-## 13. Mẫu giới thiệu bản thân
+### 13. Mẫu giới thiệu bản thân
 
 Một câu trả lời ngắn:
 
@@ -461,7 +472,7 @@ Nếu nơi sinh và nơi sống khác nhau:
 
 ---
 
-## 14. Ứng dụng trong IELTS Speaking Part 1
+### 14. Ứng dụng trong IELTS Speaking Part 1
 
 Các câu hỏi có thể gặp:
 
@@ -491,7 +502,7 @@ Hoặc:
 
 ---
 
-## 15. Bài tập 1 — Country, Nationality, Language
+### 15. Bài tập 1 — Country, Nationality, Language
 
 Hoàn thành các ô còn thiếu bằng đáp án phù hợp nhất.
 
@@ -513,7 +524,7 @@ Hoàn thành các ô còn thiếu bằng đáp án phù hợp nhất.
 | ______ | Thai | ______ |
 | Sweden | ______ | ______ |
 
-### Đáp án tham khảo
+#### Đáp án tham khảo
 
 | Country | Nationality | Language |
 | --- | --- | --- |
@@ -537,9 +548,9 @@ Hoàn thành các ô còn thiếu bằng đáp án phù hợp nhất.
 
 ---
 
-## 16. Bài tập 2 — Chọn cấu trúc đúng
+### 16. Bài tập 2 — Chọn cấu trúc đúng
 
-### Câu 1
+#### Câu 1
 
 Bạn muốn nói mình sinh ở Huế nhưng hiện sống tại Hà Nội. Câu nào phù hợp nhất?
 
@@ -552,7 +563,7 @@ D. My nationality is Hanoi.
 
 **Giải thích:** `was born in` dùng cho nơi sinh, còn `live in` dùng cho nơi đang sống.
 
-### Câu 2
+#### Câu 2
 
 Điền vào chỗ trống:
 
@@ -567,7 +578,7 @@ D. country
 
 **Giải thích:** Mẫu giới thiệu quê quán là `I'm from + country/place`.
 
-### Câu 3
+#### Câu 3
 
 Câu nào diễn đạt quốc tịch đúng?
 
@@ -582,7 +593,7 @@ D. I nationality Vietnam.
 
 ---
 
-## 17. Bài tập 3 — Hoàn thành hội thoại
+### 17. Bài tập 3 — Hoàn thành hội thoại
 
 Điền các cụm từ sau vào vị trí thích hợp:
 
@@ -606,7 +617,7 @@ D. I nationality Vietnam.
 
 **A:** I'm from Bangkok.
 
-### Đáp án
+#### Đáp án
 
 > **A:** Where are you from?  
 > **B:** I'm from Vietnam.  
@@ -618,7 +629,7 @@ D. I nationality Vietnam.
 
 ---
 
-## 18. Thực hành nói
+### 18. Thực hành nói
 
 Trả lời thành tiếng các câu sau. Cố gắng không đọc đáp án đã viết sẵn.
 
@@ -631,7 +642,7 @@ Trả lời thành tiếng các câu sau. Cố gắng không đọc đáp án đ
 7. What languages do you speak?
 8. Would you like to live abroad? Why or why not?
 
-### Khung trả lời gợi ý
+#### Khung trả lời gợi ý
 
 > I'm from ________.  
 > I was born in ________, and I live in ________ now.  
@@ -644,9 +655,9 @@ Sau khi quen với khung này, hãy bỏ mẫu và trả lời theo cách của 
 
 ---
 
-## 19. Câu hỏi ôn tập
+### 19. Câu hỏi ôn tập
 
-### Câu 1
+#### Câu 1
 
 Một người nói:
 
@@ -663,7 +674,7 @@ D. Người đó đến từ Scotland về mặt quốc tịch.
 
 **Giải thích:** `was born in` chỉ nơi sinh, trong khi `live in ... now` chỉ nơi cư trú hiện tại.
 
-### Câu 2
+#### Câu 2
 
 Bạn biết một người đến từ Nhật Bản. Cặp nào dùng đúng?
 
@@ -676,7 +687,7 @@ D. Japanese — Japanese country
 
 **Giải thích:** `Japan` là tên quốc gia, còn `Japanese` là từ chỉ quốc tịch và cũng là tên ngôn ngữ.
 
-### Câu 3
+#### Câu 3
 
 Bạn muốn hỏi một người xem quê của họ như thế nào. Câu nào tự nhiên nhất?
 
@@ -689,7 +700,7 @@ D. What's it like?
 
 **Giải thích:** `What's it like?` được dùng để yêu cầu người nói mô tả một nơi, người hoặc sự vật.
 
-### Câu 4
+#### Câu 4
 
 Câu nào có lỗi về cách dùng **country** và **nationality**?
 
@@ -702,7 +713,7 @@ D. Her nationality is German.
 
 **Giải thích:** Sau `from` cần tên địa điểm hoặc quốc gia, vì vậy phải dùng `Germany`, không phải `German`.
 
-### Câu 5
+#### Câu 5
 
 Sau khi một người nói `I'm from Istanbul`, cách nào giúp duy trì hội thoại tự nhiên nhất?
 
@@ -717,7 +728,7 @@ D. Are you language?
 
 ---
 
-## 20. Tổng kết
+### 20. Tổng kết
 
 Ba khái niệm quan trọng nhất của bài là:
 
@@ -753,3 +764,193 @@ Một chuỗi hội thoại đơn giản nhưng tự nhiên có thể là:
 > **What about you?**
 
 Mục tiêu không chỉ là nhớ danh sách quốc gia và quốc tịch, mà còn là **dùng chúng để tạo một cuộc hội thoại thực tế về bản thân và người khác**.
+
+---
+
+## 1.2 — Số đếm
+
+> **Mức độ:** A1–B1 nền tảng  
+> **Thời lượng gợi ý:** 45–60 phút  
+> **Trọng tâm:** Tập trung đọc số, thứ tự, tỷ lệ và số lượng — rất quan trọng trong Listening và mô tả dữ liệu.
+
+### 1. Mục tiêu học tập
+
+- Nhận biết và hiểu nghĩa của nhóm từ cốt lõi theo chủ đề.
+- Dùng được từ trong cụm từ tự nhiên thay vì học từng từ rời rạc.
+- Tạo được câu trả lời ngắn theo phong cách IELTS Speaking Part 1.
+- Ôn lại bằng bài tập nhận diện, điền từ và sản xuất ngôn ngữ.
+
+### 2. Từ vựng cốt lõi
+
+| Từ / cụm từ | Loại từ | Nghĩa tiếng Việt | Collocation / cách dùng |
+|---|---|---|---|
+| **zero** | number | số không | `zero degrees` |
+| **ten** | number | mười | `ten people` |
+| **twenty** | number | hai mươi | `twenty minutes` |
+| **hundred** | number | một trăm | `one hundred students` |
+| **thousand** | number | một nghìn | `two thousand people` |
+| **million** | number | một triệu | `one million residents` |
+| **first** | ordinal | thứ nhất | `the first time` |
+| **second** | ordinal | thứ hai | `the second floor` |
+| **third** | ordinal | thứ ba | `the third largest` |
+| **half** | n./det. | một nửa | `half of the class` |
+| **quarter** | n. | một phần tư | `a quarter of` |
+| **double** | adj./v. | gấp đôi | `double the amount` |
+| **total** | n./adj. | tổng; tổng cộng | `the total number` |
+| **percentage** | n. | tỷ lệ phần trăm | `a high percentage` |
+| **approximately** | adv. | xấp xỉ | `approximately 50 people` |
+
+### 3. Học theo cụm, không học từ đơn
+
+- **zero** → **zero degrees**
+- **ten** → **ten people**
+- **twenty** → **twenty minutes**
+- **hundred** → **one hundred students**
+- **thousand** → **two thousand people**
+- **million** → **one million residents**
+
+**Nguyên tắc:** khi ghi flashcard, mặt trước nên là *cụm từ hoặc câu*, không chỉ là một từ đơn. Ví dụ: `destination → a popular destination`, thay vì chỉ học `destination = điểm đến`.
+
+### 4. Mẫu câu ứng dụng
+
+- I often use **zero** when I talk about this topic.
+- In my experience, **ten people** is quite common.
+- One thing I find useful is **twenty minutes**.
+- Compared with the past, **one hundred students** is more common now.
+- Personally, I think **thousand** is an important part of everyday life.
+
+### 5. Bài tập A — Nối từ với nghĩa
+
+1. **zero**
+2. **ten**
+3. **twenty**
+4. **hundred**
+5. **thousand**
+
+A. hai mươi
+B. một trăm
+C. một nghìn
+D. số không
+E. mười
+
+### 6. Bài tập B — Điền từ/cụm từ
+
+1. one __________ residents
+2. the __________ time
+3. the __________ floor
+4. the __________ largest
+5. __________ of the class
+
+### 7. Bài tập C — Speaking mini-practice
+
+1. Hãy nói 3–4 câu về **số đếm** và dùng ít nhất **4 từ** trong bảng.
+2. Trả lời lại một lần nữa nhưng cố dùng **2 collocation** thay vì chỉ dùng từ đơn.
+3. Tự ghi âm 30–45 giây; nghe lại và kiểm tra phát âm, số lần lặp từ và độ tự nhiên.
+
+### 8. Đáp án gợi ý
+
+- **Bài A:** 1-D, 2-E, 3-A, 4-B, 5-C.
+- **Bài B:** 1. million; 2. first; 3. second; 4. third; 5. half.
+- **Bài C:** không có một đáp án duy nhất; ưu tiên câu đúng, tự nhiên và dùng đúng collocation.
+
+### 9. Ôn nhanh theo Spaced Repetition
+
+- **Ngày 0:** học 15 từ + đọc to collocation.
+- **Ngày 1:** che cột nghĩa và tự nhớ.
+- **Ngày 3:** viết 5 câu mới.
+- **Ngày 7:** nói 1 phút về chủ đề mà không nhìn tài liệu.
+
+---
+
+## 1.3 — Các tính từ phổ biến
+
+> **Mức độ:** A1–B1 nền tảng  
+> **Thời lượng gợi ý:** 45–60 phút  
+> **Trọng tâm:** Ưu tiên tính từ có thể tái sử dụng ở nhiều chủ đề và kết hợp chính xác với danh từ.
+
+### 1. Mục tiêu học tập
+
+- Nhận biết và hiểu nghĩa của nhóm từ cốt lõi theo chủ đề.
+- Dùng được từ trong cụm từ tự nhiên thay vì học từng từ rời rạc.
+- Tạo được câu trả lời ngắn theo phong cách IELTS Speaking Part 1.
+- Ôn lại bằng bài tập nhận diện, điền từ và sản xuất ngôn ngữ.
+
+### 2. Từ vựng cốt lõi
+
+| Từ / cụm từ | Loại từ | Nghĩa tiếng Việt | Collocation / cách dùng |
+|---|---|---|---|
+| **important** | adj. | quan trọng | `an important issue` |
+| **common** | adj. | phổ biến | `a common problem` |
+| **different** | adj. | khác nhau | `different from` |
+| **similar** | adj. | tương tự | `similar to` |
+| **popular** | adj. | phổ biến; được ưa chuộng | `a popular choice` |
+| **convenient** | adj. | tiện lợi | `a convenient location` |
+| **expensive** | adj. | đắt | `an expensive product` |
+| **cheap** | adj. | rẻ | `cheap accommodation` |
+| **crowded** | adj. | đông đúc | `a crowded city` |
+| **quiet** | adj. | yên tĩnh | `a quiet area` |
+| **modern** | adj. | hiện đại | `modern technology` |
+| **traditional** | adj. | truyền thống | `traditional food` |
+| **healthy** | adj. | lành mạnh; khỏe mạnh | `a healthy lifestyle` |
+| **difficult** | adj. | khó | `a difficult task` |
+| **useful** | adj. | hữu ích | `useful information` |
+
+### 3. Học theo cụm, không học từ đơn
+
+- **important** → **an important issue**
+- **common** → **a common problem**
+- **different** → **different from**
+- **similar** → **similar to**
+- **popular** → **a popular choice**
+- **convenient** → **a convenient location**
+
+**Nguyên tắc:** khi ghi flashcard, mặt trước nên là *cụm từ hoặc câu*, không chỉ là một từ đơn. Ví dụ: `destination → a popular destination`, thay vì chỉ học `destination = điểm đến`.
+
+### 4. Mẫu câu ứng dụng
+
+- I often use **important** when I talk about this topic.
+- In my experience, **a common problem** is quite common.
+- One thing I find useful is **different from**.
+- Compared with the past, **similar to** is more common now.
+- Personally, I think **popular** is an important part of everyday life.
+
+### 5. Bài tập A — Nối từ với nghĩa
+
+1. **important**
+2. **common**
+3. **different**
+4. **similar**
+5. **popular**
+
+A. khác nhau
+B. tương tự
+C. phổ biến; được ưa chuộng
+D. quan trọng
+E. phổ biến
+
+### 6. Bài tập B — Điền từ/cụm từ
+
+1. a __________ location
+2. an __________ product
+3. __________ accommodation
+4. a __________ city
+5. a __________ area
+
+### 7. Bài tập C — Speaking mini-practice
+
+1. Hãy nói 3–4 câu về **các tính từ phổ biến** và dùng ít nhất **4 từ** trong bảng.
+2. Trả lời lại một lần nữa nhưng cố dùng **2 collocation** thay vì chỉ dùng từ đơn.
+3. Tự ghi âm 30–45 giây; nghe lại và kiểm tra phát âm, số lần lặp từ và độ tự nhiên.
+
+### 8. Đáp án gợi ý
+
+- **Bài A:** 1-D, 2-E, 3-A, 4-B, 5-C.
+- **Bài B:** 1. convenient; 2. expensive; 3. cheap; 4. crowded; 5. quiet.
+- **Bài C:** không có một đáp án duy nhất; ưu tiên câu đúng, tự nhiên và dùng đúng collocation.
+
+### 9. Ôn nhanh theo Spaced Repetition
+
+- **Ngày 0:** học 15 từ + đọc to collocation.
+- **Ngày 1:** che cột nghĩa và tự nhớ.
+- **Ngày 3:** viết 5 câu mới.
+- **Ngày 7:** nói 1 phút về chủ đề mà không nhìn tài liệu.

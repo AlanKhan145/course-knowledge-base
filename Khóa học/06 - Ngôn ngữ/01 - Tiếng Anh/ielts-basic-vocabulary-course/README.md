@@ -5,11 +5,12 @@ Khóa học từ vựng tiếng Anh nền tảng theo chủ đề, thiết kế 
 ## Quy mô
 
 - **15 module**
-- **25 bài học Markdown**
+- **25 bài học** được gộp trong 15 file chương (đặt tên theo từng chương)
 - **4 Mini Test**
 - **1 Final Test**
 - **375 mục từ/cụm từ** trong các bài (một số từ lặp lại có chủ đích theo ngữ cảnh)
 - Mỗi bài có: mục tiêu → bảng từ → collocation → mẫu câu → bài tập → Speaking mini-practice → đáp án → lịch ôn.
+- Mỗi chương chỉ còn một file Markdown để đọc liền mạch.
 
 ## Bắt đầu
 

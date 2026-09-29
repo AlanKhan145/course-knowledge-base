@@ -1,9 +1,16 @@
 # Mini test 1
 
+- Mini test 1
+- Phạm vi: Module 01–02: Mở đầu + Thế giới tự nhiên
+
+---
+
+## Nội dung
+
 > **Phạm vi:** Module 01–02: Mở đầu + Thế giới tự nhiên
 > **Gợi ý thời gian:** 25–40 phút
 
-## Phần A — Multiple Choice
+### Phần A — Multiple Choice
 
 1. **ten** có nghĩa gần nhất là gì?
    - A. số không
@@ -56,7 +63,7 @@
    - C. một triệu
    - D. lành mạnh; khỏe mạnh
 
-## Phần B — Điền từ/cụm từ
+### Phần B — Điền từ/cụm từ
 
 11. Hoàn thành collocation: `__________ for food`  *(gợi ý: săn)*
 12. Hoàn thành collocation: `a __________ evening`  *(gợi ý: mát)*
@@ -67,19 +74,19 @@
 17. Hoàn thành collocation: `__________ degrees`  *(gợi ý: số không)*
 18. Hoàn thành collocation: `__________ accommodation`  *(gợi ý: rẻ)*
 
-## Phần C — Dịch chủ động
+### Phần C — Dịch chủ động
 
 19. Viết **từ/cụm từ tiếng Anh** cho: **hộ chiếu**.
 20. Viết **từ/cụm từ tiếng Anh** cho: **nông thôn**.
 21. Viết **từ/cụm từ tiếng Anh** cho: **công dân**.
 22. Viết **từ/cụm từ tiếng Anh** cho: **có mưa**.
 
-## Phần D — Speaking
+### Phần D — Speaking
 
 23. Nói 45–60 giây về **số đếm**. Dùng ít nhất 5 từ đã học và 2 collocation.
 24. Nói 45–60 giây về **thời tiết**. Dùng ít nhất 5 từ đã học và 2 collocation.
 
-## Đáp án
+### Đáp án
 
 <details>
 <summary>Mở đáp án sau khi làm xong</summary>
@@ -107,7 +114,7 @@
 - 21. citizen
 - 22. rainy
 
-### Tự chấm Speaking
+#### Tự chấm Speaking
 - 2 điểm: dùng đủ từ/collocation và câu rõ nghĩa.
 - 1 điểm: dùng được một phần nhưng còn lặp từ hoặc sai kết hợp từ.
 - 0 điểm: chủ yếu đọc từ rời rạc, chưa tạo được câu.

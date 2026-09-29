@@ -1,9 +1,16 @@
 # Final test
 
+- Final test
+- Phạm vi: toàn khóa học.
+
+---
+
+## Nội dung
+
 > **Phạm vi:** Toàn bộ Module 01–14 (không tính các module test)
 > **Gợi ý thời gian:** 25–40 phút
 
-## Phần A — Multiple Choice
+### Phần A — Multiple Choice
 
 1. **fit** có nghĩa gần nhất là gì?
    - A. khỏe mạnh
@@ -106,7 +113,7 @@
    - C. khu dân cư
    - D. vai
 
-## Phần B — Điền từ/cụm từ
+### Phần B — Điền từ/cụm từ
 
 21. Hoàn thành collocation: `two __________ people`  *(gợi ý: một nghìn)*
 22. Hoàn thành collocation: `a serious __________`  *(gợi ý: bệnh tật)*
@@ -124,7 +131,7 @@
 34. Hoàn thành collocation: `my __________s`  *(gợi ý: cha hoặc mẹ)*
 35. Hoàn thành collocation: `a two-hour __________`  *(gợi ý: sự trì hoãn; bị hoãn)*
 
-## Phần C — Dịch chủ động
+### Phần C — Dịch chủ động
 
 36. Viết **từ/cụm từ tiếng Anh** cho: **cửa hàng; mua sắm**.
 37. Viết **từ/cụm từ tiếng Anh** cho: **bài hát**.
@@ -137,7 +144,7 @@
 44. Viết **từ/cụm từ tiếng Anh** cho: **nam diễn viên; diễn viên**.
 45. Viết **từ/cụm từ tiếng Anh** cho: **tiền mặt**.
 
-## Phần D — Speaking
+### Phần D — Speaking
 
 46. Nói 45–60 giây về **trang phục**. Dùng ít nhất 5 từ đã học và 2 collocation.
 47. Nói 45–60 giây về **âm nhạc và phim ảnh**. Dùng ít nhất 5 từ đã học và 2 collocation.
@@ -145,7 +152,7 @@
 49. Nói 45–60 giây về **làm việc nhà**. Dùng ít nhất 5 từ đã học và 2 collocation.
 50. Nói 45–60 giây về **công nghệ**. Dùng ít nhất 5 từ đã học và 2 collocation.
 
-## Đáp án
+### Đáp án
 
 <details>
 <summary>Mở đáp án sau khi làm xong</summary>
@@ -196,7 +203,7 @@
 - 44. actor
 - 45. cash
 
-### Tự chấm Speaking
+#### Tự chấm Speaking
 - 2 điểm: dùng đủ từ/collocation và câu rõ nghĩa.
 - 1 điểm: dùng được một phần nhưng còn lặp từ hoặc sai kết hợp từ.
 - 0 điểm: chủ yếu đọc từ rời rạc, chưa tạo được câu.
