@@ -1,956 +1,728 @@
-# Module 01 — Mở đầu
+# Module 01 — Mở đầu: Quốc gia, số đếm và tính từ phổ biến
 
-Số bài: **3**.
+Module mở đầu tập trung vào ba nhóm kiến thức nền tảng: **quốc gia và quốc tịch**, **số đếm** và **các tính từ phổ biến**. Đây là những thành phần thường xuyên xuất hiện khi giới thiệu bản thân, nói về quê quán, cung cấp thông tin cá nhân và mô tả người, vật hoặc địa điểm.
 
-## Nội dung chương
-- 01. Quốc gia và quốc tịch
-- 02. Số đếm
-- 03. Các tính từ phổ biến
+## 1. Mục tiêu học tập
 
----
+Sau khi hoàn thành module, người học có thể:
 
-## 1.1 — Quốc gia và quốc tịch
-
-> **Mức độ:** A1–B1 nền tảng  
-> **Thời lượng gợi ý:** 45–60 phút  
-> **Trọng tâm:** Giới thiệu bản thân, nói về quê quán, nơi sinh, nơi đang sống, quốc tịch và ngôn ngữ.
-
-### 1. Mục tiêu học tập
-
-Sau bài học này, bạn có thể:
-
-- phân biệt **country**, **nationality** và **language**;
-- hỏi và trả lời tự nhiên về quê quán bằng `Where are you from?`;
-- phân biệt nơi sinh với nơi đang sống;
-- sử dụng đúng các mẫu `I'm from...`, `I was born in...` và `I live in...`;
-- dùng một số cặp quốc gia – quốc tịch phổ biến;
-- hỏi thêm về một thành phố hoặc quê hương bằng `What's it like?`;
-- giới thiệu ngắn gọn về bản thân trong hội thoại và IELTS Speaking Part 1.
+- phân biệt tên **quốc gia**, **quốc tịch** và cách gọi người đến từ một quốc gia;
+- sử dụng các mẫu câu cơ bản để nói mình hoặc người khác đến từ đâu;
+- nhận diện một số nhóm hậu tố thường gặp khi chuyển từ tên quốc gia sang quốc tịch;
+- đọc và sử dụng các số đếm cơ bản;
+- áp dụng số đếm trong địa chỉ, số điện thoại, thời gian và giá tiền;
+- nhận diện và sử dụng các tính từ phổ biến;
+- đặt tính từ đúng vị trí trong câu;
+- sử dụng tính từ trước danh từ hoặc sau động từ `to be`;
+- mô tả người, đồ vật, đường phố và địa điểm bằng câu đơn giản.
 
 ---
 
-### 2. Country, nationality và language khác nhau thế nào?
+## 2. Bài 1 — Quốc gia và quốc tịch
 
-Ba khái niệm này thường xuất hiện cùng nhau nhưng không có cùng ý nghĩa.
+### 2.1. Ba khái niệm cần phân biệt
 
-| Khái niệm | Ý nghĩa | Ví dụ |
+Khi nói về xuất xứ của một người, tiếng Anh thường sử dụng ba khái niệm có liên quan nhưng không hoàn toàn giống nhau:
+
+| Thành phần | Chức năng | Ví dụ |
 | --- | --- | --- |
-| **country** | quốc gia | Vietnam, Japan, France |
-| **nationality** | quốc tịch / từ chỉ quốc tịch | Vietnamese, Japanese, French |
-| **language** | ngôn ngữ | Vietnamese, Japanese, French |
-
-Một mẫu cơ bản là:
-
-**Country → Nationality → Language**
+| Country | Tên quốc gia | France |
+| Nationality / adjective | Quốc tịch hoặc tính từ chỉ quốc gia | French |
+| Person | Người đến từ quốc gia đó | a Frenchman / a Frenchwoman |
 
 Ví dụ:
 
-> She comes from France.  
-> She is French.  
-> She speaks French.
+- She comes from **France**.
+- She is **French**.
+- Her nationality is **French**.
+- She speaks **French**.
+- She drives a **French** car.
 
-Từ chỉ quốc gia, tính từ quốc tịch và từ chỉ người không phải lúc nào cũng giống nhau.
+Như vậy, cùng một từ như `French` có thể xuất hiện trong nhiều ngữ cảnh khác nhau, trong khi `France` là tên quốc gia.
 
-Một số trường hợp rất dễ nhớ:
+### 2.2. Hai mẫu câu cơ bản
 
-| Country | Nationality | Language |
-| --- | --- | --- |
-| Vietnam | Vietnamese | Vietnamese |
-| Japan | Japanese | Japanese |
-| Germany | German | German |
-| Thailand | Thai | Thai |
-| Spain | Spanish | Spanish |
-| Russia | Russian | Russian |
+#### Mẫu 1 — Nói một người đến từ đâu
 
-Tuy nhiên, không nên mặc định rằng **mỗi quốc gia chỉ có một ngôn ngữ**. Một quốc gia có thể sử dụng nhiều ngôn ngữ, vì vậy cột *language* trong các bài tập cơ bản thường chỉ yêu cầu ngôn ngữ phổ biến hoặc đáp án được kỳ vọng trong ngữ cảnh của bài.
+Cấu trúc:
 
----
+`S + to be + from + country`
 
-### 3. Từ vựng cốt lõi
+Ví dụ:
 
-| Từ | Loại từ | Nghĩa | Cụm từ thường gặp |
-| --- | --- | --- | --- |
-| **country** | n. | quốc gia | `a foreign country` |
-| **nationality** | n. | quốc tịch | `state your nationality` |
-| **citizen** | n. | công dân | `a Vietnamese citizen` |
-| **foreigner** | n. | người nước ngoài | `a foreign visitor` |
-| **local** | n./adj. | người địa phương; địa phương | `local people` |
-| **abroad** | adv. | ở nước ngoài | `study abroad` |
-| **hometown** | n. | quê nhà, quê quán | `my hometown` |
-| **capital** | n. | thủ đô | `the capital city` |
-| **border** | n. | biên giới | `cross the border` |
-| **continent** | n. | châu lục | `the Asian continent` |
-| **language** | n. | ngôn ngữ | `speak a language` |
-| **culture** | n. | văn hóa | `local culture` |
-| **passport** | n. | hộ chiếu | `show your passport` |
-| **birthplace** | n. | nơi sinh | `place of birth` |
-| **international** | adj. | quốc tế | `international students` |
+- I am from Vietnam.
+- She is from France.
+- They are from Japan.
 
-#### Phân biệt một số từ dễ nhầm
+Tên quốc gia đóng vai trò **danh từ** trong cấu trúc này.
 
-**country** là quốc gia:
+#### Mẫu 2 — Nói quốc tịch
 
-> Vietnam is a country in Southeast Asia.
+Cấu trúc:
 
-**nationality** nói về quốc tịch:
+`S + to be + nationality adjective`
 
-> My nationality is Vietnamese.
+Ví dụ:
 
-Trong giao tiếp thông thường, người nói thường dùng:
+- I am Vietnamese.
+- She is French.
+- They are Japanese.
 
-> I'm Vietnamese.
+Ở đây, từ chỉ quốc tịch được sử dụng như một **tính từ**.
 
-tự nhiên hơn:
+### 2.3. Viết hoa
 
-> My nationality is Vietnamese.
+Tên quốc gia, quốc tịch và những từ liên quan đến quốc gia được viết hoa trong tiếng Anh.
 
-**citizen** nhấn mạnh tư cách công dân của một quốc gia:
+Đúng:
 
-> She is a Vietnamese citizen.
+- France
+- French
+- Vietnamese
+- Japanese
 
-**foreigner** là một người đến từ quốc gia khác:
+Không viết:
 
-> There are many foreign visitors in the city.
+- france
+- french
+- vietnamese
 
-**local** có thể là tính từ hoặc danh từ:
+Quy tắc viết hoa này áp dụng cho cả danh từ và tính từ chỉ quốc gia hoặc quốc tịch.
 
-> I enjoy local food.  
-> The locals are very friendly.
+### 2.4. Học quốc tịch theo nhóm hậu tố
 
----
+Thay vì cố ghi nhớ một danh sách quá dài, có thể nhóm các từ theo hậu tố. Nội dung bài học sử dụng các nhóm `-ese`, `-an`, `-ian`, `-ish` và một số trường hợp đặc biệt.
 
-### 4. Các cặp quốc gia và quốc tịch quan trọng
-
-Từ chỉ quốc tịch thường cũng được dùng làm tính từ để mô tả người, văn hóa, thức ăn hoặc sản phẩm của quốc gia đó. Ví dụ, `French` có thể xuất hiện trong `French food`, `French culture` hoặc `She is French`.
+#### Nhóm `-ese`
 
 | Country | Nationality |
 | --- | --- |
 | Vietnam | Vietnamese |
-| France | French |
-| England | English |
-| the United Kingdom | British |
-| the United States / the USA | American |
-| Singapore | Singaporean |
-| Russia | Russian |
-| Germany | German |
-| Scotland | Scottish |
-| Spain | Spanish |
-| Colombia | Colombian |
-| Australia | Australian |
-| Senegal | Senegalese |
-| Japan | Japanese |
-| Canada | Canadian |
-| Thailand | Thai |
-| Sweden | Swedish |
-| Italy | Italian |
-| Malta | Maltese |
-| Turkey | Turkish |
 | China | Chinese |
-| South Korea | South Korean |
-| India | Indian |
+| Japan | Japanese |
 
-#### Một số mẫu đuôi thường gặp
+Trong nhóm này, bài học nhấn mạnh trọng âm ở phần cuối của từ.
 
-Không có một quy tắc duy nhất để tạo từ chỉ quốc tịch, nhưng có thể nhận ra một số nhóm phổ biến:
+#### Nhóm `-an`
 
-| Dạng | Ví dụ |
+| Country | Nationality |
 | --- | --- |
-| `-ese` | Vietnam → Vietnamese; Japan → Japanese |
-| `-ian / -an` | Canada → Canadian; Australia → Australian |
-| `-ish` | Spain → Spanish; Sweden → Swedish |
-| `-i` | Pakistan → Pakistani |
-| dạng riêng | France → French; Thailand → Thai |
+| America | American |
+| Australia | Australian |
+| Mexico | Mexican |
 
-Các nhóm trên chỉ giúp ghi nhớ. Không nên tự suy đoán quốc tịch của một quốc gia chỉ dựa vào hậu tố.
+#### Nhóm `-ian`
 
----
-
-### 5. Hỏi một người đến từ đâu
-
-Câu hỏi phổ biến nhất là:
-
-> **Where are you from?**  
-> Bạn đến từ đâu?
-
-Câu trả lời tự nhiên:
-
-> **I'm from Vietnam.**  
-> Tôi đến từ Việt Nam.
-
-Hoặc cụ thể hơn:
-
-> **I'm from Hanoi, Vietnam.**
-
-#### Cấu trúc
-
-**Where + be + subject + from?**
-
-> Where are you from?  
-> Where is Anna from?  
-> Where are they from?
-
-Câu trả lời:
-
-**Subject + be + from + place.**
-
-> I'm from Vietnam.  
-> She's from France.  
-> They're from Japan.
-
-#### Lỗi thường gặp
-
-Không nói:
-
-> ❌ I'm from Vietnamese.
-
-Vì `Vietnamese` là từ chỉ quốc tịch, không phải tên quốc gia.
-
-Dùng:
-
-> ✅ I'm from Vietnam.  
-> ✅ I'm Vietnamese.
-
-Tương tự:
-
-> ❌ She's from French.  
-> ✅ She's from France.  
-> ✅ She's French.
-
----
-
-### 6. Nơi sinh, quê quán và nơi đang sống
-
-Ba thông tin này có thể hoàn toàn khác nhau.
-
-#### 6.1. Nơi sinh
-
-Dùng:
-
-> **I was born in + place.**
-
-Ví dụ:
-
-> I was born in Cambridge.
-
-`was born` được dùng để nói nơi hoặc thời điểm một người được sinh ra.
-
-> I was born in Hanoi.  
-> She was born in Japan.
-
-#### 6.2. Nơi đang sống
-
-Dùng:
-
-> **I live in + place + now.**
-
-Ví dụ:
-
-> I live in Glasgow now.
-
-Một người có thể sinh ở một nơi nhưng sống ở nơi khác:
-
-> I was born in Cambridge, but I live in Glasgow now.
-
-#### 6.3. Quê quán
-
-`hometown` là thành phố, thị trấn hoặc nơi mà một người coi là quê nhà.
-
-> My hometown is Da Nang.
-
-Hoặc:
-
-> I'm from Da Nang.
-
-Trong hội thoại thông thường, `Where are you from?` thường được dùng để hỏi quê quán hoặc nơi một người xuất thân, chứ không nhất thiết hỏi chính xác nơi được ghi trong giấy khai sinh.
-
----
-
-### 7. Nói về quốc tịch
-
-Có hai cách cơ bản.
-
-#### Cách 1: Dùng tính từ chỉ quốc tịch
-
-> I'm Vietnamese.  
-> She's Japanese.  
-> He's Turkish.
-
-Đây là cách rất tự nhiên trong hội thoại.
-
-#### Cách 2: Dùng `nationality`
-
-> What's your nationality?  
-> My nationality is Vietnamese.
-
-Mẫu này thường xuất hiện trong biểu mẫu, thủ tục hoặc tình huống cần thông tin chính thức hơn.
-
-#### Country không phải nationality
-
-| Country | Câu đúng |
+| Country | Nationality |
 | --- | --- |
-| Vietnam | I'm **Vietnamese**. |
-| France | I'm **French**. |
-| Japan | I'm **Japanese**. |
-| Germany | I'm **German**. |
-| Australia | I'm **Australian**. |
+| Egypt | Egyptian |
+| Brazil | Brazilian |
+| Italy | Italian |
 
----
+#### Nhóm `-ish`
 
-### 8. Nói về ngôn ngữ
-
-Dùng động từ `speak`:
-
-> **I speak Vietnamese.**
-
-> **She speaks French.**
-
-> **He speaks English and Japanese.**
-
-Câu hỏi:
-
-> **What languages do you speak?**
-
-Trả lời:
-
-> I speak Vietnamese and English.
-
-Nếu đang học một ngôn ngữ nhưng chưa sử dụng thành thạo:
-
-> I'm learning Japanese.
-
-Hoặc:
-
-> I can speak a little Japanese.
-
-Không nên nhầm quốc tịch với ngôn ngữ. Chẳng hạn, tên quốc gia là `France`, còn `French` có thể được dùng cho cả quốc tịch và ngôn ngữ. Các ví dụ cơ bản về France trong bảng từ vựng cũng minh họa ba cách dùng này.
-
----
-
-### 9. Hỏi thêm về một nơi
-
-Sau khi biết một người đến từ đâu, có thể tiếp tục hội thoại bằng:
-
-> **What's it like?**
-
-Câu này có nghĩa gần với:
-
-> Nơi đó như thế nào?
-
-Ví dụ:
-
-> A: I live in Glasgow now.  
-> B: What's it like?  
-> A: It's wonderful. There's always something interesting to do, and the people are really friendly.
-
-#### `What's it like?` không có nghĩa là `Do you like it?`
-
-So sánh:
-
-> **What's Glasgow like?**  
-> Glasgow như thế nào?
-
-với:
-
-> **Do you like Glasgow?**  
-> Bạn có thích Glasgow không?
-
-Hai câu hỏi này yêu cầu hai loại câu trả lời khác nhau.
-
----
-
-### 10. Phản hồi khi nghe người khác mô tả quê hương
-
-Một cách phản hồi tự nhiên là:
-
-> **It sounds like a nice place to live.**
-
-Cấu trúc:
-
-**It sounds like + noun phrase**
-
-> It sounds like a beautiful city.  
-> It sounds like a peaceful place.
-
-Hoặc:
-
-**It sounds + adjective**
-
-> It sounds interesting.  
-> It sounds wonderful.
-
-Khi muốn chuyển câu hỏi trở lại người đối diện:
-
-> **What about you?**
-
-Ví dụ:
-
-> A: I'm from Hanoi. What about you?  
-> B: I'm from Bangkok.
-
-Đây là cách giúp hội thoại tiếp tục tự nhiên thay vì chỉ hỏi – đáp từng câu rời rạc.
-
----
-
-### 11. Hội thoại mẫu
-
-#### Hội thoại 1 — Nơi sinh và nơi đang sống
-
-**Emir:** So, where are you from, Vanya?
-
-**Vanya:** I was born in Cambridge, but I live in Glasgow.
-
-**Emir:** I've never been to Glasgow. What's it like?
-
-**Vanya:** It's wonderful. There's always something interesting to do, and the people are really friendly.
-
-**Emir:** It sounds like a nice place to live.
-
-**Vanya:** It is. I love it. What about you? Where are you from in Turkey?
-
-**Emir:** I'm from Istanbul.
-
-Trong đoạn hội thoại này, Vanya không trả lời đơn giản bằng một địa danh. Cô phân biệt rõ:
-
-> **I was born in Cambridge**  
-> nơi sinh
-
-và:
-
-> **I live in Glasgow**  
-> nơi đang sống.
-
-Sau đó, Emir sử dụng `What's it like?` để mở rộng cuộc trò chuyện.
-
-#### Hội thoại 2 — Country, nationality và language
-
-**A:** Where are you from?
-
-**B:** I'm from Vietnam.
-
-**A:** So you're Vietnamese?
-
-**B:** Yes, I am.
-
-**A:** What languages do you speak?
-
-**B:** I speak Vietnamese and English. What about you?
-
-**A:** I'm from Japan, and I speak Japanese and English.
-
----
-
-### 12. Những mẫu câu cần ghi nhớ
-
-| Chức năng | Mẫu câu |
+| Country | Nationality |
 | --- | --- |
-| Hỏi quê quán | **Where are you from?** |
-| Nói quê quán | **I'm from Istanbul.** |
-| Nói nơi sinh | **I was born in London.** |
-| Nói nơi đang sống | **I live in Glasgow now.** |
-| Hỏi một nơi như thế nào | **What's it like?** |
-| Phản hồi | **It sounds like a nice place to live.** |
-| Hỏi lại người đối diện | **What about you?** |
-| Nói quốc tịch | **I'm Vietnamese.** |
-| Hỏi ngôn ngữ | **What languages do you speak?** |
-| Nói ngôn ngữ | **I speak Vietnamese and English.** |
+| England | English |
+| Britain | British |
+| Turkey | Turkish |
 
----
+#### Một số trường hợp khác
 
-### 13. Mẫu giới thiệu bản thân
+Không phải quốc tịch nào cũng được tạo bằng cách thêm một hậu tố giống nhau.
 
-Một câu trả lời ngắn:
+| Country | Nationality |
+| --- | --- |
+| The Netherlands | Dutch |
+| France | French |
+| Greece | Greek |
 
-> Hi, I'm Minh. I'm from Vietnam. I'm Vietnamese, and I speak Vietnamese and English.
+Các nhóm trên nên được dùng như **mẹo ghi nhớ**, không nên hiểu thành công thức có thể áp dụng máy móc cho mọi tên quốc gia.
 
-Một câu trả lời tự nhiên hơn:
+### 2.5. Một số quốc gia và quốc tịch thường gặp
 
-> Hi, I'm Minh. I'm from Vietnam. I was born in Hanoi, and I still live there now. It's a busy city, but there are lots of interesting places to visit. I speak Vietnamese and English.
-
-Nếu nơi sinh và nơi sống khác nhau:
-
-> I was born in Da Nang, but I live in Hanoi now. Da Nang is my hometown, and I usually go back there to visit my family.
-
----
-
-### 14. Ứng dụng trong IELTS Speaking Part 1
-
-Các câu hỏi có thể gặp:
-
-> Where are you from?
-
-> What's your hometown like?
-
-> Do you still live in your hometown?
-
-> What do you like about your hometown?
-
-> What languages do you speak?
-
-Không cần trả lời quá dài. Một câu trả lời khoảng hai đến bốn câu có thể đủ để cung cấp thông tin và giải thích ngắn.
-
-Ví dụ:
-
-> **Where are you from?**
-
-> I'm from Hanoi, the capital of Vietnam. It's a busy city with a lot of cafés, restaurants and historical places. I've lived there for most of my life.
-
-Hoặc:
-
-> **What's your hometown like?**
-
-> My hometown is quite peaceful. The people are friendly, and the cost of living isn't too high. I especially like the local food.
-
----
-
-### 15. Bài tập 1 — Country, Nationality, Language
-
-Hoàn thành các ô còn thiếu bằng đáp án phù hợp nhất.
-
-| She comes from... | She is... | She speaks... |
+| Country | Nationality | Person |
 | --- | --- | --- |
-| France | ______ | ______ |
-| ______ | English | ______ |
-| ______ | American | ______ |
-| Singapore | Singaporean | ______ |
-| Russia | ______ | ______ |
-| ______ | German | ______ |
-| Scotland | ______ | ______ |
-| Spain | ______ | ______ |
-| ______ | Colombian | ______ |
-| Australia | ______ | ______ |
-| Senegal | ______ | French |
-| Japan | ______ | ______ |
-| Canada | ______ | ______ |
-| ______ | Thai | ______ |
-| Sweden | ______ | ______ |
+| Australia | Australian | an Australian |
+| Brazil | Brazilian | a Brazilian |
+| Canada | Canadian | a Canadian |
+| China | Chinese | a Chinese |
+| Egypt | Egyptian | an Egyptian |
+| England | English | an Englishman / an Englishwoman |
+| France | French | a Frenchman / a Frenchwoman |
+| Germany | German | a German |
+| Greece | Greek | a Greek |
+| India | Indian | an Indian |
+| Indonesia | Indonesian | an Indonesian |
+| Italy | Italian | an Italian |
+| Japan | Japanese | a Japanese |
+| Malaysia | Malaysian | a Malaysian |
+| Mexico | Mexican | a Mexican |
+| Netherlands | Dutch | a Dutchman / a Dutchwoman |
+| Philippines | Philippine / Filipino | a Filipino / a Filipina |
+| Russia | Russian | a Russian |
+| Singapore | Singaporean | a Singaporean |
+| South Korea | South Korean | a South Korean |
+| Spain | Spanish | a Spaniard |
+| Sweden | Swedish | a Swede |
+| Switzerland | Swiss | a Swiss |
+| Thailand | Thai | a Thai |
+| Turkey | Turkish | a Turk |
+| United Kingdom | British | a Briton |
+| Vietnam | Vietnamese | a Vietnamese |
 
-#### Đáp án tham khảo
+Danh sách đầy đủ trong nội dung học bao gồm nhiều quốc gia khác; khi học thực tế, nên ưu tiên những quốc gia thường xuyên gặp trước thay vì cố học toàn bộ trong một lần.
+
+### 2.6. Quốc gia, quốc tịch và ngôn ngữ
+
+Ba cột này không nên được xem là hoàn toàn giống nhau.
+
+Ví dụ:
 
 | Country | Nationality | Language |
 | --- | --- | --- |
 | France | French | French |
 | England | English | English |
-| the USA | American | English |
-| Singapore | Singaporean | Chinese |
 | Russia | Russian | Russian |
 | Germany | German | German |
-| Scotland | Scottish | English |
 | Spain | Spanish | Spanish |
-| Colombia | Colombian | Spanish |
-| Australia | Australian | English |
-| Senegal | Senegalese | French |
 | Japan | Japanese | Japanese |
-| Canada | Canadian | English |
 | Thailand | Thai | Thai |
 | Sweden | Swedish | Swedish |
 
-> **Lưu ý:** Đây là bài tập từ vựng với các đáp án được đơn giản hóa. Trong thực tế, một quốc gia có thể có nhiều ngôn ngữ được sử dụng rộng rãi.
+Một số trường hợp sử dụng ngôn ngữ khác với tên quốc gia.
+
+Ví dụ:
+
+- Australia → Australian → English
+- Scotland → Scottish → English
+- Canada → Canadian → English
+- Senegal → Senegalese → French
+
+Vì vậy, không nên tự động suy ra ngôn ngữ chỉ dựa vào tên quốc gia.
+
+### 2.7. Thực hành ngắn
+
+Hoàn thành câu bằng thông tin phù hợp.
+
+1. She comes from France. She is ________.
+2. He comes from Japan. He is ________.
+3. They come from Australia. They are ________.
+4. She is Vietnamese. She comes from ________.
+5. He is German. He comes from ________.
+
+Sau đó tự tạo ba câu về bản thân:
+
+- I am from ________.
+- I am ________.
+- I speak ________.
 
 ---
 
-### 16. Bài tập 2 — Chọn cấu trúc đúng
+## 3. Bài 2 — Số đếm
 
-#### Câu 1
+### 3.1. Số đếm là gì?
 
-Bạn muốn nói mình sinh ở Huế nhưng hiện sống tại Hà Nội. Câu nào phù hợp nhất?
+Số đếm, hay **cardinal numbers**, được sử dụng để biểu thị số lượng.
 
-A. I'm from born Hue, but I live Hanoi.  
-B. I was born in Hue, but I live in Hanoi now.  
-C. I'm Vietnamese in Hue and Hanoi.  
-D. My nationality is Hanoi.
+Ví dụ:
 
-**Đáp án:** B
+- one
+- two
+- three
+- ten
+- one hundred
 
-**Giải thích:** `was born in` dùng cho nơi sinh, còn `live in` dùng cho nơi đang sống.
+Số đếm khác với **ordinal numbers**, là nhóm từ dùng để thể hiện thứ tự như `first`, `second`, `third`. Module này tập trung vào số đếm.
 
-#### Câu 2
+### 3.2. Các số từ 0 đến 10
 
-Điền vào chỗ trống:
+| Number | English |
+| ---: | --- |
+| 0 | zero |
+| 1 | one |
+| 2 | two |
+| 3 | three |
+| 4 | four |
+| 5 | five |
+| 6 | six |
+| 7 | seven |
+| 8 | eight |
+| 9 | nine |
+| 10 | ten |
 
-> I'm ______ Vietnam.
+### 3.3. Các số từ 11 đến 19
 
-A. Vietnamese  
-B. in nationality  
-C. from  
-D. country
+| Number | English |
+| ---: | --- |
+| 11 | eleven |
+| 12 | twelve |
+| 13 | thirteen |
+| 14 | fourteen |
+| 15 | fifteen |
+| 16 | sixteen |
+| 17 | seventeen |
+| 18 | eighteen |
+| 19 | nineteen |
+
+### 3.4. Các hàng chục
+
+| Number | English |
+| ---: | --- |
+| 20 | twenty |
+| 30 | thirty |
+| 40 | forty |
+| 50 | fifty |
+| 60 | sixty |
+| 70 | seventy |
+| 80 | eighty |
+| 90 | ninety |
+
+Đây là những dạng cần ghi nhớ vì cách viết của một số từ không hoàn toàn giống cách ghép chữ số thông thường, chẳng hạn `twenty`, `thirty`, `forty` và `fifty`.
+
+> **Lưu ý kiểm chứng:** phần nội dung ban đầu ghi ví dụ `61 — sixty and one`. Cách diễn đạt này cần được kiểm tra lại trước khi sử dụng làm mẫu phát âm hoặc bài tập.
+
+### 3.5. Hàng trăm, nghìn, triệu và tỷ
+
+| Number | English |
+| ---: | --- |
+| 100 | a hundred / one hundred |
+| 1,000 | a thousand / one thousand |
+| 1,000,000 | a million / one million |
+| 1,000,000,000 | a billion / one billion |
+
+Ở các con số trên, `a` hoặc `one` đều được đưa ra như cách biểu đạt số lượng `1` đứng trước đơn vị lớn.
+
+### 3.6. Ứng dụng của số đếm
+
+Số đếm không chỉ xuất hiện trong bài toán. Trong giao tiếp hàng ngày, chúng được dùng ở rất nhiều tình huống.
+
+#### Địa chỉ
+
+Ví dụ:
+
+`No 5, Main Street`
+
+#### Số điện thoại
+
+Ví dụ:
+
+`0909 123456`
+
+#### Số đường hoặc quận
+
+Ví dụ:
+
+`Road 7A, District 1`
+
+#### Thời gian
+
+- 6:20 — `six twenty`
+- 9:40 — `nine forty`
+
+#### Giá tiền
+
+- $300 — `three hundred dollars`
+
+Đây là các ngữ cảnh thực tế quan trọng khi luyện nghe và nói số.
+
+### 3.7. Các nhóm số mở rộng
+
+Ngoài số đếm, tiếng Anh còn có những nhóm biểu diễn số khác:
+
+- ordinal numbers;
+- thousands;
+- decimal numbers;
+- fractions;
+- Roman numerals;
+- basic mathematical symbols.
+
+Ví dụ:
+
+- `0.9`, `0.5`, `0.001` là số thập phân;
+- `½`, `¼`, `¾` là phân số;
+- `I`, `II`, `III` là chữ số La Mã.
+
+### 3.8. Thực hành ngắn
+
+Đọc thành tiếng:
+
+- 7
+- 12
+- 18
+- 20
+- 40
+- 90
+- 100
+- 1,000
+- 1,000,000
+
+Sau đó luyện theo tình huống:
+
+1. Đọc số điện thoại của bạn bằng tiếng Anh.
+2. Đọc một giờ bất kỳ trên đồng hồ.
+3. Đọc giá của một món đồ.
+4. Đọc số nhà hoặc số phòng quen thuộc.
+
+---
+
+## 4. Bài 3 — Các tính từ phổ biến
+
+### 4.1. Tính từ là gì?
+
+**Adjective** là từ dùng để mô tả và cung cấp thêm thông tin cho người, vật, địa điểm hoặc một danh từ khác.
+
+Ví dụ:
+
+- a **green** monster
+- a **yellow** bus
+- a **fast** horse
+- a **beautiful** place
+
+Trong `a green monster`:
+
+- `green` là tính từ;
+- `monster` là danh từ.
+
+Tính từ cho người nghe biết **con quái vật như thế nào**.
+
+### 4.2. Tính từ đứng trước danh từ
+
+Một cấu trúc rất quan trọng:
+
+`adjective + noun`
+
+Ví dụ:
+
+- a green monster
+- a slow car
+- a beautiful girl
+- a dangerous road
+- a busy street
+
+Trong mẫu này, tính từ đứng **trước** danh từ mà nó mô tả.
+
+### 4.3. Tính từ sau động từ `to be`
+
+Tính từ cũng có thể đứng sau một dạng của `to be`.
+
+Cấu trúc:
+
+`S + to be + adjective`
+
+Ví dụ:
+
+- The monster is green.
+- The girl is happy.
+- The road is dangerous.
+- The man is cold.
+
+Hai cấu trúc cơ bản cần nhớ:
+
+`adjective + noun`
+
+và
+
+`subject + to be + adjective`
+
+
+
+### 4.4. Tính từ không thay đổi theo số lượng
+
+Trong các ví dụ của bài:
+
+- one red car
+- two red cars
+
+Từ `red` vẫn giữ nguyên.
+
+Danh từ `car` chuyển thành `cars`, nhưng tính từ không thêm `-s`.
+
+Tương tự:
+
+- a slow car
+- many slow cars
+
+Không biến `slow` thành dạng số nhiều.
+
+### 4.5. Tính từ mô tả con người
+
+Đoạn mô tả gia đình trong bài cung cấp nhiều từ hữu ích:
+
+| Word | Ý nghĩa sử dụng |
+| --- | --- |
+| clever | thông minh |
+| angry | tức giận |
+| kind | tốt bụng |
+| lazy | lười |
+| terrible | rất tệ |
+| beautiful | xinh đẹp |
+| famous | nổi tiếng |
+| single | độc thân |
+| unlucky | không may mắn |
+| special | đặc biệt |
+
+Ngoài ra, `beauty` xuất hiện cùng nhóm từ nhưng được dùng như một từ liên quan đến `beautiful`, thay vì mẫu tính từ mô tả trực tiếp trước danh từ.
+
+Các từ trên xuất hiện trong đoạn mô tả cha, mẹ và chị gái, cho thấy tính từ có thể dùng để nói về **tính cách**, **trạng thái** hoặc **đặc điểm của một người**.
+
+### 4.6. Các tính từ mô tả thường gặp
+
+Bài học còn sử dụng nhiều tính từ thông dụng:
+
+| Adjective | Ý nghĩa |
+| --- | --- |
+| young | trẻ |
+| old | già / cũ |
+| slow | chậm |
+| fast | nhanh |
+| happy | vui |
+| unhappy | không vui |
+| beautiful | đẹp |
+| ugly | xấu |
+| dangerous | nguy hiểm |
+| safe | an toàn |
+| poor | nghèo |
+| rich | giàu |
+| busy | bận / đông đúc |
+| quiet | yên tĩnh |
+| new | mới |
+| yellow | màu vàng |
+| dirty | bẩn |
+| worried | lo lắng |
+| relaxed | thư giãn |
+| smelly | có mùi khó chịu |
+| cold | lạnh |
+
+
+
+### 4.7. Học tính từ theo cặp đối lập
+
+Học theo cặp giúp ghi nhớ và sử dụng từ trong ngữ cảnh dễ hơn.
+
+| Từ | Từ đối lập được luyện trong bài |
+| --- | --- |
+| young | old |
+| slow | fast |
+| happy | unhappy |
+| beautiful | ugly |
+| dangerous | safe |
+| poor | rich |
+| new | old |
+
+Trong ngữ cảnh mô tả một nơi đông đúc so với một nơi yên tĩnh, bài còn đặt `busy` và `quiet` cạnh nhau để luyện khả năng đối chiếu trạng thái của địa điểm.
+
+### 4.8. Mô tả người
+
+Ví dụ:
+
+- He is clever.
+- She is kind.
+- She is beautiful.
+- He is angry.
+- They are happy.
+
+Có thể mở rộng:
+
+- She is a beautiful girl.
+- He is a clever man.
+
+### 4.9. Mô tả địa điểm
+
+Tính từ có thể kết hợp với các danh từ như `place`, `road`, `building` hoặc `street`.
+
+Ví dụ:
+
+- a beautiful place
+- a busy road
+- a dangerous road
+- an old building
+- a new building
+
+Trong phần luyện tập mô tả London, các tính từ được dùng để phân biệt cảnh vật cũ và hiện đại, đường đông xe và các tòa nhà mới hoặc cũ.
+
+### 4.10. Kết hợp quốc gia và tính từ mô tả
+
+Ba bài trong module có thể kết hợp với nhau.
+
+Ví dụ:
+
+- Vietnam is a beautiful country.
+- It is a busy place.
+- Japan is a beautiful country.
+- This is an old building.
+- That is a new building.
+
+Một bài luyện nói đơn giản là chọn một quốc gia rồi mô tả quốc gia đó bằng một vài tính từ đã học.
+
+Gợi ý:
+
+- a cold country
+- a hot country
+- a rich country
+- a beautiful country
+
+Bài học kết thúc bằng yêu cầu người học tự mô tả đất nước của mình bằng các tính từ phù hợp.
+
+---
+
+## 5. Bài thực hành tổng hợp
+
+### Bài tập 1 — Country hay nationality?
+
+Điền dạng phù hợp.
+
+1. She is from ________. `(France / French)`
+2. She is ________. `(France / French)`
+3. He comes from ________. `(Japan / Japanese)`
+4. He is ________. `(Japan / Japanese)`
+5. They are from ________. `(Vietnam / Vietnamese)`
+6. They are ________. `(Vietnam / Vietnamese)`
+
+### Bài tập 2 — Hoàn thành thông tin
+
+Điền country, nationality hoặc language.
+
+| Country | Nationality | Language |
+| --- | --- | --- |
+| France | ________ | French |
+| Japan | Japanese | ________ |
+| Spain | ________ | Spanish |
+| Germany | German | ________ |
+| Thailand | ________ | Thai |
+| Australia | Australian | ________ |
+
+### Bài tập 3 — Nhận diện tính từ
+
+Xác định tính từ trong mỗi cụm hoặc câu.
+
+1. a yellow bus
+2. a dirty boy
+3. She is worried.
+4. a fast horse
+5. The road is dangerous.
+6. a beautiful place
+7. many new cars
+
+### Bài tập 4 — Đổi cấu trúc
+
+Viết lại theo mẫu:
+
+`a beautiful place → The place is beautiful.`
+
+1. a slow car
+2. a dangerous road
+3. a happy girl
+4. a new building
+5. an old car
+
+### Bài tập 5 — Mô tả một quốc gia
+
+Chọn một quốc gia và hoàn thành:
+
+- Country: ________
+- Nationality: ________
+- Language: ________
+
+Viết thêm ba câu:
+
+1. I am / He is / She is from ________.
+2. I am / He is / She is ________.
+3. It is a ________ country.
+
+---
+
+## 6. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Câu nào sử dụng đúng tên quốc gia và quốc tịch theo cấu trúc của bài?
+
+A. She is from French.  
+B. She is France.  
+C. She is from France.  
+D. She from France.
 
 **Đáp án:** C
 
-**Giải thích:** Mẫu giới thiệu quê quán là `I'm from + country/place`.
+**Giải thích:** Sau `from` cần tên quốc gia. `France` là tên quốc gia, trong khi `French` được dùng để nói quốc tịch hoặc làm tính từ.
 
-#### Câu 3
+### Câu 2
 
-Câu nào diễn đạt quốc tịch đúng?
+Câu nào diễn đạt quốc tịch?
 
-A. I'm Vietnam.  
-B. I'm from Vietnamese.  
-C. I'm Vietnamese.  
-D. I nationality Vietnam.
-
-**Đáp án:** C
-
-**Giải thích:** `Vietnamese` là từ chỉ quốc tịch. `Vietnam` là tên quốc gia.
-
----
-
-### 17. Bài tập 3 — Hoàn thành hội thoại
-
-Điền các cụm từ sau vào vị trí thích hợp:
-
-- `Where are you from?`
-- `What's it like?`
-- `I was born in`
-- `I live in`
-- `What about you?`
-
-**A:** __________________________
-
-**B:** I'm from Vietnam.
-
-**A:** Which city?
-
-**B:** __________________________ Da Nang, but __________________________ Hanoi now.
-
-**A:** __________________________
-
-**B:** It's busy, but there's always something interesting to do. __________________________
-
-**A:** I'm from Bangkok.
-
-#### Đáp án
-
-> **A:** Where are you from?  
-> **B:** I'm from Vietnam.  
-> **A:** Which city?  
-> **B:** I was born in Da Nang, but I live in Hanoi now.  
-> **A:** What's it like?  
-> **B:** It's busy, but there's always something interesting to do. What about you?  
-> **A:** I'm from Bangkok.
-
----
-
-### 18. Thực hành nói
-
-Trả lời thành tiếng các câu sau. Cố gắng không đọc đáp án đã viết sẵn.
-
-1. Where are you from?
-2. Where were you born?
-3. Where do you live now?
-4. What's your hometown like?
-5. What do you like about your hometown?
-6. What's your nationality?
-7. What languages do you speak?
-8. Would you like to live abroad? Why or why not?
-
-#### Khung trả lời gợi ý
-
-> I'm from ________.  
-> I was born in ________, and I live in ________ now.  
-> My hometown is ________.  
-> It's ________ and ________.  
-> I'm ________.  
-> I speak ________ and ________.
-
-Sau khi quen với khung này, hãy bỏ mẫu và trả lời theo cách của riêng bạn.
-
----
-
-### 19. Câu hỏi ôn tập
-
-#### Câu 1
-
-Một người nói:
-
-> I was born in Cambridge, but I live in Glasgow now.
-
-Thông tin nào được xác định chắc chắn?
-
-A. Cambridge là nơi người đó đang sống.  
-B. Glasgow là quốc tịch của người đó.  
-C. Người đó sinh ở Cambridge và hiện sống ở Glasgow.  
-D. Người đó đến từ Scotland về mặt quốc tịch.
-
-**Đáp án:** C
-
-**Giải thích:** `was born in` chỉ nơi sinh, trong khi `live in ... now` chỉ nơi cư trú hiện tại.
-
-#### Câu 2
-
-Bạn biết một người đến từ Nhật Bản. Cặp nào dùng đúng?
-
-A. Japan — Japanese  
-B. Japanese — Japanish  
-C. Japan — Japan  
-D. Japanese — Japanese country
+A. He is Japanese.  
+B. He is from Japanese.  
+C. He Japan.  
+D. He from Japan.
 
 **Đáp án:** A
 
-**Giải thích:** `Japan` là tên quốc gia, còn `Japanese` là từ chỉ quốc tịch và cũng là tên ngôn ngữ.
+**Giải thích:** Cấu trúc nói quốc tịch là `S + to be + nationality adjective`, vì vậy `He is Japanese` phù hợp.
 
-#### Câu 3
+### Câu 3
 
-Bạn muốn hỏi một người xem quê của họ như thế nào. Câu nào tự nhiên nhất?
+Trong cụm `a beautiful place`, từ nào là tính từ?
 
-A. What does it from?  
-B. Do you from there?  
-C. How nationality is it?  
-D. What's it like?
-
-**Đáp án:** D
-
-**Giải thích:** `What's it like?` được dùng để yêu cầu người nói mô tả một nơi, người hoặc sự vật.
-
-#### Câu 4
-
-Câu nào có lỗi về cách dùng **country** và **nationality**?
-
-A. She's German.  
-B. She's from German.  
-C. She's from Germany.  
-D. Her nationality is German.
+A. a  
+B. beautiful  
+C. place  
+D. beautiful place
 
 **Đáp án:** B
 
-**Giải thích:** Sau `from` cần tên địa điểm hoặc quốc gia, vì vậy phải dùng `Germany`, không phải `German`.
+**Giải thích:** `beautiful` cung cấp thêm thông tin cho danh từ `place`, nên nó là tính từ.
 
-#### Câu 5
+### Câu 4
 
-Sau khi một người nói `I'm from Istanbul`, cách nào giúp duy trì hội thoại tự nhiên nhất?
+Câu nào thể hiện đúng cách sử dụng tính từ khi danh từ chuyển sang số nhiều?
 
-A. What's it like?  
-B. Nationality Istanbul?  
-C. You country where?  
-D. Are you language?
+A. two reds cars  
+B. two red cars  
+C. two red car  
+D. two reds car
+
+**Đáp án:** B
+
+**Giải thích:** Tính từ `red` không đổi theo số lượng. Danh từ `car` mới chuyển sang dạng số nhiều `cars`.
+
+### Câu 5
+
+Đâu là cách đọc số `100` được đưa ra trong bài?
+
+A. a hundred / one hundred  
+B. ten hundred only  
+C. hundred one  
+D. one thousands
 
 **Đáp án:** A
 
-**Giải thích:** `What's it like?` mở rộng câu chuyện bằng cách yêu cầu người đối diện mô tả thành phố của họ.
+**Giải thích:** Bài sử dụng cả `a hundred` và `one hundred` cho số 100.
 
 ---
 
-### 20. Tổng kết
+## 7. Tổng kết
 
-Ba khái niệm quan trọng nhất của bài là:
+Ba nhóm kiến thức của Module 01 liên kết trực tiếp với nhau.
 
-**Country**
+**Quốc gia và quốc tịch** giúp trả lời:
 
-> I'm from **Vietnam**.
+- Where are you from?
+- What nationality are you?
 
-**Nationality**
+**Số đếm** giúp xử lý:
 
-> I'm **Vietnamese**.
+- số lượng;
+- địa chỉ;
+- số điện thoại;
+- thời gian;
+- giá tiền.
 
-**Language**
+**Tính từ** giúp mở rộng từ câu cung cấp thông tin sang câu mô tả:
 
-> I speak **Vietnamese**.
+- She is Vietnamese.
+- She is kind.
+- It is a beautiful country.
+- This is a busy road.
 
-Khi nói chi tiết hơn về bản thân, hãy phân biệt:
-
-> **I was born in...** → nơi sinh  
-> **I'm from...** → quê quán / nơi xuất thân  
-> **I live in...** → nơi đang sống
-
-Một chuỗi hội thoại đơn giản nhưng tự nhiên có thể là:
-
-> **Where are you from?**  
-> I'm from Vietnam.  
->
-> **Where do you live now?**  
-> I live in Hanoi.  
->
-> **What's it like?**  
-> It's busy, but there are lots of interesting things to do.  
->
-> **What about you?**
-
-Mục tiêu không chỉ là nhớ danh sách quốc gia và quốc tịch, mà còn là **dùng chúng để tạo một cuộc hội thoại thực tế về bản thân và người khác**.
-
----
-
-## 1.2 — Số đếm
-
-> **Mức độ:** A1–B1 nền tảng  
-> **Thời lượng gợi ý:** 45–60 phút  
-> **Trọng tâm:** Tập trung đọc số, thứ tự, tỷ lệ và số lượng — rất quan trọng trong Listening và mô tả dữ liệu.
-
-### 1. Mục tiêu học tập
-
-- Nhận biết và hiểu nghĩa của nhóm từ cốt lõi theo chủ đề.
-- Dùng được từ trong cụm từ tự nhiên thay vì học từng từ rời rạc.
-- Tạo được câu trả lời ngắn theo phong cách IELTS Speaking Part 1.
-- Ôn lại bằng bài tập nhận diện, điền từ và sản xuất ngôn ngữ.
-
-### 2. Từ vựng cốt lõi
-
-| Từ / cụm từ | Loại từ | Nghĩa tiếng Việt | Collocation / cách dùng |
-|---|---|---|---|
-| **zero** | number | số không | `zero degrees` |
-| **ten** | number | mười | `ten people` |
-| **twenty** | number | hai mươi | `twenty minutes` |
-| **hundred** | number | một trăm | `one hundred students` |
-| **thousand** | number | một nghìn | `two thousand people` |
-| **million** | number | một triệu | `one million residents` |
-| **first** | ordinal | thứ nhất | `the first time` |
-| **second** | ordinal | thứ hai | `the second floor` |
-| **third** | ordinal | thứ ba | `the third largest` |
-| **half** | n./det. | một nửa | `half of the class` |
-| **quarter** | n. | một phần tư | `a quarter of` |
-| **double** | adj./v. | gấp đôi | `double the amount` |
-| **total** | n./adj. | tổng; tổng cộng | `the total number` |
-| **percentage** | n. | tỷ lệ phần trăm | `a high percentage` |
-| **approximately** | adv. | xấp xỉ | `approximately 50 people` |
-
-### 3. Học theo cụm, không học từ đơn
-
-- **zero** → **zero degrees**
-- **ten** → **ten people**
-- **twenty** → **twenty minutes**
-- **hundred** → **one hundred students**
-- **thousand** → **two thousand people**
-- **million** → **one million residents**
-
-**Nguyên tắc:** khi ghi flashcard, mặt trước nên là *cụm từ hoặc câu*, không chỉ là một từ đơn. Ví dụ: `destination → a popular destination`, thay vì chỉ học `destination = điểm đến`.
-
-### 4. Mẫu câu ứng dụng
-
-- I often use **zero** when I talk about this topic.
-- In my experience, **ten people** is quite common.
-- One thing I find useful is **twenty minutes**.
-- Compared with the past, **one hundred students** is more common now.
-- Personally, I think **thousand** is an important part of everyday life.
-
-### 5. Bài tập A — Nối từ với nghĩa
-
-1. **zero**
-2. **ten**
-3. **twenty**
-4. **hundred**
-5. **thousand**
-
-A. hai mươi
-B. một trăm
-C. một nghìn
-D. số không
-E. mười
-
-### 6. Bài tập B — Điền từ/cụm từ
-
-1. one __________ residents
-2. the __________ time
-3. the __________ floor
-4. the __________ largest
-5. __________ of the class
-
-### 7. Bài tập C — Speaking mini-practice
-
-1. Hãy nói 3–4 câu về **số đếm** và dùng ít nhất **4 từ** trong bảng.
-2. Trả lời lại một lần nữa nhưng cố dùng **2 collocation** thay vì chỉ dùng từ đơn.
-3. Tự ghi âm 30–45 giây; nghe lại và kiểm tra phát âm, số lần lặp từ và độ tự nhiên.
-
-### 8. Đáp án gợi ý
-
-- **Bài A:** 1-D, 2-E, 3-A, 4-B, 5-C.
-- **Bài B:** 1. million; 2. first; 3. second; 4. third; 5. half.
-- **Bài C:** không có một đáp án duy nhất; ưu tiên câu đúng, tự nhiên và dùng đúng collocation.
-
-### 9. Ôn nhanh theo Spaced Repetition
-
-- **Ngày 0:** học 15 từ + đọc to collocation.
-- **Ngày 1:** che cột nghĩa và tự nhớ.
-- **Ngày 3:** viết 5 câu mới.
-- **Ngày 7:** nói 1 phút về chủ đề mà không nhìn tài liệu.
-
----
-
-## 1.3 — Các tính từ phổ biến
-
-> **Mức độ:** A1–B1 nền tảng  
-> **Thời lượng gợi ý:** 45–60 phút  
-> **Trọng tâm:** Ưu tiên tính từ có thể tái sử dụng ở nhiều chủ đề và kết hợp chính xác với danh từ.
-
-### 1. Mục tiêu học tập
-
-- Nhận biết và hiểu nghĩa của nhóm từ cốt lõi theo chủ đề.
-- Dùng được từ trong cụm từ tự nhiên thay vì học từng từ rời rạc.
-- Tạo được câu trả lời ngắn theo phong cách IELTS Speaking Part 1.
-- Ôn lại bằng bài tập nhận diện, điền từ và sản xuất ngôn ngữ.
-
-### 2. Từ vựng cốt lõi
-
-| Từ / cụm từ | Loại từ | Nghĩa tiếng Việt | Collocation / cách dùng |
-|---|---|---|---|
-| **important** | adj. | quan trọng | `an important issue` |
-| **common** | adj. | phổ biến | `a common problem` |
-| **different** | adj. | khác nhau | `different from` |
-| **similar** | adj. | tương tự | `similar to` |
-| **popular** | adj. | phổ biến; được ưa chuộng | `a popular choice` |
-| **convenient** | adj. | tiện lợi | `a convenient location` |
-| **expensive** | adj. | đắt | `an expensive product` |
-| **cheap** | adj. | rẻ | `cheap accommodation` |
-| **crowded** | adj. | đông đúc | `a crowded city` |
-| **quiet** | adj. | yên tĩnh | `a quiet area` |
-| **modern** | adj. | hiện đại | `modern technology` |
-| **traditional** | adj. | truyền thống | `traditional food` |
-| **healthy** | adj. | lành mạnh; khỏe mạnh | `a healthy lifestyle` |
-| **difficult** | adj. | khó | `a difficult task` |
-| **useful** | adj. | hữu ích | `useful information` |
-
-### 3. Học theo cụm, không học từ đơn
-
-- **important** → **an important issue**
-- **common** → **a common problem**
-- **different** → **different from**
-- **similar** → **similar to**
-- **popular** → **a popular choice**
-- **convenient** → **a convenient location**
-
-**Nguyên tắc:** khi ghi flashcard, mặt trước nên là *cụm từ hoặc câu*, không chỉ là một từ đơn. Ví dụ: `destination → a popular destination`, thay vì chỉ học `destination = điểm đến`.
-
-### 4. Mẫu câu ứng dụng
-
-- I often use **important** when I talk about this topic.
-- In my experience, **a common problem** is quite common.
-- One thing I find useful is **different from**.
-- Compared with the past, **similar to** is more common now.
-- Personally, I think **popular** is an important part of everyday life.
-
-### 5. Bài tập A — Nối từ với nghĩa
-
-1. **important**
-2. **common**
-3. **different**
-4. **similar**
-5. **popular**
-
-A. khác nhau
-B. tương tự
-C. phổ biến; được ưa chuộng
-D. quan trọng
-E. phổ biến
-
-### 6. Bài tập B — Điền từ/cụm từ
-
-1. a __________ location
-2. an __________ product
-3. __________ accommodation
-4. a __________ city
-5. a __________ area
-
-### 7. Bài tập C — Speaking mini-practice
-
-1. Hãy nói 3–4 câu về **các tính từ phổ biến** và dùng ít nhất **4 từ** trong bảng.
-2. Trả lời lại một lần nữa nhưng cố dùng **2 collocation** thay vì chỉ dùng từ đơn.
-3. Tự ghi âm 30–45 giây; nghe lại và kiểm tra phát âm, số lần lặp từ và độ tự nhiên.
-
-### 8. Đáp án gợi ý
-
-- **Bài A:** 1-D, 2-E, 3-A, 4-B, 5-C.
-- **Bài B:** 1. convenient; 2. expensive; 3. cheap; 4. crowded; 5. quiet.
-- **Bài C:** không có một đáp án duy nhất; ưu tiên câu đúng, tự nhiên và dùng đúng collocation.
-
-### 9. Ôn nhanh theo Spaced Repetition
-
-- **Ngày 0:** học 15 từ + đọc to collocation.
-- **Ngày 1:** che cột nghĩa và tự nhớ.
-- **Ngày 3:** viết 5 câu mới.
-- **Ngày 7:** nói 1 phút về chủ đề mà không nhìn tài liệu.
+Khi luyện tập, không nên chỉ học từng từ riêng lẻ. Hãy đặt chúng vào các mẫu câu ngắn, sau đó kết hợp nhiều nhóm kiến thức trong cùng một câu hoặc một đoạn giới thiệu. Cách tổ chức bài theo hướng mục tiêu → kiến thức → ví dụ → thực hành → ôn tập cũng phù hợp với cấu trúc `lesson` được yêu cầu cho tài liệu khóa học.
