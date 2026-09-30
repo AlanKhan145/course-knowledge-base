@@ -105,6 +105,15 @@
     .quiz-result { min-height: 25px; margin-top: 9px; font-weight: 750; }
     .correct { color: var(--green); }
     .incorrect { color: var(--coral); }
+    .mcq-stack { display: grid; gap: 14px; }
+    .mcq-item { padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+    .mcq-item p { margin: 0 0 8px; }
+    .mcq-options { display: grid; gap: 7px; margin: 10px 0; }
+    .mcq-options label { display: flex; gap: 9px; align-items: flex-start; padding: 9px 11px; border: 1px solid var(--line); border-radius: 11px; cursor: pointer; }
+    .mcq-options label:hover { border-color: #9aacff; background: #f6f8ff; }
+    .mcq-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .mcq-actions .btn { padding: 8px 13px; }
+    .mcq-result { margin-top: 0; }
     .exam-card { overflow: hidden; }
     .exam-card img { width: 100%; aspect-ratio: 1.5; object-fit: cover; }
     .exam-card .pad { padding: 17px; }
@@ -261,41 +270,32 @@
         </section>
 
         <section class="section" id="practice">
-          <div class="section-head"><div><span class="pill">Practice bank</span><h2>Bài tập theo đúng Module 01</h2></div><p>Làm hết phần bài tập trước, chỉ mở đáp án sau đó. Mỗi lần làm lại hãy che đáp án, nói thành tiếng và ghi lại lỗi lặp lại.</p></div>
-          <div class="grid three">
-            <div class="card pad">
-              <h3>1 · Country, nationality & language</h3>
-              <ol>
-                <li>She is from France. She is ________.</li>
-                <li>He is from Japan. He is ________.</li>
-                <li>They are from Australia. They are ________.</li>
-                <li>She is Vietnamese. She is from ________.</li>
-                <li>He is German. He is from ________.</li>
-              </ol>
-              <p class="tiny">Sau đó tự hoàn thành: <em>I am from … / I am … / I speak …</em></p>
-              <details><summary>Mở đáp án</summary><p>1. French · 2. Japanese · 3. Australian · 4. Vietnam · 5. Germany.</p><p>Ví dụ: <em>He is from Brazil. He is Brazilian. He speaks Portuguese.</em></p></details>
-            </div>
-            <div class="card pad">
-              <h3>2 · Viết số bằng tiếng Anh</h3>
-              <ol>
-                <li>7</li><li>12</li><li>18</li><li>20</li><li>34</li><li>40</li><li>61</li><li>90</li><li>100</li><li>125</li><li>1,000</li><li>1,000,000</li>
-              </ol>
-              <details><summary>Mở đáp án</summary><p>seven · twelve · eighteen · twenty · thirty-four · forty · sixty-one · ninety · one hundred · one hundred and twenty-five / one hundred twenty-five · one thousand · one million.</p></details>
-            </div>
-            <div class="card pad">
-              <h3>3 · Adjective placement</h3>
-              <p>Tìm tính từ: <em>a yellow bus, a dirty boy, She is worried, a fast horse, The road is dangerous.</em></p>
-              <p>Đổi sang câu: <em>a slow car</em> · <em>a dangerous road</em> · <em>a happy girl</em> · <em>a clean room</em>.</p>
-              <details><summary>Mở đáp án</summary><p>Tính từ: yellow, dirty, worried, fast, dangerous.</p><p><em>The car is slow. The road is dangerous. The girl is happy. The room is clean.</em></p></details>
-            </div>
-          </div>
-          <div class="grid two" style="margin-top:18px">
-            <div class="card pad"><h3>4 · Biến đổi cấu trúc</h3><p><span class="formula">adjective + noun</span> → <span class="formula">S + be + adjective</span></p><ul><li>a beautiful place → ____________________</li><li>an old building → ____________________</li><li>a busy street → ____________________</li><li>a new car → ____________________</li><li>a safe road → ____________________</li></ul><details><summary>Đáp án mẫu</summary><p>The place is beautiful. The building is old. The street is busy. The car is new. The road is safe.</p></details></div>
-            <div class="card pad"><h3>5 · Cặp trái nghĩa</h3><p>Nối hoặc nói thành tiếng: <strong>young / old</strong> · <strong>fast / slow</strong> · <strong>happy / unhappy</strong> · <strong>beautiful / ugly</strong> · <strong>safe / dangerous</strong> · <strong>rich / poor</strong> · <strong>clean / dirty</strong> · <strong>busy / quiet</strong> · <strong>hot / cold</strong> · <strong>large / small</strong>.</p><p class="tiny">Tạo tối thiểu 5 câu: <em>This building is old. That building is new.</em></p></div>
-          </div>
-          <div class="callout mint" style="margin-top:18px"><strong>6 · Tự kiểm tra cuối module</strong><p>Không nhìn tài liệu: Bạn đến từ đâu? Quốc tịch và ngôn ngữ là gì? 45/61 đọc thế nào? Kể 5 tính từ người và 5 tính từ địa điểm. Mô tả đất nước của bạn bằng 3 câu. Tự giới thiệu bằng 5 câu tiếng Anh.</p><details><summary>Mẫu tham khảo</summary><p><em>My name is Minh. I am from Vietnam. I am Vietnamese. I speak Vietnamese and English. Vietnam is a beautiful country.</em></p></details></div>
-        </section>
+          <div class="section-head"><div><span class="pill">Practice bank · MCQ</span><h2>Bài tập trắc nghiệm Module 01</h2></div><p>Chọn A/B/C/D cho từng câu rồi bấm “Kiểm tra”. Khi làm lại, hãy chọn lại từ trí nhớ trước khi xem phản hồi; phần nói và viết vẫn giữ dạng output để luyện sản sinh ngôn ngữ.</p></div>
 
+          <div class="card pad" id="practice-country">
+            <div class="section-head"><div><h3>1 · Country, nationality &amp; language</h3><p class="tiny">Phân biệt tên quốc gia, quốc tịch và ngôn ngữ.</p></div><button class="btn secondary" data-mcq-reset="practice-country">Làm lại nhóm</button></div>
+            <div class="mcq-stack" data-mcq-list="country"></div>
+            <div class="callout mint" style="margin-top:16px"><strong>Output sau trắc nghiệm</strong><p>Tự hoàn thành thành tiếng: <em>I am from … / I am … / I speak …</em></p><p class="tiny">Ví dụ: <em>He is from Brazil. He is Brazilian. He speaks Portuguese.</em></p></div>
+          </div>
+
+          <div class="card pad" id="practice-numbers" style="margin-top:18px">
+            <div class="section-head"><div><h3>2 · Viết số bằng tiếng Anh</h3><p class="tiny">Chọn cách viết đúng. Với 125, cả “and” (Anh-Anh) và không có “and” (Anh-Mỹ) đều được dùng.</p></div><button class="btn secondary" data-mcq-reset="practice-numbers">Làm lại nhóm</button></div>
+            <div class="mcq-stack" data-mcq-list="numbers"></div>
+          </div>
+
+          <div class="card pad" id="practice-adjectives" style="margin-top:18px">
+            <div class="section-head"><div><h3>3 · Adjective placement</h3><p class="tiny">Nhận diện tính từ rồi chọn câu chuyển đúng từ <em>adjective + noun</em> sang <em>S + be + adjective</em>.</p></div><button class="btn secondary" data-mcq-reset="practice-adjectives">Làm lại nhóm</button></div>
+            <div class="mcq-stack" data-mcq-list="adjectives"></div>
+          </div>
+
+          <div class="card pad" id="practice-opposites" style="margin-top:18px">
+            <div class="section-head"><div><h3>4 · Cặp trái nghĩa</h3><p class="tiny">Chọn từ trái nghĩa phù hợp, sau đó dùng ít nhất 5 cặp để đặt câu.</p></div><button class="btn secondary" data-mcq-reset="practice-opposites">Làm lại nhóm</button></div>
+            <div class="mcq-stack" data-mcq-list="opposites"></div>
+            <p class="tiny" style="margin-top:16px">Output: tạo tối thiểu 5 câu, ví dụ: <em>This building is old. That building is new.</em></p>
+          </div>
+
+          <div class="callout mint" style="margin-top:18px"><strong>5 · Tự kiểm tra cuối module</strong><p>Phần này không có lựa chọn A/B/C/D vì mục tiêu là kiểm tra khả năng tự sản sinh: Không nhìn tài liệu, bạn đến từ đâu? Quốc tịch và ngôn ngữ là gì? 45/61 đọc thế nào? Kể 5 tính từ người và 5 tính từ địa điểm. Mô tả đất nước của bạn bằng 3 câu. Tự giới thiệu bằng 5 câu tiếng Anh.</p><details><summary>Mẫu tham khảo</summary><p><em>My name is Minh. I am from Vietnam. I am Vietnamese. I speak Vietnamese and English. Vietnam is a beautiful country.</em></p></details></div>
+        </section>
         <section class="section" id="retrieval">
           <div class="section-head"><div><span class="pill">Cách học</span><h2>Vòng lặp 5 bước</h2></div><p>Cấu trúc này bám theo course map và protocol nghiên cứu nội bộ: retrieval/SRS → input vừa sức → listening có hỗ trợ → output → feedback → task repetition.</p></div>
           <div class="steps">
@@ -309,18 +309,17 @@
         </section>
 
         <section class="section" id="toeic">
-          <div class="section-head"><div><span class="pill">Practice bank · 6 ảnh riêng</span><h2>TOEIC Listening Part 1</h2></div><p>Đây là picture drill trước khi thêm audio: mỗi câu có một ảnh riêng, 4 mô tả và đáp án kiểm tra nhanh. Khi có audio, giữ nguyên image-id để gắn file nghe tương ứng.</p></div>
+          <div class="section-head"><div><span class="pill">Practice bank · 6 ảnh riêng · MCQ</span><h2>TOEIC Listening Part 1</h2></div><div><p>Nhìn ảnh → chọn 1 trong 4 câu mô tả đúng. Mỗi câu giữ image-id riêng để sau này gắn audio.</p><button class="btn secondary" data-mcq-reset="toeic">Làm lại 6 câu</button></div></div>
           <div class="grid three">
-            <article class="card exam-card"><img src="assets/exam/toeic-part1/q01-office-shelf.png" alt="Một phụ nữ xếp hồ sơ lên kệ"><div class="pad"><h3>Question 1</h3><p>A. A woman is arranging folders on a shelf.<br>B. A woman is washing a window.<br>C. A woman is carrying a bicycle.<br>D. A woman is sitting in a cafe.</p><button class="btn" data-answer="a" data-exam="toeic-1">Check</button><div class="quiz-result" id="toeic-1" aria-live="polite"></div></div></article>
-            <article class="card exam-card"><img src="assets/exam/toeic-part1/q02-document-discussion.png" alt="Hai đồng nghiệp thảo luận tài liệu"><div class="pad"><h3>Question 2</h3><p>A. They are planting flowers.<br>B. They are discussing a document.<br>C. They are waiting for a bus.<br>D. They are loading a suitcase.</p><button class="btn" data-answer="b" data-exam="toeic-2">Check</button><div class="quiz-result" id="toeic-2" aria-live="polite"></div></div></article>
-            <article class="card exam-card"><img src="assets/exam/toeic-part1/q03-loading-suitcase.png" alt="Một người đặt vali vào xe"><div class="pad"><h3>Question 3</h3><p>A. A man is loading a suitcase into a car.<br>B. A man is repairing a shelf.<br>C. A man is serving coffee.<br>D. A man is riding a bicycle.</p><button class="btn" data-answer="a" data-exam="toeic-3">Check</button><div class="quiz-result" id="toeic-3" aria-live="polite"></div></div></article>
-            <article class="card exam-card"><img src="assets/exam/toeic-part1/q04-cafe-line.png" alt="Mọi người xếp hàng tại quầy cà phê"><div class="pad"><h3>Question 4</h3><p>A. People are lining up at a cafe counter.<br>B. People are crossing a street.<br>C. People are cleaning a garden.<br>D. People are moving into an office.</p><button class="btn" data-answer="a" data-exam="toeic-4">Check</button><div class="quiz-result" id="toeic-4" aria-live="polite"></div></div></article>
-            <article class="card exam-card"><img src="assets/exam/toeic-part1/q05-watering-plants.png" alt="Một nhân viên tưới cây"><div class="pad"><h3>Question 5</h3><p>A. A worker is watering plants.<br>B. A worker is printing a report.<br>C. A worker is packing books.<br>D. A worker is waiting in line.</p><button class="btn" data-answer="a" data-exam="toeic-5">Check</button><div class="quiz-result" id="toeic-5" aria-live="polite"></div></div></article>
-            <article class="card exam-card"><img src="assets/exam/toeic-part1/q06-locking-bicycle.png" alt="Một người khóa xe đạp"><div class="pad"><h3>Question 6</h3><p>A. A cyclist is locking a bicycle.<br>B. A cyclist is reading a menu.<br>C. A cyclist is washing a car.<br>D. A cyclist is carrying a plant.</p><button class="btn" data-answer="a" data-exam="toeic-6">Check</button><div class="quiz-result" id="toeic-6" aria-live="polite"></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q01-office-shelf.png" alt="Một phụ nữ xếp hồ sơ lên kệ"><div class="pad"><div class="mcq-item" data-mcq><h3>Question 1</h3><div class="mcq-options"><label><input type="radio" name="toeic-1" value="a"> A. A woman is arranging folders on a shelf.</label><label><input type="radio" name="toeic-1" value="b"> B. A woman is washing a window.</label><label><input type="radio" name="toeic-1" value="c"> C. A woman is carrying a bicycle.</label><label><input type="radio" name="toeic-1" value="d"> D. A woman is sitting in a cafe.</label></div><div class="mcq-actions"><button class="btn" data-mcq-answer="a">Check</button><div class="quiz-result mcq-result" aria-live="polite"></div></div></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q02-document-discussion.png" alt="Hai đồng nghiệp thảo luận tài liệu"><div class="pad"><div class="mcq-item" data-mcq><h3>Question 2</h3><div class="mcq-options"><label><input type="radio" name="toeic-2" value="a"> A. They are planting flowers.</label><label><input type="radio" name="toeic-2" value="b"> B. They are discussing a document.</label><label><input type="radio" name="toeic-2" value="c"> C. They are waiting for a bus.</label><label><input type="radio" name="toeic-2" value="d"> D. They are loading a suitcase.</label></div><div class="mcq-actions"><button class="btn" data-mcq-answer="b">Check</button><div class="quiz-result mcq-result" aria-live="polite"></div></div></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q03-loading-suitcase.png" alt="Một người đặt vali vào xe"><div class="pad"><div class="mcq-item" data-mcq><h3>Question 3</h3><div class="mcq-options"><label><input type="radio" name="toeic-3" value="a"> A. A man is loading a suitcase into a car.</label><label><input type="radio" name="toeic-3" value="b"> B. A man is repairing a shelf.</label><label><input type="radio" name="toeic-3" value="c"> C. A man is serving coffee.</label><label><input type="radio" name="toeic-3" value="d"> D. A man is riding a bicycle.</label></div><div class="mcq-actions"><button class="btn" data-mcq-answer="a">Check</button><div class="quiz-result mcq-result" aria-live="polite"></div></div></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q04-cafe-line.png" alt="Mọi người xếp hàng tại quầy cà phê"><div class="pad"><div class="mcq-item" data-mcq><h3>Question 4</h3><div class="mcq-options"><label><input type="radio" name="toeic-4" value="a"> A. People are lining up at a cafe counter.</label><label><input type="radio" name="toeic-4" value="b"> B. People are crossing a street.</label><label><input type="radio" name="toeic-4" value="c"> C. People are cleaning a garden.</label><label><input type="radio" name="toeic-4" value="d"> D. People are moving into an office.</label></div><div class="mcq-actions"><button class="btn" data-mcq-answer="a">Check</button><div class="quiz-result mcq-result" aria-live="polite"></div></div></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q05-watering-plants.png" alt="Một nhân viên tưới cây"><div class="pad"><div class="mcq-item" data-mcq><h3>Question 5</h3><div class="mcq-options"><label><input type="radio" name="toeic-5" value="a"> A. A worker is watering plants.</label><label><input type="radio" name="toeic-5" value="b"> B. A worker is printing a report.</label><label><input type="radio" name="toeic-5" value="c"> C. A worker is packing books.</label><label><input type="radio" name="toeic-5" value="d"> D. A worker is waiting in line.</label></div><div class="mcq-actions"><button class="btn" data-mcq-answer="a">Check</button><div class="quiz-result mcq-result" aria-live="polite"></div></div></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q06-locking-bicycle.png" alt="Một người khóa xe đạp"><div class="pad"><div class="mcq-item" data-mcq><h3>Question 6</h3><div class="mcq-options"><label><input type="radio" name="toeic-6" value="a"> A. A cyclist is locking a bicycle.</label><label><input type="radio" name="toeic-6" value="b"> B. A cyclist is reading a menu.</label><label><input type="radio" name="toeic-6" value="c"> C. A cyclist is washing a car.</label><label><input type="radio" name="toeic-6" value="d"> D. A cyclist is carrying a plant.</label></div><div class="mcq-actions"><button class="btn" data-mcq-answer="a">Check</button><div class="quiz-result mcq-result" aria-live="polite"></div></div></div></div></article>
           </div>
           <div class="card pad" style="margin-top:18px"><h3>Nhịp làm Part 1</h3><p>Nhìn tổng thể → tìm chủ thể chính → xác định hành động → kiểm tra vị trí/vật thể → loại câu mô tả không có trong ảnh. Khi luyện chính thức, thêm audio 4 lựa chọn cho từng <code>q01…q06</code>.</p></div>
         </section>
-
         <section class="section" id="ielts">
           <div class="section-head"><div><span class="pill">Speaking visual prompts · 4 ảnh riêng</span><h2>IELTS Speaking picture-to-output</h2></div><p>Ảnh dùng để luyện mô tả, từ vựng và phát triển ý. Không chấm theo “đoán đúng ảnh”; hãy ưu tiên fluency, vocabulary, grammar và pronunciation.</p></div>
           <div class="grid two" style="grid-template-columns:repeat(2,minmax(0,1fr))">
@@ -436,6 +435,62 @@
       box.checked = Boolean(state['review-' + box.dataset.review]);
       box.addEventListener('change', () => { state['review-' + box.dataset.review] = box.checked; save(); updateProgress(); });
     });
+    const mcqSets = {
+      country: [
+        ['She is from France. She is ________.', ['French', 'France', 'French-speaking', 'Frances'], 'French'],
+        ['He is from Japan. He is ________.', ['Japan', 'Japanese', 'Japanian', 'Japanese-speaking'], 'Japanese'],
+        ['They are from Australia. They are ________.', ['Australians', 'Australian', 'Australia', 'Australish'], 'Australian'],
+        ['She is Vietnamese. She is from ________.', ['Vietnamese', 'Vietnam', 'Viet', 'Vietnamese-language'], 'Vietnam'],
+        ['He is German. He is from ________.', ['German', 'Germany', 'Germani', 'German-speaking'], 'Germany']
+      ],
+      numbers: [
+        ['7', ['seventy', 'seven', 'seventeen', 'six'], 'seven'],
+        ['12', ['twenty', 'two', 'twelve', 'twelfth'], 'twelve'],
+        ['18', ['eighty', 'eighteen', 'eight', 'eighth'], 'eighteen'],
+        ['20', ['twenty', 'twelve', 'two hundred', 'twentieth'], 'twenty'],
+        ['34', ['forty-three', 'thirty-four', 'thirteen-four', 'three-four'], 'thirty-four'],
+        ['40', ['fourteen', 'fourty', 'forty', 'four'], 'forty'],
+        ['61', ['sixteen-one', 'sixty-one', 'sixty-first', 'six-one'], 'sixty-one'],
+        ['90', ['nineteen', 'nine', 'ninety', 'ninth'], 'ninety'],
+        ['100', ['one hundred', 'one thousand', 'one hundredth', 'a hundred thousands'], 'one hundred'],
+        ['125', ['one hundred and twenty-five', 'one hundred and fifty-two', 'one thousand twenty-five', 'one hundred twenty'], 'one hundred and twenty-five'],
+        ['1,000', ['one million', 'one hundred', 'one thousand', 'ten thousand'], 'one thousand'],
+        ['1,000,000', ['one thousand', 'one billion', 'one million', 'one hundred million'], 'one million']
+      ],
+      adjectives: [
+        ['Tính từ trong cụm <em>a yellow bus</em> là từ nào?', ['a', 'yellow', 'bus', 'a bus'], 'yellow'],
+        ['Tính từ trong cụm <em>a dirty boy</em> là từ nào?', ['a', 'boy', 'dirty', 'a boy'], 'dirty'],
+        ['Tính từ trong câu <em>She is worried.</em> là từ nào?', ['She', 'is', 'worried', 'She is'], 'worried'],
+        ['Tính từ trong cụm <em>a fast horse</em> là từ nào?', ['horse', 'a', 'a horse', 'fast'], 'fast'],
+        ['Tính từ trong câu <em>The road is dangerous.</em> là từ nào?', ['road', 'is', 'dangerous', 'The'], 'dangerous'],
+        ['<em>a slow car</em> → câu đúng là:', ['The car is slow.', 'The slow is car.', 'The car slow.', 'Is the car slow.'], 'The car is slow.'],
+        ['<em>a dangerous road</em> → câu đúng là:', ['The road is dangerous.', 'The dangerous is road.', 'The road dangerous.', 'Dangerous the road.'], 'The road is dangerous.'],
+        ['<em>a happy girl</em> → câu đúng là:', ['The happy is girl.', 'The girl is happy.', 'The girl happy.', 'Happy the girl.'], 'The girl is happy.'],
+        ['<em>a clean room</em> → câu đúng là:', ['The clean is room.', 'The room clean.', 'The room is clean.', 'Clean the room.'], 'The room is clean.']
+      ],
+      opposites: [
+        ['Trái nghĩa của <em>young</em> là:', ['old', 'new', 'small', 'quiet'], 'old'],
+        ['Trái nghĩa của <em>fast</em> là:', ['slow', 'quick', 'busy', 'hot'], 'slow'],
+        ['Trái nghĩa của <em>happy</em> là:', ['beautiful', 'unhappy', 'rich', 'safe'], 'unhappy'],
+        ['Trái nghĩa của <em>beautiful</em> là:', ['ugly', 'clean', 'large', 'young'], 'ugly'],
+        ['Trái nghĩa của <em>safe</em> là:', ['dangerous', 'quiet', 'cold', 'poor'], 'dangerous'],
+        ['Trái nghĩa của <em>rich</em> là:', ['poor', 'busy', 'old', 'unhappy'], 'poor'],
+        ['Trái nghĩa của <em>clean</em> là:', ['dirty', 'dangerous', 'ugly', 'small'], 'dirty'],
+        ['Trái nghĩa của <em>busy</em> là:', ['quiet', 'fast', 'hot', 'large'], 'quiet'],
+        ['Trái nghĩa của <em>hot</em> là:', ['cold', 'slow', 'old', 'poor'], 'cold'],
+        ['Trái nghĩa của <em>large</em> là:', ['small', 'young', 'safe', 'beautiful'], 'small']
+      ]
+    };
+    const escapeMcq = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const renderMcqSet = (setName, items) => {
+      const root = document.querySelector('[data-mcq-list="' + setName + '"]');
+      if (!root) return;
+      root.innerHTML = items.map(([prompt, options, answer], index) => {
+        const choices = options.map((option, optionIndex) => '<label><input type="radio" name="' + setName + '-' + index + '" value="' + escapeMcq(option) + '"> ' + String.fromCharCode(65 + optionIndex) + '. ' + escapeMcq(option) + '</label>').join('');
+        return '<div class="mcq-item" data-mcq><p><strong>' + (index + 1) + '.</strong> ' + prompt + '</p><div class="mcq-options">' + choices + '</div><div class="mcq-actions"><button class="btn" data-mcq-answer="' + escapeMcq(answer) + '">Kiểm tra</button><div class="quiz-result mcq-result" aria-live="polite"></div></div></div>';
+      }).join('');
+    };
+    Object.entries(mcqSets).forEach(([setName, items]) => renderMcqSet(setName, items));
     document.querySelectorAll('.quiz[data-quiz] button[data-answer]').forEach(btn => btn.addEventListener('click', () => {
       const quiz = btn.closest('.quiz');
       const selected = quiz.querySelector('input:checked');
@@ -445,12 +500,19 @@
       out.className = 'quiz-result ' + (ok ? 'correct' : 'incorrect');
       out.textContent = ok ? '✓ Chính xác. Hãy nói lại câu đúng thành tiếng.' : 'Chưa đúng. Xem lại quy tắc rồi thử lại.';
     }));
-    document.querySelectorAll('[data-exam]').forEach(btn => btn.addEventListener('click', () => {
-      const out = document.getElementById(btn.dataset.exam);
-      const answer = prompt('Nhập đáp án A, B, C hoặc D:')?.trim().toLowerCase();
-      const ok = answer === btn.dataset.answer;
-      out.className = 'quiz-result ' + (ok ? 'correct' : 'incorrect');
-      out.textContent = ok ? '✓ Đúng.' : `Chưa đúng. Đáp án là ${btn.dataset.answer.toUpperCase()}.`;
+    document.querySelectorAll('[data-mcq] button[data-mcq-answer]').forEach(btn => btn.addEventListener('click', () => {
+      const item = btn.closest('[data-mcq]');
+      const selected = item.querySelector('input:checked');
+      const out = item.querySelector('.mcq-result');
+      if (!selected) { out.className = 'quiz-result incorrect mcq-result'; out.textContent = 'Hãy chọn một đáp án trước.'; return; }
+      const ok = selected.value === btn.dataset.mcqAnswer;
+      out.className = 'quiz-result mcq-result ' + (ok ? 'correct' : 'incorrect');
+      out.textContent = ok ? '✓ Chính xác. Hãy nói lại câu đúng thành tiếng.' : '✗ Chưa đúng. Đáp án: ' + btn.dataset.mcqAnswer + '.';
+    }));
+    document.querySelectorAll('[data-mcq-reset]').forEach(btn => btn.addEventListener('click', () => {
+      const scope = document.getElementById(btn.dataset.mcqReset);
+      scope.querySelectorAll('input[type="radio"]').forEach(input => { input.checked = false; });
+      scope.querySelectorAll('.mcq-result').forEach(out => { out.className = 'quiz-result mcq-result'; out.textContent = ''; });
     }));
     document.querySelector('#resetProgress').addEventListener('click', () => { localStorage.removeItem(KEY); location.reload(); });
     const toTop = document.querySelector('#toTop');
