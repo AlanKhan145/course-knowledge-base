@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 01 · Quốc gia, số đếm và tính từ</title>
+  <meta name="description" content="Bài học tương tác cho Module 01 IELTS Basic Vocabulary Course: quốc gia, số đếm, tính từ, retrieval practice và luyện TOEIC/IELTS.">
+  <style>
+    :root {
+      --ink: #1d2745;
+      --muted: #64708c;
+      --paper: #f7f8fc;
+      --card: #ffffff;
+      --line: #e4e8f1;
+      --navy: #17233f;
+      --blue: #3c69f5;
+      --mint: #dff6ee;
+      --peach: #fff0df;
+      --lavender: #eeebff;
+      --coral: #ed765b;
+      --green: #2c9971;
+      --shadow: 0 16px 45px rgba(22, 35, 63, .08);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    img { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--blue); }
+    .shell { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: 100vh; }
+    .side {
+      position: sticky; top: 0; height: 100vh; overflow: auto;
+      padding: 28px 22px; background: var(--navy); color: #fff;
+    }
+    .brand { display: flex; gap: 10px; align-items: center; margin-bottom: 28px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 13px; background: linear-gradient(135deg, #7e94ff, #f19b7b); }
+    .side small { color: #b5c0df; }
+    .progress-box { margin: 22px 0 24px; padding: 16px; border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: rgba(255,255,255,.07); }
+    .progress-track { height: 8px; margin-top: 10px; border-radius: 20px; background: rgba(255,255,255,.16); overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #8aa0ff, #70e3bb); transition: width .3s ease; }
+    .side nav { display: grid; gap: 6px; }
+    .side nav a { padding: 9px 11px; border-radius: 11px; color: #dbe2ff; text-decoration: none; font-size: 14px; }
+    .side nav a:hover, .side nav a:focus-visible { background: rgba(255,255,255,.1); color: #fff; }
+    .main { min-width: 0; }
+    .hero { position: relative; overflow: hidden; padding: 66px clamp(24px, 6vw, 96px) 56px; background: linear-gradient(135deg, #e9edff 0%, #fdf7ed 58%, #ddf5eb 100%); }
+    .hero::after { content: ""; position: absolute; right: -90px; top: -120px; width: 330px; height: 330px; border-radius: 50%; background: rgba(255,255,255,.45); }
+    .eyebrow { position: relative; z-index: 1; color: #5368bf; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 12px; }
+    h1, h2, h3 { line-height: 1.18; letter-spacing: -.035em; margin: 0 0 14px; }
+    h1 { position: relative; z-index: 1; max-width: 820px; font-size: clamp(38px, 6vw, 72px); }
+    h2 { font-size: clamp(28px, 4vw, 42px); }
+    h3 { font-size: 21px; }
+    .hero p { position: relative; z-index: 1; max-width: 760px; margin: 0; color: #59637d; font-size: 18px; }
+    .hero-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .btn { border: 0; border-radius: 999px; padding: 11px 17px; font-weight: 750; color: #fff; background: var(--navy); box-shadow: 0 8px 20px rgba(23,35,63,.12); }
+    .btn.secondary { color: var(--ink); background: #fff; }
+    .btn.good { background: var(--green); }
+    .content { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 42px 0 80px; }
+    .section { scroll-margin-top: 24px; margin: 34px 0 64px; }
+    .section-head { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 22px; }
+    .section-head p { max-width: 620px; margin: 0; color: var(--muted); }
+    .grid { display: grid; gap: 16px; }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); }
+    .pad { padding: 22px; }
+    .callout { padding: 18px 20px; border-left: 5px solid var(--blue); border-radius: 16px; background: #fff; box-shadow: var(--shadow); }
+    .callout.mint { border-color: var(--green); background: var(--mint); }
+    .callout.peach { border-color: var(--coral); background: var(--peach); }
+    .callout p:last-child, .card p:last-child { margin-bottom: 0; }
+    .pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 9px; color: #4b5fc1; background: var(--lavender); font-size: 12px; font-weight: 800; }
+    .concept { overflow: hidden; }
+    .concept img { width: 100%; aspect-ratio: 1.25; object-fit: cover; border-bottom: 1px solid var(--line); }
+    .concept .copy { padding: 16px; }
+    .concept .term { margin: 4px 0 2px; font-size: 20px; font-weight: 850; }
+    .concept .meaning { margin: 0; color: var(--muted); }
+    .example { margin-top: 12px; padding: 10px 12px; border-radius: 12px; background: #f5f7fb; color: #45516d; font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 15px; background: #fff; box-shadow: var(--shadow); }
+    th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: #4b5fc1; background: #f0f3ff; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; }
+    tr:last-child td { border-bottom: 0; }
+    .formula { display: inline-block; padding: 10px 13px; border-radius: 12px; color: #fff; background: var(--navy); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; counter-reset: step; }
+    .step { position: relative; padding: 17px; border: 1px solid var(--line); border-radius: 17px; background: #fff; }
+    .step::before { counter-increment: step; content: counter(step); display: grid; place-items: center; width: 28px; height: 28px; margin-bottom: 10px; border-radius: 50%; color: #fff; background: var(--blue); font-weight: 800; }
+    .step strong { display: block; margin-bottom: 4px; }
+    .flashcard { display: flex; flex-direction: column; min-height: 100%; overflow: hidden; }
+    .flashcard img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+    .flash-body { display: flex; flex: 1; flex-direction: column; padding: 15px; }
+    .flash-body .hidden-answer { display: none; margin-top: 9px; padding-top: 9px; border-top: 1px dashed var(--line); color: var(--muted); }
+    .flashcard.revealed .hidden-answer { display: block; }
+    .flashcard.revealed .reveal { background: var(--green); }
+    .reveal { margin-top: auto; padding: 9px 12px; border: 0; border-radius: 11px; color: #fff; background: var(--navy); font-weight: 750; }
+    .quiz { padding: 20px; border: 1px solid var(--line); border-radius: 19px; background: #fff; box-shadow: var(--shadow); }
+    .quiz + .quiz { margin-top: 14px; }
+    .quiz-options { display: grid; gap: 8px; margin: 14px 0; }
+    .quiz-options label { display: flex; gap: 9px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; }
+    .quiz-options label:hover { border-color: #9aacff; background: #f6f8ff; }
+    .quiz-result { min-height: 25px; margin-top: 9px; font-weight: 750; }
+    .correct { color: var(--green); }
+    .incorrect { color: var(--coral); }
+    .exam-card { overflow: hidden; }
+    .exam-card img { width: 100%; aspect-ratio: 1.5; object-fit: cover; }
+    .exam-card .pad { padding: 17px; }
+    .exam-card textarea { width: 100%; min-height: 120px; resize: vertical; padding: 12px; border: 1px solid var(--line); border-radius: 12px; }
+    .timer { display: inline-flex; gap: 8px; align-items: center; padding: 7px 10px; border-radius: 10px; background: var(--navy); color: #fff; font: 700 14px ui-monospace, monospace; }
+    .review-table input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--green); }
+    .embedded-lab { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; box-shadow: var(--shadow); }
+    .embedded-lab iframe { display: block; width: 100%; min-height: 900px; height: 900px; border: 0; background: #f7f8fc; }
+    .source-list { display: grid; gap: 8px; padding-left: 20px; color: var(--muted); }
+    .muted { color: var(--muted); }
+    .tiny { color: var(--muted); font-size: 13px; }
+    .to-top { position: fixed; right: 20px; bottom: 20px; display: none; border: 0; border-radius: 50%; width: 44px; height: 44px; color: #fff; background: var(--blue); box-shadow: var(--shadow); }
+    .to-top.show { display: block; }
+    @media (max-width: 1050px) { .shell { grid-template-columns: 1fr; } .side { position: static; height: auto; } .side nav { grid-template-columns: repeat(3, minmax(0, 1fr)); } .grid.four { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 720px) { .content { width: min(100% - 24px, 620px); padding-top: 24px; } .hero { padding: 44px 18px 38px; } .side { padding: 18px 14px; } .side nav { grid-template-columns: repeat(2, minmax(0, 1fr)); } .grid.three, .grid.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } .steps { grid-template-columns: 1fr; } .section-head { display: block; } th, td { padding: 9px; font-size: 14px; } }
+    @media (max-width: 450px) { .grid.three, .grid.four { grid-template-columns: 1fr; } h1 { font-size: 42px; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="side">
+      <div class="brand"><span class="brand-mark">✦</span><span>English Lab<br><small>Module 01</small></span></div>
+      <div class="progress-box">
+        <strong>Tiến độ bài học</strong>
+        <div class="tiny" style="color:#dbe2ff"><span id="progressText">0</span>/8 checkpoint</div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+      <nav aria-label="Mục lục">
+        <a href="#overview">Tổng quan</a>
+        <a href="#countries">1 · Countries</a>
+        <a href="#numbers">2 · Numbers</a>
+        <a href="#adjectives">3 · Adjectives</a>
+        <a href="#practice">Bài tập Module 01</a>
+        <a href="#retrieval">Retrieval</a>
+        <a href="#toeic">TOEIC Part 1</a>
+        <a href="#ielts">IELTS Speaking</a>
+        <a href="#exam-lab">Exam Lab đầy đủ</a>
+        <a href="#review-lab">Review Lab lặp lại</a>
+        <a href="#review">Lịch ôn</a>
+        <a href="#sources">Phương pháp</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="hero" id="overview">
+        <div class="eyebrow">IELTS Basic Vocabulary · Foundation</div>
+        <h1>Quốc gia, số đếm & tính từ phổ biến</h1>
+        <p>Một bài học có nhịp rõ ràng: nhìn hình → hiểu cụm → tự nhớ lại → đặt câu → lặp lại sau vài ngày. Mỗi mục từ và mỗi câu luyện hình ảnh có asset riêng để học bằng ngữ cảnh.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#countries">Bắt đầu học</a>
+          <a class="btn secondary" href="#exam-lab">Mở Exam Lab đầy đủ</a>
+          <a class="btn secondary" href="#review-lab">Mở Review Lab</a>
+          <button class="btn secondary" id="resetProgress">Xóa tiến độ</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="section">
+          <div class="section-head">
+            <div><span class="pill">Mục tiêu</span><h2>Học ít nhưng dùng được</h2></div>
+            <p>Sau module, người học có thể hỏi quê quán, nói quốc tịch, đọc số cơ bản, sử dụng số trong đời sống và mô tả người/vật/địa điểm bằng câu đơn giản.</p>
+          </div>
+          <div class="grid three">
+            <div class="card pad"><h3>Country ≠ nationality</h3><p><strong>She is from France.</strong><br><strong>She is French.</strong></p><p class="muted">Sau <code>from</code> dùng tên quốc gia; sau <code>be</code> có thể dùng quốc tịch.</p></div>
+            <div class="card pad"><h3>Cardinal numbers</h3><p><span class="formula">one · twenty-one · one hundred</span></p><p class="muted">Tập trung vào số điện thoại, giờ, giá tiền, địa chỉ và số phòng.</p></div>
+            <div class="card pad"><h3>Adjective placement</h3><p><span class="formula">adj + noun<br>S + be + adj</span></p><p class="muted"><em>a busy street</em> · <em>The street is busy.</em></p></div>
+          </div>
+        </section>
+
+        <section class="section" id="countries">
+          <div class="section-head">
+            <div><span class="pill">Bài 1</span><h2>Countries & nationalities</h2></div>
+            <p>Học theo cặp country → nationality và nói thành câu, không học danh sách rời.</p>
+          </div>
+          <div class="callout mint"><strong>Mẫu câu cốt lõi</strong><p><span class="formula">Where are you from?</span> → <span class="formula">I am from Vietnam.</span> → <span class="formula">I am Vietnamese.</span></p></div>
+          <table style="margin-top:18px"><thead><tr><th>Country</th><th>Nationality</th><th>Person</th><th>Common language</th></tr></thead><tbody><tr><td>Vietnam</td><td>Vietnamese</td><td>a Vietnamese person</td><td>Vietnamese</td></tr><tr><td>Japan</td><td>Japanese</td><td>a Japanese person</td><td>Japanese</td></tr><tr><td>France</td><td>French</td><td>a French person</td><td>French</td></tr><tr><td>Germany</td><td>German</td><td>a German</td><td>German</td></tr><tr><td>Spain</td><td>Spanish</td><td>a Spanish person</td><td>Spanish</td></tr><tr><td>Brazil</td><td>Brazilian</td><td>a Brazilian</td><td>Portuguese</td></tr><tr><td>Australia</td><td>Australian</td><td>an Australian</td><td>English</td></tr><tr><td>Canada</td><td>Canadian</td><td>a Canadian</td><td>English / French</td></tr><tr><td>Thailand</td><td>Thai</td><td>a Thai person</td><td>Thai</td></tr><tr><td>South Korea</td><td>South Korean</td><td>a South Korean</td><td>Korean</td></tr><tr><td>Switzerland</td><td>Swiss</td><td>a Swiss person</td><td>German / French / Italian</td></tr></tbody></table>
+          <div class="callout peach" style="margin-top:18px"><strong>Nhớ cách dùng an toàn</strong><p>Không tự suy ra ngôn ngữ từ tên quốc gia. Với danh từ chỉ người ít thông dụng, dùng <code>nationality + person</code>: <em>a Japanese person, a Chinese person, a Vietnamese person, a Swiss person</em>.</p></div>
+          <div class="grid four" style="margin-top:18px">
+            <article class="card flashcard" data-checkpoint="1"><img src="assets/vocab/countries/vietnam.png" alt="Minh họa Việt Nam"><div class="flash-body"><div class="term">Vietnam → Vietnamese</div><p class="meaning">Việt Nam → người/quốc tịch Việt Nam</p><div class="hidden-answer"><strong>Example:</strong> I am from Vietnam. I am Vietnamese.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/france.png" alt="Minh họa nước Pháp"><div class="flash-body"><div class="term">France → French</div><p class="meaning">Pháp → người/quốc tịch Pháp</p><div class="hidden-answer"><strong>Example:</strong> She is from France. She is French.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/japan.png" alt="Minh họa Nhật Bản"><div class="flash-body"><div class="term">Japan → Japanese</div><p class="meaning">Nhật Bản → người/quốc tịch Nhật</p><div class="hidden-answer"><strong>Example:</strong> He is from Japan. He is Japanese.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/germany.png" alt="Minh họa nước Đức"><div class="flash-body"><div class="term">Germany → German</div><p class="meaning">Đức → người/quốc tịch Đức</p><div class="hidden-answer"><strong>Example:</strong> He is German.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/australia.png" alt="Minh họa Australia"><div class="flash-body"><div class="term">Australia → Australian</div><p class="meaning">Úc → người/quốc tịch Úc</p><div class="hidden-answer"><strong>Example:</strong> They are Australian.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/brazil.png" alt="Minh họa Brazil"><div class="flash-body"><div class="term">Brazil → Brazilian</div><p class="meaning">Brazil → người/quốc tịch Brazil</p><div class="hidden-answer"><strong>Example:</strong> He is from Brazil. He speaks Portuguese.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/canada.png" alt="Minh họa Canada"><div class="flash-body"><div class="term">Canada → Canadian</div><p class="meaning">Canada → người/quốc tịch Canada</p><div class="hidden-answer"><strong>Example:</strong> She is Canadian.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/china.png" alt="Minh họa Trung Quốc"><div class="flash-body"><div class="term">China → Chinese</div><p class="meaning">Trung Quốc → người/quốc tịch Trung Quốc</p><div class="hidden-answer"><strong>Example:</strong> They are Chinese.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/italy.png" alt="Minh họa Italy"><div class="flash-body"><div class="term">Italy → Italian</div><p class="meaning">Ý → người/quốc tịch Ý</p><div class="hidden-answer"><strong>Example:</strong> She is Italian.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/spain.png" alt="Minh họa Tây Ban Nha"><div class="flash-body"><div class="term">Spain → Spanish</div><p class="meaning">Tây Ban Nha → người/quốc tịch Tây Ban Nha</p><div class="hidden-answer"><strong>Example:</strong> Madrid is in Spain.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/thailand.png" alt="Minh họa Thái Lan"><div class="flash-body"><div class="term">Thailand → Thai</div><p class="meaning">Thái Lan → người/quốc tịch Thái</p><div class="hidden-answer"><strong>Example:</strong> She is Thai.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/south-korea.png" alt="Minh họa Hàn Quốc"><div class="flash-body"><div class="term">South Korea → South Korean</div><p class="meaning">Hàn Quốc → người/quốc tịch Hàn Quốc</p><div class="hidden-answer"><strong>Example:</strong> He is South Korean.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/india.png" alt="Minh họa Ấn Độ"><div class="flash-body"><div class="term">India → Indian</div><p class="meaning">Ấn Độ → người/quốc tịch Ấn Độ</p><div class="hidden-answer"><strong>Example:</strong> She is Indian.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/singapore.png" alt="Minh họa Singapore"><div class="flash-body"><div class="term">Singapore → Singaporean</div><p class="meaning">Singapore → người/quốc tịch Singapore</p><div class="hidden-answer"><strong>Example:</strong> He is Singaporean.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/mexico.png" alt="Minh họa Mexico"><div class="flash-body"><div class="term">Mexico → Mexican</div><p class="meaning">Mexico → người/quốc tịch Mexico</p><div class="hidden-answer"><strong>Example:</strong> They are Mexican.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/countries/switzerland.png" alt="Minh họa Thụy Sĩ"><div class="flash-body"><div class="term">Switzerland → Swiss</div><p class="meaning">Thụy Sĩ → người/quốc tịch Thụy Sĩ</p><div class="hidden-answer"><strong>Example:</strong> She is Swiss.</div><button class="reveal">Hiện ví dụ</button></div></article>
+          </div>
+          <div class="grid four" id="countryExtras" style="margin-top:18px"></div>
+          <div class="quiz" style="margin-top:18px" data-quiz="country"><h3>Retrieval check · country hay nationality?</h3><p>She is from ________.</p><div class="quiz-options"><label><input type="radio" name="country-q" value="a"> French</label><label><input type="radio" name="country-q" value="b"> France</label></div><button class="btn" data-answer="b">Kiểm tra</button><div class="quiz-result" aria-live="polite"></div></div>
+        </section>
+
+        <section class="section" id="numbers">
+          <div class="section-head"><div><span class="pill">Bài 2</span><h2>Numbers in daily life</h2></div><p>Không chỉ đọc số trên bảng: hãy gắn số với đồ vật, thời gian, giá tiền, điện thoại và địa chỉ.</p></div>
+          <div class="callout peach"><strong>Nhớ nhanh</strong><p><code>13 thirteen</code> ≠ <code>30 thirty</code> · <code>40 forty</code> (không phải <code>fourty</code>) · <code>61 sixty-one</code>.</p></div>
+          <div class="grid four" style="margin-top:18px">
+            <article class="card flashcard" data-checkpoint="2"><img src="assets/vocab/numbers/zero.png" alt="Không có đồ vật"><div class="flash-body"><div class="term">zero · 0</div><p class="meaning">số không</p><div class="hidden-answer"><strong>Say:</strong> zero / oh</div><button class="reveal">Hiện cách đọc</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/one.png" alt="Một quả táo"><div class="flash-body"><div class="term">one · 1</div><p class="meaning">một</p><div class="hidden-answer"><strong>Example:</strong> one apple</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/two.png" alt="Hai quyển sách"><div class="flash-body"><div class="term">two · 2</div><p class="meaning">hai</p><div class="hidden-answer"><strong>Example:</strong> two books</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/three.png" alt="Ba cây bút chì"><div class="flash-body"><div class="term">three · 3</div><p class="meaning">ba</p><div class="hidden-answer"><strong>Example:</strong> three pencils</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/four.png" alt="Bốn quả bóng bay"><div class="flash-body"><div class="term">four · 4</div><p class="meaning">bốn</p><div class="hidden-answer"><strong>Example:</strong> four balloons</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/five.png" alt="Năm đồng xu"><div class="flash-body"><div class="term">five · 5</div><p class="meaning">năm</p><div class="hidden-answer"><strong>Example:</strong> five coins</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/six.png" alt="Sáu bông hoa"><div class="flash-body"><div class="term">six · 6</div><p class="meaning">sáu</p><div class="hidden-answer"><strong>Example:</strong> six flowers</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/seven.png" alt="Bảy chiếc ghế"><div class="flash-body"><div class="term">seven · 7</div><p class="meaning">bảy</p><div class="hidden-answer"><strong>Example:</strong> seven chairs</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/eight.png" alt="Tám khối màu"><div class="flash-body"><div class="term">eight · 8</div><p class="meaning">tám</p><div class="hidden-answer"><strong>Example:</strong> eight blocks</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/nine.png" alt="Chín ngôi sao"><div class="flash-body"><div class="term">nine · 9</div><p class="meaning">chín</p><div class="hidden-answer"><strong>Example:</strong> nine stars</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/ten.png" alt="Mười cây nến"><div class="flash-body"><div class="term">ten · 10</div><p class="meaning">mười</p><div class="hidden-answer"><strong>Example:</strong> ten candles</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/phone-number.png" alt="Bàn phím điện thoại"><div class="flash-body"><div class="term">phone number</div><p class="meaning">số điện thoại</p><div class="hidden-answer"><strong>Example:</strong> Read each digit separately.</div><button class="reveal">Hiện mẹo đọc</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/time.png" alt="Đồng hồ analog"><div class="flash-body"><div class="term">time</div><p class="meaning">thời gian / giờ</p><div class="hidden-answer"><strong>Example:</strong> It is six twenty.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/price.png" alt="Thẻ và tiền xu"><div class="flash-body"><div class="term">price</div><p class="meaning">giá tiền</p><div class="hidden-answer"><strong>Example:</strong> It is twenty dollars.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/address.png" alt="Biển địa chỉ trống"><div class="flash-body"><div class="term">address</div><p class="meaning">địa chỉ</p><div class="hidden-answer"><strong>Example:</strong> 25 King Street.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/numbers/room.png" alt="Cửa phòng có biển trống"><div class="flash-body"><div class="term">room</div><p class="meaning">phòng</p><div class="hidden-answer"><strong>Example:</strong> Room 205.</div><button class="reveal">Hiện ví dụ</button></div></article>
+          </div>
+          <div class="grid three" style="margin-top:18px"><div class="card pad"><h3>Teens ≠ tens</h3><p><strong>thirteen / thirty</strong><br><strong>fourteen / forty</strong><br><strong>fifteen / fifty</strong><br><strong>sixteen / sixty</strong><br><strong>seventeen / seventy</strong><br><strong>eighteen / eighty</strong><br><strong>nineteen / ninety</strong></p></div><div class="card pad"><h3>21–99</h3><p>Số không tròn chục dùng dấu gạch nối: <span class="formula">61 → sixty-one</span></p><p class="tiny">Không dùng <em>sixty and one</em> trong cách đọc cơ bản.</p></div><div class="card pad"><h3>Hàng lớn</h3><p><span class="formula">125 → one hundred and twenty-five</span></p><p class="tiny">Anh-Mỹ có thể bỏ <em>and</em>. Không thêm <em>-s</em> sau hundred/thousand/million khi đứng sau số cụ thể.</p></div></div>
+          <div class="grid four" id="numberExtras" style="margin-top:18px"></div>
+          <div class="quiz" style="margin-top:18px" data-quiz="number"><h3>Retrieval check · viết số thành chữ</h3><p>Chọn cách viết đúng của <strong>40</strong>.</p><div class="quiz-options"><label><input type="radio" name="number-q" value="a"> fourty</label><label><input type="radio" name="number-q" value="b"> forty</label><label><input type="radio" name="number-q" value="c"> four-ty</label></div><button class="btn" data-answer="b">Kiểm tra</button><div class="quiz-result" aria-live="polite"></div></div>
+        </section>
+
+        <section class="section" id="adjectives">
+          <div class="section-head"><div><span class="pill">Bài 3</span><h2>Common adjectives</h2></div><p>Học theo cặp đối lập và đặt tính từ ở hai vị trí: trước danh từ hoặc sau <code>to be</code>.</p></div>
+          <div class="grid three">
+            <div class="card pad"><h3>Before a noun</h3><p class="formula">a beautiful place<br>a busy street<br>an old building</p></div>
+            <div class="card pad"><h3>After to be</h3><p class="formula">The place is beautiful.<br>The street is busy.<br>The building is old.</p></div>
+            <div class="card pad"><h3>Opposites</h3><p><strong>young ↔ old</strong><br><strong>fast ↔ slow</strong><br><strong>clean ↔ dirty</strong><br><strong>safe ↔ dangerous</strong></p></div>
+          </div>
+          <table style="margin-top:18px"><thead><tr><th>Nhóm</th><th>Từ trọng tâm</th></tr></thead><tbody><tr><td>Ngoại hình / tuổi</td><td>young, old, beautiful, handsome, tall, short, thin, strong</td></tr><tr><td>Tính cách</td><td>kind, clever, friendly, lazy, quiet, funny</td></tr><tr><td>Cảm xúc / trạng thái</td><td>happy, unhappy, angry, worried, relaxed, tired, cold, hot</td></tr><tr><td>Đồ vật / địa điểm</td><td>ugly, new, clean, dirty, safe, dangerous, busy, fast, slow, rich, poor, large, small, modern, famous, special, smelly</td></tr></tbody></table>
+          <div class="grid four" style="margin-top:18px">
+            <article class="card flashcard" data-checkpoint="3"><img src="assets/vocab/adjectives/young.png" alt="Người trẻ"><div class="flash-body"><div class="term">young</div><p class="meaning">trẻ</p><div class="hidden-answer"><strong>Opposite:</strong> old · <em>She is young.</em></div><button class="reveal">Hiện cặp đối lập</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/old.png" alt="Người lớn tuổi"><div class="flash-body"><div class="term">old</div><p class="meaning">già / cũ</p><div class="hidden-answer"><strong>Example:</strong> an old building</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/beautiful.png" alt="Khu vườn đẹp"><div class="flash-body"><div class="term">beautiful</div><p class="meaning">đẹp</p><div class="hidden-answer"><strong>Example:</strong> a beautiful place</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/ugly.png" alt="Đồ vật bừa bộn"><div class="flash-body"><div class="term">ugly</div><p class="meaning">xấu</p><div class="hidden-answer"><strong>Opposite:</strong> beautiful</div><button class="reveal">Hiện cặp đối lập</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/tall.png" alt="Người cao"><div class="flash-body"><div class="term">tall</div><p class="meaning">cao</p><div class="hidden-answer"><strong>Example:</strong> He is tall.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/short.png" alt="Người thấp"><div class="flash-body"><div class="term">short</div><p class="meaning">thấp / ngắn</p><div class="hidden-answer"><strong>Opposite:</strong> tall</div><button class="reveal">Hiện cặp đối lập</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/thin.png" alt="Người mảnh"><div class="flash-body"><div class="term">thin</div><p class="meaning">gầy / mảnh</p><div class="hidden-answer"><strong>Example:</strong> a thin person</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/strong.png" alt="Người khỏe"><div class="flash-body"><div class="term">strong</div><p class="meaning">khỏe / mạnh</p><div class="hidden-answer"><strong>Example:</strong> He is strong.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/kind.png" alt="Người giúp đỡ người khác"><div class="flash-body"><div class="term">kind</div><p class="meaning">tốt bụng</p><div class="hidden-answer"><strong>Example:</strong> She is kind.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/clever.png" alt="Người giải câu đố"><div class="flash-body"><div class="term">clever</div><p class="meaning">thông minh</p><div class="hidden-answer"><strong>Example:</strong> He is clever.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/friendly.png" alt="Hai người chào nhau thân thiện"><div class="flash-body"><div class="term">friendly</div><p class="meaning">thân thiện</p><div class="hidden-answer"><strong>Example:</strong> They are friendly.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/lazy.png" alt="Người đang nghỉ ngơi"><div class="flash-body"><div class="term">lazy</div><p class="meaning">lười</p><div class="hidden-answer"><strong>Example:</strong> He is lazy today.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/happy.png" alt="Người vui vẻ"><div class="flash-body"><div class="term">happy</div><p class="meaning">vui</p><div class="hidden-answer"><strong>Opposite:</strong> unhappy</div><button class="reveal">Hiện cặp đối lập</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/angry.png" alt="Người tức giận"><div class="flash-body"><div class="term">angry</div><p class="meaning">tức giận</p><div class="hidden-answer"><strong>Example:</strong> He is angry.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/worried.png" alt="Người lo lắng"><div class="flash-body"><div class="term">worried</div><p class="meaning">lo lắng</p><div class="hidden-answer"><strong>Example:</strong> She is worried.</div><button class="reveal">Hiện ví dụ</button></div></article>
+            <article class="card flashcard"><img src="assets/vocab/adjectives/tired.png" alt="Người mệt mỏi"><div class="flash-body"><div class="term">tired</div><p class="meaning">mệt</p><div class="hidden-answer"><strong>Example:</strong> I am tired.</div><button class="reveal">Hiện ví dụ</button></div></article>
+          </div>
+          <div class="grid four" id="adjectiveExtras" style="margin-top:18px"></div>
+          <div class="quiz" style="margin-top:18px" data-quiz="adjective"><h3>Retrieval check · vị trí của tính từ</h3><p>Chọn câu đúng.</p><div class="quiz-options"><label><input type="radio" name="adj-q" value="a"> two reds cars</label><label><input type="radio" name="adj-q" value="b"> two red cars</label><label><input type="radio" name="adj-q" value="c"> two red car</label></div><button class="btn" data-answer="b">Kiểm tra</button><div class="quiz-result" aria-live="polite"></div></div>
+        </section>
+
+        <section class="section" id="practice">
+          <div class="section-head"><div><span class="pill">Practice bank</span><h2>Bài tập theo đúng Module 01</h2></div><p>Làm hết phần bài tập trước, chỉ mở đáp án sau đó. Mỗi lần làm lại hãy che đáp án, nói thành tiếng và ghi lại lỗi lặp lại.</p></div>
+          <div class="grid three">
+            <div class="card pad">
+              <h3>1 · Country, nationality & language</h3>
+              <ol>
+                <li>She is from France. She is ________.</li>
+                <li>He is from Japan. He is ________.</li>
+                <li>They are from Australia. They are ________.</li>
+                <li>She is Vietnamese. She is from ________.</li>
+                <li>He is German. He is from ________.</li>
+              </ol>
+              <p class="tiny">Sau đó tự hoàn thành: <em>I am from … / I am … / I speak …</em></p>
+              <details><summary>Mở đáp án</summary><p>1. French · 2. Japanese · 3. Australian · 4. Vietnam · 5. Germany.</p><p>Ví dụ: <em>He is from Brazil. He is Brazilian. He speaks Portuguese.</em></p></details>
+            </div>
+            <div class="card pad">
+              <h3>2 · Viết số bằng tiếng Anh</h3>
+              <ol>
+                <li>7</li><li>12</li><li>18</li><li>20</li><li>34</li><li>40</li><li>61</li><li>90</li><li>100</li><li>125</li><li>1,000</li><li>1,000,000</li>
+              </ol>
+              <details><summary>Mở đáp án</summary><p>seven · twelve · eighteen · twenty · thirty-four · forty · sixty-one · ninety · one hundred · one hundred and twenty-five / one hundred twenty-five · one thousand · one million.</p></details>
+            </div>
+            <div class="card pad">
+              <h3>3 · Adjective placement</h3>
+              <p>Tìm tính từ: <em>a yellow bus, a dirty boy, She is worried, a fast horse, The road is dangerous.</em></p>
+              <p>Đổi sang câu: <em>a slow car</em> · <em>a dangerous road</em> · <em>a happy girl</em> · <em>a clean room</em>.</p>
+              <details><summary>Mở đáp án</summary><p>Tính từ: yellow, dirty, worried, fast, dangerous.</p><p><em>The car is slow. The road is dangerous. The girl is happy. The room is clean.</em></p></details>
+            </div>
+          </div>
+          <div class="grid two" style="margin-top:18px">
+            <div class="card pad"><h3>4 · Biến đổi cấu trúc</h3><p><span class="formula">adjective + noun</span> → <span class="formula">S + be + adjective</span></p><ul><li>a beautiful place → ____________________</li><li>an old building → ____________________</li><li>a busy street → ____________________</li><li>a new car → ____________________</li><li>a safe road → ____________________</li></ul><details><summary>Đáp án mẫu</summary><p>The place is beautiful. The building is old. The street is busy. The car is new. The road is safe.</p></details></div>
+            <div class="card pad"><h3>5 · Cặp trái nghĩa</h3><p>Nối hoặc nói thành tiếng: <strong>young / old</strong> · <strong>fast / slow</strong> · <strong>happy / unhappy</strong> · <strong>beautiful / ugly</strong> · <strong>safe / dangerous</strong> · <strong>rich / poor</strong> · <strong>clean / dirty</strong> · <strong>busy / quiet</strong> · <strong>hot / cold</strong> · <strong>large / small</strong>.</p><p class="tiny">Tạo tối thiểu 5 câu: <em>This building is old. That building is new.</em></p></div>
+          </div>
+          <div class="callout mint" style="margin-top:18px"><strong>6 · Tự kiểm tra cuối module</strong><p>Không nhìn tài liệu: Bạn đến từ đâu? Quốc tịch và ngôn ngữ là gì? 45/61 đọc thế nào? Kể 5 tính từ người và 5 tính từ địa điểm. Mô tả đất nước của bạn bằng 3 câu. Tự giới thiệu bằng 5 câu tiếng Anh.</p><details><summary>Mẫu tham khảo</summary><p><em>My name is Minh. I am from Vietnam. I am Vietnamese. I speak Vietnamese and English. Vietnam is a beautiful country.</em></p></details></div>
+        </section>
+
+        <section class="section" id="retrieval">
+          <div class="section-head"><div><span class="pill">Cách học</span><h2>Vòng lặp 5 bước</h2></div><p>Cấu trúc này bám theo course map và protocol nghiên cứu nội bộ: retrieval/SRS → input vừa sức → listening có hỗ trợ → output → feedback → task repetition.</p></div>
+          <div class="steps">
+            <div class="step"><strong>Recall</strong><span class="muted">Che nghĩa, nhìn ảnh và tự nói từ/cụm.</span></div>
+            <div class="step"><strong>Context</strong><span class="muted">Đọc câu mẫu, chú ý country–nationality và collocation.</span></div>
+            <div class="step"><strong>Output</strong><span class="muted">Tạo một câu mới hoặc tự giới thiệu 30 giây.</span></div>
+            <div class="step"><strong>Feedback</strong><span class="muted">Ghi 2–3 lỗi đáng sửa, không chép mọi lỗi.</span></div>
+            <div class="step"><strong>Repeat</strong><span class="muted">Lặp task tương tự sau 1, 3, 7 và 14 ngày.</span></div>
+          </div>
+          <div class="callout" style="margin-top:18px"><strong>Speaking mini-practice</strong><p>Hãy nói 4 câu, không nhìn bài: <em>My name is … I am from … I am … I speak … I am … years old. I am … and …</em></p><textarea style="width:100%;min-height:90px;border:1px solid var(--line);border-radius:12px;padding:12px" placeholder="Gõ bản nháp nếu cần; sau đó nói thành tiếng."></textarea></div>
+        </section>
+
+        <section class="section" id="toeic">
+          <div class="section-head"><div><span class="pill">Practice bank · 6 ảnh riêng</span><h2>TOEIC Listening Part 1</h2></div><p>Đây là picture drill trước khi thêm audio: mỗi câu có một ảnh riêng, 4 mô tả và đáp án kiểm tra nhanh. Khi có audio, giữ nguyên image-id để gắn file nghe tương ứng.</p></div>
+          <div class="grid three">
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q01-office-shelf.png" alt="Một phụ nữ xếp hồ sơ lên kệ"><div class="pad"><h3>Question 1</h3><p>A. A woman is arranging folders on a shelf.<br>B. A woman is washing a window.<br>C. A woman is carrying a bicycle.<br>D. A woman is sitting in a cafe.</p><button class="btn" data-answer="a" data-exam="toeic-1">Check</button><div class="quiz-result" id="toeic-1" aria-live="polite"></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q02-document-discussion.png" alt="Hai đồng nghiệp thảo luận tài liệu"><div class="pad"><h3>Question 2</h3><p>A. They are planting flowers.<br>B. They are discussing a document.<br>C. They are waiting for a bus.<br>D. They are loading a suitcase.</p><button class="btn" data-answer="b" data-exam="toeic-2">Check</button><div class="quiz-result" id="toeic-2" aria-live="polite"></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q03-loading-suitcase.png" alt="Một người đặt vali vào xe"><div class="pad"><h3>Question 3</h3><p>A. A man is loading a suitcase into a car.<br>B. A man is repairing a shelf.<br>C. A man is serving coffee.<br>D. A man is riding a bicycle.</p><button class="btn" data-answer="a" data-exam="toeic-3">Check</button><div class="quiz-result" id="toeic-3" aria-live="polite"></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q04-cafe-line.png" alt="Mọi người xếp hàng tại quầy cà phê"><div class="pad"><h3>Question 4</h3><p>A. People are lining up at a cafe counter.<br>B. People are crossing a street.<br>C. People are cleaning a garden.<br>D. People are moving into an office.</p><button class="btn" data-answer="a" data-exam="toeic-4">Check</button><div class="quiz-result" id="toeic-4" aria-live="polite"></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q05-watering-plants.png" alt="Một nhân viên tưới cây"><div class="pad"><h3>Question 5</h3><p>A. A worker is watering plants.<br>B. A worker is printing a report.<br>C. A worker is packing books.<br>D. A worker is waiting in line.</p><button class="btn" data-answer="a" data-exam="toeic-5">Check</button><div class="quiz-result" id="toeic-5" aria-live="polite"></div></div></article>
+            <article class="card exam-card"><img src="assets/exam/toeic-part1/q06-locking-bicycle.png" alt="Một người khóa xe đạp"><div class="pad"><h3>Question 6</h3><p>A. A cyclist is locking a bicycle.<br>B. A cyclist is reading a menu.<br>C. A cyclist is washing a car.<br>D. A cyclist is carrying a plant.</p><button class="btn" data-answer="a" data-exam="toeic-6">Check</button><div class="quiz-result" id="toeic-6" aria-live="polite"></div></div></article>
+          </div>
+          <div class="card pad" style="margin-top:18px"><h3>Nhịp làm Part 1</h3><p>Nhìn tổng thể → tìm chủ thể chính → xác định hành động → kiểm tra vị trí/vật thể → loại câu mô tả không có trong ảnh. Khi luyện chính thức, thêm audio 4 lựa chọn cho từng <code>q01…q06</code>.</p></div>
+        </section>
+
+        <section class="section" id="ielts">
+          <div class="section-head"><div><span class="pill">Speaking visual prompts · 4 ảnh riêng</span><h2>IELTS Speaking picture-to-output</h2></div><p>Ảnh dùng để luyện mô tả, từ vựng và phát triển ý. Không chấm theo “đoán đúng ảnh”; hãy ưu tiên fluency, vocabulary, grammar và pronunciation.</p></div>
+          <div class="grid two" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+            <article class="card exam-card"><img src="assets/exam/ielts-speaking/q01-neighborhood-park.png" alt="Công viên khu dân cư yên tĩnh"><div class="pad"><h3>Prompt 1 · A place you enjoy</h3><p>Describe this place. Say where it is, what you can see, what people do there and why you would like to visit it.</p><textarea placeholder="Ghi chú 1 phút chuẩn bị…"></textarea></div></article>
+            <article class="card exam-card"><img src="assets/exam/ielts-speaking/q02-university-classroom.png" alt="Lớp học đại học"><div class="pad"><h3>Prompt 2 · A learning experience</h3><p>Describe the learning environment. Mention the people, objects, activities and how the scene makes you feel.</p><textarea placeholder="Ghi chú 1 phút chuẩn bị…"></textarea></div></article>
+            <article class="card exam-card"><img src="assets/exam/ielts-speaking/q03-weekend-market.png" alt="Chợ cuối tuần"><div class="pad"><h3>Prompt 3 · A busy public place</h3><p>Describe a public place like this. Compare it with a quiet place and explain one advantage and one disadvantage.</p><textarea placeholder="Ghi chú 1 phút chuẩn bị…"></textarea></div></article>
+            <article class="card exam-card"><img src="assets/exam/ielts-speaking/q04-coastline-travel.png" alt="Du khách nhìn cảnh biển"><div class="pad"><h3>Prompt 4 · A memorable trip</h3><p>Describe a trip you remember. Say where you went, what you did, what you saw and why it was memorable.</p><textarea placeholder="Ghi chú 1 phút chuẩn bị…"></textarea></div></article>
+          </div>
+          <div class="callout mint" style="margin-top:18px"><strong>Khung 4 câu để nói ngay</strong><p><code>This is a picture of…</code> → <code>In the foreground…</code> → <code>In the background…</code> → <code>Maybe/Perhaps…</code></p></div>
+        </section>
+
+        <section class="section" id="review">
+          <div class="section-head"><div><span class="pill">Spaced review</span><h2>Lịch ôn 0–1–3–7–14</h2></div><p>Đánh dấu sau khi bạn thật sự tự nhớ lại và dùng từ, không chỉ đọc lại đáp án. Dữ liệu được lưu trong trình duyệt này.</p></div>
+          <table class="review-table"><thead><tr><th>Mốc</th><th>Nhiệm vụ</th><th>Đã làm</th></tr></thead><tbody>
+            <tr><td>Day 0</td><td>Nhìn ảnh, che nghĩa, nói 10 country/nationality + 10 adjective.</td><td><input type="checkbox" data-review="d0"></td></tr>
+            <tr><td>Day 1</td><td>Viết lại số 0–10 và 5 câu <code>S + be + adjective</code>.</td><td><input type="checkbox" data-review="d1"></td></tr>
+            <tr><td>Day 3</td><td>Làm lại 3 retrieval checks và nói đoạn tự giới thiệu 30 giây.</td><td><input type="checkbox" data-review="d3"></td></tr>
+            <tr><td>Day 7</td><td>Làm 6 câu TOEIC Part 1 picture drill; ghi 3 lỗi mô tả.</td><td><input type="checkbox" data-review="d7"></td></tr>
+            <tr><td>Day 14</td><td>Chọn một ảnh IELTS, nói 1–2 phút rồi lặp lại sau feedback.</td><td><input type="checkbox" data-review="d14"></td></tr>
+          </tbody></table>
+        </section>
+
+        <section class="section" id="review-lab">
+          <div class="section-head"><div><span class="pill">All-in-one · Review Lab</span><h2>Ôn lặp lại trong cùng trang</h2></div><p>Review Lab giữ thẻ SRS, mini-test, timer, error log và lộ trình 8 tuần. Dữ liệu vẫn được lưu riêng trong trình duyệt.</p></div>
+          <div class="embedded-lab"><iframe src="review-lab.html" title="Review Lab: SRS và mini-test" loading="lazy"></iframe></div>
+        </section>
+
+        <section class="section" id="exam-lab">
+          <div class="section-head"><div><span class="pill">All-in-one · Exam Lab</span><h2>Luyện TOEIC & IELTS trong cùng trang</h2></div><p>Exam Lab có đầy đủ dạng đề, số lượng câu, tracker từng Part, câu mẫu và các ảnh trực quan riêng.</p></div>
+          <div class="embedded-lab"><iframe src="exam-practice.html" title="Exam Lab: TOEIC và IELTS" loading="lazy"></iframe></div>
+        </section>
+
+        <section class="section" id="sources">
+          <div class="section-head"><div><span class="pill">Thiết kế bài học</span><h2>Vì sao HTML có cấu trúc này?</h2></div><p>Trang này chuyển nội dung Markdown thành một vòng học có thể lặp lại, đồng thời giữ phần luyện thi tách khỏi phần input nền.</p></div>
+          <div class="grid three">
+            <div class="card pad"><h3>Retrieval + spacing</h3><p>Học theo chunk/câu, che đáp án, nhớ lại ở Day 1–3–7–14. Phù hợp với <code>00_overview/02_8_week_study_protocol.md</code> và ghi chú spaced collocations.</p></div>
+            <div class="card pad"><h3>Input có hỗ trợ</h3><p>Ảnh cung cấp ngữ cảnh rõ, có thể thêm caption/audio về sau. Không xem việc gặp một lần là đã nhớ; từ quan trọng phải được recall và dùng lại.</p></div>
+            <div class="card pad"><h3>Output + repetition</h3><p>Mỗi nhóm kết thúc bằng câu tự tạo, picture drill hoặc speaking prompt; lặp task gần giống sau feedback thay vì học thuộc một script.</p></div>
+          </div>
+          <ul class="source-list" style="margin-top:20px">
+            <li>Nội dung bài gốc: <code>01-mo-dau.md</code>.</li>
+            <li>Khung khóa học: <code>language-learning-research/00_overview/00_course_map.md</code>.</li>
+            <li>Protocol ôn tập: <code>language-learning-research/00_overview/02_8_week_study_protocol.md</code>.</li>
+            <li>Spaced collocations, captioned viewing, task repetition và incidental vocabulary: các file tương ứng trong <code>language-learning-research/01_english/</code>.</li>
+            <li>Đủ khung dạng đề TOEIC/IELTS nằm trong <code>exam-practice.html</code>; audio thật cần được gắn thêm theo từng question-id.</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+  <button class="to-top" id="toTop" aria-label="Về đầu trang">↑</button>
+  <script>
+    const KEY = 'english-lab-module-01';
+    const loadState = key => { try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch { return {}; } };
+    const state = loadState(KEY);
+    const save = () => localStorage.setItem(KEY, JSON.stringify(state));
+    const resizeEmbeddedLab = frame => { const fit = () => { try { const doc = frame.contentDocument; const height = Math.max(doc.documentElement.scrollHeight, doc.body ? doc.body.scrollHeight : 0, 900); frame.style.height = height + 'px'; } catch { frame.style.height = '900px'; } }; fit(); setTimeout(fit, 700); setTimeout(fit, 1800); };
+    document.querySelectorAll('.embedded-lab iframe').forEach(frame => frame.addEventListener('load', () => resizeEmbeddedLab(frame)));
+    const extraCards = {
+      countryExtras: [
+        ['greece','Greece → Greek','Hy Lạp → người/quốc tịch Hy Lạp','She is Greek.'], ['egypt','Egypt → Egyptian','Ai Cập → người/quốc tịch Ai Cập','He is Egyptian.'],
+        ['indonesia','Indonesia → Indonesian','Indonesia → người/quốc tịch Indonesia','They are Indonesian.'], ['malaysia','Malaysia → Malaysian','Malaysia → người/quốc tịch Malaysia','She is Malaysian.'],
+        ['philippines','The Philippines → Filipino / Filipina','Philippines → người/quốc tịch Philippines','He is Filipino.'], ['russia','Russia → Russian','Nga → người/quốc tịch Nga','She is Russian.'],
+        ['sweden','Sweden → Swedish','Thụy Điển → người/quốc tịch Thụy Điển','He is Swedish.'], ['switzerland-special','Switzerland → Swiss','Thụy Sĩ → người/quốc tịch Thụy Sĩ','She is Swiss.'],
+        ['turkey','Turkey → Turkish','Thổ Nhĩ Kỳ → người/quốc tịch Thổ Nhĩ Kỳ','He is Turkish.'], ['united-kingdom','United Kingdom → British','Vương quốc Anh → người/quốc tịch Anh','She is British.'],
+        ['portugal','Portugal → Portuguese','Bồ Đào Nha → người/quốc tịch Bồ Đào Nha','He is Portuguese.'], ['england','England → English','Anh → người/quốc tịch Anh','She is English.'],
+        ['britain','Britain → British','Britain → người/quốc tịch Anh','He is British.'], ['korea','Korea → Korean','Hàn Quốc → người/quốc tịch Hàn Quốc','She is Korean.'],
+        ['america','America → American','Mỹ → người/quốc tịch Mỹ','He is American.'], ['canada-special','Canada → Canadian','Canada → người/quốc tịch Canada','She is Canadian.'],
+        ['netherlands','The Netherlands → Dutch','Hà Lan → người/quốc tịch Hà Lan','She is Dutch.']
+      ],
+      numberExtras: [
+        ['eleven','eleven · 11','mười một','eleven students'], ['twelve','twelve · 12','mười hai','twelve months'], ['thirteen','thirteen · 13','mười ba','thirteen years'], ['fourteen','fourteen · 14','mười bốn','fourteen days'],
+        ['fifteen','fifteen · 15','mười lăm','fifteen minutes'], ['sixteen','sixteen · 16','mười sáu','sixteen pages'], ['seventeen','seventeen · 17','mười bảy','seventeen people'], ['eighteen','eighteen · 18','mười tám','eighteen dollars'],
+        ['nineteen','nineteen · 19','mười chín','nineteen rooms'], ['twenty','twenty · 20','hai mươi','twenty questions'], ['thirty','thirty · 30','ba mươi','thirty minutes'], ['forty','forty · 40','bốn mươi','forty students'],
+        ['fifty','fifty · 50','năm mươi','fifty dollars'], ['sixty','sixty · 60','sáu mươi','sixty seconds'], ['seventy','seventy · 70','bảy mươi','seventy pages'], ['eighty','eighty · 80','tám mươi','eighty people'],
+        ['ninety','ninety · 90','chín mươi','ninety days'], ['hundred','one hundred · 100','một trăm','one hundred books'], ['thousand','one thousand · 1,000','một nghìn','one thousand users'], ['million','one million','một triệu','one million views'],
+        ['billion','one billion','một tỷ','one billion stars'], ['first','first','thứ nhất','first place'], ['second','second','thứ hai','second place'], ['third','third','thứ ba','third place'],
+        ['fourth','fourth','thứ tư','fourth floor'], ['decimal','decimal','số thập phân','a decimal number'], ['fraction','fraction','phân số','a simple fraction'], ['roman-numeral','Roman numeral','chữ số La Mã','a Roman numeral'],
+        ['percentage','percentage','phần trăm','a percentage'], ['flight-number','flight number','số chuyến bay','a flight number'], ['postal-code','postal code','mã bưu điện','a postal code'], ['street-address','street address','địa chỉ đường phố','a street address']
+      ],
+      adjectiveExtras: [
+        ['handsome','handsome','đẹp trai','He is handsome.'], ['quiet','quiet','yên tĩnh / ít nói','The park is quiet.'], ['funny','funny','hài hước','She is funny.'], ['unhappy','unhappy','không vui','They are unhappy.'],
+        ['relaxed','relaxed','thư giãn','He feels relaxed.'], ['cold','cold','lạnh','The room is cold.'], ['hot','hot','nóng','The street is hot.'], ['clean','clean','sạch','The room is clean.'],
+        ['dirty','dirty','bẩn','The shoes are dirty.'], ['safe','safe','an toàn','This road is safe.'], ['dangerous','dangerous','nguy hiểm','That road is dangerous.'], ['busy','busy','đông đúc / bận','The street is busy.'],
+        ['fast','fast','nhanh','The car is fast.'], ['slow','slow','chậm','The bus is slow.'], ['rich','rich','giàu','He is rich.'], ['poor','poor','nghèo','The family is poor.'],
+        ['new','new','mới','This is a new building.'], ['large','large','lớn','It is a large room.'], ['small','small','nhỏ','This is a small car.'], ['modern','modern','hiện đại','It is a modern city.'],
+        ['famous','famous','nổi tiếng','It is a famous place.'], ['special','special','đặc biệt','This is a special day.'], ['smelly','smelly','có mùi khó chịu','The bin is smelly.'], ['crowded','crowded','đông đúc','The street is crowded.'],
+        ['empty','empty','trống','The room is empty.'], ['dirty-shoes','dirty','bẩn','The shoes are dirty.'], ['safe-crossing','safe','an toàn','The crossing is safe.'],
+        ['dangerous-storm-road','dangerous','nguy hiểm','The road is dangerous.'], ['busy-office','busy','bận / đông','The office is busy.'], ['quiet-room','quiet','yên tĩnh','The room is quiet.'], ['beautiful-landscape','beautiful','đẹp','The landscape is beautiful.']
+      ]
+    };
+    const renderExtraCards = (targetId, folder, entries) => {
+      const target = document.getElementById(targetId);
+      target.innerHTML = entries.map(([file, term, meaning, example]) => `<article class="card flashcard"><img src="assets/vocab/${folder}/${file}.png" alt="Minh họa ${term}"><div class="flash-body"><div class="term">${term}</div><p class="meaning">${meaning}</p><div class="hidden-answer"><strong>Example:</strong> ${example}</div><button class="reveal">Hiện ví dụ</button></div></article>`).join('');
+    };
+    renderExtraCards('countryExtras', 'countries', extraCards.countryExtras);
+    renderExtraCards('numberExtras', 'numbers', extraCards.numberExtras);
+    renderExtraCards('adjectiveExtras', 'adjectives', extraCards.adjectiveExtras);
+    const updateProgress = () => {
+      const checks = document.querySelectorAll('[data-checkpoint], [data-review]');
+      const done = [...checks].filter(el => (el.matches('input') ? el.checked : state['seen-' + el.dataset.checkpoint])).length;
+      const total = checks.length;
+      document.querySelector('#progressText').textContent = done;
+      document.querySelector('#progressBar').style.width = total ? `${Math.round(done / total * 100)}%` : '0%';
+    };
+    document.querySelectorAll('.reveal').forEach(btn => btn.addEventListener('click', () => {
+      const card = btn.closest('.flashcard');
+      card.classList.toggle('revealed');
+      btn.textContent = card.classList.contains('revealed') ? 'Ẩn ví dụ' : 'Hiện ví dụ';
+      if (card.dataset.checkpoint) { state['seen-' + card.dataset.checkpoint] = card.classList.contains('revealed'); save(); updateProgress(); }
+    }));
+    document.querySelectorAll('[data-review]').forEach(box => {
+      box.checked = Boolean(state['review-' + box.dataset.review]);
+      box.addEventListener('change', () => { state['review-' + box.dataset.review] = box.checked; save(); updateProgress(); });
+    });
+    document.querySelectorAll('.quiz[data-quiz] button[data-answer]').forEach(btn => btn.addEventListener('click', () => {
+      const quiz = btn.closest('.quiz');
+      const selected = quiz.querySelector('input:checked');
+      const out = quiz.querySelector('.quiz-result');
+      if (!selected) { out.className = 'quiz-result incorrect'; out.textContent = 'Hãy chọn một đáp án trước.'; return; }
+      const ok = selected.value === btn.dataset.answer;
+      out.className = 'quiz-result ' + (ok ? 'correct' : 'incorrect');
+      out.textContent = ok ? '✓ Chính xác. Hãy nói lại câu đúng thành tiếng.' : 'Chưa đúng. Xem lại quy tắc rồi thử lại.';
+    }));
+    document.querySelectorAll('[data-exam]').forEach(btn => btn.addEventListener('click', () => {
+      const out = document.getElementById(btn.dataset.exam);
+      const answer = prompt('Nhập đáp án A, B, C hoặc D:')?.trim().toLowerCase();
+      const ok = answer === btn.dataset.answer;
+      out.className = 'quiz-result ' + (ok ? 'correct' : 'incorrect');
+      out.textContent = ok ? '✓ Đúng.' : `Chưa đúng. Đáp án là ${btn.dataset.answer.toUpperCase()}.`;
+    }));
+    document.querySelector('#resetProgress').addEventListener('click', () => { localStorage.removeItem(KEY); location.reload(); });
+    const toTop = document.querySelector('#toTop');
+    window.addEventListener('scroll', () => toTop.classList.toggle('show', window.scrollY > 500));
+    toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    updateProgress();
+  </script>
+</body>
+</html>

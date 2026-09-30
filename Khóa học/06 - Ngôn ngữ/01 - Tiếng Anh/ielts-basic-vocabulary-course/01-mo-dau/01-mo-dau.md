@@ -1,229 +1,351 @@
 # Module 01 — Mở đầu: Quốc gia, số đếm và tính từ phổ biến
 
-Module mở đầu tập trung vào ba nhóm kiến thức nền tảng: **quốc gia và quốc tịch**, **số đếm** và **các tính từ phổ biến**. Đây là những thành phần thường xuyên xuất hiện khi giới thiệu bản thân, nói về quê quán, cung cấp thông tin cá nhân và mô tả người, vật hoặc địa điểm.
+Module này giới thiệu ba nhóm kiến thức nền tảng:
 
-## 1. Mục tiêu học tập
+1. **Quốc gia và quốc tịch**
+2. **Số đếm**
+3. **Các tính từ phổ biến**
 
-Sau khi hoàn thành module, người học có thể:
-
-- phân biệt tên **quốc gia**, **quốc tịch** và cách gọi người đến từ một quốc gia;
-- sử dụng các mẫu câu cơ bản để nói mình hoặc người khác đến từ đâu;
-- nhận diện một số nhóm hậu tố thường gặp khi chuyển từ tên quốc gia sang quốc tịch;
-- đọc và sử dụng các số đếm cơ bản;
-- áp dụng số đếm trong địa chỉ, số điện thoại, thời gian và giá tiền;
-- nhận diện và sử dụng các tính từ phổ biến;
-- đặt tính từ đúng vị trí trong câu;
-- sử dụng tính từ trước danh từ hoặc sau động từ `to be`;
-- mô tả người, đồ vật, đường phố và địa điểm bằng câu đơn giản.
+Đây là những kiến thức thường xuyên được sử dụng khi giới thiệu bản thân, nói về quê quán, cung cấp thông tin cá nhân và mô tả người, đồ vật hoặc địa điểm.
 
 ---
 
-## 2. Bài 1 — Quốc gia và quốc tịch
+# 1. Mục tiêu học tập
 
-### 2.1. Ba khái niệm cần phân biệt
+Sau khi hoàn thành module, người học có thể:
 
-Khi nói về xuất xứ của một người, tiếng Anh thường sử dụng ba khái niệm có liên quan nhưng không hoàn toàn giống nhau:
+- phân biệt **tên quốc gia** và **quốc tịch**;
+- hỏi và trả lời một người đến từ đâu;
+- nói về quốc tịch của bản thân và người khác;
+- nhận biết một số hậu tố thường gặp trong từ chỉ quốc tịch;
+- đọc và sử dụng các số đếm cơ bản;
+- sử dụng số trong số điện thoại, địa chỉ, thời gian và giá tiền;
+- nhận diện các tính từ phổ biến;
+- đặt tính từ đúng vị trí trong câu;
+- sử dụng tính từ trước danh từ hoặc sau động từ `to be`;
+- mô tả người, đồ vật và địa điểm bằng những câu đơn giản.
 
-| Thành phần | Chức năng | Ví dụ |
-| --- | --- | --- |
-| Country | Tên quốc gia | France |
-| Nationality / adjective | Quốc tịch hoặc tính từ chỉ quốc gia | French |
-| Person | Người đến từ quốc gia đó | a Frenchman / a Frenchwoman |
+---
+
+# 2. Bài 1 — Quốc gia và quốc tịch
+
+## 2.1. Country và Nationality
+
+Khi nói về nguồn gốc của một người, cần phân biệt hai khái niệm cơ bản:
+
+| Thành phần | Ý nghĩa | Ví dụ |
+|---|---|---|
+| **Country** | Quốc gia | France |
+| **Nationality** | Quốc tịch / tính từ chỉ quốc gia | French |
 
 Ví dụ:
 
-- She comes from **France**.
+- She is from **France**.
 - She is **French**.
 - Her nationality is **French**.
 - She speaks **French**.
 - She drives a **French** car.
 
-Như vậy, cùng một từ như `French` có thể xuất hiện trong nhiều ngữ cảnh khác nhau, trong khi `France` là tên quốc gia.
+Trong các ví dụ trên:
 
-### 2.2. Hai mẫu câu cơ bản
+- `France` là tên quốc gia.
+- `French` có thể chỉ quốc tịch, ngôn ngữ hoặc đóng vai trò tính từ.
 
-#### Mẫu 1 — Nói một người đến từ đâu
+---
 
-Cấu trúc:
+## 2.2. Hỏi và trả lời một người đến từ đâu
 
-`S + to be + from + country`
+### Câu hỏi
+
+```text
+Where are you from?
+```
+
+Bạn đến từ đâu?
+
+### Cấu trúc trả lời
+
+```text
+S + to be + from + country
+```
 
 Ví dụ:
 
 - I am from Vietnam.
 - She is from France.
+- He is from Germany.
 - They are from Japan.
 
-Tên quốc gia đóng vai trò **danh từ** trong cấu trúc này.
+Trong cấu trúc này, sau `from` là **tên quốc gia**.
 
-#### Mẫu 2 — Nói quốc tịch
+### Ví dụ hội thoại
 
-Cấu trúc:
+**A:** Where are you from?  
+**B:** I am from Vietnam.
 
-`S + to be + nationality adjective`
+**A:** Where is she from?  
+**B:** She is from Japan.
+
+---
+
+## 2.3. Nói về quốc tịch
+
+### Câu hỏi
+
+```text
+What nationality are you?
+```
+
+Bạn mang quốc tịch gì?
+
+### Cấu trúc
+
+```text
+S + to be + nationality
+```
 
 Ví dụ:
 
 - I am Vietnamese.
 - She is French.
+- He is German.
 - They are Japanese.
 
-Ở đây, từ chỉ quốc tịch được sử dụng như một **tính từ**.
+So sánh:
 
-### 2.3. Viết hoa
+```text
+I am from Vietnam.
+I am Vietnamese.
+```
 
-Tên quốc gia, quốc tịch và những từ liên quan đến quốc gia được viết hoa trong tiếng Anh.
+```text
+She is from France.
+She is French.
+```
 
-Đúng:
+Không dùng:
 
+```text
+I am from Vietnamese.
+She is France.
+```
+
+---
+
+## 2.4. Quy tắc viết hoa
+
+Tên quốc gia, quốc tịch và ngôn ngữ luôn được viết hoa trong tiếng Anh.
+
+### Đúng
+
+- Vietnam
+- Vietnamese
 - France
 - French
-- Vietnamese
+- Japan
 - Japanese
 
-Không viết:
+### Sai
 
+- vietnam
+- vietnamese
 - france
 - french
-- vietnamese
 
-Quy tắc viết hoa này áp dụng cho cả danh từ và tính từ chỉ quốc gia hoặc quốc tịch.
+Ví dụ:
 
-### 2.4. Học quốc tịch theo nhóm hậu tố
+```text
+She is Vietnamese.
+```
 
-Thay vì cố ghi nhớ một danh sách quá dài, có thể nhóm các từ theo hậu tố. Nội dung bài học sử dụng các nhóm `-ese`, `-an`, `-ian`, `-ish` và một số trường hợp đặc biệt.
+không viết:
 
-#### Nhóm `-ese`
+```text
+She is vietnamese.
+```
+
+---
+
+## 2.5. Một số hậu tố thường gặp
+
+Nhiều từ chỉ quốc tịch có những hậu tố giống nhau. Có thể sử dụng các nhóm này để hỗ trợ ghi nhớ.
+
+> Đây chỉ là các mẫu thường gặp, không phải quy tắc áp dụng cho mọi quốc gia.
+
+### Nhóm `-ese`
 
 | Country | Nationality |
-| --- | --- |
+|---|---|
 | Vietnam | Vietnamese |
 | China | Chinese |
 | Japan | Japanese |
+| Portugal | Portuguese |
 
-Trong nhóm này, bài học nhấn mạnh trọng âm ở phần cuối của từ.
+Ví dụ:
 
-#### Nhóm `-an`
+- Vietnamese
+- Chinese
+- Japanese
+- Portuguese
+
+---
+
+### Nhóm `-an`
 
 | Country | Nationality |
-| --- | --- |
-| America | American |
-| Australia | Australian |
+|---|---|
+| Canada | Canadian |
 | Mexico | Mexican |
+| Korea | Korean |
+| America | American |
 
-#### Nhóm `-ian`
+---
+
+### Nhóm `-ian`
 
 | Country | Nationality |
-| --- | --- |
-| Egypt | Egyptian |
+|---|---|
+| Australia | Australian |
 | Brazil | Brazilian |
 | Italy | Italian |
+| Egypt | Egyptian |
 
-#### Nhóm `-ish`
+---
+
+### Nhóm `-ish`
 
 | Country | Nationality |
-| --- | --- |
+|---|---|
 | England | English |
 | Britain | British |
+| Spain | Spanish |
 | Turkey | Turkish |
 
-#### Một số trường hợp khác
+---
 
-Không phải quốc tịch nào cũng được tạo bằng cách thêm một hậu tố giống nhau.
+### Một số trường hợp đặc biệt
 
 | Country | Nationality |
-| --- | --- |
-| The Netherlands | Dutch |
+|---|---|
 | France | French |
 | Greece | Greek |
+| Thailand | Thai |
+| Switzerland | Swiss |
+| Sweden | Swedish |
+| The Netherlands | Dutch |
 
-Các nhóm trên nên được dùng như **mẹo ghi nhớ**, không nên hiểu thành công thức có thể áp dụng máy móc cho mọi tên quốc gia.
+Những từ này nên được học trực tiếp thay vì cố suy luận bằng hậu tố.
 
-### 2.5. Một số quốc gia và quốc tịch thường gặp
+---
+
+## 2.6. Các quốc gia và quốc tịch thường gặp
 
 | Country | Nationality | Person |
-| --- | --- | --- |
+|---|---|---|
 | Australia | Australian | an Australian |
 | Brazil | Brazilian | a Brazilian |
 | Canada | Canadian | a Canadian |
-| China | Chinese | a Chinese |
+| China | Chinese | a Chinese person |
 | Egypt | Egyptian | an Egyptian |
-| England | English | an Englishman / an Englishwoman |
-| France | French | a Frenchman / a Frenchwoman |
+| England | English | an English person |
+| France | French | a French person |
 | Germany | German | a German |
 | Greece | Greek | a Greek |
 | India | Indian | an Indian |
 | Indonesia | Indonesian | an Indonesian |
 | Italy | Italian | an Italian |
-| Japan | Japanese | a Japanese |
+| Japan | Japanese | a Japanese person |
 | Malaysia | Malaysian | a Malaysian |
 | Mexico | Mexican | a Mexican |
-| Netherlands | Dutch | a Dutchman / a Dutchwoman |
-| Philippines | Philippine / Filipino | a Filipino / a Filipina |
+| The Netherlands | Dutch | a Dutch person |
+| The Philippines | Filipino / Filipina | a Filipino / a Filipina |
 | Russia | Russian | a Russian |
 | Singapore | Singaporean | a Singaporean |
 | South Korea | South Korean | a South Korean |
-| Spain | Spanish | a Spaniard |
+| Spain | Spanish | a Spaniard / a Spanish person |
 | Sweden | Swedish | a Swede |
-| Switzerland | Swiss | a Swiss |
-| Thailand | Thai | a Thai |
-| Turkey | Turkish | a Turk |
-| United Kingdom | British | a Briton |
-| Vietnam | Vietnamese | a Vietnamese |
+| Switzerland | Swiss | a Swiss person |
+| Thailand | Thai | a Thai person |
+| Turkey | Turkish | a Turk / a Turkish person |
+| United Kingdom | British | a British person |
+| Vietnam | Vietnamese | a Vietnamese person |
 
-Danh sách đầy đủ trong nội dung học bao gồm nhiều quốc gia khác; khi học thực tế, nên ưu tiên những quốc gia thường xuyên gặp trước thay vì cố học toàn bộ trong một lần.
+### Ghi nhớ
 
-### 2.6. Quốc gia, quốc tịch và ngôn ngữ
+Trong giao tiếp hiện đại, cấu trúc:
 
-Ba cột này không nên được xem là hoàn toàn giống nhau.
+```text
+nationality + person
+```
 
-Ví dụ:
-
-| Country | Nationality | Language |
-| --- | --- | --- |
-| France | French | French |
-| England | English | English |
-| Russia | Russian | Russian |
-| Germany | German | German |
-| Spain | Spanish | Spanish |
-| Japan | Japanese | Japanese |
-| Thailand | Thai | Thai |
-| Sweden | Swedish | Swedish |
-
-Một số trường hợp sử dụng ngôn ngữ khác với tên quốc gia.
+thường dễ sử dụng và an toàn hơn đối với những quốc tịch không có danh từ chỉ người thông dụng.
 
 Ví dụ:
 
-- Australia → Australian → English
-- Scotland → Scottish → English
-- Canada → Canadian → English
-- Senegal → Senegalese → French
-
-Vì vậy, không nên tự động suy ra ngôn ngữ chỉ dựa vào tên quốc gia.
-
-### 2.7. Thực hành ngắn
-
-Hoàn thành câu bằng thông tin phù hợp.
-
-1. She comes from France. She is ________.
-2. He comes from Japan. He is ________.
-3. They come from Australia. They are ________.
-4. She is Vietnamese. She comes from ________.
-5. He is German. He comes from ________.
-
-Sau đó tự tạo ba câu về bản thân:
-
-- I am from ________.
-- I am ________.
-- I speak ________.
+- a Japanese person
+- a Chinese person
+- a Vietnamese person
+- a Swiss person
 
 ---
 
-## 3. Bài 2 — Số đếm
+## 2.7. Quốc gia, quốc tịch và ngôn ngữ
 
-### 3.1. Số đếm là gì?
+Tên quốc gia, quốc tịch và ngôn ngữ không phải lúc nào cũng giống nhau.
 
-Số đếm, hay **cardinal numbers**, được sử dụng để biểu thị số lượng.
+| Country | Nationality | Common language(s) |
+|---|---|---|
+| Vietnam | Vietnamese | Vietnamese |
+| Japan | Japanese | Japanese |
+| France | French | French |
+| Germany | German | German |
+| Spain | Spanish | Spanish |
+| Thailand | Thai | Thai |
+| South Korea | South Korean | Korean |
+| Brazil | Brazilian | Portuguese |
+| Australia | Australian | English |
+| Canada | Canadian | English / French |
+| Switzerland | Swiss | German / French / Italian / Romansh |
+
+Ví dụ:
+
+```text
+He is from Brazil.
+He is Brazilian.
+He speaks Portuguese.
+```
+
+Không nên tự động suy ra ngôn ngữ chỉ dựa vào tên quốc gia.
+
+---
+
+## 2.8. Bài tập nhanh
+
+Điền từ thích hợp.
+
+1. She is from France. She is ________.
+2. He is from Japan. He is ________.
+3. They are from Australia. They are ________.
+4. She is Vietnamese. She is from ________.
+5. He is German. He is from ________.
+
+### Tự giới thiệu
+
+Hoàn thành ba câu sau:
+
+```text
+I am from __________.
+I am __________.
+I speak __________.
+```
+
+---
+
+# 3. Bài 2 — Số đếm
+
+## 3.1. Cardinal numbers là gì?
+
+**Cardinal numbers** là số đếm dùng để biểu thị số lượng.
 
 Ví dụ:
 
@@ -231,14 +353,25 @@ Ví dụ:
 - two
 - three
 - ten
+- twenty
 - one hundred
 
-Số đếm khác với **ordinal numbers**, là nhóm từ dùng để thể hiện thứ tự như `first`, `second`, `third`. Module này tập trung vào số đếm.
+Khác với số đếm, **ordinal numbers** diễn tả thứ tự.
 
-### 3.2. Các số từ 0 đến 10
+Ví dụ:
+
+- first — thứ nhất
+- second — thứ hai
+- third — thứ ba
+
+Trong bài này, trọng tâm là **cardinal numbers**.
+
+---
+
+## 3.2. Các số từ 0 đến 10
 
 | Number | English |
-| ---: | --- |
+|---:|---|
 | 0 | zero |
 | 1 | one |
 | 2 | two |
@@ -251,10 +384,12 @@ Số đếm khác với **ordinal numbers**, là nhóm từ dùng để thể hi
 | 9 | nine |
 | 10 | ten |
 
-### 3.3. Các số từ 11 đến 19
+---
+
+## 3.3. Các số từ 11 đến 19
 
 | Number | English |
-| ---: | --- |
+|---:|---|
 | 11 | eleven |
 | 12 | twelve |
 | 13 | thirteen |
@@ -265,10 +400,24 @@ Số đếm khác với **ordinal numbers**, là nhóm từ dùng để thể hi
 | 18 | eighteen |
 | 19 | nineteen |
 
-### 3.4. Các hàng chục
+### Chú ý phát âm
+
+Cần phân biệt những cặp như:
+
+- thirteen / thirty
+- fourteen / forty
+- fifteen / fifty
+- sixteen / sixty
+- seventeen / seventy
+- eighteen / eighty
+- nineteen / ninety
+
+---
+
+## 3.4. Các hàng chục
 
 | Number | English |
-| ---: | --- |
+|---:|---|
 | 20 | twenty |
 | 30 | thirty |
 | 40 | forty |
@@ -278,137 +427,367 @@ Số đếm khác với **ordinal numbers**, là nhóm từ dùng để thể hi
 | 80 | eighty |
 | 90 | ninety |
 
-Đây là những dạng cần ghi nhớ vì cách viết của một số từ không hoàn toàn giống cách ghép chữ số thông thường, chẳng hạn `twenty`, `thirty`, `forty` và `fifty`.
+Một số cách viết cần đặc biệt ghi nhớ:
 
-> **Lưu ý kiểm chứng:** phần nội dung ban đầu ghi ví dụ `61 — sixty and one`. Cách diễn đạt này cần được kiểm tra lại trước khi sử dụng làm mẫu phát âm hoặc bài tập.
+```text
+20 → twenty
+30 → thirty
+40 → forty
+50 → fifty
+```
 
-### 3.5. Hàng trăm, nghìn, triệu và tỷ
+Không viết:
 
-| Number | English |
-| ---: | --- |
-| 100 | a hundred / one hundred |
-| 1,000 | a thousand / one thousand |
-| 1,000,000 | a million / one million |
-| 1,000,000,000 | a billion / one billion |
+```text
+fourty
+```
 
-Ở các con số trên, `a` hoặc `one` đều được đưa ra như cách biểu đạt số lượng `1` đứng trước đơn vị lớn.
+Cách viết đúng là:
 
-### 3.6. Ứng dụng của số đếm
-
-Số đếm không chỉ xuất hiện trong bài toán. Trong giao tiếp hàng ngày, chúng được dùng ở rất nhiều tình huống.
-
-#### Địa chỉ
-
-Ví dụ:
-
-`No 5, Main Street`
-
-#### Số điện thoại
-
-Ví dụ:
-
-`0909 123456`
-
-#### Số đường hoặc quận
-
-Ví dụ:
-
-`Road 7A, District 1`
-
-#### Thời gian
-
-- 6:20 — `six twenty`
-- 9:40 — `nine forty`
-
-#### Giá tiền
-
-- $300 — `three hundred dollars`
-
-Đây là các ngữ cảnh thực tế quan trọng khi luyện nghe và nói số.
-
-### 3.7. Các nhóm số mở rộng
-
-Ngoài số đếm, tiếng Anh còn có những nhóm biểu diễn số khác:
-
-- ordinal numbers;
-- thousands;
-- decimal numbers;
-- fractions;
-- Roman numerals;
-- basic mathematical symbols.
-
-Ví dụ:
-
-- `0.9`, `0.5`, `0.001` là số thập phân;
-- `½`, `¼`, `¾` là phân số;
-- `I`, `II`, `III` là chữ số La Mã.
-
-### 3.8. Thực hành ngắn
-
-Đọc thành tiếng:
-
-- 7
-- 12
-- 18
-- 20
-- 40
-- 90
-- 100
-- 1,000
-- 1,000,000
-
-Sau đó luyện theo tình huống:
-
-1. Đọc số điện thoại của bạn bằng tiếng Anh.
-2. Đọc một giờ bất kỳ trên đồng hồ.
-3. Đọc giá của một món đồ.
-4. Đọc số nhà hoặc số phòng quen thuộc.
+```text
+forty
+```
 
 ---
 
-## 4. Bài 3 — Các tính từ phổ biến
+## 3.5. Số từ 21 đến 99
 
-### 4.1. Tính từ là gì?
-
-**Adjective** là từ dùng để mô tả và cung cấp thêm thông tin cho người, vật, địa điểm hoặc một danh từ khác.
+Với số không tròn chục, ghép hàng chục với hàng đơn vị bằng dấu gạch nối.
 
 Ví dụ:
 
-- a **green** monster
-- a **yellow** bus
-- a **fast** horse
-- a **beautiful** place
+| Number | English |
+|---:|---|
+| 21 | twenty-one |
+| 32 | thirty-two |
+| 45 | forty-five |
+| 58 | fifty-eight |
+| 61 | sixty-one |
+| 74 | seventy-four |
+| 99 | ninety-nine |
 
-Trong `a green monster`:
+Ví dụ:
+
+```text
+61 → sixty-one
+```
+
+không phải:
+
+```text
+sixty and one
+```
+
+---
+
+## 3.6. Hàng trăm
+
+| Number | English |
+|---:|---|
+| 100 | one hundred / a hundred |
+| 200 | two hundred |
+| 300 | three hundred |
+| 900 | nine hundred |
+
+Sau một số lớn hơn 100:
+
+### Anh-Anh
+
+Có thể sử dụng `and`:
+
+```text
+125 → one hundred and twenty-five
+```
+
+### Anh-Mỹ
+
+`and` thường được bỏ:
+
+```text
+125 → one hundred twenty-five
+```
+
+Cả hai cách đều có thể gặp trong thực tế.
+
+---
+
+## 3.7. Hàng nghìn, triệu và tỷ
+
+| Number | English |
+|---:|---|
+| 1,000 | one thousand |
+| 10,000 | ten thousand |
+| 100,000 | one hundred thousand |
+| 1,000,000 | one million |
+| 1,000,000,000 | one billion |
+
+Ví dụ:
+
+```text
+2,000 → two thousand
+5,000,000 → five million
+```
+
+Không thêm `-s` vào `hundred`, `thousand` hoặc `million` khi đứng sau một con số cụ thể.
+
+Đúng:
+
+```text
+two hundred
+three thousand
+five million
+```
+
+Không viết:
+
+```text
+two hundreds
+three thousands
+five millions
+```
+
+---
+
+## 3.8. Số điện thoại
+
+Khi đọc số điện thoại, các chữ số thường được đọc riêng.
+
+Ví dụ:
+
+```text
+0909 123 456
+```
+
+có thể đọc:
+
+```text
+zero nine zero nine, one two three, four five six
+```
+
+Số `0` có thể được đọc là:
+
+- `zero`
+- `oh`
+
+Ví dụ:
+
+```text
+090 → oh nine oh
+```
+
+---
+
+## 3.9. Thời gian
+
+Ví dụ:
+
+| Time | Cách đọc đơn giản |
+|---|---|
+| 6:20 | six twenty |
+| 7:30 | seven thirty |
+| 9:40 | nine forty |
+| 10:15 | ten fifteen |
+
+Ngoài cách đọc trực tiếp, thời gian còn có thể được diễn đạt bằng `past` và `to`. Phần này sẽ được học kỹ hơn trong bài về thời gian.
+
+---
+
+## 3.10. Giá tiền
+
+Ví dụ:
+
+```text
+$5 → five dollars
+$20 → twenty dollars
+$99 → ninety-nine dollars
+$300 → three hundred dollars
+```
+
+Ví dụ trong giao tiếp:
+
+**A:** How much is it?  
+**B:** It is twenty dollars.
+
+---
+
+## 3.11. Địa chỉ và số phòng
+
+Ví dụ:
+
+```text
+Room 205
+```
+
+```text
+House number 18
+```
+
+```text
+25 King Street
+```
+
+Các số thường xuất hiện trong:
+
+- số nhà;
+- số phòng;
+- tầng;
+- mã bưu điện;
+- số tuyến xe;
+- số chuyến bay.
+
+---
+
+## 3.12. Một số dạng số khác
+
+Ngoài số đếm, tiếng Anh còn có:
+
+### Số thứ tự
+
+```text
+first
+second
+third
+fourth
+```
+
+### Số thập phân
+
+```text
+0.5
+0.75
+1.25
+```
+
+### Phân số
+
+```text
+½
+¼
+¾
+```
+
+### Chữ số La Mã
+
+```text
+I
+II
+III
+IV
+V
+```
+
+Các dạng này sẽ được học chi tiết trong các bài phù hợp.
+
+---
+
+## 3.13. Bài tập nhanh
+
+Đọc các số sau bằng tiếng Anh:
+
+1. 7
+2. 12
+3. 18
+4. 20
+5. 34
+6. 40
+7. 61
+8. 90
+9. 100
+10. 125
+11. 1,000
+12. 1,000,000
+
+### Luyện nói
+
+Thực hiện bốn nhiệm vụ:
+
+1. Đọc một số điện thoại bằng tiếng Anh.
+2. Đọc giờ hiện tại.
+3. Đọc giá của một món đồ.
+4. Đọc một số nhà hoặc số phòng.
+
+---
+
+# 4. Bài 3 — Các tính từ phổ biến
+
+## 4.1. Adjective là gì?
+
+**Adjective** là tính từ.
+
+Tính từ được sử dụng để mô tả:
+
+- người;
+- đồ vật;
+- động vật;
+- địa điểm;
+- trạng thái;
+- đặc điểm.
+
+Ví dụ:
+
+```text
+a green monster
+a yellow bus
+a fast horse
+a beautiful place
+```
+
+Trong cụm:
+
+```text
+a green monster
+```
 
 - `green` là tính từ;
 - `monster` là danh từ.
 
-Tính từ cho người nghe biết **con quái vật như thế nào**.
+Tính từ `green` cho biết đặc điểm của `monster`.
 
-### 4.2. Tính từ đứng trước danh từ
+---
 
-Một cấu trúc rất quan trọng:
+## 4.2. Tính từ đứng trước danh từ
 
-`adjective + noun`
+Cấu trúc:
+
+```text
+adjective + noun
+```
 
 Ví dụ:
 
 - a green monster
+- a yellow bus
 - a slow car
 - a beautiful girl
 - a dangerous road
 - a busy street
+- an old building
 
-Trong mẫu này, tính từ đứng **trước** danh từ mà nó mô tả.
+### Mẫu câu
 
-### 4.3. Tính từ sau động từ `to be`
+```text
+This is a beautiful place.
+```
 
-Tính từ cũng có thể đứng sau một dạng của `to be`.
+```text
+That is a dangerous road.
+```
+
+```text
+It is an old building.
+```
+
+---
+
+## 4.3. Tính từ đứng sau `to be`
+
+Tính từ cũng thường đứng sau động từ `to be`.
 
 Cấu trúc:
 
-`S + to be + adjective`
+```text
+S + to be + adjective
+```
 
 Ví dụ:
 
@@ -416,185 +795,317 @@ Ví dụ:
 - The girl is happy.
 - The road is dangerous.
 - The man is cold.
+- The street is busy.
 
-Hai cấu trúc cơ bản cần nhớ:
+So sánh:
 
-`adjective + noun`
+```text
+a beautiful place
+```
 
-và
+và:
 
-`subject + to be + adjective`
+```text
+The place is beautiful.
+```
 
+Hai cấu trúc quan trọng cần nhớ:
 
+```text
+adjective + noun
+```
 
-### 4.4. Tính từ không thay đổi theo số lượng
+```text
+S + to be + adjective
+```
 
-Trong các ví dụ của bài:
+---
 
-- one red car
-- two red cars
+## 4.4. Tính từ không có dạng số nhiều
+
+Tính từ trong tiếng Anh không thay đổi khi danh từ chuyển từ số ít sang số nhiều.
+
+Ví dụ:
+
+```text
+one red car
+two red cars
+```
 
 Từ `red` vẫn giữ nguyên.
 
-Danh từ `car` chuyển thành `cars`, nhưng tính từ không thêm `-s`.
-
 Tương tự:
 
-- a slow car
-- many slow cars
+```text
+a slow car
+three slow cars
+```
 
-Không biến `slow` thành dạng số nhiều.
+Không viết:
 
-### 4.5. Tính từ mô tả con người
+```text
+three slows cars
+```
 
-Đoạn mô tả gia đình trong bài cung cấp nhiều từ hữu ích:
+---
 
-| Word | Ý nghĩa sử dụng |
-| --- | --- |
-| clever | thông minh |
-| angry | tức giận |
-| kind | tốt bụng |
-| lazy | lười |
-| terrible | rất tệ |
-| beautiful | xinh đẹp |
-| famous | nổi tiếng |
-| single | độc thân |
-| unlucky | không may mắn |
-| special | đặc biệt |
+## 4.5. Tính từ mô tả con người
 
-Ngoài ra, `beauty` xuất hiện cùng nhóm từ nhưng được dùng như một từ liên quan đến `beautiful`, thay vì mẫu tính từ mô tả trực tiếp trước danh từ.
+### Ngoại hình và độ tuổi
 
-Các từ trên xuất hiện trong đoạn mô tả cha, mẹ và chị gái, cho thấy tính từ có thể dùng để nói về **tính cách**, **trạng thái** hoặc **đặc điểm của một người**.
-
-### 4.6. Các tính từ mô tả thường gặp
-
-Bài học còn sử dụng nhiều tính từ thông dụng:
-
-| Adjective | Ý nghĩa |
-| --- | --- |
+| Adjective | Nghĩa |
+|---|---|
 | young | trẻ |
-| old | già / cũ |
-| slow | chậm |
-| fast | nhanh |
+| old | già / lớn tuổi |
+| beautiful | xinh đẹp |
+| handsome | đẹp trai |
+| tall | cao |
+| short | thấp |
+| thin | gầy |
+| strong | khỏe / mạnh |
+
+### Tính cách
+
+| Adjective | Nghĩa |
+|---|---|
+| kind | tốt bụng |
+| clever | thông minh |
+| friendly | thân thiện |
+| lazy | lười |
+| quiet | ít nói / yên lặng |
+| funny | hài hước |
+
+### Cảm xúc và trạng thái
+
+| Adjective | Nghĩa |
+|---|---|
 | happy | vui |
 | unhappy | không vui |
-| beautiful | đẹp |
-| ugly | xấu |
-| dangerous | nguy hiểm |
-| safe | an toàn |
-| poor | nghèo |
-| rich | giàu |
-| busy | bận / đông đúc |
-| quiet | yên tĩnh |
-| new | mới |
-| yellow | màu vàng |
-| dirty | bẩn |
+| angry | tức giận |
 | worried | lo lắng |
 | relaxed | thư giãn |
-| smelly | có mùi khó chịu |
+| tired | mệt |
 | cold | lạnh |
+| hot | nóng |
 
-
-
-### 4.7. Học tính từ theo cặp đối lập
-
-Học theo cặp giúp ghi nhớ và sử dụng từ trong ngữ cảnh dễ hơn.
-
-| Từ | Từ đối lập được luyện trong bài |
-| --- | --- |
-| young | old |
-| slow | fast |
-| happy | unhappy |
-| beautiful | ugly |
-| dangerous | safe |
-| poor | rich |
-| new | old |
-
-Trong ngữ cảnh mô tả một nơi đông đúc so với một nơi yên tĩnh, bài còn đặt `busy` và `quiet` cạnh nhau để luyện khả năng đối chiếu trạng thái của địa điểm.
-
-### 4.8. Mô tả người
-
-Ví dụ:
+### Ví dụ
 
 - He is clever.
 - She is kind.
 - She is beautiful.
 - He is angry.
 - They are happy.
-
-Có thể mở rộng:
-
-- She is a beautiful girl.
-- He is a clever man.
-
-### 4.9. Mô tả địa điểm
-
-Tính từ có thể kết hợp với các danh từ như `place`, `road`, `building` hoặc `street`.
-
-Ví dụ:
-
-- a beautiful place
-- a busy road
-- a dangerous road
-- an old building
-- a new building
-
-Trong phần luyện tập mô tả London, các tính từ được dùng để phân biệt cảnh vật cũ và hiện đại, đường đông xe và các tòa nhà mới hoặc cũ.
-
-### 4.10. Kết hợp quốc gia và tính từ mô tả
-
-Ba bài trong module có thể kết hợp với nhau.
-
-Ví dụ:
-
-- Vietnam is a beautiful country.
-- It is a busy place.
-- Japan is a beautiful country.
-- This is an old building.
-- That is a new building.
-
-Một bài luyện nói đơn giản là chọn một quốc gia rồi mô tả quốc gia đó bằng một vài tính từ đã học.
-
-Gợi ý:
-
-- a cold country
-- a hot country
-- a rich country
-- a beautiful country
-
-Bài học kết thúc bằng yêu cầu người học tự mô tả đất nước của mình bằng các tính từ phù hợp.
+- I am tired.
 
 ---
 
-## 5. Bài thực hành tổng hợp
+## 4.6. Tính từ mô tả đồ vật và địa điểm
 
-### Bài tập 1 — Country hay nationality?
+| Adjective | Nghĩa |
+|---|---|
+| beautiful | đẹp |
+| ugly | xấu |
+| new | mới |
+| old | cũ |
+| clean | sạch |
+| dirty | bẩn |
+| safe | an toàn |
+| dangerous | nguy hiểm |
+| busy | đông đúc / nhộn nhịp |
+| quiet | yên tĩnh |
+| fast | nhanh |
+| slow | chậm |
+| rich | giàu |
+| poor | nghèo |
+| large | lớn |
+| small | nhỏ |
+| modern | hiện đại |
+| famous | nổi tiếng |
+| special | đặc biệt |
+| smelly | có mùi khó chịu |
 
-Điền dạng phù hợp.
+Ví dụ:
 
-1. She is from ________. `(France / French)`
-2. She is ________. `(France / French)`
-3. He comes from ________. `(Japan / Japanese)`
-4. He is ________. `(Japan / Japanese)`
-5. They are from ________. `(Vietnam / Vietnamese)`
-6. They are ________. `(Vietnam / Vietnamese)`
+- This is a beautiful place.
+- It is a busy street.
+- That is an old building.
+- This road is dangerous.
+- The room is clean.
+- The car is fast.
 
-### Bài tập 2 — Hoàn thành thông tin
+---
 
-Điền country, nationality hoặc language.
+## 4.7. Học tính từ theo cặp đối lập
+
+Học từ theo cặp đối lập giúp ghi nhớ dễ hơn.
+
+| Adjective | Opposite |
+|---|---|
+| young | old |
+| fast | slow |
+| happy | unhappy |
+| beautiful | ugly |
+| safe | dangerous |
+| rich | poor |
+| new | old |
+| clean | dirty |
+| busy | quiet |
+| hot | cold |
+| large | small |
+
+Ví dụ:
+
+```text
+This building is old.
+That building is new.
+```
+
+```text
+This road is busy.
+That road is quiet.
+```
+
+```text
+This car is fast.
+That car is slow.
+```
+
+---
+
+## 4.8. Mô tả một người
+
+Có thể sử dụng nhiều tính từ để giới thiệu một người.
+
+Ví dụ:
+
+```text
+Mai is Vietnamese.
+She is young and friendly.
+She is very kind.
+```
+
+Hoặc:
+
+```text
+Tom is Australian.
+He is tall and friendly.
+He is a funny person.
+```
+
+---
+
+## 4.9. Mô tả một địa điểm
+
+Ví dụ:
+
+```text
+Hanoi is a busy city.
+It has many old buildings.
+Some streets are very crowded.
+There are also many beautiful places.
+```
+
+Hoặc ở mức cơ bản hơn:
+
+```text
+This is a beautiful city.
+The street is busy.
+The building is old.
+The park is quiet.
+```
+
+---
+
+## 4.10. Kết hợp quốc gia và tính từ
+
+Có thể kết hợp kiến thức của Bài 1 và Bài 3 để tạo câu hoàn chỉnh.
+
+Ví dụ:
+
+```text
+Vietnam is a beautiful country.
+```
+
+```text
+Japan is a modern country.
+```
+
+```text
+This is an old building in France.
+```
+
+```text
+Bangkok is a busy city in Thailand.
+```
+
+```text
+She is Vietnamese and very friendly.
+```
+
+---
+
+# 5. Thực hành tổng hợp
+
+## Bài tập 1 — Country hay Nationality?
+
+Chọn đáp án đúng.
+
+1. She is from ________.  
+   `(France / French)`
+
+2. She is ________.  
+   `(France / French)`
+
+3. He is from ________.  
+   `(Japan / Japanese)`
+
+4. He is ________.  
+   `(Japan / Japanese)`
+
+5. They are from ________.  
+   `(Vietnam / Vietnamese)`
+
+6. They are ________.  
+   `(Vietnam / Vietnamese)`
+
+---
+
+## Bài tập 2 — Country, Nationality và Language
+
+Hoàn thành bảng.
 
 | Country | Nationality | Language |
-| --- | --- | --- |
+|---|---|---|
 | France | ________ | French |
 | Japan | Japanese | ________ |
 | Spain | ________ | Spanish |
 | Germany | German | ________ |
 | Thailand | ________ | Thai |
+| Brazil | Brazilian | ________ |
 | Australia | Australian | ________ |
 
-### Bài tập 3 — Nhận diện tính từ
+---
 
-Xác định tính từ trong mỗi cụm hoặc câu.
+## Bài tập 3 — Viết số bằng tiếng Anh
+
+Viết các số sau bằng chữ.
+
+1. 8
+2. 13
+3. 20
+4. 35
+5. 40
+6. 61
+7. 99
+8. 100
+9. 125
+10. 1,000
+
+---
+
+## Bài tập 4 — Nhận diện tính từ
+
+Tìm tính từ trong mỗi cụm hoặc câu.
 
 1. a yellow bus
 2. a dirty boy
@@ -604,63 +1115,132 @@ Xác định tính từ trong mỗi cụm hoặc câu.
 6. a beautiful place
 7. many new cars
 
-### Bài tập 4 — Đổi cấu trúc
+---
 
-Viết lại theo mẫu:
+## Bài tập 5 — Đổi cấu trúc
 
-`a beautiful place → The place is beautiful.`
+### Ví dụ
+
+```text
+a beautiful place
+→ The place is beautiful.
+```
+
+Viết lại:
 
 1. a slow car
 2. a dangerous road
 3. a happy girl
 4. a new building
 5. an old car
-
-### Bài tập 5 — Mô tả một quốc gia
-
-Chọn một quốc gia và hoàn thành:
-
-- Country: ________
-- Nationality: ________
-- Language: ________
-
-Viết thêm ba câu:
-
-1. I am / He is / She is from ________.
-2. I am / He is / She is ________.
-3. It is a ________ country.
+6. a busy street
+7. a clean room
 
 ---
 
-## 6. Câu hỏi ôn tập trắc nghiệm
+## Bài tập 6 — Chọn từ trái nghĩa
 
-### Câu 1
+Nối hai từ trái nghĩa.
 
-Câu nào sử dụng đúng tên quốc gia và quốc tịch theo cấu trúc của bài?
+| A | B |
+|---|---|
+| young | slow |
+| fast | poor |
+| rich | old |
+| clean | dangerous |
+| safe | dirty |
+| busy | quiet |
+
+---
+
+## Bài tập 7 — Giới thiệu bản thân
+
+Hoàn thành:
+
+```text
+My name is __________.
+
+I am from __________.
+
+I am __________.
+
+I speak __________.
+
+I am __________ years old.
+
+I am __________ and __________.
+```
+
+---
+
+## Bài tập 8 — Mô tả một quốc gia
+
+Chọn một quốc gia.
+
+```text
+Country: __________
+Nationality: __________
+Language: __________
+```
+
+Sau đó viết ít nhất ba câu.
+
+Ví dụ:
+
+```text
+Japan is in Asia.
+Japanese people are Japanese.
+The main language is Japanese.
+Japan is a beautiful and modern country.
+```
+
+---
+
+# 6. Câu hỏi ôn tập
+
+## Câu 1
+
+Câu nào đúng?
 
 A. She is from French.  
 B. She is France.  
 C. She is from France.  
 D. She from France.
 
-**Đáp án:** C
+**Đáp án: C**
 
-**Giải thích:** Sau `from` cần tên quốc gia. `France` là tên quốc gia, trong khi `French` được dùng để nói quốc tịch hoặc làm tính từ.
+**Giải thích:** Sau `from` cần sử dụng tên quốc gia. `France` là tên quốc gia.
 
-### Câu 2
+---
 
-Câu nào diễn đạt quốc tịch?
+## Câu 2
+
+Câu nào diễn tả quốc tịch?
 
 A. He is Japanese.  
 B. He is from Japanese.  
 C. He Japan.  
 D. He from Japan.
 
-**Đáp án:** A
+**Đáp án: A**
 
-**Giải thích:** Cấu trúc nói quốc tịch là `S + to be + nationality adjective`, vì vậy `He is Japanese` phù hợp.
+**Giải thích:**
 
-### Câu 3
+```text
+S + to be + nationality
+```
+
+Vì vậy:
+
+```text
+He is Japanese.
+```
+
+là câu đúng.
+
+---
+
+## Câu 3
 
 Trong cụm `a beautiful place`, từ nào là tính từ?
 
@@ -669,60 +1249,281 @@ B. beautiful
 C. place  
 D. beautiful place
 
-**Đáp án:** B
+**Đáp án: B**
 
-**Giải thích:** `beautiful` cung cấp thêm thông tin cho danh từ `place`, nên nó là tính từ.
+**Giải thích:** `beautiful` mô tả danh từ `place`.
 
-### Câu 4
+---
 
-Câu nào thể hiện đúng cách sử dụng tính từ khi danh từ chuyển sang số nhiều?
+## Câu 4
+
+Câu nào đúng?
 
 A. two reds cars  
 B. two red cars  
 C. two red car  
 D. two reds car
 
-**Đáp án:** B
+**Đáp án: B**
 
-**Giải thích:** Tính từ `red` không đổi theo số lượng. Danh từ `car` mới chuyển sang dạng số nhiều `cars`.
-
-### Câu 5
-
-Đâu là cách đọc số `100` được đưa ra trong bài?
-
-A. a hundred / one hundred  
-B. ten hundred only  
-C. hundred one  
-D. one thousands
-
-**Đáp án:** A
-
-**Giải thích:** Bài sử dụng cả `a hundred` và `one hundred` cho số 100.
+**Giải thích:** Tính từ không thay đổi theo số lượng. Chỉ danh từ `car` chuyển thành `cars`.
 
 ---
 
-## 7. Tổng kết
+## Câu 5
 
-Ba nhóm kiến thức của Module 01 liên kết trực tiếp với nhau.
+Cách viết đúng của số `40` là:
 
-**Quốc gia và quốc tịch** giúp trả lời:
+A. fourty  
+B. forty  
+C. four-ty  
+D. fourtyy
 
-- Where are you from?
-- What nationality are you?
+**Đáp án: B**
 
-**Số đếm** giúp xử lý:
+---
 
-- số lượng;
-- địa chỉ;
-- số điện thoại;
-- thời gian;
-- giá tiền.
+## Câu 6
 
-**Tính từ** giúp mở rộng từ câu cung cấp thông tin sang câu mô tả:
+Số `61` được đọc là:
 
-- She is Vietnamese.
-- She is kind.
-- It is a beautiful country.
-- This is a busy road.
+A. sixty and one  
+B. six-one  
+C. sixty-one  
+D. sixteen-one
 
-Khi luyện tập, không nên chỉ học từng từ riêng lẻ. Hãy đặt chúng vào các mẫu câu ngắn, sau đó kết hợp nhiều nhóm kiến thức trong cùng một câu hoặc một đoạn giới thiệu. Cách tổ chức bài theo hướng mục tiêu → kiến thức → ví dụ → thực hành → ôn tập cũng phù hợp với cấu trúc `lesson` được yêu cầu cho tài liệu khóa học.
+**Đáp án: C**
+
+---
+
+## Câu 7
+
+Câu nào có cấu trúc `adjective + noun`?
+
+A. The car is fast.  
+B. a fast car  
+C. He is Japanese.  
+D. She is from Japan.
+
+**Đáp án: B**
+
+---
+
+## Câu 8
+
+Từ trái nghĩa với `dangerous` là:
+
+A. busy  
+B. clean  
+C. safe  
+D. fast
+
+**Đáp án: C**
+
+---
+
+## Câu 9
+
+Brazilian là quốc tịch của người đến từ:
+
+A. Spain  
+B. Brazil  
+C. Portugal  
+D. France
+
+**Đáp án: B**
+
+---
+
+## Câu 10
+
+Ngôn ngữ chính của Brazil là:
+
+A. Brazilian  
+B. Spanish  
+C. Portuguese  
+D. English
+
+**Đáp án: C**
+
+---
+
+# 7. Đáp án bài tập
+
+## Bài tập 1
+
+1. France
+2. French
+3. Japan
+4. Japanese
+5. Vietnam
+6. Vietnamese
+
+---
+
+## Bài tập 2
+
+| Country | Nationality | Language |
+|---|---|---|
+| France | French | French |
+| Japan | Japanese | Japanese |
+| Spain | Spanish | Spanish |
+| Germany | German | German |
+| Thailand | Thai | Thai |
+| Brazil | Brazilian | Portuguese |
+| Australia | Australian | English |
+
+---
+
+## Bài tập 3
+
+1. eight
+2. thirteen
+3. twenty
+4. thirty-five
+5. forty
+6. sixty-one
+7. ninety-nine
+8. one hundred
+9. one hundred and twenty-five / one hundred twenty-five
+10. one thousand
+
+---
+
+## Bài tập 4
+
+1. yellow
+2. dirty
+3. worried
+4. fast
+5. dangerous
+6. beautiful
+7. new
+
+---
+
+## Bài tập 5
+
+1. The car is slow.
+2. The road is dangerous.
+3. The girl is happy.
+4. The building is new.
+5. The car is old.
+6. The street is busy.
+7. The room is clean.
+
+---
+
+# 8. Tổng kết
+
+## Quốc gia và quốc tịch
+
+Hai cấu trúc quan trọng:
+
+```text
+S + to be + from + country
+```
+
+Ví dụ:
+
+```text
+I am from Vietnam.
+```
+
+và:
+
+```text
+S + to be + nationality
+```
+
+Ví dụ:
+
+```text
+I am Vietnamese.
+```
+
+---
+
+## Số đếm
+
+Cần nắm được:
+
+- số từ `0–19`;
+- các hàng chục;
+- số từ `21–99`;
+- hàng trăm;
+- hàng nghìn;
+- hàng triệu;
+- cách đọc số trong các tình huống thực tế.
+
+Ví dụ:
+
+```text
+21 → twenty-one
+61 → sixty-one
+100 → one hundred
+1,000 → one thousand
+```
+
+---
+
+## Tính từ
+
+Hai cấu trúc cơ bản:
+
+```text
+adjective + noun
+```
+
+Ví dụ:
+
+```text
+a beautiful country
+```
+
+và:
+
+```text
+S + to be + adjective
+```
+
+Ví dụ:
+
+```text
+The country is beautiful.
+```
+
+Tính từ không thay đổi khi danh từ chuyển sang số nhiều.
+
+```text
+a red car
+two red cars
+```
+
+---
+
+# 9. Tự kiểm tra cuối module
+
+Sau khi học xong, hãy thử trả lời mà không nhìn tài liệu:
+
+1. Bạn đến từ đâu?
+2. Quốc tịch của bạn là gì?
+3. Bạn nói ngôn ngữ nào?
+4. Bạn bao nhiêu tuổi?
+5. Số `45` đọc như thế nào?
+6. Số `61` đọc như thế nào?
+7. Hãy kể năm tính từ mô tả con người.
+8. Hãy kể năm tính từ mô tả địa điểm.
+9. Hãy mô tả đất nước của bạn bằng ba câu.
+10. Hãy tự giới thiệu bản thân bằng năm câu tiếng Anh.
+
+### Mẫu tham khảo
+
+```text
+My name is Minh.
+I am from Vietnam.
+I am Vietnamese.
+I speak Vietnamese and English.
+I am twenty years old.
+Vietnam is a beautiful country.
+```
