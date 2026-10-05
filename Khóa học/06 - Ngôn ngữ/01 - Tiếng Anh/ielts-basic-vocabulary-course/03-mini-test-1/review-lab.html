@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mini Test 1 · Modules 01–02 · Review Lab</title>
+<meta name="description" content="Bài thi thử Mini Test 1 cho Module 01–02: quốc gia, quốc tịch, số đếm, tính từ, thời tiết, động vật và địa điểm."/>
+<style>
+:root{--ink:#1d2745;--muted:#64708c;--paper:#f7f8fc;--card:#fff;--line:#e1e6f0;--navy:#17233f;--blue:#3c69f5;--mint:#dff6ee;--peach:#fff0df;--lav:#eeebff;--coral:#ed765b;--green:#2c9971;--yellow:#f2b84b;--shadow:0 16px 45px rgba(22,35,63,.08);--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--paper);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--blue)}
+.shell{display:grid;grid-template-columns:282px minmax(0,1fr);min-height:100vh}.side{position:sticky;top:0;height:100vh;overflow:auto;padding:25px 19px;background:var(--navy);color:#fff}.brand{display:flex;gap:10px;align-items:center;margin-bottom:23px;font-weight:850}.brand-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:linear-gradient(135deg,#8aa0ff,#f19b7b)}.side small{color:#b5c0df}.side nav{display:grid;gap:5px}.side nav a{padding:8px 10px;border-radius:10px;color:#dbe2ff;text-decoration:none;font-size:13px}.side nav a:hover{background:rgba(255,255,255,.1);color:#fff}.side-box{margin:18px 0;padding:15px;border:1px solid rgba(255,255,255,.14);border-radius:17px;background:rgba(255,255,255,.07)}.side-box p{margin:5px 0;color:#dbe2ff;font-size:13px}.progress-track{height:8px;margin-top:9px;border-radius:20px;background:rgba(255,255,255,.16);overflow:hidden}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#8aa0ff,#70e3bb);transition:.25s}.side nav a.active{background:rgba(255,255,255,.13);color:#fff}
+.hero{position:relative;overflow:hidden;padding:58px clamp(24px,6vw,92px) 46px;background:linear-gradient(135deg,#e9edff 0%,#fdf7ed 58%,#ddf5eb 100%)}.hero:after{content:"";position:absolute;right:-90px;top:-120px;width:330px;height:330px;border-radius:50%;background:rgba(255,255,255,.45)}.eyebrow{position:relative;z-index:1;color:#5368bf;font-weight:850;letter-spacing:.08em;text-transform:uppercase;font-size:12px}h1,h2,h3,h4{line-height:1.18;letter-spacing:-.025em;margin:0 0 12px}h1{position:relative;z-index:1;max-width:900px;font-size:clamp(38px,6vw,70px)}h2{font-size:clamp(28px,4vw,42px)}h3{font-size:21px}.hero p{position:relative;z-index:1;max-width:820px;margin:0;color:#59637d;font-size:18px}.hero-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}.btn{border:0;border-radius:999px;padding:10px 16px;font-weight:800;color:#fff;background:var(--navy);box-shadow:0 8px 20px rgba(23,35,63,.12)}.btn.secondary{color:var(--ink);background:#fff}.btn.good{background:var(--green)}.btn.warn{background:#b16c18}.btn.small{padding:7px 11px;font-size:13px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px;position:relative;z-index:1}.stat{padding:14px 16px;border:1px solid rgba(255,255,255,.72);border-radius:18px;background:rgba(255,255,255,.66);backdrop-filter:blur(8px)}.stat strong{display:block;font-size:24px}.stat span{color:#64708c;font-size:13px}
+.content{width:min(1180px,calc(100% - 40px));margin:0 auto;padding:36px 0 80px}.section{scroll-margin-top:18px;margin:27px 0 48px}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:18px}.section-head p{max-width:700px;margin:0;color:var(--muted)}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;color:#4b5fc1;background:var(--lav);font-size:12px;font-weight:850}.card{border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}.pad{padding:20px}.muted{color:var(--muted)}.tiny{font-size:13px;color:var(--muted)}.callout{padding:17px 19px;border-left:5px solid var(--blue);border-radius:16px;background:#fff;box-shadow:var(--shadow)}.grid{display:grid;gap:14px}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.exam-bar{position:sticky;top:12px;z-index:20;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 18px;padding:13px 15px;border:1px solid #dce4ff;border-radius:18px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:var(--shadow)}.candidate{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.candidate input{width:190px;padding:8px 10px;border:1px solid #cfd6e6;border-radius:10px;background:#fff}.exam-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.timer{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:11px;background:var(--navy);color:#fff;font:850 15px ui-monospace,monospace}.timer.running{background:var(--green)}.timer.warning{background:#b16c18}.score-wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.score-chip{display:inline-flex;gap:6px;align-items:center;padding:7px 11px;border-radius:999px;background:#f0f3ff;color:#4055ad;font-weight:850;font-size:13px}.score-chip.good{background:var(--mint);color:#1c7557}.score-chip.manual{background:var(--peach);color:#9a5e12}.exam-section{margin-top:18px;padding:20px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow)}.exam-section.alt{background:#fbfcff}.section-label{display:flex;gap:10px;align-items:start;margin-bottom:16px}.section-label .num{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:11px;color:#fff;background:var(--blue);font-weight:900}.section-label p{margin:4px 0 0;color:var(--muted)}.question-list{display:grid;gap:12px}.question{padding:14px;border:1px solid var(--line);border-radius:15px;background:#fff}.question p{margin:0 0 8px}.question.correct{border-color:#9fddc7;background:#f5fffb}.question.incorrect{border-color:#f1b1a0;background:#fff9f7}.question-number{display:inline-grid;place-items:center;min-width:28px;height:24px;margin-right:5px;border-radius:8px;background:#eef2ff;color:#4055ad;font-size:12px;font-weight:900}.options{display:grid;gap:7px;margin:10px 0}.options label{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}.options label:hover{border-color:#9aacff;background:#f6f8ff}.short-answer{width:min(440px,100%);padding:9px 11px;border:1px solid #cfd6e6;border-radius:10px;background:#fff}.feedback{min-height:21px;margin-top:7px;font-weight:850;font-size:13px}.feedback.ok{color:var(--green)}.feedback.bad{color:var(--coral)}.section-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:15px;padding-top:13px;border-top:1px solid var(--line)}.section-result{font-weight:850;color:#4055ad}.text-note{margin:8px 0 0;color:var(--muted);font-size:13px}
+.writing-list{display:grid;gap:14px}.writing-item{padding:15px;border:1px solid var(--line);border-radius:15px;background:#fff}.writing-item textarea{display:block;width:100%;min-height:78px;margin-top:10px;padding:10px 11px;resize:vertical;border:1px solid #cfd6e6;border-radius:11px}.model-answer{display:none;margin-top:10px;padding:11px 13px;border-radius:11px;background:#f0f3ff;color:#33415f}.model-answer.show{display:block}.model-answer strong{color:#4055ad}.word-bank{display:flex;flex-wrap:wrap;gap:7px;margin:11px 0 15px}.word-bank span{padding:7px 10px;border:1px solid #cfd6e6;border-radius:10px;background:#fff;font-weight:800;color:#45516d}.cloze-box{padding:18px;border:1px solid #dfe5f5;border-radius:17px;background:#f7f9ff;line-height:2.05}.cloze-box select{padding:5px 7px;border:1px solid #cfd6e6;border-radius:8px;background:#fff}.cloze-box select.correct{border-color:#65ba98;background:#effbf6}.cloze-box select.incorrect{border-color:#ed765b;background:#fff4f1}.passage{padding:18px 20px;margin-bottom:16px;border:1px solid #dfe5f5;border-radius:17px;background:#f7f9ff}.passage h3{margin-bottom:8px}.passage p{margin:0;line-height:1.9}
+.speaking-card{padding:18px;border:1px solid var(--line);border-radius:17px;background:#fff}.speaking-card h3{margin-bottom:8px}.speaking-card ul{margin:10px 0;padding-left:21px}.speaking-timer{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:10px;background:var(--navy);color:#fff;font:800 14px ui-monospace,monospace}.speaking-checks{display:grid;gap:6px;margin:13px 0}.speaking-checks label{font-size:13px}.rubric{padding:9px 10px;border:1px solid #cfd6e6;border-radius:10px;background:#fff}.rubric select{margin-left:5px;padding:5px;border:0;background:transparent;font-weight:800;color:#4055ad}.final-box{padding:20px;border:1px solid #dce4ff;border-radius:18px;background:linear-gradient(135deg,#f3f5ff,#f0fff9)}.final-box h3{margin-bottom:7px}.final-score{font-size:30px;font-weight:900;color:#4055ad}.final-score small{font-size:14px;color:var(--muted);font-weight:700}.jump{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.jump a{padding:7px 10px;border-radius:999px;text-decoration:none;background:#f1f4fb;color:#4a5d93;font-size:13px;font-weight:800}.to-top{position:fixed;right:18px;bottom:18px;display:none;width:44px;height:44px;border:0;border-radius:50%;background:var(--blue);color:#fff;box-shadow:var(--shadow)}.to-top.show{display:block}
+@media(max-width:1050px){.shell{grid-template-columns:1fr}.side{position:static;height:auto}.side nav{grid-template-columns:repeat(3,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){.content{width:min(100% - 24px,680px)}.grid.two,.grid.three{grid-template-columns:1fr}.exam-bar{position:static}.section-head{display:block}.section-head p{margin-top:9px}.side nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:500px){.hero{padding:42px 18px 34px}h1{font-size:42px}.stats{grid-template-columns:1fr}.side nav{grid-template-columns:1fr}.candidate input{width:100%}.candidate{align-items:stretch;display:grid}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="side">
+ <div class="brand"><span class="brand-mark">✦</span><span>English Lab<br/><small>Mini Test 1</small></span></div>
+ <div class="side-box"><strong>Trạng thái bài thi</strong><p><span id="sideDone">0</span>/<span id="sideTotal">90</span> câu tự động đã chấm</p><div class="progress-track"><div class="progress-bar" id="progressBar"></div></div><p id="sideScore">Điểm tự động: 0/90</p></div>
+ <nav aria-label="Mục lục bài thi">
+  <a href="#instructions">Hướng dẫn</a><a href="#part-a">Phần A · Từ vựng</a><a href="#part-b">Phần B · Collocation</a><a href="#part-c">Phần C · Dịch chủ động</a><a href="#practice-test">Practice Test</a><a href="#writing">Viết lại & sửa lỗi</a><a href="#context">Ngữ cảnh</a><a href="#animals">Animal Vocabulary</a><a href="#cloze">Cloze passage</a><a href="#grammar">Grammar & Numbers</a><a href="#reading">Reading</a><a href="#speaking">Speaking</a><a href="#answer-note">Tự chấm</a>
+ </nav>
+</aside>
+<main>
+<header class="hero" id="overview">
+ <div class="eyebrow">Mock assessment · Modules 01–02</div>
+ <h1>Mini Test 1</h1>
+ <p>Bài thi thử tổng hợp <strong>Quốc gia & quốc tịch · Số đếm · Tính từ · Thời tiết · Động vật · Địa điểm</strong>, thiết kế để làm như một bài kiểm tra thật rồi xem lại lỗi.</p>
+ <div class="hero-actions"><a class="btn" href="#instructions">Đọc hướng dẫn</a><a class="btn secondary" href="#part-a">Bắt đầu làm bài</a><button class="btn secondary" id="resetExam">Xóa tiến độ</button></div>
+ <div class="stats"><div class="stat"><strong>102</strong><span>câu viết / chọn</span></div><div class="stat"><strong id="heroAutoTotal">90</strong><span>câu chấm tự động</span></div><div class="stat"><strong>3</strong><span>chủ đề Speaking</span></div><div class="stat"><strong>60′</strong><span>thời gian mô phỏng</span></div></div>
+</header>
+<div class="content">
+<section class="section" id="instructions">
+ <div class="section-head"><div><span class="pill">Exam briefing</span><h2>Hướng dẫn làm bài</h2></div><p>Phần chọn đáp án và điền từ được chấm tự động. Câu viết lại, sửa lỗi và Speaking cần tự đối chiếu theo tiêu chí ở cuối bài.</p></div>
+ <div class="grid two">
+  <div class="card pad"><h3>Quy trình đề thi</h3><ol><li>Điền tên, bấm <strong>Bắt đầu đồng hồ</strong> và làm bài liên tục trong 60 phút.</li><li>Không mở đáp án mẫu trong lúc làm. Mỗi phần có nút <strong>Nộp phần</strong>; nút này chấm các câu khách quan của phần đó.</li><li>Câu viết cho phép nhiều cách diễn đạt. Hãy viết câu hoàn chỉnh rồi tự so với đáp án mẫu.</li><li>Hết giờ, hệ thống tự nộp các phần khách quan còn lại.</li></ol></div>
+  <div class="card pad"><h3>Cách đọc điểm</h3><ul><li><strong>90 câu tự động:</strong> điểm khách quan để theo dõi tiến bộ.</li><li><strong>7 câu viết:</strong> không chấm máy cứng vì có thể có đáp án tương đương.</li><li><strong>2 Speaking:</strong> mỗi bài 0–2 điểm theo mức độ dùng từ, collocation và câu hoàn chỉnh.</li></ul><div class="callout"><strong>Mục tiêu tham khảo:</strong> từ 72/90 câu tự động trở lên và hoàn thành đủ phần viết + Speaking.</div></div>
+ </div>
+</section>
+
+<div class="exam-bar" id="examBar">
+ <div class="candidate"><label for="candidateName"><strong>Thí sinh:</strong></label><input id="candidateName" type="text" placeholder="Nhập tên của bạn" autocomplete="off"/></div>
+ <div class="exam-tools"><span class="timer" id="examTimer">60:00</span><button class="btn small good" id="startExam">Bắt đầu đồng hồ</button><button class="btn secondary small" id="finishExam">Nộp bài</button><span class="score-chip">Tự động: <strong id="scoreText">0/90</strong></span></div>
+</div>
+
+<section class="section" id="part-a">
+ <div class="section-head"><div><span class="pill">Part A · 20 points</span><h2>Multiple Choice</h2></div><p>Chọn nghĩa tiếng Việt gần nhất. Mỗi câu 1 điểm.</p></div>
+ <div class="exam-section"><div class="question-list" id="mcqList"></div><div class="section-actions"><button class="btn" data-check-section="mcq">Nộp Phần A</button><span class="section-result" id="result-mcq"></span></div></div>
+</section>
+
+<section class="section" id="part-b">
+ <div class="section-head"><div><span class="pill">Part B · 12 points</span><h2>Collocations</h2></div><p>Điền một từ phù hợp vào mỗi cụm từ. Không cần viết dấu chấm.</p></div>
+ <div class="exam-section alt"><div class="question-list" id="collocationList"></div><div class="section-actions"><button class="btn" data-check-section="collocation">Nộp Phần B</button><span class="section-result" id="result-collocation"></span></div></div>
+</section>
+
+<section class="section" id="part-c">
+ <div class="section-head"><div><span class="pill">Part C · 10 points</span><h2>Dịch chủ động</h2></div><p>Viết từ hoặc cụm từ tiếng Anh tương ứng với nghĩa tiếng Việt.</p></div>
+ <div class="exam-section"><div class="question-list" id="translationList"></div><div class="section-actions"><button class="btn" data-check-section="translation">Nộp Phần C</button><span class="section-result" id="result-translation"></span></div></div>
+</section>
+
+<section class="section" id="practice-test">
+ <div class="section-head"><div><span class="pill">Practice Test · Extended</span><h2>Mini Test 1 — Practice Test</h2></div><p>Phần này mô phỏng kiểu bài tổng hợp: rewriting, error correction, vocabulary in context, animals và cloze reading.</p></div>
+ <section class="exam-section alt" id="writing"><div class="section-label"><span class="num">D1</span><div><h3>Sentence Rewriting · 6 câu</h3><p>Giữ nguyên nghĩa, viết lại câu bằng từ loại/cấu trúc phù hợp.</p></div></div><div class="writing-list" id="rewriteList"></div><p class="text-note">Đây là phần viết mở. Hệ thống chỉ lưu câu trả lời và hiển thị đáp án mẫu khi bạn yêu cầu.</p></section>
+ <section class="exam-section" id="error-correction"><div class="section-label"><span class="num">D2</span><div><h3>Error Correction · 6 câu</h3><p>Tìm lỗi và viết lại câu đúng hoàn chỉnh.</p></div></div><div class="writing-list" id="errorList"></div></section>
+ <section class="exam-section alt" id="context"><div class="section-label"><span class="num">D3</span><div><h3>Vocabulary in Context · 8 câu</h3><p>Một từ phải phù hợp với cả hai câu trong mỗi cặp.</p></div></div><div class="question-list" id="contextList"></div><div class="section-actions"><button class="btn" data-check-section="context">Nộp phần Ngữ cảnh</button><span class="section-result" id="result-context"></span></div></section>
+ <section class="exam-section" id="animals"><div class="section-label"><span class="num">D4</span><div><h3>Animal Vocabulary · 10 câu</h3><p>Trả lời bằng tên con vật bằng tiếng Anh.</p></div></div><div class="question-list" id="animalList"></div><div class="section-actions"><button class="btn" data-check-section="animals">Nộp phần Animals</button><span class="section-result" id="result-animals"></span></div></section>
+<section class="exam-section alt" id="cloze"><div class="section-label"><span class="num">D5</span><div><h3>Cloze Passage · 10 câu</h3><p>Đọc toàn đoạn rồi chọn từ đúng. Chú ý dạng số ít – số nhiều.</p></div></div><div class="word-bank"><span>countryside</span><span>lake</span><span>river</span><span>field</span><span>village</span><span>local</span><span>west</span><span>path</span><span>forest</span><span>hill</span><span>area</span></div><div class="cloze-box" id="clozeBox"></div><div class="section-actions"><button class="btn" data-check-section="cloze">Nộp phần Cloze</button><span class="section-result" id="result-cloze"></span></div></section>
+  <section class="exam-section" id="grammar"><div class="section-label"><span class="num">D6</span><div><h3>Grammar & Numbers · 10 câu</h3><p>Chọn dạng đúng về số đếm, danh từ số nhiều, quốc gia và quốc tịch.</p></div></div><div class="question-list" id="grammarList"></div><div class="section-actions"><button class="btn" data-check-section="grammar">Nộp phần Grammar</button><span class="section-result" id="result-grammar"></span></div></section>
+  <section class="exam-section alt" id="reading"><div class="section-label"><span class="num">D7</span><div><h3>Reading · 10 câu</h3><p>Đọc đoạn văn rồi trả lời câu hỏi trắc nghiệm và True/False.</p></div></div><div class="passage"><h3>A Weekend in Green Valley</h3><p>Last weekend, Lan and her British friend Emma visited Green Valley, a small village in the countryside. The weather was cool and cloudy in the morning, but it became sunny after lunch. They walked along a narrow path beside a river and saw birds, insects and several farm animals. At noon, they ate at a local market near the village square. Emma bought two postcards and a cheap hat. In the afternoon, they climbed a low hill. From the top, they could see fields, a forest and a lake. Lan said the area was peaceful and convenient for a short trip because it was only thirty kilometres from the city. They returned home before the evening became rainy.</p></div><div class="question-list" id="readingList"></div><div class="section-actions"><button class="btn" data-check-section="reading">Nộp phần Reading</button><span class="section-result" id="result-reading"></span></div></section>
+</section>
+
+<section class="section" id="speaking">
+ <div class="section-head"><div><span class="pill">Speaking · 3 prompts</span><h2>Speaking 45–60 giây</h2></div><p>Không đọc đáp án. Bấm đồng hồ riêng cho từng chủ đề, ghi âm bằng điện thoại nếu muốn tự nghe lại.</p></div>
+ <div class="grid two" id="speakingList"></div>
+</section>
+
+<section class="section" id="answer-note">
+ <div class="section-head"><div><span class="pill">Self-review</span><h2>Chấm phần viết và tổng kết</h2></div><p>Chỉ mở phần này sau khi đã hoàn thành bài. Câu viết có thể có cách diễn đạt khác nhưng phải giữ đúng nghĩa và ngữ pháp.</p></div>
+ <div class="final-box"><h3>Kết quả hiện tại</h3><div class="final-score" id="finalScore">0/90 <small>điểm tự động</small></div><p id="finalMessage" class="muted">Hãy làm bài rồi nộp từng phần hoặc nộp toàn bộ.</p><div class="score-wrap"><span class="score-chip">Đã chấm: <strong id="finalDone">0/90</strong></span><span class="score-chip manual">Speaking tự chấm: <strong id="speakingScore">0/6</strong></span></div></div>
+ <div class="card pad" style="margin-top:15px"><h3>Tiêu chí Speaking</h3><ul><li><strong>2 điểm:</strong> dùng đủ ít nhất 5 từ đã học, ít nhất 2 collocation và nói bằng câu rõ nghĩa.</li><li><strong>1 điểm:</strong> dùng được một phần từ/collocation nhưng còn lặp từ hoặc sai kết hợp.</li><li><strong>0 điểm:</strong> chủ yếu đọc từ rời rạc, chưa tạo được câu.</li></ul><p class="tiny">Đáp án mẫu của 12 câu viết nằm ngay trong từng câu; chỉ bấm “Hiện đáp án mẫu” sau khi hoàn thành.</p></div>
+</section>
+</div>
+</main>
+</div>
+<button class="to-top" id="toTop" aria-label="Về đầu trang">↑</button>
+<script>
+const STORAGE_KEY='mini-test-1-review-v3-fixed';
+const EXAM_SECONDS=60*60;
+const mcqData=[
+ ['ten',['số không','mười','môi trường sống','đắt'],'mười'],
+ ['stormy',['một nửa','ngoại ô','có bão','một trăm'],'có bão'],
+ ['foreigner',['công dân','chợ','người nước ngoài','côn trùng'],'người nước ngoài'],
+ ['language',['một triệu','động vật hoang dã','ngôn ngữ','chim'],'ngôn ngữ'],
+ ['reptile',['môi trường sống','bảo tàng','ấm','bò sát'],'bò sát'],
+ ['convenient',['một phần tư','thứ Hai','tiện lợi','biên giới'],'tiện lợi'],
+ ['public place',['ấm','phổ biến','nơi công cộng','quốc tịch'],'nơi công cộng'],
+ ['useful',['tổng; tổng cộng','hữu ích','núi','đắt'],'hữu ích'],
+ ['neighbourhood',['côn trùng','khu dân cư','thứ Ba','phổ biến; được ưa chuộng'],'khu dân cư'],
+ ['pet',['thành phố','thú cưng','một triệu','lành mạnh; khỏe mạnh'],'thú cưng'],
+ ['citizen',['công dân','người nước ngoài','quốc gia','ngôn ngữ'],'công dân'],
+ ['nationality',['hộ chiếu','quốc tịch','biên giới','làng'],'quốc tịch'],
+ ['abroad',['địa phương','ở nước ngoài','rẻ','ấm'],'ở nước ngoài'],
+ ['cloudy',['có nắng','nhiều mây','nhiều gió','có bão'],'nhiều mây'],
+ ['wildlife',['thú cưng','động vật hoang dã','bò sát','côn trùng'],'động vật hoang dã'],
+ ['habitat',['môi trường sống','bảo tàng','chợ','quảng trường'],'môi trường sống'],
+ ['countryside',['thành phố','ngoại ô','nông thôn','nơi công cộng'],'nông thôn'],
+ ['border',['ngôn ngữ','biên giới','quốc tịch','sông'],'biên giới'],
+ ['popular',['đắt','lành mạnh; khỏe mạnh','phổ biến; được ưa chuộng','địa phương'],'phổ biến; được ưa chuộng'],
+ ['healthy',['rẻ','lành mạnh; khỏe mạnh','phổ biến','có bão'],'lành mạnh; khỏe mạnh']
+];
+const collocationData=[
+ ['__________ for food','hunt'],
+ ['a __________ evening','cool'],
+ ['a __________ afternoon','windy'],
+ ['a __________ problem','common'],
+ ['extremely __________','hot'],
+ ['__________ species','wild'],
+ ['__________ degrees','zero'],
+ ['__________ accommodation','cheap'],
+ ['a __________ day','sunny'],
+ ['the __________ season','rainy'],
+ ['a __________ place','public'],
+ ['__________ people','local']
+];
+const translationData=[
+ ['hộ chiếu','passport'],
+ ['nông thôn','countryside'],
+ ['công dân','citizen'],
+ ['có mưa','rainy'],
+ ['quốc tịch','nationality'],
+ ['người nước ngoài','foreigner'],
+ ['nhiều mây','cloudy'],
+ ['môi trường sống','habitat'],
+ ['khu dân cư','neighbourhood'],
+ ['nơi công cộng','public place']
+];
+const contextData=[
+ ['famous','Famous people usually have to hide their face when they go out.','He was famous for traveling around the world on foot.'],
+ ['kind','He was kind enough to let me stay at his house.','Last year wasn’t kind to her. She lost her job, her home, and even her dog.'],
+ ['special','This drink has a special taste like real orange juice.','September 2nd is a special day for the Vietnamese people.'],
+ ['local','We bought fruit at a local market.','Local people showed us the way to the lake.'],
+ ['popular','This park is popular with young families.','The café became popular because it was cheap and convenient.'],
+ ['healthy','Walking every day is a healthy habit.','The animal looks healthy and active.'],
+ ['common','Rain is common here in September.','This is a common problem for new learners.'],
+ ['useful','A map is useful when you visit a new city.','This phrase is useful in everyday English.']
+];
+const animalData=[
+ ['Which animal has 8 legs and its name is also the name of a superhero?','spider'],
+ ['Which animal is often described as one of the most intelligent marine animals?','dolphin'],
+ ['Which animal has a really long nose and uses it to drink water?','elephant'],
+ ['Which animal can you ride on that runs very fast?','horse'],
+ ['Which animal can walk on two, has a long tail, climbs trees and likes bananas?','monkey'],
+ ['Which word describes animals such as snakes and crocodiles?','reptile'],
+ ['Which word describes a small animal group that includes ants and butterflies?','insect'],
+ ['Which word means an animal with feathers and wings?','bird'],
+ ['Which word means an animal that people keep at home for company?','pet'],
+ ['Which word means animals and plants living naturally in an area?','wildlife']
+];
+const rewriteData=[
+ ['He is from Britain, not America like most people thought.','He is British.'],
+ ["If you’re Japanese, everyone will think that you’re a polite person.","If you are from Japan, everyone will think that you are a polite person."],
+ ["Because we’re Russian, people think that we love drinking Vodka.","Because we are from Russia, people think that we love drinking Vodka."],
+ ['She comes from Vietnam.','She is Vietnamese.'],
+ ['The weather has a lot of wind this afternoon.','It is a windy afternoon.'],
+ ['This place is not expensive to stay in.','This place has cheap accommodation.']
+];
+const errorData=[
+ ['I bought two book: one for me and one for my friend.','I bought two books: one for me and one for my friend.'],
+ ['My mother told me to buy twenty egg.','My mother told me to buy twenty eggs.'],
+ ['This phone costs nine thousands dollars.','This phone costs nine thousand dollars.'],
+ ["How old are you? I’m thirty-five year old.","How old are you? I’m thirty-five years old."],
+ ['There are three hundreds people in the village.','There are three hundred people in the village.'],
+ ['She is from Japan, so her nationality is Japan.','She is from Japan, so her nationality is Japanese.']
+];
+const clozeData=[
+ ['countryside',['countryside','village','area','west']],
+ ['fields',['fields','field','forests','rivers']],
+ ['lakes',['lakes','lake','hills','rivers']],
+ ['west',['West','South','North','East']],
+ ['rivers',['rivers','river','lakes','fields']],
+ ['hill',['hill','hills','mountain','area']],
+ ['local',['local','village','countryside','area']],
+ ['forest',['forest','field','river','hill']],
+ ['path',['path','road','avenue','river']],
+ ['area',['area','village','countryside','square']]
+];
+const grammarData=[
+ ['There are ___ students in the room.',['twenty','twenties','twenty of','twentieth'],'twenty'],
+ ['My father is forty-five ___ old.',['year','years','yeares','years of'],'years'],
+ ['The village has three ___ houses.',['hundred','hundreds','hundred of','hundreds of'],'hundred'],
+ ['She is from Britain. She is ___.',['Britain','British','Britisher country','Britainese'],'British'],
+ ['Ken is from Japan. His nationality is ___.',['Japan','Japanese','Japanish','Japon'],'Japanese'],
+ ['I bought two ___.',['book','books','bookes','books of'],'books'],
+ ['The temperature is zero ___.',['degree','degrees','degreees','of degree'],'degrees'],
+ ['One half is ___.',['1/2','1/4','2/3','3/4'],'1/2'],
+ ['One quarter is ___.',['1/2','1/4','3/4','1/3'],'1/4'],
+ ['1,000,000 is ___.',['one thousand','one hundred thousand','one million','ten million'],'one million']
+];
+const readingData=[
+ ['Where did Lan and Emma go?',['A large city','Green Valley','A museum','A foreign country'],'Green Valley'],
+ ['Green Valley is described as a small ___.',['market','village','suburb station','museum'],'village'],
+ ['What was the weather like in the morning?',['Hot and stormy','Cool and cloudy','Sunny and windy','Rainy and warm'],'Cool and cloudy'],
+ ['They walked beside a ___.',['river','border','road','museum'],'river'],
+ ['Where did they eat at noon?',['At a local market','At a hotel','In the forest','Beside the lake'],'At a local market'],
+ ['Emma bought two postcards and ___.',['an expensive coat','a cheap hat','a passport','a pet'],'a cheap hat'],
+ ['From the hill, they could see fields, a forest and a lake.',['True','False'],'True'],
+ ['Green Valley was more than 300 kilometres from the city.',['True','False'],'False'],
+ ['Lan thought the area was peaceful and convenient for a short trip.',['True','False'],'True'],
+ ['They returned home before the evening became rainy.',['True','False'],'True']
+];
+
+const speakingData=[
+ {title:'Numbers',prompt:'Nói trong 45–60 giây về chủ đề số đếm.',items:['Dùng ít nhất 5 từ/số đã học.','Dùng ít nhất 2 collocation về giá tiền, tuổi, số lượng hoặc thời gian.','Nói bằng câu hoàn chỉnh.']},
+ {title:'Weather',prompt:'Nói trong 45–60 giây về chủ đề thời tiết.',items:['Dùng ít nhất 5 từ đã học về weather.','Dùng ít nhất 2 collocation như cool evening, windy afternoon hoặc heavy rain.','Nói bằng câu hoàn chỉnh.']},
+ {title:'Places & Nature',prompt:'Nói trong 45–60 giây về một nơi bạn muốn đến.',items:['Dùng ít nhất 5 từ về địa điểm hoặc thiên nhiên.','Dùng ít nhất 2 collocation như local market, public place, green field hoặc beautiful lake.','Nêu thời tiết hoặc một hoạt động bạn có thể làm ở đó.']}
+];
+const AUTO_TOTAL=mcqData.length+collocationData.length+translationData.length+contextData.length+animalData.length+clozeData.length+grammarData.length+readingData.length;
+
+let state={answers:{},results:{},manual:{},speaking:{}};
+try{state=Object.assign(state,JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
+state.answers=state.answers||{};state.results=state.results||{};state.manual=state.manual||{};state.speaking=state.speaking||{};
+let secondsLeft=EXAM_SECONDS,timerId=null;
+const $=sel=>document.querySelector(sel), $$=sel=>[...document.querySelectorAll(sel)];
+const norm=v=>String(v??'').trim().toLowerCase().replace(/[.?!,:;]+$/,'').replace(/\s+/g,' ');
+const save=()=>localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function restoreFields(){ $$('[data-answer-key]').forEach(el=>{const v=state.answers[el.dataset.answerKey];if(v===undefined)return;if(el.type==='radio')el.checked=el.value===v;else el.value=v}); $('#candidateName').value=state.candidateName||''; $$('.writing-item textarea').forEach(el=>{el.value=state.manual[el.dataset.manualKey]||''}) }
+function renderMCQ(){ $('#mcqList').innerHTML=mcqData.map((q,i)=>`<div class="question" data-section="mcq" data-qid="mcq-${i}"><p><span class="question-number">${i+1}</span><strong>${esc(q[0])}</strong> có nghĩa gần nhất là gì?</p><div class="options">${q[1].map((o,j)=>`<label><input type="radio" name="mcq-${i}" value="${esc(o)}" data-answer-key="mcq-${i}"><span>${String.fromCharCode(65+j)}. ${esc(o)}</span></label>`).join('\n')}</div><div class="feedback"></div></div>`).join('\n') }
+function renderChoiceList(target,data,section,prefix,questionBuilder){ $(target).innerHTML=data.map((q,i)=>`<div class="question" data-section="${section}" data-qid="${prefix}-${i}" data-expected="${esc(q[2])}"><p>${questionBuilder(q,i)}</p><div class="options">${q[1].map((o,j)=>`<label><input type="radio" name="${prefix}-${i}" value="${esc(o)}" data-answer-key="${prefix}-${i}"><span>${String.fromCharCode(65+j)}. ${esc(o)}</span></label>`).join('\n')}</div><div class="feedback"></div></div>`).join('\n') }
+function renderTextList(target,data,section,prefix,questionBuilder){ $(target).innerHTML=data.map((item,i)=>`<div class="question" data-section="${section}" data-qid="${prefix}-${i}">${questionBuilder(item,i)}<input class="short-answer" type="text" data-answer-key="${prefix}-${i}" placeholder="Nhập đáp án" autocomplete="off"><div class="feedback"></div></div>`).join('') }
+function renderAll(){
+ renderMCQ();
+ renderTextList('#collocationList',collocationData,'collocation','collocation',(q,i)=>`<p><span class="question-number">${i+21}</span><code>${esc(q[0])}</code></p>`);
+ renderTextList('#translationList',translationData,'translation','translation',(q,i)=>`<p><span class="question-number">${i+33}</span><strong>${esc(q[0])}</strong> →</p>`);
+ renderTextList('#contextList',contextData,'context','context',(q,i)=>`<p><span class="question-number">${i+1}</span>${esc(q[1])}<br/>${esc(q[2])}</p>`);
+ renderTextList('#animalList',animalData,'animals','animal',(q,i)=>`<p><span class="question-number">${i+1}</span>${esc(q[0])}</p>`);
+ $$('#collocationList .question').forEach((el,i)=>el.querySelector('input').dataset.expected=collocationData[i][1]);
+ $$('#translationList .question').forEach((el,i)=>el.querySelector('input').dataset.expected=translationData[i][1]);
+ $$('#contextList .question').forEach((el,i)=>el.querySelector('input').dataset.expected=contextData[i][0]);
+ $$('#animalList .question').forEach((el,i)=>el.querySelector('input').dataset.expected=animalData[i][1]);
+  renderChoiceList('#grammarList',grammarData,'grammar','grammar',(q,i)=>`<span class="question-number">${i+1}</span>${esc(q[0])}`);
+  renderChoiceList('#readingList',readingData,'reading','reading',(q,i)=>`<span class="question-number">${i+1}</span>${esc(q[0])}`);
+ const chunks=[
+  'Last summer holiday I went to Mai Chau with my family. It was such a beautiful place. Unlike in the city with buildings everywhere, the ',
+  ' only had a few houses — instead, there were open green ',
+  ' as far as the eyes could see. Next to these fields were huge ',
+  ' — way bigger than ',
+  ' Lake in Hanoi where I live — and also long beautiful ',
+  ' with water so clear you could see the bottom. But Mai Chau wasn’t just a flat area of land. Just outside the window of our hotel room, there was a large ',
+  ' rising hundreds of meters above the ground. The hill was completely covered by trees, and during our trip, we got to join the ',
+  ' people in going into the ',
+  ' to pick up fruits. The ',
+  ' going up the hill was difficult, but when we got to the top, we could see the entire ',
+  ' just like looking down from a plane. All in all, we had a wonderful trip and I can’t wait to go back to Mai Chau again.'
+ ];
+ let cloze='';for(let i=0;i<clozeData.length;i++){cloze+=chunks[i]+`<select data-section="cloze" data-qid="cloze-${i}" data-answer-key="cloze-${i}"><option value="">— ${i+16} —</option>${clozeData[i][1].map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join('')}</select>`}cloze+=chunks[10];$('#clozeBox').innerHTML=cloze;
+ $$('.writing-list').forEach(()=>{});
+ $('#rewriteList').innerHTML=rewriteData.map((q,i)=>`<div class="writing-item"><p><span class="question-number">${i+1}</span><strong>Viết lại:</strong> ${esc(q[0])}</p><textarea data-manual-key="rewrite-${i}" placeholder="Viết câu trả lời của bạn..."></textarea><button class="btn secondary small reveal-answer" type="button">Hiện đáp án mẫu</button><div class="model-answer"><strong>Đáp án mẫu:</strong> ${esc(q[1])}</div></div>`).join('');
+ $('#errorList').innerHTML=errorData.map((q,i)=>`<div class="writing-item"><p><span class="question-number">${i+7}</span><strong>Sửa lỗi:</strong> ${esc(q[0])}</p><textarea data-manual-key="error-${i}" placeholder="Viết lại câu đúng hoàn chỉnh..."></textarea><button class="btn secondary small reveal-answer" type="button">Hiện đáp án mẫu</button><div class="model-answer"><strong>Đáp án mẫu:</strong> ${esc(q[1])}</div></div>`).join('');
+ $('#speakingList').innerHTML=speakingData.map((s,i)=>`<div class="speaking-card" data-speaking="${i}"><h3>${esc(s.title)}</h3><p><strong>${esc(s.prompt)}</strong></p><ul>${s.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><span class="speaking-timer" data-speak-time="45">00:45</span> <button class="btn small speak-start" type="button">Bắt đầu</button><div class="speaking-checks">${s.items.map((x,j)=>`<label><input type="checkbox" data-speak-check="${i}-${j}"> Đã đạt tiêu chí ${j+1}</label>`).join('')}</div><label class="rubric">Tự chấm: <select data-rubric="${i}"><option value="">—</option><option value="0">0 điểm</option><option value="1">1 điểm</option><option value="2">2 điểm</option></select></label></div>`).join('');
+  $('#sideTotal').textContent=AUTO_TOTAL;$('#heroAutoTotal').textContent=AUTO_TOTAL;restoreFields();bindUI();updateScore();
+}
+function feedback(el,ok,answer){el.className='feedback '+(ok?'ok':'bad');el.textContent=ok?'✓ Chính xác.':'✗ Chưa đúng.'+(answer?` Đáp án: ${answer}.`:'')}
+function checkQuestion(box){const id=box.dataset.qid;let value='';const radio=box.querySelector('input[type=radio]:checked');const text=box.querySelector('input[type=text]');if(radio)value=radio.value;else if(text)value=text.value;state.answers[id]=value;const expected=box.dataset.expected||text?.dataset.expected||mcqData[+id.split('-')[1]]?.[2]||'';const ok=norm(value)===norm(expected);state.results[id]=ok;feedback(box.querySelector('.feedback'),ok,expected);box.classList.toggle('correct',ok);box.classList.toggle('incorrect',!ok);save();updateScore();return ok}
+function checkSection(section){let boxes=$$(`.question[data-section="${section}"]`),done=0;boxes.forEach(box=>{checkQuestion(box);done++});if(section==='cloze'){let sels=$$('select[data-section="cloze"]'),c=0;sels.forEach(s=>{const id=s.dataset.qid;state.answers[id]=s.value;const ok=norm(s.value)===norm(clozeData[+id.split('-')[1]][0]);state.results[id]=ok;s.classList.toggle('correct',ok);s.classList.toggle('incorrect',!ok);if(ok)c++});done=sels.length;const out=$(`#result-${section}`);out.textContent=`Đúng ${c}/${done}.`;save();updateScore();return}const c=boxes.filter(b=>state.results[b.dataset.qid]).length;$(`#result-${section}`).textContent=`Đúng ${c}/${done}.`;save();updateScore()}
+function checkAll(){['mcq','collocation','translation','context','animals','cloze','grammar','reading'].forEach(checkSection);scrollTo({top:$('#answer-note').offsetTop-20,behavior:'smooth'});$('#finalMessage').textContent='Bài đã được nộp. Hãy tự đối chiếu 7 câu viết và chấm Speaking.'}
+function updateScore(){const keys=Object.keys(state.results),done=keys.length,correct=keys.filter(k=>state.results[k]).length,percent=done?Math.round(correct/done*100):0;$('#scoreText').textContent=`${correct}/${AUTO_TOTAL}`;$('#sideDone').textContent=done;$('#sideScore').textContent=`Điểm tự động: ${correct}/${AUTO_TOTAL} (${percent}%)`;$('#progressBar').style.width=Math.min(100,done/AUTO_TOTAL*100)+'%';$('#finalScore').innerHTML=`${correct}/${AUTO_TOTAL} <small>điểm tự động · ${percent}%</small>`;$('#finalDone').textContent=`${done}/${AUTO_TOTAL}`;const speak=Object.entries(state.speaking).filter(([k])=>k.startsWith('rubric-')).reduce((a,[,v])=>a+(+v||0),0);$('#speakingScore').textContent=`${speak}/6`;$('#finalMessage').textContent=done?'Bạn có thể mở đáp án mẫu ở phần viết và tự chấm Speaking.':'Hãy làm bài rồi nộp từng phần hoặc nộp toàn bộ.'}
+function bindUI(){
+ $$('.reveal-answer').forEach(btn=>btn.onclick=()=>{const box=btn.nextElementSibling;box.classList.toggle('show');btn.textContent=box.classList.contains('show')?'Ẩn đáp án mẫu':'Hiện đáp án mẫu'});
+ $$('[data-check-section]').forEach(btn=>btn.onclick=()=>checkSection(btn.dataset.checkSection));
+ $$('[data-answer-key]').forEach(el=>{el.addEventListener('input',()=>{state.answers[el.dataset.answerKey]=el.type==='radio'?(el.checked?el.value:(state.answers[el.dataset.answerKey]||'')):el.value;save()});el.addEventListener('change',()=>{state.answers[el.dataset.answerKey]=el.value;save()})});
+ $('#candidateName').addEventListener('input',e=>{state.candidateName=e.target.value;save()});
+ $$('.speak-start').forEach(btn=>btn.onclick=()=>{const card=btn.closest('[data-speaking]'),timer=card.querySelector('[data-speak-time]');if(btn.dataset.running==='1')return;let sec=+timer.dataset.speakTime||45;btn.dataset.running='1';btn.textContent='Đang nói...';const id=setInterval(()=>{sec--;timer.textContent='00:'+String(Math.max(0,sec)).padStart(2,'0');if(sec<=0){clearInterval(id);btn.dataset.running='0';btn.textContent='Bắt đầu lại'}},1000)});
+ $$('[data-speak-check]').forEach(el=>el.onchange=()=>{state.speaking[el.dataset.speakCheck]=el.checked?1:0;save();updateScore()});
+ $$('[data-rubric]').forEach(el=>{el.value=state.speaking['rubric-'+el.dataset.rubric]||'';el.onchange=()=>{state.speaking['rubric-'+el.dataset.rubric]=el.value;save();updateScore()}});
+}
+function renderTimer(){const m=Math.floor(secondsLeft/60),s=secondsLeft%60;$('#examTimer').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');$('#examTimer').classList.toggle('warning',secondsLeft<=300);}
+function startExam(){if(timerId)return;$('#startExam').textContent='Đang làm bài...';$('#startExam').disabled=true;$('#examTimer').classList.add('running');timerId=setInterval(()=>{secondsLeft--;renderTimer();if(secondsLeft<=0){clearInterval(timerId);timerId=null;$('#startExam').disabled=false;$('#startExam').textContent='Hết giờ';checkAll();alert('Đã hết 60 phút. Các phần chấm tự động đã được nộp.')}},1000)}
+function resetExam(){if(!confirm('Xóa toàn bộ câu trả lời và điểm của Mini Test 1?'))return;localStorage.removeItem(STORAGE_KEY);state={answers:{},results:{},manual:{},speaking:{}};if(timerId){clearInterval(timerId);timerId=null}secondsLeft=EXAM_SECONDS;renderTimer();$('#startExam').disabled=false;$('#startExam').textContent='Bắt đầu đồng hồ';renderAll();window.scrollTo({top:0,behavior:'smooth'})}
+$('#startExam').onclick=startExam;$('#finishExam').onclick=()=>{if(confirm('Nộp bài và chấm các phần khách quan ngay bây giờ?')){if(timerId){clearInterval(timerId);timerId=null}checkAll()}};$('#resetExam').onclick=resetExam;renderAll();renderTimer();
+const toTop=$('#toTop');window.addEventListener('scroll',()=>toTop.classList.toggle('show',scrollY>700));toTop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>
