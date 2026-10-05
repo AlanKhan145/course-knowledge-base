@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning Activity và Review Lab cho bài Talking about language — English Vocabulary in Use Elementary.">
+  <title>Talking about language · Review Lab</title>
+  <style>
+    :root {
+      --ink: #162433;
+      --muted: #617181;
+      --paper: #f4f7f7;
+      --surface: #ffffff;
+      --surface-soft: #edf7f5;
+      --line: #d9e4e4;
+      --teal: #087f78;
+      --teal-dark: #075e5a;
+      --teal-soft: #d9f1ed;
+      --yellow: #f3b744;
+      --yellow-soft: #fff5d7;
+      --coral: #c7584d;
+      --coral-soft: #fff0ed;
+      --blue: #2e61a6;
+      --blue-soft: #edf3ff;
+      --shadow: 0 14px 36px rgba(29, 58, 67, .09);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(243, 183, 68, .12), transparent 24rem),
+        linear-gradient(180deg, #f7faf9 0%, var(--paper) 28rem, #f6f8f8 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a { color: var(--teal-dark); }
+    button, input, select { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid rgba(243, 183, 68, .9);
+      outline-offset: 3px;
+    }
+    ::selection { color: var(--ink); background: #f9d883; }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: -4rem;
+      z-index: 50;
+      padding: .7rem 1rem;
+      color: #fff;
+      background: var(--ink);
+      border-radius: var(--radius-sm);
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .shell { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
+    .site-header { padding: 1.25rem 0 0; }
+    .topbar, .hero, .section-nav, .panel, .result-card, .question-card, .vocab-card, .flashcard-shell, .summary-card {
+      background: var(--surface);
+      border: 1px solid rgba(217, 228, 228, .95);
+      box-shadow: var(--shadow);
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .85rem 1.1rem;
+      border-radius: var(--radius-md);
+    }
+    .brand { display: flex; align-items: center; gap: .75rem; color: var(--ink); text-decoration: none; font-weight: 800; }
+    .brand-mark {
+      display: grid;
+      width: 2.2rem;
+      height: 2.2rem;
+      place-items: center;
+      color: #fff;
+      background: var(--teal);
+      border-radius: 12px 12px 12px 4px;
+      font-weight: 900;
+    }
+    .eyebrow { margin: 0 0 .35rem; color: var(--teal); font-size: .76rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .muted { color: var(--muted); }
+    .topbar .muted { font-size: .86rem; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 2rem;
+      margin-top: 1rem;
+      padding: clamp(1.5rem, 4vw, 3.2rem);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #fff 0%, #fbffff 50%, #e9f7f3 100%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -4rem;
+      bottom: -5rem;
+      width: 17rem;
+      height: 17rem;
+      border: 2px solid rgba(8, 127, 120, .13);
+      border-radius: 50%;
+      box-shadow: 0 0 0 24px rgba(8, 127, 120, .04), 0 0 0 48px rgba(8, 127, 120, .035);
+      pointer-events: none;
+    }
+    h1, h2, h3, h4 { line-height: 1.15; letter-spacing: -.025em; }
+    h1 { max-width: 12ch; margin: 0 0 1rem; font-size: clamp(2.5rem, 6vw, 5.4rem); }
+    h2 { margin: 0 0 .9rem; font-size: clamp(1.65rem, 3vw, 2.5rem); }
+    h3 { margin: 0 0 .55rem; font-size: 1.12rem; }
+    h4 { margin: 0 0 .35rem; font-size: .96rem; }
+    p { margin: 0 0 1rem; }
+    .hero-copy { position: relative; z-index: 1; }
+    .hero-copy > p { max-width: 63ch; color: var(--muted); font-size: 1.05rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1.2rem 0 1.4rem; }
+    .badge, .tag, .type-pill, .skill-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      width: fit-content;
+      padding: .38rem .68rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 780;
+      line-height: 1;
+    }
+    .badge { color: var(--teal-dark); background: var(--teal-soft); }
+    .tag { color: #775812; background: var(--yellow-soft); }
+    .skill-pill { color: var(--blue); background: var(--blue-soft); }
+    .hero-score {
+      position: relative;
+      z-index: 1;
+      align-self: end;
+      padding: 1.15rem;
+      background: rgba(255, 255, 255, .82);
+      border: 1px solid rgba(8, 127, 120, .14);
+      border-radius: var(--radius-md);
+    }
+    .hero-score strong { display: block; margin-top: .2rem; font-size: 2.25rem; color: var(--teal-dark); }
+    .hero-score small { color: var(--muted); }
+
+    .button-row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; }
+    .button, .button-secondary, .button-quiet, .option-button, .token-button, .match-button, .category-button {
+      min-height: 2.65rem;
+      border: 1px solid transparent;
+      border-radius: 11px;
+      padding: .64rem .9rem;
+      color: var(--ink);
+      background: #fff;
+      font-weight: 760;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .button:hover, .button-secondary:hover, .button-quiet:hover, .option-button:hover, .token-button:hover, .match-button:hover, .category-button:hover { transform: translateY(-1px); }
+    .button { color: #fff; background: var(--teal); box-shadow: 0 8px 18px rgba(8, 127, 120, .22); }
+    .button:hover { background: var(--teal-dark); }
+    .button-secondary { color: var(--teal-dark); border-color: #9ad6ce; background: #f3fbf9; }
+    .button-quiet { border-color: var(--line); background: #fff; }
+    .button-danger { color: var(--coral); border-color: #f0b6ae; background: var(--coral-soft); }
+    .button[disabled], .button-secondary[disabled], .button-quiet[disabled] { cursor: not-allowed; opacity: .55; transform: none; }
+
+    .progress-card { margin: 1rem 0; padding: 1rem 1.1rem; background: rgba(255, 255, 255, .78); border: 1px solid var(--line); border-radius: var(--radius-md); }
+    .progress-line { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .55rem; font-size: .86rem; font-weight: 780; }
+    .progress-track { height: .7rem; overflow: hidden; background: #e0ebeb; border-radius: 999px; }
+    .progress-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--teal), #2aa79c); border-radius: inherit; transition: width .25s ease; }
+    .section-nav { position: sticky; top: .6rem; z-index: 20; margin: 1rem 0 2rem; padding: .35rem; border-radius: 999px; }
+    .nav-list { display: flex; gap: .25rem; margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: thin; }
+    .nav-list a { display: inline-flex; align-items: center; gap: .35rem; padding: .66rem .85rem; color: var(--muted); border-radius: 999px; text-decoration: none; white-space: nowrap; font-size: .88rem; font-weight: 780; }
+    .nav-list a:hover, .nav-list a[aria-current="true"] { color: var(--teal-dark); background: var(--teal-soft); }
+    .nav-dot { width: .45rem; height: .45rem; background: currentColor; border-radius: 50%; opacity: .48; }
+    .nav-list a[data-complete="true"] .nav-dot { color: var(--teal); opacity: 1; box-shadow: 0 0 0 4px rgba(8, 127, 120, .12); }
+
+    main { padding-bottom: 4rem; }
+    .lesson-section { scroll-margin-top: 5.8rem; margin: 3.4rem 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
+    .section-heading p { max-width: 66ch; color: var(--muted); }
+    .section-kicker { display: inline-flex; align-items: center; gap: .5rem; margin-bottom: .6rem; color: var(--teal); font-size: .8rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
+    .section-kicker::before { content: ""; width: 1.5rem; height: 2px; background: var(--yellow); }
+    .panel { padding: clamp(1.1rem, 2.5vw, 1.65rem); border-radius: var(--radius-lg); }
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .stack { display: grid; gap: 1rem; }
+    .soft-card { padding: 1rem; background: var(--surface-soft); border: 1px solid #cce8e3; border-radius: var(--radius-md); }
+    .soft-card.yellow { background: var(--yellow-soft); border-color: #f2db9c; }
+    .soft-card.blue { background: var(--blue-soft); border-color: #cfddfb; }
+    .soft-card.coral { background: var(--coral-soft); border-color: #f0c8c2; }
+    .check-list, .plain-list { display: grid; gap: .58rem; margin: 0; padding: 0; list-style: none; }
+    .check-list li, .plain-list li { position: relative; padding-left: 1.7rem; }
+    .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 900; }
+    .plain-list li::before { content: "•"; position: absolute; left: .25rem; color: var(--yellow); font-weight: 900; }
+    .flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem; margin-top: 1.3rem; }
+    .flow-step { padding: .75rem .45rem; text-align: center; color: var(--teal-dark); background: #f0faf8; border: 1px solid #cdeae5; border-radius: 12px; font-size: .78rem; font-weight: 820; }
+    .flow-step span { display: block; margin-bottom: .25rem; color: var(--yellow); font-size: 1.25rem; }
+
+    .concept-card { display: flex; flex-direction: column; min-height: 100%; padding: 1.15rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); }
+    .concept-card .concept-word { color: var(--teal-dark); font-size: 1.35rem; font-weight: 850; }
+    .concept-card .concept-meaning { margin: .2rem 0 .65rem; color: var(--muted); font-size: .88rem; font-weight: 750; }
+    .example { margin: .7rem 0 0; padding: .8rem .9rem; background: #f7faf9; border-left: 3px solid var(--yellow); border-radius: 0 10px 10px 0; font-family: Georgia, serif; }
+    .example strong { font-family: inherit; color: var(--teal-dark); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-md); }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; background: #fff; }
+    th, td { padding: .8rem .9rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--teal-dark); background: #f0faf8; font-size: .82rem; letter-spacing: .02em; }
+    tr:last-child td { border-bottom: 0; }
+    code, .word-chip { padding: .12rem .35rem; color: #704e0f; background: var(--yellow-soft); border-radius: 5px; font-family: "SFMono-Regular", Consolas, monospace; font-size: .92em; }
+    pre { overflow-x: auto; margin: .8rem 0; padding: 1rem; color: #e9fffb; background: #172d35; border-radius: var(--radius-md); font-size: .9rem; }
+    blockquote { margin: 1rem 0; padding: .9rem 1rem; color: #33444f; background: #f7faf9; border-left: 4px solid var(--teal); border-radius: 0 12px 12px 0; }
+
+    .vocab-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .vocab-card { display: flex; flex-direction: column; min-height: 100%; padding: 1.1rem; border-radius: var(--radius-md); box-shadow: 0 8px 25px rgba(29, 58, 67, .06); }
+    .vocab-illustration { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; margin-bottom: 1rem; border: 1px solid #dbe8e7; border-radius: 13px; background: #f3f8f7; }
+    .vocab-top { display: flex; justify-content: space-between; gap: .7rem; align-items: start; }
+    .vocab-word { margin: 0; color: var(--teal-dark); font-size: 1.5rem; }
+    .vocab-pos { color: var(--muted); font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+    .vocab-meaning { margin: .4rem 0 .8rem; font-weight: 800; }
+    .vocab-card dl { display: grid; gap: .5rem; margin: 0; }
+    .vocab-card dt { color: var(--muted); font-size: .75rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+    .vocab-card dd { margin: -.35rem 0 0; }
+    .vocab-card .button-row { margin-top: auto; padding-top: 1rem; }
+    .memory-button[data-status="known"] { color: var(--teal-dark); background: var(--teal-soft); border-color: #95d8cf; }
+    .memory-button[data-status="review"] { color: #7b5d19; background: var(--yellow-soft); border-color: #e8cc7d; }
+
+    .flashcard-shell { display: grid; grid-template-columns: 1fr .8fr; gap: 1.25rem; margin-top: 1rem; padding: 1.1rem; border-radius: var(--radius-lg); }
+    .flashcard { display: grid; min-height: 315px; place-items: center; padding: 2rem; text-align: center; background: linear-gradient(145deg, #e9f7f4, #fff); border: 1px solid #c6e8e2; border-radius: var(--radius-md); }
+    .flashcard button { width: 100%; min-height: 100%; color: inherit; background: transparent; border: 0; }
+    .flashcard .card-face-label { margin-bottom: .75rem; color: var(--muted); font-size: .76rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .flashcard .flash-word { display: block; color: var(--teal-dark); font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: 1; }
+    .flashcard .flash-detail { display: block; margin-top: .75rem; font-size: 1.04rem; }
+    .flash-side { display: flex; flex-direction: column; justify-content: space-between; gap: 1rem; padding: 1rem; background: #fbfdfc; border: 1px solid var(--line); border-radius: var(--radius-md); }
+    .flash-count { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+    .flash-stat { padding: .65rem .5rem; text-align: center; background: #f2f8f7; border-radius: 10px; }
+    .flash-stat strong { display: block; color: var(--teal-dark); font-size: 1.35rem; }
+    .flash-stat span { color: var(--muted); font-size: .72rem; font-weight: 760; }
+    .flash-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+
+    .practice-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; background: #f0faf8; border: 1px solid #cdeae5; border-radius: var(--radius-md); }
+    .practice-stats { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .stat-chip { padding: .45rem .7rem; color: var(--muted); background: #fff; border: 1px solid var(--line); border-radius: 999px; font-size: .82rem; font-weight: 800; }
+    .stat-chip strong { color: var(--teal-dark); }
+    .question-list { display: grid; gap: 1rem; margin-top: 1rem; }
+    .question-card { padding: clamp(1rem, 2.5vw, 1.45rem); border-radius: var(--radius-md); box-shadow: 0 8px 24px rgba(29, 58, 67, .055); }
+    .question-card[data-answered="true"] { border-color: #bcded9; }
+    .question-card h3 { margin-bottom: .7rem; }
+    .question-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: .5rem; }
+    .question-number { color: var(--teal); font-size: .8rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .type-pill { color: var(--blue); background: var(--blue-soft); }
+    .question-prompt { margin-bottom: 1rem; font-size: 1.04rem; font-weight: 700; }
+    .question-helper { margin: -.55rem 0 .85rem; color: var(--muted); font-size: .9rem; }
+    fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+    legend { width: 100%; margin-bottom: .65rem; font-weight: 800; }
+    .option-list { display: grid; gap: .55rem; }
+    .option-label { display: flex; align-items: flex-start; gap: .65rem; padding: .72rem .8rem; background: #fbfdfc; border: 1px solid var(--line); border-radius: 10px; cursor: pointer; transition: background .15s ease, border-color .15s ease; }
+    .option-label:hover, .option-label:has(input:checked) { border-color: #91cec6; background: #eef9f7; }
+    .option-label input { flex: 0 0 auto; margin-top: .25rem; accent-color: var(--teal); }
+    .text-answer, .category-select { width: 100%; min-height: 2.75rem; padding: .68rem .8rem; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 10px; }
+    .text-answer { max-width: 38rem; }
+    .category-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+    .category-row { display: grid; grid-template-columns: 1fr minmax(10rem, .8fr); gap: .6rem; align-items: center; padding: .55rem .7rem; background: #fbfdfc; border: 1px solid var(--line); border-radius: 10px; }
+    .category-row strong { font-family: "SFMono-Regular", Consolas, monospace; }
+    .match-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .match-column { display: grid; gap: .55rem; }
+    .match-column h4 { color: var(--muted); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    .match-button { width: 100%; text-align: left; border-color: var(--line); }
+    .match-button[data-selected="true"] { color: var(--teal-dark); border-color: var(--teal); background: var(--teal-soft); }
+    .match-button[data-matched="true"] { color: var(--teal-dark); border-color: #83c9bf; background: #f0faf8; }
+    .builder-bank, .builder-answer { display: flex; flex-wrap: wrap; gap: .5rem; min-height: 3rem; padding: .75rem; background: #fbfdfc; border: 1px dashed #b7cecb; border-radius: 12px; }
+    .builder-answer { margin-bottom: .75rem; background: #f0faf8; border-style: solid; }
+    .builder-label { margin: .8rem 0 .35rem; color: var(--muted); font-size: .78rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .token-button { color: var(--teal-dark); border-color: #acdcd5; background: #fff; }
+    .token-button[data-used="true"] { color: #94a4a4; background: #edf1f1; border-color: #d7e0e0; text-decoration: line-through; }
+    .feedback { margin-top: 1rem; padding: .95rem 1rem; border-radius: 12px; }
+    .feedback.correct { color: #0c5d52; background: var(--teal-soft); border: 1px solid #a7ddd5; }
+    .feedback.incorrect { color: #803e38; background: var(--coral-soft); border: 1px solid #efbdb6; }
+    .feedback.pending { color: #6d5415; background: var(--yellow-soft); border: 1px solid #efd995; }
+    .feedback strong { display: block; margin-bottom: .35rem; }
+    .feedback dl { display: grid; gap: .2rem; margin: .55rem 0 0; }
+    .feedback dt { font-size: .76rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+    .feedback dd { margin: 0; }
+    .feedback-explanation { margin: .55rem 0 0; }
+    .question-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+
+    .test-banner { padding: 1rem 1.1rem; color: #24445d; background: var(--blue-soft); border: 1px solid #cadbfa; border-radius: var(--radius-md); }
+    .test-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.1rem; padding: 1rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); }
+    .test-footer strong { color: var(--teal-dark); }
+
+    .result-hero { display: grid; grid-template-columns: .9fr 1.5fr; gap: 1rem; }
+    .result-score { display: grid; place-items: center; min-height: 220px; padding: 1.3rem; text-align: center; color: #fff; background: linear-gradient(145deg, var(--teal-dark), #0d988e); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+    .result-score .score-value { display: block; font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; line-height: 1; }
+    .result-score .score-label { margin-top: .5rem; font-weight: 780; }
+    .result-summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .65rem; }
+    .result-stat { display: flex; flex-direction: column; justify-content: center; padding: 1rem; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+    .result-stat strong { display: block; color: var(--teal-dark); font-size: 1.45rem; }
+    .result-stat span { color: var(--muted); font-size: .78rem; font-weight: 760; }
+    .breakdown { display: grid; gap: .7rem; }
+    .breakdown-row { display: grid; grid-template-columns: minmax(8rem, 1fr) 2fr 3.5rem; gap: .75rem; align-items: center; }
+    .breakdown-row span { color: var(--muted); font-size: .88rem; font-weight: 800; }
+    .mini-track { height: .55rem; overflow: hidden; background: #e6eeee; border-radius: 999px; }
+    .mini-fill { height: 100%; background: var(--teal); border-radius: inherit; }
+    .mistakes-list { display: grid; gap: .8rem; }
+    .mistake-card { padding: 1rem; background: #fffaf9; border: 1px solid #efd0cb; border-radius: 14px; }
+    .mistake-card .mistake-question { margin-bottom: .7rem; font-weight: 800; }
+    .mistake-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-bottom: .8rem; }
+    .mistake-details div { padding: .65rem .75rem; background: #fff; border: 1px solid #f0dbd7; border-radius: 10px; }
+    .mistake-details span { display: block; color: var(--muted); font-size: .72rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+    .mistake-details strong { display: block; margin-top: .25rem; overflow-wrap: anywhere; }
+    .empty-state { padding: 1.2rem; color: var(--muted); background: #f7faf9; border: 1px dashed #bfd3d1; border-radius: 14px; }
+
+    .production-card { padding: 1rem; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-md); }
+    .production-card textarea { width: 100%; min-height: 7rem; resize: vertical; padding: .8rem; border: 1px solid var(--line); border-radius: 10px; }
+    .production-card textarea:focus { outline: 3px solid rgba(243, 183, 68, .45); border-color: var(--teal); }
+    .checklist-box { display: grid; gap: .45rem; margin-top: .8rem; }
+    .checklist-box label { display: flex; gap: .55rem; align-items: flex-start; color: var(--muted); font-size: .9rem; }
+    .checklist-box input { margin-top: .28rem; accent-color: var(--teal); }
+    .footer-note { margin-top: 2rem; padding: 1rem; color: var(--muted); font-size: .88rem; text-align: center; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 980px) {
+      .hero, .flashcard-shell, .result-hero { grid-template-columns: 1fr; }
+      .vocab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      body { font-size: 15px; }
+      .shell { width: min(calc(100% - 1rem), var(--max)); }
+      .topbar { align-items: flex-start; }
+      .topbar .muted { display: none; }
+      .hero { padding: 1.35rem; }
+      h1 { font-size: clamp(2.4rem, 14vw, 4rem); }
+      .section-nav { top: .25rem; }
+      .section-heading { display: block; }
+      .grid-2, .grid-3, .grid-4, .vocab-grid, .category-grid, .match-layout, .mistake-details { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: repeat(3, 1fr); }
+      .result-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .breakdown-row { grid-template-columns: minmax(6.5rem, 1fr) 1.5fr 3rem; }
+      .category-row { grid-template-columns: 1fr; gap: .35rem; }
+      .flashcard { min-height: 255px; }
+      .flash-controls { grid-template-columns: 1fr; }
+      .test-footer { align-items: stretch; }
+      .test-footer .button { width: 100%; }
+    }
+    @media (max-width: 420px) {
+      .hero-meta { display: grid; grid-template-columns: 1fr 1fr; }
+      .hero-meta .badge:last-child { grid-column: 1 / -1; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .result-summary { grid-template-columns: 1fr 1fr; }
+      .nav-list a { padding-inline: .72rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua phần điều hướng, đến nội dung học</a>
+
+  <header class="site-header" id="overview">
+    <div class="shell">
+      <div class="topbar">
+        <a class="brand" href="#overview" aria-label="Về đầu bài học">
+          <span class="brand-mark" aria-hidden="true">✓</span>
+          <span>Review Lab <span class="muted">/ EVU Elementary</span></span>
+        </a>
+        <span class="muted">Offline-first · lưu tiến độ trên thiết bị</span>
+        <button id="reset-progress" class="button-quiet button-danger" type="button">Reset progress</button>
+      </div>
+
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">01 · Learner training</p>
+          <h1>Talking about language</h1>
+          <p>Học cách gọi tên các thành phần của ngôn ngữ, hiểu hướng dẫn bài tập và dùng chúng để đọc đề rõ ràng hơn.</p>
+          <div class="hero-meta" aria-label="Thông tin bài học">
+            <span class="badge">Elementary · A1–A2</span>
+            <span class="badge">30–45 phút</span>
+            <span class="badge">13 thuật ngữ trọng tâm</span>
+          </div>
+          <div class="button-row">
+            <a class="button" href="#learn" data-go-section="learn">Bắt đầu học <span aria-hidden="true">→</span></a>
+            <a class="button-secondary" href="#practice" data-go-section="practice">Đi thẳng đến luyện tập</a>
+          </div>
+        </div>
+        <aside class="hero-score" aria-label="Tóm tắt mục tiêu">
+          <p class="eyebrow">Learning focus</p>
+          <strong>Learn → Retrieve → Apply</strong>
+          <small>Đọc có mục đích, nhớ lại hai chiều, rồi sửa lỗi bằng feedback.</small>
+        </aside>
+      </div>
+
+      <div class="progress-card" aria-label="Tiến độ bài học">
+        <div class="progress-line"><span>Lesson progress</span><span id="progress-percent">0%</span></div>
+        <div class="progress-track" role="progressbar" aria-label="Tiến độ bài học" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <p id="progress-note" class="muted" style="margin:.55rem 0 0;font-size:.82rem">Bắt đầu bằng phần Learn; tiến độ được lưu tự động.</p>
+      </div>
+
+      <nav class="section-nav" aria-label="Điều hướng bài học">
+        <ul class="nav-list">
+          <li><a href="#learn" data-section-link="learn"><span class="nav-dot" aria-hidden="true"></span>Learn</a></li>
+          <li><a href="#vocabulary" data-section-link="vocabulary"><span class="nav-dot" aria-hidden="true"></span>Vocabulary</a></li>
+          <li><a href="#practice" data-section-link="practice"><span class="nav-dot" aria-hidden="true"></span>Practice</a></li>
+          <li><a href="#test" data-section-link="test"><span class="nav-dot" aria-hidden="true"></span>Test</a></li>
+          <li><a href="#mistakes" data-section-link="mistakes"><span class="nav-dot" aria-hidden="true"></span>Mistakes</a></li>
+          <li><a href="#results" data-section-link="results"><span class="nav-dot" aria-hidden="true"></span>Results</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="shell">
+    <section class="lesson-section" aria-labelledby="learn-title" id="learn">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">01 · Learn</div>
+          <h2 id="learn-title">Build a useful language map</h2>
+        </div>
+        <p>Những từ này giúp bạn hiểu một từ đang làm gì trong câu, một nhóm từ có hoàn chỉnh hay chưa, và đề bài muốn bạn thao tác thế nào.</p>
+      </div>
+
+      <div class="grid-2">
+        <article class="panel">
+          <h3>Learning objectives</h3>
+          <ul id="objectives-list" class="check-list"></ul>
+          <div class="button-row" style="margin-top:1rem">
+            <button class="button-secondary" type="button" data-mark-section="learn">Đã đọc phần Learn</button>
+          </div>
+        </article>
+        <article class="panel soft-card yellow">
+          <h3>Quick orientation</h3>
+          <p>Khi gặp một từ hoặc một câu trong bài tập, hãy tự hỏi:</p>
+          <ol class="plain-list">
+            <li>Đây là <strong>word class</strong> nào?</li>
+            <li>Nó là <strong>singular</strong> hay <strong>plural</strong>?</li>
+            <li>Đây là <strong>phrase</strong>, <strong>sentence</strong> hay <strong>question</strong>?</li>
+            <li>Đề bài yêu cầu <strong>match</strong>, <strong>fill</strong>, <strong>correct</strong> hay <strong>complete</strong>?</li>
+          </ol>
+        </article>
+      </div>
+
+      <div style="margin-top:1rem" class="panel">
+        <h3>Flow ghi nhớ</h3>
+        <p class="muted">Bài học đi theo đúng nhịp: hiểu khái niệm → nhận biết → nhớ lại → vận dụng → kiểm tra → sửa lỗi.</p>
+        <div class="flow" aria-label="Learning flow">
+          <div class="flow-step"><span>01</span>Learn</div>
+          <div class="flow-step"><span>02</span>Recognize</div>
+          <div class="flow-step"><span>03</span>Retrieve</div>
+          <div class="flow-step"><span>04</span>Apply</div>
+          <div class="flow-step"><span>05</span>Test</div>
+          <div class="flow-step"><span>06</span>Review</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem" class="panel">
+        <h3>Core concepts</h3>
+        <p class="muted">Các nhóm từ sau là khung chính của bài. Nhấn sang Vocabulary để xem card và flashcard.</p>
+        <div id="concept-grid" class="grid-3"></div>
+      </div>
+
+      <div style="margin-top:1rem" class="grid-2">
+        <article class="panel">
+          <h3>Singular & plural</h3>
+          <p><strong>Singular</strong> dùng cho một người hoặc vật: <code>a book</code>, <code>a house</code>, <code>a girl</code>.</p>
+          <p><strong>Plural</strong> dùng cho nhiều hơn một: <code>books</code>, <code>houses</code>, <code>girls</code>. Lưu ý dạng bất quy tắc: <code>man → men</code>.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Singular</th><th>Plural</th></tr></thead>
+              <tbody><tr><td><code>book</code></td><td><code>books</code></td></tr><tr><td><code>house</code></td><td><code>houses</code></td></tr><tr><td><code>girl</code></td><td><code>girls</code></td></tr><tr><td><code>man</code></td><td><code>men</code></td></tr></tbody>
+            </table>
+          </div>
+        </article>
+        <article class="panel">
+          <h3>Phrase, sentence, paragraph</h3>
+          <div class="stack">
+            <div class="soft-card"><strong>Phrase</strong><br><span class="muted">Một nhóm từ chưa phải câu hoàn chỉnh: <code>in a house</code>, <code>an old man</code>.</span></div>
+            <div class="soft-card"><strong>Sentence</strong><br><span class="muted">Một ý hoàn chỉnh, thường bắt đầu bằng capital letter và kết thúc bằng dấu câu: <code>I like English.</code></span></div>
+            <div class="soft-card"><strong>Paragraph</strong><br><span class="muted">Một phần ngắn của văn bản, có thể gồm một hoặc nhiều câu, thường bắt đầu ở dòng mới.</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:1rem" class="grid-3">
+        <article class="panel soft-card blue"><h3>Dialogue</h3><p><strong>Ann:</strong> How's Jo?<br><strong>Bill:</strong> OK, thanks.</p><p class="muted">Hai người đang trao đổi với nhau.</p></article>
+        <article class="panel soft-card"><h3>Question</h3><p><code>Are you English?</code><br><code>Do you like school?</code></p><p class="muted">Câu hỏi dùng để hỏi thông tin và kết thúc bằng <code>?</code>.</p></article>
+        <article class="panel soft-card yellow"><h3>Answer</h3><p><strong>Question:</strong> Are you English?<br><strong>Answer:</strong> Yes, I am. / No, I'm not.</p></article>
+      </div>
+
+      <div style="margin-top:1rem" class="panel">
+        <h3>Language in exercise instructions</h3>
+        <p class="muted">Đây là các động từ xuất hiện lặp lại trong sách. Hiểu lệnh trước khi làm giúp bạn không nhầm dạng bài.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Instruction</th><th>Meaning / action</th><th>Mini example</th></tr></thead>
+            <tbody>
+              <tr><td><code>match</code></td><td>Nối hoặc ghép các mục phù hợp.</td><td><code>do</code> → <code>homework</code></td></tr>
+              <tr><td><code>fill the gaps</code></td><td>Điền từ còn thiếu.</td><td><code>What ______ your name?</code></td></tr>
+              <tr><td><code>correct the mistakes</code></td><td>Sửa các lỗi sai.</td><td><code>speek</code> → <code>speak</code></td></tr>
+              <tr><td><code>complete the sentence</code></td><td>Hoàn thành câu theo thông tin phù hợp.</td><td><code>I go to work by ______.</code></td></tr>
+              <tr><td><code>add another example</code></td><td>Thêm một ví dụ khác.</td><td><code>black, green, blue, red</code></td></tr>
+              <tr><td><code>answer the questions</code></td><td>Trả lời các câu hỏi.</td><td><code>Is there a river in your town?</code></td></tr>
+              <tr><td><code>think of</code> · <code>follow the instructions</code> · <code>draw lines</code></td><td>Nghĩ ra · làm theo hướng dẫn · kẻ đường nối.</td><td>Đọc kỹ lệnh rồi mới bắt đầu.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid-3" style="margin-top:1rem">
+          <div class="soft-card"><strong>do homework</strong><br><span class="muted">làm bài tập về nhà</span></div>
+          <div class="soft-card"><strong>have a shower</strong><br><span class="muted">tắm</span></div>
+          <div class="soft-card"><strong>make a mistake</strong><br><span class="muted">mắc lỗi</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="vocab-title" id="vocabulary">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">02 · Vocabulary</div>
+          <h2 id="vocab-title">13 terms to recognize and retrieve</h2>
+        </div>
+        <p>Mỗi card gắn nghĩa tiếng Việt, định nghĩa ngắn, ví dụ trong bài và ghi chú tránh nhầm khi dữ liệu Markdown có đề cập.</p>
+      </div>
+      <div id="vocab-grid" class="vocab-grid" aria-live="polite"></div>
+
+      <div class="flashcard-shell" aria-labelledby="flashcard-title">
+        <div>
+          <div class="section-kicker">Flashcards</div>
+          <h3 id="flashcard-title">Recall before you reveal</h3>
+          <p class="muted">Nhìn mặt trước, tự nhớ nghĩa/chức năng, rồi mới lật. Sau đó đánh dấu <strong>I know this</strong> hoặc <strong>Review again</strong>.</p>
+          <div id="flashcard" class="flashcard" tabindex="0"></div>
+          <div class="button-row" style="margin-top:.8rem">
+            <button id="flash-prev" class="button-quiet" type="button">← Previous</button>
+            <button id="flash-flip" class="button-secondary" type="button">Flip</button>
+            <button id="flash-next" class="button-quiet" type="button">Next →</button>
+            <button id="flash-known" class="button-secondary" type="button">I know this</button>
+            <button id="flash-review" class="button-quiet" type="button">Review again</button>
+          </div>
+        </div>
+        <aside class="flash-side">
+          <div>
+            <p class="eyebrow">Card queue</p>
+            <div id="flash-position" class="muted">Card 1 / 13</div>
+          </div>
+          <div class="flash-count" aria-label="Flashcard counts">
+            <div class="flash-stat"><strong id="flash-known-count">0</strong><span>Learned</span></div>
+            <div class="flash-stat"><strong id="flash-review-count">0</strong><span>Review</span></div>
+            <div class="flash-stat"><strong id="flash-remaining-count">13</strong><span>Remaining</span></div>
+          </div>
+          <div class="soft-card"><strong>Spaced review cue</strong><p style="margin:.35rem 0 0;color:var(--muted);font-size:.88rem">Nếu một card còn mơ hồ, giữ nó trong Review và quay lại sau khi làm Practice.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="practice-title" id="practice">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">03 · Practice</div>
+          <h2 id="practice-title">Interleaved practice lab</h2>
+        </div>
+        <p>Practice Mode phản hồi ngay sau mỗi tác vụ. Câu hỏi được trộn giữa nhận biết, nghĩa, ngữ cảnh, recall và application để tránh chỉ học theo một chiều.</p>
+      </div>
+      <div class="practice-toolbar">
+        <div>
+          <strong id="practice-heading">Practice set · 35 tasks</strong>
+          <p id="practice-subheading" class="muted" style="margin:.25rem 0 0;font-size:.88rem">Click-to-match hoạt động tốt trên mobile; không cần drag-and-drop.</p>
+        </div>
+        <div class="practice-stats" aria-live="polite">
+          <span class="stat-chip">Answered <strong id="practice-answered">0</strong></span>
+          <span class="stat-chip">Correct <strong id="practice-correct">0</strong></span>
+          <span class="stat-chip">Accuracy <strong id="practice-accuracy">—</strong></span>
+        </div>
+      </div>
+      <div id="practice-container" class="question-list"></div>
+      <div class="button-row" style="margin-top:1rem">
+        <button id="practice-retry-all" class="button-secondary" type="button">Retry all practice</button>
+        <button id="practice-retry-incorrect" class="button-quiet" type="button">Retry incorrect practice</button>
+      </div>
+
+      <div style="margin-top:1.5rem" class="panel">
+        <h3>Production tasks · self-check</h3>
+        <p class="muted">Phần tự tạo câu không chấm tuyệt đối bằng keyword. Hãy viết, rồi dùng checklist để tự kiểm tra.</p>
+        <div id="production-list" class="grid-3"></div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="test-title" id="test">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">04 · Test</div>
+          <h2 id="test-title">Final test · delayed feedback</h2>
+        </div>
+        <p>14 câu mixed questions. Trong Test Mode, đáp án và giải thích chỉ hiện sau khi bạn nhấn Submit Test.</p>
+      </div>
+      <div class="test-banner"><strong>Test rule:</strong> mỗi câu khách quan = 1 điểm. Câu bỏ trống tính là chưa đúng trong tổng điểm; không hiện feedback trước khi nộp.</div>
+      <div id="test-container" class="question-list"></div>
+      <div class="test-footer">
+        <div><strong id="test-progress-label">0 / 14 answered</strong><br><span class="muted">Bạn có thể quay lại sửa lựa chọn trước khi nộp.</span></div>
+        <button id="submit-test" class="button" type="button">Submit Test</button>
+      </div>
+      <div id="test-status" class="sr-only" aria-live="polite"></div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="results-title" id="results">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">05 · Results</div>
+          <h2 id="results-title">Your learning dashboard</h2>
+        </div>
+        <p>Kết quả tách theo mức độ làm chủ. Recommendations chỉ xuất hiện khi một kỹ năng còn dưới 80%.</p>
+      </div>
+      <div id="results-panel"></div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="mistakes-title" id="mistakes">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">06 · Mistakes</div>
+          <h2 id="mistakes-title">Review your mistakes</h2>
+        </div>
+        <p>Chỉ những câu sai ở lượt Test gần nhất được đưa vào đây. Bạn có thể luyện lại từng câu hoặc retry cả nhóm.</p>
+      </div>
+      <div id="mistakes-panel"></div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="summary-title" id="summary">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">07 · Summary</div>
+          <h2 id="summary-title">Keep the useful distinctions</h2>
+        </div>
+        <p>Ôn lại sau 1 ngày, 1 tuần và 1 tháng; mỗi lần hãy nhớ lại trước khi mở đáp án.</p>
+      </div>
+      <div class="grid-2">
+        <article class="summary-card panel">
+          <h3>Must-remember map</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Nhóm</th><th>Từ cần nhớ</th></tr></thead>
+              <tbody>
+                <tr><td>Word classes</td><td><code>noun</code>, <code>verb</code>, <code>adjective</code>, <code>adverb</code>, <code>preposition</code></td></tr>
+                <tr><td>Number</td><td><code>singular</code>, <code>plural</code></td></tr>
+                <tr><td>Units of language</td><td><code>phrase</code>, <code>sentence</code>, <code>paragraph</code></td></tr>
+                <tr><td>Communication</td><td><code>dialogue</code>, <code>question</code>, <code>answer</code></td></tr>
+                <tr><td>Task instructions</td><td><code>match</code>, <code>fill</code>, <code>correct</code>, <code>complete</code>, <code>add</code>, <code>answer</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="summary-card panel">
+          <h3>Final checklist</h3>
+          <ul class="check-list">
+            <li>Phân biệt được noun, verb và adjective.</li>
+            <li>Biết adverb mô tả động từ trong các ví dụ của bài.</li>
+            <li>Nhớ ít nhất bốn prepositions: <code>in</code>, <code>on</code>, <code>by</code>, <code>at</code>.</li>
+            <li>Phân biệt singular và plural, kể cả <code>man → men</code>.</li>
+            <li>Phân biệt phrase, sentence và question.</li>
+            <li>Hiểu match, fill, correct, complete và add.</li>
+            <li>Phân loại được các từ đơn giản và làm theo hướng dẫn ngắn bằng tiếng Anh.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="panel soft-card yellow" style="margin-top:1rem">
+        <h3>Ôn theo nhịp nhỏ</h3>
+        <p style="margin:0"><strong>Day 0:</strong> flashcards + Practice · <strong>Day 1:</strong> recall từ nghĩa tiếng Việt · <strong>Day 3:</strong> context/application · <strong>Day 7:</strong> Test lại và so sánh error log.</p>
+      </div>
+    </section>
+
+    <p class="footer-note">Nội dung bài học dựa trên file Markdown gốc. Dữ liệu tiến độ chỉ được lưu trong trình duyệt này với key riêng cho bài học.</p>
+  </main>
+
+  <script>
+    "use strict";
+
+    const STORAGE_KEY = "evu_elementary_01_talking_about_language_progress";
+
+    const lessonData = {
+      title: "Talking about language",
+      level: "Elementary / A1–A2",
+      suggestedTime: "30–45 phút",
+      objectives: [
+        "Nhận biết noun, verb, adjective, adverb và preposition.",
+        "Phân biệt singular và plural, gồm cả man → men.",
+        "Phân biệt phrase, sentence, paragraph, dialogue, question và answer.",
+        "Hiểu match, fill, correct, complete, add và các hướng dẫn bài tập cơ bản.",
+        "Phân loại từ đơn giản và làm theo hướng dẫn bài tập bằng tiếng Anh."
+      ],
+      vocabulary: [
+        { word: "noun", pos: "word class", meaning: "danh từ", definition: "A word used to name a person or thing.", example: "The girl has a book.", note: "Trong câu trên, girl và book đều là nouns." },
+        { word: "verb", pos: "word class", meaning: "động từ", definition: "A word that describes an action or what we do.", example: "I read every day.", note: "read là hành động nên là verb." },
+        { word: "adjective", pos: "word class", meaning: "tính từ", definition: "A word used to describe a person or thing.", example: "It is a good book.", note: "good mô tả book." },
+        { word: "adverb", pos: "word class", meaning: "trạng từ", definition: "A word that describes how an action is done.", example: "He speaks slowly.", note: "slowly mô tả cách speaks được thực hiện." },
+        { word: "preposition", pos: "word class", meaning: "giới từ", definition: "A small word often used before a noun or pronoun.", example: "The book is on the table.", collocation: "in a house · at home · in the park · on the table" },
+        { word: "singular", pos: "number", meaning: "số ít", definition: "Used when we talk about one person or thing.", example: "a book · a house · a girl" },
+        { word: "plural", pos: "number", meaning: "số nhiều", definition: "Used when we talk about more than one person or thing.", example: "books · houses · girls", note: "man → men là dạng bất quy tắc." },
+        { word: "phrase", pos: "unit of language", meaning: "cụm từ", definition: "A group of words that is not a complete sentence.", example: "in the park · an old man" },
+        { word: "sentence", pos: "unit of language", meaning: "câu", definition: "A complete idea in writing.", example: "I like English.", note: "Thường bắt đầu bằng capital letter và kết thúc bằng dấu câu." },
+        { word: "paragraph", pos: "unit of language", meaning: "đoạn văn", definition: "A short part of a text with one or more sentences.", example: "I live in a small town. It is quiet and friendly." },
+        { word: "dialogue", pos: "communication", meaning: "hội thoại", definition: "A conversation between two people.", example: "Ann: How's Jo? Bill: OK, thanks." },
+        { word: "question", pos: "communication", meaning: "câu hỏi", definition: "A sentence used to ask for information.", example: "What's your name?", note: "Trong văn viết thường kết thúc bằng question mark ?." },
+        { word: "answer", pos: "communication", meaning: "câu trả lời", definition: "A reply to a question.", example: "Yes, I am. / No, I'm not." }
+      ],
+      concepts: [
+        { word: "noun", meaning: "danh từ", detail: "Gọi tên người hoặc vật.", example: "book · girl · pen" },
+        { word: "verb", meaning: "động từ", detail: "Diễn tả hành động hoặc việc chúng ta làm.", example: "do · read · write · speak · have" },
+        { word: "adjective", meaning: "tính từ", detail: "Mô tả người hoặc vật.", example: "good · bad · happy · long · blue" },
+        { word: "adverb", meaning: "trạng từ", detail: "Trong phạm vi bài này, mô tả cách hành động được thực hiện.", example: "slowly · badly" },
+        { word: "preposition", meaning: "giới từ", detail: "Từ nhỏ thường đứng trước danh từ hoặc đại từ.", example: "in · on · by · at" },
+        { word: "language units", meaning: "đơn vị ngôn ngữ", detail: "Phrase, sentence và paragraph khác nhau ở mức độ hoàn chỉnh.", example: "in the park → I like English. → a short paragraph" }
+      ]
+    };
+
+    const practiceQuestions = [
+      { id: "p01", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Recognition", prompt: "Trong câu “I read every day.”, từ <code>read</code> là gì?", options: ["noun", "verb", "adjective", "adverb"], answer: "verb", explanation: "read diễn tả một hành động nên được xếp vào nhóm verb." },
+      { id: "p02", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Recognition", prompt: "Trong cụm <code>a good book</code>, từ <code>good</code> là gì?", options: ["noun", "adjective", "verb", "preposition"], answer: "adjective", explanation: "good mô tả đặc điểm của book, vì vậy là adjective." },
+      { id: "p03", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Recognition", prompt: "Trong câu “He speaks slowly.”, từ <code>slowly</code> là gì?", options: ["noun", "preposition", "adjective", "adverb"], answer: "adverb", explanation: "slowly mô tả cách hành động speaks được thực hiện nên là adverb." },
+      { id: "p04", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Recognition", prompt: "Trong cụm <code>in the park</code>, từ <code>in</code> là gì?", options: ["adjective", "verb", "preposition", "noun"], answer: "preposition", explanation: "in là một từ nhỏ đứng trước cụm danh từ the park, nên là preposition." },
+      { id: "p05", type: "multiple-choice", category: "context", difficulty: 1, phase: "Recognition", prompt: "Mục nào dưới đây là một <strong>phrase</strong>?", options: ["in the park", "I like English.", "Do you speak English?", "She has a book."], answer: "in the park", explanation: "in the park là một nhóm từ nhưng chưa diễn đạt một ý hoàn chỉnh." },
+      { id: "p06", type: "multiple-choice", category: "context", difficulty: 1, phase: "Recognition", prompt: "Mục nào dưới đây là một <strong>question</strong>?", options: ["a long book", "What's your name?", "at home", "the blue house"], answer: "What's your name?", explanation: "Câu này dùng để hỏi thông tin và kết thúc bằng question mark ?." },
+      { id: "p07", type: "multiple-choice", category: "context", difficulty: 1, phase: "Recognition", prompt: "Mục nào là một <strong>sentence</strong> hoàn chỉnh?", options: ["an old man", "in a house", "The man went into the room and closed the door.", "a black cat"], answer: "The man went into the room and closed the door.", explanation: "Đây là một ý hoàn chỉnh, có chủ thể và hành động, nên là sentence." },
+      { id: "p08", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Recognition", prompt: "Một <strong>paragraph</strong> là gì?", options: ["Một từ chỉ hành động", "Một phần ngắn của văn bản gồm một hoặc nhiều câu", "Một câu hỏi kết thúc bằng ?", "Một nhóm từ chưa hoàn chỉnh"], answer: "Một phần ngắn của văn bản gồm một hoặc nhiều câu", explanation: "Paragraph là một phần ngắn của văn bản và có thể gồm một hoặc nhiều câu." },
+
+      { id: "p09", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Meaning", prompt: "<code>plural</code> có nghĩa là gì?", options: ["số ít", "số nhiều", "cụm từ", "câu trả lời"], answer: "số nhiều", explanation: "Plural dùng khi nói về nhiều hơn một người hoặc vật." },
+      { id: "p10", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Meaning", prompt: "<code>dialogue</code> có nghĩa là gì?", options: ["đoạn văn", "hội thoại", "giới từ", "câu hỏi"], answer: "hội thoại", explanation: "Dialogue là cuộc trò chuyện giữa hai người." },
+      { id: "p11", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Meaning", prompt: "Từ tiếng Anh nào có nghĩa là <strong>danh từ</strong>?", options: ["noun", "verb", "adverb", "question"], answer: "noun", explanation: "noun = danh từ." },
+      { id: "p12", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Meaning", prompt: "<code>preposition</code> có nghĩa là gì?", options: ["tính từ", "giới từ", "động từ", "số ít"], answer: "giới từ", explanation: "preposition = giới từ; ví dụ in, on, by, at." },
+      { id: "p13", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Meaning", prompt: "<code>answer</code> có nghĩa là gì?", options: ["câu hỏi", "câu trả lời", "đoạn văn", "cụm từ"], answer: "câu trả lời", explanation: "Answer là lời đáp cho một question." },
+      { id: "p14", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Meaning", prompt: "Nếu đề bài viết <code>Fill the gaps</code>, bạn cần làm gì?", options: ["Điền vào chỗ trống", "Nối hai cột", "Sửa lỗi sai", "Thêm một ví dụ"], answer: "Điền vào chỗ trống", explanation: "fill the gaps nghĩa là điền từ còn thiếu vào các chỗ trống." },
+      { id: "p15", type: "multiple-choice", category: "meaning", difficulty: 1, phase: "Meaning", prompt: "Nếu đề bài viết <code>Correct the mistakes</code>, bạn cần làm gì?", options: ["Trả lời câu hỏi", "Hoàn thành câu", "Sửa các lỗi sai", "Kẻ đường nối"], answer: "Sửa các lỗi sai", explanation: "correct = sửa cho đúng; mistakes = các lỗi sai." },
+
+      { id: "p16", type: "true-false", category: "context", difficulty: 2, phase: "Context", prompt: "<code>man → men</code> là một ví dụ về plural không chỉ thêm <code>-s</code>.", options: ["True", "False"], answer: "True", explanation: "man → men là dạng plural bất quy tắc được nêu trong bài." },
+      { id: "p17", type: "true-false", category: "context", difficulty: 2, phase: "Context", prompt: "<code>a black cat</code> là một sentence hoàn chỉnh.", options: ["True", "False"], answer: "False", explanation: "a black cat chỉ là một phrase; nó chưa trình bày một ý hoàn chỉnh." },
+      { id: "p18", type: "multiple-choice", category: "context", difficulty: 2, phase: "Context", prompt: "Dấu câu nào giúp nhận ra <code>Do you speak English?</code> là question?", options: ["Full stop .", "Comma ,", "Question mark ?", "Colon :"], answer: "Question mark ?", explanation: "Question trong văn viết thường kết thúc bằng question mark ?." },
+      { id: "p19", type: "multiple-choice", category: "meaning", difficulty: 2, phase: "Context", prompt: "<code>Add another example</code> yêu cầu người học làm gì?", options: ["Xóa ví dụ hiện tại", "Thêm một ví dụ khác", "Sửa lỗi chính tả", "Ghép các từ thành câu"], answer: "Thêm một ví dụ khác", explanation: "add another example = thêm một ví dụ khác; bài dùng màu red như một ví dụ thêm." },
+      { id: "p20", type: "multiple-choice", category: "context", difficulty: 2, phase: "Context", prompt: "Trong <code>a good book</code>, quan hệ nào đúng?", options: ["good là verb của book", "book mô tả good", "good mô tả book", "good là preposition"], answer: "good mô tả book", explanation: "good mô tả danh từ book, nên good là adjective." },
+      { id: "p21", type: "true-false", category: "vocabulary", difficulty: 2, phase: "Context", prompt: "Trong bài này, <code>from</code> được xếp là verb.", options: ["True", "False"], answer: "False", explanation: "from là preposition, không phải verb." },
+
+      { id: "p22", type: "fill-blank", category: "recall", difficulty: 2, phase: "Recall", prompt: "Điền từ còn thiếu: <code>What ______ your name?</code>", answer: ["is"], explanation: "Câu đúng là “What is your name?”" },
+      { id: "p23", type: "fill-blank", category: "recall", difficulty: 2, phase: "Recall", prompt: "Sửa từ viết sai: <code>speek</code> → ______", answer: ["speak"], explanation: "Dạng đúng được nêu trong bài là speak." },
+      { id: "p24", type: "fill-blank", category: "recall", difficulty: 2, phase: "Recall", prompt: "Plural của <code>book</code> là ______.", answer: ["books"], explanation: "book → books: thêm -s để tạo plural." },
+      { id: "p25", type: "fill-blank", category: "recall", difficulty: 2, phase: "Recall", prompt: "Singular của <code>men</code> là ______.", answer: ["man"], explanation: "man là singular; men là plural bất quy tắc." },
+      { id: "p26", type: "fill-blank", category: "recall", difficulty: 2, phase: "Recall", prompt: "<code>in the park</code> là một ______.", answer: ["phrase"], explanation: "in the park là một nhóm từ chưa tạo thành ý hoàn chỉnh, nên là phrase." },
+      { id: "p27", type: "fill-blank", category: "recall", difficulty: 2, phase: "Recall", prompt: "<code>I like English.</code> là một ______.", answer: ["sentence"], explanation: "I like English. truyền đạt một ý hoàn chỉnh, nên là sentence." },
+
+      { id: "p28", type: "matching", category: "meaning", difficulty: 2, phase: "Application", prompt: "Ghép mỗi thuật ngữ với nghĩa tiếng Việt đúng.", pairs: [{ left: "noun", right: "danh từ" }, { left: "verb", right: "động từ" }, { left: "adjective", right: "tính từ" }, { left: "adverb", right: "trạng từ" }, { left: "preposition", right: "giới từ" }], explanation: "Các cặp này là 5 word classes cốt lõi của bài." },
+      { id: "p29", type: "categorization", category: "application", difficulty: 3, phase: "Application", prompt: "Phân loại các từ vào đúng word class.", categories: ["Noun", "Verb", "Adjective"], items: [{ text: "book", answer: "Noun" }, { text: "speak", answer: "Verb" }, { text: "good", answer: "Adjective" }, { text: "house", answer: "Noun" }, { text: "write", answer: "Verb" }, { text: "new", answer: "Adjective" }, { text: "man", answer: "Noun" }, { text: "say", answer: "Verb" }, { text: "blue", answer: "Adjective" }], explanation: "book, house, man là nouns; speak, write, say là verbs; good, new, blue là adjectives." },
+      { id: "p30", type: "sentence-builder", category: "application", difficulty: 3, phase: "Application", prompt: "Sắp xếp các từ để tạo thành câu đúng.", tokens: ["is", "noun", "book", "a", "A"], answer: "A book is a noun.", explanation: "Câu đúng là “A book is a noun.”" },
+      { id: "p31", type: "error-correction", category: "application", difficulty: 3, phase: "Application", prompt: "Sửa lỗi trong mục sau: <code>speek</code>", answer: ["speak"], explanation: "Từ đúng là speak." },
+      { id: "p32", type: "multiple-choice", category: "application", difficulty: 3, phase: "Application", prompt: "Cụm nào được ghép đúng?", options: ["make homework", "do a mistake", "have a shower", "have homework a"], answer: "have a shower", explanation: "have a shower là collocation đúng; các cặp đúng khác là do homework và make a mistake." },
+      { id: "p33", type: "multiple-choice", category: "application", difficulty: 3, phase: "Application", prompt: "Chọn collocation đúng để hoàn thành: <code>_____ homework</code>", options: ["do", "make", "have", "add"], answer: "do", explanation: "Cụm đúng trong bài là do homework." },
+      { id: "p34", type: "multiple-choice", category: "application", difficulty: 3, phase: "Application", prompt: "Chọn collocation đúng để hoàn thành: <code>_____ a mistake</code>", options: ["do", "make", "have", "match"], answer: "make", explanation: "Cụm đúng trong bài là make a mistake." },
+      { id: "p35", type: "true-false", category: "application", difficulty: 3, phase: "Application", prompt: "Câu <code>I go to work by bus.</code> có thể là một cách hoàn thành câu dựa trên thông tin của người học.", options: ["True", "False"], answer: "True", explanation: "Bài cho phép người học tự hoàn thành “I go to work by ______.”, ví dụ by bus." }
+    ];
+
+    const testQuestions = [
+      { id: "t01", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Mixed review", prompt: "Từ nào dưới đây là một <strong>noun</strong>?", options: ["write", "happy", "book", "slowly"], answer: "book", explanation: "book là từ gọi tên một vật, nên là noun." },
+      { id: "t02", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Mixed review", prompt: "Từ nào dưới đây là một <strong>verb</strong>?", options: ["speak", "blue", "house", "at"], answer: "speak", explanation: "speak diễn tả hành động nên là verb." },
+      { id: "t03", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Mixed review", prompt: "Trong <code>a long book</code>, <code>long</code> là gì?", options: ["noun", "verb", "adjective", "preposition"], answer: "adjective", explanation: "long mô tả book, vì vậy là adjective." },
+      { id: "t04", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Mixed review", prompt: "Trong <code>He speaks slowly.</code>, <code>slowly</code> là gì?", options: ["noun", "preposition", "adjective", "adverb"], answer: "adverb", explanation: "slowly mô tả cách speaks được thực hiện, nên là adverb." },
+      { id: "t05", type: "multiple-choice", category: "vocabulary", difficulty: 1, phase: "Mixed review", prompt: "Từ nào là một <strong>preposition</strong>?", options: ["at", "read", "good", "man"], answer: "at", explanation: "at là một preposition; các ví dụ khác trong bài là in, on, by." },
+      { id: "t06", type: "multiple-choice", category: "recall", difficulty: 2, phase: "Mixed review", prompt: "Dạng plural của <code>book</code> là gì?", options: ["bookes", "book", "bookies", "books"], answer: "books", explanation: "book → books bằng cách thêm -s." },
+      { id: "t07", type: "multiple-choice", category: "context", difficulty: 2, phase: "Mixed review", prompt: "Mục nào là một <strong>phrase</strong>?", options: ["in the park", "I like English.", "What's your name?", "She's writing a book."], answer: "in the park", explanation: "in the park chưa tạo thành một ý hoàn chỉnh, nên là phrase." },
+      { id: "t08", type: "multiple-choice", category: "context", difficulty: 2, phase: "Mixed review", prompt: "Mục nào là một <strong>sentence</strong>?", options: ["a black cat", "at home", "I like English.", "Do you speak English?"], answer: "I like English.", explanation: "I like English. trình bày một ý hoàn chỉnh và kết thúc bằng full stop." },
+      { id: "t09", type: "multiple-choice", category: "context", difficulty: 2, phase: "Mixed review", prompt: "Mục nào là một <strong>question</strong>?", options: ["a good book", "What's your name?", "in a house", "The girl has a book."], answer: "What's your name?", explanation: "What's your name? dùng để hỏi thông tin và kết thúc bằng ?." },
+      { id: "t10", type: "multiple-choice", category: "meaning", difficulty: 2, phase: "Mixed review", prompt: "<code>Match the words</code> nghĩa là gì?", options: ["Nối hoặc ghép các từ phù hợp", "Điền từ còn thiếu", "Sửa lỗi sai", "Viết một đoạn văn"], answer: "Nối hoặc ghép các từ phù hợp", explanation: "match yêu cầu nối hoặc ghép các mục phù hợp với nhau." },
+      { id: "t11", type: "fill-blank", category: "recall", difficulty: 2, phase: "Mixed review", prompt: "Điền từ: <code>What ______ your name?</code>", answer: ["is"], explanation: "Câu đúng là “What is your name?”" },
+      { id: "t12", type: "fill-blank", category: "application", difficulty: 3, phase: "Mixed review", prompt: "Sửa từ viết sai: <code>speek</code> → ______", answer: ["speak"], explanation: "Dạng đúng là speak." },
+      { id: "t13", type: "multiple-choice", category: "application", difficulty: 3, phase: "Mixed review", prompt: "Trong câu <code>He speaks slowly.</code>, vì sao <code>slowly</code> là adverb?", options: ["Nó gọi tên một vật", "Nó mô tả cách hành động được thực hiện", "Nó đứng trước một danh từ", "Nó là dạng plural"], answer: "Nó mô tả cách hành động được thực hiện", explanation: "slowly cho biết hành động speaks được thực hiện như thế nào." },
+      { id: "t14", type: "multiple-choice", category: "application", difficulty: 3, phase: "Mixed review", prompt: "Cụm nào đúng theo bài?", options: ["make homework", "do a mistake", "make a mistake", "have homework a"], answer: "make a mistake", explanation: "make a mistake là collocation đúng; hai cụm liên quan là do homework và have a shower." }
+    ];
+
+    const productionTasks = [
+      { title: "Use four prepositions", prompt: "Viết bốn prepositions và dùng hai từ trong câu của riêng bạn.", checklist: ["Tôi đã viết 4 từ ngắn như in, on, by, at.", "Hai câu có nghĩa rõ ràng.", "Từ được dùng trước danh từ hoặc đại từ phù hợp."] },
+      { title: "Classify in context", prompt: "Viết một câu có noun, một câu có verb và một câu có adjective. Gạch chân từ mục tiêu nếu bạn đang viết trên giấy.", checklist: ["Mỗi câu có ít nhất một noun.", "Tôi đã chỉ ra một verb trong câu.", "Adjective thực sự mô tả người hoặc vật."] },
+      { title: "Follow an instruction", prompt: "Tự viết một hướng dẫn ngắn bằng tiếng Anh dùng một trong các từ match, fill, correct, complete hoặc add.", checklist: ["Hướng dẫn có động từ thao tác rõ ràng.", "Người khác có thể hiểu cần làm gì.", "Tôi đã kiểm tra chính tả từ hướng dẫn."] }
+    ];
+
+    const sectionKeys = ["learn", "vocabulary", "practice", "test", "mistakes", "results", "summary"];
+    const categoryLabels = { vocabulary: "Vocabulary", meaning: "Meaning", context: "Context", recall: "Recall", application: "Application" };
+    let state = loadProgress();
+    let flashIndex = 0;
+    let flashRevealed = false;
+    let practiceSet = practiceQuestions.slice();
+    let testSet = testQuestions.slice();
+    let testSubmitted = false;
+
+    function defaultState() {
+      return { version: 1, sections: {}, flashcards: { known: [], review: [] }, answers: { practice: {}, test: {} }, mistakes: { practice: [], test: [] }, bestScore: null, lastTest: null, lastSession: null };
+    }
+
+    function loadProgress() {
+      const base = defaultState();
+      try {
+        const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        if (!parsed) return base;
+        return {
+          ...base,
+          ...parsed,
+          sections: { ...base.sections, ...(parsed.sections || {}) },
+          flashcards: { ...base.flashcards, ...(parsed.flashcards || {}) },
+          answers: { ...base.answers, ...(parsed.answers || {}) },
+          mistakes: { ...base.mistakes, ...(parsed.mistakes || {}) }
+        };
+      } catch (error) {
+        return base;
+      }
+    }
+
+    function saveProgress() {
+      state.lastSession = new Date().toISOString();
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) { /* file:// privacy settings may block storage */ }
+      updateProgress();
+    }
+
+    function resetProgress() {
+      if (!window.confirm("Xóa toàn bộ tiến độ, điểm và danh sách câu sai của bài này?")) return;
+      state = defaultState();
+      practiceSet = practiceQuestions.slice();
+      testSet = testQuestions.slice();
+      testSubmitted = false;
+      flashIndex = 0;
+      flashRevealed = false;
+      try { localStorage.removeItem(STORAGE_KEY); } catch (error) { /* ignore */ }
+      renderAll();
+      document.getElementById("overview").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
+    }
+
+    function normalizeAnswer(value) {
+      return String(value ?? "").trim().replace(/\s+/g, " ").toLowerCase();
+    }
+
+    function normalizeSentence(value) {
+      return normalizeAnswer(value).replace(/[.!?]+$/g, "");
+    }
+
+    function isEmptyAnswer(value) {
+      if (value == null) return true;
+      if (typeof value === "string") return !normalizeAnswer(value);
+      if (Array.isArray(value)) return value.length === 0;
+      if (typeof value === "object") return Object.keys(value).length === 0 || Object.values(value).some((item) => isEmptyAnswer(item));
+      return false;
+    }
+
+    function findQuestion(id) {
+      return practiceQuestions.concat(testQuestions).find((question) => question.id === id);
+    }
+
+    function markSection(section) {
+      if (!sectionKeys.includes(section)) return;
+      state.sections[section] = true;
+      saveProgress();
+      updateNavState();
+    }
+
+    function updateProgress() {
+      const sectionProgress = sectionKeys.reduce((total, key) => total + (state.sections[key] ? 1 : 0), 0);
+      const flashProgress = Math.min(1, (state.flashcards.known.length + state.flashcards.review.length) / lessonData.vocabulary.length);
+      const percent = Math.round(((sectionProgress + flashProgress) / (sectionKeys.length + 1)) * 100);
+      const fill = document.getElementById("progress-fill");
+      const label = document.getElementById("progress-percent");
+      const track = document.querySelector(".progress-track");
+      if (fill) fill.style.width = percent + "%";
+      if (label) label.textContent = percent + "%";
+      if (track) track.setAttribute("aria-valuenow", String(percent));
+      const note = document.getElementById("progress-note");
+      if (note) note.textContent = percent === 0 ? "Bắt đầu bằng phần Learn; tiến độ được lưu tự động." : `${percent}% đã hoàn thành · lần học gần nhất được lưu tự động.`;
+      updateNavState();
+    }
+
+    function updateNavState() {
+      document.querySelectorAll("[data-section-link]").forEach((link) => {
+        const key = link.dataset.sectionLink;
+        link.dataset.complete = String(Boolean(state.sections[key]));
+        link.setAttribute("aria-current", state.sections[key] ? "true" : "false");
+      });
+    }
+
+    function renderLesson() {
+      document.getElementById("objectives-list").innerHTML = lessonData.objectives.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+      document.getElementById("concept-grid").innerHTML = lessonData.concepts.map((item) => `
+        <article class="concept-card">
+          <div class="concept-word">${escapeHtml(item.word)}</div>
+          <div class="concept-meaning">${escapeHtml(item.meaning)}</div>
+          <p>${escapeHtml(item.detail)}</p>
+          <div class="example"><strong>Examples:</strong><br>${escapeHtml(item.example)}</div>
+        </article>`).join("");
+    }
+
+    function renderVocabulary() {
+      document.getElementById("vocab-grid").innerHTML = lessonData.vocabulary.map((item) => {
+        const status = state.flashcards.known.includes(item.word) ? "known" : state.flashcards.review.includes(item.word) ? "review" : "";
+        const statusText = status === "known" ? "✓ Đã nhớ" : status === "review" ? "↻ Ôn lại" : "Chưa đánh dấu";
+        return `<article class="vocab-card">
+          <img class="vocab-illustration" src="assets/vocabulary/${escapeHtml(item.word)}.png" alt="Minh họa cho từ ${escapeHtml(item.word)}" loading="lazy" decoding="async" width="512" height="512">
+          <div class="vocab-top"><div><h3 class="vocab-word">${escapeHtml(item.word)}</h3><span class="vocab-pos">${escapeHtml(item.pos)}</span></div><span class="tag">${escapeHtml(item.meaning)}</span></div>
+          <p class="vocab-meaning">${escapeHtml(item.meaning)}</p>
+          <dl>
+            <dt>English definition</dt><dd>${escapeHtml(item.definition)}</dd>
+            <dt>Example</dt><dd><em>${escapeHtml(item.example)}</em></dd>
+            ${item.collocation ? `<dt>Examples / chunks</dt><dd>${escapeHtml(item.collocation)}</dd>` : ""}
+            ${item.note ? `<dt>Note</dt><dd class="muted">${escapeHtml(item.note)}</dd>` : ""}
+          </dl>
+          <div class="button-row"><button class="button-quiet memory-button" data-memory-word="${escapeHtml(item.word)}" data-status="${status}" type="button">${statusText}</button></div>
+        </article>`;
+      }).join("");
+      document.querySelectorAll("[data-memory-word]").forEach((button) => button.addEventListener("click", () => toggleMemory(button.dataset.memoryWord)));
+    }
+
+    function toggleMemory(word) {
+      const known = state.flashcards.known;
+      const review = state.flashcards.review;
+      if (known.includes(word)) {
+        state.flashcards.known = known.filter((item) => item !== word);
+        state.flashcards.review = review.includes(word) ? review : review.concat(word);
+      } else {
+        state.flashcards.known = known.concat(word).filter((item, index, arr) => arr.indexOf(item) === index);
+        state.flashcards.review = review.filter((item) => item !== word);
+      }
+      saveProgress();
+      renderVocabulary();
+      renderFlashcard();
+    }
+
+    function renderFlashcard() {
+      const item = lessonData.vocabulary[flashIndex];
+      const card = document.getElementById("flashcard");
+      const isKnown = state.flashcards.known.includes(item.word);
+      const isReview = state.flashcards.review.includes(item.word);
+      card.innerHTML = flashRevealed ? `
+        <button type="button" data-flip-card aria-label="Lật flashcard về mặt trước">
+          <span class="card-face-label">Back · answer</span>
+          <span class="flash-word">${escapeHtml(item.meaning)}</span>
+          <span class="flash-detail"><strong>${escapeHtml(item.word)}</strong> · ${escapeHtml(item.example)}</span>
+        </button>` : `
+        <button type="button" data-flip-card aria-label="Lật flashcard để xem đáp án">
+          <span class="card-face-label">Front · recall</span>
+          <span class="flash-word">${escapeHtml(item.word)}</span>
+          <span class="flash-detail">Tự nhớ nghĩa và chức năng trước khi lật</span>
+        </button>`;
+      card.querySelector("[data-flip-card]").addEventListener("click", flipFlashcard);
+      document.getElementById("flash-position").textContent = `Card ${flashIndex + 1} / ${lessonData.vocabulary.length}`;
+      document.getElementById("flash-known-count").textContent = state.flashcards.known.length;
+      document.getElementById("flash-review-count").textContent = state.flashcards.review.length;
+      document.getElementById("flash-remaining-count").textContent = Math.max(0, lessonData.vocabulary.length - state.flashcards.known.length - state.flashcards.review.length);
+      document.getElementById("flash-known").dataset.status = isKnown ? "known" : "";
+      document.getElementById("flash-review").dataset.status = isReview ? "review" : "";
+      if (state.flashcards.known.length + state.flashcards.review.length === lessonData.vocabulary.length) markSection("vocabulary");
+    }
+
+    function flipFlashcard() { flashRevealed = !flashRevealed; renderFlashcard(); }
+    function moveFlashcard(delta) { flashIndex = (flashIndex + delta + lessonData.vocabulary.length) % lessonData.vocabulary.length; flashRevealed = false; renderFlashcard(); }
+    function markFlashcard(status) {
+      const word = lessonData.vocabulary[flashIndex].word;
+      state.flashcards.known = state.flashcards.known.filter((item) => item !== word);
+      state.flashcards.review = state.flashcards.review.filter((item) => item !== word);
+      state.flashcards[status].push(word);
+      state.flashcards[status] = state.flashcards[status].filter((item, index, arr) => arr.indexOf(item) === index);
+      saveProgress();
+      renderVocabulary();
+      moveFlashcard(1);
+    }
+
+    function questionTypeLabel(type) {
+      return ({ "multiple-choice": "Multiple choice", "true-false": "True / False", "fill-blank": "Fill in the blank", matching: "Matching", categorization: "Categorization", "sentence-builder": "Sentence building", "error-correction": "Error correction" }[type] || type);
+    }
+
+    function renderQuestion(q, mode, index) {
+      const card = document.createElement("article");
+      card.className = "question-card";
+      card.dataset.questionId = q.id;
+      card.dataset.mode = mode;
+      const saved = state.answers[mode]?.[q.id];
+      card.innerHTML = `<div class="question-header"><div><div class="question-number">${mode === "test" ? "Test" : "Task"} ${index + 1} · ${escapeHtml(q.phase)}</div><h3>${q.prompt}</h3></div><span class="type-pill">${questionTypeLabel(q.type)}</span></div>`;
+      const body = document.createElement("div");
+      body.className = "question-body";
+      card.appendChild(body);
+      renderQuestionBody(q, body, saved?.answer);
+      if (mode === "practice") {
+        const actions = document.createElement("div");
+        actions.className = "question-actions";
+        const check = document.createElement("button");
+        check.type = "button";
+        check.className = "button";
+        check.textContent = "Check answer";
+        check.addEventListener("click", () => handlePracticeSubmit(q, card));
+        actions.appendChild(check);
+        card.appendChild(actions);
+      }
+      const feedback = document.createElement("div");
+      feedback.className = "feedback-slot";
+      feedback.setAttribute("aria-live", "polite");
+      card.appendChild(feedback);
+      if (saved && (mode === "practice" || testSubmitted)) {
+        renderFeedback(feedback, q, saved.answer, saved.correct, mode);
+        card.dataset.answered = "true";
+      }
+      return card;
+    }
+
+    function renderQuestionBody(q, body, savedAnswer) {
+      if (q.type === "multiple-choice" || q.type === "true-false") {
+        const fieldset = document.createElement("fieldset");
+        const legend = document.createElement("legend");
+        legend.textContent = q.type === "true-false" ? "Choose one:" : "Choose the best answer:";
+        fieldset.appendChild(legend);
+        const list = document.createElement("div");
+        list.className = "option-list";
+        q.options.forEach((option, index) => {
+          const label = document.createElement("label");
+          label.className = "option-label";
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = `answer-${q.id}`;
+          input.value = option;
+          input.checked = normalizeAnswer(savedAnswer) === normalizeAnswer(option);
+          input.addEventListener("change", () => { if (body.closest("[data-mode='test']")) updateTestProgress(); });
+          label.appendChild(input);
+          const text = document.createElement("span");
+          text.innerHTML = option;
+          label.appendChild(text);
+          list.appendChild(label);
+        });
+        fieldset.appendChild(list);
+        body.appendChild(fieldset);
+        return;
+      }
+      if (q.type === "fill-blank" || q.type === "error-correction") {
+        const label = document.createElement("label");
+        label.textContent = "Your answer";
+        label.htmlFor = `input-${q.id}`;
+        const input = document.createElement("input");
+        input.className = "text-answer";
+        input.id = `input-${q.id}`;
+        input.type = "text";
+        input.autocomplete = "off";
+        input.value = typeof savedAnswer === "string" ? savedAnswer : "";
+        input.addEventListener("input", () => { if (body.closest("[data-mode='test']")) updateTestProgress(); });
+        body.append(label, input);
+        return;
+      }
+      if (q.type === "matching") {
+        const card = body.closest(".question-card");
+        const helper = document.createElement("p");
+        helper.className = "question-helper";
+        helper.textContent = "Click một mục bên trái rồi click nghĩa tương ứng bên phải.";
+        body.appendChild(helper);
+        const layout = document.createElement("div");
+        layout.className = "match-layout";
+        const leftColumn = document.createElement("div");
+        const rightColumn = document.createElement("div");
+        leftColumn.className = rightColumn.className = "match-column";
+        leftColumn.innerHTML = "<h4>Term</h4>";
+        rightColumn.innerHTML = "<h4>Meaning</h4>";
+        const rights = q.pairs.map((pair) => pair.right).sort(() => Math.random() - .5);
+        const matchMap = {};
+        let selectedLeft = null;
+        q.pairs.forEach((pair) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "match-button";
+          button.textContent = pair.left;
+          button.dataset.left = pair.left;
+          button.addEventListener("click", () => {
+            selectedLeft = pair.left;
+            leftColumn.querySelectorAll(".match-button").forEach((item) => item.dataset.selected = String(item === button));
+          });
+          leftColumn.appendChild(button);
+        });
+        rights.forEach((right) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "match-button";
+          button.textContent = right;
+          button.dataset.right = right;
+          button.addEventListener("click", () => {
+            if (!selectedLeft) return;
+            matchMap[selectedLeft] = right;
+            const leftButton = leftColumn.querySelector(`[data-left="${CSS.escape(selectedLeft)}"]`);
+            if (leftButton) { leftButton.dataset.matched = "true"; leftButton.dataset.selected = "false"; }
+            button.dataset.matched = "true";
+            selectedLeft = null;
+            cardAnswerChanged(body);
+          });
+          rightColumn.appendChild(button);
+        });
+        if (savedAnswer && typeof savedAnswer === "object") Object.assign(matchMap, savedAnswer);
+        layout.append(leftColumn, rightColumn);
+        body.appendChild(layout);
+        body.closest(".question-card")._matchMap = matchMap;
+        return;
+      }
+      if (q.type === "categorization") {
+        const helper = document.createElement("p");
+        helper.className = "question-helper";
+        helper.textContent = "Chọn một nhóm cho từng từ.";
+        body.appendChild(helper);
+        const grid = document.createElement("div");
+        grid.className = "category-grid";
+        q.items.forEach((item) => {
+          const row = document.createElement("label");
+          row.className = "category-row";
+          const term = document.createElement("strong");
+          term.textContent = item.text;
+          const select = document.createElement("select");
+          select.className = "category-select";
+          select.dataset.item = item.text;
+          select.setAttribute("aria-label", `Category for ${item.text}`);
+          select.innerHTML = `<option value="">Choose…</option>` + q.categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("");
+          if (savedAnswer && savedAnswer[item.text]) select.value = savedAnswer[item.text];
+          select.addEventListener("change", () => cardAnswerChanged(body));
+          row.append(term, select);
+          grid.appendChild(row);
+        });
+        body.appendChild(grid);
+        return;
+      }
+      if (q.type === "sentence-builder") {
+        const helper = document.createElement("p");
+        helper.className = "question-helper";
+        helper.textContent = "Click các token theo đúng thứ tự. Click token ở câu trả lời để bỏ token đó ra.";
+        body.appendChild(helper);
+        const answerLabel = document.createElement("div"); answerLabel.className = "builder-label"; answerLabel.textContent = "Your sentence";
+        const answerBox = document.createElement("div"); answerBox.className = "builder-answer";
+        const bankLabel = document.createElement("div"); bankLabel.className = "builder-label"; bankLabel.textContent = "Word bank";
+        const bank = document.createElement("div"); bank.className = "builder-bank";
+        const sequence = Array.isArray(savedAnswer) ? savedAnswer.slice() : [];
+        const tokens = q.tokens.slice();
+        const renderTokens = () => {
+          answerBox.innerHTML = "";
+          bank.innerHTML = "";
+          sequence.forEach((token, tokenIndex) => {
+            const button = document.createElement("button"); button.type = "button"; button.className = "token-button"; button.textContent = token;
+            button.addEventListener("click", () => { sequence.splice(tokenIndex, 1); renderTokens(); cardAnswerChanged(body); });
+            answerBox.appendChild(button);
+          });
+          tokens.forEach((token, tokenIndex) => {
+            const used = sequence.indexOf(token) !== -1;
+            const button = document.createElement("button"); button.type = "button"; button.className = "token-button"; button.textContent = token; button.dataset.used = String(used); button.disabled = used;
+            button.addEventListener("click", () => { if (!used) { sequence.push(token); renderTokens(); cardAnswerChanged(body); } });
+            bank.appendChild(button);
+          });
+        };
+        renderTokens();
+        body.append(answerLabel, answerBox, bankLabel, bank);
+        body.closest(".question-card")._sequence = sequence;
+      }
+    }
+
+    function cardAnswerChanged(body) {
+      const card = body.closest(".question-card");
+      if (card && card.dataset.mode === "test") updateTestProgress();
+    }
+
+    function getAnswerFromCard(q, card) {
+      if (q.type === "multiple-choice" || q.type === "true-false") return card.querySelector("input[type='radio']:checked")?.value || "";
+      if (q.type === "fill-blank" || q.type === "error-correction") return card.querySelector("input[type='text']")?.value || "";
+      if (q.type === "matching") return card._matchMap || {};
+      if (q.type === "categorization") return Object.fromEntries([...card.querySelectorAll("select[data-item]")].map((select) => [select.dataset.item, select.value]));
+      if (q.type === "sentence-builder") return card._sequence || [];
+      return "";
+    }
+
+    function answerLabel(q, answer) {
+      if (q.type === "matching") return Object.entries(answer || {}).map(([key, value]) => `${key} → ${value}`).join("; ") || "No answer";
+      if (q.type === "categorization") return Object.entries(answer || {}).map(([key, value]) => `${key}: ${value || "—"}`).join("; ") || "No answer";
+      if (q.type === "sentence-builder") return (answer || []).join(" ") || "No answer";
+      return answer || "No answer";
+    }
+
+    function correctLabel(q) {
+      if (q.type === "matching") return q.pairs.map((pair) => `${pair.left} → ${pair.right}`).join("; ");
+      if (q.type === "categorization") return q.items.map((item) => `${item.text}: ${item.answer}`).join("; ");
+      return Array.isArray(q.answer) ? q.answer.join(" / ") : q.answer;
+    }
+
+    function evaluateAnswer(q, answer) {
+      if (isEmptyAnswer(answer)) return false;
+      if (q.type === "matching") return q.pairs.every((pair) => normalizeAnswer(answer[pair.left]) === normalizeAnswer(pair.right));
+      if (q.type === "categorization") return q.items.every((item) => normalizeAnswer(answer[item.text]) === normalizeAnswer(item.answer));
+      if (q.type === "sentence-builder") return normalizeSentence(answer.join(" ")) === normalizeSentence(q.answer);
+      const accepted = Array.isArray(q.answer) ? q.answer : [q.answer];
+      return accepted.some((correct) => normalizeAnswer(answer) === normalizeAnswer(correct));
+    }
+
+    function renderFeedback(container, q, answer, correct, mode) {
+      const yourAnswer = answerLabel(q, answer);
+      const correctAnswer = correctLabel(q);
+      container.className = `feedback ${correct ? "correct" : "incorrect"}`;
+      container.innerHTML = correct ? `<strong>✓ Correct</strong><p class="feedback-explanation">${escapeHtml(q.explanation)}</p>` : `<strong>✗ Incorrect</strong><dl><div><dt>Your answer</dt><dd>${escapeHtml(yourAnswer)}</dd></div><div><dt>Correct answer</dt><dd>${escapeHtml(correctAnswer)}</dd></div></dl><p class="feedback-explanation"><strong>Explanation:</strong> ${escapeHtml(q.explanation)}</p>`;
+      if (mode === "test") container.setAttribute("tabindex", "-1");
+    }
+
+    function handlePracticeSubmit(q, card) {
+      const answer = getAnswerFromCard(q, card);
+      const feedback = card.querySelector(".feedback-slot");
+      if (isEmptyAnswer(answer)) {
+        feedback.className = "feedback pending";
+        feedback.innerHTML = "<strong>Choose or write an answer first.</strong><p style=\"margin:0\">Hãy hoàn thành tác vụ rồi kiểm tra lại.</p>";
+        feedback.focus();
+        return;
+      }
+      const correct = evaluateAnswer(q, answer);
+      state.answers.practice[q.id] = { answer, correct, answeredAt: new Date().toISOString() };
+      if (correct) state.mistakes.practice = state.mistakes.practice.filter((id) => id !== q.id);
+      else if (!state.mistakes.practice.includes(q.id)) state.mistakes.practice.push(q.id);
+      saveProgress();
+      card.dataset.answered = "true";
+      renderFeedback(feedback, q, answer, correct, "practice");
+      updatePracticeStats();
+      if (practiceSet.every((item) => state.answers.practice[item.id])) markSection("practice");
+      feedback.focus();
+    }
+
+    function renderPractice() {
+      const container = document.getElementById("practice-container");
+      container.innerHTML = "";
+      practiceSet.forEach((question, index) => container.appendChild(renderQuestion(question, "practice", index)));
+      document.getElementById("practice-heading").textContent = `Practice set · ${practiceSet.length} tasks`;
+      document.getElementById("practice-subheading").textContent = practiceSet.length === practiceQuestions.length ? "Click-to-match hoạt động tốt trên mobile; không cần drag-and-drop." : "Đây là vòng retry; chỉ các câu được chọn sẽ xuất hiện.";
+      updatePracticeStats();
+    }
+
+    function updatePracticeStats() {
+      const records = practiceSet.map((q) => state.answers.practice[q.id]).filter(Boolean);
+      const correct = records.filter((item) => item.correct).length;
+      document.getElementById("practice-answered").textContent = records.length;
+      document.getElementById("practice-correct").textContent = correct;
+      document.getElementById("practice-accuracy").textContent = records.length ? Math.round(correct / records.length * 100) + "%" : "—";
+    }
+
+    function startPracticeRetry(ids) {
+      if (!ids.length) {
+        window.alert("Chưa có câu Practice sai để ôn lại.");
+        return;
+      }
+      const selectedIds = ids;
+      selectedIds.forEach((id) => { delete state.answers.practice[id]; });
+      practiceSet = practiceQuestions.filter((q) => selectedIds.includes(q.id));
+      saveProgress();
+      renderPractice();
+      document.getElementById("practice").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function renderProduction() {
+      document.getElementById("production-list").innerHTML = productionTasks.map((task, index) => `<article class="production-card"><h3>${index + 1}. ${escapeHtml(task.title)}</h3><p>${escapeHtml(task.prompt)}</p><label for="production-${index}" class="sr-only">Your response</label><textarea id="production-${index}" placeholder="Write here…"></textarea><div class="checklist-box">${task.checklist.map((item, checkIndex) => `<label><input type="checkbox" id="production-${index}-${checkIndex}"> <span>${escapeHtml(item)}</span></label>`).join("")}</div></article>`).join("");
+    }
+
+    function renderTest() {
+      const container = document.getElementById("test-container");
+      container.innerHTML = "";
+      testSet.forEach((question, index) => container.appendChild(renderQuestion(question, "test", index)));
+      updateTestProgress();
+      document.getElementById("submit-test").textContent = testSubmitted ? "Resubmit Test" : "Submit Test";
+    }
+
+    function updateTestProgress() {
+      const answered = [...document.querySelectorAll("#test-container .question-card")].filter((card) => !isEmptyAnswer(getAnswerFromCard(findQuestion(card.dataset.questionId), card))).length;
+      document.getElementById("test-progress-label").textContent = `${answered} / ${testSet.length} answered`;
+    }
+
+    function submitTest() {
+      const cards = [...document.querySelectorAll("#test-container .question-card")];
+      const records = cards.map((card) => {
+        const q = findQuestion(card.dataset.questionId);
+        const answer = getAnswerFromCard(q, card);
+        const correct = evaluateAnswer(q, answer);
+        state.answers.test[q.id] = { answer, correct, answeredAt: new Date().toISOString() };
+        return { q, answer, correct };
+      });
+      const correct = records.filter((record) => record.correct).length;
+      const total = records.length;
+      state.mistakes.test = records.filter((record) => !record.correct).map((record) => record.q.id);
+      const categoryStats = {};
+      records.forEach(({ q, correct: isCorrect }) => { categoryStats[q.category] ||= { correct: 0, total: 0 }; categoryStats[q.category].total += 1; categoryStats[q.category].correct += Number(isCorrect); });
+      state.lastTest = { correct, total, categoryStats, questionIds: records.map((record) => record.q.id), submittedAt: new Date().toISOString() };
+      const score = total ? Math.round(correct / total * 100) : 0;
+      state.bestScore = Math.max(Number(state.bestScore) || 0, score);
+      state.sections.test = true;
+      state.sections.results = true;
+      state.sections.mistakes = state.mistakes.test.length === 0;
+      testSubmitted = true;
+      saveProgress();
+      renderTest();
+      renderResults();
+      renderMistakes();
+      document.getElementById("results").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("test-status").textContent = `Test submitted. Score ${correct} out of ${total}.`;
+    }
+
+    function masteryLabel(score) {
+      if (score >= 90) return "Mastered";
+      if (score >= 80) return "Very Good";
+      if (score >= 70) return "Good";
+      if (score >= 60) return "Developing";
+      return "Needs Review";
+    }
+
+    function renderResults() {
+      const panel = document.getElementById("results-panel");
+      const result = state.lastTest;
+      if (!result) {
+        panel.innerHTML = `<div class="empty-state"><strong>Chưa có kết quả Test.</strong><br>Hoàn thành Final Test để xem score, accuracy, mastery và đề xuất ôn tập.</div>`;
+        return;
+      }
+      const score = result.total ? Math.round(result.correct / result.total * 100) : 0;
+      const recommendations = Object.entries(result.categoryStats).filter(([, stats]) => Math.round(stats.correct / stats.total * 100) < 80).map(([category]) => categoryLabels[category]);
+      panel.innerHTML = `<div class="result-hero">
+        <div class="result-score"><span class="score-value">${score}%</span><span class="score-label">${masteryLabel(score)}</span></div>
+        <div class="panel"><div class="result-summary"><div class="result-stat"><strong>${result.correct} / ${result.total}</strong><span>Score</span></div><div class="result-stat"><strong>${result.correct}</strong><span>Correct</span></div><div class="result-stat"><strong>${result.total - result.correct}</strong><span>Incorrect</span></div><div class="result-stat"><strong>${state.bestScore || score}%</strong><span>Best score</span></div></div><div style="margin-top:1.2rem"><h3>Accuracy by skill</h3><div class="breakdown">${Object.entries(result.categoryStats).map(([category, stats]) => { const pct = Math.round(stats.correct / stats.total * 100); return `<div class="breakdown-row"><span>${categoryLabels[category]}</span><div class="mini-track"><div class="mini-fill" style="width:${pct}%"></div></div><strong>${pct}%</strong></div>`; }).join("")}</div></div></div>
+      </div>
+      <div class="grid-2" style="margin-top:1rem"><div class="panel soft-card yellow"><h3>Recommended review</h3>${recommendations.length ? `<ul class="plain-list">${recommendations.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "<p style=\"margin:0\">Bạn đang ổn ở tất cả kỹ năng. Hãy thử lại sau vài ngày để kiểm tra delayed recall.</p>"}</div><div class="panel"><h3>Next move</h3><p class="muted">Ôn các câu sai, xem explanation, rồi retry chỉ nhóm incorrect. Câu đã đúng không bị đưa vào vòng retry.</p><div class="button-row"><button id="retry-all-test" class="button-secondary" type="button">Retry all</button><button id="retry-incorrect-test" class="button-quiet" type="button" ${state.mistakes.test.length ? "" : "disabled"}>Retry incorrect</button></div></div></div>`;
+      document.getElementById("retry-all-test").addEventListener("click", () => startTestRetry(testQuestions.map((q) => q.id)));
+      document.getElementById("retry-incorrect-test").addEventListener("click", () => startTestRetry(state.mistakes.test));
+    }
+
+    function startTestRetry(ids) {
+      if (!ids.length) return;
+      ids.forEach((id) => { delete state.answers.test[id]; });
+      testSet = testQuestions.filter((q) => ids.includes(q.id));
+      testSubmitted = false;
+      saveProgress();
+      renderTest();
+      document.getElementById("test").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function renderMistakes() {
+      const panel = document.getElementById("mistakes-panel");
+      const mistakes = state.mistakes.test.map((id) => ({ q: findQuestion(id), record: state.answers.test[id] })).filter((item) => item.q);
+      if (!mistakes.length) {
+        panel.innerHTML = `<div class="empty-state"><strong>Chưa có câu sai để review.</strong><br>Sau khi nộp Test, các câu trả lời sai sẽ xuất hiện ở đây kèm đáp án và giải thích.</div>`;
+        return;
+      }
+      panel.innerHTML = `<div class="mistakes-list">${mistakes.map(({ q, record }) => `<article class="mistake-card"><div class="question-number">${escapeHtml(q.phase)} · ${questionTypeLabel(q.type)}</div><div class="mistake-question">${q.prompt}</div><div class="mistake-details"><div><span>Your answer</span><strong>${escapeHtml(answerLabel(q, record.answer))}</strong></div><div><span>Correct answer</span><strong>${escapeHtml(correctLabel(q))}</strong></div></div><p style="margin:0 0 .8rem"><strong>Explanation:</strong> ${escapeHtml(q.explanation)}</p><button class="button-secondary practice-one" type="button" data-question-id="${q.id}">Practice again</button></article>`).join("")}</div>`;
+      panel.querySelectorAll(".practice-one").forEach((button) => button.addEventListener("click", () => startPracticeRetry([button.dataset.questionId])));
+    }
+
+    function wireEvents() {
+      document.getElementById("reset-progress").addEventListener("click", resetProgress);
+      document.getElementById("flash-prev").addEventListener("click", () => moveFlashcard(-1));
+      document.getElementById("flash-flip").addEventListener("click", flipFlashcard);
+      document.getElementById("flash-next").addEventListener("click", () => moveFlashcard(1));
+      document.getElementById("flash-known").addEventListener("click", () => markFlashcard("known"));
+      document.getElementById("flash-review").addEventListener("click", () => markFlashcard("review"));
+      document.getElementById("practice-retry-all").addEventListener("click", () => startPracticeRetry(practiceQuestions.map((q) => q.id)));
+      document.getElementById("practice-retry-incorrect").addEventListener("click", () => startPracticeRetry(state.mistakes.practice));
+      document.getElementById("submit-test").addEventListener("click", submitTest);
+      document.querySelectorAll("[data-section-link], [data-go-section]").forEach((link) => link.addEventListener("click", () => markSection(link.dataset.sectionLink || link.dataset.goSection)));
+      document.querySelectorAll("[data-mark-section]").forEach((button) => button.addEventListener("click", () => { markSection(button.dataset.markSection); button.textContent = "✓ Learn marked complete"; }));
+      document.querySelectorAll("[data-section-link]").forEach((link) => link.addEventListener("click", () => { setTimeout(() => document.getElementById(link.dataset.sectionLink)?.focus({ preventScroll: true }), 350); }));
+    }
+
+    function renderAll() {
+      renderLesson();
+      renderVocabulary();
+      renderFlashcard();
+      renderPractice();
+      renderProduction();
+      renderTest();
+      renderResults();
+      renderMistakes();
+      updateProgress();
+    }
+
+    wireEvents();
+    renderAll();
+  </script>
+</body>
+</html>
