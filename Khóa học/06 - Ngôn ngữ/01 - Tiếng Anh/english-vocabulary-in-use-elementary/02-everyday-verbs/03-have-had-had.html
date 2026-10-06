@@ -1,0 +1,1922 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learning Activity và Review Lab cho bài Have / had / had trong English Vocabulary in Use Elementary.">
+  <title>Have / had / had — Learning Activity</title>
+  <style>
+    :root {
+      --ink: #17233c;
+      --muted: #64708a;
+      --paper: #f7f9fc;
+      --card: #ffffff;
+      --line: #dfe5ef;
+      --navy: #1e3a5f;
+      --blue: #2878d4;
+      --blue-soft: #e9f2ff;
+      --teal: #168b83;
+      --teal-soft: #e8f7f5;
+      --coral: #d95c4f;
+      --coral-soft: #fff0ed;
+      --amber: #b87808;
+      --amber-soft: #fff7df;
+      --purple: #7658b8;
+      --shadow: 0 14px 32px rgba(23, 35, 60, .08);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --max: 1460px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(40,120,212,.08), transparent 28rem),
+        var(--paper);
+      line-height: 1.55;
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 4px solid rgba(40,120,212,.25);
+      outline-offset: 2px;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--blue); }
+    code, .mono {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: .93em;
+      background: #f0f3f8;
+      border-radius: 6px;
+      padding: .12rem .35rem;
+    }
+    h1, h2, h3, h4 { line-height: 1.2; margin: 0 0 .65rem; letter-spacing: -.02em; }
+    p { margin: .5rem 0 1rem; }
+    ul, ol { padding-left: 1.25rem; }
+    li + li { margin-top: .3rem; }
+
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      color: #fff;
+      background: linear-gradient(115deg, #153251, #1e527e 58%, #2878d4);
+      box-shadow: 0 5px 22px rgba(23,35,60,.18);
+    }
+    .header-inner {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(270px, 420px);
+      gap: 1.5rem;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      font-size: .72rem;
+      font-weight: 800;
+      opacity: .78;
+    }
+    .header-title { font-size: clamp(1.35rem, 2.2vw, 2rem); margin-top: .25rem; }
+    .header-subtitle { color: rgba(255,255,255,.8); margin: 0; }
+    .progress-box { min-width: 0; }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: rgba(255,255,255,.86);
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: .42rem;
+    }
+    .progress-track {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255,255,255,.22);
+    }
+    .progress-track > span {
+      display: block;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #8ae3d3, #ffe29a);
+      transition: width .3s ease;
+    }
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: .7rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .28rem .65rem;
+      border-radius: 999px;
+      color: var(--ink);
+      background: #eef2f8;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+    .pill.inverse { color: #fff; background: rgba(255,255,255,.15); }
+    .pill.blue { color: #1859a5; background: var(--blue-soft); }
+    .pill.teal { color: #106a65; background: var(--teal-soft); }
+    .pill.coral { color: #aa3e35; background: var(--coral-soft); }
+    .pill.amber { color: #8b5d05; background: var(--amber-soft); }
+
+    .mobile-nav {
+      display: none;
+      overflow-x: auto;
+      gap: .4rem;
+      padding: .65rem 1rem;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+    .app-shell {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: start;
+      padding: 1.4rem 0 4rem;
+    }
+    .sidebar {
+      position: sticky;
+      top: 98px;
+      display: grid;
+      gap: 1rem;
+    }
+    .nav-card, .side-card, .card, .question-card, .vocab-card, .result-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .nav-card { padding: .65rem; }
+    .nav-card h2 { font-size: .82rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; padding: .6rem .7rem; }
+    .nav-button, .mobile-nav button {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: .72rem .8rem;
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      text-align: left;
+      color: var(--muted);
+      background: transparent;
+      font-weight: 750;
+    }
+    .nav-button:hover, .mobile-nav button:hover { background: #f1f5fb; color: var(--ink); }
+    .nav-button[aria-current="page"], .mobile-nav button[aria-current="page"] {
+      color: #fff;
+      background: linear-gradient(110deg, var(--navy), var(--blue));
+      box-shadow: 0 8px 18px rgba(40,120,212,.22);
+    }
+    .nav-icon { width: 1.35rem; text-align: center; font-size: 1.05rem; }
+    .side-card { padding: 1rem; }
+    .side-card h3 { font-size: .95rem; }
+    .side-card p { font-size: .86rem; color: var(--muted); }
+    .side-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
+    .side-stat { padding: .62rem; border-radius: 12px; background: #f3f6fa; }
+    .side-stat strong { display: block; font-size: 1.2rem; }
+    .side-stat span { font-size: .72rem; color: var(--muted); }
+
+    .view { display: none; animation: rise .22s ease; }
+    .view.active { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1rem;
+    }
+    .section-heading p { color: var(--muted); max-width: 760px; margin: 0; }
+    .section-kicker { color: var(--blue); text-transform: uppercase; letter-spacing: .09em; font-size: .72rem; font-weight: 900; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.28fr) minmax(250px, .72fr);
+      gap: 1rem;
+      padding: clamp(1.2rem, 3vw, 2.25rem);
+      overflow: hidden;
+      color: #fff;
+      border-radius: 26px;
+      background:
+        linear-gradient(125deg, rgba(18,46,77,.97), rgba(30,82,126,.92)),
+        url("assets/have-had-had/have-breakfast.png") center / cover;
+      box-shadow: 0 22px 48px rgba(19,50,81,.22);
+    }
+    .hero h1 { font-size: clamp(2rem, 4.3vw, 4rem); max-width: 780px; }
+    .hero p { color: rgba(255,255,255,.82); max-width: 700px; font-size: 1.05rem; }
+    .hero-art {
+      min-height: 230px;
+      border-radius: 20px;
+      background: url("assets/have-had-had/have-a-good-time.png") center / cover;
+      border: 6px solid rgba(255,255,255,.2);
+      align-self: stretch;
+    }
+    .button-row { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; }
+    .btn {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: .65rem .9rem;
+      color: var(--ink);
+      background: #fff;
+      font-weight: 800;
+      transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 7px 16px rgba(23,35,60,.1); }
+    .btn.primary { border-color: var(--blue); color: #fff; background: var(--blue); }
+    .btn.secondary { border-color: var(--teal); color: #fff; background: var(--teal); }
+    .btn.ghost { color: var(--blue); background: var(--blue-soft); border-color: #cfe2fb; }
+    .btn.danger { color: #a83e35; background: var(--coral-soft); border-color: #f4c4bd; }
+    .btn.small { padding: .45rem .65rem; font-size: .82rem; }
+    .btn:disabled { cursor: not-allowed; opacity: .55; transform: none; box-shadow: none; }
+
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 1rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .card { padding: 1.15rem; }
+    .card h3 { font-size: 1.03rem; }
+    .card p:last-child { margin-bottom: 0; }
+    .muted { color: var(--muted); }
+    .small-text { font-size: .86rem; }
+    .callout {
+      border-left: 4px solid var(--blue);
+      padding: .8rem 1rem;
+      border-radius: 0 12px 12px 0;
+      background: var(--blue-soft);
+    }
+    .callout.warning { border-left-color: var(--amber); background: var(--amber-soft); }
+    .callout.danger { border-left-color: var(--coral); background: var(--coral-soft); }
+    .callout.teal { border-left-color: var(--teal); background: var(--teal-soft); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+    table { border-collapse: collapse; width: 100%; min-width: 620px; background: #fff; }
+    th, td { padding: .72rem .8rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--navy); background: #f0f5fb; font-size: .85rem; }
+    tr:last-child td { border-bottom: 0; }
+    .spacer { height: 1rem; }
+    .flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .55rem; }
+    .flow-step { position: relative; padding: .9rem .7rem; border: 1px solid var(--line); border-radius: 14px; text-align: center; background: #fff; }
+    .flow-step strong { display: block; font-size: .9rem; }
+    .flow-step span { color: var(--muted); font-size: .76rem; }
+    .flow-step:not(:last-child)::after { content: "→"; position: absolute; right: -.48rem; top: 50%; transform: translateY(-50%); color: var(--blue); font-weight: 900; z-index: 2; }
+    .objective-list { display: grid; gap: .55rem; list-style: none; padding: 0; }
+    .objective-list li { display: flex; gap: .6rem; align-items: flex-start; }
+    .checkmark { display: grid; place-items: center; flex: 0 0 1.35rem; width: 1.35rem; height: 1.35rem; border-radius: 50%; color: #fff; background: var(--teal); font-size: .77rem; font-weight: 900; margin-top: .12rem; }
+    .schedule-card { border-top: 4px solid var(--blue); }
+    .schedule-card:nth-child(2) { border-top-color: var(--teal); }
+    .schedule-card:nth-child(3) { border-top-color: var(--purple); }
+    .schedule-card:nth-child(4) { border-top-color: var(--amber); }
+    .schedule-card .day { color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; font-weight: 900; }
+
+    .learn-block { margin-top: 1rem; }
+    .learn-block > h2 { font-size: 1.45rem; margin-bottom: .8rem; }
+    .form-pair { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+    .form-tile { padding: 1rem; border-radius: 16px; border: 1px solid var(--line); background: #fbfcfe; }
+    .form-tile .big-form { display: block; color: var(--blue); font-size: 1.7rem; font-weight: 900; }
+    .form-tile small { color: var(--muted); }
+    .collocation-group { margin-top: 1rem; }
+    .group-title { display: flex; align-items: center; gap: .6rem; margin-bottom: .65rem; }
+    .group-title h3 { margin: 0; }
+    .phrase-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+    .phrase-card { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+    .phrase-card img { aspect-ratio: 1; width: 100%; object-fit: cover; }
+    .phrase-card-body { padding: .75rem; }
+    .phrase-card h4 { font-size: .97rem; margin-bottom: .2rem; }
+    .phrase-card p { color: var(--muted); font-size: .83rem; margin: 0; }
+    .scene-card { display: grid; grid-template-columns: 130px 1fr; gap: 1rem; align-items: center; }
+    .scene-card img { width: 130px; height: 130px; object-fit: cover; border-radius: 14px; }
+    .scene-card blockquote { margin: .4rem 0 0; padding-left: .8rem; border-left: 3px solid var(--blue); color: var(--navy); }
+    .pitfall { display: flex; gap: .8rem; padding: .85rem; border: 1px solid var(--line); border-radius: 14px; }
+    .pitfall-symbol { flex: 0 0 2rem; width: 2rem; height: 2rem; display: grid; place-items: center; border-radius: 50%; font-weight: 900; }
+    .pitfall.bad .pitfall-symbol { color: #a83e35; background: var(--coral-soft); }
+    .pitfall.good .pitfall-symbol { color: #106a65; background: var(--teal-soft); }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .toolbar-left, .toolbar-right { display: flex; flex-wrap: wrap; gap: .55rem; align-items: center; }
+    .search {
+      min-width: min(340px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: .65rem .75rem;
+      background: #fff;
+    }
+    .filter-button { border: 1px solid var(--line); border-radius: 999px; padding: .45rem .7rem; color: var(--muted); background: #fff; font-weight: 750; }
+    .filter-button.active { border-color: var(--blue); color: #fff; background: var(--blue); }
+    .vocab-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .vocab-card { overflow: hidden; display: flex; flex-direction: column; }
+    .vocab-card img { width: 100%; aspect-ratio: 1.1; object-fit: cover; }
+    .vocab-body { display: flex; flex-direction: column; gap: .48rem; padding: .95rem; height: 100%; }
+    .vocab-word-row { display: flex; justify-content: space-between; align-items: start; gap: .5rem; }
+    .vocab-word { font-size: 1.15rem; font-weight: 900; }
+    .vocab-kind { color: var(--blue); font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 900; }
+    .meaning { font-weight: 800; color: var(--navy); }
+    .definition { color: var(--muted); font-size: .84rem; }
+    .example { padding: .55rem .65rem; border-radius: 10px; color: #30435f; background: #f5f7fb; font-size: .87rem; }
+    .vocab-detail { font-size: .8rem; color: var(--muted); }
+    .vocab-footer { margin-top: auto; padding-top: .3rem; }
+    .know-button { width: 100%; }
+    .know-button.known { border-color: #9cdcd6; color: #0d7068; background: var(--teal-soft); }
+    .empty-state { padding: 2rem; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 16px; background: #fff; }
+
+    .flashcard-stage { max-width: 720px; margin: 0 auto; }
+    .flashcard {
+      width: 100%;
+      min-height: 440px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+      border: 0;
+      border-radius: 26px;
+      padding: 1.5rem;
+      color: var(--ink);
+      background: linear-gradient(145deg, #fff, #f0f6ff);
+      box-shadow: 0 24px 55px rgba(23,35,60,.14);
+    }
+    .flashcard-top { display: flex; justify-content: space-between; gap: .8rem; align-items: center; }
+    .flashcard-word { font-size: clamp(2rem, 7vw, 4rem); font-weight: 950; letter-spacing: -.05em; }
+    .flashcard-image { width: 190px; height: 190px; object-fit: cover; border-radius: 20px; margin: 1rem auto; }
+    .flashcard-back { padding: 1rem; border-radius: 16px; background: rgba(255,255,255,.75); }
+    .flashcard-back h3 { color: var(--blue); }
+    .flashcard-hint { color: var(--muted); font-size: .85rem; text-align: center; }
+    .flashcard-controls { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .6rem; margin-top: 1rem; }
+    .flashcard-controls .center { display: flex; gap: .5rem; }
+    .flash-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-bottom: 1rem; }
+    .flash-stat { padding: .8rem; text-align: center; border-radius: 14px; background: #fff; border: 1px solid var(--line); }
+    .flash-stat strong { display: block; font-size: 1.35rem; }
+    .flash-stat span { color: var(--muted); font-size: .76rem; }
+
+    .practice-summary { display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; padding: .8rem 1rem; margin-bottom: 1rem; border-radius: 15px; background: #eef5ff; border: 1px solid #d1e3fb; }
+    .practice-toolbar { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(150px, .65fr) auto; gap: .65rem; align-items: end; margin: 0 0 1rem; padding: .85rem; border: 1px solid var(--line); border-radius: 15px; background: #fff; }
+    .practice-toolbar label { display: grid; gap: .32rem; color: var(--muted); font-size: .78rem; font-weight: 850; }
+    .practice-toolbar select { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: .58rem .68rem; color: var(--ink); background: #fff; }
+    .practice-filter-meta { display: flex; align-items: center; min-height: 40px; color: var(--muted); font-size: .82rem; font-weight: 750; }
+    .select-all-list { display: grid; gap: .55rem; }
+    .select-all-list label { display: flex; gap: .6rem; align-items: flex-start; padding: .7rem .75rem; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    .select-all-list input { margin-top: .24rem; accent-color: var(--blue); }
+    .multi-fill-list { display: grid; gap: .7rem; }
+    .multi-fill-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(150px, .45fr); gap: .7rem; align-items: center; padding: .7rem; border-radius: 12px; background: #f8fafd; }
+    .multi-fill-row span { color: #31445f; font-weight: 720; }
+    .question-type { color: #53657e; background: #f0f3f8; }
+    .question-list { display: grid; gap: 1rem; }
+    .question-card { padding: 1.1rem; box-shadow: 0 8px 22px rgba(23,35,60,.05); }
+    .question-card.correct { border-color: #9bdad4; }
+    .question-card.incorrect { border-color: #efb2aa; }
+    .question-card.pending { border-color: #e1c77f; }
+    .question-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .6rem; margin-bottom: .7rem; }
+    .question-number { color: var(--navy); font-weight: 950; }
+    .question-meta { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .question-prompt { font-size: 1.02rem; font-weight: 750; margin-bottom: .8rem; }
+    .reading-passage { margin: .7rem 0; padding: 1rem; border-radius: 14px; color: #30435f; background: #f5f8fc; border-left: 4px solid var(--purple); }
+    .option-list { display: grid; gap: .55rem; }
+    .option-label {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      padding: .7rem .75rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .option-label:hover { border-color: #a9c9ef; background: #f9fbff; }
+    .option-label input { margin-top: .23rem; accent-color: var(--blue); }
+    .option-label.image-option { display: grid; grid-template-columns: 76px 1fr; align-items: center; }
+    .option-label.image-option img { width: 76px; height: 76px; border-radius: 10px; object-fit: cover; }
+    .input-line, .answer-input, .answer-select, .answer-textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: .65rem .75rem;
+      color: var(--ink);
+      background: #fff;
+    }
+    .answer-input { max-width: 480px; }
+    .answer-textarea { min-height: 115px; resize: vertical; }
+    .field-label { display: block; font-size: .82rem; font-weight: 800; color: var(--muted); margin-bottom: .35rem; }
+    .matching-list { display: grid; gap: .55rem; }
+    .matching-row { display: grid; grid-template-columns: minmax(130px, .8fr) minmax(180px, 1.2fr); gap: .65rem; align-items: center; }
+    .matching-row > span { font-weight: 800; }
+    .word-bank { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .65rem; }
+    .word-chip { display: inline-flex; padding: .34rem .55rem; border-radius: 8px; color: #315274; background: #edf3fb; font-family: "SFMono-Regular", Consolas, monospace; font-size: .82rem; }
+    .categorize-list { display: grid; gap: .55rem; }
+    .categorize-row { display: grid; grid-template-columns: 1fr minmax(160px, .8fr); gap: .7rem; align-items: center; padding: .55rem .7rem; border-radius: 11px; background: #f8fafd; }
+    .order-builder { min-height: 50px; display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; padding: .55rem; border: 1px dashed #a8bdd8; border-radius: 12px; background: #f7fbff; margin-bottom: .6rem; }
+    .order-builder:empty::before { content: "Click words in the correct order"; color: var(--muted); font-size: .84rem; }
+    .order-token { border: 1px solid #bdd1eb; border-radius: 8px; padding: .43rem .58rem; color: #254d78; background: #eaf3ff; font-weight: 750; }
+    .order-token:disabled { opacity: .45; }
+    .image-match-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; }
+    .image-match-item { padding: .55rem; border: 1px solid var(--line); border-radius: 13px; background: #fbfcfe; }
+    .image-match-item img { width: 100%; aspect-ratio: 1.1; object-fit: cover; border-radius: 9px; margin-bottom: .5rem; }
+    .question-actions { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .85rem; }
+    .feedback { display: none; margin-top: .85rem; padding: .85rem; border-radius: 13px; }
+    .feedback.show { display: block; }
+    .feedback.correct { color: #105e58; background: var(--teal-soft); border: 1px solid #a7ddd7; }
+    .feedback.incorrect { color: #8f342d; background: var(--coral-soft); border: 1px solid #f0bbb4; }
+    .feedback.neutral { color: #775607; background: var(--amber-soft); border: 1px solid #efd890; }
+    .feedback strong { display: block; margin-bottom: .25rem; }
+    .feedback p { margin: .28rem 0; font-size: .9rem; }
+    .feedback-label { font-weight: 850; }
+    .production-card { border: 2px dashed #b6c9df; background: #f9fbff; }
+    .checklist { display: grid; gap: .5rem; margin: .7rem 0 0; }
+    .checklist label { display: flex; gap: .55rem; align-items: flex-start; color: #40516a; font-size: .9rem; }
+    .checklist input { margin-top: .25rem; accent-color: var(--teal); }
+    .crossword-wrap { overflow-x: auto; padding-bottom: .3rem; }
+    .crossword-grid { display: grid; gap: 2px; width: max-content; padding: 2px; background: #8ea7c5; border-radius: 8px; }
+    .crossword-cell { width: 35px; height: 35px; border: 0; border-radius: 3px; text-align: center; text-transform: uppercase; font-weight: 900; color: var(--navy); background: #fff; }
+    .crossword-block { width: 35px; height: 35px; background: #253c5a; }
+    .crossword-clues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; margin-top: .8rem; }
+    .crossword-clues ol { margin: .3rem 0 0; }
+
+    .test-instructions { padding: 1rem; border-radius: 15px; background: var(--amber-soft); border: 1px solid #ead48e; }
+    .test-score-banner { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; padding: 1rem; border-radius: 16px; background: linear-gradient(110deg, #eaf3ff, #eefaf8); border: 1px solid #cfe2fb; }
+    .score-number { font-size: clamp(2rem, 6vw, 3.8rem); color: var(--blue); font-weight: 950; line-height: 1; }
+    .result-hero { display: grid; grid-template-columns: 190px 1fr; gap: 1.2rem; align-items: center; padding: 1.3rem; border-radius: 20px; background: linear-gradient(110deg, #153251, #2878d4); color: #fff; }
+    .result-score { font-size: 3.6rem; line-height: 1; font-weight: 950; }
+    .result-hero p { color: rgba(255,255,255,.82); }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
+    .metric { padding: .95rem; text-align: center; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .metric strong { display: block; font-size: 1.55rem; color: var(--navy); }
+    .metric span { color: var(--muted); font-size: .78rem; }
+    .breakdown-row { display: grid; grid-template-columns: 145px 1fr 55px; gap: .7rem; align-items: center; margin: .65rem 0; }
+    .breakdown-bar { height: 10px; overflow: hidden; border-radius: 99px; background: #e9eef5; }
+    .breakdown-bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--teal), var(--blue)); }
+    .mistake-list { display: grid; gap: .8rem; }
+    .mistake-card { padding: 1rem; border-radius: 15px; border: 1px solid #efc0b9; background: #fff8f6; }
+    .mistake-card h3 { font-size: 1rem; }
+    .answer-pair { display: grid; gap: .3rem; margin: .6rem 0; font-size: .9rem; }
+    .answer-pair span { color: var(--muted); }
+    .recommendation-list { margin-bottom: 0; }
+    .toast {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 40;
+      max-width: min(400px, calc(100% - 2rem));
+      padding: .75rem .9rem;
+      border-radius: 12px;
+      color: #fff;
+      background: #193554;
+      box-shadow: 0 12px 26px rgba(23,35,60,.2);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: .2s ease;
+    }
+    .toast.show { opacity: 1; transform: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    @media (max-width: 1180px) {
+      .vocab-grid, .phrase-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .app-shell { grid-template-columns: 215px minmax(0, 1fr); }
+    }
+    @media (max-width: 980px) {
+      .header-inner { grid-template-columns: 1fr; gap: .7rem; }
+      .sidebar { display: none; }
+      .mobile-nav { display: flex; }
+      .mobile-nav button { width: auto; flex: 0 0 auto; white-space: nowrap; }
+      .app-shell { display: block; width: min(var(--max), calc(100% - 1.5rem)); padding-top: 1rem; }
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .vocab-grid, .phrase-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 720px) {
+      .header-inner { width: min(var(--max), calc(100% - 1.2rem)); }
+      .hero { grid-template-columns: 1fr; }
+      .hero-art { min-height: 180px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .flow-step:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -.68rem; transform: translateX(-50%); }
+      .form-pair { grid-template-columns: 1fr; }
+      .scene-card { grid-template-columns: 90px 1fr; }
+      .scene-card img { width: 90px; height: 90px; }
+      .image-match-grid { grid-template-columns: 1fr; }
+      .matching-row, .categorize-row { grid-template-columns: 1fr; gap: .3rem; }
+      .practice-toolbar, .multi-fill-row { grid-template-columns: 1fr; }
+      .crossword-clues { grid-template-columns: 1fr; }
+      .result-hero { grid-template-columns: 1fr; text-align: center; }
+      .result-hero .button-row { justify-content: center; }
+      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .breakdown-row { grid-template-columns: 110px 1fr 48px; }
+    }
+    @media (max-width: 420px) {
+      .app-shell { width: calc(100% - 1rem); }
+      .header-title { font-size: 1.3rem; }
+      .vocab-grid, .phrase-grid { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr; }
+      .flashcard { min-height: 400px; padding: 1rem; }
+      .flashcard-image { width: 145px; height: 145px; }
+      .flashcard-controls { justify-content: center; }
+      .flashcard-controls .center { order: -1; width: 100%; justify-content: center; }
+      .option-label.image-option { grid-template-columns: 64px 1fr; }
+      .option-label.image-option img { width: 64px; height: 64px; }
+      .score-number { font-size: 2.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div>
+        <div class="eyebrow">English Vocabulary in Use · Elementary</div>
+        <div class="header-title">Lesson 03 — Have / had / had</div>
+        <p class="header-subtitle">Everyday verbs · Learn, retrieve, apply, review</p>
+        <div class="header-meta">
+          <span class="pill inverse">A1–A2</span>
+          <span class="pill inverse">30–45 phút</span>
+          <span class="pill inverse">16 chunks · 52 practice</span>
+        </div>
+      </div>
+      <div class="progress-box" aria-label="Tiến độ bài học">
+        <div class="progress-label"><span>Lesson progress</span><strong id="progress-text">0%</strong></div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar"><span></span></div>
+        <div class="progress-label" style="margin-top:.45rem;margin-bottom:0"><span id="last-study">Chưa có lần học gần đây</span><span id="header-score">Best —</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" aria-label="Điều hướng bài học trên điện thoại">
+    <button type="button" data-view="overview" aria-current="page"><span>◉</span> Overview</button>
+    <button type="button" data-view="learn"><span>▣</span> Learn</button>
+    <button type="button" data-view="vocabulary"><span>✦</span> Vocabulary</button>
+    <button type="button" data-view="flashcards"><span>▤</span> Flashcards</button>
+    <button type="button" data-view="practice"><span>✓</span> Practice</button>
+    <button type="button" data-view="test"><span>◆</span> Test</button>
+    <button type="button" data-view="mistakes"><span>↺</span> Mistakes</button>
+    <button type="button" data-view="results"><span>●</span> Results</button>
+  </nav>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="nav-card">
+        <h2>Learning lab</h2>
+        <button class="nav-button" type="button" data-view="overview" aria-current="page"><span class="nav-icon">◉</span><span>Overview</span></button>
+        <button class="nav-button" type="button" data-view="learn"><span class="nav-icon">▣</span><span>Learn</span></button>
+        <button class="nav-button" type="button" data-view="vocabulary"><span class="nav-icon">✦</span><span>Vocabulary</span></button>
+        <button class="nav-button" type="button" data-view="flashcards"><span class="nav-icon">▤</span><span>Flashcards</span></button>
+        <button class="nav-button" type="button" data-view="practice"><span class="nav-icon">✓</span><span>Practice</span></button>
+        <button class="nav-button" type="button" data-view="test"><span class="nav-icon">◆</span><span>Final test</span></button>
+        <button class="nav-button" type="button" data-view="mistakes"><span class="nav-icon">↺</span><span>Mistakes <span class="pill coral" id="mistake-count" style="float:right">0</span></span></button>
+        <button class="nav-button" type="button" data-view="results"><span class="nav-icon">●</span><span>Results</span></button>
+      </div>
+      <div class="side-card">
+        <h3>Quick stats</h3>
+        <div class="side-stats">
+          <div class="side-stat"><strong id="side-known">0</strong><span>Đã nhớ</span></div>
+          <div class="side-stat"><strong id="side-practice">0</strong><span>Practice</span></div>
+          <div class="side-stat"><strong id="side-test">—</strong><span>Test score</span></div>
+          <div class="side-stat"><strong id="side-review">0</strong><span>Cần ôn</span></div>
+        </div>
+      </div>
+      <div class="side-card">
+        <h3>Evidence-informed loop</h3>
+        <p>Học theo chunk/collocation, tự nhớ lại, dùng trong ngữ cảnh, rồi ôn lại sau 1–3–7 ngày.</p>
+        <button type="button" class="btn danger small" data-reset-progress>Reset progress</button>
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <section class="view active" id="view-overview" aria-labelledby="overview-title">
+        <div class="hero">
+          <div>
+            <div class="eyebrow">Learning Activity / Review Lab</div>
+            <h1 id="overview-title">Have / had / had</h1>
+            <p>Học cách dùng <strong>have, has, had</strong> và các cụm tự nhiên như <strong>have breakfast</strong>, <strong>have a rest</strong> và <strong>have to study</strong>.</p>
+            <div class="button-row">
+              <button class="btn primary" type="button" data-view="learn">Bắt đầu học →</button>
+              <button class="btn" type="button" data-view="practice">Làm quick practice</button>
+            </div>
+          </div>
+          <div class="hero-art" role="img" aria-label="Minh họa một người đang có khoảng thời gian vui vẻ"></div>
+        </div>
+
+        <div class="spacer"></div>
+        <div class="section-heading">
+          <div><div class="section-kicker">01 · Overview</div><h2>Hôm nay bạn sẽ làm gì?</h2></div>
+          <p>Đừng chỉ đọc nghĩa. Hãy nhìn, nhớ lại, đặt câu và quay lại các lỗi còn lặp.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <h3>Learning objectives</h3>
+            <ul class="objective-list">
+              <li><span class="checkmark">✓</span><span>Phân biệt <strong>have</strong>, <strong>has</strong> và <strong>had</strong>.</span></li>
+              <li><span class="checkmark">✓</span><span>Dùng đúng các collocation với <strong>have</strong> trong hoạt động hằng ngày.</span></li>
+              <li><span class="checkmark">✓</span><span>Phân biệt <strong>have</strong>, <strong>have got</strong> và <strong>have to</strong>.</span></li>
+              <li><span class="checkmark">✓</span><span>Viết câu khẳng định, phủ định và câu hỏi đơn giản.</span></li>
+              <li><span class="checkmark">✓</span><span>Mô tả một ngày của bạn bằng các cụm đã học.</span></li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Core idea</h3>
+            <p><strong>Have → had → had</strong></p>
+            <p class="muted">Học cả cụm thay vì dịch từng từ: <strong>have breakfast</strong> = ăn sáng, không phải “có bữa sáng”.</p>
+            <div class="callout teal"><strong>Retrieval cue:</strong> Khi thấy một danh từ như <em>breakfast</em>, hãy tự hỏi: “Động từ tự nhiên đi cùng nó là gì?”</div>
+          </article>
+        </div>
+        <div class="spacer"></div>
+        <div class="flow" aria-label="Learning flow">
+          <div class="flow-step"><strong>Learn</strong><span>Hiểu form + chunk</span></div>
+          <div class="flow-step"><strong>Recognize</strong><span>Nhận diện nhanh</span></div>
+          <div class="flow-step"><strong>Retrieve</strong><span>Nhớ lại không nhìn</span></div>
+          <div class="flow-step"><strong>Apply</strong><span>Dùng trong context</span></div>
+          <div class="flow-step"><strong>Review</strong><span>Sửa lỗi + retry</span></div>
+        </div>
+        <div class="spacer"></div>
+        <div class="section-heading">
+          <div><div class="section-kicker">Spaced review</div><h2>Lịch ôn gợi ý</h2></div>
+          <p>Review chính các chunks, không chỉ nhìn lại danh sách từ.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card schedule-card"><div class="day">Day 0</div><h3>Nhận diện</h3><p class="small-text">Đọc lesson, xem ảnh, làm recognition.</p></article>
+          <article class="card schedule-card"><div class="day">Day 1</div><h3>Nhớ lại</h3><p class="small-text">Che nghĩa, làm fill blank và flashcard.</p></article>
+          <article class="card schedule-card"><div class="day">Day 3</div><h3>Tạo câu</h3><p class="small-text">Dùng 4 collocation để viết câu mới.</p></article>
+          <article class="card schedule-card"><div class="day">Day 7</div><h3>Transfer</h3><p class="small-text">Nói 30–45 giây về một ngày của bạn.</p></article>
+        </div>
+        <div class="spacer"></div>
+        <article class="card">
+          <div class="section-heading"><div><div class="section-kicker">Quick check</div><h2>Kiểm tra ngay sau phần overview</h2></div><span class="pill blue">Immediate feedback</span></div>
+          <div id="quick-checks" class="grid-3"></div>
+        </article>
+      </section>
+
+      <section class="view" id="view-learn" aria-labelledby="learn-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">02 · Learn</div><h1 id="learn-title">Hiểu hệ thống trước khi luyện</h1></div>
+          <p>Giữ form, nghĩa và ngữ cảnh trong cùng một mental model.</p>
+        </div>
+        <article class="card">
+          <h2>Forms of have</h2>
+          <div class="form-pair">
+            <div class="form-tile"><span class="big-form">have</span><strong>I / you / we / they</strong><br><small>I have breakfast at 7.</small></div>
+            <div class="form-tile"><span class="big-form">has</span><strong>he / she / it</strong><br><small>She has lunch at school.</small></div>
+            <div class="form-tile"><span class="big-form">had</span><strong>past: mọi chủ ngữ</strong><br><small>We had dinner yesterday.</small></div>
+          </div>
+          <div class="callout" style="margin-top:1rem"><strong>Verb line:</strong> have → had → had. Past participle cũng là <strong>had</strong>: <em>I have had breakfast.</em></div>
+        </article>
+        <div class="learn-block">
+          <h2>Ba cách dùng không nên trộn lẫn</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Pattern</th><th>Ý nghĩa</th><th>Example</th><th>Gợi ý nhớ</th></tr></thead>
+              <tbody>
+                <tr><td><code>have + noun</code></td><td>có / sở hữu</td><td>I have a car.</td><td>một vật, một người</td></tr>
+                <tr><td><code>have + activity noun</code></td><td>thực hiện hoạt động</td><td>I have breakfast at 7.</td><td>học cả collocation</td></tr>
+                <tr><td><code>have to + verb</code></td><td>phải / cần phải làm</td><td>I have to study.</td><td>sau <code>to</code> là verb nguyên mẫu</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="learn-block">
+          <h2>Affirmative, negative, questions</h2>
+          <div class="grid-3">
+            <article class="card"><h3>Positive</h3><p><code>She has a car.</code></p><p><code>They had dinner.</code></p><p class="muted small-text">Sau chủ ngữ ngôi 3 hiện tại: has.</p></article>
+            <article class="card"><h3>Negative</h3><p><code>She doesn't have a car.</code></p><p><code>They didn't have breakfast.</code></p><div class="callout danger"><strong>Không dùng:</strong> doesn't has / didn't had.</div></article>
+            <article class="card"><h3>Questions</h3><p><code>Does she have a car?</code></p><p><code>Did you have breakfast?</code></p><div class="callout teal"><strong>Rule:</strong> sau do / does / did luôn dùng <strong>have</strong>.</div></article>
+          </div>
+        </div>
+        <div class="learn-block">
+          <h2>Have got và have to</h2>
+          <div class="grid-2">
+            <article class="card">
+              <span class="pill blue">Have got = possession</span>
+              <p><code>I have a pen.</code> ≈ <code>I've got a pen.</code></p>
+              <p><code>She's got blue eyes.</code></p>
+              <div class="callout warning"><strong>Scope:</strong> have got thường dùng cho sở hữu, không thay thế mọi collocation.</div>
+              <p class="small-text muted">Tự nhiên: <code>I have breakfast at 7.</code><br>Không nên: <code>I have got breakfast at 7.</code></p>
+            </article>
+            <article class="card">
+              <span class="pill amber">Have to = obligation</span>
+              <p><code>I have to study tonight.</code></p>
+              <p><code>She has to get up early.</code></p>
+              <p><code>We had to wait for an hour.</code></p>
+              <div class="callout"><strong>Pattern:</strong> have / has / had to + verb nguyên mẫu.</div>
+            </article>
+          </div>
+        </div>
+        <div class="learn-block">
+          <div class="section-heading"><div><div class="section-kicker">Collocations</div><h2>Học theo nhóm ngữ nghĩa</h2></div><p>Images giúp gợi cảnh; chunk giúp gợi cách dùng.</p></div>
+          <div id="lesson-phrase-groups"></div>
+        </div>
+        <div class="learn-block">
+          <h2>Examples in daily life</h2>
+          <div class="grid-3">
+            <article class="card scene-card"><img src="assets/have-had-had/have-a-shower.png" alt="Một người đang tắm vòi sen"><div><h3>Morning</h3><blockquote>I get up at 6:30. I have a shower and then have breakfast. I usually have a drink before I go to school.</blockquote></div></article>
+            <article class="card scene-card"><img src="assets/have-had-had/have-dinner.png" alt="Một gia đình đang ăn tối"><div><h3>Evening</h3><blockquote>I have dinner with my family. After dinner, I usually study. When I am tired, I have a rest.</blockquote></div></article>
+            <article class="card scene-card"><img src="assets/have-had-had/have-a-party.png" alt="Bạn bè đang tổ chức tiệc"><div><h3>Weekend</h3><blockquote>We sometimes have a party at home. We listen to music, eat together and have a good time.</blockquote></div></article>
+          </div>
+        </div>
+        <div class="learn-block">
+          <h2>Điểm dễ nhầm</h2>
+          <div class="grid-3">
+            <div class="pitfall bad"><div class="pitfall-symbol">✗</div><div><strong>Does she has breakfast?</strong><p class="small-text">Sau <code>does</code>, dùng <strong>have</strong>.</p></div></div>
+            <div class="pitfall good"><div class="pitfall-symbol">✓</div><div><strong>Does she have breakfast?</strong><p class="small-text">Auxiliary đã mang dấu hiệu ngôi 3.</p></div></div>
+            <div class="pitfall bad"><div class="pitfall-symbol">✗</div><div><strong>Did you had dinner?</strong><p class="small-text">Sau <code>did</code>, dùng <strong>have</strong>.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-vocabulary" aria-labelledby="vocabulary-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">03 · Vocabulary</div><h1 id="vocabulary-title">Word + meaning + chunk + example</h1></div>
+          <p>Mỗi card có ảnh, nghĩa tiếng Việt, định nghĩa ngắn, ví dụ và lỗi thường gặp.</p>
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <input id="vocab-search" class="search" type="search" placeholder="Tìm have breakfast, nghĩa..." aria-label="Tìm từ vựng">
+            <button type="button" class="filter-button active" data-vocab-filter="all">All</button>
+            <button type="button" class="filter-button" data-vocab-filter="form">Forms</button>
+            <button type="button" class="filter-button" data-vocab-filter="food">Food</button>
+            <button type="button" class="filter-button" data-vocab-filter="daily">Daily</button>
+            <button type="button" class="filter-button" data-vocab-filter="event">Events</button>
+            <button type="button" class="filter-button" data-vocab-filter="structure">Structures</button>
+          </div>
+          <div class="toolbar-right"><span class="pill teal" id="vocab-count">0/16 known</span></div>
+        </div>
+        <div id="vocab-grid" class="vocab-grid"></div>
+      </section>
+
+      <section class="view" id="view-flashcards" aria-labelledby="flashcards-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">04 · Flashcards</div><h1 id="flashcards-title">Active recall flashcards</h1></div>
+          <p>Nhìn mặt trước, tự nhớ nghĩa/cách dùng, rồi mới flip để kiểm tra.</p>
+        </div>
+        <div class="flash-stats">
+          <div class="flash-stat"><strong id="flash-learned">0</strong><span>Learned</span></div>
+          <div class="flash-stat"><strong id="flash-review">0</strong><span>Review again</span></div>
+          <div class="flash-stat"><strong id="flash-remaining">16</strong><span>Remaining</span></div>
+        </div>
+        <div class="flashcard-stage">
+          <button type="button" class="flashcard" id="flashcard" data-flip aria-label="Flip flashcard"></button>
+          <div class="flashcard-controls">
+            <button type="button" class="btn" data-flash-prev>← Previous</button>
+            <div class="center"><button type="button" class="btn ghost" data-flash-review>Review again</button><button type="button" class="btn secondary" data-flash-know>I know this ✓</button></div>
+            <button type="button" class="btn" data-flash-next>Next →</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-practice" aria-labelledby="practice-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">05 · Practice</div><h1 id="practice-title">Recognition → recall → application</h1></div>
+          <p>Practice có feedback ngay sau từng task. Câu sai sẽ vào error log để retry.</p>
+        </div>
+        <div class="practice-summary">
+          <strong id="practice-summary-text">0/52 answered</strong>
+          <span class="pill teal" id="practice-correct-pill">0 correct</span>
+          <span class="pill coral" id="practice-wrong-pill">0 to review</span>
+          <button type="button" class="btn small ghost" data-retry-all>Hiện tất cả</button>
+        </div>
+        <div class="practice-toolbar" aria-label="Bộ lọc bài luyện">
+          <label>Nhóm kỹ năng
+            <select id="practice-category-filter">
+              <option value="all">Tất cả nhóm</option>
+              <option value="grammar">Grammar</option>
+              <option value="vocabulary">Vocabulary</option>
+              <option value="recall">Recall</option>
+              <option value="meaning">Meaning</option>
+              <option value="application">Application</option>
+              <option value="context">Context / Reading</option>
+              <option value="production">Production</option>
+            </select>
+          </label>
+          <label>Độ khó
+            <select id="practice-level-filter">
+              <option value="all">Tất cả mức</option>
+              <option value="1">Level 1 · nhận diện</option>
+              <option value="2">Level 2 · nhớ lại</option>
+              <option value="3">Level 3 · vận dụng</option>
+            </select>
+          </label>
+          <div class="practice-filter-meta"><span id="practice-filter-count">52 câu đang hiển thị</span></div>
+        </div>
+        <div id="retry-banner" class="callout warning" hidden></div>
+        <div id="practice-list" class="question-list"></div>
+        <div class="spacer"></div>
+        <article class="card">
+          <div class="section-heading"><div><div class="section-kicker">Game</div><h2>Ô chữ mini: Have in daily life</h2></div><span class="pill amber">Mobile-friendly</span></div>
+          <p class="muted">Điền các đáp án theo clue. Ô chữ có các từ giao nhau; có thể dùng bàn phím hoặc chạm từng ô.</p>
+          <div id="crossword"></div>
+        </article>
+        <div class="spacer"></div>
+        <article class="card">
+          <div class="section-heading"><div><div class="section-kicker">Production</div><h2>Tạo ngôn ngữ của bạn</h2></div><span class="pill purple">Self-check</span></div>
+          <div class="grid-3">
+            <article class="card production-card"><h3>Writing</h3><p>Viết 5 câu về một ngày của bạn, dùng ít nhất 4 chunks.</p><textarea class="answer-textarea production-input" data-production="writing" placeholder="I usually have breakfast at..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="writing-1"> Có ít nhất một câu với have breakfast/lunch/dinner.</label><label><input type="checkbox" data-production-check="writing-2"> Có một câu quá khứ với had.</label><label><input type="checkbox" data-production-check="writing-3"> Có một câu với have to.</label></div></article>
+            <article class="card production-card"><h3>Speaking</h3><p>Nói 30–45 giây về thói quen hằng ngày.</p><div class="callout teal"><strong>Prompt:</strong> What time do you have breakfast? Who do you have dinner with? When do you have a rest?</div><div class="checklist"><label><input type="checkbox" data-production-check="speaking-1"> Tôi nói được ít nhất 4 chunks.</label><label><input type="checkbox" data-production-check="speaking-2"> Tôi dùng được hiện tại và quá khứ.</label></div></article>
+            <article class="card production-card"><h3>Transfer</h3><p>Dùng một chunk trong tình huống mới, không chép ví dụ cũ.</p><textarea class="answer-textarea production-input" data-production="transfer" placeholder="Create a new sentence with have a good journey..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="transfer-1"> Câu có nghĩa rõ và có context.</label><label><input type="checkbox" data-production-check="transfer-2"> Tôi đã đọc lại và tự sửa.</label></div></article>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" id="view-test" aria-labelledby="test-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">06 · Final test</div><h1 id="test-title">Mixed test</h1></div>
+          <p>Không hiển thị đáp án trước khi nộp. Hãy làm như một lần kiểm tra thật.</p>
+        </div>
+        <div class="test-instructions"><strong>Test mode:</strong> 20 tasks · 1 điểm/task · feedback chỉ xuất hiện sau <strong>Submit Test</strong>. Câu bỏ trống được tính là chưa đúng.</div>
+        <div class="spacer"></div>
+        <form id="test-form">
+          <div id="test-list" class="question-list"></div>
+          <div class="button-row" style="margin-top:1rem"><button class="btn primary" type="submit">Submit Test</button><button class="btn" type="button" data-view="practice">Back to practice</button></div>
+        </form>
+        <div id="test-result-inline" class="spacer"></div>
+      </section>
+
+      <section class="view" id="view-mistakes" aria-labelledby="mistakes-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">07 · Error correction</div><h1 id="mistakes-title">Review your mistakes</h1></div>
+          <p>Chỉ giữ lại câu sai hoặc chưa trả lời. Đọc explanation rồi practice again.</p>
+        </div>
+        <div class="button-row" style="margin-bottom:1rem"><button type="button" class="btn primary" data-retry-incorrect>Retry incorrect</button><button type="button" class="btn" data-retry-all>Retry all practice</button></div>
+        <div id="mistakes-content"></div>
+      </section>
+
+      <section class="view" id="view-results" aria-labelledby="results-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">08 · Results</div><h1 id="results-title">Your learning dashboard</h1></div>
+          <p>Điểm là tín hiệu để quyết định ôn gì tiếp theo, không phải nhãn cố định về năng lực.</p>
+        </div>
+        <div id="results-content"></div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    'use strict';
+
+    const LESSON_ID = 'evu_elementary_02_everyday_verbs_03_have_had_had';
+    const STORAGE_KEY = LESSON_ID + '_progress';
+    const IMAGE_ROOT = 'assets/have-had-had/';
+
+    const vocab = [
+      { id: 'have', word: 'have', kind: 'verb form', group: 'form', meaning: 'có; dùng với I / you / we / they ở hiện tại', definition: 'A common verb for possession or everyday activities.', example: 'I have a new phone.', chunk: 'have + noun / activity', mistake: 'Do not use has with I, you, we or they.', image: 'have-ownership.png' },
+      { id: 'has', word: 'has', kind: 'verb form', group: 'form', meaning: 'có; dùng với he / she / it ở hiện tại', definition: 'The present form of have after he, she or it.', example: 'She has a bicycle.', chunk: 'he / she / it + has', mistake: 'After does, use have: Does she have a car?', image: 'have-ownership.png' },
+      { id: 'had', word: 'had', kind: 'verb form', group: 'form', meaning: 'đã có / đã thực hiện; quá khứ của have', definition: 'The past form of have for every subject.', example: 'We had dinner together yesterday.', chunk: 'have → had → had', mistake: 'After did, use have: Did you have breakfast?', image: 'had-past.png' },
+      { id: 'have-breakfast', word: 'have breakfast', kind: 'food collocation', group: 'food', meaning: 'ăn sáng', definition: 'Use this chunk for the first meal of the day.', example: 'I have breakfast at 7 a.m.', chunk: 'have breakfast at 7', mistake: 'Learn the whole chunk, not “have = có”.', image: 'have-breakfast.png' },
+      { id: 'have-lunch', word: 'have lunch', kind: 'food collocation', group: 'food', meaning: 'ăn trưa', definition: 'Use have with lunch when talking about the midday meal.', example: 'She has lunch at school.', chunk: 'have lunch together', mistake: 'With she, use has lunch in the present.', image: 'have-lunch.png' },
+      { id: 'have-dinner', word: 'have dinner', kind: 'food collocation', group: 'food', meaning: 'ăn tối', definition: 'Use have with dinner for the evening meal.', example: 'We had dinner at a restaurant yesterday.', chunk: 'have dinner with my family', mistake: 'In the past, have and has become had.', image: 'have-dinner.png' },
+      { id: 'have-a-drink', word: 'have a drink', kind: 'food collocation', group: 'food', meaning: 'uống gì đó', definition: 'Use this chunk when someone drinks something.', example: 'Would you like to have a drink?', chunk: 'have a drink of water', mistake: 'Use a drink as a noun chunk here.', image: 'have-a-drink.png' },
+      { id: 'have-a-shower', word: 'have a shower', kind: 'daily collocation', group: 'daily', meaning: 'tắm vòi sen', definition: 'A common everyday activity after getting up or exercising.', example: 'I have a shower after exercising.', chunk: 'have a shower in the morning', mistake: 'Remember the article a.', image: 'have-a-shower.png' },
+      { id: 'have-a-rest', word: 'have a rest', kind: 'daily collocation', group: 'daily', meaning: 'nghỉ ngơi', definition: 'Take time to relax when tired.', example: 'You look tired. Have a rest.', chunk: 'have a rest after work', mistake: 'The natural phrase is have a rest.', image: 'have-a-rest.png' },
+      { id: 'have-a-look', word: 'have a look', kind: 'daily collocation', group: 'daily', meaning: 'xem / nhìn thử', definition: 'Look at something for a short time.', example: 'Can I have a look at your photo?', chunk: 'have a look at...', mistake: 'Use at before the thing you look at.', image: 'have-a-look.png' },
+      { id: 'have-time', word: 'have time', kind: 'daily collocation', group: 'daily', meaning: 'có thời gian', definition: 'Have enough available time to do something.', example: 'I do not have time this morning.', chunk: 'have time to study', mistake: 'Have time means availability, not an activity meal.', image: 'have-time.png' },
+      { id: 'have-a-party', word: 'have a party', kind: 'event collocation', group: 'event', meaning: 'tổ chức / có một bữa tiệc', definition: 'Organize or hold a party.', example: 'We are having a party on Saturday.', chunk: 'have a party at home', mistake: 'To emphasize attendance, use go to or attend a party.', image: 'have-a-party.png' },
+      { id: 'have-a-good-time', word: 'have a good time', kind: 'experience chunk', group: 'event', meaning: 'có khoảng thời gian vui vẻ', definition: 'Enjoy yourself during an experience or event.', example: 'We had a good time at the beach.', chunk: 'have a good time at...', mistake: 'In a past story, use had a good time.', image: 'have-a-good-time.png' },
+      { id: 'have-a-good-journey', word: 'have a good journey', kind: 'experience chunk', group: 'event', meaning: 'có một chuyến đi thuận lợi', definition: 'A friendly wish for someone who is travelling.', example: 'Have a good journey!', chunk: 'Have a good journey!', mistake: 'This is a wish, not have to + verb.', image: 'have-a-good-journey.png' },
+      { id: 'have-got', word: 'have got', kind: 'possession structure', group: 'structure', meaning: 'có / sở hữu', definition: 'A common alternative for possession in simple situations.', example: 'I have got a pen.', chunk: "I've got a pen", mistake: 'It does not replace every have collocation.', image: 'have-got.png' },
+      { id: 'have-to', word: 'have to', kind: 'obligation structure', group: 'structure', meaning: 'phải / cần phải làm gì', definition: 'Use have to + base verb for an obligation or necessity.', example: 'I have to study tonight.', chunk: 'has to get up early', mistake: 'After to, use the base verb: have to study.', image: 'have-to.png' }
+    ];
+
+    const phraseGroups = [
+      { title: 'Food', tag: 'Ăn uống', ids: ['have-breakfast', 'have-lunch', 'have-dinner', 'have-a-drink'] },
+      { title: 'Daily activities', tag: 'Hoạt động hằng ngày', ids: ['have-a-shower', 'have-a-rest', 'have-a-look', 'have-time'] },
+      { title: 'Events and experiences', tag: 'Sự kiện và trải nghiệm', ids: ['have-a-party', 'have-a-good-time', 'have-a-good-journey'] }
+    ];
+
+    const quickChecks = [
+      { id: 'quick-1', prompt: 'Which sentence is correct?', options: ['She have breakfast at seven.', 'She has breakfast at seven.', 'She had breakfast every day tomorrow.'], answer: 'She has breakfast at seven.', explanation: 'She is third-person singular in the present, so have becomes has.' },
+      { id: 'quick-2', prompt: 'What does have a rest mean?', options: ['xem thử', 'nghỉ ngơi', 'tổ chức tiệc'], answer: 'nghỉ ngơi', explanation: 'Have a rest is the collocation for taking time to relax.' },
+      { id: 'quick-3', prompt: 'After did, which form do we use?', options: ['have', 'has', 'had'], answer: 'have', explanation: 'The auxiliary did carries the past tense, so the main verb returns to base form.' }
+    ];
+
+    const practiceQuestions = [
+      { id: 'p01', type: 'multiple-choice', category: 'grammar', difficulty: 1, prompt: 'Chủ ngữ nào dùng have ở hiện tại đơn?', options: ['she', 'he', 'we', 'it'], answer: 'we', explanation: 'Have dùng với I, you, we và they ở hiện tại.' },
+      { id: 'p02', type: 'image-choice', category: 'vocabulary', difficulty: 1, prompt: 'Cụm nào phù hợp nhất với hình minh họa?', image: 'have-breakfast.png', options: ['have breakfast', 'have a shower', 'have a party', 'have a look'], answer: 'have breakfast', explanation: 'Hình minh họa bữa ăn đầu ngày: have breakfast.' },
+      { id: 'p03', type: 'fill-blank', category: 'recall', difficulty: 2, prompt: 'She ______ lunch at school.', answer: 'has', explanation: 'She là ngôi thứ ba số ít nên dùng has ở hiện tại.' },
+      { id: 'p04', type: 'matching', category: 'meaning', difficulty: 1, prompt: 'Ghép mỗi collocation với nghĩa tiếng Việt.', pairs: [{ left: 'have breakfast', right: 'ăn sáng' }, { left: 'have a shower', right: 'tắm vòi sen' }, { left: 'have a rest', right: 'nghỉ ngơi' }, { left: 'have a look', right: 'xem thử' }], explanation: 'Nên ghi nhớ cả cụm vì nghĩa tự nhiên đến từ collocation hoàn chỉnh.' },
+      { id: 'p05', type: 'true-false', category: 'grammar', difficulty: 1, prompt: 'Had là dạng quá khứ của have với mọi chủ ngữ.', answer: 'true', explanation: 'Có thể nói I had, she had và they had.' },
+      { id: 'p06', type: 'multiple-choice', category: 'meaning', difficulty: 1, prompt: 'Have a good journey có nghĩa gần nhất là gì?', options: ['có một chuyến đi thuận lợi', 'phải đi ngay', 'ăn tối trên đường', 'xem một chuyến đi'], answer: 'có một chuyến đi thuận lợi', explanation: 'Đây là lời chúc dành cho người sắp đi xa.' },
+      { id: 'p07', type: 'word-bank', category: 'recall', difficulty: 2, prompt: 'They ______ dinner at a restaurant yesterday.', bank: ['have', 'has', 'had', 'have to'], answer: 'had', explanation: 'Yesterday cho biết câu ở quá khứ nên dùng had.' },
+      { id: 'p08', type: 'sentence-order', category: 'application', difficulty: 2, prompt: 'Sắp xếp thành câu đúng.', tokens: ['have', 'We', 'dinner', 'together'], answer: ['We', 'have', 'dinner', 'together'], explanation: 'Câu tự nhiên là “We have dinner together.”' },
+      { id: 'p09', type: 'image-choice', category: 'vocabulary', difficulty: 1, prompt: 'Cụm nào phù hợp với hình?', image: 'have-a-shower.png', options: ['have a shower', 'have a drink', 'have a rest', 'have a party'], answer: 'have a shower', explanation: 'Hình cho thấy hoạt động tắm vòi sen.' },
+      { id: 'p10', type: 'multiple-choice', category: 'grammar', difficulty: 2, prompt: 'Chọn câu hỏi đúng.', options: ['Does she has a car?', 'Does she have a car?', 'Does she had a car?', 'Does she having a car?'], answer: 'Does she have a car?', explanation: 'Sau does, dùng động từ nguyên mẫu have.' },
+      { id: 'p11', type: 'fill-blank', category: 'recall', difficulty: 2, prompt: 'We ______ dinner together last night.', answer: 'had', explanation: 'Last night là dấu hiệu quá khứ nên have trở thành had.' },
+      { id: 'p12', type: 'categorization', category: 'meaning', difficulty: 2, prompt: 'Phân loại theo cách dùng chính của have.', categories: ['ownership', 'activity', 'obligation', 'event'], items: [{ text: 'a new phone', answer: 'ownership' }, { text: 'breakfast', answer: 'activity' }, { text: 'study tonight', answer: 'obligation' }, { text: 'a party', answer: 'event' }], explanation: 'Have a phone = sở hữu; have breakfast = hoạt động; have to study = nghĩa vụ; have a party = sự kiện.' },
+      { id: 'p13', type: 'image-choice', category: 'vocabulary', difficulty: 1, prompt: 'Cụm nào mô tả đúng tình huống?', image: 'have-a-rest.png', options: ['have a rest', 'have a look', 'have lunch', 'have time'], answer: 'have a rest', explanation: 'Người trong hình đang nghỉ ngơi.' },
+      { id: 'p14', type: 'multiple-choice', category: 'grammar', difficulty: 1, prompt: 'I have got a pen gần nghĩa nhất với câu nào?', options: ['I need to write.', 'I own or have a pen.', 'I used a pen yesterday.', 'I am looking at a pen.'], answer: 'I own or have a pen.', explanation: 'Have got thường dùng để nói về sự sở hữu.' },
+      { id: 'p15', type: 'true-false', category: 'grammar', difficulty: 2, prompt: '“I have got breakfast at 7” là cách thay thế tự nhiên cho “I have breakfast at 7”.', answer: 'false', explanation: 'Have got thường nói về sở hữu; với bữa ăn, giữ collocation have breakfast.' },
+      { id: 'p16', type: 'fill-blank', category: 'recall', difficulty: 2, prompt: 'She ______ to get up early.', answer: 'has to', explanation: 'Với she, dùng has to + động từ nguyên mẫu.' },
+      { id: 'p17', type: 'multiple-choice', category: 'meaning', difficulty: 2, prompt: 'Trong “I have to study tonight”, have to diễn tả...', options: ['possession', 'a meal', 'an obligation', 'a past event'], answer: 'an obligation', explanation: 'Have to + động từ nguyên mẫu diễn tả việc phải/cần làm.' },
+      { id: 'p18', type: 'matching', category: 'grammar', difficulty: 2, prompt: 'Ghép dạng động từ với cách dùng.', pairs: [{ left: 'have', right: 'present: I / you / we / they' }, { left: 'has', right: 'present: he / she / it' }, { left: 'had', right: 'past: all subjects' }], explanation: 'Ở hiện tại, chủ ngữ quyết định have/has; ở quá khứ dùng had cho mọi chủ ngữ.' },
+      { id: 'p19', type: 'word-bank', category: 'recall', difficulty: 2, prompt: 'We ______ leave before 8 o’clock.', bank: ['have', 'has', 'had', 'have to'], answer: 'have to', explanation: 'Leave là động từ nguyên mẫu và câu diễn tả sự cần thiết: have to leave.' },
+      { id: 'p20', type: 'sentence-order', category: 'application', difficulty: 2, prompt: 'Sắp xếp thành câu hỏi đúng.', tokens: ['did', 'you', 'have', 'breakfast'], answer: ['Did', 'you', 'have', 'breakfast?'], explanation: 'Sau did dùng have: “Did you have breakfast?”' },
+      { id: 'p21', type: 'mini-reading', category: 'context', difficulty: 2, passage: 'Every morning, Anna gets up at 6:30. She has a shower and then has breakfast. Yesterday she got up late, so she did not have breakfast at home.', prompt: 'Anna làm gì ngay sau khi thức dậy theo đoạn văn?', options: ['a shower', 'a party', 'a good journey', 'a rest'], answer: 'a shower', explanation: 'Đoạn văn nói she has a shower and then has breakfast.' },
+      { id: 'p22', type: 'true-false', category: 'context', difficulty: 2, passage: 'Every morning, Anna gets up at 6:30. She has a shower and then has breakfast. Yesterday she got up late, so she did not have breakfast at home.', prompt: 'Anna had breakfast at home yesterday.', answer: 'false', explanation: 'Đoạn văn nói cô ấy did not have breakfast at home yesterday.' },
+      { id: 'p23', type: 'image-choice', category: 'context', difficulty: 2, prompt: 'Lời chúc nào phù hợp với người đang đi xa?', image: 'have-a-good-journey.png', options: ['Have a good journey!', 'Have to journey!', 'Had a journey yesterday.', 'Have a shower!'], answer: 'Have a good journey!', explanation: 'Have a good journey là lời chúc cố định cho người đang đi xa.' },
+      { id: 'p24', type: 'fill-blank', category: 'recall', difficulty: 2, prompt: 'Can I ______ a look at your photo?', answer: 'have', explanation: 'Sau can dùng động từ nguyên mẫu: Can I have a look...?' },
+      { id: 'p25', type: 'multiple-choice', category: 'context', difficulty: 3, prompt: 'Trong “We are having a party on Saturday”, have a party tự nhiên nhất mang nghĩa...', options: ['organize or hold a party', 'go to a party only', 'must attend a party', 'look at a party'], answer: 'organize or hold a party', explanation: 'Have a party thường là tổ chức/có một bữa tiệc; go to/attend nhấn mạnh việc tham dự.' },
+      { id: 'p26', type: 'multiple-choice', category: 'grammar', difficulty: 2, prompt: 'Sửa câu “She doesn’t has a car.”', options: ['She doesn’t have a car.', 'She don’t have a car.', 'She didn’t has a car.', 'She doesn’t having a car.'], answer: 'She doesn’t have a car.', explanation: 'Sau doesn’t, động từ chính trở về dạng have.' },
+      { id: 'p27', type: 'true-false', category: 'grammar', difficulty: 2, prompt: 'Sau did, động từ chính trở về dạng nguyên mẫu have.', answer: 'true', explanation: '“Did you have breakfast?” đúng; “Did you had breakfast?” sai.' },
+      { id: 'p28', type: 'short-answer', category: 'production', difficulty: 2, prompt: 'Viết một collocation tự nhiên về ăn/uống với have.', rubric: ['Có have hoặc had.', 'Nói về breakfast, lunch, dinner hoặc a drink.', 'Cụm nghe tự nhiên và đúng ngữ cảnh.'], explanation: 'Ví dụ: have breakfast, have lunch, have dinner, have a drink.' },
+      { id: 'p29', type: 'production', category: 'production', difficulty: 3, prompt: 'Viết 2 câu mới: một câu dùng collocation hoạt động hằng ngày và một câu dùng have to + động từ nguyên mẫu.', rubric: ['Câu 1 có collocation tự nhiên.', 'Câu 2 dùng have to / has to / had to + base verb.', 'Hai câu có nghĩa rõ ràng.'], explanation: 'Đáp án mở. Tự kiểm tra form, nghĩa và collocation.' },
+      { id: 'p30', type: 'image-match', category: 'context', difficulty: 3, prompt: 'Ghép mỗi hình với chunk phù hợp.', items: [{ image: 'have-breakfast.png', answer: 'have breakfast' }, { image: 'have-a-shower.png', answer: 'have a shower' }, { image: 'have-a-party.png', answer: 'have a party' }], options: ['have breakfast', 'have a shower', 'have a party'], explanation: 'Dùng hình như một tín hiệu để nhớ cả collocation.' },
+      { id: 'p31', type: 'mini-reading', category: 'context', difficulty: 3, passage: 'At the weekend, we sometimes have a party at home. We listen to music, eat together and have a good time. Last Saturday, we had dinner with our neighbours.', prompt: 'Last Saturday, họ ăn tối với ai?', options: ['their neighbours', 'their teachers', 'their classmates', 'their parents'], answer: 'their neighbours', explanation: 'Câu cuối cho biết they had dinner with their neighbours.' },
+      { id: 'p32', type: 'fill-blank', category: 'context', difficulty: 3, prompt: 'We ______ a good time at the beach yesterday.', answer: 'had', explanation: 'Yesterday yêu cầu dạng quá khứ: had a good time.' },
+      { id: 'p33', type: 'multiple-choice', category: 'meaning', difficulty: 2, prompt: 'Câu nào nói về sự sở hữu?', options: ['I have breakfast at 7.', 'I have a car.', 'I have a rest.', 'I have to leave.'], answer: 'I have a car.', explanation: 'A car là vật được sở hữu; các câu khác nói về hoạt động hoặc nghĩa vụ.' },
+      { id: 'p34', type: 'multiple-choice', category: 'grammar', difficulty: 2, prompt: 'Chọn câu tự nhiên.', options: ['I have got breakfast at 7.', 'I have breakfast at 7.', 'I have to breakfast at 7.', 'I had got breakfast at 7 every day.'], answer: 'I have breakfast at 7.', explanation: 'Breakfast là collocation hoạt động nên dùng have breakfast.' },
+      { id: 'p35', type: 'true-false', category: 'meaning', difficulty: 2, prompt: 'Have lúc nào cũng dịch là “có” trong tiếng Việt.', answer: 'false', explanation: 'Have có thể là sở hữu, nhưng have breakfast = ăn sáng và have to = phải/cần.' },
+      { id: 'p36', type: 'categorization', category: 'application', difficulty: 3, prompt: 'Phân loại từng câu theo ý nghĩa.', categories: ['possession', 'activity', 'obligation'], items: [{ text: 'I have a new phone.', answer: 'possession' }, { text: 'We had dinner together.', answer: 'activity' }, { text: 'She has to study tonight.', answer: 'obligation' }], explanation: 'Have + noun có thể là sở hữu hoặc hoạt động; have to + verb diễn tả nghĩa vụ.' },
+      { id: 'p37', type: 'error-correction', category: 'grammar', difficulty: 2, prompt: 'Sửa lỗi: She doesn’t has lunch at school.', answer: ['She doesn’t have lunch at school', "She doesn't have lunch at school"], explanation: 'Sau doesn’t phải dùng have, không dùng has.' },
+      { id: 'p38', type: 'multi-fill', category: 'recall', difficulty: 2, prompt: 'Điền đúng dạng của have vào từng câu.', items: [{ text: 'I ___ breakfast at 7 every day.', answer: 'have' }, { text: 'My sister ___ lunch at school.', answer: 'has' }, { text: 'We ___ dinner together yesterday.', answer: 'had' }, { text: 'They didn’t ___ much time.', answer: 'have' }], explanation: 'Hiện tại dùng have/has theo chủ ngữ; sau didn’t dùng have; quá khứ khẳng định dùng had.' },
+      { id: 'p39', type: 'select-all', category: 'vocabulary', difficulty: 2, prompt: 'Chọn TẤT CẢ collocation tự nhiên trong bài.', options: ['have breakfast', 'have a shower', 'have a good time', 'have study', 'have look', 'have journey'], answer: ['have breakfast', 'have a shower', 'have a good time'], explanation: 'Các cụm trong bài có cấu trúc đầy đủ: have breakfast, have a shower, have a good time.' },
+      { id: 'p40', type: 'error-correction', category: 'grammar', difficulty: 2, prompt: 'Sửa lỗi: Did she had lunch at home?', answer: ['Did she have lunch at home'], explanation: 'Did đã mang dấu quá khứ nên động từ chính trở về have.' },
+      { id: 'p41', type: 'multiple-choice', category: 'context', difficulty: 2, passage: 'A: You look tired. B: Yes, I worked all morning.', prompt: 'Câu đáp nào tự nhiên nhất?', options: ['Have a rest.', 'Have a party.', 'Have a look.', 'Have a good journey.'], answer: 'Have a rest.', explanation: 'Khi ai đó mệt, “Have a rest.” là lời khuyên tự nhiên.' },
+      { id: 'p42', type: 'multi-fill', category: 'grammar', difficulty: 3, prompt: 'Hoàn thành cặp hiện tại → quá khứ.', items: [{ text: 'She ___ a shower every morning.', answer: 'has' }, { text: 'She ___ a shower before work yesterday.', answer: 'had' }, { text: 'We ___ lunch together every Friday.', answer: 'have' }, { text: 'We ___ lunch together last Friday.', answer: 'had' }], explanation: 'Has/have dùng ở hiện tại; had dùng cho mọi chủ ngữ ở quá khứ.' },
+      { id: 'p43', type: 'select-all', category: 'grammar', difficulty: 3, prompt: 'Chọn TẤT CẢ câu đúng.', options: ['Does he have breakfast at home?', 'He doesn’t have breakfast at home.', 'Does he has breakfast at home?', 'He doesn’t has breakfast at home.'], answer: ['Does he have breakfast at home?', 'He doesn’t have breakfast at home.'], explanation: 'Sau does/doesn’t đều dùng have.' },
+      { id: 'p44', type: 'fill-blank', category: 'grammar', difficulty: 2, prompt: 'I ______ got a brother.', answer: ['have', "'ve"], explanation: 'Have got diễn tả sở hữu: I have got / I’ve got a brother.' },
+      { id: 'p45', type: 'error-correction', category: 'application', difficulty: 3, prompt: 'Viết lại tự nhiên: I have got breakfast at seven every day.', answer: ['I have breakfast at seven every day', 'I have breakfast at 7 every day'], explanation: 'Không dùng have got cho collocation bữa ăn. Dùng have breakfast.' },
+      { id: 'p46', type: 'select-all', category: 'meaning', difficulty: 3, prompt: 'Chọn TẤT CẢ câu diễn tả sự sở hữu.', options: ['I have a new phone.', 'She has two brothers.', 'We have dinner at six.', 'They have to leave now.'], answer: ['I have a new phone.', 'She has two brothers.'], explanation: 'New phone và two brothers là have + noun theo nghĩa có/sở hữu; hai câu còn lại là hoạt động và nghĩa vụ.' },
+      { id: 'p47', type: 'multiple-choice', category: 'context', difficulty: 2, passage: 'A: Why are you leaving so early? B: My bus is at 6:30.', prompt: 'Câu nào hoàn thành lời đáp hợp lý nhất?', options: ['I have to leave now.', 'I have a look now.', 'I have got breakfast now.', 'I had to leave tomorrow.'], answer: 'I have to leave now.', explanation: 'Have to + verb diễn tả sự cần thiết ở hiện tại.' },
+      { id: 'p48', type: 'multi-fill', category: 'context', difficulty: 3, prompt: 'Hoàn thành đoạn mini-cloze.', items: [{ text: 'Every morning, Mai ___ breakfast at 7.', answer: 'has' }, { text: 'Then she ___ a shower.', answer: 'has' }, { text: 'Yesterday she was late, so she didn’t ___ breakfast at home.', answer: 'have' }, { text: 'She ___ to leave quickly.', answer: 'had' }, { text: 'At noon, she ___ lunch with her friends.', answer: 'had' }], explanation: 'Đoạn văn kết hợp hiện tại thường lệ, did + have, và quá khứ had/had to.' },
+      { id: 'p49', type: 'image-match', category: 'vocabulary', difficulty: 3, prompt: 'Ghép 4 hình với 4 collocation.', items: [{ image: 'have-breakfast.png', answer: 'have breakfast' }, { image: 'have-a-look.png', answer: 'have a look' }, { image: 'have-a-rest.png', answer: 'have a rest' }, { image: 'have-a-drink.png', answer: 'have a drink' }], options: ['have breakfast', 'have a look', 'have a rest', 'have a drink'], explanation: 'Nhìn cảnh và nhớ cả cụm từ, không chỉ một danh từ đơn lẻ.' },
+      { id: 'p50', type: 'sentence-order', category: 'grammar', difficulty: 3, prompt: 'Sắp xếp thành câu phủ định đúng.', tokens: ['doesn’t', 'She', 'have', 'a', 'car'], answer: ['She', 'doesn’t', 'have', 'a', 'car.'], explanation: 'Cấu trúc đúng: She doesn’t have a car.' },
+      { id: 'p51', type: 'error-correction', category: 'application', difficulty: 3, prompt: 'Dịch sang tiếng Anh: “Hôm qua chúng tôi đã có khoảng thời gian vui vẻ.”', answer: ['We had a good time yesterday'], explanation: 'Cụm cần dùng là had a good time vì câu ở quá khứ.' },
+      { id: 'p52', type: 'production', category: 'production', difficulty: 3, prompt: 'Viết một đoạn hội thoại 3–4 câu có ít nhất: một câu hỏi với Do/Does/Did + have và một câu dùng have to.', rubric: ['Có câu hỏi đúng với Do/Does/Did + have.', 'Có have to / has to / had to + base verb.', 'Hội thoại có ngữ cảnh hợp lý.', 'Không dùng has sau does hoặc had sau did.'], explanation: 'Đáp án mở. Tự kiểm tra cấu trúc và tính tự nhiên của ngữ cảnh.' }
+    ];
+
+    const testQuestions = [
+      { id: 't01', type: 'multiple-choice', category: 'grammar', difficulty: 1, prompt: 'She ______ lunch at school.', options: ['have', 'has', 'had', 'have to'], answer: 'has', explanation: 'She là ngôi thứ ba số ít ở hiện tại.' },
+      { id: 't02', type: 'fill-blank', category: 'grammar', difficulty: 2, prompt: 'We ______ dinner together yesterday.', answer: 'had', explanation: 'Yesterday đặt hành động ở quá khứ.' },
+      { id: 't03', type: 'multiple-choice', category: 'meaning', difficulty: 1, prompt: 'Cụm nào có nghĩa “nghỉ ngơi”?', options: ['have a look', 'have a rest', 'have a party', 'have a drink'], answer: 'have a rest', explanation: 'Have a rest = nghỉ ngơi.' },
+      { id: 't04', type: 'multiple-choice', category: 'grammar', difficulty: 2, prompt: 'Chọn câu đúng.', options: ['He doesn’t has a car.', 'He doesn’t have a car.', 'He don’t has a car.', 'He didn’t has a car.'], answer: 'He doesn’t have a car.', explanation: 'Sau doesn’t dùng have.' },
+      { id: 't05', type: 'fill-blank', category: 'grammar', difficulty: 2, prompt: 'She ______ study for tomorrow’s exam.', answer: 'has to', explanation: 'She + has to + động từ nguyên mẫu.' },
+      { id: 't06', type: 'true-false', category: 'grammar', difficulty: 2, prompt: '“Did you had breakfast?” là câu hỏi đúng.', answer: 'false', explanation: 'Sau did dùng have: Did you have breakfast?' },
+      { id: 't07', type: 'fill-blank', category: 'recall', difficulty: 2, prompt: 'I don’t ______ time this morning.', answer: 'have', explanation: 'Sau don’t dùng have.' },
+      { id: 't08', type: 'matching', category: 'grammar', difficulty: 2, prompt: 'Ghép ngữ cảnh với dạng đúng.', pairs: [{ left: 'I / you / we / they now', right: 'have' }, { left: 'he / she / it now', right: 'has' }, { left: 'yesterday / last night', right: 'had' }], explanation: 'Chủ ngữ hiện tại và thời gian quá khứ quyết định dạng động từ.' },
+      { id: 't09', type: 'image-choice', category: 'vocabulary', difficulty: 1, prompt: 'Cụm nào phù hợp với hình?', image: 'have-a-party.png', options: ['have a party', 'have a rest', 'have a good journey', 'have lunch'], answer: 'have a party', explanation: 'Hình cho thấy một bữa tiệc.' },
+      { id: 't10', type: 'mini-reading', category: 'context', difficulty: 3, passage: 'I get up at 6:30. I have a shower and then have breakfast. I have a drink before I go to school. Yesterday I got up late, so I didn’t have breakfast at home.', prompt: 'Hôm qua người nói đã không làm gì ở nhà?', options: ['have a shower', 'have breakfast', 'have a drink', 'have a party'], answer: 'have breakfast', explanation: 'Câu cuối nói người nói didn’t have breakfast at home.' },
+      { id: 't11', type: 'sentence-order', category: 'application', difficulty: 2, prompt: 'Sắp xếp thành câu đúng.', tokens: ['a', 'good', 'time', 'They', 'had'], answer: ['They', 'had', 'a', 'good', 'time.'], explanation: 'Câu đúng là “They had a good time.”' },
+      { id: 't12', type: 'image-match', category: 'application', difficulty: 3, prompt: 'Ghép mỗi hình với chunk đúng.', items: [{ image: 'have-a-drink.png', answer: 'have a drink' }, { image: 'have-a-rest.png', answer: 'have a rest' }, { image: 'have-a-good-journey.png', answer: 'have a good journey' }], options: ['have a drink', 'have a rest', 'have a good journey'], explanation: 'Mỗi hình là một tín hiệu để nhớ collocation hoàn chỉnh.' },
+      { id: 't13', type: 'multiple-choice', category: 'meaning', difficulty: 2, prompt: 'Câu nào dùng have got để nói về sự sở hữu?', options: ['I have got a pen.', 'I have got breakfast at 7.', 'I have got to study yesterday.', 'I have got a rest.'], answer: 'I have got a pen.', explanation: 'Have got trong câu này diễn tả sự sở hữu.' },
+      { id: 't14', type: 'fill-blank', category: 'grammar', difficulty: 2, prompt: 'Do you ______ a dictionary?', answer: 'have', explanation: 'Sau do dùng have.' },
+      { id: 't15', type: 'true-false', category: 'meaning', difficulty: 2, prompt: 'Have a party thường mang nghĩa tổ chức/có một bữa tiệc; go to a party nhấn mạnh tham dự.', answer: 'true', explanation: 'Đây là lưu ý sử dụng trong bài.' },
+      { id: 't16', type: 'multiple-choice', category: 'application', difficulty: 3, prompt: 'Câu nào mô tả một hoạt động trong quá khứ?', options: ['She has a shower every morning.', 'She has to get up early.', 'She had a shower before work.', 'She has got a new phone.'], answer: 'She had a shower before work.', explanation: 'Had a shower mô tả hoạt động đã xảy ra trong quá khứ.' },
+      { id: 't17', type: 'error-correction', category: 'grammar', difficulty: 3, prompt: 'Sửa lỗi: Does he has breakfast at home?', answer: ['Does he have breakfast at home'], explanation: 'Sau does dùng have.' },
+      { id: 't18', type: 'select-all', category: 'vocabulary', difficulty: 2, prompt: 'Chọn TẤT CẢ cụm đúng trong bài.', options: ['have a shower', 'have a look', 'have a good time', 'have study', 'have look'], answer: ['have a shower', 'have a look', 'have a good time'], explanation: 'Ba collocation đúng đều xuất hiện trong bài.' },
+      { id: 't19', type: 'multi-fill', category: 'context', difficulty: 3, prompt: 'Hoàn thành 3 câu.', items: [{ text: 'Tom ___ lunch at school every day.', answer: 'has' }, { text: 'Yesterday he ___ lunch at home.', answer: 'had' }, { text: 'He didn’t ___ much time before class.', answer: 'have' }], explanation: 'Has ở hiện tại với Tom; had ở quá khứ; sau didn’t dùng have.' },
+      { id: 't20', type: 'multiple-choice', category: 'context', difficulty: 3, passage: 'A: Why are you studying tonight? B: I have an exam tomorrow.', prompt: 'Câu nào diễn đạt hợp lý nhất?', options: ['I have to study tonight.', 'I have got study tonight.', 'I had to study tomorrow.', 'I have a study tonight.'], answer: 'I have to study tonight.', explanation: 'Have to + base verb diễn tả việc cần/phải làm.' }
+    ];
+
+    const crosswordEntries = [
+      { number: 1, answer: 'BREAKFAST', clue: 'The first meal of the day.', row: 0, col: 1, dir: 'across' },
+      { number: 2, answer: 'REST', clue: 'Relax when you are tired.', row: 0, col: 2, dir: 'down' },
+      { number: 3, answer: 'TIME', clue: 'You can have this when you are not busy.', row: 3, col: 2, dir: 'across' },
+      { number: 4, answer: 'HAVE', clue: 'Present form with I / you / we / they.', row: 5, col: 3, dir: 'down' },
+      { number: 5, answer: 'PARTY', clue: 'You can have this with friends at home.', row: 6, col: 2, dir: 'across' },
+      { number: 6, answer: 'SHOWER', clue: 'You can have this after exercising.', row: 9, col: 1, dir: 'across' },
+      { number: 7, answer: 'HAD', clue: 'Past form of have for every subject.', row: 9, col: 8, dir: 'down' },
+      { number: 8, answer: 'LUNCH', clue: 'The meal in the middle of the day.', row: 11, col: 4, dir: 'across' }
+    ];
+
+    const defaultState = () => ({
+      visited: { overview: true },
+      vocabKnown: {},
+      vocabReview: {},
+      flashSeen: {},
+      flashKnown: {},
+      flashReview: {},
+      flashIndex: 0,
+      flashFlipped: false,
+      practiceAnswers: {},
+      testAnswers: {},
+      testSubmitted: false,
+      testResults: [],
+      bestScore: null,
+      mistakes: [],
+      production: {},
+      crossword: {},
+      quickChecks: {},
+      retryIds: null,
+      lastStudy: null
+    });
+
+    let state = loadProgress();
+    let activeView = 'overview';
+    let vocabFilter = 'all';
+    let vocabQuery = '';
+    let practiceCategoryFilter = 'all';
+    let practiceLevelFilter = 'all';
+
+    function loadProgress() {
+      const base = defaultState();
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+        if (!saved) return base;
+        return Object.assign(base, saved, {
+          visited: Object.assign({}, base.visited, saved.visited || {}),
+          vocabKnown: saved.vocabKnown || {},
+          vocabReview: saved.vocabReview || {},
+          flashSeen: saved.flashSeen || {},
+          flashKnown: saved.flashKnown || {},
+          flashReview: saved.flashReview || {},
+          practiceAnswers: saved.practiceAnswers || {},
+          testAnswers: saved.testAnswers || {},
+          testResults: saved.testResults || [],
+          mistakes: saved.mistakes || [],
+          production: saved.production || {},
+          crossword: saved.crossword || {},
+          quickChecks: saved.quickChecks || {}
+        });
+      } catch (error) {
+        return base;
+      }
+    }
+
+    function saveProgress() {
+      state.lastStudy = new Date().toISOString();
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) {}
+      updateProgress();
+    }
+
+    function escapeHtml(value) {
+      return String(value == null ? '' : value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function normalizeAnswer(value) {
+      return String(value == null ? '' : value)
+        .toLowerCase()
+        .replace(/[“”"]/g, '')
+        .replace(/[.!?]+$/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function formatDate(iso) {
+      if (!iso) return 'Chưa có lần học gần đây';
+      const date = new Date(iso);
+      return 'Học gần nhất: ' + date.toLocaleDateString('vi-VN');
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(showToast.timer);
+      showToast.timer = setTimeout(function() { toast.classList.remove('show'); }, 2300);
+    }
+
+    function getAllQuestions() {
+      return practiceQuestions.concat(testQuestions);
+    }
+
+    function getQuestionById(id) {
+      return getAllQuestions().find(function(question) { return question.id === id; });
+    }
+
+    function getProgress() {
+      let score = state.visited.overview ? 10 : 0;
+      score += state.visited.learn ? 17 : 0;
+      const knownCount = Object.keys(state.vocabKnown).filter(function(id) { return state.vocabKnown[id]; }).length;
+      if (state.visited.vocabulary) score += 4 + Math.round((knownCount / vocab.length) * 14);
+      const flashSeen = Object.keys(state.flashSeen).filter(function(id) { return state.flashSeen[id]; }).length;
+      if (state.visited.flashcards) score += 3 + Math.round((flashSeen / vocab.length) * 12);
+      const practiceDone = practiceQuestions.filter(function(question) {
+        return state.practiceAnswers[question.id] && state.practiceAnswers[question.id].submitted;
+      }).length;
+      if (state.visited.practice) score += 2 + Math.round((practiceDone / practiceQuestions.length) * 18);
+      if (state.visited.test) score += state.testSubmitted ? 20 : 2;
+      return Math.min(100, score);
+    }
+
+    function updateProgress() {
+      const percent = getProgress();
+      const bar = document.getElementById('progress-bar');
+      const text = document.getElementById('progress-text');
+      if (bar) {
+        bar.setAttribute('aria-valuenow', String(percent));
+        bar.querySelector('span').style.width = percent + '%';
+      }
+      if (text) text.textContent = percent + '%';
+      const last = document.getElementById('last-study');
+      if (last) last.textContent = formatDate(state.lastStudy);
+      const best = document.getElementById('header-score');
+      if (best) best.textContent = state.bestScore == null ? 'Best —' : 'Best ' + state.bestScore + '%';
+      const known = Object.keys(state.vocabKnown).filter(function(id) { return state.vocabKnown[id]; }).length;
+      const practiceSubmitted = Object.keys(state.practiceAnswers).filter(function(id) { return state.practiceAnswers[id] && state.practiceAnswers[id].submitted; }).length;
+      const reviewCount = getMistakes().length;
+      const sideKnown = document.getElementById('side-known');
+      const sidePractice = document.getElementById('side-practice');
+      const sideTest = document.getElementById('side-test');
+      const sideReview = document.getElementById('side-review');
+      const mistakeCount = document.getElementById('mistake-count');
+      if (sideKnown) sideKnown.textContent = known;
+      if (sidePractice) sidePractice.textContent = practiceSubmitted;
+      if (sideTest) sideTest.textContent = state.bestScore == null ? '—' : state.bestScore + '%';
+      if (sideReview) sideReview.textContent = reviewCount;
+      if (mistakeCount) mistakeCount.textContent = reviewCount;
+    }
+
+    function navigate(view) {
+      activeView = view;
+      document.querySelectorAll('.view').forEach(function(section) {
+        const isActive = section.id === 'view-' + view;
+        section.classList.toggle('active', isActive);
+        section.hidden = !isActive;
+      });
+      document.querySelectorAll('[data-view]').forEach(function(button) {
+        button.setAttribute('aria-current', button.dataset.view === view ? 'page' : 'false');
+      });
+      state.visited[view] = true;
+      saveProgress();
+      if (view === 'vocabulary') renderVocabulary();
+      if (view === 'flashcards') renderFlashcard();
+      if (view === 'practice') renderPractice();
+      if (view === 'test') renderTest();
+      if (view === 'mistakes') renderMistakes();
+      if (view === 'results') renderResults();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderPhraseGroups() {
+      const root = document.getElementById('lesson-phrase-groups');
+      root.innerHTML = phraseGroups.map(function(group) {
+        const cards = group.ids.map(function(id) {
+          const item = vocab.find(function(entry) { return entry.id === id; });
+          return '<article class="phrase-card"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '" loading="lazy" width="512" height="512"><div class="phrase-card-body"><h4>' + escapeHtml(item.word) + '</h4><p>' + escapeHtml(item.meaning) + '</p></div></article>';
+        }).join('');
+        return '<div class="collocation-group"><div class="group-title"><span class="pill teal">' + escapeHtml(group.tag) + '</span><h3>' + escapeHtml(group.title) + '</h3></div><div class="phrase-grid">' + cards + '</div></div>';
+      }).join('');
+    }
+
+    function renderVocabulary() {
+      const root = document.getElementById('vocab-grid');
+      const query = vocabQuery.toLowerCase().trim();
+      const filtered = vocab.filter(function(item) {
+        const matchesFilter = vocabFilter === 'all' || item.group === vocabFilter;
+        const haystack = [item.word, item.meaning, item.definition, item.example, item.chunk].join(' ').toLowerCase();
+        return matchesFilter && (!query || haystack.indexOf(query) !== -1);
+      });
+      root.innerHTML = filtered.length ? filtered.map(function(item) {
+        const known = !!state.vocabKnown[item.id];
+        const review = !!state.vocabReview[item.id];
+        return '<article class="vocab-card"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '" loading="lazy" width="512" height="512"><div class="vocab-body"><div class="vocab-word-row"><div><div class="vocab-kind">' + escapeHtml(item.kind) + '</div><div class="vocab-word">' + escapeHtml(item.word) + '</div></div><span class="pill ' + (review ? 'coral' : known ? 'teal' : 'blue') + '">' + (review ? 'Review' : known ? 'Known' : 'New') + '</span></div><div class="meaning">' + escapeHtml(item.meaning) + '</div><div class="definition">' + escapeHtml(item.definition) + '</div><div class="example"><strong>Example:</strong> “' + escapeHtml(item.example) + '”</div><div class="vocab-detail"><strong>Chunk:</strong> ' + escapeHtml(item.chunk) + '</div><div class="vocab-detail"><strong>Common mistake:</strong> ' + escapeHtml(item.mistake) + '</div><div class="vocab-footer"><button type="button" class="btn know-button ' + (known ? 'known' : '') + '" data-vocab-toggle="' + escapeHtml(item.id) + '">' + (known ? '✓ Đã nhớ — đánh dấu lại' : 'Đánh dấu “Đã nhớ”') + '</button></div></div></article>';
+      }).join('') : '<div class="empty-state">Không tìm thấy card phù hợp. Thử một từ khác hoặc chọn All.</div>';
+      const knownCount = Object.keys(state.vocabKnown).filter(function(id) { return state.vocabKnown[id]; }).length;
+      document.getElementById('vocab-count').textContent = knownCount + '/' + vocab.length + ' known';
+    }
+
+    function flashStats() {
+      const learned = Object.keys(state.flashKnown).filter(function(id) { return state.flashKnown[id]; }).length;
+      const review = Object.keys(state.flashReview).filter(function(id) { return state.flashReview[id]; }).length;
+      const seen = Object.keys(state.flashSeen).filter(function(id) { return state.flashSeen[id]; }).length;
+      document.getElementById('flash-learned').textContent = learned;
+      document.getElementById('flash-review').textContent = review;
+      document.getElementById('flash-remaining').textContent = Math.max(0, vocab.length - seen);
+    }
+
+    function renderFlashcard() {
+      const item = vocab[state.flashIndex] || vocab[0];
+      const card = document.getElementById('flashcard');
+      const flipped = !!state.flashFlipped;
+      state.flashSeen[item.id] = true;
+      card.setAttribute('aria-label', flipped ? 'Mặt sau flashcard, bấm để lật lại' : 'Mặt trước flashcard, bấm để lật');
+      card.innerHTML = flipped
+        ? '<div class="flashcard-top"><span class="pill blue">Back · ' + (state.flashIndex + 1) + '/' + vocab.length + '</span><span class="pill ' + (state.flashKnown[item.id] ? 'teal' : 'amber') + '">' + (state.flashKnown[item.id] ? 'Known' : 'Review') + '</span></div><img class="flashcard-image" src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '"><div class="flashcard-back"><h3>' + escapeHtml(item.meaning) + '</h3><p><strong>Example:</strong> “' + escapeHtml(item.example) + '”</p><p class="muted small-text"><strong>Chunk:</strong> ' + escapeHtml(item.chunk) + '</p></div><div class="flashcard-hint">Bấm để xem mặt trước</div>'
+        : '<div class="flashcard-top"><span class="pill blue">Front · ' + (state.flashIndex + 1) + '/' + vocab.length + '</span><span class="pill">' + escapeHtml(item.kind) + '</span></div><div><div class="flashcard-word">' + escapeHtml(item.word) + '</div><img class="flashcard-image" src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '"></div><div class="flashcard-hint">Tự nhớ nghĩa và cách dùng, rồi bấm để flip</div>';
+      flashStats();
+    }
+
+    function renderQuickChecks() {
+      const root = document.getElementById('quick-checks');
+      root.innerHTML = quickChecks.map(function(item) {
+        const saved = state.quickChecks[item.id];
+        return '<article class="card quick-card"><div class="pill blue">Quick check</div><h3 style="margin-top:.6rem">' + escapeHtml(item.prompt) + '</h3><div class="option-list">' + item.options.map(function(option) {
+          return '<label class="option-label"><input type="radio" name="' + item.id + '" value="' + escapeHtml(option) + '"' + (saved && saved.answer === option ? ' checked' : '') + '><span>' + escapeHtml(option) + '</span></label>';
+        }).join('') + '</div><button type="button" class="btn small ghost" data-quick-check="' + item.id + '" style="margin-top:.65rem">Check</button><div class="feedback ' + (saved ? 'show ' + (saved.correct ? 'correct' : 'incorrect') : '') + '" data-quick-feedback="' + item.id + '">' + (saved ? feedbackHtml(item, saved.answer, saved.correct) : '') + '</div></article>';
+      }).join('');
+    }
+
+    function questionTypeLabel(type) {
+      const labels = {
+        'multiple-choice': 'Trắc nghiệm',
+        'image-choice': 'Nhìn hình chọn đáp án',
+        'fill-blank': 'Điền từ',
+        'word-bank': 'Ngân hàng từ',
+        'matching': 'Nối cặp',
+        'categorization': 'Phân loại',
+        'sentence-order': 'Sắp xếp câu',
+        'mini-reading': 'Đọc hiểu',
+        'true-false': 'Đúng / Sai',
+        'image-match': 'Ghép hình',
+        'short-answer': 'Tự trả lời',
+        'production': 'Sản xuất ngôn ngữ',
+        'error-correction': 'Sửa lỗi',
+        'select-all': 'Chọn nhiều đáp án',
+        'multi-fill': 'Điền nhiều chỗ trống'
+      };
+      return labels[type] || type;
+    }
+
+    function feedbackHtml(question, response, correct) {
+      return '<strong>' + (correct ? '✓ Correct' : '✗ Incorrect') + '</strong><p><span class="feedback-label">Your answer:</span> ' + escapeHtml(response || 'No answer') + '</p><p><span class="feedback-label">Correct answer:</span> ' + escapeHtml(formatCorrectAnswer(question)) + '</p><p><span class="feedback-label">Explanation:</span> ' + escapeHtml(question.explanation || '') + '</p>';
+    }
+
+    function formatCorrectAnswer(question) {
+      if (question.type === 'matching') return question.pairs.map(function(pair) { return pair.left + ' → ' + pair.right; }).join('; ');
+      if (question.type === 'categorization') return question.items.map(function(item) { return item.text + ' → ' + item.answer; }).join('; ');
+      if (question.type === 'sentence-order') return question.answer.join(' ');
+      if (question.type === 'image-match') return question.items.map(function(item) { return item.image.replace('.png', '') + ' → ' + item.answer; }).join('; ');
+      if (question.type === 'multi-fill') return question.items.map(function(item) { return item.text + ' → ' + (Array.isArray(item.answer) ? item.answer[0] : item.answer); }).join('; ');
+      if (question.type === 'select-all') return question.answer.join('; ');
+      if (question.type === 'short-answer' || question.type === 'production') return question.rubric ? question.rubric.join(' ') : 'Self-check with the rubric.';
+      if (question.type === 'true-false') return question.answer === 'true' ? 'True / Đúng' : 'False / Sai';
+      return Array.isArray(question.answer) ? question.answer.join(' / ') : question.answer;
+    }
+
+    function renderQuestionInput(question, mode) {
+      const suffix = mode + '-' + question.id;
+      if (question.passage) {
+        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+      } else {
+        var passageHtml = '';
+      }
+      if (question.type === 'image-choice') {
+        const image = '<div class="card" style="padding:.55rem;margin-bottom:.7rem;max-width:260px"><img src="' + IMAGE_ROOT + escapeHtml(question.image) + '" alt="Minh họa cho câu hỏi" width="512" height="512"></div>';
+        return passageHtml + image + '<div class="option-list">' + question.options.map(function(option) {
+          return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';
+        }).join('') + '</div>';
+      }
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false') {
+        const options = question.type === 'true-false' ? ['true', 'false'] : question.options;
+        return passageHtml + '<div class="option-list">' + options.map(function(option) {
+          return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(question.type === 'true-false' ? (option === 'true' ? 'True / Đúng' : 'False / Sai') : option) + '</span></label>';
+        }).join('') + '</div>';
+      }
+      if (question.type === 'fill-blank' || question.type === 'error-correction') {
+        const placeholder = question.type === 'error-correction' ? 'Type the corrected sentence' : 'Type the missing word or phrase';
+        return passageHtml + '<label class="field-label" for="' + suffix + '-input">Your answer</label><input class="answer-input" id="' + suffix + '-input" data-answer-input="' + question.id + '" autocomplete="off" placeholder="' + placeholder + '">';
+      }
+      if (question.type === 'select-all') {
+        return passageHtml + '<div class="select-all-list">' + question.options.map(function(option) {
+          return '<label><input type="checkbox" data-select-all="' + question.id + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';
+        }).join('') + '</div>';
+      }
+      if (question.type === 'multi-fill') {
+        return passageHtml + '<div class="multi-fill-list">' + question.items.map(function(item, index) {
+          return '<label class="multi-fill-row"><span>' + escapeHtml(item.text) + '</span><input class="answer-input" data-multi-fill="' + index + '" autocomplete="off" placeholder="Answer"></label>';
+        }).join('') + '</div>';
+      }
+      if (question.type === 'word-bank') {
+        return passageHtml + '<div class="word-bank">' + question.bank.map(function(word) { return '<span class="word-chip">' + escapeHtml(word) + '</span>'; }).join('') + '</div><label class="field-label" for="' + suffix + '-select">Choose from the bank</label><select class="answer-select" id="' + suffix + '-select" data-answer-select="' + question.id + '"><option value="">Choose...</option>' + question.bank.map(function(word) { return '<option value="' + escapeHtml(word) + '">' + escapeHtml(word) + '</option>'; }).join('') + '</select>';
+      }
+      if (question.type === 'matching') {
+        const rights = question.pairs.map(function(pair) { return pair.right; });
+        return passageHtml + '<div class="matching-list">' + question.pairs.map(function(pair, index) {
+          return '<label class="matching-row"><span>' + escapeHtml(pair.left) + '</span><select class="answer-select" data-match-left="' + escapeHtml(pair.left) + '" data-match-q="' + question.id + '"><option value="">Choose...</option>' + rights.map(function(right) { return '<option value="' + escapeHtml(right) + '">' + escapeHtml(right) + '</option>'; }).join('') + '</select></label>';
+        }).join('') + '</div>';
+      }
+      if (question.type === 'categorization') {
+        return passageHtml + '<div class="categorize-list">' + question.items.map(function(item) {
+          return '<label class="categorize-row"><span>' + escapeHtml(item.text) + '</span><select class="answer-select" data-category-item="' + escapeHtml(item.text) + '" data-category-q="' + question.id + '"><option value="">Choose...</option>' + question.categories.map(function(category) { return '<option value="' + escapeHtml(category) + '">' + escapeHtml(category) + '</option>'; }).join('') + '</select></label>';
+        }).join('') + '</div>';
+      }
+      if (question.type === 'sentence-order') {
+        return passageHtml + '<div class="order-builder" data-order-builder="' + question.id + '"></div><div class="word-bank">' + question.tokens.map(function(token, index) {
+          return '<button type="button" class="order-token" data-order-token="' + question.id + '" data-token-index="' + index + '">' + escapeHtml(token) + '</button>';
+        }).join('') + '</div><button type="button" class="btn small" data-order-reset="' + question.id + '">Reset order</button>';
+      }
+      if (question.type === 'image-match') {
+        return passageHtml + '<div class="image-match-grid">' + question.items.map(function(item) {
+          return '<div class="image-match-item"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cần ghép" width="512" height="512"><label class="field-label" for="' + suffix + '-' + item.image + '">Choose chunk</label><select class="answer-select" id="' + suffix + '-' + item.image + '" data-image-match="' + escapeHtml(item.image) + '" data-image-match-q="' + question.id + '"><option value="">Choose...</option>' + question.options.map(function(option) { return '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>'; }).join('') + '</select></div>';
+        }).join('') + '</div>';
+      }
+      if (question.type === 'short-answer' || question.type === 'production') {
+        const rubric = question.rubric ? '<div class="checklist">' + question.rubric.map(function(item) { return '<label><input type="checkbox" disabled> ' + escapeHtml(item) + '</label>'; }).join('') + '</div>' : '';
+        return passageHtml + '<textarea class="answer-textarea" data-answer-textarea="' + question.id + '" placeholder="Write your answer here..."></textarea>' + rubric;
+      }
+      return passageHtml;
+    }
+
+    function getVisiblePracticeQuestions() {
+      if (state.retryIds && state.retryIds.length) return state.retryIds.map(getQuestionById).filter(Boolean);
+      return practiceQuestions.filter(function(question) {
+        const categoryOk = practiceCategoryFilter === 'all' || question.category === practiceCategoryFilter;
+        const levelOk = practiceLevelFilter === 'all' || String(question.difficulty) === practiceLevelFilter;
+        return categoryOk && levelOk;
+      });
+    }
+
+    function renderPractice() {
+      const root = document.getElementById('practice-list');
+      const questions = getVisiblePracticeQuestions();
+      document.getElementById('retry-banner').hidden = !(state.retryIds && state.retryIds.length);
+      if (state.retryIds && state.retryIds.length) {
+        document.getElementById('retry-banner').innerHTML = '<strong>Retry incorrect mode:</strong> đang hiển thị ' + questions.length + ' câu cần ôn. <button class="btn small" type="button" data-retry-all>Quay lại toàn bộ practice</button>';
+      }
+      const filterCount = document.getElementById('practice-filter-count');
+      if (filterCount) filterCount.textContent = questions.length + '/' + practiceQuestions.length + ' câu đang hiển thị';
+      if (!questions.length) {
+        root.innerHTML = '<div class="empty-state"><h2>Không có câu phù hợp bộ lọc</h2><p>Đổi nhóm kỹ năng hoặc mức độ để tiếp tục luyện.</p></div>';
+        updatePracticeSummary();
+        renderCrossword();
+        restoreProductionInputs();
+        return;
+      }
+      root.innerHTML = questions.map(function(question, index) {
+        const saved = state.practiceAnswers[question.id];
+        const statusClass = saved && saved.submitted ? (saved.correct === null ? 'pending' : saved.correct ? 'correct' : 'incorrect') : '';
+        const inputHtml = renderQuestionInput(question, 'practice');
+        const isProduction = question.type === 'short-answer' || question.type === 'production';
+        return '<article class="question-card ' + statusClass + '" data-question-card="' + question.id + '"><div class="question-header"><span class="question-number">Practice ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + inputHtml + '<div class="question-actions"><button type="button" class="btn ' + (isProduction ? 'secondary' : 'primary') + '" data-check-practice="' + question.id + '">' + (isProduction ? 'Lưu để tự kiểm tra' : 'Kiểm tra đáp án') + '</button><button type="button" class="btn small" data-clear-question="' + question.id + '">Xóa</button></div><div class="feedback ' + (saved && saved.submitted ? 'show ' + (saved.correct === null ? 'neutral' : saved.correct ? 'correct' : 'incorrect') : '') + '" data-practice-feedback="' + question.id + '">' + (saved && saved.submitted ? (isProduction ? '<strong>✓ Đã lưu</strong><p>Dùng rubric để tự kiểm tra và ôn lại ở lần sau.</p>' : feedbackHtml(question, saved.displayResponse || saved.response, saved.correct)) : '') + '</div></article>';
+      }).join('');
+      questions.forEach(function(question) {
+        const saved = state.practiceAnswers[question.id];
+        if (!saved || !saved.submitted) return;
+        restoreResponse(question, saved.response, 'practice');
+      });
+      updatePracticeSummary();
+      renderCrossword();
+      restoreProductionInputs();
+    }
+
+    function restoreResponse(question, response, mode) {
+      if (response == null) return;
+      const selector = mode === 'test' ? '[data-test-card="' + question.id + '"]' : '[data-question-card="' + question.id + '"]';
+      const root = document.querySelector(selector);
+      if (!root) return;
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice') {
+        const input = Array.from(root.querySelectorAll('input[type="radio"]')).find(function(element) { return element.value === response; });
+        if (input) input.checked = true;
+      } else if (question.type === 'fill-blank' || question.type === 'error-correction') {
+        const input = root.querySelector('[data-answer-input]');
+        if (input) input.value = response;
+      } else if (question.type === 'select-all' && Array.isArray(response)) {
+        root.querySelectorAll('[data-select-all]').forEach(function(input) { input.checked = response.indexOf(input.value) !== -1; });
+      } else if (question.type === 'multi-fill' && response && typeof response === 'object') {
+        root.querySelectorAll('[data-multi-fill]').forEach(function(input) { input.value = response[input.dataset.multiFill] || ''; });
+      } else if (question.type === 'word-bank') {
+        const select = root.querySelector('[data-answer-select]');
+        if (select) select.value = response;
+      } else if (question.type === 'matching' && response && typeof response === 'object') {
+        root.querySelectorAll('[data-match-left]').forEach(function(select) { select.value = response[select.dataset.matchLeft] || ''; });
+      } else if (question.type === 'categorization' && response && typeof response === 'object') {
+        root.querySelectorAll('[data-category-item]').forEach(function(select) { select.value = response[select.dataset.categoryItem] || ''; });
+      } else if (question.type === 'sentence-order' && Array.isArray(response)) {
+        const builder = root.querySelector('[data-order-builder]');
+        const tokens = Array.from(root.querySelectorAll('[data-order-token]'));
+        response.forEach(function(token) {
+          const button = tokens.find(function(element) { return element.textContent === token && !element.disabled; });
+          if (button) appendOrderToken(button, builder);
+        });
+      } else if (question.type === 'image-match' && response && typeof response === 'object') {
+        root.querySelectorAll('[data-image-match]').forEach(function(select) { select.value = response[select.dataset.imageMatch] || ''; });
+      } else if (question.type === 'short-answer' || question.type === 'production') {
+        const textarea = root.querySelector('[data-answer-textarea]');
+        if (textarea) textarea.value = response;
+      }
+    }
+
+    function collectResponse(question, root) {
+      if (!root) return '';
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice') {
+        const selected = root.querySelector('input[type="radio"]:checked');
+        return selected ? selected.value : '';
+      }
+      if (question.type === 'fill-blank' || question.type === 'error-correction') {
+        const input = root.querySelector('[data-answer-input]');
+        return input ? input.value : '';
+      }
+      if (question.type === 'select-all') {
+        return Array.from(root.querySelectorAll('[data-select-all]:checked')).map(function(input) { return input.value; });
+      }
+      if (question.type === 'multi-fill') {
+        const answer = {};
+        root.querySelectorAll('[data-multi-fill]').forEach(function(input) { answer[input.dataset.multiFill] = input.value; });
+        return answer;
+      }
+      if (question.type === 'word-bank') {
+        const select = root.querySelector('[data-answer-select]');
+        return select ? select.value : '';
+      }
+      if (question.type === 'matching') {
+        const answer = {};
+        let any = false;
+        root.querySelectorAll('[data-match-left]').forEach(function(select) { answer[select.dataset.matchLeft] = select.value; if (select.value) any = true; });
+        return any ? answer : {};
+      }
+      if (question.type === 'categorization') {
+        const answer = {};
+        let any = false;
+        root.querySelectorAll('[data-category-item]').forEach(function(select) { answer[select.dataset.categoryItem] = select.value; if (select.value) any = true; });
+        return any ? answer : {};
+      }
+      if (question.type === 'sentence-order') {
+        const builder = root.querySelector('[data-order-builder]');
+        return builder ? Array.from(builder.querySelectorAll('.selected-word')).map(function(element) { return element.textContent; }) : [];
+      }
+      if (question.type === 'image-match') {
+        const answer = {};
+        let any = false;
+        root.querySelectorAll('[data-image-match]').forEach(function(select) { answer[select.dataset.imageMatch] = select.value; if (select.value) any = true; });
+        return any ? answer : {};
+      }
+      if (question.type === 'short-answer' || question.type === 'production') {
+        const textarea = root.querySelector('[data-answer-textarea]');
+        return textarea ? textarea.value : '';
+      }
+      return '';
+    }
+
+    function hasResponse(question, response) {
+      if (question.type === 'matching' || question.type === 'categorization' || question.type === 'image-match' || question.type === 'multi-fill') return response && Object.keys(response).length > 0 && Object.keys(response).some(function(key) { return String(response[key] || '').trim(); });
+      if (question.type === 'sentence-order' || question.type === 'select-all') return Array.isArray(response) && response.length > 0;
+      return String(response == null ? '' : response).trim().length > 0;
+    }
+
+    function evaluateQuestion(question, response) {
+      if (question.type === 'short-answer' || question.type === 'production') return { answered: hasResponse(question, response), correct: null, response: response };
+      let correct = false;
+      if (question.type === 'matching') {
+        correct = question.pairs.every(function(pair) { return response && normalizeAnswer(response[pair.left]) === normalizeAnswer(pair.right); });
+      } else if (question.type === 'categorization') {
+        correct = question.items.every(function(item) { return response && normalizeAnswer(response[item.text]) === normalizeAnswer(item.answer); });
+      } else if (question.type === 'image-match') {
+        correct = question.items.every(function(item) { return response && normalizeAnswer(response[item.image]) === normalizeAnswer(item.answer); });
+      } else if (question.type === 'sentence-order') {
+        correct = normalizeAnswer((response || []).join(' ')) === normalizeAnswer(question.answer.join(' '));
+      } else if (question.type === 'select-all') {
+        const expected = question.answer.map(normalizeAnswer).sort();
+        const actual = (response || []).map(normalizeAnswer).sort();
+        correct = expected.length === actual.length && expected.every(function(value, index) { return value === actual[index]; });
+      } else if (question.type === 'multi-fill') {
+        correct = question.items.every(function(item, index) {
+          const given = response ? response[index] : '';
+          const answers = Array.isArray(item.answer) ? item.answer : [item.answer];
+          return answers.some(function(answer) { return normalizeAnswer(answer) === normalizeAnswer(given); });
+        });
+      } else if (Array.isArray(question.answer)) {
+        correct = question.answer.some(function(answer) { return normalizeAnswer(answer) === normalizeAnswer(response); });
+      } else {
+        correct = normalizeAnswer(response) === normalizeAnswer(question.answer);
+      }
+      return { answered: hasResponse(question, response), correct: correct, response: response };
+    }
+
+    function displayResponse(question, response) {
+      if (question.type === 'matching' || question.type === 'categorization' || question.type === 'image-match') {
+        return Object.keys(response || {}).map(function(key) { return key + ' → ' + response[key]; }).join('; ');
+      }
+      if (question.type === 'multi-fill') {
+        return question.items.map(function(item, index) { return (index + 1) + ': ' + ((response || {})[index] || '—'); }).join('; ');
+      }
+      if (question.type === 'select-all') return (response || []).join('; ');
+      if (Array.isArray(response)) return response.join(' ');
+      return response;
+    }
+
+    function refreshMistakes() {
+      const mistakes = [];
+      Object.keys(state.practiceAnswers).forEach(function(id) {
+        const item = state.practiceAnswers[id];
+        if (item && item.submitted && item.correct === false) mistakes.push({ id: id, scope: 'practice', response: item.response, displayResponse: item.displayResponse });
+      });
+      if (state.testSubmitted) {
+        state.testResults.forEach(function(item) {
+          if (!item.correct) mistakes.push({ id: item.id, scope: 'test', response: item.response, displayResponse: item.displayResponse });
+        });
+      }
+      state.mistakes = mistakes;
+    }
+
+    function getMistakes() {
+      refreshMistakes();
+      return state.mistakes;
+    }
+
+    function updatePracticeSummary() {
+      const ids = getVisiblePracticeQuestions().map(function(question) { return question.id; });
+      const records = ids.map(function(id) { return state.practiceAnswers[id]; }).filter(function(item) { return item && item.submitted; });
+      const correct = records.filter(function(item) { return item.correct === true; }).length;
+      const wrong = records.filter(function(item) { return item.correct === false; }).length;
+      document.getElementById('practice-summary-text').textContent = records.length + '/' + ids.length + ' answered';
+      document.getElementById('practice-correct-pill').textContent = correct + ' correct';
+      document.getElementById('practice-wrong-pill').textContent = wrong + ' to review';
+      updateProgress();
+    }
+
+    function handlePracticeCheck(id) {
+      const question = getQuestionById(id);
+      const root = document.querySelector('[data-question-card="' + id + '"]');
+      const feedback = document.querySelector('[data-practice-feedback="' + id + '"]');
+      if (!question || !root || !feedback) return;
+      const response = collectResponse(question, root);
+      const result = evaluateQuestion(question, response);
+      if (!result.answered) {
+        feedback.className = 'feedback show neutral';
+        feedback.innerHTML = '<strong>Choose or write an answer first.</strong><p>Try retrieving the chunk before checking.</p>';
+        return;
+      }
+      const isProduction = question.type === 'short-answer' || question.type === 'production';
+      state.practiceAnswers[id] = { response: response, displayResponse: displayResponse(question, response), correct: isProduction ? null : result.correct, submitted: true };
+      refreshMistakes();
+      saveProgress();
+      root.classList.remove('correct', 'incorrect', 'pending');
+      root.classList.add(isProduction ? 'pending' : (result.correct ? 'correct' : 'incorrect'));
+      feedback.className = 'feedback show ' + (isProduction ? 'neutral' : result.correct ? 'correct' : 'incorrect');
+      feedback.innerHTML = isProduction ? '<strong>✓ Saved for self-check</strong><p>Use the rubric, then keep the answer for a later spaced review.</p>' : feedbackHtml(question, displayResponse(question, response), result.correct);
+      updatePracticeSummary();
+      renderMistakes();
+    }
+
+    function clearQuestion(id) {
+      const root = document.querySelector('[data-question-card="' + id + '"]');
+      const question = getQuestionById(id);
+      if (!root || !question) return;
+      root.querySelectorAll('input[type="radio"], input[type="checkbox"][data-select-all]').forEach(function(input) { input.checked = false; });
+      root.querySelectorAll('input[type="text"], input.answer-input, textarea').forEach(function(input) { input.value = ''; });
+      root.querySelectorAll('select').forEach(function(select) { select.value = ''; });
+      const builder = root.querySelector('[data-order-builder]');
+      if (builder) {
+        builder.innerHTML = '';
+        root.querySelectorAll('[data-order-token]').forEach(function(button) { button.disabled = false; });
+      }
+      delete state.practiceAnswers[id];
+      saveProgress();
+      root.classList.remove('correct', 'incorrect', 'pending');
+      const feedback = root.querySelector('[data-practice-feedback]');
+      if (feedback) { feedback.className = 'feedback'; feedback.innerHTML = ''; }
+      updatePracticeSummary();
+      renderMistakes();
+    }
+
+    function appendOrderToken(button, builder) {
+      if (!button || !builder || button.disabled) return;
+      const span = document.createElement('span');
+      span.className = 'word-chip selected-word';
+      span.textContent = button.textContent;
+      builder.appendChild(span);
+      button.disabled = true;
+    }
+
+    function renderTest() {
+      const root = document.getElementById('test-list');
+      root.innerHTML = testQuestions.map(function(question, index) {
+        const result = state.testResults.find(function(item) { return item.id === question.id; });
+        const feedback = state.testSubmitted && result ? '<div class="feedback show ' + (result.correct ? 'correct' : 'incorrect') + '">' + feedbackHtml(question, result.displayResponse, result.correct) + '</div>' : '<div class="feedback" data-test-feedback="' + question.id + '"></div>';
+        return '<article class="question-card ' + (result ? result.correct ? 'correct' : 'incorrect' : '') + '" data-test-card="' + question.id + '"><div class="question-header"><span class="question-number">Test ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + renderQuestionInput(question, 'test') + feedback + '</article>';
+      }).join('');
+      testQuestions.forEach(function(question) {
+        const saved = state.testAnswers[question.id];
+        if (saved) restoreResponse(question, saved.response, 'test');
+      });
+      const resultRoot = document.getElementById('test-result-inline');
+      if (state.testSubmitted) {
+        const summary = calculateTestSummary();
+        resultRoot.innerHTML = '<div class="test-score-banner"><div class="score-number">' + summary.correct + '/' + summary.total + '</div><div><strong>Test submitted · ' + summary.accuracy + '% · ' + masteryLabel(summary.accuracy) + '</strong><p>Feedback đã mở. Hãy xem Mistakes để retry đúng các câu sai.</p></div></div>';
+      } else {
+        resultRoot.innerHTML = '';
+      }
+    }
+
+    function calculateTestSummary() {
+      const total = testQuestions.length;
+      const correct = state.testResults.filter(function(item) { return item.correct; }).length;
+      const answered = state.testResults.filter(function(item) { return item.answered; }).length;
+      return { total: total, correct: correct, answered: answered, incorrect: total - correct, accuracy: Math.round((correct / total) * 100) };
+    }
+
+    function submitTest(event) {
+      event.preventDefault();
+      const results = testQuestions.map(function(question) {
+        const root = document.querySelector('[data-test-card="' + question.id + '"]');
+        const response = collectResponse(question, root);
+        const result = evaluateQuestion(question, response);
+        state.testAnswers[question.id] = { response: response, displayResponse: displayResponse(question, response) };
+        return { id: question.id, response: response, displayResponse: displayResponse(question, response), answered: result.answered, correct: result.correct };
+      });
+      state.testResults = results;
+      state.testSubmitted = true;
+      const summary = { correct: results.filter(function(item) { return item.correct; }).length, total: results.length };
+      const score = Math.round((summary.correct / summary.total) * 100);
+      state.bestScore = state.bestScore == null ? score : Math.max(state.bestScore, score);
+      refreshMistakes();
+      saveProgress();
+      renderTest();
+      renderMistakes();
+      renderResults();
+      navigate('results');
+      showToast('Đã nộp test. Feedback và error log đã sẵn sàng.');
+    }
+
+    function masteryLabel(score) {
+      if (score >= 90) return 'Mastered';
+      if (score >= 80) return 'Very Good';
+      if (score >= 70) return 'Good';
+      if (score >= 60) return 'Developing';
+      return 'Needs Review';
+    }
+
+    function getCategoryBreakdown() {
+      const pool = state.testResults.length ? state.testResults.map(function(result) { return Object.assign({}, result, { question: getQuestionById(result.id) }); }) : [];
+      const categories = {};
+      pool.forEach(function(item) {
+        const category = item.question ? item.question.category : 'other';
+        if (!categories[category]) categories[category] = { correct: 0, total: 0 };
+        categories[category].total++;
+        if (item.correct) categories[category].correct++;
+      });
+      return categories;
+    }
+
+    function renderMistakes() {
+      const root = document.getElementById('mistakes-content');
+      const mistakes = getMistakes();
+      if (!mistakes.length) {
+        root.innerHTML = '<div class="empty-state"><h2>Chưa có lỗi cần ôn</h2><p>Làm practice hoặc submit final test. Các câu sai sẽ xuất hiện ở đây với explanation và nút retry.</p><button type="button" class="btn primary" data-view="practice">Start practice</button></div>';
+        updateProgress();
+        return;
+      }
+      root.innerHTML = '<div class="mistake-list">' + mistakes.map(function(item, index) {
+        const question = getQuestionById(item.id);
+        if (!question) return '';
+        return '<article class="mistake-card"><div class="question-header"><span class="pill coral">' + (item.scope === 'test' ? 'Test mistake' : 'Practice mistake') + '</span><span class="muted small-text">Mistake ' + (index + 1) + '</span></div><h3>' + escapeHtml(question.prompt) + '</h3><div class="answer-pair"><span>Your answer</span><strong>' + escapeHtml(item.displayResponse || 'No answer') + '</strong><span>Correct answer</span><strong>' + escapeHtml(formatCorrectAnswer(question)) + '</strong></div><p><strong>Explanation:</strong> ' + escapeHtml(question.explanation || '') + '</p><button type="button" class="btn small primary" data-practice-again="' + question.id + '">Practice again</button></article>';
+      }).join('') + '</div>';
+      updateProgress();
+    }
+
+    function renderResults() {
+      const root = document.getElementById('results-content');
+      if (!state.testSubmitted || !state.testResults.length) {
+        root.innerHTML = '<div class="empty-state"><h2>Chưa có kết quả final test</h2><p>Hoàn thành mixed test để xem score, mastery và skill breakdown.</p><button type="button" class="btn primary" data-view="test">Go to final test</button></div>';
+        return;
+      }
+      const summary = calculateTestSummary();
+      const categories = getCategoryBreakdown();
+      const categoryRows = Object.keys(categories).map(function(category) {
+        const data = categories[category];
+        const percent = Math.round((data.correct / data.total) * 100);
+        return '<div class="breakdown-row"><strong>' + escapeHtml(category) + '</strong><div class="breakdown-bar"><span style="width:' + percent + '%"></span></div><span>' + percent + '%</span></div>';
+      }).join('');
+      const weak = Object.keys(categories).filter(function(category) { return (categories[category].correct / categories[category].total) < .8; });
+      root.innerHTML = '<div class="result-hero"><div><div class="result-score">' + summary.accuracy + '%</div><div>' + summary.correct + ' / ' + summary.total + ' correct</div></div><div><h2>' + masteryLabel(summary.accuracy) + '</h2><p>Best score: ' + state.bestScore + '%. Dùng breakdown để chọn nội dung ôn tiếp theo.</p><div class="button-row"><button type="button" class="btn" data-view="mistakes">Review mistakes</button><button type="button" class="btn" data-retry-incorrect>Retry incorrect</button></div></div></div><div class="spacer"></div><div class="metric-grid"><div class="metric"><strong>' + summary.correct + '</strong><span>Correct</span></div><div class="metric"><strong>' + summary.incorrect + '</strong><span>Incorrect</span></div><div class="metric"><strong>' + summary.answered + '</strong><span>Answered</span></div><div class="metric"><strong>' + state.bestScore + '%</strong><span>Best score</span></div></div><div class="spacer"></div><div class="grid-2"><article class="card"><h2>Skill breakdown</h2>' + categoryRows + '</article><article class="card"><h2>Recommended review</h2>' + (weak.length ? '<p>Bạn nên review:</p><ul class="recommendation-list">' + weak.map(function(category) { return '<li>' + escapeHtml(category) + '</li>'; }).join('') + '</ul>' : '<div class="callout teal"><strong>Good coverage.</strong><p>Tiếp tục spaced review ở Day 1, Day 3 và Day 7.</p></div>') + '</article></div><div class="spacer"></div><article class="card"><h2>Lesson summary</h2><div class="grid-3"><div><strong>have / has / had</strong><p class="muted small-text">have với I/you/we/they; has với he/she/it; had cho quá khứ mọi chủ ngữ.</p></div><div><strong>Chunks</strong><p class="muted small-text">have breakfast, have a shower, have a rest, have a look, have a party...</p></div><div><strong>Structures</strong><p class="muted small-text">have got = possession; have to + base verb = obligation.</p></div></div></article>';
+    }
+
+    function renderCrossword() {
+      const root = document.getElementById('crossword');
+      const maxRow = Math.max.apply(null, crosswordEntries.map(function(entry) { return entry.dir === 'down' ? entry.row + entry.answer.length - 1 : entry.row; }));
+      const maxCol = Math.max.apply(null, crosswordEntries.map(function(entry) { return entry.dir === 'across' ? entry.col + entry.answer.length - 1 : entry.col; }));
+      const cells = {};
+      crosswordEntries.forEach(function(entry) {
+        entry.answer.split('').forEach(function(letter, index) {
+          const row = entry.row + (entry.dir === 'down' ? index : 0);
+          const col = entry.col + (entry.dir === 'across' ? index : 0);
+          const key = row + '-' + col;
+          cells[key] = cells[key] || { answer: letter, row: row, col: col };
+        });
+      });
+      let grid = '<div class="crossword-wrap"><div class="crossword-grid" style="grid-template-columns:repeat(' + (maxCol + 1) + ',35px)">';
+      for (let row = 0; row <= maxRow; row++) {
+        for (let col = 0; col <= maxCol; col++) {
+          const key = row + '-' + col;
+          if (cells[key]) grid += '<input class="crossword-cell" maxlength="1" inputmode="text" autocomplete="off" data-crossword-cell="' + key + '" aria-label="Ô chữ hàng ' + (row + 1) + ' cột ' + (col + 1) + '" value="' + escapeHtml(state.crossword[key] || '') + '">';
+          else grid += '<span class="crossword-block" aria-hidden="true"></span>';
+        }
+      }
+      grid += '</div></div><div class="crossword-clues"><div><strong>Across</strong><ol>' + crosswordEntries.filter(function(entry) { return entry.dir === 'across'; }).map(function(entry) { return '<li><strong>' + entry.number + '.</strong> ' + escapeHtml(entry.clue) + '</li>'; }).join('') + '</ol></div><div><strong>Down</strong><ol>' + crosswordEntries.filter(function(entry) { return entry.dir === 'down'; }).map(function(entry) { return '<li><strong>' + entry.number + '.</strong> ' + escapeHtml(entry.clue) + '</li>'; }).join('') + '</ol></div></div><div class="button-row" style="margin-top:.8rem"><button type="button" class="btn secondary" data-check-crossword>Check crossword</button><button type="button" class="btn small" data-clear-crossword>Clear</button></div><div id="crossword-feedback" class="feedback"></div>';
+      root.innerHTML = grid;
+    }
+
+    function checkCrossword() {
+      let correct = 0;
+      let total = 0;
+      crosswordEntries.forEach(function(entry) {
+        entry.answer.split('').forEach(function(letter, index) {
+          const row = entry.row + (entry.dir === 'down' ? index : 0);
+          const col = entry.col + (entry.dir === 'across' ? index : 0);
+          total++;
+          const value = normalizeAnswer(state.crossword[row + '-' + col] || '');
+          if (value === letter.toLowerCase()) correct++;
+        });
+      });
+      const feedback = document.getElementById('crossword-feedback');
+      feedback.className = 'feedback show ' + (correct === total ? 'correct' : 'neutral');
+      feedback.innerHTML = '<strong>' + (correct === total ? '✓ Crossword complete' : 'Keep going') + '</strong><p>' + correct + '/' + total + ' ô đúng. ' + (correct === total ? 'Bạn đã nhớ các chunks chính.' : 'Đọc lại clue và thử recall trước khi xem Vocabulary.') + '</p>';
+      saveProgress();
+    }
+
+    function calculateQuickCheck(id) {
+      const item = quickChecks.find(function(check) { return check.id === id; });
+      const input = document.querySelector('input[name="' + id + '"]:checked');
+      const feedback = document.querySelector('[data-quick-feedback="' + id + '"]');
+      if (!item || !feedback) return;
+      const response = input ? input.value : '';
+      if (!response) {
+        feedback.className = 'feedback show neutral';
+        feedback.innerHTML = '<strong>Choose an answer first.</strong>';
+        return;
+      }
+      const correct = normalizeAnswer(response) === normalizeAnswer(item.answer);
+      state.quickChecks[id] = { answer: response, correct: correct };
+      saveProgress();
+      feedback.className = 'feedback show ' + (correct ? 'correct' : 'incorrect');
+      feedback.innerHTML = feedbackHtml(item, response, correct);
+    }
+
+    function restoreProductionInputs() {
+      document.querySelectorAll('[data-production]').forEach(function(input) {
+        const key = input.dataset.production;
+        if (state.production[key] && state.production[key].text) input.value = state.production[key].text;
+      });
+      document.querySelectorAll('[data-production-check]').forEach(function(input) {
+        input.checked = !!state.production[input.dataset.productionCheck];
+      });
+    }
+
+    function resetProgress() {
+      if (!window.confirm('Reset toàn bộ progress, flashcards, mistakes và điểm của bài này?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      state = defaultState();
+      vocabFilter = 'all';
+      vocabQuery = '';
+      document.getElementById('vocab-search').value = '';
+      renderVocabulary();
+      renderFlashcard();
+      renderQuickChecks();
+      renderPractice();
+      renderTest();
+      renderMistakes();
+      renderResults();
+      navigate('overview');
+      showToast('Đã reset progress của bài học.');
+    }
+
+    document.addEventListener('click', function(event) {
+      const viewButton = event.target.closest('[data-view]');
+      if (viewButton) { navigate(viewButton.dataset.view); return; }
+      const filterButton = event.target.closest('[data-vocab-filter]');
+      if (filterButton) {
+        vocabFilter = filterButton.dataset.vocabFilter;
+        document.querySelectorAll('[data-vocab-filter]').forEach(function(button) { button.classList.toggle('active', button.dataset.vocabFilter === vocabFilter); });
+        renderVocabulary();
+        return;
+      }
+      const vocabButton = event.target.closest('[data-vocab-toggle]');
+      if (vocabButton) {
+        const id = vocabButton.dataset.vocabToggle;
+        state.vocabKnown[id] = !state.vocabKnown[id];
+        if (state.vocabKnown[id]) delete state.vocabReview[id];
+        else state.vocabReview[id] = true;
+        saveProgress();
+        renderVocabulary();
+        showToast(state.vocabKnown[id] ? 'Đã đánh dấu “Đã nhớ”.' : 'Đã đưa vào danh sách review.');
+        return;
+      }
+      if (event.target.closest('[data-flip]')) {
+        state.flashFlipped = !state.flashFlipped;
+        saveProgress();
+        renderFlashcard();
+        return;
+      }
+      if (event.target.closest('[data-flash-prev]')) {
+        state.flashIndex = (state.flashIndex - 1 + vocab.length) % vocab.length;
+        state.flashFlipped = false;
+        saveProgress();
+        renderFlashcard();
+        return;
+      }
+      if (event.target.closest('[data-flash-next]')) {
+        state.flashIndex = (state.flashIndex + 1) % vocab.length;
+        state.flashFlipped = false;
+        saveProgress();
+        renderFlashcard();
+        return;
+      }
+      if (event.target.closest('[data-flash-review]')) {
+        const item = vocab[state.flashIndex];
+        state.flashReview[item.id] = true;
+        delete state.flashKnown[item.id];
+        state.flashIndex = (state.flashIndex + 1) % vocab.length;
+        state.flashFlipped = false;
+        saveProgress();
+        renderFlashcard();
+        showToast('Đã thêm vào Review again.');
+        return;
+      }
+      if (event.target.closest('[data-flash-know]')) {
+        const item = vocab[state.flashIndex];
+        state.flashKnown[item.id] = true;
+        delete state.flashReview[item.id];
+        state.flashIndex = (state.flashIndex + 1) % vocab.length;
+        state.flashFlipped = false;
+        saveProgress();
+        renderFlashcard();
+        showToast('Đã ghi nhận chunk này.');
+        return;
+      }
+      const checkButton = event.target.closest('[data-check-practice]');
+      if (checkButton) { handlePracticeCheck(checkButton.dataset.checkPractice); return; }
+      const clearButton = event.target.closest('[data-clear-question]');
+      if (clearButton) { clearQuestion(clearButton.dataset.clearQuestion); return; }
+      const token = event.target.closest('[data-order-token]');
+      if (token) {
+        const builder = document.querySelector('[data-order-builder="' + token.dataset.orderToken + '"]');
+        appendOrderToken(token, builder);
+        return;
+      }
+      const orderReset = event.target.closest('[data-order-reset]');
+      if (orderReset) {
+        const root = document.querySelector('[data-question-card="' + orderReset.dataset.orderReset + '"]');
+        if (root) { root.querySelector('[data-order-builder]').innerHTML = ''; root.querySelectorAll('[data-order-token]').forEach(function(button) { button.disabled = false; }); }
+        return;
+      }
+      const quickButton = event.target.closest('[data-quick-check]');
+      if (quickButton) { calculateQuickCheck(quickButton.dataset.quickCheck); return; }
+      if (event.target.closest('[data-check-crossword]')) { checkCrossword(); return; }
+      if (event.target.closest('[data-clear-crossword]')) { state.crossword = {}; saveProgress(); renderCrossword(); return; }
+      const practiceAgain = event.target.closest('[data-practice-again]');
+      if (practiceAgain) {
+        state.retryIds = [practiceAgain.dataset.practiceAgain];
+        navigate('practice');
+        return;
+      }
+      const retryIncorrect = event.target.closest('[data-retry-incorrect]');
+      if (retryIncorrect) {
+        const ids = getMistakes().map(function(item) { return item.id; });
+        if (!ids.length) { showToast('Chưa có câu sai để retry.'); navigate('practice'); return; }
+        state.retryIds = ids;
+        saveProgress();
+        navigate('practice');
+        return;
+      }
+      const retryAll = event.target.closest('[data-retry-all]');
+      if (retryAll) {
+        state.retryIds = null;
+        practiceCategoryFilter = 'all';
+        practiceLevelFilter = 'all';
+        const categoryFilter = document.getElementById('practice-category-filter');
+        const levelFilter = document.getElementById('practice-level-filter');
+        if (categoryFilter) categoryFilter.value = 'all';
+        if (levelFilter) levelFilter.value = 'all';
+        saveProgress();
+        renderPractice();
+        navigate('practice');
+        return;
+      }
+      if (event.target.closest('[data-reset-progress]')) { resetProgress(); return; }
+    });
+
+    document.addEventListener('input', function(event) {
+      if (event.target.id === 'vocab-search') {
+        vocabQuery = event.target.value;
+        renderVocabulary();
+      }
+      if (event.target.matches('[data-production]')) {
+        state.production[event.target.dataset.production] = { text: event.target.value };
+        saveProgress();
+      }
+      if (event.target.matches('[data-crossword-cell]')) {
+        event.target.value = event.target.value.slice(-1).toUpperCase();
+        state.crossword[event.target.dataset.crosswordCell] = event.target.value;
+        saveProgress();
+      }
+    });
+
+    document.addEventListener('change', function(event) {
+      if (event.target.id === 'practice-category-filter') {
+        practiceCategoryFilter = event.target.value;
+        state.retryIds = null;
+        renderPractice();
+      }
+      if (event.target.id === 'practice-level-filter') {
+        practiceLevelFilter = event.target.value;
+        state.retryIds = null;
+        renderPractice();
+      }
+      if (event.target.matches('[data-production-check]')) {
+        state.production[event.target.dataset.productionCheck] = event.target.checked;
+        saveProgress();
+      }
+    });
+
+    document.getElementById('test-form').addEventListener('submit', submitTest);
+
+    renderPhraseGroups();
+    renderQuickChecks();
+    renderVocabulary();
+    renderFlashcard();
+    renderPractice();
+    renderTest();
+    renderMistakes();
+    renderResults();
+    updateProgress();
+  </script>
+</body>
+</html>
