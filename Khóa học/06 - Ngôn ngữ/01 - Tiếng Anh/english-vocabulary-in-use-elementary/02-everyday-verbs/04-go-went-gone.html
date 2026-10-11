@@ -570,6 +570,39 @@
     .header-reset { border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: .38rem .85rem; color: #fff; background: rgba(255,255,255,.12); font-weight: 800; font-size: .8rem; cursor: pointer; }
     .header-reset:hover { background: rgba(255,255,255,.26); }
     .header-reset:focus-visible { outline: 3px solid rgba(255,255,255,.6); outline-offset: 2px; }
+
+    .game-picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:.75rem;margin:1rem 0}
+    .game-mode{padding:1rem;text-align:left;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--ink);box-shadow:0 6px 18px rgba(23,35,60,.04);transition:.18s ease}
+    .game-mode:hover{transform:translateY(-2px);border-color:#b7d2f3}
+    .game-mode.active{background:#eaf3ff;border:2px solid var(--blue);padding:calc(1rem - 1px)}
+    .game-mode .game-icon{display:grid;place-items:center;width:40px;height:40px;margin-bottom:.5rem;border-radius:12px;color:#1557a4;background:#e9f2ff;font-size:1.4rem}
+    .game-mode strong{display:block;font-size:.96rem}
+    .game-mode small{display:block;color:var(--muted);margin-top:.25rem;line-height:1.5}
+    .game-status{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem;margin:.8rem 0}
+    .game-metric{padding:.7rem .85rem;border:1px solid var(--line);border-radius:13px;background:#fff}
+    .game-metric strong{font-size:1.2rem;display:block}
+    .game-metric span{font-size:.75rem;color:var(--muted)}
+    .game-progress{height:9px;border-radius:20px;overflow:hidden;background:#e5eefa;grid-column:1/-1}
+    .game-progress span{display:block;height:100%;background:linear-gradient(100deg,var(--teal),var(--blue));transition:width .25s}
+    .game-controls{display:flex;gap:.65rem;flex-wrap:wrap;align-items:center;justify-content:center;margin:1rem 0 1.4rem}
+    .game-question .question-card{max-width:920px;width:100%;margin:0 auto;border-radius:21px;padding:clamp(1rem,3vw,2rem)}
+    .game-question .question-prompt{font-size:clamp(1.05rem,2.1vw,1.28rem)}
+    .game-sentence{padding:1rem;border-radius:13px;background:#f1f6fc;color:#193f70;font-size:1.2rem;font-weight:750;line-height:1.8;margin:.6rem 0 1rem}
+    .game-sentence strong{border-bottom:3px dashed #6d94c5;padding:0 .5rem}
+    .game-visual{max-width:360px;overflow:hidden;border-radius:16px;margin:0 auto 1rem;border:1px solid var(--line);background:#f0f4fb}
+    .game-visual img{width:100%;max-height:290px;object-fit:contain}
+    .game-cloze{font-size:1.04rem;line-height:2.85;padding:1rem;border-radius:16px;background:#f4f8fd}
+    .game-cloze select{width:auto;max-width:100%;min-width:125px;padding:.35rem .55rem;border:1px solid #a9bfd9;border-radius:9px;background:#fff;color:var(--navy);font-weight:700}
+    .game-feedback-summary{padding:1rem 1.3rem;border:1px solid #b8d5f1;border-radius:16px;background:#eef6ff;text-align:center}
+    .game-feedback-summary h2{margin-bottom:.35rem}
+    .game-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+    .game-options .option-label{min-height:55px;align-items:center;font-weight:650}
+    .game-options .option-label:has(input:checked){background:#e6f1ff;border-color:#2878d4;box-shadow:inset 0 0 0 1px #2878d4}
+    .option-label:has(input:checked),.select-all-list label:has(input:checked){background:#edf6ff;border-color:#87b8ed}
+    .game-help{display:block;margin:.5rem 0;color:var(--muted);font-size:.85rem}
+    .game-empty-image{display:grid;place-items:center;min-height:145px;background:#f0f4fa;color:var(--muted);font-size:.8rem;text-align:center;padding:.6rem}
+    @media(max-width:700px){.game-status{grid-template-columns:repeat(2,minmax(0,1fr))}.game-options{grid-template-columns:1fr}.game-picker{grid-template-columns:repeat(2,minmax(0,1fr))}.game-cloze{font-size:.92rem;line-height:2.5}.game-mode{padding:.8rem}}
+    @media(max-width:410px){.game-picker{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -582,7 +615,7 @@
         <div class="header-meta">
           <span class="pill inverse">A1–A2</span>
           <span class="pill inverse">30–45 phút</span>
-          <span class="pill inverse">32 chunks · 84 practice · 24 test</span>
+          <span class="pill inverse">32 cụm từ · 235 câu luyện · 24 câu kiểm tra</span>
           <span class="pill inverse">Story · Spaced review</span>
         </div>
       </div>
@@ -633,8 +666,8 @@
         </div>
       </div>
       <div class="side-card">
-        <h3>Evidence-informed loop</h3>
-        <p>Học theo chunk/collocation, tự nhớ lại (không nhìn), đọc/nghe trong truyện, rồi ôn đúng cụm đó sau 1 → 3 → 7 → 14 → 30 ngày.</p>
+        <h3>Lịch ôn tập</h3>
+        <p>Ôn lại các cụm từ theo chu kỳ 1, 3, 7, 14 và 30 ngày. Mở phần ôn tập để tiếp tục học.</p>
         <button type="button" class="btn small ghost" data-view="review" style="margin-bottom:.5rem">Ôn hôm nay →</button>
         <button type="button" class="btn danger small" data-reset-progress>↺ Làm lại từ đầu</button>
       </div>
@@ -729,11 +762,11 @@
 
       <section class="view" id="view-practice" aria-labelledby="practice-title" hidden>
         <div class="section-heading">
-          <div><div class="section-kicker">07 · Practice</div><h1 id="practice-title">Recognition → recall → application</h1></div>
-          <p>Practice có feedback ngay sau từng task. Câu sai sẽ vào error log để retry.</p>
+          <div><div class="section-kicker">07 · Practice</div><h1 id="practice-title">Mini games · Go / went / gone</h1></div>
+          <p>Chọn mini game để luyện từng dạng. Mỗi lượt 12 câu, chấm ngay, có điểm, chuỗi đúng và sổ câu sai.</p>
         </div>
         <div class="practice-summary">
-          <strong id="practice-summary-text">0/84 answered</strong>
+          <strong id="practice-summary-text">Đang tải…</strong>
           <span class="pill teal" id="practice-correct-pill">0 correct</span>
           <span class="pill coral" id="practice-wrong-pill">0 to review</span>
           <button type="button" class="btn small ghost" data-retry-all>Hiện tất cả</button>
@@ -765,13 +798,16 @@
               <option value="3">Level 3 · vận dụng</option>
             </select>
           </label>
-          <div class="practice-filter-meta"><span id="practice-filter-count">84 câu đang hiển thị</span></div>
+          <div class="practice-filter-meta"><span id="practice-filter-count">Chọn mini game</span></div>
         </div>
+        <div id="game-picker" class="game-picker" aria-label="Chọn mini game"></div>
+        <div id="game-status" class="game-status" aria-live="polite"></div>
         <div id="retry-banner" class="callout warning" hidden></div>
-        <div id="practice-list" class="question-list"></div>
+        <div id="practice-list" class="question-list game-question"></div>
+        <div id="game-controls" class="game-controls"></div>
         <div class="spacer"></div>
         <article class="card">
-          <div class="section-heading"><div><div class="section-kicker">Game</div><h2>Ô chữ mini: Go in daily life</h2></div><span class="pill amber">Mobile-friendly</span></div>
+          <div class="section-heading"><div><div class="section-kicker">Game</div><h2>Ô chữ mini: Go in daily life</h2></div><span class="pill amber">Từ vựng</span></div>
           <p class="muted">Điền các đáp án theo clue. Ô chữ có các từ giao nhau; có thể dùng bàn phím hoặc chạm từng ô.</p>
           <div id="crossword"></div>
         </article>
@@ -963,6 +999,2870 @@
       { id: 'p84', type: 'multiple-choice', category: 'application', difficulty: 3, prompt: 'Bạn đứng đợi ngoài cổng, bạn của bạn đang ở trong văn phòng. Bạn ấy phải làm gì để gặp bạn?', options: ['go out of the office', 'go into the office', 'go upstairs', 'go on a trip'], answer: 'go out of the office', explanation: 'Từ bên trong ra bên ngoài một nơi có nêu tên: go out of + place.' }
     ];
 
+    const EXTRA_GAME_QUESTIONS = [
+  {
+    "id": "g001",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "Every morning, I ___ to school.",
+    "options": [
+      "go",
+      "went",
+      "gone",
+      "going"
+    ],
+    "answer": "go",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: Every morning, I go to school."
+  },
+  {
+    "id": "g002",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "Yesterday, we ___ to the swimming pool.",
+    "options": [
+      "go",
+      "went",
+      "gone",
+      "goes"
+    ],
+    "answer": "went",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: Yesterday, we went to the swimming pool."
+  },
+  {
+    "id": "g003",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "She has ___ home already.",
+    "options": [
+      "went",
+      "go",
+      "gone",
+      "going"
+    ],
+    "answer": "gone",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: She has gone home already."
+  },
+  {
+    "id": "g004",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "My parents ___ shopping on Saturdays.",
+    "options": [
+      "go",
+      "went",
+      "gone",
+      "goes"
+    ],
+    "answer": "go",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: My parents go shopping on Saturdays."
+  },
+  {
+    "id": "g005",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "Last winter, Hans ___ skiing.",
+    "options": [
+      "go",
+      "went",
+      "gone",
+      "going"
+    ],
+    "answer": "went",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: Last winter, Hans went skiing."
+  },
+  {
+    "id": "g006",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "Anna has ___ out.",
+    "options": [
+      "go",
+      "went",
+      "gone",
+      "going"
+    ],
+    "answer": "gone",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: Anna has gone out."
+  },
+  {
+    "id": "g007",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "I am ___ to visit my aunt tomorrow.",
+    "options": [
+      "went",
+      "gone",
+      "going",
+      "go"
+    ],
+    "answer": "going",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: I am going to visit my aunt tomorrow."
+  },
+  {
+    "id": "g008",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "He ___ to work by bus every day.",
+    "options": [
+      "go",
+      "goes",
+      "went",
+      "gone"
+    ],
+    "answer": "goes",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: He goes to work by bus every day."
+  },
+  {
+    "id": "g009",
+    "type": "sentence-complete",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "We are going to ___ at home this Sunday.",
+    "options": [
+      "staying",
+      "stayed",
+      "stay",
+      "stays"
+    ],
+    "answer": "stay",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: We are going to stay at home this Sunday."
+  },
+  {
+    "id": "g010",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "She ___ downstairs five minutes ago.",
+    "options": [
+      "go",
+      "went",
+      "gone",
+      "going"
+    ],
+    "answer": "went",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: She went downstairs five minutes ago."
+  },
+  {
+    "id": "g011",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "They often ___ sightseeing on holiday.",
+    "options": [
+      "go",
+      "went",
+      "gone",
+      "going"
+    ],
+    "answer": "go",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: They often go sightseeing on holiday."
+  },
+  {
+    "id": "g012",
+    "type": "sentence-complete",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn từ để hoàn thiện câu.",
+    "sentence": "Tom has ___ back to his office.",
+    "options": [
+      "go",
+      "gone",
+      "went",
+      "goes"
+    ],
+    "answer": "gone",
+    "explanation": "Dựa vào dấu hiệu thời gian và mẫu câu trong bài: Tom has gone back to his office."
+  },
+  {
+    "id": "g013",
+    "type": "fill-blank",
+    "category": "place",
+    "difficulty": 2,
+    "prompt": "My brother goes ___ school at seven.",
+    "answer": "to",
+    "explanation": "Go to + place."
+  },
+  {
+    "id": "g014",
+    "type": "fill-blank",
+    "category": "place",
+    "difficulty": 2,
+    "prompt": "We usually go ___ after dinner.",
+    "answer": "home",
+    "explanation": "Go home (not go to home)."
+  },
+  {
+    "id": "g015",
+    "type": "fill-blank",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "They went to Paris ___ train.",
+    "answer": "by",
+    "explanation": "By + transport."
+  },
+  {
+    "id": "g016",
+    "type": "fill-blank",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "The museum is near us, so we can go there ___ foot.",
+    "answer": "on",
+    "explanation": "Say on foot."
+  },
+  {
+    "id": "g017",
+    "type": "fill-blank",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "She went ___ the room and closed the door.",
+    "answer": "into",
+    "explanation": "Go into = đi vào."
+  },
+  {
+    "id": "g018",
+    "type": "fill-blank",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "Please go ___ the stairs to the first floor.",
+    "answer": "down",
+    "explanation": "Go down the stairs."
+  },
+  {
+    "id": "g019",
+    "type": "fill-blank",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "They go ___ every summer in the lake.",
+    "answer": "swimming",
+    "explanation": "Go + V-ing: go swimming."
+  },
+  {
+    "id": "g020",
+    "type": "fill-blank",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "We are going ___ a picnic tomorrow.",
+    "answer": "on",
+    "explanation": "Go on a picnic."
+  },
+  {
+    "id": "g021",
+    "type": "fill-blank",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "I am going to ___ my grandparents tomorrow.",
+    "answer": "visit",
+    "explanation": "Be going to + base verb."
+  },
+  {
+    "id": "g022",
+    "type": "fill-blank",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "They ___ to the shops last night.",
+    "answer": "went",
+    "explanation": "Last night → went."
+  },
+  {
+    "id": "g023",
+    "type": "multiple-choice",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "Choose the word for returning to a place.",
+    "options": [
+      "go back",
+      "go out",
+      "go away",
+      "go down"
+    ],
+    "answer": "go back",
+    "explanation": "Go back = trở lại."
+  },
+  {
+    "id": "g024",
+    "type": "multiple-choice",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "Which expression means going to a higher floor?",
+    "options": [
+      "go upstairs",
+      "go downstairs",
+      "go away",
+      "go into"
+    ],
+    "answer": "go upstairs",
+    "explanation": "Upstairs = lên tầng trên."
+  },
+  {
+    "id": "g025",
+    "type": "multiple-choice",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Which chunk is used to describe a picnic?",
+    "options": [
+      "go on a picnic",
+      "go to a picnic",
+      "go picnic",
+      "go by picnic"
+    ],
+    "answer": "go on a picnic",
+    "explanation": "Go on + a picnic."
+  },
+  {
+    "id": "g026",
+    "type": "multiple-choice",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Choose the correct collocation.",
+    "options": [
+      "go fishing",
+      "go to fishing",
+      "go fishings",
+      "go fishes"
+    ],
+    "answer": "go fishing",
+    "explanation": "Go + V-ing."
+  },
+  {
+    "id": "g027",
+    "type": "multiple-choice",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "Choose the correct transport expression.",
+    "options": [
+      "by plane",
+      "by the plane",
+      "on foots",
+      "by a bus"
+    ],
+    "answer": "by plane",
+    "explanation": "By + means of transport without an article."
+  },
+  {
+    "id": "g028",
+    "type": "multiple-choice",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "Which verb form comes after “are going to”?",
+    "options": [
+      "base verb",
+      "past participle",
+      "-ing form",
+      "past simple"
+    ],
+    "answer": "base verb",
+    "explanation": "Are going to + base verb."
+  },
+  {
+    "id": "g029",
+    "type": "multiple-choice",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Which verb completes “He has ___ out”?",
+    "options": [
+      "gone",
+      "went",
+      "go",
+      "going"
+    ],
+    "answer": "gone",
+    "explanation": "Has + gone."
+  },
+  {
+    "id": "g030",
+    "type": "multiple-choice",
+    "category": "place",
+    "difficulty": 2,
+    "prompt": "Which expression is correct?",
+    "options": [
+      "go to the shops",
+      "go the shops",
+      "go at shops",
+      "go to home"
+    ],
+    "answer": "go to the shops",
+    "explanation": "Place uses go to; home is an exception."
+  },
+  {
+    "id": "g031",
+    "type": "multiple-choice",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Which sentence is grammatically correct?",
+    "options": [
+      "She goes to work every day.",
+      "She go to work every day.",
+      "She goed to work.",
+      "She have went home."
+    ],
+    "answer": "She goes to work every day.",
+    "explanation": "Third-person singular subject takes goes."
+  },
+  {
+    "id": "g032",
+    "type": "word-bank",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "We ___ swimming yesterday.",
+    "bank": [
+      "go",
+      "went",
+      "gone",
+      "going"
+    ],
+    "answer": "went",
+    "explanation": "Đáp án đúng: We went swimming yesterday."
+  },
+  {
+    "id": "g033",
+    "type": "word-bank",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Sarah has ___ to Paris.",
+    "bank": [
+      "went",
+      "going",
+      "go",
+      "gone"
+    ],
+    "answer": "gone",
+    "explanation": "Đáp án đúng: Sarah has gone to Paris."
+  },
+  {
+    "id": "g034",
+    "type": "word-bank",
+    "category": "place",
+    "difficulty": 2,
+    "prompt": "We go ___ after work.",
+    "bank": [
+      "to",
+      "home",
+      "by",
+      "at"
+    ],
+    "answer": "home",
+    "explanation": "Đáp án đúng: We go home after work."
+  },
+  {
+    "id": "g035",
+    "type": "word-bank",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "I usually go to the university ___ bus.",
+    "bank": [
+      "to",
+      "on",
+      "by",
+      "in"
+    ],
+    "answer": "by",
+    "explanation": "Đáp án đúng: I usually go to the university by bus."
+  },
+  {
+    "id": "g036",
+    "type": "word-bank",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "They travelled there ___ foot.",
+    "bank": [
+      "by",
+      "on",
+      "in",
+      "with"
+    ],
+    "answer": "on",
+    "explanation": "Đáp án đúng: They travelled there on foot."
+  },
+  {
+    "id": "g037",
+    "type": "word-bank",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "The children went ___ the classroom.",
+    "bank": [
+      "into",
+      "by",
+      "on",
+      "away"
+    ],
+    "answer": "into",
+    "explanation": "Đáp án đúng: The children went into the classroom."
+  },
+  {
+    "id": "g038",
+    "type": "word-bank",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "He went ___ the house to play outside.",
+    "bank": [
+      "out of",
+      "into",
+      "up",
+      "back"
+    ],
+    "answer": "out of",
+    "explanation": "Đáp án đúng: He went out of the house to play outside."
+  },
+  {
+    "id": "g039",
+    "type": "word-bank",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Let’s go ___ after lunch.",
+    "bank": [
+      "swim",
+      "swimming",
+      "to swim",
+      "swam"
+    ],
+    "answer": "swimming",
+    "explanation": "Đáp án đúng: Let’s go swimming after lunch."
+  },
+  {
+    "id": "g040",
+    "type": "word-bank",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "We want to go ___ a trip in July.",
+    "bank": [
+      "at",
+      "on",
+      "by",
+      "to"
+    ],
+    "answer": "on",
+    "explanation": "Đáp án đúng: We want to go on a trip in July."
+  },
+  {
+    "id": "g041",
+    "type": "word-bank",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "I am going to ___ a film tonight.",
+    "bank": [
+      "watching",
+      "watched",
+      "watch",
+      "watches"
+    ],
+    "answer": "watch",
+    "explanation": "Đáp án đúng: I am going to watch a film tonight."
+  },
+  {
+    "id": "g042",
+    "type": "true-false",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Went is the simple past of go.",
+    "answer": "true",
+    "explanation": "Go / went / gone."
+  },
+  {
+    "id": "g043",
+    "type": "true-false",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Gone is used directly after has or have.",
+    "answer": "true",
+    "explanation": "Has/have gone."
+  },
+  {
+    "id": "g044",
+    "type": "true-false",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Goed is the correct past form of go.",
+    "answer": "false",
+    "explanation": "The irregular past form is went."
+  },
+  {
+    "id": "g045",
+    "type": "true-false",
+    "category": "place",
+    "difficulty": 1,
+    "prompt": "The phrase “go to home” is standard English.",
+    "answer": "false",
+    "explanation": "Say go home."
+  },
+  {
+    "id": "g046",
+    "type": "true-false",
+    "category": "transport",
+    "difficulty": 1,
+    "prompt": "Go by car is a natural transport expression.",
+    "answer": "true",
+    "explanation": "By + transport."
+  },
+  {
+    "id": "g047",
+    "type": "true-false",
+    "category": "transport",
+    "difficulty": 1,
+    "prompt": "Go by foot is the preferred way to describe walking.",
+    "answer": "false",
+    "explanation": "Say on foot."
+  },
+  {
+    "id": "g048",
+    "type": "true-false",
+    "category": "direction",
+    "difficulty": 1,
+    "prompt": "Go downstairs means move to a lower floor.",
+    "answer": "true",
+    "explanation": "Downstairs means to a lower floor."
+  },
+  {
+    "id": "g049",
+    "type": "true-false",
+    "category": "activity",
+    "difficulty": 1,
+    "prompt": "Go sightseeing follows the pattern go + V-ing.",
+    "answer": "true",
+    "explanation": "Go + activity ending -ing."
+  },
+  {
+    "id": "g050",
+    "type": "true-false",
+    "category": "future",
+    "difficulty": 1,
+    "prompt": "After be going to, the main verb stays in the base form.",
+    "answer": "true",
+    "explanation": "Going to + base verb."
+  },
+  {
+    "id": "g051",
+    "type": "true-false",
+    "category": "future",
+    "difficulty": 1,
+    "prompt": "She is going to visiting Tom is correct.",
+    "answer": "false",
+    "explanation": "Say is going to visit."
+  },
+  {
+    "id": "g052",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-to-school.png",
+    "options": [
+      "go to school",
+      "go swimming",
+      "go on holiday",
+      "go fishing"
+    ],
+    "answer": "go to school",
+    "explanation": "Đáp án theo ảnh minh họa: go to school."
+  },
+  {
+    "id": "g053",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-to-shops.png",
+    "options": [
+      "go to the shops",
+      "go back",
+      "go to school",
+      "go by train"
+    ],
+    "answer": "go to the shops",
+    "explanation": "Đáp án theo ảnh minh họa: go to the shops."
+  },
+  {
+    "id": "g054",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-home.png",
+    "options": [
+      "go home",
+      "go into the room",
+      "go shopping",
+      "go skiing"
+    ],
+    "answer": "go home",
+    "explanation": "Đáp án theo ảnh minh họa: go home."
+  },
+  {
+    "id": "g055",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-by-bus.png",
+    "options": [
+      "go by bus",
+      "go by car",
+      "go by train",
+      "on foot"
+    ],
+    "answer": "go by bus",
+    "explanation": "Đáp án theo ảnh minh họa: go by bus."
+  },
+  {
+    "id": "g056",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-by-car.png",
+    "options": [
+      "go by car",
+      "go by bus",
+      "go on foot",
+      "go fishing"
+    ],
+    "answer": "go by car",
+    "explanation": "Đáp án theo ảnh minh họa: go by car."
+  },
+  {
+    "id": "g057",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-by-train.png",
+    "options": [
+      "go by train",
+      "go by plane",
+      "go on foot",
+      "go by bike"
+    ],
+    "answer": "go by train",
+    "explanation": "Đáp án theo ảnh minh họa: go by train."
+  },
+  {
+    "id": "g058",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-on-foot.png",
+    "options": [
+      "go on foot",
+      "go by plane",
+      "go skiing",
+      "go shopping"
+    ],
+    "answer": "go on foot",
+    "explanation": "Đáp án theo ảnh minh họa: go on foot."
+  },
+  {
+    "id": "g059",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-into.png",
+    "options": [
+      "go into",
+      "go out of",
+      "go away",
+      "go downstairs"
+    ],
+    "answer": "go into",
+    "explanation": "Đáp án theo ảnh minh họa: go into."
+  },
+  {
+    "id": "g060",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-out-of.png",
+    "options": [
+      "go out of",
+      "go into",
+      "go upstairs",
+      "go back"
+    ],
+    "answer": "go out of",
+    "explanation": "Đáp án theo ảnh minh họa: go out of."
+  },
+  {
+    "id": "g061",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-upstairs.png",
+    "options": [
+      "go upstairs",
+      "go downstairs",
+      "go fishing",
+      "go to work"
+    ],
+    "answer": "go upstairs",
+    "explanation": "Đáp án theo ảnh minh họa: go upstairs."
+  },
+  {
+    "id": "g062",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-downstairs.png",
+    "options": [
+      "go downstairs",
+      "go upstairs",
+      "go shopping",
+      "go on a trip"
+    ],
+    "answer": "go downstairs",
+    "explanation": "Đáp án theo ảnh minh họa: go downstairs."
+  },
+  {
+    "id": "g063",
+    "type": "image-choice",
+    "category": "activity",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-shopping.png",
+    "options": [
+      "go shopping",
+      "go swimming",
+      "go skiing",
+      "go fishing"
+    ],
+    "answer": "go shopping",
+    "explanation": "Đáp án theo ảnh minh họa: go shopping."
+  },
+  {
+    "id": "g064",
+    "type": "image-to-word",
+    "category": "activity",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-swimming.png",
+    "options": [
+      "go swimming",
+      "go shopping",
+      "go skiing",
+      "go dancing"
+    ],
+    "answer": "go swimming",
+    "explanation": "Đáp án theo ảnh minh họa: go swimming."
+  },
+  {
+    "id": "g065",
+    "type": "image-choice",
+    "category": "activity",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-dancing.png",
+    "options": [
+      "go dancing",
+      "go fishing",
+      "go swimming",
+      "go sightseeing"
+    ],
+    "answer": "go dancing",
+    "explanation": "Đáp án theo ảnh minh họa: go dancing."
+  },
+  {
+    "id": "g066",
+    "type": "image-to-word",
+    "category": "activity",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-skiing.png",
+    "options": [
+      "go skiing",
+      "go swimming",
+      "go fishing",
+      "go shopping"
+    ],
+    "answer": "go skiing",
+    "explanation": "Đáp án theo ảnh minh họa: go skiing."
+  },
+  {
+    "id": "g067",
+    "type": "image-choice",
+    "category": "activity",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-sightseeing.png",
+    "options": [
+      "go sightseeing",
+      "go fishing",
+      "go shopping",
+      "go downstairs"
+    ],
+    "answer": "go sightseeing",
+    "explanation": "Đáp án theo ảnh minh họa: go sightseeing."
+  },
+  {
+    "id": "g068",
+    "type": "image-to-word",
+    "category": "activity",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-fishing.png",
+    "options": [
+      "go fishing",
+      "go dancing",
+      "go swimming",
+      "go shopping"
+    ],
+    "answer": "go fishing",
+    "explanation": "Đáp án theo ảnh minh họa: go fishing."
+  },
+  {
+    "id": "g069",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-on-holiday.png",
+    "options": [
+      "go on holiday",
+      "go on foot",
+      "go out of",
+      "go home"
+    ],
+    "answer": "go on holiday",
+    "explanation": "Đáp án theo ảnh minh họa: go on holiday."
+  },
+  {
+    "id": "g070",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-on-a-picnic.png",
+    "options": [
+      "go on a picnic",
+      "go to school",
+      "go downstairs",
+      "go fishing"
+    ],
+    "answer": "go on a picnic",
+    "explanation": "Đáp án theo ảnh minh họa: go on a picnic."
+  },
+  {
+    "id": "g071",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "go-on-a-trip.png",
+    "options": [
+      "go on a trip",
+      "go on foot",
+      "go into",
+      "go to work"
+    ],
+    "answer": "go on a trip",
+    "explanation": "Đáp án theo ảnh minh họa: go on a trip."
+  },
+  {
+    "id": "g072",
+    "type": "image-to-word",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "going-to-visit.png",
+    "options": [
+      "going to visit",
+      "went back",
+      "go swimming",
+      "go downstairs"
+    ],
+    "answer": "going to visit",
+    "explanation": "Đáp án theo ảnh minh họa: going to visit."
+  },
+  {
+    "id": "g073",
+    "type": "image-choice",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nhìn hình và chọn cụm tiếng Anh đúng.",
+    "image": "going-to-meet.png",
+    "options": [
+      "going to meet",
+      "go to school",
+      "go skiing",
+      "go out of"
+    ],
+    "answer": "going to meet",
+    "explanation": "Đáp án theo ảnh minh họa: going to meet."
+  },
+  {
+    "id": "g074",
+    "type": "image-match",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-to-school.png",
+        "answer": "go to school"
+      },
+      {
+        "image": "go-to-shops.png",
+        "answer": "go to the shops"
+      },
+      {
+        "image": "go-home.png",
+        "answer": "go home"
+      }
+    ],
+    "options": [
+      "go to school",
+      "go to the shops",
+      "go home"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g075",
+    "type": "image-match",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-by-bus.png",
+        "answer": "go by bus"
+      },
+      {
+        "image": "go-by-car.png",
+        "answer": "go by car"
+      },
+      {
+        "image": "go-by-train.png",
+        "answer": "go by train"
+      }
+    ],
+    "options": [
+      "go by bus",
+      "go by car",
+      "go by train"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g076",
+    "type": "image-match",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-on-foot.png",
+        "answer": "go on foot"
+      },
+      {
+        "image": "go-into.png",
+        "answer": "go into"
+      },
+      {
+        "image": "go-out-of.png",
+        "answer": "go out of"
+      }
+    ],
+    "options": [
+      "go on foot",
+      "go into",
+      "go out of"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g077",
+    "type": "image-match",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-upstairs.png",
+        "answer": "go upstairs"
+      },
+      {
+        "image": "go-downstairs.png",
+        "answer": "go downstairs"
+      },
+      {
+        "image": "go-shopping.png",
+        "answer": "go shopping"
+      }
+    ],
+    "options": [
+      "go upstairs",
+      "go downstairs",
+      "go shopping"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g078",
+    "type": "image-match",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-swimming.png",
+        "answer": "go swimming"
+      },
+      {
+        "image": "go-dancing.png",
+        "answer": "go dancing"
+      },
+      {
+        "image": "go-skiing.png",
+        "answer": "go skiing"
+      }
+    ],
+    "options": [
+      "go swimming",
+      "go dancing",
+      "go skiing"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g079",
+    "type": "image-match",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-sightseeing.png",
+        "answer": "go sightseeing"
+      },
+      {
+        "image": "go-fishing.png",
+        "answer": "go fishing"
+      },
+      {
+        "image": "go-on-holiday.png",
+        "answer": "go on holiday"
+      }
+    ],
+    "options": [
+      "go sightseeing",
+      "go fishing",
+      "go on holiday"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g080",
+    "type": "image-match",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-on-a-picnic.png",
+        "answer": "go on a picnic"
+      },
+      {
+        "image": "go-on-a-trip.png",
+        "answer": "go on a trip"
+      },
+      {
+        "image": "going-to-visit.png",
+        "answer": "going to visit"
+      }
+    ],
+    "options": [
+      "go on a picnic",
+      "go on a trip",
+      "going to visit"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g081",
+    "type": "image-match",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-on-foot.png",
+        "answer": "go on foot"
+      },
+      {
+        "image": "go-into.png",
+        "answer": "go into"
+      },
+      {
+        "image": "go-out-of.png",
+        "answer": "go out of"
+      }
+    ],
+    "options": [
+      "go on foot",
+      "go into",
+      "go out of"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g082",
+    "type": "image-match",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-shopping.png",
+        "answer": "go shopping"
+      },
+      {
+        "image": "go-swimming.png",
+        "answer": "go swimming"
+      },
+      {
+        "image": "go-dancing.png",
+        "answer": "go dancing"
+      }
+    ],
+    "options": [
+      "go shopping",
+      "go swimming",
+      "go dancing"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g083",
+    "type": "image-match",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-sightseeing.png",
+        "answer": "go sightseeing"
+      },
+      {
+        "image": "go-fishing.png",
+        "answer": "go fishing"
+      },
+      {
+        "image": "go-on-holiday.png",
+        "answer": "go on holiday"
+      }
+    ],
+    "options": [
+      "go sightseeing",
+      "go fishing",
+      "go on holiday"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g084",
+    "type": "image-match",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Ghép mỗi hình với cụm từ tương ứng.",
+    "items": [
+      {
+        "image": "go-on-a-picnic.png",
+        "answer": "go on a picnic"
+      },
+      {
+        "image": "go-on-a-trip.png",
+        "answer": "go on a trip"
+      },
+      {
+        "image": "going-to-visit.png",
+        "answer": "going to visit"
+      }
+    ],
+    "options": [
+      "go on a picnic",
+      "go on a trip",
+      "going to visit"
+    ],
+    "explanation": "Quan sát hành động/địa điểm, chọn cụm go phù hợp với từng hình."
+  },
+  {
+    "id": "g085",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "go",
+        "right": "hiện tại"
+      },
+      {
+        "left": "went",
+        "right": "quá khứ"
+      },
+      {
+        "left": "gone",
+        "right": "quá khứ phân từ"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g086",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "go to work",
+        "right": "đi làm"
+      },
+      {
+        "left": "go to school",
+        "right": "đi học"
+      },
+      {
+        "left": "go home",
+        "right": "về nhà"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g087",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "by bus",
+        "right": "bằng xe buýt"
+      },
+      {
+        "left": "by car",
+        "right": "bằng ô tô"
+      },
+      {
+        "left": "by train",
+        "right": "bằng tàu"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g088",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 1,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "go into",
+        "right": "đi vào"
+      },
+      {
+        "left": "go out of",
+        "right": "đi ra khỏi"
+      },
+      {
+        "left": "go back",
+        "right": "quay lại"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g089",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "go up",
+        "right": "đi lên"
+      },
+      {
+        "left": "go down",
+        "right": "đi xuống"
+      },
+      {
+        "left": "go away",
+        "right": "rời đi"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g090",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "go shopping",
+        "right": "đi mua sắm"
+      },
+      {
+        "left": "go swimming",
+        "right": "đi bơi"
+      },
+      {
+        "left": "go fishing",
+        "right": "đi câu cá"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g091",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "go skiing",
+        "right": "đi trượt tuyết"
+      },
+      {
+        "left": "go sightseeing",
+        "right": "đi tham quan"
+      },
+      {
+        "left": "go dancing",
+        "right": "đi nhảy"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g092",
+    "type": "matching",
+    "category": "meaning",
+    "difficulty": 2,
+    "prompt": "Nối mỗi cụm từ với nghĩa đúng.",
+    "pairs": [
+      {
+        "left": "go on holiday",
+        "right": "đi nghỉ"
+      },
+      {
+        "left": "go on a trip",
+        "right": "đi du lịch"
+      },
+      {
+        "left": "go on a picnic",
+        "right": "đi dã ngoại"
+      }
+    ],
+    "explanation": "Học cụm từ trọn vẹn để ghi nhớ cách kết hợp tự nhiên."
+  },
+  {
+    "id": "g093",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go to London",
+        "answer": "place"
+      },
+      {
+        "text": "go by train",
+        "answer": "transport"
+      },
+      {
+        "text": "go fishing",
+        "answer": "activity"
+      },
+      {
+        "text": "go on holiday",
+        "answer": "trip"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g094",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go to school",
+        "answer": "place"
+      },
+      {
+        "text": "go by bus",
+        "answer": "transport"
+      },
+      {
+        "text": "go swimming",
+        "answer": "activity"
+      },
+      {
+        "text": "go back",
+        "answer": "direction"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g095",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go to the shops",
+        "answer": "place"
+      },
+      {
+        "text": "go on foot",
+        "answer": "transport"
+      },
+      {
+        "text": "go shopping",
+        "answer": "activity"
+      },
+      {
+        "text": "go away",
+        "answer": "direction"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g096",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go to work",
+        "answer": "place"
+      },
+      {
+        "text": "go by car",
+        "answer": "transport"
+      },
+      {
+        "text": "go skiing",
+        "answer": "activity"
+      },
+      {
+        "text": "go on a picnic",
+        "answer": "trip"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g097",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go into",
+        "answer": "direction"
+      },
+      {
+        "text": "go to Paris",
+        "answer": "place"
+      },
+      {
+        "text": "go on a trip",
+        "answer": "trip"
+      },
+      {
+        "text": "go dancing",
+        "answer": "activity"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g098",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go upstairs",
+        "answer": "direction"
+      },
+      {
+        "text": "go to the pool",
+        "answer": "place"
+      },
+      {
+        "text": "go sightseeing",
+        "answer": "activity"
+      },
+      {
+        "text": "go by plane",
+        "answer": "transport"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g099",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go out of",
+        "answer": "direction"
+      },
+      {
+        "text": "go on holiday",
+        "answer": "trip"
+      },
+      {
+        "text": "go by train",
+        "answer": "transport"
+      },
+      {
+        "text": "go fishing",
+        "answer": "activity"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g100",
+    "type": "categorization",
+    "category": "grammar",
+    "difficulty": 2,
+    "prompt": "Phân loại các cụm go theo cấu trúc.",
+    "categories": [
+      "place",
+      "transport",
+      "activity",
+      "trip",
+      "direction"
+    ],
+    "items": [
+      {
+        "text": "go downstairs",
+        "answer": "direction"
+      },
+      {
+        "text": "go to work",
+        "answer": "place"
+      },
+      {
+        "text": "go on a picnic",
+        "answer": "trip"
+      },
+      {
+        "text": "go swimming",
+        "answer": "activity"
+      }
+    ],
+    "explanation": "Place: go to; transport: by/on foot; activity: V-ing; trip: go on; direction: into/up/down/back."
+  },
+  {
+    "id": "g101",
+    "type": "sentence-order",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "We",
+      "went",
+      "to school",
+      "yesterday."
+    ],
+    "answer": [
+      "We",
+      "went",
+      "to school",
+      "yesterday."
+    ],
+    "explanation": "Câu đúng: We went to school yesterday."
+  },
+  {
+    "id": "g102",
+    "type": "sentence-order",
+    "category": "place",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "She",
+      "goes",
+      "home",
+      "at six."
+    ],
+    "answer": [
+      "She",
+      "goes",
+      "home",
+      "at six."
+    ],
+    "explanation": "Câu đúng: She goes home at six."
+  },
+  {
+    "id": "g103",
+    "type": "sentence-order",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "I",
+      "go to work",
+      "by bus",
+      "every day."
+    ],
+    "answer": [
+      "I",
+      "go to work",
+      "by bus",
+      "every day."
+    ],
+    "explanation": "Câu đúng: I go to work by bus every day."
+  },
+  {
+    "id": "g104",
+    "type": "sentence-order",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "We",
+      "went",
+      "to Paris",
+      "by train."
+    ],
+    "answer": [
+      "We",
+      "went",
+      "to Paris",
+      "by train."
+    ],
+    "explanation": "Câu đúng: We went to Paris by train."
+  },
+  {
+    "id": "g105",
+    "type": "sentence-order",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "He",
+      "went",
+      "into",
+      "the room."
+    ],
+    "answer": [
+      "He",
+      "went",
+      "into",
+      "the room."
+    ],
+    "explanation": "Câu đúng: He went into the room."
+  },
+  {
+    "id": "g106",
+    "type": "sentence-order",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "They",
+      "went",
+      "upstairs",
+      "quickly."
+    ],
+    "answer": [
+      "They",
+      "went",
+      "upstairs",
+      "quickly."
+    ],
+    "explanation": "Câu đúng: They went upstairs quickly."
+  },
+  {
+    "id": "g107",
+    "type": "sentence-order",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "We",
+      "often",
+      "go swimming",
+      "on Sunday."
+    ],
+    "answer": [
+      "We",
+      "often",
+      "go swimming",
+      "on Sunday."
+    ],
+    "explanation": "Câu đúng: We often go swimming on Sunday."
+  },
+  {
+    "id": "g108",
+    "type": "sentence-order",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "Let’s",
+      "go",
+      "fishing",
+      "today."
+    ],
+    "answer": [
+      "Let’s",
+      "go",
+      "fishing",
+      "today."
+    ],
+    "explanation": "Câu đúng: Let’s go fishing today."
+  },
+  {
+    "id": "g109",
+    "type": "sentence-order",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "I",
+      "am going to",
+      "visit",
+      "my aunt."
+    ],
+    "answer": [
+      "I",
+      "am going to",
+      "visit",
+      "my aunt."
+    ],
+    "explanation": "Câu đúng: I am going to visit my aunt."
+  },
+  {
+    "id": "g110",
+    "type": "sentence-order",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "Chạm vào các khối từ để xếp thành câu hoàn chỉnh.",
+    "tokens": [
+      "She",
+      "is going to",
+      "stay",
+      "at home."
+    ],
+    "answer": [
+      "She",
+      "is going to",
+      "stay",
+      "at home."
+    ],
+    "explanation": "Câu đúng: She is going to stay at home."
+  },
+  {
+    "id": "g111",
+    "type": "select-all",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Chọn TẤT CẢ câu sử dụng đúng dạng went / gone.",
+    "options": [
+      "I went out yesterday.",
+      "She has gone home.",
+      "We has went to school.",
+      "They have gone away."
+    ],
+    "answer": [
+      "I went out yesterday.",
+      "She has gone home.",
+      "They have gone away."
+    ],
+    "explanation": "Yesterday uses went; has/have uses gone."
+  },
+  {
+    "id": "g112",
+    "type": "select-all",
+    "category": "place",
+    "difficulty": 2,
+    "prompt": "Chọn TẤT CẢ cụm nơi chốn tự nhiên.",
+    "options": [
+      "go to work",
+      "go home",
+      "go to Paris",
+      "go to home"
+    ],
+    "answer": [
+      "go to work",
+      "go home",
+      "go to Paris"
+    ],
+    "explanation": "No to before home."
+  },
+  {
+    "id": "g113",
+    "type": "select-all",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "Chọn TẤT CẢ cách nói đúng về phương tiện.",
+    "options": [
+      "by train",
+      "by car",
+      "on foot",
+      "by foot"
+    ],
+    "answer": [
+      "by train",
+      "by car",
+      "on foot"
+    ],
+    "explanation": "By + transport; on foot."
+  },
+  {
+    "id": "g114",
+    "type": "select-all",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Chọn TẤT CẢ cụm go + V-ing đúng.",
+    "options": [
+      "go shopping",
+      "go skiing",
+      "go sightseeing",
+      "go to swimming"
+    ],
+    "answer": [
+      "go shopping",
+      "go skiing",
+      "go sightseeing"
+    ],
+    "explanation": "Go + V-ing without to."
+  },
+  {
+    "id": "g115",
+    "type": "select-all",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "Chọn TẤT CẢ câu diễn tả dự định đúng.",
+    "options": [
+      "We are going to travel.",
+      "He is going to meet Anna.",
+      "I am going to visit my aunt.",
+      "She is going to visiting Tom."
+    ],
+    "answer": [
+      "We are going to travel.",
+      "He is going to meet Anna.",
+      "I am going to visit my aunt."
+    ],
+    "explanation": "Be going to + base verb."
+  },
+  {
+    "id": "g116",
+    "type": "error-correction",
+    "category": "place",
+    "difficulty": 3,
+    "prompt": "Viết lại câu cho đúng: I am going to home.",
+    "answer": [
+      "I am going home"
+    ],
+    "explanation": "Do not use to before home."
+  },
+  {
+    "id": "g117",
+    "type": "error-correction",
+    "category": "form",
+    "difficulty": 3,
+    "prompt": "Viết lại câu cho đúng: He has went to Paris.",
+    "answer": [
+      "He has gone to Paris"
+    ],
+    "explanation": "Has + gone."
+  },
+  {
+    "id": "g118",
+    "type": "error-correction",
+    "category": "form",
+    "difficulty": 3,
+    "prompt": "Viết lại câu cho đúng: We goed swimming last week.",
+    "answer": [
+      "We went swimming last week"
+    ],
+    "explanation": "Past of go is went."
+  },
+  {
+    "id": "g119",
+    "type": "error-correction",
+    "category": "transport",
+    "difficulty": 3,
+    "prompt": "Viết lại câu cho đúng: She goes by foot.",
+    "answer": [
+      "She goes on foot"
+    ],
+    "explanation": "Say on foot."
+  },
+  {
+    "id": "g120",
+    "type": "error-correction",
+    "category": "transport",
+    "difficulty": 3,
+    "prompt": "Viết lại câu cho đúng: I go to school by the bus.",
+    "answer": [
+      "I go to school by bus"
+    ],
+    "explanation": "By bus, no article."
+  },
+  {
+    "id": "g121",
+    "type": "error-correction",
+    "category": "activity",
+    "difficulty": 3,
+    "prompt": "Viết lại câu cho đúng: They go to shopping on Saturday.",
+    "answer": [
+      "They go shopping on Saturday"
+    ],
+    "explanation": "Go + V-ing."
+  },
+  {
+    "id": "g122",
+    "type": "error-correction",
+    "category": "future",
+    "difficulty": 3,
+    "prompt": "Viết lại câu cho đúng: We are going to visiting London.",
+    "answer": [
+      "We are going to visit London"
+    ],
+    "explanation": "Going to + base verb."
+  },
+  {
+    "id": "g123",
+    "type": "multi-fill",
+    "category": "form",
+    "difficulty": 2,
+    "prompt": "Điền từ thích hợp vào các ô trống.",
+    "items": [
+      {
+        "text": "I ___ to school every day.",
+        "answer": "go"
+      },
+      {
+        "text": "I ___ to school yesterday.",
+        "answer": "went"
+      },
+      {
+        "text": "I have ___ home.",
+        "answer": "gone"
+      }
+    ],
+    "explanation": "Gợi ý: nhìn vào thời gian, chủ ngữ và collocation go."
+  },
+  {
+    "id": "g124",
+    "type": "multi-fill",
+    "category": "transport",
+    "difficulty": 2,
+    "prompt": "Điền từ thích hợp vào các ô trống.",
+    "items": [
+      {
+        "text": "I go to work ___ bus.",
+        "answer": "by"
+      },
+      {
+        "text": "He travelled ___ train.",
+        "answer": "by"
+      },
+      {
+        "text": "We go there ___ foot.",
+        "answer": "on"
+      }
+    ],
+    "explanation": "Gợi ý: nhìn vào thời gian, chủ ngữ và collocation go."
+  },
+  {
+    "id": "g125",
+    "type": "multi-fill",
+    "category": "direction",
+    "difficulty": 2,
+    "prompt": "Điền từ thích hợp vào các ô trống.",
+    "items": [
+      {
+        "text": "She went ___ the room.",
+        "answer": "into"
+      },
+      {
+        "text": "He went ___ of the house.",
+        "answer": "out"
+      },
+      {
+        "text": "They went ___ the stairs.",
+        "answer": "up"
+      }
+    ],
+    "explanation": "Gợi ý: nhìn vào thời gian, chủ ngữ và collocation go."
+  },
+  {
+    "id": "g126",
+    "type": "multi-fill",
+    "category": "activity",
+    "difficulty": 2,
+    "prompt": "Điền từ thích hợp vào các ô trống.",
+    "items": [
+      {
+        "text": "They ___ shopping on Saturdays.",
+        "answer": "go"
+      },
+      {
+        "text": "We went ___.",
+        "answer": "swimming"
+      },
+      {
+        "text": "We are going ___ a picnic.",
+        "answer": "on"
+      }
+    ],
+    "explanation": "Gợi ý: nhìn vào thời gian, chủ ngữ và collocation go."
+  },
+  {
+    "id": "g127",
+    "type": "multi-fill",
+    "category": "future",
+    "difficulty": 2,
+    "prompt": "Điền từ thích hợp vào các ô trống.",
+    "items": [
+      {
+        "text": "I ___ going to study.",
+        "answer": "am"
+      },
+      {
+        "text": "She ___ going to visit.",
+        "answer": "is"
+      },
+      {
+        "text": "They ___ going to travel.",
+        "answer": "are"
+      }
+    ],
+    "explanation": "Gợi ý: nhìn vào thời gian, chủ ngữ và collocation go."
+  },
+  {
+    "id": "g128",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "How does Anna travel on Friday?",
+    "passage": "Anna goes to work by bus every morning. On Friday she goes home on foot because the weather is nice.",
+    "options": [
+      "on foot",
+      "by bus",
+      "by train",
+      "by plane"
+    ],
+    "answer": "on foot",
+    "explanation": "Tìm thông tin trong đoạn đọc: on foot."
+  },
+  {
+    "id": "g129",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What did we do in the afternoon?",
+    "passage": "We went to Paris last month. We went sightseeing in the morning and went shopping in the afternoon.",
+    "options": [
+      "went shopping",
+      "went fishing",
+      "went skiing",
+      "went swimming"
+    ],
+    "answer": "went shopping",
+    "explanation": "Tìm thông tin trong đoạn đọc: went shopping."
+  },
+  {
+    "id": "g130",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Who has gone out?",
+    "passage": "Tom has gone out. He will be back after dinner. His sister is still at home.",
+    "options": [
+      "Tom",
+      "his sister",
+      "both",
+      "no one"
+    ],
+    "answer": "Tom",
+    "explanation": "Tìm thông tin trong đoạn đọc: Tom."
+  },
+  {
+    "id": "g131",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What is Mina going to do on Sunday?",
+    "passage": "On Saturday, Mina is going to visit her grandparents. On Sunday, she is going to stay at home.",
+    "options": [
+      "stay at home",
+      "go fishing",
+      "visit her grandparents",
+      "go shopping"
+    ],
+    "answer": "stay at home",
+    "explanation": "Tìm thông tin trong đoạn đọc: stay at home."
+  },
+  {
+    "id": "g132",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What did Hans do yesterday?",
+    "passage": "It snowed yesterday. Hans went skiing with friends. Today he is going shopping.",
+    "options": [
+      "went skiing",
+      "went shopping",
+      "went fishing",
+      "went sightseeing"
+    ],
+    "answer": "went skiing",
+    "explanation": "Tìm thông tin trong đoạn đọc: went skiing."
+  },
+  {
+    "id": "g133",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Where did the children go for lunch?",
+    "passage": "The children went upstairs to their bedroom. A minute later they went downstairs for lunch.",
+    "options": [
+      "downstairs",
+      "upstairs",
+      "to school",
+      "outside"
+    ],
+    "answer": "downstairs",
+    "explanation": "Tìm thông tin trong đoạn đọc: downstairs."
+  },
+  {
+    "id": "g134",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Where does Lee go first?",
+    "passage": "Every morning, Lee goes to the swimming pool by bike. He goes swimming for thirty minutes and then goes to school.",
+    "options": [
+      "the swimming pool",
+      "school",
+      "the shops",
+      "home"
+    ],
+    "answer": "the swimming pool",
+    "explanation": "Tìm thông tin trong đoạn đọc: the swimming pool."
+  },
+  {
+    "id": "g135",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What is the family planning?",
+    "passage": "We are going on a picnic tomorrow. My father is going to drive, but I want to go on foot to the park.",
+    "options": [
+      "a picnic",
+      "a skiing holiday",
+      "a shopping trip",
+      "a fishing competition"
+    ],
+    "answer": "a picnic",
+    "explanation": "Tìm thông tin trong đoạn đọc: a picnic."
+  },
+  {
+    "id": "g136",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Every morning, Ben [[1]] to school [[2]] bus. Yesterday, he [[3]] home early.",
+    "gaps": [
+      {
+        "answer": "goes",
+        "options": [
+          "goes",
+          "went",
+          "gone",
+          "going"
+        ]
+      },
+      {
+        "answer": "by",
+        "options": [
+          "by",
+          "to",
+          "on",
+          "in"
+        ]
+      },
+      {
+        "answer": "went",
+        "options": [
+          "went",
+          "go",
+          "gone",
+          "going"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g137",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Last summer, we [[1]] to Paris [[2]] train. We [[3]] sightseeing every morning.",
+    "gaps": [
+      {
+        "answer": "went",
+        "options": [
+          "go",
+          "went",
+          "gone",
+          "going"
+        ]
+      },
+      {
+        "answer": "by",
+        "options": [
+          "on",
+          "to",
+          "by",
+          "with"
+        ]
+      },
+      {
+        "answer": "went",
+        "options": [
+          "went",
+          "gone",
+          "goes",
+          "going"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g138",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "It is Sunday. We are going to [[1]] our aunt and then go [[2]]. We will go there [[3]] car.",
+    "gaps": [
+      {
+        "answer": "visit",
+        "options": [
+          "visiting",
+          "visit",
+          "visited",
+          "visits"
+        ]
+      },
+      {
+        "answer": "shopping",
+        "options": [
+          "shop",
+          "shopping",
+          "to shopping",
+          "shopped"
+        ]
+      },
+      {
+        "answer": "by",
+        "options": [
+          "by",
+          "on",
+          "at",
+          "to"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g139",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Tom has [[1]] out. His brother [[2]] to work every day. They both go [[3]] on Saturdays.",
+    "gaps": [
+      {
+        "answer": "gone",
+        "options": [
+          "went",
+          "go",
+          "gone",
+          "going"
+        ]
+      },
+      {
+        "answer": "goes",
+        "options": [
+          "go",
+          "goes",
+          "gone",
+          "went"
+        ]
+      },
+      {
+        "answer": "swimming",
+        "options": [
+          "swim",
+          "swimming",
+          "to swim",
+          "swam"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g140",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "The children went [[1]] the classroom, then went [[2]] the stairs. Later they went [[3]] home.",
+    "gaps": [
+      {
+        "answer": "into",
+        "options": [
+          "by",
+          "into",
+          "on",
+          "at"
+        ]
+      },
+      {
+        "answer": "up",
+        "options": [
+          "on",
+          "away",
+          "up",
+          "into"
+        ]
+      },
+      {
+        "answer": "back",
+        "options": [
+          "back",
+          "by",
+          "into",
+          "to"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g141",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "My friends and I [[1]] shopping yesterday. Today we [[2]] to school. Tomorrow, we are going to [[3]] a film.",
+    "gaps": [
+      {
+        "answer": "went",
+        "options": [
+          "went",
+          "go",
+          "gone",
+          "going"
+        ]
+      },
+      {
+        "answer": "go",
+        "options": [
+          "go",
+          "gone",
+          "went",
+          "going"
+        ]
+      },
+      {
+        "answer": "watch",
+        "options": [
+          "watching",
+          "watched",
+          "watch",
+          "watches"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g142",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Anna is going [[1]] holiday next week. She is travelling [[2]] plane. She is going to [[3]] her cousin.",
+    "gaps": [
+      {
+        "answer": "on",
+        "options": [
+          "on",
+          "to",
+          "by",
+          "with"
+        ]
+      },
+      {
+        "answer": "by",
+        "options": [
+          "by",
+          "on",
+          "in",
+          "at"
+        ]
+      },
+      {
+        "answer": "visit",
+        "options": [
+          "visiting",
+          "visit",
+          "visits",
+          "visited"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g143",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "In winter, we sometimes go [[1]]. In summer, we go [[2]] at the pool. Last weekend we [[3]] fishing.",
+    "gaps": [
+      {
+        "answer": "skiing",
+        "options": [
+          "ski",
+          "skiing",
+          "to skiing",
+          "skied"
+        ]
+      },
+      {
+        "answer": "swimming",
+        "options": [
+          "swim",
+          "swimming",
+          "to swim",
+          "swam"
+        ]
+      },
+      {
+        "answer": "went",
+        "options": [
+          "go",
+          "gone",
+          "went",
+          "going"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g144",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Our house has two floors. I went [[1]] to my bedroom. Then I went [[2]] for breakfast and went [[3]] the house.",
+    "gaps": [
+      {
+        "answer": "upstairs",
+        "options": [
+          "downstairs",
+          "upstairs",
+          "away",
+          "back"
+        ]
+      },
+      {
+        "answer": "downstairs",
+        "options": [
+          "upstairs",
+          "into",
+          "downstairs",
+          "up"
+        ]
+      },
+      {
+        "answer": "out of",
+        "options": [
+          "out of",
+          "into",
+          "by",
+          "up"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g145",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Sara usually [[1]] home by bus, but today she is going [[2]] foot. Tonight she is going [[3]] meet her friends.",
+    "gaps": [
+      {
+        "answer": "goes",
+        "options": [
+          "go",
+          "goes",
+          "went",
+          "gone"
+        ]
+      },
+      {
+        "answer": "on",
+        "options": [
+          "on",
+          "by",
+          "to",
+          "with"
+        ]
+      },
+      {
+        "answer": "to",
+        "options": [
+          "to",
+          "by",
+          "on",
+          "into"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g146",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Next month I am going [[1]] a trip. I am going to [[2]] in a hotel. I want to go [[3]] and see the city.",
+    "gaps": [
+      {
+        "answer": "on",
+        "options": [
+          "on",
+          "to",
+          "by",
+          "at"
+        ]
+      },
+      {
+        "answer": "stay",
+        "options": [
+          "stay",
+          "staying",
+          "stayed",
+          "stays"
+        ]
+      },
+      {
+        "answer": "sightseeing",
+        "options": [
+          "sightseeing",
+          "to sightseeing",
+          "sightsaw",
+          "sightsee"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g147",
+    "type": "passage-complete",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Hoàn thiện đoạn văn: chọn đáp án cho từng chỗ trống.",
+    "passage": "Last week my sister [[1]] to the shops. She [[2]] shopping for a new coat. Now she has [[3]] back home.",
+    "gaps": [
+      {
+        "answer": "went",
+        "options": [
+          "go",
+          "gone",
+          "went",
+          "going"
+        ]
+      },
+      {
+        "answer": "bought",
+        "options": [
+          "bought",
+          "buy",
+          "buying",
+          "buys"
+        ]
+      },
+      {
+        "answer": "gone",
+        "options": [
+          "go",
+          "went",
+          "gone",
+          "going"
+        ]
+      }
+    ],
+    "explanation": "Đọc toàn bộ đoạn, dựa vào thời gian và mẫu cụm đi cùng go."
+  },
+  {
+    "id": "g148",
+    "type": "short-answer",
+    "category": "production",
+    "difficulty": 3,
+    "prompt": "Write two sentences using go to + place and go home.",
+    "rubric": [
+      "Use go to + place.",
+      "Use go home without to."
+    ],
+    "explanation": "Tự đối chiếu với các mẫu câu trong bài học."
+  },
+  {
+    "id": "g149",
+    "type": "short-answer",
+    "category": "production",
+    "difficulty": 3,
+    "prompt": "Write two sentences: one with went and one with has gone.",
+    "rubric": [
+      "Use went with a past time.",
+      "Use has gone with a past participle."
+    ],
+    "explanation": "Tự đối chiếu với các mẫu câu trong bài học."
+  },
+  {
+    "id": "g150",
+    "type": "short-answer",
+    "category": "production",
+    "difficulty": 3,
+    "prompt": "Describe a trip using by bus or by train and on foot.",
+    "rubric": [
+      "Use by + transport.",
+      "Use on foot."
+    ],
+    "explanation": "Tự đối chiếu với các mẫu câu trong bài học."
+  },
+  {
+    "id": "g151",
+    "type": "short-answer",
+    "category": "production",
+    "difficulty": 3,
+    "prompt": "Write your next weekend plan using be going to.",
+    "rubric": [
+      "Use am/is/are going to.",
+      "Use the base verb after to."
+    ],
+    "explanation": "Tự đối chiếu với các mẫu câu trong bài học."
+  }
+];
+    practiceQuestions.push(...EXTRA_GAME_QUESTIONS);
+
     const testQuestions = [
       { id: 't01', type: 'multiple-choice', category: 'form', difficulty: 1, prompt: 'Which is the irregular verb line?', options: ['go – goed – goed', 'go – went – gone', 'go – gone – went', 'go – going – goed'], answer: 'go – went – gone', explanation: 'Go is irregular: go, went, gone.' },
       { id: 't02', type: 'fill-blank', category: 'grammar', difficulty: 2, prompt: 'We ______ shopping yesterday.', answer: 'went', explanation: 'Yesterday requires the past form went.' },
@@ -990,6 +3890,23 @@
       { id: 't24', type: 'select-all', category: 'future', difficulty: 3, prompt: 'Select ALL correct sentences.', options: ['I am going to visit my aunt.', 'We are going to stay at home.', 'Sam is going to meet Tom.', 'I am going to visiting my aunt.', 'We going to stay at home.'], answer: ['I am going to visit my aunt.', 'We are going to stay at home.', 'Sam is going to meet Tom.'], explanation: 'Use am/is/are going to + base verb.' }
     ];
 
+    const GAME_MODES = [
+      { id:'mix', icon:'🎲', title:'Thử thách hỗn hợp', desc:'Nhiều dạng khác nhau trong một lượt', types:[] },
+      { id:'quiz', icon:'⚡', title:'Chọn đáp án', desc:'Trắc nghiệm · đúng/sai · chọn nhiều', types:['multiple-choice','true-false','select-all'] },
+      { id:'sentences', icon:'✍️', title:'Hoàn thiện câu', desc:'Hoàn thiện câu · điền từ · ngân hàng từ', types:['sentence-complete','fill-blank','word-bank','multi-fill'] },
+      { id:'images', icon:'🖼️', title:'Ảnh và từ', desc:'Nhìn hình chọn từ · ghép ảnh', types:['image-to-word','image-choice','image-match'] },
+      { id:'paragraphs', icon:'📖', title:'Đọc và điền đoạn', desc:'Trắc nghiệm điền đoạn · đọc hiểu', types:['passage-complete','mini-reading'] },
+      { id:'puzzles', icon:'🧩', title:'Ghép và phân loại', desc:'Nối nghĩa · xếp câu · phân loại', types:['matching','categorization','sentence-order'] },
+      { id:'correction', icon:'🔎', title:'Phát hiện lỗi', desc:'Sửa lỗi sai trong câu', types:['error-correction'] },
+      { id:'writing', icon:'💬', title:'Tự viết câu', desc:'Viết câu mới · đánh giá theo checklist', types:['short-answer','production'] }
+    ];
+    let gameMode = 'mix';
+    let gameQueue = [];
+    let gamePosition = 0;
+    let gameRound = 0;
+    let gameAttempt = {};
+    const GAME_ROUND_SIZE = 12;
+
     const crosswordEntries = [
       { number: 1, answer: 'SHOPPING', clue: 'An activity for buying things.', row: 0, col: 1, dir: 'across' },
       { number: 2, answer: 'HOME', clue: 'You can go here without to.', row: 0, col: 2, dir: 'down' },
@@ -1001,12 +3918,10 @@
       { number: 8, answer: 'VISIT', clue: 'Base verb after going to.', row: 12, col: 1, dir: 'across' }
     ];
 
-    // Spaced review: each chunk climbs one box per correct retrieval; a miss sends it back to box 1.
     const SRS_INTERVALS = [0, 1, 3, 7, 14, 30];
     const SRS_BOX_LABELS = ['Mới', '1 ngày', '3 ngày', '7 ngày', '14 ngày', '30 ngày'];
     const GROUP_LABELS = { form: 'Forms', place: 'Places', transport: 'Transport', direction: 'Directions', activity: 'Activities & trips', future: 'Future plans' };
 
-    // acc = recall answers, cloze/ca = new-context sentence, listen = phrase masked in vocab example, re = detector (%G = any form of go)
     const reviewData = {
       'go': { acc: ['go'], cloze: 'We often ______ to the beach in summer.', ca: ['go'], listen: 'go', re: '(?:go|goes)' },
       'went': { acc: ['went'], cloze: 'Last year we ______ to Hue by train.', ca: ['went'], listen: 'went', re: 'went' },
@@ -1042,7 +3957,6 @@
       'going-to-meet': { acc: ['going to meet', 'be going to meet'], cloze: 'I am going to ______ my friends at the café at 7 p.m.', ca: ['meet'], listen: 'going to meet', re: 'going\\s+to\\s+meet' }
     };
 
-    // Graded narrative input: story 1 introduces the chunks, story 2 recycles them in a new context.
     const stories = [
       {
         id: 'nam', title: 'Nam’s week', meta: 'Truyện 1 · A2 · gặp cụm trong ngữ cảnh', short: '1 · Nam’s week',
@@ -1442,6 +4356,19 @@
       }).join('');
     }
 
+    function seededShuffle(items, salt) {
+      const copy = items.slice();
+      let seed = 2166136261;
+      const str = String(salt);
+      for (let i = 0; i < str.length; i++) seed = Math.imul(seed ^ str.charCodeAt(i), 16777619) >>> 0;
+      for (let i = copy.length - 1; i > 0; i--) {
+        seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+        const j = seed % (i + 1);
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
     function questionTypeLabel(type) {
       const labels = {
         'multiple-choice': 'Trắc nghiệm',
@@ -1458,7 +4385,10 @@
         'production': 'Sản xuất ngôn ngữ',
         'error-correction': 'Sửa lỗi',
         'select-all': 'Chọn nhiều đáp án',
-        'multi-fill': 'Điền nhiều chỗ trống'
+        'multi-fill': 'Điền nhiều chỗ trống',
+        'sentence-complete': 'Hoàn thiện câu',
+        'passage-complete': 'Điền đoạn văn trắc nghiệm',
+        'image-to-word': 'Nhìn ảnh chọn từ'
       };
       return labels[type] || type;
     }
@@ -1472,6 +4402,7 @@
       if (question.type === 'categorization') return question.items.map(function(item) { return item.text + ' → ' + item.answer; }).join('; ');
       if (question.type === 'sentence-order') return question.answer.join(' ');
       if (question.type === 'image-match') return question.items.map(function(item) { return item.image.replace('.png', '') + ' → ' + item.answer; }).join('; ');
+      if (question.type === 'passage-complete') return question.gaps.map(function(gap,index) { return (index + 1) + ': ' + gap.answer; }).join('; ');
       if (question.type === 'multi-fill') return question.items.map(function(item) { return item.text + ' → ' + (Array.isArray(item.answer) ? item.answer[0] : item.answer); }).join('; ');
       if (question.type === 'select-all') return question.answer.join('; ');
       if (question.type === 'short-answer' || question.type === 'production') return question.rubric ? question.rubric.join(' ') : 'Self-check with the rubric.';
@@ -1486,15 +4417,30 @@
       } else {
         var passageHtml = '';
       }
-      if (question.type === 'image-choice') {
+      if (question.type === 'passage-complete') {
+        const pieces = escapeHtml(question.passage).replace(/\[\[(\d+)\]\]/g, function(mark, number) {
+          const index = Number(number) - 1;
+          const gap = question.gaps[index];
+          if (!gap) return mark;
+          return '<select class="answer-select" aria-label="Chỗ trống ' + number + '" data-passage-gap="' + index + '"><option value="">(' + number + ') Chọn…</option>' + seededShuffle(gap.options, question.id + ':' + index).map(function(option) { return '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>'; }).join('') + '</select>';
+        });
+        return '<div class="game-cloze">' + pieces + '</div><span class="game-help">Chọn đáp án cho tất cả các ô trống.</span>';
+      }
+      if (question.type === 'sentence-complete') {
+        return '<div class="game-sentence">' + escapeHtml(question.sentence).replace('___', '<strong>······</strong>') + '</div><div class="option-list game-options">' + seededShuffle(question.options,question.id).map(function(option) {return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';}).join('') + '</div>';
+      }
+      if (question.type === 'image-to-word') {
+        return '<div class="game-visual"><img src="' + IMAGE_ROOT + escapeHtml(question.image) + '" alt="Ảnh gợi ý, chọn từ đúng" loading="lazy"></div><div class="option-list game-options">' + seededShuffle(question.options, question.id).map(function(option) {return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';}).join('') + '</div>';
+      }
+      if (question.type === 'image-choice' || question.type === 'image-to-word' || question.type === 'sentence-complete') {
         const image = '<div class="card" style="padding:.55rem;margin-bottom:.7rem;max-width:260px"><img src="' + IMAGE_ROOT + escapeHtml(question.image) + '" alt="Minh họa cho câu hỏi" width="512" height="512"></div>';
-        return passageHtml + image + '<div class="option-list">' + question.options.map(function(option) {
+        return passageHtml + image + '<div class="option-list">' + seededShuffle(question.options, question.id).map(function(option) {
           return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';
         }).join('') + '</div>';
       }
       if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false') {
         const options = question.type === 'true-false' ? ['true', 'false'] : question.options;
-        return passageHtml + '<div class="option-list">' + options.map(function(option) {
+        return passageHtml + '<div class="option-list">' + seededShuffle(options, question.id).map(function(option) {
           return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(question.type === 'true-false' ? (option === 'true' ? 'True / Đúng' : 'False / Sai') : option) + '</span></label>';
         }).join('') + '</div>';
       }
@@ -1503,7 +4449,7 @@
         return passageHtml + '<label class="field-label" for="' + suffix + '-input">Your answer</label><input class="answer-input" id="' + suffix + '-input" data-answer-input="' + question.id + '" autocomplete="off" placeholder="' + placeholder + '">';
       }
       if (question.type === 'select-all') {
-        return passageHtml + '<div class="select-all-list">' + question.options.map(function(option) {
+        return passageHtml + '<div class="select-all-list">' + seededShuffle(question.options, question.id).map(function(option) {
           return '<label><input type="checkbox" data-select-all="' + question.id + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';
         }).join('') + '</div>';
       }
@@ -1516,7 +4462,7 @@
         return passageHtml + '<div class="word-bank">' + question.bank.map(function(word) { return '<span class="word-chip">' + escapeHtml(word) + '</span>'; }).join('') + '</div><label class="field-label" for="' + suffix + '-select">Choose from the bank</label><select class="answer-select" id="' + suffix + '-select" data-answer-select="' + question.id + '"><option value="">Choose...</option>' + question.bank.map(function(word) { return '<option value="' + escapeHtml(word) + '">' + escapeHtml(word) + '</option>'; }).join('') + '</select>';
       }
       if (question.type === 'matching') {
-        const rights = question.pairs.map(function(pair) { return pair.right; });
+        const rights = seededShuffle(question.pairs.map(function(pair) { return pair.right; }), question.id);
         return passageHtml + '<div class="matching-list">' + question.pairs.map(function(pair, index) {
           return '<label class="matching-row"><span>' + escapeHtml(pair.left) + '</span><select class="answer-select" data-match-left="' + escapeHtml(pair.left) + '" data-match-q="' + question.id + '"><option value="">Choose...</option>' + rights.map(function(right) { return '<option value="' + escapeHtml(right) + '">' + escapeHtml(right) + '</option>'; }).join('') + '</select></label>';
         }).join('') + '</div>';
@@ -1527,13 +4473,13 @@
         }).join('') + '</div>';
       }
       if (question.type === 'sentence-order') {
-        return passageHtml + '<div class="order-builder" data-order-builder="' + question.id + '"></div><div class="word-bank">' + question.tokens.map(function(token, index) {
+        return passageHtml + '<div class="order-builder" data-order-builder="' + question.id + '"></div><div class="word-bank">' + seededShuffle(question.tokens.map(function(token, index) { return {token:token,index:index}; }),question.id).map(function(piece) { const token = piece.token, index = piece.index;
           return '<button type="button" class="order-token" data-order-token="' + question.id + '" data-token-index="' + index + '">' + escapeHtml(token) + '</button>';
         }).join('') + '</div><button type="button" class="btn small" data-order-reset="' + question.id + '">Reset order</button>';
       }
       if (question.type === 'image-match') {
         return passageHtml + '<div class="image-match-grid">' + question.items.map(function(item) {
-          return '<div class="image-match-item"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cần ghép" width="512" height="512"><label class="field-label" for="' + suffix + '-' + item.image + '">Choose chunk</label><select class="answer-select" id="' + suffix + '-' + item.image + '" data-image-match="' + escapeHtml(item.image) + '" data-image-match-q="' + question.id + '"><option value="">Choose...</option>' + question.options.map(function(option) { return '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>'; }).join('') + '</select></div>';
+          return '<div class="image-match-item"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cần ghép" width="512" height="512"><label class="field-label" for="' + suffix + '-' + item.image + '">Choose chunk</label><select class="answer-select" id="' + suffix + '-' + item.image + '" data-image-match="' + escapeHtml(item.image) + '" data-image-match-q="' + question.id + '"><option value="">Choose...</option>' + seededShuffle(question.options,question.id).map(function(option) { return '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>'; }).join('') + '</select></div>';
         }).join('') + '</div>';
       }
       if (question.type === 'short-answer' || question.type === 'production') {
@@ -1543,46 +4489,97 @@
       return passageHtml;
     }
 
-    function getVisiblePracticeQuestions() {
+    function getFilteredGamePool() {
       if (state.retryIds && state.retryIds.length) return state.retryIds.map(getQuestionById).filter(Boolean);
+      const mode = GAME_MODES.find(function(item) { return item.id === gameMode; }) || GAME_MODES[0];
       return practiceQuestions.filter(function(question) {
         const categoryOk = practiceCategoryFilter === 'all' || question.category === practiceCategoryFilter;
         const levelOk = practiceLevelFilter === 'all' || String(question.difficulty) === practiceLevelFilter;
-        return categoryOk && levelOk;
+        const typeOk = !mode.types.length ? true : mode.types.indexOf(question.type) !== -1;
+        return categoryOk && levelOk && typeOk;
       });
     }
 
-    function renderPractice() {
-      const root = document.getElementById('practice-list');
-      const questions = getVisiblePracticeQuestions();
-      document.getElementById('retry-banner').hidden = !(state.retryIds && state.retryIds.length);
-      if (state.retryIds && state.retryIds.length) {
-        document.getElementById('retry-banner').innerHTML = '<strong>Retry incorrect mode:</strong> đang hiển thị ' + questions.length + ' câu cần ôn. <button class="btn small" type="button" data-retry-all>Quay lại toàn bộ practice</button>';
-      }
-      const filterCount = document.getElementById('practice-filter-count');
-      if (filterCount) filterCount.textContent = questions.length + '/' + practiceQuestions.length + ' câu đang hiển thị';
-      if (!questions.length) {
-        root.innerHTML = '<div class="empty-state"><h2>Không có câu phù hợp bộ lọc</h2><p>Đổi nhóm kỹ năng hoặc mức độ để tiếp tục luyện.</p></div>';
-        updatePracticeSummary();
-        renderCrossword();
-        restoreProductionInputs();
-        return;
-      }
-      root.innerHTML = questions.map(function(question, index) {
-        const saved = state.practiceAnswers[question.id];
-        const statusClass = saved && saved.submitted ? (saved.correct === null ? 'pending' : saved.correct ? 'correct' : 'incorrect') : '';
-        const inputHtml = renderQuestionInput(question, 'practice');
-        const isProduction = question.type === 'short-answer' || question.type === 'production';
-        return '<article class="question-card ' + statusClass + '" data-question-card="' + question.id + '"><div class="question-header"><span class="question-number">Practice ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + inputHtml + '<div class="question-actions"><button type="button" class="btn ' + (isProduction ? 'secondary' : 'primary') + '" data-check-practice="' + question.id + '">' + (isProduction ? 'Lưu để tự kiểm tra' : 'Kiểm tra đáp án') + '</button><button type="button" class="btn small" data-clear-question="' + question.id + '">Xóa</button></div><div class="feedback ' + (saved && saved.submitted ? 'show ' + (saved.correct === null ? 'neutral' : saved.correct ? 'correct' : 'incorrect') : '') + '" data-practice-feedback="' + question.id + '">' + (saved && saved.submitted ? (isProduction ? '<strong>✓ Đã lưu</strong><p>Dùng rubric để tự kiểm tra và ôn lại ở lần sau.</p>' : feedbackHtml(question, saved.displayResponse || saved.response, saved.correct)) : '') + '</div></article>';
+    function getVisiblePracticeQuestions() {
+      return gameQueue.map(getQuestionById).filter(Boolean);
+    }
+
+    function startGame(mode, keepRetry) {
+      gameMode = mode || gameMode;
+      if (!keepRetry) state.retryIds = [];
+      const pool = getFilteredGamePool();
+      const shuffled = seededShuffle(pool, gameMode + ':' + gameRound);
+      const pending = shuffled.filter(function(q) { return !(state.practiceAnswers[q.id] && state.practiceAnswers[q.id].submitted); });
+      const practiced = shuffled.filter(function(q) { return state.practiceAnswers[q.id] && state.practiceAnswers[q.id].submitted; });
+      gameQueue = pending.concat(practiced).slice(0, GAME_ROUND_SIZE).map(function(q) { return q.id; });
+      gamePosition = 0;
+      gameAttempt = {};
+      renderPractice();
+    }
+
+    function renderGamePicker() {
+      const picker = document.getElementById('game-picker');
+      if (!picker) return;
+      picker.innerHTML = GAME_MODES.map(function(mode) {
+        const count = practiceQuestions.filter(function(q) { return !mode.types.length || mode.types.indexOf(q.type) !== -1; }).length;
+        return '<button type="button" class="game-mode ' + (gameMode === mode.id ? 'active' : '') + '" data-start-game="' + mode.id + '" aria-pressed="' + (gameMode === mode.id ? 'true' : 'false') + '"><span class="game-icon">' + mode.icon + '</span><strong>' + escapeHtml(mode.title) + '</strong><small>' + escapeHtml(mode.desc) + ' · ' + count + ' câu trong ngân hàng</small></button>';
       }).join('');
-      questions.forEach(function(question) {
+    }
+
+    function renderGameStatus() {
+      const root = document.getElementById('game-status');
+      if (!root) return;
+      const done = gameQueue.filter(function(id) { return Object.prototype.hasOwnProperty.call(gameAttempt, id); }).length;
+      const correct = gameQueue.filter(function(id) { return gameAttempt[id] === true; }).length;
+      let streak = 0;
+      for (let i=gamePosition; i>=0; i--) {
+        const value = gameAttempt[gameQueue[i]];
+        if (value === true) streak++;
+        else if (value === false) break;
+      }
+      const pct = gameQueue.length ? Math.round(done/gameQueue.length*100) : 0;
+      root.innerHTML = '<div class="game-metric"><strong>' + done + '/' + gameQueue.length + '</strong><span>Đã hoàn thành</span></div>'
+        + '<div class="game-metric"><strong>' + correct + '</strong><span>Trả lời đúng</span></div>'
+        + '<div class="game-metric"><strong>' + (done ? Math.round(correct/done*100) : 0) + '%</strong><span>Độ chính xác</span></div>'
+        + '<div class="game-metric"><strong>' + streak + ' 🔥</strong><span>Chuỗi đúng</span></div>'
+        + '<div class="game-progress" aria-label="Tiến độ mini game ' + pct + '%"><span style="width:' + pct + '%"></span></div>';
+    }
+
+    function renderPractice() {
+      if (!gameQueue.length && getFilteredGamePool().length) {
+        gameQueue = seededShuffle(getFilteredGamePool(), gameMode + ':initial').slice(0,GAME_ROUND_SIZE).map(function(q) {return q.id;});
+      }
+      renderGamePicker();
+      const root = document.getElementById('practice-list');
+      const banner = document.getElementById('retry-banner');
+      banner.hidden = !(state.retryIds && state.retryIds.length);
+      if (!banner.hidden) banner.innerHTML = '<strong>Ôn lại câu sai:</strong> đang luyện ' + gameQueue.length + ' câu. <button class="btn small" type="button" data-retry-all>Về tất cả bài tập</button>';
+      const filterCount = document.getElementById('practice-filter-count');
+      if (filterCount) filterCount.textContent = getFilteredGamePool().length + ' câu phù hợp bộ lọc · ' + practiceQuestions.length + ' câu toàn bộ';
+      const controls = document.getElementById('game-controls');
+      const questions = getVisiblePracticeQuestions();
+      if (!questions.length) {
+        root.innerHTML = '<div class="empty-state"><h2>Chưa có câu phù hợp</h2><p>Hãy chọn trò khác hoặc đổi bộ lọc.</p></div>';
+        controls.innerHTML = '<button type="button" class="btn primary" data-new-game>Chọn lượt mới</button>';
+        renderGameStatus();updatePracticeSummary();renderCrossword();restoreProductionInputs();return;
+      }
+      const completed = questions.every(function(q) { return Object.prototype.hasOwnProperty.call(gameAttempt,q.id); });
+      if (completed && gamePosition >= questions.length) {
+        const good = questions.filter(function(q) {return gameAttempt[q.id] === true;}).length;
+        root.innerHTML = '<div class="game-feedback-summary"><div style="font-size:2.4rem">🏆</div><h2>Hoàn thành lượt chơi!</h2><p>Bạn đúng <strong>' + good + ' / ' + questions.length + '</strong> câu. ' + (good===questions.length ? 'Xuất sắc! Hãy thử dạng khác.' : 'Các câu chưa đúng đã được lưu để ôn lại.') + '</p><div class="button-row" style="justify-content:center"><button type="button" class="btn primary" data-new-game>Chơi lượt mới</button><button type="button" class="btn ghost" data-view="mistakes">Ôn câu sai</button></div></div>';
+        controls.innerHTML = '';
+      } else {
+        gamePosition = Math.min(gamePosition,questions.length-1);
+        const question = questions[gamePosition];
         const saved = state.practiceAnswers[question.id];
-        if (!saved || !saved.submitted) return;
-        restoreResponse(question, saved.response, 'practice');
-      });
-      updatePracticeSummary();
-      renderCrossword();
-      restoreProductionInputs();
+        const played = Object.prototype.hasOwnProperty.call(gameAttempt, question.id);
+        const statusClass = played ? (gameAttempt[question.id] === null ? 'pending' : gameAttempt[question.id] ? 'correct' : 'incorrect') : '';
+        const isProduction = question.type === 'short-answer' || question.type === 'production';
+        root.innerHTML = '<article class="question-card ' + statusClass + '" data-question-card="' + question.id + '"><div class="question-header"><span class="question-number">Câu ' + (gamePosition+1) + ' / ' + questions.length + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill teal">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + renderQuestionInput(question,'practice') + '<div class="question-actions"><button type="button" class="btn primary" data-check-practice="' + question.id + '">' + (isProduction?'Lưu câu tự viết':'Kiểm tra đáp án') + '</button><button type="button" class="btn small" data-clear-question="' + question.id + '">Làm lại câu này</button></div><div class="feedback ' + (played?'show ' + (gameAttempt[question.id] === null ? 'neutral' : gameAttempt[question.id]?'correct':'incorrect'):'') + '" data-practice-feedback="' + question.id + '">' + (played ? (isProduction?'<strong>Đã lưu để tự kiểm tra</strong>':feedbackHtml(question, saved ? saved.displayResponse : '',gameAttempt[question.id])) : '') + '</div></article>';
+        if (played && saved) restoreResponse(question,saved.response,'practice');
+        controls.innerHTML = '<button type="button" class="btn" data-game-prev ' + (gamePosition===0?'disabled':'') + '>← Câu trước</button><span class="muted small-text">' + (gamePosition+1) + ' / ' + questions.length + '</span><button type="button" class="btn primary" data-game-next>' + (gamePosition === questions.length-1?'Xem kết quả':'Câu tiếp →') + '</button><button type="button" class="btn small ghost" data-new-game>Lượt mới ↻</button>';
+      }
+      renderGameStatus();updatePracticeSummary();renderCrossword();restoreProductionInputs();
     }
 
     function restoreResponse(question, response, mode) {
@@ -1590,7 +4587,7 @@
       const selector = mode === 'test' ? '[data-test-card="' + question.id + '"]' : mode === 'story' ? '[data-story-card="' + question.id + '"]' : '[data-question-card="' + question.id + '"]';
       const root = document.querySelector(selector);
       if (!root) return;
-      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice') {
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice' || question.type === 'image-to-word' || question.type === 'sentence-complete') {
         const input = Array.from(root.querySelectorAll('input[type="radio"]')).find(function(element) { return element.value === response; });
         if (input) input.checked = true;
       } else if (question.type === 'fill-blank' || question.type === 'error-correction') {
@@ -1598,8 +4595,9 @@
         if (input) input.value = response;
       } else if (question.type === 'select-all' && Array.isArray(response)) {
         root.querySelectorAll('[data-select-all]').forEach(function(input) { input.checked = response.indexOf(input.value) !== -1; });
-      } else if (question.type === 'multi-fill' && response && typeof response === 'object') {
+      } else if ((question.type === 'multi-fill' || question.type === 'passage-complete') && response && typeof response === 'object') {
         root.querySelectorAll('[data-multi-fill]').forEach(function(input) { input.value = response[input.dataset.multiFill] || ''; });
+        root.querySelectorAll('[data-passage-gap]').forEach(function(input) { input.value = response[input.dataset.passageGap] || ''; });
       } else if (question.type === 'word-bank') {
         const select = root.querySelector('[data-answer-select]');
         if (select) select.value = response;
@@ -1624,7 +4622,7 @@
 
     function collectResponse(question, root) {
       if (!root) return '';
-      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice') {
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice' || question.type === 'image-to-word' || question.type === 'sentence-complete') {
         const selected = root.querySelector('input[type="radio"]:checked');
         return selected ? selected.value : '';
       }
@@ -1634,6 +4632,11 @@
       }
       if (question.type === 'select-all') {
         return Array.from(root.querySelectorAll('[data-select-all]:checked')).map(function(input) { return input.value; });
+      }
+      if (question.type === 'passage-complete') {
+        const answer = {};
+        root.querySelectorAll('[data-passage-gap]').forEach(function(select) { answer[select.dataset.passageGap] = select.value; });
+        return answer;
       }
       if (question.type === 'multi-fill') {
         const answer = {};
@@ -1674,6 +4677,7 @@
     }
 
     function hasResponse(question, response) {
+      if (question.type === 'passage-complete') return response && question.gaps.every(function(gap,index) { return !!String(response[index] || '').trim(); });
       if (question.type === 'matching' || question.type === 'categorization' || question.type === 'image-match' || question.type === 'multi-fill') return response && Object.keys(response).length > 0 && Object.keys(response).some(function(key) { return String(response[key] || '').trim(); });
       if (question.type === 'sentence-order' || question.type === 'select-all') return Array.isArray(response) && response.length > 0;
       return String(response == null ? '' : response).trim().length > 0;
@@ -1694,6 +4698,8 @@
         const expected = question.answer.map(normalizeAnswer).sort();
         const actual = (response || []).map(normalizeAnswer).sort();
         correct = expected.length === actual.length && expected.every(function(value, index) { return value === actual[index]; });
+      } else if (question.type === 'passage-complete') {
+        correct = question.gaps.every(function(gap, index) { return response && normalizeAnswer(response[index]) === normalizeAnswer(gap.answer); });
       } else if (question.type === 'multi-fill') {
         correct = question.items.every(function(item, index) {
           const given = response ? response[index] : '';
@@ -1711,6 +4717,9 @@
     function displayResponse(question, response) {
       if (question.type === 'matching' || question.type === 'categorization' || question.type === 'image-match') {
         return Object.keys(response || {}).map(function(key) { return key + ' → ' + response[key]; }).join('; ');
+      }
+      if (question.type === 'passage-complete') {
+        return question.gaps.map(function(gap,index) { return (index + 1) + ': ' + ((response || {})[index] || '—'); }).join('; ');
       }
       if (question.type === 'multi-fill') {
         return question.items.map(function(item, index) { return (index + 1) + ': ' + ((response || {})[index] || '—'); }).join('; ');
@@ -1741,9 +4750,9 @@
 
     function updatePracticeSummary() {
       const ids = getVisiblePracticeQuestions().map(function(question) { return question.id; });
-      const records = ids.map(function(id) { return state.practiceAnswers[id]; }).filter(function(item) { return item && item.submitted; });
-      const correct = records.filter(function(item) { return item.correct === true; }).length;
-      const wrong = records.filter(function(item) { return item.correct === false; }).length;
+      const records = ids.filter(function(id) { return Object.prototype.hasOwnProperty.call(gameAttempt,id); });
+      const correct = records.filter(function(id) { return gameAttempt[id] === true; }).length;
+      const wrong = records.filter(function(id) { return gameAttempt[id] === false; }).length;
       document.getElementById('practice-summary-text').textContent = records.length + '/' + ids.length + ' answered';
       document.getElementById('practice-correct-pill').textContent = correct + ' correct';
       document.getElementById('practice-wrong-pill').textContent = wrong + ' to review';
@@ -1764,6 +4773,7 @@
       }
       const isProduction = question.type === 'short-answer' || question.type === 'production';
       state.practiceAnswers[id] = { response: response, displayResponse: displayResponse(question, response), correct: isProduction ? null : result.correct, submitted: true };
+      gameAttempt[id] = isProduction ? null : result.correct;
       refreshMistakes();
       saveProgress();
       root.classList.remove('correct', 'incorrect', 'pending');
@@ -1771,6 +4781,7 @@
       feedback.className = 'feedback show ' + (isProduction ? 'neutral' : result.correct ? 'correct' : 'incorrect');
       feedback.innerHTML = isProduction ? '<strong>✓ Saved for self-check</strong><p>Use the rubric, then keep the answer for a later spaced review.</p>' : feedbackHtml(question, displayResponse(question, response), result.correct);
       updatePracticeSummary();
+      renderGameStatus();
       renderMistakes();
     }
 
@@ -1787,11 +4798,13 @@
         root.querySelectorAll('[data-order-token]').forEach(function(button) { button.disabled = false; });
       }
       delete state.practiceAnswers[id];
+      delete gameAttempt[id];
       saveProgress();
       root.classList.remove('correct', 'incorrect', 'pending');
       const feedback = root.querySelector('[data-practice-feedback]');
       if (feedback) { feedback.className = 'feedback'; feedback.innerHTML = ''; }
       updatePracticeSummary();
+      renderGameStatus();
       renderMistakes();
     }
 
@@ -2001,7 +5014,6 @@
       showToast('Đã reset progress của bài học.');
     }
 
-    // ===== Evidence-based review layer =====
     let reviewSession = null;
     const timers = {};
     let ttsRate = 0.9;
@@ -2093,7 +5105,6 @@
       return { correct: close, typo: close };
     }
 
-    // ----- Text-to-speech (Web Speech API, optional) -----
     function ttsSupported() {
       return typeof window.speechSynthesis !== 'undefined' && typeof window.SpeechSynthesisUtterance !== 'undefined';
     }
@@ -2129,7 +5140,6 @@
       return sentence.replace(/\[\[|\]\]/g, '');
     }
 
-    // ----- Overview: study plan + evidence -----
     function renderResearchOverview() {
       const slot = document.querySelector('#view-overview [data-slot="study-plan"]');
       if (!slot) return;
@@ -2142,7 +5152,6 @@
       slot.innerHTML = '<div class="section-heading"><div><div class="section-kicker">Spaced review</div><h2>Lộ trình ôn 30 ngày</h2></div><p>Mục Spaced review tự xếp lịch cho từng cụm. Bảng này cho biết nên làm gì vào mỗi mốc ôn.</p></div><div class="table-wrap"><table><thead><tr><th>Mốc</th><th>Việc cần làm</th><th>Mở nhanh</th></tr></thead><tbody>' + rows + '</tbody></table></div><div class="spacer"></div><div class="section-heading"><div><div class="section-kicker">Evidence</div><h2>Vì sao bài học có các phần này?</h2></div><p>Mỗi hoạt động dựa trên một kết luận từ thư mục “Nghiên cứu học ngôn ngữ”.</p></div><div class="grid-4">' + cards + '</div>';
     }
 
-    // ----- Story & listening -----
     function getStory() {
       return stories.find(function(story) { return story.id === state.storyId; }) || stories[0];
     }
@@ -2312,7 +5321,6 @@
       }).join('');
     }
 
-    // ----- Spaced repetition -----
     function srsDueIds() {
       const today = todayKey();
       return vocab.filter(function(item) { const record = state.srs[item.id]; return record && record.due && record.due <= today; }).map(function(item) { return item.id; });
@@ -2420,7 +5428,6 @@
       const keepSchedule = correct && session.mode === 'extra' && !session.wrong[id];
       if (correct) {
         if (keepSchedule) {
-          // extra practice: no schedule change
         } else if (session.wrong[id]) {
           record.box = 1;
           record.due = todayKey(1);
@@ -2573,7 +5580,6 @@
       if (nextId && sessionCardType(nextId) === 'listen') speak(vocabById(nextId).example);
     }
 
-    // ----- Free recall (brain dump) -----
     function renderDump() {
       const root = document.getElementById('dump-content');
       if (!root) return;
@@ -2594,7 +5600,6 @@
       root.innerHTML = '<div class="button-row" style="margin-bottom:.6rem"><span class="timer" id="dump-timer">2:00</span><button type="button" class="btn small primary" data-dump-start>Bắt đầu 2 phút</button></div><textarea class="answer-textarea" data-dump-input placeholder="go home&#10;go by bus&#10;went fishing&#10;…">' + escapeHtml(dump.text || '') + '</textarea><div class="button-row" style="margin-top:.6rem"><button type="button" class="btn secondary" data-dump-check>So với danh sách</button><button type="button" class="btn small" data-dump-clear>Làm lại từ đầu</button></div><div id="dump-result" style="margin-top:.4rem">' + result + '</div>';
     }
 
-    // ----- Speaking loop (task repetition) -----
     function speakChipsHtml(key) {
       const used = detectChunks(state.speak[key] || '');
       let compare = '';
@@ -2637,7 +5642,6 @@
       const target = event.target;
       const flashDir = target.closest('[data-flash-dir]');
       if (flashDir) { state.flashDir = flashDir.dataset.flashDir; state.flashFlipped = false; saveProgress(); renderFlashcard(); return; }
-      // Story
       const pick = target.closest('[data-story-pick]');
       if (pick) { stopSpeaking(); state.storyId = pick.dataset.storyPick; state.storyStage = 1; state.storyClosed = false; saveProgress(); renderStory(); return; }
       const stageButton = target.closest('[data-story-stage]');
@@ -2670,7 +5674,6 @@
       }
       const storyCheck = target.closest('[data-check-story]');
       if (storyCheck) { checkStoryQuestion(storyCheck.dataset.checkStory); return; }
-      // Dictation
       const dictPlay = target.closest('[data-dict-play]');
       if (dictPlay) { speak(dictationItems[Number(dictPlay.dataset.dictPlay)].text); return; }
       const dictSlow = target.closest('[data-dict-slow]');
@@ -2696,7 +5699,6 @@
         renderDictation();
         return;
       }
-      // Spaced review
       const start = target.closest('[data-srs-start]');
       if (start) { startReviewSession(start.dataset.srsStart); return; }
       const limit = target.closest('[data-srs-limit]');
@@ -2726,7 +5728,6 @@
         return;
       }
       if (target.closest('[data-srs-close]')) { reviewSession = null; renderReview(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-      // Brain dump
       if (target.closest('[data-dump-start]')) {
         startTimer('dump', 120, 'dump-timer', function() { showToast('Hết 2 phút! Bấm “So với danh sách”.'); });
         const field = document.querySelector('[data-dump-input]');
@@ -2758,7 +5759,6 @@
         startReviewSession('due');
         return;
       }
-      // Speaking loop
       const speakStart = target.closest('[data-speak-start]');
       if (speakStart) {
         const round = speakRounds.find(function(item) { return item.key === speakStart.dataset.speakStart; });
@@ -2862,6 +5862,16 @@
         showToast('Đã ghi nhận chunk này.');
         return;
       }
+      const startGameButton = event.target.closest('[data-start-game]');
+      if (startGameButton) { gameRound++; startGame(startGameButton.dataset.startGame); return; }
+      if (event.target.closest('[data-new-game]')) { gameRound++; startGame(gameMode, !!(state.retryIds && state.retryIds.length)); return; }
+      if (event.target.closest('[data-game-prev]')) { gamePosition = Math.max(0,gamePosition-1); renderPractice(); return; }
+      if (event.target.closest('[data-game-next]')) {
+        if (gameQueue[gamePosition] && !Object.prototype.hasOwnProperty.call(gameAttempt,gameQueue[gamePosition])) {
+          showToast('Hãy kiểm tra câu này trước khi chuyển tiếp.');return;
+        }
+        gamePosition = Math.min(gameQueue.length,gamePosition+1);renderPractice();return;
+      }
       const checkButton = event.target.closest('[data-check-practice]');
       if (checkButton) { handlePracticeCheck(checkButton.dataset.checkPractice); return; }
       const clearButton = event.target.closest('[data-clear-question]');
@@ -2885,6 +5895,7 @@
       const practiceAgain = event.target.closest('[data-practice-again]');
       if (practiceAgain) {
         state.retryIds = [practiceAgain.dataset.practiceAgain];
+        gameRound++; startGame('mix', true);
         navigate('practice');
         return;
       }
@@ -2894,6 +5905,7 @@
         if (!ids.length) { showToast('Chưa có câu sai để retry.'); navigate('practice'); return; }
         state.retryIds = ids;
         saveProgress();
+        gameRound++; startGame('mix', true);
         navigate('practice');
         return;
       }
@@ -2907,7 +5919,7 @@
         if (categoryFilter) categoryFilter.value = 'all';
         if (levelFilter) levelFilter.value = 'all';
         saveProgress();
-        renderPractice();
+        gameRound++; startGame(gameMode);
         navigate('practice');
         return;
       }
@@ -2934,18 +5946,29 @@
       if (event.target.id === 'practice-category-filter') {
         practiceCategoryFilter = event.target.value;
         state.retryIds = null;
-        renderPractice();
+        gameRound++; startGame(gameMode, !!(state.retryIds && state.retryIds.length));
       }
       if (event.target.id === 'practice-level-filter') {
         practiceLevelFilter = event.target.value;
         state.retryIds = null;
-        renderPractice();
+        gameRound++; startGame(gameMode, !!(state.retryIds && state.retryIds.length));
       }
       if (event.target.matches('[data-production-check]')) {
         state.production[event.target.dataset.productionCheck] = event.target.checked;
         saveProgress();
       }
     });
+
+
+    document.addEventListener('error', function(event) {
+      const img = event.target;
+      if (!img || img.tagName !== 'IMG' || img.dataset.missingAsset) return;
+      img.dataset.missingAsset = '1';
+      const hint = document.createElement('div');
+      hint.className = 'game-empty-image';
+      hint.textContent = 'Giữ thư mục assets/go-went-gone/ bên cạnh file HTML để hiển thị ảnh gốc.';
+      img.replaceWith(hint);
+    }, true);
 
     document.getElementById('test-form').addEventListener('submit', submitTest);
 
@@ -2963,11 +5986,6 @@
     renderMistakes();
     renderResults();
     updateProgress();
-  </script>
-
-  <script>
-    // Start the whole lesson over: wipe everything this lesson saved, then reload so every
-    // input, timer and voice is back to its first-visit state. The sidebar button uses it too.
     (function() {
       function resetAll() {
         if (!window.confirm('Làm lại từ đầu toàn bộ bài này?\n\nMọi tiến độ, câu trả lời, điểm test, flashcard, lịch ôn, sổ từ vựng và bài viết của bạn trong bài này sẽ bị xóa.')) return;
