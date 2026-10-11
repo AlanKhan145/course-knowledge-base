@@ -211,9 +211,7 @@
       overflow: hidden;
       color: #fff;
       border-radius: 26px;
-      background:
-        linear-gradient(125deg, rgba(18,46,77,.97), rgba(30,82,126,.92)),
-        url("assets/have-had-had/have-breakfast.png") center / cover;
+      background: linear-gradient(120deg, #eaf0ff, #f1f7ff);
       box-shadow: 0 22px 48px rgba(19,50,81,.22);
     }
     .hero h1 { font-size: clamp(2rem, 4.3vw, 4rem); max-width: 780px; }
@@ -221,7 +219,7 @@
     .hero-art {
       min-height: 230px;
       border-radius: 20px;
-      background: url("assets/have-had-had/have-a-good-time.png") center / cover;
+      background: #e8effb;
       border: 6px solid rgba(255,255,255,.2);
       align-self: stretch;
     }
@@ -524,25 +522,93 @@
       .option-label.image-option img { width: 64px; height: 64px; }
       .score-number { font-size: 2.6rem; }
     }
+
+    :root { --ink:#172640; --muted:#66748a; --paper:#f7f9fc; --line:#e3e9f2;
+      --navy:#1b3b65; --blue:#326cbe; --teal:#198676; --shadow:0 2px 10px rgba(20,42,76,.035); --radius:16px; }
+    body { background:var(--paper); }
+    .app-header { position:relative; background:#fff; color:var(--ink); box-shadow:none; border-bottom:1px solid var(--line); }
+    .header-inner { padding:.95rem 0; }
+    .header-title { font-size:1.42rem; color:var(--navy); }
+    .header-subtitle, .eyebrow { color:var(--muted); }
+    .progress-label {color:var(--muted)}
+    .progress-track {background:#e6edf7;height:7px}
+    .progress-track>span {background:var(--blue)}
+    .pill.inverse {color:#315c93;background:#edf3fb}
+    .app-shell {gap:1.55rem; padding-top:1.35rem;}
+    .nav-card,.side-card,.card,.question-card,.vocab-card,.result-card {box-shadow:none;border-radius:16px}
+    .nav-button[aria-current="page"],.mobile-nav button[aria-current="page"] {background:#eaf1fb;color:#245896;box-shadow:none}
+    .nav-button {font-weight:650;padding:.7rem .75rem}
+    .nav-card h2 {letter-spacing:0;text-transform:none}
+    .hero {grid-template-columns:1fr;color:var(--ink);border-radius:18px;border:1px solid #dce7f6;box-shadow:none;padding:2rem}
+    .hero h1 {font-size:clamp(2rem,4vw,3.2rem);color:#204677}
+    .hero p {color:#536680}
+    .hero .eyebrow {color:#52739c;opacity:1}
+    .section-kicker {display:none}
+    .section-heading {align-items:center}
+    .section-heading h1,.section-heading h2 {letter-spacing:-.025em}
+    .section-heading p {font-size:.88rem;max-width:350px}
+    .pill {font-weight:650;letter-spacing:0}
+    .pill.coral,.pill.amber,.pill.teal,.pill.blue {background:#eef3fa;color:#4d6580}
+    .btn {border-radius:9px;font-weight:700;box-shadow:none!important}
+    .btn:hover {transform:none;border-color:#a8c0e4}
+    .btn.secondary {background:#e7f5f1;color:#126e5d;border-color:#cbe6dc}
+    .btn.danger {background:#fff2ef;color:#a44d41}
+    .question-card {padding:1.35rem}
+    .question-prompt {font-size:1.02rem;line-height:1.6}
+    .question-header {padding-bottom:.65rem;margin-bottom:.85rem;border-bottom:1px solid #eef2f7}
+    .question-meta .pill:nth-child(n+3) {display:none}
+    .option-list {gap:.4rem}
+    .option-label {border-radius:10px;padding:.73rem .9rem}
+    .option-label:has(input:checked) {border-color:#7ea8df;background:#f1f6fd}
+    .feedback {padding:.75rem .9rem}
+    .feedback.correct {background:#eef8f5}
+    .feedback.incorrect {background:#fff5f3}
+    .vocab-card img,.phrase-card img {background:#f5f7fa}
+    .vocab-body {gap:.4rem}
+    .vocab-detail,.definition {display:none}
+    .practice-toolbar {grid-template-columns:repeat(3,minmax(0,1fr)) auto}
+    .practice-toolbar select {min-width:0}
+    .practice-summary {background:#fff;border-color:var(--line)}
+    .pagination {display:flex;gap:.55rem;align-items:center;justify-content:center;margin:1rem 0}
+    .page-count {font-size:.85rem;font-weight:700;color:var(--muted);margin-right:.4rem}
+    .flashcard {box-shadow:none;border:1px solid var(--line);min-height:390px}
+    .card .card {box-shadow:none}
+    .test-instructions {background:#f3f6fa;border-color:var(--line)}
+    .reading-passage {border-left:3px solid #7f9dc4}
+    .callout {border-left-width:3px}
+    .nav-icon {font-size:.98rem}
+    @media(max-width:980px){.app-header {position:static}.mobile-nav{position:sticky;top:0;z-index:30}}
+    @media(max-width:720px){.practice-toolbar{grid-template-columns:1fr 1fr}.practice-toolbar .practice-filter-meta{grid-column:1/-1}.hero{padding:1.3rem}.section-heading{align-items:flex-start;flex-direction:column;gap:.3rem}.section-heading p{max-width:none}}
+    @media(max-width:450px){.practice-toolbar{grid-template-columns:1fr}.question-card{padding:1rem}.header-inner{gap:.5rem}.header-meta{margin-top:.4rem}}
+
+
+    .optional-section {border:1px solid var(--line);background:#fff;border-radius:14px;margin-top:1rem;padding:0 1rem;}
+    .optional-section>summary {cursor:pointer;padding:1rem .1rem;color:#28598d;font-weight:750;list-style-position:inside;}
+    .optional-section[open]>summary {border-bottom:1px solid var(--line);margin-bottom:1rem}
+    .optional-section .grid-4 {margin-bottom:1rem}
+    .optional-section .card {margin-bottom:1rem}
+    .practice-bonus {margin-top:1.2rem}
+    @media(max-width:720px){.optional-section{padding:0 .7rem}}
+
   </style>
 </head>
 <body>
   <header class="app-header">
     <div class="header-inner">
       <div>
-        <div class="eyebrow">English Vocabulary in Use · Elementary</div>
+        <div class="eyebrow">English · Elementary</div>
         <div class="header-title">Lesson 03 — Have / had / had</div>
-        <p class="header-subtitle">Everyday verbs · Learn, retrieve, apply, review</p>
+        <p class="header-subtitle">Bài 03 · Động từ thông dụng</p>
         <div class="header-meta">
           <span class="pill inverse">A1–A2</span>
           <span class="pill inverse">30–45 phút</span>
-          <span class="pill inverse">16 chunks · 52 practice</span>
+          <span class="pill inverse">16 cụm từ · 133 bài luyện</span>
         </div>
       </div>
       <div class="progress-box" aria-label="Tiến độ bài học">
-        <div class="progress-label"><span>Lesson progress</span><strong id="progress-text">0%</strong></div>
+        <div class="progress-label"><span>Tiến độ bài học</span><strong id="progress-text">0%</strong></div>
         <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar"><span></span></div>
-        <div class="progress-label" style="margin-top:.45rem;margin-bottom:0"><span id="last-study">Chưa có lần học gần đây</span><span id="header-score">Best —</span></div>
+        <div class="progress-label" style="margin-top:.45rem;margin-bottom:0"><span id="last-study">Chưa có lần học gần đây</span><span id="header-score">Cao nhất —</span></div>
       </div>
     </div>
   </header>
@@ -561,29 +627,29 @@
   <div class="app-shell">
     <aside class="sidebar">
       <div class="nav-card">
-        <h2>Learning lab</h2>
-        <button class="nav-button" type="button" data-view="overview" aria-current="page"><span class="nav-icon">◉</span><span>Overview</span></button>
-        <button class="nav-button" type="button" data-view="learn"><span class="nav-icon">▣</span><span>Learn</span></button>
-        <button class="nav-button" type="button" data-view="vocabulary"><span class="nav-icon">✦</span><span>Vocabulary</span></button>
-        <button class="nav-button" type="button" data-view="flashcards"><span class="nav-icon">▤</span><span>Flashcards</span></button>
-        <button class="nav-button" type="button" data-view="practice"><span class="nav-icon">✓</span><span>Practice</span></button>
-        <button class="nav-button" type="button" data-view="test"><span class="nav-icon">◆</span><span>Final test</span></button>
-        <button class="nav-button" type="button" data-view="mistakes"><span class="nav-icon">↺</span><span>Mistakes <span class="pill coral" id="mistake-count" style="float:right">0</span></span></button>
-        <button class="nav-button" type="button" data-view="results"><span class="nav-icon">●</span><span>Results</span></button>
+        <h2>Nội dung</h2>
+        <button class="nav-button" type="button" data-view="overview" aria-current="page"><span class="nav-icon">◉</span><span>Tổng quan</span></button>
+        <button class="nav-button" type="button" data-view="learn"><span class="nav-icon">▣</span><span>Bài học</span></button>
+        <button class="nav-button" type="button" data-view="vocabulary"><span class="nav-icon">✦</span><span>Từ vựng</span></button>
+        <button class="nav-button" type="button" data-view="flashcards"><span class="nav-icon">▤</span><span>Thẻ học</span></button>
+        <button class="nav-button" type="button" data-view="practice"><span class="nav-icon">✓</span><span>Luyện tập</span></button>
+        <button class="nav-button" type="button" data-view="test"><span class="nav-icon">◆</span><span>Kiểm tra</span></button>
+        <button class="nav-button" type="button" data-view="mistakes"><span class="nav-icon">↺</span><span>Ôn lỗi <span class="pill coral" id="mistake-count" style="float:right">0</span></span></button>
+        <button class="nav-button" type="button" data-view="results"><span class="nav-icon">●</span><span>Kết quả</span></button>
       </div>
       <div class="side-card">
-        <h3>Quick stats</h3>
+        <h3>Tiến độ</h3>
         <div class="side-stats">
           <div class="side-stat"><strong id="side-known">0</strong><span>Đã nhớ</span></div>
-          <div class="side-stat"><strong id="side-practice">0</strong><span>Practice</span></div>
-          <div class="side-stat"><strong id="side-test">—</strong><span>Test score</span></div>
+          <div class="side-stat"><strong id="side-practice">0</strong><span>Luyện tập</span></div>
+          <div class="side-stat"><strong id="side-test">—</strong><span>Điểm kiểm tra</span></div>
           <div class="side-stat"><strong id="side-review">0</strong><span>Cần ôn</span></div>
         </div>
       </div>
       <div class="side-card">
-        <h3>Evidence-informed loop</h3>
-        <p>Học theo chunk/collocation, tự nhớ lại, dùng trong ngữ cảnh, rồi ôn lại sau 1–3–7 ngày.</p>
-        <button type="button" class="btn danger small" data-reset-progress>Reset progress</button>
+        <h3>Cài đặt</h3>
+        <p>Tiến độ và đáp án được lưu trong trình duyệt.</p>
+        <button type="button" class="btn danger small" data-reset-progress>Xóa tiến độ</button>
       </div>
     </aside>
 
@@ -591,7 +657,7 @@
       <section class="view active" id="view-overview" aria-labelledby="overview-title">
         <div class="hero">
           <div>
-            <div class="eyebrow">Learning Activity / Review Lab</div>
+            <div class="eyebrow">Ngữ pháp & từ vựng A1–A2</div>
             <h1 id="overview-title">Have / had / had</h1>
             <p>Học cách dùng <strong>have, has, had</strong> và các cụm tự nhiên như <strong>have breakfast</strong>, <strong>have a rest</strong> và <strong>have to study</strong>.</p>
             <div class="button-row">
@@ -599,17 +665,16 @@
               <button class="btn" type="button" data-view="practice">Làm quick practice</button>
             </div>
           </div>
-          <div class="hero-art" role="img" aria-label="Minh họa một người đang có khoảng thời gian vui vẻ"></div>
         </div>
 
         <div class="spacer"></div>
         <div class="section-heading">
           <div><div class="section-kicker">01 · Overview</div><h2>Hôm nay bạn sẽ làm gì?</h2></div>
-          <p>Đừng chỉ đọc nghĩa. Hãy nhìn, nhớ lại, đặt câu và quay lại các lỗi còn lặp.</p>
+          <p>Ôn cấu trúc, học cụm từ và luyện bài tập.</p>
         </div>
         <div class="grid-2">
           <article class="card">
-            <h3>Learning objectives</h3>
+            <h3>Mục tiêu bài học</h3>
             <ul class="objective-list">
               <li><span class="checkmark">✓</span><span>Phân biệt <strong>have</strong>, <strong>has</strong> và <strong>had</strong>.</span></li>
               <li><span class="checkmark">✓</span><span>Dùng đúng các collocation với <strong>have</strong> trong hoạt động hằng ngày.</span></li>
@@ -619,34 +684,25 @@
             </ul>
           </article>
           <article class="card">
-            <h3>Core idea</h3>
+            <h3>Ghi nhớ</h3>
             <p><strong>Have → had → had</strong></p>
             <p class="muted">Học cả cụm thay vì dịch từng từ: <strong>have breakfast</strong> = ăn sáng, không phải “có bữa sáng”.</p>
-            <div class="callout teal"><strong>Retrieval cue:</strong> Khi thấy một danh từ như <em>breakfast</em>, hãy tự hỏi: “Động từ tự nhiên đi cùng nó là gì?”</div>
+            
           </article>
         </div>
         <div class="spacer"></div>
-        <div class="flow" aria-label="Learning flow">
-          <div class="flow-step"><strong>Learn</strong><span>Hiểu form + chunk</span></div>
-          <div class="flow-step"><strong>Recognize</strong><span>Nhận diện nhanh</span></div>
-          <div class="flow-step"><strong>Retrieve</strong><span>Nhớ lại không nhìn</span></div>
-          <div class="flow-step"><strong>Apply</strong><span>Dùng trong context</span></div>
-          <div class="flow-step"><strong>Review</strong><span>Sửa lỗi + retry</span></div>
-        </div>
-        <div class="spacer"></div>
-        <div class="section-heading">
-          <div><div class="section-kicker">Spaced review</div><h2>Lịch ôn gợi ý</h2></div>
-          <p>Review chính các chunks, không chỉ nhìn lại danh sách từ.</p>
-        </div>
+        <details class="optional-section">
+          <summary>Lịch ôn tập gợi ý</summary>
         <div class="grid-4">
           <article class="card schedule-card"><div class="day">Day 0</div><h3>Nhận diện</h3><p class="small-text">Đọc lesson, xem ảnh, làm recognition.</p></article>
           <article class="card schedule-card"><div class="day">Day 1</div><h3>Nhớ lại</h3><p class="small-text">Che nghĩa, làm fill blank và flashcard.</p></article>
           <article class="card schedule-card"><div class="day">Day 3</div><h3>Tạo câu</h3><p class="small-text">Dùng 4 collocation để viết câu mới.</p></article>
-          <article class="card schedule-card"><div class="day">Day 7</div><h3>Transfer</h3><p class="small-text">Nói 30–45 giây về một ngày của bạn.</p></article>
+          <article class="card schedule-card"><div class="day">Day 7</div><h3>Vận dụng</h3><p class="small-text">Nói 30–45 giây về một ngày của bạn.</p></article>
         </div>
+        </details>
         <div class="spacer"></div>
         <article class="card">
-          <div class="section-heading"><div><div class="section-kicker">Quick check</div><h2>Kiểm tra ngay sau phần overview</h2></div><span class="pill blue">Immediate feedback</span></div>
+          <div class="section-heading"><div><div class="section-kicker">Kiểm tra nhanh</div><h2>Kiểm tra ngay sau phần overview</h2></div></div>
           <div id="quick-checks" class="grid-3"></div>
         </article>
       </section>
@@ -654,7 +710,7 @@
       <section class="view" id="view-learn" aria-labelledby="learn-title" hidden>
         <div class="section-heading">
           <div><div class="section-kicker">02 · Learn</div><h1 id="learn-title">Hiểu hệ thống trước khi luyện</h1></div>
-          <p>Giữ form, nghĩa và ngữ cảnh trong cùng một mental model.</p>
+          <p>Các cấu trúc chính và cách dùng thường gặp.</p>
         </div>
         <article class="card">
           <h2>Forms of have</h2>
@@ -706,15 +762,15 @@
           </div>
         </div>
         <div class="learn-block">
-          <div class="section-heading"><div><div class="section-kicker">Collocations</div><h2>Học theo nhóm ngữ nghĩa</h2></div><p>Images giúp gợi cảnh; chunk giúp gợi cách dùng.</p></div>
+          <div class="section-heading"><div><div class="section-kicker">Collocations</div><h2>Học theo nhóm ngữ nghĩa</h2></div><p>Các cụm từ thường dùng hằng ngày.</p></div>
           <div id="lesson-phrase-groups"></div>
         </div>
         <div class="learn-block">
           <h2>Examples in daily life</h2>
           <div class="grid-3">
-            <article class="card scene-card"><img src="assets/have-had-had/have-a-shower.png" alt="Một người đang tắm vòi sen"><div><h3>Morning</h3><blockquote>I get up at 6:30. I have a shower and then have breakfast. I usually have a drink before I go to school.</blockquote></div></article>
-            <article class="card scene-card"><img src="assets/have-had-had/have-dinner.png" alt="Một gia đình đang ăn tối"><div><h3>Evening</h3><blockquote>I have dinner with my family. After dinner, I usually study. When I am tired, I have a rest.</blockquote></div></article>
-            <article class="card scene-card"><img src="assets/have-had-had/have-a-party.png" alt="Bạn bè đang tổ chức tiệc"><div><h3>Weekend</h3><blockquote>We sometimes have a party at home. We listen to music, eat together and have a good time.</blockquote></div></article>
+            <article class="card scene-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFNkYyRkYiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNDY3OUFBIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNDY3OUFBIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDY3OUFBIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfmr88L3RleHQ+PC9zdmc+" alt="Một người đang tắm vòi sen"><div><h3>Morning</h3><blockquote>I get up at 6:30. I have a shower and then have breakfast. I usually have a drink before I go to school.</blockquote></div></article>
+            <article class="card scene-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGMkVDRkYiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNzI1NUEwIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNzI1NUEwIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzI1NUEwIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjb3vuI88L3RleHQ+PC9zdmc+" alt="Một gia đình đang ăn tối"><div><h3>Evening</h3><blockquote>I have dinner with my family. After dinner, I usually study. When I am tired, I have a rest.</blockquote></div></article>
+            <article class="card scene-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGRkYwRjQiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjQTE0RDZEIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjQTE0RDZEIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTE0RDZEIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjok8L3RleHQ+PC9zdmc+" alt="Bạn bè đang tổ chức tiệc"><div><h3>Weekend</h3><blockquote>We sometimes have a party at home. We listen to music, eat together and have a good time.</blockquote></div></article>
           </div>
         </div>
         <div class="learn-block">
@@ -730,7 +786,7 @@
       <section class="view" id="view-vocabulary" aria-labelledby="vocabulary-title" hidden>
         <div class="section-heading">
           <div><div class="section-kicker">03 · Vocabulary</div><h1 id="vocabulary-title">Word + meaning + chunk + example</h1></div>
-          <p>Mỗi card có ảnh, nghĩa tiếng Việt, định nghĩa ngắn, ví dụ và lỗi thường gặp.</p>
+          <p>16 cụm từ và ví dụ theo ngữ cảnh.</p>
         </div>
         <div class="toolbar">
           <div class="toolbar-left">
@@ -750,7 +806,7 @@
       <section class="view" id="view-flashcards" aria-labelledby="flashcards-title" hidden>
         <div class="section-heading">
           <div><div class="section-kicker">04 · Flashcards</div><h1 id="flashcards-title">Active recall flashcards</h1></div>
-          <p>Nhìn mặt trước, tự nhớ nghĩa/cách dùng, rồi mới flip để kiểm tra.</p>
+          <p>Lật thẻ để xem nghĩa và ví dụ.</p>
         </div>
         <div class="flash-stats">
           <div class="flash-stat"><strong id="flash-learned">0</strong><span>Learned</span></div>
@@ -769,16 +825,19 @@
 
       <section class="view" id="view-practice" aria-labelledby="practice-title" hidden>
         <div class="section-heading">
-          <div><div class="section-kicker">05 · Practice</div><h1 id="practice-title">Recognition → recall → application</h1></div>
-          <p>Practice có feedback ngay sau từng task. Câu sai sẽ vào error log để retry.</p>
+          <div><div class="section-kicker">05 · Practice</div><h1 id="practice-title">Luyện tập theo dạng bài</h1></div>
+          <p>Làm bài và kiểm tra đáp án ngay sau mỗi câu.</p>
         </div>
         <div class="practice-summary">
-          <strong id="practice-summary-text">0/52 answered</strong>
-          <span class="pill teal" id="practice-correct-pill">0 correct</span>
-          <span class="pill coral" id="practice-wrong-pill">0 to review</span>
+          <strong id="practice-summary-text">0/133 đã làm</strong>
+          <span class="pill teal" id="practice-correct-pill">0 câu đúng</span>
+          <span class="pill coral" id="practice-wrong-pill">0 cần ôn</span>
           <button type="button" class="btn small ghost" data-retry-all>Hiện tất cả</button>
         </div>
         <div class="practice-toolbar" aria-label="Bộ lọc bài luyện">
+          <label>Dạng bài
+            <select id="practice-type-filter"><option value="all">Tất cả dạng bài</option></select>
+          </label>
           <label>Nhóm kỹ năng
             <select id="practice-category-filter">
               <option value="all">Tất cả nhóm</option>
@@ -799,45 +858,50 @@
               <option value="3">Level 3 · vận dụng</option>
             </select>
           </label>
-          <div class="practice-filter-meta"><span id="practice-filter-count">52 câu đang hiển thị</span></div>
+          <div class="practice-filter-meta"><span id="practice-filter-count">133 câu đang hiển thị</span></div>
         </div>
         <div id="retry-banner" class="callout warning" hidden></div>
+        <div id="practice-pagination-top" class="pagination"></div>
         <div id="practice-list" class="question-list"></div>
+        <div id="practice-pagination-bottom" class="pagination"></div>
+        <details class="optional-section practice-bonus">
+          <summary>Bài tập bổ sung · Ô chữ, Writing & Speaking</summary>
         <div class="spacer"></div>
         <article class="card">
-          <div class="section-heading"><div><div class="section-kicker">Game</div><h2>Ô chữ mini: Have in daily life</h2></div><span class="pill amber">Mobile-friendly</span></div>
+          <div class="section-heading"><div><div class="section-kicker">Game</div><h2>Ô chữ mini: Have in daily life</h2></div></div>
           <p class="muted">Điền các đáp án theo clue. Ô chữ có các từ giao nhau; có thể dùng bàn phím hoặc chạm từng ô.</p>
           <div id="crossword"></div>
         </article>
         <div class="spacer"></div>
         <article class="card">
-          <div class="section-heading"><div><div class="section-kicker">Production</div><h2>Tạo ngôn ngữ của bạn</h2></div><span class="pill purple">Self-check</span></div>
+          <div class="section-heading"><div><div class="section-kicker">Production</div><h2>Tạo ngôn ngữ của bạn</h2></div></div>
           <div class="grid-3">
             <article class="card production-card"><h3>Writing</h3><p>Viết 5 câu về một ngày của bạn, dùng ít nhất 4 chunks.</p><textarea class="answer-textarea production-input" data-production="writing" placeholder="I usually have breakfast at..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="writing-1"> Có ít nhất một câu với have breakfast/lunch/dinner.</label><label><input type="checkbox" data-production-check="writing-2"> Có một câu quá khứ với had.</label><label><input type="checkbox" data-production-check="writing-3"> Có một câu với have to.</label></div></article>
             <article class="card production-card"><h3>Speaking</h3><p>Nói 30–45 giây về thói quen hằng ngày.</p><div class="callout teal"><strong>Prompt:</strong> What time do you have breakfast? Who do you have dinner with? When do you have a rest?</div><div class="checklist"><label><input type="checkbox" data-production-check="speaking-1"> Tôi nói được ít nhất 4 chunks.</label><label><input type="checkbox" data-production-check="speaking-2"> Tôi dùng được hiện tại và quá khứ.</label></div></article>
             <article class="card production-card"><h3>Transfer</h3><p>Dùng một chunk trong tình huống mới, không chép ví dụ cũ.</p><textarea class="answer-textarea production-input" data-production="transfer" placeholder="Create a new sentence with have a good journey..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="transfer-1"> Câu có nghĩa rõ và có context.</label><label><input type="checkbox" data-production-check="transfer-2"> Tôi đã đọc lại và tự sửa.</label></div></article>
           </div>
         </article>
+        </details>
       </section>
 
       <section class="view" id="view-test" aria-labelledby="test-title" hidden>
         <div class="section-heading">
-          <div><div class="section-kicker">06 · Final test</div><h1 id="test-title">Mixed test</h1></div>
+          <div><div class="section-kicker">06 · Final test</div><h1 id="test-title">Kiểm tra tổng hợp</h1></div>
           <p>Không hiển thị đáp án trước khi nộp. Hãy làm như một lần kiểm tra thật.</p>
         </div>
-        <div class="test-instructions"><strong>Test mode:</strong> 20 tasks · 1 điểm/task · feedback chỉ xuất hiện sau <strong>Submit Test</strong>. Câu bỏ trống được tính là chưa đúng.</div>
+        <div class="test-instructions"><strong>Bài kiểm tra:</strong> 30 câu · 1 điểm/câu. Đáp án và giải thích xuất hiện sau khi nộp bài.</div>
         <div class="spacer"></div>
         <form id="test-form">
           <div id="test-list" class="question-list"></div>
-          <div class="button-row" style="margin-top:1rem"><button class="btn primary" type="submit">Submit Test</button><button class="btn" type="button" data-view="practice">Back to practice</button></div>
+          <div class="button-row" style="margin-top:1rem"><button class="btn primary" type="submit">Nộp bài</button><button class="btn" type="button" data-view="practice">Quay lại bài luyện</button></div>
         </form>
         <div id="test-result-inline" class="spacer"></div>
       </section>
 
       <section class="view" id="view-mistakes" aria-labelledby="mistakes-title" hidden>
         <div class="section-heading">
-          <div><div class="section-kicker">07 · Error correction</div><h1 id="mistakes-title">Review your mistakes</h1></div>
-          <p>Chỉ giữ lại câu sai hoặc chưa trả lời. Đọc explanation rồi practice again.</p>
+          <div><div class="section-kicker">07 · Error correction</div><h1 id="mistakes-title">Ôn tập câu sai</h1></div>
+          <p>Xem các câu trả lời sai và thử làm lại.</p>
         </div>
         <div class="button-row" style="margin-bottom:1rem"><button type="button" class="btn primary" data-retry-incorrect>Retry incorrect</button><button type="button" class="btn" data-retry-all>Retry all practice</button></div>
         <div id="mistakes-content"></div>
@@ -845,8 +909,8 @@
 
       <section class="view" id="view-results" aria-labelledby="results-title" hidden>
         <div class="section-heading">
-          <div><div class="section-kicker">08 · Results</div><h1 id="results-title">Your learning dashboard</h1></div>
-          <p>Điểm là tín hiệu để quyết định ôn gì tiếp theo, không phải nhãn cố định về năng lực.</p>
+          <div><div class="section-kicker">08 · Results</div><h1 id="results-title">Kết quả học tập</h1></div>
+          <p>Xem kết quả và những nội dung cần ôn tập.</p>
         </div>
         <div id="results-content"></div>
       </section>
@@ -859,7 +923,10 @@
 
     const LESSON_ID = 'evu_elementary_02_everyday_verbs_03_have_had_had';
     const STORAGE_KEY = LESSON_ID + '_progress';
-    const IMAGE_ROOT = 'assets/have-had-had/';
+
+    const INLINE_ILLUSTRATIONS = {"have-ownership.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFQUYwRkMiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjMzE1OThGIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjMzE1OThGIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzE1OThGIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjpI8L3RleHQ+PC9zdmc+","had-past.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFRUYyRkIiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNDc2MDhGIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNDc2MDhGIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDc2MDhGIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfk4U8L3RleHQ+PC9zdmc+","have-breakfast.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGRkY0REYiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjOTY2NzI1IiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjOTY2NzI1IiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTY2NzI1IiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfpaM8L3RleHQ+PC9zdmc+","have-lunch.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGMkY2RTciLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNjA3QzQzIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNjA3QzQzIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjA3QzQzIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjbE8L3RleHQ+PC9zdmc+","have-dinner.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGMkVDRkYiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNzI1NUEwIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNzI1NUEwIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzI1NUEwIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjb3vuI88L3RleHQ+PC9zdmc+","have-a-drink.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFNkY2RkEiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjMjg3RTk4IiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjMjg3RTk4IiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjg3RTk4IiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfpaQ8L3RleHQ+PC9zdmc+","have-a-shower.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFNkYyRkYiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNDY3OUFBIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNDY3OUFBIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDY3OUFBIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfmr88L3RleHQ+PC9zdmc+","have-a-rest.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGMkVERkMiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNzY1QUEyIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNzY1QUEyIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzY1QUEyIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfm4vvuI88L3RleHQ+PC9zdmc+","have-a-look.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFN0Y1RUMiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNDc3NDVBIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNDc3NDVBIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDc3NDVBIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCflI48L3RleHQ+PC9zdmc+","have-time.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGRkYxRTgiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjOTk2MDQ0IiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjOTk2MDQ0IiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTk2MDQ0IiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKPsDwvdGV4dD48L3N2Zz4=","have-a-party.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGRkYwRjQiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjQTE0RDZEIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjQTE0RDZEIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQTE0RDZEIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjok8L3RleHQ+PC9zdmc+","have-a-good-time.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGMEVBRkUiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNzk1OEIwIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNzk1OEIwIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNzk1OEIwIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfjqE8L3RleHQ+PC9zdmc+","have-a-good-journey.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFOEYzRjUiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNDI3NjgzIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNDI3NjgzIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNDI3NjgzIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfp7M8L3RleHQ+PC9zdmc+","have-to.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNFQkYwRkEiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjNTA2OTlBIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjNTA2OTlBIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNTA2OTlBIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCfk5o8L3RleHQ+PC9zdmc+","have-got.png":"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0ODAgMzYwIiByb2xlPSJpbWciPjxyZWN0IHdpZHRoPSI0ODAiIGhlaWdodD0iMzYwIiByeD0iMjgiIGZpbGw9IiNGNkVERUYiLz48Y2lyY2xlIGN4PSIyMzgiIGN5PSIxNzIiIHI9IjEzMyIgZmlsbD0id2hpdGUiIG9wYWNpdHk9Ii41NSIvPjxjaXJjbGUgY3g9Ijg4IiBjeT0iODIiIHI9IjI0IiBmaWxsPSIjOTQ2NDdEIiBvcGFjaXR5PSIuMTIiLz48Y2lyY2xlIGN4PSI0MTYiIGN5PSIyODAiIHI9IjM3IiBmaWxsPSIjOTQ2NDdEIiBvcGFjaXR5PSIuMSIvPjxwYXRoIGQ9Ik00NiAyOTAgUTE0NCAzMjAgMjQ2IDMwMCBUNDQ0IDI5NiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTQ2NDdEIiBzdHJva2Utb3BhY2l0eT0iLjE0IiBzdHJva2Utd2lkdGg9IjEzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIyNDAiIHk9IjIxMyIgZm9udC1zaXplPSIxMjciIGZvbnQtZmFtaWx5PSJBcHBsZSBDb2xvciBFbW9qaSxTZWdvZSBVSSBFbW9qaSxOb3RvIENvbG9yIEVtb2ppLEFyaWFsLHNhbnMtc2VyaWYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPvCflJE8L3RleHQ+PC9zdmc+"};
+    function illustrationUrl(image) { return INLINE_ILLUSTRATIONS[image] || INLINE_ILLUSTRATIONS["have-ownership.png"]; }
+
 
     const vocab = [
       { id: 'have', word: 'have', kind: 'verb form', group: 'form', meaning: 'có; dùng với I / you / we / they ở hiện tại', definition: 'A common verb for possession or everyday activities.', example: 'I have a new phone.', chunk: 'have + noun / activity', mistake: 'Do not use has with I, you, we or they.', image: 'have-ownership.png' },
@@ -947,6 +1014,9 @@
       { id: 'p52', type: 'production', category: 'production', difficulty: 3, prompt: 'Viết một đoạn hội thoại 3–4 câu có ít nhất: một câu hỏi với Do/Does/Did + have và một câu dùng have to.', rubric: ['Có câu hỏi đúng với Do/Does/Did + have.', 'Có have to / has to / had to + base verb.', 'Hội thoại có ngữ cảnh hợp lý.', 'Không dùng has sau does hoặc had sau did.'], explanation: 'Đáp án mở. Tự kiểm tra cấu trúc và tính tự nhiên của ngữ cảnh.' }
     ];
 
+
+    practiceQuestions.push(...[{"id":"e001","type":"multiple-choice","category":"grammar","difficulty":2,"prompt":"My friends ______ a good time at the festival last night.","options":["had","has","have to","having"],"answer":"had","explanation":"Last night yêu cầu had."},{"id":"e002","type":"multiple-choice","category":"meaning","difficulty":2,"prompt":"Which expression means “xem thử”?","options":["have a look","have a drink","have a rest","have lunch"],"answer":"have a look","explanation":"Have a look = xem thử."},{"id":"e003","type":"multiple-choice","category":"grammar","difficulty":2,"prompt":"Which sentence describes a present obligation?","options":["She has to study now.","She had dinner yesterday.","She has a bicycle.","She has lunch every day."],"answer":"She has to study now.","explanation":"Has to + study chỉ việc cần làm."},{"id":"e004","type":"image-choice","category":"vocabulary","difficulty":1,"prompt":"Chọn cụm từ phù hợp với minh họa.","image":"have-dinner.png","options":["have dinner","have a rest","have a drink","have a look"],"answer":"have dinner","explanation":"Have dinner là cụm từ được thể hiện trong hình."},{"id":"e005","type":"image-choice","category":"vocabulary","difficulty":1,"prompt":"Chọn cụm từ phù hợp với minh họa.","image":"have-a-drink.png","options":["have lunch","have a party","have a drink","have a shower"],"answer":"have a drink","explanation":"Have a drink là cụm từ được thể hiện trong hình."},{"id":"e006","type":"image-choice","category":"vocabulary","difficulty":1,"prompt":"Chọn cụm từ phù hợp với minh họa.","image":"have-a-look.png","options":["have a rest","have a look","have breakfast","have time"],"answer":"have a look","explanation":"Have a look là cụm từ được thể hiện trong hình."},{"id":"e007","type":"image-choice","category":"vocabulary","difficulty":1,"prompt":"Chọn cụm từ phù hợp với minh họa.","image":"have-a-good-time.png","options":["have to leave","have a look","have a shower","have a good time"],"answer":"have a good time","explanation":"Have a good time là cụm từ được thể hiện trong hình."},{"id":"e008","type":"fill-blank","category":"grammar","difficulty":2,"prompt":"They ______ breakfast at home every morning.","answer":"have","explanation":"They + have ở hiện tại."},{"id":"e009","type":"fill-blank","category":"grammar","difficulty":2,"prompt":"My brother ______ a new bicycle.","answer":"has","explanation":"My brother = he, dùng has."},{"id":"e010","type":"fill-blank","category":"grammar","difficulty":2,"prompt":"Did you ______ a shower this morning?","answer":"have","explanation":"Sau did dùng have."},{"id":"e011","type":"fill-blank","category":"grammar","difficulty":2,"prompt":"Last weekend, we ______ a party at home.","answer":"had","explanation":"Last weekend chỉ quá khứ."},{"id":"e012","type":"word-bank","category":"recall","difficulty":2,"prompt":"My parents ______ dinner at seven every evening.","bank":["had","have to","has","have"],"answer":"have","explanation":"My parents là số nhiều nên dùng have."},{"id":"e013","type":"word-bank","category":"recall","difficulty":2,"prompt":"He ______ a shower before school every day.","bank":["had","have to","has","have"],"answer":"has","explanation":"He + has ở hiện tại."},{"id":"e014","type":"word-bank","category":"recall","difficulty":2,"prompt":"Yesterday, I ______ a wonderful time.","bank":["had","have to","has","have"],"answer":"had","explanation":"Yesterday là quá khứ."},{"id":"e015","type":"word-bank","category":"recall","difficulty":2,"prompt":"She does not ______ a lot of free time.","bank":["had","have to","has","have"],"answer":"have","explanation":"Sau does not là have."},{"id":"e016","type":"word-bank","category":"recall","difficulty":2,"prompt":"We ______ to finish our homework today.","bank":["had","have to","has","have"],"answer":"have to","explanation":"Have to + verb = phải làm."},{"id":"e017","type":"word-bank","category":"recall","difficulty":2,"prompt":"Tom ______ a party every Saturday.","bank":["had","have to","has","have"],"answer":"has","explanation":"Tom = he; hiện tại đơn dùng has."},{"id":"e018","type":"word-bank","category":"recall","difficulty":2,"prompt":"Did they ______ lunch together yesterday?","bank":["had","have to","has","have"],"answer":"have","explanation":"Sau did là động từ nguyên mẫu."},{"id":"e019","type":"matching","category":"meaning","difficulty":2,"prompt":"Ghép các bữa ăn với nghĩa.","pairs":[{"left":"have breakfast","right":"ăn sáng"},{"left":"have lunch","right":"ăn trưa"},{"left":"have dinner","right":"ăn tối"},{"left":"have a drink","right":"uống gì đó"}],"explanation":"Ghép nghĩa và ngữ cảnh của từng cụm đã học."},{"id":"e020","type":"matching","category":"meaning","difficulty":2,"prompt":"Ghép hoạt động với nghĩa.","pairs":[{"left":"have a shower","right":"tắm vòi sen"},{"left":"have a look","right":"xem thử"},{"left":"have a rest","right":"nghỉ ngơi"},{"left":"have a party","right":"tổ chức tiệc"}],"explanation":"Ghép nghĩa và ngữ cảnh của từng cụm đã học."},{"id":"e021","type":"matching","category":"meaning","difficulty":2,"prompt":"Ghép cấu trúc với cách dùng.","pairs":[{"left":"have got","right":"sở hữu"},{"left":"have to","right":"bắt buộc / cần làm"},{"left":"had","right":"quá khứ"},{"left":"has","right":"he / she / it ở hiện tại"}],"explanation":"Ghép nghĩa và ngữ cảnh của từng cụm đã học."},{"id":"e022","type":"matching","category":"meaning","difficulty":2,"prompt":"Ghép tình huống với lời nói phù hợp.","pairs":[{"left":"You look tired.","right":"Have a rest!"},{"left":"I am leaving for Hanoi.","right":"Have a good journey!"},{"left":"Can I see your photo?","right":"Have a look!"},{"left":"It is my birthday.","right":"Have a party!"}],"explanation":"Ghép nghĩa và ngữ cảnh của từng cụm đã học."},{"id":"e023","type":"matching","category":"meaning","difficulty":2,"prompt":"Ghép câu với thời gian.","pairs":[{"left":"We had dinner yesterday.","right":"quá khứ"},{"left":"She has a cat.","right":"hiện tại ngôi 3"},{"left":"They have lunch together.","right":"hiện tại số nhiều"},{"left":"I have to leave.","right":"nghĩa vụ hiện tại"}],"explanation":"Ghép nghĩa và ngữ cảnh của từng cụm đã học."},{"id":"e024","type":"matching","category":"meaning","difficulty":2,"prompt":"Ghép chunk với ví dụ.","pairs":[{"left":"have a good time","right":"We enjoyed the concert."},{"left":"have a drink","right":"I drank some water."},{"left":"have a rest","right":"I stopped working for ten minutes."},{"left":"have time","right":"I am free this afternoon."}],"explanation":"Ghép nghĩa và ngữ cảnh của từng cụm đã học."},{"id":"e025","type":"categorization","category":"application","difficulty":3,"prompt":"Phân loại các cụm hoặc câu vào nhóm đúng.","categories":["food","daily activity","event"],"items":[{"text":"breakfast","answer":"food"},{"text":"a shower","answer":"daily activity"},{"text":"a party","answer":"event"},{"text":"dinner","answer":"food"},{"text":"a rest","answer":"daily activity"}],"explanation":"Chú ý chủ ngữ, thời gian và ý nghĩa chính của have."},{"id":"e026","type":"categorization","category":"application","difficulty":3,"prompt":"Phân loại các cụm hoặc câu vào nhóm đúng.","categories":["present have","present has","past had"],"items":[{"text":"They have a cat.","answer":"present have"},{"text":"He has lunch.","answer":"present has"},{"text":"She had dinner.","answer":"past had"},{"text":"We have time.","answer":"present have"}],"explanation":"Chú ý chủ ngữ, thời gian và ý nghĩa chính của have."},{"id":"e027","type":"categorization","category":"application","difficulty":3,"prompt":"Phân loại các cụm hoặc câu vào nhóm đúng.","categories":["possession","activity","obligation"],"items":[{"text":"He has a bicycle.","answer":"possession"},{"text":"I have to leave.","answer":"obligation"},{"text":"We have breakfast.","answer":"activity"},{"text":"She has to study.","answer":"obligation"}],"explanation":"Chú ý chủ ngữ, thời gian và ý nghĩa chính của have."},{"id":"e028","type":"categorization","category":"application","difficulty":3,"prompt":"Phân loại các cụm hoặc câu vào nhóm đúng.","categories":["food","experience","daily activity"],"items":[{"text":"a drink","answer":"food"},{"text":"a good journey","answer":"experience"},{"text":"a good time","answer":"experience"},{"text":"a look","answer":"daily activity"}],"explanation":"Chú ý chủ ngữ, thời gian và ý nghĩa chính của have."},{"id":"e029","type":"categorization","category":"application","difficulty":3,"prompt":"Phân loại các cụm hoặc câu vào nhóm đúng.","categories":["affirmative","negative","question"],"items":[{"text":"She has a bike.","answer":"affirmative"},{"text":"They don't have time.","answer":"negative"},{"text":"Did you have dinner?","answer":"question"},{"text":"We had lunch.","answer":"affirmative"}],"explanation":"Chú ý chủ ngữ, thời gian và ý nghĩa chính của have."},{"id":"e030","type":"categorization","category":"application","difficulty":3,"prompt":"Phân loại các cụm hoặc câu vào nhóm đúng.","categories":["present","past","obligation"],"items":[{"text":"I have dinner at six.","answer":"present"},{"text":"I had dinner yesterday.","answer":"past"},{"text":"I have to cook tonight.","answer":"obligation"},{"text":"He had a rest last night.","answer":"past"}],"explanation":"Chú ý chủ ngữ, thời gian và ý nghĩa chính của have."},{"id":"e031","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp các từ thành câu hoàn chỉnh.","tokens":["at","breakfast","I","seven","have"],"answer":["I","have","breakfast","at","seven."],"explanation":"Câu đúng: I have breakfast at seven."},{"id":"e032","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp các từ thành câu hoàn chỉnh.","tokens":["school","at","lunch","has","She"],"answer":["She","has","lunch","at","school."],"explanation":"Câu đúng: She has lunch at school."},{"id":"e033","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp các từ thành câu hoàn chỉnh.","tokens":["have","together","Did","dinner","they"],"answer":["Did","they","have","dinner","together?"],"explanation":"Câu đúng: Did they have dinner together?"},{"id":"e034","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp các từ thành câu hoàn chỉnh.","tokens":["car","a","have","not","He","does"],"answer":["He","does","not","have","a","car."],"explanation":"Câu đúng: He does not have a car."},{"id":"e035","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp các từ thành câu hoàn chỉnh.","tokens":["time","yesterday","We","good","a","had"],"answer":["We","had","a","good","time","yesterday."],"explanation":"Câu đúng: We had a good time yesterday."},{"id":"e036","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp các từ thành câu hoàn chỉnh.","tokens":["study","to","She","tonight","has"],"answer":["She","has","to","study","tonight."],"explanation":"Câu đúng: She has to study tonight."},{"id":"e037","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp các từ thành câu hoàn chỉnh.","tokens":["look","have","Can","a","I"],"answer":["Can","I","have","a","look?"],"explanation":"Câu đúng: Can I have a look?"},{"id":"e038","type":"mini-reading","category":"context","difficulty":2,"prompt":"Khi nào Minh ăn sáng vào Chủ nhật?","passage":"Minh has breakfast at 7 every day. On Sundays, he has breakfast at 9 with his family.","options":["at 7","at 8","at 9","at 10"],"answer":"at 9","explanation":"Câu trả lời xuất hiện trực tiếp trong đoạn đọc."},{"id":"e039","type":"mini-reading","category":"context","difficulty":2,"prompt":"Lan làm gì sau bữa trưa?","passage":"Lan had a very busy day yesterday. After lunch, she had a rest for twenty minutes.","options":["had a rest","had a party","had a shower","had a look"],"answer":"had a rest","explanation":"Câu trả lời xuất hiện trực tiếp trong đoạn đọc."},{"id":"e040","type":"mini-reading","category":"context","difficulty":2,"prompt":"Người nói A muốn làm gì?","passage":"A: Can I have a look at your new phone? B: Of course. Here you are.","options":["mượn tiền","xem chiếc điện thoại","ăn trưa","đi du lịch"],"answer":"xem chiếc điện thoại","explanation":"Câu trả lời xuất hiện trực tiếp trong đoạn đọc."},{"id":"e041","type":"mini-reading","category":"context","difficulty":2,"prompt":"Bữa tiệc diễn ra ở đâu?","passage":"We have a party on Saturday. Our friends come to our house. We listen to music and have a good time.","options":["at school","at a restaurant","at their house","at the beach"],"answer":"at their house","explanation":"Câu trả lời xuất hiện trực tiếp trong đoạn đọc."},{"id":"e042","type":"mini-reading","category":"context","difficulty":2,"prompt":"Tại sao Kim phải đi sớm?","passage":"Yesterday Kim had to leave home early because she had an exam. She did not have time for breakfast.","options":["she had a party","she had an exam","she went shopping","she wanted a rest"],"answer":"she had an exam","explanation":"Câu trả lời xuất hiện trực tiếp trong đoạn đọc."},{"id":"e043","type":"mini-reading","category":"context","difficulty":2,"prompt":"Ben có bao nhiêu anh chị em?","passage":"Ben has got two sisters and one brother. They all have dinner together on Friday evenings.","options":["two","three","four","one"],"answer":"three","explanation":"Câu trả lời xuất hiện trực tiếp trong đoạn đọc."},{"id":"e044","type":"true-false","category":"grammar","difficulty":1,"prompt":"“She have lunch at home every day” là câu đúng.","answer":"false","explanation":"She cần has ở hiện tại."},{"id":"e045","type":"true-false","category":"grammar","difficulty":1,"prompt":"“We had a party last Saturday” dùng quá khứ đúng.","answer":"true","explanation":"Last Saturday kết hợp had."},{"id":"e046","type":"true-false","category":"grammar","difficulty":1,"prompt":"“Does he have a dictionary?” là câu hỏi đúng.","answer":"true","explanation":"Does + he + have."},{"id":"e047","type":"true-false","category":"grammar","difficulty":1,"prompt":"“They has a good time” là câu đúng ở hiện tại.","answer":"false","explanation":"They đi với have."},{"id":"e048","type":"true-false","category":"grammar","difficulty":1,"prompt":"“Have to” được theo sau bởi động từ nguyên mẫu.","answer":"true","explanation":"Have to + base verb."},{"id":"e049","type":"image-match","category":"vocabulary","difficulty":2,"prompt":"Ghép đúng 3 hình với cụm từ.","items":[{"image":"have-lunch.png","answer":"have lunch"},{"image":"have-dinner.png","answer":"have dinner"},{"image":"have-a-shower.png","answer":"have a shower"}],"options":["have a shower","have dinner","have lunch"],"explanation":"Nhìn hình, chọn cụm have đi kèm với hành động."},{"id":"e050","type":"image-match","category":"vocabulary","difficulty":2,"prompt":"Ghép đúng 3 hình với cụm từ.","items":[{"image":"have-a-party.png","answer":"have a party"},{"image":"have-a-rest.png","answer":"have a rest"},{"image":"have-a-look.png","answer":"have a look"}],"options":["have a look","have a rest","have a party"],"explanation":"Nhìn hình, chọn cụm have đi kèm với hành động."},{"id":"e051","type":"image-match","category":"vocabulary","difficulty":2,"prompt":"Ghép đúng 3 hình với cụm từ.","items":[{"image":"have-a-good-journey.png","answer":"have a good journey"},{"image":"have-breakfast.png","answer":"have breakfast"},{"image":"have-a-drink.png","answer":"have a drink"}],"options":["have a drink","have breakfast","have a good journey"],"explanation":"Nhìn hình, chọn cụm have đi kèm với hành động."},{"id":"e052","type":"image-match","category":"vocabulary","difficulty":2,"prompt":"Ghép đúng 3 hình với cụm từ.","items":[{"image":"have-a-good-time.png","answer":"have a good time"},{"image":"have-time.png","answer":"have time"},{"image":"have-dinner.png","answer":"have dinner"}],"options":["have dinner","have time","have a good time"],"explanation":"Nhìn hình, chọn cụm have đi kèm với hành động."},{"id":"e053","type":"image-match","category":"vocabulary","difficulty":2,"prompt":"Ghép đúng 4 hình với cụm từ.","items":[{"image":"have-a-shower.png","answer":"have a shower"},{"image":"have-a-rest.png","answer":"have a rest"},{"image":"have-a-drink.png","answer":"have a drink"},{"image":"have-lunch.png","answer":"have lunch"}],"options":["have lunch","have a drink","have a rest","have a shower"],"explanation":"Nhìn hình, chọn cụm have đi kèm với hành động."},{"id":"e054","type":"image-match","category":"vocabulary","difficulty":2,"prompt":"Ghép đúng 4 hình với cụm từ.","items":[{"image":"have-a-look.png","answer":"have a look"},{"image":"have-a-party.png","answer":"have a party"},{"image":"have-a-good-journey.png","answer":"have a good journey"},{"image":"have-breakfast.png","answer":"have breakfast"}],"options":["have breakfast","have a good journey","have a party","have a look"],"explanation":"Nhìn hình, chọn cụm have đi kèm với hành động."},{"id":"e055","type":"short-answer","category":"production","difficulty":2,"prompt":"Viết một câu khẳng định hiện tại dùng “has”.","rubric":["Chủ ngữ he / she / it.","Dùng has đúng.","Câu đầy đủ, tự nhiên."],"explanation":"Đây là câu trả lời mở; đối chiếu các tiêu chí để tự đánh giá."},{"id":"e056","type":"short-answer","category":"production","difficulty":2,"prompt":"Viết một câu hỏi bằng “Did ... have ...?”.","rubric":["Bắt đầu bằng Did.","Động từ chính là have.","Có dấu hỏi và ngữ cảnh."],"explanation":"Đây là câu trả lời mở; đối chiếu các tiêu chí để tự đánh giá."},{"id":"e057","type":"short-answer","category":"production","difficulty":2,"prompt":"Viết một câu phủ định dùng “doesn’t have”.","rubric":["Có doesn't have.","Không dùng doesn’t has.","Câu hoàn chỉnh."],"explanation":"Đây là câu trả lời mở; đối chiếu các tiêu chí để tự đánh giá."},{"id":"e058","type":"short-answer","category":"production","difficulty":2,"prompt":"Viết câu có “have a look at”.","rubric":["Có đủ have a look at.","Nêu rõ vật được xem.","Đúng ngữ pháp."],"explanation":"Đây là câu trả lời mở; đối chiếu các tiêu chí để tự đánh giá."},{"id":"e059","type":"short-answer","category":"production","difficulty":2,"prompt":"Kể một việc bạn “had to” làm hôm qua.","rubric":["Dùng had to + động từ nguyên mẫu.","Có ngữ cảnh quá khứ.","Câu rõ nghĩa."],"explanation":"Đây là câu trả lời mở; đối chiếu các tiêu chí để tự đánh giá."},{"id":"e060","type":"short-answer","category":"production","difficulty":2,"prompt":"Viết một lời chúc với “have a good journey”.","rubric":["Có cả cụm have a good journey.","Đúng ngữ cảnh đi xa.","Dấu câu phù hợp."],"explanation":"Đây là câu trả lời mở; đối chiếu các tiêu chí để tự đánh giá."},{"id":"e061","type":"production","category":"production","difficulty":3,"prompt":"Viết 3 câu kể về buổi sáng, dùng have breakfast, have a shower, have to.","rubric":["Ba câu đầy đủ.","Đúng 3 cụm yêu cầu.","Dùng đúng hiện tại hoặc quá khứ."],"explanation":"Viết đáp án riêng và dùng checklist tự đối chiếu."},{"id":"e062","type":"production","category":"production","difficulty":3,"prompt":"Viết một đoạn 4 câu về ngày cuối tuần trước, dùng had ít nhất hai lần.","rubric":["Có 4 câu liên kết.","Had xuất hiện đúng ít nhất 2 lần.","Có ngữ cảnh quá khứ."],"explanation":"Viết đáp án riêng và dùng checklist tự đối chiếu."},{"id":"e063","type":"production","category":"production","difficulty":3,"prompt":"Tạo hội thoại 4 lượt hỏi đáp về bữa ăn và thời gian rảnh.","rubric":["Có 4 lượt đối thoại.","Có câu hỏi Do/Does/Did + have.","Có câu trả lời phù hợp."],"explanation":"Viết đáp án riêng và dùng checklist tự đối chiếu."},{"id":"e064","type":"production","category":"production","difficulty":3,"prompt":"So sánh hôm nay và hôm qua bằng 4 câu có have / has / had.","rubric":["Có ngữ cảnh hôm nay và hôm qua.","Đúng dạng động từ.","Câu tự nhiên."],"explanation":"Viết đáp án riêng và dùng checklist tự đối chiếu."},{"id":"e065","type":"production","category":"production","difficulty":3,"prompt":"Viết đoạn tin nhắn 3–5 câu mời bạn đến bữa tiệc của bạn.","rubric":["Có have a party.","Nêu thời gian hoặc địa điểm.","Câu mời rõ ràng."],"explanation":"Viết đáp án riêng và dùng checklist tự đối chiếu."},{"id":"e066","type":"error-correction","category":"grammar","difficulty":3,"prompt":"Sửa lỗi: She have a new phone.","answer":["She has a new phone"],"explanation":"She + has ở hiện tại."},{"id":"e067","type":"error-correction","category":"grammar","difficulty":3,"prompt":"Sửa lỗi: Did they had a party yesterday?","answer":["Did they have a party yesterday"],"explanation":"Did + have."},{"id":"e068","type":"error-correction","category":"grammar","difficulty":3,"prompt":"Sửa lỗi: He don’t have time.","answer":["He doesn't have time","He does not have time"],"explanation":"He + doesn’t / does not have."},{"id":"e069","type":"error-correction","category":"grammar","difficulty":3,"prompt":"Sửa lỗi: We has dinner together every night.","answer":["We have dinner together every night"],"explanation":"We + have."},{"id":"e070","type":"error-correction","category":"grammar","difficulty":3,"prompt":"Sửa lỗi: She has to studying tonight.","answer":["She has to study tonight"],"explanation":"Have to + động từ nguyên mẫu."},{"id":"e071","type":"error-correction","category":"grammar","difficulty":3,"prompt":"Sửa lỗi: I have look at the map.","answer":["I have a look at the map"],"explanation":"Cụm từ đúng là have a look at."},{"id":"e072","type":"select-all","category":"grammar","difficulty":3,"prompt":"Chọn TẤT CẢ câu đúng ở hiện tại.","options":["I have time.","He has time.","They has time.","She have time."],"answer":["I have time.","He has time."],"explanation":"I + have; he + has."},{"id":"e073","type":"select-all","category":"grammar","difficulty":3,"prompt":"Chọn TẤT CẢ câu đúng trong quá khứ.","options":["We had dinner yesterday.","She had a party last night.","He has lunch last Sunday.","They have a rest yesterday."],"answer":["We had dinner yesterday.","She had a party last night."],"explanation":"Yesterday / last night dùng had."},{"id":"e074","type":"select-all","category":"grammar","difficulty":3,"prompt":"Chọn TẤT CẢ cụm có nghĩa về ăn uống.","options":["have breakfast","have dinner","have a drink","have a look","have a shower"],"answer":["have breakfast","have dinner","have a drink"],"explanation":"Các cụm breakfast, dinner và a drink liên quan ăn uống."},{"id":"e075","type":"select-all","category":"grammar","difficulty":3,"prompt":"Chọn TẤT CẢ câu có cấu trúc nghĩa vụ đúng.","options":["We have to go now.","She has to study.","He has to studies.","They have to leaving."],"answer":["We have to go now.","She has to study."],"explanation":"Have to / has to + động từ nguyên mẫu."},{"id":"e076","type":"select-all","category":"grammar","difficulty":3,"prompt":"Chọn TẤT CẢ câu hỏi đúng.","options":["Do they have time?","Does she have a phone?","Did you had breakfast?","Does he has to work?"],"answer":["Do they have time?","Does she have a phone?"],"explanation":"Sau do / does / did dùng have."},{"id":"e077","type":"multi-fill","category":"recall","difficulty":3,"prompt":"Điền vào 4 câu về sở hữu.","items":[{"text":"I ___ a new laptop.","answer":"have"},{"text":"My friend ___ a camera.","answer":"has"},{"text":"We ___ two cats.","answer":"have"},{"text":"My parents ___ a small garden.","answer":"have"}],"explanation":"Chọn have / has theo chủ ngữ."},{"id":"e078","type":"multi-fill","category":"recall","difficulty":3,"prompt":"Điền về một ngày hôm qua.","items":[{"text":"Yesterday I ___ breakfast at 8.","answer":"had"},{"text":"My sister ___ lunch with me.","answer":"had"},{"text":"We ___ a good time.","answer":"had"},{"text":"We didn’t ___ a party.","answer":"have"}],"explanation":"Quá khứ là had; sau didn’t là have."},{"id":"e079","type":"multi-fill","category":"recall","difficulty":3,"prompt":"Điền have to / has to / had to.","items":[{"text":"I ___ wake up early today.","answer":"have to"},{"text":"He ___ finish his work now.","answer":"has to"},{"text":"Yesterday we ___ wait outside.","answer":"had to"},{"text":"They ___ leave before seven.","answer":"have to"}],"explanation":"Các cấu trúc nghĩa vụ theo thời và chủ ngữ."},{"id":"e080","type":"multi-fill","category":"recall","difficulty":3,"prompt":"Điền từ đúng vào đoạn hội thoại.","items":[{"text":"A: Do you ___ time tomorrow?","answer":"have"},{"text":"B: I ___ to work in the morning.","answer":"have"},{"text":"A: Did you ___ lunch?","answer":"have"},{"text":"B: Yes, I ___ lunch at home.","answer":"had"}],"explanation":"Sau do/did là have; ở quá khứ khẳng định dùng had."},{"id":"e081","type":"multi-fill","category":"recall","difficulty":3,"prompt":"Điền đúng dạng trong các hoạt động hằng ngày.","items":[{"text":"She ___ a shower at 7.","answer":"has"},{"text":"They ___ breakfast together.","answer":"have"},{"text":"He ___ a rest yesterday.","answer":"had"},{"text":"Did you ___ a look at the file?","answer":"have"}],"explanation":"Chú ý hiện tại / quá khứ / trợ động từ."}]);
+
     const testQuestions = [
       { id: 't01', type: 'multiple-choice', category: 'grammar', difficulty: 1, prompt: 'She ______ lunch at school.', options: ['have', 'has', 'had', 'have to'], answer: 'has', explanation: 'She là ngôi thứ ba số ít ở hiện tại.' },
       { id: 't02', type: 'fill-blank', category: 'grammar', difficulty: 2, prompt: 'We ______ dinner together yesterday.', answer: 'had', explanation: 'Yesterday đặt hành động ở quá khứ.' },
@@ -969,6 +1039,8 @@
       { id: 't19', type: 'multi-fill', category: 'context', difficulty: 3, prompt: 'Hoàn thành 3 câu.', items: [{ text: 'Tom ___ lunch at school every day.', answer: 'has' }, { text: 'Yesterday he ___ lunch at home.', answer: 'had' }, { text: 'He didn’t ___ much time before class.', answer: 'have' }], explanation: 'Has ở hiện tại với Tom; had ở quá khứ; sau didn’t dùng have.' },
       { id: 't20', type: 'multiple-choice', category: 'context', difficulty: 3, passage: 'A: Why are you studying tonight? B: I have an exam tomorrow.', prompt: 'Câu nào diễn đạt hợp lý nhất?', options: ['I have to study tonight.', 'I have got study tonight.', 'I had to study tomorrow.', 'I have a study tonight.'], answer: 'I have to study tonight.', explanation: 'Have to + base verb diễn tả việc cần/phải làm.' }
     ];
+
+    testQuestions.push(...[{"id":"t21","type":"word-bank","category":"recall","difficulty":2,"prompt":"My cousins ______ breakfast at eight.","bank":["has","had","have","have to"],"answer":"have","explanation":"My cousins = they, chọn have."},{"id":"t22","type":"categorization","category":"meaning","difficulty":2,"prompt":"Phân loại theo cách dùng.","categories":["possession","activity","obligation"],"items":[{"text":"I have a phone.","answer":"possession"},{"text":"I have dinner.","answer":"activity"},{"text":"I have to work.","answer":"obligation"}],"explanation":"Sở hữu, hoạt động, nghĩa vụ."},{"id":"t23","type":"sentence-order","category":"application","difficulty":2,"prompt":"Sắp xếp câu hỏi.","tokens":["she","Does","breakfast","have"],"answer":["Does","she","have","breakfast?"],"explanation":"Sau does dùng have."},{"id":"t24","type":"image-choice","category":"vocabulary","difficulty":1,"prompt":"Chọn cụm đúng cho hình.","image":"have-a-rest.png","options":["have a rest","have lunch","have a party","have a look"],"answer":"have a rest","explanation":"Đây là hoạt động nghỉ ngơi."},{"id":"t25","type":"true-false","category":"grammar","difficulty":2,"prompt":"“They had a good time yesterday” là một câu đúng.","answer":"true","explanation":"Had là dạng quá khứ phù hợp."},{"id":"t26","type":"fill-blank","category":"grammar","difficulty":2,"prompt":"Does he ______ a brother?","answer":"have","explanation":"Sau does dùng have."},{"id":"t27","type":"multiple-choice","category":"meaning","difficulty":2,"prompt":"“Have a look at this picture” nghĩa là gì?","options":["Xem bức tranh này","Nghỉ ngơi","Ăn sáng","Đi du lịch"],"answer":"Xem bức tranh này","explanation":"Have a look at = nhìn / xem thử."},{"id":"t28","type":"matching","category":"meaning","difficulty":2,"prompt":"Ghép các cụm và ý nghĩa.","pairs":[{"left":"have lunch","right":"ăn trưa"},{"left":"have time","right":"có thời gian"},{"left":"have a shower","right":"tắm vòi sen"}],"explanation":"Nghĩa của các collocation trong bài."},{"id":"t29","type":"select-all","category":"grammar","difficulty":3,"prompt":"Chọn TẤT CẢ câu đúng.","options":["She has a car.","They have a car.","Does he has a car?","We had dinner yesterday."],"answer":["She has a car.","They have a car.","We had dinner yesterday."],"explanation":"Sau does dùng have, các câu khác đúng."},{"id":"t30","type":"multi-fill","category":"context","difficulty":3,"prompt":"Điền đúng dạng.","items":[{"text":"Today they ___ time.","answer":"have"},{"text":"Yesterday he ___ a rest.","answer":"had"},{"text":"She ___ to work now.","answer":"has"}],"explanation":"Have, had, has phù hợp lần lượt với chủ ngữ và ngữ cảnh."}]);
 
     const crosswordEntries = [
       { number: 1, answer: 'BREAKFAST', clue: 'The first meal of the day.', row: 0, col: 1, dir: 'across' },
@@ -1009,6 +1081,9 @@
     let vocabQuery = '';
     let practiceCategoryFilter = 'all';
     let practiceLevelFilter = 'all';
+    let practiceTypeFilter = 'all';
+    let practicePage = 1;
+    const QUESTIONS_PER_PAGE = 12;
 
     function loadProgress() {
       const base = defaultState();
@@ -1108,7 +1183,7 @@
       const last = document.getElementById('last-study');
       if (last) last.textContent = formatDate(state.lastStudy);
       const best = document.getElementById('header-score');
-      if (best) best.textContent = state.bestScore == null ? 'Best —' : 'Best ' + state.bestScore + '%';
+      if (best) best.textContent = state.bestScore == null ? 'Cao nhất —' : 'Cao nhất ' + state.bestScore + '%';
       const known = Object.keys(state.vocabKnown).filter(function(id) { return state.vocabKnown[id]; }).length;
       const practiceSubmitted = Object.keys(state.practiceAnswers).filter(function(id) { return state.practiceAnswers[id] && state.practiceAnswers[id].submitted; }).length;
       const reviewCount = getMistakes().length;
@@ -1150,7 +1225,7 @@
       root.innerHTML = phraseGroups.map(function(group) {
         const cards = group.ids.map(function(id) {
           const item = vocab.find(function(entry) { return entry.id === id; });
-          return '<article class="phrase-card"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '" loading="lazy" width="512" height="512"><div class="phrase-card-body"><h4>' + escapeHtml(item.word) + '</h4><p>' + escapeHtml(item.meaning) + '</p></div></article>';
+          return '<article class="phrase-card"><img src="' + illustrationUrl(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '" loading="lazy" width="512" height="512"><div class="phrase-card-body"><h4>' + escapeHtml(item.word) + '</h4><p>' + escapeHtml(item.meaning) + '</p></div></article>';
         }).join('');
         return '<div class="collocation-group"><div class="group-title"><span class="pill teal">' + escapeHtml(group.tag) + '</span><h3>' + escapeHtml(group.title) + '</h3></div><div class="phrase-grid">' + cards + '</div></div>';
       }).join('');
@@ -1167,7 +1242,7 @@
       root.innerHTML = filtered.length ? filtered.map(function(item) {
         const known = !!state.vocabKnown[item.id];
         const review = !!state.vocabReview[item.id];
-        return '<article class="vocab-card"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '" loading="lazy" width="512" height="512"><div class="vocab-body"><div class="vocab-word-row"><div><div class="vocab-kind">' + escapeHtml(item.kind) + '</div><div class="vocab-word">' + escapeHtml(item.word) + '</div></div><span class="pill ' + (review ? 'coral' : known ? 'teal' : 'blue') + '">' + (review ? 'Review' : known ? 'Known' : 'New') + '</span></div><div class="meaning">' + escapeHtml(item.meaning) + '</div><div class="definition">' + escapeHtml(item.definition) + '</div><div class="example"><strong>Example:</strong> “' + escapeHtml(item.example) + '”</div><div class="vocab-detail"><strong>Chunk:</strong> ' + escapeHtml(item.chunk) + '</div><div class="vocab-detail"><strong>Common mistake:</strong> ' + escapeHtml(item.mistake) + '</div><div class="vocab-footer"><button type="button" class="btn know-button ' + (known ? 'known' : '') + '" data-vocab-toggle="' + escapeHtml(item.id) + '">' + (known ? '✓ Đã nhớ — đánh dấu lại' : 'Đánh dấu “Đã nhớ”') + '</button></div></div></article>';
+        return '<article class="vocab-card"><img src="' + illustrationUrl(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '" loading="lazy" width="512" height="512"><div class="vocab-body"><div class="vocab-word-row"><div><div class="vocab-kind">' + escapeHtml(item.kind) + '</div><div class="vocab-word">' + escapeHtml(item.word) + '</div></div><span class="pill ' + (review ? 'coral' : known ? 'teal' : 'blue') + '">' + (review ? 'Review' : known ? 'Known' : 'New') + '</span></div><div class="meaning">' + escapeHtml(item.meaning) + '</div><div class="definition">' + escapeHtml(item.definition) + '</div><div class="example"><strong>Example:</strong> “' + escapeHtml(item.example) + '”</div><div class="vocab-detail"><strong>Cụm từ:</strong> ' + escapeHtml(item.chunk) + '</div><div class="vocab-detail"><strong>Common mistake:</strong> ' + escapeHtml(item.mistake) + '</div><div class="vocab-footer"><button type="button" class="btn know-button ' + (known ? 'known' : '') + '" data-vocab-toggle="' + escapeHtml(item.id) + '">' + (known ? '✓ Đã nhớ — đánh dấu lại' : 'Đánh dấu “Đã nhớ”') + '</button></div></div></article>';
       }).join('') : '<div class="empty-state">Không tìm thấy card phù hợp. Thử một từ khác hoặc chọn All.</div>';
       const knownCount = Object.keys(state.vocabKnown).filter(function(id) { return state.vocabKnown[id]; }).length;
       document.getElementById('vocab-count').textContent = knownCount + '/' + vocab.length + ' known';
@@ -1189,8 +1264,8 @@
       state.flashSeen[item.id] = true;
       card.setAttribute('aria-label', flipped ? 'Mặt sau flashcard, bấm để lật lại' : 'Mặt trước flashcard, bấm để lật');
       card.innerHTML = flipped
-        ? '<div class="flashcard-top"><span class="pill blue">Back · ' + (state.flashIndex + 1) + '/' + vocab.length + '</span><span class="pill ' + (state.flashKnown[item.id] ? 'teal' : 'amber') + '">' + (state.flashKnown[item.id] ? 'Known' : 'Review') + '</span></div><img class="flashcard-image" src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '"><div class="flashcard-back"><h3>' + escapeHtml(item.meaning) + '</h3><p><strong>Example:</strong> “' + escapeHtml(item.example) + '”</p><p class="muted small-text"><strong>Chunk:</strong> ' + escapeHtml(item.chunk) + '</p></div><div class="flashcard-hint">Bấm để xem mặt trước</div>'
-        : '<div class="flashcard-top"><span class="pill blue">Front · ' + (state.flashIndex + 1) + '/' + vocab.length + '</span><span class="pill">' + escapeHtml(item.kind) + '</span></div><div><div class="flashcard-word">' + escapeHtml(item.word) + '</div><img class="flashcard-image" src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '"></div><div class="flashcard-hint">Tự nhớ nghĩa và cách dùng, rồi bấm để flip</div>';
+        ? '<div class="flashcard-top"><span class="pill blue">Back · ' + (state.flashIndex + 1) + '/' + vocab.length + '</span><span class="pill ' + (state.flashKnown[item.id] ? 'teal' : 'amber') + '">' + (state.flashKnown[item.id] ? 'Known' : 'Review') + '</span></div><img class="flashcard-image" src="' + illustrationUrl(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '"><div class="flashcard-back"><h3>' + escapeHtml(item.meaning) + '</h3><p><strong>Example:</strong> “' + escapeHtml(item.example) + '”</p><p class="muted small-text"><strong>Chunk:</strong> ' + escapeHtml(item.chunk) + '</p></div><div class="flashcard-hint">Bấm để xem mặt trước</div>'
+        : '<div class="flashcard-top"><span class="pill blue">Front · ' + (state.flashIndex + 1) + '/' + vocab.length + '</span><span class="pill">' + escapeHtml(item.kind) + '</span></div><div><div class="flashcard-word">' + escapeHtml(item.word) + '</div><img class="flashcard-image" src="' + illustrationUrl(item.image) + '" alt="Minh họa cho ' + escapeHtml(item.word) + '"></div><div class="flashcard-hint">Tự nhớ nghĩa và cách dùng, rồi bấm để flip</div>';
       flashStats();
     }
 
@@ -1226,7 +1301,7 @@
     }
 
     function feedbackHtml(question, response, correct) {
-      return '<strong>' + (correct ? '✓ Correct' : '✗ Incorrect') + '</strong><p><span class="feedback-label">Your answer:</span> ' + escapeHtml(response || 'No answer') + '</p><p><span class="feedback-label">Correct answer:</span> ' + escapeHtml(formatCorrectAnswer(question)) + '</p><p><span class="feedback-label">Explanation:</span> ' + escapeHtml(question.explanation || '') + '</p>';
+      return '<strong>' + (correct ? '✓ Chính xác' : '✗ Chưa đúng') + '</strong><p><span class="feedback-label">Anh đã chọn:</span> ' + escapeHtml(response || 'Chưa trả lời') + '</p><p><span class="feedback-label">Đáp án:</span> ' + escapeHtml(formatCorrectAnswer(question)) + '</p><p><span class="feedback-label">Giải thích:</span> ' + escapeHtml(question.explanation || '') + '</p>';
     }
 
     function formatCorrectAnswer(question) {
@@ -1249,7 +1324,7 @@
         var passageHtml = '';
       }
       if (question.type === 'image-choice') {
-        const image = '<div class="card" style="padding:.55rem;margin-bottom:.7rem;max-width:260px"><img src="' + IMAGE_ROOT + escapeHtml(question.image) + '" alt="Minh họa cho câu hỏi" width="512" height="512"></div>';
+        const image = '<div class="card" style="padding:.55rem;margin-bottom:.7rem;max-width:260px"><img src="' + illustrationUrl(question.image) + '" alt="Minh họa cho câu hỏi" width="512" height="512"></div>';
         return passageHtml + image + '<div class="option-list">' + question.options.map(function(option) {
           return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';
         }).join('') + '</div>';
@@ -1278,7 +1353,7 @@
         return passageHtml + '<div class="word-bank">' + question.bank.map(function(word) { return '<span class="word-chip">' + escapeHtml(word) + '</span>'; }).join('') + '</div><label class="field-label" for="' + suffix + '-select">Choose from the bank</label><select class="answer-select" id="' + suffix + '-select" data-answer-select="' + question.id + '"><option value="">Choose...</option>' + question.bank.map(function(word) { return '<option value="' + escapeHtml(word) + '">' + escapeHtml(word) + '</option>'; }).join('') + '</select>';
       }
       if (question.type === 'matching') {
-        const rights = question.pairs.map(function(pair) { return pair.right; });
+        const rights = question.pairs.map(function(pair) { return pair.right; }).reverse();
         return passageHtml + '<div class="matching-list">' + question.pairs.map(function(pair, index) {
           return '<label class="matching-row"><span>' + escapeHtml(pair.left) + '</span><select class="answer-select" data-match-left="' + escapeHtml(pair.left) + '" data-match-q="' + question.id + '"><option value="">Choose...</option>' + rights.map(function(right) { return '<option value="' + escapeHtml(right) + '">' + escapeHtml(right) + '</option>'; }).join('') + '</select></label>';
         }).join('') + '</div>';
@@ -1295,7 +1370,7 @@
       }
       if (question.type === 'image-match') {
         return passageHtml + '<div class="image-match-grid">' + question.items.map(function(item) {
-          return '<div class="image-match-item"><img src="' + IMAGE_ROOT + escapeHtml(item.image) + '" alt="Minh họa cần ghép" width="512" height="512"><label class="field-label" for="' + suffix + '-' + item.image + '">Choose chunk</label><select class="answer-select" id="' + suffix + '-' + item.image + '" data-image-match="' + escapeHtml(item.image) + '" data-image-match-q="' + question.id + '"><option value="">Choose...</option>' + question.options.map(function(option) { return '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>'; }).join('') + '</select></div>';
+          return '<div class="image-match-item"><img src="' + illustrationUrl(item.image) + '" alt="Minh họa cần ghép" width="512" height="512"><label class="field-label" for="' + suffix + '-' + item.image + '">Choose chunk</label><select class="answer-select" id="' + suffix + '-' + item.image + '" data-image-match="' + escapeHtml(item.image) + '" data-image-match-q="' + question.id + '"><option value="">Choose...</option>' + question.options.map(function(option) { return '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>'; }).join('') + '</select></div>';
         }).join('') + '</div>';
       }
       if (question.type === 'short-answer' || question.type === 'production') {
@@ -1305,24 +1380,49 @@
       return passageHtml;
     }
 
+    function setupPracticeTypeFilter() {
+      const select = document.getElementById('practice-type-filter');
+      const counts = {};
+      practiceQuestions.forEach(function(q) { counts[q.type] = (counts[q.type] || 0) + 1; });
+      select.innerHTML = '<option value="all">Tất cả dạng bài (' + practiceQuestions.length + ')</option>' +
+        Object.keys(counts).map(function(type) {
+          return '<option value="' + escapeHtml(type) + '">' + escapeHtml(questionTypeLabel(type)) + ' (' + counts[type] + ')</option>';
+        }).join('');
+    }
+
+    function renderPracticePagination(totalPages, totalQuestions) {
+      const html = totalPages <= 1 ? '' :
+        '<span class="page-count">Trang ' + practicePage + '/' + totalPages + ' · ' + totalQuestions + ' câu</span>' +
+        '<button type="button" class="btn small" data-practice-page="prev" ' + (practicePage <= 1 ? 'disabled' : '') + '>← Trước</button>' +
+        '<button type="button" class="btn small" data-practice-page="next" ' + (practicePage >= totalPages ? 'disabled' : '') + '>Sau →</button>';
+      document.getElementById('practice-pagination-top').innerHTML = html;
+      document.getElementById('practice-pagination-bottom').innerHTML = html;
+    }
+
     function getVisiblePracticeQuestions() {
       if (state.retryIds && state.retryIds.length) return state.retryIds.map(getQuestionById).filter(Boolean);
       return practiceQuestions.filter(function(question) {
         const categoryOk = practiceCategoryFilter === 'all' || question.category === practiceCategoryFilter;
+        const typeOk = practiceTypeFilter === 'all' || question.type === practiceTypeFilter;
         const levelOk = practiceLevelFilter === 'all' || String(question.difficulty) === practiceLevelFilter;
-        return categoryOk && levelOk;
+        return categoryOk && levelOk && typeOk;
       });
     }
 
     function renderPractice() {
       const root = document.getElementById('practice-list');
-      const questions = getVisiblePracticeQuestions();
+      const allFiltered = getVisiblePracticeQuestions();
+      const retry = !!(state.retryIds && state.retryIds.length);
+      const totalPages = retry ? 1 : Math.max(1, Math.ceil(allFiltered.length / QUESTIONS_PER_PAGE));
+      practicePage = Math.max(1, Math.min(practicePage, totalPages));
+      const questions = retry ? allFiltered : allFiltered.slice((practicePage - 1) * QUESTIONS_PER_PAGE, practicePage * QUESTIONS_PER_PAGE);
+      renderPracticePagination(totalPages, allFiltered.length);
       document.getElementById('retry-banner').hidden = !(state.retryIds && state.retryIds.length);
       if (state.retryIds && state.retryIds.length) {
         document.getElementById('retry-banner').innerHTML = '<strong>Retry incorrect mode:</strong> đang hiển thị ' + questions.length + ' câu cần ôn. <button class="btn small" type="button" data-retry-all>Quay lại toàn bộ practice</button>';
       }
       const filterCount = document.getElementById('practice-filter-count');
-      if (filterCount) filterCount.textContent = questions.length + '/' + practiceQuestions.length + ' câu đang hiển thị';
+      if (filterCount) filterCount.textContent = allFiltered.length + '/' + practiceQuestions.length + ' câu phù hợp';
       if (!questions.length) {
         root.innerHTML = '<div class="empty-state"><h2>Không có câu phù hợp bộ lọc</h2><p>Đổi nhóm kỹ năng hoặc mức độ để tiếp tục luyện.</p></div>';
         updatePracticeSummary();
@@ -1335,7 +1435,7 @@
         const statusClass = saved && saved.submitted ? (saved.correct === null ? 'pending' : saved.correct ? 'correct' : 'incorrect') : '';
         const inputHtml = renderQuestionInput(question, 'practice');
         const isProduction = question.type === 'short-answer' || question.type === 'production';
-        return '<article class="question-card ' + statusClass + '" data-question-card="' + question.id + '"><div class="question-header"><span class="question-number">Practice ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + inputHtml + '<div class="question-actions"><button type="button" class="btn ' + (isProduction ? 'secondary' : 'primary') + '" data-check-practice="' + question.id + '">' + (isProduction ? 'Lưu để tự kiểm tra' : 'Kiểm tra đáp án') + '</button><button type="button" class="btn small" data-clear-question="' + question.id + '">Xóa</button></div><div class="feedback ' + (saved && saved.submitted ? 'show ' + (saved.correct === null ? 'neutral' : saved.correct ? 'correct' : 'incorrect') : '') + '" data-practice-feedback="' + question.id + '">' + (saved && saved.submitted ? (isProduction ? '<strong>✓ Đã lưu</strong><p>Dùng rubric để tự kiểm tra và ôn lại ở lần sau.</p>' : feedbackHtml(question, saved.displayResponse || saved.response, saved.correct)) : '') + '</div></article>';
+        return '<article class="question-card ' + statusClass + '" data-question-card="' + question.id + '"><div class="question-header"><span class="question-number">Practice ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + inputHtml + '<div class="question-actions"><button type="button" class="btn ' + (isProduction ? 'secondary' : 'primary') + '" data-check-practice="' + question.id + '">' + (isProduction ? 'Lưu để tự kiểm tra' : 'Kiểm tra đáp án') + '</button><button type="button" class="btn small" data-clear-question="' + question.id + '">Xóa</button></div><div class="feedback ' + (saved && saved.submitted ? 'show ' + (saved.correct === null ? 'neutral' : saved.correct ? 'correct' : 'incorrect') : '') + '" data-practice-feedback="' + question.id + '">' + (saved && saved.submitted ? (isProduction ? '<strong>✓ Đã lưu.</strong>' : feedbackHtml(question, saved.displayResponse || saved.response, saved.correct)) : '') + '</div></article>';
       }).join('');
       questions.forEach(function(question) {
         const saved = state.practiceAnswers[question.id];
@@ -1506,9 +1606,9 @@
       const records = ids.map(function(id) { return state.practiceAnswers[id]; }).filter(function(item) { return item && item.submitted; });
       const correct = records.filter(function(item) { return item.correct === true; }).length;
       const wrong = records.filter(function(item) { return item.correct === false; }).length;
-      document.getElementById('practice-summary-text').textContent = records.length + '/' + ids.length + ' answered';
-      document.getElementById('practice-correct-pill').textContent = correct + ' correct';
-      document.getElementById('practice-wrong-pill').textContent = wrong + ' to review';
+      document.getElementById('practice-summary-text').textContent = records.length + '/' + ids.length + ' đã làm';
+      document.getElementById('practice-correct-pill').textContent = correct + ' đúng';
+      document.getElementById('practice-wrong-pill').textContent = wrong + ' cần ôn';
       updateProgress();
     }
 
@@ -1521,7 +1621,7 @@
       const result = evaluateQuestion(question, response);
       if (!result.answered) {
         feedback.className = 'feedback show neutral';
-        feedback.innerHTML = '<strong>Choose or write an answer first.</strong><p>Try retrieving the chunk before checking.</p>';
+        feedback.innerHTML = '<strong>Hãy trả lời trước khi kiểm tra.</strong>';
         return;
       }
       const isProduction = question.type === 'short-answer' || question.type === 'production';
@@ -1531,7 +1631,7 @@
       root.classList.remove('correct', 'incorrect', 'pending');
       root.classList.add(isProduction ? 'pending' : (result.correct ? 'correct' : 'incorrect'));
       feedback.className = 'feedback show ' + (isProduction ? 'neutral' : result.correct ? 'correct' : 'incorrect');
-      feedback.innerHTML = isProduction ? '<strong>✓ Saved for self-check</strong><p>Use the rubric, then keep the answer for a later spaced review.</p>' : feedbackHtml(question, displayResponse(question, response), result.correct);
+      feedback.innerHTML = isProduction ? '<strong>✓ Đã lưu câu trả lời.</strong>' : feedbackHtml(question, displayResponse(question, response), result.correct);
       updatePracticeSummary();
       renderMistakes();
     }
@@ -1571,7 +1671,7 @@
       root.innerHTML = testQuestions.map(function(question, index) {
         const result = state.testResults.find(function(item) { return item.id === question.id; });
         const feedback = state.testSubmitted && result ? '<div class="feedback show ' + (result.correct ? 'correct' : 'incorrect') + '">' + feedbackHtml(question, result.displayResponse, result.correct) + '</div>' : '<div class="feedback" data-test-feedback="' + question.id + '"></div>';
-        return '<article class="question-card ' + (result ? result.correct ? 'correct' : 'incorrect' : '') + '" data-test-card="' + question.id + '"><div class="question-header"><span class="question-number">Test ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + renderQuestionInput(question, 'test') + feedback + '</article>';
+        return '<article class="question-card ' + (result ? result.correct ? 'correct' : 'incorrect' : '') + '" data-test-card="' + question.id + '"><div class="question-header"><span class="question-number">Test ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + renderQuestionInput(question, 'test') + feedback + '</article>';
       }).join('');
       testQuestions.forEach(function(question) {
         const saved = state.testAnswers[question.id];
@@ -1647,7 +1747,7 @@
       root.innerHTML = '<div class="mistake-list">' + mistakes.map(function(item, index) {
         const question = getQuestionById(item.id);
         if (!question) return '';
-        return '<article class="mistake-card"><div class="question-header"><span class="pill coral">' + (item.scope === 'test' ? 'Test mistake' : 'Practice mistake') + '</span><span class="muted small-text">Mistake ' + (index + 1) + '</span></div><h3>' + escapeHtml(question.prompt) + '</h3><div class="answer-pair"><span>Your answer</span><strong>' + escapeHtml(item.displayResponse || 'No answer') + '</strong><span>Correct answer</span><strong>' + escapeHtml(formatCorrectAnswer(question)) + '</strong></div><p><strong>Explanation:</strong> ' + escapeHtml(question.explanation || '') + '</p><button type="button" class="btn small primary" data-practice-again="' + question.id + '">Practice again</button></article>';
+        return '<article class="mistake-card"><div class="question-header"><span class="pill coral">' + (item.scope === 'test' ? 'Test mistake' : 'Practice mistake') + '</span><span class="muted small-text">Mistake ' + (index + 1) + '</span></div><h3>' + escapeHtml(question.prompt) + '</h3><div class="answer-pair"><span>Your answer</span><strong>' + escapeHtml(item.displayResponse || 'Chưa trả lời') + '</strong><span>Correct answer</span><strong>' + escapeHtml(formatCorrectAnswer(question)) + '</strong></div><p><strong>Giải thích:</strong> ' + escapeHtml(question.explanation || '') + '</p><button type="button" class="btn small primary" data-practice-again="' + question.id + '">Practice again</button></article>';
       }).join('') + '</div>';
       updateProgress();
     }
@@ -1759,6 +1859,13 @@
     }
 
     document.addEventListener('click', function(event) {
+      const pageButton = event.target.closest('[data-practice-page]');
+      if (pageButton) {
+        practicePage += pageButton.dataset.practicePage === 'next' ? 1 : -1;
+        renderPractice();
+        document.getElementById('practice-list').scrollIntoView({behavior:'smooth',block:'start'});
+        return;
+      }
       const viewButton = event.target.closest('[data-view]');
       if (viewButton) { navigate(viewButton.dataset.view); return; }
       const filterButton = event.target.closest('[data-vocab-filter]');
@@ -1861,6 +1968,9 @@
         state.retryIds = null;
         practiceCategoryFilter = 'all';
         practiceLevelFilter = 'all';
+        practiceTypeFilter = 'all';
+        practicePage = 1;
+        document.getElementById('practice-type-filter').value = 'all';
         const categoryFilter = document.getElementById('practice-category-filter');
         const levelFilter = document.getElementById('practice-level-filter');
         if (categoryFilter) categoryFilter.value = 'all';
@@ -1890,12 +2000,20 @@
     });
 
     document.addEventListener('change', function(event) {
+      if (event.target.id === 'practice-type-filter') {
+        practiceTypeFilter = event.target.value;
+        practicePage = 1;
+        state.retryIds = null;
+        renderPractice();
+      }
       if (event.target.id === 'practice-category-filter') {
+        practicePage = 1;
         practiceCategoryFilter = event.target.value;
         state.retryIds = null;
         renderPractice();
       }
       if (event.target.id === 'practice-level-filter') {
+        practicePage = 1;
         practiceLevelFilter = event.target.value;
         state.retryIds = null;
         renderPractice();
@@ -1908,6 +2026,7 @@
 
     document.getElementById('test-form').addEventListener('submit', submitTest);
 
+    setupPracticeTypeFilter();
     renderPhraseGroups();
     renderQuickChecks();
     renderVocabulary();
