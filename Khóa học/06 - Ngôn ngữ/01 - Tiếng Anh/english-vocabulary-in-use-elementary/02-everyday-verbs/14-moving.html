@@ -592,6 +592,10 @@
     @media (max-width: 980px) { .grid-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 420px) { .grid-5, .grid-2x { grid-template-columns: 1fr; } }
     @media (max-width: 720px) { .app-header { position: static; } }
+    .header-actions { display: flex; justify-content: flex-end; margin-top: .6rem; }
+    .header-reset { border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: .38rem .85rem; color: #fff; background: rgba(255,255,255,.12); font-weight: 800; font-size: .8rem; cursor: pointer; }
+    .header-reset:hover { background: rgba(255,255,255,.26); }
+    .header-reset:focus-visible { outline: 3px solid rgba(255,255,255,.6); outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -612,6 +616,7 @@
         <div class="progress-label"><span>Lesson progress</span><strong id="progress-text">0%</strong></div>
         <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar"><span></span></div>
         <div class="progress-label" style="margin-top:.45rem;margin-bottom:0"><span id="last-study">Chưa có lần học gần đây</span><span id="header-score">Best —</span></div>
+        <div class="header-actions"><button type="button" class="header-reset" data-reset-all title="Xóa toàn bộ tiến độ, câu trả lời, điểm và bài viết của bài này">↺ Làm lại từ đầu</button></div>
       </div>
     </div>
   </header>
@@ -657,7 +662,7 @@
         <h3>Evidence-informed loop</h3>
         <p>Học theo chunk/collocation, tự nhớ lại (không nhìn), đọc/nghe trong truyện, rồi ôn đúng cụm đó sau 1 → 3 → 7 → 14 → 30 ngày.</p>
         <button type="button" class="btn small ghost" data-view="review" style="margin-bottom:.5rem">Ôn hôm nay →</button>
-        <button type="button" class="btn danger small" data-reset-progress>Reset progress</button>
+        <button type="button" class="btn danger small" data-reset-progress>↺ Làm lại từ đầu</button>
       </div>
     </aside>
 
@@ -3149,6 +3154,31 @@
     renderMistakes();
     renderResults();
     updateProgress();
+  </script>
+
+  <script>
+    // Start the whole lesson over: wipe everything this lesson saved, then reload so every
+    // input, timer and voice is back to its first-visit state. The sidebar button uses it too.
+    (function() {
+      function resetAll() {
+        if (!window.confirm('Làm lại từ đầu toàn bộ bài này?\n\nMọi tiến độ, câu trả lời, điểm test, flashcard, lịch ôn, sổ từ vựng và bài viết của bạn trong bài này sẽ bị xóa.')) return;
+        try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (error) {}
+        try {
+          Object.keys(localStorage).forEach(function(key) {
+            if (key === STORAGE_KEY || key.indexOf(LESSON_ID) === 0) localStorage.removeItem(key);
+          });
+        } catch (error) {}
+        try { history.scrollRestoration = 'manual'; } catch (error) {}
+        window.scrollTo(0, 0);
+        window.location.reload();
+      }
+      window.addEventListener('click', function(event) {
+        if (!event.target.closest('[data-reset-all], [data-reset-progress]')) return;
+        event.preventDefault();
+        event.stopPropagation();
+        resetAll();
+      }, true);
+    })();
   </script>
 </body>
 </html>
