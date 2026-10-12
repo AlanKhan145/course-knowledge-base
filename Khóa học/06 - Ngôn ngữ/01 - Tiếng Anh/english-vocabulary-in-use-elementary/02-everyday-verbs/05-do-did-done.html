@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Learning Activity và Review Lab cho bài Do / did / done trong English Vocabulary in Use Elementary.">
+  <meta name="description" content="bài học, bài luyện, ôn tập và mini games cho bài Do / did / done trong English Vocabulary in Use Elementary.">
   <title>Do / did / done — Learning Activity</title>
   <style>
     :root {
@@ -570,6 +570,73 @@
     .header-reset { border: 1px solid rgba(255,255,255,.5); border-radius: 999px; padding: .38rem .85rem; color: #fff; background: rgba(255,255,255,.12); font-weight: 800; font-size: .8rem; cursor: pointer; }
     .header-reset:hover { background: rgba(255,255,255,.26); }
     .header-reset:focus-visible { outline: 3px solid rgba(255,255,255,.6); outline-offset: 2px; }
+
+    #view-games [hidden] {display:none!important}
+    .game-playing .app-header,.game-playing .mobile-nav,.game-playing .sidebar,.game-playing #view-games > .section-heading {display:none!important}
+    .game-playing .app-shell {display:block;width:min(980px,calc(100% - 1.2rem));padding-top:1.1rem;margin:0 auto}
+    .game-playing #view-games {padding-bottom:2rem}
+    .game-overview-stats {display:flex;flex-wrap:wrap;gap:.65rem;margin:0 0 1rem}
+    .game-stat {border:1px solid var(--line);border-radius:12px;padding:.65rem 1rem;background:#fff;font-size:.87rem;color:var(--muted)}
+    .game-stat strong {font-size:1.07rem;color:var(--navy)}
+    .game-menu {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .game-mode {border:1px solid var(--line);border-radius:20px;padding:1.15rem;background:#fff;text-align:left;display:flex;gap:.85rem;align-items:flex-start;box-shadow:0 6px 20px rgba(23,35,60,.045);min-height:145px;transition:transform .15s,box-shadow .15s,border-color .15s}
+    .game-mode:hover {transform:translateY(-3px);border-color:#96bfe9;box-shadow:0 12px 26px rgba(29,65,115,.12)}
+    .game-mode:focus-visible{outline:3px solid rgba(40,120,212,.28)}
+    .game-icon {width:55px;height:55px;border-radius:17px;background:var(--blue-soft);display:grid;place-items:center;font-size:1.7rem;flex-shrink:0}
+    .game-mode:nth-child(3n+2) .game-icon {background:var(--teal-soft)}
+    .game-mode:nth-child(3n+3) .game-icon {background:var(--amber-soft)}
+    .game-mode-body{flex:1;min-width:0}
+    .game-mode h2{font-size:1.08rem;margin:0 0 .3rem}
+    .game-mode p{font-size:.87rem;color:var(--muted);margin:0 0 .45rem;line-height:1.45}
+    .game-mode small{font-size:.78rem;font-weight:800;color:var(--blue)}
+    .game-topbar{display:flex;justify-content:space-between;align-items:center;gap:.8rem;flex-wrap:wrap;margin-bottom:.85rem}
+    .game-tracker{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+    .game-tracker span{background:#fff;border:1px solid var(--line);padding:.4rem .7rem;border-radius:99px;font-size:.85rem;font-weight:800}
+    .game-progress{height:10px;border-radius:99px;background:#dfe9f6;overflow:hidden;margin:.5rem 0 1.3rem}
+    .game-progress > span{display:block;height:100%;background:linear-gradient(90deg,#2784d7,#17a58e);transition:width .25s}
+    .game-card{max-width:820px;margin:0 auto;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:24px;background:#fff;padding:clamp(1rem,3vw,1.7rem)}
+    .game-card-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.7rem}
+    .game-title{font-size:1.22rem;margin:.2rem 0 1rem;line-height:1.5}
+    .game-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin:.85rem 0}
+    .game-choice{border:1.5px solid #d9e3ee;border-radius:14px;background:#f9fbfe;color:var(--ink);padding:.9rem;min-height:64px;text-align:left;display:flex;align-items:center;gap:.65rem;font-weight:750;transition:.15s}
+    .game-choice:hover:not(:disabled){border-color:var(--blue);background:#f0f7ff}
+    .game-choice.selected{background:var(--blue-soft);border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
+    .game-choice.correct{background:var(--teal-soft);border-color:var(--teal)}
+    .game-choice.wrong{background:var(--coral-soft);border-color:var(--coral)}
+    .game-choice:disabled{cursor:default}
+    .game-choice-k{height:28px;width:28px;border-radius:8px;display:grid;place-items:center;background:#e5edf9;color:#33649e;font-weight:850;font-size:.82rem;flex-shrink:0}
+    .game-picture{margin:0 auto 1rem;max-width:370px;position:relative;border:1px solid var(--line);border-radius:20px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(125deg,#f6f9fd,#e5f1fc)}
+    .game-picture img{width:100%;height:100%;object-fit:cover}
+    .game-picture-placeholder{width:100%;height:100%;display:grid;place-items:center;font-size:5rem}
+    .game-paragraph{background:#f5f8ff;border:1px solid #dde9fa;border-radius:16px;padding:1.2rem;line-height:3.2;font-size:1rem;color:#293e5b}
+    .game-paragraph select{border:1px solid #a6c6ea;border-radius:10px;color:var(--navy);background:#fff;padding:.42rem .35rem;font-size:.94rem;max-width:160px;margin:0 .2rem}
+    .game-paragraph select:focus-visible{outline:3px solid #bbd7f5}
+    .game-paragraph select.game-right{border-color:var(--teal);background:var(--teal-soft)}
+    .game-paragraph select.game-wrong{border-color:var(--coral);background:var(--coral-soft)}
+    .game-dialogue{background:#f5f8fc;border-radius:14px;padding:1rem;white-space:pre-line;line-height:1.9;font-weight:730;margin-bottom:1rem}
+    .game-builder{min-height:80px;display:flex;flex-wrap:wrap;align-items:center;gap:.45rem;border:2px dashed #a2bddc;border-radius:14px;background:#f6faff;padding:.7rem;margin:1rem 0}
+    .game-builder:empty::before{content:'Chạm các thẻ từ phía dưới để sắp xếp câu';font-size:.87rem;color:var(--muted)}
+    .game-tokens{display:flex;flex-wrap:wrap;gap:.6rem}
+    .game-token{background:#eaf2fd;border:1px solid #bad1f0;color:#28537f;border-radius:10px;padding:.56rem .75rem;font-weight:800}
+    .game-token:hover:not(:disabled){background:#dbeafe}
+    .game-token:disabled{opacity:.35;cursor:default}
+    .game-builder .game-token{background:#e8f6f3;border-color:#88ccc4;color:#166960}
+    .game-entry{padding:.8rem;border:1.5px solid var(--line);border-radius:13px;max-width:100%;width:100%;font-size:1.12rem}
+    .game-commands{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.15rem}
+    .game-commands .btn{min-height:44px}
+    .game-feedback{padding:1rem;border-radius:14px;margin-top:1rem;border:1px solid #d7e3f1;background:#f7fafd}
+    .game-feedback.good{background:var(--teal-soft);border-color:#8ed3ca;color:#105e58}
+    .game-feedback.bad{background:var(--coral-soft);border-color:#ecc1b9;color:#863e35}
+    .game-feedback p{margin:.3rem 0;font-size:.92rem}
+    .game-feedback .game-answer{font-weight:850}
+    .game-hint{padding:.75rem;border-radius:12px;background:var(--amber-soft);border:1px solid #e9d49a;margin-top:.8rem}
+    .game-end{text-align:center;max-width:700px;margin:auto;padding:2rem;border:1px solid var(--line);background:#fff;border-radius:24px;box-shadow:var(--shadow)}
+    .game-end .big-result{font-size:3.2rem;font-weight:950;color:var(--blue);line-height:1.2}
+    .game-end .button-row{justify-content:center;margin-top:1rem}
+    .game-end-stat{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin:1rem 0}
+    .game-end-stat span{background:#f1f6fb;border-radius:12px;padding:.5rem .8rem;font-weight:800}
+    .game-unavailable{color:var(--muted);font-size:.78rem;text-align:center;margin:-.2rem 0 1rem}
+    @media(max-width:720px){.game-menu,.game-choices{grid-template-columns:1fr}.game-mode{min-height:118px}.game-card{padding:1rem}.game-paragraph{line-height:3.25;padding:.8rem}.game-paragraph select{max-width:140px}.game-topbar{align-items:flex-start}}
   </style>
 </head>
 <body>
@@ -582,7 +649,7 @@
         <div class="header-meta">
           <span class="pill inverse">A1–A2</span>
           <span class="pill inverse">35–50 phút</span>
-          <span class="pill inverse">27 chunks · 45 practice · 20 test</span>
+          <span class="pill inverse">27 chunks · 45 practice · 20 test · 8 mini games</span>
           <span class="pill inverse">Story · Spaced review</span>
         </div>
       </div>
@@ -603,6 +670,7 @@
     <button type="button" data-view="story"><span>♪</span> Story</button>
     <button type="button" data-view="review"><span>⟳</span> Spaced review</button>
     <button type="button" data-view="practice"><span>✓</span> Practice</button>
+    <button type="button" data-view="games"><span>🎮</span> Mini games</button>
     <button type="button" data-view="test"><span>◆</span> Test</button>
     <button type="button" data-view="mistakes"><span>↺</span> Mistakes</button>
     <button type="button" data-view="results"><span>●</span> Results</button>
@@ -619,6 +687,7 @@
         <button class="nav-button" type="button" data-view="story"><span class="nav-icon">♪</span><span>Story &amp; listen</span></button>
         <button class="nav-button" type="button" data-view="review"><span class="nav-icon">⟳</span><span>Spaced review <span class="pill amber" id="due-count" style="float:right">0</span></span></button>
         <button class="nav-button" type="button" data-view="practice"><span class="nav-icon">✓</span><span>Practice</span></button>
+        <button class="nav-button" type="button" data-view="games"><span class="nav-icon">🎮</span><span>Mini games</span></button>
         <button class="nav-button" type="button" data-view="test"><span class="nav-icon">◆</span><span>Final test</span></button>
         <button class="nav-button" type="button" data-view="mistakes"><span class="nav-icon">↺</span><span>Mistakes <span class="pill coral" id="mistake-count" style="float:right">0</span></span></button>
         <button class="nav-button" type="button" data-view="results"><span class="nav-icon">●</span><span>Results</span></button>
@@ -756,14 +825,17 @@
           <div id="crossword"></div>
         </article>
         <div class="spacer"></div>
-        <article class="card">
-          <div class="section-heading"><div><div class="section-kicker">Production</div><h2>Tạo ngôn ngữ của bạn</h2></div><span class="pill purple">Self-check</span></div>
-          <div class="grid-3">
-            <article class="card production-card"><h3>Writing</h3><p>Viết 5–7 câu về một tuần bình thường của bạn, dùng ít nhất 5 patterns khác nhau.</p><textarea class="answer-textarea production-input" data-production="writing" placeholder="I usually go to university by bus. Last Sunday, I went..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="writing-1"> Có <strong>go to + place</strong> hoặc <strong>go home</strong>.</label><label><input type="checkbox" data-production-check="writing-2"> Có <strong>go by + transport</strong> hoặc <strong>on foot</strong>.</label><label><input type="checkbox" data-production-check="writing-3"> Có <strong>go + V-ing</strong>, một câu với <strong>went</strong> và một kế hoạch <strong>be going to + V</strong>.</label></div></article>
-            <article class="card production-card"><h3>Speaking</h3><p>Nói 30–45 giây về nơi bạn thường đi, cách bạn di chuyển và kế hoạch cuối tuần.</p><div class="callout teal"><strong>Prompt:</strong> Where do you usually go? How do you get there? What did you do last weekend? What are you going to do next weekend?</div><div class="checklist"><label><input type="checkbox" data-production-check="speaking-1"> Tôi dùng được ít nhất 4 chunks với <strong>go</strong>.</label><label><input type="checkbox" data-production-check="speaking-2"> Tôi dùng được hiện tại, quá khứ <strong>went</strong> và kế hoạch <strong>going to</strong>.</label></div></article>
-            <article class="card production-card"><h3>Transfer</h3><p>Tạo 3 câu mới trong ba tình huống: chuyến đi, hoạt động cuối tuần và hướng di chuyển.</p><textarea class="answer-textarea production-input" data-production="transfer" placeholder="We are going on a trip next month. I usually go swimming..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="transfer-1"> Có ít nhất một cụm <strong>go on + noun</strong> hoặc <strong>go + V-ing</strong>.</label><label><input type="checkbox" data-production-check="transfer-2"> Có ít nhất một cụm chỉ hướng như <strong>go into / out of / back / upstairs / downstairs</strong>.</label></div></article>
-          </div>
-        </article>
+        <article class="card" id="practice-production"></article>
+      </section>
+
+      <section class="view" id="view-games" aria-labelledby="games-title" hidden>
+        <div class="section-heading">
+          <div><div class="section-kicker">Mini games · Chơi &amp; nhớ</div><h1 id="games-title">Chọn trò chơi luyện Do / did / done</h1></div>
+          <p>8 trò chơi, nhiều câu mỗi dạng. Kiểm tra ngay, tính điểm, ghi kỷ lục và chơi lại câu sai.</p>
+        </div>
+        <div class="game-overview-stats" id="game-overview-stats"></div>
+        <div id="game-menu" class="game-menu" aria-label="Danh sách trò chơi"></div>
+        <div id="game-stage" class="game-stage" hidden></div>
       </section>
 
       <section class="view" id="view-test" aria-labelledby="test-title" hidden>
@@ -855,7 +927,7 @@
     ];
 
     const practiceQuestions = [
-      // A. Chọn đáp án đúng
+
       { id: 'p01', type: 'multiple-choice', category: 'question', difficulty: 1, prompt: 'A1 · ___ you like tennis?', options: ['Does', 'Do', 'Did', 'Done'], answer: 'Do', explanation: 'Câu hỏi hiện tại với you: Do + you + V nguyên mẫu.' },
       { id: 'p02', type: 'multiple-choice', category: 'question', difficulty: 1, prompt: 'A2 · ___ Anna work here?', options: ['Does', 'Do', 'Doing', 'Done'], answer: 'Does', explanation: 'Anna = she → Does.' },
       { id: 'p03', type: 'multiple-choice', category: 'grammar', difficulty: 1, prompt: 'A3 · Did you ___ the film yesterday?', options: ['saw', 'seen', 'see', 'seeing'], answer: 'see', explanation: 'Sau did dùng động từ nguyên mẫu: see.' },
@@ -864,24 +936,24 @@
       { id: 'p06', type: 'multiple-choice', category: 'form', difficulty: 2, prompt: 'A6 · I have ___ all the exercises.', options: ['do', 'did', 'doing', 'done'], answer: 'done', explanation: 'Sau have dùng quá khứ phân từ: done.' },
       { id: 'p07', type: 'multiple-choice', category: 'contrast', difficulty: 2, prompt: 'A7 · What ___ your father do?', options: ['do', 'does', 'did', 'is'], answer: 'does', explanation: 'Your father = he → What does your father do? (hỏi nghề nghiệp).' },
       { id: 'p08', type: 'multiple-choice', category: 'contrast', difficulty: 1, prompt: 'A8 · “What are you doing?” means:', options: ['Bạn làm nghề gì?', 'Bạn đã làm gì?', 'Bạn đang làm gì?', 'Bạn thường làm gì?'], answer: 'Bạn đang làm gì?', explanation: 'What are you doing? hỏi hành động đang diễn ra lúc nói.' },
-      // B. Điền do / does / did / done
+
       { id: 'p09', type: 'multi-fill', category: 'form', difficulty: 2, prompt: 'B · Điền do, does, did hoặc done.', items: [{ text: '1. ___ you speak English?', answer: 'do' }, { text: '2. What ___ your sister do?', answer: 'does' }, { text: '3. ___ you go out yesterday?', answer: 'did' }, { text: '4. I have already ___ my homework.', answer: 'done' }, { text: '5. She ___ the washing every Sunday.', answer: 'does' }, { text: '6. We ___ the washing-up after dinner yesterday.', answer: 'did' }, { text: '7. What ___ you do?', answer: 'do' }, { text: '8. Have you ___ the exercises?', answer: 'done' }], explanation: 'Nhìn chủ ngữ (he/she → does), thời gian (yesterday → did) và trợ động từ have (→ done).' },
-      // C. Chuyển thành câu hỏi
+
       { id: 'p10', type: 'multi-fill', category: 'question', difficulty: 2, prompt: 'C · Chuyển thành câu hỏi. Ví dụ: You like tennis. → Do you like tennis?', items: [{ text: '1. She works in a hospital.', answer: 'Does she work in a hospital?' }, { text: '2. They play football.', answer: 'Do they play football?' }, { text: '3. Tom went to the meeting.', answer: 'Did Tom go to the meeting?' }, { text: '4. Anna likes coffee.', answer: 'Does Anna like coffee?' }, { text: '5. You did your homework.', answer: 'Did you do your homework?' }, { text: '6. Your father works in a bank.', answer: 'Does your father work in a bank?' }], explanation: 'Thêm Do/Does/Did lên đầu và đưa động từ chính về nguyên mẫu: works → work, went → go, did → do.' },
-      // D. Câu trả lời ngắn
+
       { id: 'p11', type: 'multi-fill', category: 'question', difficulty: 2, prompt: 'D · Viết câu trả lời ngắn (chỉ điền phần sau Yes/No).', items: [{ text: '1. Do you study English? → Yes, ___.', answer: ['I do'] }, { text: '2. Does your friend like music? → No, ___.', answer: ['he doesn\'t', 'she doesn\'t', 'he does not', 'she does not'] }, { text: '3. Did you study yesterday? → Yes, ___.', answer: ['I did'] }, { text: '4. Do your parents work? → Yes, ___.', answer: ['they do'] }, { text: '5. Did your friend call you yesterday? → No, ___.', answer: ['he didn\'t', 'she didn\'t', 'he did not', 'she did not'] }], explanation: 'Trả lời ngắn dùng lại trợ động từ: do/does/did hoặc don’t/doesn’t/didn’t, không lặp lại động từ chính.' },
-      // E. Nối cụm từ
+
       { id: 'p12', type: 'matching', category: 'task', difficulty: 1, prompt: 'E · Nối nghĩa tiếng Việt với cụm do đúng.', pairs: [{ left: 'cố gắng hết sức', right: 'do your best' }, { left: 'làm vườn', right: 'do the gardening' }, { left: 'làm bài tập về nhà', right: 'do homework' }, { left: 'kinh doanh', right: 'do business' }, { left: 'rửa bát', right: 'do the washing-up' }], explanation: 'Học cả cụm: do + your best / the gardening / homework / business / the washing-up.' },
-      // F. Chọn cụm từ phù hợp
+
       { id: 'p13', type: 'multi-fill', category: 'task', difficulty: 2, prompt: 'F · Dùng: do homework · do the washing-up · do your best · do the gardening · do business (chia động từ nếu cần).', items: [{ text: '1. The exam is difficult, but ___.', answer: ['do your best'] }, { text: '2. I usually ___ after school.', answer: ['do homework', 'do my homework'] }, { text: '3. My grandfather likes plants, so he often ___.', answer: ['does the gardening'] }, { text: '4. We ___ with companies in Japan.', answer: ['do business'] }, { text: '5. I cooked dinner, so my brother will ___.', answer: ['do the washing-up', 'do the washing up'] }], explanation: 'Câu 3 chủ ngữ he → does the gardening; câu 5 sau will dùng nguyên mẫu do.' },
-      // G. Sắp xếp câu
+
       { id: 'p14', type: 'sentence-order', category: 'question', difficulty: 1, prompt: 'G1 · Sắp xếp thành câu đúng.', tokens: ['you', 'do', 'tennis', 'like'], answer: ['do', 'you', 'like', 'tennis'], explanation: 'Do you like tennis?' },
       { id: 'p15', type: 'sentence-order', category: 'question', difficulty: 2, prompt: 'G2 · Sắp xếp thành câu đúng.', tokens: ['did', 'yesterday', 'where', 'go', 'you'], answer: ['where', 'did', 'you', 'go', 'yesterday'], explanation: 'Where did you go yesterday?' },
       { id: 'p16', type: 'sentence-order', category: 'contrast', difficulty: 2, prompt: 'G3 · Sắp xếp thành câu đúng.', tokens: ['father', 'what', 'your', 'does', 'do'], answer: ['what', 'does', 'your', 'father', 'do'], explanation: 'What does your father do? — hỏi nghề nghiệp.' },
       { id: 'p17', type: 'sentence-order', category: 'contrast', difficulty: 1, prompt: 'G4 · Sắp xếp thành câu đúng.', tokens: ['doing', 'what', 'you', 'are'], answer: ['what', 'are', 'you', 'doing'], explanation: 'What are you doing? — hỏi việc đang làm.' },
       { id: 'p18', type: 'sentence-order', category: 'form', difficulty: 2, prompt: 'G5 · Sắp xếp thành câu đúng.', tokens: ['homework', 'done', 'have', 'you', 'your'], answer: ['have', 'you', 'done', 'your', 'homework'], explanation: 'Have you done your homework?' },
       { id: 'p19', type: 'sentence-order', category: 'task', difficulty: 2, prompt: 'G6 · Sắp xếp thành câu đúng.', tokens: ['washing-up', 'who', 'does', 'the'], answer: ['who', 'does', 'the', 'washing-up'], explanation: 'Who does the washing-up?' },
-      // H. Tìm và sửa lỗi
+
       { id: 'p20', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'H1 · Sửa lỗi: Did you went to school yesterday?', answer: ['Did you go to school yesterday?'], explanation: 'Sau did dùng nguyên mẫu go.' },
       { id: 'p21', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'H2 · Sửa lỗi: Does she likes tennis?', answer: ['Does she like tennis?'], explanation: 'Sau does dùng nguyên mẫu like.' },
       { id: 'p22', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'H3 · Sửa lỗi: He don\'t do the housework.', answer: ['He doesn\'t do the housework.', 'He does not do the housework.'], explanation: 'He → doesn’t.' },
@@ -890,9 +962,9 @@
       { id: 'p25', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'H6 · Sửa lỗi: She didn\'t went to the meeting.', answer: ['She didn\'t go to the meeting.', 'She did not go to the meeting.'], explanation: 'Sau didn’t dùng nguyên mẫu go.' },
       { id: 'p26', type: 'error-correction', category: 'error-correction', difficulty: 3, prompt: 'H7 · Sửa lỗi: Does your parents work here?', answer: ['Do your parents work here?'], explanation: 'Your parents = they → Do.' },
       { id: 'p27', type: 'error-correction', category: 'error-correction', difficulty: 3, prompt: 'H8 · Sửa lỗi: He doesn\'t does the washing-up.', answer: ['He doesn\'t do the washing-up.', 'He does not do the washing-up.', 'He doesn\'t do the washing up.'], explanation: 'Câu đã có doesn’t (trợ động từ); động từ chính do giữ nguyên mẫu.' },
-      // I. Hoàn thành hội thoại
+
       { id: 'p28', type: 'multi-fill', category: 'context', difficulty: 2, prompt: 'I · Hoàn thành hội thoại giữa Anna và Ben bằng dạng đúng của do.', passage: 'Anna: What ①__ you ②__? — Ben: I’m a student. — Anna: ③__ you study English? — Ben: Yes, I ④__. — Anna: ⑤__ you study English yesterday? — Ben: No, I ⑥__. I had a lot of other homework. — Anna: Have you ⑦__ it now? — Ben: Yes. I’ve ⑧__ everything.', items: [{ text: '①', answer: 'do' }, { text: '②', answer: 'do' }, { text: '③', answer: 'do' }, { text: '④', answer: 'do' }, { text: '⑤', answer: 'did' }, { text: '⑥', answer: ['didn\'t', 'did not'] }, { text: '⑦', answer: 'done' }, { text: '⑧', answer: 'done' }], explanation: 'What do you do? (nghề) · Do you…? Yes, I do. · Did you…? No, I didn’t. · Have you done…? I’ve done…' },
-      // Bổ sung: nhận diện bằng hình, nghĩa và ngữ cảnh
+
       { id: 'p29', type: 'image-choice', category: 'contrast', difficulty: 1, prompt: 'Người trong hình đang nghe nhạc. Bạn hỏi câu nào?', image: 'what-are-you-doing.png', options: ['What do you do?', 'What are you doing?', 'What did you do?', 'What have you done?'], answer: 'What are you doing?', explanation: 'Hỏi hành động đang diễn ra → What are you doing?' },
       { id: 'p30', type: 'image-choice', category: 'contrast', difficulty: 1, prompt: 'Bạn muốn biết người này làm nghề gì. Câu hỏi nào phù hợp?', image: 'what-do-you-do-profession.png', options: ['What are you doing?', 'What do you do?', 'Do you doing?', 'What did you do?'], answer: 'What do you do?', explanation: 'What do you do? = Bạn làm nghề gì?' },
       { id: 'p31', type: 'image-match', category: 'task', difficulty: 2, prompt: 'Ghép mỗi hình với cụm do + task.', items: [{ image: 'do-gardening.png', answer: 'do the gardening' }, { image: 'do-washing.png', answer: 'do the washing' }, { image: 'do-washing-up.png', answer: 'do the washing-up' }], options: ['do the gardening', 'do the washing', 'do the washing-up'], explanation: 'The washing = giặt quần áo; the washing-up = rửa bát.' },
@@ -906,22 +978,22 @@
       { id: 'p39', type: 'mini-reading', category: 'context', difficulty: 3, passage: 'Minh meets a new classmate. The classmate asks, “What do you do?” Minh says, “I’m a student.” Later his friend calls and asks, “What are you doing?” Minh answers, “I’m doing my homework.”', prompt: 'Vì sao Minh trả lời “I’m a student” ở câu hỏi đầu?', options: ['Câu đầu hỏi nghề nghiệp/vai trò.', 'Câu đầu hỏi việc đang làm.', 'Minh đang kể chuyện hôm qua.', 'Minh đã làm xong bài.'], answer: 'Câu đầu hỏi nghề nghiệp/vai trò.', explanation: 'What do you do? thường hỏi nghề nghiệp.' },
       { id: 'p40', type: 'select-all', category: 'error-correction', difficulty: 3, prompt: 'Chọn TẤT CẢ câu không có lỗi.', options: ['Do you like tennis?', 'Does she work here?', 'Did you go home?', 'She doesn\'t like coffee.', 'Did you went home?', 'She don\'t like coffee.', 'I done it yesterday.'], answer: ['Do you like tennis?', 'Does she work here?', 'Did you go home?', 'She doesn\'t like coffee.'], explanation: 'Kiểm tra chủ ngữ + trợ động từ + động từ nguyên mẫu.' },
       { id: 'p41', type: 'multiple-choice', category: 'performance', difficulty: 2, prompt: 'Tôi học chăm nên đạt kết quả tốt trong kỳ thi. →', options: ['I did good in the exam.', 'I did well in the exam.', 'I made well in the exam.', 'I done well in the exam.'], answer: 'I did well in the exam.', explanation: 'do well (trạng từ well), quá khứ did.' },
-      // Nhớ chủ động Việt → Anh
+
       { id: 'p42', type: 'multi-fill', category: 'recall', difficulty: 2, prompt: 'Không nhìn bài: viết cụm tiếng Anh từ nghĩa tiếng Việt.', items: [{ text: 'làm vườn', answer: ['do the gardening'] }, { text: 'rửa bát', answer: ['do the washing-up', 'do the washing up'] }, { text: 'giặt quần áo', answer: ['do the washing'] }, { text: 'tập thể dục', answer: ['do some exercise', 'do exercise'] }, { text: 'cố gắng hết sức', answer: ['do your best', 'do my best'] }, { text: 'làm việc nhà', answer: ['do housework', 'do the housework'] }], explanation: 'Nhớ theo chiều Việt → Anh khó hơn nhận diện, nhưng giúp nhớ cụm lâu hơn.' },
       { id: 'p43', type: 'multi-fill', category: 'negative', difficulty: 2, prompt: 'Viết câu phủ định (dùng don’t / doesn’t / didn’t).', items: [{ text: 'I play tennis. → I ___ tennis.', answer: ['don\'t play', 'do not play'] }, { text: 'He likes coffee. → He ___ coffee.', answer: ['doesn\'t like', 'does not like'] }, { text: 'She went to work. → She ___ to work.', answer: ['didn\'t go', 'did not go'] }, { text: 'They finished the exercise. → They ___ the exercise.', answer: ['didn\'t finish', 'did not finish'] }], explanation: 'Sau don’t/doesn’t/didn’t, động từ chính dùng nguyên mẫu.' },
-      // J, K. Tự viết và nói
+
       { id: 'p44', type: 'production', category: 'production', difficulty: 3, prompt: 'J · Viết về bản thân, trả lời bằng câu hoàn chỉnh: 1) What do you do? 2) Do you do housework? 3) Who does the washing-up in your family? 4) Did you do any exercise yesterday? 5) When do you usually do your homework? 6) What do you do to relax?', rubric: ['Mỗi câu trả lời là một câu hoàn chỉnh.', 'Câu 1 nói về nghề/vai trò (I’m a student…).', 'Câu 2 và 4 có thể bắt đầu bằng short answer (Yes, I do / No, I didn’t).', 'Câu 3 dùng does nếu chủ ngữ là một người (My brother does…).', 'Động từ sau does/did/doesn’t/didn’t ở dạng nguyên mẫu.'], explanation: 'Ví dụ: I’m a student. Yes, I do. My mother does the washing-up. No, I didn’t…' },
       { id: 'p45', type: 'production', category: 'production', difficulty: 3, prompt: 'K · Nói 45–60 giây về những việc bạn thường làm trong một ngày, bắt đầu bằng “On a normal day, I usually…”. Dùng ít nhất 5 cụm: do homework, do housework, do exercise, do the washing-up, do your best, do well, do the gardening. Ghi lại ý chính sau khi nói.', rubric: ['Có ít nhất 5 cụm do + task.', 'Có ít nhất một câu quá khứ với did.', 'Có ít nhất một câu phủ định (don’t/doesn’t/didn’t).', 'Nói được mà không nhìn bài.'], explanation: 'Nói to trước, rồi mới ghi lại. Lặp lại một lần nữa sau khi sửa 2–3 lỗi.' }
     ];
 
     const testQuestions = [
-      // Câu hỏi ôn tập (mục 16)
+
       { id: 't01', type: 'multiple-choice', category: 'grammar', difficulty: 2, prompt: 'Câu nào hỏi đúng về một hành động trong quá khứ?', options: ['Do you went there?', 'Did you went there?', 'Did you go there?', 'Done you go there?'], answer: 'Did you go there?', explanation: 'Sau did, động từ chính phải ở dạng nguyên mẫu, vì vậy phải dùng go, không dùng went.' },
       { id: 't02', type: 'multiple-choice', category: 'contrast', difficulty: 1, prompt: 'Bạn muốn hỏi một người làm nghề gì. Câu nào phù hợp nhất?', options: ['What do you do?', 'What are you doing?', 'What did you do?', 'What have you done?'], answer: 'What do you do?', explanation: 'What do you do? thường được dùng để hỏi nghề nghiệp hoặc công việc của một người.' },
       { id: 't03', type: 'multiple-choice', category: 'negative', difficulty: 2, prompt: 'Câu nào đúng?', options: ['She doesn\'t likes tennis.', 'She don\'t like tennis.', 'She doesn\'t liking tennis.', 'She doesn\'t like tennis.'], answer: 'She doesn\'t like tennis.', explanation: 'Với she, dùng doesn’t; sau doesn’t phải dùng động từ nguyên mẫu like.' },
       { id: 't04', type: 'multiple-choice', category: 'form', difficulty: 1, prompt: 'I have ______ my homework.', options: ['do', 'done', 'did', 'doing'], answer: 'done', explanation: 'Sau have trong cấu trúc này cần quá khứ phân từ của do, tức là done.' },
       { id: 't05', type: 'multiple-choice', category: 'task', difficulty: 1, prompt: 'Câu nào dùng một collocation tự nhiên với do?', options: ['do your best', 'do a coffee', 'do a sandwich', 'do a photograph'], answer: 'do your best', explanation: 'do your best là cụm cố định mang nghĩa “cố gắng hết sức”.' },
-      // Kiểm tra tổng hợp
+
       { id: 't06', type: 'multiple-choice', category: 'form', difficulty: 1, prompt: 'Which line shows the forms of do?', options: ['do – does – did – done – doing', 'do – did – does – doed', 'do – done – did – does', 'do – doing – did – goed'], answer: 'do – does – did – done – doing', explanation: 'do (I/you/we/they), does (he/she/it), did (quá khứ), done (sau have), doing (-ing).' },
       { id: 't07', type: 'fill-blank', category: 'question', difficulty: 1, prompt: '______ your sister speak French?', answer: 'Does', explanation: 'Your sister = she → Does.' },
       { id: 't08', type: 'fill-blank', category: 'grammar', difficulty: 2, prompt: 'Did she ______ you yesterday? (call)', answer: 'call', explanation: 'Sau did dùng nguyên mẫu call.' },
@@ -950,12 +1022,10 @@
       { number: 8, answer: 'EXERCISE', clue: 'Do some ____ = tập thể dục.', row: 12, col: 1, dir: 'across' }
     ];
 
-    // Spaced review: each chunk climbs one box per correct retrieval; a miss sends it back to box 1.
     const SRS_INTERVALS = [0, 1, 3, 7, 14, 30];
     const SRS_BOX_LABELS = ['Mới', '1 ngày', '3 ngày', '7 ngày', '14 ngày', '30 ngày'];
     const GROUP_LABELS = { form: 'Verb forms', question: 'Questions & short answers', negative: 'Negatives', contrast: 'What do you do? / doing', task: 'Do + task', performance: 'Results' };
 
-    // acc = recall answers, cloze/ca = new-context sentence, listen = phrase masked in vocab example, re = detector (%D = any form of do)
     const reviewData = {
       'do': { acc: ['do'], cloze: 'We ______ our homework together every evening.', ca: ['do'], listen: 'do', re: 'do' },
       'does': { acc: ['does'], cloze: 'My brother ______ the washing-up every day.', ca: ['does'], listen: 'does', re: 'does' },
@@ -986,7 +1056,6 @@
       'do-badly': { acc: ['do badly'], cloze: 'I didn’t study, so I did ______ in the test.', ca: ['badly'], listen: 'did badly', re: '%D\\s+(?:very\\s+)?badly' }
     };
 
-    // Graded narrative input: story 1 introduces the chunks, story 2 recycles questions and short answers in a dialogue.
     const stories = [
       {
         id: 'do-day', title: 'Mai’s busy week', meta: 'Truyện 1 · A2 · do + task trong ngữ cảnh', short: '1 · Mai’s week',
@@ -1306,7 +1375,7 @@
       document.title = 'Do / did / done — Learning Activity';
       const overview = document.getElementById('view-overview');
       overview.innerHTML = [
-        '<div class="hero"><div><div class="eyebrow">Learning Activity / Review Lab</div><h1 id="overview-title">Do / did / done</h1><p><strong>Do</strong> có hai vai trò: <strong>trợ động từ</strong> để tạo câu hỏi, câu phủ định, câu trả lời ngắn — và <strong>động từ chính</strong> nghĩa là “làm / thực hiện” trong các cụm <strong>do + task</strong>.</p><div class="button-row"><button class="btn primary" type="button" data-view="learn">Bắt đầu học →</button><button class="btn" type="button" data-view="practice">Làm bài tập A–K</button></div></div><div class="hero-art" role="img" aria-label="Minh họa các việc làm với do"></div></div>',
+        '<div class="hero"><div><div class="eyebrow">Learning Activity / Review Lab</div><h1 id="overview-title">Do / did / done</h1><p><strong>Do</strong> có hai vai trò: <strong>trợ động từ</strong> để tạo câu hỏi, câu phủ định, câu trả lời ngắn — và <strong>động từ chính</strong> nghĩa là “làm / thực hiện” trong các cụm <strong>do + task</strong>.</p><div class="button-row"><button class="btn primary" type="button" data-view="learn">Bắt đầu học →</button><button class="btn" type="button" data-view="practice">Làm bài tập A–K</button><button class="btn secondary" type="button" data-view="games">🎮 Mini games</button></div></div><div class="hero-art" role="img" aria-label="Minh họa các việc làm với do"></div></div>',
         '<div class="spacer"></div><div class="section-heading"><div><div class="section-kicker">01 · Overview</div><h2>Tóm tắt bài học</h2></div><p>Điểm quan trọng nhất: phân biệt Do you…? / Did you…? / What do you do? / What are you doing? và học các cụm do + task.</p></div>',
         '<div class="grid-2"><article class="card"><h3>Mục tiêu học tập</h3><ul class="objective-list">',
         ['phân biệt được <strong>do</strong>, <strong>does</strong>, <strong>did</strong> và <strong>done</strong>;', 'tạo câu hỏi hiện tại với <strong>do/does</strong>;', 'tạo câu hỏi quá khứ với <strong>did</strong>;', 'trả lời ngắn bằng <strong>do/does/did</strong>;', 'tạo câu phủ định với <strong>don’t</strong>, <strong>doesn’t</strong>, <strong>didn’t</strong>;', 'phân biệt <strong>What do you do?</strong> và <strong>What are you doing?</strong>;', 'sử dụng tự nhiên các cụm <strong>do + task</strong>;', 'tránh các lỗi như <strong>Did you went…?</strong> hoặc <strong>She don’t…</strong>.'].map(function(text) { return '<li><span class="checkmark">✓</span><span>' + text + '</span></li>'; }).join(''),
@@ -1321,54 +1390,54 @@
       const learn = document.getElementById('view-learn');
       learn.innerHTML = [
         '<div class="section-heading"><div><div class="section-kicker">02 · Learn</div><h1 id="learn-title">Do: trợ động từ và động từ chính</h1></div><p>Nhìn chủ ngữ, thời gian và từ đứng trước để chọn do / does / did / done / doing.</p></div>',
-        // Two roles
+
         '<div class="grid-2"><article class="card"><span class="pill blue">Vai trò 1</span><h3 style="margin-top:.5rem">Trợ động từ</h3><p>Giúp tạo <strong>câu hỏi</strong>, <strong>câu phủ định</strong> và <strong>câu trả lời ngắn</strong>.</p><p><code>Do you like tennis?</code> · <code>She doesn’t work here.</code> · <code>Yes, I do.</code></p></article><article class="card"><span class="pill teal">Vai trò 2</span><h3 style="margin-top:.5rem">Động từ chính = làm / thực hiện</h3><p><code>I do my homework every evening.</code> · <code>She does the housework.</code> · <code>We did some exercises yesterday.</code></p><div class="callout"><strong>What do you do?</strong> — <em>do</em> thứ nhất là trợ động từ, <em>do</em> thứ hai là động từ chính.</div></article></div>',
-        // 3. Questions
+
         '<div class="learn-block"><h2>1. Câu hỏi với Do / Does / Did</h2><div class="grid-3">',
         '<article class="card"><h3>Do + S + V nguyên mẫu …?</h3><p class="muted small-text">Hiện tại, với I / you / we / they</p><p><code>Do you like tennis?</code><br><code>Do they live here?</code><br><code>Do we need more time?</code></p></article>',
         '<article class="card"><h3>Does + S + V nguyên mẫu …?</h3><p class="muted small-text">Hiện tại, với he / she / it</p><p><code>Does she work here?</code><br><code>Does he play tennis?</code><br><code>Does it work?</code></p>' + ok('Does she <strong>work</strong> here?') + bad('Does she <strong>works</strong> here?') + '</article>',
         '<article class="card"><h3>Did + S + V nguyên mẫu …?</h3><p class="muted small-text">Quá khứ, với mọi chủ ngữ</p><p><code>Did you watch the film?</code><br><code>Did she call you?</code><br><code>Did they finish the exercise?</code></p>' + ok('Did you <strong>go</strong> home?') + bad('Did you <strong>went</strong> home?') + '</article></div>',
         '<div class="table-wrap" style="margin-top:1rem"><table><thead><tr><th>Hiện tại</th><th>Quá khứ</th></tr></thead><tbody><tr><td>Do you like it?</td><td>Did you like it?</td></tr><tr><td>Does she work here?</td><td>Did she work here?</td></tr><tr><td>Do they play tennis?</td><td>Did they play tennis?</td></tr></tbody></table></div></div>',
-        // 4. Short answers
+
         '<div class="learn-block"><h2>2. Câu trả lời ngắn</h2><p class="muted">Không cần lặp lại động từ chính — dùng lại trợ động từ.</p><div class="grid-3">',
         '<article class="card scene-card">' + img('short-answer-yes.png', 'Trả lời Yes') + '<div><h3>Hiện tại</h3><p><strong>Do you like tennis?</strong><br>Yes, I <strong>do</strong>. / No, I <strong>don’t</strong>.</p><p><strong>Does Anna live here?</strong><br>Yes, she <strong>does</strong>. / No, she <strong>doesn’t</strong>.</p></div></article>',
         '<article class="card scene-card">' + img('short-answer-no.png', 'Trả lời No') + '<div><h3>Quá khứ</h3><p><strong>Did they like the film?</strong><br>Yes, they <strong>did</strong>. / No, they <strong>didn’t</strong>.</p></div></article>',
         '<article class="card"><h3>Không nói</h3>' + bad('Yes, I like.') + bad('Yes, she works.') + '<p class="small-text muted">…nếu mục tiêu là short answer cho câu hỏi dùng do/does/did.</p></article></div></div>',
-        // 5. Negatives
+
         '<div class="learn-block"><h2>3. Câu phủ định</h2><div class="grid-2">',
         '<article class="card"><h3>Hiện tại: don’t / doesn’t + V</h3><p class="muted small-text">do not → don’t · does not → doesn’t</p><p><code>I don’t play tennis.</code> · <code>We don’t know the answer.</code><br><code>He doesn’t like coffee.</code> · <code>She doesn’t work here.</code></p>' + ok('He doesn’t <strong>play</strong> tennis.') + bad('He doesn’t <strong>plays</strong> tennis.') + '</article>',
         '<article class="card"><h3>Quá khứ: didn’t + V</h3><p class="muted small-text">did not → didn’t</p><p><code>I didn’t see it.</code> · <code>She didn’t go to work.</code><br><code>They didn’t finish the exercise.</code></p>' + ok('She didn’t <strong>go</strong>.') + bad('She didn’t <strong>went</strong>.') + '</article></div></div>',
-        // 7. What do you do vs doing
+
         '<div class="learn-block"><h2>4. What do you do? và What are you doing?</h2><p class="muted">Hai câu rất dễ nhầm nhưng nghĩa hoàn toàn khác nhau.</p><div class="grid-2">',
         '<article class="card scene-card">' + img('what-do-you-do-profession.png', 'Hỏi nghề nghiệp') + '<div><h3>What do you do?</h3><p><strong>= Bạn làm nghề gì?</strong> (công việc nói chung)</p><blockquote>A: What do you do?<br>B: I’m a student.</blockquote><blockquote>A: What does your sister do?<br>B: She’s a teacher.</blockquote></div></article>',
         '<article class="card scene-card">' + img('what-are-you-doing.png', 'Đang nghe nhạc') + '<div><h3>What are you doing?</h3><p><strong>= Bạn đang làm gì vậy?</strong> (lúc nói)</p><blockquote>A: What are you doing?<br>B: I’m listening to music.</blockquote></div></article></div></div>',
-        // 8. do + task
+
         '<div class="learn-block"><h2>5. Các cụm do + task</h2><p class="muted">Do thường đi với công việc, nhiệm vụ và hoạt động cần thực hiện.</p><div class="table-wrap"><table><thead><tr><th>Cụm từ</th><th>Nghĩa</th><th>Ví dụ</th></tr></thead><tbody>',
         [['do homework', 'làm bài tập về nhà', 'I usually do my homework after dinner.'], ['do housework', 'làm việc nhà', 'She does the housework at weekends.'], ['do the gardening', 'làm vườn', 'My father does the gardening at weekends.'], ['do the washing', 'giặt quần áo', 'We did the washing yesterday.'], ['do the washing-up', 'rửa bát', 'Who did the washing-up last night?'], ['do exercises', 'làm bài tập', 'Please do exercises 1–5.'], ['do some exercise', 'tập thể dục', 'I do some exercise every morning.'], ['do business (with somebody)', 'kinh doanh; làm ăn với ai', 'Our company does business with several international companies.'], ['do a job', 'làm một công việc', 'He does a difficult job.'], ['do your best', 'cố gắng hết sức', 'The exam is difficult, but just do your best.'], ['do well', 'làm tốt', 'She did very well in the test.'], ['do badly', 'làm không tốt', 'I did badly in the test.']].map(function(row) { return '<tr><td><strong>' + row[0] + '</strong></td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>'; }).join(''),
         '</tbody></table></div><div class="spacer"></div><div id="lesson-phrase-groups"></div></div>',
-        // 9. homework vs exercises
+
         '<div class="learn-block"><h2>6. do homework và do exercises</h2><p class="muted">Cùng dịch là “làm bài tập” nhưng cách dùng khác nhau.</p><div class="grid-3">',
         '<article class="card"><h3>do homework</h3><p>Bài giáo viên giao để làm ở nhà.</p><p><code>I have to do my homework tonight.</code></p><p class="small-text muted">Homework thường <strong>không đếm được</strong>.</p>' + ok('I have a lot of homework.') + bad('I have many homeworks.') + '</article>',
         '<article class="card"><h3>do exercises</h3><p>Các bài luyện tập cụ thể trong sách, lớp học hoặc khóa học.</p><p><code>Please do exercises 1–5.</code><br><code>I did three grammar exercises this morning.</code></p></article>',
         '<article class="card"><h3>do (some) exercise</h3><p>Mang nghĩa <strong>tập thể dục</strong>.</p><p><code>I do some exercise every morning.</code><br><code>Did you do any exercise yesterday?</code></p></article></div></div>',
-        // 10. best / well / badly
+
         '<div class="learn-block"><h2>7. do your best, do well, do badly</h2><div class="grid-3">',
         '<article class="card scene-card">' + img('do-your-best.png', 'Cố gắng hết sức') + '<div><h3>do your best</h3><p>= cố gắng hết sức</p><p class="small-text"><code>Don’t worry. Just do your best.</code><br><code>I’ll do my best in the interview.</code></p></div></article>',
         '<article class="card scene-card">' + img('do-well.png', 'Làm tốt') + '<div><h3>do well</h3><p>= làm tốt / đạt kết quả tốt</p><p class="small-text"><code>She did well in the exam.</code><br><code>He’s doing well at school.</code></p></div></article>',
         '<article class="card scene-card">' + img('do-badly.png', 'Làm không tốt') + '<div><h3>do badly</h3><p>= làm không tốt / kết quả kém</p><p class="small-text"><code>I did badly in the test.</code><br><code>The team is doing badly this season.</code></p></div></article></div></div>',
-        // 11. Patterns
+
         '<div class="learn-block"><h2>8. Mẫu câu cần nhớ</h2><div class="grid-3">',
         [['Hỏi sở thích / thói quen', ['Do you like tennis?', 'Do you listen to music when you relax?', 'Does she exercise every day?']], ['Hỏi quá khứ', ['Did you see the film?', 'Did you do your homework yesterday?', 'Did they go to the meeting?']], ['Hỏi nghề nghiệp', ['What do you do?', 'What does your father do?', 'What does your sister do?']], ['Hỏi hành động hiện tại', ['What are you doing?', 'I’m doing my homework.', 'They’re dancing.']], ['Hỏi về nhiệm vụ', ['Did you do the washing this morning?', 'Who does the washing-up in your family?', 'Do you do the gardening?']]].map(function(group) { return '<article class="card"><h3>' + group[0] + '</h3><p>' + group[1].map(function(line) { return '<code>' + line + '</code>'; }).join('<br>') + '</p></article>'; }).join(''),
         '</div></div>',
-        // 12. Common mistakes
+
         '<div class="learn-block"><h2>9. Những lỗi thường gặp</h2><div class="table-wrap"><table><thead><tr><th>Sai</th><th>Đúng</th><th>Vì sao</th></tr></thead><tbody>',
         [['Did you <strong>went</strong> home?', 'Did you <strong>go</strong> home?', 'did đã thể hiện quá khứ → động từ sau nó dùng nguyên mẫu.'], ['Does he <strong>plays</strong> tennis?', 'Does he <strong>play</strong> tennis?', 'Không thêm -s sau does.'], ['She doesn’t <strong>likes</strong> coffee.', 'She doesn’t <strong>like</strong> coffee.', 'Không thêm -s sau doesn’t.'], ['What do you do? = “Bạn đang làm gì?”', 'What are you doing? = “Bạn đang làm gì?”', 'What do you do? thường hỏi nghề nghiệp.'], ['I <strong>done</strong> my homework yesterday.', 'I <strong>did</strong> my homework yesterday. / I have <strong>done</strong> my homework.', 'done cần đi sau have / has / had.']].map(function(row) { return '<tr><td>❌ ' + row[0] + '</td><td>✅ ' + row[1] + '</td><td>' + row[2] + '</td></tr>'; }).join(''),
         '</tbody></table></div></div>',
-        // 15. Cheat sheet
+
         '<div class="learn-block"><h2>10. Bảng ghi nhớ nhanh</h2><div class="table-wrap"><table><thead><tr><th>Muốn nói gì?</th><th>Mẫu</th></tr></thead><tbody>',
         [['Hỏi hiện tại', 'Do/Does + S + V…?'], ['Hỏi quá khứ', 'Did + S + V…?'], ['Phủ định hiện tại', 'don’t/doesn’t + V'], ['Phủ định quá khứ', 'didn’t + V'], ['Hỏi nghề nghiệp', 'What do you do?'], ['Hỏi đang làm gì', 'What are you doing?'], ['Quá khứ của do', 'did'], ['Quá khứ phân từ', 'done'], ['Việc nhà / nhiệm vụ', 'do + task']].map(function(row) { return '<tr><td>' + row[0] + '</td><td><code>' + row[1] + '</code></td></tr>'; }).join(''),
         '</tbody></table></div><div class="callout warning" style="margin-top:1rem"><strong>Quy tắc đặc biệt:</strong> sau <strong>does</strong>, <strong>did</strong>, <strong>doesn’t</strong> và <strong>didn’t</strong>, động từ chính dùng <strong>dạng nguyên mẫu</strong>.</div></div>',
-        // 18. Summary
+
         '<div class="learn-block"><h2>Tổng kết: 3 ý quan trọng nhất</h2><div class="grid-3"><article class="card"><h3>1. Do/does/did làm trợ động từ</h3><p><code>Do you like it?</code><br><code>Does she work here?</code><br><code>Did they go home?</code></p></article><article class="card"><h3>2. Sau does / did / doesn’t / didn’t → V nguyên mẫu</h3><p><code>Does he work?</code> · <code>Did she go?</code><br><code>He doesn’t like it.</code> · <code>They didn’t see us.</code></p></article><article class="card"><h3>3. Do là động từ chính trong nhiều collocation</h3><p>do homework · do housework · do the washing-up · do exercises · do business · do your best · do well</p></article></div><div class="callout teal" style="margin-top:1rem">Mục tiêu không phải chỉ nhớ nghĩa của <strong>do</strong>, mà là nhận ra <strong>vai trò của nó trong câu</strong> và dùng đúng mẫu trong giao tiếp thực tế.</div><div class="button-row" style="margin-top:1rem"><button type="button" class="btn primary" data-view="vocabulary">Xem Vocabulary →</button><button type="button" class="btn" data-view="practice">Làm bài tập A–K</button></div></div>'
       ].join('');
 
@@ -2019,7 +2088,6 @@
       showToast('Đã reset progress của bài học.');
     }
 
-    // ===== Evidence-based review layer =====
     let reviewSession = null;
     const timers = {};
     let ttsRate = 0.9;
@@ -2111,7 +2179,6 @@
       return { correct: close, typo: close };
     }
 
-    // ----- Text-to-speech (Web Speech API, optional) -----
     function ttsSupported() {
       return typeof window.speechSynthesis !== 'undefined' && typeof window.SpeechSynthesisUtterance !== 'undefined';
     }
@@ -2147,7 +2214,6 @@
       return sentence.replace(/\[\[|\]\]/g, '');
     }
 
-    // ----- Overview: study plan + evidence -----
     function renderResearchOverview() {
       const slot = document.querySelector('#view-overview [data-slot="study-plan"]');
       if (!slot) return;
@@ -2160,7 +2226,6 @@
       slot.innerHTML = '<div class="section-heading"><div><div class="section-kicker">Spaced review</div><h2>Lộ trình ôn 30 ngày</h2></div><p>Mục Spaced review tự xếp lịch cho từng cụm. Bảng này cho biết nên làm gì vào mỗi mốc ôn.</p></div><div class="table-wrap"><table><thead><tr><th>Mốc</th><th>Việc cần làm</th><th>Mở nhanh</th></tr></thead><tbody>' + rows + '</tbody></table></div><div class="spacer"></div><div class="section-heading"><div><div class="section-kicker">Evidence</div><h2>Vì sao bài học có các phần này?</h2></div><p>Mỗi hoạt động dựa trên một kết luận từ thư mục “Nghiên cứu học ngôn ngữ”.</p></div><div class="grid-4">' + cards + '</div>';
     }
 
-    // ----- Story & listening -----
     function getStory() {
       return stories.find(function(story) { return story.id === state.storyId; }) || stories[0];
     }
@@ -2330,7 +2395,6 @@
       }).join('');
     }
 
-    // ----- Spaced repetition -----
     function srsDueIds() {
       const today = todayKey();
       return vocab.filter(function(item) { const record = state.srs[item.id]; return record && record.due && record.due <= today; }).map(function(item) { return item.id; });
@@ -2438,7 +2502,7 @@
       const keepSchedule = correct && session.mode === 'extra' && !session.wrong[id];
       if (correct) {
         if (keepSchedule) {
-          // extra practice: no schedule change
+
         } else if (session.wrong[id]) {
           record.box = 1;
           record.due = todayKey(1);
@@ -2591,7 +2655,6 @@
       if (nextId && sessionCardType(nextId) === 'listen') speak(vocabById(nextId).example);
     }
 
-    // ----- Free recall (brain dump) -----
     function renderDump() {
       const root = document.getElementById('dump-content');
       if (!root) return;
@@ -2612,7 +2675,6 @@
       root.innerHTML = '<div class="button-row" style="margin-bottom:.6rem"><span class="timer" id="dump-timer">2:00</span><button type="button" class="btn small primary" data-dump-start>Bắt đầu 2 phút</button></div><textarea class="answer-textarea" data-dump-input placeholder="do homework&#10;Did you…?&#10;She doesn’t like…&#10;…">' + escapeHtml(dump.text || '') + '</textarea><div class="button-row" style="margin-top:.6rem"><button type="button" class="btn secondary" data-dump-check>So với danh sách</button><button type="button" class="btn small" data-dump-clear>Làm lại từ đầu</button></div><div id="dump-result" style="margin-top:.4rem">' + result + '</div>';
     }
 
-    // ----- Speaking loop (task repetition) -----
     function speakChipsHtml(key) {
       const used = detectChunks(state.speak[key] || '');
       let compare = '';
@@ -2655,7 +2717,7 @@
       const target = event.target;
       const flashDir = target.closest('[data-flash-dir]');
       if (flashDir) { state.flashDir = flashDir.dataset.flashDir; state.flashFlipped = false; saveProgress(); renderFlashcard(); return; }
-      // Story
+
       const pick = target.closest('[data-story-pick]');
       if (pick) { stopSpeaking(); state.storyId = pick.dataset.storyPick; state.storyStage = 1; state.storyClosed = false; saveProgress(); renderStory(); return; }
       const stageButton = target.closest('[data-story-stage]');
@@ -2688,7 +2750,7 @@
       }
       const storyCheck = target.closest('[data-check-story]');
       if (storyCheck) { checkStoryQuestion(storyCheck.dataset.checkStory); return; }
-      // Dictation
+
       const dictPlay = target.closest('[data-dict-play]');
       if (dictPlay) { speak(dictationItems[Number(dictPlay.dataset.dictPlay)].text); return; }
       const dictSlow = target.closest('[data-dict-slow]');
@@ -2714,7 +2776,7 @@
         renderDictation();
         return;
       }
-      // Spaced review
+
       const start = target.closest('[data-srs-start]');
       if (start) { startReviewSession(start.dataset.srsStart); return; }
       const limit = target.closest('[data-srs-limit]');
@@ -2744,7 +2806,7 @@
         return;
       }
       if (target.closest('[data-srs-close]')) { reviewSession = null; renderReview(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-      // Brain dump
+
       if (target.closest('[data-dump-start]')) {
         startTimer('dump', 120, 'dump-timer', function() { showToast('Hết 2 phút! Bấm “So với danh sách”.'); });
         const field = document.querySelector('[data-dump-input]');
@@ -2776,7 +2838,7 @@
         startReviewSession('due');
         return;
       }
-      // Speaking loop
+
       const speakStart = target.closest('[data-speak-start]');
       if (speakStart) {
         const round = speakRounds.find(function(item) { return item.key === speakStart.dataset.speakStart; });
@@ -2985,8 +3047,7 @@
   </script>
 
   <script>
-    // Start the whole lesson over: wipe everything this lesson saved, then reload so every
-    // input, timer and voice is back to its first-visit state. The sidebar button uses it too.
+
     (function() {
       function resetAll() {
         if (!window.confirm('Làm lại từ đầu toàn bộ bài này?\n\nMọi tiến độ, câu trả lời, điểm test, flashcard, lịch ôn, sổ từ vựng và bài viết của bạn trong bài này sẽ bị xóa.')) return;
@@ -3008,5 +3069,242 @@
       }, true);
     })();
   </script>
+<script>
+'use strict';
+(function () {
+  const GAME_STORAGE_KEY = LESSON_ID + '_mini_games_v2';
+  const gameModes = {"sentence":{"title":"Hoàn thiện câu","icon":"✍️","tag":"Chọn đáp án","info":"Chọn dạng do / does / did / done / doing vào chỗ trống.","items":[{"id":"s01","type":"choice","prompt":"___ you study English every day?","answer":"Do","options":["Do","Does","Did","Done","Doing"],"note":"Với you ở hiện tại, dùng Do."},{"id":"s02","type":"choice","prompt":"___ she work in a hospital?","answer":"Does","options":["Do","Does","Did","Done","Doing"],"note":"She đi với Does."},{"id":"s03","type":"choice","prompt":"___ they visit you last Sunday?","answer":"Did","options":["Do","Does","Did","Done","Doing"],"note":"Last Sunday → Did + động từ nguyên mẫu."},{"id":"s04","type":"choice","prompt":"I have already ___ the washing-up.","answer":"done","options":["do","does","did","done","doing"],"note":"Sau have dùng quá khứ phân từ done."},{"id":"s05","type":"choice","prompt":"My father ___ the gardening every weekend.","answer":"does","options":["do","does","did","done","doing"],"note":"My father = he, hiện tại đơn → does."},{"id":"s06","type":"choice","prompt":"What are you ___ right now?","answer":"doing","options":["do","does","did","done","doing"],"note":"Sau are trong hiện tại tiếp diễn dùng doing."},{"id":"s07","type":"choice","prompt":"We ___ our homework after dinner yesterday.","answer":"did","options":["do","does","did","done","doing"],"note":"Yesterday là quá khứ đơn → did."},{"id":"s08","type":"choice","prompt":"___ your parents live near here?","answer":"Do","options":["Do","Does","Did","Done","Doing"],"note":"Your parents = they → Do."},{"id":"s09","type":"choice","prompt":"She ___ not like coffee.","answer":"does","options":["do","does","did","done","doing"],"note":"Phủ định hiện tại với she → does not."},{"id":"s10","type":"choice","prompt":"They ___ not go to the meeting yesterday.","answer":"did","options":["do","does","did","done","doing"],"note":"Quá khứ phủ định → did not + go."},{"id":"s11","type":"choice","prompt":"Have you ___ the grammar exercises?","answer":"done","options":["do","does","did","done","doing"],"note":"Have + past participle → done."},{"id":"s12","type":"choice","prompt":"He is ___ his homework now.","answer":"doing","options":["do","does","did","done","doing"],"note":"Is + doing diễn tả việc đang xảy ra."},{"id":"s13","type":"choice","prompt":"___ your brother play tennis?","answer":"Does","options":["Do","Does","Did","Done","Doing"],"note":"Your brother = he → Does."},{"id":"s14","type":"choice","prompt":"___ Anna call you last night?","answer":"Did","options":["Do","Does","Did","Done","Doing"],"note":"Last night → Did."},{"id":"s15","type":"choice","prompt":"What ___ your sister do?","answer":"does","options":["do","does","did","done","doing"],"note":"What does your sister do? hỏi nghề nghiệp."},{"id":"s16","type":"choice","prompt":"I usually ___ some exercise before breakfast.","answer":"do","options":["do","does","did","done","doing"],"note":"I ở hiện tại → do some exercise."},{"id":"s17","type":"choice","prompt":"She has ___ very well in the exam.","answer":"done","options":["do","does","did","done","doing"],"note":"Has + done ở thì hiện tại hoàn thành."},{"id":"s18","type":"choice","prompt":"Our company ___ business with other companies.","answer":"does","options":["do","does","did","done","doing"],"note":"Our company = it, hiện tại đơn → does."},{"id":"s19","type":"choice","prompt":"___ you do the washing yesterday?","answer":"Did","options":["Do","Does","Did","Done","Doing"],"note":"Yesterday → Did you do... ?"},{"id":"s20","type":"choice","prompt":"He ___ a difficult job last year.","answer":"did","options":["do","does","did","done","doing"],"note":"Last year → did."},{"id":"s21","type":"choice","prompt":"I don’t ___ the washing on Mondays.","answer":"do","options":["do","does","did","done","doing"],"note":"Sau don’t dùng động từ nguyên mẫu do."},{"id":"s22","type":"choice","prompt":"Does she ___ the housework?","answer":"do","options":["do","does","did","done","doing"],"note":"Sau does dùng động từ nguyên mẫu do."},{"id":"s23","type":"choice","prompt":"Did you ___ the exercises yesterday?","answer":"do","options":["do","does","did","done","doing"],"note":"Sau did dùng động từ nguyên mẫu do."},{"id":"s24","type":"choice","prompt":"We are ___ our best to improve.","answer":"doing","options":["do","does","did","done","doing"],"note":"Are + doing our best, hành động đang diễn ra."}]},"paragraph":{"title":"Hoàn thiện đoạn văn","icon":"📖","tag":"3 chỗ trống","info":"Đọc ngữ cảnh và điền 3 chỗ trống bằng trắc nghiệm.","items":[{"id":"pg01","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"Every evening, Mai {{1}} her homework. Yesterday she {{2}} three grammar exercises. She has already {{3}} all of them.","blanks":[{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]},{"answer":"done","options":["do","does","did","done","doing"]}],"note":"Every evening → does; yesterday → did; has → done."},{"id":"pg02","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"A: {{1}} you like tennis? B: Yes, I {{2}}. A: {{3}} your sister like it too? B: No, she doesn’t.","blanks":[{"answer":"Do","options":["Do","Does","Did","Done"]},{"answer":"do","options":["do","does","did","done","doing"]},{"answer":"Does","options":["Do","Does","Did","Done"]}],"note":"Do you…? → Yes, I do; Does your sister…?"},{"id":"pg03","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"On weekdays, my dad {{1}} the gardening. Last weekend, he {{2}} the washing. Now he is {{3}} the washing-up.","blanks":[{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]},{"answer":"doing","options":["do","does","did","done","doing"]}],"note":"Thói quen → does; quá khứ → did; hiện tại tiếp diễn → doing."},{"id":"pg04","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"A: What {{1}} your mother do? B: She’s a nurse. A: What is she {{2}} now? B: She is {{3}} some housework.","blanks":[{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"doing","options":["do","does","did","done","doing"]},{"answer":"doing","options":["do","does","did","done","doing"]}],"note":"Hỏi nghề: does…do; hỏi hành động đang diễn ra: is…doing."},{"id":"pg05","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"A: {{1}} you go to the meeting yesterday? B: No, I {{2}}. I stayed home and {{3}} my homework.","blanks":[{"answer":"Did","options":["Do","Does","Did","Done"]},{"answer":"didn’t","options":["don’t","doesn’t","didn’t","done"]},{"answer":"did","options":["do","does","did","done","doing"]}],"note":"Did…? → No, I didn’t; ở quá khứ: did my homework."},{"id":"pg06","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"Lan {{1}} not drink coffee. Her brother {{2}} not drink tea. Yesterday, neither of them {{3}} the washing-up.","blanks":[{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]}],"note":"Lan và her brother là ngôi thứ ba số ít → does not; yesterday → did."},{"id":"pg07","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"I usually {{1}} exercises 1–5 at school. Yesterday I {{2}} exercises 6–8. I have {{3}} all the tasks now.","blanks":[{"answer":"do","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]},{"answer":"done","options":["do","does","did","done","doing"]}],"note":"Hiện tại: do; quá khứ: did; have done."},{"id":"pg08","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"A: What {{1}} you do? B: I’m a student. A: What are you {{2}}? B: I’m {{3}} my English homework.","blanks":[{"answer":"do","options":["do","does","did","done","doing"]},{"answer":"doing","options":["do","does","did","done","doing"]},{"answer":"doing","options":["do","does","did","done","doing"]}],"note":"What do you do? hỏi nghề; What are you doing? hỏi hiện tại."},{"id":"pg09","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"Our company {{1}} business with Japan. It {{2}} very well last year. This year it is {{3}} even better.","blanks":[{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]},{"answer":"doing","options":["do","does","did","done","doing"]}],"note":"Does business → did well → is doing better."},{"id":"pg10","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"She {{1}} not like tennis, but she {{2}} some exercise every morning. Yesterday she {{3}} the gardening.","blanks":[{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"does","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]}],"note":"She: does not / does some exercise; yesterday: did."},{"id":"pg11","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"A: Have you {{1}} the washing-up? B: Yes, I have. My sister {{2}} the washing, and Dad is {{3}} the gardening.","blanks":[{"answer":"done","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]},{"answer":"doing","options":["do","does","did","done","doing"]}],"note":"Have done; sister did; dad is doing."},{"id":"pg12","type":"paragraph","prompt":"Chọn từ thích hợp cho từng chỗ trống trong đoạn văn.","story":"I {{1}} my best in every exam. Last week I {{2}} badly in a test, but I have {{3}} better since then.","blanks":[{"answer":"do","options":["do","does","did","done","doing"]},{"answer":"did","options":["do","does","did","done","doing"]},{"answer":"done","options":["do","does","did","done","doing"]}],"note":"Habit: do; last week: did; have done."}]},"picture":{"title":"Nhìn ảnh đoán từ","icon":"🖼️","tag":"Ảnh → từ","info":"Nhận diện collocation qua bộ ảnh minh hoạ cũ.","items":[{"id":"pic01","type":"picture","image":"do-homework.png","emoji":"📚","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do homework","options":["do homework","do housework","do exercises","do a job"],"note":"Làm bài tập về nhà (homework)."},{"id":"pic02","type":"picture","image":"do-english-study.png","emoji":"✏️","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do homework","options":["do homework","do your best","doing homework","do housework"],"note":"Hoàn thành bài tập giáo viên giao."},{"id":"pic03","type":"picture","image":"do-housework.png","emoji":"🧹","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do housework","options":["do housework","do the gardening","ask about a job","do well"],"note":"Housework = công việc nhà."},{"id":"pic04","type":"picture","image":"do-family-housework.png","emoji":"🏠","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do housework","options":["do housework","do badly","do the washing","do homework"],"note":"Nhiều người cùng làm việc nhà."},{"id":"pic05","type":"picture","image":"do-gardening.png","emoji":"🪴","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do the gardening","options":["do the gardening","do a job","do exercises","do housework"],"note":"Gardening liên quan đến cây cối và vườn."},{"id":"pic06","type":"picture","image":"do-washing.png","emoji":"🧺","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do the washing","options":["do the washing","do housework","do a job","do homework"],"note":"The washing là giặt quần áo."},{"id":"pic07","type":"picture","image":"do-washing-up.png","emoji":"🍽️","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do the washing-up","options":["do the washing-up","do well","doing homework","do business"],"note":"The washing-up là rửa bát đĩa."},{"id":"pic08","type":"picture","image":"do-exercises.png","emoji":"📝","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do exercises","options":["do exercises","do housework","do the gardening","do homework"],"note":"Exercises là các bài luyện cụ thể."},{"id":"pic09","type":"picture","image":"do-some-exercise.png","emoji":"🏃","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do some exercise","options":["do some exercise","do the gardening","do a job","do the washing"],"note":"Exercise không đếm được khi nói tập thể dục."},{"id":"pic10","type":"picture","image":"do-business.png","emoji":"💼","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do business","options":["do business","do some exercise","do the gardening","do housework"],"note":"Business = hoạt động kinh doanh."},{"id":"pic11","type":"picture","image":"do-a-job.png","emoji":"🛠️","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do a job","options":["do a job","do the washing","do housework","do the washing-up"],"note":"Do a job = làm một công việc."},{"id":"pic12","type":"picture","image":"do-your-best.png","emoji":"🏆","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do your best","options":["do your best","do some exercise","do the gardening","do the washing-up"],"note":"Try as hard as you can = do your best."},{"id":"pic13","type":"picture","image":"do-well.png","emoji":"🌟","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do well","options":["do well","doing homework","do business","ask about a job"],"note":"Do well = đạt kết quả tốt."},{"id":"pic14","type":"picture","image":"do-badly.png","emoji":"📉","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"do badly","options":["do badly","do housework","do business","ask about a job"],"note":"Do badly = đạt kết quả kém."},{"id":"pic15","type":"picture","image":"doing-homework.png","emoji":"📖","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"doing homework","options":["doing homework","do some exercise","do homework","do the washing-up"],"note":"Doing diễn tả việc đang làm."},{"id":"pic16","type":"picture","image":"what-do-you-do-profession.png","emoji":"👩‍💻","prompt":"Nhìn hình minh họa, chọn cụm từ tiếng Anh phù hợp nhất.","answer":"ask about a job","options":["ask about a job","doing homework","do badly","do homework"],"note":"What do you do? thường hỏi về nghề nghiệp."}]},"dialogue":{"title":"Hội thoại nhanh","icon":"💬","tag":"Giao tiếp","info":"Chọn câu trả lời tự nhiên trong hội thoại.","items":[{"id":"d01","type":"dialogue","prompt":"A: Do you like tennis?\nB: ___","answer":"Yes, I do.","options":["Yes, I do.","Yes, I am.","Yes, I did.","Yes, I like."],"note":"Do you…? → Yes, I do."},{"id":"d02","type":"dialogue","prompt":"A: Does your father cook?\nB: ___","answer":"No, he doesn’t.","options":["No, he doesn’t.","No, he don’t.","No, he didn’t.","No, he isn’t."],"note":"Does…? → No, he doesn’t."},{"id":"d03","type":"dialogue","prompt":"A: Did they watch the film?\nB: ___","answer":"Yes, they did.","options":["Yes, they do.","Yes, they did.","Yes, they have.","Yes, they are."],"note":"Did…? → Yes, they did."},{"id":"d04","type":"dialogue","prompt":"A: What do you do?\nB: ___","answer":"I’m a student.","options":["I’m a student.","I’m reading now.","I did the washing.","I don’t know."],"note":"What do you do? hỏi vai trò/nghề."},{"id":"d05","type":"dialogue","prompt":"A: What are you doing?\nB: ___","answer":"I’m doing my homework.","options":["I’m a teacher.","I’m doing my homework.","I did homework yesterday.","I do my best every day."],"note":"What are you doing? hỏi việc ngay lúc này."},{"id":"d06","type":"dialogue","prompt":"A: Did you do the washing?\nB: ___","answer":"No, I didn’t.","options":["No, I didn’t.","No, I don’t.","No, I’m not.","No, I haven’t."],"note":"Did…? → No, I didn’t."},{"id":"d07","type":"dialogue","prompt":"A: Have you done your homework?\nB: ___","answer":"Yes, I have.","options":["Yes, I do.","Yes, I did.","Yes, I have.","Yes, I am."],"note":"Have you done…? → Yes, I have."},{"id":"d08","type":"dialogue","prompt":"A: Does Anna speak English?\nB: ___","answer":"Yes, she does.","options":["Yes, she do.","Yes, she does.","Yes, she did.","Yes, she is."],"note":"Does Anna…? → Yes, she does."},{"id":"d09","type":"dialogue","prompt":"A: Did she go to school yesterday?\nB: ___","answer":"No, she didn’t.","options":["No, she doesn’t.","No, she didn’t.","No, she wasn’t.","No, she don’t."],"note":"Did she…? → No, she didn’t."},{"id":"d10","type":"dialogue","prompt":"A: Who does the washing-up in your family?\nB: ___","answer":"My brother does it.","options":["My brother does it.","My brother do it.","My brother done it.","My brother doing it."],"note":"My brother = he: does."},{"id":"d11","type":"dialogue","prompt":"A: What does your sister do?\nB: ___","answer":"She’s a teacher.","options":["She’s doing dishes now.","She’s a teacher.","She did laundry.","She doesn’t."],"note":"Hỏi nghề của sister."},{"id":"d12","type":"dialogue","prompt":"A: Do your parents work here?\nB: ___","answer":"Yes, they do.","options":["Yes, they does.","Yes, they did.","Yes, they do.","Yes, they are."],"note":"Your parents = they: do."},{"id":"d13","type":"dialogue","prompt":"A: Did you do well in the test?\nB: ___","answer":"Yes, I did.","options":["Yes, I done.","Yes, I did.","Yes, I does.","Yes, I have."],"note":"Quá khứ dùng did."},{"id":"d14","type":"dialogue","prompt":"A: Does she do any exercise?\nB: ___","answer":"No, she doesn’t.","options":["No, she didn’t.","No, she doesn’t.","No, she don’t.","No, she hasn’t."],"note":"Does…? → No, she doesn’t."},{"id":"d15","type":"dialogue","prompt":"A: Do you do the gardening?\nB: ___","answer":"Yes, I do.","options":["Yes, I am.","Yes, I do.","Yes, I did.","Yes, I have."],"note":"Do you do…? dùng do để trả lời ngắn."},{"id":"d16","type":"dialogue","prompt":"A: What did you do yesterday?\nB: ___","answer":"I did my homework.","options":["I done my homework.","I am doing homework.","I did my homework.","I do the homework now."],"note":"Yesterday → I did my homework."},{"id":"d17","type":"dialogue","prompt":"A: Are you doing housework right now?\nB: ___","answer":"Yes, I am.","options":["Yes, I do.","Yes, I did.","Yes, I am.","Yes, I have."],"note":"Are you doing…? → Yes, I am."},{"id":"d18","type":"dialogue","prompt":"A: Did the company do business abroad last year?\nB: ___","answer":"Yes, it did.","options":["Yes, it does.","Yes, it did.","Yes, it done.","Yes, it is."],"note":"Did…? → Yes, it did."}]},"order":{"title":"Xếp từ thành câu","icon":"🧩","tag":"Ghép từ","info":"Chạm các thẻ từ đúng thứ tự để hoàn chỉnh câu.","items":[{"id":"o01","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["Do","you","like","tennis?"],"answer":"Do you like tennis?","note":"Chú ý trật tự trợ động từ + chủ ngữ + động từ nguyên mẫu."},{"id":"o02","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["Does","she","work","here?"],"answer":"Does she work here?","note":"Chú ý trật tự trợ động từ + chủ ngữ + động từ nguyên mẫu."},{"id":"o03","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["Did","you","go","home","yesterday?"],"answer":"Did you go home yesterday?","note":"Chú ý trật tự trợ động từ + chủ ngữ + động từ nguyên mẫu."},{"id":"o04","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["Have","you","done","your homework?"],"answer":"Have you done your homework?","note":"Chú ý trật tự trợ động từ + chủ ngữ + động từ nguyên mẫu."},{"id":"o05","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["What","do","you","do?"],"answer":"What do you do?","note":"Chú ý trật tự trợ động từ + chủ ngữ + động từ nguyên mẫu."},{"id":"o06","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["What","are","you","doing","now?"],"answer":"What are you doing now?","note":"Chú ý trật tự trợ động từ + chủ ngữ + động từ nguyên mẫu."},{"id":"o07","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["My father","does","the gardening."],"answer":"My father does the gardening.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o08","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["I","did","my homework","last night."],"answer":"I did my homework last night.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o09","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["She","doesn’t","like","coffee."],"answer":"She doesn’t like coffee.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o10","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["They","didn’t","finish","the exercise."],"answer":"They didn’t finish the exercise.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o11","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["Who","does","the washing-up?"],"answer":"Who does the washing-up?","note":"Chú ý trật tự trợ động từ + chủ ngữ + động từ nguyên mẫu."},{"id":"o12","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["I","always","do","my best."],"answer":"I always do my best.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o13","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["He","did","well","in the test."],"answer":"He did well in the test.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o14","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["She","has","done","the washing."],"answer":"She has done the washing.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o15","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["We","do business","with Japan."],"answer":"We do business with Japan.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."},{"id":"o16","type":"order","prompt":"Chạm vào các từ/cụm để sắp xếp thành câu đúng.","parts":["My brother","does","some exercise."],"answer":"My brother does some exercise.","note":"Chú ý chủ ngữ, dạng động từ và vị trí trạng ngữ."}]},"detective":{"title":"Săn lỗi ngữ pháp","icon":"🔎","tag":"Sửa lỗi","info":"Tìm câu sửa đúng khi xuất hiện lỗi phổ biến.","items":[{"id":"e01","type":"detective","prompt":"Tìm cách sửa đúng: Did you went home?","answer":"Did you go home?","options":["Did you went home?","Did you go home?","Did you gone home?","Do you went home?"],"note":"Sau did dùng go."},{"id":"e02","type":"detective","prompt":"Tìm cách sửa đúng: Does she likes music?","answer":"Does she like music?","options":["Does she liking music?","Does she like music?","Does she likes music?","Do she likes music?"],"note":"Sau does không thêm -s."},{"id":"e03","type":"detective","prompt":"Tìm cách sửa đúng: She don’t like coffee.","answer":"She doesn’t like coffee.","options":["She don’t like coffee.","She doesn’t likes coffee.","She doesn’t like coffee.","She didn’t likes coffee."],"note":"She đi với doesn’t."},{"id":"e04","type":"detective","prompt":"Tìm cách sửa đúng: I done the washing yesterday.","answer":"I did the washing yesterday.","options":["I do the washing yesterday.","I done the washing yesterday.","I did the washing yesterday.","I have did the washing yesterday."],"note":"Quá khứ đơn → did."},{"id":"e05","type":"detective","prompt":"Tìm cách sửa đúng: He doesn’t does the washing-up.","answer":"He doesn’t do the washing-up.","options":["He doesn’t do the washing-up.","He doesn’t does the washing-up.","He don’t do the washing-up.","He didn’t does the washing-up."],"note":"Sau doesn’t là do."},{"id":"e06","type":"detective","prompt":"Tìm cách sửa đúng: What are you do?","answer":"What are you doing?","options":["What are you do?","What do you doing?","What are you doing?","What you doing?"],"note":"Are + doing."},{"id":"e07","type":"detective","prompt":"Tìm cách sửa đúng: Do your father work here?","answer":"Does your father work here?","options":["Do your father work here?","Does your father works here?","Does your father work here?","Did your father works here?"],"note":"Your father → Does."},{"id":"e08","type":"detective","prompt":"Tìm cách sửa đúng: We doesn’t play tennis.","answer":"We don’t play tennis.","options":["We doesn’t play tennis.","We don’t play tennis.","We didn’t plays tennis.","We do not plays tennis."],"note":"We → don’t."},{"id":"e09","type":"detective","prompt":"Tìm cách sửa đúng: She didn’t went to work.","answer":"She didn’t go to work.","options":["She didn’t went to work.","She didn’t go to work.","She doesn’t went to work.","She didn’t gone to work."],"note":"Sau didn’t dùng go."},{"id":"e10","type":"detective","prompt":"Tìm cách sửa đúng: I have did the exercises.","answer":"I have done the exercises.","options":["I have did the exercises.","I have do the exercises.","I have done the exercises.","I have doing the exercises."],"note":"Have + done."},{"id":"e11","type":"detective","prompt":"Tìm cách sửa đúng: He do the gardening every day.","answer":"He does the gardening every day.","options":["He do the gardening every day.","He does the gardening every day.","He did the gardening every day.","He doing the gardening every day."],"note":"He → does."},{"id":"e12","type":"detective","prompt":"Tìm cách sửa đúng: I did good in the test.","answer":"I did well in the test.","options":["I did good in the test.","I did best in the test.","I done well in the test.","I did well in the test."],"note":"Trạng từ well."},{"id":"e13","type":"detective","prompt":"Tìm cách sửa đúng: Have you do your homework?","answer":"Have you done your homework?","options":["Have you do your homework?","Have you did your homework?","Have you done your homework?","Have you doing your homework?"],"note":"Have + done."},{"id":"e14","type":"detective","prompt":"Tìm cách sửa đúng: Did she worked yesterday?","answer":"Did she work yesterday?","options":["Did she worked yesterday?","Did she works yesterday?","Did she work yesterday?","Does she worked yesterday?"],"note":"Sau Did, động từ nguyên mẫu work."},{"id":"e15","type":"detective","prompt":"Tìm cách sửa đúng: There are many homeworks.","answer":"There is a lot of homework.","options":["There are many homeworks.","There is many homework.","There is a lot of homework.","There are a homeworks."],"note":"Homework là danh từ không đếm được."},{"id":"e16","type":"detective","prompt":"Tìm cách sửa đúng: I made the washing-up.","answer":"I did the washing-up.","options":["I made the washing-up.","I done the washing-up.","I did the washing-up.","I doed the washing-up."],"note":"Do the washing-up, không dùng make."}]},"meaning":{"title":"Ghép nghĩa collocation","icon":"🎯","tag":"VI → EN","info":"Từ nghĩa tiếng Việt chọn đúng cụm tiếng Anh.","items":[{"id":"m01","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “làm bài tập về nhà”","answer":"do homework","options":["do homework","do some exercise","do business","do the washing"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m02","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “làm việc nhà”","answer":"do housework","options":["do the washing-up","do housework","do a job","do well"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m03","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “làm vườn”","answer":"do the gardening","options":["do the washing","do the gardening","do the washing-up","do exercises"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m04","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “giặt quần áo”","answer":"do the washing","options":["do homework","do the washing-up","do the washing","do some exercise"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m05","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “rửa bát”","answer":"do the washing-up","options":["do the washing-up","do the washing","do a job","do your best"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m06","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “làm bài luyện tập trong sách”","answer":"do exercises","options":["do some exercise","do exercises","do the gardening","do business"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m07","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “tập thể dục”","answer":"do some exercise","options":["do homework","do exercises","do some exercise","do badly"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m08","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “kinh doanh”","answer":"do business","options":["do well","do the washing","do business","do housework"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m09","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “làm một công việc”","answer":"do a job","options":["do a job","do the washing-up","do your best","do badly"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m10","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “cố gắng hết sức”","answer":"do your best","options":["do badly","do business","do well","do your best"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m11","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “làm tốt, đạt kết quả tốt”","answer":"do well","options":["do badly","do a job","do well","do your best"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m12","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “làm không tốt”","answer":"do badly","options":["do badly","do well","do exercises","do homework"],"note":"Nhớ nguyên cả cụm, không học từng từ rời."},{"id":"m13","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “Bạn làm nghề gì?”","answer":"What do you do?","options":["What are you doing?","What do you do?","Did you do it?","Do you like it?"],"note":"Phân biệt dạng động từ/câu hỏi theo ngữ cảnh."},{"id":"m14","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “Bạn đang làm gì lúc này?”","answer":"What are you doing?","options":["What do you do?","What are you doing?","What did you do?","Do you work here?"],"note":"Phân biệt dạng động từ/câu hỏi theo ngữ cảnh."},{"id":"m15","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “đã làm xong (quá khứ phân từ)”","answer":"done","options":["doing","does","done","did"],"note":"Phân biệt dạng động từ/câu hỏi theo ngữ cảnh."},{"id":"m16","type":"meaning","prompt":"Chọn cụm tiếng Anh tương ứng: “đã làm (quá khứ đơn)”","answer":"did","options":["done","did","does","doing"],"note":"Phân biệt dạng động từ/câu hỏi theo ngữ cảnh."}]},"typing":{"title":"Thử thách gõ từ","icon":"⌨️","tag":"Tự nhớ","info":"Tự điền chính xác từ cần thiết, không có lựa chọn.","items":[{"id":"ty01","type":"typing","prompt":"___ you like coffee?","answer":"Do","note":"You ở hiện tại dùng Do."},{"id":"ty02","type":"typing","prompt":"___ he do the housework?","answer":"Does","note":"He dùng Does."},{"id":"ty03","type":"typing","prompt":"___ you visit her yesterday?","answer":"Did","note":"Yesterday → Did."},{"id":"ty04","type":"typing","prompt":"I have ___ the washing-up.","answer":"done","note":"Have + done."},{"id":"ty05","type":"typing","prompt":"What are you ___?","answer":"doing","note":"Are + doing."},{"id":"ty06","type":"typing","prompt":"She ___ the washing every Sunday.","answer":"does","note":"She + does."},{"id":"ty07","type":"typing","prompt":"We ___ the gardening last weekend.","answer":"did","note":"Last weekend → did."},{"id":"ty08","type":"typing","prompt":"I ___ some exercise every morning.","answer":"do","note":"I + do."},{"id":"ty09","type":"typing","prompt":"She ___ not like tennis.","answer":"does","note":"She does not…"},{"id":"ty10","type":"typing","prompt":"They ___ not see the film yesterday.","answer":"did","note":"They did not see..."},{"id":"ty11","type":"typing","prompt":"Have you ___ your homework?","answer":"done","note":"Have you done…?"},{"id":"ty12","type":"typing","prompt":"Does she ___ business abroad?","answer":"do","note":"Does + do."},{"id":"ty13","type":"typing","prompt":"Did he ___ well in the exam?","answer":"do","note":"Did + do."},{"id":"ty14","type":"typing","prompt":"What ___ your father do?","answer":"does","note":"Your father = he."},{"id":"ty15","type":"typing","prompt":"I ___ not play tennis.","answer":"do","note":"I do not…"},{"id":"ty16","type":"typing","prompt":"My mum is ___ the housework.","answer":"doing","note":"Is doing."},{"id":"ty17","type":"typing","prompt":"What ___ you do yesterday?","answer":"did","note":"Yesterday → did."},{"id":"ty18","type":"typing","prompt":"He has ___ his best.","answer":"done","note":"Has done his best."}]}};
+  const gameRoot = document.getElementById('game-stage');
+  const gameMenu = document.getElementById('game-menu');
+  const gameStats = document.getElementById('game-overview-stats');
+  const saved = (() => { try { return JSON.parse(localStorage.getItem(GAME_STORAGE_KEY) || '{}'); } catch (_) { return {}; } })();
+  const scores = saved && typeof saved === 'object' && !Array.isArray(saved) ? saved : {};
+  let session = null;
+  let selected = '';
+  let answered = false;
+  let hintShown = false;
+  let lastIncorrect = [];
+
+  function h(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function shuffle(values) {
+    const arr = values.slice();
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+  function normalized(value) { return String(value ?? '').trim().toLowerCase().replace(/[’]/g,"'").replace(/\s+/g,' '); }
+  function store() { try { localStorage.setItem(GAME_STORAGE_KEY,JSON.stringify(scores)); } catch (_) {} }
+  function totalGames() { return Object.keys(gameModes).reduce((n,k)=>n+gameModes[k].items.length,0); }
+  function setGameScreen(showStage) {
+    gameMenu.hidden=showStage;
+    gameStats.hidden=showStage;
+    gameRoot.hidden=!showStage;
+    document.body.classList.toggle('game-playing',showStage);
+  }
+  function renderMenu() {
+    const records = Object.keys(scores).map(k => scores[k]);
+    const played = records.reduce((v,x)=>v+(Number(x.plays)||0),0);
+    const completed = records.filter(x => x.best!=null).length;
+    gameStats.innerHTML='<div class="game-stat"><strong>'+Object.keys(gameModes).length+'</strong> dạng mini game</div><div class="game-stat"><strong>'+totalGames()+'</strong> thẻ câu hỏi (đoạn văn có nhiều ô)</div><div class="game-stat"><strong>'+played+'</strong> lượt chơi</div><div class="game-stat"><strong>'+completed+'/8</strong> trò đã hoàn thành</div>';
+    gameMenu.innerHTML=Object.entries(gameModes).map(([key,m])=>{
+      const record=scores[key] || {};
+      return '<button class="game-mode" type="button" data-game-start="'+h(key)+'"><span class="game-icon">'+h(m.icon)+'</span><span class="game-mode-body"><h2>'+h(m.title)+'</h2><p>'+h(m.info)+'</p><small>'+m.items.length+' câu · '+h(m.tag)+' · '+(record.best==null?'Chưa chơi':'Kỷ lục '+record.best+'%')+' →</small></span></button>';
+    }).join('');
+  }
+  function startGame(key, subset) {
+    if (!gameModes[key]) return;
+    const original = subset?.length ? subset : gameModes[key].items;
+    const list = shuffle(original).map(q=>{
+      const item={...q};
+      if(item.options) item.options=shuffle(item.options);
+      if(item.blanks) item.blanks=item.blanks.map(b=>({...b,options:shuffle(b.options)}));
+      if(item.type==='order') {
+        item.shuffled=shuffle(item.parts.map((part,index)=>({part,index})));
+        if (item.shuffled.every((w,i)=>w.index===i)) item.shuffled.reverse();
+      }
+      return item;
+    });
+    session={key,items:list,index:0,score:0,streak:0,bestStreak:0,correctCards:0,correctBlanks:0,totalBlanks:0,results:[],isRetry:!!subset};
+    selected='';answered=false;hintShown=false;lastIncorrect=[];
+    setGameScreen(true);
+    renderCard();
+    window.scrollTo(0,0);
+  }
+  function activeQuestion(){return session && session.items[session.index]}
+  function topHtml() {
+    const m=gameModes[session.key];
+    return '<div class="game-topbar"><button type="button" class="btn small" data-game-home>← Chọn trò chơi</button><strong>'+h(m.icon)+' '+h(m.title)+'</strong><div class="game-tracker"><span>⭐ '+session.score+' điểm</span><span>🔥 '+session.streak+' liên tiếp</span><span>'+ (session.index+1)+'/'+session.items.length+'</span></div></div><div class="game-progress"><span style="width:'+Math.round(100*session.index/session.items.length)+'%"></span></div>';
+  }
+  function optionHtml(q) {
+    return '<div class="game-choices" role="group" aria-label="Các đáp án">'+q.options.map((o,i)=>'<button class="game-choice" type="button" data-game-option="'+i+'" aria-pressed="false"><span class="game-choice-k">'+(i+1)+'</span><span>'+h(o)+'</span></button>').join('')+'</div>';
+  }
+  function showPicture(q) {
+    return '<figure class="game-picture"><img src="'+IMAGE_ROOT+h(q.image)+'" alt="Hình minh họa cần chọn từ phù hợp" loading="eager"><div class="game-picture-placeholder" hidden aria-label="Biểu tượng minh họa dự phòng">'+h(q.emoji)+'</div></figure>';
+  }
+  function paragraphHtml(q) {
+    const body=h(q.story).replace(/\{\{(\d+)\}\}/g,(all,digit)=>{
+      const idx=Number(digit)-1,b=q.blanks[idx];
+      if(!b)return all;
+      return '<select data-game-blank="'+idx+'" aria-label="Chỗ trống '+digit+'"><option value="">(' + digit + ') Chọn…</option>'+b.options.map(o=>'<option value="'+h(o)+'">'+h(o)+'</option>').join('')+'</select>';
+    });
+    return '<div class="game-paragraph">'+body+'</div>';
+  }
+  function orderHtml(q){
+    return '<div class="game-builder" id="game-builder" aria-label="Các từ đã chọn"></div><div class="game-tokens">'+q.shuffled.map(w=>'<button class="game-token" data-game-token="'+w.index+'" type="button">'+h(w.part)+'</button>').join('')+'</div><p class="muted small-text">Bấm thẻ trong ô câu để hoàn tác. Bạn có thể sửa trước khi chấm.</p>';
+  }
+  function renderCard() {
+    if(!session)return;
+    const q=activeQuestion();
+    selected='';answered=false;hintShown=false;
+    let question='<h2 class="game-title">'+h(q.type==='dialogue'?'Hoàn thiện đoạn hội thoại:':q.prompt)+'</h2>';
+    if(q.type==='picture') question += showPicture(q);
+    if(q.type==='dialogue')question += '<div class="game-dialogue">'+h(q.prompt).replace(/\n/g,'\n')+'</div>';
+    if(q.type==='paragraph')question += paragraphHtml(q);
+    else if(q.type==='order')question +=orderHtml(q);
+    else if(q.type==='typing')question += '<label class="field-label" for="game-entry">Nhập từ còn thiếu</label><input id="game-entry" class="game-entry" autocapitalize="off" autocomplete="off" spellcheck="false" placeholder="Gõ đáp án..."><p class="muted small-text">Đáp án không phân biệt chữ hoa/chữ thường.</p>';
+    else question += optionHtml(q);
+    const action='<div class="game-commands"><button class="btn primary" data-game-check type="button">Kiểm tra đáp án</button><button class="btn small" data-game-hint type="button">💡 Gợi ý</button><button class="btn small" data-game-skip type="button">Bỏ qua</button></div><div id="game-hint" class="game-hint" hidden></div><div id="game-feedback" role="status" aria-live="polite"></div>';
+    gameRoot.innerHTML=topHtml()+'<div class="game-card"><div class="game-card-top"><span class="pill blue">Câu '+(session.index+1)+'</span><span class="pill teal">+'+'10'+' điểm</span></div>'+question+action+'</div>';
+    if(q.type==='typing')document.getElementById('game-entry')?.focus();
+    if(q.type==='picture') {
+      const img=gameRoot.querySelector('.game-picture img');
+      if(img && img.complete && img.naturalWidth===0) imageFallback(img);
+    }
+  }
+  function imageFallback(img){
+    if (!img || !img.closest('#game-stage'))return;
+    img.hidden=true;
+    if(img.nextElementSibling) img.nextElementSibling.hidden=false;
+  }
+  function selectedResponse(q) {
+    if(q.type==='paragraph')return Array.from(gameRoot.querySelectorAll('[data-game-blank]')).map(x=>x.value);
+    if(q.type==='order')return Array.from(gameRoot.querySelectorAll('#game-builder [data-game-built]')).map(x=>Number(x.dataset.gameBuilt));
+    if(q.type==='typing')return gameRoot.querySelector('#game-entry')?.value || '';
+    return selected;
+  }
+  function checkedResult(q,response) {
+    if(q.type==='paragraph'){
+      const correct=q.blanks.reduce((sum,b,i)=>sum+(normalized(response[i])===normalized(b.answer)?1:0),0);
+      return {correct,total:q.blanks.length,answer:q.blanks.map(b=>b.answer).join(' · ')};
+    }
+    if(q.type==='order'){
+      const same=response.length===q.parts.length && response.every((id,i)=>id===i);
+      return {correct:same?1:0,total:1,answer:q.answer};
+    }
+    return {correct:normalized(response)===normalized(q.answer)?1:0,total:1,answer:q.answer};
+  }
+  function markAnswer(q,resp) {
+    if(q.options)gameRoot.querySelectorAll('[data-game-option]').forEach(button=>{
+      const val=q.options[Number(button.dataset.gameOption)];
+      button.disabled=true;
+      if(normalized(val)===normalized(q.answer))button.classList.add('correct');
+      else if(normalized(val)===normalized(resp))button.classList.add('wrong');
+    });
+    if(q.type==='paragraph')gameRoot.querySelectorAll('[data-game-blank]').forEach(select=>{
+      const b=q.blanks[Number(select.dataset.gameBlank)];
+      select.classList.add(normalized(select.value)===normalized(b.answer)?'game-right':'game-wrong');select.disabled=true;
+    });
+    if(q.type==='typing')gameRoot.querySelector('#game-entry').disabled=true;
+    if(q.type==='order')gameRoot.querySelectorAll('[data-game-token]').forEach(x=>x.disabled=true);
+  }
+  function checkGame(skipped=false) {
+    if(!session||answered)return;
+    const q=activeQuestion(),resp=selectedResponse(q);
+    let complete;
+    if(q.type==='paragraph')complete=resp.length===q.blanks.length && resp.every(Boolean);
+    else if(q.type==='order')complete=resp.length===q.parts.length;
+    else complete=!!String(resp).trim();
+    if(!complete && !skipped){
+      const el=document.getElementById('game-feedback');
+      el.className='game-feedback';el.textContent='Hãy hoàn thành câu trả lời trước khi kiểm tra. Hoặc chọn Bỏ qua.';return;
+    }
+    const result=skipped?{correct:0,total:q.type==='paragraph'?q.blanks.length:1,answer:q.type==='paragraph'?q.blanks.map(b=>b.answer).join(' · '):q.answer}:checkedResult(q,resp);
+    const full=result.correct===result.total && !skipped;
+    answered=true;
+    const earned=skipped?0:Math.round(10*result.correct/result.total*(hintShown?.5:1));
+    session.score+=earned;
+    session.correctBlanks+=result.correct;
+    session.totalBlanks+=result.total;
+    if(full){session.streak++;session.correctCards++;session.bestStreak=Math.max(session.bestStreak,session.streak)} else{session.streak=0;lastIncorrect.push(q)};
+    session.results.push({id:q.id,correct:result.correct,total:result.total,skipped});
+    markAnswer(q,resp);
+    gameRoot.querySelector('[data-game-check]').remove();
+    gameRoot.querySelector('[data-game-hint]')?.remove();
+    gameRoot.querySelector('[data-game-skip]')?.remove();
+    const feedback=gameRoot.querySelector('#game-feedback');
+    feedback.className='game-feedback '+(full?'good':'bad');
+    feedback.innerHTML='<strong>'+(full?'✓ Chính xác!':skipped?'Đã bỏ qua':'Chưa hoàn toàn chính xác')+'</strong><p>Đáp án đúng: <span class="game-answer">'+h(result.answer)+'</span></p><p>'+h(q.note || '')+'</p>'+(q.type==='paragraph'?'<p>Đúng '+result.correct+'/'+result.total+' ô trống.</p>':'')+'<p><strong>+'+earned+' điểm</strong>'+(hintShown?' (đã dùng gợi ý)':'')+'</p>';
+    const button=document.createElement('button');
+    button.className='btn primary';button.type='button';button.dataset.gameNext='';button.textContent=session.index+1===session.items.length?'Xem kết quả →':'Câu tiếp theo →';
+    const bar=document.createElement('div');bar.className='game-commands';bar.appendChild(button);feedback.appendChild(bar);
+    gameRoot.querySelector('.game-tracker').innerHTML='<span>⭐ '+session.score+' điểm</span><span>🔥 '+session.streak+' liên tiếp</span><span>'+(session.index+1)+'/'+session.items.length+'</span>';
+    button.focus();
+  }
+  function nextGame(){
+    if(!session||!answered)return;
+    session.index++;
+    if(session.index>=session.items.length){endGame();return}
+    renderCard();
+  }
+  function endGame() {
+    const key=session.key,m=gameModes[key];
+    const accuracy=Math.round(100*session.correctBlanks/Math.max(1,session.totalBlanks));
+    const fullPct=Math.round(100*session.correctCards/session.items.length);
+    const previous=scores[key]||{plays:0};
+    scores[key]={plays:(previous.plays||0)+1,best:Math.max(previous.best||0,accuracy),last:accuracy,highScore:Math.max(previous.highScore||0,session.score),lastPlayed:new Date().toISOString()};
+    store();
+    gameRoot.innerHTML='<div class="game-end"><div style="font-size:3rem">'+(accuracy>=90?'🏆':accuracy>=70?'🎉':'💪')+'</div><h2>Hoàn thành '+h(m.title)+'</h2><div class="big-result">'+accuracy+'%</div><p class="muted">Độ chính xác tính theo từng ô/câu. Kết quả lưu trên trình duyệt này.</p><div class="game-end-stat"><span>⭐ '+session.score+' điểm</span><span>✅ '+session.correctCards+'/'+session.items.length+' thẻ hoàn toàn đúng</span><span>🔥 '+session.bestStreak+' chuỗi tốt nhất</span><span>🏅 Kỷ lục '+scores[key].best+'%</span></div><div class="button-row"><button class="btn primary" data-game-start="'+h(key)+'">Chơi lại</button>'+(lastIncorrect.length?'<button class="btn secondary" data-game-retry>Sửa '+lastIncorrect.length+' câu chưa đúng</button>':'')+'<button class="btn" data-game-home>Chọn trò khác</button></div></div>';
+  }
+  function gameHome(){session=null;setGameScreen(false);renderMenu();window.scrollTo(0,0)}
+  gameMenu.addEventListener('click', e=>{
+    const b=e.target.closest('[data-game-start]');if(b)startGame(b.dataset.gameStart)
+  });
+  gameRoot.addEventListener('click',e=>{
+    const t=e.target;
+    const start=t.closest('[data-game-start]');if(start){startGame(start.dataset.gameStart);return}
+    if(t.closest('[data-game-home]')){gameHome();return}
+    if(t.closest('[data-game-retry]')){startGame(session.key,lastIncorrect);return}
+    if(t.closest('[data-game-next]')){nextGame();return}
+    if(t.closest('[data-game-check]')){checkGame();return}
+    if(t.closest('[data-game-skip]')){checkGame(true);return}
+    if(t.closest('[data-game-hint]')&&!answered){
+      hintShown=true;const el=document.getElementById('game-hint');el.hidden=false;
+      el.textContent='Gợi ý: '+(activeQuestion().note||'Nhìn chủ ngữ và từ chỉ thời gian.');return;
+    }
+    const o=t.closest('[data-game-option]');
+    if(o&&!answered){
+      const q=activeQuestion();selected=q.options[Number(o.dataset.gameOption)];
+      gameRoot.querySelectorAll('[data-game-option]').forEach(b=>{const a=b===o;b.classList.toggle('selected',a);b.setAttribute('aria-pressed',String(a))});return;
+    }
+    const token=t.closest('[data-game-token]');
+    if(token&&!answered&&session&&activeQuestion().type==='order'){
+      const idx=Number(token.dataset.gameToken),builder=document.getElementById('game-builder');
+      if(token.hasAttribute('data-game-built')){
+        const source=gameRoot.querySelector('.game-tokens [data-game-token="'+idx+'"]');
+        if(source)source.disabled=false;
+        token.remove();
+      }else{
+        const clone=token.cloneNode(true);clone.dataset.gameBuilt=String(idx);
+        clone.removeAttribute('data-game-token');clone.dataset.gameToken=String(idx);
+        clone.setAttribute('aria-label','Bỏ '+clone.textContent+' khỏi câu');builder.appendChild(clone);token.disabled=true;
+      }
+    }
+  });
+  gameRoot.addEventListener('keydown',e=>{
+    if(!session||answered)return;
+    if(e.key==='Enter'&& e.target.matches('#game-entry')){e.preventDefault();checkGame();return}
+    if(['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName))return;
+    if(/^\d$/.test(e.key)&&Number(e.key)>=1&&Number(e.key)<=9){
+      const btn=gameRoot.querySelector('[data-game-option="'+(Number(e.key)-1)+'"]');if(btn){e.preventDefault();btn.click()}
+    }
+  });
+  gameRoot.addEventListener('error',e=>{if(e.target.matches('.game-picture img'))imageFallback(e.target)},true);
+  renderMenu();setGameScreen(false);
+})();
+</script>
 </body>
 </html>
