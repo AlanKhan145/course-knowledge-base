@@ -63,6 +63,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [AI Engineer Roadmap](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-engineer-roadmap/>)
 - [LangChain - Agentic AI Engineering](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langchain/>)
   - [08 - Function Calling](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langchain/LangChain-Agentic-AI-Engineering-Course/08 - Function Calling/>)
+- [LangChain: AI Engineering với LangChain & LangGraph (2026) — VI](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langchain-ai-engineering-2026-vi/>)
 - [RAG: Basic to Advanced](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/rag-basic-to-advanced/>)
 - [Ultimate RAG Bootcamp](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ultimate-rag-bootcamp/>)
 
