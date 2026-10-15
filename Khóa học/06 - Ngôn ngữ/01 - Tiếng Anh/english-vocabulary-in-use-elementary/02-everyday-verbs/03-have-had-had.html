@@ -1427,7 +1427,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -2344,123 +2358,148 @@
 
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["03-have-had-had"] = {
-  "translations": [
-    {
-      "vi": "Tôi thường ăn sáng lúc bảy giờ trước khi đi làm.",
-      "en": "I usually have breakfast at seven before I go to work."
-    },
-    {
-      "vi": "Hôm qua chúng tôi không có đủ thời gian để ăn trưa.",
-      "en": "Yesterday we did not have enough time to have lunch."
-    },
-    {
-      "vi": "Cô ấy đang tắm vòi sen khi điện thoại reo.",
-      "en": "She was having a shower when the phone rang."
-    },
-    {
-      "vi": "Bạn đã có một khoảng thời gian vui vẻ ở buổi hòa nhạc chứ?",
-      "en": "Did you have a good time at the concert?"
-    },
-    {
-      "vi": "Tôi phải họp với quản lý vào sáng mai.",
-      "en": "I have to have a meeting with the manager tomorrow morning."
-    },
-    {
-      "vi": "Họ thường nghỉ ngơi ngắn sau khi hoàn thành công việc.",
-      "en": "They usually have a short rest after they finish their work."
-    },
-    {
-      "vi": "Nhà hàng này có thực đơn dành cho trẻ em không?",
-      "en": "Does this restaurant have a menu for children?"
-    },
-    {
-      "vi": "Tuần trước anh trai tôi bị đau đầu nên anh ấy ở nhà.",
-      "en": "My brother had a headache last week, so he stayed at home."
-    }
-  ],
-  "passage": {
-    "title": "A New Schedule at Riverside Clinic",
-    "text": "Riverside Clinic used to open at eight, but many patients arrived before work and had to wait outside. Last month, the manager changed the schedule. The clinic now opens at seven on weekdays. Nurses have breakfast in the staff room before the first appointments, and patients can have a quick check-up before going to the office. The change has helped parents too. They can bring their children early and still have time to get to school and work. On Tuesdays, the clinic has a short meeting at lunchtime. The team discusses delays and decides who will call patients with test results. One nurse said she did not have enough time for a proper break during the first week. The manager listened and added a quiet room where staff can have a rest. The clinic has not hired more nurses, but it has changed how appointments are organized. After six weeks, fewer people are waiting in the morning. The manager plans to review the schedule again in the summer.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "Why did Riverside Clinic change its opening time?",
-        "options": [
-          "Patients wanted appointments before work.",
-          "The clinic had hired more nurses.",
-          "The staff requested a later lunch.",
-          "The building was being repaired."
-        ],
-        "answer": "Patients wanted appointments before work.",
-        "explanation": "The passage says many patients arrived before work and waited outside.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What happens at the Tuesday lunchtime meeting?",
-        "options": [
-          "The team discusses delays and patient calls.",
-          "The manager interviews new nurses.",
-          "Patients receive a free meal.",
-          "The clinic closes for the afternoon."
-        ],
-        "answer": "The team discusses delays and patient calls.",
-        "explanation": "The team discusses delays and decides who will call patients with results.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What can be inferred about the quiet room?",
-        "options": [
-          "It was added after a nurse raised a concern.",
-          "It is used for patient examinations.",
-          "It replaced the staff room.",
-          "It is only open on Tuesdays."
-        ],
-        "answer": "It was added after a nurse raised a concern.",
-        "explanation": "A nurse lacked time for a break; the manager listened and added the room.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The clinic opens at seven every day of the week.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "The new time is seven on weekdays; the passage does not say this applies at weekends.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The clinic hired additional nurses when it changed the schedule.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "The passage explicitly says the clinic has not hired more nurses.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The manager will review the schedule in July.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "The passage says the review will happen in summer but gives no month.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["03-have-had-had"] =     {
+      "translations": [
+        {
+          "vi": "Tôi thường ăn sáng lúc bảy giờ trước khi đi làm.",
+          "en": "I usually have breakfast at seven before I go to work."
+        },
+        {
+          "vi": "Hôm qua chúng tôi không có đủ thời gian để ăn trưa.",
+          "en": "Yesterday we did not have enough time to have lunch."
+        },
+        {
+          "vi": "Cô ấy đang tắm vòi sen khi điện thoại reo.",
+          "en": "She was having a shower when the phone rang."
+        },
+        {
+          "vi": "Bạn đã có một khoảng thời gian vui vẻ ở buổi hòa nhạc chứ?",
+          "en": "Did you have a good time at the concert?"
+        },
+        {
+          "vi": "Tôi phải họp với quản lý vào sáng mai.",
+          "en": "I have to have a meeting with the manager tomorrow morning."
+        },
+        {
+          "vi": "Họ thường nghỉ ngơi ngắn sau khi hoàn thành công việc.",
+          "en": "They usually have a short rest after they finish their work."
+        },
+        {
+          "vi": "Nhà hàng này có thực đơn dành cho trẻ em không?",
+          "en": "Does this restaurant have a menu for children?"
+        },
+        {
+          "vi": "Tuần trước anh trai tôi bị đau đầu nên anh ấy ở nhà.",
+          "en": "My brother had a headache last week, so he stayed at home."
+        }
+      ],
+      "passage": {
+        "title": "A New Schedule at Riverside Clinic",
+        "text": "Riverside Clinic used to open at eight, but many patients arrived before work and had to wait outside. Last month, the manager changed the schedule. The clinic now opens at seven on weekdays. Nurses have breakfast in the staff room before the first appointments, and patients can have a quick check-up before going to the office. The change has helped parents too. They can bring their children early and still have time to get to school and work. On Tuesdays, the clinic has a short meeting at lunchtime. The team discusses delays and decides who will call patients with test results. One nurse said she did not have enough time for a proper break during the first week. The manager listened and added a quiet room where staff can have a rest. The clinic has not hired more nurses, but it has changed how appointments are organized. After six weeks, fewer people are waiting in the morning. The manager plans to review the schedule again in the summer.\n\nAt the summer review, the manager compared waiting times, missed appointments, staff breaks, and comments from families. The average wait before work was shorter than it had been in spring. Patients also said the text reminders were useful because they could confirm or change an appointment from home. The clinic had not hired another nurse, so the team adjusted the rota instead. Two nurses now cover the first half hour together, while another member of staff answers the phone. The quiet room is still available, and the manager checks that everyone has time to use it. One parent suggested adding a late appointment on Thursday. The clinic will try that once a month before deciding whether it should become a regular service. The manager says the new schedule works only if the staff continue to share problems early.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "Why did Riverside Clinic change its opening time?",
+            "options": [
+              "Patients wanted appointments before work.",
+              "The clinic had hired more nurses.",
+              "The staff requested a later lunch.",
+              "The building was being repaired."
+            ],
+            "answer": "Patients wanted appointments before work.",
+            "explanation": "The passage says many patients arrived before work and waited outside.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What happens at the Tuesday lunchtime meeting?",
+            "options": [
+              "The team discusses delays and patient calls.",
+              "The manager interviews new nurses.",
+              "Patients receive a free meal.",
+              "The clinic closes for the afternoon."
+            ],
+            "answer": "The team discusses delays and patient calls.",
+            "explanation": "The team discusses delays and decides who will call patients with results.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What can be inferred about the quiet room?",
+            "options": [
+              "It was added after a nurse raised a concern.",
+              "It is used for patient examinations.",
+              "It replaced the staff room.",
+              "It is only open on Tuesdays."
+            ],
+            "answer": "It was added after a nurse raised a concern.",
+            "explanation": "A nurse lacked time for a break; the manager listened and added the room.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The clinic opens at seven every day of the week.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The new time is seven on weekdays; the passage does not say this applies at weekends.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The clinic hired additional nurses when it changed the schedule.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The passage explicitly says the clinic has not hired more nurses.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The manager will review the schedule in July.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "The passage says the review will happen in summer but gives no month.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What did patients say about the text reminders?",
+            "options": [
+              "They made it easier to confirm or change appointments.",
+              "They contained test results.",
+              "They replaced the clinic phone line.",
+              "They were sent only to staff."
+            ],
+            "answer": "They made it easier to confirm or change appointments.",
+            "explanation": "Patients could confirm or change an appointment from home after receiving a reminder.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The clinic hired another nurse after the summer review.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The passage says the clinic had not hired another nurse and instead adjusted the rota.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

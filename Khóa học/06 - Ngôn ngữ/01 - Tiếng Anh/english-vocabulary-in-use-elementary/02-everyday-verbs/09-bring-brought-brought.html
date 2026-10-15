@@ -1609,7 +1609,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -3158,123 +3172,148 @@
   </script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["09-bring-brought-brought"] = {
-  "translations": [
-    {
-      "vi": "Bạn có thể mang theo một chai nước đến buổi tập không?",
-      "en": "Can you bring a bottle of water to practice?"
-    },
-    {
-      "vi": "Cô ấy đã mang vài cuốn sách cho các em nhỏ.",
-      "en": "She brought some books for the children."
-    },
-    {
-      "vi": "Đừng quên mang áo khoác vì tối nay trời lạnh.",
-      "en": "Do not forget to bring a coat because it will be cold tonight."
-    },
-    {
-      "vi": "Tôi sẽ trả quyển sách này lại thư viện vào ngày mai.",
-      "en": "I will bring this book back to the library tomorrow."
-    },
-    {
-      "vi": "Họ đã mang theo con chó trong chuyến cắm trại.",
-      "en": "They brought their dog along on the camping trip."
-    },
-    {
-      "vi": "Anh ấy mang cho chúng tôi trà nóng khi chúng tôi đến.",
-      "en": "He brought us hot tea when we arrived."
-    },
-    {
-      "vi": "Hãy mang hóa đơn theo nếu bạn muốn đổi chiếc áo.",
-      "en": "Bring the receipt if you want to exchange the shirt."
-    },
-    {
-      "vi": "Cô ấy đã mang đến một ý tưởng mới cho cuộc thảo luận.",
-      "en": "She brought a new idea to the discussion."
-    }
-  ],
-  "passage": {
-    "title": "The Community Garden Picnic",
-    "text": "The volunteers at Hill Street Garden organized a picnic to welcome new members. The message asked everyone to bring one useful item, but it did not say what to bring. Some people brought food, while others brought tools and folding chairs. Amir brought a box of name labels so that new members could learn everyone’s name. The organizers had planned to bring the tables from the storage room, but the key was missing. A neighbour brought two large tables instead. During lunch, one volunteer explained how the garden shares its harvest. Members can take vegetables home, but they should bring back the reusable baskets the following week. After eating, the group brought the tools back to the shed and collected rubbish. A few visitors asked if they could bring their children to the next work day. The organizer said children were welcome if an adult stayed with them. The picnic ended earlier than expected because rain began at two. The volunteers plan another gathering in June, although the exact day has not been decided.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "What did the invitation ask people to bring?",
-        "options": [
-          "One useful item.",
-          "A dish for every guest.",
-          "A membership form.",
-          "A reusable basket."
-        ],
-        "answer": "One useful item.",
-        "explanation": "The message asked everyone to bring one useful item.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "Why did a neighbour bring two tables?",
-        "options": [
-          "The storage-room key was missing.",
-          "The picnic had moved indoors.",
-          "The volunteers sold their tables.",
-          "Amir asked for more chairs."
-        ],
-        "answer": "The storage-room key was missing.",
-        "explanation": "The organizers could not access their tables because the key was missing.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What condition applies to children at the next work day?",
-        "options": [
-          "An adult must stay with them.",
-          "They must bring their own tools.",
-          "They can only come after lunch.",
-          "They must be garden members."
-        ],
-        "answer": "An adult must stay with them.",
-        "explanation": "The organizer welcomed children if an adult stayed with them.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "Amir brought labels to help people learn one another’s names.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "TRUE",
-        "explanation": "The passage states why Amir brought the labels.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "Members may keep the garden baskets permanently.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "They should bring the reusable baskets back the following week.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The next gathering will take place on 15 June.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "The month is mentioned, but no exact date is given.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["09-bring-brought-brought"] =     {
+      "translations": [
+        {
+          "vi": "Bạn có thể mang theo một chai nước đến buổi tập không?",
+          "en": "Can you bring a bottle of water to practice?"
+        },
+        {
+          "vi": "Cô ấy đã mang vài cuốn sách cho các em nhỏ.",
+          "en": "She brought some books for the children."
+        },
+        {
+          "vi": "Đừng quên mang áo khoác vì tối nay trời lạnh.",
+          "en": "Do not forget to bring a coat because it will be cold tonight."
+        },
+        {
+          "vi": "Tôi sẽ trả quyển sách này lại thư viện vào ngày mai.",
+          "en": "I will bring this book back to the library tomorrow."
+        },
+        {
+          "vi": "Họ đã mang theo con chó trong chuyến cắm trại.",
+          "en": "They brought their dog along on the camping trip."
+        },
+        {
+          "vi": "Anh ấy mang cho chúng tôi trà nóng khi chúng tôi đến.",
+          "en": "He brought us hot tea when we arrived."
+        },
+        {
+          "vi": "Hãy mang hóa đơn theo nếu bạn muốn đổi chiếc áo.",
+          "en": "Bring the receipt if you want to exchange the shirt."
+        },
+        {
+          "vi": "Cô ấy đã mang đến một ý tưởng mới cho cuộc thảo luận.",
+          "en": "She brought a new idea to the discussion."
+        }
+      ],
+      "passage": {
+        "title": "The Community Garden Picnic",
+        "text": "The volunteers at Hill Street Garden organized a picnic to welcome new members. The message asked everyone to bring one useful item, but it did not say what to bring. Some people brought food, while others brought tools and folding chairs. Amir brought a box of name labels so that new members could learn everyone’s name. The organizers had planned to bring the tables from the storage room, but the key was missing. A neighbour brought two large tables instead. During lunch, one volunteer explained how the garden shares its harvest. Members can take vegetables home, but they should bring back the reusable baskets the following week. After eating, the group brought the tools back to the shed and collected rubbish. A few visitors asked if they could bring their children to the next work day. The organizer said children were welcome if an adult stayed with them. The picnic ended earlier than expected because rain began at two. The volunteers plan another gathering in June, although the exact day has not been decided.\n\nAfter the rain stopped, the volunteers checked the garden beds and covered the young plants. The next morning, Amir brought the missing key from the caretaker’s office so the group could return the tables. He also brought a notebook with a simple list of borrowed tools. The organizers decided that every new member should bring a reusable bottle and a pair of gloves to future work days. They did not ask people to bring food because the garden already had a shared kitchen. At the next meeting, three members offered to bring seedlings from home. The group made a watering rota and agreed to bring the baskets back to the shed after each harvest. One volunteer suggested a second picnic in June, but the committee wants to check the garden calendar before choosing a date. They will send an invitation by email once the date is confirmed.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "What did the invitation ask people to bring?",
+            "options": [
+              "One useful item.",
+              "A dish for every guest.",
+              "A membership form.",
+              "A reusable basket."
+            ],
+            "answer": "One useful item.",
+            "explanation": "The message asked everyone to bring one useful item.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "Why did a neighbour bring two tables?",
+            "options": [
+              "The storage-room key was missing.",
+              "The picnic had moved indoors.",
+              "The volunteers sold their tables.",
+              "Amir asked for more chairs."
+            ],
+            "answer": "The storage-room key was missing.",
+            "explanation": "The organizers could not access their tables because the key was missing.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What condition applies to children at the next work day?",
+            "options": [
+              "An adult must stay with them.",
+              "They must bring their own tools.",
+              "They can only come after lunch.",
+              "They must be garden members."
+            ],
+            "answer": "An adult must stay with them.",
+            "explanation": "The organizer welcomed children if an adult stayed with them.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Amir brought labels to help people learn one another’s names.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "The passage states why Amir brought the labels.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Members may keep the garden baskets permanently.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "They should bring the reusable baskets back the following week.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The next gathering will take place on 15 June.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "The month is mentioned, but no exact date is given.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What did Amir bring the next morning?",
+            "options": [
+              "The missing key and a tool list.",
+              "More food for the picnic.",
+              "A new garden table.",
+              "A calendar from the town council."
+            ],
+            "answer": "The missing key and a tool list.",
+            "explanation": "Amir brought the key and a notebook listing borrowed tools.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The second picnic already has a confirmed date in June.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The committee has not chosen a date and will check the garden calendar first.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

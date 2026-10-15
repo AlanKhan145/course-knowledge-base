@@ -1580,7 +1580,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -3095,123 +3109,148 @@
   </script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["08-take-took-taken"] = {
-  "translations": [
-    {
-      "vi": "Chuyến đi bằng xe buýt mất khoảng bốn mươi phút.",
-      "en": "The bus journey takes about forty minutes."
-    },
-    {
-      "vi": "Tôi đã chụp một bức ảnh trước nhà hát.",
-      "en": "I took a photo in front of the theatre."
-    },
-    {
-      "vi": "Hãy ghi chú khi bác sĩ giải thích cách dùng thuốc.",
-      "en": "Take notes while the doctor explains how to use the medicine."
-    },
-    {
-      "vi": "Cô ấy thường đi tàu đến trường đại học.",
-      "en": "She usually takes the train to the university."
-    },
-    {
-      "vi": "Chúng tôi nghỉ giải lao ngắn sau hai giờ học.",
-      "en": "We take a short break after two hours of study."
-    },
-    {
-      "vi": "Anh ấy đã tham gia khóa học sơ cứu vào mùa xuân.",
-      "en": "He took a first-aid course in the spring."
-    },
-    {
-      "vi": "Bạn nên mang theo hộ chiếu khi đi đến sân bay.",
-      "en": "You should take your passport when you go to the airport."
-    },
-    {
-      "vi": "Tôi đã không nhận ra bức ảnh đó được chụp ở đâu.",
-      "en": "I did not recognize where that photo was taken."
-    }
-  ],
-  "passage": {
-    "title": "A Training Day in the City",
-    "text": "Nora had to attend a first-aid course in the city centre. She checked the route the night before because the journey could take nearly an hour. Her neighbour offered to drive, but Nora decided to take the train. She left home early and took a notebook with her. The trainer asked everyone to take notes during the demonstrations, especially when they practised bandaging an injured arm. At midday, the group took a short break in a nearby café. Nora took a few photos of the training equipment for a report, but she asked permission first. In the afternoon, each participant took a written test. Nora found the questions harder than she expected, yet she finished on time. The trainer said the results would be sent by email within five working days. Nora got home at six and told her family what she had learned. She plans to take another course later in the year, perhaps one about water safety.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "Why did Nora check the route the night before?",
-        "options": [
-          "The journey could take nearly an hour.",
-          "She had never used a notebook.",
-          "The course address had changed.",
-          "Her neighbour was driving her."
-        ],
-        "answer": "The journey could take nearly an hour.",
-        "explanation": "The passage says she checked because the journey could take nearly an hour.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What did the trainer ask participants to do during demonstrations?",
-        "options": [
-          "Take notes.",
-          "Send an email.",
-          "Take photographs of each other.",
-          "Leave the room."
-        ],
-        "answer": "Take notes.",
-        "explanation": "The trainer asked everyone to take notes, especially during bandaging practice.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "When should Nora expect the test results?",
-        "options": [
-          "Within five working days.",
-          "That evening.",
-          "At the next course.",
-          "After one month."
-        ],
-        "answer": "Within five working days.",
-        "explanation": "The trainer said results would be emailed within five working days.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "Nora travelled to the course by car.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "She decided to take the train.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "Nora asked before photographing the training equipment.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "TRUE",
-        "explanation": "The passage says she asked permission first.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "Nora received the highest score in the written test.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "Her score is not given.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["08-take-took-taken"] =     {
+      "translations": [
+        {
+          "vi": "Chuyến đi bằng xe buýt mất khoảng bốn mươi phút.",
+          "en": "The bus journey takes about forty minutes."
+        },
+        {
+          "vi": "Tôi đã chụp một bức ảnh trước nhà hát.",
+          "en": "I took a photo in front of the theatre."
+        },
+        {
+          "vi": "Hãy ghi chú khi bác sĩ giải thích cách dùng thuốc.",
+          "en": "Take notes while the doctor explains how to use the medicine."
+        },
+        {
+          "vi": "Cô ấy thường đi tàu đến trường đại học.",
+          "en": "She usually takes the train to the university."
+        },
+        {
+          "vi": "Chúng tôi nghỉ giải lao ngắn sau hai giờ học.",
+          "en": "We take a short break after two hours of study."
+        },
+        {
+          "vi": "Anh ấy đã tham gia khóa học sơ cứu vào mùa xuân.",
+          "en": "He took a first-aid course in the spring."
+        },
+        {
+          "vi": "Bạn nên mang theo hộ chiếu khi đi đến sân bay.",
+          "en": "You should take your passport when you go to the airport."
+        },
+        {
+          "vi": "Tôi đã không nhận ra bức ảnh đó được chụp ở đâu.",
+          "en": "I did not recognize where that photo was taken."
+        }
+      ],
+      "passage": {
+        "title": "A Training Day in the City",
+        "text": "Nora had to attend a first-aid course in the city centre. She checked the route the night before because the journey could take nearly an hour. Her neighbour offered to drive, but Nora decided to take the train. She left home early and took a notebook with her. The trainer asked everyone to take notes during the demonstrations, especially when they practised bandaging an injured arm. At midday, the group took a short break in a nearby café. Nora took a few photos of the training equipment for a report, but she asked permission first. In the afternoon, each participant took a written test. Nora found the questions harder than she expected, yet she finished on time. The trainer said the results would be sent by email within five working days. Nora got home at six and told her family what she had learned. She plans to take another course later in the year, perhaps one about water safety.\n\nFour days later, Nora received an email with her result: she had passed with a score of 86 percent. The trainer attached a certificate and a short list of skills to practise at home. Nora showed the list to her workplace manager, who asked her to help update the office’s first-aid box. She checked the dates on the supplies and made a record of what needed replacing. During lunch, a colleague asked Nora to explain how to use a bandage. Nora took her time and followed the steps from the course rather than trying to remember everything at once. The manager thanked her and asked whether she would take part in a safety meeting next month. Nora agreed, but she has not decided when to take the water-safety course she mentioned earlier. She will compare the dates with her family calendar first.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "Why did Nora check the route the night before?",
+            "options": [
+              "The journey could take nearly an hour.",
+              "She had never used a notebook.",
+              "The course address had changed.",
+              "Her neighbour was driving her."
+            ],
+            "answer": "The journey could take nearly an hour.",
+            "explanation": "The passage says she checked because the journey could take nearly an hour.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What did the trainer ask participants to do during demonstrations?",
+            "options": [
+              "Take notes.",
+              "Send an email.",
+              "Take photographs of each other.",
+              "Leave the room."
+            ],
+            "answer": "Take notes.",
+            "explanation": "The trainer asked everyone to take notes, especially during bandaging practice.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "When should Nora expect the test results?",
+            "options": [
+              "Within five working days.",
+              "That evening.",
+              "At the next course.",
+              "After one month."
+            ],
+            "answer": "Within five working days.",
+            "explanation": "The trainer said results would be emailed within five working days.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Nora travelled to the course by car.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "She decided to take the train.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Nora asked before photographing the training equipment.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "The passage says she asked permission first.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Nora received the highest score in the written test.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "Her score is not given.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What did Nora help update at work?",
+            "options": [
+              "The office first-aid box.",
+              "The staff travel schedule.",
+              "The training room computer.",
+              "The company website."
+            ],
+            "answer": "The office first-aid box.",
+            "explanation": "Her manager asked her to check the first-aid supplies and their dates.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Nora has already booked the water-safety course.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "She has not decided when to take it and will check her family calendar first.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

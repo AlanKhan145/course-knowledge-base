@@ -1635,7 +1635,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -3184,123 +3198,148 @@
   </script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["14-moving"] = {
-  "translations": [
-    {
-      "vi": "Chúng tôi bắt chuyến xe buýt cuối cùng đến sân bay.",
-      "en": "We caught the last bus to the airport."
-    },
-    {
-      "vi": "Anh ấy lỡ chuyến tàu vì đến ga quá muộn.",
-      "en": "He missed the train because he arrived at the station too late."
-    },
-    {
-      "vi": "Máy bay đến Hà Nội lúc gần trưa.",
-      "en": "The plane arrives in Hanoi just before noon."
-    },
-    {
-      "vi": "Hãy xuống ở bến tiếp theo và đi bộ qua đường.",
-      "en": "Get off at the next stop and walk across the road."
-    },
-    {
-      "vi": "Cô ấy đi làm bằng tàu điện ngầm mỗi ngày.",
-      "en": "She travels to work by underground every day."
-    },
-    {
-      "vi": "Tàu của họ rời sân ga số ba lúc mười giờ.",
-      "en": "Their train leaves platform three at ten o’clock."
-    },
-    {
-      "vi": "Chúng tôi đến sân bay đúng giờ dù đường rất đông.",
-      "en": "We arrived at the airport on time although the roads were busy."
-    },
-    {
-      "vi": "Bạn phải đổi tàu ở ga trung tâm.",
-      "en": "You have to change trains at Central Station."
-    }
-  ],
-  "passage": {
-    "title": "The Monday Commute",
-    "text": "On Monday morning, a signal problem stopped trains between East Park and Central Station. The transport company posted a notice at 7:10 and advised passengers to take the number 6 bus instead. Some commuters did not see the notice and waited on the platform. Lina saw it on her phone while walking to the station. She got on the bus outside the library, but the road was busy and the journey took longer than usual. A driver announced that passengers going to the airport should get off at Market Street and change to the express bus. Lina was travelling to an office near Central Station, so she stayed on until the final stop. She arrived twenty minutes late and sent her manager a message on the way. The company later said normal train service returned at 9:45. A passenger survey showed that people wanted clearer signs at the bus stops. The transport team will review the signs next month. It has not said whether bus services will run more often during future disruptions.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "What caused the train delay?",
-        "options": [
-          "A signal problem.",
-          "Road construction.",
-          "Bad weather.",
-          "A staff meeting."
-        ],
-        "answer": "A signal problem.",
-        "explanation": "The first sentence identifies a signal problem.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "Where should airport passengers change buses?",
-        "options": [
-          "At Market Street.",
-          "At East Park.",
-          "Outside the office.",
-          "At Central Station platform three."
-        ],
-        "answer": "At Market Street.",
-        "explanation": "The driver gave this instruction to passengers going to the airport.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What improvement did passengers request?",
-        "options": [
-          "Clearer signs at bus stops.",
-          "A new railway station.",
-          "Lower airport fares.",
-          "More staff at the office."
-        ],
-        "answer": "Clearer signs at bus stops.",
-        "explanation": "The survey showed people wanted clearer bus-stop signs.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The notice about the signal problem was posted at 7:10.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "TRUE",
-        "explanation": "The passage gives the notice time as 7:10.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "Lina got off at Market Street.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "She was going near Central Station and stayed on until the final stop.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The company will add extra buses during the next disruption.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "The company has not said whether bus services will run more often.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["14-moving"] =     {
+      "translations": [
+        {
+          "vi": "Chúng tôi bắt chuyến xe buýt cuối cùng đến sân bay.",
+          "en": "We caught the last bus to the airport."
+        },
+        {
+          "vi": "Anh ấy lỡ chuyến tàu vì đến ga quá muộn.",
+          "en": "He missed the train because he arrived at the station too late."
+        },
+        {
+          "vi": "Máy bay đến Hà Nội lúc gần trưa.",
+          "en": "The plane arrives in Hanoi just before noon."
+        },
+        {
+          "vi": "Hãy xuống ở bến tiếp theo và đi bộ qua đường.",
+          "en": "Get off at the next stop and walk across the road."
+        },
+        {
+          "vi": "Cô ấy đi làm bằng tàu điện ngầm mỗi ngày.",
+          "en": "She travels to work by underground every day."
+        },
+        {
+          "vi": "Tàu của họ rời sân ga số ba lúc mười giờ.",
+          "en": "Their train leaves platform three at ten o’clock."
+        },
+        {
+          "vi": "Chúng tôi đến sân bay đúng giờ dù đường rất đông.",
+          "en": "We arrived at the airport on time although the roads were busy."
+        },
+        {
+          "vi": "Bạn phải đổi tàu ở ga trung tâm.",
+          "en": "You have to change trains at Central Station."
+        }
+      ],
+      "passage": {
+        "title": "The Monday Commute",
+        "text": "On Monday morning, a signal problem stopped trains between East Park and Central Station. The transport company posted a notice at 7:10 and advised passengers to take the number 6 bus instead. Some commuters did not see the notice and waited on the platform. Lina saw it on her phone while walking to the station. She got on the bus outside the library, but the road was busy and the journey took longer than usual. A driver announced that passengers going to the airport should get off at Market Street and change to the express bus. Lina was travelling to an office near Central Station, so she stayed on until the final stop. She arrived twenty minutes late and sent her manager a message on the way. The company later said normal train service returned at 9:45. A passenger survey showed that people wanted clearer signs at the bus stops. The transport team will review the signs next month. It has not said whether bus services will run more often during future disruptions.\n\nAt the review, the transport team tested larger signs at three bus stops and placed a volunteer near Market Street during the morning rush. The volunteer helped passengers find the correct bus, while staff recorded the questions people asked most often. Many travellers understood the new route once they saw the map, but some still wanted clearer information about when trains would start again. The company added a web page with live updates and a phone number for passengers who could not use the internet. Lina said the signs were easier to notice, although she would have liked the first message sooner. The team will compare feedback from the three stops before changing signs across the whole network. It has not promised to run more buses during future problems. Lina now checks the transport page before leaving home, especially when she has an early meeting.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "What caused the train delay?",
+            "options": [
+              "A signal problem.",
+              "Road construction.",
+              "Bad weather.",
+              "A staff meeting."
+            ],
+            "answer": "A signal problem.",
+            "explanation": "The first sentence identifies a signal problem.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "Where should airport passengers change buses?",
+            "options": [
+              "At Market Street.",
+              "At East Park.",
+              "Outside the office.",
+              "At Central Station platform three."
+            ],
+            "answer": "At Market Street.",
+            "explanation": "The driver gave this instruction to passengers going to the airport.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What improvement did passengers request?",
+            "options": [
+              "Clearer signs at bus stops.",
+              "A new railway station.",
+              "Lower airport fares.",
+              "More staff at the office."
+            ],
+            "answer": "Clearer signs at bus stops.",
+            "explanation": "The survey showed people wanted clearer bus-stop signs.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The notice about the signal problem was posted at 7:10.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "The passage gives the notice time as 7:10.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Lina got off at Market Street.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "She was going near Central Station and stayed on until the final stop.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The company will add extra buses during the next disruption.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "The company has not said whether bus services will run more often.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What did the transport company add for passengers?",
+            "options": [
+              "A web page with live updates and a phone number.",
+              "A new railway line to the airport.",
+              "Free taxis from every bus stop.",
+              "A second library near Central Station."
+            ],
+            "answer": "A web page with live updates and a phone number.",
+            "explanation": "The company added online updates and a phone number for people without internet access.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The company has promised to run more buses during future disruptions.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The passage says the company has not promised to add more buses.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

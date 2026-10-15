@@ -1612,7 +1612,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -3161,123 +3175,148 @@
   </script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["11-phrasal-verbs"] = {
-  "translations": [
-    {
-      "vi": "Tôi thức dậy lúc sáu giờ để chuẩn bị cho chuyến đi.",
-      "en": "I wake up at six to get ready for the trip."
-    },
-    {
-      "vi": "Hãy tắt máy tính trước khi rời văn phòng.",
-      "en": "Turn off the computer before you leave the office."
-    },
-    {
-      "vi": "Cô ấy mặc áo khoác vì trời bắt đầu lạnh.",
-      "en": "She put on her coat because it was getting cold."
-    },
-    {
-      "vi": "Chúng tôi tra từ mới trong từ điển.",
-      "en": "We look up new words in a dictionary."
-    },
-    {
-      "vi": "Anh ấy đón em gái ở nhà ga sau giờ học.",
-      "en": "He picks up his sister at the station after class."
-    },
-    {
-      "vi": "Đừng bỏ cuộc khi bài tập trở nên khó hơn.",
-      "en": "Do not give up when the exercise gets harder."
-    },
-    {
-      "vi": "Họ phát hiện ra cửa hàng đã chuyển đến phố khác.",
-      "en": "They found out that the shop had moved to another street."
-    },
-    {
-      "vi": "Tôi cởi giày trước khi bước vào nhà.",
-      "en": "I take off my shoes before I enter the house."
-    }
-  ],
-  "passage": {
-    "title": "Getting Ready for the Evening Show",
-    "text": "The drama club had a show on Friday, and everyone arrived at the hall after school. First, the students put on their costumes and checked the props. The director asked them to turn off their phones because the audience would soon come in. One actor could not find a line in the script, so he looked it up in the printed copy. Another student picked up a box of lights from the office. The first rehearsal was slow, and one younger member wanted to give up. The director stopped the practice and explained the scene again. By the second run, the group had worked out where each person should stand. They also found out that one microphone was not working, so the caretaker brought a spare. The show began at seven. After it ended, the students took off their costumes and put the equipment away. The audience stayed to talk with the actors. The club plans another performance, but it has not decided which play to do.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "Why did the director ask students to turn off their phones?",
-        "options": [
-          "The audience was about to arrive.",
-          "The phones were needed for the lights.",
-          "The rehearsal had been cancelled.",
-          "The caretaker was making a call."
-        ],
-        "answer": "The audience was about to arrive.",
-        "explanation": "The director asked this because the audience would soon come in.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What problem did the group discover before the show?",
-        "options": [
-          "A microphone was not working.",
-          "The costumes were missing.",
-          "The script had been rewritten.",
-          "The hall was locked."
-        ],
-        "answer": "A microphone was not working.",
-        "explanation": "They found out that one microphone did not work and got a spare.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What happened after the first rehearsal?",
-        "options": [
-          "The director explained the scene again.",
-          "The club chose a new play.",
-          "The students went home immediately.",
-          "The show was moved to another day."
-        ],
-        "answer": "The director explained the scene again.",
-        "explanation": "The director stopped practice and explained the scene again.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The show started at seven in the evening.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "TRUE",
-        "explanation": "The passage says the show began at seven.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The caretaker repaired the broken microphone during the show.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "The caretaker brought a spare microphone; no repair is mentioned.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The next performance will use a comedy play.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "The club has not chosen its next play.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["11-phrasal-verbs"] =     {
+      "translations": [
+        {
+          "vi": "Tôi thức dậy lúc sáu giờ để chuẩn bị cho chuyến đi.",
+          "en": "I wake up at six to get ready for the trip."
+        },
+        {
+          "vi": "Hãy tắt máy tính trước khi rời văn phòng.",
+          "en": "Turn off the computer before you leave the office."
+        },
+        {
+          "vi": "Cô ấy mặc áo khoác vì trời bắt đầu lạnh.",
+          "en": "She put on her coat because it was getting cold."
+        },
+        {
+          "vi": "Chúng tôi tra từ mới trong từ điển.",
+          "en": "We look up new words in a dictionary."
+        },
+        {
+          "vi": "Anh ấy đón em gái ở nhà ga sau giờ học.",
+          "en": "He picks up his sister at the station after class."
+        },
+        {
+          "vi": "Đừng bỏ cuộc khi bài tập trở nên khó hơn.",
+          "en": "Do not give up when the exercise gets harder."
+        },
+        {
+          "vi": "Họ phát hiện ra cửa hàng đã chuyển đến phố khác.",
+          "en": "They found out that the shop had moved to another street."
+        },
+        {
+          "vi": "Tôi cởi giày trước khi bước vào nhà.",
+          "en": "I take off my shoes before I enter the house."
+        }
+      ],
+      "passage": {
+        "title": "Getting Ready for the Evening Show",
+        "text": "The drama club had a show on Friday, and everyone arrived at the hall after school. First, the students put on their costumes and checked the props. The director asked them to turn off their phones because the audience would soon come in. One actor could not find a line in the script, so he looked it up in the printed copy. Another student picked up a box of lights from the office. The first rehearsal was slow, and one younger member wanted to give up. The director stopped the practice and explained the scene again. By the second run, the group had worked out where each person should stand. They also found out that one microphone was not working, so the caretaker brought a spare. The show began at seven. After it ended, the students took off their costumes and put the equipment away. The audience stayed to talk with the actors. The club plans another performance, but it has not decided which play to do.\n\nThe director asked the cast to meet again the following week. They went through the difficult scene slowly and wrote down the changes. The actor who had lost his line looked it up in the script before rehearsal, so he was ready when the director asked him to speak. The caretaker fixed the microphone, and a volunteer showed the younger students how to put the cables away safely. After rehearsal, the group talked about audience comments. Several people had enjoyed the costumes, but some could not hear the first actor clearly. The director decided to move one speaker closer to the stage and turn the music down before the opening scene. She also invited two new students to try a small part. They were nervous at first, but the older actors helped them work out where to stand. The club has not selected its next play; members will suggest titles at the next meeting.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "Why did the director ask students to turn off their phones?",
+            "options": [
+              "The audience was about to arrive.",
+              "The phones were needed for the lights.",
+              "The rehearsal had been cancelled.",
+              "The caretaker was making a call."
+            ],
+            "answer": "The audience was about to arrive.",
+            "explanation": "The director asked this because the audience would soon come in.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What problem did the group discover before the show?",
+            "options": [
+              "A microphone was not working.",
+              "The costumes were missing.",
+              "The script had been rewritten.",
+              "The hall was locked."
+            ],
+            "answer": "A microphone was not working.",
+            "explanation": "They found out that one microphone did not work and got a spare.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What happened after the first rehearsal?",
+            "options": [
+              "The director explained the scene again.",
+              "The club chose a new play.",
+              "The students went home immediately.",
+              "The show was moved to another day."
+            ],
+            "answer": "The director explained the scene again.",
+            "explanation": "The director stopped practice and explained the scene again.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The show started at seven in the evening.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "The passage says the show began at seven.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The caretaker repaired the broken microphone during the show.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The caretaker brought a spare microphone; no repair is mentioned.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The next performance will use a comedy play.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "The club has not chosen its next play.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What change did the director make after hearing audience comments?",
+            "options": [
+              "She moved a speaker closer to the stage.",
+              "She removed all the costumes.",
+              "She cancelled the opening scene.",
+              "She asked the audience to leave earlier."
+            ],
+            "answer": "She moved a speaker closer to the stage.",
+            "explanation": "Some people could not hear clearly, so the director moved a speaker and lowered the music.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The club has chosen the title of its next play.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The club has not selected a play; members will suggest titles later.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

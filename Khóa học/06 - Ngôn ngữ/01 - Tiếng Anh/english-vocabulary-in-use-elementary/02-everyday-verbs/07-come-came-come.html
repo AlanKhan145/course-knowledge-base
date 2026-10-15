@@ -1584,7 +1584,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -3099,123 +3113,148 @@
   </script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["07-come-came-come"] = {
-  "translations": [
-    {
-      "vi": "Bạn bè tôi sẽ đến ăn tối vào thứ Bảy.",
-      "en": "My friends are coming for dinner on Saturday."
-    },
-    {
-      "vi": "Hãy vào trong và ngồi cạnh cửa sổ.",
-      "en": "Come in and sit by the window."
-    },
-    {
-      "vi": "Bố mẹ cô ấy đã đến thăm vào cuối tuần trước.",
-      "en": "Her parents came to visit last weekend."
-    },
-    {
-      "vi": "Tôi sẽ quay lại văn phòng sau giờ nghỉ trưa.",
-      "en": "I will come back to the office after lunch."
-    },
-    {
-      "vi": "Bạn có muốn đi cùng chúng tôi đến buổi triển lãm không?",
-      "en": "Would you like to come with us to the exhibition?"
-    },
-    {
-      "vi": "Khi nào chuyến tàu tiếp theo đến?",
-      "en": "When does the next train come?"
-    },
-    {
-      "vi": "Cô ấy thường về nhà lúc sáu giờ.",
-      "en": "She usually comes home at six."
-    },
-    {
-      "vi": "Tin tốt đến vào đúng lúc chúng tôi cần nhất.",
-      "en": "The good news came just when we needed it most."
-    }
-  ],
-  "passage": {
-    "title": "The Library Open Day",
-    "text": "The town library held an open day to welcome new members. The doors opened at ten, but a small group came early to help. They put signs near the entrance so visitors could come in without getting lost. A children’s storyteller came at eleven and read two short books. Families came from several parts of town, although the library had not expected such a large crowd. At noon, the librarian gave a tour of the upstairs rooms. One visitor asked whether people could come back in the evening. The library usually closed at six, but the manager said it would stay open until eight on Thursdays next month. A local history group also came to show old photographs. The event finished at three, and volunteers stayed to tidy the rooms. Before leaving, many visitors signed up for library cards. The manager said the open day had been successful because local groups came together to help. She hopes the history group will come again, but they have not chosen a date.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "Why were signs placed near the entrance?",
-        "options": [
-          "To help visitors find their way inside.",
-          "To announce that the library was closing.",
-          "To advertise a book sale.",
-          "To show where staff could park."
-        ],
-        "answer": "To help visitors find their way inside.",
-        "explanation": "The signs helped visitors come in without getting lost.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What change did the manager announce?",
-        "options": [
-          "The library will stay open later on Thursdays next month.",
-          "The library will close at three every day.",
-          "The history group will move upstairs.",
-          "The storyteller will return every week."
-        ],
-        "answer": "The library will stay open later on Thursdays next month.",
-        "explanation": "The manager said Thursday hours would extend to eight next month.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What did many visitors do before leaving?",
-        "options": [
-          "They signed up for library cards.",
-          "They borrowed old photographs.",
-          "They joined the history group.",
-          "They helped plan another event."
-        ],
-        "answer": "They signed up for library cards.",
-        "explanation": "The passage states that many visitors signed up for cards.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The open day began at ten o’clock.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "TRUE",
-        "explanation": "The doors opened at ten.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The library had expected the large number of families.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "The passage says the library had not expected such a large crowd.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The history group has confirmed the date of its next visit.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "They have not chosen a date yet.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["07-come-came-come"] =     {
+      "translations": [
+        {
+          "vi": "Bạn bè tôi sẽ đến ăn tối vào thứ Bảy.",
+          "en": "My friends are coming for dinner on Saturday."
+        },
+        {
+          "vi": "Hãy vào trong và ngồi cạnh cửa sổ.",
+          "en": "Come in and sit by the window."
+        },
+        {
+          "vi": "Bố mẹ cô ấy đã đến thăm vào cuối tuần trước.",
+          "en": "Her parents came to visit last weekend."
+        },
+        {
+          "vi": "Tôi sẽ quay lại văn phòng sau giờ nghỉ trưa.",
+          "en": "I will come back to the office after lunch."
+        },
+        {
+          "vi": "Bạn có muốn đi cùng chúng tôi đến buổi triển lãm không?",
+          "en": "Would you like to come with us to the exhibition?"
+        },
+        {
+          "vi": "Khi nào chuyến tàu tiếp theo đến?",
+          "en": "When does the next train come?"
+        },
+        {
+          "vi": "Cô ấy thường về nhà lúc sáu giờ.",
+          "en": "She usually comes home at six."
+        },
+        {
+          "vi": "Tin tốt đến vào đúng lúc chúng tôi cần nhất.",
+          "en": "The good news came just when we needed it most."
+        }
+      ],
+      "passage": {
+        "title": "The Library Open Day",
+        "text": "The town library held an open day to welcome new members. The doors opened at ten, but a small group came early to help. They put signs near the entrance so visitors could come in without getting lost. A children’s storyteller came at eleven and read two short books. Families came from several parts of town, although the library had not expected such a large crowd. At noon, the librarian gave a tour of the upstairs rooms. One visitor asked whether people could come back in the evening. The library usually closed at six, but the manager said it would stay open until eight on Thursdays next month. A local history group also came to show old photographs. The event finished at three, and volunteers stayed to tidy the rooms. Before leaving, many visitors signed up for library cards. The manager said the open day had been successful because local groups came together to help. She hopes the history group will come again, but they have not chosen a date.\n\nThe library checked its visitor numbers a month later. Forty-two people who had come to the open day had joined as new members, and several families had returned for the Thursday evening opening. The children’s storyteller came back to read a longer book, while the history group brought photographs for a small display. Visitors could leave a note beside each photograph and say what they remembered about the place. The librarian used these notes to plan a local-history talk for the autumn. She also asked volunteers to come thirty minutes early because the display needed careful setting up. The manager said the late opening would continue for another month, but only if enough people used it. A few visitors asked for Sunday hours. The library has not agreed to that change, though the manager promised to study the request. The next open day will include a book-swap table.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "Why were signs placed near the entrance?",
+            "options": [
+              "To help visitors find their way inside.",
+              "To announce that the library was closing.",
+              "To advertise a book sale.",
+              "To show where staff could park."
+            ],
+            "answer": "To help visitors find their way inside.",
+            "explanation": "The signs helped visitors come in without getting lost.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What change did the manager announce?",
+            "options": [
+              "The library will stay open later on Thursdays next month.",
+              "The library will close at three every day.",
+              "The history group will move upstairs.",
+              "The storyteller will return every week."
+            ],
+            "answer": "The library will stay open later on Thursdays next month.",
+            "explanation": "The manager said Thursday hours would extend to eight next month.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What did many visitors do before leaving?",
+            "options": [
+              "They signed up for library cards.",
+              "They borrowed old photographs.",
+              "They joined the history group.",
+              "They helped plan another event."
+            ],
+            "answer": "They signed up for library cards.",
+            "explanation": "The passage states that many visitors signed up for cards.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The open day began at ten o’clock.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "The doors opened at ten.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The library had expected the large number of families.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The passage says the library had not expected such a large crowd.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The history group has confirmed the date of its next visit.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "They have not chosen a date yet.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "How many open-day visitors became new members?",
+            "options": [
+              "Forty-two.",
+              "Twelve.",
+              "Twenty-four.",
+              "Six."
+            ],
+            "answer": "Forty-two.",
+            "explanation": "The library recorded forty-two new members who had attended the open day.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The library has already agreed to open every Sunday.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The manager has not agreed to Sunday hours and will study the request.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

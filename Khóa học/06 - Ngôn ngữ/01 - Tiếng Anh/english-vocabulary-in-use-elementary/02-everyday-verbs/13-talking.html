@@ -1618,7 +1618,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -3167,123 +3181,148 @@
   </script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["13-talking"] = {
-  "translations": [
-    {
-      "vi": "Cô giáo nói rằng bài kiểm tra sẽ bắt đầu lúc chín giờ.",
-      "en": "The teacher said that the test would start at nine."
-    },
-    {
-      "vi": "Anh ấy kể cho chúng tôi một câu chuyện thú vị về chuyến đi.",
-      "en": "He told us an interesting story about the trip."
-    },
-    {
-      "vi": "Tôi đã hỏi nhân viên liệu cửa hàng có mở cửa vào Chủ nhật không.",
-      "en": "I asked the assistant whether the shop was open on Sunday."
-    },
-    {
-      "vi": "Bạn có thể nói chậm hơn để tôi ghi lại địa chỉ không?",
-      "en": "Could you speak more slowly so I can write down the address?"
-    },
-    {
-      "vi": "Họ đã nói chuyện với khách hàng về đơn hàng bị trễ.",
-      "en": "They talked to the customer about the delayed order."
-    },
-    {
-      "vi": "Cô ấy đã trả lời email ngay sau cuộc họp.",
-      "en": "She replied to the email immediately after the meeting."
-    },
-    {
-      "vi": "Anh ấy trả lời mọi câu hỏi một cách bình tĩnh.",
-      "en": "He answered every question calmly."
-    },
-    {
-      "vi": "Tôi đã nói với Maria rằng chúng tôi sẽ đến muộn.",
-      "en": "I told Maria that we would arrive late."
-    }
-  ],
-  "passage": {
-    "title": "A Customer Call at Greenway Travel",
-    "text": "Greenway Travel received a call from a customer whose train ticket had the wrong date. At the start of the call, the customer spoke quickly and sounded worried. The assistant asked him to repeat the booking number and then read it back to check. She told him the ticket could be changed, but she did not promise that the new train would have seats. She put him on hold while she spoke to the rail company. After two minutes, she came back and said there were seats on the 10:30 train. The customer asked whether he needed to pay a fee. The assistant replied that the change was free because the date on the original ticket had been printed incorrectly. She sent a new ticket by email and asked him to reply if the attachment did not open. Before ending the call, the customer thanked her for explaining the options clearly. The manager later said the assistant had handled the problem well. The company will use the call as an example in next month’s training, after removing the customer’s personal details.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "Why did the customer contact Greenway Travel?",
-        "options": [
-          "The ticket showed the wrong date.",
-          "The train had been cancelled.",
-          "He could not open the website.",
-          "He wanted to book a hotel."
-        ],
-        "answer": "The ticket showed the wrong date.",
-        "explanation": "The ticket had the wrong date, so he called the agency.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "Why was the ticket change free?",
-        "options": [
-          "The original ticket had been printed incorrectly.",
-          "The customer was a company employee.",
-          "The train company had cancelled the service.",
-          "The customer changed the date a month early."
-        ],
-        "answer": "The original ticket had been printed incorrectly.",
-        "explanation": "The assistant explained that the printed date was wrong.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "How will the company use the call?",
-        "options": [
-          "As a training example with personal details removed.",
-          "As a public advertisement.",
-          "As evidence in a payment dispute.",
-          "As a script for an automated service."
-        ],
-        "answer": "As a training example with personal details removed.",
-        "explanation": "The manager said it would be used in training after removing personal details.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The assistant immediately promised that the new train had seats.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "She checked availability before confirming there were seats.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The customer needed to pay a fee for changing the ticket.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "The change was free because of the printing error.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The customer was travelling to Bristol.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "The destination is not mentioned.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["13-talking"] =     {
+      "translations": [
+        {
+          "vi": "Cô giáo nói rằng bài kiểm tra sẽ bắt đầu lúc chín giờ.",
+          "en": "The teacher said that the test would start at nine."
+        },
+        {
+          "vi": "Anh ấy kể cho chúng tôi một câu chuyện thú vị về chuyến đi.",
+          "en": "He told us an interesting story about the trip."
+        },
+        {
+          "vi": "Tôi đã hỏi nhân viên liệu cửa hàng có mở cửa vào Chủ nhật không.",
+          "en": "I asked the assistant whether the shop was open on Sunday."
+        },
+        {
+          "vi": "Bạn có thể nói chậm hơn để tôi ghi lại địa chỉ không?",
+          "en": "Could you speak more slowly so I can write down the address?"
+        },
+        {
+          "vi": "Họ đã nói chuyện với khách hàng về đơn hàng bị trễ.",
+          "en": "They talked to the customer about the delayed order."
+        },
+        {
+          "vi": "Cô ấy đã trả lời email ngay sau cuộc họp.",
+          "en": "She replied to the email immediately after the meeting."
+        },
+        {
+          "vi": "Anh ấy trả lời mọi câu hỏi một cách bình tĩnh.",
+          "en": "He answered every question calmly."
+        },
+        {
+          "vi": "Tôi đã nói với Maria rằng chúng tôi sẽ đến muộn.",
+          "en": "I told Maria that we would arrive late."
+        }
+      ],
+      "passage": {
+        "title": "A Customer Call at Greenway Travel",
+        "text": "Greenway Travel received a call from a customer whose train ticket had the wrong date. At the start of the call, the customer spoke quickly and sounded worried. The assistant asked him to repeat the booking number and then read it back to check. She told him the ticket could be changed, but she did not promise that the new train would have seats. She put him on hold while she spoke to the rail company. After two minutes, she came back and said there were seats on the 10:30 train. The customer asked whether he needed to pay a fee. The assistant replied that the change was free because the date on the original ticket had been printed incorrectly. She sent a new ticket by email and asked him to reply if the attachment did not open. Before ending the call, the customer thanked her for explaining the options clearly. The manager later said the assistant had handled the problem well. The company will use the call as an example in next month’s training, after removing the customer’s personal details.\n\nAt the next staff meeting, the manager used the call as a training example. The assistant read the customer’s messages aloud, and the team discussed which questions had helped solve the problem. They agreed that repeating important details was useful, but staff should avoid making a promise before checking with the rail company. The manager had removed the customer’s name and booking number from the example. After the meeting, the assistant received a reply from the customer. He confirmed that the new ticket had opened correctly and thanked her again. The team added a short checklist beside the phone: listen first, confirm the details, check availability, explain the options, and send a written summary. The manager will review the checklist after one month. She has not decided whether every call should be recorded, because staff and customers may have different privacy concerns.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "Why did the customer contact Greenway Travel?",
+            "options": [
+              "The ticket showed the wrong date.",
+              "The train had been cancelled.",
+              "He could not open the website.",
+              "He wanted to book a hotel."
+            ],
+            "answer": "The ticket showed the wrong date.",
+            "explanation": "The ticket had the wrong date, so he called the agency.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "Why was the ticket change free?",
+            "options": [
+              "The original ticket had been printed incorrectly.",
+              "The customer was a company employee.",
+              "The train company had cancelled the service.",
+              "The customer changed the date a month early."
+            ],
+            "answer": "The original ticket had been printed incorrectly.",
+            "explanation": "The assistant explained that the printed date was wrong.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "How will the company use the call?",
+            "options": [
+              "As a training example with personal details removed.",
+              "As a public advertisement.",
+              "As evidence in a payment dispute.",
+              "As a script for an automated service."
+            ],
+            "answer": "As a training example with personal details removed.",
+            "explanation": "The manager said it would be used in training after removing personal details.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The assistant immediately promised that the new train had seats.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "She checked availability before confirming there were seats.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The customer needed to pay a fee for changing the ticket.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The change was free because of the printing error.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The customer was travelling to Bristol.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "The destination is not mentioned.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What checklist did the team create?",
+            "options": [
+              "Steps for confirming details and explaining options.",
+              "Instructions for printing train tickets.",
+              "A list of all customer names.",
+              "A schedule for replacing office phones."
+            ],
+            "answer": "Steps for confirming details and explaining options.",
+            "explanation": "The checklist covers listening, confirming, checking, explaining, and sending a summary.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The manager has decided that every call will be recorded.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "She has not decided whether calls should be recorded.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

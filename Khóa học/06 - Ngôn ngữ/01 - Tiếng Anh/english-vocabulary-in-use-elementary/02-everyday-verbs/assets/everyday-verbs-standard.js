@@ -5,7 +5,7 @@
     if (!Array.isArray(vocab) || !Array.isArray(practiceQuestions) || !Array.isArray(testQuestions)) return;
 
     var TARGET_PER_TYPE = 15;
-    var EXAM_PER_TYPE = 10;
+    var EXAM_PER_TYPE = 4;
     var category = 'full-bank';
     var pageName = decodeURIComponent(window.location.pathname.split('/').pop() || '').replace(/\.html$/i, '');
     var lessonKey = (typeof LESSON_ID === 'string' ? LESSON_ID : pageName).toLowerCase();
@@ -25,8 +25,7 @@
       'short-answer': 'Tự trả lời',
       'translation': 'Dịch câu',
       'production': 'Viết / nói ứng dụng',
-      'error-correction': 'Sửa lỗi',
-      'cloze': 'Điền vào đoạn văn'
+      'error-correction': 'Sửa lỗi'
     };
 
     var errorBank = {
@@ -473,7 +472,7 @@
         var pictured = imageBank();
         var imageTarget = pictured[index % Math.max(1, pictured.length)] || target;
         return Object.assign({}, common, {
-          prompt: 'Quan sát hình và chọn cụm từ phù hợp nhất.', image: imageTarget.image,
+          prompt: 'Nhìn hình, đoán từ hoặc cụm động từ được minh họa.', image: imageTarget.image,
           options: mixOptions(optionsFor(imageTarget, index + 1, 4), index + 2), answer: imageTarget.word,
           explanation: imageTarget.word + ' = ' + imageTarget.meaning + '.'
         });
@@ -537,6 +536,60 @@
         });
       }
       if (type === 'multi-fill') {
+        var isPracticeReadingFill = String(id || '').indexOf('std-p-multi-fill-') === 0 && index === TARGET_PER_TYPE - 1;
+        var isExamReadingFill = String(id || '').indexOf('std-t-multi-fill-') === 0 && index === 7;
+        if ((isPracticeReadingFill || isExamReadingFill) && advancedLesson && advancedLesson.passage) {
+          var sourceText = advancedLesson.passage.text;
+          var passageMatches = [];
+          bank.forEach(function (item) {
+            var base = String(item.word || '').trim();
+            if (!base || /[()\/+!]/.test(base)) return;
+            [base, inflectPhrase(base, 'past'), inflectPhrase(base, 'third')].forEach(function (form) {
+              var escaped = form.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              var occurrence = new RegExp('\\b' + escaped + '\\b', 'i').exec(sourceText);
+              if (!occurrence || passageMatches.some(function (match) {
+                return match.item.word.toLowerCase() === item.word.toLowerCase() || match.answer.toLowerCase() === occurrence[0].toLowerCase();
+              })) return;
+              passageMatches.push({ start: occurrence.index, end: occurrence.index + occurrence[0].length, answer: occurrence[0], item: item });
+            });
+          });
+          passageMatches.sort(function (left, right) { return left.start - right.start || (right.end - right.start) - (left.end - left.start); });
+          var passageGaps = [];
+          for (var gapIndex = 0; gapIndex < passageMatches.length && passageGaps.length < 4; gapIndex += 1) {
+            var passageCandidate = passageMatches[(index * 2 + gapIndex) % passageMatches.length];
+            if (passageGaps.some(function (match) { return passageCandidate.start < match.end && passageCandidate.end > match.start; })) continue;
+            passageGaps.push(passageCandidate);
+          }
+          if (passageGaps.length < 4) {
+            passageGaps = [0, 1, 2, 3].map(function (number) {
+              var fallback = grammarTarget(index * 4 + number);
+              var sentence = practiceSentence(fallback, index + number, number + 1);
+              var answer = practiceForm(fallback, index + number, number + 1);
+              var at = sentence.toLowerCase().indexOf(answer.toLowerCase());
+              return { start: at, end: at + answer.length, answer: answer, item: fallback, fallback: sentence };
+            });
+            sourceText = passageGaps.map(function (match) { return match.fallback; }).join(' ');
+            passageGaps = passageGaps.map(function (match) {
+              var at = sourceText.toLowerCase().indexOf(match.answer.toLowerCase());
+              return { start: at, end: at + match.answer.length, answer: match.answer, item: match.item };
+            }).sort(function (left, right) { return left.start - right.start; });
+          }
+          var passageCursor = 0;
+          var passageWithGaps = '';
+          var passageItems = [];
+          passageGaps.forEach(function (match, position) {
+            passageWithGaps += sourceText.slice(passageCursor, match.start) + '____ (' + (position + 1) + ')';
+            passageCursor = match.end;
+            passageItems.push({ text: 'Chỗ trống ' + (position + 1), answer: match.answer, source: match.item });
+          });
+          passageWithGaps += sourceText.slice(passageCursor);
+          return Object.assign({}, common, {
+            prompt: 'Đọc bài văn và tự điền cụm từ phù hợp vào bốn chỗ trống.',
+            passage: (advancedLesson.passage.title || '') + '\n\n' + passageWithGaps,
+            items: passageItems,
+            explanation: passageItems.map(function (item) { return item.text + ': ' + item.answer; }).join(' · ')
+          });
+        }
         var fillSet = [0, 1, 2, 3].map(function (number) {
           var item = grammarTarget(index * 3 + number);
           var offset = number + 1;
@@ -573,18 +626,6 @@
         explanation: 'Bài tạo ngôn ngữ được tự đánh giá bằng rubric; hãy ưu tiên câu có nghĩa rõ.'
       });
       if (type === 'error-correction') return Object.assign({}, common, createError(index));
-      if (type === 'cloze') {
-        var clozeTarget = grammarTarget(index + 6);
-        var example = practiceSentence(clozeTarget, index, 3);
-        var clozeForm = practiceForm(clozeTarget, index, 3);
-        var pos = example.toLowerCase().indexOf(clozeForm.toLowerCase());
-        var masked = pos >= 0 ? example.slice(0, pos) + '{1}' + example.slice(pos + clozeForm.length) : 'Nghĩa “' + clozeTarget.meaning + '” được diễn đạt bằng cụm: {1}';
-        return Object.assign({}, common, {
-          prompt: 'Điền cụm từ còn thiếu theo nghĩa và ví dụ.', text: masked,
-          blanks: [{ options: mixOptions(optionsFor(clozeTarget, index + 4, 4).map(function (phrase) { return practiceForm({ word: phrase }, index, 3); }), index + 3), answer: clozeForm }],
-          explanation: clozeForm + ' (cụm gốc: ' + clozeTarget.word + ' = ' + clozeTarget.meaning + ').'
-        });
-      }
       return null;
     }
 
@@ -593,8 +634,6 @@
       'sentence-order', 'image-choice', 'image-match', 'mini-reading', 'true-false',
       'select-all', 'multi-fill', 'translation', 'short-answer', 'production', 'error-correction'
     ];
-    if (practiceQuestions.some(function (question) { return question.type === 'cloze'; })) practiceTypes.push('cloze');
-
     var readingQuestions = [];
     if (advancedLesson && Array.isArray(advancedLesson.translations)) {
       advancedLesson.translations.forEach(function (pair, index) {
@@ -605,12 +644,27 @@
       readingQuestions = advancedLesson.passage.questions.map(function (item, index) {
         return {
           id: 'std-p-reading-' + (index + 1), type: 'mini-reading', category: 'context',
-          difficulty: item.difficulty || 2, prompt: item.prompt, options: item.options,
+          difficulty: item.difficulty || 2,
+          prompt: (item.kind === 'ielts' ? 'IELTS TRUE / FALSE / NOT GIVEN · ' : 'TOEIC READING · ') + item.prompt,
+          passage: advancedLesson.passage.title + '\n\n' + advancedLesson.passage.text,
+          options: item.options,
           answer: item.answer, explanation: item.explanation, readingPassageId: pageName
         };
       });
       practiceQuestions.push.apply(practiceQuestions, readingQuestions);
     }
+
+    practiceQuestions.forEach(function (question) {
+      if (question.type !== 'cloze') return;
+      question.type = 'multi-fill';
+      question.prompt = 'Đọc đoạn văn và điền cụm từ còn thiếu vào từng chỗ trống.';
+      question.passage = String(question.text || '').replace(/\{(\d+)\}/g, '____ ($1)');
+      question.items = (question.blanks || []).map(function (blank, index) {
+        return { text: 'Chỗ trống ' + (index + 1), answer: blank.answer };
+      });
+      delete question.text;
+      delete question.blanks;
+    });
 
     practiceTypes.forEach(function (type) {
       var current = practiceQuestions.filter(function (question) { return question.type === type; }).length;
@@ -629,7 +683,11 @@
       practiceFilter.appendChild(fullBankOption);
     }
 
-    var examTypes = ['multiple-choice', 'fill-blank', 'matching', 'mini-reading', 'error-correction', 'sentence-order', 'translation'];
+    var examTypes = [
+      'multiple-choice', 'fill-blank', 'word-bank', 'matching', 'categorization', 'sentence-order',
+      'image-choice', 'image-match', 'mini-reading', 'true-false', 'select-all', 'multi-fill',
+      'translation', 'error-correction'
+    ];
     examTypes.forEach(function (type) {
       for (var n = 0; n < EXAM_PER_TYPE; n += 1) {
         var question = createQuestion(type, n + 7, 'std-t-' + type.replace(/[^a-z0-9]+/gi, '-') + '-' + (n + 1));
@@ -732,10 +790,16 @@
         var description = type === 'translation'
           ? 'Dịch câu theo ngữ cảnh; luyện hiện tại, quá khứ, câu hỏi và collocation.'
           : type === 'mini-reading'
-            ? 'Đọc bài dài, tìm chi tiết, suy luận và làm câu TRUE / FALSE / NOT GIVEN.'
-            : type === 'error-correction'
-              ? 'Sửa câu trong nhiều ngữ cảnh, tập trung thì và cấu trúc câu.'
-              : 'Bộ câu hỏi chỉ gồm dạng ' + (labels[type] || type).toLowerCase() + ', tăng dần độ khó.';
+            ? 'Đọc bài dài, tìm chi tiết, suy luận và làm câu TOEIC hoặc TRUE / FALSE / NOT GIVEN.'
+              : type === 'multi-fill'
+                ? 'Điền nhiều chỗ trong câu và hoàn thành bài đọc theo ngữ cảnh.'
+              : type === 'image-choice'
+                ? 'Nhìn hình, nhận diện hoạt động và chọn đúng từ hoặc cụm động từ.'
+                : type === 'image-match'
+                  ? 'Ghép nhiều hình minh họa với các cụm động từ tương ứng.'
+                  : type === 'error-correction'
+                    ? 'Sửa câu trong nhiều ngữ cảnh, tập trung thì và cấu trúc câu.'
+                    : 'Bộ câu hỏi chỉ gồm dạng ' + (labels[type] || type).toLowerCase() + ', tăng dần độ khó.';
         return '<article class="evu-exercise-card"><div class="evu-exercise-card-top"><span>BÀI ' + String(index + 1).padStart(2, '0') + '</span><b>' + count + '</b></div><h3>' + (labels[type] || type) + '</h3><p>' + description + '</p><button class="btn primary" type="button" data-evu-open-type="' + type + '">Vào bài luyện →</button></article>';
       }).join('');
       var sequentialRun = '<article class="evu-exercise-card evu-exercise-card-full"><div class="evu-exercise-card-top"><span>LUYỆN TOÀN BỘ</span><b>' + practiceQuestions.length + '</b></div><h3>Tất cả dạng, lần lượt</h3><p>Làm trọn ngân hàng theo từng nhóm dạng bài, từ đầu đến cuối; không xáo trộn giữa các dạng.</p><button class="btn primary" type="button" data-evu-open-sequence>Vào lượt luyện đầy đủ →</button></article>';

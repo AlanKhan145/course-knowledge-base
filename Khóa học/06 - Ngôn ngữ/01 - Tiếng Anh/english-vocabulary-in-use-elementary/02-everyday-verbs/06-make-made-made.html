@@ -3582,9 +3582,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var readingHeading = question.passageTitle ? '<strong class="reading-heading">' + escapeHtml(question.passageTitle) + '</strong>' : '';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
         var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
-        var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(question.passage) + '</div>';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -5248,123 +5260,148 @@
   </script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["06-make-made-made"] = {
-  "translations": [
-    {
-      "vi": "Chúng tôi đang làm một chiếc bánh cho buổi bán hàng từ thiện.",
-      "en": "We are making a cake for the charity sale."
-    },
-    {
-      "vi": "Anh ấy đã đưa ra quyết định sau khi nói chuyện với gia đình.",
-      "en": "He made a decision after talking to his family."
-    },
-    {
-      "vi": "Đừng gây tiếng ồn khi trẻ đang ngủ.",
-      "en": "Do not make a noise while the child is sleeping."
-    },
-    {
-      "vi": "Tôi thường dọn giường ngay sau khi thức dậy.",
-      "en": "I usually make the bed as soon as I wake up."
-    },
-    {
-      "vi": "Cô ấy đã kết bạn mới ở lớp học nấu ăn.",
-      "en": "She made new friends in the cooking class."
-    },
-    {
-      "vi": "Bản đồ này sẽ giúp chuyến đi dễ dàng hơn.",
-      "en": "This map will make the journey easier."
-    },
-    {
-      "vi": "Họ đã lập danh sách trước khi đi mua sắm.",
-      "en": "They made a list before they went shopping."
-    },
-    {
-      "vi": "Bạn có thể pha cho tôi một tách trà được không?",
-      "en": "Could you make me a cup of tea?"
-    }
-  ],
-  "passage": {
-    "title": "Preparing for the School Fair",
-    "text": "The school fair is the biggest event of the year, and this time the cooking club agreed to run a cake stall. At first, the students wanted to make six different cakes. Their teacher asked them to think about the cost and the time. After a short discussion, they made a decision to offer two popular choices and one dairy-free option. They made a list of ingredients and checked which families could bring them. On Friday, the group made the cakes in the school kitchen. They made a few mistakes: one team used salt instead of sugar, and another forgot to set a timer. The students did not panic. They made a new batch and wrote clearer labels. The fair opened on Saturday morning. A hand-painted sign made the stall easy to find, and the students made friendly conversation with visitors. By lunchtime, they had sold nearly everything. The club raised enough money to buy new cooking equipment. Next year, they hope to make a recipe book, but the head teacher has not approved the idea yet.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "Why did the students reduce the number of cake choices?",
-        "options": [
-          "They considered cost and time.",
-          "The school kitchen was closed.",
-          "Visitors requested only one cake.",
-          "They could not find any ingredients."
-        ],
-        "answer": "They considered cost and time.",
-        "explanation": "The teacher asked them to think about cost and time before deciding.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What did the group do after making mistakes?",
-        "options": [
-          "They prepared a new batch and improved the labels.",
-          "They cancelled the stall.",
-          "They asked visitors to bake the cakes.",
-          "They changed the fair to Sunday."
-        ],
-        "answer": "They prepared a new batch and improved the labels.",
-        "explanation": "They made a new batch and wrote clearer labels.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What is true about the proposed recipe book?",
-        "options": [
-          "It has not yet been approved.",
-          "It was sold at the fair.",
-          "It will replace the cake stall.",
-          "It was requested by the head teacher."
-        ],
-        "answer": "It has not yet been approved.",
-        "explanation": "The passage says the head teacher has not approved the idea.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The students planned to sell six kinds of cake at the fair.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "They first wanted six but decided to offer three choices.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "One group used salt instead of sugar.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "TRUE",
-        "explanation": "This mistake is stated directly.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The fair made more money than it did the previous year.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "No comparison with the previous year is provided.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["06-make-made-made"] =     {
+      "translations": [
+        {
+          "vi": "Chúng tôi đang làm một chiếc bánh cho buổi bán hàng từ thiện.",
+          "en": "We are making a cake for the charity sale."
+        },
+        {
+          "vi": "Anh ấy đã đưa ra quyết định sau khi nói chuyện với gia đình.",
+          "en": "He made a decision after talking to his family."
+        },
+        {
+          "vi": "Đừng gây tiếng ồn khi trẻ đang ngủ.",
+          "en": "Do not make a noise while the child is sleeping."
+        },
+        {
+          "vi": "Tôi thường dọn giường ngay sau khi thức dậy.",
+          "en": "I usually make the bed as soon as I wake up."
+        },
+        {
+          "vi": "Cô ấy đã kết bạn mới ở lớp học nấu ăn.",
+          "en": "She made new friends in the cooking class."
+        },
+        {
+          "vi": "Bản đồ này sẽ giúp chuyến đi dễ dàng hơn.",
+          "en": "This map will make the journey easier."
+        },
+        {
+          "vi": "Họ đã lập danh sách trước khi đi mua sắm.",
+          "en": "They made a list before they went shopping."
+        },
+        {
+          "vi": "Bạn có thể pha cho tôi một tách trà được không?",
+          "en": "Could you make me a cup of tea?"
+        }
+      ],
+      "passage": {
+        "title": "Preparing for the School Fair",
+        "text": "The school fair is the biggest event of the year, and this time the cooking club agreed to run a cake stall. At first, the students wanted to make six different cakes. Their teacher asked them to think about the cost and the time. After a short discussion, they made a decision to offer two popular choices and one dairy-free option. They made a list of ingredients and checked which families could bring them. On Friday, the group made the cakes in the school kitchen. They made a few mistakes: one team used salt instead of sugar, and another forgot to set a timer. The students did not panic. They made a new batch and wrote clearer labels. The fair opened on Saturday morning. A hand-painted sign made the stall easy to find, and the students made friendly conversation with visitors. By lunchtime, they had sold nearly everything. The club raised enough money to buy new cooking equipment. Next year, they hope to make a recipe book, but the head teacher has not approved the idea yet.\n\nOn Monday, the teacher and two students counted the money and checked the receipts. The stall had made enough to replace the old mixer and buy measuring cups for the next class. They also made a note of what had gone wrong. The group needed clearer labels, a second oven tray, and a list of jobs before the fair opened. One student made a simple chart showing how quickly each cake sold. The dairy-free option was gone before noon, so the club decided to make two next year. Several visitors asked for the recipes, but the students had not written them down in a useful format. Their teacher asked them to test each recipe at home and record the cooking time. The head teacher has not approved a printed book yet, but she agreed that the students could prepare a digital sample. The group will present it at the next school meeting.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "Why did the students reduce the number of cake choices?",
+            "options": [
+              "They considered cost and time.",
+              "The school kitchen was closed.",
+              "Visitors requested only one cake.",
+              "They could not find any ingredients."
+            ],
+            "answer": "They considered cost and time.",
+            "explanation": "The teacher asked them to think about cost and time before deciding.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What did the group do after making mistakes?",
+            "options": [
+              "They prepared a new batch and improved the labels.",
+              "They cancelled the stall.",
+              "They asked visitors to bake the cakes.",
+              "They changed the fair to Sunday."
+            ],
+            "answer": "They prepared a new batch and improved the labels.",
+            "explanation": "They made a new batch and wrote clearer labels.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What is true about the proposed recipe book?",
+            "options": [
+              "It has not yet been approved.",
+              "It was sold at the fair.",
+              "It will replace the cake stall.",
+              "It was requested by the head teacher."
+            ],
+            "answer": "It has not yet been approved.",
+            "explanation": "The passage says the head teacher has not approved the idea.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The students planned to sell six kinds of cake at the fair.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "They first wanted six but decided to offer three choices.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "One group used salt instead of sugar.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "This mistake is stated directly.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The fair made more money than it did the previous year.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "No comparison with the previous year is provided.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What will the students prepare before asking about a recipe book again?",
+            "options": [
+              "A digital sample with tested recipes.",
+              "A new sign for the cake stall.",
+              "A list of fair visitors.",
+              "A report about the school kitchen."
+            ],
+            "answer": "A digital sample with tested recipes.",
+            "explanation": "The head teacher allowed them to prepare a digital sample first.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The dairy-free cakes sold out before noon.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "The passage says the dairy-free option was gone before noon.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>

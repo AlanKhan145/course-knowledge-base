@@ -1583,7 +1583,21 @@
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var passageTitle = question.passageTitle || '';
+        var passageText = question.passage;
+        if (question.readingPassageId && !passageTitle) {
+          var passageParts = question.passage.split(/\n\n/);
+          passageTitle = passageParts.shift() || 'Bài đọc';
+          passageText = passageParts.join('\n\n');
+        }
+        var readingHeading = passageTitle ? '<strong class="reading-heading">' + escapeHtml(passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        if (question.readingPassageId) {
+          var passageHtml = '<details class="reading-passage reading-passage-details"><summary>Đọc bài: ' + escapeHtml(passageTitle) + '</summary><div class="reading-passage-text">' + escapeHtml(passageText) + '</div></details>';
+        } else {
+          var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(passageText) + '</div>';
+        }
+        if (question.type === 'reading-tfng') passageHtml += '<p class="game-help">Đọc kỹ rồi phân loại nhận định bên trên: True nếu đúng theo bài, False nếu bài nói ngược lại, Not Given nếu bài không cho biết.</p>';
       } else {
         var passageHtml = '';
       }
@@ -9182,123 +9196,148 @@
 })();</script>
   <script>
     window.EVU_ADVANCED_BANK = window.EVU_ADVANCED_BANK || {};
-    window.EVU_ADVANCED_BANK["05-do-did-done"] = {
-  "translations": [
-    {
-      "vi": "Tôi làm bài tập về nhà sau bữa tối mỗi ngày.",
-      "en": "I do my homework after dinner every day."
-    },
-    {
-      "vi": "Hôm qua nhóm chúng tôi đã làm rất tốt trong buổi thuyết trình.",
-      "en": "Our team did very well in the presentation yesterday."
-    },
-    {
-      "vi": "Bạn có thể giúp tôi một việc trước cuộc họp không?",
-      "en": "Can you do me a favour before the meeting?"
-    },
-    {
-      "vi": "Cô ấy tập thể dục ở công viên ba lần một tuần.",
-      "en": "She does some exercise in the park three times a week."
-    },
-    {
-      "vi": "Chúng tôi chưa làm xong việc nhà.",
-      "en": "We have not done the housework yet."
-    },
-    {
-      "vi": "Ai đã rửa bát sau bữa trưa?",
-      "en": "Who did the washing-up after lunch?"
-    },
-    {
-      "vi": "Tôi thường ghi chép khi giáo viên giải thích quy tắc.",
-      "en": "I usually take notes when the teacher explains the rules."
-    },
-    {
-      "vi": "Họ đã tiến hành một cuộc khảo sát trước khi sửa thư viện.",
-      "en": "They did a survey before they renovated the library."
-    }
-  ],
-  "passage": {
-    "title": "The Neighbourhood Homework Club",
-    "text": "When the community centre opened a homework club, only four students came in the first week. The volunteers did not want to give them more worksheets. Instead, they asked what made school difficult. Several students said they understood lessons but did not know how to organize their work. The club created a simple routine: students do their homework for twenty-five minutes, take a short break, and then check their answers with a partner. On Wednesdays, volunteers help students do research for longer projects. Last month, the group did a survey about the local park and presented the results to the town council. They did well because everyone had a clear job. One student prepared the charts, another checked spelling, and two students practised speaking. The club also teaches practical habits. Members put their books away and do the washing-up after the evening snack. The volunteers say progress is not only about marks. Students now ask for help earlier and finish more tasks on time. The club will stay open through the summer, although it has not announced its exact holiday schedule.",
-    "questions": [
-      {
-        "kind": "toeic",
-        "prompt": "What did the volunteers do instead of giving students more worksheets?",
-        "options": [
-          "They asked what made school difficult.",
-          "They cancelled the homework club.",
-          "They asked students to teach a lesson.",
-          "They moved the club to the park."
-        ],
-        "answer": "They asked what made school difficult.",
-        "explanation": "The volunteers asked students about their difficulties before choosing an approach.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What was the group’s project last month?",
-        "options": [
-          "A survey about the local park.",
-          "A plan to build a new school.",
-          "A spelling competition.",
-          "A report on summer holidays."
-        ],
-        "answer": "A survey about the local park.",
-        "explanation": "The group surveyed the park and presented results to the council.",
-        "difficulty": 2
-      },
-      {
-        "kind": "toeic",
-        "prompt": "What helped the students do well in their presentation?",
-        "options": [
-          "Each person had a clear responsibility.",
-          "They had extra time to write worksheets.",
-          "The council prepared their charts.",
-          "They memorized the whole report."
-        ],
-        "answer": "Each person had a clear responsibility.",
-        "explanation": "The passage lists separate jobs for the students.",
-        "difficulty": 3
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The club began with more than ten students.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "FALSE",
-        "explanation": "Only four students came in the first week.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "Students work for twenty-five minutes before taking a break.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "TRUE",
-        "explanation": "This is the routine described in the passage.",
-        "difficulty": 2
-      },
-      {
-        "kind": "ielts",
-        "prompt": "The club will close for exactly two weeks in August.",
-        "options": [
-          "TRUE",
-          "FALSE",
-          "NOT GIVEN"
-        ],
-        "answer": "NOT GIVEN",
-        "explanation": "The summer schedule has not been announced.",
-        "difficulty": 3
+    window.EVU_ADVANCED_BANK["05-do-did-done"] =     {
+      "translations": [
+        {
+          "vi": "Tôi làm bài tập về nhà sau bữa tối mỗi ngày.",
+          "en": "I do my homework after dinner every day."
+        },
+        {
+          "vi": "Hôm qua nhóm chúng tôi đã làm rất tốt trong buổi thuyết trình.",
+          "en": "Our team did very well in the presentation yesterday."
+        },
+        {
+          "vi": "Bạn có thể giúp tôi một việc trước cuộc họp không?",
+          "en": "Can you do me a favour before the meeting?"
+        },
+        {
+          "vi": "Cô ấy tập thể dục ở công viên ba lần một tuần.",
+          "en": "She does some exercise in the park three times a week."
+        },
+        {
+          "vi": "Chúng tôi chưa làm xong việc nhà.",
+          "en": "We have not done the housework yet."
+        },
+        {
+          "vi": "Ai đã rửa bát sau bữa trưa?",
+          "en": "Who did the washing-up after lunch?"
+        },
+        {
+          "vi": "Tôi thường ghi chép khi giáo viên giải thích quy tắc.",
+          "en": "I usually take notes when the teacher explains the rules."
+        },
+        {
+          "vi": "Họ đã tiến hành một cuộc khảo sát trước khi sửa thư viện.",
+          "en": "They did a survey before they renovated the library."
+        }
+      ],
+      "passage": {
+        "title": "The Neighbourhood Homework Club",
+        "text": "When the community centre opened a homework club, only four students came in the first week. The volunteers did not want to give them more worksheets. Instead, they asked what made school difficult. Several students said they understood lessons but did not know how to organize their work. The club created a simple routine: students do their homework for twenty-five minutes, take a short break, and then check their answers with a partner. On Wednesdays, volunteers help students do research for longer projects. Last month, the group did a survey about the local park and presented the results to the town council. They did well because everyone had a clear job. One student prepared the charts, another checked spelling, and two students practised speaking. The club also teaches practical habits. Members put their books away and do the washing-up after the evening snack. The volunteers say progress is not only about marks. Students now ask for help earlier and finish more tasks on time. The club will stay open through the summer, although it has not announced its exact holiday schedule.\n\nThe town council liked the students’ survey and gave the club a small grant. The students decided to use it for clipboards, coloured pencils, and bus tickets for a visit to the town library. During the visit, they learned how to find reliable information and take notes without copying whole pages. The following month, they did a clean-up in the park they had studied. Some students counted litter while others spoke to visitors about the bins. They later presented a second report at the community centre. The volunteers noticed that students were now more willing to ask questions and divide up difficult tasks. One member, Hana, used to leave her work until the last evening. She now writes a short plan before she starts and checks off each step. The club will compare the students’ work again at the end of term, but it has not set a date for the presentation.",
+        "questions": [
+          {
+            "kind": "toeic",
+            "prompt": "What did the volunteers do instead of giving students more worksheets?",
+            "options": [
+              "They asked what made school difficult.",
+              "They cancelled the homework club.",
+              "They asked students to teach a lesson.",
+              "They moved the club to the park."
+            ],
+            "answer": "They asked what made school difficult.",
+            "explanation": "The volunteers asked students about their difficulties before choosing an approach.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What was the group’s project last month?",
+            "options": [
+              "A survey about the local park.",
+              "A plan to build a new school.",
+              "A spelling competition.",
+              "A report on summer holidays."
+            ],
+            "answer": "A survey about the local park.",
+            "explanation": "The group surveyed the park and presented results to the council.",
+            "difficulty": 2
+          },
+          {
+            "kind": "toeic",
+            "prompt": "What helped the students do well in their presentation?",
+            "options": [
+              "Each person had a clear responsibility.",
+              "They had extra time to write worksheets.",
+              "The council prepared their charts.",
+              "They memorized the whole report."
+            ],
+            "answer": "Each person had a clear responsibility.",
+            "explanation": "The passage lists separate jobs for the students.",
+            "difficulty": 3
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The club began with more than ten students.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "Only four students came in the first week.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "Students work for twenty-five minutes before taking a break.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "TRUE",
+            "explanation": "This is the routine described in the passage.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The club will close for exactly two weeks in August.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "NOT GIVEN",
+            "explanation": "The summer schedule has not been announced.",
+            "difficulty": 3
+          },
+          {
+            "kind": "toeic",
+            "prompt": "How did the club use its grant?",
+            "options": [
+              "It bought study materials and bus tickets.",
+              "It paid for a new classroom.",
+              "It hired a full-time teacher.",
+              "It repaired the park bins."
+            ],
+            "answer": "It bought study materials and bus tickets.",
+            "explanation": "The grant paid for clipboards, pencils, and tickets for a library visit.",
+            "difficulty": 2
+          },
+          {
+            "kind": "ielts",
+            "prompt": "The club has already announced the date of its end-of-term presentation.",
+            "options": [
+              "TRUE",
+              "FALSE",
+              "NOT GIVEN"
+            ],
+            "answer": "FALSE",
+            "explanation": "The passage says the club has not set a date.",
+            "difficulty": 2
+          }
+        ]
       }
-    ]
-  }
-};
+    };
   </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>
