@@ -366,6 +366,14 @@
       }
     });
 
+    var practiceTypeOrder = Object.create(null);
+    practiceTypes.forEach(function (type, index) { practiceTypeOrder[type] = index; });
+    practiceQuestions.sort(function (left, right) {
+      var leftOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, left.type) ? practiceTypeOrder[left.type] : practiceTypes.length;
+      var rightOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, right.type) ? practiceTypeOrder[right.type] : practiceTypes.length;
+      return leftOrder - rightOrder || String(left.type).localeCompare(String(right.type));
+    });
+
     if (typeof setupPracticeTypeFilter === 'function') setupPracticeTypeFilter();
 
     var exerciseCatalog = null;
@@ -386,6 +394,7 @@
       var categorySelect = document.getElementById('practice-category-filter');
       var levelSelect = document.getElementById('practice-level-filter');
       var isCatalog = !type;
+      var isSequentialRun = type === 'all-sequential';
       activeExerciseType = type || null;
 
       if (exerciseCatalog) exerciseCatalog.hidden = !isCatalog;
@@ -402,8 +411,14 @@
         return;
       }
 
-      var selectedCount = practiceQuestions.filter(function (question) { return question.type === type; }).length;
-      if (exerciseSessionTitle) exerciseSessionTitle.textContent = 'Bài ' + String(practiceTypes.indexOf(type) + 1).padStart(2, '0') + ' · ' + (labels[type] || type);
+      var selectedCount = isSequentialRun
+        ? practiceQuestions.length
+        : practiceQuestions.filter(function (question) { return question.type === type; }).length;
+      if (exerciseSessionTitle) {
+        exerciseSessionTitle.textContent = isSequentialRun
+          ? 'Luyện toàn bộ · lần lượt theo dạng'
+          : 'Bài ' + String(practiceTypes.indexOf(type) + 1).padStart(2, '0') + ' · ' + (labels[type] || type);
+      }
       if (exerciseSessionCount) exerciseSessionCount.textContent = selectedCount + ' câu trong bài này';
       if (categorySelect && categorySelect.value !== 'all') {
         categorySelect.value = 'all';
@@ -414,7 +429,7 @@
         levelSelect.dispatchEvent(new Event('change', { bubbles: true }));
       }
       if (typeSelect) {
-        typeSelect.value = type;
+        typeSelect.value = isSequentialRun ? 'all' : type;
         typeSelect.dispatchEvent(new Event('change', { bubbles: true }));
       }
     }
@@ -437,7 +452,8 @@
         if (!count) return '';
         return '<article class="evu-exercise-card"><div class="evu-exercise-card-top"><span>BÀI ' + String(index + 1).padStart(2, '0') + '</span><b>' + count + '</b></div><h3>' + (labels[type] || type) + '</h3><p>Bộ câu hỏi chỉ gồm dạng ' + (labels[type] || type).toLowerCase() + '.</p><button class="btn primary" type="button" data-evu-open-type="' + type + '">Vào bài luyện →</button></article>';
       }).join('');
-      exerciseCatalog.innerHTML = '<div class="evu-exercise-heading"><div><span class="evu-eyebrow">CHỌN BÀI LUYỆN</span><h2>Mỗi bài một dạng</h2><p>Chọn một dạng để làm trọn bộ câu hỏi cùng kiểu. Các dạng được tách riêng, không trộn trong bài luyện.</p></div><span class="evu-exercise-count">' + practiceTypes.length + ' bài riêng</span></div><div class="evu-exercise-grid">' + cards + '</div>';
+      var sequentialRun = '<article class="evu-exercise-card evu-exercise-card-full"><div class="evu-exercise-card-top"><span>LUYỆN TOÀN BỘ</span><b>' + practiceQuestions.length + '</b></div><h3>Tất cả dạng, lần lượt</h3><p>Làm trọn ngân hàng theo từng nhóm dạng bài, từ đầu đến cuối; không xáo trộn giữa các dạng.</p><button class="btn primary" type="button" data-evu-open-sequence>Vào lượt luyện đầy đủ →</button></article>';
+      exerciseCatalog.innerHTML = '<div class="evu-exercise-heading"><div><span class="evu-eyebrow">CHỌN BÀI LUYỆN</span><h2>Mỗi bài một dạng</h2><p>Chọn một dạng để làm trọn bộ câu hỏi cùng kiểu. Các dạng được tách riêng, không trộn trong bài luyện.</p></div><span class="evu-exercise-count">' + practiceTypes.length + ' bài riêng</span></div>' + sequentialRun + '<div class="evu-exercise-grid">' + cards + '</div>';
 
       exerciseSession = document.createElement('div');
       exerciseSession.id = 'evu-exercise-session';
@@ -460,8 +476,10 @@
 
       exerciseCatalog.addEventListener('click', function (event) {
         var button = event.target.closest('[data-evu-open-type]');
-        if (!button) return;
-        setExerciseMode(button.getAttribute('data-evu-open-type'));
+        var sequenceButton = event.target.closest('[data-evu-open-sequence]');
+        if (button) setExerciseMode(button.getAttribute('data-evu-open-type'));
+        else if (sequenceButton) setExerciseMode('all-sequential');
+        else return;
         if (practiceList) practiceList.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
       exerciseSession.querySelector('#evu-back-to-exercise-catalog').addEventListener('click', function () {
@@ -527,6 +545,23 @@
       else if (practiceView.querySelector('.section-heading')) practiceView.querySelector('.section-heading').insertAdjacentElement('afterend', banner);
     }
     installExerciseCatalog();
+
+    var originalRenderPractice = renderPractice;
+    renderPractice = function () {
+      originalRenderPractice();
+      if (activeExerciseType !== 'all-sequential' || !practiceList) return;
+      var previousType = null;
+      Array.from(practiceList.querySelectorAll('[data-question-card]')).forEach(function (card) {
+        var questionId = card.getAttribute('data-question-card');
+        var question = practiceQuestions.find(function (item) { return item.id === questionId; });
+        if (!question || question.type === previousType) return;
+        previousType = question.type;
+        var typeHeading = document.createElement('div');
+        typeHeading.className = 'evu-sequence-heading';
+        typeHeading.textContent = 'Bài ' + String(practiceTypes.indexOf(question.type) + 1).padStart(2, '0') + ' · ' + (labels[question.type] || question.type);
+        practiceList.insertBefore(typeHeading, card);
+      });
+    };
 
     var testView = document.getElementById('view-test');
     if (testView && !document.getElementById('evu-exam-banner')) {
