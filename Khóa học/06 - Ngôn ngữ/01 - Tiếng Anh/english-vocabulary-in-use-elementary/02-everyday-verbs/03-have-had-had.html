@@ -1396,6 +1396,7 @@
         'true-false': 'Đúng / Sai',
         'image-match': 'Ghép hình',
         'short-answer': 'Tự trả lời',
+        'translation': 'Dịch câu',
         'production': 'Sản xuất ngôn ngữ',
         'error-correction': 'Sửa lỗi',
         'select-all': 'Chọn nhiều đáp án',
@@ -1485,7 +1486,7 @@
           return '<div class="image-match-item"><img src="' + illustrationUrl(item.image) + '" alt="Minh họa cần ghép" width="512" height="512"><label class="field-label" for="' + suffix + '-' + item.image + '">Choose chunk</label><select class="answer-select" id="' + suffix + '-' + item.image + '" data-image-match="' + escapeHtml(item.image) + '" data-image-match-q="' + question.id + '"><option value="">Choose...</option>' + question.options.map(function(option) { return '<option value="' + escapeHtml(option) + '">' + escapeHtml(option) + '</option>'; }).join('') + '</select></div>';
         }).join('') + '</div>';
       }
-      if (question.type === 'short-answer' || question.type === 'production') {
+      if (question.type === 'short-answer' || question.type === 'production' || question.type === 'translation') {
         const rubric = question.rubric ? '<div class="checklist">' + question.rubric.map(function(item) { return '<label><input type="checkbox" disabled> ' + escapeHtml(item) + '</label>'; }).join('') + '</div>' : '';
         return passageHtml + '<textarea class="answer-textarea" data-answer-textarea="' + question.id + '" placeholder="Write your answer here..."></textarea>' + rubric;
       }
@@ -1594,7 +1595,7 @@
         });
       } else if (question.type === 'image-match' && response && typeof response === 'object') {
         root.querySelectorAll('[data-image-match]').forEach(function(select) { select.value = response[select.dataset.imageMatch] || ''; });
-      } else if (question.type === 'short-answer' || question.type === 'production') {
+      } else if (question.type === 'short-answer' || question.type === 'production' || question.type === 'translation') {
         const textarea = root.querySelector('[data-answer-textarea]');
         if (textarea) textarea.value = response;
       }
@@ -1649,7 +1650,7 @@
         root.querySelectorAll('[data-image-match]').forEach(function(select) { answer[select.dataset.imageMatch] = select.value; if (select.value) any = true; });
         return any ? answer : {};
       }
-      if (question.type === 'short-answer' || question.type === 'production') {
+      if (question.type === 'short-answer' || question.type === 'production' || question.type === 'translation') {
         const textarea = root.querySelector('[data-answer-textarea]');
         return textarea ? textarea.value : '';
       }
@@ -2264,7 +2265,7 @@
       else if (question.type==='sentence-order') {
         const builder=root.querySelector('[data-order-builder]');
         (answer||[]).forEach(function(token){const b=Array.from(root.querySelectorAll('[data-order-token]')).find(function(el){return !el.disabled&&el.textContent===token;});if(b)appendOrderToken(b,builder);});
-      } else if (question.type==='short-answer'||question.type==='production') {const box=root.querySelector('textarea');if(box)box.value=answer;}
+      } else if (question.type==='short-answer'||question.type==='production'||question.type==='translation') {const box=root.querySelector('textarea');if(box)box.value=answer;}
       else if(answer&&typeof answer==='object') {
         const fields={'matching':'[data-match-left]','categorization':'[data-category-item]','image-match':'[data-image-match]','multi-fill':'[data-multi-fill]','paragraph-completion':'[data-paragraph-gap]'};
         const keys={'matching':'matchLeft','categorization':'categoryItem','image-match':'imageMatch','multi-fill':'multiFill','paragraph-completion':'paragraphGap'};
@@ -2341,6 +2342,7 @@
     useRealSceneAssets();
   </script>
 
+  <script src="assets/everyday-verbs-content.js"></script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>
 </html>

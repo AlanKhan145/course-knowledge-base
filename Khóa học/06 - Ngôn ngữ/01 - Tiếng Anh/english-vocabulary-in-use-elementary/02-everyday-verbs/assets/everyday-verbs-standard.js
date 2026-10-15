@@ -23,6 +23,7 @@
       'select-all': 'Chọn nhiều đáp án',
       'multi-fill': 'Điền nhiều chỗ trống',
       'short-answer': 'Tự trả lời',
+      'translation': 'Dịch câu',
       'production': 'Viết / nói ứng dụng',
       'error-correction': 'Sửa lỗi',
       'cloze': 'Điền vào đoạn văn'
@@ -137,6 +138,7 @@
       bank.push(item);
     });
     if (!bank.length) return;
+    var advancedLesson = window.EVU_ADVANCED_BANK && window.EVU_ADVANCED_BANK[pageName];
 
     function take(source, start, count, keyFn) {
       var result = [];
@@ -181,13 +183,212 @@
       return groupLabels[group] || String(group || 'Khác').replace(/[-_]/g, ' ');
     }
 
+    function sentenceDifficulty(index) {
+      if (index < 5) return 1;
+      if (index < 10) return 2;
+      return 3;
+    }
+
+    function maskTargetExample(target) {
+      var example = String(target.example || '');
+      var phrase = String(target.word || '');
+      var at = example.toLowerCase().indexOf(phrase.toLowerCase());
+      if (at >= 0) return example.slice(0, at) + '________' + example.slice(at + phrase.length);
+      return example || 'Use the correct phrase: ________';
+    }
+
+    function practiceSentence(target, index, frameOffset) {
+      var frame = (index + (frameOffset || 0)) % 4;
+      var base = String(target.word || '').trim();
+      var lower = base.toLowerCase();
+      var usedForm = practiceForm(target, index, frameOffset);
+      var complement = '';
+      if (/^(turn off|turn on)$/i.test(lower)) complement = ' the lights';
+      else if (/^(put on|take off)$/i.test(lower)) complement = ' my coat';
+      else if (/^bring back$/i.test(lower)) complement = ' the library book';
+      else if (/^pick up$/i.test(lower)) complement = ' my sister';
+      else if (/^look up$/i.test(lower)) complement = ' the new word';
+      else if (/^(get on|get off)$/i.test(lower)) complement = ' the bus';
+      else if (/^have got$/i.test(lower)) complement = ' a new key';
+      else if (/^have to$/i.test(lower)) complement = ' leave early';
+      if (frame === 0) return 'I usually ' + usedForm + complement + ' before I start work.';
+      if (frame === 1) return 'Yesterday, we ' + usedForm + complement + ' after the meeting.';
+      if (frame === 2) return 'She ' + usedForm + complement + ' every weekday.';
+      if (/^have to$/i.test(lower)) return 'Do you have to' + complement + ' before dinner?';
+      return 'Can you ' + base + complement + ' before dinner?';
+    }
+
+    function practiceForm(target, index, frameOffset) {
+      var frame = (index + (frameOffset || 0)) % 4;
+      var base = String(target.word || '').trim();
+      if (frame === 1) return inflectPhrase(base, 'past');
+      if (frame === 2) return inflectPhrase(base, 'third');
+      return base;
+    }
+
+    function maskPhrase(sentence, phrase) {
+      var at = sentence.toLowerCase().indexOf(String(phrase || '').toLowerCase());
+      return at < 0 ? sentence : sentence.slice(0, at) + '________' + sentence.slice(at + String(phrase).length);
+    }
+
+    function inflectPhrase(phrase, form) {
+      var parts = String(phrase || '').split(/\s+/);
+      var root = parts.shift() || '';
+      var irregular = {
+        have: { past: 'had', third: 'has' }, go: { past: 'went', third: 'goes' },
+        do: { past: 'did', third: 'does' }, make: { past: 'made', third: 'makes' },
+        come: { past: 'came', third: 'comes' }, take: { past: 'took', third: 'takes' },
+        bring: { past: 'brought', third: 'brings' }, get: { past: 'got', third: 'gets' },
+        say: { past: 'said', third: 'says' }, tell: { past: 'told', third: 'tells' },
+        speak: { past: 'spoke', third: 'speaks' }, catch: { past: 'caught', third: 'catches' },
+        fly: { past: 'flew', third: 'flies' }, leave: { past: 'left', third: 'leaves' },
+        wake: { past: 'woke', third: 'wakes' }, put: { past: 'put', third: 'puts' },
+        read: { past: 'read', third: 'reads' }, run: { past: 'ran', third: 'runs' },
+        drive: { past: 'drove', third: 'drives' }, ride: { past: 'rode', third: 'rides' },
+        write: { past: 'wrote', third: 'writes' }, buy: { past: 'bought', third: 'buys' },
+        think: { past: 'thought', third: 'thinks' }, teach: { past: 'taught', third: 'teaches' },
+        hear: { past: 'heard', third: 'hears' }, meet: { past: 'met', third: 'meets' },
+        sleep: { past: 'slept', third: 'sleeps' }, sit: { past: 'sat', third: 'sits' },
+        stand: { past: 'stood', third: 'stands' }
+      };
+      var next = root;
+      if (irregular[root] && irregular[root][form]) next = irregular[root][form];
+      else if (form === 'past') {
+        if (/[^aeiou]y$/i.test(root)) next = root.slice(0, -1) + 'ied';
+        else if (/e$/i.test(root)) next = root + 'd';
+        else if (/^(stop|plan|drop|shop|chat|rub|hug|clap|travel|occur)$/i.test(root)) next = root + root.slice(-1) + 'ed';
+        else next = root + 'ed';
+      } else if (form === 'third') {
+        if (/[^aeiou]y$/i.test(root)) next = root.slice(0, -1) + 'ies';
+        else if (/(s|sh|ch|x|o)$/i.test(root)) next = root + 'es';
+        else next = root + 's';
+      }
+      return [next].concat(parts).join(' ');
+    }
+
+    function grammarTarget(index) {
+      var naturalPhrases = {
+        'say (something)': 'say something', 'say hello / goodbye': 'say hello',
+        'say thank you / sorry / please': 'say thank you', 'tell somebody something': 'tell a friend a story',
+        'tell (me) the time': 'tell me the time', 'ask (somebody) a question': 'ask a friend a question',
+        'ask somebody to do something': 'ask a friend to help me', 'ask for something': 'ask for help',
+        'speak + ngôn ngữ': 'speak English', 'talk to somebody': 'talk to a friend',
+        'talk about something': 'talk about the plan', 'answer (a question / the phone)': 'answer a question',
+        'reply to something': 'reply to a message', 'spell (a word)': 'spell a word',
+        'pronounce (a word)': 'pronounce a word', 'get on with somebody': 'get on with my colleague',
+        'get over something': 'get over a cold', 'turn up': 'turn up the music',
+        'turn down (volume)': 'turn down the music', 'turn down (refuse)': 'turn down an invitation',
+        'go on': 'go on working', 'go off': 'go off at seven', 'do up': 'do up my coat',
+        'take off (clothes)': 'take off a coat', 'go by + phương tiện': 'go by bus',
+        'ride (a bike)': 'ride a bike', 'drive (a car)': 'drive a car', 'catch (the bus)': 'catch the bus',
+        'miss (the train)': 'miss the train', 'arrive in + thành phố / quốc gia': 'arrive in Hanoi',
+        'arrive at + địa điểm cụ thể': 'arrive at the airport', 'pass (somebody something)': 'pass a friend a note',
+        'have / take a shower': 'have a shower', 'phone / call a friend': 'call a friend'
+      };
+      var grammarVerbs = {
+        have: true, go: true, do: true, make: true, come: true, take: true, bring: true, get: true,
+        wake: true, turn: true, put: true, look: true, pick: true, say: true, tell: true, speak: true,
+        catch: true, fly: true, leave: true, run: true, drive: true, ride: true, write: true, buy: true,
+        think: true, teach: true, hear: true, meet: true, sleep: true, sit: true, stand: true,
+        walk: true, jump: true, dance: true, jog: true, swim: true, climb: true, fall: true, miss: true,
+        arrive: true, push: true, pull: true, carry: true, pass: true, ask: true, talk: true, answer: true,
+        reply: true, spell: true, pronounce: true, listen: true, call: true, phone: true, watch: true,
+        wash: true, clean: true, brush: true, study: true, work: true, finish: true, rest: true,
+        travel: true, shop: true, visit: true, bake: true, cook: true, open: true, change: true
+      };
+      var inflectedHeads = {
+        has: true, had: true, goes: true, went: true, gone: true, does: true, did: true, done: true,
+        makes: true, made: true, comes: true, came: true, takes: true, took: true, taken: true,
+        brings: true, brought: true, gets: true, got: true, says: true, said: true, tells: true,
+        told: true, speaks: true, spoke: true, catches: true, caught: true, flies: true, flew: true,
+        leaves: true, left: true, wakes: true, woke: true, puts: true, runs: true, ran: true,
+        drives: true, drove: true, rides: true, rode: true, writes: true, wrote: true,
+        buys: true, bought: true, thinks: true, thought: true, teaches: true, taught: true, hears: true,
+        heard: true, meets: true, met: true, sleeps: true, slept: true, sits: true, sat: true,
+        stands: true, stood: true
+      };
+      var candidates = bank.filter(function (item) {
+        var phrase = String(naturalPhrases[String(item.word || '').toLowerCase()] || item.word || '').toLowerCase();
+        var head = phrase.trim().split(/\s+/)[0];
+        return grammarVerbs[head] && phrase !== 'have got' && !inflectedHeads[head] && !/ied$|ed$/.test(head) && !/[()\/+!]/.test(phrase) && !/\b(somebody|someone|something)\b/.test(phrase);
+      }).map(function (item) {
+        var phrase = naturalPhrases[String(item.word || '').toLowerCase()];
+        return phrase ? Object.assign({}, item, { word: phrase }) : item;
+      });
+      return candidates.length ? candidates[index % candidates.length] : bank[index % bank.length];
+    }
+
+    function dynamicTranslation(target, offset) {
+      var base = target.word;
+      var meaning = target.meaning;
+      var frame = offset % 4;
+      var complement = '';
+      if (/^(turn off|turn on)$/i.test(base)) complement = ' the lights';
+      else if (/^(put on|take off)$/i.test(base)) complement = ' my coat';
+      else if (/^bring back$/i.test(base)) complement = ' the book';
+      else if (/^pick up$/i.test(base)) complement = ' my sister';
+      else if (/^look up$/i.test(base)) complement = ' the new word';
+      else if (/^get on$/i.test(base)) complement = ' the bus';
+      else if (/^get off$/i.test(base)) complement = ' the bus';
+      else if (/^have got$/i.test(base)) complement = ' a new key';
+      else if (/^have to$/i.test(base)) complement = ' leave early';
+      if (/^have to$/i.test(base)) {
+        var obligationPairs = [
+          { vi: 'Tôi thường phải rời nhà sớm để tránh tắc đường.', en: 'I usually have to leave home early to avoid traffic.' },
+          { vi: 'Cô ấy phải hoàn thành báo cáo trước cuộc họp.', en: 'She has to finish the report before the meeting.' },
+          { vi: 'Hôm qua, chúng tôi phải đợi ở nhà ga gần một giờ.', en: 'Yesterday, we had to wait at the station for nearly an hour.' },
+          { vi: 'Bạn có phải làm việc vào Chủ nhật không?', en: 'Do you have to work on Sundays?' }
+        ];
+        return obligationPairs[frame];
+      }
+      var vi;
+      var en;
+      if (frame === 0) {
+        vi = 'Dịch sang tiếng Anh: “Tôi thường ' + meaning + ' sau bữa sáng.”';
+        en = 'I usually ' + base + complement + ' after breakfast.';
+      } else if (frame === 1) {
+        vi = 'Dịch sang tiếng Anh: “Cô ấy ' + meaning + ' sau giờ học mỗi ngày.”';
+        en = 'She ' + inflectPhrase(base, 'third') + complement + ' after class every day.';
+      } else if (frame === 2) {
+        vi = 'Dịch sang tiếng Anh: “Hôm qua, chúng tôi ' + meaning + ' sau buổi họp.”';
+        en = 'Yesterday, we ' + inflectPhrase(base, 'past') + complement + ' after the meeting.';
+      } else {
+        vi = 'Dịch sang tiếng Anh: “Bạn có thể ' + meaning + ' trước bữa tối không?”';
+        en = /^have to$/i.test(base)
+          ? 'Do you have to' + complement + ' before dinner?'
+          : 'Can you ' + base + complement + ' before dinner?';
+      }
+      return { vi: vi, en: en };
+    }
+
     function createError(index) {
       var key = pageName;
       var seeds = errorBank[key] || errorBank[Object.keys(errorBank).filter(function (name) { return lessonKey.indexOf(name.replace(/-/g, '_')) !== -1; })[0]] || errorBank['07-come-came-come'];
-      var seed = seeds[index % seeds.length];
+      var seed = seeds[index];
+      var target = grammarTarget(index + 6);
+      var wrong;
+      var corrected;
+      if (seed) {
+        wrong = seed[0];
+        corrected = seed[1];
+      } else {
+        var base = String(target.word || 'go').trim();
+        var pattern = (index - seeds.length) % 3;
+        if (pattern === 0) {
+          wrong = 'Yesterday, we ' + base + ' after the appointment.';
+          corrected = 'Yesterday, we ' + inflectPhrase(base, 'past') + ' after the appointment.';
+        } else if (pattern === 1) {
+          wrong = 'She ' + base + ' before breakfast every day.';
+          corrected = 'She ' + inflectPhrase(base, 'third') + ' before breakfast every day.';
+        } else {
+          wrong = 'Did they ' + inflectPhrase(base, 'past') + ' before lunch?';
+          corrected = 'Did they ' + base + ' before lunch?';
+        }
+      }
       return {
-        type: 'error-correction', category: category, difficulty: 2,
-        prompt: 'Sửa câu sai: “' + seed[0] + '”', answer: [seed[1]], explanation: seed[2]
+        type: 'error-correction', category: category, difficulty: sentenceDifficulty(index),
+        prompt: 'Sửa lỗi ngữ pháp hoặc cách dùng trong câu: “' + wrong + '”', answer: [corrected],
+        explanation: seed ? seed[2] : 'Câu hoàn chỉnh: “' + corrected + '”. Chú ý thì quá khứ, ngôi thứ ba số ít và cấu trúc câu hỏi với did.'
       };
     }
 
@@ -201,21 +402,41 @@
         groupBuckets[group].push(item);
       });
       var groupKeys = Object.keys(groupBuckets);
-      var common = { id: id, type: type, category: category, difficulty: (index % 3) + 1 };
+      var common = { id: id, type: type, category: category, difficulty: sentenceDifficulty(index) };
 
-      if (type === 'multiple-choice') return Object.assign({}, common, {
-        prompt: 'Chọn cụm tiếng Anh đúng với nghĩa: “' + target.meaning + '”.',
-        options: mixOptions(optionsFor(target, index, 4), index), answer: target.word,
-        explanation: 'Cụm cần nhớ: ' + target.word + ' — ' + target.meaning + '.'
-      });
-      if (type === 'fill-blank') return Object.assign({}, common, {
-        prompt: 'Tự nhớ và viết cụm tiếng Anh có nghĩa: “' + target.meaning + '”.', answer: target.word,
-        explanation: target.word + ' = ' + target.meaning + '. Ví dụ: “' + (target.example || target.word) + '”'
-      });
-      if (type === 'word-bank') return Object.assign({}, common, {
-        prompt: 'Chọn trong ngân hàng từ cụm có nghĩa: “' + target.meaning + '”.', bank: mixOptions(optionsFor(target, index + 2, 5), index + 1), answer: target.word,
-        explanation: 'Đáp án: ' + target.word + ' — ' + target.meaning + '.'
-      });
+      if (type === 'multiple-choice') {
+        if (index < 5) return Object.assign({}, common, {
+          prompt: 'Chọn cụm tiếng Anh đúng với nghĩa: “' + target.meaning + '”.',
+          options: mixOptions(optionsFor(target, index, 4), index), answer: target.word,
+          explanation: 'Cụm cần nhớ: ' + target.word + ' — ' + target.meaning + '.'
+        });
+        var choiceTarget = grammarTarget(index);
+        var choiceSentence = practiceSentence(choiceTarget, index, 0);
+        var choiceForm = practiceForm(choiceTarget, index, 0);
+        return Object.assign({}, common, {
+          prompt: (index < 10 ? 'Chọn cụm phù hợp với ngữ cảnh: ' : 'Đọc kỹ dấu hiệu thời gian rồi chọn cụm phù hợp: ') + '“' + maskPhrase(choiceSentence, choiceForm) + '”',
+          options: mixOptions(optionsFor(choiceTarget, index + 2, 4).map(function (phrase) { return practiceForm({ word: phrase }, index, 0); }), index), answer: choiceForm,
+          explanation: 'Đáp án là “' + choiceForm + '” (cụm gốc: ' + choiceTarget.word + ' — ' + choiceTarget.meaning + ').'
+        });
+      }
+      if (type === 'fill-blank') {
+        var fillTarget = grammarTarget(index);
+        var fillSentence = practiceSentence(fillTarget, index, 0);
+        var fillForm = practiceForm(fillTarget, index, 0);
+        return Object.assign({}, common, {
+          prompt: 'Điền cụm còn thiếu vào câu: “' + maskPhrase(fillSentence, fillForm) + '”', answer: fillForm,
+          explanation: 'Đáp án là “' + fillForm + '” (cụm gốc: ' + fillTarget.word + ' — ' + fillTarget.meaning + '). Câu đầy đủ: “' + fillSentence + '”'
+        });
+      }
+      if (type === 'word-bank') {
+        var bankTarget = grammarTarget(index + 2);
+        var bankSentence = practiceSentence(bankTarget, index, 1);
+        var bankForm = practiceForm(bankTarget, index, 1);
+        return Object.assign({}, common, {
+          prompt: 'Dùng ngân hàng từ để hoàn thành câu: “' + maskPhrase(bankSentence, bankForm) + '”', bank: mixOptions(optionsFor(bankTarget, index + 2, 5).map(function (phrase) { return practiceForm({ word: phrase }, index, 1); }), index + 1), answer: bankForm,
+          explanation: 'Đáp án là “' + bankForm + '” (cụm gốc: ' + bankTarget.word + ' — ' + bankTarget.meaning + ').'
+        });
+      }
       if (type === 'matching') {
         var pairs = take(bank, index * 4, Math.min(4, bank.length));
         return Object.assign({}, common, {
@@ -237,7 +458,8 @@
         });
       }
       if (type === 'sentence-order') {
-        var sentence = String(target.example || target.word).trim();
+        var orderTarget = grammarTarget(index + 4);
+        var sentence = practiceSentence(orderTarget, index, 2);
         var tokens = sentence.split(/\s+/).filter(Boolean);
         if (tokens.length < 3) tokens = ['I', 'often', target.word + '.'];
         var mixed = tokens.slice().reverse();
@@ -267,19 +489,34 @@
         });
       }
       if (type === 'mini-reading') {
-        var readingSet = take(bank, index * 3, Math.min(3, bank.length));
-        var passage = readingSet.map(function (item, part) { return 'Example ' + String.fromCharCode(65 + part) + ': “' + (item.example || item.word) + '”'; }).join(' ');
-        var readingTarget = readingSet[1] || readingSet[0] || target;
+        var readingTarget = bank[index % bank.length] || target;
+        var passage = readingTarget.example || readingTarget.word;
         return Object.assign({}, common, {
           passage: passage,
-          prompt: 'Cụm từ mục tiêu nào xuất hiện trong Example B?',
-          options: mixOptions(optionsFor(readingTarget, index + 3, 4), index + 1), answer: readingTarget.word,
-          explanation: 'Example B là: “' + (readingTarget.example || readingTarget.word) + '”'
+          prompt: (index < 5 ? 'Đọc câu rồi chọn nghĩa đúng của cụm in đậm: ' : index < 10 ? 'Dựa vào câu, cụm từ này diễn tả điều gì? ' : 'Suy ra nghĩa phù hợp nhất từ ngữ cảnh của cụm từ: ') + '“' + readingTarget.word + '”',
+          options: mixOptions([readingTarget.meaning].concat(take(bank.filter(function (item) { return item.word !== readingTarget.word && item.meaning !== readingTarget.meaning; }), index + 3, 3).map(function (item) { return item.meaning; })), index + 1), answer: readingTarget.meaning,
+          explanation: 'Ngữ cảnh: “' + passage + '” Cụm “' + readingTarget.word + '” có nghĩa là “' + readingTarget.meaning + '”.'
         });
       }
       if (type === 'true-false') {
         var isTrue = index % 2 === 0;
-        var falseTarget = bank.filter(function (item) { return item.meaning !== target.meaning && item.word !== target.word; })[0] || other;
+        if (index >= 5) {
+          var grammarItem = grammarTarget(index + 3);
+          var frame = (index + 2) % 4;
+          var correctSentence = practiceSentence(grammarItem, index, 2);
+          var correctForm = practiceForm(grammarItem, index, 2);
+          var incorrectForm = frame === 1 || frame === 2
+            ? grammarItem.word
+            : inflectPhrase(grammarItem.word, frame === 0 ? 'third' : 'past');
+          var claim = isTrue ? correctSentence : correctSentence.replace(correctForm, incorrectForm);
+          return Object.assign({}, common, {
+            prompt: 'Đúng hay sai? Câu “' + claim + '” chia động từ phù hợp với chủ ngữ và dấu hiệu thời gian.',
+            answer: isTrue ? 'true' : 'false',
+            explanation: 'Câu đúng là “' + correctSentence + '”. Cụm gốc: ' + grammarItem.word + ' — ' + grammarItem.meaning + '.'
+          });
+        }
+        var falseCandidates = bank.filter(function (item) { return item.meaning !== target.meaning && item.word !== target.word; });
+        var falseTarget = falseCandidates[index % Math.max(1, falseCandidates.length)] || other;
         var meaning = isTrue ? target.meaning : falseTarget.meaning;
         return Object.assign({}, common, {
           prompt: 'Đúng hay sai? “' + target.word + '” có nghĩa là “' + meaning + '”.',
@@ -300,11 +537,17 @@
         });
       }
       if (type === 'multi-fill') {
-        var fillSet = take(bank, index * 5, Math.min(5, bank.length));
+        var fillSet = [0, 1, 2, 3].map(function (number) {
+          var item = grammarTarget(index * 3 + number);
+          var offset = number + 1;
+          var sentence = practiceSentence(item, index + number, offset);
+          var answer = practiceForm(item, index + number, offset);
+          return { text: (number + 1) + '. “' + maskPhrase(sentence, answer) + '”', answer: answer, source: item };
+        });
         return Object.assign({}, common, {
-          prompt: 'Điền cụm từ phù hợp cho từng nghĩa. Hoàn thành tất cả các dòng rồi kiểm tra.',
-          items: fillSet.map(function (item, number) { return { text: (number + 1) + '. “' + item.meaning + '” → ______', answer: item.word }; }),
-          explanation: 'Ôn theo chiều nghĩa tiếng Việt → cụm tiếng Anh để luyện nhớ chủ động.'
+          prompt: 'Đọc các dấu hiệu thời gian, chia cụm động từ rồi điền đủ bốn câu.',
+          items: fillSet,
+          explanation: 'Mỗi câu có ngữ cảnh riêng. Kiểm tra thì, chủ ngữ và chính tả trước khi nộp.'
         });
       }
       if (type === 'short-answer') return Object.assign({}, common, {
@@ -312,6 +555,18 @@
         rubric: ['Viết ít nhất 8 từ và đủ chủ ngữ – động từ.', 'Dùng đúng cụm “' + target.word + '”.', 'Ngữ cảnh thể hiện đúng nghĩa: ' + target.meaning + '.'],
         explanation: 'Đây là câu trả lời mở. Dùng rubric để tự rà nghĩa, trật tự từ và chính tả.'
       });
+      if (type === 'translation') {
+        var curated = advancedLesson && advancedLesson.translations || [];
+        var isExamTranslation = String(id || '').indexOf('std-t-') === 0;
+        var pair = !isExamTranslation && index < curated.length
+          ? curated[index]
+          : dynamicTranslation(grammarTarget(index + (isExamTranslation ? 31 : 10)), index - curated.length + (isExamTranslation ? 1 : 0));
+        return Object.assign({}, common, {
+          prompt: pair.vi,
+          answer: pair.en,
+          explanation: 'Bản dịch gợi ý: “' + pair.en + '”. Chú ý chia động từ theo chủ ngữ và mốc thời gian.'
+        });
+      }
       if (type === 'production') return Object.assign({}, common, {
         prompt: 'Nhiệm vụ nói / viết: tạo đoạn hội thoại 3 lượt có dùng tự nhiên cụm “' + target.word + '”. Sau đó đọc thành tiếng một lần.',
         rubric: ['Có đủ 3 lượt lời hoặc 3 câu liên kết.', 'Dùng đúng cụm “' + target.word + '”.', 'Ngữ cảnh tự nhiên và đúng nghĩa.', 'Đọc lại thành tiếng, sửa ít nhất một điểm nếu cần.'],
@@ -319,13 +574,15 @@
       });
       if (type === 'error-correction') return Object.assign({}, common, createError(index));
       if (type === 'cloze') {
-        var example = String(target.example || '');
-        var pos = example.toLowerCase().indexOf(String(target.word).toLowerCase());
-        var masked = pos >= 0 ? example.slice(0, pos) + '{1}' + example.slice(pos + String(target.word).length) : 'Nghĩa “' + target.meaning + '” được diễn đạt bằng cụm: {1}';
+        var clozeTarget = grammarTarget(index + 6);
+        var example = practiceSentence(clozeTarget, index, 3);
+        var clozeForm = practiceForm(clozeTarget, index, 3);
+        var pos = example.toLowerCase().indexOf(clozeForm.toLowerCase());
+        var masked = pos >= 0 ? example.slice(0, pos) + '{1}' + example.slice(pos + clozeForm.length) : 'Nghĩa “' + clozeTarget.meaning + '” được diễn đạt bằng cụm: {1}';
         return Object.assign({}, common, {
           prompt: 'Điền cụm từ còn thiếu theo nghĩa và ví dụ.', text: masked,
-          blanks: [{ options: mixOptions(optionsFor(target, index + 4, 4), index + 3), answer: target.word }],
-          explanation: target.word + ' = ' + target.meaning + '.'
+          blanks: [{ options: mixOptions(optionsFor(clozeTarget, index + 4, 4).map(function (phrase) { return practiceForm({ word: phrase }, index, 3); }), index + 3), answer: clozeForm }],
+          explanation: clozeForm + ' (cụm gốc: ' + clozeTarget.word + ' = ' + clozeTarget.meaning + ').'
         });
       }
       return null;
@@ -334,9 +591,26 @@
     var practiceTypes = [
       'multiple-choice', 'fill-blank', 'word-bank', 'matching', 'categorization',
       'sentence-order', 'image-choice', 'image-match', 'mini-reading', 'true-false',
-      'select-all', 'multi-fill', 'short-answer', 'production', 'error-correction'
+      'select-all', 'multi-fill', 'translation', 'short-answer', 'production', 'error-correction'
     ];
     if (practiceQuestions.some(function (question) { return question.type === 'cloze'; })) practiceTypes.push('cloze');
+
+    var readingQuestions = [];
+    if (advancedLesson && Array.isArray(advancedLesson.translations)) {
+      advancedLesson.translations.forEach(function (pair, index) {
+        practiceQuestions.push(createQuestion('translation', index, 'std-p-translation-' + (index + 1)));
+      });
+    }
+    if (advancedLesson && advancedLesson.passage && Array.isArray(advancedLesson.passage.questions)) {
+      readingQuestions = advancedLesson.passage.questions.map(function (item, index) {
+        return {
+          id: 'std-p-reading-' + (index + 1), type: 'mini-reading', category: 'context',
+          difficulty: item.difficulty || 2, prompt: item.prompt, options: item.options,
+          answer: item.answer, explanation: item.explanation, readingPassageId: pageName
+        };
+      });
+      practiceQuestions.push.apply(practiceQuestions, readingQuestions);
+    }
 
     practiceTypes.forEach(function (type) {
       var current = practiceQuestions.filter(function (question) { return question.type === type; }).length;
@@ -355,7 +629,7 @@
       practiceFilter.appendChild(fullBankOption);
     }
 
-    var examTypes = ['multiple-choice', 'fill-blank', 'matching', 'mini-reading', 'error-correction', 'sentence-order'];
+    var examTypes = ['multiple-choice', 'fill-blank', 'matching', 'mini-reading', 'error-correction', 'sentence-order', 'translation'];
     examTypes.forEach(function (type) {
       for (var n = 0; n < EXAM_PER_TYPE; n += 1) {
         var question = createQuestion(type, n + 7, 'std-t-' + type.replace(/[^a-z0-9]+/gi, '-') + '-' + (n + 1));
@@ -365,13 +639,18 @@
         }
       }
     });
+    readingQuestions.forEach(function (question, index) {
+      testQuestions.push(Object.assign({}, question, {
+        id: 'std-t-reading-' + (index + 1), category: 'final-challenge'
+      }));
+    });
 
     var practiceTypeOrder = Object.create(null);
     practiceTypes.forEach(function (type, index) { practiceTypeOrder[type] = index; });
     practiceQuestions.sort(function (left, right) {
       var leftOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, left.type) ? practiceTypeOrder[left.type] : practiceTypes.length;
       var rightOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, right.type) ? practiceTypeOrder[right.type] : practiceTypes.length;
-      return leftOrder - rightOrder || String(left.type).localeCompare(String(right.type));
+      return leftOrder - rightOrder || Number(left.difficulty || 1) - Number(right.difficulty || 1) || String(left.type).localeCompare(String(right.type));
     });
 
     if (typeof setupPracticeTypeFilter === 'function') setupPracticeTypeFilter();
@@ -450,7 +729,14 @@
       var cards = practiceTypes.map(function (type, index) {
         var count = practiceQuestions.filter(function (question) { return question.type === type; }).length;
         if (!count) return '';
-        return '<article class="evu-exercise-card"><div class="evu-exercise-card-top"><span>BÀI ' + String(index + 1).padStart(2, '0') + '</span><b>' + count + '</b></div><h3>' + (labels[type] || type) + '</h3><p>Bộ câu hỏi chỉ gồm dạng ' + (labels[type] || type).toLowerCase() + '.</p><button class="btn primary" type="button" data-evu-open-type="' + type + '">Vào bài luyện →</button></article>';
+        var description = type === 'translation'
+          ? 'Dịch câu theo ngữ cảnh; luyện hiện tại, quá khứ, câu hỏi và collocation.'
+          : type === 'mini-reading'
+            ? 'Đọc bài dài, tìm chi tiết, suy luận và làm câu TRUE / FALSE / NOT GIVEN.'
+            : type === 'error-correction'
+              ? 'Sửa câu trong nhiều ngữ cảnh, tập trung thì và cấu trúc câu.'
+              : 'Bộ câu hỏi chỉ gồm dạng ' + (labels[type] || type).toLowerCase() + ', tăng dần độ khó.';
+        return '<article class="evu-exercise-card"><div class="evu-exercise-card-top"><span>BÀI ' + String(index + 1).padStart(2, '0') + '</span><b>' + count + '</b></div><h3>' + (labels[type] || type) + '</h3><p>' + description + '</p><button class="btn primary" type="button" data-evu-open-type="' + type + '">Vào bài luyện →</button></article>';
       }).join('');
       var sequentialRun = '<article class="evu-exercise-card evu-exercise-card-full"><div class="evu-exercise-card-top"><span>LUYỆN TOÀN BỘ</span><b>' + practiceQuestions.length + '</b></div><h3>Tất cả dạng, lần lượt</h3><p>Làm trọn ngân hàng theo từng nhóm dạng bài, từ đầu đến cuối; không xáo trộn giữa các dạng.</p><button class="btn primary" type="button" data-evu-open-sequence>Vào lượt luyện đầy đủ →</button></article>';
       exerciseCatalog.innerHTML = '<div class="evu-exercise-heading"><div><span class="evu-eyebrow">CHỌN BÀI LUYỆN</span><h2>Mỗi bài một dạng</h2><p>Chọn một dạng để làm trọn bộ câu hỏi cùng kiểu. Các dạng được tách riêng, không trộn trong bài luyện.</p></div><span class="evu-exercise-count">' + practiceTypes.length + ' bài riêng</span></div>' + sequentialRun + '<div class="evu-exercise-grid">' + cards + '</div>';
@@ -546,29 +832,75 @@
     }
     installExerciseCatalog();
 
+    function addReadingPassage(root, questionBank, cardAttribute) {
+      if (!root || !advancedLesson || !advancedLesson.passage) return;
+      var byId = Object.create(null);
+      questionBank.forEach(function (question) { byId[question.id] = question; });
+      var inserted = false;
+      Array.from(root.querySelectorAll('[' + cardAttribute + ']')).forEach(function (card) {
+        if (inserted) return;
+        var question = byId[card.getAttribute(cardAttribute)];
+        if (!question || question.readingPassageId !== pageName) return;
+        var passage = document.createElement('section');
+        passage.className = 'evu-reading-passage';
+        var label = document.createElement('span');
+        label.className = 'evu-eyebrow';
+        label.textContent = 'READING · TOEIC DETAILS + IELTS TRUE / FALSE / NOT GIVEN';
+        var title = document.createElement('h3');
+        title.textContent = advancedLesson.passage.title;
+        var text = document.createElement('p');
+        text.textContent = advancedLesson.passage.text;
+        passage.appendChild(label);
+        passage.appendChild(title);
+        passage.appendChild(text);
+        root.insertBefore(passage, card);
+        inserted = true;
+      });
+    }
+
     var originalRenderPractice = renderPractice;
     renderPractice = function () {
       originalRenderPractice();
-      if (activeExerciseType !== 'all-sequential' || !practiceList) return;
-      var previousType = null;
-      Array.from(practiceList.querySelectorAll('[data-question-card]')).forEach(function (card) {
-        var questionId = card.getAttribute('data-question-card');
-        var question = practiceQuestions.find(function (item) { return item.id === questionId; });
-        if (!question || question.type === previousType) return;
-        previousType = question.type;
-        var typeHeading = document.createElement('div');
-        typeHeading.className = 'evu-sequence-heading';
-        typeHeading.textContent = 'Bài ' + String(practiceTypes.indexOf(question.type) + 1).padStart(2, '0') + ' · ' + (labels[question.type] || question.type);
-        practiceList.insertBefore(typeHeading, card);
-      });
+      if (!practiceList) return;
+      if (activeExerciseType === 'all-sequential') {
+        var previousType = null;
+        Array.from(practiceList.querySelectorAll('[data-question-card]')).forEach(function (card) {
+          var questionId = card.getAttribute('data-question-card');
+          var question = practiceQuestions.find(function (item) { return item.id === questionId; });
+          if (!question || question.type === previousType) return;
+          previousType = question.type;
+          var typeHeading = document.createElement('div');
+          typeHeading.className = 'evu-sequence-heading';
+          typeHeading.textContent = 'Bài ' + String(practiceTypes.indexOf(question.type) + 1).padStart(2, '0') + ' · ' + (labels[question.type] || question.type);
+          practiceList.insertBefore(typeHeading, card);
+        });
+      }
+      addReadingPassage(practiceList, practiceQuestions, 'data-question-card');
     };
+    var originalRenderTest = renderTest;
+    renderTest = function () {
+      originalRenderTest();
+      addReadingPassage(document.getElementById('test-list'), testQuestions, 'data-test-card');
+    };
+    if (typeof renderGame === 'function') {
+      var originalRenderGame = renderGame;
+      renderGame = function () {
+        var game = state.game;
+        var activeId = game && game.ids && game.ids[game.index];
+        var question = activeId && practiceQuestions.concat(testQuestions).find(function (item) { return item.id === activeId; });
+        var passageText = question && question.readingPassageId === pageName && advancedLesson && advancedLesson.passage && advancedLesson.passage.text;
+        if (passageText) question.passage = passageText;
+        originalRenderGame();
+        if (passageText) delete question.passage;
+      };
+    }
 
     var testView = document.getElementById('view-test');
     if (testView && !document.getElementById('evu-exam-banner')) {
       var examBanner = document.createElement('div');
       examBanner.id = 'evu-exam-banner';
       examBanner.className = 'evu-exam-banner';
-      examBanner.innerHTML = '<div class="evu-exam-copy"><span class="evu-eyebrow">FINAL BOSS · EVERYDAY VERBS</span><h2>Thử thách cuối chặng</h2><p>Đề trộn nhiều dạng, mỗi câu có giải thích sau khi nộp. Bài gốc được mở rộng thêm ' + (EXAM_PER_TYPE * 6) + ' nhiệm vụ có chấm điểm.</p><div class="evu-exam-tags"><span>✦ 6 chặng kỹ năng</span><span>✓ Tự chấm và xem lỗi</span><span>↻ Có thể làm lại</span></div></div><div class="evu-clock-card"><span>Đồng hồ tùy chọn</span><strong id="evu-clock">60:00</strong><button type="button" class="btn primary" id="evu-clock-start">Bắt đầu 60 phút</button><small id="evu-clock-note">Bạn có thể làm không giới hạn thời gian.</small></div>';
+      examBanner.innerHTML = '<div class="evu-exam-copy"><span class="evu-eyebrow">FINAL BOSS · EVERYDAY VERBS</span><h2>Thử thách cuối chặng</h2><p>Đề trộn nhiều dạng, có câu dịch và bài đọc dài kèm giải thích. Bài gốc được mở rộng thêm ' + (EXAM_PER_TYPE * examTypes.length + readingQuestions.length) + ' nhiệm vụ có chấm điểm.</p><div class="evu-exam-tags"><span>✦ ' + examTypes.length + ' dạng kỹ năng</span><span>✓ Tự chấm và xem lỗi</span><span>↻ Có thể làm lại</span></div></div><div class="evu-clock-card"><span>Đồng hồ tùy chọn</span><strong id="evu-clock">60:00</strong><button type="button" class="btn primary" id="evu-clock-start">Bắt đầu 60 phút</button><small id="evu-clock-note">Bạn có thể làm không giới hạn thời gian.</small></div>';
       var testInstructions = testView.querySelector('.test-instructions');
       if (testInstructions) testView.insertBefore(examBanner, testInstructions);
       else if (testView.querySelector('.section-heading')) testView.querySelector('.section-heading').insertAdjacentElement('afterend', examBanner);
