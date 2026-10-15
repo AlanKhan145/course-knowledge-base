@@ -156,6 +156,125 @@ body {
   font-size: .68rem;
 }
 
+.evu-exercise-catalog {
+  margin: 0 0 1rem;
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+  border: 1px solid #dce4ff;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #fff, #f5f7ff 70%, #f2fbf7);
+  box-shadow: var(--shadow);
+}
+
+.evu-exercise-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.evu-exercise-heading h2 {
+  margin: .2rem 0 .3rem;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+.evu-exercise-heading p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.evu-exercise-count {
+  flex: 0 0 auto;
+  padding: .45rem .7rem;
+  border: 1px solid #dce4ff;
+  border-radius: 999px;
+  color: #465fc5;
+  background: #fff;
+  font-size: .76rem;
+  font-weight: 850;
+}
+
+.evu-exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.evu-exercise-card {
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #e0e6f0;
+  border-radius: 17px;
+  background: #fff;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.evu-exercise-card:hover {
+  transform: translateY(-2px);
+  border-color: #b8c4ff;
+  box-shadow: 0 12px 26px rgba(23, 35, 65, .09);
+}
+
+.evu-exercise-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+}
+
+.evu-exercise-card-top span {
+  color: #5368bf;
+  font-size: .68rem;
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+
+.evu-exercise-card-top b {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 11px;
+  color: #465fc5;
+  background: #edf0ff;
+  font-size: .76rem;
+}
+
+.evu-exercise-card h3 {
+  margin: .65rem 0 .2rem;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.evu-exercise-card p {
+  margin: 0 0 .75rem;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.evu-exercise-card button { margin-top: auto; }
+
+.evu-exercise-session {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1rem;
+  padding: .8rem 1rem;
+  border: 1px solid #dce4ff;
+  border-radius: 15px;
+  background: #f5f7ff;
+}
+
+.evu-exercise-session > div { display: grid; gap: .08rem; }
+.evu-exercise-session strong { color: var(--ink); }
+.evu-exercise-session span { color: var(--muted); font-size: .78rem; }
+.evu-exercise-session[hidden], .evu-exercise-catalog[hidden] { display: none !important; }
+#view-practice [hidden] { display: none !important; }
+
 .evu-exam-banner {
   align-items: stretch;
   color: #fff;
@@ -259,11 +378,15 @@ body {
 
 @media (max-width: 900px) {
   .evu-course-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .evu-exercise-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .evu-exam-banner { align-items: flex-start; }
 }
 
 @media (max-width: 620px) {
   .evu-banner-top, .evu-exam-banner, .evu-course-intro { align-items: flex-start; flex-direction: column; }
+  .evu-exercise-heading { align-items: flex-start; flex-direction: column; }
+  .evu-exercise-grid { grid-template-columns: 1fr; }
+  .evu-exercise-session { align-items: flex-start; flex-direction: column; }
   .evu-total { min-width: 100px; }
   .evu-clock-card { width: 100%; align-items: flex-start; }
   .evu-course-grid, .evu-course-route { grid-template-columns: 1fr; }

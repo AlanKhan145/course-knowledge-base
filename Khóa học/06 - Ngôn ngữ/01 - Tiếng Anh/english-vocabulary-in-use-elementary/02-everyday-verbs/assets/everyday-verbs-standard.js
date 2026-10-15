@@ -366,6 +366,110 @@
       }
     });
 
+    if (typeof setupPracticeTypeFilter === 'function') setupPracticeTypeFilter();
+
+    var exerciseCatalog = null;
+    var exerciseSession = null;
+    var exerciseSessionTitle = null;
+    var exerciseSessionCount = null;
+    var activeExerciseType = null;
+    var practiceToolbar = null;
+    var practiceSummary = null;
+    var practiceList = null;
+    var practicePaginationTop = null;
+    var practicePaginationBottom = null;
+    var practiceRetryBanner = null;
+    var coverageBanner = null;
+
+    function setExerciseMode(type) {
+      var typeSelect = document.getElementById('practice-type-filter');
+      var categorySelect = document.getElementById('practice-category-filter');
+      var levelSelect = document.getElementById('practice-level-filter');
+      var isCatalog = !type;
+      activeExerciseType = type || null;
+
+      if (exerciseCatalog) exerciseCatalog.hidden = !isCatalog;
+      if (exerciseSession) exerciseSession.hidden = isCatalog;
+      if (coverageBanner) coverageBanner.hidden = !isCatalog;
+      [practiceToolbar, practiceSummary, practiceList, practicePaginationTop, practicePaginationBottom, practiceRetryBanner]
+        .forEach(function (element) { if (element) element.hidden = isCatalog; });
+
+      state.retryIds = null;
+      if (isCatalog) {
+        practiceTypeFilter = 'all';
+        if (typeSelect) typeSelect.value = 'all';
+        renderPractice();
+        return;
+      }
+
+      var selectedCount = practiceQuestions.filter(function (question) { return question.type === type; }).length;
+      if (exerciseSessionTitle) exerciseSessionTitle.textContent = 'Bài ' + String(practiceTypes.indexOf(type) + 1).padStart(2, '0') + ' · ' + (labels[type] || type);
+      if (exerciseSessionCount) exerciseSessionCount.textContent = selectedCount + ' câu trong bài này';
+      if (categorySelect && categorySelect.value !== 'all') {
+        categorySelect.value = 'all';
+        categorySelect.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      if (levelSelect && levelSelect.value !== 'all') {
+        levelSelect.value = 'all';
+        levelSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      if (typeSelect) {
+        typeSelect.value = type;
+        typeSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+
+    function installExerciseCatalog() {
+      if (!practiceView || document.getElementById('evu-exercise-catalog')) return;
+      practiceToolbar = practiceView.querySelector('.practice-toolbar');
+      practiceSummary = practiceView.querySelector('.practice-summary');
+      practiceList = document.getElementById('practice-list');
+      practicePaginationTop = document.getElementById('practice-pagination-top');
+      practicePaginationBottom = document.getElementById('practice-pagination-bottom');
+      practiceRetryBanner = document.getElementById('retry-banner');
+      coverageBanner = document.getElementById('evu-coverage-banner');
+
+      exerciseCatalog = document.createElement('section');
+      exerciseCatalog.id = 'evu-exercise-catalog';
+      exerciseCatalog.className = 'evu-exercise-catalog';
+      var cards = practiceTypes.map(function (type, index) {
+        var count = practiceQuestions.filter(function (question) { return question.type === type; }).length;
+        if (!count) return '';
+        return '<article class="evu-exercise-card"><div class="evu-exercise-card-top"><span>BÀI ' + String(index + 1).padStart(2, '0') + '</span><b>' + count + '</b></div><h3>' + (labels[type] || type) + '</h3><p>Bộ câu hỏi chỉ gồm dạng ' + (labels[type] || type).toLowerCase() + '.</p><button class="btn primary" type="button" data-evu-open-type="' + type + '">Vào bài luyện →</button></article>';
+      }).join('');
+      exerciseCatalog.innerHTML = '<div class="evu-exercise-heading"><div><span class="evu-eyebrow">CHỌN BÀI LUYỆN</span><h2>Mỗi bài một dạng</h2><p>Chọn một dạng để làm trọn bộ câu hỏi cùng kiểu. Các dạng được tách riêng, không trộn trong bài luyện.</p></div><span class="evu-exercise-count">' + practiceTypes.length + ' bài riêng</span></div><div class="evu-exercise-grid">' + cards + '</div>';
+
+      exerciseSession = document.createElement('div');
+      exerciseSession.id = 'evu-exercise-session';
+      exerciseSession.className = 'evu-exercise-session';
+      exerciseSession.hidden = true;
+      exerciseSession.innerHTML = '<button type="button" class="btn secondary" id="evu-back-to-exercise-catalog">← Danh sách dạng bài</button><div><strong id="evu-exercise-session-title"></strong><span id="evu-exercise-session-count"></span></div>';
+      exerciseSessionTitle = exerciseSession.querySelector('#evu-exercise-session-title');
+      exerciseSessionCount = exerciseSession.querySelector('#evu-exercise-session-count');
+
+      var typeControl = document.getElementById('practice-type-filter');
+      if (typeControl && typeControl.closest('label')) typeControl.closest('label').hidden = true;
+      var anchor = practiceSummary || practiceToolbar || practiceView.querySelector('.section-heading');
+      if (anchor) {
+        practiceView.insertBefore(exerciseCatalog, anchor);
+        practiceView.insertBefore(exerciseSession, anchor);
+      } else {
+        practiceView.appendChild(exerciseCatalog);
+        practiceView.appendChild(exerciseSession);
+      }
+
+      exerciseCatalog.addEventListener('click', function (event) {
+        var button = event.target.closest('[data-evu-open-type]');
+        if (!button) return;
+        setExerciseMode(button.getAttribute('data-evu-open-type'));
+        if (practiceList) practiceList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      exerciseSession.querySelector('#evu-back-to-exercise-catalog').addEventListener('click', function () {
+        setExerciseMode(null);
+      });
+      setExerciseMode(null);
+    }
+
     function textNodeIn(element) {
       if (!element) return null;
       for (var i = 0; i < element.childNodes.length; i += 1) {
@@ -422,6 +526,7 @@
       if (summary) practiceView.insertBefore(banner, summary);
       else if (practiceView.querySelector('.section-heading')) practiceView.querySelector('.section-heading').insertAdjacentElement('afterend', banner);
     }
+    installExerciseCatalog();
 
     var testView = document.getElementById('view-test');
     if (testView && !document.getElementById('evu-exam-banner')) {
