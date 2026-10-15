@@ -221,7 +221,7 @@
     .hero-art {
       min-height: 230px;
       border-radius: 20px;
-      background: url("assets/make-made-made/make-do-take-triad.png") center / cover;
+      background: url("assets/make-made-made/make-do-take-triad.png") center / cover, url("assets/make-fallback/make-do-take-triad.svg") center / cover;
       border: 6px solid rgba(255,255,255,.2);
       align-self: stretch;
     }
@@ -529,6 +529,61 @@
     .notebook-row > span:first-child { color: var(--muted); font-size: .72rem; font-weight: 900; letter-spacing: .06em; }
     @media (max-width: 720px) { .notebook-row { grid-template-columns: 1fr; gap: .15rem; } }
 
+
+    /* Interactive quest interface; original learning and review sections are unchanged. */
+    .practice-toolbar { grid-template-columns: minmax(160px,1fr) minmax(130px,.75fr) minmax(170px,1fr) auto; }
+    .game-hud { margin: 0 0 1rem; background:linear-gradient(125deg,#132d4a,#245a8a); color:#fff; border-radius:22px; padding:1.15rem 1.3rem; box-shadow:0 15px 32px rgba(22,56,89,.15); }
+    .game-hud-main { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    .game-hud h2 {font-size:1.5rem; margin:.25rem 0 .35rem;}
+    .game-hud p {margin:0 0 .6rem; color:#d8e9f8; font-size:.86rem;}
+    .game-kicker {font-size:.74rem; text-transform:uppercase; letter-spacing:.1em; font-weight:900; color:#a1e9f2;}
+    .game-points {text-align:right; white-space:nowrap;display:grid;gap:.1rem;}
+    .game-points strong {color:#ffe4a4;font-size:1.55rem;}
+    .game-points span{font-size:.82rem;}
+    .game-progress {background:rgba(255,255,255,.22); height:11px; border-radius:20px; overflow:hidden; margin:.7rem 0 .5rem;}
+    .game-progress>span {background:linear-gradient(90deg,#60dbbc,#fff1b7);height:100%;width:0;display:block;transition:width .25s ease;}
+    .game-counters {display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;color:#d8e9f8;font-size:.8rem;}
+    .game-navigation{margin-top:.95rem;}
+    .game-navigation .btn {background:rgba(255,255,255,.96);}
+    .game-navigation .btn.primary{background:#72d4c3;border-color:#72d4c3;color:#143456;}
+    .game-navigation .btn.ghost{background:rgba(255,255,255,.17);color:#fff;border-color:rgba(255,255,255,.3);}
+    .game-hud.list-mode .game-navigation [data-game-prev], .game-hud.list-mode .game-navigation [data-game-next] {display:none;}
+    .question-card[data-question-card] {box-shadow:0 16px 34px rgba(29,63,99,.09);}
+    .cloze-line {padding:.8rem 1rem;background:#f1f6fe;border:1px solid #d9e8fb;border-radius:12px;margin:.6rem 0;line-height:1.95;white-space:pre-wrap;}
+    .cloze-answers {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;}
+    .cloze-answers label{display:grid;gap:.25rem;color:var(--navy);font-weight:800;font-size:.85rem;}
+    .game-hud + .callout[hidden] {display:none;}
+    .broken-original-asset{object-fit:contain;background:#f0f5fa;}
+    @media (max-width:950px){.practice-toolbar{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media (max-width:640px){.practice-toolbar{grid-template-columns:1fr;}.game-hud{padding:1rem;}.game-hud-main{align-items:flex-start;}.game-navigation .btn{flex:1 1 45%;}}
+
+    /* Extended reading passages and exam-style Final Test. */
+    .reading-passage,.cloze-line {white-space:pre-line;line-height:1.85;font-size:1rem;overflow-wrap:anywhere;}
+    .reading-passage {padding:1.2rem 1.35rem;background:#f7f9ff;border-left:5px solid var(--purple);}
+    .reading-passage .reading-meta {display:block;color:#5b4c96;font-size:.79rem;font-weight:900;letter-spacing:.025em;margin-bottom:.6rem;white-space:normal;}
+    .reading-passage .reading-heading{display:block;font-size:1.12rem;color:#243d64;line-height:1.4;white-space:normal;margin:.2rem 0 .5rem;}
+    .cloze-line{padding:1.25rem 1.35rem;background:#f7faff;font-size:1rem;border-left:5px solid var(--teal);}
+    .test-dashboard{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:center;padding:1rem 1.2rem;border:1px solid var(--line);border-radius:16px;background:#fff;margin:1rem 0;}
+    .test-dashboard p{margin:.18rem 0 0}.test-progress{flex:1;max-width:350px;height:11px;background:#edf1f6;border-radius:30px;overflow:hidden;min-width:180px;}
+    .test-progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--blue),var(--teal));transition:width .2s ease;}
+    .test-index{display:flex;flex-wrap:wrap;gap:.6rem;margin:.7rem 0 1.15rem;}
+    .test-index button{padding:.55rem .75rem;border-radius:12px;border:1px solid #cbd9ec;background:#fff;color:#1d4d7f;font-size:.84rem;font-weight:800;cursor:pointer;}
+    .test-index button:hover{background:#eaf3ff}.test-index button strong{margin-right:.28rem;}
+    .test-sections{display:grid;gap:1rem;}
+    .exam-section{border:1px solid #d8e2f0;background:#fff;border-radius:18px;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:140px;}
+    .exam-section>summary{padding:1.12rem 1.25rem;cursor:pointer;background:#f1f6fd;font-weight:900;color:var(--navy);display:flex;gap:.7rem;align-items:center;justify-content:space-between;list-style:none;}
+    .exam-section>summary::-webkit-details-marker{display:none;}.exam-section>summary::after{content:'▾';color:var(--blue);font-size:1.2rem;}
+    .exam-section:not([open])>summary::after{content:'▸';}.exam-section>summary small{display:block;color:var(--muted);font-size:.8rem;font-weight:600;}
+    .exam-section-body{padding:1rem;display:grid;gap:.95rem;}
+    .exam-passage{padding:1.2rem 1.3rem;border:1px solid #d9e5f4;border-left:5px solid var(--purple);border-radius:12px;background:#f8faff;}
+    .exam-passage h3{font-size:1.15rem;margin:.25rem 0 .6rem;}
+    .exam-passage .reading-body{white-space:pre-line;line-height:1.95;color:#2b3851;font-size:1rem;overflow-wrap:anywhere;}
+    .exam-passage .reading-meta{font-size:.78rem;font-weight:800;color:#65529c;letter-spacing:.045em;text-transform:uppercase;}
+    .exam-section .question-card{padding:1rem 1.1rem;box-shadow:none;}
+    .exam-section .question-prompt{font-size:1rem;}
+    .exam-section .question-card .option-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .exam-section .question-card .option-label{font-size:.94rem;}
+    @media(max-width:700px){.exam-section .question-card .option-list{grid-template-columns:1fr;}.test-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}.reading-passage,.cloze-line,.exam-passage{padding:.9rem;}}
     @media (max-width: 1180px) {
       .vocab-grid, .phrase-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .app-shell { grid-template-columns: 215px minmax(0, 1fr); }
@@ -593,7 +648,7 @@
         <div class="header-meta">
           <span class="pill inverse">A1–A2</span>
           <span class="pill inverse">30–45 phút</span>
-          <span class="pill inverse">27 chunks · 32 practice · 18 test</span>
+          <span class="pill inverse">27 chunks · Mini game · 65 test</span>
           <span class="pill inverse">Story · Spaced review</span>
         </div>
       </div>
@@ -738,11 +793,11 @@
 
       <section class="view" id="view-practice" aria-labelledby="practice-title" hidden>
         <div class="section-heading">
-          <div><div class="section-kicker">07 · Practice</div><h1 id="practice-title">Recognition → recall → application</h1></div>
-          <p>Practice có feedback ngay sau từng task. Câu sai sẽ vào error log để retry.</p>
+          <div><div class="section-kicker">07 · Practice</div><h1 id="practice-title">Mini game · Make / made / made</h1></div>
+          <p>Chơi từng câu, tích điểm XP, luyện đủ 27 mục từ theo nhiều hình thức. Chọn dạng bài để tập trung hoặc chơi toàn bộ.</p>
         </div>
         <div class="practice-summary">
-          <strong id="practice-summary-text">0/32 answered</strong>
+          <strong id="practice-summary-text">0 câu đã hoàn thành</strong>
           <span class="pill teal" id="practice-correct-pill">0 correct</span>
           <span class="pill coral" id="practice-wrong-pill">0 to review</span>
           <button type="button" class="btn small ghost" data-retry-all>Hiện tất cả</button>
@@ -761,7 +816,17 @@
               <option value="3">Level 3 · vận dụng</option>
             </select>
           </label>
-          <div class="practice-filter-meta"><span id="practice-filter-count">32 câu đang hiển thị</span></div>
+          <label>Dạng mini game
+            <select id="practice-type-filter"><option value="all">Tất cả dạng bài</option></select>
+          </label>
+          <div class="practice-filter-meta"><span id="practice-filter-count">Đang chọn bộ câu hỏi</span></div>
+        </div>
+        <div class="game-hud" id="game-hud" aria-live="polite">
+          <div class="game-hud-main"><div><span class="game-kicker">🎮 Learning Quest</span><h2 id="game-stage">Thử thách 1</h2><p id="game-subtitle">Chọn một đáp án và kiểm tra để ghi điểm</p></div>
+          <div class="game-points"><strong id="game-xp">0 XP</strong><span id="game-streak">🔥 0 streak</span></div></div>
+          <div class="game-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="game-progress"><span></span></div>
+          <div class="game-counters"><span id="game-completed">0 đã làm</span><span id="game-right">0 đúng</span><span id="game-left">0 còn lại</span></div>
+          <div class="button-row game-navigation"><button type="button" class="btn" data-game-prev>← Câu trước</button><button type="button" class="btn ghost" data-game-random>Câu chưa làm 🎲</button><button type="button" class="btn primary" data-game-next>Câu tiếp →</button><button type="button" class="btn small" data-game-all>Danh sách tất cả</button></div>
         </div>
         <div id="retry-banner" class="callout warning" hidden></div>
         <div id="practice-list" class="question-list"></div>
@@ -779,23 +844,21 @@
         <div class="spacer"></div>
         <article class="card">
           <div class="section-heading"><div><div class="section-kicker">Production</div><h2>Tạo ngôn ngữ của bạn</h2></div><span class="pill purple">Self-check</span></div>
-          <div class="grid-3">
-            <article class="card production-card"><h3>Writing</h3><p>Viết 5–7 câu về một tuần bình thường của bạn, dùng ít nhất 5 patterns khác nhau.</p><textarea class="answer-textarea production-input" data-production="writing" placeholder="I usually go to university by bus. Last Sunday, I went..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="writing-1"> Có <strong>go to + place</strong> hoặc <strong>go home</strong>.</label><label><input type="checkbox" data-production-check="writing-2"> Có <strong>go by + transport</strong> hoặc <strong>on foot</strong>.</label><label><input type="checkbox" data-production-check="writing-3"> Có <strong>go + V-ing</strong>, một câu với <strong>went</strong> và một kế hoạch <strong>be going to + V</strong>.</label></div></article>
-            <article class="card production-card"><h3>Speaking</h3><p>Nói 30–45 giây về nơi bạn thường đi, cách bạn di chuyển và kế hoạch cuối tuần.</p><div class="callout teal"><strong>Prompt:</strong> Where do you usually go? How do you get there? What did you do last weekend? What are you going to do next weekend?</div><div class="checklist"><label><input type="checkbox" data-production-check="speaking-1"> Tôi dùng được ít nhất 4 chunks với <strong>go</strong>.</label><label><input type="checkbox" data-production-check="speaking-2"> Tôi dùng được hiện tại, quá khứ <strong>went</strong> và kế hoạch <strong>going to</strong>.</label></div></article>
-            <article class="card production-card"><h3>Transfer</h3><p>Tạo 3 câu mới trong ba tình huống: chuyến đi, hoạt động cuối tuần và hướng di chuyển.</p><textarea class="answer-textarea production-input" data-production="transfer" placeholder="We are going on a trip next month. I usually go swimming..."></textarea><div class="checklist"><label><input type="checkbox" data-production-check="transfer-1"> Có ít nhất một cụm <strong>go on + noun</strong> hoặc <strong>go + V-ing</strong>.</label><label><input type="checkbox" data-production-check="transfer-2"> Có ít nhất một cụm chỉ hướng như <strong>go into / out of / back / upstairs / downstairs</strong>.</label></div></article>
-          </div>
+          <p>Viết hoặc nói về một ngày của bạn bằng các collocation make, do và take. Câu trả lời tự do được lưu để tự đánh giá.</p>
         </article>
       </section>
 
       <section class="view" id="view-test" aria-labelledby="test-title" hidden>
         <div class="section-heading">
-          <div><div class="section-kicker">08 · Final test</div><h1 id="test-title">Mixed test</h1></div>
+          <div><div class="section-kicker">08 · Final test</div><h1 id="test-title">Final Test · TOEIC & IELTS-style Reading</h1></div>
           <p>Không hiển thị đáp án trước khi nộp. Hãy làm như một lần kiểm tra thật.</p>
         </div>
-        <div class="test-instructions"><strong>Test mode:</strong> 18 tasks · 1 điểm/task · feedback chỉ xuất hiện sau <strong>Submit Test</strong>. Câu bỏ trống được tính là chưa đúng.</div>
+        <div class="test-instructions"><strong>Test mode:</strong> <strong id="test-task-count">65 câu</strong> · 4 phần · 1 điểm/câu · TOEIC Part 6/7 &amp; IELTS-style Reading (mô phỏng, không phải đề chính thức). Thời lượng gợi ý: 65–85 phút. Đáp án chỉ mở khi nộp bài. Câu bỏ trống tính là chưa đúng.</div>
         <div class="spacer"></div>
+        <div class="test-dashboard"><div><strong id="test-live-count">0/65 câu đã làm</strong><p class="muted small-text">Tự lưu nháp trên trình duyệt khi chọn hoặc nhập đáp án.</p></div><div class="test-progress"><span id="test-progress-fill"></span></div></div>
+        <nav id="test-nav" class="test-index" aria-label="Các phần Final Test"></nav>
         <form id="test-form">
-          <div id="test-list" class="question-list"></div>
+          <div id="test-list" class="test-sections"></div>
           <div class="button-row" style="margin-top:1rem"><button class="btn primary" type="submit">Submit Test</button><button class="btn" type="button" data-view="practice">Back to practice</button></div>
         </form>
         <div id="test-result-inline" class="spacer"></div>
@@ -829,6 +892,7 @@
     const LESSON_ID = 'evu_elementary_02_everyday_verbs_06_make_made_made';
     const STORAGE_KEY = LESSON_ID + '_progress';
     const IMAGE_ROOT = 'assets/make-made-made/';
+    const FALLBACK_ROOT = 'assets/make-fallback/';
 
     const vocab = [
       { id: 'make', word: 'make', kind: 'base / present form', group: 'form', meaning: 'làm; tạo ra; chuẩn bị', definition: 'Base form of the irregular verb make.', example: 'I make coffee every morning.', chunk: 'make → made → made', mistake: 'He/she/it: makes. Never “maked”.', image: 'make-coffee.png' },
@@ -876,27 +940,21 @@
     ];
 
     const practiceQuestions = [
-      // A. make hoặc do
       { id: 'p01', type: 'multi-fill', category: 'contrast', difficulty: 2, prompt: 'A · Điền dạng phù hợp của make hoặc do.', items: [{ text: '1. I always ___ mistakes when I speak English.', answer: 'make' }, { text: '2. I have to ___ my homework tonight.', answer: 'do' }, { text: '3. Can you ___ some coffee?', answer: 'make' }, { text: '4. She usually ___ the housework on Saturday.', answer: 'does' }, { text: '5. We need to ___ a decision.', answer: 'make' }, { text: '6. Please don’t ___ so much noise.', answer: 'make' }, { text: '7. He ___ his bed every morning.', answer: 'makes' }, { text: '8. I’m ___ an exercise at the moment.', answer: 'doing' }], explanation: 'MAKE: mistakes, coffee, a decision, noise, the bed. DO: homework, housework, an exercise. Nhớ chia: she → does, he → makes, I’m → doing.' },
-      // B. Chọn từ đúng
       { id: 'p02', type: 'multiple-choice', category: 'contrast', difficulty: 1, prompt: 'B1 · Can I ___ a photo of you?', options: ['make', 'take'], answer: 'take', explanation: 'take a photo.' },
       { id: 'p03', type: 'multiple-choice', category: 'contrast', difficulty: 1, prompt: 'B2 · I need to ___ an appointment with my doctor.', options: ['make', 'take'], answer: 'make', explanation: 'make an appointment.' },
       { id: 'p04', type: 'multiple-choice', category: 'contrast', difficulty: 1, prompt: 'B3 · She’s going to ___ an exam next week.', options: ['make', 'take'], answer: 'take', explanation: 'take an exam.' },
       { id: 'p05', type: 'multiple-choice', category: 'chunk', difficulty: 1, prompt: 'B4 · The children are ___ a lot of noise.', options: ['making', 'doing'], answer: 'making', explanation: 'make a noise → are making a lot of noise.' },
       { id: 'p06', type: 'multiple-choice', category: 'chunk', difficulty: 1, prompt: 'B5 · I ___ a mistake yesterday.', options: ['made', 'did'], answer: 'made', explanation: 'make a mistake → made.' },
       { id: 'p07', type: 'multiple-choice', category: 'contrast', difficulty: 1, prompt: 'B6 · Please ___ your homework before dinner.', options: ['make', 'do'], answer: 'do', explanation: 'do homework.' },
-      // C. Điền collocation
       { id: 'p08', type: 'multi-fill', category: 'chunk', difficulty: 2, prompt: 'C · Dùng: make coffee · make the bed · make a mistake · make an appointment · make a decision.', items: [{ text: '1. After I wake up, I usually ___.', answer: ['make the bed', 'make my bed'] }, { text: '2. I need to see a dentist, so I’ll ___.', answer: ['make an appointment'] }, { text: '3. I’m tired. Can you ___ for me?', answer: ['make coffee', 'make some coffee'] }, { text: '4. Don’t worry if you ___ while learning English.', answer: ['make a mistake', 'make mistakes'] }, { text: '5. We have two options. We need to ___.', answer: ['make a decision'] }], explanation: 'Học cả cụm: make the bed, make an appointment, make coffee, make a mistake, make a decision.' },
-      // D. Sửa lỗi
       { id: 'p09', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'D1 · Sửa lỗi: I have to make my homework.', answer: ['I have to do my homework.'], explanation: 'homework đi với do.' },
       { id: 'p10', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'D2 · Sửa lỗi: Can you make a photo of me?', answer: ['Can you take a photo of me?'], explanation: 'take a photo.' },
       { id: 'p11', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'D3 · Sửa lỗi: I’m going to make an exam tomorrow.', answer: ['I\'m going to take an exam tomorrow.', 'I am going to take an exam tomorrow.', 'I\'m going to do an exam tomorrow.'], explanation: 'take an exam (do an exam cũng có thể gặp).' },
       { id: 'p12', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'D4 · Sửa lỗi: I need to take an appointment with the doctor.', answer: ['I need to make an appointment with the doctor.'], explanation: 'make an appointment.' },
       { id: 'p13', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'D5 · Sửa lỗi: Yesterday I did a big mistake.', answer: ['Yesterday I made a big mistake.', 'I made a big mistake yesterday.'], explanation: 'make a mistake → made a big mistake.' },
       { id: 'p14', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'D6 · Sửa lỗi: Please don’t do so much noise.', answer: ['Please don\'t make so much noise.', 'Please do not make so much noise.'], explanation: 'make (a) noise.' },
-      // E. Make someone…
       { id: 'p15', type: 'multi-fill', category: 'feel', difficulty: 2, prompt: 'E · Hoàn thành bằng một tính từ hoặc động từ phù hợp (nhiều đáp án đúng).', items: [{ text: '1. Music makes me feel ___.', answer: ['relaxed', 'happy', 'calm', 'better', 'good', 'sad', 'sleepy', 'excited', 'tired'] }, { text: '2. Bad weather sometimes makes me ___.', answer: ['feel tired', 'tired', 'sad', 'feel sad', 'sleepy', 'feel sleepy', 'angry', 'unhappy', 'bored', 'feel bored', 'cold'] }, { text: '3. Funny films make me ___.', answer: ['laugh', 'happy', 'smile', 'feel happy', 'laugh a lot'] }, { text: '4. Exams sometimes make students feel ___.', answer: ['nervous', 'tired', 'stressed', 'worried', 'anxious', 'scared', 'afraid', 'sad'] }, { text: '5. Good news made her ___.', answer: ['happy', 'smile', 'laugh', 'feel happy', 'cry', 'excited', 'feel better'] }], explanation: 'make + someone + (feel) + tính từ, hoặc make + someone + V nguyên thể (laugh, cry). Câu tự nhiên khác cũng đúng — nếu câu bạn hợp nghĩa mà bị chấm sai, hãy tự đánh dấu là đúng.' },
-      // Bổ sung
       { id: 'p16', type: 'multiple-choice', category: 'form', difficulty: 1, prompt: 'Which verb forms are correct?', options: ['make – maked – maked', 'make – made – made', 'make – made – maked', 'make – making – made'], answer: 'make – made – made', explanation: 'make là động từ bất quy tắc: make – made – made.' },
       { id: 'p17', type: 'multi-fill', category: 'form', difficulty: 2, prompt: 'Chia make theo thời gian.', items: [{ text: 'I ___ coffee every morning.', answer: 'make' }, { text: 'I ___ coffee yesterday.', answer: 'made' }, { text: 'She has ___ dinner already.', answer: 'made' }, { text: 'Dad is ___ dinner now.', answer: 'making' }], explanation: 'make (hiện tại) · made (quá khứ) · has made (quá khứ phân từ) · is making (-ing).' },
       { id: 'p18', type: 'image-choice', category: 'create', difficulty: 1, prompt: 'Which phrase describes the picture?', image: 'make-tea.png', options: ['make tea', 'do tea', 'take tea', 'make a photo'], answer: 'make tea', explanation: 'Pha trà = make tea.' },
@@ -913,9 +971,1089 @@
       { id: 'p29', type: 'mini-reading', category: 'context', difficulty: 3, passage: 'Linh is tired after work. She drinks tea because it makes her feel relaxed. Her friend tells a funny story, and it makes Linh laugh. Then a loud noise from the street makes her angry.', prompt: 'What makes Linh angry?', options: ['The tea', 'The funny story', 'A loud noise from the street', 'Her work'], answer: 'A loud noise from the street', explanation: 'A loud noise from the street makes her angry.' },
       { id: 'p30', type: 'multi-fill', category: 'recall', difficulty: 2, prompt: 'Không nhìn bài: viết cụm tiếng Anh từ nghĩa tiếng Việt.', items: [{ text: 'mắc lỗi', answer: ['make a mistake', 'make mistakes'] }, { text: 'đặt lịch hẹn', answer: ['make an appointment'] }, { text: 'đưa ra quyết định', answer: ['make a decision'] }, { text: 'dọn giường', answer: ['make the bed', 'make my bed'] }, { text: 'chụp ảnh', answer: ['take a photo'] }, { text: 'làm bài tập về nhà', answer: ['do homework', 'do my homework'] }], explanation: 'Nhớ theo chiều Việt → Anh khó hơn nhận diện, nhưng giúp nhớ cụm lâu hơn (bước “che từ tiếng Anh” trong bài Learning vocabulary).' },
       { id: 'p31', type: 'matching', category: 'meaning', difficulty: 1, prompt: 'Nối collocation với nghĩa.', pairs: [{ left: 'make a noise', right: 'gây tiếng động' }, { left: 'make a photocopy', right: 'tạo bản photocopy' }, { left: 'make dinner', right: 'chuẩn bị bữa tối' }, { left: 'make someone angry', right: 'khiến ai tức giận' }], explanation: 'Học nghĩa theo cả cụm.' },
-      // F. Viết về bản thân
       { id: 'p32', type: 'production', category: 'production', difficulty: 3, prompt: 'F · Hoàn thành bằng thông tin thật của bạn: 1) Every morning, I make … 2) I sometimes make a mistake when … 3) … makes me happy. 4) … makes me feel tired. 5) This week I need to make …', rubric: ['Có đủ 5 câu với thông tin thật.', 'Câu 1 và 5 dùng make + noun tự nhiên (make coffee / make an appointment…).', 'Câu 3–4 dùng make + someone + (feel) + adjective.', 'Không dùng make cho homework / photo / exam.'], explanation: 'Ví dụ: Every morning, I make my bed. Loud music makes me feel tired. This week I need to make an appointment with the dentist.' }
     ];
+
+
+    // Each learner-facing family is practiced across different tasks, not just once.
+    const practiceReadings = [
+  {
+    "id": "morning",
+    "title": "A Busy Day at the Learning Centre",
+    "genre": "TOEIC Part 7 · daily schedule",
+    "passage": "Maya is a student at a language centre in a small city. On weekdays, she usually gets up at six thirty, makes her bed and opens the window before going downstairs. She makes tea and breakfast for herself every morning. Her younger brother prefers coffee, but Maya does not normally prepare it for him because he leaves home earlier than she does.\n\nYesterday was different. The centre was holding an open day for visitors, and Maya had promised to help. Before leaving, she made coffee for her brother because he was working from home. She then took the bus to class with a folder of notes she had prepared the night before. At the centre, Maya completed her homework, made a photocopy of her notes for a new student and helped the receptionist make a list of guests.\n\nDuring the afternoon, a visitor asked Maya to explain the centre's English courses. She was nervous at first, but the friendly questions made her feel more relaxed. After class, she took a photo for a friend who wanted a picture beside the school noticeboard. She also made a short video showing visitors where the classrooms were.\n\nMaya has not taken an exam this week. Her next assessment is planned for the following month, so she has time to practise. When she arrived home, she made dinner with her mother and decided to review the new words she had learned that day.",
+    "qa": [
+      [
+        "What does Maya prepare every morning?",
+        "Tea and breakfast",
+        [
+          "A film and a video",
+          "Tea and breakfast",
+          "A photocopy and an exam",
+          "Only coffee"
+        ]
+      ],
+      [
+        "Who did Maya make coffee for yesterday?",
+        "Her brother",
+        [
+          "Her teacher",
+          "Her brother",
+          "Her doctor",
+          "Her friend"
+        ]
+      ],
+      [
+        "What did she make of her notes?",
+        "A photocopy",
+        [
+          "A film",
+          "A decision",
+          "A photocopy",
+          "A noise"
+        ]
+      ],
+      [
+        "What did she take after class?",
+        "A photo",
+        [
+          "A photo",
+          "An appointment",
+          "A film",
+          "An exercise"
+        ]
+      ],
+      [
+        "When does Maya make her bed?",
+        "Every morning",
+        [
+          "At night",
+          "Never",
+          "Every morning",
+          "Only Sunday"
+        ]
+      ],
+      [
+        "Why did Maya help at the centre?",
+        "It was holding an open day",
+        [
+          "She had a dentist appointment",
+          "It was holding an open day",
+          "The building was closed",
+          "Her brother asked her"
+        ]
+      ],
+      [
+        "When is her next assessment planned?",
+        "The following month",
+        [
+          "This afternoon",
+          "This week",
+          "The following month",
+          "Yesterday"
+        ]
+      ]
+    ],
+    "tfng": [
+      [
+        "Maya makes her bed every morning.",
+        "True",
+        "The first paragraph explicitly describes her daily routine."
+      ],
+      [
+        "Maya made coffee for her sister yesterday.",
+        "False",
+        "She made it for her brother."
+      ],
+      [
+        "The receptionist has worked at the centre for five years.",
+        "Not Given",
+        "No information about the receptionist’s work history appears."
+      ],
+      [
+        "Maya took a photo after class.",
+        "True",
+        "The third paragraph says she took a photo for a friend after class."
+      ],
+      [
+        "Maya took an exam this week.",
+        "False",
+        "The final paragraph says she has not taken an exam this week."
+      ],
+      [
+        "Maya made a video to help visitors find classrooms.",
+        "True",
+        "The video showed visitors where classrooms were."
+      ]
+    ]
+  },
+  {
+    "id": "projects",
+    "title": "The Friday Video Project",
+    "genre": "TOEIC Part 7 · project update",
+    "passage": "To: English Media Club Members\nSubject: Our Film Project — Friday Presentation\n\nLinh and Ben are making a short film and a separate video for their English class. The film tells the story of a student who starts a small café, while the video explains how the group planned and recorded the project. The teacher asked the students to work together and use clear English rather than complicated special effects.\n\nOn Tuesday, Ben made a mistake in the first version of the script. One character appeared in two places at the same time. Ben noticed the problem during rehearsal, corrected the script and sent an updated copy to the group. Their friend Nina made a photocopy of the filming plan so that each team could follow the same schedule. She also made tea for everyone during a long planning meeting.\n\nThe group still needs to make a decision about the ending today. Some students want the main character to open the café, while others prefer a surprise ending. During filming yesterday, several children playing outside the classroom made a lot of noise. The team stopped recording for a few minutes but continued after the children went home.\n\nThe finished film will last eight minutes. The group plans to show the video on Friday afternoon, along with the film, during a class presentation. Visitors will be able to ask questions afterwards. The team has not announced who will introduce the work, and the teacher has not said whether the project will receive a prize.",
+    "qa": [
+      [
+        "What are Linh and Ben making?",
+        "A short film and a video",
+        [
+          "Dinner and breakfast",
+          "A short film and a video",
+          "Only a photo",
+          "A school exam"
+        ]
+      ],
+      [
+        "What did Ben make on Tuesday?",
+        "A mistake",
+        [
+          "A noise",
+          "A decision",
+          "A mistake",
+          "An appointment"
+        ]
+      ],
+      [
+        "What decision do they still need to make?",
+        "The ending",
+        [
+          "The school location",
+          "The ending",
+          "Their homework",
+          "Their dentist"
+        ]
+      ],
+      [
+        "What did Nina make?",
+        "A photocopy of the plan",
+        [
+          "A photocopy of the plan",
+          "Coffee for the visitors",
+          "An appointment",
+          "A photo of a dog"
+        ]
+      ],
+      [
+        "When do they plan to show the video?",
+        "Friday",
+        [
+          "Monday",
+          "Tuesday",
+          "Friday",
+          "Sunday"
+        ]
+      ],
+      [
+        "Why did the group briefly stop recording?",
+        "Children were making noise",
+        [
+          "The camera broke",
+          "Children were making noise",
+          "Ben missed the bus",
+          "Nina lost the plan"
+        ]
+      ],
+      [
+        "How long will the film last?",
+        "Eight minutes",
+        [
+          "Five minutes",
+          "Sixteen minutes",
+          "Eight minutes",
+          "Ten minutes"
+        ]
+      ]
+    ],
+    "tfng": [
+      [
+        "Ben made a mistake in the script.",
+        "True",
+        "Ben corrected a mistake in the first version of the script."
+      ],
+      [
+        "The group decided on the ending on Tuesday.",
+        "False",
+        "They still need to make that decision today."
+      ],
+      [
+        "Nina owns a professional video camera.",
+        "Not Given",
+        "The passage gives no details about Nina’s camera or ownership."
+      ],
+      [
+        "Children made a lot of noise during filming.",
+        "True",
+        "The third paragraph confirms this."
+      ],
+      [
+        "The film will be ten minutes long.",
+        "False",
+        "It will last eight minutes."
+      ],
+      [
+        "The class presentation will allow questions from visitors.",
+        "True",
+        "The final paragraph explicitly mentions questions afterwards."
+      ]
+    ]
+  },
+  {
+    "id": "feelings",
+    "title": "Preparing for the School Show",
+    "genre": "IELTS-style · narrative and inference",
+    "passage": "Sara was preparing for the school show when she received two messages on her phone. The first was good news: her teacher had accepted her application to sing in the final performance. The news made Sara happy because she had wanted to join the show for months. The second message was about a delay in rehearsal. It made her brother angry, as he had already arranged to collect her from school at five o'clock.\n\nLater that evening, Sara watched a sad film with her family. One scene made their mother cry. Her father then told a funny joke, and the joke made everyone laugh. Sara began to notice how strongly ordinary events could affect people's feelings. A gentle walk through the park helped her calm down, and the exercise made her feel relaxed. She finds that regular exercise makes her feel better when she is worried about schoolwork.\n\nAt school the next morning, the teacher made the class practise again because several students had forgotten their lines. The teacher explained that another practice session was not a punishment. It was a chance to make the final performance easier for everyone. Sara and her friends made a short video of their rehearsal so they could watch their movements and notice mistakes.\n\nBefore the end of the day, Sara made a decision to join the show even though she was still nervous. She plans to practise for a few minutes after school each day. No one has announced the final audience size, and the school has not yet published the ticket prices. Sara believes that working with her classmates will make the experience more enjoyable.\n\nBefore the performance, Sara also helped the music teacher make photocopies of the song sheets. A new student asked whether a difficult show could still be enjoyable. Sara explained that practising with friends sometimes made her nervous, but she felt more confident each time they learned a scene together. At home, she wrote three English sentences about the experience in her notebook, hoping to use them in her next speaking lesson.",
+    "qa": [
+      [
+        "How did the first news make Sara feel?",
+        "Happy",
+        [
+          "Angry",
+          "Happy",
+          "Tired",
+          "Sad"
+        ]
+      ],
+      [
+        "What made their mother cry?",
+        "A sad film",
+        [
+          "A joke",
+          "A sad film",
+          "Homework",
+          "A video call"
+        ]
+      ],
+      [
+        "What made everyone laugh?",
+        "A funny joke",
+        [
+          "A loud noise",
+          "A funny joke",
+          "An appointment",
+          "A decision"
+        ]
+      ],
+      [
+        "What makes Sara feel better when worried?",
+        "Regular exercise",
+        [
+          "A film",
+          "A message",
+          "Regular exercise",
+          "An exam"
+        ]
+      ],
+      [
+        "Who made the class practise again?",
+        "Their teacher",
+        [
+          "Sara",
+          "Their teacher",
+          "Sara’s brother",
+          "A doctor"
+        ]
+      ],
+      [
+        "Why did the class practise again?",
+        "Some students forgot their lines",
+        [
+          "The hall was locked",
+          "Some students forgot their lines",
+          "Sara did not like the music",
+          "The show was cancelled"
+        ]
+      ],
+      [
+        "What did students make to review their movements?",
+        "A short video",
+        [
+          "A photocopy",
+          "A short video",
+          "A hot dinner",
+          "A timetable for the bus"
+        ]
+      ]
+    ],
+    "tfng": [
+      [
+        "A funny joke made everyone laugh.",
+        "True",
+        "The second paragraph says the joke made everyone laugh."
+      ],
+      [
+        "The good news made Sara angry.",
+        "False",
+        "The first message made Sara happy."
+      ],
+      [
+        "Sara exercises every Monday.",
+        "Not Given",
+        "Regular exercise is mentioned but no Monday schedule is provided."
+      ],
+      [
+        "Their teacher made the class practise again.",
+        "True",
+        "This is explicit in the third paragraph."
+      ],
+      [
+        "Sara decided not to join the show.",
+        "False",
+        "She decided to join it."
+      ],
+      [
+        "The school has already published ticket prices.",
+        "False",
+        "It has not yet published them."
+      ]
+    ]
+  },
+  {
+    "id": "family",
+    "title": "Planning a Family Weekend",
+    "genre": "TOEIC Part 7 · household plan",
+    "passage": "On Saturday morning, Emma's family had a busy schedule. Her father did the housework while her mother made dinner early because they were expecting visitors in the evening. Emma made her bed, opened the curtains and did an English exercise at her desk. Her younger brother wanted to play a game, but their mother asked him to finish his homework first.\n\nAt ten o'clock, Dad made an appointment with the dentist for Tuesday. He had been trying to find a suitable time for several days. Emma wrote the appointment on a calendar in the kitchen so no one would forget it. She is going to take an English exam next month, and she hopes to make a study plan with a friend before the end of the week.\n\nAfter lunch, the family talked about visiting Emma's grandparents. Her parents compared the train timetable with the cost of driving and made a decision to visit them the following Sunday. Emma made tea for everyone while they talked. Her brother was playing with a toy car and made a loud noise, so Dad asked him to move into another room.\n\nThat evening, Emma helped make dinner, and her father took a photo of the family table. Her mother made a short video for the grandparents, who live in another town. They did not send the video immediately because the internet connection was slow. The family has not decided whether to stay with the grandparents overnight. Emma says the best part of the weekend was working together without arguing.",
+    "qa": [
+      [
+        "What did Dad do on Saturday morning?",
+        "Housework",
+        [
+          "An exam",
+          "Housework",
+          "A film",
+          "Breakfast"
+        ]
+      ],
+      [
+        "Who made dinner early?",
+        "Mum",
+        [
+          "Emma",
+          "Dad",
+          "Mum",
+          "A teacher"
+        ]
+      ],
+      [
+        "When is the dentist appointment?",
+        "Tuesday",
+        [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Friday"
+        ]
+      ],
+      [
+        "When will Emma take an exam?",
+        "Next month",
+        [
+          "Yesterday",
+          "Tuesday",
+          "Next month",
+          "Tomorrow"
+        ]
+      ],
+      [
+        "What did Emma make for everyone during the discussion?",
+        "Tea",
+        [
+          "Coffee",
+          "Tea",
+          "A photocopy",
+          "A decision"
+        ]
+      ],
+      [
+        "Why did they prepare dinner early?",
+        "They expected evening visitors",
+        [
+          "They expected evening visitors",
+          "The cooker was broken",
+          "They had an early exam",
+          "They were going to the dentist"
+        ]
+      ],
+      [
+        "How did they decide to visit the grandparents?",
+        "The following Sunday",
+        [
+          "Immediately on Saturday",
+          "The following Sunday",
+          "Tuesday afternoon",
+          "Next month after the exam"
+        ]
+      ]
+    ],
+    "tfng": [
+      [
+        "Mum made dinner early on Saturday.",
+        "True",
+        "The first paragraph states this."
+      ],
+      [
+        "Dad took a photo at the dentist.",
+        "Not Given",
+        "The passage mentions a photo of the family table, not a photograph at the dentist; it does not say whether any photo was taken there."
+      ],
+      [
+        "Emma made her bed.",
+        "True",
+        "This is stated in the first paragraph."
+      ],
+      [
+        "Emma is taking an exam tomorrow.",
+        "False",
+        "Her exam is next month."
+      ],
+      [
+        "The family decided to visit grandparents.",
+        "True",
+        "They decided on a visit the following Sunday."
+      ],
+      [
+        "The family definitely plans to stay overnight.",
+        "False",
+        "They have not decided whether to stay overnight."
+      ]
+    ]
+  },
+  {
+    "id": "appointments",
+    "title": "A Health Video at Work",
+    "genre": "TOEIC Part 7 · workplace email",
+    "passage": "Tuan works in a small communications office that makes videos for local organisations. On Monday morning, he made an appointment with a doctor after he had felt tired for several days. He then made breakfast and coffee for his father before leaving home. The receptionist confirmed that the appointment would be on Wednesday afternoon, so Tuan asked his manager for permission to leave work early that day.\n\nAfter the visit, the doctor's simple advice made Tuan feel better. The doctor suggested taking short breaks from his computer and getting regular exercise. Back at work, Tuan began making a video about healthy habits. His colleague had made a mistake in the first version of the subtitles, so Tuan made a decision to check the entire video again before sending it to their client.\n\nTuan has made a film before, but he has never made a photocopy at this office because most of the documents are digital. For a team meeting, he prepared the project outline on a shared computer screen while his colleague made tea for both of them. They agreed to make a list of final changes by Thursday and deliver the completed video on Friday morning.\n\nThe client has asked for a clear, friendly message rather than technical medical details. Tuan hopes the video will make viewers feel more confident about everyday choices. The company has not provided details about the video's advertising budget or the number of people expected to watch it.",
+    "qa": [
+      [
+        "Who did Tuan make an appointment with?",
+        "A doctor",
+        [
+          "A dentist",
+          "A teacher",
+          "A doctor",
+          "A director"
+        ]
+      ],
+      [
+        "What did he make for his father?",
+        "Coffee",
+        [
+          "Tea",
+          "Dinner",
+          "Coffee",
+          "A film"
+        ]
+      ],
+      [
+        "What did he make at work?",
+        "A video",
+        [
+          "An exam",
+          "A video",
+          "A bed",
+          "A photo"
+        ]
+      ],
+      [
+        "What decision did Tuan make?",
+        "To check the video again",
+        [
+          "To sleep",
+          "To check the video again",
+          "To take an exam",
+          "To cook dinner"
+        ]
+      ],
+      [
+        "Who made tea at the team meeting?",
+        "His colleague",
+        [
+          "His father",
+          "Tuan",
+          "The doctor",
+          "His colleague"
+        ]
+      ],
+      [
+        "When will the team deliver the video?",
+        "Friday morning",
+        [
+          "Monday morning",
+          "Tuesday evening",
+          "Friday morning",
+          "Saturday afternoon"
+        ]
+      ],
+      [
+        "Why has Tuan not made photocopies at this office?",
+        "Most documents are digital",
+        [
+          "He does not know how",
+          "Most documents are digital",
+          "The office is closed",
+          "The printer was sold"
+        ]
+      ]
+    ],
+    "tfng": [
+      [
+        "Tuan made an appointment on Monday.",
+        "True",
+        "The first paragraph explicitly says Monday morning."
+      ],
+      [
+        "Tuan has never made a film.",
+        "False",
+        "He has made a film before."
+      ],
+      [
+        "Tuan goes to the gym every day.",
+        "Not Given",
+        "The passage mentions general exercise advice but no gym attendance."
+      ],
+      [
+        "His colleague made a mistake.",
+        "True",
+        "The colleague made a subtitle mistake."
+      ],
+      [
+        "Tuan has made photocopies at this office.",
+        "False",
+        "The passage states he has never made a photocopy there."
+      ],
+      [
+        "The client shared the video advertising budget.",
+        "False",
+        "Budget details have not been provided."
+      ]
+    ]
+  },
+  {
+    "id": "community",
+    "title": "The Community Skills Day",
+    "genre": "IELTS-style · informational article",
+    "passage": "Every spring, a neighbourhood learning centre holds a free event called Skills Day. The purpose is to help residents share useful knowledge with one another. People do not need to be teachers to take part; they can demonstrate something they do well, such as preparing a simple meal, taking a clear photo or making a short video.\n\nThis year, volunteers had to make several decisions before the event. The main hall was being repaired, so they chose to use three smaller classrooms instead. They made a schedule with short sessions in the morning and longer workshops after lunch. A team of students made photocopies of the programme and placed them near the entrance. Another group made tea and coffee for visitors.\n\nOne workshop explained how to make a short film using an ordinary phone. Participants planned a story, practised speaking clearly and recorded a thirty-second scene. In a different classroom, visitors learned how to make an appointment online. The teacher showed them how to check the date and make sure that they had entered the correct information. A volunteer made a mistake on a sample form on purpose, asking the group to find and correct it.\n\nThe event was not entirely quiet. A music workshop made quite a lot of noise, which distracted some people in the next room. The organisers moved that workshop to a room farther from the entrance. At the end of the day, visitors completed a short feedback form. Many wrote that the friendly atmosphere made them feel relaxed. The organisers have not yet said whether next year's event will take place in the same building, or whether they will charge a small registration fee.\n\nThe centre also offered an optional feedback wall where people could write one useful thing they had learned. Some visitors mentioned the video workshop, while others said the online appointment demonstration would help them in everyday life. The organisers promised to read every comment before planning a future event. They explained that the purpose of Skills Day was not to make everyone an expert in one afternoon, but to give residents the confidence to keep learning afterwards.",
+    "qa": [
+      [
+        "What is the main purpose of Skills Day?",
+        "To help residents share knowledge",
+        [
+          "To sell expensive equipment",
+          "To help residents share knowledge",
+          "To prepare a national exam",
+          "To promote a hotel"
+        ]
+      ],
+      [
+        "Why were smaller classrooms used?",
+        "The main hall was being repaired",
+        [
+          "The centre had too few visitors",
+          "The main hall was being repaired",
+          "The event was outdoors",
+          "There were no volunteers"
+        ]
+      ],
+      [
+        "What did students make near the entrance?",
+        "Photocopies of the programme",
+        [
+          "Fresh dinner",
+          "Photocopies of the programme",
+          "A new phone",
+          "An online exam"
+        ]
+      ],
+      [
+        "What did participants record in the film workshop?",
+        "A thirty-second scene",
+        [
+          "A two-hour movie",
+          "A radio interview",
+          "A thirty-second scene",
+          "A music concert"
+        ]
+      ],
+      [
+        "Why was the music workshop moved?",
+        "It was too noisy for a nearby room",
+        [
+          "The teacher was late",
+          "It was too noisy for a nearby room",
+          "The computer broke",
+          "Participants took an exam"
+        ]
+      ],
+      [
+        "What did visitors say about the friendly atmosphere?",
+        "It made them feel relaxed",
+        [
+          "It made them angry",
+          "It made them feel relaxed",
+          "It made them cry",
+          "It made them tired"
+        ]
+      ]
+    ],
+    "tfng": [
+      [
+        "Everyone who took part had to be a qualified teacher.",
+        "False",
+        "People did not need to be teachers to take part."
+      ],
+      [
+        "Some visitors practised making an online appointment.",
+        "True",
+        "One workshop taught online appointment booking."
+      ],
+      [
+        "The event attracted more than five hundred visitors.",
+        "Not Given",
+        "No exact attendance figure is stated."
+      ],
+      [
+        "The music workshop was moved because of noise.",
+        "True",
+        "It distracted people in a nearby room."
+      ],
+      [
+        "The organisers have confirmed a registration fee for next year.",
+        "False",
+        "They have not decided whether to charge a fee."
+      ],
+      [
+        "Volunteers served both tea and coffee.",
+        "True",
+        "The second paragraph says this directly."
+      ]
+    ]
+  }
+];
+
+    const sentenceCompletions = {
+      'make': 'I _____ something new whenever I have time.',
+      'made': 'Yesterday I _____ coffee for my mother.',
+      'made-pp': 'She _____ dinner already.',
+      'make-coffee': 'Every morning I _____ before going to school.',
+      'make-tea': 'Can you _____ for our guests?',
+      'make-breakfast': 'I usually _____ for my sister on Sundays.',
+      'make-dinner': 'In the evening, I _____ for my family.',
+      'make-film': 'Our class would like to _____ together.',
+      'make-video': 'I want to _____ about my hometown.',
+      'make-photocopy': 'Please _____ of this page for me.',
+      'make-mistake': 'If I am not careful, I can _____ in the test.',
+      'make-bed': 'When I wake up, I always _____ before breakfast.',
+      'make-appointment': 'Before I see the dentist, I must _____.',
+      'make-noise': 'Please do not _____ when the baby is asleep.',
+      'make-decision': 'We must _____ before tomorrow.',
+      'make-happy': 'A kind word can _____ when they are sad.',
+      'make-angry': 'Loud shouting can _____ during a meeting.',
+      'make-sad': 'Bad news can _____ sometimes.',
+      'make-feel-relaxed': 'Quiet music can _____ after a busy day.',
+      'make-feel-better': 'A walk outside can _____ when they feel sad.',
+      'make-cry': 'A sad story can _____ sometimes.',
+      'make-laugh': 'A funny joke can _____.',
+      'make-practise': 'A good teacher may _____ every day.',
+      'do-homework': 'After school I must _____ before playing games.',
+      'do-housework': 'At the weekend I often _____ with my family.',
+      'take-photo': 'When I see a beautiful view, I want to _____.',
+      'take-exam': 'I will _____ in English next week.'
+    };
+    function rotateAlternatives(correct, pool, offset, cap) {
+      const seen = [correct];
+      const alternatives = pool.filter(function(value) { return value !== correct && !seen.includes(value); });
+      const start = offset % Math.max(1, alternatives.length);
+      for (let i=0; i<alternatives.length && seen.length<cap; i++) seen.push(alternatives[(start+i)%alternatives.length]);
+      return seen.slice(1).concat([correct]); // correct is last before shuffle
+    }
+    function shiftOptions(list, index) {
+      const rotation = index % list.length;
+      return list.slice(rotation).concat(list.slice(0,rotation));
+    }
+    function addMorePractice() {
+      const termPool = vocab.map(function(v) { return v.word; });
+      vocab.forEach(function(v, i) {
+        const alternates = vocab.filter(function(other) { return other.id !== v.id && other.group === v.group; }).map(function(other) { return other.meaning; });
+        const extras = vocab.filter(function(other) { return other.id !== v.id && other.group !== v.group; }).map(function(other) { return other.meaning; });
+        const meaningOptions = shiftOptions([v.meaning].concat(alternates.slice(0,2),extras.slice(0,3)).slice(0,4),i);
+        practiceQuestions.push({id:'x-meaning-'+v.id, type:'multiple-choice',category:v.group,difficulty:1,focus:v.id, prompt:'Nghĩa đúng của “'+v.word+'” là gì?',options:meaningOptions,answer:v.meaning, explanation:v.word+' — '+v.meaning+'. '+v.example});
+        practiceQuestions.push({id:'x-translate-'+v.id,type:'word-bank',category:v.group,difficulty:1,focus:v.id,prompt:'Chọn cụm tiếng Anh cho nghĩa: '+v.meaning,
+          bank:shiftOptions([v.word].concat(termPool.filter(function(term){return term!==v.word;}).slice((i*3)%Math.max(1,termPool.length-4),(i*3)%Math.max(1,termPool.length-4)+4)).slice(0,5),i),answer:v.word,explanation:v.chunk+'. '+v.example});
+        practiceQuestions.push({id:'x-fill-'+v.id,type:'fill-blank',category:v.group,difficulty:2,focus:v.id, prompt:'Hoàn thiện câu: '+sentenceCompletions[v.id],answer:({
+          'make-bed':['make the bed','make my bed'],
+          'make-coffee':['make coffee','make some coffee'],
+          'make-tea':['make tea','make some tea'],
+          'make-mistake':['make a mistake','make mistakes'],
+          'do-homework':['do homework','do my homework'],
+          'do-housework':['do housework','do the housework'],
+          'take-photo':['take a photo','take a picture'],
+          'make-noise':['make a noise','make noise']
+        }[v.id]||v.word),explanation:v.example+' · '+v.meaning});
+        const words=v.example.replace(/\u2019/g,"'").split(/\s+/).filter(Boolean);
+        if(words.length>=4){
+          const shuffled=shiftOptions(words.slice().reverse(),i+1);
+          practiceQuestions.push({id:'x-order-'+v.id,type:'sentence-order',category:v.group,difficulty:2,focus:v.id,prompt:'Sắp xếp câu diễn đạt: '+v.meaning,tokens:shuffled,answer:words,explanation:'Câu mẫu: '+v.example});
+        }
+      });
+      const picturable=vocab.filter(function(v){return v.group!=='form';});
+      picturable.forEach(function(v,i){
+        const other=picturable.filter(function(o){return o.word!==v.word && o.group===v.group;}).map(function(o){return o.word;});
+        const fallback=picturable.filter(function(o){return o.word!==v.word && o.group!==v.group;}).map(function(o){return o.word;});
+        const options=shiftOptions([v.word].concat(other.slice(0,2),fallback.slice(0,3)).slice(0,4),i+2);
+        practiceQuestions.push({id:'x-pic-'+v.id,type:'image-choice',category:v.group,difficulty:1,focus:v.id,image:v.image,prompt:'Quan sát tranh và chọn cụm phù hợp nhất.',options:options,answer:v.word,explanation:v.example+' — '+v.meaning});
+      });
+      for(let i=0;i<vocab.length;i+=4) {
+        const set=vocab.slice(i,i+4);
+        practiceQuestions.push({id:'x-match-'+i,type:'matching',category:'recall',difficulty:2,prompt:'Ghép 4 cụm từ với 4 nghĩa chính xác.',pairs:set.map(function(v){return {left:v.word,right:v.meaning};}), explanation:set.map(function(v){return v.word+' = '+v.meaning;}).join(' · ')});
+      }
+      for(let i=0;i<picturable.length;i+=3) {
+        const set=picturable.slice(i,i+3);
+        practiceQuestions.push({id:'x-image-group-'+i,type:'image-match',category:'recall',difficulty:2,prompt:'Ghép tất cả tranh với cụm tiếng Anh.',items:set.map(function(v){return {image:v.image,answer:v.word};}), options:shiftOptions(set.map(function(v){return v.word;}),i),explanation:set.map(function(v){return v.word+' = '+v.meaning;}).join(' · ')});
+      }
+      // Full-word coverage in the text-based multi-blank format: one blank for every item.
+      for(let i=0;i<vocab.length;i+=5) {
+        const set=vocab.slice(i,i+5);
+        practiceQuestions.push({id:'x-recall-'+i,type:'multi-fill',category:'recall',difficulty:3,focus:set.map(function(v){return v.id;}),prompt:'Gõ tiếng Anh theo nghĩa tiếng Việt (trọn nhóm).',items:set.map(function(v){return {text:v.meaning,answer:v.word};}),explanation:set.map(function(v){return v.word+' = '+v.meaning;}).join('; ')});
+      }
+      const clozeTexts = [
+  {
+    "id": "daily",
+    "title": "Morning Routine and Study Notice",
+    "genre": "TOEIC Part 6 · newsletter",
+    "passage": "Hello, everyone,\n\nThe student support team is preparing a small guide about studying before school. A simple morning routine can make the start of your day much easier. For example, I usually [1] as soon as I get up. Then I open the window and help my younger sister prepare breakfast. I prefer tea, but she likes coffee, so I normally [2] for myself and leave the coffee to her.\n\nYesterday, I was late for my first lesson because I could not find my bus card. My sister [3] for our parents while I searched the kitchen. At the bus stop, I realised that I had [4]: the card was in my jacket pocket all the time! Fortunately, I still arrived before the teacher started speaking.\n\nThe guide also recommends preparing your school bag in the evening. Put your books and pens together, check tomorrow's timetable and decide when you will study. Tonight I must [5], but after that I plan to take a short walk. I hope these small changes will make my mornings calmer.\n\nIf you have another helpful routine, please send it to the student support team by Thursday. We may include it in next month's guide.",
+    "blanks": [
+      [
+        "make my bed",
+        "make my bed",
+        "do my bed",
+        "take my bed",
+        "made my bed"
+      ],
+      [
+        "make tea",
+        "make tea",
+        "do tea",
+        "take tea",
+        "make an exam"
+      ],
+      [
+        "made breakfast",
+        "made breakfast",
+        "did breakfast",
+        "took breakfast",
+        "makes breakfast"
+      ],
+      [
+        "made a mistake",
+        "made a mistake",
+        "did a mistake",
+        "took a mistake",
+        "make a mistake"
+      ],
+      [
+        "do my homework",
+        "do my homework",
+        "make my homework",
+        "take my homework",
+        "do a mistake"
+      ]
+    ]
+  },
+  {
+    "id": "media",
+    "title": "Preparing the Class Film Festival",
+    "genre": "TOEIC Part 6 · project email",
+    "passage": "To: Media Club\nSubject: Film Festival Preparation\n\nThank you for volunteering for next week's student film festival. Our main aim is to show what young people can create with simple equipment and careful planning. First, our group would like to [1] about local food. The film will introduce two family restaurants and explain why their recipes are important to the neighbourhood.\n\nWe are meeting on Tuesday to review the plan. Please arrive ten minutes early and bring your notes. Our secretary will [2] of the programme so everyone has the same information. During this meeting, we must [3] about the ending of the film. One possibility is to interview the restaurant owners; another is to finish with a short message from local students.\n\nThe library has offered us a quiet room for recording. Please do not [4] in the corridor because people will be studying nearby. After the recording session, the editor will check the sound, and the rest of the group will review the subtitles. We will then [5] that shows how we worked together during the project.\n\nI will send the final schedule on Thursday. If you have any questions about equipment, contact the media club before the library closes. Thank you again for your time and ideas.",
+    "blanks": [
+      [
+        "make a film",
+        "make a film",
+        "take a film",
+        "do a film",
+        "make a decision"
+      ],
+      [
+        "make a photocopy",
+        "make a photocopy",
+        "take a photocopy",
+        "do a photocopy",
+        "make tea"
+      ],
+      [
+        "make a decision",
+        "make a decision",
+        "do a decision",
+        "make homework",
+        "make a noise"
+      ],
+      [
+        "make a noise",
+        "make a noise",
+        "do a noise",
+        "take a noise",
+        "do homework"
+      ],
+      [
+        "make a video",
+        "make a video",
+        "take a video",
+        "do a video",
+        "make dinner"
+      ]
+    ]
+  },
+  {
+    "id": "family",
+    "title": "Family Visit Arrangements",
+    "genre": "TOEIC Part 6 · email",
+    "passage": "Dear Aunt Helen,\n\nWe are looking forward to your visit this Sunday. I wanted to explain our family plans so you can decide what time to arrive. In the morning, I usually [1] before anybody else gets up. My father [2] in the kitchen and living room while the rest of us organise the bedrooms. My mother [3] for everyone, and we normally eat together at one o'clock.\n\nI also need to visit the dentist soon. I forgot to call last week, so tomorrow I will [4] with the receptionist. I hope the appointment will be early in the day because I want to be home when you arrive. My brother is excited about seeing you. He has bought a new phone and wants to [5] of the whole family in the garden.\n\nWe have two other ideas for the afternoon. If the weather is good, we can walk by the river. If it rains, we can watch a short film that my classmates made for school. Either way, I will make tea when we return home. Please tell us whether you would prefer tea or coffee and if you have any food allergies.\n\nBest wishes,\nEmma",
+    "blanks": [
+      [
+        "make tea",
+        "make tea",
+        "do tea",
+        "take tea",
+        "make an exam"
+      ],
+      [
+        "does housework",
+        "does housework",
+        "makes housework",
+        "takes housework",
+        "made housework"
+      ],
+      [
+        "makes dinner",
+        "makes dinner",
+        "does dinner",
+        "takes dinner",
+        "take a photo"
+      ],
+      [
+        "make an appointment",
+        "make an appointment",
+        "do an appointment",
+        "take an appointment",
+        "make an exercise"
+      ],
+      [
+        "take a photo",
+        "take a photo",
+        "make a photo",
+        "do a photo",
+        "make a film"
+      ]
+    ]
+  },
+  {
+    "id": "emotion",
+    "title": "School Well-being Programme",
+    "genre": "IELTS-style · informational text",
+    "passage": "Many schools now include simple activities that help students talk about feelings. One useful activity is listening to music for a few minutes before a difficult lesson. In my class, quiet music [1]. It does not solve every problem, but it gives us a chance to prepare ourselves.\n\nWe also share good news at the start of the week. Last Monday, my teacher told us that our class had reached its reading goal. The message [2] because everyone had worked hard. Later that day, we watched a short story about a lost dog finding its family. One sad scene [3], but the ending was positive and gave us something to discuss together.\n\nOur teacher believes that laughter can be helpful too. Yesterday, one student told a funny joke, which [4]. After school, some of us went for a walk in the park. I have noticed that regular exercise [5], especially when I have spent too many hours sitting at a desk.\n\nThe programme is still new, and teachers have asked students for feedback. Nobody expects every activity to work equally well for everyone. The important thing is to notice how you feel and choose activities that support you.",
+    "blanks": [
+      [
+        "makes me feel relaxed",
+        "makes me feel relaxed",
+        "makes me to feel relaxed",
+        "makes me feeling relaxed",
+        "does me relaxed"
+      ],
+      [
+        "made me happy",
+        "made me happy",
+        "made me to happy",
+        "did me happy",
+        "took me happy"
+      ],
+      [
+        "made me cry",
+        "made me cry",
+        "made me to cry",
+        "took me cry",
+        "made me crying"
+      ],
+      [
+        "made us laugh",
+        "made us laugh",
+        "made us to laugh",
+        "did us laugh",
+        "made us laughing"
+      ],
+      [
+        "makes me feel better",
+        "makes me feel better",
+        "makes me feeling better",
+        "does me feel better",
+        "made me to feel better"
+      ]
+    ]
+  },
+  {
+    "id": "school",
+    "title": "A School Drama Rehearsal",
+    "genre": "TOEIC Part 6 · announcement",
+    "passage": "Dear students,\n\nThank you for joining this year's school drama project. We know that rehearsals take time and that many of you have other responsibilities. Last week, the teacher [1] after we forgot several important lines. She explained that she wanted everyone to feel confident, not frightened, on stage.\n\nSome students were also worried about their school results. One difficult exam [2] because I had studied carefully but still found several questions confusing. My friend received upsetting news about her own result, and the message [3]. We spoke to the teacher, who reminded us that one result does not describe all our abilities.\n\nThis afternoon, our class will [4] together before rehearsing the final scene. It should help us practise important English instructions for the performance. Next week we will [5] in our English course, so the teacher has suggested a short revision meeting on Wednesday.\n\nPlease bring your scripts, notebooks and a bottle of water to Thursday's rehearsal. We will make a video of the last performance and share it with students who cannot attend. If you need to change your attendance plans, make an appointment to speak with the teacher before the end of the week.",
+    "blanks": [
+      [
+        "made us practise",
+        "made us practise",
+        "made us to practise",
+        "did us practise",
+        "made us practising"
+      ],
+      [
+        "made me angry",
+        "made me angry",
+        "did me angry",
+        "made me to angry",
+        "made me anger"
+      ],
+      [
+        "made her sad",
+        "made her sad",
+        "made her to sad",
+        "did her sad",
+        "took her sad"
+      ],
+      [
+        "do an exercise",
+        "do an exercise",
+        "make an exercise",
+        "take a noise",
+        "do a mistake"
+      ],
+      [
+        "take an exam",
+        "take an exam",
+        "make an exam",
+        "make a photo",
+        "do a decision"
+      ]
+    ]
+  },
+  {
+    "id": "tenses",
+    "title": "A Week of Small Decisions",
+    "genre": "IELTS-style · diary extract",
+    "passage": "Some students think learning an irregular verb is simply a question of memorising three forms. I used to think so too. But when I began keeping a diary, I discovered that using a word in different situations helped me remember it. For example, I [1] breakfast for my sister every day before leaving for university.\n\nYesterday, I [2] tea for a visitor who came to our house in the afternoon. Later, my friend called because she was worried about a course. She has [3] a decision about which class to join, but she wanted to tell someone before sending the application. I listened carefully and tried to give her useful information.\n\nAt home, Mum is [4] dinner now. The smell reminds me that I promised to do the housework after finishing my notes. Tomorrow I need to [5] with the doctor for a routine consultation. Before I go to bed tonight, I will write down three new example sentences so I can review them in the morning.\n\nLooking at these short diary entries, I notice that the action of creating or preparing something appears in different tenses. The important part is not only the verb form but also the words that naturally go with it.",
+    "blanks": [
+      [
+        "make",
+        "make",
+        "made",
+        "making",
+        "maked"
+      ],
+      [
+        "made",
+        "made",
+        "make",
+        "maked",
+        "makes"
+      ],
+      [
+        "made",
+        "made",
+        "make",
+        "making",
+        "maked"
+      ],
+      [
+        "making",
+        "making",
+        "made",
+        "make",
+        "makes"
+      ],
+      [
+        "make an appointment",
+        "make an appointment",
+        "take an appointment",
+        "do an appointment",
+        "make homework"
+      ]
+    ]
+  }
+];
+      clozeTexts.forEach(function(item,i){
+        practiceQuestions.push({id:'x-cloze-'+item.id,type:'paragraph-cloze',category:'context',difficulty:3,passage:item.passage,passageTitle:item.title,passageGenre:item.genre,prompt:'['+item.genre+'] Hoàn thiện đoạn văn: chọn đáp án đúng cho từng ô [1]–[5].',blanks:item.blanks.map(function(a,j){return {label:'Ô ['+(j+1)+']',answer:a[0],options:shiftOptions(a,j+1+i)};}),explanation:'Chú ý collocation và thì của động từ; từng ô được chấm độc lập trong phần gợi ý.'});
+      });
+      practiceReadings.forEach(function(reading){
+        reading.qa.forEach(function(record,i){
+          practiceQuestions.push({id:'x-read-'+reading.id+'-'+i,type:'mini-reading',category:'context',difficulty:i>=3?3:2,passage:reading.passage,passageTitle:reading.title,passageGenre:reading.genre,prompt:'['+reading.title+'] '+record[0],options:shiftOptions(record[2],i+1),answer:record[1],explanation:'Dựa trên chi tiết có trong đoạn văn; không suy đoán ngoài thông tin đã cho.'});
+        });
+        reading.tfng.forEach(function(record,i){
+          practiceQuestions.push({id:'x-tfng-'+reading.id+'-'+i,type:'reading-tfng',category:'context',difficulty:3,passage:reading.passage,passageTitle:reading.title,passageGenre:reading.genre,prompt:'['+reading.title+'] '+record[0],answer:record[1],explanation:record[2]+' True = được xác nhận; False = đoạn văn trái ngược; Not Given = không đủ dữ kiện.'});
+        });
+      });
+      const fixItems=[
+        ['He maked breakfast yesterday.','He made breakfast yesterday.'],
+        ['My dad do coffee every morning.','My dad makes coffee every morning.'],
+        ['We make an exam next month.','We take an exam next month.'],
+        ['She make tea every evening.','She makes tea every evening.'],
+        ['They do a short film.','They make a short film.'],
+        ['I took a photocopy of the page.','I made a photocopy of the page.'],
+        ['He did a decision yesterday.','He made a decision yesterday.'],
+        ['Our teacher made us to practise.','Our teacher made us practise.'],
+        ['The film made me to cry.','The film made me cry.'],
+        ['The news made her to sad.','The news made her sad.'],
+        ['That joke made us to laugh.','That joke made us laugh.'],
+        ['The music makes me feeling relaxed.','The music makes me feel relaxed.'],
+        ['Do not do a lot of noise.','Do not make a lot of noise.'],
+        ['She has make a video.','She has made a video.'],
+        ['I make dinner yesterday.','I made dinner yesterday.'],
+        ['I do my bed every morning.','I make my bed every morning.'],
+        ['The rain made us to angry.','The rain made us angry.'],
+        ['The new medicine made me to feel better.','The new medicine made me feel better.'],
+        ['Can you make a photo of my work?','Can you take a photo of my work?'],
+        ['We made homework at school.','We did homework at school.'],
+        ['She has make an appointment.','She has made an appointment.']
+      ];
+      fixItems.forEach(function(item,i){practiceQuestions.push({id:'x-error-'+i,type:'error-correction',category:'error-correction',difficulty:2,prompt:'Tìm và sửa lỗi: '+item[0],answer:item[1],explanation:'Câu chuẩn: '+item[1]});});
+      const grammarItems=[
+        ['She made a bed yesterday. → Câu nào đúng về thì?','True','Câu có “made” là quá khứ.'],
+        ['Quá khứ của make là maked.','False','Động từ bất quy tắc là made.'],
+        ['“Make an appointment” có thể dùng để đặt lịch gặp bác sĩ.','True','appointment đi với make.'],
+        ['“Do dinner” là cách nói cơ bản tự nhiên thay cho “make dinner”.','False','Dùng make dinner.'],
+        ['Sau make + someone + verb, cần thêm “to”.','False','Dùng bare infinitive không có to.'],
+        ['“Made me happy” là cấu trúc make + object + adjective.','True','Happy là tính từ.'],
+        ['“Take a photo” là collocation tự nhiên.','True','Photo đi với take.'],
+        ['“Do homework” là collocation đúng.','True','Homework thường đi với do.'],
+        ['“Make a noise” có nghĩa là gây tiếng động.','True','Đúng.'],
+        ['Sau “has”, ta dùng “made” khi nói về make.','True','Have/has + made.'],
+        ['“Make a decision” nghĩa là đi thi.','False','Nghĩa là đưa ra quyết định.'],
+        ['“Make tea” nghĩa là pha trà.','True','Đúng.'],
+        ['“Make a photocopy” nghĩa là tạo bản photocopy.','True','Đúng.'],
+        ['“Makes me to feel better” là cấu trúc đúng.','False','Dùng makes me feel better.']
+      ];
+      grammarItems.forEach(function(item,i){practiceQuestions.push({id:'x-tf-'+i,type:'true-false',category:'form',difficulty:1,prompt:item[0],answer:item[1].toLowerCase(),explanation:item[2]});});
+      const chooseGroups=[
+        ['MAKE – những cụm đúng',['make coffee','make a mistake','make the bed','make a decision','make a photo','make homework'],['make coffee','make a mistake','make the bed','make a decision']],
+        ['DO – những cụm đúng',['do homework','do housework','do an exercise','do a decision','do coffee','do a mistake'],['do homework','do housework','do an exercise']],
+        ['TAKE – những cụm đúng',['take a photo','take an exam','take an appointment','take a mistake','take tea'],['take a photo','take an exam']],
+        ['MAKE sản phẩm',['make a film','make a video','make a photocopy','make an exam','make a photo'],['make a film','make a video','make a photocopy']],
+        ['MAKE đồ ăn và đồ uống',['make coffee','make tea','make breakfast','make dinner','do dinner','take coffee'],['make coffee','make tea','make breakfast','make dinner']],
+        ['MAKE cảm xúc',['make someone happy','make someone angry','make someone sad','make someone feel relaxed','make homework'],['make someone happy','make someone angry','make someone sad','make someone feel relaxed']],
+        ['MAKE + V nguyên thể',['make someone cry','make someone laugh','make someone practise','make someone to cry','make someone to laugh'],['make someone cry','make someone laugh','make someone practise']]
+      ];
+      chooseGroups.forEach(function(item,i){practiceQuestions.push({id:'x-select-'+i,type:'select-all',category:'recall',difficulty:2,prompt:'Chọn TẤT CẢ: '+item[0],options:item[1],answer:item[2],explanation:'Đáp án: '+item[2].join('; ')});});
+      const categoriesSets=[
+        ['make / do / take', ['make','do','take'],['coffee|make','tea|make','dinner|make','breakfast|make','homework|do','housework|do','a photo|take','an exam|take']],
+        ['make / do / take (tiếp)', ['make','do','take'],['a mistake|make','the bed|make','an appointment|make','a decision|make','a noise|make','an exercise|do','some work|do','a photocopy|make']],
+        ['Bản chất nghĩa của MAKE',['food','product','result'],['make tea|food','make dinner|food','make a film|product','make a video|product','make a photocopy|product','make a decision|result','make a mistake|result','make an appointment|result']],
+        ['make + adjective / feel + adjective / verb',['adjective','feel + adjective','verb'],['made me happy|adjective','made her sad|adjective','made us angry|adjective','makes me feel relaxed|feel + adjective','makes me feel better|feel + adjective','made me cry|verb','made us laugh|verb','made us practise|verb']]
+      ];
+      categoriesSets.forEach(function(g,i){practiceQuestions.push({id:'x-category-'+i,type:'categorization',category:'recall',difficulty:3,prompt:'Phân loại: '+g[0],categories:g[1],items:g[2].map(function(v){const a=v.split('|');return {text:a[0],answer:a[1]};}),explanation:'Phân loại theo nghĩa/cấu trúc đã học trong bài.'});});
+      // Open-ended practice is not automatically marked correct: learner self-checks against a rubric.
+      ['Buổi sáng dùng make coffee, make tea, make breakfast và make the bed.',
+       'Một bài học có make a mistake, do homework, take an exam.',
+       'Một dự án lớp học có make a film, make a video, make a photocopy.',
+       'Một cuộc hội thoại có make an appointment, make a decision, make a noise.',
+       'Một câu chuyện có made me happy, made her sad, made me angry.',
+       'Một kỷ niệm có made me cry, made me laugh và made us practise.'].forEach(function(prompt,i){
+        practiceQuestions.push({id:'x-write-'+i,type:'production',category:'production',difficulty:3,prompt:'Viết 3–5 câu về: '+prompt,rubric:['Đã sử dụng đủ các collocation được yêu cầu.','Đúng thì và trật tự make + someone + adjective / verb.','Không sử dụng sai make, do hoặc take.'],explanation:'Bài tự viết cần tự đánh giá; máy không thể xác nhận mọi câu tự do.'});
+      });
+    }
+    addMorePractice();
 
     const testQuestions = [
       // Câu hỏi ôn tập (mục 14)
@@ -930,7 +2068,7 @@
       { id: 't08', type: 'image-choice', category: 'create', difficulty: 1, prompt: 'Which phrase matches the picture?', image: 'make-breakfast.png', options: ['make breakfast', 'do breakfast', 'take breakfast', 'make a photocopy'], answer: 'make breakfast', explanation: 'Chuẩn bị bữa sáng = make breakfast.' },
       { id: 't09', type: 'true-false', category: 'contrast', difficulty: 1, prompt: '“Can you make a photo of us?” là câu tự nhiên.', answer: 'false', explanation: 'Dùng take a photo.' },
       { id: 't10', type: 'multi-fill', category: 'contrast', difficulty: 2, prompt: 'Complete with make, do or take.', items: [{ text: '___ a decision', answer: 'make' }, { text: '___ housework', answer: 'do' }, { text: '___ an exam', answer: 'take' }, { text: '___ an appointment', answer: 'make' }, { text: '___ a film', answer: 'make' }], explanation: 'MAKE a decision / an appointment / a film · DO housework · TAKE an exam.' },
-      { id: 't11', type: 'mini-reading', category: 'context', difficulty: 2, passage: 'Tom makes breakfast for his family every Sunday. Yesterday he made a big mistake: he put salt in the coffee! Everyone laughed. After breakfast, Tom did the housework and took a photo of the clean kitchen.', prompt: 'What mistake did Tom make yesterday?', options: ['He put salt in the coffee.', 'He took a bad photo.', 'He didn’t do the housework.', 'He made an appointment.'], answer: 'He put salt in the coffee.', explanation: 'He made a big mistake: he put salt in the coffee.' },
+      { id: 't11', type: 'mini-reading', category: 'context', difficulty: 2, passage: "Tom makes breakfast for his family every Sunday. He enjoys preparing simple meals because it gives everyone a reason to sit together before they start the week. Last Sunday, however, he was busy talking to his younger brother while he made coffee. He picked up the wrong container from the kitchen shelf and put salt in the coffee instead of sugar. Everyone laughed when they tasted it. Tom made a fresh pot of coffee and apologised for his mistake. His father said that small accidents happen when people try to do several things at once.\n\nAfter breakfast, Tom did the housework. His sister put away the clean plates, while Tom washed the table and made his bed. He then took a photo of the clean kitchen to send to his grandmother. In the afternoon, Tom made a short video explaining his favourite breakfast recipe. He plans to show it in English class next month. The experience reminded him to check ingredients carefully, especially when he is tired or distracted.", prompt: 'What mistake did Tom make yesterday?', options: ['He put salt in the coffee.', 'He took a bad photo.', 'He didn’t do the housework.', 'He made an appointment.'], answer: 'He put salt in the coffee.', explanation: 'He made a big mistake: he put salt in the coffee.' },
       { id: 't12', type: 'image-match', category: 'feel', difficulty: 2, prompt: 'Match each picture to the phrase.', items: [{ image: 'make-feel-relaxed.png', answer: 'make someone feel relaxed' }, { image: 'make-angry.png', answer: 'make someone angry' }, { image: 'make-laugh.png', answer: 'make someone laugh' }], options: ['make someone feel relaxed', 'make someone angry', 'make someone laugh'], explanation: 'make + someone + (feel) adjective / verb.' },
       { id: 't13', type: 'sentence-order', category: 'feel', difficulty: 2, prompt: 'Put the words in order.', tokens: ['sad', 'the news', 'her', 'made'], answer: ['the news', 'made', 'her', 'sad'], explanation: 'The news made her sad.' },
       { id: 't14', type: 'error-correction', category: 'error-correction', difficulty: 2, prompt: 'Sửa lỗi: That joke made us to laugh.', answer: ['That joke made us laugh.'], explanation: 'Bỏ to: made us laugh.' },
@@ -938,6 +2076,817 @@
       { id: 't16', type: 'fill-blank', category: 'recall', difficulty: 2, prompt: '“Tôi cần đặt lịch hẹn với nha sĩ.” → I need to ___ with the dentist.', answer: ['make an appointment'], explanation: 'make an appointment with …' },
       { id: 't17', type: 'multiple-choice', category: 'feel', difficulty: 2, prompt: 'Exercise ___ better.', options: ['makes me feel', 'makes me to feel', 'makes me feeling', 'does me feel'], answer: 'makes me feel', explanation: 'make + someone + feel + adjective.' },
       { id: 't18', type: 'matching', category: 'meaning', difficulty: 2, prompt: 'Match each phrase with its meaning.', pairs: [{ left: 'make the bed', right: 'dọn giường' }, { left: 'make a decision', right: 'đưa ra quyết định' }, { left: 'take an exam', right: 'đi thi' }], explanation: 'Học cả cụm, không dịch rời từng từ.' }
+    ];
+
+
+    const testPassages = {
+  "p6-a": {
+    "title": "Updated Training Session",
+    "genre": "TOEIC Part 6 · Email",
+    "level": "A2–B1",
+    "text": "To: All new employees\nFrom: Training Department\nSubject: Changes to Thursday's Workshop\n\nThank you for registering for our workshop on communication at work. We originally planned to meet in Room 204 on Thursday morning. However, the room is being used for a visitor meeting, so we have [1] a decision to move the workshop to the ground-floor meeting room. The date and starting time will not change.\n\nThe workshop will begin at 9:00 a.m. Please arrive by 8:45 a.m. to collect your name badge. During the first session, you will work with a partner to [2] a short video showing how to welcome a new customer. You do not need to bring a camera because the training department will provide the equipment.\n\nAfter a short break, the instructor will explain how to avoid common communication mistakes. A simple exercise may help you [3] better decisions when speaking with customers. The afternoon session will finish at 3:30 p.m., and everyone will receive a copy of the learning materials by email.\n\n[4] If you have any questions or need to change your registration, contact the training department before Wednesday at noon.\n\nWe look forward to seeing you."
+  },
+  "p6-b": {
+    "title": "Community Festival Volunteer Notice",
+    "genre": "TOEIC Part 6 · Notice",
+    "level": "A2–B1",
+    "text": "Volunteer Notice: Riverside Community Festival\n\nThe Riverside Community Festival will take place next Saturday. Last year, the event attracted many local families, and the organisers hope to provide even more activities this time. We are looking for volunteers who can help prepare food, guide visitors and keep the public areas clean.\n\nBefore the gates open at 10:00 a.m., the kitchen team will [1] tea and coffee for volunteers. The cleaning team will [2] the housework in the community centre, including sweeping floors and arranging chairs. Please remember that all volunteers must wear their name badges throughout the day.\n\nAt 11:30 a.m., a student group will show a film they have made about the history of the neighbourhood. Visitors are welcome to ask questions afterwards. We also plan to [3] a short video showing the most interesting parts of the festival.\n\nThere is one important rule for people recording in the main hall: please do not [4] a lot of noise while a workshop is taking place. If you need to speak on the phone, use the outdoor seating area.\n\nFor more information, contact the festival office by Friday afternoon."
+  },
+  "p6-c": {
+    "title": "Customer Service Follow-up",
+    "genre": "TOEIC Part 6 · Email",
+    "level": "A2–B1",
+    "text": "Dear Ms Williams,\n\nThank you for contacting Greenfield Travel yesterday. I am writing to confirm the changes to your booking. You explained that your family would prefer to leave one day later than originally planned. We have checked the available tickets and have [1] the necessary changes in our reservation system.\n\nWe have also arranged a short meeting with our travel adviser. If you would like to discuss the hotel options, please [2] an appointment using the link in your confirmation email. The meeting can take place online, so you do not need to visit our office.\n\nOur team understands that planning a trip sometimes involves difficult choices. We have included information about two hotels to help you [3] a decision. Both are close to the railway station, but only one includes breakfast in the room price.\n\n[4] The final payment must be received by Friday at 5:00 p.m. We will send your tickets when the payment has been confirmed.\n\nPlease reply if you need further assistance.\n\nKind regards,\nCustomer Service Team"
+  },
+  "p7-a": {
+    "title": "Email Exchange: A Media Workshop",
+    "genre": "TOEIC Part 7 · Email chain",
+    "level": "A2–B1",
+    "text": "From: Olivia Park, Programme Coordinator\nTo: Community Media Club\nSubject: Saturday Workshop — Final Details\n\nHello everyone,\n\nThank you for signing up for Saturday's workshop, “Make a Video, Tell a Story.” We will meet at the Westbrook Library at 9:30 a.m. The workshop was originally going to begin at ten, but the library must close an hour early for building maintenance, so we have moved the start time forward by thirty minutes.\n\nDuring the morning session, participants will learn how to plan a short film using a phone. We will begin by making a decision about the story, choosing two or three scenes and writing a few lines of dialogue. At 11:00 a.m., the group will practise recording. Please bring your own phone if possible. We have three loan phones for people who do not have one.\n\nThe library café will make tea and coffee at the break. Lunch is not included, but participants may bring their own food or visit a café on the next street. After lunch, the instructor will show how to improve sound quality and avoid common mistakes in editing. Participants can then make a short video in small teams.\n\nFrom: Daniel Reed, Participant\nTo: Olivia Park\nSubject: Re: Saturday Workshop — Final Details\n\nHi Olivia,\n\nI am looking forward to the workshop. I have a question about my younger sister, Amy. She wants to join but cannot arrive until 11:15 a.m. because she has an exam at school. Would she still be able to take part in the afternoon project? She has already made a film for her science class, so she understands the basics. Also, is there a printer available if we need to make photocopies of our scripts?\n\nFrom: Olivia Park\nTo: Daniel Reed\nSubject: Re: Saturday Workshop — Final Details\n\nHi Daniel,\n\nAmy is welcome to join at 11:15 a.m. She can work with your group in the afternoon. We can make photocopies at the information desk, although the desk is closed from noon until 12:30 p.m. There is no additional fee for printing the workshop scripts. Please tell Amy to sign in when she arrives.\n\nSee you on Saturday!"
+  },
+  "p7-b": {
+    "title": "Notice and Report: Office Well-being Week",
+    "genre": "TOEIC Part 7 · Announcement and report",
+    "level": "A2–B1",
+    "text": "CITYLINE SERVICES\nSTAFF ANNOUNCEMENT — WELL-BEING WEEK\n\nNext month, Cityline Services will hold its first Well-being Week. Staff members are invited to try simple activities that may help them feel better during a busy working day. The programme was designed after several employees asked for more opportunities to take short breaks and learn new skills. Participation is free, and managers have agreed that employees may attend one activity during normal working hours.\n\nMonday: Healthy Breakfast Workshop, 8:30–9:15 a.m. An instructor will show participants how to make breakfast using simple ingredients. Tea and coffee will be provided, but participants should bring a reusable cup.\n\nTuesday: Communication Practice, 12:30–1:15 p.m. The team will practise giving clear instructions. The instructor will use a short film that made several members of last year's training group laugh.\n\nWednesday: Lunch Walk, 12:15–12:45 p.m. Staff will meet near the front entrance. A short walk can make people feel relaxed, but there is no requirement to walk quickly.\n\nThursday: Make a Better Plan, 3:00–3:45 p.m. Participants will learn how to make a decision by comparing different options. They will also discuss mistakes that can happen when information is missing.\n\nFriday: Creative Video Session, 2:00–3:00 p.m. Teams will make a short video about an activity they enjoyed. Employees must ask permission before taking a photo or recording a colleague.\n\nUPDATE FROM THE ORGANISING TEAM\n\nThe Wednesday walk has been moved indoors because heavy rain is expected. Staff will now meet in the ground-floor hall for a gentle movement session. The other activities will run as planned. Registration closes at 4:00 p.m. this Friday. The team has not announced how many employees have registered so far, and no sessions will be recorded for public release.\n\nQUESTIONS FROM STAFF\n\nEmployees who cannot attend during working hours may ask their manager whether a different session is available, but no additional sessions have been confirmed. Participants do not need to bring sports clothes for the Wednesday activity. The team recommends comfortable shoes and asks staff to tell an organiser if they need a seated alternative. These arrangements are intended to make it easier for more employees to take part without interrupting important customer services."
+  },
+  "ielts-a": {
+    "title": "Small Habits and Learning New Skills",
+    "genre": "IELTS-style Reading · article",
+    "level": "A2–B1 bridge",
+    "text": "People often imagine that learning a skill requires long study sessions and expensive equipment. However, in daily life, many useful abilities can be developed through repeated, manageable actions. Someone who wants to improve their English, for example, can practise speaking for five minutes each day rather than waiting for one long lesson at the weekend. What matters is not making a perfect plan on the first day, but finding a routine that is possible to repeat.\n\nOne approach is to connect a new habit to something that already happens. A student might review three words after making breakfast, or listen to a short English recording while doing housework. The familiar activity reminds the student to begin. This can reduce the need to make a new decision every morning about when to study. It is still important, though, to choose an activity that does not require too much attention at the same time. Someone should not practise listening to difficult material while crossing a busy road.\n\nAnother approach is to make mistakes visible without treating them as failures. Learners can write down an error they made, the corrected sentence and a short explanation. They can then use the phrase in a new situation. If a learner writes “make homework,” for instance, comparing it with “do homework” can help them remember the correct expression. Making a short video of themselves speaking may also help them notice problems with pronunciation or confidence.\n\nPeople's feelings matter too. A task that is too difficult may make someone feel tired or angry, while a clear sign of improvement can make a learner happy. Teachers can support students by choosing achievable goals and encouraging them to practise regularly. Nevertheless, there is no single schedule that works for everybody. Some people study best in the morning, whereas others prefer the evening.\n\nThe overall lesson is that progress can come from small choices repeated over time. Keeping a simple record of what has been practised can show whether a routine is useful, but it does not guarantee that every learner will improve at the same speed.\n\nThe meaning of a successful study habit may also change over time. At the beginning, success might be remembering to open a notebook every day. Later, it might mean using new vocabulary naturally in conversation. A learner who can easily recognise a phrase in a book may still need time to use the same phrase without looking at notes. These are different abilities, and they may develop at different speeds. For this reason, regular review is useful even after a student understands a word for the first time.\n\nIt can also help to choose a practical goal. Instead of promising to study every grammar rule in a single week, a person might decide to make five accurate example sentences using an irregular verb. Afterwards, they can check the sentences, record the mistakes and try a new set the following day. A small goal makes it easier to notice what has improved and what still needs attention. This approach does not remove the need for difficult practice, but it gives that practice a clear purpose."
+  },
+  "ielts-b": {
+    "title": "Community Projects and Everyday Communication",
+    "genre": "IELTS-style Reading · informational report",
+    "level": "A2–B1 bridge",
+    "text": "A community project can be a useful way for people of different ages to learn from one another. In one town, a group of volunteers planned a series of free weekend events at a public learning centre. Their aim was not to produce professional artists or filmmakers. Instead, they wanted neighbours to practise everyday skills, meet new people and feel more comfortable working together.\n\nThe organisers began by asking residents what they would like to learn. Some wanted to make a short film using their phones, while others hoped to practise taking clear photographs. A smaller group asked for help with online forms, such as how to make an appointment with a local service. The organisers made a decision to offer three workshops rather than one large class, so that each activity could be taught at a suitable pace.\n\nPreparing the events required careful communication. Volunteers made photocopies of the programme for people who did not use smartphones, and a student team made a video explaining how to find the classrooms. Because the main hall was often noisy, the film workshop was moved to a room upstairs. Tea and coffee were available during breaks, but food was not provided. Participants who wanted lunch were asked to bring their own or visit nearby shops.\n\nDuring the workshops, mistakes were treated as opportunities to learn. In the online forms class, the teacher entered an incorrect date on purpose and asked participants to find the problem. In the film class, students watched their first recording and made a list of changes for a second attempt. The aim was to make people feel relaxed enough to ask questions rather than worry about producing a perfect result.\n\nAfter the final event, volunteers collected written feedback. Many participants liked the practical exercises, and several asked for another series. The organisers have not yet decided whether the programme will continue next year. They also have not published the total number of participants or the cost of running the events. Their immediate plan is to review the comments before making any new commitments.\n\nDifferent groups of people benefited from the workshops in different ways. Older participants were often interested in learning how to use online services without asking relatives for assistance. Younger volunteers enjoyed demonstrating how to film and edit short videos on ordinary phones. The organisers encouraged them to explain each step slowly and let visitors practise rather than simply watch. This made the programme more interactive and gave volunteers a chance to improve their own communication skills.\n\nThere were also practical challenges. Some people arrived late, and two borrowed phones ran out of power during a demonstration. Volunteers adjusted the order of activities and shared equipment so that nobody had to leave early. These small changes were not part of the original plan, but they showed that a community event needs flexibility as well as careful preparation. The organisers hope to use what they learned when they decide what to do next."
+  }
+};
+
+    const testExtraQuestions = [
+  {
+    "id": "ft-001",
+    "section": "p6",
+    "passageId": "p6-a",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which word completes blank [1]?",
+    "answer": "made",
+    "explanation": "The group has made a decision; past perfect with have → made.",
+    "options": [
+      "made",
+      "done",
+      "taken",
+      "making"
+    ]
+  },
+  {
+    "id": "ft-002",
+    "section": "p6",
+    "passageId": "p6-a",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which phrase completes blank [2]?",
+    "answer": "make",
+    "explanation": "To make a video means to create a video.",
+    "options": [
+      "make",
+      "do",
+      "take",
+      "made"
+    ]
+  },
+  {
+    "id": "ft-003",
+    "section": "p6",
+    "passageId": "p6-a",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which word completes blank [3]?",
+    "answer": "make",
+    "explanation": "Make better decisions is the natural collocation.",
+    "options": [
+      "make",
+      "do",
+      "take",
+      "maked"
+    ]
+  },
+  {
+    "id": "ft-004",
+    "section": "p6",
+    "passageId": "p6-a",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which sentence fits blank [4]?",
+    "answer": "Please remember to complete the feedback form after the workshop.",
+    "explanation": "This is a natural final instruction before contact information.",
+    "options": [
+      "The library has cancelled every session.",
+      "Please remember to complete the feedback form after the workshop.",
+      "The meeting began last month.",
+      "Do not bring your identification documents."
+    ]
+  },
+  {
+    "id": "ft-005",
+    "section": "p6",
+    "passageId": "p6-b",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which word completes blank [1]?",
+    "answer": "make",
+    "explanation": "Volunteers make tea and coffee.",
+    "options": [
+      "make",
+      "do",
+      "take",
+      "made"
+    ]
+  },
+  {
+    "id": "ft-006",
+    "section": "p6",
+    "passageId": "p6-b",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which word completes blank [2]?",
+    "answer": "do",
+    "explanation": "Do the housework, not make it.",
+    "options": [
+      "make",
+      "do",
+      "take",
+      "makes"
+    ]
+  },
+  {
+    "id": "ft-007",
+    "section": "p6",
+    "passageId": "p6-b",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which phrase completes blank [3]?",
+    "answer": "make",
+    "explanation": "Make a video = produce a video.",
+    "options": [
+      "make",
+      "take",
+      "do",
+      "made"
+    ]
+  },
+  {
+    "id": "ft-008",
+    "section": "p6",
+    "passageId": "p6-b",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which phrase completes blank [4]?",
+    "answer": "make",
+    "explanation": "Do not make a lot of noise is correct.",
+    "options": [
+      "take",
+      "do",
+      "make",
+      "made"
+    ]
+  },
+  {
+    "id": "ft-009",
+    "section": "p6",
+    "passageId": "p6-c",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which word completes blank [1]?",
+    "answer": "made",
+    "explanation": "Have made the necessary changes in a reservation system.",
+    "options": [
+      "done",
+      "taken",
+      "made",
+      "making"
+    ]
+  },
+  {
+    "id": "ft-010",
+    "section": "p6",
+    "passageId": "p6-c",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which word completes blank [2]?",
+    "answer": "make",
+    "explanation": "Make an appointment for a meeting.",
+    "options": [
+      "take",
+      "make",
+      "do",
+      "making"
+    ]
+  },
+  {
+    "id": "ft-011",
+    "section": "p6",
+    "passageId": "p6-c",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which word completes blank [3]?",
+    "answer": "make",
+    "explanation": "Make a decision after comparing options.",
+    "options": [
+      "do",
+      "take",
+      "make",
+      "made"
+    ]
+  },
+  {
+    "id": "ft-012",
+    "section": "p6",
+    "passageId": "p6-c",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "Which sentence fits blank [4]?",
+    "answer": "Please review the updated booking details carefully.",
+    "explanation": "A request to review booking details connects naturally to final payment requirements.",
+    "options": [
+      "Please review the updated booking details carefully.",
+      "There will be no payments for this booking.",
+      "The office closed permanently yesterday.",
+      "The tickets have already been mailed to your hotel."
+    ]
+  },
+  {
+    "id": "ft-013",
+    "section": "p7",
+    "passageId": "p7-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Why has the workshop starting time changed?",
+    "answer": "The library must close early",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "The instructor missed a train",
+      "The library must close early",
+      "Amy asked for a later time",
+      "The café needs more space"
+    ]
+  },
+  {
+    "id": "ft-014",
+    "section": "p7",
+    "passageId": "p7-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "At what time will the workshop begin?",
+    "answer": "9:30 a.m.",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "8:45 a.m.",
+      "9:30 a.m.",
+      "10:00 a.m.",
+      "11:00 a.m."
+    ]
+  },
+  {
+    "id": "ft-015",
+    "section": "p7",
+    "passageId": "p7-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What should participants bring if possible?",
+    "answer": "Their own phones",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "A large camera",
+      "Their own phones",
+      "Printed photographs",
+      "A laptop computer"
+    ]
+  },
+  {
+    "id": "ft-016",
+    "section": "p7",
+    "passageId": "p7-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What is NOT included in the workshop?",
+    "answer": "Lunch",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "Tea and coffee",
+      "Loan phones",
+      "Lunch",
+      "Script photocopies"
+    ]
+  },
+  {
+    "id": "ft-017",
+    "section": "p7",
+    "passageId": "p7-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "When will Amy arrive?",
+    "answer": "11:15 a.m.",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "9:00 a.m.",
+      "10:15 a.m.",
+      "11:15 a.m.",
+      "12:30 p.m."
+    ]
+  },
+  {
+    "id": "ft-018",
+    "section": "p7",
+    "passageId": "p7-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "When is the information desk closed?",
+    "answer": "From noon until 12:30 p.m.",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "From 9:30 to 10:00 a.m.",
+      "From noon until 12:30 p.m.",
+      "From 11:00 to 11:30 a.m.",
+      "All Saturday"
+    ]
+  },
+  {
+    "id": "ft-019",
+    "section": "p7",
+    "passageId": "p7-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What can be inferred about Amy?",
+    "answer": "She already has some filmmaking experience",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "She is the course instructor",
+      "She already has some filmmaking experience",
+      "She works at the library",
+      "She is studying for a medical exam"
+    ]
+  },
+  {
+    "id": "ft-020",
+    "section": "p7",
+    "passageId": "p7-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Why did Cityline Services create Well-being Week?",
+    "answer": "Employees requested more breaks and skills",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "The company is moving offices",
+      "Employees requested more breaks and skills",
+      "Managers wanted longer hours",
+      "The café has closed"
+    ]
+  },
+  {
+    "id": "ft-021",
+    "section": "p7",
+    "passageId": "p7-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Which activity requires a reusable cup?",
+    "answer": "Healthy Breakfast Workshop",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "Healthy Breakfast Workshop",
+      "Communication Practice",
+      "Lunch Walk",
+      "Creative Video Session"
+    ]
+  },
+  {
+    "id": "ft-022",
+    "section": "p7",
+    "passageId": "p7-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "When is the communication session?",
+    "answer": "Tuesday at 12:30 p.m.",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "Monday at 8:30 a.m.",
+      "Tuesday at 12:30 p.m.",
+      "Thursday at 3:00 p.m.",
+      "Friday at 2:00 p.m."
+    ]
+  },
+  {
+    "id": "ft-023",
+    "section": "p7",
+    "passageId": "p7-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Where will the Wednesday session be held after the update?",
+    "answer": "The ground-floor hall",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "The front entrance",
+      "A nearby café",
+      "The ground-floor hall",
+      "A park outside"
+    ]
+  },
+  {
+    "id": "ft-024",
+    "section": "p7",
+    "passageId": "p7-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What must employees do before recording a colleague?",
+    "answer": "Ask for permission",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "Buy a new camera",
+      "Finish their homework",
+      "Ask for permission",
+      "Make a photocopy"
+    ]
+  },
+  {
+    "id": "ft-025",
+    "section": "p7",
+    "passageId": "p7-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "When does registration close?",
+    "answer": "Friday at 4:00 p.m.",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "Wednesday at noon",
+      "Thursday at 3:45 p.m.",
+      "Friday at 4:00 p.m.",
+      "Next Monday"
+    ]
+  },
+  {
+    "id": "ft-026",
+    "section": "p7",
+    "passageId": "p7-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What has NOT been announced?",
+    "answer": "The number of registered employees",
+    "explanation": "Find the relevant detail in the announcement or email; do not use information from outside the text.",
+    "options": [
+      "The Friday activity time",
+      "The free participation policy",
+      "The number of registered employees",
+      "The indoor Wednesday location"
+    ]
+  },
+  {
+    "id": "ft-027",
+    "section": "ielts",
+    "passageId": "ielts-a",
+    "type": "reading-tfng",
+    "category": "contrast",
+    "difficulty": 3,
+    "prompt": "Linking a new habit to an existing activity can help people remember to begin.",
+    "answer": "True",
+    "explanation": "The second paragraph says the existing activity serves as a reminder."
+  },
+  {
+    "id": "ft-028",
+    "section": "ielts",
+    "passageId": "ielts-a",
+    "type": "reading-tfng",
+    "category": "contrast",
+    "difficulty": 3,
+    "prompt": "The article recommends practising difficult listening while crossing a road.",
+    "answer": "False",
+    "explanation": "The article warns against this activity."
+  },
+  {
+    "id": "ft-029",
+    "section": "ielts",
+    "passageId": "ielts-a",
+    "type": "reading-tfng",
+    "category": "contrast",
+    "difficulty": 3,
+    "prompt": "The writer measured the improvement of 200 students.",
+    "answer": "Not Given",
+    "explanation": "No study sample or measurement appears in the article."
+  },
+  {
+    "id": "ft-030",
+    "section": "ielts",
+    "passageId": "ielts-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Why are learners encouraged to record mistakes?",
+    "answer": "To see and correct patterns",
+    "options": [
+      "To avoid studying grammar",
+      "To see and correct patterns",
+      "To compare prices of textbooks",
+      "To stop speaking until perfect"
+    ],
+    "explanation": "Chọn đáp án dựa trên thông tin trong bài đọc; không suy đoán ngoài đoạn văn."
+  },
+  {
+    "id": "ft-031",
+    "section": "ielts",
+    "passageId": "ielts-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What could a learner do with a phone?",
+    "answer": "Record a short speaking video",
+    "options": [
+      "Replace all classroom lessons",
+      "Record a short speaking video",
+      "Avoid every mistake",
+      "Prove everyone learns equally fast"
+    ],
+    "explanation": "Chọn đáp án dựa trên thông tin trong bài đọc; không suy đoán ngoài đoạn văn."
+  },
+  {
+    "id": "ft-032",
+    "section": "ielts",
+    "passageId": "ielts-a",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Which statement best summarises the article?",
+    "answer": "Small, repeatable habits can support learning",
+    "options": [
+      "Everyone should study only at night",
+      "Only expensive classes can be useful",
+      "Small, repeatable habits can support learning",
+      "All learners improve at the same speed"
+    ],
+    "explanation": "Chọn đáp án dựa trên thông tin trong bài đọc; không suy đoán ngoài đoạn văn."
+  },
+  {
+    "id": "ft-033",
+    "section": "ielts",
+    "passageId": "ielts-b",
+    "type": "reading-tfng",
+    "category": "contrast",
+    "difficulty": 3,
+    "prompt": "The organisers wanted to train professional filmmakers.",
+    "answer": "False",
+    "explanation": "The first paragraph explicitly says that was not their aim."
+  },
+  {
+    "id": "ft-034",
+    "section": "ielts",
+    "passageId": "ielts-b",
+    "type": "reading-tfng",
+    "category": "contrast",
+    "difficulty": 3,
+    "prompt": "The volunteers provided photocopies for people without smartphones.",
+    "answer": "True",
+    "explanation": "This was explained in the third paragraph."
+  },
+  {
+    "id": "ft-035",
+    "section": "ielts",
+    "passageId": "ielts-b",
+    "type": "reading-tfng",
+    "category": "contrast",
+    "difficulty": 3,
+    "prompt": "More than 300 people attended the workshops.",
+    "answer": "Not Given",
+    "explanation": "No participant total has been published."
+  },
+  {
+    "id": "ft-036",
+    "section": "ielts",
+    "passageId": "ielts-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "Why did organisers choose three workshops?",
+    "answer": "Different skills needed different teaching paces",
+    "options": [
+      "The building had three floors",
+      "Different skills needed different teaching paces",
+      "All participants were children",
+      "Teachers wanted longer lunches"
+    ],
+    "explanation": "Chọn đáp án dựa trên thông tin trong bài đọc; không suy đoán ngoài đoạn văn."
+  },
+  {
+    "id": "ft-037",
+    "section": "ielts",
+    "passageId": "ielts-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What did the teacher do in the online forms class?",
+    "answer": "Entered an incorrect date deliberately",
+    "options": [
+      "Took photographs of participants",
+      "Entered an incorrect date deliberately",
+      "Cancelled the appointments",
+      "Showed a finished film"
+    ],
+    "explanation": "Chọn đáp án dựa trên thông tin trong bài đọc; không suy đoán ngoài đoạn văn."
+  },
+  {
+    "id": "ft-038",
+    "section": "ielts",
+    "passageId": "ielts-b",
+    "type": "mini-reading",
+    "category": "context",
+    "difficulty": 3,
+    "prompt": "What will the organisers do immediately next?",
+    "answer": "Review feedback from the events",
+    "options": [
+      "Charge a compulsory fee",
+      "Close the learning centre",
+      "Review feedback from the events",
+      "Publish next year’s full timetable"
+    ],
+    "explanation": "Chọn đáp án dựa trên thông tin trong bài đọc; không suy đoán ngoài đoạn văn."
+  },
+  {
+    "id": "ft-core-01",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Which sentence uses the present perfect correctly?",
+    "answer": "She has made dinner already.",
+    "options": [
+      "She has maked dinner already.",
+      "She has make dinner already.",
+      "She has made dinner already.",
+      "She had making dinner already."
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-02",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 1,
+    "prompt": "Choose the sentence with the correct collocation.",
+    "answer": "He made a photocopy of the page.",
+    "options": [
+      "He took a photocopy of the page.",
+      "He made a photocopy of the page.",
+      "He did a photocopy of the page.",
+      "He made photocopy the page."
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-03",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "feel",
+    "difficulty": 2,
+    "prompt": "Which sentence correctly describes laughter?",
+    "answer": "The joke made us laugh.",
+    "options": [
+      "The joke made us to laugh.",
+      "The joke did us laugh.",
+      "The joke made us laugh.",
+      "The joke made us laughing."
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-04",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 1,
+    "prompt": "What is the correct collocation when someone causes a loud sound?",
+    "answer": "make a noise",
+    "options": [
+      "do a noise",
+      "take a noise",
+      "make a noise",
+      "make a homework"
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-05",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "feel",
+    "difficulty": 2,
+    "prompt": "Which sentence uses make + someone + adjective correctly?",
+    "answer": "The news made her sad.",
+    "options": [
+      "The news made her to sad.",
+      "The news did her sad.",
+      "The news made her sad.",
+      "The news made sad her."
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-06",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "feel",
+    "difficulty": 2,
+    "prompt": "Complete: The teacher ___ practise the dialogue yesterday.",
+    "answer": "made us",
+    "options": [
+      "makes us to",
+      "did us",
+      "made us",
+      "takes us"
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-07",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "chunk",
+    "difficulty": 2,
+    "prompt": "What does “make a decision” mean?",
+    "answer": "Choose after considering options",
+    "options": [
+      "Repeat someone’s words",
+      "Choose after considering options",
+      "Take a picture",
+      "Complete housework"
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-08",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "form",
+    "difficulty": 1,
+    "prompt": "Which sentence uses the correct past form?",
+    "answer": "I made some tea yesterday.",
+    "options": [
+      "I maked some tea yesterday.",
+      "I making some tea yesterday.",
+      "I made some tea yesterday.",
+      "I make some tea yesterday."
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  },
+  {
+    "id": "ft-core-09",
+    "section": "foundation",
+    "type": "multiple-choice",
+    "category": "feel",
+    "difficulty": 2,
+    "prompt": "Choose the correct phrase about emotions.",
+    "answer": "Walking makes me feel relaxed.",
+    "options": [
+      "Walking makes me feeling relaxed.",
+      "Walking does me feel relaxed.",
+      "Walking makes me to feel relaxed.",
+      "Walking makes me feel relaxed."
+    ],
+    "explanation": "Review the collocation and verb structure from Lesson 06."
+  }
+];
+    testQuestions.push(...testExtraQuestions.filter(function(q){return q.section === 'foundation';}));
+    testQuestions.push(...testExtraQuestions.filter(function(q){return q.section !== 'foundation';}));
+    const testSections = [
+      {id:'foundation',title:'Part A · Vocabulary & Grammar',subtitle:'Collocations, tenses, structures, picture questions'},
+      {id:'p6',title:'Part B · TOEIC Part 6',subtitle:'3 email / notice texts, 12 multiple-choice blanks'},
+      {id:'p7',title:'Part C · TOEIC Part 7',subtitle:'2 workplace reading texts, 14 comprehension questions'},
+      {id:'ielts',title:'Part D · IELTS-style Reading',subtitle:'2 articles, 12 questions including True / False / Not Given'}
     ];
 
     const crosswordEntries = [
@@ -1111,6 +3060,10 @@
       flashIndex: 0,
       flashFlipped: false,
       practiceAnswers: {},
+      gameIndex: 0,
+      gameXP: 0,
+      gameStreak: 0,
+      gameAwarded: {},
       testAnswers: {},
       testSubmitted: false,
       testResults: [],
@@ -1142,11 +3095,20 @@
     });
 
     let state = loadProgress();
+    // Previous 18-question results are not comparable with the expanded 65-question exam.
+    // Preserve all practice, SRS and earlier answer drafts, but require a fresh final submission.
+    if (state.testSubmitted && state.testResults.length !== testQuestions.length) {
+      state.testSubmitted = false;
+      state.testResults = [];
+      state.bestScore = null;
+    }
     let activeView = 'overview';
     let vocabFilter = 'all';
     let vocabQuery = '';
     let practiceCategoryFilter = 'all';
     let practiceLevelFilter = 'all';
+    let practiceTypeFilter = 'all';
+    let gameListMode = false;
 
     function loadProgress() {
       const base = defaultState();
@@ -1161,6 +3123,7 @@
           flashKnown: saved.flashKnown || {},
           flashReview: saved.flashReview || {},
           practiceAnswers: saved.practiceAnswers || {},
+          gameAwarded: saved.gameAwarded || {},
           testAnswers: saved.testAnswers || {},
           testResults: saved.testResults || [],
           mistakes: saved.mistakes || [],
@@ -1384,6 +3347,11 @@
       if (toolbar) toolbar.innerHTML = '<input id="vocab-search" class="search" type="search" placeholder="Tìm make a mistake, nghĩa..." aria-label="Tìm từ vựng"><button type="button" class="filter-button active" data-vocab-filter="all">All</button>' + Object.keys(GROUP_LABELS).map(function(group) { return '<button type="button" class="filter-button" data-vocab-filter="' + group + '">' + escapeHtml(GROUP_LABELS[group]) + '</button>'; }).join('');
       const categoryFilter = document.getElementById('practice-category-filter');
       if (categoryFilter) categoryFilter.innerHTML = '<option value="all">All categories</option><option value="form">Form</option><option value="create">Tạo ra / chuẩn bị</option><option value="chunk">Collocations</option><option value="feel">make someone + adjective</option><option value="cause">make someone + verb</option><option value="contrast">make / do / take</option><option value="meaning">Meaning</option><option value="context">Context</option><option value="recall">Recall</option><option value="error-correction">Error correction</option><option value="production">Production</option>';
+      const typeFilter = document.getElementById('practice-type-filter');
+      if (typeFilter) {
+        const types=Array.from(new Set(practiceQuestions.map(function(q){return q.type;})));
+        typeFilter.innerHTML='<option value="all">Tất cả dạng bài ('+practiceQuestions.length+')</option>'+types.map(function(type){return '<option value="'+escapeHtml(type)+'">'+escapeHtml(questionTypeLabel(type))+' ('+practiceQuestions.filter(function(q){return q.type===type;}).length+')</option>';}).join('');
+      }
       const vocabTitle = document.getElementById('vocabulary-title');
       if (vocabTitle) vocabTitle.textContent = 'Make vocabulary: collocation + scene + example';
       const flashTitle = document.getElementById('flashcards-title');
@@ -1573,6 +3541,8 @@
         'sentence-order': 'Sắp xếp câu',
         'mini-reading': 'Đọc hiểu',
         'true-false': 'Đúng / Sai',
+        'reading-tfng': 'True / False / Not Given',
+        'paragraph-cloze': 'Hoàn thiện đoạn văn (trắc nghiệm)',
         'image-match': 'Ghép hình',
         'short-answer': 'Tự trả lời',
         'production': 'Sản xuất ngôn ngữ',
@@ -1584,7 +3554,13 @@
     }
 
     function feedbackHtml(question, response, correct) {
-      return '<strong>' + (correct ? '✓ Correct' : '✗ Incorrect') + '</strong><p><span class="feedback-label">Your answer:</span> ' + escapeHtml(response || 'No answer') + '</p><p><span class="feedback-label">Correct answer:</span> ' + escapeHtml(formatCorrectAnswer(question)) + '</p><p><span class="feedback-label">Explanation:</span> ' + escapeHtml(question.explanation || '') + '</p>';
+      let subScore = '';
+      if (question.type === 'paragraph-cloze' || question.type === 'multi-fill') {
+        const parts = question.type === 'paragraph-cloze' ? question.blanks : question.items;
+        // Display each expected blank; a multi-blank task receives one task point only when all blanks are correct.
+        subScore = '<p><span class="feedback-label">Đáp án từng ô:</span> '+parts.map(function(item,i){return '['+(i+1)+'] '+escapeHtml(Array.isArray(item.answer)?item.answer[0]:item.answer);}).join(' · ')+'</p>';
+      }
+      return '<strong>'  + (correct ? '✓ Correct' : '✗ Incorrect') + '</strong><p><span class="feedback-label">Your answer:</span> ' + escapeHtml(response || 'No answer') + '</p><p><span class="feedback-label">Correct answer:</span> ' + escapeHtml(formatCorrectAnswer(question)) + '</p><p><span class="feedback-label">Explanation:</span> ' + escapeHtml(question.explanation || '') + '</p>' + subScore;
     }
 
     function formatCorrectAnswer(question) {
@@ -1592,19 +3568,26 @@
       if (question.type === 'categorization') return question.items.map(function(item) { return item.text + ' → ' + item.answer; }).join('; ');
       if (question.type === 'sentence-order') return question.answer.join(' ');
       if (question.type === 'image-match') return question.items.map(function(item) { return item.image.replace('.png', '') + ' → ' + item.answer; }).join('; ');
+      if (question.type === 'paragraph-cloze') return question.blanks.map(function(item,index){return '['+(index+1)+'] '+item.answer;}).join('; ');
       if (question.type === 'multi-fill') return question.items.map(function(item) { return item.text + ' → ' + (Array.isArray(item.answer) ? item.answer[0] : item.answer); }).join('; ');
       if (question.type === 'select-all') return question.answer.join('; ');
       if (question.type === 'short-answer' || question.type === 'production') return question.rubric ? question.rubric.join(' ') : 'Self-check with the rubric.';
       if (question.type === 'true-false') return question.answer === 'true' ? 'True / Đúng' : 'False / Sai';
+      if (question.type === 'reading-tfng') return question.answer;
       return Array.isArray(question.answer) ? question.answer.join(' / ') : question.answer;
     }
 
     function renderQuestionInput(question, mode) {
       const suffix = mode + '-' + question.id;
       if (question.passage) {
-        var passageHtml = '<div class="reading-passage"><strong>Read:</strong> ' + escapeHtml(question.passage) + '</div>';
+        var readingHeading = question.passageTitle ? '<strong class="reading-heading">' + escapeHtml(question.passageTitle) + '</strong>' : '';
+        var readingGenre = question.passageGenre ? '<span class="reading-meta">' + escapeHtml(question.passageGenre) + '</span>' : '';
+        var passageHtml = '<div class="reading-passage">' + readingGenre + readingHeading + escapeHtml(question.passage) + '</div>';
       } else {
         var passageHtml = '';
+      }
+      if (question.type === 'paragraph-cloze') {
+        return (question.passageTitle ? '<div class="reading-passage"><span class="reading-meta">' + escapeHtml(question.passageGenre || 'TOEIC-style Part 6') + '</span><strong class="reading-heading">'+escapeHtml(question.passageTitle)+'</strong></div>' : '') + '<div class="cloze-line">'+escapeHtml(question.passage)+'</div><div class="cloze-answers">'+question.blanks.map(function(blank,i){return '<label><span>'+escapeHtml(blank.label || ('['+(i+1)+']'))+'</span><select class="answer-select" data-paragraph-select="'+i+'"><option value="">Chọn đáp án...</option>'+blank.options.map(function(option){return '<option value="'+escapeHtml(option)+'">'+escapeHtml(option)+'</option>';}).join('')+'</select></label>';}).join('')+'</div>';
       }
       if (question.type === 'image-choice') {
         const image = '<div class="card" style="padding:.55rem;margin-bottom:.7rem;max-width:260px"><img src="' + IMAGE_ROOT + escapeHtml(question.image) + '" alt="Minh họa cho câu hỏi" width="512" height="512"></div>';
@@ -1612,8 +3595,8 @@
           return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(option) + '</span></label>';
         }).join('') + '</div>';
       }
-      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false') {
-        const options = question.type === 'true-false' ? ['true', 'false'] : question.options;
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'reading-tfng') {
+        const options = question.type === 'true-false' ? ['true', 'false'] : question.type === 'reading-tfng' ? ['True', 'False', 'Not Given'] : question.options;
         return passageHtml + '<div class="option-list">' + options.map(function(option) {
           return '<label class="option-label"><input type="radio" name="' + suffix + '" value="' + escapeHtml(option) + '"><span>' + escapeHtml(question.type === 'true-false' ? (option === 'true' ? 'True / Đúng' : 'False / Sai') : option) + '</span></label>';
         }).join('') + '</div>';
@@ -1668,13 +3651,59 @@
       return practiceQuestions.filter(function(question) {
         const categoryOk = practiceCategoryFilter === 'all' || question.category === practiceCategoryFilter;
         const levelOk = practiceLevelFilter === 'all' || String(question.difficulty) === practiceLevelFilter;
-        return categoryOk && levelOk;
+        const typeOk = practiceTypeFilter === 'all' || question.type === practiceTypeFilter;
+        return categoryOk && levelOk && typeOk;
       });
+    }
+
+
+    function updateGameHUD() {
+      const pool = getVisiblePracticeQuestions();
+      const done = pool.filter(function(q){return state.practiceAnswers[q.id] && state.practiceAnswers[q.id].submitted;});
+      const right = done.filter(function(q){return state.practiceAnswers[q.id].correct===true;});
+      const percent = pool.length ? Math.round(done.length/pool.length*100) : 0;
+      const active = pool[state.gameIndex || 0];
+      const hud = document.getElementById('game-hud');
+      if(!hud) return;
+      hud.classList.toggle('list-mode',gameListMode);
+      document.getElementById('game-stage').textContent = gameListMode ? 'Chế độ danh sách · '+pool.length+' task' : 'Thử thách '+(pool.length ? (state.gameIndex || 0)+1 : 0)+' / '+pool.length;
+      document.getElementById('game-subtitle').textContent = gameListMode ? 'Xem, kiểm tra và ôn lại tất cả các câu.' : active ? questionTypeLabel(active.type)+' · '+(state.practiceAnswers[active.id]&&state.practiceAnswers[active.id].submitted?'Đã ghi nhận đáp án':'Sẵn sàng chơi') : 'Không có câu hỏi trong bộ lọc.';
+      document.getElementById('game-xp').textContent = (state.gameXP||0)+' XP';
+      document.getElementById('game-streak').textContent = '🔥 '+(state.gameStreak||0)+' streak';
+      document.getElementById('game-progress').setAttribute('aria-valuenow',String(percent));
+      document.getElementById('game-progress').querySelector('span').style.width=percent+'%';
+      document.getElementById('game-completed').textContent=done.length+' đã làm ('+percent+'%)';
+      document.getElementById('game-right').textContent=right.length+' đúng';
+      document.getElementById('game-left').textContent=(pool.length-done.length)+' còn lại';
+      const allButton=hud.querySelector('[data-game-all]');
+      if(allButton) allButton.textContent=gameListMode?'Chơi từng câu':'Danh sách tất cả';
+    }
+    function moveGame(step) {
+      const pool=getVisiblePracticeQuestions();
+      if(!pool.length)return;
+      gameListMode=false;
+      state.gameIndex=((state.gameIndex||0)+step+pool.length)%pool.length;
+      saveProgress();
+      renderPractice();
+      document.getElementById('game-hud').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+    function nextUnansweredGame() {
+      const pool=getVisiblePracticeQuestions();
+      if(!pool.length) return;
+      const next=pool.findIndex(function(q,i){return i>(state.gameIndex||0) && !(state.practiceAnswers[q.id]&&state.practiceAnswers[q.id].submitted);});
+      let ix=next<0?pool.findIndex(function(q){return !(state.practiceAnswers[q.id]&&state.practiceAnswers[q.id].submitted);}):next;
+      if(ix<0){showToast('Bạn đã thử toàn bộ bộ câu hỏi này. Có thể chọn lại dạng hoặc retry câu sai.');return;}
+      state.gameIndex=ix;
+      gameListMode=false;
+      saveProgress();renderPractice();
+      document.getElementById('game-hud').scrollIntoView({behavior:'smooth',block:'start'});
     }
 
     function renderPractice() {
       const root = document.getElementById('practice-list');
       const questions = getVisiblePracticeQuestions();
+      if (state.gameIndex >= questions.length) state.gameIndex = 0;
+      const shown = gameListMode ? questions : questions.length ? [questions[state.gameIndex || 0]] : [];
       document.getElementById('retry-banner').hidden = !(state.retryIds && state.retryIds.length);
       if (state.retryIds && state.retryIds.length) {
         document.getElementById('retry-banner').innerHTML = '<strong>Retry incorrect mode:</strong> đang hiển thị ' + questions.length + ' câu cần ôn. <button class="btn small" type="button" data-retry-all>Quay lại toàn bộ practice</button>';
@@ -1684,23 +3713,25 @@
       if (!questions.length) {
         root.innerHTML = '<div class="empty-state"><h2>Không có câu phù hợp bộ lọc</h2><p>Đổi nhóm kỹ năng hoặc mức độ để tiếp tục luyện.</p></div>';
         updatePracticeSummary();
+        updateGameHUD();
         renderCrossword();
         restoreProductionInputs();
         return;
       }
-      root.innerHTML = questions.map(function(question, index) {
+      root.innerHTML = shown.map(function(question, index) {
         const saved = state.practiceAnswers[question.id];
         const statusClass = saved && saved.submitted ? (saved.correct === null ? 'pending' : saved.correct ? 'correct' : 'incorrect') : '';
         const inputHtml = renderQuestionInput(question, 'practice');
         const isProduction = question.type === 'short-answer' || question.type === 'production';
-        return '<article class="question-card ' + statusClass + '" data-question-card="' + question.id + '"><div class="question-header"><span class="question-number">Practice ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + inputHtml + '<div class="question-actions"><button type="button" class="btn ' + (isProduction ? 'secondary' : 'primary') + '" data-check-practice="' + question.id + '">' + (isProduction ? 'Lưu để tự kiểm tra' : 'Kiểm tra đáp án') + '</button><button type="button" class="btn small" data-clear-question="' + question.id + '">Xóa</button></div><div class="feedback ' + (saved && saved.submitted ? 'show ' + (saved.correct === null ? 'neutral' : saved.correct ? 'correct' : 'incorrect') : '') + '" data-practice-feedback="' + question.id + '">' + (saved && saved.submitted ? (isProduction ? '<strong>✓ Đã lưu</strong><p>Dùng rubric để tự kiểm tra và ôn lại ở lần sau.</p>' : feedbackHtml(question, saved.displayResponse || saved.response, saved.correct)) : '') + '</div></article>';
+        return '<article class="question-card ' + statusClass + '" data-question-card="' + question.id + '"><div class="question-header"><span class="question-number">Câu ' + (gameListMode ? index+1 : (state.gameIndex || 0)+1) + '/' + questions.length + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + inputHtml + '<div class="question-actions"><button type="button" class="btn ' + (isProduction ? 'secondary' : 'primary') + '" data-check-practice="' + question.id + '">' + (isProduction ? 'Lưu để tự kiểm tra' : 'Kiểm tra đáp án') + '</button><button type="button" class="btn small" data-clear-question="' + question.id + '">Xóa</button></div><div class="feedback ' + (saved && saved.submitted ? 'show ' + (saved.correct === null ? 'neutral' : saved.correct ? 'correct' : 'incorrect') : '') + '" data-practice-feedback="' + question.id + '">' + (saved && saved.submitted ? (isProduction ? '<strong>✓ Đã lưu</strong><p>Dùng rubric để tự kiểm tra và ôn lại ở lần sau.</p>' : feedbackHtml(question, saved.displayResponse || saved.response, saved.correct)) : '') + '</div></article>';
       }).join('');
-      questions.forEach(function(question) {
+      shown.forEach(function(question) {
         const saved = state.practiceAnswers[question.id];
         if (!saved || !saved.submitted) return;
         restoreResponse(question, saved.response, 'practice');
       });
       updatePracticeSummary();
+      updateGameHUD();
       renderCrossword();
       restoreProductionInputs();
     }
@@ -1710,9 +3741,11 @@
       const selector = mode === 'test' ? '[data-test-card="' + question.id + '"]' : mode === 'story' ? '[data-story-card="' + question.id + '"]' : '[data-question-card="' + question.id + '"]';
       const root = document.querySelector(selector);
       if (!root) return;
-      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice') {
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'reading-tfng' || question.type === 'image-choice') {
         const input = Array.from(root.querySelectorAll('input[type="radio"]')).find(function(element) { return element.value === response; });
         if (input) input.checked = true;
+      } else if (question.type === 'paragraph-cloze' && response && typeof response === 'object') {
+        root.querySelectorAll('[data-paragraph-select]').forEach(function(select){ select.value = response[select.dataset.paragraphSelect] || ''; });
       } else if (question.type === 'fill-blank' || question.type === 'error-correction') {
         const input = root.querySelector('[data-answer-input]');
         if (input) input.value = response;
@@ -1744,7 +3777,12 @@
 
     function collectResponse(question, root) {
       if (!root) return '';
-      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'image-choice') {
+      if (question.type === 'paragraph-cloze') {
+        const answers = {};
+        root.querySelectorAll('[data-paragraph-select]').forEach(function(select){answers[select.dataset.paragraphSelect] = select.value;});
+        return answers;
+      }
+      if (question.type === 'multiple-choice' || question.type === 'mini-reading' || question.type === 'true-false' || question.type === 'reading-tfng' || question.type === 'image-choice') {
         const selected = root.querySelector('input[type="radio"]:checked');
         return selected ? selected.value : '';
       }
@@ -1794,7 +3832,7 @@
     }
 
     function hasResponse(question, response) {
-      if (question.type === 'matching' || question.type === 'categorization' || question.type === 'image-match' || question.type === 'multi-fill') return response && Object.keys(response).length > 0 && Object.keys(response).some(function(key) { return String(response[key] || '').trim(); });
+      if (question.type === 'matching' || question.type === 'categorization' || question.type === 'image-match' || question.type === 'multi-fill' || question.type === 'paragraph-cloze') return response && Object.keys(response).length > 0 && Object.keys(response).some(function(key) { return String(response[key] || '').trim(); });
       if (question.type === 'sentence-order' || question.type === 'select-all') return Array.isArray(response) && response.length > 0;
       return String(response == null ? '' : response).trim().length > 0;
     }
@@ -1814,6 +3852,8 @@
         const expected = question.answer.map(normalizeAnswer).sort();
         const actual = (response || []).map(normalizeAnswer).sort();
         correct = expected.length === actual.length && expected.every(function(value, index) { return value === actual[index]; });
+      } else if (question.type === 'paragraph-cloze') {
+        correct = question.blanks.every(function(blank,index){return response && normalizeAnswer(response[index])===normalizeAnswer(blank.answer);});
       } else if (question.type === 'multi-fill') {
         correct = question.items.every(function(item, index) {
           const given = response ? response[index] : '';
@@ -1832,6 +3872,7 @@
       if (question.type === 'matching' || question.type === 'categorization' || question.type === 'image-match') {
         return Object.keys(response || {}).map(function(key) { return key + ' → ' + response[key]; }).join('; ');
       }
+      if (question.type === 'paragraph-cloze') return question.blanks.map(function(blank,index){return '['+(index+1)+'] '+((response||{})[index]||'—');}).join('; ');
       if (question.type === 'multi-fill') {
         return question.items.map(function(item, index) { return (index + 1) + ': ' + ((response || {})[index] || '—'); }).join('; ');
       }
@@ -1883,6 +3924,12 @@
         return;
       }
       const isProduction = question.type === 'short-answer' || question.type === 'production';
+      const firstAward = !state.gameAwarded[id];
+      if(firstAward){
+        state.gameXP = (state.gameXP || 0) + (result.correct ? 10 : isProduction ? 3 : 2);
+        state.gameStreak = result.correct ? (state.gameStreak || 0) + 1 : 0;
+        state.gameAwarded[id] = true;
+      }
       state.practiceAnswers[id] = { response: response, displayResponse: displayResponse(question, response), correct: isProduction ? null : result.correct, submitted: true };
       refreshMistakes();
       saveProgress();
@@ -1891,6 +3938,7 @@
       feedback.className = 'feedback show ' + (isProduction ? 'neutral' : result.correct ? 'correct' : 'incorrect');
       feedback.innerHTML = isProduction ? '<strong>✓ Saved for self-check</strong><p>Use the rubric, then keep the answer for a later spaced review.</p>' : feedbackHtml(question, displayResponse(question, response), result.correct);
       updatePracticeSummary();
+      updateGameHUD();
       renderMistakes();
     }
 
@@ -1912,6 +3960,7 @@
       const feedback = root.querySelector('[data-practice-feedback]');
       if (feedback) { feedback.className = 'feedback'; feedback.innerHTML = ''; }
       updatePracticeSummary();
+      updateGameHUD();
       renderMistakes();
     }
 
@@ -1924,12 +3973,53 @@
       button.disabled = true;
     }
 
+    function updateLiveTestProgress() {
+      const answered = testQuestions.filter(function(q) {
+        const draft = state.testAnswers[q.id];
+        return draft && hasResponse(q,draft.response);
+      }).length;
+      const counter = document.getElementById('test-live-count');
+      const bar = document.getElementById('test-progress-fill');
+      if (counter) counter.textContent = answered + '/' + testQuestions.length + ' câu đã làm';
+      if (bar) bar.style.width = Math.round(100 * answered / Math.max(1,testQuestions.length)) + '%';
+    }
+
+    function saveTestDraftFromControl(event) {
+      const card = event.target.closest('[data-test-card]');
+      if (!card) return;
+      const question = getQuestionById(card.dataset.testCard);
+      if (!question) return;
+      const response = collectResponse(question,card);
+      state.testAnswers[question.id] = {response:response,displayResponse:displayResponse(question,response)};
+      saveProgress();
+      updateLiveTestProgress();
+    }
+
     function renderTest() {
       const root = document.getElementById('test-list');
-      root.innerHTML = testQuestions.map(function(question, index) {
-        const result = state.testResults.find(function(item) { return item.id === question.id; });
-        const feedback = state.testSubmitted && result ? '<div class="feedback show ' + (result.correct ? 'correct' : 'incorrect') + '">' + feedbackHtml(question, result.displayResponse, result.correct) + '</div>' : '<div class="feedback" data-test-feedback="' + question.id + '"></div>';
-        return '<article class="question-card ' + (result ? result.correct ? 'correct' : 'incorrect' : '') + '" data-test-card="' + question.id + '"><div class="question-header"><span class="question-number">Test ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + renderQuestionInput(question, 'test') + feedback + '</article>';
+      const nav = document.getElementById('test-nav');
+      const number = document.getElementById('test-task-count');
+      if (number) number.textContent = testQuestions.length + ' câu';
+      nav.innerHTML = testSections.map(function(s){
+        const qty = testQuestions.filter(function(q){return (q.section||'foundation')===s.id;}).length;
+        return '<button type="button" data-test-jump="'+escapeHtml(s.id)+'"><strong>'+escapeHtml(s.title)+'</strong> ('+qty+')</button>';
+      }).join('');
+      root.innerHTML = testSections.map(function(section) {
+        const questions = testQuestions.filter(function(q){return (q.section||'foundation') === section.id;});
+        let previousPassage = null;
+        const parts = questions.map(function(question) {
+          let heading = '';
+          if (question.passageId && question.passageId !== previousPassage) {
+            const data = testPassages[question.passageId];
+            if (data) heading = '<article class="exam-passage" aria-label="Bài đọc '+escapeHtml(data.title)+'"><span class="reading-meta">'+escapeHtml(data.genre)+' · '+escapeHtml(data.level)+'</span><h3>'+escapeHtml(data.title)+'</h3><div class="reading-body">'+escapeHtml(data.text)+'</div></article>';
+            previousPassage = question.passageId;
+          }
+          const index = testQuestions.indexOf(question);
+          const result = state.testResults.find(function(item) { return item.id === question.id; });
+          const feedback = state.testSubmitted && result ? '<div class="feedback show ' + (result.correct ? 'correct' : 'incorrect') + '">' + feedbackHtml(question, result.displayResponse, result.correct) + '</div>' : '<div class="feedback" data-test-feedback="' + question.id + '"></div>';
+          return heading + '<article class="question-card ' + (result ? result.correct ? 'correct' : 'incorrect' : '') + '" data-test-card="' + question.id + '"><div class="question-header"><span class="question-number">Câu ' + (index + 1) + '</span><div class="question-meta"><span class="pill question-type">' + escapeHtml(questionTypeLabel(question.type)) + '</span><span class="pill blue">' + escapeHtml(question.category) + '</span><span class="pill ' + (question.difficulty === 3 ? 'coral' : question.difficulty === 2 ? 'amber' : 'teal') + '">Level ' + question.difficulty + '</span></div></div><div class="question-prompt">' + escapeHtml(question.prompt) + '</div>' + renderQuestionInput(question, 'test') + feedback + '</article>';
+        }).join('');
+        return '<details class="exam-section" id="test-sec-'+escapeHtml(section.id)+'" '+(section.id==='foundation'?'open':'')+'><summary><span>'+escapeHtml(section.title)+'<small>'+escapeHtml(section.subtitle)+'</small></span><span class="pill blue">'+questions.length+' câu</span></summary><div class="exam-section-body">'+parts+'</div></details>';
       }).join('');
       testQuestions.forEach(function(question) {
         const saved = state.testAnswers[question.id];
@@ -1942,6 +4032,7 @@
       } else {
         resultRoot.innerHTML = '';
       }
+      updateLiveTestProgress();
     }
 
     function calculateTestSummary() {
@@ -2985,6 +5076,10 @@
         showToast('Đã ghi nhận chunk này.');
         return;
       }
+      if(event.target.closest('[data-game-next]')){moveGame(1);return;}
+      if(event.target.closest('[data-game-prev]')){moveGame(-1);return;}
+      if(event.target.closest('[data-game-random]')){nextUnansweredGame();return;}
+      if(event.target.closest('[data-game-all]')){gameListMode=!gameListMode;renderPractice();return;}
       const checkButton = event.target.closest('[data-check-practice]');
       if (checkButton) { handlePracticeCheck(checkButton.dataset.checkPractice); return; }
       const clearButton = event.target.closest('[data-clear-question]');
@@ -3008,6 +5103,8 @@
       const practiceAgain = event.target.closest('[data-practice-again]');
       if (practiceAgain) {
         state.retryIds = [practiceAgain.dataset.practiceAgain];
+        state.gameIndex=0;
+        gameListMode=false;
         navigate('practice');
         return;
       }
@@ -3016,6 +5113,8 @@
         const ids = getMistakes().map(function(item) { return item.id; });
         if (!ids.length) { showToast('Chưa có câu sai để retry.'); navigate('practice'); return; }
         state.retryIds = ids;
+        state.gameIndex=0;
+        gameListMode=false;
         saveProgress();
         navigate('practice');
         return;
@@ -3025,10 +5124,15 @@
         state.retryIds = null;
         practiceCategoryFilter = 'all';
         practiceLevelFilter = 'all';
+        practiceTypeFilter = 'all';
+        state.gameIndex=0;
+        gameListMode=false;
         const categoryFilter = document.getElementById('practice-category-filter');
         const levelFilter = document.getElementById('practice-level-filter');
         if (categoryFilter) categoryFilter.value = 'all';
         if (levelFilter) levelFilter.value = 'all';
+        const typeFilter=document.getElementById('practice-type-filter');
+        if(typeFilter)typeFilter.value='all';
         saveProgress();
         renderPractice();
         navigate('practice');
@@ -3056,13 +5160,20 @@
     document.addEventListener('change', function(event) {
       if (event.target.id === 'practice-category-filter') {
         practiceCategoryFilter = event.target.value;
+        state.gameIndex = 0;
         state.retryIds = null;
         renderPractice();
       }
       if (event.target.id === 'practice-level-filter') {
         practiceLevelFilter = event.target.value;
+        state.gameIndex = 0;
         state.retryIds = null;
         renderPractice();
+      }
+      if(event.target.id === 'practice-type-filter'){
+        practiceTypeFilter=event.target.value;
+        state.retryIds=null;state.gameIndex=0;
+        renderPractice();return;
       }
       if (event.target.matches('[data-production-check]')) {
         state.production[event.target.dataset.productionCheck] = event.target.checked;
@@ -3070,7 +5181,25 @@
       }
     });
 
+    document.addEventListener('error',function(event){
+      const img=event.target;
+      if(!(img instanceof HTMLImageElement)||img.dataset.fallbackUsed)return;
+      const name=(img.getAttribute('src')||'').split('/').pop().replace(/\.png$/i,'.svg');
+      img.dataset.fallbackUsed='true';
+      img.classList.add('broken-original-asset');
+      img.src=FALLBACK_ROOT+name;
+    },true);
     document.getElementById('test-form').addEventListener('submit', submitTest);
+    document.getElementById('test-form').addEventListener('change', saveTestDraftFromControl);
+    document.getElementById('test-form').addEventListener('input', saveTestDraftFromControl);
+    document.getElementById('test-nav').addEventListener('click',function(event){
+      const btn = event.target.closest('[data-test-jump]');
+      if(!btn)return;
+      const section = document.getElementById('test-sec-'+btn.dataset.testJump);
+      if(!section)return;
+      section.open=true;
+      section.scrollIntoView({behavior:'smooth',block:'start'});
+    });
 
     renderLessonShell();
     renderResearchOverview();
