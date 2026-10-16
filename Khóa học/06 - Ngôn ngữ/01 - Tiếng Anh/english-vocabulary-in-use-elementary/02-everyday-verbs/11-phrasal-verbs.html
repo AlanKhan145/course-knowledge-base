@@ -3318,6 +3318,96 @@
       }
     };
   </script>
+  <!-- Clean duplicate lesson data before the shared renderer starts. -->
+  <script>
+    (function () {
+      function normalize(value) {
+        return String(value == null ? '' : value)
+          .toLowerCase()
+          .replace(/[“”"]/g, '')
+          .replace(/(^|\s)[ab]\s*:\s*/g, '$1')
+          .replace(/\[\d+\]|_{2,}/g, ' ____ ')
+          .replace(/[.!?,;:]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+      }
+
+      function answerText(question) {
+        return Array.isArray(question && question.answer)
+          ? question.answer.join(' ')
+          : String(question && question.answer || '');
+      }
+
+      function paragraphKey(question) {
+        var source = String(question && question.passage || '');
+        if (!source && question && Array.isArray(question.items)) {
+          source = question.items.map(function (item) { return item.text; }).join('. ');
+        }
+        return source.split(/[.!?]+\s*/)
+          .map(normalize)
+          .filter(Boolean)
+          .sort()
+          .join('|');
+      }
+
+      function sentenceKey(question) {
+        if (!question) return '';
+        if (question.type === 'sentence-completion' || question.type === 'sentence-complete') {
+          return normalize(question.passage || question.sentence || question.prompt);
+        }
+        if (question.type === 'sentence-order' && Array.isArray(question.answer)) {
+          return normalize(question.answer.join(' '));
+        }
+        if (question.type === 'fill-blank' || question.type === 'word-bank') {
+          return normalize(String(question.prompt || '').split(':').pop());
+        }
+        if ((question.type === 'image-choice' || question.type === 'image-to-word') && question.image) {
+          return 'image|' + normalize(question.image) + '|' + normalize(answerText(question));
+        }
+        return '';
+      }
+
+      function cleanCollection(collection) {
+        if (!Array.isArray(collection)) return;
+        var seen = Object.create(null);
+        var paragraphs = Object.create(null);
+        var kept = [];
+
+        collection.forEach(function (question) {
+          if (!question || typeof question !== 'object') return;
+
+          if (question.type === 'paragraph-completion') {
+            var paragraph = paragraphKey(question);
+            if (paragraph && paragraphs[paragraph]) return;
+            if (paragraph) paragraphs[paragraph] = true;
+          }
+
+          if (question.type === 'multi-fill' && Array.isArray(question.items)) {
+            var localItems = Object.create(null);
+            question.items = question.items.filter(function (item) {
+              var itemKey = normalize(item && item.text);
+              if (!itemKey || localItems[itemKey]) return false;
+              localItems[itemKey] = true;
+              return true;
+            });
+            if (!question.items.length) return;
+          }
+
+          var sentence = sentenceKey(question);
+          var key = sentence ? 'sentence|' + sentence : '';
+          if (key && seen[key]) return;
+          if (key) seen[key] = true;
+          kept.push(question);
+        });
+
+        collection.splice(0, collection.length);
+        Array.prototype.push.apply(collection, kept);
+      }
+
+      cleanCollection(practiceQuestions);
+      cleanCollection(testQuestions);
+    })();
+  </script>
   <script src="assets/everyday-verbs-standard.js"></script>
 </body>
 </html>

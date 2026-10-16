@@ -265,6 +265,178 @@
       return [next].concat(parts).join(' ');
     }
 
+    function normalizeExerciseText(value) {
+      return String(value == null ? '' : value)
+        .toLowerCase()
+        .replace(/[“”\"]/g, '')
+        .replace(/(^|\s)[ab]\s*:\s*/g, '$1')
+        .replace(/\[\d+\]/g, ' ____ ')
+        .replace(/_{2,}/g, ' ____ ')
+        .replace(/[.!?,;:]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function promptSentenceText(prompt) {
+      var text = String(prompt || '');
+      var colon = text.lastIndexOf(':');
+      return colon >= 0 ? text.slice(colon + 1) : text;
+    }
+
+    function questionVocabItem(question) {
+      var vocabId = String(question && question.vocabId || '').toLowerCase();
+      if (!vocabId) return null;
+      return bank.find(function (item) { return String(item.id || '').toLowerCase() === vocabId; }) || null;
+    }
+
+    function sentenceShape(value, question) {
+      var text = normalizeExerciseText(value);
+      var target = questionVocabItem(question);
+      if (!target || !target.word) return text;
+      var forms = [target.word, inflectPhrase(target.word, 'past'), inflectPhrase(target.word, 'third')]
+        .filter(function (form, index, list) { return form && list.indexOf(form) === index; })
+        .sort(function (left, right) { return right.length - left.length; });
+      forms.forEach(function (form) {
+        var escaped = String(form).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        text = text.replace(new RegExp('(^|\\s)' + escaped + '(?=\\s|$)', 'gi'), '$1____');
+      });
+      return text.replace(/\s+/g, ' ').trim();
+    }
+
+    function sentenceQuestionKey(question) {
+      if (!question) return '';
+      var source = '';
+      if (question.type === 'sentence-completion' && question.passage) source = question.passage;
+      else if (question.type === 'sentence-order' && Array.isArray(question.answer)) source = question.answer.join(' ');
+      else if (['fill-blank', 'word-bank'].indexOf(question.type) !== -1) source = promptSentenceText(question.prompt);
+      else if (question.type === 'image-choice') {
+        var image = String(question.image || '').trim();
+        return image ? 'image|' + normalizeExerciseText(image) + '|' + normalizeExerciseText(question.answer) : '';
+      } else if (question.type === 'error-correction') {
+        source = question.wrong || question.sentence || promptSentenceText(question.prompt);
+        if (!question.wrong && !question.sentence && !question.prompt) return '';
+      }
+      else return '';
+      return 'sentence|' + sentenceShape(source, question);
+    }
+
+    function paragraphQuestionKey(question) {
+      var source = String(question && question.passage || '');
+      if (!source && question && Array.isArray(question.items)) source = question.items.map(function (item) { return item.text; }).join('. ');
+      return source.split(/[.!?]+\s*/)
+        .map(function (sentence) { return normalizeExerciseText(sentence); })
+        .filter(Boolean)
+        .sort()
+        .join('|');
+    }
+
+    function generatedCompoundItem(cursor) {
+      var position = Math.max(0, Number(cursor) || 0);
+      var target = bank[Math.floor(position / 4) % bank.length];
+      var frame = position % 4;
+      var answer = practiceForm(target, frame, 0);
+      var sentence = practiceSentence(target, frame, 0);
+      var contexts = [
+        'at home', 'with my friends', 'in the kitchen', 'at the office',
+        'with my family', 'on the bus', 'in the morning', 'at the party',
+        'during the trip', 'before bed', 'after school', 'at the café',
+        'in the evening', 'on Saturdays', 'with our guests', 'at the weekend'
+      ];
+      var context = contexts[Math.floor(position / 4) % contexts.length];
+      var punctuation = /[.!?]$/.test(sentence) ? sentence.slice(-1) : '';
+      sentence = (punctuation ? sentence.slice(0, -1) : sentence) + ' ' + context + punctuation;
+      return { text: maskPhrase(sentence, answer), answer: answer, source: target.id };
+    }
+
+    function compactCompoundQuestions(questions) {
+      var usedCompoundLines = Object.create(null);
+      var paragraphSeen = Object.create(null);
+      var compoundKeys = Object.create(null);
+
+      return questions.filter(function (question, questionIndex) {
+        if (question.type === 'paragraph-completion') {
+          var paragraphKey = paragraphQuestionKey(question);
+          if (paragraphKey && paragraphSeen[paragraphKey]) return false;
+          if (paragraphKey) paragraphSeen[paragraphKey] = true;
+          return true;
+        }
+        if (question.type !== 'multi-fill' || !Array.isArray(question.items)) return true;
+
+        var localLines = Object.create(null);
+        var compacted = [];
+        question.items.forEach(function (item, slot) {
+          var current = item;
+          var key = normalizeExerciseText(current && current.text);
+          var mustReplace = !key || localLines[key] || usedCompoundLines[key];
+          var replacementFound = !mustReplace;
+          if (mustReplace) {
+            for (var attempt = 0; attempt < bank.length * 8; attempt += 1) {
+              var candidate = generatedCompoundItem(questionIndex * 4 + slot + attempt);
+              var candidateKey = normalizeExerciseText(candidate.text);
+              if (candidateKey && !localLines[candidateKey] && !usedCompoundLines[candidateKey]) {
+                current = candidate;
+                key = candidateKey;
+                replacementFound = true;
+                break;
+              }
+            }
+          }
+          if (!replacementFound || !key || localLines[key]) return;
+          localLines[key] = true;
+          usedCompoundLines[key] = true;
+          compacted.push(current);
+        });
+
+        if (!compacted.length) return false;
+        question.items = compacted;
+        var compoundKey = question.items.map(function (item) { return normalizeExerciseText(item.text); }).sort().join('|');
+        if (compoundKey && compoundKeys[compoundKey]) return false;
+        if (compoundKey) compoundKeys[compoundKey] = true;
+        return true;
+      });
+    }
+
+    function dedupeQuestions(questions) {
+      var kept = [];
+      var seen = Object.create(null);
+      var priorities = {
+        'sentence-completion': 1,
+        'fill-blank': 2,
+        'word-bank': 3,
+        'sentence-order': 4,
+        'image-choice': 5,
+        'error-correction': 6
+      };
+      questions.forEach(function (question) {
+        var key = sentenceQuestionKey(question);
+        if (!key && question.type === 'paragraph-completion') key = 'paragraph|' + paragraphQuestionKey(question);
+        if (!key && question.type === 'multi-fill' && Array.isArray(question.items)) {
+          key = 'multi-fill|' + question.items.map(function (item) { return normalizeExerciseText(item.text); }).join('|');
+        }
+        if (!key) {
+          var stable = {
+            type: question.type,
+            prompt: question.prompt,
+            passage: question.passage,
+            options: question.options,
+            answer: question.answer,
+            items: question.items,
+            pairs: question.pairs
+          };
+          key = String(question.type || 'question') + '|' + normalizeExerciseText(JSON.stringify(stable));
+        }
+        var priority = priorities[question.type] || 10;
+        if (!seen[key]) {
+          seen[key] = { index: kept.length, priority: priority };
+          kept.push(question);
+        } else if (priority < seen[key].priority) {
+          kept[seen[key].index] = question;
+          seen[key].priority = priority;
+        }
+      });
+      return kept;
+    }
+
     function grammarTarget(index) {
       var naturalPhrases = {
         'say (something)': 'say something', 'say hello / goodbye': 'say hello',
@@ -703,6 +875,16 @@
       }));
     });
 
+    // Clean the generated banks after every source has contributed questions.
+    // The lesson HTML files expose these arrays as const, so update them in place.
+    var normalizedPracticeQuestions = dedupeQuestions(compactCompoundQuestions(practiceQuestions));
+    practiceQuestions.splice(0, practiceQuestions.length);
+    Array.prototype.push.apply(practiceQuestions, normalizedPracticeQuestions);
+
+    var normalizedTestQuestions = dedupeQuestions(compactCompoundQuestions(testQuestions));
+    testQuestions.splice(0, testQuestions.length);
+    Array.prototype.push.apply(testQuestions, normalizedTestQuestions);
+
     var practiceTypeOrder = Object.create(null);
     practiceTypes.forEach(function (type, index) { practiceTypeOrder[type] = index; });
     practiceQuestions.sort(function (left, right) {
@@ -1010,6 +1192,7 @@
       });
     }
 
+    if (typeof initializeGame === 'function') initializeGame();
     if (typeof renderPractice === 'function') renderPractice();
     if (typeof renderTest === 'function') renderTest();
     if (typeof updateProgress === 'function') updateProgress();
