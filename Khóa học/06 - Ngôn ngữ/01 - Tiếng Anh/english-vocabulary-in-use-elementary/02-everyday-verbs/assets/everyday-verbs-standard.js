@@ -270,6 +270,7 @@
         .toLowerCase()
         .replace(/[“”\"]/g, '')
         .replace(/(^|\s)[ab]\s*:\s*/g, '$1')
+        .replace(/\[\[?\d+\]?\]|\{\d+\}/g, ' ____ ')
         .replace(/\[\d+\]/g, ' ____ ')
         .replace(/_{2,}/g, ' ____ ')
         .replace(/[.!?,;:]+/g, ' ')
@@ -281,6 +282,40 @@
       var text = String(prompt || '');
       var colon = text.lastIndexOf(':');
       return colon >= 0 ? text.slice(colon + 1) : text;
+    }
+
+    function sentenceAnswerText(question) {
+      var answer = question && question.answer;
+      if (Array.isArray(answer)) return String(answer[0] == null ? '' : answer[0]);
+      return String(answer == null ? '' : answer);
+    }
+
+    function sentenceSource(question) {
+      if (!question) return '';
+      if (['sentence-completion', 'sentence-complete'].indexOf(question.type) !== -1) return question.passage || question.sentence || question.prompt;
+      if (question.type === 'sentence-order' && Array.isArray(question.answer)) return question.answer.join(' ');
+      if (['fill-blank', 'word-bank', 'multiple-choice', 'image-to-word'].indexOf(question.type) !== -1) {
+        return question.sentence || question.passage || promptSentenceText(question.prompt);
+      }
+      return '';
+    }
+
+    function canonicalSentenceText(question) {
+      var raw = String(sentenceSource(question) || '');
+      if (!raw) return '';
+      var hasGap = /_{2,}|\[\d+\]|____/.test(raw);
+      if (question.type !== 'sentence-order' && !hasGap) return '';
+
+      var text = normalizeExerciseText(raw);
+      if (question.type === 'sentence-order') return sentenceShape(text, question);
+
+      var answer = normalizeExerciseText(sentenceAnswerText(question));
+      if (answer && /____/.test(text)) text = text.replace(/____/g, answer);
+      if (answer) {
+        var escaped = answer.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+');
+        text = text.replace(new RegExp('(^|\\s)' + escaped + '(?=\\s|$)', 'gi'), '$1____');
+      }
+      return sentenceShape(text, question).replace(/\s+/g, ' ').trim();
     }
 
     function questionVocabItem(question) {
@@ -305,19 +340,19 @@
 
     function sentenceQuestionKey(question) {
       if (!question) return '';
-      var source = '';
-      if (question.type === 'sentence-completion' && question.passage) source = question.passage;
-      else if (question.type === 'sentence-order' && Array.isArray(question.answer)) source = question.answer.join(' ');
-      else if (['fill-blank', 'word-bank'].indexOf(question.type) !== -1) source = promptSentenceText(question.prompt);
-      else if (question.type === 'image-choice') {
+      if (['sentence-completion', 'sentence-complete', 'sentence-order', 'fill-blank', 'word-bank', 'multiple-choice', 'image-to-word'].indexOf(question.type) !== -1) {
+        var canonical = canonicalSentenceText(question);
+        if (canonical) return 'sentence|' + canonical;
+      }
+      if (question.type === 'image-choice' || question.type === 'image-to-word') {
         var image = String(question.image || '').trim();
         return image ? 'image|' + normalizeExerciseText(image) + '|' + normalizeExerciseText(question.answer) : '';
-      } else if (question.type === 'error-correction') {
-        source = question.wrong || question.sentence || promptSentenceText(question.prompt);
-        if (!question.wrong && !question.sentence && !question.prompt) return '';
       }
-      else return '';
-      return 'sentence|' + sentenceShape(source, question);
+      if (question.type === 'error-correction') {
+        var errorSource = question.wrong || question.sentence || promptSentenceText(question.prompt);
+        return errorSource ? 'sentence|' + normalizeExerciseText(errorSource) : '';
+      }
+      return '';
     }
 
     function paragraphQuestionKey(question) {
@@ -352,9 +387,10 @@
       var usedCompoundLines = Object.create(null);
       var paragraphSeen = Object.create(null);
       var compoundKeys = Object.create(null);
+      var paragraphTypes = ['paragraph-completion', 'paragraph-cloze', 'passage-complete'];
 
       return questions.filter(function (question, questionIndex) {
-        if (question.type === 'paragraph-completion') {
+        if (paragraphTypes.indexOf(question.type) !== -1) {
           var paragraphKey = paragraphQuestionKey(question);
           if (paragraphKey && paragraphSeen[paragraphKey]) return false;
           if (paragraphKey) paragraphSeen[paragraphKey] = true;
@@ -416,10 +452,15 @@
 
         if (!groups[groupKey]) {
           var initialItems = Object.create(null);
+          var initialList = [];
           (Array.isArray(question.items) ? question.items : []).forEach(function (item) {
             var initialKey = normalizeExerciseText(item && item.text);
-            if (initialKey) initialItems[initialKey] = true;
+            if (initialKey && !initialItems[initialKey]) {
+              initialItems[initialKey] = true;
+              initialList.push(item);
+            }
           });
+          question.items = initialList;
           groups[groupKey] = { question: question, items: initialItems };
           kept.push(question);
           return;
@@ -440,15 +481,128 @@
       });
     }
 
+    function repeatedGroupQuestionKey(question) {
+      if (!question || ['matching', 'image-match'].indexOf(question.type) === -1) return '';
+      var prompt = normalizeExerciseText(question.prompt);
+      var categoryName = normalizeExerciseText(question.category);
+      if (question.type === 'image-match') return question.type + '|' + categoryName;
+      return prompt ? question.type + '|' + categoryName + '|' + prompt : '';
+    }
+
+    function mergeRepeatedGroupQuestions(questions) {
+      var groups = Object.create(null);
+      var kept = [];
+
+      questions.forEach(function (question) {
+        var groupKey = repeatedGroupQuestionKey(question);
+        if (!groupKey) {
+          kept.push(question);
+          return;
+        }
+
+        if (!groups[groupKey]) {
+          if (question.type === 'matching') {
+            var pairSeen = Object.create(null);
+            var pairs = [];
+            (Array.isArray(question.pairs) ? question.pairs : []).forEach(function (pair) {
+              var pairKey = normalizeExerciseText(pair && pair.left);
+              if (pairKey && !pairSeen[pairKey]) {
+                pairSeen[pairKey] = true;
+                pairs.push(pair);
+              }
+            });
+            question.pairs = pairs;
+            groups[groupKey] = { question: question, entries: pairSeen };
+          } else {
+            var imageSeen = Object.create(null);
+            var imageItems = [];
+            var imageOptions = [];
+            (Array.isArray(question.items) ? question.items : []).forEach(function (item) {
+              var imageKey = normalizeExerciseText(item && item.image);
+              if (imageKey && !imageSeen[imageKey]) {
+                imageSeen[imageKey] = true;
+                imageItems.push(item);
+              }
+            });
+            (Array.isArray(question.options) ? question.options : []).forEach(function (option) {
+              var optionKey = normalizeExerciseText(option);
+              if (optionKey && imageOptions.every(function (current) { return normalizeExerciseText(current) !== optionKey; })) imageOptions.push(option);
+            });
+            imageItems.forEach(function (item) {
+              var answerKey = normalizeExerciseText(item && item.answer);
+              if (answerKey && imageOptions.every(function (current) { return normalizeExerciseText(current) !== answerKey; })) imageOptions.push(item.answer);
+            });
+            question.items = imageItems;
+            question.options = imageOptions;
+            groups[groupKey] = { question: question, entries: imageSeen, options: imageOptions };
+          }
+          kept.push(question);
+          return;
+        }
+
+        var group = groups[groupKey];
+        if (question.type === 'matching') {
+          (Array.isArray(question.pairs) ? question.pairs : []).forEach(function (pair) {
+            var pairKey = normalizeExerciseText(pair && pair.left);
+            if (!pairKey || group.entries[pairKey]) return;
+            group.entries[pairKey] = true;
+            group.question.pairs.push(pair);
+          });
+        } else {
+          (Array.isArray(question.items) ? question.items : []).forEach(function (item) {
+            var imageKey = normalizeExerciseText(item && item.image);
+            if (!imageKey || group.entries[imageKey]) return;
+            group.entries[imageKey] = true;
+            group.question.items.push(item);
+            var answerKey = normalizeExerciseText(item && item.answer);
+            if (answerKey && group.options.every(function (current) { return normalizeExerciseText(current) !== answerKey; })) group.options.push(item.answer);
+          });
+          (Array.isArray(question.options) ? question.options : []).forEach(function (option) {
+            var optionKey = normalizeExerciseText(option);
+            if (!optionKey || group.options.some(function (current) { return normalizeExerciseText(current) === optionKey; })) return;
+            group.options.push(option);
+          });
+        }
+      });
+
+      kept.forEach(function (question) {
+        if (question.type === 'categorization' && Array.isArray(question.items) && question.items.length > 4) {
+          question.prompt = 'Phân loại toàn bộ mục từ theo các nhóm đã học.';
+          question.explanation = 'Các nhóm cần nhớ: ' + (question.categories || []).join(' / ') + '.';
+        }
+        if (question.type === 'matching' && Array.isArray(question.pairs) && question.pairs.length > 4) {
+          question.prompt = 'Nối toàn bộ cụm từ với nghĩa hoặc cách dùng tương ứng.';
+          question.explanation = 'Bài gộp giúp ôn toàn bộ các cặp từ và nghĩa trong cùng một lượt.';
+        }
+        if (question.type === 'image-match' && Array.isArray(question.items) && question.items.length > 4) {
+          question.prompt = 'Ghép từng hình minh họa với từ hoặc cụm từ tương ứng.';
+          question.explanation = 'Bài gộp giúp ôn toàn bộ hình minh họa và cụm từ trong cùng một lượt.';
+        }
+      });
+
+      return kept.filter(function (question) {
+        if (question.type === 'matching') return Array.isArray(question.pairs) && question.pairs.length;
+        if (question.type === 'image-match') return Array.isArray(question.items) && question.items.length;
+        return true;
+      });
+    }
+
+    function mergeRepeatedGroupExercises(questions) {
+      var grouped = mergeCategorizationQuestions(questions);
+      return mergeRepeatedGroupQuestions(grouped);
+    }
+
     function dedupeQuestions(questions) {
       var kept = [];
       var seen = Object.create(null);
       var priorities = {
         'sentence-completion': 1,
+        'sentence-complete': 1,
         'fill-blank': 2,
         'word-bank': 3,
         'sentence-order': 4,
         'image-choice': 5,
+        'image-to-word': 5,
         'error-correction': 6
       };
       questions.forEach(function (question) {
@@ -921,11 +1075,11 @@
 
     // Clean the generated banks after every source has contributed questions.
     // The lesson HTML files expose these arrays as const, so update them in place.
-    var normalizedPracticeQuestions = dedupeQuestions(mergeCategorizationQuestions(compactCompoundQuestions(practiceQuestions)));
+    var normalizedPracticeQuestions = dedupeQuestions(mergeRepeatedGroupExercises(compactCompoundQuestions(practiceQuestions)));
     practiceQuestions.splice(0, practiceQuestions.length);
     Array.prototype.push.apply(practiceQuestions, normalizedPracticeQuestions);
 
-    var normalizedTestQuestions = dedupeQuestions(mergeCategorizationQuestions(compactCompoundQuestions(testQuestions)));
+    var normalizedTestQuestions = dedupeQuestions(mergeRepeatedGroupExercises(compactCompoundQuestions(testQuestions)));
     testQuestions.splice(0, testQuestions.length);
     Array.prototype.push.apply(testQuestions, normalizedTestQuestions);
 
