@@ -1340,6 +1340,8 @@
       if (isCatalog) {
         practiceTypeFilter = 'all';
         if (typeSelect) typeSelect.value = 'all';
+        [practiceToolbar, practiceSummary, practiceList, practicePaginationTop, practicePaginationBottom, practiceRetryBanner]
+          .forEach(function (element) { if (element) element.hidden = false; });
         renderPractice();
         return;
       }
@@ -1399,13 +1401,13 @@
       var cards = practiceTypes.map(function (type, index) {
         var count = practiceQuestions.filter(function (question) { return question.type === type; }).length;
         if (!count) return '';
-        return '<button class="game-type-card" type="button" data-evu-open-type="' + type + '"><span>' + (typeIcons[type] || '✦') + '</span><strong>' + (labels[type] || type) + '</strong><small>' + count + ' câu · Level 1–3</small></button>';
+        return '<button class="game-type-card" type="button" data-evu-game-select-type="' + type + '"><span>' + (typeIcons[type] || '✦') + '</span><strong>' + (labels[type] || type) + '</strong><small>' + count + ' câu</small></button>';
       }).join('');
-      var sequentialRun = '<button class="game-type-card selected" type="button" data-evu-open-sequence><span>🎲</span><strong>Trộn tất cả</strong><small>' + practiceQuestions.length + ' câu</small></button>';
+      var sequentialRun = '<button class="game-type-card selected" type="button" data-evu-game-select-type="all"><span>🎲</span><strong>Trộn tất cả</strong><small>' + practiceQuestions.length + ' câu</small></button>';
       var typeOptions = '<option value="all">Trộn tất cả · ' + practiceQuestions.length + ' câu</option>' + typeCounts.map(function (type) { return '<option value="' + type + '">' + (labels[type] || type) + ' · ' + practiceQuestions.filter(function (question) { return question.type === type; }).length + ' câu</option>'; }).join('');
       var lessonNumber = (document.querySelector('.header-title') || {}).textContent || 'Lesson';
       lessonNumber = (lessonNumber.match(/Lesson\s+\d+/i) || ['Lesson'])[0].toUpperCase();
-      exerciseCatalog.innerHTML = '<div class="game-banner"><div><span class="game-overline">VOCABULARY QUEST · ' + lessonNumber + '</span><h2>Thử thách từ vựng</h2><p>Chọn dạng bài, trả lời từng câu và chinh phục toàn bộ ' + vocab.length + ' từ/cụm từ.</p></div><div class="game-scoreboard" aria-label="Thành tích mini game"><div><strong>0</strong><span>XP</span></div><div><strong>0</strong><span>Chuỗi đúng</span></div><div><strong>—</strong><span>Độ chính xác</span></div></div></div><div class="game-setup" id="evu-game-setup"><h3>Chọn thử thách</h3><div class="game-type-grid" id="evu-game-type-grid">' + sequentialRun + cards + '</div><div class="game-launch"><label>Kiểu câu hỏi<select id="evu-game-type-select" class="answer-select">' + typeOptions + '</select></label><label>Độ dài lượt chơi<select id="evu-game-length-select" class="answer-select"><option value="' + Math.min(16, vocab.length) + '">' + Math.min(16, vocab.length) + ' câu · ôn đủ ' + vocab.length + ' từ</option><option value="32" selected>32 câu · luyện đa dạng</option><option value="64">64 câu · thử thách</option><option value="full">Toàn bộ câu hỏi</option></select></label><button type="button" class="btn primary game-start" data-evu-game-start>Bắt đầu chơi →</button></div></div>';
+      exerciseCatalog.innerHTML = '<div class="game-banner"><div><span class="game-overline">VOCABULARY QUEST · ' + lessonNumber + '</span><h2>Thử thách từ vựng</h2><p>Chọn dạng bài, trả lời từng câu và chinh phục toàn bộ ' + vocab.length + ' từ/cụm từ.</p></div><div class="game-scoreboard" aria-label="Thành tích mini game"><div><strong id="evu-game-xp">0</strong><span>XP</span></div><div><strong id="evu-game-streak">0</strong><span>Chuỗi đúng</span></div><div><strong id="evu-game-accuracy">—</strong><span>Độ chính xác</span></div></div></div><div class="game-setup" id="evu-game-setup"><h3>Chọn thử thách</h3><div class="game-type-grid" id="evu-game-type-grid">' + sequentialRun + cards + '</div><div class="game-launch"><label>Kiểu câu hỏi<select id="evu-game-type-select" class="answer-select">' + typeOptions + '</select></label><label>Độ dài lượt chơi<select id="evu-game-length-select" class="answer-select"><option value="' + Math.min(16, vocab.length) + '">' + Math.min(16, vocab.length) + ' câu · ôn đủ ' + vocab.length + ' từ</option><option value="32" selected>32 câu · luyện đa dạng</option><option value="64">64 câu · thử thách</option><option value="full">Toàn bộ câu hỏi</option></select></label><button type="button" class="btn primary game-start" data-evu-game-start>Bắt đầu chơi →</button></div></div><div class="game-playing" id="evu-game-playing" hidden><div class="game-play-top"><span class="game-count" id="evu-game-count">Câu 1/16</span><span class="game-cue" id="evu-game-cue">Học từng từ qua tình huống</span><button type="button" class="btn small" data-evu-game-exit>Đổi thử thách</button></div><div class="game-progress" role="progressbar" id="evu-game-progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div><div id="evu-game-stage" aria-live="polite"></div></div><div class="game-finish" id="evu-game-finish" hidden aria-live="polite"></div>';
 
       exerciseSession = document.createElement('div');
       exerciseSession.id = 'evu-exercise-session';
@@ -1430,22 +1432,178 @@
       }
 
       exerciseCatalog.addEventListener('click', function (event) {
-        var button = event.target.closest('[data-evu-open-type]');
-        var sequenceButton = event.target.closest('[data-evu-open-sequence]');
+        var typeTile = event.target.closest('[data-evu-game-select-type]');
         var startButton = event.target.closest('[data-evu-game-start]');
-        if (button) setExerciseMode(button.getAttribute('data-evu-open-type'));
-        else if (sequenceButton) setExerciseMode('all-sequential');
-        else if (startButton) {
-          var selectedType = exerciseCatalog.querySelector('#evu-game-type-select');
-          setExerciseMode(selectedType && selectedType.value !== 'all' ? selectedType.value : 'all-sequential');
+        if (typeTile) {
+          standardGameType = typeTile.getAttribute('data-evu-game-select-type') || 'all';
+          syncStandardGameType();
+          return;
         }
-        else return;
-        if (practiceList) practiceList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (startButton) {
+          var selectedType = exerciseCatalog.querySelector('#evu-game-type-select');
+          standardGameType = selectedType && selectedType.value !== 'all' ? selectedType.value : standardGameType;
+          startStandardGame(standardGameType, (exerciseCatalog.querySelector('#evu-game-length-select') || {}).value || '32');
+          return;
+        }
+        if (event.target.closest('[data-evu-game-check]')) { checkStandardGame(); return; }
+        if (event.target.closest('[data-evu-game-next]')) { nextStandardGame(); return; }
+        if (event.target.closest('[data-evu-game-exit]')) { standardGameState = null; renderStandardGameSetup(); return; }
+        if (event.target.closest('[data-evu-game-replay]')) { startStandardGame(standardGameState.type, standardGameState.length); return; }
+        if (event.target.closest('[data-evu-game-wrong]')) { startStandardGame('all', 'full', standardGameState.wrongIds); return; }
+        if (event.target.closest('[data-evu-open-type]')) {
+          setExerciseMode(event.target.closest('[data-evu-open-type]').getAttribute('data-evu-open-type'));
+          return;
+        }
+        if (event.target.closest('[data-evu-open-sequence]')) {
+          setExerciseMode('all-sequential');
+          return;
+        }
+      });
+      exerciseCatalog.querySelector('#evu-game-type-select').addEventListener('change', function (event) {
+        standardGameType = event.target.value || 'all';
+        syncStandardGameType();
       });
       exerciseSession.querySelector('#evu-back-to-exercise-catalog').addEventListener('click', function () {
         setExerciseMode(null);
       });
       setExerciseMode(null);
+    }
+
+    var standardGameType = 'all';
+    var standardGameState = null;
+    var standardGameIcons = {
+      'multiple-choice': '🎯', 'image-choice': '🖼️', 'image-to-word': '🖼️', 'true-false': '⚡',
+      'image-match': '🧠', 'fill-blank': '⌨️', 'word-bank': '🧩', 'matching': '🔗',
+      'categorization': '🗂️', 'sentence-completion': '✍️', 'sentence-complete': '✍️',
+      'sentence-order': '🔤', 'multi-fill': '📝', 'mini-reading': '📚',
+      'paragraph-completion': '📖', 'paragraph-cloze': '📖', 'passage-complete': '📖',
+      'reading-tfng': '📚', 'select-all': '☑️', 'error-correction': '🔍',
+      'translation': '文', 'short-answer': '💬', 'production': '🌟'
+    };
+
+    function syncStandardGameType() {
+      if (!exerciseCatalog) return;
+      var selector = exerciseCatalog.querySelector('#evu-game-type-select');
+      if (selector) selector.value = standardGameType;
+      exerciseCatalog.querySelectorAll('[data-evu-game-select-type]').forEach(function (tile) {
+        tile.classList.toggle('selected', (tile.getAttribute('data-evu-game-select-type') || 'all') === standardGameType);
+      });
+    }
+
+    function shuffleStandardGame(input) {
+      var copy = input.slice();
+      for (var index = copy.length - 1; index > 0; index -= 1) {
+        var swap = Math.floor(Math.random() * (index + 1));
+        var value = copy[index]; copy[index] = copy[swap]; copy[swap] = value;
+      }
+      return copy;
+    }
+
+    function startStandardGame(type, length, wrongOnly) {
+      var pool = practiceQuestions.filter(function (question) {
+        return type === 'all' || question.type === type;
+      });
+      if (wrongOnly && wrongOnly.length) pool = pool.filter(function (question) { return wrongOnly.indexOf(question.id) !== -1; });
+      var shuffled = shuffleStandardGame(pool);
+      var count = length === 'full' ? shuffled.length : Math.min(shuffled.length, Number(length) || 32);
+      standardGameState = { type: type, length: length, ids: shuffled.slice(0, count).map(function (question) { return question.id; }), index: 0, answered: 0, graded: 0, correct: 0, streak: 0, bestStreak: 0, xp: 0, locked: false, finished: false, wrongIds: [] };
+      if (!standardGameState.ids.length) { renderStandardGameSetup(); return; }
+      renderStandardGame();
+    }
+
+    function renderStandardGameSetup() {
+      if (!exerciseCatalog) return;
+      var setup = exerciseCatalog.querySelector('#evu-game-setup');
+      var playing = exerciseCatalog.querySelector('#evu-game-playing');
+      var finish = exerciseCatalog.querySelector('#evu-game-finish');
+      if (setup) setup.hidden = false;
+      if (playing) playing.hidden = true;
+      if (finish) finish.hidden = true;
+      syncStandardGameType();
+      var xp = exerciseCatalog.querySelector('#evu-game-xp');
+      var streak = exerciseCatalog.querySelector('#evu-game-streak');
+      var accuracy = exerciseCatalog.querySelector('#evu-game-accuracy');
+      if (xp) xp.textContent = '0';
+      if (streak) streak.textContent = '0';
+      if (accuracy) accuracy.textContent = '—';
+    }
+
+    function renderStandardGame() {
+      if (!exerciseCatalog || !standardGameState) return;
+      var setup = exerciseCatalog.querySelector('#evu-game-setup');
+      var playing = exerciseCatalog.querySelector('#evu-game-playing');
+      var finish = exerciseCatalog.querySelector('#evu-game-finish');
+      if (standardGameState.finished) {
+        if (setup) setup.hidden = true;
+        if (playing) playing.hidden = true;
+        if (finish) finish.hidden = false;
+        renderStandardGameFinish();
+        return;
+      }
+      var question = practiceQuestions.find(function (item) { return item.id === standardGameState.ids[standardGameState.index]; });
+      if (!question) { standardGameState.finished = true; renderStandardGame(); return; }
+      if (setup) setup.hidden = true;
+      if (playing) playing.hidden = false;
+      var count = exerciseCatalog.querySelector('#evu-game-count');
+      var cue = exerciseCatalog.querySelector('#evu-game-cue');
+      var progress = exerciseCatalog.querySelector('#evu-game-progress');
+      var stage = exerciseCatalog.querySelector('#evu-game-stage');
+      if (count) count.textContent = 'Câu ' + (standardGameState.index + 1) + ' / ' + standardGameState.ids.length;
+      if (cue) cue.textContent = (labels[question.type] || question.type) + ' · Level ' + question.difficulty;
+      if (progress) {
+        var percent = Math.round((standardGameState.index / Math.max(1, standardGameState.ids.length)) * 100);
+        progress.setAttribute('aria-valuenow', String(percent));
+        var bar = progress.querySelector('span'); if (bar) bar.style.width = percent + '%';
+      }
+      if (!stage) return;
+      var input = typeof renderQuestionInput === 'function' ? renderQuestionInput(question, 'game') : '';
+      var isProduction = question.type === 'production' || question.type === 'short-answer';
+      stage.innerHTML = '<article class="game-question" data-evu-game-card="' + question.id + '"><div class="game-question-head"><span class="game-step">' + (standardGameIcons[question.type] || '✦') + ' ' + (labels[question.type] || question.type) + '</span><span class="pill blue">' + (question.category || '') + '</span></div><div class="game-prompt">' + escapeHtml(question.prompt) + '</div>' + input + '<div class="feedback" id="evu-game-feedback" role="status"></div><div class="game-actions"><button class="btn primary" type="button" data-evu-game-check>' + (isProduction ? 'Lưu câu trả lời' : 'Kiểm tra đáp án') + '</button><button class="btn secondary" type="button" data-evu-game-next disabled>' + (standardGameState.index === standardGameState.ids.length - 1 ? 'Xem kết quả →' : 'Câu tiếp theo →') + '</button></div></article>';
+    }
+
+    function checkStandardGame() {
+      if (!standardGameState || standardGameState.locked) return;
+      var question = practiceQuestions.find(function (item) { return item.id === standardGameState.ids[standardGameState.index]; });
+      var root = exerciseCatalog && exerciseCatalog.querySelector('[data-evu-game-card]');
+      if (!question || !root) return;
+      var response = typeof collectResponse === 'function' ? collectResponse(question, root) : '';
+      var judged = typeof evaluateQuestion === 'function' ? evaluateQuestion(question, response) : null;
+      var correct = judged === true || judged === false ? judged : null;
+      standardGameState.answered += 1;
+      if (correct !== null) {
+        standardGameState.graded += 1;
+        if (correct) { standardGameState.correct += 1; standardGameState.streak += 1; standardGameState.bestStreak = Math.max(standardGameState.bestStreak, standardGameState.streak); standardGameState.xp += 10; }
+        else { standardGameState.streak = 0; standardGameState.wrongIds.push(question.id); }
+      }
+      standardGameState.locked = true;
+      var feedback = exerciseCatalog.querySelector('#evu-game-feedback');
+      if (feedback) {
+        feedback.className = 'feedback show ' + (correct === null ? 'neutral' : correct ? 'correct' : 'incorrect');
+        feedback.innerHTML = correct === null ? '<strong>Đã lưu bài viết để tự kiểm tra.</strong>' : (typeof feedbackHtml === 'function' ? feedbackHtml(question, typeof displayResponse === 'function' ? displayResponse(question, response) : response, correct) : '');
+      }
+      var next = root.querySelector('[data-evu-game-next]');
+      var check = root.querySelector('[data-evu-game-check]');
+      if (next) next.disabled = false;
+      if (check) check.disabled = true;
+      root.classList.add(correct === true ? 'game-right' : correct === false ? 'game-wrong' : 'game-written');
+      var xp = exerciseCatalog.querySelector('#evu-game-xp'); if (xp) xp.textContent = String(standardGameState.xp);
+      var streak = exerciseCatalog.querySelector('#evu-game-streak'); if (streak) streak.textContent = String(standardGameState.streak);
+      var accuracy = exerciseCatalog.querySelector('#evu-game-accuracy'); if (accuracy) accuracy.textContent = standardGameState.graded ? Math.round(standardGameState.correct * 100 / standardGameState.graded) + '%' : '—';
+    }
+
+    function nextStandardGame() {
+      if (!standardGameState || !standardGameState.locked) return;
+      standardGameState.index += 1;
+      standardGameState.locked = false;
+      if (standardGameState.index >= standardGameState.ids.length) standardGameState.finished = true;
+      renderStandardGame();
+    }
+
+    function renderStandardGameFinish() {
+      var finish = exerciseCatalog && exerciseCatalog.querySelector('#evu-game-finish');
+      if (!finish || !standardGameState) return;
+      var grade = standardGameState.graded ? Math.round(standardGameState.correct * 100 / standardGameState.graded) : 0;
+      finish.innerHTML = '<div class="finish-icon">' + (standardGameState.graded === 0 ? '✍️' : grade >= 80 ? '🏆' : '🌱') + '</div><h2>Hoàn thành thử thách!</h2><p>Chơi tốt! Mỗi lượt luyện sẽ giúp bạn nhớ từ vựng theo nhiều dạng khác nhau.</p><div class="finish-metrics"><div><strong>' + standardGameState.correct + ' / ' + (standardGameState.graded || 0) + '</strong><span>Đúng / được chấm</span></div><div><strong>' + (standardGameState.graded ? grade + '%' : 'Tự kiểm tra') + '</strong><span>' + (standardGameState.graded ? 'Chính xác' : 'Tự kiểm tra') + '</span></div><div><strong>' + standardGameState.xp + '</strong><span>XP</span></div><div><strong>' + standardGameState.ids.length + '</strong><span>Câu đã ôn</span></div></div><p>Đã làm ' + standardGameState.answered + '/' + standardGameState.ids.length + ' câu · ' + standardGameState.wrongIds.length + ' câu sai cần ôn tập.</p><div class="button-row" style="justify-content:center"><button type="button" class="btn primary" data-evu-game-replay>Chơi lại</button>' + (standardGameState.wrongIds.length ? '<button type="button" class="btn secondary" data-evu-game-wrong>Ôn câu sai</button>' : '') + '<button type="button" class="btn" data-evu-game-exit>Chọn kiểu khác</button></div>';
     }
 
     function textNodeIn(element) {
