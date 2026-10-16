@@ -1519,6 +1519,60 @@
       });
     }
 
+    function standardizeQuestionCards() {
+      var roots = [
+        document.getElementById('practice-list'),
+        document.getElementById('test-list')
+      ];
+      roots.forEach(function (root) {
+        if (!root) return;
+        var isPractice = root.id === 'practice-list';
+        Array.from(root.querySelectorAll('.question-card')).forEach(function (card, index) {
+          card.classList.add('evu-standard-question-card');
+          var number = card.querySelector('.question-number');
+          if (number) number.textContent = (isPractice ? 'Practice ' : 'Test ') + (index + 1);
+
+          card.querySelectorAll('.question-meta .pill.blue').forEach(function (pill) { pill.remove(); });
+          card.querySelectorAll('[data-clear-question]').forEach(function (button) { button.textContent = 'Xóa'; });
+
+          var check = card.querySelector('[data-check-practice]');
+          if (check) {
+            var id = check.getAttribute('data-check-practice');
+            var question = practiceQuestions.find(function (item) { return item.id === id; });
+            check.textContent = question && (question.type === 'production' || question.type === 'short-answer')
+              ? 'Lưu để tự kiểm tra'
+              : 'Kiểm tra đáp án';
+          }
+
+          card.querySelectorAll('.word-bank .word-chip').forEach(function (chip) {
+            if (chip.tagName === 'BUTTON') {
+              chip.classList.add('bank-pick');
+              return;
+            }
+            var button = document.createElement('button');
+            button.type = 'button';
+            button.className = chip.className + ' bank-pick';
+            button.setAttribute('data-bank-pick', chip.textContent.trim());
+            button.textContent = chip.textContent;
+            chip.replaceWith(button);
+          });
+        });
+      });
+    }
+
+    document.addEventListener('click', function (event) {
+      var chip = event.target.closest('.question-card .word-bank [data-bank-pick]');
+      if (!chip) return;
+      var card = chip.closest('.question-card');
+      var select = card && card.querySelector('[data-answer-select]');
+      if (!select) return;
+      select.value = chip.getAttribute('data-bank-pick') || '';
+      select.dispatchEvent(new Event('change', { bubbles: true }));
+      card.querySelectorAll('[data-bank-pick]').forEach(function (item) {
+        item.classList.toggle('chosen', item === chip);
+      });
+    });
+
     var originalRenderPractice = renderPractice;
     renderPractice = function () {
       originalRenderPractice();
@@ -1537,12 +1591,15 @@
         });
       }
       addReadingPassage(practiceList, practiceQuestions, 'data-question-card');
+      standardizeQuestionCards();
     };
     var originalRenderTest = renderTest;
     renderTest = function () {
       originalRenderTest();
       addReadingPassage(document.getElementById('test-list'), testQuestions, 'data-test-card');
+      standardizeQuestionCards();
     };
+    standardizeQuestionCards();
     if (typeof renderGame === 'function') {
       var originalRenderGame = renderGame;
       renderGame = function () {

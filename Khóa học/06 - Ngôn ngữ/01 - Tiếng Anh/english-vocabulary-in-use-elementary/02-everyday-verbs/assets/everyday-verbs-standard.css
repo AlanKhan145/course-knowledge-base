@@ -58,6 +58,23 @@ body {
   border-color: #b9c7ff;
 }
 
+/* Keep every lesson on the same question-card protocol as lesson 01. */
+.question-card .question-meta .pill.blue {
+  display: none;
+}
+
+.word-bank .word-chip.bank-pick {
+  border: 1px solid #bed3eb;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+
+.word-bank .word-chip.bank-pick:hover,
+.word-bank .word-chip.bank-pick.chosen {
+  border-color: #4280ce;
+  background: #d9eaff;
+}
+
 .evu-unit-home {
   display: block;
   margin: 0 0 .75rem;
