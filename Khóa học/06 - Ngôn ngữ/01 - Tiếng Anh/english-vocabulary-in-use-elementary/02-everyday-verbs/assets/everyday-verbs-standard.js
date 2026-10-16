@@ -1333,6 +1333,8 @@
       if (coverageBanner) coverageBanner.hidden = !isCatalog;
       [practiceToolbar, practiceSummary, practiceList, practicePaginationTop, practicePaginationBottom, practiceRetryBanner]
         .forEach(function (element) { if (element) element.hidden = isCatalog; });
+      var practiceArchive = document.getElementById('practice-archive');
+      if (practiceArchive) practiceArchive.open = !isCatalog;
 
       state.retryIds = null;
       if (isCatalog) {
@@ -1413,9 +1415,12 @@
       var typeControl = document.getElementById('practice-type-filter');
       if (typeControl && typeControl.closest('label')) typeControl.closest('label').hidden = true;
       var anchor = practiceSummary || practiceToolbar || practiceView.querySelector('.section-heading');
-      if (anchor) {
-        practiceView.insertBefore(exerciseCatalog, anchor);
-        practiceView.insertBefore(exerciseSession, anchor);
+      var directAnchor = anchor && anchor.parentNode === practiceView
+        ? anchor
+        : anchor && anchor.closest('#practice-archive');
+      if (directAnchor && directAnchor.parentNode === practiceView) {
+        practiceView.insertBefore(exerciseCatalog, directAnchor);
+        practiceView.insertBefore(exerciseSession, directAnchor);
       } else {
         practiceView.appendChild(exerciseCatalog);
         practiceView.appendChild(exerciseSession);
@@ -1492,6 +1497,106 @@
       else if (practiceView.querySelector('.section-heading')) practiceView.querySelector('.section-heading').insertAdjacentElement('afterend', banner);
     }
     installExerciseCatalog();
+
+    function standardizeLessonShell() {
+      var sidebar = document.querySelector('.sidebar');
+      var navCard = sidebar && sidebar.querySelector('.nav-card');
+      var navTitle = navCard && navCard.querySelector('h2');
+      if (navTitle) navTitle.textContent = 'Nội dung';
+
+      var sideCards = sidebar ? sidebar.querySelectorAll('.side-card') : [];
+      if (sideCards[0]) {
+        var progressTitle = sideCards[0].querySelector('h3');
+        if (progressTitle) progressTitle.textContent = 'Tiến độ';
+        Array.from(sideCards[0].querySelectorAll('.side-stat span')).forEach(function (label, index) {
+          label.textContent = ['Đã nhớ', 'Luyện tập', 'Điểm kiểm tra', 'Cần ôn'][index] || label.textContent;
+        });
+      }
+      if (sideCards[1]) {
+        var settingsTitle = sideCards[1].querySelector('h3');
+        var settingsText = sideCards[1].querySelector('p');
+        if (settingsTitle) settingsTitle.textContent = 'Cài đặt';
+        if (settingsText) settingsText.textContent = 'Tiến độ và đáp án được lưu trong trình duyệt.';
+        sideCards[1].querySelectorAll('[data-view="story"], [data-view="review"], [data-view="games"]').forEach(function (button) { button.remove(); });
+      }
+
+      var sectionLabels = {
+        'view-overview': '01 · Overview',
+        'view-learn': '02 · Learn',
+        'view-vocabulary': '03 · Vocabulary',
+        'view-flashcards': '04 · Flashcards',
+        'view-practice': '05 · Practice',
+        'view-test': '06 · Final test',
+        'view-mistakes': '07 · Error correction',
+        'view-results': '08 · Results'
+      };
+      Object.keys(sectionLabels).forEach(function (id) {
+        var section = document.getElementById(id);
+        var kicker = section && section.querySelector('.section-heading .section-kicker');
+        if (kicker) kicker.textContent = sectionLabels[id];
+      });
+
+      var headerTitle = document.querySelector('.header-title');
+      var lessonTitle = headerTitle ? headerTitle.textContent.replace(/^Lesson\s+\d+\s*[—-]\s*/i, '').trim() : '';
+      var practiceTitle = document.getElementById('practice-title');
+      if (practiceTitle && lessonTitle) practiceTitle.textContent = 'Mini game · ' + lessonTitle;
+      var practiceLead = document.querySelector('#view-practice > .section-heading > p');
+      if (practiceLead) practiceLead.textContent = 'Chơi theo từng dạng, kiếm XP và ôn đủ ' + vocab.length + ' mục từ. Ngân hàng bài tập được giữ ở bên dưới.';
+
+      var testTitle = document.getElementById('test-title');
+      if (testTitle) testTitle.textContent = 'Kiểm tra tổng hợp';
+      var testInstruction = document.querySelector('#view-test .test-instructions');
+      if (testInstruction) testInstruction.innerHTML = '<strong>Bài kiểm tra:</strong> ' + testQuestions.length + ' câu · 1 điểm/câu. Đáp án và giải thích xuất hiện sau khi nộp bài.';
+      var testSubmit = document.querySelector('#test-form button[type="submit"]');
+      if (testSubmit) testSubmit.textContent = 'Nộp bài';
+      document.querySelectorAll('#test-form [data-view="practice"]').forEach(function (button) { button.textContent = 'Quay lại bài luyện'; });
+
+      var mistakesTitle = document.getElementById('mistakes-title');
+      if (mistakesTitle) mistakesTitle.textContent = 'Ôn tập câu sai';
+      var resultsTitle = document.getElementById('results-title');
+      if (resultsTitle) resultsTitle.textContent = 'Kết quả học tập';
+
+      var practiceListRoot = document.getElementById('practice-list');
+      if (practiceListRoot) practiceListRoot.classList.remove('game-question');
+      if (pageName !== '03-have-had-had') {
+        ['game-picker', 'game-status', 'game-controls', 'game-hud', 'game-menu', 'game-overview-stats'].forEach(function (id) {
+          var element = document.getElementById(id);
+          if (element) element.hidden = true;
+        });
+      }
+      standardizePracticeArchive();
+    }
+
+    function standardizePracticeArchive() {
+      var practice = document.getElementById('view-practice');
+      if (!practice || document.getElementById('practice-archive')) return;
+      var list = document.getElementById('practice-list');
+      if (!list) return;
+
+      var nodes = [
+        document.getElementById('practice-summary-text') && document.getElementById('practice-summary-text').closest('.practice-summary'),
+        document.querySelector('#view-practice .practice-toolbar'),
+        document.getElementById('retry-banner'),
+        document.getElementById('practice-pagination-top'),
+        list,
+        document.getElementById('practice-pagination-bottom')
+      ].filter(function (node) { return node && node.parentNode; });
+      if (!nodes.length) return;
+
+      nodes.sort(function (a, b) {
+        if (a === b) return 0;
+        return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+      });
+      var archive = document.createElement('details');
+      archive.id = 'practice-archive';
+      archive.className = 'optional-section';
+      var summary = document.createElement('summary');
+      summary.innerHTML = 'Ngân hàng bài luyện đầy đủ · lọc theo dạng, độ khó và làm lại từng câu (<span id="bank-count">' + practiceQuestions.length + '</span> câu)';
+      archive.appendChild(summary);
+      nodes[0].parentNode.insertBefore(archive, nodes[0]);
+      nodes.forEach(function (node) { archive.appendChild(node); });
+    }
+    standardizeLessonShell();
 
     function addReadingPassage(root, questionBank, cardAttribute) {
       if (!root || !advancedLesson || !advancedLesson.passage) return;
