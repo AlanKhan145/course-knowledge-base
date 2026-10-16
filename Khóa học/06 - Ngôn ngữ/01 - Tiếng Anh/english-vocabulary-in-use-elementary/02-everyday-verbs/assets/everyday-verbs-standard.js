@@ -234,7 +234,24 @@
       var base = String(target.word || '').trim();
       var lower = base.toLowerCase();
       var usedForm = practiceForm(target, index, frameOffset);
-      var complement = '';
+      var generatedComplements = {
+        have: ' breakfast', go: ' to work', do: ' my homework', make: ' the bed', come: ' home',
+        take: ' the bus', bring: ' the book', get: ' home', wake: ' up', turn: ' on the light',
+        put: ' on my coat', look: ' at the picture', pick: ' up my bag', say: ' hello',
+        tell: ' my friend the news', speak: ' English', talk: ' to my friend', answer: ' the question',
+        reply: ' to the message', spell: ' the word', pronounce: ' the word', catch: ' the bus',
+        fly: ' to London', leave: ' home', run: ' in the park', drive: ' to work', ride: ' a bike',
+        write: ' a message', buy: ' some food', think: ' about the plan', teach: ' English',
+        hear: ' the news', meet: ' my friend', sleep: ' well', sit: ' in the garden', stand: ' near the door',
+        walk: ' to work', jump: ' over the line', dance: ' at the party', jog: ' in the park', swim: ' in the pool',
+        climb: ' the stairs', fall: ' asleep', miss: ' the bus', arrive: ' at work', push: ' the door',
+        pull: ' the handle', carry: ' the bag', pass: ' the book', ask: ' a question', listen: ' to music',
+        call: ' my friend', phone: ' my friend', watch: ' TV', wash: ' the dishes', clean: ' the room',
+        brush: ' my teeth', study: ' English', work: ' at home', finish: ' my homework', rest: ' after lunch',
+        travel: ' by train', shop: ' for food', visit: ' my family', bake: ' a cake', cook: ' dinner',
+        open: ' the door', change: ' my clothes'
+      };
+      var complement = generatedComplements[lower] || '';
       if (/^(turn off|turn on)$/i.test(lower)) complement = ' the lights';
       else if (/^(put on|take off)$/i.test(lower)) complement = ' my coat';
       else if (/^bring back$/i.test(lower)) complement = ' the library book';
@@ -256,6 +273,32 @@
       if (frame === 1) return inflectPhrase(base, 'past');
       if (frame === 2) return inflectPhrase(base, 'third');
       return base;
+    }
+
+    function contextualFormOptions(target, index, frameOffset, count) {
+      var base = String(target.word || '').trim();
+      var candidates = [
+        practiceForm(target, index, frameOffset),
+        base,
+        inflectPhrase(base, 'third'),
+        inflectPhrase(base, 'past')
+      ];
+      if (/^have$/i.test(base)) candidates.push('have to');
+      if (/\s/.test(base) && !/\bto$|\bby$|\bwith$|\bfor$/.test(base)) {
+        var head = base.split(/\s+/)[0].toLowerCase();
+        bank.filter(function (item) {
+          var word = String(item.word || '').trim();
+          return word && word.toLowerCase() !== base.toLowerCase()
+            && word.toLowerCase().indexOf(head + ' ') === 0
+            && !/[()\/+!]/.test(word);
+        }).forEach(function (item) { candidates.push(item.word); });
+      }
+      var options = [];
+      candidates.forEach(function (candidate) {
+        var key = normalizeExerciseText(candidate);
+        if (key && options.every(function (current) { return normalizeExerciseText(current) !== key; })) options.push(candidate);
+      });
+      return mixOptions(options.slice(0, count), index);
     }
 
     function maskPhrase(sentence, phrase) {
@@ -281,7 +324,8 @@
         think: { past: 'thought', third: 'thinks' }, teach: { past: 'taught', third: 'teaches' },
         hear: { past: 'heard', third: 'hears' }, meet: { past: 'met', third: 'meets' },
         sleep: { past: 'slept', third: 'sleeps' }, sit: { past: 'sat', third: 'sits' },
-        stand: { past: 'stood', third: 'stands' }
+        stand: { past: 'stood', third: 'stands' }, swim: { past: 'swam', third: 'swims' },
+        fall: { past: 'fell', third: 'falls' }
       };
       var next = root;
       if (irregular[root] && irregular[root][form]) next = irregular[root][form];
@@ -941,7 +985,7 @@
         var choiceForm = practiceForm(choiceTarget, index, 0);
         return Object.assign({}, common, {
           prompt: (index < 10 ? 'Chọn cụm phù hợp với ngữ cảnh: ' : 'Đọc kỹ dấu hiệu thời gian rồi chọn cụm phù hợp: ') + '“' + maskPhrase(choiceSentence, choiceForm) + '”',
-          options: mixOptions(optionsFor(choiceTarget, index + 2, 4).map(function (phrase) { return practiceForm({ word: phrase }, index, 0); }), index), answer: choiceForm,
+          options: contextualFormOptions(choiceTarget, index + 2, 0, 4), answer: choiceForm,
           explanation: 'Đáp án là “' + choiceForm + '” (cụm gốc: ' + choiceTarget.word + ' — ' + choiceTarget.meaning + ').'
         });
       }
@@ -959,7 +1003,7 @@
         var bankSentence = practiceSentence(bankTarget, index, 1);
         var bankForm = practiceForm(bankTarget, index, 1);
         return Object.assign({}, common, {
-          prompt: 'Dùng ngân hàng từ để hoàn thành câu: “' + maskPhrase(bankSentence, bankForm) + '”', bank: mixOptions(optionsFor(bankTarget, index + 2, 5).map(function (phrase) { return practiceForm({ word: phrase }, index, 1); }), index + 1), answer: bankForm,
+          prompt: 'Dùng ngân hàng từ để hoàn thành câu: “' + maskPhrase(bankSentence, bankForm) + '”', bank: contextualFormOptions(bankTarget, index + 2, 1, 5), answer: bankForm,
           explanation: 'Đáp án là “' + bankForm + '” (cụm gốc: ' + bankTarget.word + ' — ' + bankTarget.meaning + ').'
         });
       }
