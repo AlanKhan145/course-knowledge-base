@@ -6,6 +6,32 @@
 
     var TARGET_PER_TYPE = 15;
     var EXAM_PER_TYPE = 4;
+    var MAX_GROUP_ITEMS = 10;
+    var CURATION_LIMITS = {
+      'multiple-choice': 6,
+      'image-choice': 4,
+      'image-to-word': 4,
+      'true-false': 4,
+      'image-match': 4,
+      'fill-blank': 6,
+      'word-bank': 5,
+      'matching': 4,
+      'categorization': 4,
+      'sentence-completion': 6,
+      'sentence-complete': 6,
+      'sentence-order': 5,
+      'multi-fill': 4,
+      'mini-reading': 4,
+      'paragraph-completion': 4,
+      'paragraph-cloze': 4,
+      'passage-complete': 4,
+      'reading-tfng': 6,
+      'select-all': 4,
+      'error-correction': 5,
+      'translation': 4,
+      'short-answer': 2,
+      'production': 2
+    };
     var category = 'full-bank';
     var pageName = decodeURIComponent(window.location.pathname.split('/').pop() || '').replace(/\.html$/i, '');
     var lessonKey = (typeof LESSON_ID === 'string' ? LESSON_ID : pageName).toLowerCase();
@@ -25,7 +51,14 @@
       'short-answer': 'Tự trả lời',
       'translation': 'Dịch câu',
       'production': 'Viết / nói ứng dụng',
-      'error-correction': 'Sửa lỗi'
+      'error-correction': 'Sửa lỗi',
+      'sentence-completion': 'Hoàn thiện câu',
+      'sentence-complete': 'Hoàn thiện câu',
+      'image-to-word': 'Từ qua hình',
+      'paragraph-completion': 'Hoàn thiện đoạn văn',
+      'paragraph-cloze': 'Hoàn thiện đoạn văn',
+      'passage-complete': 'Hoàn thiện đoạn văn',
+      'reading-tfng': 'Đọc hiểu T / F / NG'
     };
 
     var errorBank = {
@@ -592,6 +625,130 @@
       return mergeRepeatedGroupQuestions(grouped);
     }
 
+    function splitLongGroupQuestions(questions) {
+      var groupFields = {
+        categorization: 'items',
+        matching: 'pairs',
+        'image-match': 'items'
+      };
+      var split = [];
+
+      questions.forEach(function (question) {
+        var field = groupFields[question.type];
+        var entries = field && Array.isArray(question[field]) ? question[field] : null;
+        if (!entries || entries.length <= MAX_GROUP_ITEMS) {
+          split.push(question);
+          return;
+        }
+
+        var totalParts = Math.ceil(entries.length / MAX_GROUP_ITEMS);
+        for (var start = 0; start < entries.length; start += MAX_GROUP_ITEMS) {
+          var partNumber = Math.floor(start / MAX_GROUP_ITEMS) + 1;
+          var part = Object.assign({}, question);
+          part.id = String(question.id || question.type || 'group') + '-part-' + partNumber;
+          part[field] = entries.slice(start, start + MAX_GROUP_ITEMS);
+          if (question.type === 'image-match') {
+            var answerKeys = Object.create(null);
+            var chunkAnswers = [];
+            part[field].forEach(function (item) {
+              var answerKey = normalizeExerciseText(item && item.answer);
+              if (answerKey && !answerKeys[answerKey]) {
+                answerKeys[answerKey] = true;
+                chunkAnswers.push(item.answer);
+              }
+            });
+            var originalOptions = Array.isArray(question.options) ? question.options : [];
+            originalOptions.forEach(function (option) {
+              if (chunkAnswers.length >= MAX_GROUP_ITEMS) return;
+              var optionKey = normalizeExerciseText(option);
+              if (optionKey && !answerKeys[optionKey]) {
+                answerKeys[optionKey] = true;
+                chunkAnswers.push(option);
+              }
+            });
+            part.options = chunkAnswers;
+          }
+          part.prompt = String(question.prompt || '').replace(/[\s.]+$/, '') + ' · phần ' + partNumber + '/' + totalParts + '.';
+          part.explanation = question.type === 'categorization'
+            ? 'Phần ' + partNumber + '/' + totalParts + '. Các nhóm cần nhớ: ' + (question.categories || []).join(' / ') + '.'
+            : question.type === 'matching'
+              ? 'Phần ' + partNumber + '/' + totalParts + '. Nối các cụm từ với nghĩa hoặc cách dùng tương ứng.'
+              : 'Phần ' + partNumber + '/' + totalParts + '. Ghép từng hình với từ hoặc cụm từ tương ứng.';
+          split.push(part);
+        }
+      });
+      return split;
+    }
+
+    function questionOriginRank(question) {
+      var id = String(question && question.id || '').toLowerCase();
+      if (/^(p\d+|quick-)/.test(id)) return 0;
+      if (/^(e\d+|full-)/.test(id)) return 1;
+      if (/^(g\d+|x-?)/.test(id)) return 2;
+      if (/^std-/.test(id)) return 3;
+      return 1;
+    }
+
+    function selectDiverseQuestions(questions, limit) {
+      if (questions.length <= limit) return questions.slice();
+      var buckets = Object.create(null);
+      questions.forEach(function (question, index) {
+        var bucketKey = normalizeExerciseText(question.category || 'general') + '|' + String(question.difficulty || 1);
+        if (!buckets[bucketKey]) buckets[bucketKey] = [];
+        buckets[bucketKey].push({ question: question, index: index });
+      });
+
+      var bucketKeys = Object.keys(buckets);
+      bucketKeys.forEach(function (key) {
+        buckets[key].sort(function (left, right) {
+          return questionOriginRank(left.question) - questionOriginRank(right.question)
+            || Number(left.question.difficulty || 1) - Number(right.question.difficulty || 1)
+            || left.index - right.index;
+        });
+      });
+      bucketKeys.sort(function (left, right) {
+        var leftFirst = buckets[left][0];
+        var rightFirst = buckets[right][0];
+        return questionOriginRank(leftFirst.question) - questionOriginRank(rightFirst.question)
+          || leftFirst.index - rightFirst.index;
+      });
+
+      var selected = [];
+      var cursors = Object.create(null);
+      var progressed = true;
+      while (selected.length < limit && progressed) {
+        progressed = false;
+        bucketKeys.forEach(function (key) {
+          if (selected.length >= limit) return;
+          var cursor = cursors[key] || 0;
+          if (cursor >= buckets[key].length) return;
+          selected.push(buckets[key][cursor]);
+          cursors[key] = cursor + 1;
+          progressed = true;
+        });
+      }
+      return selected.sort(function (left, right) { return left.index - right.index; }).map(function (entry) { return entry.question; });
+    }
+
+    function curateQuestionSet(questions, mode) {
+      var prepared = dedupeQuestions(splitLongGroupQuestions(questions));
+      var byType = Object.create(null);
+      prepared.forEach(function (question) {
+        var type = String(question.type || 'other');
+        if (!byType[type]) byType[type] = [];
+        byType[type].push(question);
+      });
+
+      var curated = [];
+      Object.keys(byType).forEach(function (type) {
+        var limit = mode === 'test'
+          ? (type === 'reading-tfng' ? 4 : 2)
+          : (Object.prototype.hasOwnProperty.call(CURATION_LIMITS, type) ? CURATION_LIMITS[type] : 6);
+        Array.prototype.push.apply(curated, selectDiverseQuestions(byType[type], limit));
+      });
+      return curated;
+    }
+
     function dedupeQuestions(questions) {
       var kept = [];
       var seen = Object.create(null);
@@ -1000,9 +1157,11 @@
     }
 
     var practiceTypes = [
-      'multiple-choice', 'fill-blank', 'word-bank', 'matching', 'categorization',
-      'sentence-order', 'image-choice', 'image-match', 'mini-reading', 'true-false',
-      'select-all', 'multi-fill', 'translation', 'short-answer', 'production', 'error-correction'
+      'multiple-choice', 'image-choice', 'image-to-word', 'true-false', 'image-match',
+      'fill-blank', 'word-bank', 'matching', 'categorization', 'sentence-completion',
+      'sentence-complete', 'sentence-order', 'multi-fill', 'mini-reading',
+      'paragraph-completion', 'paragraph-cloze', 'passage-complete', 'reading-tfng',
+      'select-all', 'error-correction', 'translation', 'short-answer', 'production'
     ];
     var readingQuestions = [];
     if (advancedLesson && Array.isArray(advancedLesson.translations)) {
@@ -1075,11 +1234,11 @@
 
     // Clean the generated banks after every source has contributed questions.
     // The lesson HTML files expose these arrays as const, so update them in place.
-    var normalizedPracticeQuestions = dedupeQuestions(mergeRepeatedGroupExercises(compactCompoundQuestions(practiceQuestions)));
+    var normalizedPracticeQuestions = curateQuestionSet(mergeRepeatedGroupExercises(compactCompoundQuestions(practiceQuestions)), 'practice');
     practiceQuestions.splice(0, practiceQuestions.length);
     Array.prototype.push.apply(practiceQuestions, normalizedPracticeQuestions);
 
-    var normalizedTestQuestions = dedupeQuestions(mergeRepeatedGroupExercises(compactCompoundQuestions(testQuestions)));
+    var normalizedTestQuestions = curateQuestionSet(mergeRepeatedGroupExercises(compactCompoundQuestions(testQuestions)), 'test');
     testQuestions.splice(0, testQuestions.length);
     Array.prototype.push.apply(testQuestions, normalizedTestQuestions);
 
@@ -1088,7 +1247,18 @@
     practiceQuestions.sort(function (left, right) {
       var leftOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, left.type) ? practiceTypeOrder[left.type] : practiceTypes.length;
       var rightOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, right.type) ? practiceTypeOrder[right.type] : practiceTypes.length;
-      return leftOrder - rightOrder || Number(left.difficulty || 1) - Number(right.difficulty || 1) || String(left.type).localeCompare(String(right.type));
+      return leftOrder - rightOrder
+        || Number(left.difficulty || 1) - Number(right.difficulty || 1)
+        || String(left.category || '').localeCompare(String(right.category || ''))
+        || String(left.id || '').localeCompare(String(right.id || ''));
+    });
+    testQuestions.sort(function (left, right) {
+      var leftOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, left.type) ? practiceTypeOrder[left.type] : practiceTypes.length;
+      var rightOrder = Object.prototype.hasOwnProperty.call(practiceTypeOrder, right.type) ? practiceTypeOrder[right.type] : practiceTypes.length;
+      return leftOrder - rightOrder
+        || Number(left.difficulty || 1) - Number(right.difficulty || 1)
+        || String(left.category || '').localeCompare(String(right.category || ''))
+        || String(left.id || '').localeCompare(String(right.id || ''));
     });
 
     if (typeof setupPracticeTypeFilter === 'function') setupPracticeTypeFilter();
@@ -1164,6 +1334,9 @@
       exerciseCatalog = document.createElement('section');
       exerciseCatalog.id = 'evu-exercise-catalog';
       exerciseCatalog.className = 'evu-exercise-catalog';
+      var activePracticeTypeCount = practiceTypes.filter(function (type) {
+        return practiceQuestions.some(function (question) { return question.type === type; });
+      }).length;
       var cards = practiceTypes.map(function (type, index) {
         var count = practiceQuestions.filter(function (question) { return question.type === type; }).length;
         if (!count) return '';
@@ -1183,7 +1356,7 @@
         return '<article class="evu-exercise-card"><div class="evu-exercise-card-top"><span>BÀI ' + String(index + 1).padStart(2, '0') + '</span><b>' + count + '</b></div><h3>' + (labels[type] || type) + '</h3><p>' + description + '</p><button class="btn primary" type="button" data-evu-open-type="' + type + '">Vào bài luyện →</button></article>';
       }).join('');
       var sequentialRun = '<article class="evu-exercise-card evu-exercise-card-full"><div class="evu-exercise-card-top"><span>LUYỆN TOÀN BỘ</span><b>' + practiceQuestions.length + '</b></div><h3>Tất cả dạng, lần lượt</h3><p>Làm trọn ngân hàng theo từng nhóm dạng bài, từ đầu đến cuối; không xáo trộn giữa các dạng.</p><button class="btn primary" type="button" data-evu-open-sequence>Vào lượt luyện đầy đủ →</button></article>';
-      exerciseCatalog.innerHTML = '<div class="evu-exercise-heading"><div><span class="evu-eyebrow">CHỌN BÀI LUYỆN</span><h2>Mỗi bài một dạng</h2><p>Chọn một dạng để làm trọn bộ câu hỏi cùng kiểu. Các dạng được tách riêng, không trộn trong bài luyện.</p></div><span class="evu-exercise-count">' + practiceTypes.length + ' bài riêng</span></div>' + sequentialRun + '<div class="evu-exercise-grid">' + cards + '</div>';
+      exerciseCatalog.innerHTML = '<div class="evu-exercise-heading"><div><span class="evu-eyebrow">CHỌN BÀI LUYỆN</span><h2>Mỗi bài một dạng</h2><p>Chọn một dạng để làm trọn bộ câu hỏi cùng kiểu. Các dạng được tách riêng, không trộn trong bài luyện.</p></div><span class="evu-exercise-count">' + activePracticeTypeCount + ' dạng phù hợp</span></div>' + sequentialRun + '<div class="evu-exercise-grid">' + cards + '</div>';
 
       exerciseSession = document.createElement('div');
       exerciseSession.id = 'evu-exercise-session';
@@ -1269,7 +1442,7 @@
       var banner = document.createElement('div');
       banner.id = 'evu-coverage-banner';
       banner.className = 'evu-coverage-banner';
-      banner.innerHTML = '<div class="evu-banner-top"><div><span class="evu-eyebrow">EVERYDAY VERBS · PRACTICE LAB</span><h2>Đủ dạng, đủ lượt luyện</h2><p>Ngân hàng được cân bằng để mỗi dạng có ít nhất ' + TARGET_PER_TYPE + ' câu; đi từ nhận diện đến tự dùng từ trong câu.</p></div><div class="evu-total"><strong>' + practiceQuestions.length + '</strong><span>câu luyện tập</span></div></div><div class="evu-type-matrix">' + chips + '</div>';
+          banner.innerHTML = '<div class="evu-banner-top"><div><span class="evu-eyebrow">EVERYDAY VERBS · PRACTICE LAB</span><h2>Đủ dạng, vừa sức</h2><p>Câu hỏi đã được gộp theo ý, loại phần trùng và sắp xếp từ nhận diện đến vận dụng; mỗi dạng chỉ giữ một lượng vừa đủ để ôn hiệu quả.</p></div><div class="evu-total"><strong>' + practiceQuestions.length + '</strong><span>câu luyện tập</span></div></div><div class="evu-type-matrix">' + chips + '</div>';
       var summary = practiceView.querySelector('.practice-summary');
       if (summary) practiceView.insertBefore(banner, summary);
       else if (practiceView.querySelector('.section-heading')) practiceView.querySelector('.section-heading').insertAdjacentElement('afterend', banner);
