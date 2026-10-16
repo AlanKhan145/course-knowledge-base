@@ -396,6 +396,50 @@
       });
     }
 
+    function categorizationGroupKey(question) {
+      if (!question || question.type !== 'categorization' || !Array.isArray(question.categories) || !question.categories.length) return '';
+      return question.categories.map(function (category) {
+        return normalizeExerciseText(category);
+      }).filter(Boolean).sort().join('|');
+    }
+
+    function mergeCategorizationQuestions(questions) {
+      var groups = Object.create(null);
+      var kept = [];
+
+      questions.forEach(function (question) {
+        var groupKey = categorizationGroupKey(question);
+        if (!groupKey) {
+          kept.push(question);
+          return;
+        }
+
+        if (!groups[groupKey]) {
+          var initialItems = Object.create(null);
+          (Array.isArray(question.items) ? question.items : []).forEach(function (item) {
+            var initialKey = normalizeExerciseText(item && item.text);
+            if (initialKey) initialItems[initialKey] = true;
+          });
+          groups[groupKey] = { question: question, items: initialItems };
+          kept.push(question);
+          return;
+        }
+
+        var group = groups[groupKey];
+        if (!Array.isArray(group.question.items)) group.question.items = [];
+        (Array.isArray(question.items) ? question.items : []).forEach(function (item) {
+          var itemKey = normalizeExerciseText(item && item.text);
+          if (!itemKey || group.items[itemKey]) return;
+          group.items[itemKey] = true;
+          group.question.items.push(item);
+        });
+      });
+
+      return kept.filter(function (question) {
+        return question.type !== 'categorization' || (Array.isArray(question.items) && question.items.length);
+      });
+    }
+
     function dedupeQuestions(questions) {
       var kept = [];
       var seen = Object.create(null);
@@ -877,11 +921,11 @@
 
     // Clean the generated banks after every source has contributed questions.
     // The lesson HTML files expose these arrays as const, so update them in place.
-    var normalizedPracticeQuestions = dedupeQuestions(compactCompoundQuestions(practiceQuestions));
+    var normalizedPracticeQuestions = dedupeQuestions(mergeCategorizationQuestions(compactCompoundQuestions(practiceQuestions)));
     practiceQuestions.splice(0, practiceQuestions.length);
     Array.prototype.push.apply(practiceQuestions, normalizedPracticeQuestions);
 
-    var normalizedTestQuestions = dedupeQuestions(compactCompoundQuestions(testQuestions));
+    var normalizedTestQuestions = dedupeQuestions(mergeCategorizationQuestions(compactCompoundQuestions(testQuestions)));
     testQuestions.splice(0, testQuestions.length);
     Array.prototype.push.apply(testQuestions, normalizedTestQuestions);
 
