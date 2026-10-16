@@ -1368,6 +1368,7 @@
     }
 
     function installExerciseCatalog() {
+      if (pageName === '03-have-had-had') return;
       if (!practiceView || document.getElementById('evu-exercise-catalog')) return;
       practiceToolbar = practiceView.querySelector('.practice-toolbar');
       practiceSummary = practiceView.querySelector('.practice-summary');
@@ -1379,36 +1380,38 @@
 
       exerciseCatalog = document.createElement('section');
       exerciseCatalog.id = 'evu-exercise-catalog';
-      exerciseCatalog.className = 'evu-exercise-catalog';
+      exerciseCatalog.className = 'game-panel evu-exercise-catalog';
       var activePracticeTypeCount = practiceTypes.filter(function (type) {
         return practiceQuestions.some(function (question) { return question.type === type; });
       }).length;
+      var typeIcons = {
+        'multiple-choice': '🎯', 'image-choice': '🖼️', 'image-to-word': '🖼️', 'true-false': '⚡',
+        'image-match': '🧠', 'fill-blank': '⌨️', 'word-bank': '🧩', 'matching': '🔗',
+        'categorization': '🗂️', 'sentence-completion': '✍️', 'sentence-complete': '✍️',
+        'sentence-order': '🔤', 'multi-fill': '📝', 'mini-reading': '📚',
+        'paragraph-completion': '📖', 'paragraph-cloze': '📖', 'passage-complete': '📖',
+        'reading-tfng': '📚', 'select-all': '☑️', 'error-correction': '🔍',
+        'translation': '文', 'short-answer': '💬', 'production': '🌟'
+      };
+      var typeCounts = practiceTypes.filter(function (type) {
+        return practiceQuestions.some(function (question) { return question.type === type; });
+      });
       var cards = practiceTypes.map(function (type, index) {
         var count = practiceQuestions.filter(function (question) { return question.type === type; }).length;
         if (!count) return '';
-        var description = type === 'translation'
-          ? 'Dịch câu theo ngữ cảnh; luyện hiện tại, quá khứ, câu hỏi và collocation.'
-          : type === 'mini-reading'
-            ? 'Đọc bài dài, tìm chi tiết, suy luận và làm câu TOEIC hoặc TRUE / FALSE / NOT GIVEN.'
-              : type === 'multi-fill'
-                ? 'Điền nhiều chỗ trong câu và hoàn thành bài đọc theo ngữ cảnh.'
-              : type === 'image-choice'
-                ? 'Nhìn hình, nhận diện hoạt động và chọn đúng từ hoặc cụm động từ.'
-                : type === 'image-match'
-                  ? 'Ghép nhiều hình minh họa với các cụm động từ tương ứng.'
-                  : type === 'error-correction'
-                    ? 'Sửa câu trong nhiều ngữ cảnh, tập trung thì và cấu trúc câu.'
-                    : 'Bộ câu hỏi chỉ gồm dạng ' + (labels[type] || type).toLowerCase() + ', tăng dần độ khó.';
-        return '<article class="evu-exercise-card"><div class="evu-exercise-card-top"><span>BÀI ' + String(index + 1).padStart(2, '0') + '</span><b>' + count + '</b></div><h3>' + (labels[type] || type) + '</h3><p>' + description + '</p><button class="btn primary" type="button" data-evu-open-type="' + type + '">Vào bài luyện →</button></article>';
+        return '<button class="game-type-card" type="button" data-evu-open-type="' + type + '"><span>' + (typeIcons[type] || '✦') + '</span><strong>' + (labels[type] || type) + '</strong><small>' + count + ' câu · Level 1–3</small></button>';
       }).join('');
-      var sequentialRun = '<article class="evu-exercise-card evu-exercise-card-full"><div class="evu-exercise-card-top"><span>LUYỆN TOÀN BỘ</span><b>' + practiceQuestions.length + '</b></div><h3>Tất cả dạng, lần lượt</h3><p>Làm trọn ngân hàng theo từng nhóm dạng bài, từ đầu đến cuối; không xáo trộn giữa các dạng.</p><button class="btn primary" type="button" data-evu-open-sequence>Vào lượt luyện đầy đủ →</button></article>';
-      exerciseCatalog.innerHTML = '<div class="evu-exercise-heading"><div><span class="evu-eyebrow">CHỌN BÀI LUYỆN</span><h2>Mỗi bài một dạng</h2><p>Chọn một dạng để làm trọn bộ câu hỏi cùng kiểu. Các dạng được tách riêng, không trộn trong bài luyện.</p></div><span class="evu-exercise-count">' + activePracticeTypeCount + ' dạng phù hợp</span></div>' + sequentialRun + '<div class="evu-exercise-grid">' + cards + '</div>';
+      var sequentialRun = '<button class="game-type-card selected" type="button" data-evu-open-sequence><span>🎲</span><strong>Trộn tất cả</strong><small>' + practiceQuestions.length + ' câu</small></button>';
+      var typeOptions = '<option value="all">Trộn tất cả · ' + practiceQuestions.length + ' câu</option>' + typeCounts.map(function (type) { return '<option value="' + type + '">' + (labels[type] || type) + ' · ' + practiceQuestions.filter(function (question) { return question.type === type; }).length + ' câu</option>'; }).join('');
+      var lessonNumber = (document.querySelector('.header-title') || {}).textContent || 'Lesson';
+      lessonNumber = (lessonNumber.match(/Lesson\s+\d+/i) || ['Lesson'])[0].toUpperCase();
+      exerciseCatalog.innerHTML = '<div class="game-banner"><div><span class="game-overline">VOCABULARY QUEST · ' + lessonNumber + '</span><h2>Thử thách từ vựng</h2><p>Chọn dạng bài, trả lời từng câu và chinh phục toàn bộ ' + vocab.length + ' từ/cụm từ.</p></div><div class="game-scoreboard" aria-label="Thành tích mini game"><div><strong>0</strong><span>XP</span></div><div><strong>0</strong><span>Chuỗi đúng</span></div><div><strong>—</strong><span>Độ chính xác</span></div></div></div><div class="game-setup" id="evu-game-setup"><h3>Chọn thử thách</h3><div class="game-type-grid" id="evu-game-type-grid">' + sequentialRun + cards + '</div><div class="game-launch"><label>Kiểu câu hỏi<select id="evu-game-type-select" class="answer-select">' + typeOptions + '</select></label><label>Độ dài lượt chơi<select id="evu-game-length-select" class="answer-select"><option value="' + Math.min(16, vocab.length) + '">' + Math.min(16, vocab.length) + ' câu · ôn đủ ' + vocab.length + ' từ</option><option value="32" selected>32 câu · luyện đa dạng</option><option value="64">64 câu · thử thách</option><option value="full">Toàn bộ câu hỏi</option></select></label><button type="button" class="btn primary game-start" data-evu-game-start>Bắt đầu chơi →</button></div></div>';
 
       exerciseSession = document.createElement('div');
       exerciseSession.id = 'evu-exercise-session';
-      exerciseSession.className = 'evu-exercise-session';
+      exerciseSession.className = 'game-playing evu-exercise-session';
       exerciseSession.hidden = true;
-      exerciseSession.innerHTML = '<button type="button" class="btn secondary" id="evu-back-to-exercise-catalog">← Danh sách dạng bài</button><div><strong id="evu-exercise-session-title"></strong><span id="evu-exercise-session-count"></span></div>';
+      exerciseSession.innerHTML = '<div class="game-play-top"><span class="game-count">Bài luyện</span><div><strong id="evu-exercise-session-title"></strong><span id="evu-exercise-session-count"></span></div><button type="button" class="btn small" id="evu-back-to-exercise-catalog">Đổi thử thách</button></div><div class="game-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>';
       exerciseSessionTitle = exerciseSession.querySelector('#evu-exercise-session-title');
       exerciseSessionCount = exerciseSession.querySelector('#evu-exercise-session-count');
 
@@ -1429,8 +1432,13 @@
       exerciseCatalog.addEventListener('click', function (event) {
         var button = event.target.closest('[data-evu-open-type]');
         var sequenceButton = event.target.closest('[data-evu-open-sequence]');
+        var startButton = event.target.closest('[data-evu-game-start]');
         if (button) setExerciseMode(button.getAttribute('data-evu-open-type'));
         else if (sequenceButton) setExerciseMode('all-sequential');
+        else if (startButton) {
+          var selectedType = exerciseCatalog.querySelector('#evu-game-type-select');
+          setExerciseMode(selectedType && selectedType.value !== 'all' ? selectedType.value : 'all-sequential');
+        }
         else return;
         if (practiceList) practiceList.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
@@ -1558,11 +1566,13 @@
 
       var practiceListRoot = document.getElementById('practice-list');
       if (practiceListRoot) practiceListRoot.classList.remove('game-question');
+      ['game-picker', 'game-status', 'game-controls', 'game-hud', 'game-menu', 'game-overview-stats'].forEach(function (id) {
+        var element = document.getElementById(id);
+        if (element) element.hidden = true;
+      });
       if (pageName !== '03-have-had-had') {
-        ['game-picker', 'game-status', 'game-controls', 'game-hud', 'game-menu', 'game-overview-stats'].forEach(function (id) {
-          var element = document.getElementById(id);
-          if (element) element.hidden = true;
-        });
+        var legacyGamePanel = document.getElementById('game-panel');
+        if (legacyGamePanel) legacyGamePanel.hidden = true;
       }
       standardizePracticeArchive();
     }
