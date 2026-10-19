@@ -1,165 +1,352 @@
-﻿# Unit 26 — Suffixes: Hậu tố
+﻿# Unit 26 — Suffixes: Hậu tố trong tiếng Anh
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-26-spread.webp)
+Module 03 — Từ vựng và ngữ pháp
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+A1–A2
 
-> **Module 03:** Từ vựng và ngữ pháp  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 26; trang in 56–57 (PDF trang 59–60).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Giáo trình: English Vocabulary in Use — Elementary Phạm vi: Unit 26, trang 56–57 Nội dung: Hậu tố, cách tạo từ, nhận biết từ loại và ứng dụng trong câu.
 
-## 1. Tóm tắt và mục tiêu
+## 1. Tổng quan và mục tiêu
 
-Hậu tố nằm ở cuối từ và có thể tạo danh từ, tính từ hoặc trạng từ. Chẳng hạn -er/-or thường chỉ người làm, -ful mang nghĩa có, -less mang nghĩa thiếu, -ly thường tạo trạng từ.
+Suffix (hậu tố) là một chữ cái hoặc nhóm chữ cái được thêm vào cuối từ. Hậu tố giúp chúng ta suy đoán ý nghĩa của từ mới và trong nhiều trường hợp, thay đổi từ loại của từ gốc.
 
-Sau bài này, bạn có thể:
+Ví dụ:
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **hậu tố**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+- `work` (làm việc) → `worker` (người lao động).
+- `use` (sử dụng) → `useful` (hữu ích).
+- `happy` (vui vẻ) → `happiness` (niềm hạnh phúc).
+- `sun` (mặt trời) → `sunny` (có nắng).
 
-## 2. Kiến thức và từ vựng cốt lõi
+Sau bài học, bạn có thể nhận diện các hậu tố phổ biến, giải thích chức năng của chúng, phân biệt danh từ, tính từ và trạng từ được tạo ra, đồng thời suy đoán nghĩa của từ chưa học.
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+## 2. Hệ thống các hậu tố thường gặp
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **worker** | người lao động |
-| **teacher** | giáo viên |
-| **swimmer** | người bơi |
-| **instructor** | người hướng dẫn |
-| **useful** | hữu ích |
-| **useless** | vô dụng |
-| **careful** | cẩn thận |
-| **careless** | bất cẩn |
-| **happiness** | hạnh phúc |
-| **darkness** | bóng tối |
-| **friendly** | thân thiện |
-| **quickly** | một cách nhanh chóng |
+| Hậu tố    | Chức năng                     | Ví dụ                       |
+| --------- | ----------------------------- | --------------------------- |
+| -er / -or | Người thực hiện một hoạt động | worker, swimmer, instructor |
+| -er / -or | Máy móc hoặc dụng cụ          | cooker, word processor      |
+| -ful      | Có, mang đặc tính             | useful, beautiful           |
+| -ology    | Ngành nghiên cứu              | sociology, psychology       |
+| -ics      | Môn học, lĩnh vực             | economics, politics         |
+| -less     | Thiếu, không có               | useless, endless            |
+| -ly       | Thường tạo trạng từ           | sadly, happily              |
+| -ness     | Tạo danh từ trừu tượng        | happiness, sadness          |
+| -y        | Tạo tính từ từ danh từ        | sandy, sunny                |
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+### Sơ đồ phân loại hậu tố
 
-**Nhóm từ thứ nhất:** worker (người lao động), teacher (giáo viên), swimmer (người bơi).
+Từ gốc + Suffix
 
-**Nhóm từ thứ hai:** useless (vô dụng), careful (cẩn thận), careless (bất cẩn).
+Thêm hậu tố để tạo từ mới hoặc thay đổi từ loại
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+Danh từ
 
-### 2.2. Mẫu câu song ngữ
+-er / -or / -ness
 
-**Ví dụ 1.** This dictionary is useful.
+worker · happiness
 
-→ Cuốn từ điển này hữu ích.
+Tính từ
 
-**Ví dụ 2.** He walks quickly.
+-ful / -less / -y
 
-→ Anh ấy đi nhanh.
+useful · sunny
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Trạng từ
 
-## 3. Luyện tập ứng dụng
+-ly
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+happily · sadly
 
-1. Người lao động: __________
-2. Người hướng dẫn: __________
-3. Bất cẩn: __________
+Ngành học
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+-ology / -ics
 
-1. Cuốn từ điển này hữu ích.
-2. Anh ấy đi nhanh.
+psychology · economics
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Sơ đồ cho thấy một từ gốc có thể hình thành những từ mới thuộc các nhóm khác nhau. Vì vậy, học hậu tố không chỉ giúp nhớ nghĩa mà còn giúp chọn đúng từ loại khi đặt câu.
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+## 3. Cách sử dụng từng nhóm hậu tố
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+### 3.1. Hậu tố -er / -or: Chỉ người hoặc thiết bị
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Hậu tố -er / -or thường tạo danh từ chỉ người thực hiện một hành động hoặc công việc.
 
-### Câu 1
+| Từ gốc   | Từ có hậu tố | Nghĩa           |
+| -------- | ------------ | --------------- |
+| work     | worker       | Người lao động  |
+| swim     | swimmer      | Người bơi       |
+| instruct | instructor   | Người hướng dẫn |
 
-Bạn muốn diễn đạt **“giáo viên”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+Ví dụ:
 
-A. worker
+- He's a hard worker. — Anh ấy là người làm việc chăm chỉ.
+- She's a very good swimmer. — Cô ấy bơi rất giỏi.
+- She has a new instructor. — Cô ấy có một người hướng dẫn mới.
 
-B. useful
+Tuy nhiên, không phải danh từ kết thúc bằng -er / -or đều chỉ người.
 
-C. happiness
+| Từ             | Nghĩa                          |
+| -------------- | ------------------------------ |
+| cooker         | Bếp nấu hoặc thiết bị nấu ăn   |
+| word processor | Máy hoặc công cụ xử lý văn bản |
+| tin opener     | Dụng cụ mở hộp                 |
 
-D. teacher
+Đặc biệt, cần phân biệt cook (người nấu ăn, đầu bếp) với cooker (bếp hoặc thiết bị nấu).
 
-**Đáp án:** D. **Giải thích:** “teacher” diễn đạt “giáo viên” trong chủ đề này.
+### 3.2. Hậu tố -ful và -less: Có hoặc không có
 
-### Câu 2
+Hai hậu tố này thường tạo tính từ và có thể mang nghĩa đối lập.
 
-Cụm từ **“useless”** có nghĩa nào trong bài học?
+## -ful
 
-A. người lao động
+Có / mang đặc tính
 
-B. vô dụng
+useful — hữu ích
 
-C. bất cẩn
+beautiful — đẹp
 
-D. thân thiện
+hopeful — đầy hy vọng
 
-**Đáp án:** B. **Giải thích:** “useless” được dùng với nghĩa “vô dụng”.
+## -less
 
-### Câu 3
+Không có / thiếu
 
-Khi cần nói **“hạnh phúc”**, chọn từ/cụm từ nào?
+useless — vô ích
 
-A. useful
+endless — bất tận
 
-B. careless
+painless — không đau
 
-C. happiness
+Ví dụ:
 
-D. instructor
+- Thanks for the information. It was very useful. — Cảm ơn về thông tin. Nó rất hữu ích.
+- This book is useless. — Cuốn sách này vô dụng.
+- What a beautiful photo! — Bức ảnh thật đẹp!
 
-**Đáp án:** C. **Giải thích:** Cách dùng đúng trong bài là “happiness”.
+Không nên dịch máy móc hậu tố -ful thành “đầy” trong mọi trường hợp. Chẳng hạn, useful nghĩa tự nhiên là “hữu ích”.
 
-### Câu 4
+### 3.3. Hậu tố -ly và -ness: Trạng từ và danh từ trừu tượng
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Cuốn từ điển này hữu ích.”**
+Từ một tính từ, ta có thể tạo ra trạng từ hoặc danh từ trừu tượng.
 
-A. This room is very quiet.
+## happy
 
-B. We stayed home because it was raining.
+Tính từ — vui vẻ, hạnh phúc
 
-C. He speaks English well.
+\+ -ly
 
-D. This dictionary is useful.
+happily
 
-**Đáp án:** D. **Giải thích:** “This dictionary is useful.” là câu tương ứng với tình huống đã nêu.
+Trạng từ: một cách vui vẻ
 
-### Câu 5
+\+ -ness
 
-Ý nghĩa phù hợp nhất của câu **“He walks quickly.”** là gì?
+happiness
 
-A. Chúng tôi ở nhà vì trời mưa.
+Danh từ: niềm hạnh phúc
 
-B. Cô ấy lái xe cẩn thận.
+So sánh thêm:
 
-C. Anh ấy đi nhanh.
+| Tính từ | Trạng từ -ly | Danh từ -ness |
+| ------- | ------------ | ------------- |
+| happy   | happily      | happiness     |
+| sad     | sadly        | sadness       |
 
-D. Cho tôi xin ít nước được không?
+Hậu tố -ly thường tạo trạng từ diễn tả cách thức một hành động diễn ra.
 
-**Đáp án:** C. **Giải thích:** “He walks quickly.” có nghĩa là “Anh ấy đi nhanh.”.
+- He went quickly to the station. — Anh ấy nhanh chóng đến nhà ga.
+- The little child danced happily across the grass. — Đứa trẻ nhảy múa vui vẻ trên bãi cỏ.
 
+Hậu tố -ness thường tạo danh từ chỉ một cảm xúc hoặc trạng thái.
 
-## 5. Tổng kết và kiểm tra hoàn thành
+- The mother was smiling with happiness. — Người mẹ mỉm cười hạnh phúc.
+- They said goodbye with great sadness. — Họ nói lời tạm biệt trong nỗi buồn sâu sắc.
 
-Bài **He walks quickly.** giúp bạn sử dụng vốn từ về **anh ấy đi nhanh.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+Lưu ý: Khi thêm hậu tố, cách viết có thể thay đổi: happy → happily → happiness. Không phải mọi từ kết thúc bằng -ly đều là trạng từ; friendly là một tính từ.
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+### 3.4. Hậu tố -y: Tạo tính từ chỉ đặc điểm
 
----
+Hậu tố -y thường biến danh từ thành tính từ mô tả đặc điểm.
 
-[← Unit 25: Tiền tố](25-prefixes.md) · [Unit 27: Những cặp từ dễ nhầm →](27-words-you-may-confuse.md)
+[beautiful beach and sea with sun and clouds vector background illustration](https://images.openai.com/static-rsc-4/Sw7S5LaQhbyfNGtmZi1WkWPHEfHpS8OBNL1PeD3mx8ZVN6OlPi0bUVj-yA-6HQSjsgudKwoIrba4ddFIlnIOGbvpCFWwsZVrvgd9HCEQvwLsIuXONaKLjfIGWfZR5WwaZ93J8Sd0wXUoUqewY6LXuPQb_CQ5vRbRLSXPk_tmtENvcIxfx6dvLmcdQnzJgJxP?purpose=inline)
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+sun → sunny
+
+Ngày nắng đẹp
+
+[Tropical Beach with Gentle Waves Washing onto Golden Sand](https://images.openai.com/static-rsc-4/GbZMfSu8GVqPUtdtFr0ps_29spxvTy5UhNtX48lEOE7CMUJnhQ2oHiR6lKJbK4VDwbGm_yp1Qy45O_roq6wVEboYhMBLWSVVFsEFGgyy_yaHzAOBaOcw3kZJNAo8zSHrgI_h9GJE8gYMx3glwHc9xJEj1y2dG3uKOC8Q8gjrjnjquNmYZ9kHEKoYjRHIJWSy?purpose=inline)
+
+sand → sandy
+
+Bãi biển nhiều cát
+
+[raindrops hitting puddles on a rainy day](https://images.openai.com/static-rsc-4/zIVVZUAkMNk6ZUBtK-WDCs8CH4g5bwSpa6AqZlFabHadQ3gfyuGdcPvIEqp2XLj_qdLWUpaJNpZGP5A-xubUW6QFZ7q5RUGafpSbGd5k06_sz9bbrAYhVnq7YhkBJMMNViar3mpa4YD_1bp77j5LwnUg7ik0Pn1VQV5jPIEte0ieo-rUtWrunGaruvnf5i-A?purpose=inline)
+
+rain → rainy
+
+Thời tiết mưa
+
+Ví dụ:
+
+- That beach is long and sandy. — Bãi biển đó dài và có nhiều cát.
+- It's a lovely sunny day. — Hôm nay là một ngày nắng đẹp.
+- It's rainy today. — Hôm nay trời mưa.
+
+Chú ý: sun → sunny cần viết hai chữ n.
+
+### 3.5. Hậu tố -ology và -ics: Tên ngành học
+
+Hai nhóm hậu tố này thường xuất hiện trong tên các môn học hoặc lĩnh vực nghiên cứu.
+
+| Từ          | Nghĩa                   | Nội dung                         |
+| ----------- | ----------------------- | -------------------------------- |
+| sociology   | Xã hội học              | Nghiên cứu xã hội                |
+| psychology  | Tâm lý học              | Nghiên cứu tâm trí và hành vi    |
+| economics   | Kinh tế học             | Nghiên cứu hoạt động kinh tế     |
+| politics    | Chính trị/chính trị học | Hoạt động chính trị và chính phủ |
+| zoology     | Động vật học            | Nghiên cứu động vật              |
+| mathematics | Toán học                | Nghiên cứu toán học              |
+
+Ví dụ:
+
+- Studying sociology teaches you about society. — Học xã hội học giúp bạn hiểu về xã hội.
+- Studying psychology teaches you about people. — Học tâm lý học giúp bạn hiểu về con người.
+- Economics is the study of money and finance. — Kinh tế học nghiên cứu tiền bạc và tài chính.
+
+## 4. Những điểm dễ nhầm
+
+| Các từ                 | Cách phân biệt                |
+| ---------------------- | ----------------------------- |
+| worker / cooker        | Người lao động / thiết bị nấu |
+| useful / useless       | Hữu ích / vô ích              |
+| happy / happily        | Tính từ / trạng từ            |
+| happy / happiness      | Tính từ / danh từ             |
+| sandy / sunny          | Nhiều cát / có nắng           |
+| sociology / psychology | Xã hội học / tâm lý học       |
+
+Khi cần chọn từ đúng trong câu, hãy xác định từ loại cần dùng trước. Ví dụ, She danced ... cần trạng từ happily, trong khi She felt great ... cần danh từ happiness.
+
+## 5. Luyện tập theo sách — Exercises 26.1–26.5
+
+### Exercise 26.1 — Nhìn tranh và hoàn thành từ
+
+Quan sát sáu hình trong trang bài tập và điền từ tương ứng.
+
+1. A s\_\_\_\_\_ day.
+2. He's smiling h\_\_\_\_\_.
+3. A golf i\_\_\_\_\_.
+4. A w\_\_\_\_\_ p\_\_\_\_\_.
+5. A s\_\_\_\_\_.
+6. A u\_\_\_\_\_ thing.
+
+### Exercise 26.2 — Ghép tính từ với danh từ
+
+Ghép các tính từ electric, fast, beautiful, sandy, sunny, hard, useful, endless, useless với những danh từ thích hợp trong nhóm:
+
+worker, cooker, beach, weather, car, idea, book, swimmer, guitar, smile, picture, fun.
+
+Một tính từ có thể ghép với nhiều danh từ, ví dụ: electric cooker và electric guitar.
+
+### Exercise 26.3 — Đoán môn học qua tên sách
+
+Chọn sociology, psychology, economics hoặc politics cho từng nhan đề.
+
+1. The Role of the President in the US Congress
+2. British Society in the 1950s
+3. Banking Today
+4. Why People Smile
+
+### Exercise 26.4 — Giải thích hậu tố bằng tiếng Việt
+
+Tự viết nghĩa hoặc cách giải thích bằng tiếng Việt của các hậu tố -er/-or, -ful, -ology, -ics, -less, -ly, -ness, -y.
+
+### Exercise 26.5 — Đoán nghĩa từ mới
+
+Dựa vào hậu tố để giải thích những từ sau: zoology, a traveller, slowly, hopeful, rainy, painless, badly, a tin opener, mathematics, a footballer.
+
+Đáp án và gợi ý Exercises 26.1–26.5
+
+Xem đáp án&#x20;
+
+## 6. Kiểm tra kiến thức trắc nghiệm
+
+5 câu · Chọn một đáp án đúng
+
+0/5 đã trả lời
+
+1\. Trong câu “She is a good swimmer”, hậu tố -er dùng để chỉ điều gì?
+
+A. Một thiết bị
+
+B. Một người thực hiện hoạt động
+
+C. Một cảm xúc
+
+D. Một môn học
+
+2\. Chọn từ đúng: “The children played \_\_\_ in the garden.”
+
+A. happiness
+
+B. happy
+
+C. happily
+
+D. happier
+
+3\. Từ nào có nghĩa là “không gây đau”?
+
+A. painless
+
+B. hopeful
+
+C. useful
+
+D. beautiful
+
+4\. Một cuốn sách về tiền bạc và tài chính thuộc lĩnh vực nào?
+
+A. psychology
+
+B. sociology
+
+C. politics
+
+D. economics
+
+5\. Cặp nào thể hiện đúng sự biến đổi tính từ thành danh từ trừu tượng?
+
+A. sun → sunny
+
+B. sad → sadness
+
+C. slow → slowly
+
+D. work → worker
+
+Chấm điểm Làm lại
+
+## 7. Tổng kết bài học
+
+Các hậu tố quan trọng cần ghi nhớ là:
+
+- -er / -or: người hoặc thiết bị.
+- -ful / -less: có hoặc không có một đặc tính.
+- -ly: thường tạo trạng từ.
+- -ness: tạo danh từ trừu tượng.
+- -y: thường tạo tính từ.
+- -ology / -ics: thường xuất hiện trong tên ngành học.
+
+Checklist hoàn thành
+
+0/5
+
+Phân biệt được -er/-or chỉ người và thiết bị.
+
+Giải thích được useful/useless và happy/happily/happiness.
+
+Nhận diện được -ology/-ics trong tên ngành học.
+
+Hoàn thành Exercises 26.1–26.5.
+
+Tự đặt được ba câu sử dụng hậu tố.

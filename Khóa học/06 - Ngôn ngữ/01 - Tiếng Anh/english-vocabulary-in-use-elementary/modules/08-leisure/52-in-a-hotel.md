@@ -1,167 +1,385 @@
 ﻿# Unit 52 — In a hotel: Ở khách sạn
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-52-spread.webp)
+Module 08 · Giải trí, mua sắm và du lịch · English Vocabulary in Use — Elementary · Trang 108–109 · A1–A2
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+Ở khách sạn, bạn cần biết cách hỏi phòng, trao đổi với nhân viên lễ tân, sử dụng các tiện nghi và làm thủ tục trả phòng. Những tình huống này sử dụng nhiều mẫu câu lịch sự như Can I…?, Do you have…? và Would you like…?.
 
-> **Module 08:** Giải trí, mua sắm và du lịch  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 52; trang in 108–109 (PDF trang 111–112).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Sau bài học, bạn có thể:
 
-## 1. Tóm tắt và mục tiêu
+1. Phân biệt single room và double room, gọi tên các tiện nghi trong khách sạn.
+2. Giao tiếp với nhân viên lễ tân khi nhận phòng và trả phòng.
+3. Hỏi về điện thoại, giờ ăn sáng và dịch vụ đánh thức.
+4. Sử dụng các mẫu câu đổi tiền và viết hội thoại khách sạn đơn giản.
 
-Các câu giao tiếp khách sạn thường hỏi phòng, giá, bữa sáng và chìa khóa. Phân biệt single room và double room; check in và check out là hai bước đầu/cuối khi lưu trú.
+## 1. At reception — Tại quầy lễ tân
 
-Sau bài này, bạn có thể:
+### 1.1. Từ vựng về phòng và lễ tân
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **ở khách sạn**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+| Từ vựng      | Nghĩa tiếng Việt         |
+| ------------ | ------------------------ |
+| reception    | Quầy lễ tân              |
+| receptionist | Nhân viên lễ tân         |
+| single room  | Phòng dành cho một người |
+| double room  | Phòng dành cho hai người |
+| reservation  | Việc đặt phòng trước     |
+| form         | Mẫu đơn, phiếu thông tin |
+| key          | Chìa khóa                |
+| luggage      | Hành lý                  |
+| lift         | Thang máy                |
+| floor        | Tầng                     |
+| bill         | Hóa đơn                  |
+| room number  | Số phòng                 |
 
-## 2. Kiến thức và từ vựng cốt lõi
+[Kranz Parkhotel, Siegburg - Luxury Escapes AU](https://images.openai.com/static-rsc-4/gMKnqkv5qRgFntXxmXlIMFa4gqcghd3f8H2S6KDFEqKwAglVmc7rsNbg3YsgZaljxc24XU9m2VMT4NbJ4-_lExYFGLw9Yd-ZyJ5lQAXp_afdvmAMQEnkx7qrQViwX1SuEEq8drSEkGsmItd0wjhxOInxBbjwWa8NgRIV_BzL78w?purpose=inline)
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+Single room
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **reception** | quầy lễ tân |
-| **receptionist** | nhân viên lễ tân |
-| **single room** | phòng đơn |
-| **double room** | phòng đôi |
-| **reservation** | đặt trước |
-| **key** | chìa khóa |
-| **lift** | thang máy |
-| **luggage** | hành lý |
-| **shower** | vòi sen |
-| **breakfast** | bữa sáng |
-| **check in** | nhận phòng |
-| **check out** | trả phòng |
-| **bill** | hóa đơn |
-| **room number** | số phòng |
+Phòng dành cho một người
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+[Achat Hotel Bochum Dortmund | £19pp Deposits](https://images.openai.com/static-rsc-4/9danIzjiyy1p5CS28GlVAHMDqduYN4Rz2MA0zD0PWdEC5YCTI60bPhEk5eLg6EFTOG2Nodd1yOmWlywddG3ZIIx1r-4FsZrbJR5IE8d07PIdNYLy5dIvnDMSwVzI4GXKxc-H89aK4TYn26IAyNnA-1_bMtox8JENy5TY63B1vOw?purpose=inline)
 
-**Nhóm từ thứ nhất:** reception (quầy lễ tân), receptionist (nhân viên lễ tân), single room (phòng đơn).
+Double room
 
-**Nhóm từ thứ hai:** key (chìa khóa), lift (thang máy), luggage (hành lý).
+Phòng dành cho hai người
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+Ví dụ:
 
-### 2.2. Mẫu câu song ngữ
+- Do you have a single room? — Khách sạn còn phòng đơn không?
+- How much is a single room with a bathroom? — Phòng đơn có phòng tắm giá bao nhiêu?
+- I have a reservation. — Tôi đã đặt phòng trước.
+- My name is Minh. — Tên tôi là Minh.
 
-**Ví dụ 1.** I'd like a single room, please.
+Lưu ý: I have a reservation nghĩa là bạn đã có đặt phòng, không phải bạn đang yêu cầu đặt phòng mới.
 
-→ Tôi muốn một phòng đơn.
+### 1.2. Tiện nghi trong phòng
 
-**Ví dụ 2.** What time is breakfast?
+| Từ tiếng Anh | Nghĩa tiếng Việt | Công dụng        |
+| ------------ | ---------------- | ---------------- |
+| bathroom     | Phòng tắm        | Tắm rửa, vệ sinh |
+| shower       | Vòi sen          | Tắm bằng vòi sen |
+| TV           | Tivi             | Xem chương trình |
+| telephone    | Điện thoại       | Gọi điện         |
+| kettle       | Ấm đun nước      | Đun nước nóng    |
+| hair dryer   | Máy sấy tóc      | Sấy tóc          |
 
-→ Bữa sáng lúc mấy giờ?
+[High Quality Hotel Room Stainless Steel Electric Kettle with Tray - Electric Kettle with Tray and Electric Kettle price](https://images.openai.com/static-rsc-4/-eIXeQgldTMl_IS-SbNTNDpQE-8oFZuoO2op_wnnI8xH5nTLTYagY9Fi7bqqyYyNqEsX-wPZbyP5cudnrTwjJMY9e-eCWxFN09FDjSMfEBlPUDDFxHjCVlPVZVBBoIXzH_CFy3PQawGoMUR-w4cI2LD8Q4RUqle6R8TvpvwbXs4?purpose=inline)
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Kettle
 
-## 3. Luyện tập ứng dụng
+Ấm đun nước
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+[Meeting Rooms at Four Points by Sheraton Arusha, The Arusha Hotel, P.O. Box 88, Arusha, United Republic of Tanzania  - MeetingsBooker.com](https://images.openai.com/static-rsc-4/mLX7DemqxXt7gOjc40FzM268WmLLlTlcM7PJxiO9oGrGY3yPbkdvOnD2sUhZOXTy4dNkIgcp-bStMxJNHyt9I5qgfnSKoA6qU25GujES7XsM1tK_Fd0TKn8ZvK4NZ33W7ezvZE2dWFdpsVSbzvN6th86-w8eVo7KTFpx60SWvxI?purpose=inline)
 
-1. Quầy lễ tân: __________
-2. Phòng đôi: __________
-3. Hành lý: __________
+Shower
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+Vòi sen
 
-1. Tôi muốn một phòng đơn.
-2. Bữa sáng lúc mấy giờ?
+[Hotel Safety Hairdryer – Northmace & Hendon Limited](https://images.openai.com/static-rsc-4/fOzKx9ZOKACfmBqE_sjgEuiJ9_F2_eqSRp81vBYkIlODIJIhxkeC_ZvBsDHWdfZcQY9ztP4Z1sMoPODAS9lq8sht2Qf6HrmJKilgFnpmvb1oZC--f1bpEF515WpHXVWW8kD3dl3kH79voUUphxeZglGhL5XOomlwn2qk-vx5meY?purpose=inline)
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Hair dryer
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+Máy sấy tóc
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Khi học từ vựng, hãy kết hợp đồ vật với hành động:
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+- Use a kettle to make tea. — Dùng ấm đun nước để pha trà.
+- Watch the news on TV. — Xem tin tức trên tivi.
+- Dry your hair with a hair dryer. — Sấy tóc bằng máy sấy tóc.
 
-### Câu 1
+### 1.3. Những câu thường gặp tại quầy lễ tân
 
-Bạn muốn diễn đạt **“nhân viên lễ tân”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+| Tiếng Anh                                   | Tiếng Việt                                    |
+| ------------------------------------------- | --------------------------------------------- |
+| Your room is on the first floor.            | Phòng của bạn ở tầng một.                     |
+| The lift is over there.                     | Thang máy ở đằng kia.                         |
+| Here is your key.                           | Đây là chìa khóa của bạn.                     |
+| Would you like some help with your luggage? | Bạn có muốn được giúp mang hành lý không?     |
+| Can you fill in this form, please?          | Bạn vui lòng điền vào mẫu đơn này được không? |
+| Sign here, please.                          | Vui lòng ký tên vào đây.                      |
+| Please check your bill.                     | Vui lòng kiểm tra hóa đơn của bạn.            |
 
-A. luggage
+Một số cụm từ quan trọng:
 
-B. check in
+Fill in a form — điền thông tin vào mẫu đơn.
 
-C. single room
+Sign here — ký tên tại đây.
 
-D. receptionist
+Check your bill — kiểm tra hóa đơn để bảo đảm thông tin chính xác.
 
-**Đáp án:** D. **Giải thích:** “receptionist” diễn đạt “nhân viên lễ tân” trong chủ đề này.
+Trong tiếng Anh Anh, ground floor là tầng trệt và first floor là tầng ngay phía trên tầng trệt. Cách đánh số tầng này có thể khác cách sử dụng ở một số quốc gia.
 
-### Câu 2
+### 1.4. Check in và check out
 
-Cụm từ **“key”** có nghĩa nào trong bài học?
+| Check in                | Check out                |
+| ----------------------- | ------------------------ |
+| Nhận phòng              | Trả phòng                |
+| Khi bắt đầu lưu trú     | Khi kết thúc lưu trú     |
+| Can I check in, please? | Can I check out, please? |
 
-A. chìa khóa
+Khi trả phòng, bạn có thể hỏi:
 
-B. nhận phòng
+Can I check out, please?
 
-C. hành lý
+→ Tôi có thể làm thủ tục trả phòng được không?
 
-D. nhân viên lễ tân
+Can I have the bill, please?
 
-**Đáp án:** A. **Giải thích:** “key” được dùng với nghĩa “chìa khóa”.
+→ Cho tôi xin hóa đơn được không?
 
-### Câu 3
+## 2. Using the telephone — Sử dụng điện thoại
 
-Khi cần nói **“vòi sen”**, chọn từ/cụm từ nào?
+Trong khách sạn, điện thoại không chỉ dùng để gọi cho người khác mà còn để yêu cầu các dịch vụ.
 
-A. room number
+### 2.1. Gọi điện ra ngoài khách sạn
 
-B. lift
+How do I get an outside line?
 
-C. check out
+→ Làm thế nào để gọi điện ra ngoài khách sạn?
 
-D. shower
+Outside line là đường dây cho phép bạn gọi đến số điện thoại không thuộc hệ thống nội bộ của khách sạn.
 
-**Đáp án:** D. **Giải thích:** Cách dùng đúng trong bài là “shower”.
+What is the code for Korea?
 
-### Câu 4
+→ Mã gọi điện đến Hàn Quốc là gì?
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Tôi muốn một phòng đơn.”**
+Ở đây, code là mã điện thoại dùng khi thực hiện cuộc gọi.
 
-A. How much does this jacket cost?
+### 2.2. Yêu cầu dịch vụ
 
-B. Can I try it on?
+| Câu tiếng Anh                            | Nghĩa tiếng Việt                                       |
+| ---------------------------------------- | ------------------------------------------------------ |
+| Can I have breakfast in my room, please? | Tôi có thể ăn sáng trong phòng được không?             |
+| Can I have a morning call, please?       | Tôi có thể yêu cầu cuộc gọi đánh thức buổi sáng không? |
+| At 6.30, please.                         | Vào lúc 6 giờ 30, làm ơn.                              |
+| What time is breakfast?                  | Bữa sáng lúc mấy giờ?                                  |
+| What time is lunch?                      | Bữa trưa lúc mấy giờ?                                  |
+| What time is dinner?                     | Bữa tối lúc mấy giờ?                                   |
 
-C. I'd like a single room, please.
+Morning call là cuộc gọi đánh thức khách theo giờ yêu cầu, không phải cuộc gọi điện thoại thông thường vào buổi sáng.
 
-D. We are going on holiday next week.
+## 3. Changing money — Đổi tiền
 
-**Đáp án:** C. **Giải thích:** “I'd like a single room, please.” là câu tương ứng với tình huống đã nêu.
+Một số khách sạn lớn có thể cung cấp dịch vụ đổi ngoại tệ. Khi muốn đổi tiền, bạn nên dùng cách hỏi lịch sự.
 
-### Câu 5
+| Mẫu câu tiếng Anh                              | Nghĩa tiếng Việt                                        |
+| ---------------------------------------------- | ------------------------------------------------------- |
+| Can I change some money, please?               | Tôi có thể đổi một ít tiền được không?                  |
+| Can I exchange some money, please?             | Tôi có thể đổi một ít tiền được không?                  |
+| Can I change some dollars into pounds, please? | Tôi có thể đổi một ít đô la sang bảng Anh không?        |
+| How many yen to the pound at the moment?       | Hiện tại một bảng Anh đổi được bao nhiêu yên?           |
+| Can I cash a traveller's cheque?               | Tôi có thể đổi ngân phiếu du lịch thành tiền mặt không? |
 
-Ý nghĩa phù hợp nhất của câu **“What time is breakfast?”** là gì?
+Mẫu cấu trúc quan trọng:
 
-A. Bạn có chơi cầu lông không?
+Change + loại tiền A + into + loại tiền B
 
-B. Tối qua chúng tôi đi xem phim.
+Ví dụ:
 
-C. Bữa sáng lúc mấy giờ?
+Can I change dollars into pounds?
 
-D. Bố tôi thích làm vườn.
+→ Tôi có thể đổi đô la sang bảng Anh không?
 
-**Đáp án:** C. **Giải thích:** “What time is breakfast?” có nghĩa là “Bữa sáng lúc mấy giờ?”.
+Cần phân biệt change money (đổi tiền), cash a traveller's cheque (đổi ngân phiếu du lịch lấy tiền mặt) và at the moment (hiện tại).
 
+## 4. Quy trình giao tiếp tại khách sạn
 
-## 5. Tổng kết và kiểm tra hoàn thành
+Đến quầy lễ tân
 
-Bài **What time is breakfast?** giúp bạn sử dụng vốn từ về **bữa sáng lúc mấy giờ?** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+At reception
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+Đã đặt phòng
 
----
+I have a reservation.
 
-[← Unit 51: Cửa hàng và mua sắm](51-shops-and-shopping.md) · [Unit 53: Đi ăn ngoài →](53-eating-out.md)
+Tôi đã đặt phòng trước.
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+Chưa đặt phòng
+
+Do you have a single room?
+
+Khách sạn còn phòng đơn không?
+
+Nhận phòng — Check in
+
+Điền mẫu đơn, nhận chìa khóa, tìm thang máy
+
+Trong thời gian lưu trú
+
+Hỏi giờ ăn sáng, điện thoại và tiện nghi
+
+Trả phòng — Check out
+
+Yêu cầu và kiểm tra hóa đơn
+
+Học từ vựng theo trình tự này sẽ giúp bạn liên kết các câu tiếng Anh thành một tình huống thực tế thay vì ghi nhớ từng từ riêng lẻ.
+
+## 5. Hội thoại mẫu
+
+Tình huống: Một khách đến khách sạn và làm thủ tục nhận phòng.
+
+GUEST — KHÁCH
+
+Good evening. I have a reservation. My name is Minh.
+
+Chào buổi tối. Tôi đã đặt phòng. Tên tôi là Minh.
+
+RECEPTIONIST — LỄ TÂN
+
+Welcome. Can you fill in this form, please?
+
+Chào mừng bạn. Bạn vui lòng điền vào mẫu đơn này được không?
+
+GUEST
+
+Of course. What time is breakfast?
+
+Tất nhiên rồi. Bữa sáng lúc mấy giờ?
+
+RECEPTIONIST
+
+Breakfast is at seven. Here is your key. Your room is on the second floor.
+
+Bữa sáng bắt đầu lúc 7 giờ. Đây là chìa khóa của bạn. Phòng của bạn ở tầng hai.
+
+GUEST
+
+Thank you. Where is the lift?
+
+Cảm ơn. Thang máy ở đâu?
+
+RECEPTIONIST
+
+It's over there.
+
+Nó ở đằng kia.
+
+## 6. Exercises — Luyện tập theo sách
+
+### 6.1. Exercise 52.1 — Hoàn thành hội thoại
+
+Điền từ phù hợp dựa trên hình minh họa ở trang bài tập.
+
+Client: Can I have a (1) \_\_\_\_\_\_ room for tonight, please?
+
+Receptionist: Would you like a room with a (2) \_\_\_\_\_\_?
+
+Client: Yes, please. And with a (3) \_\_\_\_\_\_, please.
+
+Receptionist: All our rooms have a TV, a (4) \_\_\_\_\_\_ and a (5) \_\_\_\_\_\_. I can give you room 25. It has a view of the (6) \_\_\_\_\_\_. Here is your (7) \_\_\_\_\_\_.
+
+The (8) \_\_\_\_\_\_ is over there. It's on the second floor.
+
+### 6.2. Exercise 52.2 — Ghép nhu cầu và vật dụng
+
+Ghép mỗi mục từ 1–8 với một lựa chọn từ a–h.
+
+| You want — Bạn muốn               | You need — Bạn cần |
+| --------------------------------- | ------------------ |
+| 1. Have a cup of tea in your room | a. The lift        |
+| 2. Go to the top floor            | b. An outside line |
+| 3. Open your door                 | c. A shower        |
+| 4. Get up at 6 a.m.               | d. A kettle        |
+| 5. Phone your country             | e. A hair dryer    |
+| 6. Watch the news                 | f. A morning call  |
+| 7. Wash your hair                 | g. A TV            |
+| 8. Dry your hair                  | h. A key           |
+
+### 6.3. Exercise 52.3 — Trả lời câu hỏi thực tế
+
+1. How much does a hotel room cost in the capital of your country?
+2. What is the code for Britain if you phone from your country?
+3. How many US dollars are there to your own currency at the moment?
+4. How much of your own currency is there to the pound?
+5. Why are traveller's cheques useful when you are travelling?
+
+Những câu hỏi về chi phí, mã điện thoại và tỷ giá cần sử dụng thông tin thực tế. Không có một bộ đáp án cố định cho tất cả người học.
+
+### 6.4. Exercise 52.4 — Viết hội thoại
+
+Bối cảnh: Bạn đi nghỉ ở London cùng hai người khác. Cả nhóm muốn thuê phòng trong một đêm.
+
+Hãy viết một cuộc hội thoại giữa khách và nhân viên lễ tân, sử dụng các từ vựng về phòng, giá phòng và tiện nghi.
+
+### 6.5. Exercise 52.5 — Đặt câu với Can I…?
+
+Viết sáu câu hỏi có thể dùng ở khách sạn. Mỗi câu phải bắt đầu bằng Can I…?.
+
+Có thể chọn các tình huống nhận phòng, yêu cầu bữa sáng, sử dụng điện thoại, đổi tiền hoặc trả phòng.
+
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+Mini Quiz — Unit 52
+
+5 câu · Mỗi câu một đáp án đúng
+
+0/5 đã chọn
+
+1\. Bạn cần phòng cho hai người. Cách hỏi phù hợp nhất là gì?
+
+A. Do you have a single room?
+
+B. Do you have a double room?
+
+C. Can I cash a traveller's cheque?
+
+D. Where is the kettle?
+
+2\. Nhân viên nói “Can you fill in this form, please?” Bạn cần làm gì?
+
+A. Điền thông tin vào mẫu đơn
+
+B. Kiểm tra hóa đơn
+
+C. Nhận chìa khóa
+
+D. Đi đến thang máy
+
+3\. Bạn muốn được đánh thức lúc 6 giờ 30. Bạn cần dịch vụ nào?
+
+A. An outside line
+
+B. A hair dryer
+
+C. A reservation
+
+D. A morning call
+
+4\. Trong câu “Please check your bill”, check có nghĩa là gì?
+
+A. Nhận phòng
+
+B. Đổi tiền
+
+C. Kiểm tra
+
+D. Trả phòng
+
+5\. Bạn muốn đổi đô la sang bảng Anh. Câu nào phù hợp?
+
+A. Can I change some dollars into pounds, please?
+
+B. What time is breakfast?
+
+C. Here is your key.
+
+D. Would you like some help with your luggage?
+
+Chấm điểmLàm lại
+
+## 8. Tổng kết và kiểm tra hoàn thành
+
+Những cụm từ cần ghi nhớ nhất trong Unit 52 là single room, double room, have a reservation, fill in a form, outside line, morning call, change money into…, check your bill và check out.
+
+Checklist bài học
+
+0/5 hoàn thành
+
+Tôi phân biệt được các loại phòng và tiện nghi.
+
+Tôi sử dụng được những câu hỏi lịch sự tại quầy lễ tân.
+
+Tôi phân biệt được check in và check out.
+
+Tôi biết cách hỏi về điện thoại, bữa sáng và đổi tiền.
+
+Tôi đã thực hành Exercises 52.1–52.5.

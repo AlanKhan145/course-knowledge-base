@@ -1,167 +1,280 @@
-﻿# Unit 40 — Animals and pets: Động vật và thú cưng
+﻿# Unit 40 — Animals and Pets: Động vật và thú cưng
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-40-spread.webp)
+## 1. Tổng quan và mục tiêu học tập
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+Bài học giới thiệu 17 con vật thuộc ba nhóm chính: động vật trang trại, động vật hoang dã và thú cưng. Ngoài tên con vật, chúng ta còn học tên con non, các sản phẩm từ vật nuôi và cách mô tả đặc điểm của động vật.
 
-> **Module 05:** Thế giới xung quanh  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 40; trang in 84–85 (PDF trang 87–88).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Sau bài học, bạn có thể gọi tên 17 con vật bằng tiếng Anh, phân biệt cow–calf–beef, pig–piglet–pork, sheep–lamb–wool, sử dụng các mẫu câu đơn và hoàn thành Exercises 40.1–40.5.
 
-## 1. Tóm tắt và mục tiêu
+## 2. Phân loại động vật
 
-Có thể phân nhóm động vật trang trại, thú cưng và động vật hoang dã; nối con vật với con non hoặc sản phẩm như cow–milk, sheep–wool. Một số danh từ có số nhiều đặc biệt như sheep.
+| Nhóm                                                    | Các con vật                                   |
+| ------------------------------------------------------- | --------------------------------------------- |
+| Farm animals — Động vật trang trại                      | horse, pig, hen, sheep, cow                   |
+| Wild or zoo animals — Động vật hoang dã hoặc ở vườn thú | elephant, monkey, tiger, snake, lion, giraffe |
+| Pets — Thú cưng                                         | fish, cat, budgie, parrot, dog, tortoise      |
 
-Sau bài này, bạn có thể:
+Animals — Động vật
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **động vật và thú cưng**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+Farm animals
 
-## 2. Kiến thức và từ vựng cốt lõi
+5 con vật
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+Gia súc, gia cầm
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **cow** | bò |
-| **sheep** | cừu |
-| **horse** | ngựa |
-| **pig** | lợn |
-| **chicken** | gà |
-| **dog** | chó |
-| **cat** | mèo |
-| **rabbit** | thỏ |
-| **bird** | chim |
-| **fish** | cá |
-| **elephant** | voi |
-| **giraffe** | hươu cao cổ |
-| **lion** | sư tử |
-| **snake** | rắn |
+Wild animals
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+6 con vật
 
-**Nhóm từ thứ nhất:** cow (bò), sheep (cừu), horse (ngựa).
+Động vật hoang dã
 
-**Nhóm từ thứ hai:** dog (chó), cat (mèo), rabbit (thỏ).
+Pets
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+6 con vật
 
-### 2.2. Mẫu câu song ngữ
+Vật nuôi làm bạn
 
-**Ví dụ 1.** A cow gives us milk.
+Đây là cách phân nhóm từ vựng trong bài, không phải cách phân loại sinh học tuyệt đối. Chẳng hạn, cá vừa có thể sống ngoài tự nhiên vừa có thể được nuôi làm thú cưng.
 
-→ Bò cho chúng ta sữa.
+## 3. Farm animals — Động vật trang trại
 
-**Ví dụ 2.** The children have a pet rabbit.
+| Con vật      | Con non          | Sản phẩm            |
+| ------------ | ---------------- | ------------------- |
+| horse — ngựa | foal — ngựa con  | —                   |
+| cow — bò cái | calf — bê con    | milk, leather, beef |
+| sheep — cừu  | lamb — cừu con   | wool, lamb          |
+| pig — lợn    | piglet — lợn con | pork, bacon, ham    |
+| hen — gà mái | chick — gà con   | eggs, chicken       |
 
-→ Bọn trẻ nuôi một con thỏ.
+### 3.1. Phân biệt tên động vật và tên thịt
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+| Animal — Con vật | Meat — Thịt         |
+| ---------------- | ------------------- |
+| cow              | beef — thịt bò      |
+| pig              | pork — thịt lợn     |
+| sheep            | lamb — thịt cừu non |
+| hen              | chicken — thịt gà   |
 
-## 3. Luyện tập ứng dụng
+Lamb vừa chỉ cừu con, vừa chỉ thịt cừu non. Chicken có thể chỉ con gà nói chung hoặc thịt gà tùy ngữ cảnh.
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+### 3.2. Ví dụ song ngữ
 
-1. Bò: __________
-2. Lợn: __________
-3. Thỏ: __________
+- A cow gives us milk. — Bò cung cấp sữa.
+- Sheep give us wool. — Cừu cung cấp len.
+- A hen lays eggs. — Gà mái đẻ trứng.
+- A piglet is a baby pig. — Lợn con là con non của lợn.
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+## 4. Wild or Zoo Animals — Động vật hoang dã
 
-1. Bò cho chúng ta sữa.
-2. Bọn trẻ nuôi một con thỏ.
+[Elephant Lifespan: How Long Do They Live?](https://images.openai.com/static-rsc-4/5TvX0oSRErs1l4_lgqVxFaznC1JSp0BVJvchLwUWBv2LiGBUs1aYwczisJuNvARf8MuBVP2H6_CXxmhWE2B19T6ErWQ4qjtXjTC4hDm-puXbFMbiKokVkWBG4Ei04TGVQQ7s1-mqoHY0NUW8dAtsaqj8VdWXlhLmGWjGdn1RvVM?purpose=inline)
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Elephant
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+Con voi
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+[macaque monkeys](https://images.openai.com/static-rsc-4/SJFvUD9cEDlXs86EMtK5u1sYNOVX86zq-7pi9EH5BXKzXFlJxcGNS4mylPhPOhhKZv5ooujL_XhVXRoBbfLKwDE2KByyhZ1z2idhelvpNSoHMChvx-bl9qv0ZAbcR5CSZyUiyMzkgKBsHVQaKFnt5eGVYrywGIEnGxcVuvRZDsR7j9gY5D0FiJJtLNG59Adb?purpose=inline)
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Monkey
 
-### Câu 1
+Con khỉ
 
-Bạn muốn diễn đạt **“cừu”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+[Tiger](https://images.openai.com/static-rsc-4/gigBSf92bcZtRVbEo2tBna8rcorfsjNbMDAcBfnw2QsLiESqCLiPBP7VbPlyaX-Ne4OFQEIrbRm1B27GWxIHAePTbBbzgs-_yxj3fmo33Sd4IrbuyOD7L2bxlFAWLxx69duTAv0hfwCE0bNQU6lc0UJm9ByG_q2omzsaa0HNWXtfNRLnP9PkolJiyns7icru?purpose=inline)
 
-A. sheep
+Tiger
 
-B. cat
+Con hổ
 
-C. lion
+[Meet the Green Tree Python: Verdant Beauty of the Rainforest](https://images.openai.com/static-rsc-4/eq2SSyiQ-eOvval9IzzqZWqBLGO4DXpTWNQ5gGtGy8i023XTBbW3CCrL2uo6BlKzKz_yPT6AdWbRcDKKnI3f_MDk4kOR4Zr1kx5woDX1nsjLauoHI3-4fkHF9Cgl-b5DrP1ucpdiwM5kyDIqPtigFduhAWZqXG4xmmONXDNavVM?purpose=inline)
 
-D. pig
+Snake
 
-**Đáp án:** A. **Giải thích:** “sheep” diễn đạt “cừu” trong chủ đề này.
+Con rắn
 
-### Câu 2
+[William Fortescue](https://images.openai.com/static-rsc-4/Kub1rQpAhXCVSxMXYbjM2n4fgAHYm6Pviy5gzVZ1Sk6C11VPJ0ntFR26ZqnlQsJxXzSdCTLSQrwvSNfpEI2xYT8e3IaSTmtZmzSKEyyTyvaFOGvHciQu5z_vXoytqTry0aLzDVGVsO5J_XzR1Eo8FOabZapteRdi05qmhae_OuE?purpose=inline)
 
-Cụm từ **“dog”** có nghĩa nào trong bài học?
+Lion
 
-A. rắn
+Sư tử
 
-B. chó
+[La jirafa: ¡El mamífero más alto! | Hogarmania](https://images.openai.com/static-rsc-4/4y991k_3iaYspu55RzveW8APFeqmpsPucWPIqPPqtUhRq-O4xjpXbREIeGxoKK6Dz4Q9hEV7fQmp0W9xi2-uO9jK7w7uIZt56-S6xXaTusEX95Ab4hMV2GbSzI8idnsQul06ZIcAAC4zisgTK9_SqqRRa_JKxgOZK1v9_x0yNsM?purpose=inline)
 
-C. ngựa
+Giraffe
 
-D. mèo
+Hươu cao cổ
 
-**Đáp án:** B. **Giải thích:** “dog” được dùng với nghĩa “chó”.
+### 4.1. Mô tả đặc điểm động vật
 
-### Câu 3
+| Mẫu câu                          | Nghĩa                           |
+| -------------------------------- | ------------------------------- |
+| A giraffe has a long neck.       | Hươu cao cổ có cổ dài.          |
+| An elephant is a large animal.   | Voi là động vật lớn.            |
+| Lions and tigers are large cats. | Sư tử và hổ thuộc nhóm mèo lớn. |
+| A snake has a long body.         | Rắn có thân dài.                |
 
-Khi cần nói **“chim”**, chọn từ/cụm từ nào?
+Khi mô tả đặc điểm chung, sử dụng thì hiện tại đơn. Với danh từ số ít như a giraffe, động từ have đổi thành has.
 
-A. bird
+## 5. Pets — Thú cưng
 
-B. chicken
+[Cute ginger cat sitting animal | Premium Photo  - rawpixel](https://images.openai.com/static-rsc-4/tmaVf3AFe7ljwiPZoL89rm1BQA5ldM4g32xkChtmzWkzFcFJoOB2CPhTGCQlOF1TAhczd-hhtqq19z0Hg7eSvUWlZfdVMWLaYROoH4NCWvQeVgFM9uWjGvwBHInRZwGqGL0oHcJYKHHvadC5BNaM2_MpOWLtbeTnX6WUy-tUgIk?purpose=inline)
 
-C. rabbit
+Cat
 
-D. fish
+Con mèo
 
-**Đáp án:** A. **Giải thích:** Cách dùng đúng trong bài là “bird”.
+[Walking Golden Retriever](https://images.openai.com/static-rsc-4/QCfv2aSGdczt0dPNFTWZWqa1Xm2FQPE_Bz9gIwBtkEuZEks6grhIZqIisAl7KL001f9HLDStZ-1p7UKRPSgnne6cP2NqFZpqoh5F8ZZ-uuRJzz1tJOi2XdQCZcfE9z8Oa6BYiy7GlXqTFFMweq5qMqXYVlxGjM3UdLqJIXKy56Ti5yjskmEsvRdT2N6PUdMO?purpose=inline)
 
-### Câu 4
+Dog
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Bò cho chúng ta sữa.”**
+Con chó
 
-A. The lift is out of order.
+[The Complete Beginner's Guide to Goldfish - Aquarium Tidings](https://images.openai.com/static-rsc-4/WHhfvuyflpnNEUH4FelAxI_Y-6D0CXJnMXb5qxKkFSTaNFKWqIRSOM-xggYg9ZxpFqK3Rx3qiTWmDwFPx8J2DluwYSaoWURLR8IiEPn8wBMXnBGMzoQP9HzttWdINz73hOV3wsfDHVYT-TZ2HDd9nc3IDwLtxu8FwLVylt89J9U?purpose=inline)
 
-B. The cows are in the field.
+Fish
 
-C. A cow gives us milk.
+Con cá
 
-D. You can borrow books from the library.
+[Bird Guides by Species | No Mess Feeding Advice | Seed Cube AU](https://images.openai.com/static-rsc-4/913T3g2aRhaBf_VxuO3DG_gj5V7W1NPZW-XhafNDNE5FC9m9-K_PSi1wAohoAntbiJ3aFaVNGdljtBLcDSjT2pE9KZ6fOUVbynVXyzXv-g9_yyg5EI63JeCJx5FG7YyhN9mS-9JlQURSyHh2t3a4yrGcYm_XT2Yf_6hS3fXxjv8?purpose=inline)
 
-**Đáp án:** C. **Giải thích:** “A cow gives us milk.” là câu tương ứng với tình huống đã nêu.
+Budgie
 
-### Câu 5
+Vẹt yến phụng
 
-Ý nghĩa phù hợp nhất của câu **“The children have a pet rabbit.”** là gì?
+[Video of Macaw Imitating Seagulls and Laughing Is Wild - PetHelpful](https://images.openai.com/static-rsc-4/xn3bQY-WIxfk-hH48hv3XDrYAX9wQBvNq9zYgtrR6yCqsblUnWh4QBPoVbG0H4c3oIA9AHtf8CZRtWp26QsejSk0y-D6CWPK2wHvfimYqQekanpUk7q-k-dYtbRK7rOy4DLL_04GhZ2HcSTWHH6TPPhuMKPKxho0vtnKRuEqldU?purpose=inline)
 
-A. Tiếng Anh được dùng tại nhiều quốc gia.
+Parrot
 
-B. Cô ấy đến từ Nhật Bản và nói tiếng Nhật.
+Con vẹt
 
-C. Trời đang mưa nên hãy mang ô.
+[Les animaux du parc I Parrot World](https://images.openai.com/static-rsc-4/EE2C4NxCutVHB9XLFufAlGpSVnc9We5_s4-b6oHi9fkL7S13jU_mplechUjxF8_yg664LBqqIXfp6586BJF6jIIMC1hfESFffcGQgfuEUkQu_baoKdbz_UvHriD0ti3QbCG6wGyUrXwTguzcWR-YuMyVw2BsPh0bF3x7SAyJq24?purpose=inline)
 
-D. Bọn trẻ nuôi một con thỏ.
+Tortoise
 
-**Đáp án:** D. **Giải thích:** “The children have a pet rabbit.” có nghĩa là “Bọn trẻ nuôi một con thỏ.”.
+Rùa cạn
 
+### 5.1. Những cụm từ thường gặp
 
-## 5. Tổng kết và kiểm tra hoàn thành
+| Cụm từ                | Nghĩa                 |
+| --------------------- | --------------------- |
+| have a pet            | Nuôi thú cưng         |
+| take a dog for a walk | Dắt chó đi dạo        |
+| feed a pet            | Cho thú cưng ăn       |
+| a pet fish            | Cá cảnh               |
+| a pet cat             | Mèo nuôi làm thú cưng |
 
-Bài **The children have a pet rabbit.** giúp bạn sử dụng vốn từ về **bọn trẻ nuôi một con thỏ.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+Parrots and budgies are birds. — Vẹt và vẹt yến phụng là các loài chim.
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+You take your dog for a walk. — Bạn dắt chó đi dạo.
 
----
+## 6. Những lỗi ngữ pháp dễ gặp
 
-[← Unit 39: Vùng nông thôn](39-in-the-countryside.md) · [Unit 41: Đi lại và du lịch →](41-travelling.md)
+| Sai             | Đúng             | Giải thích                        |
+| --------------- | ---------------- | --------------------------------- |
+| Two sheeps      | Two sheep        | Sheep giữ nguyên khi ở số nhiều   |
+| A cow give milk | A cow gives milk | Động từ thêm -s với chủ ngữ số ít |
+| An horse        | A horse          | Horse bắt đầu bằng âm phụ âm      |
+| A giraffe have  | A giraffe has    | Chủ ngữ số ít đi với has          |
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+## 7. Exercises 40.1–40.5
+
+### 7.1. Exercise 40.1 — Hoàn thành câu
+
+Điền từ chỉ động vật phù hợp vào chỗ trống:
+
+1. A \_\_\_\_\_\_ goes to sleep in winter.
+2. A \_\_\_\_\_\_ has a very long neck.
+3. \_\_\_\_\_\_, \_\_\_\_\_\_ and \_\_\_\_\_\_ are birds.
+4. \_\_\_\_\_\_ and \_\_\_\_\_\_ are large cats.
+5. You can ride a \_\_\_\_\_\_ and an \_\_\_\_\_\_.
+6. \_\_\_\_\_\_ swim and \_\_\_\_\_\_ fly.
+7. You can buy \_\_\_\_\_\_ at a butcher's.
+8. \_\_\_\_\_\_ and \_\_\_\_\_\_ give us things for breakfast.
+
+### 7.2. Exercise 40.2 — Nối tên con vật, thịt và con non
+
+| Animal | Meat (xáo trộn) | Young animal (xáo trộn) |
+| ------ | --------------- | ----------------------- |
+| sheep  | chicken         | piglet                  |
+| cow    | pork            | lamb                    |
+| hen    | beef            | calf                    |
+| pig    | lamb            | chick                   |
+
+### 7.3. Exercise 40.3 — Phân loại theo đặc điểm
+
+Trả lời các câu hỏi sau:
+
+- Which animals eat meat? — Những con vật nào ăn thịt?
+- Which animals give us things that we wear? — Những con vật nào cung cấp nguyên liệu làm quần áo?
+- Which animals produce their babies in eggs? — Những con vật nào đẻ trứng?
+
+### 7.4. Exercise 40.4 — Ô chữ động vật
+
+Quan sát ô chữ trang 85 rồi điền các tên động vật theo hình minh họa, gồm bốn hàng ngang và năm hàng dọc.
+
+### 7.5. Exercise 40.5 — Ghi nhớ 17 con vật
+
+Che trang 84, sau đó viết lại 17 tên con vật và đối chiếu với bảng phân nhóm ở mục 2.
+
+Xem đáp án Exercises 40.1–40.5
+
+## 8. Câu hỏi ôn tập
+
+Trắc nghiệm Unit 40
+
+0/5 đã trả lời
+
+Câu 1. Cách viết số nhiều nào của sheep là đúng?
+
+A. Sheeps
+
+B. Sheepes
+
+C. Sheep
+
+D. Sheepen
+
+Câu 2. Tên con non của cow là gì?
+
+A. Piglet
+
+B. Calf
+
+C. Foal
+
+D. Chick
+
+Câu 3. Con vật nào cung cấp wool (len)?
+
+A. Sheep
+
+B. Hen
+
+C. Pig
+
+D. Horse
+
+Câu 4. Câu nào đúng khi mô tả hươu cao cổ?
+
+A. A giraffe have a long neck.
+
+B. A giraffe having a long neck.
+
+C. A giraffe are long neck.
+
+D. A giraffe has a long neck.
+
+Câu 5. Cụm nào có nghĩa dắt chó đi dạo?
+
+A. Make a dog walk
+
+B. Take a dog for a walk
+
+C. Take a dog for walking to
+
+D. Give dog a walking
+
+Chấm điểm
+
+## 9. Tổng kết và tài liệu Markdown
+
+Cách ghi nhớ hiệu quả nhất là học theo mối liên hệ giữa con vật, con non và sản phẩm, sau đó đặt câu về đặc điểm hoặc hành động của chúng.
+

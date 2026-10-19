@@ -1,167 +1,376 @@
-﻿# Unit 29 — The family: Gia đình và họ hàng
+﻿# Unit 29 — The Family: Gia đình và họ hàng
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-29-spread.webp)
+Module 04 — Con người
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+A1–A2
 
-> **Module 04:** Con người  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 29; trang in 62–63 (PDF trang 65–66).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Trang 62–63
 
-## 1. Tóm tắt và mục tiêu
+English Vocabulary in Use — Elementary
 
-Mô tả quan hệ gia đình bằng tính sở hữu: Anne's husband, Paul's daughter. Sơ đồ family tree giúp nhìn quan hệ theo thế hệ, tránh nhầm uncle với cousin.
+Bài học tiếng Việt · Sơ đồ gia đình · Ví dụ song ngữ · Bài tập và trắc nghiệm
 
-Sau bài này, bạn có thể:
+&#x20;Tải Markdown
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **gia đình và họ hàng**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+## 1. Tóm tắt và mục tiêu học tập
 
-## 2. Kiến thức và từ vựng cốt lõi
+Khi giới thiệu người thân bằng tiếng Anh, chúng ta cần xác định người đó có quan hệ gì với ai. Chẳng hạn, Sarah là con gái của Paul, cháu gái của George và là chị/em họ của Emily.
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+Cùng một người có thể được gọi bằng những từ chỉ quan hệ khác nhau tùy theo góc nhìn.
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **mother** | mẹ |
-| **father** | cha |
-| **parent** | cha hoặc mẹ |
-| **son** | con trai |
-| **daughter** | con gái |
-| **brother** | anh hoặc em trai |
-| **sister** | chị hoặc em gái |
-| **husband** | chồng |
-| **wife** | vợ |
-| **uncle** | chú bác cậu |
-| **aunt** | cô dì bác gái |
-| **cousin** | anh chị em họ |
-| **grandmother** | bà |
-| **grandfather** | ông |
+Sau bài học, bạn có thể:
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+- Nhận diện các từ chỉ thành viên gia đình, họ hàng và các thế hệ.
+- Đọc sơ đồ gia đình (family tree) để xác định mối quan hệ.
+- Sử dụng cấu trúc sở hữu ’s để giới thiệu người thân.
+- Phân biệt uncle/cousin, niece/nephew và grandparent/grandchild.
+- Hỏi và trả lời về gia đình bằng mẫu Have you got any ...?
 
-**Nhóm từ thứ nhất:** mother (mẹ), father (cha), parent (cha hoặc mẹ).
+## 2. Từ vựng về gia đình
 
-**Nhóm từ thứ hai:** brother (anh hoặc em trai), sister (chị hoặc em gái), husband (chồng).
+### 2.1. Gia đình gần gũi — Immediate family
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+| Từ tiếng Anh     | Nghĩa tiếng Việt |
+| ---------------- | ---------------- |
+| father           | Bố, cha          |
+| mother           | Mẹ               |
+| parent           | Cha hoặc mẹ      |
+| parents          | Bố mẹ            |
+| husband          | Chồng            |
+| wife             | Vợ               |
+| son              | Con trai         |
+| daughter         | Con gái          |
+| child / children | Con / các con    |
+| brother          | Anh hoặc em trai |
+| sister           | Chị hoặc em gái  |
 
-### 2.2. Mẫu câu song ngữ
+Ví dụ:
 
-**Ví dụ 1.** My uncle lives in London.
+- Paul is Anne's husband. — Paul là chồng của Anne.
+- Jack is Paul's son. — Jack là con trai của Paul.
+- She has two sisters. — Cô ấy có hai chị/em gái.
 
-→ Chú tôi sống ở London.
+### 2.2. Ông bà và cháu — Grandparents and grandchildren
 
-**Ví dụ 2.** She has two sisters.
+| Từ tiếng Anh  | Nghĩa tiếng Việt     |
+| ------------- | -------------------- |
+| grandfather   | Ông                  |
+| grandmother   | Bà                   |
+| grandparents  | Ông bà               |
+| grandson      | Cháu trai của ông bà |
+| granddaughter | Cháu gái của ông bà  |
+| grandchildren | Các cháu của ông bà  |
 
-→ Cô ấy có hai chị em gái.
+Điểm cần nhớ là quan hệ thay đổi theo góc nhìn:
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Henry is Jack's grandfather. — Henry là ông của Jack.
 
-## 3. Luyện tập ứng dụng
+Jack is Henry's grandson. — Jack là cháu trai của Henry.
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+### 2.3. Họ hàng — Relatives
 
-1. Mẹ: __________
-2. Con trai: __________
-3. Chồng: __________
+| Từ tiếng Anh        | Nghĩa tiếng Việt                |
+| ------------------- | ------------------------------- |
+| uncle               | Bác, chú, cậu, dượng            |
+| aunt                | Bác gái, cô, dì, mợ             |
+| nephew              | Cháu trai của cô/chú/bác/cậu/dì |
+| niece               | Cháu gái của cô/chú/bác/cậu/dì  |
+| cousin              | Anh, chị hoặc em họ             |
+| relative / relation | Người họ hàng                   |
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+Trong tiếng Anh, cousin được dùng cho cả nam và nữ. Một người cũng có thể là uncle hoặc aunt thông qua hôn nhân, không nhất thiết phải là anh chị em ruột của bố mẹ.
 
-1. Chú tôi sống ở London.
-2. Cô ấy có hai chị em gái.
+## 3. Sơ đồ cây gia đình — Family tree
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Sơ đồ giúp em hình dung các thế hệ, tránh nhầm lẫn giữa uncle, nephew, niece và cousin.
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+William + Mary Mason
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Thế hệ ông bà / tổ tiên
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Henry + Diana
 
-### Câu 1
+Cha mẹ của Amelia, Anne, John và George
 
-Bạn muốn diễn đạt **“cha”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+Amelia
 
-A. husband
+Con gái
 
-B. grandfather
+John
 
-C. wife
+Con trai
 
-D. father
+Anne + Paul
 
-**Đáp án:** D. **Giải thích:** “father” diễn đạt “cha” trong chủ đề này.
+Vợ chồng
 
-### Câu 2
+Sarah · Jack
 
-Cụm từ **“brother”** có nghĩa nào trong bài học?
+Con gái · Con trai
 
-A. chú bác cậu
+George + Sandra
 
-B. cô dì bác gái
+Vợ chồng
 
-C. anh hoặc em trai
+Emily · Peter
 
-D. chị hoặc em gái
+Con gái · Con trai
 
-**Đáp án:** C. **Giải thích:** “brother” được dùng với nghĩa “anh hoặc em trai”.
+Anne và George là anh chị em ruột; vì vậy Sarah, Jack, Emily và Peter là anh chị em họ của nhau giữa hai gia đình.
 
-### Câu 3
+### 3.1. Quan hệ nhìn từ Sarah
 
-Khi cần nói **“vợ”**, chọn từ/cụm từ nào?
+| Người        | Quan hệ với Sarah       |
+| ------------ | ----------------------- |
+| Anne         | Mother — Mẹ             |
+| Paul         | Father — Bố             |
+| Jack         | Brother — Anh/em trai   |
+| Henry        | Grandfather — Ông       |
+| Diana        | Grandmother — Bà        |
+| George, John | Uncles — Cậu/chú/bác    |
+| Amelia       | Aunt — Cô/dì/bác gái    |
+| Emily, Peter | Cousins — Anh/chị/em họ |
 
-A. son
+Ví dụ:
 
-B. husband
+Sarah is Anne and Paul's daughter.
 
-C. mother
+Sarah là con gái của Anne và Paul.
 
-D. wife
+Emily and Peter are Sarah's cousins.
 
-**Đáp án:** D. **Giải thích:** Cách dùng đúng trong bài là “wife”.
+Emily và Peter là chị/em họ và anh/em họ của Sarah.
 
-### Câu 4
+### 3.2. Quan hệ nhìn từ Peter
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Chú tôi sống ở London.”**
+Peter là con trai của George và Sandra. Emily là chị/em gái của Peter; Anne là cô/dì/bác gái, còn Paul là chú/bác/dượng theo quan hệ hôn nhân.
 
-A. She has blue eyes.
+| Câu tiếng Anh            | Nghĩa tiếng Việt                     |
+| ------------------------ | ------------------------------------ |
+| Peter is Paul's nephew.  | Peter là cháu trai của Paul.         |
+| Paul is Peter's uncle.   | Paul là chú/bác/cậu/dượng của Peter. |
+| Emily is Paul's niece.   | Emily là cháu gái của Paul.          |
+| Sarah is Peter's cousin. | Sarah là chị/em họ của Peter.        |
 
-B. My left foot hurts.
+## 4. Cách diễn đạt quan hệ gia đình
 
-C. They got married last year.
+### 4.1. Cấu trúc sở hữu ’s
 
-D. My uncle lives in London.
+CẤU TRÚC CƠ BẢN
 
-**Đáp án:** D. **Giải thích:** “My uncle lives in London.” là câu tương ứng với tình huống đã nêu.
+A
 
-### Câu 5
+\+
 
-Ý nghĩa phù hợp nhất của câu **“She has two sisters.”** là gì?
+is
 
-A. Cô ấy có hai chị em gái.
+\+
 
-B. Bàn chân trái của tôi đau.
+B's
 
-C. Cô ấy có mái tóc dài màu sẫm.
+\+
 
-D. Hôm nay tôi bị đau đầu.
+family word
 
-**Đáp án:** A. **Giải thích:** “She has two sisters.” có nghĩa là “Cô ấy có hai chị em gái.”.
+Người A là [quan hệ gia đình] của người B
 
+Ví dụ:
 
-## 5. Tổng kết và kiểm tra hoàn thành
+- Anne is Paul's wife. — Anne là vợ của Paul.
+- Sandra is Emily's mother. — Sandra là mẹ của Emily.
+- Sarah is Jack's sister. — Sarah là chị/em gái của Jack.
 
-Bài **She has two sisters.** giúp bạn sử dụng vốn từ về **cô ấy có hai chị em gái.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+Nếu chủ ngữ số nhiều, dùng are thay vì is:
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+Anne and Paul are Sarah's parents. — Anne và Paul là bố mẹ của Sarah.
 
----
+### 4.2. Nói về hai người cùng có quan hệ
 
-[← Unit 28: Sinh, kết hôn và qua đời](28-birth-marriage-and-death.md) · [Unit 30: Các bộ phận cơ thể →](30-parts-of-the-body.md)
+- Anne's daughter — Con gái của Anne.
+- Paul's son — Con trai của Paul.
+- Anne and Paul's children — Các con chung của Anne và Paul.
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+### 4.3. Đặt câu hỏi với Have you got ...?
+
+Mẫu câu thường gặp trong tiếng Anh Anh:
+
+Have you got any brothers or sisters?
+
+Bạn có anh chị em ruột nào không?
+
+Các câu trả lời:
+
+- Yes, I've got one brother. — Có, tôi có một anh/em trai.
+- Yes, I've got two sisters. — Có, tôi có hai chị/em gái.
+- No, I haven't got any brothers or sisters. — Không, tôi không có anh chị em ruột.
+
+Có thể hỏi tương tự với cousins, nieces, nephews hoặc grandparents.
+
+## 5. Những điểm dễ nhầm
+
+| Cặp từ                       | Cách phân biệt                  |
+| ---------------------------- | ------------------------------- |
+| father / grandfather         | Bố / Ông                        |
+| son / grandson               | Con trai / Cháu trai của ông bà |
+| brother / cousin             | Anh em trai / Anh chị em họ     |
+| uncle / nephew               | Bác, chú, cậu / Cháu trai       |
+| aunt / niece                 | Cô, dì, bác gái / Cháu gái      |
+| grandparents / grandchildren | Ông bà / Các cháu của ông bà    |
+
+Một số danh từ có dạng số nhiều cần chú ý:
+
+| Số ít  | Số nhiều |
+| ------ | -------- |
+| child  | children |
+| wife   | wives    |
+| family | families |
+
+## 6. Luyện tập ứng dụng
+
+### 6.1. Bài 29.1 — Hoàn thành quan hệ gia đình
+
+Quan sát sơ đồ và điền từ phù hợp:
+
+1. Emily is Peter's \_\_\_\_\_\_\_\_\_\_.
+2. Peter is Emily's \_\_\_\_\_\_\_\_\_\_.
+3. Anne is Emily's \_\_\_\_\_\_\_\_\_\_.
+4. Paul is Peter's \_\_\_\_\_\_\_\_\_\_.
+5. Diana is Peter's \_\_\_\_\_\_\_\_\_\_.
+6. Henry is Emily's \_\_\_\_\_\_\_\_\_\_.
+7. Peter is Paul's \_\_\_\_\_\_\_\_\_\_.
+8. Emily is Paul's \_\_\_\_\_\_\_\_\_\_.
+9. Sandra is Emily's \_\_\_\_\_\_\_\_\_\_.
+10. Sandra is George's \_\_\_\_\_\_\_\_\_\_.
+11. Sarah is Peter's \_\_\_\_\_\_\_\_\_\_.
+
+### 6.2. Bài 29.2 — Tự vẽ cây gia đình
+
+Hãy vẽ sơ đồ gia đình của mình, gồm ít nhất hai thế hệ và viết 4–6 câu tiếng Anh giới thiệu các thành viên. Có thể dùng các mẫu This is my mother, He is my grandfather hoặc They are my parents.
+
+### 6.3. Bài 29.3 — Mở rộng quan hệ họ hàng
+
+Ngoài những người trên cây gia đình chính còn có Howard, Fiona và Mrs Scott.
+
+Từ các thông tin trong bài tập, hãy xác định:
+
+1. Howard là anh/em trai của Sandra. Howard là gì của Peter?
+2. Vợ của Howard là gì của Emily?
+3. Henry là anh/em trai của Fiona. Henry là gì của Fiona?
+4. William là bố của Fiona. William là gì của Fiona?
+5. Ba con trai của Fiona là gì của William?
+6. Những người con trai của Fiona là gì của Anne? Họ có quan hệ họ hàng với Paul thông qua hôn nhân như thế nào?
+7. Mrs Scott là mẹ của Anne. Bà là gì của Sarah và Jack?
+8. Anne là gì của Mrs Scott?
+
+Bài tập còn sử dụng cụm get on well with somebody, nghĩa là hòa thuận với ai.
+
+Fiona doesn't get on well with William. — Fiona không hòa thuận với William.
+
+### 6.4. Bài 29.4 — Phỏng vấn về gia đình
+
+Hãy hỏi một người bạn:
+
+- Have you got any brothers or sisters?
+- Have you got any cousins?
+- Have you got any nieces or nephews?
+- Have you got any grandparents?
+
+Sau đó viết lại câu trả lời bằng tiếng Anh.
+
+### 6.5. Bài 29.5 — Thử thách hai phút
+
+Che bảng từ vựng, đặt đồng hồ hai phút và viết càng nhiều từ chỉ quan hệ gia đình càng tốt. Kiểm tra chính tả và đánh dấu những từ chưa nhớ.
+
+### 6.6. Bài 29.6 — Giới thiệu người thân
+
+Viết tên ít nhất năm người thân và quan hệ của họ với bạn bằng tiếng Anh. Mỗi người viết thêm một câu giới thiệu.
+
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+Kiểm tra kiến thức Unit 29
+
+5 câu hỏi · Chọn một đáp án mỗi câu
+
+0/5
+
+Câu 1. Peter là anh/em trai của Emily. Chọn từ đúng: Peter is Emily's \_\_\_\_\_.
+
+A. cousin
+
+B. brother
+
+C. uncle
+
+D. nephew
+
+Câu 2. Emily có quan hệ gì với Paul?
+
+A. Daughter
+
+B. Sister
+
+C. Niece
+
+D. Wife
+
+Câu 3. Sarah có quan hệ gì với George?
+
+A. Niece
+
+B. Aunt
+
+C. Cousin
+
+D. Grandmother
+
+Câu 4. Câu nào diễn đạt đúng: Jack là anh/em trai của Sarah?
+
+A. Jack is Sarah brother.
+
+B. Jack Sarah's brother.
+
+C. Jack is sister of Sarah.
+
+D. Jack is Sarah's brother.
+
+Câu 5. Chọn từ thích hợp: Have you got any \_\_\_\_\_?
+
+A. cousin
+
+B. cousins
+
+C. cousin's
+
+D. cousins'
+
+Chấm điểm Làm lại
+
+## 8. Tổng kết
+
+Để mô tả mối quan hệ gia đình, hãy làm theo ba bước: xác định người đang nói đến, tìm quan hệ trên cây gia đình, rồi đặt câu với từ vựng và cấu trúc sở hữu phù hợp.
+
+Ví dụ: Sarah và George
+
+George là anh/em trai của Anne (mẹ Sarah).
+
+George is Sarah's uncle.
+
+Sarah is George's niece.
+
+Checklist hoàn thành bài học
+
+Phân biệt được father, mother, son, daughter, brother và sister.
+
+Xác định được uncle, aunt, niece, nephew và cousin trên sơ đồ.
+
+Sử dụng đúng cấu trúc A is B's ...
+
+Hỏi và trả lời được bằng Have you got any ...?
+
+Hoàn thành các bài luyện tập và năm câu hỏi trắc nghiệm.
+
+0/5 mục đã hoàn thành
+
+Bản Markdown đầy đủ
+
+File `.md` đã biên soạn, có sơ đồ Mermaid và nội dung bài học.

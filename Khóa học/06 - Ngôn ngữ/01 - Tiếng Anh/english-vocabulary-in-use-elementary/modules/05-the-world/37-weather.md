@@ -1,167 +1,212 @@
 ﻿# Unit 37 — Weather: Thời tiết
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-37-spread.webp)
+## 1. Tổng quan và mục tiêu
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+Khi nói về thời tiết, tiếng Anh thường sử dụng It's + tính từ để mô tả trạng thái, hoặc It's + động từ dạng -ing để diễn tả một hiện tượng đang xảy ra.
 
-> **Module 05:** Thế giới xung quanh  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 37; trang in 78–79 (PDF trang 81–82).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Sau bài này, bạn có thể nhận diện các loại thời tiết, phân biệt danh từ và tính từ, sử dụng mẫu câu mô tả thời tiết và nói về nhiệt độ, mưa, tuyết, gió, bão.
 
-## 1. Tóm tắt và mục tiêu
+## 2. Types of weather — Các hiện tượng thời tiết
 
-Khi nói thời tiết dùng It's + adjective hoặc It's raining/snowing. Hãy phân biệt danh từ rain, wind, cloud và tính từ rainy, windy, cloudy; trạng thái thời tiết thay đổi theo ngày hoặc mùa.
+# ☀️
 
-Sau bài này, bạn có thể:
+sun
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **thời tiết**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+Mặt trời
 
-## 2. Kiến thức và từ vựng cốt lõi
+# 🌧️
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+rain
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **sun** | mặt trời |
-| **sunny** | có nắng |
-| **rain** | mưa |
-| **rainy** | có mưa |
-| **wind** | gió |
-| **windy** | có gió |
-| **cloud** | mây |
-| **cloudy** | nhiều mây |
-| **fog** | sương mù |
-| **foggy** | có sương mù |
-| **snow** | tuyết |
-| **snowy** | có tuyết |
-| **hot** | nóng |
-| **cold** | lạnh |
+Mưa
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+# ☁️
 
-**Nhóm từ thứ nhất:** sun (mặt trời), sunny (có nắng), rain (mưa).
+cloud
 
-**Nhóm từ thứ hai:** windy (có gió), cloud (mây), cloudy (nhiều mây).
+Mây
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+# ❄️
 
-### 2.2. Mẫu câu song ngữ
+snow
 
-**Ví dụ 1.** It's sunny today.
+Tuyết
 
-→ Hôm nay trời nắng.
+# 🌫️
 
-**Ví dụ 2.** It's raining, so take an umbrella.
+fog
 
-→ Trời đang mưa nên hãy mang ô.
+Sương mù
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+# 🌬️
 
-## 3. Luyện tập ứng dụng
+wind
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+Gió
 
-1. Mặt trời: __________
-2. Có mưa: __________
-3. Nhiều mây: __________
+# 🌩️
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+thunder
 
-1. Hôm nay trời nắng.
-2. Trời đang mưa nên hãy mang ô.
+Sấm
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+# ⚡
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+lightning
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Chớp, sét
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Phân biệt: thunder là tiếng sấm (âm thanh), còn lightning là ánh chớp hoặc tia sét. Khi có dông, chúng ta thường nhìn thấy chớp trước khi nghe tiếng sấm.
 
-### Câu 1
+## 3. Adjectives and verbs — Tính từ và động từ
 
-Bạn muốn diễn đạt **“có nắng”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+| Danh từ   | Tính từ  | Nghĩa tính từ                  |
+| --------- | -------- | ------------------------------ |
+| sun       | sunny    | Có nắng                        |
+| rain      | rainy    | Có mưa                         |
+| wind      | windy    | Nhiều gió                      |
+| cloud     | cloudy   | Nhiều mây                      |
+| snow      | snowy    | Có tuyết                       |
+| fog       | foggy    | Có sương mù                    |
+| thunder   | thundery | Có dông, sấm                   |
+| lightning | —        | Thường dùng there is lightning |
 
-A. sunny
+Một số từ có cách viết cần chú ý: sun → sunny, fog → foggy (gấp đôi phụ âm).
 
-B. cloudy
+### 3.1. Cấu trúc It's + adjective
 
-C. foggy
+Ví dụ:
 
-D. hot
+- It's sunny in Tokyo. — Tokyo trời nắng.
+- It's cloudy in Hong Kong. — Hồng Kông trời nhiều mây.
+- It's foggy in Sydney. — Sydney có sương mù.
+- It's snowy in Moscow. — Moskva có tuyết.
 
-**Đáp án:** A. **Giải thích:** “sunny” diễn đạt “có nắng” trong chủ đề này.
+### 3.2. Cấu trúc mô tả hiện tượng đang xảy ra
 
-### Câu 2
+It's + V-ing
 
-Cụm từ **“windy”** có nghĩa nào trong bài học?
+Mô tả hiện tượng thời tiết đang diễn ra
 
-A. có tuyết
+It's raining.
 
-B. có sương mù
+Trời đang mưa.
 
-C. có gió
+It's snowing.
 
-D. sương mù
+Tuyết đang rơi.
 
-**Đáp án:** C. **Giải thích:** “windy” được dùng với nghĩa “có gió”.
+The sun is shining.
 
-### Câu 3
+Mặt trời đang chiếu sáng.
 
-Khi cần nói **“sương mù”**, chọn từ/cụm từ nào?
+Không dùng máy móc It's winding, It's clouding, It's fogging hoặc It's sunning để nói về trạng thái thời tiết thông thường. Hãy dùng It's windy, cloudy, foggy, sunny.
 
-A. snow
+## 4. Other useful weather words — Từ vựng mở rộng
 
-B. fog
+| Từ           | Nghĩa             | Ví dụ                              |
+| ------------ | ----------------- | ---------------------------------- |
+| hot          | Nóng              | It's very hot.                     |
+| cold         | Lạnh              | It's very cold.                    |
+| wet          | Ẩm ướt, mưa nhiều | It's very wet here.                |
+| dry          | Khô, ít mưa       | It's dry in the Sahara.            |
+| degrees      | Độ                | It's 24 degrees.                   |
+| minus        | Âm (nhiệt độ)     | It's minus 20 degrees.             |
+| storm        | Bão, giông        | There's a storm.                   |
+| thunderstorm | Dông có sấm chớp  | There's a thunderstorm.            |
+| hurricane    | Bão rất mạnh      | A hurricane has very strong winds. |
 
-C. sun
+### Cách diễn đạt thời tiết
 
-D. sunny
+It's lovely weather today, isn't it? — Hôm nay thời tiết đẹp nhỉ?
 
-**Đáp án:** B. **Giải thích:** Cách dùng đúng trong bài là “fog”.
+It's a horrible day, isn't it? — Hôm nay thời tiết thật tệ nhỉ?
 
-### Câu 4
+It's very cold in the Arctic. — Ở Bắc Cực trời rất lạnh.
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Hôm nay trời nắng.”**
+Lưu ý: weather là danh từ không đếm được, vì vậy nói lovely weather, không nói a lovely weather. Nhưng a lovely day là đúng.
 
-A. It's sunny today.
+## 5. Các mẫu câu giao tiếp
 
-B. She is from Japan and speaks Japanese.
+| Tình huống             | Mẫu câu                        |
+| ---------------------- | ------------------------------ |
+| Hỏi thời tiết          | What's the weather like today? |
+| Nói trời nắng          | It's sunny today.              |
+| Nói trời đang mưa      | It's raining now.              |
+| Nói nhiệt độ           | It's 24 degrees.               |
+| Khuyên mang ô          | Take an umbrella.              |
+| Nói thời tiết theo mùa | It often snows in winter.      |
 
-C. You can borrow books from the library.
+## 6. Exercises 37.1–37.6
 
-D. The children have a pet rabbit.
+Bài học trong file Markdown có đủ sáu dạng luyện tập từ trang 79.
 
-**Đáp án:** A. **Giải thích:** “It's sunny today.” là câu tương ứng với tình huống đã nêu.
+1. 37.1 — Matching: Ghép bảy từ chỉ thời tiết với các biểu tượng a–g.
+2. 37.2 — Personal preference: Xếp hạng loại thời tiết yêu thích và ít yêu thích.
+3. 37.3 — Writing sentences: Viết câu thời tiết theo biểu tượng của Hanoi, Hong Kong, La Paz, Paris, Tashkent, Seoul, Warsaw và Washington.
+4. 37.4 — Fill in the blanks: Hoàn thành tám câu bằng từ vựng đã học.
+5. 37.5 — True or false: Kiểm tra sáu nhận định về thời tiết tại địa phương và sửa các câu không đúng.
+6. 37.6 — Paragraph writing: Viết đoạn văn khoảng 4–6 câu mô tả thời tiết nơi bạn đang ở.
 
-### Câu 5
+## 7. Kiểm tra kiến thức
 
-Ý nghĩa phù hợp nhất của câu **“It's raining, so take an umbrella.”** là gì?
+Bài trắc nghiệm 5 câu
 
-A. Vui lòng sử dụng lối vào bên trái.
+0/5 đã trả lời
 
-B. Trời đang mưa nên hãy mang ô.
+Câu 1. Chọn câu đúng để nói “Hôm nay trời nhiều mây”.
 
-C. Tiếng Anh được dùng tại nhiều quốc gia.
+A. It's cloud today.
 
-D. Ngân hàng gần bưu điện.
+B. It's clouding today.
 
-**Đáp án:** B. **Giải thích:** “It's raining, so take an umbrella.” có nghĩa là “Trời đang mưa nên hãy mang ô.”.
+C. It's cloudy today.
 
+D. It's clouds today.
 
-## 5. Tổng kết và kiểm tra hoàn thành
+Câu 2. Bạn nhìn thấy tuyết đang rơi. Chọn câu phù hợp.
 
-Bài **It's raining, so take an umbrella.** giúp bạn sử dụng vốn từ về **trời đang mưa nên hãy mang ô.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+A. It's snowing.
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+B. It's snowy yesterday.
 
----
+C. It's snow.
 
-[← Unit 36: Quốc gia, ngôn ngữ và quốc tịch](36-countries-languages-and-people.md) · [Unit 38: Các địa điểm trong thành phố →](38-in-the-town.md)
+D. It snowing.
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+Câu 3. Từ nào chỉ tiếng sấm?
+
+A. Lightning
+
+B. Fog
+
+C. Wind
+
+D. Thunder
+
+Câu 4. Cách nói nào diễn đạt đúng âm 10 độ?
+
+A. Ten minus degrees
+
+B. Minus ten degrees
+
+C. Minus ten degree
+
+D. Ten degrees minus
+
+Câu 5. Một cơn dông có sấm chớp và mưa được gọi là gì?
+
+A. Fog
+
+B. Sunshine
+
+C. Thunderstorm
+
+D. Dry weather
+
+Chấm điểm
+
+## 8. Tổng kết
+
+Ba cấu trúc cần nhớ nhất là It's sunny, It's raining và The sun is shining. Khi học từ vựng thời tiết, hãy ghi nhớ theo các cặp sun–sunny, rain–rainy, cloud–cloudy, wind–windy, fog–foggy, snow–snowy và đặt câu thực tế để ghi nhớ lâu hơn.
+

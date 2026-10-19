@@ -1,165 +1,188 @@
-﻿# Unit 38 — In the town: Các địa điểm trong thành phố
+﻿# Unit 38 — In the Town: Các địa điểm trong thành phố
+## 1. Mục tiêu học tập
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-38-spread.webp)
+Bài học giúp bạn sử dụng tiếng Anh trong những tình huống thực tế khi đi lại trong thành phố:
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+- Gọi tên các địa điểm như library, museum, bank, railway station.
+- Nói được hoạt động tại từng địa điểm.
+- Hỏi và chỉ đường bằng các câu thông dụng.
+- Nhận biết năm nghề nghiệp và năm loại biển báo cơ bản.
 
-> **Module 05:** Thế giới xung quanh  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 38; trang in 80–81 (PDF trang 83–84).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+## 2. The town centre — Trung tâm thành phố
 
-## 1. Tóm tắt và mục tiêu
+| Từ vựng                    | Nghĩa                       | Hoạt động           |
+| -------------------------- | --------------------------- | ------------------- |
+| railway station            | Ga tàu hỏa                  | Get a train         |
+| bus station                | Bến xe buýt                 | Get a bus           |
+| tourist information office | Văn phòng thông tin du lịch | Get information     |
+| town hall                  | Tòa thị chính               | Làm việc hành chính |
+| museum                     | Bảo tàng                    | See old things      |
+| library                    | Thư viện                    | Read books          |
+| bank                       | Ngân hàng                   | Change money        |
+| post office                | Bưu điện                    | Post a letter       |
+| car park                   | Bãi đỗ xe                   | Park a car          |
+| shop                       | Cửa hàng                    | Buy things          |
 
-Gắn địa điểm với mục đích thực tế: đổi tiền ở bank, đọc sách ở library, bắt tàu ở railway station. Luyện cấu trúc There is/are và hỏi đường Where is the ...?
+### Mẫu câu trọng tâm
 
-Sau bài này, bạn có thể:
+You can + động từ nguyên mẫu + at/in + địa điểm.
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **các địa điểm trong thành phố**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+- You can change money at the bank. — Bạn có thể đổi tiền ở ngân hàng.
+- You can read books at the library. — Bạn có thể đọc sách ở thư viện.
+- You can park your car in the car park. — Bạn có thể đỗ ô tô trong bãi đỗ xe.
 
-## 2. Kiến thức và từ vựng cốt lõi
+## 3. Streets and roads — Đường phố và hỏi đường
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+| Từ vựng         | Nghĩa                   |
+| --------------- | ----------------------- |
+| street          | Đường phố               |
+| road            | Con đường               |
+| square          | Quảng trường            |
+| roundabout      | Vòng xuyến              |
+| pedestrian area | Khu vực đi bộ           |
+| shopping centre | Trung tâm mua sắm       |
+| crossroads      | Ngã tư                  |
+| traffic lights  | Đèn tín hiệu giao thông |
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **railway station** | ga tàu |
-| **bus station** | bến xe buýt |
-| **bank** | ngân hàng |
-| **library** | thư viện |
-| **museum** | bảo tàng |
-| **post office** | bưu điện |
-| **car park** | bãi đỗ xe |
-| **hospital** | bệnh viện |
-| **police station** | đồn cảnh sát |
-| **supermarket** | siêu thị |
-| **cinema** | rạp chiếu phim |
-| **town centre** | trung tâm thành phố |
+### Hỏi đường trong tiếng Anh
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+| Câu tiếng Anh                          | Tiếng Việt                      |
+| -------------------------------------- | ------------------------------- |
+| Where's the library?                   | Thư viện ở đâu?                 |
+| How do I get to York Street?           | Tôi đến phố York bằng cách nào? |
+| Is there a pedestrian area here?       | Ở đây có khu vực đi bộ không?   |
+| Can I park here?                       | Tôi có thể đỗ xe ở đây không?   |
+| Excuse me, I'm looking for the museum. | Xin lỗi, tôi đang tìm bảo tàng. |
 
-**Nhóm từ thứ nhất:** railway station (ga tàu), bus station (bến xe buýt), bank (ngân hàng).
+Ví dụ hội thoại:
 
-**Nhóm từ thứ hai:** post office (bưu điện), car park (bãi đỗ xe), hospital (bệnh viện).
+> A: Excuse me, where's the library?
+>
+> B: It's near the roundabout.
+>
+> A: Thank you very much!
+>
+> B: You're welcome.
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+## 4. People in the town — Những người làm việc trong thành phố
 
-### 2.2. Mẫu câu song ngữ
+| Nghề nghiệp    | Nghĩa tiếng Việt              | Công việc                   |
+| -------------- | ----------------------------- | --------------------------- |
+| police officer | Cảnh sát                      | Giữ an ninh                 |
+| traffic warden | Nhân viên kiểm soát đỗ xe     | Kiểm tra việc đỗ xe         |
+| shop assistant | Nhân viên bán hàng            | Hỗ trợ khách hàng           |
+| librarian      | Thủ thư                       | Quản lý, hướng dẫn tìm sách |
+| bank clerk     | Nhân viên giao dịch ngân hàng | Thực hiện giao dịch         |
 
-**Ví dụ 1.** You can borrow books from the library.
+Ví dụ: The librarian works at the library. — Thủ thư làm việc tại thư viện.
 
-→ Bạn có thể mượn sách ở thư viện.
+## 5. Signs — Biển báo giao thông
 
-**Ví dụ 2.** The bank is near the post office.
+# 🚫
 
-→ Ngân hàng gần bưu điện.
+No parking
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Cấm đỗ xe
 
-## 3. Luyện tập ứng dụng
+# ⛔
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+No entry
 
-1. Ga tàu: __________
-2. Thư viện: __________
-3. Bệnh viện: __________
+Cấm đi vào
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+# 🚏
 
-1. Bạn có thể mượn sách ở thư viện.
-2. Ngân hàng gần bưu điện.
+Bus stop
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Điểm dừng xe buýt
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+# ✚
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Crossroads
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Ngã tư
 
-### Câu 1
+# 🚦
 
-Bạn muốn diễn đạt **“bến xe buýt”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+Traffic lights
 
-A. cinema
+Đèn giao thông
 
-B. car park
+## 6. Exercises 38.1–38.5
 
-C. bus station
+Bài học Markdown đã bao gồm đầy đủ năm phần luyện tập:
 
-D. library
+| Bài tập | Nội dung                            | Kỹ năng             |
+| ------- | ----------------------------------- | ------------------- |
+| 38.1    | Trả lời 6 câu hỏi về địa điểm       | Vận dụng từ vựng    |
+| 38.2    | Đặt 6 câu hỏi từ bản đồ             | Hỏi đường           |
+| 38.3    | Sắp xếp chữ cái thành 7 từ/cụm từ   | Nhận diện từ        |
+| 38.4    | Nhận biết biển báo                  | Đọc hiểu biểu tượng |
+| 38.5    | Viết đoạn văn về thành phố của mình | Writing             |
 
-**Đáp án:** C. **Giải thích:** “bus station” diễn đạt “bến xe buýt” trong chủ đề này.
+Lưu ý về Exercise 38.4
 
-### Câu 2
+Biển báo số 4 trên trang 81 là một khung trống, không có hình hoặc chữ. Vì vậy, bản Markdown giữ nguyên tình trạng thiếu thông tin này thay vì tự đặt đáp án.
 
-Cụm từ **“post office”** có nghĩa nào trong bài học?
+## 7. Câu hỏi ôn tập
 
-A. bến xe buýt
+Trắc nghiệm Unit 38
 
-B. thư viện
+0/5 đã làm
 
-C. ga tàu
+Câu 1. Bạn muốn đổi tiền. Nên đến địa điểm nào?
 
-D. bưu điện
+A. Museum
 
-**Đáp án:** D. **Giải thích:** “post office” được dùng với nghĩa “bưu điện”.
+B. Bank
 
-### Câu 3
+C. Library
 
-Khi cần nói **“đồn cảnh sát”**, chọn từ/cụm từ nào?
+D. Bus stop
 
-A. library
+Câu 2. Câu nào đúng: “Thư viện gần vòng xuyến”?
 
-B. town centre
+A. The library is at bank.
 
-C. post office
+B. The library is in river.
 
-D. police station
+C. The library are near the roundabout.
 
-**Đáp án:** D. **Giải thích:** Cách dùng đúng trong bài là “police station”.
+D. The library is near the roundabout.
 
-### Câu 4
+Câu 3. Biển báo No entry có nghĩa là gì?
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Bạn có thể mượn sách ở thư viện.”**
+A. Cấm đi vào
 
-A. I'd like a return ticket, please.
+B. Điểm dừng xe buýt
 
-B. The lift is out of order.
+C. Được phép đỗ xe
 
-C. Please use the entrance on the left.
+D. Đèn giao thông
 
-D. You can borrow books from the library.
+Câu 4. Người làm việc và quản lý sách ở thư viện là ai?
 
-**Đáp án:** D. **Giải thích:** “You can borrow books from the library.” là câu tương ứng với tình huống đã nêu.
+A. Bank clerk
 
-### Câu 5
+B. Traffic warden
 
-Ý nghĩa phù hợp nhất của câu **“The bank is near the post office.”** là gì?
+C. Librarian
 
-A. Có con sông gần ngôi làng.
+D. Shop assistant
 
-B. Tàu khởi hành lúc mấy giờ?
+Câu 5. Câu nào dùng để hỏi vị trí bảo tàng một cách lịch sự?
 
-C. Bọn trẻ nuôi một con thỏ.
+A. Can I to museum?
 
-D. Ngân hàng gần bưu điện.
+B. Excuse me, where is the museum?
 
-**Đáp án:** D. **Giải thích:** “The bank is near the post office.” có nghĩa là “Ngân hàng gần bưu điện.”.
+C. How many museum you have?
 
+D. Where does the museum to?
 
-## 5. Tổng kết và kiểm tra hoàn thành
+Chấm điểm
 
-Bài **The bank is near the post office.** giúp bạn sử dụng vốn từ về **ngân hàng gần bưu điện.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+## 8. Tổng kết
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+Trọng tâm Unit 38 là kết hợp địa điểm + hành động, biết cách hỏi đường và hiểu các biển báo đơn giản. Khi luyện tập, hãy chú ý những cặp dễ nhầm như bus station / bus stop, library / librarian, car park / park.
 
----
-
-[← Unit 37: Thời tiết](37-weather.md) · [Unit 39: Vùng nông thôn →](39-in-the-countryside.md)
-
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)

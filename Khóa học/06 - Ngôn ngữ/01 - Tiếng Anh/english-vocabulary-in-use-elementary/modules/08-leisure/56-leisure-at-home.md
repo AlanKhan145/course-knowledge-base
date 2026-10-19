@@ -1,165 +1,675 @@
-﻿# Unit 56 — Leisure at home: Giải trí tại nhà
+﻿# Unit 56 — Leisure at home: Các hoạt động giải trí tại nhà
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-56-spread.webp)
+Module 08: Giải trí, mua sắm và du lịch Trình độ: A1–A2 (Elementary) Chủ đề: TV, radio, music, video · Hobbies · Reading · Time with other people · Relaxing
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+## 1. Giới thiệu và mục tiêu bài học
 
-> **Module 08:** Giải trí, mua sắm và du lịch  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 56; trang in 116–117 (PDF trang 119–120).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Thời gian rảnh (leisure time) là khoảng thời gian chúng ta không phải làm việc hoặc học tập. Nhiều người thích dành thời gian này ở nhà để xem tivi, nghe nhạc, đọc sách, nấu ăn, chăm sóc cây cối hoặc trò chuyện với bạn bè.
 
-## 1. Tóm tắt và mục tiêu
+Trong tiếng Anh, mỗi hoạt động thường kết hợp với một động từ nhất định. Chẳng hạn, chúng ta nói watch TV (xem tivi), listen to music (nghe nhạc), read a newspaper (đọc báo) và play computer games (chơi trò chơi máy tính).
 
-Các hoạt động ở nhà thường đi với watch, listen to, read, play hoặc do. Phân biệt watch TV với see a film, listen to music với hear a sound.
+Việc ghi nhớ cả cụm từ sẽ giúp bạn diễn đạt tự nhiên hơn thay vì dịch từng từ riêng lẻ.
 
-Sau bài này, bạn có thể:
+Ví dụ:
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **giải trí tại nhà**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+- I watch TV every evening. — Tôi xem tivi mỗi tối.
+- I really like cooking. — Tôi rất thích nấu ăn.
+- I read a lot at home. — Tôi đọc rất nhiều khi ở nhà.
+- Sometimes I just do nothing. — Đôi khi tôi chẳng làm gì cả.
 
-## 2. Kiến thức và từ vựng cốt lõi
+Sau bài học, bạn có thể:
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+1. Nhận diện và sử dụng từ vựng về các hoạt động giải trí tại nhà.
+2. Phân biệt cách sử dụng watch, see, listen to, hear, read và play.
+3. Mô tả sở thích cá nhân bằng các cấu trúc like + V-ing và like + to V.
+4. Diễn đạt các hoạt động giao tiếp với bạn bè như invite friends around, have friends to dinner, talk on the phone.
+5. Hỏi và trả lời về thói quen, thời gian rảnh và hoạt động yêu thích.
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **watch TV** | xem tivi |
-| **listen to the radio** | nghe đài |
-| **listen to music** | nghe nhạc |
-| **read a book** | đọc sách |
-| **play the piano** | chơi đàn piano |
-| **gardening** | làm vườn |
-| **draw** | vẽ |
-| **paint** | vẽ tranh |
-| **collect stamps** | sưu tầm tem |
-| **play computer games** | chơi game máy tính |
-| **listen to CDs** | nghe đĩa CD |
-| **do puzzles** | giải câu đố |
+## 2. TV, radio, music, video — Truyền hình, đài phát thanh và âm nhạc
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+Các hoạt động giải trí liên quan đến âm thanh và hình ảnh thường sử dụng những động từ watch, see và listen to. Tuy nhiên, các động từ này không hoàn toàn thay thế được cho nhau.
 
-**Nhóm từ thứ nhất:** watch TV (xem tivi), listen to the radio (nghe đài), listen to music (nghe nhạc).
+### 2.1. Từ vựng và cụm từ thông dụng
 
-**Nhóm từ thứ hai:** gardening (làm vườn), draw (vẽ), paint (vẽ tranh).
+| Từ/cụm từ           | Nghĩa tiếng Việt         |
+| ------------------- | ------------------------ |
+| Watch TV            | Xem tivi                 |
+| Watch a film        | Xem một bộ phim          |
+| See a film          | Xem một bộ phim          |
+| Listen to the radio | Nghe đài                 |
+| Listen to music     | Nghe nhạc                |
+| Listen to CDs       | Nghe đĩa CD              |
+| Listen to tapes     | Nghe băng cassette       |
+| Watch a video       | Xem video                |
+| TV programme        | Chương trình truyền hình |
+| Every evening       | Mỗi tối                  |
+| Every morning       | Mỗi buổi sáng            |
+| At the weekend      | Vào cuối tuần            |
+| Relax               | Thư giãn                 |
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+### 2.2. Watch và see — Xem
 
-### 2.2. Mẫu câu song ngữ
+Cả watch và see đều có thể liên quan đến việc nhìn, nhưng chúng có cách sử dụng khác nhau.
 
-**Ví dụ 1.** I listen to music in the evening.
+Watch thường diễn tả hành động chú ý theo dõi một nội dung đang diễn ra, ví dụ chương trình truyền hình hoặc một bộ phim.
 
-→ Tôi nghe nhạc vào buổi tối.
+Ví dụ:
 
-**Ví dụ 2.** My father enjoys gardening.
+I watch TV every evening. — Tôi xem tivi mỗi tối.
 
-→ Bố tôi thích làm vườn.
+I like watching films on TV. — Tôi thích xem phim trên tivi.
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+See thường được sử dụng khi nói đến việc xem hoặc đã xem một bộ phim.
 
-## 3. Luyện tập ứng dụng
+Ví dụ:
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+Did you see the film about President Kennedy? — Bạn đã xem bộ phim về Tổng thống Kennedy chưa?
 
-1. Xem tivi: __________
-2. Đọc sách: __________
-3. Vẽ tranh: __________
+Có thể dùng cả watch a film và see a film, tùy cách diễn đạt.
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+| Cách nói        | Đúng / Sai           | Giải thích                               |
+| --------------- | -------------------- | ---------------------------------------- |
+| I watch TV.     | &#x20;Đúng           | Cách nói thông dụng khi xem tivi         |
+| I see TV.       | &#x20;Không tự nhiên | Không dùng để diễn tả thói quen xem tivi |
+| I watch a film. | &#x20;Đúng           | Theo dõi một bộ phim                     |
+| I see a film.   | &#x20;Đúng           | Xem một bộ phim                          |
 
-1. Tôi nghe nhạc vào buổi tối.
-2. Bố tôi thích làm vườn.
+### 2.3. Listen to và hear — Nghe
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Hai động từ này khác nhau về mức độ chủ động.
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+- Listen to: Chủ động lắng nghe một âm thanh.
+- Hear: Nghe thấy âm thanh, không nhất thiết chủ động lắng nghe.
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Ví dụ:
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+I listen to the radio every morning.
 
-### Câu 1
+→ Tôi nghe đài mỗi sáng.
 
-Bạn muốn diễn đạt **“nghe đài”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+I like listening to music on the radio.
 
-A. listen to music
+→ Tôi thích nghe nhạc trên đài.
 
-B. collect stamps
+Khi dùng listen với đối tượng được nghe, cần có giới từ to.
 
-C. watch TV
+| Đúng                | Sai              |
+| ------------------- | ---------------- |
+| Listen to music     | Listen music     |
+| Listen to the radio | Listen the radio |
+| Listen to CDs       | Listen CDs       |
 
-D. listen to the radio
+Ghi nhớ: Khi muốn nói "nghe nhạc", hãy học trọn cụm listen to music.
 
-**Đáp án:** D. **Giải thích:** “listen to the radio” diễn đạt “nghe đài” trong chủ đề này.
+### 2.4. Like + V-ing và like + to V
 
-### Câu 2
+Để mô tả sở thích, có thể sử dụng hai cấu trúc:
 
-Cụm từ **“gardening”** có nghĩa nào trong bài học?
+S + like + V-ing
 
-A. làm vườn
+S + like + to + V
 
-B. nghe nhạc
+Ví dụ:
 
-C. vẽ
+I like watching films on TV.
 
-D. giải câu đố
+→ Tôi thích xem phim trên tivi.
 
-**Đáp án:** A. **Giải thích:** “gardening” được dùng với nghĩa “làm vườn”.
+I like to watch films on TV.
 
-### Câu 3
+→ Tôi thích xem phim trên tivi.
 
-Khi cần nói **“sưu tầm tem”**, chọn từ/cụm từ nào?
+I like listening to music.
 
-A. paint
+→ Tôi thích nghe nhạc.
 
-B. play the piano
+I like to listen to music.
 
-C. collect stamps
+→ Tôi thích nghe nhạc.
 
-D. watch TV
+Trong những tình huống diễn đạt sở thích thông thường, cả hai cấu trúc đều được sử dụng.
 
-**Đáp án:** C. **Giải thích:** Cách dùng đúng trong bài là “collect stamps”.
+### 2.5. At the weekend — Vào cuối tuần
 
-### Câu 4
+Ví dụ:
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Tôi nghe nhạc vào buổi tối.”**
+At the weekend, we usually watch a video.
 
-A. Could we have the menu, please?
+→ Vào cuối tuần, chúng tôi thường xem video.
 
-B. We are going on holiday next week.
+Trong câu này:
 
-C. I like science fiction films best.
+- At the weekend chỉ thời gian.
+- Usually là trạng từ chỉ tần suất.
+- Watch a video là hoạt động.
 
-D. I listen to music in the evening.
+Một cách sắp xếp thông dụng là:
 
-**Đáp án:** D. **Giải thích:** “I listen to music in the evening.” là câu tương ứng với tình huống đã nêu.
+S + usually / often / sometimes + V + ...
 
-### Câu 5
+Ví dụ:
 
-Ý nghĩa phù hợp nhất của câu **“My father enjoys gardening.”** là gì?
+I often listen to music when I am relaxing.
 
-A. Tuần sau chúng tôi sẽ đi nghỉ.
+→ Tôi thường nghe nhạc khi đang thư giãn.
 
-B. Bạn có chơi cầu lông không?
+## 3. Hobbies and activities at home — Sở thích và hoạt động tại nhà
 
-C. Bố tôi thích làm vườn.
+Ngoài xem tivi và nghe nhạc, nhiều người có những sở thích như chơi trò chơi máy tính, nấu ăn, làm vườn hoặc sử dụng Internet.
 
-D. Chiếc áo khoác này giá bao nhiêu?
+### 3.1. Từ vựng về sở thích
 
-**Đáp án:** C. **Giải thích:** “My father enjoys gardening.” có nghĩa là “Bố tôi thích làm vườn.”.
+[Best Full-Size Mechanical Keyboards for Gamers and Typists  – Dareu](https://images.openai.com/static-rsc-4/bOk2uwfa_iYisVP-dT5ffPLWjtq8OtufLCvH9B5ZV_gO1SH-eZ4h9EvAj2QZovQbTT4lcx8VSO4qa1YpLkOfwqqmPMjCuqFW5Tiv7GxpA2oqsBtlv1hR4hVrYBJPqdGIFdZ4U2JSPGAM5W8tEVmAQ2lDeGjVp3uFzCmy_zk4PEg?purpose=inline)
 
+Play computer games — Chơi trò chơi máy tính
 
-## 5. Tổng kết và kiểm tra hoàn thành
+A lot of young people play computer games every day.
 
-Bài **My father enjoys gardening.** giúp bạn sử dụng vốn từ về **bố tôi thích làm vườn.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+Nhiều người trẻ chơi trò chơi máy tính mỗi ngày.
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+[MOM EA Directory Singapore 2026: Verify Any Agency Licence](https://images.openai.com/static-rsc-4/nmomuKOJYum8gV6mixOtc2YFb2i7nuuEf1I3ZRjrzDKCV-VLj4yMGf11N8RwrsNJnQmcjCseCa382_RcSN7q9OTgigKGoz7iDv31h1u05V9uNhoEO2XDiJfEl26C0frd8mxMzQIN8ZfteyLsuEF5pkrncLKnESqyuKgbbabFfZ4?purpose=inline)
 
----
+Use the Internet — Sử dụng Internet
 
-[← Unit 55: Phim ảnh và điện ảnh](55-cinema.md) · [Unit 57: Từ vựng về tội phạm →](../09-social-issues/57-crime.md)
+Do you use the Internet?
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+Bạn có sử dụng Internet không?
+
+[Alva Maestro Stainless Steel Ceramic Nonstick Frying Pan Black 102462 - Best Buy](https://images.openai.com/static-rsc-4/qMPAuAPF2UWfhlRxEcl5nlIXtRnzwpudBym0vDLnxNI8kgeNfLIW8ngc6ZQ_Q-U6cppfxF3eN9OxL_UY9xqx3eQf5VL5gAFJt82s3VculyOonFAPcOLw0YyLrIJAxugCUest465lfNA2noZB7vh-m0jBWUlv_hQkgpsm4vUaBoY?purpose=inline)
+
+Cooking / cook — Việc nấu ăn / nấu ăn
+
+I really like cooking.
+
+Tôi rất thích nấu ăn.
+
+[How to Start a Productive Home Vegetable Garden Easy Guide](https://images.openai.com/static-rsc-4/OJSG4OroZtWdzezipmpIghnuMA4OdpU9L2T-mdqoqkc-FoEUWMnTn5t0M5AnEY16369RzXAPGkq2aJiPkM-kfirAH8gsaOD5ZAm9KCWAKevDorNO8nCwngUYbBu1-xVcG8SUOlVc6vo-_17MmPGHcaMb83o66LZFWAqq-_1hJIg?purpose=inline)
+
+Gardening — Làm vườn
+
+Do you like gardening?
+
+Bạn có thích làm vườn không?
+
+[11 Creative Ways to Showcase Houseplants in Your Home Decor](https://images.openai.com/static-rsc-4/BVS_268DM0XVlRoqKpTIq-GNuGwQzY7F2RDSAuumvn2fwSPtK3lrZbWgijXeYw5gnM8EHVOD39JwxfB8xUOm8sVIYTBFSsHs53IMP8D-PDnThusPUXFjzww9sklhGCoT81Hf7bm0vpItgVwfsOW75wi0XsACnHxmCxFG5rJONow?purpose=inline)
+
+Grow flowers and vegetables — Trồng hoa và rau
+
+We grow flowers and vegetables in our garden.
+
+Chúng tôi trồng hoa và rau trong vườn.
+
+### 3.2. Play, do và grow
+
+Khi nói về sở thích, việc lựa chọn đúng động từ rất quan trọng.
+
+| Động từ | Cụm từ              | Ý nghĩa                         |
+| ------- | ------------------- | ------------------------------- |
+| Play    | Play computer games | Chơi trò chơi máy tính          |
+| Use     | Use the Internet    | Sử dụng Internet                |
+| Cook    | Cook dinner         | Nấu bữa tối                     |
+| Do      | Do some gardening   | Làm một chút công việc làm vườn |
+| Grow    | Grow flowers        | Trồng hoa                       |
+| Grow    | Grow vegetables     | Trồng rau                       |
+
+Grow thường dùng khi nói về việc trồng và chăm sóc để cây cối phát triển.
+
+Ví dụ:
+
+My father grows vegetables in his garden.
+
+→ Bố tôi trồng rau trong vườn.
+
+### 3.3. Garden và house plants
+
+Hai từ này đều liên quan đến cây cối nhưng chỉ những đối tượng khác nhau.
+
+Garden /ˈɡɑː.dən/ — Khu vườn.
+
+House plant /ˈhaʊs plɑːnt/ — Cây trồng trong nhà.
+
+Ví dụ:
+
+I live in a flat. I don't have a garden, but I have a lot of house plants.
+
+→ Tôi sống trong một căn hộ. Tôi không có vườn, nhưng tôi có rất nhiều cây trồng trong nhà.
+
+Ở đây, flat là căn hộ, tương đương với apartment trong nhiều ngữ cảnh.
+
+## 4. Reading — Hoạt động đọc sách và báo
+
+Đọc sách là một hoạt động giải trí phổ biến giúp người học mở rộng vốn kiến thức và từ vựng.
+
+### 4.1. Từ vựng về việc đọc
+
+| Từ vựng             | Nghĩa tiếng Việt       |
+| ------------------- | ---------------------- |
+| Read                | Đọc                    |
+| Book                | Sách                   |
+| Novel               | Tiểu thuyết            |
+| Newspaper           | Báo                    |
+| Magazine            | Tạp chí                |
+| Long story          | Truyện dài             |
+| Nature              | Thiên nhiên            |
+| Different countries | Các quốc gia khác nhau |
+| Rock music          | Nhạc rock              |
+| Sport               | Thể thao               |
+
+### 4.2. Read books, novels, magazines and newspapers
+
+[Books On Grief: Why Fiction Heals Differently Than Self-Help | Grief | Ahead App Blog](https://images.openai.com/static-rsc-4/1QYVbINyCM56OTNjuLRhhfBWPrhPpBoxb-rDIkHAOoKVnztXybLXnkjRq6AAPPz134pVD8-yibgPs-2vBSlXuUEWis_h9NaLdWemELh63GKvoBK6jDcJ4SvcbEcpWWhKE6-nSz0f-Icmj6OAmDxXMf5WAreQUoraWTivDNHN6hc?purpose=inline)
+
+Read novels
+
+Đọc tiểu thuyết
+
+[Magazines Pictures | Download Free Images on Unsplash](https://images.openai.com/static-rsc-4/eY1L9kuz2ORDDxugjMdKAJiBfEi21h2WdGkwk3Wy7tlZAs6aKRqAK7sFkKOBNrxeSINXaF-uwwbcZ0smeSkLCXmtFySB3LRIsJHcGdHyGGtzdOweGJkSCzqqOxoyrPfhvgSKGezH08XjcZ0pDTbd8ZzcN6SkBrYtS9G-lFCp148?purpose=inline)
+
+Read magazines
+
+Đọc tạp chí
+
+[6 Tipps für gesunde Routinen | TeamShirts](https://images.openai.com/static-rsc-4/2AvEVdEJhswSBG2k_IYNW5hUDEYh7v82e1L9D9joyD-mvSlILns5f95S8w0KHLyEQonHcUO7hJ0yMlKXmb7puGpl3u9el8QwaqFg40SWEKmvMutM5Bv0S-90dUNtZFrVhfLzvSKKAmGzOAp--ljmzHfITFgnjvddq5dcM4BVy9A?purpose=inline)
+
+Read a newspaper
+
+Đọc báo
+
+[A bookshelf filled with various books. photo – Free Education Image on Unsplash](https://images.openai.com/static-rsc-4/Ab2eU3krkB4EZB-SO5oC7gQ3p_gUVIY0i5c-dWMyx2fSs4DuSFGoHsS1-bt81ocVUZxnZ0zfpj_osyyqSLsXXsRdp6EMCtA6GFgcoXs1H6djcDAEnVo-kgeyKj-digz4YJAQcxX7eypMGyaHUM9887oQ_uDwZtuEGxkRPA24UWM?purpose=inline)
+
+Read books about nature
+
+Đọc sách về thiên nhiên
+
+Ví dụ:
+
+I read a lot at home. — Tôi đọc rất nhiều khi ở nhà.
+
+I read novels. — Tôi đọc tiểu thuyết.
+
+I like magazines about rock music and sport.
+
+→ Tôi thích những tạp chí về nhạc rock và thể thao.
+
+### 4.3. Hỏi về thói quen đọc
+
+Câu hỏi thông dụng:
+
+What do you read? — Bạn thường đọc gì?
+
+Ví dụ hội thoại:
+
+A: What do you read? B: I read novels.
+
+A: Do you read a newspaper every day? B: No, I prefer to read magazines.
+
+Dịch nghĩa:
+
+A: Bạn thường đọc gì? B: Tôi đọc tiểu thuyết.
+
+A: Bạn có đọc báo mỗi ngày không? B: Không, tôi thích đọc tạp chí hơn.
+
+Để diễn đạt sự ưu tiên, có thể dùng:
+
+Prefer to + V
+
+Ví dụ:
+
+I prefer to read magazines.
+
+→ Tôi thích đọc tạp chí hơn.
+
+## 5. Time with other people — Dành thời gian với người khác
+
+Thời gian rảnh không chỉ dành cho những hoạt động cá nhân. Chúng ta còn có thể mời bạn bè đến nhà, dùng bữa cùng nhau hoặc trò chuyện qua điện thoại.
+
+### 5.1. Từ vựng và cụm từ thông dụng
+
+| Từ/cụm từ              | Nghĩa                     |
+| ---------------------- | ------------------------- |
+| Invite friends around  | Mời bạn bè đến nhà        |
+| Have friends around    | Có bạn bè đến chơi        |
+| Have friends to dinner | Mời bạn bè đến ăn tối     |
+| Come to stay           | Đến ở lại                 |
+| Talk on the phone      | Nói chuyện qua điện thoại |
+| Ring someone           | Gọi điện cho ai đó        |
+| Best friend            | Bạn thân nhất             |
+
+### 5.2. Invite friends around — Mời bạn bè đến nhà
+
+Invite có nghĩa là mời.
+
+Ví dụ:
+
+Sometimes we invite friends around.
+
+→ Đôi khi chúng tôi mời bạn bè đến nhà chơi.
+
+Trong ngữ cảnh này, around mang ý nghĩa đến nhà của người nói.
+
+Có thể diễn đạt ý tương tự bằng:
+
+Sometimes we have friends around.
+
+→ Đôi khi chúng tôi có bạn bè đến nhà chơi.
+
+### 5.3. Have friends to dinner — Mời bạn đến ăn tối
+
+Cấu trúc have someone to dinner dùng khi nói đến việc mời ai đó đến dùng bữa tối.
+
+Ví dụ:
+
+I often have friends to dinner.
+
+→ Tôi thường mời bạn bè đến ăn tối.
+
+Chú ý: Have trong câu này không mang nghĩa sở hữu mà diễn tả việc tiếp đón hoặc mời khách.
+
+### 5.4. Come to stay — Đến ở lại
+
+Ví dụ:
+
+My best friend comes to stay sometimes.
+
+→ Thỉnh thoảng bạn thân nhất của tôi đến ở lại.
+
+Stay có nghĩa là ở lại trong một khoảng thời gian.
+
+Ví dụ:
+
+My friend stays at my house at the weekend.
+
+→ Bạn tôi ở lại nhà tôi vào cuối tuần.
+
+### 5.5. Talk on the phone và ring
+
+Hai cách nói đều liên quan đến việc giao tiếp qua điện thoại.
+
+Talk to someone on the phone — Nói chuyện với ai đó qua điện thoại.
+
+Ring someone — Gọi điện cho ai đó.
+
+Ví dụ:
+
+I talk to my friends on the phone every evening.
+
+→ Tôi nói chuyện với bạn bè qua điện thoại mỗi tối.
+
+I ring my friends every evening.
+
+→ Tôi gọi điện cho bạn bè mỗi tối.
+
+Trong tiếng Anh Anh, ring thường được dùng với nghĩa gọi điện; call cũng có nghĩa tương tự.
+
+## 6. Just relaxing — Chỉ đơn giản là thư giãn
+
+Không phải lúc nào thời gian rảnh cũng cần có một hoạt động cụ thể. Đôi khi, nghỉ ngơi hoặc không làm gì cũng là một cách thư giãn.
+
+### 6.1. Do nothing — Không làm gì cả
+
+Cụm từ do nothing có nghĩa là không thực hiện hoạt động nào.
+
+Ví dụ:
+
+Sometimes, I just do nothing.
+
+→ Đôi khi tôi chỉ đơn giản là không làm gì cả.
+
+Phân biệt:
+
+- Do something — Làm điều gì đó.
+- Do nothing — Không làm gì cả.
+
+### 6.2. Have a sleep — Ngủ một giấc
+
+Cụm have a sleep được dùng khi nói về việc ngủ một giấc, thường là trong thời gian nghỉ.
+
+Ví dụ:
+
+I like to have a sleep after lunch.
+
+→ Tôi thích ngủ một giấc sau bữa trưa.
+
+Một số cụm từ liên quan:
+
+| Cụm từ        | Ý nghĩa          |
+| ------------- | ---------------- |
+| Have a sleep  | Ngủ một giấc     |
+| After lunch   | Sau bữa trưa     |
+| Relax at home | Thư giãn tại nhà |
+| Do nothing    | Không làm gì     |
+
+## 7. Hệ thống hóa các hoạt động giải trí
+
+Có thể chia những hoạt động giải trí tại nhà thành năm nhóm để dễ ghi nhớ.
+
+\#chatgpt-mermaid-\_r_v4\_{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;fill:rgb(13, 13, 13);}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#chatgpt-mermaid-\_r_v4\_ .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_v4\_ .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#chatgpt-mermaid-\_r_v4\_ .error-icon{fill:rgb(243, 243, 243);}#chatgpt-mermaid-\_r_v4\_ .error-text{fill:rgb(13, 13, 13);stroke:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ .edge-thickness-normal{stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ .edge-thickness-thick{stroke-width:3.5px;}#chatgpt-mermaid-\_r_v4\_ .edge-pattern-solid{stroke-dasharray:0;}#chatgpt-mermaid-\_r_v4\_ .edge-thickness-invisible{stroke-width:0;fill:none;}#chatgpt-mermaid-\_r_v4\_ .edge-pattern-dashed{stroke-dasharray:3;}#chatgpt-mermaid-\_r_v4\_ .edge-pattern-dotted{stroke-dasharray:2;}#chatgpt-mermaid-\_r_v4\_ .marker{fill:rgb(143, 143, 143);stroke:rgb(143, 143, 143);}#chatgpt-mermaid-\_r_v4\_ .marker.cross{stroke:rgb(143, 143, 143);}#chatgpt-mermaid-\_r_v4\_ svg{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:16px;}#chatgpt-mermaid-\_r_v4\_ p{margin:0;}#chatgpt-mermaid-\_r_v4\_ .label{font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";color:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ .cluster-label text{fill:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ .cluster-label span{color:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ .cluster-label span p{background-color:transparent;}#chatgpt-mermaid-\_r_v4\_ .label text,#chatgpt-mermaid-\_r_v4\_ span{fill:rgb(13, 13, 13);color:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ .node rect,#chatgpt-mermaid-\_r_v4\_ .node circle,#chatgpt-mermaid-\_r_v4\_ .node ellipse,#chatgpt-mermaid-\_r_v4\_ .node polygon,#chatgpt-mermaid-\_r_v4\_ .node path{fill:rgb(222, 234, 251);stroke:rgb(83, 154, 248);stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ .rough-node .label text,#chatgpt-mermaid-\_r_v4\_ .node .label text,#chatgpt-mermaid-\_r_v4\_ .image-shape .label,#chatgpt-mermaid-\_r_v4\_ .icon-shape .label{text-anchor:middle;}#chatgpt-mermaid-\_r_v4\_ .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ .rough-node .label,#chatgpt-mermaid-\_r_v4\_ .node .label,#chatgpt-mermaid-\_r_v4\_ .image-shape .label,#chatgpt-mermaid-\_r_v4\_ .icon-shape .label{text-align:center;}#chatgpt-mermaid-\_r_v4\_ .node.clickable{cursor:pointer;}#chatgpt-mermaid-\_r_v4\_ .root .anchor path{fill:rgb(143, 143, 143)!important;stroke-width:0;stroke:rgb(143, 143, 143);}#chatgpt-mermaid-\_r_v4\_ .arrowheadPath{fill:rgb(143, 143, 143);}#chatgpt-mermaid-\_r_v4\_ .edgePath .path{stroke:rgb(143, 143, 143);stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ .flowchart-link{stroke:rgb(143, 143, 143);fill:none;}#chatgpt-mermaid-\_r_v4\_ .edgeLabel{background-color:rgb(252, 252, 252);text-align:center;}#chatgpt-mermaid-\_r_v4\_ .edgeLabel p{background-color:rgb(252, 252, 252);}#chatgpt-mermaid-\_r_v4\_ .edgeLabel rect{opacity:0.5;background-color:rgb(252, 252, 252);fill:rgb(252, 252, 252);}#chatgpt-mermaid-\_r_v4\_ .labelBkg{background-color:rgba(252, 252, 252, 0.5);}#chatgpt-mermaid-\_r_v4\_ .cluster rect{fill:rgb(243, 243, 243);stroke:rgba(0, 0, 0, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ .cluster text{fill:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ .cluster span{color:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";font-size:12px;background:rgb(243, 243, 243);border:1px solid rgba(0, 0, 0, 0.1);border-radius:2px;pointer-events:none;z-index:100;}#chatgpt-mermaid-\_r_v4\_ .flowchartTitleText{text-anchor:middle;font-size:18px;fill:rgb(13, 13, 13);}#chatgpt-mermaid-\_r_v4\_ rect.text{fill:none;stroke-width:0;}#chatgpt-mermaid-\_r_v4\_ .icon-shape,#chatgpt-mermaid-\_r_v4\_ .image-shape{background-color:rgb(252, 252, 252);text-align:center;}#chatgpt-mermaid-\_r_v4\_ .icon-shape p,#chatgpt-mermaid-\_r_v4\_ .image-shape p{background-color:rgb(252, 252, 252);padding:2px;}#chatgpt-mermaid-\_r_v4\_ .icon-shape .label rect,#chatgpt-mermaid-\_r_v4\_ .image-shape .label rect{opacity:0.5;background-color:rgb(252, 252, 252);fill:rgb(252, 252, 252);}#chatgpt-mermaid-\_r_v4\_ .label-icon{display:inline-block;height:1em;overflow:visible;vertical-align:-0.125em;}#chatgpt-mermaid-\_r_v4\_ .node .label-icon path{fill:currentColor;stroke:revert;stroke-width:revert;}#chatgpt-mermaid-\_r_v4\_ .node .neo-node{stroke:rgb(83, 154, 248);}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].node rect,#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].cluster rect,#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].node polygon{stroke:url(#chatgpt-mermaid-\_r_v4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].swimlane.cluster rect{filter:none;}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].node path{stroke:url(#chatgpt-mermaid-\_r_v4\_-gradient);stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].node .outer-path{filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].node .neo-line path{stroke:rgb(83, 154, 248);filter:none;}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].node circle{stroke:url(#chatgpt-mermaid-\_r_v4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].node circle .state-start{fill:#000000;}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].icon-shape .icon{fill:url(#chatgpt-mermaid-\_r_v4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_v4\_ [data-look="neo"].icon-shape .icon-neo path{stroke:url(#chatgpt-mermaid-\_r_v4\_-gradient);filter:drop-shadow( 1px 2px 2px rgba(185,185,185,1));}#chatgpt-mermaid-\_r_v4\_ .node text{font-size:14px;font-weight:600;letter-spacing:normal;fill:rgb(0, 79, 153);}#chatgpt-mermaid-\_r_v4\_ .edgeLabels text{font-size:13px;font-weight:600;letter-spacing:-0.08px;fill:rgb(0, 79, 153);}#chatgpt-mermaid-\_r_v4\_ .node tspan[font-weight="normal"],#chatgpt-mermaid-\_r_v4\_ .edgeLabels tspan[font-weight="normal"]{font-weight:600;}#chatgpt-mermaid-\_r_v4\_ .edgeLabel .label rect{opacity:1;rx:13px;ry:13px;fill:rgb(245, 250, 255);stroke:rgb(206, 219, 229);stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ .node rect,#chatgpt-mermaid-\_r_v4\_ .node circle,#chatgpt-mermaid-\_r_v4\_ .node ellipse,#chatgpt-mermaid-\_r_v4\_ .node polygon,#chatgpt-mermaid-\_r_v4\_ .node path{fill:rgb(229, 243, 255);stroke:rgba(0, 0, 0, 0.1);stroke-width:1px;}#chatgpt-mermaid-\_r_v4\_ .node rect{rx:16px;ry:16px;}#chatgpt-mermaid-\_r_v4\_ .node.mermaid-decision .label-container{fill:rgb(245, 250, 255);stroke:rgb(206, 219, 229);stroke-dasharray:2,2;}#chatgpt-mermaid-\_r_v4\_ .edgePaths .flowchart-link{stroke:rgb(143, 143, 143);stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;}#chatgpt-mermaid-\_r_v4\_ .marker{fill:rgb(143, 143, 143);stroke:rgb(143, 143, 143);}#chatgpt-mermaid-\_r_v4\_ :root{--mermaid-font-family:-apple-system-body,ui-sans-serif,-apple-system,system-ui,"Segoe UI",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";}Leisure at homeTV, radio, musicHobbiesReadingTime with other peopleRelaxingWatch TV / Listen to musicCook / Grow flowers / PlaygamesRead novels / MagazinesInvite friends / Ring friendsDo nothing / Have a sleep
+
+Sơ đồ giúp liên kết mỗi nhóm hoạt động với động từ thường được sử dụng. Khi học từ vựng, hãy ghi nhớ watch TV thay vì chỉ ghi TV, hoặc grow vegetables thay vì chỉ ghi vegetables.
+
+### 7.1. Những lỗi thường gặp
+
+| Cách dùng sai          | Cách dùng đúng          | Giải thích                         |
+| ---------------------- | ----------------------- | ---------------------------------- |
+| I see TV.              | I watch TV.             | Dùng watch để nói về việc xem tivi |
+| I listen music.        | I listen to music.      | Cần giới từ to                     |
+| I play the Internet.   | I use the Internet.     | Dùng use                           |
+| I grow gardening.      | I do gardening.         | Dùng do với hoạt động làm vườn     |
+| I read a TV programme. | I watch a TV programme. | Chương trình truyền hình được xem  |
+| I play a newspaper.    | I read a newspaper.     | Báo được đọc                       |
+
+### 7.2. Mô tả một ngày giải trí tại nhà
+
+Đoạn văn mẫu:
+
+> I usually stay at home at the weekend. In the morning, I read books or use the Internet. Sometimes, I play computer games. In the afternoon, I like listening to music. In the evening, I often watch TV with my family. I also enjoy cooking. When I am tired, I just relax and do nothing.
+
+Dịch nghĩa:
+
+Tôi thường ở nhà vào cuối tuần. Buổi sáng, tôi đọc sách hoặc sử dụng Internet. Đôi khi, tôi chơi trò chơi máy tính. Buổi chiều, tôi thích nghe nhạc. Buổi tối, tôi thường xem tivi cùng gia đình. Tôi cũng thích nấu ăn. Khi mệt, tôi chỉ thư giãn và không làm gì cả.
+
+## 8. Bài tập thực hành — Exercises
+
+### 8.1. Bài 56.1 — What are these people doing?
+
+Quan sát sáu hình ở trang bài tập và hoàn thành các câu mô tả hoạt động.
+
+| Hình | Câu cần hoàn thành                                   |
+| ---- | ---------------------------------------------------- |
+| 1    | She's \_\_\_\_\_\_\_\_\_\_.                          |
+| 2    | He's \_\_\_\_\_\_\_\_\_\_.                           |
+| 3    | He's \_\_\_\_\_\_\_\_\_\_ a \_\_\_\_\_\_\_\_\_\_.    |
+| 4    | She's \_\_\_\_\_\_\_\_\_\_.                          |
+| 5    | She's using the \_\_\_\_\_\_\_\_\_\_.                |
+| 6    | He's \_\_\_\_\_\_\_\_\_\_ to a \_\_\_\_\_\_\_\_\_\_. |
+
+Chú ý sử dụng thì hiện tại tiếp diễn (am/is/are + V-ing) để mô tả hành động đang diễn ra trong tranh.
+
+### 8.2. Bài 56.2 — Fill in the missing verbs
+
+Điền động từ thích hợp vào chỗ trống.
+
+1. Sometimes I \_\_\_\_\_\_ to CDs or tapes.
+2. I prefer to \_\_\_\_\_\_ magazines more than newspapers.
+3. I \_\_\_\_\_\_ to my sister on the phone every Sunday.
+4. A lot of people like to \_\_\_\_\_\_ a sleep after lunch.
+5. Do you ever \_\_\_\_\_\_ friends to dinner?
+6. The children \_\_\_\_\_\_ computer games every evening.
+7. Shall we \_\_\_\_\_\_ a video tonight?
+8. Did you \_\_\_\_\_\_ the programme about Namibia yesterday?
+9. My father \_\_\_\_\_\_ vegetables in his garden.
+
+Gợi ý: Những động từ cần vận dụng thuộc các nhóm listen, read, talk, have, invite, play, watch và grow. Cần chú ý cách chia động từ theo chủ ngữ và thời gian.
+
+### 8.3. Bài 56.3 — Answer for yourself
+
+Trả lời các câu hỏi bằng thông tin cá nhân.
+
+1\. If you have friends around, what do you like to do?
+
+Nếu bạn bè đến nhà chơi, bạn thích làm gì?
+
+My answer: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+2\. Does anyone come to stay at your house/flat?
+
+Có ai đến ở lại nhà hoặc căn hộ của bạn không?
+
+My answer: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+3\. What do you like to read most?
+
+Bạn thích đọc gì nhất?
+
+My answer: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+4\. How often do you ring your friends?
+
+Bạn gọi điện cho bạn bè thường xuyên như thế nào?
+
+My answer: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+### 8.4. Bài 56.4 — Interesting or boring?
+
+Hãy sắp xếp các hoạt động từ thú vị nhất (most interesting) đến nhàm chán nhất (most boring) theo ý kiến cá nhân.
+
+Các hoạt động cần sắp xếp:
+
+- Gardening
+- Cooking
+- Reading
+- Using the Internet
+- Watching videos
+- Listening to music
+- Doing nothing
+
+Bảng xếp hạng của bạn
+
+Dùng mũi tên để sắp xếp
+
+&#x20;Most interesting
+
+Most boring&#x20;
+
+1
+
+Listening to music
+
+2
+
+Using the Internet
+
+3
+
+Watching videos
+
+4
+
+Reading
+
+5
+
+Cooking
+
+6
+
+Gardening
+
+7
+
+Doing nothing
+
+&#x20;Sao chép kết quả
+
+Sau khi sắp xếp, hãy viết ít nhất ba câu giải thích lựa chọn của mình bằng tiếng Anh.
+
+## 9. Câu hỏi ôn tập trắc nghiệm
+
+Chọn đáp án đúng nhất cho mỗi câu.
+
+5 câu hỏi · Mỗi câu 1 điểm
+
+0/5 đã trả lời
+
+Câu 1. Chọn cách diễn đạt tự nhiên cho câu 'Tôi xem tivi mỗi tối.'
+
+A. I see TV every evening.
+
+B. I read TV every evening.
+
+C. I watch TV every evening.
+
+D. I hear TV every evening.
+
+Câu 2. Điền từ còn thiếu: 'I listen \_\_\_ music every morning.'
+
+A. to
+
+B. at
+
+C. on
+
+D. for
+
+Câu 3. Cụm từ 'grow vegetables' có nghĩa là gì?
+
+A. Nấu rau
+
+B. Mua rau
+
+C. Ăn rau
+
+D. Trồng rau
+
+Câu 4. Câu nào diễn đạt đúng ý 'Tôi thường mời bạn bè đến ăn tối'?
+
+A. I often play friends to dinner.
+
+B. I often have friends to dinner.
+
+C. I often grow friends to dinner.
+
+D. I often listen friends to dinner.
+
+Câu 5. Khi muốn nói 'Đôi khi tôi chẳng làm gì cả', câu nào phù hợp?
+
+A. Sometimes I just do nothing.
+
+B. Sometimes I just play nothing.
+
+C. Sometimes I just read nothing.
+
+D. Sometimes I just watch nothing.
+
+Chấm điểmLàm lại
+
+## 10. Tổng kết và kiểm tra hoàn thành
+
+Unit 56 tập trung vào năm nhóm hoạt động giải trí tại nhà: xem tivi và nghe nhạc, sở thích cá nhân, đọc sách, dành thời gian với bạn bè và thư giãn.
+
+Điểm quan trọng nhất không phải là học thuộc từng từ riêng lẻ, mà là biết kết hợp đúng động từ với hoạt động.
+
+| Động từ       | Những cụm từ cần nhớ                                |
+| ------------- | --------------------------------------------------- |
+| Watch         | Watch TV, watch a film, watch a video               |
+| Listen to     | Listen to music, listen to the radio, listen to CDs |
+| Read          | Read books, read novels, read newspapers            |
+| Play          | Play computer games                                 |
+| Use           | Use the Internet                                    |
+| Grow          | Grow flowers, grow vegetables                       |
+| Invite / have | Invite friends around, have friends to dinner       |
+| Talk / ring   | Talk on the phone, ring friends                     |
+| Do / have     | Do nothing, have a sleep                            |
+
+### Checklist tự đánh giá
+
+- Tôi phân biệt được watch TV với see a film.
+- Tôi biết sử dụng listen to đúng cách.
+- Tôi sử dụng được play, read, grow, cook để mô tả sở thích.
+- Tôi biết nói về việc mời bạn bè đến nhà.
+- Tôi hiểu các cụm từ do nothing và have a sleep.
+- Tôi đã hoàn thành các bài tập 56.1–56.4.
+- Tôi đã hoàn thành năm câu trắc nghiệm.
+- Tôi có thể tự viết một đoạn văn ngắn về hoạt động giải trí tại nhà.
+
+Mục tiêu cuối cùng: Tự giới thiệu hoạt động giải trí yêu thích bằng một đoạn văn khoảng 5–7 câu tiếng Anh, sử dụng ít nhất năm cụm từ đã học và diễn đạt được tần suất thực hiện các hoạt động đó.

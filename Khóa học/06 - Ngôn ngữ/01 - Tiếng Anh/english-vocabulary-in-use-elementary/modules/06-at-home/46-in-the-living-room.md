@@ -1,5 +1,127 @@
 ﻿# Unit 46 — In the living room: Đồ dùng phòng khách
 
+## Sơ đồ mô tả nội dung theo ảnh
+
+~~~mermaid
+flowchart LR
+  subgraph LEFT["Trang trái · Đồ vật, vị trí và hoạt động"]
+    K1["A · Đồ trong phòng khách<br/>bookshelf · books · CD player / music centre · phone · phone book<br/>picture · curtains · table · sofa · armchair · chair<br/>TV · light switch · power point · coffee table · carpet"]
+    K2["B · Giới từ chỉ vị trí<br/>sofa near window · small table next to sofa<br/>TV in the corner · coffee table in the middle<br/>bookshelf against the wall · phone book under the table"]
+    K3["C · Hoạt động<br/>watch television · listen to the radio / music<br/>read · relax"]
+    K4["D · Vật dụng và thao tác<br/>remote control · reading lamp · light switch<br/>close the curtains · switch the light on / off<br/>turn the radio off · turn the TV on"]
+  end
+  subgraph RIGHT["Trang phải · Bài tập"]
+    E1["46.1 · Gọi tên đồ vật theo công dụng"]
+    E2["46.2 · Chọn cách ngồi thư giãn, bật đèn đọc sách và đổi kênh TV"]
+    E3["46.3 · Điền giới từ theo sơ đồ căn phòng"]
+    E4["46.4 · Vẽ sơ đồ và mô tả phòng khách của mình"]
+    E5["46.5 · Tìm từ vựng phòng khách trong ô chữ"]
+  end
+  K1 --> E1
+  K3 --> E2
+  K2 --> E3
+  K1 --> E4
+  K4 --> E4
+  K1 --> E5
+~~~
+
+*Bố cục ảnh: tranh lớn ở nửa trên trang trái gắn nhãn đồ vật và vị trí trong phòng; bên dưới là ví dụ về giới từ, hoạt động thư giãn và các thiết bị điều khiển. Trang phải chuyển các chi tiết đó thành bài gọi tên, chọn đáp án, điền giới từ, tự mô tả và tìm từ trong ô chữ.*
+
+
+## Bản chép đầy đủ chữ trong ảnh
+
+### Trang trái · Trang sách 96
+
+**Đầu trang:** UNIT 46 | ENGLISH VOCABULARY IN USE - ELEMENTARY
+
+**Tiêu đề:** 46 In the living room
+
+#### A · Things in the living room
+
+**Nhãn trong tranh:** CD player / music centre · phone · picture · curtains · bookshelf · books · power point · armchair · table · TV · light switch · phone book · coffee table · carpet · chair.  
+**Đồ vật được nhắc đến ở phần sau:** sofa.
+
+#### B · Useful prepositions
+
+The sofa is near the window.
+Next to the sofa is a small table.
+The TV is in the corner.
+The coffee table is in the middle of the room.
+The bookshelf is against the wall.
+Where’s the telephone book? Under the small table.
+
+#### C · Things we do in the living room
+
+Every evening I watch television.
+Sometimes I listen to the radio or listen to music.
+Sometimes I read.
+Sometimes I just relax. (= rest and do nothing)
+
+#### D · Things we use
+
+Where is the remote control for the TV?
+There’s a reading lamp on the desk.
+Close the curtains and switch the light on; it’s getting dark.
+Turn the radio off and turn the TV on, please. I want to watch the football.
+
+### Trang phải · Trang sách 97 · Exercises
+
+#### 46.1
+
+Write down the names of …
+
+1. Somewhere you can put books. *(viết tay: a bookshelf)*
+2. Somewhere two/three people can sit.
+3. Somewhere you can put down your coffee-cup.
+4. Something you can look at on the wall.
+5. Something for switching the light on/off.
+6. Something for listening to music.
+7. Something under your feet.
+
+#### 46.2
+
+Choose (a), (b) or (c).
+
+1. If you want to relax, which is the best?  
+   (a) a chair · (b) an armchair · (c) a sofa
+2. If it is dark and you want to read, do you …?  
+   (a) close the curtains · (b) switch on the reading lamp · (c) switch off the light
+3. If you want to watch a different TV station, do you …?  
+   (a) use the remote control · (b) use the power point · (c) turn off the TV
+
+#### 46.3
+
+Fill the gaps with the correct prepositions. Look at the picture opposite.
+
+1. ______ the floor there is a carpet.
+2. There is a small table ______ the corner. There is a TV ______ the table.
+3. The TV is ______ the door.
+4. The bookshelf is ______ the wall.
+5. The coffee table is ______ front ______ the sofa.
+
+#### 46.4
+
+Write about your living room at home. Draw a plan of it first. Describe your furniture (tables, chairs, sofa, etc.). Say where things are (e.g. next to …, in the corner …, near …, etc.). What colour are the walls? Are there any pictures on them? What do you do when you are in your living room?
+
+#### 46.5
+
+Word puzzle. How many names of things in the living room can you find?
+
+~~~text
+t e n b w o
+a c h a i r
+b a x b n r
+l r c o d a
+e p v o o d
+m e s k w i
+h t v s u o
+~~~
+
+*(Trong ảnh, chữ “books” được khoanh tròn.)*
+
+**Chữ chân trang:** English Vocabulary in Use (elementary) · trang 96 và 97.  
+**Nhãn khung ảnh ghép:** TRANG TRAI: KIEN THUC | KNOWLEDGE · TRANG PHAI: BAI TAP | EXERCISES.
+
 ![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-46-spread.webp)
 
 *Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*

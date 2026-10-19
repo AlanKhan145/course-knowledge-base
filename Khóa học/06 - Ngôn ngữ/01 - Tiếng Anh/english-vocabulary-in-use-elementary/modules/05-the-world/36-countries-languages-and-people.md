@@ -1,167 +1,204 @@
-﻿# Unit 36 — Countries, languages and people: Quốc gia, ngôn ngữ và quốc tịch
+﻿# Unit 36 — Countries, Languages and People: Quốc gia, ngôn ngữ và con người
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-36-spread.webp)
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+## 1. Tổng quan và mục tiêu
 
-> **Module 05:** Thế giới xung quanh  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 36; trang in 76–77 (PDF trang 79–80).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Trong tiếng Anh, chúng ta cần phân biệt ba loại thông tin:
 
-## 1. Tóm tắt và mục tiêu
+| Khái niệm   | Ý nghĩa   | Ví dụ                |
+| ----------- | --------- | -------------------- |
+| Country     | Quốc gia  | Vietnam, Japan       |
+| Nationality | Quốc tịch | Vietnamese, Japanese |
+| Language    | Ngôn ngữ  | Vietnamese, Japanese |
 
-Viết hoa tên quốc gia, châu lục, ngôn ngữ và quốc tịch. Một số tính từ quốc tịch đồng thời là tên ngôn ngữ; không phải lúc nào cũng hình thành bằng cách thêm cùng một hậu tố.
+Ví dụ:
 
-Sau bài này, bạn có thể:
+- She is from Japan. — Cô ấy đến từ Nhật Bản.
+- She is Japanese. — Cô ấy là người Nhật.
+- She speaks Japanese. — Cô ấy nói tiếng Nhật.
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **quốc gia, ngôn ngữ và quốc tịch**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+Quy tắc: Tên châu lục, quốc gia, quốc tịch và ngôn ngữ luôn bắt đầu bằng chữ cái viết hoa trong tiếng Anh.
 
-## 2. Kiến thức và từ vựng cốt lõi
+## 2. Continents — Các châu lục
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+| Tiếng Anh     | Tiếng Việt   |
+| ------------- | ------------ |
+| Asia          | Châu Á       |
+| Europe        | Châu Âu      |
+| Africa        | Châu Phi     |
+| North America | Bắc Mỹ       |
+| South America | Nam Mỹ       |
+| Australia     | Châu Úc      |
+| Antarctica    | Châu Nam Cực |
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **country** | quốc gia |
-| **continent** | châu lục |
-| **Europe** | châu Âu |
-| **Asia** | châu Á |
-| **Africa** | châu Phi |
-| **America** | châu Mỹ |
-| **China** | Trung Quốc |
-| **Chinese** | tiếng Trung hoặc người Trung Quốc |
-| **Japan** | Nhật Bản |
-| **Japanese** | tiếng Nhật hoặc người Nhật |
-| **France** | Pháp |
-| **French** | tiếng Pháp hoặc người Pháp |
-| **Greece** | Hy Lạp |
-| **Greek** | tiếng Hy Lạp hoặc người Hy Lạp |
+Vietnam is in Asia. — Việt Nam nằm ở châu Á.
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+Brazil is in South America. — Brazil nằm ở Nam Mỹ.
 
-**Nhóm từ thứ nhất:** country (quốc gia), continent (châu lục), Europe (châu Âu).
+## 3. Countries, nationalities and languages
 
-**Nhóm từ thứ hai:** America (châu Mỹ), China (Trung Quốc), Chinese (tiếng Trung hoặc người Trung Quốc).
+| Quốc gia  | Quốc tịch  | Ngôn ngữ        |
+| --------- | ---------- | --------------- |
+| Vietnam   | Vietnamese | Vietnamese      |
+| China     | Chinese    | Chinese         |
+| Japan     | Japanese   | Japanese        |
+| France    | French     | French          |
+| Germany   | German     | German          |
+| Spain     | Spanish    | Spanish         |
+| Thailand  | Thai       | Thai            |
+| Russia    | Russian    | Russian         |
+| Brazil    | Brazilian  | Portuguese      |
+| Mexico    | Mexican    | Spanish         |
+| Egypt     | Egyptian   | Arabic          |
+| Australia | Australian | English         |
+| Canada    | Canadian   | English, French |
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+Điểm quan trọng là quốc tịch và ngôn ngữ không nhất thiết có cùng tên. Chẳng hạn, một người Brazil được gọi là Brazilian, nhưng ngôn ngữ chính tại Brazil là Portuguese.
 
-### 2.2. Mẫu câu song ngữ
+## 4. Cách hình thành tính từ quốc tịch
 
-**Ví dụ 1.** She is from Japan and speaks Japanese.
+-an/-ian
 
-→ Cô ấy đến từ Nhật Bản và nói tiếng Nhật.
+Germany → German
 
-**Ví dụ 2.** English is spoken in many countries.
+Mexico → Mexican
 
-→ Tiếng Anh được dùng tại nhiều quốc gia.
+Russia → Russian
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Australia → Australian
 
-## 3. Luyện tập ứng dụng
+-ish
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+Britain → British
 
-1. Quốc gia: __________
-2. Châu á: __________
-3. Tiếng trung hoặc người trung quốc: __________
+England → English
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+Spain → Spanish
 
-1. Cô ấy đến từ Nhật Bản và nói tiếng Nhật.
-2. Tiếng Anh được dùng tại nhiều quốc gia.
+Turkey → Turkish
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+-ese
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+China → Chinese
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Japan → Japanese
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Vietnam → Vietnamese
 
-### Câu 1
+Portugal → Portuguese
 
-Bạn muốn diễn đạt **“châu lục”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+Đặc biệt
 
-A. Japan
+France → French
 
-B. country
+Holland → Dutch
 
-C. Asia
+Switzerland → Swiss
 
-D. continent
+Greece → Greek
 
-**Đáp án:** D. **Giải thích:** “continent” diễn đạt “châu lục” trong chủ đề này.
+Iraq → Iraqi
 
-### Câu 2
+Iceland → Icelandic
 
-Cụm từ **“America”** có nghĩa nào trong bài học?
+Đây là các nhóm từ để ghi nhớ, không phải quy tắc tự động áp dụng được cho mọi quốc gia.
 
-A. tiếng Trung hoặc người Trung Quốc
+## 5. Mẫu câu giao tiếp
 
-B. châu Phi
+Hỏi về quê quán
 
-C. châu Mỹ
+Where are you from? — Bạn đến từ đâu?
 
-D. tiếng Pháp hoặc người Pháp
+I'm from Vietnam. — Tôi đến từ Việt Nam.
 
-**Đáp án:** C. **Giải thích:** “America” được dùng với nghĩa “châu Mỹ”.
+Hỏi về quốc tịch
 
-### Câu 3
+What nationality are you? — Bạn mang quốc tịch gì?
 
-Khi cần nói **“Nhật Bản”**, chọn từ/cụm từ nào?
+I'm Vietnamese. — Tôi là người Việt Nam.
 
-A. Greek
+Hỏi về ngôn ngữ
 
-B. continent
+What language do you speak? — Bạn nói ngôn ngữ nào?
 
-C. Greece
+I speak Vietnamese and English. — Tôi nói tiếng Việt và tiếng Anh.
 
-D. Japan
+Nói về thủ đô
 
-**Đáp án:** D. **Giải thích:** Cách dùng đúng trong bài là “Japan”.
+Tokyo is the capital of Japan. — Tokyo là thủ đô của Nhật Bản.
 
-### Câu 4
+## 6. Những lỗi dễ nhầm
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Cô ấy đến từ Nhật Bản và nói tiếng Nhật.”**
+| Sai                | Đúng                  | Lý do                     |
+| ------------------ | --------------------- | ------------------------- |
+| I am from vietnam. | I am from Vietnam.    | Viết hoa quốc gia         |
+| I speak french.    | I speak French.       | Viết hoa ngôn ngữ         |
+| She is Japan.      | She is Japanese.      | Dùng tính từ quốc tịch    |
+| He speaks Brazil.  | He speaks Portuguese. | Phân biệt nước và tiếng   |
+| She speak Chinese. | She speaks Chinese.   | Chia động từ theo chủ ngữ |
 
-A. It's raining, so take an umbrella.
+## 7. Bài tập thực hành
 
-B. She is from Japan and speaks Japanese.
+Bản Markdown đính kèm có đầy đủ Exercises 36.1–36.6, giữ các dạng bài gồm nhận biết châu lục, nhận diện hình dạng quốc gia, xác định thủ đô, viết về đất nước của mình, chọn quốc gia khác nhóm theo ngôn ngữ và viết tính từ quốc tịch.
 
-C. I'd like a return ticket, please.
+## 8. Câu hỏi ôn tập nhanh
 
-D. There is a river near the village.
+Kiểm tra kiến thức Unit 36
 
-**Đáp án:** B. **Giải thích:** “She is from Japan and speaks Japanese.” là câu tương ứng với tình huống đã nêu.
+0/5 đã chọn
 
-### Câu 5
+Câu 1. Đâu là cách nói đúng: “Cô ấy đến từ Nhật Bản”?
 
-Ý nghĩa phù hợp nhất của câu **“English is spoken in many countries.”** là gì?
+A. She is Japanese from.
 
-A. Vui lòng sử dụng lối vào bên trái.
+B. She is from Japan.
 
-B. Hôm nay trời nắng.
+C. She speaks Japan.
 
-C. Tiếng Anh được dùng tại nhiều quốc gia.
+D. She is Japan.
 
-D. Cho tôi mua một vé khứ hồi.
+Câu 2. Ngôn ngữ chính tại Brazil là gì?
 
-**Đáp án:** C. **Giải thích:** “English is spoken in many countries.” có nghĩa là “Tiếng Anh được dùng tại nhiều quốc gia.”.
+A. Spanish
 
+B. Brazilian
 
-## 5. Tổng kết và kiểm tra hoàn thành
+C. English
 
-Bài **English is spoken in many countries.** giúp bạn sử dụng vốn từ về **tiếng anh được dùng tại nhiều quốc gia.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+D. Portuguese
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+Câu 3. Cặp quốc gia – quốc tịch nào đúng?
 
----
+A. Germany – German
 
-[← Unit 35: Chào hỏi và các câu giao tiếp](../04-people/35-greetings-and-other-useful-phrases.md) · [Unit 37: Thời tiết →](37-weather.md)
+B. France – France
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+C. Japan – Japanish
+
+D. China – Chinan
+
+Câu 4. Câu nào đúng cả cách viết hoa và ngữ pháp?
+
+A. He speak french.
+
+B. He speaks french.
+
+C. He speaks French.
+
+D. He speak French.
+
+Câu 5. Câu nào cho thấy quốc tịch và ngôn ngữ không trùng tên?
+
+A. She is Japanese and speaks Japanese.
+
+B. She is Brazilian and speaks Portuguese.
+
+C. He is German and speaks German.
+
+D. She is French and speaks French.
+
+Chấm điểm và xem giải thích
+
+## 9. Tổng kết
+
+Cách học hiệu quả nhất là ghi nhớ theo bộ ba Country → Nationality → Language, kết hợp đặt câu với be from, be + nationality và speak + language.

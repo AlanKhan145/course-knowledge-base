@@ -1,165 +1,173 @@
 ﻿# Unit 42 — Notices: Các biển báo và thông báo
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-42-spread.webp)
+## 1. Tổng quan và mục tiêu học tập
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+Khi đến một nhà hàng, cửa hàng, sân bay, nhà ga hoặc nơi công cộng, chúng ta thường nhìn thấy các biển báo tiếng Anh rất ngắn như No smoking, Push, Pull, Exit và Out of order.
 
-> **Module 05:** Thế giới xung quanh  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 42; trang in 88–89 (PDF trang 91–92).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Các biển báo có hai chức năng chính: cung cấp thông tin (Information) và đưa ra hướng dẫn (Instructions). Hiểu được chức năng của chúng giúp chúng ta biết nên làm gì mà không cần dịch từng từ riêng lẻ.
 
-## 1. Tóm tắt và mục tiêu
+Sau bài học, bạn có thể nhận diện các biển báo thông dụng, phân biệt lối vào và lối ra, đẩy và kéo, giải thích thông báo hỏng thiết bị, đồng thời hoàn thành Exercises 42.1–42.5.
 
-Biển báo dùng ngôn ngữ cực ngắn, thường lược chủ ngữ: No smoking, Push, Pull. Hãy hiểu chức năng thông báo thay vì dịch từng từ; Out of order là thiết bị không sử dụng được.
+## 2. Các biển báo thông dụng
 
-Sau bài này, bạn có thể:
+| Biển báo                        | Nghĩa tiếng Việt                  | Ý nghĩa thực tế                   |
+| ------------------------------- | --------------------------------- | --------------------------------- |
+| No smoking                      | Cấm hút thuốc                     | Không được hút thuốc tại đây      |
+| Exit / Way out                  | Lối ra                            | Đi ra khỏi tòa nhà                |
+| Entrance / Way in               | Lối vào                           | Đi vào tòa nhà                    |
+| Push                            | Đẩy                               | Đẩy cửa để mở                     |
+| Pull                            | Kéo                               | Kéo cửa để mở                     |
+| Please ring for attention       | Vui lòng bấm chuông gọi nhân viên | Yêu cầu được phục vụ              |
+| Open                            | Đang mở cửa                       | Cửa hàng đang hoạt động           |
+| Closed                          | Đóng cửa                          | Cửa hàng không phục vụ            |
+| Sale                            | Giảm giá                          | Có chương trình bán hàng giảm giá |
+| Please pay here                 | Vui lòng thanh toán tại đây       | Nơi thanh toán                    |
+| Queue this side                 | Xếp hàng phía này                 | Hướng dẫn vị trí xếp hàng         |
+| Please do not walk on the grass | Vui lòng không đi lên cỏ          | Bảo vệ bãi cỏ                     |
+| Out of order                    | Đang hỏng                         | Máy hoặc thiết bị không hoạt động |
+| Men                             | Nam                               | Nhà vệ sinh nam                   |
+| Women                           | Nữ                                | Nhà vệ sinh nữ                    |
+| Toilets / WC                    | Nhà vệ sinh                       | Khu vực nhà vệ sinh               |
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **các biển báo và thông báo**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+## 3. Information và Instructions
 
-## 2. Kiến thức và từ vựng cốt lõi
+Notices — Biển báo, thông báo
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+Information
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **no smoking** | cấm hút thuốc |
-| **out of order** | hỏng hoặc không hoạt động |
-| **no parking** | cấm đỗ xe |
-| **entrance** | lối vào |
-| **exit** | lối ra |
-| **keep off the grass** | không giẫm lên cỏ |
-| **pull** | kéo |
-| **push** | đẩy |
-| **toilets** | nhà vệ sinh |
-| **closed** | đóng cửa |
-| **open** | mở cửa |
-| **danger** | nguy hiểm |
+Thông tin về địa điểm hoặc trạng thái
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+Open          Closed          Exit          Sale          Out of order
 
-**Nhóm từ thứ nhất:** no smoking (cấm hút thuốc), out of order (hỏng hoặc không hoạt động), no parking (cấm đỗ xe).
+Instructions
 
-**Nhóm từ thứ hai:** keep off the grass (không giẫm lên cỏ), pull (kéo), push (đẩy).
+Hướng dẫn, yêu cầu hoặc cấm hành động
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+Push          Pull          No smoking          Queue this side          Please pay here
 
-### 2.2. Mẫu câu song ngữ
+Một biển báo đôi khi vừa cung cấp thông tin vừa gợi ý hành động. Chẳng hạn, Entrance cho biết lối vào và cũng giúp người đọc biết nên đi theo hướng nào.
 
-**Ví dụ 1.** The lift is out of order.
+## 4. Những cặp biển báo dễ nhầm
 
-→ Thang máy đang hỏng.
+Entrance
 
-**Ví dụ 2.** Please use the entrance on the left.
+Lối vào — Way in
 
-→ Vui lòng sử dụng lối vào bên trái.
+Exit
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Lối ra — Way out
 
-## 3. Luyện tập ứng dụng
+Push
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+Đẩy cửa ra xa mình
 
-1. Cấm hút thuốc: __________
-2. Lối vào: __________
-3. Đẩy: __________
+Pull
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+Kéo cửa về phía mình
 
-1. Thang máy đang hỏng.
-2. Vui lòng sử dụng lối vào bên trái.
+Closed
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Cửa hàng đóng cửa
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+Out of order
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Thiết bị đang hỏng
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Đặc biệt, Closed và Out of order không đồng nghĩa. Cửa hàng có thể đóng cửa vì hết giờ làm việc, trong khi máy bán hàng có biển Out of order nghĩa là thiết bị không thể sử dụng.
 
-### Câu 1
+## 5. Mẫu câu giao tiếp
 
-Bạn muốn diễn đạt **“hỏng hoặc không hoạt động”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+### 5.1. Hỏi về cửa hàng
 
-A. no parking
+Can we go in now? — Bây giờ chúng ta có thể vào không?
 
-B. keep off the grass
+No, the shop is closed. — Không, cửa hàng đang đóng cửa.
 
-C. open
+### 5.2. Hỏi về thiết bị
 
-D. out of order
+Can I use this machine? — Tôi có thể sử dụng chiếc máy này không?
 
-**Đáp án:** D. **Giải thích:** “out of order” diễn đạt “hỏng hoặc không hoạt động” trong chủ đề này.
+No, it's out of order. — Không, máy đang hỏng.
 
-### Câu 2
+### 5.3. Hỏi vị trí lối ra
 
-Cụm từ **“keep off the grass”** có nghĩa nào trong bài học?
+Excuse me, where is the exit? — Xin lỗi, lối ra ở đâu?
 
-A. nguy hiểm
+It's over there. — Lối ra ở đằng kia.
 
-B. không giẫm lên cỏ
+## 6. Exercises 42.1–42.5
 
-C. nhà vệ sinh
+| Bài tập | Nội dung                                       | Kỹ năng             |
+| ------- | ---------------------------------------------- | ------------------- |
+| 42.1    | Chọn ký tự a–d cho bốn tình huống              | Đọc hiểu biểu tượng |
+| 42.2    | Nêu địa điểm thường xuất hiện các biển báo     | Vận dụng từ vựng    |
+| 42.3    | Trả lời sáu câu hỏi từ hình minh họa           | Hiểu hướng dẫn      |
+| 42.4    | Phân loại Information và Instructions          | Phân tích ý nghĩa   |
+| 42.5    | Nêu các nơi có biển báo tiếng Anh tại Việt Nam | Viết câu            |
 
-D. hỏng hoặc không hoạt động
+### Đáp án tham khảo
 
-**Đáp án:** B. **Giải thích:** “keep off the grass” được dùng với nghĩa “không giẫm lên cỏ”.
+Hiển thị đáp án Exercises 42.1–42.5
 
-### Câu 3
+## 7. Câu hỏi ôn tập
 
-Khi cần nói **“nhà vệ sinh”**, chọn từ/cụm từ nào?
+Trắc nghiệm Unit 42
 
-A. open
+0/5 đã trả lời
 
-B. keep off the grass
+Câu 1. Một máy bán hàng có biển Out of order. Điều đó có nghĩa gì?
 
-C. toilets
+A. Máy đang giảm giá.
 
-D. danger
+B. Máy vừa được mở cửa.
 
-**Đáp án:** C. **Giải thích:** Cách dùng đúng trong bài là “toilets”.
+C. Máy đang hỏng, không dùng được.
 
-### Câu 4
+D. Máy yêu cầu xếp hàng.
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Thang máy đang hỏng.”**
+Câu 2. Bạn đứng trước cửa có chữ Pull. Bạn cần làm gì?
 
-A. You can borrow books from the library.
+A. Kéo cửa về phía mình.
 
-B. The lift is out of order.
+B. Đẩy cửa ra xa.
 
-C. The cows are in the field.
+C. Đi ra cửa khác.
 
-D. The bank is near the post office.
+D. Bấm chuông gọi nhân viên.
 
-**Đáp án:** B. **Giải thích:** “The lift is out of order.” là câu tương ứng với tình huống đã nêu.
+Câu 3. Please do not walk on the grass thuộc nhóm nào?
 
-### Câu 5
+A. Thông tin về giá.
 
-Ý nghĩa phù hợp nhất của câu **“Please use the entrance on the left.”** là gì?
+B. Thông tin về trạng thái cửa hàng.
 
-A. Trời đang mưa nên hãy mang ô.
+C. Thông báo về giờ mở cửa.
 
-B. Tàu khởi hành lúc mấy giờ?
+D. Hướng dẫn hoặc cấm hành động.
 
-C. Vui lòng sử dụng lối vào bên trái.
+Câu 4. Bạn nhìn thấy Sale ở cửa hàng. Điều đó cho biết gì?
 
-D. Tiếng Anh được dùng tại nhiều quốc gia.
+A. Cửa hàng đã đóng.
 
-**Đáp án:** C. **Giải thích:** “Please use the entrance on the left.” có nghĩa là “Vui lòng sử dụng lối vào bên trái.”.
+B. Có chương trình giảm giá.
 
+C. Bạn phải rời khỏi cửa hàng.
 
-## 5. Tổng kết và kiểm tra hoàn thành
+D. Thiết bị trong cửa hàng bị hỏng.
 
-Bài **Please use the entrance on the left.** giúp bạn sử dụng vốn từ về **vui lòng sử dụng lối vào bên trái.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+Câu 5. Câu nào diễn đạt đúng “Thang máy đang hỏng”?
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+A. The lift is opened.
 
----
+B. The lift is on sale.
 
-[← Unit 41: Đi lại và du lịch](41-travelling.md) · [Unit 43: Đồ ăn và thức uống →](../06-at-home/43-food-and-drink.md)
+C. The lift is out of order.
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+D. The lift is an entrance.
+
+Chấm điểm
+
+## 8. Tổng kết và tài liệu Markdown
+
+Bốn nhóm cần ghi nhớ là lối đi, tình trạng hoạt động, mua sắm và các chỉ dẫn nơi công cộng. Khi gặp biển báo, hãy xác định thông tin hoặc hành động cần thực hiện trước khi dịch.
+

@@ -1,5 +1,104 @@
 ﻿# Unit 44 — In the kitchen: Đồ dùng trong bếp
 
+## Sơ đồ mô tả nội dung theo ảnh
+
+~~~mermaid
+flowchart LR
+  subgraph LEFT["Trang trái · Từ vựng và hội thoại"]
+    K1["A · Đồ vật và vị trí trong bếp<br/>cupboard · shelf · worktop · cooker · microwave<br/>sink · taps · fridge · freezer · wastebin<br/>Tranh bếp góc chữ L, có tủ mở, bếp nấu và bồn rửa"]
+    K2["B · Dụng cụ làm bếp<br/>washing-up liquid · tea towel · saucepan · frying pan<br/>cloth · teapot · coffee maker · kitchen paper / roll"]
+    K3["C · Đồ ăn uống dùng trên bàn<br/>cup · plate · saucer · bowl · glass · mug<br/>knife · fork · spoon · chopsticks"]
+    K4["D · Câu hỏi giao tiếp<br/>Tìm đồ ở đâu? · giúp rửa bát hay nấu ăn?<br/>Cất cốc / đĩa / chảo ở đâu? · đặt cốc / sữa ở đâu?"]
+  end
+  subgraph RIGHT["Trang phải · Bài tập"]
+    E1["44.1 · Đánh dấu đúng / sai về công dụng đồ bếp"]
+    E2["44.2 · Đặt câu hỏi cho đáp án: trong cupboard · trên cooker · trong sink · rửa và lau đĩa"]
+    E3["44.3 · Kể đồ cần để pha coffee / tea, rán trứng, ăn, uống nước và làm bữa tối nhanh"]
+    E4["44.4 · Quan sát tranh bếp; tìm vật ở gần cooker, trên cooker, trên shelf và trong cupboard"]
+  end
+  K1 --> E1
+  K2 --> E1
+  K4 --> E2
+  K2 --> E3
+  K3 --> E3
+  K1 --> E4
+~~~
+
+*Bố cục ảnh: trang trái đặt sơ đồ căn bếp ở trên, nhóm dụng cụ và đồ dùng ăn uống ở giữa, rồi đến các mẫu câu hỏi ở cuối trang; trang phải có bài đúng/sai, đặt câu hỏi, liệt kê đồ cần dùng và đọc vị trí trong một bức tranh bếp khác.*
+
+
+## Bản chép đầy đủ chữ trong ảnh
+
+### Trang trái · Trang sách 92
+
+**Đầu trang:** UNIT 44 | ENGLISH VOCABULARY IN USE - ELEMENTARY
+
+**Tiêu đề:** 44 In the kitchen
+
+#### A · What’s in the kitchen?
+
+**Nhãn trong tranh bếp:** cupboard · shelf · worktop · cooker · microwave · sink · taps · freezer · fridge · wastebin
+
+#### B · Things we use in the kitchen
+
+**Nhãn hình:** washing-up liquid · tea towel · saucepan · frying pan · cloth · kitchen paper/roll · teapot · coffee maker
+
+#### C · Things we use for eating and drinking
+
+**Nhãn hình:** cup · plate · knife · chopsticks · saucer · bowl · fork · spoon · mug · glass
+
+#### D · Questions in the kitchen
+
+Where can I find a mug / cloth / some kitchen paper?
+Can I help with the washing-up / the cooking?
+Where does this cup / plate / frying pan go? (where do you keep it?)
+Where shall I put this cup / the milk?
+
+### Trang phải · Trang sách 93 · Exercises
+
+#### 44.1
+
+Tick (✓) yes or no.
+
+| # | Câu trong ảnh | Dấu viết tay |
+| --- | --- | --- |
+| 1 | I use a frying pan to drink out of. | no |
+| 2 | Washing-up liquid makes the dishes clean. | — |
+| 3 | The fridge is cold inside. | — |
+| 4 | The freezer is not as cold as the fridge. | — |
+| 5 | I turn on the tap to get water. | — |
+| 6 | A tea towel is for making plates wet. | — |
+
+#### 44.2
+
+Ask questions for these answers. Use words from the left-hand page.
+
+1. ______ It’s in the cupboard.
+2. ______ It’s on the cooker.
+3. ______ Please put it in the sink.
+4. ______ Thanks. You can wash those plates, and I’ll dry them.
+
+#### 44.3 · What do you need?
+
+1. To make coffee I need … *(viết tay: coffee, water, milk, a coffee maker, a cup, a spoon.)*
+2. To make tea I need …
+3. To fry an egg I need …
+4. To eat my food I need …
+5. To drink some water I need …
+6. To make my dinner in just two minutes I need …
+
+#### 44.4
+
+Look at the pictures. Answer the questions.
+
+1. What’s near the cooker?
+2. What’s on the cooker?
+3. What’s on the shelf?
+4. What’s in the cupboard?
+
+**Chữ chân trang:** English Vocabulary in Use (elementary) · trang 92 và 93.  
+**Nhãn khung ảnh ghép:** TRANG TRAI: KIEN THUC | KNOWLEDGE · TRANG PHAI: BAI TAP | EXERCISES.
+
 ![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-44-spread.webp)
 
 *Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*

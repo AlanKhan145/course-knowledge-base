@@ -1,167 +1,481 @@
 ﻿# Unit 47 — Jobs: Nghề nghiệp và công việc
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-47-spread.webp)
+## 1. Tổng quan và mục tiêu bài học
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+Khi giao tiếp bằng tiếng Anh, nghề nghiệp là một trong những chủ đề giới thiệu bản thân phổ biến nhất. Để nói về công việc, người học cần biết tên nghề, cách hỏi người khác làm nghề gì và cách diễn đạt nơi làm việc.
 
-> **Module 07:** Trường học và công việc  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 47; trang in 98–99 (PDF trang 101–102).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Ba câu hỏi quan trọng nhất là:
 
-## 1. Tóm tắt và mục tiêu
+| Câu hỏi            | Ý nghĩa                  |
+| ------------------ | ------------------------ |
+| What's your job?   | Công việc của bạn là gì? |
+| What do you do?    | Bạn làm nghề gì?         |
+| Where do you work? | Bạn làm việc ở đâu?      |
 
-Hỏi nghề nghiệp bằng What do you do? hoặc What's your job?; trả lời I'm a/an + danh từ nghề. Job là danh từ đếm được, work thường là động từ hoặc danh từ không đếm được.
+Sau bài học, bạn có thể:
 
-Sau bài này, bạn có thể:
+- Nhận diện và sử dụng tên các nghề nghiệp thông dụng.
+- Phân biệt job (danh từ) và work (động từ hoặc danh từ).
+- Hỏi và trả lời về nghề nghiệp, nơi làm việc.
+- Sử dụng đúng `a/an` trước danh từ nghề nghiệp.
+- Mô tả công việc bằng các câu tiếng Anh đơn giản.
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **nghề nghiệp và công việc**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+## 2. Từ vựng nghề nghiệp — Jobs
 
-## 2. Kiến thức và từ vựng cốt lõi
+### 2.1. Các nghề nghiệp phổ biến
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+[medical doctor clip art #5894253 | Clipart Library](https://images.openai.com/static-rsc-4/a57jUzcEkEA1qVpwnKqSQwqg-0ODyU8_8i0oWAajbumZ_qAS6MAkZzPpaK-8DOs8RcJ1S51eTETiQk_9h72Q6kXr-ny0GFxR4xKrGlWopR3Bc71f7KL2SbEDrxoJFXJHvdBjEDK2t6733j66ukFcL6q5Haj79L9_WCFhM3Vx8vA?purpose=inline)
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **doctor** | bác sĩ |
-| **teacher** | giáo viên |
-| **secretary** | thư ký |
-| **waiter** | nam phục vụ |
-| **waitress** | nữ phục vụ |
-| **hairdresser** | thợ làm tóc |
-| **shop assistant** | nhân viên bán hàng |
-| **factory worker** | công nhân nhà máy |
-| **engineer** | kỹ sư |
-| **nurse** | y tá |
-| **office** | văn phòng |
-| **salary** | lương |
-| **job** | nghề hoặc công việc |
-| **work** | làm việc |
+Doctor
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+Bác sĩ
 
-**Nhóm từ thứ nhất:** doctor (bác sĩ), teacher (giáo viên), secretary (thư ký).
+[Math Education Lesson Teach Woman Teacher Vector](https://images.openai.com/static-rsc-4/8KQiftBKSfEkylJ3Wjb2DUyIrWZUmvJL1o_vHEx6c1e2LGDQQKmUKrxGqGTiPEuswRHn3fe2uz2gUqZTN-0u0zw-kchgHan3VXurFzXPzrEBF05zjvddW4pQWSf1O_AWZJX-WNKN0Kf1-e3exmlPBuD8L0B6k3hJNjPtrCNag6tbJVkWR5tJI6IGLloNWi9A?purpose=inline)
 
-**Nhóm từ thứ hai:** hairdresser (thợ làm tóc), shop assistant (nhân viên bán hàng), factory worker (công nhân nhà máy).
+Teacher
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+Giáo viên
 
-### 2.2. Mẫu câu song ngữ
+[A nurse taking care of a sick woman](https://images.openai.com/static-rsc-4/z7DFi7eXe13N-ZA3SDrRMOsyNqkFibUMP2TMXEv5dDkifk3DYJUnBKr0-BAb2tsKvV1_A3h4urObr0gcq2gRBLHSTGuku8jeV_tkg0Pw1AE0h5WdG8eD5c6yvpXm6VIfnlK6Jy6jZKN4Epq8d4hojhjVSYKEsnfLhYC5jzVX3DodN5BazVfibpHIPI9BxUDG?purpose=inline)
 
-**Ví dụ 1.** What do you do? I'm an engineer.
+Nurse
 
-→ Bạn làm nghề gì? Tôi là kỹ sư.
+Y tá, điều dưỡng
 
-**Ví dụ 2.** She works in a hospital.
+[Cartoon mechanic fixing car engine | Free Photo Illustration - rawpixel](https://images.openai.com/static-rsc-4/VbHf2Z_Ntkmo0jUXIDOlvEunxnmxCwmrpTU31bI4Isd_WRQorYn3FhuUWGdS1QERoz0iqzvQKoUZUoKYuzzWuJFEJVg3s1vco8NFsgLgUuDHSFAGsXWRKCYfh6VX46tSB-z5m3u8OY6IloCo2p5h1kirx1SpLzDDzVbGII6eqLQ?purpose=inline)
 
-→ Cô ấy làm việc ở bệnh viện.
+Mechanic
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Thợ sửa máy
 
-## 3. Luyện tập ứng dụng
+[Professional Secretary in a Modern Office Setting | AI Art Generator | Easy-Peasy.AI](https://images.openai.com/static-rsc-4/C78WLqTJE6I96oPrGlXVc4XxRKmnyd0jSmWoO5b5EbM1CX-DQqAmG7hZbPvdLfb3p0c8-sao-7oBDMylRLRzkUITrwwRcjDD3bBeI0gBANlTuuCcf-S0UlvxGczrdqxdItbFZdVXw_BysVxSvLyZMTKbThe3QZByTo59KM0qAxc?purpose=inline)
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+Secretary
 
-1. Bác sĩ: __________
-2. Nam phục vụ: __________
-3. Công nhân nhà máy: __________
+Thư ký
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+[Japanese - Lesson 104 of 168: Shopping](https://images.openai.com/static-rsc-4/EAJ9iyTytOV1HxgHg4tNkGHY9_WURmtmLAYkoGMVCcKrn3TbYxzxgjgNFh3uyXHWLko9xTDEzsnmgZHTVzLQXvZCWyPF7bCkbvX3PFYHrKDu2xt1sQ5zRqP8KrjS1Jy3qXxGiMr8qNppsRjJW8EnMnefO1mujvhu2Or9ZhDMZ6o?purpose=inline)
 
-1. Bạn làm nghề gì? Tôi là kỹ sư.
-2. Cô ấy làm việc ở bệnh viện.
+Shop assistant
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+Nhân viên bán hàng
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+[die Friseurin (female hairdresser) — German Noun: Meaning, Plural, Examples](https://images.openai.com/static-rsc-4/kokQEYITaH-oYM1urF_XIKnwYcROBReX2O0Xrcf7OFWxWXCmw4FFUAQMr-e2ejyrYb3Y1UHLaYNz-rg5vtD1LMTNWUPGFPngtL9qDNc9wGt21hz8wT3iJ4kgoflSFFOYLyFLgfef86JVGOrzXNthvsW4rQuTaVRG8uYDuudo_TI?purpose=inline)
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Hairdresser
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Thợ làm tóc
 
-### Câu 1
+[Engineering Project Help & Writing Services - Top Grades Guaranteed](https://images.openai.com/static-rsc-4/-rKO1RtcM-6wmmxxS3IeWu4o8Dwffjn-J9ZzSijnLQexxlnIv8ODSGWbn0_QlpIZBDr8uO_jFUcdJPL3XG2Pv1A2pA4Cyvei5981djCw2IIpXPOYjLwdegoY4MX0XNNiAdjIvUt1wdTVua9zq1xuzKu1F7UWQAYbYSzuKkrsziA?purpose=inline)
 
-Bạn muốn diễn đạt **“giáo viên”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+Engineer
 
-A. teacher
+Kỹ sư
 
-B. salary
+[Colorful Flat Illustration of a Farmer in the Fields | AI Art Generator | Easy-Peasy.AI](https://images.openai.com/static-rsc-4/k5EBxdNW5XwEiQrFO7aoXC9E10YzmYYZ4mw-hSYcTitk2Xbpeh18yOrAAdyZDgrvVjSnELXWvf5ZACRN3tKQlRw0dlXdvIhPka-qlGdg_U0p7vceR57T9jD5YlwZs7EWfb-EVQBIzQ01wbpdxAidFiVrAxCxzPKbeA4qB-OSdOw?purpose=inline)
 
-C. factory worker
+Farmer
 
-D. job
+Nông dân
 
-**Đáp án:** A. **Giải thích:** “teacher” diễn đạt “giáo viên” trong chủ đề này.
+[Jasmine POS: Restaurant Point of Sale for GCC](https://images.openai.com/static-rsc-4/xLwlWyqxZBEhS29UBQH7gIkJjaXV1WwJwrgwKPLAlVuVjIccYHOKRG_FM4cHYDGNdrkQMoCaP_yojSVMMMcMVt85-VW3z5nHwDzhnUrHJQKZ4GYKyTo4GA5hbXOHnvAhw4h0u58KYsWP4e0y9d1e2tVONvNqy0e57kCuDRoaVd8?purpose=inline)
 
-### Câu 2
+Waiter
 
-Cụm từ **“hairdresser”** có nghĩa nào trong bài học?
+Nam phục vụ
 
-A. thợ làm tóc
+[taxi with driver service public icon](https://images.openai.com/static-rsc-4/M_jlAlD8jW1dddpgkxUeguikha4AHrHEqFH3NCQTwFyImGm1eMFStxNJJmg_qU5ArPEIZU1yoZ6R9OSL3okP_1TMNbh4Fyi_Frj1JACbiJgMWXi9FdBAma3ZnaJa3HOy8u9CaKLjoihYqsuMYD7qJOCs9hGzd1i15pyHTrmeEwskkiEaw3HtrK6rMrvspww2?purpose=inline)
 
-B. nhân viên bán hàng
+Taxi driver
 
-C. giáo viên
+Tài xế taxi
 
-D. nữ phục vụ
+[Factory worker Vectors - Download Free High-Quality Vectors | Magnific (formerly Freepik)](https://images.openai.com/static-rsc-4/suXVgND0tLU1YjrASP4OHEY54NFX6HCucN_R6H9N7oGEhxzuUzdRtu51vlKbDRcRt4Qz2JkC0djF3OwgIdP2B9Zk5CMDh1Fds0Eh3PQycdmcb1I0eiCKEzZDJfWHtuYyE2-S_IFgl5H3a_ZaqqYSposAoiGiLk9SYrBs560VYCU?purpose=inline)
 
-**Đáp án:** A. **Giải thích:** “hairdresser” được dùng với nghĩa “thợ làm tóc”.
+Factory worker
 
-### Câu 3
+Công nhân nhà máy
 
-Khi cần nói **“kỹ sư”**, chọn từ/cụm từ nào?
+Các nghề nghiệp trên thường được sử dụng sau động từ be khi giới thiệu một người.
 
-A. shop assistant
+Ví dụ:
 
-B. engineer
+- He is a doctor. → Anh ấy là bác sĩ.
+- My mother is a teacher. → Mẹ tôi là giáo viên.
+- She is a secretary. → Cô ấy là thư ký.
+- My brother is an engineer. → Anh trai tôi là kỹ sư.
+- They are farmers. → Họ là nông dân.
 
-C. nurse
+### 2.2. Một số từ bổ sung
 
-D. hairdresser
+| Từ vựng    | Nghĩa                    |
+| ---------- | ------------------------ |
+| waitress   | Nữ phục vụ               |
+| bus driver | Tài xế xe buýt           |
+| writer     | Nhà văn, người viết sách |
+| salary     | Tiền lương               |
+| job        | Công việc, nghề nghiệp   |
+| workplace  | Nơi làm việc             |
 
-**Đáp án:** B. **Giải thích:** Cách dùng đúng trong bài là “engineer”.
+Lưu ý: Waiter thường chỉ nam phục vụ, waitress chỉ nữ phục vụ. Trong giao tiếp hiện đại, có thể dùng server để chỉ nhân viên phục vụ mà không phân biệt giới tính.
 
-### Câu 4
+## 3. Phân biệt Job và Work
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Bạn làm nghề gì? Tôi là kỹ sư.”**
+Đây là hai từ liên quan đến công việc nhưng có chức năng ngữ pháp khác nhau.
 
-A. What do you do? I'm an engineer.
+### 3.1. Job — Danh từ đếm được
 
-B. We have an exam on Friday.
+Job /dʒɒb/ là danh từ chỉ một công việc hoặc vị trí nghề nghiệp.
 
-C. Don't forget to put a stamp on the envelope.
+Cấu trúc thông dụng:
 
-D. I'll send you an email.
+`a job` · `my job` · `your job` · `jobs`
 
-**Đáp án:** A. **Giải thích:** “What do you do? I'm an engineer.” là câu tương ứng với tình huống đã nêu.
+Ví dụ:
 
-### Câu 5
+- I have a job. → Tôi có một công việc.
+- My job is interesting. → Công việc của tôi thú vị.
+- She has two jobs. → Cô ấy có hai công việc.
 
-Ý nghĩa phù hợp nhất của câu **“She works in a hospital.”** là gì?
+Vì job là danh từ đếm được nên có thể sử dụng a/an khi nói về một công việc.
 
-A. Chúng tôi có kỳ thi vào thứ Sáu.
+### 3.2. Work — Động từ hoặc danh từ
 
-B. Đừng quên dán tem lên phong bì.
+Work /wɜːk/ có thể đóng hai vai trò.
 
-C. Tôi sẽ gửi email cho bạn.
+Vai trò 1: Động từ — làm việc
 
-D. Cô ấy làm việc ở bệnh viện.
+- I work in a restaurant. → Tôi làm việc ở một nhà hàng.
+- She works in a hospital. → Cô ấy làm việc tại bệnh viện.
+- My father works in an office. → Bố tôi làm việc ở văn phòng.
 
-**Đáp án:** D. **Giải thích:** “She works in a hospital.” có nghĩa là “Cô ấy làm việc ở bệnh viện.”.
+Vai trò 2: Danh từ — công việc nói chung
 
+- I have a lot of work. → Tôi có nhiều việc phải làm.
+- I finish work at five. → Tôi kết thúc công việc lúc 5 giờ.
 
-## 5. Tổng kết và kiểm tra hoàn thành
+Khi work là danh từ mang nghĩa công việc nói chung, nó thường không đếm được.
 
-Bài **She works in a hospital.** giúp bạn sử dụng vốn từ về **cô ấy làm việc ở bệnh viện.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+| Đặc điểm  | Job                            | Work                                        |
+| --------- | ------------------------------ | ------------------------------------------- |
+| Từ loại   | Danh từ                        | Động từ hoặc danh từ                        |
+| Ý nghĩa   | Một nghề hoặc vị trí công việc | Hành động làm việc hoặc công việc nói chung |
+| Đếm được? | Có                             | Thường không, khi là danh từ chỉ công việc  |
+| Ví dụ     | I have a good job.             | I work every day.                           |
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+## 4. Cách hỏi và trả lời về nghề nghiệp
 
----
+### 4.1. Hỏi người khác làm nghề gì
 
-[← Unit 46: Đồ dùng phòng khách](../06-at-home/46-in-the-living-room.md) · [Unit 48: Ở trường học và đại học →](48-at-school-and-university.md)
+Hai câu hỏi thường dùng:
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+What's your job?
+
+→ Công việc của bạn là gì?
+
+What do you do?
+
+→ Bạn làm nghề gì?
+
+Cả hai đều được dùng để hỏi về nghề nghiệp. What do you do? là cách hỏi rất tự nhiên trong hội thoại giới thiệu bản thân.
+
+Cách trả lời:
+
+I'm a/an + tên nghề nghiệp.
+
+Ví dụ:
+
+- I'm a waiter. → Tôi là nhân viên phục vụ.
+- I'm a teacher. → Tôi là giáo viên.
+- I'm an engineer. → Tôi là kỹ sư.
+
+### 4.2. Dùng a hay an trước nghề nghiệp?
+
+Dùng `a` trước âm phụ âm và `an` trước âm nguyên âm.
+
+| Đúng             | Sai             |
+| ---------------- | --------------- |
+| a doctor         | an doctor       |
+| a teacher        | an teacher      |
+| an engineer      | a engineer      |
+| an office worker | a office worker |
+| a nurse          | an nurse        |
+
+Lưu ý: Quy tắc `a/an` dựa vào âm đầu tiên khi phát âm, không chỉ dựa vào chữ cái đầu tiên.
+
+### 4.3. Hỏi người khác làm việc ở đâu
+
+Where do you work?
+
+→ Bạn làm việc ở đâu?
+
+Ví dụ:
+
+- I work in a restaurant. → Tôi làm việc trong một nhà hàng.
+- I work in a factory. → Tôi làm việc trong một nhà máy.
+- I work at a school. → Tôi làm việc tại một trường học.
+
+Với chủ ngữ he/she/it, động từ work ở thì hiện tại đơn thường thêm `-s`:
+
+- He works in a shop.
+- She works in a hospital.
+
+### 4.4. Hỏi cảm nhận về công việc
+
+Is it an interesting job?
+
+→ Đó có phải là công việc thú vị không?
+
+Các câu trả lời thường dùng:
+
+- Yes, I like it. → Có, tôi thích công việc đó.
+- Yes, it's very interesting. → Có, nó rất thú vị.
+- No, it's boring. → Không, nó nhàm chán.
+
+## 5. Nơi làm việc — Workplaces
+
+[Excel Engineering](https://images.openai.com/static-rsc-4/qAHDRwSQBCM3iuamvmM9Ph74HMELT5V-k-xJkgfMQBbBYD2ZMAzkCRi3HI2QFG-_nZf5H2dy0Ocuk2RNaSCJqGJAf9Bk5E2aWhIzIJt9pHNrbrIYzmNya2DjeC_CTsOqw1u4vcRMmD_Tw-rPjJUFDg4hJXqw5u0ONEDzgYpX8PA?purpose=inline)
+
+Office
+
+Văn phòng
+
+[Factory exterior Images - Free Download on Magnific (formerly Freepik)](https://images.openai.com/static-rsc-4/z-HG7qPx49oorp7Gy6qR8bOyUGaWKqZkLq9T1RYd0B6y1rCD_3IxDxjqUZ6uKyKe9uTVhAdOk0_4kqZOEjEEgfy3UNDN6_AwXKpVP4rr_J1GiIbym55SinIFrQk9wvyK2QdaljmmDPhGEBlaFmZzN6FyOxB7MMmfiRdH50fhPjM?purpose=inline)
+
+Factory
+
+Nhà máy
+
+[The Corner Shop - Highams Park Portal](https://images.openai.com/static-rsc-4/kwXUcU_ynUk9VOQW1NFaxQrZVFW4CTvpOHBfoP5_MeoD-bBJRZ41--i4wPNzjb64pV9V68X_Os5PushrYDvU8AzJWNURFWGPB9Xn-A--jCv4sJPYx8p3NZIQzdBmuL4KsS2qkKLH-RL2jewr_Ut23W_YFSEpgXLKwu64qb_EKcw?purpose=inline)
+
+Shop
+
+Cửa hàng
+
+[BEEBE HOSPITAL, Lewes, DE - RSI Panels](https://images.openai.com/static-rsc-4/41d9Rzg4Nhb7ddKRJlHeDQD3VHB_qVMnwclv6FTCasJp4IFvXCAZaIClnxvtrJp3dB2lK-Ak2KEmBl5QEGsUpWAmNZ-zoiHCe13d0a5MbpZPqCUezIDCJ13zddrK9iDguKd09alMVCNa-sFkeGVZ-LqXD47JW9sXFP9k0GHVKxY?purpose=inline)
+
+Hospital
+
+Bệnh viện
+
+[Mirpur Cantonment Public School and College](https://images.openai.com/static-rsc-4/6aukNC7Eiu-u925ywHxZLTdoSmdi1o1ZVNXNjHJdx77Lec2S75j0T0FzfpQki2VGpVRNoSUJqElQFt6ADPbnTdvA794RGMDD09oFXIchvvBI6UWpVf76cN3Z_BsIpgNQKI-HpPazc8yELcH7eZIa8w9F8qkdNZmSPxL27F7HBa8?purpose=inline)
+
+School / College
+
+Trường học / Cao đẳng
+
+[Restaurant Tables Buying Guide: Shapes, Materials, and Layout Tips – RestaurantSupply.com](https://images.openai.com/static-rsc-4/KkGbQUjTtXxpuQ8kPGYQSPGhk-MzSlR6M6Wy8UjULaRRIueHfZjKqWi_ryA6SfSLUwgSBmo_cpZtozS_mbIBW3kHQFY59amlHr-t52ngPk8AT2ajUNP8UnQYBUJ7HphqN2XUcYdHvw2KGbfZZKzA42xUmNmaetzI2zXCo_9FvtM?purpose=inline)
+
+Restaurant
+
+Nhà hàng
+
+### 5.1. Nghề nghiệp và nơi làm việc tương ứng
+
+| Nghề nghiệp    | Nơi làm việc thường gặp       | Ví dụ                                |
+| -------------- | ----------------------------- | ------------------------------------ |
+| Teacher        | school / college / university | A teacher works in a school.         |
+| Doctor         | hospital                      | A doctor works in a hospital.        |
+| Nurse          | hospital                      | A nurse works with a doctor.         |
+| Waiter         | restaurant                    | A waiter works in a restaurant.      |
+| Secretary      | office                        | A secretary works in an office.      |
+| Shop assistant | shop                          | A shop assistant works in a shop.    |
+| Factory worker | factory                       | A factory worker works in a factory. |
+
+Đây là những cách kết hợp phổ biến để học từ vựng, không có nghĩa mỗi nghề chỉ làm việc tại một địa điểm duy nhất.
+
+### 5.2. Giới từ chỉ nơi làm việc
+
+Work in + địa điểm
+
+Thường dùng khi nói làm việc bên trong một nơi hoặc môi trường làm việc.
+
+- I work in an office.
+- He works in a factory.
+
+Work at + địa điểm hoặc tổ chức
+
+Thường dùng khi xem địa điểm là một nơi làm việc cụ thể.
+
+- She works at a hospital.
+- He works at a school.
+
+Work from home
+
+Diễn tả làm việc từ nhà, đặc biệt là làm việc từ xa thay vì tới cơ quan.
+
+\- I work from home. → Tôi làm việc từ nhà.
+
+Work at home
+
+Nhấn mạnh hoạt động làm việc diễn ra ở nhà.
+
+\- She works at home. → Cô ấy làm việc ở nhà.
+
+## 6. Hội thoại ứng dụng
+
+### Hội thoại 1 — Giới thiệu công việc
+
+A: What's your job? B: I'm a waiter. A: Where do you work? B: I work in a restaurant. A: Is it an interesting job? B: Yes, I like it.
+
+Dịch nghĩa:
+
+A: Bạn làm nghề gì? B: Tôi là nhân viên phục vụ. A: Bạn làm việc ở đâu? B: Tôi làm việc trong một nhà hàng. A: Công việc đó có thú vị không? B: Có, tôi thích công việc đó.
+
+### Hội thoại 2 — Nói về nghề của người thân
+
+A: What does your sister do? B: She's a nurse. A: Where does she work? B: She works in a hospital.
+
+Dịch nghĩa:
+
+A: Chị gái bạn làm nghề gì? B: Chị ấy là y tá. A: Chị ấy làm việc ở đâu? B: Chị ấy làm việc ở bệnh viện.
+
+### 6.1. Công thức cần ghi nhớ
+
+| Chủ ngữ             | Câu hỏi về nơi làm việc | Câu trả lời              |
+| ------------------- | ----------------------- | ------------------------ |
+| I / you / we / they | Where do you work?      | I work in a shop.        |
+| He / she            | Where does she work?    | She works in a hospital. |
+
+Khi câu hỏi sử dụng does, động từ chính giữ nguyên dạng `work`, không thêm `-s`.
+
+## 7. Những lỗi thường gặp
+
+| Sai                     | Đúng                     | Giải thích                                                                   |
+| ----------------------- | ------------------------ | ---------------------------------------------------------------------------- |
+| I am engineer.          | I'm an engineer.         | Cần `an` trước engineer.                                                     |
+| She work in a hospital. | She works in a hospital. | Chủ ngữ she cần động từ works.                                               |
+| Where do you job?       | Where do you work?       | Work là động từ; job là danh từ.                                             |
+| I have a work.          | I have a job.            | Job là danh từ đếm được; work chỉ công việc nói chung thường không đếm được. |
+| Where does she works?   | Where does she work?     | Sau does dùng động từ nguyên mẫu.                                            |
+
+## 8. Luyện tập thực hành
+
+### Bài A — Nghề nghiệp và nơi làm việc
+
+Hoàn thành các câu bằng một địa điểm phù hợp.
+
+1. A teacher works in a \_\_\_\_\_\_\_\_\_\_.
+2. A doctor works in a \_\_\_\_\_\_\_\_\_\_.
+3. A waiter works in a \_\_\_\_\_\_\_\_\_\_.
+4. A secretary works in an \_\_\_\_\_\_\_\_\_\_.
+5. A shop assistant works in a \_\_\_\_\_\_\_\_\_\_.
+6. A hairdresser works in a \_\_\_\_\_\_\_\_\_\_.
+
+### Bài B — Nhận diện nghề nghiệp
+
+Ghép mô tả sau với nghề phù hợp.
+
+| Mô tả               | Nghề nghiệp    |
+| ------------------- | -------------- |
+| 1. Repairs cars     | A. Farmer      |
+| 2. Drives a taxi    | B. Nurse       |
+| 3. Grows crops      | C. Mechanic    |
+| 4. Helps patients   | D. Taxi driver |
+| 5. Designs machines | E. Engineer    |
+
+### Bài C — Trả lời về bản thân
+
+Viết câu trả lời cho ba câu hỏi:
+
+1. What do you do?
+2. Where do you work or study?
+3. Is it interesting?
+
+Nếu là học sinh hoặc sinh viên, có thể sử dụng mẫu:
+
+- I'm a student.
+- I study at a university.
+- Yes, it's interesting.
+
+### Bài D — Điền nghề nghiệp
+
+Hoàn thành từ còn thiếu dựa trên mô tả:
+
+1. Someone who drives a bus → b \_ s  d \_ i \_ e \_
+2. Someone who teaches in a school → t \_ a \_ h \_ r
+3. Someone who writes books → w \_ i \_ e \_
+4. Someone who looks after sick people → n \_ r \_ e
+5. Someone who repairs cars → m \_ c \_ a \_ i \_
+
+## 9. Câu hỏi ôn tập trắc nghiệm
+
+Bài kiểm tra — 5 câu
+
+0/5 đã trả lời
+
+Câu 1. Một người nói “I'm an engineer.” Người đó làm nghề gì?
+
+A. Bác sĩ
+
+B. Kỹ sư
+
+C. Giáo viên
+
+D. Thợ sửa xe
+
+Câu 2. Chọn câu đúng để hỏi người khác làm nghề gì.
+
+A. What do you job?
+
+B. Where your job?
+
+C. What do you do?
+
+D. What are you work?
+
+Câu 3. Chọn câu đúng với nghĩa “Cô ấy làm việc trong bệnh viện”.
+
+A. She works in a hospital.
+
+B. She work in a hospital.
+
+C. She working hospital.
+
+D. She does works in hospital.
+
+Câu 4. Câu nào dùng đúng danh từ job và động từ work?
+
+A. I am a work.
+
+B. She job in an office.
+
+C. I have a work.
+
+D. I have a job and I work in a shop.
+
+Câu 5. “I work from home” nghĩa là gì?
+
+A. Tôi đi từ nhà đến nơi làm việc.
+
+B. Tôi làm việc từ nhà.
+
+C. Tôi xây một ngôi nhà.
+
+D. Tôi làm việc trong nhà máy.
+
+Chấm điểmLàm lại
+
+## 10. Tổng kết bài học
+
+Cốt lõi của Unit 47 là kết hợp đúng ba thành phần: nghề nghiệp — hành động làm việc — nơi làm việc.
+
+| Chức năng            | Mẫu câu                   |
+| -------------------- | ------------------------- |
+| Hỏi nghề nghiệp      | What do you do?           |
+| Trả lời nghề nghiệp  | I'm a teacher.            |
+| Hỏi nơi làm việc     | Where do you work?        |
+| Trả lời nơi làm việc | I work in a school.       |
+| Hỏi cảm nhận         | Is it an interesting job? |
+| Trả lời cảm nhận     | Yes, I like it.           |
+
+Checklist tự học
+
+- Ghi nhớ ít nhất 10 tên nghề nghiệp bằng tiếng Anh.
+- Phân biệt được job và work.
+- Sử dụng đúng a/an trước danh từ nghề nghiệp.
+- Hỏi và trả lời được về nghề nghiệp và nơi làm việc.
+- Hoàn thành các bài luyện tập.
+- Đạt ít nhất 4/5 câu trắc nghiệm ôn tập.
+
+Điểm quan trọng nhất: Không chỉ ghi nhớ từng từ đơn lẻ như doctor, teacher hay engineer. Hãy luyện nói thành câu hoàn chỉnh, chẳng hạn: I'm an engineer. I work in an office. I like my job.

@@ -1,165 +1,328 @@
-﻿# Unit 23 — Common adjectives: people: Tính từ miêu tả tính cách
+﻿# Unit 23 — Common Adjectives: People
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-23-spread.webp)
+Tính từ thông dụng miêu tả con người
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+> Module 03: Từ vựng và ngữ pháp Giáo trình: English Vocabulary in Use — Elementary, trang 50–51 Trình độ: A1–A2 Nội dung: Miêu tả tính cách, nhận xét tích cực và tiêu cực, hành vi trẻ nhỏ, giới từ `to` và `of`.
 
-> **Module 03:** Từ vựng và ngữ pháp  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 23; trang in 50–51 (PDF trang 53–54).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+## 1. Tóm tắt và mục tiêu học tập
 
-## 1. Tóm tắt và mục tiêu
+Khi nhận xét một người bằng tiếng Anh, chúng ta cần chọn tính từ phù hợp với đặc điểm và mức độ đánh giá.
 
-Khi miêu tả người, nên chọn tính từ phù hợp mức độ đánh giá: nice và kind khá trung tính, wonderful tích cực mạnh, còn horrible rất tiêu cực. Phân biệt đánh giá tính cách với đánh giá ngoại hình.
+Chẳng hạn, nice dùng để khen một người tốt hoặc dễ mến, còn wonderful thể hiện lời khen mạnh hơn. Tương tự, not very nice là lời chê tương đối nhẹ, trong khi horrible mang ý nghĩa rất tiêu cực.
 
-Sau bài này, bạn có thể:
+Sau bài học, bạn có thể:
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **tính từ miêu tả tính cách**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+- Phân biệt các tính từ tích cực và tiêu cực.
+- Sử dụng `nice`, `kind`, `lovely`, `wonderful`, `easy-going` và `intelligent`.
+- Miêu tả người khó tính, ích kỷ hoặc có hành vi không tốt.
+- Dùng `well-behaved` và `naughty` để nhận xét trẻ nhỏ.
+- Phân biệt cấu trúc kind to someone và kind of someone to do something.
 
-## 2. Kiến thức và từ vựng cốt lõi
+## 2. Tính từ tích cực — Positive adjectives
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+### 2.1. Nice và wonderful
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **nice** | tốt bụng |
-| **kind** | tử tế |
-| **friendly** | thân thiện |
-| **pleasant** | dễ mến |
-| **wonderful** | tuyệt vời |
-| **lovely** | đáng mến |
-| **unfriendly** | không thân thiện |
-| **unkind** | không tử tế |
-| **horrible** | khó ưa |
-| **unpleasant** | khó chịu |
-| **clever** | thông minh |
-| **stupid** | ngốc nghếch |
+Nice /naɪs/ là một trong những tính từ phổ biến nhất để miêu tả người mà chúng ta quý mến.
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+Ví dụ:
 
-**Nhóm từ thứ nhất:** nice (tốt bụng), kind (tử tế), friendly (thân thiện).
+- Mary's very nice. — Mary rất dễ mến.
+- Richard's a nice man. — Richard là một người đàn ông tốt.
 
-**Nhóm từ thứ hai:** lovely (đáng mến), unfriendly (không thân thiện), unkind (không tử tế).
+Khi muốn khen mạnh hơn, chúng ta sử dụng wonderful /ˈwʌndəfəl/, có nghĩa là tuyệt vời.
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+- Ron's a wonderful teacher. — Ron là một giáo viên tuyệt vời.
+- All the students love him. — Tất cả học sinh đều yêu quý thầy ấy.
 
-### 2.2. Mẫu câu song ngữ
+Mức độ khen ngợi
 
-**Ví dụ 1.** My neighbours are very friendly.
+Nice
 
-→ Hàng xóm của tôi rất thân thiện.
+Tốt, dễ mến
 
-**Ví dụ 2.** She is a kind teacher.
+Wonderful
 
-→ Cô ấy là một giáo viên tử tế.
+Tuyệt vời
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+Wonderful thể hiện mức độ khen ngợi mạnh hơn nice.
 
-## 3. Luyện tập ứng dụng
+### 2.2. Kind — Tử tế, tốt bụng
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+Kind /kaɪnd/ nhấn mạnh cách một người đối xử tốt với người khác.
 
-1. Tốt bụng: __________
-2. Dễ mến: __________
-3. Không tử tế: __________
+Ví dụ:
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+- She's very kind. — Cô ấy rất tốt bụng.
+- She helps me with the children. — Cô ấy giúp tôi chăm sóc bọn trẻ.
 
-1. Hàng xóm của tôi rất thân thiện.
-2. Cô ấy là một giáo viên tử tế.
+Phân biệt:
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+| Từ        | Ý nghĩa chính              |
+| --------- | -------------------------- |
+| nice      | Tốt, dễ mến nói chung      |
+| kind      | Tử tế, quan tâm và giúp đỡ |
+| wonderful | Tuyệt vời, rất đáng khen   |
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+### 2.3. Các tính từ tích cực khác
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+| Tính từ     | Nghĩa tiếng Việt     | Ví dụ                  |
+| ----------- | -------------------- | ---------------------- |
+| lovely      | Đáng mến, dễ thương  | A lovely man           |
+| easy-going  | Dễ tính, thoải mái   | An easy-going friend   |
+| happy       | Vui vẻ, hạnh phúc    | A happy person         |
+| intelligent | Thông minh           | An intelligent student |
+| clever      | Thông minh, lanh lợi | A clever child         |
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+Ví dụ trong ngữ cảnh:
 
-### Câu 1
+My friend Neil is very easy-going.
 
-Bạn muốn diễn đạt **“tử tế”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+→ Bạn Neil của tôi rất dễ tính và dễ gần.
 
-A. lovely
+Maureen's a happy person.
 
-B. pleasant
+→ Maureen là một người vui vẻ.
 
-C. friendly
+All my friends are more intelligent than me.
 
-D. kind
+→ Tất cả bạn bè tôi đều thông minh hơn tôi.
 
-**Đáp án:** D. **Giải thích:** “kind” diễn đạt “tử tế” trong chủ đề này.
+## 3. Tính từ tiêu cực — Negative adjectives
 
-### Câu 2
+Khi nói về những đặc điểm không tốt của một người, chúng ta có thể lựa chọn mức độ nhẹ hoặc mạnh.
 
-Cụm từ **“lovely”** có nghĩa nào trong bài học?
+### 3.1. Not very nice và horrible
 
-A. đáng mến
+- Not very nice: không được dễ mến lắm.
+- Horrible: rất khó ưa, kinh khủng.
 
-B. không tử tế
+Mức độ nhận xét tiêu cực
 
-C. tuyệt vời
+Not very nice
 
-D. dễ mến
+Nhẹ hơn
 
-**Đáp án:** A. **Giải thích:** “lovely” được dùng với nghĩa “đáng mến”.
+Horrible
 
-### Câu 3
+Rất mạnh
 
-Khi cần nói **“khó ưa”**, chọn từ/cụm từ nào?
+Margaret is a horrible woman; nobody likes her.
 
-A. horrible
+→ Margaret là một người phụ nữ rất khó ưa; chẳng ai thích cô ấy.
 
-B. unkind
+### 3.2. Difficult, stupid và selfish
 
-C. nice
+| Tính từ   | Nghĩa                 | Giải thích                                      |
+| --------- | --------------------- | ----------------------------------------------- |
+| difficult | Khó tính, khó hòa hợp | Khó làm việc hoặc giao tiếp cùng                |
+| stupid    | Ngốc nghếch, ngu ngốc | Nhận xét rất tiêu cực về trí tuệ hoặc hành động |
+| selfish   | Ích kỷ                | Chỉ nghĩ đến bản thân                           |
 
-D. clever
+My uncle is a difficult person.
 
-**Đáp án:** A. **Giải thích:** Cách dùng đúng trong bài là “horrible”.
+→ Chú tôi là một người khó tính.
 
-### Câu 4
+I don't like selfish people.
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Hàng xóm của tôi rất thân thiện.”**
+→ Tôi không thích những người ích kỷ.
 
-A. She was tired but she kept working.
+That waiter is stupid. I asked for coffee and he has given me tea!
 
-B. We have English on Monday.
+→ Người phục vụ đó thật ngốc. Tôi gọi cà phê mà anh ta lại mang trà!
 
-C. My neighbours are very friendly.
+Lưu ý: stupid và horrible là những từ chê mạnh, có thể gây xúc phạm nếu dùng trực tiếp với người khác.
 
-D. This restaurant is better than that one.
+## 4. Little Children — Miêu tả trẻ nhỏ
 
-**Đáp án:** C. **Giải thích:** “My neighbours are very friendly.” là câu tương ứng với tình huống đã nêu.
+Khi nhận xét hành vi của trẻ nhỏ, chúng ta thường dùng hai nhóm từ.
 
-### Câu 5
+| Tích cực                           | Tiêu cực                          |
+| ---------------------------------- | --------------------------------- |
+| good — ngoan                       | naughty — nghịch, không ngoan     |
+| well-behaved — biết cư xử, lễ phép | not well-behaved — cư xử chưa tốt |
 
-Ý nghĩa phù hợp nhất của câu **“She is a kind teacher.”** là gì?
+Ví dụ:
 
-A. Cô ấy là một giáo viên tử tế.
+Tim is very good / well-behaved, but his little sister is very naughty.
 
-B. Rạp phim nằm bên trái.
+→ Tim rất ngoan, nhưng em gái của cậu ấy lại rất nghịch.
 
-C. Nhà hàng này tốt hơn nhà hàng kia.
+Cần phân biệt `naughty` với `horrible`: một đứa trẻ nghịch ngợm không có nghĩa là đứa trẻ đó có tính cách xấu.
 
-D. Thời tiết hôm qua thật tệ.
+## 5. Prepositions — Giới từ đi với tính từ
 
-**Đáp án:** A. **Giải thích:** “She is a kind teacher.” có nghĩa là “Cô ấy là một giáo viên tử tế.”.
+Đây là điểm ngữ pháp quan trọng nhất của bài.
 
+### 5.1. Adjective + to + someone
 
-## 5. Tổng kết và kiểm tra hoàn thành
+Cấu trúc:
 
-Bài **She is a kind teacher.** giúp bạn sử dụng vốn từ về **cô ấy là một giáo viên tử tế.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+`S + be + adjective + to + someone`
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+Dùng khi muốn diễn tả cách một người đối xử với người khác.
 
----
+| Ví dụ                        | Nghĩa                              |
+| ---------------------------- | ---------------------------------- |
+| She is kind to me.           | Cô ấy tử tế với tôi.               |
+| Jean was nice to me.         | Jean đã đối xử tốt với tôi.        |
+| You were horrible to me.     | Bạn đã đối xử rất tệ với tôi.      |
+| Barbara was wonderful to me. | Barbara đã đối xử rất tốt với tôi. |
 
-[← Unit 22: Tính từ đánh giá sự vật](22-common-adjectives-good-and-bad-things.md) · [Unit 24: Từ thường đi với giới từ →](24-words-and-prepositions.md)
+### 5.2. Adjective + of + someone + to + verb
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+Cấu trúc:
+
+`It + be + adjective + of + someone + to + V`
+
+Dùng khi nhận xét một hành động của ai đó.
+
+Ví dụ:
+
+It was nice of you to remember my birthday.
+
+→ Bạn thật tốt khi nhớ sinh nhật tôi.
+
+It was kind of you to help me.
+
+→ Bạn thật tử tế khi giúp tôi.
+
+So sánh hai mẫu câu:
+
+| Cấu trúc                       | Trọng tâm                 |
+| ------------------------------ | ------------------------- |
+| You were kind to me.           | Cách bạn đối xử với tôi   |
+| It was kind of you to help me. | Hành động giúp đỡ của bạn |
+
+Mẹo ghi nhớ: `to` thường chỉ người được đối xử; `of` thường chỉ người thực hiện hành động được nhận xét.
+
+## 6. Sơ đồ hệ thống hóa kiến thức
+
+Common Adjectives: People
+
+Tính từ miêu tả con người
+
+Tích cực (+)
+
+nice, wonderful, kind, lovely, easy-going, happy, intelligent
+
+Tiêu cực (−)
+
+horrible, difficult, stupid, selfish
+
+Hành vi trẻ nhỏ
+
+Ngoan: good, well-behaved
+
+Nghịch: naughty
+
+## 7. Luyện tập theo sách
+
+### Exercise 23.1 — Complete the sentences
+
+Điền từ hoặc cụm từ phù hợp vào chỗ trống.
+
+1. She's more than nice, she's \_\_\_\_\_\_\_\_!
+2. He was really \_\_\_\_\_\_\_\_!
+3. Thanks, that's \_\_\_\_\_\_\_\_!
+4. No, he's \_\_\_\_\_\_\_\_.
+
+### Exercise 23.2 — Word puzzle
+
+Hoàn thành ô chữ ở trang bài tập bằng những tính từ vừa học. Từ selfish đã được cho làm gợi ý.
+
+### Exercise 23.3 — Describe yourself
+
+Chọn những tính từ phù hợp với bản thân:
+
+`easy-going` · `sometimes difficult` · `kind to animals` · `happy` · `intelligent` · `selfish` · `nice to my friends`.
+
+Viết ít nhất ba câu bắt đầu bằng I am ...
+
+### Exercise 23.4 — Fill in the prepositions
+
+Điền `to` hoặc `of`.
+
+1. The teacher is never horrible \_\_\_\_\_\_ the students.
+2. It is kind \_\_\_\_\_\_ you to help me.
+3. Barbara was wonderful \_\_\_\_\_\_ me when I needed a friend.
+4. It was nice \_\_\_\_\_\_ her to ring me.
+
+## 8. Câu hỏi ôn tập trắc nghiệm
+
+Kiểm tra kiến thức Unit 23
+
+0/5 đã trả lời
+
+1\. Từ nào thể hiện lời khen mạnh hơn “nice”?
+
+A. Difficult
+
+B. Wonderful
+
+C. Selfish
+
+D. Naughty
+
+2\. Một người chỉ nghĩ đến bản thân mình được miêu tả bằng từ nào?
+
+A. Intelligent
+
+B. Happy
+
+C. Kind
+
+D. Selfish
+
+3\. Chọn câu đúng: “Cô ấy rất tử tế với tôi.”
+
+A. She was kind to me.
+
+B. She was kind of me.
+
+C. She was kind for me.
+
+D. She was kind at me.
+
+4\. Chọn câu đúng: “Bạn thật tốt khi giúp tôi.”
+
+A. It was kind to you help me.
+
+B. It was kind for you to help me.
+
+C. It was kind of you to help me.
+
+D. It was kind of you help me.
+
+5\. Một đứa trẻ ngoan, biết cư xử được gọi là gì?
+
+A. Horrible
+
+B. Well-behaved
+
+C. Selfish
+
+D. Difficult
+
+Chấm điểm và xem giải thích
+
+## 9. Tổng kết bài học
+
+Sau khi hoàn thành Unit 23, người học cần nắm được ba nguyên tắc:
+
+1. Chọn đúng mức độ: `nice` thông thường, `wonderful` tích cực mạnh, `horrible` tiêu cực mạnh.
+2. Chọn đúng đặc điểm: `kind` miêu tả sự tử tế, `intelligent` miêu tả trí thông minh, `selfish` miêu tả sự ích kỷ.
+3. Chọn đúng giới từ: `kind to someone` nhưng `It was kind of someone to do something`.
+
+### Checklist hoàn thành
+
+Giải thích được ít nhất 10 tính từ miêu tả con người.
+
+Phân biệt nice, kind và wonderful.
+
+Sử dụng đúng well-behaved và naughty.
+
+Đặt được câu với giới từ to và of.
+
+Hoàn thành bài tập 23.1–23.4 và phần trắc nghiệm.
+
+0/5 hoàn thành

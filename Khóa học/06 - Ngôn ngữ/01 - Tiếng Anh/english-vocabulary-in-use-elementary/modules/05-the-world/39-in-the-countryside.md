@@ -1,167 +1,238 @@
-﻿# Unit 39 — In the countryside: Vùng nông thôn
+﻿# Unit 40 — Animals and Pets: Động vật và thú cưng
 
-![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-39-spread.webp)
+## 1. Tổng quan và mục tiêu
 
-*Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
+Động vật có thể được chia thành ba nhóm để học từ vựng: động vật trang trại, động vật hoang dã và thú cưng.
 
-> **Module 05:** Thế giới xung quanh  
-> **Phạm vi:** English Vocabulary in Use — Elementary, Unit 39; trang in 82–83 (PDF trang 85–86).  
-> **Hình thức:** Tự học từ vựng A1–A2 · Giảng giải tiếng Việt · Luyện câu và bài tập.
+Sau bài học, bạn có thể gọi tên 17 con vật, nhận diện con non, phân biệt tên con vật và tên thịt, mô tả đặc điểm, đồng thời sử dụng các mẫu câu tiếng Anh đơn giản về động vật.
 
-## 1. Tóm tắt và mục tiêu
+## 2. Phân loại các nhóm động vật
 
-Countryside là vùng ngoài đô thị, còn country còn có nghĩa quốc gia. Miêu tả phong cảnh bằng there is/there are, giới từ vị trí và động từ can see.
+Animals — Động vật
 
-Sau bài này, bạn có thể:
+Farm animals
 
-- Giải thích nghĩa và cách sử dụng những từ, cụm từ cốt lõi của chủ đề **vùng nông thôn**.
-- Chọn đúng cách diễn đạt trong câu tiếng Anh đơn giản thay vì dịch máy móc từng từ.
-- Tự đặt ít nhất ba câu thực tế và hoàn thành phần Exercises ở trang sách bên phải.
+5 con vật
 
-## 2. Kiến thức và từ vựng cốt lõi
+Ngựa, bò, cừu, lợn, gà mái
 
-Đọc kỹ từng mục. Với từ nhiều nghĩa, nghĩa ghi trong bảng được giới hạn ở cách dùng cần cho bài học này.
+Wild animals
 
-| Từ/cụm từ tiếng Anh | Nghĩa tiếng Việt |
-| --- | --- |
-| **countryside** | nông thôn |
-| **village** | làng |
-| **farm** | nông trại |
-| **field** | cánh đồng |
-| **hill** | đồi |
-| **mountain** | núi |
-| **river** | sông |
-| **lake** | hồ |
-| **forest** | rừng |
-| **wood** | khu rừng nhỏ |
-| **grass** | cỏ |
-| **tree** | cây |
-| **path** | đường mòn |
-| **bridge** | cầu |
+6 con vật
 
-### 2.1. Ghi nhớ theo nhóm và ngữ cảnh
+Voi, khỉ, hổ, rắn, sư tử, hươu cao cổ
 
-**Nhóm từ thứ nhất:** countryside (nông thôn), village (làng), farm (nông trại).
+Pets
 
-**Nhóm từ thứ hai:** mountain (núi), river (sông), lake (hồ).
+6 con vật
 
-Hãy ghép từ với tình huống sử dụng thực tế. Khi gặp cụm từ có nhiều thành phần, ưu tiên ghi cả cụm kèm một câu ví dụ trong sổ từ vựng.
+Cá, mèo, chó, vẹt, yến phụng, rùa cạn
 
-### 2.2. Mẫu câu song ngữ
+## 3. Farm animals — Động vật trang trại
 
-**Ví dụ 1.** There is a river near the village.
+| Con vật      | Con non          | Sản phẩm            |
+| ------------ | ---------------- | ------------------- |
+| horse — ngựa | foal — ngựa con  | —                   |
+| cow — bò cái | calf — bê con    | milk, leather, beef |
+| sheep — cừu  | lamb — cừu con   | wool, lamb          |
+| pig — lợn    | piglet — lợn con | pork, bacon, ham    |
+| hen — gà mái | chick — gà con   | eggs, chicken       |
 
-→ Có con sông gần ngôi làng.
+### 3.1. Những tên thịt cần phân biệt
 
-**Ví dụ 2.** The cows are in the field.
+| Con vật       | Tên thịt            |
+| ------------- | ------------------- |
+| cow           | beef — thịt bò      |
+| sheep         | lamb — thịt cừu non |
+| pig           | pork — thịt lợn     |
+| hen / chicken | chicken — thịt gà   |
 
-→ Đàn bò ở ngoài đồng.
+Lưu ý: Lamb vừa có nghĩa cừu con, vừa chỉ thịt cừu non. Chicken có thể chỉ con gà nói chung hoặc thịt gà, tùy ngữ cảnh.
 
-Đọc từng câu thành tiếng, che phần dịch tiếng Việt và thử nói lại ý bằng lời của mình. Sau đó thay một chi tiết trong câu để tạo ví dụ mới.
+### 3.2. Mẫu câu
 
-## 3. Luyện tập ứng dụng
+- A cow gives us milk. — Bò cho chúng ta sữa.
+- Sheep give us wool. — Cừu cung cấp len.
+- Hens lay eggs. — Gà mái đẻ trứng.
+- A foal is a baby horse. — Ngựa con là con non của ngựa.
 
-**Bài A — Nhớ từ trong ngữ cảnh.** Không nhìn bảng, hãy viết tiếng Anh tương ứng với các ý sau:
+## 4. Wild or zoo animals — Động vật hoang dã
 
-1. Nông thôn: __________
-2. Cánh đồng: __________
-3. Hồ: __________
+[Toss The Tusk | San Diego Zoo Wildlife Alliance](https://images.openai.com/static-rsc-4/4fGKSeZ5zxFUqsqZT39cAvpCQ1FhOksi_WLWdiv-Y1wl90vr8B8QKyT95vM4ag7awE_7u0DR3BFVjSlziSYWotH6F4-CFbaXyylIwZ9bOSz2y9bINwmDKcbas9plDX-i51r9aDSb8ptAVKkXgL5GJBpUPDnPyadMop6E7Xn3WCU?purpose=inline)
 
-**Bài B — Dịch và biến đổi câu.** Dịch hai câu dưới đây sang tiếng Anh trước khi nhìn mẫu câu ở trên:
+Elephant
 
-1. Có con sông gần ngôi làng.
-2. Đàn bò ở ngoài đồng.
+Con voi
 
-**Bài C — Viết cho bản thân.** Viết ba câu mới về cuộc sống của bạn, mỗi câu sử dụng một từ/cụm từ khác nhau trong bảng. Đọc lại để kiểm tra giới từ, cách chia động từ và trật tự từ.
+[Monkey sitting on the tree](https://images.openai.com/static-rsc-4/1Z-qbzIOX1Fx0iK9sScy9QmK6yeEVfUeSXopjWOZtZfmaN83hddtiuFNo8JI-UfjpgFLEQn8z3gpUoYBmenQZ2tL-HYi6o4tQLt2x3mchZ1WopiJOJHcIPhGp6HvuqFQv9EuSFdM0m89wMozOHrs0PCsn-kXlK0XV1oLfI6kBRIr9Jp_FAXdacspziw46WLH?purpose=inline)
 
-**Bài D — Thực hành theo sách.** Quan sát phần **Exercises (trang phải)** trong ảnh ghép: giải bài tập trên giấy hoặc một file riêng, sau đó so sánh với các ví dụ ở trang trái. Những bài yêu cầu thông tin cá nhân không nhất thiết có một đáp án cố định.
+Monkey
 
-## 4. Câu hỏi ôn tập trắc nghiệm
+Con khỉ
 
-*Mỗi câu có một đáp án phù hợp nhất. Hãy tự trả lời trước khi đọc phần giải thích.*
+[Experience The Majestic Bengal Tigers Of India](https://images.openai.com/static-rsc-4/vWzOVca_PvOfWort4f14W-xd6nLHG6OUfdTDAyZSHMLZ_nM7ksQ2wSqKX_jdWkFBZQn3eTTM-dpXzR_IgdrwqcaVY5bNKrLw4-0Foe8cbvo6TXxgIDsglkyYh736UuUZ6p9XRek-_pUh8Z2FjsHoADQNDI0PY8XmBBCJK8FC9aM?purpose=inline)
 
-### Câu 1
+Tiger
 
-Bạn muốn diễn đạt **“làng”** bằng tiếng Anh. Chọn cách nói phù hợp nhất.
+Con hổ
 
-A. hill
+[Egy 1400 fős magyar faluban bukkant fel az ország legnagyobb kígyója - Drive Magazine](https://images.openai.com/static-rsc-4/IUvPl7f_yQdSDrr5-zgb2uObYwMtJLeVwHcUlL3esTiJlcHeuW8qTcONgODUjK5YWlsZpgyYxDMRvCyUSak6eVonSVTFCRcjyLYhP1HNLOeMb58cfDpwT7yJc6SR7H_mbgiOk8G4KoO4KXx8xMg5KZfCBjvQ3gde_9O8taBOeXw?purpose=inline)
 
-B. countryside
+Snake
 
-C. village
+Con rắn
 
-D. forest
+[William Fortescue](https://images.openai.com/static-rsc-4/Kub1rQpAhXCVSxMXYbjM2n4fgAHYm6Pviy5gzVZ1Sk6C11VPJ0ntFR26ZqnlQsJxXzSdCTLSQrwvSNfpEI2xYT8e3IaSTmtZmzSKEyyTyvaFOGvHciQu5z_vXoytqTry0aLzDVGVsO5J_XzR1Eo8FOabZapteRdi05qmhae_OuE?purpose=inline)
 
-**Đáp án:** C. **Giải thích:** “village” diễn đạt “làng” trong chủ đề này.
+Lion
 
-### Câu 2
+Sư tử
 
-Cụm từ **“mountain”** có nghĩa nào trong bài học?
+[Giraffe Animal Facts - Giraffa - A-Z Animals](https://images.openai.com/static-rsc-4/3rdlNF_2mLviXNAfY9l0Kd0kb92J3pPpjH2NTX0lVk4pDqoaJA2VBNeMJEINF5SS6k7_x8qEijcn0tQG-jTM0OZrbz1O6SUMPZR5tzTXXPq6pwEG5f6oRytPGDaRDOSQYR07V34nRovmjDRPx2xDTd0JVzjIxBX06yE8ivEl1s0?purpose=inline)
 
-A. núi
+Giraffe
 
-B. đường mòn
+Hươu cao cổ
 
-C. đồi
+Ví dụ:
 
-D. cây
+- A giraffe has a very long neck. — Hươu cao cổ có chiếc cổ rất dài.
+- Lions and tigers are large cats. — Sư tử và hổ là những loài mèo lớn.
+- An elephant is a very large animal. — Voi là một loài động vật rất lớn.
 
-**Đáp án:** A. **Giải thích:** “mountain” được dùng với nghĩa “núi”.
+## 5. Pets — Thú cưng
 
-### Câu 3
+[Cute ginger cat sitting animal | Premium Photo  - rawpixel](https://images.openai.com/static-rsc-4/tmaVf3AFe7ljwiPZoL89rm1BQA5ldM4g32xkChtmzWkzFcFJoOB2CPhTGCQlOF1TAhczd-hhtqq19z0Hg7eSvUWlZfdVMWLaYROoH4NCWvQeVgFM9uWjGvwBHInRZwGqGL0oHcJYKHHvadC5BNaM2_MpOWLtbeTnX6WUy-tUgIk?purpose=inline)
 
-Khi cần nói **“rừng”**, chọn từ/cụm từ nào?
+Cat
 
-A. hill
+Mèo
 
-B. bridge
+[Golden Retriever Weight Chart in kg & lb by Age](https://images.openai.com/static-rsc-4/-gerwQ3ZGFfDMGuWl9oTDZECBpdgVsQXdnLSpOusNIwjlG3o5oSA0Zd8ncsOujiq6iJpsgnVQH5opq6lKzIqdiZUTcfz0ZM-NM5vbl4gO6P46huxyD09N0MCMhruyOm-IUtGVlboIGBFhswUJnjs6_LWuOgvsJ2YpNqhY4ey7tU?purpose=inline)
 
-C. forest
+Dog
 
-D. village
+Chó
 
-**Đáp án:** C. **Giải thích:** Cách dùng đúng trong bài là “forest”.
+[Pez dorado | Especies de peces  | Medpets.es](https://images.openai.com/static-rsc-4/kU3ROv7DMl78-ONWoSLO-wVtsPO-8gFwOzPGrdT6IDXFqMC7r6Z7lnFkRxlNuJ4QcGn2ew-VL6qHjT0MNbjVzCl3jwJYJa7Omr_dI0Yae3OnlWAO9crP6Imu0uD3TO5rFgqdG2xzqfv4WI8bphiB9o-ijEpBFHA3q31NwOMQw6M?purpose=inline)
 
-### Câu 4
+Fish
 
-Chọn câu tiếng Anh diễn đạt đúng nhất: **“Có con sông gần ngôi làng.”**
+Cá
 
-A. English is spoken in many countries.
+[Colorful wavy parrot](https://images.openai.com/static-rsc-4/5moCj0cW5PFHcyN9Okwan32oNn836G3IUkP7dUM4b0OrwywwfU54ke-Qlael2bQD-mpQEBsE4fbgraQwyvqWFKjJPku6sxY0E9ULa-21hEuSzPOGDysKb8p6tYBqUeB5DbRvHCf8p1Wkfa_x9FajnbjRiVUDIhsmZR3ok1yXLQ5BSp7-rHjA4P8dWo23mRXX?purpose=inline)
 
-B. There is a river near the village.
+Budgie
 
-C. What time does the train leave?
+Vẹt yến phụng
 
-D. It's raining, so take an umbrella.
+[beautiful macaw bird](https://images.openai.com/static-rsc-4/5vQ-ac_NKz-0ISLuQndksE3wUFJhhjAGfs94F0PhB1tRswsd2HeusjBDRfBEjq_rSPphitazoQOQtlPQvDpDNFwcb56vBrDGq7Lj3_n_BUriE1mRJ8mkq2bBZOjN2h3VOdlHLN10yyH0zK8CvzJThQb7hywsY8NH_-zNf16hM6_8La7ofQr_z2HPdUU9q1cx?purpose=inline)
 
-**Đáp án:** B. **Giải thích:** “There is a river near the village.” là câu tương ứng với tình huống đã nêu.
+Parrot
 
-### Câu 5
+Vẹt
 
-Ý nghĩa phù hợp nhất của câu **“The cows are in the field.”** là gì?
+[Zeus Tortoise World](https://images.openai.com/static-rsc-4/u3VR4ydpjy9fSnYU6PRF93BJatVmLPdZx6NItljDsGD-qcBRy9AeIQ7y1rd2z-E292qMB_HdAEhKA57vxlDP7chP1XHVdR3g4nt5D8mI75EKgCr7V71kZMLaqbJR6r1WPxQ8LbsIti24Scd_ETAcPgh9vjghNo-z_NirJMwvC0c?purpose=inline)
 
-A. Bọn trẻ nuôi một con thỏ.
+Tortoise
 
-B. Ngân hàng gần bưu điện.
+Rùa cạn
 
-C. Đàn bò ở ngoài đồng.
+### Mẫu câu
 
-D. Bò cho chúng ta sữa.
+- Parrots and budgies are birds. — Vẹt và vẹt yến phụng là các loài chim.
+- You take your dog for a walk. — Bạn dắt chó đi dạo.
+- You don't usually take your cat for a walk. — Bạn thường không dắt mèo đi dạo.
 
-**Đáp án:** C. **Giải thích:** “The cows are in the field.” có nghĩa là “Đàn bò ở ngoài đồng.”.
+Cụm từ: take a dog for a walk là cách nói tự nhiên để diễn đạt việc dắt chó đi dạo.
 
+## 6. Những lỗi ngữ pháp thường gặp
 
-## 5. Tổng kết và kiểm tra hoàn thành
+| Sai             | Đúng             | Giải thích                      |
+| --------------- | ---------------- | ------------------------------- |
+| Two sheeps      | Two sheep        | Sheep không thay đổi ở số nhiều |
+| A cow give milk | A cow gives milk | Chủ ngữ số ít thêm -s           |
+| An horse        | A horse          | Horse bắt đầu bằng âm phụ âm    |
+| A giraffe have  | A giraffe has    | Dùng has với chủ ngữ số ít      |
 
-Bài **The cows are in the field.** giúp bạn sử dụng vốn từ về **đàn bò ở ngoài đồng.** trong câu tiếng Anh thực tế. Giá trị quan trọng nhất không chỉ là biết nghĩa, mà là nhớ **cách kết hợp từ và ngữ cảnh sử dụng**.
+## 7. Exercises 40.1–40.5
 
-- [ ] Tôi đã học bảng từ/cụm từ và đọc thành tiếng các ví dụ.
-- [ ] Tôi đã hoàn thành ba phần luyện tập A, B, C.
-- [ ] Tôi đã làm trang Exercises trong ảnh ghép và 5 câu trắc nghiệm.
-- [ ] Tôi đã ghi các từ dễ nhầm vào sổ để ôn lại sau 1–3 ngày.
+Bản Markdown có toàn bộ các phần thực hành.
 
----
+| Bài  | Nội dung                                                             |
+| ---- | -------------------------------------------------------------------- |
+| 40.1 | Hoàn thành 8 câu về đặc điểm và lợi ích của các con vật              |
+| 40.2 | Nối con vật với tên thịt và con non                                  |
+| 40.3 | Nhận diện động vật ăn thịt, cung cấp nguyên liệu may mặc và đẻ trứng |
+| 40.4 | Điền ô chữ 9 tên động vật                                            |
+| 40.5 | Nhớ và viết lại tên của 17 con vật                                   |
 
-[← Unit 38: Các địa điểm trong thành phố](38-in-the-town.md) · [Unit 40: Động vật và thú cưng →](40-animals-and-pets.md)
+Xem đáp án Exercises 40.1–40.5
 
-[↑ Trở về mục lục khóa học](../../MUC_LUC.md)
+## 8. Kiểm tra kiến thức
+
+Trắc nghiệm Unit 40
+
+0/5 đã trả lời
+
+Câu 1. Câu nào có dạng số nhiều đúng của sheep?
+
+A. Two sheeps
+
+B. Two sheep
+
+C. Two sheepes
+
+D. Two sheepen
+
+Câu 2. Tên con non của bò là gì?
+
+A. Foal
+
+B. Chick
+
+C. Calf
+
+D. Piglet
+
+Câu 3. Con vật nào cung cấp wool (len)?
+
+A. Sheep
+
+B. Pig
+
+C. Hen
+
+D. Horse
+
+Câu 4. Chọn câu tiếng Anh đúng.
+
+A. A giraffe have a long neck.
+
+B. A giraffe having a long neck.
+
+C. A giraffe are long neck.
+
+D. A giraffe has a long neck.
+
+Câu 5. Cụm nào có nghĩa dắt chó đi dạo?
+
+A. Make a dog walk
+
+B. Take a dog for a walk
+
+C. Get a dog to walking
+
+D. Give a dog a walking
+
+Chấm điểm
+
+## 9. Tổng kết bài học
+
+Điểm quan trọng nhất là ghi nhớ từ vựng theo mối quan hệ thay vì học những tên con vật riêng lẻ:
+
+- Cow → calf → beef / milk
+- Sheep → lamb → wool
+- Pig → piglet → pork
+- Hen → chick → eggs / chicken
+

@@ -1,5 +1,108 @@
 ﻿# Unit 45 — In the bedroom and bathroom: Đồ dùng phòng ngủ và phòng tắm
 
+## Sơ đồ mô tả nội dung theo ảnh
+
+~~~mermaid
+flowchart LR
+  subgraph LEFT["Trang trái · Từ vựng và thói quen"]
+    K1["A · Phòng ngủ<br/>bed · bedside lamp · cupboard · mirror · hairbrush · comb<br/>dressing table · chest of drawers · alarm clock · bedside table<br/>nightdress / nightie · wardrobe · pyjamas"]
+    K2["B · Phòng tắm<br/>shower · shampoo · bath · soap · toothpaste · toothbrush<br/>toilet · shelf · basin · towel"]
+    K3["C · Thói quen của Joel<br/>11 giờ: lên phòng, thay đồ, đi ngủ → đọc một lúc, tắt đèn, ngủ<br/>Sáng: chuông báo thức → thức dậy, tắm, đánh răng, mặc quần áo<br/>→ xuống bếp ăn sáng"]
+  end
+  subgraph RIGHT["Trang phải · Bài tập"]
+    E1["45.1 · Điền tên cho các đồ vật được đánh số trong tranh phòng ngủ"]
+    E2["45.2 · Liệt kê đồ cần mang khi ngủ lại nhà bạn một đêm"]
+    E3["45.3 · Mô tả 6 tranh: đánh răng · tắm / rửa em bé · đi xuống cầu thang · tắm bồn · là quần áo · ngủ"]
+    E4["45.4 · Ghi tên các đồ vật có trong phòng tắm của mình"]
+    E5["45.5–45.6 · Viết vài câu về phòng ngủ và thói quen buổi tối"]
+  end
+  K1 --> E1
+  K1 --> E2
+  K2 --> E3
+  K3 --> E3
+  K1 --> E5
+  K3 --> E5
+~~~
+
+*Bố cục ảnh: trang trái lần lượt minh họa đồ phòng ngủ, đồ phòng tắm và chuỗi hoạt động sáng–tối của Joel bằng hình nhỏ; trang phải có tranh phòng ngủ đánh số cùng sáu tình huống sinh hoạt để người học gọi tên và mô tả hành động.*
+
+
+## Bản chép đầy đủ chữ trong ảnh
+
+### Trang trái · Trang sách 94
+
+**Đầu trang:** UNIT 45 | ENGLISH VOCABULARY IN USE - ELEMENTARY
+
+**Tiêu đề:** 45 In the bedroom and bathroom
+
+#### A · Bedroom
+
+**Nhãn hình:** bed · bedside lamp · cupboard · mirror · hairbrush · comb · dressing table · chest of drawers · alarm clock · bedside table · nightdress/nightie · wardrobe · pyjamas
+
+#### B · Bathroom
+
+**Nhãn hình:** shower · soap · toothpaste · toothbrush · shelf · basin · towel · shampoo · bath · toilet
+
+#### C · Joel’s routine
+
+Joel goes to bed at 11 o’clock. He goes upstairs to his bedroom.
+He gets undressed and goes to bed.
+He reads for a bit. He turns off the light and falls asleep.
+He wakes up when his alarm clock rings.
+He gets up. He has a shower, cleans his teeth and gets dressed.
+He goes downstairs to the kitchen for breakfast.
+(See Unit 12.)
+
+### Trang phải · Trang sách 95 · Exercises
+
+#### 45.1
+
+Look at the picture and write the words next to the numbers.
+
+1. ______ *(viết tay: bed)*
+2. ______
+3. ______
+4. ______
+5. ______
+6. ______
+7. ______
+8. ______
+9. ______
+
+#### 45.2
+
+Write down five more things that you need to take with you if you go to stay with a friend for one night.
+
+*(Có chữ viết tay: toothbrush.)*
+
+#### 45.3
+
+Look at the pictures. Describe what the people are doing.
+
+1. Anne ______ *(viết tay: is cleaning her teeth.)*
+2. Selim and Umit ______
+3. Mrs Park ______
+4. Mr Park ______
+5. Jaime ______
+6. Lee ______
+
+#### 45.4
+
+Write down the words for all the things you have in your bathroom. Use a dictionary to help you, if you need to.
+
+#### 45.5
+
+Describe your bedroom. Write four or five sentences.
+
+#### 45.6
+
+Write about your night-time routine. Use the verbs in C opposite.
+
+*(Có chữ viết tay: I usually go to bed at …)*
+
+**Chữ chân trang:** English Vocabulary in Use (elementary) · trang 94 và 95.  
+**Nhãn khung ảnh ghép:** TRANG TRAI: KIEN THUC | KNOWLEDGE · TRANG PHAI: BAI TAP | EXERCISES.
+
 ![Hai trang kiến thức và bài tập được ghép lại](../../assets/unit-45-spread.webp)
 
 *Trang trái cung cấp kiến thức và ví dụ; trang phải là phần Exercises của Unit tương ứng. Có thể phóng to ảnh để làm bài tập gốc.*
