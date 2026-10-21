@@ -180,6 +180,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 - [Complete C# Unity 2D Game Development](<./05 - Phát triển game/01 - Unity & C#/complete-csharp-unity-2d-game-development-unity-6/>)
 - [Complete C# Unity 3D Game Development](<./05 - Phát triển game/01 - Unity & C#/complete-csharp-unity-3d-game-development-unity-6/>)
+- [Unity Learn Pathways — Bộ học liệu Markdown tiếng Việt](<./05 - Phát triển game/01 - Unity & C#/Unity_Learn_Pathways_VI_2026/>)
 
 #### Ren'Py & Visual Novels
 
