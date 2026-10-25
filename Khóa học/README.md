@@ -169,6 +169,8 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Complete Blender Megacourse](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/complete-blender-megacourse-beginner-to-expert-3d-artist/>)
 - [Creating an Animated School of Fish in Blender](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/creating-an-animated-school-of-fish-in-blender/>)
 - [The Secret to Easy Fish Animation in Blender](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/the-secret-to-easy-fish-animation-in-blender/>)
+- [Từ model AI đến game-ready bằng Blender](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/khoa_hoc_3d_ai_blender/>)
+- [Bộ giáo trình Model 3D AI — Tripo, Unity, Unreal](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/Model-3d/README.md>)
 
 #### Lens Studio & AR
 
@@ -180,6 +182,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 
 - [Complete C# Unity 2D Game Development](<./05 - Phát triển game/01 - Unity & C#/complete-csharp-unity-2d-game-development-unity-6/>)
 - [Complete C# Unity 3D Game Development](<./05 - Phát triển game/01 - Unity & C#/complete-csharp-unity-3d-game-development-unity-6/>)
+- [Unity Learn Pathways — Bộ học liệu Markdown tiếng Việt](<./05 - Phát triển game/01 - Unity & C#/Unity_Learn_Pathways_VI_2026/>)
 
 #### Ren'Py & Visual Novels
 
