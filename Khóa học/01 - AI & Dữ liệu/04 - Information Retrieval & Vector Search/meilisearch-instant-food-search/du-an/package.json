@@ -1,0 +1,15 @@
+{
+  "name": "meilisearch-vietnamese-course-demo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Demo nhập và tìm kiếm phim/món ăn bằng Meilisearch",
+  "scripts": {
+    "import:movies": "node --env-file=.env scripts/import.mjs movies",
+    "import:recipes": "node --env-file=.env scripts/import.mjs recipes",
+    "search": "node --env-file=.env scripts/search.mjs"
+  },
+  "dependencies": {
+    "meilisearch": "latest"
+  }
+}
