@@ -1,99 +1,242 @@
----
-title: "Lesson 5.1 - Clicky Mouse"
-pathway: "Junior Programmer"
-module: "User Interface"
-lesson_number: 2
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/junior-programmer/unit/user-interface?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 02 — Lesson 5.1: Clicky Mouse — Nhấp chuột vào mục tiêu
 
-# Bài 02 — Lesson 5.1 - Clicky Mouse
+> **Lộ trình:** Junior Programmer · **Chủ đề:** Unity User Interface / Prototype 5 · **Môi trường:** Unity 6.3, Input System, vật lý 3D · **Hình thức:** Bài học lập trình.
 
-> **Pathway:** Junior Programmer · **Mission:** User Interface · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Bài toán và mục tiêu
 
-> **Nguồn đối chiếu:** [User Interface trên Unity Learn](https://learn.unity.com/pathway/junior-programmer/unit/user-interface?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một trò chơi nhấp mục tiêu chỉ thú vị khi đối tượng xuất hiện không thể đoán trước, có chuyển động rõ ràng và phản hồi chính xác với con trỏ. Ta xây dựng **ba loại mục tiêu có lợi và một mục tiêu bất lợi**, phóng từ đáy màn hình với lực, mô-men xoắn và vị trí ngẫu nhiên. Người chơi nhấp vào đối tượng để làm nó biến mất; đối tượng rơi khỏi vùng chơi cũng bị dọn dẹp.
 
-## 1. Tổng quan
+Kết thúc bài học, bạn có thể cấu hình `Rigidbody`, `Collider` và `Prefab`; dùng `List<GameObject>` để lưu loại mục tiêu; sinh đối tượng bằng coroutine; chuyển tọa độ chuột thành tia 3D; xác định đúng đối tượng được nhấp với `Physics.Raycast`; và xử lý vùng tiêu hủy bằng trigger.
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *User Interface*, bài **Lesson 5.1 - Clicky Mouse** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Cơ chế hoạt động
 
-## 2. Mục tiêu học tập
+```mermaid
+flowchart LR
+    GM[GameManager] -->|Chọn ngẫu nhiên| P[Prefab target]
+    GM -->|Instantiate định kỳ| T[Target trong scene]
+    T --> F[Rigidbody: lực và mô-men xoắn]
+    Mouse[Nhấp chuột] --> Ray[Camera.ScreenPointToRay]
+    Ray --> Hit[Physics.Raycast]
+    Hit -->|Đúng target| Destroy[Destroy target]
+    Zone[DestroyZone trigger] -->|Target rơi vào| Destroy
+```
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Lesson 5.1 - Clicky Mouse** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Hai cơ chế độc lập** dẫn tới cùng hành động `Destroy`: nhấp trúng bằng raycast hoặc rơi vào trigger. `Destroy` xóa instance trong scene, không xóa Prefab Asset trong Project.
 
-## 3. Kiến thức trọng tâm
+## 3. Thiết lập scene và prefab
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+1. Tạo dự án hoặc nhập **Prototype 5 Starter Files** từ liên kết Unity Learn ở cuối bài. Mở scene `Prototype 5`, chọn **2D** trong Scene view để thuận tiện bố cục.
+2. Kéo ba mẫu “good” và một mẫu “bad” từ thư viện vào scene; đặt tên phân biệt, chẳng hạn `Good 1`, `Good 2`, `Good 3`, `Bad 1`.
+3. Thêm **`Rigidbody` (3D)** và **`BoxCollider` (3D)** hoặc collider phù hợp hình dạng cho từng target. Không dùng `Rigidbody2D` trong ví dụ này.
+4. Gắn script `Target.cs` cho cả bốn target, kéo mỗi đối tượng vào thư mục `Prefabs` để tạo asset, sau đó xóa các instance mẫu khỏi scene.
+5. Tạo Empty GameObject `Game Manager` và gắn `GameManager.cs`; kéo bốn prefab vào danh sách `Target Prefabs` trong Inspector.
+6. Tạo vùng `DestroyZone` bên dưới vùng chơi với `BoxCollider` có **Is Trigger** và tag `DestroyZone` (tạo tag trước trong Tag Manager nếu chưa có). Đặt vùng rộng đủ để hứng mục tiêu rơi xuống.
 
-### Thuật ngữ và mối quan hệ
+> **Lưu ý vật lý:** Có thể dùng góc nhìn Scene 2D nhưng vẫn sử dụng `Rigidbody`, `Collider`, `Physics.Raycast` và `OnTriggerEnter(Collider)` của **vật lý 3D**.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Điều khiển chuyển động target
 
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
+Tạo `Target.cs`:
 
 ```csharp
-using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class ScoreDisplay : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class Target : MonoBehaviour
 {
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
+    [Header("Chuyển động")]
+    [SerializeField] private float minSpeed = 12f;
+    [SerializeField] private float maxSpeed = 16f;
+    [SerializeField] private float maxTorque = 10f;
+    [SerializeField] private float xRange = 4f;
+    [SerializeField] private float ySpawnPos = -6f;
 
-    public void AddPoint()
+    private Rigidbody targetRb;
+    private Camera mainCamera;
+
+    private void Start()
     {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
+        targetRb = GetComponent<Rigidbody>();
+        mainCamera = Camera.main;
+        transform.position = RandomSpawnPosition();
+        targetRb.AddForce(RandomForce(), ForceMode.Impulse);
+        targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(),
+            ForceMode.Impulse);
+    }
+
+    private Vector3 RandomSpawnPosition()
+    {
+        return new Vector3(Random.Range(-xRange, xRange), ySpawnPos, 0f);
+    }
+
+    private Vector3 RandomForce()
+    {
+        return Vector3.up * Random.Range(minSpeed, maxSpeed);
+    }
+
+    private float RandomTorque()
+    {
+        return Random.Range(-maxTorque, maxTorque);
+    }
+
+    private void Update()
+    {
+        Mouse mouse = Mouse.current;
+        if (mouse == null || !mouse.leftButton.wasPressedThisFrame ||
+            mainCamera == null) return;
+
+        Vector2 mousePosition = mouse.position.ReadValue();
+        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
+
+        if (Physics.Raycast(ray, out RaycastHit hit) &&
+            hit.collider.GetComponentInParent<Target>() == this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("DestroyZone"))
+            Destroy(gameObject);
     }
 }
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+### 4.1. Vì sao tách thành các hàm nhỏ?
 
-## 6. Bài tập củng cố
+`RandomSpawnPosition()`, `RandomForce()` và `RandomTorque()` mô tả ba trách nhiệm riêng. Việc đặt tên hàm rõ ràng giúp chỉnh tham số mà không phải dò một biểu thức dài trong `Start()`. Trong `Random.Range(float, float)`, giá trị được chọn trong khoảng giới hạn; `ForceMode.Impulse` áp dụng một xung lực ngay lúc target được tạo.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **User Interface** để tạo một tương tác nhỏ.
+### 4.2. Từ vị trí chuột đến đối tượng 3D
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+`Mouse.current.leftButton.wasPressedThisFrame` báo trạng thái **vừa nhấn trong khung hình hiện tại**; `Mouse.current.position.ReadValue()` lấy tọa độ màn hình. `ScreenPointToRay` tạo tia từ camera đi qua pixel này; `Physics.Raycast` tìm collider đầu tiên mà tia chạm phải.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+Điều kiện `hit.collider.GetComponentInParent<Target>() == this` bảo đảm **script của target A không xóa target B**. Biến thể `hit.transform == transform` ngắn hơn nhưng không bao quát trường hợp collider nằm trong GameObject con.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+`Debug.DrawRay` chỉ dùng để quan sát đường tia khi debug; nó không tự thực hiện phát hiện va chạm.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+> **Giới hạn của ví dụ:** Mỗi target kiểm tra chuột trong `Update`, phù hợp để học nhưng không tối ưu nếu số target lớn. Kiến trúc mở rộng nên kiểm tra chuột và raycast **một lần tại bộ điều khiển đầu vào**, rồi gửi lệnh cho target trúng tia. Ví dụ cũng chưa chặn nhấp vào thế giới khi con trỏ đang ở trên UI; có thể bổ sung kiểm tra qua `EventSystem` ở phiên bản hoàn chỉnh.
 
-## 8. Checklist hoàn thành
+## 5. Sinh target bằng coroutine
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — User Interface](https://learn.unity.com/pathway/junior-programmer/unit/user-interface?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Tạo `GameManager.cs`:
 
----
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+public class GameManager : MonoBehaviour
+{
+    [SerializeField] private List<GameObject> targetPrefabs = new();
+    [SerializeField, Min(0.05f)] private float spawnInterval = 1f;
+
+    private void Start()
+    {
+        if (targetPrefabs.Count > 0)
+            StartCoroutine(SpawnTargets());
+    }
+
+    private IEnumerator SpawnTargets()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(spawnInterval);
+            int index = Random.Range(0, targetPrefabs.Count);
+            if (targetPrefabs[index] != null)
+                Instantiate(targetPrefabs[index]);
+        }
+    }
+}
+```
+
+Trong `List<GameObject>`, phần tử `0 ... Count - 1` là các loại target. `Random.Range(0, targetPrefabs.Count)` với tham số **int** chọn một chỉ số hợp lệ vì giới hạn trên là **loại trừ**. `WaitForSeconds` tạm ngừng coroutine rồi tiếp tục sau một khoảng thời gian game đã co giãn theo `Time.timeScale`; nó không chặn việc render hoặc đọc input của toàn game.
+
+**Phân biệt các lệnh dễ nhầm**
+
+| Lệnh | Ý nghĩa |
+|---|---|
+| `Instantiate(prefab)` | Tạo một bản thể mới từ prefab. |
+| `Destroy(gameObject)` | Đánh dấu hủy bản thể, thường được xử lý cuối vòng cập nhật. |
+| `StartCoroutine(iterator)` | Khởi chạy hàm trả về `IEnumerator`. |
+| `yield return new WaitForSeconds(t)` | Chờ khoảng thời gian game, không phải vòng lặp bận. |
+| `Physics.Raycast(ray, out hit)` | Kiểm tra tia có chạm collider 3D và nhận dữ liệu điểm chạm. |
+| `OnTriggerEnter(Collider)` | Xử lý khi các collider 3D thỏa điều kiện trigger vật lý. |
+
+## 6. Kiểm thử có thể tái hiện
+
+| Thao tác | Kết quả mong đợi | Nếu sai, kiểm tra |
+|---|---|---|
+| Play, không nhấp | Target sinh định kỳ, bay lên và xoay | Danh sách prefab; Rigidbody; gravity; khoảng sinh. |
+| Nhấp chính giữa target | Chỉ target đó biến mất | Input System; MainCamera tag; collider; raycast; Console. |
+| Nhấp vùng trống | Không có target nào bị xóa | So sánh target bị raycast trúng. |
+| Để target rơi xuống | Target bị xóa khi chạm sensor | Tag `DestroyZone`; Is Trigger; kích thước vùng; Collider và Rigidbody. |
+| Tắt một prefab khỏi danh sách | Chỉ prefab còn được chọn mới xuất hiện | Số phần tử và tham chiếu `null`. |
+
+**Lỗi đáng chú ý:** Nếu cấu hình dự án chỉ bật New Input System mà mã lại dùng `Input.GetMouseButtonDown`, việc đọc input có thể không hoạt động như dự kiến. Bài này dùng `Mouse.current` nhất quán với Input System.
+
+## 7. Bài tập thực hành
+
+1. Chỉnh `minSpeed`, `maxSpeed` để chứng minh mục tiêu có vận tốc khác nhau.
+2. Đổi xác suất xuất hiện bằng cách lặp prefab trong danh sách hoặc triển khai trọng số có kiểm soát (nâng cao); giải thích khác nhau giữa **đồng xác suất theo chỉ số** và **đồng xác suất theo loại**.
+3. Chuyển raycast sang `GameManager` hoặc `ClickDetector` để mỗi cú nhấp chỉ phát một tia. So sánh kết quả khi có nhiều target đồng thời.
+4. Bổ sung `LayerMask` để tia chỉ trúng mục tiêu, tránh collider ở nền che khuất.
+
+## 8. Câu hỏi ôn tập
+
+**Câu 1.** Khi `Random.Range(0, targets.Count)` dùng tham số `int`, chỉ số lớn nhất có thể trả về là gì?
+
+A. `targets.Count`  
+B. `targets.Count - 1`  
+C. `-1`  
+D. Bất kỳ số nguyên nào
+
+**Đáp án:** B. **Giải thích:** Overload số nguyên loại trừ giới hạn trên, phù hợp với chỉ số cuối của `List`.
+
+**Câu 2.** Cách nào tìm collider mà tia chuột chạm vào trong hệ vật lý 3D?
+
+A. `Physics.Raycast`  
+B. `Button.onClick`  
+C. `CanvasScaler`  
+D. `Physics2D.OverlapPoint`
+
+**Đáp án:** A. **Giải thích:** `Physics.Raycast` thực hiện truy vấn va chạm tia với collider 3D.
+
+**Câu 3.** Vì sao phải so sánh đối tượng trúng raycast với target hiện tại khi mỗi target đều đọc chuột?
+
+A. Để tăng trọng lực.  
+B. Để tạo hiệu ứng hạt.  
+C. Để target không bao giờ bị xóa.  
+D. Để tránh script của một target hủy nhầm target khác.
+
+**Đáp án:** D. **Giải thích:** Tất cả target đều có thể nhận cùng một sự kiện nhấn trong một frame.
+
+**Câu 4.** Điều kiện cốt lõi để target nhận `OnTriggerEnter(Collider)` khi rơi vào DestroyZone là gì?
+
+A. Hai đối tượng phải có `Canvas`.  
+B. Target phải là UI Button.  
+C. Collider phù hợp, vùng sensor là trigger và cấu hình vật lý hỗ trợ sự kiện (chẳng hạn target có Rigidbody).  
+D. Collider phải bị vô hiệu hóa.
+
+**Đáp án:** C. **Giải thích:** Trigger là sự kiện của hệ va chạm vật lý, không phải UI.
+
+**Câu 5.** Ưu điểm chính của coroutine `yield return WaitForSeconds` khi sinh mục tiêu là gì?
+
+A. Bỏ qua toàn bộ collider.  
+B. Sinh mục tiêu định kỳ mà không chặn vòng cập nhật chính.  
+C. Bảo đảm mọi mục tiêu đều xuất hiện một lần.  
+D. Làm target không chịu trọng lực.
+
+**Đáp án:** B. **Giải thích:** Coroutine cho phép chờ theo thời gian trong khi phần khác của game vẫn chạy.
+
+## 9. Tổng kết
+
+Bài học hoàn thành cơ chế cốt lõi: prefab được tạo theo khoảng thời gian; mỗi target tự nhận lực và xoay; nhấp chuột được quy đổi thành tia 3D; va chạm với `DestroyZone` dọn dẹp target rơi khỏi màn hình. Đây là nền cho tính điểm và các màn hình UI.
+
+## 10. Tài liệu tham khảo
+
+- [Unity Learn — Lesson 5.1: Clicky Mouse, Unity 6.3](https://learn.unity.com/pathway/junior-programmer/unit/user-interface/tutorial/lesson-5-1-clicky-mouse-1?version=6.3).
+- [Unity Learn — Detecting Mouse Clicks (OnMouseDown, raycast, uGUI)](https://learn.unity.com/tutorial/onmousedown).
+- [Unity Scripting API — Input.GetMouseButtonDown (legacy) và hướng dẫn chuyển sang Input System](https://docs.unity3d.com/ScriptReference/Input.GetMouseButtonDown.html).

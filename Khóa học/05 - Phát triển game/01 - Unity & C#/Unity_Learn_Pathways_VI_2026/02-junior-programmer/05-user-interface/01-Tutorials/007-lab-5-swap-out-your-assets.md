@@ -1,104 +1,174 @@
----
-title: "Lab 5 - Swap out your Assets"
-pathway: "Junior Programmer"
-module: "User Interface"
-lesson_number: 7
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/junior-programmer/unit/user-interface?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 07 — Lab 5: Swap out your Assets — Thay model và vật liệu nhưng giữ gameplay
 
-# Bài 07 — Lab 5 - Swap out your Assets
+> **Lộ trình:** Junior Programmer · **Loại:** Lab thực hành · **Môi trường:** Unity 6.3, Prefab, Rigidbody/Collider, Material · **Kết quả:** Thay hình khối nguyên thủy bằng asset mới mà không làm thay đổi chức năng chính.
 
-> **Pathway:** Junior Programmer · **Mission:** User Interface · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Bối cảnh
 
-> **Nguồn đối chiếu:** [User Interface trên Unity Learn](https://learn.unity.com/pathway/junior-programmer/unit/user-interface?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Trong giai đoạn prototype, một nhân vật có thể chỉ là Capsule, chướng ngại là Cube, nền là Plane. Chúng đủ để kiểm tra điều khiển và va chạm nhưng chưa thể hiện phong cách thị giác của game. Lab này hướng dẫn **thay thế phần biểu diễn bằng model và material mới**, đồng thời giữ nguyên cấu trúc gameplay đã chạy ổn định.
 
-## 1. Tổng quan
+Khác với Challenge 5, Lab 5 không chỉ diễn ra trong game nhấp mục tiêu: bạn có thể áp dụng vào **các prototype đã xây dựng trong khóa**, đặc biệt những scene có nhân vật điều khiển, primitive, vật cản và nền.
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *User Interface*, bài **Lab 5 - Swap out your Assets** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Mục tiêu và chuẩn bị
 
-## 2. Mục tiêu học tập
+Sau lab, bạn có thể nhập một `.unitypackage`, đọc cấu trúc Asset Store package, chỉnh Prefab trong Prefab Mode, dùng nested Prefab để thay visual, điều chỉnh collider cho model mới, thay material nền và kiểm tra sai khác shader/render pipeline.
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Chuẩn bị:**
 
-## 3. Kiến thức trọng tâm
+1. Chọn một prototype đang điều khiển được bằng Play mode; lưu scene dự phòng hoặc tạo commit trong hệ quản lý phiên bản.
+2. Tải **Create with Code — Course Library** từ bài lab chính thức hoặc chọn asset có giấy phép phù hợp ở Unity Asset Store.
+3. Kiểm tra render pipeline của dự án (**Built-in** hay **URP**) và yêu cầu shader của asset.
+4. Tạo thư mục quản lý, ví dụ `Assets/Art/Models`, `Assets/Art/Materials`, `Assets/Art/Textures` và `Assets/Prefabs`.
+5. Ghi lại hành vi gốc: di chuyển, nhảy, va chạm, hướng quay, điểm số, trigger và camera.
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+## 3. Phân tách gameplay và visual
 
-### Thuật ngữ và mối quan hệ
+Nguyên tắc thiết kế quan trọng nhất là **không thay cả đối tượng đang chứa logic chỉ để đổi hình ảnh**. Hãy giữ một GameObject gốc có script và vật lý; đặt model mới thành GameObject con.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
-
-```csharp
-using TMPro;
-using UnityEngine;
-
-public class ScoreDisplay : MonoBehaviour
-{
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
-
-    public void AddPoint()
-    {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
-    }
-}
+```mermaid
+flowchart TD
+    P[Player — GameObject gốc] --> Logic[Script điều khiển / Rigidbody / Collider]
+    P --> Visual[Visual Root]
+    Visual --> Model[Model mới / Nested Prefab]
+    Visual --> Renderer[MeshRenderer / SkinnedMeshRenderer]
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+Tách như vậy giúp điều chỉnh tỉ lệ model, vị trí và hiệu ứng mà ít tác động đến `Rigidbody`, các script phụ thuộc `transform` của player, camera follow hoặc logic collider.
 
-## 6. Bài tập / sản phẩm cần nộp (tự biên soạn)
+## 4. Quy trình thực hành
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Lab 5 - Swap out your Assets** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+### 4.1. Nhập và khảo sát tài nguyên
 
-**Tiêu chí nghiệm thu:**
+1. Trong Unity, sử dụng thao tác nhập gói `.unitypackage` (menu Import Package / Custom Package tùy phiên bản và cấu trúc Editor).
+2. Duyệt folder asset: xác định **model/prefab**, **material**, **texture**, **animation** và tài nguyên đi kèm.
+3. Kéo thử model vào scene kiểm tra tỉ lệ thực tế, hướng trước/sau và các component đi kèm.
+4. Đối với asset từ Asset Store, dùng trang asset để xác minh **license**, phiên bản hỗ trợ và pipeline; tài nguyên “free” vẫn có điều khoản sử dụng.
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+**Checkpoint 1:** Model mới hiển thị đúng vật liệu, không có lỗi thiếu script hoặc shader màu hồng bất thường.
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+### 4.2. Thay nhân vật bằng Nested Prefab
 
-## 7. Lỗi thường gặp và cách kiểm tra
+1. Chuyển Player gốc thành prefab bằng cách kéo từ Hierarchy vào folder `Prefabs`, nếu chưa có prefab.
+2. Mở Player Prefab trong **Prefab Mode**.
+3. Tạo `Visual Root` làm con của Player. Kéo model hoặc prefab model mới vào dưới `Visual Root`; đây có thể là một **Nested Prefab**.
+4. Chỉnh `localPosition`, `localRotation`, `localScale` để model nằm đúng vị trí, hướng đúng theo cơ chế điều khiển.
+5. Giữ script điều khiển và `Rigidbody` trên root. Điều chỉnh collider ở root để bao phần thân có ý nghĩa va chạm; tránh làm collider ôm từng chi tiết trang trí.
+6. Sau khi xác nhận model mới hoạt động, **tắt `Mesh Renderer` của primitive cũ**, không vô hiệu hóa root GameObject đang chứa script và Rigidbody.
+7. Lưu prefab và vào Play mode kiểm tra chuyển động, va chạm, camera và animation (nếu có).
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+**Checkpoint 2:** Player vẫn nhận input, không xuyên qua vật cản bất thường, model nhìn đúng và primitive cũ không hiển thị.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### 4.3. Thay các primitive khác
 
-## 8. Checklist hoàn thành
+Lặp lại với chướng ngại, vật phẩm, kẻ địch hoặc đồ vật có tương tác. Xác định rõ component phải giữ:
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — User Interface](https://learn.unity.com/pathway/junior-programmer/unit/user-interface?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+| Thành phần | Thường nên giữ từ đối tượng gốc | Có thể thay đổi |
+|---|---|---|
+| Script gameplay | Tên phương thức, logic tương tác, tag/layer liên quan | Visual reference nếu cần. |
+| Collider / Trigger | Vai trò trigger hoặc collider va chạm | Hình dạng, tâm và kích thước phù hợp model. |
+| Rigidbody | Chế độ động học, ràng buộc trục theo thiết kế | Mass/drag chỉ khi cần và có kiểm thử. |
+| Prefab structure | Root phục vụ logic, tham chiếu script | Nested prefab con và phần hiển thị. |
+| Material | Không quyết định điểm số hay va chạm | Màu, texture, shader, tiling. |
 
----
+**Checkpoint 3:** Ít nhất một đối tượng không phải Player đã được thay thế và vẫn giữ đúng hành vi.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+### 4.4. Thay nền và kiểm tra vật liệu
+
+1. Chọn Ground hoặc Background có Mesh Renderer.
+2. Tạo hoặc nhập `Material` mới, gán cho renderer của đối tượng nền.
+3. Nếu texture bị kéo dãn hoặc quá nhỏ, thử thay **Tiling** trong các thông số material phù hợp shader. Tên trường có thể khác: `Main Maps`/`Base Map` tùy shader hoặc render pipeline.
+4. Điều chỉnh độ bóng và phản xạ phù hợp phong cách. Không có một bộ checkbox chung áp dụng cho tất cả shader.
+5. Nếu vật liệu xuất hiện **màu hồng**, trước hết kiểm tra shader có tương thích pipeline hay không. Với asset Built-in sử dụng trong URP, có thể cần chuyển material bằng công cụ chuyển đổi tương ứng; không áp dụng chuyển đổi bừa bãi cho mọi lỗi màu hồng.
+
+**Checkpoint 4:** Nền có độ lặp texture hợp lý, ánh sáng/material tương thích và không che khuất vật thể quan trọng.
+
+## 5. Những sai lầm phổ biến
+
+| Lỗi | Vì sao xảy ra | Cách xử lý |
+|---|---|---|
+| Nhân vật mất điều khiển | Vô hiệu hóa Player root để ẩn primitive | Chỉ tắt renderer của phần primitive, giữ root active. |
+| Va chạm lệch hình | Model đổi kích thước nhưng collider giữ nguyên | Chỉnh Collider Center/Size phù hợp, kiểm tra nhiều góc. |
+| Model quay sai hướng | Trục local của asset khác trục mong đợi | Chỉnh transform của Visual Root, không phá logic player. |
+| Đối tượng xuyên đất | Collider sai hoặc Rigidbody cấu hình lại vô tình | So sánh cấu hình trước/sau và dùng Physics Debugger. |
+| Material hồng | Shader thiếu hoặc khác render pipeline | Xác định pipeline hiện tại, chuyển shader/material nếu cần. |
+| Texture lặp quá dày | Tiling hoặc UV chưa phù hợp | Điều chỉnh Tiling, cân nhắc chất lượng UV/texture. |
+| Prefab thay đổi ngoài ý muốn | Chỉnh trực tiếp prefab chung làm ảnh hưởng nhiều instance | Tách Prefab Variant hoặc phân tách trách nhiệm asset. |
+
+## 6. Kiểm thử trước và sau khi thay asset
+
+| ID | Kiểm thử | Trước khi thay | Sau khi thay |
+|---|---|---|---|
+| L01 | Player di chuyển đủ các hướng | Ghi nhận hoạt động | Phải giữ đúng. |
+| L02 | Va chạm nền và vật cản | Không xuyên vật cản | Không xuyên sau khi đổi model. |
+| L03 | Camera theo Player | Theo dõi đúng | Không lệch vì scale/model mới. |
+| L04 | Trigger và vật phẩm | Nhận sự kiện đúng | Tiếp tục nhận đúng. |
+| L05 | Renderer và material | Primitive nhìn được | Asset mới hiện, không lỗi shader. |
+| L06 | Hiệu năng | Ghi FPS/chỉ số tham khảo | Không suy giảm bất thường so với thiết bị và phạm vi kiểm thử. |
+
+Không cần tuyên bố FPS tuyệt đối nếu chưa đo. Mục tiêu là **giữ hành vi** và ghi nhận mọi thay đổi có ý nghĩa sau khi đổi visual.
+
+## 7. Sản phẩm cần nộp
+
+- Scene/prefab hoặc project có model mới thay cho các primitive mục tiêu.
+- Ảnh trước/sau của Player, một đối tượng khác và nền.
+- Bảng đối chiếu hành vi trước/sau theo ít nhất các kiểm thử L01–L05.
+- Ghi chú asset, nguồn, giấy phép sử dụng và các thay đổi material/shader cần thiết.
+
+**Tiêu chí đạt:** phần hiển thị mới hoạt động, collider hợp lý, script game cũ không mất chức năng và thay đổi được lưu vào đúng Prefab Asset.
+
+## 8. Câu hỏi ôn tập
+
+**Câu 1.** Vì sao nên đặt model mới làm con của Player root?
+
+A. Vì Unity không cho thay MeshRenderer.  
+B. Để model luôn có vật lý 2D.  
+C. Để bảo toàn script/vật lý trên root và chỉnh visual độc lập.  
+D. Để vô hiệu hóa collider.
+
+**Đáp án:** C. **Giải thích:** Phân tách visual với logic giảm nguy cơ phá các tham chiếu và hành vi đang hoạt động.
+
+**Câu 2.** Muốn ẩn primitive cũ mà vẫn giữ script Player chạy, nên làm gì?
+
+A. Tắt Mesh Renderer của primitive cũ.  
+B. Tắt root Player.  
+C. Xóa Rigidbody.  
+D. Xóa toàn bộ script điều khiển.
+
+**Đáp án:** A. **Giải thích:** Renderer chỉ chịu trách nhiệm hiển thị, không cần vô hiệu hóa GameObject root.
+
+**Câu 3.** Nested Prefab có vai trò chính nào?
+
+A. Thay thế mọi Collider tự động.  
+B. Chỉ dùng để phát âm thanh.  
+C. Tự sửa tất cả shader.  
+D. Cho phép một prefab chứa instance của prefab khác và giữ liên kết asset.
+
+**Đáp án:** D. **Giải thích:** Nested Prefab hỗ trợ tái sử dụng asset bên trong cấu trúc prefab lớn hơn.
+
+**Câu 4.** Material màu hồng sau khi nhập asset vào URP thường gợi ý điều gì?
+
+A. Model không có Rigidbody.  
+B. Shader/material có thể không tương thích hoặc bị thiếu.  
+C. Nút UI bị chồng lấn.  
+D. ScoreText đang null.
+
+**Đáp án:** B. **Giải thích:** Màu hồng là tín hiệu render shader có vấn đề, cần kiểm tra pipeline/material.
+
+**Câu 5.** Chỉ tiêu nào quan trọng nhất khi hoàn thành lab?
+
+A. Có nhiều polygon nhất.  
+B. Dùng asset đắt tiền.  
+C. Model mới hiển thị tốt **và** gameplay/va chạm giữ nguyên chức năng.  
+D. Xóa toàn bộ Prefab cũ ngay từ đầu.
+
+**Đáp án:** C. **Giải thích:** Mục đích lab là nâng chất lượng biểu diễn mà không đánh đổi hành vi đã kiểm chứng.
+
+## 9. Tổng kết
+
+Một pipeline thay asset an toàn giữ **root logic ổn định**, thay **visual con**, kiểm tra **collider và material**, rồi chạy **kiểm thử hồi quy**. Nested Prefab và Prefab Mode giúp quản lý phần hình ảnh mới mà không phá cơ chế game.
+
+## 10. Tài liệu tham khảo
+
+- [Unity Learn — Lab 5: Swap out your Assets, Unity 6.3](https://learn.unity.com/pathway/junior-programmer/unit/user-interface/tutorial/lab-5-swap-out-your-assets?version=6.3).
+- [Unity Manual — Nested Prefabs](https://docs.unity3d.com/Manual/NestedPrefabs.html).
+- [Unity Manual — Prefabs](https://docs.unity3d.com/Manual/Prefabs.html).
+- [Unity Asset Store](https://assetstore.unity.com/).
