@@ -102,10 +102,26 @@ Personal notes and resources from Udemy courses (plus roadmap.sh-derived study m
 | Course | Topics | Language | Status |
 |--------|--------|----------|--------|
 | [Complete Blender Creator: 3D Modelling](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/complete-blender-creator-3d-modelling/>) | Blender 4.3/4.4, Box Modelling, Modifiers, Materials & Shader Nodes, UV Mapping, Rigging & Animation, Sculpting | English | ✅ |
+| [Blender: Tạo nhân vật 3D từ dựng hình đến vật liệu da](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-character-creation-vi/>) | Character Modeling, Facial Topology, Hair, UV, Texture Paint, PBR Materials | Vietnamese | ✅ |
+| [Blender: Điêu khắc mắt nhân vật 3D](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-eye-sculpting-vi/>) | Eye Anatomy, Eyelids, Facial Expression, Sculpting, Rendering | Vietnamese | ✅ |
+| [Blender: Retopology khuôn mặt](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-facial-retopology-vi/>) | Facial Edge Flow, Retopology, Shrinkwrap, Loops, Rig Preparation | Vietnamese | ✅ |
+| [Blender: Dựng khoang miệng, nướu, răng và lưỡi](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-mouth-teeth-tongue-vi/>) | Mouth Cavity, Gums, Teeth, Tongue, Topology | Vietnamese | ✅ |
+| [Blender: Điêu khắc mũi nhân vật](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-sculpting-nose-vi/>) | Nose Anatomy, Bridge, Tip, Nostrils, Sculpting & Style | Vietnamese | ✅ |
+| [Blender: Điêu khắc đầu Stylized (14 bài)](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-sculpting-stylized-head-vi-14-bai/>) | Stylized Head Sculpting, Blockout, Facial Forms, Lighting & Render | Vietnamese | ✅ |
+| [Blender: Điêu khắc đầu Stylized (12 bài)](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-sculpting-stylized-head-vi-12-bai/>) | Stylized Head Sculpting, Blockout, Facial Forms, Project & Quiz | Vietnamese | ✅ |
 | [Pixel Art Master Course - Beginner to Professional/Freelance](<./Khóa học/05 - Phát triển game/05 - Game Art/pixel-art-master-course-beginner-to-professional-freelance/>) | Pixel Art, Aseprite, Tilesets, Characters, Animation, VFX, Portfolio, Freelancing | Vietnamese | ✅ |
 | [Learn How to Animate and Render a Fish in Blender!](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/animate-and-render-a-fish-in-blender/>) | Curve Path Animation, Follow Path Constraint, Shape Keys & Drivers, Procedural Texturing, Underwater Lighting, Camera Tracking, Motion Blur | English | ✅ |
 | [The Secret to Easy Fish Animation in Blender!](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/the-secret-to-easy-fish-animation-in-blender/>) | Curve Modifier, Burst-and-Coast Swimming, Graph Editor Keyframing, Volume Scatter, Decimate & Mesh Cleanup | English | ✅ |
 | [Creating an Animated School of Fish in Blender](<./Khóa học/04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/creating-an-animated-school-of-fish-in-blender/>) | Bendy Bone Armature, F-Curve Modifiers, Envelope Weights, Geometry Nodes Instancing, Animated Water Shader | English | ✅ |
+
+### Illustration & Manga
+
+| Course | Topics | Language | Status |
+|--------|--------|----------|--------|
+| [Khóa học vẽ cơ bản cho Minh họa & Manga](<./Khóa học/04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/01 - Nền tảng vẽ minh họa & Manga/>) | Shape, Perspective, Shading, Light, Color, Composition, Manga Illustration | Vietnamese | ✅ |
+| [Anime & Manga Drawing — English Study Course](<./Khóa học/04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/02 - Vẽ Anime & Manga - AnimeOutline (EN)/>) | Foundations, Faces, Eyes, Hair, Poses, Clothing, Color, Manga Characters | English | ✅ |
+| [Khóa học: Tự sáng tác và xuất bản Manga](<./Khóa học/04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/03 - Tự sáng tác & Xuất bản Manga/>) | Story Ideas, Script, Storyboard, Inking, Screentone, Editing, Publishing | Vietnamese | ✅ |
+| [Khóa học tự sáng tác, vẽ và xuất bản Manga (14 bài)](<./Khóa học/04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/04 - Quy trình làm Manga - 14 bài/>) | Manga Workflow, Storyboard, Page Layout, Inking, Screentone, Publishing | Vietnamese | ✅ |
 
 ### Health, Fitness & Nutrition
 

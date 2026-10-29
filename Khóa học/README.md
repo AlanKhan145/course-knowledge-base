@@ -26,7 +26,9 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `01 - UX-UI & Design Systems`
   - `02 - Figma & Design-to-Code`
   - `03 - Blender & 3D`
+    - `08 - Điêu khắc & Nhân vật 3D`
   - `04 - Lens Studio & AR`
+  - `05 - Vẽ, Minh họa & Manga`
 - `05 - Phát triển game`
   - `01 - Unity & C#`
   - `02 - Ren'Py & Visual Novels`
@@ -172,9 +174,26 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Từ model AI đến game-ready bằng Blender](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/khoa_hoc_3d_ai_blender/>)
 - [Bộ giáo trình Model 3D AI — Tripo, Unity, Unreal](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/Model-3d/README.md>)
 
+##### Điêu khắc & Nhân vật 3D
+
+- [Blender: Tạo nhân vật 3D từ dựng hình đến vật liệu da](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-character-creation-vi/>)
+- [Blender: Điêu khắc mắt nhân vật 3D](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-eye-sculpting-vi/>)
+- [Blender: Retopology khuôn mặt](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-facial-retopology-vi/>)
+- [Blender: Dựng khoang miệng, nướu, răng và lưỡi](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-mouth-teeth-tongue-vi/>)
+- [Blender: Điêu khắc mũi nhân vật](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-sculpting-nose-vi/>)
+- [Blender: Điêu khắc đầu Stylized (14 bài)](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-sculpting-stylized-head-vi-14-bai/>)
+- [Blender: Điêu khắc đầu Stylized (12 bài)](<./04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/08 - Điêu khắc & Nhân vật 3D/blender-sculpting-stylized-head-vi-12-bai/>)
+
 #### Lens Studio & AR
 
 - [Tạo Lens “Potato Boss Style” với Lens Studio](<./04 - Thiết kế & Sáng tạo số/04 - Lens Studio & AR/potato-boss-lens-course/>)
+
+#### Vẽ, Minh họa & Manga
+
+- [Khóa học vẽ cơ bản cho Minh họa & Manga](<./04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/01 - Nền tảng vẽ minh họa & Manga/>)
+- [Anime & Manga Drawing — English Study Course](<./04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/02 - Vẽ Anime & Manga - AnimeOutline (EN)/>)
+- [Khóa học: Tự sáng tác và xuất bản Manga](<./04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/03 - Tự sáng tác & Xuất bản Manga/>)
+- [Khóa học tự sáng tác, vẽ và xuất bản Manga (14 bài)](<./04 - Thiết kế & Sáng tạo số/05 - Vẽ, Minh họa & Manga/04 - Quy trình làm Manga - 14 bài/>)
 
 ### 05 - Phát triển game
 
