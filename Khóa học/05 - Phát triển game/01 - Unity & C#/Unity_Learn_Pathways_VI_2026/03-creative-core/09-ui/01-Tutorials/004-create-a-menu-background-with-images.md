@@ -1,99 +1,141 @@
----
-title: "Create a menu background with images"
-pathway: "Creative Core"
-module: "UI"
-lesson_number: 4
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Thiết kế nền menu bằng Image, Sprite và 9-slicing
 
-# Bài 04 — Create a menu background with images
+> **Creative Core · UI · Bài học + thực hành · Unity 6.3**  
+> **Kết quả:** Một bảng Settings có nền bán trong suốt, tiêu đề, nút đóng và sprite viền không bị méo khi thay đổi kích thước.
 
-> **Pathway:** Creative Core · **Mission:** UI · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Vấn đề và mục tiêu học tập
 
-> **Nguồn đối chiếu:** [UI trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Menu cài đặt cần tạo được lớp thông tin rõ ràng mà không làm mất bối cảnh của game. Trong `uGUI`, `Image` có thể vẽ các sprite, áp màu và kiểm soát độ trong suốt. Tuy nhiên, ảnh có viền hoặc góc bo thường bị kéo méo nếu thay đổi kích thước không đúng cách. **9-slicing** là kỹ thuật xử lý những ảnh dùng làm panel hoặc button.
 
-## 1. Tổng quan
+Sau bài này, người học có thể dựng một panel với Image, import sprite vào Unity, thực hiện 9-slicing, xác định draw order và kiểm thử sự chồng lớp.
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *UI*, bài **Create a menu background with images** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Cơ chế hoạt động của UI Image
 
-## 2. Mục tiêu học tập
+`Image` là một `Graphic` nằm trong Canvas. Các thuộc tính hay sử dụng:
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Create a menu background with images** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+| Thuộc tính | Tác dụng |
+| --- | --- |
+| `Source Image` | Sprite được dùng để vẽ hình |
+| `Color` | Nhân màu (tint) và điều khiển Alpha |
+| `Image Type` | Chế độ vẽ `Simple`, `Sliced`, `Tiled`, `Filled` tùy trường hợp |
+| `Preserve Aspect` | Có thể giữ tỷ lệ sprite khi vẽ ở chế độ hỗ trợ |
+| `Raycast Target` | Cho phép Graphic nhận hit-test con trỏ; nên tắt ở ảnh trang trí không cần bắt input |
+| `Material` | Vật liệu hiển thị hình ảnh, nếu muốn dùng tùy biến phù hợp với Canvas |
 
-## 3. Kiến thức trọng tâm
+Nếu thay Alpha của `Image.Color`, toàn panel trở nên bán trong suốt. Nhưng các GameObject con có màu/Alpha riêng và được render theo hierarchy; không nên mặc định rằng Alpha của ảnh nền sẽ tự làm mờ toàn bộ nội dung con theo cùng cách.
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+## 3. Bản chất của kỹ thuật 9-slicing
 
-### Thuật ngữ và mối quan hệ
+Một sprite thông thường bị kéo đồng đều khi đổi kích thước. Với 9-slicing, sprite được chia thành chín vùng: bốn góc, bốn cạnh và phần trung tâm. Các góc giữ hình dáng; cạnh dãn theo một chiều; phần giữa mở rộng để lấp diện tích còn lại.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
-
-```csharp
-using TMPro;
-using UnityEngine;
-
-public class ScoreDisplay : MonoBehaviour
-{
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
-
-    public void AddPoint()
-    {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
-    }
-}
+```text
++----------------+----------------+----------------+
+| Góc trái-trên  | Cạnh trên      | Góc phải-trên |
+| Giữ hình       | Dãn ngang      | Giữ hình       |
++----------------+----------------+----------------+
+| Cạnh trái      | Tâm            | Cạnh phải      |
+| Dãn dọc        | Dãn 2 chiều    | Dãn dọc        |
++----------------+----------------+----------------+
+| Góc trái-dưới  | Cạnh dưới      | Góc phải-dưới |
+| Giữ hình       | Dãn ngang      | Giữ hình       |
++----------------+----------------+----------------+
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+Điều kiện quan trọng: Sprite phải có **Border** hợp lệ được xác lập trong Sprite Editor, và `Image.Type` phải đặt `Sliced`. Bật `Sliced` mà chưa xác định Border sẽ không đem lại kết quả mong muốn.
 
-## 6. Bài tập củng cố
+## 4. Lab — Tạo bảng Settings
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **UI** để tạo một tương tác nhỏ.
+### 4.1. Xây dựng hierarchy
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+1. Tạm ẩn `Title Text` và `Settings Button` để có không gian dựng menu.
+2. Dưới `Canvas`, tạo `UI > Image`; đổi tên `Settings Menu`.
+3. Dùng `Rect Tool` (**T**) để tạo một bảng chữ nhật lớn ở giữa màn hình; chỉnh `Image.Color` với Alpha phù hợp, ví dụ khoảng 0.85 là **giá trị thử nghiệm**.
+4. Nhấp phải `Settings Menu` → `UI > Text - TextMeshPro`; đổi thành `Settings Text`, nội dung `CÀI ĐẶT`.
+5. Tạo `UI > Button - TextMeshPro` làm con của `Settings Menu`, đổi tên thành `Exit Button`, nhãn `X` hoặc `Đóng`. Đặt gần góc trên-phải với khoảng lề dễ thao tác.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+Cây đối tượng:
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+```text
+Canvas
+├── Title Text
+├── Settings Button
+└── Settings Menu (Image)
+    ├── Settings Text (TMP)
+    └── Exit Button (Button + Image)
+        └── Text (TMP)
+```
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### 4.2. Import sprite và tạo 9-slicing
 
-## 8. Checklist hoàn thành
+1. Kéo file PNG có góc bo/viền vào dự án.
+2. Chọn texture: `Texture Type = Sprite (2D and UI)`; `Apply`.
+3. Mở `Sprite Editor` và chỉnh vùng **Border** sao cho bốn góc của panel được bao đúng. Nếu không thấy Sprite Editor, kiểm tra package hỗ trợ Sprite Editor trong dự án.
+4. Nhấn `Apply` trong Sprite Editor.
+5. Gán sprite này vào `Image > Source Image` của `Settings Menu` hoặc `Exit Button`.
+6. Đặt `Image Type = Sliced`; thay chiều rộng, chiều cao để xác minh bốn góc giữ hình dáng khi bảng kéo ngang/dọc.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — UI](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Lưu ý:** 9-slicing giữ cấu trúc viền, không tự bảo đảm ảnh nội dung có tính thẩm mỹ ở mọi kích thước. Nếu sprite có họa tiết chi tiết ở phần giữa, việc dãn tâm vẫn có thể làm họa tiết trông thiếu tự nhiên.
 
----
+## 5. Draw Order và tính tương tác
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Với cùng một Canvas, trong các trường hợp thông dụng, phần tử UI đứng sau trong hierarchy thường được vẽ đè lên phần tử đứng trước. Bố trí nền panel bên dưới tiêu đề và nút. Cấu hình Canvas phụ, sorting và material có thể ảnh hưởng thứ tự hiển thị, vì vậy luôn kiểm tra kết quả ở Game view.
+
+Ảnh trang trí lớn có bật `Raycast Target` có thể chặn nhấn vào nút phía sau, tùy thứ tự và cấu hình raycast. Đối với ảnh chỉ để trang trí, nên bỏ chọn `Raycast Target`; đối với panel dùng để ngăn tương tác nền, cần thiết kế lớp chặn input có chủ đích.
+
+## 6. Kiểm chứng và xử lý lỗi
+
+| Hiện tượng | Nguyên nhân khả dĩ | Cách kiểm tra |
+| --- | --- | --- |
+| Góc bo bị kéo dẹp | `Simple` hoặc Border chưa khai báo | Kiểm tra Sprite Editor và `Image Type` |
+| Nút X bị panel che | Thứ tự hierarchy sai, hoặc có lớp chắn phía trên | Rà soát hierarchy, sorting và Raycast Target |
+| Ảnh trắng trơn | `Source Image` chưa gán, hoặc tint quá sáng | Gán lại Sprite và Color |
+| Ảnh nhìn nhòe | Texture thấp, bị phóng lớn, thiết lập lọc/compression | Kiểm tra import settings và độ phân giải mục tiêu |
+| Panel bị tràn màn hình | Anchor và kích thước chưa phù hợp | Thử lại trên Game view tỷ lệ khác |
+
+**Checkpoint:** có bảng cài đặt chứa chữ và nút đóng; góc của sprite không méo khi đổi tỷ lệ panel; người dùng vẫn nhìn rõ chữ.
+
+## 7. Câu hỏi ôn tập
+
+**Câu 1.** Tại sao nên dùng 9-slicing cho panel có viền bo?  
+A. Để tăng FPS lên cố định  
+B. Để bốn góc không bị kéo dãn quá mức khi đổi kích thước  
+C. Để tự thêm EventSystem  
+D. Để phát nhạc  
+**Đáp án: B.** **Giải thích:** 9-slicing chia sprite thành vùng góc/cạnh/tâm và xử lý co giãn riêng.
+
+**Câu 2.** Điều kiện nào cần thiết để `Image Type = Sliced` hoạt động đúng ý?  
+A. Có AudioListener  
+B. Camera phải Orthographic  
+C. Sprite được cấu hình Border  
+D. Scene phải có Terrain  
+**Đáp án: C.** **Giải thích:** Border quy định chín vùng của sprite.
+
+**Câu 3.** Thuộc tính nào của `Image.Color` làm nền bán trong suốt?  
+A. Alpha  
+B. Font Size  
+C. Near Clip Plane  
+D. Pivot  
+**Đáp án: A.** **Giải thích:** Alpha điều khiển độ trong suốt của đồ họa.
+
+**Câu 4.** Một Image trang trí che khuất tương tác Button. Nên kiểm tra trước gì?  
+A. Baked GI  
+B. Occlusion Culling  
+C. Rigidbody  
+D. `Raycast Target` và thứ tự phần tử  
+**Đáp án: D.** **Giải thích:** Graphic trang trí có thể nhận raycast và chặn điều khiển bên dưới.
+
+**Câu 5.** Thành phần nào nên đặt ở bên trên nền panel trong thứ tự vẽ UI thông thường?  
+A. Directional Light  
+B. Settings Text và Exit Button  
+C. Camera FOV  
+D. Terrain  
+**Đáp án: B.** **Giải thích:** Nhãn và điều khiển phải hiển thị phía trước nền để có thể đọc và bấm.
+
+## 8. Tổng kết và tài liệu tham khảo
+
+`Image`, `Sprite`, Color Alpha và 9-slicing tạo nên nền tảng của các bảng menu có thể co giãn. Sau bài học, panel có hình ảnh được sắp xếp hợp lý và chuẩn bị cho bước gắn tương tác.
+
+- [Unity Learn — Create a menu background with images](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui/tutorial/create-a-menu-background-with-images-3?version=6.3)
+- [Unity Manual — Basic Layout](https://docs.unity.cn/2023.2/Documentation/Manual/UIBasicLayout.html)
+
+*Bài học tiếng Việt tự biên soạn và đối chiếu tài liệu kỹ thuật; không phải bản dịch chính thức.*

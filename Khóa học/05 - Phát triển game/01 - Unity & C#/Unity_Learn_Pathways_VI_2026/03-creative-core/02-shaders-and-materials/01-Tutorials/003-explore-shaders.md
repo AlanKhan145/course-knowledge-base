@@ -1,78 +1,80 @@
 ---
-title: "Explore shaders"
-pathway: "Creative Core"
-module: "Shaders and Materials"
+title: "Bài 03 — Khám phá các loại Shader"
+source_title: "Explore shaders"
+course: "Unity Creative Core — Shaders and Materials"
+unity_version: "6.3 (hướng dẫn ưu tiên URP)"
 lesson_number: 3
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/shaders-and-materials?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+lesson_type: "tutorial"
+status: "Tài liệu tự biên soạn, mở rộng và đối chiếu tài liệu công khai"
+updated_at: "2026-10-29"
 ---
 
-# Bài 03 — Explore shaders
+# Bài 03 — Khám phá các loại Shader
 
-> **Pathway:** Creative Core · **Mission:** Shaders and Materials · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Phần học:** Creative Core / Shaders and Materials  
+> **Tên bài gốc:** Explore shaders  
+> **Môi trường thực hành:** Unity 6.3, khuyến nghị project Universal Render Pipeline (URP)  
+> **Nguồn gốc nội dung:** Dựa trên tệp đề cương do người học cung cấp; phần giải thích, ví dụ, bài tập, sơ đồ là nội dung bổ sung do biên soạn, không phải transcript hoặc bản dịch chính thức của Unity Learn.
 
-> **Nguồn đối chiếu:** [Shaders and Materials trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/shaders-and-materials?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## Mục tiêu học tập
+- Lựa chọn URP/Lit, Simple Lit hoặc Unlit dựa trên nhu cầu quan sát được.
+- Phân biệt Shader asset với Material asset, shader đồ họa với C# script.
+- Thực hiện so sánh phản ứng trước thay đổi ánh sáng.
 
-## 1. Tổng quan
+## 1. Shader không phải một ảnh texture
+**Shader** là chương trình chạy trong quy trình xử lý đồ họa, quy định cách bề mặt được biểu diễn. Một Shader có thể chứa logic xử lý đỉnh, lấy mẫu texture, tính chiếu sáng, hiệu ứng emissive và trạng thái blend/depth. **Material** là asset gán shader và các giá trị cho các thuộc tính của shader đó.
 
-**Chủ đề:** Shader và cách bề mặt được hiển thị. Trong ngữ cảnh *Shaders and Materials*, bài **Explore shaders** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Unity có shader dựng sẵn, Shader Graph tạo graph trực quan và giải pháp tự viết bằng ShaderLab/HLSL. Với khóa cơ bản, sử dụng shader dựng sẵn trước, sau đó chuyển sang Shader Graph ở bài 10.
 
-## 2. Mục tiêu học tập
+## 2. Chọn shader theo yêu cầu
+| Shader trong URP | Đặc điểm | Tình huống nên thử |
+|---|---|---|
+| `Universal Render Pipeline/Lit` | Mô phỏng chất liệu có ánh sáng, metallic, smoothness và nhiều texture map | Gỗ, kim loại, đồ gốm, đá |
+| `Universal Render Pipeline/Simple Lit` | Mô hình chiếu sáng đơn giản hơn Lit | Tài sản cần tiết kiệm hơn, kiểm thử trên cấu hình mục tiêu |
+| `Universal Render Pipeline/Unlit` | Không dùng mô hình chiếu sáng vật lý như Lit | Biển chỉ dẫn phẳng, màu cố định, đồ họa stylized |
+| Shader Graph tùy chỉnh | Cho phép tổ hợp node và định nghĩa tham số | Quét sáng, dải màu, màu dao động, hiệu ứng sáng tạo |
 
-- Trình bày được mục đích của **shader và cách bề mặt được hiển thị** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Explore shaders** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Không có một shader tối ưu cho mọi trường hợp.** Một Unlit đẹp trong một scene có thể bị thiếu cảm giác thể tích; một Lit phức tạp có thể lãng phí cho lớp nền trang trí. Hiệu năng phải được đo trên nền tảng đích.
 
-## 3. Kiến thức trọng tâm
+## 3. Thực hành so sánh có kiểm soát
+1. Tạo ba Sphere giống hệt nhau và ba Material: `MAT_Lit`, `MAT_SimpleLit`, `MAT_Unlit`.
+2. Gán shader tương ứng, chọn màu nhìn thấy tương tự; vì các mô hình shading khác nhau nên không nên coi màu pixel đầu ra nhất thiết bằng nhau.
+3. Di chuyển hoặc xoay `Directional Light` và so sánh sự thay đổi của ba Sphere.
+4. Đổi vị trí Camera và quan sát phản xạ specular của vật liệu Lit.
+5. Kết luận shader nào phù hợp cho một biển thông tin, bức tượng gốm và vật thể phát sáng nghệ thuật.
 
-- Shader quy định công thức vẽ bề mặt; Material lưu các giá trị đầu vào và tham chiếu Shader.
-- URP/Lit phù hợp nhiều bề mặt nhận ánh sáng, còn Shader Graph hỗ trợ xây dựng hiệu ứng bằng node.
-- Độ đục, cắt alpha và transparency có cách xử lý thứ tự render khác nhau.
+```mermaid
+flowchart TD
+ A{Vật thể cần phản ứng ánh sáng?} -->|Không| U[URP/Unlit]
+ A -->|Có| B{Cần hệ PBR và nhiều texture map?}
+ B -->|Có| L[URP/Lit]
+ B -->|Không, nhu cầu đơn giản| S[Thử URP/Simple Lit]
+ C{Cần hiệu ứng riêng?} -->|Có| G[Shader Graph]
+ L --> C
+ S --> C
+ U --> C
+```
 
-### Thuật ngữ và mối quan hệ
+## 4. Kiến thức mở rộng: render pass và độ sâu
+Shader không chỉ là một công thức màu duy nhất. Rendering phụ thuộc vào **render pass**, depth testing, culling, blending và thứ tự vẽ. Vì vậy, đổi sang shader có chế độ transparent khác có thể gây thay đổi thứ tự vật thể, không chỉ màu sắc. Bài 07 giải thích riêng về vấn đề này.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 5. Phòng lỗi
+- Gán shader Built-in/Standard vào URP có thể hiển thị hồng; chọn shader hỗ trợ pipeline hoặc nâng cấp material.
+- Shader Graph báo lỗi: mở graph, kiểm tra các kết nối sai kiểu và lưu/biên dịch lại.
+- Chọn sai Material instance: kiểm tra `Mesh Renderer > Materials` và sửa đúng asset.
 
-## 4. Thực hành từng bước
+## 6. Bài tập
+Thiết kế bảng quyết định cho ba vật thể bất kỳ trong game của bạn. Mỗi lựa chọn phải có **lý do**, **giới hạn** và **thử nghiệm chứng minh**.
 
-1. **Bước 1:** Chọn render pipeline của dự án và tạo Material có shader tương thích.
-2. **Bước 2:** Quan sát ảnh hưởng của Base Color, Metallic và Smoothness lên ánh sáng phản chiếu.
-3. **Bước 3:** Tạo một Shader Graph đơn giản (nếu pipeline hỗ trợ), nối màu đầu vào đến bề mặt.
-4. **Bước 4:** Kiểm tra hiệu ứng ở nhiều góc Camera và nguồn sáng khác nhau.
+## Tự kiểm chứng khi hoàn thành
+- [ ] Nêu được khái niệm chính của bài bằng ví dụ trong Unity.
+- [ ] Thực hiện được phép thử trước–sau và lưu scene/bằng chứng.
+- [ ] Phân biệt kết quả quan sát thực tế với kết luận suy đoán.
+- [ ] Kiểm tra phiên bản Render Pipeline/Shader khi áp dụng trên dự án khác.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## Tài liệu tham khảo và đối chiếu
+- **1.** [Unity Manual 6.3 — Custom shaders](https://docs.unity.com/en-us/engine/6000.3/manual/materials-and-shaders/shaders)
+- **2.** [Unity Manual 6.3 — URP/Lit reference](https://docs.unity.com/en-us/engine/6000.3/manual/materials-and-shaders/built-in/shaders-in-universalrp/reference/lit-shader)
+- **3.** [Unity Manual 6.3 — Shader Graph](https://docs.unity.com/en-us/engine/6000.3/manual/materials-and-shaders/shaders/writing-custom/shader-graph)
 
-## 5. Bài tập củng cố
-
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Shaders and Materials** để tạo một tương tác nhỏ.
-
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: vật thể màu hồng vì shader không tương thích hoặc graph chưa được lưu/biên dịch.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Shaders and Materials](https://learn.unity.com/pathway/creative-core/unit/shaders-and-materials?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+> **Ghi chú tài liệu:** Các bước thao tác và thông số minh họa được thiết kế để tự học; vị trí menu/thuộc tính có thể thay đổi theo template, package và bản cập nhật. Các nguồn Unity ở trên được dùng để kiểm tra thuật ngữ và tính năng; không có tuyên bố đã kiểm thử trực tiếp bằng Unity Editor trong môi trường này.

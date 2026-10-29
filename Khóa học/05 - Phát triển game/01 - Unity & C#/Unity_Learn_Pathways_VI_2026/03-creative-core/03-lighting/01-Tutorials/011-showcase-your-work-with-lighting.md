@@ -1,78 +1,114 @@
----
-title: "Showcase your work with lighting"
-pathway: "Creative Core"
-module: "Lighting"
-lesson_number: 11
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 11 — Ánh sáng studio và kỹ thuật Three-Point Lighting
 
-# Bài 11 — Showcase your work with lighting
+*Creative Core · Lighting · Unity 6.3 · Showcase your work with lighting*
 
-> **Pathway:** Creative Core · **Mission:** Lighting · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Tổng quan và mục tiêu
 
-> **Nguồn đối chiếu:** [Lighting trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Trình bày sản phẩm 3D đòi hỏi ánh sáng giúp người xem đọc được hình dáng, bề mặt và chất liệu. **Three-point lighting** là kỹ thuật phổ biến trong chụp ảnh, phim và diễn họa sản phẩm: một nguồn chính, một nguồn bổ trợ và một đèn tách chủ thể khỏi nền. Bạn sẽ thử ánh sáng ba điểm với một đạo cụ trong studio ảo của Unity.
 
-## 1. Tổng quan
+## 2. Phân vai ánh sáng
 
-**Chủ đề:** Chiếu sáng và độ chân thực của khung cảnh. Trong ngữ cảnh *Lighting*, bài **Showcase your work with lighting** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+| Vai trò | Công dụng | Vị trí thường gặp |
+|---|---|---|
+| `Key Light` | Định hình diện sáng chính, xác lập hướng nhìn | Trước và lệch một phía chủ thể |
+| `Fill Light` | Kiểm soát tương phản phía tối | Phía đối diện nguồn chính |
+| `Back / Rim Light` | Tạo vành sáng tách chủ thể khỏi nền | Phía sau hoặc chếch sau |
 
-## 2. Mục tiêu học tập
+**Đây là vai trò thị giác, không phải tên bắt buộc của một Component Unity.** Ba đèn thường là Spot/Point với màu và góc thích hợp. Trong project Unity Learn, studio có hai đèn màu xanh/cam tương đương độ mạnh đặt đối diện nhau và một đèn trắng phía sau; đó là **biến thể** của three-point, không phải công thức cứng rằng Key luôn mạnh hơn Fill.
 
-- Trình bày được mục đích của **chiếu sáng và độ chân thực của khung cảnh** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Showcase your work with lighting** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+```mermaid
+flowchart TD
+    A[Key - phía trước trái] --> C[Đối tượng trung tâm]
+    B[Fill - phía trước phải] --> C
+    D[Rim - phía sau] --> C
+    C --> E[Camera chụp sản phẩm]
+```
 
-## 3. Kiến thức trọng tâm
+Sơ đồ chỉ diễn tả tương quan chứ không quy định góc đặt đèn tuyệt đối. Vật thể bóng, nhám, thủy tinh và vải cần xử lý specular và vùng nhấn khác nhau.
 
-- Directional Light mô phỏng nguồn sáng định hướng; Point và Spot Light phù hợp nguồn sáng cục bộ.
-- Baked lighting lưu kết quả chiếu sáng tĩnh vào lightmap, trong khi realtime lighting cập nhật theo thời gian chạy.
-- Light Probes hỗ trợ đối tượng động trong môi trường chiếu sáng bake; Reflection Probes tạo phản xạ theo môi trường.
+## 3. Xây dựng studio
 
-### Thuật ngữ và mối quan hệ
+1. Mở `FinalScene_Lighting_Studio` trong project mẫu để quan sát, sau đó duplicate scene trước khi chỉnh sửa.
+2. Thay quả táo/đạo cụ mẫu bằng một model 3D của bạn, chẳng hạn tượng nhỏ, chai nước hoặc sản phẩm thiết kế. Tạo nền cong studio hoặc phông đơn sắc để tách đường chân trời.
+3. Tắt hai đèn còn lại, chỉ bật **Key Light**. Quan sát vùng sáng và hướng bóng. Chọn góc tốt nhất làm hướng chính của shot.
+4. Bật **Fill Light**. Tăng dần tác động của đèn này đến khi phần tối vẫn còn chi tiết mà không làm vật thể phẳng. Có thể dùng màu ấm/lạnh đối lập nhưng cần có chủ đích.
+5. Bật **Rim Light** và di chuyển ra phía sau. Điều chỉnh góc và cường độ để tạo đường viền mà không cháy sáng hoặc tạo chấm highlight vô cớ.
+6. Chỉnh `Spot Angle`, `Range`, `Intensity`, `Color`, `Inner/Outer Spot Angle` (nếu khả dụng), đặt Camera cố định. Thay đổi backdrop và kiểm tra tính nhất quán của phản xạ vật liệu.
+7. Chụp ảnh **chỉ Key / Key + Fill / đủ ba đèn**. Với mẫu phức tạp, kiểm tra lại Reflection Probe hoặc environment reflection.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Thiết kế mood
 
-## 4. Thực hành từng bước
+Một tông ấm trung tính với phông sáng thường truyền cảm giác tin cậy, thân thiện; tương phản cam–xanh tăng tính kịch tính, hiện đại. Đây chỉ là **quy ước thị giác có tính bối cảnh**, không phải ánh sáng màu nào cũng gắn với một cảm xúc duy nhất. Với ảnh portfolio, độ nhận biết sản phẩm và hình dáng vẫn quan trọng hơn việc thêm nhiều hiệu ứng.
 
-1. **Bước 1:** Thiết lập một scene có nền, đối tượng tĩnh, đối tượng động và nguồn sáng.
-2. **Bước 2:** Thay đổi hướng, cường độ, màu ánh sáng rồi quan sát bóng đổ.
-3. **Bước 3:** Với pipeline hỗ trợ, thử bake ánh sáng và đánh dấu đối tượng tĩnh đúng cách.
-4. **Bước 4:** So sánh hình ảnh và hiệu năng trước/sau; chụp ảnh minh họa các thiết lập.
+## 5. Đánh giá chất lượng
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Một shot studio tốt cần trả lời được: người xem nhìn vào đâu đầu tiên; rìa vật có tách nền không; chi tiết vật liệu có bị cháy hay mất trong bóng không; highlight có diễn tả đúng độ nhẵn không; có vùng phản xạ sai môi trường không. Có thể dùng Unity Recorder (nếu cài đặt tương thích) để xuất ảnh/video; ảnh chụp màn hình cũng chấp nhận được cho bài thực hành.
 
-## 5. Bài tập củng cố
+## 6. Sản phẩm nộp
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Lighting** để tạo một tương tác nhỏ.
+Ba ảnh phân tách vai trò đèn, một ảnh cuối chất lượng cao, mô tả ngắn về tông màu/mood và bảng các thay đổi `Key / Fill / Rim`. Không bắt buộc dùng ba đèn nếu có phương án nghệ thuật rõ ràng, nhưng phải chứng minh được vai trò từng nguồn.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: lightmap không cập nhật, bề mặt thiếu UV phù hợp hoặc vật thể động không nhận ánh sáng như mong đợi.
+### Câu 1
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Đèn nào thường dùng để tạo vành sáng tách vật khỏi phông?
 
-## 7. Checklist hoàn thành
+A. Key  
+B. Fill  
+C. Rim/Back  
+D. Ambient  
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Lighting](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Đáp án:** C. **Giải thích:** Back/Rim chiếu từ phía sau tạo đường viền tách bối cảnh.
 
----
+### Câu 2
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Chức năng phổ biến của Fill Light là gì?
+
+A. Làm mất toàn bộ bóng  
+B. Giảm độ tương phản quá gắt ở phía tối  
+C. Tạo ánh sáng mặt trời trực tiếp  
+D. Tạo lightmap UV  
+
+**Đáp án:** B. **Giải thích:** Fill bù chi tiết vào phần bóng để kiểm soát tương phản.
+
+### Câu 3
+
+Three-point lighting có bắt buộc Key luôn mạnh hơn Fill không?
+
+A. Có, theo định nghĩa Unity  
+B. Không, có thể dùng biến thể với hai đèn màu ngang nhau  
+C. Chỉ khi có Skybox  
+D. Không được dùng Spot Light  
+
+**Đáp án:** B. **Giải thích:** Bố cục studio có thể biến đổi theo ý đồ nhưng vẫn giữ vai trò chiếu sáng.
+
+### Câu 4
+
+Vì sao phải chụp các trạng thái bật từng đèn?
+
+A. Để thấy đóng góp riêng và chỉnh theo nguyên nhân  
+B. Để bỏ mọi vật liệu  
+C. Để tạo GI realtime  
+D. Để Unity thay model  
+
+**Đáp án:** A. **Giải thích:** A/B giữa các nguồn giúp tìm đúng ánh sáng ảnh hưởng từng vùng.
+
+### Câu 5
+
+Ảnh sản phẩm bị cháy sáng làm mất texture: nên làm gì trước?
+
+A. Tăng exposure  
+B. Giảm/điều chỉnh key, rim hoặc exposure theo nguyên nhân  
+C. Thêm đèn cường độ cao  
+D. Tắt Camera  
+
+**Đáp án:** B. **Giải thích:** Kiểm soát cường độ và dải sáng trước khi dùng hiệu ứng làm ảnh sáng thêm.
+
+
+## 8. Tài liệu tham khảo và lưu ý phiên bản
+
+- [Unity Learn — Showcase your work with lighting](https://learn.unity.com/course/creative-core-lighting/tutorial/showcase-your-work-with-lighting?version=6.3) (Unity 6.3).
+
+**Lưu ý:** Menu và tùy chọn có thể khác theo URP Asset, Quality Level, Unity Editor và loại shader đang dùng. Nội dung là bài giảng tiếng Việt độc lập được biên soạn và bổ sung để học tập, không phải bản dịch chính thức hay lời chép toàn văn của Unity.

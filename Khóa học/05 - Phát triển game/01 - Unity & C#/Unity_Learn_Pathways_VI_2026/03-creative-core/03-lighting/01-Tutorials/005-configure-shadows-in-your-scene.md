@@ -1,78 +1,118 @@
----
-title: "Configure shadows in your scene"
-pathway: "Creative Core"
-module: "Lighting"
-lesson_number: 5
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 05 — Cấu hình bóng đổ, shadow cascades và hậu kỳ
 
-# Bài 05 — Configure shadows in your scene
+*Creative Core · Lighting · Unity 6.3 · Configure shadows in your scene*
 
-> **Pathway:** Creative Core · **Mission:** Lighting · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Tổng quan và mục tiêu
 
-> **Nguồn đối chiếu:** [Lighting trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bóng đổ cho người xem biết độ cao, khoảng cách, sự tiếp xúc và hướng ánh sáng. Khi render thời gian thực, Unity thường biểu diễn bóng bằng **shadow map**: dữ liệu độ sâu nhìn từ phía nguồn sáng. Chất lượng bóng phụ thuộc đồng thời vào đèn, vật thể, render pipeline và camera; tăng độ phân giải mà không khảo sát toàn hệ thống có thể vừa tốn tài nguyên vừa không giải quyết đúng lỗi.
 
-## 1. Tổng quan
+## 2. Shadow map hoạt động thế nào?
 
-**Chủ đề:** Chiếu sáng và độ chân thực của khung cảnh. Trong ngữ cảnh *Lighting*, bài **Configure shadows in your scene** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+```mermaid
+flowchart LR
+    A[Nhìn scene từ nguồn sáng] --> B[Tạo shadow map độ sâu]
+    B --> C[Render từ camera]
+    C --> D[So sánh độ sâu với nguồn sáng]
+    D --> E[Phân loại sáng / bị che khuất]
+```
 
-## 2. Mục tiêu học tập
+Khi so sánh độ sâu, sai số số học hoặc độ phân giải quá thấp có thể gây **shadow acne** (vệt tối sai trên mặt). `Depth Bias` và `Normal Bias` giảm lỗi nhưng giá trị quá lớn làm bóng tách khỏi chân vật (*peter-panning*). Bóng mềm mô phỏng vùng chuyển tiếp (*penumbra*) bằng kỹ thuật lọc/phương pháp sampling; không nên hiểu Soft Shadows luôn tạo độ mềm vật lý đúng cho mọi kích thước nguồn.
 
-- Trình bày được mục đích của **chiếu sáng và độ chân thực của khung cảnh** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Configure shadows in your scene** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Hệ thống tham số cần kiểm tra
 
-## 3. Kiến thức trọng tâm
+| Phạm vi | Thiết lập | Ảnh hưởng |
+|---|---|---|
+| URP Asset | Shadows / Main Light Shadows | Cho phép render bóng của đèn chính |
+| URP Asset | Additional Light Shadows | Bóng từ Spot/Point phụ (khi pipeline hỗ trợ) |
+| URP Asset | Shadow Resolution, Max Distance | Độ chi tiết và khoảng cách tối đa vẽ bóng |
+| URP Asset | Cascade Count / Splits | Phân bố độ phân giải bóng theo khoảng cách camera cho đèn hướng |
+| Light component | Shadow Type | None/Hard/Soft tùy cấu hình |
+| Mesh Renderer | Cast Shadows / Receive Shadows | Vật có tạo hoặc nhận bóng không |
 
-- Directional Light mô phỏng nguồn sáng định hướng; Point và Spot Light phù hợp nguồn sáng cục bộ.
-- Baked lighting lưu kết quả chiếu sáng tĩnh vào lightmap, trong khi realtime lighting cập nhật theo thời gian chạy.
-- Light Probes hỗ trợ đối tượng động trong môi trường chiếu sáng bake; Reflection Probes tạo phản xạ theo môi trường.
+**Cascaded Shadow Maps** chia dải khoảng cách từ camera thành nhiều vùng; vùng gần có thể được cấp texel tốt hơn. Nhiều cascades không luôn "tốt hơn tuyệt đối": tăng chi phí và cần điều chỉnh phân bố phù hợp với camera.
 
-### Thuật ngữ và mối quan hệ
+## 4. Thực hành
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+1. Chọn URP Asset thực sự đang được gán cho Quality level của dự án. Với project mẫu, tìm asset tương ứng trong `Assets/CreativeCore_Lighting/Settings/Rendering` (ví dụ `UniversalRP_HighQuality`).
+2. Mở phần Shadows: thử thay `Max Distance` từ gần 0 lên khoảng cách đủ bao trùm cảnh. Chú ý vùng bóng biến mất theo khoảng cách tới camera.
+3. Thử `Depth Bias` và `Normal Bias` với một mô hình có vệt shadow acne. Ghi lại lúc lỗi biến mất và lúc bóng bắt đầu rời chân vật.
+4. Bật Soft Shadows trong URP Asset và chọn `Soft Shadows` cho `Directional Light` nếu giao diện cho phép. Quan sát rìa bóng ở cùng góc camera.
+5. Đổi số cascades (ví dụ từ một mức thấp lên mức cao hơn được hỗ trợ) và nhìn vùng gần camera. Kiểm tra chất lượng bóng và tốc độ khung hình.
+6. Đánh giá hậu kỳ: Bloom, Color Adjustments/Exposure, Tonemapping và Ambient Occlusion có thể **thay đổi cảm nhận bóng**, nhưng không thay shadow map thực chất.
 
-## 4. Thực hành từng bước
+## 5. Kiểm tra kết quả và lỗi thường gặp
 
-1. **Bước 1:** Thiết lập một scene có nền, đối tượng tĩnh, đối tượng động và nguồn sáng.
-2. **Bước 2:** Thay đổi hướng, cường độ, màu ánh sáng rồi quan sát bóng đổ.
-3. **Bước 3:** Với pipeline hỗ trợ, thử bake ánh sáng và đánh dấu đối tượng tĩnh đúng cách.
-4. **Bước 4:** So sánh hình ảnh và hiệu năng trước/sau; chụp ảnh minh họa các thiết lập.
+- **Bóng bị răng cưa**: thử tăng shadow resolution hợp lý, giảm phạm vi Max Distance hoặc cân nhắc cascade distribution.
+- **Bóng lấm tấm**: chỉnh bias từng bước nhỏ và quan sát mặt phẳng gần nguồn sáng.
+- **Bóng rời vật**: giảm bias quá mức, kiểm tra mesh/normal.
+- **Không có bóng của đèn phụ**: kiểm tra Additional Light Shadows trong URP Asset và cài đặt Light.
+- **Bóng chỉ xuất hiện gần camera**: kiểm tra shadow distance, không nhầm với vấn đề lightmap.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 6. Minh chứng bắt buộc
 
-## 5. Bài tập củng cố
+Chụp ba ảnh cùng camera: **Hard**, **Soft**, và **đã điều chỉnh cascades**. Ghi frame time hoặc GPU time nếu có, nhưng không tự khẳng định một mức tối ưu khi chưa đo trên thiết bị đích.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Lighting** để tạo một tương tác nhỏ.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-## 6. Lỗi thường gặp và cách kiểm tra
+### Câu 1
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: lightmap không cập nhật, bề mặt thiếu UV phù hợp hoặc vật thể động không nhận ánh sáng như mong đợi.
+Nguyên nhân chủ yếu của hiện tượng shadow acne là gì?
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. Sai số và giới hạn biểu diễn độ sâu trong shadow mapping  
+B. Thiếu Audio Source  
+C. Material không có Albedo  
+D. Camera không có Collider  
 
-## 7. Checklist hoàn thành
+**Đáp án:** A. **Giải thích:** So sánh độ sâu thiếu chính xác có thể làm vùng sáng bị phân loại nhầm là bóng.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Lighting](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+### Câu 2
 
----
+Tăng Bias quá nhiều có thể dẫn đến điều gì?
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+A. Bóng tách khỏi chân vật  
+B. Tạo nhiều Light Probes  
+C. Mặt trời mất màu  
+D. Tăng UV channel  
+
+**Đáp án:** A. **Giải thích:** Bias quá lớn làm vị trí phép so sánh bóng dịch quá xa bề mặt.
+
+### Câu 3
+
+Cascades chủ yếu giúp vấn đề nào?
+
+A. Tăng số bóng trong toàn bộ scene  
+B. Phân bổ chất lượng bóng Directional Light theo khoảng cách camera  
+C. Tạo phản xạ gương  
+D. Bật emission  
+
+**Đáp án:** B. **Giải thích:** Cascades cải thiện phân bố shadow map độ sâu cho các vùng khoảng cách.
+
+### Câu 4
+
+Vì sao Soft Shadows không được coi là phương pháp luôn chính xác vật lý?
+
+A. Vì có thể dùng lọc/lấy mẫu để xấp xỉ penumbra  
+B. Vì bóng mềm không tồn tại  
+C. Vì chỉ hoạt động với âm thanh  
+D. Vì bỏ qua Light component  
+
+**Đáp án:** A. **Giải thích:** Bóng mềm realtime thường được xấp xỉ từ shadow maps và bộ lọc.
+
+### Câu 5
+
+Nếu chỉ mất bóng từ một Spot Light, nên kiểm tra đầu tiên nhóm nào?
+
+A. Additional Lights Shadows và Shadow Type của đèn  
+B. Font chữ UI  
+C. Tệp animation  
+D. NavMesh  
+
+**Đáp án:** A. **Giải thích:** Đèn phụ cần được pipeline cho phép render bóng và bật ở Light component.
+
+
+## 8. Tài liệu tham khảo và lưu ý phiên bản
+
+- [Unity Learn — Configure shadows in your scene](https://learn.unity.com/course/creative-core-lighting/tutorial/configure-shadows-in-your-scene?version=6.3) (Unity 6.3).
+
+**Lưu ý:** Menu và tùy chọn có thể khác theo URP Asset, Quality Level, Unity Editor và loại shader đang dùng. Nội dung là bài giảng tiếng Việt độc lập được biên soạn và bổ sung để học tập, không phải bản dịch chính thức hay lời chép toàn văn của Unity.

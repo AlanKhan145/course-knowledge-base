@@ -1,78 +1,80 @@
----
-title: "Apply lighting to your guided project"
-pathway: "Creative Core"
-module: "Lighting"
-lesson_number: 13
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 13 — Áp dụng hệ thống chiếu sáng vào dự án Unity cá nhân
 
-# Bài 13 — Apply lighting to your guided project
+*Creative Core · Lighting · Unity 6.3 · Apply lighting to your guided project*
 
-> **Pathway:** Creative Core · **Mission:** Lighting · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Bài toán
 
-> **Nguồn đối chiếu:** [Lighting trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một Guided Project có thể là không gian trưng bày, cảnh game, mô phỏng kiến trúc hoặc sản phẩm 3D. Yêu cầu không chỉ là làm cho vật thể nhìn thấy được; hệ thống lighting phải hỗ trợ **mục tiêu trải nghiệm**, hoạt động đúng trên render pipeline đang dùng và có thể kiểm chứng. Bài thực hành này tạo một vòng triển khai hoàn chỉnh từ phân tích đến kết quả.
 
-## 1. Tổng quan
+## 2. Mục tiêu sản phẩm
 
-**Chủ đề:** Chiếu sáng và độ chân thực của khung cảnh. Trong ngữ cảnh *Lighting*, bài **Apply lighting to your guided project** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Hoàn thiện lighting trong **một scene của chính dự án** với: một mô tả mục tiêu thị giác, phương án light source phù hợp, lựa chọn realtime/baked có căn cứ, shadow tối ưu cơ bản, probes nơi cần thiết và ảnh before/after ở góc camera cố định.
 
-## 2. Mục tiêu học tập
+## 3. Xác định ràng buộc trước khi triển khai
 
-- Trình bày được mục đích của **chiếu sáng và độ chân thực của khung cảnh** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Apply lighting to your guided project** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- Directional Light mô phỏng nguồn sáng định hướng; Point và Spot Light phù hợp nguồn sáng cục bộ.
-- Baked lighting lưu kết quả chiếu sáng tĩnh vào lightmap, trong khi realtime lighting cập nhật theo thời gian chạy.
-- Light Probes hỗ trợ đối tượng động trong môi trường chiếu sáng bake; Reflection Probes tạo phản xạ theo môi trường.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Câu hỏi | Gợi ý quyết định |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Đối tượng nào chuyển động? | Giữ đèn realtime/mixed hoặc đặt Light Probes phù hợp |
+| Kiến trúc có cố định không? | Ưu tiên xét bake cho geometry tĩnh |
+| Người chơi thấy vùng nào nhiều nhất? | Dồn chất lượng shadow/lightmap ở vùng quan trọng |
+| Có vật liệu bóng và không gian nội thất? | Kiểm tra Reflection Probes cục bộ |
+| Mục tiêu chạy trên điện thoại hay PC? | Đặt ngân sách đèn, bóng, lightmap, đo trên thiết bị đích |
 
-## 4. Thực hành từng bước
+Không chuyển toàn bộ nguồn sáng sang Baked nếu gameplay thực sự yêu cầu đèn di chuyển hoặc đổi bố cục. Ngược lại, không dùng nhiều đèn Realtime cho nội thất cố định chỉ vì dễ chỉnh trong Editor.
 
-1. **Bước 1:** Thiết lập một scene có nền, đối tượng tĩnh, đối tượng động và nguồn sáng.
-2. **Bước 2:** Thay đổi hướng, cường độ, màu ánh sáng rồi quan sát bóng đổ.
-3. **Bước 3:** Với pipeline hỗ trợ, thử bake ánh sáng và đánh dấu đối tượng tĩnh đúng cách.
-4. **Bước 4:** So sánh hình ảnh và hiệu năng trước/sau; chụp ảnh minh họa các thiết lập.
+## 4. Kiến trúc hệ thống lighting
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart TD
+    A[Ý đồ nghệ thuật] --> B[Phân lớp ánh sáng]
+    B --> C[Realtime / Mixed]
+    B --> D[Baked + Lightmaps]
+    D --> E[Light Probes]
+    B --> F[Reflection Probes]
+    C --> G[Render + Profile]
+    E --> G
+    F --> G
+    G --> H[So sánh và hoàn thiện]
+```
 
-## 5. Bài tập củng cố
+Chú ý rằng lựa chọn Light Probes/Reflection Probes là **để giải quyết các vấn đề khác nhau**: ánh sáng khuếch tán với vật không dùng lightmap và phản xạ môi trường của vật bóng.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Lighting** để tạo một tương tác nhỏ.
+## 5. Các mốc triển khai
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Mốc A – Lighting baseline.** Lưu scene thành bản sao, đặt camera, bật đúng project URP Asset, chụp ảnh ban đầu. Ghi rõ nguồn sáng chủ đạo, hướng bóng, palette màu và đối tượng được ưu tiên.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Mốc B – Light source và environment.** Cấu hình Directional/Skybox nếu ngoài trời; Spot/Point cho nguồn địa phương; ambient đủ để không mất toàn bộ thông tin vùng khuất. Thử một thay đổi mỗi lần và xem Game view.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: lightmap không cập nhật, bề mặt thiếu UV phù hợp hoặc vật thể động không nhận ánh sáng như mong đợi.
+**Mốc C – Bake.** Quyết định mesh tĩnh, kiểm tra `Contribute GI`, UV2 và thiết lập bake. Generate Lighting rồi kiểm tra bằng diagnostic. Nếu scene thay đổi, ghi lại những asset/dữ liệu bake cần cập nhật.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Mốc D – Probes, reflection và bóng.** Di chuyển một vật thể thử qua scene, so sánh Lighting với probes. Với vật bóng, kiểm tra reflection và culling volumes. Tinh chỉnh Shadow Distance/Bias/Soft Shadows và chú ý cost GPU.
 
-## 7. Checklist hoàn thành
+**Mốc E – Kiểm thử.** Test ở Play Mode và trong build khi có điều kiện; dùng Profiler/Frame Debugger hoặc các diagnostic liên quan. Ghi frame time thực tế thay vì chỉ đo FPS không kiểm soát điều kiện.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Lighting](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 6. Definition of Done
 
----
+- [ ] Lighting chủ đạo có lý do rõ ràng và dẫn mắt tới mục tiêu.
+- [ ] Không có lỗi hình ảnh nổi bật do UV, shadow hoặc reflection.
+- [ ] Chế độ Light phù hợp tính chất tĩnh/động của scene.
+- [ ] Có ảnh before/after với cùng góc camera và chất lượng render.
+- [ ] Lưu bảng thông số/cấu hình đã thử; biết yếu tố nào cần rebake.
+- [ ] Có ít nhất một cải tiến đo được hoặc giải thích bằng đối chiếu trực quan.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## 7. Câu hỏi ôn tập
+
+1. Với dự án có chu kỳ ngày đêm thay đổi liên tục, phần ánh sáng nào khó chỉ dùng Baked Lightmap?
+2. Khi nhân vật đi vào căn phòng bake và trông không hòa nhập, thành phần gì cần kiểm tra?
+3. Vì sao một metal shader trong nhà có thể phản xạ bầu trời dù phòng kín?
+4. Bạn ưu tiên sửa lỗi shadow acne hay tăng lightmap resolution khi bóng lỗi trong một đèn realtime? Vì sao?
+5. Muốn chứng minh tiến bộ, bạn sẽ giữ cố định những yếu tố nào trong hai ảnh đối chiếu?
+
+Không cần có cấu hình giống một dự án khác; một phương án tốt phải chứng minh được **đúng với yêu cầu scene của bạn**.
+
+
+## 8. Tài liệu tham khảo và lưu ý phiên bản
+
+- [Unity Learn — Apply lighting to your guided project](https://learn.unity.com/course/creative-core-lighting/tutorial/apply-lighting-to-your-guided-project?version=6.3) (Unity 6.3).
+- [Tài liệu UV cho lightmap](https://docs.unity3d.com/6000.3/Documentation/Manual/LightingGiUvs-GeneratingLightmappingUVs.html).
+- [Tài liệu về Mixed Lighting](https://docs.unity3d.com/kr/current/ScriptReference/MixedLightingMode.html).
+
+**Lưu ý:** Menu và tùy chọn có thể khác theo URP Asset, Quality Level, Unity Editor và loại shader đang dùng. Nội dung là bài giảng tiếng Việt độc lập được biên soạn và bổ sung để học tập, không phải bản dịch chính thức hay lời chép toàn văn của Unity.

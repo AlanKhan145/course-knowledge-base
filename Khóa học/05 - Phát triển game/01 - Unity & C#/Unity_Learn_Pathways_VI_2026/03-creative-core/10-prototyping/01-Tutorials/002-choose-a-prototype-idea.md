@@ -1,78 +1,104 @@
----
-title: "Choose a prototype idea"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 2
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 02 — Lựa chọn ý tưởng prototype phù hợp
 
-# Bài 02 — Choose a prototype idea
+> **Creative Core · Prototyping · Bài học**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Ý tưởng nguyên mẫu cần có người dùng mục tiêu, trải nghiệm trung tâm và khả năng kiểm chứng bằng một phiên bản nhỏ.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu học tập
 
-## 1. Tổng quan
+Người học có thể lựa chọn ý tưởng theo năng lực hiện có; mô tả người dùng mục tiêu; viết **elevator pitch** một câu; xác định một giả thuyết thử nghiệm.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Choose a prototype idea** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Chọn ý tưởng theo độ khó kỹ thuật
 
-## 2. Mục tiêu học tập
+Nếu mới làm quen Unity, một *walking simulator* là lựa chọn hợp lý: di chuyển trong không gian, quan sát vật thể và kích hoạt một sự kiện. Có thể dùng character controller dựng sẵn để tập trung vào môi trường và tương tác. Nếu đã quen C#, có thể thử cơ chế thu thập đồ vật, câu đố vật lý hoặc lựa chọn hội thoại — nhưng vẫn chỉ nên có một vòng hành động trung tâm.
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Choose a prototype idea** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Ba ứng viên để cân nhắc:
 
-## 3. Kiến thức trọng tâm
+| Ý tưởng | Câu hỏi kiểm chứng | Phạm vi bản đầu |
+|---|---|---|
+| Thoát khỏi sân pháo đài | Người chơi có tìm ra công tắc không? | Đi, dẫm bàn đạp, nhấn nút |
+| Nhặt nguyên liệu pha chế | Người chơi hiểu cách ghép hai vật không? | Nhặt, đặt, nhận phản hồi |
+| Khám phá triển lãm 3D | Người xem có tìm thấy thông tin trưng bày? | Di chuyển, chọn hiện vật, đọc nhãn |
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+Bản phác thảo ưu tiên vòng tương tác độc lập, không cần bản đồ lớn.
 
-### Thuật ngữ và mối quan hệ
+## 3. Xác định nhóm người dùng mục tiêu
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+Không có thiết kế nào phù hợp tất cả người chơi. Hãy nêu người dùng dưới dạng mô tả có thể hỗ trợ quyết định: ví dụ, “người mới tiếp xúc game 3D bằng bàn phím và chuột, thích khám phá trong 5–10 phút”. Sau đó ghi các nhu cầu: hướng dẫn tối thiểu, chữ dễ đọc, điều khiển dễ học, tránh mỏi mắt hoặc chuyển động camera đột ngột.
 
-## 4. Thực hành từng bước
+Đừng biến nhận định về người dùng thành sự thật hiển nhiên. Đó là **giả thuyết** để xác nhận bằng kiểm thử. Người có khả năng bị ảnh hưởng bởi thiết kế cần được mời tham gia thử nghiệm thay vì chỉ hỏi người phát triển.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 4. Viết elevator pitch và lời hứa trải nghiệm
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Một pitch tốt gồm đối tượng + hành động trung tâm + giá trị khác biệt, đủ ngắn để người khác hiểu ngay.
 
-## 5. Bài tập củng cố
+**Ví dụ:** “Một trải nghiệm giải đố góc nhìn thứ nhất, nơi người chơi tìm cách kích hoạt bàn đạp bí mật để hạ cầu rời khỏi pháo đài.”
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+Đây là pitch về **trải nghiệm**, không phải bản liệt kê công cụ như “sử dụng URP, ProBuilder và Terrain”. Những công cụ đó hỗ trợ ý tưởng nhưng không tự giải thích lý do người dùng muốn trải nghiệm.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 5. Bài thực hành: quyết định ý tưởng
 
-## 6. Lỗi thường gặp và cách kiểm tra
+1. Ghi ba ý tưởng, mỗi ý tưởng tối đa hai câu.
+2. Với mỗi ý tưởng, viết hành động trung tâm và đối tượng người dùng.
+3. Chấm điểm tương đối theo ba tiêu chí: kiểm chứng nhanh, rủi ro đáng học, phù hợp năng lực; không nhầm bảng điểm chủ quan với dữ liệu thực nghiệm.
+4. Chọn một ý tưởng và viết elevator pitch, sau đó đặt tiêu chí quan sát được.
+5. Điền mini design brief: **người dùng / nhu cầu / hoạt động chính / tiêu chí thành công / điều chưa biết**.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+## 6. Tổng kết và tài liệu tham khảo
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Ý tưởng prototype tốt **nhỏ nhưng có câu hỏi đáng kiểm chứng**. Sự rõ ràng về người dùng và pitch giúp chống mở rộng phạm vi không kiểm soát.
 
-## 7. Checklist hoàn thành
+- [Unity Learn – Choose a prototype idea](https://learn.unity.com/tutorial/choose-a-prototype-idea-3?version=6.0)
+- [Unity Learn – Creative Core: Prototyping](https://learn.unity.com/project/creative-core-prototyping)
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 7. Câu hỏi ôn tập trắc nghiệm
 
----
+**Câu 1.** Pitch nào rõ trải nghiệm nhất?
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+A. Game này dùng C# và URP  
+B. Tôi cần 30 mô hình 3D  
+C. Người chơi giải một câu đố bằng cách kích hoạt bàn đạp và mở cầu  
+D. Game có nhiều asset đẹp  
+
+**Đáp án:** C
+**Giải thích:** Pitch mô tả hoạt động và giá trị trải nghiệm.
+
+**Câu 2.** Lý do nên xác định người dùng trước khi xây bản mẫu?
+
+A. Để kiểm chứng nhu cầu thay vì dựa vào giả định của người làm  
+B. Để giảm độ phân giải  
+C. Để bỏ qua kiểm thử  
+D. Để dùng nhiều framework  
+
+**Đáp án:** A
+**Giải thích:** Nhóm người dùng định hướng cách điều khiển, phản hồi và tiêu chí thành công.
+
+**Câu 3.** Với người chưa biết lập trình Unity, phương án hợp lý là gì?
+
+A. Xây MMORPG đầy đủ  
+B. Tự viết renderer  
+C. Thêm hệ thống kinh tế trực tuyến  
+D. Bắt đầu từ walking simulator và controller dựng sẵn  
+
+**Đáp án:** D
+**Giải thích:** Có thể tập trung vào trải nghiệm bằng tài nguyên phù hợp.
+
+**Câu 4.** Trong lựa chọn ý tưởng, điều gì quan trọng hơn số lượng tính năng?
+
+A. Số shader  
+B. Giả thuyết có thể kiểm chứng với phạm vi nhỏ  
+C. Kích thước bản đồ  
+D. Tổng số scene  
+
+**Đáp án:** B
+**Giải thích:** Prototype đo khả năng kiểm chứng chứ không đo lượng nội dung.
+
+**Câu 5.** Đối tượng người dùng mô tả thế nào hữu ích nhất?
+
+A. Càng nhiều người càng tốt  
+B. Mọi người trên thế giới  
+C. Nhóm có ngữ cảnh và nhu cầu cụ thể  
+D. Chỉ những người thích game  
+
+**Đáp án:** C
+**Giải thích:** Thông tin cụ thể giúp thiết kế các thử nghiệm phù hợp.

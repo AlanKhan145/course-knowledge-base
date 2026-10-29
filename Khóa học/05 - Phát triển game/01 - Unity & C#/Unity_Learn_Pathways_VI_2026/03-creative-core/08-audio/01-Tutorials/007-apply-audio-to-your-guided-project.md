@@ -1,78 +1,155 @@
 ---
-title: "Apply audio to your guided project"
-pathway: "Creative Core"
-module: "Audio"
-lesson_number: 7
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-audio?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+title: "Bài 07 — Tích hợp âm thanh vào dự án Creative Core"
+course: "Unity Creative Core — Audio"
+lesson: 7
+type: project
+language: vi
+reference_version: "Unity 6.3 (6000.3)"
 ---
 
-# Bài 07 — Apply audio to your guided project
+# Bài 07 — Tích hợp âm thanh vào dự án Creative Core
 
-> **Pathway:** Creative Core · **Mission:** Audio · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Bài toán dự án
 
-> **Nguồn đối chiếu:** [Audio trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-audio?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Trong một dự án hoàn chỉnh, âm thanh phải phục vụ cơ chế tương tác, nhịp kể chuyện, định hướng không gian và khả năng tiếp cận. Một soundscape chạy tốt ở scene thử nghiệm vẫn có thể gặp lỗi khi tích hợp: camera mới tạo thêm `AudioListener`, các scene sử dụng Mixer khác nhau, event chạy khi pause, hoặc clip được phát trước lúc người chơi hành động.
 
-## 1. Tổng quan
+Bài này hướng dẫn quy trình đưa hệ thống audio vào **dự án đang phát triển**, ví dụ cửa hàng khoa học viễn tưởng, thị trấn ven biển hoặc mô hình kiến trúc. Chọn một bối cảnh phù hợp thay vì thêm mọi ví dụ cùng lúc.
 
-**Chủ đề:** Âm thanh và phản hồi giác quan. Trong ngữ cảnh *Audio*, bài **Apply audio to your guided project** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Mục tiêu và định nghĩa hoàn thành
 
-## 2. Mục tiêu học tập
+Sau khi hoàn tất, dự án cần có một bản thiết kế âm thanh ngắn; nguồn ambience; ít nhất một nguồn 3D; ít nhất một SFX theo tương tác; Mixer chia nhóm; lựa chọn âm lượng dễ thao tác; và bộ kiểm thử gồm nghe bình thường, nghe ở mức thấp và chơi mute.
 
-- Trình bày được mục đích của **âm thanh và phản hồi giác quan** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Apply audio to your guided project** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Một tích hợp đạt chất lượng khi: âm chỉ phát khi đúng trạng thái; không mất bất ngờ khi thay scene; khối lượng âm được kiểm soát; và thông tin gameplay quan trọng có cách biểu đạt không phụ thuộc vào âm thanh.
 
-## 3. Kiến thức trọng tâm
+## 3. Phân tích nhu cầu theo bối cảnh
 
-- Audio Source phát AudioClip; Audio Listener đại diện vị trí tiếp nhận âm thanh (thường trên Camera).
-- Spatial Blend quyết định mức âm 2D/3D; âm 3D còn phụ thuộc khoảng cách và các thiết lập suy giảm.
-- Phân biệt âm nền phát liên tục và âm sự kiện như nhặt vật, va chạm hoặc hoàn thành nhiệm vụ.
+| Bối cảnh | Âm nền | Nguồn 3D | Âm tương tác | Hiệu ứng |
+|---|---|---|---|---|
+| Cửa hàng tương lai | Điều hòa, tiếng máy êm | Thiết bị/robot cạnh quầy | Chạm màn hình, mở cửa | Low-pass qua phòng khác |
+| Thị trấn ven biển | Gió, sóng xa | Hải âu, chuông tàu, đài phun | Bước chân, nhặt đồ | Rolloff theo khoảng cách |
+| Phòng trưng bày kiến trúc | Room tone nhẹ | Đài nước hoặc âm thanh lắp đặt | Nút thông tin, cửa | Reverb theo phòng |
 
-### Thuật ngữ và mối quan hệ
+Với mỗi âm, xác định tính năng mà người dùng **cần** và tính năng chỉ **trang trí**. Âm phục vụ nhiệm vụ có mức ưu tiên thiết kế cao hơn một lớp ambience phụ.
 
-| Khái niệm | Vai trò trong bài |
+## 4. Kiến trúc dự án đề xuất
+
+```mermaid
+flowchart TD
+    A[Game events / Player / Animation] --> B[Audio emitter components]
+    C[Audio assets / Clips] --> B
+    B --> D[Audio Mixer]
+    D --> E[Master]
+    E --> F[AudioListener hoạt động]
+    G[Settings UI] --> D
+    A --> H[Captions / visual feedback]
+```
+
+Sơ đồ phân tách **nguồn sự kiện**, **nguồn âm** và **điều khiển trộn**. Với dự án lớn, có thể thêm Audio Manager hoặc event bus ở lớp trung gian; với prototype nhỏ, script trực tiếp trên đối tượng có thể đủ và dễ debug hơn. Tránh tạo một singleton phức tạp khi chưa có nhu cầu qua scene.
+
+## 5. Kế hoạch triển khai
+
+### 5.1. Milestone 1 — Kiểm kê scene
+
+Duyệt hierarchy và lập bảng tất cả `AudioSource`, `AudioListener`, clip, nhóm Mixer và sự kiện có thể phát âm. Đặc biệt kiểm tra prefab camera; nếu các scene được load additive, bảo đảm không có nhiều listener hoạt động đồng thời. Xem xét âm nào nên tiếp tục khi chuyển scene, âm nào phải ngừng.
+
+### 5.2. Milestone 2 — Quy ước asset và mixer
+
+Gợi ý cấu trúc:
+
+```text
+Assets/
+└── Audio/
+    ├── Clips/
+    │   ├── Ambience/
+    │   ├── Interactions/
+    │   └── UI/
+    ├── Mixers/
+    ├── Scripts/
+    └── Documentation/
+```
+
+Thiết lập một Audio Mixer với `Master`, `Music`, `Ambience`, `SFX`, `Dialogue` (bỏ nhóm không dùng). Dùng tên nhất quán, tránh trộn toàn bộ nguồn vào Master nếu dự án cần tùy chỉnh âm lượng theo loại.
+
+### 5.3. Milestone 3 — Tích hợp âm môi trường và tương tác
+
+Tạo ambience phát lặp phù hợp; thiết lập `Spatial Blend` theo vai trò của từng nguồn. Chọn ít nhất một điểm âm 3D và nghe thử ở gần/xa. Kết nối SFX với một sự kiện có điều kiện như nhấn nút hoặc mở cửa; tắt `Play On Awake` cho các nguồn chỉ phát theo sự kiện.
+
+Nếu đã có hệ thống animation nhân vật, đặt bước chân theo `Animation Event` hoặc event từ state machine. Không tái tạo một bộ footstep thứ hai khi đã có script cũ; cần kiểm tra xung đột để tránh phát đôi.
+
+### 5.4. Milestone 4 — Kiểm soát trạng thái
+
+Xác định ba tình huống:
+
+- **Gameplay:** phát ambience và SFX theo hành động.
+- **Pause/menu:** giữ hoặc giảm ambience theo chủ đích; âm UI vẫn nghe được.
+- **Scene transition:** dừng hoặc crossfade những nguồn cần chuyển tiếp; không để nguồn cũ phát trùng khi scene mới xuất hiện.
+
+Không mặc định mọi audio phải dừng bằng `Time.timeScale = 0`: `AudioSource` không tự đồng bộ hoàn toàn với mọi yêu cầu pause gameplay. Nếu cần pause toàn bộ âm, kiểm tra `AudioListener.pause` và `AudioSource.ignoreListenerPause` theo thiết kế. Thử riêng UI và nhạc để xác nhận hành vi mong muốn.
+
+### 5.5. Milestone 5 — Accessibility và tối ưu hóa
+
+Thêm menu âm lượng, caption/thông báo hình ảnh cho âm thiết yếu và lưu cấu hình khi cần. Chọn cách load clip phù hợp: clip rất ngắn phát thường xuyên có thể dùng `Decompress On Load`; âm dài như nhạc/ambience có thể ưu tiên `Streaming` để giảm bộ nhớ giải nén. Đây là lựa chọn phụ thuộc mục tiêu nền tảng và kết quả đo, không phải mặc định luôn đúng.
+
+## 6. Kiểm thử tích hợp và nghiệm thu
+
+| ID | Tình huống | Kết quả mong đợi |
+|---|---|---|
+| T01 | Bắt đầu scene | Chỉ ambience được thiết kế tự phát |
+| T02 | Đến gần nguồn âm | Mức nghe thay đổi có chủ đích |
+| T03 | Nhấn tương tác | SFX phát đúng một lần cho mỗi sự kiện |
+| T04 | Pause / resume | Âm gameplay và UI hoạt động theo thiết kế |
+| T05 | Chuyển scene | Không có nguồn rác hoặc listener trùng |
+| T06 | Slider Music/SFX | Nhóm tương ứng thay đổi, nhóm khác vẫn đúng |
+| T07 | Chơi ở chế độ mute | Không bỏ lỡ thông tin thiết yếu |
+| T08 | Bật nhiều âm cùng lúc | Không gây khó nghe/clipping đáng kể |
+
+**Deliverables:** scene hoặc build hoạt động; `AudioDesign.md`; ảnh cấu trúc Mixer và Inspector; video demo; bảng kiểm thử với kết quả pass/fail; ghi công asset.
+
+**Definition of Done:** tất cả tình huống quan trọng đều có kết quả đã kiểm chứng; các lỗi còn tồn tại được mô tả bằng cách tái hiện, không bị che giấu chỉ vì demo ngắn chạy tốt.
+
+## 7. Điểm dễ sai khi đưa vào dự án thật
+
+| Tình huống | Hướng xử lý |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| `DontDestroyOnLoad` tạo bản sao Audio Manager | Kiểm soát vòng đời instance và không tạo trùng |
+| Prefab camera có thêm listener | Chỉ giữ listener đang phục vụ người chơi |
+| UI Slider đổi giá trị nhưng Mixer không đổi | Kiểm tra exposed name, output routing, callback |
+| Scene mới mất âm nền | Kiểm tra vòng đời nguồn, clip tham chiếu và tự phát |
+| Âm trên Pause vẫn tiếp tục ngoài ý muốn | Xác định rõ chính sách pause âm thay vì chỉ sửa Time Scale |
+| Phát âm gấp nhiều lần sau load additive | Kiểm tra đăng ký event trùng / nhiều listener xử lý sự kiện |
 
-## 4. Thực hành từng bước
+## 8. Câu hỏi ôn tập
 
-1. **Bước 1:** Tạo Audio Source cho môi trường và gán AudioClip được phép sử dụng.
-2. **Bước 2:** Thử Play On Awake, Loop, Volume và Spatial Blend, ghi nhận tác động khi chạy.
-3. **Bước 3:** Tạo một đối tượng phát âm tại vị trí khác Camera để thử suy giảm khoảng cách.
-4. **Bước 4:** Dùng một sự kiện gameplay hoặc nút bấm để phát âm và kiểm tra âm không chồng lặp quá mức.
+**Câu 1.** Khi chuyển scene xuất hiện cảnh báo hai `AudioListener`, cần làm gì?  
+A. Tăng Priority · B. Kiểm tra camera/scene và bảo đảm chỉ một listener hoạt động · C. Đổi codec · D. Tắt hết AudioSource
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+**Đáp án: B.** Nhiều listener hoạt động là lỗi cấu hình scene thường gặp.
 
-## 5. Bài tập củng cố
+**Câu 2.** Vì sao nên tạo nhóm Music và SFX riêng trong Mixer?  
+A. Để giảm số GameObject · B. Để mỗi nhóm có shader khác · C. Để tăng sample rate · D. Để điều chỉnh và kiểm thử độc lập các lớp âm
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Audio** để tạo một tương tác nhỏ.
+**Đáp án: D.** Tách nhóm hỗ trợ mixing và khả năng tiếp cận.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Câu 3.** Tại sao không nên mặc định Time.timeScale = 0 sẽ dừng đúng mọi âm?  
+A. Time Scale không phải cơ chế chính sách audio đầy đủ · B. Chỉ hoạt động với Camera · C. Không có trên Unity · D. Luôn khiến clip bị hỏng
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Đáp án: A.** Cần xác định pause/resume audio độc lập theo yêu cầu trò chơi.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: không có Audio Listener hoạt động, AudioClip chưa được gán hoặc âm bị suy giảm do khoảng cách.
+**Câu 4.** Một cảnh có nhiều đoạn thoại dài, lựa chọn tối ưu nào cần xem xét và đo?  
+A. Tất cả clip PCM uncompressed · B. Mỗi thoại có listener riêng · C. Streaming/Compression/Memory trade-off bằng Profiler · D. Tăng volume lên 1
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Đáp án: C.** Thiết kế load type ảnh hưởng RAM, CPU và trải nghiệm trên nền tảng đích.
 
-## 7. Checklist hoàn thành
+**Câu 5.** Bằng chứng tích hợp tốt nhất cho SFX tương tác là gì?  
+A. Có file `.wav` · B. Thử nghiệm event chỉ phát khi điều kiện đúng, kèm trường hợp không được phát · C. Có audio đẹp · D. Có nhiều source
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Audio](https://learn.unity.com/pathway/creative-core/unit/creative-core-audio?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Đáp án: B.** Test cả điều kiện đúng và sai chứng minh sự kiện được nối chính xác.
 
----
+## 9. Tổng kết và tài liệu tham khảo
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Tích hợp audio là công việc thiết kế hệ thống: xác định mục đích, quản trị tài nguyên, chọn cơ chế tương tác, cân bằng mức âm và kiểm thử giữa các trạng thái. Một scene tốt là scene người dùng **nghe đúng thứ cần nghe, vào đúng lúc**, hoặc vẫn tiếp nhận được thông tin khi không thể nghe.
+
+- [Unity Learn — Creative Core: Audio](https://learn.unity.com/project/creative-core-audio?courseId=630e6872edbc2a2e1b59d4ac).
+- [Unity 6.3 — Audio](https://docs.unity.com/en-us/engine/6000.3/manual/audio).
+- [Unity 6.3 — Audio Import Settings](https://docs.unity.com/en-us/engine/6000.3/manual/audio/reference/class-audio-clip).
+- [Unity 6.3 — Audio Mixer](https://docs.unity.com/en-us/engine/6000.3/manual/audio/mixer).

@@ -1,78 +1,113 @@
----
-title: "Refine and troubleshoot the indoor scene"
-pathway: "Creative Core"
-module: "Lighting"
-lesson_number: 9
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 09 — Chẩn đoán rò sáng, lỗi bóng và UV Lightmap của mô hình nhập
 
-# Bài 09 — Refine and troubleshoot the indoor scene
+*Creative Core · Lighting · Unity 6.3 · Refine and troubleshoot the indoor scene*
 
-> **Pathway:** Creative Core · **Mission:** Lighting · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Tổng quan và mục tiêu
 
-> **Nguồn đối chiếu:** [Lighting trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một scene nội thất thường gặp những vấn đề khó phát hiện nếu chỉ nhìn ảnh đẹp/xấu: **bóng sai**, **rò ánh sáng qua khe**, **góc tối thiếu ánh sáng gián tiếp**, hoặc **UV lightmap bị lỗi**. Bài này đưa ra quy trình chẩn đoán có thể lặp lại nhằm tìm đúng nguyên nhân trước khi chỉnh thông số.
 
-## 1. Tổng quan
+## 2. Phân biệt các nhóm hiện tượng
 
-**Chủ đề:** Kiểm tra lỗi và tối ưu hiệu năng. Trong ngữ cảnh *Lighting*, bài **Refine and troubleshoot the indoor scene** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+| Hiện tượng | Giả thuyết cần thử | Công cụ quan sát |
+|---|---|---|
+| Đường sáng chạy xuyên góc tường | Hình học có khe hở, tường quá mỏng, bake sampling hoặc UV | Scene view, Wireframe, Baked Lightmap debug |
+| Vật đen bất thường | Thiếu ambient/indirect bounce, normal ngược, probes sai | Inspector, Lighting/Albedo diagnostics |
+| Bóng có vệt sọc | Bias, shadow resolution, normal | URP Asset và Light component |
+| Đốm sáng tối bất quy tắc trên model nhập | UV overlap, padding thiếu, normal hoặc GI | Model Import Settings, UV/lightmap visualization |
 
-## 2. Mục tiêu học tập
+Tình trạng **light leak** là ánh sáng xuất hiện ở nơi lẽ ra bị chắn. Không thể quy về một nguyên nhân duy nhất: có thể do khe hở geometry, độ dày bề mặt, dữ liệu lightmap lẫn màu, hoặc cách shadowing/gián tiếp được tính.
 
-- Trình bày được mục đích của **kiểm tra lỗi và tối ưu hiệu năng** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Refine and troubleshoot the indoor scene** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Quy trình sửa theo từng nguyên nhân
 
-## 3. Kiến thức trọng tâm
+```mermaid
+flowchart TD
+    A[Quan sát sai lệch] --> B[Ghi ảnh và thiết lập]
+    B --> C{Realtime hay Baked?}
+    C -->|Realtime| D[Shadow Bias / Cast / Pipeline]
+    C -->|Baked| E[Geometry / UV / GI Bake]
+    D --> F[Thay một biến]
+    E --> F
+    F --> G[So sánh ảnh và lặp lại]
+```
 
-- Console giúp đọc lỗi biên dịch, exception và log; Stack Trace hỗ trợ định vị code gặp lỗi.
-- Profiler đo thời gian CPU, GPU, memory và hoạt động theo frame; nên đo trên thiết bị đích.
-- Chỉ tối ưu sau khi xác định điểm nghẽn, so sánh trước/sau bằng điều kiện kiểm thử nhất quán.
+1. **Kiểm tra shadow setup.** Tắt từng Light để xác định nguồn. Chụp ảnh cùng camera trước/sau khi chỉnh bias hoặc Shadow Type.
+2. **Tăng ánh sáng phòng có kiểm soát.** Xem xét `Environment Lighting`, Indirect Lighting/Bounces và nguồn sáng phản xạ hợp lý. Không chỉ tăng Intensity trực tiếp vì có thể làm vật thể cháy sáng nhưng góc phòng vẫn thiếu chiều sâu.
+3. **Khắc phục light leaks.** Bật wireframe để tìm khe hở, mặt phẳng một phía hoặc tường mỏng; kiểm tra UV2 và padding; bake lại sau mỗi thay đổi. Nếu chỉnh thông số bake cải thiện, vẫn cần xác minh lỗi geometry gốc.
+4. **Kiểm tra model nhập có UV hỏng.** Import một FBX có lightmap UV sai (bài mẫu có `Apple_BrokenLightmapUVs.fbx`, nếu tải từ trang Unity Learn), đặt nó trong gallery, bật `Contribute GI` rồi quan sát Baked Lightmap diagnostic.
+5. **Tạo UV mới.** Chọn FBX tại Project, tab `Model` > `Generate Lightmap UVs` > `Apply`. Kiểm tra cảnh bake lại; với model phức tạp, có thể unwrap thủ công bằng công cụ DCC thay vì phụ thuộc hoàn toàn vào auto unwrap.
+6. **Đo trước/sau.** Cùng camera, cùng exposure, cùng quality level và cùng độ phân giải output để kết quả so sánh có ý nghĩa.
 
-### Thuật ngữ và mối quan hệ
+## 4. Hiểu đúng lỗi UV
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+UV texture màu (Base Map) có thể **cố ý chồng lấn** để tái sử dụng chi tiết. Nhưng baked lightmap thường yêu cầu **UV islands không chồng lấn** và có khoảng cách. Do đó, một model hiển thị texture màu hoàn toàn bình thường vẫn có thể bake lỗi. Unity sử dụng `Mesh.uv2` làm kênh baked lightmap ở cấu hình thông dụng; đừng nhầm với tên UV layer được hiển thị trong Blender.
 
-## 4. Thực hành từng bước
+## 5. Báo cáo kiểm thử
 
-1. **Bước 1:** Tạo một tình huống tái hiện được lỗi hoặc hiện tượng giật lag.
-2. **Bước 2:** Ghi lại bước tái hiện, hành vi mong muốn và hành vi thực tế.
-3. **Bước 3:** Mở Console/Profiler, lấy tối thiểu một dữ liệu đo có thể đối chiếu.
-4. **Bước 4:** Thay đúng một biến mỗi lần, chạy lại và ghi lại cải thiện hoặc tác dụng phụ.
+Tạo bảng `Hiện tượng → Giả thuyết → Thay đổi → Kết quả → Bước tiếp theo`. Ít nhất ghi ba tình huống: một lỗi bóng realtime, một light leak và một UV bake lỗi. Nếu vấn đề chưa được giải quyết, nêu điều kiện tái hiện thay vì ghi "đã sửa". Bài hoàn thành khi có minh chứng lỗi trước/sau, không phải khi scene chỉ trông sáng hơn.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
 
-## 5. Bài tập củng cố
+## 6. Câu hỏi ôn tập trắc nghiệm
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Lighting** để tạo một tương tác nhỏ.
+### Câu 1
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Một vùng sáng xuất hiện xuyên qua góc tường là dấu hiệu điển hình của gì?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+A. Light leak  
+B. Reflection Probe chuẩn  
+C. Normal map hoạt động đúng  
+D. Âm thanh 3D  
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: chỉ nhìn FPS tổng và suy luận nguyên nhân, tối ưu trước khi có phép đo hoặc bỏ qua bản build.
+**Đáp án:** A. **Giải thích:** Light leak chỉ ánh sáng xuất hiện tại khu vực đáng lẽ bị chắn.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### Câu 2
 
-## 7. Checklist hoàn thành
+Texture màu đẹp nhưng lightmap bị vệt lạ: điều nào đáng kiểm tra?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Lighting](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. UV lightmap riêng của model  
+B. Tần số âm thanh  
+C. Tag camera  
+D. Rigidbody mass  
 
----
+**Đáp án:** A. **Giải thích:** UV cho base color có thể đúng trong khi UV2 cho baked lightmap hỏng.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+### Câu 3
+
+Khi gặp lỗi bóng và bake cùng lúc, quy trình tốt nhất là gì?
+
+A. Tăng mọi cường độ cùng lúc  
+B. Tách nhóm realtime/baked rồi thử từng giả thuyết  
+C. Xóa tất cả vật thể  
+D. Tắt ánh sáng mãi mãi  
+
+**Đáp án:** B. **Giải thích:** Thử nghiệm có kiểm soát giúp gắn kết quả với nguyên nhân.
+
+### Câu 4
+
+Generate Lightmap UVs nên được áp dụng ở đâu với FBX nhập?
+
+A. Model Import Settings  
+B. Audio Mixer  
+C. Animator State  
+D. Physics Material  
+
+**Đáp án:** A. **Giải thích:** Unity cung cấp chức năng tự unwrap lightmap UV trong tab Model.
+
+### Câu 5
+
+Tại sao cần giữ góc camera và exposure cố định khi so sánh ảnh?
+
+A. Để nhận biết ảnh hưởng từ biến lighting đang thử  
+B. Để giảm số mesh  
+C. Để tăng FPS tự động  
+D. Để tạo thêm texture  
+
+**Đáp án:** A. **Giải thích:** Thay camera hoặc exposure làm phép so sánh thiếu kiểm soát.
+
+
+## 7. Tài liệu tham khảo và lưu ý phiên bản
+
+- [Unity Learn — Refine and troubleshoot the indoor scene](https://learn.unity.com/course/creative-core-lighting/tutorial/refine-and-troubleshoot-the-indoor-scene?version=6.3) (Unity 6.3).
+- [Tài liệu UV cho lightmap](https://docs.unity3d.com/6000.3/Documentation/Manual/LightingGiUvs-GeneratingLightmappingUVs.html).
+- [Tài liệu về Mixed Lighting](https://docs.unity3d.com/kr/current/ScriptReference/MixedLightingMode.html).
+
+**Lưu ý:** Menu và tùy chọn có thể khác theo URP Asset, Quality Level, Unity Editor và loại shader đang dùng. Nội dung là bài giảng tiếng Việt độc lập được biên soạn và bổ sung để học tập, không phải bản dịch chính thức hay lời chép toàn văn của Unity.

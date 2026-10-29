@@ -1,83 +1,122 @@
----
-title: "Challenge: Bring the scene to life"
-pathway: "Creative Core"
-module: "Animation"
-lesson_number: 6
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 06 — Thử thách: Thổi sức sống vào một Scene 3D
 
-# Bài 06 — Challenge: Bring the scene to life
+> **Creative Core · Animation · Unity 6.3 · Bài tập dự án nhỏ**
 
-> **Pathway:** Creative Core · **Mission:** Animation · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
+## 1. Bài toán
 
-> **Nguồn đối chiếu:** [Animation trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một scene 3D tĩnh thường thiếu tín hiệu thị giác về nhịp sống. Hãy thiết kế một **góc triển lãm cơ khí** hoặc **căn phòng giả tưởng** gồm các đối tượng có animation có chủ đích. Người xem phải nhận biết được điều gì đang diễn ra qua chuyển động, không cần đọc hướng dẫn dài. Bài tập ưu tiên xây dựng scene hoạt động đúng, chứ không yêu cầu model hay hiệu ứng đồ họa phức tạp.
 
-## 1. Tổng quan
+## 2. Mục tiêu sản phẩm
 
-**Chủ đề:** Hệ thống hoạt ảnh trong Unity. Trong ngữ cảnh *Animation*, bài **Challenge: Bring the scene to life** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Xây dựng một scene có ít nhất **ba hành vi hoạt ảnh khác nhau**:
 
-## 2. Mục tiêu học tập
+1. Một animation **lặp lại**: quạt xoay, đèn pulse, logo nhún hoặc vật trang trí chuyển động theo chu kỳ.
+2. Một animation **kích hoạt bởi hành động người dùng**: cửa mở/đóng, công tắc điều khiển robot, trụ nâng hạ.
+3. Một animation được **tinh chỉnh về nhịp điệu** bằng Curves: tăng/giảm tốc hoặc dừng đúng chỗ.
 
-- Trình bày được mục đích của **hệ thống hoạt ảnh trong unity** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Ít nhất một đối tượng phải được điều khiển qua Animator Controller có **parameter và transition**. Có thể dùng model tự tạo từ primitive hoặc model nhập khẩu có quyền sử dụng phù hợp.
 
-## 3. Kiến thức trọng tâm
+## 3. Yêu cầu kỹ thuật và giới hạn
 
-- Animation Clip lưu chuyển động theo thời gian; Animator Controller quản lý các trạng thái và điều kiện chuyển.
-- Animation window cho phép đặt keyframe cho thuộc tính được animate.
-- Với nhân vật rigged, cần cấu hình Avatar, loại rig và mapping xương phù hợp.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Mục | Yêu cầu hoàn thành |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Scene | Có camera và ánh sáng đủ để nhìn chuyển động |
+| Clip | Mỗi hành vi có clip riêng, tên rõ ràng |
+| Controller | Ít nhất một Controller có hai state và chuyển có điều kiện |
+| Keyframe | Ít nhất một clip có nhiều hơn hai keyframe |
+| Curves | Có minh chứng điều chỉnh easing/timing |
+| Điều khiển | Có UI Button, tương tác trực tiếp hoặc cơ chế kích hoạt có thể kiểm thử |
+| Kiểm chứng | Phát đúng trong Play Mode, không báo lỗi Console do cấu hình animation |
+| Bàn giao | Scene/project, ảnh graph Animator, ảnh Curves, video hoặc ảnh chụp trạng thái |
 
-## 4. Thực hành từng bước
+**Lưu ý:** Đây là tiêu chí bài tập thực hành được thiết kế để người học áp dụng kỹ năng, không phải bảng yêu cầu chấm điểm chính thức của Unity Learn.
 
-1. **Bước 1:** Chọn GameObject và tạo một Animation Clip tối giản bằng hai keyframe vị trí.
-2. **Bước 2:** Mở Animator Controller, tạo Idle và một trạng thái chuyển động.
-3. **Bước 3:** Thử parameter và transition; xác nhận animation có thể phát hoặc dừng theo điều kiện.
-4. **Bước 4:** Nếu dùng model ngoài, kiểm tra Import Settings > Rig và Animation trước khi sử dụng.
+## 4. Kế hoạch triển khai đề xuất
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart LR
+    Goal[Chọn chủ đề scene] --> Props[Chọn 3 đối tượng cần animate]
+    Props --> Blocking[Keyframe các chuyển động chính]
+    Blocking --> Control[Thiết kế Controller + transitions]
+    Control --> Polish[Chỉnh curves, timing, loops]
+    Polish --> Test[Kiểm thử và ghi minh chứng]
+    Test --> Review[Đối chiếu tiêu chí, cải tiến]
+```
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+### 4.1. Milestone 1 — Scene có bố cục đọc được
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Challenge: Bring the scene to life** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+Thiết lập sàn, bàn, cửa, vật chuyển động và ánh sáng. Quy định vùng camera chính sao cho người xem thấy được hướng di chuyển hoặc góc xoay. Trước khi animate, mỗi đối tượng phải có hierarchy và pivot thích hợp.
 
-**Tiêu chí nghiệm thu:**
+**Checkpoint:** thay đổi thử rotation của từng đối tượng trong Inspector và xác nhận quay đúng bản lề/trục mong muốn.
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+### 4.2. Milestone 2 — Blocking animation
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+Tạo keyframe chính cho từng vật, bảo đảm có **pose đầu**, **pose giữa** (nếu cần) và **pose kết**. Ví dụ, quạt xoay liên tục, cửa đóng–mở, một viên ngọc nâng lên hạ xuống. Chưa cần chỉnh curve tinh vi.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Checkpoint:** mọi clip đều preview được trong Animation window và không thay đổi nhầm thuộc tính của đối tượng khác.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: thiếu Animator/Avatar, transition có điều kiện sai hoặc clip đè lên thuộc tính ngoài dự kiến.
+### 4.3. Milestone 3 — Logic điều khiển
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Dựng Controller cho đối tượng có tương tác, định nghĩa parameter `Bool` hoặc `Trigger`, thiết lập các transition hợp lý. Kiểm tra trực tiếp Parameters khi Play trước khi nối UI/button.
 
-## 7. Checklist hoàn thành
+**Checkpoint:** có thể chuyển trạng thái theo điều kiện; nếu cần phản hồi nhanh, không để Exit Time gây độ trễ ngoài ý muốn.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Animation](https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+### 4.4. Milestone 4 — Polishing và kiểm thử
 
----
+Chỉnh Curves: chuyển động chậm khi đến đích, không vượt quá biên hình học, giữ đều với animation tuần hoàn. Chạy scene, thay đổi parameter nhiều lần, xem cả tình huống điều khiển liên tiếp.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Checkpoint:** các clip lặp không có cú giật rõ rệt tại mốc đầu/cuối (trừ khi chủ ý); clip phát một lần không bị loop vô hạn.
+
+## 5. Các tình huống kiểm thử bắt buộc
+
+- **TC-01 — Khởi tạo:** Vào Play Mode, scene ở trạng thái mặc định hợp lý, không có animation sai hướng.
+- **TC-02 — Kích hoạt:** Gửi tín hiệu mở/đóng hai lần; state của Animator và hình ảnh phải nhất quán.
+- **TC-03 — Lặp:** Quan sát tối thiểu ba chu kỳ của animation loop và chú ý seam giữa cuối và đầu.
+- **TC-04 — Giới hạn:** Bảo đảm vật không xuyên sàn/cửa không xoay vượt góc kỳ vọng.
+- **TC-05 — Khôi phục:** Thoát Play và vào lại, trạng thái khởi tạo phải có thể tái lập.
+
+## 6. Sản phẩm cần nộp và cách tự đánh giá
+
+Thư mục bàn giao nên chứa `Scenes/AnimatedRoom.unity`, các file `Animations/*.anim`, `Controllers/*.controller`, script nếu sử dụng, ảnh/video test và một `README.md` ngắn giải thích cách chạy.
+
+### 6.1. Rubric tự đánh giá (10 điểm)
+
+| Tiêu chí | Điểm tối đa |
+|---|---:|
+| Chuyển động phù hợp vật thể, pivot đúng | 2 |
+| Clip và keyframe chính xác | 2 |
+| Controller, parameter, transitions hoạt động | 2 |
+| Curves, timing và loop được tinh chỉnh | 2 |
+| Kiểm thử, minh chứng, tổ chức file | 2 |
+
+Không cần tạo thêm một mô hình nhân vật humanoid nếu điều đó làm mất trọng tâm của bài tập. Ưu tiên một scene nhỏ nhưng kiểm chứng tốt.
+
+## 7. Gợi ý khi gặp khó khăn (không phải lời giải)
+
+- Nếu chưa biết animate gì, bắt đầu bằng một primitive `Cube`, `Sphere` và `Cylinder`.
+- Nếu cửa quay sai, vẽ lại hierarchy và pivot trước khi sửa keyframe.
+- Nếu transition bị kẹt, chỉ kiểm tra `Animator > Parameters`, `Has Exit Time` và Conditions của một mũi tên mỗi lần.
+- Nếu clip giật, kiểm tra `Loop Time`, key đầu/cuối, curve và các state khác đang ghi cùng thuộc tính.
+
+## 8. Câu hỏi tự đánh giá
+
+1. Tại sao từng đối tượng trong scene cần một lý do thị giác để chuyển động?
+2. Nếu cửa mở chậm hơn dự kiến, nên kiểm tra thời lượng clip hay Transition Duration trước? Hãy mô tả cách phân biệt hai nguyên nhân.
+3. Một animation loop giật tại ranh giới chu kỳ có thể được cải thiện bằng cách nào?
+4. Làm thế nào để chứng minh có một cải tiến giữa bản blocking và bản polished?
+5. Khi một property bị điều khiển bởi cả clip và script, cách bạn sẽ khoanh vùng xung đột là gì?
+
+## 9. Checklist hoàn thành
+
+- [ ] Scene hoạt động được trong Play Mode.
+- [ ] Có đủ ba dạng chuyển động theo đề bài.
+- [ ] Có Animator Controller với transition có điều kiện.
+- [ ] Có bằng chứng tinh chỉnh Curves.
+- [ ] Đã kiểm tra khởi tạo, lặp, tương tác và trường hợp lỗi.
+- [ ] Đã lưu toàn bộ project/asset và minh chứng.
+
+## 10. Tài liệu hỗ trợ
+
+1. [Unity Learn — Creative Core Animation](https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3).
+2. [Unity 6.3 — Animation window](https://docs.unity.com/en-us/engine/6000.3/manual/animation-section/animation-mecanim/animation-clips/animation-editor-guide).
+3. [Unity 6.3 — Animator Controller](https://docs.unity.com/en-us/engine/6000.3/manual/animation-section/animation-mecanim/animation-animator-controller).

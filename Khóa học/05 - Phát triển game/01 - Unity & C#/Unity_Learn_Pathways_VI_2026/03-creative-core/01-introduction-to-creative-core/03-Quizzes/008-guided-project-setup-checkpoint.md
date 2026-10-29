@@ -1,81 +1,122 @@
----
-title: "Guided project setup checkpoint"
-pathway: "Creative Core"
-module: "Introduction to Creative Core"
-lesson_number: 8
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/introduction-to-creative-core?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 08 — Kiểm tra hoàn tất thiết lập Guided Project
 
-# Bài 08 — Guided project setup checkpoint
+> **Khóa học:** Creative Core · **Học phần:** Introduction to Creative Core  
+> **Loại bài:** Assessment / Checkpoint · **Trọng tâm:** Xác nhận môi trường Unity và dữ liệu dự án đã sẵn sàng.
 
-> **Pathway:** Creative Core · **Mission:** Introduction to Creative Core · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu kiểm tra
 
-> **Nguồn đối chiếu:** [Introduction to Creative Core trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/introduction-to-creative-core?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Trước khi phát triển vật liệu, ánh sáng hoặc hiệu ứng, dự án phải mở được trong Unity, sử dụng đúng **Universal Render Pipeline (URP)** và chứa các asset cần thiết của concept đã chọn. Checkpoint này là **kiểm tra trạng thái chuẩn bị**, không phải bài thi về lập trình hay kiểm thử một trò chơi hoàn chỉnh.
 
-## 1. Tổng quan
+Sau phần đánh giá, người học cần xác minh được:
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Introduction to Creative Core*, bài **Guided project setup checkpoint** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+- Unity Editor đã cài và có thể khởi chạy.
+- Đã tạo **Universal 3D (URP)** project tương ứng với guided project.
+- Đã nhập starter assets, tìm thấy prefab cần thiết và có thể dựng Scene làm việc.
 
-## 2. Mục tiêu học tập
+## 2. Ba điều kiện của checkpoint trên Unity Learn
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Bài quiz chính thức yêu cầu tự xác nhận ba nội dung sau (dạng **Yes / No**):
 
-## 3. Kiến thức trọng tâm
+| Câu | Nội dung cần kiểm tra | Chọn **Yes** khi nào? |
+|---|---|---|
+| 1 | Đã tải và cài **Unity 6000.0 LTS** chưa? | Editor theo phiên bản được nêu trong checkpoint đã được cài và khởi chạy được |
+| 2 | Đã tạo **Universal 3D (URP)** project bằng **Unity 6000.0 LTS** chưa? | Dự án được tạo với đúng template và phiên bản được yêu cầu |
+| 3 | Đã nhập **guided project assets** được cung cấp chưa? | Asset có thể tìm thấy và sử dụng trong Project window |
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+**Quan trọng về phiên bản:** đường dẫn bài học đang được hiển thị trong mục lục Unity **6.3**, nhưng câu chữ của checkpoint trên trang chính thức vẫn nêu **Unity 6000.0 LTS**. Đây là sự khác biệt nội dung giữa phần quiz và bối cảnh phiên bản; **không tự coi 6.3 là 6000.0** khi trả lời câu hỏi nguyên văn. Nếu đang thực hành với Unity 6.3, hãy xác nhận việc cài, tạo URP project và nhập asset theo Editor bạn thực sự sử dụng, đồng thời đối chiếu câu hỏi phiên bản với trang Unity Learn hiện hành.
 
-### Thuật ngữ và mối quan hệ
+## 3. Quy trình xác minh trước khi làm quiz
 
-| Khái niệm | Vai trò trong bài |
+### 3.1. Kiểm tra Editor và Hub
+
+1. Mở Unity Hub, chọn **Installs**.
+2. Xem danh sách Editor versions đã cài; ghi lại version cụ thể.
+3. Mở project từ **Projects**.
+4. Trong Editor, xem thông tin phiên bản ở **Help → About Unity** hoặc vị trí tương đương.
+
+**Minh chứng:** ảnh danh sách Editor và thông tin version thực tế.
+
+### 3.2. Kiểm tra project URP
+
+1. Trong Unity Editor, mở **Edit → Project Settings → Graphics**.
+2. Xác định **Render Pipeline Asset** được gán làm cấu hình mặc định.
+3. Kiểm tra **Edit → Project Settings → Quality**, vì từng quality level có thể có pipeline asset riêng.
+4. Xác minh project dùng **URP**, thay vì dựa vào tên thư mục hay tên Scene.
+
+**Minh chứng:** ảnh Graphics hoặc Quality cho thấy render pipeline hiện hành. Nếu project vừa được tạo nhưng chưa đúng pipeline, tốt hơn nên chỉnh lại trước khi đi tiếp.
+
+### 3.3. Kiểm tra Guided Project Assets
+
+1. Vào **Project window** và tìm thư mục `Assets/GuidedProject`.
+2. Tìm nhánh của concept đã chọn, chẳng hạn `BeachsideTown`, `AlienVideoGameShop` hoặc thư mục tương ứng của dự án kiến trúc. Tên folder có thể tùy bản starter package; ưu tiên tìm bằng các asset thực tế.
+3. Xác định `Prefabs/StarterEnvironment` nếu có trong bộ package của hướng dẫn.
+4. Kéo prefab vào một Scene mới, kiểm tra đối tượng xuất hiện trong **Hierarchy**, sau đó lưu Scene.
+5. Kiểm tra **Console** để đảm bảo không có lỗi import khiến asset không sử dụng được.
+
+**Minh chứng:** ảnh Project window, Hierarchy và Game view. Các cảnh báo về material không tương thích có thể được xử lý trong học phần Shaders & Materials, nhưng lỗi import hoặc prefab bị thiếu thì cần giải quyết trước.
+
+## 4. Cách xử lý khi chưa đạt checkpoint
+
+| Vấn đề | Cách xử lý có căn cứ |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Chưa cài đúng Editor | Mở Unity Hub → Installs và cài phiên bản mà khóa học hoặc project yêu cầu |
+| Đã tạo dự án 3D nhưng không dùng URP | Kiểm tra template và pipeline; với project mới, cân nhắc tạo lại bằng Universal 3D |
+| Không tìm được guided assets | Mở mục **Resources** của bài *Get started on your guided project*, tải lại đúng package và nhập theo định dạng |
+| Đã import nhưng Scene trống | Tìm `StarterEnvironment` và thêm instance vào Hierarchy |
+| Chưa chắc đã hoàn thành | Chỉ xác nhận **Yes** khi có thể tự chứng minh bằng Editor, folder và ảnh minh chứng |
 
-## 4. Thực hành từng bước
+**Không nên chọn Yes chỉ để vượt checkpoint.** Mục đích là bảo đảm các bài thực hành kế tiếp có nền tảng kỹ thuật phù hợp.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 5. Bài kiểm tra thực hành bổ sung
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Phần sau **tự biên soạn để ôn tập**, không phải câu hỏi chấm điểm của Unity Learn.
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+**Nhiệm vụ 1:** Mở project và cung cấp tên Editor version.  
+**Tiêu chí đạt:** khởi chạy thành công, version ghi khớp với thực tế.
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **thiết kế trò chơi, xây dựng nguyên mẫu và lặp**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+**Nhiệm vụ 2:** Chứng minh project dùng URP.  
+**Tiêu chí đạt:** chỉ ra đúng Render Pipeline Asset hoặc cấu hình URP hiện hành trong Graphics/Quality.
 
-### Gợi ý tự chấm
+**Nhiệm vụ 3:** Trình bày asset starter của concept.  
+**Tiêu chí đạt:** xác định đúng thư mục import, thêm `StarterEnvironment` vào Scene và lưu.
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+**Nhiệm vụ 4:** Ghi một vấn đề phát hiện được và cách kiểm tra.  
+**Tiêu chí đạt:** phân biệt nguyên nhân đã kiểm chứng và giả thuyết chưa được xác nhận.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 6. Trắc nghiệm ôn tập bổ sung
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+**Câu 1.** Chọn tên `GuidedProject_URP` cho một thư mục có đủ để khẳng định project dùng URP không?  
+A. Có vì tên thư mục quyết định pipeline · B. Có nếu tên Scene đúng · C. Có khi chưa tạo material · D. Không, phải kiểm tra cấu hình pipeline thực tế  
+**Đáp án: D.** Tên file/folder không quyết định render pipeline đang hoạt động.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Câu 2.** Muốn tìm starter package chính thức cần làm gì?  
+A. Tìm ở phần Resources của tutorial thiết lập Guided Project · B. Tự tạo file rỗng có tên package · C. Chỉ tải texture ngẫu nhiên · D. Dùng package không rõ nguồn  
+**Đáp án: A.** Bài thiết lập cung cấp tệp tài nguyên hướng dẫn.
 
-## 7. Checklist hoàn thành
+**Câu 3.** Vì sao cần đặt prefab `StarterEnvironment` vào Scene?  
+A. Để đổi Editor version · B. Để loại bỏ URP · C. Để có cấu hình môi trường khởi đầu của concept · D. Để tự động hoàn thiện game  
+**Đáp án: C.** Prefab cung cấp các đối tượng nền tảng làm việc trong Scene.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Introduction to Creative Core](https://learn.unity.com/pathway/creative-core/unit/introduction-to-creative-core?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 4.** Trang quiz nhắc 6000.0 LTS, còn bạn đang dùng Unity 6.3. Kết luận nào đúng?  
+A. Đây là cùng một chuỗi số phiên bản · B. Cần phân biệt yêu cầu nguyên văn với môi trường đang dùng · C. Có thể chọn Yes cho mọi câu · D. URP không hoạt động trên Unity 6.3  
+**Đáp án: B.** Không được đồng nhất hai nhãn phiên bản; cần đối chiếu yêu cầu hiện hành.
 
----
+**Câu 5.** Điều nào chứng minh asset đã nhập thành công một cách thuyết phục?  
+A. Dự án có tên đẹp · B. Đã xem video · C. Tệp ZIP còn trong Downloads · D. Prefab có trong Project window và dùng được trong Scene  
+**Đáp án: D.** Asset cần hiện diện và sử dụng được, không chỉ được tải về máy.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## 7. Checklist cuối cùng
+
+- [ ] Tôi xác định được Editor version thực sự đang dùng.
+- [ ] Tôi hiểu yêu cầu phiên bản của checkpoint chính thức.
+- [ ] Tôi đã tạo dự án **Universal 3D (URP)** và kiểm tra pipeline asset.
+- [ ] Tôi đã tải và nhập starter assets từ nguồn phù hợp.
+- [ ] Tôi đã chọn đúng concept, tìm `StarterEnvironment` và tạo Scene riêng.
+- [ ] Tôi đã lưu Scene và có ảnh minh chứng.
+- [ ] Tôi chỉ xác nhận các câu Yes/No theo trạng thái thực tế.
+
+## 8. Tài liệu học thêm
+
+- [Unity Learn — Guided project setup checkpoint](https://learn.unity.com/pathway/creative-core/unit/introduction-to-creative-core/quiz/guided-project-setup-checkpoint?version=6.3)
+- [Unity Learn — Get started on your guided project](https://learn.unity.com/pathway/creative-core/unit/introduction-to-creative-core/tutorial/get-started-on-your-guided-project?version=6.3)
+- [Unity Hub — Create a new project](https://docs.unity.com/en-us/hub/project-create)

@@ -1,81 +1,163 @@
 ---
-title: "Creative Core: Audio Quiz"
-pathway: "Creative Core"
-module: "Audio"
-lesson_number: 8
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-audio?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+title: "Bài 08 — Ôn tập và đánh giá Creative Core Audio"
+course: "Unity Creative Core — Audio"
+lesson: 8
+type: assessment
+language: vi
+reference_version: "Unity 6.3 (6000.3)"
 ---
 
-# Bài 08 — Creative Core: Audio Quiz
+# Bài 08 — Ôn tập và đánh giá Creative Core Audio
 
-> **Pathway:** Creative Core · **Mission:** Audio · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu và hướng dẫn
 
-> **Nguồn đối chiếu:** [Audio trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-audio?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bài kiểm tra này đánh giá khả năng **giải thích nguyên lý và chọn cấu hình thực tế** cho hệ thống âm thanh Unity. Các tình huống bao gồm nguồn âm, kích hoạt theo sự kiện, âm không gian, reverb, Mixer, tối ưu và khả năng tiếp cận.
 
-## 1. Tổng quan
+Đây là **bộ câu hỏi luyện tập độc lập bằng tiếng Việt**, không phải đáp án hoặc bản sao của bài quiz chính thức trên Unity Learn. Mỗi câu có bốn lựa chọn và một phương án phù hợp nhất. Bạn có thể chọn mục tiêu tự đánh giá từ 10/12 câu trở lên, nhưng đây **không phải ngưỡng đậu chính thức**. Đáp án không kèm theo để giữ đúng hình thức bài đánh giá; sau khi hoàn thành, người học nên đối chiếu với kiến thức và thử nghiệm trong các bài học.
 
-**Chủ đề:** Âm thanh và phản hồi giác quan. Trong ngữ cảnh *Audio*, bài **Creative Core: Audio Quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Bản đồ kiến thức
 
-## 2. Mục tiêu học tập
+```mermaid
+flowchart TD
+    A[Unity Audio] --> B[AudioClip / AudioSource / AudioListener]
+    A --> C[Dynamic events: Trigger / Animation Event]
+    A --> D[3D: Spatial Blend / Rolloff]
+    A --> E[Effects: Reverb / Filter / Mixer]
+    A --> F[Accessibility và tối ưu]
+```
 
-- Trình bày được mục đích của **âm thanh và phản hồi giác quan** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Muốn làm tốt, bạn cần phân biệt giữa **thời điểm phát âm**, **vị trí nghe**, **xử lý hiệu ứng**, **độ ưu tiên phát** và **mục đích truyền đạt**. Các yếu tố có liên quan nhưng không thay thế cho nhau.
 
-## 3. Kiến thức trọng tâm
+## 3. Bài trắc nghiệm
 
-- Audio Source phát AudioClip; Audio Listener đại diện vị trí tiếp nhận âm thanh (thường trên Camera).
-- Spatial Blend quyết định mức âm 2D/3D; âm 3D còn phụ thuộc khoảng cách và các thiết lập suy giảm.
-- Phân biệt âm nền phát liên tục và âm sự kiện như nhặt vật, va chạm hoặc hoàn thành nhiệm vụ.
+### Câu 1
 
-### Thuật ngữ và mối quan hệ
+Một scene Unity 3D có nhiều nguồn âm trên các đối tượng khác nhau. Thông thường nên có bao nhiêu `AudioListener` hoạt động để nghe chính xác cảnh này?
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+A. Một trên mỗi `AudioSource`  
+B. Một trên mỗi vật thể tương tác  
+C. Một `AudioListener` đang hoạt động  
+D. Ít nhất hai để tạo stereo
 
-## 4. Thực hành từng bước
+### Câu 2
 
-1. **Bước 1:** Tạo Audio Source cho môi trường và gán AudioClip được phép sử dụng.
-2. **Bước 2:** Thử Play On Awake, Loop, Volume và Spatial Blend, ghi nhận tác động khi chạy.
-3. **Bước 3:** Tạo một đối tượng phát âm tại vị trí khác Camera để thử suy giảm khoảng cách.
-4. **Bước 4:** Dùng một sự kiện gameplay hoặc nút bấm để phát âm và kiểm tra âm không chồng lặp quá mức.
+Nhạc nền dùng để tạo cảm xúc, nhưng không phát ra từ bất kỳ vật thể nào trong thế giới trò chơi, thuộc nhóm nào?
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+A. Non-diegetic  
+B. Diegetic  
+C. Foley  
+D. Âm thanh vị trí bắt buộc
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+### Câu 3
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **âm thanh và phản hồi giác quan**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+Khi nhập một tệp `.wav` hoặc `.ogg` được Unity hỗ trợ vào Project, tài nguyên dùng làm nội dung phát của `AudioSource` có kiểu nào?
 
-### Gợi ý tự chấm
+A. `AudioListener`  
+B. `AudioMixer`  
+C. `AudioReverbZone`  
+D. `AudioClip`
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+### Câu 4
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Bạn muốn tiếng cửa chỉ phát khi nhân vật kích hoạt công tắc, nhưng âm phát ngay sau khi nhấn Play trong Editor. Thuộc tính nên kiểm tra đầu tiên là gì?
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: không có Audio Listener hoạt động, AudioClip chưa được gán hoặc âm bị suy giảm do khoảng cách.
+A. `Doppler Level`  
+B. `Play On Awake`  
+C. `Spread`  
+D. `Max Distance`
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### Câu 5
 
-## 7. Checklist hoàn thành
+Một bước chân phải phát đúng lúc chân đặt xuống nền trong animation. Cách đồng bộ thích hợp là gì?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Audio](https://learn.unity.com/pathway/creative-core/unit/creative-core-audio?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. Phát theo timer cố định mỗi giây  
+B. Cho `Loop` vĩnh viễn  
+C. Dùng `Animation Event` ở khung hình tiếp xúc  
+D. Đặt AudioSource trên Main Camera
 
----
+### Câu 6
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Tiếng chuông gắn với một ngọn tháp cần thay đổi theo vị trí và khoảng cách của người nghe. Cấu hình khởi đầu phù hợp nhất?
+
+A. `Spatial Blend = 1` và thiết lập rolloff  
+B. `Spatial Blend = 0` và tắt Listener  
+C. `Loop = false` là đủ  
+D. Bật `Play On Awake` là đủ
+
+### Câu 7
+
+Trong chế độ `Linear Rolloff`, nếu muốn âm giảm dần và trở về 0 tại một ranh giới thiết kế, thông số nào xác định ranh giới đó?
+
+A. `Pitch`  
+B. `Priority`  
+C. `Min Distance`  
+D. `Max Distance`
+
+### Câu 8
+
+Bạn muốn tiếng bước chân khi vào hang có đuôi vang rõ hơn so với ngoài đồng trống. Giải pháp hợp ngữ cảnh nhất là gì?
+
+A. Tăng sample rate của clip  
+B. Tạo `Audio Reverb Zone` có preset phù hợp  
+C. Thêm một AudioListener thứ hai  
+D. Đặt `Spatial Blend = 0` cho mọi nguồn
+
+### Câu 9
+
+Trong Unity, đặt `AudioSource.priority` từ 128 xuống 64 chủ yếu tạo tác động gì?
+
+A. Làm clip to gấp đôi  
+B. Đổi âm thanh thành mono  
+C. Tăng mức ưu tiên khi phân bổ voice  
+D. Tăng pitch của clip
+
+### Câu 10
+
+Bạn muốn người chơi điều chỉnh âm lượng nhạc, hiệu ứng và thoại độc lập với nhau. Kiến trúc nào phù hợp nhất?
+
+A. Audio Mixer với các nhóm Music, SFX, Dialogue  
+B. Một AudioSource duy nhất cho tất cả âm  
+C. Một AudioListener cho mỗi nhóm  
+D. Chỉ dùng `Time.timeScale`
+
+### Câu 11
+
+Lựa chọn nào thường phù hợp hơn để giảm chi phí bộ nhớ cho một đoạn nhạc nền dài, với điều kiện vẫn đo trên nền tảng đích?
+
+A. Luôn chọn PCM không nén  
+B. Tăng số kênh không cần thiết  
+C. Dùng tất cả clip ở `Decompress On Load`  
+D. Xem xét `Streaming` trong Audio Import Settings
+
+### Câu 12
+
+Bạn thiết kế một cảnh báo nguy hiểm chỉ bằng tiếng động phát từ bên trái. Thay đổi nào giúp tăng khả năng tiếp cận nhất?
+
+A. Tăng âm lượng tối đa  
+B. Bổ sung biểu tượng chỉ hướng hoặc caption thích hợp  
+C. Tắt camera  
+D. Đổi clip sang định dạng khác
+
+## 4. Bài đánh giá tình huống
+
+**Tình huống A — Thác nước nghe quá lớn:** Một `AudioSource` tiếng thác cách người chơi khá xa vẫn nghe to. Người học phải liệt kê ít nhất ba giả thuyết có thể kiểm chứng (`Spatial Blend`, `Rolloff`, `Volume`, routing Mixer, vị trí listener), sau đó đề xuất trình tự thử chỉ thay một yếu tố mỗi lần.
+
+**Tình huống B — Bước chân lặp không tự nhiên:** Một nhân vật phát đúng thời điểm nhưng chỉ dùng một clip. Người học giải thích cách dùng mảng clip/biến thể, kỹ thuật random và giới hạn của việc thay `Pitch` trên một `AudioSource` khi nhiều one-shot chồng nhau.
+
+**Tình huống C — Người chơi tắt âm:** Một nhiệm vụ yêu cầu tìm cánh cửa dựa hoàn toàn vào tiếng bíp. Người học đề xuất ít nhất hai tín hiệu thị giác và kế hoạch kiểm thử mute để chứng minh nhiệm vụ vẫn hoàn thành được.
+
+### Tiêu chí tự chấm bài tình huống
+
+Mỗi tình huống đạt yêu cầu khi có: mô tả đúng nguyên nhân có thể xảy ra, cách kiểm tra cụ thể trong Unity Editor/Play Mode, dự đoán kết quả thay đổi, và tiêu chí xác nhận sau khi sửa.
+
+## 5. Tổng kết
+
+Sử dụng Unity Audio hiệu quả đòi hỏi nhiều hơn việc gán một tệp âm: bạn phải lựa chọn **nguồn và thời điểm phát**, **xử lý vị trí**, **hiệu ứng**, **cân bằng mức trộn**, **ngân sách tài nguyên** và **khả năng tiếp cận**. Những quyết định này cần được đánh giá bằng hành vi thực tế của scene và người chơi.
+
+## 6. Tài liệu tham khảo
+
+- [Unity Learn — Creative Core: Audio Quiz](https://learn.unity.com/course/creative-core-audio/quiz/creative-core-audio-quiz?version=6.0).
+- [Unity 6.3 — Audio](https://docs.unity.com/en-us/engine/6000.3/manual/audio).
+- [Unity 6.3 — Audio Source](https://docs.unity.com/en-us/engine/6000.3/manual/audio/reference/class-audio-source).
+- [Unity 6.3 — Audio Mixer](https://docs.unity.com/en-us/engine/6000.3/manual/audio/mixer).
+- [Microsoft — Xbox Accessibility Guidelines](https://learn.microsoft.com/gaming/accessibility/guidelines).

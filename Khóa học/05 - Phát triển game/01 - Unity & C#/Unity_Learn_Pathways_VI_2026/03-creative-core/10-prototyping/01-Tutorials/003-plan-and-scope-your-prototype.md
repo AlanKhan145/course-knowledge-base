@@ -1,78 +1,118 @@
----
-title: "Plan and scope your prototype"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 03 — Lập kế hoạch và giới hạn phạm vi prototype
 
-# Bài 03 — Plan and scope your prototype
+> **Creative Core · Prototyping · Thực hành**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Biến ý tưởng thành tập tương tác tối thiểu, kiểm tra bằng prototype trên giấy và lập kế hoạch triển khai có thứ tự ưu tiên.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu và chuẩn bị
 
-## 1. Tổng quan
+**Đầu ra:** một bản mô tả một trang gồm mục tiêu, tương tác tối thiểu, giấy phác, phạm vi loại trừ, tiêu chí hoàn thành. Chuẩn bị giấy bút hoặc công cụ vẽ luồng, chưa bắt buộc mở Unity.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Plan and scope your prototype** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Phân rã tương tác và sự phụ thuộc
 
-## 2. Mục tiêu học tập
+Chỉ giữ những hành động giúp người thử trải nghiệm giả thuyết chính. Ví dụ escape puzzle:
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Plan and scope your prototype** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+| Hành động | Phụ thuộc bắt buộc | Có trong bản đầu? |
+|---|---|---|
+| Di chuyển, nhìn quanh | Camera + bộ điều khiển nhân vật | Có |
+| Bước lên bàn đạp | Collider trigger + thông báo trạng thái | Có |
+| Nhấn nút | Kiểm tra tương tác + điều kiện bật | Có |
+| Cầu hạ, người chơi đi qua | Trạng thái cầu + đường đi | Có |
+| Hệ thống nhiệm vụ, lưu game, nhạc nền | Cải thiện mức hoàn thiện | Chưa |
 
-## 3. Kiến thức trọng tâm
+**Minimum functional prototype** chỉ đủ chức năng để người dùng thực hiện chuỗi quan trọng, không nhất thiết là MVP thương mại.
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+## 3. Paper prototyping: thử trước khi code
 
-### Thuật ngữ và mối quan hệ
+Vẽ mặt bằng, đánh dấu vị trí người chơi và các đối tượng. Có thể dùng thẻ giấy làm nhân vật, biểu tượng làm nút, rồi mô phỏng phản ứng hệ thống khi thẻ di chuyển.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+```mermaid
+flowchart TD
+  A[Người chơi ở sân] --> B[Thấy cầu đang đóng]
+  B --> C[Khám phá khu vực]
+  C --> D[Chạm bàn đạp]
+  D --> E[Nút chuyển trạng thái bật]
+  E --> F[Nhấn nút]
+  F --> G[Cầu mở và kết thúc]
+```
 
-## 4. Thực hành từng bước
+Đây là **luồng thiết kế**, không tự động tạo script Unity. Khi thử trên giấy, có thể phân vai người chơi, người hướng dẫn, “máy tính” mô phỏng luật chơi và người quan sát. Nếu thiếu người, có thể gộp vai, nhưng cần tránh việc người hướng dẫn vô tình mách lời giải.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 4. Ưu tiên phạm vi bằng MoSCoW
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+| Nhóm | Ví dụ | Quyết định |
+|---|---|---|
+| Must have | Di chuyển, trigger, nút, mở lối | Không có thì chưa kiểm chứng được |
+| Should have | Vật thể đổi màu, nhắc phím tương tác | Tăng khả năng đọc, làm khi còn thời gian |
+| Could have | Tiếng mở cầu, bụi, ánh sáng | Có thể bỏ khỏi bản đầu |
+| Won’t have now | Multiplayer, nhiệm vụ nhiều màn | Chủ động loại khỏi vòng thử này |
 
-## 5. Bài tập củng cố
+Ghi rõ “không làm trong lần này” là một quyết định thiết kế tích cực, không phải dự án còn thiếu.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+## 5. Checklist thực hiện và checkpoint
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+1. Viết một câu hỏi kiểm chứng duy nhất.
+2. Vẽ sơ đồ không gian với điểm xuất phát, tác vụ và kết thúc.
+3. Liệt kê tương tác cùng phụ thuộc kỹ thuật.
+4. Phân loại MoSCoW và cắt bỏ mục không bắt buộc.
+5. Đặt hai checkpoint: **C1:** đi được trong greybox; **C2:** giải được chuỗi bàn đạp → nút → cầu.
+6. Chạy paper test ngắn; ghi hành động người thử thực sự đã làm.
+7. Chỉnh lại design brief theo quan sát, không chỉ theo sở thích cá nhân.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 6. Bàn giao và tài liệu tham khảo
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+Sản phẩm cần có `prototype-brief.md`, `layout.png` hoặc `layout.md`, bảng tính năng và phiếu quan sát. Khi chuyển sang Unity, những mục **Must have** sẽ là Definition of Done của bản đầu.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+- [Unity Learn – Plan and scope your prototype](https://learn.unity.com/tutorial/plan-and-scope-your-prototype-3?version=6.0)
 
-## 7. Checklist hoàn thành
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 1.** Tính năng nào thuộc nhóm Must have của ví dụ?
 
----
+A. Multiplayer  
+B. Skin nhân vật  
+C. Tùy chỉnh độ phân giải  
+D. Tương tác bật nút và mở cầu  
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đáp án:** D
+**Giải thích:** Đây là chức năng cần để kiểm chứng chuỗi giải đố.
+
+**Câu 2.** Paper prototype giúp thử điều gì trước khi dựng scene?
+
+A. Độ ổn định build Android  
+B. Quy tắc và luồng tương tác  
+C. Tốc độ nén texture  
+D. Chi phí GPU chính xác  
+
+**Đáp án:** B
+**Giải thích:** Có thể kiểm tra logic và trải nghiệm mà không cần code.
+
+**Câu 3.** Trong thử nghiệm trên giấy, người hướng dẫn nên làm gì?
+
+A. Hạn chế câu hỏi gợi ý và quan sát cách người dùng quyết định  
+B. Chỉ cho người chơi lời giải  
+C. Thay đổi luật liên tục  
+D. Đánh giá qua số khối 3D  
+
+**Đáp án:** A
+**Giải thích:** Dẫn dắt quá mức làm sai lệch bằng chứng.
+
+**Câu 4.** Nhóm Won’t have now có ý nghĩa gì?
+
+A. Không bao giờ làm  
+B. Đã lỗi kỹ thuật  
+C. Chủ động hoãn khỏi phạm vi thử hiện tại  
+D. Phải hoàn thiện trước các nhóm khác  
+
+**Đáp án:** C
+**Giải thích:** Đây là quyết định quản lý phạm vi có thể thay đổi ở vòng sau.
+
+**Câu 5.** Cách tổ chức checkpoint hữu ích nhất là?
+
+A. Theo số asset mua  
+B. Theo số lượng ảnh  
+C. Theo màu nền  
+D. Theo chức năng quan sát được khi chơi  
+
+**Đáp án:** D
+**Giải thích:** Checkpoint phải có dấu hiệu đạt/không đạt.

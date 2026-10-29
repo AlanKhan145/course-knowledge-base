@@ -1,78 +1,117 @@
----
-title: "Test your prototype"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 8
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 08 — Kiểm thử prototype và cải tiến dựa trên bằng chứng
 
-# Bài 08 — Test your prototype
+> **Creative Core · Prototyping · Thực hành**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Một bản prototype chỉ thực sự có giá trị khi được đưa vào tình huống kiểm thử nhằm quan sát người dùng và đo mức độ đạt mục tiêu thiết kế.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu và câu hỏi kiểm thử
 
-## 1. Tổng quan
+Người học có thể xây kế hoạch playtest, phân biệt **lỗi kỹ thuật**, **khó dùng** và **không hấp dẫn**, ghi kết quả có cấu trúc, chuyển nhận xét thành công việc ưu tiên. Trước buổi thử, định nghĩa một số tác vụ quan sát được, không chỉ hỏi “bạn có thích không?”.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Test your prototype** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Chuẩn bị nhiệm vụ và chỉ số
 
-## 2. Mục tiêu học tập
+Ví dụ kiểm thử câu đố hạ cầu:
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Test your prototype** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+| Nhiệm vụ | Quan sát | Dấu hiệu đánh giá |
+|---|---|---|
+| Tìm bàn đạp | Lộ trình, có bỏ qua không | Người chơi tự tìm mà không được nhắc |
+| Xác định nút đã mở | Người chơi đọc trạng thái thế nào | Có nhận ra thay đổi không |
+| Hạ cầu và thoát | Hành động cuối, lỗi va chạm | Hoàn tất chuỗi không mắc kẹt |
 
-## 3. Kiến thức trọng tâm
+Các chỉ số thực dụng gồm tỷ lệ hoàn thành nhiệm vụ, số lần cần trợ giúp, thời gian và điểm vướng. Với ít người thử, số liệu chủ yếu mang tính **định tính/khám phá**, không đủ để khẳng định phổ quát về toàn bộ người chơi. Không áp đặt một ngưỡng thành công cố định từ ví dụ lớp học.
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+## 3. Tổ chức phiên playtest
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+flowchart LR
+  A[Viết tác vụ và tiêu chí] --> B[Chuẩn bị bản build ổn định]
+  B --> C[Cho người thử chơi]
+  C --> D[Quan sát không gợi ý]
+  D --> E[Phỏng vấn ngắn]
+  E --> F[Phân loại vấn đề]
+  F --> G[Sửa và thử lại]
+```
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+1. Kiểm tra build trên máy gần với môi trường mục tiêu, bảo đảm scene và input hoạt động.
+2. Nói rõ đây là kiểm thử **sản phẩm**, không phải kiểm tra khả năng của người thử.
+3. Đưa nhiệm vụ trung lập: “Hãy tìm cách ra khỏi khu vực này.” Không nói “hãy tìm bàn đạp sau tường”.
+4. Quan sát lối đi, thao tác sai, dừng lại và phản ứng của người chơi; có thể đề nghị người thử nói thành lời điều họ đang nghĩ, không ép nếu làm gián đoạn trải nghiệm.
+5. Hỏi sau khi chơi: “Lúc nào bạn thấy khó hiểu?”, “Bạn mong điều gì xảy ra khi bấm nút?”
+6. Ghi mọi phát hiện và xác định điểm cần sửa.
 
-## 4. Thực hành từng bước
+## 4. Phân loại bằng chứng và ưu tiên
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+| Loại phát hiện | Ví dụ | Cách xử lý |
+|---|---|---|
+| Bug | Bàn đạp không kích hoạt do collider | Sửa lỗi, tái kiểm thử |
+| Usability | Không thấy nút đổi màu | Đổi vị trí, thêm tín hiệu không chỉ dựa màu |
+| Experience | Câu đố quá dễ, không tạo khám phá | Sắp xếp lại chướng ngại/tầm nhìn |
+| Performance | FPS giảm ở vùng nhiều cây | Profile, giảm mức chi tiết phù hợp |
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Một báo cáo lỗi phải nêu **bước tái hiện → kết quả mong đợi → kết quả thực tế → phiên bản build → mức độ ảnh hưởng**. Mức ưu tiên cao dành cho lỗi chặn luồng chính hoặc vấn đề được nhiều người thử gặp, không phải chỉ cho ý kiến được nói to nhất.
 
-## 5. Bài tập củng cố
+## 5. Bài thực hành và checklist
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+- Chuẩn bị ít nhất một người thử không tham gia thiết kế; nếu có thể, thêm người đúng nhóm người dùng mục tiêu.
+- Ghi hành trình thực tế, số lần cần trợ giúp và ít nhất ba nhận xét quan sát được.
+- Chọn **một** cải tiến chính; lưu bản trước/sau và lặp lại tác vụ.
+- Ghi rõ điều gì **chưa thể kết luận** khi mẫu thử còn ít.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Hoàn thành:** có kế hoạch test, phiếu quan sát, ba phát hiện đã phân loại và một thay đổi được kiểm chứng.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 6. Nguồn tham khảo
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+- [Unity Learn – Creative Core: Prototyping](https://learn.unity.com/project/creative-core-prototyping)
+- [Unity Learn – Test your prototype](https://learn.unity.com/course/creative-core-prototyping/tutorial/test-your-prototype-3?version=6.0)
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-## 7. Checklist hoàn thành
+**Câu 1.** Lời giao nhiệm vụ nào ít dẫn dắt nhất?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. Bước lên bàn đạp ở góc trái rồi nhấn nút  
+B. Nhấn phím E trên nút xanh  
+C. Hãy tìm cách thoát khỏi khu vực  
+D. Đi thẳng tới lối thoát  
 
----
+**Đáp án:** C
+**Giải thích:** Mô tả mục tiêu mà không tiết lộ cách giải.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Câu 2.** Vì sao cần bản build ổn định trước buổi thử?
+
+A. Để giảm nhiễu do lỗi cài đặt và thử đúng điều cần kiểm chứng  
+B. Để ngăn người dùng nói  
+C. Để tăng số NPC  
+D. Để giảm số lượt quan sát  
+
+**Đáp án:** A
+**Giải thích:** Bản build lỗi dễ làm kết quả playtest không còn ý nghĩa.
+
+**Câu 3.** Người thử không thấy nút đang mở là vấn đề nào?
+
+A. Lỗi lưu file  
+B. Usability/khả năng nhận tín hiệu  
+C. Giấy phép asset  
+D. Không có Terrain  
+
+**Đáp án:** B
+**Giải thích:** Hành vi có thể chạy đúng nhưng tín hiệu chưa đủ rõ.
+
+**Câu 4.** Khi chỉ có hai người thử, kết luận phù hợp nhất là?
+
+A. Hệ thống hoàn hảo  
+B. Toàn bộ người dùng sẽ giống họ  
+C. Dữ liệu không có ích  
+D. Đây là phát hiện ban đầu cần xác nhận thêm  
+
+**Đáp án:** D
+**Giải thích:** Cỡ mẫu nhỏ phù hợp phát hiện vấn đề, không đủ khái quát.
+
+**Câu 5.** Báo cáo bug hữu ích cần có gì?
+
+A. Bước tái hiện cùng mong đợi và thực tế  
+B. Cảm nhận chung không ví dụ  
+C. Ảnh trang trí  
+D. Tên vật phẩm đẹp  
+
+**Đáp án:** A
+**Giải thích:** Thông tin có cấu trúc giúp tái hiện và sửa lỗi.

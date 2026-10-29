@@ -1,78 +1,108 @@
----
-title: "Build on your basic prototype"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 5
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 05 — Phát triển nguyên mẫu cơ bản theo từng vòng lặp
 
-# Bài 05 — Build on your basic prototype
+> **Creative Core · Prototyping · Thực hành**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Khi cơ chế chính đã hoạt động, hãy cải tiến mức độ dễ hiểu và chất lượng tương tác trước khi đầu tư mạnh vào hình ảnh.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu và nguyên tắc
 
-## 1. Tổng quan
+Sau bài học, người học biết đánh giá greybox theo tiêu chí, lập kế hoạch nâng cấp theo giai đoạn, lập danh mục asset, lựa chọn cải tiến phục vụ trải nghiệm. **Không đồng nhất mở rộng prototype với polish.** Mục tiêu vẫn là hiểu cách chơi và tính khả thi.
 
-**Chủ đề:** Hoàn thiện, xuất bản và trình bày dự án. Trong ngữ cảnh *Prototyping*, bài **Build on your basic prototype** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Phân biệt cải tiến chức năng với trang trí
 
-## 2. Mục tiêu học tập
+Ví dụ cầu thoát hiểm: bản đầu dùng cầu biến mất ngay lập tức; bản nâng cấp sử dụng chuyển động hạ cầu có trạng thái rõ ràng. Việc bổ sung animation lúc này giúp người chơi hiểu hậu quả của thao tác, không đơn thuần để đẹp.
 
-- Trình bày được mục đích của **hoàn thiện, xuất bản và trình bày dự án** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Build on your basic prototype** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+| Thay đổi | Vấn đề giải quyết | Thứ tự gợi ý |
+|---|---|---|
+| Nút đổi trạng thái khi bàn đạp bật | Người chơi không biết nút đã dùng được | Ưu tiên cao |
+| Cầu hạ bằng Animation | Người chơi không nhận thấy tác động | Ưu tiên cao |
+| Tách tường để hướng tuyến khám phá | Lối đi quá hiển nhiên | Sau khi kiểm chứng đường đi |
+| Nhạc nền nhiều lớp | Chưa ảnh hưởng kiểm chứng chính | Để sau |
 
-## 3. Kiến thức trọng tâm
+Chỉ thay đổi một hoặc vài yếu tố liên quan cho mỗi vòng, để biết điều gì tạo ra cải thiện.
 
-- Cần phân biệt chạy trong Editor và bản build thực tế: tài nguyên, input và giới hạn nền tảng có thể khác.
-- Portfolio tốt thể hiện mục tiêu dự án, vai trò cá nhân, cách triển khai, kết quả và bài học kinh nghiệm.
-- Luôn kiểm tra quyền sử dụng asset/nhạc và quyền riêng tư trước khi công khai.
+## 3. Các vòng nâng cấp có chủ đích
 
-### Thuật ngữ và mối quan hệ
+**Vòng 1: làm rõ cơ chế.** Trong ví dụ Unity Learn, người làm sử dụng ProBuilder để dựng lại môi trường và cắt ô cửa; tạo hố bằng Terrain; thêm animation cho cầu; cải thiện phản hồi màu của nút và bàn đạp. `Rigidbody` có thể được cấu hình `isKinematic` khi chuyển động do animation điều khiển, nhưng cần tránh xung đột giữa animation, collider và physics.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+**Vòng 2: làm rõ trải nghiệm khám phá.** Chỉnh bố cục tường/cửa, thêm một rào chắn cho người chơi nhìn thấy mục tiêu nhưng chưa tiếp cận được, di chuyển hoặc thu nhỏ bàn đạp để hướng sự chú ý vào sự thay đổi của nút. Lần thử tiếp theo phải kiểm chứng người chơi thật sự chú ý và suy luận được gì; không chỉ hỏi họ có “thấy đẹp” không.
 
-## 4. Thực hành từng bước
+## 4. Danh mục asset và giấy phép
 
-1. **Bước 1:** Rà soát scene và các thư viện asset để không thiếu tham chiếu khi build.
-2. **Bước 2:** Thiết lập nền tảng đích, cấu hình chất lượng và build một bản có thể chạy.
-3. **Bước 3:** Chạy thử từ đầu đến cuối; ghi video hoặc ảnh minh họa, không chỉ ảnh Editor.
-4. **Bước 4:** Viết README ngắn gồm cách chơi, yêu cầu máy và danh sách lỗi còn biết.
+Tạo `asset-inventory.md` hoặc CSV:
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+| Asset | Vai trò | Trạng thái | Nguồn / giấy phép |
+|---|---|---|---|
+| `Bridge_Greybox` | Cầu tạm | Placeholder | Tự tạo |
+| `Button_Material` | Tín hiệu trạng thái | Dùng cho prototype | Tự tạo |
+| `StoneWall_Model` | Model tường dự định | Chưa tích hợp | Cần xác minh giấy phép |
 
-## 5. Bài tập củng cố
+Luôn phân biệt vật thể thay thế tạm (*placeholder*) và asset cuối. Trước khi phát hành, xem quyền tác giả, điều khoản phân phối, attribution nếu có, cũng như hạn chế sử dụng asset mua/miễn phí. Không giả định “được tải miễn phí” đồng nghĩa “được tái phân phối”.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+## 5. Bài lab: cải tiến theo hai bước
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+1. Quay một lượt chơi từ bản greybox, ghi điểm người chơi không nhận tín hiệu.
+2. Tạo bản `v0.2`: chỉ thay đổi phản hồi nút + chuyển động cầu; kiểm thử lại.
+3. Tạo bản `v0.3`: điều chỉnh lối đi, bổ sung rào nếu người chơi cần khám phá.
+4. Với mỗi bản, ghi một câu **thay đổi – lý do – dấu hiệu cần kiểm chứng**.
+5. Tạo danh mục asset với giấy phép và đánh dấu phần placeholder.
+6. Chỉ giữ chỉnh sửa giúp trả lời câu hỏi kiểm chứng, phần còn lại ghi backlog.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 6. Đánh giá kết quả và tài liệu
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên scene trong build, dữ liệu chỉ hoạt động trong Editor hoặc tài nguyên có giấy phép không phù hợp.
+Điều kiện đạt: chuỗi tương tác được giữ nguyên; người thử nhận thấy trạng thái cầu/nút dễ hơn; có lịch sử thay đổi và danh mục asset. Nếu cải tiến làm tăng sự rối rắm, có thể hoàn nguyên.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+- [Unity Learn – Build on your basic prototype](https://learn.unity.com/tutorial/build-on-your-basic-prototype-3?version=6.0)
+- [Unity Docs – ProBuilder workflow](https://docs.unity.cn/Packages/com.unity.probuilder%406.1/manual/workflow-edit.html)
 
-## 7. Checklist hoàn thành
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 1.** Bước nâng cấp nào phục vụ khả năng hiểu cơ chế?
 
----
+A. Thêm hàng trăm texture  
+B. Đổi màu nút để biểu thị trạng thái kích hoạt  
+C. Chỉ đổi tên project  
+D. Tăng polygon tường  
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đáp án:** B
+**Giải thích:** Phản hồi trạng thái giúp người chơi nối hành động với kết quả.
+
+**Câu 2.** Cách đánh giá hai vòng prototype hiệu quả là gì?
+
+A. Chỉ so ảnh đẹp  
+B. Cùng lúc thay mọi hệ thống  
+C. Không ghi lịch sử  
+D. Kiểm tra mục tiêu và hành vi sau từng thay đổi có chủ đích  
+
+**Đáp án:** D
+**Giải thích:** Kiểm chứng theo vòng giúp xác định tác động.
+
+**Câu 3.** Ý nghĩa của placeholder trong asset inventory?
+
+A. Asset tạm phải được xem xét thay thế ở giai đoạn phù hợp  
+B. Asset luôn có thể bán lại  
+C. Một script bắt buộc  
+D. Đã là asset sản phẩm cuối  
+
+**Đáp án:** A
+**Giải thích:** Placeholder phục vụ thử nghiệm trước khi chọn tài nguyên cuối.
+
+**Câu 4.** Khi dùng một model miễn phí từ mạng, cần làm gì?
+
+A. Chỉ đổi tên file  
+B. Xóa tác giả  
+C. Kiểm tra giấy phép và phạm vi sử dụng  
+D. Cho vào bản build bất kể điều khoản  
+
+**Đáp án:** C
+**Giải thích:** Quyền sử dụng và quyền phân phối có thể khác nhau.
+
+**Câu 5.** Vì sao không nên polish quá sớm?
+
+A. Unity không hỗ trợ texture  
+B. Có thể tốn công hoàn thiện cơ chế chưa được chứng minh  
+C. Vì polish gây lỗi luôn luôn  
+D. Vì không thể sửa model  
+
+**Đáp án:** B
+**Giải thích:** Chức năng và trải nghiệm phải được kiểm chứng trước.

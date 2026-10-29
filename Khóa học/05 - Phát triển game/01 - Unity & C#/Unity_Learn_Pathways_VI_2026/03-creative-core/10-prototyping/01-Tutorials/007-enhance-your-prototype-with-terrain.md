@@ -1,78 +1,103 @@
----
-title: "Enhance your prototype with Terrain"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 7
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 07 — Thiết kế địa hình bằng Terrain trong Unity
 
-# Bài 07 — Enhance your prototype with Terrain
+> **Creative Core · Prototyping · Thực hành**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Terrain giúp tạo địa hình từ dữ liệu cao độ và lớp texture, đặc biệt phù hợp với vùng đồi, thung lũng hoặc địa hình bao quanh không gian chơi.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu và chuẩn bị
 
-## 1. Tổng quan
+Người học sẽ tạo Terrain tile, tạo đồi bằng brush, làm mượt địa hình, thêm Terrain Layer và kiểm tra đường đi. Tạo một scene thử nghiệm riêng trước khi đưa địa hình vào prototype.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Enhance your prototype with Terrain** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Từ menu **GameObject > 3D Object > Terrain**, Unity tạo `Terrain` GameObject cùng `TerrainData` asset liên quan. Trong Inspector hoặc Terrain overlay có công cụ sculpt và paint. [Hướng dẫn chính thức](https://docs.unity.com/en-us/engine/6000.6/manual/creating-environments/script-terrain/terrain-using-terrains).
 
-## 2. Mục tiêu học tập
+## 2. Nguyên lý heightmap và điểm giới hạn
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Enhance your prototype with Terrain** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Terrain trong Unity lưu địa hình cơ bản dưới dạng **heightmap**: với mỗi vị trí phẳng (x, z), dữ liệu xác định một cao độ y. Vì vậy, một Terrain thông thường không trực tiếp tạo được hang có trần nhô hoặc nhiều mặt đất chồng nhau tại cùng vị trí. Nếu cần hang, mái vòm hoặc vách hình học phức tạp, hãy kết hợp mesh.
 
-## 3. Kiến thức trọng tâm
+Đặc biệt, không thể đào địa hình xuống **thấp hơn mức gốc của heightmap** bằng cách liên tục hạ brush. Nếu muốn một rãnh thấp ở trước cầu, có thể nâng vùng mặt đất chung rồi hạ phần rãnh, hoặc thiết lập cao độ Terrain hợp lý trước khi sculpt.
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+## 3. Công cụ cần biết
 
-### Thuật ngữ và mối quan hệ
+| Công cụ | Tác dụng | Ứng dụng |
+|---|---|---|
+| Raise / Lower Terrain | Thay đổi độ cao | Tạo đồi, thung lũng |
+| Smooth Height | Giảm biến thiên cao độ đột ngột | Làm đường đi bớt gồ ghề |
+| Set Height | Đưa vùng về cao độ mục tiêu | Làm sân, nền công trình |
+| Paint Texture | Phủ bề mặt bằng Terrain Layer | Đánh dấu đường mòn/cỏ/đất |
+| Create Neighbor Terrains | Tạo tile liền kề | Mở rộng không gian |
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+**Brush Size** điều khiển diện tích ảnh hưởng; **Opacity/Strength** điều khiển cường độ tác động. Thử với lực thấp trước để tránh mặt đất đổi quá mạnh. Với landscape cỡ nhỏ, **không cần** mặc định tạo lưới 3 × 3 tile như bài tập minh họa trên Unity Learn; tăng số tile làm phát sinh chi phí quản lý và rendering.
 
-## 4. Thực hành từng bước
+## 4. Bài thực hành: đồi và rãnh trước cầu
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+1. Tạo Terrain; điều chỉnh kích thước TerrainData cho phù hợp scene, ghi lại thông số ban đầu.
+2. Chọn Raise/Lower, dùng brush mềm tạo hai gò đồi ngoài vùng chơi chính.
+3. Dùng Smooth Height làm mượt chân đồi, giữ độ dốc đường đi phù hợp nhân vật.
+4. Dùng Set Height hoặc nâng mặt bằng chung rồi hạ rãnh trước cầu. Cố gắng tạo một vị trí có chênh cao nhìn thấy được nhưng không chặn nhiệm vụ chính.
+5. Tại **Paint Texture**, thêm `Terrain Layer` đầu tiên, sau đó chọn layer khác để đánh dấu đường đi. Lưu ý layer đầu có thể phủ toàn bộ Terrain.
+6. Nếu cần thêm diện tích, dùng Create Neighbor Terrains thay vì tạo các tile rời thủ công.
+7. Play mode, đi kiểm tra từng đoạn dốc, vị trí cầu và mép rãnh; sửa phần gây kẹt hoặc khó quan sát.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Hiệu năng và lỗi thường gặp
 
-## 5. Bài tập củng cố
+Lỗi “nhân vật chìm vào đất” thường liên quan collider/controller, vị trí spawn hoặc height. Lỗi đường đi quá dốc cần sửa địa hình chứ không nên tăng tốc độ player để vượt qua. Khi thêm tree/grass/detail và nhiều Terrain Layer, cần theo dõi hiệu năng trên nền tảng đích; chi phí thực tế tùy render pipeline và thiết lập.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+**Kết quả cần nộp:** ảnh chụp Terrain trước/sau, ghi chú brush và một lượt chạy kiểm tra chuyển động qua địa hình.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 6. Nguồn kỹ thuật
 
-## 6. Lỗi thường gặp và cách kiểm tra
+- [Unity Docs – Create and edit Terrains](https://docs.unity.com/en-us/engine/6000.6/manual/creating-environments/script-terrain/terrain-using-terrains)
+- [Unity Docs – Paint Texture](https://docs.unity.com/en-us/engine/6000.6/manual/creating-environments/script-terrain/terrain-textures/terrain-paint-texture)
+- [Unity Learn – Enhance your prototype with Terrain](https://learn.unity.com/tutorial/enhance-your-prototype-with-terrain-3?version=6.0)
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Câu 1.** Tại sao heightmap không trực tiếp tạo hang có mái nhô?
 
-## 7. Checklist hoàn thành
+A. Vì có quá nhiều lớp màu  
+B. Vì mỗi điểm (x,z) cơ bản chỉ có một độ cao  
+C. Vì chỉ hỗ trợ âm thanh  
+D. Vì phải có NPC  
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Đáp án:** B
+**Giải thích:** Một heightmap đơn trị không mô tả nhiều mặt đứng chồng lên nhau.
 
----
+**Câu 2.** Muốn tạo rãnh thấp hơn vùng đất, thao tác nào hợp lý?
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+A. Tạo mặt đất chung cao hơn rồi hạ phần rãnh  
+B. Chỉ tăng số đèn  
+C. Tắt Terrain Collider  
+D. Thêm logo  
+
+**Đáp án:** A
+**Giải thích:** Không thể sculpt thấp hơn cao độ gốc của heightmap bằng công cụ giảm độ cao.
+
+**Câu 3.** Dùng Smooth Height để làm gì?
+
+A. Tăng số tile  
+B. Chỉ đổi màu  
+C. Làm mềm biến thiên cao độ gắt  
+D. Tạo ô cửa ProBuilder  
+
+**Đáp án:** C
+**Giải thích:** Smooth giảm sự thay đổi cao độ đột ngột.
+
+**Câu 4.** Terrain Layer chủ yếu phục vụ việc gì?
+
+A. Điều khiển Animator  
+B. Chạy Input System  
+C. Tạo collider dạng Box  
+D. Gắn texture và thuộc tính bề mặt Terrain  
+
+**Đáp án:** D
+**Giải thích:** Paint Texture dùng các Terrain Layer.
+
+**Câu 5.** Lúc nào nên tạo Neighbor Terrain?
+
+A. Khi cần mở rộng landscape liền kề  
+B. Khi cần viết C#  
+C. Khi project không có camera  
+D. Khi muốn bật nút  
+
+**Đáp án:** A
+**Giải thích:** Adjacent tiles giúp mở rộng địa hình có tổ chức.

@@ -1,81 +1,114 @@
----
-title: "Creative Core: Lighting quiz"
-pathway: "Creative Core"
-module: "Lighting"
-lesson_number: 14
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 14 — Bài kiểm tra tổng hợp kiến thức Lighting – Unity Creative Core
 
-# Bài 14 — Creative Core: Lighting quiz
+*Creative Core · Lighting · Unity 6.3 · Creative Core: Lighting quiz*
 
-> **Pathway:** Creative Core · **Mission:** Lighting · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu và hướng dẫn
 
-> **Nguồn đối chiếu:** [Lighting trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bài đánh giá này kiểm tra khả năng **lựa chọn phương pháp chiếu sáng**, không chỉ ghi nhớ tên công cụ. Hãy thực hiện một lượt trả lời mà không mở Inspector, sau đó kiểm nghiệm các câu khiến bạn phân vân bằng scene Unity nhỏ.
 
-## 1. Tổng quan
+Bài gồm **12 câu tự biên soạn** chia thành phần trắc nghiệm, đúng/sai và xử lý tình huống. Đây là bài đánh giá ôn luyện độc lập, **không phải bộ câu hỏi hay thang chấm chính thức của Unity Learn**. Đáp án không đặt trong đề để bạn có thể tự làm trước khi đối chiếu với kết quả thực hành.
 
-**Chủ đề:** Chiếu sáng và độ chân thực của khung cảnh. Trong ngữ cảnh *Lighting*, bài **Creative Core: Lighting quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Phần A — Trắc nghiệm (mỗi câu chọn một đáp án tốt nhất)
 
-## 2. Mục tiêu học tập
+### Câu 1
 
-- Trình bày được mục đích của **chiếu sáng và độ chân thực của khung cảnh** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Đèn nào thường phù hợp nhất để mô phỏng ánh nắng chiếu trên một quảng trường rộng?
 
-## 3. Kiến thức trọng tâm
+A. Point Light.  
+B. Spot Light.  
+C. Directional Light.  
+D. Reflection Probe.
 
-- Directional Light mô phỏng nguồn sáng định hướng; Point và Spot Light phù hợp nguồn sáng cục bộ.
-- Baked lighting lưu kết quả chiếu sáng tĩnh vào lightmap, trong khi realtime lighting cập nhật theo thời gian chạy.
-- Light Probes hỗ trợ đối tượng động trong môi trường chiếu sáng bake; Reflection Probes tạo phản xạ theo môi trường.
+### Câu 2
 
-### Thuật ngữ và mối quan hệ
+Vì sao một Mesh static đã bake vẫn có thể sáng đúng trong khi không có realtime Light chiếu lên nó?
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+A. Lightmap lưu kết quả chiếu sáng trước đó.  
+B. Collider tự tạo ánh sáng.  
+C. Animator giữ trạng thái màu.  
+D. Mesh có UV0 nên tự phát sáng.
 
-## 4. Thực hành từng bước
+### Câu 3
 
-1. **Bước 1:** Thiết lập một scene có nền, đối tượng tĩnh, đối tượng động và nguồn sáng.
-2. **Bước 2:** Thay đổi hướng, cường độ, màu ánh sáng rồi quan sát bóng đổ.
-3. **Bước 3:** Với pipeline hỗ trợ, thử bake ánh sáng và đánh dấu đối tượng tĩnh đúng cách.
-4. **Bước 4:** So sánh hình ảnh và hiệu năng trước/sau; chụp ảnh minh họa các thiết lập.
+Trong URP, Scene có một nhân vật chạy qua căn phòng dùng Baked GI. Nhân vật không nhận màu chiếu sáng gián tiếp thích hợp. Giải pháp nào cần được xét trước?
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+A. Đổi Collider thành Trigger.  
+B. Bổ sung Light Probes và kiểm tra Renderer.  
+C. Tăng Shadow Distance vô hạn.  
+D. Tắt mọi Material.
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+### Câu 4
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **chiếu sáng và độ chân thực của khung cảnh**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+Bề mặt kim loại trong gallery phản xạ Skybox ngoài trời. Công cụ nào hỗ trợ tạo phản xạ môi trường cục bộ?
 
-### Gợi ý tự chấm
+A. Animation Clip.  
+B. Lightmap UV.  
+C. Light Probe Group.  
+D. Reflection Probe.
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+### Câu 5
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Điều gì đúng nhất về Mixed Lighting?
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: lightmap không cập nhật, bề mặt thiếu UV phù hợp hoặc vật thể động không nhận ánh sáng như mong đợi.
+A. Mọi ảnh hưởng của Light thay đổi tức thì khi runtime.  
+B. Có thể kết hợp direct realtime với GI/bóng tính trước tùy Lighting Mode.  
+C. Không dùng được trong dự án có vật thể động.  
+D. Hoàn toàn giống Reflection Probe.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### Câu 6
 
-## 7. Checklist hoàn thành
+Vì sao tăng Depth Bias quá lớn có thể làm bóng trông không thật?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Lighting](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. Làm bóng tách khỏi tiếp xúc giữa vật và nền.  
+B. Tăng số mesh renderer.  
+C. Làm vật phát sáng.  
+D. Làm âm thanh bị trễ.
 
----
+### Câu 7
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Với mô hình FBX có texture màu tốt nhưng lỗi bake thành từng mảng, bước nào hợp lý?
+
+A. Chỉ tăng ánh sáng mặt trời.  
+B. Xóa camera.  
+C. Kiểm tra UV cho lightmap, overlap và padding.  
+D. Thêm nhiều bloom.
+
+### Câu 8
+
+Để làm nổi đường viền của một mô hình sản phẩm tách khỏi hậu cảnh, bạn sẽ thử nguồn nào trước?
+
+A. Fill Light phía trước.  
+B. Rim/Back Light phía sau.  
+C. Skybox đen tuyệt đối.  
+D. Light Probe bên dưới sàn.
+
+## 3. Phần B — Đúng hay sai (giải thích ngắn)
+
+9. Material có Emission bật đồng nghĩa vật đó tự tạo bóng và chiếu sáng realtime lên mọi vật xung quanh.
+
+10. Skybox có thể đóng góp ánh sáng môi trường, nhưng không đồng nghĩa với toàn bộ ánh sáng trực tiếp trong scene.
+
+11. Light Probes có thể giúp renderer chuyển động nhận lighting từ môi trường bake mà không buộc mọi vật động mang một lightmap cố định.
+
+12. Khi so sánh hiệu quả của hai cấu hình shadow, nên giữ góc camera, exposure và chất lượng render không đổi.
+
+## 4. Phần C — Tình huống thực hành
+
+**Tình huống 1: Phòng trưng bày.** Một quả cầu màu đỏ trên bục được spotlight chiếu sáng, nhưng mặt bên của nó tối đen và kim loại phản chiếu bầu trời. Hãy chỉ ra **hai hệ thống ánh sáng khác nhau** cần kiểm tra và giải thích vai trò riêng của từng hệ thống.
+
+**Tình huống 2: Đường phố đêm.** Các đèn đường được bake nhưng người chơi chạy qua không nhận ánh sáng phù hợp. Hãy đề xuất một cấu hình dùng Light Probes và nói rõ khi nào cần thêm đèn realtime/mixed.
+
+**Tình huống 3: Tối ưu.** Một Scene có nhiều đèn Spot realtime casting shadows gây giảm frame rate. Hãy đề xuất kế hoạch thử nghiệm theo thứ tự để tìm mức tối ưu phù hợp mà vẫn giữ được ý đồ ánh sáng.
+
+## 5. Tiêu chí tự chấm
+
+Phần A: 8 điểm, mỗi đáp án phù hợp được 1 điểm. Phần B: 4 điểm, mỗi giải thích đúng và nêu ví dụ được 1 điểm. Phần C: 6 điểm, mỗi tình huống được tối đa 2 điểm theo mức **xác định đúng hiện tượng → chọn đúng hệ thống → giải thích cách kiểm chứng**. Tổng điểm tự đánh giá tối đa **18**; không gán thang điểm này cho khóa chính thức của Unity.
+
+Nếu bạn chưa chắc một lựa chọn, hãy thử tạo scene chỉ gồm một sàn tĩnh, một quả cầu di động, một nguồn sáng và một camera: dữ liệu quan sát trực tiếp thường đáng tin hơn phỏng đoán từ tên thiết lập.
+
+
+## 6. Tài liệu tham khảo và lưu ý phiên bản
+
+- [Unity Learn — Creative Core: Lighting quiz](https://learn.unity.com/course/creative-core-lighting/quiz/creative-core-lighting-quiz?version=6.3) (Unity 6.3).
+
+**Lưu ý:** Menu và tùy chọn có thể khác theo URP Asset, Quality Level, Unity Editor và loại shader đang dùng. Nội dung là bài giảng tiếng Việt độc lập được biên soạn và bổ sung để học tập, không phải bản dịch chính thức hay lời chép toàn văn của Unity.

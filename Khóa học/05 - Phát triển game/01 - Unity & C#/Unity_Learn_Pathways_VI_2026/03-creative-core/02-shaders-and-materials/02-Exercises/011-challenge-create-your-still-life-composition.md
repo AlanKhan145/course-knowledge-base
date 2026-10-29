@@ -1,83 +1,94 @@
 ---
-title: "Challenge: Create your still life composition"
-pathway: "Creative Core"
-module: "Shaders and Materials"
+title: "Bài 11 — Thử thách: Sắp đặt tĩnh vật với nhiều chất liệu"
+source_title: "Challenge: Create your still life composition"
+course: "Unity Creative Core — Shaders and Materials"
+unity_version: "6.3 (hướng dẫn ưu tiên URP)"
 lesson_number: 11
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/shaders-and-materials?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+lesson_type: "exercise"
+status: "Tài liệu tự biên soạn, mở rộng và đối chiếu tài liệu công khai"
+updated_at: "2026-10-29"
 ---
 
-# Bài 11 — Challenge: Create your still life composition
+# Bài 11 — Thử thách: Sắp đặt tĩnh vật với nhiều chất liệu
 
-> **Pathway:** Creative Core · **Mission:** Shaders and Materials · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
+> **Phần học:** Creative Core / Shaders and Materials  
+> **Tên bài gốc:** Challenge: Create your still life composition  
+> **Môi trường thực hành:** Unity 6.3, khuyến nghị project Universal Render Pipeline (URP)  
+> **Nguồn gốc nội dung:** Dựa trên tệp đề cương do người học cung cấp; phần giải thích, ví dụ, bài tập, sơ đồ là nội dung bổ sung do biên soạn, không phải transcript hoặc bản dịch chính thức của Unity Learn.
 
-> **Nguồn đối chiếu:** [Shaders and Materials trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/shaders-and-materials?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## Mục tiêu học tập
+- Thiết kế và hoàn thiện một cảnh tĩnh vật minh họa ít nhất 5 chất liệu.
+- Có bố cục, nguồn sáng, camera và minh chứng bề mặt thay đổi đúng.
+- Đánh giá kết quả bằng rubric kiểm chứng được thay vì nhận xét cảm tính.
 
-## 1. Tổng quan
+## 1. Đề bài tự biên soạn dựa trên tên bài gốc
+Dựng một **still-life composition** trong Unity: một bộ vật thể không chuyển động được sắp xếp có chủ ý trên bàn/kệ và chiếu sáng để trình bày sự đa dạng của vật liệu. Ví dụ: bình gốm, quả táo sơn màu, cốc kính, hộp kim loại, mảnh gỗ và một bảng đèn emissive.
 
-**Chủ đề:** Shader và cách bề mặt được hiển thị. Trong ngữ cảnh *Shaders and Materials*, bài **Challenge: Create your still life composition** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+> Đây là **đề bài mở rộng để thực hành**, không khẳng định là nguyên văn tiêu chí chấm của Unity Learn.
 
-## 2. Mục tiêu học tập
+## 2. Mục tiêu sản phẩm và điều kiện
+- **Scene:** `Scenes/11_StillLife.unity` có Camera, nguồn sáng, nền và đối tượng chính/phụ.
+- **Chất liệu:** tối thiểu 5 material, trong đó có phi kim mờ, phi kim bóng, kim loại, một trong suốt/cutout và một có normal hoặc detail map.
+- **Shader Graph:** ít nhất một hiệu ứng đơn giản dùng graph, nếu cấu hình URP hỗ trợ.
+- **Bằng chứng:** ảnh tổng thể, ảnh cận cảnh và bảng tham số Material.
 
-- Trình bày được mục đích của **shader và cách bề mặt được hiển thị** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Quy trình thiết kế theo lớp
+```mermaid
+flowchart TD
+ A[Ý tưởng và tham chiếu] --> B[Blockout bằng primitive]
+ B --> C[Bố cục + camera]
+ C --> D[Ánh sáng nền]
+ D --> E[Material PBR chính]
+ E --> F[Texture và Normal/AO]
+ F --> G[Transparent + Shader Graph]
+ G --> H[Đo/soát lỗi và chụp ảnh]
+```
 
-## 3. Kiến thức trọng tâm
+### Bước 1 — bố cục trước, chi tiết sau
+Dùng các khối cơ bản; giữ vị trí Camera cố định để chụp ảnh trước/sau. Xây dựng một **điểm nhấn thị giác** (bình hoặc vật thể đặc biệt), hai vật thể phụ và những khoảng trống rõ ràng. Các nguyên tắc tam phần, cân bằng sáng tối và tương phản có thể được dùng như công cụ phân tích, không phải luật bắt buộc.
 
-- Shader quy định công thức vẽ bề mặt; Material lưu các giá trị đầu vào và tham chiếu Shader.
-- URP/Lit phù hợp nhiều bề mặt nhận ánh sáng, còn Shader Graph hỗ trợ xây dựng hiệu ứng bằng node.
-- Độ đục, cắt alpha và transparency có cách xử lý thứ tự render khác nhau.
+### Bước 2 — tập trung vào chất liệu
+Tạo bảng màu vật liệu có phân cấp: kim loại phản chiếu tạo điểm nhấn; gốm mờ giúp mắt nghỉ; gỗ có texture tạo sự ấm áp; nhựa/kính trong suốt minh họa alpha blending. Không để tất cả vật liệu đều Smoothness = 1 vì rất khó phân biệt.
 
-### Thuật ngữ và mối quan hệ
+### Bước 3 — chiếu sáng và kiểm tra
+Dùng một key light và fill light dịu nếu phù hợp. Với kim loại, kiểm tra môi trường phản xạ; với normal, dùng ánh sáng hơi lệch góc. Đánh giá cả tổng thể và cận cảnh.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+### Bước 4 — hoàn thiện
+Đặt tên asset rõ nghĩa; lưu scene; chụp từ ít nhất hai góc Camera; kiểm tra Console; xác nhận source ảnh/texture hợp lệ về giấy phép.
 
-## 4. Thực hành từng bước
+## 4. Rubric gợi ý (20 điểm)
+| Tiêu chí | Điểm | Mức đạt kỳ vọng |
+|---|---:|---|
+| Bố cục, Camera và đọc hình | 4 | Điểm nhấn rõ, không chồng vật thể khó hiểu |
+| Sử dụng Metallic/Smoothness hợp lý | 4 | Tối thiểu 3 phản ứng phản xạ khác nhau |
+| Texture, UV, Normal/Detail | 4 | Map đúng, không giãn/lộ seam nghiêm trọng |
+| Transparent, cutout hoặc Shader Graph | 4 | Hiệu ứng có mục đích, không lỗi render lớn |
+| Tổ chức project, minh chứng, giải thích | 4 | Tái mở scene, kết luận có ảnh đối chứng |
 
-1. **Bước 1:** Chọn render pipeline của dự án và tạo Material có shader tương thích.
-2. **Bước 2:** Quan sát ảnh hưởng của Base Color, Metallic và Smoothness lên ánh sáng phản chiếu.
-3. **Bước 3:** Tạo một Shader Graph đơn giản (nếu pipeline hỗ trợ), nối màu đầu vào đến bề mặt.
-4. **Bước 4:** Kiểm tra hiệu ứng ở nhiều góc Camera và nguồn sáng khác nhau.
+## 5. Mẫu nhật ký thực nghiệm
+| Thử nghiệm | Dự đoán | Quan sát | Điều chỉnh |
+|---|---|---|---|
+| Thép bóng: Smoothness 0.9 | Phản xạ sắc | Mặt quá tối | Tăng chi tiết environment/reflection |
+| Lá cây: alpha clip 0.5 | Biên lá rõ | Viền bị khuyết | Giảm threshold / kiểm tra alpha source |
+| Tường: normal map | Rãnh hiện rõ | Gần như phẳng | Kiểm tra import và ánh sáng xiên |
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 6. Tiêu chí nộp và tự kiểm tra
+- [ ] File scene mở được trong project URP.
+- [ ] Tối thiểu 5 chất liệu và mỗi chất liệu có lý do thiết kế.
+- [ ] Mỗi ảnh tham chiếu/texture ghi rõ nguồn và điều kiện sử dụng.
+- [ ] Có 1 bảng so sánh trước/sau cho ít nhất một material.
+- [ ] Có ảnh nhìn toàn cảnh, ảnh cận và ghi chú hạn chế chưa giải quyết.
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+## Tự kiểm chứng khi hoàn thành
+- [ ] Nêu được khái niệm chính của bài bằng ví dụ trong Unity.
+- [ ] Thực hiện được phép thử trước–sau và lưu scene/bằng chứng.
+- [ ] Phân biệt kết quả quan sát thực tế với kết luận suy đoán.
+- [ ] Kiểm tra phiên bản Render Pipeline/Shader khi áp dụng trên dự án khác.
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Challenge: Create your still life composition** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+## Tài liệu tham khảo và đối chiếu
+- **1.** [Unity Learn — Creative Core Shaders and Materials](https://learn.unity.com/project/creative-core-shaders-and-materials)
+- **2.** [Unity Learn — Creative Core Mission](https://learn.unity.com/pathway/creative-core/unit/shaders-and-materials?version=6.3)
+- **3.** [Unity Manual 6.3 — URP/Lit reference](https://docs.unity.com/en-us/engine/6000.3/manual/materials-and-shaders/built-in/shaders-in-universalrp/reference/lit-shader)
+- **4.** [Unity Manual 6.3 — Shader Graph](https://docs.unity.com/en-us/engine/6000.3/manual/materials-and-shaders/shaders/writing-custom/shader-graph)
 
-**Tiêu chí nghiệm thu:**
-
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
-
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: vật thể màu hồng vì shader không tương thích hoặc graph chưa được lưu/biên dịch.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Shaders and Materials](https://learn.unity.com/pathway/creative-core/unit/shaders-and-materials?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+> **Ghi chú tài liệu:** Các bước thao tác và thông số minh họa được thiết kế để tự học; vị trí menu/thuộc tính có thể thay đổi theo template, package và bản cập nhật. Các nguồn Unity ở trên được dùng để kiểm tra thuật ngữ và tính năng; không có tuyên bố đã kiểm thử trực tiếp bằng Unity Editor trong môi trường này.

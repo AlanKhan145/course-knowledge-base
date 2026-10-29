@@ -1,81 +1,200 @@
----
-title: "Creative Core: VFX Quiz"
-pathway: "Creative Core"
-module: "VFX"
-lesson_number: 8
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 08 — Bài kiểm tra tổng hợp: Creative Core VFX
 
-# Bài 08 — Creative Core: VFX Quiz
+**Học phần:** Creative Core · VFX | **Loại:** Assessment tự luyện | **Phạm vi:** Particle System, environmental VFX, Burst, VFX Graph và tích hợp dự án
 
-> **Pathway:** Creative Core · **Mission:** VFX · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+## 1. Hướng dẫn làm bài
 
-> **Nguồn đối chiếu:** [VFX trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bài đánh giá gồm **16 câu trắc nghiệm** và **2 bài tình huống thực hành**. Chọn **một đáp án đúng nhất** trong mỗi câu trắc nghiệm. Nên hoàn thành câu hỏi trước khi xem file `009-dap-an-creative-core-vfx-quiz.md`; bộ câu hỏi này **không phải quiz chính thức của Unity Learn**.
 
-## 1. Tổng quan
+Bài kiểm tra tập trung vào việc dự đoán kết quả cấu hình, phân biệt các cơ chế và đưa ra cách kiểm chứng, không chỉ thuộc tên module.
 
-**Chủ đề:** Hiệu ứng hạt và VFX. Trong ngữ cảnh *VFX*, bài **Creative Core: VFX Quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Phần A — Cấu trúc và tham số Particle System
 
-## 2. Mục tiêu học tập
+### Câu 1
 
-- Trình bày được mục đích của **hiệu ứng hạt và vfx** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Bạn muốn tạo sương mù nhẹ quanh một con suối trong thời gian dài. Phương án nào phù hợp để bắt đầu?
 
-## 3. Kiến thức trọng tâm
+A. Một Burst 5000 hạt rồi lập tức dừng.  
+B. Continuous emission tốc độ vừa phải với lifetime và alpha phù hợp.  
+C. Chỉ tăng Max Particles, không cần Emission.  
+D. Tắt Renderer để giảm chi phí.
 
-- Particle System mô phỏng các phần tử như khói, lửa, bụi với emission, shape, velocity và lifetime.
-- Burst phù hợp vụ nổ ngắn; emission liên tục phù hợp mưa, sương hay lửa cháy.
-- VFX Graph thường phù hợp hiệu ứng có mật độ hạt cao nhưng phụ thuộc tương thích pipeline/nền tảng.
+### Câu 2
 
-### Thuật ngữ và mối quan hệ
+Một hệ phát đều với `Rate over Time = 20` hạt/giây và lifetime khoảng 3 giây, chưa có giới hạn `Max Particles` hay Burst. Khi đạt trạng thái ổn định, số hạt sống xấp xỉ bằng bao nhiêu?
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+A. 6.7.  
+B. 20.  
+C. 60.  
+D. 600.
 
-## 4. Thực hành từng bước
+### Câu 3
 
-1. **Bước 1:** Tạo Particle System ở vị trí sự kiện và thử Start Lifetime, Start Speed, Emission.
-2. **Bước 2:** Chuyển từ emission liên tục sang burst rồi so sánh hiệu ứng.
-3. **Bước 3:** Thêm biến thiên Size over Lifetime và Color over Lifetime để hiệu ứng có nhịp rõ.
-4. **Bước 4:** Thử bật/tắt hệ thống theo hành động và theo dõi số hạt lẫn frame time.
+Module nào quyết định vùng và hướng ban đầu của việc phát hạt?
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+A. Shape.  
+B. Color over Lifetime.  
+C. Renderer.  
+D. Noise.
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+### Câu 4
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **hiệu ứng hạt và vfx**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+Điều nào mô tả đúng về `Simulation Space = World`?
 
-### Gợi ý tự chấm
+A. Mỗi hạt bị khóa cố định theo emitter.  
+B. Camera tự theo dõi particle.  
+C. Mọi hạt đều phải có Rigidbody.  
+D. Hạt đã phát được mô phỏng trong không gian thế giới.
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+## 3. Phần B — Thiết kế hiệu ứng môi trường và Burst
 
-## 6. Lỗi thường gặp và cách kiểm tra
+### Câu 5
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: hiệu ứng phát quá nhiều hạt gây tụt FPS hoặc renderer/material không tương thích pipeline.
+Để làm tuyết rơi chậm với gió nhẹ theo trục X, bộ thay đổi nào có ý nghĩa nhất?
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. Xóa Shape và Emission.  
+B. Giảm tốc độ rơi, thêm vận tốc X và nhiễu vừa phải.  
+C. Bật Burst với thời gian sống bằng 0.  
+D. Chỉ đổi tên prefab.
 
-## 7. Checklist hoàn thành
+### Câu 6
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VFX](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Bạn muốn tạo một lần bùng nổ 30 hạt khi bấm nút. Cấu hình nào kiểm soát tốt nhất?
 
----
+A. Bật Looping và Rate over Time = 30.  
+B. Đặt Start Size = 30.  
+C. Tắt Looping, đặt Rate over Time = 0, thêm Burst Count = 30 tại Time = 0.  
+D. Chỉ tăng Max Particles = 30.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+### Câu 7
+
+Một Burst tự phát lại theo chu kỳ dù không có nút nhấn. Bạn nên kiểm tra gì trước?
+
+A. Looping và số chu kỳ/thiết lập Burst.  
+B. Màu UI Button.  
+C. Vị trí AudioListener.  
+D. Font của TextMeshPro.
+
+### Câu 8
+
+Nếu `Play()` đã kích hoạt Burst 20 hạt trong `Emission`, bạn lại gọi `Emit(20)` cùng lúc, kết quả thường cần lưu ý điều gì?
+
+A. Hai API loại trừ nhau nên không phát.  
+B. Hệ chuyển sang VFX Graph.  
+C. Chỉ còn 1 hạt.  
+D. Có thể xuất hiện hai đợt phát cộng dồn.
+
+## 4. Phần C — VFX Graph
+
+### Câu 9
+
+Context nào chịu trách nhiệm thiết lập trạng thái lúc particle vừa sinh?
+
+A. Output.  
+B. Initialize.  
+C. Update.  
+D. Camera.
+
+### Câu 10
+
+Context `Output` trong VFX Graph chủ yếu điều khiển gì?
+
+A. Cách hạt được biểu diễn và render.  
+B. Điều kiện phát hiện va chạm gameplay trong mọi engine.  
+C. Mọi dữ liệu âm thanh.  
+D. Scene đang mở.
+
+### Câu 11
+
+Vì sao không nên mặc định dùng VFX Graph cho mọi dự án mobile?
+
+A. VFX Graph không có các hạt.  
+B. Mọi hệ mobile đều có compute GPU giống nhau.  
+C. Pipeline, GPU/Compute Shader và hỗ trợ tính năng phải được xác nhận trên target.  
+D. VFX Graph chỉ chạy khi bật Physics 2D.
+
+### Câu 12
+
+Bạn muốn thay đổi màu của nhiều instance mà không nhân bản graph. Chọn giải pháp nào?
+
+A. Chỉnh camera clip plane.  
+B. Chỉ đổi file tên graph.  
+C. Thêm Collider cho mỗi hạt.  
+D. Expose một property trên Blackboard và chỉnh ở instance.
+
+## 5. Phần D — Debug, hiệu năng và dự án
+
+### Câu 13
+
+Hạt màu hồng sau khi chuyển project sang URP. Bước kiểm tra phù hợp nhất là gì?
+
+A. Đặt Lifetime bằng 0.  
+B. Kiểm tra shader/material có tương thích render pipeline không.  
+C. Thêm toàn bộ đèn Directional Light.  
+D. Xóa tất cả Camera.
+
+### Câu 14
+
+Điều nào làm hiệu ứng hạt trong suốt có thể gây GPU bottleneck?
+
+A. Nhiều quad lớn phủ chồng cùng pixel.  
+B. Tên prefab dài.  
+C. Scene có chú thích.  
+D. Đặt object dưới folder Assets/VFX.
+
+### Câu 15
+
+Ngay sau khi kích hoạt Burst, game hủy GameObject chứa Particle System. Lỗi nào có khả năng xuất hiện?
+
+A. Tốc độ phát tăng vĩnh viễn.  
+B. Camera tự dừng.  
+C. Hiệu ứng bị cắt trước khi hoàn thành.  
+D. Unity tạo một graph mới.
+
+### Câu 16
+
+Phương pháp nào đáng tin cậy hơn để kết luận bản tối ưu đã tốt hơn?
+
+A. Chỉ nhìn số lượng line C#.  
+B. Luôn đo trong Scene view nhưng thay đổi camera mỗi lần.  
+C. So sánh với video demo trên máy khác mà không có thiết lập.  
+D. Đo trong cùng điều kiện và ưu tiên build trên phần cứng đích, đồng thời xem chất lượng hình ảnh.
+
+## 6. Phần E — Tình huống thực hành
+
+### Tình huống 1 — Thiết kế VFX cho đài phun nước
+
+Một scene có đài phun nước chạy liên tục. Khi người chơi ném vật vào hồ, bạn cần thêm splash tức thời.
+
+**Yêu cầu:**
+
+1. Phác thảo hai Particle System khác nhau về Emission, Shape, Lifetime và Velocity.
+2. Mô tả điều kiện để kích hoạt splash đúng một lần khi vật chạm nước.
+3. Đề xuất hai phép thử để tránh hạt xuất hiện ngoài ý muốn.
+4. Ghi một rủi ro hiệu năng và giải pháp kiểm tra thực tế.
+
+### Tình huống 2 — Chọn Particle System hay VFX Graph
+
+Dự án có hai mục tiêu: (a) hiệu ứng bụi nhỏ khi người chơi bước trên đất; (b) bão hạt lớn trong một khu vực rộng cho PC. Người quản lý yêu cầu hiệu ứng dễ chỉnh và phải duy trì FPS mục tiêu.
+
+**Yêu cầu:**
+
+1. Chọn giải pháp ban đầu cho từng mục tiêu và nêu lý do.
+2. Phác họa sơ đồ xử lý của VFX Graph cho bão hạt.
+3. Đề xuất kế hoạch đo với ít nhất hai mức hạt và cùng góc camera.
+4. Nêu điều kiện có thể khiến lựa chọn ban đầu phải thay đổi.
+
+## 7. Thang đánh giá tự luyện
+
+- **16 câu trắc nghiệm:** 4 điểm/câu, tối đa 64 điểm.
+- **Hai tình huống:** 18 điểm/tình huống, tổng 36 điểm. Chấm theo phân tích yêu cầu (6), giải pháp đúng kỹ thuật (6), kiểm thử và giải thích (6).
+- **Tổng:** 100 điểm. Mốc 80 điểm thể hiện nắm vững kiến thức; từ 60 đến 79 nên củng cố phần thiếu; dưới 60 nên thực hành lại các module trọng tâm. Đây là **ngưỡng tự học đề xuất**, không phải xếp loại của Unity.
+
+## 8. Tài liệu để ôn tập
+
+- [Creative Core VFX — Unity Learn](https://learn.unity.com/course/creative-core-vfx)
+- [Particle System modules — Unity 6.3](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/particle-systems/particle-system-modules)
+- [Visual Effect Graph — Unity 6.3](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/vfxgraph)
+- [ParticleSystem API — Unity 6.3](https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/particlesystem)
+
+*Đề và thang chấm là bộ đánh giá mới phục vụ tự học, không phải bản sao bài thi chính thức.*

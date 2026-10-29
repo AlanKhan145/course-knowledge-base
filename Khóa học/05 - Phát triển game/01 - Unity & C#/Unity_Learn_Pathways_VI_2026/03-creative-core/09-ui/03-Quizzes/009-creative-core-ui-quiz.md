@@ -1,81 +1,178 @@
----
-title: "Creative Core: UI quiz"
-pathway: "Creative Core"
-module: "UI"
-lesson_number: 9
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 09 — Bài kiểm tra tổng hợp: Giao diện người dùng trong Unity
 
-# Bài 09 — Creative Core: UI quiz
+> **Creative Core · UI · Assessment · Unity 6.3**  
+> **Phạm vi:** Thiết kế UI/UX; Canvas và TextMeshPro; anchors, pivot, Canvas Scaler; Image và 9-slicing; Button/Toggle/Slider; World Space UI.
 
-> **Pathway:** Creative Core · **Mission:** UI · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+## 1. Hướng dẫn thực hiện
 
-> **Nguồn đối chiếu:** [UI trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bài kiểm tra dùng để xác định khả năng **giải thích và lựa chọn cách triển khai UI**, không chỉ ghi nhớ tên component. Trước khi bắt đầu, người học nên có một scene thực hành với tiêu đề, menu cài đặt và âm thanh để kiểm chứng giả thuyết khi cần.
 
-## 1. Tổng quan
+- **Phần A:** 12 câu trắc nghiệm, mỗi câu có **một đáp án đúng nhất**.
+- **Phần B:** 4 phát biểu đúng/sai, yêu cầu giải thích ngắn.
+- **Phần C:** 2 bài tình huống thực tế.
+- **Phần D:** 1 bài thực hành kiểm chứng trực tiếp trong Unity Editor.
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *UI*, bài **Creative Core: UI quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Đây là bộ câu hỏi **tự biên soạn** để ôn tập; không sao chép bài quiz chính thức. Bài quiz Unity Learn riêng có nội dung và quy tắc chấm riêng.
 
-## 2. Mục tiêu học tập
+## 2. Phần A — Trắc nghiệm
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+### Câu 1
 
-## 3. Kiến thức trọng tâm
+Một nhóm phát triển muốn cải thiện cách người chơi tìm thấy mục "Âm thanh" trong menu. Bước đầu nào liên quan trực tiếp nhất?
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+A. Điều chỉnh kiến trúc thông tin và nhóm mục cài đặt.  
+B. Tăng texture resolution của môi trường.  
+C. Đổi thuật toán pathfinding.  
+D. Bake lại ánh sáng.
 
-### Thuật ngữ và mối quan hệ
+### Câu 2
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+Trong dự án dùng `uGUI`, `TextMeshProUGUI` nên được đặt trong cấu trúc nào?
 
-## 4. Thực hành từng bước
+A. Chỉ trong Prefab không thuộc scene.  
+B. Bên dưới một Canvas thích hợp.  
+C. Bắt buộc dưới Directional Light.  
+D. Bắt buộc dưới Rigidbody.
 
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
+### Câu 3
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Một nút phải giữ offset đối với góc dưới-phải khi thay đổi cửa sổ. Cấu hình nào đúng nhất?
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+A. Anchor cố định ở trung tâm.  
+B. Không dùng Canvas Scaler.  
+C. Anchor ở góc dưới-phải và chỉnh offset.  
+D. Đổi tất cả camera thành Orthographic.
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **giao diện người dùng và tương tác**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+### Câu 4
 
-### Gợi ý tự chấm
+`Canvas Scaler > Scale With Screen Size` được dùng chủ yếu để làm gì?
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+A. Thay đổi dữ liệu AudioClip.  
+B. Co giãn UI dựa trên resolution tham chiếu và kích thước màn hình thực tế.  
+C. Đảm bảo camera không nhìn xuyên tường.  
+D. Thay thế mọi chức năng anchor.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+### Câu 5
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+Vì sao hình nền panel có viền bo nên được cấu hình `Image Type = Sliced` sau khi đặt Border?
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. Giúp các góc không bị kéo méo như khi dãn sprite thông thường.  
+B. Tự thêm Navigation vào Button.  
+C. Tự lưu cài đặt âm lượng.  
+D. Tăng độ phân giải camera.
 
-## 7. Checklist hoàn thành
+### Câu 6
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — UI](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Một Button không hoạt động khi người chơi click, trong khi giao diện vẫn hiển thị. Nhóm yếu tố nào nên được kiểm tra đầu tiên?
 
----
+A. Lighting bake và reflection probe.  
+B. Asset Bundle và Terrain.  
+C. EventSystem, GraphicRaycaster, raycast target, interactable và listener.  
+D. Animation compression và texture mipmap.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+### Câu 7
+
+Hàm nào phù hợp để hiện một GameObject menu đang tắt?
+
+A. `SetActive(true)`  
+B. `Destroy()`  
+C. `SetActive(false)`  
+D. `RemoveListener()`
+
+### Câu 8
+
+Điều khiển nào mô tả tốt nhất lựa chọn "Bật nhạc / Tắt nhạc"?
+
+A. Một nút bấm không có trạng thái.  
+B. Image với Alpha ngẫu nhiên.  
+C. Slider 0–1000.  
+D. Toggle với trạng thái Boolean.
+
+### Câu 9
+
+Tại sao `Slider.Value` nên được khởi tạo theo `AudioSource.volume` hiện tại?
+
+A. Vì điều đó làm FPS tăng.  
+B. Vì UI phải phản ánh trạng thái thật ngay khi mở menu.  
+C. Vì EventSystem không hỗ trợ bool.  
+D. Vì tránh phải dùng Camera.
+
+### Câu 10
+
+Một bảng điều khiển gắn trên cửa của tàu vũ trụ phải di chuyển và xoay theo tàu. Render Mode nào phù hợp nhất?
+
+A. Screen Space - Overlay.  
+B. Screen Space - Camera.  
+C. World Space.  
+D. Không sử dụng Canvas.
+
+### Câu 11
+
+`Pivot` của `RectTransform` chủ yếu xác định điều gì?
+
+A. Loại UnityEvent.  
+B. Điểm tham chiếu của phép xoay và thay đổi kích thước/định vị phần tử.  
+C. Các phương pháp tải scene.  
+D. Khoảng âm lượng AudioSource.
+
+### Câu 12
+
+Trong guided project có ba góc camera, yêu cầu nào cần quan tâm khi dùng các nút chuyển camera?
+
+A. Tất cả camera phải đồng thời enabled.  
+B. Không cần kiểm tra tag MainCamera hay AudioListener.  
+C. Có thể chỉ định camera phù hợp rõ ràng và bảo đảm listener/tag nhất quán.  
+D. Chỉ cần đổi tên Button, không cần gắn sự kiện.
+
+## 3. Phần B — Nhận định đúng/sai
+
+**B1.** `UI` và `UX` là hai cách gọi hoàn toàn tương đương, không cần phân biệt trong thiết kế.
+
+**B2.** Một Canvas trong scene có thể chứa nhiều UI GameObject; Unity không giới hạn scene chỉ có một Canvas.
+
+**B3.** Đặt Canvas sang World Space đồng nghĩa mọi nút sẽ tự nhận click mà không cần kiểm tra Event Camera và hệ thống raycast.
+
+**B4.** Một Image trang trí được bật `Raycast Target` có thể gây trở ngại cho Button ở phía sau nếu nó nằm trên đường raycast.
+
+Với mỗi câu: đánh dấu **Đúng** hoặc **Sai**, sau đó giải thích trong 1–2 câu và nêu một phép thử trên Unity Editor nếu cần.
+
+## 4. Phần C — Bài tập tình huống
+
+### Tình huống C1 — Nút trôi khỏi góc
+
+Ở tỷ lệ 16:9, nút Settings xuất hiện gần góc trên-phải. Chuyển sang 4:3, nút lại tiến về giữa. Người dùng cũng báo rằng giao diện rất nhỏ ở màn hình có độ phân giải cao.
+
+Yêu cầu: nêu nguyên nhân khả dĩ; đề xuất cấu hình anchor/pivot và Canvas Scaler; thiết kế ba test case để chứng minh sửa lỗi thành công.
+
+### Tình huống C2 — Menu âm thanh không đồng bộ
+
+Khi mở scene, AudioSource đang phát với `volume = 0.4`. Nhưng Slider hiển thị 0 và Toggle thể hiện “Tắt nhạc”. Sau lần kéo đầu tiên, âm lượng thay đổi đột ngột.
+
+Yêu cầu: xác định vấn đề về dữ liệu/trạng thái; đề xuất thứ tự khởi tạo UI; cho biết khi nào có thể dùng `SetValueWithoutNotify` hoặc `SetIsOnWithoutNotify`.
+
+## 5. Phần D — Bài thực hành trong Editor
+
+Xây dựng một màn hình cài đặt ngắn trong scene 3D. Màn hình phải có `TextMeshPro`, `Settings Button`, panel `Image` có thể co giãn, `Exit Button`, `Music Toggle` và `Volume Slider`. Thực hiện kiểm tra ba kích thước Game view; nếu có thời gian, nhân bản scene để thử World Space UI.
+
+**Minh chứng cần nộp:** screenshot hoặc recording trạng thái trước/sau mở menu; ảnh inspector của một Button hoặc Toggle; bảng ghi một lỗi, nguyên nhân và cách kiểm tra sau sửa.
+
+## 6. Thang điểm đề xuất
+
+| Thành phần | Điểm |
+| --- | ---: |
+| Phần A — 12 câu (0.25 điểm/câu) | 3 |
+| Phần B — 4 câu (0.5 điểm/câu) | 2 |
+| Phần C — 2 tình huống (1 điểm/câu) | 2 |
+| Phần D — Thực hành (UI 1đ, tương tác 1đ, kiểm thử 1đ) | 3 |
+| **Tổng** | **10** |
+
+Không cung cấp sẵn đáp án tại đây để giữ tài liệu ở vai trò bài đánh giá. Có thể tự đối chiếu các bài học theo từng chuyên đề và chạy các thí nghiệm trong Unity để giải thích lựa chọn.
+
+## 7. Tài liệu tham khảo
+
+- [Unity Learn — Creative Core: UI quiz](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui/quiz/creative-core-ui-quiz?version=6.3)
+- [Unity Learn — Creative Core UI Mission](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3)
+- [Unity Manual — Basic Layout](https://docs.unity.cn/2023.2/Documentation/Manual/UIBasicLayout.html)
+- [Unity Manual — Canvas Scaler](https://docs.unity.cn/2023.1/Documentation/Manual/script-CanvasScaler.html)
+
+*Bài kiểm tra tự biên soạn bằng tiếng Việt, không phải đề quiz hoặc bản dịch chính thức của Unity.*

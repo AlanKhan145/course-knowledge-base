@@ -1,78 +1,120 @@
----
-title: "Improve reflections in your scene"
-pathway: "Creative Core"
-module: "Lighting"
-lesson_number: 10
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 10 — Reflection Probes và cubemap: phản xạ chính xác hơn trong nội thất
 
-# Bài 10 — Improve reflections in your scene
+*Creative Core · Lighting · Unity 6.3 · Improve reflections in your scene*
 
-> **Pathway:** Creative Core · **Mission:** Lighting · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Tổng quan và mục tiêu
 
-> **Nguồn đối chiếu:** [Lighting trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một quả táo kim loại đặt trong gallery có thể vẫn phản xạ bầu trời ngoài trời: đó là giới hạn của **environment reflection mặc định**. `Reflection Probe` lưu một đại diện phản xạ của môi trường cục bộ, giúp bề mặt bóng phản xạ không gian mà nó thực sự đang ở trong đó.
 
-## 1. Tổng quan
+## 2. Reflection Probe lưu thông tin như thế nào?
 
-**Chủ đề:** Chiếu sáng và độ chân thực của khung cảnh. Trong ngữ cảnh *Lighting*, bài **Improve reflections in your scene** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+**Cubemap** biểu diễn môi trường theo sáu hướng quanh một điểm quan sát. Shader dùng hướng phản xạ cùng độ nhẵn/smoothness để lấy màu từ môi trường (thường là cubemap đã lọc theo roughness). Với bề mặt metal, phản xạ môi trường có vai trò lớn trong cảm nhận chất liệu.
 
-## 2. Mục tiêu học tập
+```mermaid
+flowchart LR
+    A[Hình học và đèn trong phòng] --> B[Reflection Probe]
+    B --> C[Cubemap 6 mặt]
+    C --> D[Shader PBR / Lit]
+    E[Normal + Smoothness + View Direction] --> D
+    D --> F[Phản xạ trên vật thể]
+```
 
-- Trình bày được mục đích của **chiếu sáng và độ chân thực của khung cảnh** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Improve reflections in your scene** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Khác `Light Probe`, Reflection Probe chủ yếu đại diện **môi trường phản xạ cho thành phần specular**. Nó không tự thay thế lightmap hoặc mô phỏng mọi phản xạ chính xác theo vị trí từng pixel. Những phản xạ cục bộ có thể có sai lệch phối cảnh, đặc biệt gần tường/ góc phòng.
 
-## 3. Kiến thức trọng tâm
+## 3. Các chế độ và đánh đổi
 
-- Directional Light mô phỏng nguồn sáng định hướng; Point và Spot Light phù hợp nguồn sáng cục bộ.
-- Baked lighting lưu kết quả chiếu sáng tĩnh vào lightmap, trong khi realtime lighting cập nhật theo thời gian chạy.
-- Light Probes hỗ trợ đối tượng động trong môi trường chiếu sáng bake; Reflection Probes tạo phản xạ theo môi trường.
+| Chế độ | Đặc điểm | Khi dùng |
+|---|---|---|
+| `Baked` | Cubemap tính trước, cập nhật khi bake lại | Nội thất, vật tĩnh |
+| `Realtime` | Có thể cập nhật cubemap trong runtime | Môi trường thay đổi, cân nhắc chi phí cao |
+| `Custom` | Dùng cubemap do người tạo cung cấp | Kiểm soát nghệ thuật hoặc nguồn ảnh HDRI |
 
-### Thuật ngữ và mối quan hệ
+Probe có vùng ảnh hưởng (*influence volume*), `Box Size`, `Box Offset`, ưu tiên/blending và tùy chọn **Box Projection** khi hệ thống hỗ trợ. Đặt probe đúng thể tích phòng giúp tránh bề mặt trong nhà phản xạ nền trời. Tuy vậy, nhiều probe chồng lấn không có nghĩa luôn hiệu quả hơn: ảnh hưởng đến blending, chất lượng và tài nguyên.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Thực hành tại gallery
 
-## 4. Thực hành từng bước
+1. Chuẩn bị một vật thể bóng dùng URP/Lit, chỉnh `Metallic` cao và `Smoothness` ở mức dễ thấy phản xạ. Đặt gần đèn triển lãm.
+2. Chụp ảnh khi scene chỉ có phản xạ môi trường mặc định: ghi lại những chi tiết ngoài trời không phù hợp phản xạ trong nhà.
+3. Thêm `Reflection Probe`, đặt gần trung tâm không gian cần phản xạ, mở rộng `Size` để bao phủ khu vực gallery; hạn chế vùng cắt vào khu không liên quan.
+4. Chọn `Type = Baked`, chỉnh `Culling Mask` khi cần để giới hạn geometry xuất hiện trong cubemap; chạy **Bake** của probe hoặc Generate Lighting tùy UI.
+5. Quan sát quả táo/đồ kim loại với camera và material không đổi. Nếu cần, bật Box Projection phù hợp cho phòng dạng hộp và kiểm tra hiệu quả khi đứng gần tường.
+6. Thử thay `Smoothness`: bề mặt nhám làm phản xạ mờ đi, không phải probe bị thiếu độ phân giải.
+7. Nếu phản xạ vẫn sai, kiểm tra **Reflection Probe Static** của các object được bake, khoảng clipping và thiết lập Blend Probes/Reflection Probes ở Renderer.
 
-1. **Bước 1:** Thiết lập một scene có nền, đối tượng tĩnh, đối tượng động và nguồn sáng.
-2. **Bước 2:** Thay đổi hướng, cường độ, màu ánh sáng rồi quan sát bóng đổ.
-3. **Bước 3:** Với pipeline hỗ trợ, thử bake ánh sáng và đánh dấu đối tượng tĩnh đúng cách.
-4. **Bước 4:** So sánh hình ảnh và hiệu năng trước/sau; chụp ảnh minh họa các thiết lập.
+## 5. Các lỗi cần biết
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+- **Probe không hiện tác dụng**: chưa bake, renderer/material không dùng reflection, volume không bao phủ vật thể hoặc cài đặt priority sai.
+- **Vẫn phản chiếu Skybox**: object ngoài influence volume, fallback default reflection đang được sử dụng, hoặc độ đóng góp probe thấp.
+- **Phản xạ méo**: do cubemap ghi từ một điểm; cân nhắc vị trí capture, Box Projection và phạm vi áp dụng. Không kỳ vọng Reflection Probe tái tạo phản xạ gương phẳng chính xác tuyệt đối.
+- **Tốn GPU**: Realtime Probe cập nhật cubemap nhiều mặt, cần giới hạn tần suất update.
 
-## 5. Bài tập củng cố
+## 6. Kết quả cần đạt
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Lighting** để tạo một tương tác nhỏ.
+Tạo một ảnh before/after của vật bóng trong gallery, minh chứng phản xạ không còn chứa bầu trời sai bối cảnh; lưu thiết lập probe, mô tả ưu/nhược điểm của baked so với realtime reflection.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: lightmap không cập nhật, bề mặt thiếu UV phù hợp hoặc vật thể động không nhận ánh sáng như mong đợi.
+### Câu 1
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Reflection Probe thường lưu môi trường dưới dạng gì?
 
-## 7. Checklist hoàn thành
+A. Cubemap 6 mặt  
+B. Lightmap UV đơn sắc  
+C. Rigidbody data  
+D. Audio clip  
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Lighting](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Đáp án:** A. **Giải thích:** Cubemap ghi hình môi trường theo sáu hướng quanh vị trí probe.
 
----
+### Câu 2
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Nếu vật kim loại trong phòng phản chiếu bầu trời sai bối cảnh, cách hợp lý là gì?
+
+A. Thêm local Reflection Probe bao phủ vùng vật  
+B. Xóa tất cả mesh  
+C. Tắt mọi shadow  
+D. Tăng Collider  
+
+**Đáp án:** A. **Giải thích:** Reflection Probe cục bộ thay đổi nguồn môi trường phản xạ cho vật thể.
+
+### Câu 3
+
+Vì sao Reflection Probe không phải bản thay thế Light Probe?
+
+A. Vì Light Probe là texture Base Map  
+B. Vì Reflection Probe hỗ trợ specular environment, Light Probe chủ yếu cấp diffuse lighting  
+C. Vì hai công cụ giống nhau hoàn toàn  
+D. Vì chỉ một công cụ hoạt động trong URP  
+
+**Đáp án:** B. **Giải thích:** Diffuse và specular được mô tả bởi hệ thống dữ liệu khác nhau.
+
+### Câu 4
+
+Bề mặt giảm Smoothness thường dẫn đến điều gì?
+
+A. Phản xạ mờ/loang hơn  
+B. Bắt buộc mất phản xạ mọi lúc  
+C. Tăng dung lượng Cubemap  
+D. Xóa dữ liệu camera  
+
+**Đáp án:** A. **Giải thích:** Roughness tăng làm phản xạ môi trường được lọc mờ hơn.
+
+### Câu 5
+
+Điểm yếu quan trọng của Realtime Reflection Probe là gì?
+
+A. Không hỗ trợ bất cứ thay đổi nào  
+B. Có thể tốn GPU do cập nhật nhiều góc nhìn  
+C. Không có Type  
+D. Luôn chính xác vật lý tuyệt đối  
+
+**Đáp án:** B. **Giải thích:** Cập nhật cubemap theo runtime có chi phí render đáng kể.
+
+
+## 8. Tài liệu tham khảo và lưu ý phiên bản
+
+- [Unity Learn — Improve reflections in your scene](https://learn.unity.com/course/creative-core-lighting/tutorial/improve-reflections-in-your-scene?version=6.3) (Unity 6.3).
+- [Tài liệu UV cho lightmap](https://docs.unity3d.com/6000.3/Documentation/Manual/LightingGiUvs-GeneratingLightmappingUVs.html).
+- [Tài liệu về Mixed Lighting](https://docs.unity3d.com/kr/current/ScriptReference/MixedLightingMode.html).
+
+**Lưu ý:** Menu và tùy chọn có thể khác theo URP Asset, Quality Level, Unity Editor và loại shader đang dùng. Nội dung là bài giảng tiếng Việt độc lập được biên soạn và bổ sung để học tập, không phải bản dịch chính thức hay lời chép toàn văn của Unity.

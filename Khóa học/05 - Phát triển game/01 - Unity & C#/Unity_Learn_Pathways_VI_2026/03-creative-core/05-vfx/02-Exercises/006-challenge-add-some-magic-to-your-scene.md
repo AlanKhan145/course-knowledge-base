@@ -1,83 +1,106 @@
----
-title: "Challenge: Add some magic to your scene"
-pathway: "Creative Core"
-module: "VFX"
-lesson_number: 6
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 06 — Thử thách: thêm hiệu ứng phép thuật vào Scene
 
-# Bài 06 — Challenge: Add some magic to your scene
+**Học phần:** Creative Core · VFX | **Loại:** Bài tập thiết kế | **Hình thức:** Sản phẩm độc lập, không kèm lời giải mẫu hoàn chỉnh
 
-> **Pathway:** Creative Core · **Mission:** VFX · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
+## 1. Bối cảnh và mục tiêu
 
-> **Nguồn đối chiếu:** [VFX trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bạn đang thiết kế một căn phòng có **viên pha lê ma thuật** ở giữa. Ban đầu, viên pha lê phát ra các đốm sáng chậm và thưa. Khi người chơi bấm nút *Activate*, năng lượng bùng lên thành một vòng hạt và tan dần trong không khí.
 
-## 1. Tổng quan
+Bài tập kiểm tra khả năng chuyển một ý tưởng thị giác thành hệ thống có thể quan sát, kích hoạt và đánh giá. Hãy ưu tiên sự rõ ràng của nhịp chuyển động thay vì số lượng hạt lớn.
 
-**Chủ đề:** Hiệu ứng hạt và VFX. Trong ngữ cảnh *VFX*, bài **Challenge: Add some magic to your scene** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Yêu cầu sản phẩm
 
-## 2. Mục tiêu học tập
+Tạo một scene gồm viên pha lê (có thể dùng Primitive), camera, ánh sáng và ít nhất **hai lớp hiệu ứng**:
 
-- Trình bày được mục đích của **hiệu ứng hạt và vfx** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+1. **Ambient effect:** các hạt nhỏ sinh liên tục xung quanh viên pha lê, chuyển động chậm và biến mất mềm.
+2. **Activation burst:** một đợt phát tức thời khi được kích hoạt, tỏa ra theo hình tròn hoặc hình cầu, có đổi kích thước và màu theo tuổi hạt.
 
-## 3. Kiến thức trọng tâm
+Người xem phải nhận ra ba trạng thái: trước kích hoạt, đang kích hoạt và sau khi kết thúc. Bắt buộc có ít nhất **một thao tác kích hoạt**: UI Button, một tương tác gameplay hoặc cách thử có thể lặp lại.
 
-- Particle System mô phỏng các phần tử như khói, lửa, bụi với emission, shape, velocity và lifetime.
-- Burst phù hợp vụ nổ ngắn; emission liên tục phù hợp mưa, sương hay lửa cháy.
-- VFX Graph thường phù hợp hiệu ứng có mật độ hạt cao nhưng phụ thuộc tương thích pipeline/nền tảng.
+**Giới hạn:** Không bắt buộc dùng VFX Graph. Chọn Particle System truyền thống hay VFX Graph theo khả năng giải thích, đặc điểm kỹ thuật và nền tảng đích. Tránh tải một prefab hiệu ứng hoàn thiện rồi coi đó là toàn bộ sản phẩm.
 
-### Thuật ngữ và mối quan hệ
+## 3. Quy trình tự triển khai
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+```mermaid
+flowchart TD
+    A[Phác thảo nhịp hiệu ứng] --> B[Chọn hệ thống phát hạt]
+    B --> C[Dựng ambient và burst]
+    C --> D[Thiết kế màu, alpha, kích thước]
+    D --> E[Gắn sự kiện kích hoạt]
+    E --> F[Kiểm tra hình ảnh và hiệu năng]
+    F --> G{Đạt tiêu chí?}
+    G -- Chưa --> C
+    G -- Đạt --> H[Lưu scene và minh chứng]
+```
 
-## 4. Thực hành từng bước
+### 3.1. Lập bản thiết kế trước khi thao tác
 
-1. **Bước 1:** Tạo Particle System ở vị trí sự kiện và thử Start Lifetime, Start Speed, Emission.
-2. **Bước 2:** Chuyển từ emission liên tục sang burst rồi so sánh hiệu ứng.
-3. **Bước 3:** Thêm biến thiên Size over Lifetime và Color over Lifetime để hiệu ứng có nhịp rõ.
-4. **Bước 4:** Thử bật/tắt hệ thống theo hành động và theo dõi số hạt lẫn frame time.
+Điền bảng ngắn sau:
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+| Đặc tính | Ambient effect | Activation burst |
+| --- | --- | --- |
+| Vị trí phát | ... | ... |
+| Kiểu phát (continuous/burst) | ... | ... |
+| Shape | ... | ... |
+| Lifetime dự kiến | ... | ... |
+| Chuyển động | ... | ... |
+| Biến thiên màu/alpha | ... | ... |
+| Khi nào dừng | ... | ... |
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+### 3.2. Milestone
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Challenge: Add some magic to your scene** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+**Mốc A — Chuyển động đúng:** cả hai hiệu ứng phát ở đúng vị trí và không xung đột. Ambient diễn ra liên tục; burst chỉ xuất hiện khi kích hoạt.
 
-**Tiêu chí nghiệm thu:**
+**Mốc B — Đọc được ý tưởng:** người quan sát hiểu đây là “tụ năng lượng rồi bùng lên” ngay cả khi chưa có âm thanh.
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+**Mốc C — Tương tác ổn định:** kích hoạt 3 lần liên tiếp không khiến hiệu ứng bị kẹt, phát sai nhịp hoặc tăng số hạt tồn đọng ngoài dự kiến.
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+**Mốc D — Hiệu năng có kiểm chứng:** giảm 30–50% tốc độ phát ambient, so sánh thị giác với bản cũ và ghi nhận FPS/frame time. Không đưa ra khẳng định tối ưu nếu chưa đo.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 4. Tiêu chí đánh giá
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: hiệu ứng phát quá nhiều hạt gây tụt FPS hoặc renderer/material không tương thích pipeline.
+| Tiêu chí | Điểm tối đa | Điều kiện đạt |
+| --- | ---: | --- |
+| Đúng yêu cầu và có hai lớp | 25 | Ambient liên tục, burst theo sự kiện |
+| Nhịp điệu và khả năng đọc hình | 20 | Chuyển động rõ, không rối |
+| Sử dụng module đúng mục đích | 20 | Giải thích được Emission/Shape/Lifetime/Color |
+| Tương tác và chạy thử ổn định | 15 | Kích hoạt lặp và xử lý reset |
+| Kỹ thuật và debug | 10 | Không có lỗi blocking, vật liệu tương thích |
+| Minh chứng và tự đánh giá | 10 | Có ảnh/video, ghi chú phép thử |
+| **Tổng** | **100** | |
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 5. Gợi ý khi gặp khó khăn
 
-## 7. Checklist hoàn thành
+- Nếu khó thấy hạt trên background, đổi tương phản nền hoặc material trước khi tăng mật độ.
+- Nếu burst có cảm giác “phun vòi” thay vì “bùng nổ”, kiểm tra hình dạng nguồn phát và hướng vận tốc ban đầu.
+- Nếu ambient quá đông, giảm `Rate over Time`, lifetime hoặc kích thước đồng thời vẫn theo dõi từng tham số riêng.
+- Nếu phát lại bị chồng hiệu ứng, xác định có cần xóa hạt cũ hay muốn chúng tiếp tục tồn tại.
+- Nếu dùng VFX Graph, bắt đầu bằng một graph đơn giản gồm `Spawn`, `Initialize`, `Update`, `Output` rồi thêm phần tử từng bước.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VFX](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 6. Minh chứng cần nộp
 
----
+- File scene/prefab (hoặc repository project) có thể mở và chạy.
+- Một ảnh Scene view thể hiện cấu trúc GameObject và một ảnh Inspector/Graph quan trọng.
+- Video ngắn thể hiện trạng thái trước–trong–sau kích hoạt, bao gồm ba lần kích hoạt.
+- Một bảng so sánh trước/sau cải tiến; chỉ ghi con số FPS/frame time nếu đo thực tế.
+- Một đoạn giải thích 150–250 từ về lựa chọn Particle System hoặc VFX Graph.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## 7. Câu hỏi phản tư
+
+1. Bạn chọn biến đổi màu, kích thước và tốc độ như thế nào để người xem cảm nhận được cao trào?
+2. Nếu phải chuyển sang thiết bị cấu hình yếu, phần nào trong hệ thống được ưu tiên giảm chi phí trước? Vì sao?
+3. Nếu camera quay quanh viên pha lê, bạn dự kiến hiệu ứng trông khác thế nào? Test ra sao?
+4. Nếu người dùng kích hoạt hai lần liên tiếp rất nhanh, bạn muốn “reset”, “chồng hiệu ứng” hay “không cho phát lại”? Nêu lý do thiết kế.
+
+## 8. Checklist tự nghiệm thu và tham khảo
+
+- [ ] Hiệu ứng ambient và burst khác biệt rõ ràng.
+- [ ] Không có particle màu hồng, lỗi material hoặc lỗi Console gây ngừng chạy.
+- [ ] Có ít nhất một sự kiện tương tác.
+- [ ] Đã kiểm thử kích hoạt lặp lại.
+- [ ] Đã thử giảm mật độ để so sánh chất lượng.
+- [ ] Có ảnh/video và phần giải thích thiết kế.
+
+Đọc thêm: [Unity Learn — Creative Core VFX](https://learn.unity.com/course/creative-core-vfx) · [Unity 6.3 — Particle modules](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/particle-systems/particle-system-modules).
+
+*Đề bài và rubric được thiết kế cho mục đích tự luyện, không phải nội dung chấm điểm chính thức của Unity.*

@@ -1,78 +1,152 @@
----
-title: "Create your greybox prototype"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 4
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Dựng greybox prototype trong Unity
 
-# Bài 04 — Create your greybox prototype
+> **Creative Core · Prototyping · Thực hành**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Xây dựng bố cục không gian 3D bằng các khối đơn giản, bổ sung chuyển động và một chuỗi tương tác có thể kiểm thử.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu và thiết lập
 
-## 1. Tổng quan
+**Mục tiêu:** có scene chạy được với sân, tường, bàn đạp, nút và cầu; người chơi di chuyển được, quan sát được trạng thái kích hoạt. Dùng dự án Unity 6 với template **Universal Render Pipeline (URP)** hoặc template tương thích, một scene lưu trong `Assets/Scenes/Prototype.unity`.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Create your greybox prototype** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+**Lưu ý:** nếu dùng project mẫu Unity Learn, scene `1-Greybox` và các component `OnInteract`, `OnTriggerEvent`, `Interact Handler` là **script tùy chỉnh trong project mẫu**, không phải component có sẵn trong mọi dự án Unity. Nếu tự tạo project trống, phải import đúng package/script hoặc tự xây hành vi tương đương.
 
-## 2. Mục tiêu học tập
+## 2. Thiết kế kích thước và scene
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Create your greybox prototype** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Tạo `Plane` hoặc `Cube` làm sàn, các `Cube` cho tường/cửa và `Cylinder` làm bàn đạp. Duy trì tỷ lệ nhất quán; trong Unity thông thường **1 unit được quy ước gần 1 m** khi dùng physics và controller mặc định, nhưng đó là quy ước thiết kế chứ không phải giới hạn cứng của engine.
 
-## 3. Kiến thức trọng tâm
+Ví dụ cấu trúc `Hierarchy`:
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+```text
+PrototypeScene
+├── Environment
+│   ├── Floor
+│   ├── Walls
+│   └── Bridge
+├── Interactables
+│   ├── PressurePlate
+│   └── BridgeButton
+├── Player (controller + camera)
+└── Lighting
+```
 
-### Thuật ngữ và mối quan hệ
+Đặt tên có ý nghĩa; giữ các đối tượng tương tác ở vị trí người chơi có thể quan sát được. Giai đoạn này chưa cần texture tinh xảo.
 
-| Khái niệm | Vai trò trong bài |
+## 3. Cấu hình controller và tài nguyên
+
+Một controller góc nhìn thứ nhất có thể lấy từ Unity Starter Assets hoặc project ví dụ, nhưng phải đọc tài liệu đi kèm và kiểm tra phiên bản tương thích. Kiểm tra **Input System** nếu package yêu cầu; một số package cần **Cinemachine**, **ProBuilder** tùy tài nguyên được import.
+
+Với scene mẫu Unity Learn, lệnh điều khiển minh họa là WASD hoặc phím mũi tên để di chuyển, chuột để nhìn, `E` hoặc nhấp để tương tác. Khi dùng controller khác, mapping có thể thay đổi — hãy kiểm tra Input Actions thực tế.
+
+## 4. Tạo điều kiện kích hoạt rõ ràng
+
+Logic tối thiểu:
+
+```mermaid
+stateDiagram-v2
+  [*] --> KhoaNut
+  KhoaNut --> NutSanSang: Player vao PressurePlate
+  NutSanSang --> CauHa: Player tuong tac voi BridgeButton
+  CauHa --> HoanThanh: Player qua cau
+```
+
+Trong scene tự tạo, `PressurePlate` có `Collider` đánh dấu **Is Trigger**. Sự kiện trigger trong physics Unity yêu cầu thiết lập collider và Rigidbody/physics phù hợp; khi dùng character controller nhập sẵn cần thử trực tiếp sự kiện trong Play mode. `BridgeButton` cần phản hồi cho trạng thái khóa và đã bật (màu hoặc ký hiệu), tránh phụ thuộc hoàn toàn vào màu sắc.
+
+Có thể dùng một đoạn C# nhỏ để phát UnityEvent khi người chơi đi vào vùng kích hoạt (cần một trong các đối tượng va chạm có Rigidbody phù hợp):
+
+```csharp
+using UnityEngine;
+using UnityEngine.Events;
+
+public class PressurePlateTrigger : MonoBehaviour
+{
+    [SerializeField] private UnityEvent onActivated;
+    private bool activated;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (activated || !other.CompareTag("Player")) return;
+        activated = true;
+        onActivated?.Invoke();
+    }
+}
+```
+
+Đặt tag `Player` đúng lên Collider được sự kiện nhận diện, gán UnityEvent trong Inspector tới phương thức công khai phù hợp. Nếu game có nhiều Collider con, cần kiểm tra cách tag và sự kiện thực tế.
+
+## 5. Thực hiện theo checkpoint
+
+1. Tạo project, lưu scene và bật hệ thống quản lý phiên bản nếu có thể.
+2. Thêm sàn, biên giới và hình khối cho đường đi; kiểm tra người chơi không rơi khỏi sân.
+3. Import hoặc gắn player controller, thử đi/nhìn.
+4. Thêm pressure plate, kiểm tra sự kiện trigger có phát sinh một lần.
+5. Thêm nút chỉ hoạt động sau khi kích hoạt bàn đạp; gắn sự kiện hạ cầu bằng đổi trạng thái hoặc animation đơn giản.
+6. Kiểm tra từ vị trí xuất phát mà không dùng Scene view để “gian lận” thông tin.
+7. Lưu scene và ảnh chụp các trạng thái khóa → sẵn sàng → hoàn thành.
+
+## 6. Gỡ lỗi và tiêu chí nghiệm thu
+
+| Dấu hiệu | Kiểm tra ưu tiên |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Đi xuyên tường | `Collider`, Layer Collision Matrix, vật thể có bị vô hiệu hóa? |
+| Bàn đạp không kích hoạt | `Is Trigger`, physics setup, Tag của collider, Console |
+| Nhấn nút không tác động | Tham chiếu UnityEvent / listener, trạng thái khóa, input mapping |
+| Camera nhìn sai | Camera được gắn đúng player, transform, input |
 
-## 4. Thực hành từng bước
+**Hoàn thành khi:** người chơi di chuyển được, có ít nhất một hành động kích hoạt trạng thái, nhận thấy phản hồi và vượt qua cầu. Không yêu cầu hình ảnh đẹp.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 7. Nguồn kỹ thuật
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+- [Unity Learn – Create your greybox prototype](https://learn.unity.com/course/creative-core-prototyping/tutorial/create-your-greybox-prototype-3?version=6.0)
+- [Unity Docs – Create asset packages](https://docs.unity.com/en-us/engine/6000.3/manual/assets-and-media/asset-packages/create)
 
-## 5. Bài tập củng cố
+## 8. Câu hỏi ôn tập trắc nghiệm
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+**Câu 1.** Điểm đúng của greyboxing là gì?
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+A. Chỉ dùng model cuối cùng  
+B. Ưu tiên khối đơn giản để thử bố cục và tương tác  
+C. Không cần Play mode  
+D. Không cần lưu scene  
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Đáp án:** B
+**Giải thích:** Mục tiêu là kiểm chứng khả năng sử dụng và bố cục trước khi polish.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+**Câu 2.** `OnTriggerEvent` trong ví dụ Unity Learn là gì?
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. Shader mặc định  
+B. Một loại Terrain Layer  
+C. Lệnh console  
+D. Component tùy chỉnh của project mẫu  
 
-## 7. Checklist hoàn thành
+**Đáp án:** D
+**Giải thích:** Không phải component built-in có sẵn trong mọi project Unity.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 3.** Nguyên nhân có thể khiến bàn đạp không phát sự kiện?
 
----
+A. Collider/trigger hoặc cấu hình physics chưa đúng  
+B. Màu skybox tối  
+C. Màn hình có nhiều pixel  
+D. Hình khối màu xám  
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đáp án:** A
+**Giải thích:** Cần xác nhận đường đi sự kiện và collider.
+
+**Câu 4.** Trong bản greybox, chức năng nào phải chạy được?
+
+A. Shader phức tạp  
+B. Multiplayer  
+C. Chuỗi tương tác chính  
+D. Kết xuất điện ảnh  
+
+**Đáp án:** C
+**Giải thích:** Chỉ cần cơ chế cốt lõi hoạt động.
+
+**Câu 5.** Tại sao cần thử bằng Game view từ điểm xuất phát?
+
+A. Để tiết kiệm pin  
+B. Để quan sát như người chơi thay vì nhìn toàn scene  
+C. Để thay project  
+D. Để thêm package  
+
+**Đáp án:** B
+**Giải thích:** Scene view có thể khiến người thiết kế biết trước lời giải mà người chơi không thấy.

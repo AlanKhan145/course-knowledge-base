@@ -1,78 +1,110 @@
----
-title: "Entry-level freelancing for creators"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 11
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 11 — Khởi đầu làm freelance với kỹ năng sáng tạo thời gian thực
 
-# Bài 11 — Entry-level freelancing for creators
+> **Creative Core · Prototyping · Bài học**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Làm freelance không chỉ là tạo scene đẹp mà còn là xác định đầu ra, quản lý kỳ vọng, phạm vi, giấy phép và quá trình bàn giao.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu học tập
 
-## 1. Tổng quan
+Người học có thể định nghĩa một dịch vụ có phạm vi rõ ràng, lập đề xuất công việc và kế hoạch nghiệm thu, phân biệt deliverable với file nguồn, nhận diện rủi ro về bản quyền và sửa đổi ngoài phạm vi.
 
-**Chủ đề:** Hoàn thiện, xuất bản và trình bày dự án. Trong ngữ cảnh *Prototyping*, bài **Entry-level freelancing for creators** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Chọn dịch vụ phù hợp năng lực ban đầu
 
-## 2. Mục tiêu học tập
+Có thể bắt đầu từ các đầu việc nhỏ như dựng blockout level, tạo walkthrough nội thất, sửa bố cục scene, thiết kế UI prototype, setup ánh sáng cơ bản hoặc ghi video tương tác cho khách hàng. Cần phân biệt công việc **làm được** với công việc **đã kiểm thử đủ để cam kết**.
 
-- Trình bày được mục đích của **hoàn thiện, xuất bản và trình bày dự án** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Entry-level freelancing for creators** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Một mô tả dịch vụ tốt: “Dựng greybox một khu vực 3D trong Unity, có di chuyển nhân vật và một tương tác cơ bản; bàn giao project và bản build Windows sau vòng kiểm thử thỏa thuận.” Không mô tả chung chung “làm mọi game bằng Unity”.
 
-## 3. Kiến thức trọng tâm
+## 3. Làm rõ phạm vi trước khi nhận việc
 
-- Cần phân biệt chạy trong Editor và bản build thực tế: tài nguyên, input và giới hạn nền tảng có thể khác.
-- Portfolio tốt thể hiện mục tiêu dự án, vai trò cá nhân, cách triển khai, kết quả và bài học kinh nghiệm.
-- Luôn kiểm tra quyền sử dụng asset/nhạc và quyền riêng tư trước khi công khai.
+Một brief nên có: mục tiêu trải nghiệm; platform; Unity version và render pipeline; asset khách cung cấp; số scene; tương tác; số vòng chỉnh sửa; deliverable; điều kiện nghiệm thu; quyền sử dụng tài nguyên; thời điểm phản hồi. Ví dụ:
 
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Thành phần | Ví dụ điều khoản kỹ thuật |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Phạm vi | Một scene greybox, một nút tương tác |
+| Ngoài phạm vi | Multiplayer, backend, nhân vật dựng riêng |
+| Bàn giao | Project nguồn + bản build + README |
+| Nghiệm thu | Người thử hoàn thành core loop theo checklist |
+| Sửa đổi | Chỉ sửa theo số vòng/thời hạn được thỏa thuận |
 
-## 4. Thực hành từng bước
+**Báo giá** cần tính thời gian thực hiện, thời gian kiểm thử, giao tiếp, chỉnh sửa và rủi ro. Không có một mức giá chung đúng cho mọi thị trường hay hợp đồng.
 
-1. **Bước 1:** Rà soát scene và các thư viện asset để không thiếu tham chiếu khi build.
-2. **Bước 2:** Thiết lập nền tảng đích, cấu hình chất lượng và build một bản có thể chạy.
-3. **Bước 3:** Chạy thử từ đầu đến cuối; ghi video hoặc ảnh minh họa, không chỉ ảnh Editor.
-4. **Bước 4:** Viết README ngắn gồm cách chơi, yêu cầu máy và danh sách lỗi còn biết.
+## 4. Quy trình giao tiếp và kiểm soát thay đổi
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart LR
+  A[Nhận yêu cầu] --> B[Xác nhận phạm vi]
+  B --> C[Prototype mốc đầu]
+  C --> D[Khách phản hồi]
+  D --> E{Trong phạm vi?}
+  E -->|Có| F[Sửa và nghiệm thu]
+  E -->|Không| G[Đề xuất đổi phạm vi/chi phí]
+  G --> B
+  F --> H[Bàn giao và lưu minh chứng]
+```
 
-## 5. Bài tập củng cố
+Phản hồi “muốn thêm hệ thống tài khoản” sau khi đặt hàng greybox không phải chỉ là sửa màu; đó là yêu cầu thay đổi có thể ảnh hưởng giá, thời gian và trách nhiệm. Hãy xác nhận thay đổi bằng văn bản trước khi thực hiện.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+## 5. Portfolio và bản quyền
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Mỗi case study nên có vấn đề khách cần giải quyết, vai trò cá nhân, cách tiếp cận, video build chạy, điều đã kiểm chứng và phần giới hạn. Không đăng mã nguồn hoặc ảnh công việc có thỏa thuận bảo mật nếu chưa có quyền. Với asset từ Unity Asset Store hoặc bên thứ ba, đọc điều khoản cấp phép, phân biệt quyền tích hợp vào sản phẩm và quyền chuyển giao/tái phân phối asset gốc.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Hợp đồng và thuế có thể khác theo nơi cư trú và khách hàng; khi dự án có giá trị hoặc rủi ro lớn, cần hỏi người có chuyên môn pháp lý/tài chính thay vì suy đoán.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên scene trong build, dữ liệu chỉ hoạt động trong Editor hoặc tài nguyên có giấy phép không phù hợp.
+## 6. Bài thực hành và tổng kết
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Viết một bản chào dịch vụ một trang: tiêu đề dịch vụ, đầu vào cần nhận, đầu ra bàn giao, điều kiện nghiệm thu, 3 mục không bao gồm và ví dụ thay đổi phạm vi. Đối chiếu lời hứa với demo prototype đã chạy thực tế.
 
-## 7. Checklist hoàn thành
+- [Unity Learn – Creative Core](https://learn.unity.com/pathway/creative-core)
+- [Unity Docs – Build and publish](https://docs.unity.com/en-us/engine/6000.0/manual/building-and-publishing)
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 7. Câu hỏi ôn tập trắc nghiệm
 
----
+**Câu 1.** Mô tả freelance nào có phạm vi rõ?
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+A. Làm mọi thể loại game  
+B. Một scene greybox, một tương tác, project + build + README  
+C. Làm đẹp nhất thế giới  
+D. Chỉ ghi “Unity developer”  
+
+**Đáp án:** B
+**Giải thích:** Có sản phẩm và điều kiện nghiệm thu cụ thể.
+
+**Câu 2.** Yêu cầu thêm multiplayer khi hợp đồng chỉ có greybox nên xử lý thế nào?
+
+A. Tự làm miễn phí lập tức  
+B. Bỏ mọi việc  
+C. Không thông báo  
+D. Xác nhận thay đổi phạm vi trước khi thực hiện  
+
+**Đáp án:** D
+**Giải thích:** Thay đổi lớn cần đánh giá tác động và thống nhất.
+
+**Câu 3.** Portfolio có NDA nên xử lý thế nào?
+
+A. Chỉ công bố nội dung được phép  
+B. Đăng toàn bộ scene khách  
+C. Tải mã nguồn lên công khai  
+D. Xóa tên khách là đủ  
+
+**Đáp án:** A
+**Giải thích:** Cần tuân thủ thỏa thuận và quyền công bố.
+
+**Câu 4.** Deliverable nào hỗ trợ khách nghiệm thu?
+
+A. File ảnh quảng cáo duy nhất  
+B. Lời hứa miệng  
+C. Build có thể chạy và README rõ ràng  
+D. Tên tài khoản game  
+
+**Đáp án:** C
+**Giải thích:** Khách cần sản phẩm kiểm tra được.
+
+**Câu 5.** Chi phí công việc freelance cần tính yếu tố nào?
+
+A. Chỉ thời gian dựng model  
+B. Thực hiện, kiểm thử, giao tiếp, chỉnh sửa và rủi ro  
+C. Chỉ số lượng polygon  
+D. Chỉ màu background  
+
+**Đáp án:** B
+**Giải thích:** Giá phải phản ánh toàn bộ khối lượng và rủi ro công việc.

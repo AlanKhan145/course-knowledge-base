@@ -1,78 +1,141 @@
----
-title: "Play around with a Particle System"
-pathway: "Creative Core"
-module: "VFX"
-lesson_number: 2
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 02 — Khám phá và điều khiển Particle System
 
-# Bài 02 — Play around with a Particle System
+**Học phần:** Creative Core · VFX | **Loại:** Bài học kết hợp thực hành | **Môi trường đề xuất:** Unity 6.3, URP
 
-> **Pathway:** Creative Core · **Mission:** VFX · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu học tập
 
-> **Nguồn đối chiếu:** [VFX trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+- Xác định vai trò của các module `Main`, `Emission`, `Shape`, `Velocity over Lifetime`, `Color over Lifetime`, `Size over Lifetime` và `Renderer`.
+- Tạo và chỉnh sửa một Particle System trực tiếp từ Inspector.
+- Giải thích mối liên hệ giữa tốc độ phát, lifetime, hình dạng nguồn phát và kết quả quan sát.
+- Thực hiện phép thử thay đổi **một tham số mỗi lần** thay vì chỉnh ngẫu nhiên.
 
-## 1. Tổng quan
+## 2. Particle System trong Unity Editor
 
-**Chủ đề:** Hiệu ứng hạt và VFX. Trong ngữ cảnh *VFX*, bài **Play around with a Particle System** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Particle System là một **Component** gắn với GameObject. Nó quản lý nguồn phát, các hạt đang tồn tại, sự biến đổi theo thời gian và cách hiển thị. Đa số tính chất được chia thành module nhằm tránh biến Inspector thành một danh sách tham số duy nhất.
 
-## 2. Mục tiêu học tập
+| Module | Câu hỏi mà module giải quyết | Tham số nên thử |
+| --- | --- | --- |
+| Main | Hạt bắt đầu và tồn tại như thế nào? | Start Lifetime, Start Speed, Start Size, Looping, Simulation Space, Max Particles |
+| Emission | Phát bao nhiêu hạt, khi nào? | Rate over Time, Rate over Distance, Bursts |
+| Shape | Hạt sinh ra ở đâu và theo hướng nào? | Sphere, Cone, Box, Radius, Angle |
+| Velocity over Lifetime | Vận tốc thay đổi ra sao? | X/Y/Z curves |
+| Color over Lifetime | Màu/độ trong suốt tiến hóa thế nào? | Gradient, alpha |
+| Size over Lifetime | Hạt phình hoặc co như thế nào? | Curve |
+| Noise | Chuyển động cần nhiễu/ngẫu nhiên không? | Strength, Frequency |
+| Renderer | Hạt trở thành pixel trên màn hình bằng cách nào? | Render Mode, Material, Sorting |
 
-- Trình bày được mục đích của **hiệu ứng hạt và vfx** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Play around with a Particle System** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Main** thiết lập trạng thái ban đầu và quy tắc chung, trong khi các module `... over Lifetime` điều chỉnh trạng thái khi hạt già đi. Một gradient màu không tự tạo thêm hạt; `Emission` không tự quy định shader hiển thị.
 
-## 3. Kiến thức trọng tâm
+## 3. Thời gian chuẩn hóa của hạt
 
-- Particle System mô phỏng các phần tử như khói, lửa, bụi với emission, shape, velocity và lifetime.
-- Burst phù hợp vụ nổ ngắn; emission liên tục phù hợp mưa, sương hay lửa cháy.
-- VFX Graph thường phù hợp hiệu ứng có mật độ hạt cao nhưng phụ thuộc tương thích pipeline/nền tảng.
+Với `age` là tuổi hiện tại và `lifetime` là tuổi thọ ban đầu của hạt, có thể hình dung `normalizedAge = age / lifetime`, chạy từ 0 (mới sinh) đến 1 (sắp biến mất). Các đường cong như `Size over Lifetime` được áp dụng theo tiến trình này.
 
-### Thuật ngữ và mối quan hệ
+Ví dụ đường cong kích thước dạng `0 → 1 → 0` tạo hạt nhỏ khi xuất hiện, lớn ở giữa và thu nhỏ trước khi biến mất. Nếu `Start Size` thay đổi, kích thước thực tế còn phụ thuộc cách cấu hình module và chế độ nhân giá trị.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+```mermaid
+flowchart LR
+    A[Main: điều kiện ban đầu] --> B[Emission + Shape: sinh hạt]
+    B --> C[Velocity / Noise: chuyển động]
+    C --> D[Color + Size over Lifetime]
+    D --> E[Renderer + Material]
+```
 
-## 4. Thực hành từng bước
+Sơ đồ là trình tự phân tích để học, không ngụ ý Unity luôn thực thi module theo đúng từng bước tuần tự như hình.
 
-1. **Bước 1:** Tạo Particle System ở vị trí sự kiện và thử Start Lifetime, Start Speed, Emission.
-2. **Bước 2:** Chuyển từ emission liên tục sang burst rồi so sánh hiệu ứng.
-3. **Bước 3:** Thêm biến thiên Size over Lifetime và Color over Lifetime để hiệu ứng có nhịp rõ.
-4. **Bước 4:** Thử bật/tắt hệ thống theo hành động và theo dõi số hạt lẫn frame time.
+## 4. Lab: tạo chùm hạt sáng và khảo sát tham số
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+### 4.1. Chuẩn bị
 
-## 5. Bài tập củng cố
+Tạo một scene đơn giản. Thêm `Particle System`, đổi tên thành `PS_SparkStudy`, giữ Camera nhìn rõ vật thể. Nếu dùng URP, hãy chọn vật liệu hạt có shader hỗ trợ URP; tránh dùng tùy tiện material cũ từ Built-in Pipeline.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VFX** để tạo một tương tác nhỏ.
+### 4.2. Cấu hình ban đầu
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+| Vị trí trong Inspector | Giá trị thử nghiệm | Ý nghĩa |
+| --- | --- | --- |
+| Main > Start Lifetime | 2 s | Mỗi hạt sống khoảng 2 giây |
+| Main > Start Speed | 1 | Vận tốc lúc phát |
+| Main > Start Size | 0.12 | Hạt có kích thước nhỏ |
+| Main > Max Particles | 200 | Giới hạn lượng hạt |
+| Emission > Rate over Time | 25 | Trung bình khoảng 25 hạt/giây |
+| Shape | Cone, góc nhỏ | Hạt tỏa theo hình nón |
+| Color over Lifetime | Vàng sáng → đỏ, alpha → 0 | Chuyển màu rồi mờ dần |
+| Size over Lifetime | Lớn dần nhẹ → nhỏ dần | Tạo nhịp sống cho từng hạt |
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Đây là **preset minh họa**, không phải benchmark hoặc cài đặt chuẩn cho mọi project. Bật từng module bằng checkbox cạnh tiêu đề, chỉnh đường cong, rồi dùng Play/Pause/Restart trong cửa sổ preview Particle Effect.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: hiệu ứng phát quá nhiều hạt gây tụt FPS hoặc renderer/material không tương thích pipeline.
+### 4.3. Thí nghiệm có kiểm soát
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Thực hiện bốn lần chạy, mỗi lần chỉ thay đổi một điều kiện:
 
-## 7. Checklist hoàn thành
+1. Tăng `Start Lifetime` từ 2 lên 4 giây; quan sát số lượng hạt đang sống.
+2. Giữ lifetime = 2, tăng `Rate over Time` từ 25 lên 50; quan sát độ dày.
+3. Đổi `Shape` từ `Cone` sang `Sphere`; quan sát vùng xuất phát và hướng ban đầu.
+4. Đổi `Simulation Space` từ `Local` sang `World`, di chuyển GameObject trong khi phát hạt; chú ý khác biệt giữa hạt cũ và hạt mới.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VFX](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Ghi kết quả vào bảng:
 
----
+| Thử nghiệm | Dự đoán trước | Quan sát trong Game view | Giải thích |
+| --- | --- | --- | --- |
+| Lifetime × 2 | ... | ... | ... |
+| Rate × 2 | ... | ... | ... |
+| Cone → Sphere | ... | ... | ... |
+| Local → World | ... | ... | ... |
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## 5. Đọc lỗi theo nhóm nguyên nhân
+
+- **Phát quá thưa:** `Rate over Time` thấp hoặc lifetime ngắn; kiểm tra giới hạn `Max Particles`.
+- **Bật Gradient nhưng màu không đổi:** kiểm tra module đã bật, gradient có biến thiên rõ và material có hỗ trợ màu hạt; `Start Color` còn có thể nhân với giá trị gradient.
+- **Hạt không xuất hiện trong Game view:** camera clip/view, vật liệu, culling, kích thước và `Play On Awake`.
+- **Hạt không đi theo hướng muốn:** `Shape` tác động hướng ban đầu; `Start Speed`, `Velocity over Lifetime` và các lực có thể tiếp tục thay đổi hướng.
+- **Hiệu ứng nhìn như hình chữ nhật cứng:** chọn texture có alpha mềm và shader phù hợp, thay vì chỉ thay Start Color.
+
+## 6. Bài tập mở rộng
+
+Biến hiệu ứng thành **bông tuyết trôi chậm**: phát từ `Box` phía trên Camera, `Start Speed` thấp, dùng `Velocity over Lifetime` cho chuyển động ngang nhẹ và `Color over Lifetime` để mờ dần. Kiểm tra xem hạt có cần ở `World` space để tạo môi trường ổn định khi camera di chuyển hay không.
+
+## 7. Câu hỏi ôn tập
+
+**Câu 1.** Muốn thay đổi vị trí nơi hạt được sinh ra, bạn ưu tiên module nào?  
+A. Renderer  
+B. Shape  
+C. Color over Lifetime  
+D. Trails  
+**Đáp án: B.** Shape quyết định vùng phát và hướng ban đầu.
+
+**Câu 2.** `Rate over Time` mô tả đại lượng nào?  
+A. Tuổi thọ mỗi hạt  
+B. Quãng đường tối đa  
+C. Số hạt phát theo thời gian  
+D. Số pixel được vẽ  
+**Đáp án: C.** Tham số này kiểm soát tốc độ phát hạt theo giây.
+
+**Câu 3.** Muốn hạt mờ dần ở cuối đời, thao tác nào phù hợp nhất?  
+A. Đổi alpha trong Color over Lifetime  
+B. Chỉ tăng Max Particles  
+C. Xóa Shape  
+D. Bật Rigidbody  
+**Đáp án: A.** Alpha gradient có thể được thiết kế giảm dần về 0.
+
+**Câu 4.** Khi di chuyển emitter, `World` simulation space có ý nghĩa gì?  
+A. Buộc mọi hạt đi theo object ở mọi thời điểm  
+B. Làm particle bất tử  
+C. Bỏ qua camera  
+D. Hạt đã sinh được mô phỏng trong không gian thế giới  
+**Đáp án: D.** Vì vậy đường đi của hạt cũ không nhất thiết bị kéo theo emitter.
+
+**Câu 5.** Vì sao nên đổi một tham số mỗi lần?  
+A. Để làm FPS luôn bằng 60  
+B. Để xác định quan hệ nguyên nhân–kết quả  
+C. Để không cần camera  
+D. Để bypass shader  
+**Đáp án: B.** Quy trình thử nghiệm có kiểm soát giúp rút ra quy luật đáng tin cậy.
+
+## 8. Tổng kết và tham khảo
+
+Học Particle System hiệu quả nhất bằng quan sát có chủ đích: phát hạt → khởi tạo → chuyển động → biến đổi theo tuổi → hiển thị. Ghi lại dự đoán và thực tế giúp hiểu module nhanh hơn việc sao chép một preset.
+
+- [Unity 6.3 — Module reference](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/particle-systems/particle-system-modules)
+- [Unity 6.3 — Shape module](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/particle-systems/particle-system-modules/part-sys-shape-module)
+- [Unity Learn — Creative Core VFX](https://learn.unity.com/course/creative-core-vfx)
+
+*Các bài tập và giá trị số trong tài liệu là thiết kế thực hành độc lập.*

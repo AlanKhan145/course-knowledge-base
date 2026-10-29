@@ -1,83 +1,60 @@
----
-title: "Submit your independent or guided project"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 13
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 13 — Bài nộp dự án độc lập hoặc dự án có hướng dẫn
 
-# Bài 13 — Submit your independent or guided project
+> **Creative Core · Prototyping · Bài tập**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
+Chuẩn bị hồ sơ bàn giao một prototype Unity có thể kiểm chứng, bao gồm bản build, minh chứng chạy và mô tả quyết định thiết kế.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu và kiến thức cần dùng
 
-## 1. Tổng quan
+Hoàn tất một hồ sơ mà người khác có thể xem, chạy thử và đánh giá. Vận dụng kiến thức về scene, interaction, build, playtest, ghi lại asset license và hướng dẫn sử dụng. Đây là **bài thực hành bàn giao**, không đòi hỏi phát triển thêm cơ chế mới.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Submit your independent or guided project** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Đề bài
 
-## 2. Mục tiêu học tập
+Chọn dự án độc lập hoặc dự án theo hướng dẫn mà bạn đã xây dựng trong Creative Core. Chuẩn bị bản thể hiện đầy đủ một core loop, sau đó tạo gói nộp giúp người đánh giá trả lời ba câu hỏi: **sản phẩm làm gì? chạy thế nào? có bằng chứng gì cho thấy đã được thử?**
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Nếu nộp lên nền tảng Unity Learn, thực hiện đúng hướng dẫn nộp đang hiển thị trên bài học tương ứng; checklist trong tài liệu này là bộ tiêu chí học tập đề xuất, không thay cho quy định của nền tảng.
 
-## 3. Kiến thức trọng tâm
+## 3. Nhiệm vụ và quy trình bàn giao
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+1. **Kiểm tra project:** lưu scene, xóa các bản tạm không cần thiết, xác nhận các tham chiếu script và asset không lỗi.
+2. **Build:** dùng `File > Build Profiles`, chọn nền tảng phù hợp, đảm bảo scene cần chạy có trong danh sách scene build. Nếu chưa có module nền tảng, cài qua Unity Hub.
+3. **Chạy thử độc lập:** đóng Editor hoặc dùng môi trường người nhận dự kiến, xác nhận input, âm thanh và trạng thái hoàn thành.
+4. **Ghi minh chứng:** video ngắn thể hiện điểm xuất phát → tương tác → kết quả; ảnh có giá trị chứng minh, không chỉ ảnh Editor.
+5. **Viết README:** mục tiêu, cách chạy, bản Unity nếu gửi source, các phím điều khiển, phụ thuộc và lỗi còn biết.
+6. **Ghi nguồn asset:** tài nguyên của bên thứ ba, giấy phép/attribution khi cần.
+7. **Rà soát quyền chia sẻ:** không công khai mã, hình ảnh hoặc nội dung bị ràng buộc bảo mật/giấy phép.
+8. **Nộp đúng kênh:** link build, file source, bản video hoặc dạng khác theo yêu cầu thực tế.
 
-### Thuật ngữ và mối quan hệ
+## 4. Cấu trúc gói bàn giao minh họa
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+```text
+Prototype_Submission/
+├── README.md
+├── Build/                 # Bản chạy nếu được phép phân phối
+├── Evidence/
+│   ├── demo.mp4
+│   └── screenshots/
+├── Asset-Licenses.md
+├── Playtest-Notes.md
+└── Project/               # Chỉ khi cần bàn giao source Unity
+```
 
-## 4. Thực hành từng bước
+Một project Unity đưa lên Git thường cần `Assets/`, `Packages/` và `ProjectSettings/` cùng các `.meta`; không cần chia sẻ `Library/` vì thường được Unity tái tạo tại máy nhận. Không xóa `.meta` để “giảm kích thước” vì có thể phá tham chiếu asset.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 5. Tiêu chí hoàn thành và tự kiểm
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+- [ ] Có hướng dẫn chạy mà người ngoài dự án có thể làm theo.
+- [ ] Có đầu–giữa–cuối của trải nghiệm và tín hiệu phản hồi.
+- [ ] Có build kiểm tra được hoặc giải thích rõ cách mở source theo yêu cầu nộp.
+- [ ] Có ít nhất một ghi nhận kiểm thử và một thay đổi sau thử.
+- [ ] Không còn lỗi Console nghiêm trọng làm hỏng core loop.
+- [ ] Có thông tin giấy phép và quyền chia sẻ asset.
+- [ ] Tất cả link/file cần nộp đều mở được.
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+**Câu hỏi tự đánh giá:** nếu một người nhận chưa biết dự án, họ có thể khởi chạy trong lần đầu? Họ có nhìn thấy kết quả của tương tác chính? Bằng chứng có phản ánh đúng bản build cuối?
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Submit your independent or guided project** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+## 6. Nguồn kỹ thuật
 
-**Tiêu chí nghiệm thu:**
-
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
-
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+- [Unity Docs – Create build profile](https://docs.unity.com/en-us/engine/6000.0/manual/building-and-publishing/build-settings/create-build-profile)
+- [Unity Docs – Build Profiles reference](https://docs.unity.com/en-us/engine/6000.6/manual/building-and-publishing/build-settings/build-profiles-reference)
+- [Unity Learn – Creative Core Prototyping](https://learn.unity.com/project/creative-core-prototyping)

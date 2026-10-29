@@ -1,78 +1,168 @@
----
-title: "Create your first 3D animations"
-pathway: "Creative Core"
-module: "Animation"
-lesson_number: 2
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 02 — Tạo hoạt ảnh 3D đầu tiên bằng Keyframe
 
-# Bài 02 — Create your first 3D animations
+> **Creative Core · Animation · Unity 6.3 · Bài thực hành có hướng dẫn**
 
-> **Pathway:** Creative Core · **Mission:** Animation · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Tóm tắt
 
-> **Nguồn đối chiếu:** [Animation trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
-
-## 1. Tổng quan
-
-**Chủ đề:** Hệ thống hoạt ảnh trong Unity. Trong ngữ cảnh *Animation*, bài **Create your first 3D animations** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Keyframe animation cho phép tạo chuyển động 3D mà không cần viết mã hoặc dựng rig phức tạp. Bài này tập trung vào quy trình thiết kế chuyển động có chủ đích: xác định điểm bắt đầu, điểm kết thúc, thời lượng, phương chuyển động, thuộc tính được điều khiển và cách kiểm tra kết quả.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **hệ thống hoạt ảnh trong unity** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Create your first 3D animations** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+1. Tạo và lưu hai Animation Clip độc lập cho một GameObject.
+2. Đặt các keyframe `Position`, `Rotation` hoặc `Scale` đúng mốc thời gian.
+3. Dự đoán ảnh hưởng của khoảng cách/thời gian đến tốc độ và nhận diện trục local–world.
+4. Kiểm tra clip có được phát đúng bằng Animator Controller hay không.
 
-## 3. Kiến thức trọng tâm
+## 3. Nguyên lý về keyframe và timeline
 
-- Animation Clip lưu chuyển động theo thời gian; Animator Controller quản lý các trạng thái và điều kiện chuyển.
-- Animation window cho phép đặt keyframe cho thuộc tính được animate.
-- Với nhân vật rigged, cần cấu hình Avatar, loại rig và mapping xương phù hợp.
+### 3.1. Keyframe là gì?
 
-### Thuật ngữ và mối quan hệ
+Keyframe ghi lại giá trị của thuộc tính tại một thời điểm. Ví dụ, cánh cửa có rotation Y = 0° ở t = 0 và Y = 90° ở t = 1 giây. Các góc giữa hai thời điểm được dựng bằng thuật toán nội suy. Không cần đặt keyframe ở từng frame trừ khi hiệu ứng đòi chính xác từng bước.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+Đối với chuyển động tuyến tính theo một trục, tốc độ trung bình được ước lượng bởi:
 
-## 4. Thực hành từng bước
+$$
+v_{tb} = \frac{|x_{cuối} - x_{đầu}|}{\Delta t}
+$$
 
-1. **Bước 1:** Chọn GameObject và tạo một Animation Clip tối giản bằng hai keyframe vị trí.
-2. **Bước 2:** Mở Animator Controller, tạo Idle và một trạng thái chuyển động.
-3. **Bước 3:** Thử parameter và transition; xác nhận animation có thể phát hoặc dừng theo điều kiện.
-4. **Bước 4:** Nếu dùng model ngoài, kiểm tra Import Settings > Rig và Animation trước khi sử dụng.
+Trong ví dụ vật di chuyển 2 đơn vị trong 1 giây, tốc độ trung bình là 2 đơn vị/giây. **Lưu ý:** đây không nhất thiết là tốc độ tức thời khi áp dụng ease-in/ease-out.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+### 3.2. Position, Rotation và Scale
 
-## 5. Bài tập củng cố
+| Thuộc tính | Chuyển động phù hợp | Lưu ý |
+|---|---|---|
+| `Transform.localPosition`/track Position | Tịnh tiến/nhún | Animation trên Transform thường được đánh giá theo quan hệ cha–con; chú ý local space |
+| `Transform.localRotation`/track Rotation | Mở cửa, quay biển hiệu | Cần xác định pivot chính xác |
+| `Transform.localScale`/track Scale | Phóng to, thu nhỏ, pulse | Scale gần 0 có thể làm đối tượng biến mất và méo hình |
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Animation** để tạo một tương tác nhỏ.
+**Pivot** là tâm quay/biến đổi của đối tượng. Với cửa, nên đặt pivot cạnh bản lề: tạo GameObject rỗng `DoorPivot` tại vị trí bản lề, cho mesh cánh cửa làm con và animate `DoorPivot` thay vì xoay một cube quanh tâm của nó.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 4. Thực hành A: tạo bóng nhún lên xuống
 
-## 6. Lỗi thường gặp và cách kiểm tra
+1. Tạo `Sphere` tên `BouncingBall`, đặt tại `(0, 0.5, 0)` để không xuyên sàn `Plane`.
+2. Mở Animation window, chọn **Create** để tạo `BallBounce.anim`.
+3. Thêm Position track. Đặt keyframe mẫu (giá trị Y chỉ mang tính thực hành, cần điều chỉnh theo kích thước bóng):
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: thiếu Animator/Avatar, transition có điều kiện sai hoặc clip đè lên thuộc tính ngoài dự kiến.
+   | Thời điểm | Position Y | Ý nghĩa |
+   |---|---:|---|
+   | 0.0 s | 0.5 | Bóng ở thấp |
+   | 0.3 s | 1.6 | Bóng lên cao |
+   | 0.6 s | 0.5 | Bóng rơi về vị trí ban đầu |
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+4. Bật `Loop Time` cho clip khi muốn chuyển động liên tục.
+5. Thử Play, quan sát điểm cực trị và chu kỳ. Nếu bóng đi xuyên nền, tăng vị trí Y ở keyframe thấp hoặc sửa collider/mesh cho khớp.
 
-## 7. Checklist hoàn thành
+Trong bài tập này không có mô phỏng lực hấp dẫn thực sự: đường bay được xác định bởi keyframe. Nếu cần va chạm vật lý thực, phải cân nhắc hệ thống `Rigidbody`, không đồng thời ghi vị trí theo Animation một cách tùy tiện.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Animation](https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 5. Thực hành B: tạo cửa mở/đóng
 
----
+1. Tạo `DoorPivot` rỗng và mesh `DoorPanel` con; đặt pivot cạnh bản lề.
+2. Tạo clip `DoorOpen.anim`. Tại t=0: Rotation Y=0°; t=1: Rotation Y=90°.
+3. Tạo clip `DoorClose.anim`. Tại t=0: Rotation Y=90°; t=1: Rotation Y=0°.
+4. Dùng Animation window để preview từng clip. Nếu Unity chỉ hiển thị một clip, dùng danh sách chọn clip ở góc trên của Animation window để chuyển.
+5. Mở Animator Controller để đảm bảo mỗi clip có một state tương ứng. Chưa cần viết logic mở/đóng phức tạp ở bài này.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+### 5.1. Hệ trục và trật tự đối tượng
+
+```mermaid
+flowchart TD
+    Root[DoorPivot: điểm bản lề] --> Panel[DoorPanel: mesh con]
+    Root --> Rot[Animate localRotation của Pivot]
+    Rot --> Door[Toàn bộ cánh cửa quay quanh bản lề]
+```
+
+Nếu animate chính mesh `DoorPanel` nhưng nó có tâm ở giữa, cửa có thể quay giống cánh quạt. Nếu animate cả parent lẫn child trên cùng thuộc tính, chuyển động kết hợp có thể khó dự đoán.
+
+## 6. Cách tổ chức asset
+
+```text
+Assets/
+  Animations/
+    BallBounce.anim
+    DoorOpen.anim
+    DoorClose.anim
+    DoorAnimator.controller
+  Scenes/
+    KeyframePractice.unity
+```
+
+Tên rõ ràng giúp phân biệt dữ liệu chuyển động với Controller. Nên lưu scene sau khi tạo clip, kiểm tra asset trong Project, tránh chỉ thấy kết quả đúng trong chế độ preview.
+
+## 7. Khắc phục lỗi và bài thực hành thêm
+
+- **Không thấy Add Property:** chọn đúng GameObject và đúng clip; xác nhận đối tượng có thành phần animatable.
+- **Keyframe không xuất hiện:** kiểm tra Record đang bật hoặc đã dùng chức năng Add Keyframe/Key đúng cách.
+- **Cửa quay lệch:** kiểm tra vị trí `DoorPivot` và hierarchy của panel.
+- **Chuyển động bất ngờ đổi Scale:** mở danh sách property track và xoá các track được ghi nhầm (không xoá cả clip).
+- **Cửa bật về góc cũ:** xem state đang phát, thời lượng transition và các clip khác có ghi cùng thuộc tính.
+
+**Bài tập:** tạo một `Platform` nâng lên 1,5 đơn vị trong 2 giây rồi quay về, so sánh với cùng chuyển động chỉ trong 0,5 giây. Ghi nhận cảm giác tốc độ và khả năng tái sử dụng clip.
+
+## 8. Câu hỏi ôn tập trắc nghiệm
+
+### 8.1. Câu 1
+
+Hai keyframe ở 0 s và 2 s có cùng độ dời 4 đơn vị. Tốc độ trung bình theo trục đó là bao nhiêu?
+
+**A.** 8 đơn vị/s  
+**B.** 2 đơn vị/s  
+**C.** 0,5 đơn vị/s  
+**D.** 4 đơn vị/s  
+
+**Đáp án:** B. **Giải thích:** Độ dời chia thời gian: 4/2 = 2 đơn vị/s.
+
+### 8.2. Câu 2
+
+Cách bố trí nào phù hợp nhất cho cửa xoay quanh bản lề?
+
+**A.** Đặt pivot tại bản lề và animate rotation của pivot.  
+**B.** Xoay trực tiếp mesh quanh tâm hình học bất kể vị trí.  
+**C.** Dùng Scale X để thay đổi góc mở.  
+**D.** Chỉ đổi màu cửa.  
+
+**Đáp án:** A. **Giải thích:** Transform cha ở bản lề cho trục xoay hình học đúng.
+
+### 8.3. Câu 3
+
+Muốn tạo hiệu ứng bóng bật lên và rơi xuống lặp lại, phương án nào phù hợp?
+
+**A.** Chỉ keyframe một thời điểm.  
+**B.** Tạo Animator mà không gắn Clip.  
+**C.** Tạo các keyframe ở thấp–cao–thấp rồi cấu hình loop.  
+**D.** Xoá thành phần Transform.  
+
+**Đáp án:** C. **Giải thích:** Phải ghi một chu kỳ chuyển động trước khi bật lặp.
+
+### 8.4. Câu 4
+
+Điều nào đúng về animation vị trí và Rigidbody?
+
+**A.** Luôn có lực hấp dẫn thực nếu đặt keyframe.  
+**B.** Phải thêm Rigidbody mới phát được clip.  
+**C.** Animator tự giải mọi va chạm.  
+**D.** Animate Transform và di chuyển bằng physics đồng thời có thể xung đột.  
+
+**Đáp án:** D. **Giải thích:** Hai hệ cùng điều khiển Transform có thể tạo hành vi khó kiểm soát.
+
+### 8.5. Câu 5
+
+Để phát được clip sau khi bấm Play trong quy trình Mecanim, cần kiểm tra mục nào?
+
+**A.** Animator được gán Controller có state tham chiếu clip.  
+**B.** Chỉ cần Material có texture.  
+**C.** Chỉ cần thiết lập camera Field of View.  
+**D.** Phải có Light Probe.  
+
+**Đáp án:** A. **Giải thích:** Controller và Animator quyết định clip được thực thi khi chạy scene.
+
+## 9. Tổng kết
+
+- Keyframe ghi trạng thái thuộc tính tại mốc thời gian; curve quyết định nội suy giữa các mốc.
+- Pivot và hierarchy ảnh hưởng trực tiếp tới chuyển động quay và các phép biến đổi local.
+- Thử từng clip trong Animation window rồi kiểm chứng ở Play Mode với Controller thực tế.
+
+## 10. Tài liệu học thêm
+
+1. [Unity 6.3 — Animation window](https://docs.unity.com/en-us/engine/6000.3/manual/animation-section/animation-mecanim/animation-clips/animation-editor-guide).
+2. [Unity 6.3 — Animation Curves](https://docs.unity.com/en-us/engine/6000.3/manual/animation-section/animation-mecanim/animation-clips/animation-editor-guide/animeditor-animation-curves).
+3. [Unity Learn — Creative Core Animation](https://learn.unity.com/pathway/creative-core/unit/animation?version=6.3).

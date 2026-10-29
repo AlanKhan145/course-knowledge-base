@@ -1,78 +1,127 @@
----
-title: "Get started with lighting"
-pathway: "Creative Core"
-module: "Lighting"
-lesson_number: 1
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 01 — Nhập môn nghệ thuật và khoa học ánh sáng
 
-# Bài 01 — Get started with lighting
+*Creative Core · Lighting · Unity 6.3 · Get started with lighting*
 
-> **Pathway:** Creative Core · **Mission:** Lighting · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Tóm tắt và mục tiêu
 
-> **Nguồn đối chiếu:** [Lighting trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Ánh sáng không chỉ giúp nhận ra vật thể; nó cho biết chất liệu, độ sâu, thời điểm trong ngày và bầu không khí của một khung hình. Người thiết kế ánh sáng (*lighting artist*) cần kết hợp cách ánh sáng truyền trong thực tế với ý đồ thị giác và giới hạn hiệu năng của một ứng dụng thời gian thực.
 
-## 1. Tổng quan
+Sau bài này, bạn có thể **chỉ ra nguồn sáng**, phân biệt phản xạ và khúc xạ, phân tích hướng chiếu sáng trong ảnh và đề xuất một bố cục ánh sáng phù hợp với cảm xúc cần truyền tải.
 
-**Chủ đề:** Chiếu sáng và độ chân thực của khung cảnh. Trong ngữ cảnh *Lighting*, bài **Get started with lighting** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Ánh sáng và quá trình hình thành hình ảnh
 
-## 2. Mục tiêu học tập
+Nguồn sáng phát ra bức xạ điện từ trong vùng nhìn thấy. Khi tương tác với vật thể, một phần năng lượng có thể được **hấp thụ**, **phản xạ**, **truyền qua** hoặc bị tán xạ. Camera/ mắt thu nhận ánh sáng từ những hướng đi tới cảm biến. Vì vậy, bề mặt không tự nhiên "có màu" cố định trong mọi điều kiện: hình ảnh cuối phụ thuộc đồng thời vào phổ nguồn sáng, tính chất vật liệu, hình học và camera.
 
-- Trình bày được mục đích của **chiếu sáng và độ chân thực của khung cảnh** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Get started with lighting** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+```mermaid
+flowchart LR
+    A[Nguồn sáng] --> B[Ánh sáng tới]
+    B --> C[Bề mặt vật thể]
+    C --> D[Phản xạ khuếch tán]
+    C --> E[Phản xạ gương]
+    D --> F[Camera / Mắt]
+    E --> F
+```
 
-## 3. Kiến thức trọng tâm
+Sơ đồ mô tả hai đường phản xạ thường gặp. Trong thực tế, cảm biến còn có thể thu nhận ánh sáng xuyên vật liệu, khúc xạ hoặc ánh sáng phản xạ nhiều lần qua các bề mặt khác.
 
-- Directional Light mô phỏng nguồn sáng định hướng; Point và Spot Light phù hợp nguồn sáng cục bộ.
-- Baked lighting lưu kết quả chiếu sáng tĩnh vào lightmap, trong khi realtime lighting cập nhật theo thời gian chạy.
-- Light Probes hỗ trợ đối tượng động trong môi trường chiếu sáng bake; Reflection Probes tạo phản xạ theo môi trường.
+### 2.1. Phản xạ khuếch tán và phản xạ gương
 
-### Thuật ngữ và mối quan hệ
+Bề mặt nhám phân tán ánh sáng ra nhiều hướng (*diffuse reflection*); bề mặt nhẵn tạo các thành phần phản xạ tập trung hơn (*specular reflection*). Trong đồ họa PBR, vật liệu thực tế thường có **cả hai** thành phần với tỷ lệ phụ thuộc tính chất bề mặt và góc quan sát; không nên hiểu kính và kim loại chỉ có một dạng phản xạ duy nhất.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+### 2.2. Khúc xạ và truyền qua
 
-## 4. Thực hành từng bước
+Khi ánh sáng đi qua ranh giới hai môi trường có chiết suất khác nhau, hướng truyền có thể thay đổi (*refraction*), ví dụ khi đi từ không khí vào nước. Trong Unity, kết quả thể hiện còn phụ thuộc shader và render pipeline; đặt vật liệu Transparent **không đồng nghĩa** với tự động có khúc xạ vật lý đúng.
 
-1. **Bước 1:** Thiết lập một scene có nền, đối tượng tĩnh, đối tượng động và nguồn sáng.
-2. **Bước 2:** Thay đổi hướng, cường độ, màu ánh sáng rồi quan sát bóng đổ.
-3. **Bước 3:** Với pipeline hỗ trợ, thử bake ánh sáng và đánh dấu đối tượng tĩnh đúng cách.
-4. **Bước 4:** So sánh hình ảnh và hiệu năng trước/sau; chụp ảnh minh họa các thiết lập.
+### 2.3. Hình học nguồn sáng
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Nguồn sáng có kích thước biểu kiến lớn thường tạo vùng chuyển tiếp sáng–tối mềm hơn; nguồn sáng nhỏ, có hướng rõ rệt thường tạo bóng sắc hơn. Hướng, phổ/màu và cường độ của nguồn sáng cùng với khoảng cách, vật liệu và góc nhìn quyết định kết quả cuối. Đừng suy luận đơn giản rằng tăng Intensity luôn khiến ánh sáng "đi xa hơn": với nguồn sáng cục bộ, phạm vi chiếu sáng trong Unity còn chịu ảnh hưởng của `Range` và mô hình suy giảm.
 
-## 5. Bài tập củng cố
+## 3. Vai trò của ánh sáng trong kể chuyện
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Lighting** để tạo một tương tác nhỏ.
+Một cảnh đêm có thể được nhận biết thông qua độ tối của nền, ánh sáng xanh lạnh từ ngoài trời và các vùng sáng vàng ấm do đèn đường. Với cùng mô hình 3D, thay đổi vị trí đèn có thể tạo cảm giác an toàn hoặc bí ẩn. Cần phân biệt **nguồn sáng có lý do trong cảnh** (đèn đường, cửa sổ) và **nguồn sáng phục vụ bố cục** (đèn làm nổi chủ thể nhưng không nhất thiết hiện diện trong thế giới cảnh).
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Một quy trình phân tích ảnh tham khảo hiệu quả gồm: xác định nguồn sáng; vẽ hướng chiếu; đánh dấu vùng sáng nhất và vùng tối nhất; quan sát cạnh bóng và màu phản xạ; cuối cùng viết một câu mô tả cảm xúc dự định.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 4. Thực hành phân tích cảnh ngoài trời
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: lightmap không cập nhật, bề mặt thiếu UV phù hợp hoặc vật thể động không nhận ánh sáng như mong đợi.
+1. Mở scene ngoài trời của Creative Core, hoặc dựng sân nhỏ với mặt sàn, bậc thềm và vài cột đèn.
+2. Xác định ánh sáng bầu trời, đèn đường, các dải sáng trang trí và nguồn sáng hướng nếu có.
+3. Quan sát bóng trên sàn: hướng, độ dài, phần chuyển tiếp mềm/cứng.
+4. Chụp hai ảnh ở cùng góc camera: một bố cục ban ngày và một bố cục hoàng hôn. Viết rõ **thay đổi nào** tạo ra cảm giác khác biệt.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Không cần thêm ánh sáng chỉ để ảnh sáng hơn. Hãy ưu tiên chủ thể có thể đọc được, màu sắc nhất quán và điểm nhấn thị giác.
 
-## 7. Checklist hoàn thành
+## 5. Những ngộ nhận cần tránh
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Lighting](https://learn.unity.com/pathway/creative-core/unit/lighting?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- **"Nền tối nghĩa là ánh sáng yếu"**: độ sáng ảnh còn phụ thuộc exposure, vật liệu và môi trường.
+- **"Ánh sáng màu tạo đúng màu vật thể"**: màu quan sát là kết quả của phổ sáng tương tác với vật liệu.
+- **"Bề mặt phát sáng luôn chiếu sáng môi trường"**: hiệu ứng phát sáng nhìn thấy không đảm bảo tạo ánh sáng trực tiếp lên các vật thể lân cận.
 
----
+## 6. Kết luận
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Thiết kế ánh sáng khởi đầu từ việc **quan sát đường đi của ánh sáng và mục tiêu thị giác**, không phải từ việc tăng số lượng Light. Một cảnh tốt có lý do ánh sáng rõ ràng, nổi bật chủ thể và kiểm soát được bóng đổ.
+
+
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Ảnh cho thấy bóng đổ rất dài vào chiều tối. Điều gì giải thích hợp lý nhất?
+
+A. Nguồn sáng ở vị trí thấp so với chân trời  
+B. Vật liệu đã đổi màu  
+C. Camera bắt buộc phải đặt thấp  
+D. Không có ánh sáng môi trường  
+
+**Đáp án:** A. **Giải thích:** Nguồn sáng chiếu xiên gần mặt đất thường tạo bóng dài trên mặt phẳng.
+
+### Câu 2
+
+Bề mặt nhám phản xạ ánh sáng chủ yếu như thế nào?
+
+A. Chỉ truyền qua  
+B. Tập trung vào một hướng duy nhất  
+C. Phân tán năng lượng ra nhiều hướng  
+D. Không thể phản xạ  
+
+**Đáp án:** C. **Giải thích:** Vi cấu trúc không đồng đều làm thành phần phản xạ trở nên khuếch tán.
+
+### Câu 3
+
+Khi nhìn chiếc thìa kim loại, thành phần nào làm hiện rõ vùng phản xạ sáng?
+
+A. Lightmap UV  
+B. Phản xạ gương  
+C. Collider  
+D. Occlusion Culling  
+
+**Đáp án:** B. **Giải thích:** Phản xạ gương tạo highlight và phản xạ môi trường dễ thấy trên kim loại.
+
+### Câu 4
+
+Đèn rọi chủ thể không có bóng đèn hiện trong cảnh thuộc loại nào?
+
+A. Chỉ có thể là ánh sáng mặt trời  
+B. Chỉ là hiệu ứng âm thanh  
+C. Một nguồn sáng có chức năng bố cục  
+D. Light Probe  
+
+**Đáp án:** C. **Giải thích:** Key lighting phục vụ nhấn chủ thể, không nhất thiết có nguồn nhìn thấy.
+
+### Câu 5
+
+Bước nào nên làm trước khi chỉnh hàng loạt thông số đèn?
+
+A. Vẽ sơ đồ hướng sáng và xác định chủ thể  
+B. Tăng toàn bộ Intensity tối đa  
+C. Xóa mọi vật liệu  
+D. Bake ngay lập tức  
+
+**Đáp án:** A. **Giải thích:** Phân tích yêu cầu thị giác giúp tránh tối ưu sai mục tiêu.
+
+
+## 8. Tài liệu tham khảo và lưu ý phiên bản
+
+- [Unity Learn — Get started with lighting](https://learn.unity.com/course/creative-core-lighting/tutorial/get-started-with-lighting?version=6.3) (Unity 6.3).
+
+**Lưu ý:** Menu và tùy chọn có thể khác theo URP Asset, Quality Level, Unity Editor và loại shader đang dùng. Nội dung là bài giảng tiếng Việt độc lập được biên soạn và bổ sung để học tập, không phải bản dịch chính thức hay lời chép toàn văn của Unity.

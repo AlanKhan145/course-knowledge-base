@@ -1,83 +1,69 @@
----
-title: "Challenge: Complete your independent project"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 9
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 09 — Thử thách: hoàn thiện dự án prototype độc lập
 
-# Bài 09 — Challenge: Complete your independent project
+> **Creative Core · Prototyping · Dự án**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Thiết kế và triển khai một trải nghiệm tương tác nhỏ, có đầu vào, phản hồi, điều kiện kết thúc và bằng chứng kiểm thử. Đây là bài tập dự án, không phải phần giảng lý thuyết thuần túy.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Bài toán và mục tiêu sản phẩm
 
-## 1. Tổng quan
+Chọn một trong các ý tưởng: câu đố thoát khỏi sân pháo đài, hành trình khám phá một triển lãm nhỏ hoặc cơ chế gom vật phẩm. Sản phẩm phải có **core loop** rõ ràng và có thể chơi từ đầu đến cuối mà người chấm không cần trực tiếp vận hành Unity Editor.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Challenge: Complete your independent project** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+**Tình huống mẫu:** trong sân có cây cầu chưa mở, một bàn đạp bí mật và nút điều khiển. Người chơi tìm hiểu không gian, bật nút, hạ cầu, tới vùng đích. Chọn một mục tiêu chính và giữ toàn bộ thiết kế nhất quán với mục tiêu ấy.
 
-## 2. Mục tiêu học tập
+## 2. Yêu cầu chức năng và phi chức năng
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Bắt buộc:**
+1. Có điểm bắt đầu và trạng thái hoàn thành.
+2. Người chơi thực hiện được hành động tương tác cốt lõi.
+3. Có phản hồi nhìn/nghe phù hợp để biết hành động thành công hay thất bại.
+4. Có thể khởi động lại lần thử một cách nhất quán.
+5. Không có lỗi ngăn hoàn thành chuỗi chính trong lần kiểm tra cuối.
 
-## 3. Kiến thức trọng tâm
+**Nên có:** ít nhất một cải tiến sau kiểm thử; ánh sáng và camera đủ rõ; asset có giấy phép phù hợp. **Không bắt buộc:** hệ thống tài khoản, mua bán, multiplayer, diễn hoạt phức tạp.
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+## 3. Kiến trúc tối thiểu và mốc bàn giao
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+flowchart TD
+  I[Input người chơi] --> A[Hành động trong scene]
+  A --> S[Logic trạng thái]
+  S --> F[Phản hồi hình ảnh/âm thanh]
+  S --> W[Điều kiện thắng]
+  W --> T[Thông báo hoàn thành]
+```
 
-| Khái niệm | Vai trò trong bài |
+- **Mốc A – Brief:** pitch, người dùng mục tiêu, câu hỏi kiểm chứng, phác thảo bản đồ.
+- **Mốc B – Greybox:** player di chuyển và không xuyên địa hình/tường.
+- **Mốc C – Functional:** các trạng thái khóa/mở/hoàn thành chạy đúng.
+- **Mốc D – Playtest:** có phiếu quan sát và ít nhất một cải tiến.
+- **Mốc E – Build:** chạy thử độc lập, README và bằng chứng.
+
+## 4. Nhiệm vụ thực hiện
+
+1. Tạo project Unity và lưu bản baseline.
+2. Dựng môi trường bằng primitive, có thể thay một phần bằng ProBuilder/Terrain nếu phù hợp.
+3. Thực hiện core loop và tín hiệu tương tác.
+4. Thử lần đầu, ghi lỗi và những điểm người chơi bỏ qua.
+5. Điều chỉnh ít nhất một yếu tố do thử nghiệm đề xuất.
+6. Build tới nền tảng đích có sẵn; lưu sản phẩm và tài liệu hướng dẫn.
+7. So sánh bản trước/sau theo **một tiêu chí đã định trước**.
+
+## 5. Deliverable và Definition of Done
+
+| Hạng mục | Minh chứng |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Project nguồn | Thư mục Unity có thể mở, scene rõ tên, danh sách phụ thuộc |
+| Bản build | Có thể khởi chạy đúng nền tảng đã chọn |
+| README | Mục tiêu, cách chạy, điều khiển, bản Unity, hạn chế đã biết |
+| Ảnh/video | Toàn bộ core loop với trạng thái đầu–giữa–cuối |
+| Nhật ký kiểm thử | Test case, lỗi, biện pháp xử lý, kết quả lại |
+| Asset inventory | Ghi nguồn và điều kiện sử dụng |
 
-## 4. Thực hành từng bước
+**Definition of Done:** người chấm có thể làm theo README, hoàn thành một lượt chơi, thấy ít nhất một phản hồi, và đối chiếu được cải tiến từ kiểm thử. Không có yêu cầu một mức đồ họa cụ thể.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 6. Tự đánh giá và nguồn
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Tự trả lời: nếu bỏ một cơ chế thì vẫn còn kiểm chứng được giả thuyết không? Phản hồi nào giúp người chơi nhận biết trạng thái? Có điều gì chỉ hoạt động trong Editor mà build không hoạt động?
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
-
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Challenge: Complete your independent project** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
-
-**Tiêu chí nghiệm thu:**
-
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
-
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+- [Unity Learn – Creative Core](https://learn.unity.com/pathway/creative-core)
+- [Unity Docs – Build Profiles](https://docs.unity.com/en-us/engine/6000.0/manual/building-and-publishing/build-settings/create-build-profile)

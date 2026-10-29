@@ -1,78 +1,135 @@
----
-title: "Experiment with VFX Graph"
-pathway: "Creative Core"
-module: "VFX"
-lesson_number: 5
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 05 — Làm quen với Visual Effect Graph
 
-# Bài 05 — Experiment with VFX Graph
+**Học phần:** Creative Core · VFX | **Loại:** Bài học/lab | **Môi trường đề xuất:** Unity 6.3, URP hoặc HDRP, có hỗ trợ Compute Shader
 
-> **Pathway:** Creative Core · **Mission:** VFX · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu học tập
 
-> **Nguồn đối chiếu:** [VFX trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Sau bài này, người học có thể:
 
-## 1. Tổng quan
+- Mô tả đúng vai trò của bốn Context quan trọng: `Spawn`, `Initialize`, `Update`, `Output`.
+- Phân biệt `Context`, `Block`, `Operator` và `Visual Effect Asset`.
+- Mở một graph và xác định đường đi tạo một hạt đơn giản, từ sinh ra đến hiển thị.
+- Đánh giá khả năng tương thích của Visual Effect Graph với pipeline và nền tảng phát hành.
+- Thử thay đổi tốc độ phát, tuổi thọ và kích thước trong graph, sau đó quan sát kết quả.
 
-**Chủ đề:** Hiệu ứng hạt và VFX. Trong ngữ cảnh *VFX*, bài **Experiment with VFX Graph** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Vì sao có VFX Graph?
 
-## 2. Mục tiêu học tập
+Particle System truyền thống đáp ứng tốt nhiều hiệu ứng nhưng graph cho phép tổ chức logic phức tạp theo mạng các khối. Visual Effect Graph tính toán mô phỏng hạt chủ yếu trên GPU, hữu ích khi cần lượng hạt lớn và hành vi tùy biến. Chi phí vẫn phụ thuộc mức độ phức tạp shader, số pixel, dung lượng bộ nhớ và phần cứng.
 
-- Trình bày được mục đích của **hiệu ứng hạt và vfx** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Experiment with VFX Graph** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Điều kiện trước tiên:** Render Pipeline phải tương thích. VFX Graph dùng với **URP hoặc HDRP**, không phải Built-in Render Pipeline. Nền tảng cũng cần hỗ trợ tính năng GPU/Compute Shader tương ứng; các tính năng cụ thể của VFX Graph và URP có thể khác nhau theo phiên bản. Với bài học này, ưu tiên dự án desktop URP để giảm biến số.
 
-## 3. Kiến thức trọng tâm
+## 3. Kiến trúc cơ bản của graph
 
-- Particle System mô phỏng các phần tử như khói, lửa, bụi với emission, shape, velocity và lifetime.
-- Burst phù hợp vụ nổ ngắn; emission liên tục phù hợp mưa, sương hay lửa cháy.
-- VFX Graph thường phù hợp hiệu ứng có mật độ hạt cao nhưng phụ thuộc tương thích pipeline/nền tảng.
+```mermaid
+flowchart TD
+    A[Spawn: số hạt xuất hiện] --> B[Initialize: tuổi thọ, vị trí, vận tốc]
+    B --> C[Update: tiến hóa, lực, nhiễu]
+    C --> D[Output: hiển thị quad, mesh, material]
+    E[Blackboard: thuộc tính exposed] -.-> A
+    E -.-> B
+    E -.-> C
+    E -.-> D
+```
 
-### Thuật ngữ và mối quan hệ
+Bốn Context này mô tả bốn giai đoạn chính:
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+1. `Spawn`: xác định lượng hạt được tạo; ví dụ tốc độ phát liên tục.
+2. `Initialize`: gán trạng thái lúc hạt sinh như tuổi thọ, vị trí, vận tốc, kích thước.
+3. `Update`: thay đổi hạt còn sống theo thời gian; có thể bổ sung lực hoặc nhiễu.
+4. `Output`: quyết định kiểu hiển thị và cách hạt xuất hiện trên màn hình.
 
-## 4. Thực hành từng bước
+Trong từng Context có những **Block** thực hiện tác vụ cụ thể. **Operator** xử lý giá trị/dữ liệu và cung cấp đầu vào cho block. **Blackboard** chứa property có thể tạo và (khi được exposed) chỉnh từ bên ngoài graph, giúp tái sử dụng một hiệu ứng với nhiều cấu hình.
 
-1. **Bước 1:** Tạo Particle System ở vị trí sự kiện và thử Start Lifetime, Start Speed, Emission.
-2. **Bước 2:** Chuyển từ emission liên tục sang burst rồi so sánh hiệu ứng.
-3. **Bước 3:** Thêm biến thiên Size over Lifetime và Color over Lifetime để hiệu ứng có nhịp rõ.
-4. **Bước 4:** Thử bật/tắt hệ thống theo hành động và theo dõi số hạt lẫn frame time.
+Bốn stage là mô hình nền tảng, nhưng graph thực tế có thể có nhiều hệ, event, nhánh output hoặc đường kết nối khác nhau; không nên giả định mọi graph đều có chính xác bốn nút.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 4. Lab: hiệu ứng đám hạt lơ lửng
 
-## 5. Bài tập củng cố
+### 4.1. Kiểm tra dự án và package
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VFX** để tạo một tương tác nhỏ.
+1. Mở `Window > Package Manager` và kiểm tra **Visual Effect Graph** đã cài đặt. Nếu chưa, chọn nguồn Unity Registry và cài phiên bản tương thích Editor.
+2. Xác nhận project đang dùng URP/HDRP. Nếu project Built-in, nên tạo một project URP riêng để học thay vì đổi pipeline tùy tiện giữa dự án đang phát triển.
+3. Trong `Project`, tạo **Visual Effect Graph Asset** bằng menu `Create` phù hợp phiên bản hiện tại. Đặt tên `VFX_FloatingDust` và mở asset bằng double-click.
+4. Tạo GameObject có component `Visual Effect` trong Scene, gán asset vừa tạo vào trường asset của component (tùy Editor có thể tạo GameObject trực tiếp bằng thao tác kéo graph vào scene).
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+### 4.2. Thiết lập graph có thể quan sát
 
-## 6. Lỗi thường gặp và cách kiểm tra
+1. Tìm hoặc thêm hệ `Spawn → Initialize Particle → Update Particle → Output Particle Quad`.
+2. Trong `Spawn`, dùng block phát hạt theo tốc độ cố định (*Constant Spawn Rate* hoặc tên tương ứng trong phiên bản package). Đặt giá trị thử nghiệm 30 hạt/giây.
+3. Trong `Initialize`, thiết lập `Capacity` đủ cao (ví dụ 300), tuổi thọ 3–5 giây, vị trí khởi tạo ngẫu nhiên trong một vùng hộp, kích thước nhỏ và vận tốc ban đầu thấp.
+4. Trong `Update`, giữ logic tối thiểu: để hạt chuyển động hoặc thêm lực rất nhẹ. Kiểm tra cập nhật vị trí/tuổi hạt được bật theo thiết lập của Context.
+5. Trong `Output`, dùng chế độ hiển thị dạng quad/sprite phù hợp với pipeline. Gán texture/material nếu cấu hình yêu cầu. Hãy đặt vật liệu/độ trong suốt để hạt hiện rõ trên nền tối.
+6. Lưu graph và kiểm tra hạt có xuất hiện trong Game view không.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: hiệu ứng phát quá nhiều hạt gây tụt FPS hoặc renderer/material không tương thích pipeline.
+Các giá trị vừa nêu là **thiết kế lab**, không phải mặc định của Unity. Tên một số Block hoặc mục menu có thể thay đổi theo package. Khi không tìm thấy block, sử dụng ô tìm kiếm của Graph và đối chiếu [VFX Graph Getting Started](https://docs.unity3d.com/Packages/com.unity.visualeffectgraph@latest/index.html?subfolder=/manual/GettingStarted.html).
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### 4.3. Khảo sát ba thay đổi
 
-## 7. Checklist hoàn thành
+| Lần thử | Thay đổi | Dự đoán | Nội dung cần quan sát |
+| --- | --- | --- | --- |
+| A | Tăng tốc độ Spawn gấp đôi | Mật độ hạt tăng | Số hạt sống, độ dày hiệu ứng |
+| B | Giảm Lifetime còn một nửa | Hạt biến mất sớm | Mật độ và thời gian hiện diện |
+| C | Tăng kích thước Quad | Hạt dễ nhìn hơn | Overlap/overdraw, độ mờ |
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VFX](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Lưu lại ảnh chụp graph và Game view của từng lần. Đặc biệt lưu ý **Capacity**: hệ thống có giới hạn số hạt tối đa, nên không phải cứ tăng Spawn Rate là số hạt sống tăng vô hạn.
 
----
+## 5. Tương tác graph với Scene
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+Một `Visual Effect Asset` lưu định nghĩa hiệu ứng; `Visual Effect Component` tạo một instance trong scene. Nhờ vậy, nhiều đối tượng có thể dùng chung graph nhưng dùng các thuộc tính khác nhau. Cách làm phổ biến là tạo property như `SpawnRate` hoặc `Color` trên Blackboard, đánh dấu exposed, rồi chỉnh instance từ Inspector. C# có thể truy cập thuộc tính này qua API của package nếu cần.
+
+**Lưu ý kỹ thuật:** đối tượng `Visual Effect` khác `ParticleSystem` và không dùng cùng tập API. Không thể thay thế trực tiếp `ParticleSystem.Play()` bằng lệnh VFX Graph bất kỳ mà không kiểm tra đúng `UnityEngine.VFX` và phương thức tương ứng.
+
+## 6. Xử lý các tình huống lỗi
+
+- **Không có Graph Asset/menu tạo:** package VFX Graph chưa được cài hoặc cài không phù hợp phiên bản.
+- **Graph hiển thị nhưng không có hạt:** kiểm tra đường nối Context, Spawn Rate, Capacity, Lifetime, Output và vị trí camera.
+- **Màu hồng hoặc vô hình:** kiểm tra render pipeline, shader/Shader Graph, loại Output và material.
+- **Hệ chạy khác mong đợi:** xem Blackboard property có bị override trong instance hay không.
+- **Hiệu ứng chạy trên Editor nhưng không chạy ở máy khác:** kiểm tra nền tảng có Compute Shader và các khả năng đồ họa cần thiết, cùng thiết lập Graphics API.
+- **Hạt mất khi quay camera:** kiểm tra bounds và culling, đặc biệt với hiệu ứng chuyển động xa vị trí phát.
+
+## 7. Câu hỏi ôn tập
+
+**Câu 1.** Context nào quyết định trạng thái ban đầu của hạt?  
+A. Initialize  
+B. Output  
+C. Update  
+D. Renderer của ParticleSystem  
+**Đáp án: A.** Initialize tạo các thuộc tính ban đầu khi hạt ra đời.
+
+**Câu 2.** Block trong VFX Graph có vai trò gì?  
+A. Thay thế toàn bộ project  
+B. Tạo Camera  
+C. Thực hiện một thao tác bên trong Context  
+D. Luôn là một GameObject  
+**Đáp án: C.** Block bổ sung hành vi vào giai đoạn xử lý.
+
+**Câu 3.** Chọn phát biểu đúng về tương thích.  
+A. VFX Graph hoạt động đầy đủ trên mọi phần cứng.  
+B. Dùng VFX Graph với URP/HDRP và phải kiểm tra nền tảng GPU.  
+C. Built-in Render Pipeline được ưu tiên cho VFX Graph.  
+D. Không cần package.  
+**Đáp án: B.** Render pipeline và Compute Shader là các điều kiện quan trọng.
+
+**Câu 4.** `Capacity` giúp kiểm soát gì?  
+A. Tốc độ quay của Camera  
+B. Cường độ ánh sáng  
+C. Số scene trong project  
+D. Số lượng phần tử mà hệ có thể chứa  
+**Đáp án: D.** Capacity là giới hạn dung lượng hạt/hệ mô phỏng.
+
+**Câu 5.** Muốn một graph dùng chung nhiều instance với màu khác nhau, cách tốt nhất là gì?  
+A. Expose property phù hợp trên Blackboard  
+B. Tạo một project riêng cho từng màu  
+C. Bỏ Output  
+D. Chỉ chỉnh Camera  
+**Đáp án: A.** Property của graph cho phép cấu hình từng instance.
+
+## 8. Tổng kết và nguồn đọc thêm
+
+VFX Graph có thể đọc theo luồng `Spawn → Initialize → Update → Output`. Hiểu đường đi này trước khi thêm hiệu ứng phức tạp sẽ giúp debug và giải thích graph của người khác.
+
+- [Unity 6.3 — Visual Effect Graph](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/vfxgraph)
+- [Unity — Getting started with VFX Graph](https://docs.unity3d.com/Packages/com.unity.visualeffectgraph@latest/index.html?subfolder=/manual/GettingStarted.html)
+- [Unity — Choosing your Particle System](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/particle-systems/choosing-your-particle-system)
+
+*Bài học và preset được tự biên soạn; kiểm tra tên Block theo phiên bản package thực tế.*

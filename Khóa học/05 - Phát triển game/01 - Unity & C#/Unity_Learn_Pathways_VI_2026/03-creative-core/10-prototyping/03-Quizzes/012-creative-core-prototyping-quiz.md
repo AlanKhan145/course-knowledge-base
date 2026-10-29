@@ -1,81 +1,109 @@
----
-title: "Creative Core: Prototyping quiz"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 12
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 12 — Bài kiểm tra tổng hợp – Creative Core: Prototyping
 
-# Bài 12 — Creative Core: Prototyping quiz
+> **Creative Core · Prototyping · Kiểm tra**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+Bộ câu hỏi tự biên soạn để ôn các quyết định thiết kế, quy trình xây prototype và công cụ Unity; không đại diện cho đề quiz chính thức của Unity Learn.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Hướng dẫn và phạm vi
 
-## 1. Tổng quan
+**Hình thức:** 12 câu trắc nghiệm, mỗi câu chọn một phương án tốt nhất. Không sử dụng Unity Editor trong lần tự kiểm tra đầu; sau đó chọn ba câu gắn với thực hành và tự chứng minh bằng scene. Bài đánh giá này không kèm đáp án để người học có thể tự làm trước.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Prototyping*, bài **Creative Core: Prototyping quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+**Phạm vi:** xác định giả thuyết; người dùng mục tiêu; elevator pitch; paper prototype; greybox; ProBuilder; Terrain; asset inventory; playtest; build và báo cáo.
 
-## 2. Mục tiêu học tập
+## 2. Câu hỏi trắc nghiệm
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Câu 1.** Lý do hàng đầu để tạo prototype trước bản game hoàn thiện là gì?
 
-## 3. Kiến thức trọng tâm
+A. Tạo tất cả asset trước.  
+B. Kiểm chứng giả thuyết quan trọng với chi phí thấp.  
+C. Tránh cho người dùng thử.  
+D. Bảo đảm trò chơi sẽ thành công.
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+**Câu 2.** Elevator pitch nào thể hiện trải nghiệm rõ nhất?
 
-### Thuật ngữ và mối quan hệ
+A. Trò chơi có shader hiện đại.  
+B. Trò chơi dùng engine Unity.  
+C. Trò chơi có 80 model.  
+D. Người chơi khám phá lâu đài để kích hoạt cầu thoát hiểm.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+**Câu 3.** Với một người mới học Unity, ý tưởng nào thích hợp để bắt đầu thử điều khiển và không gian?
 
-## 4. Thực hành từng bước
+A. Walking simulator một khu vực và một tương tác.  
+B. MMORPG nhiều máy chủ.  
+C. Hệ thống kinh tế online.  
+D. Thế giới mở nhiều trăm giờ chơi.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+**Câu 4.** Paper prototype phù hợp nhất để làm gì?
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+A. Đo GPU frame time chính xác.  
+B. Tạo lightmap.  
+C. Kiểm tra luồng hành động và quy tắc trước khi code.  
+D. Export bản build Android.
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+**Câu 5.** Chức năng nào là Must have cho prototype bàn đạp–nút–cầu?
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **thiết kế trò chơi, xây dựng nguyên mẫu và lặp**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+A. Hệ thống skin.  
+B. Nút có trạng thái và mở cầu khi điều kiện được thỏa.  
+C. Thời tiết động.  
+D. NPC hội thoại dài.
 
-### Gợi ý tự chấm
+**Câu 6.** Greybox được ưu tiên để kiểm tra điều gì?
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+A. Marketing.  
+B. Bản quyền nhạc nền.  
+C. Tương thích cửa hàng ứng dụng.  
+D. Tỉ lệ không gian, lối đi và tương tác cơ bản.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Câu 7.** `OnInteract` có sẵn trong mọi Unity Project không?
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+A. Không; trong project mẫu nó là custom script.  
+B. Có; là physics component mặc định.  
+C. Có; là Terrain brush.  
+D. Có; là phần bắt buộc của Camera.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Câu 8.** ProBuilder hữu ích khi cần?
 
-## 7. Checklist hoàn thành
+A. Thu âm voice-over.  
+B. Tạo nhạc nền.  
+C. Chỉnh mesh tường và tạo lối đi trong Scene view.  
+D. Viết tài liệu pháp lý.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 9.** Terrain dựa trên heightmap có hạn chế nào?
 
----
+A. Không tạo được đồi.  
+B. Không trực tiếp biểu diễn hang có trần nhô tại cùng vị trí phẳng.  
+C. Không thể có texture.  
+D. Không thể có Collider.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Câu 10.** Một người chơi không nhận ra nút đã được bật; nên làm gì trước?
+
+A. Chỉ đổi logo.  
+B. Xóa bàn đạp.  
+C. Phát hành ngay.  
+D. Xem lại tín hiệu phản hồi và quan sát người thử.
+
+**Câu 11.** Trong playtest, lời hướng dẫn nào ít gợi ý nhất?
+
+A. Hãy tìm cách thoát khỏi khu vực.  
+B. Hãy dẫm bàn đạp sau tường.  
+C. Hãy nhấn nút xanh ở góc trái.  
+D. Hãy nhìn cầu trước khi bắt đầu.
+
+**Câu 12.** Khi chuyển project cho người khác kiểm tra, đâu là một bộ bàn giao hợp lý?
+
+A. Chỉ ảnh Scene view.  
+B. Chỉ file texture.  
+C. Build hoạt động, README và thông tin phiên bản/phụ thuộc cần thiết.  
+D. Chỉ tên ý tưởng.
+
+## 3. Bài kiểm tra thực hành
+
+**Tác vụ:** dựng một scene có player, một vùng kích hoạt và một đối tượng đổi trạng thái. Trong tối đa một trang ghi chú, trình bày giả thuyết, ảnh minh chứng trước/sau và cách tái hiện một lỗi (nếu có). Không cần sao chép đúng câu đố cầu.
+
+**Tiêu chí chấm gợi ý:** 40% nhận diện đúng các quyết định; 30% giải thích nguyên nhân; 30% áp dụng vào thực hành. Các trọng số là đề xuất tự đánh giá cho tài liệu này, không phải thang điểm của Unity Learn.
+
+## 4. Nguồn tham khảo
+
+- [Unity Learn – Creative Core Prototyping course](https://learn.unity.com/project/creative-core-prototyping)
+- [Unity ProBuilder documentation](https://docs.unity.cn/Packages/com.unity.probuilder%406.1/manual/workflow-create.html)
+- [Unity Terrain documentation](https://docs.unity.com/en-us/engine/6000.6/manual/creating-environments/script-terrain/terrain-using-terrains)

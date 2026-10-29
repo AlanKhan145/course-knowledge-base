@@ -1,104 +1,145 @@
----
-title: "Challenge: Make a worldspace UI"
-pathway: "Creative Core"
-module: "UI"
-lesson_number: 7
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 07 — Thử thách: Thiết kế giao diện trong không gian 3D (World Space UI)
 
-# Bài 07 — Challenge: Make a worldspace UI
+> **Creative Core · UI · Exercise · Unity 6.3**  
+> **Sản phẩm:** Một bảng tương tác tồn tại như vật thể 3D trong scene, giữ chức năng mở menu, tắt/bật âm thanh và chỉnh âm lượng.
 
-> **Pathway:** Creative Core · **Mission:** UI · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu và bối cảnh
 
-> **Nguồn đối chiếu:** [UI trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Trong nhiều game, giao diện không nhất thiết “dán” trên màn hình. Bảng điều khiển của phi thuyền, màn hình trên máy tính hoặc thiết bị cầm tay của nhân vật có thể là các đối tượng 3D. Loại giao diện này giúp người chơi tương tác tự nhiên hơn với thế giới trò chơi.
 
-## 1. Tổng quan
+Đây là **bài tập tự thực hiện**, vì vậy tài liệu đưa yêu cầu, nguyên lý và gợi ý kiểm tra, không cung cấp sẵn toàn bộ lời giải.
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *UI*, bài **Challenge: Make a worldspace UI** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Sau khi hoàn thành, người học có thể phân biệt ba Canvas Render Mode, chuyển UI từ screen-space sang world-space, lựa chọn vị trí trong cảnh, và kiểm chứng sự kiện click hoạt động bằng raycast.
 
-## 2. Mục tiêu học tập
+## 2. Các chế độ Render Mode của Canvas
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+| Render Mode | Vị trí và hình thức | Trường hợp dùng |
+| --- | --- | --- |
+| `Screen Space - Overlay` | UI phủ lên hình ảnh render, không cần camera để định vị | Menu chính, HUD 2D |
+| `Screen Space - Camera` | UI nằm trên mặt phẳng gắn với camera, có thể chịu tác động của thứ tự chiều sâu | Menu phối hợp với hiệu ứng camera |
+| `World Space` | Canvas là mặt phẳng có transform 3D; kích thước trên màn hình phụ thuộc khoảng cách/góc nhìn | Tablet, bảng nút trên tường, bảng điều khiển trong game |
 
-## 3. Kiến thức trọng tâm
+**World Space** không đồng nghĩa với “UI luôn hướng về camera”. Khi không có logic xoay bổ sung, Canvas giữ hướng trong thế giới như các đối tượng bình thường. Đây có thể là ưu điểm khi tạo bảng gắn trên tường, nhưng là một thách thức khi người chơi di chuyển.
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
-
-```csharp
-using TMPro;
-using UnityEngine;
-
-public class ScoreDisplay : MonoBehaviour
-{
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
-
-    public void AddPoint()
-    {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
-    }
-}
+```mermaid
+flowchart TD
+    C[Canvas Render Mode] --> O[Overlay: giao diện phủ màn hình]
+    C --> S[Screen Space - Camera: bám mặt phẳng camera]
+    C --> W[World Space: biến đổi như đối tượng 3D]
+    W --> T[Position / Rotation / Scale]
+    W --> R[Event Camera và GraphicRaycaster]
+    R --> I[EventSystem + input]
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+**Diegetic UI và Non-diegetic UI.**
 
-## 6. Bài tập / sản phẩm cần nộp (tự biên soạn)
+**Diegetic UI** là UI được tích hợp vào thế giới hư cấu, ví dụ đồng hồ trên cổ tay nhân vật. **Non-diegetic UI** là lớp thông tin dành riêng cho người chơi, ví dụ HUD điểm số. Cách phân loại này nói về quan hệ giữa UI và thế giới trò chơi, không chỉ phụ thuộc vào một tùy chọn kỹ thuật trong Unity.
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Challenge: Make a worldspace UI** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+## 3. Đề bài thực hành
 
-**Tiêu chí nghiệm thu:**
+### 3.1. Tình huống
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+Tạo một **trạm điều khiển năng lượng** trong bối cảnh 3D. Trên trạm có một bảng cài đặt dùng để bật/tắt nhạc và chỉnh âm lượng. Bảng cần xuất hiện ở vị trí hợp lý, đọc được khi camera nhìn tới và phản hồi chuột trong Game view.
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+Có thể thay đổi chủ đề thành tablet, bảng chỉ dẫn hay buồng lái, miễn đáp ứng các tiêu chí chức năng.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+### 3.2. Yêu cầu bắt buộc
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+1. Scene được **nhân bản** từ bản hoạt động bình thường ở Screen Space; không ghi đè bản gốc.
+2. Có một Canvas ở `Render Mode = World Space`, đặt ở vị trí 3D có chủ đích.
+3. Menu giữ đầy đủ chức năng: mở cài đặt, đóng cài đặt, Toggle bật/tắt âm thanh, Slider chỉnh âm lượng.
+4. UI có kích thước và hướng nhìn dễ quan sát; các nút không bị vật thể 3D che ngoài ý muốn.
+5. Có ảnh hoặc video minh chứng cùng mô tả một trường hợp lỗi đã kiểm tra và cách sửa.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### 3.3. Điều kiện ràng buộc
 
-## 8. Checklist hoàn thành
+Không được xử lý bài tập bằng cách chỉ giữ nguyên `Screen Space - Overlay` và đặt hình 3D đằng sau. Người học cần thực sự chuyển Canvas sang World Space và kiểm tra việc tương tác thông qua camera.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — UI](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 4. Gợi ý kỹ thuật (không phải lời giải hoàn chỉnh)
 
----
+- Trong Project window chọn scene → `Ctrl + D` (Windows) hoặc `Cmd + D` (macOS) để nhân bản, đổi tên `UI_WorldSpace`.
+- Trên `Canvas`, chọn `Render Mode = World Space` và gán camera phù hợp ở trường `Event Camera`.
+- Sau khi chuyển mode, Canvas có thể trông rất lớn hoặc nằm ngoài khung nhìn. Điều chỉnh `RectTransform > Position`, `Rotation`, `Scale`. Bài hướng dẫn Unity dùng khoảng `Scale = (0.03, 0.03, 0.03)` như **điểm khởi đầu minh họa cho scene mẫu**, không phải giá trị đúng cho mọi dự án.
+- Xác minh `GraphicRaycaster` trên Canvas, `EventSystem` và input module đang hoạt động. Với tia tương tác do camera tạo, vật thể 3D đứng giữa có thể che UI tùy cài đặt raycaster/blocking.
+- Nếu không thể nhấn, đừng kết luận code của Button sai ngay: hãy xem Event Camera, hướng Canvas, khoảng cách, sorting, `Raycast Target` và đối tượng chặn ở phía trước.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## 5. Mốc thực hiện và sản phẩm cần nộp
+
+| Mốc | Sản phẩm | Tiêu chí |
+| --- | --- | --- |
+| A. Sao lưu | Scene WorldSpace mới | Scene gốc vẫn chạy được |
+| B. Không gian | Canvas nằm trong 3D | Xoay/di chuyển camera làm phối cảnh Canvas thay đổi |
+| C. Giao diện | Bảng có tiêu đề, Button, Toggle, Slider | Chữ và biểu tượng đủ rõ |
+| D. Tương tác | Các điều khiển hoạt động | Mở, đóng, tắt nhạc, chỉnh volume chính xác |
+| E. Kiểm thử | Ảnh/video và ghi chú lỗi | Có thể tái hiện thử nghiệm |
+
+Định dạng nộp khuyến nghị:
+
+```text
+UI_WorldSpace/
+├── UI_WorldSpace.unity (trong Unity project)
+├── screenshots/
+│   ├── 01-camera-view.png
+│   ├── 02-settings-open.png
+│   └── 03-audio-controls.png
+└── report.md
+```
+
+Không bắt buộc tên file đúng tuyệt đối; quan trọng là giáo viên hoặc người xem có thể hiểu, mở và xác minh kết quả.
+
+## 6. Tiêu chí đánh giá (10 điểm)
+
+| Tiêu chí | Điểm |
+| --- | ---: |
+| Canvas đúng World Space, đặt có chủ đích trong cảnh | 2 |
+| Bố cục rõ và có phối cảnh 3D phù hợp | 2 |
+| Button mở/đóng và Toggle/Slider hoạt động | 3 |
+| Không bị che, nhận click ổn định từ camera | 2 |
+| Minh chứng thử nghiệm và nhận xét lỗi | 1 |
+
+**Mức nâng cao:** thêm chuyển động camera mượt khi tiếp cận bảng; tạo hiệu ứng nút nhấn có âm thanh; hoặc thêm panel có thể đọc từ nhiều góc nhìn. Các mở rộng này chỉ nên thực hiện sau khi nghiệm thu yêu cầu cốt lõi.
+
+## 7. Câu hỏi tự kiểm tra
+
+**Câu 1.** Một bảng 3D gắn trên bàn phải thay đổi kích thước trên màn hình khi camera tiến lại gần. Render Mode nào phù hợp nhất?  
+A. Screen Space - Overlay  
+B. World Space  
+C. IMGUI  
+D. Không cần Canvas  
+**Đáp án: B.** **Giải thích:** World Space làm Canvas tham gia không gian 3D và phối cảnh camera.
+
+**Câu 2.** Chuyển sang World Space khiến Canvas biến mất khỏi Game view. Nguyên nhân nên kiểm tra trước là gì?  
+A. Texture bị xóa khỏi ổ đĩa  
+B. Shader của tất cả đối tượng hỏng  
+C. EventSystem tự động tắt light  
+D. Vị trí, tỷ lệ và hướng Canvas so với camera  
+**Đáp án: D.** **Giải thích:** Transform lúc chuyển mode có thể không phù hợp với kích thước cảnh.
+
+**Câu 3.** Yếu tố nào thường cần thiết để Canvas World Space nhận tương tác con trỏ?  
+A. Event Camera và GraphicRaycaster thích hợp  
+B. Rigidbody trên mỗi nút  
+C. Particle System  
+D. Baked Lightmap  
+**Đáp án: A.** **Giải thích:** Raycasting và hệ thống sự kiện giúp chuyển input tới graphic đúng vị trí.
+
+**Câu 4.** Khái niệm diegetic UI chủ yếu thể hiện điều gì?  
+A. UI chỉ dùng tiếng Anh  
+B. UI luôn nằm trong World Space ở mọi ứng dụng  
+C. UI tồn tại trong thế giới hư cấu, như một bảng mà nhân vật có thể thấy  
+D. UI không có văn bản  
+**Đáp án: C.** **Giải thích:** Diegetic mô tả vai trò của UI trong thế giới trò chơi, không chỉ là kỹ thuật render.
+
+**Câu 5.** Đâu là kết quả đánh giá đạt yêu cầu?  
+A. Có một screenshot đẹp nhưng Button không thể click  
+B. Canvas World Space rõ ràng và mọi chức năng thực hiện được  
+C. Đặt Canvas thật xa, không nhìn thấy  
+D. Tắt EventSystem để đỡ tốn tài nguyên  
+**Đáp án: B.** **Giải thích:** Thử thách kiểm tra cả bố cục 3D lẫn chức năng tương tác.
+
+## 8. Tài liệu tham khảo
+
+- [Unity Learn — Challenge: Make a worldspace UI](https://learn.unity.com/pathway/creative-core/unit/creative-core-ui/tutorial/challenge-make-a-worldspace-ui-3?version=6.3)
+- [Unity Manual — Canvas Render Modes](https://docs.unity.cn/520/Documentation/Manual/class-Canvas.html)
+- [Unity Manual — Canvas Scaler](https://docs.unity.cn/2023.1/Documentation/Manual/script-CanvasScaler.html)
+
+*Đề thực hành tiếng Việt tự biên soạn có đối chiếu hướng dẫn Unity; không phải bài nộp mẫu hoặc đáp án chính thức.*

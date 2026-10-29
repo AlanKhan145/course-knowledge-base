@@ -1,78 +1,144 @@
----
-title: "Create a burst particle"
-pathway: "Creative Core"
-module: "VFX"
-lesson_number: 4
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Tạo hiệu ứng phát hạt tức thời (Burst)
 
-# Bài 04 — Create a burst particle
+**Học phần:** Creative Core · VFX | **Loại:** Bài học và lab | **Sản phẩm:** Tia lửa hoặc khói khi xảy ra va chạm
 
-> **Pathway:** Creative Core · **Mission:** VFX · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu học tập
 
-> **Nguồn đối chiếu:** [VFX trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+- Phân biệt Burst với phát liên tục trong module `Emission`.
+- Tạo hiệu ứng một lần bằng `Bursts`, tắt `Looping` và `Rate over Time`.
+- Tạo chuyển động tỏa tâm và đường cong kích thước/alpha để hiệu ứng có nhịp.
+- Kích hoạt lại cùng hiệu ứng qua nút UI bằng API `ParticleSystem.Stop()` và `ParticleSystem.Play()`.
 
-## 1. Tổng quan
+## 2. Bản chất của hiệu ứng Burst
 
-**Chủ đề:** Hiệu ứng hạt và VFX. Trong ngữ cảnh *VFX*, bài **Create a burst particle** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Burst là một **sự kiện phát hạt có thời điểm**, không đồng nghĩa với việc tăng `Rate over Time` lên cực cao. Trong `Emission`, Burst có các thuộc tính như `Time`, `Count`, `Cycles`, `Interval`, `Probability`. Có thể bố trí nhiều burst hoặc cấu hình lặp; tuy nhiên một hiệu ứng va chạm đơn giản thường chỉ cần một Burst tại `Time = 0`.
 
-## 2. Mục tiêu học tập
+```mermaid
+flowchart LR
+    A[Gameplay event: va chạm] --> B[Play hoặc Emit]
+    B --> C[Burst phát nhiều hạt]
+    C --> D[Hạt tỏa, đổi màu, giảm kích thước]
+    D --> E[Hạt hết lifetime và biến mất]
+```
 
-- Trình bày được mục đích của **hiệu ứng hạt và vfx** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Create a burst particle** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Chất lượng của Burst không chỉ do `Count`. Các hạt cần có tốc độ và hướng xuất phát khác nhau, độ dài sự kiện hợp lý và đường cong alpha tránh biến mất cứng.
 
-## 3. Kiến thức trọng tâm
+## 3. Lab: chùm tia lửa khi va chạm
 
-- Particle System mô phỏng các phần tử như khói, lửa, bụi với emission, shape, velocity và lifetime.
-- Burst phù hợp vụ nổ ngắn; emission liên tục phù hợp mưa, sương hay lửa cháy.
-- VFX Graph thường phù hợp hiệu ứng có mật độ hạt cao nhưng phụ thuộc tương thích pipeline/nền tảng.
+### 3.1. Thiết lập emitter
 
-### Thuật ngữ và mối quan hệ
+1. Tạo `Particle System`, đặt tên `PS_ImpactSpark`.
+2. Trong `Main`, tắt `Looping`, tắt `Play On Awake`; thử `Duration = 1`, `Start Lifetime = 0.4–0.8`, `Start Speed = 3–6`, `Start Size = 0.08`, `Max Particles = 150`.
+3. Trong `Emission`, đặt `Rate over Time = 0`, `Rate over Distance = 0`. Thêm một Burst tại `Time = 0`, `Count = 25`. Giữ một chu kỳ và xác suất phát 100% cho thử nghiệm đầu tiên.
+4. Trong `Shape`, chọn `Sphere` với bán kính rất nhỏ để các hạt tỏa nhiều hướng, hoặc `Cone` nếu cần tia lửa định hướng.
+5. Bật `Color over Lifetime`: từ vàng sáng sang cam/đỏ, cuối đời giảm alpha về 0. Bật `Size over Lifetime`: lớn lúc đầu, nhỏ dần về cuối.
+6. Chọn material trong suốt phù hợp URP và thử preview. Một số shader dùng blend additive tạo cảm giác phát sáng nhưng dễ bị cháy sáng; shader alpha blend thích hợp khói mềm hơn.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+**Checkpoint:** khi phát một lần, chùm tia lửa bùng lên rồi hết hạt; không có các hạt mới xuất hiện liên tục.
 
-## 4. Thực hành từng bước
+### 3.2. Gắn hiệu ứng với sự kiện gameplay
 
-1. **Bước 1:** Tạo Particle System ở vị trí sự kiện và thử Start Lifetime, Start Speed, Emission.
-2. **Bước 2:** Chuyển từ emission liên tục sang burst rồi so sánh hiệu ứng.
-3. **Bước 3:** Thêm biến thiên Size over Lifetime và Color over Lifetime để hiệu ứng có nhịp rõ.
-4. **Bước 4:** Thử bật/tắt hệ thống theo hành động và theo dõi số hạt lẫn frame time.
+Tạo file `BurstVFXController.cs`:
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```csharp
+using UnityEngine;
 
-## 5. Bài tập củng cố
+public class BurstVFXController : MonoBehaviour
+{
+    [SerializeField] private ParticleSystem impactEffect;
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VFX** để tạo một tương tác nhỏ.
+    // Gán vào Button.onClick hoặc gọi từ logic va chạm.
+    public void TriggerBurst()
+    {
+        if (impactEffect == null)
+        {
+            Debug.LogWarning("Chưa gán Particle System.", this);
+            return;
+        }
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+        impactEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        impactEffect.Play(true);
+    }
+}
+```
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Gắn script lên GameObject điều khiển, kéo `PS_ImpactSpark` vào trường `Impact Effect`. Tạo một UI Button, đưa GameObject điều khiển vào sự kiện `On Click()` và chọn `BurstVFXController.TriggerBurst`. Hãy chắc chắn `Play On Awake` tắt để hiệu ứng không nổ ngay lúc scene khởi động.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: hiệu ứng phát quá nhiều hạt gây tụt FPS hoặc renderer/material không tương thích pipeline.
+`StopEmittingAndClear` xóa những hạt cũ, giúp mỗi lần gọi bắt đầu bằng một Burst mới. Nếu muốn những hạt đã sinh tiếp tục tồn tại khi kích hoạt lại, có thể thiết kế cách gọi khác; không nên mặc định xóa trong mọi tình huống. `Play()` phát theo cấu hình Emission đã có. Đừng đồng thời gọi `Emit(25)` với Burst 25 tại giây 0 nếu không muốn hai đợt phát cộng dồn.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### 3.3. Tạo hiệu ứng nhiều lớp
 
-## 7. Checklist hoàn thành
+Một cú va chạm có thể dùng hai Particle System con:
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VFX](https://learn.unity.com/pathway/creative-core/unit/creative-core-vfx?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- `Impact_Sparks`: hạt vàng nhỏ, nhanh, lifetime ngắn.
+- `Impact_Smoke`: hạt xám lớn hơn, chậm, alpha giảm từ từ.
 
----
+Đặt cùng cha `VFX_Impact` và cho từng hệ phát phù hợp. Nếu dùng script phía trên với tham số `Play(true)`, các Particle System con đang nằm dưới đối tượng được tham chiếu có thể được kích hoạt theo cấu trúc; cần kiểm tra cấu hình thực tế để tránh phát trùng.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## 4. Phân biệt Play, Emit và Burst
+
+| Cơ chế | Bản chất | Dùng khi |
+| --- | --- | --- |
+| `Emission > Bursts` | Khai báo lịch phát hạt | Dựng nhịp của hiệu ứng trong Inspector |
+| `ParticleSystem.Play()` | Bắt đầu/tiếp tục simulation theo cấu hình | Kích hoạt hiệu ứng đã được thiết kế |
+| `ParticleSystem.Emit(count)` | Phát thêm lượng hạt được yêu cầu | Sự kiện điều khiển số hạt trực tiếp bằng code |
+| `ParticleSystem.Stop()` | Dừng hệ, có tùy chọn xóa hạt | Reset, tắt hoặc chuẩn bị phát lại |
+
+## 5. Lỗi phổ biến và kiểm chứng
+
+- **Nổ liên tục:** kiểm tra `Looping` và `Rate over Time` có còn lớn hơn 0 không.
+- **Nút UI không làm gì:** kiểm tra `On Click()`, tham chiếu `impactEffect`, GameObject đang active và Console.
+- **Hiệu ứng mất quá nhanh:** thử tăng `Start Lifetime`; nếu quá dài, cảm giác va chạm sẽ yếu.
+- **Số lượng bất thường:** kiểm tra có nhiều Burst, có gọi đồng thời `Emit()`, hoặc có nhiều hệ con cùng phát.
+- **Hạt chỉ bay một phía:** `Shape` và hướng transform không phù hợp.
+
+## 6. Bài tập thực hành
+
+Tạo hai biến thể `Impact_Stone` và `Impact_Magic`. Một biến thể ưu tiên bụi và khói; biến thể còn lại ưu tiên tia sáng phát ra hướng vòng tròn. Cùng một nút UI phải kích hoạt được từng biến thể theo cách chủ động; lưu video 3 lần phát liên tiếp để chứng minh hiệu ứng có thể reset.
+
+## 7. Câu hỏi ôn tập
+
+**Câu 1.** Thiết lập nào tránh phát đều ngoài ý muốn?  
+A. Bật Looping và Rate = 50  
+B. Tăng Max Particles  
+C. Đặt Rate over Time = 0 và thêm Burst  
+D. Chỉ đổi hình Shape  
+**Đáp án: C.** Burst có thể phát mà không cần tốc độ phát liên tục.
+
+**Câu 2.** `Time = 0` trong Burst nghĩa là gì?  
+A. Phát ở thời điểm bắt đầu lượt chơi của hệ  
+B. Lifetime bằng 0  
+C. Không bao giờ phát  
+D. Dừng game ngay lập tức  
+**Đáp án: A.** Time là mốc tương đối với lúc particle system bắt đầu phát.
+
+**Câu 3.** Vì sao không gọi cả `Emit(25)` và Burst 25 nếu chỉ muốn đúng một đợt 25 hạt?  
+A. Script sẽ không biên dịch  
+B. Kết quả có thể cộng thêm hạt  
+C. Unity chuyển sang VFX Graph  
+D. Renderer tự tắt  
+**Đáp án: B.** Hai cơ chế có thể cùng phát hạt.
+
+**Câu 4.** `StopEmittingAndClear` có tác dụng nào?  
+A. Thay mọi hạt bằng GameObject  
+B. Tăng Start Speed  
+C. Chỉ đổi màu  
+D. Dừng và xóa các hạt đang tồn tại  
+**Đáp án: D.** Phù hợp khi cần reset hoàn toàn hiệu ứng.
+
+**Câu 5.** Muốn chùm tia lửa tỏa nhiều hướng, nên thử trước điều gì?  
+A. Đổi scene  
+B. Bật 2D Physics  
+C. Sphere Shape với Start Speed thích hợp  
+D. Xóa Emission  
+**Đáp án: C.** Shape và vận tốc ban đầu quyết định hướng tỏa.
+
+## 8. Tổng kết và tham khảo
+
+Hiệu ứng Burst là một quá trình ngắn với nhịp rõ: bùng lên → mở rộng → mờ đi. Hãy ưu tiên điều khiển *timing* và hình dáng chuyển động hơn là chỉ tăng số hạt.
+
+- [Unity 6.3 — Emission module](https://docs.unity.com/en-us/engine/6000.3/manual/visual-effects/particle-systems/particle-system-modules/part-sys-emission-module)
+- [Unity 6.3 — ParticleSystem Scripting API](https://docs.unity.com/en-us/engine/6000.3/script-reference/unityengine/particlesystem)
+- [Unity Learn — Creative Core VFX](https://learn.unity.com/course/creative-core-vfx)
+
+*Các preset là ví dụ tự biên soạn và có thể phải điều chỉnh theo camera, vật liệu và tỷ lệ scene.*

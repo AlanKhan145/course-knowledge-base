@@ -1,78 +1,113 @@
----
-title: "Get started with prototyping"
-pathway: "Creative Core"
-module: "Prototyping"
-lesson_number: 1
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 01 — Khởi đầu với phương pháp xây dựng prototype
 
-# Bài 01 — Get started with prototyping
+> **Creative Core · Prototyping · Bài học**
 
-> **Pathway:** Creative Core · **Mission:** Prototyping · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+Prototype (nguyên mẫu) là phiên bản được tạo nhanh để kiểm chứng một câu hỏi thiết kế. Điều cần chứng minh là trải nghiệm có hoạt động và có giá trị hay không, không phải trông đã hoàn thiện hay chưa.
 
-> **Nguồn đối chiếu:** [Prototyping trên Unity Learn](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu học tập
 
-## 1. Tổng quan
+Sau bài học, người học có thể phân biệt prototype với sản phẩm hoàn chỉnh; chọn câu hỏi cần kiểm chứng; tổ chức một vòng lặp tạo–thử–đánh giá; xác định tiêu chí dừng một lần thử nghiệm.
 
-**Chủ đề:** Phương pháp tự học và thực hành theo nhiệm vụ. Trong ngữ cảnh *Prototyping*, bài **Get started with prototyping** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Vấn đề: tại sao không xây cả trò chơi ngay?
 
-## 2. Mục tiêu học tập
+Một ý tưởng “khám phá pháo đài bí ẩn” có thể kéo theo mô hình 3D, âm thanh, nhiệm vụ, NPC và giao diện. Nếu người chơi không nhận ra nút mở cầu, công sức hoàn thiện các asset vẫn không giải quyết được vấn đề. Prototype giúp đưa giả thuyết rủi ro nhất lên trước.
 
-- Trình bày được mục đích của **phương pháp tự học và thực hành theo nhiệm vụ** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Get started with prototyping** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+**Ví dụ xuyên suốt:** người chơi đi trong sân pháo đài, bước lên bàn đạp để cấp nguồn cho nút, sau đó nhấn nút hạ cầu và ra ngoài. Câu hỏi kiểm chứng: *người chơi có suy luận được chuỗi hành động mà không cần được hướng dẫn từng bước không?*
 
-## 3. Kiến thức trọng tâm
+## 3. Các mức độ trung thực của nguyên mẫu
 
-- Một bài Unity hiệu quả bắt đầu bằng việc nhận diện trạng thái scene trước khi thao tác.
-- Mỗi thao tác nên gắn với kết quả quan sát được để phân biệt việc làm đúng với làm theo máy móc.
-- Thực hành chủ động gồm dự đoán, thử nghiệm, kiểm tra Console và diễn giải lý do kết quả xảy ra.
+| Hình thức | Nội dung kiểm chứng | Khi phù hợp |
+|---|---|---|
+| Phác thảo / paper prototype | Luồng hành động, quy tắc, ý tưởng bố trí | Chưa cần mở Unity |
+| Greybox / whitebox | Tỉ lệ, khoảng cách, chuyển động, tương tác cơ bản | Cần thử trong không gian 3D |
+| Functional prototype | Core mechanic đã hoạt động với phản hồi tối thiểu | Cần xác nhận khả thi kỹ thuật |
+| Vertical slice | Một lát trải nghiệm gần mức chất lượng mục tiêu | Cần kiểm chứng chất lượng sản xuất; tốn kém hơn |
 
-### Thuật ngữ và mối quan hệ
+**MVP** (Minimum Viable Product) là khái niệm sản phẩm tối thiểu mang giá trị tới người dùng; không đồng nghĩa với mọi prototype. Prototype có thể chỉ là công cụ học hỏi nội bộ, chưa dành để phát hành.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Vòng lặp tư duy dựa trên giả thuyết
 
-## 4. Thực hành từng bước
+```mermaid
+flowchart LR
+  A[Đặt giả thuyết] --> B[Chọn phép thử nhỏ nhất]
+  B --> C[Tạo nguyên mẫu]
+  C --> D[Cho người dùng trải nghiệm]
+  D --> E[Thu thập bằng chứng]
+  E --> F{Giả thuyết còn hợp lý?}
+  F -->|Có| G[Giữ và phát triển]
+  F -->|Không| H[Điều chỉnh hoặc đổi hướng]
+  H --> A
+```
 
-1. **Bước 1:** Mở dự án hoặc scene phù hợp với Mission trong đường dẫn nguồn.
-2. **Bước 2:** Đọc tên bài và xác định một kết quả đầu ra có thể kiểm chứng.
-3. **Bước 3:** Thực hiện một thay đổi nhỏ, chạy Play mode và chụp ảnh trạng thái trước/sau.
-4. **Bước 4:** Ghi lại 3 điều đã học, 1 vấn đề gặp phải và cách tái hiện vấn đề đó.
+Điều quan trọng là ghi **giả thuyết, phép thử và quan sát** trước khi chỉnh sửa. Ví dụ: kỳ vọng 4/5 người thử nhận ra bàn đạp; thực tế chỉ 2/5; trước khi thêm hiệu ứng, cần xem góc nhìn hoặc vị trí vật thể có che khuất tín hiệu hay không. Các con số 4/5 và 2/5 ở đây chỉ là **ví dụ giả định**, không phải kết quả nghiên cứu.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Thực hành 15 phút
 
-## 5. Bài tập củng cố
+1. Viết một câu: “Tôi muốn kiểm chứng rằng…”.
+2. Ghi ba hành động bắt buộc của người dùng và một điều kiện thành công.
+3. Vẽ mặt bằng bằng ba khối: điểm xuất phát, chỗ tương tác, lối thoát.
+4. Chọn một điểm có rủi ro cao (ví dụ: không nhìn thấy công tắc) và dự kiến cách quan sát trong thử nghiệm.
+5. Lưu phiếu thử với bốn trường: giả thuyết, tác vụ, quan sát, thay đổi tiếp theo.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prototyping** để tạo một tương tác nhỏ.
+## 6. Những ngộ nhận cần tránh
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Không đánh giá prototype bằng số lượng asset hoặc độ đẹp. Đừng cố kiểm chứng đồng thời hành vi AI, kiến trúc cấp độ, âm thanh và đồ họa. Khi một thử nghiệm thất bại, cần tìm hiểu nguyên nhân trước khi thêm nhiều tính năng. Việc đổi hướng (*pivot*) có thể là kết quả hữu ích của prototyping.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 7. Tổng kết và tài liệu tham khảo
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: làm nhiều thay đổi cùng lúc rồi không xác định được bước gây lỗi.
+Bản prototype tốt trả lời được **một câu hỏi quan trọng với chi phí kiểm chứng thấp**. Hãy ưu tiên tương tác quan sát được, đo lường được và thay đổi nhanh.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+- [Unity Learn – Creative Core: Prototyping](https://learn.unity.com/project/creative-core-prototyping)
+- [Unity Learn – Mission Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.0)
 
-## 7. Checklist hoàn thành
+## 8. Câu hỏi ôn tập trắc nghiệm
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prototyping](https://learn.unity.com/pathway/creative-core/unit/prototyping?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 1.** Khi nào greybox có lợi thế hơn bản phác thảo?
 
----
+A. Khi chỉ định tên trò chơi  
+B. Khi cần kiểm tra tỉ lệ và đường di chuyển trong không gian 3D  
+C. Khi cần logo thương mại  
+D. Khi cần giấy phép kinh doanh  
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đáp án:** B
+**Giải thích:** Greybox cho phép trải nghiệm trực tiếp vị trí và khoảng cách trong scene.
+
+**Câu 2.** Mục đích quan trọng nhất của prototype ban đầu là gì?
+
+A. Hoàn thiện mọi nhân vật  
+B. Tối đa dung lượng game  
+C. Kiểm chứng giả thuyết có rủi ro  
+D. Thêm toàn bộ hiệu ứng  
+
+**Đáp án:** C
+**Giải thích:** Prototype nhằm giảm bất định trước khi đầu tư lớn.
+
+**Câu 3.** Nếu người thử không phát hiện bàn đạp, hành động hợp lý trước tiên là gì?
+
+A. Quan sát quá trình chơi và xác định vì sao họ bỏ qua  
+B. Thêm 20 NPC  
+C. Thay engine  
+D. Xóa hết vật thể  
+
+**Đáp án:** A
+**Giải thích:** Cần tìm nguyên nhân từ quan sát, không đoán mò.
+
+**Câu 4.** Khác biệt đúng giữa prototype và MVP là gì?
+
+A. Hai khái niệm luôn giống nhau  
+B. MVP luôn có đồ họa 3D  
+C. Prototype bắt buộc phát hành trên store  
+D. Prototype dùng để học và thử, MVP nhằm đem giá trị tối thiểu tới người dùng  
+
+**Đáp án:** D
+**Giải thích:** Prototype có thể là tài liệu hoặc thử nghiệm nội bộ.
+
+**Câu 5.** Bước nào phải có trước khi mở rộng phạm vi?
+
+A. Thêm nhiều texture  
+B. Xác định giả thuyết và dấu hiệu thành công  
+C. Tăng độ phân giải  
+D. Đặt giá bán  
+
+**Đáp án:** B
+**Giải thích:** Không có tiêu chí thì khó kết luận thử nghiệm thành công hay thất bại.
