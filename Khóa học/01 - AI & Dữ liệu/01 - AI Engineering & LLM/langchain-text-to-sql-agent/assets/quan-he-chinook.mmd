@@ -1,0 +1,23 @@
+erDiagram
+    Artist ||--o{ Album : owns
+    Album ||--o{ Track : contains
+    Genre ||--o{ Track : categorizes
+    Artist {
+        int ArtistId PK
+        text Name
+    }
+    Album {
+        int AlbumId PK
+        text Title
+        int ArtistId FK
+    }
+    Track {
+        int TrackId PK
+        text Name
+        int AlbumId FK
+        int GenreId FK
+    }
+    Genre {
+        int GenreId PK
+        text Name
+    }

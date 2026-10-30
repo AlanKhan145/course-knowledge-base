@@ -1,0 +1,11 @@
+flowchart TD
+    A[Người dùng đặt câu hỏi] --> B[Đọc schema và câu hỏi]
+    S[(SQL Database)] -->|Thông tin bảng và khóa| B
+    B --> C[LLM sinh SQL]
+    C --> D[Kiểm tra SQL trước khi chạy]
+    D --> E[Thực thi truy vấn]
+    S --> E
+    E --> F[Kết quả dữ liệu]
+    F --> G[LLM diễn giải kết quả]
+    A --> G
+    G --> H[Câu trả lời tự nhiên]
