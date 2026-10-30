@@ -1,0 +1,93 @@
+---
+course: "Oxford Picture Dictionary – Anh–Việt"
+unit: 9
+unit_title: "Các lĩnh vực học tập"
+lesson: 13
+lesson_en: "The Universe"
+lesson_vi: "Vũ trụ"
+book_pages: "127-127"
+pdf_pages: "137-137"
+source: "picture-oxford-dictionary-english-vietnam.pdf"
+---
+
+# Bài 13 – Vũ trụ (The Universe)
+
+> **Đơn vị 9:** Các lĩnh vực học tập (Areas of Study)  
+> **Nguồn:** trang 127 trong sách, tương ứng trang PDF **137–137**.  
+> **Thời lượng gợi ý:** 15–25 phút.  
+> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+
+## 1. Mục tiêu bài học
+
+Sau bài này, bạn có thể:
+
+- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **vũ trụ** trong tranh.
+- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **the universe**.
+- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+
+## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+
+![Ảnh ghép 1 trang sách của bài Vũ trụ](13_the-universe-trang-ghep.jpg)
+
+*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 127 (trang PDF 137). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+
+Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+
+## 3. Từ vựng trọng tâm (Anh–Việt)
+
+| English | Tiếng Việt |
+|---|---|
+| planet | hành tinh |
+| star | ngôi sao |
+| moon | mặt trăng |
+| solar system | hệ Mặt Trời |
+| galaxy | thiên hà |
+
+**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+
+## 4. Mẫu câu ứng dụng
+
+- **What does “planet” mean?** — “planet” có nghĩa là gì?
+- **How do you say “ngôi sao” in English?** — “ngôi sao” nói bằng tiếng Anh thế nào?
+- **Can you find “planet” in the picture?** — Bạn có thể tìm “planet” trong tranh không?
+- **This picture is about the universe.** — Bức tranh này có chủ đề vũ trụ.
+
+**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+
+## 5. Bài tập thực hành
+
+**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+
+**Bài B – Dịch nhanh sang tiếng Anh:**
+
+1. hành tinh → ______
+2. ngôi sao → ______
+3. mặt trăng → ______
+4. hệ Mặt Trời → ______
+
+**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về vũ trụ, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+
+**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+
+<details>
+<summary>Đáp án gợi ý – Bài B</summary>
+
+1. planet
+2. star
+3. moon
+4. solar system
+
+</details>
+
+## 6. Ôn tập nhanh và mở rộng
+
+- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
+- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
+- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
+- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+
+## Điều hướng
+
+- [← Bài trước](12_energy-and-the-environment.md)
+- [Bài tiếp theo →](../10_plants-and-animals/01_trees-and-plants.md)
+- [Danh sách bài trong chủ đề](README.md)
