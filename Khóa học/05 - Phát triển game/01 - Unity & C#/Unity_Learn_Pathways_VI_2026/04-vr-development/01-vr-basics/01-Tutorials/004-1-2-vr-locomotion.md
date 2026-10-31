@@ -1,57 +1,44 @@
 ---
-title: "1.2 - VR Locomotion"
+title: "1.2 — Di chuyển trong VR (Locomotion)"
 pathway: "VR Development"
 module: "VR Basics"
 lesson_number: 4
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+content_type: "Bài học tiếng Việt tự biên soạn"
+unity_version_reference: "6.3"
+lesson_kind: "lesson"
 ---
 
-# Bài 04 — 1.2 - VR Locomotion
-
-> **Pathway:** VR Development · **Mission:** VR Basics · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [VR Basics trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Bài 04 — 1.2 — Di chuyển trong VR (Locomotion)
 
 ## 1. Tổng quan
 
-**Chủ đề:** Điều khiển di chuyển và tốc độ. Trong ngữ cảnh *VR Basics*, bài **1.2 - VR Locomotion** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Locomotion quyết định cách người dùng đổi vị trí trong thế giới ảo. Hai lựa chọn phổ biến là dịch chuyển tức thời (Teleportation) và di chuyển liên tục (Continuous Movement); mỗi lựa chọn ảnh hưởng đến cảm giác thoải mái, mức kiểm soát và khả năng định hướng.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **điều khiển di chuyển và tốc độ** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **1.2 - VR Locomotion** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- So sánh được Teleportation và Continuous Movement bằng tình huống sử dụng.
+- Giải thích vai trò của Time.deltaTime, Input Actions và hệ tọa độ trong logic di chuyển.
+- Thiết kế phép thử di chuyển có kiểm tra hướng, biên, va chạm và FPS.
 
-## 3. Kiến thức trọng tâm
+## 3. Phân biệt các cách di chuyển
 
-- Tốc độ theo giây phải tính đến thời gian giữa các frame khi cập nhật vị trí trực tiếp.
-- Input System và Input Manager cũ có cách cấu hình khác nhau; chọn cách phù hợp dự án.
-- Điều khiển bằng Transform khác với di chuyển bằng Rigidbody: tránh trộn hai cơ chế không kiểm soát.
+| Phương án | Cơ chế | Lưu ý |
+|---|---|---|
+| **Teleportation** | Chọn vị trí đích rồi chuyển nhanh đến đó | Thường phù hợp khi ưu tiên giảm chuyển động liên tục trong tầm nhìn |
+| **Continuous Movement** | Đổi vị trí liên tục theo input | Cần kiểm soát tốc độ, hướng và cảm giác thoải mái |
+| **Room-scale** | Người dùng bước đi trong vùng tracking vật lý | Bị giới hạn bởi không gian thực và hệ thống tracking |
 
-### Thuật ngữ và mối quan hệ
+Không có phương án nào phù hợp tuyệt đối cho mọi trò chơi. Cần xem yêu cầu nhiệm vụ, mức trải nghiệm VR của người dùng và khả năng thử nghiệm trên thiết bị.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Hướng và tốc độ: tránh phụ thuộc FPS
 
-## 4. Thực hành từng bước
+Một điều khiển di chuyển thông thường có tốc độ đo bằng đơn vị/giây. Nếu cập nhật Transform theo từng frame, quãng đường mỗi frame nên tỉ lệ với `Time.deltaTime`:
 
-1. **Bước 1:** Xác định đối tượng người chơi và hướng trục cần điều khiển.
-2. **Bước 2:** Thử một điều khiển ngang rồi mở rộng lên hai chiều; giới hạn phạm vi bằng Clamp.
-3. **Bước 3:** Chạy thử với mức FPS khác nhau và kiểm tra nhân vật có giữ tốc độ tương đương.
-4. **Bước 4:** Kiểm tra logic khi nhấn và thả phím, chạm biên và va chạm với vật cản.
+$$
+\Delta x = v \cdot \Delta t
+$$
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
+Ví dụ C# dưới đây dùng **Input Manager cũ** và thao tác trên Transform của một GameObject thông thường. Đây là bài minh họa nguyên lý cập nhật theo thời gian, **không phải mã điều khiển XR Origin bằng controller VR**:
 
 ```csharp
 using UnityEngine;
@@ -62,7 +49,7 @@ public class SimpleMover : MonoBehaviour
 
     void Update()
     {
-        // Bài mẫu cho Input Manager cũ; bật Active Input Handling phù hợp.
+        // Input Manager cũ; cần Active Input Handling tương thích.
         float horizontal = Input.GetAxisRaw("Horizontal");
         Vector3 direction = new Vector3(horizontal, 0f, 0f);
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
@@ -70,30 +57,116 @@ public class SimpleMover : MonoBehaviour
 }
 ```
 
-*Giải thích:* `Time.deltaTime` giảm sự phụ thuộc vào số frame/giây; `SerializeField` cho phép chỉnh tốc độ trong Inspector mà vẫn giữ field private. Nếu dự án dùng **Input System mới**, hãy thay lớp đọc input bằng Input Actions.
+`SerializeField` cho phép chỉnh `speed` trong Inspector mà vẫn giữ field `private`. Đối với ứng dụng VR dùng **Input System mới**, cần đọc tín hiệu từ **Input Actions** và kết nối với cơ chế locomotion phù hợp; không nên bê nguyên ví dụ bàn phím lên controller.
 
-## 6. Bài tập củng cố
+## 5. Transform, Rigidbody và hệ tọa độ
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VR Basics** để tạo một tương tác nhỏ.
+Di chuyển trực tiếp bằng `Transform` và di chuyển dựa trên `Rigidbody` tuân theo cơ chế khác nhau. Nếu dùng physics để xử lý vật cản và va chạm, tránh vừa điều khiển Rigidbody vừa ghi đè Transform một cách thiếu kiểm soát. `Space.World` dùng trục toàn cục; hướng cục bộ thay đổi cùng với đối tượng. Với VR, nhầm lẫn hướng nhìn của người dùng và hướng hệ tọa độ gốc có thể làm joystick di chuyển sai phương.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+```mermaid
+flowchart TD
+    A[Input di chuyển] --> B{Chế độ}
+    B -->|Teleportation| C[Chọn vùng đích hợp lệ]
+    B -->|Continuous| D[Tính hướng và tốc độ]
+    C --> E[Thực hiện di chuyển]
+    D --> E
+    E --> F[Kiểm tra va chạm và độ thoải mái]
+```
 
-## 7. Lỗi thường gặp và cách kiểm tra
+Cả hai nhánh đều cần kiểm soát vị trí hợp lệ. Teleportation không nên đưa người dùng vào tường; continuous movement không nên đi xuyên vật cản.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: di chuyển phụ thuộc FPS, nhầm local/world direction hoặc Input Action chưa kích hoạt.
+## 6. Bài thử và chẩn đoán
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Thiết lập một vùng sàn có vật cản và hai khu vực đến. Thử Teleportation tới điểm hợp lệ và bất hợp lệ; quan sát cơ chế giới hạn mục tiêu. Với Continuous Movement, thử đổi hướng, nhấn–thả input và kiểm tra khi gặp vật cản. Nếu có bộ điều khiển bàn phím thử nghiệm, thay đổi FPS và kiểm tra tốc độ gần như không đổi.
 
-## 8. Checklist hoàn thành
+**Lỗi thường gặp:** (1) di chuyển nhanh hơn khi FPS tăng do bỏ `Time.deltaTime`; (2) nhầm hướng local/world; (3) Input Action chưa kích hoạt; (4) trộn Transform với Rigidbody; (5) chỉ thử trong Editor nên bỏ qua vấn đề comfort trên kính.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Vì sao nhân tốc độ với Time.deltaTime trong Update?
+
+
+A. Để quãng đường theo thời gian thay vì theo số frame  
+
+B. Để làm vật thể sáng hơn  
+
+C. Để tăng gravity  
+
+D. Để đổi đơn vị tốc độ thành FPS  
+
+
+**Đáp án:** A. **Giải thích:** Quãng đường cần tỉ lệ thời gian giữa hai lần cập nhật.
+
+### Câu 2
+
+Input.GetAxisRaw trong ví dụ là thuộc hệ nào?
+
+
+A. XR Interaction Toolkit bắt buộc  
+
+B. Input Manager cũ  
+
+C. OpenXR runtime  
+
+D. Trình quản lý Package  
+
+
+**Đáp án:** B. **Giải thích:** Ví dụ minh họa được viết với Input Manager cũ.
+
+### Câu 3
+
+Điều nào đúng về Space.World?
+
+
+A. Lấy trục cục bộ của đối tượng  
+
+B. Khóa mọi va chạm  
+
+C. Tính hướng theo trục tọa độ toàn cục  
+
+D. Tắt liên kết controller  
+
+
+**Đáp án:** C. **Giải thích:** Space.World dùng hệ trục của thế giới.
+
+### Câu 4
+
+Tại sao cần kiểm tra Teleportation ở vị trí không hợp lệ?
+
+
+A. Để tăng tốc mô phỏng  
+
+B. Để tắt tracking  
+
+C. Để xóa Input Actions  
+
+D. Để tránh đưa người chơi vào vật cản  
+
+
+**Đáp án:** D. **Giải thích:** Đích di chuyển phải đáp ứng điều kiện không gian.
+
+### Câu 5
+
+Vì sao không nên trộn Transform và Rigidbody tùy tiện?
+
+
+A. Có thể làm hành vi vật lý/va chạm khó dự đoán  
+
+B. Vì cả hai chỉ làm việc với âm thanh  
+
+C. Vì Transform không có vị trí  
+
+D. Vì Rigidbody dùng để quản lý package  
+
+
+**Đáp án:** A. **Giải thích:** Hai cơ chế cập nhật vị trí và physics cần được tổ chức nhất quán.
+
+## 8. Tổng kết
+
+Locomotion tốt phải đáp ứng **hướng đúng, tốc độ đúng, vị trí hợp lệ và cảm giác thoải mái**. `Time.deltaTime` giải quyết bài toán theo frame khi điều khiển thủ công; còn hệ thống VR thực tế cần input và locomotion provider phù hợp cấu hình dự án.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Học liệu đối chiếu:** [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Các ví dụ và bài tập là nội dung học tập tự biên soạn, không phải bài kiểm tra hoặc transcript chính thức.

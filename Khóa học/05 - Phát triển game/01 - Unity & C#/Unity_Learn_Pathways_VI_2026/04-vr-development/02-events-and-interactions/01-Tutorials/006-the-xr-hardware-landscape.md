@@ -1,78 +1,139 @@
 ---
-title: "The XR hardware landscape"
+title: "Tổng quan hệ sinh thái phần cứng XR"
 pathway: "VR Development"
 module: "Events and Interactions"
-lesson_number: 6
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+lesson_type: lesson
+unity_version_reference: "6.3"
 ---
 
-# Bài 06 — The XR hardware landscape
-
-> **Pathway:** VR Development · **Mission:** Events and Interactions · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Events and Interactions trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Tổng quan hệ sinh thái phần cứng XR (The XR Hardware Landscape)
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Events and Interactions*, bài **The XR hardware landscape** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Phần cứng quyết định người chơi **nhìn thấy gì**, **điều khiển thế nào** và **ứng dụng cần tối ưu ra sao**. Một thao tác hoạt động bằng chuột trong Unity Editor chưa chắc hoạt động bằng controller trên HMD. Vì vậy, khi phát triển VR cần hiểu các nhóm thiết bị và kiểm thử theo đúng mục tiêu triển khai.
 
-## 2. Mục tiêu học tập
+**Mục tiêu học tập:**
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **The XR hardware landscape** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Nhận biết các nhóm phần cứng thường gặp trong hệ sinh thái XR.
+- Phân biệt HMD, thiết bị nhập liệu, tracking và bộ xử lý/rendering.
+- Giải thích ảnh hưởng của phần cứng đến thiết kế tương tác và sự thoải mái.
+- Lập checklist kiểm thử một project VR trên thiết bị đích.
 
-## 3. Kiến thức trọng tâm
+## 2. XR, VR và các thành phần hệ thống
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+**XR (Extended Reality)** là thuật ngữ bao quát các trải nghiệm thực tế mở rộng. **VR (Virtual Reality)** thường đưa người chơi vào một môi trường ảo, quan sát bằng HMD. Các biến thể XR khác có thể kết hợp hoặc bổ sung nội dung ảo lên môi trường thật; phạm vi tính năng phụ thuộc từng thiết bị.
 
-### Thuật ngữ và mối quan hệ
+| Nhóm | Vai trò trong ứng dụng |
+| --- | --- |
+| HMD (Head-Mounted Display) | Cung cấp hình ảnh cho người dùng và thường theo dõi chuyển động đầu |
+| Controller / tay cầm | Nhận thao tác điều khiển, vị trí/định hướng và có thể cung cấp haptics |
+| Hệ tracking | Xác định vị trí và hướng của đầu/tay hoặc đối tượng được theo dõi |
+| Hệ âm thanh | Tái tạo âm nền, âm không gian, thông báo tương tác |
+| Thiết bị tính toán | Chạy logic game, xử lý đồ họa và cung cấp tài nguyên phần cứng |
+| Runtime / nền tảng XR | Kết nối ứng dụng với khả năng thiết bị qua các lớp phần mềm hỗ trợ |
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 3. Cấu trúc dữ liệu từ thiết bị đến trải nghiệm
 
-## 4. Thực hành từng bước
+```mermaid
+flowchart TD
+    H[HMD: tracking đầu] --> X[XR runtime / hệ đầu vào]
+    C[Controller: pose, nút, có thể có rung] --> X
+    X --> U[Unity XR Origin và Input Actions]
+    U --> I[Interactor và gameplay]
+    I --> R[Đồ họa, âm thanh, phản hồi]
+    R --> O[Người chơi cảm nhận trên thiết bị]
+```
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+Sơ đồ phân biệt **tín hiệu đi vào** (tracking và nút điều khiển) với **tín hiệu đi ra** (render, âm thanh, rung). Một lỗi chọn vật có thể bắt nguồn từ ánh xạ input, ngay cả khi hình ảnh scene hiển thị chính xác.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 4. Những khác biệt phần cứng ảnh hưởng đến thiết kế
 
-## 5. Bài tập củng cố
+### 4.1. Cách xử lý ứng dụng
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Events and Interactions** để tạo một tương tác nhỏ.
+Một thiết bị VR **standalone** có thể thực thi ứng dụng bằng phần cứng tích hợp. Một hệ **PC VR** phụ thuộc máy tính để chạy và xuất hình lên HMD. Nguồn lực render, khả năng tính toán và quy trình build/deploy cần được lựa chọn theo thiết bị mục tiêu; không nên tự giả định cùng một cấu hình hiệu năng cho mọi máy.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+### 4.2. Tracking và input
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Một số trải nghiệm phụ thuộc tay cầm, số khác có thể dùng theo dõi tay hoặc phương thức nhập bổ sung. **Không được mặc định** rằng mọi hệ XR đều hỗ trợ đồng thời mọi loại input hoặc tính năng haptics. Tài liệu dự án nên nêu rõ cách thao tác chính và cách dự phòng khi một khả năng phần cứng không sẵn có.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+### 4.3. Đồ họa và sự thoải mái
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Đối với HMD, tốc độ khung hình cao và ổn định có vai trò đặc biệt quan trọng. Giảm hiệu ứng đắt, overdraw và draw call có thể cải thiện hiệu năng; tuy nhiên cần **đo** để xác định nút thắt thực tế. Sự thoải mái còn phụ thuộc cách di chuyển: teleportation và continuous movement tạo cảm giác khác nhau, nên cần cho người dùng lựa chọn phù hợp khi thiết kế ứng dụng.
 
-## 7. Checklist hoàn thành
+## 5. Hướng dẫn kiểm thử theo thiết bị mục tiêu
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Events and Interactions](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+1. **Xác định môi trường triển khai:** ghi rõ thiết bị HMD, loại controller, runtime và phương thức chạy ứng dụng. Không cần tự đoán version của package.
+2. **Xác nhận tracking:** quan sát camera/XR Origin có đi theo chuyển động đầu và tay đúng không.
+3. **Thử input:** chọn một vật có `Interactable` và kiểm tra `Hover`, `Select`, `Activate` theo thiết kế.
+4. **Thử âm/haptics:** phát một âm sự kiện và kiểm tra phản hồi rung chỉ khi thiết bị hỗ trợ.
+5. **Thử di chuyển:** so sánh teleportation và continuous movement (nếu có), ghi nhận sự thoải mái của người trải nghiệm.
+6. **Thử hiệu năng:** chạy scene đại diện trên thiết bị đích, dùng công cụ profiler phù hợp, kiểm tra hiện tượng giật/độ trễ.
+7. **Ghi kết quả:** lưu ảnh, log lỗi và điều kiện thử nghiệm để có thể tái hiện.
 
----
+## 6. Bảng kiểm tra tương thích
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+| Tính năng | Cần xác nhận | Nếu không hoạt động |
+| --- | --- | --- |
+| Camera VR | HMD cập nhật góc nhìn theo tracking | Kiểm tra runtime và XR Origin |
+| Controller | Input action nhận đúng nút/pose | Kiểm tra profile và bindings |
+| Tương tác direct/ray | Chọn được vật hợp lệ | Kiểm tra collider, interactor, interactable |
+| Âm thanh | Âm được phát ở vị trí/âm lượng mong đợi | Kiểm tra listener và source |
+| Haptics | Thiết bị thực có rung khi yêu cầu | Xác nhận hỗ trợ và cấu hình haptics |
+| Frame rate/độ mượt | Hành động không bị khựng khó chịu | Profile scene trên thiết bị |
+
+## 7. Bài thực hành
+
+Thiết kế một **bảng yêu cầu phần cứng** cho scene VR nhỏ gồm nhặt vật, trỏ tia, mở bảng UI và phản hồi âm thanh. Với mỗi tính năng, chỉ rõ: đầu vào cần thiết, thành phần Unity liên quan, cách xác nhận khi chạy, phương án giảm chức năng nếu thiết bị không hỗ trợ.
+
+## 8. Câu hỏi ôn tập
+
+**Câu 1.** Vì sao không thể kết luận ứng dụng chạy tốt trên HMD chỉ dựa vào FPS trong Editor?
+
+A. Vì Unity Editor không có hình ảnh.  
+B. Vì phần cứng, runtime và tải thực tế trên HMD khác môi trường Editor.  
+C. Vì FPS không thể đo được.  
+D. Vì controller không có nút.
+
+**Đáp án: B.** Hiệu năng cần được đo ở môi trường đích.
+
+**Câu 2.** Thành phần nào thường chịu trách nhiệm theo dõi chuyển động đầu để thay đổi góc nhìn?
+
+A. HMD và hệ tracking.  
+B. `Button` UI.  
+C. `AudioClip`.  
+D. `LineRenderer`.
+
+**Đáp án: A.** Hệ theo dõi chuyển động đầu cung cấp dữ liệu pose cho trải nghiệm nhìn.
+
+**Câu 3.** Phát biểu nào đúng về haptics?
+
+A. Mọi HMD và controller đều rung giống nhau.  
+B. Haptics thay thế toàn bộ hình ảnh.  
+C. Không cần cấu hình input.  
+D. Cần xác nhận khả năng hỗ trợ trên phần cứng mục tiêu.
+
+**Đáp án: D.** Khả năng rung tùy thiết bị và phần mềm hỗ trợ.
+
+**Câu 4.** Một chức năng tương tác không nhận nút trên HMD. Nên kiểm tra lớp nào?
+
+A. Bố cục lightmap trước tiên.  
+B. Chỉ màu background.  
+C. Runtime, ánh xạ input và interactor.  
+D. Chỉ độ phân giải video.
+
+**Đáp án: C.** Input đi qua hệ phần cứng/runtime trước khi tới logic tương tác.
+
+**Câu 5.** Vì sao nên xem xét cả teleportation và continuous movement?
+
+A. Vì hai kiểu di chuyển ảnh hưởng khác nhau tới sự thoải mái của người dùng.  
+B. Vì teleportation luôn có FPS cao hơn.  
+C. Vì continuous movement không cần input.  
+D. Vì cả hai là cùng một kiểu chọn vật.
+
+**Đáp án: A.** Phương thức locomotion tác động trực tiếp đến trải nghiệm và comfort.
+
+## 9. Tổng kết
+
+Phát triển VR hiệu quả không chỉ là dựng scene và gắn script. Cần kết nối thiết kế tương tác với các giới hạn của HMD, tracking, input và năng lực render; đồng thời **kiểm thử trên phần cứng mục tiêu** khi có điều kiện.
+
+**Tham khảo:** [Unity Learn — Events and Interactions](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3).

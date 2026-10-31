@@ -1,78 +1,160 @@
 ---
-title: "VR Software Setup"
+title: "Thiết lập phần mềm phát triển VR"
 pathway: "VR Development"
 module: "VR Basics"
 lesson_number: 2
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+content_type: "Bài học tiếng Việt tự biên soạn"
+unity_version_reference: "6.3"
+lesson_kind: "lesson"
 ---
 
-# Bài 02 — VR Software Setup
-
-> **Pathway:** VR Development · **Mission:** VR Basics · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [VR Basics trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Bài 02 — Thiết lập phần mềm phát triển VR
 
 ## 1. Tổng quan
 
-**Chủ đề:** Cài đặt công cụ và quản lý phiên bản. Trong ngữ cảnh *VR Basics*, bài **VR Software Setup** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Môi trường phát triển phải có phiên bản Unity nhất quán, các module build phù hợp và package hoạt động bình thường. Nếu thiếu một trong các thành phần này, các lỗi khi cấu hình XR có thể xuất phát từ công cụ chứ không phải logic trong scene.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **cài đặt công cụ và quản lý phiên bản** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **VR Software Setup** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Phân biệt chức năng của Unity Hub, Unity Editor và Package Manager.
+- Kiểm tra được phiên bản Editor, build module và tình trạng package của dự án.
+- Tạo, lưu, đóng và mở lại một dự án thử để xác nhận môi trường có thể tái lập.
 
-## 3. Kiến thức trọng tâm
+## 3. Các lớp công cụ cần chuẩn bị
 
-- Unity Hub quản lý cài đặt Editor và các dự án, còn Unity Editor là môi trường biên tập dự án.
-- Chọn phiên bản Editor phù hợp với hướng dẫn và cài các build modules (Android/iOS/Web) cần thiết.
-- Dự án dùng gói phụ thuộc; mở dự án lần đầu cần chờ Unity nhập assets và giải quyết package.
+| Thành phần | Vai trò | Kiểm tra nhanh |
+|---|---|---|
+| **Unity Hub** | Quản lý phiên bản Editor và danh sách dự án | Tab **Installs** hiển thị phiên bản cần dùng |
+| **Unity Editor** | Biên tập scene, GameObject, Component và chạy thử | Scene mở được, Console không có lỗi nghiêm trọng |
+| **Build modules** | Hỗ trợ xây dựng ứng dụng cho nền tảng đích | Module phù hợp với PC hoặc Android được cài |
+| **Package Manager** | Quản lý các gói phụ thuộc trong dự án | Gói cần thiết ở trạng thái hợp lệ |
+| **XR runtime / OpenXR** | Kết nối khả năng XR với nền tảng chạy | Cấu hình tương thích thiết bị và dự án |
 
-### Thuật ngữ và mối quan hệ
+Không cài mọi build module chỉ để dự phòng. Trước hết cần xác định nền tảng đích và hướng dẫn của dự án. **Unity 6.3** là mốc phiên bản của lộ trình học này, không phải cam kết rằng các menu và package giữ nguyên trên mọi bản vá.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Các bước thiết lập và xác minh
 
-## 4. Thực hành từng bước
+1. Mở **Unity Hub → Installs**. Đối chiếu phiên bản Editor đang có với yêu cầu của dự án.
+2. Cài hoặc bổ sung build module cho nền tảng muốn thử nghiệm. Dự án chạy trên kính độc lập thường cần quy trình build khác ứng dụng PC VR.
+3. Tạo dự án thử từ template phù hợp; ghi nhận phiên bản Unity và render pipeline của dự án.
+4. Mở **Unity Editor**. Chờ quá trình nhập asset và giải quyết package hoàn tất trước khi thao tác sâu.
+5. Kiểm tra **Console** và **Package Manager**. Nếu package báo lỗi, xử lý phụ thuộc trước khi cấu hình tương tác.
+6. Lưu scene, đóng Unity, sau đó mở lại từ Hub. Scene và các Component cần được giữ nguyên.
 
-1. **Bước 1:** Mở Unity Hub và kiểm tra tab Installs để biết phiên bản Editor đang có.
-2. **Bước 2:** Tạo dự án thử với template tương ứng; ghi lại phiên bản Unity và render pipeline.
-3. **Bước 3:** Mở Editor, kiểm tra Console và Package Manager; chỉ tiếp tục khi hết lỗi nghiêm trọng.
-4. **Bước 4:** Lưu scene thử, đóng rồi mở lại dự án để kiểm tra khả năng tái lập môi trường.
+**Checkpoint:** Không có lỗi biên dịch cản trở Play mode, dự án mở lại bình thường và đã ghi rõ môi trường phát triển.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Sơ đồ quan hệ môi trường
 
-## 5. Bài tập củng cố
+```mermaid
+flowchart TD
+    A[Unity Hub] --> B[Chọn Unity Editor]
+    B --> C[Mở dự án]
+    C --> D[Package Manager]
+    C --> E[Build modules]
+    D --> F[Cấu hình XR]
+    E --> F
+    F --> G[Scene và Play mode]
+    G --> H[Build hoặc thử trên thiết bị]
+```
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VR Basics** để tạo một tương tác nhỏ.
+Luồng này giúp xác định nơi cần tìm lỗi: dự án không mở được thường liên quan Editor/phiên bản; lỗi thiếu package cần xử lý trong quản lý phụ thuộc; ứng dụng chạy trong Editor nhưng không build được đòi hỏi kiểm tra module và cấu hình nền tảng.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 6. Lỗi thường gặp và thực hành ngắn
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Tình huống 1:** Mở dự án bằng Editor không tương thích dẫn đến cảnh báo nâng cấp hoặc package lỗi. Hãy ghi nhận phiên bản dự án và kiểm tra khả năng tương thích trước khi chấp nhận thay đổi.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở dự án bằng phiên bản không tương thích, thiếu module build hoặc package đang lỗi.
+**Tình huống 2:** Không thấy tùy chọn build cho thiết bị mong muốn. Kiểm tra build modules đã cài qua Unity Hub và cài bổ sung nếu cần.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Tình huống 3:** Dự án mở nhưng Play mode không chạy. Kiểm tra lỗi màu đỏ trong Console và trạng thái import packages.
 
-## 7. Checklist hoàn thành
+Bài tập: Tạo scene tên `VR_Setup_Test`, lưu lại, chụp màn hình Console và ghi chú Editor version, render pipeline, các module đã cài. Đóng và mở lại dự án để kiểm chứng khả năng tái lập.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Thành phần nào chủ yếu quản lý các phiên bản Editor?
+
+
+A. Unity Hub  
+
+B. Scene  
+
+C. Rigidbody  
+
+D. XR Origin  
+
+
+**Đáp án:** A. **Giải thích:** Unity Hub quản lý việc cài Editor và danh sách project.
+
+### Câu 2
+
+Vì sao cần chờ hoàn tất import khi mở dự án lần đầu?
+
+
+A. Để tăng kích thước scene  
+
+B. Để package và asset được xử lý xong  
+
+C. Để Unity tự tạo game hoàn chỉnh  
+
+D. Để tắt Console  
+
+
+**Đáp án:** B. **Giải thích:** Dự án cần giải quyết asset và dependency trước khi chạy ổn định.
+
+### Câu 3
+
+Ứng dụng không có tùy chọn build Android: nơi kiểm tra đầu tiên?
+
+
+A. Inspector của Camera  
+
+B. Vị trí XR Origin  
+
+C. Unity Hub và module Android  
+
+D. Màu vật liệu  
+
+
+**Đáp án:** C. **Giải thích:** Build module phải tồn tại trước khi cấu hình build.
+
+### Câu 4
+
+Cách kiểm chứng tốt nhất sau khi tạo dự án?
+
+
+A. Chỉ xem tên project  
+
+B. Xóa thư mục Library ngay  
+
+C. Tắt mọi package  
+
+D. Lưu scene, đóng rồi mở lại và kiểm tra Console  
+
+
+**Đáp án:** D. **Giải thích:** Kiểm tra tái lập phát hiện lỗi cấu hình môi trường.
+
+### Câu 5
+
+Package Manager dùng để làm gì?
+
+
+A. Quản lý phụ thuộc của dự án  
+
+B. Chỉ để chụp ảnh  
+
+C. Điều khiển tay VR trực tiếp  
+
+D. Thiết lập ánh sáng trong scene  
+
+
+**Đáp án:** A. **Giải thích:** Các gói tính năng và dependency được quản lý qua Package Manager.
+
+## 8. Tổng kết
+
+Một môi trường VR đáng tin cậy phải xác minh được **Editor**, **module build**, **package** và **khả năng mở lại dự án**. Hãy lưu bảng cấu hình môi trường cùng dự án để dễ xử lý lỗi về sau.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Học liệu đối chiếu:** [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Các ví dụ và bài tập là nội dung học tập tự biên soạn, không phải bài kiểm tra hoặc transcript chính thức.

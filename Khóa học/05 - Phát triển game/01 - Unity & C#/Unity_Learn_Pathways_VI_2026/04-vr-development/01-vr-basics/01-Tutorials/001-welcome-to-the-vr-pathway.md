@@ -1,78 +1,155 @@
 ---
-title: "Welcome to the VR Pathway"
+title: "Chào mừng đến với lộ trình phát triển VR"
 pathway: "VR Development"
 module: "VR Basics"
 lesson_number: 1
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+content_type: "Bài học tiếng Việt tự biên soạn"
+unity_version_reference: "6.3"
+lesson_kind: "lesson"
 ---
 
-# Bài 01 — Welcome to the VR Pathway
-
-> **Pathway:** VR Development · **Mission:** VR Basics · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [VR Basics trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Bài 01 — Chào mừng đến với lộ trình phát triển VR
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *VR Basics*, bài **Welcome to the VR Pathway** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Phát triển thực tế ảo (Virtual Reality — VR) không chỉ là dựng một thế giới 3D. Ứng dụng phải theo dõi chuyển động đầu và tay, phản hồi đúng khi người dùng tương tác, cho phép di chuyển thoải mái và duy trì hình ảnh đủ ổn định trên thiết bị đích. Bài nhập môn này thiết lập cách học và tiêu chí kiểm chứng mỗi chức năng.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Xác định đầu ra, công cụ và thứ tự học phù hợp trước khi thực hành.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Mô tả được các thành phần tối thiểu của một trải nghiệm VR có tương tác.
+- Phân biệt mục tiêu chức năng, mức độ thoải mái và hiệu năng.
+- Thiết lập quy trình thử nghiệm–ghi nhận–sửa lỗi cho một scene nhỏ.
 
-## 3. Kiến thức trọng tâm
+## 3. Một trải nghiệm VR được tạo thành như thế nào?
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+Trong Unity, **Scene** chứa các **GameObject**; mỗi GameObject nhận dữ liệu và hành vi thông qua **Component**. **XR Origin** đại diện gốc tọa độ cho người dùng XR, còn thiết bị theo dõi đầu và tay quyết định vị trí/góc quay tương ứng. **XR Interaction Toolkit (XRI)** cung cấp mô hình tương tác: **Interactor** (tay hoặc tia tương tác), **Interactable** (vật có thể tương tác) và thành phần điều phối tương tác.
 
-### Thuật ngữ và mối quan hệ
+Ví dụ: người dùng nhìn vào chiếc hộp, dùng tay ảo nhặt hộp rồi đặt lên bàn. Cần có scene, collider để xác định vùng chạm, cấu hình input chọn/nhả và một tương tác thực thi. Không nên đồng nhất việc nhìn thấy GameObject với việc đã có thể tương tác với nó.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Ba tiêu chí kiểm chứng
 
-## 4. Thực hành từng bước
+| Tiêu chí | Câu hỏi kiểm chứng | Ví dụ kết quả đạt |
+|---|---|---|
+| Tương tác | Người dùng chọn, cầm, thả vật được không? | Vật được chọn và di chuyển đúng theo tay |
+| Thoải mái | Di chuyển có gây mất phương hướng? | Người dùng chọn Teleportation khi cần |
+| Hiệu năng | Khung hình có ổn định trên thiết bị đích? | Không có hiện tượng giật rõ rệt khi thao tác |
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+**Teleportation** đưa người chơi đến vị trí mục tiêu trong một lần chuyển; **continuous movement** làm người chơi di chuyển liên tục. Hai cách tạo cảm giác khác nhau, vì thế cần thử nghiệm với đối tượng sử dụng. Với kính VR (HMD), giảm **overdraw** (vẽ chồng pixel), **draw call** và hiệu ứng đồ họa tốn tài nguyên thường là hướng tối ưu hữu ích.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Quy trình học theo vòng lặp
 
-## 5. Bài tập củng cố
+```mermaid
+flowchart LR
+    A[Đặt mục tiêu] --> B[Tạo scene nhỏ]
+    B --> C[Chạy thử Play mode]
+    C --> D[Quan sát trên thiết bị]
+    D --> E[Ghi nhận lỗi và kết quả]
+    E --> F[Chỉnh một nguyên nhân]
+    F --> C
+```
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VR Basics** để tạo một tương tác nhỏ.
+Sơ đồ cho thấy việc hoàn thành một chức năng không dừng ở thao tác cấu hình. Cần định nghĩa hành vi kỳ vọng, đo hoặc quan sát hành vi thực tế, rồi sửa có kiểm soát. Khi có sai khác, mở **Console**, kiểm tra **Inspector**, trạng thái GameObject, package và thiết lập input trước khi sửa mã.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 6. Bài thực hành nhập môn
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Tạo scene thử có mặt phẳng sàn, một vật thể có collider, XR Origin và hệ input tương thích dự án. Tiếp theo kiểm tra tương tác bằng tay trực tiếp hoặc tia, thử một cách di chuyển rồi quan sát độ mượt trên thiết bị hỗ trợ. Với mỗi lần thử, ghi lại theo mẫu:
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+```text
+Mục tiêu: Nhặt và đặt được khối hộp
+Kết quả mong đợi: Khối hộp theo tay và rơi khi nhả
+Kết quả thực tế: ...
+Minh chứng: ảnh Game view / video / Console
+Giả thuyết lỗi và thay đổi đã thử: ...
+```
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Nếu không có kính VR, vẫn có thể chuẩn bị và kiểm tra cấu hình scene trong Editor; kết luận về độ thoải mái và hiệu năng thực tế cần được xác nhận trên thiết bị đích.
 
-## 7. Checklist hoàn thành
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+### Câu 1
+
+Một GameObject chỉ có mesh nhưng không có cấu hình tương tác. Nhận định nào đúng nhất?
+
+
+A. Cần kiểm tra collider, Interactable và Interactor/input  
+
+B. Vẫn cầm được vì đã hiển thị  
+
+C. Chỉ cần tăng độ sáng  
+
+D. Chỉ cần thêm âm thanh  
+
+
+**Đáp án:** A. **Giải thích:** Hiển thị vật thể không tự tạo khả năng chọn và cầm.
+
+### Câu 2
+
+Tại sao không chỉ dựa vào FPS trong Unity Editor?
+
+
+A. Editor luôn nhanh hơn kính VR  
+
+B. Thiết bị đích có runtime và giới hạn hiệu năng khác  
+
+C. FPS không liên quan VR  
+
+D. Chỉ cần biết số GameObject  
+
+
+**Đáp án:** B. **Giải thích:** Hiệu năng trên máy phát triển không đại diện hoàn toàn cho HMD.
+
+### Câu 3
+
+Teleportation phù hợp khi ưu tiên điều gì?
+
+
+A. Di chuyển liên tục không ngắt  
+
+B. Tăng số draw call  
+
+C. Giảm chuyển động hình ảnh liên tục khi đổi vị trí  
+
+D. Tắt XR Origin  
+
+
+**Đáp án:** C. **Giải thích:** Dịch chuyển điểm đến giúp giảm chuyển động thị giác liên tục.
+
+### Câu 4
+
+Trong vòng lặp debug, thao tác nào nên thực hiện trước khi đổi nhiều cấu hình?
+
+
+A. Xóa hết Component  
+
+B. Thay phiên bản Unity ngay  
+
+C. Xóa scene  
+
+D. Tái hiện lỗi và đọc Console  
+
+
+**Đáp án:** D. **Giải thích:** Cần thu thập dấu hiệu và khoanh vùng nguyên nhân.
+
+### Câu 5
+
+Vai trò của Component là gì?
+
+
+A. Chứa hành vi hoặc dữ liệu gắn với GameObject  
+
+B. Là tên khác của scene  
+
+C. Là trình biên dịch  
+
+D. Là file cài đặt Unity Hub  
+
+
+**Đáp án:** A. **Giải thích:** Các chức năng GameObject được tổ chức bằng Component.
+
+## 8. Tổng kết
+
+Có thể đánh giá một tính năng VR qua **hành vi tương tác**, **mức thoải mái** và **hiệu năng trên thiết bị đích**. Mỗi bài thực hành nên có minh chứng quan sát được và một lượt tự kiểm tra lỗi.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Học liệu đối chiếu:** [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Các ví dụ và bài tập là nội dung học tập tự biên soạn, không phải bài kiểm tra hoặc transcript chính thức.

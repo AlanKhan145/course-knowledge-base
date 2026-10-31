@@ -1,78 +1,177 @@
----
-title: "Code the scanning functionality"
-pathway: "VR Development"
-module: "Custom VR Development"
-lesson_number: 4
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Lập trình chức năng quét bằng C#
 
-# Bài 04 — Code the scanning functionality
-
-> **Pathway:** VR Development · **Mission:** Custom VR Development · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Custom VR Development trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** VR Development · **Học phần:** Custom VR Development · **Nền tảng:** Unity 6.3 · **Dạng:** tutorial.
+>
+> **Lưu ý:** Các quy trình và mã bên dưới là ví dụ thực hành độc lập, không phải bản chép nguyên văn hướng dẫn hay đề kiểm tra chính thức của Unity. Cần đối chiếu tài nguyên scene, prefab và phiên bản package trong dự án thực tế.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Custom VR Development*, bài **Code the scanning functionality** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Sau khi bố trí thiết bị, ta triển khai việc **nhận tín hiệu kích hoạt**, phát tia `Physics.Raycast`, xác định vật thể có thể quét và tạo phản hồi. Ví dụ dùng Unity Input System để tách nút kích hoạt khỏi logic va chạm; người học cần gán `InputActionReference` tương ứng với controller trong Inspector.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Code the scanning functionality** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Viết hàm quét theo hướng và khoảng cách có giới hạn.
+- Chỉ xử lý mục tiêu chứa component `ScannableTarget`.
+- Xử lý null, bỏ qua hit sai và kiểm thử bằng Console trước khi thêm UI/VFX.
 
-## 3. Kiến thức trọng tâm
+## 3. Luồng xử lý quét
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+```mermaid
+flowchart TD
+    A[Nhấn nút Scan] --> B{Có Muzzle?}
+    B -- Không --> X[Thoát an toàn]
+    B -- Có --> C[Physics.Raycast]
+    C -->|Miss| D[Phản hồi quét hụt]
+    C -->|Hit| E{Có ScannableTarget?}
+    E -- Không --> D
+    E -- Có --> F[Đánh dấu đã quét]
+    F --> G[Phản hồi thành công]
+```
 
-### Thuật ngữ và mối quan hệ
+## 4. Component cho vật thể đích
 
-| Khái niệm | Vai trò trong bài |
+```csharp
+using UnityEngine;
+
+public class ScannableTarget : MonoBehaviour
+{
+    [SerializeField] private Renderer targetRenderer;
+    [SerializeField] private Color scannedColor = Color.green;
+    private bool isScanned;
+
+    public void Scan()
+    {
+        if (isScanned) return;
+        isScanned = true;
+        if (targetRenderer != null)
+            targetRenderer.material.color = scannedColor;
+        Debug.Log($"Đã quét: {name}");
+    }
+}
+```
+
+`isScanned` giúp thao tác có tính **idempotent**: quét lặp lại không làm trạng thái thay đổi ngoài ý muốn. `renderer.material` tạo/điều chỉnh material instance tại runtime; nếu cần tối ưu nhiều đối tượng, cân nhắc `MaterialPropertyBlock` hoặc cơ chế shader phù hợp.
+
+## 5. Script phát tia khi nhận input
+
+```csharp
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class HandheldScanner : MonoBehaviour
+{
+    [SerializeField] private Transform muzzle;
+    [SerializeField] private InputActionReference scanAction;
+    [SerializeField, Min(0.1f)] private float maxDistance = 5f;
+    [SerializeField] private LayerMask targetLayers = ~0;
+
+    private void Update()
+    {
+        if (scanAction == null || scanAction.action == null) return;
+        if (scanAction.action.WasPressedThisFrame()) ScanOnce();
+    }
+
+    public void ScanOnce()
+    {
+        if (muzzle == null) return;
+
+        if (Physics.Raycast(muzzle.position, muzzle.forward,
+            out RaycastHit hit, maxDistance, targetLayers))
+        {
+            var target = hit.collider.GetComponentInParent<ScannableTarget>();
+            if (target != null)
+            {
+                target.Scan();
+                return;
+            }
+        }
+        Debug.Log("Không tìm thấy mục tiêu quét hợp lệ");
+    }
+}
+```
+
+**Tích hợp:** kéo `Muzzle` vào trường tương ứng, chọn `InputActionReference` đã được kích hoạt trong Input Action Manager/action map, cấu hình layer và gắn `ScannableTarget` lên vật thể mục tiêu. Nếu action không hoạt động, kiểm tra action map đã bật chưa. Có thể thay nhánh `WasPressedThisFrame()` bằng **sự kiện Activate** của XR Interactable gọi trực tiếp `ScanOnce()` trong Inspector để tránh tự quản lý nút input.
+
+**Giới hạn của ví dụ:** khi input action chung cho cả hai tay, script trên có thể được gọi không đúng thiết bị cầm. Với sản phẩm thực tế, chỉ cho phép quét khi scanner đang được người chơi cầm/đang active bằng điều kiện trạng thái Grab tương ứng.
+
+## 6. Kiểm thử có điều kiện
+
+| Tình huống | Kết quả cần đạt |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Bấm Scan, ray trúng vật thể có `ScannableTarget` | Đổi màu, log thành công |
+| Ray trúng tường không có component | Log miss, không đổi màu |
+| Đối tượng ngoài `maxDistance` | Không quét được |
+| Bấm liên tục vào mục tiêu đã quét | Không chạy xử lý lại |
+| `Muzzle` chưa được gán | Không phát sinh `NullReferenceException` |
 
-## 4. Thực hành từng bước
+## 7. Các cải tiến thực tế
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+- Đặt hiệu ứng laser với `Line Renderer`, dừng tại `hit.point` thay vì luôn kéo dài tối đa.
+- Thêm âm thanh/haptic khi quét thành công, nhưng tránh phát rung liên tục gây khó chịu.
+- Tách phản hồi UI khỏi logic `ScannableTarget` để dễ tái sử dụng.
+- Khi quản lý nhiều mục tiêu, dùng sự kiện hoàn thành để cập nhật số lượng đã quét mà không phải tìm mọi object mỗi frame.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 8. Tổng kết
 
-## 5. Bài tập củng cố
+Scanner hoàn chỉnh cần **input đúng, hướng tia đúng, lớp lọc hợp lý, điều kiện mục tiêu rõ và phản hồi kiểm chứng được**. Mã mẫu là nền tảng để mở rộng thành hệ thống nhiều loại mục tiêu, nhiệm vụ quét hoặc công cụ tương tác trong Escape Room.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Custom VR Development** để tạo một tương tác nhỏ.
+## 9. Câu hỏi ôn tập trắc nghiệm
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+### Câu 1
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Khi `Physics.Raycast` trúng tường nhưng không có `ScannableTarget`, điều gì nên xảy ra?
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+A. Mọi vật trong scene đổi màu  
+B. Ứng dụng đóng  
+C. Không đánh dấu mục tiêu, có thể báo miss  
+D. Tăng `maxDistance` tự động  
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Đáp án:** C. **Giải thích:** Hit vật lý chưa đồng nghĩa mục tiêu hợp lệ.
 
-## 7. Checklist hoàn thành
+### Câu 2
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+`WasPressedThisFrame()` phù hợp với hành vi nào?
+
+A. Kích hoạt một lần khi nhấn  
+B. Quét liên tục mọi frame dù không bấm  
+C. Khởi tạo prefab  
+D. Phát hiện va chạm vật lý  
+
+**Đáp án:** A. **Giải thích:** Đây là kiểm tra cạnh nhấn của input trong frame hiện tại.
+
+### Câu 3
+
+Vì sao `Scan()` kiểm tra `isScanned`?
+
+A. Để tạo material mới liên tục  
+B. Để tự nhận input XR  
+C. Để bật OpenXR  
+D. Để tránh xử lý lặp trạng thái đã hoàn thành  
+
+**Đáp án:** D. **Giải thích:** Đối tượng đã quét không cần thay đổi lại nếu nghiệp vụ là một lần.
+
+### Câu 4
+
+Khi không thấy ray trúng mục tiêu, yếu tố nào cần kiểm tra?
+
+A. Tên file scene  
+B. Collider, LayerMask, khoảng cách và hướng  
+C. Màu ambient  
+D. Số lượng script trong project  
+
+**Đáp án:** B. **Giải thích:** Những tham số này trực tiếp quyết định kết quả Physics.Raycast.
+
+### Câu 5
+
+Khi input action dùng chung cho hai tay, cần bổ sung gì?
+
+A. Ánh sáng baking  
+B. Thêm skybox  
+C. Điều kiện scanner đang được cầm/active  
+D. Một máy quét thứ ba  
+
+**Đáp án:** C. **Giải thích:** Giúp ngăn nhấn tay không cầm máy mà vẫn kích hoạt quét.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Tên mục học và phiên bản đối chiếu theo danh mục Unity 6.3; thao tác và kết quả có thể thay đổi khi package được cập nhật.

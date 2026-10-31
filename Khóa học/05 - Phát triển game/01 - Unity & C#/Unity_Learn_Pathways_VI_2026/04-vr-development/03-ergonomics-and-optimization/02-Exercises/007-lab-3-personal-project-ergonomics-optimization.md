@@ -1,83 +1,166 @@
+# Bài 07 — Lab: Cải thiện ergonomics và optimization cho dự án VR cá nhân
+
+> **Dạng bài:** Lab thực hành · **Học phần:** Ergonomics and Optimization · **Ngữ cảnh:** Unity 6.3
+>
+> **Đầu ra:** Một phiên bản scene/bản build có thử nghiệm về comfort và hiệu năng, bảng đo và minh chứng cải tiến.
+
+## 1. Tổng quan bài lab
+
+Một scene VR có thể tương tác đúng nhưng vẫn khiến người dùng khó tiếp cận vật thể hoặc cảm thấy hình ảnh giật. Bài lab này yêu cầu **chọn một luồng sử dụng thực tế** trong dự án cá nhân, thiết lập baseline rồi thực hiện thay đổi có thể kiểm chứng. Không cần bổ sung nhiều tính năng mới: chỉ cần làm tốt một tương tác và thể hiện quá trình cải tiến.
+
+## 2. Mục tiêu
+
+- Kiểm tra hoạt động của XR Origin, input action, interactor và interactable.
+- Tìm ít nhất một vấn đề về vùng chạm, cách di chuyển hoặc phản hồi.
+- Ghi phép đo hiệu năng và phân biệt giữa lỗi logic với hiện tượng giật.
+- Đề xuất, áp dụng và kiểm chứng ít nhất một thay đổi.
+- Nộp scene/bản build, báo cáo trước/sau và minh chứng.
+
+## 3. Chuẩn bị
+
+Cần một project Unity VR đang chạy hoặc một scene tối giản tự tạo; các thành phần XR tương thích project; Console/Profiler và thiết bị đích nếu có. Tạo bản sao/commit trước khi thay đổi. Chuẩn bị chỗ lưu ảnh màn hình, video, bản build và bảng kiểm thử.
+
+**Ví dụ luồng dùng để đánh giá:** người dùng đi đến bàn, nhắm ray interactor vào vật, chọn vật rồi nhận phản hồi. Nếu dự án khác, thay bằng thao tác chính của project nhưng giữ nguyên phương pháp đo và đối chiếu.
+
+## 4. Quy trình thực hành
+
+### 4.1. Checkpoint A — Kiểm tra chức năng
+
+1. Mở scene và xác nhận `XR Origin` cùng input actions hoạt động.
+2. Kiểm tra mục tiêu tương tác có thể được chọn bằng direct/ray interactor phù hợp.
+3. Thử bước di chuyển, đặc biệt nếu dùng teleportation; xác nhận điểm đến hợp lệ.
+4. Ghi một ảnh/video và mô tả thao tác có thể tái hiện.
+
+**Điều kiện qua checkpoint:** hoàn thành được một tác vụ tương tác không phụ thuộc vào những bước chưa rõ.
+
+### 4.2. Checkpoint B — Đánh giá comfort
+
+1. Xác định vật hoặc bảng giao diện khó với tới/khó quan sát.
+2. Chọn một điều chỉnh, ví dụ chuyển vị trí vật, thay khoảng cách tiếp cận hoặc cải thiện tín hiệu phản hồi.
+3. Thử cùng tình huống ở hai cấu hình; mô tả khác biệt quan sát được.
+4. Ghi nhận nếu thay đổi gây ra vấn đề mới cho tương tác.
+
+**Điều kiện qua checkpoint:** chứng minh được thay đổi có mục đích và không làm mất thao tác cơ bản.
+
+### 4.3. Checkpoint C — Đánh giá hiệu năng
+
+1. Ghi điều kiện kiểm thử và tạo baseline trước khi tối ưu.
+2. Mở Console và Profiler, đo CPU/GPU/frame time hoặc dữ liệu phù hợp với thiết bị.
+3. Tìm giả thuyết nguyên nhân nếu có hiện tượng lag; xem xét chi phí render, ánh sáng hoặc logic dựa trên số đo.
+4. Chỉ chỉnh một yếu tố, chạy lại cùng thao tác và so sánh kết quả.
+
+**Điều kiện qua checkpoint:** có phép đo trước/sau và kết luận dựa trên dữ liệu, kể cả khi kết quả chưa cải thiện.
+
+### 4.4. Checkpoint D — Bản build và hồ sơ
+
+1. Đưa scene vào cấu hình build; chọn nền tảng đích phù hợp.
+2. Chạy bản build và đi qua toàn bộ luồng tương tác.
+3. Ghi video/ảnh thao tác, kết quả phép đo và lỗi còn tồn tại.
+4. Chuẩn bị README cho người khác chạy lại thử nghiệm.
+
+**Điều kiện qua checkpoint:** người nhận có thể kiểm tra lại ít nhất một tác vụ theo mô tả.
+
+## 5. Sơ đồ quy trình cải tiến
+
+```mermaid
+flowchart LR
+    A[Baseline] --> B[Quan sát trải nghiệm]
+    B --> C[Chọn một vấn đề]
+    C --> D[Thay đổi có kiểm soát]
+    D --> E[Đo và thử lại]
+    E --> F[Đánh giá tác dụng phụ]
+    F --> G[Ghi hồ sơ và build]
+```
+
+**Giải thích:** Mỗi thay đổi phải có đường dẫn từ vấn đề ban đầu tới bằng chứng kiểm chứng. Không có baseline sẽ rất khó nói rằng kết quả tốt hơn.
+
+## 6. Mẫu báo cáo và bàn giao
+
+| Hạng mục | Baseline | Sau thay đổi | Bằng chứng |
+|---|---|---|---|
+| Khả năng chọn vật | *Điền* | *Điền* | Video/ảnh |
+| Comfort/tiếp cận | *Điền* | *Điền* | Ghi chú kiểm thử |
+| Frame time | *Điền số đo* | *Điền số đo* | Profiler |
+| Lỗi Console | *Điền* | *Điền* | Log |
+| Vấn đề còn lại | *Điền* | *Điền* | Mô tả tái hiện |
+
+**Deliverables:** project hoặc scene/bản build; README; bảng so sánh trước/sau; ít nhất một ảnh/video; mô tả ít nhất một lỗi và cách khắc phục; ghi chép quyết định cuối cùng.
+
+## 7. Gỡ lỗi và kiểm tra kết quả
+
+Nếu không thể tương tác, xem input actions, interactor, interactable và collider. Nếu bản build khác Editor, rà lại tài nguyên, nền tảng và XR runtime. Nếu thấy lag, xác định CPU/GPU/memory trước khi thay đổi đồ họa. Với từng lỗi: tái hiện → kiểm tra Console/Inspector/Profiler → sửa một nguyên nhân → chạy lại → ghi bằng chứng.
+
+## 8. Checklist hoàn thành
+
+- [ ] Tạo baseline có thể lặp lại.
+- [ ] Đã kiểm tra tương tác chính trong scene.
+- [ ] Đã thử cải thiện comfort hoặc khả năng tiếp cận.
+- [ ] Có số đo hoặc bằng chứng hiệu năng.
+- [ ] Có ít nhất một thay đổi và so sánh trước/sau.
+- [ ] Có scene/bản build và README có thể bàn giao.
+
+## 9. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Mục đích của baseline trong lab là gì?
+
+A. Làm mốc để so sánh thay đổi  
+B. Thay thế build  
+C. Xóa yêu cầu kiểm thử  
+D. Bỏ input actions  
+
+**Đáp án:** A  
+**Giải thích:** Baseline giữ trạng thái ban đầu để chứng minh tác dụng của cải tiến.
+
+### Câu 2
+
+Checkpoint nào tập trung vào xác nhận chọn vật được?
+
+A. Checkpoint D  
+B. Checkpoint A  
+C. Checkpoint C  
+D. Phần README  
+
+**Đáp án:** B  
+**Giải thích:** Checkpoint A kiểm tra hoạt động chức năng cơ bản.
+
+### Câu 3
+
+Nếu thay đổi để giảm lag, nên đo lại thế nào?
+
+A. Thay nhiều yếu tố cùng lúc  
+B. Chỉ chạy trong Scene view  
+C. Dùng đường thử khác hoàn toàn  
+D. Cùng điều kiện và chỉ một thay đổi  
+
+**Đáp án:** D  
+**Giải thích:** Phép so sánh có ý nghĩa khi giữ điều kiện tương đương.
+
+### Câu 4
+
+Một vật khó chạm trong tư thế ngồi thuộc nhóm vấn đề nào?
+
+A. Tên asset  
+B. Build metadata  
+C. Comfort/accessibility  
+D. Ánh sáng phản xạ  
+
+**Đáp án:** C  
+**Giải thích:** Vị trí và tầm chạm là điều kiện sử dụng thực tế.
+
+### Câu 5
+
+Deliverable phù hợp nhất của lab gồm gì?
+
+A. Scene/build, README, bằng chứng và so sánh trước/sau  
+B. Chỉ ảnh Inspector  
+C. Chỉ bảng thuật ngữ  
+D. Chỉ ý tưởng chưa chạy  
+
+**Đáp án:** A  
+**Giải thích:** Lab cần sản phẩm có thể kiểm chứng cùng hồ sơ cải tiến.
+
 ---
-title: "Lab 3 - Personal Project Ergonomics & Optimization"
-pathway: "VR Development"
-module: "Ergonomics and Optimization"
-lesson_number: 7
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
 
-# Bài 07 — Lab 3 - Personal Project Ergonomics & Optimization
-
-> **Pathway:** VR Development · **Mission:** Ergonomics and Optimization · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Ergonomics and Optimization trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
-
-## 1. Tổng quan
-
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Ergonomics and Optimization*, bài **Lab 3 - Personal Project Ergonomics & Optimization** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
-
-## 2. Mục tiêu học tập
-
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
-
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Lab 3 - Personal Project Ergonomics & Optimization** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
-
-**Tiêu chí nghiệm thu:**
-
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
-
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Ergonomics and Optimization](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Tài liệu học tập tự biên soạn dựa trên đề mục của Unity Learn; không phải bản dịch hoặc transcript chính thức. Đối chiếu nội dung và tài nguyên thực hành tại [Unity Learn — Ergonomics and Optimization](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3). Tên menu và package có thể thay đổi theo phiên bản project.*

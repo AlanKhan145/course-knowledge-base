@@ -1,78 +1,139 @@
----
-title: "Set up the scanner"
-pathway: "VR Development"
-module: "Custom VR Development"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 03 — Thiết lập công cụ quét vật thể trong VR
 
-# Bài 03 — Set up the scanner
-
-> **Pathway:** VR Development · **Mission:** Custom VR Development · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Custom VR Development trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** VR Development · **Học phần:** Custom VR Development · **Nền tảng:** Unity 6.3 · **Dạng:** tutorial.
+>
+> **Lưu ý:** Các quy trình và mã bên dưới là ví dụ thực hành độc lập, không phải bản chép nguyên văn hướng dẫn hay đề kiểm tra chính thức của Unity. Cần đối chiếu tài nguyên scene, prefab và phiên bản package trong dự án thực tế.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Custom VR Development*, bài **Set up the scanner** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Một **scanner** (máy quét) trong VR có thể được thiết kế như thiết bị cầm tay phát tia về phía trước. Bài tập này tập trung xây dựng đúng cấu trúc GameObject và hệ tham chiếu trước khi viết logic dò tia. Ví dụ minh họa dùng `Physics.Raycast`; đó là một lựa chọn triển khai, không phải cấu trúc bắt buộc của mọi bộ công cụ XR.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Set up the scanner** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Tạo prefab scanner có thể nhặt bằng hệ tương tác XR.
+- Cấu hình đầu phát tia, collider và layer của mục tiêu.
+- Xác minh hướng và phạm vi quét trong Play Mode.
 
-## 3. Kiến thức trọng tâm
+## 3. Thiết kế cấu trúc thiết bị
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+```text
+Scanner (gốc, XR Grab Interactable, Collider, Rigidbody)
+├── Body (Mesh Renderer)
+├── Muzzle (Transform xác định hướng tia)
+├── Beam (Line Renderer, tùy chọn)
+└── Feedback (đèn/trạng thái, tùy chọn)
+```
 
-### Thuật ngữ và mối quan hệ
+`Muzzle` là một Transform rỗng nằm ở đầu máy quét. Hướng **trục Z dương** của nó thường dùng làm hướng tia qua `muzzle.forward`; cần nhìn gizmo local axes để bảo đảm tia không bắn ngược.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Chuẩn bị mục tiêu và lớp va chạm
 
-## 4. Thực hành từng bước
+| Đối tượng | Component tối thiểu | Vai trò |
+|---|---|---|
+| Scanner | `Collider`, `Rigidbody`, component Grab phù hợp | Cầm và di chuyển |
+| Muzzle | `Transform` | Điểm xuất phát, hướng quét |
+| Mục tiêu | `Collider` | Nhận `Physics.Raycast` |
+| Phản hồi | Mesh/Light/Canvas | Hiển thị hit hoặc miss |
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+Nếu chỉ muốn quét một nhóm đối tượng, tạo Physics Layer riêng (ví dụ `Scannable`) và thiết lập `LayerMask`. Không nhầm với Interaction Layer Mask của XR Interaction Toolkit.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Các bước trong Unity
 
-## 5. Bài tập củng cố
+1. Tạo GameObject `Scanner` và thêm hình dạng đơn giản để dễ nhìn.
+2. Gắn Collider phù hợp với thân thiết bị, cùng Rigidbody nếu cơ chế Grab yêu cầu.
+3. Thêm `XR Grab Interactable` (hoặc thành phần tương ứng trong phiên bản XR của dự án), thử cầm và thả.
+4. Tạo GameObject con `Muzzle`; kéo đến đầu nòng và xoay để local Z hướng ra trước.
+5. Tạo vật thể mục tiêu có Collider. Kiểm tra Layer và khoảng cách từ scanner đến vật thể.
+6. Nếu dùng `Line Renderer`, đặt hai điểm đầu/cuối để nhìn được đường quét; chiều dài, vật liệu và độ rộng là giá trị thử nghiệm, không có một mức cố định cho mọi thiết bị.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Custom VR Development** để tạo một tương tác nhỏ.
+## 6. Kiểm tra hướng tia trước khi lập trình
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Trong script điều khiển, đoạn ngắn sau cho phép nhìn tia trong Scene view khi Play Mode:
 
-## 6. Lỗi thường gặp và cách kiểm tra
+```csharp
+using UnityEngine;
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+public class ScannerDirectionDebug : MonoBehaviour
+{
+    [SerializeField] private Transform muzzle;
+    [SerializeField, Min(0.1f)] private float range = 5f;
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+    private void Update()
+    {
+        if (muzzle != null)
+            Debug.DrawRay(muzzle.position, muzzle.forward * range, Color.cyan);
+    }
+}
+```
 
-## 7. Checklist hoàn thành
+`Debug.DrawRay` hiển thị trong Scene view (và Game view khi cấu hình gizmo cho phép); nó **không phải** hiệu ứng laser hiện cho người chơi trên HMD. Muốn có laser thực tế, dùng `Line Renderer` hoặc VFX.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 7. Lỗi thường gặp và tiêu chí hoàn thành
+
+- **Quét ngược:** trục Z của `Muzzle` quay sai.
+- **Máy quét xuyên tay hoặc rơi bất thường:** kiểm tra Rigidbody/Collider và chính sách movement của Grab.
+- **Không hit đối tượng:** Collider thiếu, layer bị loại hoặc range quá ngắn.
+- **Tia hiện trong Scene view nhưng mất trên HMD:** `Debug.DrawRay` chỉ phục vụ debug.
+
+**Checkpoint:** Nhặt được thiết bị, hướng đầu quét chính xác vào ba mục tiêu khác nhau, nhìn thấy tia debug đúng chiều và phân biệt rõ các Physics Layer.
+
+## 8. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+`muzzle.forward` biểu diễn gì?
+
+A. Hướng local Z dương trong hệ tọa độ thế giới  
+B. Vị trí của Muzzle  
+C. Tốc độ tia  
+D. Kích thước Collider  
+
+**Đáp án:** A. **Giải thích:** Transform.forward cung cấp vector hướng dựa trên trục Z của Transform.
+
+### Câu 2
+
+Vì sao mục tiêu cần Collider nếu dùng `Physics.Raycast`?
+
+A. Để hoạt ảnh chạy  
+B. Để hệ vật lý phát hiện điểm hit  
+C. Để tăng FPS  
+D. Để XR Origin di chuyển  
+
+**Đáp án:** B. **Giải thích:** Raycast truy vấn các collider trong cảnh.
+
+### Câu 3
+
+Cách nào biến tia debug thành đường quét hiển thị trên HMD?
+
+A. Tăng brightness  
+B. Đổi tag  
+C. Đổi camera FOV  
+D. Dùng Line Renderer hoặc hiệu ứng render phù hợp  
+
+**Đáp án:** D. **Giải thích:** Debug.DrawRay chỉ là công cụ quan sát trong Editor.
+
+### Câu 4
+
+Scanner đã cầm được nhưng tia bắn lệch, nên xem gì?
+
+A. File README  
+B. Mức âm lượng  
+C. Vị trí/hướng của Muzzle  
+D. Tên vật liệu  
+
+**Đáp án:** C. **Giải thích:** Điểm xuất phát và phương quét do Transform Muzzle quyết định.
+
+### Câu 5
+
+Physics Layer Mask trong scanner nhằm mục đích gì?
+
+A. Điều khiển FPS  
+B. Giới hạn nhóm Collider mà ray có thể phát hiện  
+C. Lưu mật mã  
+D. Điều khiển haptic  
+
+**Đáp án:** B. **Giải thích:** LayerMask lọc hit của truy vấn vật lý.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Tên mục học và phiên bản đối chiếu theo danh mục Unity 6.3; thao tác và kết quả có thể thay đổi khi package được cập nhật.

@@ -1,81 +1,144 @@
 ---
-title: "Mission 2 Quiz - VR Events & Interactions"
+title: "Mission 2 — Bộ câu hỏi ôn tập Events & Interactions"
 pathway: "VR Development"
 module: "Events and Interactions"
-lesson_number: 8
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+lesson_type: assessment
+unity_version_reference: "6.3"
 ---
 
-# Bài 08 — Mission 2 Quiz - VR Events & Interactions
+# Mission 2 — Kiểm tra kiến thức VR Events & Interactions
 
-> **Pathway:** VR Development · **Mission:** Events and Interactions · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+## 1. Hướng dẫn
 
-> **Nguồn đối chiếu:** [Events and Interactions trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bộ câu hỏi dưới đây được **tự biên soạn để luyện tập**, không phải bản sao bài kiểm tra chính thức trên Unity Learn. Phạm vi gồm: âm thanh/haptics, activation events, direct/ray interactor, UI, thực hành vẽ 3D, phần cứng XR và phương pháp kiểm thử.
 
-## 1. Tổng quan
+Hãy đọc từng tình huống, chọn **một đáp án phù hợp nhất**. Không xem lại nội dung học ngay ở lượt đầu; sau đó tự kiểm tra từng câu bằng cách giải thích khái niệm và đưa ra ví dụ có thể chạy trong Unity Editor.
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Events and Interactions*, bài **Mission 2 Quiz - VR Events & Interactions** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Bản đồ nội dung đánh giá
 
-## 2. Mục tiêu học tập
+| Nhóm | Kỹ năng được kiểm tra |
+| --- | --- |
+| Audio & Haptics | Chọn đúng nguồn âm, âm 2D/3D và phản hồi |
+| Activation Events | Phân biệt chọn vật và kích hoạt chức năng |
+| Near/Far/Ray | Xác định interactor phù hợp và khoanh vùng lỗi |
+| UI | Luồng sự kiện button → trạng thái → hiển thị |
+| 3D Painting | Trạng thái vẽ và cập nhật các điểm của nét |
+| XR Hardware | Kiểm thử phần cứng thực, input và hiệu năng |
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Trắc nghiệm tình huống
 
-## 3. Kiến thức trọng tâm
+**Câu 1.** Một vật ở xa trong VR phát ra âm thanh. Người chơi đến gần vật và nghe âm lớn hơn. Thiết lập nào giải thích hiện tượng này hợp lý nhất?
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+A. Âm thanh luôn được đặt 2D.  
+B. `Audio Source` sử dụng thành phần âm 3D và suy giảm theo khoảng cách.  
+C. `EventSystem` tự điều chỉnh âm lượng.  
+D. `Canvas Scaler` điều khiển khoảng cách âm.
 
-### Thuật ngữ và mối quan hệ
+**Câu 2.** Người chơi cầm remote lên, nhưng đèn chỉ nên bật khi họ bấm lệnh kích hoạt. Nên nối phương thức điều khiển đèn vào đâu?
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+A. Sự kiện hover.  
+B. Sự kiện bắt đầu scene.  
+C. Sự kiện `Activate` phù hợp.  
+D. Sự kiện kết thúc tải texture.
 
-## 4. Thực hành từng bước
+**Câu 3.** Ray hiển thị và chạm vào một khối hộp, nhưng không chọn được khối. Thành phần nào cần kiểm tra?
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+A. Collider, interactable, cấu hình interactor và input.  
+B. Chỉ màu của skybox.  
+C. Chỉ âm lượng nền.  
+D. Chỉ cỡ chữ UI.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+**Câu 4.** Một chiếc đèn pin ảo cần vùng sáng hình nón có hướng. Nguồn sáng nào phù hợp?
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+A. `Reflection Probe`.  
+B. `Audio Listener`.  
+C. `Directional Light` cho mọi trường hợp.  
+D. `Spot Light`.
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **tương tác và hiệu năng ứng dụng vr**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+**Câu 5.** Vì sao một menu VR có thể hoạt động với chuột trong Editor nhưng không chọn được bằng controller?
 
-### Gợi ý tự chấm
+A. Vì mọi UI đều vô hiệu trên HMD.  
+B. Vì cần kiểm tra input module và raycast UI phù hợp với hệ XR.  
+C. Vì TextMeshPro không hỗ trợ VR.  
+D. Vì Button không có sự kiện.
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+**Câu 6.** Hệ thống điểm trong trò chơi nên được tổ chức thế nào?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+A. Lưu trạng thái điểm và cập nhật nhãn hiển thị khi điểm thay đổi.  
+B. Chỉ viết một chuỗi điểm cố định trên Canvas.  
+C. Xóa toàn bộ Text khi có tương tác.  
+D. Để nguồn sáng điều khiển số điểm.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+**Câu 7.** Trong thử thách vẽ 3D, điều gì ngăn bút tạo nét ngoài ý muốn khi người chơi chỉ di chuyển tay?
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. Tăng độ sáng phòng.  
+B. Thêm nhiều âm thanh.  
+C. Quản lý rõ trạng thái sẵn sàng và đang vẽ.  
+D. Tắt hệ tracking.
 
-## 7. Checklist hoàn thành
+**Câu 8.** Nét vẽ mới bị nối vào nét trước. Cần kiểm tra điều gì trước tiên?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Events and Interactions](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. `Audio Listener`.  
+B. Độ phân giải skybox.  
+C. Cường độ Point Light.  
+D. Việc tạo hoặc reset cấu trúc nét tại thao tác bắt đầu mới.
 
----
+**Câu 9.** Scene chạy mượt trong Editor nhưng giật trên HMD. Cách tiếp cận nào phù hợp?
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+A. Kết luận lỗi không quan trọng.  
+B. Đo và profile trên thiết bị đích, xem các tác vụ render và logic tốn chi phí.  
+C. Chỉ đổi tên scene.  
+D. Tắt toàn bộ kiểm thử.
+
+**Câu 10.** Trong luồng interactor–interactable, bộ điều phối có nhiệm vụ gì?
+
+A. Quản lý các quan hệ tương tác được thiết lập.  
+B. Thay thế hoàn toàn camera.  
+C. Phát mọi AudioClip tự động.  
+D. Dựng lightmap.
+
+**Câu 11.** Âm thanh không phát, nhưng sự kiện gameplay đã được gọi. Bước điều tra hợp lý nhất là gì?
+
+A. Đổi locomotion ngay.  
+B. Xóa tất cả collider.  
+C. Kiểm tra `AudioClip`, `Audio Source`, `Audio Listener` và cấu hình âm.  
+D. Xóa Canvas.
+
+**Câu 12.** Một công cụ rung tay cầm hoạt động trên thiết bị thử A nhưng không hoạt động trên B. Kết luận nào phù hợp?
+
+A. Mọi thiết bị luôn phải có phản hồi rung như nhau.  
+B. Chỉ cần đổi màu đối tượng.  
+C. Haptics không liên quan đến thiết bị.  
+D. Cần kiểm tra hỗ trợ haptics và input/runtime của từng thiết bị.
+
+## 4. Tình huống ngắn và thực hành
+
+### 4.1. Phân tích lỗi tương tác
+
+Một remote chỉ bật được đèn khi nhặt lên rồi thả xuống, trong khi nhấn nút kích hoạt không có tác dụng. Hãy mô tả tối thiểu ba bước kiểm tra, theo thứ tự từ **input**, **sự kiện** đến **hàm xử lý**. Nêu một cách chứng minh lỗi đã được sửa.
+
+### 4.2. Thiết kế phản hồi
+
+Bạn thiết kế một vật ảo có thể được chọn bằng ray. Hãy đề xuất phản hồi dành cho ba trạng thái: vật đang được trỏ tới, vật đã được chọn và hành động kích hoạt đã thành công. Mỗi phản hồi cần tương ứng đúng sự kiện.
+
+### 4.3. Kiểm thử trên thiết bị XR
+
+Một scene UI và tương tác chạy bình thường trên máy tính. Hãy lập danh sách kiểm thử tối thiểu năm mục trước khi trình diễn trên HMD: tracking, input, lựa chọn vật, âm thanh/UI và hiệu năng.
+
+## 5. Thang tự đánh giá
+
+Với 12 câu trắc nghiệm, tính **1 điểm cho mỗi câu chọn đúng** sau khi đối chiếu kiến thức đã học. Với ba tình huống thực hành, tự đánh giá theo ba yếu tố: **khái niệm đúng**, **lý do đúng**, **cách kiểm chứng cụ thể**. Để kiểm tra sâu hơn, hãy thực hiện ít nhất một tình huống trong scene Unity nhỏ thay vì chỉ trả lời bằng lời.
+
+Bộ câu hỏi chủ yếu phục vụ tự luyện, vì vậy không sử dụng điểm này thay cho kết quả đánh giá chính thức của khóa học.
+
+## 6. Checklist trước khi kết thúc module
+
+- [ ] Giải thích được sự khác biệt giữa âm 2D và âm 3D.
+- [ ] Phân biệt được hành động chọn vật với kích hoạt chức năng.
+- [ ] Chọn được direct hoặc ray interactor cho từng tình huống.
+- [ ] Mô tả được luồng UI từ input đến trạng thái và phần hiển thị.
+- [ ] Biết tổ chức trạng thái bắt đầu/kết thúc trong thử thách vẽ 3D.
+- [ ] Nêu được lý do phải đo hiệu năng và input trên HMD thực.
+- [ ] Có khả năng tái hiện, giải thích và sửa một lỗi tương tác.
+
+**Tham khảo:** [Unity Learn — Events and Interactions](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3). Bài trên đây là bài ôn luyện độc lập, không phải quiz chính thức.

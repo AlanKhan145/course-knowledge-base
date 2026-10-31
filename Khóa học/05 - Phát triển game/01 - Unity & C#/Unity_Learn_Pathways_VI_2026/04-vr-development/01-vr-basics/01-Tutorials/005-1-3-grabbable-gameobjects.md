@@ -1,78 +1,160 @@
 ---
-title: "1.3 - Grabbable GameObjects"
+title: "1.3 — Vật thể có thể cầm nắm trong VR"
 pathway: "VR Development"
 module: "VR Basics"
 lesson_number: 5
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+content_type: "Bài học tiếng Việt tự biên soạn"
+unity_version_reference: "6.3"
+lesson_kind: "lesson"
 ---
 
-# Bài 05 — 1.3 - Grabbable GameObjects
-
-> **Pathway:** VR Development · **Mission:** VR Basics · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [VR Basics trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Bài 05 — 1.3 — Vật thể có thể cầm nắm trong VR
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *VR Basics*, bài **1.3 - Grabbable GameObjects** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Một đồ vật chỉ trở thành đối tượng cầm nắm khi có cơ chế phát hiện tiếp xúc, nhận lệnh chọn, gắn theo tay và nhả đúng lúc. Bài này tập trung vào quan hệ giữa Interactor và Interactable trong XR Interaction Toolkit.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **1.3 - Grabbable GameObjects** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Phân biệt được Interactor, Interactable và Collider.
+- Cấu hình một GameObject thử nghiệm để chọn, cầm, di chuyển và thả.
+- Xác định được nguyên nhân thường gặp khi vật thể nhìn thấy nhưng không thể cầm.
 
-## 3. Kiến thức trọng tâm
+## 3. Mô hình tương tác cầm nắm
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+**Interactor** là phía khởi tạo thao tác, chẳng hạn tay ảo hoặc tia. **Interactable** là đối tượng tiếp nhận thao tác. **Collider** quy định hình dạng tương tác/va chạm; tùy cách cấu hình vật thể cầm nắm, **Rigidbody** xử lý các thuộc tính vật lý như trọng lực và chuyển động. XR Interaction Toolkit kết nối chúng qua lớp điều phối tương tác.
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+sequenceDiagram
+    participant U as Người dùng
+    participant I as Interactor
+    participant M as Hệ điều phối
+    participant O as Grab Interactable
+    U->>I: Bóp nút chọn
+    I->>M: Yêu cầu chọn vật
+    M->>O: Bắt đầu chọn
+    O-->>U: Vật theo tay
+    U->>I: Nhả nút
+    I->>M: Kết thúc chọn
+    M->>O: Thả vật
+```
 
-| Khái niệm | Vai trò trong bài |
+Sơ đồ phân biệt *nguồn kích hoạt* và *đối tượng nhận tương tác*. Điều này hữu ích khi nhiều vật thể và nhiều tay cùng tồn tại trong scene.
+
+## 4. Tạo một khối có thể cầm
+
+1. Tạo sàn và khối lập phương tại vị trí trong tầm với.
+2. Đảm bảo khối có **Collider** với kích thước phù hợp. Nếu cần mô phỏng thả/rơi, kiểm tra **Rigidbody** và cấu hình vật lý.
+3. Gắn thành phần **Grab Interactable** tương ứng phiên bản XR Interaction Toolkit đang dùng.
+4. Cấu hình XR Origin, tay trực tiếp hoặc ray interactor và ánh xạ hành động **Select**.
+5. Play mode: hướng tay vào khối, chọn, di chuyển tay rồi nhả. Ghi lại quỹ đạo vật và phản hồi sau khi nhả.
+
+**Checkpoint:** Khối không bị biến mất, không lệch quá xa khỏi tay, nhận được lệnh chọn và không còn bị giữ sau khi nhả. Nếu muốn vật có điểm cầm xác định, có thể bố trí vị trí gắn (attach point) phù hợp trong Inspector.
+
+## 5. Đọc trạng thái và xử lý lỗi
+
+| Hiện tượng | Khả năng cần kiểm tra |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Tay đi qua vật nhưng không nhặt | Collider, Interactable, tương thích Interactor |
+| Không có phản hồi khi bóp nút | Input Actions chưa ánh xạ/kích hoạt |
+| Vật giật, văng bất thường | Rigidbody, cấu hình chuyển động, xung đột với script khác |
+| Vật không nhả | Trạng thái select, logic input, tham chiếu Interactor |
+| Chỉ nhặt được bằng tia | Kiểm tra Direct Interactor và vùng va chạm |
 
-## 4. Thực hành từng bước
+Hãy xem **Inspector**, **Console** và cấu trúc GameObject trước khi chỉnh toàn bộ cài đặt XR. Thử đổi một thành phần mỗi lần để biết chính xác thay đổi nào giải quyết lỗi.
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+## 6. Bài thực hành mở rộng
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Tạo hai vật: một vật nhẹ và một vật cần đặt đúng vào kệ. Thử cùng một cấu hình Grab Interactable nhưng thay kích thước collider hoặc vị trí attach, sau đó dự đoán ảnh hưởng tới cảm giác cầm. Nếu thử cả Interactor trực tiếp lẫn tia, ghi lại kiểu tương tác phù hợp nhất với vật ở gần và xa.
 
-## 5. Bài tập củng cố
+Trong bản ghi thử nghiệm, nêu: (a) điều kiện để chọn được vật, (b) hành vi trong lúc giữ, (c) hành vi sau khi thả, (d) lỗi đã gặp và cách xác nhận đã sửa.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VR Basics** để tạo một tương tác nhỏ.
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+### Câu 1
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Đối tượng nào thường phát sinh yêu cầu chọn vật?
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. Interactor  
 
-## 7. Checklist hoàn thành
+B. Scene  
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+C. Package Manager  
+
+D. Main Camera đơn thuần  
+
+
+**Đáp án:** A. **Giải thích:** Interactor là phía phát lệnh tương tác.
+
+### Câu 2
+
+Vai trò chính của Interactable là gì?
+
+
+A. Quản lý phiên bản Editor  
+
+B. Phản hồi khi được tương tác  
+
+C. Vẽ mọi UI trong game  
+
+D. Thay thế toàn bộ input  
+
+
+**Đáp án:** B. **Giải thích:** Interactable là phía nhận và xử lý tương tác.
+
+### Câu 3
+
+Không cầm được khối dù nhìn thấy: kiểm tra nào phù hợp?
+
+
+A. Chỉ đổi skybox  
+
+B. Xóa nền cảnh  
+
+C. Collider, Interactable và Select input  
+
+D. Tăng chất lượng shadow  
+
+
+**Đáp án:** C. **Giải thích:** Tương tác yêu cầu vùng nhận diện, thành phần tương tác và input hợp lệ.
+
+### Câu 4
+
+Lý do xem Rigidbody khi vật bị văng sau khi thả?
+
+
+A. Rigidbody quản lý font chữ  
+
+B. Rigidbody chỉ xử lý ánh sáng  
+
+C. Rigidbody làm thay nhiệm vụ của Hub  
+
+D. Rigidbody liên quan chuyển động vật lý  
+
+
+**Đáp án:** D. **Giải thích:** Thiết lập vật lý có thể ảnh hưởng vận tốc và tương tác khi nhả.
+
+### Câu 5
+
+Vì sao thử hai kiểu Interactor gần và xa?
+
+
+A. Để so sánh cách chọn và giới hạn phạm vi  
+
+B. Để tăng kích thước file  
+
+C. Để bỏ kiểm tra input  
+
+D. Để tắt collider  
+
+
+**Đáp án:** A. **Giải thích:** Cách tương tác phụ thuộc vị trí và kiểu nguồn chọn.
+
+## 8. Tổng kết
+
+Một vật cầm nắm hoạt động khi **input chọn → Interactor → Interactable → phản hồi cầm/nhả** được nối đúng. Đừng đánh giá tính năng chỉ qua việc nhìn thấy vật trong scene.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Học liệu đối chiếu:** [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Các ví dụ và bài tập là nội dung học tập tự biên soạn, không phải bài kiểm tra hoặc transcript chính thức.

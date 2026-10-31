@@ -1,78 +1,167 @@
----
-title: "Escape Room project overview"
-pathway: "VR Development"
-module: "Custom VR Development"
-lesson_number: 6
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 06 — Tổng quan dự án Escape Room VR
 
-# Bài 06 — Escape Room project overview
-
-> **Pathway:** VR Development · **Mission:** Custom VR Development · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Custom VR Development trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** VR Development · **Học phần:** Custom VR Development · **Nền tảng:** Unity 6.3 · **Dạng:** tutorial.
+>
+> **Lưu ý:** Các quy trình và mã bên dưới là ví dụ thực hành độc lập, không phải bản chép nguyên văn hướng dẫn hay đề kiểm tra chính thức của Unity. Cần đối chiếu tài nguyên scene, prefab và phiên bản package trong dự án thực tế.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Camera và bố cục hình ảnh. Trong ngữ cảnh *Custom VR Development*, bài **Escape Room project overview** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+**Escape Room VR** là bài toán tổ hợp nhiều tương tác đơn lẻ thành một hệ thống câu đố có tiến độ: tìm mã, nhập mã bằng bảng số, tìm thẻ chìa khóa, xác thực tại đầu đọc và mở cửa trượt. Thử thách chính là **định nghĩa điều kiện mở khóa và phối hợp giữa các module** mà không làm chúng phụ thuộc quá chặt vào nhau.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **camera và bố cục hình ảnh** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Escape Room project overview** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Mô tả vòng chơi và điều kiện thắng rõ ràng.
+- Tách Number Pad, Keycard Reader, Sliding Door và bộ điều phối trạng thái.
+- Xây dựng kịch bản kiểm thử cho trường hợp đúng/sai và tương tác lặp lại.
 
-## 3. Kiến thức trọng tâm
+## 3. Kịch bản phòng thoát hiểm tối thiểu
 
-- Camera xác định góc nhìn trong Game view; Perspective và Orthographic dùng cho mục đích khác nhau.
-- Framing, field of view, culling mask và clipping planes quyết định phần nội dung được nhìn thấy.
-- Camera theo nhân vật nên được cập nhật theo nhịp phù hợp để giảm rung, đặc biệt khi nhân vật dùng physics.
+Người chơi bắt đầu trong một phòng khóa. Họ phải đọc gợi ý tìm **mã số**, nhập mã vào bảng điều khiển và tìm **keycard** đặt đúng vào đầu đọc. Cửa chỉ mở khi cả hai điều kiện đã đạt. Có thể thay đổi thứ tự hai nhiệm vụ, nhưng kết quả phải nhất quán.
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+flowchart TD
+    A[Người chơi trong phòng] --> B[Giải mã / nhập mã]
+    A --> C[Nhặt và quét keycard]
+    B --> D{Mã đúng?}
+    C --> E{Thẻ hợp lệ?}
+    D -- Có --> F[Đánh dấu codeValid]
+    E -- Có --> G[Đánh dấu cardValid]
+    F --> H{Cả hai điều kiện đạt?}
+    G --> H
+    H -- Có --> I[Mở Sliding Door]
+    H -- Không --> J[Giữ cửa đóng]
+```
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+Hai cơ chế gửi **sự kiện thành công**, không nên trực tiếp thay đổi Transform của cửa từ nhiều nơi. Bộ điều phối sẽ quyết định thời điểm mở.
 
-## 4. Thực hành từng bước
+## 4. Kiến trúc và trách nhiệm
 
-1. **Bước 1:** Chọn Main Camera và so sánh Perspective với Orthographic.
-2. **Bước 2:** Sắp xếp 3 đối tượng ở các khoảng cách khác nhau; thử Field of View và Near/Far Clip.
-3. **Bước 3:** Thử bố cục toàn, trung và cận cảnh cho cùng một chủ thể.
-4. **Bước 4:** Nếu camera bám đối tượng, chạy thử khi di chuyển và quan sát độ mượt của hình ảnh.
+| Module | Đầu vào | Kết quả |
+|---|---|---|
+| `NumberPad` | Chữ số, Xóa, Xác nhận | Event `codeAccepted` |
+| `KeycardReader` | Collider thẻ đi vào vùng đầu đọc | Event `cardAccepted` |
+| `EscapeRoomController` | Hai sự kiện hợp lệ | Gọi `SlidingDoor.Open()` |
+| `SlidingDoor` | Yêu cầu mở | Di chuyển cánh cửa |
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Đây là gợi ý kiến trúc, không phải tên bắt buộc của prefab chính thức. Một game nhỏ có thể nối UnityEvents trong Inspector; game lớn có thể tách event bus hoặc state machine.
 
-## 5. Bài tập củng cố
+## 5. Bố trí scene VR
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Custom VR Development** để tạo một tương tác nhỏ.
+1. Bố trí sàn, tường, cửa và lối đi có kích thước dễ nhận biết.
+2. Đặt Number Pad tại vùng dễ tiếp cận (tay với tới hoặc tia trỏ được), có chữ số rõ và feedback đủ tương phản.
+3. Đặt Keycard ở vị trí người chơi có thể quan sát, nhặt và đưa tới Reader mà không gây va chạm bất thường.
+4. Đặt Reader cạnh cửa. Đảm bảo Collider/Trigger đủ rộng để thao tác dễ dàng nhưng không tự kích hoạt khi thẻ ở xa.
+5. Định nghĩa cửa đóng là **trạng thái ban đầu**, cửa mở là **điều kiện hoàn thành**.
+6. Thử cả phương thức di chuyển phù hợp với người chơi: teleportation hoặc continuous movement có tùy chọn thoải mái.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 6. Quản lý trạng thái điều kiện
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Có thể biểu diễn trạng thái bằng hai biến Boolean:
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: camera không render đúng layer, clipping quá gần hoặc camera giật do cập nhật không đồng bộ.
+```csharp
+using UnityEngine;
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+public class EscapeRoomController : MonoBehaviour
+{
+    [SerializeField] private SlidingDoor door;
+    private bool codeValid;
+    private bool cardValid;
+    private bool opened;
 
-## 7. Checklist hoàn thành
+    public void AcceptCode() { codeValid = true; TryOpen(); }
+    public void AcceptCard() { cardValid = true; TryOpen(); }
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+    private void TryOpen()
+    {
+        if (opened || !codeValid || !cardValid || door == null) return;
+        opened = true;
+        door.Open();
+    }
+}
+```
+
+Script này hoạt động cùng class `SlidingDoor` được xây dựng trong bài cửa trượt. Gắn event thành công từ Number Pad và Card Reader tới các phương thức `AcceptCode()` và `AcceptCard()` trong Inspector.
+
+## 7. Ma trận kiểm thử
+
+| Mã số | Thẻ | Trạng thái cửa |
+|---|---|---|
+| Sai | Sai | Đóng |
+| Đúng | Sai | Đóng |
+| Sai | Đúng | Đóng |
+| Đúng | Đúng | Mở |
+
+Thử thêm trường hợp nhấn mã nhiều lần, quét thẻ nhiều lần và thử lại sau lỗi. Mỗi thay đổi phải có phản hồi rõ, ví dụ đèn báo xanh khi điều kiện đạt hoặc âm báo lỗi ngắn khi nhập sai.
+
+## 8. Tiêu chí hoàn thành
+
+- [ ] Có ít nhất hai cơ chế tương tác độc lập, không tự mở cửa khi mới hoàn thành một cơ chế.
+- [ ] Có phản hồi thị giác khi nhập đúng/sai và quét thẻ hợp lệ/không hợp lệ.
+- [ ] Cửa di chuyển mượt tới vị trí mở, không dịch chuyển vô hạn.
+- [ ] Scene chạy được trong Play Mode và kiểm tra lại trên headset đích.
+- [ ] Có hình/video cùng bảng kết quả bốn tổ hợp điều kiện.
+
+## 9. Tổng kết
+
+Escape Room là cơ hội luyện **logic trạng thái và phối hợp module**: đầu vào khác nhau cùng đóng góp vào điều kiện chung; cửa nhận một lệnh rõ ràng sau khi tất cả điều kiện hợp lệ được xác nhận.
+
+## 10. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Nếu nhập đúng mã nhưng chưa có thẻ hợp lệ, cửa nên như thế nào?
+
+A. Mở ngay  
+B. Giữ đóng  
+C. Khởi động lại scene  
+D. Tự tạo keycard  
+
+**Đáp án:** B. **Giải thích:** Điều kiện mở sử dụng phép AND giữa mã và thẻ.
+
+### Câu 2
+
+Ưu điểm của bộ điều phối EscapeRoomController là gì?
+
+A. Tập trung điều kiện mở khóa vào một nơi  
+B. Tăng số collider  
+C. Thay thế XR Origin  
+D. Tự thêm đồ họa HDR  
+
+**Đáp án:** A. **Giải thích:** Các module chỉ phát sự kiện, tránh mỗi module tự điều khiển cửa.
+
+### Câu 3
+
+Sự kiện nào phù hợp đầu ra của Keycard Reader?
+
+A. Update camera FOV  
+B. Change skybox  
+C. Reload scene  
+D. CardAccepted  
+
+**Đáp án:** D. **Giải thích:** Đầu đọc cần báo thẻ hợp lệ cho hệ điều phối.
+
+### Câu 4
+
+Một cách kiểm tra tốt cho điều kiện AND là gì?
+
+A. Thử chỉ tình huống hai điều kiện đúng  
+B. Thử chỉ tình huống cả hai sai  
+C. Thử đầy đủ bốn tổ hợp đúng/sai  
+D. Không cần thử trường hợp sai  
+
+**Đáp án:** C. **Giải thích:** Bốn tổ hợp thể hiện rõ lỗi logic mở khóa.
+
+### Câu 5
+
+Vì sao Number Pad không nên trực tiếp dịch chuyển cửa mỗi khi nhận số?
+
+A. Vì keypad luôn có Rigidbody  
+B. Vì keypad nên chỉ gửi tín hiệu khi hoàn thành xác thực  
+C. Vì cửa không có Transform  
+D. Vì mọi sự kiện phải đi qua Update  
+
+**Đáp án:** B. **Giải thích:** Phân tách trách nhiệm giúp giảm phụ thuộc và tránh mở nhầm cửa.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Tên mục học và phiên bản đối chiếu theo danh mục Unity 6.3; thao tác và kết quả có thể thay đổi khi package được cập nhật.

@@ -1,83 +1,81 @@
 ---
-title: "Challenge 1 - Architecture Review"
+title: "Challenge 1 — Đánh giá kiến trúc và góc nhìn VR"
 pathway: "VR Development"
 module: "VR Basics"
 lesson_number: 7
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+content_type: "Bài học tiếng Việt tự biên soạn"
+unity_version_reference: "6.3"
+lesson_kind: "exercise"
 ---
 
-# Bài 07 — Challenge 1 - Architecture Review
-
-> **Pathway:** VR Development · **Mission:** VR Basics · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [VR Basics trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Bài 07 — Challenge 1 — Đánh giá kiến trúc và góc nhìn VR
 
 ## 1. Tổng quan
 
-**Chủ đề:** Camera và bố cục hình ảnh. Trong ngữ cảnh *VR Basics*, bài **Challenge 1 - Architecture Review** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Thử thách này yêu cầu người học kiểm tra một scene nhỏ như một hệ thống hoàn chỉnh: cấu trúc GameObject–Component, khả năng hiển thị qua camera, một thao tác tương tác và bằng chứng kiểm thử. Trọng tâm của bản thực hành là **đánh giá và cải thiện**, không chỉ dựng cảnh đẹp.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **camera và bố cục hình ảnh** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Phân tích được quan hệ scene, camera, đối tượng và tương tác.
+- Kiểm tra được framing, Field of View, clipping planes và culling mask trong tình huống quan sát.
+- Nộp bản scene cùng minh chứng một lượt cải tiến sau kiểm thử.
 
-## 3. Kiến thức trọng tâm
+## 3. Đề bài và phạm vi
 
-- Camera xác định góc nhìn trong Game view; Perspective và Orthographic dùng cho mục đích khác nhau.
-- Framing, field of view, culling mask và clipping planes quyết định phần nội dung được nhìn thấy.
-- Camera theo nhân vật nên được cập nhật theo nhịp phù hợp để giảm rung, đặc biệt khi nhân vật dùng physics.
+Tạo một không gian nhỏ có ba vật ở ba khoảng cách khác nhau, một camera hoặc hệ camera VR thích hợp, và ít nhất một thao tác có phản hồi quan sát được. Thử các lựa chọn **Perspective** và **Orthographic** trong scene camera thông thường để quan sát ảnh hưởng lên chiều sâu; với camera headset thực tế, phải giữ cấu hình tracking phù hợp và không áp đặt chế độ camera thông thường lên VR một cách máy móc.
 
-### Thuật ngữ và mối quan hệ
+**Field of View** ảnh hưởng độ rộng vùng nhìn, **Near/Far Clipping Planes** xác định khoảng cách bắt đầu/kết thúc hiển thị và **Culling Mask** quyết định layer được render. Framing là cách đặt chủ thể trong khung hình. Nếu camera bám theo một đối tượng dùng physics, cần xem độ mượt khi di chuyển.
 
-| Khái niệm | Vai trò trong bài |
+## 4. Nhiệm vụ theo mốc
+
+| Mốc | Công việc | Bằng chứng |
+|---|---|---|
+| 1 — Cấu trúc | Tạo scene, phân nhóm GameObject, xác định Component quan trọng | Ảnh Hierarchy và Inspector |
+| 2 — Camera | Bố trí ba vật gần–giữa–xa, kiểm tra Field of View và clipping | Ảnh các cấu hình so sánh |
+| 3 — Tương tác | Cấu hình một hành động chọn, cầm hoặc đổi trạng thái vật | Video/ảnh trước–sau thao tác |
+| 4 — Kiểm thử | Ghi một trường hợp đúng và một lỗi có thể tái hiện | Mô tả bước tái hiện, Console nếu cần |
+| 5 — Cải tiến | Sửa một vấn đề đã phát hiện và chạy lại | So sánh trước–sau |
+
+**Yêu cầu nộp:** project/scene hoặc bản build chạy được; một minh chứng thành công; một minh chứng lỗi; bảng kiểm thử và tối thiểu một cải tiến.
+
+## 5. Gợi ý kiểm tra kiến trúc
+
+```mermaid
+flowchart TD
+    A[Scene] --> B[Hierarchy và Component]
+    A --> C[Camera và vùng nhìn]
+    A --> D[Interactor và đối tượng]
+    B --> E[Kiểm thử Play mode]
+    C --> E
+    D --> E
+    E --> F[Phát hiện vấn đề]
+    F --> G[Chỉnh một cấu hình]
+    G --> E
+```
+
+Không nên thay nhiều thông số cùng lúc. Nếu vật biến mất khi camera tiến gần, hãy kiểm tra clipping; nếu vật chỉ biến mất ở một layer, kiểm tra culling mask; nếu chuyển động camera giật, kiểm tra cách cập nhật vị trí và hệ physics.
+
+## 6. Tiêu chí đánh giá và câu hỏi tự luận
+
+| Tiêu chí | Đạt khi |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Scene có tổ chức | Có thể giải thích GameObject/Component nào tạo hành vi chính |
+| Camera hiển thị hợp lý | Ba vật nhìn thấy theo bố cục dự kiến; không bị cắt bất thường |
+| Có tương tác | Hành động tạo ra phản hồi có thể chứng minh |
+| Có kiểm thử | Có cách tái hiện thành công và lỗi |
+| Có cải tiến | Kết quả trước–sau được ghi lại |
 
-## 4. Thực hành từng bước
+**Tự đánh giá (không kèm lời giải):**
 
-1. **Bước 1:** Chọn Main Camera và so sánh Perspective với Orthographic.
-2. **Bước 2:** Sắp xếp 3 đối tượng ở các khoảng cách khác nhau; thử Field of View và Near/Far Clip.
-3. **Bước 3:** Thử bố cục toàn, trung và cận cảnh cho cùng một chủ thể.
-4. **Bước 4:** Nếu camera bám đối tượng, chạy thử khi di chuyển và quan sát độ mượt của hình ảnh.
+1. Lỗi camera nào xuất hiện khi chỉnh Near Clip quá lớn? Em đã chứng minh ra sao?
+2. Vì sao một GameObject vẫn có trong Hierarchy nhưng không xuất hiện trên Game view?
+3. Với scene có Rigidbody, dấu hiệu nào cho thấy camera bám đối tượng bị giật?
+4. Một cải tiến nào đã làm trải nghiệm tương tác hoặc quan sát tốt hơn?
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 7. Tổng kết
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
-
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Challenge 1 - Architecture Review** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
-
-**Tiêu chí nghiệm thu:**
-
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
-
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: camera không render đúng layer, clipping quá gần hoặc camera giật do cập nhật không đồng bộ.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Hoàn thành thử thách khi có **scene chạy được, bằng chứng kiểm thử và cải tiến cụ thể**. Không chỉ đánh giá kết quả thị giác; cần giải thích mối liên hệ giữa cấu hình và hành vi quan sát.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Học liệu đối chiếu:** [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Các ví dụ và bài tập là nội dung học tập tự biên soạn, không phải bài kiểm tra hoặc transcript chính thức.

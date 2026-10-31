@@ -1,83 +1,166 @@
 ---
-title: "Lab 1 - VR Personal Project Basics"
+title: "Lab 1 — Xây dựng dự án VR cá nhân cơ bản"
 pathway: "VR Development"
 module: "VR Basics"
 lesson_number: 9
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+content_type: "Bài học tiếng Việt tự biên soạn"
+unity_version_reference: "6.3"
+lesson_kind: "lab"
 ---
 
-# Bài 09 — Lab 1 - VR Personal Project Basics
-
-> **Pathway:** VR Development · **Mission:** VR Basics · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [VR Basics trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Bài 09 — Lab 1 — Xây dựng dự án VR cá nhân cơ bản
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *VR Basics*, bài **Lab 1 - VR Personal Project Basics** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Bài lab yêu cầu hoàn thiện một bản thử nghiệm VR nhỏ, độc lập: người dùng quan sát scene, di chuyển trong giới hạn cho phép, cầm một vật và đưa vật đến vị trí chỉ định. Quy mô nhỏ giúp tập trung vào chất lượng triển khai và kiểm thử.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Xác định được yêu cầu chức năng và các mốc triển khai của dự án VR nhỏ.
+- Tổ chức scene có XR Origin, locomotion và ít nhất một tương tác quan sát được.
+- Ghi minh chứng, chẩn đoán lỗi, kiểm tra trên thiết bị và đề xuất cải tiến.
 
-## 3. Kiến thức trọng tâm
+## 3. Đầu ra và chuẩn bị
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+**Đầu ra cần nộp:** file project/scene hoặc build chạy được; ít nhất một ảnh/video thể hiện tương tác thành công; bảng ghi kết quả mong đợi và thực tế; một lỗi có thể tái hiện; một cải tiến sau lần thử đầu.
 
-### Thuật ngữ và mối quan hệ
+**Chuẩn bị:** Unity Editor tương thích dự án, package XR/interaction phù hợp, Input Actions, scene thử, và thiết bị XR nếu có. Không giả định một scene chạy tốt trong Editor là đạt hiệu năng trên HMD.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+**Phạm vi đề xuất:** một khu vực sàn có vật cản, một vật có thể nhặt và một vị trí đặt. Có thể dùng Teleportation hoặc Continuous Movement; ưu tiên phương án thoải mái cho người mới.
 
-## 4. Thực hành từng bước
+## 4. Các mốc xây dựng
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+```mermaid
+flowchart TD
+    A[Khởi tạo project và scene] --> B[XR Origin và Input]
+    B --> C[Thiết lập locomotion]
+    C --> D[Thêm Grab Interactable]
+    D --> E[Thêm vị trí đặt / Socket]
+    E --> F[Chạy thử và ghi minh chứng]
+    F --> G[Sửa lỗi, cải tiến, kiểm tra lại]
+```
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+**Mốc 1 — Project:** Ghi phiên bản Editor, render pipeline và package; scene lưu được, Console không có lỗi nghiêm trọng.
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+**Mốc 2 — Quan sát và di chuyển:** Kiểm tra XR Origin, hướng nhìn và điều khiển đến điểm khác. Không cho người dùng dịch chuyển vào vật cản.
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Lab 1 - VR Personal Project Basics** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+**Mốc 3 — Tương tác:** Một vật có collider và cơ chế Grab Interactable; thử chọn–giữ–nhả.
 
-**Tiêu chí nghiệm thu:**
+**Mốc 4 — Hoàn thành nhiệm vụ:** Đưa vật đến socket hoặc khu vực đích, phản hồi rõ khi đặt đúng.
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+**Mốc 5 — Kiểm thử:** Kiểm tra thành công, thất bại, thao tác lặp và hiệu năng/comfort trên thiết bị nếu có.
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+## 5. Checkpoint và kiểm thử
 
-## 6. Lỗi thường gặp và cách kiểm tra
+| Tình huống | Kỳ vọng | Minh chứng cần lưu |
+|---|---|---|
+| Mở scene | Không có lỗi chặn Play mode | Ảnh Console |
+| Nhận input | Tay/tia phản hồi khi điều khiển | Ảnh hoặc clip |
+| Di chuyển | Tới vùng hợp lệ, không xuyên vật | Clip đoạn di chuyển |
+| Cầm và thả | Vật theo tay, nhả đúng lúc | Clip trước/sau |
+| Đặt vật | Được nhận ở vị trí đích | Ảnh vật tại socket |
+| Thử sai | Hệ thống không nhận vật sai hoặc hành động sai | Bảng kiểm thử |
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+Mỗi lỗi được ghi theo dạng **đầu vào → cách tái hiện → kết quả quan sát → giả thuyết → thay đổi → kết quả chạy lại**. Khi sửa, chỉ thay một cấu hình hoặc một khối mã trong mỗi vòng thử để biết yếu tố nào tác động.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 6. Checklist nghiệm thu
 
-## 7. Checklist hoàn thành
+- [ ] Project/scene hoặc build mở và chạy được.
+- [ ] Đã ghi phiên bản Unity, package quan trọng và nền tảng thử.
+- [ ] Có XR Origin và input hoạt động theo cấu hình dự án.
+- [ ] Có một phương pháp locomotion đã được thử với vật cản.
+- [ ] Có vật nhặt được và thả được.
+- [ ] Có mục tiêu đặt vật và phản hồi có thể quan sát.
+- [ ] Có ảnh/video minh chứng thành công và ghi nhận một tình huống lỗi.
+- [ ] Có ít nhất một cải tiến và kết quả so sánh trước–sau.
+- [ ] Nếu có HMD, đã thử khả năng theo dõi và hiệu năng trên chính thiết bị đó.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Đầu ra nào phản ánh một bài lab có khả năng kiểm chứng?
+
+
+A. Scene chạy được kèm bước thử và minh chứng  
+
+B. Chỉ một ảnh scene đẹp  
+
+C. Chỉ tệp tên project  
+
+D. Chỉ màn hình package list  
+
+
+**Đáp án:** A. **Giải thích:** Lab phải chứng minh được hành vi và cách tái hiện kết quả.
+
+### Câu 2
+
+Lý do nên bắt đầu bằng một scene nhỏ?
+
+
+A. Để không phải kiểm tra input  
+
+B. Để cô lập lỗi và giảm yếu tố gây nhiễu  
+
+C. Để tắt Collider  
+
+D. Để tăng số đối tượng  
+
+
+**Đáp án:** B. **Giải thích:** Quy mô nhỏ giúp quan sát từng cơ chế rõ hơn.
+
+### Câu 3
+
+Để phát hiện lỗi locomotion, phép thử nào cần thiết?
+
+
+A. Chỉ chọn màu nền  
+
+B. Đổi tên script  
+
+C. Đi vào vùng có vật cản và thử điểm đích bất hợp lệ  
+
+D. Xóa XR Origin  
+
+
+**Đáp án:** C. **Giải thích:** Cần kiểm tra khả năng xử lý vị trí không hợp lệ.
+
+### Câu 4
+
+Vì sao cần thử lại sau cải tiến?
+
+
+A. Để tăng số file  
+
+B. Để bỏ qua Console  
+
+C. Để không cần minh chứng  
+
+D. Để xác minh lỗi đã biến mất và không gây tác dụng phụ  
+
+
+**Đáp án:** D. **Giải thích:** Chạy lại là bước xác nhận giải pháp.
+
+### Câu 5
+
+Lỗi không chọn được vật: bộ phận nào nên kiểm tra?
+
+
+A. Input Actions, Interactor, Interactable, Collider  
+
+B. Camera clipping trước tiên  
+
+C. Chỉ ánh sáng  
+
+D. Chỉ số lượng texture  
+
+
+**Đáp án:** A. **Giải thích:** Những thành phần này tạo nên luồng chọn vật.
+
+## 8. Tổng kết
+
+Một dự án cá nhân cơ bản không cần nhiều nội dung nhưng phải hoàn chỉnh từ **cấu hình → tương tác → kiểm thử → cải tiến**. Tiêu chí quan trọng là người khác có thể chạy lại và xác nhận kết quả dựa trên minh chứng.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Học liệu đối chiếu:** [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Các ví dụ và bài tập là nội dung học tập tự biên soạn, không phải bài kiểm tra hoặc transcript chính thức.

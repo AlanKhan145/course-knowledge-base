@@ -1,78 +1,151 @@
----
-title: "3.3 - Lighting"
-pathway: "VR Development"
-module: "Ergonomics and Optimization"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 03 — Chiếu sáng hiệu quả trong VR (Lighting)
 
-# Bài 03 — 3.3 - Lighting
+> **Lộ trình:** VR Development · **Học phần:** Ergonomics and Optimization · **Ngữ cảnh:** Unity 6.3
+>
+> **Trọng tâm:** Phân biệt nguồn sáng, lựa chọn baked/realtime lighting và đo ảnh hưởng tới hiệu năng.
 
-> **Pathway:** VR Development · **Mission:** Ergonomics and Optimization · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Vai trò của ánh sáng
 
-> **Nguồn đối chiếu:** [Ergonomics and Optimization trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
-
-## 1. Tổng quan
-
-**Chủ đề:** Chiếu sáng và độ chân thực của khung cảnh. Trong ngữ cảnh *Ergonomics and Optimization*, bài **3.3 - Lighting** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Ánh sáng giúp người chơi nhận biết hình khối, khoảng cách và khu vực cần tương tác. Một cảnh quá tối khiến thao tác khó khăn; một cảnh dùng quá nhiều hiệu ứng đổ bóng có thể làm tăng chi phí dựng hình. Trong VR, giải pháp phù hợp là cân bằng **độ rõ của cảnh** với **frame time ổn định**.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **chiếu sáng và độ chân thực của khung cảnh** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **3.3 - Lighting** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Phân biệt `Directional Light`, `Point Light` và `Spot Light` theo phạm vi chiếu sáng.
+- Giải thích sự khác nhau giữa baked lighting và realtime lighting.
+- Mô tả vai trò của `Light Probes` và `Reflection Probes`.
+- Tạo một cảnh có vật tĩnh/vật động, so sánh kết quả thị giác và hiệu năng trước/sau thay đổi.
 
-## 3. Kiến thức trọng tâm
+## 3. Các nguồn sáng cơ bản
 
-- Directional Light mô phỏng nguồn sáng định hướng; Point và Spot Light phù hợp nguồn sáng cục bộ.
-- Baked lighting lưu kết quả chiếu sáng tĩnh vào lightmap, trong khi realtime lighting cập nhật theo thời gian chạy.
-- Light Probes hỗ trợ đối tượng động trong môi trường chiếu sáng bake; Reflection Probes tạo phản xạ theo môi trường.
+| Loại | Đặc tính | Ví dụ |
+|---|---|---|
+| `Directional Light` | Tia sáng có hướng chung trong cảnh | Ánh nắng hoặc nguồn sáng định hướng lớn |
+| `Point Light` | Phát sáng từ một vị trí ra nhiều hướng | Bóng đèn tròn trong phòng |
+| `Spot Light` | Chiếu theo vùng hình nón | Đèn rọi một khu vực thao tác |
 
-### Thuật ngữ và mối quan hệ
+Tùy ngữ cảnh, hướng, cường độ và màu nguồn sáng thay đổi cảm nhận độ sâu và độ rõ của vật thể. Khi đánh giá, quan sát cả **vùng sáng**, **vùng tối** và khả năng đọc được hình dạng đối tượng.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Baked, realtime và probes
 
-## 4. Thực hành từng bước
+**Baked lighting** tính trước đóng góp chiếu sáng của những thành phần phù hợp rồi lưu kết quả trong lightmap. Cách này có ích với bối cảnh tĩnh. **Realtime lighting** cập nhật khi scene chạy, phù hợp các nguồn sáng hoặc tình huống cần thay đổi theo thời gian, nhưng có thể phát sinh chi phí xử lý lớn hơn.
 
-1. **Bước 1:** Thiết lập một scene có nền, đối tượng tĩnh, đối tượng động và nguồn sáng.
-2. **Bước 2:** Thay đổi hướng, cường độ, màu ánh sáng rồi quan sát bóng đổ.
-3. **Bước 3:** Với pipeline hỗ trợ, thử bake ánh sáng và đánh dấu đối tượng tĩnh đúng cách.
-4. **Bước 4:** So sánh hình ảnh và hiệu năng trước/sau; chụp ảnh minh họa các thiết lập.
+| Công nghệ | Dành cho | Giới hạn cần nhớ |
+|---|---|---|
+| Baked lighting / lightmap | Bề mặt tĩnh cần ánh sáng ổn định | Thay đổi động không tự phản ánh đầy đủ trong kết quả đã bake |
+| Realtime lighting | Nguồn sáng hay điều kiện thay đổi lúc chạy | Cần đo chi phí thực tế |
+| `Light Probes` | Hỗ trợ đối tượng động nhận thông tin chiếu sáng môi trường đã tính trước | Cần bố trí và kiểm tra trong vùng vật di chuyển |
+| `Reflection Probes` | Cung cấp thông tin phản xạ từ môi trường | Có thể cần cập nhật/thiết lập phù hợp với cảnh |
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart LR
+    A[Thiết lập đèn và vật thể] --> B{Thành phần có tĩnh không?}
+    B -->|Có| C[Cân nhắc baked lighting]
+    B -->|Không| D[Cân nhắc realtime lighting]
+    C --> E[Lightmap]
+    E --> F[Ánh sáng môi trường cho cảnh tĩnh]
+    C --> G[Light Probes]
+    G --> H[Hỗ trợ vật thể động]
+    D --> I[Ánh sáng cập nhật lúc chạy]
+    F --> J[So sánh hình ảnh và hiệu năng]
+    H --> J
+    I --> J
+```
 
-## 5. Bài tập củng cố
+**Giải thích:** Các lựa chọn không hoàn toàn loại trừ nhau; một scene có thể phối hợp chiếu sáng tĩnh và động. Điều quan trọng là kiểm tra kết quả thực tế trong pipeline và nền tảng đang dùng.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Ergonomics and Optimization** để tạo một tương tác nhỏ.
+## 5. Thực hành: So sánh cấu hình chiếu sáng
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+1. Tạo scene gồm sàn, tường, ít nhất một vật tĩnh và một vật di chuyển được.
+2. Thêm nguồn sáng phù hợp, điều chỉnh hướng, cường độ và màu để thấy thay đổi bóng đổ.
+3. Ghi hình cấu hình ban đầu và kiểm tra độ rõ của khu vực người chơi cần thao tác.
+4. Nếu project và render pipeline hỗ trợ, đánh dấu các bề mặt tĩnh phù hợp rồi thử bake ánh sáng.
+5. Thử `Light Probes` để quan sát đối tượng động trong vùng chiếu sáng bake; dùng `Reflection Probes` khi cần kiểm tra bề mặt phản xạ.
+6. Đo thời gian frame trước/sau trên cùng scene và cùng thiết bị. Ghi rõ nếu có thay đổi chất lượng hình ảnh.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+| Kịch bản | Độ rõ vật thể | Bóng/độ phản xạ | Hiệu năng | Nhận xét |
+|---|---|---|---|---|
+| Ban đầu | *Điền* | *Điền* | *Điền* | *Điền* |
+| Sau chỉnh sáng | *Điền* | *Điền* | *Điền* | *Điền* |
+| Sau bake (nếu hỗ trợ) | *Điền* | *Điền* | *Điền* | *Điền* |
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: lightmap không cập nhật, bề mặt thiếu UV phù hợp hoặc vật thể động không nhận ánh sáng như mong đợi.
+## 6. Gỡ lỗi ánh sáng
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Lightmap không cập nhật:** xác nhận đối tượng tĩnh đúng cách, cài đặt bake và thao tác tạo lại lighting. **Bề mặt tối hoặc sai bóng:** kiểm tra UV/lightmap phù hợp, hướng normal, thiết lập đèn và chất liệu. **Vật động không nhận ánh sáng như dự kiến:** kiểm tra bố trí `Light Probes` và chế độ chiếu sáng của renderer. **Cảnh đẹp nhưng chậm:** xem xét lượng ánh sáng động, bóng và hiệu ứng; dùng Profiler để xác định chi phí chứ không kết luận từ cảm nhận.
 
 ## 7. Checklist hoàn thành
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Ergonomics and Optimization](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Thử ít nhất hai loại nguồn sáng hoặc hai cấu hình ánh sáng.
+- [ ] Chỉ ra được điểm khác biệt baked và realtime.
+- [ ] Có ví dụ vật tĩnh và vật động.
+- [ ] Nếu dùng lightmap, đã xác nhận kết quả bake và UV phù hợp.
+- [ ] Có ảnh so sánh và phép đo hiệu năng ở cùng điều kiện.
+
+## 8. Tổng kết
+
+Chiếu sáng trong VR đồng thời là vấn đề **thị giác** và **tối ưu hóa**. Chỉ chọn giải pháp sau khi đã biết vật nào tĩnh, vật nào cần thay đổi và tác động thực tế lên bản build.
+
+## 9. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Nguồn sáng nào phù hợp mô phỏng ánh nắng có hướng chung?
+
+A. Point Light  
+B. Spot Light  
+C. Reflection Probe  
+D. Directional Light  
+
+**Đáp án:** D  
+**Giải thích:** Directional Light biểu diễn nguồn sáng định hướng.
+
+### Câu 2
+
+Baked lighting phù hợp nhất với nhóm đối tượng nào?
+
+A. Các bề mặt tĩnh  
+B. Mọi đối tượng luôn chuyển động  
+C. Input actions  
+D. Ray interactor  
+
+**Đáp án:** A  
+**Giải thích:** Ánh sáng bake được tính trước cho các thành phần phù hợp, đặc biệt là cảnh tĩnh.
+
+### Câu 3
+
+Light Probes giúp ích cho trường hợp nào?
+
+A. Sửa input  
+B. Hỗ trợ vật động nhận ánh sáng môi trường bake  
+C. Tạo bản build  
+D. Thêm collider  
+
+**Đáp án:** B  
+**Giải thích:** Light Probes cung cấp thông tin chiếu sáng môi trường cho vật thể động.
+
+### Câu 4
+
+Khi lightmap không cập nhật, bước kiểm tra nào hợp lý?
+
+A. Đổi tên prefab  
+B. Tăng tốc độ di chuyển  
+C. Kiểm tra cấu hình bake và trạng thái đối tượng tĩnh  
+D. Xóa README  
+
+**Đáp án:** C  
+**Giải thích:** Cấu hình bake và đối tượng thuộc diện tính ánh sáng quyết định kết quả lightmap.
+
+### Câu 5
+
+Để chọn phương án sáng tối ưu, bằng chứng nào tốt nhất?
+
+A. Chỉ một ảnh đẹp  
+B. Số lượng tên object  
+C. Tên tài liệu  
+D. Ảnh so sánh cùng phép đo hiệu năng  
+
+**Đáp án:** D  
+**Giải thích:** Cần cân bằng chất lượng cảnh với số đo hiệu năng.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Tài liệu học tập tự biên soạn dựa trên đề mục của Unity Learn; không phải bản dịch hoặc transcript chính thức. Đối chiếu nội dung và tài nguyên thực hành tại [Unity Learn — Ergonomics and Optimization](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3). Tên menu và package có thể thay đổi theo phiên bản project.*

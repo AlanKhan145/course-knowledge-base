@@ -1,81 +1,146 @@
----
-title: "Mission 4 Quiz - Custom VR Development"
-pathway: "VR Development"
-module: "Custom VR Development"
-lesson_number: 10
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 10 — Ôn tập và tự kiểm tra Mission 4: Custom VR Development
 
-# Bài 10 — Mission 4 Quiz - Custom VR Development
+> **Nền tảng:** Unity 6.3 · **Hình thức:** Trắc nghiệm tự luyện và bài tập tình huống.
+>
+> **Lưu ý:** Đây là bộ câu hỏi tự biên soạn, không phải bài quiz chính thức hay đáp án được công bố bởi Unity.
 
-> **Pathway:** VR Development · **Mission:** Custom VR Development · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+## 1. Mục tiêu đánh giá
 
-> **Nguồn đối chiếu:** [Custom VR Development trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Người học chứng minh được cách kết nối thiết bị tương tác VR, xử lý `Raycast`/Trigger, kiểm tra mã và trạng thái, tạo phản hồi và debug. Những câu hỏi chỉ yêu cầu kiến thức đã được giảng trong các bài của học phần.
 
-## 1. Tổng quan
+## 2. Phạm vi
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Custom VR Development*, bài **Mission 4 Quiz - Custom VR Development** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
-
-## 2. Mục tiêu học tập
-
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Nhóm kiến thức | Kỹ năng cần thể hiện |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Scanner | Xác định hướng, khoảng cách và mục tiêu hợp lệ |
+| Balloon Inflator | Giới hạn trạng thái và phản hồi tiến độ |
+| Escape Room | Phối hợp Number Pad + Keycard + Sliding Door |
+| XR/UI | Kết nối input, raycaster, event và feedback |
+| Kiểm thử | Truy vết lỗi trên Inspector/Console/HMD |
 
-## 4. Thực hành từng bước
+## 3. Hướng dẫn làm bài
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+Bài kiểm tra dưới đây là **10 câu tự biên soạn** để hệ thống hóa kiến thức Mission 4; không phải đáp án của bài quiz chính thức trên Unity Learn. Mỗi câu có một phương án tốt nhất. Nên tự trả lời trước khi mở phần đáp án và đối chiếu bằng ví dụ trong Unity.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 4. Bộ câu hỏi
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+### Câu 1
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **tương tác và hiệu năng ứng dụng vr**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+Trong quy trình scanner, điều gì xác định mục tiêu có thể quét sau khi ray hit?
 
-### Gợi ý tự chấm
+A. Mục tiêu có component phù hợp và thỏa điều kiện  
+B. Mọi collider đều hợp lệ  
+C. Cường độ ánh sáng  
+D. Chỉ tên của Scene  
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+### Câu 2
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Bộ nhập mã cần bảo toàn các số 0 đầu. Kiểu dữ liệu phù hợp là gì?
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+A. float  
+B. bool  
+C. string  
+D. Vector3  
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### Câu 3
 
-## 7. Checklist hoàn thành
+Trong Escape Room yêu cầu cả mã và thẻ, phép logic nào đúng?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. OR  
+B. AND  
+C. NOT  
+D. XOR  
+
+### Câu 4
+
+Trong Keycard Reader dùng `OnTriggerEnter`, cấu hình nào là trọng tâm?
+
+A. Canvas Overlay  
+B. Bloom  
+C. Audio Mixer  
+D. Trigger Collider, Rigidbody/collision layers phù hợp  
+
+### Câu 5
+
+Vì sao `MoveTowards` được dùng cho cửa trượt?
+
+A. Chuyển động từng bước không vượt qua đích  
+B. Tự tạo XR Origin  
+C. Xóa collider  
+D. Đổi material  
+
+### Câu 6
+
+Máy quét bắn tia ngược. Thành phần nên kiểm tra trước là gì?
+
+A. Font của UI  
+B. Tốc độ Animator  
+C. Hướng Transform tại Muzzle  
+D. Tên file  
+
+### Câu 7
+
+Vật thể đã quét nhiều lần chỉ cần phát event hoàn thành một lần. Cách làm hợp lý là gì?
+
+A. Tăng collider size  
+B. Dùng cờ trạng thái đã xử lý  
+C. Nhân đôi Input Action  
+D. Gọi Debug.Log mỗi frame  
+
+### Câu 8
+
+Khi UI world-space không nhận tia, nên kiểm tra nhóm nào?
+
+A. Render Texture  
+B. Audio Listener  
+C. Occlusion Bake  
+D. Raycaster, EventSystem, Input Module  
+
+### Câu 9
+
+Trong Balloon Inflator, nếu `fill` đã bằng 1, điều gì phải đúng?
+
+A. Không tăng quá giới hạn  
+B. Tự reset thành 0 mỗi frame  
+C. Xóa balloon  
+D. Tắt OpenXR  
+
+### Câu 10
+
+Khi Editor ổn nhưng HMD giật, cách đánh giá đúng là gì?
+
+A. Chỉ xem FPS trong Editor  
+B. Thử đổi tên prefab  
+C. Profile trên phần cứng VR đích  
+D. Bỏ hết script  
+
+## 5. Đáp án và giải thích
+
+| Câu | Đáp án | Giải thích |
+|---:|:---:|---|
+| 1 | A | Ray hit chỉ trả va chạm; logic cần đánh giá đối tượng mục tiêu. |
+| 2 | C | Chuỗi bảo toàn ký tự và độ dài của mã. |
+| 3 | B | Cả hai điều kiện phải đúng trước khi cửa mở. |
+| 4 | D | Thiết lập Physics quyết định trigger có hoạt động. |
+| 5 | A | MoveTowards đi tới đích với bước tối đa được giới hạn. |
+| 6 | C | Muzzle.forward quy định hướng quét. |
+| 7 | B | Cờ trạng thái giúp tránh sự kiện lặp không mong muốn. |
+| 8 | D | Đó là tuyến xử lý đầu vào của giao diện XR/UI. |
+| 9 | A | Giới hạn fill trong [0,1] để tránh vượt ngưỡng. |
+| 10 | C | Hiệu năng thật phải được kiểm thử trên thiết bị mục tiêu. |
+
+## 6. Bài thực hành kiểm tra năng lực
+
+**Bối cảnh:** Thiết kế một scene có một scanner và một cửa khóa. Scanner được dùng để đánh dấu hai vật thể; điều kiện mở cửa là cả hai vật thể đã được quét đúng.
+
+**Yêu cầu:** mô tả input, sự kiện, trạng thái và phản hồi, sau đó nêu tối thiểu 4 test case (trúng vật A, trúng vật B, trúng tường, quét lại vật đã hoàn thành). Không bắt buộc phải hoàn thành scene để chấm phần lý thuyết, nhưng cần giải thích hướng triển khai hợp lý.
+
+**Gợi ý tự đánh giá:** 8–10 câu đúng: nắm vững phần cốt lõi; 5–7 câu: xem lại cơ chế sự kiện và điều kiện mở khóa; dưới 5 câu: thực hành lại từng component riêng lẻ.
+
+## 7. Tổng kết
+
+Các câu hỏi bao phủ **raycast, input, collider/trigger, quản lý trạng thái, giao diện XR, chuyển động cửa và kiểm thử trên HMD**. Khi trả lời sai, hãy tìm lại bài học tương ứng và chứng minh đáp án qua một scene nhỏ thay vì chỉ ghi nhớ chữ cái.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3).

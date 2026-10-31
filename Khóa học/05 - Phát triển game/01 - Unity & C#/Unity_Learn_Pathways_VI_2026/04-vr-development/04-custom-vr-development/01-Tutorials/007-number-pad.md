@@ -1,78 +1,179 @@
----
-title: "Number pad"
-pathway: "VR Development"
-module: "Custom VR Development"
-lesson_number: 7
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 07 — Xây dựng bảng nhập mã số (Number Pad)
 
-# Bài 07 — Number pad
-
-> **Pathway:** VR Development · **Mission:** Custom VR Development · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Custom VR Development trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** VR Development · **Học phần:** Custom VR Development · **Nền tảng:** Unity 6.3 · **Dạng:** tutorial.
+>
+> **Lưu ý:** Các quy trình và mã bên dưới là ví dụ thực hành độc lập, không phải bản chép nguyên văn hướng dẫn hay đề kiểm tra chính thức của Unity. Cần đối chiếu tài nguyên scene, prefab và phiên bản package trong dự án thực tế.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Custom VR Development*, bài **Number pad** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Number Pad là thiết bị nhập mã trong thế giới VR. Trải nghiệm tốt cần cho người chơi biết mình đã bấm phím nào, có thể xóa khi nhập sai và chỉ phát tín hiệu thành công khi xác nhận đúng mã. Không đặt mục tiêu xây hệ thống bảo mật thật: đây là **logic câu đố trong trò chơi**.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Number pad** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Tạo giao diện số có thể kích hoạt bằng nút world-space hoặc sự kiện XR.
+- Quản lý chuỗi đã nhập, độ dài tối đa, nút xóa và nút xác nhận.
+- Phát UnityEvent khi mã đúng và phản hồi rõ khi sai.
 
-## 3. Kiến thức trọng tâm
+## 3. Cấu trúc và hành vi bàn phím
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+```text
+Keypad
+├── Display (TextMeshPro)
+├── Digit_0 ... Digit_9
+├── Clear
+└── Confirm
+```
 
-### Thuật ngữ và mối quan hệ
+Nếu dùng Canvas world-space, kiểm tra `EventSystem`, raycaster phù hợp với XR/UI và input module tương thích. Nếu dùng mỗi phím là GameObject với XR Interactable, gắn sự kiện kích hoạt để gọi phương thức nhận chữ số. Không sử dụng đồng thời hai cơ chế nhập cho cùng một phím nếu dễ sinh sự kiện trùng.
 
-| Khái niệm | Vai trò trong bài |
+## 4. State machine cho bộ nhập mã
+
+```mermaid
+stateDiagram-v2
+    [*] --> Empty
+    Empty --> Editing: Nhập số
+    Editing --> Editing: Thêm số / Xóa
+    Editing --> Rejected: Confirm sai
+    Editing --> Accepted: Confirm đúng
+    Rejected --> Empty: Xóa input
+    Accepted --> Accepted: Bỏ qua nhập tiếp
+```
+
+Việc sử dụng trạng thái `Accepted` giúp khóa keypad sau khi hoàn thành, tránh event thành công bị phát lại. Sau lỗi, có thể xóa toàn bộ hoặc chỉ hiển thị thông báo, tùy thiết kế trải nghiệm.
+
+## 5. Ví dụ C# có thể gắn vào giao diện
+
+```csharp
+using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class NumberPad : MonoBehaviour
+{
+    [SerializeField] private TMP_Text display;
+    [SerializeField] private string correctCode = "0427";
+    [SerializeField, Min(1)] private int maxLength = 4;
+    [SerializeField] private UnityEvent codeAccepted;
+
+    private string current = "";
+    private bool unlocked;
+
+    public void AddDigit(string digit)
+    {
+        if (unlocked || current.Length >= maxLength) return;
+        if (digit.Length != 1 || !char.IsDigit(digit[0])) return;
+        current += digit;
+        Refresh();
+    }
+
+    public void Clear()
+    {
+        if (unlocked) return;
+        current = "";
+        Refresh();
+    }
+
+    public void Confirm()
+    {
+        if (unlocked) return;
+        if (current == correctCode)
+        {
+            unlocked = true;
+            if (display != null) display.text = "Đã mở khóa";
+            codeAccepted?.Invoke();
+        }
+        else
+        {
+            current = "";
+            if (display != null) display.text = "Sai mã — thử lại";
+        }
+    }
+
+    private void Refresh()
+    {
+        if (display != null) display.text = current;
+    }
+}
+```
+
+`"0427"` là **mã ví dụ**, không phải mã cố định của dự án. Dùng `string` thay vì `int` để giữ được các số 0 ở đầu. Gán các nút digit gọi `AddDigit(string)` với tham số tương ứng, nút Clear gọi `Clear()` và nút Confirm gọi `Confirm()`.
+
+## 6. Kiểm thử và lỗi thường gặp
+
+| Thử nghiệm | Kết quả mong đợi |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Nhập `0`, `4`, `2`, `7` rồi Confirm | Event `codeAccepted` phát một lần |
+| Nhập sai rồi Confirm | Thông báo lỗi và có thể nhập lại |
+| Nhập quá `maxLength` | Ký tự thừa bị bỏ qua |
+| Nhấn Confirm khi trống | Không mở khóa |
+| Nhấn lại sau khi mở | Không phát lại event |
 
-## 4. Thực hành từng bước
+- **Nút nhìn thấy nhưng không bấm được:** kiểm tra UI Raycaster, EventSystem, Input Module và vị trí Canvas.
+- **Một lần bấm nhận hai ký tự:** kiểm tra listener trùng hoặc cả hệ XR lẫn UI cùng xử lý.
+- **Mã bắt đầu bằng 0 bị mất:** dùng chuỗi ký tự, không chuyển sang số nguyên.
+- **Màn hình hiển thị mã nhạy cảm:** trong trò chơi có thể hiện dấu `•` thay chữ số nếu muốn tránh người chơi nhìn trộm, nhưng vẫn nên có xác nhận thao tác.
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+## 7. Tổng kết
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Number Pad minh họa cách **thu thập chuỗi nhập theo sự kiện**, giới hạn độ dài, xác minh dữ liệu và phát tín hiệu thành công để một module khác sử dụng. Tách UI và quy tắc xét mã là bước chuẩn bị tốt để mở rộng các câu đố VR.
 
-## 5. Bài tập củng cố
+## 8. Câu hỏi ôn tập trắc nghiệm
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Custom VR Development** để tạo một tương tác nhỏ.
+### Câu 1
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Vì sao lưu mã như `"0427"` thay vì số nguyên `427`?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+A. Vì string nhanh hơn mọi trường hợp  
+B. Vì mã có thể chứa số 0 ở đầu  
+C. Vì Unity không hỗ trợ số nguyên  
+D. Vì UI không hỗ trợ chữ số  
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+**Đáp án:** B. **Giải thích:** Chuỗi giữ nguyên độ dài và ký tự 0 đầu.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### Câu 2
 
-## 7. Checklist hoàn thành
+Khi nhập đúng mã, thiết kế nên làm gì?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. Phát event thành công một lần  
+B. Xóa scene  
+C. Tự mở tất cả cửa dù thiếu keycard  
+D. Lặp thông báo trong Update  
+
+**Đáp án:** A. **Giải thích:** Event được gửi một lần để controller xử lý điều kiện chung.
+
+### Câu 3
+
+Để tránh nhập quá số chữ số, cần kiểm tra gì?
+
+A. Chất lượng material  
+B. Tốc độ Render Pipeline  
+C. Camera clipping planes  
+D. current.Length so với maxLength  
+
+**Đáp án:** D. **Giải thích:** Kiểm tra độ dài trước khi thêm ký tự.
+
+### Câu 4
+
+Một phím số nhận hai lần nhấn dù người chơi chỉ bấm một lần, nguyên nhân hợp lý là gì?
+
+A. Đèn quá sáng  
+B. Collider quá nặng  
+C. Listener hoặc cơ chế XR/UI bị nối trùng  
+D. Chưa tạo material  
+
+**Đáp án:** C. **Giải thích:** Nhiều đường phát sự kiện có thể kích hoạt cùng handler.
+
+### Câu 5
+
+UI World Space không nhận tia trỏ, nên kiểm tra gì?
+
+A. Loại font chữ  
+B. Raycaster, EventSystem, Input Module  
+C. Cường độ directional light  
+D. GPU texture cache  
+
+**Đáp án:** B. **Giải thích:** Các thành phần UI input quyết định ray trỏ tương tác được hay không.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Tên mục học và phiên bản đối chiếu theo danh mục Unity 6.3; thao tác và kết quả có thể thay đổi khi package được cập nhật.

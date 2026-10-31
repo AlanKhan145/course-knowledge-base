@@ -1,78 +1,154 @@
----
-title: "Keeping up with XR technology"
-pathway: "VR Development"
-module: "Ergonomics and Optimization"
-lesson_number: 6
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 06 — Cập nhật công nghệ XR một cách có hệ thống (Keeping up with XR Technology)
 
-# Bài 06 — Keeping up with XR technology
+> **Lộ trình:** VR Development · **Học phần:** Ergonomics and Optimization · **Ngữ cảnh:** Unity 6.3
+>
+> **Năng lực trọng tâm:** Theo dõi sự thay đổi của hệ sinh thái XR mà không phá vỡ một project đang hoạt động.
 
-> **Pathway:** VR Development · **Mission:** Ergonomics and Optimization · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+## 1. Vì sao phải theo dõi thay đổi?
 
-> **Nguồn đối chiếu:** [Ergonomics and Optimization trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Dự án XR phụ thuộc vào nhiều lớp: Unity Editor, gói tương tác, XR runtime, thiết bị đeo và hệ thống input. Khi một lớp thay đổi, trải nghiệm trên HMD có thể khác trước ngay cả khi scene và logic trò chơi không sửa. Người phát triển cần có quy trình **kiểm chứng tính tương thích**, không chỉ đọc tên tính năng mới.
 
-## 1. Tổng quan
-
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Ergonomics and Optimization*, bài **Keeping up with XR technology** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Trong bài thực hành, đặc biệt chú ý mối quan hệ `XR Origin` → input actions → `Interactor` → `Interactable`, hai kiểu di chuyển teleportation/continuous movement và yêu cầu đo frame time trên thiết bị thật.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Keeping up with XR technology** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Xác định những thành phần của project XR có thể bị ảnh hưởng khi nâng phiên bản.
+- Thiết lập một checklist kiểm thử hồi quy cho tương tác và locomotion.
+- Phân biệt thông tin từ tài liệu kỹ thuật, trạng thái project và kết quả kiểm thử thực tế.
+- Lưu nhật ký thay đổi để có thể khôi phục khi phát sinh lỗi.
 
-## 3. Kiến thức trọng tâm
+## 3. Các lớp cần quan sát
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+| Lớp | Điều cần đối chiếu | Rủi ro nếu bỏ qua |
+|---|---|---|
+| Unity Editor | Phiên bản project và thay đổi công cụ | Cách cấu hình hoặc hành vi khác trước |
+| XR Interaction Toolkit | Thành phần interactor/interactable và mẫu input | Tương tác không còn hoạt động như mong đợi |
+| XR runtime / OpenXR | Runtime tương thích thiết bị, tính năng bật | Thiết bị hoặc đầu vào không được nhận |
+| Thiết bị HMD/tay cầm | Kiểu thao tác và khả năng theo dõi | Thao tác không khớp người dùng |
+| Render pipeline / lighting | Hỗ trợ bake, lightmap, shader, chất lượng | Thay đổi hình ảnh và frame time |
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+flowchart TD
+    A[Phát hiện thay đổi cần xem xét] --> B[Đọc release note và tài liệu]
+    B --> C[Kiểm tra tương thích project]
+    C --> D[Sao lưu hoặc tạo nhánh thử nghiệm]
+    D --> E[Thử trên scene nhỏ]
+    E --> F[Chạy kiểm thử tương tác và hiệu năng]
+    F --> G{Kết quả đạt?}
+    G -->|Không| H[Ghi lỗi và khôi phục cấu hình]
+    G -->|Có| I[Ghi quyết định áp dụng]
+```
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+**Giải thích:** Cập nhật là một thay đổi kỹ thuật có thể kiểm chứng. Thử nghiệm tách biệt giúp tránh biến một project đang chạy ổn định thành môi trường lỗi khó truy nguyên.
 
-## 4. Thực hành từng bước
+## 4. Quy trình theo dõi cập nhật
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+1. **Xác định nhu cầu:** sửa lỗi, bổ sung tính năng hay hỗ trợ thiết bị mới; không cập nhật chỉ vì có số phiên bản mới.
+2. **Đối chiếu nguồn kỹ thuật:** trang hướng dẫn chính thức của Unity, ghi chú phát hành package và tài liệu của runtime/thiết bị liên quan.
+3. **Lập mốc an toàn:** lưu commit hoặc bản sao project có thể chạy được.
+4. **Thử nghiệm nhỏ:** dựng scene có `XR Origin`, input, một interactor và một interactable.
+5. **Kiểm thử chức năng:** thao tác chọn, locomotion, phản hồi và toàn bộ flow của scene.
+6. **Kiểm thử hiệu năng:** dùng bản build trên thiết bị đích, ghi dữ liệu trước/sau khi cập nhật.
+7. **Ra quyết định:** giữ phiên bản mới nếu đạt tiêu chí; nếu không, ghi lỗi và quay về mốc ổn định.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Mẫu nhật ký tương thích
 
-## 5. Bài tập củng cố
+| Mục | Phiên bản hiện tại | Phiên bản thử nghiệm | Kết quả |
+|---|---|---|---|
+| Editor | *Điền từ project* | *Điền* | *Điền* |
+| Package tương tác | *Điền* | *Điền* | *Điền* |
+| Runtime XR | *Điền* | *Điền* | *Điền* |
+| Input và interactor | *Đạt/Không* | *Đạt/Không* | *Điền* |
+| Locomotion | *Đạt/Không* | *Đạt/Không* | *Điền* |
+| Frame time trên HMD | *Số đo* | *Số đo* | *Điền* |
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Ergonomics and Optimization** để tạo một tương tác nhỏ.
+Bảng trên là mẫu ghi chép, **không chứa dữ liệu benchmark thực tế**. Chỉ điền sau khi kiểm thử và giữ lại điều kiện đo để có thể tái hiện.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 6. Bài tập áp dụng
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Lấy một project XR nhỏ đang chạy được. Ghi lại trạng thái hiện tại rồi đề xuất một thay đổi cấu hình hoặc phiên bản để thử trong bản sao. Trước khi đổi, dự đoán bộ phận nào có thể bị ảnh hưởng. Sau đó kiểm tra lại input, interactor, locomotion và hiệu năng. Nếu không có nhu cầu cập nhật, chỉ cần thực hiện **bài kiểm thử hồi quy hiện trạng** để lập mốc baseline.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+## 7. Lỗi tư duy thường gặp
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+- **Nâng đồng thời nhiều thành phần:** khó biết thay đổi nào gây lỗi.
+- **Tin rằng chạy trong Editor là đủ:** vẫn cần xem bản build và runtime thực tế.
+- **Chỉ chú ý tính năng mới:** bỏ quên UX, comfort và hiệu năng.
+- **Không lưu phiên bản đã kiểm thử:** không thể quay lại cấu hình ổn định.
 
-## 7. Checklist hoàn thành
+## 8. Checklist hoàn thành
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Ergonomics and Optimization](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Xác định được các lớp có thể tác động đến tương tác XR.
+- [ ] Lưu mốc project trước khi thay đổi.
+- [ ] Có checklist kiểm thử lại chức năng và hiệu năng.
+- [ ] Ghi được giả thuyết, kết quả và quyết định giữ/hoàn tác.
+- [ ] Biết nơi đối chiếu tài liệu cập nhật chính thức.
+
+## 9. Tổng kết
+
+Theo kịp XR không chỉ là đọc tin tức về phần cứng. Năng lực thực hành cốt lõi là **đánh giá thay đổi, cô lập tác động và bảo vệ chất lượng trải nghiệm**.
+
+## 10. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Trước khi cập nhật package XR, nên làm gì?
+
+A. Xóa toàn bộ project  
+B. Thay cùng lúc mọi gói  
+C. Sao lưu hoặc tạo nhánh thử nghiệm  
+D. Chỉ đổi màu scene  
+
+**Đáp án:** C  
+**Giải thích:** Mốc ổn định giúp khôi phục và đối chiếu khi phát sinh lỗi.
+
+### Câu 2
+
+Điều gì cần kiểm thử lại sau khi thay đổi runtime XR?
+
+A. Input và tương tác trên thiết bị đích  
+B. Chỉ tên folder  
+C. Chỉ chiều dài README  
+D. Chỉ số lượng bảng  
+
+**Đáp án:** A  
+**Giải thích:** Runtime ảnh hưởng đến đầu vào, thiết bị và hành vi XR.
+
+### Câu 3
+
+Vì sao thử trên scene nhỏ trước?
+
+A. Để bỏ kiểm thử  
+B. Để tăng độ phức tạp  
+C. Để xóa lỗi trong mọi ứng dụng  
+D. Để cô lập thay đổi và nhận diện lỗi  
+
+**Đáp án:** D  
+**Giải thích:** Scene nhỏ giúp xác định thay đổi nào tạo ra lỗi.
+
+### Câu 4
+
+Chỉ số nào nên so sánh khi cập nhật để tránh giảm chất lượng trải nghiệm?
+
+A. Tên vật thể  
+B. Frame time trên HMD  
+C. Tên người viết  
+D. Ngày lưu tài liệu  
+
+**Đáp án:** B  
+**Giải thích:** Tính năng tương thích chưa đủ nếu hiệu năng giảm.
+
+### Câu 5
+
+Khi thử bản cập nhật không đạt tiêu chí, nên làm gì?
+
+A. Ép áp dụng cho mọi dự án  
+B. Bỏ qua lỗi  
+C. Ghi lỗi và quay lại mốc ổn định  
+D. Chỉ xóa video  
+
+**Đáp án:** C  
+**Giải thích:** Bảo vệ chất lượng project quan trọng hơn chạy theo phiên bản.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Tài liệu học tập tự biên soạn dựa trên đề mục của Unity Learn; không phải bản dịch hoặc transcript chính thức. Đối chiếu nội dung và tài nguyên thực hành tại [Unity Learn — Ergonomics and Optimization](https://learn.unity.com/pathway/vr-development/unit/ergonomics-and-optimization?version=6.3). Tên menu và package có thể thay đổi theo phiên bản project.*

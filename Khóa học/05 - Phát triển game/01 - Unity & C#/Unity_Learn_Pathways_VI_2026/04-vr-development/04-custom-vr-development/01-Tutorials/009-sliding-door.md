@@ -1,78 +1,156 @@
----
-title: "Sliding Door"
-pathway: "VR Development"
-module: "Custom VR Development"
-lesson_number: 9
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 09 — Lập trình cửa trượt (Sliding Door)
 
-# Bài 09 — Sliding Door
-
-> **Pathway:** VR Development · **Mission:** Custom VR Development · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Custom VR Development trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** VR Development · **Học phần:** Custom VR Development · **Nền tảng:** Unity 6.3 · **Dạng:** tutorial.
+>
+> **Lưu ý:** Các quy trình và mã bên dưới là ví dụ thực hành độc lập, không phải bản chép nguyên văn hướng dẫn hay đề kiểm tra chính thức của Unity. Cần đối chiếu tài nguyên scene, prefab và phiên bản package trong dự án thực tế.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Custom VR Development*, bài **Sliding Door** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Trong Escape Room VR, cửa trượt là cơ chế phản hồi cuối cùng sau khi người chơi giải được câu đố. Một cửa hoàn chỉnh cần có **trạng thái đóng/mở, vị trí đích xác định, tốc độ chuyển động hợp lý và cách chặn lệnh lặp**. Không nên dịch chuyển camera hay toàn bộ scene để giả lập cửa đang mở.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Sliding Door** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Tính vị trí đóng/mở của một cánh cửa theo local Transform.
+- Điều khiển chuyển động theo frame time để giảm phụ thuộc FPS.
+- Nối sự kiện từ Escape Room Controller và kiểm thử trạng thái cửa.
 
-## 3. Kiến thức trọng tâm
+## 3. Thiết kế trạng thái cửa
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+```mermaid
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> Opening: Open()
+    Opening --> Open: Đến vị trí đích
+    Open --> Open: Open() gọi lại
+```
 
-### Thuật ngữ và mối quan hệ
+Nếu cần đóng cửa lần nữa, có thể bổ sung `Closing` và `Close()`. Tuy nhiên với Escape Room đơn giản, chỉ cần một chiều mở để dễ kiểm thử.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Cấu trúc scene
 
-## 4. Thực hành từng bước
+```text
+DoorFrame (khung cố định)
+└── DoorPanel (cánh di chuyển, SlidingDoor)
+```
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+Cửa cần có Mesh Renderer và Collider phù hợp. **Chỉ cánh cửa** dịch chuyển, không dịch chuyển khung. Nếu sử dụng Rigidbody động hoặc có tương tác vật lý phức tạp, cần chọn phương pháp di chuyển tương thích Physics (ví dụ `Rigidbody.MovePosition` trong `FixedUpdate`) thay vì dùng Transform thuần túy.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Code mẫu cho cửa không dùng vật lý động
 
-## 5. Bài tập củng cố
+```csharp
+using UnityEngine;
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Custom VR Development** để tạo một tương tác nhỏ.
+public class SlidingDoor : MonoBehaviour
+{
+    [SerializeField] private Vector3 localOpenOffset = new Vector3(2f, 0f, 0f);
+    [SerializeField, Min(0.01f)] private float speed = 1f;
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+    private Vector3 closedPosition;
+    private Vector3 openPosition;
+    private bool opening;
 
-## 6. Lỗi thường gặp và cách kiểm tra
+    private void Awake()
+    {
+        closedPosition = transform.localPosition;
+        openPosition = closedPosition + localOpenOffset;
+    }
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+    public void Open() => opening = true;
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+    private void Update()
+    {
+        if (!opening) return;
+        transform.localPosition = Vector3.MoveTowards(
+            transform.localPosition, openPosition, speed * Time.deltaTime);
+        if ((transform.localPosition - openPosition).sqrMagnitude < 0.0001f)
+            opening = false;
+    }
+}
+```
 
-## 7. Checklist hoàn thành
+`localOpenOffset` là **độ lệch trong hệ tọa độ của cha**. Thông số `(2,0,0)` chỉ là ví dụ; phải chỉnh theo kích thước cánh cửa và hướng của khung. `MoveTowards` giới hạn quãng đường dịch chuyển mỗi frame; `Time.deltaTime` giúp tốc độ tương đối ổn định khi FPS thay đổi.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 6. Nối logic Escape Room
+
+1. Gắn script `SlidingDoor` vào `DoorPanel`; đặt vị trí cánh cửa ở **trạng thái đóng** trước khi Play Mode.
+2. Chỉnh `localOpenOffset` và `speed`; thử gọi `Open()` qua nút test hoặc sự kiện Inspector.
+3. Tạo `EscapeRoomController`, gán tham chiếu tới `SlidingDoor`.
+4. Nối Number Pad và Keycard Reader đến bộ điều phối để chỉ gọi `Open()` khi hai điều kiện đã đạt.
+5. Thử làm các nhiệm vụ theo hai thứ tự khác nhau và xác nhận cửa chỉ mở một lần.
+
+## 7. Kiểm thử & lỗi thường gặp
+
+| Hiện tượng | Khả năng nguyên nhân | Cách khắc phục |
+|---|---|---|
+| Cửa chạy sai hướng | Offset local sai dấu/trục | Xem local gizmo, chỉnh offset |
+| Cửa bật tới đích ngay | Dịch chuyển vị trí trực tiếp hoặc speed quá lớn | Dùng `MoveTowards`, điều chỉnh speed |
+| Cửa trượt mãi | Thiếu điều kiện dừng | Kiểm tra khoảng cách tới `openPosition` |
+| Cửa đi xuyên vật thể | Transform di chuyển mà không xử lý vật lý | Quyết định rõ cửa là kinematic hay dynamic |
+| Nhập đúng mã vẫn không mở | Chưa có thẻ hoặc listener chưa nối | Kiểm tra trạng thái Controller và event |
+
+**Lưu ý VR:** tránh chuyển động cửa quá nhanh sát vị trí đầu người chơi; không dùng cửa mở như cơ chế dịch chuyển bắt buộc đối với người chơi. Đường đi cần đủ thoáng và có phản hồi rằng câu đố đã hoàn thành.
+
+## 8. Tổng kết
+
+Sliding Door minh họa cách **chuyển điều kiện logic thành hoạt ảnh chuyển động đơn giản** và kết thúc khi đạt đích. Thiết kế độc lập với các câu đố giúp dễ thay đổi tốc độ, âm thanh và hình dạng cửa mà không phải sửa Number Pad hay Keycard Reader.
+
+## 9. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Vì sao dùng `Time.deltaTime` trong phép dịch chuyển?
+
+A. Để chuyển động ít phụ thuộc vào FPS  
+B. Để mở khóa Input Actions  
+C. Để sửa Collider  
+D. Để tăng kích thước cửa  
+
+**Đáp án:** A. **Giải thích:** deltaTime là thời gian giữa các frame, giúp điều chỉnh bước dịch chuyển.
+
+### Câu 2
+
+`localOpenOffset` được cộng với giá trị nào?
+
+A. Camera position  
+B. Muzzle.forward  
+C. Vị trí local ban đầu của cánh cửa  
+D. Vị trí bất kỳ của XR Origin  
+
+**Đáp án:** C. **Giải thích:** openPosition = closedPosition + localOpenOffset.
+
+### Câu 3
+
+Cửa đạt đúng vị trí đích, script nên làm gì?
+
+A. Tạo thêm cửa mới  
+B. Tiếp tục cộng offset  
+C. Gọi Open hàng frame  
+D. Dừng trạng thái opening  
+
+**Đáp án:** D. **Giải thích:** Điều kiện dừng tránh xử lý không cần thiết và vượt quá đích.
+
+### Câu 4
+
+Nếu cần cửa chịu vật lý động, cách tiếp cận nên được cân nhắc?
+
+A. Thêm Post-processing  
+B. Rigidbody.MovePosition cùng FixedUpdate và thiết kế vật lý phù hợp  
+C. Bỏ Collider  
+D. Dịch chuyển camera  
+
+**Đáp án:** B. **Giải thích:** Chuyển động có vật lý cần đồng bộ với cơ chế Rigidbody.
+
+### Câu 5
+
+Cửa không mở sau khi người chơi nhập đúng mã, bước kiểm tra nào hợp lý?
+
+A. Đổi Skybox  
+B. Xóa prefab cửa  
+C. Kiểm tra điều kiện thẻ và event từ controller  
+D. Giảm texture resolution  
+
+**Đáp án:** C. **Giải thích:** Cửa chỉ nhận lệnh khi mọi điều kiện mở khóa đã thỏa.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Custom VR Development](https://learn.unity.com/pathway/vr-development/unit/mission-4-custom-vr-development?version=6.3). Tên mục học và phiên bản đối chiếu theo danh mục Unity 6.3; thao tác và kết quả có thể thay đổi khi package được cập nhật.

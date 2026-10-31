@@ -1,78 +1,146 @@
 ---
-title: "2.3 - Near-Far and Ray Interactors"
+title: "2.3 — Tương tác gần, xa và tia trong VR"
 pathway: "VR Development"
 module: "Events and Interactions"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+lesson_type: lesson
+unity_version_reference: "6.3"
 ---
 
-# Bài 03 — 2.3 - Near-Far and Ray Interactors
-
-> **Pathway:** VR Development · **Mission:** Events and Interactions · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Events and Interactions trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# 2.3 — Tương tác gần, xa và tia trong VR (Near–Far and Ray Interactors)
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *Events and Interactions*, bài **2.3 - Near-Far and Ray Interactors** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Trong đời thực, ta cầm vật ở gần bằng tay và chỉ vào vật ở xa để ra lệnh. VR tái tạo các thao tác này bằng nhiều kiểu `Interactor`. Một trải nghiệm tốt cần giúp người chơi biết **mình đang nhắm vào đâu**, **vật nào có thể tương tác**, và **thao tác nào sẽ xảy ra**.
 
-## 2. Mục tiêu học tập
+**Mục tiêu học tập:**
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **2.3 - Near-Far and Ray Interactors** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Giải thích vai trò của `Interactor`, `Interactable` và bộ điều phối tương tác trong XR Interaction Toolkit.
+- Phân biệt tiếp xúc gần, tương tác bằng tia và kiểu near–far kết hợp.
+- Cấu hình một scene kiểm tra tương tác ở hai khoảng cách.
+- Nhận biết lỗi input, collider, phạm vi tương tác và hiệu năng.
 
-## 3. Kiến thức trọng tâm
+## 2. Mô hình tương tác XR
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+Một đối tượng VR chỉ phản hồi đúng khi các thành phần phối hợp:
 
-### Thuật ngữ và mối quan hệ
+| Thành phần | Vai trò | Ví dụ |
+| --- | --- | --- |
+| `XR Origin` | Định vị người chơi và các điểm theo dõi trong thế giới ảo | Camera/tay cầm của người dùng |
+| `Interactor` | Phát hiện, lựa chọn hoặc thao tác với vật | Tay chạm trực tiếp, tia trỏ |
+| `Interactable` | Định nghĩa đối tượng có thể nhận tương tác | Khối hộp có thể nhặt |
+| `XR Interaction Manager` | Điều phối các quan hệ tương tác | Quản lý interactor/interactable |
+| Input actions | Ánh xạ các thao tác tay cầm/nút | Select, Activate theo cấu hình |
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+```mermaid
+flowchart TD
+    A[Input người chơi] --> B[Interactor]
+    C[Collider và đối tượng tương tác] --> D[Interactable]
+    B --> E[XR Interaction Manager]
+    D --> E
+    E --> F[Hover / Select / Activate]
+    F --> G[Phản hồi hình ảnh, âm thanh, gameplay]
+```
 
-## 4. Thực hành từng bước
+Sơ đồ thể hiện chuỗi logic khái niệm: input và khả năng phát hiện mục tiêu phải khớp trước khi hệ thống có thể tạo tương tác hợp lệ.
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+## 3. So sánh ba cách tương tác
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+| Cách tương tác | Cảm giác người dùng | Phù hợp | Vấn đề cần lưu ý |
+| --- | --- | --- | --- |
+| Direct / near | Tay chạm gần vật | Nhặt, đặt, thao tác gần | Collider/phạm vi chạm phải chính xác |
+| Ray / far | Trỏ tia tới mục tiêu | Chọn vật hoặc UI ở xa | Dễ chọn nhầm nếu tia quá dày hoặc mục tiêu quá nhỏ |
+| Near–far kết hợp | Chuyển từ chạm gần sang nhắm xa | Môi trường có vật ở nhiều khoảng cách | Phải thiết kế chuyển đổi nhất quán để tránh khó hiểu |
 
-## 5. Bài tập củng cố
+Cơ chế **di chuyển** là vấn đề khác với cơ chế **tương tác**. `Teleportation` đưa người chơi sang vị trí mới theo bước nhảy, còn continuous movement di chuyển liên tục. Cả hai có ảnh hưởng khác nhau đến sự thoải mái, nên không mặc định rằng ray interactor chỉ dùng cho teleport hoặc rằng near–far tự giải quyết locomotion.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Events and Interactions** để tạo một tương tác nhỏ.
+## 4. Thực hành scene hai khoảng cách
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Chuẩn bị:** dự án có XR Interaction Toolkit, input actions và XR Origin đã hoạt động; hai đối tượng có collider và khả năng tương tác phù hợp.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+1. Tạo một khối hộp **ở gần người chơi** và một khối hộp **ở xa hơn tầm với**. Gán tên rõ ràng trong Hierarchy.
+2. Thêm các thành phần `Interactable` tương ứng để vật có thể được chọn. Xác minh collider được gắn đúng vật và không bị vô hiệu hóa.
+3. Kiểm tra interactor gần với vật gần. Dùng thay đổi màu/vị trí hoặc một sự kiện đơn giản để xác nhận `Hover` và `Select`.
+4. Cấu hình interactor dạng tia phù hợp phiên bản package. Trỏ tới vật xa và xác minh ray thực sự chạm collider cần chọn.
+5. Nếu project có near–far interactor, so sánh hành vi khi dịch chuyển tay từ vật gần sang vật xa. Ghi lại thứ tự ưu tiên hoặc điều kiện chuyển đổi quan sát được.
+6. Thử locomotion nếu scene hỗ trợ, lưu ý cảm giác thoải mái. Không thay đổi đồng thời cả tương tác và di chuyển khi debug.
+7. Chạy trên phần cứng đích nếu có. Quan sát tính ổn định khi đưa tay nhanh hoặc trỏ vào nhiều vật gần nhau.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+**Bảng theo dõi kiểm thử:**
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+| Tình huống | Kết quả mong đợi | Kết quả thực tế |
+| --- | --- | --- |
+| Tay đưa tới vật gần | Nhận hover/select đúng vật | Ghi sau khi test |
+| Ray hướng tới vật xa | Tia tìm đúng mục tiêu | Ghi sau khi test |
+| Ray hướng ra khoảng trống | Không chọn vật ngoài ý muốn | Ghi sau khi test |
+| Vật bị vô hiệu collider | Không thể chọn bằng cách dựa vào collider đó | Ghi sau khi test |
 
-## 7. Checklist hoàn thành
+## 5. Thiết kế sự thoải mái và hiệu năng
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Events and Interactions](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+HMD cần tốc độ hiển thị cao và **ổn định**. Một scene vẫn có thể gây khó chịu dù tương tác đúng chức năng nếu người dùng bị giật hình khi xoay đầu hoặc di chuyển tay. Các nguyên nhân có thể nằm ở overdraw, số draw call, shader/hiệu ứng đắt hoặc logic chạy quá nhiều mỗi frame.
 
----
+Hãy dùng Profiler và chạy trên thiết bị đích khi có thể. FPS trong Editor chỉ là tín hiệu ban đầu; không đủ để kết luận trải nghiệm trên HMD. Với ray, giữ phản hồi trực quan rõ ràng và tránh làm màn hình ngập đường tia hoặc hiệu ứng nhấp nháy.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## 6. Xử lý lỗi thường gặp
+
+- **Không thể chọn vật:** kiểm tra input actions, interactor có hoạt động, vật có interactable/collider và các lớp tương tác có tương thích không.
+- **Ray nhìn thấy nhưng không có sự kiện:** xác nhận ray thực sự hit mục tiêu và thành phần target có đăng ký tương tác hợp lệ.
+- **Thử trong Editor được nhưng HMD lỗi:** kiểm tra runtime OpenXR và ánh xạ controller trên thiết bị.
+- **Tương tác gần và xa xung đột:** quan sát trạng thái hover/select, tính ưu tiên và điểm phát hiện vật trong từng chế độ.
+- **Khựng hình:** profile trên thiết bị, cô lập hiệu ứng và đo lại sau khi thay đổi từng thành phần.
+
+## 7. Bài thực hành
+
+Xây dựng một quầy VR có ba vật: một vật bắt buộc nhặt bằng tay gần, một bảng chọn ở xa, một vật có thể được tương tác qua cả hai khoảng cách. Viết ngắn cách nhận biết người dùng đang dùng kiểu tương tác nào và ít nhất hai tình huống chọn nhầm cần phòng tránh.
+
+## 8. Câu hỏi ôn tập
+
+**Câu 1.** Thành phần nào đóng vai trò điều phối interactor và interactable?
+
+A. `XR Interaction Manager`.  
+B. `AudioClip`.  
+C. `Directional Light`.  
+D. `Canvas Scaler`.
+
+**Đáp án: A.** Bộ quản lý chịu trách nhiệm điều phối quan hệ tương tác.
+
+**Câu 2.** Chọn vật nằm xa hơn tầm tay thường phù hợp cơ chế nào?
+
+A. Chỉ direct contact.  
+B. Chỉ locomotion.  
+C. Ray interactor.  
+D. Không cần target.
+
+**Đáp án: C.** Tia cho phép nhắm và chọn vật ở xa.
+
+**Câu 3.** Tia hiển thị nhưng không chọn được khối hộp. Bước kiểm tra tốt nhất là gì?
+
+A. Tăng nhạc nền.  
+B. Xóa XR Origin.  
+C. Thay màu skybox.  
+D. Kiểm tra hit, collider, interactable và cấu hình input.
+
+**Đáp án: D.** Một ray trực quan chưa chứng minh toàn bộ chuỗi chọn mục tiêu đã hợp lệ.
+
+**Câu 4.** Phát biểu nào mô tả đúng quan hệ giữa teleportation và ray?
+
+A. Hai khái niệm hoàn toàn giống nhau.  
+B. Ray có thể dùng để chọn; teleportation là cơ chế di chuyển.  
+C. Teleportation luôn là âm thanh.  
+D. Near–far luôn vô hiệu hóa teleportation.
+
+**Đáp án: B.** Kỹ thuật nhắm mục tiêu và phương thức di chuyển giải quyết hai vấn đề khác nhau.
+
+**Câu 5.** Vì sao cần thử trên HMD thực?
+
+A. Vì FPS trong Editor luôn bằng FPS trên HMD.  
+B. Vì không cần đo hiệu năng.  
+C. Vì sự thoải mái, tracking và hiệu năng thực tế có thể khác Editor.  
+D. Vì HMD tự sửa lỗi input.
+
+**Đáp án: C.** Thử trên thiết bị đích giúp phát hiện vấn đề không thể nhìn hết trong Editor.
+
+## 9. Tổng kết
+
+Khả năng tương tác gần và xa mở rộng phạm vi hành động trong VR, nhưng phải được thiết kế nhất quán. Hãy kiểm tra toàn bộ chuỗi **input → interactor → mục tiêu → sự kiện → phản hồi** và luôn xem hiệu năng là một phần của trải nghiệm.
+
+**Tham khảo:** [Unity Learn — Events and Interactions](https://learn.unity.com/pathway/vr-development/unit/events-and-interactions?version=6.3).

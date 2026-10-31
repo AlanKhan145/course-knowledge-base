@@ -1,78 +1,153 @@
 ---
-title: "1.4 - Sockets"
+title: "1.4 — Đặt vật thể vào vị trí gắn (Sockets)"
 pathway: "VR Development"
 module: "VR Basics"
 lesson_number: 6
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+content_type: "Bài học tiếng Việt tự biên soạn"
+unity_version_reference: "6.3"
+lesson_kind: "lesson"
 ---
 
-# Bài 06 — 1.4 - Sockets
-
-> **Pathway:** VR Development · **Mission:** VR Basics · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [VR Basics trên Unity Learn](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+# Bài 06 — 1.4 — Đặt vật thể vào vị trí gắn (Sockets)
 
 ## 1. Tổng quan
 
-**Chủ đề:** Tương tác và hiệu năng ứng dụng VR. Trong ngữ cảnh *VR Basics*, bài **1.4 - Sockets** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Khi người chơi đặt một đồ vật vào ổ cắm, giá đỡ hoặc khe chứa, ứng dụng cần nhận biết đúng vật, đúng vùng đích và thời điểm chuyển từ tay sang vị trí lưu trữ. Trong XR Interaction Toolkit, Socket Interactor cung cấp một cơ chế tương tác cho tình huống này.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **tương tác và hiệu năng ứng dụng vr** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **1.4 - Sockets** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Giải thích được sự khác nhau giữa cầm bằng tay và giữ vật bằng socket.
+- Tạo một điểm đặt thử nghiệm và kiểm chứng trình tự đặt–giữ–lấy ra.
+- Chẩn đoán tình huống vật không gắn đúng hoặc gắn nhầm chỗ.
 
-## 3. Kiến thức trọng tâm
+## 3. Socket đóng vai trò gì?
 
-- XR Interaction Toolkit tách Interactor (bộ tương tác), Interactable (đối tượng tương tác) và bộ điều phối tương tác.
-- Teleportation và continuous movement gây cảm giác khác nhau; cần thiết kế hướng tới sự thoải mái.
-- Frame rate cao và ổn định đặc biệt quan trọng với HMD; giảm overdraw, draw call và hiệu ứng đắt.
+Một **Socket Interactor** là vùng tương tác có thể chọn và giữ vật thể phù hợp, trong khi vật vẫn là **Interactable**. Với một chiếc cúp, tay người chơi là Interactor thứ nhất; chiếc đế trưng bày có socket là Interactor thứ hai. Cấu hình socket quyết định đối tượng được chấp nhận, vị trí gắn và điều kiện chuyển giao.
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+flowchart LR
+    A[Tay đang giữ vật] --> B[Đưa vật vào vùng socket]
+    B --> C{Vật tương thích?}
+    C -->|Có| D[Socket nhận và giữ]
+    C -->|Không| E[Không nhận vật]
+    D --> F[Người dùng lấy vật ra]
+```
 
-| Khái niệm | Vai trò trong bài |
+Quy trình trên là mô hình kiểm thử: vật cần được nhận đúng theo tiêu chí của socket, chứ không chỉ vì nó nằm gần vị trí đích.
+
+## 4. Thiết lập tình huống đặt vật
+
+1. Tạo một đế/giá cố định, thêm một GameObject biểu diễn vị trí socket.
+2. Thiết lập **Socket Interactor** và vùng nhận diện hoặc cấu hình va chạm phù hợp phiên bản XRI đang dùng.
+3. Chuẩn bị một vật có **Grab Interactable**; xác minh rằng tay có thể nhặt vật trước.
+4. Đặt socket và vật ở khoảng cách dễ tiếp cận; xác định hướng gắn (attach) để vật không bị xoay lệch.
+5. Chạy thử trình tự: nhặt → đưa gần socket → nhả → quan sát trạng thái giữ → lấy ra.
+6. Thử với một vật khác không được dự định dùng ở socket; ghi nhận kết quả và siết điều kiện tương thích nếu cần.
+
+**Checkpoint:** Chỉ vật mục tiêu được nhận, vật nằm đúng vị trí, không giật mạnh và có thể lấy ra theo chủ đích.
+
+## 5. Các tình huống cần kiểm tra
+
+| Lỗi | Gợi ý kiểm tra |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Vật gần socket nhưng không gắn | Vùng phát hiện, layer, Interactor/Interactable, trạng thái select |
+| Socket nhận nhầm vật | Quy tắc tương thích, phân loại đối tượng/layer |
+| Vật xoay sai hướng | Attach Transform, hướng của socket và vật |
+| Vật rung hoặc xung đột | Rigidbody, trạng thái vật lý và script can thiệp vị trí |
+| Vật không lấy ra được | Cấu hình select, tương tác ưu tiên và đầu vào của tay |
 
-## 4. Thực hành từng bước
+Khi sửa lỗi, hãy tách **khả năng phát hiện** (vật có nằm trong vùng tương tác?) khỏi **khả năng chọn/giữ** (socket có quyền nhận vật?). Đây là hai bước khác nhau.
 
-1. **Bước 1:** Tạo scene có XR Origin và hệ input phù hợp phiên bản XR Interaction Toolkit.
-2. **Bước 2:** Thêm một interactable, kiểm tra tương tác bằng direct/ray interactor.
-3. **Bước 3:** Thử một cơ chế di chuyển, kiểm tra comfort setting và phạm vi chạm.
-4. **Bước 4:** Profile trên thiết bị đích, không chỉ dựa vào FPS trong Editor.
+## 6. Bài tập củng cố
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Thiết kế một kệ có hai vị trí: **socket cho khối vuông** và **socket cho hình trụ**. Ghi sơ đồ điều kiện nhận vật dưới dạng bảng; kiểm thử bốn trường hợp: vật đúng đến vị trí đúng, vật sai đến vị trí đúng, vật đúng nhưng tay vẫn giữ, và vật đã đặt được lấy trở lại. Mỗi trường hợp ghi kết quả mong đợi, kết quả thực tế và lý do nếu chưa đạt.
 
-## 5. Bài tập củng cố
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **VR Basics** để tạo một tương tác nhỏ.
+### Câu 1
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Socket Interactor chủ yếu dùng cho tình huống nào?
 
-## 6. Lỗi thường gặp và cách kiểm tra
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: input actions chưa map, không tương thích OpenXR runtime hoặc đối tượng thiếu Interactable.
+A. Nhận và giữ vật vào một vị trí gắn  
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+B. Quản lý gói Unity  
 
-## 7. Checklist hoàn thành
+C. Thay thế toàn bộ camera  
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+D. Biên dịch shader  
+
+
+**Đáp án:** A. **Giải thích:** Socket là nguồn tương tác nhằm nhận vật phù hợp vào vị trí chỉ định.
+
+### Câu 2
+
+Vật đặt gần socket nhưng không được giữ. Kiểm tra gì trước?
+
+
+A. Đổi tên scene tùy ý  
+
+B. Vùng phát hiện và điều kiện select  
+
+C. Xóa Input System  
+
+D. Tăng cường độ ánh sáng  
+
+
+**Đáp án:** B. **Giải thích:** Gần vị trí chưa chắc đã đáp ứng điều kiện tương tác.
+
+### Câu 3
+
+Vật bị xoay ngược khi gắn, phần nào liên quan trực tiếp?
+
+
+A. Build module Android  
+
+B. Console font  
+
+C. Attach Transform  
+
+D. Tên project  
+
+
+**Đáp án:** C. **Giải thích:** Vị trí/hướng attach quyết định tư thế khi được gắn.
+
+### Câu 4
+
+Tại sao cần thử vật không hợp lệ với socket?
+
+
+A. Để tiết kiệm bộ nhớ  
+
+B. Để tăng FPS  
+
+C. Để kiểm tra độ phân giải ảnh  
+
+D. Để xác minh cơ chế lọc tương thích  
+
+
+**Đáp án:** D. **Giải thích:** Một socket tốt cần từ chối vật không phù hợp.
+
+### Câu 5
+
+Bước nào xác minh vòng đời đầy đủ của một vật đặt lên kệ?
+
+
+A. Nhặt, đưa vào socket, nhả, rồi lấy ra  
+
+B. Chỉ nhìn vật ở Editor  
+
+C. Chỉ thay màu nền  
+
+D. Chỉ build scene trống  
+
+
+**Đáp án:** A. **Giải thích:** Cần kiểm tra cả đặt và lấy lại vật.
+
+## 8. Tổng kết
+
+Socket bổ sung bước **đặt đúng vị trí và chuyển quyền giữ vật** cho cơ chế Grab. Hãy thử cả trường hợp hợp lệ lẫn không hợp lệ để bảo đảm tương tác có quy tắc rõ ràng.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Học liệu đối chiếu:** [Unity Learn — VR Basics](https://learn.unity.com/pathway/vr-development/unit/vr-basics?version=6.3). Các ví dụ và bài tập là nội dung học tập tự biên soạn, không phải bài kiểm tra hoặc transcript chính thức.
