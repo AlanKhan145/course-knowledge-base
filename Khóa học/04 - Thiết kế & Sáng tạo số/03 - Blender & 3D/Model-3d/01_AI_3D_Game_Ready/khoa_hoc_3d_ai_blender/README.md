@@ -79,3 +79,7 @@ Bộ ZIP gốc có sáu bài từ Sculpt tới Export. Bộ Markdown Blender_Clo
 - [Cuộc trò chuyện 5](https://chatgpt.com/c/6addaf72-03c4-83ec-8747-6bce84f91ea1)
 
 > **Ghi chú kỹ thuật:** Giao diện, tính năng add-on, định dạng hỗ trợ và quy định của marketplace có thể khác theo phiên bản hoặc thời điểm. Các giá trị như Voxel Size `0.002`, khoảng `4.000 quads` hay texture `4K` trong bài là **thiết lập của ví dụ thực hành**, không phải tiêu chuẩn bắt buộc với mọi mô hình.
+
+## Tài liệu bổ trợ
+
+Bản giáo trình AI 3D Blender Game Ready ngắn, gồm ví dụ và bài phụ riêng, được lưu tại [đây](Tai_lieu_bo_tro/Ban_tham_khao_AI_3D_Blender_Game_Ready/README.md).
