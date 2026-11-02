@@ -1,81 +1,118 @@
----
-title: "Create with AR: Face Filters Quiz"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 10
-lesson_type: quiz
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 10 — Bài kiểm tra tổng hợp: AR Face Filters
 
-# Bài 10 — Create with AR: Face Filters Quiz
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** quiz · **Phiên bản mục lục:** Unity 2022.3
+## 1. Phạm vi kiểm tra
 
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bài đánh giá này hệ thống hóa các kỹ năng xây dựng bộ lọc khuôn mặt AR tương tác trong Unity 2022.3: scene AR, face tracking, Canvas/uGUI, Visual Scripting, điều khiển `Mesh Renderer`, lựa chọn material, vòng đời prefab và kiểm thử. Nội dung câu hỏi được biên soạn để tự học, **không phải bộ câu hỏi chính thức** của Unity Learn.
 
-## 1. Tổng quan
+## 2. Bản đồ kiến thức
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create an interactive face filter*, bài **Create with AR: Face Filters Quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+```mermaid
+flowchart TB
+    P[Bộ lọc mặt AR tương tác] --> T[Tracking]
+    P --> U[UI]
+    P --> G[Graph]
+    P --> X[Test]
+    T --> T1[AR Session / XR Origin]
+    T --> T2[AR Face Manager / Face Prefab]
+    U --> U1[Canvas / EventSystem]
+    U --> U2[Glasses + Material Buttons]
+    G --> G1[On Button Click]
+    G --> G2[Mesh Renderer state]
+    G --> G3[Custom Event ChangeMaterial]
+    X --> X1[Thiết bị thật]
+    X --> X2[Mất tracking / đổi lựa chọn]
+```
 
-## 2. Mục tiêu học tập
+Người học đạt yêu cầu khi có thể giải thích quan hệ giữa thành phần và dự đoán hậu quả nếu thiếu một mắt xích, không chỉ ghi nhớ tên node.
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Hướng dẫn làm bài
 
-## 3. Kiến thức trọng tâm
+- Tự trả lời trước khi xem đáp án.
+- Với mỗi câu, ghi thêm lý do lựa chọn của mình.
+- Nếu trả lời sai, quay lại scene thực hành và tái hiện tình huống.
+- Thang tự đánh giá gợi ý: trả lời đúng 80% trở lên và thực hiện thành công một bài kiểm thử ngắn.
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+## 4. Bài thực hành kết thúc
 
-### Thuật ngữ và mối quan hệ
+Tạo hoặc mở dự án bộ lọc kính. Chạy thử và ghi lại kết quả của năm thao tác: chọn kính 1, chọn kính 3, chọn màu 2, trở lại kính 1, đưa mặt ra khỏi camera rồi quay lại. Sau mỗi lần, ghi mẫu kính/màu đang hiện và trạng thái tracking. Bài làm chỉ đạt nếu tương tác rõ ràng, không có kính chồng và không xuất hiện lỗi tham chiếu nghiêm trọng.
 
-| Khái niệm | Vai trò trong bài |
+## 5. Điểm dễ nhầm
+
+| Dễ nhầm | Phân biệt đúng |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| `Mesh Renderer.enabled` và `GameObject.SetActive` | Một bên điều khiển hiển thị component; một bên tác động trạng thái hoạt động cả đối tượng |
+| `On Button Click` và `On Update` | Một bên theo sự kiện người dùng; một bên chạy mỗi frame |
+| Flow và Data | Flow quyết định thời điểm; Data truyền giá trị |
+| `Custom Event` và `Custom Event Trigger` | Một bên tiếp nhận hành vi; một bên phát lệnh gọi |
+| Lưu scene và lưu lựa chọn runtime | Hai cơ chế ở hai giai đoạn khác nhau |
 
-## 4. Thực hành từng bước
+## 6. Checklist kết thúc module
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+- [ ] Giải thích được đường đi từ nút UI đến việc thay mesh/material.
+- [ ] Xác định được ít nhất ba lỗi phổ biến và cách tái hiện.
+- [ ] Hoàn thành bài thực hành cuối.
+- [ ] Có bản build chạy trên thiết bị và minh chứng kết quả.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 7. Câu hỏi trắc nghiệm ôn tập
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+### Câu 1
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **ứng dụng thực tế tăng cường trên thiết bị di động**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+Trong mô hình hệ thống, vai trò của AR Face Manager là gì?
 
-### Gợi ý tự chấm
+A. Tạo và cập nhật khuôn mặt được theo dõi  
+B. Lưu vật liệu  
+C. Làm nút màu  
+D. Viết dữ liệu ra Drive
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+**Đáp án: A.** AR Face Manager đảm nhận đối tượng khuôn mặt do subsystem cung cấp.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+### Câu 2
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+Khi nhấn nút kính 3, thay đổi nào phải xảy ra?
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. Bật mọi kính  
+B. Tắt các kính khác và bật kính 3  
+C. Khởi động camera mới  
+D. Xóa mọi material
 
-## 7. Checklist hoàn thành
+**Đáp án: B.** Tại một thời điểm chỉ mẫu kính chọn được hiển thị.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+### Câu 3
+
+Dây Data từ material2 nên nối tới đâu?
+
+A. RectTransform  
+B. AR Session  
+C. Đầu vào material của ChangeMaterial Trigger  
+D. EventSystem
+
+**Đáp án: C.** Dữ liệu material là tham số để event chung biết màu nào được chọn.
+
+### Câu 4
+
+Nếu không nhận nhấn nút trong Game view, nên kiểm tra?
+
+A. Tên file ảnh  
+B. FPS GPU trước tiên  
+C. PlayerPrefs trước tiên  
+D. Button reference, EventSystem và Input
+
+**Đáp án: D.** Đây là những mắt xích trực tiếp của tương tác UI.
+
+### Câu 5
+
+Để chứng minh kính thật sự bám mặt cần gì?
+
+A. Kiểm thử trên thiết bị hỗ trợ face tracking  
+B. Chỉ chụp ảnh scene trong Editor  
+C. Chỉ kiểm tra Canvas  
+D. Chỉ đổi tên prefab
+
+**Đáp án: A.** Tracking thật phụ thuộc thiết bị và provider AR.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

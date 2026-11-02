@@ -1,83 +1,163 @@
----
-title: "Submission: Bring art to life with AR"
-pathway: "Mobile AR Development"
-module: "Create a marker-based AR app"
-lesson_number: 6
-lesson_type: exercise
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 06 — Bài thực hành cuối: Đưa tác phẩm nghệ thuật vào đời thực bằng AR
 
-# Bài 06 — Submission: Bring art to life with AR
+> **Lộ trình:** Mobile AR Development · **Bài đánh giá:** Submission: Bring art to life with AR · **Môi trường tham chiếu:** Unity 2022.3
 
-> **Pathway:** Mobile AR Development · **Mission:** Create a marker-based AR app · **Loại:** exercise · **Phiên bản mục lục:** Unity 2022.3
+## 1. Bối cảnh và yêu cầu sản phẩm
 
-> **Nguồn đối chiếu:** [Create a marker-based AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một phòng triển lãm muốn tạo trải nghiệm cho khách tham quan: khi đưa camera điện thoại về phía hình ảnh một tác phẩm, khách nhìn thấy **mô hình 3D được gắn vào tác phẩm**, có thể **xoay mô hình**, **xem thông tin** và **nghe âm thanh minh họa**.
 
-## 1. Tổng quan
+Nhiệm vụ là xây dựng một **bản mẫu AR marker-based chạy được**. Người học có thể chọn tranh tự vẽ, hình ảnh có bản quyền sử dụng phù hợp hoặc một hình minh họa đơn giản. Không cần nhiều hiệu ứng; ưu tiên khả năng tương tác, ổn định và kiểm chứng kết quả.
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create a marker-based AR app*, bài **Submission: Bring art to life with AR** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Mục tiêu đánh giá
 
-## 2. Mục tiêu học tập
+Sản phẩm hoàn thành khi người học có thể:
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+1. Cấu hình ứng dụng AR sử dụng ảnh tham chiếu trên một thiết bị tương thích.
+2. Tạo mô hình ảo xuất hiện đúng trên marker, quản lý hành vi khi mất tracking.
+3. Cung cấp ít nhất một thao tác tương tác với phản hồi dễ quan sát; khuyến khích dùng nút xoay và bảng thông tin.
+4. Tạo, kiểm tra và mô tả âm thanh không gian nếu đưa tính năng này vào sản phẩm.
+5. Nộp project hoặc bản build, minh chứng chạy thử, tình huống lỗi và một cải tiến sau lần kiểm tra đầu.
 
-## 3. Kiến thức trọng tâm
+## 3. Kiến trúc gợi ý
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+```mermaid
+flowchart TD
+    A[Ảnh nghệ thuật in hoặc hiển thị] --> B[Camera điện thoại]
+    B --> C[AR Foundation và provider]
+    D[Reference Image Library] --> C
+    C --> E[AR Tracked Image Manager]
+    E --> F[Instance của Artwork Prefab]
+    F --> G[Mô hình 3D]
+    F --> H[World Space UI]
+    F --> I[Audio Source 3D]
+    J[Canvas Screen Space] --> K[Nút xoay trái và phải]
+    K --> G
+    L[Audio Listener trên AR Camera] --> I
+```
 
-### Thuật ngữ và mối quan hệ
+Đối tượng ảo, bảng thông tin và nguồn âm cùng dùng hệ tọa độ liên quan đến marker. Các nút điều khiển trên màn hình có thể nằm trong Canvas riêng để người dùng dễ thao tác khi đang quan sát tác phẩm.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Phạm vi và chuẩn bị
 
-## 4. Thực hành từng bước
+**Phần bắt buộc tối thiểu:** project hoặc bản build chạy được; ảnh marker nhận diện được; ít nhất một mô hình/đối tượng ảo xuất hiện; ít nhất một thao tác và phản hồi quan sát được; có minh chứng kiểm thử.
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+**Phần nâng cao khuyến khích:** hai nút xoay, World Space UI, âm thanh 3D, xử lý mất tracking và cải thiện trải nghiệm người dùng.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Chuẩn bị Unity và các package AR tương thích, điện thoại hỗ trợ AR, một ảnh tham chiếu rõ nét, một asset 3D nhẹ và một AudioClip hợp lệ nếu sử dụng âm thanh.
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+## 5. Các giai đoạn thực hiện
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Submission: Bring art to life with AR** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+### 5.1. Mốc 1 — Ứng dụng nhận diện ảnh
 
-**Tiêu chí nghiệm thu:**
+- Tạo project, scene và `Reference Image Library`.
+- Thêm `AR Session`, `XR Origin` và `AR Tracked Image Manager`.
+- Build lên thiết bị và kiểm tra camera nhận marker.
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+**Checkpoint:** đưa marker vào camera và xác nhận ảnh có trạng thái tracking hợp lệ.
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+### 5.2. Mốc 2 — Nội dung ảo bám vào tác phẩm
 
-## 6. Lỗi thường gặp và cách kiểm tra
+- Tạo `ArtworkPrefab` chứa mô hình cần trưng bày.
+- Tạo một instance theo ảnh được phát hiện; dùng Transform của `ARTrackedImage` làm parent.
+- Kiểm tra việc di chuyển camera/marker, xử lý ẩn hoặc dọn nội dung khi tracking thay đổi.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+**Checkpoint:** mô hình không sinh bản sao vô hạn và không tách khỏi marker khi thử nghiệm thông thường.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### 5.3. Mốc 3 — Giao diện tương tác
 
-## 7. Checklist hoàn thành
+- Tạo hai nút Screen Space để xoay mô hình trái/phải.
+- Gắn `Button.OnClick()` với script điều khiển Transform của mô hình.
+- Tạo World Space UI chứa tên và mô tả ngắn về tác phẩm nếu thực hiện phần nâng cao.
+- Kiểm tra anchor, text, vùng chạm và event raycast trên điện thoại.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a marker-based AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Checkpoint:** nhấn một lần có phản hồi một lần; người xem vẫn nhìn thấy tác phẩm.
 
----
+### 5.4. Mốc 4 — Âm thanh và hoàn thiện
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+- Thêm Audio Source gắn gần mô hình; thiết lập clip, Spatial Blend và suy giảm phù hợp.
+- Kiểm tra listener ở AR Camera, thử nghe gần/xa marker.
+- Điều chỉnh kích thước mô hình, vị trí bảng và phản hồi khi mất tracking.
+- Ghi màn hình thử nghiệm và thu thập lỗi.
+
+**Checkpoint:** các tính năng đã chọn hoạt động cùng nhau, không có lỗi nghiêm trọng chặn thao tác chính.
+
+## 6. Kịch bản kiểm thử
+
+| ID | Tình huống | Kết quả kỳ vọng |
+| --- | --- | --- |
+| T01 | Mở ứng dụng và cấp quyền camera | Session hoạt động và camera hiển thị |
+| T02 | Đưa marker vào vùng nhìn | Mô hình xuất hiện đúng bề mặt ảnh |
+| T03 | Di chuyển marker vừa phải | Mô hình đi theo và không spawn vô hạn |
+| T04 | Nhấn nút xoay trái/phải | Chỉ mô hình thay đổi hướng theo yêu cầu |
+| T05 | Mở/ẩn bảng thông tin (nếu có) | UI thay đổi trạng thái và vẫn đọc được |
+| T06 | Di chuyển camera gần/xa (nếu có âm 3D) | Âm phản hồi theo cấu hình khoảng cách |
+| T07 | Che marker hoặc mất tracking | Ứng dụng xử lý có chủ đích, không crash |
+| T08 | Chạy lại ở điều kiện ánh sáng khác | Ghi nhận mức độ ổn định và lỗi gặp phải |
+
+Đánh dấu kết quả **Pass/Fail**, thiết bị dùng thử và bằng chứng (ảnh/video/Console) cho từng tình huống. Không đánh dấu Pass nếu chưa chạy thử thực tế.
+
+## 7. Gỡ lỗi có phương pháp
+
+```mermaid
+flowchart TD
+    A[Tái hiện lỗi] --> B[Kiểm tra Console và trạng thái tracking]
+    B --> C[Xác định thành phần nghi vấn]
+    C --> D[Thay đổi một yếu tố]
+    D --> E[Chạy lại trên thiết bị]
+    E --> F{Lỗi đã được xử lý?}
+    F -->|Chưa| C
+    F -->|Rồi| G[Lưu minh chứng và ghi cải tiến]
+```
+
+Đối với lỗi camera, tập trung vào quyền và provider. Đối với lỗi mô hình, kiểm tra Prefab và parent Transform. Đối với lỗi UI, kiểm tra EventSystem, `OnClick` và raycast. Đối với lỗi âm thanh, kiểm tra AudioClip, nguồn phát, listener và khoảng cách.
+
+## 8. Hồ sơ sản phẩm cần nộp
+
+- [ ] Project Unity hoặc một bản build cài đặt/chạy được.
+- [ ] Ảnh marker và các asset được phép sử dụng.
+- [ ] Ảnh chụp scene, Hierarchy và các cấu hình trọng yếu.
+- [ ] Video chứng minh **phát hiện marker → hiện mô hình → tương tác**.
+- [ ] Bảng kết quả kiểm thử, tối thiểu gồm một trường hợp thành công và một trường hợp lỗi.
+- [ ] Nhật ký mô tả **một cải tiến sau lần thử đầu tiên** và kết quả kiểm chứng sau chỉnh sửa.
+
+## 9. Tiêu chí đánh giá gợi ý
+
+Đây là bảng rubric để **tự đánh giá**, không phải quy định chấm điểm chính thức của Unity Learn.
+
+| Tiêu chí | Tỷ trọng gợi ý | Dấu hiệu đạt |
+| --- | ---: | --- |
+| Cấu hình và nhận diện marker | 25% | Ứng dụng nhận ảnh trên thiết bị thật |
+| Nội dung AR bám đúng ảnh | 25% | Mô hình hiện đúng và được quản lý vòng đời |
+| Tương tác và phản hồi | 20% | Có thao tác tạo phản hồi rõ ràng |
+| Trải nghiệm và tính ổn định | 15% | UI/âm thanh đã chọn hoạt động hợp lý, không lỗi chặn |
+| Minh chứng, debug và cải tiến | 15% | Có video, ghi nhận lỗi, cải tiến và thử lại |
+
+Phần giao diện World Space và âm thanh 3D là cách tăng chất lượng bản mẫu. Nếu không sử dụng những phần này, cần đảm bảo bài nộp vẫn có **tương tác thực sự và phản hồi quan sát được**.
+
+## 10. Câu hỏi ôn tập
+
+**Câu 1.** Yếu tố nào chứng minh đây là ứng dụng marker-based AR?  
+A. Chỉ có text trên màn hình · B. Có nhạc nền · C. Nội dung được neo vào ảnh tham chiếu đã phát hiện · D. Sử dụng prefab trong Editor  
+**Đáp án: C.** Marker là cơ sở để xác định pose nội dung trong không gian.
+
+**Câu 2.** Trong một lần kiểm thử mô hình không xuất hiện, kiểm tra nào nên được ưu tiên?  
+A. Tracking, Prefab và tham chiếu trong Inspector · B. Đổi logo project · C. Tăng số lượng nút · D. Đổi tên bài học  
+**Đáp án: A.** Cần xác nhận việc nhận diện và khởi tạo nội dung trước.
+
+**Câu 3.** Vì sao nên ghi lại trường hợp lỗi trong báo cáo?  
+A. Để thay thế video thành công · B. Để bỏ qua kiểm thử lại · C. Để giảm kích thước project · D. Để chứng minh khả năng tái hiện và cải tiến sản phẩm  
+**Đáp án: D.** Một báo cáo kỹ thuật cần mô tả lỗi, cách xử lý và kết quả thử lại.
+
+**Câu 4.** Trong ứng dụng có hai nút xoay, đối tượng nên nhận góc quay là gì?  
+A. Camera và XR Origin · B. Mô hình ảo được lựa chọn · C. Toàn bộ scene · D. Audio Listener  
+**Đáp án: B.** Tương tác nên thay đổi nội dung nghệ thuật, không làm sai tracking.
+
+**Câu 5.** Cách nghiệm thu nào đầy đủ nhất?  
+A. Chỉ xem ảnh Hierarchy · B. Chỉ build thành công · C. Kiểm thử thiết bị thật, tương tác, ghi lỗi và cải tiến · D. Chỉ chạy Game View  
+**Đáp án: C.** Sản phẩm AR cần được đánh giá bằng hoạt động thực và minh chứng.
+
+## 11. Kết luận
+
+Một bản mẫu “Bring art to life with AR” tốt cần ghép được các khâu: **nhận diện hình ảnh, tạo nội dung ảo, tương tác, phản hồi giác quan và kiểm thử**. Giá trị của bài thực hành không chỉ nằm ở hiệu ứng trình diễn mà còn ở khả năng giải thích và kiểm chứng cách ứng dụng hoạt động.
+
+**Tham khảo:** [Unity Learn — Create a marker-based AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3). Đây là đề bài thực hành được biên soạn và mở rộng để tự học, không phải rubric chính thức của Unity.

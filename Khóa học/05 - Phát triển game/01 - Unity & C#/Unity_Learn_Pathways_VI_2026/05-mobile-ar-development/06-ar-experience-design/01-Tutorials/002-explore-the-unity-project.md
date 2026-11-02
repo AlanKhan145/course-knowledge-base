@@ -1,78 +1,132 @@
 ---
-title: "Explore the Unity project"
+title: "Bài 02 — Khám phá cấu trúc dự án Unity"
 pathway: "Mobile AR Development"
-module: "AR experience design"
+module: "AR Experience Design"
 lesson_number: 2
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/ar-experience-design?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+lesson_type: "lab"
+unity_version: "2022.3 (đề mục tham chiếu)"
+language: "vi"
+content_type: "Bài học tự biên soạn"
 ---
 
-# Bài 02 — Explore the Unity project
+# Bài 02 — Khám phá cấu trúc dự án Unity
 
-> **Pathway:** Mobile AR Development · **Mission:** AR experience design · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [AR experience design trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/ar-experience-design?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Chủ đề:** Thiết kế trải nghiệm thực tế tăng cường (AR) với Unity, minh họa xuyên suốt bằng trò chơi UFO.  
+> **Định hướng:** Đọc độc lập, thực hành theo từng bước và kiểm chứng trực tiếp trong Unity; các ví dụ minh họa không phải toàn văn hoặc mã nguồn chính thức của Unity Learn.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Làm việc với Unity Editor. Trong ngữ cảnh *AR experience design*, bài **Explore the Unity project** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Một dự án Unity thường chứa nhiều tài nguyên, scene và script. Trước khi chuyển game UFO sang AR, cần phân biệt **tài nguyên đang nằm trên đĩa** với **đối tượng đang xuất hiện trong scene**. Việc khám phá cấu trúc trước giúp tránh sửa nhầm prefab, thay đổi camera không đúng hoặc xóa mất tham chiếu từ Component.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **làm việc với unity editor** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Explore the Unity project** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Dò tìm được UFO, camera, mục tiêu và các script trong `Hierarchy`, `Project` và `Inspector`.
+- Sử dụng `W`, `E`, `R` để di chuyển, xoay và thay đổi tỷ lệ đối tượng.
+- Giải thích được khác biệt giữa tọa độ `Local` và `Global`.
+- Ghi lại được những thay đổi có được giữ sau Play mode.
 
-## 3. Kiến thức trọng tâm
+## 3. Bốn vùng làm việc quan trọng
 
-- Hierarchy liệt kê GameObject trong scene; Inspector hiển thị Component và thuộc tính của đối tượng được chọn.
-- Scene view dùng để xây dựng thế giới; Game view hiển thị kết quả qua Camera khi chạy.
-- Transform quản lý vị trí, xoay và tỉ lệ trong hệ trục không gian; thao tác local và global có thể khác nhau.
+| Vùng | Điều cần quan sát | Câu hỏi đặt ra |
+|---|---|---|
+| `Hierarchy` | Danh sách GameObject trong scene, quan hệ cha–con | UFO nằm dưới đối tượng gốc nào? |
+| `Inspector` | Transform, script và Component gắn trên đối tượng | Bộ phận nào điều khiển chuyển động? |
+| `Scene view` | Cảnh ở góc quan sát của người biên tập | Đối tượng có được đặt đúng vị trí? |
+| `Game view` | Hình ảnh được camera render | Người chơi nhìn thấy gì? |
+| `Project` | Asset, prefab, scene, mã nguồn | File chứa UFO được lưu ở đâu? |
+| `Console` | Cảnh báo, lỗi, nhật ký | Khi chạy có lỗi tham chiếu không? |
 
-### Thuật ngữ và mối quan hệ
+`Transform` gồm `Position`, `Rotation`, `Scale`. Nếu UFO là đối tượng con của `PlayArea`, `localPosition` mô tả vị trí theo cha; vị trí thế giới còn phụ thuộc Transform của `PlayArea`. Đây là nguyên nhân thường gặp khi game chạy đúng trong Editor nhưng vật thể lệch vị trí sau khi đặt vào môi trường AR.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Quy trình khám phá có hệ thống
 
-## 4. Thực hành từng bước
+```mermaid
+flowchart LR
+    A[Mở scene] --> B[Xem Hierarchy]
+    B --> C[Chọn GameObject]
+    C --> D[Đọc Inspector]
+    D --> E[Tìm Prefab và Script trong Project]
+    E --> F[Chạy Game view]
+    F --> G[Đọc Console và đối chiếu]
+```
 
-1. **Bước 1:** Mở scene, tìm Main Camera, Directional Light và một GameObject trong Hierarchy.
-2. **Bước 2:** Dùng Move (W), Rotate (E), Scale (R); thực hành chuyển giữa Local/Global.
-3. **Bước 3:** Nhìn đối tượng trong cả Scene view và Game view; ghi chú điểm khác biệt.
-4. **Bước 4:** Lưu scene, vào Play mode và thoát Play mode; kiểm tra thay đổi nào không được giữ lại.
+Sơ đồ bắt đầu từ những gì đang hiển thị trong scene, lần ngược về asset và script, rồi kiểm tra bằng runtime. Không nên thay đổi nhiều Component trước khi hiểu trách nhiệm của chúng.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Bài thực hành
 
-## 5. Bài tập củng cố
+1. **Sao lưu bản thử nghiệm:** tạo bản sao scene hoặc tạo nhánh Git trước khi sửa.
+2. **Lập bản đồ đối tượng:** trong `Hierarchy`, tìm camera, UFO, mục tiêu, mặt nền, UI. Nếu dự án không có các đối tượng này, tạo GameObject mẫu với tên tương ứng.
+3. **Phân tích UFO:** chọn UFO trong `Inspector`, ghi giá trị Position/Rotation/Scale và tên Component đáng chú ý. Đối chiếu các script trong `Project`.
+4. **Thử Transform:** nhấn `W` để Move, `E` để Rotate, `R` để Scale; thử Local/Global khi đối tượng có cha được xoay. Ghi hình trước và sau.
+5. **Đối chiếu Scene/Game:** đặt đối tượng ở ngoài góc nhìn camera; chứng minh rằng vẫn tìm thấy nó trong Scene view nhưng không còn thấy ở Game view.
+6. **Thử Play mode:** thay đổi một số giá trị khi chạy, dừng và kiểm tra thay đổi nào không được giữ; nếu cần lưu lâu dài, chỉnh trong Edit mode.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **AR experience design** để tạo một tương tác nhỏ.
+**Checkpoint:** có bảng tên đối tượng → prefab/script → chức năng → trạng thái kiểm thử. Tối thiểu phải mô tả được đường đi từ thao tác của người chơi tới GameObject nhận hành động.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 6. Xử lý lỗi
 
-## 6. Lỗi thường gặp và cách kiểm tra
+| Dấu hiệu | Nguyên nhân nên kiểm tra | Kiểm chứng |
+|---|---|---|
+| UFO không hiện | Camera, layer, active state, clipping | Chọn UFO trong Hierarchy, kiểm tra từng phần |
+| Giá trị Transform khác dự đoán | Local/Global hoặc Transform cha | Tạm quan sát hệ trục và vị trí cha |
+| Script không hoạt động | Component bị vô hiệu hóa, thiếu tham chiếu | Đọc Inspector và Console |
+| Thay đổi mất sau khi dừng | Sửa khi Play mode | Thực hiện lại trong Edit mode |
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: sửa thuộc tính khi đang Play mode rồi mất thay đổi sau khi dừng.
+## 7. Deliverable và checklist
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+- [ ] Có sơ đồ hoặc bảng cấu trúc scene.
+- [ ] Tìm được camera, UFO, target và script liên quan.
+- [ ] Thao tác được Move/Rotate/Scale và giải thích Local/Global.
+- [ ] Có minh chứng Scene view khác Game view.
+- [ ] Ghi chép một lỗi đã tái hiện và cách kiểm tra.
 
-## 7. Checklist hoàn thành
+## 8. Câu hỏi ôn tập
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — AR experience design](https://learn.unity.com/pathway/mobile-ar-development/unit/ar-experience-design?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 1. Muốn xem Component của UFO thì cần mở vùng nào?**
+
+A. Project Settings  
+B. Inspector sau khi chọn UFO  
+C. Console  
+D. Package Manager  
+
+**Đáp án:** B. **Giải thích:** Inspector hiển thị các Component của GameObject đang được chọn.
+
+**Câu 2. Khác biệt chính giữa Scene view và Game view?**
+
+A. Cùng một chế độ nên không khác  
+B. Scene view là cửa sổ file, Game view là Console  
+C. Scene view phục vụ biên tập, Game view cho thấy góc nhìn camera  
+D. Game view cho phép sửa mã C# trực tiếp  
+
+**Đáp án:** C. **Giải thích:** Scene view dùng xây dựng bố cục, còn Game view phản ánh camera render.
+
+**Câu 3. Phím tắt thường dùng để di chuyển đối tượng là gì?**
+
+A. W  
+B. R  
+C. E  
+D. F  
+
+**Đáp án:** A. **Giải thích:** Unity sử dụng W cho Move, E cho Rotate và R cho Scale trong bố cục mặc định.
+
+**Câu 4. Vì sao chỉnh Inspector trong Play mode có thể bị mất?**
+
+A. Vì Unity tự xóa prefab  
+B. Vì máy thiếu mạng  
+C. Vì camera khóa Transform  
+D. Vì trạng thái thử nghiệm thường được khôi phục khi thoát Play mode  
+
+**Đáp án:** D. **Giải thích:** Các chỉnh sửa runtime thường không được giữ lại như chỉnh sửa lúc Edit mode.
+
+**Câu 5. Muốn kiểm tra UFO lệch vị trí do cha-con, nên xem gì?**
+
+A. FPS  
+B. Local và Global Transform  
+C. Tên file âm thanh  
+D. Màu Console  
+
+**Đáp án:** B. **Giải thích:** Transform cục bộ chịu ảnh hưởng của đối tượng cha, khác với tọa độ thế giới.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — AR Experience Design](https://learn.unity.com/pathway/mobile-ar-development/unit/ar-experience-design?version=2022.3). Nội dung các bước và ví dụ trong tài liệu này là bài tập tự biên soạn, có thể cần điều chỉnh theo cấu trúc project và package thực tế.

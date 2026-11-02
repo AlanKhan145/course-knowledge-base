@@ -1,99 +1,156 @@
----
-title: "Add world space UI to your marker-based app"
-pathway: "Mobile AR Development"
-module: "Create a marker-based AR app"
-lesson_number: 4
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Tạo giao diện World Space gắn với AR Marker
 
-# Bài 04 — Add world space UI to your marker-based app
-
-> **Pathway:** Mobile AR Development · **Mission:** Create a marker-based AR app · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [Create a marker-based AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** Mobile AR Development · **Chủ đề:** Add world space UI to your marker-based app · **Môi trường tham chiếu:** Unity 2022.3
 
 ## 1. Tổng quan
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *Create a marker-based AR app*, bài **Add world space UI to your marker-based app** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Trong một ứng dụng AR, không phải mọi nút bấm hay nhãn thông tin đều cần nằm cố định ở góc màn hình. Một **World Space Canvas** có thể được đặt vào không gian 3D và đi theo một marker. Ví dụ, khi người xem hướng camera vào bức tranh, một tấm bảng mô tả tác phẩm xuất hiện bên cạnh mô hình ảo.
+
+Khác với giao diện Screen Space, World Space UI có **vị trí, hướng và kích thước trong không gian**. Khoảng cách từ camera, góc nhìn và thứ tự che khuất ảnh hưởng trực tiếp đến khả năng đọc và chạm.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Add world space UI to your marker-based app** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+1. Phân biệt Canvas trong không gian màn hình và trong thế giới 3D.
+2. Thiết lập `Render Mode = World Space` và gắn Canvas vào Transform của marker hoặc nội dung AR.
+3. Tổ chức `RectTransform`, scale và các thành phần UI để giữ bố cục dễ đọc.
+4. Kiểm tra raycast và thao tác người dùng trên thiết bị di động.
 
-## 3. Kiến thức trọng tâm
+## 3. Nguyên lý hoạt động
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+| Tiêu chí | Screen Space UI | World Space UI |
+| --- | --- | --- |
+| Vị trí | Theo khung hình điện thoại | Theo tọa độ trong scene |
+| Khi người dùng di chuyển camera | UI vẫn ở vị trí trên màn hình | UI thay đổi phối cảnh theo marker |
+| Ứng dụng phù hợp | Nút điều khiển, thanh công cụ | Nhãn tên, bảng thông tin tại vật thể |
+| Thách thức | Độ phân giải, vùng an toàn | Khoảng cách, kích thước, hướng, che khuất |
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+flowchart TD
+    A[Ảnh marker được theo dõi] --> B[ARTrackedImage Transform]
+    B --> C[Đối tượng 3D]
+    B --> D[World Space Canvas]
+    D --> E[Tên tác phẩm]
+    D --> F[Mô tả và nút tương tác]
+    G[Camera AR] --> H[Phối cảnh và tương tác raycast]
+    H --> D
+```
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+Trong cấu trúc này, mô hình và Canvas đều phụ thuộc Transform của ảnh. Vì thế khi ảnh di chuyển, cả hai giữ vị trí tương đối với nhau.
 
-## 4. Thực hành từng bước
+## 4. Xây dựng giao diện
 
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
+### 4.1. Tạo Canvas và phần tử con
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+1. Tạo `Canvas` trong Hierarchy và đặt tên `ArtworkWorldCanvas`.
+2. Chọn `Render Mode = World Space` trong Inspector.
+3. Thêm Panel, TextMeshPro để hiển thị tiêu đề và đoạn mô tả ngắn.
+4. Thêm Button nếu muốn cho phép bật/tắt mô tả hoặc phát âm thanh.
+5. Đặt `RectTransform` theo kích thước mong muốn, rồi giảm **Transform Scale** sao cho bảng không quá lớn so với marker thực tế.
+6. Căn chỉnh bảng để không che phần quan trọng của mô hình.
 
-## 5. Mã ví dụ tự biên soạn
+**Gợi ý kiểm tra:** nhìn vào scene dưới các góc nghiêng khác nhau. Một bảng đẹp ở hướng nhìn chính diện có thể rất khó đọc khi camera ở xa hoặc lệch sang bên.
+
+### 4.2. Gắn với marker
+
+Nếu Canvas cần đi theo ảnh tham chiếu, hãy đưa nó thành **con của `ARTrackedImage`** hoặc thành con của Prefab nội dung đã được gắn vào ảnh.
+
+Cấu trúc mẫu:
+
+```text
+ARTrackedImage (runtime)
+├── ArtworkModel
+└── ArtworkWorldCanvas
+    ├── Panel
+    ├── TitleText
+    ├── DescriptionText
+    └── InfoButton
+```
+
+`localPosition` xác định khoảng cách từ bảng đến ảnh; `localRotation` xác định mặt bảng hướng về phía nào. Không nên dựa duy nhất vào tọa độ thế giới vì marker có thể di chuyển.
+
+### 4.3. Làm cho nút bấm hoạt động
+
+- Kiểm tra scene có `EventSystem` và input module tương thích với hệ thống input được chọn.
+- Bảo đảm Canvas có `Graphic Raycaster` và đối tượng cần bấm cho phép nhận raycast.
+- Trong trường hợp cần thiết, gán camera AR thích hợp làm `Event Camera` của World Space Canvas.
+- Kết nối `Button.OnClick` đến phương thức public trong script điều khiển.
+- Thử **chạm màn hình trên điện thoại**, không chỉ kiểm tra bằng chuột trong Editor.
+
+Với thành phần đồ họa chồng nhau, đối tượng nằm phía trước có thể chặn raycast của nút phía sau. Cần kiểm tra cài đặt `Raycast Target` trên Image/Text không sử dụng để nhận sự kiện.
+
+## 5. Ví dụ: bật/tắt bảng thông tin
 
 ```csharp
-using TMPro;
 using UnityEngine;
 
-public class ScoreDisplay : MonoBehaviour
+public class ArtworkInfoPanel : MonoBehaviour
 {
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
+    [SerializeField] private GameObject descriptionPanel;
 
-    public void AddPoint()
+    public void ToggleDetails()
     {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
+        if (descriptionPanel == null) return;
+        descriptionPanel.SetActive(!descriptionPanel.activeSelf);
     }
 }
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+Gắn script trên đối tượng luôn hoạt động (chẳng hạn Canvas gốc), kéo panel vào `Description Panel`, rồi nối `InfoButton.OnClick()` với `ToggleDetails()`.
 
-## 6. Bài tập củng cố
+**Lưu ý:** Không đặt script trên chính Panel bị tắt nếu thao tác bật lại phụ thuộc vào nó. Nút điều khiển phải còn hoạt động khi panel mô tả được ẩn.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create a marker-based AR app** để tạo một tương tác nhỏ.
+## 6. Kích thước, bố cục và trải nghiệm
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+World Space UI có thể gây khó đọc nếu kích thước quá nhỏ, hoặc lấn át mô hình nếu quá lớn. Hãy đánh giá bằng kích thước thực của marker và khoảng cách quan sát dự kiến, không dùng một bộ thông số cố định cho mọi thiết bị.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+Các nguyên tắc nên áp dụng:
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+- Văn bản ngắn, độ tương phản đủ cao.
+- Nút đủ lớn để chạm, tránh các vùng chạm sát nhau.
+- Tránh đặt bảng quá sát mặt phẳng ảnh khiến mô hình hoặc bảng bị che khuất.
+- Thử trên nhiều góc nhìn và trạng thái tracking; khi marker mất tracking, cân nhắc tạm ẩn bảng cùng mô hình.
+- Không nhầm **góc quay của bảng** với góc quay của mô hình nghệ thuật.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 7. Gỡ lỗi
 
-## 8. Checklist hoàn thành
+| Hiện tượng | Cách kiểm tra |
+| --- | --- |
+| Canvas không xuất hiện | Render Mode, active state, parent, local scale và camera clipping |
+| Bảng hiện nhưng chữ cực nhỏ | Kích thước RectTransform và Scale trong thế giới |
+| Nút hiển thị nhưng không bấm được | EventSystem, Graphic Raycaster, Event Camera, Raycast Target |
+| Canvas lơ lửng không theo ảnh | Parent không gắn đúng `ARTrackedImage` hoặc prefab |
+| Bảng bị che bởi model | Thứ tự và khoảng cách trong không gian 3D |
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a marker-based AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 8. Bài tập thực hành
 
----
+Thiết kế một bảng giới thiệu tác phẩm có **tên**, **một câu mô tả**, và **nút hiển thị/ẩn thông tin**. Đặt bảng lệch nhẹ bên cạnh mô hình. Sau đó thử di chuyển điện thoại quanh marker để quan sát mức độ dễ đọc từ các góc nhìn khác nhau.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Deliverable:** ảnh Hierarchy, ảnh Inspector của Canvas, video thể hiện Canvas theo marker và một lần bấm nút thành công.
+
+## 9. Câu hỏi ôn tập
+
+**Câu 1.** Khác biệt chính của World Space Canvas là gì?  
+A. Nó không chứa Button · B. Nó tồn tại trong hệ tọa độ 3D của scene · C. Nó không cần Camera · D. Nó luôn cố định ở mép màn hình  
+**Đáp án: B.** World Space UI thay đổi góc nhìn theo vị trí trong thế giới 3D.
+
+**Câu 2.** Để bảng thông tin di chuyển theo marker, cách phù hợp là gì?  
+A. Tăng FPS · B. Đặt bảng dưới `Audio Listener` · C. Tắt AR Session · D. Gắn bảng làm con của Transform được theo dõi  
+**Đáp án: D.** Parent–child bảo toàn vị trí tương đối với ảnh.
+
+**Câu 3.** Nút trên World Space UI không nhận chạm, nên kiểm tra gì trước?  
+A. EventSystem và Graphic Raycaster · B. Chỉ thay màu nền · C. Đổi tên prefab · D. Tăng âm lượng  
+**Đáp án: A.** Các thành phần này tham gia xử lý tương tác UI.
+
+**Câu 4.** Vì sao cần thử nhiều góc nhìn?  
+A. Để giảm số lượng marker · B. Để đổi tên class · C. Vì UI 3D bị ảnh hưởng bởi phối cảnh và che khuất · D. Để vô hiệu Collider  
+**Đáp án: C.** Độ đọc được của bảng phụ thuộc camera và vị trí không gian.
+
+**Câu 5.** Trong ví dụ bật/tắt panel, script điều khiển nên nằm ở đâu?  
+A. Trên panel luôn bị tắt · B. Trên đối tượng vẫn hoạt động khi panel bị ẩn · C. Chỉ trên AR Camera · D. Trên file AudioClip  
+**Đáp án: B.** Script cần tiếp tục nhận sự kiện để bật bảng trở lại.
+
+## 10. Tổng kết
+
+World Space UI giúp người dùng xem thông tin **ngay tại vị trí của vật thể AR**, nhưng đòi hỏi quản lý đúng Transform, kích thước, raycast và khả năng đọc. Một bố cục tốt phải được kiểm tra trên thiết bị thật khi marker di chuyển.
+
+**Tham khảo:** [Unity Learn — Create a marker-based AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3). Nội dung thực hành được biên soạn độc lập.

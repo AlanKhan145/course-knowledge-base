@@ -1,78 +1,102 @@
----
-title: "Limit the visibility of the portal world"
-pathway: "Mobile AR Development"
-module: "Create a plane detection AR app"
-lesson_number: 6
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 06 — Giới hạn vùng nhìn thấy của thế giới bên trong portal
 
-# Bài 06 — Limit the visibility of the portal world
+> **Khóa học:** Mobile AR Development · **Môi trường tham chiếu:** Unity 2022.3.  
+> **Kết quả:** Người xem chỉ nhìn thấy nội dung thế giới ảo qua vùng mở của portal, thay vì thấy toàn bộ cảnh 3D tràn ra môi trường thật.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create a plane detection AR app · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
+## 1. Bài toán hiển thị
 
-> **Nguồn đối chiếu:** [Create a plane detection AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Portal AR tạo cảm giác có một “cửa sổ” dẫn tới thế giới khác. Nếu đơn giản đặt một scene ảo đằng sau khung cổng, các đối tượng trong cảnh đó có thể vẫn hiện ra **bên ngoài** khung. Bài toán là quản lý vùng pixel được phép hiển thị (visibility mask), đồng thời duy trì đúng thứ tự lớp với hình ảnh camera.
 
-## 1. Tổng quan
+Đây là bài học về **giới hạn vùng hiển thị**, không đồng nhất với việc xóa các vật thể ngoài khung khỏi scene. Che hình ảnh chưa chắc đã tiết kiệm hết chi phí dựng hình.
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create a plane detection AR app*, bài **Limit the visibility of the portal world** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Mục tiêu
 
-## 2. Mục tiêu học tập
+- Phân biệt **che hiển thị** (masking), **culling** (bỏ qua vật thể không cần render) và **occlusion** (che khuất theo chiều sâu).
+- Mô tả được nguyên lý dùng stencil/depth để giới hạn vùng portal.
+- Thiết lập kiểm thử ở ba góc nhìn: trực diện, xiên và phía bên ngoài khung.
+- Nhận biết các sai sót khiến vật thể ảo “rò rỉ” ra thế giới thật.
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Limit the visibility of the portal world** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Nguyên lý mask portal
 
-## 3. Kiến thức trọng tâm
+```mermaid
+flowchart TD
+    A[Camera AR và cảnh thật] --> D[Khung hình kết hợp]
+    B[Hình dạng cửa portal] --> C[Mặt nạ vùng nhìn]
+    C --> E[Chỉ vẽ thế giới ảo tại pixel hợp lệ]
+    E --> D
+    F[Độ sâu và hướng nhìn] --> E
+```
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+Có nhiều kỹ thuật hiện thực hóa cùng mục tiêu:
 
-### Thuật ngữ và mối quan hệ
+| Kỹ thuật | Ý tưởng | Điều cần cân nhắc |
+|---|---|---|
+| `Stencil Buffer` | Đánh dấu pixel thuộc cửa; render thế giới ảo khi stencil đúng | Shader và Render Pipeline phải tương thích |
+| `Depth Mask` | Dùng vật liệu ghi chiều sâu/che các vùng không mong muốn | Sai thứ tự render có thể làm vật thể biến mất |
+| Render Texture + Mask | Render thế giới ảo sang texture rồi cắt theo vùng cửa | Chi phí render thêm, xử lý phối cảnh |
+| Frustum/Layer Culling | Hạn chế vật thể/camera không cần vẽ | Không thay thế hoàn toàn mask hình dạng cửa |
 
-| Khái niệm | Vai trò trong bài |
+**Ví dụ tư duy stencil:** vẽ hình cửa vào stencil với giá trị `1`, sau đó chỉ cho phép pixel của thế giới portal hiển thị khi stencil bằng `1`. Các thao tác phụ thuộc shader và pipeline thực tế nên không thể chỉ gắn một `Material` bất kỳ là mặc nhiên có hiệu quả.
+
+## 4. Thực hành có thể kiểm chứng
+
+**Bước 1 — Phân tách đối tượng.** Trong prefab, tạo ba nhóm: `PortalFrame` (khung), `PortalOpening` (mặt phẳng xác định vùng mở) và `PortalWorld` (nội dung ảo phía sau). Kiểm tra vị trí tương đối và hướng của các nhóm.
+
+**Bước 2 — Tạo mask.** Chọn kỹ thuật khả dụng trong Render Pipeline hiện tại. Với stencil, cần material/shader ghi stencil tại hình cửa và shader cho thế giới portal đọc stencil tương ứng. Với render texture, cần camera phụ và vật liệu hiển thị texture qua hình cửa.
+
+**Bước 3 — Kiểm tra thứ tự render.** Xác nhận mask được chuẩn bị trước khi render đối tượng cần giới hạn, đồng thời tránh để khung portal che sai chiều sâu. Đặc biệt kiểm tra transparent objects và shader không ghi depth.
+
+**Bước 4 — Thử góc nhìn.** Đặt portal lên mặt sàn; di chuyển từ chính diện sang góc xiên. Quan sát xem các vật thể trong `PortalWorld` có xuất hiện ngoài `PortalOpening` không.
+
+**Bước 5 — Đánh giá hiệu năng.** Đo lại FPS/frame time trên cùng thiết bị như bài kiểm thử hiệu năng. Nếu dùng camera phụ/Render Texture, ghi riêng chi phí tăng thêm.
+
+## 5. Checklist nghiệm thu
+
+- [ ] Nội dung thế giới ảo nhìn thấy **qua** cửa portal.
+- [ ] Nội dung không tràn ra vùng ngoài cửa khi thay đổi góc nhìn.
+- [ ] Khung cổng vẫn được render đúng.
+- [ ] Không có phần mặt nạ hiện thành khối màu che camera một cách ngoài ý muốn.
+- [ ] Không xuất hiện lỗi khác nhau không giải thích được giữa các góc nhìn.
+- [ ] FPS và frame time được kiểm tra lại sau thay đổi shader/mask.
+
+## 6. Xử lý lỗi
+
+| Biểu hiện | Điều cần kiểm tra |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Toàn bộ thế giới ảo hiển thị ngoài cổng | Shader portal không đọc mask hoặc layer/camera render bỏ qua mask |
+| Thế giới ảo biến mất hoàn toàn | Giá trị stencil không khớp, render order sai, mask quay ngược |
+| Cửa portal bị một mặt màu che kín | Vật liệu mask vẫn ghi màu thay vì chỉ làm nhiệm vụ che |
+| Khi xoay máy có viền hở | Geometry cửa và khung không trùng, clipping/precision hoặc độ sâu sai |
+| FPS giảm sau khi dùng render texture | Camera phụ hoặc độ phân giải texture tạo chi phí bổ sung |
 
-## 4. Thực hành từng bước
+## 7. Bài tập
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+Dựng một portal thử nghiệm gồm khung chữ nhật và một khối 3D nằm phía sau. Thử làm cho khối chỉ thấy trong vùng cửa, chụp ba góc nhìn và ghi kỹ thuật đã sử dụng. Nếu có thể, đo FPS trước và sau khi thêm mask và giải thích kết quả.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 8. Câu hỏi ôn tập
 
-## 5. Bài tập củng cố
+**Câu 1.** Mục tiêu quan trọng nhất của visibility mask trong portal là gì?  
+A. Chỉ cho phép cảnh ảo xuất hiện qua vùng mở · B. Tăng số particle · C. Cấp quyền camera · D. Tạo trackable mới  
+**Đáp án: A.** Mask điều khiển pixel nào được nhìn thấy.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create a plane detection AR app** để tạo một tương tác nhỏ.
+**Câu 2.** `Stencil Buffer` thường được dùng như thế nào?  
+A. Lưu âm thanh · B. Đọc GPS · C. Đánh dấu và kiểm tra pixel hợp lệ · D. Tính tốc độ di chuyển  
+**Đáp án: C.** Stencil cho phép ràng buộc việc vẽ theo giá trị đã ghi.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Câu 3.** Vì sao chỉ che hình ảnh không đảm bảo FPS tăng?  
+A. Vì máy không có camera · B. Vì mask không cần shader · C. Vì plane manager dừng · D. Vì nội dung có thể vẫn tốn chi phí render  
+**Đáp án: D.** Visibility và chi phí dựng hình không hoàn toàn đồng nhất.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Câu 4.** Khi thế giới ảo biến mất hoàn toàn, bước nào hợp lý nhất?  
+A. Xóa AR Session · B. Kiểm tra stencil/depth và thứ tự render · C. Tăng số prefab · D. Tắt debug  
+**Đáp án: B.** Vấn đề thường liên quan điều kiện mask hoặc thứ tự xử lý.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+**Câu 5.** Tình huống kiểm thử nào có ích để phát hiện rò rỉ hiển thị?  
+A. Chỉ đứng trực diện · B. Chỉ kiểm tra asset trong Project · C. Di chuyển sang góc xiên và bên cạnh cửa · D. Chỉ nhìn Scene view  
+**Đáp án: C.** Các góc nhìn khác nhau bộc lộ lỗi hình học và mask.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 9. Tổng kết
 
-## 7. Checklist hoàn thành
+Portal tạo được cảm giác “cửa sổ sang thế giới khác” khi **khung**, **vùng mở** và **cảnh ảo** phối hợp chính xác. Chọn giải pháp mask phù hợp với Render Pipeline, kiểm thử nhiều góc nhìn và đo lại hiệu năng.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3).

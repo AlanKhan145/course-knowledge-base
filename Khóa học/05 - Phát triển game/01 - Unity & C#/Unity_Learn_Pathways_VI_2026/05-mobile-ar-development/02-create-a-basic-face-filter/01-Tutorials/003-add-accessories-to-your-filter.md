@@ -1,78 +1,117 @@
+# Bài 03 — Thêm phụ kiện cho bộ lọc khuôn mặt (Add accessories to your filter)
+
+> **Lộ trình:** Mobile AR Development · **Chủ đề:** Create a basic face filter · **Môi trường tham chiếu:** Unity 2022.3  
+> **Hình thức:** Hướng dẫn thực hành AR.
+
+## 1. Mục tiêu
+
+Một bộ lọc trở nên sinh động khi có kính, mũ, tai động vật hoặc vật thể 3D chuyển động cùng đầu người dùng. Khó khăn chính là **đặt phụ kiện theo tọa độ của khuôn mặt đang được theo dõi**, thay vì tọa độ toàn cục trong scene.
+
+Bạn sẽ luyện cách tổ chức hierarchy, chỉnh local transform, kiểm thử ở nhiều góc mặt và xử lý tình huống mất tracking.
+
+## 2. Cơ chế gắn phụ kiện
+
+```mermaid
+flowchart TD
+    A[AR Session và hệ thống tracking] --> B[Đối tượng khuôn mặt được theo dõi]
+    B --> C[Nhóm phụ kiện trong local space]
+    C --> D[Kính ảo]
+    C --> E[Mũ hoặc tai ảo]
+    C --> F[Chi tiết trang trí]
+```
+
+`Transform` gồm vị trí, góc xoay và tỷ lệ. Nếu phụ kiện là con của đối tượng khuôn mặt, transform của phụ kiện được diễn giải tương đối so với gốc cha; khi gốc cha cập nhật theo mặt, phụ kiện có thể di chuyển theo. Tọa độ cụ thể và tỷ lệ phải được hiệu chỉnh theo mô hình, không có một bộ số dùng chung cho mọi loại phụ kiện.
+
+| Thuộc tính | Cách dùng | Dấu hiệu sai |
+| --- | --- | --- |
+| Local Position | Dịch phụ kiện so với gốc mặt | Kính nổi quá xa hoặc xuyên vào mặt |
+| Local Rotation | Căn hướng phụ kiện | Mũ bị nghiêng, kính ngược |
+| Local Scale | Đổi kích thước tương đối | Phụ kiện quá to/nhỏ khi nhìn chính diện |
+| Parent | Chọn đối tượng phụ kiện đi theo | Phụ kiện cố định khi người dùng xoay đầu |
+
+## 3. Chuẩn bị phụ kiện
+
+Chọn model đơn giản, ít chi tiết để thử nghiệm trên thiết bị di động. Kiểm tra đơn vị, trục hướng của model, material và bản quyền tài sản. Đừng bắt đầu bằng model phức tạp trước khi kiểm chứng được đối tượng thử nhỏ bám theo mặt.
+
+## 4. Thực hành
+
+1. **Xác nhận tracking:** sử dụng scene đã có phiên AR, camera và khả năng theo dõi mặt. Chạy bản build tối giản trước.
+2. **Đặt phụ kiện:** tạo hoặc nhập kính/mũ 3D và đặt dưới nhóm nội dung gắn với face trackable. Nếu hệ thống tạo đối tượng khuôn mặt động, cấu hình để các phụ kiện thuộc đối tượng được sinh ra hoặc được gắn với nó.
+3. **Căn chỉnh:** bắt đầu với local position/rotation/scale mặc định, sau đó chỉ sửa một thuộc tính mỗi lần. Xem camera ở tư thế chính diện.
+4. **Kiểm tra hướng:** thử xoay trái/phải, cúi/ngẩng đầu và tiến/lùi. Ghi xem phụ kiện có bám ổn định không.
+5. **Xử lý mất mặt:** thiết kế hành vi ẩn/ngừng hiển thị phụ kiện khi không có tracking hợp lệ, tránh để vật thể đứng lơ lửng không rõ lý do.
+6. **Đánh giá hiệu năng:** đo trên điện thoại, chú ý số mesh, vật liệu và mức độ phức tạp của model.
+
+**Ví dụ:** với chiếc kính ảo, yêu cầu thị giác là hai mắt kính nằm tương đối cân đối theo khuôn mặt ở cả góc nhìn thẳng và góc nghiêng. Không nên kết luận thành công chỉ từ một khung hình tĩnh.
+
+## 5. Ma trận kiểm thử
+
+| Trường hợp | Cần xác minh |
+| --- | --- |
+| Mặt nhìn thẳng | Phụ kiện cân đối, đúng kích cỡ |
+| Quay đầu trái/phải | Phụ kiện di chuyển và xoay nhất quán |
+| Cúi và ngẩng | Không lộ lỗi xoay trục hoặc offset quá lớn |
+| Rời khung hình | Không còn phụ kiện trôi nổi |
+| Ánh sáng thay đổi | Quan sát độ ổn định của tracking |
+| Máy nóng/chậm | Chú ý giảm độ phức tạp 3D nếu cần |
+
+## 6. Lỗi và phương pháp gỡ lỗi
+
+**Phụ kiện không di chuyển:** xem parent và việc liên kết pose với face trackable. **Phụ kiện bị lệch:** xem gốc trục, local transform, hướng xuất model. **Không hiển thị:** kiểm tra GameObject active, renderer, camera, material. **Chỉ sai trên điện thoại:** kiểm tra provider, kích thước và render pipeline trên thiết bị thật.
+
+Mỗi lần debug hãy ghi **kết quả mong đợi → thực tế → giả thuyết → thay đổi → kết quả mới**.
+
+## 7. Bài tập và checklist
+
+- [ ] Có ít nhất một phụ kiện 3D gắn theo mặt.
+- [ ] Thực hiện hiệu chỉnh local transform có lý do.
+- [ ] Thử tối thiểu ba tư thế đầu khác nhau.
+- [ ] Kiểm tra tình trạng mất tracking.
+- [ ] Lưu ảnh/video và ghi chú một lỗi.
+
+**Thử thách:** thêm hai phụ kiện khác nhau, ví dụ kính và mũ; kiểm tra xem chúng có giữ quan hệ vị trí ổn định với cùng một khuôn mặt không.
+
+## 8. Câu hỏi ôn tập
+
+**Câu 1.** Vì sao nên để phụ kiện trong hệ tọa độ của đối tượng khuôn mặt?  
+A. Để tự động tăng FPS.  
+B. Để không cần material.  
+C. Để không cần quyền camera.  
+D. Để phụ kiện được cập nhật cùng tư thế khuôn mặt.  
+**Đáp án: D.** Parent/pose đúng giúp nội dung đi theo mặt thay vì đứng yên trong scene.
+
+**Câu 2.** Kính bị lệch sang một bên nhưng vẫn xoay theo đầu. Thành phần nào cần kiểm tra trước?  
+A. Local Position và gốc model.  
+B. Particle emission.  
+C. Color grading.  
+D. Tên project.  
+**Đáp án: A.** Tracking hoạt động nhưng vị trí tương đối có thể chưa phù hợp.
+
+**Câu 3.** Test nào giúp phát hiện lỗi thiết lập trục quay?  
+A. Chỉ chụp màn hình đứng yên.  
+B. Chỉ đổi màu kính.  
+C. Xoay, cúi và ngẩng đầu.  
+D. Chỉ kiểm tra tốc độ mạng.  
+**Đáp án: C.** Chuyển động đa hướng làm lộ sai lệch rotation/axis.
+
+**Câu 4.** Khi khuôn mặt rời khung hình, thiết kế nào hợp lý nhất?  
+A. Giữ kính mãi ở vị trí cuối.  
+B. Có hành vi hiển thị phù hợp với trạng thái mất tracking.  
+C. Tăng số object liên tục.  
+D. Thêm nhiều normal map.  
+**Đáp án: B.** Trạng thái tracking là điều kiện hiển thị cốt lõi của trải nghiệm AR.
+
+**Câu 5.** Vì sao nên bắt đầu với model 3D đơn giản?  
+A. Để thay thế AR Session.  
+B. Để không cần build.  
+C. Để UV luôn chính xác.  
+D. Để cô lập lỗi tracking/transform và giảm chi phí render.  
+**Đáp án: D.** Vật thể đơn giản dễ quan sát và dễ kiểm soát hiệu năng.
+
+## 9. Tổng kết
+
+Phụ kiện thành công không chỉ xuất hiện trên màn hình: nó phải **bám đúng vị trí, xoay theo đầu, có tỷ lệ phù hợp và ứng xử tốt khi tracking thay đổi**. Hãy ưu tiên đúng hierarchy và local transform trước khi làm đẹp model.
+
 ---
-title: "Add accessories to your filter"
-pathway: "Mobile AR Development"
-module: "Create a basic face filter"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-basic-face-filter-tutorials?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
 
-# Bài 03 — Add accessories to your filter
-
-> **Pathway:** Mobile AR Development · **Mission:** Create a basic face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [Create a basic face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-basic-face-filter-tutorials?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
-
-## 1. Tổng quan
-
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create a basic face filter*, bài **Add accessories to your filter** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
-
-## 2. Mục tiêu học tập
-
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Add accessories to your filter** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Bài tập củng cố
-
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create a basic face filter** để tạo một tương tác nhỏ.
-
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a basic face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-basic-face-filter-tutorials?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+*Bài học độc lập được biên soạn lại bằng tiếng Việt từ đề cương thực hành. Để đối chiếu lộ trình và tài nguyên chính thức, xem [Unity Learn — Create a basic face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-basic-face-filter-tutorials?version=2022.3). Nội dung này không phải bản chép hay bản dịch chính thức của Unity.*

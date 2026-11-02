@@ -1,78 +1,131 @@
----
-title: "Build a new scene with glasses"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 1
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 01 — Dựng scene AR với ba mẫu kính
 
-# Bài 01 — Build a new scene with glasses
-
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create an interactive face filter*, bài **Build a new scene with glasses** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Một bộ lọc kính AR (Augmented Reality) phải đặt mô hình 3D lên khuôn mặt, đồng thời cập nhật vị trí khi người dùng quay hoặc nghiêng đầu. Bài thực hành xây dựng một scene mới, nhập mô hình kính và cấu hình `AR Face Manager` để mỗi khuôn mặt được theo dõi có một nhóm kính gắn kèm. Ở giai đoạn đầu, chỉ cần kiểm chứng kính bám đúng khuôn mặt; logic chọn kính sẽ được cấu hình riêng.
+
+**Đầu ra:** scene `InteractiveFaceFilter` có `AR Session`, `XR Origin`, camera AR và prefab `GlassesGroup` chứa ba mẫu kính.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Build a new scene with glasses** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Giải thích vai trò của `AR Session`, `XR Origin`, `AR Face Manager` và `Face Prefab`.
+- Tạo và tổ chức `GlassesGroup` để có thể thay thế các kiểu kính độc lập.
+- Build ứng dụng lên một thiết bị hỗ trợ face tracking, xác minh kính chuyển động theo khuôn mặt.
 
-## 3. Kiến thức trọng tâm
+## 3. Chuẩn bị
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+Sử dụng Unity 2022.3 với môi trường AR Foundation đã cấu hình; cài provider tương ứng (ARCore XR Plugin trên Android hoặc ARKit XR Plugin trên iOS), quyền camera và cấu hình build hợp lệ. Nếu dùng gói học liệu của khóa, nhập các tài nguyên tương tác cho face filter; tên và vị trí asset có thể khác nếu bạn tự tạo dự án. Face tracking phải được xác minh trên **thiết bị thật**: chỉ chạy Play mode trong Editor không chứng minh được chức năng nhận diện khuôn mặt.
 
-### Thuật ngữ và mối quan hệ
+## 4. Cấu trúc scene và nguyên lý
 
-| Khái niệm | Vai trò trong bài |
+```mermaid
+flowchart TB
+    A[AR Session: vòng đời AR] --> B[XR Origin: hệ tọa độ AR]
+    B --> C[AR Camera]
+    B --> D[AR Face Manager]
+    D --> E[Face Prefab: GlassesGroup]
+    E --> F[Glasses 1]
+    E --> G[Glasses 2]
+    E --> H[Glasses 3]
+```
+
+`AR Face Manager` nhận pose của khuôn mặt từ ARCore/ARKit, sau đó tạo đối tượng dựa trên `Face Prefab`. Ba mẫu kính nên là các con riêng biệt để sau này bật/tắt `Mesh Renderer` cho từng mẫu. Khi làm việc trong Editor, có thể để một bản `GlassesGroup` ở scene để căn chỉnh; bản thực sự được dùng khi tracking cần xuất phát từ prefab được gán cho manager.
+
+## 5. Thực hành
+
+1. Lưu scene mới với tên dễ nhận biết, ví dụ `InteractiveFaceFilter`. Giữ các đối tượng AR nền tảng từ scene mẫu đã chạy được.
+2. Mở cấu hình **Build Settings**: chọn nền tảng mục tiêu, thêm scene đang mở vào danh sách scene build và kiểm tra XR Plug-in Management.
+3. Nhập bộ asset kính 3D. Trong `Project`, kiểm tra từng prefab/model có `Mesh Renderer`, material và kích thước phù hợp.
+4. Tạo `GlassesGroup` làm GameObject cha; đưa ba mẫu kính vào dưới nó và đặt tên rõ ràng. Căn vị trí, hướng và tỉ lệ tương đối với tâm mặt. Không giả định `position = (0,0,0)` là vị trí sống mũi; pose tracking thường đặt ở tâm đầu.
+5. Thêm `AR Face Manager` ở đối tượng quản lý AR phù hợp. Kéo prefab đã lưu của `GlassesGroup` vào trường `Face Prefab` (tên trường có thể khác theo phiên bản component).
+6. Cài camera AR theo chế độ phù hợp cho face tracking, đảm bảo quyền camera. Tắt các AR manager xung đột nếu provider không hỗ trợ đồng thời.
+7. Build và chạy trên thiết bị; nhìn thẳng, quay đầu trái/phải, cúi/ngẩng và quan sát kính bám mặt.
+
+**Checkpoint:** có đủ ba model trong `GlassesGroup`; nhìn trong Inspector thấy tham chiếu `Face Prefab`; ứng dụng bắt được một khuôn mặt trên thiết bị tương thích.
+
+## 6. Kiểm thử và xử lý lỗi
+
+| Hiện tượng | Kiểm tra |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Camera chỉ hiện nền đen | Quyền camera, AR Session, XR plugin và tính tương thích thiết bị |
+| Có camera nhưng không hiện kính | `AR Face Manager`, prefab và trạng thái `Mesh Renderer` |
+| Kính quá to, quay lệch hoặc xuyên mặt | Local Position/Rotation/Scale của model dưới `GlassesGroup` |
+| Editor hiện kính nhưng điện thoại không có | Có thể bạn mới chỉnh bản mẫu trong scene, chưa cập nhật prefab/Face Prefab |
 
-## 4. Thực hành từng bước
+Không chỉnh đồng thời nhiều tham số: sửa một thay đổi, build lại và ghi nhận hiệu quả.
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+## 7. Bài tập củng cố
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+Dùng ba kiểu kính khác nhau và lập bảng kiểm thử trên thiết bị với các tư thế: nhìn thẳng, quay 30 độ, nghiêng đầu và mất tracking. Lưu ít nhất một ảnh minh chứng khi kính nằm đúng trên mặt.
 
-## 5. Bài tập củng cố
+## 8. Checklist
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create an interactive face filter** để tạo một tương tác nhỏ.
+- [ ] Scene có AR Session, XR Origin và camera hoạt động.
+- [ ] `GlassesGroup` chứa ba mẫu kính có tên phân biệt.
+- [ ] Face prefab đã được gán cho `AR Face Manager`.
+- [ ] Build trên điện thoại có tracking khuôn mặt.
+- [ ] Đã lưu scene và prefab sau khi căn chỉnh.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 9. Câu hỏi trắc nghiệm ôn tập
 
-## 6. Lỗi thường gặp và cách kiểm tra
+### Câu 1
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+Thành phần nào tạo và cập nhật đối tượng theo khuôn mặt nhận diện?
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+A. AR Face Manager  
+B. Canvas  
+C. Canvas Scaler  
+D. PlayerPrefs
 
-## 7. Checklist hoàn thành
+**Đáp án: A.** AR Face Manager quản lý các đối tượng khuôn mặt được theo dõi.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+### Câu 2
+
+Vì sao cần dùng thiết bị thật để nghiệm thu face tracking?
+
+A. Editor luôn có camera AR thật  
+B. Face tracking phụ thuộc provider và phần cứng thiết bị  
+C. Mọi prefab chỉ chạy trên iOS  
+D. UI không chạy trong Editor
+
+**Đáp án: B.** Thiết bị thật mới xác minh chuỗi camera, provider và tracking.
+
+### Câu 3
+
+Ba mẫu kính nên được tổ chức thế nào?
+
+A. Ba scene độc lập  
+B. Một texture duy nhất  
+C. Ba GameObject con của GlassesGroup  
+D. Ba Canvas riêng
+
+**Đáp án: C.** Các đối tượng con có thể được bật/tắt độc lập.
+
+### Câu 4
+
+Khi kính lệch khỏi sống mũi, nên kiểm tra gì đầu tiên?
+
+A. Số lượng nút UI  
+B. Âm thanh  
+C. Tên scene  
+D. Local Transform của kính
+
+**Đáp án: D.** Vị trí, hướng và tỉ lệ tương đối với pose khuôn mặt chi phối độ khớp.
+
+### Câu 5
+
+Có kính trong Editor nhưng không có trên điện thoại: cách kiểm tra hợp lý?
+
+A. Kiểm tra Face Prefab và provider AR  
+B. Xóa toàn bộ material  
+C. Tăng âm lượng thiết bị  
+D. Chỉ đổi màu Canvas
+
+**Đáp án: A.** Thiết lập prefab và hỗ trợ AR là điểm kiểm tra trực tiếp nhất.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

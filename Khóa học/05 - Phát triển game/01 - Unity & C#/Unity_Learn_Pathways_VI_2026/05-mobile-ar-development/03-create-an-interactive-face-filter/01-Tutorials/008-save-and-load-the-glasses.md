@@ -1,93 +1,151 @@
----
-title: "Save and load the glasses"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 8
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 08 — Kiểm thử, lưu và khôi phục lựa chọn kính
 
-# Bài 08 — Save and load the glasses
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
+## 1. Mục tiêu
 
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một bộ lọc đã cho đổi mẫu và đổi màu cần được kiểm tra ở các tình huống chuyển lựa chọn, mất mặt và chạy lại ứng dụng. Cần phân biệt **lưu scene/prefab trong Unity** với **lưu lựa chọn của người dùng khi ứng dụng tắt**. Việc lưu lựa chọn qua các lần mở ứng dụng là phần mở rộng có thể triển khai bằng `PlayerPrefs`; không phải mọi project mẫu đều sẵn cơ chế này.
 
-## 1. Tổng quan
+## 2. Hai cấp độ dữ liệu
 
-**Chủ đề:** Luồng scene, lưu dữ liệu và phiên bản dự án. Trong ngữ cảnh *Create an interactive face filter*, bài **Save and load the glasses** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+| Dữ liệu | Ví dụ | Cách duy trì |
+|---|---|---|
+| Tài nguyên thiết kế | GlassesGroup, Material, Graph, scene | Lưu asset và scene trong Editor |
+| Trạng thái phiên chạy | Kính 2, màu xanh | Biến runtime trong graph hoặc controller |
+| Tùy chọn giữa các lần chạy | Mẫu kính yêu thích | `PlayerPrefs`/storage theo thiết kế ứng dụng |
 
-## 2. Mục tiêu học tập
+`PlayerPrefs` lưu tùy chọn đơn giản theo khóa; không dành cho dữ liệu bí mật. Để khôi phục chính xác, lưu **mã lựa chọn** (số thứ tự hoặc tên định danh ổn định), không lưu trực tiếp instance renderer của khuôn mặt vì instance sẽ thay đổi khi tracking tạo lại prefab.
 
-- Trình bày được mục đích của **luồng scene, lưu dữ liệu và phiên bản dự án** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Save and load the glasses** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Sơ đồ khôi phục lựa chọn (mở rộng)
 
-## 3. Kiến thức trọng tâm
+```mermaid
+flowchart TB
+    A[Ứng dụng khởi động] --> B[Đọc ID mẫu và ID màu đã lưu]
+    B --> C[Khởi tạo lựa chọn mặc định nếu chưa có]
+    C --> D{Phát hiện được khuôn mặt?}
+    D -->|Có| E[Áp kiểu kính và material lên prefab mới]
+    D -->|Chưa| F[Giữ lựa chọn trong trạng thái ứng dụng]
+    F --> D
+    E --> G[Người dùng chọn nút mới]
+    G --> H[Cập nhật trạng thái, tùy chọn ghi bền vững]
+    H --> D
+```
 
-- SceneManager giúp chuyển scene; cần đảm bảo scene đã được đưa vào danh sách build theo giao diện Unity tương ứng.
-- Dữ liệu trong RAM mất khi đóng ứng dụng trừ khi được lưu vào một định dạng bền vững.
-- PlayerPrefs phù hợp tùy chọn đơn giản, không thích hợp để lưu bí mật; dữ liệu phức tạp thường cần tệp hoặc storage khác.
+Khi tracking mất rồi xuất hiện trở lại, manager có thể tạo instance mới; **trạng thái lựa chọn cần được áp dụng lại** chứ không chỉ thay đổi một instance đã biến mất.
 
-### Thuật ngữ và mối quan hệ
+## 4. Thực hành kiểm thử trước khi lưu
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+1. Mở scene, kiểm tra `GlassesGroup` được AR manager sinh và không bị lặp bởi một đối tượng xem trước còn bật trong scene.
+2. Chọn lần lượt ba mẫu kính; sau mỗi lần chọn, xác nhận chỉ một mẫu hiện.
+3. Với từng mẫu, bấm cả ba nút màu; xác nhận đúng material và không bị mất khi chuyển mẫu.
+4. Che mặt khỏi camera rồi đưa mặt trở lại; kiểm tra vật thể mới sinh có nhận đúng lựa chọn hiện hành không.
+5. Lưu scene, prefab và Script Graph bằng các thao tác lưu tương ứng; đóng mở lại Unity Editor để xác minh tài nguyên được bảo toàn.
+6. Tạo build mới, thoát ứng dụng và mở lại. Nếu chưa triển khai lưu tùy chọn runtime, ứng dụng sẽ về mặc định; đây **không** phải lỗi của thao tác lưu scene.
 
-## 4. Thực hành từng bước
+## 5. Mở rộng: lưu kiểu kính và màu bằng C#
 
-1. **Bước 1:** Xác định ba dữ liệu: dữ liệu chỉ tồn tại trong scene, giữa các scene và qua lần mở app.
-2. **Bước 2:** Tạo một scene menu và scene gameplay, thử luồng chuyển cảnh.
-3. **Bước 3:** Chọn cơ chế duy trì trạng thái thích hợp, rồi kiểm tra bằng cách tắt mở app.
-4. **Bước 4:** Nếu quản lý mã nguồn, thêm .gitignore đúng cho Unity và thử lịch sử commit.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
+Đoạn mã sau minh họa **cơ chế lưu mã lựa chọn**, có thể dùng để tham chiếu khi triển khai node Visual Scripting tương ứng:
 
 ```csharp
 using UnityEngine;
 
-public static class SettingsStore
+public static class GlassesPreferences
 {
-    private const string Key = "music_volume";
-    public static void SaveVolume(float v) => PlayerPrefs.SetFloat(Key, Mathf.Clamp01(v));
-    public static float LoadVolume() => PlayerPrefs.GetFloat(Key, 0.8f);
+    private const string StyleKey = "facefilter_style";
+    private const string ColorKey = "facefilter_color";
+
+    public static void Save(int styleIndex, int colorIndex)
+    {
+        PlayerPrefs.SetInt(StyleKey, Mathf.Clamp(styleIndex, 0, 2));
+        PlayerPrefs.SetInt(ColorKey, Mathf.Clamp(colorIndex, 0, 2));
+        PlayerPrefs.Save();
+    }
+
+    public static (int style, int color) Load()
+    {
+        return (PlayerPrefs.GetInt(StyleKey, 0),
+                PlayerPrefs.GetInt(ColorKey, 0));
+    }
 }
 ```
 
-*Giải thích:* đây là lưu **tùy chọn đơn giản**, không mã hóa và không phù hợp với dữ liệu nhạy cảm hoặc save game phức tạp.
+Sau khi `Load()`, phải dùng các chỉ số trả về để cập nhật renderer/material trong scene; **đọc dữ liệu không tự làm UI đổi kính**. Đoạn minh họa có thể được triển khai lại bằng node PlayerPrefs trong graph nếu package có các node tương ứng.
 
-## 6. Bài tập củng cố
+## 6. Bảng kiểm thử hồi quy
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create an interactive face filter** để tạo một tương tác nhỏ.
+| Kịch bản | Kết quả cần có |
+|---|---|
+| 1 → 2 → 3 → 1 | Không có kính chồng |
+| Màu 1 → 3 → 2 | Material đúng sau mỗi lần |
+| Đổi màu rồi đổi kính | Màu được áp dụng đúng theo thiết kế |
+| Mất tracking rồi quay lại | Không lỗi, kính mới hiện đúng |
+| Thoát/mở ứng dụng | Mặc định hoặc khôi phục lựa chọn đúng tính năng đã triển khai |
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 7. Checklist
 
-## 7. Lỗi thường gặp và cách kiểm tra
+- [ ] Scene, prefab và graph đã lưu.
+- [ ] Đã kiểm thử đổi kính, đổi màu và mất tracking.
+- [ ] Phân biệt rõ dữ liệu Editor và dữ liệu runtime.
+- [ ] Nếu dùng `PlayerPrefs`, đã kiểm tra lựa chọn sau khi mở lại ứng dụng.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: đối tượng quản lý trạng thái bị tạo trùng, dữ liệu bị ghi đè hoặc quên thiết lập scene build.
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+### Câu 1
 
-## 8. Checklist hoàn thành
+Lưu scene trong Editor có tự lưu lựa chọn người dùng qua lần mở app?
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+A. Có luôn  
+B. Không, đó là hai loại dữ liệu khác nhau  
+C. Chỉ Android  
+D. Chỉ ARKit
+
+**Đáp án: B.** Asset lưu cấu hình thiết kế, không phải trạng thái tùy chọn runtime.
+
+### Câu 2
+
+PlayerPrefs phù hợp nhất với dữ liệu nào?
+
+A. Video hàng GB  
+B. Mật khẩu  
+C. Chỉ số kiểu kính và màu ưu thích  
+D. Mesh vertices mỗi frame
+
+**Đáp án: C.** Đây là vài tùy chọn nhỏ, không nhạy cảm.
+
+### Câu 3
+
+Tại sao không lưu trực tiếp reference renderer của AR face làm tùy chọn bền vững?
+
+A. Vì không thể thay màu  
+B. Vì chỉ có 2 kính  
+C. Vì luôn là null  
+D. Vì AR tracking có thể tạo instance mới
+
+**Đáp án: D.** Reference instance không bền qua các phiên tracking và khởi động.
+
+### Câu 4
+
+Load chỉ số lựa chọn xong cần làm gì?
+
+A. Áp lại kiểu kính và material vào đối tượng hiện có  
+B. Xóa AR Session  
+C. Bật mọi kính  
+D. Đổi độ phân giải
+
+**Đáp án: A.** Giá trị đọc về cần được sử dụng để cập nhật trạng thái hiển thị.
+
+### Câu 5
+
+Khi mất và tìm lại mặt, điều gì quan trọng?
+
+A. Bỏ EventSystem  
+B. Áp lại trạng thái cho instance face prefab mới  
+C. Tắt toàn bộ material  
+D. Chỉ tăng FPS
+
+**Đáp án: B.** Instance mới phải nhận lại các lựa chọn hiện hành.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

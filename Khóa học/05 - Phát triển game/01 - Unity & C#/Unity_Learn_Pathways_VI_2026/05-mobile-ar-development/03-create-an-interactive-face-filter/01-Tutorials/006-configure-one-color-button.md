@@ -1,99 +1,117 @@
----
-title: "Configure one color button"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 6
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 06 — Thiết lập nút màu đầu tiên và material cho kính
 
-# Bài 06 — Configure one color button
-
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *Create an interactive face filter*, bài **Configure one color button** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Kiểu kính là cấu trúc 3D, còn màu sắc chủ yếu do `Material` quyết định. Bài thực hành thiết lập một nút màu và kiểm tra khi nhấn, material của kính được thay đổi mà không đổi mẫu kính đang chọn. Đây là bước tách logic *chọn hình dáng* khỏi *chọn diện mạo*.
 
-## 2. Mục tiêu học tập
+## 2. Mục tiêu
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Configure one color button** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Tạo hoặc kiểm tra ba material dùng cho các màu kính.
+- Lưu tham chiếu `material1Button` và `material1` trong graph riêng `MaterialChanger`.
+- Cấu hình luồng nhấn nút để đặt material lên renderer mục tiêu.
 
-## 3. Kiến thức trọng tâm
+## 3. Cơ chế
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+`Mesh Renderer` quyết định đối tượng được vẽ, còn `Material` xác định bề mặt được vẽ thế nào. Việc thay material phải tác động đúng renderer của kính đang được hiển thị. Nếu các mẫu kính khác nhau đều có renderer, có thể thay material của **cả ba** để bất kỳ kiểu kính nào được chọn sau đó cũng nhận màu đã chọn.
 
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
-
-```csharp
-using TMPro;
-using UnityEngine;
-
-public class ScoreDisplay : MonoBehaviour
-{
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
-
-    public void AddPoint()
-    {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
-    }
-}
+```mermaid
+flowchart LR
+    A[material1Button] --> B[On Button Click]
+    B --> C[Find With Tag: 3 mẫu kính]
+    D[material1: Material] --> E[Set Material trên renderer]
+    C --> E
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+Đây là sơ đồ logic, không phải danh sách node chính xác bắt buộc cho mọi phiên bản package.
 
-## 6. Bài tập củng cố
+## 4. Thực hành
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create an interactive face filter** để tạo một tương tác nhỏ.
+1. Trong `Project`, tạo ba Material có màu dễ phân biệt hoặc chọn ba material có sẵn. Kiểm tra shader tương thích render pipeline đang dùng; đặt tên rõ ràng như `Material_1`, `Material_2`, `Material_3`.
+2. Chọn nút đầu tiên trong `AR_Canvas > Materials Buttons` và so màu biểu tượng với `Material_1` để người dùng hiểu kết quả.
+3. Tạo GameObject riêng quản lý visual script (hoặc dùng `Visual Scripts` đã có) và thêm `Script Machine` với `Script Graph` mới tên `MaterialChanger`.
+4. Trong Blackboard, tạo biến Object `material1Button` kiểu `Button`, trỏ tới `Material 1 Button`; tạo biến material `material1` kiểu `Material`, trỏ tới asset màu thứ nhất.
+5. Thêm `On Button Click`, lấy nút từ `Get Variable material1Button` làm Target.
+6. Dùng node tìm/nhận `Mesh Renderer` của từng mẫu kính, rồi nối tới thao tác `Set Material` với giá trị từ `Get Variable material1`. Lặp cho ba mục tiêu nếu cần đổi đồng bộ.
+7. Play mode, chọn một mẫu kính đang hiện rồi nhấn nút màu 1. Quan sát kết quả và các giá trị trên renderer; lưu graph khi kiểm thử đạt.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Lưu ý khi dùng nhiều material slots:** nếu mesh có nhiều vị trí material, phải xác định đúng slot/index muốn thay. Đừng để logic đổi màu vô tình ghi lên material của mặt kính trong khi chỉ muốn đổi màu gọng.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+## 5. Kiểm thử
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+| Trường hợp | Kỳ vọng |
+|---|---|
+| Nhấn Material 1 khi kính 1 đang hiện | Kính 1 nhận màu 1 |
+| Đổi sang kính 2 sau đó | Kính 2 cũng nhận màu nhất quán nếu triển khai đổi đồng bộ |
+| Nhấn nút màu khi chưa có mặt | Không phát sinh lỗi NullReference khó hiểu |
+| Chọn sai material slot | Màu đổi ở thành phần không mong đợi; cần kiểm tra slot |
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 6. Checklist
 
-## 8. Checklist hoàn thành
+- [ ] Material tương ứng với màu nút.
+- [ ] `MaterialChanger` có Button/Material variable được gán đầy đủ.
+- [ ] Sự kiện nhấn màu 1 kích hoạt `Set Material` đúng mục tiêu.
+- [ ] Đã kiểm thử khi thay mẫu kính.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 7. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Thành phần nào quy định diện mạo bề mặt kính?
+
+A. Material  
+B. EventSystem  
+C. Anchor  
+D. PlayerPrefs
+
+**Đáp án: A.** Material điều khiển shader và thông số bề mặt.
+
+### Câu 2
+
+Biến material1Button cần kiểu nào?
+
+A. Vector3  
+B. Button  
+C. Camera  
+D. AudioSource
+
+**Đáp án: B.** Đầu vào của sự kiện nút cần tham chiếu Button.
+
+### Câu 3
+
+Vì sao có thể cần áp material cho cả ba mẫu kính?
+
+A. Để tăng polygon  
+B. Để tắt AR Session  
+C. Để màu được giữ khi chuyển kiểu kính  
+D. Để làm UI biến mất
+
+**Đáp án: C.** Các mẫu thay phiên hiển thị đều cần diện mạo thống nhất.
+
+### Câu 4
+
+Nếu màu đổi nhầm sang tròng kính, cần kiểm tra?
+
+A. Tiêu đề scene  
+B. Ngôn ngữ dự án  
+C. EventSystem  
+D. Renderer và material slot/index
+
+**Đáp án: D.** Có thể đang đặt vật liệu ở sai slot.
+
+### Câu 5
+
+Chọn màu 1 nhưng không đổi gì: kiểm tra đầu tiên?
+
+A. Tham chiếu Button, Material và dây graph  
+B. Vị trí GPS  
+C. Quyền microphone  
+D. Scale của Canvas duy nhất
+
+**Đáp án: A.** Lỗi liên kết giá trị và Flow là nguyên nhân trực tiếp.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

@@ -1,81 +1,192 @@
----
-title: "Welcome to AR Development Quiz"
-pathway: "Mobile AR Development"
-module: "Get started with AR"
-lesson_number: 4
-lesson_type: quiz
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/get-started-with-ar?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Kiểm tra kiến thức nhập môn phát triển AR
 
-# Bài 04 — Welcome to AR Development Quiz
+> **Tên bài:** Welcome to AR Development Quiz  
+> **Lộ trình:** Mobile AR Development · **Học phần:** Get started with AR  
+> **Môi trường tham chiếu:** Unity 2022.3  
+> **Tính chất:** Bộ câu hỏi tự luyện được biên soạn từ phạm vi kiến thức nhập môn; **không phải đề quiz chính thức của Unity**.
 
-> **Pathway:** Mobile AR Development · **Mission:** Get started with AR · **Loại:** quiz · **Phiên bản mục lục:** Unity 2022.3
+## 1. Mục tiêu đánh giá
 
-> **Nguồn đối chiếu:** [Get started with AR trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/get-started-with-ar?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bài kiểm tra giúp bạn tự xác nhận rằng mình có thể:
 
-## 1. Tổng quan
+1. Giải thích nguyên lý AR di động và vai trò của hệ thống theo dõi.
+2. Nhận biết các thành phần `AR Session`, `XR Origin` và loại trackable.
+3. Xác định đúng bước cấu hình môi trường Unity và các package nền tảng.
+4. Chọn quy trình build, kiểm thử và debug phù hợp cho iOS/Android.
+5. Đưa ra bằng chứng thực hành thay vì chỉ trả lời lý thuyết.
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Get started with AR*, bài **Welcome to AR Development Quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Hướng dẫn làm bài
 
-## 2. Mục tiêu học tập
+- Trả lời **12 câu trắc nghiệm**, mỗi câu có một đáp án đúng nhất trong bốn lựa chọn A, B, C, D.
+- Nên tự chọn đáp án trước khi xem phần **Đáp án và giải thích** ở cuối.
+- Hoàn thành bài thực hành ngắn để tự đánh giá khả năng áp dụng.
+- Các câu hỏi hướng đến quyết định và quy trình trong dự án, không yêu cầu học thuộc tên menu của một bản Unity cụ thể.
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Câu hỏi trắc nghiệm
 
-## 3. Kiến thức trọng tâm
+### Câu 1. Bản chất của AR
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+Một mô hình 3D luôn xuất hiện ở góc màn hình dù người dùng xoay điện thoại. Điểm nào chưa được chứng minh trong trải nghiệm này?
 
-### Thuật ngữ và mối quan hệ
+A. Khả năng kết xuất màu.  
+B. Khả năng gắn nội dung số vào không gian thật một cách có ý nghĩa.  
+C. Việc mô hình có vật liệu.  
+D. Việc ứng dụng có thể phát âm thanh.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+### Câu 2. Vai trò của AR Session
 
-## 4. Thực hành từng bước
+Trong một scene Unity dùng AR, thành phần nào liên quan trực tiếp đến quản lý phiên theo dõi?
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+A. `Mesh Filter`.  
+B. `Audio Source`.  
+C. `Light`.  
+D. `AR Session`.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+### Câu 3. Chọn loại đối tượng theo dõi
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+Bạn cần hiển thị thông tin khi camera nhìn thấy một hình in cụ thể. Loại theo dõi nào phù hợp nhất?
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **ứng dụng thực tế tăng cường trên thiết bị di động**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+A. `Tracked image`.  
+B. `Plane detection` như lựa chọn duy nhất.  
+C. `Face tracking`.  
+D. `Audio listener`.
 
-### Gợi ý tự chấm
+### Câu 4. Kiểm tra thiết bị
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+Vì sao phải kiểm tra khả năng AR của điện thoại trước khi chọn chức năng cho ứng dụng?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+A. Vì mọi điện thoại hỗ trợ các loại tracking giống hệt nhau.  
+B. Vì Unity không thể tạo scene khi chưa kết nối điện thoại.  
+C. Vì một số tính năng phụ thuộc thiết bị và hệ điều hành.  
+D. Vì tất cả chức năng chỉ chạy trên máy tính.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+### Câu 5. Công cụ quản lý Editor
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Muốn biết máy đã cài bản Unity Editor và Android Build Support hay chưa, nên xem ở đâu trước?
 
-## 7. Checklist hoàn thành
+A. `Unity Hub` → `Installs`.  
+B. `Game view`.  
+C. `Animation`.  
+D. `Scene Lighting`.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Get started with AR](https://learn.unity.com/pathway/mobile-ar-development/unit/get-started-with-ar?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+### Câu 6. Package cho Android
 
----
+Dự án AR Foundation hướng đến điện thoại Android thường cần kiểm tra plugin nền tảng nào?
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+A. `ARKit XR Plugin` là lựa chọn duy nhất cho Android.  
+B. `ARCore XR Plugin`.  
+C. `Timeline`.  
+D. `TextMeshPro` thay thế AR provider.
+
+### Câu 7. Kiểm tra khả năng tái lập
+
+Sau khi cấu hình môi trường AR, hành động nào giúp kiểm tra tính tái lập của dự án?
+
+A. Xóa toàn bộ scene.  
+B. Thay ngẫu nhiên các package.  
+C. Chỉ đổi màu Inspector.  
+D. Lưu scene, đóng và mở lại dự án rồi kiểm tra Console/package.
+
+### Câu 8. Editor khác thiết bị thật
+
+Ứng dụng hiển thị tốt trong Editor nhưng không nhận camera trên điện thoại. Bước đầu nào có giá trị nhất?
+
+A. Thay tên dự án.  
+B. Tăng số lượng mô hình.  
+C. Kiểm tra quyền camera, hỗ trợ AR và cấu hình nền tảng.  
+D. Bỏ qua sự cố vì Editor đã chạy được.
+
+### Câu 9. Chuẩn bị trước build
+
+Bản build không mở đúng scene chính. Điều gì cần kiểm tra?
+
+A. Phiên bản bàn phím.  
+B. Scene đã được thêm đúng vào danh sách build chưa.  
+C. Kích thước cửa sổ Console trên máy tính.  
+D. Vị trí chuột trong Unity Hub.
+
+### Câu 10. Quy trình iOS
+
+Đã cài iOS Build Support. Điều gì vẫn có thể cần thiết để chạy app lên iPhone?
+
+A. Công cụ build/signing iOS phù hợp, thường qua Xcode trên macOS.  
+B. Thay thế hoàn toàn ARKit bằng ARCore.  
+C. Tắt camera của điện thoại vĩnh viễn.  
+D. Không cần xác định thiết bị đích.
+
+### Câu 11. Cách gỡ lỗi
+
+Một đối tượng ảo không giữ vị trí ổn định. Cách tiếp cận nào giúp tìm nguyên nhân đáng tin cậy nhất?
+
+A. Thay cùng lúc mọi tham số liên quan.  
+B. Chỉ dựa vào ảnh trong Unity Editor.  
+C. Coi đây luôn là lỗi mô hình 3D.  
+D. Ghi nhận kịch bản, quan sát tracking/log và thử thay từng yếu tố.
+
+### Câu 12. Tiêu chí bàn giao
+
+Nhóm phát triển muốn người khác kiểm chứng bản AR thử nghiệm. Bộ tài liệu nào hữu ích nhất?
+
+A. Chỉ ảnh logo ứng dụng.  
+B. Chỉ số lượng GameObject.  
+C. Bản build/quy trình chạy, hướng dẫn thiết bị, video thực tế, kết quả kiểm thử và lỗi còn biết.  
+D. Chỉ bản chụp cửa sổ Scene view.
+
+## 4. Bài thực hành đánh giá
+
+**Tình huống:** Bạn được giao tạo một scene AR hiển thị một đối tượng 3D khi thiết bị nhận diện một mặt phẳng phù hợp, sau đó thử nghiệm trên một điện thoại.
+
+**Yêu cầu:**
+
+1. Nêu những thành phần Unity/AR cần kiểm tra để scene có thể hoạt động.
+2. Liệt kê môi trường Editor, build modules và package cần xác minh trước khi chạy.
+3. Trình bày tối thiểu **5 bước** từ khi cấu hình đến khi thử nghiệm trên thiết bị.
+4. Xây dựng **3 trường hợp kiểm thử**: ứng dụng khởi động, nhận diện mặt phẳng và duy trì vị trí mô hình khi máy di chuyển.
+5. Nếu mô hình không xuất hiện, đưa ra **hai giả thuyết nguyên nhân** và cách phân biệt chúng.
+
+### Tiêu chí tự chấm (10 điểm)
+
+| Tiêu chí | Điểm tối đa |
+| --- | ---: |
+| Xác định đúng thành phần AR và loại trackable | 2 |
+| Kiểm tra môi trường, package và thiết bị | 2 |
+| Quy trình triển khai có thứ tự và có checkpoint | 2 |
+| Kịch bản kiểm thử có kết quả mong đợi rõ ràng | 2 |
+| Debug dựa trên bằng chứng và thay đổi có kiểm soát | 2 |
+
+**Gợi ý đánh giá:** Một bài làm tốt cần giải thích được **vì sao** chọn từng bước và nêu rõ **cách xác nhận** bước đó đã thành công.
+
+## 5. Đáp án và giải thích
+
+| Câu | Đáp án | Giải thích |
+| --- | :---: | --- |
+| 1 | **B** | AR cần có mối liên hệ giữa nội dung số và thế giới thực, không chỉ vẽ mô hình trên màn hình. |
+| 2 | **D** | `AR Session` đảm nhiệm việc điều phối phiên AR. |
+| 3 | **A** | `Tracked image` phù hợp với việc nhận diện một hình ảnh tham chiếu. |
+| 4 | **C** | Khả năng theo dõi AR thay đổi theo thiết bị, hệ điều hành và tính năng. |
+| 5 | **A** | Unity Hub quản lý Editor và mô-đun cài đặt. |
+| 6 | **B** | ARCore là nền tảng AR cho Android. |
+| 7 | **D** | Đóng/mở lại giúp phát hiện vấn đề lưu cấu hình và package. |
+| 8 | **C** | Thiết bị thật có yêu cầu quyền và runtime riêng; Editor không kiểm chứng thay thế. |
+| 9 | **B** | Scene cần được cấu hình để được đưa vào bản build. |
+| 10 | **A** | Triển khai lên iOS có bước build và ký ứng dụng trong hệ sinh thái Apple. |
+| 11 | **D** | Debug có log và biến thử nghiệm được kiểm soát giúp khoanh vùng lỗi. |
+| 12 | **C** | Bằng chứng thiết bị, cách chạy và hạn chế giúp người khác đánh giá/tái lập. |
+
+### Tự đánh giá kết quả
+
+- **10–12 câu đúng:** Nắm tốt các quyết định nhập môn; ưu tiên hoàn thành bài thực hành trên thiết bị.
+- **7–9 câu đúng:** Có nền tảng; nên ôn lại các câu sai và kiểm tra bằng scene thực tế.
+- **Dưới 7 câu đúng:** Nên luyện lại nguyên lý tracking, cấu hình package và quy trình build trước khi triển khai ứng dụng lớn hơn.
+
+Đây là thang tự luyện, không phải kết quả hay tiêu chuẩn chấm điểm chính thức của Unity Learn.
+
+## 6. Checklist hoàn thành
+
+- [ ] Trả lời đủ 12 câu mà không nhìn trước đáp án.
+- [ ] Giải thích lại được ít nhất 3 câu sai hoặc còn phân vân.
+- [ ] Hoàn thành quy trình và bảng kiểm thử cho bài thực hành.
+- [ ] Có ít nhất một hình ảnh, video hoặc nhật ký thử nghiệm có thể dùng làm bằng chứng.
+- [ ] Phân biệt được giới hạn Editor và điều kiện thiết bị AR thực tế.
+
+**Tham khảo:** [Unity Learn — Get started with AR](https://learn.unity.com/pathway/mobile-ar-development/unit/get-started-with-ar?version=2022.3). Bộ câu hỏi ở đây phục vụ ôn tập độc lập và không thay thế bài kiểm tra chính thức trên nền tảng.

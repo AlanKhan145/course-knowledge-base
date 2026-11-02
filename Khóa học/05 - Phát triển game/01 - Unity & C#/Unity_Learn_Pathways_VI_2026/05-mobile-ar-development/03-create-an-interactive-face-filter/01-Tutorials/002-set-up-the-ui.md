@@ -1,99 +1,138 @@
----
-title: "Set up the UI"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 2
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 02 — Thiết kế giao diện chọn kính và màu sắc
 
-# Bài 02 — Set up the UI
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
+## 1. Bài toán giao diện
 
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Bộ lọc tương tác có **hai hàng nút**: một hàng chọn một trong ba kiểu kính, một hàng chọn màu/material cho kính đang hiện. Giao diện phải hiển thị trên hình camera mà không che phần quan trọng của khuôn mặt. Trong Unity 2022.3, ví dụ này dùng hệ **Unity UI (uGUI)** với `Canvas`, `Button`, `Image`, `Rect Transform` và `EventSystem`.
 
-## 1. Tổng quan
+## 2. Mục tiêu
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *Create an interactive face filter*, bài **Set up the UI** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+- Phân biệt giao diện `Screen Space - Overlay` với đối tượng 3D trong scene.
+- Gán icon cho ba nút chọn kính và màu cho ba nút chọn material.
+- Kiểm tra nút vẫn nhìn thấy và bấm được ở nhiều tỉ lệ màn hình.
 
-## 2. Mục tiêu học tập
+## 3. Kiến thức cốt lõi
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Set up the UI** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Thành phần | Công dụng |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| `AR_Canvas` | Prefab chứa giao diện lớp phủ của bộ lọc |
+| `Glasses Buttons` | Nhóm ba nút chọn kiểu kính |
+| `Materials Buttons` | Nhóm ba nút chọn màu |
+| `EventSystem` | Điều phối sự kiện nhấp/chạm của UI |
+| `Image > Source Image` | Hình biểu tượng của từng nút |
+| `Rect Transform` | Neo và bố cục UI theo màn hình |
+| `Canvas Scaler` | Quy đổi kích thước UI giữa nhiều độ phân giải |
+
+```mermaid
+flowchart TB
+    UI[AR_Canvas: Screen Space Overlay] --> A[Glasses Buttons]
+    UI --> B[Materials Buttons]
+    UI --> C[EventSystem]
+    A --> A1[Glasses 1 Button]
+    A --> A2[Glasses 2 Button]
+    A --> A3[Glasses 3 Button]
+    B --> B1[Material 1 Button]
+    B --> B2[Material 2 Button]
+    B --> B3[Material 3 Button]
+```
+
+Dữ liệu icon và màu chỉ biểu diễn lựa chọn; **chưa tự thay đổi mô hình** cho đến khi chúng ta nối các nút với Visual Scripting.
 
 ## 4. Thực hành từng bước
 
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
+1. Trong `Assets/_InteractiveFaceFilter/Prefabs`, kéo `AR_Canvas` vào Hierarchy. Nếu không dùng asset mẫu, tự tạo Canvas ở chế độ `Screen Space - Overlay`, kèm hai nhóm nút và `EventSystem`.
+2. Mở `Game` view; bật tạm `GlassesGroup` của scene để xem kính nằm ở vị trí nào. Ghi nhớ phải tắt đối tượng xem trước nếu thiết kế dùng AR manager sinh prefab khi chạy.
+3. Mở rộng `AR_Canvas > Glasses Buttons`. Chọn `Glasses 1 Button` và tìm `Image > Source Image` trong Inspector.
+4. Trong thư mục Sprites, mở sprite sheet `UI_Icon_Glasses`, chọn biểu tượng tương ứng mẫu thứ nhất; gán vào `Source Image`. Lặp lại cho nút 2 và 3.
+5. Mở `AR_Canvas > Materials Buttons`. Chọn `Material 1 Button` và đặt `Image > Color` thành màu mong muốn; lặp lại với hai nút còn lại.
+6. Kiểm tra các `Rect Transform`: hai hàng nút dễ phân biệt, khoảng chạm đủ lớn, không nằm ngoài mép thiết bị. Chỉnh anchors và `Canvas Scaler` khi cần.
+7. Lưu scene; kiểm thử bằng chuột trong `Game` view và chạm trên điện thoại.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+**Lưu ý:** Icon từ sprite sheet có thể cần được import kiểu `Sprite (2D and UI)` và slice sẵn. Nếu sử dụng icon tự tạo, không làm xê dịch bố cục atlas đã được thiết lập để cắt sprite.
 
-## 5. Mã ví dụ tự biên soạn
+## 5. Tình huống thực tế
 
-```csharp
-using TMPro;
-using UnityEngine;
+Một giao diện thử kính nên có ba icon kiểu kính ở đáy màn hình và ba nút màu ở hàng phía trên. Người dùng nhìn camera để thấy gương mặt; nhấp nút để thay lựa chọn. Nếu các nút đè lên mắt, di chuyển cả nhóm bằng `Rect Transform` thay vì chỉnh từng nút một cách rời rạc.
 
-public class ScoreDisplay : MonoBehaviour
-{
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
+## 6. Lỗi thường gặp
 
-    public void AddPoint()
-    {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
-    }
-}
-```
+| Vấn đề | Nguyên nhân thường gặp | Cách sửa |
+|---|---|---|
+| Nhấn nút không nhận | Thiếu `EventSystem` hoặc Button không `Interactable` | Kiểm tra EventSystem và Button |
+| Không thấy icon | `Source Image` chưa gán/sprite nhập sai | Chọn sprite đúng |
+| Nút lệch khi đổi độ phân giải | Anchor hoặc Canvas Scaler không phù hợp | Kiểm tra trên Game view nhiều tỷ lệ |
+| Thấy giao diện nhưng chưa đổi kính | UI chưa được nối logic | Thực hiện đồ thị Visual Scripting |
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+## 7. Bài tập
 
-## 6. Bài tập củng cố
+Tạo hai bố cục UI (hàng nút dưới và trên). So sánh khả năng nhìn rõ kính và khả năng chạm bằng ngón tay. Lưu ảnh hai bố cục và chọn bản dễ sử dụng nhất.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create an interactive face filter** để tạo một tương tác nhỏ.
+## 8. Checklist
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+- [ ] Có đủ ba nút kính và ba nút material.
+- [ ] Ba icon đúng với ba mẫu kính.
+- [ ] Màu của mỗi nút dễ nhận biết.
+- [ ] EventSystem hoạt động; Canvas không che tâm khuôn mặt.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+## 9. Câu hỏi trắc nghiệm ôn tập
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+### Câu 1
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Hệ UI nào được dùng trong bài này?
 
-## 8. Checklist hoàn thành
+A. UI Toolkit  
+B. Unity UI (uGUI)  
+C. IMGUI  
+D. Không dùng UI
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Đáp án: B.** Canvas và Button thuộc uGUI.
+
+### Câu 2
+
+Để đổi icon kính, cần chỉnh thuộc tính nào?
+
+A. Image > Source Image  
+B. Transform > Scale  
+C. Camera > Field of View  
+D. Audio Listener
+
+**Đáp án: A.** Source Image là sprite mà Image vẽ.
+
+### Câu 3
+
+Đối tượng nào tiếp nhận nhấp/chạm UI?
+
+A. AR Session  
+B. AR Face  
+C. EventSystem  
+D. Mesh Filter
+
+**Đáp án: C.** EventSystem xử lý hệ thống input cho UI.
+
+### Câu 4
+
+Giao diện đúng nhưng chưa thay kính: nguyên nhân hợp lý?
+
+A. Màu nút quá tối  
+B. Model thiếu texture  
+C. Camera quá sáng  
+D. Chưa nối sự kiện với logic
+
+**Đáp án: D.** UI chỉ trình bày nút; cần graph để phản ứng.
+
+### Câu 5
+
+Khi giao diện tràn màn hình điện thoại, ưu tiên điều chỉnh gì?
+
+A. Rect Transform anchors và Canvas Scaler  
+B. Mesh normals  
+C. AR face mesh  
+D. PlayerPrefs
+
+**Đáp án: A.** Anchor và scaler kiểm soát cách bố cục theo màn hình.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

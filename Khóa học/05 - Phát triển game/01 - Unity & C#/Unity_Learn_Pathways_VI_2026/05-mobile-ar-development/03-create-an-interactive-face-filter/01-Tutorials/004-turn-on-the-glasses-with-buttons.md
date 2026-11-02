@@ -1,99 +1,120 @@
----
-title: "Turn on the glasses with buttons"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 4
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Bật mẫu kính bằng nút tương tác
 
-# Bài 04 — Turn on the glasses with buttons
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
+## 1. Mục tiêu thực hành
 
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một mẫu kính có thể chứa nhiều mesh. Để chọn kính qua UI, cần xác định đúng GameObject/renderer rồi thay trạng thái hiển thị. Bài thực hành này nâng cấp `MeshChanger` từ chỉ ghi log sang **bật hiển thị mẫu kính được chọn**. Trong hướng dẫn dùng graph, các mẫu kính có thể được truy tìm qua **Tag** và `Find With Tag`.
 
-## 1. Tổng quan
+## 2. Thuật ngữ chính
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *Create an interactive face filter*, bài **Turn on the glasses with buttons** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+- **Tag:** nhãn định danh gán cho GameObject; giúp tìm đối tượng theo vai trò thay vì tên nhìn thấy.
+- **Mesh Renderer:** component vẽ mesh; bật/tắt component này khác với bật/tắt cả GameObject.
+- **Get Variable:** lấy tham chiếu Button trong graph.
+- **On Button Click:** nhận nhấn/chạm.
+- **Find With Tag:** tìm GameObject mang tag được chỉ định.
+- **Set Enabled:** thay thuộc tính `enabled` của renderer mục tiêu.
 
-## 2. Mục tiêu học tập
+## 3. Luồng xử lý
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Turn on the glasses with buttons** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
-
-```csharp
-using TMPro;
-using UnityEngine;
-
-public class ScoreDisplay : MonoBehaviour
-{
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
-
-    public void AddPoint()
-    {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
-    }
-}
+```mermaid
+flowchart LR
+    UI[Người dùng nhấn Glasses 1] --> E[On Button Click]
+    E --> T[Find With Tag: kính 1]
+    T --> R[Mesh Renderer]
+    R --> S[Enabled = true]
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+`Find With Tag` thường tìm một đối tượng đầu tiên có tag phù hợp. Nếu một kiểu kính gồm nhiều mesh ở các GameObject con, hãy bảo đảm tag được gắn lên đúng đối tượng có renderer cần điều khiển, hoặc bổ sung xử lý cho từng renderer. Không giả định một tag trên GameObject cha sẽ tự bật các renderer ở mọi con.
 
-## 6. Bài tập củng cố
+## 4. Các bước thực hiện
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create an interactive face filter** để tạo một tương tác nhỏ.
+1. Trong prefab `GlassesGroup`, kiểm tra những `Mesh Renderer` cần điều khiển. Đặt trạng thái ban đầu không hiện cho cả ba kiểu kính để tránh tất cả chồng lên nhau.
+2. Tạo ba tag phân biệt cho ba kiểu kính (ví dụ `Glasses1`, `Glasses2`, `Glasses3`) qua Tag Manager; gán tag phù hợp cho đối tượng được tìm trong graph.
+3. Mở `MeshChanger` graph, giữ phần `glasses1Button` → `On Button Click` đã được kiểm chứng.
+4. Thêm node `Find With Tag` và chỉ định tag `Glasses1`. Kéo tham chiếu đối tượng tìm được đến component `Mesh Renderer` thích hợp rồi đặt thuộc tính `Enabled` thành `true` khi có sự kiện.
+5. Vào Play mode, nhấn nút đầu tiên: chỉ kính thứ nhất xuất hiện; chụp ảnh kiểm chứng.
+6. Nhân bản nhánh sự kiện cho hai nút còn lại. Tạo hai biến kiểu Button là `glasses2Button`, `glasses3Button`, gán đúng GameObject UI.
+7. Với từng nhánh, thay Target và Tag tương ứng; kiểm tra từng nút độc lập. Lưu graph, scene và prefab.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Quan trọng:** Ở mốc này, ba nút có thể *chỉ bật* kính tương ứng; muốn một kiểu xuất hiện thì hai kiểu kia phải biến mất, cần hoàn thiện logic chuyển đổi ở bài riêng.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+## 5. Kiểm thử và debug
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+| Thử nghiệm | Kỳ vọng |
+|---|---|
+| Bấm nút kính 1 | Renderer của kính 1 được bật |
+| Bấm nút kính 2 | Renderer của kính 2 được bật |
+| Bấm nút kính 3 | Renderer của kính 3 được bật |
+| Xóa tag hoặc nhập sai tag | Node tìm không được mục tiêu; cần xử lý lỗi reference |
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Nếu graph chạy nhưng không hiện mesh, kiểm tra `Mesh Renderer` có nằm trên đối tượng được `Find With Tag` trả về không và `GameObject.activeInHierarchy` có đang hoạt động không.
 
-## 8. Checklist hoàn thành
+## 6. Checklist
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Ba nút tham chiếu ba Button khác nhau.
+- [ ] Tag nhất quán giữa Hierarchy và graph.
+- [ ] Mỗi nhánh bật đúng renderer tương ứng.
+- [ ] Đã kiểm tra trên prefab thực sự được AR tạo ra.
+
+## 7. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Mục đích của Tag trong ví dụ là gì?
+
+A. Điều khiển UI scale  
+B. Tìm đối tượng kính cần điều khiển  
+C. Ghi âm thanh  
+D. Lưu dữ liệu lên cloud
+
+**Đáp án: B.** Tag giúp graph truy tìm GameObject theo vai trò.
+
+### Câu 2
+
+Component nào trực tiếp chịu trách nhiệm hiển thị mesh?
+
+A. Mesh Renderer  
+B. AR Session  
+C. EventSystem  
+D. Canvas Scaler
+
+**Đáp án: A.** Mesh Renderer vẽ hình học 3D của kính.
+
+### Câu 3
+
+Chỉ bật renderer kính 2 mà không tắt kính 1 có thể gây gì?
+
+A. Mất camera  
+B. Tắt EventSystem  
+C. Hai kính chồng lên nhau  
+D. Tự lưu PlayerPrefs
+
+**Đáp án: C.** Các mẫu có thể cùng tồn tại nếu không bị tắt.
+
+### Câu 4
+
+Nếu Find With Tag không tìm thấy gì, nên kiểm tra?
+
+A. Màu nút  
+B. FPS  
+C. Âm thanh  
+D. Tên và việc gán Tag
+
+**Đáp án: D.** Tag không khớp khiến tìm kiếm trả về mục tiêu rỗng.
+
+### Câu 5
+
+Một tag trên cha luôn bật tất cả con hay không?
+
+A. Không; cần xét renderer của từng GameObject  
+B. Có ở mọi phiên bản  
+C. Chỉ trên iOS  
+D. Chỉ khi dùng TextMeshPro
+
+**Đáp án: A.** Tag không tự động thay đổi Enabled của các component con.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

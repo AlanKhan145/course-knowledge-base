@@ -1,83 +1,115 @@
----
-title: "Submission: AR friend"
-pathway: "Mobile AR Development"
-module: "Create a plane detection AR app"
-lesson_number: 7
-lesson_type: exercise
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 07 — Dự án thực hành: AR Friend
 
-# Bài 07 — Submission: AR friend
+> **Khóa học:** Mobile AR Development · **Loại:** Bài tập dự án/nộp sản phẩm · **Môi trường tham chiếu:** Unity 2022.3.  
+> **Sản phẩm:** Một ứng dụng AR đơn giản cho phép người dùng đặt người bạn 3D lên mặt phẳng thật và quan sát/tương tác với nhân vật.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create a plane detection AR app · **Loại:** exercise · **Phiên bản mục lục:** Unity 2022.3
+## 1. Bối cảnh dự án
 
-> **Nguồn đối chiếu:** [Create a plane detection AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Trong bài tập **AR Friend**, người học tự thiết kế một trải nghiệm AR nhỏ dựa trên khả năng nhận diện mặt phẳng và thao tác chạm. Người bạn 3D có thể là một nhân vật đơn giản hoặc prefab có sẵn được phép sử dụng. Mục tiêu không phải tạo mô hình phức tạp mà là xây dựng một vòng tương tác đầy đủ: **quét không gian → chọn vị trí → đặt đối tượng → nhận phản hồi → kiểm thử**.
 
-## 1. Tổng quan
+Đây là đề bài thực hành **tự biên soạn** theo chủ đề bài nộp; yêu cầu cụ thể và cách chấm chính thức cần đối chiếu trong trang Unity Learn của khóa học.
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create a plane detection AR app*, bài **Submission: AR friend** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Kết quả cần đạt
 
-## 2. Mục tiêu học tập
+- Ứng dụng chạy được trên thiết bị hỗ trợ AR, truy cập camera và phát hiện được mặt phẳng.
+- Một lần chạm hợp lệ trên mặt phẳng đặt được nhân vật 3D.
+- Nhân vật có ít nhất một phản hồi nhìn thấy được, chẳng hạn xoay nhẹ, chuyển animation hoặc thay đổi trạng thái khi bấm nút.
+- Người dùng có cách đặt lại vị trí hoặc bắt đầu lại thử nghiệm.
+- Có minh chứng chạy trên thiết bị thực và ghi chú về lỗi/hiệu năng.
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Kiến trúc tối thiểu
 
-## 3. Kiến thức trọng tâm
+```mermaid
+flowchart TD
+    A[AR Session + XR Origin] --> B[AR Plane Manager]
+    B --> C[ARRaycastManager]
+    D[Touch input] --> C
+    C --> E{Có plane hit?}
+    E -- Có --> F[Instantiate/đặt lại AR Friend]
+    E -- Không --> G[Thông báo thử vị trí khác]
+    F --> H[Tương tác và phản hồi nhân vật]
+    H --> I[Kiểm thử thiết bị]
+```
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+Nên chia logic thành ba nhóm: **AR tracking**, **xử lý touch/đặt vật thể** và **hành vi nhân vật**. Cách tách này giúp debug vì mỗi nhóm có thể được xác minh độc lập.
 
-### Thuật ngữ và mối quan hệ
+## 4. Các mốc triển khai
 
-| Khái niệm | Vai trò trong bài |
+### 4.1. Mốc 1 — Hoàn thiện scene AR
+
+Tạo `AR Session`, `XR Origin`, `AR Plane Manager` và `AR Raycast Manager`. Kiểm tra trên điện thoại rằng ít nhất một bề mặt ngang được nhận diện. Nếu thất bại, chưa nên ghép nhân vật phức tạp.
+
+### 4.2. Mốc 2 — Chuẩn bị nhân vật
+
+Chọn một prefab đơn giản, thống nhất pivot ở đáy và scale phù hợp. Nếu nhân vật có animation, đảm bảo animator hoạt động độc lập trong scene tĩnh trước khi dùng AR. Chú ý bản quyền model/texture khi trình bày sản phẩm.
+
+### 4.3. Mốc 3 — Đặt nhân vật trên mặt phẳng
+
+Nhận `TouchPhase.Began`, gọi raycast với `PlaneWithinPolygon`; nếu có hit, tạo prefab tại `Pose` tương ứng. Giới hạn một instance hoặc quản lý danh sách instance một cách chủ động. Không spawn tại camera khi hit thất bại.
+
+### 4.4. Mốc 4 — Thêm tương tác
+
+Chọn tối thiểu một phản hồi có thể kiểm chứng: bấm một nút `Wave` để nhân vật vẫy tay, bấm `Rotate` để xoay theo bước, hoặc bấm `Reset` để đặt lại. Kiểm tra touch trên UI không đồng thời gây ra một lệnh đặt nhân vật mới.
+
+### 4.5. Mốc 5 — Kiểm thử và hoàn thiện
+
+Thử trong các điều kiện sáng khác nhau; kiểm tra mất tracking, chạm ngoài plane và bấm nhiều lần. Đo sơ bộ FPS khi nhân vật xuất hiện và xác nhận không có nhiều clone không chủ đích.
+
+## 5. Ma trận kiểm thử
+
+| ID | Trường hợp | Kết quả mong đợi |
+|---|---|---|
+| T01 | Mở ứng dụng, cấp camera | Hình ảnh camera và tracking hoạt động |
+| T02 | Quét mặt bàn, chạm vào vùng hợp lệ | Nhân vật xuất hiện trên mặt bàn |
+| T03 | Chạm vùng chưa có plane | Không sinh nhân vật sai vị trí |
+| T04 | Chạm nút tương tác | Nhân vật phản hồi đúng một lần |
+| T05 | Chạm vị trí hợp lệ mới | Nhân vật được di chuyển/đặt lại theo thiết kế |
+| T06 | Lia camera sang góc khác | Nhân vật giữ kích thước và tư thế hợp lý |
+
+## 6. Đầu ra cần nộp
+
+- **Project Unity** có scene chính và prefab nhân vật; không cần đóng gói những file cache không thiết yếu khi chia sẻ.
+- **Bản build** cho nền tảng mục tiêu, nếu thiết bị/quy trình nộp hỗ trợ.
+- **Video minh chứng** cho chuỗi quét mặt phẳng → đặt nhân vật → tương tác → thử lại.
+- **README ngắn** ghi cách mở dự án, phiên bản Unity/package, yêu cầu thiết bị, chức năng đã làm và hạn chế còn tồn tại.
+- **Bảng kiểm thử** có kết quả quan sát thực tế, không điền số đo giả định.
+
+## 7. Tiêu chí tự đánh giá
+
+| Nhóm | Điều kiện hoàn thành |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| AR cơ bản | Tracking hoạt động và phát hiện được bề mặt |
+| Tương tác | Touch hợp lệ tạo/di chuyển nhân vật; touch không hợp lệ được xử lý an toàn |
+| Trải nghiệm | Có phản hồi của AR Friend; mô hình đặt đúng tỷ lệ, không xuyên sàn |
+| Chất lượng | Không có lỗi Console nghiêm trọng, chạy đủ ổn định để thử nghiệm |
+| Minh chứng | Có video/ảnh và chỉ ra rõ cách tái hiện từng chức năng |
 
-## 4. Thực hành từng bước
+Không tự coi một tính năng đã hoàn thành nếu chỉ cấu hình trong Inspector mà chưa chạy thử trên thiết bị.
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+## 8. Câu hỏi ôn tập
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+**Câu 1.** Vì sao nên thử plane detection trước khi tích hợp nhân vật phức tạp?  
+A. Để bỏ qua camera · B. Để xóa package · C. Để tăng texture · D. Để cô lập lỗi tracking khỏi lỗi nội dung 3D  
+**Đáp án: D.** Kiểm thử từng lớp giúp tìm nguyên nhân nhanh.
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+**Câu 2.** Người dùng chạm vùng chưa có plane, ứng dụng nên làm gì?  
+A. Không đặt vật thể và có thể hướng dẫn quét lại · B. Spawn ở gốc tọa độ · C. Tạo nhiều clone · D. Tắt camera  
+**Đáp án: A.** Không có pose hợp lệ để đặt nhân vật.
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Submission: AR friend** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+**Câu 3.** Cách kiểm tra phản hồi của nhân vật hợp lý nhất là gì?  
+A. Chỉ xem asset trong Project · B. Chỉ đọc tên script · C. Thực hiện thao tác trên điện thoại và quay video kết quả · D. Giả sử animator luôn chạy  
+**Đáp án: C.** Cần minh chứng chức năng được kích hoạt thực sự.
 
-**Tiêu chí nghiệm thu:**
+**Câu 4.** Vì sao cần kiểm tra pivot nhân vật?  
+A. Để mở Internet · B. Để chân nhân vật nằm đúng bề mặt · C. Để bật âm thanh · D. Để thay FPS  
+**Đáp án: B.** Pivot quyết định tương quan giữa hit pose và hình học nhân vật.
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+**Câu 5.** Nội dung nào quan trọng trong README bàn giao?  
+A. Chỉ tên tác giả · B. Chỉ ảnh quảng cáo · C. Chỉ lời chào · D. Phiên bản, hướng dẫn chạy, chức năng và giới hạn  
+**Đáp án: D.** README giúp người khác mở, thử và đánh giá dự án.
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+## 9. Definition of Done
 
-## 6. Lỗi thường gặp và cách kiểm tra
+Ứng dụng đạt mức hoàn thành khi: (1) chạy trên điện thoại hỗ trợ AR; (2) đặt được AR Friend trên plane hợp lệ; (3) có tương tác và phản hồi quan sát được; (4) xử lý an toàn khi không có hit; (5) có minh chứng và hướng dẫn chạy.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Tham khảo đề bài chính thức:** [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3).

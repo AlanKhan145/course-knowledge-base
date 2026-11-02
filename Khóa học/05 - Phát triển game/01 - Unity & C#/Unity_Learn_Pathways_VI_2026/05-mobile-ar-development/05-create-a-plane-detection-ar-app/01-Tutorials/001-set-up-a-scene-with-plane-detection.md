@@ -1,78 +1,104 @@
----
-title: "Set up a scene with plane detection"
-pathway: "Mobile AR Development"
-module: "Create a plane detection AR app"
-lesson_number: 1
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 01 — Thiết lập scene AR có khả năng phát hiện mặt phẳng
 
-# Bài 01 — Set up a scene with plane detection
-
-> **Pathway:** Mobile AR Development · **Mission:** Create a plane detection AR app · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [Create a plane detection AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Khóa học:** Mobile AR Development · **Chủ đề:** Create a plane detection AR app · **Môi trường tham chiếu:** Unity 2022.3, AR Foundation.  
+> **Kết quả:** Camera AR nhận diện được mặt sàn/mặt bàn và có thể hiển thị vùng mặt phẳng được theo dõi.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create a plane detection AR app*, bài **Set up a scene with plane detection** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+**Plane detection** là khả năng ước lượng các bề mặt phẳng trong thế giới thật từ dữ liệu camera và cảm biến. Ứng dụng dùng kết quả ấy để đặt một nhân vật hoặc cổng không gian ảo ở vị trí có ý nghĩa vật lý. Mặt phẳng được nhận diện có thể thay đổi ranh giới và tư thế khi hệ thống thu thập thêm thông tin; không nên xem kết quả ban đầu là hình học cố định.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Set up a scene with plane detection** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Phân biệt chức năng của `AR Session`, `XR Origin`, `AR Plane Manager` và `AR Raycast Manager`.
+- Cấu hình scene cho phép phát hiện ít nhất một mặt phẳng ngang.
+- Kiểm tra quyền camera, khả năng AR trên điện thoại và trạng thái tracking.
+- Giải thích được vì sao kết quả trên thiết bị thật có thể khác Play mode trong Editor.
 
-## 3. Kiến thức trọng tâm
+## 3. Kiến trúc của scene
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+```mermaid
+flowchart TD
+    A[AR Session: vòng đời phiên AR] --> B[XR Origin: hệ tọa độ AR]
+    B --> C[AR Camera: hình ảnh camera]
+    B --> D[AR Plane Manager: quản lý mặt phẳng]
+    B --> E[AR Raycast Manager: kiểm tra vị trí chạm]
+    D --> F[AR Plane: các mặt phẳng đang theo dõi]
+    E --> G[ARRaycastHit: điểm đặt đối tượng]
+```
 
-### Thuật ngữ và mối quan hệ
+`AR Session` kích hoạt và quản lý tracking. `XR Origin` biến đổi tọa độ do thiết bị cung cấp thành tọa độ trong Unity. `AR Plane Manager` phát hiện và cập nhật các `ARPlane`. `AR Raycast Manager` thực hiện phép thử từ điểm trên màn hình vào các đối tượng được AR theo dõi; đây là bước chuẩn bị cho các bài tương tác.
 
-| Khái niệm | Vai trò trong bài |
+| Thành phần | Nhiệm vụ | Sai sót điển hình |
+|---|---|---|
+| `AR Session` | Khởi tạo, duy trì AR | Thiếu session, tracking không hoạt động |
+| `XR Origin` | Quản lý gốc tọa độ và camera AR | Camera tham chiếu sai |
+| `AR Camera` | Hiển thị nền thế giới thật | Chưa cấu hình camera background/quyền camera |
+| `AR Plane Manager` | Tìm và quản lý mặt phẳng | Detection mode không phù hợp |
+| `AR Raycast Manager` | Truy vấn hit-test vào trackable | Không có hit khi người dùng chạm |
+
+## 4. Chuẩn bị
+
+1. Tạo hoặc mở dự án Unity tương thích AR Foundation. Trong **Window > Package Manager**, kiểm tra package AR Foundation và package của nền tảng: **ARCore XR Plugin** (Android) hoặc **ARKit XR Plugin** (iOS).
+2. Bật nhà cung cấp XR tương ứng trong **Project Settings > XR Plug-in Management** nếu cấu hình dự án sử dụng mục này.
+3. Chuẩn bị điện thoại có hỗ trợ AR, cáp hoặc phương thức triển khai, và khu vực có đủ ánh sáng với bề mặt có chi tiết thị giác.
+4. Lưu scene với tên dễ nhận biết, chẳng hạn `PlaneDetectionScene`.
+
+> **Lưu ý phiên bản:** Với AR Foundation 5.x, đối tượng gốc thường mang tên `XR Origin`. Tài liệu hoặc project AR Foundation cũ có thể dùng tên `AR Session Origin`; đối chiếu đúng phiên bản package trước khi thao tác.
+
+## 5. Thực hành tạo scene
+
+**Bước 1 — Tạo cấu trúc AR.** Trong Hierarchy, tạo `AR Session` và `XR Origin` theo menu XR có sẵn. Nếu template đã tạo sẵn camera AR, tránh để thêm một `Main Camera` hoạt động trùng lặp.
+
+**Bước 2 — Thêm khả năng phát hiện mặt phẳng.** Chọn `XR Origin`, thêm `AR Plane Manager`. Đặt **Detection Mode** là mặt phẳng ngang (Horizontal) cho bài thử trên sàn/bàn; chỉ dùng Vertical nếu muốn nhận diện tường và thiết bị hỗ trợ.
+
+**Bước 3 — Trực quan hóa.** Gán prefab hiển thị mặt phẳng phù hợp vào trường **Plane Prefab** nếu cần quan sát hình dạng. Một `ARPlane` chỉ biểu diễn dữ liệu trackable, không mặc nhiên tạo một vùng màu có thể nhìn thấy. Có thể dùng prefab/visualizer tương thích từ các sample của package đang cài.
+
+**Bước 4 — Chuẩn bị tương tác.** Thêm `AR Raycast Manager` trên đối tượng quản lý AR; chức năng này sẽ được dùng để chạm chọn một bề mặt.
+
+**Bước 5 — Build & kiểm thử.** Thêm scene vào Build Settings, chọn Android/iOS, cấp quyền camera, triển khai lên điện thoại. Di chuyển máy chậm quanh bàn/sàn, đợi tracking ổn định và quan sát các mặt phẳng mới xuất hiện/cập nhật.
+
+## 6. Điểm kiểm tra và xử lý lỗi
+
+| Hiện tượng | Cách chẩn đoán |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Chỉ thấy màn hình đen | Kiểm tra quyền camera, camera AR, hỗ trợ AR của thiết bị |
+| Không phát hiện mặt phẳng | Thử khu vực sáng hơn, có họa tiết; kiểm tra `AR Plane Manager` và Detection Mode |
+| Mặt phẳng rung hoặc thay đổi | Chờ tracking ổn định, di chuyển chậm, không cố định đối tượng bằng kết quả chưa đáng tin cậy |
+| Chạy trong Editor nhưng không như điện thoại | Kiểm tra sự khác biệt giữa mô phỏng XR và dữ liệu camera thật |
+| Đối tượng có vị trí/scale sai | Kiểm tra `XR Origin`, hệ tọa độ và đơn vị đo của mô hình |
 
-## 4. Thực hành từng bước
+**Checkpoint:** ghi ảnh hoặc video thấy mặt phẳng ảo phủ lên mặt bàn hoặc mặt sàn thật; chụp Inspector cho biết manager đã được cấu hình.
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+## 7. Bài tập vận dụng
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+- Chạy thử lần lượt ở bề mặt có họa tiết và bề mặt ít chi tiết, giải thích sự khác biệt.
+- Thay đổi chế độ phát hiện ngang/dọc và kiểm tra chỉ loại mặt phẳng nào được phát hiện.
+- Viết báo cáo ngắn gồm thiết bị, package, điều kiện ánh sáng, kết quả mong đợi, kết quả quan sát và lỗi đã khắc phục.
 
-## 5. Bài tập củng cố
+## 8. Câu hỏi ôn tập
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create a plane detection AR app** để tạo một tương tác nhỏ.
+**Câu 1.** Thành phần nào chịu trách nhiệm phát hiện và cập nhật các `ARPlane`?  
+A. `AR Plane Manager` · B. `Audio Listener` · C. `Canvas` · D. `Animator`  
+**Đáp án: A.** `AR Plane Manager` quản lý tập mặt phẳng được theo dõi.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Câu 2.** Vai trò chủ yếu của `XR Origin` là gì?  
+A. Nén video camera · B. Tải vật liệu · C. Chuyển đổi hệ tọa độ AR sang scene · D. Tạo UI  
+**Đáp án: C.** `XR Origin` ánh xạ hệ tọa độ theo dõi vào thế giới Unity.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Câu 3.** Vì sao cần kiểm thử trên thiết bị thật?  
+A. Vì Editor không có Scene view · B. Vì tracking và camera phụ thuộc phần cứng/môi trường · C. Vì prefab không chạy trong Editor · D. Vì Unity không có Console  
+**Đáp án: B.** Môi trường thật quyết định chất lượng dữ liệu AR.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+**Câu 4.** Nếu muốn nhận diện sàn, chế độ phù hợp nhất là gì?  
+A. Disabled · B. Vertical · C. Face tracking · D. Horizontal  
+**Đáp án: D.** Sàn và mặt bàn thường là mặt phẳng ngang.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Câu 5.** Khi không có hình trực quan của mặt phẳng, kết luận nào chính xác?  
+A. Tracking chắc chắn hỏng · B. Thiết bị chắc chắn không hỗ trợ AR · C. Có thể thiếu prefab/visualizer, dù tracking đang chạy · D. Cần xóa `AR Session`  
+**Đáp án: C.** Dữ liệu `ARPlane` và hình biểu diễn của nó là hai phần khác nhau.
 
-## 7. Checklist hoàn thành
+## 9. Tổng kết
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Một scene phát hiện mặt phẳng cần **phiên AR**, **gốc tọa độ/camera** và **plane manager**; tương tác bằng điểm chạm sẽ cần thêm **raycast manager**. Đánh giá kết quả bằng quan sát trên điện thoại, không chỉ bằng Play mode.
 
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3) · [AR Foundation setup](https://developers.google.com/ar/develop/unity-arf/getting-started-ar-foundation).

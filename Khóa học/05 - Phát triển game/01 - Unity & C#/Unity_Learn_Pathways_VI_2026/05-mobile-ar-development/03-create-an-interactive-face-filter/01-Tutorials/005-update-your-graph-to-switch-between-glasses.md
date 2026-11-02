@@ -1,78 +1,126 @@
+# Bài 05 — Hoàn thiện đồ thị chuyển đổi giữa ba mẫu kính
+
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
+
+## 1. Vấn đề cần giải quyết
+
+Khi người dùng chọn mẫu kính B, mẫu A phải biến mất. Nếu graph chỉ bật mẫu vừa chọn, các kính sẽ chồng lên nhau và bộ lọc hoạt động sai. Giải pháp là bảo đảm **tối đa một kiểu kính đang hiển thị** sau mỗi sự kiện nhấn nút.
+
+## 2. Mục tiêu
+
+- Phân biệt trạng thái *bật kính được chọn* và *chuyển đổi kính*.
+- Cấu hình graph tắt các renderer không được chọn.
+- Tạo bài kiểm thử chuyển liên tiếp 1 → 2 → 3 → 1 để phát hiện lỗi tích lũy.
+
+## 3. Quy tắc trạng thái
+
+Cho ba trạng thái hiển thị `g1`, `g2`, `g3`, trong đó `true` có nghĩa renderer tương ứng đang bật. Khi chọn mẫu thứ `i`:
+
+```text
+Chọn 1 → (g1, g2, g3) = (true, false, false)
+Chọn 2 → (g1, g2, g3) = (false, true, false)
+Chọn 3 → (g1, g2, g3) = (false, false, true)
+```
+
+```mermaid
+stateDiagram-v2
+    [*] --> KhongKinh
+    KhongKinh --> Kinh1: Nhấn nút 1
+    KhongKinh --> Kinh2: Nhấn nút 2
+    KhongKinh --> Kinh3: Nhấn nút 3
+    Kinh1 --> Kinh2: Nhấn nút 2
+    Kinh2 --> Kinh3: Nhấn nút 3
+    Kinh3 --> Kinh1: Nhấn nút 1
+    Kinh2 --> Kinh1: Nhấn nút 1
+    Kinh3 --> Kinh2: Nhấn nút 2
+    Kinh1 --> Kinh3: Nhấn nút 3
+```
+
+State diagram giúp thấy rằng mỗi lần nhấn là một lần gán **trạng thái hoàn chỉnh**, không chỉ bật thêm một mesh.
+
+## 4. Quy trình triển khai bằng Visual Scripting
+
+1. Mở graph `MeshChanger`, xác định ba nhánh `On Button Click` và ba mục tiêu kính (qua biến hoặc `Find With Tag`).
+2. Bổ sung các node tắt renderer của ba mẫu ở đầu mỗi nhánh hoặc dùng một đoạn logic chung để tắt tất cả.
+3. Sau khi tắt, bật `Mesh Renderer.enabled = true` cho mẫu kính vừa chọn.
+4. Đảm bảo thứ tự Flow: **tắt các kính khác → bật kính được chọn**. Không dùng ba điều kiện độc lập có thể cùng trả `true` cho một lần chọn.
+5. Play mode, bấm 1 → 2 → 3 → 1. Kiểm tra Hierarchy và Game view sau từng bước. Lưu graph.
+6. Build lên điện thoại để kiểm tra nút chạm và tracking trong điều kiện thực tế.
+
+Một cách tổ chức dễ bảo trì là đóng gói phần *Set visibility* thành một **Custom Event** nhận chỉ số kính đang chọn. Tuy nhiên, nếu mới học Visual Scripting, ba nhánh rõ ràng và kiểm thử được vẫn phù hợp.
+
+## 5. Các lỗi dễ mắc
+
+- **Chỉ thấy một kính lúc bắt đầu nhưng dần xuất hiện ba kính:** graph đang cộng dồn trạng thái, không tắt các renderer cũ.
+- **Không kính nào hiện:** node tắt được chạy cuối cùng, hoặc tag/biến của nhánh bật sai.
+- **Nhấn một lần phải chờ lâu:** kiểm tra xử lý thừa trong graph, đừng dò UI liên tục trong `On Update`.
+- **Trong Scene view đúng nhưng trên khuôn mặt sai:** kiểm tra prefab instance thực tế được `AR Face Manager` quản lý.
+
+## 6. Tiêu chí nghiệm thu
+
+- [ ] Sau mọi lần chọn chỉ có một mẫu kính đang hiện.
+- [ ] Chuyển đổi 1 → 2 → 3 → 1 không sinh kính trùng.
+- [ ] Mỗi Button gọi đúng nhánh; không để tham chiếu null.
+- [ ] Graph được lưu và đã kiểm tra trên thiết bị.
+
+## 7. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Điểm khác biệt chính giữa bật kính và chuyển kính là gì?
+
+A. Chuyển kính phải tắt mẫu cũ  
+B. Chuyển kính luôn cần Internet  
+C. Chuyển kính xóa Camera  
+D. Không có khác biệt
+
+**Đáp án: A.** Chuyển trạng thái phải giữ quy tắc không chồng nhiều mẫu.
+
+### Câu 2
+
+Khi chọn kính 2, trạng thái mong đợi là?
+
+A. true,true,false  
+B. false,true,false  
+C. false,false,false  
+D. true,false,true
+
+**Đáp án: B.** Chỉ renderer của kính 2 được bật.
+
+### Câu 3
+
+Thứ tự Flow nào hợp lý?
+
+A. Bật tất cả rồi dừng  
+B. Lưu PlayerPrefs trước  
+C. Tắt kính khác rồi bật kính chọn  
+D. Ẩn Canvas rồi không bật lại
+
+**Đáp án: C.** Thứ tự này tạo trạng thái xác định.
+
+### Câu 4
+
+Vì sao nên kiểm thử chuỗi 1→2→3→1?
+
+A. Để đo GPS  
+B. Để kiểm tra hình nền  
+C. Để nhận diện ảnh  
+D. Để phát hiện trạng thái tích lũy/chồng kính
+
+**Đáp án: D.** Thử liên tiếp phát hiện bug do trạng thái cũ không được xóa.
+
+### Câu 5
+
+Một phương án giúp graph dễ bảo trì hơn là?
+
+A. Dùng Custom Event chung để cập nhật hiển thị  
+B. Sao chép hàng trăm scene  
+C. Xóa EventSystem  
+D. Tăng độ phân giải vô hạn
+
+**Đáp án: A.** Đoạn logic chung tránh trùng lặp các thao tác tắt/bật.
+
 ---
-title: "Update your graph to switch between glasses"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 5
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
 
-# Bài 05 — Update your graph to switch between glasses
-
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
-
-## 1. Tổng quan
-
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create an interactive face filter*, bài **Update your graph to switch between glasses** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
-
-## 2. Mục tiêu học tập
-
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Update your graph to switch between glasses** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Bài tập củng cố
-
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create an interactive face filter** để tạo một tương tác nhỏ.
-
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

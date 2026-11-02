@@ -1,78 +1,121 @@
----
-title: "Detect when the user touches a plane"
-pathway: "Mobile AR Development"
-module: "Create a plane detection AR app"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 03 — Xác định khi người dùng chạm vào một mặt phẳng AR
 
-# Bài 03 — Detect when the user touches a plane
+> **Khóa học:** Mobile AR Development · **Môi trường tham chiếu:** Unity 2022.3, AR Foundation 5.x.  
+> **Kết quả:** Chỉ trả về vị trí đặt đối tượng khi điểm chạm thực sự giao với mặt phẳng đang được AR theo dõi.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create a plane detection AR app · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
+## 1. Bài toán
 
-> **Nguồn đối chiếu:** [Create a plane detection AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một lần chạm màn hình không đồng nghĩa với việc người dùng đã chọn được mặt phẳng thật. Ứng dụng cần thực hiện **AR raycast**: dùng tọa độ chạm 2D để tìm giao điểm với `ARPlane`. Phép thử này khác `Physics.Raycast` thông thường vì đối tượng đích là các trackable do hệ thống AR cung cấp, không nhất thiết là Collider của mô hình 3D.
 
-## 1. Tổng quan
+## 2. Mục tiêu
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create a plane detection AR app*, bài **Detect when the user touches a plane** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+- Giải thích chuỗi: touch → `ARRaycastManager.Raycast` → `ARRaycastHit.pose`.
+- Chỉ xử lý điểm chạm nằm bên trong đa giác mặt phẳng được phát hiện.
+- Phân biệt trường hợp có và không có hit; ngăn thao tác đặt đối tượng ngoài bề mặt.
+- Kiểm tra kết quả trên thiết bị thật ở các góc quan sát khác nhau.
 
-## 2. Mục tiêu học tập
+## 3. Sơ đồ xử lý
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Detect when the user touches a plane** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+```mermaid
+flowchart TD
+    A[TouchPhase.Began] --> B[Lấy touch.position]
+    B --> C[ARRaycastManager.Raycast]
+    C --> D{Hit trên PlaneWithinPolygon?}
+    D -- Không --> E[Không đặt vật thể]
+    D -- Có --> F[Lấy hits[0].pose]
+    F --> G[Vị trí và hướng để đặt prefab]
+```
 
-## 3. Kiến thức trọng tâm
+`TrackableType.PlaneWithinPolygon` hạn chế hit vào vùng đa giác đã được AR nhận diện; nó phù hợp khi không muốn đặt portal ở bên ngoài ranh giới mặt phẳng. Danh sách hit được sắp theo khoảng cách, vì thế `hits[0]` là hit gần nhất theo truy vấn.
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+## 4. Cài đặt ví dụ
 
-### Thuật ngữ và mối quan hệ
+Trước khi lập trình, scene cần `AR Session`, `XR Origin`, `AR Plane Manager` và `AR Raycast Manager`. Tạo script `PlaneTouchDetector.cs` rồi kéo đối tượng chứa `AR Raycast Manager` vào trường Inspector.
 
-| Khái niệm | Vai trò trong bài |
+```csharp
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
+
+public class PlaneTouchDetector : MonoBehaviour
+{
+    [SerializeField] private ARRaycastManager raycastManager;
+    private static readonly List<ARRaycastHit> Hits = new List<ARRaycastHit>();
+
+    private void Update()
+    {
+        if (raycastManager == null || Input.touchCount == 0) return;
+
+        Touch touch = Input.GetTouch(0);
+        if (touch.phase != TouchPhase.Began) return;
+
+        bool foundPlane = raycastManager.Raycast(
+            touch.position, Hits, TrackableType.PlaneWithinPolygon);
+
+        if (!foundPlane || Hits.Count == 0)
+        {
+            Debug.Log("No tracked plane under touch");
+            return;
+        }
+
+        Pose placementPose = Hits[0].pose;
+        Debug.Log($"Plane hit at: {placementPose.position}");
+    }
+}
+```
+
+`Pose` gồm `position` và `rotation`; cả hai cần thiết để một portal có thể nằm đúng mặt sàn hoặc xoay theo bề mặt. Ví dụ chỉ ghi log, chưa tự tạo vật thể. Nếu dự án chỉ dùng Input System mới thì thay phần lấy touch hoặc bật chế độ hỗ trợ API Input cũ.
+
+## 5. Thực hành kiểm thử
+
+1. Build lên điện thoại, lia camera chậm cho đến khi có mặt phẳng được phát hiện.
+2. Chạm **bên trong** vùng mặt bàn đã nhận diện: log cần xuất hiện vị trí 3D.
+3. Chạm lên vùng chưa được nhận diện: script cần báo không có hit, không sử dụng tọa độ mặc định `(0,0,0)` để đặt đối tượng.
+4. Di chuyển máy, chạm các vị trí khác nhau và quan sát thay đổi của `Pose`.
+5. Nếu có UI phủ màn hình, thử chạm UI và thiết kế điều kiện bỏ qua các thao tác ấy trước khi raycast.
+
+| Kiểm thử | Điều cần xác minh |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Chạm trong đa giác mặt phẳng | `Raycast` thành công, `Hits.Count > 0` |
+| Chạm ngoài vùng theo dõi | Không xử lý kết quả đặt đối tượng |
+| Manager chưa được gán | Không xảy ra `NullReferenceException` |
+| Tracking chưa ổn định | Ứng dụng phản hồi an toàn và cho phép thử lại |
 
-## 4. Thực hành từng bước
+## 6. Debug có hệ thống
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+Nếu `Raycast` luôn trả về `false`, lần lượt kiểm tra: thiết bị có hỗ trợ AR; camera và plane manager có đang tracking; `raycastManager` đã gán đúng trong Inspector; touch được ghi nhận; `PlaneWithinPolygon` có quá hạn chế đối với vùng đang quét hay không. Chỉ sửa một yếu tố mỗi lần để xác định nguyên nhân.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+**Lưu ý:** Raycast cho phép tìm pose tại thời điểm chạm. Đối tượng cần đứng yên ổn định lâu dài có thể cần cơ chế anchor phù hợp theo nền tảng; không nên tự giả định pose sẽ bất biến khi hệ thống AR cập nhật thế giới.
 
-## 5. Bài tập củng cố
+## 7. Bài tập
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create a plane detection AR app** để tạo một tương tác nhỏ.
+Tạo chức năng hiển thị dấu đánh dấu nhỏ (marker) tại vị trí hit, chỉ khi có mặt phẳng hợp lệ. Viết ra khác biệt giữa marker đặt từ `Physics.Raycast` vào Collider và marker đặt từ `ARRaycastManager` vào `ARPlane`.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 8. Câu hỏi ôn tập
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Câu 1.** `ARRaycastManager` phục vụ việc gì?  
+A. Phát nhạc · B. Đặt màu vật liệu · C. Tìm giao điểm màn hình với trackable AR · D. Điều khiển ánh sáng  
+**Đáp án: C.** Nó chuyển ý định chạm thành kết quả hit-test với dữ liệu AR.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+**Câu 2.** Tại sao chọn `PlaneWithinPolygon`?  
+A. Để giảm chạm ngoài vùng mặt phẳng được nhận diện · B. Để phát hiện khuôn mặt · C. Để chụp ảnh · D. Để xóa plane  
+**Đáp án: A.** Bộ lọc yêu cầu hit nằm trong đa giác của mặt phẳng.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Câu 3.** Khi `Raycast` không có hit, ứng dụng nên làm gì?  
+A. Spawn tại origin · B. Spawn tại camera · C. Spawn liên tục · D. Không đặt vật thể và chờ lần chạm hợp lệ  
+**Đáp án: D.** Không có đủ căn cứ để chọn vị trí 3D.
 
-## 7. Checklist hoàn thành
+**Câu 4.** `ARRaycastHit.pose` chứa gì?  
+A. Độ phân giải màn hình · B. Vị trí và hướng · C. FPS và RAM · D. Màu pixel  
+**Đáp án: B.** Pose biểu diễn một tư thế trong không gian 3D.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+**Câu 5.** Vì sao không chỉ dùng `touch.position` để đặt portal 3D?  
+A. Vì đó là tên của camera · B. Vì luôn là số âm · C. Vì chỉ là tọa độ 2D · D. Vì nó không thể ghi log  
+**Đáp án: C.** Touch phải qua hit-test mới xác định được vị trí bề mặt trong thế giới.
 
----
+## 9. Tổng kết
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+Mọi thao tác đặt vật thể lên bề mặt AR đều cần kiểm tra kết quả hit-test. Chỉ khi raycast hợp lệ mới sử dụng `Pose` để tiếp tục tạo đối tượng.
+
+**Đọc thêm:** [ARCore — Raycasts trong AR Foundation](https://developers.google.com/ar/develop/unity-arf/hit-test/developer-guide).

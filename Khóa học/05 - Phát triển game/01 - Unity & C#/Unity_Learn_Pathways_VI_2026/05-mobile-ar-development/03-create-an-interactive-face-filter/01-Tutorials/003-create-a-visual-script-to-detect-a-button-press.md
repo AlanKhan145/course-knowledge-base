@@ -1,99 +1,119 @@
----
-title: "Create a visual script to detect a button press"
-pathway: "Mobile AR Development"
-module: "Create an interactive face filter"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 03 — Dùng Visual Scripting phát hiện thao tác nhấn nút
 
-# Bài 03 — Create a visual script to detect a button press
-
-> **Pathway:** Mobile AR Development · **Mission:** Create an interactive face filter · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
-
-> **Nguồn đối chiếu:** [Create an interactive face filter trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Khóa:** Mobile AR Development · **Chủ đề:** Create an interactive face filter · **Unity:** 2022.3
+> **Tham khảo:** [Unity Learn — Create an interactive face filter](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3). Bài viết là học liệu tiếng Việt tự biên soạn để thực hành, không thay thế hướng dẫn chính thức.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *Create an interactive face filter*, bài **Create a visual script to detect a button press** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Visual Scripting biểu diễn logic bằng các **node** kết nối qua dây **Flow** và **Data**. Với bộ lọc kính AR, nút trên UI phát sự kiện khi người dùng chạm; một `Script Graph` xác định phải thực hiện thao tác nào. Bước đầu tiên là phát hiện `Glasses 1 Button` và ghi một thông báo thử nghiệm vào Console.
 
-## 2. Mục tiêu học tập
+## 2. Mục tiêu
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Create a visual script to detect a button press** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Tạo `Script Machine` và `Script Graph` tên `MeshChanger`.
+- Tạo Object variable `glasses1Button` kiểu `Button`.
+- Kết nối `Get Variable` → `On Button Click` → `Debug Log` và kiểm chứng.
 
-## 3. Kiến thức trọng tâm
+## 3. Cơ chế của graph
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
-
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
-
-```csharp
-using TMPro;
-using UnityEngine;
-
-public class ScoreDisplay : MonoBehaviour
-{
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
-
-    public void AddPoint()
-    {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
-    }
-}
+```mermaid
+flowchart LR
+    A[Object variable: glasses1Button] -->|Data: Button| B[On Button Click]
+    B -->|Flow: khi nhấn| C[Debug Log]
+    D[String Literal: Button 1 pressed] -->|Data: Message| C
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+Dây **Data** cung cấp giá trị (ví dụ Button hoặc String). Dây **Flow** quyết định khi nào hành động xảy ra. Đừng nhầm tên biến `glasses1Button` với tên GameObject `Glasses 1 Button`: biến chỉ là chỗ giữ tham chiếu đến nút thực tế.
 
-## 6. Bài tập củng cố
+## 4. Các bước thực hiện
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create an interactive face filter** để tạo một tương tác nhỏ.
+1. Trong `Hierarchy`, tạo GameObject trống và đặt tên `Visual Scripts`.
+2. Trong Inspector, thêm component `Script Machine`; chọn `New` để tạo `Script Graph`, lưu tên `MeshChanger` vào một thư mục dễ tìm.
+3. Chọn `Edit Graph` và làm quen với `Graph Editor`, `Graph Inspector`, `Blackboard` và menu tìm node (*fuzzy finder*).
+4. Xóa hai node mặc định `On Start` và `On Update` nếu không dùng. Không cần kiểm tra nút liên tục theo frame.
+5. Nhấp chuột phải trong Graph Editor, tìm `On Button Click` (có thể theo `Events > GUI`).
+6. Trong `Blackboard > Object`, tạo biến `glasses1Button`, chọn kiểu `Button` và gán nút `Glasses 1 Button` từ scene làm giá trị.
+7. Kéo biến từ Blackboard ra đồ thị để tạo `Get Variable`; nối đầu ra của biến vào đầu vào Target của `On Button Click`.
+8. Thêm `Debug Log (Message)` và `String Literal` với nội dung `Button 1 pressed`. Nối đầu ra Flow của sự kiện đến `Debug Log`, nối String đến Message.
+9. Vào Play mode, nhấn nút kính thứ nhất và kiểm tra Console. Kết thúc Play mode rồi lưu Graph/Scene.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Checkpoint:** mỗi lần nhấn đúng nút sẽ ghi một thông báo; nhấn hai nút khác không làm phát sinh thông báo này.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+## 5. Gỡ lỗi có hệ thống
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+| Hiện tượng | Kiểm tra |
+|---|---|
+| Event node không sáng | Biến `glasses1Button`, Target và `EventSystem` |
+| Node sáng nhưng không có log | Dây Flow đến `Debug Log`, lọc Console |
+| Có lỗi biến rỗng | Blackboard Object variable đã gán đúng Button chưa |
+| Nút khác cũng kích hoạt | Có dùng chung sai Button reference không |
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Thực hành thêm: chuyển `Debug Log` thành `Debug Log Warning`; sau đó thử nối tên GameObject với chuỗi bằng `String Concat`.
 
-## 8. Checklist hoàn thành
+## 6. Checklist
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create an interactive face filter](https://learn.unity.com/pathway/mobile-ar-development/unit/interactive-face-filter?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Có `Script Machine` và graph `MeshChanger`.
+- [ ] Biến `glasses1Button` kiểu Button không rỗng.
+- [ ] `On Button Click` nhận Target đúng.
+- [ ] Có Console log khi nhấn nút đầu tiên.
+- [ ] Không dùng `On Update` để dò nút mỗi frame.
+
+## 7. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Dây Flow trong Visual Scripting dùng để làm gì?
+
+A. Cấp dữ liệu texture  
+B. Quyết định thứ tự thực hiện node  
+C. Lưu file  
+D. Điều khiển vị trí kính trực tiếp
+
+**Đáp án: B.** Flow kích hoạt thứ tự hành động.
+
+### Câu 2
+
+Loại biến nào phù hợp để tham chiếu UI Button trong ví dụ?
+
+A. Float  
+B. String  
+C. Object variable kiểu Button  
+D. Vector3
+
+**Đáp án: C.** Biến cần lưu đúng tham chiếu Button.
+
+### Câu 3
+
+Node nào phát hiện lần nhấn nút?
+
+A. On Button Click  
+B. On Update  
+C. Get Position  
+D. Set Material
+
+**Đáp án: A.** On Button Click là sự kiện dành cho tương tác Button.
+
+### Câu 4
+
+Vì sao On Button Click có thể không hoạt động khi Target để This?
+
+A. Nó luôn yêu cầu Internet  
+B. Nó chỉ hỗ trợ ARKit  
+C. Thiếu âm thanh  
+D. Script Machine nằm trên GameObject không chứa Button
+
+**Đáp án: D.** This tham chiếu GameObject đang mang graph, không phải nút UI đích.
+
+### Câu 5
+
+Cách thử nghiệm đơn giản nhất là gì?
+
+A. Ghi thông điệp bằng Debug Log  
+B. Build 20 lần  
+C. Thêm 3 camera  
+D. Ẩn EventSystem
+
+**Đáp án: A.** Log kiểm tra được chính xác lúc sự kiện xảy ra.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+**Đọc thêm:** [Unity Learn — Create with AR: Face Filters](https://learn.unity.com/course/create-with-ar-face-filters/unit/interactive-face-filter?version=2022.3).

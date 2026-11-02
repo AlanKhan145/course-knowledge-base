@@ -1,99 +1,144 @@
----
-title: "Add a UI with rotation buttons"
-pathway: "Mobile AR Development"
-module: "Create a marker-based AR app"
-lesson_number: 3
-lesson_type: tutorial
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 03 — Thêm giao diện và nút xoay mô hình AR
 
-# Bài 03 — Add a UI with rotation buttons
+> **Lộ trình:** Mobile AR Development · **Chủ đề:** Add a UI with rotation buttons · **Môi trường tham chiếu:** Unity 2022.3
 
-> **Pathway:** Mobile AR Development · **Mission:** Create a marker-based AR app · **Loại:** tutorial · **Phiên bản mục lục:** Unity 2022.3
+## 1. Tổng quan và mục tiêu
 
-> **Nguồn đối chiếu:** [Create a marker-based AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Một mô hình ảo đã xuất hiện trên marker vẫn còn ít khả năng tương tác. Bài này xây dựng **hai nút trên màn hình** để xoay mô hình sang trái hoặc sang phải theo từng lần nhấn. Giao diện phải dễ nhìn trên điện thoại và tác động lên **mô hình**, không làm xoay cả camera hoặc marker.
 
-## 1. Tổng quan
+Người học sẽ cấu hình `Canvas`, `RectTransform`, `Button`, `EventSystem`, tạo hàm xử lý sự kiện `On Click()` và kiểm tra UI ở nhiều tỉ lệ màn hình.
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *Create a marker-based AR app*, bài **Add a UI with rotation buttons** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Thành phần UI trong Unity
 
-## 2. Mục tiêu học tập
+| Thành phần | Ý nghĩa |
+| --- | --- |
+| `Canvas` | Bề mặt chứa giao diện |
+| `RectTransform` | Vị trí, kích thước và bố cục UI |
+| `Anchor` | Mốc căn chỉnh khi kích thước màn hình thay đổi |
+| `Canvas Scaler` | Điều chỉnh khả năng hiển thị theo độ phân giải |
+| `Button` | Phát tín hiệu `On Click()` |
+| `EventSystem` | Điều phối sự kiện nhập liệu UI |
+| `TextMeshPro` | Hiển thị văn bản trên nút hoặc thông báo |
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Add a UI with rotation buttons** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Sử dụng Canvas kiểu **Screen Space** khi muốn nút điều khiển cố định theo màn hình điện thoại. Điều này khác với **World Space Canvas** trong bài về giao diện gắn với marker.
 
-## 3. Kiến thức trọng tâm
+## 3. Luồng xử lý sự kiện
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+```mermaid
+flowchart LR
+    A[Người dùng chạm nút] --> B[EventSystem]
+    B --> C[Button On Click]
+    C --> D[RotateLeft hoặc RotateRight]
+    D --> E[Transform của mô hình]
+    E --> F[Mô hình xoay trong không gian AR]
+```
 
-### Thuật ngữ và mối quan hệ
+Không cần thay đổi góc xoay ở mọi frame khi người dùng chỉ muốn xoay theo từng lần chạm. Cập nhật Transform **ngay khi có sự kiện** sẽ đơn giản và dễ kiểm thử hơn.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 4. Tạo các nút trong scene
 
-## 4. Thực hành từng bước
+1. Tạo `Canvas` dạng **Screen Space - Overlay** (hoặc cấu hình screen-space thích hợp với dự án).
+2. Thêm hai `Button`, đặt tên `RotateLeftButton` và `RotateRightButton`.
+3. Đổi nhãn thành `⟲ Trái` và `Phải ⟳` bằng TextMeshPro nếu có.
+4. Đặt anchor nút về phía đáy màn hình; chỉnh lề để nút không sát mép và tránh vùng giao diện hệ điều hành.
+5. Kiểm tra `EventSystem` hiện diện và chỉ có hệ thống input UI phù hợp được cấu hình.
+6. Thử các tỉ lệ màn hình trong Game View, sau đó kiểm thử chạm trên điện thoại.
 
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
+## 5. Script xoay mô hình
 
 ```csharp
-using TMPro;
 using UnityEngine;
 
-public class ScoreDisplay : MonoBehaviour
+public class MarkerRotationController : MonoBehaviour
 {
-    [SerializeField] private TMP_Text scoreLabel;
-    private int score;
+    [SerializeField] private float anglePerTap = 15f;
+    private Transform target;
 
-    public void AddPoint()
+    public void SetTarget(Transform model)
     {
-        score++;
-        if (scoreLabel != null) scoreLabel.text = $"Điểm: {score}";
+        target = model;
+    }
+
+    public void RotateLeft()
+    {
+        if (target != null)
+            target.Rotate(Vector3.up, -anglePerTap, Space.Self);
+    }
+
+    public void RotateRight()
+    {
+        if (target != null)
+            target.Rotate(Vector3.up, anglePerTap, Space.Self);
     }
 }
 ```
 
-*Giải thích:* gán TextMeshPro Text trong Inspector, gọi `AddPoint` khi có sự kiện; tránh cập nhật UI mỗi frame nếu dữ liệu không thay đổi.
+`target` phải là Transform của **nội dung cần xoay** (thường là instance tạo từ Prefab), không phải Transform của `ARTrackedImage`. Vì mô hình có thể được sinh **sau khi ứng dụng chạy**, cần gọi `SetTarget(instance.transform)` tại lúc khởi tạo instance hoặc khi chọn mô hình để điều khiển.
 
-## 6. Bài tập củng cố
+**Ví dụ kết nối với script spawn:** sau khi `Instantiate(...)` thành công, có thể gọi:
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create a marker-based AR app** để tạo một tương tác nhỏ.
+```csharp
+rotationController.SetTarget(instance.transform);
+```
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+Điều này giả định script tạo instance đã được khai báo tham chiếu `MarkerRotationController rotationController` và gán trong Inspector. Khi quản lý nhiều marker, phải quyết định **mô hình nào đang được chọn**; ví dụ trên điều khiển một mục tiêu tại một thời điểm.
 
-## 7. Lỗi thường gặp và cách kiểm tra
+## 6. Liên kết Button On Click
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
+1. Gắn `MarkerRotationController` lên GameObject điều khiển trong scene.
+2. Trong phần **Button → On Click()**, kéo GameObject chứa script vào ô đối tượng.
+3. Nút trái chọn `MarkerRotationController.RotateLeft()`.
+4. Nút phải chọn `MarkerRotationController.RotateRight()`.
+5. Kiểm thử rằng sau khi marker xuất hiện, mỗi lần nhấn chỉ xoay mô hình theo bước mong đợi.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+**Checkpoint:** Khi chưa có mô hình, bấm nút không gây `NullReferenceException`. Khi có mô hình, các nút xoay theo hai hướng ngược nhau mà vị trí marker vẫn được theo dõi bình thường.
 
-## 8. Checklist hoàn thành
+## 7. Phân biệt điều khiển UI và trạng thái dữ liệu
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a marker-based AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+Giao diện không nên tự quyết định toàn bộ trạng thái của trò chơi hoặc ứng dụng. `Button` chỉ phát **yêu cầu**, script đọc mục tiêu hiện tại và thực hiện thay đổi. Cách tách này cũng hữu ích khi bổ sung `Slider` cho góc quay hoặc `Toggle` bật/tắt mô hình.
 
----
+Trong trường hợp muốn hiển thị số lượt xoay, có thể lưu một biến đếm và chỉ cập nhật TextMeshPro **khi lượt xoay thay đổi**, thay vì cập nhật văn bản liên tục trong `Update()`.
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+## 8. Gỡ lỗi
+
+| Hiện tượng | Cần kiểm tra |
+| --- | --- |
+| Bấm không phản hồi | `EventSystem`, input module, `On Click()` và Raycast Target |
+| Nút không thấy trên một số màn hình | Anchor, RectTransform, Canvas Scaler |
+| Có nút nhưng mô hình không xoay | `target` chưa được gán qua `SetTarget()` |
+| Cả marker di chuyển/xoay | Đã chọn nhầm Transform của image hoặc XR Origin |
+| Xoay trông không đúng trục | Phân biệt `Space.Self` với `Space.World`, hướng trục của mesh |
+
+## 9. Bài tập luyện tập
+
+Tạo giao diện gồm hai nút trái/phải, bổ sung một nút **Đặt lại góc quay** theo ý tưởng `target.localRotation = Quaternion.identity`. Thử chuyển vị trí nút lên góc màn hình và so sánh khả năng thao tác bằng một tay.
+
+**Sản phẩm:** ảnh Hierarchy/Inspector, bản chạy trên điện thoại và một video ngắn thao tác hai nút.
+
+## 10. Câu hỏi ôn tập
+
+**Câu 1.** Khi muốn nút đứng yên trên màn hình điện thoại, nên dùng loại Canvas nào?  
+A. Screen Space · B. World Space trên marker · C. Rigidbody Canvas · D. Collider Canvas  
+**Đáp án: A.** Screen Space đặt UI theo khung màn hình.
+
+**Câu 2.** Thành phần nào phụ trách phân phối các sự kiện nhấn UI?  
+A. AudioSource · B. AR Session · C. EventSystem · D. XR Reference Image Library  
+**Đáp án: C.** EventSystem phối hợp với input module để xử lý tương tác UI.
+
+**Câu 3.** `anglePerTap` dùng để làm gì?  
+A. Điều chỉnh chiều cao marker · B. Đặt góc quay cho mỗi lần bấm · C. Thiết lập FPS · D. Tăng âm lượng  
+**Đáp án: B.** Tham số quyết định bước xoay theo sự kiện.
+
+**Câu 4.** Để không làm thay đổi pose marker, nên xoay đối tượng nào?  
+A. XR Origin · B. AR Camera · C. AR Session · D. Transform của model con  
+**Đáp án: D.** Chỉ mô hình được xoay tương đối với marker.
+
+**Câu 5.** Nút đã gắn hàm nhưng không xoay, trong khi không có lỗi UI. Nguyên nhân hợp lý nhất?  
+A. Thiếu marker texture · B. Chưa gán Transform mục tiêu · C. Thiếu Audio Listener · D. Quá nhiều hình trong library  
+**Đáp án: B.** Hàm trả về mà không xoay khi `target == null`.
+
+## 11. Tổng kết
+
+Giao diện AR có hai phần tách biệt: **UI nhận tương tác** và **logic điều khiển mô hình**. Dùng sự kiện `Button.OnClick`, đặt anchor hợp lý và chỉ tác động lên Transform nội dung giúp ứng dụng dễ mở rộng, dễ debug và ổn định hơn.
+
+**Tham khảo:** [Unity Learn — Create a marker-based AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-marker-based-ar-app?version=2022.3). Ví dụ C# là mã thực hành tự biên soạn.

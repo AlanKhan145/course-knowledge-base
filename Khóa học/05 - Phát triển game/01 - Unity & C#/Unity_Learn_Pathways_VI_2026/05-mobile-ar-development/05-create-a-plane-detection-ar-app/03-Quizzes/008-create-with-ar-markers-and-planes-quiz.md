@@ -1,81 +1,154 @@
----
-title: "Create with AR: markers and planes Quiz"
-pathway: "Mobile AR Development"
-module: "Create a plane detection AR app"
-lesson_number: 8
-lesson_type: quiz
-unity_version: "2022.3"
-source_mission: "https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 08 — Trắc nghiệm tổng hợp: AR Marker và Plane Detection
 
-# Bài 08 — Create with AR: markers and planes Quiz
+> **Khóa học:** Mobile AR Development · **Loại:** Bài kiểm tra tự luyện.  
+> **Phạm vi:** Phân biệt AR dựa trên marker và AR dựa trên mặt phẳng, thao tác chạm, raycast, prefab, hiệu năng, khả năng hiển thị portal.
 
-> **Pathway:** Mobile AR Development · **Mission:** Create a plane detection AR app · **Loại:** quiz · **Phiên bản mục lục:** Unity 2022.3
+## 1. Hướng dẫn làm bài
 
-> **Nguồn đối chiếu:** [Create a plane detection AR app trên Unity Learn](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+Hãy làm bài trước khi xem phần đáp án. Mỗi câu chỉ có **một lựa chọn đúng nhất**. Các tình huống phản ánh những kỹ năng thực hành trong Unity AR Foundation, không phải bản sao câu hỏi đánh giá chính thức của Unity Learn.
 
-## 1. Tổng quan
+## 2. Bảng hệ thống hóa kiến thức
 
-**Chủ đề:** Ứng dụng thực tế tăng cường trên thiết bị di động. Trong ngữ cảnh *Create a plane detection AR app*, bài **Create with AR: markers and planes Quiz** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+| Nội dung | Marker-based AR | Plane detection AR |
+|---|---|---|
+| Dữ liệu chính | Hình ảnh/mốc đã khai báo để theo dõi | Bề mặt thực được hệ thống ước lượng |
+| Đối tượng quản lý thường dùng | `AR Tracked Image Manager` | `AR Plane Manager` |
+| Cách xác định điểm đặt | Dựa trên pose của ảnh được theo dõi | Dựa trên pose từ hit-test vào plane |
+| Tình huống phù hợp | Nội dung hiện khi camera nhìn thấy hình mục tiêu | Đặt nội dung lên sàn, bàn, mặt phẳng |
+| Hạn chế tiêu biểu | Mất tracking khi ảnh bị che hoặc khó nhận diện | Cần bề mặt đủ điều kiện để phát hiện và theo dõi |
 
-## 2. Mục tiêu học tập
+Dù chọn phương thức nào, scene vẫn cần được cấu hình phù hợp với nền tảng AR, camera, hệ tọa độ và vòng đời tracking.
 
-- Trình bày được mục đích của **ứng dụng thực tế tăng cường trên thiết bị di động** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Sơ đồ quyết định
 
-## 3. Kiến thức trọng tâm
+```mermaid
+flowchart TD
+    A[Muốn đặt nội dung AR] --> B{Có hình marker xác định trước?}
+    B -- Có --> C[Theo dõi ảnh và dùng pose tracked image]
+    B -- Không --> D{Có bề mặt phẳng thực?}
+    D -- Có --> E[Plane detection và AR raycast]
+    D -- Không --> F[Thiết kế lại tương tác hoặc cơ chế tracking]
+```
 
-- AR Session quản lý phiên theo dõi; XR Origin và các manager phụ trách hiển thị thiết bị cùng đối tượng theo dõi.
-- Face tracking, tracked image và plane detection phụ thuộc khả năng AR của thiết bị và hệ điều hành.
-- Tọa độ trong AR cần gắn đúng điểm neo/trackable; trải nghiệm phải xử lý trạng thái mất tracking và hiệu năng di động.
+Sơ đồ mô tả cách chọn **điểm neo nội dung**, không có nghĩa hai kỹ thuật loại trừ nhau trong mọi dự án.
 
-### Thuật ngữ và mối quan hệ
+## 4. Câu hỏi trắc nghiệm
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+### Câu 1
 
-## 4. Thực hành từng bước
+Một triển lãm muốn phát mô hình 3D khi camera nhận diện đúng bức tranh đã đăng ký. Thành phần nào phù hợp nhất?
 
-1. **Bước 1:** Chọn thiết bị thật tương thích AR Foundation, ARCore/ARKit và phiên bản package.
-2. **Bước 2:** Thiết lập XR/AR session tương ứng; kiểm tra camera permission và trạng thái tracking.
-3. **Bước 3:** Tạo một đối tượng ảo gắn với loại trackable phù hợp (mặt, ảnh, mặt phẳng).
-4. **Bước 4:** Build lên thiết bị, thử trong các điều kiện sáng/nền khác nhau; ghi lại lỗi và FPS.
+A. `AR Plane Manager`  
+B. `AR Tracked Image Manager`  
+C. `Light Probe`  
+D. `Character Controller`
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+### Câu 2
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+Ứng dụng cho phép đặt một chiếc ghế 3D lên mặt sàn bất kỳ đã được nhận diện. Cách nào phù hợp nhất?
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **ứng dụng thực tế tăng cường trên thiết bị di động**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+A. Chỉ đọc `Input.touchCount` rồi spawn tại camera  
+B. Bật face tracking  
+C. Dùng `Time.deltaTime` làm tọa độ  
+D. Phát hiện plane và raycast lấy pose hợp lệ
 
-### Gợi ý tự chấm
+### Câu 3
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+Tại sao `touch.position` chưa đủ để đặt đối tượng trong thế giới AR?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+A. Nó chỉ là tọa độ 2D trên màn hình  
+B. Nó chỉ chứa FPS  
+C. Nó luôn nằm ngoài màn hình  
+D. Nó chính là tên prefab
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: kiểm thử bằng Game view như trên thiết bị thật, thiếu quyền camera hoặc thiết bị không hỗ trợ tính năng.
+### Câu 4
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Khi sử dụng `TrackableType.PlaneWithinPolygon`, mục đích của bộ lọc là gì?
 
-## 7. Checklist hoàn thành
+A. Đo tốc độ mạng  
+B. Nhận diện khuôn mặt  
+C. Chỉ chấp nhận hit trong đa giác mặt phẳng được theo dõi  
+D. Tự động tối ưu shader
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+### Câu 5
 
----
+Tình huống nào thường tạo ra quá nhiều bản sao portal?
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 2022.3 hoặc phiên bản mới hơn.
+A. Không có plane hit  
+B. `Instantiate` bị gọi nhiều lần không kiểm soát  
+C. Prefab bị đổi tên  
+D. Xem scene từ nhiều góc
+
+### Câu 6
+
+Tại sao cần lưu một tham chiếu đến portal đang hiển thị?
+
+A. Để có thể di chuyển hoặc xóa instance đã tạo một cách chủ động  
+B. Để tăng số ngón tay  
+C. Để tắt AR Session  
+D. Để bỏ qua camera
+
+### Câu 7
+
+Để đánh giá hiệu năng thực tế của portal trên điện thoại, phương pháp nào tốt nhất?
+
+A. Chỉ nhìn FPS của Unity Editor  
+B. Chỉ đo khi chưa có portal  
+C. Đổi nhiều cài đặt cùng lúc rồi suy đoán  
+D. Đo trên thiết bị đích và so sánh baseline với tình huống có portal
+
+### Câu 8
+
+Một portal bị lộ các vật thể ảo bên ngoài khung cửa. Nhóm giải pháp nào phù hợp?
+
+A. Tăng độ nhạy touch  
+B. Thêm marker ngẫu nhiên  
+C. Dùng visibility mask như stencil/depth theo Render Pipeline phù hợp  
+D. Tắt mọi GameObject
+
+### Câu 9
+
+Mặt phẳng không xuất hiện khi quét sàn. Thao tác kiểm tra đầu tiên nào hợp lý?
+
+A. Xóa toàn bộ project  
+B. Xác minh `AR Plane Manager`, camera/tracking, thiết bị và điều kiện ánh sáng  
+C. Đổi tên Prefab  
+D. Tăng số particle
+
+### Câu 10
+
+Vì sao bài nộp AR Friend cần video thử nghiệm trên điện thoại?
+
+A. Để thể hiện tracking, đặt đối tượng và phản hồi trong môi trường thật  
+B. Vì không cần kiểm tra lỗi  
+C. Vì video thay được toàn bộ project  
+D. Vì chỉ Editor mới chạy được AR
+
+## 5. Đáp án và giải thích
+
+| Câu | Đáp án | Giải thích |
+|---|---|---|
+| 1 | **B** | AR tracked image manager quản lý hình ảnh mục tiêu đã khai báo. |
+| 2 | **D** | Plane detection xác định bề mặt; raycast cho pose tại điểm chạm. |
+| 3 | **A** | Tọa độ 2D chưa xác định được vị trí 3D trong thế giới. |
+| 4 | **C** | `PlaneWithinPolygon` giới hạn hit trong hình học plane được theo dõi. |
+| 5 | **B** | Spawn không kiểm soát khiến các clone chồng lên nhau hoặc tăng tải. |
+| 6 | **A** | Giữ instance cho phép tái sử dụng và quản lý vòng đời. |
+| 7 | **D** | Dữ liệu trên thiết bị thật kèm baseline giúp đánh giá chi phí portal. |
+| 8 | **C** | Mask giới hạn pixel của thế giới ảo được phép hiển thị qua cửa. |
+| 9 | **B** | Cần xác minh tracking và cấu hình trước khi sửa nội dung 3D. |
+| 10 | **A** | Video chứng minh tương tác diễn ra ngoài đời thực, không chỉ trong Editor. |
+
+## 6. Bài tập áp dụng sau trắc nghiệm
+
+Vẽ sơ đồ ứng dụng có **hai chế độ**: (1) hiện mô hình khi nhận diện marker, (2) chạm đặt mô hình trên mặt bàn. Chỉ ra thành phần chung, thành phần riêng và cách xử lý khi mất tracking. Sau đó tự chạy thử ít nhất một chế độ trên thiết bị thật.
+
+## 7. Checklist ôn tập
+
+- [ ] Phân biệt được marker tracking và plane detection.
+- [ ] Biết vì sao touch phải đi qua raycast để có pose 3D.
+- [ ] Dùng prefab đúng vị trí, hướng và vòng đời.
+- [ ] Biết cách kiểm tra và cải thiện hiệu năng portal.
+- [ ] Hiểu nguyên tắc che vùng nhìn của thế giới portal.
+
+**Đối chiếu chương trình:** [Unity Learn — Create a plane detection AR app](https://learn.unity.com/pathway/mobile-ar-development/unit/create-a-plane-detection-ar-app?version=2022.3). Các câu hỏi trên là bộ tự luyện, không phải đáp án bài quiz chính thức.
