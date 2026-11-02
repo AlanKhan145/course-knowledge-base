@@ -1,93 +1,161 @@
----
-course: "Oxford Picture Dictionary – Anh–Việt"
-unit: 4
-unit_title: "Thực phẩm và ăn uống"
-lesson: 6
-lesson_en: "Containers and Packaged Foods"
-lesson_vi: "Bao bì và thực phẩm đóng gói"
-book_pages: "56-56"
-pdf_pages: "66-66"
-source: "picture-oxford-dictionary-english-vietnam.pdf"
----
+# Bài 06 – Đồ đựng và thực phẩm đóng gói (Containers and Packaged Foods)
 
-# Bài 06 – Bao bì và thực phẩm đóng gói (Containers and Packaged Foods)
+**Oxford Picture Dictionary – Anh–Việt · Đơn vị 4: Thực phẩm và ăn uống**  
+**Trang sách:** 56 · **Trang PDF:** 66
 
-> **Đơn vị 4:** Thực phẩm và ăn uống (Food)  
-> **Nguồn:** trang 56 trong sách, tương ứng trang PDF **66–66**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Tóm tắt:** Nhận diện 12 loại bao bì, 12 ví dụ đi cùng thực phẩm và biết cách đếm các danh từ không đếm được bằng đơn vị chứa.
 
-## 1. Mục tiêu bài học
+![Trang minh họa Bài 06: Containers and Packaged Foods](06_containers-and-packaged-foods-trang-ghep.jpg)
 
-Sau bài này, bạn có thể:
+*Học với hình: tìm đúng số hoặc chữ cái bên cạnh vật/động tác, đọc tên tiếng Anh, che cột nghĩa rồi tự gọi tên bằng tiếng Việt.*
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **bao bì và thực phẩm đóng gói** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **containers and packaged foods**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+## 1. Mục tiêu học tập
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+Gọi đúng **24 mục theo tranh**, phân biệt các vật chứa thường gặp, ghép tự nhiên dạng **a/an + container + of + food** và đặt câu hỏi **How much? / How many?** đúng ngữ pháp.
 
-![Ảnh ghép 1 trang sách của bài Bao bì và thực phẩm đóng gói](06_containers-and-packaged-foods-trang-ghep.jpg)
+## 2. Vì sao cần học tên bao bì?
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 56 (trang PDF 66). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+Trong giao tiếp thực tế, không phải lúc nào bạn cũng nói *some soup* (một ít súp) hay *some rice* (một ít gạo). Khi mua hàng, người bán cần biết số lượng và **cách đóng gói**: *two cans of soup* (hai lon súp), *a bag of flour* (một bao bột), hoặc *a loaf of bread* (một ổ bánh mì).
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng theo thứ tự trên tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+### 3.1. Tên 12 loại vật chứa và đơn vị đóng gói (1–12)
 
-| English | Tiếng Việt |
-|---|---|
-| bottle | chai |
-| can | lon |
-| jar | lọ |
-| box | hộp |
-| carton | hộp giấy |
+| STT | English | Tiếng Việt |
+|---|---|---|
+| 1 | bottle | chai |
+| 2 | jar | lọ / hũ (thường bằng thủy tinh) |
+| 3 | can | lon / hộp kim loại |
+| 4 | carton | hộp giấy / hộp các-tông |
+| 5 | container | đồ đựng / hộp đựng |
+| 6 | box | hộp / thùng |
+| 7 | bag | túi / bao |
+| 8 | package | gói / kiện hàng đã đóng gói |
+| 9 | six-pack | lốc sáu chai hoặc lon |
+| 10 | loaf | ổ bánh mì (một khối) |
+| 11 | roll | cuộn |
+| 12 | tube | ống (có thể bóp) |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+**Phân biệt:** *jar* thường là lọ/hũ miệng rộng; *bottle* là chai cổ hẹp; *can* thường bằng kim loại; *carton* thường là hộp giấy. *Package* là từ tổng quát cho một gói hàng, trong khi *bag* là túi/bao. **Roll** ở bài này mang nghĩa **cuộn**, khác với *rolls* (bánh mì ổ nhỏ) ở Bài 05.
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Mẫu cụm từ dùng với đồ ăn và vật dụng (13–24)
 
-- **What does “bottle” mean?** — “bottle” có nghĩa là gì?
-- **How do you say “lon” in English?** — “lon” nói bằng tiếng Anh thế nào?
-- **Can you find “bottle” in the picture?** — Bạn có thể tìm “bottle” trong tranh không?
-- **This picture is about containers and packaged foods.** — Bức tranh này có chủ đề bao bì và thực phẩm đóng gói.
+| STT | English | Tiếng Việt |
+|---|---|---|
+| 13 | a bottle of soda | một chai nước ngọt |
+| 14 | a jar of jam | một lọ mứt trái cây |
+| 15 | a can of soup | một lon súp |
+| 16 | a carton of eggs | một hộp trứng |
+| 17 | a container of cottage cheese | một hộp phô mai tươi dạng hạt |
+| 18 | a box of cereal | một hộp ngũ cốc ăn sáng |
+| 19 | a bag of flour | một bao bột mì |
+| 20 | a package of cookies | một gói bánh quy |
+| 21 | a six-pack of soda | một lốc sáu lon/chai nước ngọt |
+| 22 | a loaf of bread | một ổ bánh mì |
+| 23 | a roll of paper towels | một cuộn khăn giấy |
+| 24 | a tube of toothpaste | một tuýp kem đánh răng |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 4. Công thức nói về số lượng
 
-## 5. Bài tập thực hành
+**Cấu trúc:**
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+```text
+Số lượng + tên vật chứa/đơn vị + of + thực phẩm/vật dụng
+```
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- *a bottle of soda* → một chai nước ngọt.
+- *two bottles of soda* → hai chai nước ngọt.
+- *three jars of jam* → ba lọ mứt.
+- *two loaves of bread* → hai ổ bánh mì (**loaf → loaves**).
+- *one carton of eggs* → một hộp trứng.
 
-1. chai → ______
-2. lon → ______
-3. lọ → ______
-4. hộp → ______
+Với danh từ số ít, dùng *a bottle*, *a box*, *a jar*; với từ chỉ vật chứa ở số nhiều, dùng *bottles*, *boxes*, *jars*, *cans*, *tubes*, *rolls*, *packages*. Riêng **loaf** đổi thành **loaves**.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về bao bì và thực phẩm đóng gói, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+## 5. Ngữ pháp: How much? và How many?
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+| Câu hỏi | Khi dùng | Ví dụ |
+|---|---|---|
+| **How many + danh từ đếm được số nhiều?** | Hỏi có bao nhiêu vật/người/đơn vị đếm được | *How many apples do you need?* – Bạn cần bao nhiêu quả táo? |
+| **How much + danh từ không đếm được?** | Hỏi lượng chất lỏng, chất hạt, thực phẩm dạng khối... | *How much rice do you need?* – Bạn cần bao nhiêu gạo? |
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+- *How many apples do you need? – I need two apples.* (Tôi cần hai quả táo.)
+- *How much rice do you need? – I need two boxes (of rice).* (Tôi cần hai hộp gạo.)
+- *How much milk do you need? – I need one carton of milk.* (Tôi cần một hộp sữa.)
+- *How many bottles of water do you need? – Three bottles.* (Ba chai.)
 
-1. bottle
-2. can
-3. jar
-4. box
+**Mấu chốt:** bản thân *rice, milk, soup* thường không đếm trực tiếp trong ngữ cảnh này, nhưng **bottles, cans, jars, boxes** là danh từ đếm được. Vì thế dùng *How many cans of soup?* dù dùng *How much soup?*.
 
-</details>
+## 6. Luyện tập thực tế
 
-## 6. Ôn tập nhanh và mở rộng
+**Bài A – Nhìn tranh và gọi tên:** 1, 3, 4, 9, 11, 12 lần lượt là gì? Đọc thành tiếng mà không nhìn bảng.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Bài B – Điền vật chứa:** (1) a _____ of jam; (2) a _____ of toothpaste; (3) a _____ of bread; (4) a _____ of cereal; (5) a _____ of paper towels.
 
-## Điều hướng
+**Bài C – Chọn How much/How many:** (1) _____ sugar do you need? (2) _____ boxes of cereal are there? (3) _____ eggs do you need? (4) _____ flour do we have?
 
-- [← Bài trước](05_the-market.md)
-- [Bài tiếp theo →](07_weights-and-measures.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Bài D – Viết danh sách mua hàng:** Viết tiếng Anh cho “hai lon súp, một ổ bánh mì, ba chai nước ngọt, một bao bột mì”.
+
+**Đáp án tự kiểm:** A: bottle, can, carton, six-pack, roll, tube. B: jar, tube, loaf, box, roll. C: How much, How many, How many, How much. D: *two cans of soup, a loaf of bread, three bottles of soda, a bag of flour*.
+
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Bạn mua một tuýp kem đánh răng. Cụm nào đúng?
+
+A. A tube of toothpaste  
+B. A jar of toothpaste  
+C. A loaf of toothpaste  
+D. A six-pack of toothpaste  
+
+**Đáp án: A.** Tube là đơn vị chỉ tuýp/ống kem.
+
+### Câu 2
+
+Muốn hỏi số lượng gạo không nêu đơn vị đóng gói, bạn dùng câu nào?
+
+A. How many rice do you need?  
+B. How many rices do you need?  
+C. How much rice do you need?  
+D. How much boxes of rice do you need?  
+
+**Đáp án: C.** Rice là danh từ không đếm được, nên dùng How much.
+
+### Câu 3
+
+Hỏi về số hộp ngũ cốc, câu nào đúng?
+
+A. How much box of cereal?  
+B. How much cereal boxes?  
+C. How many cereal?  
+D. How many boxes of cereal?  
+
+**Đáp án: D.** Boxes là danh từ đếm được số nhiều.
+
+### Câu 4
+
+Số nhiều đúng của “a loaf of bread” là gì?
+
+A. Two loafs of bread  
+B. Two loaves of bread  
+C. Two loaves of breads  
+D. Two loaf of bread  
+
+**Đáp án: B.** Loaf đổi thành loaves; bread không cần thêm -s.
+
+### Câu 5
+
+Tên bao bì nào thường dùng với “jam” trong minh họa?
+
+A. Jar  
+B. Roll  
+C. Tube  
+D. Carton  
+
+**Đáp án: A.** A jar of jam là một lọ mứt.
+
+## 8. Tổng kết
+
+Học theo hai lớp: (1) **12 tên bao bì**; (2) **12 cụm kết hợp với sản phẩm**. Khi hỏi số lượng, phân biệt *How much food?* với *How many containers of food?*.
+
+**Điều hướng:** [Bài 05](05_the-market.md) · [Bài 07](07_weights-and-measures.md)

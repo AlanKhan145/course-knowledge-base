@@ -1,93 +1,188 @@
----
-course: "Oxford Picture Dictionary – Anh–Việt"
-unit: 4
-unit_title: "Thực phẩm và ăn uống"
-lesson: 7
-lesson_en: "Weights and Measures"
-lesson_vi: "Khối lượng và đơn vị đo"
-book_pages: "57-57"
-pdf_pages: "67-67"
-source: "picture-oxford-dictionary-english-vietnam.pdf"
----
+# Bài 07 – Trọng lượng và đo lường (Weights and Measures)
 
-# Bài 07 – Khối lượng và đơn vị đo (Weights and Measures)
+**Oxford Picture Dictionary – Anh–Việt · Đơn vị 4: Thực phẩm và ăn uống**  
+**Trang sách:** 57 · **Trang PDF:** 67
 
-> **Đơn vị 4:** Thực phẩm và ăn uống (Food)  
-> **Nguồn:** trang 57 trong sách, tương ứng trang PDF **67–67**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Tóm tắt:** Trình bày đủ 12 ví dụ minh họa về đơn vị đo thể tích và khối lượng, các hoạt động đo – cân – đổi đơn vị, cùng bảng quy đổi theo sách.
 
-## 1. Mục tiêu bài học
+![Trang minh họa Bài 07: Weights and Measures](07_weights-and-measures-trang-ghep.jpg)
 
-Sau bài này, bạn có thể:
+*Học với hình: tìm đúng số hoặc chữ cái bên cạnh vật/động tác, đọc tên tiếng Anh, che cột nghĩa rồi tự gọi tên bằng tiếng Việt.*
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **khối lượng và đơn vị đo** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **weights and measures**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+## 1. Mục tiêu học tập
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+Phân biệt **measure / weigh / convert**, đọc đúng 12 ví dụ trong hình, nhận diện các viết tắt thông dụng khi nấu ăn và vận dụng quy đổi đơn vị thể tích hoặc khối lượng.
 
-![Ảnh ghép 1 trang sách của bài Khối lượng và đơn vị đo](07_weights-and-measures-trang-ghep.jpg)
+## 2. Ba thao tác quan trọng (A–C)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 57 (trang PDF 67). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+| Chữ | English | Tiếng Việt | Ý nghĩa |
+|---|---|---|---|
+| A | Measure the ingredients. | Đo lường nguyên liệu. | Dùng cốc hoặc thìa đong để lấy lượng cần thiết. |
+| B | Weigh the food. | Cân thức ăn. | Dùng cân để đo khối lượng. |
+| C | Convert the measurements. | Quy đổi đơn vị đo. | Chuyển cùng một lượng từ đơn vị này sang đơn vị khác. |
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+**Phân biệt:** *measure* là đo lường nói chung; *weigh* chuyên dùng để **cân khối lượng**; *convert* là đổi cách biểu diễn giá trị, không làm thay đổi lượng thực tế.
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+## 3. Từ vựng và đơn vị trong 12 hình
 
-| English | Tiếng Việt |
+### 3.1. Đong chất lỏng – Liquid measures (1–5)
+
+| STT | English | Tiếng Việt | Ký hiệu |
+|---|---|---|---|
+| 1 | a fluid ounce of water | một ao-xơ lỏng nước | 1 fl. oz. |
+| 2 | a cup of oil | một cốc dầu ăn | 1 c. |
+| 3 | a pint of yogurt | một pint sữa chua | 1 pt. |
+| 4 | a quart of milk | một quart sữa | 1 qt. |
+| 5 | a gallon of apple juice | một ga-lông nước ép táo | 1 gal. |
+
+### 3.2. Đong nguyên liệu khô – Dry measures (6–10)
+
+| STT | English | Tiếng Việt | Ký hiệu |
+|---|---|---|---|
+| 6 | a teaspoon of salt | một thìa cà phê muối | 1 tsp. |
+| 7 | a tablespoon of sugar | một thìa canh đường | 1 TBSP. |
+| 8 | a 1/4 cup of brown sugar | một phần tư cốc đường nâu | 1/4 c. |
+| 9 | a 1/2 cup of raisins | nửa cốc nho khô | 1/2 c. |
+| 10 | a cup of flour | một cốc bột mì | 1 c. |
+
+### 3.3. Cân khối lượng – Weight (11–12)
+
+| STT | English | Tiếng Việt | Ký hiệu |
+|---|---|---|---|
+| 11 | an ounce of cheese | một ao-xơ phô mai | 1 oz. |
+| 12 | a pound of roast beef | một pao thịt bò nướng | 1 lb. |
+
+**Từ bổ trợ xuất hiện trong ví dụ:** *ingredient* = nguyên liệu; *water* = nước; *oil* = dầu ăn; *yogurt* = sữa chua; *milk* = sữa; *apple juice* = nước ép táo; *salt* = muối; *sugar* = đường; *brown sugar* = đường nâu; *raisins* = nho khô; *flour* = bột mì; *cheese* = phô mai; *roast beef* = thịt bò nướng.
+
+## 4. Bảng viết tắt và quy đổi từ bài học
+
+### 4.1. Thể tích – Volume
+
+| Ký hiệu | Tên đầy đủ | Giá trị theo bảng trong sách |
+|---|---|---|
+| fl. oz. | fluid ounce | 1 fl. oz. ≈ 30 mL |
+| c. | cup | 1 c. ≈ 237 mL |
+| pt. | pint | 1 pt. ≈ 0,47 L |
+| qt. | quart | 1 qt. ≈ 0,95 L |
+| gal. | gallon | 1 gal. ≈ 3,79 L |
+
+### 4.2. Quan hệ giữa các đơn vị đong
+
+| Quy đổi | Cách hiểu |
 |---|---|
-| pound | pao (đơn vị khối lượng) |
-| ounce | ao-xơ |
-| liter | lít |
-| cup | cốc (đơn vị đo) |
-| teaspoon | thìa cà phê |
+| 3 tsp. = 1 TBSP. | 3 thìa cà phê = 1 thìa canh |
+| 2 TBSP. = 1 fl. oz. | 2 thìa canh = 1 ounce lỏng |
+| 8 fl. oz. = 1 c. | 8 ounce lỏng = 1 cốc |
+| 2 c. = 1 pt. | 2 cốc = 1 pint |
+| 2 pt. = 1 qt. | 2 pint = 1 quart |
+| 4 qt. = 1 gal. | 4 quart = 1 gallon |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+### 4.3. Khối lượng – Weight
 
-## 4. Mẫu câu ứng dụng
+| Ký hiệu | Tên đầy đủ | Giá trị theo sách |
+|---|---|---|
+| oz. | ounce | 1 oz. ≈ 28,35 g |
+| lb. | pound | 1 lb. ≈ 453,6 g |
+| lb. | pound | 2,205 lb. ≈ 1 kg |
+| oz. / lb. | ounce / pound | 16 oz. = 1 lb. |
 
-- **What does “pound” mean?** — “pound” có nghĩa là gì?
-- **How do you say “ao-xơ” in English?** — “ao-xơ” nói bằng tiếng Anh thế nào?
-- **Can you find “pound” in the picture?** — Bạn có thể tìm “pound” trong tranh không?
-- **This picture is about weights and measures.** — Bức tranh này có chủ đề khối lượng và đơn vị đo.
+> **Chú ý:** Đơn vị **fl. oz.** là *thể tích*, còn **oz.** là *khối lượng*. Dù cùng có chữ “ounce”, chúng không thể đổi trực tiếp cho nhau nếu không biết khối lượng riêng của chất. Các con số thể tích là quy ước hệ đo Mỹ và được làm tròn như bảng trong sách; không nên hiểu là chuẩn chung cho mọi quốc gia.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 5. Đọc công thức và thực hành đổi đơn vị
 
-## 5. Bài tập thực hành
+Dạng câu quen thuộc: **Measure + quantity + of + ingredient.**
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+- *Measure a cup of flour.* — Đong một cốc bột mì.
+- *Add two tablespoons of sugar.* — Thêm hai thìa canh đường.
+- *Weigh a pound of roast beef.* — Cân một pao thịt bò nướng.
+- *Convert two cups to one pint.* — Đổi hai cốc thành một pint.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+**Ví dụ 1:** 6 tsp. đường = $6 / 3 = 2$ TBSP. đường.
 
-1. pao (đơn vị khối lượng) → ______
-2. ao-xơ → ______
-3. lít → ______
-4. cốc (đơn vị đo) → ______
+**Ví dụ 2:** 4 c. sữa = $4 / 2 = 2$ pt. sữa.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về khối lượng và đơn vị đo, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Ví dụ 3:** 2 lb. phô mai ≈ $2\times453{,}6=907{,}2$ g.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+```mermaid
+flowchart LR
+    A[3 tsp.] --> B[1 TBSP.]
+    B --> C[1/2 fl. oz.]
+    D[2 c.] --> E[1 pt.]
+    E --> F[1/2 qt.]
+    F --> G[1/8 gal.]
+```
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+*Sơ đồ cho thấy cùng một lượng được biểu diễn bằng những đơn vị khác nhau; cần xác định đang đổi theo chuỗi đơn vị thìa, cốc hay hệ thống lớn hơn.*
 
-1. pound
-2. ounce
-3. liter
-4. cup
+## 6. Bài tập ứng dụng
 
-</details>
+**Bài A – Phân biệt:** Viết nghĩa và đơn vị cho các ký hiệu `tsp.`, `TBSP.`, `c.`, `fl. oz.`, `oz.`, `lb.`.
 
-## 6. Ôn tập nhanh và mở rộng
+**Bài B – Tính:** (1) 9 tsp. = ? TBSP.; (2) 4 pt. = ? qt.; (3) 32 oz. = ? lb.; (4) 3 c. = ? mL (theo trị số sách).
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Bài C – Nói:** Dùng ít nhất 3 câu tiếng Anh để hướng dẫn đong đường nâu, cân phô mai và đổi cốc sang pint.
 
-## Điều hướng
+**Đáp án B:** 3 TBSP.; 2 qt.; 2 lb.; 711 mL. (*3 × 237 = 711*; đây là giá trị gần đúng.)
 
-- [← Bài trước](06_containers-and-packaged-foods.md)
-- [Bài tiếp theo →](08_food-preparation.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Khi cần biết khối lượng miếng thịt bằng cân, dùng động từ nào?
+
+A. Convert  
+B. Measure out  
+C. Weigh  
+D. Stir  
+
+**Đáp án: C.** Weigh là thao tác dùng cân để đo khối lượng.
+
+### Câu 2
+
+Theo bảng quy đổi trong bài, 6 teaspoons bằng bao nhiêu tablespoons?
+
+A. 1  
+B. 2  
+C. 3  
+D. 6  
+
+**Đáp án: B.** 3 tsp. = 1 TBSP., nên 6 tsp. = 2 TBSP.
+
+### Câu 3
+
+Cặp nào đều chỉ đơn vị thể tích?
+
+A. Pound và ounce  
+B. Gallon và quart  
+C. Ounce và pound  
+D. Gram và liter  
+
+**Đáp án: B.** Gallon và quart đều đo thể tích; ounce/pound ở đây đo khối lượng.
+
+### Câu 4
+
+1 lb. tương đương bao nhiêu ounce khối lượng?
+
+A. 8 oz.  
+B. 12 oz.  
+C. 32 oz.  
+D. 16 oz.  
+
+**Đáp án: D.** Sách ghi 1 lb. = 16 oz.
+
+### Câu 5
+
+Cách hiểu nào đúng về fl. oz. và oz.?
+
+A. fl. oz. đo thể tích; oz. đo khối lượng  
+B. Cả hai đều chỉ khối lượng  
+C. Cả hai đều chỉ thể tích  
+D. Hai ký hiệu luôn có giá trị số bằng nhau  
+
+**Đáp án: A.** Chúng có đơn vị vật lý khác nhau, không thay thế trực tiếp.
+
+## 8. Tổng kết
+
+Khi đọc công thức nấu ăn, hãy nhận dạng trước **thể tích hay khối lượng**, sau đó chọn đúng hệ quy đổi. Hai khác biệt phải nhớ: **tsp. ≠ TBSP.** và **fl. oz. ≠ oz.**.
+
+**Điều hướng:** [Bài 06](06_containers-and-packaged-foods.md) · [Bài 08](08_food-preparation.md)

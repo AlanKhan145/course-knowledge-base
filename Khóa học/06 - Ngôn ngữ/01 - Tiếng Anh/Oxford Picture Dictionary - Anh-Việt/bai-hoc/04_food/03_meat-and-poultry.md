@@ -4,90 +4,203 @@ unit: 4
 unit_title: "Thực phẩm và ăn uống"
 lesson: 3
 lesson_en: "Meat and Poultry"
-lesson_vi: "Thịt và gia cầm"
-book_pages: "52-52"
-pdf_pages: "62-62"
-source: "picture-oxford-dictionary-english-vietnam.pdf"
+book_pages: "52"
+source: "Oxford Picture Dictionary – Anh–Việt"
 ---
 
 # Bài 03 – Thịt và gia cầm (Meat and Poultry)
 
-> **Đơn vị 4:** Thực phẩm và ăn uống (Food)  
-> **Nguồn:** trang 52 trong sách, tương ứng trang PDF **62–62**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+## 1. Giới thiệu và mục tiêu
 
-## 1. Mục tiêu bài học
+Một quầy thịt có nhiều loại thịt, bộ phận và hình thức chế biến. Nắm được **beef (bò), pork (heo), lamb (cừu)** và **poultry (gia cầm)** giúp bạn chọn đúng thực phẩm và đọc tên món ăn.
 
-Sau bài này, bạn có thể:
+Sau khi học, người học có thể nhận diện **đủ 25 mục đánh số** trên tranh; diễn đạt nghĩa tiếng Việt; phân biệt những từ gần nghĩa; và dùng từ vựng khi mua sắm, nấu ăn hoặc giao tiếp hằng ngày.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **thịt và gia cầm** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **meat and poultry**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+## 2. Tranh minh họa
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+![Trang 52 – Bài 03 – Thịt và gia cầm (Meat and Poultry)](03_meat-and-poultry-trang-ghep.jpg)
 
-![Ảnh ghép 1 trang sách của bài Thịt và gia cầm](03_meat-and-poultry-trang-ghep.jpg)
+[Xem ảnh gốc trên Google Drive](https://drive.google.com/file/d/1LxSdREo1GavqkVqI10PVTlKGSC3sDu3k/view?usp=drivesdk) · *Đối chiếu số thứ tự trong bảng với nhãn trên tranh. Hình và Markdown được lưu cạnh nhau để có thể tải về cùng thư mục.*
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 52 (trang PDF 62). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+## 3. Từ vựng đầy đủ theo thứ tự trên tranh (25 mục)
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+| STT trong tranh | Từ tiếng Anh | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **roast beef** | thịt bò nướng |
+| 2 | **steak** | bít tết, miếng thịt bò để làm bít tết |
+| 3 | **stewing beef** | thịt bò để hầm/kho |
+| 4 | **ground beef** | thịt bò xay |
+| 5 | **beef ribs** | sườn bò |
+| 6 | **veal cutlets** | miếng thịt bê cắt lát để chế biến |
+| 7 | **liver** | gan |
+| 8 | **tripe** | dạ dày bò, sách, lá sách bò |
+| 9 | **ham** | giăm bông, thịt heo nguội |
+| 10 | **pork chops** | thịt sườn heo cắt miếng |
+| 11 | **bacon** | thịt heo muối/xông khói cắt lát |
+| 12 | **sausage** | xúc xích, dồi |
+| 13 | **lamb shanks** | bắp chân cừu (phần có xương) |
+| 14 | **leg of lamb** | đùi cừu |
+| 15 | **lamb chops** | sườn cừu cắt miếng |
+| 16 | **chicken** | gà, thịt gà |
+| 17 | **turkey** | gà tây, thịt gà tây |
+| 18 | **duck** | vịt, thịt vịt |
+| 19 | **breasts** | ức (thịt gia cầm) |
+| 20 | **wings** | cánh |
+| 21 | **thighs** | đùi trên |
+| 22 | **drumsticks** | đùi dưới, tỏi gà |
+| 23 | **gizzards** | mề gà, mề gia cầm |
+| 24 | **raw chicken** | thịt gà sống/chưa nấu |
+| 25 | **cooked chicken** | thịt gà đã nấu chín |
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+### 3.1. Nhóm thịt trong cửa hàng
 
-| English | Tiếng Việt |
+| Nhóm | Từ thường gặp | Cần phân biệt |
+|---|---|---|
+| **Beef — thịt bò** | *roast beef, steak, stewing beef, ground beef, beef ribs* | *Steak* chỉ miếng thịt phù hợp làm bít tết; *ground beef* là thịt xay, không phải thịt cắt lát. |
+| **Pork — thịt heo/lợn** | *ham, pork chops, bacon, sausage* | *Ham* là giăm bông; *bacon* là thịt muối/xông khói; *sausage* là xúc xích/dồi. |
+| **Lamb — thịt cừu non** | *lamb shanks, leg of lamb, lamb chops* | *Shank* là phần bắp chân; *leg* là đùi; *chop* là miếng thịt (thường kèm xương) được cắt. |
+| **Poultry — gia cầm** | *chicken, turkey, duck, breasts, wings, thighs, drumsticks* | Phần thịt được mô tả bằng bộ phận tương ứng. |
+
+### 3.2. Bộ phận gia cầm thường gặp
+
+- **chicken breast** — ức gà.
+- **chicken wing** — cánh gà.
+- **chicken thigh** — đùi trên của gà.
+- **chicken drumstick** — tỏi gà (đùi dưới); không hoàn toàn giống *thigh*.
+- **chicken gizzard** — mề gà.
+
+*Breasts, wings, thighs, drumsticks, gizzards* trong bảng đều ở dạng số nhiều. Khi nói một phần, có thể dùng *a chicken wing*, *a chicken thigh*.
+
+### 3.3. Trạng thái và cách chế biến
+
+- **raw chicken** — thịt gà chưa nấu; **cooked chicken** — thịt gà đã nấu chín.
+- **roast** (động từ/tính từ trong tên món) — quay, nướng.
+- **stew** — hầm; *stewing beef* là thịt bò dùng để hầm.
+- **ground** trong *ground beef* — đã xay/nghiền.
+
+### 3.4. Từ vựng bổ sung quan trọng
+
+| Từ/cụm từ | Nghĩa và cách dùng |
 |---|---|
-| beef | thịt bò |
-| pork | thịt lợn |
-| chicken | thịt gà |
-| turkey | gà tây |
-| ground meat | thịt xay |
+| **vegetarian** | người ăn chay (không ăn thịt); ví dụ: *She is a vegetarian.* |
+| **boneless** | không có xương; *boneless chicken* là thịt gà rút xương. |
+| **skinless** | không có da; *skinless chicken breast* là ức gà bỏ da. |
+| **beef / pork / lamb / poultry** | thịt bò / thịt heo / thịt cừu / gia cầm. |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+**Mẹo cấu tạo từ:** *-less* có nghĩa “không có”: *bone + less → boneless* (không xương); *skin + less → skinless* (không da).
 
-## 4. Mẫu câu ứng dụng
+## 4. Mẫu câu và hội thoại thực tế
 
-- **What does “beef” mean?** — “beef” có nghĩa là gì?
-- **How do you say “thịt lợn” in English?** — “thịt lợn” nói bằng tiếng Anh thế nào?
-- **Can you find “beef” in the picture?** — Bạn có thể tìm “beef” trong tranh không?
-- **This picture is about meat and poultry.** — Bức tranh này có chủ đề thịt và gia cầm.
+### 4.1. Mẫu câu tại quầy thịt
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+| Tiếng Anh | Tiếng Việt |
+|---|---|
+| **I'd like some ground beef, please.** | Cho tôi một ít thịt bò xay. |
+| **Do you have boneless chicken breasts?** | Ở đây có ức gà rút xương không? |
+| **I need pork chops for dinner.** | Tôi cần sườn heo cắt miếng cho bữa tối. |
+| **I prefer chicken thighs to drumsticks.** | Tôi thích đùi trên hơn tỏi gà. |
+| **This chicken is raw. It needs to be cooked.** | Gà này còn sống/chưa nấu. Cần nấu chín. |
+| **We use stewing beef in soup.** | Chúng tôi dùng thịt bò để hầm trong món súp. |
 
-## 5. Bài tập thực hành
+### 4.2. Hội thoại ngắn
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+**Customer:** Do you have skinless chicken breasts?  
+*Khách:* Có ức gà bỏ da không?
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+**Butcher:** Yes. Would you like them boneless, too?  
+*Người bán thịt:* Có. Bạn có muốn rút xương luôn không?
 
-1. thịt bò → ______
-2. thịt lợn → ______
-3. thịt gà → ______
-4. gà tây → ______
+**Customer:** Yes, please. And I'd like some ground beef.  
+*Khách:* Có, cảm ơn. Tôi còn muốn mua ít thịt bò xay.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về thịt và gia cầm, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Butcher:** Certainly. Anything else?  
+*Người bán thịt:* Được. Bạn cần gì nữa không?
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 5. Luyện tập sử dụng từ vựng
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+**Bài A – Nhìn tranh:** Gọi tên các phần có số **2, 4, 8, 9, 11, 13, 19, 21, 22, 23, 24, 25**.
 
-1. beef
-2. pork
-3. chicken
-4. turkey
+**Bài B – Ghép cụm từ:**
 
-</details>
+1. *ground* + ______ (thịt bò xay)
+2. *chicken* + ______ (cánh gà)
+3. *skinless* + ______ (ức gà bỏ da)
+4. *leg of* + ______ (đùi cừu)
+5. *raw* + ______ (gà chưa nấu)
 
-## 6. Ôn tập nhanh và mở rộng
+**Đáp án B:** 1. beef; 2. wing; 3. chicken breast; 4. lamb; 5. chicken.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Bài C – Nói theo tình huống:**
+
+1. **What kind of meat do you eat most often?** — Bạn thường ăn loại thịt nào nhất?
+2. **What kind of meat do you use in soup?** — Bạn dùng loại thịt nào để nấu súp?
+3. **What part of the chicken do you like the most?** — Bạn thích bộ phận nào của con gà nhất?
+
+*Trả lời mẫu:* **I like chicken wings the most, but I usually buy chicken breasts.** — Tôi thích cánh gà nhất, nhưng thường mua ức gà.
+
+## 6. Câu hỏi ôn tập trắc nghiệm
+
+### Câu 1
+
+Bạn cần thịt bò để làm món hầm. Loại phù hợp là gì?
+
+A. Bacon  
+B. Ham  
+C. Stewing beef  
+D. Lamb chops
+
+**Đáp án: C.** *Stewing beef* là thịt bò dành cho các món hầm/kho.
+
+### Câu 2
+
+Bạn muốn **ức gà không da, không xương**. Cụm từ nào chính xác?
+
+A. Raw chicken wings  
+B. Chicken gizzards  
+C. Beef ribs  
+D. Skinless, boneless chicken breasts
+
+**Đáp án: D.** *Skinless* là không da và *boneless* là không xương.
+
+### Câu 3
+
+Thịt bò xay được gọi bằng gì?
+
+A. Ground beef  
+B. Roast beef  
+C. Stewing beef  
+D. Steak
+
+**Đáp án: A.** *Ground beef* nghĩa là thịt bò xay.
+
+### Câu 4
+
+Bộ phận nào là **tỏi gà (đùi dưới)**?
+
+A. Thigh  
+B. Drumstick  
+C. Wing  
+D. Breast
+
+**Đáp án: B.** *Drumstick* là đùi dưới, khác *thigh* là đùi trên.
+
+### Câu 5
+
+Mục nào diễn tả thịt gà **đã được nấu chín**?
+
+A. Raw chicken  
+B. Skinless chicken  
+C. Cooked chicken  
+D. Ground chicken
+
+**Đáp án: C.** *Cooked chicken* đã nấu chín; *raw chicken* chưa nấu.
+
+## 7. Tổng kết và ghi nhớ
+
+Ưu tiên nhớ bốn nhóm **beef, pork, lamb, poultry** và các phần thịt **breast, wing, thigh, drumstick, gizzard**. Khi mua thịt, cần phân biệt **raw/cooked**, **boneless/skinless** và **ground/roast/stewing**.
 
 ## Điều hướng
 
-- [← Bài trước](02_vegetables.md)
-- [Bài tiếp theo →](04_deli-and-seafood.md)
-- [Danh sách bài trong chủ đề](README.md)
+- [Bài trước](02_vegetables.md)
+- [Bài tiếp theo](04_deli-and-seafood.md)
+- [Mục lục Unit 4](README.md)

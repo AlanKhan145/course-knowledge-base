@@ -5,89 +5,194 @@ unit_title: "Thực phẩm và ăn uống"
 lesson: 10
 lesson_en: "Fast Food"
 lesson_vi: "Thức ăn nhanh"
-book_pages: "60-60"
-pdf_pages: "70-70"
-source: "picture-oxford-dictionary-english-vietnam.pdf"
+book_pages: "60"
+pdf_pages: "70"
 ---
 
 # Bài 10 – Thức ăn nhanh (Fast Food)
 
-> **Đơn vị 4:** Thực phẩm và ăn uống (Food)  
-> **Nguồn:** trang 60 trong sách, tương ứng trang PDF **70–70**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Chủ đề:** Thực phẩm và ăn uống (Food)  
+> **Trang sách:** 60 · **Trang PDF:** 70  
+> **Trọng tâm:** Nhận diện tất cả từ/cụm từ được đánh số trong tranh, sử dụng trong tình huống thực tế.
 
-## 1. Mục tiêu bài học
+## 1. Mục tiêu học tập
 
-Sau bài này, bạn có thể:
+- Nhận diện và giải thích đúng 26 mục từ vựng gắn số trong tranh.
+- Chọn từ phù hợp để mô tả đồ vật, món ăn, vai trò hoặc thao tác trong bối cảnh thực tế.
+- Sử dụng các cấu trúc hội thoại để tự nói và viết ít nhất 5 câu bằng tiếng Anh.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **thức ăn nhanh** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **fast food**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+## 2. Tranh minh họa
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+![Bài 10: Thức ăn nhanh – trang sách minh họa đầy đủ](10_fast-food-trang-ghep.jpg)
 
-![Ảnh ghép 1 trang sách của bài Thức ăn nhanh](10_fast-food-trang-ghep.jpg)
+**Cách học:** Nhìn số trên tranh, đoán từ tiếng Anh, sau đó đối chiếu bảng từ vựng bên dưới. Khi luyện lại, hãy che cột nghĩa tiếng Việt.
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 60 (trang PDF 70). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+## 3. Từ vựng đầy đủ theo số trên tranh
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+| Số trên hình | Từ tiếng Anh | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **hamburger** | bánh hamburger (bánh mì kẹp thịt) |
+| 2 | **french fries** | khoai tây chiên dạng thanh |
+| 3 | **cheeseburger** | bánh hamburger có phô mai |
+| 4 | **soda** | nước ngọt có ga |
+| 5 | **iced tea** | trà đá, trà lạnh |
+| 6 | **hot dog** | bánh mì kẹp xúc xích |
+| 7 | **pizza** | bánh pizza |
+| 8 | **green salad** | rau xà lách trộn |
+| 9 | **taco** | bánh taco kiểu Mexico |
+| 10 | **nachos** | bánh ngô chiên giòn ăn kèm nước sốt/phô mai |
+| 11 | **frozen yogurt** | sữa chua đông lạnh |
+| 12 | **milk shake** | sữa lắc |
+| 13 | **counter** | quầy bán/nhận đồ ăn |
+| 14 | **muffin** | bánh muffin, bánh nướng nhỏ |
+| 15 | **doughnut** | bánh vòng rán, donut |
+| 16 | **salad bar** | quầy rau xà lách tự chọn |
+| 17 | **lettuce** | rau diếp, rau xà lách |
+| 18 | **salad dressing** | nước xốt trộn salad |
+| 19 | **booth** | chỗ ngồi ngăn thành ô tại nhà hàng |
+| 20 | **straw** | ống hút |
+| 21 | **sugar** | đường |
+| 22 | **sugar substitute** | chất thay thế đường, đường ăn kiêng |
+| 23 | **ketchup** | tương cà chua |
+| 24 | **mustard** | mù tạt |
+| 25 | **mayonnaise** | xốt mayonnaise, xốt trứng dầu |
+| 26 | **relish** | gia vị rau củ băm ngâm chua ăn kèm |
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+## 4. Hai động từ và các từ bổ sung trong hình
 
-| English | Tiếng Việt |
+Bên cạnh 26 từ được đánh số, tranh có hai hành động ký hiệu chữ cái:
+
+| Ký hiệu | Tiếng Anh | Tiếng Việt | Ví dụ |
+|---|---|---|---|
+| A | **eat** | ăn | I eat a hamburger for lunch. – Tôi ăn hamburger vào bữa trưa. |
+| B | **drink** | uống | I drink iced tea. – Tôi uống trà đá. |
+
+**More vocabulary:**
+
+- **donut:** cách viết khác của **doughnut** (bánh vòng rán); cả hai dạng đều gặp trong tiếng Anh.
+- **condiments:** gia vị hoặc nước xốt dùng kèm đồ ăn, ví dụ **relish, mustard, ketchup, mayonnaise**.
+
+## 5. Từ vựng theo nhóm và cách phân biệt
+
+| Nhóm | Các từ tiêu biểu |
 |---|---|
-| hamburger | bánh hamburger |
-| french fries | khoai tây chiên |
-| soft drink | nước ngọt |
-| order | gọi món |
-| combo meal | suất ăn kết hợp |
+| Bánh mì / món ăn chính | hamburger, cheeseburger, hot dog, pizza, taco |
+| Món ăn kèm | french fries, nachos, green salad, muffin, doughnut |
+| Món lạnh và đồ uống | frozen yogurt, milk shake, soda, iced tea |
+| Quầy và chỗ ngồi | counter, salad bar, booth |
+| Thành phần và gia vị | lettuce, salad dressing, sugar, sugar substitute, ketchup, mustard, mayonnaise, relish |
+| Vật dụng | straw |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+**Lưu ý:**
 
-## 4. Mẫu câu ứng dụng
+- **Hamburger** chỉ bánh mì kẹp thịt nói chung; **cheeseburger** là loại có thêm phô mai.
+- **Taco** thường là bánh tortilla gấp lại có nhân; **nachos** là miếng bánh ngô giòn ăn kèm toppings hoặc xốt.
+- **Lettuce** là rau; **green salad** là món salad; **salad dressing** là nước xốt dùng để trộn.
+- **Soda** là nước ngọt có ga; **iced tea** là trà lạnh; **milk shake** là đồ uống sữa lắc; **frozen yogurt** là món sữa chua đông lạnh.
+- **Counter** là quầy gọi/nhận món; **booth** là chỗ ngồi thành ô; **salad bar** là quầy salad tự chọn.
 
-- **What does “hamburger” mean?** — “hamburger” có nghĩa là gì?
-- **How do you say “khoai tây chiên” in English?** — “khoai tây chiên” nói bằng tiếng Anh thế nào?
-- **Can you find “hamburger” in the picture?** — Bạn có thể tìm “hamburger” trong tranh không?
-- **This picture is about fast food.** — Bức tranh này có chủ đề thức ăn nhanh.
+## 6. Giao tiếp khi gọi món ăn nhanh
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+| Tiếng Anh | Tiếng Việt |
+|---|---|
+| I'd like a cheeseburger and french fries, please. | Cho tôi một bánh cheeseburger và khoai tây chiên. |
+| Can I have an iced tea? | Tôi có thể lấy một ly trà đá không? |
+| Do you want ketchup or mustard? | Bạn muốn tương cà hay mù tạt? |
+| I'd like some salad dressing. | Tôi muốn một ít nước xốt salad. |
+| Can I get a straw, please? | Cho tôi một ống hút nhé? |
+| Let's sit in that booth. | Mình ngồi ở ô bàn kia nhé. |
 
-## 5. Bài tập thực hành
+**Hội thoại:**
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+> **Employee:** Hi! What would you like to order?  
+> **Customer:** A cheeseburger, french fries and an iced tea, please.  
+> **Employee:** Would you like ketchup?  
+> **Customer:** Yes, please. And could I have a straw?  
+> **Employee:** Of course.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+**Phân biệt nhanh:** `order` = gọi món; `eat` = ăn; `drink` = uống; `I'd like ...` là cách gọi món lịch sự, còn `Can I have ...?` là một yêu cầu lịch sự khác.
 
-1. bánh hamburger → ______
-2. khoai tây chiên → ______
-3. nước ngọt → ______
-4. gọi món → ______
+## 7. Thực hành giao tiếp
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về thức ăn nhanh, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+1. Tự chọn một suất ăn gồm **món chính + món ăn kèm + đồ uống** từ tranh, rồi đặt một câu tiếng Anh.
+2. Trả lời bằng tiếng Anh: **What would you order at this restaurant?**
+3. Trả lời: **Which fast foods are popular in your country?** (Những món ăn nhanh nào phổ biến ở nước bạn?)
+4. Trả lời: **How often do you eat fast food? Why?** (Bạn ăn đồ ăn nhanh thường xuyên đến đâu? Vì sao?)
+5. Viết hội thoại 4–6 lượt giữa khách và nhân viên, sử dụng ít nhất 6 từ đã học.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 8. Câu hỏi ôn tập trắc nghiệm
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+### Câu 1
 
-1. hamburger
-2. french fries
-3. soft drink
-4. order
+Món nào là hamburger có phô mai?
 
-</details>
+A. hot dog  
+B. taco  
+C. cheeseburger  
+D. pizza  
 
-## 6. Ôn tập nhanh và mở rộng
+**Đáp án: C.** **Cheeseburger** có thành phần phô mai trong bánh burger.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+### Câu 2
 
-## Điều hướng
+Bạn muốn gọi một ly trà lạnh, nên chọn gì?
 
-- [← Bài trước](09_kitchen-utensils.md)
-- [Bài tiếp theo →](11_a-coffee-shop-menu.md)
-- [Danh sách bài trong chủ đề](README.md)
+A. milk shake  
+B. soda  
+C. coffee  
+D. iced tea  
+
+**Đáp án: D.** **Iced tea** là trà được uống lạnh, thường có đá.
+
+### Câu 3
+
+Bạn cần nước xốt trộn salad, chọn từ nào?
+
+A. salad dressing  
+B. relish  
+C. ketchup  
+D. mustard  
+
+**Đáp án: A.** **Salad dressing** là tên chung cho các loại xốt trộn salad.
+
+### Câu 4
+
+Người phục vụ nói “Please take a seat in that booth.” Bạn sẽ ngồi ở đâu?
+
+A. quầy gọi món  
+B. ô bàn có ghế ngăn riêng  
+C. quầy salad  
+D. bếp  
+
+**Đáp án: B.** **Booth** là khu ngồi được phân ngăn trong nhà hàng.
+
+### Câu 5
+
+Từ nào chỉ chất tạo ngọt dùng thay đường thường?
+
+A. lettuce  
+B. straw  
+C. sugar substitute  
+D. nachos  
+
+**Đáp án: C.** **Sugar substitute** được dùng để thay thế đường.
+
+### Câu 6
+
+Chọn nhóm toàn là condiments (gia vị ăn kèm).
+
+A. hamburger, pizza, taco  
+B. soda, iced tea, milk shake  
+C. french fries, nachos, muffin  
+D. ketchup, mustard, mayonnaise, relish  
+
+**Đáp án: D.** Bốn từ đều chỉ gia vị hoặc xốt ăn kèm.
+
+## 9. Tổng kết và tự đánh giá
+
+- [ ] Tôi nhận diện được **26** từ/cụm từ được đánh số trong tranh.
+- [ ] Tôi phân biệt được **eat / drink** và nhóm **condiments**.
+- [ ] Tôi diễn đạt được ít nhất **5 câu** có dùng từ mới.
+- [ ] Tôi hoàn thành các câu hỏi trắc nghiệm và tự giải thích lý do chọn đáp án.
+
+**Điều hướng:** [← Bài trước](09_kitchen-utensils.md) · [Bài tiếp theo →](11_a-coffee-shop-menu.md)
