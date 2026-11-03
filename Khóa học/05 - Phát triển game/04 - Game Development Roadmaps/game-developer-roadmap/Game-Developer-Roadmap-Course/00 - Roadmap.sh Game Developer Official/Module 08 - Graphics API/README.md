@@ -1,25 +1,17 @@
-# Module 08 - Graphics API
+# Module 08 — Graphics API
 
-**Số bài:** 1
+**Số bài:** 9
 
-## Mục tiêu module
+Nguồn: [Game Developer Roadmap](https://roadmap.sh/game-developer) · [Sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)
 
-Module này giúp bạn học nhóm kiến thức **Graphics API** và chuyển nó thành demo, prototype hoặc ghi chú kỹ thuật có thể dùng trong portfolio Game Developer.
+## Graphics APIs and Shader Languages
 
-## Checklist module
-
-- [ ] Đọc toàn bộ bài trong module.
-- [ ] Tạo ít nhất một demo, prototype hoặc technical note.
-- [ ] Ghi lại lỗi gặp phải và cách debug.
-- [ ] Liên hệ module với project game cuối khóa.
-
-## Noi dung nho
-
-- [01-GraphicsAPIOverview](01-GraphicsAPIOverview/)
-
-## Danh sach bai hoc
-
-### [01-GraphicsAPIOverview](01-GraphicsAPIOverview/)
-
-- [Graphics API Overview](01-GraphicsAPIOverview/001 - Graphics API Overview.md)
-
+- [001 - DirectX](001%20-%20DirectX.md)
+- [002 - OpenGL](002%20-%20OpenGL.md)
+- [003 - WebGL](003%20-%20WebGL.md)
+- [004 - HLSL](004%20-%20HLSL.md)
+- [005 - GLSL](005%20-%20GLSL.md)
+- [006 - OpenGL-ES](006%20-%20OpenGL-ES.md)
+- [007 - Metal](007%20-%20Metal.md)
+- [008 - Vulkan](008%20-%20Vulkan.md)
+- [009 - SPIR-V](009%20-%20SPIR-V.md)

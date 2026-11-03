@@ -1,19 +1,22 @@
 # Game Developer Roadmap Course
 
-Khoa hoc Markdown duoc chia nho theo tung noi dung de de hoc va de on tap.
+Giáo trình được sắp theo các module và topic của roadmap.sh Game Developer.
 
-## Cau truc
+## Quy mô
 
-- Course root: `Game-Developer-Roadmap-Course/00 - Roadmap.sh Game Developer Official`
-- Tong hoc phan: 1
-- Tong module: 11
-- Tong bai `.md`: 32
-- Tong thu muc noi dung nho: 13
-- Moi module co `README.md`, moi thu muc nho co `README.md`
-- Cac file bai cu nam truc tiep trong module da duoc chuyen vao subfolder de tranh duplicate
-- `COURSE_INDEX.md` la muc luc toan khoa
-- `COVERAGE_REPORT.md` dung de doi chieu voi roadmap source
+- 11 modules
+- 135 bài học, một bài riêng cho mỗi topic
+- Ngôn ngữ: Tiếng Việt; giữ nguyên tên topic chính thức bằng tiếng Anh
 
-## Cach hoc
+## Bắt đầu
 
-Hoc theo thu tu module. Trong moi module, hoc tung subfolder nho theo chu de; sau moi cum nen tao mot artifact nho co the kiem tra lai: snippet, checklist, diagram, config, mini project hoac README ngan.
+- [Syllabus](SYLLABUS.md)
+- [Course index — danh sách tất cả bài](COURSE_INDEX.md)
+- [Coverage report](COVERAGE_REPORT.md)
+- [Danh mục topic JSON](ROADMAP_TOPICS.json)
+- [Tóm tắt topics](ROADMAP_JSON_SUMMARY.md)
+
+## Nguồn
+
+- [roadmap.sh Game Developer](https://roadmap.sh/game-developer)
+- [Roadmap diagram PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)

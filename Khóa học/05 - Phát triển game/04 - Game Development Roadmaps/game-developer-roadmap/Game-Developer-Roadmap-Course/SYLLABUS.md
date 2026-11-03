@@ -1,66 +1,23 @@
 # Game Developer Roadmap Syllabus
 
-## Module 01: Tổng quan Game Developer
+Nguồn: [Game Developer Roadmap](https://roadmap.sh/game-developer) · [Sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)
+Snapshot: 2026-11-03
 
-- 1.1. Vai trò và hướng đi Game Developer
-- 1.2. Roadmap liên quan
+**11 modules · 135 bài học theo topic.**
 
-## Module 02: Game Mathematics
+Mỗi topic trong sơ đồ được trình bày thành một bài học riêng.
 
-- 2.1. Linear Algebra
-- 2.2. Geometry
-- 2.3. Orientation
-- 2.4. Projection
-- 2.5. Curve
+## Modules
 
-## Module 03: Game Physics
+- **Module 01 — Client/Server Track:** 2 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2001%20-%20Client%20Server%20Track/README.md>)
+- **Module 02 — Game Mathematics:** 18 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2002%20-%20Game%20Mathematics/README.md>)
+- **Module 03 — Game Physics:** 31 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2003%20-%20Game%20Physics/README.md>)
+- **Module 04 — Game Engine:** 4 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2004%20-%20Game%20Engine/README.md>)
+- **Module 05 — Programming Languages:** 5 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2005%20-%20Programming%20Languages/README.md>)
+- **Module 06 — Computer Graphics:** 18 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2006%20-%20Computer%20Graphics/README.md>)
+- **Module 07 — Lighting and Shadow:** 20 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2007%20-%20Lighting%20and%20Shadow/README.md>)
+- **Module 08 — Graphics API:** 9 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2008%20-%20Graphics%20API/README.md>)
+- **Module 09 — Game AI:** 12 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2009%20-%20Game%20AI/README.md>)
+- **Module 10 — Learning for Game AI:** 7 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2010%20-%20Learning%20for%20Game%20AI/README.md>)
+- **Module 11 — Advanced Rendering:** 9 bài — [README](<00%20-%20Roadmap.sh%20Game%20Developer%20Official/Module%2011%20-%20Advanced%20Rendering/README.md>)
 
-- 3.1. Dynamics
-- 3.2. Collision Detection
-- 3.3. Bounding Volume & Spatial Partitioning
-
-## Module 04: Game Engine
-
-- 4.1. Unity
-- 4.2. Unreal Engine
-- 4.3. Godot
-- 4.4. Native Engine
-
-## Module 05: Programming Languages
-
-- 5.1. C#
-- 5.2. C/C++
-- 5.3. GDScript
-- 5.4. Rust
-- 5.5. Python
-
-## Module 06: Computer Graphics
-
-- 6.1. Rendering cơ bản
-- 6.2. Reflection & Material
-- 6.3. Computer Animation & Color
-
-## Module 07: Lighting and Shadow
-
-- 7.1. Lighting
-- 7.2. Shadow
-- 7.3. Visibility and Occlusion
-
-## Module 08: Graphics API
-
-- 8.1. Graphics API Overview
-
-## Module 09: Game AI
-
-- 9.1. Decision Making
-- 9.2. Movement AI
-- 9.3. Board Game AI
-
-## Module 10: Machine Learning cho Game AI
-
-- 10.1. Machine Learning cho Game AI
-
-## Module 11: Advanced Rendering
-
-- 11.1. Real-time Ray Tracing
-- 11.2. Physically-Based Rendering

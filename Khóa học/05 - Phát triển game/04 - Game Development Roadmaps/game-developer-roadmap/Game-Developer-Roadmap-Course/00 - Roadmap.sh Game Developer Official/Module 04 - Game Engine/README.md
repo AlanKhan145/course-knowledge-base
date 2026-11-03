@@ -1,28 +1,12 @@
-# Module 04 - Game Engine
+# Module 04 — Game Engine
 
 **Số bài:** 4
 
-## Mục tiêu module
+Nguồn: [Game Developer Roadmap](https://roadmap.sh/game-developer) · [Sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)
 
-Module này giúp bạn học nhóm kiến thức **Game Engine** và chuyển nó thành demo, prototype hoặc ghi chú kỹ thuật có thể dùng trong portfolio Game Developer.
+## Engine Choices
 
-## Checklist module
-
-- [ ] Đọc toàn bộ bài trong module.
-- [ ] Tạo ít nhất một demo, prototype hoặc technical note.
-- [ ] Ghi lại lỗi gặp phải và cách debug.
-- [ ] Liên hệ module với project game cuối khóa.
-
-## Noi dung nho
-
-- [01-Unity-NativeEngine](01-Unity-NativeEngine/)
-
-## Danh sach bai hoc
-
-### [01-Unity-NativeEngine](01-Unity-NativeEngine/)
-
-- [Unity](01-Unity-NativeEngine/001 - Unity.md)
-- [Unreal Engine](01-Unity-NativeEngine/002 - Unreal Engine.md)
-- [Godot](01-Unity-NativeEngine/003 - Godot.md)
-- [Native Engine](01-Unity-NativeEngine/004 - Native Engine.md)
-
+- [001 - Unity-3D](001%20-%20Unity-3D.md)
+- [002 - Unreal-Engine](002%20-%20Unreal-Engine.md)
+- [003 - Godot](003%20-%20Godot.md)
+- [004 - Native](004%20-%20Native.md)

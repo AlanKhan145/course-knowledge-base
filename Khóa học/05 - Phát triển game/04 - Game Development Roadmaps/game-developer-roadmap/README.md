@@ -8,7 +8,7 @@ Thu muc nay chua khoa hoc roadmap da duoc chia nho theo tung noi dung.
 
 ## Quick stats
 
-- Phases: 1
 - Modules: 11
-- Lessons: 32
-- Content subfolders: 13
+- Roadmap topic lessons: 135
+- One lesson file per roadmap topic
+- Source: [roadmap.sh Game Developer](https://roadmap.sh/game-developer)

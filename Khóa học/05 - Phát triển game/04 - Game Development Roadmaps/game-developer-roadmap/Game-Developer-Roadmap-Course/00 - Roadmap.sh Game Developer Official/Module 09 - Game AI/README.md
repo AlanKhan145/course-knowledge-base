@@ -1,27 +1,26 @@
-# Module 09 - Game AI
+# Module 09 — Game AI
 
-**Số bài:** 3
+**Số bài:** 12
 
-## Mục tiêu module
+Nguồn: [Game Developer Roadmap](https://roadmap.sh/game-developer) · [Sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)
 
-Module này giúp bạn học nhóm kiến thức **Game AI** và chuyển nó thành demo, prototype hoặc ghi chú kỹ thuật có thể dùng trong portfolio Game Developer.
+## Decision Making
 
-## Checklist module
+- [001 - Decision-Making](001%20-%20Decision-Making.md)
+- [002 - Decision-Tree](002%20-%20Decision-Tree.md)
+- [003 - State-Machine](003%20-%20State-Machine.md)
+- [004 - Behavior-Tree](004%20-%20Behavior-Tree.md)
+- [005 - Fuzzy-Logic](005%20-%20Fuzzy-Logic.md)
+- [006 - Markov-System](006%20-%20Markov-System.md)
+- [007 - Goal-Oriented-Behavior](007%20-%20Goal-Oriented-Behavior.md)
 
-- [ ] Đọc toàn bộ bài trong module.
-- [ ] Tạo ít nhất một demo, prototype hoặc technical note.
-- [ ] Ghi lại lỗi gặp phải và cách debug.
-- [ ] Liên hệ module với project game cuối khóa.
+## Movement
 
-## Noi dung nho
+- [008 - Movement](008%20-%20Movement.md)
 
-- [01-DecisionMaking-BoardGameAI](01-DecisionMaking-BoardGameAI/)
+## Board Game AI
 
-## Danh sach bai hoc
-
-### [01-DecisionMaking-BoardGameAI](01-DecisionMaking-BoardGameAI/)
-
-- [Decision Making](01-DecisionMaking-BoardGameAI/001 - Decision Making.md)
-- [Movement AI](01-DecisionMaking-BoardGameAI/002 - Movement AI.md)
-- [Board Game AI](01-DecisionMaking-BoardGameAI/003 - Board Game AI.md)
-
+- [009 - Board-Game](009%20-%20Board-Game.md)
+- [010 - Minimax](010%20-%20Minimax.md)
+- [011 - AB-Pruning](011%20-%20AB-Pruning.md)
+- [012 - MCTS](012%20-%20MCTS.md)

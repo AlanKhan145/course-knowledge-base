@@ -1,178 +1,64 @@
-# Cấu trúc dữ liệu roadmap dạng JSON rút gọn
+# Roadmap Topics
 
-Bản JSON rút gọn được giữ lại để tra cứu nhanh các module và topic roadmap.
+Danh sách topic chuẩn hóa từ [Game Developer Roadmap](https://roadmap.sh/game-developer) và [sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf).
+Snapshot: 2026-11-03
 
-```json
-{
-  "title": "Game Developer Roadmap",
-  "source": "https://roadmap.sh/game-developer",
-  "year": 2026,
-  "modules": [
-    {
-      "name": "Game Mathematics",
-      "topics": [
-        "Linear Algebra",
-        "Vector",
-        "Matrix",
-        "Linear Transformation",
-        "Geometry",
-        "Affine Space",
-        "Affine Transformation",
-        "Orientation",
-        "Quaternion",
-        "Euler Angle",
-        "Curve",
-        "Spline",
-        "Hermite",
-        "Bezier",
-        "Catmull-Rom",
-        "Projection",
-        "Perspective",
-        "Orthogonal"
-      ]
-    },
-    {
-      "name": "Game Physics",
-      "topics": [
-        "Dynamics",
-        "Center of Mass",
-        "Moment of Inertia",
-        "Acceleration",
-        "Joints",
-        "Restitution",
-        "Force",
-        "Angular Velocity",
-        "Buoyancy",
-        "Linear Velocity",
-        "Friction",
-        "Collision Detection",
-        "Narrow Phase",
-        "Broad Phase",
-        "Convexity",
-        "SAT",
-        "GJK",
-        "EPA",
-        "OBB",
-        "AABB",
-        "Bounding Volume",
-        "Spatial Partitioning",
-        "DBVT",
-        "BVH",
-        "CCD"
-      ]
-    },
-    {
-      "name": "Game Engine",
-      "topics": [
-        "Unity 3D",
-        "Unreal Engine",
-        "Godot",
-        "Native"
-      ]
-    },
-    {
-      "name": "Programming Languages",
-      "topics": [
-        "C#",
-        "C/C++",
-        "GDScript",
-        "Rust",
-        "Python"
-      ]
-    },
-    {
-      "name": "Computer Graphics",
-      "topics": [
-        "Ray Tracing",
-        "Rasterization",
-        "Graphics Pipeline",
-        "Sampling",
-        "Shader",
-        "Rendering Equation",
-        "Reflection",
-        "Diffuse",
-        "Specular",
-        "Texture",
-        "Bump",
-        "Parallax",
-        "Horizon",
-        "Computer Animation",
-        "Color",
-        "Visual Perception",
-        "Tone Reproduction"
-      ]
-    },
-    {
-      "name": "Lighting and Shadow",
-      "topics": [
-        "Shadow Map",
-        "2D",
-        "Cube",
-        "Cascaded",
-        "Light Source",
-        "Directional",
-        "Point",
-        "Spot",
-        "Infinite",
-        "Visibility and Occlusion",
-        "Occluder",
-        "Culling",
-        "Clipping",
-        "Fog",
-        "Frustum",
-        "Polygon",
-        "Polyhedron",
-        "Stencil Shadow"
-      ]
-    },
-    {
-      "name": "Graphics API",
-      "topics": [
-        "DirectX",
-        "OpenGL",
-        "WebGL",
-        "OpenGL ES",
-        "Metal",
-        "Vulkan",
-        "HLSL",
-        "GLSL",
-        "SPIR-V"
-      ]
-    },
-    {
-      "name": "Game AI",
-      "topics": [
-        "Decision Tree",
-        "State Machine",
-        "Behavior Tree",
-        "Fuzzy Logic",
-        "Markov System",
-        "Goal Oriented Behavior",
-        "Movement",
-        "Minimax",
-        "AB Pruning",
-        "MCTS",
-        "Naive Bayes Classifier",
-        "Decision Tree Learning",
-        "Deep Learning",
-        "Artificial Neural Network",
-        "Reinforcement Learning"
-      ]
-    },
-    {
-      "name": "Advanced Rendering",
-      "topics": [
-        "Real-time Ray Tracing",
-        "DirectX Ray Tracing",
-        "Vulkan Ray Tracing",
-        "OptiX",
-        "Physically-Based Rendering",
-        "Translucency & Transparency",
-        "Conservation of Energy",
-        "Metallicity",
-        "Microsurface Scattering"
-      ]
-    }
-  ]
-}
-```
+**11 modules · 135 bài học.**
+
+## Module 01 — Client/Server Track
+
+- **Client Side Development and Server Side:** Client Side Development, Server Side
+
+## Module 02 — Game Mathematics
+
+- **Linear Algebra:** Linear Algebra, Vector, Matrix
+- **Geometry and Transformations:** Geometry, Linear Transformation, Affine Space, Affine Transformation
+- **Orientation:** Orientation, Quaternion, Euler Angle
+- **Curves and Splines:** Curve, Spline, Hermite, Bezier, Catmull-Rom
+- **Projection:** Projection, Perspective, Orthogonal
+
+## Module 03 — Game Physics
+
+- **Dynamics:** Dynamics, Center of Mass, Moment of Inertia, Acceleration, Joints, Restitution, Force, Angular Velocity, Buoyancy, Linear Velocity, Friction
+- **Collision Detection:** Collision Detection, Narrow Phase, Broad Phase, Convexity, Convex, Concave, Convex Hull, Convex Decomposition, Intersection, SAT, GJK, EPA
+- **Bounding Volumes and Spatial Partitioning:** OBB, AABB, Bounding Volume, Sort & Sweep, Spatial Partitioning, DBVT, BVH, CCD
+
+## Module 04 — Game Engine
+
+- **Engine Choices:** Unity 3D, Unreal Engine, Godot, Native
+
+## Module 05 — Programming Languages
+
+- **Language Choices:** C#, C/C++, GDScript, Rust, Python
+
+## Module 06 — Computer Graphics
+
+- **Rendering Foundations and Materials:** Ray Tracing, Rasterization, Graphics Pipeline, Sampling, Shader, Rendering Equation, Reflection, Diffuse, Specular, Mapping, Texture, Bump, Parallax, Horizon
+- **Animation, Color, and Perception:** Computer Animation, Color, Visual Perception, Tone Reproduction
+
+## Module 07 — Lighting and Shadow
+
+- **Shadow Maps:** Shadow Map, 2D, Cube, Cascaded
+- **Light Sources:** Light Source, Directional, Point, Spot, Infinite
+- **Visibility and Occlusion:** Visibility and Occlusion, Occluder, Culling, Clipping, Fog, Frustum
+- **Light, Shadow, and Geometry:** Light, Shadow, Polygon, Polyhedron, Stencil Shadow
+
+## Module 08 — Graphics API
+
+- **Graphics APIs and Shader Languages:** DirectX, OpenGL, WebGL, HLSL, GLSL, OpenGL ES, Metal, Vulkan, SPIR-V
+
+## Module 09 — Game AI
+
+- **Decision Making:** Decision Making, Decision Tree, State Machine, Behavior Tree, Fuzzy Logic, Markov System, Goal Oriented Behavior
+- **Movement:** Movement
+- **Board Game AI:** Board Game, Minimax, AB Pruning, MCTS
+
+## Module 10 — Learning for Game AI
+
+- **Learning Methods:** Decision Learning, Naive Bayes Classifier, Decision Tree Learning, Deep Learning, Artificial Neural Network, Reinforcement Learning, Learning
+
+## Module 11 — Advanced Rendering
+
+- **Real-Time Ray Tracing:** Real-time Ray Tracing, DirectX Ray Tracing, Vulkan Ray Tracing, OptiX
+- **Physically-Based Rendering:** Physically-Based Rendering, Translucency & Transparency, Conservation of Energy, Metallicity, Microsurface Scattering
+

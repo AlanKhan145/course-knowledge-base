@@ -1,27 +1,29 @@
-# Module 06 - Computer Graphics
+# Module 06 — Computer Graphics
 
-**Số bài:** 3
+**Số bài:** 18
 
-## Mục tiêu module
+Nguồn: [Game Developer Roadmap](https://roadmap.sh/game-developer) · [Sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)
 
-Module này giúp bạn học nhóm kiến thức **Computer Graphics** và chuyển nó thành demo, prototype hoặc ghi chú kỹ thuật có thể dùng trong portfolio Game Developer.
+## Rendering Foundations and Materials
 
-## Checklist module
+- [001 - Ray-Tracing](001%20-%20Ray-Tracing.md)
+- [002 - Rasterization](002%20-%20Rasterization.md)
+- [003 - Graphics-Pipeline](003%20-%20Graphics-Pipeline.md)
+- [004 - Sampling](004%20-%20Sampling.md)
+- [005 - Shader](005%20-%20Shader.md)
+- [006 - Rendering-Equation](006%20-%20Rendering-Equation.md)
+- [007 - Reflection](007%20-%20Reflection.md)
+- [008 - Diffuse](008%20-%20Diffuse.md)
+- [009 - Specular](009%20-%20Specular.md)
+- [010 - Mapping](010%20-%20Mapping.md)
+- [011 - Texture](011%20-%20Texture.md)
+- [012 - Bump](012%20-%20Bump.md)
+- [013 - Parallax](013%20-%20Parallax.md)
+- [014 - Horizon](014%20-%20Horizon.md)
 
-- [ ] Đọc toàn bộ bài trong module.
-- [ ] Tạo ít nhất một demo, prototype hoặc technical note.
-- [ ] Ghi lại lỗi gặp phải và cách debug.
-- [ ] Liên hệ module với project game cuối khóa.
+## Animation, Color, and Perception
 
-## Noi dung nho
-
-- [01-RenderingCoBan-ComputerAnimationAnd](01-RenderingCoBan-ComputerAnimationAnd/)
-
-## Danh sach bai hoc
-
-### [01-RenderingCoBan-ComputerAnimationAnd](01-RenderingCoBan-ComputerAnimationAnd/)
-
-- [Rendering co ban](01-RenderingCoBan-ComputerAnimationAnd/001 - Rendering co ban.md)
-- [Reflection and Material](01-RenderingCoBan-ComputerAnimationAnd/002 - Reflection and Material.md)
-- [Computer Animation and Color](01-RenderingCoBan-ComputerAnimationAnd/003 - Computer Animation and Color.md)
-
+- [015 - Computer-Animation](015%20-%20Computer-Animation.md)
+- [016 - Color](016%20-%20Color.md)
+- [017 - Visual-Perception](017%20-%20Visual-Perception.md)
+- [018 - Tone-Reproduction](018%20-%20Tone-Reproduction.md)

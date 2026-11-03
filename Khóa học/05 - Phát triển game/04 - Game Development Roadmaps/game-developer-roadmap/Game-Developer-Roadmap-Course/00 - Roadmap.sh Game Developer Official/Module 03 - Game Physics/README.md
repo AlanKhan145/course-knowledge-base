@@ -1,27 +1,45 @@
-# Module 03 - Game Physics
+# Module 03 — Game Physics
 
-**Số bài:** 3
+**Số bài:** 31
 
-## Mục tiêu module
+Nguồn: [Game Developer Roadmap](https://roadmap.sh/game-developer) · [Sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)
 
-Module này giúp bạn học nhóm kiến thức **Game Physics** và chuyển nó thành demo, prototype hoặc ghi chú kỹ thuật có thể dùng trong portfolio Game Developer.
+## Dynamics
 
-## Checklist module
+- [001 - Dynamics](001%20-%20Dynamics.md)
+- [002 - Center-of-Mass](002%20-%20Center-of-Mass.md)
+- [003 - Moment-of-Inertia](003%20-%20Moment-of-Inertia.md)
+- [004 - Acceleration](004%20-%20Acceleration.md)
+- [005 - Joints](005%20-%20Joints.md)
+- [006 - Restitution](006%20-%20Restitution.md)
+- [007 - Force](007%20-%20Force.md)
+- [008 - Angular-Velocity](008%20-%20Angular-Velocity.md)
+- [009 - Buoyancy](009%20-%20Buoyancy.md)
+- [010 - Linear-Velocity](010%20-%20Linear-Velocity.md)
+- [011 - Friction](011%20-%20Friction.md)
 
-- [ ] Đọc toàn bộ bài trong module.
-- [ ] Tạo ít nhất một demo, prototype hoặc technical note.
-- [ ] Ghi lại lỗi gặp phải và cách debug.
-- [ ] Liên hệ module với project game cuối khóa.
+## Collision Detection
 
-## Noi dung nho
+- [012 - Collision-Detection](012%20-%20Collision-Detection.md)
+- [013 - Narrow-Phase](013%20-%20Narrow-Phase.md)
+- [014 - Broad-Phase](014%20-%20Broad-Phase.md)
+- [015 - Convexity](015%20-%20Convexity.md)
+- [016 - Convex](016%20-%20Convex.md)
+- [017 - Concave](017%20-%20Concave.md)
+- [018 - Convex-Hull](018%20-%20Convex-Hull.md)
+- [019 - Convex-Decomposition](019%20-%20Convex-Decomposition.md)
+- [020 - Intersection](020%20-%20Intersection.md)
+- [021 - SAT](021%20-%20SAT.md)
+- [022 - GJK](022%20-%20GJK.md)
+- [023 - EPA](023%20-%20EPA.md)
 
-- [01-Dynamics-BoundingVolumeAnd](01-Dynamics-BoundingVolumeAnd/)
+## Bounding Volumes and Spatial Partitioning
 
-## Danh sach bai hoc
-
-### [01-Dynamics-BoundingVolumeAnd](01-Dynamics-BoundingVolumeAnd/)
-
-- [Dynamics](01-Dynamics-BoundingVolumeAnd/001 - Dynamics.md)
-- [Collision Detection](01-Dynamics-BoundingVolumeAnd/002 - Collision Detection.md)
-- [Bounding Volume and Spatial Partitioning](01-Dynamics-BoundingVolumeAnd/003 - Bounding Volume and Spatial Partitioning.md)
-
+- [024 - OBB](024%20-%20OBB.md)
+- [025 - AABB](025%20-%20AABB.md)
+- [026 - Bounding-Volume](026%20-%20Bounding-Volume.md)
+- [027 - Sort-Sweep](027%20-%20Sort-Sweep.md)
+- [028 - Spatial-Partitioning](028%20-%20Spatial-Partitioning.md)
+- [029 - DBVT](029%20-%20DBVT.md)
+- [030 - BVH](030%20-%20BVH.md)
+- [031 - CCD](031%20-%20CCD.md)

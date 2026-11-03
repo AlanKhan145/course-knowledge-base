@@ -1,0 +1,359 @@
+{
+  "title": "Game Developer Roadmap",
+  "source": "https://roadmap.sh/game-developer",
+  "diagram": "https://roadmap.sh/pdfs/roadmaps/game-developer.pdf",
+  "snapshotDate": "2026-11-03",
+  "diagramNotes": "Getting deeper and Maximise your skills are section dividers. Backend and API Design are adjacent roadmaps, not Game Developer topic lessons.",
+  "language": "vi",
+  "modules": [
+    {
+      "title": "Client/Server Track",
+      "folder": "Module 01 - Client Server Track",
+      "relatedRoadmaps": [
+        { "title": "Backend", "url": "https://roadmap.sh/backend" },
+        { "title": "API Design", "url": "https://roadmap.sh/api-design" }
+      ],
+      "groups": [
+        {
+          "title": "Client Side Development and Server Side",
+          "slug": "01-Client-Server",
+          "lessons": [
+            ["Client Side Development", "Phần client chạy trên thiết bị người chơi: vòng lặp game, input, gameplay, giao diện, hiển thị, âm thanh, tài nguyên và lưu cục bộ.", "Vẽ một frame loop từ input đến update và render; đánh dấu subsystem do engine cung cấp và phần gameplay do bạn viết."],
+            ["Server Side", "Phần server xử lý dịch vụ nhiều người chơi như phiên chơi, quyền quyết định trạng thái, matchmaking, lưu trữ và giao tiếp mạng.", "Vẽ luồng tạo phòng multiplayer và ghi rõ ai là authority cho vị trí người chơi, điểm số và kết quả trận đấu."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Game Mathematics",
+      "folder": "Module 02 - Game Mathematics",
+      "groups": [
+        {
+          "title": "Linear Algebra",
+          "slug": "01-Linear-Algebra",
+          "lessons": [
+            ["Linear Algebra", "Đại số tuyến tính mô tả vị trí, hướng, chuyển động và phép biến đổi bằng vector, matrix và các hệ tọa độ.", "Tạo scene có player, camera và target; ghi các vector vị trí/hướng và vẽ các bước biến đổi từ local sang world space."],
+            ["Vector", "Vector biểu diễn độ lớn và hướng; phép cộng, chuẩn hóa, dot product và cross product là nền tảng của movement, góc nhìn và pháp tuyến.", "Làm controller 2D hoặc 3D không tăng tốc chéo; dùng dot product để kiểm tra target nằm trong góc nhìn."],
+            ["Matrix", "Matrix biểu diễn phép biến đổi và phép chiếu; thứ tự nhân ma trận quyết định cách vị trí, hướng và vertex được chuyển giữa các space.", "Tự tính một chuỗi scale, rotation, translation cho một điểm rồi đối chiếu vị trí cuối trong engine."]
+          ]
+        },
+        {
+          "title": "Geometry and Transformations",
+          "slug": "02-Geometry",
+          "lessons": [
+            ["Geometry", "Hình học cung cấp ngôn ngữ cho điểm, đường, mặt, khoảng cách, góc và quan hệ giao nhau trong không gian game.", "Tạo bài kiểm tra khoảng cách và giao nhau giữa player, vùng trigger và một mặt phẳng; minh họa các trường hợp biên."],
+            ["Linear Transformation", "Phép biến đổi tuyến tính giữ gốc tọa độ và mô tả scale, rotation, shear hoặc tổ hợp của chúng bằng ma trận.", "Áp dụng lần lượt rotation và scale lên một tam giác; so sánh kết quả khi đảo thứ tự hai phép biến đổi."],
+            ["Affine Space", "Không gian affine mô tả điểm và vector có gốc quy chiếu; hiệu hai điểm là vector, còn tịnh tiến tác động lên điểm.", "Chuyển một điểm giữa local và world space của hai object lồng nhau, rồi giải thích vai trò của origin."],
+            ["Affine Transformation", "Phép biến đổi affine kết hợp tuyến tính với tịnh tiến và giữ đường thẳng song song, phù hợp cho transform object.", "Dùng ma trận affine biến đổi một sprite hoặc mesh qua translate, rotate, scale và xác nhận thứ tự phép biến đổi."]
+          ]
+        },
+        {
+          "title": "Orientation",
+          "slug": "03-Orientation",
+          "lessons": [
+            ["Orientation", "Orientation mô tả hướng của object trong 2D/3D; cần phân biệt góc Euler, hệ trục và biểu diễn quaternion.", "Điều khiển một object nhìn về target và ghi lại hiện tượng khi target ở phía sau hoặc gần trục thẳng đứng."],
+            ["Quaternion", "Quaternion biểu diễn rotation 3D ổn định, hỗ trợ nội suy và tránh singularity thường gặp khi ghép góc Euler.", "Nội suy rotation camera giữa hai hướng bằng quaternion và so sánh đường quay với nội suy từng góc Euler."],
+            ["Euler Angle", "Euler angle biểu diễn orientation bằng các góc quay quanh trục; thứ tự trục và gimbal lock ảnh hưởng kết quả.", "Tạo ba góc quay với các thứ tự trục khác nhau, quan sát gimbal lock và ghi trường hợp nên dùng quaternion."]
+          ]
+        },
+        {
+          "title": "Curves and Splines",
+          "slug": "04-Curves",
+          "lessons": [
+            ["Curve", "Curve mô tả quỹ đạo liên tục bằng tham số, giúp điều khiển camera, đường đi, animation và hình dạng procedural.", "Tạo quỹ đạo camera có thể lấy mẫu theo tham số và hiển thị các điểm mẫu để quan sát độ mượt."],
+            ["Spline", "Spline nối các điểm hoặc đoạn cong thành đường có thể điều khiển; continuity quyết định độ mượt qua điểm nối.", "Tạo spline đi qua một chuỗi waypoint và điều chỉnh tangent để giảm gãy khúc ở điểm nối."],
+            ["Hermite", "Đường cong Hermite được xác định bởi hai đầu mút và tangent tại mỗi đầu, hữu ích khi cần kiểm soát hướng vào/ra.", "Dùng Hermite spline cho camera intro; thay đổi tangent ở hai đầu và so sánh quỹ đạo."],
+            ["Bezier", "Đường cong Bezier dùng control points và basis Bernstein; điểm điều khiển định hình đường cong mà không nhất thiết nằm trên đường.", "Tạo đường bay của projectile hoặc camera bằng cubic Bezier và cho phép kéo các control point."],
+            ["Catmull-Rom", "Catmull-Rom là spline nội suy đi qua các điểm control, thích hợp biến waypoint thành đường đi mượt.", "Cho NPC di chuyển qua các waypoint Catmull-Rom; xử lý tốc độ gần đều và điểm đầu/cuối."]
+          ]
+        },
+        {
+          "title": "Projection",
+          "slug": "05-Projection",
+          "lessons": [
+            ["Projection", "Projection chuyển hình học 3D sang không gian clip hoặc mặt phẳng 2D; lựa chọn projection tạo cảm giác phối cảnh.", "Đặt cùng một scene dưới perspective và orthographic projection, sau đó ghi khác biệt về kích thước theo độ sâu."],
+            ["Perspective", "Perspective projection làm vật thể xa nhỏ hơn và tạo frustum nhìn giống camera thực.", "Tạo camera perspective với hai vật cùng kích thước ở hai khoảng cách và quan sát hình chiếu trên màn hình."],
+            ["Orthogonal", "Orthographic projection giữ kích thước biểu kiến không đổi theo độ sâu, thường dùng cho game 2D, isometric và editor.", "Dựng một scene isometric bằng orthographic camera, căn tỉ lệ tile và kiểm tra hiện tượng z-fighting."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Game Physics",
+      "folder": "Module 03 - Game Physics",
+      "groups": [
+        {
+          "title": "Dynamics",
+          "slug": "01-Dynamics",
+          "lessons": [
+            ["Dynamics", "Dynamics mô tả chuyển động theo thời gian từ lực, khối lượng, vận tốc và ràng buộc; phân biệt động học với động lực học.", "Mô phỏng một vật rơi và một vật chịu lực ngang bằng fixed timestep; vẽ đồ thị vị trí và vận tốc."],
+            ["Center of Mass", "Khối tâm là điểm đại diện phân bố khối lượng; nó ảnh hưởng cân bằng, xoay và phản ứng va chạm của rigid body.", "Thay đổi vị trí khối tâm của một vật nhiều phần và quan sát khác biệt khi vật bị đẩy hoặc xoay."],
+            ["Moment of Inertia", "Moment of inertia đo mức kháng lại gia tốc góc quanh trục và phụ thuộc khối lượng phân bố cách trục quay.", "So sánh hai vật cùng khối lượng nhưng phân bố khác nhau khi áp cùng torque."],
+            ["Acceleration", "Gia tốc là mức thay đổi vận tốc theo thời gian; tích phân gia tốc cần timestep nhất quán để chuyển động ổn định.", "Tạo chuyển động tăng tốc có giới hạn tốc độ, giảm tốc và dừng; chạy ở frame rate khác nhau để so sánh."],
+            ["Joints", "Joint ràng buộc chuyển động tương đối giữa rigid body, chẳng hạn hinge, slider, spring hoặc fixed joint.", "Nối hai vật bằng hinge joint để làm cửa quay; thử giới hạn góc và độ cứng."],
+            ["Restitution", "Restitution mô tả độ nảy trong va chạm, thường được biểu diễn bằng hệ số đàn hồi giữa hai vật.", "Cho quả bóng nảy với restitution khác nhau và ghi số lần nảy cùng chiều cao mỗi lần."],
+            ["Force", "Lực làm thay đổi động lượng theo khối lượng và thời gian; cách áp lực tức thời khác lực liên tục.", "So sánh impulse và force liên tục khi đánh bật một vật, giữ tổng xung lượng tương đương."],
+            ["Angular Velocity", "Angular velocity mô tả tốc độ và trục quay; đơn vị, space tham chiếu và cách tích lũy rotation cần nhất quán.", "Tạo vật quay bằng angular velocity và thêm damping để dừng mượt mà."],
+            ["Buoyancy", "Lực nổi xuất hiện khi vật chiếm chỗ trong chất lỏng; mô hình đơn giản dựa vào thể tích ngập và trọng lực.", "Chia một vật thành vài sample point để tạo lực nổi theo độ sâu và quan sát độ ổn định trên mặt nước."],
+            ["Linear Velocity", "Linear velocity là độ thay đổi vị trí theo thời gian, gồm hướng và tốc độ; cần phân biệt vận tốc của body với vận tốc mục tiêu.", "Thêm vận tốc cho projectile và tính thời gian đến mục tiêu ở khoảng cách đã biết."],
+            ["Friction", "Friction mô hình hóa lực cản tiếp tuyến giữa bề mặt; static và dynamic friction ảnh hưởng vật đứng yên và đang trượt.", "Cho vật trượt trên nhiều bề mặt với hệ số ma sát khác nhau, rồi điều chỉnh điểm chuyển static/dynamic."]
+          ]
+        },
+        {
+          "title": "Collision Detection",
+          "slug": "02-Collision-Detection",
+          "lessons": [
+            ["Collision Detection", "Collision detection tìm cặp vật giao nhau, xác định contact và cung cấp thông tin để gameplay hoặc solver phản hồi.", "Tạo bài test collider cho circle, box và capsule; ghi lại false positive, false negative và contact normal."],
+            ["Narrow Phase", "Narrow phase kiểm tra hình học chi tiết của các cặp ứng viên để xác nhận giao nhau và tạo contact manifold.", "Cài narrow-phase cho hai shape đơn giản và trả về trạng thái giao nhau cùng một điểm tiếp xúc."],
+            ["Broad Phase", "Broad phase nhanh chóng lọc các cặp có thể va chạm, giảm số phép kiểm tra hình học chi tiết.", "Đo số cặp kiểm tra khi số object tăng; so sánh brute force với một broad-phase đơn giản."],
+            ["Convexity", "Convexity quyết định nhiều thuật toán va chạm có dùng được hay không; đoạn nối giữa hai điểm trong convex shape luôn nằm trong shape.", "Phân loại một tập polygon lồi/lõm và cho thấy thuật toán hỗ trợ convex shape xử lý từng trường hợp."],
+            ["Convex", "Convex shape không có vùng lõm và thường dễ kiểm tra va chạm hơn; nhiều collider game dùng convex proxy.", "Tạo collider convex cho mesh nhiều chi tiết và so sánh sai số với mesh gốc."],
+            ["Concave", "Concave shape có vùng lõm; collision thường cần decomposition, triangle mesh hoặc cấu trúc không gian phù hợp.", "Dùng mesh lõm làm địa hình tĩnh và ghi giới hạn khi dùng nó cho rigid body động."],
+            ["Convex Hull", "Convex hull là bao lồi nhỏ nhất chứa tập điểm; nó tạo proxy va chạm gọn nhưng có thể lấp vùng lõm.", "Tạo convex hull cho một mesh và trực quan hóa phần hình học bị hull lấp thêm."],
+            ["Convex Decomposition", "Convex decomposition phân rã shape lõm thành nhiều shape lồi để tái sử dụng thuật toán va chạm convex.", "Phân rã một mesh hình chữ L thành các convex pieces và đo số collider cùng độ chính xác."],
+            ["Intersection", "Intersection xác định hai hình học giao nhau và các điểm/đoạn/vùng giao cần cho raycast hoặc collision.", "Viết kiểm tra giao giữa ray và AABB; bao gồm ray song song với một mặt của hộp."],
+            ["SAT", "Separating Axis Theorem kiểm tra các trục ứng viên; nếu tồn tại trục chiếu tách rời thì hai convex shape không giao nhau.", "Dùng SAT cho hai polygon lồi 2D và hiển thị trục tách hoặc độ xuyên lấn nhỏ nhất."],
+            ["GJK", "GJK kiểm tra giao giữa hai convex shape qua support mapping và simplex lặp, không cần liệt kê mọi cặp mặt.", "Cài demo GJK cho hai shape convex 2D, vẽ simplex và giới hạn số vòng lặp."],
+            ["EPA", "EPA mở rộng simplex của GJK để ước lượng hướng và độ sâu xuyên lấn giữa hai convex shape.", "Kết hợp GJK/EPA để trả contact normal và penetration depth cho hai shape đang giao nhau."]
+          ]
+        },
+        {
+          "title": "Bounding Volumes and Spatial Partitioning",
+          "slug": "03-Bounding-Spatial",
+          "lessons": [
+            ["OBB", "Oriented Bounding Box là hộp bao có thể xoay theo object, chặt hơn AABB nhưng phép kiểm tra thường tốn hơn.", "So sánh OBB và AABB bao quanh một object dài đang xoay; đo số va chạm giả."],
+            ["AABB", "Axis-Aligned Bounding Box là hộp bao song song trục tọa độ, dễ cập nhật và kiểm tra giao nhau.", "Tính AABB của một mesh sau rotation bằng cách biến đổi các đỉnh và lấy min/max theo từng trục."],
+            ["Bounding Volume", "Bounding volume là hình học bao đơn giản dùng để loại nhanh object không giao nhau trước phép kiểm tra chính xác.", "Bọc mesh bằng sphere, AABB và OBB; so sánh chi phí cập nhật với độ chặt của bao."],
+            ["Sort & Sweep", "Sort and Sweep sắp xếp khoảng chiếu trên một trục rồi quét để tìm các cặp bounding interval chồng lấn.", "Cài sweep trên một trục cho các AABB 2D và kiểm tra cách xử lý khi object đổi thứ tự."],
+            ["Spatial Partitioning", "Spatial partitioning chia thế giới thành vùng hoặc node để truy vấn lân cận và va chạm không phải duyệt mọi object.", "Chia scene thành grid, truy vấn vùng quanh player và đếm số object cần kiểm tra."],
+            ["DBVT", "Dynamic Bounding Volume Tree tổ chức bounding volume động thành cây để truy vấn cặp va chạm và vùng lân cận.", "Vẽ cây bao động cho các object di chuyển và theo dõi cập nhật khi một object rời khỏi node cha."],
+            ["BVH", "Bounding Volume Hierarchy nhóm hình học theo cây bao lồng nhau để tăng tốc raycast và truy vấn không gian.", "Tạo BVH cho một mesh tĩnh; so sánh số triangle test khi raycast có và không có BVH."],
+            ["CCD", "Continuous Collision Detection theo dõi chuyển động trong khoảng timestep để tránh vật nhanh xuyên qua vật mỏng.", "Cho projectile tốc độ cao va vào tường mỏng; so sánh discrete collision và sweep/CCD."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Game Engine",
+      "folder": "Module 04 - Game Engine",
+      "groups": [
+        {
+          "title": "Engine Choices",
+          "slug": "01-Engine-Choices",
+          "lessons": [
+            ["Unity 3D", "Unity cung cấp editor, scene/component workflow, C#, renderer, physics, asset pipeline và nền tảng triển khai đa dạng.", "Làm prototype một scene có input, physics, UI và build; ghi lại các package hoặc service bạn đã dùng."],
+            ["Unreal Engine", "Unreal Engine kết hợp C++, Blueprints, hệ actor/component, editor và công cụ đồ họa hướng đến game 3D quy mô lớn.", "Tạo một gameplay loop nhỏ bằng Blueprint hoặc C++; xác định phần nào cần code và phần nào phù hợp với visual scripting."],
+            ["Godot", "Godot là engine mã nguồn mở với scene/node workflow, GDScript, hỗ trợ 2D/3D và vòng lặp xuất bản gọn nhẹ.", "Làm một level ngắn gồm scene lồng nhau, signal, input và export; ghi lại cách tổ chức node."],
+            ["Native", "Native development dùng framework/API cấp thấp để tự xây hoặc ghép renderer, platform layer, asset loading và game loop.", "Khởi chạy một cửa sổ/game loop tối giản bằng framework native; liệt kê subsystem engine thường lo giúp bạn."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Programming Languages",
+      "folder": "Module 05 - Programming Languages",
+      "groups": [
+        {
+          "title": "Language Choices",
+          "slug": "01-Language-Choices",
+          "lessons": [
+            ["C#", "C# là ngôn ngữ managed phổ biến trong Unity, có type system, garbage collection, async và hệ sinh thái .NET.", "Viết một gameplay component có state, event và dữ liệu cấu hình; đo allocation trong vòng lặp cập nhật."],
+            ["C/C++", "C/C++ cho phép kiểm soát bộ nhớ và hiệu năng thấp tầng, thường dùng trong engine, gameplay native và plugin.", "Viết một module xử lý dữ liệu game có ownership rõ ràng; kiểm tra lifetime và lỗi truy cập bộ nhớ."],
+            ["GDScript", "GDScript là ngôn ngữ scripting tích hợp Godot, hỗ trợ node, signal và iteration nhanh trong editor.", "Tạo script điều khiển nhân vật bằng input map và signal; tách dữ liệu cấu hình khỏi hành vi."],
+            ["Rust", "Rust dùng ownership và borrowing để hạn chế lỗi bộ nhớ tại compile time, phù hợp thử nghiệm engine/tooling hiệu năng cao.", "Mô hình hóa entity hoặc dữ liệu game nhỏ bằng struct/enum; giải thích ownership tại ranh giới cập nhật."],
+            ["Python", "Python thường phù hợp cho tool, pipeline asset, automation, prototype và kiểm thử hơn là vòng lặp game thời gian thực chính.", "Viết tool đọc manifest asset, phát hiện file thiếu và tạo báo cáo để tích hợp vào quy trình build."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Computer Graphics",
+      "folder": "Module 06 - Computer Graphics",
+      "groups": [
+        {
+          "title": "Rendering Foundations and Materials",
+          "slug": "01-Rendering-Materials",
+          "lessons": [
+            ["Ray Tracing", "Ray tracing truy vấn đường đi của tia qua scene để tính visibility, reflection, refraction và ánh sáng gián tiếp.", "Viết ray-sphere intersection hoặc dùng renderer có sẵn để bật/tắt phản xạ tia và so sánh chi phí."],
+            ["Rasterization", "Rasterization biến primitive đã chiếu thành fragment/pixel và là đường render thời gian thực phổ biến.", "Theo dõi một triangle qua vertex processing, clipping, rasterization và depth test bằng sơ đồ hoặc capture."],
+            ["Graphics Pipeline", "Graphics pipeline là chuỗi xử lý vertex, primitive, rasterization, fragment và output state của GPU.", "Vẽ pipeline cho một mesh có texture và ghi input/output ở mỗi stage quan trọng."],
+            ["Sampling", "Sampling lấy mẫu tín hiệu hoặc hình ảnh rời rạc; tần số lấy mẫu và reconstruction ảnh hưởng aliasing và chất lượng.", "Tạo checkerboard hoặc thin lines ở nhiều độ phân giải; so sánh aliasing và một bộ lọc anti-aliasing."],
+            ["Shader", "Shader là chương trình GPU cho các stage như vertex, fragment/pixel hoặc compute để biến đổi hình học và tính màu.", "Viết shader đổi màu theo normal hoặc UV, rồi giải thích dữ liệu vertex nào đi vào từng stage."],
+            ["Rendering Equation", "Rendering equation cân bằng emission và ánh sáng phản xạ từ mọi hướng qua BRDF và cosine term.", "Phân tích một bề mặt nhận ánh sáng trực tiếp; chỉ ra emission, incoming light, BRDF và normal term."],
+            ["Reflection", "Reflection là thành phần ánh sáng phản xạ từ bề mặt; mô hình vật liệu quyết định phân bố và cường độ phản xạ.", "Dùng một vật liệu bóng và một vật liệu nhám dưới cùng environment; ghi khác biệt của highlight."],
+            ["Diffuse", "Diffuse reflection tán xạ ánh sáng rộng theo hướng bề mặt và thường được mô hình hóa gần Lambertian.", "So sánh diffuse response khi thay đổi góc giữa normal và light direction."],
+            ["Specular", "Specular reflection tạo highlight có hướng; độ rộng và cường độ phụ thuộc roughness, view và mô hình BRDF.", "Thay đổi roughness và góc camera trên cùng vật liệu, ghi hình dạng highlight."],
+            ["Mapping", "Mapping liên hệ tọa độ hoặc dữ liệu lên bề mặt, gồm texture coordinates và các kỹ thuật biến đổi bề mặt.", "Hiển thị UV của một mesh và sửa seam hoặc distortion trên một vùng dễ nhận biết."],
+            ["Texture", "Texture lưu dữ liệu lấy mẫu trên bề mặt hoặc trong không gian, từ màu đến normal, roughness và mask.", "Tạo material từ base-color, normal và roughness map; kiểm tra color space và filtering."],
+            ["Bump", "Bump mapping tạo cảm giác gồ ghề bằng cách điều chỉnh shading normal mà không thay đổi silhouette hình học.", "Bật/tắt bump map dưới ánh sáng xiên và so sánh silhouette với hình học thật."],
+            ["Parallax", "Parallax mapping dịch tọa độ texture theo góc nhìn để tạo ảo giác chiều sâu bề mặt mà không thêm nhiều polygon.", "Áp parallax map lên mặt phẳng; thử góc nhìn sượt và ghi artefact ở biên UV."],
+            ["Horizon", "Horizon mapping lưu thông tin che khuất theo hướng tiếp tuyến để xấp xỉ self-shadowing của chi tiết bề mặt.", "Đọc hoặc dựng minh họa horizon-based self-shadowing trên một bề mặt gồ ghề; ghi giới hạn khi đổi góc nhìn."]
+          ]
+        },
+        {
+          "title": "Animation, Color, and Perception",
+          "slug": "02-Animation-Color",
+          "lessons": [
+            ["Computer Animation", "Computer animation thay đổi pose hoặc thuộc tính theo thời gian bằng keyframe, rig, skinning hoặc procedural motion.", "Tạo animation ngắn có key pose, interpolation và loop; kiểm tra popping tại điểm nối."],
+            ["Color", "Color trong đồ họa phụ thuộc color space, transfer function, gamut và cách dữ liệu được lưu/chuyển đổi.", "Hiển thị cùng một giá trị màu trong linear và sRGB workflow, rồi ghi khác biệt khi blend."],
+            ["Visual Perception", "Visual perception nghiên cứu cách mắt và não cảm nhận tương phản, chuyển động, độ sâu và điểm nhấn thị giác.", "Tạo hai bố cục HUD; kiểm tra thứ tự chú ý, tương phản và khả năng đọc ở kích thước nhỏ."],
+            ["Tone Reproduction", "Tone reproduction ánh xạ dải sáng scene rộng sang dải hiển thị giới hạn trong khi giữ chi tiết và cảm nhận độ sáng.", "So sánh linear clamp với tone mapping trên scene có vùng tối và highlight mạnh."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lighting and Shadow",
+      "folder": "Module 07 - Lighting and Shadow",
+      "groups": [
+        {
+          "title": "Shadow Maps",
+          "slug": "01-Shadow-Maps",
+          "lessons": [
+            ["Shadow Map", "Shadow mapping render depth từ góc nhìn nguồn sáng rồi so sánh độ sâu để xác định vùng bị che.", "Bật shadow map cho scene có vật thể gần/xa; điều chỉnh bias và quan sát shadow acne cùng peter-panning."],
+            ["2D", "Shadow map 2D dùng texture depth cho một hướng chiếu, thường phù hợp directional hoặc spot light.", "Kiểm tra một shadow map 2D bằng cách hiển thị depth texture và thay đổi độ phân giải."],
+            ["Cube", "Cube shadow map lưu depth theo sáu mặt quanh point light để tạo bóng đa hướng.", "Cho point light chiếu bóng lên vật ở sáu hướng và kiểm tra seam giữa các mặt cube."],
+            ["Cascaded", "Cascaded shadow maps chia camera frustum thành các vùng để dành texel density cao hơn gần camera.", "Điều chỉnh cascade split và quan sát độ nét, chuyển tiếp cùng chi phí draw call."]
+          ]
+        },
+        {
+          "title": "Light Sources",
+          "slug": "02-Light-Sources",
+          "lessons": [
+            ["Light Source", "Light source mô tả nguồn phát sáng, cường độ, màu, phạm vi và cách năng lượng truyền đến bề mặt.", "Dựng scene có ba loại nguồn sáng và ghi thông số ảnh hưởng trực tiếp đến vùng được chiếu."],
+            ["Directional", "Directional light có hướng và cường độ gần như đồng nhất trên scene, thường đại diện ánh sáng mặt trời xa.", "Dùng directional light cho outdoor scene; xoay hướng và quan sát vùng sáng/bóng toàn cảnh."],
+            ["Point", "Point light phát sáng từ một vị trí theo mọi hướng và thường suy giảm theo khoảng cách.", "Đặt point light trong phòng, thay đổi range/attenuation và quan sát giới hạn ảnh hưởng."],
+            ["Spot", "Spot light phát sáng trong một hình nón có hướng, góc trong/ngoài và vùng suy giảm.", "Tạo đèn pin có cone mềm; điều chỉnh inner/outer angle để tránh biên sáng gắt."],
+            ["Infinite", "Infinite hoặc nguồn sáng ở vô cực được xem như nguồn có hướng gần song song, không suy giảm theo khoảng cách scene.", "So sánh mô hình nguồn sáng ở vô cực với nguồn điểm rất xa trong cùng cảnh nhỏ."]
+          ]
+        },
+        {
+          "title": "Visibility and Occlusion",
+          "slug": "03-Visibility-Occlusion",
+          "lessons": [
+            ["Visibility and Occlusion", "Visibility xác định phần scene nhìn thấy; occlusion biểu diễn vật thể khác che khuất camera hoặc nguồn sáng.", "Đặt occluder giữa camera, light và object rồi phân biệt visibility query với shadow visibility."],
+            ["Occluder", "Occluder là vật che khuất các object phía sau và có thể được dùng để giảm rendering hoặc truy vấn visibility.", "Tạo scene nhiều phòng và xác định object nào có thể bị occluder loại khỏi render."],
+            ["Culling", "Culling loại object hoặc primitive không cần xử lý dựa trên frustum, mặt quay lưng, khoảng cách hoặc occlusion.", "Thêm frustum culling cho danh sách object; hiển thị màu khác cho object bị loại."],
+            ["Clipping", "Clipping cắt primitive nằm ngoài clip volume hoặc mặt phẳng cắt trước rasterization.", "Đưa triangle cắt qua near plane và trực quan hóa phần bị clip trước khi chuyển sang screen space."],
+            ["Fog", "Fog hòa trộn màu theo khoảng cách hoặc mật độ môi trường, tạo cảm giác chiều sâu và giảm tầm nhìn.", "Thử linear và exponential fog trong một hành lang dài, đảm bảo màu nền và fog hòa hợp."],
+            ["Frustum", "View frustum là thể tích không gian camera có thể nhìn thấy, giới hạn bởi các mặt near/far và side planes.", "Hiển thị frustum camera trong editor và kiểm tra object gần mép cùng ngoài far plane."]
+          ]
+        },
+        {
+          "title": "Light, Shadow, and Geometry",
+          "slug": "04-Light-Shadow-Geometry",
+          "lessons": [
+            ["Light", "Light trong shading cung cấp hướng, màu và năng lượng đầu vào để tính đóng góp lên bề mặt.", "Tách contribution của một light khỏi tổng scene lighting và ghi cách cộng dồn với các nguồn khác."],
+            ["Shadow", "Shadow là vùng thiếu ánh sáng trực tiếp do vật cản; chất lượng phụ thuộc nguồn sáng, hình học và thuật toán.", "So sánh hard shadow với shadow mềm giả lập từ nguồn sáng diện tích hoặc lọc nhiều mẫu."],
+            ["Polygon", "Polygon là primitive phẳng được ghép từ vertex/edge và thường được triangulate trước khi xử lý trên GPU.", "Triangulate một polygon lõm hợp lệ và kiểm tra winding order, normal cùng mặt bị đảo."],
+            ["Polyhedron", "Polyhedron là khối 3D có các mặt phẳng polygon; cấu trúc mặt/đỉnh/cạnh ảnh hưởng collider và mesh processing.", "Tạo polyhedron đơn giản, tính normal từng mặt và xác định mặt hướng vào trong."],
+            ["Stencil Shadow", "Stencil shadow dùng stencil buffer để đánh dấu vùng thể tích bóng hoặc mask bóng khi render.", "Vẽ sơ đồ stencil volume cho một nguồn sáng và ghi ưu/nhược điểm so với shadow map."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Graphics API",
+      "folder": "Module 08 - Graphics API",
+      "groups": [
+        {
+          "title": "Graphics APIs and Shader Languages",
+          "slug": "01-Graphics-APIs",
+          "lessons": [
+            ["DirectX", "DirectX là họ API đồ họa và multimedia của Microsoft; Direct3D cung cấp giao diện GPU phổ biến trên Windows/Xbox.", "Tra cứu capability và tạo tam giác tối giản bằng một phiên bản Direct3D; ghi rõ resource và pipeline state."],
+            ["OpenGL", "OpenGL là API đồ họa đa nền tảng theo mô hình state machine, dùng để gửi lệnh render tới GPU.", "Vẽ triangle có vertex buffer và shader; ghi các state cần cấu hình trước draw call."],
+            ["WebGL", "WebGL cho phép JavaScript truy cập đồ họa 3D trong trình duyệt dựa trên nền tảng OpenGL ES.", "Tạo demo WebGL nhỏ và kiểm tra cách shader, buffer cùng context loss được xử lý."],
+            ["HLSL", "HLSL là ngôn ngữ shader của Microsoft, thường dùng trong Direct3D và nhiều pipeline engine.", "Viết vertex/pixel shader HLSL đổi màu theo normal và xác định input/output semantics."],
+            ["GLSL", "GLSL là ngôn ngữ shader gắn với OpenGL/OpenGL ES; version và profile quyết định tính năng có sẵn.", "Viết shader GLSL tối giản và ghi khác biệt về version/profile giữa desktop và thiết bị mục tiêu."],
+            ["OpenGL ES", "OpenGL ES là tập con OpenGL dành cho thiết bị nhúng và di động với yêu cầu tài nguyên/thực thi hạn chế hơn.", "Kiểm tra shader và texture budget cho thiết bị di động; xác định tính năng không được profile hỗ trợ."],
+            ["Metal", "Metal là API đồ họa và compute của Apple, cung cấp quyền kiểm soát explicit hơn trên thiết bị Apple.", "Vẽ một tam giác bằng Metal hoặc đọc pipeline mẫu; xác định command buffer, encoder và resource binding."],
+            ["Vulkan", "Vulkan là API đồ họa explicit đa nền tảng, yêu cầu ứng dụng quản lý resource, synchronization và command submission.", "Lập sơ đồ swapchain, command buffer, semaphore và fence cho một frame Vulkan."],
+            ["SPIR-V", "SPIR-V là biểu diễn trung gian nhị phân cho shader/compute, thường dùng cùng Vulkan và công cụ chuyển đổi shader.", "Biên dịch một shader sang SPIR-V, kiểm tra validation và ghi vai trò của compiler cùng reflection metadata."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Game AI",
+      "folder": "Module 09 - Game AI",
+      "groups": [
+        {
+          "title": "Decision Making",
+          "slug": "01-Decision-Making",
+          "lessons": [
+            ["Decision Making", "Decision making chọn hành động từ trạng thái, mục tiêu, điều kiện và chi phí; kiến trúc cần dễ debug và mở rộng.", "Thiết kế NPC có thể tuần tra, đuổi theo và rút lui; vẽ điều kiện chuyển hành động."],
+            ["Decision Tree", "Decision tree phân nhánh theo điều kiện để đi tới hành động; thứ tự và độ sâu cây ảnh hưởng khả năng bảo trì.", "Xây cây quyết định cho enemy chọn tấn công, phòng thủ hoặc hồi máu; vẽ một đường chạy cụ thể."],
+            ["State Machine", "State machine xác định state hữu hạn và transition có điều kiện, phù hợp hành vi có chế độ rõ ràng.", "Tạo state machine idle/chase/attack/stun; kiểm tra transition khi nhiều điều kiện xảy ra cùng lúc."],
+            ["Behavior Tree", "Behavior tree ghép node composite, decorator và action để đánh giá hành vi theo tick có thể tái sử dụng.", "Xây cây sequence/selector cho enemy tìm player rồi tấn công; ghi trạng thái success/failure/running."],
+            ["Fuzzy Logic", "Fuzzy logic dùng mức thuộc tính liên tục thay vì ngưỡng đúng/sai để tạo quyết định mềm hơn.", "Điều chỉnh mức aggression theo máu và khoảng cách bằng membership function, rồi hiển thị score."],
+            ["Markov System", "Markov system mô hình hóa chuyển trạng thái theo xác suất dựa trên trạng thái hiện tại.", "Cho NPC chọn tuần tra/nghỉ/nghe động bằng xác suất chuyển; cố định seed để tái hiện kết quả."],
+            ["Goal Oriented Behavior", "Goal-oriented behavior chọn goal theo trạng thái thế giới và lập kế hoạch action để đạt goal đó.", "Tạo NPC cần tìm vũ khí rồi đến mục tiêu; mô tả điều kiện goal, action và chi phí kế hoạch."]
+          ]
+        },
+        {
+          "title": "Movement",
+          "slug": "02-Movement",
+          "lessons": [
+            ["Movement", "AI movement điều hướng agent trong môi trường, kết hợp steering, pathfinding, avoidance và ràng buộc chuyển động.", "Đưa NPC đến waypoint qua chướng ngại; hiển thị path, hướng steering và vị trí mục tiêu."]
+          ]
+        },
+        {
+          "title": "Board Game AI",
+          "slug": "03-Board-Game-AI",
+          "lessons": [
+            ["Board Game", "Board game AI tìm hành động trên không gian trạng thái rời rạc theo luật chơi và mục tiêu thắng/thua.", "Mã hóa trạng thái bàn cờ, nước đi hợp lệ và terminal state cho một game nhỏ."],
+            ["Minimax", "Minimax duyệt cây nước đi giả định hai bên chơi tối ưu và chọn hành động tối đa hóa kết quả cho mình.", "Cài minimax cho tic-tac-toe và hiển thị score của từng nước đi ở một thế cờ."],
+            ["AB Pruning", "Alpha-beta pruning loại nhánh không thể cải thiện kết quả minimax, giữ nguyên nước đi tối ưu nhưng giảm tìm kiếm.", "Thêm alpha-beta vào minimax; đếm node được duyệt ở cùng độ sâu và thứ tự nước đi."],
+            ["MCTS", "Monte Carlo Tree Search cân bằng mở rộng nhánh, chọn nhánh, mô phỏng và cập nhật thống kê qua nhiều rollout.", "Dùng MCTS cho game bàn cờ nhỏ; điều chỉnh số rollout và quan sát chất lượng nước đi/thời gian."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Learning for Game AI",
+      "folder": "Module 10 - Learning for Game AI",
+      "groups": [
+        {
+          "title": "Learning Methods",
+          "slug": "01-Learning-Methods",
+          "lessons": [
+            ["Decision Learning", "Decision learning dùng dữ liệu hoặc phản hồi để cải thiện lựa chọn hành động thay vì chỉ dựa trên luật cố định.", "Định nghĩa tín hiệu đầu vào, lựa chọn NPC cần học và tiêu chí đo hành vi tốt hơn sau huấn luyện."],
+            ["Naive Bayes Classifier", "Naive Bayes phân loại dựa trên xác suất Bayes với giả định độc lập có điều kiện giữa các đặc trưng.", "Phân loại ý định đơn giản của NPC từ vài feature; kiểm tra ảnh hưởng của giả định feature độc lập."],
+            ["Decision Tree Learning", "Decision tree learning học các phép chia feature từ dữ liệu có nhãn để dự đoán lớp hoặc giá trị.", "Huấn luyện cây nhỏ dự đoán hành động NPC từ khoảng cách, máu và line of sight; đọc các nhánh kết quả."],
+            ["Deep Learning", "Deep learning học biểu diễn qua nhiều tầng mạng; trong game cần cân nhắc dữ liệu, latency, tính ổn định và deploy.", "Xác định một bài toán game phù hợp mạng sâu và viết pipeline dữ liệu cùng metric trước khi huấn luyện."],
+            ["Artificial Neural Network", "Artificial neural network kết hợp neuron, trọng số và activation để xấp xỉ ánh xạ từ input sang output.", "Huấn luyện mạng nhỏ dự đoán một hành động từ feature giả lập; theo dõi loss và kiểm tra trên dữ liệu chưa thấy."],
+            ["Reinforcement Learning", "Reinforcement learning học policy qua tương tác agent-environment với state, action, reward và episode.", "Thiết kế reward cho agent đi tới mục tiêu mà không va chướng ngại; kiểm tra reward hacking và kết quả ngoài training map."],
+            ["Learning", "Learning là quá trình cập nhật mô hình từ ví dụ hoặc tương tác; cần tách dữ liệu huấn luyện, đánh giá và suy luận runtime.", "Lập pipeline từ thu thập gameplay trace đến đánh giá model và nạp model vào prototype; chỉ rõ phần chạy offline/runtime."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Advanced Rendering",
+      "folder": "Module 11 - Advanced Rendering",
+      "groups": [
+        {
+          "title": "Real-Time Ray Tracing",
+          "slug": "01-Real-Time-Ray-Tracing",
+          "lessons": [
+            ["Real-time Ray Tracing", "Real-time ray tracing truy vấn tia trên GPU trong giới hạn frame budget, thường kết hợp denoising hoặc rasterization.", "So sánh frame có và không có ray-traced effect; ghi chi phí, noise và cách engine giảm nhiễu."],
+            ["DirectX Ray Tracing", "DirectX Raytracing bổ sung pipeline và acceleration structure cho ray tracing trên nền Direct3D tương thích.", "Đọc flow BLAS/TLAS và dispatch rays trong một ví dụ DXR; đánh dấu resource cần build/update."],
+            ["Vulkan Ray Tracing", "Vulkan ray tracing mở rộng Vulkan bằng acceleration structures, ray-tracing pipelines và synchronization explicit.", "Vẽ vòng đời acceleration structure cùng barrier cần thiết trong một frame Vulkan ray tracing."],
+            ["OptiX", "NVIDIA OptiX cung cấp framework ray tracing GPU và các chương trình intersection/closest-hit/miss cho phần cứng hỗ trợ.", "Chạy hoặc đọc sample OptiX và mô tả payload, ray generation, miss cùng closest-hit program."]
+          ]
+        },
+        {
+          "title": "Physically-Based Rendering",
+          "slug": "02-Physically-Based-Rendering",
+          "lessons": [
+            ["Physically-Based Rendering", "PBR dùng mô hình vật liệu và ánh sáng nhất quán với các ràng buộc vật lý gần đúng để hoạt động ổn định dưới nhiều môi trường.", "Dựng material metallic-roughness và kiểm tra cùng material dưới vài HDRI/ánh sáng khác nhau."],
+            ["Translucency & Transparency", "Transparency truyền hoặc pha trộn ánh sáng qua bề mặt; translucency cho ánh sáng xuyên tán xạ trong vật liệu.", "So sánh alpha blending với mô phỏng translucency trên kính và lá; ghi vấn đề thứ tự render."],
+            ["Conservation of Energy", "Bảo toàn năng lượng yêu cầu tổng năng lượng phản xạ không vượt năng lượng tới, cân bằng diffuse và specular.", "Kiểm tra shader vật liệu khi tăng specular; xác nhận diffuse giảm tương ứng để không tạo bề mặt quá sáng."],
+            ["Metallicity", "Metallicity phân biệt kim loại và điện môi trong mô hình PBR, ảnh hưởng màu phản xạ và phần diffuse.", "Tạo các material metallicness 0, 0.5, 1 dưới cùng environment và giải thích kết quả trung gian."],
+            ["Microsurface Scattering", "Microsurface scattering mô hình hóa các vi mặt phản xạ ánh sáng; phân bố vi hình học thường liên hệ với roughness.", "So sánh highlight của hai roughness dưới cùng góc sáng và mô tả ảnh hưởng của microfacet distribution."]
+          ]
+        }
+      ]
+    }
+  ]
+}

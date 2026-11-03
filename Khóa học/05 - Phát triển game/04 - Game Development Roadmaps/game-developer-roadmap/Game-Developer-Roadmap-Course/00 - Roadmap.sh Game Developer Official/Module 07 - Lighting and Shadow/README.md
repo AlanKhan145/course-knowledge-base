@@ -1,27 +1,37 @@
-# Module 07 - Lighting and Shadow
+# Module 07 — Lighting and Shadow
 
-**Số bài:** 3
+**Số bài:** 20
 
-## Mục tiêu module
+Nguồn: [Game Developer Roadmap](https://roadmap.sh/game-developer) · [Sơ đồ PDF](https://roadmap.sh/pdfs/roadmaps/game-developer.pdf)
 
-Module này giúp bạn học nhóm kiến thức **Lighting and Shadow** và chuyển nó thành demo, prototype hoặc ghi chú kỹ thuật có thể dùng trong portfolio Game Developer.
+## Shadow Maps
 
-## Checklist module
+- [001 - Shadow-Map](001%20-%20Shadow-Map.md)
+- [002 - 2D](002%20-%202D.md)
+- [003 - Cube](003%20-%20Cube.md)
+- [004 - Cascaded](004%20-%20Cascaded.md)
 
-- [ ] Đọc toàn bộ bài trong module.
-- [ ] Tạo ít nhất một demo, prototype hoặc technical note.
-- [ ] Ghi lại lỗi gặp phải và cách debug.
-- [ ] Liên hệ module với project game cuối khóa.
+## Light Sources
 
-## Noi dung nho
+- [005 - Light-Source](005%20-%20Light-Source.md)
+- [006 - Directional](006%20-%20Directional.md)
+- [007 - Point](007%20-%20Point.md)
+- [008 - Spot](008%20-%20Spot.md)
+- [009 - Infinite](009%20-%20Infinite.md)
 
-- [01-Lighting-VisibilityAndOcclusion](01-Lighting-VisibilityAndOcclusion/)
+## Visibility and Occlusion
 
-## Danh sach bai hoc
+- [010 - Visibility-and-Occlusion](010%20-%20Visibility-and-Occlusion.md)
+- [011 - Occluder](011%20-%20Occluder.md)
+- [012 - Culling](012%20-%20Culling.md)
+- [013 - Clipping](013%20-%20Clipping.md)
+- [014 - Fog](014%20-%20Fog.md)
+- [015 - Frustum](015%20-%20Frustum.md)
 
-### [01-Lighting-VisibilityAndOcclusion](01-Lighting-VisibilityAndOcclusion/)
+## Light, Shadow, and Geometry
 
-- [Lighting](01-Lighting-VisibilityAndOcclusion/001 - Lighting.md)
-- [Shadow](01-Lighting-VisibilityAndOcclusion/002 - Shadow.md)
-- [Visibility and Occlusion](01-Lighting-VisibilityAndOcclusion/003 - Visibility and Occlusion.md)
-
+- [016 - Light](016%20-%20Light.md)
+- [017 - Shadow](017%20-%20Shadow.md)
+- [018 - Polygon](018%20-%20Polygon.md)
+- [019 - Polyhedron](019%20-%20Polyhedron.md)
+- [020 - Stencil-Shadow](020%20-%20Stencil-Shadow.md)
