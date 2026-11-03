@@ -1,0 +1,16 @@
+# Danh sách 14 bài học
+
+- [Bài 01: Khởi tạo Unity, URP và xây dựng bàn cờ](01-nen-tang-unity-va-ban-co/01-khoi-tao-unity-urp-ban-co.md)
+- [Bài 02: Thiết kế quân cờ, prefab và đội hình khởi tạo](01-nen-tang-unity-va-ban-co/02-quan-co-prefab-va-doi-hinh.md)
+- [Bài 03: Chọn, kéo thả, di chuyển mượt và ăn quân](01-nen-tang-unity-va-ban-co/03-tuong-tac-keo-tha-va-an-quan.md)
+- [Bài 04: Tạo nước đi hợp lệ cho sáu loại quân](02-luat-co-va-co-che-tran-dau/04-luat-di-chuyen-tung-loai-quan.md)
+- [Bài 05: Quản lý lượt chơi, màn hình thắng và đặt lại trận](02-luat-co-va-co-che-tran-dau/05-luot-choi-giao-dien-ket-thuc-va-reset.md)
+- [Bài 06: Lịch sử nước đi và bắt Tốt qua đường (en passant)](02-luat-co-va-co-che-tran-dau/06-lich-su-nuoc-di-bat-tot-qua-duong.md)
+- [Bài 07: Nhập thành (castling) và phong cấp (promotion)](02-luat-co-va-co-che-tran-dau/07-nhap-thanh-va-phong-cap.md)
+- [Bài 08: Mô phỏng nước đi, chống tự chiếu và phát hiện chiếu hết](02-luat-co-va-co-che-tran-dau/08-kiem-tra-chieu-chieu-het.md)
+- [Bài 09: Xây dựng menu Local/Online và giao diện chờ đối thủ](03-multiplayer-client-server/09-menu-va-ui-choi-online.md)
+- [Bài 10: Unity Transport, NetClient/NetServer và giao thức thông điệp](03-multiplayer-client-server/10-unity-transport-giao-thuc-thong-diep.md)
+- [Bài 11: Handshake, gán phe, camera và bắt đầu ván online](03-multiplayer-client-server/11-handshake-chia-phe-va-bat-dau-van.md)
+- [Bài 12: Đồng bộ nước đi, kết thúc trận và tái đấu online](03-multiplayer-client-server/12-dong-bo-nuoc-di-va-tai-dau.md)
+- [Bài 13: Hosting trên localhost, LAN và Internet (WAN)](04-hosting-va-trien-khai/13-ket-noi-local-lan-wan.md)
+- [Bài 14: Build và vận hành dedicated server Unity trên Linux](04-hosting-va-trien-khai/14-dedicated-server-unity-linux.md)

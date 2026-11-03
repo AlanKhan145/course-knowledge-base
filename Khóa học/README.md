@@ -202,6 +202,13 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Complete C# Unity 2D Game Development](<./05 - Phát triển game/01 - Unity & C#/complete-csharp-unity-2d-game-development-unity-6/>)
 - [Complete C# Unity 3D Game Development](<./05 - Phát triển game/01 - Unity & C#/complete-csharp-unity-3d-game-development-unity-6/>)
 - [Unity Learn Pathways — Bộ học liệu Markdown tiếng Việt](<./05 - Phát triển game/01 - Unity & C#/Unity_Learn_Pathways_VI_2026/>)
+- [Xây dựng game cờ vua với Unity và C#](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Lap-trinh-Co-vua-Unity-CSharp/>)
+- [Game chiến thuật theo lượt với Unity C#](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Game-Chien-thuat-theo-luot-Unity-CSharp/>)
+- [Hệ thống chiến đấu theo lượt trong Unity](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-He-thong-Chien-dau-Theo-luot-Unity/>)
+- [Unity Grid Turn-Based Combat](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Unity-Grid-Turn-Based-Combat/>)
+- [Unity Camera Controller & Dissolve VFX](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Unity-Camera-Controller-va-Dissolve-VFX/>)
+- [Unity VFX Graph: Hiệu ứng va chạm, tia lửa và Decal](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Unity-VFX-Graph-Hieu-ung-Va-cham-Decal/>)
+- [Unity VFX Graph: Quả cầu năng lượng](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Unity-VFX-Graph-Qua-Cau-Nang-Luong/>)
 
 #### Ren'Py & Visual Novels
 
@@ -221,6 +228,8 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Game Art
 
 - [Pixel Art Master Course](<./05 - Phát triển game/05 - Game Art/pixel-art-master-course-beginner-to-professional-freelance/>)
+- [Pixel Art Animation & VFX 2D với Unity](<./05 - Phát triển game/05 - Game Art/Khoa-hoc-Pixel-Art-Animation-VFX-2D-Unity/>)
+- [Unity Mixamo: Nhân vật và Animation 3D](<./05 - Phát triển game/05 - Game Art/Khoa-hoc-Unity-Mixamo-Nhan-vat-va-Animation-3D/>)
 
 ### 06 - Ngôn ngữ
 
