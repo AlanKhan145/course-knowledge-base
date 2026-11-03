@@ -4,90 +4,164 @@ unit: 5
 unit_title: "Trang phục"
 lesson: 2
 lesson_en: "Clothing II"
-lesson_vi: "Trang phục cơ bản II"
-book_pages: "66-66"
-pdf_pages: "76-76"
+lesson_vi: "Trang phục theo thời tiết"
+book_pages: "66"
+pdf_pages: "76"
+numbered_vocabulary: 27
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
-# Bài 02 – Trang phục cơ bản II (Clothing II)
+# Bài 02 – Trang phục theo thời tiết (Clothing II)
 
-> **Đơn vị 5:** Trang phục (Clothing)  
-> **Nguồn:** trang 66 trong sách, tương ứng trang PDF **76–76**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 5 – Trang phục** · Trang sách **66** (PDF **76**) · **27 mục từ được đánh số**.
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Chọn quần áo theo thời tiết giúp giữ cơ thể ấm, khô hoặc thoáng mát. Những từ gần nghĩa như jacket, parka và down jacket khác nhau về cấu tạo và mục đích sử dụng.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **trang phục cơ bản ii** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **clothing ii**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 27 mục từ tương ứng các số trên hình, phân biệt những khái niệm gần nhau và vận dụng chúng trong giao tiếp hằng ngày.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Trang phục cơ bản II](02_clothing-ii-trang-ghep.jpg)
+![Trang sách minh họa Clothing II](./02_clothing-ii-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 66 (trang PDF 76). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng dưới đây. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ **đúng thứ tự đánh số của hình**; nếu một mục chứa nhiều tên gọi được ngăn bằng dấu `/`, hãy học cả các biến thể. Nghĩa tiếng Việt được diễn đạt rõ hơn khi cần.
 
-| English | Tiếng Việt |
+### 3.1. Áo khoác và đồ giữ ấm (số 1–15)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **hat** | mũ / nón (có vành) |
+| 2 | **overcoat** | áo khoác dài mặc ngoài |
+| 3 | **leather jacket** | áo khoác da |
+| 4 | **wool scarf/muffler** | khăn quàng cổ bằng len |
+| 5 | **gloves** | găng tay (các ngón tách riêng) |
+| 6 | **cap** | mũ lưỡi trai / mũ mềm (nói chung) |
+| 7 | **jacket** | áo khoác |
+| 8 | **parka** | áo khoác chống rét có mũ, thường dày |
+| 9 | **mittens** | găng tay bao (bốn ngón chung một ngăn) |
+| 10 | **ski cap** | mũ len trượt tuyết |
+| 11 | **tights** | quần tất bó sát |
+| 12 | **earmuffs** | bịt tai giữ ấm |
+| 13 | **down vest** | áo gi-lê phao lông vũ |
+| 14 | **ski mask** | mặt nạ trùm đầu đi tuyết |
+| 15 | **down jacket** | áo khoác phao lông vũ |
+
+### 3.2. Trang phục chống mưa và đồ mùa hè (số 16–27)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 16 | **umbrella** | ô / dù |
+| 17 | **raincoat** | áo mưa |
+| 18 | **poncho** | áo choàng mưa |
+| 19 | **rain boots** | ủng đi mưa |
+| 20 | **trench coat** | áo khoác trench coat / áo khoác dài chống mưa |
+| 21 | **sunglasses** | kính râm |
+| 22 | **swimming trunks** | quần bơi nam |
+| 23 | **straw hat** | mũ rơm |
+| 24 | **windbreaker** | áo khoác gió mỏng |
+| 25 | **cover-up** | áo choàng ngoài đồ bơi |
+| 26 | **swimsuit/bathing suit** | đồ bơi |
+| 27 | **baseball cap** | mũ bóng chày / mũ lưỡi trai |
+
+## 4. Phân biệt và ghi nhớ
+
+- **gloves** có chỗ riêng cho từng ngón; **mittens** gom bốn ngón vào một khoang.
+- **parka** là áo khoác ấm thường có mũ; **down jacket** nhấn mạnh lớp nhồi lông vũ; **down vest** không có tay.
+- **umbrella** là ô/dù; **raincoat** là áo mưa thông thường; **poncho** là áo choàng mưa rộng.
+- **hat**, **cap**, **ski cap** và **baseball cap** đều là mũ, nhưng hình dáng và công dụng khác nhau.
+- **swimming trunks** thường chỉ quần bơi nam, còn **swimsuit/bathing suit** là đồ bơi nói chung.
+
+## 5. Từ vựng bổ sung và cách dùng
+
+| English / Ký hiệu | Nghĩa tiếng Việt |
 |---|---|
-| jacket | áo khoác ngắn |
-| sweater | áo len |
-| coat | áo khoác dài |
-| shorts | quần đùi |
-| uniform | đồng phục |
+| cold weather | thời tiết lạnh |
+| rainy weather | thời tiết mưa |
+| windy weather | thời tiết có gió |
+| warm clothes | quần áo ấm |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+## 6. Mẫu câu giao tiếp
 
-## 4. Mẫu câu ứng dụng
+- **Wear a jacket when it’s windy.** — Hãy mặc áo khoác khi trời có gió.
+- **I wear a parka, mittens, and a ski cap when it’s very cold.** — Tôi mặc áo khoác chống rét, găng tay bao và mũ len khi trời rất lạnh.
+- **Take an umbrella or wear a raincoat when it rains.** — Mang ô hoặc mặc áo mưa khi trời mưa.
+- **Do you have more summer clothes or winter clothes?** — Bạn có nhiều quần áo mùa hè hay mùa đông hơn?
 
-- **What does “jacket” mean?** — “jacket” có nghĩa là gì?
-- **How do you say “áo len” in English?** — “áo len” nói bằng tiếng Anh thế nào?
-- **Can you find “jacket” in the picture?** — Bạn có thể tìm “jacket” trong tranh không?
-- **This picture is about clothing ii.** — Bức tranh này có chủ đề trang phục cơ bản ii.
+## 7. Luyện tập thực hành
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+1. Ghép các tình huống **trời mưa**, **trời tuyết**, **đi bơi**, **trời gió** với ít nhất hai từ thích hợp.
+2. So sánh bằng tiếng Anh: **Which is better in the rain, an umbrella or a poncho? Why?**
+3. Nói điểm khác nhau giữa **mittens** và **gloves**, giữa **parka** và **down vest**.
+4. Tìm trên tranh ba loại mũ khác nhau, gọi đúng tên.
 
-## 5. Bài tập thực hành
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### Câu 1
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+Găng tay giữ ấm có khoang chung cho bốn ngón gọi là gì?
 
-1. áo khoác ngắn → ______
-2. áo len → ______
-3. áo khoác dài → ______
-4. quần đùi → ______
+A. gloves  
+B. tights  
+C. mittens  
+D. earmuffs  
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về trang phục cơ bản ii, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Đáp án: C.** Mittens là găng tay bao; gloves tách từng ngón.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+### Câu 2
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Áo khoác lông vũ không tay là gì?
 
-1. jacket
-2. sweater
-3. coat
-4. shorts
+A. down vest  
+B. down jacket  
+C. raincoat  
+D. trench coat  
 
-</details>
+**Đáp án: A.** Vest không có tay, còn jacket có tay.
 
-## 6. Ôn tập nhanh và mở rộng
+### Câu 3
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+Khi trời mưa, từ nào là “ủng đi mưa”?
 
-## Điều hướng
+A. hiking boots  
+B. rain boots  
+C. loafers  
+D. sandals  
 
-- [← Bài trước](01_clothing-i.md)
-- [Bài tiếp theo →](03_clothing-iii.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Đáp án: B.** Rain boots được dùng để che chân khi đi mưa.
+
+### Câu 4
+
+Loại trang phục nào dùng mặc ngoài đồ bơi?
+
+A. ski mask  
+B. tights  
+C. overcoat  
+D. cover-up  
+
+**Đáp án: D.** Cover-up là lớp áo choàng hoặc áo khoác ngoài đồ bơi.
+
+### Câu 5
+
+Kính râm được gọi là gì?
+
+A. sunglasses  
+B. earmuffs  
+C. mittens  
+D. baseball cap  
+
+**Đáp án: A.** Sunglasses là kính dùng bảo vệ mắt dưới ánh nắng.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch toàn bộ **27 mục từ** theo số thứ tự trong tranh.
+2. Che cột tiếng Anh và đọc lại các từ từ nghĩa tiếng Việt.
+3. Nói ít nhất ba câu có sử dụng các từ vừa học; sau một ngày và sau một tuần hãy kiểm tra lại.
+
+---
+
+[← Bài trước](01_clothing-i.md) · [Bài tiếp theo →](03_clothing-iii.md) · [Mục lục đơn vị](README.md)

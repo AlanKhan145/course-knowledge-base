@@ -4,90 +4,165 @@ unit: 5
 unit_title: "Trang phục"
 lesson: 6
 lesson_en: "Doing the Laundry"
-lesson_vi: "Giặt quần áo"
-book_pages: "72-72"
-pdf_pages: "82-82"
+lesson_vi: "Giặt giũ và chăm sóc quần áo"
+book_pages: "72"
+pdf_pages: "82"
+numbered_vocabulary: 20
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
-# Bài 06 – Giặt quần áo (Doing the Laundry)
+# Bài 06 – Giặt giũ và chăm sóc quần áo (Doing the Laundry)
 
-> **Đơn vị 5:** Trang phục (Clothing)  
-> **Nguồn:** trang 72 trong sách, tương ứng trang PDF **82–82**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 5 – Trang phục** · Trang sách **72** (PDF **82**) · **20 mục từ được đánh số**.
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Giặt giũ gồm phân loại đồ, cho chất giặt tẩy, giặt, sấy hoặc phơi, làm phẳng và cất giữ. Các từ thuộc nhóm này mô tả đồ dùng, trạng thái quần áo và các thao tác hằng ngày.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **giặt quần áo** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **doing the laundry**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 20 mục từ tương ứng các số trên hình, phân biệt những khái niệm gần nhau và vận dụng chúng trong giao tiếp hằng ngày.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Giặt quần áo](06_doing-the-laundry-trang-ghep.jpg)
+![Trang sách minh họa Doing the Laundry](./06_doing-the-laundry-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 72 (trang PDF 82). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng dưới đây. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ **đúng thứ tự đánh số của hình**; nếu một mục chứa nhiều tên gọi được ngăn bằng dấu `/`, hãy học cả các biến thể. Nghĩa tiếng Việt được diễn đạt rõ hơn khi cần.
 
-| English | Tiếng Việt |
+**Nhóm từ:** Đồ dùng và trạng thái quần áo.
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **laundry** | quần áo cần giặt / công việc giặt giũ |
+| 2 | **laundry basket** | giỏ đựng quần áo giặt |
+| 3 | **washer** | máy giặt |
+| 4 | **dryer** | máy sấy quần áo |
+| 5 | **dryer sheets** | giấy thơm dùng trong máy sấy |
+| 6 | **fabric softener** | nước xả làm mềm vải |
+| 7 | **laundry detergent** | bột giặt / nước giặt |
+| 8 | **bleach** | chất tẩy trắng |
+| 9 | **clothesline** | dây phơi quần áo |
+| 10 | **clothespin** | kẹp phơi quần áo |
+| 11 | **hanger** | móc treo quần áo |
+| 12 | **spray starch** | hồ vải dạng xịt |
+| 13 | **iron** | bàn ủi / bàn là |
+| 14 | **ironing board** | bàn để ủi đồ |
+| 15 | **dirty T-shirt** | áo thun bẩn |
+| 16 | **clean T-shirt** | áo thun sạch |
+| 17 | **wet T-shirt** | áo thun ướt |
+| 18 | **dry T-shirt** | áo thun khô |
+| 19 | **wrinkled shirt** | áo bị nhăn |
+| 20 | **ironed shirt** | áo đã ủi phẳng |
+
+## 4. Phân biệt và ghi nhớ
+
+- **washer** là máy giặt; **dryer** là máy sấy; **iron** (danh từ) là bàn ủi và **iron** (động từ) là ủi đồ.
+- **laundry detergent** dùng để giặt sạch; **fabric softener** làm mềm vải; **bleach** là chất tẩy trắng; **dryer sheets** dùng trong máy sấy.
+- **wet/dry** diễn tả mức độ ướt/khô; **dirty/clean** diễn tả bẩn/sạch; **wrinkled/ironed** diễn tả nhăn/đã ủi.
+- **clothesline** là dây phơi, **clothespin** là kẹp phơi, **hanger** là móc treo.
+- **dry cleaners** là cơ sở giặt khô, dùng hóa chất thay vì giặt bằng nước và chất giặt thông thường.
+
+## 5. Hoạt động / thao tác trong hình
+
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **Sort the laundry.** | Phân loại quần áo cần giặt. |
+| B | **Add the detergent.** | Cho bột giặt/nước giặt vào. |
+| C | **Load the washer.** | Bỏ quần áo vào máy giặt. |
+| D | **Clean the lint trap.** | Vệ sinh bộ lọc xơ vải của máy sấy. |
+| E | **Unload the dryer.** | Lấy quần áo ra khỏi máy sấy. |
+| F | **Fold the laundry.** | Gấp quần áo. |
+| G | **Iron the clothes.** | Ủi quần áo. |
+| H | **Hang up the clothes.** | Treo quần áo lên. |
+
+## 6. Từ vựng bổ sung và cách dùng
+
+| English / Ký hiệu | Nghĩa tiếng Việt |
 |---|---|
-| washing machine | máy giặt |
-| dryer | máy sấy |
-| wash | giặt |
-| iron | ủi |
-| laundry detergent | bột/nước giặt |
+| wash in cold water only (20°C trong biểu tượng minh họa) | chỉ giặt bằng nước lạnh |
+| no bleach | không dùng chất tẩy trắng |
+| line dry | phơi trên dây |
+| dry-clean only, do not wash | chỉ giặt khô, không giặt nước |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+## 7. Mẫu câu giao tiếp
 
-## 4. Mẫu câu ứng dụng
+- **First, sort the laundry.** — Trước hết, phân loại quần áo cần giặt.
+- **Next, add the detergent and load the washer.** — Tiếp theo, cho chất giặt và bỏ quần áo vào máy giặt.
+- **Hang up the clothes or use the dryer.** — Treo quần áo lên phơi hoặc dùng máy sấy.
+- **Iron the wrinkled shirt.** — Ủi chiếc áo bị nhăn.
 
-- **What does “washing machine” mean?** — “washing machine” có nghĩa là gì?
-- **How do you say “máy sấy” in English?** — “máy sấy” nói bằng tiếng Anh thế nào?
-- **Can you find “washing machine” in the picture?** — Bạn có thể tìm “washing machine” trong tranh không?
-- **This picture is about doing the laundry.** — Bức tranh này có chủ đề giặt quần áo.
+## 8. Luyện tập thực hành
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+1. Quan sát hình **A–H**; đọc lần lượt tên thao tác và giải thích thao tác nào làm trước khi giặt.
+2. Viết hướng dẫn giặt đồ gồm 5 câu bắt đầu bằng **First, Next, Then, After that, Finally**.
+3. Chọn phương án thích hợp khi nhãn quần áo ghi **no bleach** và **line dry**.
+4. Phân biệt bằng ví dụ: **dirty/clean**, **wet/dry**, **wrinkled/ironed**.
 
-## 5. Bài tập thực hành
+## 9. Câu hỏi trắc nghiệm ôn tập
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### Câu 1
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+Dụng cụ giữ quần áo khi phơi trên dây là gì?
 
-1. máy giặt → ______
-2. máy sấy → ______
-3. giặt → ______
-4. ủi → ______
+A. clothespin  
+B. hanger  
+C. dryer sheets  
+D. ironing board  
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về giặt quần áo, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Đáp án: A.** Clothespin dùng kẹp quần áo vào dây phơi.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+### Câu 2
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Với nhãn “no bleach”, việc nào cần tránh?
 
-1. washing machine
-2. dryer
-3. wash
-4. iron
+A. fold the laundry  
+B. line dry  
+C. use bleach  
+D. sort the laundry  
 
-</details>
+**Đáp án: C.** No bleach nghĩa là không được dùng chất tẩy trắng.
 
-## 6. Ôn tập nhanh và mở rộng
+### Câu 3
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+Thiết bị dùng làm phẳng quần áo bằng nhiệt là gì?
 
-## Điều hướng
+A. washer  
+B. iron  
+C. dryer  
+D. laundry basket  
 
-- [← Bài trước](05_describing-clothes.md)
-- [Bài tiếp theo →](07_sewing-and-alterations.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Đáp án: B.** Iron là bàn ủi/bàn là.
+
+### Câu 4
+
+Quần áo đã được ủi phẳng là trạng thái nào?
+
+A. wet  
+B. wrinkled  
+C. dirty  
+D. ironed  
+
+**Đáp án: D.** Ironed chỉ đồ đã được ủi.
+
+### Câu 5
+
+“Load the washer” nghĩa là gì?
+
+A. bỏ quần áo vào máy giặt  
+B. lấy quần áo khỏi máy sấy  
+C. phơi quần áo  
+D. làm sạch bẫy xơ vải  
+
+**Đáp án: A.** Load the washer là nạp quần áo vào máy giặt.
+
+## 10. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch toàn bộ **20 mục từ** theo số thứ tự trong tranh.
+2. Che cột tiếng Anh và đọc lại các từ từ nghĩa tiếng Việt.
+3. Nói ít nhất ba câu có sử dụng các từ vừa học; sau một ngày và sau một tuần hãy kiểm tra lại.
+
+---
+
+[← Bài trước](05_describing-clothes.md) · [Bài tiếp theo →](07_sewing-and-alterations.md) · [Mục lục đơn vị](README.md)

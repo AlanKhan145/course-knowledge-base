@@ -1,23 +1,31 @@
-# Chủ đề 5: Trang phục (Clothing)
+# Đơn vị 5 – Trang phục | Oxford Picture Dictionary Anh–Việt
 
-Gồm **7 bài học** trong Oxford Picture Dictionary (bản Anh–Việt).
+Bộ bài học này gồm 7 tài liệu Markdown độc lập, trình bày bằng tiếng Việt, có kèm ảnh sách, bảng từ vựng đầy đủ theo số thứ tự trên tranh, giải thích sự khác nhau giữa các từ dễ nhầm, mẫu câu giao tiếp, bài thực hành và 5 câu trắc nghiệm có đáp án cho mỗi bài.
 
-## Danh sách bài học
+## Danh mục bài học
 
-| Bài | Chủ đề | Trang sách | Tài liệu |
-|---:|---|---:|---|
-| 1 | Trang phục cơ bản I / *Clothing I* | 64–65 | [Mở bài học](01_clothing-i.md) |
-| 2 | Trang phục cơ bản II / *Clothing II* | 66 | [Mở bài học](02_clothing-ii.md) |
-| 3 | Trang phục cơ bản III / *Clothing III* | 67 | [Mở bài học](03_clothing-iii.md) |
-| 4 | Giày dép và phụ kiện / *Shoes and Accessories* | 68–69 | [Mở bài học](04_shoes-and-accessories.md) |
-| 5 | Mô tả trang phục / *Describing Clothes* | 70–71 | [Mở bài học](05_describing-clothes.md) |
-| 6 | Giặt quần áo / *Doing the Laundry* | 72 | [Mở bài học](06_doing-the-laundry.md) |
-| 7 | May vá và sửa đồ / *Sewing and Alterations* | 73 | [Mở bài học](07_sewing-and-alterations.md) |
+| Bài | Chủ đề | Trang sách | Mục từ có đánh số |
+|:--:|---|:--:|--:|
+| 01 | [Clothing I – Trang phục cơ bản I](01_clothing-i.md) | 64–65 | 29 |
+| 02 | [Clothing II – Trang phục theo thời tiết](02_clothing-ii.md) | 66 | 27 |
+| 03 | [Clothing III – Trang phục mặc ở nhà, đồ ngủ và đồ lót](03_clothing-iii.md) | 67 | 27 |
+| 04 | [Shoes and Accessories – Giày dép và phụ kiện](04_shoes-and-accessories.md) | 68–69 | 43 |
+| 05 | [Describing Clothes – Mô tả trang phục](05_describing-clothes.md) | 70–71 | 47 |
+| 06 | [Doing the Laundry – Giặt giũ và chăm sóc quần áo](06_doing-the-laundry.md) | 72 | 20 |
+| 07 | [Sewing and Alterations – Khâu may và sửa trang phục](07_sewing-and-alterations.md) | 73 | 24 |
 
-## Cách học chủ đề
+**Tổng cộng: 217 mục từ được đánh số**; cộng thêm các cụm từ bổ sung, 8 bước giặt giũ và 6 thao tác may sửa đồ.
 
-1. Mỗi ngày học 1–3 bài: quan sát trang sách, phát âm, tự đặt câu.
-2. Giữ một sổ từ vựng: từ tiếng Anh, nghĩa tiếng Việt, ví dụ do bạn tự viết.
-3. Cuối chủ đề: kể lại một tình huống, tích hợp ít nhất 15 từ của các bài đã học.
+## Cách học
 
-[← Về trang chủ](../../README.md)
+1. Mở bài học, quan sát ảnh, thử đoán tên từng vật theo số.
+2. Đối chiếu bảng từ vựng Anh–Việt và học các biến thể viết bằng dấu `/`.
+3. Đọc phần phân biệt những khái niệm dễ nhầm và mẫu câu.
+4. Làm bài tập thực hành, sau đó tự trả lời câu hỏi trắc nghiệm.
+5. Lặp lại sau một ngày và một tuần, sử dụng tranh nhưng che cột nghĩa.
+
+## Cấu trúc thư mục
+
+Các file `.md` và ảnh `.jpg` cùng nằm một thư mục; đường dẫn ảnh tương đối trong từng bài sẽ hoạt động khi tải **cả bộ file** về máy giữ nguyên tên và cấu trúc.
+
+> Ghi chú: Một số từ tiếng Anh có nhiều nghĩa tùy vùng miền hoặc ngữ cảnh; bộ tài liệu ưu tiên nghĩa phù hợp với hình minh họa, đồng thời chú giải các trường hợp dễ nhầm.

@@ -5,89 +5,185 @@ unit_title: "Trang phục"
 lesson: 4
 lesson_en: "Shoes and Accessories"
 lesson_vi: "Giày dép và phụ kiện"
-book_pages: "68-69"
-pdf_pages: "78-79"
+book_pages: "68–69"
+pdf_pages: "78–79"
+numbered_vocabulary: 43
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 04 – Giày dép và phụ kiện (Shoes and Accessories)
 
-> **Đơn vị 5:** Trang phục (Clothing)  
-> **Nguồn:** trang 68–69 trong sách, tương ứng trang PDF **78–79**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 5 – Trang phục** · Trang sách **68–69** (PDF **78–79**) · **43 mục từ được đánh số**.
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Khi mua sắm, cần biết cả tên món đồ lẫn bộ phận của nó. Chẳng hạn, shoelace là dây giày, sole là đế giày, còn heel là gót giày. Với phụ kiện, tên gọi phụ thuộc vào hình dạng và cách sử dụng.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **giày dép và phụ kiện** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **shoes and accessories**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 43 mục từ tương ứng các số trên hình, phân biệt những khái niệm gần nhau và vận dụng chúng trong giao tiếp hằng ngày.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Giày dép và phụ kiện](04_shoes-and-accessories-trang-ghep.jpg)
+![Trang sách minh họa Shoes and Accessories](./04_shoes-and-accessories-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 68–69 (trang PDF 78–79). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng dưới đây. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ **đúng thứ tự đánh số của hình**; nếu một mục chứa nhiều tên gọi được ngăn bằng dấu `/`, hãy học cả các biến thể. Nghĩa tiếng Việt được diễn đạt rõ hơn khi cần.
 
-| English | Tiếng Việt |
+### 3.1. Trong cửa hàng: người, khu trưng bày và phụ kiện (số 1–11)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **salesclerk** | nhân viên bán hàng |
+| 2 | **suspenders** | dây đeo quần (dây yếm) |
+| 3 | **shoe department** | khu bán giày |
+| 4 | **silk scarves** | những chiếc khăn lụa |
+| 5 | **hats** | những chiếc mũ |
+| 6 | **purses/handbags** | ví xách / túi xách tay |
+| 7 | **display case** | tủ trưng bày |
+| 8 | **jewelry** | đồ trang sức |
+| 9 | **necklaces** | dây chuyền |
+| 10 | **ties** | cà vạt |
+| 11 | **belts** | thắt lưng |
+
+### 3.2. Bộ phận giày và các kiểu giày (số 12–24)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 12 | **sole** | đế giày (phần dưới) |
+| 13 | **heel** | gót giày / gót chân (tùy ngữ cảnh) |
+| 14 | **shoelace** | dây giày |
+| 15 | **toe** | mũi giày / ngón chân (tùy ngữ cảnh) |
+| 16 | **pumps** | giày nữ kiểu kín mũi, hở mu (thường có gót) |
+| 17 | **high heels** | giày cao gót |
+| 18 | **boots** | ủng / bốt |
+| 19 | **loafers** | giày lười |
+| 20 | **oxfords** | giày buộc dây kiểu Oxford |
+| 21 | **hiking boots** | giày đi bộ đường dài / giày leo núi |
+| 22 | **tennis shoes** | giày tennis / giày thể thao |
+| 23 | **athletic shoes** | giày thể thao |
+| 24 | **sandals** | xăng đan |
+
+### 3.3. Túi xách, nữ trang và vật dụng nhỏ (số 25–43)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 25 | **change purse** | ví nhỏ đựng tiền lẻ |
+| 26 | **wallet** | ví tiền |
+| 27 | **shoulder bag** | túi đeo vai |
+| 28 | **backpack/bookbag** | ba lô / cặp đeo lưng |
+| 29 | **tote bag** | túi xách kiểu tote |
+| 30 | **string of pearls** | chuỗi ngọc trai |
+| 31 | **chain** | dây chuyền dạng dây xích |
+| 32 | **beads** | hạt chuỗi / hạt trang trí |
+| 33 | **locket** | mặt dây chuyền có nắp mở |
+| 34 | **(wrist) watch** | đồng hồ đeo tay |
+| 35 | **bracelet** | vòng tay |
+| 36 | **pin** | ghim cài trang trí / trâm cài |
+| 37 | **pierced earrings** | khuyên tai cho tai đã bấm lỗ |
+| 38 | **clip-on earrings** | khuyên tai dạng kẹp |
+| 39 | **ring** | nhẫn |
+| 40 | **bow tie** | nơ đeo cổ |
+| 41 | **belt buckle** | khóa thắt lưng |
+| 42 | **handkerchief** | khăn tay / khăn mùi xoa |
+| 43 | **key chain** | móc chìa khóa |
+
+## 4. Phân biệt và ghi nhớ
+
+- **sole** là đế dưới giày; **heel** là gót giày; **toe** có thể là mũi giày hoặc ngón chân tùy ngữ cảnh.
+- **pumps** là kiểu giày nữ tương đối kín, **high heels** nhấn mạnh gót cao; **loafers** là giày lười; **oxfords** là giày buộc dây.
+- **wallet** là ví tiền thông thường; **change purse** là ví nhỏ đựng tiền lẻ; **tote bag** là túi có hai quai.
+- **pierced earrings** dùng cho lỗ bấm tai; **clip-on earrings** dùng kẹp mà không cần lỗ tai.
+- Dạng số ít **scarf** chuyển thành số nhiều **scarves**. **Ties** là số nhiều của *tie*.
+
+## 5. Từ vựng bổ sung và cách dùng
+
+| English / Ký hiệu | Nghĩa tiếng Việt |
 |---|---|
-| sneakers | giày thể thao |
-| boots | ủng |
-| belt | thắt lưng |
-| scarf | khăn quàng |
-| gloves | găng tay |
+| a pair of shoes | một đôi giày |
+| size 10 | cỡ số 10 (theo hệ cỡ đang sử dụng) |
+| try on | thử quần áo/giày lên người |
+| salesclerk | nhân viên cửa hàng hỗ trợ mua sắm |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+## 6. Mẫu câu giao tiếp
 
-## 4. Mẫu câu ứng dụng
+- **I’m wearing a pair of white sandals.** — Tôi đang đi một đôi xăng đan trắng.
+- **Could I try on these sandals in size 10?** — Tôi có thể thử đôi xăng đan này cỡ 10 không?
+- **Do you have any silk scarves?** — Cửa hàng có khăn lụa không?
+- **Where are the hats?** — Mũ được bán ở đâu?
+- **Which accessory would you like to receive as a present?** — Bạn muốn nhận phụ kiện nào làm quà?
 
-- **What does “sneakers” mean?** — “sneakers” có nghĩa là gì?
-- **How do you say “ủng” in English?** — “ủng” nói bằng tiếng Anh thế nào?
-- **Can you find “sneakers” in the picture?** — Bạn có thể tìm “sneakers” trong tranh không?
-- **This picture is about shoes and accessories.** — Bức tranh này có chủ đề giày dép và phụ kiện.
+## 7. Luyện tập thực hành
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+1. Đóng vai khách hàng và nhân viên bán hàng, dùng **try on**, **size**, **salesclerk**, **shoe department**.
+2. Nhìn ảnh, nêu bộ phận mang số **12, 13, 14, 15** trên đôi giày.
+3. Phân biệt các món đồ số **25–29** bằng hình dáng và mục đích sử dụng.
+4. Trả lời: **Which accessories do you wear every day?** và **What would you wear to a job interview?**
 
-## 5. Bài tập thực hành
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### Câu 1
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+Bộ phận nằm ở dưới cùng của giày là gì?
 
-1. giày thể thao → ______
-2. ủng → ______
-3. thắt lưng → ______
-4. khăn quàng → ______
+A. shoelace  
+B. sole  
+C. toe  
+D. belt buckle  
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về giày dép và phụ kiện, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Đáp án: B.** Sole chỉ phần đế giày.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+### Câu 2
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Muốn xin thử giày trong cửa hàng, dùng cụm nào?
 
-1. sneakers
-2. boots
-3. belt
-4. scarf
+A. take off  
+B. sew by hand  
+C. hang up  
+D. try on  
 
-</details>
+**Đáp án: D.** Try on nghĩa là thử mặc/đi một món đồ.
 
-## 6. Ôn tập nhanh và mở rộng
+### Câu 3
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+Đồ nào thường dùng đựng tiền lẻ?
 
-## Điều hướng
+A. change purse  
+B. backpack  
+C. tote bag  
+D. display case  
 
-- [← Bài trước](03_clothing-iii.md)
-- [Bài tiếp theo →](05_describing-clothes.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Đáp án: A.** Change purse là ví nhỏ chuyên đựng tiền lẻ.
+
+### Câu 4
+
+Khuyên tai không cần xỏ lỗ là gì?
+
+A. pierced earrings  
+B. necklaces  
+C. clip-on earrings  
+D. beads  
+
+**Đáp án: C.** Clip-on earrings cố định bằng kẹp.
+
+### Câu 5
+
+Giày không cần buộc dây, dễ xỏ chân là gì?
+
+A. hiking boots  
+B. loafers  
+C. oxfords  
+D. tennis shoes  
+
+**Đáp án: B.** Loafers là giày lười, thường không có dây buộc.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch toàn bộ **43 mục từ** theo số thứ tự trong tranh.
+2. Che cột tiếng Anh và đọc lại các từ từ nghĩa tiếng Việt.
+3. Nói ít nhất ba câu có sử dụng các từ vừa học; sau một ngày và sau một tuần hãy kiểm tra lại.
+
+---
+
+[← Bài trước](03_clothing-iii.md) · [Bài tiếp theo →](05_describing-clothes.md) · [Mục lục đơn vị](README.md)

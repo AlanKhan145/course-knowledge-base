@@ -4,90 +4,162 @@ unit: 5
 unit_title: "Trang phục"
 lesson: 3
 lesson_en: "Clothing III"
-lesson_vi: "Trang phục cơ bản III"
-book_pages: "67-67"
-pdf_pages: "77-77"
+lesson_vi: "Trang phục mặc ở nhà, đồ ngủ và đồ lót"
+book_pages: "67"
+pdf_pages: "77"
+numbered_vocabulary: 27
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
-# Bài 03 – Trang phục cơ bản III (Clothing III)
+# Bài 03 – Trang phục mặc ở nhà, đồ ngủ và đồ lót (Clothing III)
 
-> **Đơn vị 5:** Trang phục (Clothing)  
-> **Nguồn:** trang 67 trong sách, tương ứng trang PDF **77–77**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 5 – Trang phục** · Trang sách **67** (PDF **77**) · **27 mục từ được đánh số**.
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Bên cạnh quần áo mặc ra ngoài, tiếng Anh còn có nhóm từ về trang phục tập luyện, đồ ngủ, đồ lót và các loại tất. Việc phân biệt theo công dụng và độ dài giúp chọn đúng từ.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **trang phục cơ bản iii** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **clothing iii**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 27 mục từ tương ứng các số trên hình, phân biệt những khái niệm gần nhau và vận dụng chúng trong giao tiếp hằng ngày.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Trang phục cơ bản III](03_clothing-iii-trang-ghep.jpg)
+![Trang sách minh họa Clothing III](./03_clothing-iii-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 67 (trang PDF 77). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng dưới đây. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ **đúng thứ tự đánh số của hình**; nếu một mục chứa nhiều tên gọi được ngăn bằng dấu `/`, hãy học cả các biến thể. Nghĩa tiếng Việt được diễn đạt rõ hơn khi cần.
 
-| English | Tiếng Việt |
+### 3.1. Đồ thể thao, đồ ngủ và trang phục tại nhà (số 1–9)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **leotard** | đồ bó sát toàn thân trên (đồ thể dục/dance) |
+| 2 | **tank top** | áo ba lỗ |
+| 3 | **bike shorts** | quần đùi đạp xe |
+| 4 | **pajamas** | bộ đồ ngủ |
+| 5 | **nightgown** | váy ngủ |
+| 6 | **slippers** | dép đi trong nhà |
+| 7 | **blanket sleeper** | bộ đồ ngủ liền thân giữ ấm cho trẻ |
+| 8 | **bathrobe** | áo choàng tắm |
+| 9 | **nightshirt** | áo ngủ dáng sơ mi |
+
+### 3.2. Đồ lót, tất và phụ kiện mặc trong (số 10–27)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 10 | **undershirt** | áo lót mặc trong |
+| 11 | **long underwear** | bộ đồ lót dài giữ ấm |
+| 12 | **boxer shorts** | quần lót đùi nam |
+| 13 | **briefs** | quần lót tam giác |
+| 14 | **athletic supporter/jockstrap** | đồ lót nâng đỡ/bảo hộ khi chơi thể thao |
+| 15 | **socks** | tất (vớ) ngắn |
+| 16 | **(bikini) panties** | quần lót nữ kiểu bikini |
+| 17 | **briefs/underpants** | quần lót nam (kiểu ôm) |
+| 18 | **girdle** | đai/quần gen định hình |
+| 19 | **garter belt** | đai giữ tất dài |
+| 20 | **bra** | áo ngực |
+| 21 | **camisole** | áo lót hai dây |
+| 22 | **full slip** | váy lót dài mặc trong |
+| 23 | **half slip** | chân váy lót ngắn |
+| 24 | **knee-highs** | tất cao đến gối (loại mỏng) |
+| 25 | **kneesocks** | tất dài đến gối (loại tất thường) |
+| 26 | **stockings** | tất dài / vớ dài |
+| 27 | **pantyhose** | quần tất mỏng liền thân |
+
+## 4. Phân biệt và ghi nhớ
+
+- **pajamas** là bộ đồ ngủ; **nightgown** là váy ngủ; **nightshirt** là áo ngủ dáng dài.
+- **bathrobe** là áo choàng dùng sau khi tắm; **slippers** là dép đi trong nhà.
+- **briefs** thường là quần lót dáng tam giác; **boxer shorts** là kiểu ống rộng hoặc quần đùi.
+- **socks** ngắn hơn **kneesocks**, trong khi **stockings** thường là tất dài, mỏng; **pantyhose** là quần tất liền từ eo đến chân.
+- **full slip** là váy lót mặc trong cả thân; **half slip** là chân váy lót.
+
+## 5. Từ vựng bổ sung và cách dùng
+
+| English / Ký hiệu | Nghĩa tiếng Việt |
 |---|---|
-| pajamas | đồ ngủ |
-| underwear | đồ lót |
-| swimsuit | đồ bơi |
-| robe | áo choàng |
-| stockings | tất dài |
+| lingerie | đồ lót hoặc đồ ngủ dành cho nữ |
+| loungewear | quần áo mặc thoải mái tại nhà, đôi khi dùng làm đồ ngủ |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+## 6. Mẫu câu giao tiếp
 
-## 4. Mẫu câu ứng dụng
+- **What do you wear when you exercise?** — Bạn mặc gì khi tập thể dục?
+- **I wear a tank top and bike shorts when I exercise.** — Tôi mặc áo ba lỗ và quần đùi đạp xe khi tập.
+- **What kind of clothing do you wear for sleeping?** — Bạn mặc loại quần áo nào để ngủ?
+- **I usually wear pajamas and slippers at home.** — Tôi thường mặc đồ ngủ và đi dép trong nhà.
 
-- **What does “pajamas” mean?** — “pajamas” có nghĩa là gì?
-- **How do you say “đồ lót” in English?** — “đồ lót” nói bằng tiếng Anh thế nào?
-- **Can you find “pajamas” in the picture?** — Bạn có thể tìm “pajamas” trong tranh không?
-- **This picture is about clothing iii.** — Bức tranh này có chủ đề trang phục cơ bản iii.
+## 7. Luyện tập thực hành
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+1. Dựa vào hình, xếp các từ **pajamas**, **leotard**, **bathrobe**, **pantyhose**, **slippers** vào nhóm hoạt động phù hợp.
+2. Viết một đoạn 4 câu miêu tả trang phục bạn mặc khi tập thể thao, trước khi ngủ và sau khi tắm.
+3. So sánh **nightgown** với **nightshirt**, và **stockings** với **pantyhose**.
+4. Quan sát các vị trí **12–18** và xác định đâu là quần lót, đâu là tất.
 
-## 5. Bài tập thực hành
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### Câu 1
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+Từ nào chỉ bộ đồ ngủ?
 
-1. đồ ngủ → ______
-2. đồ lót → ______
-3. đồ bơi → ______
-4. áo choàng → ______
+A. pajamas  
+B. tights  
+C. camisole  
+D. pantyhose  
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về trang phục cơ bản iii, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Đáp án: A.** Pajamas là bộ quần áo mặc khi ngủ.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+### Câu 2
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Áo choàng mặc sau khi tắm là gì?
 
-1. pajamas
-2. underwear
-3. swimsuit
-4. robe
+A. nightshirt  
+B. nightgown  
+C. bathrobe  
+D. leotard  
 
-</details>
+**Đáp án: C.** Bathrobe là áo choàng tắm.
 
-## 6. Ôn tập nhanh và mở rộng
+### Câu 3
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+Quần lót nam dạng đùi được gọi là gì?
 
-## Điều hướng
+A. briefs  
+B. boxer shorts  
+C. stockings  
+D. girdle  
 
-- [← Bài trước](02_clothing-ii.md)
-- [Bài tiếp theo →](04_shoes-and-accessories.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Đáp án: B.** Boxer shorts là quần lót dạng đùi.
+
+### Câu 4
+
+Từ nào chỉ quần tất mỏng liền từ eo đến bàn chân?
+
+A. kneesocks  
+B. socks  
+C. garter belt  
+D. pantyhose  
+
+**Đáp án: D.** Pantyhose bao cả chân và phần hông/eo.
+
+### Câu 5
+
+Váy lót nửa thân dưới được gọi là gì?
+
+A. half slip  
+B. full slip  
+C. nightgown  
+D. tunic  
+
+**Đáp án: A.** Half slip chỉ chân váy lót, không che toàn bộ thân trên.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch toàn bộ **27 mục từ** theo số thứ tự trong tranh.
+2. Che cột tiếng Anh và đọc lại các từ từ nghĩa tiếng Việt.
+3. Nói ít nhất ba câu có sử dụng các từ vừa học; sau một ngày và sau một tuần hãy kiểm tra lại.
+
+---
+
+[← Bài trước](02_clothing-ii.md) · [Bài tiếp theo →](04_shoes-and-accessories.md) · [Mục lục đơn vị](README.md)

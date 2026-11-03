@@ -5,89 +5,164 @@ unit_title: "Trang phục"
 lesson: 1
 lesson_en: "Clothing I"
 lesson_vi: "Trang phục cơ bản I"
-book_pages: "64-65"
-pdf_pages: "74-75"
+book_pages: "64–65"
+pdf_pages: "74–75"
+numbered_vocabulary: 29
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 01 – Trang phục cơ bản I (Clothing I)
 
-> **Đơn vị 5:** Trang phục (Clothing)  
-> **Nguồn:** trang 64–65 trong sách, tương ứng trang PDF **74–75**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 5 – Trang phục** · Trang sách **64–65** (PDF **74–75**) · **29 mục từ được đánh số**.
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang phục thay đổi theo môi trường làm việc, hoạt động và dịp sử dụng. Khi mô tả một người, hãy bắt đầu bằng loại trang phục, sau đó thêm màu sắc hoặc đặc điểm nổi bật.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **trang phục cơ bản i** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **clothing i**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 29 mục từ tương ứng các số trên hình, phân biệt những khái niệm gần nhau và vận dụng chúng trong giao tiếp hằng ngày.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Trang phục cơ bản I](01_clothing-i-trang-ghep.jpg)
+![Trang sách minh họa Clothing I](./01_clothing-i-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 64–65 (trang PDF 74–75). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng dưới đây. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ **đúng thứ tự đánh số của hình**; nếu một mục chứa nhiều tên gọi được ngăn bằng dấu `/`, hãy học cả các biến thể. Nghĩa tiếng Việt được diễn đạt rõ hơn khi cần.
 
-| English | Tiếng Việt |
+### 3.1. Trang phục cơ bản và quần áo thường ngày (số 1–15)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **three-piece suit** | bộ vét ba mảnh (áo khoác, áo gi-lê và quần) |
+| 2 | **suit** | bộ com-lê / bộ vét |
+| 3 | **dress** | đầm, váy liền thân |
+| 4 | **shirt** | áo sơ mi |
+| 5 | **jeans** | quần jean |
+| 6 | **sports coat** | áo khoác kiểu thể thao (mặc ngoài) |
+| 7 | **turtleneck** | áo cổ lọ, áo cổ cao |
+| 8 | **slacks/pants** | quần dài (quần âu) |
+| 9 | **blouse** | áo kiểu / áo sơ mi nữ |
+| 10 | **skirt** | chân váy |
+| 11 | **pullover sweater** | áo len chui đầu |
+| 12 | **T-shirt** | áo thun / áo phông |
+| 13 | **shorts** | quần đùi |
+| 14 | **sweatshirt** | áo nỉ (thường mặc khi vận động) |
+| 15 | **sweatpants** | quần nỉ thể thao |
+
+### 3.2. Trang phục đặc thù và trang phục dự tiệc (số 16–29)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 16 | **jumpsuit** | bộ áo liền quần |
+| 17 | **uniform** | đồng phục |
+| 18 | **jumper** | váy yếm / váy mặc ngoài áo (theo hình) |
+| 19 | **maternity dress** | váy bầu |
+| 20 | **knit shirt** | áo dệt kim |
+| 21 | **overalls** | quần yếm |
+| 22 | **tunic** | áo dáng dài, áo khoác ngoài nhẹ |
+| 23 | **leggings** | quần bó ôm chân |
+| 24 | **vest** | áo gi-lê / áo vét không tay |
+| 25 | **split skirt** | váy xẻ / chân váy xẻ |
+| 26 | **sports shirt** | áo thể thao |
+| 27 | **cardigan sweater** | áo len cài khuy phía trước |
+| 28 | **tuxedo** | bộ lễ phục tuxedo |
+| 29 | **evening gown** | đầm dạ hội |
+
+## 4. Phân biệt và ghi nhớ
+
+- **suit** là cả bộ com-lê; **three-piece suit** là bộ ba mảnh gồm thêm áo gi-lê.
+- **shirt** thường chỉ áo sơ mi; **blouse** thường chỉ áo kiểu dành cho nữ; **T-shirt** là áo phông.
+- **dress** là váy liền thân; **skirt** là chân váy; **jumper** trong bối cảnh tranh là váy mặc ngoài áo (nghĩa có thể khác theo vùng tiếng Anh).
+- **pullover sweater** chui đầu, còn **cardigan sweater** mở được phía trước.
+- **pants/slacks** là quần dài; **shorts** là quần đùi; **sweatpants** là quần nỉ vận động.
+
+## 5. Từ vựng bổ sung và cách dùng
+
+| English / Ký hiệu | Nghĩa tiếng Việt |
 |---|---|
-| shirt | áo sơ mi |
-| T-shirt | áo phông |
-| pants | quần dài |
-| dress | váy liền |
-| skirt | chân váy |
+| outfit | bộ trang phục có các món phối hợp với nhau |
+| in fashion | đang hợp mốt / đang thịnh hành |
+| out of fashion | lỗi mốt |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+## 6. Mẫu câu giao tiếp
 
-## 4. Mẫu câu ứng dụng
+- **I’m wearing a gray sweater, a red T-shirt, and blue jeans.** — Tôi đang mặc áo len xám, áo thun đỏ và quần jean xanh.
+- **Yesterday, I wore a green pullover sweater, a white shirt, and black slacks.** — Hôm qua tôi mặc áo len chui đầu màu xanh, áo sơ mi trắng và quần âu đen.
+- **The man at the podium is wearing a suit.** — Người đàn ông đứng ở bục đang mặc com-lê.
+- **What do you wear when you go to the movies?** — Bạn thường mặc gì khi đi xem phim?
 
-- **What does “shirt” mean?** — “shirt” có nghĩa là gì?
-- **How do you say “áo phông” in English?** — “áo phông” nói bằng tiếng Anh thế nào?
-- **Can you find “shirt” in the picture?** — Bạn có thể tìm “shirt” trong tranh không?
-- **This picture is about clothing i.** — Bức tranh này có chủ đề trang phục cơ bản i.
+## 7. Luyện tập thực hành
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+1. Nhìn ảnh, tìm các mục **3, 10, 19** và giải thích vì sao cả ba không thể cùng dịch đơn giản là “váy”.
+2. Viết ba câu về trang phục bạn đang mặc bằng cấu trúc `I'm wearing ...`.
+3. Nói về trang phục đi xem phim và một trang phục dự tiệc; sử dụng ít nhất năm từ trong bảng.
+4. Tự trả lời: **Which clothes in the picture are in fashion now?** (Những trang phục nào trong tranh hiện còn hợp mốt?)
 
-## 5. Bài tập thực hành
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### Câu 1
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+Một bộ com-lê có cả áo gi-lê, áo khoác và quần là gì?
 
-1. áo sơ mi → ______
-2. áo phông → ______
-3. quần dài → ______
-4. váy liền → ______
+A. sweatpants  
+B. three-piece suit  
+C. tunic  
+D. sports shirt  
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về trang phục cơ bản i, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Đáp án: B.** Three-piece suit có ba mảnh; suit không nhất thiết có áo gi-lê.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+### Câu 2
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Bạn cần nói “áo len chui đầu”, chọn từ nào?
 
-1. shirt
-2. T-shirt
-3. pants
-4. dress
+A. pullover sweater  
+B. cardigan sweater  
+C. vest  
+D. blouse  
 
-</details>
+**Đáp án: A.** Pullover sweater là kiểu chui qua đầu; cardigan thường mở phía trước.
 
-## 6. Ôn tập nhanh và mở rộng
+### Câu 3
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+Từ nào chỉ váy liền thân?
 
-## Điều hướng
+A. skirt  
+B. shorts  
+C. slacks  
+D. dress  
 
-- [← Bài trước](../04_food/12_a-restaurant.md)
-- [Bài tiếp theo →](02_clothing-ii.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Đáp án: D.** Dress là váy liền, còn skirt là chân váy.
+
+### Câu 4
+
+Đồng phục trong tiếng Anh là gì?
+
+A. evening gown  
+B. jumpsuit  
+C. uniform  
+D. turtleneck  
+
+**Đáp án: C.** Uniform là trang phục theo quy định của trường hoặc nơi làm việc.
+
+### Câu 5
+
+Trang phục nào phù hợp với một buổi dạ hội trang trọng?
+
+A. evening gown  
+B. sweatshirt  
+C. sweatpants  
+D. T-shirt  
+
+**Đáp án: A.** Evening gown là đầm dạ hội.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch toàn bộ **29 mục từ** theo số thứ tự trong tranh.
+2. Che cột tiếng Anh và đọc lại các từ từ nghĩa tiếng Việt.
+3. Nói ít nhất ba câu có sử dụng các từ vừa học; sau một ngày và sau một tuần hãy kiểm tra lại.
+
+---
+
+[Bài tiếp theo →](02_clothing-ii.md) · [Mục lục đơn vị](README.md)
