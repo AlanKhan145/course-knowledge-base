@@ -95,3 +95,39 @@ public class SpawnOne : MonoBehaviour
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 9. Tạo biến thể ngẫu nhiên có kiểm soát
+
+Một Prefab có thể tạo thành nhiều biến thể bằng cách thay `localScale`, hướng bay và tốc độ. Ngẫu nhiên nên có khoảng giá trị rõ ràng để người chơi vẫn phản ứng được.
+
+```csharp
+using UnityEngine;
+public class RandomFlyingObstacle2D : MonoBehaviour
+{
+    [SerializeField] float minSize = 0.6f, maxSize = 1.3f;
+    [SerializeField] float minSpeed = 1.5f, maxSpeed = 4f;
+    Vector2 direction;
+    float speed;
+
+    void Start()
+    {
+        float size = Random.Range(minSize, maxSize);
+        transform.localScale = Vector3.one * size;
+        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        if (direction.sqrMagnitude < 0.01f) direction = Vector2.left;
+        speed = Random.Range(minSpeed, maxSpeed);
+    }
+
+    void Update()
+    {
+        transform.position += (Vector3)(direction * speed * Time.deltaTime);
+    }
+}
+```
+
+**Lưu ý:** ví dụ di chuyển bằng `Transform`, phù hợp chướng ngại không cần mô phỏng lực. Nếu obstacle tương tác vật lý động, hãy chọn phương pháp điều khiển qua `Rigidbody2D` nhất quán và xử lý ở `FixedUpdate`.
+
+**Kiểm thử:** sinh 10 vật, ghi kích thước/tốc độ nhỏ nhất và lớn nhất; xác minh mỗi vật không đứng im và các giá trị nằm trong giới hạn cấu hình.
+

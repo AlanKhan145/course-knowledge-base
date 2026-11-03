@@ -65,6 +65,20 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Tinh chỉnh bằng phép đo thay vì cảm giác
+
+1. **Tái hiện:** dùng cùng camera, độ phân giải, thiết bị và scene.
+2. **Quan sát:** tìm vùng quá sáng, quá tối, bóng lỗi hoặc phản xạ sai.
+3. **Đo lường:** sử dụng Profiler/Frame Debugger (nếu có) để xem chi phí render; đo bản build trên thiết bị đích khi có thể.
+4. **Thử từng biến:** giảm số đèn có bóng, Shadow Distance hoặc độ phân giải; chụp ảnh và đo lại.
+
+| Cấu hình | Chất lượng ảnh | GPU frame time | Nhận xét |
+|---|---|---|---|
+| Ban đầu | (điền) | (điền) | (điền) |
+| Sau thay đổi | (điền) | (điền) | (điền) |
+
+Không đánh đồng FPS thấp với lỗi lighting khi chưa xác định điểm nghẽn.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

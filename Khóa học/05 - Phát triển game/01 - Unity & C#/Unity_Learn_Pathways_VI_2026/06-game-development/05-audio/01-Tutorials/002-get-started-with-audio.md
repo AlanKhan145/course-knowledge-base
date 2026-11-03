@@ -24,7 +24,7 @@ checked_at: "2026-10-21"
 ## 2. Mục tiêu học tập
 
 - Trình bày được mục đích của **âm thanh và phản hồi giác quan** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Get started with audio** và mô tả kết quả.
+- Xác định đầu ra, công cụ và thứ tự học phù hợp trước khi thực hành.
 - Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
 
 ## 3. Kiến thức trọng tâm
@@ -76,3 +76,40 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Thực hành chuyên đề: phát âm thanh đầu tiên
+
+1. Tạo scene mới, giữ `Main Camera` có `AudioListener`.
+2. Import một file âm thanh đã được phép sử dụng vào `Assets/Audio/`.
+3. Tạo GameObject `Music`, thêm component **Audio Source**, kéo clip vào trường **Audio Clip**.
+4. Bật `Play On Awake` và `Loop` để thử nhạc nền. Đặt `Spatial Blend = 0` (2D).
+5. Nhấn **Play**, sau đó lần lượt thay đổi `Volume`, `Mute`, `Pitch` và ghi lại sự khác biệt.
+6. Để thử âm thanh sự kiện, tắt `Play On Awake`, thêm đoạn mã dưới đây và nhấn phím Space.
+
+```csharp
+using UnityEngine;
+
+[RequireComponent(typeof(AudioSource))]
+public class PlayOnSpace : MonoBehaviour
+{
+    private AudioSource source;
+    private void Awake() => source = GetComponent<AudioSource>();
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) source.Play();
+    }
+}
+```
+
+> Ví dụ dùng **Input Manager cũ** (`Input.GetKeyDown`). Nếu dự án chỉ bật **Input System mới**, hãy đổi thiết lập Active Input Handling hoặc triển khai input action tương đương.
+
+```mermaid
+flowchart LR
+ A[AudioClip] --> B[AudioSource]
+ B --> C[AudioListener ở Camera]
+ C --> D[Âm thanh được nghe]
+```
+
+**Kiểm thử:** bật/tắt `Play On Awake` và so sánh trường hợp âm thanh phát tự động với phát khi nhấn Space.

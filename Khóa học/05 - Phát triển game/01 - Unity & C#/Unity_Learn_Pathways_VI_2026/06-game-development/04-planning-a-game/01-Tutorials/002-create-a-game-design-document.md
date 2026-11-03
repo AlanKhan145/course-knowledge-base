@@ -3,76 +3,73 @@ title: "Create a Game Design Document"
 pathway: "Game Development"
 module: "Planning a game"
 lesson_number: 2
-lesson_type: tutorial
+lesson_type: "tutorial"
 unity_version: "6.3"
 source_mission: "https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+language: "vi"
+content_type: "Biên tập học liệu tiếng Việt từ tệp do người dùng cung cấp"
 ---
 
 # Bài 02 — Create a Game Design Document
 
-> **Pathway:** Game Development · **Mission:** Planning a game · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Nguồn và phạm vi:** Bản biên tập tiếng Việt dựa trên tệp hướng dẫn người dùng cung cấp, vốn được tự biên soạn từ đề mục công khai. Phần ví dụ, bảng và sơ đồ được bổ sung để học tập; **không phải bản dịch chính thức, transcript hay câu hỏi quiz chính thức của Unity**.
 
-> **Nguồn đối chiếu:** [Planning a game trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+**Bài gốc để đối chiếu:** [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3)
 
-## 1. Tổng quan
+## 1. Game Design Document (GDD) là gì?
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Planning a game*, bài **Create a Game Design Document** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+GDD là tài liệu mô tả ý định thiết kế và các quyết định quan trọng. Nó giúp cá nhân hoặc nhóm thống nhất **trò chơi sẽ làm gì**, không thay thế việc thử nghiệm. Với dự án nhỏ, GDD ngắn gọn và cập nhật thường xuyên sẽ hữu ích hơn tài liệu dài nhưng không sử dụng.
 
-## 2. Mục tiêu học tập
+## 2. Mẫu GDD tối thiểu
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Create a Game Design Document** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Mục | Câu hỏi phải trả lời |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Tên / elevator pitch | Mô tả game trong 1–2 câu? |
+| Người chơi mục tiêu | Ai sẽ chơi, thời lượng một lượt bao lâu? |
+| Genre và platform | Thể loại, thiết bị phát hành dự kiến? |
+| Core loop | Người chơi làm gì → nhận phản hồi gì → tiến triển ra sao? |
+| Điều khiển | Phím, chuột, chạm hay tay cầm? |
+| Luật thắng/thua | Khi nào kết thúc, có thể chơi lại thế nào? |
+| UI và phản hồi | Hiện điểm, máu, thời gian, âm thanh ở đâu? |
+| MVP / ngoài phạm vi | Điều gì nhất thiết có ở bản đầu; điều gì hoãn lại? |
+| Rủi ro / tiêu chí đạt | Giả định nào phải kiểm chứng và đo bằng gì? |
 
-## 4. Thực hành từng bước
+## 3. Ví dụ mini-GDD: Tránh thiên thạch
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+- **Pitch:** điều khiển tàu tránh thiên thạch đang rơi, cố gắng đạt điểm cao.
+- **Đối tượng:** người chơi casual, một ván 1–3 phút (mục tiêu thiết kế, chưa phải số liệu kiểm thử).
+- **Core loop:** né → sống sót → tăng điểm theo thời gian → độ khó tăng → thua → chơi lại.
+- **Điều khiển:** A/D hoặc mũi tên trái/phải; có thể bổ sung chạm sau.
+- **MVP:** di chuyển, sinh vật cản, phát hiện va chạm, điểm, nút chơi lại.
+- **Để sau:** skin, hiệu ứng hạt phức tạp, bảng xếp hạng online.
+- **Giả thuyết kiểm chứng:** người chơi hiểu mục tiêu và điều khiển mà không cần hướng dẫn miệng.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart TD
+ A[Bắt đầu] --> B[Điều khiển tàu]
+ B --> C{Va chạm?}
+ C -- Không --> D[Cộng điểm / tăng thử thách]
+ D --> B
+ C -- Có --> E[Game over]
+ E --> F[Chơi lại]
+ F --> A
+```
 
-## 5. Bài tập củng cố
+## 4. Thực hành và nghiệm thu
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Planning a game** để tạo một tương tác nhỏ.
+1. Sao chép bảng mẫu thành GDD cho trò chơi của bạn.
+2. Xác định ba tính năng ưu tiên cao, mỗi tính năng kèm một điều kiện đạt cụ thể.
+3. Đánh dấu các giả định chưa thử nghiệm là **giả thuyết**, không trình bày như kết luận.
+4. Sau mỗi lần playtest, thêm ngày, quan sát và quyết định cập nhật.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Đầu ra:** bản GDD 1–2 trang và danh sách MVP có thể kiểm chứng.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 5. Checklist hoàn thành
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Nêu được mục tiêu và ít nhất hai khái niệm cốt lõi của bài.
+- [ ] Có sản phẩm thực hành hoặc câu trả lời minh chứng.
+- [ ] Ghi lại kết quả mong đợi, kết quả thực tế và bằng chứng.
+- [ ] Đối chiếu giao diện, package và hướng dẫn với phiên bản Unity đang sử dụng.
 
 ---
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Ghi chú: vị trí menu và khả năng hỗ trợ platform có thể thay đổi giữa các phiên bản Unity. Các dữ liệu, con số trong ví dụ là giả định phục vụ học tập, không phải kết quả đo thực tế.*

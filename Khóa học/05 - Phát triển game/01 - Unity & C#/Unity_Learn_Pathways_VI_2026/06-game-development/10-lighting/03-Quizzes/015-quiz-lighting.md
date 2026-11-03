@@ -68,6 +68,38 @@ Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm ch�
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Bộ câu hỏi luyện tập bổ sung
+
+**Câu 1.** Trong scene ngoài trời, loại đèn nào phù hợp nhất để mô phỏng mặt trời? **Đáp án:** Directional Light, vì có hướng chiếu thống nhất.
+
+**Câu 2.** Vì sao cần UV lightmap phù hợp? **Đáp án:** để ánh sáng bake được lưu lên bề mặt mà không lỗi do vùng UV chồng lấn hoặc thiếu độ phân giải.
+
+**Câu 3.** Một nhân vật chuyển động đi từ vùng sáng sang vùng tối trong cảnh bake cần kỹ thuật gì? **Đáp án gợi ý:** Light Probes cho Renderer phù hợp.
+
+**Câu 4.** Reflection Probes có thay thế hoàn toàn phản xạ gương chính xác không? **Không:** đây là biểu diễn môi trường phục vụ phản xạ, có giới hạn tùy kỹ thuật và pipeline.
+
+**Câu 5.** Khi bóng bị tách khỏi chân nhân vật cần xem gì? **Đáp án gợi ý:** Bias và thiết lập bóng/Renderer.
+
+**Câu 6.** Dự án sprite 2D muốn dùng Light 2D cần điều kiện nào? **Đáp án:** URP 2D Renderer và vật liệu phù hợp.
+
+*Đây là câu hỏi tự biên soạn, không phải đáp án bài quiz chính thức của Unity Learn.*
+
+## Chuyên đề thực hành — Bộ câu hỏi luyện tập bổ sung
+
+**Câu 1.** Trong scene ngoài trời, loại đèn nào phù hợp nhất để mô phỏng mặt trời? **Đáp án:** Directional Light, vì có hướng chiếu thống nhất.
+
+**Câu 2.** Vì sao cần UV lightmap phù hợp? **Đáp án:** để ánh sáng bake được lưu lên bề mặt mà không lỗi do vùng UV chồng lấn hoặc thiếu độ phân giải.
+
+**Câu 3.** Một nhân vật chuyển động đi từ vùng sáng sang vùng tối trong cảnh bake cần kỹ thuật gì? **Đáp án gợi ý:** Light Probes cho Renderer phù hợp.
+
+**Câu 4.** Reflection Probes có thay thế hoàn toàn phản xạ gương chính xác không? **Không:** đây là biểu diễn môi trường phục vụ phản xạ, có giới hạn tùy kỹ thuật và pipeline.
+
+**Câu 5.** Khi bóng bị tách khỏi chân nhân vật cần xem gì? **Đáp án gợi ý:** Bias và thiết lập bóng/Renderer.
+
+**Câu 6.** Dự án sprite 2D muốn dùng Light 2D cần điều kiện nào? **Đáp án:** URP 2D Renderer và vật liệu phù hợp.
+
+*Đây là câu hỏi tự biên soạn, không phải đáp án bài quiz chính thức của Unity Learn.*
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

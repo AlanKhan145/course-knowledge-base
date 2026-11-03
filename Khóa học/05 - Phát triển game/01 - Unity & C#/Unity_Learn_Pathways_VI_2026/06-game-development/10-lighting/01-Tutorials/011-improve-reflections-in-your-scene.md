@@ -65,6 +65,17 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Phản xạ môi trường và Reflection Probes
+
+Vật liệu kim loại hoặc bề mặt nhẵn cần thông tin môi trường để phản xạ trông thuyết phục. **Reflection Probe** ghi lại môi trường xung quanh ở một vị trí và cung cấp dữ liệu phản xạ cho Renderer; khác với hình ảnh phản chiếu dạng gương chính xác.
+
+1. Đặt một quả cầu vật liệu metallic/smooth trong phòng.
+2. Thêm Reflection Probe, chỉnh vùng ảnh hưởng bao quanh khu vực cần phản xạ.
+3. Chọn chế độ cập nhật phù hợp (baked, realtime hoặc tùy pipeline), chụp ảnh so sánh.
+4. Kiểm tra trường hợp probe sai vị trí hoặc chưa cập nhật; hạn chế tăng nhiều probe realtime không cần thiết.
+
+**Ghi nhớ:** phản xạ đẹp phụ thuộc cả probe, vật liệu, độ nhám, ánh sáng môi trường và render pipeline.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

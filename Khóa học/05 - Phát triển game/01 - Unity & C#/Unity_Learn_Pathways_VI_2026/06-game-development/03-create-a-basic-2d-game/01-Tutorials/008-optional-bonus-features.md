@@ -94,3 +94,28 @@ public class Pickup2D : MonoBehaviour
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 9. Ba tính năng nâng cao tùy chọn
+
+Đây là **gợi ý triển khai tự biên soạn**, không phải danh sách tính năng chính thức của Unity Learn.
+
+| Tính năng | Cách tiếp cận | Kiểm chứng |
+|---|---|---|
+| Tăng độ khó | Giảm thời gian spawn theo điểm, nhưng giữ giá trị tối thiểu | Sau mỗi mốc điểm, chướng ngại sinh nhanh hơn |
+| Hiệu ứng va chạm | Particle System và AudioSource khi Game Over | Hiệu ứng xuất hiện đúng một lần |
+| Điểm cao nhất | Lưu điểm cao qua `PlayerPrefs` | Khởi động lại vẫn hiển thị kỷ lục |
+
+```csharp
+// Đặt sau khi kết thúc một lượt và có biến finalScore:
+int best = PlayerPrefs.GetInt("BestScore2D", 0);
+if (finalScore > best)
+{
+    PlayerPrefs.SetInt("BestScore2D", finalScore);
+    PlayerPrefs.Save();
+}
+```
+
+**Lưu ý:** `PlayerPrefs` thích hợp dữ liệu đơn giản, không dành cho dữ liệu nhạy cảm hay chống gian lận.
+

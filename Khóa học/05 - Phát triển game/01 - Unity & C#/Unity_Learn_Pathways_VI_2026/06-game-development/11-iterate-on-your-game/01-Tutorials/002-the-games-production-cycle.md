@@ -1,78 +1,71 @@
 ---
-title: "The games production cycle"
-pathway: "Game Development"
-module: "Iterate on your game"
+title: 'The games production cycle'
+pathway: 'Game Development'
+module: 'Iterate on your game'
 lesson_number: 2
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/game-development/unit/iterate-on-your-game?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+unity_version: '6.3'
+content_type: 'Tài liệu tiếng Việt tự biên soạn theo đề mục Unity Learn'
+coverage: 'outline_based_not_official_transcript'
 ---
 
 # Bài 02 — The games production cycle
 
-> **Pathway:** Game Development · **Mission:** Iterate on your game · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Chủ đề:** Chu trình thiết kế, prototype, kiểm thử và lặp. **Nguồn tham khảo:** [Unity Learn – Iterate on your game](https://learn.unity.com/pathway/game-development/unit/iterate-on-your-game?version=6.3). Nội dung này không phải toàn văn hoặc bản dịch chính thức.
 
-> **Nguồn đối chiếu:** [Iterate on your game trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/iterate-on-your-game?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu học tập
 
-## 1. Tổng quan
+- Hiểu vấn đề cần giải quyết và mô tả kết quả mong đợi.
+- Thực hành trong Unity Editor thông qua một ví dụ nhỏ.
+- Chạy kiểm thử, xác định lỗi và ghi lại cải tiến.
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Iterate on your game*, bài **The games production cycle** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Kiến thức nền tảng
 
-## 2. Mục tiêu học tập
+Nên bắt đầu từ một mục tiêu cụ thể, thử với scene nhỏ, sử dụng các thành phần GameObject, Component, Inspector và Play mode để đánh giá kết quả. Chỉ thay đổi một yếu tố mỗi lần để dễ xác định ảnh hưởng.
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **The games production cycle** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Bài thực hành
 
-## 3. Kiến thức trọng tâm
+1. Mở project và scene thử nghiệm trong Unity.
+2. Chọn một nhiệm vụ liên quan đến **Chu trình thiết kế, prototype, kiểm thử và lặp** và xác định tiêu chí đạt.
+3. Thực hiện một thay đổi nhỏ, lưu scene, chạy Play mode và đọc Console.
+4. Ghi lại kết quả trước/sau, các lỗi xuất hiện và cách khắc phục.
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+## 4. Ghi chép kiểm thử
 
-### Thuật ngữ và mối quan hệ
+| Mong đợi | Thực tế | Minh chứng | Điều chỉnh tiếp theo |
+|---|---|---|---|
+| Điền trước khi chạy | Điền sau kiểm thử | Ảnh/Console | Quyết định giữ hay sửa |
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+## 5. Checklist
 
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Bài tập củng cố
-
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Iterate on your game** để tạo một tương tác nhỏ.
-
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Iterate on your game](https://learn.unity.com/pathway/game-development/unit/iterate-on-your-game?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Hoàn thành một tình huống thực hành.
+- [ ] Có kết quả quan sát và minh chứng.
+- [ ] Giải thích được ít nhất một vấn đề.
+- [ ] Đối chiếu lại nội dung chính thức trên Unity Learn.
 
 ---
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+## Sơ đồ: Chu trình sản xuất và cải tiến game
+
+```mermaid
+flowchart TD
+    A[Ý tưởng / yêu cầu] --> B[Thiết kế gameplay và core loop]
+    B --> C[Prototype với placeholder]
+    C --> D[Playtest với người chơi]
+    D --> E[Phân tích phản hồi]
+    E --> F[Ưu tiên backlog]
+    F --> C
+    E --> G{Đã đáp ứng tiêu chí?}
+    G -->|Có| H[Hoàn thiện và phát hành]
+```
+
+### Mẫu nhật ký lặp (bổ sung)
+
+| Phiên bản | Giả thuyết | Thay đổi | Chỉ dấu quan sát | Quyết định |
+|---|---|---|---|---|
+| v0.1 | Điều khiển quá nhanh | Giảm `speed` | Người thử vượt chướng ngại ít hơn | Giữ hoặc thử lại |
+
+Nên phân biệt **lỗi kỹ thuật** (game chạy sai) và **vấn đề trải nghiệm** (game chạy đúng nhưng khó điều khiển).
+
+---
+
+*Ghi chú phiên bản:* Cần kiểm tra UI và tài liệu tương ứng với phiên bản Unity đang sử dụng.

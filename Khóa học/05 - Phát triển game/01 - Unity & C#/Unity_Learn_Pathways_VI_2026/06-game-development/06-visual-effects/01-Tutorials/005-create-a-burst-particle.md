@@ -3,76 +3,65 @@ title: "Create a burst particle"
 pathway: "Game Development"
 module: "Visual effects"
 lesson_number: 5
-lesson_type: tutorial
+lesson_type: "tutorial"
 unity_version: "6.3"
 source_mission: "https://learn.unity.com/pathway/game-development/unit/visual-effects?version=6.3"
 content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
 coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
 ---
 
 # Bài 05 — Create a burst particle
 
-> **Pathway:** Game Development · **Mission:** Visual effects · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Nguồn:** [Unity Learn — Visual Effects](https://learn.unity.com/pathway/game-development/unit/visual-effects?version=6.3). Tài liệu học tập tự biên soạn, không phải bản dịch hay nội dung chính thức của Unity.
 
-> **Nguồn đối chiếu:** [Visual effects trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/visual-effects?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu học tập
 
-## 1. Tổng quan
+- Hiểu vai trò của chủ đề **Create a burst particle** trong phát triển trò chơi.
+- Thực hành một scene nhỏ có kết quả quan sát được.
+- Kiểm tra lỗi bằng Inspector, Console và Play mode.
 
-**Chủ đề:** Hiệu ứng hạt và VFX. Trong ngữ cảnh *Visual effects*, bài **Create a burst particle** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## 2. Kiến thức cơ sở
 
-## 2. Mục tiêu học tập
+- **Scene** là không gian chứa GameObject.
+- **Component** cung cấp dữ liệu và hành vi cho GameObject.
+- **Particle System** cho phép tạo hiệu ứng như bụi, lửa, khói và phép thuật.
+- **Emission**, **Shape**, **Lifetime** và **Renderer** ảnh hưởng đến cách hạt được phát, chuyển động và hiển thị.
 
-- Trình bày được mục đích của **hiệu ứng hạt và vfx** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Create a burst particle** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## 3. Chuyên đề thực hành — Burst cho sự kiện tức thời
 
-## 3. Kiến thức trọng tâm
+**Ví dụ: hiệu ứng khi vật thể bị phá hủy.**
 
-- Particle System mô phỏng các phần tử như khói, lửa, bụi với emission, shape, velocity và lifetime.
-- Burst phù hợp vụ nổ ngắn; emission liên tục phù hợp mưa, sương hay lửa cháy.
-- VFX Graph thường phù hợp hiệu ứng có mật độ hạt cao nhưng phụ thuộc tương thích pipeline/nền tảng.
+1. Tạo Particle System tại vị trí va chạm.
+2. Trong `Emission`, đặt `Rate over Time = 0` và cấu hình một `Burst` tại thời điểm bắt đầu.
+3. Tắt `Looping` nếu muốn hiệu ứng chỉ chạy một lần; bật `Play On Awake` tùy cách kích hoạt.
+4. Sử dụng `Size over Lifetime` và `Color over Lifetime` để tạo cảm giác bùng sáng rồi tan biến.
+5. Đưa đối tượng vào Prefab để tái sử dụng cho nhiều sự kiện.
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+sequenceDiagram
+ participant G as Gameplay
+ participant V as Particle System
+ participant P as Người chơi
+ G->>V: Phát sinh va chạm
+ V->>V: Emit Burst
+ V-->>P: Hiển thị vụ nổ ngắn
+ V->>V: Hạt hết lifetime
+```
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+**Phân biệt:** Burst tạo số hạt theo một đợt, còn phát liên tục duy trì dòng hạt. Các giá trị phụ thuộc quy mô scene và mục tiêu thẩm mỹ.
 
-## 4. Thực hành từng bước
+## 4. Quy trình kiểm chứng
 
-1. **Bước 1:** Tạo Particle System ở vị trí sự kiện và thử Start Lifetime, Start Speed, Emission.
-2. **Bước 2:** Chuyển từ emission liên tục sang burst rồi so sánh hiệu ứng.
-3. **Bước 3:** Thêm biến thiên Size over Lifetime và Color over Lifetime để hiệu ứng có nhịp rõ.
-4. **Bước 4:** Thử bật/tắt hệ thống theo hành động và theo dõi số hạt lẫn frame time.
+1. Xác định kết quả mong đợi trong Game view.
+2. Tạo scene thử nghiệm, thay đổi từng tham số một.
+3. Chạy Play mode, theo dõi Console và hiệu năng.
+4. Chụp ảnh/video kết quả, giải thích một trường hợp lỗi và cách khắc phục.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Checklist hoàn thành
 
-## 5. Bài tập củng cố
+- [ ] Có scene hoặc project minh họa hoạt động.
+- [ ] Giải thích được ít nhất ba khái niệm áp dụng.
+- [ ] Có ảnh/video minh chứng.
+- [ ] Có ghi chú lỗi và hướng kiểm tra.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Visual effects** để tạo một tương tác nhỏ.
-
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: hiệu ứng phát quá nhiều hạt gây tụt FPS hoặc renderer/material không tương thích pipeline.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Visual effects](https://learn.unity.com/pathway/game-development/unit/visual-effects?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Lưu ý: Các thao tác và giao diện có thể khác giữa phiên bản Unity hoặc render pipeline.*

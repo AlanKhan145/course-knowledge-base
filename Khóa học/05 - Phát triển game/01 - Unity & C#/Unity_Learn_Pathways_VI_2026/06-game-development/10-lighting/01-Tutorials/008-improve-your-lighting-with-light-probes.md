@@ -65,6 +65,24 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Ánh sáng gián tiếp cho đối tượng di chuyển
+
+**Light Probes** lấy mẫu ánh sáng tại nhiều vị trí trong không gian và nội suy kết quả cho Renderer phù hợp, giúp nhân vật di chuyển trông hòa hợp hơn với bối cảnh bake.
+
+1. Tạo **Light Probe Group** trong scene 3D có vùng sáng và vùng tối.
+2. Bố trí điểm probe quanh đường đi và nơi ánh sáng thay đổi mạnh; tránh đặt toàn bộ probe trên một mặt phẳng.
+3. Bake ánh sáng, sau đó di chuyển đối tượng động giữa các vùng.
+4. Kiểm tra cấu hình Light Probes trên Renderer và quan sát thay đổi độ sáng.
+
+```mermaid
+flowchart LR
+ A[Ánh sáng scene] --> B[Các điểm Light Probe]
+ B --> C[Nội suy tại vị trí vật thể động]
+ C --> D[Chiếu sáng Renderer]
+```
+
+**Phân biệt:** Light Probes chủ yếu phục vụ thông tin chiếu sáng; Reflection Probes chủ yếu phục vụ phản xạ môi trường.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

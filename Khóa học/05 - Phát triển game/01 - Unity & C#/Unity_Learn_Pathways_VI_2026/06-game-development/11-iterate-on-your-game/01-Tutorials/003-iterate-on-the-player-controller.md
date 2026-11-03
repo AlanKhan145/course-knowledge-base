@@ -96,4 +96,28 @@ public class SimpleMover : MonoBehaviour
 
 ---
 
+## Sơ đồ: Xử lý input và cập nhật di chuyển
+
+```mermaid
+flowchart LR
+    A[Đọc input] --> B[Tính hướng di chuyển]
+    B --> C[Nhân tốc độ và deltaTime]
+    C --> D[Cập nhật vị trí]
+    D --> E[Kiểm tra biên / va chạm]
+    E --> F[Chạy thử và tinh chỉnh]
+```
+
+**Lưu ý khi thực hành:** Đoạn `SimpleMover` ở trên dùng **Input Manager cũ** và cập nhật `Transform` trực tiếp. Khi dùng `Rigidbody` để xử lý vật lý, hãy thiết kế luồng di chuyển nhất quán, thường đọc input trong `Update` và thực hiện cập nhật vật lý trong `FixedUpdate`. Kiểm tra chế độ input của dự án trước khi sao chép mã.
+
+### Bảng kiểm thử gợi ý
+
+| Tình huống | Kỳ vọng |
+|---|---|
+| Giữ A hoặc D | Đi đúng hướng |
+| Thả phím | Dừng tác động điều khiển |
+| FPS thấp và cao | Tốc độ theo giây gần tương đương |
+| Chạm ranh giới | Không vượt quá vùng chơi nếu có Clamp |
+
+---
+
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.

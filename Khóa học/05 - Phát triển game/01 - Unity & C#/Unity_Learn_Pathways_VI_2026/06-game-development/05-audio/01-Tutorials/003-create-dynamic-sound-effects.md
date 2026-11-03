@@ -76,3 +76,47 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Âm thanh động theo sự kiện gameplay
+
+Âm thanh động là âm thay đổi theo trạng thái hoặc tương tác, không nhất thiết là một file khác. Có thể biến đổi **pitch**, **volume**, chọn ngẫu nhiên clip hoặc hạn chế số lần phát liên tiếp.
+
+### Ví dụ: phát một trong nhiều âm nhặt vật
+
+```csharp
+using UnityEngine;
+
+[RequireComponent(typeof(AudioSource))]
+public class CollectibleAudio : MonoBehaviour
+{
+    [SerializeField] private AudioClip[] clips;
+    [SerializeField, Range(0.8f, 1.2f)] private float minPitch = 0.95f;
+    [SerializeField, Range(0.8f, 1.2f)] private float maxPitch = 1.05f;
+    private AudioSource audioSource;
+
+    private void Awake() => audioSource = GetComponent<AudioSource>();
+
+    public void PlayCollectSound()
+    {
+        if (clips == null || clips.Length == 0) return;
+        audioSource.pitch = Random.Range(minPitch, maxPitch);
+        var clip = clips[Random.Range(0, clips.Length)];
+        audioSource.PlayOneShot(clip);
+    }
+}
+```
+
+Gọi `PlayCollectSound()` từ logic nhặt vật sau khi xác định va chạm hợp lệ. `PlayOneShot` giúp phát clip ngắn mà không phải thay thế clip nền đang được cấu hình trong nguồn âm đó; nhiều lần gọi vẫn có thể chồng âm.
+
+```mermaid
+flowchart TD
+ A[Va chạm với vật phẩm] --> B{Có phải vật phẩm hợp lệ?}
+ B -- Không --> C[Không phát âm]
+ B -- Có --> D[Chọn AudioClip]
+ D --> E[Biến thiên pitch nhẹ]
+ E --> F[PlayOneShot]
+```
+
+**Bài thử:** nhặt liên tiếp 10 vật phẩm. Kiểm tra mức âm lượng và cảm giác lặp; thử thêm giới hạn thời gian phát nếu âm quá dày.

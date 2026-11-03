@@ -75,4 +75,27 @@ checked_at: "2026-10-21"
 
 ---
 
+## Bổ sung: Mẹo thao tác và kiểm tra nhanh
+
+| Mục đích | Thao tác tham khảo |
+|---|---|
+| Di chuyển đối tượng | `W` |
+| Xoay đối tượng | `E` |
+| Thay đổi tỉ lệ | `R` |
+| Tập trung đối tượng đã chọn trong Scene view | `F` |
+| Lưu scene | `Ctrl+S` (Windows) / `Cmd+S` (macOS) |
+| Xem lỗi chạy | Mở Console và xem thông báo đầu tiên |
+
+```mermaid
+flowchart LR
+    A[Chọn GameObject trong Hierarchy] --> B[Kiểm tra Component trong Inspector]
+    B --> C[Quan sát Scene view]
+    C --> D[Chạy Game view]
+    D --> E[Đọc Console và so sánh]
+```
+
+Nhớ rằng thay đổi Inspector trong Play mode thường không được giữ lại sau khi thoát; cần lưu cấu hình trong Edit mode.
+
+---
+
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.

@@ -6,91 +6,82 @@ lesson_number: 6
 lesson_type: tutorial
 unity_version: "6.3"
 source_mission: "https://learn.unity.com/pathway/game-development/unit/create-a-basic-2d-game?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
+content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai và tài liệu người dùng cung cấp"
 coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
 ---
 
-# Bài 06 — Add a scoring system
+# Bài 06 — Xây dựng hệ thống tính điểm (Add a scoring system)
 
-> **Pathway:** Game Development · **Mission:** Create a basic 2D game · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Nguồn đối chiếu:** [Unity Learn — Create a basic 2D game](https://learn.unity.com/pathway/game-development/unit/create-a-basic-2d-game?version=6.3). Đây là tài liệu học tập tự biên soạn, không phải bản dịch hay transcript chính thức.
 
-> **Nguồn đối chiếu:** [Create a basic 2D game trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/create-a-basic-2d-game?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## Mục tiêu
 
-## 1. Tổng quan
+- Nắm được kỹ năng **xây dựng hệ thống tính điểm** và vai trò của nó trong game 2D.
+- Thực hiện ví dụ trong Unity Editor và xác minh ở Play Mode.
+- Tìm được ít nhất một lỗi có thể tái hiện và cách khắc phục.
 
-**Chủ đề:** Xây dựng trò chơi và hình ảnh 2D. Trong ngữ cảnh *Create a basic 2D game*, bài **Add a scoring system** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## Kiến thức nền
 
-## 2. Mục tiêu học tập
+- `Scene` là không gian bố trí GameObject; mỗi GameObject có các `Component` được chỉnh qua Inspector.
+- `SpriteRenderer` hiển thị hình 2D; `Sorting Layer` và `Order in Layer` điều khiển thứ tự vẽ.
+- Tương tác 2D sử dụng `Rigidbody2D`, `Collider2D` và callbacks như `OnTriggerEnter2D`.
 
-- Trình bày được mục đích của **xây dựng trò chơi và hình ảnh 2d** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Add a scoring system** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## Kiểm thử và ghi chép
 
-## 3. Kiến thức trọng tâm
+Ghi rõ **kết quả mong đợi → kết quả thực tế → ảnh hoặc Console → nhận xét**. Kiểm tra tham chiếu Inspector, trạng thái GameObject và cách cấu hình Input/Physics khi Play Mode không cho kết quả như dự đoán.
 
-- SpriteRenderer vẽ ảnh 2D; Sprite Editor có thể tách sprite sheet thành nhiều sprite nhỏ.
-- Rigidbody2D và Collider2D khác với hệ 3D; callbacks vật lý 2D dùng hậu tố 2D.
-- Sorting Layer và Order in Layer quyết định thứ tự hiển thị sprite.
+## Checklist
 
-### Thuật ngữ và mối quan hệ
+- [ ] Có scene chạy thử và không có lỗi nghiêm trọng trong Console.
+- [ ] Kiểm tra được thay đổi một tham số trong Inspector tác động ra sao.
+- [ ] Lưu ảnh/video minh chứng và tự giải thích một lỗi.
+- [ ] Đối chiếu bài gốc Unity Learn nếu cần các bước, tài nguyên chính thức.
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+---
 
-## 4. Thực hành từng bước
+## 9. Bổ sung hệ thống điểm thực sự
 
-1. **Bước 1:** Tạo scene 2D dùng camera Orthographic, đặt một Sprite làm nhân vật.
-2. **Bước 2:** Thiết lập Pixels Per Unit, sorting layer và kiểm tra kích thước hiển thị.
-3. **Bước 3:** Thêm Rigidbody2D/Collider2D nếu cần tương tác và kiểm tra vật thể ở Play mode.
-4. **Bước 4:** Tạo một hoạt động nhặt vật hoặc né chướng ngại rồi ghi nhận sự kiện hoàn thành.
+Trong tài liệu cơ sở, đoạn `Pickup2D` chỉ ghi log khi thu thập vật và tự xóa, **chưa cộng điểm**. Phần mở rộng này gắn hành vi nhặt vật với hiển thị điểm số bằng TextMeshPro.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Mã ví dụ tự biên soạn
+```mermaid
+flowchart LR
+    A[Player chạm vật phẩm] --> B[OnTriggerEnter2D]
+    B --> C[GameManager.AddScore]
+    C --> D[Cập nhật TMP_Text]
+    B --> E[Destroy vật phẩm]
+```
 
 ```csharp
+using TMPro;
 using UnityEngine;
 
-public class Pickup2D : MonoBehaviour
+public class ScoreManager2D : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    [SerializeField] TMP_Text scoreText;
+    int score;
+    void Start() => Refresh();
+    public void AddScore(int amount)
+    {
+        score += amount;
+        Refresh();
+    }
+    void Refresh()
+    {
+        if (scoreText != null) scoreText.text = $"Điểm: {score}";
+    }
+}
+
+public class ScorePickup2D : MonoBehaviour
+{
+    [SerializeField] ScoreManager2D scoreManager;
+    [SerializeField] int points = 10;
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        Debug.Log("Đã nhặt vật phẩm 2D");
+        if (scoreManager != null) scoreManager.AddScore(points);
         Destroy(gameObject);
     }
 }
 ```
 
-*Lưu ý:* phải có thiết lập Collider2D/ Rigidbody2D thích hợp, bật `Is Trigger`, và đối tượng người chơi có tag `Player`.
-
-## 6. Bài tập củng cố
-
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Create a basic 2D game** để tạo một tương tác nhỏ.
-
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
-
-## 7. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: trộn Collider 3D với Rigidbody2D hoặc sprite bị che do sorting layer.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 8. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Create a basic 2D game](https://learn.unity.com/pathway/game-development/unit/create-a-basic-2d-game?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Thiết lập:** đặt `ScoreManager2D` trên object quản lý, kéo `TMP_Text` vào `scoreText` và kéo manager vào từng prefab `ScorePickup2D` (hoặc dùng khởi tạo runtime nếu tạo Prefab asset). Khi spawn Prefab từ asset, tham chiếu tới object trong scene không thể lưu trực tiếp trên asset: cần gán sau khi Instantiate hoặc dùng kiến trúc event/manager. **Kiểm thử:** nhặt ba vật +10 điểm phải hiển thị 30; không cộng lại khi đối tượng đã bị hủy.

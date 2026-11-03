@@ -76,3 +76,40 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Kế hoạch bổ sung audio vào game hoàn chỉnh
+
+Thay vì chèn âm tùy ý, lập **bảng sự kiện âm thanh** để kiểm soát các tình huống quan trọng.
+
+| Sự kiện | Loại âm | Trạng thái phát | Kiểm tra |
+|---|---|---|---|
+| Vào màn chơi | Nhạc nền | Loop, 2D | Không phát trùng sau khi reload |
+| Nhấn nút | UI click | 2D, one-shot | Chỉ một lần mỗi thao tác |
+| Va chạm | Impact | SFX theo sự kiện | Không quá lớn khi va chạm liên tục |
+| Nhặt vật | Pickup | One-shot | Chỉ phát khi nhận vật thành công |
+| Game Over | Jingle | Một lần | Âm nền giảm hoặc tạm dừng hợp lý |
+
+```mermaid
+flowchart TD
+ A[Gameplay Event] --> B[Audio Controller]
+ B --> C[Music Source]
+ B --> D[SFX Source]
+ B --> E[UI Source]
+ C --> F[Audio Mixer]
+ D --> F
+ E --> F
+ F --> G[Audio Listener]
+```
+
+### Checklist sản xuất
+
+- [ ] Tên file dễ nhận biết, tách thư mục `Music`, `SFX`, `UI`.
+- [ ] Thử âm ở độ lớn vừa phải trên loa và tai nghe.
+- [ ] Không có hai nhạc nền phát chồng khi chuyển scene.
+- [ ] Nguồn phát của âm ngắn không bị hủy trước khi hoàn tất.
+- [ ] Có công tắc chỉnh Music/SFX hoặc tối thiểu một thiết lập mute.
+- [ ] Có thông tin quyền sử dụng đối với mọi AudioClip được đưa vào bản phát hành.
+
+**Ghi chú:** Audio Mixer là lựa chọn mở rộng; nguồn tài liệu tải lên chỉ trình bày kiến thức nền Audio Source/Listener.

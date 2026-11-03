@@ -24,7 +24,7 @@ checked_at: "2026-10-21"
 ## 2. Mục tiêu học tập
 
 - Trình bày được mục đích của **âm thanh và phản hồi giác quan** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Add special effects to existing audio** và mô tả kết quả.
+- Xác định đầu ra, công cụ và thứ tự học phù hợp trước khi thực hành.
 - Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
 
 ## 3. Kiến thức trọng tâm
@@ -76,3 +76,39 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Thêm hiệu ứng cho âm thanh có sẵn
+
+Hiệu ứng như **Low Pass**, **High Pass**, **Echo** hay **Reverb** có thể thay đổi cảm giác về không gian và trạng thái trong game. Hãy so sánh bản **khô** (dry) và bản **có hiệu ứng** (wet) ở âm lượng tương đương.
+
+```mermaid
+flowchart LR
+ A[AudioClip] --> B[AudioSource]
+ B --> C[Audio Filter hoặc AudioMixer Effects]
+ C --> D[AudioListener]
+```
+
+### Bài tập: âm thanh ở dưới nước
+
+1. Tạo Audio Source phát một đoạn âm thanh lặp có bản quyền sử dụng phù hợp.
+2. Thêm **Audio Low Pass Filter** trên cùng GameObject.
+3. Khi ở trạng thái bình thường, thử cutoff cao như `22000 Hz`; khi vào vùng nước, giảm cutoff xuống khoảng `800–1200 Hz` để nghe sự khác biệt (giá trị minh họa).
+4. Thử **Audio Reverb Filter** hoặc hiệu ứng trên Audio Mixer nếu muốn tăng cảm giác không gian.
+5. Trở lại trạng thái bình thường; bảo đảm hiệu ứng không tồn tại ngoài ý muốn.
+
+```csharp
+using UnityEngine;
+
+[RequireComponent(typeof(AudioLowPassFilter))]
+public class UnderwaterAudio : MonoBehaviour
+{
+    private AudioLowPassFilter filter;
+    private void Awake() => filter = GetComponent<AudioLowPassFilter>();
+    public void SetUnderwater(bool underwater)
+        => filter.cutoffFrequency = underwater ? 1000f : 22000f;
+}
+```
+
+**Kiểm tra:** nghe bằng tai nghe ở mức âm lượng vừa phải; thay đổi từng tham số, tránh tăng volume để bù làm sai lệch so sánh.

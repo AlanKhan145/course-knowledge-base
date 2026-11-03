@@ -3,79 +3,75 @@ title: "Unit 4 - Planning your game"
 pathway: "Game Development"
 module: "Planning a game"
 lesson_number: 8
-lesson_type: quiz
+lesson_type: "quiz"
 unity_version: "6.3"
 source_mission: "https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+language: "vi"
+content_type: "Biên tập học liệu tiếng Việt từ tệp do người dùng cung cấp"
 ---
 
 # Bài 08 — Unit 4 - Planning your game
 
-> **Pathway:** Game Development · **Mission:** Planning a game · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+> **Nguồn và phạm vi:** Bản biên tập tiếng Việt dựa trên tệp hướng dẫn người dùng cung cấp, vốn được tự biên soạn từ đề mục công khai. Phần ví dụ, bảng và sơ đồ được bổ sung để học tập; **không phải bản dịch chính thức, transcript hay câu hỏi quiz chính thức của Unity**.
 
-> **Nguồn đối chiếu:** [Planning a game trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+**Bài gốc để đối chiếu:** [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3)
 
-## 1. Tổng quan
+## 1. Tổng kết Unit 4
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Planning a game*, bài **Unit 4 - Planning your game** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Unit 4 nối ý tưởng game với bản prototype khả thi: xác định thể loại, nền tảng, tài liệu thiết kế, quản lý lịch sử thay đổi và kiểm thử có phương pháp. Đây là **bộ câu hỏi ôn tập tự biên soạn**, không phải nội dung quiz chính thức trên Unity Learn.
 
-## 2. Mục tiêu học tập
+## 2. Sơ đồ tổng hợp
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+```mermaid
+flowchart TD
+ A[Ý tưởng game] --> B[Chọn genre và platform]
+ B --> C[Viết GDD / xác định MVP]
+ C --> D[Prototype / greybox]
+ D --> E[Playtest và debug]
+ E --> F[Đánh giá tiêu chí đạt]
+ F -- Cần cải thiện --> C
+ F -- Đạt --> G[Lưu phiên bản ổn định]
+```
 
-## 3. Kiến thức trọng tâm
+## 3. Câu hỏi tự đánh giá
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+1. Khác biệt giữa **core loop**, mechanic và theme là gì? Cho một ví dụ.
+2. GDD tối thiểu nên trả lời những câu hỏi nào?
+3. Tại sao prototype thường dùng placeholder assets trước khi đầu tư mỹ thuật?
+4. Một trò chơi có thể có nhiều genre không? Làm thế nào chọn genre chính?
+5. Vì sao quyết định mobile hay PC có thể làm thay đổi thiết kế input và UI?
+6. Các thư mục nào trong Unity nên được lưu vào Git, thư mục nào không?
+7. Nếu gặp `NullReferenceException`, bạn kiểm tra điều gì đầu tiên?
+8. Tại sao cần Profiler thay vì chỉ dựa vào FPS?
+9. Giải thích cách kiểm tra một giả thuyết thiết kế bằng playtest.
+10. Đề xuất ba tính năng MVP và một tiêu chí hoàn thành đo được cho game bạn muốn làm.
 
-### Thuật ngữ và mối quan hệ
+## 4. Gợi ý đối chiếu đáp án
 
-| Khái niệm | Vai trò trong bài |
+- Câu 1–3: nêu định nghĩa, ví dụ hành động–phản hồi–kết quả, lý do giảm rủi ro.
+- Câu 4–5: liên hệ cơ chế trọng tâm với kỳ vọng người chơi và giới hạn thiết bị.
+- Câu 6: có `Assets` và `.meta`, `Packages`, `ProjectSettings`; loại trừ cache như `Library`.
+- Câu 7–8: theo stack trace, tham chiếu Inspector; đo đúng điểm nghẽn và so sánh trước/sau.
+- Câu 9–10: nêu giả thuyết, điều kiện thử, bằng chứng quan sát và quyết định tiếp theo.
+
+## 5. Bài tập cuối unit
+
+Tạo một **pitch**, một GDD ngắn, một sơ đồ core loop, một scene prototype, repository Git và báo cáo playtest. Chụp ít nhất một hình minh chứng và ghi một vấn đề đã sửa. Tự đánh giá theo bảng:
+
+| Tiêu chí | Bằng chứng cần nộp |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Ý tưởng rõ | Pitch và genre/platform |
+| Phạm vi hợp lý | GDD và danh sách MVP |
+| Chơi thử được | Scene/prototype |
+| Có quy trình | Commit và bug report |
+| Có học từ kiểm thử | Quan sát và một thay đổi được lý giải |
 
-## 4. Thực hành từng bước
+## 5. Checklist hoàn thành
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
-
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **thiết kế trò chơi, xây dựng nguyên mẫu và lặp**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
-
-### Gợi ý tự chấm
-
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Nêu được mục tiêu và ít nhất hai khái niệm cốt lõi của bài.
+- [ ] Có sản phẩm thực hành hoặc câu trả lời minh chứng.
+- [ ] Ghi lại kết quả mong đợi, kết quả thực tế và bằng chứng.
+- [ ] Đối chiếu giao diện, package và hướng dẫn với phiên bản Unity đang sử dụng.
 
 ---
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Ghi chú: vị trí menu và khả năng hỗ trợ platform có thể thay đổi giữa các phiên bản Unity. Các dữ liệu, con số trong ví dụ là giả định phục vụ học tập, không phải kết quả đo thực tế.*

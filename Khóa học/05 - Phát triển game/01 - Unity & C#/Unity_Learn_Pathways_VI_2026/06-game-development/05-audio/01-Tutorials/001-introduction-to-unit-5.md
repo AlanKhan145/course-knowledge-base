@@ -76,3 +76,31 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Lộ trình học Unit 5
+
+```mermaid
+flowchart TD
+ A[Hiểu hệ thống Audio] --> B[Thiết lập Audio Source]
+ B --> C[Âm thanh động theo sự kiện]
+ C --> D[Âm thanh không gian 3D]
+ D --> E[Hiệu ứng âm thanh]
+ E --> F[Thiết kế soundscape]
+ F --> G[Ứng dụng vào game 2D và game của bạn]
+ G --> H[Tự kiểm tra Unit 5]
+```
+
+**Sản phẩm cuối chương:** một scene có nhạc nền, âm thanh sự kiện, âm thanh theo vị trí và ít nhất một hiệu ứng được kiểm thử bằng Play mode. Đây là đề xuất thực hành mở rộng, không phải yêu cầu chính thức của Unity Learn.
+
+### Phân biệt các vai trò
+
+| Thành phần | Chức năng | Ví dụ |
+|---|---|---|
+| `AudioClip` | Chứa dữ liệu âm thanh | `coin.wav` |
+| `AudioSource` | Phát clip, điều chỉnh âm lượng, pitch, không gian | Đối tượng Coin |
+| `AudioListener` | Vị trí nghe | Main Camera |
+| `AudioMixer` | Điều khiển/nhóm tín hiệu âm thanh | Nhóm Music, SFX |
+
+**Câu hỏi đầu vào:** Tại sao âm nhặt đồng xu nên phát theo sự kiện thay vì luôn bật `Play On Awake`?

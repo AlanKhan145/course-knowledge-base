@@ -24,7 +24,7 @@ checked_at: "2026-10-21"
 ## 2. Mục tiêu học tập
 
 - Trình bày được mục đích của **âm thanh và phản hồi giác quan** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Audio for 2D Projects** và mô tả kết quả.
+- Xác định đầu ra, công cụ và thứ tự học phù hợp trước khi thực hành.
 - Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
 
 ## 3. Kiến thức trọng tâm
@@ -76,3 +76,41 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Tích hợp âm thanh vào game 2D
+
+Trong game 2D, nhạc nền và phản hồi giao diện thường dùng **2D audio** (`Spatial Blend = 0`). Với game 2D có Camera di chuyển, cũng có thể dùng 3D audio cho những nguồn âm trong thế giới game nếu chủ động điều chỉnh không gian và khoảng cách.
+
+### Ví dụ: âm thanh khi thu thập vật phẩm
+
+```csharp
+using UnityEngine;
+
+public class Pickup2D : MonoBehaviour
+{
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioClip pickupClip;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        if (sfxSource != null && pickupClip != null)
+            sfxSource.PlayOneShot(pickupClip);
+        Destroy(gameObject);
+    }
+}
+```
+
+**Thiết lập:** Collider2D của vật phẩm bật `Is Trigger`; ít nhất một đối tượng trong cặp có Rigidbody2D; Player mang tag `Player`; tham chiếu `sfxSource` trỏ tới Audio Source tồn tại độc lập với vật phẩm (ví dụ trên AudioManager) để tiếng không bị cắt khi `Destroy` vật phẩm.
+
+```mermaid
+flowchart LR
+ A[Player chạm vật phẩm] --> B[OnTriggerEnter2D]
+ B --> C[Audio Source độc lập]
+ C --> D[PlayOneShot]
+ B --> E[Destroy vật phẩm]
+```
+
+**Test lỗi:** nếu âm im lặng, kiểm tra `Is Trigger`, Rigidbody2D, tag, Audio Listener, và tham chiếu được kéo trong Inspector.

@@ -1,81 +1,111 @@
----
-title: "Unit 1 - Unity fundamentals"
-pathway: "Game Development"
-module: "Get started in Unity"
-lesson_number: 4
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 04 — Ôn tập Unit 1: Những kiến thức cơ bản về Unity
 
-# Bài 04 — Unit 1 - Unity fundamentals
-
-> **Pathway:** Game Development · **Mission:** Get started in Unity · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Get started in Unity trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** Game Development → Get started in Unity  
+> **Phiên bản tham chiếu:** Unity 6.3  
+> **Nguồn:** [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3)  
+> **Lưu ý:** Tài liệu tiếng Việt biên tập và mở rộng từ các tệp được cung cấp; không phải bản dịch chính thức hoặc bản ghi đầy đủ của Unity Learn. Những bài tập minh họa bổ sung được đánh dấu là *thực hành đề xuất*.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Làm việc với Unity Editor. Trong ngữ cảnh *Get started in Unity*, bài **Unit 1 - Unity fundamentals** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Bài tổng kết kiến thức làm việc với Unity Editor, cách tổ chức GameObject và kiểm chứng kết quả. **Các câu hỏi sau đây được biên soạn để ôn tập**, không phải câu hỏi quiz chính thức trên Unity Learn.
 
-## 2. Mục tiêu học tập
+## 2. Sơ đồ kiến thức
 
-- Trình bày được mục đích của **làm việc với unity editor** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+```mermaid
+mindmap
+  root((Unity Fundamentals))
+    Scene
+      Hierarchy
+      GameObject
+        Component
+        Transform
+    Editor
+      Inspector
+      Project
+      Console
+    Quan sát
+      Scene view
+      Game view
+      Camera
+    Kiểm thử
+      Play mode
+      Lưu Scene
+      Phân tích lỗi
+```
 
-## 3. Kiến thức trọng tâm
+## 3. Kiến thức cần nhớ
 
-- Hierarchy liệt kê GameObject trong scene; Inspector hiển thị Component và thuộc tính của đối tượng được chọn.
-- Scene view dùng để xây dựng thế giới; Game view hiển thị kết quả qua Camera khi chạy.
-- Transform quản lý vị trí, xoay và tỉ lệ trong hệ trục không gian; thao tác local và global có thể khác nhau.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Khái niệm | Nội dung cốt lõi |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Scene | Chứa và tổ chức các GameObject |
+| GameObject | Đối tượng có thể gắn nhiều Component |
+| Component | Chứa thông số/hành vi cho GameObject |
+| Transform | Position, Rotation và Scale |
+| Hierarchy | Xem các đối tượng đang có trong Scene |
+| Inspector | Xem/sửa Component của đối tượng được chọn |
+| Scene view | Không gian thao tác thiết kế |
+| Game view | Hình ảnh Camera hiển thị |
+| Play mode | Chạy thử; chỉnh sửa trong chế độ này thường không được lưu |
+| Console | Xem thông báo, cảnh báo và lỗi |
 
-## 4. Thực hành từng bước
+## 4. Câu hỏi tự kiểm tra
 
-1. **Bước 1:** Mở scene, tìm Main Camera, Directional Light và một GameObject trong Hierarchy.
-2. **Bước 2:** Dùng Move (W), Rotate (E), Scale (R); thực hành chuyển giữa Local/Global.
-3. **Bước 3:** Nhìn đối tượng trong cả Scene view và Game view; ghi chú điểm khác biệt.
-4. **Bước 4:** Lưu scene, vào Play mode và thoát Play mode; kiểm tra thay đổi nào không được giữ lại.
+1. Scene và GameObject khác nhau như thế nào? Cho ví dụ.
+2. Component là gì? Vì sao Transform quan trọng?
+3. Hierarchy và Inspector có vai trò khác nhau ra sao?
+4. Scene view và Game view có thể hiển thị khác nhau vì sao?
+5. Phím `W`, `E`, `R` tương ứng với thao tác nào?
+6. Phân biệt thao tác theo trục Local và Global.
+7. Vì sao những thay đổi thực hiện trong Play mode có thể biến mất?
+8. Nếu không nhìn thấy Cube trong Game view, em sẽ kiểm tra điều gì trước?
+9. Làm thế nào để xác nhận một Scene đã lưu và chạy đúng?
+10. Khi một thay đổi gây lỗi, vì sao nên thử sửa một yếu tố mỗi lần?
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+## 5. Gợi ý trả lời
 
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
+1. Scene là không gian tổ chức; GameObject là từng đối tượng thuộc Scene.
+2. Component bổ sung dữ liệu/chức năng; Transform xác định vị trí, xoay và tỉ lệ.
+3. Hierarchy là danh sách đối tượng; Inspector hiển thị thuộc tính đối tượng được chọn.
+4. Game view phụ thuộc góc Camera; Scene view dùng cho biên tập và có thể quan sát từ hướng khác.
+5. `W` là Move, `E` là Rotate, `R` là Scale.
+6. Global theo trục thế giới; Local theo trục của đối tượng.
+7. Play mode chủ yếu để chạy thử, không phải nơi lưu chỉnh sửa thiết kế lâu dài.
+8. Xem trạng thái GameObject, Position và hướng nhìn Camera.
+9. Lưu Scene, chạy Play, so sánh kết quả quan sát với mục tiêu.
+10. Để xác định rõ thay đổi nào gây ra lỗi.
 
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **làm việc với unity editor**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
+## 6. Bài đánh giá thực hành (đề xuất)
 
-### Gợi ý tự chấm
+Tạo Scene gồm một đế và hai khối, đặt tên từng GameObject. Dùng Transform làm bố cục đối xứng, điều chỉnh Camera để các khối hiện đầy đủ trong Game view, lưu Scene rồi chạy thử.
 
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
+**Minh chứng cần chuẩn bị:** ảnh Hierarchy, Inspector khi chọn một đối tượng, Scene view và Game view.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+### Tiêu chí tự chấm (10 điểm)
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: sửa thuộc tính khi đang Play mode rồi mất thay đổi sau khi dừng.
+| Tiêu chí | Điểm |
+|---|---:|
+| Tạo và đặt tên đối tượng hợp lý | 2 |
+| Sử dụng Transform chính xác | 2 |
+| Phân biệt Scene/Game view | 2 |
+| Lưu và chạy thử Scene | 2 |
+| Giải thích một lỗi/kiểm thử | 2 |
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 7. Quy trình xử lý sự cố
 
-## 7. Checklist hoàn thành
+```mermaid
+flowchart TD
+    A[Phát hiện kết quả không đúng] --> B[Tái hiện tình huống]
+    B --> C[Đọc Console]
+    C --> D[Kiểm tra Inspector, Camera, Component]
+    D --> E[Đổi một giả thuyết / thông số]
+    E --> F[Chạy thử lại và ghi kết quả]
+```
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+## 8. Checklist hoàn thành Unit 1
 
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+- [ ] Nêu đúng các thuật ngữ chính.
+- [ ] Thực hành được thao tác Move / Rotate / Scale.
+- [ ] Biết sử dụng Hierarchy, Inspector, Scene và Game view.
+- [ ] Lưu được Scene và xác minh kết quả Play mode.
+- [ ] Trả lời được ít nhất 8/10 câu tự kiểm tra và giải thích bằng ví dụ.
+- [ ] Đọc lại bài gốc trên Unity Learn để đối chiếu nội dung chính thức.

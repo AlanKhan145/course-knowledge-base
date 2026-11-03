@@ -65,6 +65,16 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Làm quen công cụ Lighting trong Editor
+
+1. Tạo scene 3D và thêm Plane, Cube, Sphere; đặt các vật ở vị trí dễ thấy bóng.
+2. Từ menu **GameObject > Light**, tạo Point Light hoặc Spot Light.
+3. Trong **Inspector**, điều chỉnh Color, Intensity, Range, Spot Angle (nếu có) và Shadows.
+4. Mở **Window > Rendering > Lighting** (đường dẫn có thể khác theo phiên bản) để xem Environment và chế độ bake.
+5. So sánh **Scene view** với **Game view**; kiểm tra Camera, Exposure/Post-processing và render pipeline nếu hai view khác biệt.
+
+**Bằng chứng:** lưu ảnh trước/sau và ghi tên các thuộc tính đã đổi.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

@@ -65,6 +65,14 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Hoàn thiện scene trong nhà
+
+Một cảnh nội thất thường có ít ánh sáng mặt trời trực tiếp, nhiều vật cản và bề mặt phản xạ. Hãy phân biệt chiếu sáng chính (key light), phụ (fill light) và điểm nhấn (accent light).
+
+**Checklist kiểm tra phòng:** cửa sổ/nguồn sáng chính; đèn trần hoặc đèn bàn; vùng khuất sau đồ đạc; Light Probes dọc lối đi; Reflection Probe cho bề mặt phản xạ; Camera và thông số exposure nhất quán.
+
+**Bài tập:** hoàn thành một phòng đơn giản có bàn, ghế, đèn và quả cầu kim loại. Chụp ba góc máy, ghi rõ phần nào dùng realtime và phần nào bake.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

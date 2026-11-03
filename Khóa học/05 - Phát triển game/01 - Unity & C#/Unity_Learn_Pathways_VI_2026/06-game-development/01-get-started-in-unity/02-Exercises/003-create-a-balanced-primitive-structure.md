@@ -1,83 +1,94 @@
----
-title: "Create a balanced primitive structure"
-pathway: "Game Development"
-module: "Get started in Unity"
-lesson_number: 3
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 03 — Tạo cấu trúc cân bằng bằng các khối cơ bản
 
-# Bài 03 — Create a balanced primitive structure
-
-> **Pathway:** Game Development · **Mission:** Get started in Unity · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Get started in Unity trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** Game Development → Get started in Unity  
+> **Phiên bản tham chiếu:** Unity 6.3  
+> **Nguồn:** [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3)  
+> **Lưu ý:** Tài liệu tiếng Việt biên tập và mở rộng từ các tệp được cung cấp; không phải bản dịch chính thức hoặc bản ghi đầy đủ của Unity Learn. Những bài tập minh họa bổ sung được đánh dấu là *thực hành đề xuất*.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Phương pháp tự học và thực hành theo nhiệm vụ. Trong ngữ cảnh *Get started in Unity*, bài **Create a balanced primitive structure** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Bài thực hành có tên gốc **Create a balanced primitive structure**. Mục tiêu là tạo một mô hình nhỏ từ các **Primitive GameObject**, quan sát hình dạng, tỉ lệ và bố cục của các khối trong Scene. Tệp gốc chỉ nêu định hướng bài tập; mô hình cụ thể dưới đây là **thực hành đề xuất**, không phải hướng dẫn chính thức của Unity.
 
-## 2. Mục tiêu học tập
+## 2. Mục tiêu
 
-- Trình bày được mục đích của **phương pháp tự học và thực hành theo nhiệm vụ** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Tạo và sắp xếp các khối cơ bản như Cube, Sphere hoặc Cylinder.
+- Thay đổi **Position, Rotation, Scale** để xây dựng bố cục cân bằng về hình ảnh.
+- Kiểm tra cấu trúc từ nhiều góc nhìn, lưu Scene và trình bày kết quả.
+- Tập thay đổi một thông số mỗi lần để quan sát ảnh hưởng.
 
-## 3. Kiến thức trọng tâm
+## 3. Kiến thức nền
 
-- Một bài Unity hiệu quả bắt đầu bằng việc nhận diện trạng thái scene trước khi thao tác.
-- Mỗi thao tác nên gắn với kết quả quan sát được để phân biệt việc làm đúng với làm theo máy móc.
-- Thực hành chủ động gồm dự đoán, thử nghiệm, kiểm tra Console và diễn giải lý do kết quả xảy ra.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Khái niệm | Ý nghĩa |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Primitive | Các hình học cơ bản Unity cung cấp để dựng nhanh Scene |
+| Transform | Vị trí, góc xoay, kích thước của GameObject |
+| Hierarchy | Cây đối tượng, có thể dùng để tổ chức các bộ phận |
+| Scene view | Quan sát cấu trúc từ nhiều hướng |
+| Game view | Kiểm tra cách Camera hiển thị kết quả |
 
-## 4. Thực hành từng bước
+**Cân bằng thị giác** khác với **cân bằng vật lý**: một cấu trúc có thể trông đối xứng nhưng vẫn đổ nếu mô phỏng Rigidbody/Collider và trọng lực. Tài liệu gốc không chỉ rõ yêu cầu mô phỏng vật lý, vì vậy bài tập chính tập trung vào bố cục.
 
-1. **Bước 1:** Mở dự án hoặc scene phù hợp với Mission trong đường dẫn nguồn.
-2. **Bước 2:** Đọc tên bài và xác định một kết quả đầu ra có thể kiểm chứng.
-3. **Bước 3:** Thực hiện một thay đổi nhỏ, chạy Play mode và chụp ảnh trạng thái trước/sau.
-4. **Bước 4:** Ghi lại 3 điều đã học, 1 vấn đề gặp phải và cách tái hiện vấn đề đó.
+## 4. Sơ đồ cấu trúc tham khảo
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart TD
+    Root[BalancedStructure - GameObject gốc]
+    Root --> B[Base - Cube làm đế]
+    Root --> L[LeftColumn - Cube]
+    Root --> R[RightColumn - Cube]
+    Root --> T[TopBeam - Cube]
+    T --> D[DecorativeSphere - Sphere]
+```
 
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
+## 5. Thực hành đề xuất từng bước
 
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Create a balanced primitive structure** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
+1. Mở hoặc tạo Scene mới và lưu dưới tên `BalancedStructure`.
+2. Tạo một Cube làm đế, điều chỉnh Scale để tạo nền rộng.
+3. Tạo hai Cube dựng đứng ở hai bên; cho chúng cùng kích thước và có Position đối xứng qua tâm đế.
+4. Thêm Cube nằm ngang làm thanh phía trên, điều chỉnh kích thước để nối hai cột.
+5. Thêm Sphere làm chi tiết trang trí phía trên (không bắt buộc).
+6. Kiểm tra từ góc **Front**, **Side** và **Perspective** để phát hiện phần bị lệch.
+7. Chọn các đối tượng, đặt tên rõ nghĩa trong Hierarchy; có thể tạo GameObject rỗng làm đối tượng cha để nhóm.
+8. Lưu Scene, nhấn Play để quan sát Game view và chụp ảnh minh chứng.
 
-**Tiêu chí nghiệm thu:**
+### Bộ giá trị thử nghiệm (tham khảo, không phải thông số bắt buộc)
 
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
+| Đối tượng | Position (X,Y,Z) | Scale (X,Y,Z) |
+|---|---|---|
+| Base | (0, 0, 0) | (5, 0.5, 2) |
+| LeftColumn | (-1.5, 1.5, 0) | (0.5, 2.5, 0.5) |
+| RightColumn | (1.5, 1.5, 0) | (0.5, 2.5, 0.5) |
+| TopBeam | (0, 2.9, 0) | (4, 0.4, 0.7) |
 
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
+Các tọa độ là ví dụ tạo bố cục, không bảo đảm tương tác vật lý hay cân bằng động. Hãy thay đổi và quan sát theo Scene thực tế.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 6. Thử nghiệm mở rộng
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: làm nhiều thay đổi cùng lúc rồi không xác định được bước gây lỗi.
+- **Đối xứng:** thay đổi vị trí cột phải rồi thử khôi phục để hai bên cân nhau.
+- **Tỉ lệ:** tăng chiều cao hai cột và điều chỉnh thanh phía trên.
+- **Cơ chế vật lý (tùy chọn):** nếu muốn thử mô phỏng đổ, cần kiểm tra Collider, Rigidbody, trạng thái Is Kinematic và trọng lực.
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+```mermaid
+flowchart LR
+    A[Chọn thông số cần thử] --> B[Dự đoán kết quả]
+    B --> C[Chỉnh một giá trị]
+    C --> D[Quan sát Scene / Game]
+    D --> E[Ghi ảnh và nhận xét]
+```
 
-## 7. Checklist hoàn thành
+## 7. Lỗi thường gặp
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+| Hiện tượng | Kiểm tra |
+|---|---|
+| Các khối lệch nhau | Position và kích thước trái/phải |
+| Thanh trên không nằm đúng vị trí | Trục Y và Scale của từng đối tượng |
+| Không thấy toàn bộ cấu trúc | Vị trí/hướng Camera và góc nhìn |
+| Mất chỉnh sửa sau khi chạy | Có chỉnh trong Play mode hay không |
 
----
+## 8. Checklist
 
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+- [ ] Scene có ít nhất đế, hai cột và thanh phía trên.
+- [ ] Biết giải thích bố cục cân bằng bằng Position/Scale.
+- [ ] Quan sát cấu trúc ở ít nhất hai góc nhìn.
+- [ ] Lưu Scene và có ảnh Game view.
+- [ ] Ghi lại một thay đổi thử nghiệm và kết quả quan sát.

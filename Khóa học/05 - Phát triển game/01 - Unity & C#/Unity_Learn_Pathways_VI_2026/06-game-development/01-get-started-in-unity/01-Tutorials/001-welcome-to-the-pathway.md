@@ -1,78 +1,70 @@
----
-title: "Welcome to the pathway"
-pathway: "Game Development"
-module: "Get started in Unity"
-lesson_number: 1
-lesson_type: tutorial
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 01 — Chào mừng đến với lộ trình Game Development
 
-# Bài 01 — Welcome to the pathway
-
-> **Pathway:** Game Development · **Mission:** Get started in Unity · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Get started in Unity trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** Game Development → Get started in Unity  
+> **Phiên bản tham chiếu:** Unity 6.3  
+> **Nguồn:** [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3)  
+> **Lưu ý:** Tài liệu tiếng Việt biên tập và mở rộng từ các tệp được cung cấp; không phải bản dịch chính thức hoặc bản ghi đầy đủ của Unity Learn. Những bài tập minh họa bổ sung được đánh dấu là *thực hành đề xuất*.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Phương pháp tự học và thực hành theo nhiệm vụ. Trong ngữ cảnh *Get started in Unity*, bài **Welcome to the pathway** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Bài mở đầu giới thiệu cách học Unity theo chu trình **đặt mục tiêu → thực hành → quan sát → kiểm chứng → rút kinh nghiệm**. Thay vì chỉ ghi nhớ các thao tác, người học cần tạo được kết quả có thể quan sát và giải thích được cách tạo ra kết quả đó.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **phương pháp tự học và thực hành theo nhiệm vụ** trong dự án Unity.
-- Xác định đầu ra, công cụ và thứ tự học phù hợp trước khi thực hành.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Hiểu mục đích của lộ trình và cách học theo nhiệm vụ.
+- Phân biệt Scene, GameObject, Component và Play mode.
+- Biết chuẩn bị dự án thử nghiệm, ghi lại bằng chứng và kiểm tra lỗi.
 
-## 3. Kiến thức trọng tâm
+## 3. Các khái niệm đầu tiên
 
-- Một bài Unity hiệu quả bắt đầu bằng việc nhận diện trạng thái scene trước khi thao tác.
-- Mỗi thao tác nên gắn với kết quả quan sát được để phân biệt việc làm đúng với làm theo máy móc.
-- Thực hành chủ động gồm dự đoán, thử nghiệm, kiểm tra Console và diễn giải lý do kết quả xảy ra.
+| Thuật ngữ | Giải thích | Ví dụ |
+|---|---|---|
+| **Scene** | Không gian tổ chức những đối tượng của một màn chơi hoặc một phần ứng dụng | `SampleScene` |
+| **GameObject** | Đối tượng cơ bản trong Scene | Camera, Cube, Light |
+| **Component** | Thành phần thêm dữ liệu và chức năng cho GameObject | Transform, Mesh Renderer |
+| **Inspector** | Bảng xem/sửa thành phần và thuộc tính của đối tượng đang chọn | Sửa Position X |
+| **Play mode** | Chế độ chạy thử dự án trong Editor | Kiểm tra đối tượng hiển thị |
+| **Console** | Nơi đọc thông báo, cảnh báo và lỗi | Kiểm tra lỗi script |
 
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+```mermaid
+flowchart TD
+    A[Đọc mục tiêu bài học] --> B[Quan sát trạng thái Scene]
+    B --> C[Thực hiện một thay đổi nhỏ]
+    C --> D[Chạy thử bằng Play mode]
+    D --> E{Kết quả đúng mong đợi?}
+    E -- Có --> F[Ghi kết quả và minh chứng]
+    E -- Không --> G[Xem Console và Inspector]
+    G --> C
+    F --> H[Tổng kết điều đã học]
+```
 
 ## 4. Thực hành từng bước
 
-1. **Bước 1:** Mở dự án hoặc scene phù hợp với Mission trong đường dẫn nguồn.
-2. **Bước 2:** Đọc tên bài và xác định một kết quả đầu ra có thể kiểm chứng.
-3. **Bước 3:** Thực hiện một thay đổi nhỏ, chạy Play mode và chụp ảnh trạng thái trước/sau.
-4. **Bước 4:** Ghi lại 3 điều đã học, 1 vấn đề gặp phải và cách tái hiện vấn đề đó.
+1. Mở Unity Hub và chọn một dự án học tập phù hợp, hoặc tạo dự án mới.
+2. Mở Scene và nhận diện các đối tượng hiện có trong **Hierarchy**.
+3. Chọn một GameObject, tìm thành phần **Transform** trong Inspector.
+4. Thử thay đổi một giá trị Position, quan sát Scene view trước và sau.
+5. Nhấn **Play**, quan sát Game view, sau đó thoát Play mode.
+6. Ghi lại kết quả mong đợi, kết quả thực tế và ảnh minh chứng.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+> **Nguyên tắc:** Thử từng thay đổi một để dễ xác định nguyên nhân khi có lỗi.
 
-## 5. Bài tập củng cố
+## 5. Thực hành đề xuất
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Get started in Unity** để tạo một tương tác nhỏ.
+Tạo Scene đơn giản có **Cube** và **Main Camera**; thay đổi vị trí của Cube sao cho có thể nhìn thấy trong Game view. Ghi lại ba điều đã học, một vấn đề và cách xử lý.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+## 6. Khi gặp lỗi
 
-## 6. Lỗi thường gặp và cách kiểm tra
+| Hiện tượng | Cách kiểm tra |
+|---|---|
+| Không thấy đối tượng trong Game view | Kiểm tra vị trí Camera, hướng nhìn, trạng thái GameObject |
+| Thay đổi không như mong đợi | Xem lại giá trị Transform và đối tượng đang chọn |
+| Console báo lỗi | Đọc thông báo cụ thể, sửa một nguyên nhân rồi chạy lại |
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: làm nhiều thay đổi cùng lúc rồi không xác định được bước gây lỗi.
+## 7. Checklist
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+- [ ] Mô tả được Scene, GameObject, Component và Play mode.
+- [ ] Thực hiện được ít nhất một thay đổi quan sát được.
+- [ ] Có ảnh chụp trước/sau hoặc video ngắn.
+- [ ] Ghi được nguyên nhân một vấn đề phát sinh.
+- [ ] Đối chiếu nội dung tại liên kết Unity Learn ở trên.

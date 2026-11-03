@@ -81,3 +81,30 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Checklist xuất bản Web thực tế
+
+1. Trong Unity Hub, cài module **Web Build Support** phù hợp phiên bản Editor.
+2. Mở `File > Build Profiles` (tên menu có thể khác theo phiên bản), chọn nền tảng **Web**, thêm scene chơi được vào danh sách scene build.
+3. Kiểm tra input bàn phím/chuột, kích thước Game view, font và texture trước khi build.
+4. Build ra thư mục riêng; chạy bản Web qua một máy chủ HTTP thay vì chỉ mở trực tiếp file HTML bằng `file://`.
+5. Kiểm thử trong trình duyệt thực tế, đọc Console nếu bị màn hình đen hoặc thiếu tài nguyên.
+6. Chọn nền tảng lưu trữ hỗ trợ Unity Web build, kiểm tra cấu hình nén và MIME theo hướng dẫn nền tảng, rồi kiểm tra URL đã xuất bản.
+7. Chỉ đăng asset, font và nhạc khi có quyền sử dụng/phân phối.
+
+```mermaid
+flowchart LR
+    A[Scene hoàn thiện] --> B[Web Build Profile]
+    B --> C[Build]
+    C --> D[Thử trên HTTP local]
+    D --> E{Hoạt động đúng?}
+    E -->|Không| F[Sửa lỗi Console]
+    F --> C
+    E -->|Có| G[Đăng lên hosting]
+    G --> H[Kiểm tra URL công khai]
+```
+
+**Minh chứng cần lưu:** ảnh màn hình khi chơi trên trình duyệt, URL bản đã đăng (nếu có), phiên bản Unity, mô tả điều khiển và các lỗi còn tồn tại.
+

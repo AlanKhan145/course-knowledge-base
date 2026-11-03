@@ -65,6 +65,21 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Lộ trình Unit 10
+
+Unit này đi từ nguồn sáng trực tiếp tới hệ thống chiếu sáng gián tiếp và cách trình bày một scene hoàn chỉnh. Hãy chuẩn bị một scene nhỏ gồm nền, một khối tĩnh, một nhân vật di chuyển và một vật liệu kim loại để kiểm thử nhiều loại ánh sáng.
+
+```mermaid
+flowchart LR
+ A[Directional / Point / Spot] --> B[Bóng đổ]
+ B --> C[Lightmap bake]
+ C --> D[Light Probes]
+ D --> E[Reflection Probes]
+ E --> F[Tối ưu và trình bày]
+```
+
+**Đầu ra:** một scene có hình ảnh trước/sau chiếu sáng, ghi chú cài đặt và phép đo hiệu năng.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

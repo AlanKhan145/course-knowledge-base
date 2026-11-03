@@ -65,6 +65,20 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Ba thành phần làm nên ánh sáng
+
+- **Direct lighting:** ánh sáng truyền từ nguồn tới bề mặt; quan sát bằng cách bật/tắt đèn.
+- **Indirect lighting:** ánh sáng bật từ bề mặt khác; thường được tính trước cho cảnh tĩnh hoặc dùng kỹ thuật thời gian thực tùy render pipeline.
+- **Environment lighting:** ánh sáng môi trường và Skybox giúp vùng không được chiếu trực tiếp không bị đen hoàn toàn.
+
+| Kỹ thuật | Phù hợp | Hạn chế cần kiểm tra |
+|---|---|---|
+| Realtime | Đèn/đối tượng thay đổi | Tốn chi phí render, nhất là bóng đổ |
+| Baked | Hình học và ánh sáng tĩnh | Cần bake lại khi đổi cảnh tĩnh |
+| Mixed | Cảnh có cả phần tĩnh/động | Tùy pipeline và chế độ hỗ trợ |
+
+**Thử nghiệm:** tạo ba bản chụp với một Point Light, đổi vị trí đèn và so sánh vùng sáng.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

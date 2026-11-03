@@ -3,76 +3,60 @@ title: "Game Platforms"
 pathway: "Game Development"
 module: "Planning a game"
 lesson_number: 5
-lesson_type: tutorial
+lesson_type: "tutorial"
 unity_version: "6.3"
 source_mission: "https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+language: "vi"
+content_type: "Biên tập học liệu tiếng Việt từ tệp do người dùng cung cấp"
 ---
 
 # Bài 05 — Game Platforms
 
-> **Pathway:** Game Development · **Mission:** Planning a game · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Nguồn và phạm vi:** Bản biên tập tiếng Việt dựa trên tệp hướng dẫn người dùng cung cấp, vốn được tự biên soạn từ đề mục công khai. Phần ví dụ, bảng và sơ đồ được bổ sung để học tập; **không phải bản dịch chính thức, transcript hay câu hỏi quiz chính thức của Unity**.
 
-> **Nguồn đối chiếu:** [Planning a game trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+**Bài gốc để đối chiếu:** [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3)
 
-## 1. Tổng quan
+## 1. Chọn nền tảng phát hành từ đầu
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Planning a game*, bài **Game Platforms** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Platform ảnh hưởng đến điều khiển, tỷ lệ màn hình, hiệu năng, cách build và cách kiểm thử. **Build target** trong Unity không tự bảo đảm sản phẩm chạy tốt trên mọi thiết bị của nền tảng đó.
 
-## 2. Mục tiêu học tập
+## 2. So sánh định hướng thiết kế
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Game Platforms** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+| Nền tảng | Input điển hình | Điều cần cân nhắc |
+|---|---|---|
+| PC | Bàn phím, chuột, gamepad | Độ phân giải, UI và cấu hình khác nhau |
+| Mobile | Chạm, cử chỉ, cảm biến | Màn hình nhỏ, pin, nhiệt, vùng chạm |
+| Web | Bàn phím, chuột, chạm tùy thiết bị | Dung lượng tải, trình duyệt, bộ nhớ |
+| Console | Gamepad | Quy chuẩn nền tảng, hiệu năng, chứng nhận |
+| XR | Bộ điều khiển và tương tác không gian | Sự thoải mái, hiệu năng, khả năng đọc UI |
 
-## 3. Kiến thức trọng tâm
+## 3. Quy trình chọn platform
 
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
+```mermaid
+flowchart LR
+ A[Người chơi mục tiêu] --> B[Thiết bị họ dùng]
+ B --> C[Input và UI]
+ C --> D[Giới hạn kỹ thuật]
+ D --> E[Bản build thử]
+ E --> F[Kiểm tra trên thiết bị đích]
+```
 
-### Thuật ngữ và mối quan hệ
+## 4. Thực hành trong Unity
 
-| Khái niệm | Vai trò trong bài |
-|---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+1. Xác định một **nền tảng chính** cho MVP; ghi rõ input mong muốn.
+2. Thiết kế UI ở kích thước hiển thị gần với thiết bị đích (kiểm tra Canvas Scaler và vùng an toàn nếu áp dụng).
+3. Vào **File → Build Profiles** trong các bản Unity 6 hiện hành, chọn và cấu hình target thích hợp; tên menu có thể khác tùy phiên bản.
+4. Tạo một bản build thử, kiểm tra tốc độ khung hình và khả năng điều khiển trên thiết bị thực.
+5. Ghi lại các giới hạn chưa xử lý, không suy ra từ Game view rằng bản phát hành đã đạt.
 
-## 4. Thực hành từng bước
+**Đầu ra:** bảng quyết định platform, một ảnh cấu hình build và biên bản thử nghiệm.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 5. Checklist hoàn thành
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Bài tập củng cố
-
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Planning a game** để tạo một tương tác nhỏ.
-
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Nêu được mục tiêu và ít nhất hai khái niệm cốt lõi của bài.
+- [ ] Có sản phẩm thực hành hoặc câu trả lời minh chứng.
+- [ ] Ghi lại kết quả mong đợi, kết quả thực tế và bằng chứng.
+- [ ] Đối chiếu giao diện, package và hướng dẫn với phiên bản Unity đang sử dụng.
 
 ---
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Ghi chú: vị trí menu và khả năng hỗ trợ platform có thể thay đổi giữa các phiên bản Unity. Các dữ liệu, con số trong ví dụ là giả định phục vụ học tập, không phải kết quả đo thực tế.*

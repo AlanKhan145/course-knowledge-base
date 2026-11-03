@@ -79,3 +79,37 @@ Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm ch�
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Bộ câu hỏi tự đánh giá cuối Unit 5 (mở rộng)
+
+> Các câu dưới đây do người biên soạn tạo thêm; **không phải** câu hỏi chính thức của Unity Learn.
+
+1. `AudioClip` và `AudioSource` khác nhau thế nào?
+2. Vì sao một scene thường chỉ nên có **một Audio Listener đang hoạt động**?
+3. Khi nào nên chọn `Spatial Blend = 0`, khi nào nên chọn `= 1`?
+4. `Play On Awake` và `Loop` giải quyết hai nhu cầu khác nhau ra sao?
+5. Khi phát âm đồng xu liên tiếp khiến âm bị chồng quá lớn, bạn có thể xử lý như thế nào?
+6. Tại sao phát âm thanh trực tiếp trên GameObject sắp `Destroy` có nguy cơ làm âm bị cắt?
+7. Muốn mô phỏng âm bị nghẹt dưới nước, nên thử loại filter nào?
+8. Những điều kiện vật lý 2D nào phải đúng để `OnTriggerEnter2D` được gọi?
+9. Hãy lập quy trình debug khi âm 3D không nghe thấy ở vị trí của Camera.
+10. Với bản build, vì sao cần kiểm tra quyền sử dụng file âm thanh?
+
+### Gợi ý đáp án ngắn
+
+| Câu | Ý chính cần có |
+|---|---|
+| 1 | Clip là asset dữ liệu; Source là component phát âm |
+| 2 | Tránh nhiều vị trí nghe gây cấu hình sai/cảnh báo |
+| 3 | 2D cho UI/nhạc nền; 3D cho nguồn âm có vị trí |
+| 4 | Tự động bắt đầu / lặp lại khi kết thúc |
+| 5 | Giảm âm lượng, giới hạn tần suất hoặc số voice |
+| 6 | Hủy nguồn phát có thể làm âm dừng |
+| 7 | Low Pass Filter |
+| 8 | Collider2D, trigger và Rigidbody2D phù hợp |
+| 9 | Kiểm tra Listener, Clip, nguồn phát, khoảng cách, rolloff |
+| 10 | Đảm bảo được phép phân phối/khai thác tài sản âm thanh |
+
+**Bài kiểm tra thực hành:** trong một scene mới, tạo nhạc nền 2D, một vật phát âm 3D và âm nhặt vật phát khi tương tác; cung cấp video ngắn cùng mô tả một lỗi đã xử lý.

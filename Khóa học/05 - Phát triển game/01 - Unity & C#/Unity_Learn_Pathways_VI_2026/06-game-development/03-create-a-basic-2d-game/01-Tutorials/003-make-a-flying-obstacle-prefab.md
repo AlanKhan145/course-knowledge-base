@@ -95,3 +95,46 @@ public class SpawnOne : MonoBehaviour
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 9. Prefab chướng ngại bay: hướng dẫn chuyên đề
+
+1. Tạo GameObject `FlyingObstacle` có `SpriteRenderer` và `CircleCollider2D` (hoặc `BoxCollider2D`).
+2. Đặt Collider phù hợp hình dáng. Dùng `Is Trigger` nếu chỉ cần phát hiện chạm, không cần phản lực vật lý.
+3. Kéo đối tượng từ Hierarchy sang `Assets/Prefabs` để tạo **Prefab asset**.
+4. Gán Prefab cho bộ sinh chướng ngại; chạy thử và quan sát instance xuất hiện.
+
+```mermaid
+flowchart LR
+    A[Prefab asset] -->|Instantiate| B[Instance 1]
+    A -->|Instantiate| C[Instance 2]
+    A -->|Instantiate| D[Instance 3]
+    B --> E[Destroy khi ra ngoài màn hình]
+    C --> E
+    D --> E
+```
+
+### Ví dụ sinh Prefab trong mặt phẳng XY
+
+```csharp
+using UnityEngine;
+public class ObstacleSpawner2D : MonoBehaviour
+{
+    [SerializeField] GameObject obstaclePrefab;
+    [SerializeField] float interval = 2f;
+    float countdown;
+
+    void Update()
+    {
+        if (obstaclePrefab == null) return;
+        countdown -= Time.deltaTime;
+        if (countdown > 0f) return;
+        Instantiate(obstaclePrefab, transform.position, Quaternion.identity);
+        countdown = interval;
+    }
+}
+```
+
+> Khác với ví dụ `Vector3.forward` trong tài liệu cơ sở, việc sinh đối tượng trong **mặt phẳng XY** dùng trực tiếp tọa độ `transform.position` sẽ dễ quan sát hơn ở game 2D. Đặt Spawner ở vùng ngoài màn hình và bổ sung cơ chế dọn obstacle để tránh tích tụ object.
+

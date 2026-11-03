@@ -1,83 +1,85 @@
----
-title: "Get Started with Unity: In-Editor Tutorial"
-pathway: "Game Development"
-module: "Get started in Unity"
-lesson_number: 2
-lesson_type: exercise
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 02 — Bắt đầu sử dụng Unity Editor (In-Editor Tutorial)
 
-# Bài 02 — Get Started with Unity: In-Editor Tutorial
-
-> **Pathway:** Game Development · **Mission:** Get started in Unity · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
-
-> **Nguồn đối chiếu:** [Get started in Unity trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Lộ trình:** Game Development → Get started in Unity  
+> **Phiên bản tham chiếu:** Unity 6.3  
+> **Nguồn:** [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3)  
+> **Lưu ý:** Tài liệu tiếng Việt biên tập và mở rộng từ các tệp được cung cấp; không phải bản dịch chính thức hoặc bản ghi đầy đủ của Unity Learn. Những bài tập minh họa bổ sung được đánh dấu là *thực hành đề xuất*.
 
 ## 1. Tổng quan
 
-**Chủ đề:** Làm việc với Unity Editor. Trong ngữ cảnh *Get started in Unity*, bài **Get Started with Unity: In-Editor Tutorial** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Bài học thực hành làm quen với giao diện Unity Editor, thao tác trên các đối tượng và kiểm tra kết quả trong Scene view và Game view.
 
-## 2. Mục tiêu học tập
+## 2. Mục tiêu
 
-- Trình bày được mục đích của **làm việc với unity editor** trong dự án Unity.
-- Hoàn thành sản phẩm nhỏ có tiêu chí đánh giá và lưu minh chứng chạy thử.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Nhận biết chức năng của **Hierarchy, Scene, Game, Inspector, Project, Console**.
+- Chọn và biến đổi GameObject bằng **Move (W), Rotate (E), Scale (R)**.
+- Hiểu khác biệt cơ bản giữa hệ tọa độ **Local** và **Global**.
+- Biết lưu Scene và kiểm tra hành vi trong Play mode.
 
-## 3. Kiến thức trọng tâm
+## 3. Cấu trúc Unity Editor
 
-- Hierarchy liệt kê GameObject trong scene; Inspector hiển thị Component và thuộc tính của đối tượng được chọn.
-- Scene view dùng để xây dựng thế giới; Game view hiển thị kết quả qua Camera khi chạy.
-- Transform quản lý vị trí, xoay và tỉ lệ trong hệ trục không gian; thao tác local và global có thể khác nhau.
+```mermaid
+flowchart LR
+    P[Project: Assets] --> H[Hierarchy: GameObjects trong Scene]
+    H --> S[Scene view: chỉnh sửa không gian]
+    H --> I[Inspector: Components và thuộc tính]
+    S --> G[Game view: góc nhìn Camera]
+    G --> C[Console: thông báo và lỗi]
+```
 
-### Thuật ngữ và mối quan hệ
+| Khu vực | Vai trò | Việc nên thử |
+|---|---|---|
+| Hierarchy | Danh sách GameObject đang thuộc Scene | Chọn Main Camera hoặc Cube |
+| Inspector | Hiển thị Component và thông số | Thay đổi Transform |
+| Scene view | Di chuyển, xoay, phóng to khi thiết kế | Định vị một khối |
+| Game view | Xem khung hình được Camera xuất ra | Quan sát khi Play |
+| Project | Quản lý Asset trong dự án | Tìm Scenes và Assets |
+| Console | Hiển thị log/cảnh báo/lỗi | Mở khi thử nghiệm |
 
-| Khái niệm | Vai trò trong bài |
+## 4. Transform và phím tắt
+
+| Công cụ | Phím | Tác dụng |
+|---|---|---|
+| Move | `W` | Di chuyển GameObject |
+| Rotate | `E` | Xoay GameObject |
+| Scale | `R` | Thay đổi kích thước |
+
+- **Position (X, Y, Z):** vị trí trong không gian.
+- **Rotation (X, Y, Z):** góc xoay theo các trục.
+- **Scale (X, Y, Z):** tỉ lệ kích thước.
+- **Global:** trục theo hệ tọa độ thế giới; **Local:** trục gắn với đối tượng, có thể đổi hướng sau khi xoay.
+
+## 5. Thực hành có kiểm chứng
+
+1. Mở Scene; tìm **Main Camera**, **Directional Light** và ít nhất một GameObject trong Hierarchy.
+2. Nếu chưa có vật thể, thêm một **3D Object → Cube** từ menu tạo GameObject (tùy giao diện phiên bản).
+3. Chọn Cube, nhấn **W**, di chuyển theo trục X; kiểm tra Position trong Inspector.
+4. Nhấn **E** để xoay và **R** để đổi Scale; ghi lại giá trị đã thay đổi.
+5. Thử chuyển công cụ từ **Global** sang **Local** và quan sát hướng trục điều khiển.
+6. So sánh **Scene view** với **Game view**; kiểm tra Cube có nằm trong khung hình Camera không.
+7. **Lưu Scene trước khi chạy**, vào Play mode rồi thoát. So sánh các giá trị trước và sau.
+
+> **Chú ý:** Các chỉnh sửa khi đang Play mode thường không được giữ lại sau khi thoát; hãy thực hiện và lưu những thay đổi cần giữ trong chế độ chỉnh sửa.
+
+## 6. Bài tập đề xuất
+
+Tạo một Scene có ba khối Cube ở ba vị trí khác nhau. Đặt Camera sao cho nhìn thấy cả ba, lưu Scene và chụp ảnh Game view. Thử xoay một Cube, phân biệt Local và Global.
+
+### Tiêu chí hoàn thành
+
+- [ ] Có Scene lưu được và chạy thử được.
+- [ ] Dùng đúng W/E/R.
+- [ ] Giải thích được sự khác nhau giữa Scene view và Game view.
+- [ ] Có ảnh minh chứng và một nhận xét về Local/Global.
+- [ ] Giải thích được vì sao thay đổi trong Play mode có thể biến mất.
+
+## 7. Khắc phục lỗi
+
+| Vấn đề | Nguyên nhân cần kiểm tra |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Không nhìn thấy Cube trong Game view | Cube nằm ngoài khung hình, Camera sai hướng hoặc đối tượng bị tắt |
+| Không thao tác đúng trục | Công cụ Move/Rotate/Scale hoặc chế độ Local/Global chưa đúng |
+| Thay đổi bị mất | Đã sửa trong Play mode mà không thực hiện lại sau khi thoát |
+| Khó tìm đối tượng | Chọn đối tượng trong Hierarchy rồi lấy tiêu điểm trong Scene view |
 
-## 4. Thực hành từng bước
-
-1. **Bước 1:** Mở scene, tìm Main Camera, Directional Light và một GameObject trong Hierarchy.
-2. **Bước 2:** Dùng Move (W), Rotate (E), Scale (R); thực hành chuyển giữa Local/Global.
-3. **Bước 3:** Nhìn đối tượng trong cả Scene view và Game view; ghi chú điểm khác biệt.
-4. **Bước 4:** Lưu scene, vào Play mode và thoát Play mode; kiểm tra thay đổi nào không được giữ lại.
-
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Bài tập / sản phẩm cần nộp (tự biên soạn)
-
-**Nhiệm vụ:** Tạo một bản thực hành thể hiện rõ nội dung **Get Started with Unity: In-Editor Tutorial** trong scene hoặc dự án mới. Chỉ cần đủ nhỏ để chạy thử độc lập nhưng phải có ít nhất một thao tác tương tác và một phản hồi quan sát được.
-
-**Tiêu chí nghiệm thu:**
-
-- [ ] Có file project/scene hoặc bản build chạy được.
-- [ ] Có ảnh hoặc video minh chứng trường hợp thành công.
-- [ ] Có mô tả cách tái hiện tình huống kiểm thử và trường hợp lỗi.
-- [ ] Có ít nhất một cải tiến sau lần thử đầu tiên.
-
-**Mức nâng cao:** Thử thay đổi một tham số chính; giải thích vì sao hành vi thay đổi theo tham số ấy.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: sửa thuộc tính khi đang Play mode rồi mất thay đổi sau khi dừng.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Get started in Unity](https://learn.unity.com/pathway/game-development/unit/get-started-in-unity?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Tự đánh giá:** Hãy giải thích vì sao hai đối tượng cùng Position có thể cho hình ảnh khác nhau trên Game view.

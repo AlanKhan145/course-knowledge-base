@@ -81,3 +81,31 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Đề bài mở rộng: thiết kế soundscape của riêng bạn
+
+**Bối cảnh gợi ý:** khu rừng về đêm. Tạo lớp âm nền liên tục, âm môi trường theo vị trí và âm tương tác do người chơi kích hoạt. Đây là gợi ý triển khai thêm từ chủ đề thử thách.
+
+| Lớp âm | Loại | Cách phát | Điều kiện nghiệm thu |
+|---|---|---|---|
+| Gió trong rừng | 2D/ambient | Loop, âm lượng nhỏ | Không gây mệt khi nghe lâu |
+| Suối chảy | 3D | Spatial Blend = 1 | Xa suối âm giảm |
+| Tiếng chim | Sự kiện | Phát thưa, không đều | Không lặp máy móc |
+| Nhặt vật phẩm | Gameplay | `PlayOneShot` | Chỉ phát khi nhặt thành công |
+
+```mermaid
+flowchart TD
+ A[Soundscape] --> B[Ambient liên tục]
+ A --> C[Nguồn âm 3D]
+ A --> D[Âm sự kiện]
+ B --> E[Cân bằng Music/SFX]
+ C --> E
+ D --> E
+ E --> F[Playtest và cải tiến]
+```
+
+**Thang tự đánh giá (10 điểm, đề xuất):** có đủ 3 lớp âm (3đ), âm 3D thay đổi theo khoảng cách (2đ), tương tác gameplay (2đ), âm lượng cân bằng (1đ), ghi lại kiểm thử và một lần cải tiến (2đ).
+
+**Minh chứng:** ảnh Hierarchy, Inspector của các nguồn âm; video ngắn mô tả đường di chuyển của Camera; bảng trước/sau lần chỉnh sửa.

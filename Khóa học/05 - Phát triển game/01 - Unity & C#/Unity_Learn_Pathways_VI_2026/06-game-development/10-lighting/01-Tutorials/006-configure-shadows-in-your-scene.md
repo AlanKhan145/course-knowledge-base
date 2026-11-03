@@ -65,6 +65,21 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Điều khiển bóng đổ có chủ đích
+
+Bóng đổ giúp xác định vị trí, khoảng cách và hình dạng vật thể. Tùy loại đèn và render pipeline, bạn có thể chọn bóng cứng/mềm và điều chỉnh các thông số như Bias, Normal Bias, Shadow Resolution, Shadow Distance.
+
+**Quy trình kiểm tra:** bật Shadows trên nguồn sáng → kiểm tra Mesh Renderer có Cast/Receive Shadows → thay hướng đèn → thử Bias từng bước → so sánh chi tiết bóng ở gần và xa Camera.
+
+| Hiện tượng | Khả năng cần kiểm tra |
+|---|---|
+| Bóng tách khỏi chân vật | Bias quá lớn |
+| Các vệt sọc trên bề mặt | Shadow acne, Bias/Normal Bias |
+| Bóng biến mất ở xa | Shadow Distance hoặc giới hạn pipeline |
+| FPS giảm khi tăng đèn | Số nguồn sáng đổ bóng, độ phân giải shadow map |
+
+Giảm chất lượng bóng có kiểm soát và đo lại bằng Profiler.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

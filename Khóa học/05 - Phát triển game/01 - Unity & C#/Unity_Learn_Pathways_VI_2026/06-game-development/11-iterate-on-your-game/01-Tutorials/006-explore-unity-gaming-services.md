@@ -75,4 +75,26 @@ checked_at: "2026-10-21"
 
 ---
 
+## Bổ sung: Bản đồ các nhu cầu vận hành game
+
+> Phần dưới đây là khung tham khảo tự biên soạn, **không được xác nhận là nội dung chi tiết của bài Unity Learn**.
+
+```mermaid
+flowchart TD
+    A[Game Unity] --> B[Đăng nhập và tài khoản]
+    A --> C[Lưu dữ liệu / tiến trình]
+    A --> D[Đo lường sự kiện]
+    A --> E[Cấu hình và phân phối nội dung]
+    B --> F[Đánh giá dịch vụ phù hợp]
+    C --> F
+    D --> F
+    E --> F
+    F --> G[Thử trong dự án nhỏ]
+    G --> H[Kiểm tra quyền riêng tư / chi phí / vận hành]
+```
+
+Khi tìm hiểu Unity Gaming Services, nên kiểm tra **tài liệu và tình trạng cung cấp hiện tại của từng dịch vụ**, nền tảng hỗ trợ, điều khoản sử dụng, yêu cầu kết nối và giới hạn miễn phí trước khi tích hợp. Không nhất thiết game nhỏ nào cũng cần dịch vụ trực tuyến.
+
+---
+
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.

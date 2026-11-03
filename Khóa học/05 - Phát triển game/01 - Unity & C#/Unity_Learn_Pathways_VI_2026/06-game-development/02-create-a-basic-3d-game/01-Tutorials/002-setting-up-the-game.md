@@ -75,4 +75,16 @@ checked_at: "2026-10-21"
 
 ---
 
+## Thực hành mở rộng: tạo cảnh khởi đầu
+
+1. Trong Unity Hub, tạo dự án **3D** với tên `Basic3DGame`.
+2. Tạo `Assets/Scenes`, `Assets/Scripts`, `Assets/Prefabs`, `Assets/Materials` để phân loại tài nguyên.
+3. Lưu scene đầu tiên thành `MainScene.unity`.
+4. Thêm **Plane** làm mặt đất, **Capsule** làm nhân vật và **Directional Light** để quan sát vật thể.
+5. Đặt tên GameObject rõ nghĩa, lưu scene, nhấn **Play** kiểm tra.
+
+**Kiểm chứng:** Capsule và mặt đất xuất hiện trong Game view; Console không có lỗi đỏ.
+
+---
+
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.

@@ -65,6 +65,14 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Tích hợp vào game thật
+
+Chọn một scene trong trò chơi hiện tại và xác định mục tiêu cảm xúc: an toàn, bí ẩn, căng thẳng hoặc khám phá. Thiết kế nguồn sáng theo gameplay thay vì chỉ tăng độ sáng đồng đều.
+
+**Quy trình:** xác định điểm tập trung → thêm nguồn sáng → cân bằng bóng và màu → chọn realtime/baked phù hợp → kiểm tra nhân vật động → đo hiệu năng → lấy phản hồi người chơi.
+
+**Tiêu chí nghiệm thu:** người chơi nhìn rõ đường đi và vật thể tương tác; đèn không che khuất UI; hiệu ứng không làm giảm hiệu năng quá mức; chuyển cảnh và đổi camera vẫn nhất quán.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

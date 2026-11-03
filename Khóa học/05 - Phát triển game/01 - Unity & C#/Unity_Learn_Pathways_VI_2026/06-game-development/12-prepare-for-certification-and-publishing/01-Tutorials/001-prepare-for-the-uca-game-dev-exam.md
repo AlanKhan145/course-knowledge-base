@@ -11,68 +11,89 @@ coverage: "outline_based_not_official_transcript"
 checked_at: "2026-10-21"
 ---
 
-# Bài 01 — Prepare for the UCA Game Dev exam
+# Bài 01 — Chuẩn bị cho kỳ thi UCA Game Dev
 
-> **Pathway:** Game Development · **Mission:** Prepare for certification and publishing · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Lộ trình:** Game Development · **Chủ đề:** Prepare for certification and publishing · **Unity:** 6.3
 
-> **Nguồn đối chiếu:** [Prepare for certification and publishing trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/prepare-for-certification-and-publishing?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+> **Phạm vi:** Hướng dẫn tiếng Việt tự biên soạn theo đề mục công khai, không phải bản dịch hay đề thi chính thức của Unity. [Xem chủ đề gốc trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/prepare-for-certification-and-publishing?version=6.3).
 
 ## 1. Tổng quan
 
-**Chủ đề:** Hoàn thiện, xuất bản và trình bày dự án. Trong ngữ cảnh *Prepare for certification and publishing*, bài **Prepare for the UCA Game Dev exam** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Bài học tập trung vào việc **chuẩn bị năng lực thực hành** và bằng chứng dự án trước khi tham gia đánh giá UCA Game Dev. Việc học cần gắn với thao tác quan sát được trong Unity Editor và kiểm chứng bằng một bản build chạy được. Tệp nguồn chỉ cung cấp hướng dẫn khái quát, **không liệt kê cấu trúc đề thi hay ngân hàng câu hỏi chính thức**.
 
 ## 2. Mục tiêu học tập
 
-- Trình bày được mục đích của **hoàn thiện, xuất bản và trình bày dự án** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Prepare for the UCA Game Dev exam** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+- Hiểu vai trò của việc hoàn thiện, xuất bản và trình bày dự án Unity.
+- Tự thực hiện một thử nghiệm nhỏ và mô tả được kết quả.
+- Nhận biết ít nhất một lỗi thường gặp và chứng minh cách tìm hoặc sửa lỗi.
 
 ## 3. Kiến thức trọng tâm
 
-- Cần phân biệt chạy trong Editor và bản build thực tế: tài nguyên, input và giới hạn nền tảng có thể khác.
-- Portfolio tốt thể hiện mục tiêu dự án, vai trò cá nhân, cách triển khai, kết quả và bài học kinh nghiệm.
-- Luôn kiểm tra quyền sử dụng asset/nhạc và quyền riêng tư trước khi công khai.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Khái niệm | Ý nghĩa trong thực hành |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| **Scene** | Không gian chứa các GameObject để thiết kế và thử nghiệm |
+| **GameObject** | Đối tượng trong scene, được mở rộng bằng Component |
+| **Component** | Đơn vị mang dữ liệu, hành vi và các tham số trong Inspector |
+| **Play Mode** | Chạy thử trong Editor để xác minh tương tác |
+| **Build** | Phiên bản ứng dụng chạy trên nền tảng mục tiêu, cần kiểm thử riêng |
 
-## 4. Thực hành từng bước
+Cần phân biệt **chạy trong Editor** và **chạy bản build**: đường dẫn tài nguyên, input, cấu hình đồ họa hay giới hạn nền tảng có thể khác nhau. Khi chuẩn bị portfolio, hãy trình bày mục tiêu dự án, vai trò, cách triển khai, kết quả và bài học kinh nghiệm. Trước khi công bố, kiểm tra quyền sử dụng asset, âm thanh và quyền riêng tư.
 
-1. **Bước 1:** Rà soát scene và các thư viện asset để không thiếu tham chiếu khi build.
-2. **Bước 2:** Thiết lập nền tảng đích, cấu hình chất lượng và build một bản có thể chạy.
-3. **Bước 3:** Chạy thử từ đầu đến cuối; ghi video hoặc ảnh minh họa, không chỉ ảnh Editor.
-4. **Bước 4:** Viết README ngắn gồm cách chơi, yêu cầu máy và danh sách lỗi còn biết.
+## 4. Quy trình ôn tập và kiểm chứng
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart TD
+    A["Rà soát Scene và Asset"] --> B["Thiết lập nền tảng đích"]
+    B --> C["Build bản chạy được"]
+    C --> D["Kiểm thử từ đầu đến cuối"]
+    D --> E{"Kết quả đúng?"}
+    E -- "Không" --> F["Đọc Console và kiểm tra Component"]
+    F --> C
+    E -- "Có" --> G["Ghi ảnh/video và hoàn thiện README"]
+```
+
+1. **Rà soát Scene và asset:** Kiểm tra tham chiếu, GameObject, Component và scene cần thiết.
+2. **Thiết lập bản build:** Chọn nền tảng đích, cấu hình chất lượng và xuất bản chạy thử.
+3. **Kiểm thử:** Chạy qua toàn bộ luồng chơi; chụp ảnh hoặc quay video từ ứng dụng, không chỉ từ Editor.
+4. **Tài liệu hóa:** Viết `README.md` chứa cách chơi, cấu hình tối thiểu hoặc yêu cầu máy phù hợp, và danh sách lỗi còn biết.
+
+**Mẫu nhật ký kiểm thử:**
+
+| Trường | Nội dung cần ghi |
+|---|---|
+| Tình huống | Thao tác kiểm tra cụ thể |
+| Kỳ vọng | Điều gì phải xảy ra |
+| Thực tế | Điều gì thực sự xảy ra |
+| Minh chứng | Ảnh, video hoặc Console |
+| Kết luận | Nguyên nhân dự đoán và hành động tiếp theo |
 
 ## 5. Bài tập củng cố
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Prepare for certification and publishing** để tạo một tương tác nhỏ.
+- **Cơ bản:** Tự tạo hoặc lặp lại ví dụ rồi giải thích chức năng của GameObject và Component.
+- **Vận dụng:** Đổi một tham số trong Inspector, dự đoán rồi kiểm chứng ảnh hưởng.
+- **Mở rộng:** Tích hợp tương tác nhỏ vào một scene có thể build và chạy độc lập.
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Câu hỏi tự kiểm tra:** Vì sao Game view có thể khác kỳ vọng khi thay đổi Inspector? Cần quan sát GameObject, Component, trạng thái Play Mode và Console như thế nào?
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 6. Gỡ lỗi theo giả thuyết
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên scene trong build, dữ liệu chỉ hoạt động trong Editor hoặc tài nguyên có giấy phép không phù hợp.
+```mermaid
+flowchart LR
+    A["Tái hiện"] --> B["Đọc Console"]
+    B --> C["Kiểm tra tham chiếu, trạng thái, package, scene"]
+    C --> D["Chỉ thay đổi một giả thuyết"]
+    D --> E["Chạy lại và ghi kết quả"]
+```
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+Những lỗi cần đề phòng: quên đưa scene vào cấu hình build, tính năng chỉ hoạt động trong Editor hoặc dùng tài nguyên có giấy phép không phù hợp.
 
 ## 7. Checklist hoàn thành
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Prepare for certification and publishing](https://learn.unity.com/pathway/game-development/unit/prepare-for-certification-and-publishing?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Hiểu vai trò của Scene, GameObject, Component và Play Mode.
+- [ ] Chạy được một ví dụ Unity tự tạo.
+- [ ] Build được phiên bản hoạt động trên nền tảng đã chọn.
+- [ ] Ghi ít nhất một ảnh/video minh chứng.
+- [ ] Giải thích một lỗi cùng phương pháp phát hiện.
+- [ ] Đối chiếu với [bài học chính thức](https://learn.unity.com/pathway/game-development/unit/prepare-for-certification-and-publishing?version=6.3).
 
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+> **Lưu ý:** Giao diện, menu và package có thể thay đổi giữa các phiên bản Unity. Luôn đối chiếu hướng dẫn trong phiên bản Editor đang dùng.

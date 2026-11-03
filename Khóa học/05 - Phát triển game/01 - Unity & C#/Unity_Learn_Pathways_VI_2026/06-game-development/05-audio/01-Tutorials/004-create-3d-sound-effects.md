@@ -76,3 +76,31 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Thiết kế âm thanh 3D
+
+Với `Spatial Blend = 1`, vị trí tương đối giữa **Audio Source** và **Audio Listener** ảnh hưởng tới âm nghe được. Trong Inspector, kiểm tra **Min Distance**, **Max Distance**, **Volume Rolloff**, **Spread** và (khi phù hợp) **Doppler Level**.
+
+```mermaid
+flowchart LR
+ S[Audio Source: máy phát] -->|Khoảng cách + hướng| L[Audio Listener: Camera]
+ L --> O[Âm 3D người chơi nghe]
+```
+
+### Bài thí nghiệm có đối chứng
+
+1. Đặt một GameObject `Radio` tại `(0, 0, 0)` và Audio Source có clip phát lặp.
+2. Đặt Camera tại `(0, 1, -2)`; thử **Spatial Blend = 0** rồi **= 1**.
+3. Với âm 3D, chỉnh `Min Distance = 1`, `Max Distance = 20` (giá trị minh họa), chọn **Logarithmic Rolloff**.
+4. Dịch Camera ra xa 2, 5, 10, 20 đơn vị; ghi cảm nhận âm thanh.
+5. Dịch Camera sang hai bên để kiểm tra hướng âm nếu thiết bị hỗ trợ stereo.
+
+| Thử nghiệm | Dự đoán | Điều cần quan sát |
+|---|---|---|
+| 2D, tăng khoảng cách | Âm không suy giảm do khoảng cách | Độ lớn tương đối ổn định |
+| 3D, tăng khoảng cách | Âm nhỏ dần theo rolloff | Mức suy giảm |
+| 3D, đổi vị trí trái/phải | Thay đổi cảm giác định hướng | Kênh âm tương đối |
+
+**Lưu ý:** âm 3D trong Unity không mặc nhiên mô phỏng vật cản. Muốn có che khuất âm bởi tường cần logic/giải pháp bổ sung.

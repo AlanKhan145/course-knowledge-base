@@ -65,6 +65,23 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Lightmap và ánh sáng đã nướng
+
+**Lightmap** là texture lưu thông tin chiếu sáng được tính trước cho những bề mặt phù hợp. Cách này giảm việc phải tính lại nhiều phần ánh sáng tĩnh khi chạy game.
+
+```mermaid
+flowchart TD
+ A[Đánh dấu đối tượng tham gia GI] --> B[Kiểm tra UV lightmap]
+ B --> C[Thiết lập Lighting / Lightmapper]
+ C --> D[Generate Lighting]
+ D --> E[Kiểm tra lightmap và artifacts]
+ E --> F[Đo hiệu năng, lưu scene]
+```
+
+**Thực hành:** chọn các tường, sàn tĩnh có UV hợp lệ; thiết lập cấu hình bake phù hợp, chạy Generate Lighting và so sánh trước/sau. Đối tượng chuyển động không đơn giản dùng lightmap tĩnh theo cùng cách; kết hợp Light Probes khi thích hợp.
+
+**Lỗi thường gặp:** chồng UV, texel density quá thấp, màu bị loang hoặc thay đổi hình học nhưng chưa bake lại.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

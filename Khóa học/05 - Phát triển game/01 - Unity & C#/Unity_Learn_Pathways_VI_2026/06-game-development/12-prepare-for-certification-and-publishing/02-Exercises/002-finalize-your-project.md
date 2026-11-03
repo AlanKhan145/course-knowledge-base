@@ -11,7 +11,7 @@ coverage: "outline_based_not_official_transcript"
 checked_at: "2026-10-21"
 ---
 
-# Bài 02 — Finalize your project
+# Bài 02 — Hoàn thiện dự án (Finalize your project)
 
 > **Pathway:** Game Development · **Mission:** Prepare for certification and publishing · **Loại:** exercise · **Phiên bản mục lục:** Unity 6.3
 
@@ -77,6 +77,32 @@ checked_at: "2026-10-21"
 - [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
 - [ ] Giải thích được một lỗi và cách phát hiện lỗi.
 - [ ] Đọc bài gốc tại [Unity Learn — Prepare for certification and publishing](https://learn.unity.com/pathway/game-development/unit/prepare-for-certification-and-publishing?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+
+## 8. Sơ đồ quy trình hoàn thiện dự án
+
+```mermaid
+flowchart TD
+    A["Kiểm tra scene, asset, tham chiếu"] --> B["Chọn nền tảng và thiết lập build"]
+    B --> C["Tạo bản build"]
+    C --> D["Kiểm thử thao tác và phản hồi"]
+    D --> E{"Đạt tiêu chí nghiệm thu?"}
+    E -- "Chưa" --> F["Ghi lỗi, sửa và kiểm thử lại"]
+    F --> C
+    E -- "Đạt" --> G["Thu thập minh chứng"]
+    G --> H["Viết README và đóng gói sản phẩm"]
+```
+
+### Mẫu báo cáo nghiệm thu
+
+| Hạng mục | Minh chứng yêu cầu | Trạng thái |
+|---|---|---|
+| Chạy được project hoặc build | File project/scene hoặc chương trình chạy | ☐ |
+| Có một tương tác và phản hồi | Ảnh hoặc video demo | ☐ |
+| Kiểm tra trường hợp lỗi | Các bước tái hiện, kết quả thực tế | ☐ |
+| Có ít nhất một cải tiến | So sánh trước/sau khi sửa | ☐ |
+| Có tài liệu hướng dẫn | README với cách chơi và lưu ý | ☐ |
+
+**Gợi ý cấu trúc nộp bài:** `README.md`, `Build/`, `Evidence/` và một file liệt kê các lỗi đã biết. Đây là đề xuất tổ chức thực hành, không phải quy định nộp bài chính thức của Unity.
 
 ---
 

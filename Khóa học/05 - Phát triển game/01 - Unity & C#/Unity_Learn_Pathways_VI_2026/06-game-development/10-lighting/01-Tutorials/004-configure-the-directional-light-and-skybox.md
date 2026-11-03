@@ -65,6 +65,17 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Thiết lập mặt trời và bầu trời
+
+**Directional Light** chiếu theo hướng xác định trên toàn cảnh, thích hợp cho mặt trời. **Skybox** là nền bao quanh scene, đồng thời có thể đóng góp vào ánh sáng môi trường và phản xạ tùy thiết lập.
+
+1. Chọn `Directional Light` trong Hierarchy; xoay Transform để thay góc chiếu và bóng đổ.
+2. Điều chỉnh Color và Intensity để thử ánh sáng buổi sáng, trưa, chiều.
+3. Tạo hoặc chọn Skybox Material phù hợp với pipeline; gán trong mục Environment của Lighting.
+4. Kiểm tra nguồn **Sun Source**, Environment Lighting và khả năng cần cập nhật/bake lại dữ liệu chiếu sáng.
+
+**Cần nhớ:** vị trí của Directional Light thường không quyết định hướng chiếu; chính Rotation mới quan trọng.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

@@ -3,76 +3,68 @@ title: "Game Design"
 pathway: "Game Development"
 module: "Planning a game"
 lesson_number: 3
-lesson_type: tutorial
+lesson_type: "tutorial"
 unity_version: "6.3"
 source_mission: "https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
+language: "vi"
+content_type: "Biên tập học liệu tiếng Việt từ tệp do người dùng cung cấp"
 ---
 
 # Bài 03 — Game Design
 
-> **Pathway:** Game Development · **Mission:** Planning a game · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Nguồn và phạm vi:** Bản biên tập tiếng Việt dựa trên tệp hướng dẫn người dùng cung cấp, vốn được tự biên soạn từ đề mục công khai. Phần ví dụ, bảng và sơ đồ được bổ sung để học tập; **không phải bản dịch chính thức, transcript hay câu hỏi quiz chính thức của Unity**.
 
-> **Nguồn đối chiếu:** [Planning a game trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+**Bài gốc để đối chiếu:** [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3)
 
-## 1. Tổng quan
+## 1. Thiết kế trò chơi là thiết kế quyết định
 
-**Chủ đề:** Thiết kế trò chơi, xây dựng nguyên mẫu và lặp. Trong ngữ cảnh *Planning a game*, bài **Game Design** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+Game design kết hợp mục tiêu, luật, khả năng hành động, phản hồi và độ khó để tạo trải nghiệm. Khác với lập trình triển khai, thiết kế đặt câu hỏi **người chơi lựa chọn gì, vì sao và hệ thống phản hồi thế nào**.
 
-## 2. Mục tiêu học tập
+## 2. Các thành phần cốt lõi
 
-- Trình bày được mục đích của **thiết kế trò chơi, xây dựng nguyên mẫu và lặp** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Game Design** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
-
-## 3. Kiến thức trọng tâm
-
-- Prototype nhằm kiểm chứng một giả thuyết cốt lõi trước khi đầu tư vào đồ họa hoặc tính năng lớn.
-- Game Design Document mô tả mục tiêu, core loop, điều khiển, nội dung, giao diện và tiêu chí hoàn thành.
-- Greyboxing dùng hình đơn giản để kiểm tra scale, nhịp độ, đường đi và khả năng đọc cảnh.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Thành phần | Ví dụ với game thu thập vật phẩm |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Goal | Thu thập đủ 10 vật phẩm |
+| Rules | Chạm vật phẩm để nhận điểm; chạm kẻ địch mất lượt |
+| Mechanics | Di chuyển, nhảy, nhặt vật phẩm |
+| Feedback | Hiệu ứng sáng, âm thanh và số điểm thay đổi |
+| Challenge | Vị trí vật phẩm khó tiếp cận, kẻ địch di chuyển |
+| Progression | Tăng độ khó hoặc mở khóa màn |
 
-## 4. Thực hành từng bước
+**Luật chơi** mô tả điều được phép xảy ra; **cơ chế** mô tả hành động và tương tác; **phản hồi** giúp người chơi thấy hệ quả.
 
-1. **Bước 1:** Viết mục tiêu một câu và xác định một core loop gồm hành động–phản hồi–kết quả.
-2. **Bước 2:** Chọn 2–3 tính năng tối thiểu, loại bỏ chức năng không thiết yếu cho prototype.
-3. **Bước 3:** Dựng nguyên mẫu với primitive/placeholder assets, đo thời gian để trải nghiệm được.
-4. **Bước 4:** Cho ít nhất một người thử, ghi lại khó khăn và cập nhật backlog ưu tiên.
+## 3. Tạo và kiểm chứng core loop
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+```mermaid
+flowchart LR
+ A[Người chơi quan sát] --> B[Ra quyết định]
+ B --> C[Thực hiện hành động]
+ C --> D[Game xử lý luật]
+ D --> E[Phản hồi trực quan/âm thanh]
+ E --> A
+```
 
-## 5. Bài tập củng cố
+1. Chọn một hành động chính, ví dụ nhảy qua hố.
+2. Ghi rõ input, điều kiện hợp lệ, kết quả thành công và thất bại.
+3. Dùng greybox để kiểm tra khoảng cách nhảy; chưa cần art hoàn chỉnh.
+4. Thử thay **một biến** (tốc độ, lực nhảy hoặc khoảng cách), quan sát sự thay đổi.
+5. Cho người khác chơi; tránh dẫn dắt bằng cách giải thích trước.
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Planning a game** để tạo một tương tác nhỏ.
+## 4. Bảng playtest
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+| Giả thuyết | Cách thử | Điều quan sát | Quyết định |
+|---|---|---|---|
+| Người mới biết cách di chuyển | 1 phút chơi không chỉ dẫn | Có cần hỏi phím? | Bổ sung gợi ý nếu cần |
+| Khoảng cách nhảy hợp lý | Thử 5 lần cùng một đoạn | Số lần thất bại và nguyên nhân | Chỉnh khoảng cách hoặc lực |
 
-## 6. Lỗi thường gặp và cách kiểm tra
+**Lưu ý:** các con số trong ví dụ chỉ là kế hoạch thử, không phải kết quả thực nghiệm.
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: mở rộng phạm vi quá sớm, chỉ đánh giá bằng cảm tính của người làm hoặc không lưu phản hồi kiểm thử.
+## 5. Checklist hoàn thành
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Planning a game](https://learn.unity.com/pathway/game-development/unit/planning-a-game?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
+- [ ] Nêu được mục tiêu và ít nhất hai khái niệm cốt lõi của bài.
+- [ ] Có sản phẩm thực hành hoặc câu trả lời minh chứng.
+- [ ] Ghi lại kết quả mong đợi, kết quả thực tế và bằng chứng.
+- [ ] Đối chiếu giao diện, package và hướng dẫn với phiên bản Unity đang sử dụng.
 
 ---
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+*Ghi chú: vị trí menu và khả năng hỗ trợ platform có thể thay đổi giữa các phiên bản Unity. Các dữ liệu, con số trong ví dụ là giả định phục vụ học tập, không phải kết quả đo thực tế.*

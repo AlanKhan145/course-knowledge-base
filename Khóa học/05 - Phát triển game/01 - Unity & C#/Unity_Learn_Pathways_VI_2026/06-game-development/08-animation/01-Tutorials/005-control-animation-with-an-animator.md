@@ -1,78 +1,65 @@
 ---
-title: "Control animation with an Animator"
+title: "Điều khiển hoạt ảnh bằng Animator"
 pathway: "Game Development"
 module: "Animation"
 lesson_number: 5
-lesson_type: tutorial
 unity_version: "6.3"
+content_type: "Hướng dẫn thực hành tiếng Việt tự biên soạn"
 source_mission: "https://learn.unity.com/pathway/game-development/unit/animation?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
 ---
 
-# Bài 05 — Control animation with an Animator
+# Bài 05 — Điều khiển hoạt ảnh bằng Animator
 
-> **Pathway:** Game Development · **Mission:** Animation · **Loại:** tutorial · **Phiên bản mục lục:** Unity 6.3
+> **Nguồn tham khảo:** [Unity Learn — Animation](https://learn.unity.com/pathway/game-development/unit/animation?version=6.3). Đây là tài liệu **tự biên soạn bằng tiếng Việt dựa trên chủ đề và file được cung cấp**, không phải bản dịch nguyên văn của Unity Learn.
 
-> **Nguồn đối chiếu:** [Animation trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/animation?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## 1. Mục tiêu
 
-## 1. Tổng quan
+Xây dựng state machine Idle → Move.
 
-**Chủ đề:** Hệ thống hoạt ảnh trong Unity. Trong ngữ cảnh *Animation*, bài **Control animation with an Animator** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+**Kết quả cần đạt:** Nhân vật đổi trạng thái khi IsMoving thay đổi.
 
-## 2. Mục tiêu học tập
+## 2. Kiến thức cốt lõi
 
-- Trình bày được mục đích của **hệ thống hoạt ảnh trong unity** trong dự án Unity.
-- Tự thực hiện một thử nghiệm nhỏ liên quan đến **Control animation with an Animator** và mô tả kết quả.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+Animator Controller là máy trạng thái. Parameter gồm Bool, Float, Int, Trigger. Transition sử dụng Conditions, Has Exit Time và Transition Duration.
 
-## 3. Kiến thức trọng tâm
-
-- Animation Clip lưu chuyển động theo thời gian; Animator Controller quản lý các trạng thái và điều kiện chuyển.
-- Animation window cho phép đặt keyframe cho thuộc tính được animate.
-- Với nhân vật rigged, cần cấu hình Avatar, loại rig và mapping xương phù hợp.
-
-### Thuật ngữ và mối quan hệ
-
-| Khái niệm | Vai trò trong bài |
+| Thuật ngữ | Ý nghĩa |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Animation Clip | Tập hợp chuyển đổi thuộc tính theo thời gian |
+| Keyframe | Mốc thời gian lưu giá trị của thuộc tính |
+| Animator Controller | Điều phối trạng thái và chuyển tiếp animation |
+| Animator Component | Thành phần phát animation trên GameObject |
 
-## 4. Thực hành từng bước
+## 3. Thực hành trong Unity Editor
 
-1. **Bước 1:** Chọn GameObject và tạo một Animation Clip tối giản bằng hai keyframe vị trí.
-2. **Bước 2:** Mở Animator Controller, tạo Idle và một trạng thái chuyển động.
-3. **Bước 3:** Thử parameter và transition; xác nhận animation có thể phát hoặc dừng theo điều kiện.
-4. **Bước 4:** Nếu dùng model ngoài, kiểm tra Import Settings > Rig và Animation trước khi sử dụng.
+Tạo clip Idle và Move; mở Animator, đặt Idle mặc định; tạo Bool IsMoving, cấu hình Idle→Move khi true và Move→Idle khi false, tắt Has Exit Time ở cả hai để phản hồi ngay.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
+**Quy trình kiểm tra:** mở Scene và Game view → xem Inspector/Animator → nhấn Play → quan sát khác biệt giữa kết quả mong đợi và kết quả thực tế.
 
-## 5. Bài tập củng cố
+## 4. Minh họa / ví dụ
 
-- **Cơ bản:** Lặp lại ví dụ và giải thích kết quả bằng lời của mình.
-- **Vận dụng:** Tăng độ khó hoặc thay đổi một tham số quan trọng, sau đó dự đoán hệ quả trước khi chạy.
-- **Mở rộng:** Tích hợp kỹ năng này với nội dung đã học ở Mission **Animation** để tạo một tương tác nhỏ.
+```mermaid
+flowchart LR
+    Idle -->|IsMoving = true| Move
+    Move -->|IsMoving = false| Idle
+```
 
-**Câu hỏi tự kiểm tra:** Khi thay đổi một giá trị trong Inspector, vì sao Game view có thể khác dự đoán? Cần quan sát những đối tượng và Component nào?
+**Lưu ý:** tên parameter phải trùng chính xác giữa Inspector và script.
 
-## 6. Lỗi thường gặp và cách kiểm tra
+## 5. Sự cố thường gặp
 
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: thiếu Animator/Avatar, transition có điều kiện sai hoặc clip đè lên thuộc tính ngoài dự kiến.
+| Hiện tượng | Nguyên nhân cần kiểm tra |
+|---|---|
+| Animation không chạy | Animator chưa được gán Controller hoặc clip không có keyframe đúng thuộc tính |
+| Chuyển state không thành công | Sai tên parameter, Conditions hoặc Has Exit Time |
+| Model biến dạng bất thường | Rig/Avatar không tương thích hoặc import scale sai |
+| Chuyển động bị giật | Keyframe, curve, timing hoặc script khác cùng điều khiển thuộc tính |
 
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
+## 6. Checklist hoàn thành
 
-## 7. Checklist hoàn thành
+- [ ] Hiểu khái niệm chính của bài học.
+- [ ] Tạo hoặc chạy thử được ví dụ trong Unity.
+- [ ] Ghi lại ảnh/video chứng minh kết quả.
+- [ ] Nêu ít nhất một lỗi và cách kiểm tra.
+- [ ] Đối chiếu tài nguyên và hướng dẫn chính thức tại Unity Learn.
 
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — Animation](https://learn.unity.com/pathway/game-development/unit/animation?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+> **Lưu ý:** Giao diện Editor và một số lựa chọn Import/Animation có thể khác nhau giữa các phiên bản Unity. Ví dụ dùng Unity 6.3 làm mốc tham khảo.

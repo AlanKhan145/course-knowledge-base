@@ -94,3 +94,42 @@ public class Pickup2D : MonoBehaviour
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 9. Trạng thái Game Over và khởi động lại
+
+Cơ chế khởi động lại nên thể hiện rõ sự kiện va chạm, màn hình kết thúc và thao tác chơi lại. Có thể bổ sung Particle System hoặc âm thanh nổ làm phản hồi hình ảnh/âm thanh; đây là phần mở rộng tự đề xuất.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Playing
+    Playing --> GameOver: Va chạm nguy hiểm
+    GameOver --> Playing: Reload scene
+```
+
+```csharp
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class RestartGame2D : MonoBehaviour
+{
+    [SerializeField] GameObject gameOverPanel;
+    bool ended;
+
+    public void EndGame()
+    {
+        if (ended) return;
+        ended = true;
+        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+}
+```
+
+**Thiết lập:** ẩn `GameOverPanel` lúc khởi tạo; gán `EndGame()` từ sự kiện va chạm nguy hiểm; gán `Restart()` vào `Button.onClick`. Đưa scene vào Build Profiles/Scenes danh sách build để `buildIndex` hợp lệ. Sau khi restart, kiểm tra điểm và chướng ngại được đưa về trạng thái ban đầu, đồng thời thời gian không còn bị dừng.
+

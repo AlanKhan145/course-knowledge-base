@@ -79,3 +79,31 @@ Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm ch�
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Bộ câu hỏi ôn tập theo từng kỹ năng
+
+Các câu hỏi dưới đây là **bộ tự luyện mới**, không phải quiz chính thức của Unity.
+
+1. Vì sao phải dùng `Collider2D` thay vì `BoxCollider` 3D cho tương tác trong bài thực hành 2D?
+2. Prefab khác GameObject instance trong scene ở điểm nào?
+3. Tại sao tốc độ di chuyển dùng `Time.deltaTime` khi sửa `Transform`?
+4. Nếu di chuyển đường chéo có tốc độ lớn hơn đi ngang, nên xử lý vector input thế nào?
+5. Có những cách nào để đảm bảo obstacle được hủy khi ra khỏi màn hình?
+6. Làm sao tránh cộng điểm nhiều lần cho cùng một vật phẩm?
+7. Khi khởi động lại bằng `SceneManager.LoadScene`, cần chú ý `Time.timeScale` như thế nào?
+8. Vì sao chạy đúng trong Editor chưa đủ chứng minh bản Web hoạt động tốt?
+
+### Bài thực hành tổng kết
+
+Tự xây dựng một scene 2D có Player điều khiển được, tối thiểu một Prefab chướng ngại với thuộc tính ngẫu nhiên, phát hiện va chạm, UI điểm và nút Restart. Nếu thực hiện được, build Web và lưu ảnh chứng minh.
+
+| Tiêu chí | Đạt khi |
+|---|---|
+| Hình ảnh | Sprite hiện đúng, Sorting Layer không che sai |
+| Điều khiển | Input phản hồi, tốc độ ổn định theo FPS |
+| Sinh vật cản | Prefab được instantiate, có giới hạn và được dọn |
+| Gameplay | Điểm cập nhật đúng, Game Over và Restart hoạt động |
+| Build | Bản Web chạy trên trình duyệt, không lỗi nghiêm trọng |
+

@@ -65,6 +65,17 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Chọn đúng loại nguồn sáng
+
+| Loại | Đặc tính | Ví dụ |
+|---|---|---|
+| Directional | Tia gần như song song, không suy giảm theo khoảng cách như đèn cục bộ | Mặt trời |
+| Point | Chiếu mọi hướng từ một điểm | Bóng đèn, ngọn lửa |
+| Spot | Chiếu trong một hình nón | Đèn pin, đèn sân khấu |
+| Area | Phát sáng từ một vùng; hỗ trợ thay đổi theo pipeline/chế độ | Ô cửa sáng, đèn bảng |
+
+**Bài tập:** dùng Point Light cho đèn bàn và Spot Light cho đèn rọi tranh; thay Range, Intensity và góc chiếu. Tránh thêm nhiều đèn có bóng realtime cùng tác động một vùng nếu không thật cần thiết.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

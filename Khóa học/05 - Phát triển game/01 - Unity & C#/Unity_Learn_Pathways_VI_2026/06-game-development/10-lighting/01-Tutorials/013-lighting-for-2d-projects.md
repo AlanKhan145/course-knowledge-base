@@ -65,6 +65,18 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Ánh sáng dành cho game 2D
+
+Lighting 2D dùng hệ thống riêng khi dự án cấu hình **URP 2D Renderer**; không nên mặc định mang thao tác Lightmap 3D sang 2D.
+
+1. Xác nhận dự án dùng Universal Render Pipeline và **2D Renderer**.
+2. Dùng Sprite với Material/Shader hỗ trợ 2D lighting.
+3. Thêm **Global Light 2D** làm ánh sáng nền và **Point Light 2D** hoặc **Freeform Light 2D** làm điểm nhấn.
+4. Muốn tạo vùng tối và bóng phù hợp, thử **Shadow Caster 2D** và kiểm tra các lớp (Sorting Layers) mà đèn ảnh hưởng.
+5. Chạy trên nền tảng đích, đánh giá số đèn chồng lấn và hiệu năng.
+
+**Bài tập:** tạo cảnh 2D ban đêm có nhân vật cầm đèn và một khu vực được chiếu sáng khi đi ngang.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

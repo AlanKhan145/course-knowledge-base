@@ -65,6 +65,14 @@ checked_at: "2026-10-21"
 
 **Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
 
+## Chuyên đề thực hành — Trình bày kết quả ánh sáng
+
+Tạo bộ ảnh **before / after** trong cùng góc nhìn và cùng exposure để thể hiện giá trị của Lighting. Dùng các cảnh cận để cho thấy bóng đổ, vùng sáng tối, vật liệu bóng; dùng cảnh toàn để giải thích bố cục ánh sáng.
+
+**Bộ minh chứng đề xuất:** ảnh tổng thể; ảnh cận bóng đổ; ảnh cận phản xạ; ảnh nhân vật động nhận Light Probes; bảng cấu hình và hiệu năng. Viết chú thích ngắn cho mỗi hình: nguồn sáng, kỹ thuật, ý đồ thị giác và đánh đổi hiệu năng.
+
+**Tiêu chí tự đánh giá:** có điểm nhìn rõ ràng, không cháy sáng vô cớ, bóng hợp lý, vật thể động không lạc tông, hiệu năng phù hợp nền tảng.
+
 ## 7. Checklist hoàn thành
 
 - [ ] Hiểu vai trò của khái niệm trong bài.

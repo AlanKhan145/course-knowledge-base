@@ -1,81 +1,63 @@
----
-title: "Quiz - UI"
-pathway: "Game Development"
-module: "User interfaces"
-lesson_number: 11
-lesson_type: quiz
-unity_version: "6.3"
-source_mission: "https://learn.unity.com/pathway/game-development/unit/user-interfaces?version=6.3"
-content_type: "Bài học tiếng Việt tự biên soạn từ đề mục công khai"
-coverage: "outline_based_not_official_transcript"
-checked_at: "2026-10-21"
----
+# Bài 11 — Ôn tập và tự đánh giá kiến thức UI
 
-# Bài 11 — Quiz - UI
+> **Unity Game Development · Unit 7 — User Interfaces · Unity 6.3**
 
-> **Pathway:** Game Development · **Mission:** User interfaces · **Loại:** quiz · **Phiên bản mục lục:** Unity 6.3
+> Tài liệu tiếng Việt biên tập và mở rộng từ bản tự biên soạn đã cung cấp; **không phải bản dịch chính thức** của Unity Learn. [Đối chiếu Unity Learn](https://learn.unity.com/pathway/game-development/unit/user-interfaces?version=6.3).
 
-> **Nguồn đối chiếu:** [User interfaces trên Unity Learn](https://learn.unity.com/pathway/game-development/unit/user-interfaces?version=6.3). Nội dung dưới đây là hướng dẫn **tự biên soạn**, không phải toàn văn, bản dịch chính thức hay bản ghi video của Unity. Liên kết dẫn tới Mission chứa bài gốc.
+## Mục tiêu
 
-## 1. Tổng quan
+Kiểm tra kiến thức thông qua câu hỏi và bài thực hành.
 
-**Chủ đề:** Giao diện người dùng và tương tác. Trong ngữ cảnh *User interfaces*, bài **Quiz - UI** cần được học bằng cách xác định một kết quả quan sát được, thử trong Unity Editor và ghi lại cách kiểm chứng. Khi dự án thực hành của Unity khác dự án hiện tại, có thể dùng một scene nhỏ để luyện đúng kỹ năng cốt lõi.
+## Kiến thức và nguyên tắc
 
-## 2. Mục tiêu học tập
+Các khái niệm cần nắm: Canvas, RectTransform, Canvas Scaler, Anchors, EventSystem, Image, Button, Toggle, Slider, TextMeshPro và sự kiện.
 
-- Trình bày được mục đích của **giao diện người dùng và tương tác** trong dự án Unity.
-- Tự trả lời câu hỏi và giải thích bằng ví dụ kiểm chứng trong Editor.
-- Phát hiện ít nhất một lỗi thường gặp và nêu cách kiểm chứng hoặc sửa lỗi.
+## Quy trình thực hành
 
-## 3. Kiến thức trọng tâm
+1. Tự trả lời câu hỏi trước khi nhìn lại tài liệu.
+2. Tạo Scene nhỏ có Text, Button, Toggle và Slider.
+3. Đổi độ phân giải để kiểm tra anchors và Canvas Scaler.
+4. Ghi lại một lỗi, cách kiểm tra trong Console/Inspector và cách khắc phục.
 
-- Canvas chứa phần tử UI; RectTransform quyết định cách bố cục tương ứng kích thước màn hình.
-- Anchors và Canvas Scaler cần được kiểm tra ở nhiều tỉ lệ khung hình.
-- Button/Toggle/Slider phát sự kiện tương tác; hệ thống điểm số nên cập nhật hiển thị từ trạng thái dữ liệu.
+## Sơ đồ kiến trúc UI
 
-### Thuật ngữ và mối quan hệ
+```mermaid
+flowchart TD
+    A[Scene] --> B[Canvas]
+    B --> C[Text / Image]
+    B --> D[Button / Toggle / Slider]
+    D --> E[EventSystem và sự kiện]
+    E --> F[Script xử lý trạng thái]
+    F --> C
+```
 
-| Khái niệm | Vai trò trong bài |
+## Ví dụ mã C#
+
+Mục này tập trung vào thao tác Unity Editor. Khi cần xử lý tương tác, xem mã ở Bài 06, 07 hoặc 10.
+
+## Bài tập vận dụng
+
+- **Cơ bản:** Thực hiện các bước của bài “Ôn tập và tự đánh giá kiến thức UI” trong Scene riêng.
+- **Nâng cao:** Thay đổi một thông số chính, dự đoán kết quả trước khi chạy.
+- **Minh chứng:** Chụp Game view, ghi kết quả kỳ vọng và kết quả thực tế.
+
+## Tiêu chí hoàn thành
+
+- [ ] Giải thích được Canvas, RectTransform, Anchor và EventSystem.
+- [ ] Tạo được tương tác hoàn chỉnh và nêu cách debug.
+- [ ] Có minh chứng chạy thử và giải thích được ít nhất một lỗi.
+
+## Gỡ lỗi nhanh
+
+| Hiện tượng | Nơi cần kiểm tra |
 |---|---|
-| Scene | Không gian chứa các GameObject để thiết kế và chạy thử |
-| GameObject | Đối tượng trong scene, được mở rộng bằng Component |
-| Component | Đơn vị chứa dữ liệu/hành vi, điều chỉnh được trong Inspector |
-| Play mode | Chạy thử hành vi và xác minh kết quả tương tác |
+| Không thấy UI | Canvas, trạng thái active, màu/alpha, thứ tự lớp |
+| Không thể bấm nút | EventSystem, Graphic Raycaster, Raycast Target, Button |
+| Bố cục lệch khi resize | Anchor, Pivot, Canvas Scaler, Layout Group |
+| Không cập nhật văn bản | Tham chiếu TMP_Text, dữ liệu, Console |
 
-## 4. Thực hành từng bước
+## Ghi chú về nguồn
 
-1. **Bước 1:** Tạo Canvas chứa một tiêu đề và Button, đặt hierarchy rõ ràng.
-2. **Bước 2:** Thử thay độ phân giải Game view để kiểm tra anchor, layout và cỡ chữ.
-3. **Bước 3:** Gắn sự kiện Button vào phương thức điều khiển trong Inspector hoặc qua mã.
-4. **Bước 4:** Tạo trạng thái khởi đầu, đang chơi và kết thúc; thử điều hướng bằng chuột/bàn phím.
+Tệp nguồn là tài liệu tự biên soạn theo đề mục công khai và nhiều bài dùng phần thực hành chung. Bản này bổ sung hướng dẫn riêng cho từng chủ đề; đây là các ví dụ độc lập, không được coi là nội dung hoặc đáp án chính thức của Unity.
 
-**Ghi chép bắt buộc:** kết quả mong đợi → kết quả thực tế → ảnh màn hình/Console → nhận xét ngắn về nguyên nhân.
-
-## 5. Câu hỏi ôn tập tự biên soạn (không phải quiz chính thức)
-
-1. Kỹ năng cốt lõi trong bài này giải quyết vấn đề gì cho người chơi hoặc người làm dự án?
-2. Trong nhóm kiến thức **giao diện người dùng và tương tác**, đâu là thông số hoặc đối tượng cần kiểm tra đầu tiên?
-3. Nếu kết quả ở Play mode không đúng, em sẽ xem xét Console, Inspector hay cấu hình dự án trước? Vì sao?
-4. Nêu một trường hợp sử dụng thực tế và điều kiện để xác nhận đã hoàn thành.
-
-### Gợi ý tự chấm
-
-Một câu đạt khi có: **khái niệm đúng + lý do + ví dụ kiểm chứng**. Không cần lặp lại câu chữ lý thuyết; ưu tiên chứng minh bằng scene hoặc mã của chính em.
-
-## 6. Lỗi thường gặp và cách kiểm tra
-
-**Hiện tượng nên đề phòng:** Lỗi phổ biến: quên EventSystem, sai raycast target, anchor đặt sai hoặc văn bản tràn khỏi màn hình.
-
-**Quy trình debug nhanh:** (1) tái hiện lỗi; (2) đọc Console; (3) kiểm tra tham chiếu Component, trạng thái GameObject, asset/package và thiết lập scene; (4) chỉ sửa một nguyên nhân giả định; (5) chạy lại và ghi kết quả.
-
-## 7. Checklist hoàn thành
-
-- [ ] Hiểu vai trò của khái niệm trong bài.
-- [ ] Chạy được một ví dụ tự tạo trong Unity.
-- [ ] Ghi được tối thiểu một ảnh hoặc đoạn video minh chứng.
-- [ ] Giải thích được một lỗi và cách phát hiện lỗi.
-- [ ] Đọc bài gốc tại [Unity Learn — User interfaces](https://learn.unity.com/pathway/game-development/unit/user-interfaces?version=6.3) để đối chiếu bước chính thức và tài nguyên đính kèm.
-
----
-
-*Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+**Nguồn:** [Unity Learn — User interfaces](https://learn.unity.com/pathway/game-development/unit/user-interfaces?version=6.3).

@@ -76,3 +76,24 @@ checked_at: "2026-10-21"
 ---
 
 *Ghi chú phiên bản:* Unity thường cập nhật giao diện, menu và package. Các bước ở trên là nội dung học độc lập, cần kiểm tra lại khi áp dụng vào Unity 6.3 hoặc phiên bản mới hơn.
+
+---
+
+## 8. Lộ trình sản phẩm 2D xuyên suốt
+
+Trong mô hình thực hành tự xây dựng, người chơi điều khiển một nhân vật 2D để né chướng ngại bay, tích lũy điểm theo thời gian sống sót và có thể chơi lại sau khi va chạm. Đây là **đề xuất thực hành bổ sung**, không phải lời mô tả chính thức về nội dung từng video Unity Learn.
+
+```mermaid
+flowchart LR
+    A[Scene 2D] --> B[Nhân vật và điều khiển]
+    A --> C[Prefab chướng ngại]
+    C --> D[Sinh ngẫu nhiên]
+    B --> E[Kiểm tra va chạm]
+    D --> E
+    E --> F[Điểm số và Game Over]
+    F --> G[Chơi lại]
+    G --> H[Build Web]
+```
+
+**Đầu ra kiểm chứng:** chạy được scene 2D, thấy sprite chính xác, camera Orthographic và các Collider2D hoạt động với Rigidbody2D tương ứng.
+
