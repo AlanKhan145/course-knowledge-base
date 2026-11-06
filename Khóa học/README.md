@@ -69,6 +69,9 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [LangChain: AI Engineering với LangChain & LangGraph (2026) — VI](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langchain-ai-engineering-2026-vi/>)
 - [RAG: Basic to Advanced](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/rag-basic-to-advanced/>)
 - [Ultimate RAG Bootcamp](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ultimate-rag-bootcamp/>)
+- [OpenAI Agents SDK với Python — Từ cơ bản đến Deep Research](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/ai-agent-tool-calling-openai-agents-sdk-python/>)
+- [Short-Term Memory trong LangGraph — từ RAM đến PostgreSQL và Summarization](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/langgraph-conversation-memory/>)
+- [Pydantic Crash Course — Structured Output cho AI](<./01 - AI & Dữ liệu/01 - AI Engineering & LLM/pydantic-structured-output/>)
 
 #### Data Science, Analytics & ML
 
@@ -101,6 +104,8 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [PipeANN - SSD-Optimized Approximate Nearest Neighbor Search (OSDI '25)](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/pipeann-osdi25/>)
 - [Semantic Web & Linked Data cho khám phá tài nguyên thư viện](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/semantic-web-linked-data-library-discovery/>)
 - [VSAG - Tối ưu Graph-based Approximate Nearest Neighbor Search](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/vsag-optimized-graph-ann-search/>)
+- [Embeddings + pgvector + Hybrid Search — YouTube Conversational RAG](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/embeddings-pgvector-hybrid-search/>)
+- [Full Stack GenAI: Document Copilot với RAG và Citations](<./01 - AI & Dữ liệu/04 - Information Retrieval & Vector Search/full-stack-genai-document-copilot/>)
 
 ### 02 - Lập trình & Phát triển phần mềm
 
@@ -111,6 +116,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Full-Stack Developer Roadmap](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/full-stack-developer-roadmap/>)
 - [NodeJS - The Complete Guide](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/nodejs-the-complete-guide/>)
 - [PostgreSQL DBA Roadmap](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/postgresql-dba-roadmap/>)
+- [Next.js 15 App Router — từ cơ bản đến nâng cao](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/nextjs-15-app-router/>)
+- [Giao diện AI Agent với assistant-ui và LangGraph](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/assistant-ui-langgraph-chat-ui/>)
+- [Generative UI với Next.js và Vercel AI SDK](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/vercel-ai-sdk-generative-ui/>)
+- [Generative UI với Next.js, Thesys C1 và OpenUI](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/nextjs-generative-ui-thesys-c1/>)
 
 #### Mobile
 
