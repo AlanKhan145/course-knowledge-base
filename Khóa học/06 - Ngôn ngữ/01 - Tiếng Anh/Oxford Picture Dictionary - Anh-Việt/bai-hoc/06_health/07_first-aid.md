@@ -5,89 +5,127 @@ unit_title: "Sức khỏe"
 lesson: 7
 lesson_en: "First Aid"
 lesson_vi: "Sơ cứu"
-book_pages: "83-83"
-pdf_pages: "93-93"
+book_pages: "83"
+pdf_pages: "93"
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 07 – Sơ cứu (First Aid)
 
-> **Đơn vị 6:** Sức khỏe (Health)  
-> **Nguồn:** trang 83 trong sách, tương ứng trang PDF **93–93**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+## 1. Mục tiêu học tập
 
-## 1. Mục tiêu bài học
+Nhận diện **18/18 dụng cụ và kỹ thuật sơ cứu** trong hình; phân biệt các loại *bandage*, *pad*, *gauze*, *tape*; dùng từ vựng để trao đổi về hộp sơ cứu và mô tả các phương pháp hỗ trợ ban đầu bằng tiếng Anh.
 
-Sau bài này, bạn có thể:
+## 2. Quan sát hình minh họa
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **sơ cứu** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **first aid**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+![First Aid – trang 83](07_first-aid-trang-ghep.jpg)
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+Trên trang 83, mỗi vật dụng hoặc hoạt động có số từ **1 đến 18**. Các số trong bảng giữ nguyên để đối chiếu khi quan sát hình.
 
-![Ảnh ghép 1 trang sách của bài Sơ cứu](07_first-aid-trang-ghep.jpg)
+## 3. Từ vựng đầy đủ: 1–18 (18/18)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 83 (trang PDF 93). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+### 3.1. Vật dụng, thuốc và dụng cụ sơ cứu (1–14)
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+| Số | English | Tiếng Việt | Gợi nhớ |
+|:---:|---|---|---|
+| 1 | **first aid kit** | hộp / bộ dụng cụ sơ cứu | *kit* = bộ dụng cụ. |
+| 2 | **tweezers** | cái nhíp / kẹp gắp | Danh từ thường ở dạng số nhiều. |
+| 3 | **adhesive bandage** | băng dán vết thương | Miếng băng cá nhân có lớp dính. |
+| 4 | **sterile pad** | miếng gạc vô trùng | *sterile* = vô trùng. |
+| 5 | **tape** | băng dính y tế | Giúp cố định vật liệu băng bó. |
+| 6 | **gauze** | gạc / băng gạc | Đọc gần /ɡɔːz/. |
+| 7 | **first aid manual** | sách / cẩm nang hướng dẫn sơ cứu | *manual* = cẩm nang hướng dẫn. |
+| 8 | **hydrogen peroxide** | hiđrô perôxít / thuốc ôxy già | Tên một hóa chất. |
+| 9 | **antibacterial ointment** | thuốc mỡ kháng khuẩn | *antibacterial* = kháng khuẩn. |
+| 10 | **antihistamine cream** | kem kháng histamin / kem giảm triệu chứng dị ứng | *cream* = kem bôi. |
+| 11 | **splint** | nẹp cố định xương / chi | Dụng cụ giữ vùng chấn thương ổn định. |
+| 12 | **elastic bandage** | băng quấn đàn hồi | *elastic* = đàn hồi. |
+| 13 | **ice pack** | túi / bao chườm lạnh | *ice* = đá, lạnh. |
+| 14 | **medical emergency bracelet** | vòng đeo tay cảnh báo thông tin y tế | Có thể cung cấp thông tin quan trọng cho nhân viên y tế. |
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+### 3.2. Kỹ thuật sơ cứu và cấp cứu (15–18)
+
+| Số | English | Tiếng Việt | Giải thích từ vựng |
+|:---:|---|---|---|
+| 15 | **stitches** | mũi khâu / việc khâu vết thương | *get stitches* = được khâu vết thương. |
+| 16 | **rescue breathing** | hà hơi thổi ngạt / hỗ trợ thở | *rescue* = cứu hộ; *breathing* = việc hô hấp. |
+| 17 | **CPR (cardiopulmonary resuscitation)** | hồi sinh tim phổi / hồi sức tim phổi | Viết tắt *CPR*, tên đầy đủ *cardiopulmonary resuscitation*. |
+| 18 | **Heimlich maneuver** | thủ thuật Heimlich xử trí hóc dị vật | Một thủ thuật được đào tạo cho tình huống nghẹn tắc đường thở. |
+
+> **Important Note – Lưu ý quan trọng (cuối trang 83):** Chỉ những người đã được đào tạo đúng cách mới nên thực hiện **stitches** (khâu vết thương) hoặc **CPR** (hồi sinh tim phổi). Bài này nhằm học ngôn ngữ, không hướng dẫn tự thực hiện các thủ thuật.
+
+## 4. Hiểu và phân biệt từ gần nghĩa
+
+**Adhesive bandage – sterile pad – gauze – tape.** Cả bốn đều liên quan đến băng bó nhưng không hoàn toàn thay thế nhau: *adhesive bandage* là băng dán có sẵn lớp keo; *sterile pad* là miếng gạc vô trùng; *gauze* là gạc; *tape* là băng dính để cố định.
+
+**Splint – elastic bandage.** *Splint* là nẹp, còn *elastic bandage* là băng đàn hồi. Từ *bandage* nói chung không nhất thiết chỉ một loại băng cụ thể.
+
+**Rescue breathing – CPR – Heimlich maneuver.** Đây là ba thuật ngữ khác nhau về biện pháp hỗ trợ cấp cứu; không đồng nhất chúng với nhau. Việc lựa chọn, chỉ định và thực hiện phải theo đào tạo sơ cứu hiện hành.
+
+**Hydrogen peroxide – antibacterial ointment – antihistamine cream.** Lần lượt là hóa chất ôxy già, thuốc mỡ kháng khuẩn và kem kháng histamin. **Không xem danh sách từ vựng là chỉ dẫn sử dụng thuốc hoặc hóa chất.**
+
+## 5. Mẫu câu ứng dụng
 
 | English | Tiếng Việt |
 |---|---|
-| bandage | băng |
-| gauze | gạc |
-| ice pack | túi chườm đá |
-| first-aid kit | bộ sơ cứu |
-| apply pressure | ấn để cầm máu |
+| **Do you have a first aid kit at home?** | Nhà bạn có hộp sơ cứu không? |
+| **Where is the first aid kit?** | Hộp sơ cứu ở đâu? |
+| **There are tweezers and gauze in the kit.** | Trong hộp có nhíp và gạc. |
+| **This is an elastic bandage.** | Đây là băng quấn đàn hồi. |
+| **She is wearing a medical emergency bracelet.** | Cô ấy đang đeo vòng cảnh báo y tế. |
+| **He needed stitches.** | Anh ấy cần khâu vết thương. |
+| **CPR stands for cardiopulmonary resuscitation.** | CPR là viết tắt của hồi sinh tim phổi. |
+| **Please read the first aid manual.** | Hãy đọc cẩm nang sơ cứu. |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+### Hội thoại mẫu: chuẩn bị hộp sơ cứu
 
-## 4. Mẫu câu ứng dụng
+**A:** Do we have a first aid kit?  
+**B:** Yes, it's in the cabinet.  
+**A:** Does it have adhesive bandages and gauze?  
+**B:** Yes, and it also has a first aid manual.
 
-- **What does “bandage” mean?** — “bandage” có nghĩa là gì?
-- **How do you say “gạc” in English?** — “gạc” nói bằng tiếng Anh thế nào?
-- **Can you find “bandage” in the picture?** — Bạn có thể tìm “bandage” trong tranh không?
-- **This picture is about first aid.** — Bức tranh này có chủ đề sơ cứu.
+**Dịch:** — Chúng ta có hộp sơ cứu không? — Có, nó ở trong tủ. — Trong đó có băng dán và gạc không? — Có, còn có cả cẩm nang sơ cứu.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 6. Thực hành theo các câu hỏi của trang sách
 
-## 5. Bài tập thực hành
+**Câu hỏi 1.** *Do you have a first aid kit in your home? Where can you buy one?*  
+(Bạn có hộp sơ cứu ở nhà không? Có thể mua ở đâu?)  
+**Gợi ý trả lời:** *Yes, I have one at home. You can buy a first aid kit at a pharmacy.* — Có. Bạn có thể mua tại hiệu thuốc.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+**Câu hỏi 2.** *When do you use hydrogen peroxide? An elastic support bandage? Antihistamine cream?*  
+(Khi nào sử dụng ôxy già, băng hỗ trợ đàn hồi, kem kháng histamin?)  
+**Gợi ý học tiếng Anh:** Hãy giải thích **mỗi sản phẩm là gì** và đặt câu hỏi với dược sĩ/nhân viên y tế để được hướng dẫn sử dụng an toàn; không tự suy luận công dụng dựa vào hình.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+**Câu hỏi 3.** *Do you know first aid? Where did you learn it?*  
+(Bạn có biết sơ cứu không? Bạn học từ đâu?)  
+**Gợi ý:** *I learned basic first aid in a training course.* — Tôi học sơ cứu cơ bản trong một khóa đào tạo.
 
-1. băng → ______
-2. gạc → ______
-3. túi chườm đá → ______
-4. bộ sơ cứu → ______
+**Luyện thêm:** Nhìn từng vật dụng được đánh số và đặt câu *What is number ...?*; trả lời *Number ... is ...*.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về sơ cứu, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+**Câu 1.** Bạn đang tìm “cái nhíp”. Chọn đúng từ.  
+A. Gauze · B. Tweezers · C. Tape · D. Splint  
+**Đáp án: B.** *Tweezers* có nghĩa là cái nhíp.
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+**Câu 2.** Loại nào là “miếng gạc vô trùng”?  
+A. Sterile pad · B. Ice pack · C. First aid manual · D. Elastic bandage  
+**Đáp án: A.** *Sterile* nghĩa là vô trùng, *pad* là miếng lót/gạc.
 
-1. bandage
-2. gauze
-3. ice pack
-4. first-aid kit
+**Câu 3.** CPR là viết tắt của cụm nào?  
+A. Clinical Patient Response · B. Cardiac Pressure Reading · C. Cardiopulmonary Resuscitation · D. Care Provider Record  
+**Đáp án: C.** Đây là tên đầy đủ của CPR được ghi trong trang sách.
 
-</details>
+**Câu 4.** Thuật ngữ chỉ vòng tay có thông tin cảnh báo y tế là gì?  
+A. Elastic bandage · B. Rescue breathing · C. Antibacterial ointment · D. Medical emergency bracelet  
+**Đáp án: D.** *Bracelet* là vòng tay.
 
-## 6. Ôn tập nhanh và mở rộng
+**Câu 5.** Trong số 15–18, từ nào có nghĩa “mũi khâu”?  
+A. Stitches · B. Splint · C. Gauze · D. Ice pack  
+**Đáp án: A.** *Stitches* chỉ các mũi khâu của vết thương.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 8. Tóm tắt và kiểm tra độ đầy đủ
 
-## Điều hướng
+Đã bao gồm **18/18 mục số 1–18**, toàn bộ tên viết tắt/giải thích trong hình, ghi chú *Important Note* và **3 câu hỏi thực hành** ở cuối trang 83.
 
-- [← Bài trước](06_medical-emergencies.md)
-- [Bài tiếp theo →](08_clinics.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Điều hướng:** [← Bài 06](06_medical-emergencies.md) · [Bài 08: Phòng khám →](08_clinics.md) · [Mục lục](README.md)

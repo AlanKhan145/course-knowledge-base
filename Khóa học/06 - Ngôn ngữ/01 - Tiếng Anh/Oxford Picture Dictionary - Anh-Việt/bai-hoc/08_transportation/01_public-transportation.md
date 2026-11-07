@@ -5,89 +5,184 @@ unit_title: "Giao thông"
 lesson: 1
 lesson_en: "Public Transportation"
 lesson_vi: "Phương tiện công cộng"
-book_pages: "104-104"
-pdf_pages: "114-114"
+book_pages: "104"
+pdf_pages: "114"
+numbered_vocabulary: 23
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 01 – Phương tiện công cộng (Public Transportation)
 
-> **Đơn vị 8:** Giao thông (Transportation)  
-> **Nguồn:** trang 104 trong sách, tương ứng trang PDF **114–114**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 8 – Giao thông** · Trang sách **104** (PDF **114**) · **23 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu các phương tiện công cộng và những gì hành khách gặp khi đi xe buýt, tàu điện ngầm, tàu hỏa, taxi hoặc phà. Hình minh họa có điểm dừng xe buýt, nhà ga, sân ga và các cảnh mua vé, trả tiền cước.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **phương tiện công cộng** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **public transportation**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 23 mục từ được đánh số, nhận biết các từ về phương tiện và dịch vụ đi kèm, đồng thời dùng chúng trong những câu giao tiếp đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Phương tiện công cộng](01_public-transportation-trang-ghep.jpg)
+![Trang sách minh họa Public Transportation](./01_public-transportation-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 104 (trang PDF 114). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ đúng thứ tự đánh số trên hình. Hãy quan sát vị trí và ngữ cảnh để liên hệ từng từ với cảnh đi lại tương ứng.
 
-| English | Tiếng Việt |
-|---|---|
-| bus | xe buýt |
-| train | tàu hỏa |
-| subway | tàu điện ngầm |
-| station | nhà ga |
-| ticket | vé |
+### 3.1. Xe buýt và hành khách (số 1–8)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **bus stop** | trạm xe buýt |
+| 2 | **route** | tuyến xe |
+| 3 | **schedule** | lịch trình |
+| 4 | **bus** | xe buýt |
+| 5 | **fare** | tiền vé xe |
+| 6 | **transfer** | vé chuyển xe |
+| 7 | **passenger** | hành khách |
+| 8 | **bus driver** | tài xế xe buýt |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Tàu điện ngầm và vé (số 9–12)
 
-- **What does “bus” mean?** — “bus” có nghĩa là gì?
-- **How do you say “tàu hỏa” in English?** — “tàu hỏa” nói bằng tiếng Anh thế nào?
-- **Can you find “bus” in the picture?** — Bạn có thể tìm “bus” trong tranh không?
-- **This picture is about public transportation.** — Bức tranh này có chủ đề phương tiện công cộng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 9 | **subway** | xe điện ngầm |
+| 10 | **track** | đường xe điện ngầm |
+| 11 | **token** | đồng tốc-cân |
+| 12 | **fare card** | thẻ vé xe |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Tàu hỏa (số 13–17)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 13 | **train station** | ga xe lửa |
+| 14 | **ticket** | vé |
+| 15 | **platform** | sân ga |
+| 16 | **conductor** | nhân viên điều khiển xe |
+| 17 | **train** | xe lửa |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### 3.4. Taxi (số 18–22)
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 18 | **taxi/cab** | xe tắc-xi |
+| 19 | **taxi stand** | chỗ xe tắc-xi đậu |
+| 20 | **taxi driver** | tài xế xe tắc-xi |
+| 21 | **meter** | máy tính tiền |
+| 22 | **taxi license** | bằng lái tắc-xi |
 
-1. xe buýt → ______
-2. tàu hỏa → ______
-3. tàu điện ngầm → ______
-4. nhà ga → ______
+### 3.5. Phà (số 23–23)
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về phương tiện công cộng, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 23 | **ferry** | phà |
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 4. Phân biệt và ghi nhớ
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+- **bus stop** là trạm xe buýt; **bus** là xe buýt. Một từ chỉ nơi đón xe, từ còn lại chỉ phương tiện.
+- **route** là tuyến xe, còn **schedule** là lịch trình. Có thể xem lịch trình để biết giờ xe chạy trên tuyến.
+- **fare** là tiền vé xe; **ticket** là vé. **Transfer** là vé chuyển xe, còn **fare card** là thẻ vé xe.
+- **subway** là xe điện ngầm; **track** là đường xe điện ngầm. Ghi nhớ track là phần đường dành cho tàu chạy.
+- **train station** là ga xe lửa; **platform** là sân ga. **Conductor** là nhân viên điều khiển xe, còn **train** là xe lửa.
+- **taxi/cab** là hai cách gọi chiếc xe tắc-xi; **taxi stand** là chỗ xe tắc-xi đậu. **Meter** tính tiền, còn **taxi license** là bằng lái tắc-xi.
 
-1. bus
-2. train
-3. subway
-4. station
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-</details>
+**More vocabulary**
 
-## 6. Ôn tập nhanh và mở rộng
+- **hail a taxi** — vẫy tay để thu hút sự chú ý của tài xế taxi, tức gọi taxi.
+- **miss the bus** — đến trạm xe buýt muộn nên lỡ chuyến xe.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Talk about how you and your friends come to school.** — Nói về cách bạn và bạn bè đến trường.
 
-## Điều hướng
+- **I take the bus to school.** — Tôi đi xe buýt đến trường.
+- **You take the train.** — Bạn đi tàu hỏa.
+- **We take the subway.** — Chúng tôi đi xe điện ngầm.
+- **He drives to school.** — Anh ấy lái xe đến trường.
+- **She walks to school.** — Cô ấy đi bộ đến trường.
+- **They ride bikes.** — Họ đi xe đạp.
 
-- [← Bài trước](../07_community/11_emergencies-and-natural-disasters.md)
-- [Bài tiếp theo →](02_prepositions-of-motion.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 6. Mẫu câu giao tiếp
+
+- **Where is the bus stop?** — Trạm xe buýt ở đâu?
+- **What is the fare?** — Tiền vé xe là bao nhiêu?
+- **I need a transfer.** — Tôi cần vé chuyển xe.
+- **Which platform is the train on?** — Tàu ở sân ga nào?
+- **Please take me to the train station.** — Làm ơn đưa tôi đến ga xe lửa.
+- **I take the subway to school.** — Tôi đi xe điện ngầm đến trường.
+
+## 7. Luyện tập thực hành
+
+1. Quan sát các số **1–8**; ghép tên nơi đón, tuyến, lịch trình, phương tiện và người đi xe buýt thành các cặp phù hợp.
+2. Dựa vào các số **9–12**, viết bốn câu hỏi hoặc câu trả lời ngắn về xe điện ngầm, đường tàu và cách trả tiền vé.
+3. Quan sát các số **13–17**; mô tả hành trình vào ga, ra sân ga và lên tàu bằng ít nhất ba câu tiếng Anh.
+4. Dựa vào các số **18–23**, phân biệt xe tắc-xi, chỗ đậu taxi, người lái taxi, máy tính tiền, bằng lái và phà.
+
+## 8. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Từ nào chỉ nơi xe buýt dừng để đón khách?
+
+A. bus stop  
+B. schedule  
+C. passenger  
+D. route  
+
+**Đáp án: A.** **Bus stop** là trạm xe buýt.
+
+### Câu 2
+
+Từ nào có nghĩa là “vé chuyển xe”?
+
+A. fare card  
+B. transfer  
+C. token  
+D. fare  
+
+**Đáp án: B.** **Transfer** là vé chuyển xe.
+
+### Câu 3
+
+Từ nào chỉ khu vực hành khách đứng chờ tàu ở nhà ga?
+
+A. track  
+B. conductor  
+C. platform  
+D. train station  
+
+**Đáp án: C.** **Platform** là sân ga.
+
+### Câu 4
+
+Từ nào chỉ thiết bị dùng để tính tiền chuyến taxi?
+
+A. taxi license  
+B. taxi stand  
+C. taxi driver  
+D. meter  
+
+**Đáp án: D.** **Meter** là máy tính tiền.
+
+### Câu 5
+
+Phương tiện nào trong bài là phà?
+
+A. ferry  
+B. subway  
+C. bus  
+D. train  
+
+**Đáp án: A.** **Ferry** là phà.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và tự dịch đủ **23 mục từ được đánh số**.
+- Che cột tiếng Anh và nhìn nghĩa tiếng Việt để đọc lại đủ **23 mục từ được đánh số**.
+- Nói ít nhất ba câu về cách bạn đi học hoặc cách hành khách sử dụng xe buýt, tàu hỏa, tàu điện ngầm hay taxi.
+
+---
+
+[← Bài trước](../07_community/11_emergencies-and-natural-disasters.md) · [Bài tiếp theo →](02_prepositions-of-motion.md) · [Mục lục đơn vị](README.md)

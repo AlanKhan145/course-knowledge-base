@@ -5,89 +5,158 @@ unit_title: "Giao thông"
 lesson: 6
 lesson_en: "An Airport"
 lesson_vi: "Sân bay"
-book_pages: "110-110"
-pdf_pages: "120-120"
+book_pages: "110"
+pdf_pages: "120"
+numbered_vocabulary: 23
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 06 – Sân bay (An Airport)
 
-> **Đơn vị 8:** Giao thông (Transportation)  
-> **Nguồn:** trang 110 trong sách, tương ứng trang PDF **120–120**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 8 – Giao thông** · Trang sách **110** (PDF **120**) · **23 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu một sân bay: quầy làm thủ tục và khu chờ lên máy bay, máy bay và các phương tiện ngoài cửa sổ, cùng cảnh trên máy bay và khu nhận hành lý, hải quan.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **sân bay** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **an airport**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **23 mục từ được đánh số**, nhận biết các khu vực và người làm việc trong hành trình bay, rồi dùng từ vựng trong những câu giao tiếp đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Sân bay](06_an-airport-trang-ghep.jpg)
+![Trang sách minh họa An Airport](./06_an-airport-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 110 (trang PDF 120). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ đúng thứ tự đánh số trong hình. Học cả những cách dịch được phân cách bằng dấu gạch chéo.
 
-| English | Tiếng Việt |
-|---|---|
-| airport | sân bay |
-| terminal | nhà ga |
-| passport | hộ chiếu |
-| boarding pass | thẻ lên máy bay |
-| security check | kiểm tra an ninh |
+### 3.1. Khu vực sân bay và phương tiện (số 1–9)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **airline terminal** | phi cảng |
+| 2 | **airline representative** | nhân viên hãng hàng không |
+| 3 | **check-in counter** | quầy kiểm nhận hành lý |
+| 4 | **arrival and departure monitors** | máy ghi lịch trình bay đến và đi |
+| 5 | **gate** | cổng |
+| 6 | **boarding area** | khu vực để sửa soạn lên máy bay |
+| 7 | **control tower** | trạm không kiểm |
+| 8 | **helicopter** | máy bay trực thăng |
+| 9 | **airplane** | máy bay |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Bên trong máy bay (số 10–16)
 
-- **What does “airport” mean?** — “airport” có nghĩa là gì?
-- **How do you say “nhà ga” in English?** — “nhà ga” nói bằng tiếng Anh thế nào?
-- **Can you find “airport” in the picture?** — Bạn có thể tìm “airport” trong tranh không?
-- **This picture is about an airport.** — Bức tranh này có chủ đề sân bay.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 10 | **overhead compartment** | ngăn chứa đồ trên đầu |
+| 11 | **cockpit** | phòng lái |
+| 12 | **pilot** | phi công |
+| 13 | **flight attendant** | chiêu đãi viên hàng không |
+| 14 | **oxygen mask** | mặt nạ thở / mặt nạ dưỡng khí |
+| 15 | **airsickness bag** | túi để nôn vào |
+| 16 | **tray table** | bàn có khay |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Nhận hành lý và làm thủ tục hải quan (số 17–23)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 17 | **baggage claim area** | khu nhận hành lý |
+| 18 | **carousel** | thang đẩy hành lý vòng qua vòng lại |
+| 19 | **luggage carrier** | người mang hành lý |
+| 20 | **customs** | hải quan / quan thuế |
+| 21 | **customs officer** | nhân viên hải quan |
+| 22 | **declaration form** | tờ khai hải quan |
+| 23 | **passenger** | hành khách |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **airline terminal** là phi cảng; **gate** là cổng trong khu vực sân bay, còn **boarding area** là khu vực để sửa soạn lên máy bay.
+- **arrival and departure monitors** hiển thị lịch trình bay đến và đi; **control tower** là trạm không kiểm ở sân bay.
+- **helicopter** là máy bay trực thăng, còn **airplane** là máy bay; đây là hai loại phương tiện khác nhau trong hình.
+- **cockpit** là phòng lái; **pilot** là phi công; **flight attendant** là chiêu đãi viên hàng không.
+- **overhead compartment** là ngăn chứa đồ trên đầu; **tray table** là bàn có khay; **airsickness bag** là túi để nôn vào.
+- **baggage claim area** là khu nhận hành lý; **carousel** là thang đẩy hành lý vòng qua vòng lại; **luggage carrier** là người mang hành lý.
 
-1. sân bay → ______
-2. nhà ga → ______
-3. hộ chiếu → ______
-4. thẻ lên máy bay → ______
+## 5. Mẫu câu giao tiếp
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về sân bay, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+- **Where is the check-in counter?** — Quầy kiểm nhận hành lý ở đâu?
+- **Please check the arrival and departure monitors.** — Vui lòng xem máy ghi lịch trình bay đến và đi.
+- **The boarding area is near the gate.** — Khu vực để sửa soạn lên máy bay ở gần cổng.
+- **The flight attendant is showing the oxygen mask.** — Chiêu đãi viên hàng không đang chỉ mặt nạ thở.
+- **My bag is on the carousel.** — Túi của tôi ở trên thang đẩy hành lý vòng qua vòng lại.
+- **Please give the declaration form to the customs officer.** — Vui lòng đưa tờ khai hải quan cho nhân viên hải quan.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 6. Luyện tập thực hành
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+1. Quan sát các số **1–9**; đọc tên những khu vực sân bay và phương tiện, rồi ghép mỗi tên với vị trí phù hợp trong tranh.
+2. Quan sát các số **10–16**; gọi tên các vật dụng và người trên máy bay. Viết ba câu dùng **overhead compartment**, **oxygen mask** và **tray table**.
+3. Quan sát các số **17–23**; kể lại bằng tiếng Anh những gì hành khách có thể thấy ở khu nhận hành lý và hải quan. Dùng ít nhất bốn từ trong nhóm này.
+4. Chọn sáu mục từ ở các số khác nhau; viết câu tiếng Anh ngắn để một bạn học đoán số tương ứng trên hình.
 
-1. airport
-2. terminal
-3. passport
-4. boarding pass
+## 7. Câu hỏi trắc nghiệm ôn tập
 
-</details>
+### Câu 1
 
-## 6. Ôn tập nhanh và mở rộng
+Số 7 trong hình là gì?
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+A. control tower  
+B. helicopter  
+C. airplane  
+D. gate  
 
-## Điều hướng
+**Đáp án: A.** Số 7 chỉ trạm không kiểm.
 
-- [← Bài trước](05_parts-of-a-car-and-car-maintenance.md)
-- [Bài tiếp theo →](07_a-plane-trip.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 2
+
+Vật nào ở số 14?
+
+A. airsickness bag  
+B. oxygen mask  
+C. tray table  
+D. overhead compartment  
+
+**Đáp án: B.** Số 14 là mặt nạ thở / mặt nạ dưỡng khí.
+
+### Câu 3
+
+Số 18 chỉ mục nào?
+
+A. baggage claim area  
+B. luggage carrier  
+C. carousel  
+D. declaration form  
+
+**Đáp án: C.** Số 18 là thang đẩy hành lý vòng qua vòng lại.
+
+### Câu 4
+
+Ai là người được chỉ ở số 21?
+
+A. passenger  
+B. airline representative  
+C. pilot  
+D. customs officer  
+
+**Đáp án: D.** Số 21 là nhân viên hải quan.
+
+### Câu 5
+
+Số 3 trong hình là gì?
+
+A. check-in counter  
+B. gate  
+C. cockpit  
+D. customs  
+
+**Đáp án: A.** Số 3 là quầy kiểm nhận hành lý.
+
+## 8. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và đọc, dịch đủ **23 mục từ được đánh số** theo thứ tự trên hình.
+- Che cột tiếng Anh và tự gọi tên đủ **23 mục từ được đánh số** từ nghĩa tiếng Việt.
+- Nói ít nhất ba câu tiếng Anh có dùng từ của bài; thử nhắc đến khu vực sân bay, bên trong máy bay và khu nhận hành lý hoặc hải quan.
+
+---
+
+[← Bài trước](05_parts-of-a-car-and-car-maintenance.md) · [Bài tiếp theo →](07_a-plane-trip.md) · [Mục lục đơn vị](README.md)

@@ -5,89 +5,153 @@ unit_title: "Giải trí và thể thao"
 lesson: 8
 lesson_en: "Winter Sports and Water Sports"
 lesson_vi: "Thể thao mùa đông và dưới nước"
-book_pages: "160-160"
-pdf_pages: "170-170"
+book_pages: "160"
+pdf_pages: "170"
+numbered_vocabulary: 12
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 08 – Thể thao mùa đông và dưới nước (Winter Sports and Water Sports)
 
-> **Đơn vị 12:** Giải trí và thể thao (Recreation)  
-> **Nguồn:** trang 160 trong sách, tương ứng trang PDF **170–170**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 12 – Giải trí và thể thao** · Trang sách **160** (PDF **170**) · **12 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu các môn thể thao mùa đông trên tuyết và băng, cùng các môn thể thao dưới nước như chèo buồm, lướt sóng và lặn. Tranh minh họa người trượt tuyết, trượt băng, chơi xe trượt tuyết và tham gia các hoạt động trên mặt nước hoặc dưới nước.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **thể thao mùa đông và dưới nước** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **winter sports and water sports**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **12 mục từ được đánh số** theo thứ tự trong tranh, phân biệt các môn có cách gọi gần nhau và dùng từ vựng để nói về môn thể thao mình yêu thích.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Thể thao mùa đông và dưới nước](08_winter-sports-and-water-sports-trang-ghep.jpg)
+![Trang sách minh họa Winter Sports and Water Sports](./08_winter-sports-and-water-sports-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 160 (trang PDF 170). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục từ dưới đây giữ đúng thứ tự đánh số trên hình. Hãy đọc tên tiếng Anh cùng nghĩa tiếng Việt in trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| skiing | trượt tuyết |
-| skating | trượt băng |
-| surfing | lướt sóng |
-| diving | lặn |
-| water skiing | lướt ván nước |
+### 3.1. Thể thao mùa đông (số 1–6)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **downhill skiing** | trượt tuyết xuống dốc |
+| 2 | **snowboarding** | trượt ván trên tuyết |
+| 3 | **cross-country skiing** | trượt tuyết băng đồng |
+| 4 | **ice skating** | trượt băng |
+| 5 | **figure skating** | trượt băng nghệ thuật |
+| 6 | **sledding** | chơi xe trượt tuyết |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Thể thao dưới nước (số 7–12)
 
-- **What does “skiing” mean?** — “skiing” có nghĩa là gì?
-- **How do you say “trượt băng” in English?** — “trượt băng” nói bằng tiếng Anh thế nào?
-- **Can you find “skiing” in the picture?** — Bạn có thể tìm “skiing” trong tranh không?
-- **This picture is about winter sports and water sports.** — Bức tranh này có chủ đề thể thao mùa đông và dưới nước.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 7 | **waterskiing** | trượt ván nước |
+| 8 | **sailing** | đi thuyền buồm |
+| 9 | **surfing** | trượt ván lướt sóng |
+| 10 | **sailboarding** | trượt ván có buồm |
+| 11 | **snorkeling** | lặn có ống thông hơi |
+| 12 | **scuba diving** | lặn có bình dưỡng khí |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 4. Phân biệt và ghi nhớ
 
-## 5. Bài tập thực hành
+- **downhill skiing** là trượt tuyết xuống dốc; **cross-country skiing** là trượt tuyết băng đồng. Cả hai đều dùng ván trượt tuyết, nhưng tên gọi chỉ hai kiểu trượt khác nhau.
+- **ice skating** là trượt băng nói chung; **figure skating** là trượt băng nghệ thuật.
+- **waterskiing** là trượt ván nước, còn **sailboarding** là trượt ván có buồm. Chú ý thành tố **sail** gợi liên hệ với buồm.
+- **sailing** là đi thuyền buồm; **surfing** là trượt ván lướt sóng. Hai từ cùng nói về hoạt động trên mặt nước nhưng gọi những môn khác nhau.
+- **snorkeling** là lặn có ống thông hơi; **scuba diving** là lặn có bình dưỡng khí. Ghi nhớ loại thiết bị được nêu trong nghĩa tiếng Việt.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+### Use the new language.
 
-1. trượt tuyết → ______
-2. trượt băng → ______
-3. lướt sóng → ______
-4. lặn → ______
+- **Look at The Beach, page 155.** — Hãy xem bài The Beach, trang 155.
+- **Name the sports you see.** — Hãy gọi tên những môn thể thao bạn nhìn thấy.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về thể thao mùa đông và dưới nước, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### Share your answers.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+- **Which sports are in the Winter Olympics?** — Những môn thể thao nào có trong Thế vận hội Mùa đông?
+- **Which sports do you think are the most exciting to watch?** — Bạn nghĩ môn thể thao nào thú vị nhất để xem?
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+## 6. Mẫu câu giao tiếp
 
-1. skiing
-2. skating
-3. surfing
-4. diving
+- **I enjoy downhill skiing.** — Tôi thích trượt tuyết xuống dốc.
+- **She likes snowboarding.** — Cô ấy thích trượt ván trên tuyết.
+- **They are going cross-country skiing.** — Họ đang đi trượt tuyết băng đồng.
+- **He goes ice skating on weekends.** — Anh ấy đi trượt băng vào cuối tuần.
+- **We want to try sailing.** — Chúng tôi muốn thử đi thuyền buồm.
+- **Would you rather go snorkeling or scuba diving?** — Bạn thích lặn có ống thông hơi hay lặn có bình dưỡng khí hơn?
 
-</details>
+## 7. Luyện tập thực hành
 
-## 6. Ôn tập nhanh và mở rộng
+1. Quan sát các hình **1–6**; gọi tên từng môn thể thao mùa đông bằng tiếng Anh và đọc nghĩa tiếng Việt.
+2. Ghép các số **7–12** với sáu môn thể thao dưới nước; sau đó tự che phần tên tiếng Anh và đọc lại.
+3. Viết hai câu phân biệt **ice skating** với **figure skating**, và **waterskiing** với **sailboarding**.
+4. Chọn hai môn trong hình **1–12** mà bạn muốn thử; nói tên môn và giải thích lựa chọn bằng tiếng Anh.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-## Điều hướng
+### Câu 1
 
-- [← Bài trước](07_individual-sports.md)
-- [Bài tiếp theo →](09_sports-equipment.md)
-- [Danh sách bài trong chủ đề](README.md)
+Môn nào có nghĩa là trượt tuyết băng đồng?
+
+A. downhill skiing  
+B. cross-country skiing  
+C. snowboarding  
+D. sledding  
+
+**Đáp án: B.** **Cross-country skiing** là trượt tuyết băng đồng.
+
+### Câu 2
+
+Môn nào là trượt băng nghệ thuật?
+
+A. ice skating  
+B. sledding  
+C. figure skating  
+D. snowboarding  
+
+**Đáp án: C.** **Figure skating** có nghĩa là trượt băng nghệ thuật.
+
+### Câu 3
+
+Hoạt động nào là đi thuyền buồm?
+
+A. sailing  
+B. surfing  
+C. waterskiing  
+D. snorkeling  
+
+**Đáp án: A.** **Sailing** là đi thuyền buồm.
+
+### Câu 4
+
+Môn nào là trượt ván lướt sóng?
+
+A. sailboarding  
+B. scuba diving  
+C. sailing  
+D. surfing  
+
+**Đáp án: D.** **Surfing** là trượt ván lướt sóng.
+
+### Câu 5
+
+Môn nào là lặn có bình dưỡng khí?
+
+A. snorkeling  
+B. scuba diving  
+C. waterskiing  
+D. sailing  
+
+**Đáp án: B.** **Scuba diving** là lặn có bình dưỡng khí.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và đọc nghĩa của đủ **12 mục từ được đánh số** theo thứ tự trên hình.
+- Che cột tiếng Anh, nhìn nghĩa tiếng Việt và gọi tên lại đủ **12 mục từ được đánh số**.
+- Nói ít nhất ba câu có sử dụng các từ vừa học; thử nêu môn thể thao bạn thích và môn bạn muốn xem.
+
+---
+
+[← Bài trước](07_individual-sports.md) · [Bài tiếp theo →](09_sports-equipment.md) · [Mục lục đơn vị](README.md)

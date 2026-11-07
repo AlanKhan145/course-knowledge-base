@@ -5,89 +5,169 @@ unit_title: "Thực vật và động vật"
 lesson: 5
 lesson_en: "Domestic Animals and Rodents"
 lesson_vi: "Thú nuôi và loài gặm nhấm"
-book_pages: "133-133"
-pdf_pages: "143-143"
+book_pages: "133"
+pdf_pages: "143"
+numbered_vocabulary: 22
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 05 – Thú nuôi và loài gặm nhấm (Domestic Animals and Rodents)
 
-> **Đơn vị 10:** Thực vật và động vật (Plants and Animals)  
-> **Nguồn:** trang 133 trong sách, tương ứng trang PDF **143–143**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 10 – Thực vật và động vật** · Trang sách **133** (PDF **143**) · **22 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu các con vật trong ba nhóm: nông súc, thú vật nuôi trong nhà và loài gặm nhấm. Tranh minh họa từng con vật kèm số thứ tự, giúp người học nối tên tiếng Anh với hình và nghĩa tiếng Việt.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **thú nuôi và loài gặm nhấm** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **domestic animals and rodents**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 22 mục từ được đánh số, phân biệt một số tên con vật gần nhau và dùng chúng trong các câu giao tiếp đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Thú nuôi và loài gặm nhấm](05_domestic-animals-and-rodents-trang-ghep.jpg)
+![Trang sách minh họa Domestic Animals and Rodents](./05_domestic-animals-and-rodents-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 133 (trang PDF 143). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây được chia theo ba nhóm chủ điểm trong sách và giữ đúng thứ tự đánh số trên hình.
 
-| English | Tiếng Việt |
-|---|---|
-| dog | chó |
-| cat | mèo |
-| rabbit | thỏ |
-| mouse | chuột nhắt |
-| hamster | chuột hamster |
+### 3.1. Nông súc (số 1–8)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **goat** | dê |
+| 2 | **donkey** | lừa |
+| 3 | **cow** | bò |
+| 4 | **horse** | ngựa |
+| 5 | **hen** | gà mái |
+| 6 | **rooster** | gà trống |
+| 7 | **sheep** | cừu |
+| 8 | **pig** | heo, lợn |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Thú nuôi trong nhà (số 9–16)
 
-- **What does “dog” mean?** — “dog” có nghĩa là gì?
-- **How do you say “mèo” in English?** — “mèo” nói bằng tiếng Anh thế nào?
-- **Can you find “dog” in the picture?** — Bạn có thể tìm “dog” trong tranh không?
-- **This picture is about domestic animals and rodents.** — Bức tranh này có chủ đề thú nuôi và loài gặm nhấm.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 9 | **cat** | mèo |
+| 10 | **kitten** | mèo con |
+| 11 | **dog** | chó |
+| 12 | **puppy** | chó con |
+| 13 | **rabbit** | thỏ |
+| 14 | **guinea pig** | chuột bạch |
+| 15 | **parakeet** | vẹt đuôi dài |
+| 16 | **goldfish** | cá vàng |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Loài gặm nhấm (số 17–22)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 17 | **mouse** | chuột nhắt |
+| 18 | **rat** | chuột lớn |
+| 19 | **gopher** | chuột túi |
+| 20 | **chipmunk** | sóc chuột |
+| 21 | **squirrel** | sóc |
+| 22 | **prairie dog** | sóc chó |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **hen** là gà mái, còn **rooster** là gà trống; cả hai đều thuộc nhóm nông súc.
+- **cat** là mèo, **kitten** là mèo con; **dog** là chó, **puppy** là chó con. Hậu tố **-en** trong *kitten* và *-ppy* trong *puppy* là một phần của tên gọi con vật non.
+- **mouse** là chuột nhắt, còn **rat** là chuột lớn theo chú thích tiếng Việt trong sách.
+- **guinea pig** được chú thích là chuột bạch; **pig** được chú thích là heo, lợn. Hai tên có từ **pig** nhưng chỉ hai con vật khác nhau trong bài.
+- **squirrel** là sóc; **chipmunk** là sóc chuột; **prairie dog** là sóc chó. Hãy học từng cụm như một tên gọi trọn vẹn.
+- Một số tên là cụm gồm hai từ, như **guinea pig**, **goldfish**, **prairie dog**; khi đọc và ghi nhớ, giữ nguyên cả cụm.
 
-1. chó → ______
-2. mèo → ______
-3. thỏ → ______
-4. chuột nhắt → ______
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về thú nuôi và loài gặm nhấm, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### More vocabulary
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+- **Wild animals** — Wild animals live, eat, and raise their young away from people, in the forests, mountains, plains, etc. (Động vật hoang dã sống, kiếm ăn và nuôi con non xa con người, trong rừng, núi, đồng bằng, v.v.)
+- **Domesticated animals** — Domesticated animals work for people or live with them. (Động vật được thuần hóa, làm việc cho con người hoặc sống cùng con người.)
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+### Share your answers.
 
-1. dog
-2. cat
-3. rabbit
-4. mouse
+- **Do you have any pets? Any farm animals?** — Bạn có thú nuôi nào không? Có con vật nuôi nào ở nông trại không?
+- **Which of these animals are in your neighborhood? Which are not?** — Những con vật nào trong số này có ở khu bạn sống? Những con nào thì không?
 
-</details>
+## 6. Mẫu câu giao tiếp
 
-## 6. Ôn tập nhanh và mở rộng
+- **Do you have a pet?** — Bạn có thú nuôi không?
+- **I have a cat and a kitten.** — Tôi có một con mèo và một mèo con.
+- **The dog is playing with the puppy.** — Con chó đang chơi với chó con.
+- **There is a hen and a rooster on the farm.** — Có một con gà mái và một con gà trống ở nông trại.
+- **I see a rabbit and a guinea pig.** — Tôi nhìn thấy một con thỏ và một con chuột bạch.
+- **A squirrel is in my neighborhood, but a prairie dog is not.** — Có sóc ở khu tôi sống, nhưng không có sóc chó.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 7. Luyện tập thực hành
 
-## Điều hướng
+1. Quan sát hình và đọc tên các con vật số **1–8**. Chia chúng thành các cặp dễ nhớ: **hen/rooster** và **donkey/horse**.
+2. Che phần tên tiếng Anh, nhìn các hình số **9–16** rồi tự gọi tên từng con vật. Sau đó kiểm tra với bảng từ vựng.
+3. Viết lại tên sáu con vật số **17–22** theo thứ tự, rồi ghép mỗi tên với nghĩa tiếng Việt.
+4. Trả lời bằng câu đầy đủ hai câu hỏi trong khung **Share your answers**; dùng tên các con vật trong hình để nói về thú nuôi và khu bạn sống.
 
-- [← Bài trước](04_birds-insects-and-arachnids.md)
-- [Bài tiếp theo →](06_mammals.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 8. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Con vật số 5 là con nào?
+
+A. hen  
+B. rooster  
+C. sheep  
+D. goat  
+
+**Đáp án: A.** Số 5 là **hen**, nghĩa là gà mái.
+
+### Câu 2
+
+Từ nào có nghĩa là chó con?
+
+A. kitten  
+B. puppy  
+C. rabbit  
+D. dog  
+
+**Đáp án: B.** **Puppy** có nghĩa là chó con.
+
+### Câu 3
+
+Con vật số 18 được gọi là gì trong tiếng Anh?
+
+A. mouse  
+B. gopher  
+C. rat  
+D. chipmunk  
+
+**Đáp án: C.** Số 18 là **rat**, được chú thích là chuột lớn.
+
+### Câu 4
+
+Từ nào có nghĩa là vẹt đuôi dài?
+
+A. goldfish  
+B. guinea pig  
+C. rabbit  
+D. parakeet  
+
+**Đáp án: D.** **Parakeet** có nghĩa là vẹt đuôi dài.
+
+### Câu 5
+
+Con vật số 19 có tên tiếng Anh là gì?
+
+A. gopher  
+B. squirrel  
+C. prairie dog  
+D. sheep  
+
+**Đáp án: A.** Số 19 là **gopher**, nghĩa là chuột túi theo chú thích trong sách.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và đọc hoặc viết nghĩa của đủ **22 mục từ được đánh số**.
+2. Che cột tiếng Anh, nhìn nghĩa tiếng Việt và gọi tên lại đủ **22 mục từ được đánh số** bằng tiếng Anh.
+3. Nói ít nhất ba câu tiếng Anh có dùng tên các con vật trong bài; thử nhắc đến thú nuôi, nông súc hoặc con vật trong khu bạn sống.
+
+---
+
+[← Bài trước](04_birds-insects-and-arachnids.md) · [Bài tiếp theo →](06_mammals.md) · [Mục lục đơn vị](README.md)

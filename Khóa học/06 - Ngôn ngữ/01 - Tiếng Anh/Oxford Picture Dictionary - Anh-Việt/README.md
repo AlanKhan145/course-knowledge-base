@@ -9,7 +9,7 @@
 - **Cấu trúc:** 12 chủ đề, 129 bài học Markdown, mỗi bài là **một file `.md` đặt ngay trong thư mục chủ đề**, cùng **một ảnh ghép duy nhất** cùng thư mục với file `.md` (giữ nguyên nội dung các trang sách của bài).
 - **Ngôn ngữ:** Hướng dẫn tiếng Việt; tiêu đề và từ vựng Anh–Việt; mẫu câu thực hành tiếng Anh.
 - **Ánh xạ trang:** Trang in `n` (từ 2 đến 172) tương ứng trang PDF `n + 10`.
-- **Ghi chú bản quét:** PDF gốc là ảnh scan, không có text layer; các bảng từ vựng mẫu được biên soạn bổ sung để học, không phải bản chép/nhận dạng đầy đủ từ ảnh.
+- **Ghi chú bản quét:** PDF gốc là ảnh scan, không có text layer; bảng từ vựng của mỗi bài được chép theo từng nhãn in trên ảnh (kèm nghĩa tiếng Việt in sẵn trong sách), còn phần giảng giải, mẫu câu, bài tập và trắc nghiệm là nội dung biên soạn để học.
 - **Phụ lục:** Các trang đầu sách, chỉ mục Anh/Việt và bìa sau được lưu tại [`tai-lieu-tham-khao/`](tai-lieu-tham-khao/README.md).
 
 ## Bắt đầu học

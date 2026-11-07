@@ -5,89 +5,202 @@ unit_title: "Cộng đồng"
 lesson: 2
 lesson_en: "An Intersection"
 lesson_vi: "Ngã tư"
-book_pages: "90-91"
-pdf_pages: "100-101"
+book_pages: "90–91"
+pdf_pages: "100–101"
+numbered_vocabulary: 31
+lettered_items: 5
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 02 – Ngã tư (An Intersection)
 
-> **Đơn vị 7:** Cộng đồng (Community)  
-> **Nguồn:** trang 90–91 trong sách, tương ứng trang PDF **100–101**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 7 – Cộng đồng** · Trang sách **90–91** (PDF **100–101**) · **31 mục từ được đánh số** · **5 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang bài học mô tả một ngã tư trong khu phố, với các cửa tiệm, phương tiện giao thông, người đi bộ và những vật dụng ven đường. Khung ghi chú bổ sung từ về khu dân cư, việc vặt, nơi mua một số mặt hàng và câu hỏi để chia sẻ trải nghiệm.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **ngã tư** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **an intersection**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **31 mục từ được đánh số**, **5 mục chữ cái** và **0 mục không đánh số**, phân biệt các địa điểm, phương tiện và hoạt động trong tranh.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Ngã tư](02_an-intersection-trang-ghep.jpg)
+![Trang sách minh họa An Intersection](./02_an-intersection-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 90–91 (trang PDF 100–101). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ đúng thứ tự đánh số trên hai trang; hãy đối chiếu số trong tranh với bảng từ vựng.
 
-| English | Tiếng Việt |
-|---|---|
-| turn left | rẽ trái |
-| turn right | rẽ phải |
-| go straight | đi thẳng |
-| pedestrian | người đi bộ |
-| stop sign | biển dừng |
+### 3.1. Cửa tiệm, đường phố và giao thông (số 1–15)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **Laundromat** | tiệm giặt |
+| 2 | **drugstore/pharmacy** | tiệm thuốc tây |
+| 3 | **convenience store** | tiệm bán hàng xén |
+| 4 | **photo shop** | tiệm chụp hình |
+| 5 | **parking space** | chỗ đậu xe |
+| 6 | **traffic light** | đèn xanh đèn đỏ / đèn lưu thông |
+| 7 | **pedestrian** | khách bộ hành |
+| 8 | **crosswalk** | đường để người băng qua đường |
+| 9 | **street** | đường phố |
+| 10 | **curb** | lề đường |
+| 11 | **newsstand** | quầy báo / sạp báo |
+| 12 | **mailbox** | hộp thư |
+| 13 | **drive-thru window** | cửa sổ để mua đồ ăn (cho người lái xe) |
+| 14 | **fast food restaurant** | tiệm bán đồ ăn liền |
+| 15 | **bus** | xe buýt |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Cửa tiệm, đường phố và khu vực quanh ngã tư (số 16–31)
 
-- **What does “turn left” mean?** — “turn left” có nghĩa là gì?
-- **How do you say “rẽ phải” in English?** — “rẽ phải” nói bằng tiếng Anh thế nào?
-- **Can you find “turn left” in the picture?** — Bạn có thể tìm “turn left” trong tranh không?
-- **This picture is about an intersection.** — Bức tranh này có chủ đề ngã tư.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 16 | **bus stop** | trạm xe buýt |
+| 17 | **corner** | góc đường |
+| 18 | **parking meter** | máy thâu tiền đậu xe |
+| 19 | **motorcycle** | xe gắn máy |
+| 20 | **donut shop** | tiệm bánh đô-nát |
+| 21 | **public telephone** | điện thoại công cộng |
+| 22 | **copy center/print shop** | tiệm copy, tiệm in |
+| 23 | **streetlight** | đèn đường |
+| 24 | **dry cleaners** | tiệm hấp đồ (giặt) |
+| 25 | **nail salon** | tiệm làm móng tay |
+| 26 | **sidewalk** | lối đi bộ |
+| 27 | **garbage truck** | xe rác |
+| 28 | **fire hydrant** | vòi nước chữa lửa |
+| 29 | **sign** | bảng hiệu |
+| 30 | **street vendor** | người bán hàng rong |
+| 31 | **cart** | xe đẩy |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 4. Phân biệt và ghi nhớ
 
-## 5. Bài tập thực hành
+- **street** là đường phố; **sidewalk** là lối đi bộ; **curb** là lề đường. Đây là ba vị trí khác nhau quanh lòng đường.
+- **traffic light** là đèn xanh đèn đỏ / đèn lưu thông; **streetlight** là đèn đường. Một từ chỉ đèn giao thông, từ còn lại chỉ đèn chiếu sáng đường phố.
+- **bus** là xe buýt; **bus stop** là trạm xe buýt. Hai từ thường đi cùng nhau khi nói về phương tiện và nơi xe dừng.
+- **parking space** là chỗ đậu xe; **parking meter** là máy thâu tiền đậu xe. **Park the car** là hành động đậu xe.
+- **drugstore/pharmacy** là tiệm thuốc tây; **dry cleaners** là tiệm hấp đồ (giặt). Hãy chú ý âm đầu và phần từ **dry** trong tên tiệm giặt hấp.
+- **cross the street** là băng qua đường; **wait for the light** là chờ đèn xanh. Có thể dùng hai cụm này để nói về hành động của người đi bộ.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 5. Hoạt động / thao tác trong hình
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+### 5.1. Hoạt động đi bộ và lái xe (ký hiệu A–C)
 
-1. rẽ trái → ______
-2. rẽ phải → ______
-3. đi thẳng → ______
-4. người đi bộ → ______
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **cross the street** | băng qua đường |
+| B | **wait for the light** | chờ đèn xanh |
+| C | **drive a car** | lái xe |
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về ngã tư, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### 5.2. Đậu xe và đi xe đạp (ký hiệu D–E)
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| D | **park the car** | đậu xe |
+| E | **ride a bicycle** | đi xe đạp |
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Dùng các cụm này để mô tả hành động gắn với người và phương tiện trong tranh.
 
-1. turn left
-2. turn right
-3. go straight
-4. pedestrian
+## 6. Từ vựng bổ sung và khung ghi chú trong sách
 
-</details>
+### More vocabulary
 
-## 6. Ôn tập nhanh và mở rộng
+- **neighborhood** — khu vực gần nhà bạn.
+- **do errands** — đi một chuyến ngắn từ nhà để mua hoặc lấy một thứ gì đó.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+### Talk about where to buy things.
 
-## Điều hướng
+- **You can buy newspapers at a newsstand.** — Bạn có thể mua báo ở quầy báo.
+- **You can buy donuts at a donut shop.** — Bạn có thể mua bánh đô-nát ở tiệm bánh đô-nát.
+- **You can buy food at a convenience store.** — Bạn có thể mua thức ăn ở tiệm bán hàng xén.
 
-- [← Bài trước](01_city-streets.md)
-- [Bài tiếp theo →](03_a-mall.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Share your answers.
+
+1. **Do you like to do errands?** — Bạn có thích đi mua hoặc lấy đồ lặt vặt không?
+2. **Do you always like to go to the same stores?** — Bạn có luôn thích đến cùng những cửa tiệm không?
+3. **Which businesses in the picture are also in your neighborhood?** — Những cửa tiệm nào trong tranh cũng có ở khu bạn sống?
+4. **Do you know someone who has a small business? What kind?** — Bạn có biết ai có một cơ sở kinh doanh nhỏ không? Đó là loại hình nào?
+5. **What things can you buy from a street vendor?** — Bạn có thể mua những thứ gì từ người bán hàng rong?
+
+## 7. Mẫu câu giao tiếp
+
+- **You can buy newspapers at a newsstand.** — Bạn có thể mua báo ở quầy báo.
+- **You can buy donuts at a donut shop.** — Bạn có thể mua bánh đô-nát ở tiệm bánh đô-nát.
+- **You can buy food at a convenience store.** — Bạn có thể mua thức ăn ở tiệm bán hàng xén.
+- **Wait for the light before you cross the street.** — Hãy chờ đèn xanh trước khi băng qua đường.
+- **Park the car in a parking space.** — Đậu xe ở một chỗ đậu xe.
+- **You can ride a bicycle on the street.** — Bạn có thể đi xe đạp trên đường phố.
+
+## 8. Luyện tập thực hành
+
+1. Quan sát các số **1–15**; đọc tên từng địa điểm và vật dụng, rồi phân loại mục nào là cửa tiệm, mục nào liên quan đến đường phố hoặc giao thông.
+2. Quan sát các số **16–31**; chọn năm mục và đặt câu tiếng Anh mô tả những gì chúng chỉ trong tranh.
+3. Dùng các chữ cái **A–E** để ghép từng hoạt động với một nhân vật hoặc phương tiện phù hợp trong hình, rồi nói thành câu hoàn chỉnh.
+4. Trả lời năm câu hỏi ở phần **Share your answers** bằng thông tin thật về khu bạn sống và thói quen của bạn.
+
+## 9. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Từ nào chỉ nơi người đi bộ băng qua đường?
+
+A. crosswalk  
+B. curb  
+C. streetlight  
+D. parking space  
+
+**Đáp án: A.** **Crosswalk** là đường để người băng qua đường.
+
+### Câu 2
+
+**newsstand** có nghĩa là gì?
+
+A. tiệm chụp hình  
+B. quầy báo / sạp báo  
+C. tiệm bánh đô-nát  
+D. tiệm thuốc tây  
+
+**Đáp án: B.** **Newsstand** là quầy báo / sạp báo.
+
+### Câu 3
+
+Mục nào là phương tiện xe gắn máy?
+
+A. bus  
+B. garbage truck  
+C. motorcycle  
+D. cart  
+
+**Đáp án: C.** **Motorcycle** có nghĩa là xe gắn máy.
+
+### Câu 4
+
+Hoạt động nào có nghĩa là “đậu xe”?
+
+A. cross the street  
+B. drive a car  
+C. ride a bicycle  
+D. park the car  
+
+**Đáp án: D.** **Park the car** có nghĩa là đậu xe.
+
+### Câu 5
+
+**fire hydrant** là gì?
+
+A. vòi nước chữa lửa  
+B. bảng hiệu  
+C. máy thâu tiền đậu xe  
+D. hộp thư  
+
+**Đáp án: A.** **Fire hydrant** là vòi nước chữa lửa.
+
+## 10. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và đọc nghĩa của đủ **31 mục từ được đánh số** cùng **5 mục chữ cái**.
+2. Che cột tiếng Anh và nhìn nghĩa tiếng Việt để nhớ lại đủ **31 mục từ được đánh số** cùng **5 mục chữ cái**.
+3. Nói ít nhất ba câu tiếng Anh về các cửa tiệm, đường phố hoặc hoạt động trong tranh; dùng số hoặc chữ cái tương ứng để tự kiểm tra.
+
+---
+
+[← Bài trước](01_city-streets.md) · [Bài tiếp theo →](03_a-mall.md) · [Mục lục đơn vị](README.md)

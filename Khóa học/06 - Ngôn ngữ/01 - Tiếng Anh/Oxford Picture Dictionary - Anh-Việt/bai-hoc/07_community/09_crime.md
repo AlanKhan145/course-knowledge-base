@@ -5,89 +5,146 @@ unit_title: "Cộng đồng"
 lesson: 9
 lesson_en: "Crime"
 lesson_vi: "Tội phạm"
-book_pages: "100-100"
-pdf_pages: "110-110"
+book_pages: "100"
+pdf_pages: "110"
+numbered_vocabulary: 9
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 09 – Tội phạm (Crime)
 
-> **Đơn vị 7:** Cộng đồng (Community)  
-> **Nguồn:** trang 100 trong sách, tương ứng trang PDF **110–110**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 7 – Cộng đồng** · Trang sách **100** (PDF **110**) · **9 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này minh họa các tình huống liên quan đến tội phạm: xe bị phá hoại, băng nhóm đối đầu, lái xe sau khi uống rượu, ma túy, cướp có bạo hành, trộm đột nhập, hành hung và hiện trường án mạng.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **tội phạm** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **crime**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **9 mục từ được đánh số**, phân biệt một số từ gần nghĩa và dùng từ vựng trong các câu giao tiếp cơ bản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Tội phạm](09_crime-trang-ghep.jpg)
+![Trang sách minh họa Crime](./09_crime-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 100 (trang PDF 110). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục từ dưới đây giữ đúng thứ tự đánh số trong hình; hãy đọc cả từ tiếng Anh và nghĩa tiếng Việt in trong sách.
 
-| English | Tiếng Việt |
+**Nhóm từ:** Các tội phạm và vật liên quan.
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **vandalism** | phá hoại |
+| 2 | **gang violence** | tội ác của băng du-đảng |
+| 3 | **drunk driving** | say rượu lái xe |
+| 4 | **illegal drugs** | ma túy |
+| 5 | **mugging** | cướp có bạo hành |
+| 6 | **burglary** | cướp bóc / trộm cướp |
+| 7 | **assault** | hành hung / bạo hành |
+| 8 | **murder** | vụ giết người / án mạng |
+| 9 | **gun** | súng |
+
+## 4. Phân biệt và ghi nhớ
+
+- **vandalism** là hành vi phá hoại tài sản; có thể nhớ qua hình chiếc xe bị đập vỡ kính.
+- **gang violence** nói về tội ác của băng du-đảng; **assault** là hành hung hoặc bạo hành một người.
+- **drunk driving** là say rượu lái xe, còn **illegal drugs** là ma túy; đây là hai mục khác nhau trong bài.
+- **mugging** có nghĩa cướp có bạo hành; **burglary** có nghĩa cướp bóc / trộm cướp theo chú thích trong sách.
+- **murder** là vụ giết người / án mạng; **gun** là súng, một vật được minh họa riêng ở số 9.
+
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
+
+| English | Nghĩa tiếng Việt |
 |---|---|
-| theft | trộm cắp |
-| robbery | cướp |
-| report | báo cáo |
-| police officer | cảnh sát |
-| suspect | nghi phạm |
+| **commit a crime** | phạm tội; làm điều gì đó bất hợp pháp |
+| **criminal** | tội phạm; người phạm tội |
+| **victim** | nạn nhân; người bị người khác làm bị thương hoặc giết |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+### Share your answers.
 
-## 4. Mẫu câu ứng dụng
+1. **Is there too much crime on TV? in the movies?** — Có quá nhiều tội phạm trên truyền hình không? Trong phim thì sao?
+2. **Do you think people become criminals from watching crime on TV?** — Bạn có nghĩ mọi người trở thành tội phạm vì xem tội phạm trên truyền hình không?
 
-- **What does “theft” mean?** — “theft” có nghĩa là gì?
-- **How do you say “cướp” in English?** — “cướp” nói bằng tiếng Anh thế nào?
-- **Can you find “theft” in the picture?** — Bạn có thể tìm “theft” trong tranh không?
-- **This picture is about crime.** — Bức tranh này có chủ đề tội phạm.
+## 6. Mẫu câu giao tiếp
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+- **Someone committed a crime.** — Ai đó đã phạm tội.
+- **The criminal committed vandalism.** — Tội phạm đã phá hoại tài sản.
+- **Drunk driving is dangerous.** — Say rượu lái xe rất nguy hiểm.
+- **The victim reported the assault.** — Nạn nhân đã trình báo vụ hành hung.
+- **The police found illegal drugs.** — Cảnh sát đã tìm thấy ma túy.
+- **Is there too much crime on TV?** — Có quá nhiều tội phạm trên truyền hình không?
 
-## 5. Bài tập thực hành
+## 7. Luyện tập thực hành
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+1. Quan sát hình **1–3**, gọi tên lần lượt hành vi phá hoại, tội ác của băng du-đảng và say rượu lái xe.
+2. Quan sát hình **4–6**, đọc các từ tương ứng với ma túy, cướp có bạo hành và cướp bóc / trộm cướp.
+3. Nhìn hình **7–9**, nói từ tiếng Anh và nghĩa tiếng Việt của hành hung, vụ giết người / án mạng và súng.
+4. Viết ba câu tiếng Anh: một câu dùng **commit a crime**, một câu dùng **criminal**, và một câu dùng **victim**.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-1. trộm cắp → ______
-2. cướp → ______
-3. báo cáo → ______
-4. cảnh sát → ______
+### Câu 1
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về tội phạm, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+Từ nào tương ứng với số 1 trong hình?
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+A. **vandalism**  
+B. **gang violence**  
+C. **drunk driving**  
+D. **illegal drugs**  
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+**Đáp án: A.** Số 1 là **vandalism**, nghĩa là phá hoại.
 
-1. theft
-2. robbery
-3. report
-4. police officer
+### Câu 2
 
-</details>
+Từ nào có nghĩa là ma túy?
 
-## 6. Ôn tập nhanh và mở rộng
+A. **mugging**  
+B. **illegal drugs**  
+C. **burglary**  
+D. **assault**  
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Đáp án: B.** **Illegal drugs** có nghĩa là ma túy.
 
-## Điều hướng
+### Câu 3
 
-- [← Bài trước](08_the-legal-system.md)
-- [Bài tiếp theo →](10_public-safety.md)
-- [Danh sách bài trong chủ đề](README.md)
+Từ nào tương ứng với số 5 trong hình?
+
+A. **burglary**  
+B. **murder**  
+C. **mugging**  
+D. **gun**  
+
+**Đáp án: C.** Số 5 là **mugging**, nghĩa là cướp có bạo hành.
+
+### Câu 4
+
+Từ nào có nghĩa là hành hung / bạo hành?
+
+A. **gang violence**  
+B. **drunk driving**  
+C. **vandalism**  
+D. **assault**  
+
+**Đáp án: D.** **Assault** có nghĩa là hành hung / bạo hành.
+
+### Câu 5
+
+Vật nào được ghi ở số 9 trong hình?
+
+A. **gun**  
+B. **murder**  
+C. **burglary**  
+D. **illegal drugs**  
+
+**Đáp án: A.** Số 9 là **gun**, nghĩa là súng.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch đủ **9 mục từ được đánh số** theo thứ tự trong tranh.
+2. Che cột tiếng Anh và đọc lại tên tiếng Anh của **9 mục từ được đánh số** từ nghĩa tiếng Việt.
+3. Nói ít nhất ba câu tiếng Anh có sử dụng các từ vừa học; thử dùng cả **commit a crime**, **criminal** hoặc **victim**.
+
+---
+
+[← Bài trước](08_the-legal-system.md) · [Bài tiếp theo →](10_public-safety.md) · [Mục lục đơn vị](README.md)

@@ -5,89 +5,165 @@ unit_title: "Cộng đồng"
 lesson: 11
 lesson_en: "Emergencies and Natural Disasters"
 lesson_vi: "Khẩn cấp và thiên tai"
-book_pages: "102-103"
-pdf_pages: "112-113"
+book_pages: "102–103"
+pdf_pages: "112–113"
+numbered_vocabulary: 17
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 11 – Khẩn cấp và thiên tai (Emergencies and Natural Disasters)
 
-> **Đơn vị 7:** Cộng đồng (Community)  
-> **Nguồn:** trang 102–103 trong sách, tương ứng trang PDF **112–113**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 7 – Cộng đồng** · Trang sách **102–103** (PDF **112–113**) · **17 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Hai trang minh họa các tình huống khẩn cấp như trẻ lạc, tai nạn, máy bay rớt, hỏa hoạn và các cảnh thiên tai gồm hạn hán, bão tuyết, bão, núi lửa phun trào, sóng thần, lụt. Một tranh lớn còn cho thấy lực lượng cứu hộ ứng phó với lũ lụt.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **khẩn cấp và thiên tai** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **emergencies and natural disasters**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **17 mục từ được đánh số**, phân biệt các tình huống khẩn cấp và thiên tai, đồng thời sử dụng một số câu để báo tin và trao đổi về việc chuẩn bị ứng phó.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Khẩn cấp và thiên tai](11_emergencies-and-natural-disasters-trang-ghep.jpg)
+![Trang sách minh họa Emergencies and Natural Disasters](./11_emergencies-and-natural-disasters-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 102–103 (trang PDF 112–113). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây giữ đúng thứ tự đánh số trong hình. Hãy đọc cả cách gọi tiếng Anh và nghĩa tiếng Việt được ghi trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| earthquake | động đất |
-| flood | lũ lụt |
-| hurricane | bão lớn |
-| fire | hỏa hoạn |
-| evacuation | sơ tán |
+### 3.1. Tình huống khẩn cấp và cứu hỏa (số 1–9)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **lost child** | trẻ lạc |
+| 2 | **car accident** | xe đụng / tai nạn xe cộ |
+| 3 | **airplane crash** | máy bay rớt |
+| 4 | **explosion** | nổ |
+| 5 | **earthquake** | động đất |
+| 6 | **mudslide** | đất trôi |
+| 7 | **fire** | hỏa hoạn |
+| 8 | **firefighter** | nhân viên cứu hỏa |
+| 9 | **fire truck** | xe chữa lửa / cứu hỏa |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Thiên tai và cứu hộ (số 10–17)
 
-- **What does “earthquake” mean?** — “earthquake” có nghĩa là gì?
-- **How do you say “lũ lụt” in English?** — “lũ lụt” nói bằng tiếng Anh thế nào?
-- **Can you find “earthquake” in the picture?** — Bạn có thể tìm “earthquake” trong tranh không?
-- **This picture is about emergencies and natural disasters.** — Bức tranh này có chủ đề khẩn cấp và thiên tai.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 10 | **drought** | hạn hán |
+| 11 | **blizzard** | bão tuyết |
+| 12 | **hurricane** | bão |
+| 13 | **tornado** | bão trốt |
+| 14 | **volcanic eruption** | núi lửa phát nổ |
+| 15 | **tidal wave** | sóng thần |
+| 16 | **flood** | lụt |
+| 17 | **search and rescue team** | toán lùng kiếm và tiếp cứu |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 4. Phân biệt và ghi nhớ
 
-## 5. Bài tập thực hành
+- **earthquake** là động đất; **mudslide** là đất trôi. Cả hai có thể gây hư hại, nhưng tên gọi chỉ những hiện tượng khác nhau.
+- **hurricane**, **tornado** và **blizzard** đều là các dạng bão theo chú thích trong bài: **hurricane** là bão, **tornado** là bão trốt, còn **blizzard** là bão tuyết.
+- **tidal wave** là sóng thần; **flood** là lụt. Một từ chỉ sóng lớn, từ kia chỉ tình trạng ngập lụt.
+- **fire** là hỏa hoạn; **firefighter** là nhân viên cứu hỏa; **fire truck** là xe chữa lửa / cứu hỏa. Nhớ rằng hai từ sau gọi người và phương tiện liên quan đến việc chữa cháy.
+- **airplane crash** chỉ tai nạn máy bay, còn **car accident** chỉ tai nạn xe cộ.
+- **search and rescue team** là toán lùng kiếm và tiếp cứu; có thể ghi nhớ cụm này như tên gọi của một đội tìm kiếm và cứu hộ.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+### Practice reporting a fire.
 
-1. động đất → ______
-2. lũ lụt → ______
-3. bão lớn → ______
-4. hỏa hoạn → ______
+- **This is Lisa Broad. There is a fire.** — Đây là Lisa Broad. Có một vụ hỏa hoạn.
+- **The address is 323 Oak Street.** — Địa chỉ là 323 Oak Street.
+- **Please send someone quickly.** — Xin hãy cử người đến thật nhanh.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về khẩn cấp và thiên tai, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### Share your answers.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+- **Can you give directions to your home if there is a fire?** — Bạn có thể chỉ đường đến nhà mình nếu có hỏa hoạn không?
+- **What information do you give to the other driver if you are in a car accident?** — Bạn cung cấp thông tin gì cho người lái xe kia nếu bạn gặp tai nạn xe cộ?
+- **Which disasters are common in your area?** — Những thiên tai nào thường xảy ra ở khu vực của bạn?
+- **Which never happen?** — Những thiên tai nào không bao giờ xảy ra?
+- **What can you do to prepare for emergencies?** — Bạn có thể làm gì để chuẩn bị cho các tình huống khẩn cấp?
+- **Do you have emergency numbers near your telephone?** — Bạn có để các số điện thoại khẩn cấp gần điện thoại không?
+- **What organizations will help you in an emergency?** — Những tổ chức nào sẽ giúp bạn khi có tình huống khẩn cấp?
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+## 6. Mẫu câu giao tiếp
 
-1. earthquake
-2. flood
-3. hurricane
-4. fire
+- **There is a fire.** — Có một vụ hỏa hoạn.
+- **The address is 323 Oak Street.** — Địa chỉ là 323 Oak Street.
+- **Please send someone quickly.** — Xin hãy cử người đến thật nhanh.
+- **What information do you give to the other driver if you are in a car accident?** — Bạn cung cấp thông tin gì cho người lái xe kia nếu bạn gặp tai nạn xe cộ?
+- **What can you do to prepare for emergencies?** — Bạn có thể làm gì để chuẩn bị cho các tình huống khẩn cấp?
+- **What organizations will help you in an emergency?** — Những tổ chức nào sẽ giúp bạn khi có tình huống khẩn cấp?
 
-</details>
+## 7. Luyện tập thực hành
 
-## 6. Ôn tập nhanh và mở rộng
+1. Quan sát các số **1–9**; gọi tên từng tình huống hoặc người, phương tiện được minh họa, rồi đặt câu với **fire**.
+2. Nhìn các số **10–16**; chia các từ thành hai nhóm: thiên tai có bão và thiên tai không có bão. Giải thích lựa chọn bằng tiếng Anh đơn giản.
+3. Dùng thông tin trong khung **Practice reporting a fire** để đóng vai người gọi báo cháy và người tiếp nhận tin. Nói rõ tên, địa chỉ và yêu cầu trợ giúp.
+4. Quan sát tranh **16–17**; mô tả cảnh lụt và nói vai trò của **search and rescue team** trong tình huống khẩn cấp.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-## Điều hướng
+### Câu 1
 
-- [← Bài trước](10_public-safety.md)
-- [Bài tiếp theo →](../08_transportation/01_public-transportation.md)
-- [Danh sách bài trong chủ đề](README.md)
+Từ nào có nghĩa là “máy bay rớt”?
+
+A. **airplane crash**  
+B. **car accident**  
+C. **explosion**  
+D. **earthquake**  
+
+**Đáp án: A.** **Airplane crash** là máy bay rớt.
+
+### Câu 2
+
+Từ nào chỉ người làm công việc cứu hỏa?
+
+A. **fire truck**  
+B. **firefighter**  
+C. **lost child**  
+D. **search and rescue team**  
+
+**Đáp án: B.** **Firefighter** nghĩa là nhân viên cứu hỏa.
+
+### Câu 3
+
+Thiên tai nào có nghĩa là “bão tuyết”?
+
+A. **drought**  
+B. **hurricane**  
+C. **blizzard**  
+D. **flood**  
+
+**Đáp án: C.** **Blizzard** là bão tuyết.
+
+### Câu 4
+
+Từ nào có nghĩa là “sóng thần”?
+
+A. **mudslide**  
+B. **tornado**  
+C. **volcanic eruption**  
+D. **tidal wave**  
+
+**Đáp án: D.** **Tidal wave** là sóng thần.
+
+### Câu 5
+
+Từ nào chỉ tình trạng “hạn hán”?
+
+A. **drought**  
+B. **earthquake**  
+C. **explosion**  
+D. **fire**  
+
+**Đáp án: A.** **Drought** nghĩa là hạn hán.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và tự đọc nghĩa của đủ **17 mục từ được đánh số** theo thứ tự trong tranh.
+- Che cột tiếng Anh và nhìn nghĩa tiếng Việt để nhớ lại đủ **17 mục từ được đánh số**.
+- Nói ít nhất ba câu tiếng Anh về tình huống khẩn cấp hoặc thiên tai, sử dụng các mục từ vừa học.
+
+---
+
+[← Bài trước](10_public-safety.md) · [Bài tiếp theo →](../08_transportation/01_public-transportation.md) · [Mục lục đơn vị](README.md)

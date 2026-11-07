@@ -5,89 +5,171 @@ unit_title: "Công việc và nghề nghiệp"
 lesson: 11
 lesson_en: "Construction"
 lesson_vi: "Xây dựng"
-book_pages: "149-149"
-pdf_pages: "159-159"
+book_pages: "149"
+pdf_pages: "159"
+numbered_vocabulary: 22
+lettered_items: 4
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 11 – Xây dựng (Construction)
 
-> **Đơn vị 11:** Công việc và nghề nghiệp (Work)  
-> **Nguồn:** trang 149 trong sách, tương ứng trang PDF **159–159**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 11 – Công việc và nghề nghiệp** · Trang sách **149** (PDF **159**) · **22 mục từ được đánh số** · **4 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này mô tả một công trường xây dựng: công nhân di chuyển vật liệu và làm việc trên cao, máy móc san đất và nâng vật nặng; các khung bên dưới cho thấy vật liệu, dụng cụ và thao tác xây dựng.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **xây dựng** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **construction**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **22 mục từ được đánh số** và **4 mục chữ cái** trên hình, phân biệt những từ gần nghĩa và dùng chúng trong câu đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Xây dựng](11_construction-trang-ghep.jpg)
+![Trang sách minh họa Construction](./11_construction-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 149 (trang PDF 159). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ đúng thứ tự đánh số của hình. Học cả các cách gọi được phân cách bằng dấu gạch chéo trong cùng một mục.
 
-| English | Tiếng Việt |
-|---|---|
-| construction site | công trường |
-| brick | gạch |
-| cement | xi măng |
-| scaffolding | giàn giáo |
-| blueprint | bản thiết kế |
+### 3.1. Người, máy móc và thiết bị (số 1–9)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **construction worker** | công nhân xây cất |
+| 2 | **ladder** | thang |
+| 3 | **I beam/girder** | xà / dầm |
+| 4 | **scaffolding** | giàn xây cất |
+| 5 | **cherry picker** | cần trục để công nhân làm việc ở trên cao |
+| 6 | **bulldozer** | xe ủi đất |
+| 7 | **crane** | cần cẩu |
+| 8 | **backhoe** | một loại cuốc (backhoe) |
+| 9 | **jackhammer/pneumatic drill** | máy khoan bằng khí nén / máy khoan hơi |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Vật liệu và cấu kiện (số 10–19)
 
-- **What does “construction site” mean?** — “construction site” có nghĩa là gì?
-- **How do you say “gạch” in English?** — “gạch” nói bằng tiếng Anh thế nào?
-- **Can you find “construction site” in the picture?** — Bạn có thể tìm “construction site” trong tranh không?
-- **This picture is about construction.** — Bức tranh này có chủ đề xây dựng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 10 | **concrete** | xi măng cốt sắt |
+| 11 | **bricks** | gạch |
+| 12 | **trowel** | bay |
+| 13 | **insulation** | cách nhiệt |
+| 14 | **stucco** | vữa |
+| 15 | **window pane** | ô kính cửa sổ |
+| 16 | **plywood** | gỗ dán |
+| 17 | **wood/lumber** | gỗ / gỗ súc |
+| 18 | **drywall** | tường đá tiền chế không cần vữa |
+| 19 | **shingles** | ván lợp / ngói lợp |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Dụng cụ xây dựng (số 20–22)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 20 | **pickax** | cuốc chim |
+| 21 | **shovel** | xẻng |
+| 22 | **sledgehammer** | búa tạ |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **ladder** là thang để trèo lên; **scaffolding** là giàn xây cất giúp công nhân làm việc trên cao.
+- **cherry picker** là cần trục để công nhân làm việc ở trên cao; **crane** là cần cẩu dùng để nâng vật nặng.
+- **bulldozer** là xe ủi đất; **backhoe** là một loại cuốc (backhoe). Đây là tên hai loại máy khác nhau trong tranh.
+- **jackhammer/pneumatic drill** chỉ máy khoan bằng khí nén hoặc máy khoan hơi; **sledgehammer** là búa tạ. Một từ chỉ máy khoan, từ kia chỉ dụng cụ đập.
+- **bricks** là gạch; **trowel** là bay dùng trong thao tác xây. **lay bricks** là đặt gạch / lát gạch.
+- **plywood** là gỗ dán; **wood/lumber** là gỗ / gỗ súc. **window pane** là ô kính cửa sổ, còn **shingles** là ván lợp / ngói lợp.
 
-1. công trường → ______
-2. gạch → ______
-3. xi măng → ______
-4. giàn giáo → ______
+## 5. Hoạt động / thao tác trong hình
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về xây dựng, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+Các mục chữ cái mô tả hành động: **paint** là sơn, **lay bricks** là đặt gạch / lát gạch, **measure** là đo và **hammer** là đóng bằng búa.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+**Nhóm từ:** Thao tác xây dựng.
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **paint** | sơn |
+| B | **lay bricks** | đặt gạch / lát gạch |
+| C | **measure** | đo |
+| D | **hammer** | đóng bằng búa |
 
-1. construction site
-2. brick
-3. cement
-4. scaffolding
+## 6. Mẫu câu giao tiếp
 
-</details>
+- **The construction worker is carrying a ladder.** — Người công nhân xây cất đang mang một cái thang.
+- **The crane can lift the I beam/girder.** — Cần cẩu có thể nâng xà / dầm.
+- **The bulldozer is moving earth.** — Xe ủi đất đang di chuyển đất.
+- **They lay bricks with a trowel.** — Họ đặt gạch / lát gạch bằng bay.
+- **Please measure the plywood.** — Vui lòng đo tấm gỗ dán.
+- **He uses a sledgehammer.** — Anh ấy dùng búa tạ.
 
-## 6. Ôn tập nhanh và mở rộng
+## 7. Luyện tập thực hành
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+1. Quan sát các số **1–9**; gọi tên người, thiết bị và máy móc trong tranh, rồi chọn hai mục để đặt câu.
+2. Nhìn các số **10–19**; chia từ thành vật liệu và cấu kiện, sau đó đọc nghĩa tiếng Việt theo thứ tự.
+3. Quan sát các số **20–22** và mô tả ngắn một tình huống có sử dụng một dụng cụ trong nhóm này.
+4. Quan sát các ký hiệu **A–D**; nói bốn câu mệnh lệnh ngắn, mỗi câu dùng một thao tác trong hình.
 
-## Điều hướng
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-- [← Bài trước](10_farming-and-ranching.md)
-- [Bài tiếp theo →](12_tools-and-building-supplies.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 1
+
+Từ nào chỉ giàn dùng trong xây dựng?
+
+A. ladder  
+B. scaffolding  
+C. shovel  
+D. plywood  
+
+**Đáp án: B.** **Scaffolding** là giàn xây cất.
+
+### Câu 2
+
+Mục số 7 là gì?
+
+A. crane  
+B. bulldozer  
+C. backhoe  
+D. cherry picker  
+
+**Đáp án: A.** Mục số 7 là **crane**, nghĩa là cần cẩu.
+
+### Câu 3
+
+**Trowel** có nghĩa là gì?
+
+A. gạch  
+B. cuốc chim  
+C. bay  
+D. xẻng  
+
+**Đáp án: C.** **Trowel** là bay.
+
+### Câu 4
+
+Từ nào có nghĩa là “ô kính cửa sổ”?
+
+A. stucco  
+B. insulation  
+C. drywall  
+D. window pane  
+
+**Đáp án: D.** **Window pane** là ô kính cửa sổ.
+
+### Câu 5
+
+Ký hiệu nào tương ứng với thao tác “đo”?
+
+A. A  
+B. B  
+C. C  
+D. D  
+
+**Đáp án: C.** Ký hiệu **C** là **measure**, nghĩa là đo.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và đọc lại đầy đủ **22 mục từ được đánh số** theo số thứ tự trên hình.
+2. Che cột tiếng Anh, nhìn nghĩa tiếng Việt rồi tự nhớ tên của **22 mục từ được đánh số** và **4 mục chữ cái**.
+3. Nói ít nhất ba câu tiếng Anh có dùng từ trong bài; cố gắng đưa vào câu cả tên vật liệu, dụng cụ và thao tác.
+
+---
+
+[← Bài trước](10_farming-and-ranching.md) · [Bài tiếp theo →](12_tools-and-building-supplies.md) · [Mục lục đơn vị](README.md)

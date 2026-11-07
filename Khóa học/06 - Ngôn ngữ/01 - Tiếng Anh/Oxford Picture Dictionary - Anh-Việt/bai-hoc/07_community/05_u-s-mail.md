@@ -5,89 +5,163 @@ unit_title: "Cộng đồng"
 lesson: 5
 lesson_en: "U.S. Mail"
 lesson_vi: "Bưu điện Hoa Kỳ"
-book_pages: "96-96"
-pdf_pages: "106-106"
+book_pages: "96"
+pdf_pages: "106"
+numbered_vocabulary: 15
+lettered_items: 4
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 05 – Bưu điện Hoa Kỳ (U.S. Mail)
 
-> **Đơn vị 7:** Cộng đồng (Community)  
-> **Nguồn:** trang 96 trong sách, tương ứng trang PDF **106–106**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 7 – Cộng đồng** · Trang sách **96** (PDF **106**) · **15 mục từ được đánh số** · **4 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang học giới thiệu cảnh gửi và nhận thư tại bưu điện Hoa Kỳ: các loại thư, bưu thiệp, thiệp, gói hàng, người đưa thư và những phần địa chỉ, dấu bưu chính trên phong bì. Phần tranh cuối minh họa các thao tác ghi địa chỉ, gửi, giao và nhận thư.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **bưu điện hoa kỳ** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **u.s. mail**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **15 mục từ được đánh số** và **4 mục chữ cái** trên hình, phân biệt các phần của địa chỉ và nói về những thao tác gửi nhận thư.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Bưu điện Hoa Kỳ](05_u-s-mail-trang-ghep.jpg)
+![Trang sách minh họa U.S. Mail](./05_u-s-mail-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 96 (trang PDF 106). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ đúng thứ tự đánh số của hình. Nghĩa tiếng Việt được giữ theo chú thích in trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| post office | bưu điện |
-| stamp | tem |
-| envelope | phong bì |
-| mailbox | hòm thư |
-| package | bưu kiện |
+### 3.1. Thư từ và bưu gửi (số 1–5)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **envelope** | bì thư / bao thư / phong bì |
+| 2 | **letter** | lá thư |
+| 3 | **postcard** | bưu thiệp |
+| 4 | **greeting card** | thiệp mừng |
+| 5 | **package** | gói |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Người đưa thư và thông tin trên thư (số 6–10)
 
-- **What does “post office” mean?** — “post office” có nghĩa là gì?
-- **How do you say “tem” in English?** — “tem” nói bằng tiếng Anh thế nào?
-- **Can you find “post office” in the picture?** — Bạn có thể tìm “post office” trong tranh không?
-- **This picture is about u.s. mail.** — Bức tranh này có chủ đề bưu điện hoa kỳ.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 6 | **letter carrier** | người đưa thư |
+| 7 | **return address** | địa chỉ hồi báo |
+| 8 | **mailing address** | địa chỉ gửi đi |
+| 9 | **postmark** | dấu bưu chính |
+| 10 | **stamp/postage** | tem |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Các dịch vụ gửi thư (số 11–15)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 11 | **certified mail** | thư bảo đảm |
+| 12 | **priority mail** | thư ưu tiên |
+| 13 | **air letter/aerogramme** | thư máy bay / thư hàng không |
+| 14 | **ground post/parcel post** | bưu kiện |
+| 15 | **Express Mail/overnight mail** | thư tốc hành, thư qua đêm |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **envelope** là bì thư; **letter** là lá thư được gửi bên trong. Có thể nhớ một lá thư thường được đặt trong một bì thư.
+- **postcard** là bưu thiệp; **greeting card** là thiệp mừng. Cả hai là vật phẩm gửi qua bưu điện, nhưng tên gọi trong bài phân biệt bưu thiệp với thiệp mừng.
+- **return address** là địa chỉ hồi báo; **mailing address** là địa chỉ gửi đi. Trên hình, địa chỉ người gửi nằm ở phần trên bên trái, còn địa chỉ người nhận ở giữa phong bì.
+- **stamp/postage** là tem; **postmark** là dấu bưu chính. Tranh đánh số 10 chỉ tem ở góc trên bên phải, còn số 9 chỉ dấu bưu chính.
+- **certified mail**, **priority mail**, **air letter/aerogramme**, **ground post/parcel post** và **Express Mail/overnight mail** là các cách gửi thư hoặc bưu gửi được nêu trong bài; học cả các tên gọi đứng hai bên dấu `/`.
 
-1. bưu điện → ______
-2. tem → ______
-3. phong bì → ______
-4. hòm thư → ______
+## 5. Hoạt động / thao tác trong hình
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về bưu điện hoa kỳ, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Nhóm từ:** Các thao tác gửi và nhận thư.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **address a postcard** | ghi địa chỉ trên bưu thiệp |
+| B | **send it/mail it** | gửi đi |
+| C | **deliver it** | giao thư |
+| D | **receive it** | nhận thư |
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Các thao tác theo hình gồm ghi địa chỉ lên bưu thiệp, gửi thư, giao thư và nhận thư. Có thể dùng các cụm động từ này để kể trình tự một bưu thiệp hoặc lá thư đến người nhận.
 
-1. post office
-2. stamp
-3. envelope
-4. mailbox
+## 6. Mẫu câu giao tiếp
 
-</details>
+- **I have a letter in an envelope.** — Tôi có một lá thư trong bì thư.
+- **She is addressing a postcard.** — Cô ấy đang ghi địa chỉ trên bưu thiệp.
+- **Please mail this greeting card.** — Vui lòng gửi tấm thiệp mừng này.
+- **The letter carrier delivers the package.** — Người đưa thư giao gói hàng.
+- **Write the return address and the mailing address.** — Hãy viết địa chỉ hồi báo và địa chỉ gửi đi.
+- **I received the letter with a postmark and a stamp.** — Tôi đã nhận lá thư có dấu bưu chính và tem.
 
-## 6. Ôn tập nhanh và mở rộng
+## 7. Luyện tập thực hành
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+1. Quan sát các hình **1–5**; gọi tên từng vật và nói vật nào là thư, bưu thiệp, thiệp mừng hoặc gói hàng.
+2. Dựa vào hình phong bì, chỉ các số **7–10** rồi nói tên phần địa chỉ, dấu bưu chính và tem.
+3. Quan sát các số **11–15**; đọc tên từng loại gửi thư hoặc bưu gửi, sau đó ghép mỗi tên với hình tương ứng.
+4. Quan sát tranh **A–D**; kể lại các thao tác từ ghi địa chỉ đến khi người nhận nhận thư, dùng đủ bốn cụm từ trong bài.
 
-## Điều hướng
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-- [← Bài trước](04_a-childcare-center.md)
-- [Bài tiếp theo →](06_a-bank.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 1
+
+Vật được đánh số 1 là gì?
+
+A. envelope  
+B. postcard  
+C. package  
+D. greeting card  
+
+**Đáp án: A.** Số 1 chỉ bì thư.
+
+### Câu 2
+
+Địa chỉ hồi báo được gọi là gì?
+
+A. mailing address  
+B. return address  
+C. postmark  
+D. stamp/postage  
+
+**Đáp án: B.** **Return address** có nghĩa là địa chỉ hồi báo.
+
+### Câu 3
+
+Từ nào chỉ dấu bưu chính?
+
+A. letter  
+B. letter carrier  
+C. postmark  
+D. package  
+
+**Đáp án: C.** Số 9 là **postmark**, tức dấu bưu chính.
+
+### Câu 4
+
+Thao tác ở hình C là gì?
+
+A. receive it  
+B. address a postcard  
+C. send it/mail it  
+D. deliver it  
+
+**Đáp án: D.** Hình C cho thấy người đưa thư giao thư.
+
+### Câu 5
+
+Từ nào có nghĩa là “thư ưu tiên”?
+
+A. priority mail  
+B. certified mail  
+C. air letter/aerogramme  
+D. ground post/parcel post  
+
+**Đáp án: A.** **Priority mail** là thư ưu tiên.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch lại toàn bộ **15 mục từ được đánh số** cùng **4 mục chữ cái**.
+2. Che cột tiếng Anh, nhìn nghĩa tiếng Việt và đọc lại tên tiếng Anh của từng mục.
+3. Nói ít nhất ba câu có dùng từ vựng trong bài; thử kể một lá thư được ghi địa chỉ, gửi đi, giao và nhận như thế nào.
+
+---
+
+[← Bài trước](04_a-childcare-center.md) · [Bài tiếp theo →](06_a-bank.md) · [Mục lục đơn vị](README.md)

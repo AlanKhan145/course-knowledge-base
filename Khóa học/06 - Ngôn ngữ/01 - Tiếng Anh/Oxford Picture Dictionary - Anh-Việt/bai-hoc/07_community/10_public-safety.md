@@ -5,89 +5,150 @@ unit_title: "Cộng đồng"
 lesson: 10
 lesson_en: "Public Safety"
 lesson_vi: "An toàn công cộng"
-book_pages: "101-101"
-pdf_pages: "111-111"
+book_pages: "101"
+pdf_pages: "111"
+numbered_vocabulary: 0
+lettered_items: 8
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 10 – An toàn công cộng (Public Safety)
 
-> **Đơn vị 7:** Cộng đồng (Community)  
-> **Nguồn:** trang 101 trong sách, tương ứng trang PDF **111–111**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 7 – Cộng đồng** · Trang sách **101** (PDF **111**) · **8 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này trình bày các tình huống an toàn công cộng trong khu dân cư, trên đường phố, khi đi lại, ở nhà và khi cần liên hệ cảnh sát. Tranh minh họa những cách phòng ngừa rủi ro và ứng xử an toàn trong sinh hoạt thường ngày.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **an toàn công cộng** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **public safety**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ 0 mục từ được đánh số, 8 mục chữ cái và 0 mục không đánh số, đồng thời dùng các lời khuyên về an toàn trong giao tiếp.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài An toàn công cộng](10_public-safety-trang-ghep.jpg)
+![Trang sách minh họa Public Safety](./10_public-safety-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 101 (trang PDF 111). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát các ký hiệu chữ cái trên tranh, đối chiếu với cột “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Trang này không có mục từ được đánh số hoặc mục từ không đánh số.
 
-| English | Tiếng Việt |
-|---|---|
-| firefighter | lính cứu hỏa |
-| police | cảnh sát |
-| seat belt | dây an toàn |
-| smoke alarm | chuông báo khói |
-| emergency exit | lối thoát hiểm |
+## 4. Phân biệt và ghi nhớ
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+- **purse** và **wallet** đều chỉ vật đựng tiền hoặc đồ cá nhân; câu trong hình nhắc giữ **purse** sát bên người và bảo vệ **wallet**.
+- **Hold ... close to your body** diễn đạt giữ một vật sát bên người; **Protect ...** là lời khuyên bảo vệ vật đó.
+- **Lock your doors** nhắc khóa các cửa; **Don’t open your door to strangers** khuyên không mở cửa cho người lạ.
+- **Don’t drink and drive** kết hợp hai hành động bị cấm trong lời khuyên: uống rượu rồi lái xe.
+- **Report crimes to the police** dùng **report ... to ...** để nói báo cáo điều gì cho ai.
 
-## 4. Mẫu câu ứng dụng
+## 5. Hoạt động / thao tác trong hình
 
-- **What does “firefighter” mean?** — “firefighter” có nghĩa là gì?
-- **How do you say “cảnh sát” in English?** — “cảnh sát” nói bằng tiếng Anh thế nào?
-- **Can you find “firefighter” in the picture?** — Bạn có thể tìm “firefighter” trong tranh không?
-- **This picture is about public safety.** — Bức tranh này có chủ đề an toàn công cộng.
+Các câu dưới đây là lời khuyên an toàn. **Don’t** đứng trước động từ để diễn đạt điều không nên làm.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+**Nhóm từ:** Lời khuyên an toàn công cộng.
 
-## 5. Bài tập thực hành
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **Walk with a friend.** | Đi bộ với bạn. |
+| B | **Stay on well-lit streets.** | Đi trên đường phố sáng sủa. |
+| C | **Hold your purse close to your body.** | Giữ bóp ví sát bên người. |
+| D | **Protect your wallet.** | Bảo vệ bóp ví. |
+| E | **Lock your doors.** | Khóa cửa. |
+| F | **Don’t open your door to strangers.** | Đừng mở cửa cho người lạ. |
+| G | **Don’t drink and drive.** | Không được uống rượu lái xe. |
+| H | **Report crimes to the police.** | Báo cáo tội ác cho cảnh sát. |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 6. Từ vựng bổ sung và khung ghi chú trong sách
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+### More vocabulary
 
-1. lính cứu hỏa → ______
-2. cảnh sát → ______
-3. dây an toàn → ______
-4. chuông báo khói → ______
+- **Neighborhood Watch**: một nhóm hàng xóm cùng theo dõi những kẻ phạm tội trong khu phố của họ.
+- **designated drivers**: những người không uống đồ uống có cồn để có thể lái xe đưa những người đã uống rượu về nhà.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về an toàn công cộng, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### Share your answers.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+- **Do you feel safe in your neighborhood?** — Bạn có cảm thấy an toàn trong khu phố của mình không?
+- **Look at the pictures. Which of these things do you do?** — Hãy nhìn vào các bức tranh. Bạn làm những việc nào trong số này?
+- **What other things do you do to stay safe?** — Bạn còn làm những việc gì khác để giữ an toàn?
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+## 7. Mẫu câu giao tiếp
 
-1. firefighter
-2. police
-3. seat belt
-4. smoke alarm
+- **I walk with a friend.** — Tôi đi bộ với một người bạn.
+- **We stay on well-lit streets.** — Chúng tôi đi trên những con phố sáng sủa.
+- **I hold my purse close to my body.** — Tôi giữ bóp ví sát bên người.
+- **Please protect your wallet.** — Hãy bảo vệ bóp ví của bạn.
+- **Lock your doors before you leave.** — Hãy khóa cửa trước khi bạn rời đi.
+- **Report crimes to the police.** — Báo cáo tội ác cho cảnh sát.
 
-</details>
+## 8. Luyện tập thực hành
 
-## 6. Ôn tập nhanh và mở rộng
+1. Quan sát hình **A–H**; ghép mỗi lời khuyên với tình huống tương ứng, rồi đọc to câu tiếng Anh.
+2. Chọn hai lời khuyên trong hình và viết lại thành câu nói về việc bạn thường làm, dùng **I** hoặc **We**.
+3. Viết ba câu khuyên an toàn dựa trên các mục **C, E, F**; giữ nguyên nghĩa của từng lời khuyên.
+4. Trả lời ba câu hỏi trong khung **Share your answers** bằng tiếng Anh; cố gắng nhắc đến ít nhất hai mục trong hình.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 9. Câu hỏi trắc nghiệm ôn tập
 
-## Điều hướng
+### Câu 1
 
-- [← Bài trước](09_crime.md)
-- [Bài tiếp theo →](11_emergencies-and-natural-disasters.md)
-- [Danh sách bài trong chủ đề](README.md)
+Lời khuyên nào nói đi bộ cùng một người bạn?
+
+A. Walk with a friend.  
+B. Protect your wallet.  
+C. Lock your doors.  
+D. Report crimes to the police.  
+
+**Đáp án: A.** Câu ở mục A khuyên đi bộ với bạn.
+
+### Câu 2
+
+Mục nào khuyên giữ bóp ví sát bên người?
+
+A. Stay on well-lit streets.  
+B. Hold your purse close to your body.  
+C. Don’t drink and drive.  
+D. Don’t open your door to strangers.  
+
+**Đáp án: B.** Mục C nói giữ bóp ví sát bên người.
+
+### Câu 3
+
+Khi muốn khuyên ai đó khóa cửa, câu nào phù hợp?
+
+A. Walk with a friend.  
+B. Protect your wallet.  
+C. Lock your doors.  
+D. Stay on well-lit streets.  
+
+**Đáp án: C.** Mục E là lời khuyên khóa cửa.
+
+### Câu 4
+
+Lời khuyên nào nói không mở cửa cho người lạ?
+
+A. Report crimes to the police.  
+B. Don’t drink and drive.  
+C. Lock your doors.  
+D. Don’t open your door to strangers.  
+
+**Đáp án: D.** Mục F khuyên không mở cửa cho người lạ.
+
+### Câu 5
+
+Nếu cần báo cáo tội ác cho cảnh sát, câu nào diễn đạt đúng?
+
+A. Report crimes to the police.  
+B. Hold your purse close to your body.  
+C. Walk with a friend.  
+D. Stay on well-lit streets.  
+
+**Đáp án: A.** Mục H dùng câu này để khuyên báo cáo tội ác cho cảnh sát.
+
+## 10. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và tự dịch đủ **8 mục chữ cái**.
+- Che cột tiếng Anh và đọc lại đủ **8 mục chữ cái** từ nghĩa tiếng Việt.
+- Nói ít nhất ba câu tiếng Anh có dùng các lời khuyên trong bài; thử trả lời thêm các câu hỏi trong khung **Share your answers**.
+
+---
+
+[← Bài trước](09_crime.md) · [Bài tiếp theo →](11_emergencies-and-natural-disasters.md) · [Mục lục đơn vị](README.md)

@@ -5,89 +5,187 @@ unit_title: "Thực vật và động vật"
 lesson: 3
 lesson_en: "Marine Life, Amphibians, and Reptiles"
 lesson_vi: "Động vật biển, lưỡng cư và bò sát"
-book_pages: "130-131"
-pdf_pages: "140-141"
+book_pages: "130–131"
+pdf_pages: "140–141"
+numbered_vocabulary: 42
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 03 – Động vật biển, lưỡng cư và bò sát (Marine Life, Amphibians, and Reptiles)
 
-> **Đơn vị 10:** Thực vật và động vật (Plants and Animals)  
-> **Nguồn:** trang 130–131 trong sách, tương ứng trang PDF **140–141**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 10 – Thực vật và động vật** · Trang sách **130–131** (PDF **140–141**) · **42 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Hai trang minh họa các bộ phận của cá và sinh vật biển, rồi chuyển sang động vật có vú ở biển, lưỡng cư và bò sát. Các con vật được đặt trong cảnh dưới nước, ven bờ và môi trường sống của bò sát.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **động vật biển, lưỡng cư và bò sát** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **marine life, amphibians, and reptiles**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **42 mục từ được đánh số** trên hình, nhận biết các nhóm sinh vật và dùng tên gọi của chúng trong câu đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Động vật biển, lưỡng cư và bò sát](03_marine-life-amphibians-and-reptiles-trang-ghep.jpg)
+![Trang sách minh họa Marine Life, Amphibians, and Reptiles](./03_marine-life-amphibians-and-reptiles-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 130–131 (trang PDF 140–141). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục từ dưới đây giữ đúng thứ tự đánh số của hình và được chia theo nhóm chủ điểm in trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| shark | cá mập |
-| whale | cá voi |
-| turtle | rùa |
-| frog | ếch |
-| snake | rắn |
+### 3.1. Bộ phận của cá (số 1–3)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **fin** | vây |
+| 2 | **gills** | mang |
+| 3 | **scales** | vẩy |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Sinh vật biển (số 4–24)
 
-- **What does “shark” mean?** — “shark” có nghĩa là gì?
-- **How do you say “cá voi” in English?** — “cá voi” nói bằng tiếng Anh thế nào?
-- **Can you find “shark” in the picture?** — Bạn có thể tìm “shark” trong tranh không?
-- **This picture is about marine life, amphibians, and reptiles.** — Bức tranh này có chủ đề động vật biển, lưỡng cư và bò sát.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 4 | **octopus** | bạch tuộc |
+| 5 | **eel** | lươn |
+| 6 | **ray** | cá đuối |
+| 7 | **shark** | cá mập |
+| 8 | **cod** | cá tuyết |
+| 9 | **tuna** | cá thu |
+| 10 | **squid** | cá mực |
+| 11 | **bass** | cá vược |
+| 12 | **swordfish** | cá kiếm |
+| 13 | **flounder** | cá thờn bơn |
+| 14 | **jellyfish** | con sứa |
+| 15 | **starfish** | sao biển |
+| 16 | **crab** | cua |
+| 17 | **mussel** | sò |
+| 18 | **scallop** | ngao |
+| 19 | **shrimp** | tôm |
+| 20 | **sea urchin** | nhím biển |
+| 21 | **sea anemone** | hải quỳ |
+| 22 | **worm** | giun |
+| 23 | **sea horse** | hải mã |
+| 24 | **snail** | sên |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Động vật lưỡng cư (số 25–28)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 25 | **frog** | ếch |
+| 26 | **newt** | sa giông |
+| 27 | **salamander** | kỳ nhông |
+| 28 | **toad** | cóc |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### 3.4. Động vật có vú ở biển (số 29–35)
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 29 | **whale** | cá voi |
+| 30 | **dolphin** | cá heo |
+| 31 | **porpoise** | một giống cá heo |
+| 32 | **walrus** | con moóc |
+| 33 | **seal** | hải cẩu |
+| 34 | **sea lion** | hải sư |
+| 35 | **otter** | rái cá |
 
-1. cá mập → ______
-2. cá voi → ______
-3. rùa → ______
-4. ếch → ______
+### 3.5. Bò sát (số 36–42)
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về động vật biển, lưỡng cư và bò sát, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 36 | **alligator** | cá sấu |
+| 37 | **crocodile** | cá sấu |
+| 38 | **rattlesnake** | rắn rung chuông |
+| 39 | **garter snake** | rắn cạp nong |
+| 40 | **cobra** | rắn hổ mang |
+| 41 | **lizard** | thằn lằn |
+| 42 | **turtle** | rùa |
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 4. Phân biệt và ghi nhớ
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+- **fin**, **gills** và **scales** là các bộ phận của cá; chú ý nghĩa tiếng Việt in trong sách: **fin** là “vây” và **scales** là “vẩy”, hai từ tiếng Việt gần giống nhau nhưng chỉ hai bộ phận khác nhau của cá.
+- **octopus** là bạch tuộc, còn **squid** được chú thích là cá mực; đây là hai tên gọi khác nhau trong nhóm sinh vật biển.
+- **dolphin** là cá heo; **porpoise** là một giống cá heo. Hãy ghi nhớ phần chú thích riêng của **porpoise**.
+- **whale**, **dolphin**, **porpoise**, **walrus**, **seal**, **sea lion** và **otter** nằm trong nhóm động vật có vú ở biển của trang.
+- **alligator** và **crocodile** đều được chú thích là cá sấu; hãy nhớ phân biệt hai từ tiếng Anh dù nghĩa tiếng Việt trong sách giống nhau.
+- **sea horse** được chú thích là hải mã; không nhầm với **walrus**, cũng được chú thích là con moóc.
 
-1. shark
-2. whale
-3. turtle
-4. frog
+## 5. Mẫu câu giao tiếp
 
-</details>
+- **I can see a shark in the picture.** — Tôi có thể nhìn thấy một con cá mập trong tranh.
+- **The octopus is near the rocks.** — Con bạch tuộc ở gần những tảng đá.
+- **A whale swims in the sea.** — Cá voi bơi trong biển.
+- **The dolphin is beside the porpoise.** — Cá heo ở bên cạnh một giống cá heo.
+- **A frog and a toad are amphibians.** — Ếch và cóc là động vật lưỡng cư.
+- **The turtle is a reptile.** — Rùa là một loài bò sát.
 
-## 6. Ôn tập nhanh và mở rộng
+## 6. Luyện tập thực hành
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+1. Quan sát các số **4–24**; đọc tên các sinh vật biển theo thứ tự rồi chọn ba từ để đặt câu với **I can see...**
+2. Nhìn các số **25–28**; ghép từng số với tên tiếng Anh tương ứng, sau đó đọc cả tên tiếng Anh và nghĩa tiếng Việt.
+3. Dựa vào các số **29–35**, phân loại và đọc to tên các động vật có vú ở biển.
+4. Quan sát các số **36–42**; viết tên tiếng Anh bên cạnh từng số, chú ý phân biệt **alligator** với **crocodile**.
 
-## Điều hướng
+## 7. Câu hỏi trắc nghiệm ôn tập
 
-- [← Bài trước](02_flowers.md)
-- [Bài tiếp theo →](04_birds-insects-and-arachnids.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 1
+
+Từ nào có nghĩa là “mang” theo chú thích trong sách?
+
+A. scales  
+B. fin  
+C. gills  
+D. eel  
+
+**Đáp án: C.** **Gills** được chú thích là mang.
+
+### Câu 2
+
+Từ nào được chú thích là “sao biển”?
+
+A. starfish  
+B. sea urchin  
+C. sea anemone  
+D. jellyfish  
+
+**Đáp án: A.** **Starfish** có nghĩa là sao biển.
+
+### Câu 3
+
+“Một giống cá heo” là nghĩa của từ nào?
+
+A. dolphin  
+B. whale  
+C. seal  
+D. porpoise  
+
+**Đáp án: D.** **Porpoise** được chú thích là một giống cá heo.
+
+### Câu 4
+
+Từ nào có nghĩa là “rắn hổ mang”?
+
+A. garter snake  
+B. cobra  
+C. rattlesnake  
+D. lizard  
+
+**Đáp án: B.** **Cobra** được chú thích là rắn hổ mang.
+
+### Câu 5
+
+Từ nào được chú thích là “sa giông”?
+
+A. frog  
+B. toad  
+C. newt  
+D. salamander  
+
+**Đáp án: C.** **Newt** có nghĩa là sa giông.
+
+## 8. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và đọc nghĩa của đủ **42 mục từ được đánh số** theo thứ tự trong hình.
+- Che cột tiếng Anh và gọi tên tiếng Anh của đủ **42 mục từ được đánh số** dựa trên nghĩa tiếng Việt.
+- Nói ít nhất ba câu tiếng Anh có sử dụng từ trong bài; tự kiểm tra lại cách dùng từ và nghĩa sau khi nói.
+
+---
+
+[← Bài trước](02_flowers.md) · [Bài tiếp theo →](04_birds-insects-and-arachnids.md) · [Mục lục đơn vị](README.md)

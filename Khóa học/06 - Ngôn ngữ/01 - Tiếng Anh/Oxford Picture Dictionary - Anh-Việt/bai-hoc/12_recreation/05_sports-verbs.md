@@ -5,89 +5,176 @@ unit_title: "Giải trí và thể thao"
 lesson: 5
 lesson_en: "Sports Verbs"
 lesson_vi: "Động từ thể thao"
-book_pages: "156-157"
-pdf_pages: "166-167"
+book_pages: "156–157"
+pdf_pages: "166–167"
+numbered_vocabulary: 0
+lettered_items: 26
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 05 – Động từ thể thao (Sports Verbs)
 
-> **Đơn vị 12:** Giải trí và thể thao (Recreation)  
-> **Nguồn:** trang 156–157 trong sách, tương ứng trang PDF **166–167**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 12 – Giải trí và thể thao** · Trang sách **156–157** (PDF **166–167**) · **26 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Hai trang minh họa các động tác trong nhiều môn thể thao: đi bộ, chạy, ném và bắt bóng, chơi bóng rổ và bóng chày, bơi, trượt tuyết, trượt băng, đạp xe và chạy đua. Các chữ cái A–Z nối từng động từ với hành động trong tranh.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **động từ thể thao** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **sports verbs**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **0 mục từ được đánh số**, **26 mục chữ cái** và **0 mục không đánh số**, đồng thời dùng các động từ thể thao trong câu đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Động từ thể thao](05_sports-verbs-trang-ghep.jpg)
+![Trang sách minh họa Sports Verbs](./05_sports-verbs-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 156–157 (trang PDF 166–167). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát các ký hiệu chữ cái trên tranh, đối chiếu với cột “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Trang này không có mục từ theo số thứ tự trong tranh.
 
-| English | Tiếng Việt |
-|---|---|
-| throw | ném |
-| catch | bắt |
-| hit | đánh |
-| kick | đá |
-| jump | nhảy |
+## 4. Phân biệt và ghi nhớ
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+- **walk**, **jog** và **run** đều chỉ cách di chuyển bằng chân; **jog** là chạy chậm / chạy bộ, còn **run** là chạy.
+- **throw** và **pitch** đều có nghĩa liên quan đến ném; **catch** là bắt. Trong tranh, **pitch** gắn với động tác ném bóng của người ném bóng chày.
+- **hit**, **swing**, **shoot** và **kick** là các động tác khác nhau: đánh, đánh móc vòng, sút bóng và đá. Học cùng tranh để nhớ đúng ngữ cảnh.
+- **pass** là chuyền bóng; **dribble/bounce** là lừa bóng / rê bóng, đi bóng; **tackle** là cản phá.
+- **exercise/work out** đều dùng để nói về vận động / tập thể dục; **stretch** là duỗi, vươn, còn **bend** là cúi xuống.
+- **start**, **race** và **finish** lần lượt là khởi hành, đua và tới đích; có thể liên hệ với các hình vận động viên bắt đầu, đang đua và về đích.
 
-## 4. Mẫu câu ứng dụng
+## 5. Hoạt động / thao tác trong hình
 
-- **What does “throw” mean?** — “throw” có nghĩa là gì?
-- **How do you say “bắt” in English?** — “bắt” nói bằng tiếng Anh thế nào?
-- **Can you find “throw” in the picture?** — Bạn có thể tìm “throw” trong tranh không?
-- **This picture is about sports verbs.** — Bức tranh này có chủ đề động từ thể thao.
+Các động từ dưới đây được sắp theo thứ tự chữ cái trên tranh. Có thể dùng chúng để mô tả hành động đang diễn ra, chẳng hạn **She is swimming** — Cô ấy đang bơi.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+**Nhóm từ:** Động từ thể thao.
 
-## 5. Bài tập thực hành
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **walk** | đi bộ |
+| B | **jog** | chạy chậm / chạy bộ |
+| C | **run** | chạy |
+| D | **throw** | ném |
+| E | **catch** | bắt |
+| F | **pitch** | ném / thảy |
+| G | **hit** | đánh |
+| H | **pass** | chuyền bóng |
+| I | **shoot** | sút bóng |
+| J | **jump** | nhảy |
+| K | **dribble/bounce** | lừa bóng / rê bóng, đi bóng |
+| L | **kick** | đá |
+| M | **tackle** | cản phá |
+| N | **serve** | giao bóng |
+| O | **swing** | đánh móc vòng |
+| P | **exercise/work out** | vận động / tập thể dục |
+| Q | **stretch** | duỗi, vươn |
+| R | **bend** | cúi xuống |
+| S | **dive** | lặn |
+| T | **swim** | bơi |
+| U | **ski** | trượt tuyết |
+| V | **skate** | trượt băng |
+| W | **ride** | cưỡi |
+| X | **start** | khởi hành |
+| Y | **race** | đua |
+| Z | **finish** | tới đích |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 6. Từ vựng bổ sung và khung ghi chú trong sách
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+### Practice talking about what you can do.
 
-1. ném → ______
-2. bắt → ______
-3. đánh → ______
-4. đá → ______
+- **I can swim, but I can’t dive.** — Tôi biết bơi, nhưng tôi không biết lặn.
+- **I can pass the ball well, but I can’t shoot too well.** — Tôi chuyền bóng tốt, nhưng tôi sút bóng không giỏi lắm.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về động từ thể thao, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### Use the new language.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+- **Look at Individual Sports, page 159.** — Xem bài Các môn thể thao cá nhân, trang 159.
+- **Name the actions you see people doing.** — Gọi tên các hành động bạn thấy mọi người đang thực hiện.
+- **The man in number 18 is riding a horse.** — Người đàn ông ở số 18 đang cưỡi ngựa.
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+### Share your answers.
 
-1. throw
-2. catch
-3. hit
-4. kick
+- **What do you like to do?** — Bạn thích làm gì?
+- **What do you have difficulty doing?** — Bạn gặp khó khăn khi làm việc gì?
+- **How often do you exercise? Once a week? Two or three times a week? More? Never?** — Bạn tập thể dục thường xuyên thế nào? Mỗi tuần một lần? Hai hoặc ba lần một tuần? Nhiều hơn? Không bao giờ?
+- **Which is more difficult, throwing a ball or catching it?** — Việc nào khó hơn, ném bóng hay bắt bóng?
 
-</details>
+## 7. Mẫu câu giao tiếp
 
-## 6. Ôn tập nhanh và mở rộng
+- **I can walk, but I can’t run very fast.** — Tôi có thể đi bộ, nhưng tôi không thể chạy nhanh lắm.
+- **Can you throw and catch a ball?** — Bạn có thể ném và bắt bóng không?
+- **She can serve the ball well.** — Cô ấy có thể giao bóng tốt.
+- **They are swimming and diving.** — Họ đang bơi và lặn.
+- **He is stretching before he exercises.** — Anh ấy đang duỗi người trước khi tập thể dục.
+- **The runners race to the finish.** — Các vận động viên chạy đua về đích.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 8. Luyện tập thực hành
 
-## Điều hướng
+1. Quan sát các hình **A–C**; đọc to **walk**, **jog** và **run**, rồi nêu điểm khác nhau giữa ba cách di chuyển.
+2. Nhìn các hình **D–H**; ghép mỗi động từ với hành động phù hợp: ném, bắt, ném bóng, đánh hoặc chuyền bóng.
+3. Quan sát các hình **I–M**; đặt một câu tiếng Anh cho mỗi hành động sút bóng, nhảy, rê bóng, đá và cản phá.
+4. Nhìn các hình **N–Z**; chọn ít nhất năm hành động và mô tả bằng câu có **is** hoặc **are** cùng động từ thêm **-ing**.
 
-- [← Bài trước](04_the-beach.md)
-- [Bài tiếp theo →](06_team-sports.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 9. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Động từ nào có nghĩa là “chuyền bóng”?
+
+A. pass  
+B. catch  
+C. hit  
+D. dive  
+
+**Đáp án: A.** **Pass** có nghĩa là chuyền bóng.
+
+### Câu 2
+
+Hành động nào là “cúi xuống”?
+
+A. stretch  
+B. bend  
+C. jump  
+D. serve  
+
+**Đáp án: B.** **Bend** có nghĩa là cúi xuống.
+
+### Câu 3
+
+Động từ nào có nghĩa là “trượt tuyết”?
+
+A. skate  
+B. ride  
+C. ski  
+D. swim  
+
+**Đáp án: C.** **Ski** có nghĩa là trượt tuyết.
+
+### Câu 4
+
+Trong tranh, động từ nào chỉ hành động vận động viên chạy đua?
+
+A. start  
+B. finish  
+C. walk  
+D. race  
+
+**Đáp án: D.** **Race** có nghĩa là đua.
+
+### Câu 5
+
+Động từ nào có nghĩa là “bắt”?
+
+A. catch  
+B. throw  
+C. kick  
+D. tackle  
+
+**Đáp án: A.** **Catch** có nghĩa là bắt.
+
+## 10. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt, đọc và dịch đủ **26 mục chữ cái** theo thứ tự A–Z.
+- Che cột tiếng Anh, nhìn nghĩa tiếng Việt và tự nhớ lại đủ **26 mục chữ cái**.
+- Nói ít nhất ba câu tiếng Anh về các hoạt động mình có thể làm hoặc muốn tập, dùng động từ trong bài.
+
+---
+
+[← Bài trước](04_the-beach.md) · [Bài tiếp theo →](06_team-sports.md) · [Mục lục đơn vị](README.md)

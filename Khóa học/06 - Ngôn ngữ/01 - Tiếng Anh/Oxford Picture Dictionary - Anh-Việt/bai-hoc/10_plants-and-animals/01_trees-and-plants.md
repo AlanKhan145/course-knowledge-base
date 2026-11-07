@@ -5,89 +5,154 @@ unit_title: "Thực vật và động vật"
 lesson: 1
 lesson_en: "Trees and Plants"
 lesson_vi: "Cây cối và thực vật"
-book_pages: "128-128"
-pdf_pages: "138-138"
+book_pages: "128"
+pdf_pages: "138"
+numbered_vocabulary: 25
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 01 – Cây cối và thực vật (Trees and Plants)
 
-> **Đơn vị 10:** Thực vật và động vật (Plants and Animals)  
-> **Nguồn:** trang 128 trong sách, tương ứng trang PDF **138–138**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 10 – Thực vật và động vật** · Trang sách **128** (PDF **138**) · **25 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu các phần của một cái cây, nhiều loại cây và một số thực vật. Hình minh họa còn cho thấy các chi tiết như rễ, lá, quả thông và lá thông.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **cây cối và thực vật** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **trees and plants**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **25 mục từ được đánh số** theo số trên hình, phân biệt những từ gần nghĩa và sử dụng chúng trong các câu giao tiếp đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Cây cối và thực vật](01_trees-and-plants-trang-ghep.jpg)
+![Trang sách minh họa Trees and Plants](./01_trees-and-plants-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 128 (trang PDF 138). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục được sắp theo đúng thứ tự đánh số trên hình. Hãy chú ý học nghĩa tiếng Việt đúng như chú thích trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| tree | cây thân gỗ |
-| leaf | lá |
-| root | rễ |
-| stem | thân cây |
-| branch | cành |
+### 3.1. Các phần và loại cây (số 1–18)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **twig** | nhánh cây |
+| 2 | **branch** | cành cây |
+| 3 | **limb** | cành cây lớn |
+| 4 | **trunk** | thân cây |
+| 5 | **root** | rễ cây |
+| 6 | **leaf** | lá cây |
+| 7 | **redwood** | cây thông gỗ đỏ |
+| 8 | **birch** | cây phong |
+| 9 | **magnolia** | cây mộc lan |
+| 10 | **pine** | cây thông |
+| 11 | **pinecone** | quả thông |
+| 12 | **needle** | lá thông |
+| 13 | **maple** | cây thích |
+| 14 | **willow** | cây liễu |
+| 15 | **palm** | cây cọ |
+| 16 | **dogwood** | cây sơn thù-du |
+| 17 | **elm** | cây du |
+| 18 | **oak** | cây sồi |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Các loài thực vật (số 19–25)
 
-- **What does “tree” mean?** — “tree” có nghĩa là gì?
-- **How do you say “lá” in English?** — “lá” nói bằng tiếng Anh thế nào?
-- **Can you find “tree” in the picture?** — Bạn có thể tìm “tree” trong tranh không?
-- **This picture is about trees and plants.** — Bức tranh này có chủ đề cây cối và thực vật.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 19 | **holly** | cây ô-rô |
+| 20 | **berries** | cây be-ri |
+| 21 | **cactus** | cây xương rồng |
+| 22 | **vine** | cây nho |
+| 23 | **poison oak** | cây sồi độc |
+| 24 | **poison sumac** | cây thù du độc |
+| 25 | **poison ivy** | cây trường xuân độc |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 4. Phân biệt và ghi nhớ
 
-## 5. Bài tập thực hành
+- **twig**, **branch** và **limb** đều chỉ bộ phận mọc ra từ thân cây; **twig** là nhánh nhỏ, **branch** là cành cây, còn **limb** là cành cây lớn.
+- **trunk** là thân cây, còn **root** là rễ cây. Có thể hình dung thân ở phía trên mặt đất và rễ ở dưới đất.
+- **leaf** là lá cây nói chung; **needle** là lá thông, có hình dạng mảnh và nhọn như kim.
+- **pinecone** là quả thông, còn **pine** là cây thông. Hai từ có liên quan nhưng gọi tên hai vật khác nhau.
+- **poison oak**, **poison sumac** và **poison ivy** đều là tên các thực vật độc trong nhóm từ của bài; hãy ghi nhớ đầy đủ từng tên.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 5. Mẫu câu giao tiếp
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **The trunk is thick.** — Thân cây to.
+- **The roots are under the tree.** — Rễ ở dưới cây.
+- **A twig is smaller than a branch.** — Một nhánh cây nhỏ hơn một cành cây.
+- **I see a pinecone on the ground.** — Tôi nhìn thấy một quả thông trên mặt đất.
+- **The willow has long branches.** — Cây liễu có những cành dài.
+- **Please stay away from poison ivy.** — Hãy tránh xa cây trường xuân độc.
 
-1. cây thân gỗ → ______
-2. lá → ______
-3. rễ → ______
-4. thân cây → ______
+## 6. Luyện tập thực hành
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về cây cối và thực vật, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+1. Quan sát hình và đọc tên các mục **1–6**. Sau đó chỉ vào từng bộ phận của cây và nói nghĩa tiếng Việt.
+2. Dựa vào các số **7–18**, chọn năm loại cây và viết tên tiếng Anh cùng nghĩa tiếng Việt theo chú thích trong sách.
+3. So sánh **twig**, **branch** và **limb** bằng cách sắp xếp chúng từ nhánh nhỏ đến cành lớn.
+4. Dựa vào các số **19–25**, đọc tên từng thực vật. Viết ba câu tiếng Anh, mỗi câu dùng ít nhất một từ trong nhóm này.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 7. Câu hỏi trắc nghiệm ôn tập
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+### Câu 1
 
-1. tree
-2. leaf
-3. root
-4. stem
+Từ nào có nghĩa là “rễ cây”?
 
-</details>
+A. root  
+B. trunk  
+C. leaf  
+D. twig  
 
-## 6. Ôn tập nhanh và mở rộng
+**Đáp án: A.** **Root** là rễ cây.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+### Câu 2
 
-## Điều hướng
+Mục số **11** trong hình là gì?
 
-- [← Bài trước](../09_areas-of-study/13_the-universe.md)
-- [Bài tiếp theo →](02_flowers.md)
-- [Danh sách bài trong chủ đề](README.md)
+A. needle  
+B. pinecone  
+C. pine  
+D. maple  
+
+**Đáp án: B.** Mục số 11 là **pinecone**, nghĩa là quả thông.
+
+### Câu 3
+
+Từ nào có nghĩa là “cây liễu”?
+
+A. elm  
+B. oak  
+C. willow  
+D. palm  
+
+**Đáp án: C.** **Willow** là cây liễu.
+
+### Câu 4
+
+Mục số **21** là thực vật nào?
+
+A. holly  
+B. vine  
+C. berries  
+D. cactus  
+
+**Đáp án: D.** Mục số 21 là **cactus**, nghĩa là cây xương rồng.
+
+### Câu 5
+
+Từ nào có nghĩa là “cây trường xuân độc”?
+
+A. poison ivy  
+B. poison oak  
+C. poison sumac  
+D. dogwood  
+
+**Đáp án: A.** **Poison ivy** là cây trường xuân độc.
+
+## 8. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt, đọc và dịch đủ **25 mục từ được đánh số** theo đúng thứ tự trên hình.
+- Che cột tiếng Anh, nhìn nghĩa tiếng Việt và tự nhớ lại tên tiếng Anh của đủ **25 mục từ được đánh số**.
+- Nói ít nhất ba câu tiếng Anh có dùng các từ trong bài; thử dùng một từ chỉ bộ phận cây, một tên cây và một tên thực vật ở nhóm cuối trang.
+
+---
+
+[← Bài trước](../09_areas-of-study/13_the-universe.md) · [Bài tiếp theo →](02_flowers.md) · [Mục lục đơn vị](README.md)

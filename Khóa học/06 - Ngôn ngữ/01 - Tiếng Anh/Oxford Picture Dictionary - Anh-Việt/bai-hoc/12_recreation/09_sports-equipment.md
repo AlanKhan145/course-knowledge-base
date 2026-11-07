@@ -5,89 +5,179 @@ unit_title: "Giải trí và thể thao"
 lesson: 9
 lesson_en: "Sports Equipment"
 lesson_vi: "Dụng cụ thể thao"
-book_pages: "161-161"
-pdf_pages: "171-171"
+book_pages: "161"
+pdf_pages: "171"
+numbered_vocabulary: 27
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 09 – Dụng cụ thể thao (Sports Equipment)
 
-> **Đơn vị 12:** Giải trí và thể thao (Recreation)  
-> **Nguồn:** trang 161 trong sách, tương ứng trang PDF **171–171**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 12 – Giải trí và thể thao** · Trang sách **161** (PDF **171**) · **27 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu một cửa hàng dụng cụ thể thao với các vật dụng cho nhiều môn khác nhau. Tranh có thiết bị chơi bóng, trượt tuyết, bắn cung và tập luyện thể lực.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **dụng cụ thể thao** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **sports equipment**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **27 mục từ được đánh số** trong tranh, nhận biết thiết bị bảo vệ và mô tả một số dụng cụ thể thao quen thuộc.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Dụng cụ thể thao](09_sports-equipment-trang-ghep.jpg)
+![Trang sách minh họa Sports Equipment](./09_sports-equipment-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 161 (trang PDF 171). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây giữ đúng thứ tự đánh số trên hình; hãy đối chiếu số trong tranh với từ tiếng Anh và nghĩa tiếng Việt in trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| racket | vợt |
-| ball | bóng |
-| helmet | mũ bảo hộ |
-| net | lưới |
-| goal | khung thành |
+### 3.1. Dụng cụ chơi thể thao (số 1–8)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **golf club** | câu lạc bộ chơi gôn |
+| 2 | **tennis racket** | vợt chơi quần vợt, vợt ten-nít |
+| 3 | **volleyball** | bóng chuyền |
+| 4 | **basketball** | bóng rổ |
+| 5 | **bowling ball** | quả cầu để chơi ki |
+| 6 | **bow** | cung |
+| 7 | **arrow** | tên |
+| 8 | **target** | đích |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Dụng cụ trượt và bóng chày (số 9–18)
 
-- **What does “racket” mean?** — “racket” có nghĩa là gì?
-- **How do you say “bóng” in English?** — “bóng” nói bằng tiếng Anh thế nào?
-- **Can you find “racket” in the picture?** — Bạn có thể tìm “racket” trong tranh không?
-- **This picture is about sports equipment.** — Bức tranh này có chủ đề dụng cụ thể thao.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 9 | **ice skates** | giày trượt băng |
+| 10 | **inline skates** | giày trượt pa-tanh |
+| 11 | **hockey stick** | gậy chơi khúc côn cầu |
+| 12 | **soccer ball** | quả bóng đá |
+| 13 | **shin guards** | tấm bảo vệ ống chân |
+| 14 | **baseball bat** | chày (chơi bóng chày) |
+| 15 | **catcher’s mask** | mặt nạ của người bắt bóng |
+| 16 | **uniform** | đồng phục |
+| 17 | **glove** | găng tay |
+| 18 | **baseball** | bóng chày |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Tập luyện và thể thao mùa đông (số 19–27)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 19 | **weights** | tạ |
+| 20 | **football helmet** | mũ chơi bóng đá Mỹ, mũ an toàn |
+| 21 | **shoulder pads** | đệm lót vai |
+| 22 | **football** | bóng đá Mỹ |
+| 23 | **snowboard** | ván trượt tuyết |
+| 24 | **skis** | ván trượt tuyết, ski |
+| 25 | **ski poles** | gậy trượt tuyết |
+| 26 | **ski boots** | giày trượt tuyết |
+| 27 | **flying disc*** | đĩa bay |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **bow** là cung, còn **arrow** là tên; hai vật dụng này thường được nhận biết cùng nhau trong hoạt động bắn cung.
+- **ice skates** là giày trượt băng, còn **inline skates** là giày trượt pa-tanh; hãy chú ý tên gọi khác nhau của hai kiểu giày trượt.
+- **baseball bat**, **baseball** và **catcher’s mask** lần lượt là chày, bóng chày và mặt nạ của người bắt bóng.
+- **football helmet** và **shoulder pads** là những món đồ bảo vệ; **uniform** là đồng phục.
+- **snowboard** là ván trượt tuyết; **skis** cũng được chú thích là ván trượt tuyết, ski. **Ski poles** là gậy trượt tuyết và **ski boots** là giày trượt tuyết.
+- **glove** có nghĩa là găng tay; trong tranh, từ này được dùng cho găng tay chơi bóng.
 
-1. vợt → ______
-2. bóng → ______
-3. mũ bảo hộ → ______
-4. lưới → ______
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về dụng cụ thể thao, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### Share your answers.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+- **Which sports equipment is used for safety reasons?** — Dụng cụ thể thao nào được dùng vì lý do an toàn?
+- **Which sports equipment is heavy?** — Dụng cụ thể thao nào nặng?
+- **What sports equipment do you have at home?** — Bạn có dụng cụ thể thao nào ở nhà?
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+### Use the new language.
 
-1. racket
-2. ball
-3. helmet
-4. net
+- **Look at Individual Sports, page 159.** — Hãy xem bài Individual Sports, trang 159.
+- **Name the sports equipment you see.** — Hãy gọi tên những dụng cụ thể thao bạn nhìn thấy.
 
-</details>
+### Ghi chú
 
-## 6. Ôn tập nhanh và mở rộng
+- **flying disc**: sách ghi chú một nhãn hiệu là Frisbee® (Mattel, Inc.).
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 6. Mẫu câu giao tiếp
 
-## Điều hướng
+- **Where is the tennis racket?** — Cây vợt chơi quần vợt ở đâu?
+- **I have a soccer ball at home.** — Tôi có một quả bóng đá ở nhà.
+- **Which equipment is used for safety reasons?** — Dụng cụ nào được dùng vì lý do an toàn?
+- **The football helmet and shoulder pads are safety equipment.** — Mũ chơi bóng đá Mỹ và đệm lót vai là dụng cụ bảo vệ.
+- **The bowling ball is heavy.** — Quả cầu để chơi ki nặng.
+- **Name the sports equipment you see.** — Hãy gọi tên những dụng cụ thể thao bạn nhìn thấy.
 
-- [← Bài trước](08_winter-sports-and-water-sports.md)
-- [Bài tiếp theo →](10_hobbies-and-games.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 7. Luyện tập thực hành
+
+1. Quan sát các số **1–8** trong hình; đọc tên từng dụng cụ và ghép chúng với một môn thể thao phù hợp.
+2. Nhìn các số **9–18**; viết lại tên tiếng Anh của từng vật dụng theo đúng thứ tự.
+3. Dựa vào các số **19–27**, chọn ba dụng cụ bạn muốn gọi tên và nói nghĩa tiếng Việt theo chú thích trong sách.
+4. Dùng câu hỏi trong khung **Share your answers** để trả lời về thiết bị an toàn, dụng cụ nặng và dụng cụ thể thao bạn có ở nhà.
+
+## 8. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Số 6 trong hình là gì?
+
+A. bow  
+B. arrow  
+C. target  
+D. hockey stick  
+
+**Đáp án: A.** Số 6 là **bow**, nghĩa là cung.
+
+### Câu 2
+
+Vật nào được chú thích là “giày trượt pa-tanh”?
+
+A. ice skates  
+B. inline skates  
+C. ski boots  
+D. ski poles  
+
+**Đáp án: B.** **Inline skates** là giày trượt pa-tanh.
+
+### Câu 3
+
+Số 15 trong hình là gì?
+
+A. uniform  
+B. glove  
+C. catcher’s mask  
+D. football helmet  
+
+**Đáp án: C.** Số 15 là mặt nạ của người bắt bóng.
+
+### Câu 4
+
+Từ nào có nghĩa là “đệm lót vai”?
+
+A. weights  
+B. football  
+C. snowboard  
+D. shoulder pads  
+
+**Đáp án: D.** **Shoulder pads** là đệm lót vai.
+
+### Câu 5
+
+Số 27 trong hình là gì?
+
+A. flying disc  
+B. skis  
+C. ski poles  
+D. golf club  
+
+**Đáp án: A.** Số 27 là **flying disc**, đĩa bay.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và đọc lại đủ **27 mục từ được đánh số** theo thứ tự trong tranh.
+2. Che cột tiếng Anh, nhìn các nghĩa tiếng Việt và tự nhớ lại đủ **27 mục từ được đánh số**.
+3. Nói ít nhất ba câu có dùng các từ trong bài, chẳng hạn tên một dụng cụ bạn có, một vật dụng bảo vệ và một món đồ trượt tuyết.
+
+---
+
+[← Bài trước](08_winter-sports-and-water-sports.md) · [Bài tiếp theo →](10_hobbies-and-games.md) · [Mục lục đơn vị](README.md)

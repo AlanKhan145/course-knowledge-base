@@ -5,89 +5,155 @@ unit_title: "Giải trí và thể thao"
 lesson: 2
 lesson_en: "The Park and Playground"
 lesson_vi: "Công viên và sân chơi"
-book_pages: "153-153"
-pdf_pages: "163-163"
+book_pages: "153"
+pdf_pages: "163"
+numbered_vocabulary: 16
+lettered_items: 4
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 02 – Công viên và sân chơi (The Park and Playground)
 
-> **Đơn vị 12:** Giải trí và thể thao (Recreation)  
-> **Nguồn:** trang 153 trong sách, tương ứng trang PDF **163–163**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 12 – Giải trí và thể thao** · Trang sách **153** (PDF **163**) · **16 mục từ được đánh số** · **4 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này minh họa một công viên có đường đi xe đạp, sân thể thao, ao vịt, khu picnic và sân chơi dành cho trẻ em. Các từ vựng gọi tên những nơi chốn, phương tiện và thiết bị vui chơi trong công viên.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **công viên và sân chơi** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **the park and playground**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **16 mục từ được đánh số** và **4 mục chữ cái** trong bài, đồng thời dùng các từ này trong câu giao tiếp đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Công viên và sân chơi](02_the-park-and-playground-trang-ghep.jpg)
+![Trang sách minh họa The Park and Playground](./02_the-park-and-playground-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 153 (trang PDF 163). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục từ dưới đây giữ đúng thứ tự đánh số trên hình; hãy học cả các cách gọi được ngăn bằng dấu `/`.
 
-| English | Tiếng Việt |
-|---|---|
-| swing | xích đu |
-| slide | cầu trượt |
-| bench | ghế dài |
-| fountain | đài phun nước |
-| picnic | đi dã ngoại |
+**Nhóm từ:** Địa điểm và tiện ích trong công viên.
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **ball field** | sân chơi bóng / sân banh |
+| 2 | **bike path** | đường dành cho xe đạp |
+| 3 | **cyclist** | người đi xe đạp |
+| 4 | **bicycle/bike** | xe đạp |
+| 5 | **jump rope** | dây nhảy |
+| 6 | **duck pond** | ao thả vịt |
+| 7 | **tennis court** | sân quần vợt |
+| 8 | **picnic table** | bàn picnic |
+| 9 | **tricycle** | xe ba bánh |
+| 10 | **bench** | ghế dài |
+| 11 | **water fountain** | vòi nước phun |
+| 12 | **swings** | đu |
+| 13 | **slide** | cầu trượt / cầu tuột |
+| 14 | **climbing apparatus** | khung tập leo trèo |
+| 15 | **sandbox** | sân nhỏ có cát, hộp cát |
+| 16 | **seesaw** | ván bập bênh |
 
-## 4. Mẫu câu ứng dụng
+## 4. Phân biệt và ghi nhớ
 
-- **What does “swing” mean?** — “swing” có nghĩa là gì?
-- **How do you say “cầu trượt” in English?** — “cầu trượt” nói bằng tiếng Anh thế nào?
-- **Can you find “swing” in the picture?** — Bạn có thể tìm “swing” trong tranh không?
-- **This picture is about the park and playground.** — Bức tranh này có chủ đề công viên và sân chơi.
+- **bicycle/bike** đều có nghĩa là xe đạp; **cyclist** là người đi xe đạp.
+- **bike path** là đường dành cho xe đạp, còn **ball field** là sân chơi bóng.
+- **tricycle** là xe ba bánh; phân biệt với **bicycle/bike** là xe đạp.
+- **swings** chỉ đu; **seesaw** là ván bập bênh; **slide** là cầu trượt / cầu tuột.
+- **climbing apparatus** là khung tập leo trèo, còn **sandbox** là sân nhỏ có cát, hộp cát.
+- **picnic table** là bàn picnic; cụm **have a picnic** nói về việc đi picnic.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 5. Hoạt động / thao tác trong hình
 
-## 5. Bài tập thực hành
+Các cụm này mô tả hành động; **pull** là kéo, **push** là đẩy, **climb** là leo và **have a picnic** là đi picnic.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+**Nhóm từ:** Hoạt động trong công viên.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **pull the wagon** | kéo xe |
+| B | **push the swing** | đẩy cái đu |
+| C | **climb on the bars** | leo trên những thanh sắt |
+| D | **picnic/have a picnic** | đi picnic |
 
-1. xích đu → ______
-2. cầu trượt → ______
-3. ghế dài → ______
-4. đài phun nước → ______
+## 6. Mẫu câu giao tiếp
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về công viên và sân chơi, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+- **The cyclist is on the bike path.** — Người đi xe đạp đang ở trên đường dành cho xe đạp.
+- **The ducks are in the duck pond.** — Những con vịt ở trong ao thả vịt.
+- **The children are playing on the swings.** — Các em nhỏ đang chơi trên đu.
+- **Please push the swing.** — Làm ơn đẩy cái đu.
+- **We can have a picnic at the picnic table.** — Chúng ta có thể đi picnic ở bàn picnic.
+- **The child is climbing on the bars.** — Đứa trẻ đang leo trên những thanh sắt.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 7. Luyện tập thực hành
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+1. Quan sát các số **1–8** trên hình, đọc tên từng địa điểm hoặc tiện ích rồi tự nói nghĩa tiếng Việt.
+2. Nhìn các số **9–16**; phân loại từ nào là phương tiện, từ nào là thiết bị hoặc khu vực vui chơi.
+3. Quan sát hình **A–D**, ghép mỗi chữ cái với hành động tương ứng và đọc thành tiếng cụm tiếng Anh.
+4. Viết bốn câu về công viên, mỗi câu dùng ít nhất một từ ở các số **1–16** hoặc một cụm ở hình **A–D**.
 
-1. swing
-2. slide
-3. bench
-4. fountain
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-</details>
+### Câu 1
 
-## 6. Ôn tập nhanh và mở rộng
+Từ nào chỉ người đi xe đạp?
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+A. cyclist  
+B. bicycle/bike  
+C. tricycle  
+D. bench  
 
-## Điều hướng
+**Đáp án: A.** **Cyclist** có nghĩa là người đi xe đạp.
 
-- [← Bài trước](01_places-to-go.md)
-- [Bài tiếp theo →](03_outdoor-recreation.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 2
+
+Đường dành cho xe đạp được gọi là gì?
+
+A. ball field  
+B. bike path  
+C. tennis court  
+D. duck pond  
+
+**Đáp án: B.** **Bike path** là đường dành cho xe đạp.
+
+### Câu 3
+
+Thiết bị nào là ván bập bênh?
+
+A. slide  
+B. swings  
+C. seesaw  
+D. climbing apparatus  
+
+**Đáp án: C.** **Seesaw** có nghĩa là ván bập bênh.
+
+### Câu 4
+
+**Pull the wagon** có nghĩa là gì?
+
+A. đẩy cái đu  
+B. leo trên những thanh sắt  
+C. đi picnic  
+D. kéo xe  
+
+**Đáp án: D.** **Pull the wagon** nghĩa là kéo xe.
+
+### Câu 5
+
+Từ nào chỉ nơi có cát để trẻ chơi?
+
+A. sandbox  
+B. water fountain  
+C. picnic table  
+D. bench  
+
+**Đáp án: A.** **Sandbox** là sân nhỏ có cát, hộp cát.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và đọc nghĩa của đủ **16 mục từ được đánh số**.
+2. Che cột tiếng Anh và nhìn nghĩa tiếng Việt để nhớ lại tên tiếng Anh của **16 mục từ được đánh số** và **4 mục chữ cái**.
+3. Nói ít nhất ba câu tiếng Anh về công viên, có dùng từ trong bài.
+
+---
+
+[← Bài trước](01_places-to-go.md) · [Bài tiếp theo →](03_outdoor-recreation.md) · [Mục lục đơn vị](README.md)

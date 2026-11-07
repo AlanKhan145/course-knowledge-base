@@ -5,89 +5,154 @@ unit_title: "Công việc và nghề nghiệp"
 lesson: 8
 lesson_en: "A Factory"
 lesson_vi: "Nhà máy"
-book_pages: "146-146"
-pdf_pages: "156-156"
+book_pages: "146"
+pdf_pages: "156"
+numbered_vocabulary: 16
+lettered_items: 3
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 08 – Nhà máy (A Factory)
 
-> **Đơn vị 11:** Công việc và nghề nghiệp (Work)  
-> **Nguồn:** trang 146 trong sách, tương ứng trang PDF **156–156**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 11 – Công việc và nghề nghiệp** · Trang sách **146** (PDF **156**) · **16 mục từ được đánh số** · **3 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này mô tả một nhà máy, từ khu văn phòng và nơi thiết kế đến dây chuyền lắp ráp, nhà kho và khu vực chất hàng lên xe. Các số trong tranh gọi tên người, địa điểm, thiết bị và bộ phận trong quy trình làm việc.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **nhà máy** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **a factory**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **16 mục từ được đánh số** và **3 mục chữ cái** trên trang, phân biệt các vai trò và thiết bị trong nhà máy, đồng thời dùng các từ này trong câu đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Nhà máy](08_a-factory-trang-ghep.jpg)
+![Trang sách minh họa A Factory](./08_a-factory-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 146 (trang PDF 156). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục được trình bày theo đúng thứ tự đánh số trên hình. Hãy quan sát vị trí của từng người và thiết bị để ghi nhớ từ vựng.
 
-| English | Tiếng Việt |
-|---|---|
-| factory | nhà máy |
-| assembly line | dây chuyền lắp ráp |
-| machine | máy móc |
-| worker | công nhân |
-| warehouse | nhà kho |
+**Nhóm từ:** Người, khu vực và công việc trong nhà máy.
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **front office** | văn phòng tiếp tân |
+| 2 | **factory owner** | chủ nhà máy |
+| 3 | **designer** | người thiết kế |
+| 4 | **time clock** | đồng hồ chỉ thời gian |
+| 5 | **line supervisor** | người giám sát dây chuyền |
+| 6 | **factory worker** | công nhân nhà máy |
+| 7 | **parts** | bộ phận |
+| 8 | **assembly line** | dây chuyền lắp ráp |
+| 9 | **warehouse** | nhà kho |
+| 10 | **order puller** | người nhận đặt hàng (order puller) |
+| 11 | **hand truck** | xe tải con (đẩy tay) |
+| 12 | **conveyor belt** | băng tải |
+| 13 | **packer** | người đóng gói hàng |
+| 14 | **forklift** | máy nâng hàng |
+| 15 | **shipping clerk** | nhân viên đặc trách vận chuyển hàng |
+| 16 | **loading dock** | bến chất hàng lên chở đi |
 
-## 4. Mẫu câu ứng dụng
+## 4. Phân biệt và ghi nhớ
 
-- **What does “factory” mean?** — “factory” có nghĩa là gì?
-- **How do you say “dây chuyền lắp ráp” in English?** — “dây chuyền lắp ráp” nói bằng tiếng Anh thế nào?
-- **Can you find “factory” in the picture?** — Bạn có thể tìm “factory” trong tranh không?
-- **This picture is about a factory.** — Bức tranh này có chủ đề nhà máy.
+- **factory owner**, **line supervisor** và **factory worker** đều chỉ người, nhưng lần lượt là chủ nhà máy, người giám sát dây chuyền và công nhân nhà máy.
+- **front office** là văn phòng tiếp tân; **warehouse** là nhà kho; **loading dock** là bến chất hàng lên chở đi. Đây là ba khu vực khác nhau trong hoạt động của nhà máy.
+- **hand truck** là xe tải con đẩy tay; **forklift** là máy nâng hàng. Cả hai hỗ trợ di chuyển hàng hóa nhưng là hai loại thiết bị khác nhau.
+- **assembly line** là dây chuyền lắp ráp; **conveyor belt** là băng tải. Băng tải là thiết bị được dùng để chuyển vật trên dây chuyền.
+- **parts** nghĩa là bộ phận; từ này thường xuất hiện trong ngữ cảnh các phần cấu thành sản phẩm.
+- **designer** là người thiết kế, còn **design** là thiết kế; **manufacture** là chế tạo và **ship** là chở bằng tàu thủy.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+## 5. Hoạt động / thao tác trong hình
 
-## 5. Bài tập thực hành
+Các từ A–C nêu những hoạt động liên quan đến sản phẩm: thiết kế, chế tạo và chở đi bằng tàu thủy.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+**Nhóm từ:** Các hoạt động trong quy trình sản xuất.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **design** | thiết kế |
+| B | **manufacture** | chế tạo |
+| C | **ship** | chở bằng tàu thủy |
 
-1. nhà máy → ______
-2. dây chuyền lắp ráp → ______
-3. máy móc → ______
-4. công nhân → ______
+## 6. Mẫu câu giao tiếp
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về nhà máy, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+- **The factory owner is in the front office.** — Chủ nhà máy ở văn phòng tiếp tân.
+- **The designer works in the office.** — Người thiết kế làm việc trong văn phòng.
+- **The line supervisor is checking the assembly line.** — Người giám sát dây chuyền đang kiểm tra dây chuyền lắp ráp.
+- **The factory worker puts parts on the conveyor belt.** — Công nhân nhà máy đặt các bộ phận lên băng tải.
+- **The packer is in the warehouse.** — Người đóng gói hàng đang ở nhà kho.
+- **The shipping clerk works at the loading dock.** — Nhân viên đặc trách vận chuyển hàng làm việc tại bến chất hàng lên chở đi.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 7. Luyện tập thực hành
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+1. Quan sát các số **1–4** trong hình. Đọc tên khu vực, người và thiết bị tương ứng; sau đó nói từ nào thuộc khu văn phòng.
+2. Dựa vào các số **5–8**, viết bốn câu ngắn có sử dụng **line supervisor**, **factory worker**, **parts** và **assembly line**.
+3. Quan sát các số **9–14**. Ghép mỗi vai trò hoặc thiết bị với một câu mô tả việc di chuyển hay đóng gói hàng trong tranh.
+4. Dựa vào các số **15–16** và các chữ cái **A–C**, kể bằng tiếng Anh các hoạt động và khu vực thể hiện trong hình.
 
-1. factory
-2. assembly line
-3. machine
-4. worker
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-</details>
+### Câu 1
 
-## 6. Ôn tập nhanh và mở rộng
+Từ nào chỉ văn phòng tiếp tân?
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+A. front office  
+B. warehouse  
+C. loading dock  
+D. assembly line  
 
-## Điều hướng
+**Đáp án: A.** **Front office** có nghĩa là văn phòng tiếp tân.
 
-- [← Bài trước](07_a-hotel.md)
-- [Bài tiếp theo →](09_job-safety.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 2
+
+Ai là người giám sát dây chuyền?
+
+A. factory owner  
+B. line supervisor  
+C. factory worker  
+D. designer  
+
+**Đáp án: B.** **Line supervisor** là người giám sát dây chuyền.
+
+### Câu 3
+
+Thiết bị nào được gọi là **hand truck**?
+
+A. máy nâng hàng  
+B. băng tải  
+C. xe tải con đẩy tay  
+D. đồng hồ chỉ thời gian  
+
+**Đáp án: C.** **Hand truck** có nghĩa là xe tải con đẩy tay.
+
+### Câu 4
+
+Từ nào có nghĩa là người đóng gói hàng?
+
+A. order puller  
+B. shipping clerk  
+C. designer  
+D. packer  
+
+**Đáp án: D.** **Packer** là người đóng gói hàng.
+
+### Câu 5
+
+Trong các từ A–C, từ nào có nghĩa là “chở bằng tàu thủy”?
+
+A. ship  
+B. manufacture  
+C. design  
+D. parts  
+
+**Đáp án: A.** **Ship** có nghĩa là chở bằng tàu thủy.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và dịch đủ **16 mục từ được đánh số** cùng **3 mục chữ cái**.
+2. Che cột tiếng Anh và đọc lại tên tiếng Anh của **16 mục từ được đánh số** cùng **3 mục chữ cái** từ nghĩa tiếng Việt.
+3. Nói ít nhất ba câu tiếng Anh có sử dụng từ trong bài; cố gắng nhắc đến một người, một thiết bị và một hoạt động trong hình.
+
+---
+
+[← Bài trước](07_a-hotel.md) · [Bài tiếp theo →](09_job-safety.md) · [Mục lục đơn vị](README.md)

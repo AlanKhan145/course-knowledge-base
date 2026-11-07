@@ -5,89 +5,208 @@ unit_title: "Giao thông"
 lesson: 5
 lesson_en: "Parts of a Car and Car Maintenance"
 lesson_vi: "Bộ phận và bảo dưỡng ô tô"
-book_pages: "108-109"
-pdf_pages: "118-119"
+book_pages: "108–109"
+pdf_pages: "118–119"
+numbered_vocabulary: 59
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 05 – Bộ phận và bảo dưỡng ô tô (Parts of a Car and Car Maintenance)
 
-> **Đơn vị 8:** Giao thông (Transportation)  
-> **Nguồn:** trang 108–109 trong sách, tương ứng trang PDF **118–119**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 8 – Giao thông** · Trang sách **108–109** (PDF **118–119**) · **59 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Hai trang giới thiệu các bộ phận bên ngoài và bên trong ô tô, khoang động cơ, dụng cụ thay bánh xe và những việc xe cần bảo dưỡng. Tranh cũng có các hình riêng về đồng hồ trên xe, ghế và dây an toàn, cùng những câu mô tả tình trạng cần kiểm tra hoặc bổ sung.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **bộ phận và bảo dưỡng ô tô** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **parts of a car and car maintenance**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **59 mục từ được đánh số** tương ứng các số trên hình, phân biệt các bộ phận và sử dụng câu đơn giản để nói về nhu cầu bảo dưỡng của xe.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Bộ phận và bảo dưỡng ô tô](05_parts-of-a-car-and-car-maintenance-trang-ghep.jpg)
+![Trang sách minh họa Parts of a Car and Car Maintenance](./05_parts-of-a-car-and-car-maintenance-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 108–109 (trang PDF 118–119). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ đúng thứ tự đánh số của hình. Học cả những tên gọi thay thế được ngăn bằng dấu `/`; nghĩa tiếng Việt theo chú thích in trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| engine | động cơ |
-| tire | lốp |
-| steering wheel | vô lăng |
-| brake | phanh |
-| oil change | thay dầu |
+### 3.1. Bộ phận bên ngoài ô tô (số 1–15)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **rearview mirror** | gương chiếu hậu |
+| 2 | **windshield** | kiếng xe phía trước |
+| 3 | **windshield wipers** | quạt nước |
+| 4 | **turn signal** | bật đèn quẹo |
+| 5 | **headlight** | đèn trước |
+| 6 | **hood** | nắp xe |
+| 7 | **bumper** | cản xe |
+| 8 | **sideview mirror** | gương bên cạnh |
+| 9 | **hubcap** | nắp bánh xe |
+| 10 | **tire** | bánh xe |
+| 11 | **muffler** | ống bô |
+| 12 | **gas tank** | thùng xăng |
+| 13 | **brake light** | đèn thắng |
+| 14 | **taillight** | đèn sau |
+| 15 | **license plate** | bảng số xe |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Khoang lái và bảng điều khiển (số 16–33)
 
-- **What does “engine” mean?** — “engine” có nghĩa là gì?
-- **How do you say “lốp” in English?** — “lốp” nói bằng tiếng Anh thế nào?
-- **Can you find “engine” in the picture?** — Bạn có thể tìm “engine” trong tranh không?
-- **This picture is about parts of a car and car maintenance.** — Bức tranh này có chủ đề bộ phận và bảo dưỡng ô tô.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 16 | **air bag** | túi bảo hộ có hơi |
+| 17 | **dashboard** | mặt xe |
+| 18 | **turn signal** | đèn quẹo |
+| 19 | **oil gauge** | đồng hồ đo nhớt |
+| 20 | **speedometer** | đồng hồ tốc độ |
+| 21 | **odometer** | đồng hồ đo quãng đường |
+| 22 | **gas gauge** | đồng hồ xăng |
+| 23 | **temperature gauge** | đồng hồ nhiệt độ |
+| 24 | **horn** | còi, kèn |
+| 25 | **ignition** | bộ phận nổ máy xe |
+| 26 | **steering wheel** | tay lái |
+| 27 | **gearshift** | tay số / cần sang số |
+| 28 | **air conditioning** | máy lạnh |
+| 29 | **heater** | máy sưởi |
+| 30 | **tape deck** | máy cát-sét |
+| 31 | **radio** | ra-dô |
+| 32 | **cigarette lighter** | bật lửa mồi thuốc trong xe |
+| 33 | **glove compartment** | hộp nhỏ trên xe |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Khóa và chỗ ngồi (số 34–39)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 34 | **lock** | khóa |
+| 35 | **front seat** | ghế trước |
+| 36 | **seat belt** | thắt lưng an toàn |
+| 37 | **shoulder harness** | dây choàng vai |
+| 38 | **backseat** | ghế sau |
+| 39 | **child safety seat** | ghế an toàn cho trẻ em |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### 3.4. Động cơ, bàn đạp và dụng cụ (số 40–53)
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 40 | **fuel injection system** | hệ thống phun nhiên liệu |
+| 41 | **engine** | máy / động cơ |
+| 42 | **radiator** | thùng nước xe |
+| 43 | **battery** | bình điện |
+| 44 | **emergency brake** | thắng cấp kỳ |
+| 45 | **clutch*** | hộp số |
+| 46 | **brake pedal** | chân thắng |
+| 47 | **accelerator/gas pedal** | chân ga |
+| 48 | **stick shift** | tay số |
+| 49 | **trunk** | thùng xe |
+| 50 | **lug wrench** | kềm mở ốc |
+| 51 | **jack** | con đội |
+| 52 | **jumper cables** | giây câu bình |
+| 53 | **spare tire** | lốp sơ-cua |
 
-1. động cơ → ______
-2. lốp → ______
-3. vô lăng → ______
-4. phanh → ______
+### 3.5. Nhu cầu bảo dưỡng (số 54–59)
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về bộ phận và bảo dưỡng ô tô, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 54 | **The car needs gas.** | Xe cần xăng. |
+| 55 | **The car needs oil.** | Xe cần nhớt. |
+| 56 | **The radiator needs coolant.** | Thùng nước cần châm nước. |
+| 57 | **The car needs a smog check.** | Xe cần được khám smog. |
+| 58 | **The battery needs recharging.** | Bình điện cần được xạc. |
+| 59 | **The tires need air.** | Bánh xe cần bơm thêm hơi. |
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 4. Phân biệt và ghi nhớ
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+- **rearview mirror** là gương chiếu hậu; **sideview mirror** là gương bên cạnh. **Windshield** là kiếng xe phía trước, còn **windshield wipers** là quạt nước.
+- **Headlight** là đèn trước; **taillight** là đèn sau; **brake light** là đèn thắng. **Turn signal** xuất hiện ở hai vị trí trong tranh: số 4 là bật đèn quẹo, số 18 là đèn quẹo.
+- **Tire** là bánh xe; **hubcap** là nắp bánh xe. **Spare tire** là lốp sơ-cua, được cất cùng các dụng cụ trong thùng xe.
+- **Speedometer** đo tốc độ, **odometer** đo quãng đường; **gas gauge**, **oil gauge** và **temperature gauge** lần lượt là đồng hồ xăng, đồng hồ đo nhớt và đồng hồ nhiệt độ.
+- **Brake pedal** là chân thắng; **accelerator/gas pedal** là chân ga. **Gearshift** là tay số / cần sang số, còn **stick shift** là tay số.
+- Ghi nhớ các cụm nhu cầu: **needs gas**, **needs oil**, **needs coolant**, **needs a smog check**, **needs recharging** và **need air**. Trong các câu này, **needs/need** đi cùng việc xe hoặc bộ phận cần được bổ sung hay kiểm tra.
 
-1. engine
-2. tire
-3. steering wheel
-4. brake
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-</details>
+**Note:** Standard transmission cars have a clutch; automatic transmission cars do not. — Xe số sàn có bộ ly hợp; xe số tự động thì không.
 
-## 6. Ôn tập nhanh và mở rộng
+## 6. Mẫu câu giao tiếp
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+- **Where is the spare tire?** — Lốp sơ-cua ở đâu?
+- **The car needs gas.** — Xe cần xăng.
+- **The car needs oil.** — Xe cần nhớt.
+- **The radiator needs coolant.** — Thùng nước cần châm nước.
+- **The battery needs recharging.** — Bình điện cần được xạc.
+- **The tires need air.** — Bánh xe cần bơm thêm hơi.
 
-## Điều hướng
+## 7. Luyện tập thực hành
 
-- [← Bài trước](04_directions-and-traffic-signs.md)
-- [Bài tiếp theo →](06_an-airport.md)
-- [Danh sách bài trong chủ đề](README.md)
+1. Quan sát các số **1–15** trên hình và gọi tên từng bộ phận bên ngoài ô tô; sau đó phân biệt đèn trước, đèn sau và đèn thắng.
+2. Tìm các số **19–23** trên bảng điều khiển. Ghi lại mỗi đồng hồ đo hoặc hiển thị điều gì theo tên gọi tiếng Anh.
+3. Quan sát các số **49–53** và kể tên các vật được cất hoặc dùng khi cần thay bánh xe.
+4. Dựa vào các số **54–59**, viết lại sáu câu về nhu cầu của xe, rồi ghép mỗi câu với nghĩa tiếng Việt tương ứng.
+
+## 8. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Từ nào chỉ gương bên cạnh của ô tô?
+
+A. rearview mirror  
+B. sideview mirror  
+C. windshield  
+D. hubcap  
+
+**Đáp án: B.** **Sideview mirror** là gương bên cạnh.
+
+### Câu 2
+
+Đồng hồ nào đo quãng đường?
+
+A. gas gauge  
+B. oil gauge  
+C. odometer  
+D. temperature gauge  
+
+**Đáp án: C.** **Odometer** là đồng hồ đo quãng đường.
+
+### Câu 3
+
+Bộ phận nào là chân ga?
+
+A. accelerator/gas pedal  
+B. brake pedal  
+C. emergency brake  
+D. clutch*  
+
+**Đáp án: A.** **Accelerator/gas pedal** là chân ga.
+
+### Câu 4
+
+**The battery needs recharging.** có nghĩa là gì?
+
+A. Xe cần xăng.  
+B. Bánh xe cần bơm thêm hơi.  
+C. Thùng nước cần châm nước.  
+D. Bình điện cần được xạc.  
+
+**Đáp án: D.** Đây là câu số 58 trong hình.
+
+### Câu 5
+
+Vật nào là dụng cụ dùng để nâng xe?
+
+A. lug wrench  
+B. jack  
+C. jumper cables  
+D. spare tire  
+
+**Đáp án: B.** **Jack** là con đội.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và dịch đủ **59 mục từ được đánh số** theo thứ tự trên hình.
+- Che cột tiếng Anh, nhìn nghĩa tiếng Việt rồi đọc lại đúng các từ và cụm tiếng Anh.
+- Nói ít nhất ba câu có sử dụng từ trong bài; có thể chọn các câu về nhiên liệu, dầu, bình điện hoặc bánh xe.
+
+---
+
+[← Bài trước](04_directions-and-traffic-signs.md) · [Bài tiếp theo →](06_an-airport.md) · [Mục lục đơn vị](README.md)

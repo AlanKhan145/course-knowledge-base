@@ -5,89 +5,142 @@ unit_title: "Công việc và nghề nghiệp"
 lesson: 4
 lesson_en: "Job Search"
 lesson_vi: "Tìm việc"
-book_pages: "141-141"
-pdf_pages: "151-151"
+book_pages: "141"
+pdf_pages: "151"
+numbered_vocabulary: 0
+lettered_items: 12
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 04 – Tìm việc (Job Search)
 
-> **Đơn vị 11:** Công việc và nghề nghiệp (Work)  
-> **Nguồn:** trang 141 trong sách, tương ứng trang PDF **151–151**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 11 – Công việc và nghề nghiệp** · Trang sách **141** (PDF **151**) · **12 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này mô tả quá trình tìm việc: bắt đầu bằng cách hỏi bạn bè hoặc xem thông tin tuyển dụng, sau đó liên hệ nơi tuyển, chuẩn bị hồ sơ và tham gia phỏng vấn.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **tìm việc** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **job search**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **12 mục chữ cái** về các bước và câu hỏi thường gặp khi tìm việc, đồng thời luyện cách dùng chúng trong giao tiếp.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Tìm việc](04_job-search-trang-ghep.jpg)
+![Trang sách minh họa Job Search](./04_job-search-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 141 (trang PDF 151). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát các ký hiệu chữ cái trên tranh, đối chiếu với cột “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Trang này không có mục từ được đánh số hoặc mục không đánh số.
 
-| English | Tiếng Việt |
-|---|---|
-| résumé | sơ yếu lý lịch/CV |
-| interview | phỏng vấn |
-| application | đơn ứng tuyển |
-| vacancy | vị trí tuyển dụng |
-| qualification | trình độ |
+## 4. Phân biệt và ghi nhớ
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+- **look at a job board** là xem bảng tìm việc; **look for a help wanted sign** là tìm bảng quảng cáo cần người. Một cụm nói về nơi xem thông tin, cụm kia nói về việc tìm bảng tuyển người.
+- **look in the classifieds** diễn tả việc xem mục rao vặt; **call for information** là gọi điện thoại hỏi chi tiết.
+- **ask about the hours**, **ask about benefits** và **inquire about the salary** đều là cách hỏi thông tin, lần lượt về số giờ làm việc, quyền lợi và lương.
+- **fill out an application** là điền mẫu đơn; **go on an interview** là đi phỏng vấn. Đây là hai thao tác khác nhau trong quá trình ứng tuyển.
+- Cụm **talk about your experience** nói về việc trao đổi kinh nghiệm; **talk to friends** nói chuyện với bạn bè để tìm thông tin việc làm.
+- **get hired** có nghĩa là được mướn, được thuê làm; đây là kết quả sau khi tìm việc và phỏng vấn thành công.
 
-## 4. Mẫu câu ứng dụng
+## 5. Hoạt động / thao tác trong hình
 
-- **What does “résumé” mean?** — “résumé” có nghĩa là gì?
-- **How do you say “phỏng vấn” in English?** — “phỏng vấn” nói bằng tiếng Anh thế nào?
-- **Can you find “résumé” in the picture?** — Bạn có thể tìm “résumé” trong tranh không?
-- **This picture is about job search.** — Bức tranh này có chủ đề tìm việc.
+Các cụm dưới đây diễn tả các bước tìm việc và trao đổi trong quá trình ứng tuyển.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+**Nhóm từ:** Các bước tìm việc.
 
-## 5. Bài tập thực hành
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **talk to friends** | nói chuyện với bạn bè |
+| B | **look at a job board** | xem bảng tìm việc |
+| C | **look for a help wanted sign** | tìm bảng quảng cáo cần người |
+| D | **look in the classifieds** | xem mục rao vặt |
+| E | **call for information** | gọi điện thoại hỏi chi tiết |
+| F | **ask about the hours** | hỏi về số giờ làm việc |
+| G | **fill out an application** | điền mẫu đơn |
+| H | **go on an interview** | đi phỏng vấn |
+| I | **talk about your experience** | nói về kinh nghiệm của bạn |
+| J | **ask about benefits** | hỏi về quyền lợi |
+| K | **inquire about the salary** | hỏi về lương |
+| L | **get hired** | được mướn, được thuê làm |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 6. Mẫu câu giao tiếp
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **I think EJ’s is hiring.** — Tôi nghĩ EJ’s đang tuyển người.
+- **I’m calling about your ad for a checker.** — Tôi gọi điện về tin tuyển người kiểm hàng của quý vị.
+- **Can you tell me about the job?** — Bạn có thể cho tôi biết về công việc này không?
+- **Is it full-time or part-time?** — Đây là công việc toàn thời gian hay bán thời gian?
+- **Is there medical insurance?** — Có bảo hiểm y tế không?
+- **What does the job pay?** — Công việc trả lương bao nhiêu?
 
-1. sơ yếu lý lịch/CV → ______
-2. phỏng vấn → ______
-3. đơn ứng tuyển → ______
-4. vị trí tuyển dụng → ______
+## 7. Luyện tập thực hành
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về tìm việc, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+1. Quan sát hình **A–D**; nói cách nhân vật bắt đầu tìm việc qua bạn bè, bảng tìm việc, bảng quảng cáo cần người và mục rao vặt.
+2. Dựa vào hình **E–F**, đóng vai người gọi điện hỏi thông tin tuyển dụng và hỏi về số giờ làm việc.
+3. Sắp xếp các thao tác trong hình **G–I** thành một đoạn hội thoại ngắn về điền đơn, phỏng vấn và kinh nghiệm.
+4. Dựa vào hình **J–L**, thực hành hỏi về quyền lợi, lương và nói câu báo tin được nhận việc.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+### Câu 1
 
-1. résumé
-2. interview
-3. application
-4. vacancy
+Bạn muốn nói “xem bảng tìm việc”. Cụm nào phù hợp?
 
-</details>
+A. look at a job board  
+B. ask about the hours  
+C. fill out an application  
+D. get hired  
 
-## 6. Ôn tập nhanh và mở rộng
+**Đáp án: A.** **Look at a job board** nghĩa là xem bảng tìm việc.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+### Câu 2
 
-## Điều hướng
+Hình **E** thể hiện việc gì?
 
-- [← Bài trước](03_job-skills.md)
-- [Bài tiếp theo →](05_an-office.md)
-- [Danh sách bài trong chủ đề](README.md)
+A. talk to friends  
+B. call for information  
+C. go on an interview  
+D. get hired  
+
+**Đáp án: B.** Ở hình **E**, người gọi điện để hỏi chi tiết về tin tuyển dụng.
+
+### Câu 3
+
+Muốn hỏi về số giờ làm việc, dùng cụm nào?
+
+A. talk about your experience  
+B. look in the classifieds  
+C. ask about the hours  
+D. look for a help wanted sign  
+
+**Đáp án: C.** **Ask about the hours** nghĩa là hỏi về số giờ làm việc.
+
+### Câu 4
+
+Hình **G** minh họa thao tác nào?
+
+A. inquire about the salary  
+B. ask about benefits  
+C. go on an interview  
+D. fill out an application  
+
+**Đáp án: D.** Hình **G** cho thấy người ứng tuyển điền mẫu đơn.
+
+### Câu 5
+
+**Get hired** có nghĩa là gì?
+
+A. được mướn, được thuê làm  
+B. hỏi về quyền lợi  
+C. nói chuyện với bạn bè  
+D. xem mục rao vặt  
+
+**Đáp án: A.** **Get hired** diễn tả việc được mướn hoặc được thuê làm.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và đọc lại toàn bộ **12 mục chữ cái**.
+2. Che cột tiếng Anh và đọc tên tiếng Anh tương ứng với nghĩa tiếng Việt của **12 mục chữ cái**.
+3. Nói ít nhất ba câu có sử dụng các cụm từ của bài; tự kiểm tra lại sau một ngày.
+
+---
+
+[← Bài trước](03_job-skills.md) · [Bài tiếp theo →](05_an-office.md) · [Mục lục đơn vị](README.md)

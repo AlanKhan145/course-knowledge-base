@@ -5,89 +5,184 @@ unit_title: "Các lĩnh vực học tập"
 lesson: 13
 lesson_en: "The Universe"
 lesson_vi: "Vũ trụ"
-book_pages: "127-127"
-pdf_pages: "137-137"
+book_pages: "127"
+pdf_pages: "137"
+numbered_vocabulary: 26
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 13 – Vũ trụ (The Universe)
 
-> **Đơn vị 9:** Các lĩnh vực học tập (Areas of Study)  
-> **Nguồn:** trang 127 trong sách, tương ứng trang PDF **137–137**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 9 – Các lĩnh vực học tập** · Trang sách **127** (PDF **137**) · **26 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu cảnh hệ Mặt Trời với các hành tinh quay quanh Mặt Trời, cùng hình ảnh các pha của Mặt Trăng, phi hành gia, đài quan sát và những vật thể trên bầu trời.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **vũ trụ** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **the universe**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **26 mục từ được đánh số** trên hình, phân biệt một số khái niệm gần nhau và dùng từ vựng để nói về vũ trụ.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Vũ trụ](13_the-universe-trang-ghep.jpg)
+![Trang sách minh họa The Universe](./13_the-universe-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 127 (trang PDF 137). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây giữ đúng thứ tự đánh số trên hình; hãy học cả những cách gọi tiếng Việt được ngăn bằng dấu gạch chéo.
 
-| English | Tiếng Việt |
+### 3.1. Các hành tinh (số 1–9)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **Pluto** | Diêm-vương tinh |
+| 2 | **Neptune** | Hải-vương tinh |
+| 3 | **Uranus** | Thiên-vương tinh |
+| 4 | **Saturn** | Thổ tinh |
+| 5 | **Jupiter** | Mộc tinh |
+| 6 | **Mars** | Hỏa tinh |
+| 7 | **Earth** | Trái đất / địa cầu |
+| 8 | **Venus** | Kim tinh |
+| 9 | **Mercury** | Thủy tinh |
+
+### 3.2. Mặt Trời và quỹ đạo (số 10–12)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 10 | **sun** | mặt trời |
+| 11 | **orbit** | quỹ-đạo |
+| 12 | **asteroid belt** | vòng đai hành tinh |
+
+### 3.3. Các pha của Mặt Trăng (số 13–16)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 13 | **new moon** | trăng mới |
+| 14 | **crescent moon** | trăng lưỡi liềm |
+| 15 | **quarter moon** | trăng thượng tuần |
+| 16 | **full moon** | trăng tròn |
+
+### 3.4. Con người và nơi quan sát (số 17–21)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 17 | **astronaut** | phi-hành gia không gian |
+| 18 | **space station** | trạm không gian |
+| 19 | **observatory** | đài quan sát |
+| 20 | **astronomer** | nhà thiên-văn |
+| 21 | **telescope** | kính thiên văn / viễn vọng kính |
+
+### 3.5. Không gian và thiên thể (số 22–26)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 22 | **space** | không gian |
+| 23 | **star** | ngôi sao |
+| 24 | **constellation** | chòm sao |
+| 25 | **comet** | thiên hà / sao chổi |
+| 26 | **galaxy** | ngân hà |
+
+## 4. Phân biệt và ghi nhớ
+
+- **Earth** là Trái đất/địa cầu; **sun** là Mặt Trời. Trên hình, các hành tinh nằm trên những **orbit** quanh Mặt Trời.
+- **asteroid belt** là vòng đai hành tinh; **orbit** là quỹ đạo. Một từ chỉ vùng tập trung, từ kia chỉ đường đi quanh một thiên thể.
+- **new moon**, **crescent moon**, **quarter moon** và **full moon** là các pha Mặt Trăng được minh họa lần lượt ở các số 13–16.
+- **star** là ngôi sao; **constellation** là chòm sao, tức một nhóm sao được nhìn như một hình trên bầu trời.
+- **astronomer** là nhà thiên-văn; **astronaut** là phi-hành gia không gian. **telescope** là kính thiên văn/viễn vọng kính, còn **observatory** là đài quan sát.
+- **comet** có nghĩa in trong sách là “thiên hà / sao chổi”; **galaxy** là “ngân hà”. Hãy ghi nhớ đúng chú thích của từng số trên hình.
+
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
+
+| English | Nghĩa tiếng Việt |
 |---|---|
-| planet | hành tinh |
-| star | ngôi sao |
-| moon | mặt trăng |
-| solar system | hệ Mặt Trời |
-| galaxy | thiên hà |
+| **lunar eclipse**: when the earth is between the sun and the moon | nguyệt thực: khi Trái đất nằm giữa Mặt Trời và Mặt Trăng |
+| **solar eclipse**: when the moon is between the earth and the sun | nhật thực: khi Mặt Trăng nằm giữa Trái đất và Mặt Trời |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+### Share your answers.
 
-## 4. Mẫu câu ứng dụng
+- **Do you know the names of any constellations?** — Bạn có biết tên của chòm sao nào không?
+- **How do you feel when you look up at the night sky?** — Bạn cảm thấy thế nào khi ngước nhìn bầu trời đêm?
+- **Is the night sky in the U.S. the same as in your country?** — Bầu trời đêm ở Hoa Kỳ có giống ở đất nước bạn không?
 
-- **What does “planet” mean?** — “planet” có nghĩa là gì?
-- **How do you say “ngôi sao” in English?** — “ngôi sao” nói bằng tiếng Anh thế nào?
-- **Can you find “planet” in the picture?** — Bạn có thể tìm “planet” trong tranh không?
-- **This picture is about the universe.** — Bức tranh này có chủ đề vũ trụ.
+## 6. Mẫu câu giao tiếp
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+- **The Earth moves in an orbit around the sun.** — Trái đất chuyển động theo quỹ đạo quanh Mặt Trời.
+- **The asteroid belt is shown in the picture.** — Vòng đai hành tinh được thể hiện trong hình.
+- **I can see a crescent moon tonight.** — Tối nay tôi có thể nhìn thấy trăng lưỡi liềm.
+- **The astronaut is near the space station.** — Phi-hành gia không gian ở gần trạm không gian.
+- **The astronomer looks through a telescope.** — Nhà thiên-văn nhìn qua kính thiên văn.
+- **Can you find that constellation in the night sky?** — Bạn có thể tìm thấy chòm sao đó trên bầu trời đêm không?
 
-## 5. Bài tập thực hành
+## 7. Luyện tập thực hành
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+1. Quan sát các số **1–9** trên hình, đọc tên từng hành tinh và sắp xếp chúng theo thứ tự số đã in.
+2. Dựa vào các số **10–12**, nói một câu có **sun**, **orbit** và **asteroid belt**.
+3. Nhìn các số **13–16**; ghép mỗi tên pha Mặt Trăng với số tương ứng rồi đọc thành tiếng.
+4. Quan sát các số **17–26**, chọn ba mục và viết câu mô tả điều bạn nhìn thấy trong tranh.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-1. hành tinh → ______
-2. ngôi sao → ______
-3. mặt trăng → ______
-4. hệ Mặt Trời → ______
+### Câu 1
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về vũ trụ, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+Số 4 trên hình là hành tinh nào?
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+A. Saturn  
+B. Jupiter  
+C. Mars  
+D. Earth  
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+**Đáp án: A.** Số 4 là **Saturn**, nghĩa là Thổ tinh.
 
-1. planet
-2. star
-3. moon
-4. solar system
+### Câu 2
 
-</details>
+Từ nào có nghĩa là “vòng đai hành tinh”?
 
-## 6. Ôn tập nhanh và mở rộng
+A. orbit  
+B. asteroid belt  
+C. constellation  
+D. galaxy  
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Đáp án: B.** **asteroid belt** là vòng đai hành tinh.
 
-## Điều hướng
+### Câu 3
 
-- [← Bài trước](12_energy-and-the-environment.md)
-- [Bài tiếp theo →](../10_plants-and-animals/01_trees-and-plants.md)
-- [Danh sách bài trong chủ đề](README.md)
+Mục số 16 là pha nào của Mặt Trăng?
+
+A. new moon  
+B. crescent moon  
+C. quarter moon  
+D. full moon  
+
+**Đáp án: D.** **full moon** là trăng tròn, mục số 16.
+
+### Câu 4
+
+Người làm nghề “nhà thiên-văn” được gọi là gì?
+
+A. astronaut  
+B. observer  
+C. astronomer  
+D. telescope  
+
+**Đáp án: C.** **astronomer** có nghĩa là nhà thiên-văn.
+
+### Câu 5
+
+Từ nào có nghĩa là “chòm sao”?
+
+A. star  
+B. comet  
+C. space  
+D. constellation  
+
+**Đáp án: D.** **constellation** là chòm sao.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và tự dịch đủ **26 mục từ được đánh số** theo thứ tự trên hình.
+- Che cột tiếng Anh và đọc lại tên tiếng Anh của **26 mục từ được đánh số** từ nghĩa tiếng Việt.
+- Nói ít nhất ba câu có dùng từ trong bài; thử dùng một câu về hành tinh, một câu về pha Mặt Trăng và một câu về các vật thể trên bầu trời.
+
+---
+
+[← Bài trước](12_energy-and-the-environment.md) · [Bài tiếp theo →](../10_plants-and-animals/01_trees-and-plants.md) · [Mục lục đơn vị](README.md)

@@ -5,89 +5,171 @@ unit_title: "Giao thông"
 lesson: 7
 lesson_en: "A Plane Trip"
 lesson_vi: "Chuyến bay"
-book_pages: "111-111"
-pdf_pages: "121-121"
+book_pages: "111"
+pdf_pages: "121"
+numbered_vocabulary: 0
+lettered_items: 16
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 07 – Chuyến bay (A Plane Trip)
 
-> **Đơn vị 8:** Giao thông (Transportation)  
-> **Nguồn:** trang 111 trong sách, tương ứng trang PDF **121–121**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 8 – Giao thông** · Trang sách **111** (PDF **121**) · **16 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang học mô tả chuyến bay qua các cảnh ở quầy vé, khu làm thủ tục và an ninh, trong khoang máy bay, rồi đến lúc hạ cánh và nhận hành lý. Các thao tác được trình bày theo hành trình của hành khách.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **chuyến bay** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **a plane trip**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **0 mục từ được đánh số**, **16 mục chữ cái** và **0 mục không đánh số**, đồng thời dùng các cụm từ về chuyến bay trong giao tiếp.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Chuyến bay](07_a-plane-trip-trang-ghep.jpg)
+![Trang sách minh họa A Plane Trip](./07_a-plane-trip-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 111 (trang PDF 121). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát các ký hiệu chữ cái trên tranh, đối chiếu với cột “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Trang này không có mục từ thuộc nhóm theo số thứ tự trong tranh.
 
-| English | Tiếng Việt |
-|---|---|
-| flight | chuyến bay |
-| take off | cất cánh |
-| land | hạ cánh |
-| seat belt | dây an toàn |
-| flight attendant | tiếp viên hàng không |
+## 4. Phân biệt và ghi nhớ
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+- **buy your ticket** là mua vé; **get your boarding pass** là lấy vé lên máy bay. Đây là hai thao tác khác nhau trong hành trình.
+- **check your bags** nghĩa là gởi hành lý; **claim your baggage** nghĩa là nhận hành lý.
+- **check in at the gate** là kiểm nhận ở cổng; **go through security** là đi qua nhân viên an ninh.
+- **take off/leave** là cất cánh / rời phi cảng; **land/arrive** là hạ cánh / đến nơi.
+- **carry-on bag** là hành lý xách tay trong cụm **stow your carry-on bag**; **baggage** xuất hiện trong cụm **claim your baggage**.
+- Các cụm **fasten your seat belt**, **look for the emergency exit** và **look at the emergency card** lần lượt nói về thắt dây an toàn, tìm cửa cấp cứu và nhìn tấm thẻ cấp cứu.
 
-## 4. Mẫu câu ứng dụng
+## 5. Hoạt động / thao tác trong hình
 
-- **What does “flight” mean?** — “flight” có nghĩa là gì?
-- **How do you say “cất cánh” in English?** — “cất cánh” nói bằng tiếng Anh thế nào?
-- **Can you find “flight” in the picture?** — Bạn có thể tìm “flight” trong tranh không?
-- **This picture is about a plane trip.** — Bức tranh này có chủ đề chuyến bay.
+Các cụm dưới đây theo thứ tự A–P, từ mua vé đến nhận hành lý. Học cả động từ và phần theo sau để nhớ rõ từng thao tác.
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 5.1. Làm thủ tục trước chuyến bay (ký hiệu A–E)
 
-## 5. Bài tập thực hành
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **buy your ticket** | mua vé |
+| B | **check your bags** | gởi hành lý |
+| C | **go through security** | đi qua nhân viên an ninh |
+| D | **check in at the gate** | kiểm nhận ở cổng |
+| E | **get your boarding pass** | lấy vé lên máy bay |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### 5.2. Lên máy bay và chuẩn bị an toàn (ký hiệu F–K)
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| F | **board the plane** | lên máy bay |
+| G | **find your seat** | tìm ghế ngồi |
+| H | **stow your carry-on bag** | để hành lý xách tay vào hộc |
+| I | **fasten your seat belt** | thắt dây lưng an toàn |
+| J | **look for the emergency exit** | tìm cửa cấp cứu |
+| K | **look at the emergency card** | nhìn tấm thẻ cấp cứu |
 
-1. chuyến bay → ______
-2. cất cánh → ______
-3. hạ cánh → ______
-4. dây an toàn → ______
+### 5.3. Trong chuyến bay và khi đến nơi (ký hiệu L–O)
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về chuyến bay, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| L | **take off/leave** | cất cánh / rời phi cảng |
+| M | **request a blanket** | xin chăn, mền |
+| N | **experience turbulence** | cảm thấy lắc lư |
+| O | **land/arrive** | hạ cánh / đến nơi |
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+### 5.4. Nhận hành lý (ký hiệu P–P)
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| P | **claim your baggage** | nhận hành lý |
 
-1. flight
-2. take off
-3. land
-4. seat belt
+## 6. Từ vựng bổ sung và khung ghi chú trong sách
 
-</details>
+### More vocabulary
 
-## 6. Ôn tập nhanh và mở rộng
+- **destination**: điểm đến; the place the passenger is going — nơi hành khách sẽ đến.
+- **departure time**: giờ khởi hành; the time the plane takes off — thời điểm máy bay cất cánh.
+- **arrival time**: giờ đến; the time the plane lands — thời điểm máy bay hạ cánh.
+- **direct flight**: chuyến bay thẳng; a plane trip between two cities with no stops — chuyến bay giữa hai thành phố không dừng.
+- **stopover**: điểm dừng; a stop before reaching the destination, sometimes to change planes — một lần dừng trước khi đến điểm đến, đôi khi để đổi máy bay.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 7. Mẫu câu giao tiếp
 
-## Điều hướng
+- **I’d like to buy my ticket.** — Tôi muốn mua vé.
+- **Where can I check my bags?** — Tôi có thể gởi hành lý ở đâu?
+- **Please fasten your seat belt.** — Vui lòng thắt dây lưng an toàn.
+- **May I have a blanket?** — Tôi có thể xin một chiếc chăn không?
+- **The plane is taking off.** — Máy bay đang cất cánh.
+- **Where do I claim my baggage?** — Tôi nhận hành lý ở đâu?
 
-- [← Bài trước](06_an-airport.md)
-- [Bài tiếp theo →](../09_areas-of-study/01_types-of-schools.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 8. Luyện tập thực hành
+
+1. Quan sát hình **A–E**; kể lại các thao tác trước khi lên máy bay, dùng đúng thứ tự chữ cái.
+2. Nhìn hình **F–K**; nói thành câu những việc hành khách làm khi lên máy bay và chuẩn bị an toàn.
+3. Dựa vào hình **L–O**, đặt câu về lúc máy bay cất cánh, hành khách xin chăn, chuyến bay bị lắc lư và lúc hạ cánh.
+4. Quan sát hình **P**; đóng vai hỏi và trả lời bằng tiếng Anh về việc nhận hành lý.
+
+## 9. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Thao tác nào có nghĩa là “đi qua nhân viên an ninh”?
+
+A. go through security  
+B. check your bags  
+C. find your seat  
+D. request a blanket  
+
+**Đáp án: A.** **Go through security** có nghĩa là đi qua nhân viên an ninh.
+
+### Câu 2
+
+Trong hình, thao tác **H** là gì?
+
+A. fasten your seat belt  
+B. stow your carry-on bag  
+C. get your boarding pass  
+D. land/arrive  
+
+**Đáp án: B.** Mục **H** là **stow your carry-on bag**.
+
+### Câu 3
+
+Hành khách làm gì trong mục **I**?
+
+A. look at the emergency card  
+B. claim your baggage  
+C. fasten your seat belt  
+D. buy your ticket  
+
+**Đáp án: C.** Mục **I** là **fasten your seat belt**, thắt dây lưng an toàn.
+
+### Câu 4
+
+**Experience turbulence** có nghĩa là gì?
+
+A. tìm ghế ngồi  
+B. xin chăn, mền  
+C. cất cánh / rời phi cảng  
+D. cảm thấy lắc lư  
+
+**Đáp án: D.** **Experience turbulence** có nghĩa là cảm thấy lắc lư.
+
+### Câu 5
+
+Chọn cụm có nghĩa là “nhận hành lý”.
+
+A. claim your baggage  
+B. check in at the gate  
+C. look for the emergency exit  
+D. board the plane  
+
+**Đáp án: A.** **Claim your baggage** nghĩa là nhận hành lý.
+
+## 10. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và đọc lại toàn bộ **16 mục chữ cái** theo thứ tự A–P.
+- Che cột tiếng Anh, nhìn các nghĩa tiếng Việt và nhớ lại cụm từ tương ứng.
+- Nói ít nhất ba câu về chuyến bay, sử dụng các cụm từ trong bài; thử kể hành trình theo thứ tự các chữ cái trên hình.
+
+---
+
+[← Bài trước](06_an-airport.md) · [Bài tiếp theo →](../09_areas-of-study/01_types-of-schools.md) · [Mục lục đơn vị](README.md)

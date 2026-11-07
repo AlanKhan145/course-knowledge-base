@@ -5,89 +5,151 @@ unit_title: "Sức khỏe"
 lesson: 9
 lesson_en: "Medical and Dental Exams"
 lesson_vi: "Khám bệnh và khám răng"
-book_pages: "85-85"
-pdf_pages: "95-95"
+book_pages: "85"
+pdf_pages: "95"
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 09 – Khám bệnh và khám răng (Medical and Dental Exams)
 
-> **Đơn vị 6:** Sức khỏe (Health)  
-> **Nguồn:** trang 85 trong sách, tương ứng trang PDF **95–95**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+## 1. Mục tiêu học tập
 
-## 1. Mục tiêu bài học
+Sử dụng chính xác **13 cụm động từ A–M** mô tả những hoạt động khám bệnh, nha khoa; phân biệt động từ *check, take, listen to, look in, examine, draw, get, clean, give, drill, fill, pull*; ghi nhớ thêm hai cụm trong phần *More vocabulary*.
 
-Sau bài này, bạn có thể:
+## 2. Quan sát hình minh họa
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **khám bệnh và khám răng** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **medical and dental exams**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+![Medical and Dental Exams – trang 85](09_medical-and-dental-exams-trang-ghep.jpg)
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+Các hình **A–H** minh họa khám sức khỏe; **I–M** minh họa khám và điều trị nha khoa. Dấu `…` trong sách được hiểu là **vị trí có thể thay bằng người hoặc bộ phận cơ thể cụ thể**, không phải một phần bắt buộc của cụm từ.
 
-![Ảnh ghép 1 trang sách của bài Khám bệnh và khám răng](09_medical-and-dental-exams-trang-ghep.jpg)
+## 3. Từ vựng đầy đủ A–M (13/13)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 85 (trang PDF 95). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+### 3.1. Medical exams – Khám bệnh (A–H)
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+| Hình | Cụm từ tiếng Anh | Tiếng Việt | Ví dụ dễ nhớ |
+|:---:|---|---|---|
+| A | **make an appointment** | lấy hẹn / đặt lịch hẹn | *I made an appointment.* – Tôi đã đặt lịch hẹn. |
+| B | **check ... blood pressure** | đo / kiểm tra huyết áp | *Check my blood pressure.* – Đo huyết áp của tôi. |
+| C | **take ... temperature** | đo thân nhiệt | *Take her temperature.* – Đo thân nhiệt cho cô ấy. |
+| D | **listen to ... heart** | nghe tim / nghe nhịp tim | *Listen to his heart.* – Nghe tim của anh ấy. |
+| E | **look in ... throat** | nhìn vào cổ họng / khám họng | *Look in my throat.* – Khám họng cho tôi. |
+| F | **examine ... eyes** | khám / kiểm tra mắt | *Examine her eyes.* – Khám mắt cho cô ấy. |
+| G | **draw ... blood** | lấy máu (để xét nghiệm) | *Draw my blood.* – Lấy máu của tôi. |
+| H | **get an X ray** | chụp X-quang / đi chụp X-quang | Thường viết *get an X-ray*; *X-ray* = phim/tia X-quang. |
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+### 3.2. Dental exams – Khám và chữa răng (I–M)
 
-| English | Tiếng Việt |
+| Hình | Cụm từ tiếng Anh | Tiếng Việt | Ví dụ dễ nhớ |
+|:---:|---|---|---|
+| I | **clean ... teeth** | làm sạch răng / chùi răng | *Clean my teeth.* – Làm sạch răng cho tôi. |
+| J | **give ... a shot of anesthetic** | chích / tiêm thuốc tê cho ai | *Give him a shot of anesthetic.* – Tiêm thuốc tê cho anh ấy. |
+| K | **drill a tooth** | khoan răng | *The dentist drilled a tooth.* – Nha sĩ đã khoan một chiếc răng. |
+| L | **fill a cavity** | trám lỗ sâu răng / trám răng sâu | *Fill a cavity.* – Trám lỗ sâu răng. |
+| M | **pull a tooth** | nhổ răng | *Pull a tooth.* – Nhổ một chiếc răng. |
+
+### 3.3. More vocabulary – Từ vựng bổ sung (2/2)
+
+| Cụm từ trong sách | Nghĩa tiếng Việt / giải thích |
 |---|---|
-| blood pressure | huyết áp |
-| thermometer | nhiệt kế |
-| stethoscope | ống nghe |
-| dentist | nha sĩ |
-| toothache | đau răng |
+| **get a checkup** (*to go for a medical exam*) | đi khám sức khỏe / đi kiểm tra sức khỏe tổng quát. |
+| **extract a tooth** (*to pull out a tooth*) | nhổ răng; gần nghĩa với *pull a tooth*. |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+**Lưu ý:** *Anesthetic* là thuốc gây tê hoặc gây mê tùy ngữ cảnh; trong hình **J**, đó là mũi tiêm thuốc tê trong điều trị nha khoa.
 
-## 4. Mẫu câu ứng dụng
+## 4. Mẫu cấu trúc và phân biệt động từ
 
-- **What does “blood pressure” mean?** — “blood pressure” có nghĩa là gì?
-- **How do you say “nhiệt kế” in English?** — “nhiệt kế” nói bằng tiếng Anh thế nào?
-- **Can you find “blood pressure” in the picture?** — Bạn có thể tìm “blood pressure” trong tranh không?
-- **This picture is about medical and dental exams.** — Bức tranh này có chủ đề khám bệnh và khám răng.
+### 4.1. Động từ kết hợp với bộ phận cơ thể
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+| Cấu trúc | Cách hiểu | Ví dụ |
+|---|---|---|
+| **check + someone's + blood pressure** | đo huyết áp của ai | *The nurse checked my blood pressure.* |
+| **take + someone's + temperature** | đo nhiệt độ cơ thể của ai | *The doctor took his temperature.* |
+| **listen to + someone's + heart** | nghe tim của ai | *She listened to my heart.* |
+| **look in + someone's + throat** | khám bên trong họng của ai | *He looked in her throat.* |
+| **examine + someone's + eyes** | khám mắt của ai | *She examined my eyes.* |
+| **draw + someone's + blood** | lấy máu của ai | *They drew his blood.* |
+| **clean + someone's + teeth** | vệ sinh răng cho ai | *The hygienist cleaned my teeth.* |
 
-## 5. Bài tập thực hành
+Điểm cần ghi nhớ: tiếng Anh thường đặt **tính từ sở hữu** (*my, your, his, her*) trước bộ phận cơ thể. Ví dụ: *take my temperature*, không nói *take me temperature*.
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### 4.2. Những động từ thường xuất hiện ở dạng quá khứ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Hiện tại | Quá khứ | Dùng với |
+|---|---|---|
+| make | **made** | an appointment |
+| take | **took** | someone's temperature |
+| give | **gave** | a shot of anesthetic |
+| draw | **drew** | blood |
+| get | **got** | an X-ray / a checkup |
+| drill | **drilled** | a tooth |
+| fill | **filled** | a cavity |
+| pull | **pulled** | a tooth |
 
-1. huyết áp → ______
-2. nhiệt kế → ______
-3. ống nghe → ______
-4. nha sĩ → ______
+Bảng này là phần luyện tập biên soạn thêm để dùng các động từ của bài, **không phải bảng quá khứ riêng được in ở trang 85**.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về khám bệnh và khám răng, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+## 5. Hội thoại thực hành
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+**Tình huống 1 – Đặt lịch khám**
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+**Patient:** I'd like to make an appointment.  
+**Receptionist:** What day would you like to come in?  
+**Patient:** Can I come in on the fifth?  
+**Receptionist:** Yes. Come in at 2:00.
 
-1. blood pressure
-2. thermometer
-3. stethoscope
-4. dentist
+**Dịch:** — Tôi muốn đặt lịch khám. — Bạn muốn đến vào ngày nào? — Tôi có thể đến ngày mùng 5 không? — Được, hãy đến lúc 2 giờ.
 
-</details>
+**Tình huống 2 – Khám sức khỏe**
 
-## 6. Ôn tập nhanh và mở rộng
+**Nurse:** I'll check your blood pressure and take your temperature.  
+**Patient:** Will the doctor examine my eyes, too?  
+**Nurse:** Yes, during the medical exam.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Dịch:** — Tôi sẽ đo huyết áp và thân nhiệt của bạn. — Bác sĩ có khám mắt cho tôi nữa không? — Có, trong buổi khám sức khỏe.
 
-## Điều hướng
+**Tình huống 3 – Khám nha khoa**
 
-- [← Bài trước](08_clinics.md)
-- [Bài tiếp theo →](10_a-hospital.md)
-- [Danh sách bài trong chủ đề](README.md)
+**Dentist:** You have a cavity.  
+**Patient:** Do I need a filling?  
+**Dentist:** Let's discuss the options.
+
+**Dịch:** — Bạn có một lỗ sâu răng. — Tôi cần trám răng phải không? — Chúng ta hãy trao đổi các phương án.
+
+## 6. Câu hỏi luyện nói từ cuối trang 85
+
+**Câu 1.** *What is the average cost of a medical exam in your area?*  
+(Chi phí trung bình của một lần khám bệnh ở khu vực bạn là bao nhiêu?)  
+**Khung trả lời:** *The average cost of a medical exam in my area is about ...* — Chi phí trung bình ở khu vực tôi khoảng ...
+
+**Câu 2.** *Some people are nervous at the dentist's office. What can they do to relax?*  
+(Một số người lo lắng tại phòng nha. Họ có thể làm gì để thư giãn?)  
+**Khung trả lời:** *They can tell the dentist how they feel and ask questions before the exam.* — Họ có thể nói với nha sĩ về cảm giác của mình và hỏi trước khi khám.
+
+**Thực hành thêm:** Che cột tiếng Anh và lần lượt gọi tên 13 hoạt động từ A tới M. Sau đó dùng các cụm *get a checkup* và *extract a tooth* trong hai câu hoàn chỉnh.
+
+## 7. Câu hỏi ôn tập trắc nghiệm
+
+**Câu 1.** Bác sĩ “đo thân nhiệt” cho bệnh nhân là hành động nào?  
+A. Draw blood · B. Take someone's temperature · C. Get an X-ray · D. Examine eyes  
+**Đáp án: B.** Cụm đúng là *take someone's temperature*.
+
+**Câu 2.** Trong ngữ cảnh xét nghiệm, *draw blood* có nghĩa là gì?  
+A. Lấy máu · B. Truyền máu · C. Vẽ máu · D. Đo huyết áp  
+**Đáp án: A.** *Draw blood* là lấy máu.
+
+**Câu 3.** Cụm gần nghĩa với *pull a tooth* là gì?  
+A. Fill a cavity · B. Drill a tooth · C. Extract a tooth · D. Clean teeth  
+**Đáp án: C.** *Extract a tooth* và *pull a tooth* đều là nhổ răng.
+
+**Câu 4.** “Trám lỗ sâu răng” là gì?  
+A. Clean the teeth · B. Get a checkup · C. Look in the throat · D. Fill a cavity  
+**Đáp án: D.** *Fill* nghĩa là lấp/trám, *cavity* là lỗ sâu răng.
+
+**Câu 5.** Cụm nào phù hợp nhất khi muốn “đặt lịch hẹn”?  
+A. Make an appointment · B. Take an appointment · C. Draw an appointment · D. Fill an appointment  
+**Đáp án: A.** *Make an appointment* là cách kết hợp từ chuẩn.
+
+## 8. Tóm tắt và kiểm tra độ đầy đủ
+
+Đã bao gồm **13/13 nhãn A–M** và **2/2 mục More vocabulary**, đồng thời giữ **2 câu hỏi Share your answers** của trang 85. Học các cụm như một đơn vị nghĩa, không học rời từng động từ.
+
+**Điều hướng:** [← Bài 08](08_clinics.md) · [Bài 10: Bệnh viện →](10_a-hospital.md) · [Mục lục](README.md)

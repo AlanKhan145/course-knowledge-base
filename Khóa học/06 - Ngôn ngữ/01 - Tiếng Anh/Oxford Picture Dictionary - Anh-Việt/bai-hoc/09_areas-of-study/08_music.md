@@ -5,89 +5,179 @@ unit_title: "Các lĩnh vực học tập"
 lesson: 8
 lesson_en: "Music"
 lesson_vi: "Âm nhạc"
-book_pages: "120-120"
-pdf_pages: "130-130"
+book_pages: "120"
+pdf_pages: "130"
+numbered_vocabulary: 22
+lettered_items: 2
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 08 – Âm nhạc (Music)
 
-> **Đơn vị 9:** Các lĩnh vực học tập (Areas of Study)  
-> **Nguồn:** trang 120 trong sách, tương ứng trang PDF **130–130**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 9 – Các lĩnh vực học tập** · Trang sách **120** (PDF **130**) · **22 mục từ được đánh số** · **2 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu các hoạt động âm nhạc như chơi nhạc cụ và hát, cùng hình ảnh giàn nhạc và ban nhạc rock. Phần lớn trang dành cho các nhạc cụ, được sắp xếp theo nhóm nhạc cụ hơi, dây, đồng, bộ gõ và nhạc cụ khác.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **âm nhạc** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **music**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **22 mục từ được đánh số**, **2 mục chữ cái** và **0 mục không đánh số**, nhận biết các nhóm nhạc cụ và dùng từ trong câu đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Âm nhạc](08_music-trang-ghep.jpg)
+![Trang sách minh họa Music](./08_music-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 120 (trang PDF 130). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây theo đúng thứ tự đánh số trên hình và nhóm nhạc cụ trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| musician | nhạc công |
-| instrument | nhạc cụ |
-| piano | đàn piano |
-| violin | đàn vi-ô-lông |
-| rhythm | nhịp điệu |
+### 3.1. Biểu diễn âm nhạc (số 1–2)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **orchestra** | giàn nhạc / ban hòa tấu |
+| 2 | **rock band** | ban nhạc mạnh / ban nhạc rock |
+### 3.2. Nhạc cụ hơi (số 3–7)
 
-## 4. Mẫu câu ứng dụng
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 3 | **flute** | sáo |
+| 4 | **clarinet** | kèn cla-rin-nét |
+| 5 | **oboe** | kèn ô-boa |
+| 6 | **bassoon** | kèn fagôt |
+| 7 | **saxophone** | kèn sắc-xô-phôn |
+### 3.3. Nhạc cụ dây (số 8–11)
 
-- **What does “musician” mean?** — “musician” có nghĩa là gì?
-- **How do you say “nhạc cụ” in English?** — “nhạc cụ” nói bằng tiếng Anh thế nào?
-- **Can you find “musician” in the picture?** — Bạn có thể tìm “musician” trong tranh không?
-- **This picture is about music.** — Bức tranh này có chủ đề âm nhạc.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 8 | **violin** | vĩ-cầm |
+| 9 | **cello** | đàn xe-lô |
+| 10 | **bass** | đàn bass |
+| 11 | **guitar** | đàn ghi-ta |
+### 3.4. Nhạc cụ đồng (số 12–15)
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 12 | **trombone** | kèn trom-bôn |
+| 13 | **trumpet/horn** | kèn trom-pét |
+| 14 | **tuba** | kèn tu-ba |
+| 15 | **French horn** | kèn Pháp |
+### 3.5. Nhạc cụ gõ (số 16–19)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 16 | **piano** | đàn dương cầm |
+| 17 | **xylophone** | đàn xy-lô-phôn |
+| 18 | **drums** | trống |
+| 19 | **tambourine** | trống prô-văng |
+### 3.6. Nhạc cụ khác (số 20–22)
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 20 | **electric keyboard** | đàn or-găng điện |
+| 21 | **accordion** | đàn phong cầm |
+| 22 | **organ** | đàn or-găng |
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+## 4. Phân biệt và ghi nhớ
 
-1. nhạc công → ______
-2. nhạc cụ → ______
-3. đàn piano → ______
-4. đàn vi-ô-lông → ______
+- **violin**, **cello** và **bass** đều thuộc nhóm Strings trong sách; chúng lần lượt là vĩ-cầm, đàn xe-lô và đàn bass.
+- **trombone**, **trumpet/horn**, **tuba** và **French horn** được xếp trong nhóm Brass. Hãy chú ý **trumpet/horn** là cách ghi một mục có hai tên tiếng Anh.
+- **flute**, **clarinet**, **oboe**, **bassoon** và **saxophone** cùng nằm trong nhóm Woodwinds.
+- **piano**, **xylophone**, **drums** và **tambourine** được xếp trong nhóm Percussion trên trang này.
+- **electric keyboard** và **organ** là hai mục riêng trong nhóm Other Instruments; đừng gộp chúng thành một từ.
+- **play an instrument** nói về chơi một nhạc cụ; **sing a song** nói về hát một bài hát. Cả hai đều là cụm chỉ hoạt động.
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về âm nhạc, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+## 5. Hoạt động / thao tác trong hình
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+**Nhóm từ:** Hoạt động âm nhạc.
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **play an instrument** | chơi nhạc / chơi một nhạc cụ |
+| B | **sing a song** | hát nhạc / hát một bài hát |
 
-1. musician
-2. instrument
-3. piano
-4. violin
+Dùng **play an instrument** khi nói chơi nhạc cụ và **sing a song** khi nói hát một bài hát.
 
-</details>
+## 6. Mẫu câu giao tiếp
 
-## 6. Ôn tập nhanh và mở rộng
+- **I play an instrument.** — Tôi chơi một nhạc cụ.
+- **I sing a song.** — Tôi hát một bài hát.
+- **The orchestra is playing.** — Giàn nhạc đang biểu diễn.
+- **The rock band has drums.** — Ban nhạc rock có trống.
+- **She plays the violin.** — Cô ấy chơi vĩ-cầm.
+- **He plays the electric keyboard.** — Anh ấy chơi đàn or-găng điện.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 7. Luyện tập thực hành
 
-## Điều hướng
+1. Quan sát các số **1–2** và nói tên hai nhóm biểu diễn âm nhạc trong tranh.
+2. Đọc tên các nhạc cụ ở số **3–7**; sau đó che phần tên và tự gọi tên theo thứ tự.
+3. Chia các mục **8–11**, **12–15** và **16–19** theo đúng nhóm Strings, Brass và Percussion in trên trang.
+4. Nhìn các số **20–22** rồi viết ba câu, mỗi câu nêu tên một nhạc cụ khác nhau.
 
-- [← Bài trước](07_science.md)
-- [Bài tiếp theo →](09_more-school-subjects.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 8. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Mục số 3 là nhạc cụ nào?
+
+A. flute  
+B. clarinet  
+C. oboe  
+D. bassoon  
+
+**Đáp án: A.** Số 3 là **flute**.
+
+### Câu 2
+
+Nhạc cụ nào thuộc nhóm Strings và có số 9?
+
+A. violin  
+B. cello  
+C. bass  
+D. guitar  
+
+**Đáp án: B.** Số 9 là **cello**.
+
+### Câu 3
+
+Mục số 12 là nhạc cụ nào?
+
+A. trumpet/horn  
+B. tuba  
+C. French horn  
+D. trombone  
+
+**Đáp án: D.** Số 12 là **trombone**.
+
+### Câu 4
+
+Từ tiếng Anh nào có nghĩa in trong sách là “trống prô-văng”?
+
+A. drums  
+B. piano  
+C. tambourine  
+D. xylophone  
+
+**Đáp án: C.** **Tambourine** là mục số 19, nghĩa là trống prô-văng.
+
+### Câu 5
+
+Mục số 22 là nhạc cụ nào?
+
+A. electric keyboard  
+B. accordion  
+C. guitar  
+D. organ  
+
+**Đáp án: D.** Số 22 là **organ**.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và gọi tên đủ **22 mục từ được đánh số**.
+- Che cột tiếng Anh và đọc lại tên tiếng Anh của **22 mục từ được đánh số** theo nghĩa tiếng Việt.
+- Nói ít nhất ba câu, trong đó có câu dùng **play an instrument** hoặc **sing a song** và câu gọi tên một nhạc cụ.
+
+---
+
+[← Bài trước](07_science.md) · [Bài tiếp theo →](09_more-school-subjects.md) · [Mục lục đơn vị](README.md)

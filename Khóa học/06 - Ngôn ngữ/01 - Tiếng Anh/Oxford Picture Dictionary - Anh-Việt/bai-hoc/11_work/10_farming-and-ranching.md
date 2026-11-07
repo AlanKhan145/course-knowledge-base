@@ -5,89 +5,171 @@ unit_title: "Công việc và nghề nghiệp"
 lesson: 10
 lesson_en: "Farming and Ranching"
 lesson_vi: "Trồng trọt và chăn nuôi"
-book_pages: "148-148"
-pdf_pages: "158-158"
+book_pages: "148"
+pdf_pages: "158"
+numbered_vocabulary: 22
+lettered_items: 4
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 10 – Trồng trọt và chăn nuôi (Farming and Ranching)
 
-> **Đơn vị 11:** Công việc và nghề nghiệp (Work)  
-> **Nguồn:** trang 148 trong sách, tương ứng trang PDF **158–158**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 11 – Công việc và nghề nghiệp** · Trang sách **148** (PDF **158**) · **22 mục từ được đánh số** · **4 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu cảnh trồng trọt và chăn nuôi: các loại cây trồng, cánh đồng, vườn rau, vườn nho, vườn cây ăn trái, nông trại và trại chăn nuôi. Trong tranh có người làm ruộng, dụng cụ và máy móc, gia súc cùng các thao tác chăm sóc, thu hoạch.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **trồng trọt và chăn nuôi** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **farming and ranching**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **22 mục từ được đánh số** và **4 mục chữ cái** trên hình, phân biệt các từ gần nghĩa và dùng chúng trong câu đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Trồng trọt và chăn nuôi](10_farming-and-ranching-trang-ghep.jpg)
+![Trang sách minh họa Farming and Ranching](./10_farming-and-ranching-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 148 (trang PDF 158). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây giữ đúng thứ tự đánh số trên hình. Hãy đọc cả các cách gọi được ngăn bằng dấu gạch chéo.
 
-| English | Tiếng Việt |
-|---|---|
-| farmer | nông dân |
-| tractor | máy kéo |
-| harvest | thu hoạch |
-| crop | cây trồng |
-| livestock | vật nuôi |
+### 3.1. Cây trồng (số 1–6)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **rice** | gạo |
+| 2 | **wheat** | lúa mì |
+| 3 | **soybeans** | đậu nành |
+| 4 | **corn** | ngô / bắp |
+| 5 | **alfalfa** | cỏ linh lăng |
+| 6 | **cotton** | bông |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Cảnh vật và công việc ở nông trại (số 7–16)
 
-- **What does “farmer” mean?** — “farmer” có nghĩa là gì?
-- **How do you say “máy kéo” in English?** — “máy kéo” nói bằng tiếng Anh thế nào?
-- **Can you find “farmer” in the picture?** — Bạn có thể tìm “farmer” trong tranh không?
-- **This picture is about farming and ranching.** — Bức tranh này có chủ đề trồng trọt và chăn nuôi.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 7 | **field** | đồng |
+| 8 | **farmworker** | người làm ruộng |
+| 9 | **tractor** | máy kéo |
+| 10 | **farm equipment** | dụng cụ làm ruộng / nông cụ |
+| 11 | **barn** | kho thóc, vựa |
+| 12 | **vegetable garden** | vườn rau |
+| 13 | **livestock** | trâu bò |
+| 14 | **vineyard** | vườn nho |
+| 15 | **farmer/grower** | người làm ruộng / người trồng trọt |
+| 16 | **orchard** | vườn cây ăn trái |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Trại chăn nuôi và gia súc (số 17–22)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 17 | **corral** | bãi quây trâu bò |
+| 18 | **hay** | cỏ khô |
+| 19 | **fence** | hàng rào |
+| 20 | **hired hand** | người làm thuê |
+| 21 | **steers/cattle** | trâu bò |
+| 22 | **rancher** | chủ trại chăn nuôi |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **field**, **vegetable garden**, **vineyard** và **orchard** đều chỉ khu vực canh tác, nhưng nghĩa lần lượt là đồng, vườn rau, vườn nho và vườn cây ăn trái.
+- **farmworker** và **hired hand** đều chỉ người làm việc tại nông trại; chú thích trong sách lần lượt là người làm ruộng và người làm thuê. **farmer/grower** là người làm ruộng hoặc người trồng trọt, còn **rancher** là chủ trại chăn nuôi.
+- **livestock** và **steers/cattle** đều được chú thích là trâu bò. Hãy ghi nhớ chúng theo đúng cụm từ và vị trí đánh số trong hình.
+- **barn** là kho thóc, vựa; **corral** là bãi quây trâu bò; **fence** là hàng rào. Có thể nhớ **fence** là đường rào bao quanh và **corral** là khu vực quây gia súc.
+- **hay** là cỏ khô, không phải cỏ linh lăng (**alfalfa**). Cỏ linh lăng là cây trồng; cỏ khô là cỏ đã khô.
+- **farm equipment** là dụng cụ làm ruộng hoặc nông cụ; **tractor** là máy kéo. **plant**, **harvest**, **milk** và **feed** là các từ chỉ thao tác ở mục chữ cái.
 
-1. nông dân → ______
-2. máy kéo → ______
-3. thu hoạch → ______
-4. cây trồng → ______
+## 5. Hoạt động / thao tác trong hình
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về trồng trọt và chăn nuôi, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+**Nhóm từ:** Thao tác trồng trọt và chăn nuôi.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **plant** | trồng |
+| B | **harvest** | gặt, thu hoạch |
+| C | **milk** | vắt sữa |
+| D | **feed** | cho ăn, nuôi |
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+Các từ này dùng để nói về thao tác: **plant** là trồng, **harvest** là gặt hoặc thu hoạch, **milk** là vắt sữa và **feed** là cho ăn hoặc nuôi.
 
-1. farmer
-2. tractor
-3. harvest
-4. crop
+## 6. Mẫu câu giao tiếp
 
-</details>
+- **The farmworker is in the field.** — Người làm ruộng đang ở ngoài đồng.
+- **The tractor is farm equipment.** — Máy kéo là nông cụ.
+- **The farmer/grower works in the vegetable garden.** — Người làm ruộng/người trồng trọt làm việc trong vườn rau.
+- **They harvest crops in the field.** — Họ gặt, thu hoạch mùa màng ngoài đồng.
+- **The rancher feeds the cattle.** — Chủ trại chăn nuôi cho trâu bò ăn.
+- **The hired hand milks the livestock.** — Người làm thuê vắt sữa gia súc.
 
-## 6. Ôn tập nhanh và mở rộng
+## 7. Luyện tập thực hành
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+1. Quan sát các số **1–6**; đọc tên từng cây trồng rồi viết lại nghĩa tiếng Việt tương ứng.
+2. Nhìn các số **7–16** trong tranh. Ghép từng từ với cảnh vật hoặc người làm việc mà số đó chỉ.
+3. Dùng các số **17–22** để viết ba câu ngắn về khu quây, cỏ khô, hàng rào, người làm thuê, gia súc hoặc chủ trại.
+4. Quan sát hình **A–D**; viết mỗi thao tác thành một câu tiếng Anh có chủ ngữ và giải thích bằng tiếng Việt.
 
-## Điều hướng
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-- [← Bài trước](09_job-safety.md)
-- [Bài tiếp theo →](11_construction.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 1
+
+Từ nào có nghĩa là “lúa mì”?
+
+A. rice  
+B. wheat  
+C. corn  
+D. cotton  
+
+**Đáp án: B.** **Wheat** có nghĩa là lúa mì.
+
+### Câu 2
+
+Từ nào chỉ “vườn cây ăn trái”?
+
+A. orchard  
+B. vineyard  
+C. corral  
+D. field  
+
+**Đáp án: A.** **Orchard** là vườn cây ăn trái.
+
+### Câu 3
+
+Mục số 9 trong hình là gì?
+
+A. farm equipment  
+B. barn  
+C. tractor  
+D. fence  
+
+**Đáp án: C.** Số 9 là **tractor**, nghĩa là máy kéo.
+
+### Câu 4
+
+Thao tác nào có nghĩa là “vắt sữa”?
+
+A. plant  
+B. feed  
+C. harvest  
+D. milk  
+
+**Đáp án: D.** **Milk** là vắt sữa.
+
+### Câu 5
+
+“Người làm thuê” là từ nào?
+
+A. rancher  
+B. hired hand  
+C. farmworker  
+D. farmer/grower  
+
+**Đáp án: B.** **Hired hand** có nghĩa là người làm thuê.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và đọc nghĩa của đủ **22 mục từ được đánh số**.
+- Che cột tiếng Anh và gọi tên lại **22 mục từ được đánh số** dựa trên nghĩa tiếng Việt.
+- Nói ít nhất ba câu có sử dụng từ trong bài; thử dùng một từ chỉ cây trồng, một từ chỉ cảnh vật và một từ chỉ thao tác.
+
+---
+
+[← Bài trước](09_job-safety.md) · [Bài tiếp theo →](11_construction.md) · [Mục lục đơn vị](README.md)

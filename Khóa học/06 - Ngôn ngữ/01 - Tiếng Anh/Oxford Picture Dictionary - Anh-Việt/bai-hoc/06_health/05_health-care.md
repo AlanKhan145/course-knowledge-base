@@ -5,89 +5,238 @@ unit_title: "Sức khỏe"
 lesson: 5
 lesson_en: "Health Care"
 lesson_vi: "Chăm sóc sức khỏe"
-book_pages: "80-81"
-pdf_pages: "90-91"
-source: "picture-oxford-dictionary-english-vietnam.pdf"
+book_pages: "80–81"
+pdf_pages: "90–91"
+source: "Oxford Picture Dictionary – English/Vietnamese (ảnh trang sách đính kèm)"
 ---
 
 # Bài 05 – Chăm sóc sức khỏe (Health Care)
 
-> **Đơn vị 6:** Sức khỏe (Health)  
-> **Nguồn:** trang 80–81 trong sách, tương ứng trang PDF **90–91**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Chủ đề:** Sức khỏe (Health) · **Trang sách:** 80–81 · **Trang PDF:** 90–91  
+> **Phạm vi:** 36 mục đánh số và 8 mục ký hiệu chữ cái; 5 thuật ngữ More vocabulary.
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan
 
-Sau bài này, bạn có thể:
+Khi cần chăm sóc sức khỏe, bạn phải hiểu tên dụng cụ hỗ trợ, các loại thuốc, ký hiệu trên đơn thuốc, nhân viên chuyên môn và những hướng dẫn điều trị thường gặp. Bài này kết hợp từ vựng tại hiệu thuốc, chăm sóc cơ bản và dịch vụ y tế.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **chăm sóc sức khỏe** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **health care**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+## 2. Mục tiêu học tập
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
 
-![Ảnh ghép 2 trang sách của bài Chăm sóc sức khỏe](05_health-care-trang-ghep.jpg)
+- Nhận biết 36 đồ dùng/thuốc/người làm nghề và 8 hành động theo hình.
+- Phân biệt thuốc kê đơn với thuốc không kê đơn và các dạng bào chế như tablet, pill, capsule.
+- Đọc được từ thông dụng trên nhãn thuốc và hỏi thông tin cơ bản tại nhà thuốc.
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 80–81 (trang PDF 90–91). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+## 3. Tranh minh họa và bảng từ vựng
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+![Ảnh sách — Health Care, trang 80–81](05_health-care-trang-ghep.jpg)
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+> **Cách học:** Đọc **mã trên tranh** trước, chỉ đúng vị trí minh họa rồi đọc từ tiếng Anh và giải thích nghĩa tiếng Việt. Với các mục ký hiệu chữ cái, ưu tiên học cả cụm động từ thay vì từng từ rời.
+
+### 3.1. Dụng cụ hỗ trợ và nơi mua thuốc (1–10)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **1** | **crutches** | nạng | walk on crutches |
+| **2** | **humidifier** | máy tạo độ ẩm | air humidifier |
+| **3** | **heating pad** | miếng / túi chườm nóng | use a heating pad |
+| **4** | **air purifier** | máy lọc không khí | an air purifier |
+| **5** | **walker** | khung tập đi | a walking frame |
+| **6** | **wheelchair** | xe lăn | use a wheelchair |
+| **7** | **cane** | gậy chống / gậy đi lại | walk with a cane |
+| **8** | **sling** | đai / băng treo tay | an arm sling |
+| **9** | **pharmacy** | hiệu thuốc, nhà thuốc | at the pharmacy |
+| **10** | **pharmacist** | dược sĩ | ask the pharmacist |
+
+
+### 3.2. Thuốc cần đơn và hướng dẫn trên nhãn (11–15)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **11** | **prescription medication** | thuốc phải có đơn của bác sĩ | prescription-only medicine |
+| **12** | **over-the-counter medication** | thuốc không cần kê đơn | OTC medication |
+| **13** | **prescription** | đơn thuốc, toa thuốc | get a prescription |
+| **14** | **prescription label** | nhãn thông tin trên thuốc kê đơn | read the prescription label |
+| **15** | **warning label** | nhãn cảnh báo (trên thuốc) | read the warning label |
+
+
+### 3.3. Các cách chăm sóc cơ bản (A–F)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **A** | **get bed rest** | nghỉ ngơi tại giường | Get plenty of bed rest. |
+| **B** | **drink fluids** | uống nhiều nước / chất lỏng | Drink plenty of fluids. |
+| **C** | **change your diet** | thay đổi chế độ ăn uống | Change your diet. |
+| **D** | **exercise** | tập thể dục | Exercise regularly. |
+| **E** | **get an injection** | được tiêm / tiêm thuốc | Get an injection. |
+| **F** | **take medicine** | uống / dùng thuốc | Take your medicine. |
+
+
+### 3.4. Các dạng thuốc và sản phẩm điều trị (16–27)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **16** | **pain reliever** | thuốc giảm đau | take a pain reliever |
+| **17** | **cold tablets** | viên thuốc cảm | cold tablets |
+| **18** | **antacid** | thuốc kháng axit dạ dày | take an antacid |
+| **19** | **vitamins** | vitamin, sinh tố | take vitamins |
+| **20** | **cough syrup** | siro ho | a spoonful of cough syrup |
+| **21** | **throat lozenges** | viên ngậm họng | suck on a throat lozenge |
+| **22** | **eyedrops** | thuốc nhỏ mắt | put in eyedrops |
+| **23** | **nasal spray** | thuốc xịt mũi | use nasal spray |
+| **24** | **ointment** | thuốc mỡ / kem bôi ngoài da | apply ointment |
+| **25** | **tablet** | viên nén | a tablet |
+| **26** | **pill** | viên thuốc | take a pill |
+| **27** | **capsule** | viên nang | a capsule |
+
+
+### 3.5. Nhân viên y tế và vật dụng hỗ trợ (28–36)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **28** | **orthopedist** | bác sĩ chuyên khoa chỉnh hình | see an orthopedist |
+| **29** | **cast** | bó bột / lớp bột bó | wear a cast |
+| **30** | **physical therapist** | chuyên viên vật lý trị liệu | see a physical therapist |
+| **31** | **brace** | nẹp, dụng cụ chỉnh / đỡ | wear a brace |
+| **32** | **audiologist** | chuyên viên thính học | hearing specialist |
+| **33** | **hearing aid** | máy trợ thính | wear a hearing aid |
+| **34** | **optometrist** | chuyên viên đo khám thị lực | eye care professional |
+| **35** | **(eye)glasses** | kính mắt / mắt kính | wear eyeglasses |
+| **36** | **contact lenses** | kính áp tròng | wear contact lenses |
+
+
+### 3.6. Biện pháp chăm sóc bổ sung (G–H)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **G** | **get acupuncture** | được châm cứu / đi châm cứu | receive acupuncture |
+| **H** | **go to a chiropractor** | đến chuyên gia trị liệu thần kinh cột sống | see a chiropractor |
+
+
+### 3.7. More vocabulary – Từ vựng bổ sung trong trang sách
+
+Phần chú giải cuối trang nhấn mạnh *dosage*, *expiration date*, *treatment* và hai thuật ngữ liên quan chủng ngừa: *immunization*, *vaccination*.
+
+| English | Nghĩa tiếng Việt | Ghi chú |
+|---|---|---|
+
+| **dosage** | liều lượng và cách dùng thuốc | how much medicine and how often |
+
+| **expiration date** | ngày hết hạn | the last date a medicine should be used as labeled |
+
+| **treatment** | phương pháp / việc điều trị | care intended to help someone recover |
+
+| **immunization** | sự tạo miễn dịch / chủng ngừa | protection against a disease |
+
+| **vaccination** | việc tiêm / uống vắc-xin | a method of immunization |
+
+
+
+## 4. Ngữ pháp và cách vận dụng
+
+### 4.1. Khi đi nhà thuốc
+
+- **Where is the pharmacy?** — Nhà thuốc ở đâu?
+- **Do I need a prescription?** — Tôi có cần đơn thuốc không?
+- **Is this over-the-counter medication?** — Đây có phải thuốc không cần đơn không?
+- **What is the dosage?** — Liều lượng dùng thế nào?
+- **What is the expiration date?** — Thuốc hết hạn ngày nào?
+
+### 4.2. Diễn đạt biện pháp chăm sóc
+
+- **Get bed rest and drink fluids.** — Nghỉ ngơi tại giường và uống đủ nước.
+- **Take medicine as directed.** — Dùng thuốc theo hướng dẫn.
+- **She uses crutches and wears a cast.** — Cô ấy dùng nạng và bó bột.
+- **He wears a hearing aid.** — Anh ấy đeo máy trợ thính.
+
+### 4.3. Phân biệt từ gần nhau
+
+**Prescription medication** là thuốc cần đơn, khác **over-the-counter medication (OTC)** là thuốc không cần đơn. **Prescription** chỉ bản thân đơn thuốc. **Tablet** thường là viên nén; **capsule** là viên nang; **pill** là cách gọi chung cho viên thuốc. **Orthopedist** chuyên chỉnh hình, **physical therapist** làm vật lý trị liệu, **audiologist** chuyên thính học, **optometrist** thực hiện khám/đo thị lực.
+
+**Lưu ý học từ:** các câu trên là ví dụ ngôn ngữ, không phải chỉ định điều trị. Liều dùng và việc sử dụng thuốc phải theo hướng dẫn chuyên môn hoặc nhãn thuốc thực tế.
+
+## 5. Hội thoại mẫu (Anh – Việt)
 
 | English | Tiếng Việt |
 |---|---|
-| doctor | bác sĩ |
-| nurse | y tá |
-| patient | bệnh nhân |
-| medicine | thuốc |
-| prescription | đơn thuốc |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| A: Do I need a prescription for this medicine? | Tôi có cần đơn thuốc cho loại thuốc này không? |
 
-## 4. Mẫu câu ứng dụng
+| B: No, it is over-the-counter medication. | Không, đây là thuốc không cần kê đơn. |
 
-- **What does “doctor” mean?** — “doctor” có nghĩa là gì?
-- **How do you say “y tá” in English?** — “y tá” nói bằng tiếng Anh thế nào?
-- **Can you find “doctor” in the picture?** — Bạn có thể tìm “doctor” trong tranh không?
-- **This picture is about health care.** — Bức tranh này có chủ đề chăm sóc sức khỏe.
+| A: Where can I find the dosage? | Tôi có thể xem liều lượng ở đâu? |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+| B: Please read the label and ask the pharmacist. | Hãy đọc nhãn và hỏi dược sĩ. |
 
-## 5. Bài tập thực hành
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 6. Bài tập thực hành
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+1. Chọn và giải thích 5 từ thuộc nhóm hỗ trợ di chuyển: crutches, walker, wheelchair, cane, brace, cast hoặc sling.
+2. Viết 5 câu hỏi tại nhà thuốc với pharmacy, pharmacist, prescription, dosage và expiration date.
+3. Phân loại các từ thuốc: thuốc uống (tablet/pill/capsule), sản phẩm dùng ngoài (ointment), thuốc nhỏ/xịt (eyedrops/nasal spray).
 
-1. bác sĩ → ______
-2. y tá → ______
-3. bệnh nhân → ______
-4. thuốc → ______
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về chăm sóc sức khỏe, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### 7.1. Câu 1
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+Thuốc mua không cần đơn được gọi là gì?
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+A. prescription medication  
+B. over-the-counter medication  
+C. warning label  
+D. expiration date  
 
-1. doctor
-2. nurse
-3. patient
-4. medicine
+**Đáp án: B.** Over-the-counter medication (OTC) không yêu cầu đơn kê.
 
-</details>
+### 7.2. Câu 2
 
-## 6. Ôn tập nhanh và mở rộng
+**Dosage** chỉ thông tin nào?
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+A. Màu của vỏ thuốc  
+B. Tên nhà thuốc  
+C. Liều lượng và tần suất sử dụng  
+D. Giá thuốc  
 
-## Điều hướng
+**Đáp án: C.** Dosage thể hiện liều lượng/cách dùng.
 
-- [← Bài trước](04_illnesses-and-medical-conditions.md)
-- [Bài tiếp theo →](06_medical-emergencies.md)
-- [Danh sách bài trong chủ đề](README.md)
+### 7.3. Câu 3
+
+Vật dụng nào là **nạng**?
+
+A. crutches  
+B. cane  
+C. walker  
+D. sling  
+
+**Đáp án: A.** Crutches là nạng; cane là gậy chống.
+
+### 7.4. Câu 4
+
+Chuyên viên đánh giá và hỗ trợ các vấn đề về thính giác là ai?
+
+A. pharmacist  
+B. orthopedist  
+C. optometrist  
+D. audiologist  
+
+**Đáp án: D.** Audiologist là chuyên viên thính học.
+
+### 7.5. Câu 5
+
+**Contact lenses** là gì?
+
+A. Máy trợ thính  
+B. Kính áp tròng  
+C. Nẹp chỉnh hình  
+D. Thuốc nhỏ mắt  
+
+**Đáp án: B.** Contact lenses là kính áp tròng.
+
+
+## 8. Tổng kết và tự kiểm tra
+
+Bài này có **36 từ đánh số** và **8 mục ký hiệu chữ cái**, cộng **5 thuật ngữ bổ sung**. Hãy kiểm tra bằng cách chỉ tranh và đọc theo thứ tự mã trước khi học thuộc câu ví dụ.
+
+## 9. Điều hướng
+
+- [Danh sách 5 bài](README.md)
+- [← Bài trước: Bệnh và tình trạng sức khỏe](04_illnesses-and-medical-conditions.md)

@@ -5,89 +5,178 @@ unit_title: "Các lĩnh vực học tập"
 lesson: 5
 lesson_en: "Geography"
 lesson_vi: "Địa lý"
-book_pages: "117-117"
-pdf_pages: "127-127"
+book_pages: "117"
+pdf_pages: "127"
+numbered_vocabulary: 21
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 05 – Địa lý (Geography)
 
-> **Đơn vị 9:** Các lĩnh vực học tập (Areas of Study)  
-> **Nguồn:** trang 117 trong sách, tương ứng trang PDF **127–127**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 9 – Các lĩnh vực học tập** · Trang sách **117** (PDF **127**) · **21 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu các cảnh quan địa lý: rừng nhiệt đới có thác và sông, sa mạc với đồi cát, vùng biển với đảo và bán đảo, hồ giữa rừng, cùng núi non, thung lũng, đồng bằng và ao.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **địa lý** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **geography**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **21 mục từ được đánh số**, phân biệt những địa hình gần nhau và vận dụng chúng để nói về nơi mình sống hoặc nơi mình thích đến.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Địa lý](05_geography-trang-ghep.jpg)
+![Trang sách minh họa Geography](./05_geography-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 117 (trang PDF 127). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây giữ đúng thứ tự đánh số trong hình; hãy chú ý cách gọi tên từng cảnh quan và mặt nước.
 
-| English | Tiếng Việt |
-|---|---|
-| continent | châu lục |
-| country | quốc gia |
-| capital | thủ đô |
-| river | sông |
-| mountain | núi |
+### 3.1. Rừng, thác và sa mạc (số 1–5)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **rain forest** | rừng nhiệt-đới |
+| 2 | **waterfall** | thác |
+| 3 | **river** | sông |
+| 4 | **desert** | sa-mạc |
+| 5 | **sand dune** | đồi cát |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Cảnh quan ven biển (số 6–10)
 
-- **What does “continent” mean?** — “continent” có nghĩa là gì?
-- **How do you say “quốc gia” in English?** — “quốc gia” nói bằng tiếng Anh thế nào?
-- **Can you find “continent” in the picture?** — Bạn có thể tìm “continent” trong tranh không?
-- **This picture is about geography.** — Bức tranh này có chủ đề địa lý.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 6 | **ocean** | đại-dương |
+| 7 | **peninsula** | bán-đảo |
+| 8 | **island** | đảo |
+| 9 | **bay** | vịnh |
+| 10 | **beach** | bãi biển |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Rừng và hồ (số 11–13)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 11 | **forest** | rừng |
+| 12 | **shore** | bờ bến |
+| 13 | **lake** | hồ |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+### 3.4. Núi và thung lũng (số 14–18)
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 14 | **mountain peak** | đỉnh núi |
+| 15 | **mountain range** | dãy núi / rặng núi |
+| 16 | **hills** | đồi |
+| 17 | **canyon** | hẻm núi / khe núi |
+| 18 | **valley** | thung lũng |
 
-1. châu lục → ______
-2. quốc gia → ______
-3. thủ đô → ______
-4. sông → ______
+### 3.5. Đồng bằng, đồng cỏ và ao (số 19–21)
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về địa lý, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 19 | **plains** | đồng bằng |
+| 20 | **meadow** | đồng cỏ |
+| 21 | **pond** | ao |
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+## 4. Phân biệt và ghi nhớ
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+- **island** là đảo, thường được nước bao quanh; **peninsula** là bán đảo, phần đất nhô ra biển nhưng vẫn nối với đất liền.
+- **bay** là vịnh, vùng biển lõm vào đất liền; **beach** là bãi biển; **shore** là bờ bến, phần đất giáp mặt nước.
+- **lake** là hồ; **pond** là ao. Trong khung ghi chú, **a body of water** có thể là **a river, lake, or ocean**.
+- **mountain peak** chỉ đỉnh núi; **mountain range** là dãy núi hoặc rặng núi; **hills** là đồi.
+- **valley** là thung lũng nằm giữa các vùng đất cao; **canyon** là hẻm núi hoặc khe núi. Có thể ghi nhớ **plains** là vùng đồng bằng rộng, còn **meadow** là đồng cỏ.
+- **stream/creek** là một dòng sông rất nhỏ; đây là từ bổ sung trong khung ghi chú, không phải mục được đánh số trong hình.
 
-1. continent
-2. country
-3. capital
-4. river
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-</details>
+### More vocabulary
 
-## 6. Ôn tập nhanh và mở rộng
+- **a body of water** — một vùng nước; ví dụ gồm **a river** (sông), **lake** (hồ) hoặc **ocean** (đại dương).
+- **stream/creek** — dòng suối hoặc con lạch; một dòng sông rất nhỏ.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+### Talk about where you live and where you like to go.
 
-## Điều hướng
+- **I live in a valley. There is a lake nearby.** — Tôi sống trong một thung lũng. Có một cái hồ ở gần đó.
+- **I like to go to the beach.** — Tôi thích đi đến bãi biển.
 
-- [← Bài trước](04_u-s-government-and-citizenship.md)
-- [Bài tiếp theo →](06_mathematics.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 6. Mẫu câu giao tiếp
+
+- **I live in a valley.** — Tôi sống trong một thung lũng.
+- **There is a lake nearby.** — Có một cái hồ ở gần đó.
+- **I like to go to the beach.** — Tôi thích đi đến bãi biển.
+- **The river flows past the forest.** — Con sông chảy qua khu rừng.
+- **We can see an island from the shore.** — Chúng ta có thể nhìn thấy một hòn đảo từ bờ.
+- **The mountain peak is high above the valley.** — Đỉnh núi cao phía trên thung lũng.
+
+## 7. Luyện tập thực hành
+
+1. Quan sát các số **1–5**; gọi tên khu rừng, thác, sông, sa mạc và đồi cát, rồi nói cảnh nào có nước chảy và cảnh nào khô cằn.
+2. Nhìn các số **6–10**; phân biệt đại dương, bán đảo, đảo, vịnh và bãi biển bằng một câu ngắn cho mỗi từ.
+3. Dựa vào các số **11–18**, ghép tên địa hình với cảnh phù hợp: rừng, bờ bến, hồ, đỉnh núi, dãy núi, đồi, hẻm núi và thung lũng.
+4. Dùng các từ ở số **19–21** và mẫu trong khung ghi chú để nói ba câu về đồng bằng, đồng cỏ hoặc ao; có thể thêm nơi bạn sống hay nơi bạn thích đến.
+
+## 8. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Từ nào chỉ một hòn đảo?
+
+A. island  
+B. bay  
+C. shore  
+D. peninsula  
+
+**Đáp án: A.** **Island** nghĩa là đảo.
+
+### Câu 2
+
+Địa hình nào ở số 17?
+
+A. valley  
+B. canyon  
+C. hills  
+D. mountain range  
+
+**Đáp án: B.** Số 17 là **canyon**, nghĩa là hẻm núi hoặc khe núi.
+
+### Câu 3
+
+Từ nào có nghĩa là “bãi biển”?
+
+A. ocean  
+B. bay  
+C. beach  
+D. shore  
+
+**Đáp án: C.** **Beach** có nghĩa là bãi biển.
+
+### Câu 4
+
+Từ nào chỉ một vùng đất rộng bằng phẳng?
+
+A. meadow  
+B. hills  
+C. valley  
+D. plains  
+
+**Đáp án: D.** **Plains** nghĩa là đồng bằng.
+
+### Câu 5
+
+Trong khung ghi chú, **stream/creek** được giải thích là gì?
+
+A. một dòng sông rất nhỏ  
+B. một đỉnh núi cao  
+C. một bãi biển dài  
+D. một cánh rừng rậm  
+
+**Đáp án: A.** Khung ghi chú giải thích **stream/creek** là một dòng sông rất nhỏ.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và dịch toàn bộ **21 mục từ được đánh số** theo thứ tự trong tranh.
+- Che cột tiếng Anh, nhìn nghĩa tiếng Việt và đọc lại tên của **21 mục từ được đánh số**.
+- Nói ít nhất ba câu về nơi bạn sống hoặc nơi bạn thích đến, sử dụng các từ địa lý vừa học.
+
+---
+
+[← Bài trước](04_u-s-government-and-citizenship.md) · [Bài tiếp theo →](06_mathematics.md) · [Mục lục đơn vị](README.md)

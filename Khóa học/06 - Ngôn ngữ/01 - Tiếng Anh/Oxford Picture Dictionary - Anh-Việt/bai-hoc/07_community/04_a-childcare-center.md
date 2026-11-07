@@ -5,89 +5,188 @@ unit_title: "Cộng đồng"
 lesson: 4
 lesson_en: "A Childcare Center"
 lesson_vi: "Trung tâm chăm sóc trẻ"
-book_pages: "94-95"
-pdf_pages: "104-105"
+book_pages: "94–95"
+pdf_pages: "104–105"
+numbered_vocabulary: 31
+lettered_items: 12
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 04 – Trung tâm chăm sóc trẻ (A Childcare Center)
 
-> **Đơn vị 7:** Cộng đồng (Community)  
-> **Nguồn:** trang 94–95 trong sách, tương ứng trang PDF **104–105**.  
-> **Thời lượng gợi ý:** 25–35 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 7 – Cộng đồng** · Trang sách **94–95** (PDF **104–105**) · **31 mục từ được đánh số** · **12 mục ký hiệu chữ cái**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Hai trang minh họa một trung tâm chăm sóc trẻ: người lớn đón và chăm trẻ trong phòng chơi, cho ăn, thay tã, đọc chuyện và ru trẻ; bên cạnh đó là các thiết bị và đồ dùng dành cho em bé.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **trung tâm chăm sóc trẻ** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **a childcare center**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **31 mục từ được đánh số** và **12 mục chữ cái**, nhận biết các thao tác chăm sóc trẻ và dùng từ vựng trong những câu giao tiếp ngắn.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 2 trang sách của bài Trung tâm chăm sóc trẻ](04_a-childcare-center-trang-ghep.jpg)
+![Trang sách minh họa A Childcare Center](./04_a-childcare-center-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 94–95 (trang PDF 104–105). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số và ký hiệu trên tranh, đối chiếu với cột “Số trên hình” và “Ký hiệu” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây theo đúng thứ tự số trong hình; nghĩa tiếng Việt giữ theo chú thích in trong sách.
 
-| English | Tiếng Việt |
-|---|---|
-| childcare center | nhà trẻ |
-| caregiver | người chăm sóc |
-| nursery | phòng trẻ |
-| nap time | giờ ngủ trưa |
-| playroom | phòng vui chơi |
+### 3.1. Người chăm sóc và khu vực ăn uống (số 1–10)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **parent** | cha hay mẹ |
+| 2 | **stroller** | xe đẩy |
+| 3 | **childcare worker** | công nhân nuôi dạy trẻ, cô nuôi |
+| 4 | **cubby** | hộp |
+| 5 | **toys** | đồ chơi |
+| 6 | **rocking chair** | ghế xích đu, ghế bập bênh |
+| 7 | **high chair** | ghế cao |
+| 8 | **bib** | yếm |
+| 9 | **changing table** | bàn thay tã |
+| 10 | **potty seat** | bô |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Thiết bị và đồ dùng chăm sóc trẻ (số 11–23)
 
-- **What does “childcare center” mean?** — “childcare center” có nghĩa là gì?
-- **How do you say “người chăm sóc” in English?** — “người chăm sóc” nói bằng tiếng Anh thế nào?
-- **Can you find “childcare center” in the picture?** — Bạn có thể tìm “childcare center” trong tranh không?
-- **This picture is about a childcare center.** — Bức tranh này có chủ đề trung tâm chăm sóc trẻ.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 11 | **playpen** | chuồng nhốt trẻ |
+| 12 | **walker** | khung tập đi |
+| 13 | **car safety seat** | ghế an toàn (trên xe) |
+| 14 | **baby carrier** | khung mang em bé |
+| 15 | **baby backpack** | túi đeo lưng mang em bé |
+| 16 | **carriage** | xe đẩy |
+| 17 | **wipes** | khăn chùi |
+| 18 | **baby powder** | bột phấn |
+| 19 | **disinfectant** | chất tẩy trùng |
+| 20 | **disposable diapers** | tã dùng một lần |
+| 21 | **cloth diapers** | tã vải |
+| 22 | **diaper pins** | kim gài tã |
+| 23 | **diaper pail** | thùng đựng tã |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Đồ dùng ăn uống và làm dịu bé (số 24–31)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 24 | **training pants** | quần tập |
+| 25 | **formula** | sữa |
+| 26 | **bottle** | bình |
+| 27 | **nipple** | núm vú |
+| 28 | **baby food** | đồ ăn của em bé |
+| 29 | **pacifier** | núm vú giả |
+| 30 | **teething ring** | vòng ngứa răng |
+| 31 | **rattle** | cái lúc lắc |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **stroller** và **carriage** đều được chú thích là xe đẩy; hãy ghi nhớ cả hai mục từ theo số riêng trong hình.
+- **baby carrier** là khung mang em bé, còn **baby backpack** là túi đeo lưng mang em bé.
+- **disposable diapers** là tã dùng một lần; **cloth diapers** là tã vải. **diaper pins** là kim gài tã dùng với tã.
+- **bottle** là bình, **nipple** là núm vú và **pacifier** là núm vú giả; đây là ba mục từ riêng biệt.
+- **changing table** là bàn thay tã; **diaper pail** là thùng đựng tã. Tên gọi thứ nhất chỉ bàn để thay, tên gọi thứ hai chỉ thùng chứa tã.
+- **rocking chair** là ghế bập bênh; động từ **rock** diễn tả đu đưa, lắc lư, ru em bé.
 
-1. nhà trẻ → ______
-2. người chăm sóc → ______
-3. phòng trẻ → ______
-4. giờ ngủ trưa → ______
+## 5. Hoạt động / thao tác trong hình
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về trung tâm chăm sóc trẻ, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+Các mục chữ cái diễn tả thao tác chăm sóc trẻ. Dùng chúng để nói ngắn gọn về việc người lớn đang làm với em bé hoặc trẻ nhỏ.
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+**Nhóm từ:** Thao tác chăm sóc trẻ.
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+| Ký hiệu | English | Tiếng Việt |
+|:---:|---|---|
+| A | **drop off** | bỏ, để xuống |
+| B | **hold** | bồng giữ |
+| C | **nurse** | săn sóc, nuôi dưỡng |
+| D | **feed** | cho ăn |
+| E | **change diapers** | thay tã |
+| F | **read a story** | đọc chuyện |
+| G | **pick up** | đón / rước |
+| H | **rock** | đu đưa, lắc lư, ru (em bé) |
+| I | **tie shoes** | buộc dây giày |
+| J | **dress** | mặc quần áo |
+| K | **play** | chơi |
+| L | **take a nap** | ngủ |
 
-1. childcare center
-2. caregiver
-3. nursery
-4. nap time
+## 6. Mẫu câu giao tiếp
 
-</details>
+- **The parent has a stroller.** — Người cha hay mẹ có một chiếc xe đẩy.
+- **The childcare worker can hold the baby.** — Nhân viên chăm sóc trẻ có thể bồng em bé.
+- **Please put on the bib.** — Vui lòng mặc yếm vào.
+- **I can feed the baby.** — Tôi có thể cho em bé ăn.
+- **She will read a story.** — Cô ấy sẽ đọc chuyện.
+- **The baby is taking a nap.** — Em bé đang ngủ.
 
-## 6. Ôn tập nhanh và mở rộng
+## 7. Luyện tập thực hành
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+1. Quan sát các số **1–10**; đọc tên từng người, đồ vật hoặc thiết bị rồi che chú thích tiếng Việt để tự nhớ nghĩa.
+2. Dựa vào các số **11–23**, chia đồ dùng thành nhóm thiết bị mang hoặc giữ trẻ và nhóm vật dụng chăm sóc, vệ sinh.
+3. Nhìn các chữ cái **A–L**; ghép mỗi thao tác với một hành động có thể xảy ra trong trung tâm chăm sóc trẻ và nói thành câu tiếng Anh.
+4. Chọn ít nhất sáu từ trong các số **24–31** và viết một câu tiếng Anh với mỗi từ.
 
-## Điều hướng
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-- [← Bài trước](03_a-mall.md)
-- [Bài tiếp theo →](05_u-s-mail.md)
-- [Danh sách bài trong chủ đề](README.md)
+### Câu 1
+
+Mục số 3 là người làm công việc nào?
+
+A. **childcare worker**  
+B. **parent**  
+C. **nipple**  
+D. **rattle**  
+
+**Đáp án: A.** **childcare worker** là công nhân nuôi dạy trẻ, cô nuôi.
+
+### Câu 2
+
+Vật nào ở số 9 dùng để thay tã?
+
+A. **high chair**  
+B. **changing table**  
+C. **potty seat**  
+D. **playpen**  
+
+**Đáp án: B.** Số 9 là **changing table**, bàn thay tã.
+
+### Câu 3
+
+Mục chữ cái nào có nghĩa là “buộc dây giày”?
+
+A. **dress**  
+B. **pick up**  
+C. **tie shoes**  
+D. **take a nap**  
+
+**Đáp án: C.** **tie shoes** nghĩa là buộc dây giày.
+
+### Câu 4
+
+Vật nào ở số 20 là tã dùng một lần?
+
+A. **cloth diapers**  
+B. **diaper pins**  
+C. **training pants**  
+D. **disposable diapers**  
+
+**Đáp án: D.** **disposable diapers** là tã dùng một lần.
+
+### Câu 5
+
+Mục số 29 là gì?
+
+A. **pacifier**  
+B. **bottle**  
+C. **formula**  
+D. **teething ring**  
+
+**Đáp án: A.** Số 29 là **pacifier**, núm vú giả.
+
+## 9. Tự kiểm tra
+
+1. Che cột nghĩa tiếng Việt và tự dịch đủ **31 mục từ được đánh số**.
+2. Che cột tiếng Anh; nhìn nghĩa và đọc lại đủ **12 mục chữ cái**.
+3. Nói ít nhất ba câu tiếng Anh về người chăm sóc, đồ dùng hoặc thao tác trong hình; dùng từ vựng vừa học.
+
+---
+
+[← Bài trước](03_a-mall.md) · [Bài tiếp theo →](05_u-s-mail.md) · [Mục lục đơn vị](README.md)

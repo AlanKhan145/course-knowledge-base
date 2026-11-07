@@ -5,89 +5,172 @@ unit_title: "Giải trí và thể thao"
 lesson: 4
 lesson_en: "The Beach"
 lesson_vi: "Bãi biển"
-book_pages: "155-155"
-pdf_pages: "165-165"
+book_pages: "155"
+pdf_pages: "165"
+numbered_vocabulary: 24
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 04 – Bãi biển (The Beach)
 
-> **Đơn vị 12:** Giải trí và thể thao (Recreation)  
-> **Nguồn:** trang 155 trong sách, tương ứng trang PDF **165–165**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 12 – Giải trí và thể thao** · Trang sách **155** (PDF **165**) · **24 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này minh họa một bãi biển đông vui với người bơi lội, người tắm nắng, dụng cụ đi biển và khu vực cứu hộ. Cảnh vật gồm mặt nước, sóng, bãi cát, cầu tàu và các hoạt động vui chơi bên bờ biển.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **bãi biển** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **the beach**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **24 mục từ được đánh số**, nhận biết các đồ dùng và người có mặt trên bãi biển, rồi vận dụng từ vựng trong giao tiếp.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Bãi biển](04_the-beach-trang-ghep.jpg)
+![Trang sách minh họa The Beach](./04_the-beach-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 155 (trang PDF 165). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục giữ đúng thứ tự đánh số trên hình. Hãy chú ý học cả hai cách gọi ở những mục có dấu gạch chéo.
 
-| English | Tiếng Việt |
-|---|---|
-| beach | bãi biển |
-| sand | cát |
-| wave | sóng |
-| umbrella | ô che nắng |
-| sunbathe | tắm nắng |
+### 3.1. Nước và dụng cụ lặn, lướt sóng (số 1–8)
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **ocean/water** | đại dương / nước |
+| 2 | **fins** | chân vịt |
+| 3 | **diving mask** | mặt nạ lặn, kính lặn |
+| 4 | **sailboat** | thuyền buồm |
+| 5 | **surfboard** | ván trượt sóng |
+| 6 | **wave** | sóng |
+| 7 | **wet suit** | quần áo lặn |
+| 8 | **scuba tank** | bình hơi |
 
-## 4. Mẫu câu ứng dụng
+### 3.2. Đồ dùng và khu vực nghỉ ngơi (số 9–16)
 
-- **What does “beach” mean?** — “beach” có nghĩa là gì?
-- **How do you say “cát” in English?** — “cát” nói bằng tiếng Anh thế nào?
-- **Can you find “beach” in the picture?** — Bạn có thể tìm “beach” trong tranh không?
-- **This picture is about the beach.** — Bức tranh này có chủ đề bãi biển.
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 9 | **beach umbrella** | dù che nắng ở bãi biển |
+| 10 | **sand castle** | lâu đài bằng cát |
+| 11 | **cooler** | thùng giữ lạnh |
+| 12 | **shade** | dù che |
+| 13 | **sunscreen/sunblock** | dầu thoa chống nắng |
+| 14 | **beach chair** | ghế đi biển |
+| 15 | **beach towel** | khăn dùng ở bãi biển |
+| 16 | **pier** | cầu tàu |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+### 3.3. Người, vật dụng và cảnh vật trên bãi biển (số 17–24)
 
-## 5. Bài tập thực hành
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 17 | **sunbather** | người tắm nắng |
+| 18 | **lifeguard** | người cứu đắm |
+| 19 | **lifesaving device** | thiết bị cứu sinh |
+| 20 | **lifeguard station** | trạm cứu đắm |
+| 21 | **seashell** | sò ốc |
+| 22 | **pail/bucket** | thùng / xô |
+| 23 | **sand** | cát |
+| 24 | **rock** | đá |
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 4. Phân biệt và ghi nhớ
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+- **ocean/water** chỉ đại dương hoặc nước; **wave** là sóng, phần nước chuyển động trên mặt biển.
+- **beach umbrella** là dù che nắng ở bãi biển; **shade** là dù che. Hình số 12 chỉ phần che mát cạnh ghế đi biển.
+- **beach chair** là ghế đi biển; **beach towel** là khăn dùng ở bãi biển. Có thể dùng ghế để ngồi và khăn để nằm hoặc lau người.
+- **cooler** là thùng giữ lạnh; **pail/bucket** là thùng hoặc xô. Cả hai đều là vật chứa nhưng tên gọi và nghĩa trong bài khác nhau.
+- **lifeguard** là người cứu đắm; **lifesaving device** là thiết bị cứu sinh; **lifeguard station** là trạm cứu đắm. Ba từ lần lượt chỉ người, thiết bị và địa điểm.
+- **sunscreen/sunblock** là dầu thoa chống nắng; cụm **apply sunscreen** thường dùng để nói thoa kem hoặc dầu chống nắng.
 
-1. bãi biển → ______
-2. cát → ______
-3. sóng → ______
-4. ô che nắng → ______
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về bãi biển, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### More vocabulary
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+- **seaweed**: một loài thực vật mọc trong đại dương.
+- **tide**: mực nước biển. Thủy triều lên xuống mỗi mười hai giờ.
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+### Share your answers.
 
-1. beach
-2. sand
-3. wave
-4. umbrella
+- **Are there any beaches near your home?** — Gần nhà bạn có bãi biển nào không?
+- **Do you prefer to spend more time on the sand or in the water?** — Bạn thích dành nhiều thời gian trên cát hay dưới nước hơn?
+- **Where are some of the world's best beaches?** — Một số bãi biển đẹp nhất thế giới nằm ở đâu?
 
-</details>
+## 6. Mẫu câu giao tiếp
 
-## 6. Ôn tập nhanh và mở rộng
+- **The children are playing in the water.** — Bọn trẻ đang chơi dưới nước.
+- **A wave is reaching the sand.** — Một con sóng đang tràn tới bãi cát.
+- **Please put on sunscreen before going outside.** — Hãy thoa dầu chống nắng trước khi ra ngoài.
+- **We can sit in the beach chair under the beach umbrella.** — Chúng ta có thể ngồi trên ghế đi biển dưới chiếc dù bãi biển.
+- **The lifeguard is near the lifeguard station.** — Người cứu đắm đang ở gần trạm cứu đắm.
+- **The child is filling a pail with sand.** — Đứa trẻ đang xúc cát vào một chiếc xô.
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+## 7. Luyện tập thực hành
 
-## Điều hướng
+1. Quan sát các số **1–8** trên hình. Đọc tên từng vật hoặc cảnh vật và tự phân loại thành nước, dụng cụ lặn và dụng cụ lướt sóng.
+2. Dựa vào các số **9–16**, ghép từng đồ dùng với công dụng của nó; phân biệt **cooler**, **beach chair**, **beach towel** và **pier**.
+3. Nhìn các số **17–20** và nói một câu về người tắm nắng, người cứu đắm, thiết bị cứu sinh và trạm cứu đắm.
+4. Dùng các số **21–24** để đặt bốn câu ngắn về những gì có thể thấy hoặc dùng trên cát.
 
-- [← Bài trước](03_outdoor-recreation.md)
-- [Bài tiếp theo →](05_sports-verbs.md)
-- [Danh sách bài trong chủ đề](README.md)
+## 8. Câu hỏi trắc nghiệm ôn tập
+
+### Câu 1
+
+Vật nào là thiết bị mang theo khi lặn, theo chú thích số 8?
+
+A. scuba tank  
+B. surfboard  
+C. beach towel  
+D. cooler  
+
+**Đáp án: A.** **Scuba tank** là bình hơi.
+
+### Câu 2
+
+Từ nào có nghĩa là ghế đi biển?
+
+A. pier  
+B. beach chair  
+C. beach umbrella  
+D. sand castle  
+
+**Đáp án: B.** **Beach chair** là ghế đi biển.
+
+### Câu 3
+
+Người làm nhiệm vụ cứu đắm được gọi là gì?
+
+A. sunbather  
+B. lifeguard station  
+C. lifesaving device  
+D. lifeguard  
+
+**Đáp án: D.** **Lifeguard** là người cứu đắm.
+
+### Câu 4
+
+Từ nào chỉ một vật tự nhiên có thể được tìm thấy trên bãi biển?
+
+A. cooler  
+B. pail/bucket  
+C. seashell  
+D. beach chair  
+
+**Đáp án: C.** **Seashell** có nghĩa là sò ốc.
+
+### Câu 5
+
+Vật nào dùng để che nắng ở bãi biển?
+
+A. beach umbrella  
+B. wave  
+C. wet suit  
+D. rock  
+
+**Đáp án: A.** **Beach umbrella** là dù che nắng ở bãi biển.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và tự đọc nghĩa của đủ **24 mục từ được đánh số**.
+- Che cột tiếng Anh và nhìn nghĩa tiếng Việt để gọi lại tên đủ **24 mục từ được đánh số**.
+- Nói ít nhất ba câu bằng tiếng Anh có dùng các từ của bài; thử mô tả người, đồ vật và hoạt động trong tranh.
+
+---
+
+[← Bài trước](03_outdoor-recreation.md) · [Bài tiếp theo →](05_sports-verbs.md) · [Mục lục đơn vị](README.md)

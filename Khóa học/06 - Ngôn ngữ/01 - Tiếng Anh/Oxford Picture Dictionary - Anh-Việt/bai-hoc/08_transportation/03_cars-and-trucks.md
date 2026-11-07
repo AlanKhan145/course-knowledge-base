@@ -5,89 +5,158 @@ unit_title: "Giao thông"
 lesson: 3
 lesson_en: "Cars and Trucks"
 lesson_vi: "Ô tô và xe tải"
-book_pages: "106-106"
-pdf_pages: "116-116"
+book_pages: "106"
+pdf_pages: "116"
+numbered_vocabulary: 17
 source: "picture-oxford-dictionary-english-vietnam.pdf"
 ---
 
 # Bài 03 – Ô tô và xe tải (Cars and Trucks)
 
-> **Đơn vị 8:** Giao thông (Transportation)  
-> **Nguồn:** trang 106 trong sách, tương ứng trang PDF **116–116**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Đơn vị 8 – Giao thông** · Trang sách **106** (PDF **116**) · **17 mục từ được đánh số**
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan và mục tiêu
 
-Sau bài này, bạn có thể:
+Trang này giới thiệu các kiểu ô tô và xe tải, từ xe con đến xe chuyên dụng và xe kéo rơ-moóc. Hình sắp xếp phương tiện theo số thứ tự, kèm khung ghi chú về hãng sản xuất, kiểu xe và câu hỏi chia sẻ ý kiến.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **ô tô và xe tải** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **cars and trucks**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+Sau khi học, bạn có thể gọi tên đầy đủ **17 mục từ được đánh số** trong tranh, phân biệt một số kiểu phương tiện gần nhau và dùng từ trong những câu giao tiếp đơn giản.
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
+## 2. Hình minh họa
 
-![Ảnh ghép 1 trang sách của bài Ô tô và xe tải](03_cars-and-trucks-trang-ghep.jpg)
+![Trang sách minh họa Cars and Trucks](./03_cars-and-trucks-trang-ghep.jpg)
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 106 (trang PDF 116). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+*Quan sát số trên tranh, đối chiếu với cột “Số trên hình” trong các bảng bên dưới. Hình được giữ kèm tài liệu để học bằng thị giác.*
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+## 3. Từ vựng đầy đủ theo số thứ tự trong tranh
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+Các mục dưới đây giữ đúng thứ tự đánh số trên hình; hãy đọc từ tiếng Anh và đối chiếu nghĩa tiếng Việt in trong sách.
 
-| English | Tiếng Việt |
+### 3.1. Các kiểu ô tô và xe gia đình (số 1–10)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 1 | **subcompact** | xe cỡ rất nhỏ |
+| 2 | **compact** | xe cỡ nhỏ |
+| 3 | **midsize car** | xe cỡ trung |
+| 4 | **full-size car** | xe cỡ lớn |
+| 5 | **convertible** | xe mui trần |
+| 6 | **sports car** | xe thể thao |
+| 7 | **pickup truck** | xe vận tải có thùng |
+| 8 | **station wagon** | xe thùng dài |
+| 9 | **SUV (sports utility vehicle)** | xe vận dụng thể thao |
+| 10 | **minivan** | xe Van nhỏ |
+
+### 3.2. Xe cắm trại và xe chuyên dụng (số 11–17)
+
+| Số trên hình | English | Nghĩa tiếng Việt |
+|---:|---|---|
+| 11 | **camper** | xe đi cắm trại |
+| 12 | **dump truck** | xe đổ rác |
+| 13 | **tow truck** | xe kéo |
+| 14 | **moving van** | xe dọn nhà |
+| 15 | **tractor trailer/semi** | toa móc / một nửa |
+| 16 | **cab** | xe tắc-xi |
+| 17 | **trailer** | xe móc |
+
+## 4. Phân biệt và ghi nhớ
+
+- **subcompact**, **compact**, **midsize car** và **full-size car** lần lượt chỉ các cỡ xe rất nhỏ, nhỏ, trung và lớn.
+- **convertible** là xe mui trần; **sports car** là xe thể thao. Hai từ gọi hai kiểu xe khác nhau.
+- **station wagon** là xe thùng dài; **minivan** là xe Van nhỏ; **SUV (sports utility vehicle)** là xe vận dụng thể thao theo chú thích trong sách.
+- **pickup truck**, **dump truck** và **tow truck** là ba loại xe khác nhau: xe vận tải có thùng, xe đổ rác và xe kéo.
+- **tractor trailer/semi** chỉ toa móc / một nửa theo cách ghi trong sách; **cab** là xe tắc-xi; **trailer** là xe móc.
+
+## 5. Từ vựng bổ sung và khung ghi chú trong sách
+
+| English | Nghĩa tiếng Việt |
 |---|---|
-| car | xe hơi |
-| truck | xe tải |
-| van | xe tải nhỏ |
-| pickup truck | xe bán tải |
-| bus | xe buýt |
+| **make** | tên công ty sản xuất chiếc xe |
+| **model** | kiểu xe |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+### Share your answers.
 
-## 4. Mẫu câu ứng dụng
+- **What is your favorite kind of car?** — Bạn thích kiểu ô tô nào nhất?
+- **What kind of car is good for a big family? For a single person?** — Kiểu ô tô nào phù hợp với một gia đình đông người? Với một người sống một mình?
 
-- **What does “car” mean?** — “car” có nghĩa là gì?
-- **How do you say “xe tải” in English?** — “xe tải” nói bằng tiếng Anh thế nào?
-- **Can you find “car” in the picture?** — Bạn có thể tìm “car” trong tranh không?
-- **This picture is about cars and trucks.** — Bức tranh này có chủ đề ô tô và xe tải.
+## 6. Mẫu câu giao tiếp
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+- **What is your favorite kind of car?** — Bạn thích kiểu ô tô nào nhất?
+- **My favorite kind of car is a sports car.** — Kiểu ô tô tôi thích nhất là xe thể thao.
+- **A minivan is good for a big family.** — Xe Van nhỏ phù hợp với gia đình đông người.
+- **A subcompact is good for a single person.** — Xe cỡ rất nhỏ phù hợp với một người.
+- **What make is your car?** — Xe của bạn thuộc hãng nào?
+- **What model is it?** — Đó là kiểu xe nào?
 
-## 5. Bài tập thực hành
+## 7. Luyện tập thực hành
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+1. Quan sát các số **1–4** trên hình; đọc tên bốn cỡ ô tô theo thứ tự và ghép mỗi từ với nghĩa tiếng Việt.
+2. Tìm các số **5, 6, 8, 9, 10**; phân biệt xe mui trần, xe thể thao, xe thùng dài, SUV và xe Van nhỏ.
+3. Quan sát các số **7, 12, 13**; nói tên từng loại xe và nghĩa tiếng Việt tương ứng.
+4. Dựa vào khung **Share your answers**, viết hai câu trả lời về kiểu ô tô yêu thích và xe phù hợp với gia đình đông người hoặc một người.
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+## 8. Câu hỏi trắc nghiệm ôn tập
 
-1. xe hơi → ______
-2. xe tải → ______
-3. xe tải nhỏ → ______
-4. xe bán tải → ______
+### Câu 1
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về ô tô và xe tải, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+Mục số **1** trong hình là kiểu xe nào?
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+A. subcompact  
+B. compact  
+C. midsize car  
+D. full-size car  
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+**Đáp án: A.** Số 1 là **subcompact**, xe cỡ rất nhỏ.
 
-1. car
-2. truck
-3. van
-4. pickup truck
+### Câu 2
 
-</details>
+Xe mui trần được đánh số nào?
 
-## 6. Ôn tập nhanh và mở rộng
+A. 3  
+B. 5  
+C. 6  
+D. 8  
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+**Đáp án: B.** Số 5 là **convertible**, xe mui trần.
 
-## Điều hướng
+### Câu 3
 
-- [← Bài trước](02_prepositions-of-motion.md)
-- [Bài tiếp theo →](04_directions-and-traffic-signs.md)
-- [Danh sách bài trong chủ đề](README.md)
+Từ nào có nghĩa là xe vận tải có thùng?
+
+A. dump truck  
+B. tow truck  
+C. pickup truck  
+D. moving van  
+
+**Đáp án: C.** **Pickup truck** là xe vận tải có thùng, ở mục số 7.
+
+### Câu 4
+
+Mục số **11** trong hình là gì?
+
+A. minivan  
+B. station wagon  
+C. trailer  
+D. camper  
+
+**Đáp án: D.** Số 11 là **camper**, xe đi cắm trại.
+
+### Câu 5
+
+Từ nào chỉ xe kéo?
+
+A. tow truck  
+B. dump truck  
+C. tractor trailer/semi  
+D. cab  
+
+**Đáp án: A.** **Tow truck** ở mục số 13 có nghĩa là xe kéo.
+
+## 9. Tự kiểm tra
+
+- Che cột nghĩa tiếng Việt và gọi tên đủ **17 mục từ được đánh số** theo thứ tự trên hình.
+- Che cột tiếng Anh và đọc lại tên tiếng Anh dựa trên nghĩa tiếng Việt.
+- Nói ít nhất ba câu có dùng từ của bài, chẳng hạn về kiểu xe yêu thích, make hoặc model.
+
+---
+
+[← Bài trước](02_prepositions-of-motion.md) · [Bài tiếp theo →](04_directions-and-traffic-signs.md) · [Mục lục đơn vị](README.md)

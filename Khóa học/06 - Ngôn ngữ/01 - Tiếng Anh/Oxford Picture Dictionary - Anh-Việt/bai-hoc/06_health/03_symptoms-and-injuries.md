@@ -5,89 +5,177 @@ unit_title: "Sức khỏe"
 lesson: 3
 lesson_en: "Symptoms and Injuries"
 lesson_vi: "Triệu chứng và chấn thương"
-book_pages: "78-78"
-pdf_pages: "88-88"
-source: "picture-oxford-dictionary-english-vietnam.pdf"
+book_pages: "78"
+pdf_pages: "88"
+source: "Oxford Picture Dictionary – English/Vietnamese (ảnh trang sách đính kèm)"
 ---
 
 # Bài 03 – Triệu chứng và chấn thương (Symptoms and Injuries)
 
-> **Đơn vị 6:** Sức khỏe (Health)  
-> **Nguồn:** trang 78 trong sách, tương ứng trang PDF **88–88**.  
-> **Thời lượng gợi ý:** 15–25 phút.  
-> **Lưu ý:** Bảng từ vựng và bài tập bên dưới là phần *biên soạn để luyện tập*, không phải bản chép đầy đủ mọi từ xuất hiện trong tranh sách gốc.
+> **Chủ đề:** Sức khỏe (Health) · **Trang sách:** 78 · **Trang PDF:** 88  
+> **Phạm vi:** 18 mục đánh số và 5 mục ký hiệu chữ cái.
 
-## 1. Mục tiêu bài học
+## 1. Tổng quan
 
-Sau bài này, bạn có thể:
+Khi bị ốm hoặc chấn thương, bạn cần gọi tên đúng triệu chứng, nói được cảm giác của mình và vị trí tổn thương. Bài này gồm các triệu chứng đau/sốt, vết thương và những hành động như ho, hắt hơi, nôn.
 
-- Nhận diện các đối tượng, hoạt động và tình huống liên quan đến **triệu chứng và chấn thương** trong tranh.
-- Dùng từ vựng để hỏi tên, mô tả hoặc trao đổi thông tin về chủ đề **symptoms and injuries**.
-- Chủ động đặt ít nhất **3 câu** tiếng Anh dựa vào hình minh họa.
+## 2. Mục tiêu học tập
 
-## 2. Trang sách và hình minh họa gốc (ảnh ghép)
 
-![Ảnh ghép 1 trang sách của bài Triệu chứng và chấn thương](03_symptoms-and-injuries-trang-ghep.jpg)
+- Nhận biết đủ 18 triệu chứng/tổn thương và 5 hành động hoặc cảm giác được ký hiệu trong tranh.
+- Sử dụng “I have ...”, “I feel ...” và “My ... hurts” đúng hoàn cảnh.
+- Phân biệt dizzy/nauseous, rash/bruise/blister và cut/sprained ankle.
 
-*Ảnh tổng hợp theo đúng thứ tự đọc: trang sách 78 (trang PDF 88). Các trang đã được ghép vào **một ảnh duy nhất**, không cần mở từng ảnh riêng. Bạn có thể phóng to để đọc từ vựng trên tranh.*
+## 3. Tranh minh họa và bảng từ vựng
 
-Hãy quan sát từ trái sang phải, đọc các nhãn tiếng Anh trên tranh rồi tự giải thích nội dung trước khi làm bài tập.
+![Ảnh sách — Symptoms and Injuries, trang 78](03_symptoms-and-injuries-trang-ghep.jpg)
 
-## 3. Từ vựng trọng tâm (Anh–Việt)
+> **Cách học:** Đọc **mã trên tranh** trước, chỉ đúng vị trí minh họa rồi đọc từ tiếng Anh và giải thích nghĩa tiếng Việt. Với các mục ký hiệu chữ cái, ưu tiên học cả cụm động từ thay vì từng từ rời.
+
+### 3.1. Triệu chứng đau, sốt và khó chịu (1–10)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **1** | **headache** | đau đầu, nhức đầu | I have a headache. |
+| **2** | **toothache** | đau răng | I have a toothache. |
+| **3** | **earache** | đau tai | I have an earache. |
+| **4** | **stomachache** | đau bụng, đau dạ dày | I have a stomachache. |
+| **5** | **backache** | đau lưng | I have a backache. |
+| **6** | **sore throat** | đau rát cổ họng, đau họng | I have a sore throat. |
+| **7** | **nasal congestion** | nghẹt mũi, ngạt mũi | I have nasal congestion. |
+| **8** | **fever / temperature** | sốt / nhiệt độ cơ thể (cao khi nói have a temperature) | She has a fever. |
+| **9** | **chills** | ớn lạnh, rét run | I have chills. |
+| **10** | **rash** | phát ban, nổi mẩn | I have a rash. |
+
+
+### 3.2. Các tổn thương (11–18)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **11** | **insect bite** | vết côn trùng cắn | a mosquito bite |
+| **12** | **bruise** | vết bầm, bầm tím | a bruise on my leg |
+| **13** | **cut** | vết cắt; bị đứt / cắt | a cut on my finger |
+| **14** | **sunburn** | cháy nắng | I have sunburn. |
+| **15** | **blister** | vết phồng rộp / mụn nước | a blister on the foot |
+| **16** | **swollen finger** | ngón tay bị sưng | my finger is swollen |
+| **17** | **bloody nose** | chảy máu mũi | I have a bloody nose. |
+| **18** | **sprained ankle** | trật / bong gân cổ chân | I have a sprained ankle. |
+
+
+### 3.3. Hành động và cảm giác khi bị bệnh (A–E)
+
+| Mã trên tranh | English | Nghĩa tiếng Việt | Gợi nhớ / cách dùng |
+|:--:|---|---|---|
+| **A** | **cough** | ho (động từ / danh từ) | I cough at night. |
+| **B** | **sneeze** | hắt hơi | I keep sneezing. |
+| **C** | **feel dizzy** | cảm thấy chóng mặt | I feel dizzy. |
+| **D** | **feel nauseous** | cảm thấy buồn nôn | I feel nauseous. |
+| **E** | **throw up / vomit** | nôn, ói, mửa | He threw up yesterday. |
+
+
+## 4. Ngữ pháp và cách vận dụng
+
+### 4.1. Nói “tôi bị...”
+
+Dùng **I have + danh từ/cụm danh từ**: *I have a headache / a fever / a rash / a sore throat*. Với một số danh từ không đếm được, nói: *I have nasal congestion* hoặc *I have sunburn*.
+
+Dùng **I feel + tính từ**: *I feel dizzy* (Tôi chóng mặt); *I feel nauseous* (Tôi buồn nôn).
+
+Dùng **My + bộ phận cơ thể + hurts**: *My back hurts* (Tôi đau lưng); *My ankle hurts* (Tôi đau mắt cá chân).
+
+### 4.2. Hỏi thăm triệu chứng
+
+- **What's wrong?** — Bạn bị sao vậy?
+- **Do you have a fever?** — Bạn có sốt không?
+- **Where does it hurt?** — Bạn đau ở đâu?
+- **How long have you had this headache?** — Bạn đau đầu bao lâu rồi?
+
+*Fever* nghĩa là sốt; trong lối nói **have a temperature**, *temperature* có thể ngụ ý đang sốt. *Bloody nose* nghĩa là chảy máu mũi, khác với *nasal congestion* (nghẹt mũi).
+
+## 5. Hội thoại mẫu (Anh – Việt)
 
 | English | Tiếng Việt |
 |---|---|
-| fever | sốt |
-| cough | ho |
-| headache | đau đầu |
-| cut | vết đứt |
-| bruise | vết bầm |
 
-**Cách học với hình:** Hãy tìm vị trí minh họa tương ứng (nếu có) trong ảnh, đọc từ tiếng Anh thành tiếng 2 lần rồi tự diễn đạt nghĩa tiếng Việt mà không nhìn bảng.
+| A: What seems to be the problem? | Bạn đang gặp vấn đề gì? |
 
-## 4. Mẫu câu ứng dụng
+| B: I have a sore throat and a fever. | Tôi bị đau họng và sốt. |
 
-- **What does “fever” mean?** — “fever” có nghĩa là gì?
-- **How do you say “ho” in English?** — “ho” nói bằng tiếng Anh thế nào?
-- **Can you find “fever” in the picture?** — Bạn có thể tìm “fever” trong tranh không?
-- **This picture is about symptoms and injuries.** — Bức tranh này có chủ đề triệu chứng và chấn thương.
+| A: Do you feel dizzy? | Bạn có chóng mặt không? |
 
-**Thử mở rộng:** Đổi những từ in đậm thành từ khác trong bảng rồi thực hành theo cặp (người hỏi – người trả lời).
+| B: No, but I have chills. | Không, nhưng tôi bị ớn lạnh. |
 
-## 5. Bài tập thực hành
 
-**Bài A – Nhìn tranh và gọi tên:** Che bảng từ vựng. Hãy tìm và đọc to ít nhất **5 từ** phù hợp với tranh minh họa. Nếu một từ không có trong tranh, hãy tự vẽ hoặc mô tả một tình huống có từ đó.
+## 6. Bài tập thực hành
 
-**Bài B – Dịch nhanh sang tiếng Anh:**
+1. Viết 3 câu với I have ..., 2 câu với I feel ... và 2 câu với My ... hurts.
+2. Nhìn 5 ảnh từ số 14 đến 18, nói tên và nghĩa mỗi tổn thương.
+3. Đóng vai bệnh nhân–nhân viên y tế: hỏi What’s wrong?, Where does it hurt? và trả lời bằng từ của bài.
 
-1. sốt → ______
-2. ho → ______
-3. đau đầu → ______
-4. vết đứt → ______
+## 7. Câu hỏi ôn tập trắc nghiệm
 
-**Bài C – Tạo câu:** Viết 3 câu tiếng Anh về triệu chứng và chấn thương, trong đó có ít nhất 2 từ thuộc bảng từ vựng. Không chỉ liệt kê từ rời rạc.
+### 7.1. Câu 1
 
-**Bài D – Tình huống nói:** Trong 45–60 giây, giải thích cho người khác 3 chi tiết bạn nhìn thấy hoặc liên tưởng từ trang sách; cố gắng không dịch từng chữ từ tiếng Việt.
+Câu nào diễn tả đúng “Tôi bị đau họng”?
 
-<details>
-<summary>Đáp án gợi ý – Bài B</summary>
+A. I have a rash.  
+B. I have a sore throat.  
+C. I have a bruise.  
+D. I have a blister.  
 
-1. fever
-2. cough
-3. headache
-4. cut
+**Đáp án: B.** Sore throat nghĩa là đau họng.
 
-</details>
+### 7.2. Câu 2
 
-## 6. Ôn tập nhanh và mở rộng
+**Nasal congestion** tương ứng với gì?
 
-- **Lần 1 (ngay sau học):** Tự kiểm tra 5 từ và nói 3 câu không nhìn tài liệu.
-- **Lần 2 (ngày hôm sau):** Xem lại chỉ ảnh, che toàn bộ phần nghĩa tiếng Việt.
-- **Lần 3 (sau 1 tuần):** Viết một đoạn 4–6 câu hoặc thu âm 1 phút về chủ đề này.
-- Ghi thêm từ mới bạn tự phát hiện trên ảnh sách vào sổ từ vựng cá nhân, kèm vị trí trang.
+A. Chảy máu mũi  
+B. Đau tai  
+C. Nghẹt mũi  
+D. Chóng mặt  
 
-## Điều hướng
+**Đáp án: C.** Nasal congestion là nghẹt/ngạt mũi.
 
-- [← Bài trước](02_personal-hygiene.md)
-- [Bài tiếp theo →](04_illnesses-and-medical-conditions.md)
-- [Danh sách bài trong chủ đề](README.md)
+### 7.3. Câu 3
+
+Tình trạng nào thường liên quan đến tổn thương cổ chân?
+
+A. sprained ankle  
+B. stomachache  
+C. toothache  
+D. sunburn  
+
+**Đáp án: A.** Sprained ankle là bong gân cổ chân.
+
+### 7.4. Câu 4
+
+**Feel nauseous** nghĩa là gì?
+
+A. Cảm thấy lạnh  
+B. Bị phát ban  
+C. Cảm thấy chóng mặt  
+D. Cảm thấy buồn nôn  
+
+**Đáp án: D.** Feel nauseous là cảm thấy buồn nôn; feel dizzy là chóng mặt.
+
+### 7.5. Câu 5
+
+Từ nào mô tả **vết phồng rộp**?
+
+A. bruise  
+B. blister  
+C. cut  
+D. rash  
+
+**Đáp án: B.** Blister là vết phồng rộp chứa dịch.
+
+
+## 8. Tổng kết và tự kiểm tra
+
+Bài này có **18 từ đánh số** và **5 mục ký hiệu chữ cái**. Hãy kiểm tra bằng cách chỉ tranh và đọc theo thứ tự mã trước khi học thuộc câu ví dụ.
+
+## 9. Điều hướng
+
+- [Danh sách 5 bài](README.md)
+- [← Bài trước: Vệ sinh cá nhân](02_personal-hygiene.md)
+- [Bài tiếp: Bệnh và tình trạng sức khỏe →](04_illnesses-and-medical-conditions.md)
