@@ -1,107 +1,144 @@
-# Jupyter - Using Shortcuts
+# 12. Jupyter - Using Shortcuts — Bài học
 
 **Khóa học:** Python for Finance: Investment Fundamentals & Data Analytics  
 **Module 02:** Introduction to Programming with Python  
-**Thứ tự:** Bài 012 · **Loại mục Udemy:** VIDEO_LECTURE · **Thời lượng metadata:** 7.4 phút  
-**Trang khóa học:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics  
+**Thứ tự:** 012 · **Loại mục:** `VIDEO_LECTURE` · **Thời lượng metadata:** 7.4 phút  
+**Khóa học Udemy:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics
 
-> **Phạm vi:** Đây là tài liệu học bổ trợ bằng tiếng Việt, tự biên soạn theo tên mục trong đề cương Udemy và kiến thức chung. Không phải bản chép lời hoặc bản trích xuất nội dung video.
+> **Ghi chú:** Tài liệu tự biên soạn phục vụ học tập bằng tiếng Việt, bám nội dung bài học được cung cấp. Các phần luyện tập là tự soạn và không đại diện cho đề kiểm tra gốc trên Udemy.
 
-## 1. Tóm tắt
+## 1. Tại sao cần phím tắt trong Jupyter?
 
-Phím tắt Jupyter (chế độ Command và Edit) giúp thao tác nhanh: chạy cell, thêm/xoá cell, đổi loại cell.
+Jupyter hỗ trợ cả thao tác bằng chuột và bàn phím. Khi thường xuyên viết, chạy, di chuyển hoặc chèn cell, phím tắt giúp giảm thao tác lặp lại. Quan trọng hơn, người học cần hiểu **hai chế độ nhập liệu**: chế độ sửa nội dung cell (*Edit mode*) và chế độ điều khiển cell (*Command mode*).
+
+Các phím tắt dưới đây phổ biến trong **Jupyter Notebook giao diện cổ điển**. Phiên bản Jupyter khác nhau hoặc JupyterLab có thể điều chỉnh hành vi; hãy kiểm tra menu hoặc danh sách Keyboard Shortcuts của ứng dụng nếu phím không hoạt động như mô tả.
 
 ## 2. Mục tiêu học tập
 
-Sau bài học, bạn có thể:
+1. Phân biệt Edit mode và Command mode.
+2. Sử dụng các phím chạy, chèn, xóa và chuyển kiểu cell thông dụng.
+3. Tránh xóa nhầm cell khi thao tác nhanh.
+4. Kết hợp phím tắt để tạo một notebook có bố cục rõ ràng.
 
-1. Giải thích mục đích và thuật ngữ chính của **Jupyter - Using Shortcuts**.
-2. Mô tả giả định, dữ liệu đầu vào và kết quả cần quan sát.
-3. Triển khai hoặc kiểm tra một ví dụ định lượng có thể tái lập.
-4. Nêu ít nhất hai trường hợp dẫn đến kết luận không đáng tin.
+## 3. Hai chế độ điều khiển
 
-## 3. Bối cảnh và kiến thức cốt lõi
+- **Edit mode:** con trỏ ở trong cell để nhập hoặc sửa nội dung. Nhấn `Esc` thường trở về Command mode.
+- **Command mode:** thao tác ở mức cell như thêm, xóa hoặc đổi loại. Nhấn `Enter` thường chuyển vào Edit mode.
 
-Trong hệ thống Quant, một thành phần chỉ hữu ích khi có định nghĩa rõ, dữ liệu đầu vào hợp lệ, quy tắc đánh giá và giới hạn áp dụng. Với chủ đề **Jupyter - Using Shortcuts**, cần tách ba câu hỏi: điều gì đang được mô hình hóa; giả định nào được sử dụng; và bằng chứng nào xác nhận kết quả.
+```mermaid
+stateDiagram-v2
+    [*] --> Command
+    Command --> Edit: Enter
+    Edit --> Command: Esc
+```
 
-Phím tắt Jupyter (chế độ Command và Edit) giúp thao tác nhanh: chạy cell, thêm/xoá cell, đổi loại cell.
+Các phím như `A`, `B`, `M`, `Y` chủ yếu thực hiện lệnh trên cell trong Command mode. Nếu đang ở Edit mode, những phím đó thường chỉ được gõ thành văn bản.
 
-## 4. Cách áp dụng và ví dụ thực hành
+## 4. Bảng phím tắt thông dụng
 
-**Bài toán:** Luyện 8 phím tắt hay dùng (A, B, DD, M, Y, Shift+Enter...) trong 5 phút.
+| Phím | Tác dụng thường gặp | Ghi chú |
+|---|---|---|
+| `Shift + Enter` | Chạy cell và chuyển tới cell tiếp theo | Có thể tạo cell mới nếu đang ở cuối notebook |
+| `Ctrl + Enter` | Chạy cell và giữ vị trí | Thuận tiện khi cần sửa/chạy lại cùng cell |
+| `Alt + Enter` | Chạy cell và chèn cell mới bên dưới | Hành vi có thể tùy phiên bản |
+| `Esc` | Chuyển từ Edit sang Command mode | Không xóa nội dung |
+| `Enter` | Chuyển từ Command sang Edit mode | Đặt con trỏ để soạn cell |
+| `A` | Thêm cell phía trên | Command mode |
+| `B` | Thêm cell phía dưới | Command mode |
+| `D`, `D` | Xóa cell đang chọn | Nhấn `D` hai lần trong Command mode |
+| `M` | Chuyển cell sang Markdown | Command mode |
+| `Y` | Chuyển cell sang Code | Command mode |
 
-Quy trình đề xuất:
+Nếu thao tác xóa nhầm, nên dùng tính năng Undo Delete Cells của phiên bản đang chạy thay vì tiếp tục thao tác không kiểm soát.
 
-1. Chọn bộ dữ liệu nhỏ hoặc tự mô phỏng, ghi nguồn và mốc thời gian.
-2. Thiết lập các biến, tham số và quy ước đo lường trước khi tính.
-3. Xây dựng baseline có thể kiểm tra bằng tay hoặc bằng một thư viện độc lập.
-4. Đối chiếu với tình huống biên, đặc biệt là dữ liệu thiếu, sai đơn vị hoặc thứ tự thời gian.
-5. Ghi lại kết quả, độ nhạy theo tham số và điều kiện thất bại.
+## 5. Luyện theo quy trình
 
-## 5. Những lỗi thường gặp
+1. Tạo notebook mới và chọn một cell.
+2. Nhấn `Esc`, sau đó `M` để chuyển thành Markdown. Nhấn `Enter` và viết `# Thực hành phím tắt`.
+3. Nhấn `Shift + Enter` để hiển thị tiêu đề.
+4. Ở Command mode, nhấn `B` để tạo cell dưới và `Y` để đặt loại Code.
+5. Nhập `print(2 ** 3)` và chạy bằng `Ctrl + Enter`; kết quả mong đợi là `8`.
+6. Tạo một cell thử nghiệm khác bằng `A`, sau đó dùng `D`, `D` để xóa chính cell thử nghiệm.
+7. Lưu notebook sau khi kiểm tra không còn cell không cần thiết.
 
-- Nhầm dữ liệu quan sát được với dữ liệu giả định hoặc giá trị dự báo.
-- Sử dụng kết quả có tính toán từ tương lai để ra quyết định ở quá khứ.
-- Đánh giá bằng một chỉ số duy nhất mà không xem giới hạn của nó.
-- Thay đổi tham số liên tục cho tới khi đạt một backtest đẹp, rồi coi đó là bằng chứng ngoài mẫu.
+## 6. Sai sót dễ gặp
 
-## 6. Câu hỏi ôn tập
+- Nhấn `M` hoặc `Y` khi đang sửa code khiến ký tự được nhập vào mã thay vì đổi loại cell.
+- Nhấn `D`, `D` trên một cell quan trọng mà chưa lưu.
+- Nhầm `Ctrl + Enter` với `Shift + Enter`, khiến con trỏ không chuyển vị trí như mong đợi.
+- Áp dụng phím tắt của Jupyter Notebook cổ điển vào một môi trường có ánh xạ khác mà không kiểm tra.
+
+## 7. Bài tập tự luyện
+
+Trong tối đa năm phút, luyện tám thao tác: vào Command mode, vào Edit mode, thêm cell trên, thêm cell dưới, chuyển Markdown, chuyển Code, chạy cell, xóa một cell thử nghiệm. Ghi lại phím nào khác với bản Jupyter bạn đang dùng.
+
+## 8. Câu hỏi trắc nghiệm ôn tập
 
 ### Câu 1
 
-Khi nghiên cứu “Jupyter - Using Shortcuts”, thực hành nào giúp tránh kết luận sai nhất?
+Muốn dùng phím `A` để thêm cell phía trên trong giao diện cổ điển, cần ở chế độ nào?
 
-A. Chỉ nhìn kết quả tốt nhất trên train  
-B. Ghi rõ dữ liệu, giả định và kiểm tra ngoài mẫu khi phù hợp  
-C. Bỏ qua trường hợp bất thường  
-D. Thay đổi mục tiêu sau khi thấy dữ liệu  
+A. Edit mode.  
+B. Command mode.  
+C. Chỉ khi kernel đã shutdown.  
+D. Chỉ khi đang xem HTML.  
 
-**Đáp án:** B. **Giải thích:** Việc ghi lại giả định và sử dụng kiểm tra phù hợp giúp hạn chế data leakage và selective reporting.
+
+**Đáp án:** B.  
+**Giải thích:** `A` là thao tác cấp cell trong Command mode.
 
 ### Câu 2
 
-Kết quả tính toán cho “Jupyter - Using Shortcuts” nên được kiểm tra như thế nào?
+Cặp phím nào thường dùng để chuyển Edit mode về Command mode?
 
-A. Chỉ cần có một biểu đồ đẹp  
-B. Không cần unit tests  
-C. So sánh với một ví dụ nhỏ tính tay và các edge cases  
-D. Chỉ chạy trên dữ liệu thuận lợi  
+A. `Ctrl + P`  
+B. `Shift + S`  
+C. `Esc`  
+D. `F5`  
 
-**Đáp án:** C. **Giải thích:** Các ví dụ có thể kiểm tra thủ công và edge cases giúp phát hiện lỗi triển khai.
+
+**Đáp án:** C.  
+**Giải thích:** `Esc` thường đưa người dùng trở về chế độ điều khiển cell.
 
 ### Câu 3
 
-Khi ứng dụng “Jupyter - Using Shortcuts” cho tài chính, điều nào cần được công bố?
+Trong Command mode cổ điển, `M` dùng để làm gì?
 
-A. Giả định và giới hạn mô hình  
-B. Chỉ kết quả lợi nhuận cao nhất  
-C. Không cần biết dữ liệu đến từ đâu  
-D. Chỉ tên thư viện  
+A. Lưu tệp dưới dạng PDF.  
+B. Thêm thư mục.  
+C. Đóng kernel.  
+D. Chuyển cell sang Markdown.  
 
-**Đáp án:** A. **Giải thích:** Giả định và giới hạn quyết định phạm vi diễn giải kết quả.
+
+**Đáp án:** D.  
+**Giải thích:** `M` chuyển loại cell thành Markdown.
 
 ### Câu 4
 
-Nếu dữ liệu dùng trong “Jupyter - Using Shortcuts” có thứ tự thời gian, bước nào phù hợp?
+Tổ hợp nào chạy cell và chuyển đến cell tiếp theo?
 
-A. Trộn ngẫu nhiên mọi mốc trước khi đánh giá mà không kiểm tra leak  
-B. Dùng luôn dữ liệu cuối kỳ cho tín hiệu đầu kỳ  
-C. Fit scaler trên toàn bộ dữ liệu rồi chia train/test  
-D. Bảo toàn thứ tự thông tin và chia train/test theo thời gian khi dự báo  
+A. `Shift + Enter`  
+B. `A`  
+C. `Esc`  
+D. `D`, `D`  
 
-**Đáp án:** D. **Giải thích:** Forecasting cần giữ đúng thứ tự thông tin khả dụng tại thời điểm dự báo.
+
+**Đáp án:** A.  
+**Giải thích:** `Shift + Enter` chạy cell đang chọn và chuyển tới cell tiếp theo.
 
 ### Câu 5
 
-Điều nào phù hợp khi chuyển “Jupyter - Using Shortcuts” thành hệ thống có thể bảo trì?
+Để giảm nguy cơ xóa nhầm, nên làm gì trước khi dùng `D`, `D`?
 
-A. Sao chép code và bỏ kiểm thử  
-B. Tách dữ liệu, logic xử lý, kiểm thử và ghi lại phiên bản  
-C. Giấu tham số sử dụng  
-D. Chỉ chạy một lần mà không lưu kết quả  
+A. Chạy nhiều tab.  
+B. Xác nhận cell đã chọn là cell muốn xóa.  
+C. Đổi tên notebook ngẫu nhiên.  
+D. Tắt luôn Python.  
 
-**Đáp án:** B. **Giải thích:** Thiết kế có cấu trúc và reproducibility giúp kết quả có thể xác minh độc lập.
 
-## 7. Tổng kết
+**Đáp án:** B.  
+**Giải thích:** Phím xóa tác động lên cell được chọn trong Command mode.
 
-**Jupyter - Using Shortcuts** chỉ trở thành kỹ năng có thể sử dụng khi bạn giải thích được cơ chế, lập lại được phép tính và trình bày rõ các giả định. Hãy lưu code, dữ liệu mẫu và kết quả thử nghiệm cùng với bài học.
+## 9. Tổng kết
+
+Phím tắt phát huy hiệu quả khi biết mình đang ở Command hay Edit mode. Ưu tiên thao tác chính xác, nhất là khi xóa cell.

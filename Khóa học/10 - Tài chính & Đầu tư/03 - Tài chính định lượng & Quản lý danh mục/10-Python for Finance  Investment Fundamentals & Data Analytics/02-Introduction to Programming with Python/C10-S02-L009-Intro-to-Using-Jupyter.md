@@ -1,107 +1,152 @@
-# Intro to Using Jupyter
+# 09. Intro to Using Jupyter — Bài học
 
 **Khóa học:** Python for Finance: Investment Fundamentals & Data Analytics  
 **Module 02:** Introduction to Programming with Python  
-**Thứ tự:** Bài 009 · **Loại mục Udemy:** VIDEO_LECTURE · **Thời lượng metadata:** 4.9 phút  
-**Trang khóa học:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics  
+**Thứ tự:** 009 · **Loại mục:** `VIDEO_LECTURE` · **Thời lượng metadata:** 4.9 phút  
+**Khóa học Udemy:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics
 
-> **Phạm vi:** Đây là tài liệu học bổ trợ bằng tiếng Việt, tự biên soạn theo tên mục trong đề cương Udemy và kiến thức chung. Không phải bản chép lời hoặc bản trích xuất nội dung video.
+> **Ghi chú:** Tài liệu tự biên soạn phục vụ học tập bằng tiếng Việt, bám nội dung bài học được cung cấp. Các phần luyện tập là tự soạn và không đại diện cho đề kiểm tra gốc trên Udemy.
 
-## 1. Tóm tắt
+## 1. Giới thiệu giao diện Jupyter
 
-Làm quen giao diện Jupyter: cell code và Markdown, chạy cell, thanh công cụ và menu chính.
+Khi khởi chạy Jupyter Notebook theo giao diện cổ điển, một trang quản lý tệp (*dashboard*) thường mở trong trình duyệt. Tại đây có thể duyệt thư mục, tạo notebook và quản lý những phiên đang hoạt động. Bản Jupyter Notebook và JupyterLab khác nhau về bố cục; tên nút hoặc cách sắp xếp có thể không giống ảnh minh họa.
 
 ## 2. Mục tiêu học tập
 
-Sau bài học, bạn có thể:
+1. Xác định được thư mục làm việc hiện tại.
+2. Tạo, đổi tên, mở, tải lên và xóa tệp/thư mục một cách có kiểm soát.
+3. Phân biệt notebook đang lưu trên đĩa với kernel còn chạy.
+4. Tạo và chạy các cell Markdown/Code trong notebook.
+5. Biết cách tắt phiên notebook không còn dùng.
 
-1. Giải thích mục đích và thuật ngữ chính của **Intro to Using Jupyter**.
-2. Mô tả giả định, dữ liệu đầu vào và kết quả cần quan sát.
-3. Triển khai hoặc kiểm tra một ví dụ định lượng có thể tái lập.
-4. Nêu ít nhất hai trường hợp dẫn đến kết luận không đáng tin.
+## 3. Dashboard và thao tác với tệp
 
-## 3. Bối cảnh và kiến thức cốt lõi
+### 3.1. Duyệt và quản lý thư mục
 
-Trong hệ thống Quant, một thành phần chỉ hữu ích khi có định nghĩa rõ, dữ liệu đầu vào hợp lệ, quy tắc đánh giá và giới hạn áp dụng. Với chủ đề **Intro to Using Jupyter**, cần tách ba câu hỏi: điều gì đang được mô hình hóa; giả định nào được sử dụng; và bằng chứng nào xác nhận kết quả.
+Trang quản lý tệp hiển thị **đường dẫn thư mục hiện hành** và các mục bên trong. Nhấn tên thư mục để đi vào; dùng đường dẫn phía trên để trở lại. Bạn có thể nhóm các notebook theo chuyên đề, tương tự cách quản lý thư mục trên máy.
 
-Làm quen giao diện Jupyter: cell code và Markdown, chạy cell, thanh công cụ và menu chính.
+Ở giao diện cổ điển, có thể chọn một hoặc nhiều mục bằng ô chọn ở bên trái. Sau khi chọn, những thao tác như đổi tên, di chuyển hoặc xóa có thể xuất hiện tùy loại tệp và phiên bản. **Trước khi xóa**, xác nhận lại tên và nội dung: thao tác này có thể ảnh hưởng tệp thật trên đĩa.
 
-## 4. Cách áp dụng và ví dụ thực hành
+### 3.2. Tạo mới và tải tệp lên
 
-**Bài toán:** Tạo notebook 3 cell, chạy thử, chèn cell phía trên/dưới và xoá một cell.
+- **New**: tạo thư mục hoặc notebook với kernel được hỗ trợ.
+- **Upload**: chọn tệp từ máy để đưa vào thư mục đang làm việc; có thể cần xác nhận thao tác upload.
+- **Rename**: đổi tên để phản ánh mục đích tệp, ví dụ `tinh_loi_suat.ipynb`.
+- **Download**: tải một tệp notebook về máy khi giao diện cung cấp thao tác tương ứng.
 
-Quy trình đề xuất:
+Giao diện cổ điển có thể hiển thị biểu tượng notebook và dấu trạng thái cho phiên đang hoạt động. Trong một số phiên bản, tab **Running** cho phép xem những notebook/terminal còn đang chạy để đóng chúng.
 
-1. Chọn bộ dữ liệu nhỏ hoặc tự mô phỏng, ghi nguồn và mốc thời gian.
-2. Thiết lập các biến, tham số và quy ước đo lường trước khi tính.
-3. Xây dựng baseline có thể kiểm tra bằng tay hoặc bằng một thư viện độc lập.
-4. Đối chiếu với tình huống biên, đặc biệt là dữ liệu thiếu, sai đơn vị hoặc thứ tự thời gian.
-5. Ghi lại kết quả, độ nhạy theo tham số và điều kiện thất bại.
+## 4. Notebook, cell và kernel
 
-## 5. Những lỗi thường gặp
+Tạo notebook sử dụng kernel Python (`ipykernel` là tên thành phần thường gặp). Notebook thường được lưu bằng phần mở rộng `.ipynb`.
 
-- Nhầm dữ liệu quan sát được với dữ liệu giả định hoặc giá trị dự báo.
-- Sử dụng kết quả có tính toán từ tương lai để ra quyết định ở quá khứ.
-- Đánh giá bằng một chỉ số duy nhất mà không xem giới hạn của nó.
-- Thay đổi tham số liên tục cho tới khi đạt một backtest đẹp, rồi coi đó là bằng chứng ngoài mẫu.
+Trong notebook, làm việc với hai loại cell cơ bản:
 
-## 6. Câu hỏi ôn tập
+| Loại cell | Dùng để | Ví dụ |
+|---|---|---|
+| Code | Thực thi lệnh Python | `print(3 + 4)` |
+| Markdown | Tiêu đề, ghi chú, diễn giải | `# Phép tính đầu tiên` |
+
+Một cell Code có thể trả về giá trị hoặc hiển thị văn bản:
+
+```python
+gia_mua = 50
+gia_ban = 55
+loi_nhuan = gia_ban - gia_mua
+print(loi_nhuan)
+```
+
+Đầu ra: `5`. Các biến này tồn tại trong bộ nhớ kernel của phiên, không phải chỉ bên trong cell đã tạo ra chúng.
+
+## 5. Quy trình thực hành có kiểm soát
+
+1. Tạo thư mục `thuc_hanh_jupyter`.
+2. Vào thư mục đó và chọn tạo notebook Python.
+3. Đổi tên notebook thành `buoi_01.ipynb`.
+4. Thêm một cell Markdown mô tả nội dung, một cell Code chạy `print(3 + 4)`.
+5. Thử thêm cell phía trên/bên dưới và xóa một cell không cần thiết.
+6. Lưu notebook, quay lại danh sách tệp và mở lại để kiểm tra.
+7. Nếu không còn sử dụng, đóng notebook và **shutdown kernel** qua giao diện phù hợp.
+
+## 6. Phân biệt ba trạng thái dễ nhầm
+
+- **Lưu tệp** ghi nội dung notebook xuống đĩa; không đồng nghĩa dừng Python.
+- **Đóng tab trình duyệt** không phải lúc nào cũng kết thúc kernel.
+- **Shutdown kernel** kết thúc tiến trình thực thi, giải phóng tài nguyên của phiên đó.
+
+Do giao diện thay đổi, hãy đọc thông báo và kiểm tra danh sách phiên đang chạy thay vì dựa tuyệt đối vào vị trí hay màu biểu tượng.
+
+## 7. Bài tập tự luyện
+
+Tạo notebook ba cell (Markdown, Code, Markdown), lưu và mở lại. Sau đó mở danh sách tiến trình đang chạy nếu phiên bản của bạn hỗ trợ, xác định notebook hiện tại rồi tắt kernel khi hoàn thành.
+
+## 8. Câu hỏi trắc nghiệm ôn tập
 
 ### Câu 1
 
-Khi nghiên cứu “Intro to Using Jupyter”, thực hành nào giúp tránh kết luận sai nhất?
+Khi mở Jupyter dashboard, yếu tố nào giúp biết nơi tệp mới được tạo?
 
-A. Chỉ nhìn kết quả tốt nhất trên train  
-B. Ghi rõ dữ liệu, giả định và kiểm tra ngoài mẫu khi phù hợp  
-C. Bỏ qua trường hợp bất thường  
-D. Thay đổi mục tiêu sau khi thấy dữ liệu  
+A. Màu cửa sổ.  
+B. Tên hãng máy tính.  
+C. Đường dẫn thư mục hiện hành.  
+D. Số lượng tab trình duyệt khác.  
 
-**Đáp án:** B. **Giải thích:** Việc ghi lại giả định và sử dụng kiểm tra phù hợp giúp hạn chế data leakage và selective reporting.
+
+**Đáp án:** C.  
+**Giải thích:** Notebook mới thường xuất hiện tại vị trí đang làm việc trên dashboard.
 
 ### Câu 2
 
-Kết quả tính toán cho “Intro to Using Jupyter” nên được kiểm tra như thế nào?
+Chức năng Upload được dùng để làm gì?
 
-A. Chỉ cần có một biểu đồ đẹp  
-B. Không cần unit tests  
-C. So sánh với một ví dụ nhỏ tính tay và các edge cases  
-D. Chỉ chạy trên dữ liệu thuận lợi  
+A. Xóa kernel.  
+B. Tăng dung lượng RAM.  
+C. Chuyển notebook sang Python 2.  
+D. Đưa tệp từ máy lên thư mục đang mở trong Jupyter.  
 
-**Đáp án:** C. **Giải thích:** Các ví dụ có thể kiểm tra thủ công và edge cases giúp phát hiện lỗi triển khai.
+
+**Đáp án:** D.  
+**Giải thích:** Upload chuyển tệp vào không gian làm việc của Jupyter.
 
 ### Câu 3
 
-Khi ứng dụng “Intro to Using Jupyter” cho tài chính, điều nào cần được công bố?
+Điểm khác biệt giữa lưu notebook và shutdown kernel là gì?
 
-A. Giả định và giới hạn mô hình  
-B. Chỉ kết quả lợi nhuận cao nhất  
-C. Không cần biết dữ liệu đến từ đâu  
-D. Chỉ tên thư viện  
+A. Một thao tác ghi tài liệu; thao tác kia dừng tiến trình chạy.  
+B. Hai thao tác luôn giống nhau.  
+C. Lưu notebook xóa mọi biến.  
+D. Shutdown kernel đổi tên file.  
 
-**Đáp án:** A. **Giải thích:** Giả định và giới hạn quyết định phạm vi diễn giải kết quả.
+
+**Đáp án:** A.  
+**Giải thích:** Tệp lưu trên đĩa và tiến trình thực thi là hai đối tượng riêng.
 
 ### Câu 4
 
-Nếu dữ liệu dùng trong “Intro to Using Jupyter” có thứ tự thời gian, bước nào phù hợp?
+Cell Markdown thích hợp nhất cho nội dung nào?
 
-A. Trộn ngẫu nhiên mọi mốc trước khi đánh giá mà không kiểm tra leak  
-B. Dùng luôn dữ liệu cuối kỳ cho tín hiệu đầu kỳ  
-C. Fit scaler trên toàn bộ dữ liệu rồi chia train/test  
-D. Bảo toàn thứ tự thông tin và chia train/test theo thời gian khi dự báo  
+A. Chỉ gọi API Python.  
+B. Tiêu đề và mô tả ý nghĩa phép tính.  
+C. Chạy `print(1)`.  
+D. Khai báo biến đang dùng.  
 
-**Đáp án:** D. **Giải thích:** Forecasting cần giữ đúng thứ tự thông tin khả dụng tại thời điểm dự báo.
+
+**Đáp án:** B.  
+**Giải thích:** Markdown là loại cell cho phần diễn giải.
 
 ### Câu 5
 
-Điều nào phù hợp khi chuyển “Intro to Using Jupyter” thành hệ thống có thể bảo trì?
+Điều nên làm trước khi xóa thư mục trong dashboard?
 
-A. Sao chép code và bỏ kiểm thử  
-B. Tách dữ liệu, logic xử lý, kiểm thử và ghi lại phiên bản  
-C. Giấu tham số sử dụng  
-D. Chỉ chạy một lần mà không lưu kết quả  
+A. Đóng toàn bộ hệ điều hành.  
+B. Đổi loại cell.  
+C. Kiểm tra đúng mục và dữ liệu bên trong.  
+D. Bắt buộc restart notebook.  
 
-**Đáp án:** B. **Giải thích:** Thiết kế có cấu trúc và reproducibility giúp kết quả có thể xác minh độc lập.
 
-## 7. Tổng kết
+**Đáp án:** C.  
+**Giải thích:** Xóa nhầm có thể gây mất tệp học tập.
 
-**Intro to Using Jupyter** chỉ trở thành kỹ năng có thể sử dụng khi bạn giải thích được cơ chế, lập lại được phép tính và trình bày rõ các giả định. Hãy lưu code, dữ liệu mẫu và kết quả thử nghiệm cùng với bài học.
+## 9. Tổng kết
+
+Biết vị trí lưu tệp, cách tạo và quản lý notebook cũng như trạng thái kernel là nền tảng để làm việc độc lập với Jupyter.

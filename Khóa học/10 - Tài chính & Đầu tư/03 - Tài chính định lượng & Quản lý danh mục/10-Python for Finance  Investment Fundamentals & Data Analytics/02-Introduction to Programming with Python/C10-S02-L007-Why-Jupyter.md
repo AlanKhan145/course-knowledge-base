@@ -1,85 +1,101 @@
-# Why Jupyter?
+# 07. Why Jupyter? — Bài kiểm tra
 
 **Khóa học:** Python for Finance: Investment Fundamentals & Data Analytics  
 **Module 02:** Introduction to Programming with Python  
-**Thứ tự:** Bài 007 · **Loại mục Udemy:** QUIZ · **Thời lượng metadata:** Không có thời lượng công bố  
-**Trang khóa học:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics  
+**Thứ tự:** 007 · **Loại mục:** `QUIZ` · **Thời lượng metadata:** Không có thời lượng công bố  
+**Khóa học Udemy:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics
 
-> **Phạm vi:** Đây là tài liệu học bổ trợ bằng tiếng Việt, tự biên soạn theo tên mục trong đề cương Udemy và kiến thức chung. Không phải bản chép lời hoặc bản trích xuất nội dung video.
+> **Ghi chú:** Tài liệu tự biên soạn phục vụ học tập bằng tiếng Việt, bám nội dung bài học được cung cấp. Các phần luyện tập là tự soạn và không đại diện cho đề kiểm tra gốc trên Udemy.
 
-## 1. Mục tiêu
+## 1. Mục tiêu kiểm tra
 
-Ôn tập và vận dụng chủ đề **Why Jupyter?** trong phạm vi module. Đây là bài luyện tập bổ trợ tự biên soạn; câu hỏi nguyên bản của Udemy không được công khai trong metadata.
+Kiểm tra khả năng mô tả cách Jupyter hoạt động và quyết định khi nào nên dùng notebook hoặc script. Đây là bài quiz luyện tập tự biên soạn, không phải câu hỏi được công bố từ quiz Udemy.
 
-## 2. Kiến thức sử dụng
+## 2. Hướng dẫn làm bài
 
-Ôn các lợi ích của Jupyter: chạy từng phần, trực quan hoá tại chỗ, chia sẻ notebook.
+Hoàn thành phần trắc nghiệm trước khi xem đáp án. Với bài tự luận, nêu được ít nhất một lý do kỹ thuật cho mỗi lựa chọn của bạn.
 
-## 3. Bài thực hành
+## 3. Bài tập vận dụng
 
-**Nhiệm vụ:** Nêu 4 tình huống nên dùng Jupyter và 2 tình huống nên viết file .py thuần.
+**Tình huống:** Nhóm phân tích đang (a) thử nhiều phép tính trên một tập dữ liệu nhỏ, (b) viết báo cáo có đồ thị kèm giải thích, (c) chạy một quy trình xử lý tệp CSV theo lịch và (d) xây dựng hàm tính toán dùng chung.
 
-- Viết rõ dữ liệu đầu vào và giả định.
-- Đưa ra quy tắc kiểm chứng kết quả.
-- Ghi những sai số, trường hợp biên và hạn chế.
+1. Nêu **bốn tình huống** notebook là lựa chọn hợp lý và giải thích.
+2. Nêu **hai tình huống** script `.py` có lợi thế.
+3. Vẽ lại luồng `trình duyệt → Jupyter Server → kernel → kết quả` bằng sơ đồ hoặc lời văn.
 
-## 4. Câu hỏi tự kiểm tra
+**Tiêu chí hoàn thành:** phân biệt được vai trò giao diện, kernel, tệp; lập luận không dựa vào nhận định công cụ nào luôn tốt nhất.
+
+## 4. Câu hỏi trắc nghiệm
 
 ### Câu 1
 
-Khi nghiên cứu “Why Jupyter?”, thực hành nào giúp tránh kết luận sai nhất?
+Một cell Markdown thường dùng để làm gì?
 
-A. Chỉ nhìn kết quả tốt nhất trên train  
-B. Ghi rõ dữ liệu, giả định và kiểm tra ngoài mẫu khi phù hợp  
-C. Bỏ qua trường hợp bất thường  
-D. Thay đổi mục tiêu sau khi thấy dữ liệu  
+A. Chỉ định nghĩa kernel.  
+B. Viết mô tả, tiêu đề và giải thích.  
+C. Tự cập nhật hệ điều hành.  
+D. Biến notebook thành bảng tính.  
 
-**Đáp án:** B. **Giải thích:** Việc ghi lại giả định và sử dụng kiểm tra phù hợp giúp hạn chế data leakage và selective reporting.
 
 ### Câu 2
 
-Kết quả tính toán cho “Why Jupyter?” nên được kiểm tra như thế nào?
+Kernel Python giữ nhiệm vụ gì?
 
-A. Chỉ cần có một biểu đồ đẹp  
-B. Không cần unit tests  
-C. So sánh với một ví dụ nhỏ tính tay và các edge cases  
-D. Chỉ chạy trên dữ liệu thuận lợi  
+A. Tạo hình nền.  
+B. Thay đổi tên thư mục.  
+C. Chạy mã Python.  
+D. Gửi email bắt buộc.  
 
-**Đáp án:** C. **Giải thích:** Các ví dụ có thể kiểm tra thủ công và edge cases giúp phát hiện lỗi triển khai.
 
 ### Câu 3
 
-Khi ứng dụng “Why Jupyter?” cho tài chính, điều nào cần được công bố?
+Định dạng lưu notebook là gì?
 
-A. Giả định và giới hạn mô hình  
-B. Chỉ kết quả lợi nhuận cao nhất  
-C. Không cần biết dữ liệu đến từ đâu  
-D. Chỉ tên thư viện  
+A. `.ipynb`  
+B. `.exe`  
+C. `.dll`  
+D. `.ppt`  
 
-**Đáp án:** A. **Giải thích:** Giả định và giới hạn quyết định phạm vi diễn giải kết quả.
 
 ### Câu 4
 
-Nếu dữ liệu dùng trong “Why Jupyter?” có thứ tự thời gian, bước nào phù hợp?
+Cách làm nào giảm phụ thuộc vào trạng thái cũ của kernel?
 
-A. Trộn ngẫu nhiên mọi mốc trước khi đánh giá mà không kiểm tra leak  
-B. Dùng luôn dữ liệu cuối kỳ cho tín hiệu đầu kỳ  
-C. Fit scaler trên toàn bộ dữ liệu rồi chia train/test  
-D. Bảo toàn thứ tự thông tin và chia train/test theo thời gian khi dự báo  
+A. Chỉ đổi tên notebook.  
+B. Chỉ ghi chú.  
+C. Chạy riêng cell cuối.  
+D. Restart rồi chạy toàn bộ từ đầu theo thứ tự.  
 
-**Đáp án:** D. **Giải thích:** Forecasting cần giữ đúng thứ tự thông tin khả dụng tại thời điểm dự báo.
 
 ### Câu 5
 
-Điều nào phù hợp khi chuyển “Why Jupyter?” thành hệ thống có thể bảo trì?
+Khi cần giải thích một phân tích kèm đầu ra ngay tại chỗ, lựa chọn nào thuận tiện?
 
-A. Sao chép code và bỏ kiểm thử  
-B. Tách dữ liệu, logic xử lý, kiểm thử và ghi lại phiên bản  
-C. Giấu tham số sử dụng  
-D. Chỉ chạy một lần mà không lưu kết quả  
+A. Chỉ file ảnh.  
+B. Notebook gồm Markdown và Code cells.  
+C. Chỉ tên biến không có mã.  
+D. Chỉ in kết quả ra giấy.  
 
-**Đáp án:** B. **Giải thích:** Thiết kế có cấu trúc và reproducibility giúp kết quả có thể xác minh độc lập.
 
-## 5. Tiêu chí hoàn thành
+### Câu 6
 
-Có kết quả chạy hoặc lời giải có thể kiểm tra độc lập, mô tả giả định và các bước tái lập.
+Khẳng định nào chính xác về Jupyter và Python?
+
+A. Jupyter là tên khác của ngôn ngữ Python.  
+B. Python chỉ chạy trong Jupyter.  
+C. Jupyter là môi trường; Python là ngôn ngữ.  
+D. Mọi kernel đều thực thi cùng cú pháp Python.  
+
+
+## 5. Đáp án và giải thích
+
+1. **B** — Markdown trình bày văn bản, tiêu đề và chú thích trong notebook.
+2. **C** — Kernel là tiến trình thực thi.
+3. **A** — `.ipynb` là định dạng tài liệu notebook phổ biến.
+4. **D** — Thử chạy sạch giúp kiểm tra tính tái lập.
+5. **B** — Notebook liên kết giải thích với các phép tính.
+6. **C** — Các thành phần có vai trò khác nhau và notebook có thể dùng các kernel khác.
+
+## 6. Tự đánh giá
+
+Tự chấm mỗi câu trắc nghiệm đúng 1 điểm. Với phần bài tập vận dụng, đối chiếu với tiêu chí hoàn thành đã nêu và kiểm tra từng bước bằng ví dụ nhỏ. Nếu chưa hoàn thành, hãy sửa bài, làm lại không nhìn đáp án và giải thích được nguyên nhân lựa chọn của mình.

@@ -1,107 +1,140 @@
-# Jupyter - Working with Notebook Files
+# 10. Jupyter - Working with Notebook Files — Bài học
 
 **Khóa học:** Python for Finance: Investment Fundamentals & Data Analytics  
 **Module 02:** Introduction to Programming with Python  
-**Thứ tự:** Bài 010 · **Loại mục Udemy:** VIDEO_LECTURE · **Thời lượng metadata:** 4.5 phút  
-**Trang khóa học:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics  
+**Thứ tự:** 010 · **Loại mục:** `VIDEO_LECTURE` · **Thời lượng metadata:** 4.5 phút  
+**Khóa học Udemy:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics
 
-> **Phạm vi:** Đây là tài liệu học bổ trợ bằng tiếng Việt, tự biên soạn theo tên mục trong đề cương Udemy và kiến thức chung. Không phải bản chép lời hoặc bản trích xuất nội dung video.
+> **Ghi chú:** Tài liệu tự biên soạn phục vụ học tập bằng tiếng Việt, bám nội dung bài học được cung cấp. Các phần luyện tập là tự soạn và không đại diện cho đề kiểm tra gốc trên Udemy.
 
-## 1. Tóm tắt
+## 1. Vì sao cần quản lý tệp notebook?
 
-Quản lý file .ipynb: tạo mới, đổi tên, lưu, mở lại và xuất sang định dạng khác.
+Jupyter không chỉ là khu vực gõ mã. Mỗi notebook còn là một **tệp tài liệu** có thể lưu, sao chép, đổi tên, mở lại và chia sẻ. Tên tệp, vị trí lưu và cách xuất kết quả ảnh hưởng trực tiếp đến việc tìm lại phân tích cũng như trao đổi công việc với người khác.
 
 ## 2. Mục tiêu học tập
 
-Sau bài học, bạn có thể:
+1. Nhận biết tệp `.ipynb` và phân biệt với `.py` hoặc `.html`.
+2. Tạo, đổi tên, lưu và mở lại notebook từ thư mục làm việc.
+3. Xuất notebook sang định dạng phù hợp với mục đích chia sẻ khi môi trường hỗ trợ.
+4. Kiểm tra nội dung sau khi xuất và tránh nhầm file với kernel.
 
-1. Giải thích mục đích và thuật ngữ chính của **Jupyter - Working with Notebook Files**.
-2. Mô tả giả định, dữ liệu đầu vào và kết quả cần quan sát.
-3. Triển khai hoặc kiểm tra một ví dụ định lượng có thể tái lập.
-4. Nêu ít nhất hai trường hợp dẫn đến kết luận không đáng tin.
+## 3. Các dạng tệp quan trọng
 
-## 3. Bối cảnh và kiến thức cốt lõi
+| Định dạng | Công dụng | Điểm cần nhớ |
+|---|---|---|
+| `.ipynb` | Lưu notebook gồm cell, nội dung và đầu ra | Thường là bản gốc để tiếp tục chỉnh sửa |
+| `.py` | Lưu mã nguồn Python dưới dạng văn bản | Không giữ bố cục notebook theo cách tương đương |
+| `.html` | Trình bày nội dung có thể xem trong trình duyệt | Thường phù hợp chia sẻ bản xem, không phải môi trường chạy tương tác |
 
-Trong hệ thống Quant, một thành phần chỉ hữu ích khi có định nghĩa rõ, dữ liệu đầu vào hợp lệ, quy tắc đánh giá và giới hạn áp dụng. Với chủ đề **Jupyter - Working with Notebook Files**, cần tách ba câu hỏi: điều gì đang được mô hình hóa; giả định nào được sử dụng; và bằng chứng nào xác nhận kết quả.
+Tên tệp nên thể hiện chủ đề, ví dụ `lai_suat_don.ipynb`, thay vì nhiều bản `Untitled1`, `Untitled2` khó phân biệt.
 
-Quản lý file .ipynb: tạo mới, đổi tên, lưu, mở lại và xuất sang định dạng khác.
+## 4. Quy trình quản lý notebook
 
-## 4. Cách áp dụng và ví dụ thực hành
+1. **Tạo mới:** trong dashboard chọn notebook Python và nhập mã.
+2. **Đổi tên:** dùng chức năng Rename; đặt tên dễ nhận diện.
+3. **Lưu:** thực hiện thao tác Save hoặc phím tắt lưu phù hợp; quan sát trạng thái lưu.
+4. **Đóng và mở lại:** quay về dashboard, tìm đúng đường dẫn và chọn tệp.
+5. **Xuất bản xem:** khi giao diện có chức năng Download/Export, chọn định dạng được hỗ trợ và kiểm tra tệp tạo ra.
+6. **Sao lưu:** giữ bản `.ipynb` trước khi chỉnh sửa lớn hoặc xóa.
 
-**Bài toán:** Lưu notebook với tên mới, đóng, mở lại rồi xuất ra file .py hoặc HTML.
+Một số phiên bản Jupyter hỗ trợ xuất qua `nbconvert`. Ví dụ khi công cụ đã được cài trong môi trường:
 
-Quy trình đề xuất:
+```bash
+jupyter nbconvert --to html lai_suat_don.ipynb
+```
 
-1. Chọn bộ dữ liệu nhỏ hoặc tự mô phỏng, ghi nguồn và mốc thời gian.
-2. Thiết lập các biến, tham số và quy ước đo lường trước khi tính.
-3. Xây dựng baseline có thể kiểm tra bằng tay hoặc bằng một thư viện độc lập.
-4. Đối chiếu với tình huống biên, đặc biệt là dữ liệu thiếu, sai đơn vị hoặc thứ tự thời gian.
-5. Ghi lại kết quả, độ nhạy theo tham số và điều kiện thất bại.
+Lệnh trên minh họa cách tạo bản HTML từ notebook. Các tùy chọn và mức độ hỗ trợ phụ thuộc môi trường cài đặt; không nên coi việc xuất HTML là bước thiết yếu để học lập trình cơ bản.
 
-## 5. Những lỗi thường gặp
+## 5. Ví dụ quản lý một phân tích đơn giản
 
-- Nhầm dữ liệu quan sát được với dữ liệu giả định hoặc giá trị dự báo.
-- Sử dụng kết quả có tính toán từ tương lai để ra quyết định ở quá khứ.
-- Đánh giá bằng một chỉ số duy nhất mà không xem giới hạn của nó.
-- Thay đổi tham số liên tục cho tới khi đạt một backtest đẹp, rồi coi đó là bằng chứng ngoài mẫu.
+Tạo notebook `lai_suat_don.ipynb` với nội dung:
 
-## 6. Câu hỏi ôn tập
+```python
+gia_dau = 200
+gia_cuoi = 214
+print((gia_cuoi - gia_dau) / gia_dau)
+```
+
+Kết quả: `0.07`. Hãy lưu, đóng, mở lại và chạy lại để xác nhận kết quả. Nếu xuất thành HTML, hãy mở tệp kết quả trong trình duyệt và kiểm tra có cả nội dung mã lẫn phần đầu ra mong muốn.
+
+## 6. Lỗi thường gặp
+
+- Đổi tên nhầm tệp hoặc tạo nhiều bản có tên gần giống nhau.
+- Chia sẻ HTML khi người nhận cần chỉnh sửa và chạy mã: nên cung cấp bản `.ipynb` cùng thông tin môi trường phù hợp.
+- Tin vào kết quả đã được lưu mà không chạy lại notebook trên môi trường hiện tại.
+- Cho rằng thoát khỏi trang trình duyệt đồng nghĩa đã tắt kernel.
+
+## 7. Bài tập thực hành
+
+Tạo `kiem_tra_luu.ipynb`, ghi một tiêu đề Markdown và đoạn mã `print(7 * 8)`. Lưu, đổi tên thành `kiem_tra_luu_v2.ipynb`, mở lại và kiểm tra `56`. Xuất sang `.py` hoặc `.html` nếu phiên bản Jupyter của bạn hỗ trợ, sau đó nêu sự khác biệt giữa bản xuất và notebook gốc.
+
+## 8. Câu hỏi trắc nghiệm ôn tập
 
 ### Câu 1
 
-Khi nghiên cứu “Jupyter - Working with Notebook Files”, thực hành nào giúp tránh kết luận sai nhất?
+Định dạng nào phù hợp nhất nếu người nhận muốn tiếp tục chỉnh sửa notebook tương tác?
 
-A. Chỉ nhìn kết quả tốt nhất trên train  
-B. Ghi rõ dữ liệu, giả định và kiểm tra ngoài mẫu khi phù hợp  
-C. Bỏ qua trường hợp bất thường  
-D. Thay đổi mục tiêu sau khi thấy dữ liệu  
+A. `.jpg`  
+B. `.ipynb`  
+C. `.mp3`  
+D. `.zip` chỉ chứa ảnh  
 
-**Đáp án:** B. **Giải thích:** Việc ghi lại giả định và sử dụng kiểm tra phù hợp giúp hạn chế data leakage và selective reporting.
+
+**Đáp án:** B.  
+**Giải thích:** `.ipynb` giữ cấu trúc cell của notebook.
 
 ### Câu 2
 
-Kết quả tính toán cho “Jupyter - Working with Notebook Files” nên được kiểm tra như thế nào?
+Định dạng HTML xuất từ notebook thường phù hợp nhất với việc gì?
 
-A. Chỉ cần có một biểu đồ đẹp  
-B. Không cần unit tests  
-C. So sánh với một ví dụ nhỏ tính tay và các edge cases  
-D. Chỉ chạy trên dữ liệu thuận lợi  
+A. Thay kernel đang chạy.  
+B. Thực thi trực tiếp mọi mã Python.  
+C. Xem và chia sẻ bản trình bày.  
+D. Cài hệ điều hành.  
 
-**Đáp án:** C. **Giải thích:** Các ví dụ có thể kiểm tra thủ công và edge cases giúp phát hiện lỗi triển khai.
+
+**Đáp án:** C.  
+**Giải thích:** HTML thường là bản xem nội dung trong trình duyệt.
 
 ### Câu 3
 
-Khi ứng dụng “Jupyter - Working with Notebook Files” cho tài chính, điều nào cần được công bố?
+Sau khi đổi tên notebook và đóng, nên kiểm tra gì?
 
-A. Giả định và giới hạn mô hình  
-B. Chỉ kết quả lợi nhuận cao nhất  
-C. Không cần biết dữ liệu đến từ đâu  
-D. Chỉ tên thư viện  
+A. Số lượng icon.  
+B. Màu nền.  
+C. Mật khẩu Wi-Fi.  
+D. Tệp có mở lại được ở đúng đường dẫn.  
 
-**Đáp án:** A. **Giải thích:** Giả định và giới hạn quyết định phạm vi diễn giải kết quả.
+
+**Đáp án:** D.  
+**Giải thích:** Mở lại giúp kiểm tra tên và đường dẫn lưu.
 
 ### Câu 4
 
-Nếu dữ liệu dùng trong “Jupyter - Working with Notebook Files” có thứ tự thời gian, bước nào phù hợp?
+Lệnh `jupyter nbconvert --to html ten.ipynb` có mục đích nào?
 
-A. Trộn ngẫu nhiên mọi mốc trước khi đánh giá mà không kiểm tra leak  
-B. Dùng luôn dữ liệu cuối kỳ cho tín hiệu đầu kỳ  
-C. Fit scaler trên toàn bộ dữ liệu rồi chia train/test  
-D. Bảo toàn thứ tự thông tin và chia train/test theo thời gian khi dự báo  
+A. Xuất notebook thành HTML khi môi trường hỗ trợ.  
+B. Xóa toàn bộ kernel.  
+C. Đổi ngôn ngữ Python thành R.  
+D. Chạy một máy ảo.  
 
-**Đáp án:** D. **Giải thích:** Forecasting cần giữ đúng thứ tự thông tin khả dụng tại thời điểm dự báo.
+
+**Đáp án:** A.  
+**Giải thích:** `nbconvert` chuyển định dạng notebook.
 
 ### Câu 5
 
-Điều nào phù hợp khi chuyển “Jupyter - Working with Notebook Files” thành hệ thống có thể bảo trì?
+Việc làm nào giúp tránh nhầm các bản notebook?
 
-A. Sao chép code và bỏ kiểm thử  
-B. Tách dữ liệu, logic xử lý, kiểm thử và ghi lại phiên bản  
-C. Giấu tham số sử dụng  
-D. Chỉ chạy một lần mà không lưu kết quả  
+A. Luôn để tên Untitled.  
+B. Dùng tên mô tả có quy tắc và lưu vào thư mục rõ ràng.  
+C. Không bao giờ lưu.  
+D. Chỉ giữ ảnh chụp màn hình.  
 
-**Đáp án:** B. **Giải thích:** Thiết kế có cấu trúc và reproducibility giúp kết quả có thể xác minh độc lập.
 
-## 7. Tổng kết
+**Đáp án:** B.  
+**Giải thích:** Tên và cấu trúc lưu trữ có ý nghĩa làm tệp dễ tìm.
 
-**Jupyter - Working with Notebook Files** chỉ trở thành kỹ năng có thể sử dụng khi bạn giải thích được cơ chế, lập lại được phép tính và trình bày rõ các giả định. Hãy lưu code, dữ liệu mẫu và kết quả thử nghiệm cùng với bài học.
+## 9. Tổng kết
+
+Hãy luôn giữ bản notebook gốc và kiểm tra bản xuất. Quản lý tên tệp và đường dẫn rõ ràng giúp dễ tái sử dụng công việc.

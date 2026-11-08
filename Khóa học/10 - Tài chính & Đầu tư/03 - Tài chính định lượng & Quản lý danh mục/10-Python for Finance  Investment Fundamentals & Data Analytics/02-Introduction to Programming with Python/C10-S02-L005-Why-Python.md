@@ -1,85 +1,101 @@
-# Why Python?
+# 05. Why Python? — Bài kiểm tra
 
 **Khóa học:** Python for Finance: Investment Fundamentals & Data Analytics  
 **Module 02:** Introduction to Programming with Python  
-**Thứ tự:** Bài 005 · **Loại mục Udemy:** QUIZ · **Thời lượng metadata:** Không có thời lượng công bố  
-**Trang khóa học:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics  
+**Thứ tự:** 005 · **Loại mục:** `QUIZ` · **Thời lượng metadata:** Không có thời lượng công bố  
+**Khóa học Udemy:** https://www.udemy.com/course/python-for-finance-investment-fundamentals-data-analytics
 
-> **Phạm vi:** Đây là tài liệu học bổ trợ bằng tiếng Việt, tự biên soạn theo tên mục trong đề cương Udemy và kiến thức chung. Không phải bản chép lời hoặc bản trích xuất nội dung video.
+> **Ghi chú:** Tài liệu tự biên soạn phục vụ học tập bằng tiếng Việt, bám nội dung bài học được cung cấp. Các phần luyện tập là tự soạn và không đại diện cho đề kiểm tra gốc trên Udemy.
 
-## 1. Mục tiêu
+## 1. Mục tiêu kiểm tra
 
-Ôn tập và vận dụng chủ đề **Why Python?** trong phạm vi module. Đây là bài luyện tập bổ trợ tự biên soạn; câu hỏi nguyên bản của Udemy không được công khai trong metadata.
+Phân biệt đặc điểm của Python và đưa ra lựa chọn công cụ phù hợp với một nhiệm vụ phân tích. Đây là bộ bài tập tự luyện, không phải câu hỏi quiz chính thức được trích từ Udemy.
 
-## 2. Kiến thức sử dụng
+## 2. Cách làm
 
-Ôn lại ưu điểm của Python so với các công cụ khác như Excel hay R trong phân tích dữ liệu.
+Hoàn thành phần trắc nghiệm trước, sau đó làm tình huống thực hành. Chỉ xem đáp án cuối tài liệu khi đã tự chọn xong.
 
-## 3. Bài thực hành
+## 3. Bài tập so sánh công cụ
 
-**Nhiệm vụ:** Lập bảng so sánh Python, Excel, R theo tốc độ, độ khó, thư viện tài chính.
+Một nhóm cần xử lý 12 tệp CSV, tính lợi suất, tổng hợp theo tháng và cập nhật báo cáo mỗi tuần.
 
-- Viết rõ dữ liệu đầu vào và giả định.
-- Đưa ra quy tắc kiểm chứng kết quả.
-- Ghi những sai số, trường hợp biên và hạn chế.
+1. Lập bảng ngắn so sánh **Python, Excel, R** theo ba tiêu chí: độ khó học ban đầu, khả năng tự động hóa và hệ sinh thái phân tích tài chính.
+2. Chọn một công cụ chính cho tình huống trên và giải thích bằng tối thiểu ba luận điểm.
+3. Nêu trường hợp dùng phối hợp nhiều công cụ sẽ hợp lý hơn chỉ dùng một công cụ.
 
-## 4. Câu hỏi tự kiểm tra
+**Đánh giá:** các so sánh phải có điều kiện; không đưa ra khẳng định tuyệt đối về tốc độ hoặc khả năng xử lý.
+
+## 4. Câu hỏi trắc nghiệm
 
 ### Câu 1
 
-Khi nghiên cứu “Why Python?”, thực hành nào giúp tránh kết luận sai nhất?
+Python được xem là ngôn ngữ đa mục đích vì lý do nào?
 
-A. Chỉ nhìn kết quả tốt nhất trên train  
-B. Ghi rõ dữ liệu, giả định và kiểm tra ngoài mẫu khi phù hợp  
-C. Bỏ qua trường hợp bất thường  
-D. Thay đổi mục tiêu sau khi thấy dữ liệu  
+A. Có thể dùng trong nhiều nhóm bài toán.  
+B. Chỉ dùng để lập bảng cân đối kế toán.  
+C. Bắt buộc chạy trong notebook.  
+D. Không có thư viện ngoài.  
 
-**Đáp án:** B. **Giải thích:** Việc ghi lại giả định và sử dụng kiểm tra phù hợp giúp hạn chế data leakage và selective reporting.
 
 ### Câu 2
 
-Kết quả tính toán cho “Why Python?” nên được kiểm tra như thế nào?
+Tác vụ nào thường phù hợp với Python hơn khi phải lặp lại hằng ngày?
 
-A. Chỉ cần có một biểu đồ đẹp  
-B. Không cần unit tests  
-C. So sánh với một ví dụ nhỏ tính tay và các edge cases  
-D. Chỉ chạy trên dữ liệu thuận lợi  
+A. Một phép cộng duy nhất.  
+B. Đổi màu hai ô Excel.  
+C. Chụp màn hình báo cáo.  
+D. Đọc nhiều tệp, xử lý và tổng hợp tự động.  
 
-**Đáp án:** C. **Giải thích:** Các ví dụ có thể kiểm tra thủ công và edge cases giúp phát hiện lỗi triển khai.
 
 ### Câu 3
 
-Khi ứng dụng “Why Python?” cho tài chính, điều nào cần được công bố?
+Phát biểu đúng về Python mã nguồn mở là gì?
 
-A. Giả định và giới hạn mô hình  
-B. Chỉ kết quả lợi nhuận cao nhất  
-C. Không cần biết dữ liệu đến từ đâu  
-D. Chỉ tên thư viện  
+A. Không thể sử dụng cho công việc thương mại.  
+B. Ngôn ngữ có thể được xem và sử dụng theo giấy phép.  
+C. Mọi bộ dữ liệu tài chính đều đi kèm miễn phí.  
+D. Không có cộng đồng phát triển.  
 
-**Đáp án:** A. **Giải thích:** Giả định và giới hạn quyết định phạm vi diễn giải kết quả.
 
 ### Câu 4
 
-Nếu dữ liệu dùng trong “Why Python?” có thứ tự thời gian, bước nào phù hợp?
+Thành phần nào cần kiểm tra khi tính lợi suất từ giá?
 
-A. Trộn ngẫu nhiên mọi mốc trước khi đánh giá mà không kiểm tra leak  
-B. Dùng luôn dữ liệu cuối kỳ cho tín hiệu đầu kỳ  
-C. Fit scaler trên toàn bộ dữ liệu rồi chia train/test  
-D. Bảo toàn thứ tự thông tin và chia train/test theo thời gian khi dự báo  
+A. Độ sáng màn hình.  
+B. Tên máy tính.  
+C. Giá đầu kỳ khác 0 và dữ liệu nhất quán.  
+D. Số thư mục đang mở.  
 
-**Đáp án:** D. **Giải thích:** Forecasting cần giữ đúng thứ tự thông tin khả dụng tại thời điểm dự báo.
 
 ### Câu 5
 
-Điều nào phù hợp khi chuyển “Why Python?” thành hệ thống có thể bảo trì?
+Công cụ nào có thể hữu ích cho thống kê dù không phải Python?
 
-A. Sao chép code và bỏ kiểm thử  
-B. Tách dữ liệu, logic xử lý, kiểm thử và ghi lại phiên bản  
-C. Giấu tham số sử dụng  
-D. Chỉ chạy một lần mà không lưu kết quả  
+A. Chỉ trình duyệt.  
+B. Chỉ Notepad.  
+C. Chỉ phần mềm trình chiếu.  
+D. R.  
 
-**Đáp án:** B. **Giải thích:** Thiết kế có cấu trúc và reproducibility giúp kết quả có thể xác minh độc lập.
 
-## 5. Tiêu chí hoàn thành
+### Câu 6
 
-Có kết quả chạy hoặc lời giải có thể kiểm tra độc lập, mô tả giả định và các bước tái lập.
+Cách so sánh công cụ nào hợp lý nhất?
+
+A. Cân nhắc nhiệm vụ, dữ liệu và cách vận hành.  
+B. Xếp hạng tuyệt đối mọi công cụ.  
+C. Chọn công cụ theo màu logo.  
+D. Bỏ qua kỹ năng nhóm.  
+
+
+## 5. Đáp án và giải thích
+
+1. **A** — Python có ứng dụng từ dữ liệu đến web và tự động hóa.
+2. **D** — Kịch bản lặp lại có nhiều bước phù hợp để viết chương trình.
+3. **B** — Quyền đối với mã nguồn Python được quy định bởi giấy phép.
+4. **C** — Mẫu số bằng 0 hoặc dữ liệu khác quy ước làm kết quả sai.
+5. **D** — R là ngôn ngữ thường dùng cho phân tích và thống kê.
+6. **A** — Bài toán thực tế quyết định lợi ích của công cụ.
+
+## 6. Tự đánh giá
+
+Tự chấm mỗi câu trắc nghiệm đúng 1 điểm. Với phần bài tập vận dụng, đối chiếu với tiêu chí hoàn thành đã nêu và kiểm tra từng bước bằng ví dụ nhỏ. Nếu chưa hoàn thành, hãy sửa bài, làm lại không nhìn đáp án và giải thích được nguyên nhân lựa chọn của mình.
