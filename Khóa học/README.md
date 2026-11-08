@@ -18,6 +18,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `02 - Mobile`
   - `03 - Kiến trúc & Tích hợp`
   - `04 - Kiểm thử phần mềm`
+  - `05 - C++, Hệ thống & Hiệu năng`
 - `03 - Hạ tầng, Mạng & An ninh`
   - `01 - Mạng & Giao tiếp hệ thống`
   - `02 - An ninh mạng & DevSecOps`
@@ -54,6 +55,10 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `03 - Book Review`
 - `10 - Tài chính & Đầu tư`
   - `01 - Chứng khoán & Đầu tư`
+  - `02 - Toán & Thống kê định lượng`
+  - `03 - Tài chính định lượng & Quản lý danh mục`
+  - `04 - Chuỗi thời gian & ML tài chính`
+  - `05 - Algorithmic Trading & Backtesting`
 
 ## Danh sách khóa học
 
@@ -120,6 +125,7 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Giao diện AI Agent với assistant-ui và LangGraph](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/assistant-ui-langgraph-chat-ui/>)
 - [Generative UI với Next.js và Vercel AI SDK](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/vercel-ai-sdk-generative-ui/>)
 - [Generative UI với Next.js, Thesys C1 và OpenUI](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/nextjs-generative-ui-thesys-c1/>)
+- [SQL and PostgreSQL: The Complete Developer's Guide](<./02 - Lập trình & Phát triển phần mềm/01 - Web & Backend/22-SQL and PostgreSQL  The Complete Developer's Guide/>)
 
 #### Mobile
 
@@ -136,6 +142,16 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Kiểm thử phần mềm
 
 - [QA Engineer Roadmap](<./02 - Lập trình & Phát triển phần mềm/04 - Kiểm thử phần mềm/qa-roadmap/>)
+
+#### C++, Hệ thống & Hiệu năng
+
+- [Learn Multithreading with Modern C++](<./02 - Lập trình & Phát triển phần mềm/05 - C++, Hệ thống & Hiệu năng/05-Learn Multithreading with Modern C++/>)
+- [Complete Modern C++: From C++98 to C++23](<./02 - Lập trình & Phát triển phần mềm/05 - C++, Hệ thống & Hiệu năng/17-Complete Modern C++  From C++98 to C++23/>)
+- [Modern C++: From Intermediate to Advanced](<./02 - Lập trình & Phát triển phần mềm/05 - C++, Hệ thống & Hiệu năng/18-Modern C++  From Intermediate to Advanced/>)
+- [Modern C++ Multithreading & Lock-Free Programming (C++20 - 23)](<./02 - Lập trình & Phát triển phần mềm/05 - C++, Hệ thống & Hiệu năng/19-Modern C++ Multithreading & Lock-Free Programming(C++20 - 23)/>)
+- [Linux System Programming - A programmers - Practical Approach](<./02 - Lập trình & Phát triển phần mềm/05 - C++, Hệ thống & Hiệu năng/20-Linux System Programming - A programmers - Practical Approach/>)
+- [High Performance Python: Master Speed, Scale, and Efficiency](<./02 - Lập trình & Phát triển phần mềm/05 - C++, Hệ thống & Hiệu năng/21-High Performance Python  Master Speed, Scale, and Efficiency/>)
+- [C++ Data Structures & Algorithms + LEETCODE Exercises](<./02 - Lập trình & Phát triển phần mềm/05 - C++, Hệ thống & Hiệu năng/23-C++ Data Structures & Algorithms + LEETCODE Exercises/>)
 
 ### 03 - Hạ tầng, Mạng & An ninh
 
@@ -329,6 +345,34 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Chứng khoán & Đầu tư
 
 - [Stock Trading & Investing for Beginners 4-in-1 Course Bundle](<./10 - Tài chính & Đầu tư/01 - Chứng khoán & Đầu tư/stock-trading-investing-beginners-vietnamese/>)
+
+#### Toán & Thống kê định lượng
+
+- [Statistics for Finance](<./10 - Tài chính & Đầu tư/02 - Toán & Thống kê định lượng/01-Statistics for Finance/>)
+- [Probability and Statistics: Complete Course 2026](<./10 - Tài chính & Đầu tư/02 - Toán & Thống kê định lượng/07-Probability and Statistics  Complete Course 2026/>)
+- [Math 0-1: Linear Algebra for Data Science & Machine Learning](<./10 - Tài chính & Đầu tư/02 - Toán & Thống kê định lượng/08-Math 0-1  Linear Algebra for Data Science & Machine Learning/>)
+- [Stochastic Calculus](<./10 - Tài chính & Đầu tư/02 - Toán & Thống kê định lượng/09-Stochastic Calculus/>)
+
+#### Tài chính định lượng & Quản lý danh mục
+
+- [Quantitative Finance & Algorithmic Trading in Python](<./10 - Tài chính & Đầu tư/03 - Tài chính định lượng & Quản lý danh mục/02-Quantitative Finance & Algorithmic Trading in Python/>)
+- [Python for Finance: Investment Fundamentals & Data Analytics](<./10 - Tài chính & Đầu tư/03 - Tài chính định lượng & Quản lý danh mục/10-Python for Finance  Investment Fundamentals & Data Analytics/>)
+- [Foundations of Alpha: The Theory Behind Algorithmic Trading](<./10 - Tài chính & Đầu tư/03 - Tài chính định lượng & Quản lý danh mục/12-Foundations of Alpha  The Theory Behind Algorithmic Trading/>)
+- [Portfolio Management & Optimization: Excel, R, Python, AI](<./10 - Tài chính & Đầu tư/03 - Tài chính định lượng & Quản lý danh mục/13-Portfolio Management & Optimization  Excel, R, Python, AI/>)
+- [Market Risk & Stress Testing in Python](<./10 - Tài chính & Đầu tư/03 - Tài chính định lượng & Quản lý danh mục/14-Market Risk & Stress Testing in Python/>)
+- [A Primer on Quant Trading](<./10 - Tài chính & Đầu tư/03 - Tài chính định lượng & Quản lý danh mục/24-A Primer on Quant Trading/>)
+
+#### Chuỗi thời gian & ML tài chính
+
+- [Time Series Analysis in Python](<./10 - Tài chính & Đầu tư/04 - Chuỗi thời gian & ML tài chính/03-Time Series Analysis in Python/>)
+- [Financial Engineering and Artificial Intelligence in Python](<./10 - Tài chính & Đầu tư/04 - Chuỗi thời gian & ML tài chính/06-Financial Engineering and Artificial Intelligence in Python/>)
+- [Algorithmic Trading & Time Series Analysis in Python and R](<./10 - Tài chính & Đầu tư/04 - Chuỗi thời gian & ML tài chính/11-Algorithmic Trading & Time Series Analysis in Python and R/>)
+
+#### Algorithmic Trading & Backtesting
+
+- [Algorithmic Trading A-Z with Python, Machine Learning & AWS](<./10 - Tài chính & Đầu tư/05 - Algorithmic Trading & Backtesting/04-Algorithmic Trading A-Z with Python, Machine Learning & AWS/>)
+- [Become a Quant: Algorithmic Trading with Python and AI](<./10 - Tài chính & Đầu tư/05 - Algorithmic Trading & Backtesting/15-Become a Quant  Algorithmic Trading with Python and AI/>)
+- [Algorithmic Trading & Quantitative Analysis Using Python](<./10 - Tài chính & Đầu tư/05 - Algorithmic Trading & Backtesting/16-Algorithmic Trading & Quantitative Analysis Using Python/>)
 
 ## Ngoài kho khóa học
 
