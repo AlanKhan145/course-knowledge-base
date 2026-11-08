@@ -36,6 +36,13 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `03 - Game Design`
   - `04 - Game Development Roadmaps`
   - `05 - Game Art`
+  - `06 - Unreal Engine`
+  - `07 - Godot & Engine khác`
+  - `08 - Toán, Logic & AI game`
+  - `09 - Âm thanh game`
+  - `10 - QA, Tối ưu & Phát hành`
+  - `11 - Dự án game mẫu`
+  - `12 - Đồ họa, Shader & VFX`
 - `06 - Ngôn ngữ`
   - `01 - Tiếng Anh`
   - `02 - Tiếng Trung`
@@ -234,6 +241,11 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Unity Camera Controller & Dissolve VFX](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Unity-Camera-Controller-va-Dissolve-VFX/>)
 - [Unity VFX Graph: Hiệu ứng va chạm, tia lửa và Decal](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Unity-VFX-Graph-Hieu-ung-Va-cham-Decal/>)
 - [Unity VFX Graph: Quả cầu năng lượng](<./05 - Phát triển game/01 - Unity & C#/Khoa-hoc-Unity-VFX-Graph-Qua-Cau-Nang-Luong/>)
+- [Complete C# Unity 2D Game Development (Updated To Unity 6)](<./05 - Phát triển game/01 - Unity & C#/complete-c-unity-2d-game-development-updated-to-unity-6/>)
+- [Complete C# Unity 3D Game Development in Unity 6](<./05 - Phát triển game/01 - Unity & C#/complete-c-unity-3d-game-development-in-unity-6/>)
+- [Modern Unity UI with UI Toolkit](<./05 - Phát triển game/01 - Unity & C#/modern-unity-ui-with-ui-toolkit/>)
+- [Make Online Games Using Unity's Multiplayer Framework](<./05 - Phát triển game/01 - Unity & C#/make-online-games-using-unity-s-multiplayer-framework/>)
+- [Design Patterns for Game Programming - Unity 6 Compatible](<./05 - Phát triển game/01 - Unity & C#/design-patterns-for-game-programming-unity-6-compatible/>)
 
 #### Ren'Py & Visual Novels
 
@@ -244,6 +256,12 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 #### Game Design
 
 - [Indie Game Design: Build Your Game's Core System](<./05 - Phát triển game/03 - Game Design/indie-game-design-build-your-games-core-system/>)
+- [Game Design Essentials: Tools, Theories and Techniques](<./05 - Phát triển game/03 - Game Design/game-design-essentials-tools-theories-and-techniques/>)
+- [Level Design Essentials: Get Good At Making Game Levels](<./05 - Phát triển game/03 - Game Design/level-design-essentials-get-good-at-making-game-levels/>)
+- [Game Design in Production: From Idea to Release](<./05 - Phát triển game/03 - Game Design/game-design-in-production-from-idea-to-release/>)
+- [Write a Professional Game Design Document (GDD)](<./05 - Phát triển game/03 - Game Design/write-a-professional-game-design-document-gdd/>)
+- [All About Gaming Industry Careers & Game Design Fundamentals](<./05 - Phát triển game/03 - Game Design/all-about-gaming-industry-careers-game-design-fundamentals/>)
+- [Narrative Design Master Class: Write stories for Video Games](<./05 - Phát triển game/03 - Game Design/narrative-design-master-class-write-stories-for-video/>)
 
 #### Game Development Roadmaps
 
@@ -255,6 +273,80 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Pixel Art Master Course](<./05 - Phát triển game/05 - Game Art/pixel-art-master-course-beginner-to-professional-freelance/>)
 - [Pixel Art Animation & VFX 2D với Unity](<./05 - Phát triển game/05 - Game Art/Khoa-hoc-Pixel-Art-Animation-VFX-2D-Unity/>)
 - [Unity Mixamo: Nhân vật và Animation 3D](<./05 - Phát triển game/05 - Game Art/Khoa-hoc-Unity-Mixamo-Nhan-vat-va-Animation-3D/>)
+- [Complete Blender Creator: 3D Modelling (Compatible with 4.3)](<./05 - Phát triển game/05 - Game Art/complete-blender-creator-3d-modelling-compatible-with-4-3/>)
+- [Blender Character Creator for Video Games](<./05 - Phát triển game/05 - Game Art/blender-character-creator-for-video-games/>)
+- [Blender Animation & Rigging: Bring Your Creations To Life](<./05 - Phát triển game/05 - Game Art/blender-animation-rigging-bring-your-creations-to-life/>)
+- [Complete game animators pipeline from Blender to engine](<./05 - Phát triển game/05 - Game Art/complete-game-animators-pipeline-from-blender-to-engine/>)
+
+#### Unreal Engine
+
+- [Unreal Engine 5 C++ Game Development (Fully Updated in 5.6)](<./05 - Phát triển game/06 - Unreal Engine/unreal-engine-5-c-game-development-fully-updated-in-5-6/>)
+- [Unreal Engine 5 Blueprints - The Ultimate Developer Course](<./05 - Phát triển game/06 - Unreal Engine/unreal-engine-5-blueprints-the-ultimate-developer-course/>)
+- [Unreal Engine 5 C++ The Ultimate Game Developer Course](<./05 - Phát triển game/06 - Unreal Engine/unreal-engine-5-c-the-ultimate-game-developer-course/>)
+- [Unreal Engine 5 Gameplay Ability System (GAS) Crash Course](<./05 - Phát triển game/06 - Unreal Engine/unreal-engine-5-gameplay-ability-system-gas-crash-course/>)
+- [Unreal Engine 5 - Gameplay Ability System - Top Down RPG](<./05 - Phát triển game/06 - Unreal Engine/unreal-engine-5-gameplay-ability-system-top-down-rpg/>)
+- [Create AAA true first person character in Unreal Engine 5](<./05 - Phát triển game/06 - Unreal Engine/create-aaa-true-first-person-character-in-unreal-engine-5/>)
+- [Unreal Engine 5 Cinematic and Animation from scratch to PRO](<./05 - Phát triển game/06 - Unreal Engine/unreal-engine-5-cinematic-and-animation-from-scratch-to/>)
+- [Build Complete Game Menus in Unreal Engine 5 Blueprints](<./05 - Phát triển game/06 - Unreal Engine/build-complete-game-menus-in-unreal-engine-5-blueprints/>)
+- [Unreal Engine 5 C++ Multiplayer CRASH COURSE](<./05 - Phát triển game/06 - Unreal Engine/unreal-engine-5-c-multiplayer-crash-course/>)
+
+#### Godot & Engine khác
+
+- [Godot 4 2D Game Dev: Build 3 Games with GDScript](<./05 - Phát triển game/07 - Godot & Engine khác/godot-4-2d-game-dev-build-3-games-with-gdscript/>)
+- [Jumpstart to 2D Game Development: Godot 4 for Beginners](<./05 - Phát triển game/07 - Godot & Engine khác/jumpstart-to-2d-game-development-godot-4-for-beginners/>)
+- [Complete 3D Godot 4 Game Development Course](<./05 - Phát triển game/07 - Godot & Engine khác/complete-3d-godot-4-game-development-course/>)
+- [Learn how to make a juicy game in Godot 4](<./05 - Phát triển game/07 - Godot & Engine khác/learn-how-to-make-a-juicy-game-in-godot-4/>)
+- [Master Mobile Game Development with Godot 4](<./05 - Phát triển game/07 - Godot & Engine khác/master-mobile-game-development-with-godot-4/>)
+- [Complete Roblox Lua: Start making Games with Roblox Studio](<./05 - Phát triển game/07 - Godot & Engine khác/complete-roblox-lua-start-making-games-with-roblox-studio/>)
+- [Game Development in JS/TS - The Complete Guide (w/ Phaser 3)](<./05 - Phát triển game/07 - Godot & Engine khác/game-development-in-js-ts-the-complete-guide-w-phaser-3/>)
+- [Build a 2D & 3D Game Engine with C++20, SFML & OpenGL](<./05 - Phát triển game/07 - Godot & Engine khác/build-a-2d-3d-game-engine-with-c-20-sfml-opengl/>)
+- [Game Engine Development with C++ and OpenGL](<./05 - Phát triển game/07 - Godot & Engine khác/game-engine-development-with-c-and-opengl/>)
+
+#### Toán, Logic & AI game
+
+- [Math For Video Games: The Fastest Way To Get Smarter At Math](<./05 - Phát triển game/08 - Toán, Logic & AI game/math-for-video-games-the-fastest-way-to-get-smarter-at/>)
+- [Mathematics for Game Development - Unity 6 Compatible](<./05 - Phát triển game/08 - Toán, Logic & AI game/mathematics-for-game-development-unity-6-compatible/>)
+- [Physics For Unity 6.2 & C# - Lifetime Access](<./05 - Phát triển game/08 - Toán, Logic & AI game/physics-for-unity-6-2-c-lifetime-access/>)
+- [The Beginner's Guide to Games AI with Unity 6.2+](<./05 - Phát triển game/08 - Toán, Logic & AI game/the-beginner-s-guide-to-games-ai-with-unity-6-2/>)
+- [The Ultimate Unity AI Course - Build Autonomous Game](<./05 - Phát triển game/08 - Toán, Logic & AI game/the-ultimate-unity-ai-course-build-autonomous-game/>)
+- [Artificial intelligence in Game development- Tic Tac Toe AI](<./05 - Phát triển game/08 - Toán, Logic & AI game/artificial-intelligence-in-game-development-tic-tac-toe-ai/>)
+
+#### Âm thanh game
+
+- [Game Audio Essentials: SFX & Sound Design For Video Games](<./05 - Phát triển game/09 - Âm thanh game/game-audio-essentials-sfx-sound-design-for-video-games/>)
+- [Game Audio 301: Sound & Music Implementation using Wwise](<./05 - Phát triển game/09 - Âm thanh game/game-audio-301-sound-music-implementation-using-wwise/>)
+
+#### QA, Tối ưu & Phát hành
+
+- [QA: Become a Game Tester 2026](<./05 - Phát triển game/10 - QA, Tối ưu & Phát hành/qa-become-a-game-tester-2026/>)
+- [The Ultimate Guide to Video Game Optimisation](<./05 - Phát triển game/10 - QA, Tối ưu & Phát hành/the-ultimate-guide-to-video-game-optimisation/>)
+- [Optimising a mobile game in Unity](<./05 - Phát triển game/10 - QA, Tối ưu & Phát hành/optimising-a-mobile-game-in-unity/>)
+- [Unity Mobile Publish and Monetise Your Game](<./05 - Phát triển game/10 - QA, Tối ưu & Phát hành/unity-mobile-publish-and-monetise-your-game/>)
+- [How to Publish a Game on Steam - Unreal Engine 5](<./05 - Phát triển game/10 - QA, Tối ưu & Phát hành/how-to-publish-a-game-on-steam-unreal-engine-5/>)
+- [Game Marketing: Fundamentals on How to Market Video Games](<./05 - Phát triển game/10 - QA, Tối ưu & Phát hành/game-marketing-fundamentals-on-how-to-market-video-games/>)
+
+#### Dự án game mẫu
+
+- [Learn To Create A Vampire Survivors Style Game in Unity & C#](<./05 - Phát triển game/11 - Dự án game mẫu/learn-to-create-a-vampire-survivors-style-game-in-unity-c/>)
+- [Recreate Stardew Valley in Godot](<./05 - Phát triển game/11 - Dự án game mẫu/recreate-stardew-valley-in-godot/>)
+- [Unity 2D Game Developer Course Farming RPG](<./05 - Phát triển game/11 - Dự án game mẫu/unity-2d-game-developer-course-farming-rpg/>)
+- [Programming and Game Design for DeckBuilding Games](<./05 - Phát triển game/11 - Dự án game mẫu/programming-and-game-design-for-deckbuilding-games/>)
+- [Unity 2D Dungeon Gunner Roguelike Development Course](<./05 - Phát triển game/11 - Dự án game mẫu/unity-2d-dungeon-gunner-roguelike-development-course/>)
+- [Unity Turn-Based Strategy Game: Intermediate C# Coding](<./05 - Phát triển game/11 - Dự án game mẫu/unity-turn-based-strategy-game-intermediate-c-coding/>)
+- [Learn to make an Awesome Builder-Defender game in Unity!](<./05 - Phát triển game/11 - Dự án game mẫu/learn-to-make-an-awesome-builder-defender-game-in-unity/>)
+- [Make a Tetris-style Puzzler in Unity](<./05 - Phát triển game/11 - Dự án game mẫu/make-a-tetris-style-puzzler-in-unity/>)
+- [Java Game Development Masterclass](<./05 - Phát triển game/11 - Dự án game mẫu/java-game-development-masterclass/>)
+- [Master Python Game Development: A Project-Based Journey 2026](<./05 - Phát triển game/11 - Dự án game mẫu/master-python-game-development-a-project-based-journey/>)
+- [Create a 2D procedurally generated Roguelite in Unity 6.2](<./05 - Phát triển game/11 - Dự án game mẫu/create-a-2d-procedurally-generated-roguelite-in-unity-6-2/>)
+- [Advance Turn Base RPG game with Unity 6 &C#](<./05 - Phát triển game/11 - Dự án game mẫu/advance-turn-base-rpg-game-with-unity-6-c/>)
+- [Learn To Create An Action RPG Game In Unity](<./05 - Phát triển game/11 - Dự án game mẫu/learn-to-create-an-action-rpg-game-in-unity/>)
+
+#### Đồ họa, Shader & VFX
+
+- [Your Ultimate Guide to Shader Graph for Beginners](<./05 - Phát triển game/12 - Đồ họa, Shader & VFX/your-ultimate-guide-to-shader-graph-for-beginners/>)
+- [Learn Unity Shaders from Scratch](<./05 - Phát triển game/12 - Đồ họa, Shader & VFX/learn-unity-shaders-from-scratch/>)
+- [A Complete Guide to Unity's Universal Render Pipeline, URP](<./05 - Phát triển game/12 - Đồ họa, Shader & VFX/a-complete-guide-to-unity-s-universal-render-pipeline-urp/>)
+- [Unreal Engine 5: One Course Solution For Niagara VFX](<./05 - Phát triển game/12 - Đồ họa, Shader & VFX/unreal-engine-5-one-course-solution-for-niagara-vfx/>)
 
 ### 06 - Ngôn ngữ
 
