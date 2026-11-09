@@ -1,0 +1,23 @@
+# German for Beginners - A1 Grammar Made Easy & 100+ Exercises — Hướng dẫn học
+
+Nguồn đề cương: https://www.udemy.com/course/german-grammar-course-a1-a-very-structured-approach/
+
+## Thông tin khóa (theo Udemy, thu thập 09/11/2026)
+
+- Giảng viên: Esther Hartwig - Deutsch mit Esther
+- Thời lượng: 7.5 hours
+- Đánh giá: 4.57/5 · 324 đánh giá
+- Cập nhật gần nhất: 2026-08-23
+- Quy mô đề cương: 19 module · 151 mục nội dung
+- Giới thiệu (Udemy): German Grammar course, simple & logical explanations in English, examples & practice, experienced native German tutor
+
+## Vị trí trong kho
+
+- Chuyên ngành: 06 - Ngôn ngữ/05 - Tiếng Đức
+- Nhóm kỹ năng: Học tiếng Đức
+
+## Cách dùng
+
+Mục lục khóa học: `00-MUC-LUC-KHOA-HOC.md`. Mỗi module là một thư mục con có `00-MUC-LUC-MODULE.md` và từng bài là một file `.md` đặt tên `UD440-S<module>-L<bài>-<tiêu-đề>.md`.
+
+> Các bài `.md` là tài liệu học bổ trợ do trợ lý biên soạn dựa trên tên bài trong đề cương công khai của Udemy và kiến thức chung; không phải bản chép lời các video có bản quyền.

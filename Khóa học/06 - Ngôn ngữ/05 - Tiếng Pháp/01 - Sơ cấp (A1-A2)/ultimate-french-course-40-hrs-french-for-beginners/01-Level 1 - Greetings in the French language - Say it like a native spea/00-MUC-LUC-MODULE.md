@@ -1,0 +1,22 @@
+# 01. Level 1 - Greetings in the French language - Say it like a native speaker
+
+**Khóa học:** Ultimate French Course 40+Hrs: French for Beginners-Advanced
+**Số mục nội dung:** 15
+
+| STT | Bài học / hoạt động | Loại |
+|---:|---|---|
+| 001 | [Bonjour - Bonne journée](UD627-S01-L001-Bonjour-Bonne-journee.md) | `VIDEO_LECTURE` |
+| 002 | [What is the difference between Bonjour](UD627-S01-L002-What-is-the-difference-between.md) | `VIDEO_LECTURE` |
+| 003 | [How to to say "a, an, some" with nouns](UD627-S01-L003-How-to-to-say-a-an-some-with.md) | `VIDEO_LECTURE` |
+| 004 | [Definite articles: "The" in French- examples/ pronunciation tips /exercises](UD627-S01-L004-Definite-articles-The-in.md) | `VIDEO_LECTURE` |
+| 005 | [Have a good afternoon in French with pronunciation tips](UD627-S01-L005-Have-a-good-afternoon-in.md) | `VIDEO_LECTURE` |
+| 006 | [How to say Have a good evening just like a native speaker](UD627-S01-L006-How-to-say-Have-a-good-evening.md) | `VIDEO_LECTURE` |
+| 007 | [Have a good night in French just like a native speaker w/ pronunciation tips](UD627-S01-L007-Have-a-good-night-in-French.md) | `VIDEO_LECTURE` |
+| 008 | [How to say Hello and Goodbye to friends and family just like a native speaker](UD627-S01-L008-How-to-say-Hello-and-Goodbye.md) | `VIDEO_LECTURE` |
+| 009 | [Bye and See you in French](UD627-S01-L009-Bye-and-See-you-in-French.md) | `VIDEO_LECTURE` |
+| 010 | [Welcome in French with pronunciation rules & more vocabulary](UD627-S01-L010-Welcome-in-French-with.md) | `VIDEO_LECTURE` |
+| 011 | [See you soon in French with pronunciation tips](UD627-S01-L011-See-you-soon-in-French-with.md) | `VIDEO_LECTURE` |
+| 012 | ["See you very soon" in French with pronunciation tips](UD627-S01-L012-See-you-very-soon-in-French.md) | `VIDEO_LECTURE` |
+| 013 | ["See you shortly" (today) in French in Formal & informal situations](UD627-S01-L013-See-you-shortly-today-in.md) | `VIDEO_LECTURE` |
+| 014 | [See you later in French - Pronunciation & vocabulary tips](UD627-S01-L014-See-you-later-in-French.md) | `VIDEO_LECTURE` |
+| 015 | [Farewell in French with Pronunciation & vocabulary tips](UD627-S01-L015-Farewell-in-French-with.md) | `VIDEO_LECTURE` |

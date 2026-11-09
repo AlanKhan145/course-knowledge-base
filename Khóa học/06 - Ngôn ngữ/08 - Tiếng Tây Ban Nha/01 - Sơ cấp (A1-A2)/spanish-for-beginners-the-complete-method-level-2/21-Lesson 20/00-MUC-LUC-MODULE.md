@@ -1,0 +1,10 @@
+# 21. Lesson 20.
+
+**Khóa học:** Spanish for Beginners. The complete Method. Level 2.
+**Số mục nội dung:** 3
+
+| STT | Bài học / hoạt động | Loại |
+|---:|---|---|
+| 001 | [Lesson 20](UD649-S21-L001-Lesson-20.md) | `VIDEO_LECTURE` |
+| 002 | [Lesson 20. Exercises and transcript.](UD649-S21-L002-Lesson-20-Exercises-and-transcript.md) | `ARTICLE_LECTURE` |
+| 003 | [Lesson 20 Time trial](UD649-S21-L003-Lesson-20-Time-trial.md) | `VIDEO_LECTURE` |
