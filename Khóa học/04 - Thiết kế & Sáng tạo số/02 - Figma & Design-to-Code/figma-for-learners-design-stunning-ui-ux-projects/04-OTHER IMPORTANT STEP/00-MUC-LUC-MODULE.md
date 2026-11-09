@@ -1,0 +1,10 @@
+# 04. OTHER IMPORTANT STEP
+
+**Khóa học:** Figma for Learners: Design Stunning UI/UX Projects
+**Số mục nội dung:** 3
+
+| STT | Bài học / hoạt động | Loại |
+|---:|---|---|
+| 001 | [LAYERS](UD311-S04-L001-LAYERS.md) | `VIDEO_LECTURE` |
+| 002 | [CREATING AND USING STYLE](UD311-S04-L002-CREATING-AND-USING-STYLE.md) | `VIDEO_LECTURE` |
+| 003 | [CREATING AND USING COMPONENT](UD311-S04-L003-CREATING-AND-USING-COMPONENT.md) | `VIDEO_LECTURE` |
