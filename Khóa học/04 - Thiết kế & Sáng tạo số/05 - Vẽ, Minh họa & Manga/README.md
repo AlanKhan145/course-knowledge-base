@@ -36,3 +36,7 @@ Tên bài học, thư mục học phần và tài nguyên bên trong từng khó
 | [AnimeOutline_English_Study_Course.zip](./_zip_sources/AnimeOutline_English_Study_Course.zip) | 02 — Vẽ Anime & Manga — AnimeOutline |
 | [Khoa_hoc_tu_lam_manga_Tieng_Viet.zip](./_zip_sources/Khoa_hoc_tu_lam_manga_Tieng_Viet.zip) | 03 — Tự sáng tác & Xuất bản Manga |
 | [Bo_14_bai_manga_tieng_Viet.zip](./_zip_sources/Bo_14_bai_manga_tieng_Viet.zip) | 04 — Quy trình làm Manga — 14 bài |
+
+## 05 - Thiết kế nhân vật & giải phẫu
+
+Thiết kế nhân vật 2D/3D, phác thảo bằng khối cơ bản, turnaround/model sheet cho người dựng 3D, vẽ hình người và giải phẫu. Gồm 18 khóa Udemy (mã BL).

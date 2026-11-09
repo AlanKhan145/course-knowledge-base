@@ -15,6 +15,12 @@ Các khóa học được tách theo chủ đề ngay trong thư mục này. Th�
 - **09 - Mô hình hóa 3D & AI** — tạo model AI, hoàn thiện game-ready và đưa asset vào engine.
 - **10 - Rigging & Animation 3D** — rigging và animation chuyên sâu.
 - **11 - Environment Art** — dựng môi trường với Blender 5.1.
+- **12 - Hard Surface & Props** — hard surface, props, vũ khí, phương tiện, sản phẩm và in 3D.
+- **13 - Ánh sáng, Render & Cinematic** — ánh sáng, camera, render Cycles/Eevee, cinematic.
+- **14 - Game Asset, UV & Texturing** — game asset, UV, bake, texturing.
+- **15 - Shader, Vật liệu & Geometry Nodes** — vật liệu procedural, shader nodes, Geometry Nodes.
+- **16 - Trang phục, Quần áo & Tóc** — Marvelous Designer, CLO3D, tóc và lông.
+- **17 - Python & Add-on Blender** — lập trình Python và add-on.
 
 ## Module 08 — Điêu khắc & Nhân vật 3D
 

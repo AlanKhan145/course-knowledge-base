@@ -86,7 +86,7 @@ Mô hình hóa và nhân vật 3D, rigging và animation, shader, ánh sáng/URP
 
 | # | Khóa học | Thời lượng | Đánh giá (số lượt) | Cập nhật | Module / mục |
 |---|---|---|---|---|---|
-| G12 | [Complete Blender Creator: 3D Modelling (Compatible with 4.3)](<./05 - Game Art/complete-blender-creator-3d-modelling-compatible-with-4-3/>) | 14 hours | 4.69 (69,288) | 2026-02-16 | 9 / 104 |
+| G12 | [Complete Blender Creator: 3D Modelling (Compatible with 4.3)](<../04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/01 - Blender tổng quát/complete-blender-creator-3d-modelling/>) | 14 hours | 4.69 (69,288) | 2026-02-16 | bản cũ có sẵn trong kho |
 | G13 | [Blender Character Creator for Video Games](<./05 - Game Art/blender-character-creator-for-video-games/>) | 34.5 hours | 4.72 (9,220) | 2026-03-10 | 24 / 248 |
 | G14 | [Blender Animation & Rigging: Bring Your Creations To Life](<./05 - Game Art/blender-animation-rigging-bring-your-creations-to-life/>) | 8 hours | 4.74 (1,838) | 2025-07-29 | 7 / 63 |
 | G15 | [Complete game animators pipeline from Blender to engine](<./05 - Game Art/complete-game-animators-pipeline-from-blender-to-engine/>) | 30.5 hours | 4.33 (301) | 2026-10-04 | 21 / 107 |

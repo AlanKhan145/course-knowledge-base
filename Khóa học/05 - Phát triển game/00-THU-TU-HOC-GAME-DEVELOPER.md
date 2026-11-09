@@ -845,7 +845,7 @@ Không cần học hết 64 khóa (tổng khoảng 1134 giờ video). Giáo trì
 ### 40. Complete Blender Creator: 3D Modelling (Compatible with 4.3) (G12)
 
 - Giảng viên: GameDev.tv Team, Rick Davidson, Grant Abbitt · Thời lượng: 14 hours · Đánh giá: 4.69 (69,288 lượt) · Cập nhật: 2026-02-16
-- Quy mô: 9 module · 104 mục · Thư mục: [mở](<./05 - Game Art/complete-blender-creator-3d-modelling-compatible-with-4-3/>)
+- Quy mô: 9 module trên Udemy · Thư mục: [mở bản cũ có sẵn trong kho](<../04 - Thiết kế & Sáng tạo số/03 - Blender & 3D/01 - Blender tổng quát/complete-blender-creator-3d-modelling/>)
 - **Vai trò và lý do xếp ở đây:** Mô hình hóa 3D nền tảng bằng Blender.
 - **Tiên quyết:** Không
 - **Sau khóa làm được:** Mô hình game-ready cơ bản.
