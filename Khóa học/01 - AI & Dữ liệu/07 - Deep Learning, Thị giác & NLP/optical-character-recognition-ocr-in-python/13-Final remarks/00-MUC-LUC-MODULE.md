@@ -1,0 +1,9 @@
+# 13. Final remarks
+
+**Khóa học:** Optical Character Recognition (OCR) in Python
+**Số mục nội dung:** 2
+
+| STT | Bài học / hoạt động | Loại |
+|---:|---|---|
+| 001 | [Final remarks](UD038-S13-L001-Final-remarks.md) | `VIDEO_LECTURE` |
+| 002 | [BONUS](UD038-S13-L002-BONUS.md) | `VIDEO_LECTURE` |

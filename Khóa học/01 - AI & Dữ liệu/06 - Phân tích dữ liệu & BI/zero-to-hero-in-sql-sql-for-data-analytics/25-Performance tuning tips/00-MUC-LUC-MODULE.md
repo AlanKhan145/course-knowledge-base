@@ -1,0 +1,15 @@
+# 25. Performance tuning tips
+
+**Khóa học:** Zero to Hero in SQL: SQL for Data Analytics
+**Số mục nội dung:** 8
+
+| STT | Bài học / hoạt động | Loại |
+|---:|---|---|
+| 001 | [TIP 1 (EXPLAIN)](UD016-S25-L001-TIP-1-EXPLAIN.md) | `VIDEO_LECTURE` |
+| 002 | [TIP 2](UD016-S25-L002-TIP-2.md) | `VIDEO_LECTURE` |
+| 003 | [TIP 3](UD016-S25-L003-TIP-3.md) | `VIDEO_LECTURE` |
+| 004 | [TIP 4 (VACCUM)](UD016-S25-L004-TIP-4-VACCUM.md) | `VIDEO_LECTURE` |
+| 005 | [TIP 5](UD016-S25-L005-TIP-5.md) | `VIDEO_LECTURE` |
+| 006 | [TIP 6 (STRING FUNCTIONS)](UD016-S25-L006-TIP-6-STRING-FUNCTIONS.md) | `VIDEO_LECTURE` |
+| 007 | [TIP 7 (JOINS)](UD016-S25-L007-TIP-7-JOINS.md) | `VIDEO_LECTURE` |
+| 008 | [TIP 8 (SCHEMAS)](UD016-S25-L008-TIP-8-SCHEMAS.md) | `VIDEO_LECTURE` |

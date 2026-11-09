@@ -1,0 +1,11 @@
+# 04. SPARK BASICS
+
+**Khóa học:** Complete Databricks & PySpark Bootcamp: Zero to Hero
+**Số mục nội dung:** 4
+
+| STT | Bài học / hoạt động | Loại |
+|---:|---|---|
+| 001 | [INTRODUCTION TO SPARK](UD115-S04-L001-INTRODUCTION-TO-SPARK.md) | `VIDEO_LECTURE` |
+| 002 | [SPARK ARCHITECTURE](UD115-S04-L002-SPARK-ARCHITECTURE.md) | `VIDEO_LECTURE` |
+| 003 | [WHAT IS RDD](UD115-S04-L003-WHAT-IS-RDD.md) | `VIDEO_LECTURE` |
+| 004 | [DAG & LAZY EVALUATION](UD115-S04-L004-DAG-LAZY-EVALUATION.md) | `VIDEO_LECTURE` |
