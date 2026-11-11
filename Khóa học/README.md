@@ -119,6 +119,9 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - `08 - Sức khỏe & Đời sống`
   - `01 - Dinh dưỡng`
   - `02 - Tập luyện & Thể hình`
+  - `03 - Cơ bụng 6 múi & Giảm mỡ`
+  - `05 - Calisthenics, Tập tại nhà & Tư thế`
+  - `04 - Tăng cơ, Gym & Sức mạnh`
 - `09 - Viết & Sáng tác`
   - `01 - Viết tiểu thuyết`
   - `02 - Viết học thuật & Nghiên cứu`
@@ -132,6 +135,11 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
   - `03 - Tài chính định lượng & Quản lý danh mục`
   - `04 - Chuỗi thời gian & ML tài chính`
   - `05 - Algorithmic Trading & Backtesting`
+- `11 - Ngoại hình & Phong cách`
+  - `01 - Phong cách & Phối đồ nam`
+  - `02 - Chải chuốt, Tóc, Râu & Nước hoa`
+  - `03 - Chăm sóc da`
+  - `04 - Thần thái, Body language & Tự tin`
 
 ## Danh sách khóa học
 
@@ -1342,6 +1350,75 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Full-Body 3 Buổi/Tuần](<./08 - Sức khỏe & Đời sống/02 - Tập luyện & Thể hình/full-body-3-buoi/>)
 - [Tập luyện tăng cơ theo trình độ](<./08 - Sức khỏe & Đời sống/02 - Tập luyện & Thể hình/tap-luyen-theo-trinh-do/>)
 
+#### Cơ bụng 6 múi & Giảm mỡ
+
+- [Diet And Nutrition Coach Certification: Beginner To Advanced](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/diet-and-nutrition-coach-certification-beginner-to/>)
+- [Body Transformation Blueprint: Shred Fat & Build Lean Muscle](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/body-transformation-blueprint-shred-fat-build-lean-muscle/>)
+- [Weight Loss And Nutrition: Lose Fat & Get Your Dream Body](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/weight-loss-and-nutrition-lose-fat-get-your-dream-body/>)
+- [Science-Based Bodyweight Workout: Build Muscle Without A Gym](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/science-based-bodyweight-workout-build-muscle-without-a/>)
+- [Internationally Accredited Certificate in Weight Loss](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/internationally-accredited-certificate-in-weight-loss/>)
+- [Weight Loss Coach Certification (Accredited): All Levels](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/weight-loss-coach-certification-accredited-all-levels/>)
+- [Science-Based Workout: Build Muscle, Lose Fat & Get Fit](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/science-based-workout-build-muscle-lose-fat-get-fit/>)
+- [49 Weight Loss Tips You Can Stick To Forever - Be Thinner](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/49-weight-loss-tips-you-can-stick-to-forever-be-thinner/>)
+- [Intermittent Fasting: Fast Weight Loss That Lasts](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/intermittent-fasting-fast-weight-loss-that-lasts/>)
+- [HIIT & Body Weight Training: A 4-week Home Workout Program](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/hiit-body-weight-training-a-4-week-home-workout-program/>)
+- [Simple Fitness and Six Pack G Code Nutrition (Accredited)](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/simple-fitness-and-six-pack-g-code-nutrition-accredited/>)
+- [Weight Loss Booster:  Better Sleep For Faster Weight Loss](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/weight-loss-booster-better-sleep-for-faster-weight-loss/>)
+- [Lose Weight, Build Muscle, Tone Up-For Over 40's-15mins Day](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/lose-weight-build-muscle-tone-up-for-over-40-s-15mins-day/>)
+- [[0-20] The Ultimate Fat Loss Transformation Program](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/0-20-the-ultimate-fat-loss-transformation-program/>)
+- [Greek Physique: How to Get The Body of a Greek God At Home](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/greek-physique-how-to-get-the-body-of-a-greek-god-at-home/>)
+- [LEAN-The Ultimate Skinny-Fat Solution](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/lean-the-ultimate-skinny-fat-solution/>)
+- [Personalized Bodyweight Workouts: Science-Based Home Fitness](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/personalized-bodyweight-workouts-science-based-home/>)
+- [Weight Loss And Fitness: Build Your Perfect Fat Loss Workout](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/weight-loss-and-fitness-build-your-perfect-fat-loss/>)
+- [Nutrition Certification: Advanced Diet & Meal Planning](<./08 - Sức khỏe & Đời sống/03 - Cơ bụng 6 múi & Giảm mỡ/nutrition-certification-advanced-diet-meal-planning/>)
+
+#### Calisthenics, Tập tại nhà & Tư thế
+
+- [Calisthenics Foundations: Building Your Bodyweight Basics](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/calisthenics-foundations-building-your-bodyweight-basics/>)
+- [Ultimate Guide to Running - for beginners to experts](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/ultimate-guide-to-running-for-beginners-to-experts/>)
+- [Yoga For Beginners: A 15-Day Foundational Course](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/yoga-for-beginners-a-15-day-foundational-course/>)
+- [The Calisthenics Bridge: From Beginner to Advanced](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/the-calisthenics-bridge-from-beginner-to-advanced/>)
+- [Freedom, Motion: Fascia & Self-Myofascial Release Essentials](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/freedom-motion-fascia-self-myofascial-release-essentials/>)
+- [Promote Posture and Flexibility In the Office](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/promote-posture-and-flexibility-in-the-office/>)
+- [The Posture Academy - Ergonomics in Office & Healthcare (1)](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/the-posture-academy-ergonomics-in-office-healthcare-1/>)
+- [The Complete Boxing Fitness & Skills Certificate Course](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/the-complete-boxing-fitness-skills-certificate-course/>)
+- [Posturecise - 21 Healthy Posture Habits for Life](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/posturecise-21-healthy-posture-habits-for-life/>)
+- [15 Minutes x 15 Days Total Yoga Challenge](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/15-minutes-x-15-days-total-yoga-challenge/>)
+- [Exercises to Improve Posture | Dr Paula's 10-Course Sampler](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/exercises-to-improve-posture-dr-paula-s-10-course-sampler/>)
+- [The Ultimate Home Boxing Training Course - 50+ videos](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/the-ultimate-home-boxing-training-course-50-videos/>)
+- [Neck Hump | Get Rid of the Fat at the Top of Your Back](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/neck-hump-get-rid-of-the-fat-at-the-top-of-your-back/>)
+- [Complete Stretching & Flexibility course - with PNF & more](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/complete-stretching-flexibility-course-with-pnf-more/>)
+- [Strength Training: The Science Behind Building Athleticism](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/strength-training-the-science-behind-building-athleticism/>)
+- [Stretches at Work - Desktop Yoga](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/stretches-at-work-desktop-yoga/>)
+- [Components Of Athleticism: Become Stronger And More Athletic](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/components-of-athleticism-become-stronger-and-more/>)
+- [Natural Running - Avoid Injuries, Become Efficient, Stay Fit](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/natural-running-avoid-injuries-become-efficient-stay-fit/>)
+- [Forever Flexible: The Complete Guide to Lifetime Flexibility](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/forever-flexible-the-complete-guide-to-lifetime/>)
+- [THE SECRETS OF FLEXIBILITY and full Mobility](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/the-secrets-of-flexibility-and-full-mobility/>)
+- [15-Minute Yoga For Mobility](<./08 - Sức khỏe & Đời sống/05 - Calisthenics, Tập tại nhà & Tư thế/15-minute-yoga-for-mobility/>)
+
+#### Tăng cơ, Gym & Sức mạnh
+
+- [Complete Fitness Trainer Certification: Beginner To Advanced](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/complete-fitness-trainer-certification-beginner-to/>)
+- [Fundamentals Of Weight Training & Bodybuilding: Gym Workouts](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/fundamentals-of-weight-training-bodybuilding-gym-workouts/>)
+- [Kickstarter - A 6-Week Weight Training Program](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/kickstarter-a-6-week-weight-training-program/>)
+- [Complete Muscle Building work out For Beginners!](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/complete-muscle-building-work-out-for-beginners/>)
+- [Create a complete fitness training program: Beginner to Adv.](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/create-a-complete-fitness-training-program-beginner-to-adv/>)
+- [Learn The Most Fundamental Weight Lifting Exercises](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/learn-the-most-fundamental-weight-lifting-exercises/>)
+- [Internationally Accredited Certificate in Fitness](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/internationally-accredited-certificate-in-fitness/>)
+- [Fitness Trainer Certification: Gym Workouts & Bodybuilding](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/fitness-trainer-certification-gym-workouts-bodybuilding/>)
+- [Build Muscle and Fitness on a Plant Based Diet](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/build-muscle-and-fitness-on-a-plant-based-diet/>)
+- [Personal Fitness Trainer](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/personal-fitness-trainer/>)
+- [Kettlebell Workouts Follow-Along](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/kettlebell-workouts-follow-along/>)
+- [Kettlebell Complexes Made Simple —LOOK AWESOME](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/kettlebell-complexes-made-simple-look-awesome/>)
+- [Strength and Conditioning for PTs and Athletes](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/strength-and-conditioning-for-pts-and-athletes/>)
+- [Master The Squat](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/master-the-squat/>)
+- [Synergy Strength- Split](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/synergy-strength-split/>)
+- [The Definitive Sports Nutrition Course](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/the-definitive-sports-nutrition-course/>)
+- [Body Building with Body weight exercises](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/body-building-with-body-weight-exercises/>)
+- [Strength and Conditioning for Sports](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/strength-and-conditioning-for-sports/>)
+- [Functional Fitness: Power,Strength And Muscle Developement](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/functional-fitness-power-strength-and-muscle-developement/>)
+- [Science-based hypertrophy & muscle growth optimization](<./08 - Sức khỏe & Đời sống/04 - Tăng cơ, Gym & Sức mạnh/science-based-hypertrophy-muscle-growth-optimization/>)
+
 ### 09 - Viết & Sáng tác
 
 #### Viết tiểu thuyết
@@ -1447,6 +1524,83 @@ Tên thư mục khóa học cụ thể được giữ nguyên để tránh làm 
 - [Algorithmic Trading A-Z with Python, Machine Learning & AWS](<./10 - Tài chính & Đầu tư/05 - Algorithmic Trading & Backtesting/04-Algorithmic Trading A-Z with Python, Machine Learning & AWS/>)
 - [Become a Quant: Algorithmic Trading with Python and AI](<./10 - Tài chính & Đầu tư/05 - Algorithmic Trading & Backtesting/15-Become a Quant  Algorithmic Trading with Python and AI/>)
 - [Algorithmic Trading & Quantitative Analysis Using Python](<./10 - Tài chính & Đầu tư/05 - Algorithmic Trading & Backtesting/16-Algorithmic Trading & Quantitative Analysis Using Python/>)
+
+### 11 - Ngoại hình & Phong cách
+
+#### Phong cách & Phối đồ nam
+
+- [Master the First Impression: Social media, attire, etiquette](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/master-the-first-impression-social-media-attire-etiquette/>)
+- [Color Analysis Wardrobe Coach Certification](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/color-analysis-wardrobe-coach-certification/>)
+- [Dressing to Win in the Workplace](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/dressing-to-win-in-the-workplace/>)
+- [Look Your VERY best – Learn about Color, Style & Fashion](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/look-your-very-best-learn-about-color-style-fashion/>)
+- [Your Best Colors: Outfit & Makeup | 12 Season Color Analysis](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/your-best-colors-outfit-makeup-12-season-color-analysis/>)
+- [Master Style and Fashion Psychology for Your Personality](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/master-style-and-fashion-psychology-for-your-personality/>)
+- [25 Must-Have Men’s Wardrobe Pieces - Become a Fashion Icon](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/25-must-have-men-s-wardrobe-pieces-become-a-fashion-icon/>)
+- [How to Dress for a Job Interview & Career Success – For MEN](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/how-to-dress-for-a-job-interview-career-success-for-men/>)
+- [How to Become a Better-Looking Guy](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/how-to-become-a-better-looking-guy/>)
+- [Dress to Kill: A Men's Primer on Style and Fashion](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/dress-to-kill-a-men-s-primer-on-style-and-fashion/>)
+- [What Every Young Man Should Know about Being a Gentleman](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/what-every-young-man-should-know-about-being-a-gentleman/>)
+- [Men's Success With Style](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/men-s-success-with-style/>)
+- [SUIT UP! How to Dress for Success!](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/suit-up-how-to-dress-for-success/>)
+- [Planning Your Work Wardrobe: Dress Without Stress](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/planning-your-work-wardrobe-dress-without-stress/>)
+- [Men's Fashion: Tips on How To Dress Well](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/men-s-fashion-tips-on-how-to-dress-well/>)
+- [Men's Fashion Ultimate Guide: A Woman's Perspective](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/men-s-fashion-ultimate-guide-a-woman-s-perspective/>)
+- [Men Style Masterclass](<./11 - Ngoại hình & Phong cách/01 - Phong cách & Phối đồ nam/men-style-masterclass/>)
+
+#### Chải chuốt, Tóc, Râu & Nước hoa
+
+- [Learn beginners Gents Scissor Cutting | Barbering Skills](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/learn-beginners-gents-scissor-cutting-barbering-skills/>)
+- [Intro To Fine Fragrance & Perfumery](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/intro-to-fine-fragrance-perfumery/>)
+- [Basic Men's Haircuts for Beginners](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/basic-men-s-haircuts-for-beginners/>)
+- [The Ultimate Online Perfume Course 2026](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/the-ultimate-online-perfume-course-2026/>)
+- [Become a Barber with the One minute barber](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/become-a-barber-with-the-one-minute-barber/>)
+- [Skin and Hair Care Diploma Part 1](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/skin-and-hair-care-diploma-part-1/>)
+- [Skin and Hair Care Diploma Part 2](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/skin-and-hair-care-diploma-part-2/>)
+- [Skin and Hair Care Diploma Part 3](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/skin-and-hair-care-diploma-part-3/>)
+- [Haircuts at Home: Gentleman's Cut](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/haircuts-at-home-gentleman-s-cut/>)
+- [Men’s Grooming : Universal Fade Process](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/men-s-grooming-universal-fade-process/>)
+- [The Complete Guide To Men's Skincare](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/the-complete-guide-to-men-s-skincare/>)
+- [Learning The Straight Razor Shave](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/learning-the-straight-razor-shave/>)
+- [Learn The Barber Masterclass Collection](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/learn-the-barber-masterclass-collection/>)
+- [How to become a professional barber](<./11 - Ngoại hình & Phong cách/02 - Chải chuốt, Tóc, Râu & Nước hoa/how-to-become-a-professional-barber/>)
+
+#### Chăm sóc da
+
+- [The Ultimate Beginners Guide to Skincare](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/the-ultimate-beginners-guide-to-skincare/>)
+- [UNDERSTAND YOUR SKIN MASTERCLASS: BEGINNER EDITION](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/understand-your-skin-masterclass-beginner-edition/>)
+- [Introduction to Nutrition for Skin Health](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/introduction-to-nutrition-for-skin-health/>)
+- [Skincare Coach Certification - USA/International Credentials](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/skincare-coach-certification-usa-international-credentials/>)
+- [How to Master Self Skincare Routines](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/how-to-master-self-skincare-routines/>)
+- [Skin and Hair Care Diploma Part 4](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/skin-and-hair-care-diploma-part-4/>)
+- [Anti-Aging Skincare Masters Certification: Brain-Skin Axis](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/anti-aging-skincare-masters-certification-brain-skin-axis/>)
+- [The Acne Diet - What to Eat for Clearer Skin](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/the-acne-diet-what-to-eat-for-clearer-skin/>)
+- [Skin Types Decoded](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/skin-types-decoded/>)
+- [Adult Acne: Skincare for Clear Skin](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/adult-acne-skincare-for-clear-skin/>)
+- [The truth about Acne: Beauty restoration journey](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/the-truth-about-acne-beauty-restoration-journey/>)
+- [The Acne Cure](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/the-acne-cure/>)
+- [Secrets to Perfect Skin - Anti Age and Blemish Free Skincare](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/secrets-to-perfect-skin-anti-age-and-blemish-free-skincare/>)
+- [Build your perfect skincare routine + understanding acne](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/build-your-perfect-skincare-routine-understanding-acne/>)
+- [Learn everything about Acne & get rid of this condition.](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/learn-everything-about-acne-get-rid-of-this-condition/>)
+- [Skin Health & Awareness Master Class (TM)](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/skin-health-awareness-master-class-tm/>)
+- [Skincare Coach Certification: Professional Diploma Program](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/skincare-coach-certification-professional-diploma-program/>)
+- [Diploma in Skincare Coaching: Science-Based Skin Expertise](<./11 - Ngoại hình & Phong cách/03 - Chăm sóc da/diploma-in-skincare-coaching-science-based-skin-expertise/>)
+
+#### Thần thái, Body language & Tự tin
+
+- [Radiate Confidence: How to Create a 1000 Watt Presence](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/radiate-confidence-how-to-create-a-1000-watt-presence/>)
+- [Personal Branding at Work: The System To Reinvent Yourself!](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/personal-branding-at-work-the-system-to-reinvent-yourself/>)
+- [Confidence On Camera: Make Amazing Videos, Easily.](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/confidence-on-camera-make-amazing-videos-easily/>)
+- [Voice Training – 30-Days to a More Confident Powerful Voice.](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/voice-training-30-days-to-a-more-confident-powerful-voice/>)
+- [Non-verbal communication and body language for business](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/non-verbal-communication-and-body-language-for-business/>)
+- [Body Language: Appear Confident and Poised When You Speak](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/body-language-appear-confident-and-poised-when-you-speak/>)
+- [Voice Training - Proven Methods to Improve Your Vocal Skills](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/voice-training-proven-methods-to-improve-your-vocal-skills/>)
+- [Voice Training - Develop A Deeper, Sexy & Charismatic Voice](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/voice-training-develop-a-deeper-sexy-charismatic-voice/>)
+- [Complete Willpower Course - Build Self Control & Good Habits](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/complete-willpower-course-build-self-control-good-habits/>)
+- [Boost Self Confidence & Self Esteem With Scientific Research](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/boost-self-confidence-self-esteem-with-scientific-research/>)
+- [Voice Training - 70 Vocal Exercises to Improve Your Voice!](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/voice-training-70-vocal-exercises-to-improve-your-voice/>)
+- [Voice Training: Discover Your Confident and Powerful Voice](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/voice-training-discover-your-confident-and-powerful-voice/>)
+- [Building Rapport: Confident Conversations Without Small Talk](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/building-rapport-confident-conversations-without-small/>)
+- [Conversation Skills Masterclass - Communication Skills](<./11 - Ngoại hình & Phong cách/04 - Thần thái, Body language & Tự tin/conversation-skills-masterclass-communication-skills/>)
 
 ## Ngoài kho khóa học
 
