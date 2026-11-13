@@ -339,7 +339,7 @@ function lessonIdFor(courseId: string, relInCourse: string, name: string, fm: Fr
 
 // ---------------------------------------------------------------- course build
 
-interface CourseContext {
+export interface CourseContext {
   rootId: string;
   domainId: string;
   categoryId: string;

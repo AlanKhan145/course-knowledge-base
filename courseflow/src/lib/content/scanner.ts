@@ -6,7 +6,7 @@ import { createHash } from "node:crypto";
 import type { DatabaseSync } from "node:sqlite";
 import { getContentRoots, getDbPath, getManifestsDir, type ContentRoot } from "./config.ts";
 import { migrate, openDatabase, setMeta } from "./db.ts";
-import { buildCatalog, iterMd, limiter, walkDir, type CatalogBuild, type DocInfo, type DirNode } from "./discovery.ts";
+import { buildCatalog, buildCourse, collectPaths, iterMd, limiter, walkDir, type CatalogBuild, type DocInfo, type DirNode } from "./discovery.ts";
 import { extractDocMeta } from "./lesson-meta.ts";
 import { foldVi } from "./text.ts";
 
@@ -88,9 +88,12 @@ function toDocInfo(r: DocRowRaw): DocInfo {
   };
 }
 
-async function parseChanged(db: DatabaseSync, root: ContentRoot, tree: DirNode, log: Log, force: boolean) {
+async function parseChanged(db: DatabaseSync, root: ContentRoot, tree: DirNode, log: Log, force: boolean, prefix?: string) {
   const existing = new Map<string, { rowid: number; mtime: number; size: number }>();
-  for (const r of db.prepare("SELECT rowid, path, mtime, size FROM docs WHERE root_id = ?").all(root.id) as unknown as { rowid: number; path: string; mtime: number; size: number }[]) {
+  const existingRows = prefix
+    ? db.prepare("SELECT rowid, path, mtime, size FROM docs WHERE root_id = ? AND substr(path, 1, ?) = ?").all(root.id, prefix.length + 1, prefix + "/")
+    : db.prepare("SELECT rowid, path, mtime, size FROM docs WHERE root_id = ?").all(root.id);
+  for (const r of existingRows as unknown as { rowid: number; path: string; mtime: number; size: number }[]) {
     existing.set(r.path, r);
   }
   const all = [...iterMd(tree)];
@@ -192,6 +195,12 @@ function writeCatalog(db: DatabaseSync, rootId: string, b: CatalogBuild) {
     const n = b.courses.filter((x) => x.categoryId === c.id || x.subcategoryId === c.id).length;
     insCat.run(c.id, c.domainId, c.parentId, c.title, c.ord, c.dir, n, c.level);
   }
+  insertCourseRows(db, b);
+  db.exec("COMMIT");
+}
+
+/** Insert course, module, lesson and issue rows (caller owns the transaction). */
+function insertCourseRows(db: DatabaseSync, b: CatalogBuild) {
   const insCourse = db.prepare(`INSERT OR REPLACE INTO courses (id, slug, root_id, dir, domain_id, category_id, subcategory_id, title, description, language, level,
       tags, objectives, prerequisites, source_url, overview_path, structure, module_count, lesson_count, resource_count, question_count, gradable_count,
       word_count, est_minutes, media, updated_at, status, ord) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`);
@@ -211,7 +220,51 @@ function writeCatalog(db: DatabaseSync, rootId: string, b: CatalogBuild) {
   }
   const insIssue = db.prepare("INSERT INTO issues (course_id, lesson_id, severity, code, message, detail) VALUES (?,?,?,?,?,?)");
   for (const i of b.issues) insIssue.run(i.courseId, i.lessonId, i.severity, i.code, i.message, i.detail);
-  db.exec("COMMIT");
+}
+
+/**
+ * Re-scan ONE course (by slug or folder) and replace only its rows — seconds instead of a full scan.
+ * Use after editing/restructuring a course: `npm run scan -- --course <slug>`.
+ */
+export async function runCourseScan(slugOrDir: string, opts: { force?: boolean; log?: Log } = {}) {
+  const log = opts.log ?? ((m: string) => console.log(m));
+  const db = openDatabase(getDbPath());
+  migrate(db);
+  try {
+    const row = db.prepare("SELECT id, slug, root_id, dir, domain_id, category_id, subcategory_id, ord FROM courses WHERE slug = ? OR dir = ? OR id = ?").get(slugOrDir, slugOrDir, slugOrDir) as
+      | { id: string; slug: string; root_id: string; dir: string; domain_id: string; category_id: string; subcategory_id: string | null; ord: number }
+      | undefined;
+    if (!row) throw new Error(`Không tìm thấy khóa "${slugOrDir}" trong catalog (khóa mới thêm thì chạy quét toàn bộ).`);
+    const root = getContentRoots().find((r) => r.id === row.root_id);
+    if (!root) throw new Error(`Không có content root ${row.root_id}`);
+    const t0 = Date.now();
+    const node = await walkDir(root.abs, row.dir, false, 3);
+    const p = await parseChanged(db, root, node, log, !!opts.force, row.dir);
+    const docs = new Map<string, DocInfo>();
+    for (const r of db.prepare("SELECT * FROM docs WHERE root_id = ? AND substr(path, 1, ?) = ?").all(root.id, row.dir.length + 1, row.dir + "/") as unknown as DocRowRaw[])
+      docs.set(r.path, toDocInfo(r));
+    const level = (db.prepare("SELECT level FROM categories WHERE id = ?").get(row.subcategory_id ?? row.category_id) as { level: string | null } | undefined)?.level ?? null;
+    const out: CatalogBuild = { domains: [], categories: [], courses: [], modules: [], lessons: [], issues: [], skipped: [] };
+    buildCourse(
+      node,
+      row.id,
+      { rootId: root.id, domainId: row.domain_id, categoryId: row.category_id, subcategoryId: row.subcategory_id, levelHint: level, manifestsDir: getManifestsDir(), rootAbs: root.abs, allPaths: collectPaths(node, new Set()), ord: row.ord },
+      (rel) => docs.get(rel),
+      out,
+    );
+    db.exec("BEGIN");
+    for (const t of ["lessons", "modules", "issues"]) db.prepare(`DELETE FROM ${t} WHERE course_id = ?`).run(row.id);
+    db.prepare("DELETE FROM courses WHERE id = ?").run(row.id);
+    insertCourseRows(db, out);
+    db.prepare("UPDATE domains SET lesson_count = (SELECT coalesce(sum(lesson_count), 0) FROM courses WHERE domain_id = domains.id) WHERE id = ?").run(row.domain_id);
+    db.exec("COMMIT");
+    setMeta(db, "last_scan", new Date().toISOString());
+    const c = out.courses[0];
+    log(`✔ ${c?.title ?? row.slug}: ${c?.moduleCount ?? 0} module, ${c?.lessonCount ?? 0} bài; đọc lại ${p.parsed} file, xoá ${p.removed} (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
+    return { slug: c?.slug ?? row.slug, modules: c?.moduleCount ?? 0, lessons: c?.lessonCount ?? 0, parsed: p.parsed, removed: p.removed };
+  } finally {
+    db.close();
+  }
 }
 
 export async function runScan(opts: { force?: boolean; log?: Log } = {}): Promise<ScanStats[]> {

@@ -1,8 +1,36 @@
-# Stock Trading & Investing for Beginners — Bộ giáo trình Markdown tiếng Việt
+---
+difficulty: beginner
+language: vi
+---
 
-> **Phiên bản biên soạn:** 28/09/2026  
+# Giao dịch & đầu tư chứng khoán cho người mới bắt đầu (Stock Trading & Investing for Beginners)
+
+Khóa nhập môn trọn gói cho người mới: hiểu thị trường và cách đặt lệnh, đọc báo cáo tài chính để đầu tư giá trị theo Benjamin Graham, dùng phân tích kỹ thuật để chọn thời điểm giao dịch, và làm quen quyền chọn cùng các chỉ số Greeks.
+
 > **Khóa tham chiếu:** *Stock Trading & Investing for Beginners 4-in-1 Course Bundle* — Indian Insight / Udemy  
-> **Curriculum công khai:** 24 sections, 127 lectures, khoảng 9 giờ 47 phút.
+> **Đề cương:** 24 phần, 127 bài giảng, 20 quiz, khoảng 9 giờ 47 phút video. Cập nhật theo đề cương ngày 13/11/2026.
+
+## Bạn sẽ học được
+
+- Trả lời các câu hỏi thường gặp của người mới về giao dịch và đầu tư chứng khoán.
+- Bắt đầu giao dịch / đầu tư trên thị trường cổ phiếu: loại lệnh, chọn công ty môi giới, phân bổ vốn.
+- Đọc hiểu báo cáo tài chính của doanh nghiệp bạn muốn đầu tư.
+- Phân tích báo cáo tài chính bằng tỷ số tài chính và phân tích quy mô chung (common-size).
+- Tính và diễn giải tỷ số hoạt động, thanh khoản, khả năng thanh toán, sinh lời và định giá.
+- Áp dụng chiến lược đầu tư giá trị của Benjamin Graham và dùng Graham's Number để tìm cổ phiếu bị định giá thấp.
+- Dùng phân tích kỹ thuật: mô hình nến, khoảng trống giá, hỗ trợ – kháng cự, đường xu hướng và kênh giá.
+- Dùng các chỉ báo kỹ thuật phổ biến (MA, EMA, Bollinger Bands, RSI, Stochastic, MACD) và Fibonacci.
+- Nắm cơ bản về quyền chọn (call, put, chiến lược cơ bản) và các chỉ số Greeks (Delta, Gamma, Theta, Vega, Rho).
+- Có nguyên tắc quản lý vốn và rủi ro trước khi giao dịch thật.
+
+## Yêu cầu
+
+- Không cần kiến thức tài chính hay phần mềm chuyên dụng; chỉ cần biết làm phép tính cơ bản.
+
+## Dành cho ai
+
+- Người muốn bắt đầu nhanh với giao dịch hoặc đầu tư chứng khoán.
+- Không dành cho người đã có chứng chỉ CFA, FRM hay CMT.
 
 ## Phạm vi
 

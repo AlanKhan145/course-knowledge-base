@@ -54,7 +54,7 @@ const OVERVIEW_FILE =
 
 /** Supporting documents: readable but excluded from progress. */
 const RESOURCE_FILE =
-  /^(coverage[-_ ]?report|image[-_ ]?sources?|sources?|references?|tai[-_ ]?lieu[-_ ]?tham[-_ ]?khao|changelog|change[-_ ]?log|license|licence|contributing|code[-_ ]?of[-_ ]?conduct|security|todo|agents?|claude|brief.*|agent[-_ ]?brief.*|.*transcript.*|.*[-_ ]original|ban[-_ ]?ghi[-_ ]?loi.*|credits?|attributions?|notes?[-_ ]?internal|progress[-_ ]?log|checkpoint[-_ ]?log|qa[-_ ]?report|review[-_ ]?report|build[-_ ]?log)$/i;
+  /^(coverage[-_ ]?report|image[-_ ]?sources?|sources?|source[-_ ]?notes?|course[-_ ]?map|references?|tai[-_ ]?lieu[-_ ]?tham[-_ ]?khao|changelog|change[-_ ]?log|license|licence|contributing|code[-_ ]?of[-_ ]?conduct|security|todo|agents?|claude|brief.*|agent[-_ ]?brief.*|.*transcript.*|.*[-_ ]original|ban[-_ ]?ghi[-_ ]?loi.*|credits?|attributions?|notes?[-_ ]?internal|progress[-_ ]?log|checkpoint[-_ ]?log|qa[-_ ]?report|review[-_ ]?report|build[-_ ]?log)$/i;
 
 /** Root-level docs that belong at the END of a course (appendix-like). */
 const APPENDIX_FILE = /(cheat[-_ ]?sheet|glossary|thuat[-_ ]?ngu|capstone|final|appendix|phu[-_ ]?luc|tong[-_ ]?ket|summary|on[-_ ]?tap[-_ ]?tong|faq|hoi[-_ ]?dap|interview|bai[-_ ]?tap[-_ ]?tong)/i;

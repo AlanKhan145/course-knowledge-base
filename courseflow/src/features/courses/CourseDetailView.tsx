@@ -8,6 +8,7 @@ import { CourseCover } from "@/components/CourseCover";
 import { ProgressBar } from "@/features/catalog/CourseCard";
 import { StatusIcon, ReviewDot } from "@/features/lessons/CourseOutline";
 import { toggleFavorite, useLearner } from "@/features/progress/store";
+import { SyncCourseButton } from "./SyncCourseButton";
 
 export function CourseDetailView({ course }: { course: CourseDetail }) {
   const s = useLearner((x) => x);
@@ -71,6 +72,7 @@ export function CourseDetailView({ course }: { course: CourseDetail }) {
                 <NotebookPen className="size-4" /> Biên tập
               </Link>
             </div>
+            <SyncCourseButton slug={course.slug} />
             {course.gradableCount >= 5 ? (
               <Link href={`/courses/${course.slug}/quiz/final`} className="flex items-center justify-center gap-1.5 rounded-xl border border-violet/40 bg-violet-soft px-3 py-2 text-sm font-semibold text-violet">
                 <ClipboardCheck className="size-4" /> Kiểm tra cuối khóa
