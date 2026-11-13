@@ -6,13 +6,13 @@
 
 ## Phạm vi
 
-Bộ tài liệu này **không phải transcript hay bản sao video Udemy**. Trang lecture `/learn/...` yêu cầu đăng nhập, vì vậy nội dung dưới đây được biên soạn lại độc lập dựa trên curriculum/tên bài/mô tả công khai của khóa và kiến thức tài chính chuẩn.
+Bộ tài liệu này **không phải transcript hay bản sao video Udemy**. Nội dung được biên soạn độc lập dựa trên đề cương công khai của khóa và kiến thức tài chính chuẩn.
 
-Mục tiêu của bộ tài liệu là biến curriculum thành một giáo trình dễ học:
-- Mỗi **module** là một subfolder.
-- Các video rất ngắn hoặc cùng một chủ đề được **gộp vào cùng một file `.md`**.
-- Chủ đề lớn được tách thành nhiều bài để dễ học và ôn.
-- Mỗi bài có mục tiêu, kiến thức cốt lõi, công thức/ví dụ, lỗi thường gặp và câu hỏi tự kiểm tra.
+**Cập nhật 13/11/2026:** khóa được viết lại **đúng theo đề cương Udemy** (course 696616: 24 phần, 127 bài giảng, 20 quiz/bài tập):
+- Mỗi module là một thư mục, giữ đúng thứ tự và tên phần của Udemy.
+- **Mỗi bài giảng là một file `.md`** theo template chuẩn (`courseflow/templates/lesson.md`). 70 file đã viết đầy đủ; các file còn lại là **khung template** (đúng tiêu đề, thứ tự, liên kết) để tự điền — xem cột Trạng thái trong README từng module.
+- Mỗi quiz của Udemy là một file quiz riêng (8 câu + luyện thêm điền chỗ trống/sắp xếp/ghép cặp), nằm đúng vị trí trong module.
+- Danh sách đầy đủ: [COURSE-MAP.md](COURSE-MAP.md).
 
 ## Cách học đề xuất
 

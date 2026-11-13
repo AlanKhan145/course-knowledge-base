@@ -1,7 +1,9 @@
-# 08-using-ai-to-understand-stock
+# 08. Dùng AI để hiểu một cổ phiếu (Using AI to understand any stock)
 
-## Các bài trong module
+Module 8 trên 24 của khóa *Stock Trading & Investing for Beginners*. 1 bài giảng (khoảng 14 phút trên Udemy).
 
-1. [Dùng AI để nghiên cứu một cổ phiếu — không giao quyền phán đoán cho AI](01-ai-research-workflow.md)
+| # | Bài | Loại | Phút | Trạng thái |
+|---:|---|---|---:|---|
+| 01 | [Nghiên cứu IEX bằng AI (IEX Case Study using AI)](01-iex-case-study-using-ai.md) | Bài giảng | 15 | Đã viết |
 
-> Các bài ngắn/cùng chủ đề đã được gộp để tránh tạo quá nhiều file rời.
+> Bài “Khung template” mới có tiêu đề, thứ tự và liên kết; phần nội dung là template chuẩn (`courseflow/templates/lesson.md`) để tự điền.

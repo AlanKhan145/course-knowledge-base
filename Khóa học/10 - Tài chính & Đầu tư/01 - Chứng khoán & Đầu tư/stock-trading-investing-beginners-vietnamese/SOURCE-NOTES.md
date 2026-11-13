@@ -12,7 +12,12 @@
 
 URL dạng `/learn/lecture/...` của Udemy chuyển sang trang đăng nhập khi không có phiên đăng nhập hợp lệ. Vì vậy bộ tài liệu này không chứa transcript hoặc nội dung trả phí bị sao chép. Mọi phần giải thích trong các file `.md` là bản biên soạn giáo dục độc lập theo chủ đề công khai.
 
-## Quy tắc gộp bài
+## Cập nhật 13/11/2026
+
+- Đề cương lấy từ API công khai `api-2.0/courses/696616/public-curriculum-items` (171 mục: 24 phần, 127 bài giảng, 20 quiz) và đối chiếu với trang khóa (PDF lưu ngày 13/11/2026).
+- Bỏ quy tắc gộp bài bên dưới: nay mỗi bài giảng/quiz là một file riêng theo template chuẩn; các file gộp cũ đã được xoá.
+
+## Quy tắc gộp bài (phiên bản cũ, không còn áp dụng)
 
 - Bài khoảng 1–5 phút, cùng một chuỗi khái niệm → gộp.
 - Các phần “Part 1/2/3” về cùng tỷ số hoặc indicator → gộp.

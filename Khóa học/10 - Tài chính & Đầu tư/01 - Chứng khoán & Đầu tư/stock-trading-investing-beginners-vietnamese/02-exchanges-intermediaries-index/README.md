@@ -1,8 +1,13 @@
-# 02-exchanges-intermediaries-index
+# 02. Sở giao dịch, trung gian tài chính và chỉ số chứng khoán (Stock Exchanges, Financial Intermediaries & Stock Index)
 
-## Các bài trong module
+Module 2 trên 24 của khóa *Stock Trading & Investing for Beginners*. 4 bài giảng (khoảng 19 phút trên Udemy), 1 quiz/bài tập.
 
-1. [Sở giao dịch và các trung gian tài chính](01-san-giao-dich-va-trung-gian.md)
-2. [Securities và chỉ số chứng khoán](02-chung-khoan-va-chi-so.md)
+| # | Bài | Loại | Phút | Trạng thái |
+|---:|---|---|---:|---|
+| 01 | [Sở giao dịch chứng khoán (Stock Exchanges)](01-stock-exchanges.md) | Bài giảng | 4 | Đã viết |
+| 02 | [Trung gian tài chính trong giao dịch cổ phiếu (Financial Intermediaries in Stock Trading)](02-financial-intermediaries-in-stock-trading.md) | Bài giảng | 7 | Đã viết |
+| 03 | [Chứng khoán (Securities)](03-securities.md) | Bài giảng | 3 | Đã viết |
+| 04 | [Chỉ số chứng khoán (Stock Index)](04-stock-index.md) | Bài giảng | 5 | Đã viết |
+| 05 | [Quiz: Sở giao dịch, trung gian và chỉ số (Stock Exchange Quiz)](05-quiz-stock-exchange-quiz.md) | Quiz | — | Đã viết |
 
-> Các bài ngắn/cùng chủ đề đã được gộp để tránh tạo quá nhiều file rời.
+> Bài “Khung template” mới có tiêu đề, thứ tự và liên kết; phần nội dung là template chuẩn (`courseflow/templates/lesson.md`) để tự điền.

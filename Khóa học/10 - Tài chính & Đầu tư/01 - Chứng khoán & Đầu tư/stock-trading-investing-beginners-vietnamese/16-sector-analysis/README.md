@@ -1,7 +1,9 @@
-# 16-sector-analysis
+# 16. Phân tích ngành (Sector Analysis)
 
-## Các bài trong module
+Module 16 trên 24 của khóa *Stock Trading & Investing for Beginners*. 1 bài giảng (khoảng 4 phút trên Udemy).
 
-1. [Sector analysis và relative strength](01-sector-relative-strength.md)
+| # | Bài | Loại | Phút | Trạng thái |
+|---:|---|---|---:|---|
+| 01 | [Làm sao biết ngành nào sẽ mạnh hơn thị trường (How to know which sector or industry will outperform in the market)](01-how-to-know-which-sector-or-industry-will-outperform-in-the.md) | Bài giảng | 5 | Khung template |
 
-> Các bài ngắn/cùng chủ đề đã được gộp để tránh tạo quá nhiều file rời.
+> Bài “Khung template” mới có tiêu đề, thứ tự và liên kết; phần nội dung là template chuẩn (`courseflow/templates/lesson.md`) để tự điền.
