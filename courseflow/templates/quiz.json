@@ -1,0 +1,79 @@
+{
+  "title": "Câu hỏi ôn tập — Tên bài",
+  "description": "Đặt file này cạnh bài học với tên <tên-file-bài>.quiz.json. Câu hỏi sẽ hiện ở cuối bài và vào trang Ôn tập ngẫu nhiên.",
+  "passScore": 0.7,
+  "shuffleQuestions": true,
+  "shuffleOptions": false,
+  "questions": [
+    {
+      "type": "single",
+      "prompt": "Câu hỏi chọn MỘT đáp án, đọc riêng vẫn hiểu?",
+      "options": [
+        { "id": "A", "text": "Phương án nhiễu hợp lý" },
+        { "id": "B", "text": "Phương án đúng" },
+        { "id": "C", "text": "Phương án nhiễu hợp lý" },
+        { "id": "D", "text": "Phương án nhiễu hợp lý" }
+      ],
+      "answer": "B",
+      "explanation": "Vì sao B đúng; vì sao A, C, D sai.",
+      "difficulty": "easy"
+    },
+    {
+      "type": "multiple",
+      "prompt": "Những phát biểu nào đúng? (chọn nhiều)",
+      "options": [
+        { "id": "A", "text": "Đúng thứ nhất" },
+        { "id": "B", "text": "Sai" },
+        { "id": "C", "text": "Đúng thứ hai" }
+      ],
+      "answer": ["A", "C"],
+      "scoring": "partial",
+      "explanation": "Chấm một phần: mỗi lựa chọn sai trừ đi một lựa chọn đúng, không âm.",
+      "difficulty": "medium"
+    },
+    {
+      "type": "true_false",
+      "prompt": "Đọc lại nhiều lần hiệu quả hơn tự kiểm tra.",
+      "answer": false,
+      "explanation": "Tự nhớ lại (truy hồi) cho hiệu quả ghi nhớ cao hơn đọc lại."
+    },
+    {
+      "type": "fill_blank",
+      "prompt": "Thuật toán ôn tập giãn cách phổ biến hiện nay tên là ___.",
+      "blanks": [["FSRS", "fsrs"]],
+      "explanation": "FSRS — Free Spaced Repetition Scheduler."
+    },
+    {
+      "type": "short_answer",
+      "prompt": "Vì sao nên làm ví dụ có lời giải trước khi tự làm bài?",
+      "modelAnswer": "Ví dụ có lời giải giảm tải nhận thức khi gặp kiến thức mới; sau đó tự làm giúp củng cố và kiểm tra hiểu biết."
+    },
+    {
+      "type": "ordering",
+      "prompt": "Sắp xếp các bước học một bài theo đúng thứ tự",
+      "items": ["Đọc mục tiêu", "Thử đoán trước", "Học ý chính", "Làm ví dụ", "Trả lời câu hỏi ôn tập"]
+    },
+    {
+      "type": "matching",
+      "prompt": "Ghép kỹ thuật với mô tả",
+      "pairs": [
+        { "left": "Truy hồi", "right": "Tự nhớ lại không nhìn tài liệu" },
+        { "left": "Giãn cách", "right": "Ôn sau các khoảng thời gian tăng dần" },
+        { "left": "Xen kẽ", "right": "Trộn nhiều dạng bài trong một buổi" }
+      ]
+    },
+    {
+      "type": "single",
+      "prompt": "Đoạn code sau in ra gì?",
+      "code": "nums = [1, 2, 3]\nprint(sum(n * 2 for n in nums))",
+      "codeLanguage": "python",
+      "options": [
+        { "id": "A", "text": "6" },
+        { "id": "B", "text": "12" },
+        { "id": "C", "text": "[2, 4, 6]" }
+      ],
+      "answer": "B",
+      "explanation": "2 + 4 + 6 = 12."
+    }
+  ]
+}

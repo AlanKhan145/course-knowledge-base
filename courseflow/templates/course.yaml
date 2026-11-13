@@ -1,0 +1,34 @@
+# Metadata cho một khóa học (TẤT CẢ trường đều tuỳ chọn).
+# Đặt một trong hai chỗ:
+#   1) Trong thư mục khóa học, tên file: courseflow.yaml (hoặc course.yaml)
+#   2) Không muốn đụng vào thư mục học liệu: courseflow/manifests/<id-khoa-hoc>.yaml
+# Sau khi sửa, chạy `npm run scan` (chỉ đọc lại phần thay đổi).
+
+id: ten-khoa-hoc                 # giữ cố định → tiến độ không mất khi đổi tên thư mục
+title: "Tên khóa học hiển thị"
+description: "Một đoạn 1–3 câu: khóa học giúp người học làm được gì."
+level: beginner                  # beginner | intermediate | advanced
+language: vi                     # vi | en | mixed
+tags: [python, du-lieu]
+objectives:                      # “Bạn sẽ học được” trên trang khóa học
+  - Xây dựng được …
+  - Giải thích được …
+prerequisites:                   # “Kiến thức cần có”
+  - Biết Python cơ bản
+hidden: false                    # true để ẩn khóa khỏi catalog
+
+# Ghi đè tiêu đề / thứ tự / ẩn module (theo tên thư mục con của khóa)
+modules:
+  - dir: "01-Nen-tang"
+    title: "Nền tảng"
+    order: 1
+  - dir: "99-Nhap"
+    hidden: true
+
+# Ghi đè từng bài (đường dẫn tương đối trong thư mục khóa)
+lessons:
+  "01-Nen-tang/03-bai-phu.md":
+    kind: resource               # lesson | overview | resource (resource không tính tiến độ)
+  "02-Nang-cao/01-gioi-thieu.md":
+    title: "Giới thiệu phần nâng cao"
+    order: 1

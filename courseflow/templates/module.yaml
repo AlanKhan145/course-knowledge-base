@@ -1,0 +1,32 @@
+# Module = một thư mục con của khóa học. CourseFlow tự nhận diện, KHÔNG cần file này.
+# Dùng các quy ước sau để thứ tự và tiêu đề đúng ngay từ đầu:
+#
+# 1. Tên thư mục module có số thứ tự đầu: "01 - Nền tảng", "02-Routing", "MODULE_03_Layout".
+#    Sắp xếp theo thứ tự tự nhiên (2 đứng trước 10).
+# 2. Tên file bài học cũng có số: "01-vi-sao-can-pydantic.md", "02-cai-dat.md".
+#    Hoặc ghi `order:` trong frontmatter của bài.
+# 3. Tiêu đề module lấy từ dòng `# …` của file tổng quan trong thư mục module
+#    (README.md / 00-MUC-LUC-MODULE.md / index.md); không có thì lấy theo tên thư mục.
+# 4. Thư mục tên assets/, images/, resources/, code/, src/, data/… là tài nguyên, không phải module.
+#    Thư mục chứa package.json / pyproject.toml… được coi là mã nguồn mẫu.
+# 5. Thư mục lồng sâu hơn trong module thành "nhóm bài" (hiện như tiêu đề nhỏ trong danh sách).
+# 6. Muốn đổi tiêu đề/thứ tự/ẩn module mà không đổi tên thư mục: dùng mục `modules:` trong course.yaml.
+#
+# Cấu trúc gợi ý:
+#
+#   Khóa học/
+#     02 - Lập trình & Phát triển phần mềm/        ← lĩnh vực (NN - Tên)
+#       06 - Python/                                ← chuyên ngành (NN - Tên)
+#         ten-khoa-hoc/                             ← khóa học
+#           README.md                               ← tổng quan khóa (tiêu đề, mô tả, "Mục tiêu")
+#           courseflow.yaml                         ← (tuỳ chọn) metadata
+#           01-Nen-tang/                            ← module
+#             README.md                             ← tổng quan module (tuỳ chọn)
+#             01-bai-dau-tien.md                    ← bài học (theo templates/lesson.md)
+#             01-bai-dau-tien.quiz.json             ← (tuỳ chọn) câu hỏi thêm cho bài
+#             assets/so-do.webp                     ← ảnh dùng trong bài
+#           02-Nang-cao/
+#             …
+
+title: "Tên module (chỉ để tham khảo — CourseFlow không đọc file này)"
+order: 1
