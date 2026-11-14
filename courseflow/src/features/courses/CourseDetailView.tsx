@@ -34,7 +34,13 @@ export function CourseDetailView({ course }: { course: CourseDetail }) {
               <ChevronRight className="size-3" />
               <Link href={`/explore?domain=${course.domainId}`} className="hover:text-text">{course.domainTitle}</Link>
               <ChevronRight className="size-3" />
-              <Link href={`/explore?domain=${course.domainId}&cat=${course.subcategoryId ?? course.categoryId}`} className="hover:text-text">{course.subcategoryTitle ?? course.categoryTitle}</Link>
+              <Link href={`/explore?domain=${course.domainId}&cat=${course.categoryId}`} className="hover:text-text">{course.categoryTitle}</Link>
+              {course.subcategoryId ? (
+                <>
+                  <ChevronRight className="size-3" />
+                  <Link href={`/explore?domain=${course.domainId}&cat=${course.subcategoryId}`} className="hover:text-text">{course.subcategoryTitle}</Link>
+                </>
+              ) : null}
             </nav>
             <h1 className="text-3xl leading-tight font-bold tracking-tight text-balance sm:text-4xl">{course.title}</h1>
             <p className="mt-3 max-w-3xl text-[1.05rem] leading-relaxed text-muted">

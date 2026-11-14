@@ -146,10 +146,33 @@ export function listDomains(): DomainSummary[] {
     ord: d.ord,
     courseCount: d.course_count,
     lessonCount: d.lesson_count,
-    categories: cats
-      .filter((c) => c.domain_id === d.id)
-      .map<CategorySummary>((c) => ({ id: c.id, domainId: c.domain_id, parentId: c.parent_id, title: c.title, courseCount: c.course_count, level: c.level })),
+    categories: hierarchical(cats.filter((c) => c.domain_id === d.id)).map<CategorySummary>((c) => ({
+      id: c.id,
+      domainId: c.domain_id,
+      parentId: c.parent_id,
+      title: c.title,
+      courseCount: c.course_count,
+      level: c.level,
+    })),
   }));
+}
+
+/**
+ * Each category followed by its own sub-categories. `ord` restarts at 1 inside every parent, so sorting
+ * the flat list by `ord` would interleave e.g. the "Sơ cấp" of every language right under the first one.
+ */
+export function hierarchical<T extends { id: string; parent_id: string | null }>(rows: T[]): T[] {
+  const children = new Map<string, T[]>();
+  for (const r of rows) if (r.parent_id) children.set(r.parent_id, [...(children.get(r.parent_id) ?? []), r]);
+  const out: T[] = [];
+  for (const r of rows) {
+    if (r.parent_id) continue;
+    out.push(r, ...(children.get(r.id) ?? []));
+  }
+  // Orphan sub-categories (parent missing) are kept at the end instead of being dropped.
+  const seen = new Set(out.map((r) => r.id));
+  for (const r of rows) if (!seen.has(r.id)) out.push(r);
+  return out;
 }
 
 let coursesCache: { version: string; list: CourseSummary[] } | null = null;

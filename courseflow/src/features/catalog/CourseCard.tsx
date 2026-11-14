@@ -39,7 +39,7 @@ export function CourseCard({ c, compact }: { c: CourseSummary; compact?: boolean
         <Heart className={cn("size-4", fav && "fill-current")} />
       </button>
       <div className="flex flex-1 flex-col p-4">
-        <p className="mb-1 truncate text-[11px] font-medium tracking-wide text-muted uppercase">{c.subcategoryTitle ?? c.categoryTitle}</p>
+        <p className="mb-1 truncate text-[11px] font-medium tracking-wide text-muted uppercase">{c.subcategoryTitle ? `${c.categoryTitle} · ${c.subcategoryTitle}` : c.categoryTitle}</p>
         <h3 className="line-clamp-2 text-[15px] leading-snug font-semibold text-text">
           <Link href={`/courses/${c.slug}`} className="after:absolute after:inset-0">
             {c.title}

@@ -1,5 +1,6 @@
 // Incremental scanner: only files whose mtime/size changed are re-read and re-indexed.
 // The catalog view is rebuilt from the cache each run (fast; no disk reads).
+import fs from "node:fs";
 import fsp from "node:fs/promises";
 import path from "node:path";
 import { createHash } from "node:crypto";
@@ -8,7 +9,8 @@ import { getContentRoots, getDbPath, getManifestsDir, type ContentRoot } from ".
 import { migrate, openDatabase, setMeta } from "./db.ts";
 import { buildCatalog, buildCourse, collectPaths, iterMd, limiter, walkDir, type CatalogBuild, type DocInfo, type DirNode } from "./discovery.ts";
 import { extractDocMeta } from "./lesson-meta.ts";
-import { foldVi } from "./text.ts";
+import { foldVi, normRel, slugify } from "./text.ts";
+import { shortHash } from "./hash.ts";
 
 export interface ScanStats {
   root: string;
@@ -226,15 +228,63 @@ function insertCourseRows(db: DatabaseSync, b: CatalogBuild) {
  * Re-scan ONE course (by slug or folder) and replace only its rows — seconds instead of a full scan.
  * Use after editing/restructuring a course: `npm run scan -- --course <slug>`.
  */
+/**
+ * A course folder that is not in the catalog yet: find its root, domain, category and sub-category from
+ * the folder it sits in (which must already be a known category). Accepts a path relative to a content
+ * root, an absolute path inside a root, or just the folder name (searched in every known category).
+ */
+function locateNewCourse(db: DatabaseSync, input: string) {
+  const roots = getContentRoots();
+  const cats = db.prepare("SELECT id, domain_id, parent_id, dir FROM categories").all() as unknown as { id: string; domain_id: string; parent_id: string | null; dir: string }[];
+  const domainRoot = new Map((db.prepare("SELECT id, root_id FROM domains").all() as unknown as { id: string; root_id: string }[]).map((d) => [d.id, d.root_id]));
+  let found: { root: ContentRoot; rel: string } | null = null;
+  const asPath = input.split("\\").join("/");
+  for (const r of roots) {
+    const abs = path.resolve(r.abs, asPath);
+    const inside = path.relative(r.abs, abs);
+    if (!inside.startsWith("..") && !path.isAbsolute(inside) && inside !== "" && fs.existsSync(abs) && fs.statSync(abs).isDirectory()) {
+      found = { root: r, rel: normRel(inside) };
+      break;
+    }
+  }
+  if (!found && !asPath.includes("/")) {
+    for (const c of cats) {
+      const root = roots.find((r) => r.id === domainRoot.get(c.domain_id));
+      if (root && fs.existsSync(path.join(root.abs, c.dir, input))) {
+        found = { root, rel: normRel(path.posix.join(c.dir, input)) };
+        break;
+      }
+    }
+  }
+  if (!found) return null;
+  const parent = cats.find((c) => c.dir === path.posix.dirname(found!.rel));
+  if (!parent) return null;
+  const domainId = parent.domain_id;
+  const name = path.posix.basename(found.rel);
+  let id = slugify(name, 80) || shortHash(found.rel);
+  if (db.prepare("SELECT 1 FROM courses WHERE id = ? OR slug = ?").get(id, id)) id = `${id}-${shortHash(found.rel, 6)}`;
+  const ord = ((db.prepare("SELECT max(ord) AS m FROM courses").get() as { m: number | null }).m ?? 0) + 1;
+  return {
+    id,
+    slug: id,
+    root_id: found.root.id,
+    dir: found.rel,
+    domain_id: domainId,
+    category_id: parent.parent_id ?? parent.id,
+    subcategory_id: parent.parent_id ? parent.id : null,
+    ord,
+  };
+}
+
 export async function runCourseScan(slugOrDir: string, opts: { force?: boolean; log?: Log } = {}) {
   const log = opts.log ?? ((m: string) => console.log(m));
   const db = openDatabase(getDbPath());
   migrate(db);
   try {
-    const row = db.prepare("SELECT id, slug, root_id, dir, domain_id, category_id, subcategory_id, ord FROM courses WHERE slug = ? OR dir = ? OR id = ?").get(slugOrDir, slugOrDir, slugOrDir) as
-      | { id: string; slug: string; root_id: string; dir: string; domain_id: string; category_id: string; subcategory_id: string | null; ord: number }
-      | undefined;
-    if (!row) throw new Error(`Không tìm thấy khóa "${slugOrDir}" trong catalog (khóa mới thêm thì chạy quét toàn bộ).`);
+    type CourseRef = { id: string; slug: string; root_id: string; dir: string; domain_id: string; category_id: string; subcategory_id: string | null; ord: number };
+    let row = db.prepare("SELECT id, slug, root_id, dir, domain_id, category_id, subcategory_id, ord FROM courses WHERE slug = ? OR dir = ? OR id = ?").get(slugOrDir, slugOrDir, slugOrDir) as CourseRef | undefined;
+    if (!row) row = locateNewCourse(db, slugOrDir) ?? undefined;
+    if (!row) throw new Error(`Không tìm thấy khóa "${slugOrDir}". Khóa MỚI thêm: đưa thư mục vào đúng chuyên ngành rồi truyền đường dẫn tương đối (hoặc tên thư mục); chuyên ngành mới thì chạy quét toàn bộ.`);
     const root = getContentRoots().find((r) => r.id === row.root_id);
     if (!root) throw new Error(`Không có content root ${row.root_id}`);
     const t0 = Date.now();
@@ -256,7 +306,8 @@ export async function runCourseScan(slugOrDir: string, opts: { force?: boolean; 
     for (const t of ["lessons", "modules", "issues"]) db.prepare(`DELETE FROM ${t} WHERE course_id = ?`).run(row.id);
     db.prepare("DELETE FROM courses WHERE id = ?").run(row.id);
     insertCourseRows(db, out);
-    db.prepare("UPDATE domains SET lesson_count = (SELECT coalesce(sum(lesson_count), 0) FROM courses WHERE domain_id = domains.id) WHERE id = ?").run(row.domain_id);
+    db.prepare("UPDATE domains SET lesson_count = (SELECT coalesce(sum(lesson_count), 0) FROM courses WHERE domain_id = domains.id), course_count = (SELECT count(*) FROM courses WHERE domain_id = domains.id) WHERE id = ?").run(row.domain_id);
+    db.prepare("UPDATE categories SET course_count = (SELECT count(*) FROM courses WHERE category_id = categories.id OR subcategory_id = categories.id) WHERE id IN (?, ?)").run(row.category_id, row.subcategory_id ?? row.category_id);
     db.exec("COMMIT");
     setMeta(db, "last_scan", new Date().toISOString());
     const c = out.courses[0];
