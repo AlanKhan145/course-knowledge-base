@@ -1,0 +1,63 @@
+---
+id: mandarin-hero-43265296
+title: "Lesson 10 - Practice"
+description: "Củng cố kiến thức module bằng tự luyện, nói, viết và kiểm tra theo chủ đề; đây là bài tập bổ trợ, không phải nội dung bài tập Udemy."
+order: 3
+difficulty: intermediate
+language: vi
+tags: [mandarin, hsk3, pinyin]
+assessment: false
+udemy_lecture_id: "43265296"
+udemy_url: "https://www.udemy.com/course/mandarin-from-zero-to-chinese-hero/learn/lecture/43265296#overview"
+---
+
+# Lesson 10 - Practice
+
+> [!SUMMARY] Củng cố kiến thức module bằng tự luyện, nói, viết và kiểm tra theo chủ đề; đây là bài tập bổ trợ, không phải nội dung bài tập Udemy.
+
+**Module 44:** HSK-3: Lesson 10  
+**Xem bài gốc:** [Mở Udemy — Lesson 10 - Practice](https://www.udemy.com/course/mandarin-from-zero-to-chinese-hero/learn/lecture/43265296#overview)
+
+> [!NOTE] Phạm vi học liệu
+> Tài liệu dưới đây do trợ giảng tự biên soạn dựa trên **chủ đề được công bố**; không phải phụ đề hoặc bản ghi của video. Ví dụ và câu hỏi ôn tập là tài liệu bổ trợ tự tạo.
+
+## 1. Mục tiêu
+
+Ôn lại các mẫu câu, từ vựng và kỹ năng trọng tâm của **HSK-3: Lesson 10** theo cách chủ động, không nhìn đáp án ngay.
+
+## 2. Kiến thức cần dùng
+
+Đọc lại những bài kiến thức trong module này và chọn tối thiểu ba mẫu câu để tự đặt câu mới.
+
+## 3. Dữ liệu luyện tập
+
+| Tiếng Trung | Pinyin | Nghĩa tiếng Việt |
+|---|---|---|
+| 数学比历史难得多。 | Shùxué bǐ lìshǐ nán de duō. | Toán khó hơn lịch sử nhiều. |
+| 今天比昨天冷一点儿。 | Jīntiān bǐ zuótiān lěng yìdiǎnr. | Hôm nay lạnh hơn hôm qua một chút. |
+| 大约十个人。 | Dàyuē shí ge rén. | Khoảng mười người. |
+| 十点左右。 | Shí diǎn zuǒyòu. | Khoảng mười giờ. |
+| 骑自行车更方便。 | Qí zìxíngchē gèng fāngbiàn. | Đi xe đạp tiện hơn. |
+
+## 4. Bài tập tự làm
+
+1. Che cột Pinyin (nếu có), đọc từng câu tiếng Trung thành tiếng.
+2. Che cột tiếng Trung, dịch ngược từ tiếng Việt và tự viết chữ Hán.
+3. Viết 5 câu mới sử dụng ít nhất 3 từ hoặc cấu trúc đã học trong module.
+4. Tự ghi âm đoạn nói 45–60 giây về chủ đề của module.
+5. Kiểm tra lại từ sai và luyện theo lịch 1 ngày, 3 ngày, 7 ngày.
+
+## 5. Tiêu chí hoàn thành
+
+- [ ] Đọc và hiểu được ví dụ mà không xem bản dịch.
+- [ ] Tạo được 5 câu mới đúng ý và tương đối đúng ngữ pháp.
+- [ ] Tự phát hiện, sửa ít nhất một lỗi phát âm hoặc thứ tự từ.
+
+## 6. Câu hỏi tự đánh giá
+
+- Từ nào tôi còn quên thanh điệu?
+- Tôi dùng được mẫu câu vào tình huống nào ngoài sách?
+- Câu nào tôi cần đối chiếu thêm với bài giảng Udemy hoặc từ điển?
+
+**Bài trước:** [It's more convenient to ride a bike (approximate numbers)](./02-it-s-more-convenient-to-ride-a-bike-approximate-numbers.md)  
+**Bài tiếp theo:** [Homework](./04-homework.md)

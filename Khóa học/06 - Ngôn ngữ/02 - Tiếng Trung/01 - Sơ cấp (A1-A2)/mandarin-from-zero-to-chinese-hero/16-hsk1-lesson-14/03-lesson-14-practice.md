@@ -1,0 +1,63 @@
+---
+id: mandarin-hero-43168276
+title: "Lesson 14 - Practice"
+description: "Củng cố kiến thức module bằng tự luyện, nói, viết và kiểm tra theo chủ đề; đây là bài tập bổ trợ, không phải nội dung bài tập Udemy."
+order: 3
+difficulty: beginner
+language: vi
+tags: [mandarin, hsk1, pinyin]
+assessment: false
+udemy_lecture_id: "43168276"
+udemy_url: "https://www.udemy.com/course/mandarin-from-zero-to-chinese-hero/learn/lecture/43168276#overview"
+---
+
+# Lesson 14 - Practice
+
+> [!SUMMARY] Củng cố kiến thức module bằng tự luyện, nói, viết và kiểm tra theo chủ đề; đây là bài tập bổ trợ, không phải nội dung bài tập Udemy.
+
+**Module 16:** HSK1: Lesson 14  
+**Xem bài gốc:** [Mở Udemy — Lesson 14 - Practice](https://www.udemy.com/course/mandarin-from-zero-to-chinese-hero/learn/lecture/43168276#overview)
+
+> [!NOTE] Phạm vi học liệu
+> Tài liệu dưới đây do trợ giảng tự biên soạn dựa trên **chủ đề được công bố**; không phải phụ đề hoặc bản ghi của video. Ví dụ và câu hỏi ôn tập là tài liệu bổ trợ tự tạo.
+
+## 1. Mục tiêu
+
+Ôn lại các mẫu câu, từ vựng và kỹ năng trọng tâm của **HSK1: Lesson 14** theo cách chủ động, không nhìn đáp án ngay.
+
+## 2. Kiến thức cần dùng
+
+Đọc lại những bài kiến thức trong module này và chọn tối thiểu ba mẫu câu để tự đặt câu mới.
+
+## 3. Dữ liệu luyện tập
+
+| Tiếng Trung | Pinyin | Nghĩa tiếng Việt |
+|---|---|---|
+| 你怎么来北京的？ | Nǐ zěnme lái Běijīng de? | Bạn đã đến Bắc Kinh bằng cách nào? |
+| 我坐飞机来的。 | Wǒ zuò fēijī lái de. | Tôi đến bằng máy bay. |
+| 你什么时候认识李老师的？ | Nǐ shénme shíhou rènshi Lǐ lǎoshī de? | Bạn quen cô/thầy Lý khi nào? |
+| 我是去年认识她的。 | Wǒ shì qùnián rènshi tā de. | Tôi quen cô ấy năm ngoái. |
+| 你好吗？ | Nǐ hǎo ma? | Bạn khỏe không? |
+
+## 4. Bài tập tự làm
+
+1. Che cột Pinyin (nếu có), đọc từng câu tiếng Trung thành tiếng.
+2. Che cột tiếng Trung, dịch ngược từ tiếng Việt và tự viết chữ Hán.
+3. Viết 5 câu mới sử dụng ít nhất 3 từ hoặc cấu trúc đã học trong module.
+4. Tự ghi âm đoạn nói 45–60 giây về chủ đề của module.
+5. Kiểm tra lại từ sai và luyện theo lịch 1 ngày, 3 ngày, 7 ngày.
+
+## 5. Tiêu chí hoàn thành
+
+- [ ] Đọc và hiểu được ví dụ mà không xem bản dịch.
+- [ ] Tạo được 5 câu mới đúng ý và tương đối đúng ngữ pháp.
+- [ ] Tự phát hiện, sửa ít nhất một lỗi phát âm hoặc thứ tự từ.
+
+## 6. Câu hỏi tự đánh giá
+
+- Từ nào tôi còn quên thanh điệu?
+- Tôi dùng được mẫu câu vào tình huống nào ngoài sách?
+- Câu nào tôi cần đối chiếu thêm với bài giảng Udemy hoặc từ điển?
+
+**Bài trước:** [When did you meet Miss Li](./02-when-did-you-meet-miss-li.md)  
+**Bài tiếp theo:** [Cultural video - Modal particles](./04-cultural-video-modal-particles.md)
